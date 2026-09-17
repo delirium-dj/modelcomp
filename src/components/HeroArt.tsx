@@ -1,0 +1,55 @@
+import { component$ } from "@builder.io/qwik";
+
+export const HeroArt = component$(() => {
+  return (
+    <svg
+      viewBox="0 0 300 300"
+      role="presentation"
+      aria-hidden="true"
+      class="mx-auto h-auto w-full max-w-[320px]"
+    >
+      <defs>
+        <linearGradient id="hero-hex" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6366f1" />
+          <stop offset="100%" stop-color="#10b981" />
+        </linearGradient>
+        <radialGradient id="hero-core" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stop-color="#c7d2fe" />
+          <stop offset="100%" stop-color="#4f46e5" />
+        </radialGradient>
+      </defs>
+      <polygon
+        points="150,28 254,88 254,208 150,268 46,208 46,88"
+        fill="none"
+        stroke="url(#hero-hex)"
+        stroke-width="5"
+        stroke-linejoin="round"
+      />
+      <polygon
+        points="150,72 216,110 216,188 150,226 84,188 84,110"
+        fill="none"
+        stroke="#a5b4fc"
+        stroke-width="2"
+        stroke-linejoin="round"
+      />
+      <circle cx="150" cy="148" r="34" fill="url(#hero-core)" />
+      <circle cx="150" cy="148" r="12" fill="#ffffff" opacity="0.9" />
+      <g fill="#059669">
+        <circle cx="150" cy="28" r="7" />
+        <circle cx="254" cy="88" r="7" />
+        <circle cx="254" cy="208" r="7" />
+        <circle cx="150" cy="268" r="7" />
+        <circle cx="46" cy="208" r="7" />
+        <circle cx="46" cy="88" r="7" />
+      </g>
+      <g stroke="#6366f1" stroke-width="2" opacity="0.7">
+        <line x1="150" y1="114" x2="150" y2="36" />
+        <line x1="179" y1="131" x2="246" y2="93" />
+        <line x1="179" y1="165" x2="246" y2="202" />
+        <line x1="150" y1="182" x2="150" y2="260" />
+        <line x1="121" y1="165" x2="54" y2="202" />
+        <line x1="121" y1="131" x2="54" y2="93" />
+      </g>
+    </svg>
+  );
+});
