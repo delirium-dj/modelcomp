@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import { MODELS } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
 
@@ -7,9 +7,12 @@ interface ModelCardsProps {
 }
 
 export const ModelCards = component$<ModelCardsProps>(({ source }) => {
-  const shown: AiModel[] = MODELS.filter((m) => source === "average" || m.sources[source] !== undefined).map((m) =>
-    source === "average" ? m : { ...m, scores: m.sources[source]! }
-  );
+  const displayCount = useSignal(9);
+  const shown: AiModel[] = MODELS.filter((m) => source === "average" || m.sources[source] !== undefined)
+    .map((m) => (source === "average" ? m : { ...m, scores: m.sources[source]! }))
+    .sort((a, b) => b.scores.overall - a.scores.overall);
+  const visibleModels = shown.slice(0, displayCount.value);
+
   return (
     <section id="models" aria-labelledby="models-heading" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">
       <h2 id="models-heading" class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
@@ -22,15 +25,26 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
         list a new model everywhere.
       </p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {shown.map((m) => (
+        {visibleModels.map((m) => (
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-semibold text-slate-900">{m.name}</h3>
+              <h3 class="text-base font-semibold text-slate-900">
+                {m.name}
+              </h3>
               <span class="shrink-0 rounded bg-indigo-50 px-2 py-0.5 text-xs font-bold text-indigo-700">
                 {m.scores.overall}
               </span>
             </div>
-            {m.meta.noFreeId && (
+            {(!m.meta.noFreeId) ? (
+              <p class="mt-1">
+                <span
+                  class="rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 cursor-help"
+                  title={m.meta.freeTierNote ?? m.meta.pricingNote}
+                >
+                  Free
+                </span>
+              </p>
+            ) : (
               <p class="mt-1">
                 <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
                   Paid fallback — no Free ID
@@ -59,6 +73,18 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
           </article>
         ))}
       </div>
+      {displayCount.value < shown.length && (
+        <div class="mt-8 text-center">
+          <button
+            onClick$={() => {
+              displayCount.value += 9;
+            }}
+            class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            Show more
+          </button>
+        </div>
+      )}
     </section>
   );
 });

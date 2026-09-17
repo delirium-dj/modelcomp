@@ -36,16 +36,18 @@ type Dimension = (typeof DIMENSIONS)[number];
 
 /** Tooltip text per dot: raw value where one exists, normalized score otherwise. */
 function tooltipFor(model: AiModel, d: Dimension): string {
+  let base = model.name + " — " + d.label + ": " + model.scores[d.key];
   if (d.key === "cost") {
-    return model.name + " — Cost: " + model.meta.pricingNote;
+    base = model.name + " — Cost: " + model.meta.pricingNote;
+  } else if (d.key === "context") {
+    base = model.name + " — Context: " + model.meta.contextWindow;
+  } else if (d.key === "multimodal") {
+    base = model.name + " — Multimodal: " + model.meta.modalities;
   }
-  if (d.key === "context") {
-    return model.name + " — Context: " + model.meta.contextWindow;
+  if (model.id === "opencode/big-pickle" || model.name.includes("Big Pickle")) {
+    base += " (Free stealth tier on OpenCode Zen during promotional period.)";
   }
-  if (d.key === "multimodal") {
-    return model.name + " — Multimodal: " + model.meta.modalities;
-  }
-  return model.name + " — " + d.label + ": " + model.scores[d.key];
+  return base;
 }
 
 export const HexRadar = component$<HexRadarProps>(({ series }) => {

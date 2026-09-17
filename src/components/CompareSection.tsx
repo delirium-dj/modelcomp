@@ -127,15 +127,26 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                     class="inline-block h-3 w-3 rounded-full"
                     style={{ backgroundColor: s.color }}
                   />
-                  <span class="font-medium text-slate-800">{s.model.name}</span>
-                  <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700">
-                    {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
-                  </span>
-                  {s.model.meta.noFreeId && (
-                    <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
-                      Paid
-                    </span>
-                  )}
+                   <span
+                     class="font-medium text-slate-800"
+                   >
+                     {s.model.name}
+                   </span>
+                   <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700">
+                     {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
+                   </span>
+                    {(!s.model.meta.noFreeId) ? (
+                      <span
+                        class="rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 cursor-help"
+                        title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}
+                      >
+                        Free
+                      </span>
+                    ) : (
+                     <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
+                       Paid
+                     </span>
+                   )}
                 </li>
               ))}
             </ul>
@@ -154,23 +165,41 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                 <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700">
                   Dimension
                 </th>
-                {series.map((s) => (
-                  <th
-                    key={s.model.id}
-                    scope="col"
-                    class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="mr-1 inline-block h-2.5 w-2.5 rounded-full align-middle"
-                      style={{ backgroundColor: s.color }}
-                    />
-                    {s.model.name}
-                    {!s.hasData && (
-                      <span class="ml-1.5 text-xs font-normal text-slate-400">(N/A)</span>
-                    )}
-                  </th>
-                ))}
+                {series.map((s) => {
+                  const isFree = !s.model.meta.noFreeId;
+                  return (
+                    <th
+                      key={s.model.id}
+                      scope="col"
+                      class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="mr-1 inline-block h-2.5 w-2.5 rounded-full align-middle"
+                        style={{ backgroundColor: s.color }}
+                      />
+                       <span
+                       >
+                         {s.model.name}
+                       </span>
+                       {isFree ? (
+                         <span
+                           class="ml-1.5 rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle cursor-help"
+                           title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}
+                         >
+                           Free
+                         </span>
+                       ) : (
+                        <span class="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle">
+                          Paid
+                        </span>
+                      )}
+                      {!s.hasData && (
+                        <span class="ml-1.5 text-xs font-normal text-slate-400">(N/A)</span>
+                      )}
+                    </th>
+                  );
+                })}
               </tr>
             </thead>
             <tbody>

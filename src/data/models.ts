@@ -195,6 +195,8 @@ export interface AiModel {
     contextWindow: string;
     modalities: string;
     pricingNote: string;
+    /** Free tier note / description explaining how free tier is obtained */
+    freeTierNote?: string;
     /** One line per pricing tier, shown stacked in the compare table. */
     pricingTiers?: string[];
     /** True when no Zen Free ID exists; cost is scored on paid pricing. */
@@ -287,7 +289,8 @@ export const MODELS: AiModel[] = [
     meta: {
       contextWindow: "200K total (160K in / 32K out)",
       modalities: "Text in/out only",
-      pricingNote: "Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20 per 1M",
+      pricingNote: "Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20",
+      freeTierNote: "Free stealth promotional tier on OpenCode Zen offering zero-cost inference during active community trial",
       pricingTiers: ["Free Zen tier","Paid equiv. GLM-4.6 ~$0.60/$2.20"],
     },
   },
@@ -361,6 +364,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K",
       modalities: "Text, image, PDF in; text out",
       pricingNote: "Free Zen tier available",
+      freeTierNote: "Free OpenCode Zen tier available for multimodal experimentation and vision benchmarking",
     },
   },
   {
@@ -379,6 +383,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -397,6 +402,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -415,6 +421,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -432,6 +439,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -450,6 +458,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -468,6 +477,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -486,6 +496,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -504,6 +515,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -522,6 +534,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, PDF in; text out",
       pricingNote: "Free tier available; Paid-tier pricing",
+      freeTierNote: "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
     },
   },
   {
@@ -560,6 +573,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "204K",
       modalities: "Text in/out",
       pricingNote: "Free Zen tier available",
+      freeTierNote: "Free Zen tier available",
     },
   },
   {
@@ -576,6 +590,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "204K",
       modalities: "Text in/out",
       pricingNote: "Free Zen tier available",
+      freeTierNote: "Free Zen tier available",
     },
   },
   {
@@ -590,7 +605,8 @@ export const MODELS: AiModel[] = [
     meta: {
       contextWindow: "204K",
       modalities: "Text in/out",
-      pricingNote: "Free Zen tier",
+      pricingNote: "Free Zen tier available",
+      freeTierNote: "Free OpenCode Zen promotional tier available for fast agentic coding and tool calls",
     },
   },
   {
@@ -627,6 +643,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "262,144 (256K marketed) / 32K out",
       modalities: "Text in/out only",
       pricingNote: "Free Zen tier (limited-time promo)",
+      freeTierNote: "Free limited-time Vercel promotional tier and OpenCode Zen access",
       pricingTiers: ["Free Zen tier (limited-time promo)"],
     },
   },
@@ -648,6 +665,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K Zen cap (native 1M) / 32K out",
       modalities: "Text, image, audio, video in; text out",
       pricingNote: "Free Zen tier; native from ~$0.14/$0.28 per 1M",
+      freeTierNote: "Free Zen capped tier for omni-modal inference and agentic coding",
       pricingTiers: ["Free Zen tier","Native ~$0.14/$0.28"],
     },
   },
@@ -691,6 +709,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, video, PDF in; text out",
       pricingNote: "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+      freeTierNote: "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
       pricingTiers: ["Free Zen tier","Contributor $0.10/$0.20","Standard $1.25/$4.25"],
     },
   },
@@ -712,6 +731,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, video, PDF in; text out",
       pricingNote: "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+      freeTierNote: "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
       pricingTiers: ["Free Zen tier","Contributor $0.10/$0.20","Standard $1.25/$4.25"],
     },
   },
@@ -733,6 +753,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "262,144 native",
       modalities: "Text-only",
       pricingNote: "Free Zen / NVIDIA trial",
+      freeTierNote: "Free OpenCode Zen and NVIDIA trial access for high-volume, low-latency execution",
       pricingTiers: ["Free Zen / NVIDIA trial"],
     },
   },
@@ -754,6 +775,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1M (262K default serve)",
       modalities: "Text in/out (beyond text unverified)",
       pricingNote: "Free Zen / NVIDIA trial",
+      freeTierNote: "Free OpenCode Zen and NVIDIA trial access for frontier reasoning and agents",
       pricingTiers: ["Free Zen / NVIDIA trial"],
     },
   },
@@ -770,6 +792,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K",
       modalities: "Text in/out",
       pricingNote: "Free Zen tier",
+      freeTierNote: "Free OpenCode Zen tier access for experimental agentic coding and logic puzzles",
     },
   },
   {
