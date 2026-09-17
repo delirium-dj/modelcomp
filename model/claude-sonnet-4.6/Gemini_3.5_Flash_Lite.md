@@ -1,17 +1,17 @@
-# Claude Sonnet 4.6 Thinking — findings by Google Gemini 3.5 Flash Lite
+# Claude Sonnet 4.6 — findings by Google Gemini 3.5 Flash Lite
 
-- Source: Anthropic/Claude Sonnet 4.6 Thinking
+- Source: Anthropic/Claude Sonnet 4.6
 - Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Sonnet 4.6 Thinking
+- **Name:** Claude Sonnet 4.6
 - **Short description:** Anthropic's balanced frontier reasoning model optimized for rapid developer workflows, precise tool orchestration, and deep analytical depth.
-- **Provider / access:** Anthropic API / OpenCode Zen (`anthropic/claude-sonnet-4.6-thinking`), Chat Completions & Messages API.
+- **Provider / access:** Anthropic API / OpenCode Zen (`anthropic/claude-sonnet-4.6`), Chat Completions & Messages API.
 - **Release / knowledge:** 2026-06-01 release; knowledge cutoff May 2026.
-- **IDs:** `anthropic/claude-sonnet-4.6-thinking`
+- **IDs:** `anthropic/claude-sonnet-4.6`
 - **Context window:** 200,000 tokens total input / 8,192 max output tokens (verified via Anthropic API docs).
 - **Modalities:** Text, image, PDF in; text out; advanced reasoning chain; tool calls; JSON mode.
 - **Pricing (as of 2026-09-17):** $3.00 / 1M input tokens, $15.00 / 1M output tokens (standard paid tier).

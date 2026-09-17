@@ -1,17 +1,17 @@
-# Claude Opus 4.6 Thinking — findings by Google Gemini 3.5 Flash Lite
+# Claude Opus 4.6 — findings by Google Gemini 3.5 Flash Lite
 
-- Source: Anthropic/Claude Opus 4.6 Thinking
+- Source: Anthropic/Claude Opus 4.6
 - Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 4.6 Thinking
+- **Name:** Claude Opus 4.6
 - **Short description:** Anthropic's state-of-the-art frontier reasoning model featuring extended chain-of-thought processing and exceptional code synthesis.
-- **Provider / access:** Anthropic API / OpenCode Zen (`anthropic/claude-opus-4.6-thinking`), Chat Completions & Messages API.
+- **Provider / access:** Anthropic API / OpenCode Zen (`anthropic/claude-opus-4.6`), Chat Completions & Messages API.
 - **Release / knowledge:** 2026-05-20 release; knowledge cutoff April 2026.
-- **IDs:** `anthropic/claude-opus-4.6-thinking`
+- **IDs:** `anthropic/claude-opus-4.6`
 - **Context window:** 200,000 tokens total input / 8,192 max output tokens (verified via Anthropic API docs).
 - **Modalities:** Text, image, PDF in; text out; advanced reasoning chain; tool calls; JSON mode.
 - **Pricing (as of 2026-09-17):** $15.00 / 1M input tokens, $75.00 / 1M output tokens (standard paid tier).

@@ -1,17 +1,17 @@
-# Claude Opus 4.6 Thinking — findings by Gemini 3.1 Flash Lite
+# Claude Opus 4.6 — findings by Gemini 3.1 Flash Lite
 
-- Source: Anthropic/Claude Opus 4.6 Thinking
+- Source: Anthropic/Claude Opus 4.6
 - Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 4.6 Thinking
-- **Short description:** Anthropic's flagship reasoning-capable model, enhanced with "thinking" capabilities for complex, multi-step tasks.
+- **Name:** Claude Opus 4.6
+- **Short description:** Anthropic's flagship reasoning-capable model, enhanced with thinking capabilities for complex, multi-step tasks.
 - **Provider / access:** Anthropic API
 - **Release / knowledge:** 2026 release
-- **IDs:** `anthropic/claude-opus-4.6-thinking`
+- **IDs:** `anthropic/claude-opus-4.6`
 - **Context window:** 200K tokens
 - **Modalities:** Text, image in; text out; tool calls; JSON mode; reasoning/thinking process
 - **Pricing (as of 2026-09-17):** Paid-tier pricing

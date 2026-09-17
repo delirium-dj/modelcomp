@@ -1,20 +1,20 @@
-# Nemotron 3 Ultra Free — averaged findings (Big Pickle + Muse Spark 1.3)
+# Nemotron 3 Ultra Free — Averaged findings
 
-- Sources: `Big_Pickle.md`, `Muse_Spark_1.3.md`
-- Date: 2026-09-17 (UTC)
-- Method: arithmetic mean of the two agents' normalized 1–100 scores per dimension. Overall = mean of the two Overall scores.
 - Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Averaged scores (1–100)
+## Averaged scores
 
-- **Tool use: 76.5/100** (Big_Pickle 75, Muse_Spark_1.3 78)
-- **Reasoning: 73.5/100** (Big_Pickle 72, Muse_Spark_1.3 75)
-- **Context window: 97/100** (Big_Pickle 97, Muse_Spark_1.3 97)
-- **Multimodal: 17.5/100** (Big_Pickle 15, Muse_Spark_1.3 20)
-- **Coding: 79/100** (Big_Pickle 78, Muse_Spark_1.3 80)
-- **Cost efficiency: 100/100** (Big_Pickle 100, Muse_Spark_1.3 100)
-- **Overall Score: 74/100** (Big_Pickle 73, Muse_Spark_1.3 75)
+- **Tool use: 79.3/100.** Mean of 6 reporting sources.
+- **Reasoning: 77.7/100.** Mean of 6 reporting sources.
+- **Context window: 95.2/100.** Mean of 6 reporting sources.
+- **Multimodal: 24.2/100.** Mean of 6 reporting sources.
+- **Coding: 80.2/100.** Mean of 6 reporting sources.
+- **Cost efficiency: 95/100.** Mean of 6 reporting sources.
+- **Overall Score: 76.3/100.** Mean of source Overall scores.
+
+---
 
 ## Agreement notes
 
-- Largest gap is multimodal (15 vs 20): strict text-only evidence vs family-level multimodal credit. Tool/reasoning/coding gaps are 2–3 points on the same benchmarks.
+- Based on 6 reporting source(s): Big Pickle, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Ling 3.0, Muse Spark 1.3.

@@ -49,89 +49,85 @@ function tooltipFor(model: AiModel, d: Dimension): string {
 }
 
 export const HexRadar = component$<HexRadarProps>(({ series }) => {
-  if (series.length === 0) {
-    return (
-      <p role="status" class="mx-auto max-w-[560px] rounded-lg border border-dashed border-slate-300 px-4 py-10 text-center text-sm text-slate-500">
-        Select at least one model to compare.
-      </p>
-    );
-  }
   const rings = [25, 50, 75, 100];
-  const names = series.map((s) => s.model.name).join(", ");
+  const names = series.length > 0 ? series.map((s) => s.model.name).join(", ") : "no models selected";
   return (
-    <svg viewBox="0 0 400 400" role="img" class="mx-auto w-full max-w-[560px]" aria-labelledby="hex-title hex-desc">
-      <title id="hex-title">{"Radar chart comparing " + names}</title>
-      <desc id="hex-desc">
-        Hexagonal radar with axes Tool use, Reasoning, Context window, Multimodal, Coding and Cost
-        efficiency, scaled 0 to 100. Exact values are listed in the data table below the chart.
-      </desc>
-      {rings.map((r) => (
-        <g key={r}>
-          <polygon points={hexPoints((r / 100) * MAX_R)} fill="none" stroke="#e2e8f0" stroke-width={r === 100 ? 2 : 1} />
-          <text x={CX} y={CY - (r / 100) * MAX_R - 5} text-anchor="middle" font-size="9" fill="#94a3b8">
-            {r}
-          </text>
-        </g>
-      ))}
-      {DIMENSIONS.map((d, i) => {
-        const v = polar(100, i, MAX_R);
-        return <line key={d.key} x1={CX} y1={CY} x2={v.x} y2={v.y} stroke="#e2e8f0" stroke-width="1" />;
-      })}
-      {series.map((s) => {
-        const pts = DIMENSIONS.map((d, i) => {
-          const p = polar(s.model.scores[d.key], i, MAX_R);
-          return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-        }).join(" ");
-        return (
-          <polygon
-            key={s.model.id}
-            points={pts}
-            fill={s.color}
-            fill-opacity={0.35}
-            stroke={s.color}
-            stroke-width={2}
-            stroke-linejoin="round"
-          >
-            <title>{s.model.name + " (Overall " + s.model.scores.overall + ")"}</title>
-          </polygon>
-        );
-      })}
-      {series.map((s) =>
-        DIMENSIONS.map((d, i) => {
-          const p = polar(s.model.scores[d.key], i, MAX_R);
+    <div>
+      <svg viewBox="0 0 400 400" role="img" class="mx-auto w-full max-w-[560px]" aria-labelledby="hex-title hex-desc">
+        <title id="hex-title">{"Radar chart comparing " + names}</title>
+        <desc id="hex-desc">
+          Hexagonal radar with axes Tool use, Reasoning, Context window, Multimodal, Coding and Cost
+          efficiency, scaled 0 to 100. Exact values are listed in the data table below the chart.
+        </desc>
+        {rings.map((r) => (
+          <g key={r}>
+            <polygon points={hexPoints((r / 100) * MAX_R)} fill="none" stroke="#e2e8f0" stroke-width={r === 100 ? 2 : 1} />
+            <text x={CX} y={CY - (r / 100) * MAX_R - 5} text-anchor="middle" font-size="9" fill="#94a3b8">
+              {r}
+            </text>
+          </g>
+        ))}
+        {DIMENSIONS.map((d, i) => {
+          const v = polar(100, i, MAX_R);
+          return <line key={d.key} x1={CX} y1={CY} x2={v.x} y2={v.y} stroke="#e2e8f0" stroke-width="1" />;
+        })}
+        {series.map((s) => {
+          const pts = DIMENSIONS.map((d, i) => {
+            const p = polar(s.model.scores[d.key], i, MAX_R);
+            return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+          }).join(" ");
           return (
-            <circle
-              key={`${s.model.id}-${d.key}`}
-              cx={p.x}
-              cy={p.y}
-              r={4.5}
+            <polygon
+              key={s.model.id}
+              points={pts}
               fill={s.color}
-              stroke="#ffffff"
-              stroke-width={1.5}
+              fill-opacity={0.35}
+              stroke={s.color}
+              stroke-width={2}
+              stroke-linejoin="round"
             >
-              <title>{tooltipFor(s.model, d)}</title>
-            </circle>
+              <title>{s.model.name + " (Overall " + s.model.scores.overall + ")"}</title>
+            </polygon>
           );
-        })
-      )}
-      {DIMENSIONS.map((d, i) => {
-        const p = polar(100, i, LABEL_R);
-        return (
-          <text
-            key={d.key}
-            x={p.x}
-            y={p.y}
-            text-anchor="middle"
-            dominant-baseline="middle"
-            font-size="12.5"
-            font-weight={600}
-            fill="#475569"
-          >
-            <title>{d.description}</title>
-            {d.short}
-          </text>
-        );
-      })}
-    </svg>
+        })}
+        {series.map((s) =>
+          DIMENSIONS.map((d, i) => {
+            const p = polar(s.model.scores[d.key], i, MAX_R);
+            return (
+              <circle
+                key={`${s.model.id}-${d.key}`}
+                cx={p.x}
+                cy={p.y}
+                r={4.5}
+                fill={s.color}
+                stroke="#ffffff"
+                stroke-width={1.5}
+              >
+                <title>{tooltipFor(s.model, d)}</title>
+              </circle>
+            );
+          })
+        )}
+        {DIMENSIONS.map((d, i) => {
+          const p = polar(100, i, LABEL_R);
+          return (
+            <text
+              key={d.key}
+              x={p.x}
+              y={p.y}
+              text-anchor="middle"
+              dominant-baseline="middle"
+              font-size="12.5"
+              font-weight={600}
+              fill="#475569"
+            >
+              <title>{d.description}</title>
+              {d.short}
+            </text>
+          );
+        })}
+      </svg>
+
+    </div>
   );
 });

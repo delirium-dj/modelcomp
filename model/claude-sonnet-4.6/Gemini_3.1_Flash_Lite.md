@@ -1,17 +1,17 @@
-# Claude Sonnet 4.6 Thinking — findings by Gemini 3.1 Flash Lite
+# Claude Sonnet 4.6 — findings by Gemini 3.1 Flash Lite
 
-- Source: Anthropic/Claude Sonnet 4.6 Thinking
+- Source: Anthropic/Claude Sonnet 4.6
 - Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Sonnet 4.6 Thinking
-- **Short description:** Anthropic's high-performance mid-tier model, optimized for speed and reasoning with enhanced "thinking" capabilities for complex tasks.
+- **Name:** Claude Sonnet 4.6
+- **Short description:** Anthropic's high-performance mid-tier model, optimized for speed and reasoning with enhanced thinking capabilities for complex tasks.
 - **Provider / access:** Anthropic API
 - **Release / knowledge:** 2026 release
-- **IDs:** `anthropic/claude-sonnet-4.6-thinking`
+- **IDs:** `anthropic/claude-sonnet-4.6`
 - **Context window:** 200K tokens
 - **Modalities:** Text, image in; text out; tool calls; JSON mode; reasoning/thinking process
 - **Pricing (as of 2026-09-17):** Paid-tier pricing, optimized for efficiency.

@@ -21,23 +21,38 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
   const ids = [a, b, c];
   const options = MODELS.map((m) => ({ id: m.id, name: m.name }));
 
-  // Swap in the selected source's scores so hexagon, legend, and table follow it.
-  const withSource = (m: AiModel): AiModel =>
-    source === "average" ? m : { ...m, scores: m.sources[source] };
-
   const contributors = SOURCES.filter((s) => s.key !== "average");
   const activeLabel = SOURCES.find((s) => s.key === source)?.label ?? source;
   const activeFile = SOURCES.find((s) => s.key === source)?.file ?? "";
 
-  const picked = ids
-    .map((id) => (id === "" ? undefined : getModel(id)))
-    .filter((m): m is AiModel => m !== undefined)
-    .map(withSource);
-  const unique: AiModel[] = Array.from(new Map(picked.map((m) => [m.id, m])).values());
-  const series: RadarDatum[] = unique.map((model, i) => ({
-    model,
-    color: MODEL_COLORS[i % MODEL_COLORS.length] as string,
-  }));
+  // Keep selected models in series, handling missing source scores gracefully with N/A states.
+  const seriesItems = ids
+    .map((id, i) => {
+      if (id === "") return undefined;
+      const model = getModel(id);
+      if (!model) return undefined;
+      const sourceScores = source === "average" ? model.scores : model.sources[source];
+      const hasData = source === "average" || sourceScores !== undefined;
+      const scores = sourceScores ?? model.scores;
+      return {
+        slot: (["a", "b", "c"] as const)[i],
+        model: { ...model, scores },
+        color: MODEL_COLORS[i % MODEL_COLORS.length] as string,
+        hasData,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== undefined);
+
+  const uniqueMap = new Map<string, typeof seriesItems[0]>();
+  for (const item of seriesItems) {
+    if (!uniqueMap.has(item.model.id) || item.hasData) {
+      uniqueMap.set(item.model.id, item);
+    }
+  }
+  const series = Array.from(uniqueMap.values());
+  const radarSeries: RadarDatum[] = series
+    .filter((s) => s.hasData)
+    .map((s) => ({ model: s.model, color: s.color }));
 
   const rows: { label: string; get: (m: AiModel) => string }[] = [
     ...DIMENSIONS.map((d) => ({ label: d.label, get: (m: AiModel) => String(m.scores[d.key]) })),
@@ -74,116 +89,120 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
         })}
       </div>
 
-      <div class="mt-8">
-        <HexRadar series={series} />
-      </div>
+      <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start lg:items-center">
+        <div class="lg:col-span-2">
+          <HexRadar series={radarSeries} />
+        </div>
+        <div class="lg:col-span-1 flex flex-col justify-center items-center lg:h-full lg:min-h-[320px] lg:text-center gap-6">
+          <div class="w-full max-w-xs mx-auto text-center">
+            <ModelSelect
+              label="Results source"
+              selectId="results-source"
+              value={source}
+              options={SOURCES.map((s) => ({ id: s.key, name: s.label }))}
+              excludeIds={[]}
+              allowEmpty={false}
+              onChange$={(id: string) => onSource$(id as SourceKey)}
+            />
+            <p class="mt-1 text-xs text-slate-500">
+              {source === "average" ? (
+                <span title={"Reports used:\n" + contributors.map((s) => `- ${s.label}`).join("\n")}>
+                  Mix of {contributors.length} independent reports.
+                </span>
+              ) : (
+                <span title={"Source file: " + activeFile}>Showing only the {activeLabel} report.</span>
+              )}
+            </p>
+          </div>
 
-      <div class="mt-4 flex justify-center">
-        <div class="w-full max-w-xs">
-          <ModelSelect
-            label="Results source"
-            selectId="results-source"
-            value={source}
-            options={SOURCES.map((s) => ({ id: s.key, name: s.label }))}
-            excludeIds={[]}
-            allowEmpty={false}
-            onChange$={(id: string) => onSource$(id as SourceKey)}
-          />
-          <p class="mt-1 text-xs text-slate-500">
-            {source === "average" ? (
-              <span title={"Reports used:\n" + contributors.map((s) => `- ${s.label}`).join("\n")}>
-                Mix of {contributors.length} independent reports.
-              </span>
-            ) : (
-              <span title={"Source file: " + activeFile}>Showing only the {activeLabel} report.</span>
-            )}
-          </p>
+          {series.length > 0 && (
+            <ul aria-label="Legend" class="flex flex-wrap justify-center gap-2">
+              {series.map((s) => (
+                <li
+                  key={s.model.id}
+                  class="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-block h-3 w-3 rounded-full"
+                    style={{ backgroundColor: s.color }}
+                  />
+                  <span class="font-medium text-slate-800">{s.model.name}</span>
+                  <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700">
+                    {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
+                  </span>
+                  {s.model.meta.noFreeId && (
+                    <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
+                      Paid
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
       {series.length > 0 && (
-        <>
-          <ul aria-label="Legend" class="mx-auto mt-4 flex max-w-[560px] flex-wrap justify-center gap-2">
-            {series.map((s) => (
-              <li
-                key={s.model.id}
-                class="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm"
-              >
-                <span
-                  aria-hidden="true"
-                  class="inline-block h-3 w-3 rounded-full"
-                  style={{ backgroundColor: s.color }}
-                />
-                <span class="font-medium text-slate-800">{s.model.name}</span>
-                <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700">
-                  Overall {s.model.scores.overall}
-                </span>
-                {s.model.meta.noFreeId && (
-                  <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
-                    Paid
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          <div class="mt-6 overflow-x-auto">
-            <table class="w-full min-w-[560px] border-collapse text-sm">
-              <caption class="mb-2 text-left font-semibold text-slate-800">
-                Exact scores for the selected models
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700">
-                    Dimension
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full min-w-[560px] border-collapse text-sm">
+            <caption class="mb-2 text-left font-semibold text-slate-800">
+              Exact scores for the selected models
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700">
+                  Dimension
+                </th>
+                {series.map((s) => (
+                  <th
+                    key={s.model.id}
+                    scope="col"
+                    class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="mr-1 inline-block h-2.5 w-2.5 rounded-full align-middle"
+                      style={{ backgroundColor: s.color }}
+                    />
+                    {s.model.name}
+                    {!s.hasData && (
+                      <span class="ml-1.5 text-xs font-normal text-slate-400">(N/A)</span>
+                    )}
                   </th>
-                  {series.map((s) => (
-                    <th
-                      key={s.model.id}
-                      scope="col"
-                      class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="mr-1 inline-block h-2.5 w-2.5 rounded-full align-middle"
-                        style={{ backgroundColor: s.color }}
-                      />
-                      {s.model.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.label} class="odd:bg-slate-50">
-                    <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700">
-                      {r.label}
-                    </th>
-                    {series.map((s) => (
-                      <td key={s.model.id} class="px-3 py-2 text-slate-800">
-                        {r.get(s.model)}
-                      </td>
-                    ))}
-                  </tr>
                 ))}
-                <tr key="pricing" class="odd:bg-slate-50">
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.label} class="odd:bg-slate-50">
                   <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700">
-                    Pricing / 1M
+                    {r.label}
                   </th>
                   {series.map((s) => (
-                    <td key={s.model.id} class="px-3 py-2 align-top text-slate-800">
-                      <ul class="m-0 list-none space-y-0.5 p-0">
-                        {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
-                          <li key={tier}>{tier}</li>
-                        ))}
-                      </ul>
+                    <td key={s.model.id} class="px-3 py-2 text-slate-800">
+                      {s.hasData ? r.get(s.model) : "N/A"}
                     </td>
                   ))}
                 </tr>
-              </tbody>
-            </table>
-          </div>
-        </>
+              ))}
+              <tr key="pricing" class="odd:bg-slate-50">
+                <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700">
+                  Pricing / 1M
+                </th>
+                {series.map((s) => (
+                  <td key={s.model.id} class="px-3 py-2 align-top text-slate-800">
+                    <ul class="m-0 list-none space-y-0.5 p-0">
+                      {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
+                        <li key={tier}>{tier}</li>
+                      ))}
+                    </ul>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
       )}
     </section>
   );

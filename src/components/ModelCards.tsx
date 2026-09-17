@@ -7,8 +7,8 @@ interface ModelCardsProps {
 }
 
 export const ModelCards = component$<ModelCardsProps>(({ source }) => {
-  const shown: AiModel[] = MODELS.map((m) =>
-    source === "average" ? m : { ...m, scores: m.sources[source] }
+  const shown: AiModel[] = MODELS.filter((m) => source === "average" || m.sources[source] !== undefined).map((m) =>
+    source === "average" ? m : { ...m, scores: m.sources[source]! }
   );
   return (
     <section id="models" aria-labelledby="models-heading" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">

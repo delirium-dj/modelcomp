@@ -1,20 +1,20 @@
-# Xiaomi MiMo-V2.5-Pro — averaged findings (Big Pickle + Muse Spark 1.3)
+# Xiaomi MiMo-V2.5-Pro — Averaged findings
 
-- Sources: `Big_Pickle.md`, `Muse_Spark_1.3.md`
-- Date: 2026-09-17 (UTC)
-- Method: arithmetic mean of the two agents' normalized 1–100 scores per dimension. Overall = mean of the two Overall scores.
 - Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Averaged scores (1–100)
+## Averaged scores
 
-- **Tool use: 81/100** (Big_Pickle 80, Muse_Spark_1.3 82)
-- **Reasoning: 78/100** (Big_Pickle 78, Muse_Spark_1.3 78)
-- **Context window: 100/100** (Big_Pickle 100, Muse_Spark_1.3 100)
-- **Multimodal: 15/100** (Big_Pickle 15, Muse_Spark_1.3 15)
-- **Coding: 82/100** (Big_Pickle 82, Muse_Spark_1.3 82)
-- **Cost efficiency: 85/100** (Big_Pickle 85, Muse_Spark_1.3 85)
-- **Overall Score: 73.5/100** (Big_Pickle 73, Muse_Spark_1.3 74)
+- **Tool use: 81.8/100.** Mean of 6 reporting sources.
+- **Reasoning: 80.2/100.** Mean of 6 reporting sources.
+- **Context window: 96.7/100.** Mean of 6 reporting sources.
+- **Multimodal: 33.3/100.** Mean of 6 reporting sources.
+- **Coding: 81.7/100.** Mean of 6 reporting sources.
+- **Cost efficiency: 83.2/100.** Mean of 6 reporting sources.
+- **Overall Score: 77.2/100.** Mean of source Overall scores.
+
+---
 
 ## Agreement notes
 
-- Near-full agreement: five of seven numbers identical, tool use differs by 2. Both confirm no free ID exists and score cost on the cheap paid rates.
+- Based on 6 reporting source(s): Big Pickle, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Ling 3.0, Muse Spark 1.3.
