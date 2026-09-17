@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
-import { MODELS, MODEL_COLORS, DIMENSIONS, getModel } from "../data/models";
-import type { AiModel } from "../data/models";
+import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel } from "../data/models";
+import type { AiModel, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
 import type { RadarDatum } from "./HexRadar";
@@ -10,18 +10,29 @@ interface CompareSectionProps {
   a: string;
   b: string;
   c: string;
+  source: SourceKey;
   onSelect$: QRL<(slot: "a" | "b" | "c", id: string) => void>;
+  onSource$: QRL<(source: SourceKey) => void>;
 }
 
 const SLOT_LABELS = ["Model A", "Model B", "Model C"] as const;
 
-export const CompareSection = component$<CompareSectionProps>(({ a, b, c, onSelect$ }) => {
+export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source, onSelect$, onSource$ }) => {
   const ids = [a, b, c];
   const options = MODELS.map((m) => ({ id: m.id, name: m.name }));
 
+  // Swap in the selected source's scores so hexagon, legend, and table follow it.
+  const withSource = (m: AiModel): AiModel =>
+    source === "average" ? m : { ...m, scores: m.sources[source] };
+
+  const contributors = SOURCES.filter((s) => s.key !== "average");
+  const activeLabel = SOURCES.find((s) => s.key === source)?.label ?? source;
+  const activeFile = SOURCES.find((s) => s.key === source)?.file ?? "";
+
   const picked = ids
     .map((id) => (id === "" ? undefined : getModel(id)))
-    .filter((m): m is AiModel => m !== undefined);
+    .filter((m): m is AiModel => m !== undefined)
+    .map(withSource);
   const unique: AiModel[] = Array.from(new Map(picked.map((m) => [m.id, m])).values());
   const series: RadarDatum[] = unique.map((model, i) => ({
     model,
@@ -65,6 +76,29 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, onSele
 
       <div class="mt-8">
         <HexRadar series={series} />
+      </div>
+
+      <div class="mt-4 flex justify-center">
+        <div class="w-full max-w-xs">
+          <ModelSelect
+            label="Results source"
+            selectId="results-source"
+            value={source}
+            options={SOURCES.map((s) => ({ id: s.key, name: s.label }))}
+            excludeIds={[]}
+            allowEmpty={false}
+            onChange$={(id: string) => onSource$(id as SourceKey)}
+          />
+          <p class="mt-1 text-xs text-slate-500">
+            {source === "average" ? (
+              <span title={"Reports used:\n" + contributors.map((s) => `- ${s.label}`).join("\n")}>
+                Mix of {contributors.length} independent reports.
+              </span>
+            ) : (
+              <span title={"Source file: " + activeFile}>Showing only the {activeLabel} report.</span>
+            )}
+          </p>
+        </div>
       </div>
 
       {series.length > 0 && (

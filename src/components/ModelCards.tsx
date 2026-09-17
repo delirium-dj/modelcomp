@@ -1,18 +1,28 @@
 import { component$ } from "@builder.io/qwik";
 import { MODELS } from "../data/models";
+import type { AiModel, SourceKey } from "../data/models";
 
-export const ModelCards = component$(() => {
+interface ModelCardsProps {
+  source: SourceKey;
+}
+
+export const ModelCards = component$<ModelCardsProps>(({ source }) => {
+  const shown: AiModel[] = MODELS.map((m) =>
+    source === "average" ? m : { ...m, scores: m.sources[source] }
+  );
   return (
     <section id="models" aria-labelledby="models-heading" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">
       <h2 id="models-heading" class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
         All models
       </h2>
       <p class="mt-2 max-w-3xl text-sm text-slate-600">
-        Every entry below comes from the same data file that powers the chart. Add one object to{" "}
-        <code class="rounded bg-slate-100 px-1">src/data/models.ts</code> to list a new model everywhere.
+        Every entry below comes from the same data file that powers the chart, showing the currently
+        selected results source. Add one <code class="rounded bg-slate-100 px-1">?raw</code> import per
+        source file plus one object to <code class="rounded bg-slate-100 px-1">src/data/models.ts</code> to
+        list a new model everywhere.
       </p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {MODELS.map((m) => (
+        {shown.map((m) => (
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <div class="flex items-start justify-between gap-2">
               <h3 class="text-base font-semibold text-slate-900">{m.name}</h3>

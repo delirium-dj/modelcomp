@@ -12,11 +12,13 @@ interface ModelSelectProps {
   value: string;
   options: ModelOption[];
   excludeIds: string[];
+  /** Show the "— Choose —" empty option. Defaults to true (model slots); set false for always-valid selectors. */
+  allowEmpty?: boolean;
   onChange$: QRL<(id: string) => void>;
 }
 
 export const ModelSelect = component$<ModelSelectProps>(
-  ({ label, selectId, value, options, excludeIds, onChange$ }) => {
+  ({ label, selectId, value, options, excludeIds, allowEmpty = true, onChange$ }) => {
     const duplicated = value !== "" && excludeIds.indexOf(value) !== -1;
     return (
       <div>
@@ -29,7 +31,7 @@ export const ModelSelect = component$<ModelSelectProps>(
           onChange$={(e) => onChange$((e.target as HTMLSelectElement).value)}
           class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
         >
-          <option value="">— Choose —</option>
+          {allowEmpty && <option value="">— Choose —</option>}
           {options.map((o) => (
             <option key={o.id} value={o.id}>
               {o.name}

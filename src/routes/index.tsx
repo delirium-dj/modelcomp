@@ -5,6 +5,7 @@ import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
 import { MODELS } from "../data/models";
+import type { SourceKey } from "../data/models";
 
 const DEFAULTS = {
   a: "opencode/muse-spark-1.3-contributor-free",
@@ -22,6 +23,13 @@ function validId(raw: string | null, fallback: string): string {
   return fallback;
 }
 
+function validSource(raw: string | null, fallback: SourceKey): SourceKey {
+  if (raw === "average" || raw === "big-pickle" || raw === "Muse Spark 1.3") {
+    return raw;
+  }
+  return fallback;
+}
+
 export default component$(() => {
   const loc = useLocation();
   const query = loc.url.searchParams;
@@ -29,24 +37,29 @@ export default component$(() => {
     a: validId(query.get("a"), DEFAULTS.a),
     b: validId(query.get("b"), DEFAULTS.b),
     c: validId(query.get("c"), DEFAULTS.c),
+    source: validSource(query.get("source"), "average"),
   });
 
   const handleSelect = $((slot: "a" | "b" | "c", id: string) => {
     sel[slot] = id;
   });
 
+  const handleSource = $((source: SourceKey) => {
+    sel.source = source;
+  });
+
   useVisibleTask$(({ track }) => {
-    track(() => sel.a + "|" + sel.b + "|" + sel.c);
-    const params = new URLSearchParams({ a: sel.a, b: sel.b, c: sel.c });
+    track(() => sel.a + "|" + sel.b + "|" + sel.c + "|" + sel.source);
+    const params = new URLSearchParams({ a: sel.a, b: sel.b, c: sel.c, source: sel.source });
     window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
   });
 
   return (
     <>
       <Hero />
-      <CompareSection a={sel.a} b={sel.b} c={sel.c} onSelect$={handleSelect} />
+      <CompareSection a={sel.a} b={sel.b} c={sel.c} source={sel.source} onSelect$={handleSelect} onSource$={handleSource} />
       <Methodology />
-      <ModelCards />
+      <ModelCards source={sel.source} />
     </>
   );
 });

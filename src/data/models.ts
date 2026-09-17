@@ -13,6 +13,26 @@ import avgNemotronLightning from "../../model/nemotron-3-5-lightning-free/averag
 import avgGlm51 from "../../model/glm-5-1-coding/average.md?raw";
 import avgMinimaxM27 from "../../model/minimax-m2-7/average.md?raw";
 import avgMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/average.md?raw";
+import bpBigPickle from "../../model/big-pickle/Big_Pickle.md?raw";
+import bpMuseSpark13 from "../../model/muse-spark-1-3-free/Big_Pickle.md?raw";
+import bpLingFin from "../../model/ling-3-0-flash-fin-free/Big_Pickle.md?raw";
+import bpMimoV25 from "../../model/mimo-v2-5-free/Big_Pickle.md?raw";
+import bpMuseSpark12 from "../../model/muse-spark-1-2-free/Big_Pickle.md?raw";
+import bpNemotronUltra from "../../model/nemotron-3-ultra-free/Big_Pickle.md?raw";
+import bpNemotronLightning from "../../model/nemotron-3-5-lightning-free/Big_Pickle.md?raw";
+import bpGlm51 from "../../model/glm-5-1-coding/Big_Pickle.md?raw";
+import bpMinimaxM27 from "../../model/minimax-m2-7/Big_Pickle.md?raw";
+import bpMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Big_Pickle.md?raw";
+import msBigPickle from "../../model/big-pickle/Muse_Spark_1.3.md?raw";
+import msMuseSpark13 from "../../model/muse-spark-1-3-free/Muse_Spark_1.3.md?raw";
+import msLingFin from "../../model/ling-3-0-flash-fin-free/Muse_Spark_1.3.md?raw";
+import msMimoV25 from "../../model/mimo-v2-5-free/Muse_Spark_1.3.md?raw";
+import msMuseSpark12 from "../../model/muse-spark-1-2-free/Muse_Spark_1.3.md?raw";
+import msNemotronUltra from "../../model/nemotron-3-ultra-free/Muse_Spark_1.3.md?raw";
+import msNemotronLightning from "../../model/nemotron-3-5-lightning-free/Muse_Spark_1.3.md?raw";
+import msGlm51 from "../../model/glm-5-1-coding/Muse_Spark_1.3.md?raw";
+import msMinimaxM27 from "../../model/minimax-m2-7/Muse_Spark_1.3.md?raw";
+import msMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Muse_Spark_1.3.md?raw";
 
 export interface ModelScores {
   tool: number;
@@ -24,11 +44,23 @@ export interface ModelScores {
   overall: number;
 }
 
+/** Selectable results sources. `average` is the default view. */
+export type SourceKey = "average" | "big-pickle" | "Muse Spark 1.3";
+
+export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
+  { key: "average", label: "Average", file: "average.md" },
+  { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
+  { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
+];
+
 export interface AiModel {
   id: string;
   name: string;
   short: string;
+  /** Averaged scores (default view). */
   scores: ModelScores;
+  /** Per-source score sets; the results selector swaps `scores` for one of these. */
+  sources: Record<SourceKey, ModelScores>;
   meta: {
     contextWindow: string;
     modalities: string;
@@ -112,6 +144,11 @@ export const MODELS: AiModel[] = [
     short:
       "Free stealth reasoning model on OpenCode Zen (community consensus: GLM-4.6). Roughly Sonnet-class coding at zero token cost during the free period.",
     scores: parseAverageScores(avgBigPickle, "opencode/big-pickle"),
+    sources: {
+      average: parseAverageScores(avgBigPickle, "opencode/big-pickle"),
+      "big-pickle": parseAverageScores(bpBigPickle, "opencode/big-pickle"),
+      "Muse Spark 1.3": parseAverageScores(msBigPickle, "opencode/big-pickle"),
+    },
     meta: {
       contextWindow: "200K total (160K in / 32K out)",
       modalities: "Text in/out only",
@@ -125,6 +162,11 @@ export const MODELS: AiModel[] = [
     short:
       "Free Contributor-tier access to Meta's Muse Spark 1.3 for coding and long-horizon agentic work. Same weights as standard 1.3; training-data consent in exchange for $0.",
     scores: parseAverageScores(avgMuseSpark13, "opencode/muse-spark-1.3-contributor-free"),
+    sources: {
+      average: parseAverageScores(avgMuseSpark13, "opencode/muse-spark-1.3-contributor-free"),
+      "big-pickle": parseAverageScores(bpMuseSpark13, "opencode/muse-spark-1.3-contributor-free"),
+      "Muse Spark 1.3": parseAverageScores(msMuseSpark13, "opencode/muse-spark-1.3-contributor-free"),
+    },
     meta: {
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, video, PDF in; text out",
@@ -138,6 +180,11 @@ export const MODELS: AiModel[] = [
     short:
       "Finance-enhanced MoE by InclusionAI / Ant Group for financial research and tool-intensive workflows, retaining strong coding and math.",
     scores: parseAverageScores(avgLingFin, "opencode/ling-3.0-flash-fin-free"),
+    sources: {
+      average: parseAverageScores(avgLingFin, "opencode/ling-3.0-flash-fin-free"),
+      "big-pickle": parseAverageScores(bpLingFin, "opencode/ling-3.0-flash-fin-free"),
+      "Muse Spark 1.3": parseAverageScores(msLingFin, "opencode/ling-3.0-flash-fin-free"),
+    },
     meta: {
       contextWindow: "262,144 (256K marketed) / 32K out",
       modalities: "Text in/out only",
@@ -151,6 +198,11 @@ export const MODELS: AiModel[] = [
     short:
       "Native omni-modal open-weights MoE by Xiaomi for text, image, video and audio understanding plus strong agentic coding. Free capped tier on Zen.",
     scores: parseAverageScores(avgMimoV25, "opencode/mimo-v2.5-free"),
+    sources: {
+      average: parseAverageScores(avgMimoV25, "opencode/mimo-v2.5-free"),
+      "big-pickle": parseAverageScores(bpMimoV25, "opencode/mimo-v2.5-free"),
+      "Muse Spark 1.3": parseAverageScores(msMimoV25, "opencode/mimo-v2.5-free"),
+    },
     meta: {
       contextWindow: "200K Zen cap (native 1M) / 32K out",
       modalities: "Text, image, audio, video in; text out",
@@ -164,6 +216,11 @@ export const MODELS: AiModel[] = [
     short:
       "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation.",
     scores: parseAverageScores(avgMuseSpark12, "opencode/muse-spark-1.2-contributor-free"),
+    sources: {
+      average: parseAverageScores(avgMuseSpark12, "opencode/muse-spark-1.2-contributor-free"),
+      "big-pickle": parseAverageScores(bpMuseSpark12, "opencode/muse-spark-1.2-contributor-free"),
+      "Muse Spark 1.3": parseAverageScores(msMuseSpark12, "opencode/muse-spark-1.2-contributor-free"),
+    },
     meta: {
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, video, PDF in; text out",
@@ -177,6 +234,11 @@ export const MODELS: AiModel[] = [
     short:
       "NVIDIA flagship open-weights hybrid Mamba-MoE for frontier reasoning and long-running agents. Fast with low hallucination.",
     scores: parseAverageScores(avgNemotronUltra, "opencode/nemotron-3-ultra-free"),
+    sources: {
+      average: parseAverageScores(avgNemotronUltra, "opencode/nemotron-3-ultra-free"),
+      "big-pickle": parseAverageScores(bpNemotronUltra, "opencode/nemotron-3-ultra-free"),
+      "Muse Spark 1.3": parseAverageScores(msNemotronUltra, "opencode/nemotron-3-ultra-free"),
+    },
     meta: {
       contextWindow: "1M (262K default serve)",
       modalities: "Text in/out (beyond text unverified)",
@@ -190,6 +252,11 @@ export const MODELS: AiModel[] = [
     short:
       "Compact open 30B MoE (3B active) for high-volume, low-latency execution in always-on agents. Pairs with a frontier planner.",
     scores: parseAverageScores(avgNemotronLightning, "opencode/nemotron-3.5-lightning-free"),
+    sources: {
+      average: parseAverageScores(avgNemotronLightning, "opencode/nemotron-3.5-lightning-free"),
+      "big-pickle": parseAverageScores(bpNemotronLightning, "opencode/nemotron-3.5-lightning-free"),
+      "Muse Spark 1.3": parseAverageScores(msNemotronLightning, "opencode/nemotron-3.5-lightning-free"),
+    },
     meta: {
       contextWindow: "262,144 native",
       modalities: "Text-only",
@@ -203,6 +270,11 @@ export const MODELS: AiModel[] = [
     short:
       "Z.AI flagship open-weights MoE for agentic engineering and long-horizon autonomous coding (SWE-Pro SOTA). No Zen Free ID; priced paid.",
     scores: parseAverageScores(avgGlm51, "opencode/glm-5.1"),
+    sources: {
+      average: parseAverageScores(avgGlm51, "opencode/glm-5.1"),
+      "big-pickle": parseAverageScores(bpGlm51, "opencode/glm-5.1"),
+      "Muse Spark 1.3": parseAverageScores(msGlm51, "opencode/glm-5.1"),
+    },
     meta: {
       contextWindow: "200K–205K / 128K out",
       modalities: "Text in/out",
@@ -217,6 +289,11 @@ export const MODELS: AiModel[] = [
     short:
       "MiniMax self-improving frontier MoE for agentic coding, multi-agent collaboration and office productivity. No Zen Free ID; priced paid.",
     scores: parseAverageScores(avgMinimaxM27, "opencode/minimax-m2.7"),
+    sources: {
+      average: parseAverageScores(avgMinimaxM27, "opencode/minimax-m2.7"),
+      "big-pickle": parseAverageScores(bpMinimaxM27, "opencode/minimax-m2.7"),
+      "Muse Spark 1.3": parseAverageScores(msMinimaxM27, "opencode/minimax-m2.7"),
+    },
     meta: {
       contextWindow: "196K–205K (200K class) / 131K out",
       modalities: "Text in/out only",
@@ -231,6 +308,11 @@ export const MODELS: AiModel[] = [
     short:
       "Xiaomi flagship open-weights MoE (1.02T) for demanding agentic and 1,000+ tool-call tasks with strong 1M coherence. Text-focused Pro sibling.",
     scores: parseAverageScores(avgMimoV25Pro, "xiaomi/mimo-v2.5-pro"),
+    sources: {
+      average: parseAverageScores(avgMimoV25Pro, "xiaomi/mimo-v2.5-pro"),
+      "big-pickle": parseAverageScores(bpMimoV25Pro, "xiaomi/mimo-v2.5-pro"),
+      "Muse Spark 1.3": parseAverageScores(msMimoV25Pro, "xiaomi/mimo-v2.5-pro"),
+    },
     meta: {
       contextWindow: "1M (Base 256K)",
       modalities: "Text-only (Pro)",
@@ -245,16 +327,18 @@ export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);
 }
 
-/** Dev check: overall must sit within rounding distance of the dim mean
- * (each source overall is a rounded mean, so the averaged overall can
- * legitimately differ from the averaged-dim mean by up to 0.5). */
+/** Dev check: every source's overall must sit within rounding distance of its
+ * dim mean (each source overall is a rounded mean, so it can legitimately
+ * differ from the dim mean by up to 0.5). */
 export function checkOverallScores(): void {
   for (const m of MODELS) {
-    const s = m.scores;
-    const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding + s.cost) / 6;
-    if (Math.abs(mean - s.overall) > 0.51) {
-      console.warn(`[models] overall mismatch for ${m.id}: file=${s.overall} dim-mean=${mean.toFixed(2)}`);
-    }
+    (Object.keys(m.sources) as SourceKey[]).forEach((key) => {
+      const s = m.sources[key];
+      const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding + s.cost) / 6;
+      if (Math.abs(mean - s.overall) > 0.51) {
+        console.warn(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
+      }
+    });
   }
 }
 

@@ -15,9 +15,9 @@ reports, and the website stay consistent.
 
 ## Website data flow (single source of truth)
 
-1. `model/<slug>/average.md` holds the averaged 1–100 scores.
-2. `src/data/models.ts` imports each file via `?raw` and parses scores with `parseAverageScores()`. Names/blurbs/context/pricing meta stays curated in `MODELS`.
-3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly.
+1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` with the averaged 1–100 scores.
+2. `src/data/models.ts` imports every findings file via `?raw` and parses scores with `parseAverageScores()` into `AiModel.sources` (`average` / `big-pickle` / `Muse Spark 1.3`); `scores` mirrors the average (default view). Names/blurbs/context/pricing meta stays curated in `MODELS`.
+3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports).
 
 ## average.md format contract (parser depends on it)
 
@@ -33,6 +33,7 @@ reports, and the website stay consistent.
 - Never invent benchmark numbers — write `no verified public score found` when missing; attach a source to every number.
 - `average.md` = arithmetic mean per dimension + mean of Overalls + agreement note. Recompute from sources, don't copy site values backwards.
 - Add `pricingTiers` (one string per tier) alongside `pricingNote` when pricing has multiple tiers; the compare table stacks them.
+- Adding a results source = new `SourceKey` + `?raw` imports per model + entry in `SOURCES` (drives the selector); a third agent's file slots in the same way.
 
 ## Frontend conventions
 
