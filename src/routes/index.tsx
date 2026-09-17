@@ -24,7 +24,7 @@ function validId(raw: string | null, fallback: string): string {
 }
 
 function validSource(raw: string | null, fallback: SourceKey): SourceKey {
-  if (raw === "average" || raw === "big-pickle" || raw === "Muse Spark 1.3") {
+  if (raw === "average" || raw === "big-pickle" || raw === "Muse Spark 1.3" || raw === "Ling 3.0") {
     return raw;
   }
   return fallback;
