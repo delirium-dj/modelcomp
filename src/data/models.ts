@@ -1,6 +1,18 @@
-// Single source of truth for model scores, synced from model-comparison.md (v2).
-// Adding a future model = appending one AiModel object; selectors, chart,
-// table and cards update automatically. No chart code changes needed.
+// Scores are sourced from model/<slug>/average.md, imported below as raw text
+// (?raw) and parsed at build/dev time. Edit an average.md, rebuild, and the
+// selectors, chart, table and cards update automatically. Meta (names, blurbs,
+// context/pricing notes) stays curated in MODELS below.
+// Adding a future model = one ?raw import + one AiModel object.
+import avgBigPickle from "../../model/big-pickle/average.md?raw";
+import avgMuseSpark13 from "../../model/muse-spark-1-3-free/average.md?raw";
+import avgLingFin from "../../model/ling-3-0-flash-fin-free/average.md?raw";
+import avgMimoV25 from "../../model/mimo-v2-5-free/average.md?raw";
+import avgMuseSpark12 from "../../model/muse-spark-1-2-free/average.md?raw";
+import avgNemotronUltra from "../../model/nemotron-3-ultra-free/average.md?raw";
+import avgNemotronLightning from "../../model/nemotron-3-5-lightning-free/average.md?raw";
+import avgGlm51 from "../../model/glm-5-1-coding/average.md?raw";
+import avgMinimaxM27 from "../../model/minimax-m2-7/average.md?raw";
+import avgMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/average.md?raw";
 
 export interface ModelScores {
   tool: number;
@@ -23,6 +35,24 @@ export interface AiModel {
     pricingNote: string;
     /** True when no Zen Free ID exists; cost is scored on paid pricing. */
     noFreeId?: boolean;
+  };
+}
+
+/** Parse the "Averaged scores" block of an average.md file. Throws on drift. */
+function parseAverageScores(md: string, id: string): ModelScores {
+  const get = (label: string): number => {
+    const m = md.match(new RegExp(`\\*\\*${label}:\\s*([\\d.]+)/100`));
+    if (!m) throw new Error(`[models] missing "${label}" score in average.md for ${id}`);
+    return Number(m[1]);
+  };
+  return {
+    tool: get("Tool use"),
+    reasoning: get("Reasoning"),
+    context: get("Context window"),
+    multimodal: get("Multimodal"),
+    coding: get("Coding"),
+    cost: get("Cost efficiency"),
+    overall: get("Overall Score"),
   };
 }
 
@@ -79,7 +109,7 @@ export const MODELS: AiModel[] = [
     name: "Big Pickle",
     short:
       "Free stealth reasoning model on OpenCode Zen (community consensus: GLM-4.6). Roughly Sonnet-class coding at zero token cost during the free period.",
-    scores: { tool: 55, reasoning: 60, context: 70, multimodal: 15, coding: 70, cost: 100, overall: 62 },
+    scores: parseAverageScores(avgBigPickle, "opencode/big-pickle"),
     meta: {
       contextWindow: "200K total (160K in / 32K out)",
       modalities: "Text in/out only",
@@ -91,7 +121,7 @@ export const MODELS: AiModel[] = [
     name: "Muse Spark 1.3 Free",
     short:
       "Free Contributor-tier access to Meta's Muse Spark 1.3 for coding and long-horizon agentic work. Same weights as standard 1.3; training-data consent in exchange for $0.",
-    scores: { tool: 95, reasoning: 92, context: 100, multimodal: 85, coding: 95, cost: 100, overall: 95 },
+    scores: parseAverageScores(avgMuseSpark13, "opencode/muse-spark-1.3-contributor-free"),
     meta: {
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, video, PDF in; text out",
@@ -103,7 +133,7 @@ export const MODELS: AiModel[] = [
     name: "Ling 3.0 Flash Fin Free",
     short:
       "Finance-enhanced MoE by InclusionAI / Ant Group for financial research and tool-intensive workflows, retaining strong coding and math.",
-    scores: { tool: 68, reasoning: 70, context: 72, multimodal: 15, coding: 72, cost: 100, overall: 66 },
+    scores: parseAverageScores(avgLingFin, "opencode/ling-3.0-flash-fin-free"),
     meta: {
       contextWindow: "262,144 (256K marketed) / 32K out",
       modalities: "Text in/out only",
@@ -115,7 +145,7 @@ export const MODELS: AiModel[] = [
     name: "MiMo V2.5 Free",
     short:
       "Native omni-modal open-weights MoE by Xiaomi for text, image, video and audio understanding plus strong agentic coding. Free capped tier on Zen.",
-    scores: { tool: 78, reasoning: 72, context: 70, multimodal: 95, coding: 78, cost: 100, overall: 82 },
+    scores: parseAverageScores(avgMimoV25, "opencode/mimo-v2.5-free"),
     meta: {
       contextWindow: "200K Zen cap (native 1M) / 32K out",
       modalities: "Text, image, audio, video in; text out",
@@ -127,7 +157,7 @@ export const MODELS: AiModel[] = [
     name: "Muse Spark 1.2 Free",
     short:
       "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation.",
-    scores: { tool: 90, reasoning: 88, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 93 },
+    scores: parseAverageScores(avgMuseSpark12, "opencode/muse-spark-1.2-contributor-free"),
     meta: {
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, video, PDF in; text out",
@@ -139,7 +169,7 @@ export const MODELS: AiModel[] = [
     name: "Nemotron 3 Ultra Free",
     short:
       "NVIDIA flagship open-weights hybrid Mamba-MoE for frontier reasoning and long-running agents. Fast with low hallucination.",
-    scores: { tool: 78, reasoning: 75, context: 97, multimodal: 20, coding: 80, cost: 100, overall: 75 },
+    scores: parseAverageScores(avgNemotronUltra, "opencode/nemotron-3-ultra-free"),
     meta: {
       contextWindow: "1M (262K default serve)",
       modalities: "Text in/out (beyond text unverified)",
@@ -151,7 +181,7 @@ export const MODELS: AiModel[] = [
     name: "Nemotron 3.5 Lightning Free",
     short:
       "Compact open 30B MoE (3B active) for high-volume, low-latency execution in always-on agents. Pairs with a frontier planner.",
-    scores: { tool: 50, reasoning: 62, context: 72, multimodal: 15, coding: 58, cost: 100, overall: 60 },
+    scores: parseAverageScores(avgNemotronLightning, "opencode/nemotron-3.5-lightning-free"),
     meta: {
       contextWindow: "262,144 native",
       modalities: "Text-only",
@@ -163,7 +193,7 @@ export const MODELS: AiModel[] = [
     name: "GLM 5.1 Coding",
     short:
       "Z.AI flagship open-weights MoE for agentic engineering and long-horizon autonomous coding (SWE-Pro SOTA). No Zen Free ID; priced paid.",
-    scores: { tool: 85, reasoning: 80, context: 70, multimodal: 15, coding: 88, cost: 75, overall: 69 },
+    scores: parseAverageScores(avgGlm51, "opencode/glm-5.1"),
     meta: {
       contextWindow: "200K–205K / 128K out",
       modalities: "Text in/out",
@@ -176,7 +206,7 @@ export const MODELS: AiModel[] = [
     name: "MiniMax M2.7",
     short:
       "MiniMax self-improving frontier MoE for agentic coding, multi-agent collaboration and office productivity. No Zen Free ID; priced paid.",
-    scores: { tool: 80, reasoning: 75, context: 70, multimodal: 15, coding: 82, cost: 90, overall: 69 },
+    scores: parseAverageScores(avgMinimaxM27, "opencode/minimax-m2.7"),
     meta: {
       contextWindow: "196K–205K (200K class) / 131K out",
       modalities: "Text in/out only",
@@ -189,7 +219,7 @@ export const MODELS: AiModel[] = [
     name: "Xiaomi MiMo-V2.5-Pro",
     short:
       "Xiaomi flagship open-weights MoE (1.02T) for demanding agentic and 1,000+ tool-call tasks with strong 1M coherence. Text-focused Pro sibling.",
-    scores: { tool: 82, reasoning: 78, context: 100, multimodal: 15, coding: 82, cost: 85, overall: 74 },
+    scores: parseAverageScores(avgMimoV25Pro, "xiaomi/mimo-v2.5-pro"),
     meta: {
       contextWindow: "1M (Base 256K)",
       modalities: "Text-only (Pro)",
@@ -203,13 +233,15 @@ export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);
 }
 
-/** Dev/build check: overall must equal the rounded mean of the 6 dims. */
+/** Dev check: overall must sit within rounding distance of the dim mean
+ * (each source overall is a rounded mean, so the averaged overall can
+ * legitimately differ from the averaged-dim mean by up to 0.5). */
 export function checkOverallScores(): void {
   for (const m of MODELS) {
     const s = m.scores;
-    const expected = Math.round((s.tool + s.reasoning + s.context + s.multimodal + s.coding + s.cost) / 6);
-    if (expected !== s.overall) {
-      console.warn(`[models] overall mismatch for ${m.id}: file=${s.overall} computed=${expected}`);
+    const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding + s.cost) / 6;
+    if (Math.abs(mean - s.overall) > 0.51) {
+      console.warn(`[models] overall mismatch for ${m.id}: file=${s.overall} dim-mean=${mean.toFixed(2)}`);
     }
   }
 }
