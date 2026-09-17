@@ -32,7 +32,6 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, onSele
     ...DIMENSIONS.map((d) => ({ label: d.label, get: (m: AiModel) => String(m.scores[d.key]) })),
     { label: "Overall Score", get: (m: AiModel) => String(m.scores.overall) },
     { label: "Context window", get: (m: AiModel) => m.meta.contextWindow },
-    { label: "Pricing", get: (m: AiModel) => m.meta.pricingNote },
   ];
 
   return (
@@ -133,6 +132,20 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, onSele
                     ))}
                   </tr>
                 ))}
+                <tr key="pricing" class="odd:bg-slate-50">
+                  <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700">
+                    Pricing / 1M
+                  </th>
+                  {series.map((s) => (
+                    <td key={s.model.id} class="px-3 py-2 align-top text-slate-800">
+                      <ul class="m-0 list-none space-y-0.5 p-0">
+                        {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
+                          <li key={tier}>{tier}</li>
+                        ))}
+                      </ul>
+                    </td>
+                  ))}
+                </tr>
               </tbody>
             </table>
           </div>

@@ -33,6 +33,8 @@ export interface AiModel {
     contextWindow: string;
     modalities: string;
     pricingNote: string;
+    /** One line per pricing tier, shown stacked in the compare table. */
+    pricingTiers?: string[];
     /** True when no Zen Free ID exists; cost is scored on paid pricing. */
     noFreeId?: boolean;
   };
@@ -106,7 +108,7 @@ export const MODEL_COLORS = ["#4f46e5", "#059669", "#d97706"];
 export const MODELS: AiModel[] = [
   {
     id: "opencode/big-pickle",
-    name: "Big Pickle",
+    name: "Big Pickle (GLM 4.6)",
     short:
       "Free stealth reasoning model on OpenCode Zen (community consensus: GLM-4.6). Roughly Sonnet-class coding at zero token cost during the free period.",
     scores: parseAverageScores(avgBigPickle, "opencode/big-pickle"),
@@ -114,6 +116,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K total (160K in / 32K out)",
       modalities: "Text in/out only",
       pricingNote: "Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20 per 1M",
+      pricingTiers: ["Free Zen tier", "Paid equiv. GLM-4.6 ~$0.60/$2.20"],
     },
   },
   {
@@ -126,6 +129,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, video, PDF in; text out",
       pricingNote: "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+      pricingTiers: ["Free Zen tier", "Contributor $0.10/$0.20", "Standard $1.25/$4.25"],
     },
   },
   {
@@ -138,6 +142,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "262,144 (256K marketed) / 32K out",
       modalities: "Text in/out only",
       pricingNote: "Free Zen tier (limited-time promo)",
+      pricingTiers: ["Free Zen tier (limited-time promo)"],
     },
   },
   {
@@ -150,6 +155,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K Zen cap (native 1M) / 32K out",
       modalities: "Text, image, audio, video in; text out",
       pricingNote: "Free Zen tier; native from ~$0.14/$0.28 per 1M",
+      pricingTiers: ["Free Zen tier", "Native ~$0.14/$0.28"],
     },
   },
   {
@@ -162,6 +168,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1,048,576 (1M)",
       modalities: "Text, image, audio, video, PDF in; text out",
       pricingNote: "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+      pricingTiers: ["Free Zen tier", "Contributor $0.10/$0.20", "Standard $1.25/$4.25"],
     },
   },
   {
@@ -174,6 +181,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1M (262K default serve)",
       modalities: "Text in/out (beyond text unverified)",
       pricingNote: "Free Zen / NVIDIA trial",
+      pricingTiers: ["Free Zen / NVIDIA trial"],
     },
   },
   {
@@ -186,6 +194,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "262,144 native",
       modalities: "Text-only",
       pricingNote: "Free Zen / NVIDIA trial",
+      pricingTiers: ["Free Zen / NVIDIA trial"],
     },
   },
   {
@@ -198,6 +207,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "200K–205K / 128K out",
       modalities: "Text in/out",
       pricingNote: "Paid $1.40/$4.40 per 1M (no Free ID)",
+      pricingTiers: ["Paid $1.40/$4.40 (no Free ID)"],
       noFreeId: true,
     },
   },
@@ -211,6 +221,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "196K–205K (200K class) / 131K out",
       modalities: "Text in/out only",
       pricingNote: "Paid $0.30/$1.20 per 1M (no Free ID)",
+      pricingTiers: ["Paid $0.30/$1.20 (no Free ID)"],
       noFreeId: true,
     },
   },
@@ -224,6 +235,7 @@ export const MODELS: AiModel[] = [
       contextWindow: "1M (Base 256K)",
       modalities: "Text-only (Pro)",
       pricingNote: "Paid ~$0.44/$0.87 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid ~$0.44/$0.87 (no Zen Free ID)"],
       noFreeId: true,
     },
   },
