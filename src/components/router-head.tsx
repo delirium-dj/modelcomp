@@ -10,8 +10,19 @@ export const RouterHead = component$(() => {
       <title>{head.title}</title>
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <meta name="theme-color" content="#4f46e5" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
+      <meta name="theme-color" content="#ffffff" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.json" />
+      <script dangerouslySetInnerHTML={`
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+              console.error('SW registration failed:', err);
+            });
+          });
+        }
+      `} />
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}

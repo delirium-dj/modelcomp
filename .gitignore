@@ -7,3 +7,5 @@ tmp/
 *.tsbuildinfo
 .DS_Store
 PRD/
+instructions/
+

@@ -63,15 +63,36 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
         </desc>
         {rings.map((r) => (
           <g key={r}>
-            <polygon points={hexPoints((r / 100) * MAX_R)} fill="none" stroke="#e2e8f0" stroke-width={r === 100 ? 2 : 1} />
-            <text x={CX} y={CY - (r / 100) * MAX_R - 5} text-anchor="middle" font-size="9" fill="#94a3b8">
+            <polygon
+              points={hexPoints((r / 100) * MAX_R)}
+              fill="none"
+              class="stroke-slate-200 transition-colors dark:stroke-slate-800"
+              stroke-width={r === 100 ? 2 : 1}
+            />
+            <text
+              x={CX}
+              y={CY - (r / 100) * MAX_R - 5}
+              text-anchor="middle"
+              font-size="9"
+              class="fill-slate-400 dark:fill-slate-500 font-medium"
+            >
               {r}
             </text>
           </g>
         ))}
         {DIMENSIONS.map((d, i) => {
           const v = polar(100, i, MAX_R);
-          return <line key={d.key} x1={CX} y1={CY} x2={v.x} y2={v.y} stroke="#e2e8f0" stroke-width="1" />;
+          return (
+            <line
+              key={d.key}
+              x1={CX}
+              y1={CY}
+              x2={v.x}
+              y2={v.y}
+              class="stroke-slate-200 transition-colors dark:stroke-slate-800"
+              stroke-width="1"
+            />
+          );
         })}
         {series.map((s) => {
           const pts = DIMENSIONS.map((d, i) => {
@@ -104,6 +125,7 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
                 fill={s.color}
                 stroke="#ffffff"
                 stroke-width={1.5}
+                class="dark:stroke-slate-900"
               >
                 <title>{tooltipFor(s.model, d)}</title>
               </circle>
@@ -121,7 +143,7 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
               dominant-baseline="middle"
               font-size="12.5"
               font-weight={600}
-              fill="#475569"
+              class="fill-slate-600 transition-colors dark:fill-slate-300"
             >
               <title>{d.description}</title>
               {d.short}
@@ -129,7 +151,6 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
           );
         })}
       </svg>
-
     </div>
   );
 });

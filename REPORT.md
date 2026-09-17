@@ -1,31 +1,37 @@
-# Task Execution Report — modelcomp (Model Audit, Free Tier Tooltips, Sorting & Pagination)
+# Task Execution Report — modelcomp (Data Synchronization, PWA, Dark Mode, Header)
 
-This report details the comprehensive audit of all models in `src/data/models.ts`, the fix for MiniMax M2.7 and paid models, the expansion of comprehensive free tier explanations in hover tooltips, and the implementation of model sorting and pagination ("Show more" feature) in `ModelCards.tsx`.
+This report details the accomplishments and code modifications completed during the final implementation phase.
 
 ## Summary of Accomplishments
 
-1. **Comprehensive Model Audit (`src/data/models.ts`)**
-   - Audited all 28 models to verify free vs. paid status.
-   - Identified a bug where paid models with pricing notes containing `(no Free ID)` (such as MiniMax M2.7, GLM 5.1 Coding, Claude Opus 4.6/4.8, Claude Sonnet 4.6, GPT-5.6 Terra, and Xiaomi MiMo-V2.5-Pro) incorrectly triggered green "Free" badges due to case-insensitive substring matching (`.toLowerCase().includes('free')`).
-   - Fixed `CompareSection.tsx` and `ModelCards.tsx` to strictly check `!s.model.meta.noFreeId` for rendering the green "Free" badge versus the amber "Paid" badge.
-   - Specifically verified that MiniMax M2.7 (`opencode/minimax-m2.7`) and all other paid models now correctly display the amber "Paid" badge and do not show a green "Free" badge.
+1. **Dark Mode Implementation (`LIGHTDARK.md`):**
+   - Implemented a zero-flash dark mode toggle using CSS variables in `src/global.css` and a blocking anti-flash `<script>` in `src/root.tsx`.
+   - Created a reusable `ThemeToggle` component (`src/components/theme-toggle/theme-toggle.tsx`) that uses Tailwind's `dark:` classes, avoiding eager JavaScript.
+   - Updated `Header.tsx` to include the `ThemeToggle`.
 
-2. **Comprehensive Free Tier Explanations in Tooltips (`src/data/models.ts`, `CompareSection.tsx`, `ModelCards.tsx`)**
-   - Populated and refined detailed, helpful hover tooltips (`freeTierNote`) across every free-tier model in `src/data/models.ts`.
-   - Explored and documented precise access mechanisms for each model:
-     - **OpenCode Zen promotional tiers & stealth models** (e.g. Big Pickle, DeepSeek V4 Vision Exp, GLM 5.2/5.3 Flash/Free, Ox Alpha).
-     - **Contributor-tier training-data consent agreements** (e.g. Muse Spark 1.2 Free & Muse Spark 1.3 Free).
-     - **Limited-time promotional tiers / partner trials** (e.g. Ling 3.0 Flash Fin Free, Nemotron 3.5 Lightning Free & 3 Ultra Free).
-     - **Google AI Studio & OpenCode Zen standard free tiers** (e.g. Gemini 2.5 / 3.x Flash series).
-     - **Capped free tiers** (e.g. MiMo V2.5 Free).
+2. **PWA Implementation (`PWA.md`):**
+   - Created `public/manifest.json` with required PWA metadata, icons, and theme colors.
+   - Created placeholder icons in `public/`.
+   - Created a basic service worker in `public/sw.js` for offline caching.
+   - Updated `src/root.tsx` to inject the `<link rel="manifest">` tag.
+   - Updated `src/components/router-head.tsx` to include `apple-touch-icon` and `theme-color` meta tags.
 
-3. **Model Sorting & Pagination in `ModelCards.tsx`**
-   - Sorted models descending by their overall score (`m.scores.overall`).
-   - Implemented reactive pagination using Qwik signals (`useSignal`), initially displaying 9 models in a 3x3 grid.
-   - Added a "Show more" button below the grid that reveals 9 more models on each click until all models are shown.
+3. **Responsive Header Layout:**
+   - Refactored `Header.tsx` to feature a Theme Switcher on the left, Name in the middle, and navigation on the right for desktop.
+   - Implemented a mobile-responsive hamburger menu using `useSignal` for state management, with a full-screen, blurred overlay for navigation links.
 
 4. **Verification & Build (`build.types` & `build`)**
-   - Typechecking (`tsc --incremental --noEmit`) and full production build (`qwik build`) verified zero errors and successful SSG compilation.
+   - Executed TypeScript typechecking (`pnpm build.types`), verifying zero errors.
+   - Executed full production build (`pnpm build`), verifying successful client, server, and SSG prerender compilation into `dist/`.
 
-5. **Documentation (`REPORT.md`)**
-   - Documented the entire audit, fixes, tooltips, sorting, and pagination enhancements in `REPORT.md`.
+## Files Modified / Created
+
+- `tailwind.config.js` — Set `darkMode: "class"`.
+- `src/global.css` — Defined Light/Dark mode CSS variables.
+- `src/root.tsx` — Added anti-flash script and manifest injection.
+- `src/components/theme-toggle/theme-toggle.tsx` — Created toggle component.
+- `src/components/Header.tsx` — Refactored for responsive design and added hamburger menu.
+- `public/manifest.json` — Created PWA manifest.
+- `public/sw.js` — Created PWA service worker.
+- `src/components/router-head.tsx` — Added PWA meta tags.
+- `REPORT.md` — Updated task execution summary report.
