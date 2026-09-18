@@ -4,13 +4,25 @@ import { Hero } from "../components/Hero";
 import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
-import { MODELS } from "../data/models";
+import { MODELS, SOURCES } from "../data/models";
 import type { SourceKey } from "../data/models";
 
+/** Homepage defaults: top 3 models by average Overall Score (recomputed from MODELS). */
+function top3ByOverall(): [string, string, string] {
+  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
+
+const [TOP_A, TOP_B, TOP_C] = top3ByOverall();
+
 const DEFAULTS = {
-  a: "opencode/muse-spark-1.3-contributor-free",
-  b: "opencode/muse-spark-1.2-contributor-free",
-  c: "opencode/mimo-v2.5-free",
+  a: TOP_A,
+  b: TOP_B,
+  c: TOP_C,
 };
 
 function validId(raw: string | null, fallback: string): string {
@@ -24,8 +36,8 @@ function validId(raw: string | null, fallback: string): string {
 }
 
 function validSource(raw: string | null, fallback: SourceKey): SourceKey {
-  if (raw === "average" || raw === "big-pickle" || raw === "Muse Spark 1.3" || raw === "Ling 3.0") {
-    return raw;
+  if (raw && (SOURCES as { key: string }[]).some((s) => s.key === raw)) {
+    return raw as SourceKey;
   }
   return fallback;
 }

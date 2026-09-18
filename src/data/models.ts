@@ -146,6 +146,26 @@ import l30XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Ling_3.0.md?ra
 import g31XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.1_Flash_Lite.md?raw";
 import g35XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.5_Flash_Lite.md?raw";
 import g36XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.6_Flash.md?raw";
+import avgClaudeFable51 from "../../model/claude-fable-5.1/average.md?raw";
+import ds41ClaudeFable51 from "../../model/claude-fable-5.1/DeepSeek_4.1_Flash.md?raw";
+import avgClaudeOpus5 from "../../model/claude-opus-5/average.md?raw";
+import ds41ClaudeOpus5 from "../../model/claude-opus-5/DeepSeek_4.1_Flash.md?raw";
+import glm53ClaudeOpus5 from "../../model/claude-opus-5/GLM_5.3_Flash.md?raw";
+import avgClaudeSonnet5 from "../../model/claude-sonnet-5/average.md?raw";
+import ds41ClaudeSonnet5 from "../../model/claude-sonnet-5/DeepSeek_4.1_Flash.md?raw";
+import glm53ClaudeSonnet5 from "../../model/claude-sonnet-5/GLM_5.3_Flash.md?raw";
+import avgDeepseekV41Flash from "../../model/deepseek-v4.1-flash/average.md?raw";
+import ds41DeepseekV41Flash from "../../model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md?raw";
+import avgGemini38FlashCyber from "../../model/gemini-3-8-flash-cyber/average.md?raw";
+import ds41Gemini38FlashCyber from "../../model/gemini-3-8-flash-cyber/DeepSeek_4.1_Flash.md?raw";
+import avgGemini38Live from "../../model/gemini-3-8-live/average.md?raw";
+import ds41Gemini38Live from "../../model/gemini-3-8-live/DeepSeek_4.1_Flash.md?raw";
+import avgGpt6Astra from "../../model/gpt-6-astra/average.md?raw";
+import ds41Gpt6Astra from "../../model/gpt-6-astra/DeepSeek_4.1_Flash.md?raw";
+import avgKimiK28Preview from "../../model/kimi-k2-8-preview/average.md?raw";
+import ds41KimiK28Preview from "../../model/kimi-k2-8-preview/DeepSeek_4.1_Flash.md?raw";
+import avgQwen38Max from "../../model/qwen3-8-max/average.md?raw";
+import ds41Qwen38Max from "../../model/qwen3-8-max/DeepSeek_4.1_Flash.md?raw";
 
 export interface ModelScores {
   tool: number;
@@ -816,6 +836,157 @@ export const MODELS: AiModel[] = [
       modalities: "Text-only (Pro)",
       pricingNote: "Paid ~$0.44/$0.87 per 1M (no Zen Free ID)",
       pricingTiers: ["Paid ~$0.44/$0.87 (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "anthropic/claude-fable-5.1",
+    name: "Claude Fable 5.1",
+    short: "Anthropic's Mythos-class model above Opus 5 for the most demanding reasoning and long-horizon agentic work, with 1M context and 128K output.",
+    scores: parseAverageScores(avgClaudeFable51, "anthropic/claude-fable-5.1"),
+    sources: {
+      "average": parseAverageScores(avgClaudeFable51, "anthropic/claude-fable-5.1"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeFable51, "anthropic/claude-fable-5.1"),
+    },
+    meta: {
+      contextWindow: "1M / 128K out",
+      modalities: "Text, image, PDF in; text out",
+      pricingNote: "Paid $10/$50 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid $10/$50 per 1M (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "anthropic/claude-opus-5",
+    name: "Claude Opus 5",
+    short: "Anthropic's flagship Opus 5-generation model for the deepest reasoning and longest autonomous coding and research runs, with 1M context.",
+    scores: parseAverageScores(avgClaudeOpus5, "anthropic/claude-opus-5"),
+    sources: {
+      "average": parseAverageScores(avgClaudeOpus5, "anthropic/claude-opus-5"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeOpus5, "anthropic/claude-opus-5"),
+      "GLM 5.3 Flash": parseAverageScores(glm53ClaudeOpus5, "anthropic/claude-opus-5"),
+    },
+    meta: {
+      contextWindow: "1M / 128K out",
+      modalities: "Text, image, PDF in; text out",
+      pricingNote: "Paid $5/$25 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid $5/$25 per 1M (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "anthropic/claude-sonnet-5",
+    name: "Claude Sonnet 5",
+    short: "Anthropic's most capable Sonnet-class model, built for the agentic era with adaptive thinking and 1M context at a lower cost than Opus.",
+    scores: parseAverageScores(avgClaudeSonnet5, "anthropic/claude-sonnet-5"),
+    sources: {
+      "average": parseAverageScores(avgClaudeSonnet5, "anthropic/claude-sonnet-5"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeSonnet5, "anthropic/claude-sonnet-5"),
+      "GLM 5.3 Flash": parseAverageScores(glm53ClaudeSonnet5, "anthropic/claude-sonnet-5"),
+    },
+    meta: {
+      contextWindow: "1M / 128K out",
+      modalities: "Text, image, file in; text out",
+      pricingNote: "Paid $3/$15 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid $3/$15 per 1M (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "deepseek/deepseek-v4.1-flash",
+    name: "DeepSeek V4.1 Flash",
+    short: "DeepSeek's MIT-licensed 552B multimodal MoE for input-heavy agentic workloads, with 1M context, 384K output and strong terminal-bench results.",
+    scores: parseAverageScores(avgDeepseekV41Flash, "deepseek/deepseek-v4.1-flash"),
+    sources: {
+      "average": parseAverageScores(avgDeepseekV41Flash, "deepseek/deepseek-v4.1-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41DeepseekV41Flash, "deepseek/deepseek-v4.1-flash"),
+    },
+    meta: {
+      contextWindow: "1M / 384K out",
+      modalities: "Text, image in; text out",
+      pricingNote: "Paid $0.30/$1.20 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid $0.30/$1.20 per 1M (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "google/gemini-3-8-flash-cyber",
+    name: "Gemini 3.8 Flash Cyber",
+    short: "Google DeepMind's cybersecurity fine-tune of Gemini 3.8 Flash for finding, validating and patching vulnerabilities, available via the Fairwind Program.",
+    scores: parseAverageScores(avgGemini38FlashCyber, "google/gemini-3-8-flash-cyber"),
+    sources: {
+      "average": parseAverageScores(avgGemini38FlashCyber, "google/gemini-3-8-flash-cyber"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini38FlashCyber, "google/gemini-3-8-flash-cyber"),
+    },
+    meta: {
+      contextWindow: "1,048,576 (1M) / 65K out",
+      modalities: "Text, code in; text, code out",
+      pricingNote: "Restricted Fairwind Program (no public pricing, no Zen Free ID)",
+      noFreeId: true,
+    },
+  },
+  {
+    id: "google/gemini-3-8-live",
+    name: "Gemini 3.8 Live",
+    short: "Google DeepMind's native speech-to-speech model for the Gemini Live API, with audio, image and video input and synthesized speech output.",
+    scores: parseAverageScores(avgGemini38Live, "google/gemini-3-8-live"),
+    sources: {
+      "average": parseAverageScores(avgGemini38Live, "google/gemini-3-8-live"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini38Live, "google/gemini-3-8-live"),
+    },
+    meta: {
+      contextWindow: "131K per session / 65K out",
+      modalities: "Text, image, video, audio in; text, audio out",
+      pricingNote: "Free via AI Studio unpaid quota; paid text $0.75/$4.50, audio $3/$12 per 1M",
+      freeTierNote: "Free through Google AI Studio unpaid quota (traffic may feed product development; policy does not apply once billing is enabled)",
+    },
+  },
+  {
+    id: "openai/gpt-6-astra",
+    name: "GPT-6 Astra",
+    short: "OpenAI's flagship above GPT-5.6 Sol with 1.05M context, staged rollout from Trusted Access programs, built for frontier reasoning and agents.",
+    scores: parseAverageScores(avgGpt6Astra, "openai/gpt-6-astra"),
+    sources: {
+      "average": parseAverageScores(avgGpt6Astra, "openai/gpt-6-astra"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gpt6Astra, "openai/gpt-6-astra"),
+    },
+    meta: {
+      contextWindow: "1,050,000 (1M) / 128K out",
+      modalities: "Text, image in; text out",
+      pricingNote: "Paid $10/$50 per 1M (no Zen Free ID)",
+      pricingTiers: ["Paid $10/$50 per 1M (no Zen Free ID)"],
+      noFreeId: true,
+    },
+  },
+  {
+    id: "moonshot/kimi-k2-8-preview",
+    name: "Kimi K2.8 Preview",
+    short: "Moonshot AI's mid-tier coding and agentic model inside Kimi Code, with 1M context and efficient reasoning between K2.7 Code and flagship K3.",
+    scores: parseAverageScores(avgKimiK28Preview, "moonshot/kimi-k2-8-preview"),
+    sources: {
+      "average": parseAverageScores(avgKimiK28Preview, "moonshot/kimi-k2-8-preview"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41KimiK28Preview, "moonshot/kimi-k2-8-preview"),
+    },
+    meta: {
+      contextWindow: "1,048,576 (1M)",
+      modalities: "Text, image in; text out",
+      pricingNote: "Kimi membership plan (no per-token billing, no Zen Free ID)",
+      noFreeId: true,
+    },
+  },
+  {
+    id: "alibaba/qwen3-8-max",
+    name: "Qwen3.8-Max",
+    short: "Alibaba Cloud's flagship 2.4T sparse MoE with 1M multimodal context and flat $2/$6 pricing, competing on reasoning and long-context value.",
+    scores: parseAverageScores(avgQwen38Max, "alibaba/qwen3-8-max"),
+    sources: {
+      "average": parseAverageScores(avgQwen38Max, "alibaba/qwen3-8-max"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Qwen38Max, "alibaba/qwen3-8-max"),
+    },
+    meta: {
+      contextWindow: "1M / 131K out",
+      modalities: "Text, image, video in; text out",
+      pricingNote: "Paid $2/$6 per 1M (one-time 1M-token free quota, no Zen Free ID)",
       noFreeId: true,
     },
   },

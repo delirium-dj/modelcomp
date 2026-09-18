@@ -87,7 +87,7 @@ export const Header = component$(() => {
                 /* Hamburger (3 bars) */
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 animate-fade-in"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -99,7 +99,7 @@ export const Header = component$(() => {
                 /* X / Close icon (absolutely same button / position) */
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 animate-fade-in"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

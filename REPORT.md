@@ -1,4 +1,12 @@
-# Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon)
+# Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync)
+
+## 2026-09-18 — Full `tasks/sync-data.md` pass + homepage defaults fix
+
+1. **Registered 9 missing models in `src/data/models.ts`** (found as `model/<slug>/` folders with valid `average.md` but absent from `MODELS`): Claude Fable 5.1, Claude Opus 5, Claude Sonnet 5, DeepSeek V4.1 Flash, Gemini 3.8 Flash Cyber, Gemini 3.8 Live, GPT-6 Astra, Kimi K2.8 Preview, Qwen3.8-Max — each with `?raw` imports and `AiModel` metadata, so they now appear in Model A/B/C selectors.
+2. **Source scan:** `solar-pro4.md` exists but is empty (0 bytes, only under `model/big-pickle/`) — deliberately NOT added to `SourceKey`/`SOURCES` since `parseAverageScores()` would throw on it. All other sources (`DeepSeek 4.1 Flash`, etc.) were already registered.
+3. **Homepage defaults are now dynamic top-3 by Overall Score** (`src/routes/index.tsx`): `top3ByOverall()` sorts `MODELS` by `scores.overall` desc, replacing the hardcoded Muse Spark 1.3 / 1.2 / MiMo V2.5 trio. Current top-3: Gemini 3.8 Flash (91.8), DeepSeek V4.1 Flash (90), Gemini 3.7 Flash (89.7). Also fixed `validSource()` to accept every key in `SOURCES` instead of only 4 hardcoded ones.
+4. **Verified `pnpm build.types` + `pnpm build` green**; confirmed theme-toggle (`Toggle dark mode`) and hamburger (`Toggle navigation menu`) strings plus new model names are present in the production bundles.
+5. **Note on dev-mode sightings:** `Header.tsx`/`ThemeToggle` source was already correct — if dev still shows the old header, restart `pnpm dev` and hard-refresh (stale HMR/bundle or a bookmarked `?a=&b=&c=` URL, which overrides defaults by design, is the usual cause). The hamburger only renders below the `md` breakpoint (768px).
 
 This report details the final fixes, enhancements, and accomplishments completed across dark/light mode toggle systems, mobile responsive hamburger menus, and the new branded favicon logo.
 
