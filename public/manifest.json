@@ -6,27 +6,12 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4f46e5",
-  "description": "Model comparison tool.",
+  "description": "Compare AI coding models on tool use, reasoning, context, multimodal, coding and cost.",
   "icons": [
     {
-      "src": "/favicon.png",
-      "sizes": "255x255",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "255x255",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

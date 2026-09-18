@@ -6,112 +6,121 @@ export const Header = component$(() => {
 
   return (
     <>
-      <header class="sticky top-0 z-40">
-        <div class="border-b border-slate-200 bg-white/90 backdrop-blur transition-colors dark:border-slate-800 dark:bg-slate-900/90">
-          <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            {/* Left: Theme Switcher */}
-            <div class="flex w-24 items-center justify-start">
-              <ThemeToggle />
-            </div>
+      <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition-colors dark:border-slate-800 dark:bg-slate-900/90">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          {/* Left: Theme Switcher */}
+          <div class="flex w-24 items-center justify-start">
+            <ThemeToggle />
+          </div>
 
-            {/* Middle: Name */}
+          {/* Middle: Brand Name and Logo */}
+          <div class="flex items-center gap-2">
+            {/* SVG Brand Logo based on HeroArt */}
+            <svg
+              viewBox="0 0 300 300"
+              class="h-6 w-6 text-indigo-600 dark:text-indigo-400"
+              role="presentation"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="logo-hex" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#6366f1" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+                <radialGradient id="logo-core" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0%" stop-color="#c7d2fe" />
+                  <stop offset="100%" stop-color="#4f46e5" />
+                </radialGradient>
+              </defs>
+              <polygon
+                points="150,28 254,88 254,208 150,268 46,208 46,88"
+                fill="none"
+                stroke="url(#logo-hex)"
+                stroke-width="15"
+                stroke-linejoin="round"
+              />
+              <circle cx="150" cy="148" r="45" fill="url(#logo-core)" />
+            </svg>
             <a
               href="#top"
               class="text-lg font-bold tracking-tight text-slate-900 transition-colors dark:text-white"
             >
               ModelComp
             </a>
+          </div>
 
-            {/* Right: Nav / Hamburger */}
-            <div class="flex w-24 items-center justify-end">
-              {/* Desktop Nav */}
-              <nav aria-label="Primary" class="hidden md:flex items-center gap-5 text-sm font-medium">
-                <a
-                  href="#compare"
-                  class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  Compare
-                </a>
-                <a
-                  href="#methodology"
-                  class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  Scoring
-                </a>
-                <a
-                  href="#models"
-                  class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  Models
-                </a>
-              </nav>
-
-              {/* Mobile Hamburger Button */}
-              <button
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded={isMenuOpen.value}
-                class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 md:hidden"
-                onClick$={() => {
-                  isMenuOpen.value = true;
-                }}
+          {/* Right: Nav / Hamburger */}
+          <div class="flex w-24 items-center justify-end">
+            {/* Desktop Nav */}
+            <nav aria-label="Primary" class="hidden md:flex items-center gap-5 text-sm font-medium">
+              <a
+                href="#compare"
+                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               >
+                Compare
+              </a>
+              <a
+                href="#methodology"
+                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+              >
+                Scoring
+              </a>
+              <a
+                href="#models"
+                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+              >
+                Models
+              </a>
+            </nav>
+
+            {/* Mobile Hamburger / Close Button trigger (swaps in place) */}
+            <button
+              type="button"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen.value}
+              class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 md:hidden"
+              onClick$={() => {
+                isMenuOpen.value = !isMenuOpen.value;
+              }}
+            >
+              {!isMenuOpen.value ? (
+                /* Hamburger (3 bars) */
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
+                  class="h-6 w-6 animate-fade-in"
                   fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-6 w-6"
                 >
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
                 </svg>
-              </button>
-            </div>
+              ) : (
+                /* X / Close icon (absolutely same button / position) */
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 animate-fade-in"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Full-Screen Blurred Overlay */}
+      {/* Mobile Drawer Overlay - below header, non-interfering */}
       {isMenuOpen.value && (
         <div
-          class="fixed inset-0 z-[100] flex h-screen w-screen flex-col items-center justify-center bg-white/95 p-6 backdrop-blur-xl transition-all dark:bg-slate-950/95"
+          class="fixed inset-0 z-40 flex h-screen w-screen flex-col items-center justify-center bg-white/95 p-6 pt-20 backdrop-blur-xl transition-all dark:bg-slate-950/95"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
         >
-          {/* Close Button at top-right */}
-          <button
-            type="button"
-            aria-label="Close navigation menu"
-            class="absolute top-4 right-4 inline-flex items-center justify-center rounded-lg p-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
-            onClick$={() => {
-              isMenuOpen.value = false;
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-7 w-7"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-
           {/* Centered Navigation Links */}
           <nav class="flex flex-col items-center justify-center gap-8 text-center text-2xl font-bold">
             <a
@@ -144,6 +153,6 @@ export const Header = component$(() => {
           </nav>
         </div>
       )}
-    </>
+     </>
   );
 });

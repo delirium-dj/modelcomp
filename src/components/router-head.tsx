@@ -10,10 +10,10 @@ export const RouterHead = component$(() => {
       <title>{head.title}</title>
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/png" href="/favicon.png" />
-      <meta name="theme-color" content="#ffffff" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#4f46e5" />
       <script dangerouslySetInnerHTML={`
         if ('serviceWorker' in navigator) {
           window.addEventListener('load', () => {

@@ -18,8 +18,10 @@ export default component$(() => {
                 var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 if (storedTheme === 'dark' || (!storedTheme && systemTheme)) {
                   document.documentElement.classList.add('dark');
+                  if (document.body) document.body.classList.add('dark');
                 } else {
                   document.documentElement.classList.remove('dark');
+                  if (document.body) document.body.classList.remove('dark');
                 }
               } catch (e) {}
             })();
