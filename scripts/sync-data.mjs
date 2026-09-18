@@ -156,38 +156,47 @@ const registeredFiles = new Set(
   [...ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[1]),
 );
 // New sources are appended LAST so existing dropdown order never reshuffles.
+const unionMembers = new Set(
+  [...(ts.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
+);
 const pending = [];
 for (const stem of missing) {
   const key = keyOf(stem);
-  if (ts.includes(`| "${key}"`) || ts.includes(`key: "${key}"`)) {
-    fail(`stem ${stem}.md maps to label "${key}" which already exists under a different filename`);
+  const inSources = ts.includes(`key: "${key}"`);
+  const inUnion = unionMembers.has(key);
+  if (inSources) {
+    // Key registered under a different filename -> genuine collision, human must decide.
+    fail(`stem ${stem}.md maps to label "${key}" which is already registered for another file`);
     continue;
   }
-  pending.push({ key, stem });
+  // Not in SOURCES: needs (re)registration. inUnion covers repair of a partial
+  // earlier run that added the union line but not the SOURCES entry.
+  pending.push({ key, stem, needUnion: !inUnion });
 }
 if (pending.length > 0) {
+  // NOTE: [^[]* (with star) skips the ": { key: ... }[] = " type annotation up to
+  // the array's opening bracket. A missing star here silently breaks matching.
   const unionRe = /(export type SourceKey =[\s\S]*?);/;
+  const arrRe = /(export const SOURCES[^[]*\[[\s\S]*?)\n\];/;
   const um = ts.match(unionRe);
-  if (!um) {
-    fail("could not locate SourceKey union in src/data/models.ts");
-  } else {
-    ts = ts.replace(unionRe, `${um[1]}${pending.map((p) => `\n  | "${p.key}"`).join("")};`);
-  }
-  const arrRe = /(export const SOURCES[^\[]\[[\s\S]*?)\n\];/;
   const am = ts.match(arrRe);
-  if (!am) {
-    fail("could not locate SOURCES array in src/data/models.ts");
+  if (!um || !am) {
+    fail("could not locate SourceKey union / SOURCES array in src/data/models.ts — register manually");
   } else {
+    const needUnion = pending.filter((p) => p.needUnion);
+    if (needUnion.length > 0) {
+      ts = ts.replace(unionRe, `${um[1]}${needUnion.map((p) => `\n  | "${p.key}"`).join("")};`);
+    }
     ts = ts.replace(
       arrRe,
       `${am[1]}${pending.map((p) => `\n  { key: "${p.key}", label: "${p.key}", file: "${p.stem}.md" },`).join("")}\n];`,
     );
-  }
-  for (const p of pending) {
-    console.log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
+    writeFileSync(modelsTsPath, ts);
+    for (const p of pending) {
+      console.log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
+    }
   }
 }
-if (pending.length > 0) writeFileSync(modelsTsPath, ts);
 
 // Stale keys (registered but no file anywhere) are warnings, not failures.
 for (const entry of ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {

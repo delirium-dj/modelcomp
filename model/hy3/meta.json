@@ -1,0 +1,10 @@
+{
+  "id": "tencent/hy3",
+  "name": "HY3",
+  "short": "Tencent's open-weight Hunyuan MoE (295B total / 21B active) with 256K context and hybrid fast-and-slow thinking, Apache 2.0 licensed.",
+  "contextWindow": "256,000 (256K) / 32K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M (no Zen Free ID)",
+  "pricingTiers": ["TokenHub preview ~$0.18/$0.59 (no Zen Free ID)"],
+  "noFreeId": true
+}

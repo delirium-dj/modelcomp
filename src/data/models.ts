@@ -53,7 +53,8 @@ export type SourceKey =
   | "Ox Alpha"
   | "Claude Sonnet 4.6"
   | "DeepSeek 4.1 Flash"
-  | "Solar Pro 4";
+  | "Solar Pro 4"
+  | "MiniMax M3";
 
 export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
@@ -68,6 +69,7 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "Claude Sonnet 4.6", label: "Claude Sonnet 4.6", file: "Claude_Sonnet_4.6.md" },
   { key: "DeepSeek 4.1 Flash", label: "DeepSeek 4.1 Flash", file: "DeepSeek_4.1_Flash.md" },
   { key: "Solar Pro 4", label: "Solar Pro 4", file: "Solar_Pro_4.md" },
+  { key: "MiniMax M3", label: "MiniMax M3", file: "MiniMax_M3.md" },
 ];
 
 export interface AiModel {

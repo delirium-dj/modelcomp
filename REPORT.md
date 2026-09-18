@@ -1,5 +1,25 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Live sync triage (43 folders) — script bugs fixed, 6 models onboarded
+
+1. **Script bug #1 — filename allowlist rejected dots:** `/^[A-Za-z0-9_]+$/` failed every
+   real findings file (`DeepSeek_4.1_Flash.md`, …). Fixed to `/^[A-Za-z0-9_.]+$/`.
+2. **Script bug #2 — SOURCES regex never matched:** `[^[]` (missing star) couldn't skip
+   the `: { key: ... }[] = ` type annotation, so auto-registration of new sources
+   silently no-opped (left a partial `SourceKey`-only state for "MiniMax M3").
+   Fixed to `[^[]*`, and registration now applies union + array atomically
+   (no more partial states) plus repairs a union-only partial state if found.
+3. **6 new models onboarded** (all Solar Pro 4 research): `hy3` (Tencent HY3),
+   `hy3-preview` (renamed from `hy3 preview` — spaces break slug hygiene; no
+   external references existed), `hy4`, `laguna-s-2.1`, `minimax-m3`,
+   `solar-pro-4` — each with hand-written `meta.json` from its findings model
+   card (`hy4`/`laguna`/`solar-pro-4` cards are largely "Unknown", recorded
+   honestly, `noFreeId: true`). New source `"MiniMax M3"` registered.
+4. **Verified:** `pnpm sync` → exit 0 and idempotent on re-run; `pnpm build`
+   green (420 modules, 43 models); new models + MiniMax M3 source confirmed in
+   `dist/index.html`. Note: client bundle is now ~1.2 MB — the deferred
+   lazy-per-source-loading task is getting more urgent, still out of scope.
+
 ## Restructure for unpredictable growth (glob + meta.json + pnpm sync)
 
 1. **Phase 1 — glob wiring (`src/data/models.ts`, 1125 → ~260 lines):** deleted all ~270

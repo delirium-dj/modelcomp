@@ -1,0 +1,10 @@
+{
+  "id": "tencent/hy3-preview",
+  "name": "HY3 Preview",
+  "short": "Tencent's April 2026 preview of the HY3 Hunyuan MoE (295B/21B, 256K context), superseded by the full July 2026 release.",
+  "contextWindow": "256,000 (256K) / 32K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M (no Zen Free ID)",
+  "pricingTiers": ["TokenHub preview ~$0.18/$0.59 (no Zen Free ID)"],
+  "noFreeId": true
+}
