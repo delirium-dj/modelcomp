@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input modality.
 - **Coding: 68/100.** Capable of financial modeling scripts and data parsing code.
 - **Cost efficiency: 100/100.** Free-tier access ($0.00) offering exceptional specialized utility.
-- **Overall Score: 73/100.** Exceptional free specialist model for financial document analysis and quantitative reasoning tasks.
+- **Overall Score: 70/100.** Exceptional free specialist model for financial document analysis and quantitative reasoning tasks.
 
 ---
 

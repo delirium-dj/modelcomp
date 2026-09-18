@@ -8,7 +8,8 @@
 //      half-up rounding to 1 decimal; Overall = mean of source Overall scores,
 //      NOT re-derived from averaged dimensions) and rewrites files that drift.
 //   4. Registers any new reporting-agent filename in src/data/models.ts
-//      (SourceKey union + SOURCES entry, appended last so existing UI order is
+//      (SourceKey union + SOURCE_DEFS entry; dropdown order is derived at build
+//      time, so registry position does not matter for the UI)
 //      stable). Per-model wiring needs NO edits: models.ts auto-discovers files
 //      via import.meta.glob at build time.
 //   5. Validates every model/<slug>/meta.json exists, parses, and has all
@@ -155,7 +156,9 @@ const missing = [...presentStems].filter((stem) => stem !== "average" && !regist
 const registeredFiles = new Set(
   [...ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[1]),
 );
-// New sources are appended LAST so existing dropdown order never reshuffles.
+// New sources are appended to the registry; the dropdown order itself is derived
+// at build time (Average first, rest by max overall desc), so registry position
+// is irrelevant to the UI.
 const unionMembers = new Set(
   [...(ts.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
 );
@@ -177,11 +180,11 @@ if (pending.length > 0) {
   // NOTE: [^[]* (with star) skips the ": { key: ... }[] = " type annotation up to
   // the array's opening bracket. A missing star here silently breaks matching.
   const unionRe = /(export type SourceKey =[\s\S]*?);/;
-  const arrRe = /(export const SOURCES[^[]*\[[\s\S]*?)\n\];/;
+  const arrRe = /(export const SOURCE_DEFS[^[]*\[[\s\S]*?)\n\];/;
   const um = ts.match(unionRe);
   const am = ts.match(arrRe);
   if (!um || !am) {
-    fail("could not locate SourceKey union / SOURCES array in src/data/models.ts — register manually");
+    fail("could not locate SourceKey union / SOURCE_DEFS registry in src/data/models.ts — register manually");
   } else {
     const needUnion = pending.filter((p) => p.needUnion);
     if (needUnion.length > 0) {

@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 60/100.** Text-centric, but capable of complex analysis.
 - **Coding: 90/100.** High-performance assistant for large-scale coding.
 - **Cost efficiency: 70/100.** Resource-intensive, but powerful.
-- **Overall Score: 90/100.** A premier choice for high-end reasoning, complex coding, and large-context document analysis.
+- **Overall Score: 83/100.** A premier choice for high-end reasoning, complex coding, and large-context document analysis.
 
 ---
 

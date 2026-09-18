@@ -17,7 +17,7 @@ reports, and the website stay consistent.
 
 1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` (recomputed by `pnpm sync`, never by hand) and `meta.json` (curated display metadata — schema in `model/README.md`).
 2. `src/data/models.ts` auto-discovers every findings file and every `meta.json` via `import.meta.glob` and parses scores with `parseAverageScores()` into `AiModel.sources`; `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Only a brand-new reporting agent needs one line in `SourceKey` + one entry in `SOURCES` (appended last; `pnpm sync` does even that automatically).
-3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports).
+3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports). Dropdown order is derived (Average first, rest by max overall desc) — never hand-sort it.
 
 ## average.md format contract (parser depends on it)
 
@@ -39,8 +39,9 @@ reports, and the website stay consistent.
 
 ## Frontend conventions
 
-- `DIMENSIONS` order in `models.ts` is the fixed radar axis order — don't reorder.
+- `DIMENSIONS` order in `models.ts` is the fixed radar axis order — don't reorder without user approval. Canonical order: Tool use, Reasoning, Context window, Cost efficiency, Coding, Multimodal.
 - `MODEL_COLORS` maps to Model A/B/C slots.
+- Per-model pages live at `src/routes/model/[slug]/` (pre-rendered for every slug via `onStaticGenerate`); link model names (cards, legend) to `/model/<slug>/`. Each page shows meta, average hexagon, and a best-first table of every reporting agent's overall for that model.
 - `meta.noFreeId` marks models with no Zen Free ID (cost scored on paid pricing); legend shows a "Paid" badge.
 - Tooltips: cost/context/multimodal dots show raw values; tool/reasoning/coding show scores; axis labels show `description` (see PRD §7).
 - Tailwind v3 utilities only; keep table cells narrow (stacked lists, short strings).

@@ -37,7 +37,7 @@ Coding:
 - **Multimodal: 50/100.** Primary focus is text and code.
 - **Coding: 95/100.** Highly specialized and performant coding assistant.
 - **Cost efficiency: 85/100.** Good balance of performance and cost.
-- **Overall Score: 82/100.** A robust choice for developers focused on code generation and debugging.
+- **Overall Score: 78/100.** A robust choice for developers focused on code generation and debugging.
 
 ---
 

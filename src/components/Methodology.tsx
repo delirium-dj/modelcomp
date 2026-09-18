@@ -20,9 +20,9 @@ export const Methodology = component$(() => {
           <li>Tool use: Terminal-Bench, Tau-bench, GDPval and tool-call efficiency.</li>
           <li>Reasoning: GPQA, Humanity&apos;s Last Exam, long-context retrieval and intelligence indexes.</li>
           <li>Context window: tiered by size; 1M+ scores 95–100, 200K scores around 70.</li>
-          <li>Multimodal: text-only scores low; image, video, audio or PDF input scores higher.</li>
-          <li>Coding: SWE-bench, DeepSWE, LiveCodeBench, SciCode and terminal coding tasks.</li>
           <li>Cost efficiency: inverse pricing on the evaluated tier; $0 free tiers score 100.</li>
+          <li>Coding: SWE-bench, DeepSWE, LiveCodeBench, SciCode and terminal coding tasks.</li>
+          <li>Multimodal: text-only scores low; image, video, audio or PDF input scores higher.</li>
         </ul>
       </div>
     </section>

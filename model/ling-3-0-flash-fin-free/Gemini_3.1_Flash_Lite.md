@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 40/100.** Text-only specialization.
 - **Coding: 50/100.** Not optimized for general coding tasks.
 - **Cost efficiency: 95/100.** Highly optimized for cost in the free tier.
-- **Overall Score: 70/100.** A solid, specialized tool for financial document analysis and data extraction.
+- **Overall Score: 65/100.** A solid, specialized tool for financial document analysis and data extraction.
 
 ---
 

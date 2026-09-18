@@ -49,6 +49,11 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   last — never reorder existing entries).
 - Homepage defaults stay dynamic (`top3ByOverall()` in `src/routes/index.tsx`);
   never hardcode model ids as defaults.
+- Results-source dropdown order is derived, not curated: Average stays first and
+  default; every other source ranks by the highest overall score it awards any
+  model (`sourceMaxOverall` in `src/data/models.ts`, stable ties). Never
+  hand-sort the dropdown — a newly registered source slots itself in
+  automatically on the next build.
 - Components read `MODELS` only — never import findings files directly.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
 

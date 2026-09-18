@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 50/100.** Text-focused reasoning powerhouse.
 - **Coding: 85/100.** Solid coding support for intermediate to advanced tasks.
 - **Cost efficiency: 75/100.** Higher cost due to reasoning capabilities.
-- **Overall Score: 84/100.** A premier choice for complex reasoning and technical assistance tasks.
+- **Overall Score: 79/100.** A premier choice for complex reasoning and technical assistance tasks.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 78/100.** High LiveCodeBench (76.0%) and solid SWE-bench performance.
 - **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 86/100.** Reliable free open-weights model for general software tasks.
+- **Overall Score: 69/100.** Reliable free open-weights model for general software tasks.
 
 ---
 

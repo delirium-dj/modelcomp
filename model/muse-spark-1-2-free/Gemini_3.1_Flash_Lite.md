@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 30/100.** Text-only.
 - **Coding: 40/100.** Basic guidance, not suitable for complex code.
 - **Cost efficiency: 95/100.** Excellent free-tier usability.
-- **Overall Score: 60/100.** A fast, accessible model best for light, creative, or conversational tasks.
+- **Overall Score: 56/100.** A fast, accessible model best for light, creative, or conversational tasks.
 
 ---
 

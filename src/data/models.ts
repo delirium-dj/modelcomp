@@ -56,7 +56,12 @@ export type SourceKey =
   | "Solar Pro 4"
   | "MiniMax M3";
 
-export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
+/**
+ * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
+ * order -- SOURCES below is derived from scores, so a newly registered agent
+ * slots itself into the dropdown automatically on the next build.
+ */
+const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
   { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
@@ -135,10 +140,10 @@ export const DIMENSIONS = [
     description: "How much input the model can process at once. Larger context windows score higher.",
   },
   {
-    key: "multimodal",
-    label: "Multimodal",
-    short: "Multi",
-    description: "Support for non-text input and output, including images, audio, and video.",
+    key: "cost",
+    label: "Cost efficiency",
+    short: "Cost",
+    description: "Relative input and output pricing. Lower-cost models score higher.",
   },
   {
     key: "coding",
@@ -148,10 +153,10 @@ export const DIMENSIONS = [
       "Performance on software engineering and coding benchmarks. Stronger coding ability scores higher.",
   },
   {
-    key: "cost",
-    label: "Cost efficiency",
-    short: "Cost",
-    description: "Relative input and output pricing. Lower-cost models score higher.",
+    key: "multimodal",
+    label: "Multimodal",
+    short: "Multi",
+    description: "Support for non-text input and output, including images, audio, and video.",
   },
 ] as const;
 
@@ -207,7 +212,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
 function hydrateModel(slug: string, meta: MetaFile): AiModel {
   const files = FINDINGS[slug] || {};
   const sources: Partial<Record<SourceKey, ModelScores>> = {};
-  for (const s of SOURCES) {
+  for (const s of SOURCE_DEFS) {
     const md = files[s.file];
     if (md !== undefined) sources[s.key] = parseAverageScores(md, meta.id);
   }
@@ -237,6 +242,33 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel {
  * Adding a model = add a folder. No code changes needed here.
  */
 export const MODELS: AiModel[] = loadMetas().map((e) => hydrateModel(e.slug, e.meta));
+
+/** Highest overall score a reporting agent awards any model (dropdown ranking metric). */
+function sourceMaxOverall(key: SourceKey): number {
+  let max = -Infinity;
+  for (const m of MODELS) {
+    const s = m.sources[key];
+    if (s !== undefined && s.overall > max) max = s.overall;
+  }
+  return max;
+}
+
+/**
+ * Results-source dropdown order, derived -- not curated. Average stays first and
+ * is the default view; every other source ranks by the highest overall score it
+ * awards any model (stable sort, so ties keep registry order). A newly registered
+ * source slots itself in automatically -- never hand-sort this list.
+ */
+export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
+  const averageDef = SOURCE_DEFS.find((s) => s.key === "average");
+  if (!averageDef) throw new Error("[models] SOURCE_DEFS is missing the average entry");
+  return [
+    averageDef,
+    ...SOURCE_DEFS.filter((s) => s.key !== "average").sort(
+      (a, b) => sourceMaxOverall(b.key) - sourceMaxOverall(a.key),
+    ),
+  ];
+})();
 
 export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);

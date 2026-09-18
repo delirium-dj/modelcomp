@@ -11,7 +11,7 @@
 - **Multimodal: 90.1/100.** Mean of 7 reporting sources.
 - **Coding: 81.9/100.** Mean of 7 reporting sources.
 - **Cost efficiency: 88.9/100.** Mean of 7 reporting sources.
-- **Overall Score: 87/100.** Mean of source Overall scores.
+- **Overall Score: 86.7/100.** Mean of source Overall scores.
 
 ---
 

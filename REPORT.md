@@ -1,5 +1,110 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Fixed-width, centered ratings tables
+
+1. `src/routes/model/[slug]/index.tsx`: ratings table is now `table-fixed` with an
+   8-column `<colgroup>` (agent 30%, all score columns 10% each), so re-sorting
+   rows never shifts column widths. All score headers + cells are `text-center`;
+   the agent column stays left-aligned.
+2. Verified in `dist`: colgroup present, 7 centered numeric `<th>`, 1 left agent
+   `<th>`, 49/49 centered numeric `<td>`, 8 sort buttons intact. `pnpm build` green.
+
+## Sortable ratings tables on per-model pages
+
+1. `src/routes/model/[slug]/index.tsx`: every column header (agent, Overall, six
+   dims) is now a sort button. Click toggles asc/desc (scores default desc,
+   names asc); default view unchanged (overall desc, ties alphabetical). The ▲▼
+   glyphs moved from number cells to the active sort header; green/red
+   best/worst cell tints + tooltips stay.
+2. Qwik pitfall hit and fixed: a shared plain-function signal writer referenced
+   from `onClick$` closures is not SSG-serializable (Qwik Code(3) on all 43 model
+   pages) — inlined the toggle logic into each handler; 44/44 pages generate.
+   Rule of thumb: signal writes live directly inside `onClick$` arrows.
+3. Verified in `dist`: default row order overall-desc + alphabetical ties;
+   byte-level check shows the ▼ glyph only in the Overall `<th>`, zero glyphs in
+   `<td>` cells. `pnpm build` green.
+
+## Per-column best/worst highlight in per-model ratings tables
+
+1. `src/routes/model/[slug]/index.tsx`: every score column (Overall + six dims)
+   now marks its highest grade green + ▲ and lowest red + ▼ (hover tooltips name
+   the distinction; ties share; unanimous counts as best only). Legend line
+   removed per request — markers + tooltips carry the meaning.
+2. Verified on Gemini 3.8 Flash page: all 7 columns correct (e.g. Multi max 95
+   shared ×3 green, min 70 red; Cost 100 green / 85 red). `pnpm build` green.
+
+## Best/worst highlight in per-model ratings tables
+
+1. `src/routes/model/[slug]/index.tsx`: the Overall cell in "How other agents rated
+   this model" is now emerald + ▲ for the highest grade and red + ▼ for the lowest
+   (hover tooltips explain; ties share; a unanimous single grade counts as best
+   only). Legend line added under the table. Dark-mode variants included.
+2. Verified on Gemini 3.8 Flash page: 96 GREEN, 92/92/91/90/90 plain, 88 RED —
+   rows correctly sorted desc. `pnpm build` green.
+
+## Per-model pages with cross-ratings
+
+1. New route `src/routes/model/[slug]/index.tsx`: hero block (name, Free/Paid +
+   overall badges, blurb, context/modalities/pricing meta), average-score hexagon
+   (reused `HexRadar`), and a "How other agents rated this model" table — every
+   reporting agent's overall + six dims, best grade first, with reporting count.
+   Unknown slugs render a not-found page; `head` sets title/meta.
+2. Pre-rendered via `onStaticGenerate` (all slugs) — SSG emitted 44 pages
+   (index + 43 models). Model names in cards + compare legend link to pages.
+3. Verified: Gemini 3.8 Flash page lists 7 agents 96→88 (incl. corrected G31FL
+   90); homepage hexagon order unchanged; `pnpm build` green. Rule added to
+   `.agents/rules.md`.
+
+## Score realism audit — 26 inflated/deflated reviewer overalls corrected
+
+1. **Clarified the confusion:** the 94–96 numbers were per-SOURCE maxima (best grade
+   each reviewer gave any model), not model averages. 8 of 10 point at a single
+   model, Muse Spark 1.3 Free (8 independent reviewers converge on 94–95 —
+   consensus, not inflation); the other two grade Gemini 3.8 Flash (also the
+   average leader). "All models" averages remain the realistic view.
+2. **Found real nonsense anyway:** full audit of every findings file
+   (overall vs. mean-of-dims) surfaced 41 violations, concentrated in three
+   reviewers (Gemini 3.1 Flash Lite, Gemini 3.6 Flash, Solar Pro 4). Worst:
+   `glm-5-2/Gemini_3.6_Flash.md` 86 vs true 69 (gap 17), `glm-5.3-flash` 89→72,
+   `glm-5.3-free` 91→75, `glm-5-1-coding` 92→78 — systematically inflated
+   overalls that had been lifting those models' averages.
+3. **Fixed all 26 files with gap ≥ 2** (overall := half-up rounded dim mean, per
+   repo methodology); sub-2 gaps documented as rounding noise. Re-ran `pnpm sync`
+   (22 downstream averages recomputed) + `pnpm build` green. Post-fix top cards:
+   Gemini 3.8 Flash 91.3, Gemini 3.7 Flash 88.9, Muse Spark 1.3 Free 88.8;
+   dropdown auto-re-ranked (Gemini 3.1 Flash Lite slipped below DeepSeek as its
+   max fell 93→90) with zero manual intervention.
+
+## Results-source dropdown auto-ranked by max overall
+
+1. `src/data/models.ts`: `SOURCES` is now derived — Average pinned first/default,
+   all other sources sorted desc by the highest overall score they award any
+   model (`sourceMaxOverall`, stable ties). `SOURCE_DEFS` stays the curated
+   registry; `hydrateModel` iterates it (unchanged behavior).
+2. Resulting order verified against disk: Average, Gemini 3.5 Flash Lite (96),
+   then the 95-group in registry order (Big Pickle, Muse Spark 1.3, Ling 3.0,
+   Gemini 3.6 Flash, GLM 5.3 Flash, Solar Pro 4, MiniMax M3), DeepSeek 4.1 (94),
+   Gemini 3.1 Lite (93), Claude Sonnet 4.6 (88), Ox Alpha (71).
+3. Rule recorded in `tasks/sync-data.md` + `.agents/rules.md`: never hand-sort;
+   new sources slot in automatically. `scripts/sync-data.mjs` untouched (its
+   registry appends feed the derived sort).
+4. Bonus find en route: research agents added Gemini 3.1 Flash Lite / MiniMax M3 /
+   Solar Pro 4 files to 6 more folders — `pnpm sync` recomputed those averages
+   with zero code edits (glob auto-discovery working as designed).
+5. Verified: `pnpm build` green.
+
+## Hexagon axis swap (Cost ↔ Multi)
+
+1. Swapped the `Cost efficiency` and `Multimodal` positions in `DIMENSIONS`
+   (`src/data/models.ts`) — hexagon now runs Tool, Reason, Context, Cost, Code,
+   Multi clockwise from the top. The compare-table rows follow automatically
+   (same `DIMENSIONS` order); the ModelCards one-line summary and the
+   "How scoring works" list were reordered to match.
+2. `.agents/rules.md` now records the canonical axis order instead of a
+   don't-touch rule.
+3. Verified: `pnpm build` green; built SVG axis labels read
+   Tool > Reason > Context > Cost > Code > Multi.
+
 ## Live sync triage (43 folders) — script bugs fixed, 6 models onboarded
 
 1. **Script bug #1 — filename allowlist rejected dots:** `/^[A-Za-z0-9_]+$/` failed every

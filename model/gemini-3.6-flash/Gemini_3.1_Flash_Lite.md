@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 92/100.** Top-tier multimodal performance.
 - **Coding: 90/100.** Strong coding assistant capabilities.
 - **Cost efficiency: 80/100.** Optimized cost-performance ratio.
-- **Overall Score: 91/100.** A premier Flash model, balanced for top-tier reasoning and agentic productivity.
+- **Overall Score: 89/100.** A premier Flash model, balanced for top-tier reasoning and agentic productivity.
 
 ---
 

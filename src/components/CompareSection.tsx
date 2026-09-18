@@ -131,9 +131,12 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                     class="inline-block h-3 w-3 rounded-full"
                     style={{ backgroundColor: s.color }}
                   />
-                  <span class="font-medium text-slate-800 dark:text-slate-100">
+                  <a
+                    href={`/model/${s.model.slug}/`}
+                    class="font-medium text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
+                  >
                     {s.model.name}
-                  </span>
+                  </a>
                   <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                     {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
                   </span>

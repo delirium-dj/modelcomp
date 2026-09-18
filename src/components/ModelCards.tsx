@@ -29,7 +29,9 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900">
             <div class="flex items-start justify-between gap-2">
               <h3 class="text-base font-semibold text-slate-900 dark:text-white">
-                {m.name}
+                <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  {m.name}
+                </a>
               </h3>
               <span class="shrink-0 rounded bg-indigo-50 px-2 py-0.5 text-xs font-bold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
                 {m.scores.overall}
@@ -68,7 +70,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
             </dl>
             <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
               Tool {m.scores.tool} · Reasoning {m.scores.reasoning} · Context {m.scores.context} ·
-              Multimodal {m.scores.multimodal} · Coding {m.scores.coding} · Cost {m.scores.cost}
+              Cost {m.scores.cost} · Coding {m.scores.coding} · Multimodal {m.scores.multimodal}
             </p>
           </article>
         ))}

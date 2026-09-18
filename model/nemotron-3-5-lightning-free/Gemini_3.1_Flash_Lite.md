@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 40/100.** Text-focused architecture.
 - **Coding: 60/100.** Solid assistant for fast-paced coding queries.
 - **Cost efficiency: 95/100.** Designed for low-cost, high-speed usage.
-- **Overall Score: 74/100.** An excellent, high-performance option for low-latency conversational and assistance tasks.
+- **Overall Score: 70/100.** An excellent, high-performance option for low-latency conversational and assistance tasks.
 
 ---
 

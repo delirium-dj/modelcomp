@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input modality.
 - **Coding: 97/100.** State-of-the-art software engineering capability (84.5% SWE-bench Verified, 86.1% LiveCodeBench).
 - **Cost efficiency: 76/100.** Professional commercial pricing ($1.50/1M in, $6.00/1M out) yielding immense developer productivity value.
-- **Overall Score: 92/100.** Premier specialized coding model designed for autonomous software engineering and repository-level refactoring.
+- **Overall Score: 78/100.** Premier specialized coding model designed for autonomous software engineering and repository-level refactoring.
 
 ---
 
