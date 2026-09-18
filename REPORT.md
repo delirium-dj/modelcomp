@@ -1,5 +1,21 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Root README + stale Methodology/Footer copy
+
+1. **New `README.md` (repo root, was missing):** what the site is, command table
+   (`dev`/`sync`/`build.types`/`build`/`preview`), data-flow diagram, v4
+   methodology summary, layout map, add-model/add-agent checklists, locked stack.
+   Written to stay true without maintenance (approximate counts, no dates).
+2. **Methodology fix:** intro claimed scores were "synced from
+   `model-comparison.md`" — that file is frozen v1–v3 history. Now correctly
+   points at `model/<slug>/average.md` per-model findings.
+3. **Footer fix:** hardcoded "Data updated 2026-09-17" replaced with timeless
+   wording (syncs from research files on every build); audit-trail pointer now
+   names `model/` + `REPORT.md` instead of the frozen comparison doc.
+4. Verified in `dist`: new copy present; build green, 45 pages (kimi-k3 research
+   finished by the other agent and auto-included — warn-skip → include flow
+   working as designed).
+
 ## Clickable agent names + live concurrent-editing observed
 
 1. `src/data/models.ts`: new `AGENT_MODEL_SLUG` map (12 agents → their model
