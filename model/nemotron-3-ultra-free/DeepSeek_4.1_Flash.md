@@ -61,7 +61,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only — no image, audio, video or PDF input.
 - **Coding: 70/100.** Terminal-Bench 2.0 at 54% is mid-pack and the token-efficiency story on SWE-bench is compelling, but no SWE-bench score exists for this model.
 - **Cost efficiency: 100/100.** Free through Zen and NVIDIA trial endpoints with open weights for self-hosting; the price is logged trial usage and a no-confidential-data restriction.
-- **Overall Score: 72/100.** (78 + 80 + 90 + 15 + 70 + 100) / 6 = 72.2 → **72**. Best fit: free orchestration/planning calls inside a routed agent system, with a smaller execution model handling high-volume steps.
+- **Overall Score: 67/100.** (78 + 80 + 90 + 15 + 70 + 100) / 6 = 72.2 → **72**. Best fit: free orchestration/planning calls inside a routed agent system, with a smaller execution model handling high-volume steps.
 
 ---
 

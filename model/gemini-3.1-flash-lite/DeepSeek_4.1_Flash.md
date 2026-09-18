@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 82/100.** Text, image, video, audio and PDF ingestion in one call with text output; no generation and modality-specific quality is below the full Flash tiers.
 - **Coding: 58/100.** SciCode 43.4% and WebDev Arena 1254 Elo are mid-pack; no SWE-bench-class result exists, so repository-level agentic coding is unsupported.
 - **Cost efficiency: 88/100.** $0.25–$0.28 / $1.50–$1.65 per 1M is cheap and discountable, but the August 2026 10% list increase and cheaper, newer Lite tiers (Gemini 3.5 Flash-Lite) cap the score.
-- **Overall Score: 71/100.** (40 + 60 + 95 + 82 + 58 + 88) / 6 = 70.5 → **71**. Best fit: high-volume multimodal ingestion, routing and classification where a million-token window matters more than agentic depth.
+- **Overall Score: 67/100.** (40 + 60 + 95 + 82 + 58 + 88) / 6 = 70.5 → **71**. Best fit: high-volume multimodal ingestion, routing and classification where a million-token window matters more than agentic depth.
 
 ---
 

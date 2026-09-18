@@ -32,7 +32,7 @@
 - **Multimodal: 85/100.** Strong multimodal focus.
 - **Coding: 70/100.** Specifically designed for multimodal code understanding.
 - **Cost efficiency: 100/100.** Free Zen tier.
-- **Overall Score: 74.2/100.** Highly capable experimental vision-multimodal model.
+- **Overall Score: 69/100.** Highly capable experimental vision-multimodal model.
  
 ---
  

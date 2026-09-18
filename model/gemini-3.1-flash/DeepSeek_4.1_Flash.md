@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 82/100.** Text, image, video, audio and PDF input with text-only output — broad ingestion, no generation, and vision quality is below the full Flash tiers.
 - **Coding: 58/100.** SciCode 43.4% and a 1254 WebDev Arena Elo are mid-pack; the absence of any SWE-bench-class result rules it out of repository-level agentic coding.
 - **Cost efficiency: 88/100.** $0.25–$0.28 / $1.50–$1.65 per 1M with ~50%-off caching and batch is cheap, but the price rose 10% in August 2026 and newer Flash-Lite tiers offer more capability at a similar rate.
-- **Overall Score: 71/100.** (40 + 60 + 95 + 82 + 58 + 88) / 6 = 70.5 → **71**, scored against the resolved `gemini-3.1-flash-lite` proxy. If the intended tier is Gemini 3.1 Flash Live/TTS Preview, no text-agent benchmark evidence exists and the tool/reasoning/coding scores could not be supported at all.
+- **Overall Score: 67/100.** (40 + 60 + 95 + 82 + 58 + 88) / 6 = 70.5 → **71**, scored against the resolved `gemini-3.1-flash-lite` proxy. If the intended tier is Gemini 3.1 Flash Live/TTS Preview, no text-agent benchmark evidence exists and the tool/reasoning/coding scores could not be supported at all.
 
 ---
 

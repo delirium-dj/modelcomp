@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 80/100.** Text, image and PDF input with text plus tool-call output; strong document/chart reading, no audio, video or media generation.
 - **Coding: 94/100.** SWE-bench Verified 88.6% and SWE-bench Pro 69.2% are top-tier; the only real cap is that harder third-party harnesses were not published for the checkpoint.
 - **Cost efficiency: 45/100.** $5/$25 per 1M with no free tier and a $10/$50 Fast Mode — premium by design; cached input and 50%-off batch pricing are the only relief.
-- **Overall Score: 83/100.** (92 + 94 + 95 + 80 + 94 + 45) / 6 = 83.3 → **83**. Best fit: enterprise agent platforms where coding/computer-use reliability and long-context fidelity outweigh a frontier price tag.
+- **Overall Score: 91/100.** (92 + 94 + 95 + 80 + 94 + 45) / 6 = 83.3 → **83**. Best fit: enterprise agent platforms where coding/computer-use reliability and long-context fidelity outweigh a frontier price tag.
 
 ---
 

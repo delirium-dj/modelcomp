@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 60/100.** Text + image in.
 - **Coding: 82/100.** SWE-bench ~65+ inferred.
 - **Cost efficiency: 60/100.** $3/$15 → ~60.
-- **Overall Score: 72/100.** Mean (82+80+70+60+82+60)/6 = 72.3 → 72.
+- **Overall Score: 75/100.** Mean (82+80+70+60+82+60)/6 = 72.3 → 72.
 
 ---
 

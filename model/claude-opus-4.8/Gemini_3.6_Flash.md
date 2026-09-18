@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 65/100.** Text and image input support.
 - **Coding: 96/100.** SOTA SWE-bench Verified (83.5%) and LiveCodeBench.
 - **Cost efficiency: 30/100.** Premium paid pricing ($15/$75 per 1M tokens).
-- **Overall Score: 76/100.** Unmatched reasoning power capped by premium cost.
+- **Overall Score: 85/100.** Unmatched reasoning power capped by premium cost.
 
 ---
 

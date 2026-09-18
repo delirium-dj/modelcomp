@@ -63,7 +63,9 @@ Long context:
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. Overall Score = mean of the six.
+> and state what caps the score. Overall Score = mean of the five quality
+> dimensions (Tool, Reasoning, Context, Multimodal, Coding) — Cost efficiency is
+> scored independently and excluded from Overall.
 
 - **Tool use: <N>/100.** <evidence + what caps it>
 - **Reasoning: <N>/100.** <evidence + what caps it>
@@ -71,7 +73,7 @@ Long context:
 - **Multimodal: <N>/100.** <input/output coverage; 15 if text-only>
 - **Coding: <N>/100.** <evidence + what caps it>
 - **Cost efficiency: <N>/100.** <$0 = 100; paid value at price point>
-- **Overall Score: <N>/100.** <mean + one-line best-fit recommendation>
+- **Overall Score: <N>/100.** <mean of the five non-cost dims + one-line best-fit recommendation>
 
 ---
 

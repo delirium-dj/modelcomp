@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 60/100.** Text + image in.
 - **Coding: 85/100.** Inferred ≥ Sonnet 4.6.
 - **Cost efficiency: 60/100.** $3/$15 assumed → ~60.
-- **Overall Score: 74/100.** Mean (85+82+70+60+85+60)/6 = 73.7 → 74.
+- **Overall Score: 76/100.** Mean (85+82+70+60+85+60)/6 = 73.7 → 74.
 
 ---
 

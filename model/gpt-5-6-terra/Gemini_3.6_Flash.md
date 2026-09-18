@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Full text, image, audio, video, and PDF input support.
 - **Coding: 94/100.** Exceptional performance on SWE-bench Verified and LiveCodeBench.
 - **Cost efficiency: 65/100.** Competitive paid pricing ($2.50/$10.00 per 1M tokens).
-- **Overall Score: 89/100.** Frontier multimodal model balancing speed, power, and long context.
+- **Overall Score: 94/100.** Frontier multimodal model balancing speed, power, and long context.
 
 ---
 

@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 82/100.** Full multimodal in (text/image/video/audio/PDF) consistent with 3.x Flash family; no non-text generation; 82.
 - **Coding: 68/100.** TB2.1 76.2% strong; SWE-bench Pro ~55.1% is lower than Flash expectation; DeepSWE absent; averaged to 68.
 - **Cost efficiency: 82/100.** $1.50/$9.00 — moderate paid pricing; per methodology $3/$15 ≈ 60, prices lower so higher efficiency; scores 82.
-- **Overall Score: 79/100.** Mean of (72 + 74 + 95 + 82 + 68 + 82) / 6 = 473 / 6 = 78.8 → **79**. Best fit: Pro-level intelligence at Flash speed; excellent for MCP/tool-orchestration workloads; since superseded by 3.6/3.8 Flash.
+- **Overall Score: 78/100.** Mean of (72 + 74 + 95 + 82 + 68 + 82) / 6 = 473 / 6 = 78.8 → **79**. Best fit: Pro-level intelligence at Flash speed; excellent for MCP/tool-orchestration workloads; since superseded by 3.6/3.8 Flash.
 
 ---
 

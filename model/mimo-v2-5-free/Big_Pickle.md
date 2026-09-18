@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 95/100.** Full 4-channel input (text/image/video/audio), text output.
 - **Coding: 72/100.** SWE 71, LiveCode 81.5, Vibe 42.2 — decent mid-frontier.
 - **Cost efficiency: 100/100.** $0 free tier; even native pricing is cheap ($0.14/$0.28).
-- **Overall Score: 80/100.** Best free omni input + balanced agent/coding; use native 1M endpoint when context-bound.
+- **Overall Score: 76/100.** Best free omni input + balanced agent/coding; use native 1M endpoint when context-bound.
 
 ---
 

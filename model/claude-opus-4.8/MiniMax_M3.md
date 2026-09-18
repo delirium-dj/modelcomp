@@ -49,7 +49,7 @@ Coding:
 - **Multimodal: 60/100.** Text + image in; no non-text out.
 - **Coding: 90/100.** SWE-bench ~75+ inferred; DeepSWE frontier inferred.
 - **Cost efficiency: 30/100.** $15/$75 → ~30.
-- **Overall Score: 72/100.** Mean (90+92+70+60+90+30)/6 = 72.0 → 72.
+- **Overall Score: 80/100.** Mean (90+92+70+60+90+30)/6 = 72.0 → 72.
 
 ---
 

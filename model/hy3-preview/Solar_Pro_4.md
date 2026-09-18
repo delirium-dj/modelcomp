@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 45/100.** Text and image input likely (same as full HY3). No confirmed audio or video I/O.
 - **Coding: 55/100.** No verified coding benchmarks available. Full HY3 scored 55% on SWE-bench Verified — preview may be similar or slightly lower but unverified.
 - **Cost efficiency: 90/100.** Open weights free to run yourself under Apache 2.0 license (GPU cost only). Same as full HY3.
-- **Overall Score: 61/100.** Mean of (55 + 55 + 65 + 45 + 55 + 90) / 6 = 60.8 → **61**. Best-fit recommendation: HY3 Preview is a preview version of HY3 (April 2026) superseded by full HY3 release (July 2026). For any deployment, use full HY3 instead — it has the same architecture (295B/21B MoE, 256K context, Apache 2.0) with confirmed benchmarks (SWE-bench 55%, GPQA 62%, MMLU 88%, AA Intelligence Index 52). Preview version likely has similar or slightly lower capabilities. Scores are provisional and conservative due to preview status and lack of verified benchmark data specific to the preview.
+- **Overall Score: 55/100.** Mean of (55 + 55 + 65 + 45 + 55 + 90) / 6 = 60.8 → **61**. Best-fit recommendation: HY3 Preview is a preview version of HY3 (April 2026) superseded by full HY3 release (July 2026). For any deployment, use full HY3 instead — it has the same architecture (295B/21B MoE, 256K context, Apache 2.0) with confirmed benchmarks (SWE-bench 55%, GPQA 62%, MMLU 88%, AA Intelligence Index 52). Preview version likely has similar or slightly lower capabilities. Scores are provisional and conservative due to preview status and lack of verified benchmark data specific to the preview.
 
 ---
 

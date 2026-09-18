@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only (per current evidence).
 - **Coding: 78/100.** SWE 71.9 + LiveCode 89 solid; SciCode 44.6 modest.
 - **Cost efficiency: 100/100.** $0 free/limited trial (paid NIM is $0.50/$2.20).
-- **Overall Score: 73/100.** Strong open long-agent pick; verify orchestration before making it primary planner.
+- **Overall Score: 67/100.** Strong open long-agent pick; verify orchestration before making it primary planner.
 
 ---
 

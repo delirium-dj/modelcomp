@@ -60,7 +60,7 @@ Long context:
 - **Multimodal: 85/100.** Text, image, video, audio and PDF input with CharXiv 89.4% tool-aided reasoning; text-only output and a flagged regression in refusal tone.
 - **Coding: 82/100.** DeepSWE 49%, SciCode 53.4% and WebDev Arena 1539 Elo mark a large generational jump, but there is no SWE-bench Verified number and no third-party agentic-coding leaderboard entry.
 - **Cost efficiency: 90/100.** $0.75/$3.75 per 1M after a 50% cut, $0.075 cached and a free AI Studio tier make it one of the best capability-per-dollar buys here; the scheduled 2027 price doubling caps it below 95.
-- **Overall Score: 87/100.** (82 + 88 + 92 + 85 + 82 + 90) / 6 = 86.5 → **87**. Best fit: high-volume agentic coding, desktop automation and long-document work where price per completed task dominates.
+- **Overall Score: 86/100.** (82 + 88 + 92 + 85 + 82 + 90) / 6 = 86.5 → **87**. Best fit: high-volume agentic coding, desktop automation and long-document work where price per completed task dominates.
 
 ---
 

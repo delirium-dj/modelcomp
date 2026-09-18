@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 30/100.** Text-only.
 - **Coding: 45/100.** Slightly improved capability.
 - **Cost efficiency: 95/100.** Maintains excellent free-tier efficiency.
-- **Overall Score: 58/100.** A solid refinement for light, creative, or conversational tasks, providing improved quality over the 1.2 version.
+- **Overall Score: 51/100.** A solid refinement for light, creative, or conversational tasks, providing improved quality over the 1.2 version.
 
 ---
 

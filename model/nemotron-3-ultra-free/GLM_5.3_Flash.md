@@ -49,7 +49,7 @@ Coding:
 - **Multimodal: 20/100.** Text-only (beyond-text unverified).
 - **Coding: 80/100.** SWE-V 71.9 solid with a 30% fewer-tokens cost win on coding agent loops; not a SOTA coding package.
 - **Cost efficiency: 100/100.** Evaluated $0 free tier (Zen/NVIDIA trial) plus free weights.
-- **Overall Score: 76/100.** Mean: (82 + 78 + 97 + 20 + 80 + 100) / 6 = 457/6 = 76.2 → **76**. Best fit: the open fast long-agent orchestrator with strong honesty/low hallucination — pair with Lightning-class executors.
+- **Overall Score: 71/100.** Mean: (82 + 78 + 97 + 20 + 80 + 100) / 6 = 457/6 = 76.2 → **76**. Best fit: the open fast long-agent orchestrator with strong honesty/low hallucination — pair with Lightning-class executors.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 82/100.** Strong SWE-Pro score (56.2%) and high Vibe Code Bench.
 - **Cost efficiency: 90/100.** Outstanding value paid pricing ($0.30/$1.20 per 1M tokens).
-- **Overall Score: 69/100.** Highly affordable paid open model for agentic coding.
+- **Overall Score: 64/100.** Highly affordable paid open model for agentic coding.
 
 ---
 

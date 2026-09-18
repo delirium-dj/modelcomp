@@ -32,7 +32,7 @@
 - **Multimodal: 75/100.** Includes image/file support.
 - **Coding: 85/100.** Sonnet models are highly regarded for coding.
 - **Cost efficiency: 50/100.** Competitive pricing for high performance.
-- **Overall Score: 76.7/100.** Excellent performance-to-cost ratio.
+- **Overall Score: 82/100.** Excellent performance-to-cost ratio.
  
 ---
  

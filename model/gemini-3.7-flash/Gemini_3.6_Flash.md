@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Native text, image, audio, video, and PDF input.
 - **Coding: 88/100.** Top-tier coding and software engineering capability.
 - **Cost efficiency: 95/100.** Excellent pricing structure with free tier.
-- **Overall Score: 91/100.** Near-frontier multimodal reasoning model at Flash pricing.
+- **Overall Score: 90/100.** Near-frontier multimodal reasoning model at Flash pricing.
 
 ---
 

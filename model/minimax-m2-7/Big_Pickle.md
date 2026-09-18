@@ -51,7 +51,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only confirmed.
 - **Coding: 80/100.** SWE-Pro 56.2/Multilingual 76.5; Vibe 27 low caps.
 - **Cost efficiency: 88/100.** Cheap paid ($0.30/$1.20) + non-commercial license friction. Would be 100 at a free promo.
-- **Overall Score: 68/100.** Best-value paid text coding/agent; verify license if commercial.
+- **Overall Score: 64/100.** Best-value paid text coding/agent; verify license if commercial.
 
 ---
 

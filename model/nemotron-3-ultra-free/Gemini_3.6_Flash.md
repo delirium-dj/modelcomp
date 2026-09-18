@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 20/100.** Text input primary; non-text unverified.
 - **Coding: 80/100.** Strong SWE-bench performance (71.9%).
 - **Cost efficiency: 100/100.** Free tier access ($0/1M tokens).
-- **Overall Score: 75/100.** Top open-weights planner for long-horizon agent orchestration.
+- **Overall Score: 70/100.** Top open-weights planner for long-horizon agent orchestration.
 
 ---
 

@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 75/100.** Inferred Flash coding.
 - **Cost efficiency: 92/100.** DeepSeek-class cheap → ~92.
-- **Overall Score: 67/100.** Mean (72+75+70+15+75+92)/6 = 66.5 → 67.
+- **Overall Score: 61/100.** Mean (72+75+70+15+75+92)/6 = 66.5 → 67.
 
 ---
 

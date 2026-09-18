@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 82/100.** SWE-Pro 56.22 (mid-high), Vibe 55.6 (mid), TB2 57.
 - **Cost efficiency: 90/100.** Paid $0.30/$1.20 → methodology ~90 (cheaper than $0.60/$2.20=92 but costlier than $0.10/$0.20=97–99).
-- **Overall Score: 69/100.** Mean (80+75+70+15+82+90)/6 = 68.7 → 69. Best fit: best-value paid text coding/agent.
+- **Overall Score: 64/100.** Mean (80+75+70+15+82+90)/6 = 68.7 → 69. Best fit: best-value paid text coding/agent.
 
 ---
 

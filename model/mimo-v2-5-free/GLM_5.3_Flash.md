@@ -51,7 +51,7 @@ Long context:
 - **Multimodal: 93/100.** Native image + audio + video understanding with MMMU-Pro 80, Vals Multimodal 52.8 and Design Arena 1288 (80th pct) — the best multimodal package on a free tier in this repo.
 - **Coding: 80/100.** SWE-V 71 + LCB 81.5 + TB2.1 63.7 — balanced strong, not specialist-deep (Vibe 42.2).
 - **Cost efficiency: 100/100.** Evaluated $0 Zen tier; list pricing $0.105/$0.28 is among the cheapest paid rates measured here.
-- **Overall Score: 88/100.** Mean: (80 + 76 + 100 + 93 + 80 + 100) / 6 = 529/6 = 88.2 → **88**. Best fit: the default free omni pick — multimodal agency, 1M context and $0 in one model.
+- **Overall Score: 86/100.** Mean: (80 + 76 + 100 + 93 + 80 + 100) / 6 = 529/6 = 88.2 → **88**. Best fit: the default free omni pick — multimodal agency, 1M context and $0 in one model.
 
 ---
 

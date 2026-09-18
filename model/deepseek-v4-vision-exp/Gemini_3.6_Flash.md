@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 85/100.** Text, image, diagram, and PDF input support.
 - **Coding: 80/100.** High LiveCodeBench (78.0%) and strong vision-to-code generation.
 - **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 82/100.** Excellent free multimodal model for UI/vision coding agents.
+- **Overall Score: 78/100.** Excellent free multimodal model for UI/vision coding agents.
 
 ---
 

@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 52/100.** SWE ~52% solid for size, but not mid-frontier coding.
 - **Cost efficiency: 100/100.** $0 free; fastest/cheapest execution by design.
-- **Overall Score: 57/100.** Use as routed executor + local single-GPU fallback, not as primary planner/coder.
+- **Overall Score: 49/100.** Use as routed executor + local single-GPU fallback, not as primary planner/coder.
 
 ---
 

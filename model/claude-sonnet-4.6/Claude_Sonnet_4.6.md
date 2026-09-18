@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 65/100.** Text + image in; no audio/video in; computer-use output qualifies as extended modality capability; per methodology +image = 60–70, rounded up 65 for GUI/computer-use capability.
 - **Coding: 73/100.** SWE-bench ~72–75% range; no DeepSWE or LiveCodeBench public data; frontier ref (DeepSWE 74%+ = 90–100) not met; mid-range coding profile 70–75.
 - **Cost efficiency: 55/100.** $3.00/$15.00 paid with no free tier; per methodology ~$3/$15 ≈ 60; slight adjustment down to 55 reflecting no free access and higher per-token cost relative to Gemini Flash tier.
-- **Overall Score: 73/100.** Mean of (72 + 78 + 95 + 65 + 73 + 55) / 6 = 438 / 6 = 73.0 → **73**. Best fit: strong all-around paid agent/coding model with excellent context, but cost and missing public benchmarks limit ceiling vs true frontier.
+- **Overall Score: 77/100.** Mean of (72 + 78 + 95 + 65 + 73 + 55) / 6 = 438 / 6 = 73.0 → **73**. Best fit: strong all-around paid agent/coding model with excellent context, but cost and missing public benchmarks limit ceiling vs true frontier.
 
 ---
 

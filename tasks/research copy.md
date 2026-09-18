@@ -6,7 +6,7 @@ This document provides standardized prompt instructions and guidelines for runni
 
 ## 📋 Copy-Paste Prompt Template for AI Agents
 
-> **Usage:** Replace `<DeepSeek 4.1 Flash>` (e.g., `GLM_5.3_Flash.md`, `Gemini_3.6_Flash.md`) with the designated target filename for your model before sending this prompt to the AI agent.
+> **Usage:** Replace `<Laguna S 2.1>` (e.g., `GLM_5.3_Flash.md`, `Gemini_3.6_Flash.md`) with the designated target filename for your model before sending this prompt to the AI agent.
 
 ```text
 Can you go over model/<slug>/ and find which folder does not have your inputs (<Agent_Model_Filename>) and perform the search for that model so we can have your (model/<slug>/<Agent_Model_Filename>) results too?

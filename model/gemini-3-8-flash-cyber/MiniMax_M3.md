@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 90/100.** Omni (image/video).
 - **Coding: 80/100.** Inferred 3.8 Flash tier.
 - **Cost efficiency: 88/100.** Flash-tier pricing → ~88.
-- **Overall Score: 86/100.** Mean (80+82+95+90+80+88)/6 = 85.8 → 86.
+- **Overall Score: 85/100.** Mean (80+82+95+90+80+88)/6 = 85.8 → 86.
 
 ---
 

@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 88/100.** Text + image + audio + video (+ PDF per repo catalog) in; text-only output; no published vision benchmark.
 - **Coding: 90/100.** DeepSWE 65.3 + TB2.1 85.8 + Code Arena 1588 — a top-tier coding package for a Flash; missing SWE-Pro/Verified rows keep it out of the 95s.
 - **Cost efficiency: 88/100.** Free tier plus the cheapest paid Flash rate so far ($0.75/$3.75 intro, $0.075 cache) — but it is promotional through 2026, doubling on 2027-01-01.
-- **Overall Score: 89/100.** Mean: (94 + 78 + 98 + 88 + 90 + 88) / 6 = 536/6 = 89.3 → **89**. Best fit: the 2026 coding/agent Flash pick — near-frontier tool loops at half-price intro rates; note the price doubles in 2027.
+- **Overall Score: 90/100.** Mean: (94 + 78 + 98 + 88 + 90 + 88) / 6 = 536/6 = 89.3 → **89**. Best fit: the 2026 coding/agent Flash pick — near-frontier tool loops at half-price intro rates; note the price doubles in 2027.
 
 ---
 

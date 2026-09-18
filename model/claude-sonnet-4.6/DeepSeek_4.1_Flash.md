@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 80/100.** Text and vision input with strong document/computer-use grounding; no audio, video or non-text output.
 - **Coding: 88/100.** 80.2% SWE-bench Verified is only ~1 point behind Opus 4.6, a class-leading value proposition; capped by unverified harder-harness scores.
 - **Cost efficiency: 70/100.** $3/$15 per 1M is mid-tier: roughly 40% cheaper than Opus 4.6 on both sides, but six times Gemini 2.5 Flash-Lite's input rate and far from free.
-- **Overall Score: 82/100.** (82 + 78 + 95 + 80 + 88 + 70) / 6 = 82.2 → **82**. Best fit: high-volume agentic coding and computer-use pipelines that want near-Opus output quality without Opus pricing.
+- **Overall Score: 85/100.** (82 + 78 + 95 + 80 + 88 + 70) / 6 = 82.2 → **82**. Best fit: high-volume agentic coding and computer-use pipelines that want near-Opus output quality without Opus pricing.
 
 ---
 

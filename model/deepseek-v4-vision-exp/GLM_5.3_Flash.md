@@ -66,7 +66,7 @@ Multimodal agent (the headline section):
 - **Multimodal: 85/100.** Real image-input model with four multimodal agent benchmarks, beating Opus 4.8 on two (Agents' Last Exam 27.3, ZeroBench 35.0); capped by the ≤384-token vision budget, no PDF/audio/video input, and text-only output.
 - **Coding: 86/100.** DeepSWE 59.3 beats Opus 4.8 (58.0) and TB2.1 83.9 is elite, but NL2Repo 57.7 (Opus: 69.7) and missing SWE-bench Verified/LiveCodeBench coverage cap it below the SWE-V-verified elite.
 - **Cost efficiency: 95/100.** $0.44/$1.32 standard, $0.22/$0.66 on Fireworks, cache read ~$0.014, images ≤384 tokens with no vision surcharge, plus MIT self-host — the cheapest hosted route for this capability class in this repo; short of 100 only because there is no $0 Zen free tier.
-- **Overall Score: 89/100.** Mean: (92 + 84 + 90 + 85 + 86 + 95) / 6 = 532/6 = 88.7 → **89**. Best fit: the best self-hostable multimodal *agent* of its moment — text-agent strength of V4-Flash plus genuinely competitive vision at V4-Flash pricing; not for teams that need verified classic reasoning benchmarks or a Zen free tier.
+- **Overall Score: 87/100.** Mean: (92 + 84 + 90 + 85 + 86 + 95) / 6 = 532/6 = 88.7 → **89**. Best fit: the best self-hostable multimodal *agent* of its moment — text-agent strength of V4-Flash plus genuinely competitive vision at V4-Flash pricing; not for teams that need verified classic reasoning benchmarks or a Zen free tier.
 
 ---
 

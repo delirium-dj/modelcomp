@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 80/100.** Text, image and PDF input with strong chart/document and UI replication work; text-only output, no audio or video input.
 - **Coding: 97/100.** 97.0% SWE-bench Verified, 79.2% SWE-bench Pro and 74.0% DeepSWE v1.1 — the best combination of agentic coding numbers found in this scan.
 - **Cost efficiency: 45/100.** Unchanged premium pricing ($5/$25, Fast Mode $10/$50) and no free tier; caching from 512 tokens and half-price batch work are the only mitigations.
-- **Overall Score: 85/100.** (95 + 96 + 95 + 80 + 97 + 45) / 6 = 84.7 → **85**. Best fit: teams running long autonomous coding or research agents where million-token recall and top coding scores justify the highest per-token spend tracked here.
+- **Overall Score: 93/100.** (95 + 96 + 95 + 80 + 97 + 45) / 6 = 84.7 → **85**. Best fit: teams running long autonomous coding or research agents where million-token recall and top coding scores justify the highest per-token spend tracked here.
 
 ---
 

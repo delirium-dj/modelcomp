@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only (Pro no image). Baseline 15.
 - **Coding: 82/100.** V2.5 SWE 71 / Vibe 42.2 with Pro lift; Sophon Tau2 94.2 lift.
 - **Cost efficiency: 85/100.** Paid ~$0.435/$0.87 → ~85; or $1.00/$3.00 → ~80–85 band.
-- **Overall Score: 74/100.** Mean (82+78+100+15+82+85)/6 = 73.7 → 74. Best fit: top open long-horizon Pro; pair with V2.5 Free when vision/audio needed.
+- **Overall Score: 71/100.** Mean (82+78+100+15+82+85)/6 = 73.7 → 74. Best fit: top open long-horizon Pro; pair with V2.5 Free when vision/audio needed.
 
 ---
 

@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 95/100.** Premier multimodal support.
 - **Coding: 94/100.** Top-tier coding assistant capabilities.
 - **Cost efficiency: 70/100.** Premium pricing for frontier Flash capability.
-- **Overall Score: 90/100.** The current apex of the Flash series, suitable for the most demanding agentic applications.
+- **Overall Score: 94/100.** The current apex of the Flash series, suitable for the most demanding agentic applications.
 
 ---
 

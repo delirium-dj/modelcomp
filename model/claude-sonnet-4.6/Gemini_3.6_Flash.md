@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 65/100.** Vision and text input supported.
 - **Coding: 92/100.** Benchmark leader in real-world software engineering tasks.
 - **Cost efficiency: 60/100.** Mid-range pricing ($3/$15 per 1M tokens).
-- **Overall Score: 78/100.** Outstanding balance of speed, high intelligence, and coding.
+- **Overall Score: 82/100.** Outstanding balance of speed, high intelligence, and coding.
 
 ---
 

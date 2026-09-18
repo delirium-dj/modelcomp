@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Full multimodal input capabilities.
 - **Coding: 52/100.** Practical for basic scripts and boilerplate.
 - **Cost efficiency: 98/100.** Exceptionally cost efficient.
-- **Overall Score: 74/100.** Swift, inexpensive multimodal execution model.
+- **Overall Score: 69/100.** Swift, inexpensive multimodal execution model.
 
 ---
 

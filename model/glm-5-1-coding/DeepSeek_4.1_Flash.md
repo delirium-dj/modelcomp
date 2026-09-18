@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only; no image, audio, video or PDF input, with vision handled by a separate GLM-5V model.
 - **Coding: 88/100.** SWE-bench Verified 74.2%, SciCode 44.8%, a 1509 WebDev Arena Elo and a launch-leading SWE-bench Pro claim; capped by missing LiveCodeBench/DeepSWE values and the absence of any free access path.
 - **Cost efficiency: 78/100.** $1.19–$1.40 / $3.74–$4.40 per 1M is roughly 20× DeepSeek-V4-Flash's input rate, but open weights make self-hosting the real cost lever.
-- **Overall Score: 71/100.** (92 + 80 + 70 + 15 + 88 + 78) / 6 = 70.5 → **71**. Best fit: agentic coding and long-horizon tool workflows where a 205K window and self-hostable weights are enough.
+- **Overall Score: 69/100.** (92 + 80 + 70 + 15 + 88 + 78) / 6 = 70.5 → **71**. Best fit: agentic coding and long-horizon tool workflows where a 205K window and self-hostable weights are enough.
 
 ---
 

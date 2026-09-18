@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 75/100.** Text + image in (vision experimental).
 - **Coding: 78/100.** Inferred DeepSeek V3.x coding.
 - **Cost efficiency: 92/100.** DeepSeek-class cheap ~$0.14/$0.28 → ~92.
-- **Overall Score: 78/100.** Mean (75+78+70+75+78+92)/6 = 78.0 → 78.
+- **Overall Score: 75/100.** Mean (75+78+70+75+78+92)/6 = 78.0 → 78.
 
 ---
 

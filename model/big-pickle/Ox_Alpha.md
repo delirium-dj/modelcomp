@@ -60,7 +60,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out (models.dev modalities: `["text"] / ["text"]`).
 - **Coding: 70/100.** SWE-bench Verified 68–74% (proxy), LiveCodeBench 82.8 are strong-for-price but below the 90+ frontier band (DeepSWE 74%+, SciCode 55%+); the unverified stealth status and weak Vibe proxy (~3%) cap the score.
 - **Cost efficiency: 100/100.** $0 in/out/cache on the evaluated Zen tier; flagged as time-limited with training-data usage caveat.
-- **Overall Score: 62/100.** (55 + 60 + 70 + 15 + 70 + 100) / 6 = 61.7 → **62**. Best fit: zero-cost daily driver for coding-agent chores; escalate to a frontier model after repeated failures or for 1M-context jobs.
+- **Overall Score: 54/100.** (55 + 60 + 70 + 15 + 70 + 100) / 6 = 61.7 → **62**. Best fit: zero-cost daily driver for coding-agent chores; escalate to a frontier model after repeated failures or for 1M-context jobs.
 
 ---
 

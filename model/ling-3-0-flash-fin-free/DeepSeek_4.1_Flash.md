@@ -53,7 +53,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only, with no image, audio, video or PDF path.
 - **Coding: 62/100.** SciCode 42.4% and a 38th-percentile coding index are serviceable for scripting and finance tooling but far from agentic-coding territory.
 - **Cost efficiency: 100/100.** Free on Zen, with paid routes as low as $0.021/$0.063 per 1M if the free tier's data-training caveat is unacceptable.
-- **Overall Score: 62/100.** (55 + 62 + 75 + 15 + 62 + 100) / 6 = 61.5 → **62**. Best fit: free, high-volume finance and text-processing pipelines where a 262K window is enough and free-period data usage is acceptable.
+- **Overall Score: 54/100.** (55 + 62 + 75 + 15 + 62 + 100) / 6 = 61.5 → **62**. Best fit: free, high-volume finance and text-processing pipelines where a 262K window is enough and free-period data usage is acceptable.
 
 ---
 

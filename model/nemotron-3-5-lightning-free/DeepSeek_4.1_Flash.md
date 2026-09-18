@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only.
 - **Coding: 50/100.** SciCode 32.1% and an 8th-percentile coding index place it well below coding-capable peers; its value is executing steps other models planned, not writing repository-level patches.
 - **Cost efficiency: 100/100.** Free through Zen and NVIDIA trial endpoints, with a $0.07/$0.20 paid floor and open weights for self-hosting; the free-tier trade-off is trial-only, logged usage.
-- **Overall Score: 56/100.** (45 + 55 + 72 + 15 + 50 + 100) / 6 = 56.2 → **56**. Best fit: high-volume execution/validation subagents inside a routed multi-model agent system, not standalone reasoning or coding.
+- **Overall Score: 47/100.** (45 + 55 + 72 + 15 + 50 + 100) / 6 = 56.2 → **56**. Best fit: high-volume execution/validation subagents inside a routed multi-model agent system, not standalone reasoning or coding.
 
 ---
 

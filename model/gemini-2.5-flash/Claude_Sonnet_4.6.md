@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 82/100.** Text + image + video + audio + PDF in; no non-text out or Live API; per methodology +video/PDF in = 75–90; audio in pushes toward 85; rounded to 82.
 - **Coding: 60/100.** SWE-bench Verified 60% sole verified data point; DeepSWE/LiveCodeBench absent; per methodology mid coding 65–75 but SWE at 60 pulls down; scored 60.
 - **Cost efficiency: 90/100.** $0.30/$2.50 paid (retired but was pricing basis); per methodology ~$0.30/~$2.50 is highly cost-efficient for a capable model; scores 90 (not 100 because it was never free).
-- **Overall Score: 76/100.** Mean of (58 + 72 + 95 + 82 + 60 + 90) / 6 = 457 / 6 = 76.2 → **76**. Best fit: legacy value model — strong multimodal + context at low cost; now retired; migrate to Gemini 3.x for active deployments.
+- **Overall Score: 73/100.** Mean of (58 + 72 + 95 + 82 + 60 + 90) / 6 = 457 / 6 = 76.2 → **76**. Best fit: legacy value model — strong multimodal + context at low cost; now retired; migrate to Gemini 3.x for active deployments.
 
 ---
 

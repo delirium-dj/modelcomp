@@ -60,7 +60,7 @@ Long context:
 - **Multimodal: 95/100.** Text + image + audio + video in = full omni in = 95 per methodology (+audio in or any non-text out band 90–100).
 - **Coding: 78/100.** SWE-bench 71% (mid-high), Vibe 42.2% (cap), TB2.1 63.7% lift.
 - **Cost efficiency: 100/100.** $0/$0 Zen Free.
-- **Overall Score: 82/100.** Mean (78+72+70+95+78+100)/6 = 82.2 → 82. Best fit: best free omni + balanced agent/coding.
+- **Overall Score: 79/100.** Mean (78+72+70+95+78+100)/6 = 82.2 → 82. Best fit: best free omni + balanced agent/coding.
 
 ---
 

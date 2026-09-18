@@ -32,7 +32,7 @@
 - **Multimodal: 70/100.** Includes image/PDF support.
 - **Coding: 80/100.** No verified scores found; provisional score based on flagship positioning.
 - **Cost efficiency: 30/100.** Expensive paid model.
-- **Overall Score: 70.8/100.** Powerful flagship model for complex tasks.
+- **Overall Score: 79/100.** Powerful flagship model for complex tasks.
  
 ---
  

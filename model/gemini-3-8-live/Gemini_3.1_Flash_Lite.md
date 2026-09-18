@@ -32,7 +32,7 @@
 - **Multimodal: 95/100.** Industry-leading native multimodal (audio/video).
 - **Coding: 60/100.** Not primarily for coding.
 - **Cost efficiency: 85/100.** Free tier available.
-- **Overall Score: 74.2/100.** Superior conversational multimodal model.
+- **Overall Score: 72/100.** Superior conversational multimodal model.
  
 ---
  

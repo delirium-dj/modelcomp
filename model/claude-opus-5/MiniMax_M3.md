@@ -45,7 +45,7 @@ Coding:
 - **Multimodal: 60/100.** Text + image in.
 - **Coding: 92/100.** Inferred ≥ Opus 4.8.
 - **Cost efficiency: 30/100.** $15/$75 → ~30.
-- **Overall Score: 73/100.** Mean (92+94+70+60+92+30)/6 = 73.0 → 73.
+- **Overall Score: 82/100.** Mean (92+94+70+60+92+30)/6 = 73.0 → 73.
 
 ---
 

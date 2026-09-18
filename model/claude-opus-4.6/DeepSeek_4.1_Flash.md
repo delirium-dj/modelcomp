@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 80/100.** Native text + vision (and document) input with 128K output, but no audio/video input and no non-text output.
 - **Coding: 90/100.** 81.42% SWE-bench Verified and SOTA terminal-agent results, achieved at four tunable effort levels; capped by premium pricing rather than capability.
 - **Cost efficiency: 55/100.** $5/$25 per 1M with a $10/$37.50 above-200K tier and no free option; cached input at $0.50 and a 50%-off Batch API soften but do not change the premium position.
-- **Overall Score: 83/100.** (88 + 90 + 95 + 80 + 90 + 55) / 6 = 83.0 → **83**. Best fit: teams that need maximum agentic-coding reliability and usable 1M-token context and will pay frontier prices.
+- **Overall Score: 89/100.** (88 + 90 + 95 + 80 + 90 + 55) / 6 = 83.0 → **83**. Best fit: teams that need maximum agentic-coding reliability and usable 1M-token context and will pay frontier prices.
 
 ---
 

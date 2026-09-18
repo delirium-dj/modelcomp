@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 20/100.** Lite tier primarily positioned for text; image/audio/video support unconfirmed at same level as Flash; conservative 20 per methodology (text-only or minimal modality = 10–20).
 - **Coding: 42/100.** No public SWE-bench or DeepSWE; Lite positioned as throughput not coding-agent model; provisional lower-mid.
 - **Cost efficiency: 100/100.** $0.10/$0.40 — exceptionally cheap; per methodology ~$0 = 100; $0.10/0.40 is effectively near-free tier pricing; awards 100.
-- **Overall Score: 58/100.** Mean of (42 + 48 + 95 + 20 + 42 + 100) / 6 = 347 / 6 = 57.8 → **58**. Best fit: extreme cost/speed use cases (batch classification, routing); not suitable for deep coding agents or complex reasoning. Model is retiring October 2026.
+- **Overall Score: 49/100.** Mean of (42 + 48 + 95 + 20 + 42 + 100) / 6 = 347 / 6 = 57.8 → **58**. Best fit: extreme cost/speed use cases (batch classification, routing); not suitable for deep coding agents or complex reasoning. Model is retiring October 2026.
 
 ---
 

@@ -32,7 +32,7 @@
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 80/100.** Optimized for ultra-fast agentic coding.
 - **Cost efficiency: 100/100.** Free Zen tier.
-- **Overall Score: 68.3/100.** High-performance, low-latency, free agentic model.
+- **Overall Score: 62/100.** High-performance, low-latency, free agentic model.
  
 ---
  

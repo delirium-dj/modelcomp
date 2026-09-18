@@ -55,7 +55,7 @@ Multimodal / long context:
 - **Multimodal: 85/100.** Text + image + audio + PDF (+ video) in with CC-OCR 61.4 and HarmVideoBench 81.3 (90th pct); text-only output.
 - **Coding: 68/100.** SWE-V 35% (UseRightAI) is weak for 2026; HumanEval 88.5 and the non-comparable SWE-Pro 93.1 (r3/6) suggest better, settling at workhorse level.
 - **Cost efficiency: 95/100.** Rate-limited free tier plus either $0.25/$1.50 or $0.50/$3.00 — cheap under both readings; output-side pricing keeps it off 100.
-- **Overall Score: 80/100.** Mean: (70 + 62 + 97 + 85 + 68 + 95) / 6 = 477/6 = 79.5 → **80**. Best fit: high-volume multimodal budget model — 1M context and free tier make it the default cheap workhorse, not a frontier agent/coder.
+- **Overall Score: 76/100.** Mean: (70 + 62 + 97 + 85 + 68 + 95) / 6 = 477/6 = 79.5 → **80**. Best fit: high-volume multimodal budget model — 1M context and free tier make it the default cheap workhorse, not a frontier agent/coder.
 
 ---
 

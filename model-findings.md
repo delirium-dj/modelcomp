@@ -198,3 +198,4 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 ## Changelog
 
 - 2026-09-17: created log, added all 11 requested names (10 unique models + 1 duplicate note) with signatures.
+- 2026-09-18: v4 methodology — Cost efficiency excluded from Overall Score (now the mean of the five quality dimensions) across all findings files and averages. Per-model entries above remain frozen history under the v1–v3 six-dimension definition.

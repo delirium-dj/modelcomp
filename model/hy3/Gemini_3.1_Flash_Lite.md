@@ -32,7 +32,7 @@
 - **Multimodal: 70/100.** Image support.
 - **Coding: 75/100.** Solid coding MoE.
 - **Cost efficiency: 85/100.** Very affordable MoE pricing.
-- **Overall Score: 75.8/100.** Efficient and capable open-weight MoE.
+- **Overall Score: 74/100.** Efficient and capable open-weight MoE.
 
 ---
 

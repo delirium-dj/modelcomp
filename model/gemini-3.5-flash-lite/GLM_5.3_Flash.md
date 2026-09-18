@@ -51,7 +51,7 @@ Long context:
 - **Multimodal: 85/100.** Full omni input (text/image/audio/video/PDF) but text-only output and no published vision benchmark.
 - **Coding: 76/100.** SWE-Pro 54.2 (beats Gemini 3 Flash) and TB2.1 54 — strong for the price, short of the 60s club.
 - **Cost efficiency: 92/100.** Free tier + $0.30/$2.50 with a $0.03 cache rate; docked for costing ~2.5× its 3.1 Flash-Lite predecessor at list.
-- **Overall Score: 83/100.** Mean: (76 + 72 + 98 + 85 + 76 + 92) / 6 = 499/6 = 83.2 → **83**. Best fit: default cheap 2026 workhorse — high-volume multimodal ingestion and now viable budget agent loops.
+- **Overall Score: 81/100.** Mean: (76 + 72 + 98 + 85 + 76 + 92) / 6 = 499/6 = 83.2 → **83**. Best fit: default cheap 2026 workhorse — high-volume multimodal ingestion and now viable budget agent loops.
 
 ---
 

@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 40/100.** Likely text+image input (standard for Gemini generations). No verified data for this specific version.
 - **Coding: 50/100.** No verified benchmark scores available. Score is provisional and conservative given lack of data.
 - **Cost efficiency: 70/100.** Likely standard Google AI pricing. May have free tier. No verified data for this specific version.
-- **Overall Score: 53/100.** Mean of (50 + 50 + 60 + 40 + 50 + 70) / 6 = 53.3 → **53**. Best-fit recommendation: Gemini 2.5 Flash is likely deprecated/legacy — superseded by Gemini 3.0 Flash, 3.5 Flash, 3.6 Flash, 3.7 Flash, and 3.8 Flash. For new deployments, use the latest Gemini Flash generation (3.8 Flash Overall 91, 3.7 Flash Overall 88, 3.6 Flash Overall 84) for better benchmarks and capabilities. For this specific folder, scores are provisional and conservative due to complete lack of verified benchmark data. This model is likely kept for legacy/compatibility purposes only.
+- **Overall Score: 50/100.** Mean of (50 + 50 + 60 + 40 + 50 + 70) / 6 = 53.3 → **53**. Best-fit recommendation: Gemini 2.5 Flash is likely deprecated/legacy — superseded by Gemini 3.0 Flash, 3.5 Flash, 3.6 Flash, 3.7 Flash, and 3.8 Flash. For new deployments, use the latest Gemini Flash generation (3.8 Flash Overall 91, 3.7 Flash Overall 88, 3.6 Flash Overall 84) for better benchmarks and capabilities. For this specific folder, scores are provisional and conservative due to complete lack of verified benchmark data. This model is likely kept for legacy/compatibility purposes only.
 
 ---
 

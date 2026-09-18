@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 88/100.** Text + image + video + PDF in (audio per repo catalog); text-only output; no published vision benchmark.
 - **Coding: 89/100.** DeepSWE 59.3 + Meta ICB 70.6 + TB2.1 82.9 — strong coding package, short of 1.3's DeepSWE 75.4.
 - **Cost efficiency: 100/100.** Evaluated $0 Contributor free tier (training-data consent); paid $1.25/$4.25 with $0.15 cache noted.
-- **Overall Score: 93/100.** Mean: (92 + 88 + 100 + 88 + 89 + 100) / 6 = 557/6 = 92.8 → **93**. Best fit: near-frontier free fallback for long-horizon coding/agentic work when 1.3 Free is unavailable.
+- **Overall Score: 91/100.** Mean: (92 + 88 + 100 + 88 + 89 + 100) / 6 = 557/6 = 92.8 → **93**. Best fit: near-frontier free fallback for long-horizon coding/agentic work when 1.3 Free is unavailable.
 
 ---
 

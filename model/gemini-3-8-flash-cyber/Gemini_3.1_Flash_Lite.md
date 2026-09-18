@@ -32,7 +32,7 @@
 - **Multimodal: 20/100.** Code/text focused.
 - **Coding: 95/100.** Expert-level performance in security domain.
 - **Cost efficiency: 50/100.** Restricted access (Fairwind).
-- **Overall Score: 70.0/100.** Exceptional specialized security agent.
+- **Overall Score: 74/100.** Exceptional specialized security agent.
  
 ---
  

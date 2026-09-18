@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Complete multimodal input support.
 - **Coding: 84/100.** Strong SWE-bench Verified and LiveCodeBench performance.
 - **Cost efficiency: 95/100.** Extremely low token pricing with free tier access.
-- **Overall Score: 89/100.** High-performance, low-cost multimodal reasoning model.
+- **Overall Score: 88/100.** High-performance, low-cost multimodal reasoning model.
 
 ---
 

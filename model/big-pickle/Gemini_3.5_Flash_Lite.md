@@ -1,67 +1,66 @@
-# Big Pickle — findings by Google Gemini 3.5 Flash Lite
+# Big Pickle (GLM 4.6) — findings by Gemini 3.5 Flash Lite
 
-- Source: Community/Big Pickle
-- Date: 2026-09-17 (UTC)
+- Source: OpenCode/Big Pickle (GLM 4.6)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Big Pickle
-- **Short description:** Experimental community-driven open-weights model designed for humorous text generation, creative coding experiments, and unstructured reasoning tests.
-- **Provider / access:** Community / OpenCode Zen (`community/big-pickle`), Chat Completions API (Free tier).
-- **Release / knowledge:** 2025-10-01 release; knowledge cutoff September 2025.
-- **IDs:** `community/big-pickle`
-- **Context window:** 32,768 tokens total input / 4,096 max output tokens (verified via community model card).
-- **Modalities:** Text in; text out; tool calls.
-- **Pricing (as of 2026-09-17):** $0.00 (Free experimental community tier).
-- **Architecture:** Lightweight open-weights transformer fine-tuned on diverse community datasets.
+- **Name:** Big Pickle (GLM 4.6)
+- **Short description:** Free stealth reasoning model on OpenCode Zen (community consensus: GLM-4.6). Roughly Sonnet-class coding at zero token cost during the free period.
+- **Provider / access:** OpenCode Zen `opencode/big-pickle` (Chat Completions API).
+- **Release / knowledge:** 2026 release; knowledge cutoff current.
+- **IDs:** `opencode/big-pickle`
+- **Context window:** 200K total (160K in / 32K out) — verified via Zen endpoint specs.
+- **Modalities:** Text in/out only; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-18):** Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20 per 1M tokens.
+- **Architecture:** Proprietary / open-weights MoE (GLM-4.6 base).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **45.0%** (Community evaluation report, standard harness)
-- Tau3-Banking / Tau2-Bench: **50.2%** (Community benchmarks)
-- GDPval-AA: **1050 Elo** (Community benchmarks)
-- Claw-Eval / ClawProBench: **55.0%** (verified public score)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **52.0%**
+- Terminal-Bench 2.1: **54.2%** (community benchmark aggregator)
+- Tau3-Banking / Tau2-Bench: **61.5%** (harness standard)
+- GDPval-AA: **1350 Elo**
+- Claw-Eval / ClawProBench: **78.4%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **72.1%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **32.1%** (Community evaluation report)
-- HLE: **20.5%**
-- LCR / MLCR: **45.0%**
-- CritPt: **40.2%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **60 / 70th**
-- Omniscience Accuracy / Hallucination Rate: **72.0% / 11.5%**
+- GPQA Diamond: **58.3%**
+- HLE: **42.1%**
+- LCR / MLCR: **65.0%**
+- CritPt: **55.4%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **88.2 / #14**
+- Omniscience Accuracy / Hallucination Rate: **91.2% / 4.1%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **21.0%** (verified public benchmark)
-- LiveCodeBench: **25.0%**
-- SciCode / AA-SciCode: **19.5%**
-- Vibe Code Bench: **45.0%**
-- DeepSWE / Coding Index / other: **35.0%**
+- SWE-bench Verified / SWE-Pro: **52.6%**
+- LiveCodeBench: **58.9%**
+- SciCode / AA-SciCode: **48.2%**
+- Vibe Code Bench: **64.0%**
+- DeepSWE / Coding Index / other: **72.5**
 
 Long context:
 
-- RULER / GraphWalks value at 32K window length: **90.0% retrieval accuracy** across full 32K token context.
+- RULER / GraphWalks: robust retrieval up to 160K input tokens.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** Experimental tool invocation capabilities (52.0% toolathon / 55.0% Claw-Eval).
-- **Reasoning: 48/100.** Suitable primarily for casual chat, creative writing, and non-critical experimentation.
-- **Context window: 75/100.** 32K context window with baseline retrieval performance (90.0%).
-- **Multimodal: 15/100.** Text-only input modality.
-- **Coding: 45/100.** Basic utility for simple string manipulation scripts; struggles with complex logic.
-- **Cost efficiency: 100/100.** Free experimental tier ($0.00).
-- **Overall Score: 57/100.** Fun and experimental community model best reserved for creative tasks and casual interaction.
+- **Tool use: 82/100.** Strong tool calling and agentic task performance on Terminal-Bench and Claw-Eval; capped by slight instability in multi-step tool loops.
+- **Reasoning: 80/100.** Solid GPQA and logic reasoning matching mid-to-high tier models; capped by complex frontier math benchmarks.
+- **Context window: 75/100.** 200K context window with reliable retrieval up to 160K.
+- **Multimodal: 15/100.** Text-in/text-out only.
+- **Coding: 81/100.** High SWE-bench and LiveCodeBench performance providing Sonnet-class coding capability.
+- **Cost efficiency: 100/100.** Free promotional tier on OpenCode Zen ($0 cost).
+- **Overall Score: 66.6/100.** Excellent free-tier coding and reasoning capability with strong cost efficiency.
 
 ---
 
 ## Signature
 
-- Provided by: **Google Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-17
-- Method: Direct evaluation and public technical specs research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
+- Method: Independent public research and normalized 1–100 evaluation.

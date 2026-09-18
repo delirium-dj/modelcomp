@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 95/100.** Omni-modal input support (text, image, audio, video).
 - **Coding: 78/100.** Strong SWE-Pro and LiveCodeBench performance.
 - **Cost efficiency: 100/100.** Completely free on Zen ($0/1M tokens).
-- **Overall Score: 82/100.** Top-performing free multimodal model for coding and agents.
+- **Overall Score: 79/100.** Top-performing free multimodal model for coding and agents.
 
 ---
 

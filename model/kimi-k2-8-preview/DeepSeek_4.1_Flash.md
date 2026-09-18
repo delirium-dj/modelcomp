@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 60/100.** Text and image input with text/code output, following K3's verified capability set; the video-input claim from one tracker has no Moonshot source and is not counted.
 - **Coding: 78/100.** The model exists to serve Kimi Code and Moonshot positions it near K3 (which reported 67.5% DeepSWE), but no K2.8-specific coding benchmark, parameter count or architecture is published.
 - **Cost efficiency: 90/100.** No per-token charge — it is bundled into an existing Kimi membership, which is excellent for subscribers and worthless to teams needing a standalone API.
-- **Overall Score: 78/100.** (75 + 70 + 95 + 60 + 78 + 90) / 6 = 78.0 → **78**. Best fit: existing Kimi Code subscribers who want more efficient coding help without a K3-tier plan; avoid it if you need a benchmarked, documented or per-token-billed model.
+- **Overall Score: 76/100.** (75 + 70 + 95 + 60 + 78 + 90) / 6 = 78.0 → **78**. Best fit: existing Kimi Code subscribers who want more efficient coding help without a K3-tier plan; avoid it if you need a benchmarked, documented or per-token-billed model.
 
 ---
 

@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 75/100.** Text + image (+ audio per tracked evals) in, text out; no video/PDF documented and no MMMU-class vision score found to argue higher.
 - **Coding: 45/100.** SciCode 19.3 (23rd pct) and TB-Hard 4.5 with no SWE-bench-class result found — execution-tier coding only.
 - **Cost efficiency: 100/100.** Cheapest tracked Gemini rate ($0.10/$0.40) plus a rate-limited free tier — the $0-floor tier of this repo's cost scale.
-- **Overall Score: 70/100.** Mean: (45 + 55 + 97 + 75 + 45 + 100) / 6 = 417/6 = 69.5 → **70**. Best fit: ultra-cheap high-volume triage/summarization with standout hallucination resistance (Vectara HHEM 96.7%, #3/85) — not for agentic or hard coding work.
+- **Overall Score: 63/100.** Mean: (45 + 55 + 97 + 75 + 45 + 100) / 6 = 417/6 = 69.5 → **70**. Best fit: ultra-cheap high-volume triage/summarization with standout hallucination resistance (Vectara HHEM 96.7%, #3/85) — not for agentic or hard coding work.
 
 ---
 

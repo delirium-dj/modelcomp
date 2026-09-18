@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 45/100.** Verified config is text-only; oxalpha.com claims image understanding — unresolved conflict, scored mid-way.
 - **Coding: 90/100.** 80% mean vs frontier reference models (Fable 5, GLM-5.3, GPT-5.6-sol, Grok-4.6) is a standout result even at n=10.
 - **Cost efficiency: 100/100.** $0 on Zen and oxalpha.com; the real cost is provenance risk, not tokens.
-- **Overall Score: 79/100.** Mean: (82 + 78 + 80 + 45 + 90 + 100) / 6 = 475/6 = 79.2 → **79**. Best fit: a free stealth coding experiment with exceptional early results — great for experiments, not for confidential code until attribution and terms are auditable.
+- **Overall Score: 75/100.** Mean: (82 + 78 + 80 + 45 + 90 + 100) / 6 = 475/6 = 79.2 → **79**. Best fit: a free stealth coding experiment with exceptional early results — great for experiments, not for confidential code until attribution and terms are auditable.
 
 ---
 

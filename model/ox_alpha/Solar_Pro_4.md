@@ -63,7 +63,7 @@ Long context:
 - **Multimodal: 85/100.** Same as GLM-5.3 Flash. Text, image, video, PDF input; text and tool-calls output. No audio I/O.
 - **Coding: 85/100.** Same as GLM-5.3 Flash. Terminal-Bench 2.1 84.3%, DeepSWE v1.1 63.4%, Z.ai Code Bench v1.0 29.0% (close to Opus 4.8's 29.5%).
 - **Cost efficiency: 95/100.** Same as GLM-5.3 Flash. $0.15/$0.50 per 1M (launch promotion halves through Sep 9, 2026). MIT license free self-hosting.
-- **Overall Score: 89/100.** Mean of (88 + 80 + 100 + 85 + 85 + 95) / 6 = 88.8 → **89**. Same as GLM-5.3 Flash. Best-fit recommendation: Same as GLM-5.3 Flash — best value for self-hosting teams needing multimodal agentic coding capabilities with MIT-licensed open weights. Ox Alpha is simply the codename for GLM-5.3 Flash — same model, same benchmarks, same pricing.
+- **Overall Score: 88/100.** Mean of (88 + 80 + 100 + 85 + 85 + 95) / 6 = 88.8 → **89**. Same as GLM-5.3 Flash. Best-fit recommendation: Same as GLM-5.3 Flash — best value for self-hosting teams needing multimodal agentic coding capabilities with MIT-licensed open weights. Ox Alpha is simply the codename for GLM-5.3 Flash — same model, same benchmarks, same pricing.
 
 ---
 

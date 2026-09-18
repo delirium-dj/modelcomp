@@ -32,7 +32,7 @@
 - **Multimodal: 70/100.** Includes image/audio/PDF support.
 - **Coding: 60/100.** Basic coding assistance.
 - **Cost efficiency: 100/100.** Excellent free tier.
-- **Overall Score: 72.5/100.** Fast, efficient, long-context-capable lightweight model.
+- **Overall Score: 67/100.** Fast, efficient, long-context-capable lightweight model.
  
 ---
  

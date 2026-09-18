@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Comprehensive text, image, audio, video, and PDF input support.
 - **Coding: 60/100.** Solid general coding performance.
 - **Cost efficiency: 95/100.** Highly affordable with a generous free tier.
-- **Overall Score: 78/100.** Versatile, cost-effective multimodal workhorse.
+- **Overall Score: 74/100.** Versatile, cost-effective multimodal workhorse.
 
 ---
 

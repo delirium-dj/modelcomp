@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 82/100.** Confirmed text + image in; audio/video/PDF claims unverified this pass; text-only output.
 - **Coding: 88/100.** TB2.1 84.3 plus first-party Codex integration; no SWE-bench-class number published to argue higher.
 - **Cost efficiency: 55/100.** No free tier and $2.00/$12.00 list — an order of magnitude above open-weights tiers; only the 20% cut and GPT-5.5-class quality keep it mid-tier.
-- **Overall Score: 83/100.** Mean: (93 + 82 + 100 + 82 + 88 + 55) / 6 = 500/6 = 83.3 → **83**. Best fit: the OpenAI-locked production workhorse — excellent agents and 1.05M context, but per-dollar it loses to Gemini 3.7/3.8 Flash and the free open tiers.
+- **Overall Score: 89/100.** Mean: (93 + 82 + 100 + 82 + 88 + 55) / 6 = 500/6 = 83.3 → **83**. Best fit: the OpenAI-locked production workhorse — excellent agents and 1.05M context, but per-dollar it loses to Gemini 3.7/3.8 Flash and the free open tiers.
 
 ---
 

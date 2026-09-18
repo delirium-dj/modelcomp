@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Wide multimodal input coverage.
 - **Coding: 62/100.** Solid utility for routine programming tasks.
 - **Cost efficiency: 98/100.** Extremely cost-effective with active free tier.
-- **Overall Score: 78/100.** Low-latency, cost-effective multimodal workhorse.
+- **Overall Score: 75/100.** Low-latency, cost-effective multimodal workhorse.
 
 ---
 

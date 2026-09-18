@@ -53,7 +53,7 @@ Long context:
 - **Multimodal: 85/100.** Text + image in, text out; no audio/video.
 - **Coding: 93/100.** SWE-bench Verified 88.1% (#2) + SWE-bench Pro 65.0% (#1) — elite but below Fable 5 (95.0 SWE-V, 84.3 TB) and Kimi K3 (TB 84, DeepSWE 64).
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing, ~2.5× the median output price AA cites ($10); 90% cache discount (≈$3.85–$4.08 blended) is the only relief; no free route. Same cost point as Opus 4.6 with the line now deprecated.
-- **Overall Score: 79/100.** Mean: (92 + 85 + 100 + 85 + 93 + 20) / 6 = 475/6 = 79.2 → **79**. Best fit: a proven enterprise-grade agentic coder with top-of-board SWE-Pro and 1M context — but AA deprecates it for Claude Opus 5 (max), so choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
+- **Overall Score: 91/100.** Mean: (92 + 85 + 100 + 85 + 93 + 20) / 6 = 475/6 = 79.2 → **79**. Best fit: a proven enterprise-grade agentic coder with top-of-board SWE-Pro and 1M context — but AA deprecates it for Claude Opus 5 (max), so choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
 
 ---
 

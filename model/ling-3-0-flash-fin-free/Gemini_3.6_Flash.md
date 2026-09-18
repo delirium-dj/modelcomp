@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 72/100.** Competent programming and data manipulation capability.
 - **Cost efficiency: 100/100.** Free tier access ($0/1M tokens).
-- **Overall Score: 66/100.** Specialized free model for financial and analytical code.
+- **Overall Score: 59/100.** Specialized free model for financial and analytical code.
 
 ---
 

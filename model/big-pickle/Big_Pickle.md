@@ -45,7 +45,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in/out, no attachments.
 - **Coding: 60/100.** Community SWE-Atlas 50.8% hints mid-pack coding; anecdotal "Sonnet-class" claims have no official bench backing.
 - **Cost efficiency: 100/100.** $0/$0/$0 for a limited time.
-- **Overall Score: 56/100.** Mean of above. A zero-cost low-information model: fine as a free fallback, treat the 50.8% Codebase-QnA as the strongest verifiable datapoint.
+- **Overall Score: 48/100.** Mean of above. A zero-cost low-information model: fine as a free fallback, treat the 50.8% Codebase-QnA as the strongest verifiable datapoint.
 
 ---
 

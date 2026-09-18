@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 40/100.** Likely text and image input. Lite variants may have reduced multimodal capabilities.
 - **Coding: 45/100.** No verified coding benchmarks available. Score is provisional and conservative.
 - **Cost efficiency: 65/100.** Likely standard Google AI pricing. Retired May 2027. May have free tier before retirement.
-- **Overall Score: 49/100.** Mean of (45 + 45 + 55 + 40 + 45 + 65) / 6 = 48.3 → **48**. Best-fit recommendation: Gemini 3.1 Flash Lite is RETIRED (May 2027) and superseded by Gemini 3.5 Flash Lite (Overall 83, GPQA 86.9%, TB2.1 54%, OSWorld 74.0%, $0.30/$2.50, 1M context). For any deployment, use Gemini 3.5 Flash Lite instead — it offers better benchmarks, 1M context, and is the current model. This model is kept for legacy/compatibility purposes only. Scores are provisional and conservative due to retirement status and lack of verified benchmark data.
+- **Overall Score: 46/100.** Mean of (45 + 45 + 55 + 40 + 45 + 65) / 6 = 48.3 → **48**. Best-fit recommendation: Gemini 3.1 Flash Lite is RETIRED (May 2027) and superseded by Gemini 3.5 Flash Lite (Overall 83, GPQA 86.9%, TB2.1 54%, OSWorld 74.0%, $0.30/$2.50, 1M context). For any deployment, use Gemini 3.5 Flash Lite instead — it offers better benchmarks, 1M context, and is the current model. This model is kept for legacy/compatibility purposes only. Scores are provisional and conservative due to retirement status and lack of verified benchmark data.
 
 ---
 

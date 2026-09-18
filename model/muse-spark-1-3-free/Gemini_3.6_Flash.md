@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 85/100.** Comprehensive text, image, video, and PDF input.
 - **Coding: 95/100.** DeepSWE 75.4% surpassing Opus 74.0%.
 - **Cost efficiency: 100/100.** Free Contributor tier access ($0/1M tokens).
-- **Overall Score: 95/100.** Primary recommended free model for autonomous software engineering.
+- **Overall Score: 93/100.** Primary recommended free model for autonomous software engineering.
 
 ---
 

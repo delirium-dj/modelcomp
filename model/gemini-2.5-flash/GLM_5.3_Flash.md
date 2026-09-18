@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 88/100.** Text + image + audio + video in with MMMU 80 — omni input tier; text-only output and no documented PDF input keep it below the 90–95 omni scorers.
 - **Coding: 70/100.** SWE-bench Verified 60% is workhorse-class and Terminal-Bench Hard 13.6 is weak; no LiveCodeBench/SWE-Pro/SciCode numbers found to argue higher.
 - **Cost efficiency: 95/100.** Rate-limited free tier on AI Studio/Zen plus a very cheap paid rate ($0.30/$2.50, 90% cache → ≈$0.33 blended); only output-side $2.50 keeps it from 100.
-- **Overall Score: 81/100.** Mean: (65 + 68 + 97 + 88 + 70 + 95) / 6 = 483/6 = 80.5 → **81**. Best fit: budget multimodal workhorse for high-volume chat/vision — not for hard agentic or coding runs on 2026 benchmarks.
+- **Overall Score: 78/100.** Mean: (65 + 68 + 97 + 88 + 70 + 95) / 6 = 483/6 = 80.5 → **81**. Best fit: budget multimodal workhorse for high-volume chat/vision — not for hard agentic or coding runs on 2026 benchmarks.
 
 ---
 

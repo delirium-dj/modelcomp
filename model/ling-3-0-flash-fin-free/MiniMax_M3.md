@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input. Baseline 15 per methodology.
 - **Coding: 72/100.** Base Ling coding proxies (BenchLM aggregate); Fin variant primarily a finance specialist. Cap = no Fin-specific SWE/LiveCode/SciCode numbers.
 - **Cost efficiency: 100/100.** $0/$0 Zen Free.
-- **Overall Score: 66/100.** Mean (68+70+72+15+72+100)/6 = 66.2 → 66. Best fit: niche finance + efficient execution.
+- **Overall Score: 59/100.** Mean (68+70+72+15+72+100)/6 = 66.2 → 66. Best fit: niche finance + efficient execution.
 
 ---
 

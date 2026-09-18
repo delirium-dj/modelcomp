@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 85/100.** Text, image, audio, video and PDF input in a single call with text output — one of the broadest input matrices available at this price; no media generation.
 - **Coding: 60/100.** LiveCodeBench 69.5% is decent for the class, but SciCode 39.4% and no published SWE-bench number keep it out of agentic-coding contention.
 - **Cost efficiency: 85/100.** $0.30/$2.50 per 1M is cheap in absolute terms and a free AI Studio tier exists; the missing cached-input discount in this listing and the availability of newer, better-value Flash models hold it below 90.
-- **Overall Score: 71/100.** (35 + 68 + 95 + 85 + 60 + 85) / 6 = 71.3 → **71**. Best fit: high-volume multimodal ingestion and cheap long-context analysis where agentic tool use is not required.
+- **Overall Score: 69/100.** (35 + 68 + 95 + 85 + 60 + 85) / 6 = 71.3 → **71**. Best fit: high-volume multimodal ingestion and cheap long-context analysis where agentic tool use is not required.
 
 ---
 

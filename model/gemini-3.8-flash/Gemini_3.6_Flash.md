@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Complete multimodal input coverage.
 - **Coding: 90/100.** SOTA coding score on SWE-bench Verified and LiveCodeBench.
 - **Cost efficiency: 95/100.** Unbeatable performance-to-cost ratio.
-- **Overall Score: 92/100.** Frontier-class efficiency flagship model.
+- **Overall Score: 91/100.** Frontier-class efficiency flagship model.
 
 ---
 

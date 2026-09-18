@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 93/100.** AA Coding Index 74.8, SciCode 59, DeepSWE 66.9, CyberGym 84.5 — just under Muse Spark 1.3's package.
 - **Cost efficiency: 100/100.** Evaluated on the $0 Zen promotional tier (paid $1.40/$4.40 and MIT-free self-host alternatives noted).
-- **Overall Score: 82/100.** Mean: (95 + 90 + 100 + 15 + 93 + 100) / 6 = 493/6 = 82.2 → **82**. Best fit: the default free coding/agent flagship when multimodal isn't needed; the GLM-5.3 license (not MIT) is the main self-host caveat.
+- **Overall Score: 79/100.** Mean: (95 + 90 + 100 + 15 + 93 + 100) / 6 = 493/6 = 82.2 → **82**. Best fit: the default free coding/agent flagship when multimodal isn't needed; the GLM-5.3 license (not MIT) is the main self-host caveat.
 
 ---
 

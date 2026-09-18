@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 82/100.** Text + image + video + audio + PDF in + computer use; no image/audio generation out; computer use pushes toward 85; consistent 82.
 - **Coding: 76/100.** DeepSWE 65.3%, FrontierCode 43.6%, TB2.1 ~81.6%; near-frontier coding agent; DeepSWE frontier ref 74%+ = 90–100 not yet met; scored 76.
 - **Cost efficiency: 95/100.** $0.75/$3.75 — half the cost of 3.6 Flash at higher capability; per methodology ~$0.60/$2.20=~92 and lower; scores 95.
-- **Overall Score: 86/100.** Mean of (80 + 88 + 95 + 82 + 76 + 95) / 6 = 516 / 6 = 86.0 → **86**. Best fit: near-frontier Flash performance with strong reasoning (GPQA 94.5%) and competitive coding; optimal for agentic workflows where cost and speed matter; now superseded by 3.8 Flash.
+- **Overall Score: 84/100.** Mean of (80 + 88 + 95 + 82 + 76 + 95) / 6 = 516 / 6 = 86.0 → **86**. Best fit: near-frontier Flash performance with strong reasoning (GPQA 94.5%) and competitive coding; optimal for agentic workflows where cost and speed matter; now superseded by 3.8 Flash.
 
 ---
 

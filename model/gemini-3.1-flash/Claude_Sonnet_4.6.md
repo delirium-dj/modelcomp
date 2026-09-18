@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 82/100.** Text + image + video + audio + PDF in; no generation out; consistent with 2.5 Flash multimodal profile at 82.
 - **Coding: 65/100.** ~70–78% SWE-bench provisional; no DeepSWE/LiveCodeBench; mid-upper coding range.
 - **Cost efficiency: 93/100.** Flash standard estimated between Flash-Lite ($0.25/$1.50) and Pro (higher); estimated ~$0.40–$0.75/$2.50–$4.00 range; highly cost-efficient for capability level; scores 93 provisional.
-- **Overall Score: 80/100.** Mean of (65 + 80 + 95 + 82 + 65 + 93) / 6 = 480 / 6 = 80.0 → **80**. Best fit: strong multimodal + reasoning Flash-tier model; most benchmarks are provisional interpolations — treat as indicative pending official 3.1 Flash standalone benchmarks.
+- **Overall Score: 77/100.** Mean of (65 + 80 + 95 + 82 + 65 + 93) / 6 = 480 / 6 = 80.0 → **80**. Best fit: strong multimodal + reasoning Flash-tier model; most benchmarks are provisional interpolations — treat as indicative pending official 3.1 Flash standalone benchmarks.
 
 ---
 

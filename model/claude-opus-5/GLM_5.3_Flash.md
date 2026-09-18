@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 82/100.** Text + vision in, text out; no PDF/media limits documented this pass.
 - **Coding: 92/100.** Top-of-table agentic coding across three harnesses; the missing SWE-bench rows keep it under 95.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing with no free API route — same expensive tier as Opus 4.6/4.8; Fast mode doubles it.
-- **Overall Score: 80/100.** Mean: (96 + 88 + 100 + 82 + 92 + 20) / 6 = 478/6 = 79.7 → **80**. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows; Fable 5.1 remains the capability ceiling at 2× the price.
+- **Overall Score: 92/100.** Mean: (96 + 88 + 100 + 82 + 92 + 20) / 6 = 478/6 = 79.7 → **80**. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows; Fable 5.1 remains the capability ceiling at 2× the price.
 
 ---
 

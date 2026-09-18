@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 85/100.** Strong input (text/image/video/PDF/audio), text-only output.
 - **Coding: 95/100.** DeepSWE 75.4 SOTA + SciCode 59 + Coding Index 76.3.
 - **Cost efficiency: 100/100.** $0 free-impact tier; Contributor paid is $0.10/$0.20 — very cheap vs frontier.
-- **Overall Score: 95/100.** Default for long-horizon agentic/coding when the free tier is up.
+- **Overall Score: 93/100.** Default for long-horizon agentic/coding when the free tier is up.
 
 ---
 

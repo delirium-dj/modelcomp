@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Capable text and image processing.
 - **Coding: 88/100.** High performance in coding benchmarks.
 - **Cost efficiency: 75/100.** Excellent price-performance ratio compared to flagship models.
-- **Overall Score: 84/100.** A highly efficient, strong reasoning model ideal for rapid engineering.
+- **Overall Score: 86/100.** A highly efficient, strong reasoning model ideal for rapid engineering.
 
 ---
 

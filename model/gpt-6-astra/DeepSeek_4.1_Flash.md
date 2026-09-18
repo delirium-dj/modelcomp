@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 82/100.** Text and image input with leading computer-use vision scores; no audio or video input and text-only output.
 - **Coding: 90/100.** Terminal-Bench 4.0 57.7% and DeepSWE 74.1% are elite, but the deliberate omission of SWE-bench Verified/Pro leaves the strongest standard coding comparison unverified.
 - **Cost efficiency: 45/100.** $10/$50 per 1M (2× Sol) with a 2× input surcharge past 272K tokens and only a 90%-off cache read for relief — among the pricier frontier options tracked here.
-- **Overall Score: 83/100.** (94 + 94 + 95 + 82 + 90 + 45) / 6 = 83.3 → **83**. Best fit: agentic coding, computer-use automation and authorized security work where Terminal-Bench-class performance matters more than general chat economics.
+- **Overall Score: 91/100.** (94 + 94 + 95 + 82 + 90 + 45) / 6 = 83.3 → **83**. Best fit: agentic coding, computer-use automation and authorized security work where Terminal-Bench-class performance matters more than general chat economics.
 
 ---
 

@@ -53,7 +53,7 @@ Long context:
 - **Multimodal: 82/100.** Text + image + video + audio + PDF in (blog.google, verdent.ai); MMMU Pro 76.8% anchors multimodal understanding; no non-text output generation; scores 82.
 - **Coding: 48/100.** No SWE-bench or DeepSWE public numbers; Lite tier not positioned as primary coding agent; Arena Elo only partial signal; scored below mid reflecting missing data and Lite positioning.
 - **Cost efficiency: 97/100.** $0.25/$1.50 — very cheap; per methodology ~$0.10/$0.20 = 97–99; $0.25/$1.50 scores 97.
-- **Overall Score: 75/100.** Mean of (52 + 76 + 95 + 82 + 48 + 97) / 6 = 450 / 6 = 75.0 → **75**. Best fit: excellent reasoning per dollar; ideal for high-volume, reasoning-light pipelines; limited data on coding agents.
+- **Overall Score: 71/100.** Mean of (52 + 76 + 95 + 82 + 48 + 97) / 6 = 450 / 6 = 75.0 → **75**. Best fit: excellent reasoning per dollar; ideal for high-volume, reasoning-light pipelines; limited data on coding agents.
 
 ---
 

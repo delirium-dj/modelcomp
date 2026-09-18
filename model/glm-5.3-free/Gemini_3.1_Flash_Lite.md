@@ -32,7 +32,7 @@
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 85/100.** Optimized for agentic software development.
 - **Cost efficiency: 100/100.** Free Zen tier.
-- **Overall Score: 72.5/100.** Powerful, free, flagship agentic model.
+- **Overall Score: 67/100.** Powerful, free, flagship agentic model.
  
 ---
  

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 70/100.** Good LiveCodeBench (72%) and solid coding performance.
 - **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 66/100.** Reliable zero-cost model for daily coding and agent tasks.
+- **Overall Score: 59/100.** Reliable zero-cost model for daily coding and agent tasks.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 88/100.** SWE-Pro 58.4 (mid-high) + TB2.0 63.5/69.0 frontier lift.
 - **Cost efficiency: 75/100.** Paid $1.40/$4.40 → methodology ~75 (between $0.60/$2.20=92 and $1.25/$4.25=88, slightly lower than the table-anchor; conservative 75 reflecting no $0 promo).
-- **Overall Score: 69/100.** Mean (85+80+70+15+88+75)/6 = 68.8 → 69. Best fit: top paid open coding/long-horizon pick.
+- **Overall Score: 68/100.** Mean (85+80+70+15+88+75)/6 = 68.8 → 69. Best fit: top paid open coding/long-horizon pick.
 
 ---
 

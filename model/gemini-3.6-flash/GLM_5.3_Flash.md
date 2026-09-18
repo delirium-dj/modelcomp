@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 88/100.** Full omni input incl. PDF and computer-use vision; text-only output; no published vision benchmark.
 - **Coding: 89/100.** SWE-Pro 58.7 + DeepSWE 49 (2.6× its predecessor) + MLE-Bench 63.9 + TB2.1 78 — the strongest coding package seen at Flash tier.
 - **Cost efficiency: 80/100.** Free tier plus $1.50/$7.50; the 17–65% output-token reduction and $0.15 cache take real edge off the bill, but paid list is still well above open-weights tiers.
-- **Overall Score: 87/100.** Mean: (93 + 76 + 98 + 88 + 89 + 80) / 6 = 524/6 = 87.3 → **87**. Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this is the value pick of the 3.x Flash line.
+- **Overall Score: 89/100.** Mean: (93 + 76 + 98 + 88 + 89 + 80) / 6 = 524/6 = 87.3 → **87**. Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this is the value pick of the 3.x Flash line.
 
 ---
 

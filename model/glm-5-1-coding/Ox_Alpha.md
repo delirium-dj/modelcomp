@@ -66,7 +66,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 88/100.** SWE-Bench Pro 58.4% was release-time SOTA (first-party harness), NL2Repo 42.7% and CyberGym 68.7% (best-in-set) show top-tier open-weight coding; no third-party verification, and no LiveCodeBench/SciCode/Vibe numbers were found, which caps it below the 90–100 frontier band.
 - **Cost efficiency: 85/100.** No free ID exists on Zen; scored on the verified paid rate $1.40/$4.40 per 1M (slightly above the ~88 reference point for $1.25/$4.25 tiers). MIT open weights mean cost can drop to $0 via self-hosting, which partially offsets the paid-API score.
-- **Overall Score: 71/100.** (85 + 80 + 70 + 15 + 88 + 85) / 6 = 70.5 → **71**. Best fit: top paid open-weight pick for long-horizon agentic coding when a free tier is not required; if self-hosting is an option, the cost story improves dramatically.
+- **Overall Score: 68/100.** (85 + 80 + 70 + 15 + 88 + 85) / 6 = 70.5 → **71**. Best fit: top paid open-weight pick for long-horizon agentic coding when a free tier is not required; if self-hosting is an option, the cost story improves dramatically.
 
 ---
 

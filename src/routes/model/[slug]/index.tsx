@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
-import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS } from "../../../data/models";
+import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
 
@@ -55,6 +55,10 @@ export default component$(() => {
   const overallStats = colStats((s) => s.overall);
   const dimStats = {} as Record<DimensionKey, ColStats>;
   for (const d of DIMENSIONS) dimStats[d.key] = colStats((s) => s[d.key]);
+  // Ratings-table column order, independent of hexagon DIMENSIONS order:
+  // Context, Reason, Multi, Tool, Code, Cost last (Cost = independent stat).
+  const TABLE_DIM_ORDER: DimensionKey[] = ["context", "reasoning", "multimodal", "tool", "coding", "cost"];
+  const tableDims = TABLE_DIM_ORDER.map((key) => DIMENSIONS.find((d) => d.key === key)!);
   const hl = (value: number, st: ColStats, label: string, bold: boolean) => {
     const isBest = st.best !== null && value === st.best;
     const isWorst = st.worst !== null && value === st.worst && value !== st.best;
@@ -195,7 +199,7 @@ export default component$(() => {
                     Overall{sortKey.value === "overall" ? (sortDir.value === 1 ? " ▲" : " ▼") : ""}
                   </button>
                 </th>
-                {DIMENSIONS.map((d) => (
+                {tableDims.map((d) => (
                   <th
                     key={d.key}
                     scope="col"
@@ -225,15 +229,29 @@ export default component$(() => {
             <tbody>
               {sortedRatings.map((r) => {
                 const o = hl(r.scores.overall, overallStats, "overall", true);
+                // Link the agent name to that agent's own model page when tracked;
+                // otherwise render plain text (never a dead link).
+                const agentSlug = AGENT_MODEL_SLUG[r.key];
+                const agentModel = agentSlug ? MODELS.find((m) => m.slug === agentSlug) : undefined;
                 return (
                   <tr key={r.key} class="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
-                    <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700 dark:text-slate-300">
-                      {r.label}
-                    </th>
+                  <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700 dark:text-slate-300">
+                    {agentModel ? (
+                      <a
+                        href={`/model/${agentModel.slug}/`}
+                        title={`Open ${agentModel.name} page`}
+                        class="hover:text-indigo-600 dark:hover:text-indigo-400"
+                      >
+                        {r.label}
+                      </a>
+                    ) : (
+                      r.label
+                    )}
+                  </th>
                     <td title={o.title} class={o.cls}>
                       {r.scores.overall}
                     </td>
-                    {DIMENSIONS.map((d) => {
+                    {tableDims.map((d) => {
                       const c = hl(r.scores[d.key], dimStats[d.key], d.label, false);
                       return (
                         <td key={d.key} title={c.title} class={c.cls}>

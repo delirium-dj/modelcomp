@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 85/100.** Comprehensive support for text, image, audio, and video inputs.
 - **Coding: 80/100.** Capable coding assistant for routine engineering tasks.
 - **Cost efficiency: 95/100.** Designed for high throughput and extremely low cost-per-token.
-- **Overall Score: 86/100.** A highly recommended, cost-efficient, and performant model for lightweight agentic tasks.
+- **Overall Score: 84/100.** A highly recommended, cost-efficient, and performant model for lightweight agentic tasks.
 
 ---
 

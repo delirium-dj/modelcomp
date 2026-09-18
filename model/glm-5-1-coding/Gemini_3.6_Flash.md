@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 88/100.** Exceptional SWE-Pro performance (58.4%) and high LiveCodeBench.
 - **Cost efficiency: 75/100.** Paid pricing ($1.40/$4.40 per 1M tokens).
-- **Overall Score: 69/100.** Top open-weights choice for heavy coding and repo-scale edits.
+- **Overall Score: 68/100.** Top open-weights choice for heavy coding and repo-scale edits.
 
 ---
 

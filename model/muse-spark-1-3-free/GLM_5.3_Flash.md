@@ -51,7 +51,7 @@ Long context:
 - **Multimodal: 85/100.** Text + image + video + documents in; text-only output and no audio modality.
 - **Coding: 95/100.** DeepSWE 75.4 (above Opus-class), SWE-Atlas 59.4, SciCode 58.8, 25% token savings on coding work.
 - **Cost efficiency: 100/100.** Evaluated $0 free Contributor tier (training-data consent); $0.55/task efficiency-frontier economics even paid.
-- **Overall Score: 95/100.** Mean: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 567/6 = 94.5 → **95**. Best fit: the default pick for long-horizon coding/agentic work whenever the free tier is available.
+- **Overall Score: 93/100.** Mean: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 567/6 = 94.5 → **95**. Best fit: the default pick for long-horizon coding/agentic work whenever the free tier is available.
 
 ---
 

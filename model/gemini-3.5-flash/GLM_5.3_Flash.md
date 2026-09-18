@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 88/100.** Text + image + audio + video + PDF in — the full omni-input set — but text-only output and no published vision benchmark.
 - **Coding: 86/100.** SWE-Pro 55.1 (above 3.1 Pro, below Opus 4.7) plus TB2.1 76.2 on the Terminus-2 harness is a genuinely strong agentic-coding pair.
 - **Cost efficiency: 78/100.** Free tier exists, but the paid rate ($1.50/$9.00 with thinking tokens billed as output) is well above open-weights paid tier pricing (e.g. GLM-5.1 $1.40/$4.40).
-- **Overall Score: 86/100.** Mean: (90 + 75 + 97 + 88 + 86 + 78) / 6 = 514/6 = 85.7 → **86**. Best fit: the 2026 agent/coding workhorse — frontier-class tool loops at ~280 tok/s; check 3.6/3.7/3.8 first since this is now last-gen.
+- **Overall Score: 87/100.** Mean: (90 + 75 + 97 + 88 + 86 + 78) / 6 = 514/6 = 85.7 → **86**. Best fit: the 2026 agent/coding workhorse — frontier-class tool loops at ~280 tok/s; check 3.6/3.7/3.8 first since this is now last-gen.
 
 ---
 

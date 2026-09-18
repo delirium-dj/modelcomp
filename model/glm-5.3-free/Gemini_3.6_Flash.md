@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 90/100.** High LiveCodeBench (86.0%) and SOTA open-weights SWE-Pro score (66.2%).
 - **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 75/100.** Exceptional free open-weights model for autonomous software engineering.
+- **Overall Score: 70/100.** Exceptional free open-weights model for autonomous software engineering.
 
 ---
 

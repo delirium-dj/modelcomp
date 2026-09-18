@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 85/100.** Text + image in, text out; no audio/video.
 - **Coding: 87/100.** SWE-bench Verified 80.2% (10-trial average, with a prompt modification) — mid-frontier, at parity with its own successor Sonnet 5 (80.4%) and far from Fable 5's 95.0%; instruction-following/consistency gains are qualitative.
 - **Cost efficiency: 40/100.** $3/$15 — 60% of Opus 4.6's price point, still ~4–10× the paid open-model tier ($0.30–$1.40 in) in this repo; 90% cache discount (blended $2.31) helps. Paid API; the "Free plan" access is chat-product usage, not an API free tier.
-- **Overall Score: 80/100.** Mean: (88 + 82 + 95 + 85 + 87 + 40) / 6 = 477/6 = 79.5 → **80**. Best fit: the value play of the 4.6 generation — Opus-class agentic/computer-use behavior at Sonnet pricing; superseded by Sonnet 5, so pick it for existing 4.6-pinned stacks or cheaper 1M-beta needs.
+- **Overall Score: 87/100.** Mean: (88 + 82 + 95 + 85 + 87 + 40) / 6 = 477/6 = 79.5 → **80**. Best fit: the value play of the 4.6 generation — Opus-class agentic/computer-use behavior at Sonnet pricing; superseded by Sonnet 5, so pick it for existing 4.6-pinned stacks or cheaper 1M-beta needs.
 
 ---
 

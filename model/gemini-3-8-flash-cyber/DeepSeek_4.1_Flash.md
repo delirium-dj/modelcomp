@@ -53,7 +53,7 @@ Long context:
 - **Multimodal: 15/100.** Text and code only — the image, video and audio ingestion of mainline Gemini 3.8 Flash is not advertised for this variant.
 - **Coding: 85/100.** Patch generation at 47.2% Pass@1 judged on whether the weakness is actually resolved, plus 20-language discovery coverage and Chrome Security's 2.6× patch claim; no standard software-engineering benchmark exists.
 - **Cost efficiency: 50/100.** No published price and no self-serve path — cost is negotiated inside the Fairwind Program, so value cannot be assessed from the outside; the score reflects gated access rather than a rate.
-- **Overall Score: 67/100.** (90 + 70 + 92 + 15 + 85 + 50) / 6 = 67.0 → **67**. Best fit: government, critical-infrastructure and large software-maintainer security teams doing continuous vulnerability triage and patching; everyone else should use mainline Gemini 3.8 Flash.
+- **Overall Score: 70/100.** (90 + 70 + 92 + 15 + 85 + 50) / 6 = 67.0 → **67**. Best fit: government, critical-infrastructure and large software-maintainer security teams doing continuous vulnerability triage and patching; everyone else should use mainline Gemini 3.8 Flash.
 
 ---
 

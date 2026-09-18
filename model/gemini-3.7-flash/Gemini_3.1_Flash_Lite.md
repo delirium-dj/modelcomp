@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 94/100.** Outstanding multimodal performance.
 - **Coding: 92/100.** Exceptional coding assistant, highly reliable for complex software engineering.
 - **Cost efficiency: 75/100.** Balanced cost-performance for flagship-level Flash capabilities.
-- **Overall Score: 90/100.** A top-tier, high-intelligence Flash model designed for complex production-grade agentic tasks.
+- **Overall Score: 92/100.** A top-tier, high-intelligence Flash model designed for complex production-grade agentic tasks.
 
 ---
 

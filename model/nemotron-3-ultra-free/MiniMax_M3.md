@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 20/100.** Text-only in practice for free tier; mild lift to 20 per methodology baseline text-only 15 + light claims.
 - **Coding: 80/100.** SWE-bench 71.9 (mid-high), TB2.1 56.4 lifts agentic coding.
 - **Cost efficiency: 100/100.** $0/$0 Zen Free.
-- **Overall Score: 75/100.** Mean (78+75+97+20+80+100)/6 = 75.0 → 75. Best fit: best open orchestration/fast long-agent pick with strong honesty (low hallu).
+- **Overall Score: 70/100.** Mean (78+75+97+20+80+100)/6 = 75.0 → 75. Best fit: best open orchestration/fast long-agent pick with strong honesty (low hallu).
 
 ---
 

@@ -32,7 +32,7 @@
 - **Multimodal: 70/100.** Includes image support.
 - **Coding: 90/100.** Strong terminal-bench results.
 - **Cost efficiency: 90/100.** Very aggressively priced.
-- **Overall Score: 85.8/100.** Exceptional performance-to-cost ratio for agentic tasks.
+- **Overall Score: 85/100.** Exceptional performance-to-cost ratio for agentic tasks.
  
 ---
  

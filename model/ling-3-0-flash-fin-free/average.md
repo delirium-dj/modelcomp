@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 66.1/100.** Mean of 10 reporting sources.
-- **Reasoning: 69.8/100.** Mean of 10 reporting sources.
-- **Context window: 73.7/100.** Mean of 10 reporting sources.
+- **Tool use: 66.8/100.** Mean of 10 reporting sources.
+- **Reasoning: 70.6/100.** Mean of 10 reporting sources.
+- **Context window: 73.5/100.** Mean of 10 reporting sources.
 - **Multimodal: 17.5/100.** Mean of 10 reporting sources.
-- **Coding: 67.6/100.** Mean of 10 reporting sources.
+- **Coding: 69/100.** Mean of 10 reporting sources.
 - **Cost efficiency: 99.5/100.** Mean of 10 reporting sources.
-- **Overall Score: 65.7/100.** Mean of source Overall scores.
+- **Overall Score: 59.4/100.** Mean of source Overall scores.
 
 ---
 

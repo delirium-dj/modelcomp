@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 90/100.** Text + image + video in; no non-text out → 90.
 - **Coding: 88/100.** DeepSWE 59.3% (mid-frontier), TB 82.9% lifts. Cap = no SciCode/SWE-bench Verified direct.
 - **Cost efficiency: 100/100.** $0/$0 Zen Free.
-- **Overall Score: 93/100.** Mean (90+88+100+90+88+100)/6 = 92.7 → 93. Best fit: near-frontier free fallback when 1.3 Free unavailable.
+- **Overall Score: 91/100.** Mean (90+88+100+90+88+100)/6 = 92.7 → 93. Best fit: near-frontier free fallback when 1.3 Free unavailable.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Complete multimodal input suite.
 - **Coding: 71/100.** Very reliable for code generation and debugging.
 - **Cost efficiency: 95/100.** Very high value for money with free tier.
-- **Overall Score: 82/100.** Highly capable and cost-effective daily driver.
+- **Overall Score: 79/100.** Highly capable and cost-effective daily driver.
 
 ---
 

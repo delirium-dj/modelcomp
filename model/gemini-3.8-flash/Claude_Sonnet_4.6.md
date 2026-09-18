@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 85/100.** Full multimodal in (text/image/video/audio/PDF) + computer use; Maps/Search grounding; no native audio/image generation; computer use pushes upper range; scored 85.
 - **Coding: 83/100.** TB2.1 90.8% frontier; DeepSWE ~73.7% approaching frontier ref 74%+; FrontierCode not published for 3.8; scored 83.
 - **Cost efficiency: 95/100.** $0.75/$3.75 introductory (through Dec 2026); per methodology same as 3.7 Flash pricing tier; scored 95.
-- **Overall Score: 88/100.** Mean of (85 + 87 + 95 + 85 + 83 + 95) / 6 = 530 / 6 = 88.3 → **88**. Best fit: current best-in-class Flash model as of 2026-09-17; strong across all dimensions; optimal for long-horizon agentic coding at competitive cost; note pricing rises Jan 2027.
+- **Overall Score: 87/100.** Mean of (85 + 87 + 95 + 85 + 83 + 95) / 6 = 530 / 6 = 88.3 → **88**. Best fit: current best-in-class Flash model as of 2026-09-17; strong across all dimensions; optimal for long-horizon agentic coding at competitive cost; note pricing rises Jan 2027.
 
 ---
 

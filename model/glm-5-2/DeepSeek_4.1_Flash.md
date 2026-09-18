@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only; GLM-5.2 has no native vision, audio or video path.
 - **Coding: 86/100.** 62.1% on SWE-bench Pro as the leading open-weight model and 81.0% on Terminal-Bench 2.1 are top-tier for an MIT release; the absence of a clean SWE-bench Verified value and a public benchmark sheet keeps it short of the 90s.
 - **Cost efficiency: 80/100.** $1.40/$4.40 per 1M is mid-priced but 81%-off caching and MIT self-hosting are strong levers; the lack of any free tier and the 241 GB VRAM self-host floor hold it back.
-- **Overall Score: 73/100.** (82 + 78 + 95 + 15 + 86 + 80) / 6 = 72.7 → **73**. Best fit: self-hosted or Bedrock/Vertex-hosted coding agents over large repos where an MIT license and a 1M window matter more than vision.
+- **Overall Score: 71/100.** (82 + 78 + 95 + 15 + 86 + 80) / 6 = 72.7 → **73**. Best fit: self-hosted or Bedrock/Vertex-hosted coding agents over large repos where an MIT license and a 1M window matter more than vision.
 
 ---
 

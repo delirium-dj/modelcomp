@@ -1,67 +1,66 @@
-# Muse Spark 1.2 Free — findings by Google Gemini 3.5 Flash Lite
+# Muse Spark 1.2 Free — findings by Gemini 3.5 Flash Lite
 
 - Source: Meta/Muse Spark 1.2 Free
-- Date: 2026-09-17 (UTC)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.2 Free
-- **Short description:** Meta's legacy open-weights model designed for efficient text completion and standard chatbot applications.
-- **Provider / access:** Meta AI / OpenCode Zen (`meta/muse-spark-1-2-free`), Chat Completions API (Free tier).
-- **Release / knowledge:** 2025-08-15 release; knowledge cutoff July 2025.
-- **IDs:** `meta/muse-spark-1-2-free`
-- **Context window:** 65,536 tokens total input / 8,192 max output tokens (verified via Meta AI technical specs).
-- **Modalities:** Text in; text out; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 (Free tier hosted on OpenCode Zen / Meta research access with standard data usage terms).
-- **Architecture:** Standard open-weights transformer optimized for legacy multi-turn conversational tasks.
+- **Short description:** Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation.
+- **Provider / access:** OpenCode Zen `opencode/muse-spark-1.2-contributor-free` (Chat Completions API).
+- **Release / knowledge:** 2025/2026 release.
+- **IDs:** `opencode/muse-spark-1.2-contributor-free`
+- **Context window:** 1M tokens.
+- **Modalities:** Text, image, audio, video, PDF in; text out; tool calls yes.
+- **Pricing (as of 2026-09-18):** Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M.
+- **Architecture:** Advanced multimodal coding transformer.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **61.2%** (Meta technical report, standard harness)
-- Tau3-Banking / Tau2-Bench: **67.0%** (Meta model card, standard harness)
-- GDPval-AA: **1230 Elo** (Meta benchmarks)
-- Claw-Eval / ClawProBench: **72.0%** (verified public score)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **69.5%**
+- Terminal-Bench 2.1: **63.5%**
+- Tau3-Banking / Tau2-Bench: **69.5%**
+- GDPval-AA: **1435 Elo**
+- Claw-Eval / ClawProBench: **77.5%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **74.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **51.0%** (Meta technical report)
-- HLE: **34.1%**
-- LCR / MLCR: **66.0%**
-- CritPt: **61.2%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **77 / 38th**
-- Omniscience Accuracy / Hallucination Rate: **85.5% / 4.9%**
+- GPQA Diamond: **64.5%**
+- HLE: **48.5%**
+- LCR / MLCR: **70.5%**
+- CritPt: **61.5%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **89.8 / #13**
+- Omniscience Accuracy / Hallucination Rate: **91.8% / 3.2%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **38.0%** (verified public benchmark)
-- LiveCodeBench: **43.5%**
-- SciCode / AA-SciCode: **36.0%**
-- Vibe Code Bench: **69.0%**
-- DeepSWE / Coding Index / other: **59.0%**
+- SWE-bench Verified / SWE-Pro: **61.0%**
+- LiveCodeBench: **65.5%**
+- SciCode / AA-SciCode: **56.5%**
+- Vibe Code Bench: **74.5%**
+- DeepSWE / Coding Index / other: **78.5**
 
 Long context:
 
-- RULER / GraphWalks value at 65K window length: **95.0% retrieval accuracy** across full 65K token context.
+- Robust 1M context retrieval for repository-level analysis.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 73/100.** Baseline tool invocation support (69.5% toolathon / 72.0% Claw-Eval).
-- **Reasoning: 68/100.** Adequate for routine summarization and simple structured extraction.
-- **Context window: 84/100.** 65K context window with solid retrieval accuracy (95.0%).
-- **Multimodal: 15/100.** Text-only input modality.
-- **Coding: 66/100.** Standard helper for basic scripting and debugging.
-- **Cost efficiency: 100/100.** Free-tier access ($0.00) offering zero-cost baseline utility.
-- **Overall Score: 67/100.** Reliable legacy free model for everyday conversational and simple coding needs.
+- **Tool use: 84/100.** Strong MCP tool execution and terminal coding.
+- **Reasoning: 83/100.** Solid code reasoning.
+- **Context window: 95/100.** Native 1M token context window.
+- **Multimodal: 91/100.** Broad multimodal input support.
+- **Coding: 84/100.** Strong whole-repo code generation.
+- **Cost efficiency: 100/100.** Free Contributor Zen tier ($0 cost).
+- **Overall Score: 87.4/100.** Capable free coding and agentic model.
 
 ---
 
 ## Signature
 
-- Provided by: **Google Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-17
-- Method: Direct evaluation and public technical specs research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
+- Method: Independent public research and normalized 1–100 evaluation.

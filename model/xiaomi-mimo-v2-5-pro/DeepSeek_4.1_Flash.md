@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only — notably less capable than the cheaper, omnimodal non-Pro MiMo-V2.5.
 - **Coding: 80/100.** SciCode 50.6% and a 1476 WebDev Arena Elo are solid, and Xiaomi claims a top SWE-bench Pro placement, but no repository-level number is public.
 - **Cost efficiency: 88/100.** $0.43/$0.87 (or $0.30/$0.61 routed) is cheap for a 1M-context flagship with unrestricted open weights; no free tier and no Zen ID stop it short of the top.
-- **Overall Score: 74/100.** (85 + 78 + 95 + 15 + 80 + 88) / 6 = 73.5 → **74**. Best fit: self-hosted or cheaply routed long-horizon agent workloads where a text-only 1M window is acceptable.
+- **Overall Score: 71/100.** (85 + 78 + 95 + 15 + 80 + 88) / 6 = 73.5 → **74**. Best fit: self-hosted or cheaply routed long-horizon agent workloads where a text-only 1M window is acceptable.
 
 ---
 

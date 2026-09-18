@@ -32,7 +32,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 - `MiniMax M2.7 Free` → no `minimax-m2.7-free` ID on Zen as of 2026-09-17. Closest is paid `opencode/minimax-m2.7` ($0.30/$1.20). Cost scored 90 on paid pricing.
 - `Xiaomi MiMo-V2,5-Pro Free` (comma typo) → `MiMo-V2.5-Pro` (`mimo-v2.5-pro`, Xiaomi native, MIT, 1M). No Zen Free ID found. Cost scored 85 on Xiaomi platform pricing ($0.435 miss / $0.87 out, or $1.00/$3.00 routes).
 
-`Overall Score` = rounded mean of the 6 dimensions: `(Tool + Reasoning + Context + Multimodal + Coding + Cost) / 6`.
+`Overall Score` = rounded mean of the 5 quality dimensions: `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. Cost efficiency is scored independently and never counts toward Overall (v4 methodology, 2026-09-18; tables below showing `/ 6` math are frozen v1–v3 history).
 
 - Big Pickle: (55 + 60 + 70 + 15 + 70 + 100) / 6 = 61.7 → **62**
 - Muse Spark 1.3 Free: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 94.5 → **95**
@@ -147,7 +147,7 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - **Multimodal:** text-only = 10–20. +image in = 60–70. +video/PDF in = 75–90. +audio in or any non-text out = 90–100. This file: Big Pickle 15, Muse 85.
 - **Coding:** SWE-bench Verified, DeepSWE, LiveCodeBench, SciCode, SWE-Atlas, Terminal-Bench. Frontier ref: DeepSWE 74%+, TB2.1 85%+, SciCode 55%+, Coding Index 70%+ → 90–100. Mid: LiveCode 80% but Vibe <10% and SciCode <40% → 65–75.
 - **Cost efficiency:** inverse pricing on evaluated tier. $0 = 100. ~$0.10/$0.20 = 97–99. ~$0.60/$2.20 = ~92. ~$1.25/$4.25 = ~88 (adjusted + for $0.55/task Pareto lead). $3/$15 = ~60. $10/$50 = ~30. Free tiers flagged as time-limited + training-data caveat.
-- **Overall Score:** arithmetic mean of 6 dimensions, rounded to integer. Equal weight v1 — revisit if team wants coding/tool-use weighted higher for agent use-case.
+- **Overall Score:** arithmetic mean of the 5 quality dimensions (Cost excluded since v4, 2026-09-18), rounded to integer. Equal weight v1 — revisit if team wants coding/tool-use weighted higher for agent use-case.
 
 ## Caveats
 
@@ -230,3 +230,4 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - 2026-09-17: created file, added Big Pickle and Muse Spark 1.3 Free with v1 methodology.
 - 2026-09-17: v2 — added Ling 3.0 Flash Fin Free, MiMo V2.5 Free (= Xiaomi MiMo-V2.5 Free duplicate), Muse Spark 1.2 Free, Nemotron 3 Ultra Free, Nemotron 3.5 Lightning Free, GLM 5.1 Coding (no Free ID, paid pricing), MiniMax M2.7 (no Free ID, paid pricing), Xiaomi MiMo-V2.5-Pro (no Free ID, paid pricing). Updated summary, calculations, caveats, sources.
 - 2026-09-17: v3 — split per-model details into `model/<slug>/Muse_Spark_1.3.md` (one folder per model, one file per source; see `model/README.md`). This file keeps the table, methodology, caveats, sources and changelog.
+- 2026-09-18: v4 — Cost efficiency excluded from Overall Score everywhere (source files and averages); Overall = mean of the five quality dimensions. Comparison table and per-model sections above remain frozen v1–v3 history; live scores come from `model/<slug>/average.md`.

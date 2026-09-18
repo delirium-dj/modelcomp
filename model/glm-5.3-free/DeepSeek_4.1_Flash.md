@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 88/100.** Native image, video and PDF input with CharXiv 89.4% and Mvbench 77.8%; text-only output.
 - **Coding: 86/100.** DeepSWE 63.4%, SciCode 51.6%, WebDev Arena 1604 and near-Opus Z.ai Code Bench results; missing SWE-bench Verified/Pro values cap it.
 - **Cost efficiency: 100/100.** $0 through the Zen alias, with a policy page that does not flag GLM-5.3 for training-on-free-prompts (unlike the other free aliases in this scan).
-- **Overall Score: 91/100.** (88 + 86 + 95 + 88 + 86 + 100) / 6 = 90.5 → **91**. Best fit: cost-free multimodal agent loops for coding and document work where GLM's ~49 tok/s output speed is acceptable.
+- **Overall Score: 89/100.** (88 + 86 + 95 + 88 + 86 + 100) / 6 = 90.5 → **91**. Best fit: cost-free multimodal agent loops for coding and document work where GLM's ~49 tok/s output speed is acceptable.
 
 ---
 

@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only (pair with V2.5 for vision/audio).
 - **Coding: 82/100.** SWE Verified 78.9 + Pro 57.2 + Coding Index 60.2.
 - **Cost efficiency: 85/100.** Paid but very cheap for 1T class ($0.435/$0.87, 98% cache discount).
-- **Overall Score: 73/100.** Top open long-horizon text model; strong SWE + 1M context at low cost.
+- **Overall Score: 71/100.** Top open long-horizon text model; strong SWE + 1M context at low cost.
 
 ---
 

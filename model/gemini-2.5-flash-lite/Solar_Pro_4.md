@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 40/100.** Likely text+image input (standard for Gemini generations). Lite variants may have reduced multimodal capabilities.
 - **Coding: 45/100.** No verified coding benchmarks available. Score is provisional and conservative. Lite variants typically have lower coding capabilities.
 - **Cost efficiency: 75/100.** Likely lower pricing than main Flash tier (lite variants are typically cheaper). May have free tier. No verified data for this specific version.
-- **Overall Score: 50/100.** Mean of (45 + 45 + 55 + 40 + 45 + 75) / 6 = 50.0 → **50**. Best-fit recommendation: Gemini 2.5 Flash Lite is likely deprecated/legacy — superseded by Gemini 3.0 Flash Lite, Gemini 3.5 Flash Lite, and subsequent Flash Lite generations. For new deployments, use the latest Flash Lite generation for better benchmarks and capabilities. For this specific folder, scores are provisional and conservative due to complete lack of verified benchmark data. This model is likely kept for legacy/compatibility purposes only.
+- **Overall Score: 46/100.** Mean of (45 + 45 + 55 + 40 + 45 + 75) / 6 = 50.0 → **50**. Best-fit recommendation: Gemini 2.5 Flash Lite is likely deprecated/legacy — superseded by Gemini 3.0 Flash Lite, Gemini 3.5 Flash Lite, and subsequent Flash Lite generations. For new deployments, use the latest Flash Lite generation for better benchmarks and capabilities. For this specific folder, scores are provisional and conservative due to complete lack of verified benchmark data. This model is likely kept for legacy/compatibility purposes only.
 
 ---
 

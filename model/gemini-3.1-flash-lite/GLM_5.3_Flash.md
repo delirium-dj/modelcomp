@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 88/100.** Text + image + audio + video in with MMMU-Pro 76.8 and Video-MMMU 84.8 — full omni input; text-only output.
 - **Coding: 78/100.** LiveCodeBench 72% is strong for the tier; no SWE-bench-class agentic coding number found, which caps it below the open coding flagships.
 - **Cost efficiency: 93/100.** Free tier plus $0.25/$1.50 with a near-free $0.025 cache rate; docked slightly for being 2.5–3.75× its predecessor's list price.
-- **Overall Score: 83/100.** Mean: (60 + 82 + 97 + 88 + 78 + 93) / 6 = 498/6 = 83.0 → **83**. Best fit: the cheapest way to get 3-series reasoning + omni input at scale — ideal for high-volume multimodal processing, not for deep agentic runs.
+- **Overall Score: 81/100.** Mean: (60 + 82 + 97 + 88 + 78 + 93) / 6 = 498/6 = 83.0 → **83**. Best fit: the cheapest way to get 3-series reasoning + omni input at scale — ideal for high-volume multimodal processing, not for deep agentic runs.
 
 ---
 

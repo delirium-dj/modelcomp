@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Good multimodal support.
 - **Coding: 70/100.** Useful for quick code snippets and boilerplate.
 - **Cost efficiency: 100/100.** Unmatched cost efficiency.
-- **Overall Score: 81/100.** Ideal for high-frequency, low-latency, and cost-optimized tasks.
+- **Overall Score: 77/100.** Ideal for high-frequency, low-latency, and cost-optimized tasks.
 
 ---
 

@@ -3,7 +3,10 @@
 // What it does (see tasks/sync-data.md for the human workflow around it):
 //   1. Scans every model/<slug>/ folder for findings files (*.md, excluding
 //      average.md and README.md). Unknown/hygiene-violating filenames fail loudly.
-//   2. Parses the seven normalized 1-100 scores from each findings file.
+//   2. Parses the seven normalized 1-100 scores from each findings file, and
+//      validates each file's Overall equals the half-up mean of its five
+//      non-cost dims (Cost excluded from Overall since v4; drift fails loudly
+//      and blocks that folder's average rewrite).
 //   3. Recomputes every model/<slug>/average.md as arithmetic means (standard
 //      half-up rounding to 1 decimal; Overall = mean of source Overall scores,
 //      NOT re-derived from averaged dimensions) and rewrites files that drift.
@@ -95,13 +98,34 @@ for (const slug of slugs) {
   }
 
   const perFile = [];
+  let skipAverage = false;
   for (const f of files) {
     const scores = parseScores(readFileSync(join(dir, f), "utf8"), `model/${slug}/${f}`);
-    if (scores) perFile.push({ file: f, scores });
+    if (scores) {
+      perFile.push({ file: f, scores });
+    } else {
+      // Unparsable file (already FAILed above): don't cement a partial average.
+      skipAverage = true;
+    }
   }
   if (perFile.length === 0) {
     fail(`model/${slug}/: no parseable findings files`);
     continue;
+  }
+
+  // Source-file Overall must equal the half-up mean of the five quality dims
+  // (Cost excluded since v4). Drift fails loudly and the folder's average is left
+  // untouched until fixed, so partial data is never cemented.
+  // (Matches the dev-time checkOverallScores() tolerance of 0.51.)
+  const QUALITY = ["Tool use", "Reasoning", "Context window", "Multimodal", "Coding"];
+  for (const p of perFile) {
+    const mean5 = QUALITY.reduce((a, l) => a + p.scores[l], 0) / QUALITY.length;
+    if (Math.abs(p.scores["Overall Score"] - mean5) > 0.51) {
+      fail(
+        `model/${slug}/${p.file}: Overall ${p.scores["Overall Score"]} differs from 5-dim quality mean ${halfUp1(mean5)} — Cost excluded from Overall since v4`,
+      );
+      skipAverage = true;
+    }
   }
 
   // Filename stem -> display label, e.g. Gemini_3.6_Flash -> "Gemini 3.6 Flash".
@@ -137,7 +161,7 @@ for (const slug of slugs) {
     const head = prev.split("## Averaged scores")[0];
     next = head + body;
   }
-  if (prev !== next) {
+  if (!skipAverage && prev !== next) {
     writeFileSync(avgPath, next);
     if (prev !== null) {
       updatedAverages.push(slug);

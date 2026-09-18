@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 95/100.** Native text, image, audio and video input — the broadest input matrix found in this scan — at zero cost; text-only output and no vision benchmark scored separately.
 - **Coding: 68/100.** A 56.8 Coding Index, SciCode 43.9% and a 1275 code-arena Elo are mid-pack; no SWE-bench-class result exists.
 - **Cost efficiency: 100/100.** $0 on Zen with omnimodal input; the caveat is that free-period prompts may be used to improve the model, and commercial-use terms are flagged as unclear.
-- **Overall Score: 80/100.** (72 + 72 + 70 + 95 + 68 + 100) / 6 = 79.5 → **80**. Best fit: free multimodal ingestion, RAG over images/video/audio and moderate agent work, accepting a 200K/32K ceiling and free-tier data usage.
+- **Overall Score: 75/100.** (72 + 72 + 70 + 95 + 68 + 100) / 6 = 79.5 → **80**. Best fit: free multimodal ingestion, RAG over images/video/audio and moderate agent work, accepting a 200K/32K ceiling and free-tier data usage.
 
 ---
 

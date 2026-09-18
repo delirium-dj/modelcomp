@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 82/100.** Full multimodal in (text/image/video/audio/PDF); no non-text out; consistent 3.x Flash profile; 82.
 - **Coding: 68/100.** TB2.1 78% strong; SWE-bench Pro 58.7%; DeepSWE absent; averaged mid-upper coding 68.
 - **Cost efficiency: 95/100.** $0.75/$3.75 introductory pricing (very competitive); per methodology ~$0.60/$2.20=~92 and lower-priced gives higher; scores 95.
-- **Overall Score: 80/100.** Mean of (70 + 76 + 90 + 82 + 68 + 95) / 6 = 481 / 6 = 80.2 → **80**. Best fit: strong coding/agent Flash model at very competitive price; outperforms prior Pro tier on coding; MRCR retrieval at depth is moderate limitation.
+- **Overall Score: 77/100.** Mean of (70 + 76 + 90 + 82 + 68 + 95) / 6 = 481 / 6 = 80.2 → **80**. Best fit: strong coding/agent Flash model at very competitive price; outperforms prior Pro tier on coding; MRCR retrieval at depth is moderate limitation.
 
 ---
 

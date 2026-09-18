@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 58/100.** Reliable for small routine script execution.
 - **Cost efficiency: 100/100.** Free tier access ($0/1M tokens).
-- **Overall Score: 60/100.** Ultra-fast sub-agent executor for high-volume automated tools.
+- **Overall Score: 51/100.** Ultra-fast sub-agent executor for high-volume automated tools.
 
 ---
 

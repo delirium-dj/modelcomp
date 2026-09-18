@@ -47,7 +47,7 @@ Long context:
 - **Multimodal: 40/100.** Unknown multimodal capabilities. Score is provisional. May follow HY3's text+image pattern or be different.
 - **Coding: 40/100.** No verified coding benchmarks available. Score is provisional and conservative.
 - **Cost efficiency: 50/100.** Unknown pricing and access. Score is provisional. May be open-weight (Apache 2.0 like HY3) or proprietary. If open-weight, free self-hosting possible.
-- **Overall Score: 45/100.** Mean of (40 + 40 + 50 + 40 + 40 + 50) / 6 = 43.3 → **43**. Best-fit recommendation: HY4 is an unknown/unconfirmed model with no public information available as of 2026-09-18. May be unreleased, internal, or not documented on major AI directories. For any deployment needs, use confirmed models with verified benchmarks: HY3 (Overall 67, Apache 2.0, 295B/21B MoE, 256K context) for Tencent ecosystem needs, or other confirmed models for specific requirements. Scores are provisional and conservative due to complete lack of verified data. This model may be an internal codename, unreleased model, or not yet documented.
+- **Overall Score: 42/100.** Mean of (40 + 40 + 50 + 40 + 40 + 50) / 6 = 43.3 → **43**. Best-fit recommendation: HY4 is an unknown/unconfirmed model with no public information available as of 2026-09-18. May be unreleased, internal, or not documented on major AI directories. For any deployment needs, use confirmed models with verified benchmarks: HY3 (Overall 67, Apache 2.0, 295B/21B MoE, 256K context) for Tencent ecosystem needs, or other confirmed models for specific requirements. Scores are provisional and conservative due to complete lack of verified data. This model may be an internal codename, unreleased model, or not yet documented.
 
 ---
 

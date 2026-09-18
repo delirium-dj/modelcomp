@@ -53,7 +53,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output (models.dev modalities); no attachments — methodology floor for text-only.
 - **Coding: 70/100.** SWE-Atlas QnA 50.8% (class-leading) plus proxy LiveCodeBench 81.0% and SWE-bench Verified 68.0% imply a solid mid-pack coder for its generation; capped below the frontier (Claude Fable 5 SWE-V 95.0, Opus 4.8 88.1 per the prompt20 code leaderboard) and by zero alias-verified classic-suite runs.
 - **Cost efficiency: 100/100.** $0 in / $0 out / $0 cache during the stealth period, no card required — the defining trait of the alias. Risks to the score: data may be used for training, commercial terms unclear, and the $0 (or the model itself) can end without notice because it is an alias.
-- **Overall Score: 62/100.** Mean: (58 + 58 + 70 + 15 + 70 + 100) / 6 = 371/6 = 61.8 → **62**. Best fit: zero-cost daily driver for coding agents and multi-step tool work; verify outputs and keep a paid, identity-confirmed fallback for production, since the alias can change or disappear without notice.
+- **Overall Score: 54/100.** Mean: (58 + 58 + 70 + 15 + 70 + 100) / 6 = 371/6 = 61.8 → **62**. Best fit: zero-cost daily driver for coding agents and multi-step tool work; verify outputs and keep a paid, identity-confirmed fallback for production, since the alias can change or disappear without notice.
 
 ---
 

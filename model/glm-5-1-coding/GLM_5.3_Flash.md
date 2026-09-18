@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out (Z.AI docs).
 - **Coding: 88/100.** SWE-Pro 58.4 (release-SOTA), SciCode 45, AA Coding Index 55.8 — top open-weights coding package of its generation.
 - **Cost efficiency: 75/100.** $1.40/$4.40 on the Z.AI route with no free ID; third-party routes at $0.89/$3.58 and MIT open weights are the mitigations.
-- **Overall Score: 69/100.** Mean: (86 + 80 + 70 + 15 + 88 + 75) / 6 = 414/6 = 69.0 → **69**. Best fit: top paid open-weights coding/long-horizon pick — text-only and 200K-context are the trade for the SOTA agentic engineering.
+- **Overall Score: 68/100.** Mean: (86 + 80 + 70 + 15 + 88 + 75) / 6 = 414/6 = 69.0 → **69**. Best fit: top paid open-weights coding/long-horizon pick — text-only and 200K-context are the trade for the SOTA agentic engineering.
 
 ---
 

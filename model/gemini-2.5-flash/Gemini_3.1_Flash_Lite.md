@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 85/100.** Strong multimodal integration.
 - **Coding: 75/100.** Reliable for common coding tasks.
 - **Cost efficiency: 95/100.** Exceptional value per token.
-- **Overall Score: 83/100.** Highly efficient and capable, well-suited for high-throughput, cost-sensitive use cases.
+- **Overall Score: 81/100.** Highly efficient and capable, well-suited for high-throughput, cost-sensitive use cases.
 
 ---
 

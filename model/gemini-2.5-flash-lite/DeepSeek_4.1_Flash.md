@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Text, image, audio, video and file input with text output covers nearly every ingestion path; no media generation and weaker vision grounding than the full Flash tier.
 - **Coding: 45/100.** LiveCodeBench 59.3% is fair, but SciCode 19.3% and the absence of any SWE-bench number rule it out for repository-level work.
 - **Cost efficiency: 95/100.** $0.10/$0.40 per 1M with a free AI Studio tier is at the very bottom of the paid market; only an outright $0 model scores higher.
-- **Overall Score: 63/100.** (20 + 45 + 95 + 80 + 45 + 95) / 6 = 63.3 → **63**. Best fit: high-volume classification, extraction, routing and cheap long-context ingestion — not agents or coding.
+- **Overall Score: 57/100.** (20 + 45 + 95 + 80 + 45 + 95) / 6 = 63.3 → **63**. Best fit: high-volume classification, extraction, routing and cheap long-context ingestion — not agents or coding.
 
 ---
 

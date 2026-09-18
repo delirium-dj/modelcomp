@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 78/100.** Text, image and file inputs with text output and real-time cybersecurity safeguards; no audio or video input and no media generation.
 - **Coding: 88/100.** SciCode 53.6% and a 1541 WebDev Arena Elo are solid, and Anthropic positions it within reach of Opus 4.8, but the missing SWE-bench Verified/Pro numbers stop it short of the 90s.
 - **Cost efficiency: 65/100.** $3/$15 standard (introductory $2/$10) is mid-tier, and the new tokenizer's ~30% token inflation erodes the headline rate; prompt caching at $0.20 softens repeat-context work.
-- **Overall Score: 84/100.** (88 + 88 + 95 + 78 + 88 + 65) / 6 = 83.7 → **84**. Best fit: high-volume agentic pipelines and coding workflows that need near-Opus behaviour at Sonnet prices.
+- **Overall Score: 87/100.** (88 + 88 + 95 + 78 + 88 + 65) / 6 = 83.7 → **84**. Best fit: high-volume agentic pipelines and coding workflows that need near-Opus behaviour at Sonnet prices.
 
 ---
 

@@ -60,7 +60,7 @@ Long context:
 - **Multimodal: 85/100.** Native image input via base64/URL/Files-API with a vendor claim of near-Opus-4.8 multimodal agent behaviour; capped by the experimental, now-retired status and the absence of any published vision benchmark.
 - **Coding: 82/100.** SWE-bench Verified 79% and HumanEval 96.4% on the base model are strong value, but SciCode 40.2% and a falling WebDev Arena Elo show agentic coding is not the strength.
 - **Cost efficiency: 92/100.** $0.14/$0.28 per 1M with a 98%-off cache hit, $0.07/$0.17 third-party listings and 5M free tokens monthly is among the cheapest capable multimodal options; capped only by not being literally free.
-- **Overall Score: 87/100.** (88 + 82 + 95 + 85 + 82 + 92) / 6 = 87.3 → **87**. Best fit: cost-sensitive multimodal agent workloads that accept an experimental, now-aliased checkpoint in exchange for near-flagship tool behaviour at a fraction of the price.
+- **Overall Score: 86/100.** (88 + 82 + 95 + 85 + 82 + 92) / 6 = 87.3 → **87**. Best fit: cost-sensitive multimodal agent workloads that accept an experimental, now-aliased checkpoint in exchange for near-flagship tool behaviour at a fraction of the price.
 
 ---
 

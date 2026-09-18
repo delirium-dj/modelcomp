@@ -62,7 +62,7 @@ Long context:
 - **Multimodal: 85/100.** Text + image + PDF (600 pages) in, text out, MMMU Pro 73.9/77.3; no audio or video input/output keeps it off the omni tier.
 - **Coding: 88/100.** SWE-V 80.8 (elite, 25-trial) and release-best TB2.0 65.4; capped by SWE-V parity with its predecessor and by successors (Fable 5 95.0, Opus 4.8 88.1) having since reset the bar.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing with no free route — roughly 10–25× the paid open-model tier in this repo ($0.30–$1.40 in); the 90% prompt-cache discount (≈$3.85 blended) is the only relief. Paid-only, so scored at price point.
-- **Overall Score: 80/100.** Mean: (96 + 90 + 100 + 85 + 88 + 20) / 6 = 479/6 = 79.8 → **80**. Best fit: the no-compromise agent/knowledge-work pick *of its generation* — unmatched tool orchestration and 1M context, but as a paid legacy model (Opus 4.7/4.8, Fable 5.1 now exist) it only makes sense where a workflow is pinned to `claude-opus-4-6`.
+- **Overall Score: 92/100.** Mean: (96 + 90 + 100 + 85 + 88 + 20) / 6 = 479/6 = 79.8 → **80**. Best fit: the no-compromise agent/knowledge-work pick *of its generation* — unmatched tool orchestration and 1M context, but as a paid legacy model (Opus 4.7/4.8, Fable 5.1 now exist) it only makes sense where a workflow is pinned to `claude-opus-4-6`.
 
 ---
 

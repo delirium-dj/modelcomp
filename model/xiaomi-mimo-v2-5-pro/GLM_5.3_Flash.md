@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only (Pro has no image input per AA's comparison).
 - **Coding: 85/100.** Near-Opus-4.6 in-house coding bench and a perfect 233/233 compiler build; missing public SWE-bench rows keep it under the top coding packages.
 - **Cost efficiency: 85/100.** No Zen Free ID, but ~$0.44/$0.87 is cheap for the class, and permissive-license weights cap long-run costs.
-- **Overall Score: 76/100.** Mean: (87 + 82 + 100 + 15 + 85 + 85) / 6 = 454/6 = 75.7 → **76**. Best fit: the 1M-coherence text flagship for 1,000+-call autonomous engineering at open-weights prices.
+- **Overall Score: 74/100.** Mean: (87 + 82 + 100 + 15 + 85 + 85) / 6 = 454/6 = 75.7 → **76**. Best fit: the 1M-coherence text flagship for 1,000+-call autonomous engineering at open-weights prices.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 82/100.** Text, image, video, audio and PDF input with text output; no generation and no separate vision benchmark published for the tier.
 - **Coding: 68/100.** SWE-bench Pro 54.2% is a real improvement on the previous generation, but there is no SWE-bench Verified number and no third-party agentic coding harness result.
 - **Cost efficiency: 92/100.** $0.30/$2.50 per 1M is the cheapest tier in its own family and 4× cheaper per task than Gemini 3.5 Flash in the vendor's own example; the absence of published cache/batch discounts and a free-tier data-usage caveat are the only drags.
-- **Overall Score: 78/100.** (62 + 72 + 93 + 82 + 68 + 92) / 6 = 78.2 → **78**. Best fit: high-volume subagents, document parsing and agentic search where per-call cost and speed matter more than frontier reasoning.
+- **Overall Score: 75/100.** (62 + 72 + 93 + 82 + 68 + 92) / 6 = 78.2 → **78**. Best fit: high-volume subagents, document parsing and agentic search where per-call cost and speed matter more than frontier reasoning.
 
 ---
 

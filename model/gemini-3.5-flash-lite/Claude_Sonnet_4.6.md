@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 82/100.** Text + image + video + audio + PDF in confirmed (google.dev); no generation out; consistent with 3.x Flash family profile; 82.
 - **Coding: 48/100.** No SWE-bench or DeepSWE; Lite not primary coding-agent model; budget tier; provisional below mid.
 - **Cost efficiency: 96/100.** $0.30/$2.50 — near-budget pricing; per methodology ~$0.30 in-range with 96–97; cached at $0.03 / 1M adds further efficiency; scored 96.
-- **Overall Score: 72/100.** Mean of (52 + 58 + 95 + 82 + 48 + 96) / 6 = 431 / 6 = 71.8 → **72**. Best fit: high-speed, cost-efficient document/data extraction and routing; not a primary reasoning or coding-agent model.
+- **Overall Score: 67/100.** Mean of (52 + 58 + 95 + 82 + 48 + 96) / 6 = 431 / 6 = 71.8 → **72**. Best fit: high-speed, cost-efficient document/data extraction and routing; not a primary reasoning or coding-agent model.
 
 ---
 

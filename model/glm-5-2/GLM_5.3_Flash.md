@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 90/100.** SWE-Pro 62.1 (open-weights frontier), SciCode 51, AA Coding Index 68.8.
 - **Cost efficiency: 100/100.** Free Zen tier (repo catalog) plus $1.40/$4.40 list with $0.70/$2.20 third-party routes and MIT self-hosting as floors.
-- **Overall Score: 79/100.** Mean: (87 + 83 + 100 + 15 + 90 + 100) / 6 = 475/6 = 79.2 → **79**. Best fit: open-weights 1M-context flagship for repo-scale agents — text-only modality is the one real trade.
+- **Overall Score: 75/100.** Mean: (87 + 83 + 100 + 15 + 90 + 100) / 6 = 475/6 = 79.2 → **79**. Best fit: open-weights 1M-context flagship for repo-scale agents — text-only modality is the one real trade.
 
 ---
 

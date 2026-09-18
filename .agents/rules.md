@@ -23,7 +23,7 @@ reports, and the website stay consistent.
 
 - Score lines must match `- **<Label>: <N>/100`, labels exactly: `Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`, `Cost efficiency`, `Overall Score`.
 - Floats allowed (`66.5`); keep ≤ 1 decimal.
-- Overall = mean of the source Overall scores (NOT re-derived from dims, so it may differ from the dim mean by ≤ 0.5 — `checkOverallScores()` enforces tolerance 0.51 in dev).
+- Overall = mean of the source Overall scores (NOT re-derived from dims). Note the average still carries all six dims *including* Cost, so its Overall (built from cost-excluded source Overalls) can differ substantially from its own six-dim mean — that gap is by design, not drift. `checkOverallScores()` enforces tolerance 0.51 of each *source* Overall against its five-dim quality mean in dev.
 - `parseAverageScores()` throws on any missing label → broken files fail the build loudly. Keep the "Agreement notes" section free of `- **X: N/100` patterns.
 
 ## Findings workflow
@@ -32,6 +32,7 @@ reports, and the website stay consistent.
 - New agents start from `model-report-TEMPLATE.md` and research independently (no reading other agents' files first).
 - Never invent benchmark numbers — write `no verified public score found` when missing; attach a source to every number.
 - `average.md` = arithmetic mean per dimension + mean of Overalls + agreement note. Recomputed by `pnpm sync` (half-up to 1 decimal), never by hand; don't copy site values backwards.
+- Source-file Overall = half-up mean of the five quality dimensions (Tool, Reasoning, Context, Multimodal, Coding). Cost efficiency is an independent stat: scored, shown (hexagon axis, table columns, sortable), but never counted toward any Overall. `pnpm sync` fails any file drifting > 0.51 from its five-dim mean.
 - Add `pricingTiers` (one string per tier) alongside `pricingNote` when pricing has multiple tiers; the compare table stacks them.
 - Adding a results source = drop its `<Source_Name>.md` files into the model folders, run `pnpm sync` (registers the `SourceKey`/`SOURCES` entries automatically); every model containing the file is wired up with no further edits.
 - Adding a model = create `model/<slug>/` with findings file(s) + `meta.json`, run `pnpm sync`; it appears in Model A/B/C selectors automatically.

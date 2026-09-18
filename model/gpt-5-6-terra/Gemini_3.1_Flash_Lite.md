@@ -32,7 +32,7 @@
 - **Multimodal: 90/100.** Broad multimodal support.
 - **Coding: 95/100.** Exceptional coding synthesis.
 - **Cost efficiency: 20/100.** Expensive flagship model.
-- **Overall Score: 80.0/100.** Top-tier, comprehensive flagship model.
+- **Overall Score: 92/100.** Top-tier, comprehensive flagship model.
 
 ---
 

@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 85/100.** Text + image + video in (per AA); text out. Per methodology: +video in ≈ 75–90, no non-text out → 85.
 - **Coding: 95/100.** DeepSWE 75.4% (frontier), TB2.1 88.8%, SciCode 58.8% (≥55 = 90+), SWE-Atlas 59.4%. Cap = Vibe missing.
 - **Cost efficiency: 100/100.** $0/$0 on Zen Free tier.
-- **Overall Score: 95/100.** Mean (95+92+100+85+95+100)/6 = 94.5 → 95. Best fit: default for long-horizon coding/agentic work when free tier available.
+- **Overall Score: 93/100.** Mean (95+92+100+85+95+100)/6 = 94.5 → 95. Best fit: default for long-horizon coding/agentic work when free tier available.
 
 ---
 

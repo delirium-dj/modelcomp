@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 87/100.** Mean of 4 reporting sources.
-- **Reasoning: 83.3/100.** Mean of 4 reporting sources.
-- **Context window: 91.3/100.** Mean of 4 reporting sources.
-- **Multimodal: 68.3/100.** Mean of 4 reporting sources.
-- **Coding: 86.3/100.** Mean of 4 reporting sources.
-- **Cost efficiency: 95.5/100.** Mean of 4 reporting sources.
-- **Overall Score: 85.3/100.** Mean of source Overall scores.
+- **Tool use: 85.3/100.** Mean of 7 reporting sources.
+- **Reasoning: 78.3/100.** Mean of 7 reporting sources.
+- **Context window: 84/100.** Mean of 7 reporting sources.
+- **Multimodal: 45.4/100.** Mean of 7 reporting sources.
+- **Coding: 83.4/100.** Mean of 7 reporting sources.
+- **Cost efficiency: 97.4/100.** Mean of 7 reporting sources.
+- **Overall Score: 75.4/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 4 reporting source(s): DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, Solar Pro 4.
+- Based on 7 reporting source(s): DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, Muse Spark 1.3, Solar Pro 4.

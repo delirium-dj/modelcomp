@@ -32,7 +32,7 @@
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 70/100.** Designed for enterprise software engineering.
 - **Cost efficiency: 100/100.** Free Zen tier.
-- **Overall Score: 64.2/100.** Solid, free, text-focused agentic model.
+- **Overall Score: 57/100.** Solid, free, text-focused agentic model.
  
 ---
  

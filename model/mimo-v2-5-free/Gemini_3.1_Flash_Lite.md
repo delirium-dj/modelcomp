@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 40/100.** Text-only focus.
 - **Coding: 65/100.** Decent capability for simple coding assistance.
 - **Cost efficiency: 90/100.** Excellent cost-to-performance for a free model.
-- **Overall Score: 70/100.** A highly versatile and efficient generalist model.
+- **Overall Score: 66/100.** A highly versatile and efficient generalist model.
 
 ---
 

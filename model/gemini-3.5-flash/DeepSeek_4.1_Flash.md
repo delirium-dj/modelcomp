@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 88/100.** Text, image, audio, video and PDF in one call with a launch-leading MMMU-Pro score; text-only output.
 - **Coding: 80/100.** 78% SWE-bench Verified is solid for a mid-tier model, but the missing harder harnesses and the 3× price increase over Gemini 3 Flash cap the value story.
 - **Cost efficiency: 62/100.** $1.50/$9.00 per 1M with a 90%-off cached rate is mid-priced rather than cheap, and it is 3× the prior Flash generation; free AI Studio candidates nothing for production volume.
-- **Overall Score: 83/100.** (85 + 85 + 95 + 88 + 80 + 62) / 6 = 82.5 → **83**. Best fit: MCP-based coding and tool agents that need wide multimodal ingestion and are willing to pay a Flash-plus rate.
+- **Overall Score: 87/100.** (85 + 85 + 95 + 88 + 80 + 62) / 6 = 82.5 → **83**. Best fit: MCP-based coding and tool agents that need wide multimodal ingestion and are willing to pay a Flash-plus rate.
 
 ---
 

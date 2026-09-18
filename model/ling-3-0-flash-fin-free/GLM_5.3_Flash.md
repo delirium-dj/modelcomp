@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 72/100.** SpreadsheetBench-class workflows are the claim, not a published score; base-model coding evidence (HumanEval 19/19 valid) keeps it provisional mid-tier.
 - **Cost efficiency: 100/100.** Evaluated free tier ($0) plus MIT open weights.
-- **Overall Score: 66/100.** Mean: (68 + 70 + 72 + 15 + 72 + 100) / 6 = 397/6 = 66.2 → **66**. Best fit: niche free pick for finance research + spreadsheet-heavy workflows; verify on τ³-Banking/Finance Agent numbers before general coding use.
+- **Overall Score: 59/100.** Mean: (68 + 70 + 72 + 15 + 72 + 100) / 6 = 397/6 = 66.2 → **66**. Best fit: niche free pick for finance research + spreadsheet-heavy workflows; verify on τ³-Banking/Finance Agent numbers before general coding use.
 
 ---
 

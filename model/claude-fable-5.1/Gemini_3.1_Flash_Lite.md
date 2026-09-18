@@ -32,7 +32,7 @@
 - **Multimodal: 70/100.** Includes image/PDF support.
 - **Coding: 75/100.** No verified scores found; provisional score based on Mythos-class positioning.
 - **Cost efficiency: 20/100.** Expensive paid model.
-- **Overall Score: 66.7/100.** Highly capable premium model for complex, long-context tasks.
+- **Overall Score: 76/100.** Highly capable premium model for complex, long-context tasks.
  
 ---
  

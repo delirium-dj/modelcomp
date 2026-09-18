@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 82/100.** Text + vision in; text-only output.
 - **Coding: 86/100.** Strong agentic-coding positioning and Claude Code integration; unpublished benchmark rows cap it provisionally.
 - **Cost efficiency: 57/100.** No API free tier and $2/$10 list — mid-priced for 2026 (cheap vs Opus, expensive vs open tiers); the cancelled price hike is a positive signal.
-- **Overall Score: 83/100.** Mean: (90 + 84 + 100 + 82 + 86 + 57) / 6 = 499/6 = 83.2 → **83**. Best fit: the default Anthropic production agent — near-Opus agency at mid-tier prices, benchmark transparency being the main gap.
+- **Overall Score: 88/100.** Mean: (90 + 84 + 100 + 82 + 86 + 57) / 6 = 499/6 = 83.2 → **83**. Best fit: the default Anthropic production agent — near-Opus agency at mid-tier prices, benchmark transparency being the main gap.
 
 ---
 

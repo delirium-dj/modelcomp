@@ -32,7 +32,7 @@
 - **Multimodal: 60/100.** Includes image support.
 - **Coding: 75/100.** No verified scores found; provisional score based on flagship positioning.
 - **Cost efficiency: 20/100.** Expensive paid model.
-- **Overall Score: 61.7/100.** Capable flagship reasoning model.
+- **Overall Score: 70/100.** Capable flagship reasoning model.
  
 ---
  

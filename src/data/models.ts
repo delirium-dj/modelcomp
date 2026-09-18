@@ -195,13 +195,21 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
     if (!m) throw new Error(`[models] unexpected meta path: ${path}`);
     const slug = m[1];
     const meta = metaModules[path] as Partial<MetaFile>;
+    let valid = true;
     for (const k of META_REQUIRED) {
       if (typeof meta[k] !== "string" || (meta[k] as string).length === 0) {
-        throw new Error(`[models] model/${slug}/meta.json: missing required field "${k}"`);
+        // Warn-and-skip (never throw): in-progress research must not break the build.
+        // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
+        console.warn(`[models] model/${slug}/meta.json: missing required field "${k}" — skipped`);
+        valid = false;
       }
     }
+    if (!valid) continue;
     const id = meta.id as string;
-    if (seenIds.has(id)) throw new Error(`[models] duplicate model id: ${id}`);
+    if (seenIds.has(id)) {
+      console.warn(`[models] duplicate model id: ${id} — keeping first occurrence`);
+      continue;
+    }
     seenIds.add(id);
     entries.push({ slug, meta: meta as MetaFile });
   }
@@ -209,15 +217,25 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
   return entries;
 }
 
-function hydrateModel(slug: string, meta: MetaFile): AiModel {
+function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
   const files = FINDINGS[slug] || {};
   const sources: Partial<Record<SourceKey, ModelScores>> = {};
   for (const s of SOURCE_DEFS) {
     const md = files[s.file];
-    if (md !== undefined) sources[s.key] = parseAverageScores(md, meta.id);
+    if (md === undefined) continue;
+    try {
+      sources[s.key] = parseAverageScores(md, meta.id);
+    } catch {
+      // Warn-and-skip (never throw): in-progress research must not break the build.
+      // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
+      console.warn(`[models] model/${slug}/${s.file}: unparsable scores — skipped`);
+    }
   }
   const avg = sources.average;
-  if (!avg) throw new Error(`[models] missing average.md for ${meta.id} (model/${slug}/)`);
+  if (!avg) {
+    console.warn(`[models] model/${slug}/: no usable average.md — skipped (run pnpm sync)`);
+    return null;
+  }
   return {
     id: meta.id,
     name: meta.name,
@@ -240,8 +258,24 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel {
  * Hydrated models, sorted by id for determinism. Scores/sources are auto-derived
  * from model/<slug>/*.md at build time; metadata comes from model/<slug>/meta.json.
  * Adding a model = add a folder. No code changes needed here.
+ * Folders without usable data are skipped with a warning (never a build break);
+ * `pnpm sync` is the strict gate that flags them for completion.
  */
-export const MODELS: AiModel[] = loadMetas().map((e) => hydrateModel(e.slug, e.meta));
+export const MODELS: AiModel[] = (() => {
+  const metas = loadMetas();
+  const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
+  for (const slug of Object.keys(FINDINGS)) {
+    if (!metaBySlug.has(slug)) {
+      console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
+    }
+  }
+  const models: AiModel[] = [];
+  for (const e of metas) {
+    const m = hydrateModel(e.slug, e.meta);
+    if (m) models.push(m);
+  }
+  return models;
+})();
 
 /** Highest overall score a reporting agent awards any model (dropdown ranking metric). */
 function sourceMaxOverall(key: SourceKey): number {
@@ -270,19 +304,41 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() =>
   ];
 })();
 
+/**
+ * Reporting-agent key -> model slug of that same agent, for cross-linking
+ * ("how other models rate the competition"). Extend when registering a source
+ * whose agent is also a tracked model; agents without an entry render as
+ * plain text (never a dead link).
+ */
+export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
+  "big-pickle": "big-pickle",
+  "Muse Spark 1.3": "muse-spark-1-3-free",
+  "Ling 3.0": "ling-3-0-flash-fin-free",
+  "Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite",
+  "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
+  "Gemini 3.6 Flash": "gemini-3.6-flash",
+  "GLM 5.3 Flash": "glm-5.3-flash",
+  "Ox Alpha": "ox_alpha",
+  "Claude Sonnet 4.6": "claude-sonnet-4.6",
+  "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
+  "Solar Pro 4": "solar-pro-4",
+  "MiniMax M3": "minimax-m3",
+};
+
 export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);
 }
 
 /** Dev check: every source's overall must sit within rounding distance of its
- * dim mean (each source overall is a rounded mean, so it can legitimately
- * differ from the dim mean by up to 0.5). */
+ * quality-dim mean (each source overall is a rounded mean of the five quality
+ * dimensions — Cost efficiency is scored separately and never counts toward
+ * Overall — so it can legitimately differ from that mean by up to 0.5). */
 export function checkOverallScores(): void {
   for (const m of MODELS) {
     (Object.keys(m.sources) as SourceKey[]).forEach((key) => {
       const s = m.sources[key];
       if (!s) return;
-      const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding + s.cost) / 6;
+      const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding) / 5;
       if (Math.abs(mean - s.overall) > 0.51) {
         console.warn(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
       }

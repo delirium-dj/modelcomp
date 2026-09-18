@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 65/100.** Text + image in + computer use; no audio/video; same rationale as Sonnet 4.6.
 - **Coding: 76/100.** SWE-bench 75.6% is sole verified number; DeepSWE/LiveCodeBench absent; mid-upper coding range.
 - **Cost efficiency: 40/100.** $5.00/$25.00 — premium paid pricing; per methodology $10/$50 ≈ 30, $3/$15 ≈ 60; $5/$25 maps to ~40.
-- **Overall Score: 72/100.** Mean of (75 + 83 + 95 + 65 + 76 + 40) / 6 = 434 / 6 = 72.3 → **72**. Best fit: top-tier Anthropic reasoning and coding but premium pricing significantly weighs down overall when no free tier exists.
+- **Overall Score: 79/100.** Mean of (75 + 83 + 95 + 65 + 76 + 40) / 6 = 434 / 6 = 72.3 → **72**. Best fit: top-tier Anthropic reasoning and coding but premium pricing significantly weighs down overall when no free tier exists.
 
 ---
 

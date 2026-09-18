@@ -32,7 +32,7 @@
 - **Multimodal: 75/100.** Text and image support.
 - **Coding: 95/100.** Frontier-level coding synthesis.
 - **Cost efficiency: 20/100.** Expensive paid model.
-- **Overall Score: 79.2/100.** Frontier flagship reasoning and agentic model.
+- **Overall Score: 91/100.** Frontier flagship reasoning and agentic model.
 
 ---
 

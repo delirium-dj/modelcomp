@@ -14,7 +14,10 @@ pnpm sync && pnpm build.types && pnpm build
 1. Collects findings files (`*.md`, excluding `average.md`/`README.md`).
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
 2. Parses the seven `1–100` scores from each file (fails loudly on any
-   missing/invalid score line — never invent numbers).
+   missing/invalid score line — never invent numbers) and validates each
+   file's Overall equals the half-up mean of its five non-cost dims
+   (Cost efficiency never counts toward Overall since v4; drift `> 0.51`
+   fails and blocks that folder's average rewrite).
 3. Recomputes `model/<slug>/average.md` as arithmetic means with standard
    half-up rounding to 1 decimal (`72.25` → `72.3`; only differences `> 0.051`
    count as drift). Overall = mean of source Overall scores, NOT re-derived
@@ -55,6 +58,9 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   hand-sort the dropdown — a newly registered source slots itself in
   automatically on the next build.
 - Components read `MODELS` only — never import findings files directly.
+- Cost efficiency is an independent stat (scored, shown, sortable) and never
+  counts toward any Overall — source Overall = mean of the five quality dims,
+  average Overall = mean of source Overalls.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
 
 ## Definition of Done

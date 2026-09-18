@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 70/100.** High LiveCodeBench (81%) and solid SWE-bench performance.
 - **Cost efficiency: 100/100.** Completely free tier ($0/1M tokens).
-- **Overall Score: 62/100.** Balanced zero-cost model for daily coding tasks.
+- **Overall Score: 54/100.** Balanced zero-cost model for daily coding tasks.
 
 ---
 

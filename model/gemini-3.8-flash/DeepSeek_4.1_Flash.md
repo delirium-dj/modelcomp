@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 86/100.** Text, image, video, audio and PDF input with CharXiv 86.2% document reasoning; text-only output and no vision-specialisation claims.
 - **Coding: 90/100.** SWE-bench Pro 61.6%, DeepSWE above 70% and SciCode 56.6% are top-of-class for the price; the absent SWE-bench Verified number is the only significant gap.
 - **Cost efficiency: 88/100.** $0.75/$3.75 with 50%-off batch/flex and $0.075 cached is outstanding value, but rates double in January 2027 and it burns more output tokens than peers on the same task.
-- **Overall Score: 90/100.** (92 + 93 + 92 + 86 + 90 + 88) / 6 = 90.2 → **90**. Best fit: autonomous coding agents, terminal-based tasks and finance/document workflows where top-tier agentic scores are needed at Flash-tier prices.
+- **Overall Score: 91/100.** (92 + 93 + 92 + 86 + 90 + 88) / 6 = 90.2 → **90**. Best fit: autonomous coding agents, terminal-based tasks and finance/document workflows where top-tier agentic scores are needed at Flash-tier prices.
 
 ---
 

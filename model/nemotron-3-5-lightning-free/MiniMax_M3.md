@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 58/100.** SWE 51.56 (mid), TB 24.58 (low). Cap = missing LiveCode/SciCode.
 - **Cost efficiency: 100/100.** $0/$0 Zen Free.
-- **Overall Score: 60/100.** Mean (50+62+72+15+58+100)/6 = 59.5 → 60. Best fit: routed executor + local single-GPU, not primary planner/coder.
+- **Overall Score: 51/100.** Mean (50+62+72+15+58+100)/6 = 59.5 → 60. Best fit: routed executor + local single-GPU, not primary planner/coder.
 
 ---
 

@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - **Multimodal: 50/100.** Focused on text and data.
 - **Coding: 85/100.** Performant coding and technical assistant.
 - **Cost efficiency: 75/100.** Pro-level pricing, reflected in higher performance.
-- **Overall Score: 79/100.** A powerful, productivity-oriented model suitable for advanced technical and reasoning workflows.
+- **Overall Score: 80/100.** A powerful, productivity-oriented model suitable for advanced technical and reasoning workflows.
 
 ---
 

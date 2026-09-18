@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 85/100.** Native audio-in/audio-out plus live image and video grounding with 97-language auto-switching and SynthID watermarking — the broadest real-time modality set found in this scan; no image/video generation.
 - **Coding: 15/100.** It is not a coding model and publishes no coding benchmark; treat any code work as out of scope.
 - **Cost efficiency: 80/100.** Per-minute audio rates ($0.005 in / $0.018 out) plus a free pre-production tier are competitive against GPT-Live-1's flat $0.05/minute plus a separately billed reasoning model; video sessions burn image/video tokens quickly and there are no cache or batch discounts.
-- **Overall Score: 61/100.** (60 + 55 + 70 + 85 + 15 + 80) / 6 = 60.8 → **61**. Best fit: real-time voice agents that must talk and act at the same time, provided the work is conversational rather than coding.
+- **Overall Score: 57/100.** (60 + 55 + 70 + 85 + 15 + 80) / 6 = 60.8 → **61**. Best fit: real-time voice agents that must talk and act at the same time, provided the work is conversational rather than coding.
 
 ---
 

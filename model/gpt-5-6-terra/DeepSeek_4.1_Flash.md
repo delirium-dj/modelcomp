@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 80/100.** Text + image input with text output; no audio, video or PDF-specific claims and no media generation; Sol-exclusive max/ultra reasoning modes are unavailable here.
 - **Coding: 85/100.** Terminal-Bench 87.4% and WebDev Arena 1523 are strong; the lack of any Terra-specific SWE-bench result and a mid-pack web-dev Elo keep it below the coding leaders.
 - **Cost efficiency: 72/100.** $2.50/$15 per 1M is mid-tier — ~2× Gemini 3.7/3.8 Flash and 18× DeepSeek-V4-Flash input — though 90%-off cache reads and half-price Sol positioning are real value.
-- **Overall Score: 85/100.** (88 + 92 + 95 + 80 + 85 + 72) / 6 = 85.3 → **85**. Best fit: production agent and long-context workflows that want near-flagship OpenAI behaviour without paying Sol's premium.
+- **Overall Score: 88/100.** (88 + 92 + 95 + 80 + 85 + 72) / 6 = 85.3 → **85**. Best fit: production agent and long-context workflows that want near-flagship OpenAI behaviour without paying Sol's premium.
 
 ---
 

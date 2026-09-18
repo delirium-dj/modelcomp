@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 58/100.** SWE-V 51.56 with weak agentic-terminal numbers (TB2.1 24.58) — batch/high-volume coding assistance, not hard engineering.
 - **Cost efficiency: 100/100.** Evaluated $0 free tier; 3B-active serving cost and 4× throughput are the design goals.
-- **Overall Score: 60/100.** Mean: (45 + 62 + 78 + 15 + 58 + 100) / 6 = 358/6 = 59.7 → **60**. Best fit: the routed executor + high-throughput batch tier of a two-model agent stack — pair it with a frontier planner, don't lead with it.
+- **Overall Score: 52/100.** Mean: (45 + 62 + 78 + 15 + 58 + 100) / 6 = 358/6 = 59.7 → **60**. Best fit: the routed executor + high-throughput batch tier of a two-model agent stack — pair it with a frontier planner, don't lead with it.
 
 ---
 

@@ -64,7 +64,7 @@ Long context:
 - **Multimodal: 80/100.** Text, image and PDF input with MMMU-Pro 90.64% and OSWorld computer use; text-only output, no audio or video input.
 - **Coding: 97/100.** 81.2% SWE-bench Pro is the top published result of September 2026, reinforced by 55.8% Terminal-Bench 4.0 and 73.4% CursorBench.
 - **Cost efficiency: 32/100.** $10/$50 per 1M is among the most expensive rates tracked anywhere here and the AA blended price of $7.17–$20 / 1M reflects it; the 75% cache-read cut is the only meaningful relief, and Anthropic itself recommends Opus 5 for most workloads.
-- **Overall Score: 83/100.** (95 + 97 + 95 + 80 + 97 + 32) / 6 = 82.7 → **83**. Best fit: maximum-reliability long-horizon coding and research agents where price is secondary and Opus 5 has been shown to fall short.
+- **Overall Score: 93/100.** (95 + 97 + 95 + 80 + 97 + 32) / 6 = 82.7 → **83**. Best fit: maximum-reliability long-horizon coding and research agents where price is secondary and Opus 5 has been shown to fall short.
 
 ---
 

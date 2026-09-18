@@ -1,0 +1,10 @@
+{
+  "id": "moonshotai/kimi-k3",
+  "name": "Kimi K3",
+  "short": "Moonshot AI's 2.8T-parameter multimodal MoE flagship (July 2026) with a 1M-token input and output window, frontier multimodal document/math reasoning and terminal-agent coding; proprietary, premium priced.",
+  "contextWindow": "1,048,576 (1M) in / 1M out",
+  "modalities": "Text, image, document in; text out",
+  "pricingNote": "Paid $3.00/$15.00 per 1M ($0.30 cached) — no Zen Free ID",
+  "pricingTiers": ["Paid $3.00/$15.00 per 1M ($0.30 cached) — no Zen Free ID"],
+  "noFreeId": true
+}

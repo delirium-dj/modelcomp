@@ -63,7 +63,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input. Baseline 15 per methodology.
 - **Coding: 70/100.** SWE-Atlas 50.8% direct, SWE-bench ~68% proxy, LiveCode 81% (compensating), SciCode 38.4% (weak), Vibe 3.1% (very weak agentic). Cap = Vibe floor; bonus from LiveCode.
 - **Cost efficiency: 100/100.** $0 in/out on Zen free tier.
-- **Overall Score: 62/100.** Mean (55+60+70+15+70+100)/6 = 61.7 → 62. Best fit: free daily-driver; escalate on tool-heavy or 1M-context jobs.
+- **Overall Score: 54/100.** Mean (55+60+70+15+70+100)/6 = 61.7 → 62. Best fit: free daily-driver; escalate on tool-heavy or 1M-context jobs.
 
 ---
 

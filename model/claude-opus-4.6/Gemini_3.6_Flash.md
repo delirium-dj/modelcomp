@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 65/100.** Text and vision input support; text-only output.
 - **Coding: 94/100.** SOTA performance on SWE-bench Verified and LiveCodeBench.
 - **Cost efficiency: 30/100.** High premium pricing ($15/$75 per 1M tokens).
-- **Overall Score: 75/100.** Frontier reasoning powerhouse capped by high cost.
+- **Overall Score: 84/100.** Frontier reasoning powerhouse capped by high cost.
 
 ---
 

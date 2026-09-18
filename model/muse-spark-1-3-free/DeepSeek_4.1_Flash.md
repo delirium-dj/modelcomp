@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 88/100.** Text, image, video, file and audio input with text output; no media generation and no separate vision score.
 - **Coding: 95/100.** A 95th-percentile Coding Index with SciCode 58.8% is among the strongest coding profiles in this scan; the missing SWE-bench/DeepSWE numbers are the only gap.
 - **Cost efficiency: 100/100.** $0 on the contributor tier; paid list pricing of $1.25/$4.25 is mid-tier, so the free tier's training-data term is the entire cost.
-- **Overall Score: 94/100.** (92 + 94 + 95 + 88 + 95 + 100) / 6 = 94.0 → **94**. Best fit: top-end free agentic coding and multi-agent workflows, accepting that contributor-tier prompts train Meta models.
+- **Overall Score: 93/100.** (92 + 94 + 95 + 88 + 95 + 100) / 6 = 94.0 → **94**. Best fit: top-end free agentic coding and multi-agent workflows, accepting that contributor-tier prompts train Meta models.
 
 ---
 

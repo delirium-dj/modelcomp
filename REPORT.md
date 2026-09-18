@@ -1,5 +1,82 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Clickable agent names + live concurrent-editing observed
+
+1. `src/data/models.ts`: new `AGENT_MODEL_SLUG` map (12 agents → their model
+   slugs; extend when registering sources whose agent is a tracked model).
+   `src/routes/model/[slug]/index.tsx`: agent names in the ratings table link to
+   the agent's model page, with plain-text fallback (never a dead link).
+2. Verified: 7/7 rows link correctly on Gemini 3.8 Flash page. `pnpm build` green.
+3. ⚠️ LIVE CONCURRENT EDITS by another agent during this task: `Gemini_3.5_Flash_Lite.md`
+   deleted then re-added within minutes; all `Muse_Spark_1.3.md` files deleted
+   repo-wide (source dropdown entry now matches zero files — key kept, WARNs);
+   several rewritten reviews carry six-dim-style overalls that fail the v4 gate
+   (e.g. big-pickle/G35FL 81 vs 66.6). `pnpm sync` correctly holds affected
+   averages at last-good state and stays red; kimi-k3 still incomplete.
+   RECOMMENDATION: let the other pass finish, then re-run `pnpm sync && pnpm build`.
+
+## Custom ratings-table column order (Context, Reason, Multi, Tool, Code, Cost)
+
+1. `src/routes/model/[slug]/index.tsx`: new route-local `TABLE_DIM_ORDER`
+   drives the ratings table (header + body + sorting all key off it), replacing
+   the Cost-last derivation. Hexagon keeps canonical `DIMENSIONS` order;
+   Overall stays first; Cost stays last.
+2. Verified in `dist`: headers run Reporting agent → Overall → Context → Reason →
+   Multi → Tool → Code → Cost, with values aligned (96/99/93/100/95/92/95).
+   `pnpm build` green, 44 pages.
+
+## Cost column last in per-model ratings tables
+
+1. `src/routes/model/[slug]/index.tsx`: new `tableDims` ordering (all dims except
+   Cost, then Cost) drives both the header and body cells; hexagon keeps
+   canonical `DIMENSIONS` order. Sorting/keys/highlights untouched (all keyed,
+   order-independent).
+2. Verified in `dist`: headers run Reporting agent → Overall → Tool → Reason →
+   Context → Code → Multi → Cost; first data row carries correct values per
+   header (96/95/93/99/92/100/95). `pnpm build` green, 44 pages. (Caught along
+   the way: a `replaceAll` that matched only the thead variant — tbody needed a
+   separate edit; verified, not assumed.)
+
+## v4 methodology: Cost excluded from Overall (quality-only ranking)
+
+1. **Confirmed the premise first:** Cost always counted — Overall was the mean of
+   all six dims (`model-comparison.md:35`). E.g. `claude-opus-4.8/GLM_5.3_Flash.md`
+   (92+85+100+85+93+20)/6 = 79.17 → 79; without Cost it would be 91 (−12 drag).
+2. **Bulk migration:** one-shot script recomputed Overall := half-up mean of the
+   five quality dims in 248 findings files (justification prose untouched —
+   only the normative number); `scripts/fix-overall-v4.mjs` deleted after use.
+3. **Structural split — build lenient, sync strict:** `models.ts` (`loadMetas`,
+   `hydrateModel`) and dev `checkOverallScores()` moved to 5-dim means;
+   incomplete folders/files now warn-and-skip instead of breaking the build
+   (proven live: half-scored `kimi-k3` research yields warnings, build stays
+   green, page absent until finished). `pnpm sync` fails loudly on any source
+   Overall drifting > 0.51 from its 5-dim mean and refuses to cement that
+   folder's average — it immediately caught a stale-template straggler
+   (`minimax-m3/Gemini_3.1_Flash_Lite.md` 85.8 → 85, six-dim math).
+4. **Cost kept independent and sortable:** hexagon axis, table columns/rows,
+   cards summary, per-model Cost column sorting, Free/Paid badges, tooltips —
+   all untouched. Only the Overall equation changed.
+5. **Docs:** methodology v4 noted in `model-comparison.md` (+ changelog, old
+   tables explicitly frozen v1–v3 history), `model-findings.md` changelog,
+   `model-report-TEMPLATE.md`, `.agents/rules.md`, `tasks/sync-data.md`,
+   `Methodology.tsx` ("five quality dimensions… Cost scored separately"),
+   PRD type comment.
+6. **Verified effect (as predicted):** top cards now Gemini 3.8 Flash 91.9,
+   GPT-6 Astra 89.7, Gemini 3.7 Flash 89, Claude Opus 5 87.6 — paid
+   high-quality models rose, cheap weak ones fell (e.g. GLM 5.3 Flash out of
+   top). Dropdown auto-re-ranked. `pnpm build` green, 44 pages.
+
+## Cost-vs-Overall confirmation (no change made)
+
+1. Confirmed by definition (`model-comparison.md:35`, report template): Overall =
+   mean of all six dimensions **including Cost efficiency**. Verified live on
+   `claude-opus-4.8/GLM_5.3_Flash.md`: (92+85+100+85+93+20)/6 = 79.17 → 79,
+   consistent (gap 0.17). The "85" at the row's end is Multimodal, not Overall
+   (columns now run Overall, Tool, Reason, Context, Cost, Code, Multi).
+2. Quantified: without Cost that grade would be 91; Cost 20 drags it to 79
+   (−12). If capability-only ranking is ever wanted, that's a methodology change
+   (exclude Cost from the mean), not a data fix — left as-is pending decision.
+
 ## Fixed-width, centered ratings tables
 
 1. `src/routes/model/[slug]/index.tsx`: ratings table is now `table-fixed` with an

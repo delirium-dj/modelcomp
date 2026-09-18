@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Extensive input modality coverage.
 - **Coding: 88/100.** Strong coding and tool-augmented debugging abilities.
 - **Cost efficiency: 100/100.** Free Contributor tier access ($0/1M tokens).
-- **Overall Score: 93/100.** Near-frontier free coding model for long-horizon agents.
+- **Overall Score: 91/100.** Near-frontier free coding model for long-horizon agents.
 
 ---
 

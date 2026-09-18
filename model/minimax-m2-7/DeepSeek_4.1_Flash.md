@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only; no image, audio, video or PDF input.
 - **Coding: 80/100.** SciCode 50.1% and a 1398 WebDev Arena Elo are solid mid-tier results, but the absence of any SWE-bench-class number rules out repository-level agentic coding claims.
 - **Cost efficiency: 88/100.** $0.30/$1.20 per 1M after a 50% cut is cheap, with a $0.042 cached rate; no free tier and a non-commercial open-weights license limit the value for commercial self-hosting.
-- **Overall Score: 69/100.** (78 + 80 + 70 + 15 + 80 + 88) / 6 = 68.5 → **69**. Best fit: budget tool-use and scripting workloads where a 205K text window and paid-only access are acceptable.
+- **Overall Score: 65/100.** (78 + 80 + 70 + 15 + 80 + 88) / 6 = 68.5 → **69**. Best fit: budget tool-use and scripting workloads where a 205K text window and paid-only access are acceptable.
 
 ---
 

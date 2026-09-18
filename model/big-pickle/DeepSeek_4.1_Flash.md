@@ -65,7 +65,7 @@ Long context:
 - **Multimodal: 15/100.** Text-in/text-out only; no vision, audio, video or PDF input reported by any source.
 - **Coding: 72/100.** Strongest real signal is SWE Atlas Codebase QnA 50.8% under a thin scaffold, plus a provisional SWE-bench ~72% directory figure. Capped by the unverifiable SWE-bench number and the alias's identity instability (a different model may answer tomorrow).
 - **Cost efficiency: 100/100.** $0 during the free stealth period with no rate card; the counterweight is data usage (Zen may use free-period prompts to improve the model) and an unannounced post-stealth price.
-- **Overall Score: 62/100.** (60 + 55 + 70 + 15 + 72 + 100) / 6 = 62.0 → **62**. Best fit: budget-constrained coding/terminal agents where an unverified identity, zero published reasoning scores and free-period data collection are acceptable risks.
+- **Overall Score: 54/100.** (60 + 55 + 70 + 15 + 72 + 100) / 6 = 62.0 → **62**. Best fit: budget-constrained coding/terminal agents where an unverified identity, zero published reasoning scores and free-period data collection are acceptable risks.
 
 ---
 

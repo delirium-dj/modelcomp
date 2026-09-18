@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Full multimodal input support (images, audio, video, PDF).
 - **Coding: 45/100.** Suitable for simple script edits and formatting.
 - **Cost efficiency: 98/100.** Extremely cheap pricing with free tier access.
-- **Overall Score: 71/100.** Extremely fast and cheap multimodal routing model.
+- **Overall Score: 66/100.** Extremely fast and cheap multimodal routing model.
 
 ---
 

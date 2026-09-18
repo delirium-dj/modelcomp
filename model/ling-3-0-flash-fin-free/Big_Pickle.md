@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only.
 - **Coding: 68/100.** Clean HumanEval syntax; no public SWE/LiveCode numbers. Finance-vs-coding balance favors Fin niche.
 - **Cost efficiency: 100/100.** $0 free tier.
-- **Overall Score: 65/100.** Niche finance pick; verify on real financial+Swe tasks before relying.
+- **Overall Score: 58/100.** Niche finance pick; verify on real financial+Swe tasks before relying.
 
 ---
 

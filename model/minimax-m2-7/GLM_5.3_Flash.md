@@ -51,7 +51,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 84/100.** SWE-Pro 56.22 (GPT-5.3-Codex parity), VIBE-Pro 55.6, SWE-Multilingual 76.5, Multi-SWE 52.7 — broad production coding, short of the 58+ SOTA club.
 - **Cost efficiency: 92/100.** No free ID, but $0.25/$1.00 (DeepInfra) to $0.30/$1.20 list is the cheapest capable open-weights paid tier measured here.
-- **Overall Score: 70/100.** Mean: (80 + 78 + 70 + 15 + 84 + 92) / 6 = 419/6 = 69.8 → **70**. Best fit: cheapest strong open-weights pick for productivity/office agents and multi-agent teams; not a frontier reasoner or multimodal.
+- **Overall Score: 65/100.** Mean: (80 + 78 + 70 + 15 + 84 + 92) / 6 = 419/6 = 69.8 → **70**. Best fit: cheapest strong open-weights pick for productivity/office agents and multi-agent teams; not a frontier reasoner or multimodal.
 
 ---
 

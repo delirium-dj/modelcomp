@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 88/100.** Text, image, video, file and audio input with text output; no media generation and no published vision benchmark of its own.
 - **Coding: 88/100.** SciCode 57.4%, WebDev Arena 1534 Elo and an 84th-percentile coding index are strong; the lack of SWE-bench/DeepSWE results caps it below the 1.3 tier.
 - **Cost efficiency: 100/100.** $0 through the Zen contributor tier; the real cost is that prompts and completions train future Meta models.
-- **Overall Score: 91/100.** (85 + 90 + 95 + 88 + 88 + 100) / 6 = 91.0 → **91**. Best fit: free agentic/reasoning workloads that can tolerate contributor data terms and need a 1M multimodal window.
+- **Overall Score: 89/100.** (85 + 90 + 95 + 88 + 88 + 100) / 6 = 91.0 → **91**. Best fit: free agentic/reasoning workloads that can tolerate contributor data terms and need a 1M multimodal window.
 
 ---
 

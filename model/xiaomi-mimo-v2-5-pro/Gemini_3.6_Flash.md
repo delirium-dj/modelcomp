@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 15/100.** Text-focused Pro variant.
 - **Coding: 82/100.** High LiveCodeBench (80.0%) and solid software engineering capabilities.
 - **Cost efficiency: 85/100.** Highly competitive paid pricing ($0.44/$0.87 per 1M tokens).
-- **Overall Score: 74/100.** Top open-weights Pro choice for 1M long-context agent loops.
+- **Overall Score: 71/100.** Top open-weights Pro choice for 1M long-context agent loops.
 
 ---
 

@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 90/100.** Broad input (text/image/video/audio/PDF), text out.
 - **Coding: 87/100.** Strong SWE/Coding-Index; DeepSWE 59.3 trails 1.3's 75.4.
 - **Cost efficiency: 100/100.** $0 free tier.
-- **Overall Score: 92/100.** Near-frontier free choice; everything 1.3 has, one notch lower.
+- **Overall Score: 91/100.** Near-frontier free choice; everything 1.3 has, one notch lower.
 
 ---
 

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Extensive input modality support.
 - **Coding: 79/100.** High coding accuracy across LiveCodeBench and SWE-bench.
 - **Cost efficiency: 95/100.** Outstanding free tier and cheap token rates.
-- **Overall Score: 86/100.** Fast, powerful, and affordable model for technical tasks.
+- **Overall Score: 85/100.** Fast, powerful, and affordable model for technical tasks.
 
 ---
 

@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Good multimodal support.
 - **Coding: 72/100.** Good for basic engineering tasks.
 - **Cost efficiency: 100/100.** Unmatched cost efficiency.
-- **Overall Score: 82/100.** Ideally suited for high-frequency, ultra-low-latency applications.
+- **Overall Score: 78/100.** Ideally suited for high-frequency, ultra-low-latency applications.
 
 ---
 

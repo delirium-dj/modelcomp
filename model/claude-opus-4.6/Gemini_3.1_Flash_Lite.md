@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Strong text and image capabilities.
 - **Coding: 90/100.** High proficiency in software engineering tasks.
 - **Cost efficiency: 60/100.** High-performance model with premium pricing.
-- **Overall Score: 83/100.** A top-tier, high-reasoning model for complex, high-value tasks.
+- **Overall Score: 88/100.** A top-tier, high-reasoning model for complex, high-value tasks.
 
 ---
 
