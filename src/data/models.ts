@@ -10,67 +10,91 @@ import g35BigPickle from "../../model/big-pickle/Gemini_3.5_Flash_Lite.md?raw";
 import g36BigPickle from "../../model/big-pickle/Gemini_3.6_Flash.md?raw";
 import glm53BigPickle from "../../model/big-pickle/GLM_5.3_Flash.md?raw";
 import oxBigPickle from "../../model/big-pickle/Ox_Alpha.md?raw";
+import ds41BigPickle from "../../model/big-pickle/DeepSeek_4.1_Flash.md?raw";
 import avgClaudeOpus46 from "../../model/claude-opus-4.6/average.md?raw";
 import g31ClaudeOpus46 from "../../model/claude-opus-4.6/Gemini_3.1_Flash_Lite.md?raw";
 import g35ClaudeOpus46 from "../../model/claude-opus-4.6/Gemini_3.5_Flash_Lite.md?raw";
 import g36ClaudeOpus46 from "../../model/claude-opus-4.6/Gemini_3.6_Flash.md?raw";
 import glm53ClaudeOpus46 from "../../model/claude-opus-4.6/GLM_5.3_Flash.md?raw";
 import csClaudeOpus46 from "../../model/claude-opus-4.6/Claude_Sonnet_4.6.md?raw";
+import ds41ClaudeOpus46 from "../../model/claude-opus-4.6/DeepSeek_4.1_Flash.md?raw";
 import avgClaudeOpus48 from "../../model/claude-opus-4.8/average.md?raw";
 import g36ClaudeOpus48 from "../../model/claude-opus-4.8/Gemini_3.6_Flash.md?raw";
 import glm53ClaudeOpus48 from "../../model/claude-opus-4.8/GLM_5.3_Flash.md?raw";
+import ds41ClaudeOpus48 from "../../model/claude-opus-4.8/DeepSeek_4.1_Flash.md?raw";
 import avgClaudeSonnet46 from "../../model/claude-sonnet-4.6/average.md?raw";
 import g31ClaudeSonnet46 from "../../model/claude-sonnet-4.6/Gemini_3.1_Flash_Lite.md?raw";
 import g35ClaudeSonnet46 from "../../model/claude-sonnet-4.6/Gemini_3.5_Flash_Lite.md?raw";
 import g36ClaudeSonnet46 from "../../model/claude-sonnet-4.6/Gemini_3.6_Flash.md?raw";
 import glm53ClaudeSonnet46 from "../../model/claude-sonnet-4.6/GLM_5.3_Flash.md?raw";
 import csClaudeSonnet46 from "../../model/claude-sonnet-4.6/Claude_Sonnet_4.6.md?raw";
+import ds41ClaudeSonnet46 from "../../model/claude-sonnet-4.6/DeepSeek_4.1_Flash.md?raw";
 import avgDeepseekV4VisionExp from "../../model/deepseek-v4-vision-exp/average.md?raw";
 import g36DeepseekV4VisionExp from "../../model/deepseek-v4-vision-exp/Gemini_3.6_Flash.md?raw";
+import ds41DeepseekV4VisionExp from "../../model/deepseek-v4-vision-exp/DeepSeek_4.1_Flash.md?raw";
+import glm53DeepseekV4VisionExp from "../../model/deepseek-v4-vision-exp/GLM_5.3_Flash.md?raw";
 import avgGemini25Flash from "../../model/gemini-2.5-flash/average.md?raw";
 import g31Gemini25Flash from "../../model/gemini-2.5-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini25Flash from "../../model/gemini-2.5-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini25Flash from "../../model/gemini-2.5-flash/Gemini_3.6_Flash.md?raw";
 import csGemini25Flash from "../../model/gemini-2.5-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini25Flash from "../../model/gemini-2.5-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini25Flash from "../../model/gemini-2.5-flash/GLM_5.3_Flash.md?raw";
 import avgGemini25FlashLite from "../../model/gemini-2.5-flash-lite/average.md?raw";
 import g31Gemini25FlashLite from "../../model/gemini-2.5-flash-lite/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini25FlashLite from "../../model/gemini-2.5-flash-lite/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini25FlashLite from "../../model/gemini-2.5-flash-lite/Gemini_3.6_Flash.md?raw";
 import csGemini25FlashLite from "../../model/gemini-2.5-flash-lite/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini25FlashLite from "../../model/gemini-2.5-flash-lite/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini25FlashLite from "../../model/gemini-2.5-flash-lite/GLM_5.3_Flash.md?raw";
 import avgGemini31Flash from "../../model/gemini-3.1-flash/average.md?raw";
 import g31Gemini31Flash from "../../model/gemini-3.1-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini31Flash from "../../model/gemini-3.1-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini31Flash from "../../model/gemini-3.1-flash/Gemini_3.6_Flash.md?raw";
 import csGemini31Flash from "../../model/gemini-3.1-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini31Flash from "../../model/gemini-3.1-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini31Flash from "../../model/gemini-3.1-flash/GLM_5.3_Flash.md?raw";
 import avgGemini31FlashLite from "../../model/gemini-3.1-flash-lite/average.md?raw";
 import g35Gemini31FlashLite from "../../model/gemini-3.1-flash-lite/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini31FlashLite from "../../model/gemini-3.1-flash-lite/Gemini_3.6_Flash.md?raw";
 import csGemini31FlashLite from "../../model/gemini-3.1-flash-lite/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini31FlashLite from "../../model/gemini-3.1-flash-lite/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini31FlashLite from "../../model/gemini-3.1-flash-lite/GLM_5.3_Flash.md?raw";
 import avgGemini35Flash from "../../model/gemini-3.5-flash/average.md?raw";
 import g31Gemini35Flash from "../../model/gemini-3.5-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini35Flash from "../../model/gemini-3.5-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini35Flash from "../../model/gemini-3.5-flash/Gemini_3.6_Flash.md?raw";
 import csGemini35Flash from "../../model/gemini-3.5-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini35Flash from "../../model/gemini-3.5-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini35Flash from "../../model/gemini-3.5-flash/GLM_5.3_Flash.md?raw";
 import avgGemini35FlashLite from "../../model/gemini-3.5-flash-lite/average.md?raw";
 import g31Gemini35FlashLite from "../../model/gemini-3.5-flash-lite/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini35FlashLite from "../../model/gemini-3.5-flash-lite/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini35FlashLite from "../../model/gemini-3.5-flash-lite/Gemini_3.6_Flash.md?raw";
 import csGemini35FlashLite from "../../model/gemini-3.5-flash-lite/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini35FlashLite from "../../model/gemini-3.5-flash-lite/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini35FlashLite from "../../model/gemini-3.5-flash-lite/GLM_5.3_Flash.md?raw";
 import avgGemini36Flash from "../../model/gemini-3.6-flash/average.md?raw";
 import g31Gemini36Flash from "../../model/gemini-3.6-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini36Flash from "../../model/gemini-3.6-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini36Flash from "../../model/gemini-3.6-flash/Gemini_3.6_Flash.md?raw";
 import csGemini36Flash from "../../model/gemini-3.6-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini36Flash from "../../model/gemini-3.6-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini36Flash from "../../model/gemini-3.6-flash/GLM_5.3_Flash.md?raw";
 import avgGemini37Flash from "../../model/gemini-3.7-flash/average.md?raw";
 import g31Gemini37Flash from "../../model/gemini-3.7-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini37Flash from "../../model/gemini-3.7-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini37Flash from "../../model/gemini-3.7-flash/Gemini_3.6_Flash.md?raw";
 import csGemini37Flash from "../../model/gemini-3.7-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini37Flash from "../../model/gemini-3.7-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini37Flash from "../../model/gemini-3.7-flash/GLM_5.3_Flash.md?raw";
 import avgGemini38Flash from "../../model/gemini-3.8-flash/average.md?raw";
 import g31Gemini38Flash from "../../model/gemini-3.8-flash/Gemini_3.1_Flash_Lite.md?raw";
 import g35Gemini38Flash from "../../model/gemini-3.8-flash/Gemini_3.5_Flash_Lite.md?raw";
 import g36Gemini38Flash from "../../model/gemini-3.8-flash/Gemini_3.6_Flash.md?raw";
 import csGemini38Flash from "../../model/gemini-3.8-flash/Claude_Sonnet_4.6.md?raw";
+import ds41Gemini38Flash from "../../model/gemini-3.8-flash/DeepSeek_4.1_Flash.md?raw";
+import glm53Gemini38Flash from "../../model/gemini-3.8-flash/GLM_5.3_Flash.md?raw";
 import avgGlm51Coding from "../../model/glm-5-1-coding/average.md?raw";
 import bpGlm51Coding from "../../model/glm-5-1-coding/Big_Pickle.md?raw";
 import msGlm51Coding from "../../model/glm-5-1-coding/Muse_Spark_1.3.md?raw";
@@ -79,15 +103,24 @@ import g31Glm51Coding from "../../model/glm-5-1-coding/Gemini_3.1_Flash_Lite.md?
 import g35Glm51Coding from "../../model/glm-5-1-coding/Gemini_3.5_Flash_Lite.md?raw";
 import g36Glm51Coding from "../../model/glm-5-1-coding/Gemini_3.6_Flash.md?raw";
 import oxGlm51Coding from "../../model/glm-5-1-coding/Ox_Alpha.md?raw";
+import ds41Glm51Coding from "../../model/glm-5-1-coding/DeepSeek_4.1_Flash.md?raw";
+import glm53Glm51Coding from "../../model/glm-5-1-coding/GLM_5.3_Flash.md?raw";
 import avgGlm52 from "../../model/glm-5-2/average.md?raw";
 import g36Glm52 from "../../model/glm-5-2/Gemini_3.6_Flash.md?raw";
+import ds41Glm52 from "../../model/glm-5-2/DeepSeek_4.1_Flash.md?raw";
+import glm53Glm52 from "../../model/glm-5-2/GLM_5.3_Flash.md?raw";
 import avgGlm53Flash from "../../model/glm-5.3-flash/average.md?raw";
 import g36Glm53Flash from "../../model/glm-5.3-flash/Gemini_3.6_Flash.md?raw";
 import glm53Glm53Flash from "../../model/glm-5.3-flash/GLM_5.3_Flash.md?raw";
+import ds41Glm53Flash from "../../model/glm-5.3-flash/DeepSeek_4.1_Flash.md?raw";
 import avgGlm53Free from "../../model/glm-5.3-free/average.md?raw";
 import g36Glm53Free from "../../model/glm-5.3-free/Gemini_3.6_Flash.md?raw";
+import ds41Glm53Free from "../../model/glm-5.3-free/DeepSeek_4.1_Flash.md?raw";
+import glm53Glm53Free from "../../model/glm-5.3-free/GLM_5.3_Flash.md?raw";
 import avgGpt56Terra from "../../model/gpt-5-6-terra/average.md?raw";
 import g36Gpt56Terra from "../../model/gpt-5-6-terra/Gemini_3.6_Flash.md?raw";
+import ds41Gpt56Terra from "../../model/gpt-5-6-terra/DeepSeek_4.1_Flash.md?raw";
+import glm53Gpt56Terra from "../../model/gpt-5-6-terra/GLM_5.3_Flash.md?raw";
 import avgLing30FlashFinFree from "../../model/ling-3-0-flash-fin-free/average.md?raw";
 import bpLing30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Big_Pickle.md?raw";
 import msLing30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Muse_Spark_1.3.md?raw";
@@ -95,6 +128,8 @@ import l30Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Ling_3.0.
 import g31Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/Gemini_3.6_Flash.md?raw";
+import ds41Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/DeepSeek_4.1_Flash.md?raw";
+import glm53Ling30FlashFinFree from "../../model/ling-3-0-flash-fin-free/GLM_5.3_Flash.md?raw";
 import avgMimoV25Free from "../../model/mimo-v2-5-free/average.md?raw";
 import bpMimoV25Free from "../../model/mimo-v2-5-free/Big_Pickle.md?raw";
 import msMimoV25Free from "../../model/mimo-v2-5-free/Muse_Spark_1.3.md?raw";
@@ -102,6 +137,8 @@ import l30MimoV25Free from "../../model/mimo-v2-5-free/Ling_3.0.md?raw";
 import g31MimoV25Free from "../../model/mimo-v2-5-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35MimoV25Free from "../../model/mimo-v2-5-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36MimoV25Free from "../../model/mimo-v2-5-free/Gemini_3.6_Flash.md?raw";
+import ds41MimoV25Free from "../../model/mimo-v2-5-free/DeepSeek_4.1_Flash.md?raw";
+import glm53MimoV25Free from "../../model/mimo-v2-5-free/GLM_5.3_Flash.md?raw";
 import avgMinimaxM27 from "../../model/minimax-m2-7/average.md?raw";
 import bpMinimaxM27 from "../../model/minimax-m2-7/Big_Pickle.md?raw";
 import msMinimaxM27 from "../../model/minimax-m2-7/Muse_Spark_1.3.md?raw";
@@ -109,6 +146,8 @@ import l30MinimaxM27 from "../../model/minimax-m2-7/Ling_3.0.md?raw";
 import g31MinimaxM27 from "../../model/minimax-m2-7/Gemini_3.1_Flash_Lite.md?raw";
 import g35MinimaxM27 from "../../model/minimax-m2-7/Gemini_3.5_Flash_Lite.md?raw";
 import g36MinimaxM27 from "../../model/minimax-m2-7/Gemini_3.6_Flash.md?raw";
+import ds41MinimaxM27 from "../../model/minimax-m2-7/DeepSeek_4.1_Flash.md?raw";
+import glm53MinimaxM27 from "../../model/minimax-m2-7/GLM_5.3_Flash.md?raw";
 import avgMuseSpark12Free from "../../model/muse-spark-1-2-free/average.md?raw";
 import bpMuseSpark12Free from "../../model/muse-spark-1-2-free/Big_Pickle.md?raw";
 import msMuseSpark12Free from "../../model/muse-spark-1-2-free/Muse_Spark_1.3.md?raw";
@@ -116,6 +155,8 @@ import l30MuseSpark12Free from "../../model/muse-spark-1-2-free/Ling_3.0.md?raw"
 import g31MuseSpark12Free from "../../model/muse-spark-1-2-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35MuseSpark12Free from "../../model/muse-spark-1-2-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36MuseSpark12Free from "../../model/muse-spark-1-2-free/Gemini_3.6_Flash.md?raw";
+import ds41MuseSpark12Free from "../../model/muse-spark-1-2-free/DeepSeek_4.1_Flash.md?raw";
+import glm53MuseSpark12Free from "../../model/muse-spark-1-2-free/GLM_5.3_Flash.md?raw";
 import avgMuseSpark13Free from "../../model/muse-spark-1-3-free/average.md?raw";
 import bpMuseSpark13Free from "../../model/muse-spark-1-3-free/Big_Pickle.md?raw";
 import msMuseSpark13Free from "../../model/muse-spark-1-3-free/Muse_Spark_1.3.md?raw";
@@ -123,6 +164,8 @@ import l30MuseSpark13Free from "../../model/muse-spark-1-3-free/Ling_3.0.md?raw"
 import g31MuseSpark13Free from "../../model/muse-spark-1-3-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35MuseSpark13Free from "../../model/muse-spark-1-3-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36MuseSpark13Free from "../../model/muse-spark-1-3-free/Gemini_3.6_Flash.md?raw";
+import ds41MuseSpark13Free from "../../model/muse-spark-1-3-free/DeepSeek_4.1_Flash.md?raw";
+import glm53MuseSpark13Free from "../../model/muse-spark-1-3-free/GLM_5.3_Flash.md?raw";
 import avgNemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/average.md?raw";
 import bpNemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/Big_Pickle.md?raw";
 import msNemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/Muse_Spark_1.3.md?raw";
@@ -130,6 +173,8 @@ import l30Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/
 import g31Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/Gemini_3.6_Flash.md?raw";
+import ds41Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/DeepSeek_4.1_Flash.md?raw";
+import glm53Nemotron35LightningFree from "../../model/nemotron-3-5-lightning-free/GLM_5.3_Flash.md?raw";
 import avgNemotron3UltraFree from "../../model/nemotron-3-ultra-free/average.md?raw";
 import bpNemotron3UltraFree from "../../model/nemotron-3-ultra-free/Big_Pickle.md?raw";
 import msNemotron3UltraFree from "../../model/nemotron-3-ultra-free/Muse_Spark_1.3.md?raw";
@@ -137,8 +182,12 @@ import l30Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/Ling_3.0.md
 import g31Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/Gemini_3.1_Flash_Lite.md?raw";
 import g35Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/Gemini_3.5_Flash_Lite.md?raw";
 import g36Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/Gemini_3.6_Flash.md?raw";
+import ds41Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/DeepSeek_4.1_Flash.md?raw";
+import glm53Nemotron3UltraFree from "../../model/nemotron-3-ultra-free/GLM_5.3_Flash.md?raw";
 import avgOxAlpha from "../../model/ox_alpha/average.md?raw";
 import g36OxAlpha from "../../model/ox_alpha/Gemini_3.6_Flash.md?raw";
+import ds41OxAlpha from "../../model/ox_alpha/DeepSeek_4.1_Flash.md?raw";
+import glm53OxAlpha from "../../model/ox_alpha/GLM_5.3_Flash.md?raw";
 import avgXiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/average.md?raw";
 import bpXiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Big_Pickle.md?raw";
 import msXiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Muse_Spark_1.3.md?raw";
@@ -146,8 +195,11 @@ import l30XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Ling_3.0.md?ra
 import g31XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.1_Flash_Lite.md?raw";
 import g35XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.5_Flash_Lite.md?raw";
 import g36XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/Gemini_3.6_Flash.md?raw";
+import ds41XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/DeepSeek_4.1_Flash.md?raw";
+import glm53XiaomiMimoV25Pro from "../../model/xiaomi-mimo-v2-5-pro/GLM_5.3_Flash.md?raw";
 import avgClaudeFable51 from "../../model/claude-fable-5.1/average.md?raw";
 import ds41ClaudeFable51 from "../../model/claude-fable-5.1/DeepSeek_4.1_Flash.md?raw";
+import solarPro4ClaudeFable51 from "../../model/claude-fable-5.1/Solar_Pro_4.md?raw";
 import avgClaudeOpus5 from "../../model/claude-opus-5/average.md?raw";
 import ds41ClaudeOpus5 from "../../model/claude-opus-5/DeepSeek_4.1_Flash.md?raw";
 import glm53ClaudeOpus5 from "../../model/claude-opus-5/GLM_5.3_Flash.md?raw";
@@ -166,6 +218,7 @@ import avgKimiK28Preview from "../../model/kimi-k2-8-preview/average.md?raw";
 import ds41KimiK28Preview from "../../model/kimi-k2-8-preview/DeepSeek_4.1_Flash.md?raw";
 import avgQwen38Max from "../../model/qwen3-8-max/average.md?raw";
 import ds41Qwen38Max from "../../model/qwen3-8-max/DeepSeek_4.1_Flash.md?raw";
+import solarPro4BigPickle from "../../model/big-pickle/Solar_Pro_4.md?raw";
 
 export interface ModelScores {
   tool: number;
@@ -189,7 +242,8 @@ export type SourceKey =
   | "GLM 5.3 Flash"
   | "Ox Alpha"
   | "Claude Sonnet 4.6"
-  | "DeepSeek 4.1 Flash";
+  | "DeepSeek 4.1 Flash"
+  | "Solar Pro 4";
 
 export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
@@ -203,6 +257,7 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "Ox Alpha", label: "Ox Alpha", file: "Ox_Alpha.md" },
   { key: "Claude Sonnet 4.6", label: "Claude Sonnet 4.6", file: "Claude_Sonnet_4.6.md" },
   { key: "DeepSeek 4.1 Flash", label: "DeepSeek 4.1 Flash", file: "DeepSeek_4.1_Flash.md" },
+  { key: "Solar Pro 4", label: "Solar Pro 4", file: "Solar_Pro_4.md" },
 ];
 
 export interface AiModel {
@@ -307,6 +362,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.6 Flash": parseAverageScores(g36BigPickle, "opencode/big-pickle"),
       "GLM 5.3 Flash": parseAverageScores(glm53BigPickle, "opencode/big-pickle"),
       "Ox Alpha": parseAverageScores(oxBigPickle, "opencode/big-pickle"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41BigPickle, "opencode/big-pickle"),
+      "Solar Pro 4": parseAverageScores(solarPro4BigPickle, "opencode/big-pickle"),
     },
     meta: {
       contextWindow: "200K total (160K in / 32K out)",
@@ -328,6 +385,7 @@ export const MODELS: AiModel[] = [
       "Gemini 3.6 Flash": parseAverageScores(g36ClaudeOpus46, "anthropic/claude-opus-4.6"),
       "GLM 5.3 Flash": parseAverageScores(glm53ClaudeOpus46, "anthropic/claude-opus-4.6"),
       "Claude Sonnet 4.6": parseAverageScores(csClaudeOpus46, "anthropic/claude-opus-4.6"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeOpus46, "anthropic/claude-opus-4.6"),
     },
     meta: {
       contextWindow: "200K",
@@ -345,6 +403,7 @@ export const MODELS: AiModel[] = [
       "average": parseAverageScores(avgClaudeOpus48, "anthropic/claude-opus-4.8"),
       "Gemini 3.6 Flash": parseAverageScores(g36ClaudeOpus48, "anthropic/claude-opus-4.8"),
       "GLM 5.3 Flash": parseAverageScores(glm53ClaudeOpus48, "anthropic/claude-opus-4.8"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeOpus48, "anthropic/claude-opus-4.8"),
     },
     meta: {
       contextWindow: "200K",
@@ -365,6 +424,7 @@ export const MODELS: AiModel[] = [
       "Gemini 3.6 Flash": parseAverageScores(g36ClaudeSonnet46, "anthropic/claude-sonnet-4.6"),
       "GLM 5.3 Flash": parseAverageScores(glm53ClaudeSonnet46, "anthropic/claude-sonnet-4.6"),
       "Claude Sonnet 4.6": parseAverageScores(csClaudeSonnet46, "anthropic/claude-sonnet-4.6"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeSonnet46, "anthropic/claude-sonnet-4.6"),
     },
     meta: {
       contextWindow: "200K",
@@ -381,6 +441,8 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgDeepseekV4VisionExp, "opencode/deepseek-v4-vision-exp"),
       "Gemini 3.6 Flash": parseAverageScores(g36DeepseekV4VisionExp, "opencode/deepseek-v4-vision-exp"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41DeepseekV4VisionExp, "opencode/deepseek-v4-vision-exp"),
+      "GLM 5.3 Flash": parseAverageScores(glm53DeepseekV4VisionExp, "opencode/deepseek-v4-vision-exp"),
     },
     meta: {
       contextWindow: "200K",
@@ -400,6 +462,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini25Flash, "google/gemini-2.5-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini25Flash, "google/gemini-2.5-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini25Flash, "google/gemini-2.5-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini25Flash, "google/gemini-2.5-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini25Flash, "google/gemini-2.5-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -419,6 +483,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini25FlashLite, "google/gemini-2.5-flash-lite"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini25FlashLite, "google/gemini-2.5-flash-lite"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini25FlashLite, "google/gemini-2.5-flash-lite"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini25FlashLite, "google/gemini-2.5-flash-lite"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini25FlashLite, "google/gemini-2.5-flash-lite"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -438,6 +504,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini31Flash, "google/gemini-3.1-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini31Flash, "google/gemini-3.1-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini31Flash, "google/gemini-3.1-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini31Flash, "google/gemini-3.1-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini31Flash, "google/gemini-3.1-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -456,6 +524,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini31FlashLite, "google/gemini-3.1-flash-lite"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini31FlashLite, "google/gemini-3.1-flash-lite"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini31FlashLite, "google/gemini-3.1-flash-lite"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini31FlashLite, "google/gemini-3.1-flash-lite"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini31FlashLite, "google/gemini-3.1-flash-lite"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -475,6 +545,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini35Flash, "google/gemini-3.5-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini35Flash, "google/gemini-3.5-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini35Flash, "google/gemini-3.5-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini35Flash, "google/gemini-3.5-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini35Flash, "google/gemini-3.5-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -494,6 +566,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini35FlashLite, "google/gemini-3.5-flash-lite"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini35FlashLite, "google/gemini-3.5-flash-lite"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini35FlashLite, "google/gemini-3.5-flash-lite"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini35FlashLite, "google/gemini-3.5-flash-lite"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini35FlashLite, "google/gemini-3.5-flash-lite"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -513,6 +587,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini36Flash, "google/gemini-3.6-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini36Flash, "google/gemini-3.6-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini36Flash, "google/gemini-3.6-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini36Flash, "google/gemini-3.6-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini36Flash, "google/gemini-3.6-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -532,6 +608,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini37Flash, "google/gemini-3.7-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini37Flash, "google/gemini-3.7-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini37Flash, "google/gemini-3.7-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini37Flash, "google/gemini-3.7-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini37Flash, "google/gemini-3.7-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -551,6 +629,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Gemini38Flash, "google/gemini-3.8-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gemini38Flash, "google/gemini-3.8-flash"),
       "Claude Sonnet 4.6": parseAverageScores(csGemini38Flash, "google/gemini-3.8-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gemini38Flash, "google/gemini-3.8-flash"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gemini38Flash, "google/gemini-3.8-flash"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -573,6 +653,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Glm51Coding, "opencode/glm-5.1"),
       "Gemini 3.6 Flash": parseAverageScores(g36Glm51Coding, "opencode/glm-5.1"),
       "Ox Alpha": parseAverageScores(oxGlm51Coding, "opencode/glm-5.1"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Glm51Coding, "opencode/glm-5.1"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Glm51Coding, "opencode/glm-5.1"),
     },
     meta: {
       contextWindow: "200K–205K / 128K out",
@@ -590,6 +672,8 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgGlm52, "opencode/glm-5.2"),
       "Gemini 3.6 Flash": parseAverageScores(g36Glm52, "opencode/glm-5.2"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Glm52, "opencode/glm-5.2"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Glm52, "opencode/glm-5.2"),
     },
     meta: {
       contextWindow: "204K",
@@ -607,6 +691,7 @@ export const MODELS: AiModel[] = [
       "average": parseAverageScores(avgGlm53Flash, "opencode/glm-5.3-flash"),
       "Gemini 3.6 Flash": parseAverageScores(g36Glm53Flash, "opencode/glm-5.3-flash"),
       "GLM 5.3 Flash": parseAverageScores(glm53Glm53Flash, "opencode/glm-5.3-flash"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Glm53Flash, "opencode/glm-5.3-flash"),
     },
     meta: {
       contextWindow: "204K",
@@ -623,6 +708,8 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgGlm53Free, "opencode/glm-5.3-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36Glm53Free, "opencode/glm-5.3-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Glm53Free, "opencode/glm-5.3-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Glm53Free, "opencode/glm-5.3-free"),
     },
     meta: {
       contextWindow: "204K",
@@ -639,6 +726,8 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgGpt56Terra, "openai/gpt-5.6-terra"),
       "Gemini 3.6 Flash": parseAverageScores(g36Gpt56Terra, "openai/gpt-5.6-terra"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Gpt56Terra, "openai/gpt-5.6-terra"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Gpt56Terra, "openai/gpt-5.6-terra"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -660,6 +749,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31Ling30FlashFinFree, "opencode/ling-3-0-flash-fin-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Ling30FlashFinFree, "opencode/ling-3-0-flash-fin-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36Ling30FlashFinFree, "opencode/ling-3-0-flash-fin-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Ling30FlashFinFree, "opencode/ling-3-0-flash-fin-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Ling30FlashFinFree, "opencode/ling-3-0-flash-fin-free"),
     },
     meta: {
       contextWindow: "262,144 (256K marketed) / 32K out",
@@ -681,7 +772,9 @@ export const MODELS: AiModel[] = [
       "Ling 3.0": parseAverageScores(l30MimoV25Free, "opencode/mimo-v2.5-free"),
       "Gemini 3.1 Flash Lite": parseAverageScores(g31MimoV25Free, "opencode/mimo-v2.5-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35MimoV25Free, "opencode/mimo-v2.5-free"),
-      "Gemini 3.6 Flash": parseAverageScores(g36MimoV25Free, "opencode/mimo-v2.5-free"),
+      "Gemini 3.6 Flash": parseAverageScores(g36MimoV25Free, "opencode/mimo-v2-5-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41MimoV25Free, "opencode/mimo-v2-5-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53MimoV25Free, "opencode/mimo-v2-5-free"),
     },
     meta: {
       contextWindow: "200K Zen cap (native 1M) / 32K out",
@@ -704,6 +797,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31MinimaxM27, "opencode/minimax-m2.7"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35MinimaxM27, "opencode/minimax-m2.7"),
       "Gemini 3.6 Flash": parseAverageScores(g36MinimaxM27, "opencode/minimax-m2.7"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41MinimaxM27, "opencode/minimax-m2.7"),
+      "GLM 5.3 Flash": parseAverageScores(glm53MinimaxM27, "opencode/minimax-m2.7"),
     },
     meta: {
       contextWindow: "196K–205K (200K class) / 131K out",
@@ -726,6 +821,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31MuseSpark12Free, "opencode/muse-spark-1.2-contributor-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35MuseSpark12Free, "opencode/muse-spark-1.2-contributor-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36MuseSpark12Free, "opencode/muse-spark-1.2-contributor-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41MuseSpark12Free, "opencode/muse-spark-1.2-contributor-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53MuseSpark12Free, "opencode/muse-spark-1.2-contributor-free"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -748,6 +845,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31MuseSpark13Free, "opencode/muse-spark-1.3-contributor-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35MuseSpark13Free, "opencode/muse-spark-1.3-contributor-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36MuseSpark13Free, "opencode/muse-spark-1.3-contributor-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41MuseSpark13Free, "opencode/muse-spark-1.3-contributor-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53MuseSpark13Free, "opencode/muse-spark-1.3-contributor-free"),
     },
     meta: {
       contextWindow: "1,048,576 (1M)",
@@ -770,6 +869,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31Nemotron35LightningFree, "opencode/nemotron-3.5-lightning-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Nemotron35LightningFree, "opencode/nemotron-3.5-lightning-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36Nemotron35LightningFree, "opencode/nemotron-3.5-lightning-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Nemotron35LightningFree, "opencode/nemotron-3.5-lightning-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Nemotron35LightningFree, "opencode/nemotron-3.5-lightning-free"),
     },
     meta: {
       contextWindow: "262,144 native",
@@ -792,6 +893,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31Nemotron3UltraFree, "opencode/nemotron-3-ultra-free"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35Nemotron3UltraFree, "opencode/nemotron-3-ultra-free"),
       "Gemini 3.6 Flash": parseAverageScores(g36Nemotron3UltraFree, "opencode/nemotron-3-ultra-free"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41Nemotron3UltraFree, "opencode/nemotron-3-ultra-free"),
+      "GLM 5.3 Flash": parseAverageScores(glm53Nemotron3UltraFree, "opencode/nemotron-3-ultra-free"),
     },
     meta: {
       contextWindow: "1M (262K default serve)",
@@ -809,6 +912,8 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgOxAlpha, "opencode/ox-alpha"),
       "Gemini 3.6 Flash": parseAverageScores(g36OxAlpha, "opencode/ox-alpha"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41OxAlpha, "opencode/ox-alpha"),
+      "GLM 5.3 Flash": parseAverageScores(glm53OxAlpha, "opencode/ox-alpha"),
     },
     meta: {
       contextWindow: "200K",
@@ -830,6 +935,8 @@ export const MODELS: AiModel[] = [
       "Gemini 3.1 Flash Lite": parseAverageScores(g31XiaomiMimoV25Pro, "xiaomi/mimo-v2-5-pro"),
       "Gemini 3.5 Flash Lite": parseAverageScores(g35XiaomiMimoV25Pro, "xiaomi/mimo-v2-5-pro"),
       "Gemini 3.6 Flash": parseAverageScores(g36XiaomiMimoV25Pro, "xiaomi/mimo-v2-5-pro"),
+      "DeepSeek 4.1 Flash": parseAverageScores(ds41XiaomiMimoV25Pro, "xiaomi/mimo-v2-5-pro"),
+      "GLM 5.3 Flash": parseAverageScores(glm53XiaomiMimoV25Pro, "xiaomi/mimo-v2-5-pro"),
     },
     meta: {
       contextWindow: "1M (Base 256K)",
@@ -847,6 +954,7 @@ export const MODELS: AiModel[] = [
     sources: {
       "average": parseAverageScores(avgClaudeFable51, "anthropic/claude-fable-5.1"),
       "DeepSeek 4.1 Flash": parseAverageScores(ds41ClaudeFable51, "anthropic/claude-fable-5.1"),
+      "Solar Pro 4": parseAverageScores(solarPro4ClaudeFable51, "anthropic/claude-fable-5.1"),
     },
     meta: {
       contextWindow: "1M / 128K out",

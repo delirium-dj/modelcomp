@@ -34,6 +34,7 @@ reports, and the website stay consistent.
 - `average.md` = arithmetic mean per dimension + mean of Overalls + agreement note. Recompute from sources, don't copy site values backwards.
 - Add `pricingTiers` (one string per tier) alongside `pricingNote` when pricing has multiple tiers; the compare table stacks them.
 - Adding a results source = new `SourceKey` + `?raw` imports per model + entry in `SOURCES` (drives the selector); a third agent's file slots in the same way.
+- Data syncs are governed by `tasks/sync-data.md` (mandatory, incl. its Definition of Done): recompute every `average.md` from source files, register new sources/models, and — critically — audit that every on-disk findings file is wired into its own model's `sources` record (Step 2b), otherwise the hexagon silently shows N/A for existing files.
 
 ## Frontend conventions
 

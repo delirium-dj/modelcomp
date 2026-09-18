@@ -1,5 +1,26 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync)
 
+## 2026-09-18 (sync-data as enforceable rule + A–Z selectors)
+
+1. **Rule hardening:** `tasks/sync-data.md` now ends with a binding **Definition of Done** (recompute verified by script, zero wiring gaps, all models registered, sources↔files bidirectional match, builds green, REPORT.md updated) — an agent that skips a box has not finished. Added the mandatory half-up rounding rule (exact `.x25` → `.x3`, drift threshold > 0.051) so future runs don't "fix" correctly rounded files. Added selector-order + homepage-defaults invariants.
+2. **Repo rule pointer:** `.agents/rules.md` now mandates `tasks/sync-data.md` (incl. Step 2b per-model wiring audit) for every data sync.
+3. **A–Z model selectors:** `CompareSection.tsx:22-26` now sorts Model A/B/C options by display name; results-source order untouched (curated `SOURCES`); `ModelCards` still sorts by Overall Score.
+4. **Verification:** `pnpm build.types` zero errors; `pnpm build` green.
+
+## 2026-09-18 (DeepSeek hexagon fix) — per-model `sources` wiring audit + `tasks/sync-data.md` patch
+
+1. **Root cause of the reported bug:** `model/gemini-3.8-flash/DeepSeek_4.1_Flash.md` (and the 3.7 equivalent) existed on disk and counted toward `average.md`, but were never wired into those models' `sources` records in `src/data/models.ts` — so selecting "DeepSeek 4.1 Flash" showed N/A/empty hexagon. Previous sync runs only registered new *models* and new *global* sources, never audited per-model wiring.
+2. **Fix applied:** added 53 missing `?raw` imports and 54 missing `sources` entries — "DeepSeek 4.1 Flash" wired into all 29 models that have the file, "GLM 5.3 Flash" into all 25, "Solar Pro 4" into Claude Fable 5.1 (plus the earlier Big Pickle one). Also fixed `claude-fable-5.1/average.md` (stale 1-source mean → recomputed 2-source mean incl. Solar Pro 4: Overall **83.5**) and added the missed DeepSeek import+entry for `opencode/glm-5.3-flash`.
+3. **Process fix:** added Step 2b ("Audit Per-Model `sources` Wiring — DO NOT SKIP") to `tasks/sync-data.md` so future runs verify every on-disk file maps to an entry in its own model's `sources` block (with a script, not by eye).
+4. **Verification:** gap audit now reports zero missing wirings; `pnpm build.types` zero errors; `pnpm build` (client + server + SSG) green.
+
+## 2026-09-18 (later) — Full `tasks/sync-data.md` pass
+
+1. **Step 1 — `average.md` recalculation:** scanned all 37 `model/<slug>/` folders; 36 averages already matched their source files. Only `model/big-pickle/average.md` was stale — it gained a 10th source (`Solar_Pro_4.md`: 55/60/70/15/70/100/62) and was recomputed to Tool 56.1 / Reasoning 59.1 / Context 72.5 / Multimodal 22 / Coding 66.7 / Cost 99.5 / Overall **62.7** (was 62.8).
+2. **Step 2 — new sources:** `Solar_Pro_4.md` (now populated, 8665 bytes, previously empty) registered as `"Solar Pro 4"` in `SourceKey` + `SOURCES` (`Solar_Pro_4.md`), with `?raw` import and entry in Big Pickle's `sources`. No other unregistered sources found.
+3. **Step 3 — new models:** all 37 folders already present in `MODELS` — nothing to add.
+4. **Step 4 — verification:** `pnpm build.types` zero errors; `pnpm build` (client + server + SSG) green; confirmed "Solar Pro 4" ships in the production bundle.
+
 ## 2026-09-18 — Full `tasks/sync-data.md` pass + homepage defaults fix
 
 1. **Registered 9 missing models in `src/data/models.ts`** (found as `model/<slug>/` folders with valid `average.md` but absent from `MODELS`): Claude Fable 5.1, Claude Opus 5, Claude Sonnet 5, DeepSeek V4.1 Flash, Gemini 3.8 Flash Cyber, Gemini 3.8 Live, GPT-6 Astra, Kimi K2.8 Preview, Qwen3.8-Max — each with `?raw` imports and `AiModel` metadata, so they now appear in Model A/B/C selectors.

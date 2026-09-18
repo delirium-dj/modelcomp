@@ -19,7 +19,11 @@ const SLOT_LABELS = ["Model A", "Model B", "Model C"] as const;
 
 export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source, onSelect$, onSource$ }) => {
   const ids = [a, b, c];
-  const options = MODELS.map((m) => ({ id: m.id, name: m.name }));
+  // Model selectors (A/B/C) always render A–Z by display name; the results-source
+  // selector keeps its curated SOURCES order and must NOT be sorted here.
+  const options = MODELS.map((m) => ({ id: m.id, name: m.name })).sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   const contributors = SOURCES.filter((s) => s.key !== "average");
   const activeLabel = SOURCES.find((s) => s.key === source)?.label ?? source;
