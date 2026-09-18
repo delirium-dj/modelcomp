@@ -1,5 +1,22 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Sync registry bug: `export` prefix that never existed
+
+1. Your `pnpm sync` FAIL was a real script bug, not data: the SOURCES-array regex
+   expected `export const SOURCE_DEFS`, but the declaration has always been
+   module-local `const SOURCE_DEFS` (my earlier "missing-star" diagnosis fixed a
+   different, latent issue in the same regex). It never matched since the rename,
+   so auto-registration silently no-opped every time — previous sources got in by
+   hand-edit instead, which is also how "GPT 5.6 Terra" arrived (another agent).
+   Fixed + regression-noted in the script; verified the fixed regex matches.
+2. Re-ran green: "Gemini 3.5 Flash" auto-registered (union + array, no dupes),
+   re-run idempotent, `pnpm build` green — 47 pages, dropdown now ends
+   … DeepSeek 4.1 Flash | MiniMax M3 | GPT 5.6 Terra | Gemini 3.5 Flash |
+   Claude Sonnet 4.6 | Ox Alpha.
+3. Observed live: the other agent is mid-migration (kimi-k3 completed with 6
+   reviews incl. a restored `Muse_Spark_1.3.md`; old Muse files elsewhere still
+   absent). Sync + build both handle the transient states correctly.
+
 ## Root README + stale Methodology/Footer copy
 
 1. **New `README.md` (repo root, was missing):** what the site is, command table

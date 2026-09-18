@@ -204,7 +204,10 @@ if (pending.length > 0) {
   // NOTE: [^[]* (with star) skips the ": { key: ... }[] = " type annotation up to
   // the array's opening bracket. A missing star here silently breaks matching.
   const unionRe = /(export type SourceKey =[\s\S]*?);/;
-  const arrRe = /(export const SOURCE_DEFS[^[]*\[[\s\S]*?)\n\];/;
+  // NOTE: SOURCE_DEFS is module-local (no `export` keyword) — the derived
+  // `SOURCES` const is the exported one. Matching `export const` here silently
+  // breaks registration (as happened once already).
+  const arrRe = /(const SOURCE_DEFS[^[]*\[[\s\S]*?)\n\];/;
   const um = ts.match(unionRe);
   const am = ts.match(arrRe);
   if (!um || !am) {
