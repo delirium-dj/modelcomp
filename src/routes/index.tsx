@@ -49,9 +49,32 @@ export default component$(() => {
   });
 
   useVisibleTask$(({ track }) => {
+    // Track state changes to update URL query params dynamically
     track(() => sel.a + "|" + sel.b + "|" + sel.c + "|" + sel.source);
-    const params = new URLSearchParams({ a: sel.a, b: sel.b, c: sel.c, source: sel.source });
-    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
+
+    // Only set URL query params if selections differ from defaults
+    const isDefault =
+      sel.a === DEFAULTS.a &&
+      sel.b === DEFAULTS.b &&
+      sel.c === DEFAULTS.c &&
+      sel.source === "average";
+
+    if (isDefault) {
+      // Clean URL if default state
+      if (window.location.search) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    } else {
+      const params = new URLSearchParams();
+      if (sel.a) params.set("a", sel.a);
+      if (sel.b) params.set("b", sel.b);
+      if (sel.c) params.set("c", sel.c);
+      if (sel.source !== "average") params.set("source", sel.source);
+
+      const queryString = params.toString();
+      const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+      window.history.replaceState(null, "", newUrl);
+    }
   });
 
   return (

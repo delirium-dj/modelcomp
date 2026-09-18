@@ -168,7 +168,8 @@ export type SourceKey =
   | "Gemini 3.6 Flash"
   | "GLM 5.3 Flash"
   | "Ox Alpha"
-  | "Claude Sonnet 4.6";
+  | "Claude Sonnet 4.6"
+  | "DeepSeek 4.1 Flash";
 
 export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
@@ -181,6 +182,7 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = [
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md" },
   { key: "Ox Alpha", label: "Ox Alpha", file: "Ox_Alpha.md" },
   { key: "Claude Sonnet 4.6", label: "Claude Sonnet 4.6", file: "Claude_Sonnet_4.6.md" },
+  { key: "DeepSeek 4.1 Flash", label: "DeepSeek 4.1 Flash", file: "DeepSeek_4.1_Flash.md" },
 ];
 
 export interface AiModel {

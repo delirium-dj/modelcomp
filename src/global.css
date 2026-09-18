@@ -2,31 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * WHY CSS variables here?
+ * Tailwind's `dark:` utilities need `html.dark` to be present to activate.
+ * By anchoring colors to CSS variables on :root and html.dark, BOTH the
+ * Tailwind utility classes (e.g. dark:bg-slate-950) AND any raw CSS that
+ * references var(--color-bg) will automatically flip when the class changes.
+ */
+
+/* ── Light mode defaults ─────────────────────────────────────────── */
 :root {
   --color-bg: #ffffff;
   --color-text-main: #0f172a;
+  /* Tells the browser which color-scheme to use for native UI
+     (scrollbars, form controls, etc.) */
   color-scheme: light;
 }
 
-html.dark,
-.dark {
+/* ── Dark mode overrides ─────────────────────────────────────────── */
+/*
+ * Only target `html.dark` — NOT `body.dark`.
+ * The toggle script adds `.dark` to <html>; the body inherits it
+ * via Tailwind's `dark:` prefix utilities.  Adding .dark to <body>
+ * separately is redundant and was causing a race condition in the
+ * anti-flash inline script (body doesn't exist yet when <head> runs).
+ */
+html.dark {
   --color-bg: #020617;
   --color-text-main: #f8fafc;
   color-scheme: dark;
 }
 
+/* ── Smooth scrolling ────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
 
+/*
+ * Body baseline: use the CSS variable so it always reflects the
+ * current theme without needing a separate `body.dark` rule.
+ * The transition animates the color swap when the toggle fires.
+ *
+ * NOTE: Do NOT use `!important` here — it blocks Tailwind's
+ * dark: utilities from winning the cascade.
+ */
 body {
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
   transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-html.dark body,
-body.dark {
-  background-color: #020617 !important;
-  color: #f8fafc !important;
 }

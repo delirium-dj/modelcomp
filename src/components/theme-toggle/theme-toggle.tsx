@@ -9,19 +9,23 @@ export const ThemeToggle = component$(() => {
 
   const toggleTheme = $(() => {
     const root = document.documentElement;
-    const body = document.body;
+    // Check current state by reading the class on <html>
     const isDarkNow = root.classList.contains("dark");
-    
+
     if (isDarkNow) {
+      // Switch to light: remove .dark from <html> only.
+      // CSS variables on html.dark revert to :root defaults,
+      // and Tailwind's dark: utilities de-activate automatically.
       root.classList.remove("dark");
-      if (body) body.classList.remove("dark");
       isDark.value = false;
       try {
         localStorage.setItem("theme", "light");
       } catch (e) {}
     } else {
+      // Switch to dark: add .dark to <html> only.
+      // The body NEVER needs .dark directly because the CSS cascade
+      // from html.dark already reaches every descendant element.
       root.classList.add("dark");
-      if (body) body.classList.add("dark");
       isDark.value = true;
       try {
         localStorage.setItem("theme", "dark");

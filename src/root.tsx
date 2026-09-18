@@ -9,19 +9,23 @@ export default component$(() => {
       <head>
         <meta charset="utf-8" />
         
-        {/* Anti-flash script: runs before first paint */}
+        {/*
+          Anti-flash script: runs synchronously in <head> BEFORE the first paint.
+          WHY only html.dark? document.body does NOT exist yet at this point,
+          so any body.classList call silently does nothing. We only need to add
+          .dark to <html> — Tailwind's `dark:` utilities cascade down from there.
+        */}
         <script
           dangerouslySetInnerHTML={`
             (function() {
               try {
-                var storedTheme = localStorage.getItem('theme');
-                var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (storedTheme === 'dark' || (!storedTheme && systemTheme)) {
+                var stored = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                // Apply .dark to <html> only — body inherits via CSS cascade
+                if (stored === 'dark' || (!stored && prefersDark)) {
                   document.documentElement.classList.add('dark');
-                  if (document.body) document.body.classList.add('dark');
                 } else {
                   document.documentElement.classList.remove('dark');
-                  if (document.body) document.body.classList.remove('dark');
                 }
               } catch (e) {}
             })();
@@ -42,7 +46,18 @@ export default component$(() => {
 
         <RouterHead />
       </head>
-      <body lang="en" class="bg-white text-slate-900 antialiased transition-colors duration-200 dark:bg-slate-950 dark:text-slate-100">
+      {/* 
+        WHY no bg-white / dark:bg-slate-950 here?
+        Body colors are controlled by CSS variables in global.css:
+          :root          → --color-bg: #ffffff  (light)
+          html.dark      → --color-bg: #020617  (dark)
+          body           → background-color: var(--color-bg)
+        When html.dark toggles, the variable flips and the body inherits
+        the update automatically — no competing class selectors to fight.
+        Having bg-white here caused a specificity tie with dark:bg-slate-950,
+        and bg-white was winning (appearing earlier = lower priority in CSS).
+      */}
+      <body lang="en" class="antialiased transition-colors duration-200">
         <RouterOutlet />
       </body>
     </QwikCityProvider>
