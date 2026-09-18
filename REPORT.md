@@ -316,3 +316,9 @@ This report details the final fixes, enhancements, and accomplishments completed
 - **New Sources Registered:** Added `DeepSeek 4.1 Flash` to `SourceKey` and `SOURCES` in `src/data/models.ts`.
 - **System Verification:** Verified `pnpm build` and `pnpm build.types` passed.
 - **Status:** All model directories are sync'd.
+
+## 2026-09-18 — GPT-5.6 Terra research pass
+
+1. Added `GPT_5.6_Terra.md` to every model folder that did not already contain it, leaving the five existing Terra reports untouched. The work queue followed the then-current `average.md` Overall Score descending, with folders lacking an average processed last.
+2. Added minimal required metadata for the previously empty GPT-5.5 and GPT-5.6 Luna folders, and registered `GPT 5.6 Terra` as a selectable results source.
+3. Ran `pnpm sync`, `pnpm build.types`, and `pnpm build`: all completed successfully. The generated homepage contains the `GPT 5.6 Terra` source option.

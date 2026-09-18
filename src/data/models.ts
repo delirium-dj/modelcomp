@@ -54,7 +54,8 @@ export type SourceKey =
   | "Claude Sonnet 4.6"
   | "DeepSeek 4.1 Flash"
   | "Solar Pro 4"
-  | "MiniMax M3";
+  | "MiniMax M3"
+  | "GPT 5.6 Terra";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -75,6 +76,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "DeepSeek 4.1 Flash", label: "DeepSeek 4.1 Flash", file: "DeepSeek_4.1_Flash.md" },
   { key: "Solar Pro 4", label: "Solar Pro 4", file: "Solar_Pro_4.md" },
   { key: "MiniMax M3", label: "MiniMax M3", file: "MiniMax_M3.md" },
+  { key: "GPT 5.6 Terra", label: "GPT 5.6 Terra", file: "GPT_5.6_Terra.md" },
 ];
 
 export interface AiModel {
