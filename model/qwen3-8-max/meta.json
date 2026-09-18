@@ -1,0 +1,9 @@
+{
+  "id": "alibaba/qwen3-8-max",
+  "name": "Qwen3.8-Max",
+  "short": "Alibaba Cloud's flagship 2.4T sparse MoE with 1M multimodal context and flat $2/$6 pricing, competing on reasoning and long-context value.",
+  "contextWindow": "1M / 131K out",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Paid $2/$6 per 1M (one-time 1M-token free quota, no Zen Free ID)",
+  "noFreeId": true
+}

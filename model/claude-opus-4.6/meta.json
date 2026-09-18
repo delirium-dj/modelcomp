@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-opus-4.6",
+  "name": "Claude Opus 4.6",
+  "short": "Anthropic's flagship reasoning-capable model, enhanced with thinking capabilities for complex, multi-step tasks.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

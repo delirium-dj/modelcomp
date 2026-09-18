@@ -1,0 +1,9 @@
+{
+  "id": "moonshot/kimi-k2-8-preview",
+  "name": "Kimi K2.8 Preview",
+  "short": "Moonshot AI's mid-tier coding and agentic model inside Kimi Code, with 1M context and efficient reasoning between K2.7 Code and flagship K3.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Kimi membership plan (no per-token billing, no Zen Free ID)",
+  "noFreeId": true
+}

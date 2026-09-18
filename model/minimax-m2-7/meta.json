@@ -1,0 +1,12 @@
+{
+  "id": "opencode/minimax-m2.7",
+  "name": "MiniMax M2.7",
+  "short": "MiniMax self-improving frontier MoE for agentic coding, multi-agent collaboration and office productivity. No Zen Free ID; priced paid.",
+  "contextWindow": "196K–205K (200K class) / 131K out",
+  "modalities": "Text in/out only",
+  "pricingNote": "Paid $0.30/$1.20 per 1M (no Free ID)",
+  "pricingTiers": [
+    "Paid $0.30/$1.20 (no Free ID)"
+  ],
+  "noFreeId": true
+}

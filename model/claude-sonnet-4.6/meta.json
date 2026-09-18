@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-sonnet-4.6",
+  "name": "Claude Sonnet 4.6",
+  "short": "Anthropic's high-performance, reasoning-capable model optimized for efficiency and complex coding tasks.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

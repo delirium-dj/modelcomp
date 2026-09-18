@@ -1,0 +1,12 @@
+{
+  "id": "opencode/ling-3-0-flash-fin-free",
+  "name": "Ling 3.0 Flash Fin Free",
+  "short": "Finance-enhanced MoE by InclusionAI / Ant Group for financial research and tool-intensive workflows, retaining strong coding and math.",
+  "contextWindow": "262,144 (256K marketed) / 32K out",
+  "modalities": "Text in/out only",
+  "pricingNote": "Free Zen tier (limited-time promo)",
+  "freeTierNote": "Free limited-time Vercel promotional tier and OpenCode Zen access",
+  "pricingTiers": [
+    "Free Zen tier (limited-time promo)"
+  ]
+}

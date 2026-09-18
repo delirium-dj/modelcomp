@@ -1,0 +1,9 @@
+{
+  "id": "opencode/glm-5.3-flash",
+  "name": "GLM 5.3 Flash",
+  "short": "Z.AI's lightweight Flash-class MoE model engineered for ultra-fast agentic coding, high-frequency tool calls, and low latency.",
+  "contextWindow": "204K",
+  "modalities": "Text in/out",
+  "pricingNote": "Free Zen tier available",
+  "freeTierNote": "Free Zen tier available"
+}

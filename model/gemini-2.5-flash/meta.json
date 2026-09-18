@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-2.5-flash",
+  "name": "Gemini 2.5 Flash",
+  "short": "Google's balanced Flash model, optimized for speed and efficiency in varied tasks.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, PDF in; text out",
+  "pricingNote": "Free tier available; Paid-tier pricing",
+  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "anthropic/claude-sonnet-5",
+  "name": "Claude Sonnet 5",
+  "short": "Anthropic's most capable Sonnet-class model, built for the agentic era with adaptive thinking and 1M context at a lower cost than Opus.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image, file in; text out",
+  "pricingNote": "Paid $3/$15 per 1M (no Zen Free ID)",
+  "pricingTiers": [
+    "Paid $3/$15 per 1M (no Zen Free ID)"
+  ],
+  "noFreeId": true
+}

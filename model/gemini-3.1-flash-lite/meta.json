@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-3.1-flash-lite",
+  "name": "Gemini 3.1 Flash Lite",
+  "short": "Google's lightweight, ultra-low-latency model engineered for high-frequency lightweight tasks.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, PDF in; text out",
+  "pricingNote": "Free tier available; Paid-tier pricing",
+  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits"
+}

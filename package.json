@@ -15,6 +15,7 @@
     "build.server": "vite build -c adapters/static/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "echo 'Run \"pnpm qwik add\" to install a server adapter'",
+    "sync": "node scripts/sync-data.mjs",
     "dev": "vite --mode ssr",
     "preview": "vite preview",
     "start": "vite --open --mode ssr",

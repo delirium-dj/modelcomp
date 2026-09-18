@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-opus-4.8",
+  "name": "Claude Opus 4.8",
+  "short": "Anthropic's flagship 4.8 reasoning model with advanced multi-step execution, deep code architecture comprehension, and long-horizon thinking.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

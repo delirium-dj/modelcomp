@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-2.5-flash-lite",
+  "name": "Gemini 2.5 Flash Lite",
+  "short": "Google's ultra-low-latency model for cost-sensitive, high-frequency tasks.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, PDF in; text out",
+  "pricingNote": "Free tier available; Paid-tier pricing",
+  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits"
+}

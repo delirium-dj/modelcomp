@@ -15,8 +15,8 @@ reports, and the website stay consistent.
 
 ## Website data flow (single source of truth)
 
-1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` with the averaged 1–100 scores.
-2. `src/data/models.ts` imports every findings file via `?raw` and parses scores with `parseAverageScores()` into `AiModel.sources` (`average` / `big-pickle` / `Muse Spark 1.3`); `scores` mirrors the average (default view). Names/blurbs/context/pricing meta stays curated in `MODELS`.
+1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` (recomputed by `pnpm sync`, never by hand) and `meta.json` (curated display metadata — schema in `model/README.md`).
+2. `src/data/models.ts` auto-discovers every findings file and every `meta.json` via `import.meta.glob` and parses scores with `parseAverageScores()` into `AiModel.sources`; `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Only a brand-new reporting agent needs one line in `SourceKey` + one entry in `SOURCES` (appended last; `pnpm sync` does even that automatically).
 3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports).
 
 ## average.md format contract (parser depends on it)
@@ -31,10 +31,11 @@ reports, and the website stay consistent.
 - One file per agent per model: `model/<slug>/<Source_Name>.md` (e.g. `Big_Pickle.md`), self-contained: model card → raw benchmarks → normalized scores → signature block.
 - New agents start from `model-report-TEMPLATE.md` and research independently (no reading other agents' files first).
 - Never invent benchmark numbers — write `no verified public score found` when missing; attach a source to every number.
-- `average.md` = arithmetic mean per dimension + mean of Overalls + agreement note. Recompute from sources, don't copy site values backwards.
+- `average.md` = arithmetic mean per dimension + mean of Overalls + agreement note. Recomputed by `pnpm sync` (half-up to 1 decimal), never by hand; don't copy site values backwards.
 - Add `pricingTiers` (one string per tier) alongside `pricingNote` when pricing has multiple tiers; the compare table stacks them.
-- Adding a results source = new `SourceKey` + `?raw` imports per model + entry in `SOURCES` (drives the selector); a third agent's file slots in the same way.
-- Data syncs are governed by `tasks/sync-data.md` (mandatory, incl. its Definition of Done): recompute every `average.md` from source files, register new sources/models, and — critically — audit that every on-disk findings file is wired into its own model's `sources` record (Step 2b), otherwise the hexagon silently shows N/A for existing files.
+- Adding a results source = drop its `<Source_Name>.md` files into the model folders, run `pnpm sync` (registers the `SourceKey`/`SOURCES` entries automatically); every model containing the file is wired up with no further edits.
+- Adding a model = create `model/<slug>/` with findings file(s) + `meta.json`, run `pnpm sync`; it appears in Model A/B/C selectors automatically.
+- Data syncs are governed by `tasks/sync-data.md` (mandatory, incl. its Definition of Done): run `pnpm sync`, handle what it flags, verify the build.
 
 ## Frontend conventions
 

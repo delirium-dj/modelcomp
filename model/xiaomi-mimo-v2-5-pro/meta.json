@@ -1,0 +1,12 @@
+{
+  "id": "xiaomi/mimo-v2-5-pro",
+  "name": "Xiaomi MiMo-V2.5-Pro",
+  "short": "Xiaomi flagship open-weights MoE (1.02T) for demanding agentic and 1,000+ tool-call tasks with strong 1M coherence. Text-focused Pro sibling.",
+  "contextWindow": "1M (Base 256K)",
+  "modalities": "Text-only (Pro)",
+  "pricingNote": "Paid ~$0.44/$0.87 per 1M (no Zen Free ID)",
+  "pricingTiers": [
+    "Paid ~$0.44/$0.87 (no Zen Free ID)"
+  ],
+  "noFreeId": true
+}

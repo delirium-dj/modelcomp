@@ -1,0 +1,9 @@
+{
+  "id": "opencode/ox-alpha",
+  "name": "Ox Alpha",
+  "short": "Experimental open-weights reasoning model hosted on OpenCode Zen, designed for agentic coding, logic puzzles, and tool-augmented workflows.",
+  "contextWindow": "200K",
+  "modalities": "Text in/out",
+  "pricingNote": "Free Zen tier",
+  "freeTierNote": "Free OpenCode Zen tier access for experimental agentic coding and logic puzzles"
+}

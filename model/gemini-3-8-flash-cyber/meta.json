@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-3-8-flash-cyber",
+  "name": "Gemini 3.8 Flash Cyber",
+  "short": "Google DeepMind's cybersecurity fine-tune of Gemini 3.8 Flash for finding, validating and patching vulnerabilities, available via the Fairwind Program.",
+  "contextWindow": "1,048,576 (1M) / 65K out",
+  "modalities": "Text, code in; text, code out",
+  "pricingNote": "Restricted Fairwind Program (no public pricing, no Zen Free ID)",
+  "noFreeId": true
+}

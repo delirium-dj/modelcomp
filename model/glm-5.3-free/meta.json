@@ -1,0 +1,9 @@
+{
+  "id": "opencode/glm-5.3-free",
+  "name": "GLM 5.3 Free",
+  "short": "Z.AI's flagship open-weights GLM-5.3 MoE model optimized for agentic software development, complex reasoning, and multi-step tool execution.",
+  "contextWindow": "204K",
+  "modalities": "Text in/out",
+  "pricingNote": "Free Zen tier available",
+  "freeTierNote": "Free OpenCode Zen promotional tier available for fast agentic coding and tool calls"
+}

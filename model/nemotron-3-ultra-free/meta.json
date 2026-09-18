@@ -1,0 +1,12 @@
+{
+  "id": "opencode/nemotron-3-ultra-free",
+  "name": "Nemotron 3 Ultra Free",
+  "short": "NVIDIA flagship open-weights hybrid Mamba-MoE for frontier reasoning and long-running agents. Fast with low hallucination.",
+  "contextWindow": "1M (262K default serve)",
+  "modalities": "Text in/out (beyond text unverified)",
+  "pricingNote": "Free Zen / NVIDIA trial",
+  "freeTierNote": "Free OpenCode Zen and NVIDIA trial access for frontier reasoning and agents",
+  "pricingTiers": [
+    "Free Zen / NVIDIA trial"
+  ]
+}

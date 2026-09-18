@@ -1,0 +1,12 @@
+{
+  "id": "opencode/nemotron-3.5-lightning-free",
+  "name": "Nemotron 3.5 Lightning Free",
+  "short": "Compact open 30B MoE (3B active) for high-volume, low-latency execution in always-on agents. Pairs with a frontier planner.",
+  "contextWindow": "262,144 native",
+  "modalities": "Text-only",
+  "pricingNote": "Free Zen / NVIDIA trial",
+  "freeTierNote": "Free OpenCode Zen and NVIDIA trial access for high-volume, low-latency execution",
+  "pricingTiers": [
+    "Free Zen / NVIDIA trial"
+  ]
+}

@@ -1,4 +1,34 @@
-# Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync)
+# Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
+
+## Restructure for unpredictable growth (glob + meta.json + pnpm sync)
+
+1. **Phase 1 — glob wiring (`src/data/models.ts`, 1125 → ~260 lines):** deleted all ~270
+   hand-written `?raw` imports; findings files are auto-discovered via
+   `import.meta.glob("../../model/*/*.md")`. Each `MODELS` entry shrank to
+   metadata + `slug`; `hydrateModel()` builds `scores`/`sources` by iterating
+   `SOURCES` and parsing whatever files exist. Verified: `pnpm build` green and
+   every rendered number in `dist/index.html` identical to pre-change baseline.
+2. **Phase 2 — `meta.json` migration:** extracted all 37 models' curated metadata
+   (machine-extracted via script, zero hand transcription) into
+   `model/<slug>/meta.json` (schema in `model/README.md`); `models.ts` loads them
+   via glob, validates required fields + duplicate ids, sorts by id. `models.ts`
+   is now ~211 lines of pure logic with zero per-model/per-file entries.
+   Verified: numbers AND all 126 dropdown options identical to baseline.
+3. **Phase 3 — `pnpm sync` (`scripts/sync-data.mjs`, + `sync` script in
+   `package.json`):** deterministic sync — recomputes all `average.md` (half-up
+   1-decimal, Overall = mean of source Overalls), auto-registers new reporting
+   sources in `SourceKey`+`SOURCES` (appended last), validates `meta.json` +
+   filename hygiene, fails loudly with actionable messages. Proven idempotent
+   (second run: 0 rewrites, exit 0). `tasks/sync-data.md` slimmed to
+   "run script, handle flags, build"; `.agents/rules.md` + `model/README.md`
+   updated to the new workflow. Note: `scripts/sync_data.cjs` +
+   `scripts/generate_models_ts.js` are stale predecessors from earlier sessions,
+   left untouched — `pnpm sync` is canonical.
+4. **Going forward:** new findings file = drop it in + `pnpm sync` (zero code
+   edits, hexagon auto-wired). New model = new folder + `meta.json` + findings +
+   `pnpm sync` (selectors auto-populated). New agent = files + `pnpm sync`
+   auto-registers the dropdown entry. Deferred (noted, not done): 890 KB client
+   bundle will eventually want lazy per-source loading past ~100 models.
 
 ## 2026-09-18 (sync-data as enforceable rule + A–Z selectors)
 

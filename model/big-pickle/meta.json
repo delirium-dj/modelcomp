@@ -1,0 +1,13 @@
+{
+  "id": "opencode/big-pickle",
+  "name": "Big Pickle (GLM 4.6)",
+  "short": "Free stealth reasoning model on OpenCode Zen (community consensus: GLM-4.6). Roughly Sonnet-class coding at zero token cost during the free period.",
+  "contextWindow": "200K total (160K in / 32K out)",
+  "modalities": "Text in/out only",
+  "pricingNote": "Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20",
+  "freeTierNote": "Free stealth promotional tier on OpenCode Zen offering zero-cost inference during active community trial",
+  "pricingTiers": [
+    "Free Zen tier",
+    "Paid equiv. GLM-4.6 ~$0.60/$2.20"
+  ]
+}

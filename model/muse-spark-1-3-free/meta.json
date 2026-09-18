@@ -1,0 +1,14 @@
+{
+  "id": "opencode/muse-spark-1.3-contributor-free",
+  "name": "Muse Spark 1.3 Free",
+  "short": "Free Contributor-tier access to Meta's Muse Spark 1.3 for coding and long-horizon agentic work. Same weights as standard 1.3; training-data consent in exchange for $0.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, video, PDF in; text out",
+  "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+  "freeTierNote": "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
+  "pricingTiers": [
+    "Free Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard $1.25/$4.25"
+  ]
+}

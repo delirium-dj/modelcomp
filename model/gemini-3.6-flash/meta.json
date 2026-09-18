@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-3.6-flash",
+  "name": "Gemini 3.6 Flash",
+  "short": "Google's advanced 3.6 Flash model with improved reasoning.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, PDF in; text out",
+  "pricingNote": "Free tier available; Paid-tier pricing",
+  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits"
+}

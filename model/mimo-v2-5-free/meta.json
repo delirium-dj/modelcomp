@@ -1,0 +1,13 @@
+{
+  "id": "opencode/mimo-v2.5-free",
+  "name": "MiMo V2.5 Free",
+  "short": "Native omni-modal open-weights MoE by Xiaomi for text, image, video and audio understanding plus strong agentic coding. Free capped tier on Zen.",
+  "contextWindow": "200K Zen cap (native 1M) / 32K out",
+  "modalities": "Text, image, audio, video in; text out",
+  "pricingNote": "Free Zen tier; native from ~$0.14/$0.28 per 1M",
+  "freeTierNote": "Free Zen capped tier for omni-modal inference and agentic coding",
+  "pricingTiers": [
+    "Free Zen tier",
+    "Native ~$0.14/$0.28"
+  ]
+}
