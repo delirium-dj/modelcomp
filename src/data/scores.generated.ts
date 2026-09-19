@@ -373,12 +373,13 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "hy3": {
     "DeepSeek_4.1_Flash.md": { tool: 78, reasoning: 82, context: 72, multimodal: 15, coding: 76, cost: 95, overall: 65 },
+    "GLM_5.3_Flash.md": { tool: 55, reasoning: 58, context: 72, multimodal: 62, coding: 55, cost: 94, overall: 60.4 },
     "Gemini_3.1_Flash_Lite.md": { tool: 70, reasoning: 75, context: 80, multimodal: 70, coding: 75, cost: 85, overall: 74 },
     "Gemini_3.5_Flash_Lite.md": { tool: 86, reasoning: 87, context: 86, multimodal: 78, coding: 86, cost: 92, overall: 84.6 },
     "Gemini_3.6_Flash.md": { tool: 62, reasoning: 84, context: 75, multimodal: 15, coding: 74, cost: 95, overall: 62 },
     "Muse_Spark_1.3.md": { tool: 70, reasoning: 72, context: 72, multimodal: 65, coding: 70, cost: 85, overall: 70 },
     "Solar_Pro_4.md": { tool: 65, reasoning: 65, context: 65, multimodal: 50, coding: 65, cost: 90, overall: 62 },
-    "average.md": { tool: 71.8, reasoning: 77.5, context: 75, multimodal: 48.8, coding: 74.3, cost: 90.3, overall: 69.6 },
+    "average.md": { tool: 69.4, reasoning: 74.7, context: 74.6, multimodal: 50.7, coding: 71.6, cost: 90.9, overall: 68.3 },
   },
   "hy3-preview": {
     "DeepSeek_4.1_Flash.md": { tool: 70, reasoning: 78, context: 72, multimodal: 15, coding: 70, cost: 96, overall: 61 },
