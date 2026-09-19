@@ -13,7 +13,7 @@ pinned in `package.json` / `pnpm-lock.yaml`.
 - Qwik 1.20.0 + Qwik City 1.20.0 (resumable components, file-based routing in `src/routes/`).
 - Vite 7.3.6. Static output via `adapters/static/vite.config.ts` → `dist/` (plus `server/` SSR bundle used for prerender).
 - TypeScript 5.6, `strict: true`, `noEmit`, `moduleResolution: Bundler`, `jsx: react-jsx` with `jsxImportSource: @builder.io/qwik`.
-- Ambient types: `vite/client` (provides `*?raw` imports) + `node`.
+- Ambient types: `vite/client` + `node`.
 - `ignore@^5.3.2` devDependency is required by the Qwik CLI — do not remove.
 
 ## Styling
@@ -30,5 +30,5 @@ pinned in `package.json` / `pnpm-lock.yaml`.
 
 ## Data layer (code)
 
-- Markdown findings imported as text via Vite `?raw` (works because `model/` lives inside the project root).
+- Markdown findings are pre-parsed by `pnpm sync` into `src/data/scores.generated.ts` (numbers only — never `?raw`-import report prose into the client bundle); only small `meta.json` files use `import.meta.glob`.
 - No test framework is configured; verification = `build.types` + `build` (+ spot-check `dist/index.html`).

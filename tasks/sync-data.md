@@ -24,11 +24,19 @@ pnpm sync && pnpm build.types && pnpm build
    from averaged dimensions. Rewrites stale files, reports which ones.
 4. Registers any new reporting-agent filename in `src/data/models.ts`
    (`SourceKey` + `SOURCES`, appended last). Per-model wiring needs no edits:
-   scores are auto-discovered via `import.meta.glob` at build time.
+   scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
+   so report prose never ships in the client bundle), and `meta.json` files
+   are auto-discovered via `import.meta.glob` at build time.
 5. Validates every `meta.json` exists, parses, and has all required fields
    (`id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`).
    A new model folder without `meta.json` fails loudly — add it (schema in
    `model/README.md`), then re-run.
+6. Emits `src/data/scores.generated.ts` (deterministic, sorted keys): every
+   parseable findings file plus each folder's recomputed average means, as
+   numbers only — but only when this run has zero failures, so invalid data
+   is never cemented. After adding or editing any findings file, re-running
+   sync refreshes it; the file is committed (it is a build input, not build
+   output).
 
 Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines).
 

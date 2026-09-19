@@ -13,8 +13,10 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   independently (do not read other agents' files first).
 - Overview, comparison table and methodology stay in `../model-comparison.md`;
   cross-model signed log in `../model-findings.md`.
-- Website wiring is automatic: `../src/data/models.ts` discovers every `*.md` and
-  every `meta.json` via `import.meta.glob` at build time. **Adding files here
+- Website wiring is automatic: `pnpm sync` pre-parses every `*.md` into
+  `../src/data/scores.generated.ts` (numbers only, so report prose never ships
+  in the client bundle) and `../src/data/models.ts` discovers every `meta.json`
+  via `import.meta.glob` at build time. **Adding files here
   needs no code edits** — just run `pnpm sync && pnpm build`.
 
 ## meta.json schema

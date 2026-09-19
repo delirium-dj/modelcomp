@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 70/100.** Mean of 1 reporting sources.
-- **Reasoning: 75/100.** Mean of 1 reporting sources.
-- **Context window: 92/100.** Mean of 1 reporting sources.
-- **Multimodal: 72/100.** Mean of 1 reporting sources.
-- **Coding: 74/100.** Mean of 1 reporting sources.
-- **Cost efficiency: 96/100.** Mean of 1 reporting sources.
+- **Tool use: 74/100.** Mean of 2 reporting sources.
+- **Reasoning: 77/100.** Mean of 2 reporting sources.
+- **Context window: 82/100.** Mean of 2 reporting sources.
+- **Multimodal: 74/100.** Mean of 2 reporting sources.
+- **Coding: 77/100.** Mean of 2 reporting sources.
+- **Cost efficiency: 95.5/100.** Mean of 2 reporting sources.
 - **Overall Score: 77/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 1 reporting source(s): Gemini 3.6 Flash.
+- Based on 2 reporting source(s): Gemini 3.6 Flash, Muse Spark 1.3.

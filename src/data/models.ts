@@ -3,32 +3,20 @@
 
 
 
-// Scores are sourced from model/<slug>/ findings files (one per reporting agent)
-// plus model/<slug>/average.md. Files are auto-discovered at build time via
-// import.meta.glob below -- adding a new findings .md file needs NO code changes:
-// it is parsed and appears in its model's `sources` (hexagon, table, legend, cards)
-// automatically on the next build. Meta (names, blurbs, context/pricing notes)
+// Scores are pre-parsed by `pnpm sync` (scripts/sync-data.mjs) from
+// model/<slug>/ findings files (one per reporting agent) plus
+// model/<slug>/average.md into src/data/scores.generated.ts (numbers only).
+// Importing that instead of the raw markdown keeps full report prose out of
+// the client bundle (the old eager ?raw glob inlined ~1.7 MB of markdown into
+// a single ~1.8 MB chunk). Adding a new findings .md file needs NO code
+// changes: re-run `pnpm sync` and its scores appear in that model's `sources`
+// (hexagon, table, legend, cards) automatically on the next build. Meta
+// (names, blurbs, context/pricing notes)
 // stays curated in model/<slug>/meta.json files. To add a brand-new reporting agent, add one
 // line to SourceKey + one entry to SOURCES; every model folder containing that
 // agent's file is wired up automatically.
 
-/** Raw markdown of every findings file. Keys look like "../../model/big-pickle/average.md". */
-const findingModules = import.meta.glob("../../model/*/*.md", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-}) as Record<string, string>;
-
-/** Nested lookup: FINDINGS[slug][filename] -> raw markdown. */
-const FINDINGS: Record<string, Record<string, string>> = {};
-for (const path of Object.keys(findingModules)) {
-  const m = path.match(/^\.\.\/\.\.\/model\/([^/]+)\/([^/]+)$/);
-  if (!m) throw new Error(`[models] unexpected findings path: ${path}`);
-  const slug = m[1];
-  const file = m[2];
-  if (!FINDINGS[slug]) FINDINGS[slug] = {};
-  FINDINGS[slug][file] = findingModules[path];
-}
+import { GENERATED_SCORES } from "./scores.generated";
 
 export interface ModelScores {
   tool: number;
@@ -110,21 +98,45 @@ export interface AiModel {
   };
 }
 
-/** Parse the "Averaged scores" block of an average.md file. Throws on drift. */
-function parseAverageScores(md: string, id: string): ModelScores {
-  const get = (label: string): number => {
-    const m = md.match(new RegExp(`\\*\\*${label}:\\s*([\\d.]+)/100`));
-    if (!m) throw new Error(`[models] missing "${label}" score in average.md for ${id}`);
-    return Number(m[1]);
-  };
+function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
+  // Scores arrive pre-parsed from scores.generated.ts (emitted by `pnpm sync`,
+  // which is the strict gate that validates every file). A model simply lacks
+  // sources it has no file for.
+  const files = GENERATED_SCORES[slug] || {};
+  const sources: Partial<Record<SourceKey, ModelScores>> = {};
+  for (const s of SOURCE_DEFS) {
+    const sc = files[s.file];
+    if (sc === undefined) continue;
+    sources[s.key] = {
+      tool: sc.tool,
+      reasoning: sc.reasoning,
+      context: sc.context,
+      multimodal: sc.multimodal,
+      coding: sc.coding,
+      cost: sc.cost,
+      overall: sc.overall,
+    };
+  }
+  const avg = sources.average;
+  if (!avg) {
+    console.warn(`[models] model/${slug}/: no usable average.md — skipped (run pnpm sync)`);
+    return null;
+  }
   return {
-    tool: get("Tool use"),
-    reasoning: get("Reasoning"),
-    context: get("Context window"),
-    multimodal: get("Multimodal"),
-    coding: get("Coding"),
-    cost: get("Cost efficiency"),
-    overall: get("Overall Score"),
+    id: meta.id,
+    name: meta.name,
+    short: meta.short,
+    slug,
+    scores: avg,
+    sources,
+    meta: {
+      contextWindow: meta.contextWindow,
+      modalities: meta.modalities,
+      pricingNote: meta.pricingNote,
+      pricingTiers: meta.pricingTiers,
+      freeTierNote: meta.freeTierNote,
+      noFreeId: meta.noFreeId,
+    },
   };
 }
 
@@ -227,54 +239,17 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
   return entries;
 }
 
-function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
-  const files = FINDINGS[slug] || {};
-  const sources: Partial<Record<SourceKey, ModelScores>> = {};
-  for (const s of SOURCE_DEFS) {
-    const md = files[s.file];
-    if (md === undefined) continue;
-    try {
-      sources[s.key] = parseAverageScores(md, meta.id);
-    } catch {
-      // Warn-and-skip (never throw): in-progress research must not break the build.
-      // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
-      console.warn(`[models] model/${slug}/${s.file}: unparsable scores — skipped`);
-    }
-  }
-  const avg = sources.average;
-  if (!avg) {
-    console.warn(`[models] model/${slug}/: no usable average.md — skipped (run pnpm sync)`);
-    return null;
-  }
-  return {
-    id: meta.id,
-    name: meta.name,
-    short: meta.short,
-    slug,
-    scores: avg,
-    sources,
-    meta: {
-      contextWindow: meta.contextWindow,
-      modalities: meta.modalities,
-      pricingNote: meta.pricingNote,
-      pricingTiers: meta.pricingTiers,
-      freeTierNote: meta.freeTierNote,
-      noFreeId: meta.noFreeId,
-    },
-  };
-}
-
 /**
- * Hydrated models, sorted by id for determinism. Scores/sources are auto-derived
- * from model/<slug>/*.md at build time; metadata comes from model/<slug>/meta.json.
- * Adding a model = add a folder. No code changes needed here.
+ * Hydrated models, sorted by id for determinism. Scores/sources come from
+ * scores.generated.ts (emitted by `pnpm sync`); metadata comes from
+ * model/<slug>/meta.json. Adding a model = add a folder + re-run sync.
  * Folders without usable data are skipped with a warning (never a build break);
  * `pnpm sync` is the strict gate that flags them for completion.
  */
 export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
-  for (const slug of Object.keys(FINDINGS)) {
+  for (const slug of Object.keys(GENERATED_SCORES)) {
     if (!metaBySlug.has(slug)) {
       console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }

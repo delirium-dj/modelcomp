@@ -35,7 +35,7 @@ model/<slug>/<Source_Name>.md   one findings file per reporting agent
                   (model card → raw benchmarks → normalized 1–100 scores → signature)
 model/<slug>/average.md         arithmetic means, recomputed by `pnpm sync` (never by hand)
 model/<slug>/meta.json          curated display metadata (name, blurb, context, pricing…)
-        │  auto-discovered at build time via import.meta.glob (no code edits needed)
+        │  pre-parsed by `pnpm sync` into src/data/scores.generated.ts (no code edits needed)
         ▼
 src/data/models.ts              parses scores, hydrates MODELS, derives Results-source order
         ▼

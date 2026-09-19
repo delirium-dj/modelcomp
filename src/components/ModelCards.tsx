@@ -20,9 +20,10 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
       </h2>
       <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
         Every entry below comes from the same data file that powers the chart, showing the currently
-        selected results source. Add one <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">?raw</code> import per
-        source file plus one object to <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">src/data/models.ts</code> to
-        list a new model everywhere.
+        selected results source. To list a new model everywhere, add a
+        <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">model/&lt;slug&gt;/</code> folder
+        with findings plus <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">meta.json</code> and
+        run <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">pnpm sync</code>.
       </p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {visibleModels.map((m) => (
