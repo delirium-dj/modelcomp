@@ -1,9 +1,0 @@
-{
-  "id": "google/gemini-3.8-flash",
-  "name": "Gemini 3.8 Flash",
-  "short": "Google DeepMind's most intelligent Flash model, built for long-horizon software engineering and autonomous agents at Flash speed/cost.",
-  "contextWindow": "1,048,576 in / 65,536 out",
-  "modalities": "Text, image, video, audio, PDF in; text out",
-  "pricingNote": "Paid $1.50/$7.50 per 1M (disc. $0.75/$3.75); AI Studio free tier rate-limited",
-  "noFreeId": true
-}
