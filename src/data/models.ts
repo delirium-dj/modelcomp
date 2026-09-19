@@ -56,7 +56,10 @@ export type SourceKey =
   | "Solar Pro 4"
   | "MiniMax M3"
   | "GPT 5.6 Terra"
-  | "Gemini 3.5 Flash";
+  | "Gemini 3.5 Flash"
+  | "Claude Opus 4.6"
+  | "Gemini 3.8 Flash"
+  | "Grok 4.6";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -79,6 +82,9 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "MiniMax M3", label: "MiniMax M3", file: "MiniMax_M3.md" },
   { key: "GPT 5.6 Terra", label: "GPT 5.6 Terra", file: "GPT_5.6_Terra.md" },
   { key: "Gemini 3.5 Flash", label: "Gemini 3.5 Flash", file: "Gemini_3.5_Flash.md" },
+  { key: "Claude Opus 4.6", label: "Claude Opus 4.6", file: "Claude_Opus_4.6.md" },
+  { key: "Gemini 3.8 Flash", label: "Gemini 3.8 Flash", file: "Gemini_3.8_Flash.md" },
+  { key: "Grok 4.6", label: "Grok 4.6", file: "Grok_4.6.md" },
 ];
 
 export interface AiModel {

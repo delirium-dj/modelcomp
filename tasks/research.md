@@ -1,78 +1,102 @@
-# Model Research Task Instructions
+# Model Research Task Instructions (generic — no agent name hardcoded here)
 
-This document provides standardized prompt instructions and guidelines for running research scans using any AI model (e.g., `Gemini 3.6 Flash`, `GLM 5.3 Flash`, `Claude Sonnet 4.6`, `GPT-5`, etc.) to fill missing benchmark reports across all model folders in `model/`.
+This file defines the workflow only. Agent identity comes from the assigned
+delegator file (e.g. `tasks/grok_4.6.md`) via its single `AGENT_SOURCE_STEM`
+line. Do not hardcode any model name in this file.
 
 ---
 
-## 📋 Copy-Paste Prompt Template for AI Agents
+## 0. Resolve identity (from your delegator task file)
 
-> **Usage:** Replace `<Gemini 3.5>` (e.g., `GLM_5.3_Flash.md`, `Gemini_3.6_Flash.md`) with the designated target filename for your model before sending this prompt to the AI agent.
+1. Read `AGENT_SOURCE_STEM` from the task file you were assigned (e.g. `Grok_4.6`).
+2. Derive:
+   - `Your_Filename = <STEM>.md` (exact, case-sensitive; must match `/^[A-Za-z0-9_.]+\.md$/` per `tasks/sync-data.md`).
+   - `Your_Display = STEM` with `_` -> space (e.g. `Grok_4.6` -> `Grok 4.6`).
+3. Your output path is always `model/<slug>/<Your_Filename>`. Never write any other filename.
+4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Use your own canonical ID as you know it; do not invent a publisher.
+
+---
+
+## 1. Copy-paste prompt template for agents
+
+> **Usage:** the orchestrator assigns a delegator file (e.g. `tasks/grok_4.6.md`)
+> that already sets `STEM`. Do NOT ask the agent to guess its filename.
 
 ```text
-Can you go over model/<slug>/ and find which folder does not have your inputs (<Agent_Model_Filename>) and perform the search for that model so we can have your (model/<slug>/<Agent_Model_Filename>) results too?
+Your delegator file sets AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
+Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
-The template that will show you how you should fill any new file is located at "model-report-TEMPLATE.md".
-
-It is of utmost importance to:
-1. Audit EVERY directory under model/ without exception—including newly created or completely empty folders (even if they have no existing peer report files or src/data/models.ts imports).
-2. DYNAMIC MODEL DISCOVERY: If during your web searches or benchmark fetches (e.g., benchmark articles like Eden AI comparison posts) you discover relevant models not yet tracked in model/ (e.g., GLM-5.2, DeepSeek-V4-Vision-Exp, Claude Opus 4.8, GPT-5.6 Terra, Gemini 3.7 Flash, etc.), automatically create a new filesystem-safe slug folder (model/<slug>/) for each newly discovered model and add your report (model/<slug>/<Agent_Model_Filename>) for them too!
-3. Process missing and newly discovered folders ONE AT A TIME sequentially: research the model, draft the report, and write the file (model/<slug>/<Agent_Model_Filename>) immediately before proceeding to the next folder. This ensures incremental progress is saved instantly and avoids repetitive work if interrupted.
-4. Forget / clear from your memory any previous results.
-5. DO NOT read the content of any existing report files in model/<slug>/ so that your findings are completely unbiased and uninfluenced.
-6. Conduct this research entirely from the ground up / from zero using fresh web/public search.
-7. Do not delete or modify any existing files; strictly add your designated file (model/<slug>/<Agent_Model_Filename>) where it is currently missing or newly created.
+Follow tasks/research.md exactly:
+1. Audit EVERY directory under model/ (including empty folders or folders
+   without average.md / meta.json / src/data/models.ts references).
+2. Your queue = folders missing model/<slug>/<STEM>.md, sorted by the
+   "- **Overall Score:" line of each model/<slug>/average.md descending
+   (missing average.md = last, A-Z). Newly discovered slugs append at end.
+3. Process ONE folder at a time: research from fresh web search, draft per
+   model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
+   then advance. Skip existing <STEM>.md files; never overwrite/edit/delete.
 ```
 
 ---
 
-## 🎯 Task Execution Steps for the AI Model
+## 2. Task execution steps
 
-When an AI agent receives this prompt, it must execute the following workflow:
+### Step 1: Directory audit + ordering
 
-### Step 1: Directory Audit (Include Empty Folders)
+- Scan all subdirectories in `model/` (e.g. `model/big-pickle/`, `model/ox_alpha/`).
+- Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
+- For each `model/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists.
+- Missing list = queue base. Order it:
+  1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
+  2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
+- Allowed carve-out: reading that single Overall line for ordering does NOT violate
+  Zero Influence below. Do NOT read any other line of `average.md` and do NOT
+  read any peer `*.md` findings file before/during research.
 
-- Scan all subdirectories in `model/` (e.g., `model/big-pickle/`, `model/ox_alpha/`, `model/glm-5.3-free/`, etc.).
-- **CRITICAL:** Do NOT skip empty directories or folders lacking existing report files or `src/data/models.ts` references. Every subdirectory under `model/` is a target model folder.
-- For each directory `model/<slug>/`, check if your designated model report file (`<Agent_Model_Filename>`) exists.
-- List all folders where your report file is missing.
+### Step 2: Dynamic model discovery during web search
 
-### Step 2: Dynamic Model Discovery during Web Search
+- While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
+  SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
+  no folder under `model/`:
+  1. Derive a filesystem-safe slug (lowercase, digits, `-`/`_` only, e.g. `gpt-5-6-terra`).
+  2. Create `model/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
+  3. Append `<slug>` to the END of your queue (after all ranked folders), in discovery order.
 
-- While fetching public benchmarks or reading comparison articles (e.g., benchmark posts like `edenai.co/post/...` found during research):
-- **Identify Untracked Models:** If the article or benchmark dataset references AI models not currently present under `model/` (such as `GLM-5.2`, `DeepSeek-V4-Vision-Exp`, `Claude Opus 4.8`, `GPT-5.6 Terra`, `Gemini 3.7 Flash`, etc.):
-  1. Derive a filesystem-safe slug (e.g., `deepseek-v4-vision-exp`, `gpt-5-6-terra`, `claude-opus-4.8`).
-  2. Automatically create the new folder `model/<slug>/`.
-  3. Append `<slug>` to your execution queue for report generation.
+### Step 3: Sequential one-folder-at-a-time execution
 
-### Step 3: Sequential One-Folder-at-a-Time Execution
+For each queued slug, in order:
 
-Iterate through the list of missing and newly discovered folders **one folder at a time**:
+1. **Target identification:** model name + publisher from `<slug>` and web search.
+2. **Independent research (ground up):**
+   - Do NOT read peer report files (`model/<slug>/*.md` except `model-report-TEMPLATE.md`).
+   - Fresh public web search only. Forget/clear memory of previous results per folder.
+3. **Report generation & save:**
+   - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
+   - Score contract: `Overall Score` = half-up mean of the five quality dims
+     (Tool, Reasoning, Context, Multimodal, Coding). `Cost efficiency` is scored
+     independently and excluded from Overall (see `tasks/sync-data.md`, tolerance 0.51).
+   - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
+4. **Advance** only after the file is written (incremental save = interrupt-safe).
 
-1. **Target Identification:** Identify the target model name and publisher from `<slug>` and folder context.
-2. **Independent Research (Ground Up):**
-   - **CRITICAL:** Do NOT read existing report files (`*.md`) inside `model/<slug>/` (except `model-report-TEMPLATE.md`).
-   - Search public benchmarks, official model cards, technical reports, and benchmark aggregators (e.g., Artificial Analysis, LiveCodeBench, SWE-bench) for the target model's specs and scores.
-3. **Report Generation & Save:**
-   - Format the report strictly according to `model-report-TEMPLATE.md`.
-   - Write the completed file immediately to `model/<slug>/<Agent_Model_Filename>`.
-4. **Advance:** Proceed to the next folder only after the current file is successfully created.
+### Step 4: Verification (no builds)
 
-> **Why One-Folder-at-a-Time:** Processing and saving incrementally ensures that if execution is paused or interrupted mid-task, progress is retained and no previously completed folder needs to be re-researched.
-
-### Step 4: Verification
-
-- Verify relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve correctly from `model/<slug>/`.
-- Confirm no existing files were overwritten or deleted.
-- Ensure all placeholders (`<...>`) from the template have been replaced.
+- Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+- All `<...>` placeholders replaced; no values copied from peer files.
+- No existing files overwritten or deleted (only new `<Your_Filename>` files added).
+- Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build`. The orchestrator
+  runs those per `tasks/sync-data.md` (it recomputes `average.md`, registers the
+  new source in `src/data/models.ts`, and validates `meta.json`/`average.md`).
 
 ---
 
-## ⚠️ Strict Rules & Constraints
+## 3. Strict rules & constraints
 
-1. **Audit All Subdirectories:** Include empty directories and newly added model folders without exception.
-2. **Auto-Create Discovered Models:** Automatically create new `model/<slug>/` folders when untracked models are found during benchmark search.
-3. **Incremental Save (One-by-One):** Complete and write report files one folder at a time before moving to the next.
-4. **Zero Influence:** Never read existing peer model reports in `model/<slug>/` before or during research.
-5. **No Hallucination:** If a raw benchmark is missing, state `"no verified public score found"`.
-6. **No Overwrites:** Only create new `<Agent_Model_Filename>` files where missing or newly discovered. Never edit or delete existing files.
-7. **Template Compliance:** Follow `model-report-TEMPLATE.md` structure strictly.
+1. **Audit all subdirectories** without exception (incl. empty/new folders).
+2. **Highest-Overall-first** per Step 1; discoveries append at end.
+3. **Incremental save (one-by-one)** — write each file before moving on.
+4. **Zero influence:** never read peer findings before/during research (only the
+   single Overall line of `average.md` for ordering, plus the template).
+5. **No hallucination:** missing raw benchmark = `no verified public score found`, with source on every number.
+6. **No overwrites:** create `<Your_Filename>` only where missing/newly discovered.
+7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
+8. **Forward slashes only** in paths (`tasks/research.md`, `model/<slug>/`).

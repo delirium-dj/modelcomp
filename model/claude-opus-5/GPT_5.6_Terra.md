@@ -21,23 +21,26 @@
 
 Agent / tool use:
 
-- Zapier AutomationBench: **100%** on a cited churn-prevention sequence (Anthropic customer evaluation); Anthropic reports it leads the leaderboard at a given cost.
-- OSWorld 2.0: Anthropic reports it leads at any given cost; **no verified public numeric score found** in reviewed text.
-- ARC-AGI 3: Anthropic reports a result three times the next-best model; **no verified public numeric score found** in reviewed text.
+- AutomationBench: **50.3%** (BenchmarkList public aggregation; #6 of 42), alongside Anthropic's cited 100% churn-prevention customer-evaluation sequence.
+- OSWorld 2.0: **70.6%** (Opus 5 system-card summary, adaptive thinking/max effort, reported by Dontech).
+- ARC-AGI 3: **30.2%** at high effort (Opus 5 system-card summary, reported by Dontech).
+- Toolathlon: **80.6% pass@1**, **87.0% pass@3**, and **73.1% pass^3** (BenchmarkList public aggregation; #1 of 37).
+- MCP Atlas: **85.8%** (BenchmarkList public aggregation; #2 of 44).
 
 Reasoning / knowledge:
 
-- HLE / GDPval-AA v2 / DeepSearchQA: Anthropic reports strong results but the reviewed release text exposes no numeric values; **no verified public score found**.
+- HLE with tools: **64.7%**; GDPval-AA v2: **1861 Elo** (Opus 5 system-card summary, adaptive thinking/max effort, reported by Dontech).
 
 Coding:
 
-- Frontier-Bench v0.1: Anthropic reports first place and more than double Opus 4.8 performance (internal five-attempt mini-SWE-agent run); **no verified public numeric score found**.
+- Frontier-Bench v0.1: **43.3%** (Opus 5 system-card summary, adaptive thinking/max effort, reported by Dontech).
 - CursorBench 3.2: within **0.5%** of Fable 5 peak at max effort (Anthropic release).
-- FrontierCode 1.1: approaches Fable-level performance (Anthropic partner statement); **no verified public numeric score found**.
+- FrontierCode 1.1 (main): **53.4%** (Opus 5 system-card summary, adaptive thinking/max effort, reported by Dontech).
+- SWE-bench Pro: **79.2%**; SWE-bench Multilingual: **89.5%**; SWE-bench Multimodal: **59.4%** (Opus 5 system-card summary, adaptive thinking/max effort, reported by Dontech).
 
 Long context:
 
-- 1M context is vendor documented; **no verified public long-context retrieval score found**.
+- 1M context is vendor documented; no public MRCR, RULER, or GraphWalks retrieval score was located in the reviewed system-card summary and benchmark aggregations.
 
 ### Normalized scores (1–100)
 

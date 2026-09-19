@@ -1,0 +1,13 @@
+{
+  "id": "xai/grok-4.6",
+  "name": "Grok 4.6",
+  "short": "xAI's flagship frontier model for coding, agentic tasks, and knowledge work.",
+  "contextWindow": "500,000",
+  "modalities": "Text and image in; text out",
+  "pricingNote": "Paid $2/$6 per 1M (cached $0.50); doubles above 200K prompt",
+  "pricingTiers": [
+    "$2 in / $6 out per 1M, $0.50 cached (<200K prompt)",
+    "$4 in / $12 out per 1M, $1 cached (>200K prompt)"
+  ],
+  "noFreeId": true
+}

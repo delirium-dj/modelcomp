@@ -21,30 +21,32 @@
 
 Agent / tool use:
 
-- Public primary technical report describes extensive agentic and long-horizon evaluation but gives no machine-readable benchmark values in its abstract; **no verified public score found** in the reviewed primary source.
+- Terminal-Bench 2.1: **88.3%** (Kimi K3 model card reproduced in Kempner Institute's HPC Agentic Recipes; Kimi Code harness caveat noted).
+- FrontierSWE: **81.2%**; ProgramBench: **77.8%**; DeepSWE: **67.5%**; SWE-Marathon: **42.0%** (Kimi K3 card reproduced in Kempner Institute's HPC Agentic Recipes; Kimi Code harness caveat noted).
 
 Reasoning / knowledge:
 
-- Public primary technical report describes frontier-level reasoning and knowledge-task performance; **no verified public score found** in the reviewed primary source.
+- GPQA Diamond: **93.5%** (Kimi K3 model card reproduced in Kempner Institute's HPC Agentic Recipes; Kimi Code harness caveat noted).
+- Artificial Analysis Intelligence Index: **57** (third-party comparison reported in contemporaneous coverage; rank #4 of 189 in that snapshot).
 
 Coding:
 
 - Frontend Code Arena: **1679** (reported in contemporary coverage of Moonshot's launch; blind developer evaluation). Vendor technical-report abstract gives no individual coding score.
-- SWE-bench Verified / LiveCodeBench / Terminal-Bench: **no verified public score found** in the reviewed primary source.
+- SWE-bench Verified: **76.8%**; Terminal-Bench 2.1: **88.3%** (CanItRun model summary). LiveCodeBench: **74.7%** and SciCode: **58.7%** (LLMPodium coding leaderboard). These are third-party reported rows, not values supplied in the Kimi technical report.
 
 Long context:
 
-- 1M-token context is documented in the Kimi K3 technical report; **no verified public long-context retrieval score found**.
+- 1M-token context is documented in the Kimi K3 technical report; no public MRCR, RULER, or GraphWalks retrieval result was located.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** The technical report explicitly targets agentic and long-horizon execution, but absence of a verified public task score caps this provisional assessment.
-- **Reasoning: 87/100.** The released technical report reports frontier-level reasoning and multiple reasoning-effort levels, capped because the reviewed public source does not provide individual evaluation values.
+- **Tool use: 88/100.** Terminal-Bench 2.1 at 88.3%, FrontierSWE at 81.2%, ProgramBench at 77.8%, and DeepSWE at 67.5% support a frontier agentic score; the Kimi Code harness and incomplete independent replication cap it.
+- **Reasoning: 91/100.** GPQA Diamond at 93.5% and an Artificial Analysis Intelligence Index of 57 support a high reasoning score; the published figures have mixed first- and third-party provenance.
 - **Context window: 95/100.** The 1M context and attention design support a high score, capped by lack of published retrieval measurements.
 - **Multimodal: 75/100.** Native vision is verified; the incomplete published modality matrix caps the score.
-- **Coding: 89/100.** Long-horizon coding training and the reported 1679 Frontend Code Arena result indicate strong ability, but public standardized coding scores were not verified.
+- **Coding: 91/100.** Terminal-Bench 2.1 at 88.3%, FrontierSWE at 81.2%, SWE-bench Verified at 76.8%, LiveCodeBench at 74.7%, DeepSWE at 67.5%, and the 1679 Frontend Code Arena result form a broad coding record; different harnesses and third-party aggregation cap it.
 - **Cost efficiency: 57/100.** Open weights and cache pricing help, but $3/$15 per 1M tokens is materially above low-cost open-model pricing.
-- **Overall Score: 86/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; a high-potential open-weight option whose public benchmark disclosure requires further verification.
+- **Overall Score: 88/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding: (88 + 91 + 95 + 75 + 91) / 5 = 88.0; a high-potential open-weight option whose mixed-provenance public benchmark disclosure still requires careful comparison.
 
 ---
 

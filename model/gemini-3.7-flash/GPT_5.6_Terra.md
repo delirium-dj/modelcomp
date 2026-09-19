@@ -12,9 +12,9 @@
 - **Provider / access:** Google Gemini API / Vertex AI, `gemini-3.7-flash`.
 - **Release / knowledge:** released 2026-08-13 according to Google's launch post; cutoff not verified.
 - **IDs:** `google/gemini-3.7-flash` (no Zen Free ID verified).
-- **Context window:** 1,048,576 tokens, per Google Cloud model documentation.
-- **Modalities:** Google describes Flash as multimodal; detailed supported I/O matrix not independently verified in this scan.
-- **Pricing (as of 2026-09-18):** Google publishes an introductory price expiring 2026-12-31; exact tiered token prices should be checked in the live Gemini API pricing table.
+- **Context window:** 1M tokens and 64K maximum output, per the Google DeepMind model card.
+- **Modalities:** Text, image, audio, and video input; text output (Google DeepMind model card).
+- **Pricing (as of 2026-09-18):** Introductory $0.75 input / $3.75 output per 1M tokens through 2026-12-31; $1.50/$7.50 from 2027-01-01 (Google DeepMind model card).
 - **Architecture:** proprietary; parameters not disclosed.
 
 ### Raw benchmarks found
@@ -22,43 +22,36 @@
 Agent / tool use:
 
 - Google launch post: GDP.pdf **34.0%** (Google-reported), versus 22.0% for Gemini 3.6 Flash.
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **85.8%**; Terminal-Bench 3.0: **14.9%** (Google DeepMind model card).
+- AutomationBench: **30.4%** (private enterprise-workflow set); GDPval-AA v2: **1525 Elo**; Harvey LAB-AA: **90.7%** (Google DeepMind model card).
+- OSWorld-2.0: **47.9%**; Agent's Last Exam: **26.3%** pass rate (Google DeepMind model card).
+- Tau3-Banking / Tau2-Bench, Claw-Eval / ClawProBench, Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: the Google model card does not publish result rows for these suites.
 
 Reasoning / knowledge:
 
-- Google DeepMind model card says the model was evaluated for reasoning, coding, agentic tool use, multimodality, multilingual performance and long context; individual figures were not extracted in this scan.
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index: **56** (Google DeepMind model card).
+- HLE-Verified: **53.6%**; BioMysteryBench: **87.1%** human-solvable / **43.5%** human-difficult; LABBench2: **82.1%** (Google DeepMind model card).
+- CharXiv: **84.5%** without tools and **88.7%** with tools (Google DeepMind model card).
+- GPQA Diamond, LCR / MLCR, CritPt, and Omniscience: no result rows are published in the Google model card.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- FrontierCode 1.1 Main: **43.6%**; DeepSWE v1.1: **65.3%**; Code Arena: **1588 Elo** (Google DeepMind model card).
+- SWE-bench Verified / SWE-Pro, LiveCodeBench, SciCode / AA-SciCode, and Vibe Code Bench: no result rows are published in the Google model card.
 
 Long context:
 
-- 1,048,576-token advertised context; no independent retrieval score found.
+- GDM-MRCR v2 (8-needle): **97.0%** at 128K average; LVBench long-video understanding: **85.4%** (Google DeepMind model card), alongside the documented 1M-token window.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** The agent/workhorse positioning and Google-reported document-agent result support a strong provisional score, capped by missing tool benchmark coverage.
-- **Reasoning: 84/100.** Google evaluated reasoning and reports improvement over 3.6 Flash, but this scan found no directly comparable reasoning score.
-- **Context window: 100/100.** The documented 1,048,576-token window reaches the highest context tier; retrieval remains unverified.
-- **Multimodal: 85/100.** Google positions the model as multimodal, capped because the detailed capability matrix was not verified here.
-- **Coding: 86/100.** Coding is a stated core use case, capped because no public coding score was verified.
-- **Cost efficiency: 82/100.** Flash pricing is positioned as efficient, with an introductory price; a live price confirmation is needed for a higher-confidence score.
-- **Overall Score: 88.2/100.** Mean of the five quality dimensions; best for long-context, multimodal agent workflows when Google's managed platform is suitable.
+- **Tool use: 87/100.** Terminal-Bench 2.1 at 85.8%, GDPval-AA v2 at 1525 Elo, and Harvey LAB-AA at 90.7% are strong; the lower 14.9% Terminal-Bench 3.0 and 47.9% OSWorld-2.0 results cap it.
+- **Reasoning: 88/100.** HLE-Verified at 53.6%, an AA Intelligence Index of 56, CharXiv up to 88.7%, and strong scientific-task results support a high score; GPQA and other cross-lab reasoning rows are absent.
+- **Context window: 98/100.** The documented 1M context and 97.0% GDM-MRCR v2 at 128K support a near-ceiling score; public retrieval data at the full 1M length is absent.
+- **Multimodal: 92/100.** Native text, image, audio, and video input with 85.4% LVBench long-video performance is broad coverage; output is text-only.
+- **Coding: 90/100.** DeepSWE v1.1 at 65.3%, Terminal-Bench 2.1 at 85.8%, FrontierCode at 43.6%, and Code Arena 1588 provide direct evidence; public SWE-bench and LiveCodeBench rows are absent.
+- **Cost efficiency: 90/100.** Introductory $0.75/$3.75 per 1M tokens is strong Flash-tier value, though the documented price doubles in 2027 and access is not free.
+- **Overall Score: 91/100.** Mean of the five quality dimensions: (87 + 88 + 98 + 92 + 90) / 5 = 91.0; best for long-context, multimodal agent workflows when Google's managed platform is suitable.
 
 ---
 

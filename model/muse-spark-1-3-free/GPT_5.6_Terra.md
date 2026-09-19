@@ -32,7 +32,7 @@ Coding:
 
 - DeepSWE v1.1: **75.4%** (Meta scorecard as reported in contemporary coverage; max reasoning).
 - Terminal-Bench 2.1: **88.8%** (Meta scorecard; max reasoning).
-- SWE-bench Verified / LiveCodeBench: no verified public score found.
+- SWE-bench Verified / LiveCodeBench: as of 2026-09-03, the tracked Vals AI rows reached Muse Spark 1.2 rather than 1.3; The Model Gap documents this coverage limitation. Do not substitute the 1.2 score for Muse Spark 1.3.
 
 Long context:
 

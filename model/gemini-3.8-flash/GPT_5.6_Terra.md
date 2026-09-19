@@ -39,7 +39,8 @@ Coding:
 
 - DeepSWE v1.1: **73.7%** (Google DeepMind model card, long-horizon software engineering).
 - Terminal-Bench 2.1: **89.4%** (Google DeepMind model card, agentic terminal coding).
-- SWE-bench Verified / LiveCodeBench: no verified public score found in the reviewed primary sources.
+- SWE-bench Verified: **80.00% ±1.79** (Vals AI, bash-only mini-SWE-agent harness, high effort; independently summarized by The Model Gap).
+- LiveCodeBench: **89.48%** (Vals AI independent run; #3 in the cited 138-model board, independently summarized by The Model Gap).
 
 Long context:
 
@@ -51,9 +52,9 @@ Long context:
 - **Reasoning: 87/100.** HLE-Verified 54.9% is supported by strong chart and scientific-workflow results, but it is not a top-tier HLE result.
 - **Context window: 98/100.** Vendor-documented 1M context and 64K output plus 87.8% agentic LVBench performance support a near-ceiling score; independent text-retrieval testing was not found.
 - **Multimodal: 95/100.** Native text, image, audio, video, and document input with strong long-video performance; output remains text-only.
-- **Coding: 92/100.** 73.7% DeepSWE and 89.4% Terminal-Bench 2.1 indicate frontier-level agentic coding, capped because no independent SWE-bench/LiveCodeBench result was verified.
+- **Coding: 93/100.** 73.7% DeepSWE, 89.4% Terminal-Bench 2.1, 80.00% SWE-bench Verified, and 89.48% LiveCodeBench establish broad frontier-level coding performance; varying harnesses and the lower Terminal-Bench 4.0 result cap it.
 - **Cost efficiency: 89/100.** The introductory $0.75/$3.75 per 1M price is unusually efficient for the reported capability, but it rises to $1.50/$7.50 in 2027 and is not free.
-- **Overall Score: 92.2/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; best suited to multimodal, long-context, agentic software and knowledge workflows.
+- **Overall Score: 92.4/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding: (89 + 87 + 98 + 95 + 93) / 5 = 92.4; best suited to multimodal, long-context, agentic software and knowledge workflows.
 
 ---
 

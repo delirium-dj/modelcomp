@@ -21,43 +21,34 @@
 
 Agent / tool use:
 
-- Official OpenAI model page: function calling and the listed Responses tools are supported; no verified public benchmark score found.
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **87.4%**; AutomationBench: **15.2%**; Toolathlon: **53.1%** (OpenAI GPT-5.6 launch evaluation table).
+- GDPval-AA v2: **1593 Elo**; Agents' Last Exam: **50.4%**; OSWorld 2.0: **50.2%**; BrowseComp: **87.5%** (OpenAI GPT-5.6 launch evaluation table).
+- Tau3-Banking / Tau2-Bench, Claw-Eval / ClawProBench, MCP Atlas, and SWE Atlas Codebase QnA: OpenAI's public GPT-5.6 table does not publish result rows for these suites.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **92.9%**; FrontierMath v2 Tier 1-3: **84.9%**; Tier 4: **68.3%** (OpenAI GPT-5.6 launch evaluation table).
+- Artificial Analysis Intelligence Index v4.1: **55**; Big Finance Bench: **51%** (OpenAI GPT-5.6 launch evaluation table).
+- HLE, LCR / MLCR, CritPt, and Omniscience: OpenAI's public GPT-5.6 table does not publish result rows for these suites.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Pro: **63.4%**; DeepSWE v1.1: **69.6%**; Terminal-Bench 2.1: **87.4%**; Artificial Analysis Coding Agent Index v1.1: **77.4** (OpenAI GPT-5.6 launch evaluation table).
+- LiveCodeBench, SciCode / AA-SciCode, and Vibe Code Bench: OpenAI's public GPT-5.6 table does not publish result rows for these suites.
 
 Long context:
 
-- 1,050,000-token advertised context window; no independent long-context retrieval result found.
+- OpenAI MRCR v2 8-needle: **89.6%** at 256K-512K and **72.5%** at 512K-1M; GraphWalks BFS F1: **76.9%** at 256K and **71.2%** at 1M (OpenAI GPT-5.6 launch evaluation table).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Broad first-party function and agent-tool support supports a strong provisional score; it is capped because no public tool-use benchmark was found.
-- **Reasoning: 82/100.** Configurable reasoning effort supports a strong provisional assessment, capped for absence of verified benchmark results.
-- **Context window: 100/100.** Official 1.05M-token context is in the highest methodology tier; no retrieval evaluation was found.
-- **Multimodal: 70/100.** Text and image input are confirmed, but audio and video are unsupported.
-- **Coding: 85/100.** Hosted shell, apply-patch and Code Interpreter support indicate coding-oriented capability, but no public coding benchmark was found.
+- **Tool use: 85/100.** Terminal-Bench 2.1 at 87.4%, Agents' Last Exam at 50.4%, Toolathlon at 53.1%, and documented first-party tools support a strong score; AutomationBench at 15.2% and OSWorld at 50.2% cap it.
+- **Reasoning: 89/100.** GPQA Diamond at 92.9%, FrontierMath at 84.9% on Tiers 1-3, and an AA Intelligence Index of 55 are substantial evidence; OpenAI does not publish HLE, LCR, CritPt, or Omniscience rows for Terra.
+- **Context window: 95/100.** The official 1.05M context plus MRCR v2 72.5% and GraphWalks 71.2% at the 1M tier support a high score, while showing real retrieval degradation at maximum length.
+- **Multimodal: 78/100.** Text and image input are confirmed and MMMU Pro reaches 80.7% without tools / 82.0% with tools; audio and video are unsupported and output is text-only.
+- **Coding: 90/100.** SWE-bench Pro at 63.4%, DeepSWE at 69.6%, Terminal-Bench 2.1 at 87.4%, and AA Coding Agent Index 77.4 demonstrate strong agentic coding; OpenAI does not publish LiveCodeBench or SciCode rows.
 - **Cost efficiency: 65/100.** $2/$12 per MTok is a paid mid-tier rate, not free-tier pricing.
-- **Overall Score: 85/100.** Mean of the five quality dimensions; best suited to tool-enabled, long-context work where a paid mid-tier model is appropriate.
+- **Overall Score: 87.4/100.** Mean of the five quality dimensions: (85 + 89 + 95 + 78 + 90) / 5 = 87.4; best suited to tool-enabled, long-context work where a paid mid-tier model is appropriate.
 
 ---
 
