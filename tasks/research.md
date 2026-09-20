@@ -100,3 +100,7 @@ For each queued slug, in order:
 6. **No overwrites:** create `<Your_Filename>` only where missing/newly discovered.
 7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
 8. **Forward slashes only** in paths (`tasks/research.md`, `model/<slug>/`).
+9. **Self-exclusion (no verified data):** if a folder's model yielded zero
+   verified public benchmarks, write `<STEM>.md.excluded` (notes only, per the
+   template's SELF-EXCLUSION rule) — never a scored `.md` with placeholder
+   numbers. Excluded files are skipped by sync and never touch the average.

@@ -28,6 +28,17 @@
 > List measured numbers with (source, rank/percentile, harness) for traceability.
 > If a benchmark was not found, say "no verified public score found" and mark the
 > closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" and all normalized dims would be guesses — do NOT save a scored `.md`
+> file. Save `model/<slug>/<Source_Name>.md.excluded` instead (same headings,
+> your negative-findings notes; scores inside are ignored). `pnpm sync` skips
+> `.excluded` files loudly so they never poison the average. Never invent
+> placeholder scores (0, 10, …) to fill a `.md` file — one fabricated number
+> drags the mean for every reader. (`pnpm sync` enforces this automatically:
+> 8+ "no verified public score found" rows with zero measured numbers =
+> renamed to `.excluded` on the spot.)
 
 Agent / tool use:
 
@@ -91,3 +102,4 @@ Long context:
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

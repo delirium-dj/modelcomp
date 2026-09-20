@@ -2,7 +2,9 @@
 //
 // What it does (see tasks/sync-data.md for the human workflow around it):
 //   1. Scans every model/<slug>/ folder for findings files (*.md, excluding
-//      average.md and README.md). Unknown/hygiene-violating filenames fail loudly.
+//      average.md and README.md; any filename containing ".excluded" is a
+//      self-excluded no-data report — skipped loudly, never counted).
+//      Unknown/hygiene-violating filenames fail loudly.
 //   2. Parses the seven normalized 1-100 scores from each findings file, and
 //      validates each file's Overall equals the half-up mean of its five
 //      non-cost dims (Cost excluded from Overall since v4; drift fails loudly
@@ -22,7 +24,7 @@
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
-import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, renameSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -87,8 +89,33 @@ const SHORT = {
 
 for (const slug of slugs) {
   const dir = join(modelDir, slug);
-  const files = readdirSync(dir)
-    .filter((f) => f.endsWith(".md") && f !== "average.md" && f !== "README.md")
+  // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
+  // reporting agent forgot it): a findings file whose "Raw benchmarks found"
+  // section holds 8+ "no verified public score found" rows and zero measured
+  // (bold numeric) values is evidence-free — rename to *.md.excluded on the
+  // spot so it can never poison the average. Any single real number keeps the file.
+  for (const f of readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
+    .sort()) {
+    const content = readFileSync(join(dir, f), "utf8");
+    const section = (content.split("### Raw benchmarks found")[1] || "").split("### Normalized scores")[0];
+    if (!section) continue;
+    const missing = (section.match(/no verified public score found/gi) || []).length;
+    const numerics = (section.match(/\*\*[^*]*\d[^*]*\*\*/g) || []).length;
+    if (missing >= 8 && numerics === 0) {
+      renameSync(join(dir, f), join(dir, `${f}.excluded`));
+      console.log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (no verified benchmarks: ${missing}x "not found", 0 measured numbers)`);
+    }
+  }
+  const entries = readdirSync(dir).sort();
+  // Self-excluded findings (agent found no verified benchmarks — see
+  // model-report-TEMPLATE.md): never parsed, never averaged, never registered.
+  // Logged so exclusions stay visible instead of silently vanishing.
+  for (const f of entries.filter((f) => f.includes(".excluded"))) {
+    console.log(`  SKIP  model/${slug}/${f} (self-excluded: no verified benchmarks)`);
+  }
+  const files = entries
+    .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
     .sort();
 
   for (const f of files) {

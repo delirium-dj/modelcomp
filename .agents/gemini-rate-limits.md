@@ -142,3 +142,15 @@ When given a multi-step or multi-item task (e.g. creating 11 model files or upda
 | Reasoning / thinking (no tool) | **0** | Use generously inside internal thoughts |
 
 > Spend your token budget on research and file creation. Skip running build commands in tool loops, keep an unbroken tool-calling chain, and provide `pnpm sync && pnpm build.types && pnpm build` to the user upon completion.
+
+---
+
+## Appendix — Special Rule for Gemma Models (12K TPM / 25 RPM Limits)
+
+For Gemma models (`gemma-4-31b-it` and future Gemma models) with stricter constraints:
+1. **Token Limit:** Strictly cap input token usage at **12K input tokens per minute** (safely below the 16K absolute limit).
+2. **Request Limit:** Strictly cap request frequency at **25 requests per minute (RPM)** (below the 30 RPM maximum).
+3. **Never read large reference files** (`model-comparison.md`, `src/data/models.ts`) in full.
+4. **Targeted reads only:** Specify tight `limit` and `offset` ranges (max 50–100 lines).
+5. **Draft offline / in reasoning:** Construct findings files and meta structures entirely within internal thought blocks.
+6. **Minimal tool footprint:** Combine operations and minimize total tool invocations per turn.

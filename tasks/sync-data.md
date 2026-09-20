@@ -12,6 +12,11 @@ pnpm sync && pnpm build.types && pnpm build
 `pnpm sync` (`scripts/sync-data.mjs`) does, for every `model/<slug>/` folder:
 
 1. Collects findings files (`*.md`, excluding `average.md`/`README.md`).
+   Any filename containing `.excluded` is a self-excluded no-data report —
+   skipped loudly (`SKIP` line), never parsed, averaged, or registered.
+   Before that, sync auto-quarantines (`QUAR` line, renamed on the spot):
+   any findings file with 8+ "no verified public score found" rows and zero
+   measured numbers in its Raw-benchmarks section. One real number keeps the file.
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
 2. Parses the seven `1–100` scores from each file (fails loudly on any
    missing/invalid score line — never invent numbers) and validates each
