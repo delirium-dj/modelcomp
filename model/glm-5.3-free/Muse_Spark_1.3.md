@@ -1,4 +1,4 @@
-# GLM 5.3 Free — findings by Muse Spark 1.3 Free
+# GLM 5.3 Free — findings by Muse Spark 1.3 Contributor
 
 - Source: Z.AI/GLM-5.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
 - Date: 2026-09-18 (UTC)
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Free (meta/muse-spark-1.3)** — 2026-09-18
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
 - Method: public internet research (Artificial Analysis Astra article, Z.AI family context); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

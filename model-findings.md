@@ -23,11 +23,11 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
-## a) Model name: Muse Spark 1.3 Free
+## a) Model name: Muse Spark 1.3 Contributor
 
 ### b) Findings
 
@@ -41,7 +41,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -58,7 +58,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -76,7 +76,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -94,7 +94,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -111,7 +111,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -128,7 +128,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -145,7 +145,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -162,7 +162,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -175,7 +175,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 
@@ -191,7 +191,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
 
 ---
 

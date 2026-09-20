@@ -1,13 +1,13 @@
-# Muse Spark 1.3 Free — findings by Solar Pro 4
+# Muse Spark 1.3 Contributor — findings by Solar Pro 4
 
-- Source: Meta/Muse Spark 1.3 Free, e.g. Meta (`meta/muse-spark-1.3-contributor-free`)
+- Source: Meta/Muse Spark 1.3 Contributor, e.g. Meta (`meta/muse-spark-1.3-contributor-free`)
 - Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Meta open-weight, Muse Spark 1.3 family)
+- **Name:** Muse Spark 1.3 Contributor (Meta open-weight, Muse Spark 1.3 family)
 - **Short description:** Meta's Muse Spark 1.3 model available as a free tier on OpenCode Zen. Shares weights with standard Muse Spark 1.3; the difference is pricing and training-data consent (free tier prompts may be used for training). The "Contributor" tier offers $0.10/$0.20 pricing vs Standard tier at $1.25/$4.25, same weights, same capabilities. Featured in model-comparison.md with Overall Score 95 — the highest-scoring free model available.
 - **Provider / access:** OpenCode Zen (`opencode/muse-spark-1.3-contributor-free`). Also available via Meta's own infrastructure, Vercel AI Gateway, and other providers.
 - **Release / knowledge:** Released 2026-09-02 (Muse Spark 1.3 announcement by Meta Research).
@@ -66,7 +66,7 @@ Long context:
 - **Multimodal: 85/100.** Text and image input; text and image output (native multimodal). Video input: yes. PDF input: yes. Per methodology: +video/PDF in = 75-90, +image out = 90-100. With text+image+video+PDF input and image output, score 85-90. BenchLM lists 85 for multimodal. Capped by: lack of audio I/O and video generation. Score 85 reflects comprehensive multimodal coverage (text+image+video+PDF in, text+image out).
 - **Coding: 95/100.** DeepSWE 75.4% (ahead of Opus 4.8's 74.0% — frontier tier: DeepSWE 74%+ → 90-100), Terminal-Bench 2.1 88.8% (frontier tier), SciCode 58.8%, SWE-Atlas 59.4%, MCP Atlas 90.3%. Exceptional, consistent scores. Capped only by: lack of SWE-bench Verified direct score, and LiveCodeBench not found. Overall coding capability is clearly frontier-tier.
 - **Cost efficiency: 100/100.** Free tier via OpenCode Zen ($0 input/output during limited free period). Per methodology: $0 = 100. Contributor pricing ($0.10/$0.20) would score ~97-99 if not free. Capped only by: time-limited nature of free tier and training-data consent caveat (free-period prompts may be used to improve the model — do not use for confidential code). Score 100 reflects $0 pricing during free period.
-- **Overall Score: 94/100.** Mean of (95 + 95 + 100 + 85 + 95 + 100) / 6 = 95.0 → **95**. Best-fit recommendation: Muse Spark 1.3 Free is the best overall model available as of 2026-09-18 for teams that can use the free tier (OpenCode Zen). The combination of DeepSWE 75.4% (ahead of Opus 4.8), Terminal-Bench 88.8%, GPQA 93.5%, HLE 48.7%, MRCR 98.5%/98.1% at 512K/1M, MCP Atlas 90.3%, and $0 pricing makes this the definitive free-tier model. For teams needing audio I/O or video generation, other models are required. For teams needing confidential code processing, do NOT use the free tier (training-data consent caveat) — use the paid Contributor or Standard tier, or a model with zero-data-retention. This matches the model-comparison.md score of 95.
+- **Overall Score: 94/100.** Mean of (95 + 95 + 100 + 85 + 95 + 100) / 6 = 95.0 → **95**. Best-fit recommendation: Muse Spark 1.3 Contributor is the best overall model available as of 2026-09-18 for teams that can use the free tier (OpenCode Zen). The combination of DeepSWE 75.4% (ahead of Opus 4.8), Terminal-Bench 88.8%, GPQA 93.5%, HLE 48.7%, MRCR 98.5%/98.1% at 512K/1M, MCP Atlas 90.3%, and $0 pricing makes this the definitive free-tier model. For teams needing audio I/O or video generation, other models are required. For teams needing confidential code processing, do NOT use the free tier (training-data consent caveat) — use the paid Contributor or Standard tier, or a model with zero-data-retention. This matches the model-comparison.md score of 95.
 
 ---
 

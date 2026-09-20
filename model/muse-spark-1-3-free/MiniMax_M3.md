@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by MiniMax M3
+# Muse Spark 1.3 Contributor — findings by MiniMax M3
 
 > Independent MiniMax M3 evaluation. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`. Do not conflate with peer agent files.
@@ -10,7 +10,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Contributor Free)
+- **Name:** Muse Spark 1.3 Contributor (Contributor Free)
 - **Short description:** Meta's frontier 1.3 release optimized for long-horizon coding and agentic workflows. Contributor Free tier = same weights as standard 1.3, gated by training-data consent. Top use case: agentic coding and 1M-context planning when the free tier is available.
 - **Provider / access:** OpenCode Zen `opencode/muse-spark-1.3-contributor-free`; kie.ai / Vercel AI Gateway / OpenRouter equivalents. Chat Completions endpoint. Standard tier uses Responses-style tool calling.
 - **Release / knowledge:** Released 2026-09-02 (Meta Research). Knowledge cutoff ≈ mid-2026 per Meta blog.

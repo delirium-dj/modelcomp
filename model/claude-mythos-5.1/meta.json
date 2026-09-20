@@ -1,0 +1,12 @@
+{
+  "id": "anthropic/claude-mythos-5.1",
+  "name": "Claude Mythos 5.1",
+  "short": "Anthropic's restricted configuration of Claude Fable 5.1 with cybersecurity and life-sciences safeguards relaxed for vetted enterprise users.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $10/$50 per 1M (no Zen Free ID)",
+  "pricingTiers": [
+    "Paid $10/$50 per 1M (no Zen Free ID)"
+  ],
+  "noFreeId": true
+}

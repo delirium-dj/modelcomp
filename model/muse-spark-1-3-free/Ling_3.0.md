@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by Ling 3.0
+# Muse Spark 1.3 Contributor — findings by Ling 3.0
 
 - Source: Ling 3.0 (`opencode/muse-spark-1-3-contributor-free`)
 - Date: 2026-09-17 (UTC)
@@ -7,7 +7,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Contributor tier)
+- **Name:** Muse Spark 1.3 Contributor (Contributor tier)
 - **Short description:** Meta's flagship multimodal reasoning model for long-horizon agentic, multi-agent, and coding workflows; ~1M-token context; image/video understanding. The free Contributor tier trades prompts/completions for training use in exchange for low price.
 - **Provider / access:** Meta Model API (`api.meta.ai`), Muse Code, OpenRouter, Vercel AI Gateway; OpenCode Zen free tier at `https://opencode.ai/zen/v1/responses` (Responses API).
 - **Release / knowledge:** 2026-09-02 (Meta blog; rolling out same day).

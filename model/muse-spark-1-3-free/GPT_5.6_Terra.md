@@ -1,13 +1,13 @@
-# Muse Spark 1.3 Free — findings by GPT-5.6 Terra
+# Muse Spark 1.3 Contributor — findings by GPT-5.6 Terra
 
-- Source: Meta / Muse Spark 1.3 Free
+- Source: Meta / Muse Spark 1.3 Contributor
 - Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free
+- **Name:** Muse Spark 1.3 Contributor
 - **Short description:** Free OpenCode Zen access tier for Meta's Muse Spark 1.3, an agentic coding and knowledge-work model.
 - **Provider / access:** OpenCode Zen free tier; upstream model is available through Muse Code and Meta Model API. The exact free-tier API identifier was not verified in first-party documentation.
 - **Release / knowledge:** September 2026 release for Muse Spark 1.3; cutoff not publicly verified.

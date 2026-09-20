@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by GLM 5.3 Flash
+# Muse Spark 1.3 Contributor — findings by GLM 5.3 Flash
 
 - Source: Meta Superintelligence Labs (`muse-spark-1.3`; OpenCode Zen Contributor free tier / `muse-spark-1.3-contributor`)
 - Date: 2026-09-18 (UTC)
@@ -7,7 +7,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (free Contributor-tier access to Meta's Muse Spark 1.3; the current Muse Spark flagship, released 2026-09-02)
+- **Name:** Muse Spark 1.3 Contributor (free Contributor-tier access to Meta's Muse Spark 1.3; the current Muse Spark flagship, released 2026-09-02)
 - **Short description:** Meta's efficiency-focused update to Muse Spark 1.2: same 1M context and pricing, but ~20% fewer tool calls and ~25% fewer tokens on coding work, harness-general agent training, and collaborative behaviors (clarifying questions, confirmation before consequential actions).
 - **Provider / access:** OpenCode Zen free Contributor tier (`opencode/muse-spark-1.3-contributor-free`, Responses API; free in exchange for training-data consent per repo catalog); Meta Model API (`muse-spark-1.3`); a paid `muse-spark-1.3-contributor` tier exists at $0.10/$0.20; inside Muse Code. Proprietary, closed weights (open-weights release "on the roadmap").
 - **Release / knowledge:** released 2026-09-02. Knowledge cutoff not verified in this pass.

@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by Claude Opus 4.6
+# Muse Spark 1.3 Contributor — findings by Claude Opus 4.6
 
 - Source: Meta / Muse Spark 1.3 Contributor Free (`opencode/muse-spark-1.3-contributor-free`)
 - Date: 2026-09-19 (UTC)

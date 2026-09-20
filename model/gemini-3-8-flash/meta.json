@@ -1,0 +1,10 @@
+{
+  "id": "google/gemini-3-8-flash",
+  "name": "Gemini 3.8 Flash",
+  "short": "Google's GA Flash workhorse released September 2026, offering strong reasoning and coding at 305 tok/s with 1M context.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, video, audio, PDF in; text out",
+  "pricingNote": "Intro $0.75/$3.75 per 1M; doubles Jan 2027",
+  "freeTierNote": "No Zen Free ID; available on Google AI Studio",
+  "noFreeId": true
+}

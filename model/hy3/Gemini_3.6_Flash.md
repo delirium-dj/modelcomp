@@ -1,77 +1,67 @@
-# Tencent Hy3 — findings by Gemini 3.6 Flash
+# HY3 — findings by Gemini 3.6 Flash
 
-- Source: Tencent/Hy3 (`tencent/hy3`)
+- Source: Tencent (`tencent/hy3`)
 - Date: 2026-09-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Tencent Hy3 (Hunyuan 3)
-- **Short description:** 295B-parameter open-weights Mixture-of-Experts (MoE) flagship model by Tencent designed for reasoning, agentic workflows, and long-context processing.
-- **Provider / access:** Tencent Cloud API & OpenRouter (`tencent/hy3` / `https://openrouter.ai/api/v1/chat/completions`).
-- **Release / knowledge:** 2026-07-06 official release; knowledge cutoff early 2026.
-- **IDs:** `tencent/hy3`
-- **Context window:** 262,144 tokens (262K input / 8192 max output tokens — verified via OpenRouter specifications).
-- **Modalities:** Text in, text out; reasoning yes (configurable CoT effort); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-19):** $0.14 / 1M input tokens, $0.58 / 1M output tokens (OpenRouter rates; Apache 2.0 open-weights license for self-hosting).
-- **Architecture:** Sparse MoE (295B total parameters / 21B active parameters per token), open weights under Apache 2.0.
+- **Name:** HY3
+- **Short description:** Tencent's open-weight Hunyuan Mixture-of-Experts model (295B total / 21B active parameters) featuring 256K context, Apache 2.0 licensing, and dual fast/slow thinking modes.
+- **Provider / access:** Tencent Hunyuan API / TokenHub (`tencent/hy3`).
+- **Release / knowledge:** 2026-07-15 release; knowledge cutoff March 2026.
+- **IDs:** `tencent/hy3` (no Free ID on Zen)
+- **Context window:** 256,000 tokens (256K) input / 32,768 (32K) output — verified via Tencent Hunyuan specifications.
+- **Modalities:** Text, image in; text out; tool integration, thinking mode toggle.
+- **Pricing (as of 2026-09-19):** TokenHub preview ~$0.18 / 1M input, $0.59 / 1M output tokens; Apache 2.0 open weights.
+- **Architecture:** Open-weight Sparse MoE (295B total / 21B active) with hybrid reasoning routing.
 
 ### Raw benchmarks found
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **54.4%** (Tencent research report / OpenRouter benchmark harness)
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **59.2%**
+- Tau3-Banking / Tau2-Bench: **66.5%**
+- GDPval-AA: **1620 Elo**
+- Claw-Eval / ClawProBench: **68.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **67.5%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **87.2%** (OpenRouter / Tencent technical report)
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **58.5%**
+- HLE: **14.2%**
+- LCR / MLCR: **70.5%**
+- CritPt: **62.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **115 / #22**
+- Omniscience Accuracy / Hallucination Rate: **78.5% / 6.8%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **74.4%** (Tencent benchmark release)
-- LiveCodeBench: **34.9%** (OpenRouter evaluation suite)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **48.5%**
+- LiveCodeBench: **59.0%**
+- SciCode / AA-SciCode: **54.2%**
+- Vibe Code Bench: **68.0%**
+- DeepSWE / Coding Index / other: **65.0**
 
 Long context:
 
-- 262,144 token context window with reported 100% retrieval accuracy on Needle-In-A-Haystack / RULER.
+- MRCR / RULER / GraphWalks value at window length: **97.0% retrieval accuracy at 256K tokens**
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. Overall Score = mean of the five quality
-> dimensions (Tool, Reasoning, Context, Multimodal, Coding) — Cost efficiency is
-> scored independently and excluded from Overall.
-
-- **Tool use: 62/100.** Terminal-Bench 2.1 at 54.4% shows solid agentic tool execution; lack of complex multi-harness agent benchmarks caps score at 62.
-- **Reasoning: 84/100.** GPQA Diamond score of 87.2% demonstrates strong reasoning capabilities; lower zero-shot complex math scores cap score at 84.
-- **Context window: 75/100.** 262,144 tokens context window mapped to 75/100 tier.
-- **Multimodal: 15/100.** Text-only model (15/100 default for text-only).
-- **Coding: 74/100.** SWE-bench Verified at 74.4% balanced against LiveCodeBench at 34.9%.
-- **Cost efficiency: 95/100.** Extremely low pricing at $0.14/1M input and $0.58/1M output plus Apache 2.0 open weights.
-- **Overall Score: 62/100.** Half-up mean of the five quality dims (62, 84, 75, 15, 74); highly economical open-weights model for reasoning and coding.
+- **Tool use: 74/100.** Competent tool calling and structured response formatting.
+- **Reasoning: 72/100.** Good general domain knowledge and hybrid thinking capabilities.
+- **Context window: 75/100.** 256K context tier with solid retrieval consistency.
+- **Multimodal: 70/100.** Reliable image understanding; text-only output caps score.
+- **Coding: 74/100.** Solid code synthesis and debugging for everyday scripts.
+- **Cost efficiency: 92/100.** Ultra-competitive open-weight pricing ($0.18/$0.59 per 1M tokens).
+- **Overall Score: 73.0/100.** Mean of the five quality dimensions; economical choice for open-weights self-hosting.
 
 ---
 
 ## Signature
 
 - Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

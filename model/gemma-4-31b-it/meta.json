@@ -1,0 +1,13 @@
+{
+  "id": "google/gemma-4-31b-it",
+  "name": "Gemma 4 31B IT",
+  "short": "Google's open weights 31B instruction-tuned model with strong reasoning, tool use, and coding capabilities.",
+  "contextWindow": "128K context",
+  "modalities": "Text in/out only",
+  "pricingNote": "Free open weights / standard hosting",
+  "pricingTiers": [
+    "Free open weights",
+    "Standard API hosting"
+  ],
+  "freeTierNote": "Open weights available for local deployment and community hosting"
+}

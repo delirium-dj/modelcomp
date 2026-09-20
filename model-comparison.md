@@ -13,7 +13,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---|---|---|---|---|---|---|
 | Big Pickle (`opencode/big-pickle`) | 55 | 60 | 70 | 15 | 70 | 100 | 62 |
-| Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`) | 95 | 92 | 100 | 85 | 95 | 100 | 95 |
+| Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`) | 95 | 92 | 100 | 85 | 95 | 100 | 95 |
 | Ling 3.0 Flash Fin Free (`opencode/ling-3.0-flash-fin-free`) | 68 | 70 | 72 | 15 | 72 | 100 | 66 |
 | MiMo V2.5 Free (`opencode/mimo-v2.5-free`) — also listed as Xiaomi MiMo-V2.5 Free, same ID | 78 | 72 | 70 | 95 | 78 | 100 | 82 |
 | Muse Spark 1.2 Free (`opencode/muse-spark-1.2-contributor-free`) | 90 | 88 | 100 | 90 | 88 | 100 | 93 |
@@ -35,7 +35,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 `Overall Score` = rounded mean of the 5 quality dimensions: `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. Cost efficiency is scored independently and never counts toward Overall (v4 methodology, 2026-09-18; tables below showing `/ 6` math are frozen v1–v3 history).
 
 - Big Pickle: (55 + 60 + 70 + 15 + 70 + 100) / 6 = 61.7 → **62**
-- Muse Spark 1.3 Free: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 94.5 → **95**
+- Muse Spark 1.3 Contributor: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 94.5 → **95**
 - Ling 3.0 Flash Fin Free: (68 + 70 + 72 + 15 + 72 + 100) / 6 = 66.2 → **66**
 - MiMo V2.5 Free: (78 + 72 + 70 + 95 + 78 + 100) / 6 = 82.2 → **82**
 - Muse Spark 1.2 Free: (90 + 88 + 100 + 90 + 88 + 100) / 6 = 92.7 → **93**
@@ -58,7 +58,7 @@ Full details moved to [`model/big-pickle/Muse_Spark_1.3.md`](model/big-pickle/Mu
 
 ---
 
-## Muse Spark 1.3 Free
+## Muse Spark 1.3 Contributor
 
 Full details moved to [`model/muse-spark-1-3-free/Muse_Spark_1.3.md`](model/muse-spark-1-3-free/Muse_Spark_1.3.md).
 
@@ -152,7 +152,7 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 ## Caveats
 
 - `Big Pickle` is stealth — vendor has not disclosed weights. Scores combine direct `big-pickle` evals (SWE-Atlas 50.8%, Zen specs) with `glm-4.6` proxy benchmarks. Re-verify on `https://opencode.ai/zen/v1/models` — stealth models can be swapped without notice.
-- `Muse Spark 1.3 Free` shares weights with standard 1.3; difference is pricing + training-data consent. Do not use Free tier for confidential code.
+- `Muse Spark 1.3 Contributor` shares weights with standard 1.3; difference is pricing + training-data consent. Do not use Free tier for confidential code.
 - No verified public **Claw-Eval** scores were found for either original model ID as of 2026-09-17. Do not compare Claw-Eval until both have same-harness numbers.
 - Benchmark sources disagree on some GLM-4.6 numbers (e.g., Tau2 70.5% vs 76.9%, GPQA 63.2% vs 0.81) due to harness/version differences — both listed where found.
 - v2 notes: `MiMo V2.5 Free` Zen cap is 200K/32K (native 1M — use native endpoint for 1M work). `Ling Fin Free` has vendor “strong” claims without public numbers — scored provisionally. `Nemotron Lightning` 262K native (1M extended per some trackers — scored 262K). `GLM 5.1`, `MiniMax M2.7`, `MiMo-V2.5-Pro` have **no Zen Free ID** — cost scored on verified paid pricing; overall would rise ~1–4 pts at $0. `MiMo V2.5` vs `Pro`: V2.5 = omni (95 multimodal), Pro = text-only long-horizon (15 multimodal, 100 context). Tau3 numbers vary by harness (AA vs RankedAGI vs vendor) — harness listed per score.
@@ -227,7 +227,7 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 
 ## Changelog
 
-- 2026-09-17: created file, added Big Pickle and Muse Spark 1.3 Free with v1 methodology.
+- 2026-09-17: created file, added Big Pickle and Muse Spark 1.3 Contributor with v1 methodology.
 - 2026-09-17: v2 — added Ling 3.0 Flash Fin Free, MiMo V2.5 Free (= Xiaomi MiMo-V2.5 Free duplicate), Muse Spark 1.2 Free, Nemotron 3 Ultra Free, Nemotron 3.5 Lightning Free, GLM 5.1 Coding (no Free ID, paid pricing), MiniMax M2.7 (no Free ID, paid pricing), Xiaomi MiMo-V2.5-Pro (no Free ID, paid pricing). Updated summary, calculations, caveats, sources.
 - 2026-09-17: v3 — split per-model details into `model/<slug>/Muse_Spark_1.3.md` (one folder per model, one file per source; see `model/README.md`). This file keeps the table, methodology, caveats, sources and changelog.
 - 2026-09-18: v4 — Cost efficiency excluded from Overall Score everywhere (source files and averages); Overall = mean of the five quality dimensions. Comparison table and per-model sections above remain frozen v1–v3 history; live scores come from `model/<slug>/average.md`.

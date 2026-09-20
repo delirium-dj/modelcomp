@@ -89,60 +89,44 @@ Reading all `Muse_Spark_1.3.md` files + `models.ts` in one turn ≈ 18 000 token
 Reading `model-comparison.md` + all source files repeatedly will approach the
 TPM limit if done many times per minute. Stagger reads across turns.
 
-## Rule 9 — Delegate expensive commands to the user
+## Rule 9 — Skip terminal build/sync commands to conserve tokens & RPM
 
-`pnpm build`, `pnpm build.types`, and `pnpm preview` are **slow commands**
-that consume one precious RPM slot AND block progress for 10–60 seconds while
-the quota window is still counting down.
+Do **NOT** execute `pnpm build`, `pnpm build.types`, `pnpm sync`, or `pnpm dev` inside tool calls while working on tasks. Running build servers or compilers inside agent tool calls consumes precious token context and RPM slots.
 
-**Do not run them yourself.** Instead, tell the user exactly what to run and
-wait for them to paste the output back:
-
-> "I've finished writing the files. Please run the following in your terminal
-> and paste the result here so I can check for errors:
-> ```powershell
-> pnpm build.types && pnpm build
-> ```"
-
-This saves one request slot, keeps the RPM window open for follow-up reads,
-and lets the user run the command at their own pace without the agent blocking.
+Instead:
+1. Complete all file creation, editing, and research work autonomously.
+2. Delegate the final verification command to the user in your **final turn summary** after all work is 100% complete:
+   ```powershell
+   pnpm sync && pnpm build.types && pnpm build
+   ```
 
 ## Rule 10 — Include budget planning in thought reasoning, not separate text outputs
 
-Keep budget calculations inside your internal thought / reasoning block. Do not emit standalone commentary text before tool calls in separate turns, as this can fragment model turns.
+Keep budget calculations inside your internal thought / reasoning block. Do not emit standalone commentary text before tool calls in separate turns, as this causes model turn fragmentation.
 
-## Rule 11 — Ask the user to run anything that has side-effects or takes >5 s
+## Rule 11 — Zero Mid-Task Interruptions (No Mid-Task Command Prompts)
 
-Beyond build commands, the same delegation principle applies to:
+Agents MUST NOT pause mid-task to emit text asking the user to run commands while a task is still in progress.
+Doing so creates text-only turns that interrupt execution and trigger `400 Bad Request: Requests ending with a model turn are not supported` errors.
+Work continuously until all requested file updates and research steps are completely done.
 
-| Command | Why to delegate |
-|---|---|
-| `pnpm build` / `pnpm build.types` | Slow; blocks RPM window |
-| `pnpm preview` / `pnpm dev` | Long-running server; not a one-shot call |
-| `git add` / `git commit` / `git push` | Destructive; user must approve explicitly |
-| `pnpm install` / dependency updates | Mutates `pnpm-lock.yaml`; user consent required |
+## Rule 12 — Eliminate turn-ending role errors ("Requests ending with a model turn are not supported")
 
-Template for delegating:
+To guarantee full compatibility with the Gemini API harness and prevent `400 Bad Request: Requests ending with a model turn are not supported`:
+1. Every model turn during an ongoing task **MUST attach at least one tool call**.
+2. Never emit preamble text (e.g., *"I will now analyze the files..."*) in a text-only turn without a tool call.
+3. Keep all intermediate planning, status updates, and step-by-step progress strictly inside internal `<thought>` / reasoning blocks.
 
-> "**Action needed by you:** Please run the command(s) below, then paste the
-> terminal output back so I can continue."
+## Rule 13 — Autonomous Multi-Step Execution & Final Command Handover
 
-Never auto-run any command in this table, even if it appears safe.
-
-## Rule 12 — Avoid turn-ending role errors ("Requests ending with a model turn are not supported")
-
-To guarantee full compatibility with the Gemini API harness:
-1. Every model turn must contain **tool calls** if the task is ongoing, OR a **final user response** if the turn is complete.
-2. Never send text asking for user confirmation without completing the immediate action or clearly ending the turn.
-3. If delegating a command to the user, ensure all file edits are finished before outputting the final user message with the command instructions.
-
-## Rule 13 — Autonomous Multi-Step Execution (Zero Mid-Task Interruption)
-
-When given a multi-step or multi-item task (e.g. creating 11 model files):
+When given a multi-step or multi-item task (e.g. creating 11 model files or updating benchmark data):
 - **Execute all tool calls in an unbroken chain until 100% finished.**
 - **NEVER output progress messages asking the user "Should I pause or continue?" mid-task.**
 - **Why this works:** The agent runner automatically feeds tool outputs back to you. As long as you issue a tool call in every turn, the workflow runs autonomously without requiring the user to press anything.
-- **Only yield control back to the user when the entire requested job is completely finished.**
+- **Final Handover:** Only yield control back to the user when all file/research work is 100% finished. In your final output, report the completed work and provide the exact command for the user to run:
+  ```powershell
+  pnpm sync && pnpm build.types && pnpm build
+  ```
 
 ---
 
@@ -152,12 +136,9 @@ When given a multi-step or multi-item task (e.g. creating 11 model files):
 |---|---|---|
 | Read one file (any range) | 1 | Use line ranges to save TPM |
 | Write / create one file | 1 | Draft fully before calling |
-| Run one terminal command | 1 | Chain with `;` to batch |
 | Web search | 1 | — |
 | List directory | 1 | Skip if already known |
-| Multiple actions in one batched shell call | 1 | Best way to save RPM |
-| Ask user to run a command (delegation) | **0** | Preferred for slow/risky commands |
-| Reasoning / thinking (no tool) | **0** | Use generously |
+| Terminal commands (`pnpm sync` / `pnpm build`) | **0 (Skipped)** | Delegate to user at task completion |
+| Reasoning / thinking (no tool) | **0** | Use generously inside internal thoughts |
 
-> Spend your 0-cost budget — reasoning and user delegation — as much as
-> possible. Every tool call you avoid is 12 seconds of quota returned.
+> Spend your token budget on research and file creation. Skip running build commands in tool loops, keep an unbroken tool-calling chain, and provide `pnpm sync && pnpm build.types && pnpm build` to the user upon completion.

@@ -1,4 +1,4 @@
-# GLM 5.1 Coding — findings by Muse Spark 1.3 Free
+# GLM 5.1 Coding — findings by Muse Spark 1.3 Contributor
 
 - Source: Z.AI/GLM-5.1, e.g. Meta (`muse-spark-1.3-contributor-free`)
 - Date: 2026-09-18 (UTC)
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Free (meta/muse-spark-1.3)** — 2026-09-18
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
 - Method: public internet research (Z.ai GLM-5.1 blog, Hugging Face, Artificial Analysis, NVIDIA comparison table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

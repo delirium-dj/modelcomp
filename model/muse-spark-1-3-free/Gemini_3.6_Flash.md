@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by Gemini 3.6 Flash
+# Muse Spark 1.3 Contributor — findings by Gemini 3.6 Flash
 
 - Source: Meta (`opencode/muse-spark-1.3-contributor-free`)
 - Date: 2026-09-17 (UTC)
@@ -7,7 +7,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free
+- **Name:** Muse Spark 1.3 Contributor
 - **Short description:** Meta's flagship 1.3 model for coding and long-horizon agentic work with 1M context window and high efficiency.
 - **Provider / access:** OpenCode Zen (`opencode/muse-spark-1.3-contributor-free`), Chat Completions API.
 - **Release / knowledge:** 2026-09-02 release; 2026-03 knowledge cutoff.

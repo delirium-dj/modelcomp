@@ -1,13 +1,13 @@
-# Muse Spark 1.3 Free — findings by DeepSeek 4.1 Flash
+# Muse Spark 1.3 Contributor — findings by DeepSeek 4.1 Flash
 
-- Source: Meta / Muse Spark 1.3 Free (`opencode/muse-spark-1.3-contributor-free`)
+- Source: Meta / Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)
 - Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Meta "Contributor Free" tier of Muse Spark 1.3)
+- **Name:** Muse Spark 1.3 Contributor (Meta "Contributor Free" tier of Muse Spark 1.3)
 - **Short description:** Meta's September 2026 multimodal reasoning model for long-running agentic, multi-agent and coding workflows, offered through OpenCode Zen as a contributor tier. Across the trackers it is Meta's strongest coding model: both its Artificial Analysis Intelligence Index and Coding Index sit in the 95th percentile of tracked models.
 - **Provider / access:** OpenCode Zen contributor-free ID (OpenAI-compatible); the paid model lists at $1.25/$4.25 per 1M on Meta's API. Zen's contributor terms are explicit: heavily discounted pricing in exchange for permission to use prompts and completions to train future Meta models. The model is also exposed for paid use via `meta/muse-spark-1.3` on the open models database.
 - **Release / knowledge:** Released 2026-09-02. Knowledge cutoff not published.

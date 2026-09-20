@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by Muse Spark 1.3 Free
+# Muse Spark 1.3 Contributor — findings by Muse Spark 1.3 Contributor
 
 - Source: Meta/Muse Spark 1.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
 - Date: 2026-09-18 (UTC)
@@ -7,7 +7,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Meta, Contributor Free tier)
+- **Name:** Muse Spark 1.3 Contributor (Meta, Contributor Free tier)
 - **Short description:** Meta's proprietary multimodal reasoning model for long-horizon agentic and coding workflows, served as the $0 Contributor Free tier on OpenCode Zen (same weights as standard 1.3, training-data consent in exchange for free use).
 - **Provider / access:** Meta via Meta Model API (`muse-spark-1.3` / `muse-spark-1.3-contributor`); OpenCode Zen `opencode/muse-spark-1.3-contributor-free` (Chat Completions + Responses-style tool calling, MCP supported).
 - **Release / knowledge:** 2026-09-02 release; knowledge cutoff undisclosed
@@ -68,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Free (meta/muse-spark-1.3)** — 2026-09-18
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
 - Method: public internet research (Meta developer docs, Artificial Analysis model page + Index, BenchmarkList, LLMLearner, AI Atlas); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

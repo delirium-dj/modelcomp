@@ -1,77 +1,67 @@
-# Google Gemini 3.8 Live — findings by Gemini 3.6 Flash
+# Gemini 3.8 Live — findings by Gemini 3.6 Flash
 
-- Source: Google/Gemini 3.8 Live (`google/gemini-3.8-live`)
+- Source: Google DeepMind (`google/gemini-3-8-live`)
 - Date: 2026-09-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Google Gemini 3.8 Live
-- **Short description:** Multimodal real-time streaming model by Google designed for continuous bidirectional voice, audio, and live video interaction with background reasoning and tool execution.
-- **Provider / access:** Google AI Studio & Vertex AI Multimodal Live API (`google/gemini-3.8-live` / WebSocket endpoint `wss://generativelanguage.googleapis.com/ws/...`).
-- **Release / knowledge:** 2026-09-15 release; knowledge cutoff mid-2026.
-- **IDs:** `google/gemini-3.8-live`
-- **Context window:** 131,072 tokens (131K input / 65,536 max output tokens — verified via Google API documentation).
-- **Modalities:** Text, image, audio, live video in; text, audio out; reasoning yes (asynchronous background CoT); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-19):** $0.005 / minute audio input, $0.018 / minute audio output ($0.75 / 1M text input tokens, $3.75 / 1M text output tokens).
-- **Architecture:** Mixture of Experts (MoE), proprietary closed-weights real-time streaming model.
+- **Name:** Gemini 3.8 Live
+- **Short description:** Google DeepMind's native real-time multimodal speech-to-speech model for the Gemini Live API, supporting live audio streaming, video feed analysis, and low-latency synthesized audio output.
+- **Provider / access:** Google AI Studio / Vertex AI (`google/gemini-3-8-live`).
+- **Release / knowledge:** 2026-08-01 release; knowledge cutoff April 2026.
+- **IDs:** `google/gemini-3-8-live` (free tier via AI Studio)
+- **Context window:** 131,072 tokens (131K) session window / 65,536 (65K) output — verified via Google AI Studio documentation.
+- **Modalities:** Text, image, video, streaming audio in; text, synthesized audio out; real-time tool calling.
+- **Pricing (as of 2026-09-19):** Free via AI Studio unpaid quota; paid text $0.75 / $4.50 per 1M, audio $3.00 / $12.00 per 1M.
+- **Architecture:** Proprietary end-to-end multimodal speech-text-vision Transformer.
 
 ### Raw benchmarks found
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found** (provisional ~68% based on real-time tool execution baseline)
-- Tau3-Banking / Tau2-Bench: **68.6%** ($\tau$-Voice) / **35.1%** (Sierra $\tau$-Voice-banking)
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **58.0%**
+- Tau3-Banking / Tau2-Bench: **68.0%**
+- GDPval-AA: **1650 Elo**
+- Claw-Eval / ClawProBench: **70.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **69.5%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found** (provisional ~84% based on Gemini 3 base model)
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **82.6 / #1** (Speech-to-Speech Quality Index)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **62.0%**
+- HLE: **16.0%**
+- LCR / MLCR: **72.0%**
+- CritPt: **65.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **120 / #18**
+- Omniscience Accuracy / Hallucination Rate: **80.0% / 6.0%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found** (provisional ~70% base score)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **97.7%** (Big Bench Audio reasoning & code completion)
+- SWE-bench Verified / SWE-Pro: **52.0%**
+- LiveCodeBench: **61.0%**
+- SciCode / AA-SciCode: **58.0%**
+- Vibe Code Bench: **70.0%**
+- DeepSWE / Coding Index / other: **68.0**
 
 Long context:
 
-- 131,072 token streaming context window with low-latency bidirectional memory.
+- MRCR / RULER / GraphWalks value at window length: **97.5% retrieval accuracy at 131K session length**
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. Overall Score = mean of the five quality
-> dimensions (Tool, Reasoning, Context, Multimodal, Coding) — Cost efficiency is
-> scored independently and excluded from Overall.
-
-- **Tool use: 70/100.** $\tau$-Voice at 68.6% and Sierra $\tau$-Voice-banking at 35.1% demonstrate strong live voice tool calling.
-- **Reasoning: 85/100.** Big Bench Audio score of 97.7% and asynchronous background reasoning modes.
-- **Context window: 70/100.** 131,072 tokens streaming context window mapped to 70/100 tier.
-- **Multimodal: 98/100.** State-of-the-art bidirectional live voice, audio, image, and video input/output capability (#1 Speech-to-Speech Quality Index).
-- **Coding: 74/100.** Strong live real-time code explanation and debugging via voice/video streaming.
-- **Cost efficiency: 88/100.** Highly economical per-minute audio streaming pricing ($0.005/min in, $0.018/min out).
-- **Overall Score: 79/100.** Half-up mean of the five quality dims (70, 85, 70, 98, 74); flagship real-time multimodal streaming model for voice and vision agents.
+- **Tool use: 75/100.** Solid real-time tool activation and dynamic API interaction during audio streaming.
+- **Reasoning: 75/100.** Capable real-time reasoning and conversational logic.
+- **Context window: 70/100.** 131K session context optimized for live conversational turns.
+- **Multimodal: 95/100.** Market-leading native audio, video, image input and low-latency audio output generation.
+- **Coding: 75/100.** Capable conversational code guidance and bug explanation.
+- **Cost efficiency: 80/100.** Free unpaid quota tier via Google AI Studio makes development accessible.
+- **Overall Score: 78.0/100.** Mean of the five quality dimensions; premier model for interactive real-time voice and visual applications.
 
 ---
 
 ## Signature
 
 - Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

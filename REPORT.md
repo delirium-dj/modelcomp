@@ -169,7 +169,7 @@
 
 1. **Clarified the confusion:** the 94–96 numbers were per-SOURCE maxima (best grade
    each reviewer gave any model), not model averages. 8 of 10 point at a single
-   model, Muse Spark 1.3 Free (8 independent reviewers converge on 94–95 —
+   model, Muse Spark 1.3 Contributor (8 independent reviewers converge on 94–95 —
    consensus, not inflation); the other two grade Gemini 3.8 Flash (also the
    average leader). "All models" averages remain the realistic view.
 2. **Found real nonsense anyway:** full audit of every findings file
@@ -181,7 +181,7 @@
 3. **Fixed all 26 files with gap ≥ 2** (overall := half-up rounded dim mean, per
    repo methodology); sub-2 gaps documented as rounding noise. Re-ran `pnpm sync`
    (22 downstream averages recomputed) + `pnpm build` green. Post-fix top cards:
-   Gemini 3.8 Flash 91.3, Gemini 3.7 Flash 88.9, Muse Spark 1.3 Free 88.8;
+   Gemini 3.8 Flash 91.3, Gemini 3.7 Flash 88.9, Muse Spark 1.3 Contributor 88.8;
    dropdown auto-re-ranked (Gemini 3.1 Flash Lite slipped below DeepSeek as its
    max fell 93→90) with zero manual intervention.
 

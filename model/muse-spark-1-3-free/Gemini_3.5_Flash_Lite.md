@@ -1,13 +1,13 @@
-# Muse Spark 1.3 Free — findings by Gemini 3.5 Flash Lite
+# Muse Spark 1.3 Contributor — findings by Gemini 3.5 Flash Lite
 
-- Source: Meta/Muse Spark 1.3 Free
+- Source: Meta/Muse Spark 1.3 Contributor
 - Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free
+- **Name:** Muse Spark 1.3 Contributor
 - **Short description:** Free Contributor-tier access to Meta's Muse Spark 1.3 for coding and long-horizon agentic work. Same weights as standard 1.3; training-data consent in exchange for $0.
 - **Provider / access:** OpenCode Zen `opencode/muse-spark-1.3-contributor-free` (Chat Completions API).
 - **Release / knowledge:** 2026 release.

@@ -1,4 +1,4 @@
-# Muse Spark 1.3 Free — findings by Grok 4.6
+# Muse Spark 1.3 Contributor — findings by Grok 4.6
 
 - Source: Meta (`muse-spark-1.3-contributor-free` on OpenCode Zen; same weights as `muse-spark-1.3`)
 - Date: 2026-09-19 (UTC)
@@ -7,7 +7,7 @@
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Free (Contributor Free)
+- **Name:** Muse Spark 1.3 Contributor (Contributor Free)
 - **Short description:** Meta Superintelligence Labs’ Muse Spark 1.3 weights on OpenCode Zen’s $0 Contributor Free ID. Same checkpoint as paid 1.3 / Contributor; difference is pricing, rate limits, and training-data consent. Long-horizon agentic coding + multimodal perception.
 - **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1`, OpenAI **Responses** API (`api: openai-responses`), model `muse-spark-1.3-contributor-free`. Meta Model API paid twins: `muse-spark-1.3-contributor` and `muse-spark-1.3`. Reasoning: minimal–xhigh (`max` is partner preview, not this Free ID).
 - **Release / knowledge:** Muse Spark 1.3 announced **2026-09-02**; knowledge cutoff not published. Zen Free listing verified on Pi models catalog (cost $0).

@@ -5,8 +5,9 @@ Qwik + Tailwind v3 static site comparing AI models. Scores flow from
 
 > **CRITICAL DIRECTIVES FOR GEMINI AGENTS:**
 > 1. **No Standalone Text Turns:** Never emit text-only preamble responses (e.g., *"Analyzing user instructions..."* or *"Planning next steps..."*) without calling a tool in the SAME turn. Text-only turns cause `400 Bad Request: Requests ending with a model turn are not supported` API crashes.
-> 2. **No Mid-Task Interruptions:** Execute multi-step tasks continuously in an unbroken chain of tool calls until 100% finished. Never output progress messages asking *"Should I pause or continue?"* mid-task.
-> 3. **Rule:** Always attach tool calls directly to your response turns. Keep all planning inside internal thoughts.
+> 2. **Skip Terminal Build/Sync Commands (Save Tokens & RPM):** Do NOT run `pnpm sync`, `pnpm build.types`, `pnpm build`, or `pnpm dev` inside tool calls during task execution. Delegate build and sync commands to the user to conserve token quota and execution time.
+> 3. **No Mid-Task Interruptions:** Execute multi-step tasks continuously in an unbroken chain of tool calls until 100% finished or token context is exhausted. Never output mid-task progress commentary or ask the user to run commands mid-task. Keep all planning inside internal thoughts.
+> 4. **Post-Task Command Handover:** Yield control back to the user ONLY when all file/research work is 100% finished. In your final turn summary, report the completed work and provide the exact command for the user to run: `pnpm sync && pnpm build.types && pnpm build`.
 
 ## Must-read before working here
 

@@ -56,7 +56,7 @@ scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
 ## Folders
 
 - `big-pickle/` — Big Pickle
-- `muse-spark-1-3-free/` — Muse Spark 1.3 Free
+- `muse-spark-1-3-free/` — Muse Spark 1.3 Contributor
 - `ling-3-0-flash-fin-free/` — Ling 3.0 Flash Fin Free
 - `mimo-v2-5-free/` — MiMo V2.5 Free (also covers the `Xiaomi MiMo-V2.5 Free` alias)
 - `muse-spark-1-2-free/` — Muse Spark 1.2 Free

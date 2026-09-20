@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 78/100.** Mean of 3 reporting sources.
-- **Reasoning: 87/100.** Mean of 3 reporting sources.
-- **Context window: 83.7/100.** Mean of 3 reporting sources.
-- **Multimodal: 70.3/100.** Mean of 3 reporting sources.
-- **Coding: 87.7/100.** Mean of 3 reporting sources.
-- **Cost efficiency: 77.3/100.** Mean of 3 reporting sources.
-- **Overall Score: 81.4/100.** Mean of source Overall scores.
+- **Tool use: 78.1/100.** Mean of 8 reporting sources.
+- **Reasoning: 80/100.** Mean of 8 reporting sources.
+- **Context window: 79.2/100.** Mean of 8 reporting sources.
+- **Multimodal: 63.9/100.** Mean of 8 reporting sources.
+- **Coding: 80.2/100.** Mean of 8 reporting sources.
+- **Cost efficiency: 70.4/100.** Mean of 8 reporting sources.
+- **Overall Score: 76.2/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 3 reporting source(s): Gemini 3.6 Flash, GPT 5.6 Terra, Muse Spark 1.3.
+- Based on 8 reporting source(s): Big Pickle, Gemini 3.1 Flash Lite, Gemini 3.1 Pro, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Muse Spark 1.3.
