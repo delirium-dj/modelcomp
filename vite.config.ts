@@ -6,8 +6,9 @@ export default defineConfig(() => {
   return {
     plugins: [qwikCity(), qwikVite()],
     preview: {
+      // WHY: Preventing browsers from caching HTML pages during local preview testing
       headers: {
-        "Cache-Control": "public, max-age=600",
+        "Cache-Control": "no-cache, must-revalidate",
       },
     },
   };

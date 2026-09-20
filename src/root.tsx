@@ -32,6 +32,30 @@ export default component$(() => {
           `}
         />
 
+        {/*
+          Service Worker & Cache Cleanup:
+          WHY: Previous service worker registrations cached HTML documents aggressively in CacheStorage.
+          This script ensures any active service worker is unregistered and stale caches are deleted.
+        */}
+        <script
+          dangerouslySetInnerHTML={`
+            if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for (var i = 0; i < registrations.length; i++) {
+                  registrations[i].unregister();
+                }
+              });
+              if ('caches' in window) {
+                caches.keys().then(function(names) {
+                  for (var i = 0; i < names.length; i++) {
+                    caches.delete(names[i]);
+                  }
+                });
+              }
+            }
+          `}
+        />
+
         {/**
          * PWA Support:
          * The manifest.json file tells mobile devices how to "install" your site
