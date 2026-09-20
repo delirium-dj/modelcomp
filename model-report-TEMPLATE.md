@@ -37,8 +37,8 @@
 > `.excluded` files loudly so they never poison the average. Never invent
 > placeholder scores (0, 10, …) to fill a `.md` file — one fabricated number
 > drags the mean for every reader. (`pnpm sync` enforces this automatically:
-> 8+ "no verified public score found" rows with zero measured numbers =
-> renamed to `.excluded` on the spot.)
+> 8+ "not found" rows with zero measured numbers, any 0-scored quality dim, or
+> flat-identical dims with zero cited numbers = renamed to `.excluded`.)
 
 Agent / tool use:
 

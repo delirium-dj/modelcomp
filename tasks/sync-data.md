@@ -16,7 +16,10 @@ pnpm sync && pnpm build.types && pnpm build
    skipped loudly (`SKIP` line), never parsed, averaged, or registered.
    Before that, sync auto-quarantines (`QUAR` line, renamed on the spot):
    any findings file with 8+ "no verified public score found" rows and zero
-   measured numbers in its Raw-benchmarks section. One real number keeps the file.
+   measured numbers in its Raw-benchmarks section — or a 0 in any quality
+   dimension ("no data" filed as 0; floors are 10+) — or flat-identical
+   quality dims with zero cited numbers. Varied dims with cited numbers are
+   never touched, however low the scores.
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
 2. Parses the seven `1–100` scores from each file (fails loudly on any
    missing/invalid score line — never invent numbers) and validates each

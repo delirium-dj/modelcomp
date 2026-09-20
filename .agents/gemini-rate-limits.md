@@ -147,10 +147,27 @@ When given a multi-step or multi-item task (e.g. creating 11 model files or upda
 
 ## Appendix — Special Rule for Gemma Models (12K TPM / 25 RPM Limits)
 
-For Gemma models (`gemma-4-31b-it` and future Gemma models) with stricter constraints:
+For Gemma models (`gemma-4-31b-it` and future Gemma models) with stricter constraints.
+Scope: this Appendix is Gemma-only. Gemini and all other agents keep the main rules
+above plus `tasks/research.md` — nothing here applies to them.
+
+Background: the tripping metric is free-tier *input* tokens/minute (16K). The harness
+re-sends full conversation history with every request, so history — not request rate —
+is what overflows. RPM caps alone cannot fix this; only a small session can.
+
 1. **Token Limit:** Strictly cap input token usage at **12K input tokens per minute** (safely below the 16K absolute limit).
 2. **Request Limit:** Strictly cap request frequency at **25 requests per minute (RPM)** (below the 30 RPM maximum).
-3. **Never read large reference files** (`model-comparison.md`, `src/data/models.ts`) in full.
-4. **Targeted reads only:** Specify tight `limit` and `offset` ranges (max 50–100 lines).
-5. **Draft offline / in reasoning:** Construct findings files and meta structures entirely within internal thought blocks.
-6. **Minimal tool footprint:** Combine operations and minimize total tool invocations per turn.
+3. **Single-folder sessions only:** one `TARGET_SLUG` per fresh session per
+   `tasks/Gemma_4_31B_IT.md`, then stop. Never run the audit-all-folders workflow.
+4. **Reference diet:** `tasks/gemma-brief.md` is the entire reference. Banned:
+   `model-comparison.md`, `src/**`, any `model/**` file, `model-report-TEMPLATE.md`,
+   `tasks/research.md`. Targeted reads do NOT substitute — any full-file read
+   re-sends its content on every later request that minute.
+5. **Search discipline:** snippets first, MAX 3 opened pages per folder, never paste
+   full pages into context.
+6. **Draft offline / in reasoning:** Construct findings files and meta structures entirely within internal thought blocks.
+7. **Minimal tool footprint:** Combine operations and minimize total tool invocations per turn.
+8. **Backoff that works:** on 429/quota error, wait 65s and retry the failed step
+   ONCE. A second failure means STOP and report (retries resend the same oversized
+   payload into the same minute-window, so rapid retry loops can never succeed).
+   Continue the queue in a fresh session.

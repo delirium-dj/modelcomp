@@ -101,10 +101,31 @@ for (const slug of slugs) {
     const section = (content.split("### Raw benchmarks found")[1] || "").split("### Normalized scores")[0];
     if (!section) continue;
     const missing = (section.match(/no verified public score found/gi) || []).length;
-    const numerics = (section.match(/\*\*[^*]*\d[^*]*\*\*/g) || []).length;
-    if (missing >= 8 && numerics === 0) {
+    // NOTE: [^\n*] (not [^*) — bold spans must stay on one line, otherwise the
+    // closing ** of one row pairs with the opening ** of the next (e.g. across
+    // "Tau3-Banking / Tau2-Bench:") and fakes a numeric hit on empty files.
+    const numerics = (section.match(/\*\*[^\n*]*\d[^\n*]*\*\*/g) || []).length;
+    // Normalized quality dims (Cost excluded — it never counts toward Overall).
+    const norm = (content.split("### Normalized scores")[1] || "").split("---")[0];
+    const dims = ["Tool use", "Reasoning", "Context window", "Multimodal", "Coding"].map(
+      (l) => Number((norm.match(new RegExp(`\\*\\*${l}:\\s*([\\d.]+)/100`)) || [])[1]),
+    );
+    const parsed = dims.filter((n) => Number.isFinite(n));
+    const evidenceFree = missing >= 8 && numerics === 0;
+    // A 0 in any quality dim is never legitimate (methodology floors are 10+):
+    // it is "no data" filed as a number. Flat-identical dims with zero cited
+    // numbers are invented uniformity. Either quarantines; real low scores
+    // (varied dims, cited numbers) are never touched.
+    const reason = evidenceFree
+      ? `no verified benchmarks (${missing}x "not found", 0 measured numbers)`
+      : parsed.some((n) => n === 0)
+        ? `zero-scored dimension(s) [${parsed.join("/")}] = "no data" filed as 0`
+        : parsed.length === 5 && parsed.every((n) => n === parsed[0]) && numerics === 0
+          ? `flat ${parsed[0]}/100 across all dims with 0 measured numbers`
+          : null;
+    if (reason) {
       renameSync(join(dir, f), join(dir, `${f}.excluded`));
-      console.log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (no verified benchmarks: ${missing}x "not found", 0 measured numbers)`);
+      console.log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
     }
   }
   const entries = readdirSync(dir).sort();

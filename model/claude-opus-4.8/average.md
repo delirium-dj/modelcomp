@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 84.9/100.** Mean of 14 reporting sources.
-- **Reasoning: 86.2/100.** Mean of 14 reporting sources.
-- **Context window: 80.2/100.** Mean of 14 reporting sources.
-- **Multimodal: 66.3/100.** Mean of 14 reporting sources.
-- **Coding: 85.4/100.** Mean of 14 reporting sources.
-- **Cost efficiency: 41.3/100.** Mean of 14 reporting sources.
-- **Overall Score: 80.6/100.** Mean of source Overall scores.
+- **Tool use: 87.3/100.** Mean of 12 reporting sources.
+- **Reasoning: 88.8/100.** Mean of 12 reporting sources.
+- **Context window: 83.6/100.** Mean of 12 reporting sources.
+- **Multimodal: 71.1/100.** Mean of 12 reporting sources.
+- **Coding: 88/100.** Mean of 12 reporting sources.
+- **Cost efficiency: 41.5/100.** Mean of 12 reporting sources.
+- **Overall Score: 83.8/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 14 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.1 Pro, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Grok 4.6, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
+- Based on 12 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Grok 4.6, Muse Spark 1.3, Solar Pro 4.
