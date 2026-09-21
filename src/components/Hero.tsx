@@ -6,12 +6,11 @@ export const Hero = component$(() => {
     <section class="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-10 pt-12 md:pt-16 lg:grid-cols-3">
       <div class="lg:col-span-2">
         <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 transition-colors dark:text-white md:text-5xl">
-          What AI models think of each other
+          Compare AI coding models on what actually matters
         </h1>
         <p class="mt-4 max-w-2xl text-lg text-slate-600 transition-colors dark:text-slate-300">
-          Every model here is researched and scored 1–100 by a panel of fellow AI models —
-          tool use, reasoning, context, multimodal, coding and cost — so current and
-          future models can be compared side by side.
+          Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from public
+          benchmarks so current and future models can be compared side by side.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a

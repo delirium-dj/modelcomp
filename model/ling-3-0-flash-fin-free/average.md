@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 83/100.** Mean of 1 reporting sources.
-- **Reasoning: 83/100.** Mean of 1 reporting sources.
-- **Context window: 86/100.** Mean of 1 reporting sources.
-- **Multimodal: 15/100.** Mean of 1 reporting sources.
-- **Coding: 82/100.** Mean of 1 reporting sources.
-- **Cost efficiency: 100/100.** Mean of 1 reporting sources.
-- **Overall Score: 69.8/100.** Mean of source Overall scores.
+- **Tool use: 74.5/100.** Mean of 2 reporting sources.
+- **Reasoning: 71.5/100.** Mean of 2 reporting sources.
+- **Context window: 79/100.** Mean of 2 reporting sources.
+- **Multimodal: 15/100.** Mean of 2 reporting sources.
+- **Coding: 73.5/100.** Mean of 2 reporting sources.
+- **Cost efficiency: 100/100.** Mean of 2 reporting sources.
+- **Overall Score: 62.7/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 1 reporting source(s): Gemini 3.5 Flash Lite.
+- Based on 2 reporting source(s): DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite.

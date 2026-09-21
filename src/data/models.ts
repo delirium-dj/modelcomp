@@ -50,7 +50,7 @@ export type SourceKey =
   | "Grok 4.6"
   | "Gemini 3.7 Flash"
   | "Gemini 3.1 Pro"
-  | "Gemma 4 31B IT";
+  | "Laguna S 2.1";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -78,7 +78,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Grok 4.6", label: "Grok 4.6", file: "Grok_4.6.md" },
   { key: "Gemini 3.7 Flash", label: "Gemini 3.7 Flash", file: "Gemini_3.7_Flash.md" },
   { key: "Gemini 3.1 Pro", label: "Gemini 3.1 Pro", file: "Gemini_3.1_Pro.md" },
-  { key: "Gemma 4 31B IT", label: "Gemma 4 31B IT", file: "Gemma_4_31B_IT.md" },
+  { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md" },
 ];
 
 export interface AiModel {
