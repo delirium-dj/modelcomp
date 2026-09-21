@@ -12,12 +12,15 @@ export const Methodology = component$(() => {
           How scoring works
         </h2>
         <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
-          Scores are normalized interpretations from 1 to 100 (higher is better), synced from{" "}
-          <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">model/&lt;slug&gt;/average.md</code> per-model findings
-          in this repo. Overall Score is the rounded mean of the five quality dimensions — Cost efficiency is scored
-          separately and never counts toward Overall.
+          Scores are normalized interpretations from 1 to 100 (higher is better), based on public benchmarks.
+          Overall Score is the rounded mean of the five quality dimensions — Cost efficiency is scored separately
+          and never counts toward Overall.
         </p>
         <ul class="mt-4 max-w-3xl list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
+          <li>
+            Independently researched: each model is checked across multiple public sources, and every benchmark
+            number cites its source. Missing data is marked as no verified score — never invented.
+          </li>
           <li>Tool use: Terminal-Bench, Tau-bench, GDPval and tool-call efficiency.</li>
           <li>Reasoning: GPQA, Humanity&apos;s Last Exam, long-context retrieval and intelligence indexes.</li>
           <li>Context window: tiered by size; 1M+ scores 95–100, 200K scores around 70.</li>

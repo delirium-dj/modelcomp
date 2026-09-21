@@ -9,16 +9,16 @@ LLM Prompt Caching (e.g. Gemini / OpenAI prompt caching) requires an **identical
 
 To ensure instant context warming, zero-token re-scanning, and deterministic cache hits:
 
-1. **Local Memory Store:** All static project memory is pre-built in `.agent/history/`:
-   - `.agent/history/project-map.md`: High-level GPS of components, routes, data flow.
-   - `.agent/history/dependency-graph.md`: Tech stack, libraries, scripts.
-   - `.agent/history/last-lint-result.json`: Typecheck receipt file.
+1. **Local Memory Store:** All static project memory is pre-built in `.antigravity/history/`:
+   - `.antigravity/history/project-map.md`: High-level GPS of components, routes, data flow.
+   - `.antigravity/history/dependency-graph.md`: Tech stack, libraries, scripts.
+   - `.antigravity/history/last-lint-result.json`: Typecheck receipt file.
 
 2. **The `/kickstart` Slash Command:**
    - Command: `/kickstart`
    - Workflow file: `.antigravity/workflows/kickstart.md` (and `.agents/workflows/kickstart.md`)
-   - Effect: Reads `.agent/history/project-map.md`, `.agent/history/dependency-graph.md`, and `.agent/history/last-lint-result.json` in a single fixed step at conversation start.
+   - Effect: Reads `.antigravity/history/project-map.md`, `.antigravity/history/dependency-graph.md`, and `.antigravity/history/last-lint-result.json` in a single fixed step at conversation start.
 
 3. **Check-First Logic:**
-   - Before executing code analysis or full codebase searches, verify `.agent/history/` receipt files.
+   - Before executing code analysis or full codebase searches, verify `.antigravity/history/` receipt files.
    - If files match current git state, leverage cached memory instead of scanning the workspace.
