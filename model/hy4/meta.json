@@ -1,9 +1,9 @@
 {
   "id": "tencent/hy4",
   "name": "Hy4",
-  "short": "Tencent Hunyuan-family model with no verified public information as of 2026-09-18 — possibly unreleased or internal; tracked provisionally.",
-  "contextWindow": "Unknown",
-  "modalities": "Unknown",
-  "pricingNote": "Unknown (no Zen Free ID)",
+  "short": "Tencent's August 2026 Hy4-preview open-weights flagship (770B/49B-active MoE, 1M context) for long-horizon coding and productivity.",
+  "contextWindow": "1M (960K in / 64K out)",
+  "modalities": "Text in/out",
+  "pricingNote": "Apache 2.0 open weights, self-hosted (no Zen Free ID)",
   "noFreeId": true
 }

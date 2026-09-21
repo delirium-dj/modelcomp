@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 93.3/100.** Mean of 3 reporting sources.
-- **Reasoning: 92.3/100.** Mean of 3 reporting sources.
-- **Context window: 95.7/100.** Mean of 3 reporting sources.
-- **Multimodal: 57.3/100.** Mean of 3 reporting sources.
-- **Coding: 92.7/100.** Mean of 3 reporting sources.
-- **Cost efficiency: 30/100.** Mean of 3 reporting sources.
-- **Overall Score: 86.4/100.** Mean of source Overall scores.
+- **Tool use: 93.5/100.** Mean of 4 reporting sources.
+- **Reasoning: 93/100.** Mean of 4 reporting sources.
+- **Context window: 96.8/100.** Mean of 4 reporting sources.
+- **Multimodal: 61.8/100.** Mean of 4 reporting sources.
+- **Coding: 93.8/100.** Mean of 4 reporting sources.
+- **Cost efficiency: 30/100.** Mean of 4 reporting sources.
+- **Overall Score: 87.8/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 3 reporting source(s): Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash.
+- Based on 4 reporting source(s): Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Muse Spark 1.3.

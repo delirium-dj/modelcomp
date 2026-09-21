@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 84/100.** Mean of 4 reporting sources.
-- **Reasoning: 92/100.** Mean of 4 reporting sources.
-- **Context window: 95.5/100.** Mean of 4 reporting sources.
-- **Multimodal: 88.5/100.** Mean of 4 reporting sources.
-- **Coding: 88/100.** Mean of 4 reporting sources.
-- **Cost efficiency: 66.3/100.** Mean of 4 reporting sources.
-- **Overall Score: 89.5/100.** Mean of source Overall scores.
+- **Tool use: 84.4/100.** Mean of 5 reporting sources.
+- **Reasoning: 92.2/100.** Mean of 5 reporting sources.
+- **Context window: 95.8/100.** Mean of 5 reporting sources.
+- **Multimodal: 87.8/100.** Mean of 5 reporting sources.
+- **Coding: 88.8/100.** Mean of 5 reporting sources.
+- **Cost efficiency: 65/100.** Mean of 5 reporting sources.
+- **Overall Score: 89.8/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 4 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash.
+- Based on 5 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Muse Spark 1.3.

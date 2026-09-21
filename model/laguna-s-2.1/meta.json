@@ -1,9 +1,9 @@
 {
-  "id": "laguna-labs/laguna-s-2.1",
+  "id": "poolside/laguna-s-2.1",
   "name": "Laguna S 2.1",
-  "short": "Laguna Labs' Laguna S 2.1 with no verified public benchmarks, pricing, or specs as of 2026-09-18; tracked provisionally.",
-  "contextWindow": "Unknown",
-  "modalities": "Unknown",
-  "pricingNote": "Unknown (no Zen Free ID)",
+  "short": "Poolside's 118B/8B-active open-weights MoE for agentic coding and long-horizon work (OpenMDW-1.1 permissive).",
+  "contextWindow": "1M (Ollama local builds 256K)",
+  "modalities": "Text in/out only",
+  "pricingNote": "~$0.10/$0.20 per 1M API; open weights (no Zen Free ID)",
   "noFreeId": true
 }

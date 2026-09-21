@@ -1,6 +1,6 @@
 {
   "id": "google/gemma-4-31b-it",
-  "name": "Gemma 4 31B IT",
+  "name": "Gemma 4 31B",
   "short": "Google's open weights 31B instruction-tuned model with strong reasoning, tool use, and coding capabilities.",
   "contextWindow": "128K context",
   "modalities": "Text in/out only",

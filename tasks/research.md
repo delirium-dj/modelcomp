@@ -75,14 +75,25 @@ For each queued slug, in order:
    - Score contract: `Overall Score` = half-up mean of the five quality dims
      (Tool, Reasoning, Context, Multimodal, Coding). `Cost efficiency` is scored
      independently and excluded from Overall (see `tasks/sync-data.md`, tolerance 0.51).
-   - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
-4. **Advance** only after the file is written (incremental save = interrupt-safe).
+    - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
+    - Twin check (only if YOUR OWN `model/<slug>/<Your_Stem>.md.excluded` exists —
+      never another agent's file): do NOT open it before or during research; draft
+      your report fully first (zero influence preserved). Only then open the twin
+      and compare evidence + scores: same verdict (same numbers within tolerance,
+      or same no-data conclusion) → leave the twin untouched, write nothing;
+      genuinely new verified evidence (real benchmarks the twin lacked, or its
+      scores were placeholders) → write the fresh `<Your_Filename>`, then delete
+      the twin. Never rename a twin back without new evidence backing the change.
+4. **Advance** only after the file is written — or after an explicit leave-it-excluded
+   decision (incremental save = interrupt-safe).
 
 ### Step 4: Verification (no builds)
 
 - Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 - All `<...>` placeholders replaced; no values copied from peer files.
-- No existing files overwritten or deleted (only new `<Your_Filename>` files added).
+- No existing files overwritten (only new `<Your_Filename>` files added); the sole
+  allowed deletion is your own `.md.excluded` twin after a re-research that produced
+  a fresh file with new evidence.
 - Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build`. The orchestrator
   runs those per `tasks/sync-data.md` (it recomputes `average.md`, registers the
   new source in `src/data/models.ts`, and validates `meta.json`/`average.md`).
@@ -104,3 +115,8 @@ For each queued slug, in order:
    verified public benchmarks, write `<STEM>.md.excluded` (notes only, per the
    template's SELF-EXCLUSION rule) — never a scored `.md` with placeholder
    numbers. Excluded files are skipped by sync and never touch the average.
+10. **Twin re-research:** your own `.md.excluded` twin is read ONLY after your fresh
+    draft is complete (never before/during — zero influence first). Same verdict →
+    leave it, write nothing. New verified evidence → write the fresh file, delete
+    the twin. Never rename back without new evidence; never open another agent's
+    twin at any point.

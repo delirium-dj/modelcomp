@@ -157,17 +157,31 @@ is what overflows. RPM caps alone cannot fix this; only a small session can.
 
 1. **Token Limit:** Strictly cap input token usage at **12K input tokens per minute** (safely below the 16K absolute limit).
 2. **Request Limit:** Strictly cap request frequency at **25 requests per minute (RPM)** (below the 30 RPM maximum).
-3. **Single-folder sessions only:** one `TARGET_SLUG` per fresh session per
-   `tasks/Gemma_4_31B_IT.md`, then stop. Never run the audit-all-folders workflow.
+3. **Single-folder sessions only:** one slug from `tasks/gemma-queue.md` per fresh
+   session, then stop. Never run the audit-all-folders workflow.
 4. **Reference diet:** `tasks/gemma-brief.md` is the entire reference. Banned:
    `model-comparison.md`, `src/**`, any `model/**` file, `model-report-TEMPLATE.md`,
    `tasks/research.md`. Targeted reads do NOT substitute — any full-file read
    re-sends its content on every later request that minute.
-5. **Search discipline:** snippets first, MAX 3 opened pages per folder, never paste
-   full pages into context.
+5. **JSON-only fetching:** web-search snippets may be used for discovery, but FETCH
+   ONLY `.json` URLs (raw JSON endpoints/APIs — structured data without HTML
+   overhead, parsed directly). NEVER fetch an HTML page: one page can exceed the
+   whole minute budget. MAX 5 JSON fetches per folder. If no JSON source yields
+   numbers, file `.md.excluded` per the no-data rule.
 6. **Draft offline / in reasoning:** Construct findings files and meta structures entirely within internal thought blocks.
 7. **Minimal tool footprint:** Combine operations and minimize total tool invocations per turn.
 8. **Backoff that works:** on 429/quota error, wait 65s and retry the failed step
    ONCE. A second failure means STOP and report (retries resend the same oversized
    payload into the same minute-window, so rapid retry loops can never succeed).
    Continue the queue in a fresh session.
+9. **Time, not tokens, is the budget:** the quota is a rolling per-minute window and
+   speed is irrelevant — SLEEP 75s (`Start-Sleep -Seconds 75`) between EVERY two tool
+   calls so at most one small request falls in any window. One small request per minute
+   stays green indefinitely.
+10. **Disk is memory:** fetch outputs stay in history forever, so never re-read them.
+    After each fetch, append ONLY extracted `name: value (source)` lines to
+    `tasks/gemma-scratch/<slug>.txt`; compose the report from brief + scratch, then
+    delete the scratch file. Resume state (= queue checkbox + scratch) survives
+    crashed sessions.
+11. **Terse outputs:** your output becomes your next request's input — at most one
+    short sentence outside tool calls, never restate instructions.

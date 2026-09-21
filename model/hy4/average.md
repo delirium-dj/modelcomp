@@ -5,16 +5,16 @@
 
 ## Averaged scores
 
-- **Tool use: 87/100.** Mean of 1 reporting sources.
-- **Reasoning: 87/100.** Mean of 1 reporting sources.
-- **Context window: 95/100.** Mean of 1 reporting sources.
-- **Multimodal: 15/100.** Mean of 1 reporting sources.
-- **Coding: 84/100.** Mean of 1 reporting sources.
-- **Cost efficiency: 90/100.** Mean of 1 reporting sources.
-- **Overall Score: 74/100.** Mean of source Overall scores.
+- **Tool use: 88/100.** Mean of 2 reporting sources.
+- **Reasoning: 87/100.** Mean of 2 reporting sources.
+- **Context window: 96/100.** Mean of 2 reporting sources.
+- **Multimodal: 15/100.** Mean of 2 reporting sources.
+- **Coding: 85.5/100.** Mean of 2 reporting sources.
+- **Cost efficiency: 90/100.** Mean of 2 reporting sources.
+- **Overall Score: 74.5/100.** Mean of source Overall scores.
 
 ---
 
 ## Agreement notes
 
-- Based on 1 reporting source(s): DeepSeek 4.1 Flash.
+- Based on 2 reporting source(s): DeepSeek 4.1 Flash, Muse Spark 1.3.

@@ -1,42 +1,25 @@
-# Research assignment — GEMMA single-folder delegator (low-budget mode)
+# GEMMA single-folder task (Script-assisted mode — Gemma-only)
 
-`AGENT_SOURCE_STEM: Gemma_4_31B_IT` <- EDIT ONLY THIS LINE TO REUSE.
-Queue: `tasks/gemma-queue.md` (alphabetical checkboxes — your ONLY directory knowledge;
-`model/**` stays banned). Each fresh session takes the first unchecked slug itself.
-No assignment needed.
+`AGENT_SOURCE_STEM: Gemma_4_31B_IT`
 
-## Why this file differs from other agents' delegators
-Gemma runs on a 16K input-token/minute free-tier quota. The normal workflow
-(audit all folders + full reference reads + pasted web pages) overflows it within
-minutes because the harness re-sends full history every request. This delegator
-keeps one session small enough to survive: one folder, tiny references, snippets only.
-Gemini and all other agents keep using `tasks/research.md` — this file is Gemma-only.
+This task uses local Node.js script fetching (`scripts/gemma-fetch.mjs`) to gather raw benchmark/model data snippets without burning prompt budget on web searches or HTML scraping.
 
-## Orders
-1. Read `tasks/gemma-queue.md`, take the FIRST `- [ ]` slug. Do EXACTLY that one
-   folder: `model/<slug>/`. Then mark it `- [x]` (edit that one line) and stop.
-   If your file already exists there, just mark checked and stop. No audit, no
-   ordering, no discovery, no other folders.
-2. References: read ONLY this file + `tasks/gemma-queue.md` + `tasks/gemma-brief.md`.
-   BANNED (quota): `model-comparison.md`, `src/**`, any `model/**` file (peer
-   findings AND `average.md`), `model-report-TEMPLATE.md`, `tasks/research.md`.
-3. Research via web search, snippets first. Open MAX 3 result pages. Never paste
-   full pages into context — note numbers + source names, then close.
-4. Write `model/<slug>/<STEM>.md` per the brief — or `<STEM>.md.excluded`
-   per its no-data rule. The ONLY other edit allowed is the one queue checkbox
-   from step 1. Never create, overwrite, or delete any other file.
-5. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator
-   handles that per `tasks/sync-data.md`).
-6. Quota/429 errors: wait 65s ONCE, retry the failed step ONCE. If it fails again,
-   STOP and report which step failed and what was already saved. Never rapid-retry
-   (retries resend the same oversized payload into the same minute-window).
+## Protocol (exact order)
 
-## Verification (no builds)
-- Exactly one new file, correct name and location, headings per the brief.
-- Overall = half-up mean of the five quality dims; every number sourced.
-- Queue checkbox for the slug marked `- [x]` (or, if your file already existed,
-  marked checked with no other changes).
+1. **Queue check:** Read `tasks/gemma-queue.md` + `tasks/gemma-brief.md`. Select the first unchecked `- [ ] <slug>`.
+   - If `model/<slug>/Gemma_4_31B_IT.md` or `Gemma_4_31B_IT.md.excluded` already exists: mark queue `- [x] <slug>`, reply `DONE <slug>`.
+2. **Fetch data via script:** Execute local script to populate scratch snippet:
+   - Tool call: `run_command` -> `node scripts/gemma-fetch.mjs <slug>`
+3. **Read scratch & write findings:**
+   - Tool call: `view_file` -> `tasks/gemma-scratch/<slug>.txt`
+   - Create `model/<slug>/Gemma_4_31B_IT.md` from brief template + scratch data (or `Gemma_4_31B_IT.md.excluded` if no benchmark data found).
+4. **Cleanup & complete:**
+   - Mark queue `- [x] <slug>` in `tasks/gemma-queue.md`.
+   - Delete scratch file `tasks/gemma-scratch/<slug>.txt`.
+   - Reply ONLY: `DONE <slug>`.
 
-Reuse for a new Gemma agent: copy this file to `tasks/<stem_lower>.md`, change the
-STEM line once. The queue drives itself (`tasks/gemma-queue.md`) — just delegate
-one fresh session per slug, alphabetically, no assignment needed.
+## Survival & Quota Rules
+
+- **Script Fetching Only:** Do NOT perform web searches or HTML page fetches. The local script handles API lookups and outputs compact <200-word snippets.
+- **Sleep between steps:** SLEEP 75s (`Start-Sleep -Seconds 75`) between heavy tool calls if quota warnings occur.
+- **No Build Commands:** Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build`.
