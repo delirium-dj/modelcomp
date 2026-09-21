@@ -10,8 +10,11 @@
 //      non-cost dims (Cost excluded from Overall since v4; drift fails loudly
 //      and blocks that folder's average rewrite).
 //   3. Recomputes every model/<slug>/average.md as arithmetic means (standard
-//      half-up rounding to 1 decimal; Overall = mean of source Overall scores,
-//      NOT re-derived from averaged dimensions) and rewrites files that drift.
+//      half-up rounding to 1 decimal) over the TOP-10 cohort: the ten source
+//      files with the highest Overall Score in that folder (or all sources
+//      when the folder holds <= 10). All seven numbers come from that same
+//      cohort; Overall = mean of the cohort's Overall scores, NOT re-derived
+//      from averaged dimensions) and rewrites files that drift.
 //   4. Registers any new reporting-agent filename in src/data/models.ts
 //      (SourceKey union + SOURCE_DEFS entry; dropdown order is derived at build
 //      time, so registry position does not matter for the UI)
@@ -203,7 +206,18 @@ for (const slug of slugs) {
   const lower = (s) => s.toLowerCase();
   const labels = perFile.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
 
-  const mean = (label) => halfUp1(perFile.reduce((a, p) => a + p.scores[label], 0) / perFile.length);
+  const ranked = [...perFile].sort((a, b) => b.scores["Overall Score"] - a.scores["Overall Score"]);
+  const cohort = ranked.slice(0, 10);
+  const totalSources = perFile.length;
+  const cohortSize = cohort.length;
+  const trimmed = totalSources > cohortSize;
+  const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+  const excludedLabels = labels.filter((l) => !topLabels.includes(l));
+
+  const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
+  const mixNote = trimmed
+    ? `Mean of top ${cohortSize} of ${totalSources} reporting sources (ranked by Overall Score).`
+    : `Mean of ${totalSources} reporting source(s).`;
   // The default ("average") view needs this folder's recomputed means too:
   // the client never reads average.md itself, so index them like a source file.
   // (Folders with validation failures leave a stale average.md on disk, but a
@@ -218,10 +232,14 @@ for (const slug of slugs) {
     overall: mean("Overall Score"),
   };
   const lines = [
-    ...LABELS.slice(0, 6).map((l) => `- **${l}: ${mean(l)}/100.** Mean of ${perFile.length} reporting sources.`),
-    `- **Overall Score: ${mean("Overall Score")}/100.** Mean of source Overall scores.`,
+    ...LABELS.slice(0, 6).map((l) => `- **${l}: ${mean(l)}/100.** ${mixNote}`),
+    `- **Overall Score: ${mean("Overall Score")}/100.** ${mixNote}`,
   ];
-  const body = `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n- Based on ${perFile.length} reporting source(s): ${labels.join(", ")}.\n`;
+  const body =
+    `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
+    `- Based on ${totalSources} reporting source(s): ${labels.join(", ")}.\n` +
+    `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
+    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "");
 
   const avgPath = join(dir, "average.md");
   let prev = null;
@@ -246,7 +264,7 @@ for (const slug of slugs) {
     writeFileSync(avgPath, next);
     if (prev !== null) {
       updatedAverages.push(slug);
-      console.log(`  WRITE model/${slug}/average.md (recomputed from ${perFile.length} sources)`);
+      console.log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
     }
   }
 }

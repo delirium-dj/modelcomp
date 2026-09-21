@@ -34,7 +34,6 @@ export type SourceKey =
   | "big-pickle"
   | "Muse Spark 1.3"
   | "Ling 3.0"
-  | "Gemini 3.1 Flash Lite"
   | "Gemini 3.5 Flash Lite"
   | "Gemini 3.6 Flash"
   | "GLM 5.3 Flash"
@@ -62,7 +61,6 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
   { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
   { key: "Ling 3.0", label: "Ling 3.0", file: "Ling_3.0.md" },
-  { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md" },
@@ -305,7 +303,6 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "big-pickle": "big-pickle",
   "Muse Spark 1.3": "muse-spark-1-3-free",
   "Ling 3.0": "ling-3-0-flash-fin-free",
-  "Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite",
   "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
   "Gemini 3.6 Flash": "gemini-3.6-flash",
   "GLM 5.3 Flash": "glm-5.3-flash",
@@ -314,6 +311,14 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
   "Solar Pro 4": "solar-pro-4",
   "MiniMax M3": "minimax-m3",
+  "GPT 5.6 Terra": "gpt-5.6-terra",
+  "Gemini 3.5 Flash": "gemini-3.5-flash",
+  "Claude Opus 4.6": "claude-opus-4.6",
+  "Gemini 3.8 Flash": "gemini-3.8-flash",
+  "Grok 4.6": "grok-4.6",
+  "Gemini 3.7 Flash": "gemini-3.7-flash",
+  "Gemini 3.1 Pro": "gemini-3.1-pro",
+  "Laguna S 2.1": "laguna-s-2.1",
 };
 
 export function getModel(id: string): AiModel | undefined {

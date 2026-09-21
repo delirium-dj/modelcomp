@@ -5,16 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 88.5/100.** Mean of 13 reporting sources.
-- **Reasoning: 89.7/100.** Mean of 13 reporting sources.
-- **Context window: 95.8/100.** Mean of 13 reporting sources.
-- **Multimodal: 79.2/100.** Mean of 13 reporting sources.
-- **Coding: 87.9/100.** Mean of 13 reporting sources.
-- **Cost efficiency: 60.5/100.** Mean of 13 reporting sources.
-- **Overall Score: 88.2/100.** Mean of source Overall scores.
+- **Tool use: 89.2/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Reasoning: 90.9/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Context window: 96.2/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Multimodal: 80.1/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Coding: 88.4/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Cost efficiency: 60.9/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
+- **Overall Score: 88.9/100.** Mean of top 10 of 13 reporting sources (ranked by Overall Score).
 
 ---
 
 ## Agreement notes
 
 - Based on 13 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Grok 4.6, Laguna S 2.1, Muse Spark 1.3.
+- Average from top 10 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Grok 4.6, Laguna S 2.1.
+- Excluded bottom 3: Big Pickle, GLM 5.3 Flash, Muse Spark 1.3.
