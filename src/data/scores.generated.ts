@@ -657,7 +657,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Grok_4.6.md": { tool: 88, reasoning: 88, context: 95, multimodal: 85, coding: 78, cost: 100, overall: 87 },
     "Laguna_S_2.1.md": { tool: 86, reasoning: 90, context: 95, multimodal: 92, coding: 86, cost: 100, overall: 89.8 },
     "Ling_3.0.md": { tool: 88, reasoning: 88, context: 100, multimodal: 90, coding: 87, cost: 100, overall: 91 },
-    "Mimo_v2.6_Flash.md": { tool: 91, reasoning: 88, context: 95, multimodal: 90, coding: 87, cost: 100, overall: 90 },
+    "MiMo_v2.6_Flash.md": { tool: 91, reasoning: 88, context: 95, multimodal: 90, coding: 87, cost: 100, overall: 90 },
     "MiniMax_M3.md": { tool: 90, reasoning: 88, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 91 },
     "Muse_Spark_1.3.md": { tool: 90, reasoning: 88, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 91 },
     "Solar_Pro_4.md": { tool: 90, reasoning: 92, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 92 },
