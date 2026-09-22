@@ -5,9 +5,9 @@ export const Methodology = component$(() => {
     <section
       id="methodology"
       aria-labelledby="methodology-heading"
-      class="border-y border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-900/50"
+      class="scroll-mt-20 border-y border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-900/50"
     >
-      <div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">
+      <div class="mx-auto max-w-6xl px-4 py-10">
         <h2 id="methodology-heading" class="text-2xl font-bold tracking-tight text-slate-900 transition-colors dark:text-white md:text-3xl">
           How scoring works
         </h2>

@@ -37,10 +37,27 @@ function top3ByDim(dim: DimensionKey): [string, string, string] {
   ];
 }
 
-/** Top 3 model ids for a results source: by dimension for virtual views, else Overall. */
+/** Top 3 model ids for a results source: by dimension for virtual views, by that
+ *  agent's own Overall for reporting agents (models it never rated sort last),
+ *  else average Overall. */
 function top3ForSource(source: SourceKey): [string, string, string] {
   const dim = virtualDimFor(source);
   if (dim !== undefined) return top3ByDim(dim);
+  if (source !== "average") {
+    const ranked = [...MODELS].sort((a, b) => {
+      const sa = a.sources[source]?.overall;
+      const sb = b.sources[source]?.overall;
+      if (sa === undefined && sb === undefined) return b.scores.overall - a.scores.overall;
+      if (sa === undefined) return 1;
+      if (sb === undefined) return -1;
+      return sb - sa || b.scores.overall - a.scores.overall;
+    });
+    return [
+      ranked[0]?.id ?? "",
+      ranked[1]?.id ?? "",
+      ranked[2]?.id ?? "",
+    ];
+  }
   const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
   return [
     sorted[0]?.id ?? "",
@@ -83,16 +100,15 @@ export default component$(() => {
     sel[slot] = id;
   });
 
-  // Picking a virtual sort view re-seats the hexagon/table on the top-3 of that
-  // dimension; switching back leaves the selection alone for the user to adjust.
+  // Every results-source change re-seats the hexagon/table on that source's top 3
+  // (dimension top-3 for virtual views, agent's own top-3 for reporting agents,
+  // average top-3 for Average). Slots stay user-overridable via the dropdowns.
   const handleSource = $((source: SourceKey) => {
     sel.source = source;
-    if (virtualDimFor(source) !== undefined) {
-      const [a, b, c] = top3ForSource(source);
-      sel.a = a;
-      sel.b = b;
-      sel.c = c;
-    }
+    const [a, b, c] = top3ForSource(source);
+    sel.a = a;
+    sel.b = b;
+    sel.c = c;
   });
 
   useVisibleTask$(({ track }) => {
