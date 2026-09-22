@@ -1,0 +1,58 @@
+# Kimi K2.8 Preview — findings by Mimo v2.6 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: Moonshot AI/`kimi-k2.8-preview`
+- Date: 2026-09-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID. All normalized scores would be guesses; file saved as `.excluded` so `pnpm sync` skips it. No scores below are used in averages.
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding/agentic checkpoint (2026-09-11) living behind the `kimi-for-coding` alias inside Kimi Code — positioned between K2.7 Code and flagship K3; 1M context on every membership tier with adjustable thinking (low/high/max).
+- **Provider / access:** Kimi Code membership surface only (alias `kimi-for-coding`); **not** on the open platform API model list; **no OpenCode Zen Free ID** (`noFreeId: true`); no per-token public price (membership plan).
+- **Release / knowledge:** 2026-09-11 (Kimi Code changelog / LLM Stats); knowledge cutoff not published.
+- **IDs:** `moonshot/kimi-k2-8-preview` (logical); runtime model ID remains `kimi-for-coding`.
+- **Context window:** 1,048,576 input (all membership tiers); max output not published; visual input images + video (per Intelligent Living comparison table).
+- **Modalities:** text/image/video in; text out; thinking effort low/high/max (default max); functions/vision per LLM Stats provider row; tool calls implied by coding-agent product but no public JSON-mode/tool-accuracy bench.
+- **Pricing (as of 2026-09-22):** No public per-token rate (Kimi membership / Kimi Code plans only). Secondary indexes show no open-platform price row for K2.8 Preview (llm-stats provider table: "—" pricing).
+- **Architecture:** proprietary; no parameter count, architecture write-up, or open weights published. Claims of "2.8T params" are misattributions of K3's figure; K2.7-Code-style 1T/32B-active reuse is speculation only (Intelligent Living).
+
+### Raw benchmarks found
+
+> Measured numbers with (source, rank, harness). Missing rows = no verified public score found.
+
+Agent / tool use:
+
+- MCP Mark / SWE Marathon / Program-Bench / Tau / Toolathlon / OSWorld: **no verified public score found** (Moonshot published no comparison table for K2.8 — unlike the quantified K2.7 Code release)
+
+Reasoning / knowledge:
+
+- GPQA / HLE / AIME / AA Intelligence Index: **no verified public score found** (llm-stats comparison pages report **0 benchmark scores** for Kimi K2.8 Preview vs 31 for K3)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / Terminal-Bench / LiveCodeBench / Codeforces Elo: **no verified public score found**
+- Only qualitative vendor claim: "coding and agent capability improved across the board" vs K2.7 Code, overall performance "close to K3" with more efficient thinking (Moonshot / Intelligent Living) — not a measured score
+
+Long context:
+
+- 1,048,576-token window documented (LLM Stats / changelog); MRCR/RULER retrieval quality: **no verified public score found**
+
+Multimodal:
+
+- Images and video input supported (matching K3's 1M path); MMMU / CharXiv / Video-MME: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `kimi-k2.8-preview` / `kimi-for-coding` checkpoint as shipped 2026-09-11).
+- If Moonshot later publishes a benchmark table or open-platform pricing/evals, replace this file with a scored `Mimo_v2.6_Flash.md` using the same headings.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
+- Method: public internet research (llm-stats.com model/compare/provider pages, Intelligent Living changelog analysis, ZenMux listing); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
