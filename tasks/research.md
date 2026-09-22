@@ -58,7 +58,12 @@ Follow tasks/research.md exactly:
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
   no folder under `model/`:
-  1. Derive a filesystem-safe slug (lowercase, digits, `-`/`_` only, e.g. `gpt-5-6-terra`).
+  1. Derive a filesystem-safe slug (lowercase, digits, `.`/`-`/`_` only; version
+     numbers use `.` not `-`, e.g. `gpt-5.6-terra` — never `gpt-5-6-terra`).
+     First check whether a dotted folder for the model already exists
+     (e.g. `gpt-5.5/`); a hyphen-versioned folder is a duplicate, not a new
+     model (see `model/README.md` slug convention; `pnpm sync` fails loudly
+     on hyphen versions).
   2. Create `model/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   3. Append `<slug>` to the END of your queue (after all ranked folders), in discovery order.
 

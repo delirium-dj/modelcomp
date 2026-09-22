@@ -78,6 +78,12 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   counts toward any Overall — source Overall = mean of the five quality dims,
   average Overall = mean of source Overalls.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
+- Slug version convention: version numbers use `.` not `-` (`gpt-5.5`, never
+  `gpt-5-5`). `pnpm sync` fails loudly on any `model/<slug>/` matching
+  digit-hyphen-digit (with the dotted destination in the message), so a
+  hyphen variant is never cemented into averages or `scores.generated.ts`.
+  Exceptions: `gemma-4-31b` (param size, not a version), single majors with a
+  codename/suffix (`gpt-6-astra`, `deepseek-v4-vision-exp`).
 
 ## Definition of Done
 

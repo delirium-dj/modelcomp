@@ -37,7 +37,7 @@ reports, and the website stay consistent.
 - Source-file Overall = half-up mean of the five quality dimensions (Tool, Reasoning, Context, Multimodal, Coding). Cost efficiency is an independent stat: scored, shown (hexagon axis, table columns, sortable), but never counted toward any Overall. `pnpm sync` fails any file drifting > 0.51 from its five-dim mean.
 - Add `pricingTiers` (one string per tier) alongside `pricingNote` when pricing has multiple tiers; the compare table stacks them.
 - Adding a results source = drop its `<Source_Name>.md` files into the model folders, run `pnpm sync` (registers the `SourceKey`/`SOURCES` entries automatically); every model containing the file is wired up with no further edits.
-- Adding a model = create `model/<slug>/` with findings file(s) + `meta.json`, run `pnpm sync`; it appears in Model A/B/C selectors automatically.
+- Adding a model = create `model/<slug>/` with findings file(s) + `meta.json`, run `pnpm sync`; it appears in Model A/B/C selectors automatically. Slug versions use `.` not `-` (`gpt-5.5`, never `gpt-5-5`; check for an existing dotted folder first — `pnpm sync` fails hyphen variants loudly). Not versions: single majors with codename/suffix (`gpt-6-astra`), param sizes (`gemma-4-31b`).
 - Data syncs are governed by `tasks/sync-data.md` (mandatory, incl. its Definition of Done): run `pnpm sync`, handle what it flags, verify the build.
 
 ## Frontend conventions

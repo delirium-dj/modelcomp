@@ -29,6 +29,11 @@ export default component$(() => {
     );
   }
 
+  // Position in MODELS order (sorted by id) drives previous/next navigation.
+  const modelIndex = MODELS.findIndex((m) => m.slug === slug);
+  const prevModel = modelIndex > 0 ? MODELS[modelIndex - 1] : undefined;
+  const nextModel = modelIndex >= 0 && modelIndex < MODELS.length - 1 ? MODELS[modelIndex + 1] : undefined;
+
   // Every reporting agent that rated this model, best grade first.
   const ratings = (Object.keys(model.sources) as SourceKey[])
     .filter((key) => key !== "average" && model.sources[key] !== undefined)
@@ -265,6 +270,35 @@ export default component$(() => {
             </tbody>
           </table>
         </div>
+        <nav
+          aria-label="Previous and next models"
+          class="mt-8 flex items-center justify-between gap-4 border-t border-slate-200 pt-6 dark:border-slate-800"
+        >
+          {prevModel ? (
+            <a
+              href={`/model/${prevModel.slug}/`}
+              rel="prev"
+              title={`Previous model: ${prevModel.name}`}
+              class="font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
+            >
+              ← {prevModel.name}
+            </a>
+          ) : (
+            <span />
+          )}
+          {nextModel ? (
+            <a
+              href={`/model/${nextModel.slug}/`}
+              rel="next"
+              title={`Next model: ${nextModel.name}`}
+              class="text-right font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
+            >
+              {nextModel.name} →
+            </a>
+          ) : (
+            <span />
+          )}
+        </nav>
       </section>
     </>
   );

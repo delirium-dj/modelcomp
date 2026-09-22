@@ -74,6 +74,23 @@ const slugs = readdirSync(modelDir)
   .sort();
 console.log(`sync-data: ${slugs.length} model folders`);
 
+// Slug version convention (see model/README.md): version numbers use "." not
+// "-". A hyphen between two digits is never a valid version separator, so a
+// folder like `gpt-5-5` is a duplicate of `gpt-5.5`, not a new model — fail
+// loudly with the dotted destination instead of cementing the duplicate.
+// Exceptions (digits that are NOT a version): `gemma-4-31b` ("4" + 31B param
+// size), single majors with codename/experimental suffixes (`gpt-6-astra`,
+// `deepseek-v4-vision-exp`) — none of which match digit-hyphen-digit.
+const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b"]);
+for (const slug of slugs) {
+  if (SLUG_VERSION_EXCEPTION.has(slug)) continue;
+  if (/\d-\d/.test(slug)) {
+    fail(
+      `model/${slug}/: version numbers use "." not "-" — use "model/${slug.replace(/(\d)-(?=\d)/g, "$1.")}/" instead (e.g. gpt-5-5 → gpt-5.5); merge into the existing dotted folder, never create a hyphen variant`,
+    );
+  }
+}
+
 const updatedAverages = [];
 const presentStems = new Set(); // findings filenames (without .md) seen anywhere
 // Compact score index for client codegen: slug -> file -> short-keyed scores.
