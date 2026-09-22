@@ -531,9 +531,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "ling-3-0-flash-fin-free": {
     "DeepSeek_4.1_Flash.md": { tool: 66, reasoning: 60, context: 72, multimodal: 15, coding: 65, cost: 100, overall: 55.6 },
+    "GLM_5.3_Flash.md": { tool: 60, reasoning: 58, context: 72, multimodal: 15, coding: 58, cost: 100, overall: 53 },
     "Gemini_3.5_Flash_Lite.md": { tool: 83, reasoning: 83, context: 86, multimodal: 15, coding: 82, cost: 100, overall: 69.8 },
     "Gemini_3.6_Flash.md": { tool: 58, reasoning: 52, context: 72, multimodal: 15, coding: 56, cost: 100, overall: 51 },
-    "average.md": { tool: 69, reasoning: 65, context: 76.7, multimodal: 15, coding: 67.7, cost: 100, overall: 58.8 },
+    "average.md": { tool: 66.8, reasoning: 63.3, context: 75.5, multimodal: 15, coding: 65.3, cost: 100, overall: 57.4 },
   },
   "mimo-v2-5-free": {
     "Big_Pickle.md": { tool: 75, reasoning: 70, context: 70, multimodal: 95, coding: 72, cost: 100, overall: 76 },
