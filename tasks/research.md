@@ -72,9 +72,9 @@ For each queued slug, in order:
    - Fresh public web search only. Forget/clear memory of previous results per folder.
 3. **Report generation & save:**
    - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
-   - Score contract: `Overall Score` = half-up mean of the five quality dims
-     (Tool, Reasoning, Context, Multimodal, Coding). `Cost efficiency` is scored
-     independently and excluded from Overall (see `tasks/sync-data.md`, tolerance 0.51).
+    - Score contract: `Overall Score` = half-up arithmetic mean of the five quality dimensions only 
+      `(Tool use + Reasoning + Context window + Multimodal + Coding) / 5`. 
+      **CRITICAL:** `Cost efficiency` is scored independently and must be strictly EXCLUDED from the Overall Score calculation (see `tasks/sync-data.md`, tolerance 0.51).
     - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
     - Twin check (only if YOUR OWN `model/<slug>/<Your_Stem>.md.excluded` exists —
       never another agent's file): do NOT open it before or during research; draft

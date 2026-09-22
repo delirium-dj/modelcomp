@@ -74,9 +74,11 @@ Long context:
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. Overall Score = mean of the five quality
-> dimensions (Tool, Reasoning, Context, Multimodal, Coding) — Cost efficiency is
-> scored independently and excluded from Overall.
+> and state what caps the score. 
+> 
+> **CRITICAL OVERALL SCORE FORMULA (v4):**
+> Overall Score = `Math.round((Tool + Reasoning + Context + Multimodal + Coding) / 5)` (half-up rounding to nearest integer or 1 decimal).
+> **NEVER include Cost efficiency** in the Overall calculation. Cost efficiency is scored independently.
 
 - **Tool use: <N>/100.** <evidence + what caps it>
 - **Reasoning: <N>/100.** <evidence + what caps it>
