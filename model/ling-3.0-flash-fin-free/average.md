@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 63.7/100.** Mean of 6 reporting source(s).
-- **Reasoning: 63.8/100.** Mean of 6 reporting source(s).
-- **Context window: 75.7/100.** Mean of 6 reporting source(s).
-- **Multimodal: 15/100.** Mean of 6 reporting source(s).
-- **Coding: 65.3/100.** Mean of 6 reporting source(s).
-- **Cost efficiency: 100/100.** Mean of 6 reporting source(s).
-- **Overall Score: 56.9/100.** Mean of 6 reporting source(s).
+- **Tool use: 60/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 61/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 72.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 15/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 62/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 100/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 54.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 6 reporting source(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, Mimo v2.6 Flash.
-- Average from top 6 by Overall Score: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, Mimo v2.6 Flash.
+- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Muse Spark 1.3.
+- Average from top 2 by Overall Score: Gemini 3.6 Flash, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Ling 3.0, Mimo v2.6 Flash.

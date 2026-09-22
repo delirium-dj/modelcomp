@@ -58,7 +58,6 @@ export type SourceKey =
   | "context"
   | "cost"
   | "multi"
-  | "MiMo v2.6 Flash"
   | "Mimo v2.5 Free"
   | "Muse Spark 1.2";
 
@@ -71,7 +70,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
   { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
-  { key: "Ling 3.0", label: "Ling 3.0", file: "Ling_3.0.md" },
+  { key: "Ling 3.0", label: "Ling 3.0 Flash", file: "Ling_3.0.md" },
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md" },
@@ -89,7 +88,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Gemini 3.1 Pro", label: "Gemini 3.1 Pro", file: "Gemini_3.1_Pro.md" },
   { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md" },
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md" },
-  { key: "Mimo v2.6 Flash", label: "Mimo v2.6 Flash", file: "Mimo_v2.6_Flash.md" },
+  { key: "Mimo v2.6 Flash", label: "MiMo V2.6 Flash", file: "Mimo_v2.6_Flash.md" },
   // Virtual sort views (not reporting agents): each mirrors average.md scores
   // and only changes the sort key (see VIRTUAL_VIEWS below). `pnpm sync`
   // ignores them (file is average.md).
@@ -99,8 +98,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "cost", label: "Cost", file: "average.md" },
   { key: "code", label: "Code", file: "average.md" },
   { key: "multi", label: "Multi", file: "average.md" },
-  { key: "MiMo v2.6 Flash", label: "MiMo v2.6 Flash", file: "MiMo_v2.6_Flash.md" },
-  { key: "Mimo v2.5 Free", label: "Mimo v2.5 Free", file: "Mimo_v2.5_Free.md" },
+  { key: "Mimo v2.5 Free", label: "MiMo V2.5 Free", file: "Mimo_v2.5_Free.md" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md" },
 ];
 
@@ -369,6 +367,9 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Gemini 3.7 Flash": "gemini-3.7-flash",
   "Gemini 3.1 Pro": "gemini-3.1-pro",
   "Laguna S 2.1": "laguna-s-2.1",
+  "Mimo v2.6 Flash": "mimo-v2.6-free",
+  "Mimo v2.5 Free": "mimo-v2.5-free",
+  "Muse Spark 1.2": "muse-spark-1.2-free",
 };
 
 export function getModel(id: string): AiModel | undefined {

@@ -29,7 +29,11 @@ pnpm sync && pnpm build.types && pnpm build
 3. Recomputes `model/<slug>/average.md` as arithmetic means with standard
    half-up rounding to 1 decimal (`72.25` → `72.3`; only differences `> 0.051`
    count as drift). Overall = mean of source Overall scores, NOT re-derived
-   from averaged dimensions. Rewrites stale files, reports which ones.
+   from averaged dimensions. Only reports from models with own Overall > 84.9
+   count (rater gate: below-gate files are logged as `GATE` lines and ignored;
+   the top-10 cap applies within the eligible set). A folder with zero eligible
+   raters fails loudly and keeps its previous average. Rewrites stale files,
+   reports which ones.
 4. Registers any new reporting-agent filename in `src/data/models.ts`
    (`SourceKey` + `SOURCES`, appended last). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
@@ -76,7 +80,8 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
 - Components read `MODELS` only — never import findings files directly.
 - Cost efficiency is an independent stat (scored, shown, sortable) and never
   counts toward any Overall — source Overall = mean of the five quality dims,
-  average Overall = mean of source Overalls.
+  average Overall = mean of source Overalls from qualifying raters only
+  (rater gate: rater own Overall > 84.9).
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
 - Slug version convention: version numbers use `.` not `-` (`gpt-5.5`, never
   `gpt-5-5`). `pnpm sync` fails loudly on any `model/<slug>/` matching

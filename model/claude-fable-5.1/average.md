@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 93.8/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Reasoning: 94.8/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Context window: 95.3/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Multimodal: 77.3/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Coding: 94.4/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Cost efficiency: 37.9/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
-- **Overall Score: 91.2/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Tool use: 91.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 93.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 95.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 73.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 93.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 38.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 89.7/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 16 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Grok 4.6, Mimo v2.6 Flash, MiniMax M3, Muse Spark 1.2, Muse Spark 1.3, Solar Pro 4.
-- Average from top 10 by Overall Score: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Grok 4.6, Mimo v2.6 Flash, Muse Spark 1.2, Solar Pro 4.
-- Excluded bottom 6: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.5 Flash, Gemini 3.6 Flash, MiniMax M3, Muse Spark 1.3.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
+- Average from top 5 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Grok 4.6, Ling 3.0, Mimo v2.6 Flash, MiniMax M3, Solar Pro 4.

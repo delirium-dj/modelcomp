@@ -107,6 +107,41 @@ const SHORT = {
   "Overall Score": "overall",
 };
 
+// ---- rater gate: only reports written by models whose own committed average
+// Overall exceeds RATER_GATE count toward another model's average (top-10 cap
+// still applies within the eligible set). Qualification reads the on-disk
+// average.md files, so the gate is deterministic within a run; models without
+// a usable average.md (or without a tracked model page) never qualify as
+// raters. Keep RATER_GATE in sync with the UI caption in CompareSection.tsx.
+const RATER_GATE = 84.9;
+const raterOwn = new Map(); // model slug -> committed average Overall
+for (const slug of slugs) {
+  try {
+    const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
+    if (s) raterOwn.set(slug, s["Overall Score"]);
+  } catch {
+    // No usable average.md — cannot prove gate passage, never a rater.
+  }
+}
+// Findings-file stem -> rating-model slug, via the SOURCE_DEFS registry plus
+// AGENT_MODEL_SLUG (exact match first, case-insensitive fallback for legacy
+// registry casing drift). Stems with no tracked model never qualify.
+const modelsTsGate = readFileSync(modelsTsPath, "utf8");
+const stemKey = new Map(); // stem -> SourceKey (registered only)
+for (const m of modelsTsGate.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
+  stemKey.set(m[2].replace(/\.md$/, ""), m[1]);
+}
+const agentSlug = new Map(); // SourceKey -> model slug
+{
+  const ab = modelsTsGate.match(/AGENT_MODEL_SLUG[^=]*=\s*\{([\s\S]*?)\};/);
+  if (ab) for (const m of ab[1].matchAll(/"([^"]+)":\s*"([^"]+)"/g)) agentSlug.set(m[1], m[2]);
+}
+const agentSlugLower = new Map([...agentSlug].map(([k, v]) => [k.toLowerCase(), v]));
+function raterSlugFor(stem) {
+  const key = stemKey.get(stem) ?? stem.replace(/_/g, " ");
+  return agentSlug.get(key) ?? agentSlugLower.get(key.toLowerCase()) ?? null;
+}
+
 for (const slug of slugs) {
   const dir = join(modelDir, slug);
   // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
@@ -232,20 +267,36 @@ for (const slug of slugs) {
   // e.g. "Gemini 3.6 Flash" before "GLM 5.3 Flash"); plain .sort() would put "GLM" first.
   const labelOf = (file) => file.replace(/\.md$/, "").replace(/_/g, " ");
   const lower = (s) => s.toLowerCase();
-  const labels = perFile.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+  // Rater gate (RATER_GATE): only files written by models whose own committed
+  // average Overall clears the gate count toward this average.
+  const ignoredLabels = [];
+  const eligible = perFile.filter((p) => {
+    const rs = raterSlugFor(p.file.replace(/\.md$/, ""));
+    if (rs !== null && (raterOwn.get(rs) ?? -Infinity) > RATER_GATE) return true;
+    ignoredLabels.push(labelOf(p.file));
+    return false;
+  });
+  const labels = eligible.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
 
-  const ranked = [...perFile].sort((a, b) => b.scores["Overall Score"] - a.scores["Overall Score"]);
+  const ranked = [...eligible].sort((a, b) => b.scores["Overall Score"] - a.scores["Overall Score"]);
   const cohort = ranked.slice(0, 10);
-  const totalSources = perFile.length;
+  const totalSources = eligible.length;
   const cohortSize = cohort.length;
   const trimmed = totalSources > cohortSize;
   const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
   const excludedLabels = labels.filter((l) => !topLabels.includes(l));
+  if (eligible.length === 0) {
+    fail(`model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left untouched`);
+    skipAverage = true;
+  } else if (ignoredLabels.length > 0) {
+    ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+    console.log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
+  }
 
   const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
   const mixNote = trimmed
-    ? `Mean of top ${cohortSize} of ${totalSources} reporting sources (ranked by Overall Score).`
-    : `Mean of ${totalSources} reporting source(s).`;
+    ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
+    : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
   // The default ("average") view needs this folder's recomputed means too:
   // the client never reads average.md itself, so index them like a source file.
   // (Folders with validation failures leave a stale average.md on disk, but a
@@ -265,9 +316,10 @@ for (const slug of slugs) {
   ];
   const body =
     `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
-    `- Based on ${totalSources} reporting source(s): ${labels.join(", ")}.\n` +
+    `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n` +
     `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
-    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "");
+    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
+    (ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
 
   const avgPath = join(dir, "average.md");
   let prev = null;

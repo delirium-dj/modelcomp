@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 84.6/100.** Mean of 10 reporting source(s).
-- **Reasoning: 83.4/100.** Mean of 10 reporting source(s).
-- **Context window: 92.6/100.** Mean of 10 reporting source(s).
-- **Multimodal: 75.1/100.** Mean of 10 reporting source(s).
-- **Coding: 83.8/100.** Mean of 10 reporting source(s).
-- **Cost efficiency: 96.1/100.** Mean of 10 reporting source(s).
-- **Overall Score: 83.9/100.** Mean of 10 reporting source(s).
+- **Tool use: 88/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 86.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 91/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 56/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 88.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 96.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 82/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 10 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Laguna S 2.1, Mimo v2.6 Flash, Solar Pro 4.
-- Average from top 10 by Overall Score: Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Laguna S 2.1, Mimo v2.6 Flash, Solar Pro 4.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT 5.6 Terra, Muse Spark 1.3.
+- Average from top 3 by Overall Score: Gemini 3.6 Flash, GPT 5.6 Terra, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0, Mimo v2.6 Flash, Solar Pro 4.

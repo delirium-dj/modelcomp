@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 81.3/100.** Mean of 8 reporting source(s).
-- **Reasoning: 79.8/100.** Mean of 8 reporting source(s).
-- **Context window: 90.8/100.** Mean of 8 reporting source(s).
-- **Multimodal: 77.4/100.** Mean of 8 reporting source(s).
-- **Coding: 83.3/100.** Mean of 8 reporting source(s).
-- **Cost efficiency: 94.4/100.** Mean of 8 reporting source(s).
-- **Overall Score: 82.5/100.** Mean of 8 reporting source(s).
+- **Tool use: 74/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 97/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 85/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 100/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 83/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 8 reporting source(s): Big Pickle, Claude Sonnet 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, Muse Spark 1.3, Solar Pro 4.
-- Average from top 8 by Overall Score: Big Pickle, Claude Sonnet 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, Muse Spark 1.3, Solar Pro 4.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
+- Average from top 1 by Overall Score: Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Sonnet 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0, Mimo v2.6 Flash, Solar Pro 4.

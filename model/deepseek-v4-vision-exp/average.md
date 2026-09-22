@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 77/100.** Mean of 10 reporting source(s).
-- **Reasoning: 75.3/100.** Mean of 10 reporting source(s).
-- **Context window: 79.6/100.** Mean of 10 reporting source(s).
-- **Multimodal: 80.8/100.** Mean of 10 reporting source(s).
-- **Coding: 76.8/100.** Mean of 10 reporting source(s).
-- **Cost efficiency: 91.3/100.** Mean of 10 reporting source(s).
-- **Overall Score: 77.8/100.** Mean of 10 reporting source(s).
+- **Tool use: 80/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 79/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 83/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 85/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 97.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 82/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 10 reporting source(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
-- Average from top 10 by Overall Score: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
+- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Muse Spark 1.3.
+- Average from top 2 by Overall Score: Gemini 3.6 Flash, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0, Mimo v2.6 Flash, MiniMax M3, Solar Pro 4.

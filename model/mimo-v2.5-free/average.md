@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 78.1/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Reasoning: 73.9/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Context window: 76.1/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Multimodal: 92.8/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Coding: 77.7/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Cost efficiency: 100/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
-- **Overall Score: 79.9/100.** Mean of top 10 of 14 reporting sources (ranked by Overall Score).
+- **Tool use: 77/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 73.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 72.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 90.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 76.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 100/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 78.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 14 reporting source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Ling 3.0, Mimo v2.6 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
-- Average from top 10 by Overall Score: Claude Opus 4.6, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Mimo v2.6 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
-- Excluded bottom 4: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Ling 3.0.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, Muse Spark 1.3.
+- Average from top 4 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Ling 3.0, Mimo v2.6 Flash, MiniMax M3, Solar Pro 4.

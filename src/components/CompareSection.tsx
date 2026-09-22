@@ -120,8 +120,8 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
             />
             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
               {source === "average" ? (
-                <span title={"Reports used:\n" + contributors.map((s) => `- ${s.label}`).join("\n")}>
-                  Mix of {contributors.length} independent reports.
+                <span title={"All reporting agents:\n" + contributors.map((s) => `- ${s.label}`).join("\n") + "\n\nOnly reports from models with own Overall above 84.9 count toward the average."}>
+                  Average of qualifying reports (raters above 84.9 Overall).
                 </span>
               ) : virtualDimFor(source) !== undefined ? (
                 <span title={`Same numbers as the Average view, ranked by ${activeLabel} score.`}>

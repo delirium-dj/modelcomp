@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 85/100.** Mean of 2 reporting source(s).
-- **Reasoning: 75/100.** Mean of 2 reporting source(s).
-- **Context window: 85.5/100.** Mean of 2 reporting source(s).
-- **Multimodal: 91/100.** Mean of 2 reporting source(s).
-- **Coding: 82.5/100.** Mean of 2 reporting source(s).
-- **Cost efficiency: 100/100.** Mean of 2 reporting source(s).
-- **Overall Score: 84/100.** Mean of 2 reporting source(s).
+- **Tool use: 86/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 84/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 95/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 95/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 88/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 100/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 90/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 reporting source(s): Big Pickle, Mimo v2.6 Flash.
-- Average from top 2 by Overall Score: Big Pickle, Mimo v2.6 Flash.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
+- Average from top 1 by Overall Score: Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, Ling 3.0, Mimo v2.6 Flash.
