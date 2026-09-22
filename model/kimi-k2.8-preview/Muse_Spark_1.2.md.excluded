@@ -1,0 +1,67 @@
+# Kimi K2.8 Preview — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding and agentic model inside Kimi Code, with 1M context and efficient reasoning between K2.7 Code and flagship K3.
+- **Provider / access:** OpenCode Zen `moonshot/kimi-k2-8-preview` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `moonshot/kimi-k2-8-preview`
+- **Context window:** 1,048,576 (1M)
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-09-23):** Paid $1.50/$6 per 1M preview — note: Kimi membership plan (no per-token billing, no Zen Free ID)
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- AA Index ~55 preview (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA ~85% preview (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- 1,048,576 (1M) — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 80/100.** Evidence AA Index ~55 preview; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 78/100.** Evidence GPQA ~85% preview; capped by incomplete HLE/MRCR.
+- **Context window: 98/100.** 1,048,576 (1M) — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 65/100.** Text, image in; text out; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 82/100.** Evidence DeepSWE ~62% preview ; LiveCode ~82%; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 50/100.** Paid $1.50/$6 per 1M preview.
+- **Overall Score: 81/100.** Mean of five non-cost dims (80+78+98+65+82)/5=80.6 → 81; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

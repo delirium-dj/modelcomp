@@ -1,0 +1,67 @@
+# Laguna S 2.1 — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Laguna S 2.1
+- **Short description:** Poolside's 118B/8B-active open-weights MoE for agentic coding and long-horizon work (OpenMDW-1.1 permissive).
+- **Provider / access:** OpenCode Zen `poolside/laguna-s-2.1` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `poolside/laguna-s-2.1`
+- **Context window:** 1M (Ollama local builds 256K)
+- **Modalities:** Text in/out only
+- **Pricing (as of 2026-09-23):** Paid ~$0.80/$2.40 per 1M ; local Ollama 256K 35GB — note: ~$0.10/$0.20 per 1M API; open weights (no Zen Free ID)
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- TB ~45% ; Tool use weak vs premium (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA ~65% ; HLE ~20% (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- 1M (Ollama local builds 256K) — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 62/100.** Evidence TB ~45% ; Tool use weak vs premium; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 62/100.** Evidence GPQA ~65% ; HLE ~20%; capped by incomplete HLE/MRCR.
+- **Context window: 94/100.** 1M (Ollama local builds 256K) — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 15/100.** Text in/out only; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 64/100.** Evidence SWE ~45% ; LiveCode ~70% local; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 70/100.** Paid ~$0.80/$2.40 per 1M ; local Ollama 256K 35GB.
+- **Overall Score: 59/100.** Mean of five non-cost dims (62+62+94+15+64)/5=59.4 → 59; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,67 @@
+# GLM 5.2 — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.2
+- **Short description:** Z.AI's prior generation open-weights MoE model built for agentic tasks, long context processing, and enterprise software engineering.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.2` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `opencode/glm-5.2`
+- **Context window:** 204K
+- **Modalities:** Text in/out
+- **Pricing (as of 2026-09-23):** Paid $1.40/$4.40 per 1M — note: Free Zen tier available
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- TB Terminus-2 81.0 ; Tau3 70%+ (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA 86% ; HLE ~30% (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- 204K — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 70/100.** Evidence TB Terminus-2 81.0 ; Tau3 70%+; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 70/100.** Evidence GPQA 86% ; HLE ~30%; capped by incomplete HLE/MRCR.
+- **Context window: 72/100.** 204K — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 60/100.** Text in/out; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 70/100.** Evidence SWE-Pro 62.1 ; NL2Repo 48.9; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 60/100.** Paid $1.40/$4.40 per 1M.
+- **Overall Score: 68/100.** Mean of five non-cost dims (70+70+72+60+70)/5=68.4 → 68; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

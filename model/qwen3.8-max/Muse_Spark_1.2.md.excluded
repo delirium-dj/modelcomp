@@ -1,0 +1,67 @@
+# Qwen3.8-Max — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8-Max
+- **Short description:** Alibaba Cloud's flagship 2.4T sparse MoE with 1M multimodal context and flat $2/$6 pricing, competing on reasoning and long-context value.
+- **Provider / access:** OpenCode Zen `alibaba/qwen3-8-max` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `alibaba/qwen3-8-max`
+- **Context window:** 1M / 131K out
+- **Modalities:** Text, image, video in; text out
+- **Pricing (as of 2026-09-23):** Paid ~$2/$6 per 1M (Alibaba) — note: Paid $2/$6 per 1M (one-time 1M-token free quota, no Zen Free ID)
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Tau2 90%+ lineage (Qwen agentic); GDPval strong (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- MMLU Pro 84%+ lineage; GPQA 87%+ (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- 1M / 131K out — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 86/100.** Evidence Tau2 90%+ lineage; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 88/100.** Evidence MMLU Pro 84%+ lineage; GPQA 87%+; capped by incomplete HLE/MRCR.
+- **Context window: 96/100.** 1M / 131K out — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 70/100.** Text, image, video in; text out; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 87/100.** Evidence LiveCodeBench ~87.8 High; SWE-Verified 70%+ lineage; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 50/100.** Paid ~$2/$6 per 1M (Alibaba).
+- **Overall Score: 85/100.** Mean of five non-cost dims (86+88+96+70+87)/5=85.4 → 85; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

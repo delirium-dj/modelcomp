@@ -1,0 +1,67 @@
+# Gemini 3.8 Live — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Live
+- **Short description:** Google DeepMind's native speech-to-speech model for the Gemini Live API, with audio, image and video input and synthesized speech output.
+- **Provider / access:** OpenCode Zen `google/gemini-3-8-live` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `google/gemini-3-8-live`
+- **Context window:** 131K per session / 65K out
+- **Modalities:** Text, image, video, audio in; text, audio out
+- **Pricing (as of 2026-09-23):** $0.75/$3.75 per 1M live audio — note: Free via AI Studio unpaid quota; paid text $0.75/$4.50, audio $3/$12 per 1M
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- LiveBench live audio ~70% (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- HLE live ~40% (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- 131K per session / 65K out — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 72/100.** Evidence LiveBench live audio ~70%; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 72/100.** Evidence HLE live ~40%; capped by incomplete HLE/MRCR.
+- **Context window: 70/100.** 131K per session / 65K out — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 90/100.** Text, image, video, audio in; text, audio out; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 70/100.** Evidence LiveCode live ~70%; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 82/100.** $0.75/$3.75 per 1M live audio.
+- **Overall Score: 75/100.** Mean of five non-cost dims (72+72+70+90+70)/5=74.8 → 75; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

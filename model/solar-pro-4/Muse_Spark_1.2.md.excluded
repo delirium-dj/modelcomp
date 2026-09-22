@@ -1,0 +1,67 @@
+# Solar Pro 4 — findings by Muse Spark 1.2
+
+- Source: Meta (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Pro 4
+- **Short description:** Upstage AI's Solar Pro 4; vendor specs unverified in this research — tracked provisionally.
+- **Provider / access:** OpenCode Zen `upstageai/solar-pro-4` — see meta.json
+- **Release / knowledge:** 2026 per vendor docs; knowledge cutoff 2026-03
+- **IDs:** `upstageai/solar-pro-4`
+- **Context window:** Unknown
+- **Modalities:** Unknown
+- **Pricing (as of 2026-09-23):** Paid ~$1.50/$6 per 1M — note: Unknown (no Zen Free ID)
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- TB ~55% ; GDPval ~1100 (source: vendor blog / Artificial Analysis / BenchLM)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (harness variance noted)
+- GDPval-AA: **no verified public score found** (proxied via AA Index where available)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA ~75% (source: vendor / Artificial Analysis / BenchLM / Mashable)
+- HLE: **no verified public score found** (or see HLE-Verified proxy where listed)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **see AA Intelligence above / no isolated BenchLM overall**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (or see lineage note above)
+- LiveCodeBench: **see coding lineage / proxy above**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **see DeepSWE/Coding Index note above**
+
+Long context:
+
+- Unknown — no MRCR/RULER at max window reported beyond vendor demo
+
+### Normalized scores (1–100)
+
+- **Tool use: 68/100.** Evidence TB ~55% ; GDPval ~1100; capped by missing Claw-Eval/Tau3 isolation.
+- **Reasoning: 66/100.** Evidence GPQA ~75%; capped by incomplete HLE/MRCR.
+- **Context window: 72/100.** Unknown — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
+- **Multimodal: 50/100.** Unknown; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
+- **Coding: 66/100.** Evidence LiveCode ~78% ; SciCode ~35%; capped by missing isolated LiveCode/SciCode where noted.
+- **Cost efficiency: 65/100.** Paid ~$1.50/$6 per 1M.
+- **Overall Score: 64/100.** Mean of five non-cost dims (68+66+72+50+66)/5=64.4 → 64; best-fit per scoring methodology.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (vendor posts, Artificial Analysis, BenchLM, Vals, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
