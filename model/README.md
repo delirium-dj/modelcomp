@@ -5,6 +5,14 @@ reporting agent, plus `average.md` (recomputed by `pnpm sync`, never by hand)
 and `meta.json` (curated display metadata, edited by hand when facts change).
 
 - Folder name: filesystem-safe slug of the model (usually the Zen ID suffix), e.g. `big-pickle/`.
+- **Slug version convention: version numbers use `.` not `-`.** `gpt-5.5`, never
+  `gpt-5-5`; `mimo-v2.5-free`, never `mimo-v2-5-free`. Before creating a folder,
+  check for an existing dotted variant first — a hyphen-versioned folder is a
+  duplicate, not a new model. (`pnpm sync` fails loudly on hyphen-versioned
+  folders with the dotted destination.) Exception: digits that are NOT a version
+  stay hyphenated — a single major with a codename (`gpt-6-astra`), an
+  experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
+  (`gemma-4-31b` = Gemma 4, 31B params, not version 4.31).
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
   (version dots are fine: `DeepSeek_4.1_Flash.md`). Display label = stem with
   `_` → space, e.g. `Muse_Spark_1.3.md` = findings provided by Muse Spark 1.3.
@@ -56,13 +64,13 @@ scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
 ## Folders
 
 - `big-pickle/` — Big Pickle
-- `muse-spark-1-3-free/` — Muse Spark 1.3 Contributor
-- `ling-3-0-flash-fin-free/` — Ling 3.0 Flash Fin Free
-- `mimo-v2-5-free/` — MiMo V2.5 Free (also covers the `Xiaomi MiMo-V2.5 Free` alias)
-- `muse-spark-1-2-free/` — Muse Spark 1.2 Free
+- `muse-spark-1.3-free/` — Muse Spark 1.3 Contributor
+- `ling-3.0-flash-fin-free/` — Ling 3.0 Flash Fin Free
+- `mimo-v2.5-free/` — MiMo V2.5 Free (also covers the `Xiaomi MiMo-V2.5 Free` alias)
+- `muse-spark-1.2-free/` — Muse Spark 1.2 Free
 - `nemotron-3-ultra-free/` — Nemotron 3 Ultra Free
-- `nemotron-3-5-lightning-free/` — Nemotron 3.5 Lightning Free
-- `glm-5-1-coding/` — GLM 5.1 Coding (no Zen Free ID; scored on paid pricing)
-- `minimax-m2-7/` — MiniMax M2.7 (no Zen Free ID; scored on paid pricing)
-- `xiaomi-mimo-v2-5-pro/` — Xiaomi MiMo-V2.5-Pro (no Zen Free ID; scored on paid pricing)
+- `nemotron-3.5-lightning-free/` — Nemotron 3.5 Lightning Free
+- `glm-5.1-coding/` — GLM 5.1 Coding (no Zen Free ID; scored on paid pricing)
+- `minimax-m2.7/` — MiniMax M2.7 (no Zen Free ID; scored on paid pricing)
+- `xiaomi-mimo-v2.5-pro/` — Xiaomi MiMo-V2.5-Pro (no Zen Free ID; scored on paid pricing)
 - …plus newer folders, each self-described by its own `meta.json`.

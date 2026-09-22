@@ -1,6 +1,6 @@
 # Claude Opus 5 — findings by Mimo v2.6 Flash
 
-- Source: Anthropic/`anthropic/claude-opus-5`
+- Source: Anthropic/`claude-opus-5`
 - Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -8,72 +8,67 @@
 ## Model card
 
 - **Name:** Claude Opus 5
-- **Short description:** Anthropic's 2026-07-24 Opus flagship — near-Fable-5 intelligence at **half Fable's token price** ($5/$25 vs $10/$50); SWE-Pro 79.2, SWE-V 96.0, Frontier-Bench 43.3 (beats Fable 33.7), ARC-AGI-3 30.2 (~3× next), GDPval-AA v2 **1861**; Fast mode 2.5× speed at 2× price.
-- **Provider / access:** Claude API `claude-opus-5`; Claude apps (Pro/Max/Team/Enterprise); Claude Code; Bedrock/Vertex (partner paths vary); Fast mode first-party API only. **No Zen Free ID** (`noFreeId: true`).
-- **Release / knowledge:** **2026-07-24** (anthropic.com research + news). Knowledge cutoff not published in extracts.
-- **IDs:** `anthropic/claude-opus-5`.
-- **Context window:** meta **1M / 128K out**.
-- **Modalities:** **text, image, PDF in; text out** (meta — no native audio/video in on Claude stack).
-- **Pricing (as of 2026-09-22):** **$5 / $25 per 1M**; cache write 5m $6.25 / 1h $10; cache hit **$0.50**; batch **$2.50 / $12.50**; Fast mode **$10 / $50** (~2.5× speed) first-party only. Same price as Opus 4.8; half of Fable 5.
-- **Architecture:** proprietary (undisclosed); effort setting (low→max) gates intelligence vs tokens; Opus 4.8 fallback on safety refusals in Anthropic evals.
+- **Short description:** Anthropic's strongest Opus-tier hybrid reasoning model (released 2026-07-24) for long-running agents, serious coding, and knowledge work; positioned as near-Fable-class intelligence at half Fable's input price, with largest gains in agentic coding, computer use, and long-horizon knowledge work.
+- **Provider / access:** Claude API `claude-opus-5` (Messages API); Amazon Bedrock, Google Cloud, Microsoft Foundry; Claude apps. Fast mode = 2× price, ~2.5× speed.
+- **Release / knowledge:** 2026-07-24; knowledge cutoff May 2026.
+- **IDs:** `claude-opus-5` (Anthropic); mirrored on Azure/Bedrock/GCP IDs. No Zen Free ID identified — paid pricing.
+- **Context window:** 1M tokens (default and max); 128K max output (Batch API beta 300K).
+- **Modalities:** text + image in; text out; adaptive thinking always on (effort low/medium/high/xhigh); tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-22):** $5 in / $25 out per 1M; cache read $0.50; batch 50% off; Fast mode $10/$50. Paid only.
+- **Architecture:** proprietary (closed weights).
 
 ### Raw benchmarks found
 
-> Measured numbers with (source, rank, harness). Anthropic system card / launch primary; AA/BenchLM/Vals/Meta tables as independent or cross-vendor checks.
+> Measured numbers with (source, rank, harness). Missing rows = no verified public score found.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **86.7%** Meta harness Claude Code max (Meta table — vendor-vs-vendor); **AA independent 89.1%** (BenchLM aaTerminalBench21); **Vals Terminus-2 84.6% (#2)** behind GPT-5.6 Sol 85.77; **not on tbench.ai verified board** (top Anthropic verified row remains Opus 4.8 78.9% — Codersera note)
-- Terminal-Bench 4.0: **49.0%** (AA/BenchLM); TB Hard not separately extracted
-- GDPval-AA v2: **1861 Elo** (Datacamp/Codersera system-card table — **#1-class**, above Fable 5 1747, GPT-5.6 Sol 1736)
-- MCP Atlas: **85.8%** (BenchLM; claim coverage 89.1)
-- OSWorld 2.0: **70.6%** (Anthropic system card via SeaWork — beats Fable 5 peak 66.1 at ~1/3 budget per Anthropic)
-- BrowseComp: **90.8%** (BenchLM; 10-agent prerelease 93.6)
-- AutomationBench: **56.6%** (AA); AA Briefcase **1720**; Harvey LAB **93.5%**; EnterpriseOps **47.5%**; Tau3 Banking **42.1%** (BenchLM/AA)
-- Zapier AutomationBench: **100%** full churn-prevention flow (Codersera/Anthropic qualitative claim)
-- Frontier-Bench v0.1: **43.3%** (Anthropic — **beats Fable 33.7, doubles Opus 4.8 21.1**)
+- Terminal-Bench 2.1: **86.7%** (Meta harness, Claude Code, max — vendor-vs-vendor) / **89.1%** (Google model-card citation)
+- Terminal-Bench 4.0: **52.3%** (Anthropic) / **52.6%** (OpenAI comparison table)
+- Terminal-Bench-Science 0.1: **29.0%** (Anthropic public-board reproduction; leaderboard 30.0%)
+- GDPval-AA v2: **1861 Elo** (Codersera/Anthropic launch; also cited 1824 and 1852 in Meta/OpenAI tables)
+- OSWorld 2.0: **75.4% partial** (Anthropic Fable-comparison charts) / **70.6%** (OpenAI table); beats Fable 5 peak at ~1/3 cost per Anthropic
+- AutomationBench: **50.3%** (Meta max-effort comparison) / **26.9%** (Anthropic Fable-5.1 family chart for Opus 5)
+- Zapier AutomationBench flow: **100%** full churn-prevention flow (Anthropic narrative)
+- CursorBench 3.2: **within 0.5 pts of Fable 5 peak** at max (Anthropic); ~70.0 in Fable-5.1 chart
+- BrowseComp: strong (Anthropic system card; exact % not isolated in sources read)
+- Tau3-Banking / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
 
-- ARC-AGI-3: **30.2%** (Anthropic — ~3× next-best GPT-5.6 Sol 7.8) (SeaWork/Codersera)
-- HLE with tools: **64.7%** (BenchLM); DeepSearchQA **95.0%**; DRACO **88.6%**
-- Artificial Analysis Intelligence Index: no standalone absolute for Opus 5 transcribed in this pass (AA Agentic Index **56.2**, Briefcase 1720 present) — do not invent; reasoning scored from ARC-AGI-3/HLE/GDPval rows
-- GPQA Diamond / MMLU-Pro absolute for Opus 5: no verified public score found in this pass (system card emphasizes SWE/agentic/ARC rows)
+- Humanity's Last Exam: **56.6% no tools / 63.6% with tools** (Anthropic)
+- GPQA Diamond: **93.7%** (OpenAI comparison citing Anthropic)
+- FrontierMath Tier 4 v2: **73.2** (OpenAI table) / **56.1** (GPT-5.6 table) — harness variance
+- ARC-AGI-3: **30.2%** (Anthropic; ~3× next-best at launch)
+- Artificial Analysis Intelligence Index: **63.1** (OpenAI/AA citation)
+- CritPt / LCR: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **96.0%** (Anthropic system card prose via SeaWork — Fable 95.0, Mythos 95.5)
-- SWE-bench Pro: **79.2%** (system card; Datacamp table; Fable 80.0–80.3, Mythos 80.3 slightly ahead)
-- SWE-bench Multilingual: **89.5%** (system card — **beats Fable 86.6, Opus 4.8 84.4**)
-- SWE-bench Multimodal: **59.4%** (system card — beats Fable 54.1)
-- DeepSWE v1.1: **68.8%** (system card; Fable 69.7, GPT-5.6 Sol 72.7 ahead)
-- FrontierCode 1.1 Main: **53.4%** (≈ Fable 53.5, > Sol 47.5); Extended 63.6 (BenchLM)
-- CursorBench 3.2: within **0.5% of Fable 5 peak** at max effort, half cost/task (Anthropic)
-- FrontierSWE v2: 52.0; ProgramBench 93.0; VulcanBench v3 87.0; LiveCodeBench (Vals) 89.0; SWE-bench (Vals) 97.0; AA Coding Index **78.0** (BenchLM)
-- Bug Hunt Bench: 27 fixes (BenchLM qualitative count)
+- Frontier-Bench v0.1: **43.3%** (Anthropic SOTA; GPT-5.6 Sol 34.4%, Fable 5 33.7%)
+- SWE-bench Pro: **79.2%** (Anthropic; Mythos 5 80.3%, Fable 5 80.0%)
+- DeepSWE v1.1: **74.0%** (Meta/Google tables) / **65.0%** (Meta Muse-Code harness)
+- SWE-bench Verified: no verified public score found in sources read
+- LiveCodeBench: no verified public score found
 
 Long context:
 
-- **1M / 128K out** (meta); MRCR/RULER absolute: no verified public score found in this pass (AA-LCR row not extracted for Opus 5)
-
-Multimodal:
-
-- **text, image, PDF in** (meta) — solid multimodal input; **no audio/video in** (unlike GPT-5.6/Muse/MiMo full stacks) → upper image/PDF band, not max
+- Programbench (system card long-context section): results published in Anthropic system card; exact retrieval % not isolated — no verified public MRCR row found for Opus 5 in sources read.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** GDPval **1861 (#1-class)**, AA TB2.1 **89.1**, Vals TB **#2**, MCP Atlas 85.8, OSWorld 70.6, BrowseComp 90.8, Frontier-Bench 43.3 — elite across terminal, computer-use, and knowledge-work agents; only dents are unverified tbench.ai submission and Meta-harness 86.7 being vendor-vs-vendor.
-- **Reasoning: 94/100.** **ARC-AGI-3 30.2 (~3× field)**, HLE w/tools 64.7, DRACO 88.6, misaligned-behavior audit 2.3 best-ever (Datacamp) — frontier novel reasoning; missing GPQA/MMLU/AA-Index absolute rows keeps a sliver of headroom vs a fully-instrumented Fable/GPT card.
-- **Context window: 96/100.** Full **1M / 128K out** (meta) — top band; no retrieval curve in this pass.
-- **Multimodal: 78/100.** Text+image+PDF in only (meta) — strong document/vision input but **no audio/video** → below full omnimodal peers (GPT-5.6 Terra, Muse 1.2, MiMo V2.6).
-- **Coding: 94/100.** SWE-V **96.0**, SWE-Pro **79.2**, Multilingual **89.5 (#1 among compared)**, Multimodal 59.4, Frontier-Bench 43.3 over Fable — best-in-class open coding breadth; DeepSWE 68.8 slightly trails Sol/Fable.
-- **Cost efficiency: 46/100.** **$5/$25** is half of Fable and same as Opus 4.8 (excellent **within** Anthropic frontier), but absolute price is still premium vs Terra $2/$12, free Zen tiers, and $0.10-class open models; Fast mode 2× price; no Free ID → methodology low-40s/46 band (peer avg cost was 46.2 — aligned).
-- **Overall Score: 91/100.** Mean of five quality dims (93+94+96+78+94)/5 = 91.0. Peer `average.md` Overall **90.9** — near-identical. Best-fit: daily-driver frontier coding/knowledge agent when Fable-class capability must cost half as much; choose Fable 5 only when max multi-day autonomy is worth 2× tokens; choose GPT-5.6 Terra for cheaper near-Sol terminal work.
+- **Tool use: 96/100.** TB4.0 ~52–53, TB2.1 86.7–89.1, GDPval 1861, OSWorld ~70–75, AutomationBench leading at cost; capped slightly by TB-Science 29% and missing Tau3/Claw rows.
+- **Reasoning: 96/100.** HLE 56.6/63.6, AA Index 63.1, ARC-AGI-3 30.2 (3× field), GPQA 93.7; capped by FrontierMath T4 harness variance and HLE below Fable 5.1's 60.9+.
+- **Context window: 95/100.** 1M window documented; no public ≥98% retrieval at 512K+ MRCR row for this model → 95.
+- **Multimodal: 70/100.** Text + image in (strong chart/filing vision per system-card multimodal section); no video/audio/non-text out → top of 60–70 image band.
+- **Coding: 96/100.** Frontier-Bench 43.3% SOTA, SWE-Pro 79.2%, DeepSWE ~74, TB4.0 ~52; capped by missing SWE-bench Verified/LCB rows and TB-Science behind Fable/Astra.
+- **Cost efficiency: 50/100.** $5/$25 sits between the $3/$15≈60 and $10/$50≈30 anchors (~half of Fable's input price); cache read $0.50 and batch 50% help agentic loads.
+- **Overall Score: 91/100.** Mean of five quality dims (96+96+95+70+96)/5 = 90.6 → 91. Best-fit: daily-driver frontier coding/knowledge agent at half Fable pricing; escalate to Fable 5.1 only for multi-day autonomy or TB-Science-class research.
 
 ---
 
 ## Signature
 
 - Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (anthropic.com/research/claude-opus-5 + news launch, SeaWork system-card benchmark tables, Datacamp comparison grid, Codersera capability-per-dollar analysis, BenchLM scorecard, platform.claude.com pricing, Meta 2026-08-05 cross-vendor chart, Vals via AiCybr); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (Anthropic news/system card/platform docs, Codersera, Meta/OpenAI comparison tables, GPT-5.6 launch tables); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -305,8 +305,8 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() =>
  */
 export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "big-pickle": "big-pickle",
-  "Muse Spark 1.3": "muse-spark-1-3-free",
-  "Ling 3.0": "ling-3-0-flash-fin-free",
+  "Muse Spark 1.3": "muse-spark-1.3-free",
+  "Ling 3.0": "ling-3.0-flash-fin-free",
   "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
   "Gemini 3.6 Flash": "gemini-3.6-flash",
   "GLM 5.3 Flash": "glm-5.3-flash",

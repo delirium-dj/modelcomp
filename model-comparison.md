@@ -60,14 +60,14 @@ Full details moved to [`model/big-pickle/Muse_Spark_1.3.md`](model/big-pickle/Mu
 
 ## Muse Spark 1.3 Contributor
 
-Full details moved to [`model/muse-spark-1-3-free/Muse_Spark_1.3.md`](model/muse-spark-1-3-free/Muse_Spark_1.3.md).
+Full details moved to [`model/muse-spark-1.3-free/Muse_Spark_1.3.md`](model/muse-spark-1.3-free/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 95 / Reasoning 92 / Context 100 / Multimodal 85 / Coding 95 / Cost 100 → **Overall 95**
 - **One-liner:** default for long-horizon coding/agentic work when free tier available.
 
 ## Ling 3.0 Flash Fin Free
 
-Full details moved to [`model/ling-3-0-flash-fin-free/Muse_Spark_1.3.md`](model/ling-3-0-flash-fin-free/Muse_Spark_1.3.md).
+Full details moved to [`model/ling-3.0-flash-fin-free/Muse_Spark_1.3.md`](model/ling-3.0-flash-fin-free/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 68 / Reasoning 70 / Context 72 / Multimodal 15 / Coding 72 / Cost 100 → **Overall 66**
 - **One-liner:** niche pick for finance + efficient execution.
@@ -76,7 +76,7 @@ Full details moved to [`model/ling-3-0-flash-fin-free/Muse_Spark_1.3.md`](model/
 
 ## MiMo V2.5 Free
 
-Full details moved to [`model/mimo-v2-5-free/Muse_Spark_1.3.md`](model/mimo-v2-5-free/Muse_Spark_1.3.md) (also covers the `Xiaomi MiMo-V2.5 Free` alias).
+Full details moved to [`model/mimo-v2.5-free/Muse_Spark_1.3.md`](model/mimo-v2.5-free/Muse_Spark_1.3.md) (also covers the `Xiaomi MiMo-V2.5 Free` alias).
 
 - **Scores:** Tool 78 / Reasoning 72 / Context 70 / Multimodal 95 / Coding 78 / Cost 100 → **Overall 82**
 - **One-liner:** best free omni + balanced agent/coding.
@@ -85,7 +85,7 @@ Full details moved to [`model/mimo-v2-5-free/Muse_Spark_1.3.md`](model/mimo-v2-5
 
 ## Muse Spark 1.2 Free
 
-Full details moved to [`model/muse-spark-1-2-free/Muse_Spark_1.3.md`](model/muse-spark-1-2-free/Muse_Spark_1.3.md).
+Full details moved to [`model/muse-spark-1.2-free/Muse_Spark_1.3.md`](model/muse-spark-1.2-free/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 90 / Reasoning 88 / Context 100 / Multimodal 90 / Coding 88 / Cost 100 → **Overall 93**
 - **One-liner:** near-frontier free fallback when 1.3 Free unavailable.
@@ -103,7 +103,7 @@ Full details moved to [`model/nemotron-3-ultra-free/Muse_Spark_1.3.md`](model/ne
 
 ## Nemotron 3.5 Lightning Free
 
-Full details moved to [`model/nemotron-3-5-lightning-free/Muse_Spark_1.3.md`](model/nemotron-3-5-lightning-free/Muse_Spark_1.3.md).
+Full details moved to [`model/nemotron-3.5-lightning-free/Muse_Spark_1.3.md`](model/nemotron-3.5-lightning-free/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 50 / Reasoning 62 / Context 72 / Multimodal 15 / Coding 58 / Cost 100 → **Overall 60**
 - **One-liner:** routed executor + local single-GPU, not primary planner/coder.
@@ -112,7 +112,7 @@ Full details moved to [`model/nemotron-3-5-lightning-free/Muse_Spark_1.3.md`](mo
 
 ## GLM 5.1 Coding
 
-Full details moved to [`model/glm-5-1-coding/Muse_Spark_1.3.md`](model/glm-5-1-coding/Muse_Spark_1.3.md) (requested as Free; no Free ID on Zen, scored on paid pricing).
+Full details moved to [`model/glm-5.1-coding/Muse_Spark_1.3.md`](model/glm-5.1-coding/Muse_Spark_1.3.md) (requested as Free; no Free ID on Zen, scored on paid pricing).
 
 - **Scores:** Tool 85 / Reasoning 80 / Context 70 / Multimodal 15 / Coding 88 / Cost 75 → **Overall 69**
 - **One-liner:** top paid open coding/long-horizon pick.
@@ -121,7 +121,7 @@ Full details moved to [`model/glm-5-1-coding/Muse_Spark_1.3.md`](model/glm-5-1-c
 
 ## MiniMax M2.7
 
-Full details moved to [`model/minimax-m2-7/Muse_Spark_1.3.md`](model/minimax-m2-7/Muse_Spark_1.3.md) (requested as Free; no Free ID on Zen, scored on paid pricing).
+Full details moved to [`model/minimax-m2.7/Muse_Spark_1.3.md`](model/minimax-m2.7/Muse_Spark_1.3.md) (requested as Free; no Free ID on Zen, scored on paid pricing).
 
 - **Scores:** Tool 80 / Reasoning 75 / Context 70 / Multimodal 15 / Coding 82 / Cost 90 → **Overall 69**
 - **One-liner:** best-value paid text coding/agent.
@@ -130,7 +130,7 @@ Full details moved to [`model/minimax-m2-7/Muse_Spark_1.3.md`](model/minimax-m2-
 
 ## Xiaomi MiMo-V2.5-Pro
 
-Full details moved to [`model/xiaomi-mimo-v2-5-pro/Muse_Spark_1.3.md`](model/xiaomi-mimo-v2-5-pro/Muse_Spark_1.3.md) (requested as Free with comma typo; no Free ID on Zen, scored on paid pricing).
+Full details moved to [`model/xiaomi-mimo-v2.5-pro/Muse_Spark_1.3.md`](model/xiaomi-mimo-v2.5-pro/Muse_Spark_1.3.md) (requested as Free with comma typo; no Free ID on Zen, scored on paid pricing).
 
 - **Scores:** Tool 82 / Reasoning 78 / Context 100 / Multimodal 15 / Coding 82 / Cost 85 → **Overall 74**
 - **One-liner:** top open long-horizon Pro; pair with V2.5 Free when vision/audio needed.
