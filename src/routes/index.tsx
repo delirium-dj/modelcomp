@@ -4,8 +4,8 @@ import { Hero } from "../components/Hero";
 import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
-import { MODELS, SOURCES } from "../data/models";
-import type { SourceKey } from "../data/models";
+import { MODELS, SOURCES, virtualDimFor } from "../data/models";
+import type { DimensionKey, SourceKey } from "../data/models";
 
 /** Homepage defaults: top 3 models by average Overall Score (recomputed from MODELS). */
 function top3ByOverall(): [string, string, string] {
@@ -24,6 +24,30 @@ const DEFAULTS = {
   b: TOP_B,
   c: TOP_C,
 };
+
+/** Top 3 models by one average dimension score (tiebreak Overall). */
+function top3ByDim(dim: DimensionKey): [string, string, string] {
+  const sorted = [...MODELS].sort(
+    (a, b) => b.scores[dim] - a.scores[dim] || b.scores.overall - a.scores.overall,
+  );
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
+
+/** Top 3 model ids for a results source: by dimension for virtual views, else Overall. */
+function top3ForSource(source: SourceKey): [string, string, string] {
+  const dim = virtualDimFor(source);
+  if (dim !== undefined) return top3ByDim(dim);
+  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
 
 function validId(raw: string | null, fallback: string): string {
   if (raw === "") {
@@ -45,19 +69,30 @@ function validSource(raw: string | null, fallback: SourceKey): SourceKey {
 export default component$(() => {
   const loc = useLocation();
   const query = loc.url.searchParams;
+  // Deep links with no explicit slots open on the top-3 of the selected source.
+  const initialSource = validSource(query.get("source"), "average");
+  const [INIT_A, INIT_B, INIT_C] = top3ForSource(initialSource);
   const sel = useStore({
-    a: validId(query.get("a"), DEFAULTS.a),
-    b: validId(query.get("b"), DEFAULTS.b),
-    c: validId(query.get("c"), DEFAULTS.c),
-    source: validSource(query.get("source"), "average"),
+    a: validId(query.get("a"), INIT_A),
+    b: validId(query.get("b"), INIT_B),
+    c: validId(query.get("c"), INIT_C),
+    source: initialSource,
   });
 
   const handleSelect = $((slot: "a" | "b" | "c", id: string) => {
     sel[slot] = id;
   });
 
+  // Picking a virtual sort view re-seats the hexagon/table on the top-3 of that
+  // dimension; switching back leaves the selection alone for the user to adjust.
   const handleSource = $((source: SourceKey) => {
     sel.source = source;
+    if (virtualDimFor(source) !== undefined) {
+      const [a, b, c] = top3ForSource(source);
+      sel.a = a;
+      sel.b = b;
+      sel.c = c;
+    }
   });
 
   useVisibleTask$(({ track }) => {

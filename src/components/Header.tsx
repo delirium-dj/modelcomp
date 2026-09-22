@@ -42,7 +42,7 @@ export const Header = component$(() => {
               <circle cx="150" cy="148" r="45" fill="url(#logo-core)" />
             </svg>
             <a
-              href="#top"
+              href="/"
               class="text-lg font-bold tracking-tight text-slate-900 transition-colors dark:text-white"
             >
               ModelComp

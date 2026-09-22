@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
-import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel } from "../data/models";
+import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
@@ -25,7 +25,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
     a.name.localeCompare(b.name)
   );
 
-  const contributors = SOURCES.filter((s) => s.key !== "average");
+  const contributors = SOURCES.filter((s) => s.key !== "average" && virtualDimFor(s.key) === undefined);
   const activeLabel = SOURCES.find((s) => s.key === source)?.label ?? source;
   const activeFile = SOURCES.find((s) => s.key === source)?.file ?? "";
 
@@ -35,8 +35,10 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
       if (id === "") return undefined;
       const model = getModel(id);
       if (!model) return undefined;
-      const sourceScores = source === "average" ? model.scores : model.sources[source];
-      const hasData = source === "average" || sourceScores !== undefined;
+      // Virtual sort views show average scores (same numbers as Average).
+      const isVirtualView = virtualDimFor(source) !== undefined;
+      const sourceScores = source === "average" || isVirtualView ? model.scores : model.sources[source];
+      const hasData = source === "average" || isVirtualView || sourceScores !== undefined;
       const scores = sourceScores ?? model.scores;
       return {
         slot: (["a", "b", "c"] as const)[i],
@@ -54,6 +56,14 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
     }
   }
   const series = Array.from(uniqueMap.values());
+  // Virtual sort views: rank selected models by that dimension (tiebreak
+  // Overall) so legend and table columns follow the same order as All models.
+  const sortDim = virtualDimFor(source);
+  if (sortDim !== undefined) {
+    series.sort(
+      (a, b) => b.model.scores[sortDim] - a.model.scores[sortDim] || b.model.scores.overall - a.model.scores.overall,
+    );
+  }
   const radarSeries: RadarDatum[] = series
     .filter((s) => s.hasData)
     .map((s) => ({ model: s.model, color: s.color }));
@@ -112,6 +122,10 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
               {source === "average" ? (
                 <span title={"Reports used:\n" + contributors.map((s) => `- ${s.label}`).join("\n")}>
                   Mix of {contributors.length} independent reports.
+                </span>
+              ) : virtualDimFor(source) !== undefined ? (
+                <span title={`Same numbers as the Average view, ranked by ${activeLabel} score.`}>
+                  Average scores, sorted by {activeLabel}.
                 </span>
               ) : (
                 <span title={"Source file: " + activeFile}>Showing only the {activeLabel} report.</span>

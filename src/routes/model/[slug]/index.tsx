@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
-import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG } from "../../../data/models";
+import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
 
@@ -36,7 +36,7 @@ export default component$(() => {
 
   // Every reporting agent that rated this model, best grade first.
   const ratings = (Object.keys(model.sources) as SourceKey[])
-    .filter((key) => key !== "average" && model.sources[key] !== undefined)
+    .filter((key) => key !== "average" && virtualDimFor(key) === undefined && model.sources[key] !== undefined)
     .map((key) => ({
       key,
       label: SOURCES.find((s) => s.key === key)?.label ?? key,
@@ -152,7 +152,7 @@ export default component$(() => {
         </h2>
         <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
           Each reporting agent's overall score for {model.name} ({ratings.length} of{" "}
-          {SOURCES.length - 1} agents reporting). Click a column header to sort.
+          {SOURCES.filter((s) => s.key !== "average" && virtualDimFor(s.key) === undefined).length} agents reporting). Click a column header to sort.
         </p>
         <div class="mt-4 overflow-x-auto">
           <table class="w-full min-w-[720px] table-fixed border-collapse text-sm">

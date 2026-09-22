@@ -51,7 +51,13 @@ export type SourceKey =
   | "Gemini 3.1 Pro"
   | "Laguna S 2.1"
   | "GLM 5.2 Coding"
-  | "Mimo v2.6 Flash";
+  | "Mimo v2.6 Flash"
+  | "code"
+  | "tool"
+  | "reason"
+  | "context"
+  | "cost"
+  | "multi";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -81,6 +87,15 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md" },
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md" },
   { key: "Mimo v2.6 Flash", label: "Mimo v2.6 Flash", file: "Mimo_v2.6_Flash.md" },
+  // Virtual sort views (not reporting agents): each mirrors average.md scores
+  // and only changes the sort key (see VIRTUAL_VIEWS below). `pnpm sync`
+  // ignores them (file is average.md).
+  { key: "tool", label: "Tool", file: "average.md" },
+  { key: "reason", label: "Reason", file: "average.md" },
+  { key: "context", label: "Context", file: "average.md" },
+  { key: "cost", label: "Cost", file: "average.md" },
+  { key: "code", label: "Code", file: "average.md" },
+  { key: "multi", label: "Multi", file: "average.md" },
 ];
 
 export interface AiModel {
@@ -270,6 +285,27 @@ export const MODELS: AiModel[] = (() => {
   return models;
 })();
 
+/**
+ * Virtual sort views for the results-source dropdown. Each entry mirrors the
+ * average scores and only changes the ranking key (hexagon, legend, table and
+ * All-models cards all follow it). Order here is the dropdown order of the
+ * virtual views (canonical DIMENSIONS order); real reporting agents rank below
+ * by max overall. Not reporting agents -- never counted as such.
+ */
+export const VIRTUAL_VIEWS: { key: SourceKey; label: string; dim: DimensionKey }[] = [
+  { key: "tool", label: "Tool", dim: "tool" },
+  { key: "reason", label: "Reason", dim: "reasoning" },
+  { key: "context", label: "Context", dim: "context" },
+  { key: "cost", label: "Cost", dim: "cost" },
+  { key: "code", label: "Code", dim: "coding" },
+  { key: "multi", label: "Multi", dim: "multimodal" },
+];
+
+/** Sort dimension for a virtual view, or undefined for Average / reporting agents. */
+export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
+  return VIRTUAL_VIEWS.find((v) => v.key === source)?.dim;
+}
+
 /** Highest overall score a reporting agent awards any model (dropdown ranking metric). */
 function sourceMaxOverall(key: SourceKey): number {
   let max = -Infinity;
@@ -282,19 +318,23 @@ function sourceMaxOverall(key: SourceKey): number {
 
 /**
  * Results-source dropdown order, derived -- not curated. Average stays first and
- * is the default view; every other source ranks by the highest overall score it
- * awards any model (stable sort, so ties keep registry order). A newly registered
- * source slots itself in automatically -- never hand-sort this list.
+ * is the default view; the virtual sort views (same numbers as Average, ranked
+ * by one dimension -- see VIRTUAL_VIEWS) follow in canonical DIMENSIONS order
+ * by design; every other source is a reporting agent ranked by the highest
+ * overall score it awards any model (stable sort, so ties keep registry order).
+ * A newly registered source slots itself in automatically -- never hand-sort.
  */
 export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
   const averageDef = SOURCE_DEFS.find((s) => s.key === "average");
   if (!averageDef) throw new Error("[models] SOURCE_DEFS is missing the average entry");
-  return [
-    averageDef,
-    ...SOURCE_DEFS.filter((s) => s.key !== "average").sort(
-      (a, b) => sourceMaxOverall(b.key) - sourceMaxOverall(a.key),
-    ),
-  ];
+  const virtualKeys = new Set<SourceKey>(VIRTUAL_VIEWS.map((v) => v.key));
+  const virtualDefs = VIRTUAL_VIEWS.map((v) => SOURCE_DEFS.find((s) => s.key === v.key)).filter(
+    (d): d is { key: SourceKey; label: string; file: string } => d !== undefined,
+  );
+  const rest = SOURCE_DEFS.filter((s) => s.key !== "average" && !virtualKeys.has(s.key)).sort(
+    (a, b) => sourceMaxOverall(b.key) - sourceMaxOverall(a.key),
+  );
+  return [averageDef, ...virtualDefs, ...rest];
 })();
 
 /**

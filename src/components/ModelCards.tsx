@@ -1,5 +1,5 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import { MODELS } from "../data/models";
+import { MODELS, virtualDimFor } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
 
 interface ModelCardsProps {
@@ -8,9 +8,18 @@ interface ModelCardsProps {
 
 export const ModelCards = component$<ModelCardsProps>(({ source }) => {
   const displayCount = useSignal(9);
-  const shown: AiModel[] = MODELS.filter((m) => source === "average" || m.sources[source] !== undefined)
-    .map((m) => (source === "average" ? m : { ...m, scores: m.sources[source]! }))
-    .sort((a, b) => b.scores.overall - a.scores.overall);
+  // Virtual sort views mirror average scores but rank by one dimension (tiebreak Overall).
+  const sortDim = virtualDimFor(source);
+  const isVirtualView = sortDim !== undefined;
+  const shown: AiModel[] = MODELS.filter(
+    (m) => source === "average" || isVirtualView || m.sources[source] !== undefined,
+  )
+    .map((m) => (source === "average" || isVirtualView ? m : { ...m, scores: m.sources[source]! }))
+    .sort((a, b) =>
+      sortDim !== undefined
+        ? b.scores[sortDim] - a.scores[sortDim] || b.scores.overall - a.scores.overall
+        : b.scores.overall - a.scores.overall,
+    );
   const visibleModels = shown.slice(0, displayCount.value);
 
   return (
