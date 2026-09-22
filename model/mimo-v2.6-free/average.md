@@ -1,4 +1,4 @@
-# Mimo V2 6 Free — Averaged findings
+# MiMo V2.6 Free — Averaged findings
 
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`

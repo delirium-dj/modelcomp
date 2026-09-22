@@ -1,7 +1,7 @@
 {
   "id": "opencode/mimo-v2-6-free",
-  "name": "Mimo V2 6 Free",
-  "short": "Mimo V2 6 Free model evaluation entry.",
+  "name": "MiMo V2.6 Free",
+  "short": "MiMo V2.6 Free model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"
