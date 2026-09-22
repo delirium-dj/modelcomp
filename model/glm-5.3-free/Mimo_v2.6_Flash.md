@@ -65,7 +65,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only product surface (template rule: 15).
 - **Coding: 90/100.** DeepSWE 66.9, SWE-Marathon 42.5, FrontierSWE 78.1, CyberGym 84.5, Z.ai Code Bench 34.5 beats Opus 4.8 — top open-weights coding claim at launch; missing SWE-bench Verified/Pro rows for 5.3 specifically keep a sliver of uncertainty.
 - **Cost efficiency: 100/100.** Free Zen tier with frontier-class coding agents; even paid $1.40/$4.40 undercuts Opus/Sol heavily — free-tier anchor = 100.
-- **Overall Score: 72/100.** Mean of five quality dims (90+86+68+15+90)/5 = 71.8 → 72. Best-fit: free long-horizon coding/terminal agents and cyber-vuln research on a budget — not for vision workflows (use GLM-5.3-Flash/Ox Alpha sibling for multimodal); mind the 204K free context cap on huge repos.
+- **Overall Score: 70/100.** Mean of five quality dims (90+86+68+15+90)/5 = 69.8 → 70.
 
 ---
 

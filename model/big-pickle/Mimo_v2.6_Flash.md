@@ -52,7 +52,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 65/100.** No official SWE rows for `big-pickle`; free-stealth coding-agent positioning + GLM-4.6 attribution + user reports of Sonnet-class web coding → mid-high structural score, **explicitly not a measured SWE-Verified**.
 - **Cost efficiency: 100/100.** **Free in/out/cache** on Zen (docs) with paid equiv. $0.60/$2.20 → maximum; caveat: free period is promotional, data may train the model, identity may rotate.
-- **Overall Score: 55/100.** Mean of five quality dims (62+60+70+15+65)/5 = 54.6 → 55. Best-fit: **zero-cost coding experiments** on Zen when you accept stealth/rotation risk — for audited production, pin a named model (GLM-4.6/DeepSeek-V4-Flash/etc.) with published benchmarks instead.
+- **Overall Score: 54/100.** Mean of five quality dims (62+60+70+15+65)/5 = 54.4 → 54.
 
 ---
 

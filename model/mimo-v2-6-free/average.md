@@ -5,17 +5,17 @@
 
 ## Averaged scores
 
-- **Tool use: 74/100.** Mean of 1 reporting source(s).
-- **Reasoning: 72/100.** Mean of 1 reporting source(s).
-- **Context window: 75/100.** Mean of 1 reporting source(s).
-- **Multimodal: 65/100.** Mean of 1 reporting source(s).
-- **Coding: 70/100.** Mean of 1 reporting source(s).
-- **Cost efficiency: 100/100.** Mean of 1 reporting source(s).
-- **Overall Score: 71.2/100.** Mean of 1 reporting source(s).
+- **Tool use: 81/100.** Mean of 2 reporting source(s).
+- **Reasoning: 77/100.** Mean of 2 reporting source(s).
+- **Context window: 75/100.** Mean of 2 reporting source(s).
+- **Multimodal: 77.5/100.** Mean of 2 reporting source(s).
+- **Coding: 77.5/100.** Mean of 2 reporting source(s).
+- **Cost efficiency: 100/100.** Mean of 2 reporting source(s).
+- **Overall Score: 77.6/100.** Mean of 2 reporting source(s).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 reporting source(s): Gemini 3.6 Flash.
-- Average from top 1 by Overall Score: Gemini 3.6 Flash.
+- Based on 2 reporting source(s): Gemini 3.6 Flash, Mimo v2.6 Flash.
+- Average from top 2 by Overall Score: Gemini 3.6 Flash, Mimo v2.6 Flash.

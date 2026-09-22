@@ -69,7 +69,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only Pro (template rule: 15).
 - **Coding: 80/100.** LiveCodeBench 81.4 near Sol, SciCode ~50 near Opus, SWE-Verified 74 respectable, AA Coding Index 60 — strong open coding; Vibe Code Bench and TB2.1 gaps to closed frontier keep it out of the high-80s.
 - **Cost efficiency: 94/100.** ~$0.44/$0.87 with 1M context and open weights is exceptional intelligence-per-dollar for agentic volume; not free (no Zen ID), and premium-tier framing on Benchable notes higher cost percentile vs nano models.
-- **Overall Score: 71/100.** Mean of five quality dims (78+78+84+15+80)/5 = 71.0. Best-fit: private long-horizon **text** agent fleets (Claw-class tasks, 1,000+ tool calls) at open-weight economics — use non-Pro MiMo-V2.5 when you need vision/audio, or a closed frontier model when TB2.1/GDPval/SWE-Verified ceilings matter.
+- **Overall Score: 67/100.** Mean of five quality dims (78+78+84+15+80)/5 = 67 → 67.
 
 ---
 

@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 93.2/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Reasoning: 93.4/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Context window: 95.7/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Multimodal: 77.9/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Coding: 94/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Cost efficiency: 46.2/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
-- **Overall Score: 90.9/100.** Mean of top 10 of 15 reporting sources (ranked by Overall Score).
+- **Tool use: 93.3/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Reasoning: 93.5/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Context window: 96.8/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Multimodal: 77.9/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Coding: 94.1/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Cost efficiency: 43.8/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
+- **Overall Score: 91.2/100.** Mean of top 10 of 16 reporting sources (ranked by Overall Score).
 
 ---
 
 ## Agreement notes
 
-- Based on 15 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Grok 4.6, Laguna S 2.1, Muse Spark 1.3, Solar Pro 4.
-- Average from top 10 by Overall Score: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Laguna S 2.1, Muse Spark 1.3, Solar Pro 4.
-- Excluded bottom 5: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.5 Flash, Gemini 3.6 Flash, Grok 4.6.
+- Based on 16 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Grok 4.6, Laguna S 2.1, Mimo v2.6 Flash, Muse Spark 1.3, Solar Pro 4.
+- Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Terra, Laguna S 2.1, Mimo v2.6 Flash, Muse Spark 1.3, Solar Pro 4.
+- Excluded bottom 6: Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.5 Flash, Gemini 3.6 Flash, Grok 4.6.

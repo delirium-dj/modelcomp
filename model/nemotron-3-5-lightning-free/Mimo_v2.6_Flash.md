@@ -63,7 +63,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 60/100.** SWE-Verified **~52 at 3B active** is the standout efficiency win; Multilingual 39 and TB2.1 24 keep general coding-agent depth mid.
 - **Cost efficiency: 100/100.** **Free Zen** (meta) + OpenMDW-1.1 weights + 3B active single-GPU (RTX 5090 class) → maximum.
-- **Overall Score: 55/100.** Mean of five quality dims (50+65+75+15+60)/5 = 53.2 → hmm recompute: (50+65+75+15+60)=265/5=53.0 → **53/100**. Best-fit: free high-volume **execution/sub-agent** layer (formatting, tool hops, light patches) under a frontier planner — NVIDIA's own positioning — not a primary reasoning or terminal-lead model.
+- **Overall Score: 53/100.** Mean of five quality dims (50+65+75+15+60)/5 = 53 → 53.
 
 ---
 

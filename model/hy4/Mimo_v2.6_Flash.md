@@ -60,7 +60,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only declared surface (template rule: 15).
 - **Coding: 84/100.** SWE-Pro 65.7 beats K3, Multilingual 82.9 beats GLM-5.3/K3, DeepSWE 64.3 mid-pack vs K3 67.5 — open-frontier coding with clear gen-over-gen gains; trails closed frontier on some rows and preview-status known issues remain.
 - **Cost efficiency: 100/100.** Apache 2.0 free weights + cheap hosted ~$0.83/$2.50 — self-host/open anchor = 100.
-- **Overall Score: 71/100.** Mean of five quality dims (80+84+96+15+84)/5 = 71.8 → 72... wait recount: (80+84+96+15+84) = 359 / 5 = 71.8 → **72**. Best-fit: private 1M-context coding/productivity agents you can self-host at open-weight cost; treat as preview (over-verification, verbose reasoning) and re-bench after a stable Hy4 ships.
+- **Overall Score: 72/100.** Mean of five quality dims (80+84+96+15+84)/5 = 71.8 → 72.
 
 ---
 
