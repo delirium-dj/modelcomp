@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 67.7/100.** Mean of 10 reporting source(s).
-- **Reasoning: 70.6/100.** Mean of 10 reporting source(s).
-- **Context window: 94.8/100.** Mean of 10 reporting source(s).
-- **Multimodal: 87.3/100.** Mean of 10 reporting source(s).
-- **Coding: 67.5/100.** Mean of 10 reporting source(s).
-- **Cost efficiency: 95.7/100.** Mean of 10 reporting source(s).
-- **Overall Score: 77.5/100.** Mean of 10 reporting source(s).
+- **Tool use: 69.8/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Reasoning: 72.2/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Context window: 94.7/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Multimodal: 87.7/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Coding: 69.9/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Cost efficiency: 95.9/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
+- **Overall Score: 78.8/100.** Mean of top 10 of 12 reporting sources (ranked by Overall Score).
 
 ---
 
 ## Agreement notes
 
-- Based on 10 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
-- Average from top 10 by Overall Score: Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
+- Based on 12 reporting source(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, GLM 5.3 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
+- Average from top 10 by Overall Score: Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, GLM 5.3 Flash, MiniMax M3, Muse Spark 1.3, Solar Pro 4.
+- Excluded bottom 2: Claude Sonnet 4.6, Gemini 3.5 Flash.

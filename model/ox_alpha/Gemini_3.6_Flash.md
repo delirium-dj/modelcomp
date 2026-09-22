@@ -1,66 +1,67 @@
 # Ox Alpha — findings by Gemini 3.6 Flash
 
-- Source: OpenCode Zen (`opencode/ox-alpha`)
-- Date: 2026-09-17 (UTC)
+- Source: OpenCode Zen (`opencode/ox-alpha` — revealed as Z.ai GLM-5.3-Flash)
+- Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Ox Alpha
-- **Short description:** Experimental open-weights reasoning model hosted on OpenCode Zen, designed for agentic coding, logic puzzles, and tool-augmented workflows.
-- **Provider / access:** OpenCode Zen (`opencode/ox-alpha`), Chat Completions API.
-- **Release / knowledge:** 2026-07 release; 2025-12 knowledge cutoff.
-- **IDs:** `opencode/ox-alpha`
-- **Context window:** 200,000 tokens input / 32,768 max output; verified via Zen documentation.
-- **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
-- **Architecture:** Open-weights MoE architecture.
+- **Name:** Ox Alpha (GLM-5.3-Flash)
+- **Short description:** Anonymous "stealth" model on OpenCode/OpenRouter (Aug 20–26, 2026), revealed as Z.ai GLM-5.3-Flash on August 26, 2026; open-weights MoE (MIT license, 320B total / 18B active) with hybrid sparse+linear attention, native multimodal (text/image/video), and 1M context.
+- **Provider / access:** OpenCode Zen / Z.ai API / Hugging Face (MIT open-weights). Chat Completions API.
+- **Release / knowledge:** 2026-08-20 (stealth preview), 2026-08-26 (official GLM-5.3-Flash release).
+- **IDs:** `opencode/ox-alpha` (canonical slug `ox_alpha`; underlying `zhipu/glm-5.3-flash`)
+- **Context window:** 1,000,000 tokens (1M); verified via Z.ai documentation.
+- **Modalities:** Text + image + video input; text output; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-08-26):** Open-weights MIT license — self-hosting $0 per token; API ~1/10 of flagship GLM-5.3.
+- **Architecture:** Open-weights MoE (320B total / 18B active parameters); hybrid sparse + linear attention; trained on 30T-token multimodal dataset.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **62.0%**
-- Tau3-Banking / Tau2-Bench: **58.0%**
-- GDPval-AA: **1250**
+- Terminal-Bench 2.1: **84.3%** (Z.ai official benchmark release, August 2026)
+- AutomationBench: **48.8%** (Z.ai published, 2026 — vs GLM-5.2 at 26.2%)
+- Terminal-Bench 3.0: **28.3%** (GLM-5.3 flagship reference score)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public Elo score found
 - Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **66.0**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **76.0%**
-- HLE: **20.0%**
-- LCR / MLCR: **68.0%**
-- CritPt: **55.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **49.0 / #42**
-- Omniscience Accuracy / Hallucination Rate: **86.0% / 4.2%**
+- GPQA Diamond: no verified public score found for Flash specifically
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Early stealth benchmark claims (80% DeepSWE) were based on 10-task subsets — not representative
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **54.0%**
-- LiveCodeBench: **72.0%**
-- SciCode / AA-SciCode: **38.0%**
-- Vibe Code Bench: **35.0%**
-- DeepSWE / Coding Index / other: **58.0%**
+- DeepSWE v1.1: **63.4–66.9%** (Z.ai published comprehensive eval, August 2026)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
 
 Long context:
 
-- MRCR / RULER: **96.0%** retrieval accuracy across 200K window
+- 1M token context window with hybrid sparse+linear attention; no MRCR/RULER retrieval benchmark published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Reliable function calling and agent task execution.
-- **Reasoning: 72/100.** Solid GPQA score (76%) and reasoning ability.
-- **Context window: 70/100.** 200K token context window mapped to 70/100 tier.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 70/100.** Good LiveCodeBench (72%) and solid coding performance.
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 59/100.** Reliable zero-cost model for daily coding and agent tasks.
+- **Tool use: 83/100.** TB2.1 84.3% approaches the frontier threshold (ref ~88%+ = 90–100); AutomationBench 48.8 is solid. Scored 83.
+- **Reasoning: 80/100.** No verified GPQA/HLE for Ox Alpha / GLM-5.3-Flash specifically. TB2.1 84.3% demonstrates solid agentic reasoning. Scored 80.
+- **Context window: 95/100.** 1,000,000 tokens (≥1M) → 95–100; scored 95.
+- **Multimodal: 80/100.** Text + image + video input confirmed. Per methodology: image+video in = 75–90; scored 80.
+- **Coding: 82/100.** DeepSWE 63.4–66.9% is high mid-tier; TB2.1 84.3% approaches frontier. Scored 82 using Z.ai comprehensive eval.
+- **Cost efficiency: 98/100.** Open-weights MIT license for self-hosting = near $0; API ~1/10 flagship cost. Scored 98.
+- **Overall Score: 84/100.** Mean of (Tool 83 + Reasoning 80 + Context 95 + Multimodal 80 + Coding 82) / 5 = 420 / 5 = 84.0 → 84. Best-fit: cost-efficient open-weights model for agentic coding and multimodal workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
-- Method: Public internet research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-22
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

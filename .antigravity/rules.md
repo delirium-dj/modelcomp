@@ -16,7 +16,7 @@ To ensure instant context warming, zero-token re-scanning, and deterministic cac
 
 2. **The `/kickstart` Slash Command:**
    - Command: `/kickstart`
-   - Workflow file: `.antigravity/workflows/kickstart.md` (and `.agents/workflows/kickstart.md`)
+    - Workflow file: `.antigravity/workflows/kickstart.md`
    - Effect: Reads `.antigravity/history/project-map.md`, `.antigravity/history/dependency-graph.md`, and `.antigravity/history/last-lint-result.json` in a single fixed step at conversation start.
 
 3. **Check-First Logic:**
