@@ -1,0 +1,258 @@
+[
+  {
+    "Slug": "muse-spark-1.3-free",
+    "Score": 91.9
+  },
+  {
+    "Slug": "gemini-3.8-flash",
+    "Score": 91.1
+  },
+  {
+    "Slug": "gemini-3.1-pro",
+    "Score": 90.9
+  },
+  {
+    "Slug": "gpt-6-astra",
+    "Score": 89.8
+  },
+  {
+    "Slug": "claude-mythos-5.1",
+    "Score": 89.7
+  },
+  {
+    "Slug": "claude-opus-5",
+    "Score": 89.4
+  },
+  {
+    "Slug": "gpt-5.6-sol",
+    "Score": 89.2
+  },
+  {
+    "Slug": "gemini-3.7-flash",
+    "Score": 88.8
+  },
+  {
+    "Slug": "claude-fable-5.1",
+    "Score": 88.7
+  },
+  {
+    "Slug": "gpt-5.6-terra",
+    "Score": 88.5
+  },
+  {
+    "Slug": "kimi-k3",
+    "Score": 88.2
+  },
+  {
+    "Slug": "muse-spark-1.2-free",
+    "Score": 88.1
+  },
+  {
+    "Slug": "gemini-3.6-flash",
+    "Score": 86.8
+  },
+  {
+    "Slug": "gemini-3-flash",
+    "Score": 86.3
+  },
+  {
+    "Slug": "claude-sonnet-5",
+    "Score": 85.9
+  },
+  {
+    "Slug": "gemini-3.5-flash",
+    "Score": 85.7
+  },
+  {
+    "Slug": "gpt-5.5",
+    "Score": 85.0
+  },
+  {
+    "Slug": "claude-opus-4.6",
+    "Score": 83.9
+  },
+  {
+    "Slug": "claude-opus-4.8",
+    "Score": 83.9
+  },
+  {
+    "Slug": "grok-4.6",
+    "Score": 83.8
+  },
+  {
+    "Slug": "qwen-3.8",
+    "Score": 83.5
+  },
+  {
+    "Slug": "qwen3.8-max",
+    "Score": 82.8
+  },
+  {
+    "Slug": "minimax-m3",
+    "Score": 82.6
+  },
+  {
+    "Slug": "gemini-2.5-pro",
+    "Score": 81.7
+  },
+  {
+    "Slug": "claude-sonnet-4.6",
+    "Score": 81.3
+  },
+  {
+    "Slug": "gemini-3.1-flash",
+    "Score": 81.3
+  },
+  {
+    "Slug": "deepseek-v4.1-flash",
+    "Score": 81.1
+  },
+  {
+    "Slug": "gpt-5.4",
+    "Score": 80.7
+  },
+  {
+    "Slug": "grok-4.5",
+    "Score": 80.2
+  },
+  {
+    "Slug": "deepseek-v4-pro",
+    "Score": 80.0
+  },
+  {
+    "Slug": "deepseek-v4-vision-exp",
+    "Score": 79.7
+  },
+  {
+    "Slug": "ox_alpha",
+    "Score": 79.6
+  },
+  {
+    "Slug": "qwen-3.8-flash",
+    "Score": 79.5
+  },
+  {
+    "Slug": "gemma-4-31b",
+    "Score": 78.9
+  },
+  {
+    "Slug": "qwen-3.7",
+    "Score": 78.7
+  },
+  {
+    "Slug": "kimi-k2.8-preview",
+    "Score": 78.5
+  },
+  {
+    "Slug": "glm-5.3-flash",
+    "Score": 78.4
+  },
+  {
+    "Slug": "union-alpha",
+    "Score": 77.8
+  },
+  {
+    "Slug": "gpt-5.6-luna",
+    "Score": 77.6
+  },
+  {
+    "Slug": "muse-spark-1.1",
+    "Score": 77.0
+  },
+  {
+    "Slug": "mimo-v2.5-free",
+    "Score": 76.7
+  },
+  {
+    "Slug": "gemini-2.5-flash",
+    "Score": 76.5
+  },
+  {
+    "Slug": "glm-5.2-coding",
+    "Score": 76.5
+  },
+  {
+    "Slug": "gemini-3.5-flash-lite",
+    "Score": 76.4
+  },
+  {
+    "Slug": "gemini-3.8-flash-cyber",
+    "Score": 75.8
+  },
+  {
+    "Slug": "mimo-v2.6-free",
+    "Score": 75.7
+  },
+  {
+    "Slug": "gemini-3.1-flash-lite",
+    "Score": 74.6
+  },
+  {
+    "Slug": "gemini-3.8-live",
+    "Score": 74.2
+  },
+  {
+    "Slug": "hy3",
+    "Score": 73.9
+  },
+  {
+    "Slug": "xiaomi-mimo-v2.5-pro",
+    "Score": 73.8
+  },
+  {
+    "Slug": "nemotron-3-ultra-free",
+    "Score": 72.7
+  },
+  {
+    "Slug": "mistral-medium-3.5",
+    "Score": 72.5
+  },
+  {
+    "Slug": "glm-5.2",
+    "Score": 72.0
+  },
+  {
+    "Slug": "glm-5.3-free",
+    "Score": 71.8
+  },
+  {
+    "Slug": "gemini-2.5-flash-lite",
+    "Score": 71.7
+  },
+  {
+    "Slug": "glm-5.1-coding",
+    "Score": 71.4
+  },
+  {
+    "Slug": "hy4",
+    "Score": 69.3
+  },
+  {
+    "Slug": "hy3-preview",
+    "Score": 68.7
+  },
+  {
+    "Slug": "minimax-m2.7",
+    "Score": 66.6
+  },
+  {
+    "Slug": "laguna-s-2.1",
+    "Score": 65.9
+  },
+  {
+    "Slug": "solar-pro-4",
+    "Score": 64.1
+  },
+  {
+    "Slug": "ling-3.0-flash-fin-free",
+    "Score": 59.9
+  },
+  {
+    "Slug": "big-pickle",
+    "Score": 59.6
+  },
+  {
+    "Slug": "nemotron-3.5-lightning-free",
+    "Score": 57.2
+  }
+]
