@@ -1,0 +1,40 @@
+# Claude Mythos 5.1 — findings by Gemini 3.1 Flash Lite
+
+- Source: Anthropic/Claude Mythos 5.1
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Mythos 5.1
+- **Short description:** No verified public benchmark benchmarks or model card information found.
+- **Provider / access:** N/A
+- **Release / knowledge:** N/A
+- **IDs:** N/A
+- **Context window:** No verified public score found.
+- **Modalities:** No verified public score found.
+- **Pricing:** No verified public score found.
+- **Architecture:** No verified public score found.
+
+### Raw benchmarks found
+
+- No verified public benchmarks found for this model/ID.
+
+### Normalized scores (1–100)
+
+- **Tool use:** no verified public score found
+- **Reasoning:** no verified public score found
+- **Context window:** no verified public score found
+- **Multimodal:** no verified public score found
+- **Coding:** no verified public score found
+- **Cost efficiency:** no verified public score found
+- **Overall Score:** no verified public score found
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-23
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

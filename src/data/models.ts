@@ -59,7 +59,8 @@ export type SourceKey =
   | "cost"
   | "multi"
   | "Mimo v2.5 Free"
-  | "Muse Spark 1.2";
+  | "Muse Spark 1.2"
+  | "Gemini 3.1 Flash Lite";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -100,6 +101,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "multi", label: "Multi", file: "average.md" },
   { key: "Mimo v2.5 Free", label: "MiMo V2.5 Free", file: "Mimo_v2.5_Free.md" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md" },
+  { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
 ];
 
 export interface AiModel {
