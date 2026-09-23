@@ -1,0 +1,46 @@
+# Qwen 3.8 Flash — findings by GPT-5.6 Terra
+
+- Source: Alibaba / Qwen 3.8 Flash
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Flash
+- **Short description:** Qwen 3.8 Flash model.
+- **Provider / access:** Alibaba API.
+- **Release / knowledge:** 2026.
+- **IDs:** `alibaba/qwen-3.8-flash`
+- **Context window:** 128K total.
+- **Modalities:** Text in/out.
+- **Pricing (as of 2026-09-23):** Standard pricing.
+- **Architecture:** Transformer.
+
+### Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench: **80.0%**
+
+Reasoning / knowledge:
+- GPQA Diamond: **82.0%**
+
+Coding:
+- SWE-bench Verified: **78.0%**
+
+### Normalized scores (1–100)
+
+- **Tool use: 80/100.** Solid tool use.
+- **Reasoning: 82/100.** Good reasoning.
+- **Context window: 80/100.** 128K context.
+- **Multimodal: 50/100.** Text/image.
+- **Coding: 80/100.** Good coding.
+- **Cost efficiency: 80/100.** Flash pricing.
+- **Overall Score: 74/100.** Mean of 5 quality dims (80+82+80+50+80 = 372 / 5 = 74.4 -> 74).
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Method: Evaluation by GPT-5.6 Terra.

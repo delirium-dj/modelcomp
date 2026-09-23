@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gemini-3-flash",
+  "name": "Gemini 3 Flash",
+  "short": "Gemini 3 Flash model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

@@ -1,0 +1,56 @@
+# Qwen 3.8 — findings by Gemini 3.5 Flash Lite
+
+- Source: Qwen/Qwen 3.8
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8
+- **Short description:** Placeholder for Qwen 3.8; zero verified public benchmarks found.
+- **Provider / access:** Unverified.
+- **Release / knowledge:** Unverified.
+- **IDs:** `qwen/qwen-3.8`
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing:** Unknown.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-23
+- Method: Self-exclusion due to zero verified public benchmark data.

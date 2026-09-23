@@ -175,13 +175,19 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
 
       {series.length > 0 && (
         <div class="mt-6 overflow-x-auto">
-          <table class="w-full min-w-[560px] border-collapse text-sm">
+          <table class="w-full min-w-[560px] table-fixed border-collapse text-sm">
+            <colgroup>
+              <col class="w-[180px]" />
+              {series.map((s) => (
+                <col key={s.model.id} />
+              ))}
+            </colgroup>
             <caption class="mb-2 text-left font-semibold text-slate-800 dark:text-slate-200">
               Exact scores for the selected models
             </caption>
             <thead>
               <tr>
-                <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
                   Dimension
                 </th>
                 {series.map((s) => {
@@ -190,7 +196,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                     <th
                       key={s.model.id}
                       scope="col"
-                      class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                      class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
                     >
                       <span
                         aria-hidden="true"
@@ -225,7 +231,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                     {r.label}
                   </th>
                   {series.map((s) => (
-                    <td key={s.model.id} class="px-3 py-2 text-slate-800 dark:text-slate-200">
+                    <td key={s.model.id} class="break-words px-3 py-2 text-slate-800 dark:text-slate-200">
                       {s.hasData ? r.get(s.model) : "N/A"}
                     </td>
                   ))}
@@ -236,7 +242,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   Pricing / 1M
                 </th>
                 {series.map((s) => (
-                  <td key={s.model.id} class="px-3 py-2 align-top text-slate-800 dark:text-slate-200">
+                  <td key={s.model.id} class="break-words px-3 py-2 align-top text-slate-800 dark:text-slate-200">
                     <ul class="m-0 list-none space-y-0.5 p-0">
                       {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
                         <li key={tier}>{tier}</li>

@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gpt-5.4",
+  "name": "Gpt 5.4",
+  "short": "Gpt 5.4 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

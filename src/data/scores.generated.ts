@@ -44,7 +44,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 92, reasoning: 95, context: 96, multimodal: 65, coding: 96, cost: 35, overall: 89 },
     "Muse_Spark_1.3.md": { tool: 90, reasoning: 95, context: 100, multimodal: 65, coding: 93, cost: 30, overall: 89 },
     "Solar_Pro_4.md": { tool: 95, reasoning: 95, context: 100, multimodal: 75, coding: 92, cost: 45, overall: 91 },
-    "average.md": { tool: 88.1, reasoning: 90.9, context: 94.9, multimodal: 74.6, coding: 85.4, cost: 42, overall: 86.9 },
+    "average.md": { tool: 89.8, reasoning: 92.7, context: 94, multimodal: 75.3, coding: 91, cost: 44, overall: 88.7 },
   },
   "claude-mythos-5.1": {
     "Big_Pickle.md": { tool: 92, reasoning: 93, context: 96, multimodal: 68, coding: 92, cost: 30, overall: 88 },
@@ -81,7 +81,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Mimo_v2.6_Flash.md": { tool: 89, reasoning: 91, context: 91, multimodal: 65, coding: 88, cost: 40, overall: 85 },
     "Muse_Spark_1.3.md": { tool: 92, reasoning: 93, context: 75, multimodal: 60, coding: 90, cost: 45, overall: 82 },
     "Solar_Pro_4.md": { tool: 70, reasoning: 75, context: 100, multimodal: 75, coding: 70, cost: 55, overall: 78 },
-    "average.md": { tool: 86.5, reasoning: 90, context: 77.7, multimodal: 71.2, coding: 87.7, cost: 38.8, overall: 82.7 },
+    "average.md": { tool: 88.2, reasoning: 90.4, context: 79.2, multimodal: 72.4, coding: 88.4, cost: 40.6, overall: 83.9 },
   },
   "claude-opus-4.8": {
     "Big_Pickle.md": { tool: 87, reasoning: 87, context: 84, multimodal: 82, coding: 88, cost: 78, overall: 86 },
@@ -100,7 +100,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Ling_3.0.md": { tool: 86, reasoning: 86, context: 88, multimodal: 84, coding: 90, cost: 75, overall: 87 },
     "Muse_Spark_1.3.md": { tool: 88, reasoning: 88, context: 70, multimodal: 60, coding: 88, cost: 45, overall: 79 },
     "Solar_Pro_4.md": { tool: 92, reasoning: 92, context: 100, multimodal: 75, coding: 90, cost: 55, overall: 90 },
-    "average.md": { tool: 88, reasoning: 90.5, context: 74.8, multimodal: 71.8, coding: 88.2, cost: 40.8, overall: 82.6 },
+    "average.md": { tool: 90, reasoning: 91, context: 75.8, multimodal: 73.2, coding: 90, cost: 43, overall: 83.9 },
   },
   "claude-opus-5": {
     "Big_Pickle.md": { tool: 92, reasoning: 93, context: 85, multimodal: 78, coding: 93, cost: 70, overall: 88 },
@@ -121,7 +121,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 90, reasoning: 92, context: 96, multimodal: 65, coding: 89, cost: 58, overall: 86 },
     "Muse_Spark_1.3.md": { tool: 93, reasoning: 94, context: 100, multimodal: 65, coding: 92, cost: 45, overall: 89 },
     "Solar_Pro_4.md": { tool: 95, reasoning: 95, context: 100, multimodal: 75, coding: 95, cost: 55, overall: 92 },
-    "average.md": { tool: 92.1, reasoning: 93.9, context: 96.1, multimodal: 74.1, coding: 90.1, cost: 48.3, overall: 89.2 },
+    "average.md": { tool: 92.3, reasoning: 93.7, context: 95.5, multimodal: 73.2, coding: 92.5, cost: 48, overall: 89.4 },
   },
   "claude-sonnet-4.6": {
     "Big_Pickle.md": { tool: 82, reasoning: 84, context: 84, multimodal: 80, coding: 80, cost: 84, overall: 82 },
@@ -142,7 +142,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 82, reasoning: 80, context: 70, multimodal: 60, coding: 82, cost: 60, overall: 75 },
     "Muse_Spark_1.3.md": { tool: 80, reasoning: 78, context: 70, multimodal: 60, coding: 78, cost: 60, overall: 73 },
     "Solar_Pro_4.md": { tool: 70, reasoning: 75, context: 100, multimodal: 75, coding: 70, cost: 65, overall: 78 },
-    "average.md": { tool: 84, reasoning: 84.2, context: 73.2, multimodal: 68.8, coding: 83.8, cost: 61, overall: 78.9 },
+    "average.md": { tool: 85.5, reasoning: 85.3, context: 74, multimodal: 69.8, coding: 85.5, cost: 61.3, overall: 80.1 },
   },
   "claude-sonnet-5": {
     "Big_Pickle.md": { tool: 84, reasoning: 84, context: 85, multimodal: 84, coding: 84, cost: 83, overall: 84 },
@@ -164,7 +164,12 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 85, reasoning: 82, context: 70, multimodal: 60, coding: 85, cost: 60, overall: 76 },
     "Muse_Spark_1.3.md": { tool: 86, reasoning: 84, context: 100, multimodal: 62, coding: 84, cost: 55, overall: 83 },
     "Solar_Pro_4.md": { tool: 88, reasoning: 92, context: 100, multimodal: 75, coding: 88, cost: 75, overall: 89 },
-    "average.md": { tool: 85.8, reasoning: 85.8, context: 95.3, multimodal: 74.7, coding: 83, cost: 65, overall: 84.9 },
+    "average.md": { tool: 87.4, reasoning: 87, context: 94.4, multimodal: 76.6, coding: 88.2, cost: 66, overall: 86.6 },
+  },
+  "deepseek-v4-pro": {
+    "Big_Pickle.md": { tool: 90, reasoning: 88, context: 90, multimodal: 15, coding: 86, cost: 82, overall: 74 },
+    "GPT_5.6_Terra.md": { tool: 90, reasoning: 88, context: 90, multimodal: 15, coding: 86, cost: 82, overall: 74 },
+    "average.md": { tool: 90, reasoning: 88, context: 90, multimodal: 15, coding: 86, cost: 82, overall: 74 },
   },
   "deepseek-v4-vision-exp": {
     "Big_Pickle.md": { tool: 76, reasoning: 81, context: 84, multimodal: 70, coding: 73, cost: 95, overall: 77 },
@@ -201,7 +206,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Mimo_v2.6_Flash.md": { tool: 88, reasoning: 87, context: 85, multimodal: 75, coding: 94, cost: 98, overall: 86 },
     "Muse_Spark_1.3.md": { tool: 75, reasoning: 72, context: 100, multimodal: 65, coding: 75, cost: 85, overall: 77 },
     "Solar_Pro_4.md": { tool: 88, reasoning: 90, context: 100, multimodal: 75, coding: 88, cost: 95, overall: 88 },
-    "average.md": { tool: 79.2, reasoning: 78.2, context: 93.5, multimodal: 72, coding: 75.8, cost: 91.7, overall: 79.6 },
+    "average.md": { tool: 79.4, reasoning: 79.4, context: 92.2, multimodal: 73.4, coding: 82, cost: 92, overall: 81.1 },
   },
   "gemini-2.5-flash": {
     "Big_Pickle.md": { tool: 62, reasoning: 77, context: 84, multimodal: 80, coding: 67, cost: 85, overall: 74 },
@@ -251,7 +256,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 80, reasoning: 82, context: 95, multimodal: 95, coding: 80, cost: 88, overall: 86 },
     "Muse_Spark_1.3.md": { tool: 72, reasoning: 72, context: 100, multimodal: 85, coding: 72, cost: 95, overall: 80 },
     "Solar_Pro_4.md": { tool: 55, reasoning: 55, context: 90, multimodal: 50, coding: 55, cost: 70, overall: 61 },
-    "average.md": { tool: 73, reasoning: 74.2, context: 97.8, multimodal: 88.6, coding: 64, cost: 96.8, overall: 79.4 },
+    "average.md": { tool: 73.3, reasoning: 74.8, context: 97.3, multimodal: 88.3, coding: 73.5, cost: 96, overall: 81.3 },
   },
   "gemini-3.1-flash-lite": {
     "Big_Pickle.md": { tool: 74, reasoning: 78, context: 68, multimodal: 72, coding: 65, cost: 92, overall: 71 },
@@ -304,7 +309,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 82, reasoning: 83, context: 95, multimodal: 95, coding: 82, cost: 88, overall: 87 },
     "Muse_Spark_1.3.md": { tool: 74, reasoning: 74, context: 100, multimodal: 85, coding: 74, cost: 95, overall: 81 },
     "Solar_Pro_4.md": { tool: 85, reasoning: 85, context: 100, multimodal: 95, coding: 82, cost: 70, overall: 89 },
-    "average.md": { tool: 80, reasoning: 81.2, context: 97.3, multimodal: 89.8, coding: 74.5, cost: 93.7, overall: 84.6 },
+    "average.md": { tool: 80, reasoning: 81.8, context: 96.8, multimodal: 89.8, coding: 80, cost: 92.4, overall: 85.7 },
   },
   "gemini-3.5-flash-lite": {
     "Big_Pickle.md": { tool: 71, reasoning: 82, context: 82, multimodal: 84, coding: 71, cost: 95, overall: 78 },
@@ -323,7 +328,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 72, reasoning: 76, context: 95, multimodal: 90, coding: 74, cost: 95, overall: 81 },
     "Muse_Spark_1.3.md": { tool: 66, reasoning: 66, context: 100, multimodal: 85, coding: 66, cost: 98, overall: 77 },
     "Solar_Pro_4.md": { tool: 70, reasoning: 70, context: 100, multimodal: 95, coding: 68, cost: 95, overall: 81 },
-    "average.md": { tool: 67.8, reasoning: 69.5, context: 97.3, multimodal: 87.8, coding: 56.5, cost: 98.5, overall: 76 },
+    "average.md": { tool: 66.3, reasoning: 68.7, context: 96.3, multimodal: 87, coding: 66.7, cost: 98, overall: 77.3 },
   },
   "gemini-3.6-flash": {
     "Big_Pickle.md": { tool: 82, reasoning: 85, context: 83, multimodal: 84, coding: 82, cost: 86, overall: 83 },
@@ -343,7 +348,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Ling_3.0.md": { tool: 84, reasoning: 90, context: 75, multimodal: 65, coding: 82, cost: 85, overall: 79 },
     "Muse_Spark_1.3.md": { tool: 76, reasoning: 78, context: 100, multimodal: 85, coding: 76, cost: 95, overall: 83 },
     "Solar_Pro_4.md": { tool: 78, reasoning: 65, context: 100, multimodal: 95, coding: 75, cost: 90, overall: 83 },
-    "average.md": { tool: 82.2, reasoning: 83.7, context: 96.7, multimodal: 90, coding: 75, cost: 94.5, overall: 85.4 },
+    "average.md": { tool: 82.2, reasoning: 84.4, context: 96, multimodal: 90, coding: 82.4, cost: 93.4, overall: 86.9 },
   },
   "gemini-3.7-flash": {
     "Big_Pickle.md": { tool: 86, reasoning: 90, context: 86, multimodal: 84, coding: 86, cost: 78, overall: 86 },
@@ -364,7 +369,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 84, reasoning: 84, context: 96, multimodal: 88, coding: 84, cost: 82, overall: 87 },
     "Muse_Spark_1.3.md": { tool: 78, reasoning: 80, context: 100, multimodal: 85, coding: 78, cost: 95, overall: 84 },
     "Solar_Pro_4.md": { tool: 82, reasoning: 80, context: 100, multimodal: 95, coding: 80, cost: 90, overall: 87 },
-    "average.md": { tool: 85.9, reasoning: 86.6, context: 97.6, multimodal: 89.7, coding: 84.1, cost: 93.4, overall: 88.7 },
+    "average.md": { tool: 85.5, reasoning: 86.5, context: 97.2, multimodal: 89.7, coding: 85.7, cost: 92.3, overall: 88.8 },
   },
   "gemini-3.8-flash": {
     "Big_Pickle.md": { tool: 88, reasoning: 92, context: 92, multimodal: 90, coding: 88, cost: 88, overall: 90 },
@@ -386,7 +391,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.3.md": { tool: 88, reasoning: 90, context: 90, multimodal: 89, coding: 88, cost: 92, overall: 89 },
     "Ox_Alpha.md": { tool: 88, reasoning: 84, context: 85, multimodal: 85, coding: 88, cost: 90, overall: 86 },
     "Solar_Pro_4.md": { tool: 90, reasoning: 88, context: 100, multimodal: 95, coding: 85, cost: 90, overall: 92 },
-    "average.md": { tool: 89.6, reasoning: 89.3, context: 95.9, multimodal: 91.6, coding: 89.3, cost: 91.9, overall: 91.1 },
+    "average.md": { tool: 89.3, reasoning: 89.2, context: 95.2, multimodal: 91.8, coding: 90.5, cost: 90.5, overall: 91.1 },
   },
   "gemini-3.8-flash-cyber": {
     "Big_Pickle.md": { tool: 75, reasoning: 79, context: 88, multimodal: 82, coding: 73, cost: 75, overall: 79 },
@@ -394,6 +399,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "DeepSeek_4.1_Flash.md": { tool: 90, reasoning: 70, context: 92, multimodal: 15, coding: 85, cost: 50, overall: 70 },
     "GLM_5.2_Coding.md": { tool: 80, reasoning: 84, context: 85, multimodal: 85, coding: 80, cost: 90, overall: 82.8 },
     "GLM_5.3_Flash.md": { tool: 78, reasoning: 70, context: 85, multimodal: 20, coding: 78, cost: 60, overall: 66.2 },
+    "GPT_5.6_Terra.md": { tool: 86, reasoning: 72, context: 45, multimodal: 35, coding: 82, cost: 50, overall: 64 },
     "Gemini_3.5_Flash_Lite.md": { tool: 94, reasoning: 95, context: 95, multimodal: 80, coding: 95, cost: 25, overall: 91.8 },
     "Gemini_3.6_Flash.md": { tool: 85, reasoning: 82, context: 85, multimodal: 40, coding: 88, cost: 50, overall: 76 },
     "Gemini_3.7_Flash.md": { tool: 82, reasoning: 81, context: 94, multimodal: 85, coding: 83, cost: 86, overall: 85 },
@@ -403,7 +409,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 80, reasoning: 82, context: 95, multimodal: 90, coding: 80, cost: 88, overall: 85 },
     "Muse_Spark_1.3.md": { tool: 78, reasoning: 80, context: 100, multimodal: 50, coding: 84, cost: 40, overall: 78 },
     "Solar_Pro_4.md": { tool: 85, reasoning: 70, context: 100, multimodal: 50, coding: 85, cost: 50, overall: 78 },
-    "average.md": { tool: 81.7, reasoning: 81, context: 93, multimodal: 58.3, coding: 85, cost: 58.7, overall: 79.7 },
+    "average.md": { tool: 82.8, reasoning: 78.8, context: 81, multimodal: 52.5, coding: 84.3, cost: 56.5, overall: 75.8 },
   },
   "gemini-3.8-live": {
     "Big_Pickle.md": { tool: 76, reasoning: 76, context: 82, multimodal: 72, coding: 52, cost: 72, overall: 72 },
@@ -483,6 +489,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "GLM_5.2_Coding.md": { tool: 84, reasoning: 82, context: 100, multimodal: 75, coding: 86, cost: 90, overall: 85.4 },
     "GLM_5.3_Flash.md": { tool: 92, reasoning: 85, context: 100, multimodal: 85, coding: 90, cost: 95, overall: 90 },
     "GPT_5.6_Terra.md": { tool: 91, reasoning: 90, context: 80, multimodal: 15, coding: 90, cost: 94, overall: 73 },
+    "Gemini_3.5_Flash_Lite.md": { tool: 82, reasoning: 78, context: 76, multimodal: 15, coding: 79, cost: 100, overall: 66 },
     "Gemini_3.6_Flash.md": { tool: 85, reasoning: 84, context: 96, multimodal: 75, coding: 85, cost: 100, overall: 85 },
     "Gemini_3.7_Flash.md": { tool: 78, reasoning: 77, context: 88, multimodal: 81, coding: 77, cost: 95, overall: 80.2 },
     "Gemini_3.8_Flash.md": { tool: 82, reasoning: 80, context: 70, multimodal: 15, coding: 84, cost: 100, overall: 66 },
@@ -504,6 +511,11 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Mimo_v2.6_Flash.md": { tool: 90, reasoning: 86, context: 68, multimodal: 15, coding: 90, cost: 100, overall: 70 },
     "Muse_Spark_1.3.md": { tool: 82, reasoning: 76, context: 70, multimodal: 15, coding: 80, cost: 100, overall: 65 },
     "average.md": { tool: 80.7, reasoning: 80, context: 76, multimodal: 36, coding: 81.7, cost: 100, overall: 71.1 },
+  },
+  "gpt-5.4": {
+    "Big_Pickle.md": { tool: 85, reasoning: 90, context: 92, multimodal: 72, coding: 84, cost: 65, overall: 85 },
+    "GPT_5.6_Terra.md": { tool: 85, reasoning: 85, context: 80, multimodal: 50, coding: 85, cost: 60, overall: 77 },
+    "average.md": { tool: 85, reasoning: 85, context: 80, multimodal: 50, coding: 85, cost: 60, overall: 77 },
   },
   "gpt-5.5": {
     "Big_Pickle.md": { tool: 67, reasoning: 67, context: 71, multimodal: 61, coding: 67, cost: 52, overall: 67 },
@@ -567,7 +579,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 84, reasoning: 82, context: 96, multimodal: 50, coding: 84, cost: 68, overall: 79 },
     "Muse_Spark_1.3.md": { tool: 86, reasoning: 88, context: 100, multimodal: 90, coding: 86, cost: 50, overall: 90 },
     "Solar_Pro_4.md": { tool: 75, reasoning: 70, context: 70, multimodal: 60, coding: 75, cost: 70, overall: 70 },
-    "average.md": { tool: 88.4, reasoning: 89.3, context: 96.3, multimodal: 79.7, coding: 88.3, cost: 64.6, overall: 88.5 },
+    "average.md": { tool: 88.5, reasoning: 89.2, context: 95.7, multimodal: 79.7, coding: 89.3, cost: 64.5, overall: 88.5 },
   },
   "gpt-6-astra": {
     "Big_Pickle.md": { tool: 90, reasoning: 96, context: 96, multimodal: 86, coding: 85, cost: 55, overall: 91 },
@@ -588,7 +600,12 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 93, reasoning: 96, context: 96, multimodal: 55, coding: 91, cost: 35, overall: 86 },
     "Muse_Spark_1.3.md": { tool: 92, reasoning: 94, context: 100, multimodal: 65, coding: 92, cost: 35, overall: 89 },
     "Solar_Pro_4.md": { tool: 92, reasoning: 95, context: 100, multimodal: 60, coding: 90, cost: 35, overall: 87 },
-    "average.md": { tool: 93, reasoning: 95.6, context: 97.1, multimodal: 68.9, coding: 94.3, cost: 35.9, overall: 89.9 },
+    "average.md": { tool: 93.5, reasoning: 95.8, context: 96.7, multimodal: 69.5, coding: 93.3, cost: 36.8, overall: 89.8 },
+  },
+  "grok-4.5": {
+    "Big_Pickle.md": { tool: 87, reasoning: 87, context: 88, multimodal: 65, coding: 84, cost: 85, overall: 82 },
+    "GPT_5.6_Terra.md": { tool: 82, reasoning: 84, context: 80, multimodal: 50, coding: 82, cost: 65, overall: 75.6 },
+    "average.md": { tool: 82, reasoning: 84, context: 80, multimodal: 50, coding: 82, cost: 65, overall: 75.6 },
   },
   "grok-4.6": {
     "Big_Pickle.md": { tool: 87, reasoning: 88, context: 82, multimodal: 80, coding: 85, cost: 82, overall: 84 },
@@ -639,6 +656,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Big_Pickle.md": { tool: 80, reasoning: 84, context: 95, multimodal: 15, coding: 82, cost: 85, overall: 71 },
     "DeepSeek_4.1_Flash.md": { tool: 87, reasoning: 87, context: 95, multimodal: 15, coding: 84, cost: 90, overall: 74 },
     "GLM_5.3_Flash.md": { tool: 87, reasoning: 89, context: 95, multimodal: 15, coding: 87, cost: 91, overall: 75 },
+    "Gemini_3.5_Flash_Lite.md": { tool: 75, reasoning: 72, context: 90, multimodal: 15, coding: 74, cost: 60, overall: 65.2 },
     "Gemini_3.6_Flash.md": { tool: 86, reasoning: 91, context: 96, multimodal: 15, coding: 86, cost: 90, overall: 75 },
     "Gemini_3.7_Flash.md": { tool: 55, reasoning: 58, context: 75, multimodal: 50, coding: 52, cost: 75, overall: 58 },
     "Ling_3.0.md": { tool: 75, reasoning: 80, context: 90, multimodal: 15, coding: 75, cost: 100, overall: 67 },
@@ -675,11 +693,13 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 87, reasoning: 88, context: 98, multimodal: 75, coding: 89, cost: 42, overall: 87 },
     "Muse_Spark_1.3.md": { tool: 84, reasoning: 86, context: 100, multimodal: 75, coding: 84, cost: 40, overall: 86 },
     "Solar_Pro_4.md": { tool: 65, reasoning: 82, context: 93, multimodal: 70, coding: 65, cost: 55, overall: 75 },
-    "average.md": { tool: 87.9, reasoning: 90.3, context: 97.3, multimodal: 77.3, coding: 88.7, cost: 56.1, overall: 88.3 },
+    "average.md": { tool: 87.8, reasoning: 90, context: 96.8, multimodal: 77.7, coding: 88.7, cost: 55.5, overall: 88.2 },
   },
   "laguna-s-2.1": {
+    "Big_Pickle.md": { tool: 73, reasoning: 55, context: 90, multimodal: 15, coding: 73, cost: 98, overall: 61 },
     "DeepSeek_4.1_Flash.md": { tool: 62, reasoning: 52, context: 95, multimodal: 15, coding: 68, cost: 98, overall: 58 },
     "GLM_5.3_Flash.md": { tool: 45, reasoning: 48, context: 92, multimodal: 20, coding: 48, cost: 60, overall: 50.6 },
+    "Gemini_3.5_Flash_Lite.md": { tool: 70, reasoning: 68, context: 82, multimodal: 15, coding: 72, cost: 75, overall: 61.4 },
     "Gemini_3.6_Flash.md": { tool: 75, reasoning: 84, context: 96, multimodal: 15, coding: 83, cost: 90, overall: 71 },
     "Gemini_3.7_Flash.md": { tool: 50, reasoning: 52, context: 75, multimodal: 50, coding: 48, cost: 70, overall: 55 },
     "Ling_3.0.md": { tool: 78, reasoning: 40, context: 98, multimodal: 15, coding: 85, cost: 100, overall: 63 },
@@ -715,7 +735,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "MiniMax_M3.md": { tool: 78, reasoning: 72, context: 70, multimodal: 95, coding: 78, cost: 100, overall: 79 },
     "Muse_Spark_1.3.md": { tool: 78, reasoning: 72, context: 70, multimodal: 95, coding: 78, cost: 100, overall: 79 },
     "Solar_Pro_4.md": { tool: 78, reasoning: 72, context: 70, multimodal: 95, coding: 78, cost: 100, overall: 79 },
-    "average.md": { tool: 77.2, reasoning: 73, context: 72.2, multimodal: 91.6, coding: 70.6, cost: 100, overall: 77 },
+    "average.md": { tool: 77, reasoning: 73.3, context: 72.8, multimodal: 90.8, coding: 76.5, cost: 100, overall: 78.3 },
   },
   "mimo-v2.6-free": {
     "Big_Pickle.md": { tool: 82, reasoning: 68, context: 96, multimodal: 92, coding: 80, cost: 100, overall: 84 },
@@ -762,7 +782,17 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Mimo_v2.6_Flash.md": { tool: 80, reasoning: 82, context: 90, multimodal: 90, coding: 80, cost: 98, overall: 84 },
     "Muse_Spark_1.3.md": { tool: 82, reasoning: 76, context: 100, multimodal: 75, coding: 84, cost: 85, overall: 83 },
     "Solar_Pro_4.md": { tool: 82, reasoning: 82, context: 100, multimodal: 85, coding: 80, cost: 85, overall: 86 },
-    "average.md": { tool: 77.8, reasoning: 77.5, context: 95, multimodal: 78.3, coding: 76, cost: 89.7, overall: 81 },
+    "average.md": { tool: 79.8, reasoning: 78.6, context: 94, multimodal: 79, coding: 81, cost: 89.6, overall: 82.6 },
+  },
+  "mistral-medium-3.5": {
+    "Big_Pickle.md": { tool: 78, reasoning: 68, context: 72, multimodal: 68, coding: 77, cost: 78, overall: 73 },
+    "GPT_5.6_Terra.md": { tool: 80, reasoning: 80, context: 80, multimodal: 50, coding: 80, cost: 70, overall: 74 },
+    "average.md": { tool: 80, reasoning: 80, context: 80, multimodal: 50, coding: 80, cost: 70, overall: 74 },
+  },
+  "muse-spark-1.1": {
+    "Big_Pickle.md": { tool: 85, reasoning: 80, context: 90, multimodal: 88, coding: 79, cost: 88, overall: 84 },
+    "GPT_5.6_Terra.md": { tool: 80, reasoning: 80, context: 80, multimodal: 50, coding: 80, cost: 70, overall: 74 },
+    "average.md": { tool: 80, reasoning: 80, context: 80, multimodal: 50, coding: 80, cost: 70, overall: 74 },
   },
   "muse-spark-1.2-free": {
     "Big_Pickle.md": { tool: 88, reasoning: 88, context: 100, multimodal: 90, coding: 87, cost: 100, overall: 91 },
@@ -784,7 +814,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 88, reasoning: 87, context: 96, multimodal: 90, coding: 88, cost: 100, overall: 90 },
     "Muse_Spark_1.3.md": { tool: 90, reasoning: 88, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 91 },
     "Solar_Pro_4.md": { tool: 90, reasoning: 92, context: 100, multimodal: 90, coding: 88, cost: 100, overall: 92 },
-    "average.md": { tool: 85.9, reasoning: 84.9, context: 96, multimodal: 85.6, coding: 82.6, cost: 100, overall: 86.9 },
+    "average.md": { tool: 86.5, reasoning: 85.7, context: 95.3, multimodal: 87.3, coding: 85.8, cost: 100, overall: 88.1 },
   },
   "muse-spark-1.3-free": {
     "Big_Pickle.md": { tool: 95, reasoning: 92, context: 100, multimodal: 85, coding: 95, cost: 100, overall: 93 },
@@ -807,7 +837,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Muse_Spark_1.2.md": { tool: 94, reasoning: 92, context: 100, multimodal: 85, coding: 95, cost: 100, overall: 93 },
     "Muse_Spark_1.3.md": { tool: 94, reasoning: 92, context: 100, multimodal: 85, coding: 95, cost: 100, overall: 93 },
     "Solar_Pro_4.md": { tool: 85, reasoning: 82, context: 93, multimodal: 75, coding: 88, cost: 95, overall: 85 },
-    "average.md": { tool: 91.9, reasoning: 89.9, context: 98.1, multimodal: 85.6, coding: 92.4, cost: 100, overall: 91.5 },
+    "average.md": { tool: 92.3, reasoning: 90.2, context: 97.8, multimodal: 86.5, coding: 93.2, cost: 100, overall: 91.9 },
   },
   "nemotron-3-ultra-free": {
     "Big_Pickle.md": { tool: 75, reasoning: 72, context: 97, multimodal: 15, coding: 78, cost: 100, overall: 67 },
@@ -842,6 +872,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Claude_Sonnet_4.6.md": { tool: 83, reasoning: 80, context: 95, multimodal: 80, coding: 82, cost: 98, overall: 84 },
     "DeepSeek_4.1_Flash.md": { tool: 88, reasoning: 86, context: 95, multimodal: 88, coding: 86, cost: 92, overall: 89 },
     "GLM_5.3_Flash.md": { tool: 82, reasoning: 78, context: 80, multimodal: 45, coding: 90, cost: 100, overall: 75 },
+    "GPT_5.6_Terra.md": { tool: 75, reasoning: 64, context: 85, multimodal: 60, coding: 75, cost: 100, overall: 72 },
+    "Gemini_3.5_Flash_Lite.md": { tool: 85, reasoning: 83, context: 95, multimodal: 75, coding: 84, cost: 100, overall: 84.4 },
     "Gemini_3.7_Flash.md": { tool: 72, reasoning: 74, context: 81, multimodal: 72, coding: 73, cost: 86, overall: 74.4 },
     "Gemini_3.8_Flash.md": { tool: 86, reasoning: 88, context: 100, multimodal: 85, coding: 88, cost: 100, overall: 89 },
     "Laguna_S_2.1.md": { tool: 82, reasoning: 85, context: 95, multimodal: 80, coding: 83, cost: 95, overall: 85 },
@@ -849,7 +881,22 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Mimo_v2.6_Flash.md": { tool: 85, reasoning: 85, context: 82, multimodal: 92, coding: 87, cost: 100, overall: 86 },
     "Muse_Spark_1.3.md": { tool: 74, reasoning: 78, context: 97, multimodal: 85, coding: 82, cost: 100, overall: 83 },
     "Solar_Pro_4.md": { tool: 88, reasoning: 80, context: 100, multimodal: 85, coding: 85, cost: 95, overall: 88 },
-    "average.md": { tool: 77.3, reasoning: 80, context: 92.7, multimodal: 80.7, coding: 81, cost: 95.3, overall: 82.1 },
+    "average.md": { tool: 76.8, reasoning: 76, context: 90.8, multimodal: 75.5, coding: 79.5, cost: 96.5, overall: 79.6 },
+  },
+  "qwen-3.7": {
+    "Big_Pickle.md": { tool: 78, reasoning: 87, context: 90, multimodal: 20, coding: 84, cost: 84, overall: 72 },
+    "GPT_5.6_Terra.md": { tool: 82, reasoning: 84, context: 80, multimodal: 50, coding: 82, cost: 75, overall: 76 },
+    "average.md": { tool: 82, reasoning: 84, context: 80, multimodal: 50, coding: 82, cost: 75, overall: 76 },
+  },
+  "qwen-3.8": {
+    "Big_Pickle.md": { tool: 78, reasoning: 74, context: 78, multimodal: 85, coding: 74, cost: 90, overall: 78 },
+    "GPT_5.6_Terra.md": { tool: 83, reasoning: 85, context: 80, multimodal: 50, coding: 83, cost: 75, overall: 76 },
+    "average.md": { tool: 83, reasoning: 85, context: 80, multimodal: 50, coding: 83, cost: 75, overall: 76 },
+  },
+  "qwen-3.8-flash": {
+    "Big_Pickle.md": { tool: 80, reasoning: 84, context: 88, multimodal: 85, coding: 80, cost: 96, overall: 83 },
+    "GPT_5.6_Terra.md": { tool: 80, reasoning: 82, context: 80, multimodal: 50, coding: 80, cost: 80, overall: 74 },
+    "average.md": { tool: 80, reasoning: 82, context: 80, multimodal: 50, coding: 80, cost: 80, overall: 74 },
   },
   "qwen3.8-max": {
     "Big_Pickle.md": { tool: 86, reasoning: 88, context: 86, multimodal: 87, coding: 84, cost: 86, overall: 86 },
@@ -857,6 +904,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "DeepSeek_4.1_Flash.md": { tool: 85, reasoning: 84, context: 95, multimodal: 85, coding: 80, cost: 85, overall: 86 },
     "GLM_5.2_Coding.md": { tool: 84, reasoning: 84, context: 100, multimodal: 90, coding: 85, cost: 88, overall: 88.6 },
     "GLM_5.3_Flash.md": { tool: 87, reasoning: 82, context: 93, multimodal: 78, coding: 82, cost: 74, overall: 84.4 },
+    "GPT_5.6_Terra.md": { tool: 70, reasoning: 80, context: 45, multimodal: 55, coding: 90, cost: 40, overall: 68 },
     "Gemini_3.5_Flash.md": { tool: 78, reasoning: 80, context: 100, multimodal: 75, coding: 52, cost: 75, overall: 77 },
     "Gemini_3.5_Flash_Lite.md": { tool: 92, reasoning: 93, context: 95, multimodal: 90, coding: 93, cost: 65, overall: 92.6 },
     "Gemini_3.6_Flash.md": { tool: 86, reasoning: 87, context: 90, multimodal: 84, coding: 84, cost: 71, overall: 86.2 },
@@ -867,12 +915,13 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Ling_3.0.md": { tool: 85, reasoning: 82, context: 95, multimodal: 88, coding: 86, cost: 90, overall: 87 },
     "Muse_Spark_1.3.md": { tool: 78, reasoning: 80, context: 100, multimodal: 80, coding: 78, cost: 60, overall: 83 },
     "Solar_Pro_4.md": { tool: 88, reasoning: 88, context: 100, multimodal: 85, coding: 85, cost: 85, overall: 89 },
-    "average.md": { tool: 83.2, reasoning: 85.2, context: 95.6, multimodal: 80.6, coding: 78.2, cost: 72.6, overall: 84.6 },
+    "average.md": { tool: 81.6, reasoning: 85.2, context: 84.6, multimodal: 76.6, coding: 85.8, cost: 65.6, overall: 82.8 },
   },
   "solar-pro-4": {
     "Big_Pickle.md": { tool: 70, reasoning: 70, context: 90, multimodal: 15, coding: 74, cost: 94, overall: 64 },
     "DeepSeek_4.1_Flash.md": { tool: 68, reasoning: 75, context: 87, multimodal: 15, coding: 62, cost: 90, overall: 61 },
     "GLM_5.3_Flash.md": { tool: 74, reasoning: 85, context: 92, multimodal: 15, coding: 82, cost: 90, overall: 69.6 },
+    "Gemini_3.5_Flash_Lite.md": { tool: 68, reasoning: 65, context: 70, multimodal: 15, coding: 67, cost: 65, overall: 57 },
     "Gemini_3.6_Flash.md": { tool: 71, reasoning: 84, context: 88, multimodal: 15, coding: 76, cost: 90, overall: 67 },
     "Gemini_3.7_Flash.md": { tool: 52, reasoning: 55, context: 75, multimodal: 50, coding: 50, cost: 72, overall: 56.4 },
     "Ling_3.0.md": { tool: 45, reasoning: 75, context: 75, multimodal: 15, coding: 68, cost: 100, overall: 56 },
