@@ -73,10 +73,14 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
 - Homepage defaults stay dynamic (`top3ByOverall()` in `src/routes/index.tsx`);
   never hardcode model ids as defaults.
 - Results-source dropdown order is derived, not curated: Average stays first and
-  default; every other source ranks by the highest overall score it awards any
-  model (`sourceMaxOverall` in `src/data/models.ts`, stable ties). Never
-  hand-sort the dropdown — a newly registered source slots itself in
-  automatically on the next build.
+  default, the virtual sort views follow in canonical DIMENSIONS order, and
+  every reporting agent ranks by its own average Overall — the same number the
+  All-models cards show (`sourceRankOverall` in `src/data/models.ts`, stable
+  ties; agents with no tracked model fall back to the highest overall they
+  award any model). Never hand-sort the dropdown — a newly registered source
+  slots itself in automatically on the next build. When registering a source
+  whose agent is also a tracked model, add its slug to `AGENT_MODEL_SLUG` so
+  it ranks (and cross-links) correctly.
 - Components read `MODELS` only — never import findings files directly.
 - Cost efficiency is an independent stat (scored, shown, sortable) and never
   counts toward any Overall — source Overall = mean of the five quality dims,

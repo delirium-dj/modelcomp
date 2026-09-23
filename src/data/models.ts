@@ -296,7 +296,7 @@ export const MODELS: AiModel[] = (() => {
  * average scores and only changes the ranking key (hexagon, legend, table and
  * All-models cards all follow it). Order here is the dropdown order of the
  * virtual views (canonical DIMENSIONS order); real reporting agents rank below
- * by max overall. Not reporting agents -- never counted as such.
+ * by own average overall. Not reporting agents -- never counted as such.
  */
 export const VIRTUAL_VIEWS: { key: SourceKey; label: string; dim: DimensionKey }[] = [
   { key: "tool", label: "Tool", dim: "tool" },
@@ -312,42 +312,14 @@ export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
   return VIRTUAL_VIEWS.find((v) => v.key === source)?.dim;
 }
 
-/** Highest overall score a reporting agent awards any model (dropdown ranking metric). */
-function sourceMaxOverall(key: SourceKey): number {
-  let max = -Infinity;
-  for (const m of MODELS) {
-    const s = m.sources[key];
-    if (s !== undefined && s.overall > max) max = s.overall;
-  }
-  return max;
-}
-
-/**
- * Results-source dropdown order, derived -- not curated. Average stays first and
- * is the default view; the virtual sort views (same numbers as Average, ranked
- * by one dimension -- see VIRTUAL_VIEWS) follow in canonical DIMENSIONS order
- * by design; every other source is a reporting agent ranked by the highest
- * overall score it awards any model (stable sort, so ties keep registry order).
- * A newly registered source slots itself in automatically -- never hand-sort.
- */
-export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
-  const averageDef = SOURCE_DEFS.find((s) => s.key === "average");
-  if (!averageDef) throw new Error("[models] SOURCE_DEFS is missing the average entry");
-  const virtualKeys = new Set<SourceKey>(VIRTUAL_VIEWS.map((v) => v.key));
-  const virtualDefs = VIRTUAL_VIEWS.map((v) => SOURCE_DEFS.find((s) => s.key === v.key)).filter(
-    (d): d is { key: SourceKey; label: string; file: string } => d !== undefined,
-  );
-  const rest = SOURCE_DEFS.filter((s) => s.key !== "average" && !virtualKeys.has(s.key)).sort(
-    (a, b) => sourceMaxOverall(b.key) - sourceMaxOverall(a.key),
-  );
-  return [averageDef, ...virtualDefs, ...rest];
-})();
-
 /**
  * Reporting-agent key -> model slug of that same agent, for cross-linking
- * ("how other models rate the competition"). Extend when registering a source
- * whose agent is also a tracked model; agents without an entry render as
- * plain text (never a dead link).
+ * ("how other models rate the competition") and for ranking the results-source
+ * dropdown by each rater's own average Overall. Extend when registering a
+ * source whose agent is also a tracked model; agents without an entry render
+ * as plain text (never a dead link) and rank by fallback (see below).
+ * NOTE: declared before SOURCES -- the dropdown derivation reads it at module
+ * load, so it must not move below.
  */
 export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "big-pickle": "big-pickle",
@@ -373,7 +345,52 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Mimo v2.6 Flash": "mimo-v2.6-free",
   "Mimo v2.5 Free": "mimo-v2.5-free",
   "Muse Spark 1.2": "muse-spark-1.2-free",
+  "Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite",
 };
+
+/**
+ * Dropdown ranking metric for a reporting agent: its own average Overall --
+ * the same number the All-models cards show. Raters rank by proven quality,
+ * never by the highest score they hand out (a weak rater's inflated award
+ * must not float it above frontier raters). A source with no tracked agent
+ * model falls back to the highest overall it awards any model, so a newly
+ * registered agent still slots in visibly instead of sinking to the bottom.
+ */
+function sourceRankOverall(key: SourceKey): number {
+  const slug = AGENT_MODEL_SLUG[key];
+  if (slug !== undefined) {
+    const agent = MODELS.find((m) => m.slug === slug);
+    if (agent !== undefined) return agent.scores.overall;
+  }
+  let max = -Infinity;
+  for (const m of MODELS) {
+    const s = m.sources[key];
+    if (s !== undefined && s.overall > max) max = s.overall;
+  }
+  return max;
+}
+
+/**
+ * Results-source dropdown order, derived -- not curated. Average stays first and
+ * is the default view; the virtual sort views (same numbers as Average, ranked
+ * by one dimension -- see VIRTUAL_VIEWS) follow in canonical DIMENSIONS order
+ * by design; every other source is a reporting agent ranked by its own average
+ * Overall -- the All-models number (see sourceRankOverall; stable sort, so
+ * ties keep registry order).
+ * A newly registered source slots itself in automatically -- never hand-sort.
+ */
+export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
+  const averageDef = SOURCE_DEFS.find((s) => s.key === "average");
+  if (!averageDef) throw new Error("[models] SOURCE_DEFS is missing the average entry");
+  const virtualKeys = new Set<SourceKey>(VIRTUAL_VIEWS.map((v) => v.key));
+  const virtualDefs = VIRTUAL_VIEWS.map((v) => SOURCE_DEFS.find((s) => s.key === v.key)).filter(
+    (d): d is { key: SourceKey; label: string; file: string } => d !== undefined,
+  );
+  const rest = SOURCE_DEFS.filter((s) => s.key !== "average" && !virtualKeys.has(s.key)).sort(
+    (a, b) => sourceRankOverall(b.key) - sourceRankOverall(a.key),
+  );
+  return [averageDef, ...virtualDefs, ...rest];
+})();
 
 export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);

@@ -1,5 +1,28 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Results-source dropdown re-ranked by rater own Overall (was max awarded)
+
+1. Problem: dropdown ranked reporting agents by the highest Overall they award
+   any model (`sourceMaxOverall`), so inflated awards floated weak raters to the
+   top (Gemini 3.5 Flash Lite 94.6, Gemini 3.6 Flash 94) — numbers that match
+   nothing in the All-models section.
+2. `src/data/models.ts`: new `sourceRankOverall` ranks each agent by its own
+   average Overall (the All-models number) via `AGENT_MODEL_SLUG`; sources with
+   no tracked agent model fall back to max-awarded so new agents still slot in
+   visibly. `AGENT_MODEL_SLUG` moved above `SOURCES` (module-load order) and
+   gained the missing `"Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite"` entry.
+   Predicted order verified from disk: Muse Spark 1.3 (91.9), Gemini 3.8 Flash
+   (91.1), Gemini 3.1 Pro (90.9), Gemini 3.7 Flash (88.8), GPT 5.6 Terra (88.5),
+   Muse Spark 1.2 (88.1), Gemini 3.6 Flash (86.9), Gemini 3.5 Flash (85.7),
+   Claude Opus 4.6 (83.9), Grok 4.6 (83.8), MiniMax M3 (82.6), DeepSeek 4.1
+   Flash (81.1), Claude Sonnet 4.6 (80.1), Ox Alpha (79.6), GLM 5.3 Flash
+   (78.4), Mimo v2.5 Free (78.3), Gemini 3.5 Flash Lite (77.3), GLM 5.2 Coding
+   (76.5), Mimo v2.6 Flash (75.7), Gemini 3.1 Flash Lite (74.1), Laguna S 2.1
+   (64.7), Solar Pro 4 (64.1), Ling 3.0 (59.9), big-pickle (59.6).
+3. Rule updated in `tasks/sync-data.md` (+ `SOURCES`/`VIRTUAL_VIEWS` comments):
+   Average first, virtual views in DIMENSIONS order, agents by own Overall.
+4. Pending user handover: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## Sync registry bug: `export` prefix that never existed
 
 1. Your `pnpm sync` FAIL was a real script bug, not data: the SOURCES-array regex
