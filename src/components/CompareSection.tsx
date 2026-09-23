@@ -174,7 +174,8 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
       </div>
 
       {series.length > 0 && (
-        <div class="mt-6 overflow-x-auto">
+        <>
+        <div class="mt-6 hidden overflow-x-auto md:block">
           <table class="w-full min-w-[560px] table-fixed border-collapse text-sm">
             <colgroup>
               <col class="w-[180px]" />
@@ -254,6 +255,62 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
             </tbody>
           </table>
         </div>
+        <div class="mt-6 space-y-4 md:hidden" aria-label="Exact scores for the selected models">
+          {series.map((s) => (
+            <article
+              key={s.model.id}
+              class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900"
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: s.color }}
+                />
+                <h3 class="flex-1 text-sm font-semibold text-slate-800 dark:text-slate-200">{s.model.name}</h3>
+                <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
+                </span>
+                {!s.model.meta.noFreeId ? (
+                  <span
+                    class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
+                    title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}
+                  >
+                    Free
+                  </span>
+                ) : (
+                  <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 transition-colors dark:bg-amber-950/80 dark:text-amber-300">
+                    Paid
+                  </span>
+                )}
+                {!s.hasData && (
+                  <span class="text-xs font-normal text-slate-400 dark:text-slate-500">(N/A)</span>
+                )}
+              </div>
+              <dl class="mt-3 divide-y divide-slate-100 text-sm dark:divide-slate-800">
+                {rows.map((r) => (
+                  <div key={r.label} class="flex items-baseline justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                    <dt class="font-medium text-slate-500 dark:text-slate-400">{r.label}</dt>
+                    <dd class="text-right font-semibold text-slate-800 dark:text-slate-200">
+                      {s.hasData ? r.get(s.model) : "N/A"}
+                    </dd>
+                  </div>
+                ))}
+                <div class="flex items-start justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <dt class="shrink-0 font-medium text-slate-500 dark:text-slate-400">Pricing / 1M</dt>
+                  <dd class="text-right text-slate-800 dark:text-slate-200">
+                    <ul class="m-0 list-none space-y-0.5 p-0">
+                      {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
+                        <li key={tier}>{tier}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+        </>
       )}
     </section>
   );
