@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 85.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 89/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 88.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 70/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 84.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 80/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 83.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 85.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 87.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 85/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 66.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 84.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 78.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 81.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Muse Spark 1.3.
-- Average from top 2 by Overall Score: GPT 5.6 Terra, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Laguna S 2.1, Mimo v2.6 Flash.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
+- Average from top 3 by Overall Score: GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Laguna S 2.1, Mimo v2.6 Flash.
