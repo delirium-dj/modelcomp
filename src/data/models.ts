@@ -354,6 +354,7 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
   "Gemini 3.6 Flash": "gemini-3.6-flash",
   "GLM 5.3 Flash": "glm-5.3-flash",
+  "GLM 5.2 Coding": "glm-5.2-coding",
   "Ox Alpha": "ox_alpha",
   "Claude Sonnet 4.6": "claude-sonnet-4.6",
   "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
