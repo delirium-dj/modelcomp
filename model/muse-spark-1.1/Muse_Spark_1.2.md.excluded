@@ -1,0 +1,67 @@
+# Muse Spark 1.1 — findings by Muse Spark 1.2
+
+- Source: Meta/muse-spark-1.1 (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.1
+- **Short description:** Meta's Muse Spark 1.1 predecessor to 1.2/1.3; samespark family with earlier tuning.
+- **Provider / access:** Meta via OpenCode Zen `opencode/muse-spark-1.1` — via Zen Free tier (if available)
+- **Release / knowledge:** 2026 inferred (1.1 prior to 1.2-free/1.3-free)
+- **IDs:** `opencode/muse-spark-1.1`, `meta/muse-spark-1.1`
+- **Context window:** 1,000,000 total — inferred spark family (no verified card for 1.1)
+- **Modalities:** Text in/out only; reasoning yes
+- **Pricing (as of 2026-09-23):** Free Zen tier (if available) — or Paid $1.25/$4.25 inferred spark family
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found for muse-spark-1.1 isolated** — spark 1.1 not in public TB 2.0 leaderboard (spark 1.2/1.3 have listings)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found for 1.1** — no AA listing for spark 1.1
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M inferred — no MRCR for 1.1 isolated
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified score — excluded.**
+- **Reasoning: no verified score — excluded.**
+- **Context window: no verified score — excluded.**
+- **Multimodal: no verified score — excluded.**
+- **Coding: no verified score — excluded.**
+- **Cost efficiency: no verified score — excluded.**
+- **Overall Score: no verified score — excluded.** Zero verified public benchmark numbers for exact muse-spark-1.1 ID; spark family data is for 1.2/1.3, not 1.1.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (Meta docs, OpenCode Zen, Artificial Analysis, web search) — zero verified public benchmarks for muse-spark-1.1 isolated — saved as .excluded per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

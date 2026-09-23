@@ -1,0 +1,67 @@
+# DeepSeek V4 Pro — findings by Muse Spark 1.2
+
+- Source: DeepSeek/deepseek-v4-pro (opencode/muse-spark-1.2-contributor-free)
+- Date: 2026-09-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4 Pro
+- **Short description:** DeepSeek's V4 Pro flagship — sparse MoE for reasoning/coding, open-weights lineage.
+- **Provider / access:** DeepSeek API `deepseek-v4-pro` — via OpenCode Zen `deepseek/deepseek-v4-pro` (if listed)
+- **Release / knowledge:** 2026 inferred (no verified release date found)
+- **IDs:** `deepseek/deepseek-v4-pro`
+- **Context window:** 256,000 total — inferred from V4 family (no verified MRCR for Pro)
+- **Modalities:** Text in/out only; reasoning yes; tool calls unknown
+- **Pricing (as of 2026-09-23):** Paid per DeepSeek API — no verified pricing for V4 Pro isolated
+- **Architecture:** MoE (open-weights speculated)
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found for deepseek-v4-pro isolated**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** — no AA listing for deepseek-v4-pro
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 256K inferred — no MRCR/RULER found for Pro
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified score — excluded.**
+- **Reasoning: no verified score — excluded.**
+- **Context window: no verified score — excluded.**
+- **Multimodal: no verified score — excluded.**
+- **Coding: no verified score — excluded.**
+- **Cost efficiency: no verified score — excluded.**
+- **Overall Score: no verified score — excluded.** Zero verified public benchmark numbers for exact deepseek-v4-pro ID after exhaustive web search (official cards, AA, BenchLM, LiveCodeBench).
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (opencode/muse-spark-1.2-contributor-free)** — 2026-09-23
+- Method: public internet research (DeepSeek docs, Artificial Analysis, BenchLM, Vals AI, LiveBench, web search) — zero verified public benchmarks found — saved as .excluded per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
