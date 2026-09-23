@@ -13,7 +13,7 @@ Overall score per model plus per-reporter grades showing how models rate each ot
 - **Per-model pages:** every model has a page at `/model/<slug>/` with its meta,
   average hexagon and a sortable table of each agent's grades, best grade first.
 - **Extras:** dark/light mode toggle, responsive layout with mobile drawer menu,
-  installable PWA (manifest + service worker).
+  PWA manifest + brand favicon.
 
 ## Quick commands (pnpm only)
 
@@ -50,9 +50,12 @@ components + routes             hexagon, tables, cards, per-model pages (SSG pre
   efficiency is scored independently and never counts toward Overall.**
   (Price stays visible everywhere: hexagon axis, table columns, sortable,
   Free/Paid badges.)
-- Averages: each `average.md` Overall = mean of that model's source Overall scores.
-- Details live in `model-comparison.md`, the per-agent template in
-  `model-report-TEMPLATE.md`, the signed cross-model log in `model-findings.md`.
+- Averages: each `average.md` Overall = mean of that model's source Overall scores
+  (only raters whose own Overall exceeds 84.9 count; evidence-free reports are
+  quarantined as `.md.excluded` and never counted).
+- Per-agent template in `model-report-TEMPLATE.md`, findings schema + checklists in
+  `model/README.md`, sync rules in `tasks/sync-data.md`, signed cross-model log in
+  `model-findings.md`. (`model-comparison.md` is frozen v1–v3 history.)
 
 ## Project layout
 
@@ -62,13 +65,13 @@ model/README.md         findings + meta.json schema, add-model / add-agent check
 src/routes/             pages: index (compare) + model/[slug]/ (per-model detail)
 src/components/        CompareSection, HexRadar, ModelCards, ModelSelect,
                        Methodology, Header (+ hamburger), ThemeToggle, Footer
-src/data/models.ts      data layer (~260 lines of pure logic, zero per-model entries)
+src/data/models.ts      data layer (~400 lines of pure logic, zero per-model entries)
 scripts/sync-data.mjs   deterministic sync behind `pnpm sync`
 tasks/sync-data.md      the (short) human workflow around the script
 .agents/                tech-stack, repo rules, rate-limit notes for AI agents
 PRD/prd.md              product requirements (incl. tooltip behavior)
-instructions/           build guides consumed along the way (theme, PWA, hamburger)
-public/                 PWA manifest, service worker, brand favicon (hero hex art)
+instructions/           consumed build guides (theme, PWA, hamburger; gitignored)
+public/                 PWA manifest, brand favicon (hero hex art)
 dist/ + server/         build output — never hand-edit
 REPORT.md               running accomplishment log
 ```

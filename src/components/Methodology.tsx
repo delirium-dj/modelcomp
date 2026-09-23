@@ -21,6 +21,10 @@ export const Methodology = component$(() => {
             Independently researched: each model is checked across multiple public sources, and every benchmark
             number cites its source. Missing data is marked as no verified score — never invented.
           </li>
+          <li>
+            Averaged, not single-opinion: a model&apos;s scores are the mean across independent reporting agents;
+            reports without verified benchmarks are quarantined and never counted.
+          </li>
           <li>Tool use: Terminal-Bench, Tau-bench, GDPval and tool-call efficiency.</li>
           <li>Reasoning: GPQA, Humanity&apos;s Last Exam, long-context retrieval and intelligence indexes.</li>
           <li>Context window: tiered by size; 1M+ scores 95–100, 200K scores around 70.</li>

@@ -72,5 +72,5 @@ scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
 - `nemotron-3.5-lightning-free/` — Nemotron 3.5 Lightning Free
 - `glm-5.1-coding/` — GLM 5.1 Coding (no Zen Free ID; scored on paid pricing)
 - `minimax-m2.7/` — MiniMax M2.7 (no Zen Free ID; scored on paid pricing)
-- `xiaomi-mimo-v2.5-pro/` — Xiaomi MiMo-V2.5-Pro (no Zen Free ID; scored on paid pricing)
+- `xiaomi-mimo-v2.5-pro/` — MiMo V2.5 Pro (no Zen Free ID; scored on paid pricing)
 - …plus newer folders, each self-described by its own `meta.json`.
