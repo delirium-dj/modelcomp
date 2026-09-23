@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Muse Spark 1.3.
 - Average from top 2 by Overall Score: GPT 5.6 Terra, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Mimo v2.6 Flash.

@@ -50,18 +50,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Tau3-Banking 49.1% and GDPval-AA 1718 show capable mid-tier tool execution with ObviousBench 97.9% support; capped by the missing Terminal-Bench 2.1 row (the one aggregator print was a scrape error) and zero Claw-Eval/Toolathon numbers.
-- **Reasoning: 83/100.** GPQA Diamond 93.5% (92.6% on the checkpoint card), HLE 42.4% and AA-LCR 75.3% place it near the frontier on knowledge reasoning; capped by CritPt 20.0% and no MMLU-Pro/MRCR confirmation.
-- **Context window: 90/100.** Documented 1M-token window (extended from 262K native) with generous output budgets (262K reasoning / 131K final); no measured retention-at-depth keeps it below the top tier.
-- **Multimodal: 75/100.** Hosted tier accepts text, image and video input with text output; capped by text-only output, no audio input, and no vision benchmark rows for this tier (open 2.4T weights are text-only).
-- **Coding: 73/100.** SWE-Pro Public 59.4% with DeepSWE 40.4% and SWE-Atlas 46.2% support solid mid-tier coding; capped by zero SWE-bench Verified/LiveCodeBench rows for the flagship tier (the 61.7% SWE-Pro figure is 27B-only) and SciCode 51.6%.
-- **Cost efficiency: 80/100.** $2/$6 per 1M undercuts frontier per-token pricing with $0.25 cached input; scored on paid pricing with no verified free tier.
-- **Overall Score: 79.8/100.** Mean of the five quality dims (78+83+90+75+73)/5 = 79.8. Best fit: long-context coding-adjacent workloads at roughly a third of frontier prices, where SWE-Verified-grade guarantees are not required.
+- **Tool use: 89/100.** GDPval-AA 1718 Elo (frontier reference is 1750+) and Tau3-Banking 49.1% pass@1 (frontier reference ~50%+) are both at the edge of the 90–100 band; capped below 90+ because Terminal-Bench 2.1, Toolathon and MCP-Atlas had no verifiable score for this ID.
+- **Reasoning: 90/100.** GPQA Diamond 93.5% (92.6% on the checkpoint card) and HLE 42.4% clear the frontier references (GPQA 90%+, HLE 40%+), and AA Intelligence Index 57.7 approaches the 60+ marker; CritPt 20.0% is mid-pack, so the score stops at the band floor.
+- **Context window: 95/100.** 1M input (extended from 262K native) is the ≥1M tier; capped at the floor because no ≥98% retention at 512K+ is measured, and the reasoning/final output budgets (262K/131K) are advisory, not guaranteed.
+- **Multimodal: 85/100.** The hosted 2.4T tier accepts text + image + video in → text out ("+video/PDF in = 75–90"); below 90 because there is no audio input, no non-text output and no verified vision benchmark for this ID — and the open weights drop multimodal entirely.
+- **Coding: 82/100.** SciCode 51.6% plus a 91st-percentile coding composite are solid, and the family's only verified SWE number (Qwen3.8-27B: SWE-bench Pro 61.7%) shows credible engineering performance; capped hard because Alibaba published no SWE-bench Verified, LiveCodeBench or DeepSWE figure for the 2.4T/Max tier, so the 90+ band (DeepSWE 74%+, TB 85%+) cannot be claimed.
+- **Cost efficiency: 78/100.** $2.00/$6.00 per 1M (cached $0.25) sits between the $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60 anchors — mid-premium pricing for frontier-class numbers.
+- **Overall Score: 88/100.** (89 + 90 + 95 + 85 + 82) / 5 = 88.2 → **88**. Best fit: the strongest open-weight-leaning 2.4T-class option here — but verify the exact tier you are buying, because the flagship's own benchmark table still does not exist.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-23
-- Method: public internet research (Alibaba Cloud pages, Qwen3.8 2.4T checkpoint card, BenchmarkList/AA independent rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Method: public internet research (Qwen release blog text mirrored on OpenLM.ai, Codersera family lineup breakdown, Yotta Labs verified-benchmarks survey, BenchmarkList 12-row table for Qwen3.8-2.4T-A95B, llm-stats aggregator row); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -16,6 +16,7 @@
     "build.types": "tsc --incremental --noEmit",
     "deploy": "echo 'Run \"pnpm qwik add\" to install a server adapter'",
     "sync": "node scripts/sync-data.mjs",
+    "sync:quiet": "node scripts/sync-data.mjs --quiet",
     "dev": "vite --mode ssr",
     "preview": "vite preview",
     "start": "vite --open --mode ssr",

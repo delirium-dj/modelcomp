@@ -54,18 +54,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** τ²-Bench Telecom 80.4% shows real tool orchestration and TB-Hard 38.6% is respectable on a hard set; capped by GDPval 1204 (well below the 1700+ frontier band), no Terminal-Bench 2.1 row and zero Claw-Eval/Toolathon numbers.
-- **Reasoning: 82/100.** GPQA Diamond 83.2–89.8%, HLE 36.6%, AIME 2026 95.83% and ARC-AGI-2 33.61% show strong math and solid knowledge reasoning; capped by CritPt 8.6% and MRCR v2 22.1%.
-- **Context window: 85/100.** Full 1M-token input window with caching and structured output; MRCR v2 22.1% with no ≥98% retention evidence at 512K+ keeps it at the band floor.
-- **Multimodal: 85/100.** Text, image, audio, video and PDF input with thinking-level control; capped by text-only output.
-- **Coding: 76/100.** SWE-bench Verified 75.4% and Multilingual 72.7% with LiveCodeBench 79.7% support solid coding; capped by SWE-bench Pro 34.63% and DeepSWE 5.16% showing weak long-horizon agentic coding.
-- **Cost efficiency: 85/100.** $0.50/$3.00 per 1M undercuts most frontier pricing; scored on paid pricing with no verified free tier.
-- **Overall Score: 79.6/100.** Mean of the five quality dims (70+82+85+85+76)/5 = 79.6. Best fit: low-cost agentic and coding-assistance workloads at Flash latency where frontier reasoning guarantees are not required.
+- **Tool use: 72/100.** τ²-Bench Telecom 80.4% plus GDPval 1204 Elo (top of the 900–1200 mid band) show real tool use, but Terminal-Bench 2.1, Tau3-Banking/τ³ and every MCP/Claw-family harness score could not be verified — that gap holds it well below the 83–88% Terminal-Bench frontier band.
+- **Reasoning: 78/100.** GPQA Diamond 83.2% (89.8% in reasoning mode) and AA index 35 with HLE 36.6% sit above the mid band (GPQA 60–80%, Index 20–35 → 55–65); capped by HLE <40%, CritPt 8.6% and FrontierMath Tier 4 4.2%.
+- **Context window: 95/100.** 1M-token input lands in the ≥1M tier (95–100); held at the floor because no ≥98% retention at 512K+ is published (MRCR v2 22.1%).
+- **Multimodal: 92/100.** Text, image, audio, video and PDF in with text-only out puts it in the "+audio in = 90–100" band (Video-MMMU 86.9%, CharXiv 80.3%, ScreenSpot-Pro 69.1%); capped by text-only output and no audio-generation capability.
+- **Coding: 80/100.** SWE-bench Verified 75.4% and LiveCodeBench 79.7% are strong and Vibe Code Bench 20.2% clears the "<10%" trap in the mid band, but SciCode 50.6% (below the 55% frontier reference) and DeepSWE 5.16% cap the score.
+- **Cost efficiency: 89/100.** $0.50/$3.00 per 1M sits between the ~$0.60/$2.20 ≈ 92 and $1.25/$4.25 ≈ 88 anchors; paid-only tier, no $0 route verified.
+- **Overall Score: 83/100.** (72 + 78 + 95 + 92 + 80) / 5 = 83.4 → **83**. Best fit: the cheapest verified route to 1M-context multimodal reasoning with real (if not frontier) tool use — avoid it for long-horizon autonomous coding, where DeepSWE 5.16% is the tell.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-23
-- Method: public internet research (Google release blog, OpenRouter/AA listings, evals.report official/verified rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Method: public internet research (Google release blog, Google Gemini API model docs, OpenRouter model page with Artificial Analysis rows, evals.report 38-row benchmark table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
