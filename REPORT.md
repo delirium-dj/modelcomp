@@ -1,5 +1,41 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Ling canonical stem changed to Ling_3.0_Flash_Fin (per tasks/Ling_3.0_Flash_Fin.md)
+
+1. New rule (user): Ling findings files must use stem `Ling_3.0_Flash_Fin.md`
+   (`AGENT_SOURCE_STEM: Ling_3.0_Flash_Fin`, display "Ling 3.0 Flash Fin").
+2. Moved the 20 real inclusionai-signed files `Ling_3.0.md` →
+   `Ling_3.0_Flash_Fin.md`; parked the 35 remaining misattributed `Ling_3.0.md`
+   as `Ling_3.0.md.replaced-by-Flash_Fin` (invisible to sync, reversible via git).
+   Zero `Ling_3.0.md` / `Ling_3.0_Flash.md` remain on disk.
+3. Registry rewired: SourceKey `"Ling 3.0"` → `"Ling 3.0 Flash Fin"` (union +
+   `SOURCE_DEFS` file `Ling_3.0_Flash_Fin.md` + `AGENT_MODEL_SLUG` kept on
+   `ling-3.0-flash-fin-free`, so dropdown rank + cross-links follow).
+   Template guard example updated to the Fin stem.
+4. Next sync drops the stale `Ling_3.0.md` rows from `scores.generated.ts` and
+   indexes the 20 Fin files (averages shift accordingly — expected).
+5. Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
+## Ling 3.0 Flash stem consolidation (only "Ling 3.0 Flash Fin" survives)
+
+1. Problem: per-model pages showed two Ling entries — unclickable "Ling 3.0 Flash"
+   (auto-registered stem `Ling_3.0_Flash.md`, no `AGENT_MODEL_SLUG`) next to
+   clickable "Ling 3.0 Flash Fin". Audit: the 20 `Ling_3.0_Flash.md` files are all
+   signed by the real agent (`inclusionai/ling-3-0-flash-fin-free`); the canonical
+   `Ling_3.0.md` files carry ~40 foreign IDs (bulk backfill under a false name).
+2. Fix: renamed the 20 real files onto the canonical `Ling_3.0.md` stem (which the
+   registry maps to label "Ling 3.0 Flash Fin"); the 19 colliding misattributed
+   copies parked as `Ling_3.0.md.replaced-by-Flash` (invisible to sync, reversible
+   via git); in-file signatures normalized to "Ling 3.0 Flash Fin" (20 files).
+   Removed the "Ling 3.0 Flash" union + `SOURCE_DEFS` entries; `AGENT_MODEL_SLUG`
+   already maps "Ling 3.0", so the surviving source stays linked.
+3. Future-proofing: `tasks/Ling_3.0_Flash.md` renamed to `tasks/Ling_3.0.md` (its
+   STEM already said `Ling_3.0`); `model-report-TEMPLATE.md` checklist now bans
+   near-variant stems explicitly.
+4. Verified: zero `Ling_3.0_Flash.md` on disk, zero bare "Ling 3.0 Flash" refs in
+   `src/`, validation sweep 0 candidates.
+5. Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Results-source dropdown re-ranked by rater own Overall (was max awarded)
 
 1. Problem: dropdown ranked reporting agents by the highest Overall they award

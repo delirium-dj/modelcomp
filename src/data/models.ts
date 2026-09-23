@@ -33,7 +33,7 @@ export type SourceKey =
   | "average"
   | "big-pickle"
   | "Muse Spark 1.3"
-  | "Ling 3.0"
+  | "Ling 3.0 Flash Fin"
   | "Gemini 3.5 Flash Lite"
   | "Gemini 3.6 Flash"
   | "GLM 5.3 Flash"
@@ -61,7 +61,6 @@ export type SourceKey =
   | "Mimo v2.5 Free"
   | "Muse Spark 1.2"
   | "Gemini 3.1 Flash Lite"
-  | "Ling 3.0 Flash"
   | "Luna S 2.1"
   | "Claude Sonnet 4.5"
   | "Claude Sonnet 5"
@@ -79,7 +78,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "average", label: "Average", file: "average.md" },
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
   { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
-  { key: "Ling 3.0", label: "Ling 3.0 Flash Fin", file: "Ling_3.0.md" },
+  { key: "Ling 3.0 Flash Fin", label: "Ling 3.0 Flash Fin", file: "Ling_3.0_Flash_Fin.md" },
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md" },
@@ -110,7 +109,6 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Mimo v2.5 Free", label: "MiMo V2.5 Free", file: "Mimo_v2.5_Free.md" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md" },
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
-  { key: "Ling 3.0 Flash", label: "Ling 3.0 Flash", file: "Ling_3.0_Flash.md" },
   { key: "Luna S 2.1", label: "Luna S 2.1", file: "Luna_S_2.1.md" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md" },
   { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md" },
@@ -340,7 +338,7 @@ export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
 export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "big-pickle": "big-pickle",
   "Muse Spark 1.3": "muse-spark-1.3-free",
-  "Ling 3.0": "ling-3.0-flash-fin-free",
+  "Ling 3.0 Flash Fin": "ling-3.0-flash-fin-free",
   "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
   "Gemini 3.6 Flash": "gemini-3.6-flash",
   "GLM 5.3 Flash": "glm-5.3-flash",

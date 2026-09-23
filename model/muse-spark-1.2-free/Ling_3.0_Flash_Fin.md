@@ -76,7 +76,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Ling 3.0 Flash (inclusionai/ling-3-0-flash-fin-free)** — 2026-09-23
+- Provided by: **Ling 3.0 Flash Fin (inclusionai/ling-3-0-flash-fin-free)** — 2026-09-23
 - Method: Public internet research via BenchLM, commandcode.ai, modelscale.dev, BenchmarkList, BenchLeader, and waitwhichmodel.fyi; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. Gemini_3_8_Flash.md, using the same headings.
 

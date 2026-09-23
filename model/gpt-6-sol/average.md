@@ -19,3 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
 - Average from top 1 by Overall Score: Muse Spark 1.3.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Laguna S 2.1.

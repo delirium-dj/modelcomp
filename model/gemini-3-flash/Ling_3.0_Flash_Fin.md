@@ -73,7 +73,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Ling 3.0 Flash (inclusionai/ling-3-0-flash-fin-free)** — 2026-09-23
+- Provided by: **Ling 3.0 Flash Fin (inclusionai/ling-3-0-flash-fin-free)** — 2026-09-23
 - Method: Public internet research via Benchgen, BenchLM, Vals.ai, Codesota, and llm-stats.com; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
 
