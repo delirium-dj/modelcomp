@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.1 Pro, GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
 - Average from top 4 by Overall Score: Gemini 3.1 Pro, GPT 5.6 Terra, Muse Spark 1.2, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Laguna S 2.1.

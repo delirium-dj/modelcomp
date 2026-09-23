@@ -62,7 +62,13 @@ export type SourceKey =
   | "Muse Spark 1.2"
   | "Gemini 3.1 Flash Lite"
   | "Ling 3.0 Flash"
-  | "Luna S 2.1";
+  | "Luna S 2.1"
+  | "Claude Sonnet 4.5"
+  | "Claude Sonnet 5"
+  | "GPT 5.6 Luna"
+  | "GPT 6 Sol"
+  | "Gemini 1.5 Pro"
+  | "Grok 4";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -106,6 +112,12 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
   { key: "Ling 3.0 Flash", label: "Ling 3.0 Flash", file: "Ling_3.0_Flash.md" },
   { key: "Luna S 2.1", label: "Luna S 2.1", file: "Luna_S_2.1.md" },
+  { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md" },
+  { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md" },
+  { key: "GPT 5.6 Luna", label: "GPT 5.6 Luna", file: "GPT_5.6_Luna.md" },
+  { key: "GPT 6 Sol", label: "GPT 6 Sol", file: "GPT_6_Sol.md" },
+  { key: "Gemini 1.5 Pro", label: "Gemini 1.5 Pro", file: "Gemini_1.5_Pro.md" },
+  { key: "Grok 4", label: "Grok 4", file: "Grok_4.md" },
 ];
 
 export interface AiModel {
