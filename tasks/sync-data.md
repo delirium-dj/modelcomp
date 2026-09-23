@@ -9,6 +9,11 @@
 pnpm sync && pnpm build.types && pnpm build
 ```
 
+Large-repo tip: `pnpm sync:quiet` (same as `pnpm sync -- --quiet` / `-q`)
+runs the identical checks and writes but prints only `FAIL` lines plus the
+final summary — no per-folder `SKIP` / `GATE` / `WRITE` / `INFO` noise. The
+exit code contract is unchanged (non-zero = read the `FAIL` lines).
+
 `pnpm sync` (`scripts/sync-data.mjs`) does, for every `model/<slug>/` folder:
 
 1. Collects findings files (`*.md`, excluding `average.md`/`README.md`).

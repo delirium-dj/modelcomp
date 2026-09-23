@@ -51,6 +51,14 @@ const FILENAME_RE = /^[A-Za-z0-9_.]+\.md$/;
 /** Standard half-up rounding to 1 decimal (72.25 -> 72.3). */
 const halfUp1 = (x) => Math.round(x * 10) / 10;
 
+// `--quiet` / `-q` (aka `pnpm sync:quiet`): print only FAIL lines plus the
+// final summary. Same checks, same file writes, same exit code — minus the
+// per-folder SKIP/GATE/WRITE/INFO noise on large repos.
+const QUIET = process.argv.includes("--quiet") || process.argv.includes("-q");
+const log = (...args) => {
+  if (!QUIET) console.log(...args);
+};
+
 let failures = 0;
 const fail = (msg) => {
   failures++;
@@ -72,7 +80,7 @@ const parseScores = (md, where) => {
 const slugs = readdirSync(modelDir)
   .filter((d) => statSync(join(modelDir, d)).isDirectory())
   .sort();
-console.log(`sync-data: ${slugs.length} model folders`);
+log(`sync-data: ${slugs.length} model folders`);
 
 // Slug version convention (see model/README.md): version numbers use "." not
 // "-". A hyphen between two digits is never a valid version separator, so a
@@ -180,7 +188,7 @@ for (const slug of slugs) {
           : null;
     if (reason) {
       renameSync(join(dir, f), join(dir, `${f}.excluded`));
-      console.log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
+      log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
     }
   }
   const entries = readdirSync(dir).sort();
@@ -188,7 +196,7 @@ for (const slug of slugs) {
   // model-report-TEMPLATE.md): never parsed, never averaged, never registered.
   // Logged so exclusions stay visible instead of silently vanishing.
   for (const f of entries.filter((f) => f.includes(".excluded"))) {
-    console.log(`  SKIP  model/${slug}/${f} (self-excluded: no verified benchmarks)`);
+    log(`  SKIP  model/${slug}/${f} (self-excluded: no verified benchmarks)`);
   }
   const files = entries
     .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
@@ -218,7 +226,7 @@ for (const slug of slugs) {
       pricingNote: "Standard pricing",
     };
     writeFileSync(metaPath, JSON.stringify(meta, null, 2));
-    console.log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
+    log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
   }
   for (const k of META_REQUIRED) {
     if (typeof meta[k] !== "string" || meta[k].length === 0) {
@@ -238,7 +246,7 @@ for (const slug of slugs) {
     }
   }
   if (perFile.length === 0) {
-    console.log(`  INFO  model/${slug}/: no active parseable findings files (all files excluded or pending research)`);
+    log(`  INFO  model/${slug}/: no active parseable findings files (all files excluded or pending research)`);
     continue;
   }
   for (const p of perFile) {
@@ -290,7 +298,7 @@ for (const slug of slugs) {
     skipAverage = true;
   } else if (ignoredLabels.length > 0) {
     ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
-    console.log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
+    log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
   }
 
   const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
@@ -335,7 +343,7 @@ for (const slug of slugs) {
       `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
       `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
       body;
-    console.log(`  NEW   model/${slug}/average.md (created)`);
+    log(`  NEW   model/${slug}/average.md (created)`);
   } else {
     const head = prev.split("## Averaged scores")[0];
     next = head + body;
@@ -344,7 +352,7 @@ for (const slug of slugs) {
     writeFileSync(avgPath, next);
     if (prev !== null) {
       updatedAverages.push(slug);
-      console.log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
+      log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
     }
   }
 }
@@ -402,7 +410,7 @@ if (pending.length > 0) {
     );
     writeFileSync(modelsTsPath, ts);
     for (const p of pending) {
-      console.log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
+      log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
     }
   }
 }
@@ -412,7 +420,7 @@ for (const entry of ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*fi
   const [, key, file] = entry;
   if (file === "average.md") continue;
   if (!presentStems.has(file.replace(/\.md$/, ""))) {
-    console.log(`  INFO  source "${key}" (${file}) has no active findings files in model folders`);
+    log(`  INFO  source "${key}" (${file}) has no active findings files in model folders`);
   }
 }
 
@@ -458,12 +466,12 @@ if (failures === 0) {
   }
   if (prevGen !== next) {
     writeFileSync(genPath, next);
-    console.log(
+    log(
       `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
     );
   }
 } else {
-  console.log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
+  log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }
 
 console.log(`sync-data: done. averages rewritten: ${updatedAverages.length}${updatedAverages.length ? ` (${updatedAverages.join(", ")})` : ""}; new sources: ${missing.length}; failures: ${failures}`);

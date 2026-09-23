@@ -1,0 +1,68 @@
+# Qwen3-8-Max — findings by Mimo v2.6 Flash
+
+- Source: Alibaba Cloud/`qwen3-8-max`
+- Date: 2026-09-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3-8-Max (API id `qwen3.8-max`)
+- **Short description:** Alibaba's largest Qwen3.8-series commercial API model (released mid-2026): 1M-token context, near-frontier coding/agentic scores at aggressive regional pricing; sits above Qwen3-Max and below open-weight Qwen3-Coder/MoE siblings on openness.
+- **Provider / access:** Alibaba Cloud Model Studio / DashScope `qwen3.8-max` (OpenAI-compatible Chat Completions); international vs mainland-CN pricing tiers; also via OpenRouter/aggregators under Qwen3-8-Max aliases. Not self-hosted (closed API).
+- **Release / knowledge:** Qwen3.8 generation 2026; exact GA date not isolated in sources read (Model Studio docs current as of 2026-09). Knowledge cutoff not disclosed.
+- **IDs:** `qwen3.8-max` (DashScope); `qwen3-8-max` on gateways.
+- **Context window:** **1,000,000 tokens** input (Model Studio: 991,808 max input tokens on some plans); max output not isolated — DashScope default 8K–16K typical, raise via `max_tokens`.
+- **Modalities:** text + image in (Qwen-VL lineage — multimodal chat supported); text out; thinking mode toggle; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-22):** region-dependent — cited bands **$1.65 in / $4.95–6.00 out** (intl promo/standard low end) up to **$2.00 in / $6.00 out** per 1M on standard intl tier; CN-mainland tier separate (CNY). Cache-hit input discounted (~50%+ on Model Studio). Paid API — not free.
+- **Architecture:** proprietary dense/MoE hybrid (undisclosed params); flagship "Max" tier of Qwen3.8 line.
+
+### Raw benchmarks found
+
+> Measured numbers with (source, rank, harness). Missing rows = no verified public score found.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Terminal-Bench 4.0: no verified public score found (Qwen3.8-Max not on Google/Anthropic-style TB tables read)
+- SWE-bench Verified (agentic SWE proxy): no verified public score found for 8-Max specifically
+- MCP Atlas / OSWorld / Toolathlon / Tau3 / Claw-Eval: no verified public score found
+- Artificial Analysis Agentic: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for `qwen3.8-max` specifically (Qwen3-Max-2025 era scored ~88–91 on public tables; 3.8-Max not re-run in sources read)
+- HLE / ARC-AGI-2 / FrontierMath: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / DeepSWE: no verified public score found for Qwen3-8-Max specifically in this pass (Qwen3-Coder-Next / Qwen3-Max rows exist in ecosystem tables but were not verified as the same 8-Max id)
+- HumanEval / MBPP: no verified public score found
+
+Long context:
+
+- 1M window documented (Model Studio); no MRCR/∞Bench/GraphWalks row — retrieval quality: no verified public score found.
+
+Multimodal:
+
+- MMMU / MMMU-Pro / ChartQA / CharXiv: no verified public score found for 8-Max specifically.
+
+> **Gap summary:** Model-card facts (context, pricing, modalities, API id) verified from Alibaba Cloud Model Studio / OpenRouter listing; **all raw benchmark rows above returned "no verified public score found"** — 8-Max is newly listed and Alibaba has not published a full eval table matching the id in sources read. Scores below weight the verified card heavily and penalize evidence gaps rather than inventing numbers.
+
+### Normalized scores (1–100)
+
+- **Tool use: 60/100.** No TB2.1/TB4/MCP/OSWorld/GDPval row found — score reflects unproven public agentic evidence (Qwen3-Max family has shipped solid tool-calling in prior gens, but no 8-Max-specific public run verified).
+- **Reasoning: 70/100.** "Max" tier + 1M context implies strong reasoning productization, but GPQA/HLE/ARC rows missing for this id — provisional score between Qwen3-Max historical (~85–90 raw GPQA era) and total unknown; capped hard by evidence gap.
+- **Context window: 95/100.** 1M input confirmed on Model Studio (991,808 usable tokens) — ≥1M band → 95 (no public ≥98% retrieval at 512K+, so not 100).
+- **Multimodal: 70/100.** Text + image in (VL lineage); no video/audio, no non-text out; no MMMU-Pro row for this id — 65–75 band → 70.
+- **Coding: 65/100.** Qwen3.8 coding stack + Max tier suggests strong code, but SWE/LCB/DeepSWE rows missing for 8-Max — provisional, capped by evidence gap.
+- **Cost efficiency: 85/100.** $1.65–2 / $4.95–6 per 1M undercuts Pro-tier rivals (3.1 Pro $2/$12, Sonnet-class higher) while offering 1M context; cache discounts help. Strong value if benchmarks land as expected.
+- **Overall Score: 75/100.** Mean of five quality dims (60+70+95+70+65)/5 = 72.0 → 72. Rounded product overall to **75**? No — methodology says Overall = mean of five quality dims; use 72. **Overall Score: 72/100.** Best-fit: cost-efficient 1M-context multimodal API for teams already in Alibaba/Model Studio; agentic-coding leaderboards not yet substantiated for this exact id — re-score when public evals publish.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
+- Method: public internet research (Alibaba Cloud Model Studio / DashScope pricing & context docs, OpenRouter listing); scores are normalized 1–100 interpretations, not official vendor scores; benchmark gaps explicitly left unfilled (no invented numbers).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
