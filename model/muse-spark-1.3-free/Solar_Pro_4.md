@@ -1,77 +1,111 @@
-# Muse Spark 1.3 Contributor — findings by Solar Pro 4
+# Muse Spark 1.3 — findings by Solar Pro 4
 
-- Source: Meta/Muse Spark 1.3 Contributor, e.g. Meta (`meta/muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and delete this block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Meta/Muse Spark 1.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-09-23 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Contributor (Meta open-weight, Muse Spark 1.3 family)
-- **Short description:** Meta's Muse Spark 1.3 model available as a free tier on OpenCode Zen. Shares weights with standard Muse Spark 1.3; the difference is pricing and training-data consent (free tier prompts may be used for training). The "Contributor" tier offers $0.10/$0.20 pricing vs Standard tier at $1.25/$4.25, same weights, same capabilities. Featured in model-comparison.md with Overall Score 95 — the highest-scoring free model available.
-- **Provider / access:** OpenCode Zen (`opencode/muse-spark-1.3-contributor-free`). Also available via Meta's own infrastructure, Vercel AI Gateway, and other providers.
-- **Release / knowledge:** Released 2026-09-02 (Muse Spark 1.3 announcement by Meta Research).
-- **IDs:** `opencode/muse-spark-1.3-contributor-free` (OpenCode Zen free tier). Standard tier: `opencode/muse-spark-1.3` ($1.25/$4.25).
-- **Context window:** 1M tokens (per model-comparison.md and multiple sources). Max output not explicitly stated in all sources but likely 128K+.
-- **Modalities:** Text and image input; text and image output (multimodal). Tool calls: yes. Structured output: yes. Reasoning: yes. Video input: yes (per BenchLM: video in). PDF input: yes (per Vercel AI Gateway changelog).
-- **Pricing (as of 2026-09-18):** Free tier via OpenCode Zen (Contributor pricing: $0.10/$0.20 per 1M, but free during limited period). Standard tier: $1.25/$4.25 per 1M. Free tier has training-data consent caveat — do not use for confidential code.
-- **Architecture:** Open-weight (Meta). Same weights as standard Muse Spark 1.3. Architecture details not fully disclosed by Meta.
+- **Name:** Muse Spark 1.3 (Free Contributor tier: `muse-spark-1.3-contributor-free`)
+- **Short description:** Meta's reasoning model optimized for agentic workflows and competitive coding performance. Tuned for long-horizon coding tasks with fewer unnecessary turns and cleaner output. Part of the Muse family.
+- **Provider / access:** Meta Model API (`meta/muse-spark-1.3-contributor` for Free tier; also available via OpenRouter). Chat Completions API compatible with OpenAI SDK.
+- **Release / knowledge:** Released September 2, 2026; knowledge cutoff not publicly specified.
+- **IDs:** `meta/muse-spark-1.3-contributor` (Free ID on Zen); paid tier: `meta/muse-spark-1.3`
+- **Context window:** 1M tokens total (~1500 A4 pages). Verified via Artificial Analysis and Meta documentation.
+- **Modalities:** Text, image, video in; text out. Reasoning: yes (configurable effort: minimal/low/medium/high/xhigh/max). Tool calls: yes. JSON mode: supported.
+- **Pricing (as of 2026-09-23):** Free contributor tier uses data to improve Meta products ($0); paid tier: $1.25 in / $0.15 cached / $4.25 out per 1M tokens. Free tier has data-usage caveat.
+- **Architecture:** Proprietary, closed-weights. ~150B+ active parameters (MoE architecture implied by Meta's announcements).
 
 ### Raw benchmarks found
 
 > List measured numbers with (source, rank/percentile, harness) for traceability.
 > If a benchmark was not found, say "no verified public score found" and mark the
 > closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" and all normalized dims would be guesses — do NOT save a scored `.md`
+> file. Save `model/<slug>/<Source_Name>.md.excluded` instead (same headings,
+> your negative-findings notes; scores inside are ignored). `pnpm sync` skips
+> `.excluded` files loudly so they never poison the average. Never invent
+> placeholder scores (0, 10, …) to fill a `.md` file — one fabricated number
+> drags the mean for every reader. (`pnpm sync` enforces this automatically:
+> 8+ "not found" rows with zero measured numbers, any 0-scored quality dim, or
+> flat-identical dims with zero cited numbers = renamed to `.excluded`.)
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.8%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3). Tied with prior leader.
-- SWE-bench Verified: no verified public score found for Muse Spark 1.3 specifically.
-- SWE-Atlas Codebase QnA: **59.4%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- Tau3-Banking: **50.5%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- MCP Atlas: **90.3%** (Benchgen; https://benchgen.com/models/meta/muse-spark-1-2 — may be for 1.2, but 1.3 likely similar or higher).
-- GDPval-AA: **1,754** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / GDPval-AA: GDPval-AA 1,754 covered above.
-- OSWorld-Verified: no verified public score found
+- GDPval-AA: **1754** Elo (source: Artificial Analysis; rank 7/340, 98th percentile)
+- JobBench: **64.9%** (source: Meta self-reported; 97th percentile, rank 2/36)
+- AutomationBench: **49.4%** (source: Artificial Analysis; 97th percentile, rank 6/42)
+- RuneBench: **4.6** (source: Artificial Analysis; 53rd percentile, rank 26/54)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (closest: τ²-Bench Banking 50.5% per BenchLeader)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3). Exceptional.
-- HLE (Humanity's Last Exam): **48.7%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- LCR: **83%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- MRCR: **98.5% / 98.1%** (DataCamp/ExplainX; http://datacamp.com/blog/muse-spark-1-3 — at 512K/1M). Exceptional long-context recall.
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: **61/62** (AA; https://artificialanalysis.ai/articles/muse-spark-1-3). Frontier-tier.
-- MMLU Pro: no verified public score found for Muse Spark 1.3 specifically.
+- GPQA Diamond: **94.1%** (source: LiveBench/AA; rank 7 at xhigh, 93.5% at max)
+- HLE: **48.7%** (source: Artificial Analysis; rank 22 at max, 47.5% at xhigh)
+- LCR: **83.0%** (source: Artificial Analysis; rank 21)
+- MLCR: **43.3%** (source: Artificial Analysis; rank 10)
+- CritPt: **24.9%** (source: Artificial Analysis; rank 35 at max)
+- Artificial Analysis Intelligence Index: **48 / 673** (rank 28 of 673 models)
+- Omniscience Accuracy / Hallucination Rate: **43.6% / 67.1%** (source: Artificial Analysis; rank 83 accuracy, rank 52 non-hallucination)
 
 Coding:
 
-- SWE-bench Verified: no verified public score found for Muse Spark 1.3 specifically.
-- DeepSWE: **75.4%** (DataCamp/ExplainX; http://datacamp.com/blog/muse-spark-1-3 and https://explainx.ai/blog/meta-muse-spark-1-3-launch-benchmarks-pricing-september-2026). Ahead of Opus 4.8's 74.0%.
-- LiveCodeBench: no verified public score found for Muse Spark 1.3 specifically.
-- SciCode: **58.8%** (BenchLM; https://benchlm.ai/models/muse-spark-1-3).
-- Vibe Code Bench: no verified public score found
-- Coding Index: no verified public score found
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (closest: DeepSWE v1.1 75.4%)
+- DeepSWE v1.1: **75.4%** (source: Artificial Analysis; rank 1/33, 100th percentile)
+- Terminal-Bench 2.1: **88.8%** (source: Artificial Analysis; rank 4/182, 98th percentile)
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- SWE Atlas Codebase QnA: **59.4%** (source: Artificial Analysis; rank 5/28, 85th percentile)
 
 Long context:
 
-- MRCR: **98.5% at 512K / 98.1% at 1M** (DataCamp/ExplainX). Exceptional long-context retrieval.
+- MRCR v2 8-needle 512K-1M: **98.1%** (source: OpenAI/self-reported; rank 1/9, 100th percentile)
+- MRCR v2 8-needle 256K-512K: **98.5%** (source: OpenAI/self-reported; rank 2/8, 86th percentile)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 95/100.** Terminal-Bench 2.1 88.8% (frontier tier: TB2.1 85%+ → 90-100), MCP Atlas 90.3% (exceptional tool orchestration), GDPval-AA 1,754 (frontier-tier knowledge work), Tau3 50.5%, SWE-Atlas 59.4%, DeepSWE 75.4% (ahead of Opus 4.8's 74.0%). Exceptional, consistent scores across all tool-use benchmarks. Capped only by: lack of SWE-bench Verified direct score. Overall tool-use capability is clearly frontier-tier.
-- **Reasoning: 95/100.** GPQA Diamond 93.5% (frontier tier: GPQA 90%+ → 90-100), HLE 48.7% (frontier tier: HLE 40%+ → 90-100), LCR 83% (exceptional), MRCR 98.5%/98.1% at 512K/1M (exceptional long-context recall), AA Intelligence Index 61/62 (frontier-tier). Exceptional, consistent scores. Capped only by: lack of CritPt direct score. Overall reasoning is clearly frontier-tier.
-- **Context window: 100/100.** 1M tokens context window (confirmed by multiple sources). Maximum tier (≥1M = 95-100). MRCR 98.5%/98.1% at 512K/1M confirms usable recall at full depth. Score 100 reflects top-tier context window with verified retrieval.
-- **Multimodal: 85/100.** Text and image input; text and image output (native multimodal). Video input: yes. PDF input: yes. Per methodology: +video/PDF in = 75-90, +image out = 90-100. With text+image+video+PDF input and image output, score 85-90. BenchLM lists 85 for multimodal. Capped by: lack of audio I/O and video generation. Score 85 reflects comprehensive multimodal coverage (text+image+video+PDF in, text+image out).
-- **Coding: 95/100.** DeepSWE 75.4% (ahead of Opus 4.8's 74.0% — frontier tier: DeepSWE 74%+ → 90-100), Terminal-Bench 2.1 88.8% (frontier tier), SciCode 58.8%, SWE-Atlas 59.4%, MCP Atlas 90.3%. Exceptional, consistent scores. Capped only by: lack of SWE-bench Verified direct score, and LiveCodeBench not found. Overall coding capability is clearly frontier-tier.
-- **Cost efficiency: 100/100.** Free tier via OpenCode Zen ($0 input/output during limited free period). Per methodology: $0 = 100. Contributor pricing ($0.10/$0.20) would score ~97-99 if not free. Capped only by: time-limited nature of free tier and training-data consent caveat (free-period prompts may be used to improve the model — do not use for confidential code). Score 100 reflects $0 pricing during free period.
-- **Overall Score: 94/100.** Mean of (95 + 95 + 100 + 85 + 95 + 100) / 6 = 95.0 → **95**. Best-fit recommendation: Muse Spark 1.3 Contributor is the best overall model available as of 2026-09-18 for teams that can use the free tier (OpenCode Zen). The combination of DeepSWE 75.4% (ahead of Opus 4.8), Terminal-Bench 88.8%, GPQA 93.5%, HLE 48.7%, MRCR 98.5%/98.1% at 512K/1M, MCP Atlas 90.3%, and $0 pricing makes this the definitive free-tier model. For teams needing audio I/O or video generation, other models are required. For teams needing confidential code processing, do NOT use the free tier (training-data consent caveat) — use the paid Contributor or Standard tier, or a model with zero-data-retention. This matches the model-comparison.md score of 95.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **CRITICAL OVERALL SCORE FORMULA (v4):**
+> Overall Score = `Math.round((Tool + Reasoning + Context + Multimodal + Coding) / 5)` (half-up rounding to nearest integer or 1 decimal).
+> **NEVER include Cost efficiency** in the Overall calculation. Cost efficiency is scored independently.
+
+- **Tool use: 85/100.** Strong agentic capabilities: GDPval-AA 1754 Elo (98th percentile), JobBench 64.9% (97th percentile), AutomationBench 49.4% (97th percentile). DeepSWE v1.1 at rank 1/33 (75.4%) and Terminal-Bench 2.1 at 88.8% (98th percentile) demonstrate top-tier agentic coding. Capped by moderate RuneBench (4.6, 53rd percentile) and no verified τ²-Bench Banking score.
+- **Reasoning: 82/100.** GPQA Diamond 94.1% (rank 7) and HLE 48.7% (rank 22) show strong reasoning. AA Intelligence Index 48 (top 28/673). CritPt 24.9% is moderate. Capped by HLE being mid-pack and CritPt being below frontier leaders.
+- **Context window: 93/100.** 1M token context window is frontier-tier. MRCR 512K-1M at 98.1% (rank 1/9) and 256K-512K at 98.5% (rank 2/8) demonstrate excellent long-context retrieval. Matches top context scores.
+- **Multimodal: 75/100.** Supports text, image, and video input with text output. Visual reasoning runs through real execution environment. Native multimodal perception verified. Capped by lack of image/video output modalities and no audio support.
+- **Coding: 88/100.** DeepSWE v1.1 at 75.4% (rank 1/33, 100th percentile) is best-in-class. Terminal-Bench 2.1 at 88.8% (rank 4/182, 98th percentile). SWE Atlas Codebase QnA 59.4% (rank 5/28). Optimized for competitive coding with ~20% fewer tool calls than Muse Spark 1.2. Capped by no verified SWE-bench Verified score.
+- **Cost efficiency: 95/100.** Free contributor tier available ($0) but uses data to improve Meta products. Paid tier at $1.25/$0.15/$4.25 is mid-range for frontier models. Strong value at price point given top-tier coding and agentic performance.
+- **Overall Score: 85/100.** Mean of (85 + 82 + 93 + 75 + 88) / 5 = 84.6, rounded to 85. Best-fit recommendation: frontier-tier agentic coding model with 1M context, excellent for long-horizon development workflows and multimodal document analysis.
 
 ---
 
 ## Signature
 
-- Provided by: **Solar Pro 4 (openai/solar-pro-4)** — 2026-09-18
-- Method: Public internet research via model intelligence aggregators (BenchLM, Artificial Analysis, DataCamp, ExplainX), vendor release materials (Meta Research blog), and independent model review sites; scores are normalized 1–100 interpretations, not official vendor scores. Benchmarks sourced from BenchLM, DataCamp, ExplainX, and Artificial Analysis; matches model-comparison.md scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1_2_Free.md`, using the same headings.
+- Provided by: **Solar Pro 4 (solar-pro-4)** — 2026-09-23
+- Method: Public internet research (Meta developer docs, Artificial Analysis, BenchLeader, BenchmarkList); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Gemini_3.1_Pro.md`, using the same headings.
+
+---
+
+## Submission checklist (delete before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).
+
+

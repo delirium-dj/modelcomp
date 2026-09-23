@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 92/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 92.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 95.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 77/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 92/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 58/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 90/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 91.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 92/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 94.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 78.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 91.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 61.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 89.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.3.
-- Average from top 4 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.3.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.3.
+- Average from top 5 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Muse Spark 1.3.
 - Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0, Mimo v2.6 Flash.
