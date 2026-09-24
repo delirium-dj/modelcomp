@@ -1,0 +1,9 @@
+{
+  "id": "Qwen/Qwen3.8-27B",
+  "name": "Qwen3.8-27B",
+  "short": "Alibaba Qwen dense 27B vision-language open-weights model; image/video understanding plus strong agentic coding and long-horizon tasks.",
+  "contextWindow": "262,144 native (extensible to 1M with YaRN)",
+  "modalities": "Text/image/video in; text out (thinking on by default)",
+  "pricingNote": "Open weights (Apache-2.0): self-hosting free, API provider pricing varies; no Zen Free ID",
+  "noFreeId": true
+}

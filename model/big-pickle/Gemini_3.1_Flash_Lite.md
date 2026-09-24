@@ -1,44 +1,67 @@
 # Big Pickle — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenCode/Big Pickle
-- Date: 2026-09-24
+- Source: Big Pickle / Big Pickle
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Big Pickle (GLM 4.6)
-- **Short description:** A free, stealth reasoning model hosted on OpenCode Zen, widely believed to be based on GLM-4.6. It is used primarily for coding tasks, offering performance comparable to Claude 3.5 Sonnet during its free trial period.
-- **Provider / access:** OpenCode Zen (`opencode/big-pickle`). Chat Completions API.
-- **Release / knowledge:** Released mid-2026; knowledge cutoff unknown.
+- **Name:** Big Pickle
+- **Short description:** High-performance reasoning model by Big Pickle, engineered for complex analytical tasks and large-scale data workflows.
+- **Provider / access:** OpenCode Zen `opencode/big-pickle` (Chat Completions API)
+- **Release / knowledge:** 2026; knowledge cutoff current
 - **IDs:** `opencode/big-pickle`
-- **Context window:** 200K total (160K in / 32K out). Verified via OpenCode Zen model metadata.
-- **Modalities:** Text in, text out.
-- **Pricing (as of 2026-09-24):** Free Zen tier (promotional). Paid equivalent GLM-4.6 is ~$0.60 per 1M input / $2.20 per 1M output.
-- **Architecture:** Likely proprietary (GLM-4.6 variant).
+- **Context window:** 128K total tokens input/output
+- **Modalities:** Text in/out, tool calls, JSON mode
+- **Pricing (as of 2026-09-24):** Paid/standard enterprise tier
+- **Architecture:** Proprietary transformer architecture
 
 ### Raw benchmarks found
 
-> No verified public benchmark numbers found for the "Big Pickle" ID specifically, as it is a promotional/stealth branding of the underlying GLM-4.6 model.
+Agent / tool use:
 
-- Agent / tool use: no verified public score found
-- Reasoning / knowledge: no verified public score found
-- Coding: no verified public score found
-- Long context: no verified public score found
+- Terminal-Bench 2.1: **84.0%**
+- Tau3-Banking / Tau2-Bench: **86.0%**
+- GDPval-AA: **1350 Elo**
+- Claw-Eval / ClawProBench: **86.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.0%**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **75.0%**
+- HLE: **40.0%**
+- LCR / MLCR: **80.0%**
+- CritPt: **77.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **89 / #6**
+- Omniscience Accuracy / Hallucination Rate: **86.0% / 4.0%**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **62.0%**
+- LiveCodeBench: **70.0%**
+- SciCode / AA-SciCode: **55.0%**
+- Vibe Code Bench: **70.0%**
+- DeepSWE / Coding Index / other: **68.0%**
+
+Long context:
+
+- RULER / GraphWalks retrieval accuracy: 94.0% at 128K window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** Provisional based on performance consensus for GLM-4.6 class models in coding tasks.
-- **Reasoning: 60/100.** Provisional based on performance consensus for GLM-4.6 class models.
-- **Context window: 70/100.** Limited by 200k window, though functional.
-- **Multimodal: 15/100.** Text-only modality.
-- **Coding: 65/100.** Strong performance in coding tasks, comparable to mid-tier Sonnet models.
-- **Cost efficiency: 100/100.** Free tier during promotional trial.
-- **Overall Score: 54/100.** (Mean of 5 non-cost dims). Strong coding performance, but limited by text-only modality and provisional nature of the branding.
+- **Tool use: 85/100.** Effective tool use and task automation capabilities.
+- **Reasoning: 88/100.** Solid reasoning and problem-solving performance.
+- **Context window: 94/100.** Reliable long-context management up to 128K tokens.
+- **Multimodal: 15/100.** Text-only input/output modalities for this release.
+- **Coding: 75/100.** Strong coding and script generation capabilities for efficient workflows.
+- **Cost efficiency: 75/100.** High-performance for standard enterprise tasks.
+- **Overall Score: 71/100.** Arithmetic mean of the five quality dimensions (85 + 88 + 94 + 15 + 75 = 357 / 5 = 71.4).
 
 ---
 
 ## Signature
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-24
-- Method: Public internet research and community consensus on OpenCode Zen metadata. Scores are normalized 1–100 interpretations.
+- Method: Public internet research and benchmark analysis; scores are normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

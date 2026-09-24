@@ -52,7 +52,7 @@ Long context:
 
 - **Tool use: 82/100.** Capable tool-calling for lightweight automation.
 - **Reasoning: 85/100.** Competent reasoning performance.
-- **Context window: 90/100.** Reliable long-context retrieval up to 128K tokens.
+- **Context window: 90/100.** Reliable retrieval up to 128K tokens.
 - **Multimodal: 15/100.** Text-only input/output modalities for this release.
 - **Coding: 70/100.** Solid coding and script generation performance.
 - **Cost efficiency: 100/100.** Exceptional value for an accessible, high-performance free-tier model.

@@ -1,0 +1,10 @@
+{
+  "id": "opencode/space-bunny-free",
+  "name": "Space Bunny Alpha",
+  "short": "Anonymous stealth preview reasoning model (vendor undisclosed) for coding, agentic tasks, tool use, and multimodal input; free limited-time tier on Zen as Space Bunny Free.",
+  "contextWindow": "1M total (524K in / 524K out)",
+  "modalities": "Text/image/video in; text out",
+  "pricingNote": "Free on OpenCode Zen for a limited time; zero-retention provider, no training on your data",
+  "freeTierNote": "Stealth model free during limited preview on OpenCode Zen (ID space-bunny-free); provider follows a zero-retention policy and does not use your data for training.",
+  "noFreeId": false
+}

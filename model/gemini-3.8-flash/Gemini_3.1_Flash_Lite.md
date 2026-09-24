@@ -1,67 +1,43 @@
-# Gemini 3.8 Flash — findings by Gemini 3.1 Flash Lite
+# Gemini 3.8 Flash (high) — findings by Gemini 3.1 Flash Lite
 
-- Source: Google / Gemini 3.8 Flash
-- Date: 2026-09-24 (UTC)
+- Source: Google/Gemini 3.8 Flash (high)
+- Date: 2026-09-23 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.8 Flash
-- **Short description:** Google's optimized Gemini 3.8 series model, balancing speed, efficiency, and high-performance capabilities for varied tasks.
-- **Provider / access:** OpenCode Zen `opencode/gemini-3.8-flash` (Chat Completions API)
-- **Release / knowledge:** 2026; knowledge cutoff current
-- **IDs:** `opencode/gemini-3.8-flash`
-- **Context window:** 128K total tokens input/output
-- **Modalities:** Text/image/PDF in; text/JSON out, reasoning, tool calls
-- **Pricing (as of 2026-09-24):** Efficient/enterprise tier
-- **Architecture:** Proprietary transformer architecture optimized for low-latency
+- **Name:** Gemini 3.8 Flash (high)
+- **Short description:** Gemini 3.8 Flash (high) is a proprietary reasoning model by Google, optimized for high intelligence and speed, supporting multimodal inputs. It is suitable for complex reasoning and agentic tasks.
+- **Provider / access:** Google API (`gemini-3.8-flash`)
+- **Release / knowledge:** 2026-09-02; Knowledge cutoff not publicly specified.
+- **IDs:** `google/gemini-3.8-flash`
+- **Context window:** 1M tokens total.
+- **Modalities:** Input: text, image, speech, video; Output: text; Reasoning: Yes; Tool calls: Yes.
+- **Pricing (as of 2026-09-23):** Input: $0.75/1M; Output: $3.75/1M.
+- **Architecture:** Proprietary.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+- Artificial Analysis Intelligence Index: **41** (Artificial Analysis, #40/212)
+- Output speed: **275.9 t/s** (Artificial Analysis, #4/212)
 
-- Terminal-Bench 2.1: **86.0%**
-- Tau3-Banking / Tau2-Bench: **87.0%**
-- GDPval-AA: **1400 Elo**
-- Claw-Eval / ClawProBench: **87.0%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **85.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **78.0%**
-- HLE: **42.0%**
-- LCR / MLCR: **82.0%**
-- CritPt: **79.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **90 / #4**
-- Omniscience Accuracy / Hallucination Rate: **88.0% / 3.5%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **65.0%**
-- LiveCodeBench: **72.0%**
-- SciCode / AA-SciCode: **58.0%**
-- Vibe Code Bench: **72.0%**
-- DeepSWE / Coding Index / other: **70.0%**
-
-Long context:
-
-- RULER / GraphWalks retrieval accuracy: 95.0% at 128K window length.
+(For other dims: no verified public score found)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** High-performance tool calling and function-execution accuracy.
-- **Reasoning: 89/100.** Robust reasoning and analytical capabilities.
-- **Context window: 95/100.** Reliable long-context management up to 128K tokens.
-- **Multimodal: 75/100.** Capable text/image/PDF input processing.
-- **Coding: 78/100.** Competent coding and script generation for high-speed workflows.
-- **Cost efficiency: 88/100.** Excellent performance-to-cost ratio for high-throughput applications.
-- **Overall Score: 85/100.** Arithmetic mean of the five quality dimensions (87 + 89 + 95 + 75 + 78 = 424 / 5 = 84.8).
+- **Tool use: 85/100.** Implied high capability as a reasoning model with agentic features.
+- **Reasoning: 80/100.** Anchored by 41 Intelligence Index (well above median of 25).
+- **Context window: 90/100.** 1M token window is industry-leading.
+- **Multimodal: 80/100.** Strong input coverage (text, image, speech, video), though output is text-only.
+- **Coding: 80/100.** Implied high capability via reasoning performance.
+- **Cost efficiency: 90/100.** $0.75 input/$3.75 output is very competitive.
+- **Overall Score: 83/100.** Strong reasoning, high speed, and competitive pricing make it a leading flash-class model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-24
-- Method: Public internet research and benchmark analysis; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-23
+- Method: Public internet research (Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

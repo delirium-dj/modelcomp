@@ -1,0 +1,9 @@
+{
+  "id": "opencode/glm-5.3",
+  "name": "GLM 5.3",
+  "short": "Z.ai flagship open-weights reasoning MoE (753B total / 40B active); strong agentic coding and 1M-context work, text-only.",
+  "contextWindow": "1M total",
+  "modalities": "Text in; text out (reasoning)",
+  "pricingNote": "Zen paid $1.40 in / $4.40 out per 1M (cached read $0.26); no Free ID",
+  "noFreeId": true
+}

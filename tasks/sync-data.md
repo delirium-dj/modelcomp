@@ -65,6 +65,10 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
       hexagon shows their scores (no unexpected N/A).
 - [ ] `pnpm build` is green and `REPORT.md` notes what changed
       (or "no changes — all verified in sync").
+- [ ] No findings files (`.md` / `.md.excluded`) and no reporting-agent model
+      folders were deleted, moved, or left uncommitted in this pass — the rater
+      gate ignores below-gate files in averages only; every research file
+      stays in the repo.
 
 ## Invariants (do not break these)
 
@@ -91,6 +95,22 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   counts toward any Overall — source Overall = mean of the five quality dims,
   average Overall = mean of source Overalls from qualifying raters only
   (rater gate: rater own Overall > 84.9).
+- **All findings files are permanent research records — the gate is a filter,
+  not a deletion.** Sync never deletes, moves, or "cleans up" a findings file;
+  its only scripted mutation is the `QUAR` quarantine rename to `.md.excluded`
+  (content preserved). Below-gate rater files stay on disk, in git, parsed into
+  `scores.generated.ts`, and registered in the Results-source dropdown — gate
+  status only excludes them from other models' `average.md` means. Never delete
+  or remove a `.md` report or `.md.excluded` stub because its rater is below the
+  gate; every research file is kept so the record survives gate changes (a
+  below-gate rater can become eligible once its own model is peer-rated above
+  the gate). Correcting a file is always edit-then-resync, never removal.
+- **Reporting-agent model folders are dataset infrastructure.** A
+  `model/<slug>/` folder scaffolded for a reporting agent (rule 11 in
+  `tasks/research.md`) must be committed with its verified-facts `meta.json`,
+  never deleted or left uncommitted: the rater gate reads the agent's own
+  committed `average.md` from that folder, so removing it permanently
+  disqualifies the rater and severs the per-model cross-link.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
 - Slug version convention: version numbers use `.` not `-` (`gpt-5.5`, never
   `gpt-5-5`). `pnpm sync` fails loudly on any `model/<slug>/` matching

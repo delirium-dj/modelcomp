@@ -1,0 +1,35 @@
+# Kimi K2.8 Preview — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Moonshot AI (`moonshot/kimi-k2-8-preview`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/curated metadata only, no measured numbers):
+
+- **Identity:** Kimi K2.8 Preview — Moonshot AI's mid-tier coding and agentic model inside Kimi Code, positioned between K2.7 Code and flagship K3.
+- **Specs (curated):** 1M (1,048,576) context; text/image in; text out; efficient reasoning.
+- **Pricing (curated):** Kimi membership plan (no per-token billing, no Zen Free ID — not on the OpenCode Zen list at all).
+
+Sources checked with no benchmark rows for this ID (2026-09-24):
+
+- BenchLM (`kimi-k2-8-preview`): not found (404). The Moonshot family pages cover K2.6 / K2.5 / K2.7 Code / K2 / K3 only.
+- Artificial Analysis: no page (404).
+- BenchmarkList: no page (404).
+- LLMReference: no page (404).
+- Hugging Face `moonshotai/Kimi-K2.8-Preview`: gated (401) — no public model card/benchmarks.
+- OpenCode Zen docs (2026-09-24): Kimi K3, K2.7 Code, K2.6 listed; K2.8 Preview absent.
+
+Interpolation between verified siblings (K2.7 Code ≈ 50.4 BenchLM, K3 ≈ 72.5) was deliberately NOT used to fabricate dimension scores. A future re-research should look for (a) a public K2.8 model card or Moonshot blog with official numbers, (b) aggregation-site coverage once the preview graduates, or (c) per-token API pricing — then write a fresh `GLM_5.3.md`.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
+- Method: public internet research (all major benchmark aggregators + HF + platform docs); no verified public scores found for this preview ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

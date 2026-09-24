@@ -144,3 +144,8 @@ For each queued slug, in order:
     the comparison table, the results-source dropdown, and the per-model
     cross-links connected: a reporting agent must never stay folderless. Do NOT
     scaffold folders for names with zero evidence of a real model behind them.
+12. **Never delete research (hard rule, binds orchestrators too):** never delete,
+    overwrite, or exclude another agent's files — including below-gate raters'.
+    The rater gate only keeps such reports out of `average.md` means; their files
+    stay on disk and keep working everywhere else. The sole deletable file is
+    your own `.md.excluded` twin after re-research with new evidence.

@@ -1,8 +1,0 @@
-{
-  "id": "opencode/llama_3.2_vision_instruct",
-  "name": "Llama_3.2_vision_instruct",
-  "short": "Llama_3.2_vision_instruct model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
-}

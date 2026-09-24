@@ -1,0 +1,37 @@
+# Ox Alpha — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: stealth vendor undisclosed (`opencode/ox-alpha`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/curated metadata only, no measured numbers):
+
+- **Identity:** "Ox Alpha" — a stealth frontier reasoning model (curated metadata references OpenRouter `stealth/ox-alpha` and OpenCode Zen `opencode/ox-alpha`); vendor undisclosed.
+- **Positioning:** long-horizon coding agents, "experimental agentic coding and logic puzzles".
+- **Specs (curated, unverified by any leaderboard):** 1M context / 131K max output; text/image/video/PDF in; text out.
+- **Pricing (curated):** free Zen tier during preview.
+
+Sources checked with no benchmark rows for this ID (2026-09-24):
+
+- BenchLM (`ox-alpha`): model page not found (404).
+- Artificial Analysis: no page.
+- BenchmarkList: no page (404).
+- OpenRouter (`stealth/ox-alpha`, `ox-alpha`): not found (404).
+- Pi models (`opencode/ox-alpha`): not found (404).
+- Grokipedia: no page (404).
+- OpenCode Zen docs (2026-09-24 snapshot): `ox-alpha` absent from the current endpoint/pricing/free lists — the free preview may have ended or the ID been rotated.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly. A future re-research should look for (a) any stealth-model community evals (e.g. SWE-Atlas-style harnesses), (b) whether OpenRouter or Zen re-list the ID, or (c) a vendor reveal — then write a fresh `GLM_5.3.md` with real evidence.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
+- Method: public internet research (all major benchmark aggregators + platform docs); no verified public scores found for this stealth ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

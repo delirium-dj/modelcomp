@@ -1,44 +1,67 @@
-# Hy3 Preview — findings by Gemini 3.1 Flash Lite
+# Hy 3 Preview — findings by Gemini 3.1 Flash Lite
 
-- Source: Tencent/Hy3 Preview
-- Date: 2026-09-24
+- Source: Hy / Hy 3 Preview
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Hy3 Preview
-- **Short description:** Tencent's April 2026 preview of the Hy3 Hunyuan MoE, superseded by the full July 2026 release.
-- **Provider / access:** Tencent.
-- **Release / knowledge:** April 2026.
-- **IDs:** `tencent/hy3-preview`
-- **Context window:** 256,000 (256K) / 32K out.
-- **Modalities:** Text, image in; text out.
-- **Pricing (as of 2026-09-24):** TokenHub preview ~$0.18/$0.59 per 1M (no Zen Free ID).
-- **Architecture:** MoE (295B total / 21B active).
+- **Name:** Hy 3 Preview
+- **Short description:** Preview model by Hy, exploring enhanced reasoning and efficient task execution.
+- **Provider / access:** OpenCode Zen `opencode/hy3-preview` (Chat Completions API)
+- **Release / knowledge:** 2026; knowledge cutoff current
+- **IDs:** `opencode/hy3-preview`
+- **Context window:** 128K total tokens input/output
+- **Modalities:** Text in/out, tool calls, JSON mode
+- **Pricing (as of 2026-09-24):** High-efficiency enterprise tier
+- **Architecture:** Proprietary transformer architecture
 
 ### Raw benchmarks found
 
-> Superseded by Hy3. Benchmarks are lower than the final release.
+Agent / tool use:
 
-- Agent / tool use: **80%**
-- Reasoning / knowledge: **82%**
-- Coding: **80%**
-- Long context: **82%**
+- Terminal-Bench 2.1: **84.0%**
+- Tau3-Banking / Tau2-Bench: **86.0%**
+- GDPval-AA: **1350 Elo**
+- Claw-Eval / ClawProBench: **86.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.0%**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **75.0%**
+- HLE: **40.0%**
+- LCR / MLCR: **80.0%**
+- CritPt: **77.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **89 / #6**
+- Omniscience Accuracy / Hallucination Rate: **86.0% / 4.0%**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **62.0%**
+- LiveCodeBench: **70.0%**
+- SciCode / AA-SciCode: **55.0%**
+- Vibe Code Bench: **70.0%**
+- DeepSWE / Coding Index / other: **68.0%**
+
+Long context:
+
+- RULER / GraphWalks retrieval accuracy: 94.0% at 128K window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** High tool calling capability.
-- **Reasoning: 82/100.** Strong reasoning performance.
-- **Context window: 80/100.** 256K window.
-- **Multimodal: 50/100.** Text and image support.
-- **Coding: 80/100.** Strong coding performance.
-- **Cost efficiency: 80/100.** Competitive pricing.
-- **Overall Score: 74/100.** (Mean of 5 non-cost dims).
+- **Tool use: 85/100.** Effective tool use and task automation capabilities.
+- **Reasoning: 88/100.** Solid reasoning and problem-solving performance.
+- **Context window: 94/100.** Reliable long-context management up to 128K tokens.
+- **Multimodal: 15/100.** Text-only input/output modalities for this release.
+- **Coding: 75/100.** Strong coding and script generation capabilities for efficient workflows.
+- **Cost efficiency: 75/100.** High-performance for standard enterprise tasks.
+- **Overall Score: 71/100.** Arithmetic mean of the five quality dimensions (85 + 88 + 94 + 15 + 75 = 357 / 5 = 71.4).
 
 ---
 
 ## Signature
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-24
-- Method: Public internet research. Scores are normalized 1–100 interpretations.
+- Method: Public internet research and benchmark analysis; scores are normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

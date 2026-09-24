@@ -70,6 +70,8 @@ export type SourceKey =
   | "Space Bunny Alpha"
   | "Qwen 3.8 27B"
   | "GLM 5.3"
+  | "Kimi K3"
+  | "Laguna XS 2.1"
   | "Muse Glimmer 30B";
 
 /**
@@ -121,6 +123,8 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Space Bunny Alpha", label: "Space Bunny Alpha", file: "Space_Bunny_Alpha.md" },
   { key: "Qwen 3.8 27B", label: "Qwen 3.8 27B", file: "Qwen_3.8_27B.md" },
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md" },
+  { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md" },
+  { key: "Laguna XS 2.1", label: "Laguna XS 2.1", file: "Laguna_XS_2.1.md" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
 ];
 

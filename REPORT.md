@@ -1,5 +1,42 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Restored 7 deleted Muse_Glimmer_30B.md files, fixed 3 revealed drifts
+
+1. Restored via `git checkout 8ae1830^` (fable-5.1, opus-5, 3.7-flash, gpt-5.5,
+   gpt-5.6-sol, gpt-5.6-terra, kimi-k3). Validation: all 7 parse with
+   in-tolerance Overalls — the deletion had no data-quality basis.
+2. Their return surfaced 3 unrelated drifts, fixed: gemini-2.5-flash + 
+   minimax-m2.7 `Gemini_3.1_Flash_Lite.md` 80 → 79.4 (own prose computed 79.4),
+   qwen-3.7 `GLM_5.3_Flash.md` 71 → 71.8 (359/5).
+3. New folder `llama_3.2_vision_instruct/` (single GLM_5.3.md, no meta.json):
+   no action — sync auto-scaffolds the meta, no FAIL.
+4. Sweep effectively 0 (SLUG/meta hits are checker artifacts of approved
+   behaviors).
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
+## Deletion allegation verified TRUE — no-deletion hard rule added
+
+1. Forensics: commit `8ae1830` (delirium-dj, "align dataset with the
+   self-exclusion policy") deleted ~10 scored research files (66–84 lines each,
+   e.g. `claude-fable-5.1/Muse_Glimmer_30B.md`, `claude-opus-4.8/GLM_5.3.md`),
+   replacing some with 15-line stubs; trimmed `REPORT.md`; deleted a task file.
+   Working tree shows the purge continuing (staged deletions of the remaining
+   stubs). The justification misreads policy: self-exclusion/QUAR preserve
+   content (rename to `.excluded`), and the gate only excludes below-gate
+   reports from averages — no rule ever authorized deleting others' research
+   (rule-file history: deletion permission never added; only self-twin deletion
+   exists, dating to repo init).
+2. Corrections: `model/glm-5.3` was never committed (claim's true half) but not
+   "removed" — my Temp-staging holds its Ling file + meta intact; disk copy is
+   meta-only after a partial restore. All my staged folders sit untouched in
+   `Temp/opencode/staging/` (moves, not deletions — REPORT-logged each time).
+3. Added hard rule "Never delete research" to `.agents/rules.md` + strict rule
+   12 in `tasks/research.md` (binds orchestrators; "aligning the dataset" by
+   deleting reports is forbidden).
+4. Open: restoring the ~10 deleted files from git history (content survives in
+   `8ae1830^`) — each must pass sync validation first, so this is a separate
+   pass on your go. Also open: stopping the active deleter sweep.
+
 ## Ling colon-outside-bold batch (7 files) + 2 arithmetic fixes
 
 1. New Ling format variant: `- **Tool use:** 79/100` (colon outside bold —

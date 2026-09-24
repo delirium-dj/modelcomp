@@ -15,7 +15,7 @@
 - **Context window:** 128K total tokens input/output
 - **Modalities:** Text in/out, tool calls, JSON mode
 - **Pricing (as of 2026-09-24):** Free Zen tier / limited rate limits for free tier
-- **Architecture:** Transformer architecture optimized for general performance
+- **Architecture:** Optimized transformer architecture for general performance
 
 ### Raw benchmarks found
 
