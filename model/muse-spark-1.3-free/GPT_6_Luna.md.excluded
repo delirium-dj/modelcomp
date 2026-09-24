@@ -1,0 +1,71 @@
+EXCLUDED — no verified benchmarks.
+
+# Muse Spark 1.3 Contributor Free (OpenCode Zen) — findings by GPT-6 Luna
+
+- Source: Meta (`muse-spark-1.3-contributor`); OpenCode Zen (`opencode/muse-spark-1.3-contributor-free`).
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.3 Contributor (OpenCode Zen Free)
+- **Short description:** Meta’s proprietary reasoning model for long-horizon agentic and coding workflows, offered through the Contributor tier. OpenCode Zen lists a limited-time Free route; Contributor prompts and completions may be used to train future Meta models.
+- **Provider / access:** Meta Model API raw ID `muse-spark-1.3-contributor`, available through Chat Completions, Responses, and Messages APIs. OpenCode Zen ID `opencode/muse-spark-1.3-contributor-free` uses the Responses API at `https://opencode.ai/zen/v1/responses`; Zen lists it as limited-time Free.
+- **Release / knowledge:** Released 2026-09-02; knowledge cutoff not disclosed in the reviewed Meta docs.
+- **IDs:** Meta Model API: `muse-spark-1.3-contributor`; OpenCode Zen: `opencode/muse-spark-1.3-contributor-free` (**Zen Free ID exists**).
+- **Context window:** 1,048,576-token context window, as listed for the exact Contributor model ID in Meta’s model table; a separate input/output split and output limit are not specified there.
+- **Modalities:** Text, image, video, and PDF input; audio input is listed, but Meta cautions that Muse Spark 1.3 audio understanding is not fully supported and quality may degrade. Text output. Reasoning is supported; Meta says `max` reasoning is Standard-tier only. Tool calling and structured output are documented for Muse Spark.
+- **Pricing (as of 2026-09-24):** OpenCode Zen lists input, output, and cached read as Free; cached-write pricing is not listed, and availability is limited-time. Meta’s direct Contributor tier is $0.10 input, $0.20 output, and $0.002 cached input per 1M tokens. Privacy caveat: Contributor prompts and completions may be used to train future Meta models.
+- **Architecture:** Proprietary, hosted model; weights, parameter count, active parameters, MoE details, and license are not disclosed in the reviewed docs. Meta describes Muse Spark as API-hosted and lists an open-weights release as future roadmap.
+
+### Raw benchmarks found
+
+**Negative finding:** no verified public score found for the exact Contributor/Zen Free ID. Meta’s scorecard labels its Muse Spark 1.3 results as `Muse Spark 1.3 (max)`; Meta’s docs say max reasoning is Standard-tier only. Artificial Analysis likewise lists 1.3 max/xhigh configurations, not the Contributor ID. Those results are not transferred to this exact ID.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** / **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found** / **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1-100)
+
+- **Tool use:** Not scored — excluded because no benchmark score was verified for the exact ID.
+- **Reasoning:** Not scored — excluded because no benchmark score was verified for the exact ID.
+- **Context window:** Not scored — the published context specification does not override the exact-ID self-exclusion rule.
+- **Multimodal:** Not scored — modality support is documented, but no exact-ID benchmark score was verified.
+- **Coding:** Not scored — excluded because no benchmark score was verified for the exact ID.
+- **Cost efficiency:** Not scored — excluded under the same exact-ID rule; prices are recorded above.
+- **Overall Score:** Not computed; the exact-ID benchmark gate failed, so no five-dimension mean is produced. Best fit: consider only for non-sensitive agentic or coding experiments if the limited-time free route is useful; Contributor data terms apply.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (`openai/gpt-6-luna`)** — 2026-09-24
+- Method: Public internet research of Meta’s official model docs, model page and release post; OpenCode Zen docs; and permitted benchmark/model catalogs. Scores, if later added, are normalized 1-100 interpretations, not official vendor scores. No scores were emitted because none were verified for the exact Contributor ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

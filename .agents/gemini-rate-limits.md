@@ -128,6 +128,45 @@ When given a multi-step or multi-item task (e.g. creating 11 model files or upda
   pnpm sync && pnpm build.types && pnpm build
   ```
 
+## Rule 14 — Persistence: never stop early (only an empty queue or user revocation ends the task)
+
+No prompt rule can resurrect a session after the API has already failed it
+with `400 Bad Request: Requests ending with a model turn are not supported`
+(a dead session cannot self-resume — recovery is always a fresh invocation,
+see Rule 15). What this rule does is eliminate every *voluntary* stop, so the
+only way the task ends is queue-empty or the user explicitly revoking it:
+- **Never treat a quiet period, a rate-limit wait (5 RPM), or a long queue as
+  a reason to stop.** Waiting is done silently inside reasoning — never emit
+  filler text ("Waiting...", "Still working...", "Let me pause...") while
+  throttled; filler is a text-only turn and triggers the exact crash above.
+- **Forbidden mid-task outputs** (each one is a text-only turn that kills the
+  session): `Should I continue / pause?`, `Want me to proceed?`,
+  mid-task summaries (`Done so far: ...`), `Ready for the next batch?`,
+  and any question or status note without an attached tool call.
+- **Completion condition is mechanical, not a judgement call:** the task is
+  done only when re-auditing `model/` shows zero folders missing your
+  `<STEM>.md` (or `.md.excluded` decision) file. Anything else — "enough
+  files", "diminishing returns", "context is getting long" — is NOT a stop
+  condition. Continue until the queue is empty or the user writes an explicit
+  revocation.
+- **Final turn only when the queue is empty.** Until then, every turn MUST
+  carry at least one tool call (Rule 12).
+
+## Rule 15 — Crash recovery is re-delegation (resume protocol)
+
+If a previous session died with `Requests ending with a model turn are not
+supported`, the recovery is NOT performed by the dead session — it is
+performed by the next invocation of the same delegator file. Both sides:
+- **Agent side (you):** make every invocation resume-safe: incremental save
+  (one file written before advancing, per `tasks/research.md` Step 3),
+  never overwrite/edit/delete existing files, skip folders already containing
+  your `<STEM>.md`. Then any fresh start automatically continues where the
+  crashed session left off — never restart finished folders.
+- **Orchestrator side (user):** on a `400` crash, simply delegate the SAME
+  `tasks/<STEM>.md` file again. The new session re-audits `model/`, skips
+  everything already written, and continues the queue. Repeat until the queue
+  is empty. No other recovery step exists.
+
 ---
 
 ## Quick reference — request costs per action

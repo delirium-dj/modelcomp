@@ -4,6 +4,8 @@
 
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with STEM from the line above.
 
+> GEMINI-ONLY: this STEM belongs to a Gemini model. Before any other step, read `.agents/gemini-rate-limits.md` in full and obey Rules 12–15 for the entire task (tool call in EVERY turn; never stop until the queue is empty or the user revokes it; resume-safe — skip folders already containing your file).
+
 Effective orders (already resolved, do not re-derive):
 
 1. Your file is exactly `model/<slug>/<STEM>.md` (exact case-sensitive value from STEM line). Never write any other filename.

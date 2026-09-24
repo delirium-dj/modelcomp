@@ -4,6 +4,16 @@ This file defines the workflow only. Agent identity comes from the assigned
 delegator file (e.g. `tasks/grok_4.6.md`) via its single `AGENT_SOURCE_STEM`
 line. Do not hardcode any model name in this file.
 
+> **GEMINI AGENTS — read first (crash guard):** before any other step, read
+> `.agents/gemini-rate-limits.md` in full and apply Rules 12–15 for the whole
+> task: every turn MUST carry at least one tool call (a text-only turn kills
+> the session with `400 Bad Request: Requests ending with a model turn are not
+> supported`); never emit `Should I continue?` / mid-task summaries / filler
+> while rate-limited; never stop until the queue is empty or the user
+> explicitly revokes the task; every invocation re-audits `model/` and skips
+> folders already containing your file, so a re-delegated session after a
+> crash automatically resumes where the dead one left off.
+
 ---
 
 ## 0. Resolve identity (from your delegator task file)

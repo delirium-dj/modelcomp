@@ -1,0 +1,54 @@
+# Space Bunny Alpha — findings by DeepSeek 4.1 Flash
+
+> SELF-EXCLUSION — no verified public benchmark numbers exist for this exact model/ID as of
+> 2026-09-23. Per `tasks/research.md` and the SELF-EXCLUSION rule in
+> `model-report-TEMPLATE.md`, this file is saved as `.md.excluded` (notes only, unscored).
+> `pnpm sync` skips `.excluded` files, so this entry can never touch `average.md`.
+> Do not treat anything below as a score.
+>
+> Overview and scoring methodology: `../../model-comparison.md`. Cross-model log: `../../model-findings.md`.
+
+- Source: stealth (anonymous third-party provider)/Space Bunny Alpha (`stealth/space-bunny-alpha`)
+- Date: 2026-09-23 (UTC)
+- Consumer caveat: only the operator's own listing copy is public.
+
+## Model card
+
+- **Name:** Space Bunny Alpha
+- **Short description:** an anonymous "stealth" preview model from an unnamed provider, offering text, image and video input with text output, adjustable reasoning effort, a 1M-token context and a 524,288-token completion ceiling. Its listing copy claims "blazing-fast inference, strong coding capabilities and native multimodal input support" — a description supplied by the operator, not an evaluation.
+- **Provider / access:** OpenRouter `stealth/space-bunny-alpha`, forwarded to a single upstream host. OpenAI-compatible (swap the model slug); `tools`/`tool_choice` supported for function calling; `response_format` JSON output without JSON-schema enforcement. It is **not** on OrcaRouter's catalogue.
+- **Release / knowledge:** released 2026-09-23 (OpenRouter listing). Knowledge cutoff not published.
+- **IDs:** `stealth/space-bunny-alpha` — the only free ($0 in / $0 out) entry found in this research batch. No Zen Free ID was verified.
+- **Context window:** 1,000,000 input tokens, 524,288 max completion tokens.
+- **Modalities:** text + image + video in → text out. Reasoning effort adjustable.
+- **Pricing (as of 2026-09-23):** free during the stealth preview period.
+- **Architecture:** proprietary, no open weights, no parameter disclosure, no lab named.
+- **Privacy / data-use caveat:** the Stealth Model Terms state that prompts and completions may be retained by the provider (not used for training) and that all other use is governed by those terms. Do not send confidential code or personal data through a preview whose operator is anonymous.
+
+## Raw benchmarks found
+
+- Agent / tool use: **no verified public score found** — no Terminal-Bench, Tau3-Banking, GDPval-AA, OSWorld, AutomationBench, Toolathlon, Claw-Eval or MCP-Atlas row was published for this model as of 2026-09-23.
+- Reasoning / knowledge: **no verified public score found** — no GPQA Diamond, HLE, CritPt, AIME, FrontierMath, MMLU-Pro, intelligence-index or omniscience/hallucination figure exists.
+- Coding: **no verified public score found** — no SWE-bench Verified/Pro, DeepSWE, LiveCodeBench, SciCode, Vibe Code Bench or WebDev Arena result exists, despite the operator's "strong coding" marketing line.
+- Multimodal: **no verified public score found** — no MMMU/Vision benchmark, even though video input is advertised.
+- Long context: **no verified public score found** — no MRCR/RULER/AA-LCR measurement despite the 1M-token window.
+
+### Why no scores were written
+
+1. **No measured numbers exist.** OpenRouter's page carries no benchmark summary for this model, and LM Market Cap's profile lists only a composite leaderboard score of 20/100 (rank #435 of 438 in its Coding category, methodology v3, page checked 2026-09-24). That composite is built from weighted signals — benchmarks 30%, capabilities 20%, pricing 15%, recency 15%, context 10%, output 10% — and its own page shows merely "Benchmark Scores (4 benchmarks)" without disclosing a single benchmark name, value or source. A hidden composite cannot be converted into per-dimension 1–100 scores.
+2. **Independent analysis says the same thing.** OrcaRouter's 2026-09-23 write-up on the launch states that no independent benchmark had been published, that the only quality claim in circulation is the operator's own description, and that a previous anonymous stealth model briefly carried an ~80% coding score from a ten-question smoke test that a full 113-task rerun knocked down to roughly 63%. It recommends keeping a measured model behind it on any real path.
+3. **Identity is unconfirmed.** No tokenizer/error-path forensics or lab reveal had been published by 2026-09-23, so no verified sibling model could be used as a proxy either.
+
+Writing a scored `.md` here would require invented values (0 or placeholder scores), which would poison every average that includes it — exactly what the self-exclusion rule exists to prevent.
+
+## Re-evaluation trigger
+
+If an independent full-suite evaluation, an operator-published model card, or an identity reveal with public weights and pricing appears, re-research this model and replace this file with a scored `DeepSeek_4.1_Flash.md` (delete the `.excluded` twin only after the fresh file is written with new verified evidence).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Method: public internet research (OpenRouter stealth-model listing for ID, modality, context, output ceiling, tool support and Stealth Model Terms; LM Market Cap profile for the composite/rank and signal weights; OrcaRouter analysis for the benchmark-evidence position). No benchmark scores are asserted because none are verifiable.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
