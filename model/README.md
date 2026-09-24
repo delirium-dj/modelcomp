@@ -11,8 +11,9 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   duplicate, not a new model. (`pnpm sync` fails loudly on hyphen-versioned
   folders with the dotted destination.) Exception: digits that are NOT a version
   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
-  experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
-  (`gemma-4-31b` = Gemma 4, 31B params, not version 4.31).
+   experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
+   (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params —
+   neither is a dotted version).
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
   (version dots are fine: `DeepSeek_4.1_Flash.md`). Display label = stem with
   `_` → space, e.g. `Muse_Spark_1.3.md` = findings provided by Muse Spark 1.3.

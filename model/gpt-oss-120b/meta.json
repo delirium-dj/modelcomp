@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gpt-oss-120b",
+  "name": "Gpt Oss 120b",
+  "short": "Gpt Oss 120b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

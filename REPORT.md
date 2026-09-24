@@ -1,5 +1,36 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Gemini Flash batch: 16 arithmetic fixes, gpt-oss-120b + space-bunny-alpha staged
+
+1. Gemini_3.5_Flash_Lite (below-gate rater, own 77.3) files carried systematic
+   upward Overall drift (+8–10, Cost-leak pattern) across 14 folders + 2
+   Gemini_3.1_Flash_Lite drifts (hy4 89→79.6, mimo-v2.5-free 81→83.2 — the one
+   downward case). Fixed arithmetically only (Overall := exact five-dim mean).
+2. New folders `gpt-oss-120b` (real OpenAI 120B model) + `space-bunny-alpha`
+   hold only below-gate raters → staged to `Temp/opencode/staging/` with drift
+   pre-fixed (80→69, 76→65.6). WARNING for restore: both staged
+   `Gemini_3.1_Flash_Lite.md` files carry self-declared placeholder scores —
+   they need real benchmark research before the folders return.
+3. Sweep 0 candidates.
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
+## Qwen 3.8 27B format rescue + qwen-3.8-27b param-size exemption
+
+1. New agent "Qwen 3.8 27B" (`cerebras/qwen-3.8-27b`) writes valid research in a
+   non-contract shape (scorecard tables, `##` headings). Appended contract
+   `### Normalized scores` blocks to its 3 files with numbers unchanged
+   (mythos-5.1 → 88.0, opus-5 → 89.4, muse-1.3-free → 90.2; means verified).
+   Mapped `"Qwen 3.8 27B": "qwen-3.8-27b"` in `AGENT_MODEL_SLUG`.
+2. `model/qwen-3.8-27b/` slug FAIL was a script false positive: 27B is a param
+   size (public name Qwen3.8-27B dense), same class as `gemma-4-31b` — NOT a
+   hyphen version. Extended `SLUG_VERSION_EXCEPTION` + comment; same exception
+   recorded in `tasks/sync-data.md` + `model/README.md`. Renaming to
+   `qwen-3.8.27b` would invent nonsense version "3.8.27b".
+3. Folder staged to `Temp/opencode/staging/` (single below-gate rater file, no
+   valid average): research preserved, restore on qualifying coverage.
+4. Sweep 0 candidates; `node --check` green.
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Agent-implies-model rule + grok-4 / gemini-1.5-pro scaffolded, Luna phantom removed
 
 1. New rule (user request): a reporting agent must never stay folderless.

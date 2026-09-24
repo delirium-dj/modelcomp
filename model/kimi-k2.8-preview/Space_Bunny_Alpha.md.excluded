@@ -1,0 +1,51 @@
+# Kimi K2.8 Preview — findings by Space Bunny Alpha
+
+- Source: Moonshot AI (`kimi-k2.8-preview`; exact-model availability not verified)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview (requested catalog entry; not found in current official sources)
+- **Short description:** The repository entry is not documented in the current Moonshot model list. The current official list instead exposes Kimi K3, Kimi K2.7 Code, and Kimi K2.6; this report does not substitute any of them for the requested model.
+- **Provider / access:** No verified current Moonshot API ID or OpenCode Zen ID for Kimi K2.8 Preview was found. Moonshot's current model list is the authoritative access reference and does not list this exact model.
+- **Release / knowledge:** No official release date or knowledge cutoff was found for Kimi K2.8 Preview. The model name is preserved as a requested catalog entry only.
+- **IDs:** Requested name `kimi-k2.8-preview`; exact model ID not verified. Do not map it to `kimi-k2.7-code` or `kimi-k3`.
+- **Context window:** No verified exact-model context or output limit found. The repository metadata's 1M figure is not treated as a verified Kimi K2.8 Preview specification.
+- **Modalities:** No verified exact-model modality table found. Moonshot's current K3/K2.7/K2.6 pages describe text/image/video input, but those capabilities are not transferred to this absent model.
+- **Pricing (as of 2026-09-24):** No verified exact-model price found.
+- **Architecture:** No verified exact-model weights, parameters, or license found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark numbers were found for the exact Kimi K2.8 Preview model.
+- Benchmarks belonging to Kimi K3, Kimi K2.7 Code, Kimi K2.6, or Kimi K2 Instruct are **not** used as substitutes.
+
+Reasoning / knowledge:
+
+- No verified public benchmark numbers were found for the exact Kimi K2.8 Preview model.
+
+Coding:
+
+- No verified public benchmark numbers were found for the exact Kimi K2.8 Preview model.
+
+Long context:
+
+- No verified public long-context retrieval result or exact-model limit was found.
+
+Sources consulted: [Moonshot current model list](https://platform.moonshot.ai/docs/models), [Moonshot API quickstart](https://platform.moonshot.ai/docs/intro), [Moonshot Hugging Face organization](https://huggingface.co/moonshotai), and [OpenCode Zen model catalog](https://opencode.ai/zen/v1/models), accessed 2026-09-24. The exact model was absent from these reviewed sources; no proxy scores are claimed.
+
+### Normalized scores (1–100)
+
+> Scores are intentionally omitted because the exact model/ID has no verified public benchmark number. Creating a scored `.md` would turn an absent or catalog-error entry into invented quality evidence. Per repository workflow, this file is retained as `.md.excluded`; it is not counted by `pnpm sync`.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Method: Public web research of current official Moonshot model/API documentation, the official Hugging Face organization, and OpenCode's public model catalog; no proxy model or benchmark was substituted.
+- Future sources: if an exact Kimi K2.8 Preview announcement or model card becomes available, add a new file next to this one using the same headings.

@@ -86,10 +86,11 @@ log(`sync-data: ${slugs.length} model folders`);
 // "-". A hyphen between two digits is never a valid version separator, so a
 // folder like `gpt-5-5` is a duplicate of `gpt-5.5`, not a new model — fail
 // loudly with the dotted destination instead of cementing the duplicate.
-// Exceptions (digits that are NOT a version): `gemma-4-31b` ("4" + 31B param
-// size), single majors with codename/experimental suffixes (`gpt-6-astra`,
-// `deepseek-v4-vision-exp`) — none of which match digit-hyphen-digit.
-const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b"]);
+// Slug exceptions (match digit-hyphen-digit but are NOT hyphen versions):
+// param sizes `gemma-4-31b` ("4" + 31B params) and `qwen-3.8-27b`
+// (version 3.8 + 27B params). (Single majors with codename/experimental
+// suffixes like `gpt-6-astra` never match the check at all.)
+const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b"]);
 for (const slug of slugs) {
   if (SLUG_VERSION_EXCEPTION.has(slug)) continue;
   if (/\d-\d/.test(slug)) {

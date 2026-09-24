@@ -1,0 +1,44 @@
+# Solar Pro 4 — findings by Gemini 3.1 Flash Lite
+
+- Source: Upstage AI/Solar Pro 4
+- Date: 2026-09-24
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Pro 4
+- **Short description:** Upstage AI's Solar Pro 4; vendor specs unverified in this research — tracked provisionally.
+- **Provider / access:** Upstage AI.
+- **Release / knowledge:** 2026.
+- **IDs:** `upstageai/solar-pro-4`
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing (as of 2026-09-24):** Unknown (no Zen Free ID).
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found.
+
+- Agent / tool use: no verified public score found
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no verified public score found
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No data.
+- **Reasoning: 0/100.** No data.
+- **Context window: 0/100.** No data.
+- **Multimodal: 0/100.** No data.
+- **Coding: 0/100.** No data.
+- **Cost efficiency: 0/100.** No data.
+- **Overall Score: 0/100.** (Self-excluded).
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-24
+- Method: Public internet research. Scores are normalized 1–100 interpretations.

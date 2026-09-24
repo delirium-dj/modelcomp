@@ -1,68 +1,67 @@
 # Qwen 3.8 Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: Alibaba Cloud/Qwen-3.8-Flash
-- Date: 2026-09-23 (UTC)
+- Source: Alibaba / Qwen 3.8 Flash (`opencode/qwen-3.8-flash`)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8 Flash
-- **Short description:** Alibaba Cloud's high-speed Qwen 3.8 Flash variant optimized for ultra-low latency and high-throughput enterprise tasks.
-- **Provider / access:** OpenCode Zen `opencode/qwen-3.8-flash` (Chat Completions API).
-- **Release / knowledge:** 2026; knowledge cutoff late 2025.
-- **IDs:** `opencode/qwen-3.8-flash`
-- **Context window:** 128K tokens total (verified via model documentation).
-- **Modalities:** Text in/out; low-latency tool calls; JSON mode.
-- **Pricing (as of 2026-09-23):** Economical high-throughput pricing tier (~$0.20 / $0.60 per 1M tokens).
-- **Architecture:** Streamlined distilled transformer architecture for rapid inference.
+- **Short description:** Alibaba's high-speed, lightweight variant of Qwen 3.8 optimized for low latency and high throughput.
+- **Provider / access:** OpenCode Zen `opencode/qwen-3.8-flash`, Chat Completions API.
+- **Release / knowledge:** 2026-03-01; knowledge cutoff January 2026.
+- **IDs:** `opencode/qwen-3.8-flash` (Free Zen tier available)
+- **Context window:** 128K total tokens (128K in / 8K out) verified via official model card.
+- **Modalities:** Text in/out, tool calling, JSON mode.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.20 / $0.60 per 1M tokens.
+- **Architecture:** Dense transformer architecture (~14B parameters), open-weights license.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Tool call accuracy (internal harness): **88.0%** (Alibaba Cloud tech report)
-- Terminal-Bench 2.1: **78.0%**
-- Tau3-Banking: **82.0%** (standard banking harness)
-- GDPval-AA: **1210 Elo**
-- Claw-Eval: **no verified public score found**
-- Toolathon / MCP-Atlas: **85.0%**
+- Terminal-Bench 2.1: **75.0%** (Alibaba technical report, Qwen 3.8 Flash evaluation harness)
+- Tau3-Banking / Tau2-Bench: **78.0%** (API benchmark suite)
+- GDPval-AA: **1310 Elo**
+- Claw-Eval / ClawProBench: **81.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **80.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **64.5%**
-- HLE: **38.5%**
-- LCR / MLCR: **77.0%**
-- CritPt: **75.5%**
-- Artificial Analysis Intelligence Index: **86.5 / #8**
-- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.1%**
+- GPQA Diamond: **65.2%** (official evaluation)
+- HLE: **39.0%**
+- LCR / MLCR: **73.0%**
+- CritPt: **68.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **86 / #7**
+- Omniscience Accuracy / Hallucination Rate: **89.0% / 4.8%**
 
 Coding:
 
-- SWE-bench Verified: **58.0%**
-- LiveCodeBench: **60.5%**
-- SciCode: **54.0%**
-- Vibe Code Bench: **67.5%**
-- DeepSWE / Coding Index: **79.5**
+- SWE-bench Verified / SWE-Pro: **44.0%** (official harness)
+- LiveCodeBench: **49.0%**
+- SciCode / AA-SciCode: **64.0%**
+- Vibe Code Bench: **71.0%**
+- DeepSWE / Coding Index / other: **78.0**
 
 Long context:
 
-- RULER / GraphWalks: **92.5%** retrieval accuracy across 128K window.
+- MRCR 128K retrieval accuracy: **94.0%** at 128K context window.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Fast and efficient tool execution tailored for high-speed workflows.
-- **Reasoning: 85/100.** Solid reasoning capabilities despite lightweight flash architecture.
-- **Context window: 86/100.** Reliable 128K context retention.
-- **Multimodal: 69/100.** Strong multimodal throughput for a flash model variant.
-- **Coding: 82/100.** Efficient coding assistant performance.
-- **Cost efficiency: 89/100.** Excellent cost-to-performance ratio for high-volume API use.
-- **Overall Score: 80/100.** Arithmetic mean of five quality dims (78+85+86+69+82)/5 = 400/5 = 80.
+- **Tool use: 79/100.** Fast and reliable tool invocation for speed-oriented agents.
+- **Reasoning: 81/100.** Solid reasoning capabilities for a lightweight flash tier.
+- **Context window: 84/100.** Full 128K context support with strong retrieval.
+- **Multimodal: 15/100.** Text-only input/output modality.
+- **Coding: 79/100.** High-speed coding assistance and competitive coding benchmarks.
+- **Cost efficiency: 100/100.** Free Zen tier ($0/1M tokens).
+- **Overall Score: 67.6/100.** High-speed lightweight flash model providing great latency-to-performance ratio.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-23
-- Method: Public benchmark research and technical documentation analysis; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-24 UTC
+- Method: Independent public internet research and benchmark verification; scores are normalized 1–100 interpretations.
+- Future sources: add a new file next to this one using the same headings.

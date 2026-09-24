@@ -96,8 +96,8 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   `gpt-5-5`). `pnpm sync` fails loudly on any `model/<slug>/` matching
   digit-hyphen-digit (with the dotted destination in the message), so a
   hyphen variant is never cemented into averages or `scores.generated.ts`.
-  Exceptions: `gemma-4-31b` (param size, not a version), single majors with a
-  codename/suffix (`gpt-6-astra`, `deepseek-v4-vision-exp`).
+  Exceptions: param sizes `gemma-4-31b` and `qwen-3.8-27b` (not versions),
+  single majors with a codename/suffix (`gpt-6-astra`, `deepseek-v4-vision-exp`).
 
 ## Definition of Done
 

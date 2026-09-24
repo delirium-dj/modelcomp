@@ -1,8 +1,0 @@
-{
-  "id": "opencode/space-bunny-alpha",
-  "name": "Space Bunny Alpha",
-  "short": "Space Bunny Alpha model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
-}
