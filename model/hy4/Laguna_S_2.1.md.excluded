@@ -1,0 +1,51 @@
+# Hy4 — findings by Laguna S 2.1
+
+> Source: tencent/hy4 (Tencent), e.g. repo `meta.json` (curated)
+> Date: 2026-09-23 (UTC)
+> Status: **EXCLUDED — no verified public benchmark numbers for this exact model/ID**
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Why this file is `.md.excluded`
+
+Per `model-report-TEMPLATE.md` (SELF-EXCLUSION rule): when a folder's model yields **zero verified public benchmark numbers** (every row below would read "no verified public score found" and all normalized dimensions would be guesses), do NOT save a scored `.md` — save this `.md.excluded` instead so `pnpm sync` skips it (it renames/skips `*.excluded` loudly) and it never poisons the average. Fabricating placeholder scores or borrowing an unverified sibling's numbers is forbidden.
+
+## Model card (specs only — from repo curated `meta.json`)
+
+- Name: Hy4 (Tencent). August 2026 open-weights flagship.
+- Provider / access: Tencent (`tencent/hy4`); OpenCode Zen id per repo meta. Apache 2.0 open weights (self-hosted). noFreeId (no Zen Free ID) per `meta.json`.
+- Architecture (repo `meta.json`): **770B total / 49B active MoE**, Apache 2.0 license.
+- Context window: **1,000,000 tokens (960K in / 64K out)** (repo `meta.json`).
+- Modalities (repo `meta.json`): "Text in/out" — text-only input/output.
+- Pricing (repo `meta.json`): Apache 2.0 open weights, self-hosted (no paid tier listed).
+
+## Verified public evidence searched (all NOT FOUND for the exact `tencent/hy4` id)
+
+- Hugging Face `tencent/Hy4` model card: **HTTP 401 Unauthorized** (gated/private — not publicly browsable).
+- Artificial Analysis model page (`artificialanalysis.ai/models/hy4`): **HTTP 404** (no dedicated page).
+- Artificial Analysis models listing / open-weights leaderboard (2026-09): top open-weights by Intelligence Index = MiMo-V2.6-Pro **46**, GLM-5.3 max **45**, Kimi K3 **44**; **Hy4 is not present** in any benchmarked row.
+- Tencent AI Lab English product pages (`ai.tencent.com/en/products/industry-model`): no Hy4 / Hunyuan-4 mention (Chinese-only boilerplate, no model card).
+- modelscale.ai Tencent provider page: **fetch failed** (no data retrieved).
+
+## Benchmarks found: NONE
+
+| Benchmark | Result | Source |
+|---|---|---|
+| AA Intelligence Index (v4.3.2) | **no verified public score found** | AA 404 / no leaderboard row |
+| Terminal-Bench 2.1 / 4.0 | **no verified public score found** | not on TB leaderboard |
+| SWE-bench Verified / Pro / DeepSWE / LiveCodeBench | **no verified public score found** | not published |
+| GPQA Diamond / HLE / MMLU | **no verified public score found** | not published |
+| GDPval-AA / Tau3-Banking / tau3-general | **no verified public score found** | not published |
+| MRCR / RULER / GraphWalks | **no verified public score found** | not published |
+| CritPt / AA-Omniscience / AA-LCR | **no verified public score found** | not published |
+| Toolathon / MCP-Atlas / OSWorld | **no verified public score found** | not published |
+
+## Normalization impact
+
+Because **no verified public benchmark** exists for the exact `tencent/hy4` identifier, no defensible 1–100 quality score can be derived for Tool use / Reasoning / Context / Multimodal / Coding. The repo's `73.9` figure for `hy4` is therefore an **unverified/un-auditable placeholder** pending the first public model card or benchmark publication; it should be re-scored by a future rater once Tencent publishes a public evaluation row (e.g. on AA or a public Hugging Face card).
+
+### Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-09-23
+- Method: public-internet research — consulted Hugging Face, Artificial Analysis (model page + leaderboard), Tencent AI Lab English pages, and modelscal; Hy4 is **not publicly benchmarked** on any fetched source, and its HF card is private (401). Per the template SELF-EXCLUSION rule, no scored `.md` is written; this `.md.excluded` preserves only the verified specs from the repo `meta.json` and a negative-findings log. Scores are intentionally omitted (not fabricated).
+- Future sources: once a public model card / benchmark table for `tencent/hy4` appears, delete this `.md.excluded` and write `Laguna_S_2.1.md` using the standard template.

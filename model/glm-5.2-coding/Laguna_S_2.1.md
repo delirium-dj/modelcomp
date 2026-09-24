@@ -47,10 +47,10 @@ Agent / tool use:
 - **Context window: 95/100.** 1,000,000 native tokens (≥1M tier; clears <64K caveat); no measured MRCR/RULER retrieval %.
 - **Multimodal: 15/100.** **Text input only** (DesignForOnline "text model" + repo `meta.json` "Text in/out") — the single largest downward cap of this model.
 - **Coding: 85/100.** Terminal-Bench v2.1 78% + SciCode 50% + DeepSWE 62.7% + GDPval-AA 1524 (agentic) + "strong tool-use reliability"; capped by no SWE-bench-Verified / LiveCodeBench %.
-- **Cost efficiency: 52/100.** $1.40/$4.40 per 1M (~$0.51/MTok blended; ~$0.46/Intelligence task, on the Pareto frontier) is reasonable for a 744B MoE; noFreeId (paid, no $0) caps it below 100.
-- **Overall Score: 73.8/100.** (88 + 86 + 95 + 15 + 85) / 5 = 369 / 5 = 73.8.
+- **Cost efficiency: 52/100.** $1.40/$4.40 per 1M (~$0.51/MTok blended; ~$0.46 per Intelligence Index task, on the Pareto frontier) is reasonable for a 744B MoE; noFreeId (paid, no $0) caps it below 100.
+- **Overall Score: 74/100.** (88 + 86 + 95 + 15 + 85) / 5 = 369 / 5 = 73.8 → 74.
 
-> ⚠️ **Reconciliation note:** Repo `model-comparison.md` average for this model is **71.4** (audit, 2026-09). My Index-anchored re-normalization (Intelligence Index v4.1 = 51 → quality dims 88/86/85) yields **73**, within ~2 points of the repo. The delta reflects (a) GLM-5.2's leading-open-weights Index 51 + GDPval 1524, and (b) my consistent same-scale Index anchoring; the repo's 71.4 reflects a comparable at-launch/legacy weighting. The dominant characteristic under both views is the **text-only Multimodal = 15**, which caps the ceiling despite strong coding/agentic/reasoning.
+> ⚠️ **Reconciliation note:** The repo AI-Rankings average for this model is **76.5** (audit/model-comparison.md v4, 2026-09). My Index-anchored re-normalization (Intelligence Index v4.1 = 51 → quality dims 88/86/85) yields **74**, within ~2.5 points of the repo. The small downward delta reflects the same-scale discipline anchoring quality dims on Index 51 (not the at-launch legacy weighting the repo's 76.5 implies); the dominant ceiling constraint under both views is the **text-only Multimodal = 15**, which caps the score despite strong coding/agentic/reasoning. Both repo 76.5 and my 74 preserved.
 
 ---
 
