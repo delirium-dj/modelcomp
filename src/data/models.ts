@@ -375,6 +375,8 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "GPT 6 Sol": "gpt-6-sol",
   "Grok 4": "grok-4",
   "Gemini 1.5 Pro": "gemini-1.5-pro",
+  "Qwen 3.8 27B": "qwen-3.8-27b",
+  "GLM 5.3": "glm-5.3",
 };
 
 /**
