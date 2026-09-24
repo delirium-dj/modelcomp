@@ -69,7 +69,8 @@ export type SourceKey =
   | "Grok 4"
   | "Space Bunny Alpha"
   | "Qwen 3.8 27B"
-  | "GLM 5.3";
+  | "GLM 5.3"
+  | "Muse Glimmer 30B";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -120,6 +121,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Space Bunny Alpha", label: "Space Bunny Alpha", file: "Space_Bunny_Alpha.md" },
   { key: "Qwen 3.8 27B", label: "Qwen 3.8 27B", file: "Qwen_3.8_27B.md" },
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md" },
+  { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
 ];
 
 export interface AiModel {
