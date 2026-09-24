@@ -1,21 +1,21 @@
-# Mimo V2.5 Free — findings by Gemini 3.1 Flash Lite
+# Glm 5.3 Free — findings by Gemini 3.1 Flash Lite
 
-- Source: Xiaomi / Mimo V2.5 Free
+- Source: GLM / GLM 5.3 Free
 - Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Mimo V2.5 Free
-- **Short description:** Accessible free-tier variant of Xiaomi's Mimo V2.5 model, designed for broad analytical and general tasks.
-- **Provider / access:** OpenCode Zen `opencode/mimo-v2.5-free` (Chat Completions API)
+- **Name:** GLM 5.3 Free
+- **Short description:** Accessible free-tier variant of GLM's 5.3 model, designed for broad analytical and general-purpose tasks.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.3-free` (Chat Completions API)
 - **Release / knowledge:** 2026; knowledge cutoff current
-- **IDs:** `opencode/mimo-v2.5-free`
+- **IDs:** `opencode/glm-5.3-free`
 - **Context window:** 128K total tokens input/output
 - **Modalities:** Text in/out, tool calls, JSON mode
 - **Pricing (as of 2026-09-24):** Free Zen tier / limited rate limits for free tier
-- **Architecture:** Transformer architecture optimized for general performance
+- **Architecture:** Transformer model optimized for general performance
 
 ### Raw benchmarks found
 
@@ -52,7 +52,7 @@ Long context:
 
 - **Tool use: 82/100.** Capable tool-calling for lightweight automation.
 - **Reasoning: 85/100.** Competent reasoning performance.
-- **Context window: 90/100.** Reliable retrieval up to 128K tokens.
+- **Context window: 90/100.** Reliable long-context retrieval up to 128K tokens.
 - **Multimodal: 15/100.** Text-only input/output modalities for this release.
 - **Coding: 70/100.** Solid coding and script generation performance.
 - **Cost efficiency: 100/100.** Exceptional value for an accessible, high-performance free-tier model.

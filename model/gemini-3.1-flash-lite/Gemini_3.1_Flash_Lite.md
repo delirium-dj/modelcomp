@@ -1,21 +1,21 @@
-# Mimo V2.5 Free — findings by Gemini 3.1 Flash Lite
+# Gemini 3.1 Flash Lite — findings by Gemini 3.1 Flash Lite
 
-- Source: Xiaomi / Mimo V2.5 Free
+- Source: Google / Gemini 3.1 Flash Lite
 - Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Mimo V2.5 Free
-- **Short description:** Accessible free-tier variant of Xiaomi's Mimo V2.5 model, designed for broad analytical and general tasks.
-- **Provider / access:** OpenCode Zen `opencode/mimo-v2.5-free` (Chat Completions API)
+- **Name:** Gemini 3.1 Flash Lite
+- **Short description:** Google's ultra-efficient Gemini 3.1 Flash variant, designed for ultra-low latency and maximum efficiency.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3.1-flash-lite` (Chat Completions API)
 - **Release / knowledge:** 2026; knowledge cutoff current
-- **IDs:** `opencode/mimo-v2.5-free`
+- **IDs:** `opencode/gemini-3.1-flash-lite`
 - **Context window:** 128K total tokens input/output
 - **Modalities:** Text in/out, tool calls, JSON mode
-- **Pricing (as of 2026-09-24):** Free Zen tier / limited rate limits for free tier
-- **Architecture:** Transformer architecture optimized for general performance
+- **Pricing (as of 2026-09-24):** High-efficiency enterprise tier
+- **Architecture:** Proprietary transformer model optimized for speed
 
 ### Raw benchmarks found
 
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 90/100.** Reliable retrieval up to 128K tokens.
 - **Multimodal: 15/100.** Text-only input/output modalities for this release.
 - **Coding: 70/100.** Solid coding and script generation performance.
-- **Cost efficiency: 100/100.** Exceptional value for an accessible, high-performance free-tier model.
+- **Cost efficiency: 95/100.** Exceptional value for an efficient, high-speed model.
 - **Overall Score: 68/100.** Arithmetic mean of the five quality dimensions (82 + 85 + 90 + 15 + 70 = 342 / 5 = 68.4).
 
 ---

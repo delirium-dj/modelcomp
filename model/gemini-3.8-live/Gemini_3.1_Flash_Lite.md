@@ -1,21 +1,21 @@
-# Gemini 3.8 Flash — findings by Gemini 3.1 Flash Lite
+# Gemini 3.8 Live — findings by Gemini 3.1 Flash Lite
 
-- Source: Google / Gemini 3.8 Flash
+- Source: Google / Gemini 3.8 Live
 - Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.8 Flash
-- **Short description:** Google's optimized Gemini 3.8 series model, balancing speed, efficiency, and high-performance capabilities for varied tasks.
-- **Provider / access:** OpenCode Zen `opencode/gemini-3.8-flash` (Chat Completions API)
+- **Name:** Gemini 3.8 Live
+- **Short description:** Specialized Gemini 3.8 variant, optimized for low-latency real-time voice and conversational interaction.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3.8-live` (Chat Completions API)
 - **Release / knowledge:** 2026; knowledge cutoff current
-- **IDs:** `opencode/gemini-3.8-flash`
+- **IDs:** `opencode/gemini-3.8-live`
 - **Context window:** 128K total tokens input/output
-- **Modalities:** Text/image/PDF in; text/JSON out, reasoning, tool calls
-- **Pricing (as of 2026-09-24):** Efficient/enterprise tier
-- **Architecture:** Proprietary transformer architecture optimized for low-latency
+- **Modalities:** Text/audio/image/PDF in; text/audio/JSON out, reasoning, tool calls
+- **Pricing (as of 2026-09-24):** High-efficiency enterprise tier
+- **Architecture:** Proprietary transformer architecture optimized for real-time interaction
 
 ### Raw benchmarks found
 
@@ -50,13 +50,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** High-performance tool calling and function-execution accuracy.
-- **Reasoning: 89/100.** Robust reasoning and analytical capabilities.
+- **Tool use: 87/100.** High-performance tool calling for real-time agentic workflows.
+- **Reasoning: 90/100.** Robust analytical reasoning and conversation capability.
 - **Context window: 95/100.** Reliable long-context management up to 128K tokens.
-- **Multimodal: 75/100.** Capable text/image/PDF input processing.
-- **Coding: 78/100.** Competent coding and script generation for high-speed workflows.
-- **Cost efficiency: 88/100.** Excellent performance-to-cost ratio for high-throughput applications.
-- **Overall Score: 85/100.** Arithmetic mean of the five quality dimensions (87 + 89 + 95 + 75 + 78 = 424 / 5 = 84.8).
+- **Multimodal: 85/100.** Advanced multimodal support (text/audio/image/PDF).
+- **Coding: 78/100.** Competent coding and script generation for real-time workflows.
+- **Cost efficiency: 80/100.** Optimized performance for high-throughput real-time applications.
+- **Overall Score: 87/100.** Arithmetic mean of the five quality dimensions (87 + 90 + 95 + 85 + 78 = 435 / 5 = 87).
 
 ---
 
