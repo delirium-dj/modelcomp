@@ -1,0 +1,73 @@
+# Space Bunny Alpha — findings by Muse Spark 1.3
+
+- Source: Stealth/Space-Bunny-Alpha (`opencode/space-bunny-free`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha (Free preview)
+- **Short description:** Anonymous stealth preview reasoning model of undisclosed vendor for coding, agentic tasks, tool use, and multimodal input. Top use case is currently unconfirmed — free limited-time preview on OpenCode Zen.
+- **Provider / access:** OpenCode Zen `opencode/space-bunny-free` (OpenAI-Completions compatible, `https://opencode.ai/zen/v1`); also listed as stealth model on OpenRouter. Chat Completions API.
+- **Release / knowledge:** Appeared 2026-09-23 as anonymous preview (OrcaRouter listing 2026-09-23); knowledge cutoff unknown — no verified cutoff found.
+- **IDs:** `opencode/space-bunny-free` (Free preview ID on Zen; vendor undisclosed)
+- **Context window:** 1M tokens total (524,288 max output per Pi.dev listing) — verified via endpoint listing only, not via capability measurement.
+- **Modalities:** text/image/video in (per listings); text out; reasoning yes (adjustable effort low–max); tool calls yes per listing; JSON mode unverified.
+- **Pricing (as of 2026-09-24):** $0 / $0 per 1M input/output tokens (free limited-time preview); zero-retention provider per Zen listing; no training on user data per listing.
+- **Architecture:** proprietary (undisclosed — no parameter count, license, or weights published).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: deeper search on 2026-09-24 found zero verified public benchmark numbers for this exact model ID. Every row below is "no verified public score found". Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- OSWorld / WebArena / computer-use: **no verified public score found** (OpenCode data compare shows "No data" for space-bunny across all dims)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (OrcaRouter 2026-09-23: "no Artificial Analysis entry, no arena rating, no independent evaluation")
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Aggregator composite signals only (not raw benchmarks, not counted): LM Market Cap composite 20/100 with Benchmarks signal 17/100 (proprietary weighting, no harness); Command Code Intelligence "not yet scored". These are not measured benchmark numbers and carry zero weight here.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (TPS 2026-09-23: "not tested against SWE-bench under a known provider name")
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found** (Siora 2026-09-23: "No DeepSWE, Terminal-Bench, or Artificial Analysis numbers published")
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; 1M context and 524K max output are endpoint-listing ceilings only (OrcaRouter 2026-09-23: "a ceiling is not a capability").
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. No verified numbers exist, so no normalized dims are assigned (scores inside `.excluded` files are ignored by sync). Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — 1M/524K listing ceiling only, no measured retention.
+- **Multimodal:** not scored — image/video input per listing only, no measured vision benchmark.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — $0 preview price noted, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
+- Method: public internet research (OrcaRouter listing 2026-09-23, Siora deep-dive 2026-09-23, TPS report 2026-09-23, OpenRouter stealth page, Pi.dev endpoint listing, OpenCode data compare pages showing "No data", Command Code and LM Market Cap aggregator pages); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

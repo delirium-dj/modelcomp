@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-3-pro",
+  "name": "Gemini 3 Pro",
+  "short": "Google DeepMind's frontier Pro model with 1M context and Deep Think mode.",
+  "contextWindow": "1M / 65K out",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

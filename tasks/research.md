@@ -149,3 +149,6 @@ For each queued slug, in order:
     The rater gate only keeps such reports out of `average.md` means; their files
     stay on disk and keep working everywhere else. The sole deletable file is
     your own `.md.excluded` twin after re-research with new evidence.
+    Model folders are permanent too: never move a `model/<slug>/` out of the
+    tree or delete it, even with zero qualifying raters — its `no qualifying
+    raters` FAIL is an accepted standing signal until coverage lands.

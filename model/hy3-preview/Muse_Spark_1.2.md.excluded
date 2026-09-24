@@ -1,0 +1,71 @@
+# Hy3 Preview — findings by Muse Spark 1.2
+
+- Source: Tencent/Hy3 Preview, e.g. Meta (`muse-spark-1.2-contributor-free`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Hy3 Preview (hunyuan hy3 preview)
+- **Short description:** Tencent's April 2026 MoE preview (295B total, 21B active, 256K context), superseded July 2026 by full Hy3.
+- **Provider / access:** Tencent Hunyuan via https://api.hunyuan.cloud.tencent.com/v1 (model `hy3-preview`), TokenHub; Chat Completions
+- **Release / knowledge:** 2026-04 preview; superseded 2026-07 by Hy3 full release
+- **IDs:** `tencent/hy3-preview` (no Zen Free ID)
+- **Context window:** 256,000 total (256K in / 32K out) — verified via meta.json and TokenHub
+- **Modalities:** text, image in; text out; reasoning yes; tool calls yes
+- **Pricing (as of 2026-09-25):** TokenHub preview ~$0.18 in / $0.59 out per 1M (no Zen Free ID)
+- **Architecture:** MoE 295B total / 21B active, KDA hybrid linear attention
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers found for this exact preview ID; all rows below are "no verified public score found". Saved as .excluded per template.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No MRCR / RULER / GraphWalks value found; 256K window length only, no retrieval measurement reported
+
+### Normalized scores (1–100)
+
+> Excluded — no verified benchmarks to normalize; scores inside are ignored by sync.
+
+- **Tool use: 58/100.** placeholder — no evidence
+- **Reasoning: 62/100.** placeholder — no evidence
+- **Context window: 72/100.** placeholder
+- **Multimodal: 50/100.** placeholder
+- **Coding: 60/100.** placeholder
+- **Cost efficiency: 85/100.** placeholder
+- **Overall Score: 60/100.** placeholder
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (meta/muse-spark-1.2-contributor-free)** — 2026-09-25
+- Method: public internet research (Tencent hy3-preview meta, TokenHub pricing); zero verified public benchmarks found — saved as .excluded.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

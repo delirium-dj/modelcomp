@@ -1,0 +1,9 @@
+{
+  "id": "openai/gpt-6-luna",
+  "name": "GPT-6 Luna",
+  "short": "OpenAI's low-cost Luna volume tier of the GPT-6 family delivering near-frontier DeepSWE at a fraction of the cost.",
+  "contextWindow": "1M tokens",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

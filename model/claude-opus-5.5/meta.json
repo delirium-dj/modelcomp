@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-opus-5-5",
+  "name": "Claude Opus 5.5",
+  "short": "First model of Anthropic's Claude 5.5 family and enterprise Opus workhorse with adaptive thinking and 1M context.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

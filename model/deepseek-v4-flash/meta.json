@@ -1,0 +1,8 @@
+{
+  "id": "opencode/deepseek-v4-flash",
+  "name": "Deepseek V4 Flash",
+  "short": "Deepseek V4 Flash model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

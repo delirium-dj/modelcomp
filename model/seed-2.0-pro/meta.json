@@ -1,0 +1,9 @@
+{
+  "id": "deepinfra/ByteDance/Seed-2.0-pro",
+  "name": "ByteDance Seed 2.0 Pro",
+  "short": "ByteDance's frontier multimodal reasoning model with 256K context and strong math/visual-reasoning capabilities.",
+  "contextWindow": "256K / 65K out",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}

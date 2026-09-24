@@ -37,8 +37,9 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    from averaged dimensions. Only reports from models with own Overall > 84.9
    count (rater gate: below-gate files are logged as `GATE` lines and ignored;
    the top-10 cap applies within the eligible set). A folder with zero eligible
-   raters fails loudly and keeps its previous average. Rewrites stale files,
-   reports which ones.
+   raters logs an `INFO` line and leaves its average ungenerated until eligible raters
+   are committed (non-blocking, so research records remain permanent without breaking
+   the build pipeline). Rewrites stale files, reports which ones.
 4. Registers any new reporting-agent filename in `src/data/models.ts`
    (`SourceKey` + `SOURCES`, appended last). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,

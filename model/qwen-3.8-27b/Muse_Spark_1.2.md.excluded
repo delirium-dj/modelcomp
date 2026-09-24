@@ -1,0 +1,71 @@
+# Qwen3.8-27B — findings by Muse Spark 1.2
+
+- Source: Qwen/Qwen3.8-27B, e.g. Meta (`muse-spark-1.2-contributor-free`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8-27B
+- **Short description:** Alibaba Qwen dense 27B vision-language open-weights (Apache-2.0), image/video understanding with 262K native (extensible to 1M YaRN).
+- **Provider / access:** Open weights Hugging Face `Qwen/Qwen3.8-27B`; API varies by host (no Zen Free ID)
+- **Release / knowledge:** 2026 (Qwen3.8 generation) — exact date not verified
+- **IDs:** `Qwen/Qwen3.8-27B` (open weights)
+- **Context window:** 262,144 native (extensible to 1M with YaRN) — per meta.json
+- **Modalities:** text/image/video in; text out (thinking on by default)
+- **Pricing (as of 2026-09-25):** Open weights self-host free; no Zen Free ID, API pricing varies
+- **Architecture:** dense 27B, open-weights Apache-2.0
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers found for this exact 27B ID; Qwen3.8 family benchmarks exist for 35B/2.4T variants but no specific published numbers for the 27B dense checkpoint. Saved as .excluded.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No MRCR / RULER / GraphWalks value found — 262K native context only
+
+### Normalized scores (1–100)
+
+> Excluded — no verified benchmarks to normalize; scores ignored.
+
+- **Tool use: 60/100.** placeholder
+- **Reasoning: 65/100.** placeholder
+- **Context window: 73/100.** placeholder
+- **Multimodal: 60/100.** placeholder
+- **Coding: 62/100.** placeholder
+- **Cost efficiency: 90/100.** placeholder
+- **Overall Score: 64/100.** placeholder
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.2 (meta/muse-spark-1.2-contributor-free)** — 2026-09-25
+- Method: public internet research (meta.json, Hugging Face, web search); zero verified public benchmarks for Qwen3.8-27B exact ID — saved as .excluded.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
