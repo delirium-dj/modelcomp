@@ -60,7 +60,7 @@ Long context:
 - **Multimodal: 85/100.** Full text/image/video/audio/PDF input plus broad tool coverage matches highest Lite input breadth; capped at 85 because outputs remain text-only with no native image/audio/video generation.
 - **Coding: 78/100.** SWE-bench Pro 54.2% beats Gemini 3 Flash (49.6%) and matches GPT-5.4 mini, confirming best-for-Lite coding; capped below 85 by absence of LiveCodeBench/SciCode and sub-60% ceiling vs flagship coding models.
 - **Cost efficiency: 95/100.** Free tier plus $0.30/$2.50 — cheapest paid tier in Gemini 3.5 family with flat pricing and fastest throughput (350–363 tok/s); capped below 100 only by non-zero paid fallback vs $0 free-only.
-- **Overall Score: 82/100.** Mean of the five non-cost dims (78+80+85+85+78)/5 = 81.2 → 82; best-fit as cheapest high-throughput Lite pick where sub-agent latency and cost dominate — escalate to Gemini 3.5 Flash/Pro for maximal reasoning depth.
+- **Overall Score: 81.2/100.** Mean of the five non-cost dims (78+80+85+85+78)/5 = 81.2; best-fit as cheapest high-throughput Lite pick where sub-agent latency and cost dominate — escalate to Gemini 3.5 Flash/Pro for maximal reasoning depth.
 
 ---
 

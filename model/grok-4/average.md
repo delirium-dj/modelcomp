@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.2, Muse Spark 1.3.
 - Average from top 2 by Overall Score: Muse Spark 1.2, Muse Spark 1.3.
-- Ignored below-gate rater(s): DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Space Bunny Alpha.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Ling 3.0 Flash Fin, Mimo v2.6 Flash, Space Bunny Alpha.

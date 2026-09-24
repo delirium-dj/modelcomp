@@ -1,5 +1,18 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Ling colon-outside-bold batch (7 files) + 2 arithmetic fixes
+
+1. New Ling format variant: `- **Tool use:** 79/100` (colon outside bold —
+   parser-blind). Script-relabeled all 7 score lines in 7 files to
+   `- **Tool use: 79/100**` (deepseek-v4-vision-exp, gemma-4-31b, grok-4,
+   kimi-k2.8-preview, ox_alpha, qwen-3.7, union-alpha). Numbers untouched —
+   all 7 means already within tolerance once parsed.
+2. gemini-3.1-flash/Ling: Overall 70 → **80** (mean 80.2, prose already said
+   "half-up to 80" — label was a typo away from its own math).
+   gemini-3.5-flash-lite/Muse_Spark_1.2: Overall 82 → **81.2** (mean 81.2).
+3. Sweep 0 candidates.
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Gemini Flash batch: 16 arithmetic fixes, gpt-oss-120b + space-bunny-alpha staged
 
 1. Gemini_3.5_Flash_Lite (below-gate rater, own 77.3) files carried systematic
