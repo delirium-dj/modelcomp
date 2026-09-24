@@ -1,5 +1,33 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 5 parse reveal 4 drifts; qwen/space-bunny/glm-5.3 re-staged (restore loop noted)
+
+1. Colon sweep parsed 5 files, exposing 4 drifts underneath → set to exact means:
+   gemini-1.5-pro 71→70.4, glm-5.3 68→77.2, qwen-3.8-27b 68→76,
+   space-bunny-alpha 70→77 (gemini-2.5-flash-lite parsed clean).
+2. Re-staged `qwen-3.8-27b`, `space-bunny-alpha`, `glm-5.3` (each holds only a
+   Ling Fin file; Ling own 59.9 < 84.9 gate → no valid average). NOTE: someone
+   keeps restoring staged folders with single below-gate files — every restore
+   without a qualifying rater re-reddens sync. Rule: restore ONLY together with
+   a qualifying rater's findings file (own Overall > 84.9).
+3. Sweep 0 candidates.
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
+## Colon sweep generalized + gpt-oss-120b exonerated, 2 folders staged
+
+1. `fix_colons.py` now sweeps every `Ling_3.0_Flash_Fin.md` repo-wide (idempotent —
+   fixed lines no longer match). Caught 4 new files (Inkling, deepseek-v4-flash,
+   gpt-oss-120b, grok-4.3), 7 lines each.
+2. `gpt-oss-120b` no-raters FAIL was stale timing, not data: its
+   `Muse_Spark_1.3.md` is complete and valid (Overall 56.0 = mean) and Muse
+   (own 91.5) qualifies — the file landed after the failing run. Folder stays;
+   rerun goes green. Same for `grok-4.3` (Muse present, Ling fixed).
+3. Staged `Inkling` + `deepseek-v4-flash` (only below-gate raters: DeepSeek 81.1,
+   Ling ~74 — no valid average possible). Restore on qualifying coverage.
+4. Sweep 0 candidates (the one SLUG hit is the checker script predating the
+   approved `qwen-3.8-27b` exception, which is intact in `sync-data.mjs:93`).
+   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Ling colon-outside-bold batch (7 files) + 2 arithmetic fixes
 
 1. New Ling format variant: `- **Tool use:** 79/100` (colon outside bold —

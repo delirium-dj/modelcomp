@@ -267,6 +267,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "DeepSeek_4.1_Flash.md": { tool: 40, reasoning: 33, context: 95, multimodal: 72, coding: 42, cost: 42, overall: 56.4 },
     "Gemini_3.5_Flash_Lite.md": { tool: 45, reasoning: 58, context: 96, multimodal: 90, coding: 58, cost: 80, overall: 69 },
     "Gemini_3.8_Flash.md": { tool: 48, reasoning: 64, context: 98, multimodal: 88, coding: 57, cost: 84, overall: 71 },
+    "Ling_3.0_Flash_Fin.md": { tool: 47, reasoning: 63, context: 98, multimodal: 88, coding: 56, cost: 85, overall: 70.4 },
     "Mimo_v2.6_Flash.md": { tool: 42, reasoning: 50, context: 96, multimodal: 95, coding: 50, cost: 86, overall: 67 },
     "Muse_Spark_1.3.md": { tool: 45, reasoning: 62, context: 98, multimodal: 88, coding: 55, cost: 85, overall: 70 },
     "Space_Bunny_Alpha.md": { tool: 45, reasoning: 58, context: 96, multimodal: 90, coding: 58, cost: 70, overall: 69.4 },
@@ -302,6 +303,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Gemini_3.7_Flash.md": { tool: 66, reasoning: 67, context: 94, multimodal: 84, coding: 65, cost: 98, overall: 75.2 },
     "Gemini_3.8_Flash.md": { tool: 56, reasoning: 60, context: 90, multimodal: 75, coding: 57, cost: 97, overall: 68 },
     "Laguna_S_2.1.md": { tool: 66, reasoning: 66, context: 95, multimodal: 94, coding: 55, cost: 100, overall: 75 },
+    "Ling_3.0_Flash_Fin.md": { tool: 58, reasoning: 60, context: 95, multimodal: 84, coding: 57, cost: 98, overall: 71 },
     "Mimo_v2.6_Flash.md": { tool: 50, reasoning: 60, context: 80, multimodal: 90, coding: 55, cost: 97, overall: 67 },
     "MiniMax_M3.md": { tool: 65, reasoning: 70, context: 95, multimodal: 90, coding: 68, cost: 95, overall: 78 },
     "Muse_Spark_1.3.md": { tool: 62, reasoning: 62, context: 100, multimodal: 85, coding: 62, cost: 98, overall: 74 },
@@ -795,6 +797,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "gpt-oss-120b": {
     "Big_Pickle.md": { tool: 72, reasoning: 82, context: 56, multimodal: 15, coding: 72, cost: 95, overall: 59 },
+    "DeepSeek_4.1_Flash.md": { tool: 52, reasoning: 48, context: 58, multimodal: 15, coding: 55, cost: 88, overall: 45.6 },
+    "Ling_3.0_Flash_Fin.md": { tool: 68, reasoning: 72, context: 55, multimodal: 15, coding: 70, cost: 98, overall: 56 },
     "Mimo_v2.6_Flash.md": { tool: 70, reasoning: 74, context: 56, multimodal: 15, coding: 66, cost: 97, overall: 56 },
     "Muse_Spark_1.3.md": { tool: 68, reasoning: 72, context: 55, multimodal: 15, coding: 70, cost: 98, overall: 56 },
     "average.md": { tool: 68, reasoning: 72, context: 55, multimodal: 15, coding: 70, cost: 98, overall: 56 },
@@ -813,6 +817,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "grok-4.3": {
     "Big_Pickle.md": { tool: 82, reasoning: 88, context: 90, multimodal: 65, coding: 76, cost: 90, overall: 80 },
+    "DeepSeek_4.1_Flash.md": { tool: 76, reasoning: 80, context: 88, multimodal: 45, coding: 74, cost: 74, overall: 72.6 },
+    "Ling_3.0_Flash_Fin.md": { tool: 84, reasoning: 86, context: 95, multimodal: 65, coding: 74, cost: 90, overall: 81 },
     "Mimo_v2.6_Flash.md": { tool: 82, reasoning: 75, context: 95, multimodal: 68, coding: 62, cost: 90, overall: 76 },
     "Muse_Spark_1.3.md": { tool: 84, reasoning: 86, context: 95, multimodal: 65, coding: 74, cost: 90, overall: 81 },
     "average.md": { tool: 84, reasoning: 86, context: 95, multimodal: 65, coding: 74, cost: 90, overall: 81 },

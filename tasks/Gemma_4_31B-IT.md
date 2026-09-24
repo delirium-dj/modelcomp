@@ -1,8 +1,10 @@
 # Research assignment — single-edit delegator
 
-`AGENT_SOURCE_STEM: DeepSeek_V4_Flash` <- EDIT ONLY THIS LINE TO REUSE (e.g. `Gemini_3.8_Flash`, `Claude_Sonnet_4.6`).
+`AGENT_SOURCE_STEM: Gemma-4-31B-IT` <- EDIT ONLY THIS LINE TO REUSE (e.g. `Gemini_3.8_Flash`, `Claude_Sonnet_4.6`).
 
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with STEM from the line above.
+
+> GEMINI-ONLY: this STEM belongs to a Gemini model. Before any other step, read `.agents/gemini-rate-limits.md` in full and obey Rules 12–15 for the entire task (tool call in EVERY turn; never stop until the queue is empty or the user revokes it; resume-safe — skip folders already containing your file).
 
 Effective orders (already resolved, do not re-derive):
 
