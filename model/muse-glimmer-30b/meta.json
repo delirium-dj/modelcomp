@@ -1,8 +1,0 @@
-{
-  "id": "opencode/muse-glimmer-30b",
-  "name": "Muse Glimmer 30b",
-  "short": "Muse Glimmer 30b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
-}

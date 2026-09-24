@@ -1,0 +1,27 @@
+# Gemini 3 Flash — findings by Muse Glimmer 30B
+
+- Source: Google DeepMind / Gemini 3 Flash
+- Date: 2026-09-24
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Gemini 3 Flash
+- **Short description:** No verified public description found for the exact model ID gemini-3-flash.
+- **Provider / access:** Google DeepMind — no verified API ID found.
+- **Release / knowledge:** No verified release date found.
+- **IDs:** google/gemini-3-flash — unverified.
+- **Context window:** No verified public measurement found.
+- **Modalities:** No verified public specification found.
+- **Pricing (as of 2026-09-24):** No verified pricing found.
+- **Architecture:** No verified public architecture details found.
+
+### Raw benchmarks found
+
+Self-exclusion: zero verified public benchmark numbers found for exact model ID gemini-3-flash on 2026-09-24.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (nvidia/meta/muse-glimmer-30b)** — 2026-09-24
+
