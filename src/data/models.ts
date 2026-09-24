@@ -61,13 +61,14 @@ export type SourceKey =
   | "Mimo v2.5 Free"
   | "Muse Spark 1.2"
   | "Gemini 3.1 Flash Lite"
-  | "Luna S 2.1"
   | "Claude Sonnet 4.5"
   | "Claude Sonnet 5"
   | "GPT 5.6 Luna"
   | "GPT 6 Sol"
   | "Gemini 1.5 Pro"
-  | "Grok 4";
+  | "Grok 4"
+  | "Space Bunny Alpha"
+  | "Qwen 3.8 27B";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -109,13 +110,14 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Mimo v2.5 Free", label: "MiMo V2.5 Free", file: "Mimo_v2.5_Free.md" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md" },
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
-  { key: "Luna S 2.1", label: "Luna S 2.1", file: "Luna_S_2.1.md" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md" },
   { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md" },
   { key: "GPT 5.6 Luna", label: "GPT 5.6 Luna", file: "GPT_5.6_Luna.md" },
   { key: "GPT 6 Sol", label: "GPT 6 Sol", file: "GPT_6_Sol.md" },
   { key: "Gemini 1.5 Pro", label: "Gemini 1.5 Pro", file: "Gemini_1.5_Pro.md" },
   { key: "Grok 4", label: "Grok 4", file: "Grok_4.md" },
+  { key: "Space Bunny Alpha", label: "Space Bunny Alpha", file: "Space_Bunny_Alpha.md" },
+  { key: "Qwen 3.8 27B", label: "Qwen 3.8 27B", file: "Qwen_3.8_27B.md" },
 ];
 
 export interface AiModel {
@@ -360,6 +362,11 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Mimo v2.5 Free": "mimo-v2.5-free",
   "Muse Spark 1.2": "muse-spark-1.2-free",
   "Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite",
+  "Claude Sonnet 5": "claude-sonnet-5",
+  "GPT 5.6 Luna": "gpt-5.6-luna",
+  "GPT 6 Sol": "gpt-6-sol",
+  "Grok 4": "grok-4",
+  "Gemini 1.5 Pro": "gemini-1.5-pro",
 };
 
 /**

@@ -1,0 +1,10 @@
+{
+  "id": "xai/grok-4",
+  "name": "Grok 4",
+  "short": "xAI's reasoning model with tool calling and image understanding, predecessor of the 4.5/4.6 line.",
+  "contextWindow": "256,000 (256K)",
+  "modalities": "Text, image, PDF in; text out",
+  "pricingNote": "Paid $3/$15 per 1M ($0.75 cached in); higher above 128K tokens",
+  "pricingTiers": ["$3 in / $15 out per 1M, $0.75 cached (base tier)"],
+  "noFreeId": true
+}

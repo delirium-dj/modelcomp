@@ -135,3 +135,12 @@ For each queued slug, in order:
     leave it, write nothing. New verified evidence → write the fresh file, delete
     the twin. Never rename back without new evidence; never open another agent's
     twin at any point.
+11. **Agent-implies-model backfill:** if a reporting agent — any `SourceKey` in
+    `src/data/models.ts`, or any signed `Provided by:` identity you meet — has no
+    `model/<slug>/` folder, scaffold it on the spot: create the folder plus a
+    `meta.json` with verified facts only (schema in `model/README.md`; use the
+    agent's vendor ID, documented context window, modalities, and pricing — never
+    invent specs), then queue it for research like any other folder. This keeps
+    the comparison table, the results-source dropdown, and the per-model
+    cross-links connected: a reporting agent must never stay folderless. Do NOT
+    scaffold folders for names with zero evidence of a real model behind them.

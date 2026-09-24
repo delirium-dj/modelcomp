@@ -1,5 +1,22 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Agent-implies-model rule + grok-4 / gemini-1.5-pro scaffolded, Luna phantom removed
+
+1. New rule (user request): a reporting agent must never stay folderless.
+   `tasks/research.md` strict rule 11 + `model/README.md` discovery trigger:
+   whoever finds an agent (`SourceKey` or signed identity) with no
+   `model/<slug>/` scaffolds folder + verified-facts `meta.json`, then queues
+   it. Explicitly: never scaffold names with zero real-model evidence.
+2. `model/grok-4/` + `meta.json` created (xAI Grok 4: 256K, $3/$15, no Zen
+   free ID → Paid badge); `model/gemini-1.5-pro/` + `meta.json` (2M context,
+   legacy, Paid badge). Both mapped in `AGENT_MODEL_SLUG`, so "Grok 4" and
+   "Gemini 1.5 Pro" are now clickable and rank by own Overall once rated.
+   Empty folders = researchable (agents queue folders missing their file);
+   sync INFO-skips them, no FAIL, no build break.
+3. "Luna S 2.1": zero findings files on disk, zero evidence of a real model —
+   NOT scaffolded; stale union + `SOURCE_DEFS` entries removed instead.
+4. Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Ling Fin batch: 21 arithmetic Overall fixes, hyphen merge, 4 immature folders staged
 
 1. One Ling-agent pass dropped ~21 `Ling_3.0_Flash_Fin.md` files with freelance

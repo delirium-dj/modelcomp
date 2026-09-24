@@ -54,6 +54,13 @@ scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
 2. Run `pnpm sync` (creates `average.md`, validates everything).
 3. Run `pnpm build.types && pnpm build`.
 
+Discovery trigger: if any reporting agent (`SourceKey` in `src/data/models.ts`,
+or a signed file attribution) has no `model/<slug>/` folder, whoever finds it
+scaffolds the folder with a verified-facts `meta.json` (rule 11 in
+`tasks/research.md`) so every agent can research it and every cross-link
+resolves. Never scaffold a folder for a name with zero evidence of a real
+model (e.g. a stale registry entry with no files and no vendor ID).
+
 ## Adding a new reporting agent's findings
 
 1. Drop `<Source_Name>.md` into every `model/<slug>/` it evaluated.

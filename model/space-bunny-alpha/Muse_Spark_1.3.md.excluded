@@ -1,0 +1,69 @@
+# Space Bunny Alpha — findings by Muse Spark 1.3 (SELF-EXCLUDED: no verified benchmarks)
+
+- Source: Stealth/anonymous (`stealth/space-bunny-alpha` via OpenRouter)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha (anonymous stealth preview)
+- **Short description:** Anonymous large model listed on OpenRouter on 2026-09-23 as a stealth preview. Advertised for fast inference, coding and multimodal input with adjustable reasoning; builder undisclosed.
+- **Provider / access:** OpenRouter `stealth/space-bunny-alpha` (`POST https://openrouter.ai/api/v1/chat/completions`), routed via third-party stealth provider; also mirrored as `siora-space-bunny-alpha`. Chat Completions API with `reasoning`, `reasoning_effort`, `tools`, `tool_choice` support.
+- **Release / knowledge:** 2026-09-23 first listing (stealth preview); knowledge cutoff unknown
+- **IDs:** `stealth/space-bunny-alpha` (no vendor ID, no weights, no licence published; no Free ID on OpenCode Zen)
+- **Context window:** 1,000,000 tokens total, 524,288 max completion tokens — per OpenRouter endpoint record as of 2026-09-23 (unverified by independent measurement; tokenizer undisclosed)
+- **Modalities:** text, image, video in; text out; mandatory reasoning (`low`–`max`, default `medium`); tool calling yes; JSON mode (`response_format`) yes
+- **Pricing (as of 2026-09-23):** $0 / 1M in and $0 / 1M out during stealth preview (free); post-preview pricing undisclosed; preview prompts/completions may be logged by the anonymous lab — not for private source
+- **Architecture:** proprietary, undisclosed (no params, no licence, no vendor page; no tokenizer forensics published as of 2026-09-23, unlike prior `ox-alpha` → GLM-5.3 Flash fingerprint)
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION APPLIES: zero verified public benchmark numbers found for this exact model ID. All rows below are negative findings by design; no normalized scores are claimed.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (Siora deep-dive 2026-09-23: no Terminal-Bench numbers published)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (OrcaRouter leak 2026-09-23: no AA entry, no arena rating, no independent evaluation)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (TPS 2026-09-23: not tested against SWE-bench under a known provider name)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found** (Siora: no DeepSWE numbers; operator's "strong coding" is listing copy only)
+
+Long context:
+
+- No MRCR / RULER / GraphWalks reported — **no long-context retrieval reported** (1M window and 524K ceiling are nominal endpoint-record values; OrcaRouter notes long-output coherence unmeasured and ceiling is not capability; availability 67–76% suggests unstable preview infra)
+
+### Normalized scores (1–100)
+
+> Excluded file — scores below are intentionally omitted. Per the SELF-EXCLUSION rule this file must not contribute placeholder numbers to any average. Research notes only: interesting free 1M-context + video-in + tool-use preview worth re-researching after de-anonymization (name, licence, params, pricing) plus at least one full public-suite benchmark run; until then keep a measured model behind it and do not put it on a critical path.
+
+### Negative-findings notes (why excluded, what would un-exclude)
+
+- Searched 2026-09-24: OpenRouter listing/docs, OrcaRouter leak analysis, Siora deep-dive, TPS report, LM Market Cap, PicksByModel — unanimous: anonymous listing, zero published benchmarks.
+- Operator adjectives ("blazing-fast", "strong coding") have no published throughput/latency or benchmark backing; endpoint record publishes no tokens/sec or TTFT (third-party telemetry P50 0.93s / 79 tok/s best-case cited by TPS is routing telemetry, not a quality benchmark).
+- Un-exclude trigger: vendor reveal with model card plus ≥1 verified public benchmark number (e.g. full SWE-bench Verified, LiveCodeBench, GPQA Diamond, or AA Index run) attributable to `stealth/space-bunny-alpha` or its revealed successor ID.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
+- Method: public internet research (OpenRouter API docs/listing, OrcaRouter 2026-09-23 leak analysis, Siora deep-dive, TPS report, LM Market Cap); zero verified benchmark numbers found so filed as `.md.excluded` per SELF-EXCLUSION; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
