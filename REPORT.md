@@ -1,13 +1,5 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## grok-4.3 arithmetic + muse-glimmer-30b staged
-
-1. `grok-4.3/Gemini_3.5_Flash_Lite.md`: Overall 80 → **80.8** (its own prose
-   computed 404/5 = 80.8, then rounded wrong).
-2. Staged `muse-glimmer-30b` (single below-gate Gemini 3.5 Flash Lite file).
-3. Sweep 0 candidates.
-   Pending user handover: `pnpm sync:quiet && pnpm build.types && pnpm build`.
-
 ## Ling colon-outside-bold batch (7 files) + 2 arithmetic fixes
 
 1. New Ling format variant: `- **Tool use:** 79/100` (colon outside bold —

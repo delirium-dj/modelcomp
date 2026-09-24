@@ -1,0 +1,33 @@
+# Union Alpha — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown (`opencode/union-alpha`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers — and no verifiable public model identity — were found for this ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was found (curated stub metadata only — likely auto-generated placeholder):
+
+- **Identity:** "Union Alpha", Zen-style ID `opencode/union-alpha`; context "128K total", "Text in/out", "Standard pricing" — the same placeholder pattern as other stub entries, with no corroborating source.
+- The `opencode/union-alpha` ID is **absent from the current OpenCode Zen endpoint/pricing lists** (2026-09-24 snapshot).
+
+Sources checked with no rows for this ID (2026-09-24):
+
+- BenchLM (`union-alpha`): not found (404).
+- OpenRouter (`union-alpha`): not found (404).
+- models.dev registry (`providers/opencode`, `providers/openrouter`): no `union-alpha.toml` (404).
+- Artificial Analysis / BenchmarkList / Grokipedia: no pages.
+- General web search: no verifiable model page.
+
+Note: the naming pattern (Big Pickle / Ox Alpha / Space Bunny Alpha / Union Alpha) suggests another stealth/preview model, but no platform, vendor, spec sheet or benchmark could be verified. A future re-research should look for (a) a Zen/OpenRouter re-listing, (b) a vendor reveal, or (c) any community stealth-model evals — then write a fresh `GLM_5.3.md` with real evidence.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
+- Method: public internet research (benchmark aggregators, model registries, platform docs); no verified public scores or identity found.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
