@@ -1,0 +1,63 @@
+# Space Bunny Alpha — findings by Mimo v2.6 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: stealth (anonymous)/`stealth/space-bunny-alpha`
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID. All normalized scores would be guesses; file saved as `.excluded` so `pnpm sync` skips it. No scores below are used in averages.
+
+## Model card
+
+- **Name:** Space Bunny Alpha
+- **Short description:** anonymous OpenRouter stealth-preview large model (released 2026-09-23) advertising fast inference, strong coding, native multimodal input, adjustable reasoning, and a 1M-token context; developer identity undisclosed — similar listing pattern to `stealth/ox-alpha` (later revealed as GLM-5.3 Flash).
+- **Provider / access:** OpenRouter `stealth/space-bunny-alpha` (Chat Completions `POST https://openrouter.ai/api/v1/chat/completions`); OpenCode Zen catalog lists `opencode/space-bunny-alpha` (meta only); no open platform vendor page.
+- **Release / knowledge:** 2026-09-23 (OpenRouter listing); knowledge cutoff not published (`null` on listing).
+- **IDs:** `stealth/space-bunny-alpha` (OpenRouter); Zen catalog id `opencode/space-bunny-alpha`.
+- **Context window:** 1,000,000 input tokens; max output 524,288 tokens (OpenRouter `top_provider.max_completion_tokens`).
+- **Modalities:** text/image/video in; text out; reasoning mandatory with efforts `max`/`xhigh`/`high`/`medium`/`low` (default `medium`); tools + `tool_choice` + JSON `response_format` supported (OpenRouter params).
+- **Pricing (as of 2026-09-24):** prompt and completion both `0` — free during stealth preview (OpenRouter); post-preview price unknown; stealth terms: prompts/completions may be retained and used for training/evaluation — not for confidential data.
+- **Architecture:** proprietary / unknown; no parameter count, tokenizer (filed as "Other"), license, or weights published.
+
+### Raw benchmarks found
+
+> Measured numbers with (source, rank, harness). Missing rows = no verified public score found.
+
+Agent / tool use:
+
+- Terminal-Bench / Tau / Toolathon / MCP Atlas / OSWorld / GDPval: **no verified public score found**
+- Tool calling listed as a supported parameter set only — no tool-accuracy benchmark published
+
+Reasoning / knowledge:
+
+- GPQA / HLE / AIME / AA Intelligence Index / CritPt: **no verified public score found** (no Artificial Analysis entry, no arena rating as of 2026-09-24)
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE / Coding Index: **no verified public score found**
+- Only operator claim: "strong coding capabilities" (OpenRouter listing description) — not a measured score; LM Market Cap "Benchmarks 17/100" is a meta-signal composite of listing metadata, not a harness result
+
+Long context:
+
+- 1M-token window and 524K max output documented (OpenRouter / Siora / ORC Router); MRCR / RULER / long-output coherence: **no verified public score found**
+
+Multimodal:
+
+- Images and video input accepted (OpenRouter modalities); MMMU / Video-MME / CharXiv: **no verified public score found**
+
+Operational notes (not quality scores):
+
+- OpenRouter telemetry: P50 latency ~0.93s, ~79 tok/s best-case; availability ~76% over trailing window (TPS Report, 2026-09-23) — preview instability, not a capability metric
+
+### Normalized scores (1–100)
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `stealth/space-bunny-alpha` as listed 2026-09-23).
+- If the model is deanonymized or any independent harness run is published, replace this file with a scored `Mimo_v2.6_Flash.md` using the same headings.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-24
+- Method: public internet research (OpenRouter model/compare pages, ORC Router / Siora / TPS Report coverage, LM Market Cap listing, OpenCode data catalog); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

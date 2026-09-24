@@ -1,5 +1,21 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## Ling Fin batch: 21 arithmetic Overall fixes, hyphen merge, 4 immature folders staged
+
+1. One Ling-agent pass dropped ~21 `Ling_3.0_Flash_Fin.md` files with freelance
+   Overall math (incl. apparent Cost-included figures) → 21 drift FAILs. Fixed
+   arithmetically only (Overall := exact five-dim mean, dims/prose untouched),
+   e.g. hy3 68→59.8, laguna-s-2.1 63→54.2, solar-pro-4 62→52.6.
+2. `model/muse-spark-1-1/` (hyphen dup, placeholder meta) merged into
+   `model/muse-spark-1.1/` (moved its only finding, deleted hyphen dir).
+3. New folders `claude-opus-5.5`, `gemini-3-pro`, `gpt-6-luna`, `seed-2.0-pro`
+   hold only below-gate raters (Big Pickle 59.6, DeepSeek 81.1, G35FL 77.3, Ling
+   74.1, Mimo v2.6 75.7 — all < 84.9) so no valid average exists; research
+   preserved untouched under `Temp/opencode/staging/` — restore a folder the
+   moment a qualifying rater covers it.
+4. Sweep 0 candidates. Pending user handover:
+   `pnpm sync:quiet && pnpm build.types && pnpm build`.
+
 ## Ling canonical stem changed to Ling_3.0_Flash_Fin (per tasks/Ling_3.0_Flash_Fin.md)
 
 1. New rule (user): Ling findings files must use stem `Ling_3.0_Flash_Fin.md`

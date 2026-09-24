@@ -1,0 +1,65 @@
+# Space Bunny Alpha — findings by Big Pickle
+
+> SELF-EXCLUDED: no verified public benchmark numbers exist for this exact
+> model/ID (released 2026-09-23, anonymous "stealth" slot, no eval card, no
+> vendor, no reproducible leaderboard rows). Per the template's mandatory
+> self-exclusion rule this file is saved as `.excluded` — `pnpm sync` skips it
+> so it never touches the average. Normalized scores inside are ignored.
+
+- Source: anonymous/OpenRouter stealth (`stealth/space-bunny-alpha`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha
+- **Short description:** Newly appeared anonymous ("stealth") model hosted from the OpenRouter stealth slot, also on OpenCode (Zen `opencode/space-bunny-alpha`). No vendor has claimed authorship; specs claim fast inference, strong coding, native multimodal input, always-on reasoning with adjustable effort, and a 1M-token context window. No benchmark of any kind has been published.
+- **Provider / access:** OpenRouter `stealth/space-bunny-alpha` (Chat Completions); OpenCode Zen `opencode/space-bunny-alpha`.
+- **Release / knowledge:** 2026-09-23 (first appeared on OpenRouter/OpenCode per posts dated 2026-09-23/24); knowledge cutoff not disclosed.
+- **IDs:** `stealth/space-bunny-alpha`, `opencode/space-bunny-alpha`
+- **Context window:** 1,000,000 tokens total (listing spec); max output 524,288 tokens (listing spec). Not benchmark-verified.
+- **Modalities:** text + image + video input per listings; text output; tool calling; mandatory reasoning (adjustable effort). Community tokenizer probing suggests alignment with MiniMax M3 tokenizer (informal, not a benchmark).
+- **Pricing (as of 2026-09-24):** $0.00 / $0.00 per 1M input/output tokens (free while the stealth preview lasts; post-window pricing unknown).
+- **Architecture:** unknown — no weights, no parameter count, no license, no vendor page.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau3-Banking / GDPval-AA / Claw-Eval / OSWorld: no verified public score found — no benchmarks of any kind published.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Intelligence Index / Omniscience: no verified public score found. Community anecdote reports weak physics simulation (informal, unverified).
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench: no verified public score found. Community anecdote reports shortcomings in sandbox coding (informal, unverified).
+
+Long context:
+
+- No verified long-context retrieval (MRCR/RULER/GraphWalks) at 1M; only the 1M/524K listing spec.
+
+### Normalized scores (1–100)
+
+> Ignored — this file is `.excluded`. All five quality dims would be guesses:
+> zero measured numbers exist. (Tool use / Reasoning / Coding = no raw data;
+> Context 1M spec-only = plausible but unverified; Multimodal text/image/video
+> spec-only = plausible but unverified.) No scored `.md` written deliberately.
+
+- **Tool use:** N/A (excluded)
+- **Reasoning:** N/A (excluded)
+- **Context window:** N/A (excluded)
+- **Multimodal:** N/A (excluded)
+- **Coding:** N/A (excluded)
+- **Cost efficiency:** N/A (excluded)
+- **Overall Score:** N/A (excluded)
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-24
+- Method: public internet research (OpenRouter, Command Code, Benchable, AI/ML API, lmmarketcap, OrcaRouter leak post, AICrier); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: re-research once eval-card/public leaderboard rows exist; if verified benchmarks appear, promote to a scored `Big_Pickle.md` and delete this twin.

@@ -1,40 +1,60 @@
-# Muse Spark 1.3 (Free) — findings by Gemini 3.1 Flash Lite
+# Muse Spark 1.3 Free — findings by Gemini 3.1 Flash Lite
 
-- Source: Muse/Spark 1.3 (Free)
-- Date: 2026-09-23 (UTC)
+> EXCLUDED — No verified public benchmark data found.
+
+- Source: Muse/Spark 1.3 Free
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 (Free)
-- **Short description:** No verified public benchmark benchmarks or model card information found.
+- **Name:** Muse Spark 1.3 Free
+- **Short description:** Muse Spark 1.3 Free is a model variant.
 - **Provider / access:** N/A
 - **Release / knowledge:** N/A
 - **IDs:** N/A
-- **Context window:** No verified public score found.
-- **Modalities:** No verified public score found.
-- **Pricing:** No verified public score found.
-- **Architecture:** No verified public score found.
+- **Context window:** N/A
+- **Modalities:** N/A
+- **Pricing:** N/A
+- **Architecture:** N/A
 
 ### Raw benchmarks found
 
-- No verified public benchmarks found for this model/ID.
+> SELF-EXCLUSION: Zero verified public benchmark numbers found for this exact model/ID.
 
-### Normalized scores (1–100)
+Agent / tool use:
 
-- **Tool use:** no verified public score found
-- **Reasoning:** no verified public score found
-- **Context window:** no verified public score found
-- **Multimodal:** no verified public score found
-- **Coding:** no verified public score found
-- **Cost efficiency:** no verified public score found
-- **Overall Score:** no verified public score found
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-23
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-09-24
+- Method: public internet research; no verified benchmarks found to justify inclusion in averaged scores.
