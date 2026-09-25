@@ -1,0 +1,74 @@
+[
+  {
+    "Slug": "claude-opus-5.5",
+    "Score": 90.6
+  },
+  {
+    "Slug": "gemini-3-pro",
+    "Score": 87.9
+  },
+  {
+    "Slug": "qwen-3.8-27b",
+    "Score": 82.0
+  },
+  {
+    "Slug": "grok-4.3",
+    "Score": 80.7
+  },
+  {
+    "Slug": "qwen-3.7-plus",
+    "Score": 79.7
+  },
+  {
+    "Slug": "space-bunny-alpha",
+    "Score": 79.2
+  },
+  {
+    "Slug": "grok-4",
+    "Score": 77.0
+  },
+  {
+    "Slug": "kimi-k2.7-code",
+    "Score": 76.3
+  },
+  {
+    "Slug": "seed-2.0-pro",
+    "Score": 76.1
+  },
+  {
+    "Slug": "gpt-6-luna",
+    "Score": 74.9
+  },
+  {
+    "Slug": "Inkling",
+    "Score": 74.6
+  },
+  {
+    "Slug": "muse-glimmer-30b",
+    "Score": 72.3
+  },
+  {
+    "Slug": "glm-5.3",
+    "Score": 71.5
+  },
+  {
+    "Slug": "gemini-1.5-pro",
+    "Score": 71.3
+  },
+  {
+    "Slug": "deepseek-v4-flash",
+    "Score": 70.6
+  },
+  {
+    "Slug": "laguna-xs-2.1",
+    "Score": 62.2
+  },
+  {
+    "Slug": "gpt-oss-120b",
+    "Score": 58.3
+  },
+  {
+    "Slug": "llama_3.2_vision_instruct",
+    "Score": 57.0
+  }
+]

@@ -1,5 +1,15 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — rater tables show whole numbers, homepage keeps decimals
+
+1. `src/routes/model/[slug]/index.tsx`: "How other agents rated this model" cells now render `Math.round` (Overall + all six dims); best/worst highlights computed on the same rounded values so equal displayed grades share honors. Sorting still uses exact scores. Model-average badge and homepage cards untouched (1-decimal).
+   Next: `pnpm build.types && pnpm build`.
+
+## 2026-09-25 — Glimmer/Bunny rows now link to model pages
+
+1. Full audit of `SOURCES` vs `AGENT_MODEL_SLUG` found 5 unmapped reporting agents; `Kimi K3` + `Space Bunny Alpha` were fixed before, now added `Muse Glimmer 30B` → `muse-glimmer-30b`, `Laguna XS 2.1` → `laguna-xs-2.1`, `Claude Sonnet 4.5` → `claude-sonnet-4.5` (all three folders have meta + average, so pages exist). No unmapped reporting agents remain — every table row links to a model page, with the `/?source=` fallback as backstop.
+   Next: `pnpm build.types && pnpm build` (sync already green).
+
 ## 2026-09-25 — crown rule: every model gets an average (below-gate fallback)
 
 1. Explained the "failure-frozen" codegen: `scores.generated.ts` is only rewritten on zero-failure runs, and `a524632`'s gate-FAILs froze it for 11 folders (e.g. `kimi-k3`'s 88.3 average never reached the bundle). Unfrozen by the INFO fix; now superseded.

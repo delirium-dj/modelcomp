@@ -57,9 +57,11 @@ export default component$(() => {
       worst: Math.min(...ratings.map((r) => get(r.scores))),
     };
   };
-  const overallStats = colStats((s) => s.overall);
+  // Rater grades display as whole numbers (rounded); the model's own average
+  // (header badge, homepage cards) keeps its 1-decimal precision.
+  const overallStats = colStats((s) => Math.round(s.overall));
   const dimStats = {} as Record<DimensionKey, ColStats>;
-  for (const d of DIMENSIONS) dimStats[d.key] = colStats((s) => s[d.key]);
+  for (const d of DIMENSIONS) dimStats[d.key] = colStats((s) => Math.round(s[d.key]));
   // Ratings-table column order, independent of hexagon DIMENSIONS order:
   // Context, Reason, Multi, Tool, Code, Cost last (Cost = independent stat).
   const TABLE_DIM_ORDER: DimensionKey[] = ["context", "reasoning", "multimodal", "tool", "coding", "cost"];
@@ -233,7 +235,7 @@ export default component$(() => {
             </thead>
             <tbody>
               {sortedRatings.map((r) => {
-                const o = hl(r.scores.overall, overallStats, "overall", true);
+                const o = hl(Math.round(r.scores.overall), overallStats, "overall", true);
                 // Link the agent name to that agent's own model page when tracked;
                 // otherwise fall back to the homepage source view (always exists),
                 // so every row stays clickable and never a dead link.
@@ -262,13 +264,13 @@ export default component$(() => {
                     )}
                   </th>
                     <td title={o.title} class={o.cls}>
-                      {r.scores.overall}
+                      {Math.round(r.scores.overall)}
                     </td>
                     {tableDims.map((d) => {
-                      const c = hl(r.scores[d.key], dimStats[d.key], d.label, false);
+                      const c = hl(Math.round(r.scores[d.key]), dimStats[d.key], d.label, false);
                       return (
                         <td key={d.key} title={c.title} class={c.cls}>
-                          {r.scores[d.key]}
+                          {Math.round(r.scores[d.key])}
                         </td>
                       );
                     })}

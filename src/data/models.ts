@@ -72,7 +72,8 @@ export type SourceKey =
   | "GLM 5.3"
   | "Kimi K3"
   | "Laguna XS 2.1"
-  | "Muse Glimmer 30B";
+  | "Muse Glimmer 30B"
+  | "Grok 4.5";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -126,6 +127,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md" },
   { key: "Laguna XS 2.1", label: "Laguna XS 2.1", file: "Laguna_XS_2.1.md" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
+  { key: "Grok 4.5", label: "Grok 4.5", file: "Grok_4.5.md" },
 ];
 
 export interface AiModel {
@@ -379,6 +381,9 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "GLM 5.3": "glm-5.3",
   "Kimi K3": "kimi-k3",
   "Space Bunny Alpha": "space-bunny-alpha",
+  "Muse Glimmer 30B": "muse-glimmer-30b",
+  "Laguna XS 2.1": "laguna-xs-2.1",
+  "Claude Sonnet 4.5": "claude-sonnet-4.5",
 };
 
 /**
