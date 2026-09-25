@@ -73,7 +73,11 @@ export type SourceKey =
   | "Kimi K3"
   | "Laguna XS 2.1"
   | "Muse Glimmer 30B"
-  | "Grok 4.5";
+  | "Grok 4.5"
+  | "Claude Sonnet 4"
+  | "Claude Sonnet 5.5"
+  | "Gemini 2.5 Flash"
+  | "Gemini 2.5 Pro";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -128,6 +132,10 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Laguna XS 2.1", label: "Laguna XS 2.1", file: "Laguna_XS_2.1.md" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
   { key: "Grok 4.5", label: "Grok 4.5", file: "Grok_4.5.md" },
+  { key: "Claude Sonnet 4", label: "Claude Sonnet 4", file: "Claude_Sonnet_4.md" },
+  { key: "Claude Sonnet 5.5", label: "Claude Sonnet 5.5", file: "Claude_Sonnet_5.5.md" },
+  { key: "Gemini 2.5 Flash", label: "Gemini 2.5 Flash", file: "Gemini_2.5_Flash.md" },
+  { key: "Gemini 2.5 Pro", label: "Gemini 2.5 Pro", file: "Gemini_2.5_Pro.md" },
 ];
 
 export interface AiModel {

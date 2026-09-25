@@ -94,10 +94,20 @@ try {
     const posix = rel.replace(/\\/g, "/");
     if (!posix.endsWith(".md") && !posix.includes(".md.excluded")) continue;
     if (/(^|\/)average\.md$/.test(posix) || /(^|\/)README\.md$/.test(posix)) continue;
-    if (!existsSync(join(root, ...posix.split("/")))) {
-      fail(
-        `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
-      );
+    const diskPath = join(root, ...posix.split("/"));
+    if (existsSync(diskPath)) continue;
+    if (posix.includes(".md.excluded")) {
+      // Sanctioned twin retirement (tasks/research.md Step 3.3): the agent
+      // wrote a fresh evidence-backed <.md> and its own <.md.excluded> twin
+      // went. Only a twin with NO fresh sibling on disk is a real deletion.
+      const sibling = diskPath.replace(/\.md\.excluded$/, ".md");
+      if (existsSync(sibling)) {
+        log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
+        continue;
+      }
+    fail(
+      `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
+    );
     }
   }
 } catch {

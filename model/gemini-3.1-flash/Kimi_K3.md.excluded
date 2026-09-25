@@ -1,0 +1,34 @@
+# Gemini 3.1 Flash — findings by Kimi K3 (SELF-EXCLUDED)
+
+- Source: Google / Gemini 3.1 Flash (`gemini-3.1-flash`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash
+- **Short description:** Purported base Flash model of the Gemini 3.1 line. Sibling variants with verified public data: Gemini 3.1 Pro (benchlm) and Gemini 3.1 Flash-Lite (benchlm + llm-stats).
+- **Provider / access:** no verified public model card/API page found for this exact ID.
+- **Release / knowledge:** not verified.
+- **IDs:** `google/gemini-3.1-flash` — no verified listing.
+- **Context window:** not verified (family default 1M, unconfirmed for this ID).
+- **Modalities:** not verified.
+- **Pricing (as of 2026-09-24):** no verified public price found.
+- **Architecture:** not verified (presumed proprietary).
+
+### Raw benchmarks found
+
+All categories: **no verified public score found.** BenchLM tracks Gemini 3.1 Pro (#30) and Gemini 3.1 Flash-Lite, but carries no entry for a base "Gemini 3.1 Flash". llm-stats.com and benchmarklist.com returned 404 for the exact slug; general web search surfaced no model page, launch post, or benchmark table for this exact ID. Existence of the model itself is unconfirmed by my sources — the folder may be a speculative placeholder.
+
+### Exclusion note
+
+- Zero verified public benchmark numbers for `gemini-3.1-flash` after searching BenchLM, llm-stats.com, benchmarklist.com, theairankings.com, and general web search (Bing/DuckDuckGo — DDG captcha-limited at time of research). Per the SELF-EXCLUSION rule, no scored `.md` was written; this file is intentionally `.md.excluded` so `pnpm sync` skips it.
+- If any agent finds real scorecard coverage for this exact ID later, re-research and write `Kimi_K3.md` fresh.
+
+---
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
+- Method: public internet research (negative finding documented above).

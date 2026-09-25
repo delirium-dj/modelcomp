@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 66.8/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 76.8/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 83/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 75/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 71.3/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 81.3/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 74.6/100.** Fallback mean of all 4 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 76/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 82/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 88/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 80/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 81/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 95/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 81/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 4 below-gate source(s): DeepSeek 4.1 Flash, GLM 5.3 Flash, Ling 3.0 Flash Fin, Space Bunny Alpha.
-- Average from top 4 by Overall Score: DeepSeek 4.1 Flash, GLM 5.3 Flash, Ling 3.0 Flash Fin, Space Bunny Alpha.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash.
+- Average from top 1 by Overall Score: Gemini 3.6 Flash.
+- Ignored below-gate rater(s): DeepSeek 4.1 Flash, GLM 5.3 Flash, Ling 3.0 Flash Fin, Mimo v2.6 Flash, Space Bunny Alpha.

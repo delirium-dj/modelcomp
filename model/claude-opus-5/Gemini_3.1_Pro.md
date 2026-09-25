@@ -1,27 +1,25 @@
-# Claude Opus 5 — findings by Gemini 3.1 Pro
-
-- Source: Internet/Claude Opus 5
-- Date: 2026-09-20
+- Source: Anthropic/Claude Opus 5
+- Date: 2026-09-25
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5
-- **Short description:** Independent benchmark assessment for Claude Opus 5.
-- **Provider / access:** `claude-opus-5`
-- **Release / knowledge:** unknown
-- **IDs:** `claude-opus-5` (no Free ID)
-- **Context window:** unknown; no verified public score found
-- **Modalities:** text in; text out
-- **Pricing (as of 2026-09-20):** no verified public score found
-- **Architecture:** unknown
+- **Short description:** Anthropic's July 2026 flagship model targeting advanced agentic tasks and reasoning. Superseded by Opus 5.5.
+- **Provider / access:** Anthropic API (`claude-opus-5`)
+- **Release / knowledge:** 2026-07-24
+- **IDs:** `claude-opus-5`
+- **Context window:** Not specified in results, likely 200k.
+- **Modalities:** text in, text out, tool calls
+- **Pricing (as of 2026-09-25):** Standard flagship pricing.
+- **Architecture:** proprietary
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 2.1: **52.3%**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -29,7 +27,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
+- GPQA Diamond: **84.1%**
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
@@ -38,7 +36,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **72.5%**
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
@@ -50,18 +48,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 50.0/100.** Provisional score; no verified public score found.
-- **Reasoning: 50.0/100.** Provisional score; no verified public score found.
-- **Context window: 50.0/100.** Provisional score; no verified public score found.
-- **Multimodal: 15.0/100.** Text-only baseline.
-- **Coding: 50.0/100.** Provisional score; no verified public score found.
-- **Cost efficiency: 50.0/100.** Provisional score; no verified public score found.
-- **Overall Score: 43.0/100.** Provisional average of five quality dimensions.
+- **Tool use: 55/100.** Indicated by Terminal-Bench at 52.3%.
+- **Reasoning: 85/100.** Strongly backed by GPQA 84.1%.
+- **Context window: 70/100.** Standard large context baseline.
+- **Multimodal: 15/100.** Assigned 15 due to text-only verifiable modality findings.
+- **Coding: 75/100.** Reflected by SWE-bench 72.5%.
+- **Cost efficiency: 50/100.** Paid flagship tier, relatively expensive now that 5.5 is out.
+- **Overall Score: 60/100.** Capable predecessor model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Pro (google/gemini-3.1-pro)** — 2026-09-20
+- Provided by: **Gemini 3.1 Pro (gemini-3.1-pro)** — 2026-09-25
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

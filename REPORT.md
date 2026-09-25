@@ -1,5 +1,11 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — tripwire false-positive fixed + seed-2.0-pro arithmetic
+
+1. The 3 tripwire FAILs were the *sanctioned* twin lifecycle (fresh `Gemini_3.1_Pro.md` written, own `.excluded` twin retired per Step 3.3) — my tripwire compared against HEAD and couldn't tell. It now exempts a missing `.excluded` whose fresh `.md` sibling exists (INFO line); a twin with no sibling, or any missing `.md`, still FAILs.
+2. `model/seed-2.0-pro/Gemini_3.6_Flash.md`: Overall 89 → 87.4 (dims 84/89/88/88/88 sum 437/5). Genuine drift, fixed at the source.
+   Next: `pnpm sync && pnpm build.types && pnpm build` (expect 0 failures).
+
 ## 2026-09-25 — rater tables show whole numbers, homepage keeps decimals
 
 1. `src/routes/model/[slug]/index.tsx`: "How other agents rated this model" cells now render `Math.round` (Overall + all six dims); best/worst highlights computed on the same rounded values so equal displayed grades share honors. Sorting still uses exact scores. Model-average badge and homepage cards untouched (1-decimal).
