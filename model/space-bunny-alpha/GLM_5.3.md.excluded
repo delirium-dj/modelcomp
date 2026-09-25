@@ -1,0 +1,33 @@
+# Space Bunny Alpha — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: stealth vendor undisclosed (`opencode/space-bunny-free`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/registry metadata only, no measured numbers):
+
+- **Identity:** "Space Bunny Free" (`opencode/space-bunny-free`) — an anonymous stealth preview reasoning model on OpenCode Zen; vendor undisclosed; free for a limited time with a zero-retention provider (no training on user data) per the Zen privacy notes.
+- **Release:** 2026-09-23 (models.dev registry `space-bunny-free.toml` — two days before this research).
+- **Specs (registry, unverified by any leaderboard):** 1M context (524,288 in / 524,288 out); text/image/video in, text out; reasoning with effort options low→max; tool calls; interleaved `reasoning_content`; attachment support; not open weights; $0 in/out/cache.
+
+Sources checked with no benchmark rows for this ID (2026-09-25):
+
+- BenchLM (`space-bunny-free`): not found (404).
+- Grokipedia (`Space Bunny model`): no page (404).
+- General web search (Bing): no stealth-model community evals found.
+- OpenCode Zen docs (2026-09-25 snapshot): free-tier listing and privacy notes only, no benchmarks.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly. A future re-research should look for (a) community stealth-model evals (SWE-Atlas-style harnesses), (b) aggregator coverage once the preview matures or the vendor reveals itself, or (c) a vendor model card with official numbers — then write a fresh `GLM_5.3.md` with real evidence.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
+- Method: public internet research (models.dev registry, OpenCode Zen docs, benchmark aggregators, web search); no verified public scores found for this stealth ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,39 @@
+# Kimi K2.8 Preview — findings by Kimi K3 (SELF-EXCLUDED)
+
+- Source: Moonshot AI / Kimi K2.8 Preview (`moonshot/kimi-k2-8-preview`)
+- Date: 2026-09-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding/agentic model inside the Kimi Code product, between K2.7 Code and K3. Membership-gated (no per-token API billing, no open weights observed).
+- **Provider / access:** Kimi membership plan within Kimi Code; no public API / no HF weights found.
+- **Release / knowledge:** preview; date not verified.
+- **IDs:** `moonshot/kimi-k2-8-preview` (no Zen Free ID; membership-gated).
+- **Context window:** 1M per product listing (unverified against a spec sheet — no public doc).
+- **Modalities:** text/image in; text out per product listing (unverified).
+- **Pricing (as of 2026-09-24):** subscription-only (Kimi membership); no per-token rate published.
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+All categories: **no verified public score found.** Checked:
+
+- benchlm.ai (`kimi-k2-8`) → 404; BenchLM tracks Kimi K2.6 / K2.7 Code / K3 but not K2.8 Preview
+- Hugging Face `moonshotai` org model list (50 models surveyed) → no K2.8 artifact
+- Bing web search for ID/benchmarks → no relevant results
+- No Artificial Analysis / LiveBench / LMArena rows found for this exact ID
+
+### Exclusion note
+
+- Zero verified public benchmark numbers for `moonshot/kimi-k2-8-preview`. The subscription-gated preview has no public scorecard coverage as of 2026-09-24. Per the SELF-EXCLUSION rule, no scored `.md` was written; kept as `.md.excluded`.
+- When Moonshot publishes numbers (or the model lands on Zen/API with third-party evals), re-research and write `Kimi_K3.md` fresh.
+
+---
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
+- Method: public internet research (negative finding documented above).
