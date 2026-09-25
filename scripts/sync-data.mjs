@@ -301,12 +301,21 @@ for (const slug of slugs) {
   // Rater gate (RATER_GATE): only files written by models whose own committed
   // average Overall clears the gate count toward this average.
   const ignoredLabels = [];
-  const eligible = perFile.filter((p) => {
+  let eligible = perFile.filter((p) => {
     const rs = raterSlugFor(p.file.replace(/\.md$/, ""));
     if (rs !== null && (raterOwn.get(rs) ?? -Infinity) > RATER_GATE) return true;
     ignoredLabels.push(labelOf(p.file));
     return false;
   });
+  // Crown rule (RULES.md): every folder gets an average. When no rater clears
+  // the gate, fall back to averaging all available reports (top-10 cap still
+  // applies) instead of leaving the folder average-less.
+  let fallback = false;
+  if (eligible.length === 0) {
+    fallback = true;
+    eligible = perFile;
+    log(`  FALLBACK  model/${slug}/average.md: no qualifying raters (need own Overall > ${RATER_GATE}) — averaging all ${perFile.length} below-gate source(s)`);
+  }
   const labels = eligible.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
 
   const ranked = [...eligible].sort((a, b) => b.scores["Overall Score"] - a.scores["Overall Score"]);
@@ -316,23 +325,17 @@ for (const slug of slugs) {
   const trimmed = totalSources > cohortSize;
   const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
   const excludedLabels = labels.filter((l) => !topLabels.includes(l));
-  if (eligible.length === 0) {
-    // Accepted standing signal (RULES.md): below-gate-only coverage is never
-    // a failure — the average simply stays ungenerated until eligible raters
-    // exist. Per-file source scores indexed above stay; no synthetic average
-    // entry is emitted (a mean over an empty cohort would be NaN).
-    log(`  INFO  model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left untouched`);
-    continue;
-  }
-  if (ignoredLabels.length > 0) {
+  if (!fallback && ignoredLabels.length > 0) {
     ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
     log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
   }
 
   const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
-  const mixNote = trimmed
-    ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
-    : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
+  const mixNote = fallback
+    ? `Fallback mean of all ${totalSources} reporting source(s) — no rater clears own Overall > ${RATER_GATE}, so the gate cannot filter (every model gets an average, RULES.md).`
+    : trimmed
+      ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
+      : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
   // The default ("average") view needs this folder's recomputed means too:
   // the client never reads average.md itself, so index them like a source file.
   // (Folders with validation failures leave a stale average.md on disk, but a
@@ -352,10 +355,12 @@ for (const slug of slugs) {
   ];
   const body =
     `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
-    `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n` +
+    (fallback
+      ? `- Fallback: no qualifying raters (need own Overall > ${RATER_GATE}); average from all ${totalSources} below-gate source(s): ${labels.join(", ")}.\n`
+      : `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n`) +
     `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
     (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
-    (ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
+    (!fallback && ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
 
   const avgPath = join(dir, "average.md");
   let prev = null;

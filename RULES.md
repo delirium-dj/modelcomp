@@ -26,8 +26,8 @@ override.
   activate with `git config core.hooksPath .githooks`) rejects commits that
   delete them.
 - `model/<slug>/` folders are permanent too: never moved out of the tree or
-  deleted, even with zero qualifying raters (a `no qualifying raters` INFO
-  notice is an accepted standing signal — never a failure). Reporting-agent folders are dataset
+  deleted, even with zero qualifying raters (a `FALLBACK` notice is an accepted
+  standing signal — never a failure). Reporting-agent folders are dataset
   infrastructure — the gate reads the agent's own `average.md` from its
   folder, so a below-gate rater becomes eligible once its model is peer-rated
   above the gate.
@@ -40,6 +40,11 @@ override.
 - `model/<slug>/average.md` = mean of source Overalls over the top-10
   qualifying cohort (highest Overall first); only raters whose own model
   averages above 84.9 qualify. Recomputed by `pnpm sync` only — never by hand.
+- **Crown rule: every model folder gets an average, gate or not.** When no
+  rater clears 84.9, the average is computed from all available reports
+  (top-10 cap still applies) and labeled as a below-gate fallback — in the
+  sync log and in the file's Agreement notes. The gate filters *which reports
+  count whenever a choice exists*; it never removes a model from the site.
 - Example 1: a model with `Overall` = 92 counts toward other models' averages
   (while in their top-10 qualifiers). Example 2: a model with `Overall` = 92
   that does NOT count toward some average (below that folder's top-10 cut) is

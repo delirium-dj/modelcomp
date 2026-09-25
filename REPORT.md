@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — crown rule: every model gets an average (below-gate fallback)
+
+1. Explained the "failure-frozen" codegen: `scores.generated.ts` is only rewritten on zero-failure runs, and `a524632`'s gate-FAILs froze it for 11 folders (e.g. `kimi-k3`'s 88.3 average never reached the bundle). Unfrozen by the INFO fix; now superseded.
+2. New fallback in `scripts/sync-data.mjs`: zero eligible raters → average all available reports (top-10 cap applies), logged as `FALLBACK` and labeled in Agreement notes. Mixed folders compute exactly as before; full gate abolition deliberately rejected (would reshuffle every average). Sync fails only on real data errors.
+3. Crowned in `RULES.md` (gate filters which reports count when a choice exists; never removes a model); aligned `tasks/sync-data.md`, `.agents/rules.md`. `space-bunny-alpha` gets its first average on the next run (≈79.2 from its 2 reports) → model page + clickable row.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — every "How other agents rated" row clickable
 
 1. Root cause: `AGENT_MODEL_SLUG` had no entries for `Kimi K3` / `Space Bunny Alpha`, so the table fell back to plain text. Added both mappings (also fixes their results-source dropdown ranking).
