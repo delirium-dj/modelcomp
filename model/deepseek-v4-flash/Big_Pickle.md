@@ -1,0 +1,89 @@
+# DeepSeek V4 Flash 0731 — findings by Big Pickle
+
+- Source: DeepSeek (`opencode/deepseek-v4-flash` on OpenCode Zen; `deepseek-v4-flash` on the DeepSeek API)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4 Flash 0731 — the official release of DeepSeek-V4-Flash, superseding the April Preview and shipping with a speculative-decoding module attached
+- **Short description:** A 284B-total / 13B-active **open-weights MoE** reasoning model with a **1M-token context** and one of the strongest agentic price-to-capability ratios available anywhere: 82.7% on Terminal-Bench 2.1, 79.0% SWE-bench Verified, 91.6% LiveCodeBench and 78.7% MRCR-1M retrieval at **$0.14 in / $0.28 out per 1M**. It is the most-used model on OpenCode by a wide margin. Its one structural limitation is that **this ID is text-only** — image input lives on a separate experimental sibling ID.
+- **Provider / access:** **OpenCode Zen `opencode/deepseek-v4-flash`** (Chat Completions; also mirrored as `opencode-go/deepseek-v4-flash` and Zen's `opencode/deepseek-v4-flash-free`). DeepSeek first-party `https://api.deepseek.com` ID **`deepseek-v4-flash`** (public beta, 2,500 account concurrency) — DeepSeek's API docs state the ID "has been updated to DeepSeek-V4-Flash-0731 … with no migration and no new model string". OpenRouter `deepseek/deepseek-v4-flash`, NVIDIA NIM, Novita, Together, Fireworks, Groq, Cerebras, and ~19 API providers per Artificial Analysis. `deepseek-v4-flash:0731-cloud` in the Ollama library (428.1K downloads).
+- **Release / knowledge:** **2026-07-31** (checkpoint `0731`; AA: "Released July 2026"). Supersedes the 2026-04-23 Preview. **Knowledge cutoff not published** — the card gives none and AA lists none.
+- **IDs:** `opencode/deepseek-v4-flash` (Zen, 1M ctx / 384K out, **$0.14/$0.28**, text), `opencode/deepseek-v4-flash-free` (**Zen, $0/$0**, 200K ctx), `opencode/deepseek-v4-flash-vision-exp` (**Zen, text+image**, 1M/384K, $0.14/$0.28), `opencode-go/deepseek-v4-flash` ($0.15/$0.60), `deepseek-v4-flash` (DeepSeek API), `deepseek-v4-flash-vision-exp` (DeepSeek API, experimental), `deepseek/deepseek-v4-flash` (OpenRouter), `deepseek-ai/DeepSeek-V4-Flash-0731` (Hugging Face weights), `deepseek-ai/DeepSeek-V4-Flash-DSpark` (same structure, the DSpark variant). **A Free ID does exist on Zen** — `opencode/deepseek-v4-flash-free` at $0/$0, but it is capped at 200K context, so it is *not* the tier scored here.
+- **Context window:** **1,000,000 tokens**, max output **384K** — verified three ways: DeepSeek's own API status table (`deepseek-v4-flash` — Public Beta; text in, text out; **1M / 384K**), models.dev (`limit.context = 1000000`, `limit.output = 384000` on the Zen ID), and AA's technical specifications ("1M tokens context window", 284B/13B). The 0731 card explicitly recommends a **384K maximum output length for the `high` and `max` reasoning-effort levels**. Note this folder's `meta.json` is **stale** — it records `128K total` and `Text in/out`; the real served ceiling is 1M and an image-capable sibling exists.
+- **Modalities:** **text in, text out.** Reasoning: yes — three effort levels, exposed as `reasoning_effort` `low` / `high` / `max` on the 0731 card and as **Non-Think / High / Max** in DeepSeek's evaluation table. **Tool calls: yes** (tool-calling is an explicit vLLM recipe feature); JSON mode supported. **No image, audio, or video input on this ID** — AA's FAQ is explicit: "DeepSeek V4 Flash 0731 … does not support image input. It can only process text." Image input requires `…-vision-exp`.
+- **Pricing (as of 2026-09-25):** **$0.14 in / $0.28 out per 1M** on OpenCode Zen (models.dev) and OpenRouter, with cache read at **$0.028** on Zen; the earlier 0423 checkpoint was $0.10/$0.20. DeepSeek's first-party API is priced higher — AA measured **$0.44 in / $1.32 out** with a 97% cache discount, at **$0.22 per Intelligence Index task** — and DeepSeek's own site quotes $0.15/$0.60 with $0.003 cache. A **$0/$0 free tier exists on Zen** (`opencode/deepseek-v4-flash-free`, 200K ctx); the free tier carries the usual rate-limit and data-usage caveats, and DeepSeek historically made its non-reasoning mode free. DeepSeek's own output pricing is the cheapest of any model with a 1M window and near-90 tool-use scores.
+- **Architecture:** **284B total / 13B active parameters**, Mixture-of-Experts, 6 routed experts activated per token, 1 shared + 256 routed experts per MoE layer, intermediate hidden dim 2048. **Hybrid attention interleaving Compressed Sparse Attention (CSA — compresses the KV cache every *m* tokens, then applies DeepSeek Sparse Attention over *k* compressed entries) with Heavily Compressed Attention (HCA)**; Manifold-Constrained Hyper-Connections (mHC) for residual-stream stability across 1000+ layers; **Muon optimizer** replacing AdamW; routed experts in **FP4**, rest in FP8. At 1M context DeepSeek reports V4-Flash uses **10% of V3.2's single-token inference FLOPs and 7% of its KV cache**. Pre-trained on **32T+ tokens**, then domain-expert SFT/GRPO followed by unified consolidation via **on-policy distillation** — the V4 series replaced the mixed RL stage entirely. **MIT license** (the most permissive DeepSeek has shipped; AA Openness Index **44**, level with Muse Glimmer 30B and GLM-5.2). **DSpark speculative decoding ships attached to the checkpoint itself** — one vLLM flag, `num_speculative_tokens: 7`, greedy draft, no separate draft model to host. Community 4×RTX-3090 llama.cpp runs: 581 tok/s prefill at 512 ctx, 495 prefill / 31.6 tok/s decode at 97K.
+
+### Raw benchmarks found
+
+> Two distinct official tables exist and must not be conflated. The **0731 agentic table** (9 rows, vs V4-Flash Preview, V4-Pro Preview, GLM-5.2, Opus 4.8) is measured with the minimal mode of DeepSeek Harness at **`max` reasoning effort**, temperature 1.0, top_p 0.95. The **V4-Flash Max knowledge/coding/long-context table** (Non-Think / High / Max columns) is the evaluation table shipped with the DSpark/Preview-era card and the Ollama `0731-cloud` card; §Checkpoint note below explains the residual ambiguity. Independent confirmations are labelled separately.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **82.7%** (official 0731 card, DeepSeek Harness minimal / `max` effort) — vs V4-Flash Preview 61.8, V4-Pro Preview 72.1, GLM-5.2 81.0, Opus 4.8 85.0. Independently listed on evals.report as **"DeepSeek V4 Flash 0731 Open · DeepSeek · 82.7% · Verified · Jul 31, 2026"**. A widely-quoted "61.8 → 82.7" jump is partly a **benchmark-version artifact** (61.8 is Preview on TB2.1; 56.9 is Preview on TB2.0), a correction BenchLM published on 2026-08-01. Terminal Bench 2.0 (official table, Max): **56.9%**
+- Toolathlon-Verified: **70.3%** (official 0731 card) — vs Preview 49.7, V4-Pro Preview 55.9, GLM-5.2 59.9, Opus 4.8 76.2. Separately, **Toolathlon 47.8%** (official table, Max column; Non-Think 40.7, High 43.5) — a different Toolathlon variant, lower
+- MCPAtlas: **69.0%** (official table, Max; Non-Think 64.0, High 67.4) — vs V4-Pro Max 73.6, V4-Pro Non-Think 69.4
+- GDPval-AA: **1395 Elo** (official table, Max) — above the 1200 human baseline, but well behind V4-Pro Max 1554
+- BrowseComp: **73.2%** (official table, Max; High 53.5) — vs V4-Pro Max 83.4
+- AutomationBench Public: **25.1%** (official 0731 card) — vs Preview 10.8, V4-Pro Preview 12.8, GLM-5.2 12.9, Opus 4.8 27.2
+- Agents' Last Exam: **25.2%** (official 0731 card) — vs Preview 15.8, GLM-5.2 23.8, Opus 4.8 25.7
+- Cybergym: **76.7%** (official 0731 card) — vs Preview 38.7, V4-Pro Preview 52.7, Opus 4.8 83.1
+- NL2Repo: **54.2%** (official 0731 card) — vs Preview 39.4, V4-Pro Preview 38.5, GLM-5.2 48.9, Opus 4.8 69.7
+- HLE with tools: **45.1%** (official table, Max; High 40.3) — vs V4-Pro Max 48.2
+- AA-LCR: **65.5%** for the NVIDIA NVFP4 quantization vs 65.8% BF16 baseline (NVIDIA ModelOpt card) — the only long-context-reasoning figure that isolates quantization loss
+- Tau3-Banking / Tau2-Bench / Claw-Eval / ClawProBench / SWE Atlas QnA / Toolathon: **no verified public score found** for this checkpoint
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **88.1%** (official table, Max; High 87.4, Non-Think 71.2) — vs V4-Pro Max 90.1
+- HLE: **34.8%** text-only (official table, Max; High 29.4) — vs V4-Pro Max 37.7; **45.1% with tools**
+- MMLU-Pro: **86.2%** EM (official table, Max; High 86.4, Non-Think 83.0) — vs V4-Pro Max 87.5
+- HMMT 2026 Feb: **94.8%** (official, Max) — IMOAnswerBench **88.4%** (Max); Apex **33.0%**, Apex Shortlist **85.7%** (Max)
+- SimpleQA-Verified: **34.1%** (official, Max; High 28.9) — **weak factuality**, and 45.0% even for V4-Pro Non-Think
+- Chinese-SimpleQA: **78.9%** (official, Max)
+- Artificial Analysis Intelligence Index: **34** (AA Intelligence Index **v4.3.2**, "DeepSeek V4 Flash 0731 (Reasoning, Max Effort)"), **#10 of 115** in its class and 28 of 673 overall, against a class median of 18; **AA has since deprecated this entry** and now benchmarks only the 10K-input workload, pointing users to DeepSeek V4.1 Flash
+- AA speed/verbosity: **224.8 output tok/s (#4 of 115)**, TTFT **1.02s**, but **240M output tokens** on the Index vs a 140M median — the most verbose model in its class (#31 of 115)
+- LCR: **81.3%** and AA Index **41.5** belong to **DeepSeek V4 Flash Vision (Experimental)**, a *different ID* — recorded as a provisional proxy only, not as a score for this model
+- CritPt / Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **79.0%** resolved (official table, Max; High 78.6) — vs V4-Pro Max 80.6, GLM-5.2, Opus 4.8
+- SWE-bench Pro: **52.6%** resolved (official, Max; High 52.3)
+- SWE-bench Multilingual: **73.3%** resolved (official, Max; High 70.2)
+- LiveCodeBench: **91.6%** Pass@1 (official, Max; High 88.4, Non-Think 55.2) — vs V4-Pro Max 93.5; Codeforces rating **3052** (High 2816)
+- DeepSWE: **54.4%** (official 0731 card; independently reproduced on HF eval results for `datacurve/deep-swe`) — vs **Preview 7.3**, V4-Pro Preview 12.8, GLM-5.2 46.2, Opus 4.8 58.0. This is the single largest jump of the 0731 release
+- DSBench-FullStack: **68.7%**; DSBench-Hard: **59.6%** (official 0731 card, both **internal DeepSeek test sets**, flagged with † in the card) — vs GLM-5.2 61.8 / 54.5, Opus 4.8 71.6 / 71.7
+- SciCode / Vibe Code Bench / FrontierCode / AA Coding Index: **no verified public score found**
+- Community lmarena: **Elo 1433** for `~deepseek/deepseek-v4-flash-latest`
+
+Long context:
+
+- **MRCR 1M: 78.7%** MMR (official table, Max; High 76.9, Non-Think 37.5) — llm-stats ranks **#2 of 4** on MRCR 1M behind only DeepSeek-V4-Pro-Max (83.5), and the FlashMemory paper (arXiv 2606.09079) independently cites a **76.0%** DeepSeek-V4-Flash MRCR baseline
+- **CorpusQA 1M: 60.5%** ACC (official, Max; High 59.3) — vs V4-Pro Max 62.0
+- Independent hosted-API needle test (chat-deep.ai): **8/8 needles recovered at 847,423 input tokens** for V4 Flash (83.4s completion), matching V4 Pro; also 8/8 at 81,842 and 276,022 tokens. Explicitly labelled a *functional check, not a statistical benchmark*
+- LongBench-v2 / LongMemEval / RULER: **no verified public score found** for the unmodified checkpoint — the FlashMemory paper (FM-DS-V4) reports only that it "consistently matches or exceeds DS-V4-Flash" while cutting KV cache to 13.5%, with the MRCR regression 76.0% → 48.0%
+- Efficiency: at 1M context DeepSeek claims V4-Flash uses **10% of V3.2's single-token FLOPs and 7% of its KV cache**; FlashMemory reaches up to 90% memory reduction at 500K
+
+§Checkpoint note: BenchLM attributes the 78.7% MRCR-1M row to **DeepSeek V4 Flash 0731**, while llm-stats attributes 78.7% to **DeepSeek-V4-Flash-Max** and 76.9% to the 0423 checkpoint. The underlying numbers are the same DeepSeek table; the label attached to the Max column is what differs. Treated here as the V4-Flash Max row for the 0731 generation, flagged as the one place where the official labels and third-party labels disagree.
+
+### Normalized scores (1–100)
+
+- **Tool use: 90/100.** Lands in the methodology's frontier band on the strength of **Terminal-Bench 2.1 82.7%** (official, evals.report-Verified, ahead of GLM-5.2's 81.0 and just under Opus 4.8's 85.0), **Toolathlon-Verified 70.3%**, **MCPAtlas 69.0%**, **GDPval-AA 1395 Elo** (above the 1200 human baseline) and **BrowseComp 73.2%**. Capped at 90 — not 95+ — because two real gaps remain: **AutomationBench 25.1%** and **Agents' Last Exam 25.2%** are both near Opus-4.8 parity but low in absolute terms, there is **no Tau3/Tau2, ClawProBench or SWE-Atlas score** at all, and BenchLM's own independent run notes DeepSeek's table "does not claim parity with Opus 4.8" — Opus leads all nine rows.
+- **Reasoning: 90/100.** Frontier-band knowledge and maths: **GPQA Diamond 88.1%**, **HLE 34.8%** text-only and 45.1% with tools, **MMLU-Pro 86.2%**, HMMT 2026 94.8%, IMOAnswerBench 88.4%, Apex Shortlist 85.7%, Codeforces 3052 — all at the `max` effort level DeepSeek itself recommends. Held at 90 by two honest weaknesses: **SimpleQA-Verified only 34.1%** (a real factuality ceiling) and an **AA Intelligence Index of 34** against a class median of 18 — clearly top-of-mid rather than frontier, with AA already deprecating the entry in favour of V4.1 Flash. No CritPt or Omniscience score exists to check hallucination directly.
+- **Context window: 95/100.** **1,000,000 tokens** is verified on DeepSeek's own status table, models.dev and AA, with a documented **384K max output** — the top of the methodology's ≥1M band (95–100). Placed at 95 rather than 100 because the long-context evidence is strong but not the near-perfect the 100 tier demands: **MRCR 1M 78.7%** and **CorpusQA 1M 60.5%** are multi-range retrieval and corpus-QA scores in the 60–80 band, and the one independent needle test (8/8 at 847,423 tokens) is explicitly a single narrow run, not a statistical result. The `low` effort mode is also much weaker at long range (MRCR 1M 37.5% non-think vs 78.7% max), so full-window quality depends on the effort setting.
+- **Multimodal: 15/100.** **Text in, text out, no image input on this ID** — the methodology's flat text-only value, and AA's FAQ confirms it directly ("does not support image input … is not multimodal"). Important caveat recorded rather than scored: OpenCode and DeepSeek both serve a **separate `…-vision-exp` sibling at the same $0.14/$0.28 price and the same 1M/384K limits**, and that sibling is genuinely multimodal (AA Index 41.5, GPQA 91.3, HLE 34.5, LCR 81.3, coding 65.0). This report scores the evaluated ID only; anyone who needs images should switch to `opencode/deepseek-v4-flash-vision-exp` rather than expect it here.
+- **Coding: 90/100.** Clears the methodology's 74%+ SWE-bench-Verified frontier anchor with **79.0%**, alongside **LiveCodeBench 91.6%** (vs V4-Pro Max 93.5) and **Codeforces 3052** — the competitive-programming numbers are the strongest part of the profile. **DeepSWE 54.4%** (up from 7.3 on the Preview) and **NL2Repo 54.2%** are mid-to-good, DSBench-FullStack 68.7% / Hard 59.6% clear the mid band, and Terminal-Bench 2.1 82.7% doubles as a coding-agent score. Held at 90 because SWE-bench **Pro** is only **52.6%**, the DSBench rows are DeepSeek-internal test sets that cannot be independently verified, and no SciCode, Vibe Code Bench or FrontierCode score exists.
+- **Cost efficiency: 98/100.** Far below the methodology's ~$0.60/$2.20 ≈ 92 anchor: **$0.14 in / $0.28 out** on OpenCode Zen and OpenRouter, with a **$0.028** cache read on Zen, plus a genuinely **$0/$0 free ID on Zen** (`opencode/deepseek-v4-flash-free`). At 1M context and 82.7% Terminal-Bench, no model in this dataset is cheaper. Held at 98 rather than higher because the **free ID is capped at 200K context** and the scored tier is paid, and because DeepSeek's own first-party API prices the same checkpoint at **$0.44/$1.32** — the discount is provider-specific, not universal. Also worth budgeting for: the model is the **most verbose in its class** (240M output tokens on the AA Index vs a 140M median), which erodes the headline rate on long agentic runs.
+- **Overall Score: 76/100.** (90 + 90 + 95 + 15 + 90) / 5 = 76.0 → 76. Best fit: **the default open-weights agentic and coding workhorse at 1M context** — near-frontier tool use and coding at a third of frontier pricing, MIT weights, and the highest usage share of any model on OpenCode. Two design constraints: it is **text-only under this ID** (switch to `…-vision-exp` for images), and quality is strongly **effort-dependent** — the 0731 card's headline numbers assume `max` reasoning with a 384K output budget, so a cheap `low`-effort configuration will not reproduce them.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-25
+- Method: public internet research (the `deepseek-ai/DeepSeek-V4-Flash-0731` Hugging Face model card, the `deepseek-ai/DeepSeek-V4-Flash` and `DeepSeek-V4-Flash-DSpark` cards, the DeepSeek API docs and model-status table, arXiv 2606.19348 *DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence* and arXiv 2606.09079 (FlashMemory-DeepSeek-V4), Artificial Analysis's DeepSeek V4 Flash 0731 model page, evals.report's Terminal-Bench 2.1 leaderboard, BenchLM's 2026-08-01 checkpoint-version correction and its MRCR-1M page, llm-stats's MRCR-1M leaderboard, the `nvidia/DeepSeek-V4-Flash-NVFP4` quantization card, the Ollama `deepseek-v4-flash:0731-cloud` library card, an independent hosted-API 847K needle-retrieval test, and the models.dev provider catalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `DeepSeek.md`, using the same headings.
