@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — every "How other agents rated" row clickable
+
+1. Root cause: `AGENT_MODEL_SLUG` had no entries for `Kimi K3` / `Space Bunny Alpha`, so the table fell back to plain text. Added both mappings (also fixes their results-source dropdown ranking).
+2. New universal fallback: untracked agents now link to the homepage source view (`/?source=<agent>`, always exists) instead of plain text — every row is clickable by construction, including future folderless agents.
+3. Note: `space-bunny-alpha` has no model page yet (2 reports, both raters below the 84.9 gate → no average, by design), so its row uses the fallback link until an eligible rater files there. `kimi-k3`'s page returns on the next sync (its generated average entry went stale while codegen was failure-frozen).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — sync no longer fails on below-gate-only folders
 
 1. `pnpm sync` exited 1 on 11 folders with zero qualifying raters — that signal is fine per `RULES.md`, so the `fail()` became an INFO + `continue` in `scripts/sync-data.mjs` (no synthetic average entry — a mean over an empty cohort would be NaN — per-file scores stay indexed, `scores.generated.ts` is emitted again). Sync now fails only on real data errors (unparsable scores, Overall drift > 0.51, bad filenames/meta, deletions).

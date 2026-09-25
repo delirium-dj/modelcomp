@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Muse Spark 1.3.
 - Average from top 2 by Overall Score: Gemini 3.6 Flash, Muse Spark 1.3.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3 Flash, Mimo v2.6 Flash.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3 Flash, Mimo v2.6 Flash, Space Bunny Alpha.

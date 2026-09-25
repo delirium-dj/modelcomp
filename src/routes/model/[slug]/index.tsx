@@ -235,9 +235,11 @@ export default component$(() => {
               {sortedRatings.map((r) => {
                 const o = hl(r.scores.overall, overallStats, "overall", true);
                 // Link the agent name to that agent's own model page when tracked;
-                // otherwise render plain text (never a dead link).
+                // otherwise fall back to the homepage source view (always exists),
+                // so every row stays clickable and never a dead link.
                 const agentSlug = AGENT_MODEL_SLUG[r.key];
                 const agentModel = agentSlug ? MODELS.find((m) => m.slug === agentSlug) : undefined;
+                const fallbackHref = `/?source=${encodeURIComponent(r.key)}`;
                 return (
                   <tr key={r.key} class="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
                   <th scope="row" class="px-3 py-2 text-left font-medium text-slate-700 dark:text-slate-300">
@@ -250,7 +252,13 @@ export default component$(() => {
                         {r.label}
                       </a>
                     ) : (
-                      r.label
+                      <a
+                        href={fallbackHref}
+                        title={`Show ${r.label} scores across all models`}
+                        class="hover:text-indigo-600 dark:hover:text-indigo-400"
+                      >
+                        {r.label}
+                      </a>
                     )}
                   </th>
                     <td title={o.title} class={o.cls}>

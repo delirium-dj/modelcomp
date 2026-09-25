@@ -340,8 +340,8 @@ export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
  * Reporting-agent key -> model slug of that same agent, for cross-linking
  * ("how other models rate the competition") and for ranking the results-source
  * dropdown by each rater's own average Overall. Extend when registering a
- * source whose agent is also a tracked model; agents without an entry render
- * as plain text (never a dead link) and rank by fallback (see below).
+ * source whose agent is also a tracked model; agents without an entry link to
+ * the homepage source view (`/?source=`) instead and rank by fallback (see below).
  * NOTE: declared before SOURCES -- the dropdown derivation reads it at module
  * load, so it must not move below.
  */
@@ -377,6 +377,8 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Gemini 1.5 Pro": "gemini-1.5-pro",
   "Qwen 3.8 27B": "qwen-3.8-27b",
   "GLM 5.3": "glm-5.3",
+  "Kimi K3": "kimi-k3",
+  "Space Bunny Alpha": "space-bunny-alpha",
 };
 
 /**
