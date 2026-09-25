@@ -1,5 +1,8 @@
 # Model Research Task Instructions (generic — no agent name hardcoded here)
 
+> Precedence: `../RULES.md` is the ultimate authority — on any conflict it wins.
+> The hard rule below restates it; the rest is procedure.
+
 This file defines the workflow only. Agent identity comes from the assigned
 delegator file (e.g. `tasks/grok_4.6.md`) via its single `AGENT_SOURCE_STEM`
 line. Do not hardcode any model name in this file.

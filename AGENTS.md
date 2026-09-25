@@ -12,8 +12,10 @@ Qwik + Tailwind v3 static site comparing AI models. Scores flow from
 
 ## Must-read before working here
 
-Read all three files in full before making changes. They are short.
+Read all four files in full before making changes. They are short.
+Precedence order: `RULES.md` first — on any conflict, it wins.
 
+- [RULES.md](RULES.md) — ultimate project rules (research permanence, scoring). Highest authority.
 - [.agents/tech-stack.md](.agents/tech-stack.md) — locked toolchain (Qwik 1.20, Tailwind v3, Vite 7, pnpm). Do not introduce other frameworks, package managers, or Tailwind v4 syntax.
 - [.agents/rules.md](.agents/rules.md) — repo layout, data flow, and structural decisions. Follow them; they keep scores, site, and reports in sync.
 - [.agents/gemini-rate-limits.md](.agents/gemini-rate-limits.md) — **mandatory for Gemini agents** (5 RPM / 250 K TPM quotas). Read and apply the 15 operating rules before making any tool call.

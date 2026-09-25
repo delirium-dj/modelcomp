@@ -1,5 +1,7 @@
 # Model Data Synchronization
 
+> Precedence: `../RULES.md` is the ultimate authority — on any conflict it wins.
+
 > **For AI agents:** the sync itself is deterministic code, not hand-editing.
 > Run the script, handle what it flags, verify the build. Details below.
 

@@ -1,7 +1,7 @@
 # <Model Name> — findings by <Agent Name>
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and delete this block.
+> replace every `<...>` placeholder with your own research, and strip this notice block.
 > Do not read `model/` (existing findings) before writing — your report must be
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
@@ -98,7 +98,7 @@ Long context:
 
 ---
 
-## Submission checklist (delete before finishing)
+## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.

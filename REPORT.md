@@ -1,5 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — RULES.md crowned ultimate + deletion guards (repeat-deletion incident)
+
+1. Incident: 8 working-tree deletions found uncommitted (`gemini-2.5-pro` Gemini_3.6/3.7, `gemini-3-flash` Gemini_3.6, `gpt-5.4` Gemini_3.7, `gpt-6-sol` Gemini_3.6/3.7, `qwen-3.8` Gemini_3.7, `minimax-m3` Gemini_2.5_Flash.excluded). `model/grok-4.3/Gemini_3.6_Flash.md` was NOT deleted (new untracked file). `pnpm sync` exonerated (no delete capability — only QUAR rename). Pattern points at a "cleanup"-mindset actor; `HEAD a524632` itself deleted 13 research files. All 8 recovered via `git restore --source=HEAD`, hash-verified identical.
+2. `RULES.md` adopted as precedence #1 (fixed typos, precedence clause, enforcement note); wired into `AGENTS.md` must-read + headers of `.agents/rules.md`, `tasks/research.md`, `tasks/sync-data.md`.
+3. Conflicts disarmed: `Muse_Glimmer_30B.md.excluded` purge reclassified as one-time historical exception logged here (never precedent — stubs stay purged, do not restore); `.agents/rules.md` twin-handling unified to write-fresh-then-delete-own-twin (no rename-back); `Ling_3.0.md.replaced-by-*` fossils grandfathered, no new ones; template "delete …" wording neutralized.
+4. Automatic guards: `scripts/sync-data.mjs` permanence tripwire FAILs on any HEAD-tracked findings file missing from disk; committed `.githooks/pre-commit` rejects research-deleting commits (activate: `git config core.hooksPath .githooks`; bypass only with `ALLOW_MODEL_DELETE=1` + explicit user sign-off).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## Full folder-removal audit + Temp staging fully reversed (folders permanent)
 
 1. Audit (ever-committed vs HEAD vs disk vs Temp): the 27-name gap is ~20

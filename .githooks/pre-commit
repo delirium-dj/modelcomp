@@ -1,0 +1,15 @@
+#!/bin/sh
+# modelcomp guard: RULES.md (precedence #1) forbids deleting research files.
+# Blocks commits that delete tracked model/**/*.md or *.md.excluded files.
+# Activate once per clone:  git config core.hooksPath .githooks
+# Bypass (explicit user sign-off only):  ALLOW_MODEL_DELETE=1 git commit ...
+set -u
+deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
+if [ -n "$deleted" ]; then
+  echo "BLOCKED by RULES.md: this commit deletes permanent research files:" >&2
+  echo "$deleted" >&2
+  echo "Restore them (git restore --source=HEAD -- <path>) or get explicit user sign-off," >&2
+  echo "then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
+exit 0

@@ -27,7 +27,8 @@
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
-import { readFileSync, writeFileSync, readdirSync, renameSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -81,6 +82,27 @@ const slugs = readdirSync(modelDir)
   .filter((d) => statSync(join(modelDir, d)).isDirectory())
   .sort();
 log(`sync-data: ${slugs.length} model folders`);
+
+// ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
+// Any git-tracked findings file (model/**/*.md / *.md.excluded, except the
+// regenerable average.md + README.md) missing from disk is a forbidden
+// deletion. FAIL loudly so it can never be cemented silently (a failing run
+// also skips rewriting scores.generated.ts and exits non-zero).
+try {
+  const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model"], { cwd: root });
+  for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
+    const posix = rel.replace(/\\/g, "/");
+    if (!posix.endsWith(".md") && !posix.includes(".md.excluded")) continue;
+    if (/(^|\/)average\.md$/.test(posix) || /(^|\/)README\.md$/.test(posix)) continue;
+    if (!existsSync(join(root, ...posix.split("/")))) {
+      fail(
+        `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
+      );
+    }
+  }
+} catch {
+  log("  WARN  git HEAD unreadable — deletion tripwire skipped (treat run as untrusted)");
+}
 
 // Slug version convention (see model/README.md): version numbers use "." not
 // "-". A hyphen between two digits is never a valid version separator, so a
