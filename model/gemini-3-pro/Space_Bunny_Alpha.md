@@ -59,7 +59,7 @@ Multimodal:
 - **Multimodal: 92/100.** Native text/image/audio/video input and 81.0% MMMU-Pro provide broad multimodal capability, though public exact-model visual evidence is limited.
 - **Coding: 86/100.** SWE-bench Verified at 76.2%, SciCode at 56%, LiveCodeBench at 2,439 Elo, and Terminal-Bench at 56.9% are strong; SWE-bench Pro at 43.3% caps the rating.
 - **Cost efficiency: 76/100.** At $2/$12, the preview model is moderately priced but more expensive than many open alternatives and is now deprecated.
-- **Overall Score: 86/100.** A capable multimodal reasoning and coding model with a 1M context, best for multimodal agents and long-context work while the preview remains available; newer Gemini 3.1 Pro is the successor to prefer.
+- **Overall Score: 88/100.** A capable multimodal reasoning and coding model with a 1M context, best for multimodal agents and long-context work while the preview remains available; newer Gemini 3.1 Pro is the successor to prefer.
 
 ---
 

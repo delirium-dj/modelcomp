@@ -38,9 +38,10 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    count as drift). Overall = mean of source Overall scores, NOT re-derived
    from averaged dimensions. Only reports from models with own Overall > 84.9
    count (rater gate: below-gate files are logged as `GATE` lines and ignored;
-   the top-10 cap applies within the eligible set). A folder with zero eligible
-   raters fails loudly and keeps its previous average. Rewrites stale files,
-   reports which ones.
+    the top-10 cap applies within the eligible set). A folder with zero eligible
+    raters logs an INFO line and keeps its previous average (accepted standing
+    signal per `RULES.md` — never a failure). Rewrites stale files,
+    reports which ones.
 4. Registers any new reporting-agent filename in `src/data/models.ts`
    (`SourceKey` + `SOURCES`, appended last). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
@@ -67,10 +68,9 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
       hexagon shows their scores (no unexpected N/A).
 - [ ] `pnpm build` is green and `REPORT.md` notes what changed
       (or "no changes — all verified in sync").
-- [ ] No findings files (`.md` / `.md.excluded`) and no reporting-agent model
-      folders were deleted, moved, or left uncommitted in this pass — the rater
-      gate ignores below-gate files in averages only; every research file
-      stays in the repo.
+- [ ] No findings files or model folders were deleted, moved, or left
+      uncommitted in this pass (`RULES.md` — permanence; sync's tripwire
+      FAILs otherwise).
 
 ## Invariants (do not break these)
 
@@ -93,33 +93,15 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   whose agent is also a tracked model, add its slug to `AGENT_MODEL_SLUG` so
   it ranks (and cross-links) correctly.
 - Components read `MODELS` only — never import findings files directly.
-- Cost efficiency is an independent stat (scored, shown, sortable) and never
-  counts toward any Overall — source Overall = mean of the five quality dims,
-  average Overall = mean of source Overalls from qualifying raters only
-  (rater gate: rater own Overall > 84.9).
-- **All findings files are permanent research records — the gate is a filter,
-  not a deletion.** Sync never deletes, moves, or "cleans up" a findings file;
-  its only scripted mutation is the `QUAR` quarantine rename to `.md.excluded`
-  (content preserved). Below-gate rater files stay on disk, in git, parsed into
-  `scores.generated.ts`, and registered in the Results-source dropdown — gate
-  status only excludes them from other models' `average.md` means. Never delete
-  or remove a `.md` report or `.md.excluded` stub because its rater is below the
-  gate; every research file is kept so the record survives gate changes (a
-  below-gate rater can become eligible once its own model is peer-rated above
-  the gate). Correcting a file is always edit-then-resync, never removal.
-- **Reporting-agent model folders are dataset infrastructure.** A
-  `model/<slug>/` folder scaffolded for a reporting agent (rule 11 in
-  `tasks/research.md`) must be committed with its verified-facts `meta.json`,
-  never deleted or left uncommitted: the rater gate reads the agent's own
-  committed `average.md` from that folder, so removing it permanently
-  disqualifies the rater and severs the per-model cross-link.
+- Scoring permanence: `RULES.md` (Cost excluded from every Overall; the gate
+  filters averages only, never a reason to remove a file). Sync's only file
+  mutation is the `QUAR` rename (content preserved); correcting a file is
+  always edit-then-resync, never removal. Reporting-agent folders are dataset
+  infrastructure (rule 11 in `tasks/research.md`) — never deleted or left
+  uncommitted.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
-- Slug version convention: version numbers use `.` not `-` (`gpt-5.5`, never
-  `gpt-5-5`). `pnpm sync` fails loudly on any `model/<slug>/` matching
-  digit-hyphen-digit (with the dotted destination in the message), so a
-  hyphen variant is never cemented into averages or `scores.generated.ts`.
-  Exceptions: param sizes `gemma-4-31b` and `qwen-3.8-27b` (not versions),
-  single majors with a codename/suffix (`gpt-6-astra`, `deepseek-v4-vision-exp`).
+- Slug versions use `.` not `-` (full convention in `model/README.md`);
+  `pnpm sync` fails hyphen variants loudly so they are never cemented.
 
 ## Definition of Done
 

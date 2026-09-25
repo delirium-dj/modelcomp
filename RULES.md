@@ -25,6 +25,12 @@ override.
   from disk, and the committed pre-commit hook (`.githooks/pre-commit`,
   activate with `git config core.hooksPath .githooks`) rejects commits that
   delete them.
+- `model/<slug>/` folders are permanent too: never moved out of the tree or
+  deleted, even with zero qualifying raters (a `no qualifying raters` INFO
+  notice is an accepted standing signal — never a failure). Reporting-agent folders are dataset
+  infrastructure — the gate reads the agent's own `average.md` from its
+  folder, so a below-gate rater becomes eligible once its model is peer-rated
+  above the gate.
 
 ## Scoring rules
 

@@ -4,7 +4,7 @@
 
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with STEM from the line above.
 
-> QWEN-ONLY: this STEM runs on Qwen 3.8 27B. Obey these hard quotas for the entire task:
+> RUNTIME QUOTAS: this run executes under Qwen 3.8 27B limits. Obey these hard quotas for the entire task:
 >
 > > - Max context: 131,072 tokens (input + output combined)
 > > - Max output: 40,960 tokens per request
@@ -18,9 +18,7 @@ Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.m
 > 3. Batch writes: draft each report fully before writing. One write call = one done file. Never write then immediately overwrite.
 > 4. Combine shell commands into a single call with `;` or `&&`; skip directory listings you already know from this turn.
 > 5. Request/token pacing: 450 RPM is generous — no 12-second throttle needed — but do not burst parallel requests; sequential one-folder-at-a-time execution already paces you. If approaching 750,000 TPM in a minute (e.g. many large reads back-to-back), pause new reads until the next minute window.
-> 6. Incremental save = interrupt-safe: write `model/<slug>/<STEM>.md` immediately before advancing; skip folders already containing your file; never overwrite/edit/delete.
-> 7. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
-> 8. One search at a time: web searches are strictly sequential, one request per turn — never batch or parallelize search calls; retrieve and evaluate each result before starting the next search.
+> 6. One search at a time: web searches are strictly sequential, one request per turn — never batch or parallelize search calls; retrieve and evaluate each result before starting the next search. (Incremental save, no-overwrite, and no-build rules: see Effective orders 3–4 below.)
 
 Effective orders (already resolved, do not re-derive):
 

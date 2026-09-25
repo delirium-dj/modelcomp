@@ -317,9 +317,14 @@ for (const slug of slugs) {
   const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
   const excludedLabels = labels.filter((l) => !topLabels.includes(l));
   if (eligible.length === 0) {
-    fail(`model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left untouched`);
-    skipAverage = true;
-  } else if (ignoredLabels.length > 0) {
+    // Accepted standing signal (RULES.md): below-gate-only coverage is never
+    // a failure — the average simply stays ungenerated until eligible raters
+    // exist. Per-file source scores indexed above stay; no synthetic average
+    // entry is emitted (a mean over an empty cohort would be NaN).
+    log(`  INFO  model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left untouched`);
+    continue;
+  }
+  if (ignoredLabels.length > 0) {
     ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
     log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
   }

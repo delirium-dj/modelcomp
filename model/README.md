@@ -71,14 +71,8 @@ model (e.g. a stale registry entry with no files and no vendor ID).
 
 ## Folders
 
-- `big-pickle/` — Big Pickle
-- `muse-spark-1.3-free/` — Muse Spark 1.3 Contributor
-- `ling-3.0-flash-fin-free/` — Ling 3.0 Flash Fin Free
-- `mimo-v2.5-free/` — MiMo V2.5 Free (also covers the `Xiaomi MiMo-V2.5 Free` alias)
-- `muse-spark-1.2-free/` — Muse Spark 1.2 Free
-- `nemotron-3-ultra-free/` — Nemotron 3 Ultra Free
-- `nemotron-3.5-lightning-free/` — Nemotron 3.5 Lightning Free
-- `glm-5.1-coding/` — GLM 5.1 Coding (no Zen Free ID; scored on paid pricing)
-- `minimax-m2.7/` — MiniMax M2.7 (no Zen Free ID; scored on paid pricing)
-- `xiaomi-mimo-v2.5-pro/` — MiMo V2.5 Pro (no Zen Free ID; scored on paid pricing)
-- …plus newer folders, each self-described by its own `meta.json`.
+One folder per tracked model, each self-described by its own `meta.json`
+(this list is intentionally not enumerated here — `meta.json` is the source
+of truth; examples: `big-pickle/`, `muse-spark-1.3-free/`,
+`ling-3.0-flash-fin-free/`, `glm-5.1-coding/`). Known alias: `mimo-v2.5-free/`
+also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it.

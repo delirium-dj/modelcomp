@@ -1,5 +1,11 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — sync no longer fails on below-gate-only folders
+
+1. `pnpm sync` exited 1 on 11 folders with zero qualifying raters — that signal is fine per `RULES.md`, so the `fail()` became an INFO + `continue` in `scripts/sync-data.mjs` (no synthetic average entry — a mean over an empty cohort would be NaN — per-file scores stay indexed, `scores.generated.ts` is emitted again). Sync now fails only on real data errors (unparsable scores, Overall drift > 0.51, bad filenames/meta, deletions).
+2. Docs aligned: `tasks/sync-data.md`, `RULES.md` (`no qualifying raters` = INFO standing signal, never a failure).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — RULES.md crowned ultimate + deletion guards (repeat-deletion incident)
 
 1. Incident: 8 working-tree deletions found uncommitted (`gemini-2.5-pro` Gemini_3.6/3.7, `gemini-3-flash` Gemini_3.6, `gpt-5.4` Gemini_3.7, `gpt-6-sol` Gemini_3.6/3.7, `qwen-3.8` Gemini_3.7, `minimax-m3` Gemini_2.5_Flash.excluded). `model/grok-4.3/Gemini_3.6_Flash.md` was NOT deleted (new untracked file). `pnpm sync` exonerated (no delete capability — only QUAR rename). Pattern points at a "cleanup"-mindset actor; `HEAD a524632` itself deleted 13 research files. All 8 recovered via `git restore --source=HEAD`, hash-verified identical.

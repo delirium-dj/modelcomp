@@ -8,14 +8,10 @@ delegator file (e.g. `tasks/grok_4.6.md`) via its single `AGENT_SOURCE_STEM`
 line. Do not hardcode any model name in this file.
 
 > **GEMINI AGENTS — read first (crash guard):** before any other step, read
-> `.agents/gemini-rate-limits.md` in full and apply Rules 12–15 for the whole
-> task: every turn MUST carry at least one tool call (a text-only turn kills
-> the session with `400 Bad Request: Requests ending with a model turn are not
-> supported`); never emit `Should I continue?` / mid-task summaries / filler
-> while rate-limited; never stop until the queue is empty or the user
-> explicitly revokes the task; every invocation re-audits `model/` and skips
-> folders already containing your file, so a re-delegated session after a
-> crash automatically resumes where the dead one left off.
+> `.agents/gemini-rate-limits.md` in full and apply it for the whole task
+> (tool call in EVERY turn; never stop until the queue is empty or the user
+> explicitly revokes it; re-delegation resumes where a crashed session left
+> off).
 
 ---
 
@@ -62,21 +58,18 @@ Follow tasks/research.md exactly:
 - Missing list = queue base. Order it:
   1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
   2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
-- Allowed carve-out: reading that single Overall line for ordering does NOT violate
-  Zero Influence below. Do NOT read any other line of `average.md` and do NOT
-  read any peer `*.md` findings file before/during research.
+- Allowed carve-out: reading that single Overall line for ordering is fine
+  (see rate-limit Rule 2). Do NOT read any other line of `average.md` and do
+  NOT read any peer `*.md` findings file before/during research.
 
 ### Step 2: Dynamic model discovery during web search
 
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
   no folder under `model/`:
-  1. Derive a filesystem-safe slug (lowercase, digits, `.`/`-`/`_` only; version
-     numbers use `.` not `-`, e.g. `gpt-5.6-terra` — never `gpt-5-6-terra`).
-     First check whether a dotted folder for the model already exists
-     (e.g. `gpt-5.5/`); a hyphen-versioned folder is a duplicate, not a new
-     model (see `model/README.md` slug convention; `pnpm sync` fails loudly
-     on hyphen versions).
+  1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
+      `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
+      folder first — `pnpm sync` fails hyphen variants loudly).
   2. Create `model/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   3. Append `<slug>` to the END of your queue (after all ranked folders), in discovery order.
 
@@ -89,10 +82,9 @@ For each queued slug, in order:
    - Do NOT read peer report files (`model/<slug>/*.md` except `model-report-TEMPLATE.md`).
    - Fresh public web search only. Forget/clear memory of previous results per folder.
 3. **Report generation & save:**
-   - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
-    - Score contract: `Overall Score` = half-up arithmetic mean of the five quality dimensions only 
-      `(Tool use + Reasoning + Context window + Multimodal + Coding) / 5`. 
-      **CRITICAL:** `Cost efficiency` is scored independently and must be strictly EXCLUDED from the Overall Score calculation (see `tasks/sync-data.md`, tolerance 0.51).
+    - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
+    - Score contract: see `RULES.md` (Overall = half-up mean of the five
+      quality dims; Cost excluded; tolerance 0.51).
     - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
     - Twin check (only if YOUR OWN `model/<slug>/<Your_Stem>.md.excluded` exists —
       never another agent's file): do NOT open it before or during research; draft
@@ -109,9 +101,9 @@ For each queued slug, in order:
 
 - Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 - All `<...>` placeholders replaced; no values copied from peer files.
-- No existing files overwritten (only new `<Your_Filename>` files added); the sole
-  allowed deletion is your own `.md.excluded` twin after a re-research that produced
-  a fresh file with new evidence.
+- Permanence holds (`RULES.md`): only new `<Your_Filename>` files added; the
+  sole allowed deletion is your own `.md.excluded` twin after a re-research
+  that produced a fresh file with new evidence (Step 3.3).
 - Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build`. The orchestrator
   runs those per `tasks/sync-data.md` (it recomputes `average.md`, registers the
   new source in `src/data/models.ts`, and validates `meta.json`/`average.md`).
@@ -130,13 +122,12 @@ For each queued slug, in order:
 7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
 8. **Forward slashes only** in paths (`tasks/research.md`, `model/<slug>/`).
 9. **Self-exclusion (no verified data):** if a folder's model yielded zero
-   verified public benchmarks, write `<STEM>.md.excluded` (notes only, per the
-   template's SELF-EXCLUSION rule) — never a scored `.md` with placeholder
-   numbers. Excluded files are skipped by sync and never touch the average.
-10. **Twin re-research:** your own `.md.excluded` twin is read ONLY after your fresh
-    draft is complete (never before/during — zero influence first). Same verdict →
-    leave it, write nothing. New verified evidence → write the fresh file, delete
-    the twin. Never rename back without new evidence; never open another agent's
+   verified public benchmarks, write `<STEM>.md.excluded` (notes only) —
+   never a scored `.md` with placeholder numbers (see template's
+   SELF-EXCLUSION; `RULES.md` for permanence).
+10. **Twin re-research:** procedure in Step 3.3 — draft first, compare after;
+    same verdict → write nothing; new evidence → write fresh, delete the
+    twin. Never rename back without new evidence; never open another agent's
     twin at any point.
 11. **Agent-implies-model backfill:** if a reporting agent — any `SourceKey` in
     `src/data/models.ts`, or any signed `Provided by:` identity you meet — has no
@@ -147,11 +138,7 @@ For each queued slug, in order:
     the comparison table, the results-source dropdown, and the per-model
     cross-links connected: a reporting agent must never stay folderless. Do NOT
     scaffold folders for names with zero evidence of a real model behind them.
-12. **Never delete research (hard rule, binds orchestrators too):** never delete,
-    overwrite, or exclude another agent's files — including below-gate raters'.
-    The rater gate only keeps such reports out of `average.md` means; their files
-    stay on disk and keep working everywhere else. The sole deletable file is
-    your own `.md.excluded` twin after re-research with new evidence.
-    Model folders are permanent too: never move a `model/<slug>/` out of the
-    tree or delete it, even with zero qualifying raters — its `no qualifying
-    raters` FAIL is an accepted standing signal until coverage lands.
+12. **Never delete research:** `RULES.md` (ultimate) — no agent or
+    orchestrator ever deletes, overwrites, or moves another agent's files or
+    any `model/<slug>/` folder. The sole deletable file is your own
+    `.md.excluded` twin after re-research with new evidence (Step 3.3).

@@ -31,14 +31,12 @@
 >
 > SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
 > for this exact model/ID — every row below would read "no verified public score
-> found" and all normalized dims would be guesses — do NOT save a scored `.md`
-> file. Save `model/<slug>/<Source_Name>.md.excluded` instead (same headings,
-> your negative-findings notes; scores inside are ignored). `pnpm sync` skips
-> `.excluded` files loudly so they never poison the average. Never invent
-> placeholder scores (0, 10, …) to fill a `.md` file — one fabricated number
-> drags the mean for every reader. (`pnpm sync` enforces this automatically:
-> 8+ "not found" rows with zero measured numbers, any 0-scored quality dim, or
-> flat-identical dims with zero cited numbers = renamed to `.excluded`.)
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
 
 Agent / tool use:
 
@@ -76,9 +74,9 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score. 
 > 
-> **CRITICAL OVERALL SCORE FORMULA (v4):**
-> Overall Score = `Math.round((Tool + Reasoning + Context + Multimodal + Coding) / 5)` (half-up rounding to nearest integer or 1 decimal).
-> **NEVER include Cost efficiency** in the Overall calculation. Cost efficiency is scored independently.
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
 
 - **Tool use: <N>/100.** <evidence + what caps it>
 - **Reasoning: <N>/100.** <evidence + what caps it>
@@ -103,5 +101,4 @@ Long context:
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
-4. No raw benchmark invented — "no verified public score found" used where missing.
-5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -57,7 +57,7 @@ Safety / knowledge reliability:
 - **Multimodal: 15/100.** The exact model is text-only in the official and independent specifications.
 - **Coding: 94/100.** FrontierSWE at 78.1%, DeepSWE at 66.9%, SciCode at 59.0%, and Coding Index at 74.8 are outstanding coding-agent results.
 - **Cost efficiency: 70/100.** First-party pricing of $1.40/$4.40 is expensive, although OpenRouter currently offers a substantially discounted route and self-hosting may suit organizations with suitable hardware.
-- **Overall Score: 94/100.** A frontier open-weight engineering and agent model with a million-token context; best for demanding software and long-horizon tool workflows where cost is secondary.
+- **Overall Score: 78/100.** A frontier open-weight engineering and agent model with a million-token context; best for demanding software and long-horizon tool workflows where cost is secondary.
 
 ---
 
