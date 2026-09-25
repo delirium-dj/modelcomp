@@ -1,4 +1,4 @@
-# GPT-6 Astra — findings by ChatGPT 5.6 Luna
+# GPT-6 Astra — findings by GPT-5.6 Luna
 
 - Source: OpenAI/GPT-6 Astra
 - Date: 2026-09-25 (UTC)

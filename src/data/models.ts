@@ -82,7 +82,12 @@ export type SourceKey =
   | "GPT 5.6 Sol"
   | "Gemma 4 31B IT"
   | "Claude Opus 4.5"
-  | "Laguna XS 2 1";
+  | "Laguna XS 2 1"
+  | "Claude Fable 5.1"
+  | "Claude Opus 5.5"
+  | "GPT 5"
+  | "Gemini 2.0 Flash"
+  | "Grok 4.3";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -146,6 +151,11 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "Gemma 4 31B IT", label: "Gemma 4 31B IT", file: "Gemma_4_31B_IT.md" },
   { key: "Claude Opus 4.5", label: "Claude Opus 4.5", file: "Claude_Opus_4.5.md" },
   { key: "Laguna XS 2 1", label: "Laguna XS 2 1", file: "Laguna_XS_2_1.md" },
+  { key: "Claude Fable 5.1", label: "Claude Fable 5.1", file: "Claude_Fable_5.1.md" },
+  { key: "Claude Opus 5.5", label: "Claude Opus 5.5", file: "Claude_Opus_5.5.md" },
+  { key: "GPT 5", label: "GPT 5", file: "GPT_5.md" },
+  { key: "Gemini 2.0 Flash", label: "Gemini 2.0 Flash", file: "Gemini_2.0_Flash.md" },
+  { key: "Grok 4.3", label: "Grok 4.3", file: "Grok_4.3.md" },
 ];
 
 export interface AiModel {

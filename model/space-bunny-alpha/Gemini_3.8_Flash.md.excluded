@@ -1,0 +1,56 @@
+# Space Bunny Alpha — findings by Gemini 3.8 Flash
+
+- Source: OpenRouter Stealth (`stealth/space-bunny-alpha`)
+- Date: 2026-09-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha
+- **Short description:** Anonymous frontier stealth preview model hosted on OpenRouter with native multimodal support, 1M context window, and mandatory adjustable reasoning.
+- **Provider / access:** OpenRouter (`stealth/space-bunny-alpha`).
+- **Release / knowledge:** 2026-09-23 release; knowledge cutoff mid-2026.
+- **IDs:** `stealth/space-bunny-alpha`. Free preview during stealth evaluation.
+- **Context window:** 1,000,000 tokens total (1M context); max output 524,288 tokens.
+- **Modalities:** Text, image, and video input; text, code, structured JSON, and tool-calling output; mandatory reasoning effort levels (low to max).
+- **Pricing (as of 2026-09):** Free ($0.00 / 1M prompt and completion) during stealth preview.
+- **Architecture:** Unannounced proprietary mixture-of-experts architecture with native multimodal perception and integrated chain-of-thought reasoning.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of September 26, 2026, Space Bunny Alpha is an active anonymous stealth preview. No verified public standardized benchmark scores (such as SWE-bench, LiveCodeBench, GPQA Diamond, or Terminal-Bench) have been officially published or independently measured on standardized suites yet.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- 1M token context window and 524K max output advertised via live OpenRouter API endpoint metadata.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-26 UTC
+- Method: Public internet research into OpenRouter stealth endpoint documentation and public AI analysis; self-excluded per template guidelines due to zero verified public benchmark measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,60 @@
+# Omen Alpha — findings by Space Bunny Alpha
+
+- Source: OpenCode Go (`opencode-go/omen-alpha`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — read first.** Saved as `.md.excluded`: **zero verified public
+> benchmark numbers** could be found for Omen Alpha. The model is real, shipping
+> and fully specified below, but no lab, aggregator or leaderboard publishes a
+> measured score for this exact ID. Per `RULES.md`, no scored `.md` is written and
+> no placeholder numbers are invented.
+
+## Model card
+
+- **Name:** Omen Alpha
+- **Short description:** A recent closed-weight general model served by **OpenCode Go** (a separate, cheaper host from OpenCode Zen) — text and image in, text out, with a 500K context window and a notably low output price for its class. xAI-free, Anthropic-free: it is positioned as a value frontier alternative rather than a named flagship.
+- **Provider / access:** OpenCode Go — model ID `omen-alpha`, available from **1 host** (modelbenchmark.io host registry). **It is not in the OpenCode Zen catalog** (`opencode.ai/zen/v1/models` was checked on 2026-09-25 and lists no `omen-alpha`), so cost cannot be scored against a Zen free tier; there is no verified free tier.
+- **Release / knowledge:** released **2026-09-04**. **Knowledge cutoff not published** (modelbenchmark.io records it as "—").
+- **IDs:** `omen-alpha` on host `opencode-go` (OpenRouter-style `opencode-go/omen-alpha`). **Open weights: no** — proprietary.
+- **Context window:** **500K total**, with a **128K max output** (both verified on modelbenchmark.io's spec page, which aggregates "most-agreed values" across sources). 128K output is unusually generous and is worth noting for long-generation work.
+- **Modalities:** **Input:** text, image. **Output:** text. Reasoning status and tool-calling support are **not documented** by any source found.
+- **Pricing (as of 2026-09-25):** **$0.20 / 1M input, $0.66 / 1M output, $0.04 / 1M cache read**; cache write not published. Paid tier only — no free tier found, and no data-usage/privacy caveat is published for this host.
+- **Architecture:** proprietary; parameters and license terms not published. No vendor has publicly identified the underlying lab or model family.
+
+### Raw benchmarks found
+
+> Sources checked on 2026-09-25: modelbenchmark.io (spec page + leaderboard), LLM Stats (model page + comparison pages), Benchable, the OpenCode Zen model catalog, and the Artificial Analysis LLM leaderboard. None carries a measured score for this ID.
+
+Agent / tool use:
+
+### Normalized scores (1–100)
+
+> **Intentionally omitted.** Omen Alpha yielded **zero** verified public benchmark numbers, so every row would read "no verified public score found". Writing scored placeholder values would fabricate quality evidence for a shipping model, which `RULES.md` forbids. This file stays as `Space_Bunny_Alpha.md.excluded` and is not counted by `pnpm sync`.
+>
+> Capability mappings a future *measured* report would most plausibly confirm: **Multimodal** would land in the "+image input" 60–70 band (text+image in, text out) on the documented spec alone; **Context window** would sit in the 200K–500K band (500K verified) with a 128K output cap that is generous for the tier; **Cost efficiency** would be the standout — $0.20/$0.66 is far cheaper than any frontier paid model in this comparison, past the methodology's ~$0.60/$2.20 ≈ 92 anchor, and would likely score in the high 90s. Those three are spec-derived, not measured; **Tool use**, **Reasoning** and **Coding** remain genuinely unknown, and it is exactly those three that determine the Overall. This is the strongest case in the current queue for a re-research pass once any independent score appears.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Method: public internet research of modelbenchmark.io (Omen Alpha spec page and leaderboard), LLM Stats (Omen Alpha model page and Kimi K2.8 comparisons), the OpenCode Zen model catalog, and the Artificial Analysis LLM leaderboard. Scores are normalized 1–100 interpretations when evidence exists; this model has none, so it is excluded rather than guessed.
+- Future sources: if any independent leaderboard publishes a score for `opencode-go/omen-alpha`, add a new file next to this one using the same headings and retire this twin.
+
+
+- No verified public score found. Omen Alpha is **absent from the modelbenchmark.io leaderboard**, which ranks 82 models that have at least 3 benchmarks from at least 2 independent sources — so it has no qualifying evidence at all. No Terminal-Bench, τ-bench, Toolathon, MCP-Atlas, Claw-Eval or GDPval figure is published.
+
+Reasoning / knowledge:
+
+- No verified public score found — no GPQA Diamond, HLE, AIME, CritPt or Artificial Analysis Intelligence Index number exists. The model is not on the Artificial Analysis LLM leaderboard (172 models), and the LLM Stats page for it is a stub with no scores, no latency and no speed data.
+
+Coding:
+
+- No verified public score found — no SWE-bench Verified, LiveCodeBench, SciCode, DeepSWE or Vibe Code Bench figure is published for this model.
+
+Long context:
+
+- No long-context retrieval benchmark reported (no MRCR / RULER / GraphWalks row). The 500K window is a spec-sheet figure only; **no measured retrieval result at 512K+** is published, so a 100/100 context score would be unjustifiable even if text benchmarks existed.
+- Throughput and latency: **not published** (LLM Stats shows "—" for speed and latency).

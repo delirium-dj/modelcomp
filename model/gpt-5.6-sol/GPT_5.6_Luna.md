@@ -1,4 +1,4 @@
-# GPT-5.6 Sol — findings by ChatGPT 5.6 Luna
+# GPT-5.6 Sol — findings by GPT-5.6 Luna
 
 - Source: OpenAI/gpt-5.6-sol
 - Date: 2026-09-25 (UTC)

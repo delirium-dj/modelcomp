@@ -1,0 +1,65 @@
+# GPT-Live 1 — findings by Space Bunny Alpha
+
+- Source: OpenAI (`openai/gpt-live-1`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — read first.** Saved as `.md.excluded`: **zero verified public
+> benchmark numbers** exist for this model. OpenAI's own model page leaves the
+> "Performance" and "Speed" panels as *"Not specified"*. Per `RULES.md`, no scored
+> `.md` is written and no placeholder numbers are invented.
+>
+> **Folder-name note:** the folder is `gpt-live-1-astra`, but **no model with the ID
+> `gpt-live-1-astra` exists**. OpenAI's catalog exposes exactly one GPT-Live
+> snapshot, `gpt-live-1`; `astra` is the codename of the unrelated text flagship
+> `gpt-6-astra`. This report therefore covers `gpt-live-1`, and the folder slug
+> should be reconciled by the orchestrator (`pnpm sync` owns slugs — agents do not
+> rename folders).
+
+## Model card
+
+- **Name:** GPT-Live 1
+- **Short description:** OpenAI's premier model for natural, expressive **voice conversations** with smooth interruption handling — a full-duplex model that listens and speaks at the same time and **delegates reasoning and tool use to a backend agent**. It is an orchestration/conversation layer over a reasoning backend, not a standalone reasoning model, which is why text-benchmark ladders are the wrong instrument for it.
+- **Provider / access:** OpenAI API — Live endpoint `v1/live/sessions` (primary), plus Chat Completions, Responses, Realtime `v1/realtime`, Realtime translation, Realtime transcription sessions and the legacy Assistants endpoint. Streaming **supported**; function calling **supported**; structured outputs **not** supported. Documented under OpenAI's "GPT-Live" product family (getting started, prompting, managing sessions, delegation and tools, migrate-to-GPT-Live, partner integrations).
+- **Release / knowledge:** **Knowledge cutoff: 2025-07-31** (stated on the model page). Release date not stated; OpenAI published a developer post, "Bringing my LED display to life with GPT-Live-1 and Codex", confirming it is a shipping product.
+- **IDs:** `gpt-live-1` (single snapshot; no dated aliases). **No `gpt-live-1-astra` variant exists** — see the folder-name note above. **No OpenCode Zen ID exists**; the model is absent from the OpenCode Zen catalog.
+- **Context window:** **Not published.** The model page states no context window and no max-output limit; session length is instead governed by the Live session model (billed per second, never rounded up to the next whole minute) and by the delegated backend model.
+- **Modalities:** **Input:** text, audio. **Output:** text, audio. **Image not supported. Video not supported.** This is genuine speech-to-speech with simultaneous listen/speak (full duplex).
+- **Pricing (as of 2026-09-25):** **$0.05 per minute** of voice session, billed per second; session duration is not rounded up. **Backend model and tool usage are billed separately** at the normal rates of whichever model is configured for delegation — so the true cost of a GPT-Live session is $0.05/min *plus* the backend's token charges. Paid tier only; no free tier.
+- **Architecture:** proprietary; not disclosed. Rate limits are measured in **concurrent sessions**, not tokens: Tier 1 = 25, Tier 2 = 50, Tier 3 = 200, Tier 4 = 300, Tier 5 = 500.
+
+
+### Normalized scores (1–100)
+
+> **Intentionally omitted.** GPT-Live 1 yielded **zero** verified public benchmark numbers — OpenAI's own "Performance" and "Speed" panels read "Not specified" — so every row would read "no verified public score found". Writing scored placeholder values would fabricate quality evidence for a shipping model, which `RULES.md` forbids. This file stays as `Space_Bunny_Alpha.md.excluded` and is not counted by `pnpm sync`.
+>
+> Capability mappings that a future *measured* report would most plausibly confirm: **Multimodal** sits in the 90–100 band (audio in and audio out, full duplex) and is the one dimension verifiable from documentation alone; **Context window** cannot be mapped at all until OpenAI publishes a figure; **Tool use** and **Reasoning** are structurally delegated to a backend agent, so any score would need to name the delegated model; **Cost efficiency** is the most decision-relevant unknown, since $0.05/min is only part of the bill. These are spec-derived observations, not evidence, and are deliberately left unscored.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Method: public internet research of the OpenAI platform model page for `gpt-live-1`, the OpenAI models index, the OpenAI GPT-Live documentation section, and the Artificial Analysis LLM leaderboard (checked for coverage). Scores are normalized 1–100 interpretations when evidence exists; this model has none, so it is excluded rather than guessed.
+- Future sources: if OpenAI publishes a Performance panel for `gpt-live-1`, or an independent voice-agent benchmark appears, add a new file next to this one using the same headings.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found. GPT-Live 1's tool use is **delegated by design** to a backend agent, so any tool benchmark would measure the backend model, not this one; OpenAI publishes no number for it and no independent leaderboard covers it.
+- No Terminal-Bench, τ-bench, Toolathon, MCP-Atlas, Claw-Eval or GDPval figure is published for this model.
+
+Reasoning / knowledge:
+
+- No verified public score found — no GPQA Diamond, HLE, AIME, CritPt or Artificial Analysis Intelligence Index number exists for `gpt-live-1`; it is absent from the Artificial Analysis LLM leaderboard. Note the 2025-07-31 knowledge cutoff.
+- Latency / naturalness: no verified public time-to-first-audio, interruption-latency or conversational-quality metric was found.
+
+Coding:
+
+- No verified public score found, and none is architecturally attributable (reasoning is delegated to a backend model).
+
+Long context:
+
+- No long-context retrieval benchmark reported, and **no context window is published at all** for this model — an unusual gap for a shipping API model, and a further reason not to guess a tier mapping.

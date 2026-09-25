@@ -1,0 +1,56 @@
+# Omen Alpha — findings by Gemini 3.8 Flash
+
+- Source: OpenCode Stealth (`opencode/omen-alpha`)
+- Date: 2026-09-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Omen Alpha
+- **Short description:** OpenCode's high-throughput stealth coding and reasoning foundation model featured in the OpenCode Go subscription, offering 189 tokens/sec generation, 500K context, and visual input.
+- **Provider / access:** OpenCode Go (`omen-alpha`), OpenAI-compatible chat completions endpoint.
+- **Release / knowledge:** 2026-09-04 release; knowledge cutoff mid-2026.
+- **IDs:** `opencode/omen-alpha`. Available under the $10/mo OpenCode Go plan.
+- **Context window:** 500,000 tokens total (500K context window); max output 128,000 tokens.
+- **Modalities:** Text and image input; text, code, and tool-calling output; integrated reasoning traces.
+- **Pricing (as of 2026-09):** Included in OpenCode Go ($10/month subscription; estimated ~57,900 requests/month).
+- **Architecture:** Unannounced proprietary mixture-of-experts architecture (backend paths suggest Zhipu AI / GLM lineage) optimized for extreme output speed (~189 tok/s).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of September 2026, Omen Alpha is offered as a stealth worker inside OpenCode Go without published scores on standardized public benchmark suites (such as SWE-bench Verified, LiveCodeBench, or GPQA Diamond).
+
+Agent / tool use:
+
+- Generation speed: **~189** tokens per second (OpenCode community reports, Sep 2026)
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+
+Reasoning / knowledge:
+
+- Reasoning support with intermediate chain-of-thought traces.
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+
+Coding:
+
+- High-volume automated coding agent evaluation inside OpenCode Go.
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- 500K token context window with 128K max output supported across code repositories.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmark numbers.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-26 UTC
+- Method: Public internet research into OpenCode Go release notes, technical evaluations, and community reports; self-excluded per template guidelines due to zero verified public benchmark measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

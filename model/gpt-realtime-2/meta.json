@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gpt-realtime-2",
+  "name": "Gpt Realtime 2",
+  "short": "Gpt Realtime 2 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

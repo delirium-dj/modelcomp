@@ -1,0 +1,66 @@
+# GPT-Realtime-2 — findings by Space Bunny Alpha
+
+- Source: OpenAI (`openai/gpt-realtime-2`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — read first.** This report is saved as `.md.excluded` because
+> **zero verified public benchmark numbers** could be found for GPT-Realtime-2.
+> The model card below is real and fully verified; the measurement is simply not
+> published by anyone. Per `RULES.md` and the repository workflow, no scored
+> `.md` is written and no placeholder numbers are invented — a fabricated score
+> would drag the mean for every reader. Re-evaluate if an independent leaderboard
+> publishes a number for this exact model ID.
+
+## Model card
+
+- **Name:** GPT-Realtime-2
+- **Short description:** OpenAI's most capable realtime voice model — a speech-to-speech model for complex voice-agent workflows, with configurable reasoning effort, stronger instruction following and more reliable tool use than its predecessors. It is a *voice* model, not a general text flagship, and should not be compared against the GPT-6 text line on raw benchmark ladders.
+- **Provider / access:** OpenAI API — Realtime endpoint `v1/realtime`, plus the Live endpoint `v1/live/sessions`, Chat Completions `v1/chat/completions`, Responses `v1/responses`, Realtime translation, Realtime transcription sessions and the legacy Assistants endpoint. WebRTC, WebSocket and telephony transports are documented for the Realtime API.
+- **Release / knowledge:** **Knowledge cutoff: 2024-09-30** (stated on the OpenAI model page — notably older than the GPT-6 text line's 2026 cutoffs). Release date is not stated on the model page; it is the current default in OpenAI's Realtime model list, positioned above GPT-Realtime-1.5.
+- **IDs:** `gpt-realtime-2` (single snapshot, no dated aliases). It supersedes `gpt-realtime-1.5`; the same list also carries `gpt-realtime-2.1` / `gpt-realtime-2.1-mini` as newer reasoning variants, and `gpt-realtime-mini` is marked deprecated. **No OpenCode Zen ID exists** — the model is not in the OpenCode Zen catalog.
+- **Context window:** **128,000 tokens**, with **32,000 max output tokens** (both stated on the OpenAI model page).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found. OpenAI describes "more reliable tool use for complex voice-agent workflows" and "stronger instruction following" as qualitative claims only; **no Terminal-Bench, τ-bench, Toolathon, MCP-Atlas, Claw-Eval or GDPval figure is published for this model**, and no independent leaderboard covers it.
+- Note: the OpenAI model page's "Performance" panel is left unspecified for the realtime line.
+
+Reasoning / knowledge:
+
+- No verified public score found. **No GPQA Diamond, HLE, AIME, CritPt, MRCR/LCR or Artificial Analysis Intelligence Index number** exists for `gpt-realtime-2`; the model is absent from the Artificial Analysis LLM leaderboard, which ranks 172 text/reasoning models.
+- The 2024-09-30 knowledge cutoff is itself a meaningful negative signal for knowledge-heavy voice assistants.
+
+Coding:
+
+- No verified public score found — no SWE-bench Verified, LiveCodeBench, SciCode or DeepSWE figure is published for this model, and none is expected: it is a speech model, not a code model.
+
+Long context:
+
+- No long-context retrieval benchmark reported (no MRCR / RULER / GraphWalks row). The 128,000-token window and 32,000-token output cap are vendor-stated only; no measured retrieval figure at length is published.
+- Latency: no verified public time-to-first-audio or real-time-factor figure was found for this model.
+
+### Normalized scores (1–100)
+
+> **Intentionally omitted.** GPT-Realtime-2 yielded **zero** verified public benchmark numbers, so every row would read "no verified public score found". Writing scored placeholder values would fabricate quality evidence for a real, shipping model, which `RULES.md` forbids. This file stays as `Space_Bunny_Alpha.md.excluded` and is not counted by `pnpm sync`.
+>
+> What a future verified measurement would most plausibly move: **Multimodal** would score in the 90–100 band (audio in *and* audio out, plus image input — the methodology's top tier) regardless of text-benchmark results, since the capability is vendor-documented and directly verifiable; **Context window** would land in the 100K–200K band; **Cost efficiency** would be the genuinely uncertain dimension, since $32/$64 per 1M *audio* tokens is expensive per minute of conversation. Those are capability mappings from documented specs, not measured evidence, and are deliberately left unscored.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Method: public internet research of the OpenAI platform model page for `gpt-realtime-2`, the OpenAI models index, and the Artificial Analysis LLM leaderboard (checked for coverage). Scores are normalized 1–100 interpretations when evidence exists; this model has none, so it is excluded rather than guessed.
+- Future sources: if an independent voice-agent benchmark for `gpt-realtime-2` becomes available, add a new file next to this one using the same headings.
+
+- **Modalities:** **Input:** text, audio, image. **Output:** text, audio (true speech-to-speech). **Video not supported.** Reasoning tokens supported with configurable effort (higher effort raises latency and token use). Function calling **supported**; structured outputs **not** supported; streaming **not** supported.
+- **Pricing (as of 2026-09-25, OpenAI published rates):** billed by token type, not a single blended rate —
+  - **Text:** $4.00 / 1M input, $0.40 / 1M cached input, $24.00 / 1M output
+  - **Audio:** $32.00 / 1M input, $0.40 / 1M cached input, $64.00 / 1M output
+  - **Image:** $5.00 / 1M input, $0.50 / 1M cached input
+  - Paid tier only; no free tier. Tool calls (search, computer use) are billed per call on top.
+- **Architecture:** proprietary; not disclosed. Rate limits are per tier — Tier 1 is 200 RPM / 1,000 RPD / 40,000 TPM, rising to 20,000 RPM / 15,000,000 TPM at Tier 5.

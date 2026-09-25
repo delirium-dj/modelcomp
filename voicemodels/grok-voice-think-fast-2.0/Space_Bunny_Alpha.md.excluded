@@ -1,0 +1,58 @@
+# Grok Voice Think Fast 2.0 — findings by Space Bunny Alpha
+
+- Source: SpaceXAI/xAI (`xai/grok-voice-think-fast-2.0`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — read first.** Saved as `.md.excluded`: **zero verified public
+> benchmark numbers** exist for this model. The xAI model page publishes no
+> benchmarks, no context window and no per-model pricing. Per `RULES.md`, no
+> scored `.md` is written and no placeholder numbers are invented.
+
+## Model card
+
+- **Name:** Grok Voice Think Fast 2.0
+- **Short description:** SpaceXAI's most capable **speech-to-speech voice model** as of July 2026 — the thinking-tier member of the Grok Voice family, succeeding the `grok-voice-think-fast-1.0` line. It is a real-time voice model, not a text model, and belongs in the Voice API product rather than on a text-benchmark ladder.
+- **Provider / access:** xAI API — `grok-voice-think-fast-2.0`, region `us-east-1`, under the Voice API product family (Speech to Speech, Text to Speech, Speech to Text, New Custom Voices). It is the current `latest` alias for the whole Grok Voice line.
+- **Release / knowledge:** announced 2026-07-31 ("Introducing Grok Voice Think Fast 2.0 — Our most capable speech-to-speech voice model") and listed as available in the July 2026 xAI release notes. **Knowledge cutoff not published.**
+- **IDs:** `grok-voice-think-fast-2.0`; alias `grok-voice-latest`. **No OpenCode Zen ID exists** — not in the OpenCode Zen catalog.
+- **Context window:** **Not published.** The xAI model page lists no context window and no max-output limit for this model, and no rate-limit figures are given on the page.
+- **Modalities:** **Input:** text, audio. **Output:** text, audio — true speech-to-speech. The page states the model family as "Text, Audio → Text, Audio".
+- **Pricing (as of 2026-09-25):** **No per-model price is published on the model page.** The only verified xAI Voice API price points are the product-level rates in the models index: **Agent $0.08 / min**, **TTS $15.00 / 1M characters**, **STT (batch) $0.10 / hour**, **STT (streaming) $0.20 / hour**. Which of these applies to `grok-voice-think-fast-2.0` specifically is not stated, so no blended $/1M figure can be derived honestly.
+- **Architecture:** proprietary; not disclosed. "Think Fast" denotes the reasoning-optimized tier of the voice family.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found. No voice-agent tool-use benchmark (no τ-bench, Toolathon, MCP-Atlas or Claw-Eval) is published for this model, and no independent leaderboard covers xAI voice models.
+
+### Normalized scores (1–100)
+
+> **Intentionally omitted.** Grok Voice Think Fast 2.0 yielded **zero** verified public benchmark numbers, so every row would read "no verified public score found". Writing scored placeholder values would fabricate quality evidence for a shipping model, which `RULES.md` forbids. This file stays as `Space_Bunny_Alpha.md.excluded` and is not counted by `pnpm sync`.
+>
+> Capability mappings a future *measured* report would most plausibly confirm: **Multimodal** sits in the 90–100 band (audio in and audio out) and is the one dimension confirmable from documentation alone; **Context window** cannot be tier-mapped because xAI publishes no figure; **Cost efficiency** is unresolvable from the available data because the only verified Voice API rates are product-level ($0.08/min agent, $15.00/1M chars TTS, $0.10–0.20/hour STT) and none is tied to this model ID. These are spec-derived observations, not evidence, and are deliberately left unscored.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Method: public internet research of the xAI docs model page for `grok-voice-think-fast-2.0`, the xAI docs models index (Voice API rates), the xAI release notes, and the xAI news index. Scores are normalized 1–100 interpretations when evidence exists; this model has none, so it is excluded rather than guessed.
+- Future sources: if xAI publishes voice-model benchmarks or per-model voice pricing, add a new file next to this one using the same headings.
+
+
+Reasoning / knowledge:
+
+- No verified public score found — no GPQA Diamond, HLE, AIME, CritPt or Artificial Analysis Intelligence Index number exists for `grok-voice-think-fast-2.0`; it is absent from the Artificial Analysis LLM leaderboard.
+- Conversational quality: xAI claims "most capable speech-to-speech voice model" of its family, but publishes **no** latency, interruption-handling, MOS (mean opinion score) or human-preference number to back it.
+
+Coding:
+
+- No verified public score found, and none is architecturally attributable — this is a speech model.
+
+Long context:
+
+- No long-context retrieval benchmark reported, and **no context window is published at all**. The practical limit is the length of a single real-time voice session, which xAI does not specify.
+- Latency: no verified public time-to-first-audio or real-time factor was found.

@@ -1,0 +1,8 @@
+{
+  "id": "opencode/grok-build-0.1",
+  "name": "Grok Build 0.1",
+  "short": "Grok Build 0.1 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

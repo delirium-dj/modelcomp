@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — Glimmer colon-outside-bold fix (glm-5.3-flash)
+
+1. `model/glm-5.3-flash/Muse_Glimmer_30B.md` (untracked, fresh agent work) used `- **Tool use:** 60/100` lines the parser can't read. Reformatted all 7 score lines to the `- **Label: N/100.` contract. Numbers untouched; dims mean exactly 70.0 = stated Overall 70 (drift 0), verified ALL-PASS with the parser-mimic check.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — sync auto-corrects Overall drift (no more agent callouts)
 
 1. `scripts/sync-data.mjs`: Overall drift `> 0.51` no longer fails — sync rewrites just the Overall number to the half-up five-dim mean, logs `AUTO  model/<slug>/<file>: Overall <old> -> <new>`, and averages proceed on the corrected value (both the in-memory entry and the codegen index are updated). Safe because Overall is derived, not judged; dims/benchmarks/prose are never touched, and unparsable lines still fail loudly. Would have auto-fixed all 3 drift cases from the last run (53→52, 76→80, 72→71.2).

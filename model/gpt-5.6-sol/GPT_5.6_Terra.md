@@ -1,4 +1,4 @@
-# GPT-5.6 Sol — findings by GPT 5.6 Terra
+# GPT-5.6 Sol — findings by GPT-5.6 Terra
 
 - Source: OpenAI / GPT-5.6 Sol
 - Date: 2026-09-22 (UTC)

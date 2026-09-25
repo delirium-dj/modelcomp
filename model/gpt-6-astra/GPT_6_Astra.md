@@ -1,4 +1,4 @@
-# GPT-6 Astra — findings by ChatGPT 6 Astra
+# GPT-6 Astra — findings by GPT-6 Astra
 
 - Source: OpenAI/GPT-6 Astra (`gpt-6-astra`).
 

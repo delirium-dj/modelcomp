@@ -1,0 +1,8 @@
+{
+  "id": "opencode/grok-4.20",
+  "name": "Grok 4.20",
+  "short": "Grok 4.20 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

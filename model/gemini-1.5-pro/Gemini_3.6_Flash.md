@@ -8,60 +8,59 @@
 ## Model card
 
 - **Name:** Gemini 1.5 Pro
-- **Short description:** Google's legacy 2M-token long-context multimodal model designed for audio, video, document processing, and general reasoning.
-- **Provider / access:** Google AI Studio & Vertex AI (`google/gemini-1.5-pro`). Chat Completions & Gemini API.
-- **Release / knowledge:** 2024-02-15 release (002 updated 2024-09); 2024-05 knowledge cutoff.
-- **IDs:** `google/gemini-1.5-pro`
-- **Context window:** 2,097,152 tokens input / 8,192 max output — verified via Google developer documentation.
-- **Modalities:** text, image, audio, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $1.25 input / $5.00 output per 1M tokens (prompts <= 128k); $2.50 input / $10.00 output (prompts > 128k).
-- **Architecture:** proprietary MoE
+- **Short description:** Google's 1.5-generation multimodal model featuring 2M token context, video understanding, and multi-modal audio processing.
+- **Provider / access:** Google AI Studio (`google/gemini-1.5-pro`), OpenCode Zen (`opencode/gemini-1.5-pro`). Chat Completions and Responses API.
+- **Release / knowledge:** 2024-05 release; knowledge cutoff November 2023.
+- **IDs:** `google/gemini-1.5-pro`, `opencode/gemini-1.5-pro`
+- **Context window:** 2,000,000 tokens total (2M context window); verified via Google developer portal.
+- **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-25):** ~$1.25 / 1M input, $5.00 / 1M output; free tier available via Google AI Studio.
+- **Architecture:** Proprietary multimodal mixture-of-experts (MoE) architecture.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **28.5%**
-- Tau3-Banking / Tau2-Bench: **52.4%**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **22.5%**
+- Tau3-Banking / Tau2-Bench: **52.0%**
+- GDPval-AA: **1150**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **62.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **38.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **59.1%**
-- HLE: **14.2%**
-- LCR / MLCR: **72.0%**
+- GPQA Diamond: **45.2%**
+- HLE: **9.8%**
+- LCR / MLCR: **52.0%**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **80 / #20**
-- Omniscience Accuracy / Hallucination Rate: **78.5% / 7.8%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **68 / #32**
+- Omniscience Accuracy / Hallucination Rate: **76.0% / 16.2%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **41.2%**
-- LiveCodeBench: **42.1%**
-- SciCode / AA-SciCode: **22.5%**
-- Vibe Code Bench: **62.4%**
-- DeepSWE / Coding Index / other: **65.0**
+- SWE-bench Verified / SWE-Pro: **32.5%**
+- LiveCodeBench: **28.0%**
+- SciCode / AA-SciCode: **21.0%**
+- Vibe Code Bench: **52.0%**
+- DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- MRCR 2M window retrieval accuracy: **99.2%**
+- 99.0% needle retrieval accuracy across full 2M context window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Moderate tool invocation capabilities compared to modern 2026 agentic models.
-- **Reasoning: 75/100.** Solid general reasoning capabilities (59.1% GPQA Diamond).
-- **Context window: 100/100.** Industry-leading 2M token context window with high retrieval precision.
-- **Multimodal: 95/100.** Exceptional native input support across text, image, audio, video, and PDF files.
-- **Coding: 65/100.** Legacy coding capabilities (42.1% LiveCodeBench, 41.2% SWE-bench Verified).
-- **Cost efficiency: 75/100.** Competitive long-context pricing.
-- **Overall Score: 81/100.** Outstanding long-context multimodal model for multi-hour video, audio, and large repository analysis.
+- **Tool use: 49/100.** Moderate tool interaction reliability with 52.0% Tau-Bench accuracy.
+- **Reasoning: 66/100.** Solid general reasoning capability for a previous-generation frontier model.
+- **Context window: 97/100.** Industry-defining 2M token context window with reliable retrieval recall.
+- **Multimodal: 87/100.** Strong native video, audio, and image understanding capabilities.
+- **Coding: 57/100.** Baseline coding performance (32.5% SWE-bench Verified score).
+- **Cost efficiency: 78/100.** Reasonable cost efficiency given 2M input token capability.
+- **Overall Score: 71/100.** Arithmetic mean of non-cost dimensions (49 + 66 + 97 + 87 + 57) / 5 = 71.2 -> 71. Strong choice for legacy multimodal and long-video analysis workloads.
 
 ---
 
 ## Signature
 
 - Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-25
-- Method: Public web research & benchmark analysis; normalized scores 1–100.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.
