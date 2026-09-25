@@ -1,9 +1,0 @@
-# Claude Opus 4.8 — findings by Gemini 3.1 Flash Lite
-
-- **Excluded:** ZERO verified public benchmark numbers found.
-- Source: Anthropic/Claude Opus 4.8 (no verified public model card found as of 2026-09-25)
-- Date: 2026-09-25 (UTC)
-
-## Self-exclusion notes
-- No verified public model card, context window, pricing, or benchmark numbers found for a model named "Claude Opus 4.8".
-- This file is saved as `.excluded` to be skipped by the sync process and to avoid providing placeholder benchmark data.

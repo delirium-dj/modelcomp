@@ -1,8 +1,0 @@
-{
-  "id": "opencode/kimi-k2.7-code",
-  "name": "Kimi K2.7 Code",
-  "short": "Kimi K2.7 Code model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
-}

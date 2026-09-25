@@ -1,23 +1,5 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## Non-blocking handling of zero-qualifying-rater folders (sync unblocked)
-
-1. Resolution: Under the strict research-permanence rule, models with zero
-   qualifying raters (e.g. newly added checkpoints or models only evaluated by
-   below-gate raters) must never be deleted or staged out. However, failing sync
-   loudly on `no qualifying raters` blocked `pnpm sync` from passing (exit code 1)
-   and prevented `src/data/scores.generated.ts` from updating across the whole repo.
-2. Updated `scripts/sync-data.mjs` to treat zero eligible raters as an informative
-   standing state (`INFO ... average left ungenerated`) instead of a blocking `FAIL`.
-   The average remains ungenerated (models without `average.md` are safely skipped
-   by `MODELS` hydration until qualifying ratings arrive), while valid findings
-   files are parsed and client score codegen succeeds.
-3. Updated documentation in `.agents/rules.md` and `tasks/sync-data.md` to reflect
-   the non-blocking INFO log contract.
-4. Validation: `pnpm sync:quiet` completes with 0 failures, all averages in sync,
-   and clean exit code 0.
-
-
 ## Full folder-removal audit + Temp staging fully reversed (folders permanent)
 
 1. Audit (ever-committed vs HEAD vs disk vs Temp): the 27-name gap is ~20

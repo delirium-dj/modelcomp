@@ -1,8 +1,0 @@
-{
-  "id": "opencode/qwen-3.7-plus",
-  "name": "Qwen 3.7 Plus",
-  "short": "Qwen 3.7 Plus model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
-}

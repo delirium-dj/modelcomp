@@ -295,66 +295,65 @@ for (const slug of slugs) {
   const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
   const excludedLabels = labels.filter((l) => !topLabels.includes(l));
   if (eligible.length === 0) {
-    log(`  INFO  model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left ungenerated`);
+    fail(`model/${slug}/: no qualifying raters (need own Overall > ${RATER_GATE}) — average left untouched`);
+    skipAverage = true;
+  } else if (ignoredLabels.length > 0) {
+    ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+    log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
+  }
+
+  const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
+  const mixNote = trimmed
+    ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
+    : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
+  // The default ("average") view needs this folder's recomputed means too:
+  // the client never reads average.md itself, so index them like a source file.
+  // (Folders with validation failures leave a stale average.md on disk, but a
+  // failing run never rewrites scores.generated.ts — see the emit step below.)
+  (scoreIndex[slug] ||= {})["average.md"] = {
+    tool: mean("Tool use"),
+    reasoning: mean("Reasoning"),
+    context: mean("Context window"),
+    multimodal: mean("Multimodal"),
+    coding: mean("Coding"),
+    cost: mean("Cost efficiency"),
+    overall: mean("Overall Score"),
+  };
+  const lines = [
+    ...LABELS.slice(0, 6).map((l) => `- **${l}: ${mean(l)}/100.** ${mixNote}`),
+    `- **Overall Score: ${mean("Overall Score")}/100.** ${mixNote}`,
+  ];
+  const body =
+    `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
+    `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n` +
+    `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
+    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
+    (ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
+
+  const avgPath = join(dir, "average.md");
+  let prev = null;
+  try {
+    prev = readFileSync(avgPath, "utf8");
+  } catch {
+    // created below
+  }
+  let next;
+  if (prev === null) {
+    next =
+      `# ${meta.name} — Averaged findings\n\n` +
+      `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
+      `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
+      body;
+    log(`  NEW   model/${slug}/average.md (created)`);
   } else {
-    if (ignoredLabels.length > 0) {
-      ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
-      log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
-    }
-
-    const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
-    const mixNote = trimmed
-      ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
-      : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
-    // The default ("average") view needs this folder's recomputed means too:
-    // the client never reads average.md itself, so index them like a source file.
-    // (Folders with validation failures leave a stale average.md on disk, but a
-    // failing run never rewrites scores.generated.ts — see the emit step below.)
-    (scoreIndex[slug] ||= {})["average.md"] = {
-      tool: mean("Tool use"),
-      reasoning: mean("Reasoning"),
-      context: mean("Context window"),
-      multimodal: mean("Multimodal"),
-      coding: mean("Coding"),
-      cost: mean("Cost efficiency"),
-      overall: mean("Overall Score"),
-    };
-    const lines = [
-      ...LABELS.slice(0, 6).map((l) => `- **${l}: ${mean(l)}/100.** ${mixNote}`),
-      `- **Overall Score: ${mean("Overall Score")}/100.** ${mixNote}`,
-    ];
-    const body =
-      `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
-      `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n` +
-      `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
-      (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
-      (ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
-
-    const avgPath = join(dir, "average.md");
-    let prev = null;
-    try {
-      prev = readFileSync(avgPath, "utf8");
-    } catch {
-      // created below
-    }
-    let next;
-    if (prev === null) {
-      next =
-        `# ${meta.name} — Averaged findings\n\n` +
-        `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
-        `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
-        body;
-      log(`  NEW   model/${slug}/average.md (created)`);
-    } else {
-      const head = prev.split("## Averaged scores")[0];
-      next = head + body;
-    }
-    if (!skipAverage && prev !== next) {
-      writeFileSync(avgPath, next);
-      if (prev !== null) {
-        updatedAverages.push(slug);
-        log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
-      }
+    const head = prev.split("## Averaged scores")[0];
+    next = head + body;
+  }
+  if (!skipAverage && prev !== next) {
+    writeFileSync(avgPath, next);
+    if (prev !== null) {
+      updatedAverages.push(slug);
+      log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
     }
   }
 }
