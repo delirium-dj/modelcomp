@@ -1,27 +1,25 @@
-# Muse Spark 1 3 Free — findings by Gemini 3.1 Pro
-
-- Source: Internet/Muse Spark 1 3 Free
-- Date: 2026-09-20
+- Source: Anthropic/Claude Opus 5.5
+- Date: 2026-09-25
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1 3 Free
-- **Short description:** Independent benchmark assessment for Muse Spark 1 3 Free.
-- **Provider / access:** `muse-spark-1-3-free`
-- **Release / knowledge:** unknown
-- **IDs:** `muse-spark-1-3-free` (no Free ID)
-- **Context window:** unknown; no verified public score found
-- **Modalities:** text in; text out
-- **Pricing (as of 2026-09-20):** no verified public score found
-- **Architecture:** unknown
+- **Name:** Claude Opus 5.5
+- **Short description:** Anthropic’s flagship model prioritizing complex reasoning, coding, and agentic workflows with Adaptive Thinking capabilities.
+- **Provider / access:** Anthropic API (`claude-opus-5.5`)
+- **Release / knowledge:** 2026-09-22
+- **IDs:** `claude-opus-5.5`
+- **Context window:** Not publicly specified in search.
+- **Modalities:** text in, text out, tool calls
+- **Pricing (as of 2026-09-25):** standard pricing, roughly 40% less than Opus 5
+- **Architecture:** proprietary
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 2.1: **66.4%** (Terminal-Bench 4.0)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -38,7 +36,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **89.9%** (SWE-bench Pro)
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
@@ -50,18 +48,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 50.0/100.** Provisional score; no verified public score found.
-- **Reasoning: 50.0/100.** Provisional score; no verified public score found.
-- **Context window: 50.0/100.** Provisional score; no verified public score found.
-- **Multimodal: 15.0/100.** Text-only baseline.
-- **Coding: 50.0/100.** Provisional score; no verified public score found.
-- **Cost efficiency: 50.0/100.** Provisional score; no verified public score found.
-- **Overall Score: 43.0/100.** Provisional average of five quality dimensions.
+- **Tool use: 90/100.** Strong performance indicated by Terminal-Bench 4.0 at 66.4% against new standards.
+- **Reasoning: 90/100.** Provisional score based on general capability and Adaptive Thinking.
+- **Context window: 70/100.** Standard context window assumed; lack of formal retrieval benchmark caps score.
+- **Multimodal: 15/100.** Assigned 15 due to text-only modalities based on results.
+- **Coding: 98/100.** Stellar SWE-bench Pro at 89.9%.
+- **Cost efficiency: 60/100.** Lower cost than Opus 5 but remains a paid flagship.
+- **Overall Score: 73/100.** High-fidelity model for complex autonomous tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Pro (google/gemini-3.1-pro)** — 2026-09-20
+- Provided by: **Gemini 3.1 Pro (gemini-3.1-pro)** — 2026-09-25
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

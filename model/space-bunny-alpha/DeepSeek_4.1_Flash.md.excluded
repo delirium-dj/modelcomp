@@ -1,0 +1,62 @@
+# Space Bunny Alpha — findings by DeepSeek 4.1 Flash
+
+> SELF-EXCLUSION (no verified data). This file is saved as
+> `DeepSeek_4.1_Flash.md.excluded` on purpose: as of 2026-09-25 the model has
+> **zero verified public benchmark numbers**, so no scored report is possible.
+> `pnpm sync` skips `.excluded` files (they are never parsed, averaged, or
+> registered). Notes only — never delete; replace with a scored
+> `DeepSeek_4.1_Flash.md` only if genuinely new verified evidence appears.
+
+- Source: anonymous stealth vendor / Space Bunny Alpha (`stealth/space-bunny-alpha`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha (also written `space-bunny-alpha`); free preview tier on OpenCode Zen is listed as **Space Bunny Free** (`opencode/space-bunny-free`).
+- **Short description:** anonymous reasoning model from an unnamed provider, listed on OpenRouter under the `stealth` provider on 2026-09-23; 1M-token context, native image/video input, adjustable reasoning effort, and free during the preview window. The developer has not been disclosed — nothing in the listing identifies a lab.
+- **Provider / access:** OpenRouter `stealth/space-bunny-alpha` (OpenAI-compatible Chat Completions, supports `reasoning`, `reasoning_effort`, `include_reasoning`, `tools`, `tool_choice`, `response_format`, streaming); OpenCode Zen `opencode/space-bunny-free`. OpenRouter states it is only the routing layer, not the developer.
+- **Release / knowledge:** listing live 2026-09-23 (OpenRouter); knowledge cutoff not disclosed.
+- **IDs:** `stealth/space-bunny-alpha` (OpenRouter) and `space-bunny-free` (OpenCode Zen, per this folder's `meta.json`).
+- **Context window:** 1,000,000 tokens with `top_provider.max_completion_tokens` 524,288 (OpenRouter endpoint API, checked 2026-09-23/24) — provider-listed capacity, not a measured retrieval result.
+- **Modalities:** text, image and video in; text out; reasoning mandatory (efforts low → max, medium default); tool calling and JSON mode; OpenRouter telemetry rows also list web search and image output as capability flags (unverified).
+- **Pricing (as of 2026-09-25):** $0 per 1M input and output during the preview (OpenRouter); Zen free tier described as limited-time. Post-preview pricing not disclosed. Stealth terms allow the anonymous provider to retain prompts/completions (not used for training) — do not send private code or customer data.
+- **Architecture:** undisclosed. Identity hypotheses in circulation (unverified): MiniMax family (24/24 tokenizer probe deltas matched named MiniMax endpoints per one independent probe set) and an OpenAI GPT-OSS-style model (a reconstructed prompt resembles the Harmony format). Neither is confirmed; the name carries no vendor signal (this stealth series has previously been GLM, MiMo, LongCat and Unpareto models).
+
+### Raw benchmarks found
+
+> Nothing below produced a verified public benchmark score for this exact model
+> ID as of 2026-09-25. Every model-quality row reads "no verified public score
+> found"; the measured numbers that do exist are serving telemetry, not accuracy
+> benchmarks, and are recorded separately below for traceability.
+
+Agent / tool use: no verified public score found (no Terminal-Bench, Tau3-Banking, Tau2-Bench, GDPval-AA, SWE Atlas or Claw-Eval run has been published under this ID).
+
+Reasoning / knowledge: no verified public score found (no GPQA Diamond, HLE, LCR/MLCR, CritPt or Artificial Analysis Intelligence Index result published; Artificial Analysis and Command Code both list the model as *not yet scored*).
+
+Coding: no verified public score found (no SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench or DeepSWE run published; one tracker's "4 benchmarks" panel renders chart-only values that are not attributable to a named harness, and LM Market Cap's ranking composite is a signal-weighted score, not a benchmark result).
+
+Long context: no long-context retrieval measurement found (the 1M window and 524,288-token output ceiling are provider listings only).
+
+Measured serving telemetry (not benchmark scores):
+
+- OpenRouter P50 throughput **79 tok/s** and P50 latency **0.93 s** (TPS, best provider, 2026-09-23); an independent field guide recorded **87 tok/s** and **1.07 s** (24 Sep snapshot, all efforts/locations)
+- Availability: **76.22%** over the trailing 3 days counting errors/empty responses; **100%** when requests were routed to a provider (TPS, 2026-09-23) vs **94.98%** inference availability / 97.70% reachability (independent field guide, 24 Sep)
+- Tokenizer probes: **24/24** token-count deltas matched named MiniMax endpoints (independent probe set, 24 Sep) — an identity clue, not a quality metric
+
+### Normalized scores (1–100)
+
+Not applicable — no dimension can be scored from verified data. Per the
+template's SELF-EXCLUSION rule and `pnpm sync`'s QUAR criteria (an evidence-free
+file, or 0/flat placeholder dims), inventing dims here would inject fabricated
+numbers into every reader's average, so this report stays excluded until a
+reveal (or an independently published benchmark run) lands.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-25 UTC
+- Method: public internet research across the OpenRouter listing/endpoint API, OpenCode Zen tier, TPS news, LM Market Cap, Command Code and two independent stealth-model field guides; all of them either state "not yet scored" or publish no attributable benchmark numbers.
+- Re-research trigger: the stealth series has always ended in a reveal (Ox Alpha → GLM-5.3-Flash, Union Alpha → Unpareto, Pony Alpha → GLM-5). When a vendor name, licence and published harness results exist, a scored `DeepSeek_4.1_Flash.md` may be written and this `.excluded` twin deleted — that is the only sanctioned removal.
