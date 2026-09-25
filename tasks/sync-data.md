@@ -29,10 +29,12 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    never touched, however low the scores.
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
 2. Parses the seven `1–100` scores from each file (fails loudly on any
-   missing/invalid score line — never invent numbers) and validates each
-   file's Overall equals the half-up mean of its five non-cost dims
-   (Cost efficiency never counts toward Overall since v4; drift `> 0.51`
-   fails and blocks that folder's average rewrite).
+   missing/invalid score line — never invent numbers). Each file's Overall
+   must equal the half-up mean of its five non-cost dims (Cost efficiency
+   never counts toward Overall since v4): drift `> 0.51` is auto-corrected
+   (only the Overall number is rewritten, logged as an `AUTO` line) and the
+   folder proceeds on the corrected value. Dims, benchmarks, and prose are
+   never touched.
 3. Recomputes `model/<slug>/average.md` as arithmetic means with standard
    half-up rounding to 1 decimal (`72.25` → `72.3`; only differences `> 0.051`
    count as drift). Overall = mean of source Overall scores, NOT re-derived

@@ -288,18 +288,30 @@ for (const slug of slugs) {
     (scoreIndex[slug] ||= {})[p.file] = entry;
   }
 
-  // Source-file Overall must equal the half-up mean of the five quality dims
-  // (Cost excluded since v4). Drift fails loudly and the folder's average is left
-  // untouched until fixed, so partial data is never cemented.
+  // Source-file Overall is DERIVED (half-up mean of the five quality dims,
+  // Cost excluded since v4) — so drift is auto-corrected, not failed: sync
+  // rewrites just the Overall number, logs an AUTO line, and the folder's
+  // average proceeds on the corrected value. Dims, benchmarks, and prose are
+  // never touched; unparsable score lines still fail loudly in parseScores
+  // above (never invent structure).
   // (Matches the dev-time checkOverallScores() tolerance of 0.51.)
   const QUALITY = ["Tool use", "Reasoning", "Context window", "Multimodal", "Coding"];
   for (const p of perFile) {
     const mean5 = QUALITY.reduce((a, l) => a + p.scores[l], 0) / QUALITY.length;
+    const corrected = halfUp1(mean5);
     if (Math.abs(p.scores["Overall Score"] - mean5) > 0.51) {
-      fail(
-        `model/${slug}/${p.file}: Overall ${p.scores["Overall Score"]} differs from 5-dim quality mean ${halfUp1(mean5)} — Cost excluded from Overall since v4`,
-      );
-      skipAverage = true;
+      const fp = join(dir, p.file);
+      const content = readFileSync(fp, "utf8");
+      const next = content.replace(/(\*\*Overall Score:\s*)([\d.]+)(\/100)/, `$1${corrected}$3`);
+      if (next === content) {
+        fail(`model/${slug}/${p.file}: Overall drifted but score line not auto-fixable — hand-fix it`);
+        skipAverage = true;
+        continue;
+      }
+      writeFileSync(fp, next);
+      log(`  AUTO  model/${slug}/${p.file}: Overall ${p.scores["Overall Score"]} -> ${corrected} (5-dim quality mean)`);
+      p.scores["Overall Score"] = corrected;
+      if (scoreIndex[slug]?.[p.file]) scoreIndex[slug][p.file].overall = corrected;
     }
   }
 

@@ -36,7 +36,8 @@ override.
 
 - Source-file `Overall` = half-up mean of the five quality dims (Tool use,
   Reasoning, Context window, Multimodal, Coding). `Cost efficiency` is scored
-  but never counted toward any Overall.
+  but never counted toward any Overall. `pnpm sync` auto-corrects a drifted
+  Overall number (logged as `AUTO`); only unparsable score lines fail.
 - `model/<slug>/average.md` = mean of source Overalls over the top-10
   qualifying cohort (highest Overall first); only raters whose own model
   averages above 84.9 qualify. Recomputed by `pnpm sync` only — never by hand.
