@@ -57,7 +57,7 @@ Multimodal:
 - **Multimodal: 90/100.** Excellent breadth: VideoMMMU 87.6%, MathVision 86.6%, V* 88%; text-only output caps it.
 - **Coding: 70/100.** AA LiveCodeBench 91.7% elite; capped hard by Vibe Code 14.3% and zero SWE-bench rows.
 - **Cost efficiency: 60/100.** Pro-tier flagship pricing expected; unverified.
-- **Overall Score: 76/100.** Mean of the five quality dims (74+74+92+90+70)/5 = 76.0 → 76. Best fit: 2M-context multimodal analysis (video/doc corpora); for hard reasoning prefer Deep Think or 3.1 Pro.
+- **Overall Score: 80/100.** Mean of the five quality dims (74+74+92+90+70)/5 = 80.0 → 80. Best fit: 2M-context multimodal analysis (video/doc corpora); for hard reasoning prefer Deep Think or 3.1 Pro.
 
 ---
 

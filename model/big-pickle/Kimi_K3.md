@@ -55,7 +55,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only — floor.
 - **Coding: 68/100.** LiveCodeBench 81.0% is genuinely good (stealth coding reputation checks out); capped by Vibe Code 3.1% and no SWE rows.
 - **Cost efficiency: 98/100.** $0 during Zen promo; even paid-equivalent ~$0.60/$2.20 is cheap.
-- **Overall Score: 53/100.** Mean of the five quality dims (62+55+60+15+68)/5 = 52.0 → 52. Best fit: free everyday coding/chat on Zen while the promo lasts; identity remains unofficial.
+- **Overall Score: 52/100.** Mean of the five quality dims (62+55+60+15+68)/5 = 52.0 → 52. Best fit: free everyday coding/chat on Zen while the promo lasts; identity remains unofficial.
 
 ---
 

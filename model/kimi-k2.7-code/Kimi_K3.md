@@ -60,7 +60,7 @@ Multimodal:
 - **Multimodal: 62/100.** Image input possible; thin verified rows (Design Arena only); text-only output.
 - **Coding: 74/100.** LiveCodeBench 82.1%, SWE-bench 78.2% solid for a code specialist; capped by Coding Index 60.8.
 - **Cost efficiency: 85/100.** Open weights; K2.7 Code deployed widely at low cost (provisional).
-- **Overall Score: 72/100.** Mean of the five quality dims (76+72+72+62+74)/5 = 71.2 → 71. Best fit: open-weight coding assistants with MCP tool stacks; superseded by Kimi K3 for serious reasoning.
+- **Overall Score: 71.2/100.** Mean of the five quality dims (76+72+72+62+74)/5 = 71.2. Best fit: open-weight coding assistants with MCP tool stacks; superseded by Kimi K3 for serious reasoning.
 
 ---
 

@@ -80,7 +80,9 @@ export type SourceKey =
   | "Gemini 2.5 Pro"
   | "GPT 6 Astra"
   | "GPT 5.6 Sol"
-  | "Gemma 4 31B IT";
+  | "Gemma 4 31B IT"
+  | "Claude Opus 4.5"
+  | "Laguna XS 2 1";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -142,6 +144,8 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "GPT 6 Astra", label: "GPT 6 Astra", file: "GPT_6_Astra.md" },
   { key: "GPT 5.6 Sol", label: "GPT 5.6 Sol", file: "GPT_5.6_Sol.md" },
   { key: "Gemma 4 31B IT", label: "Gemma 4 31B IT", file: "Gemma_4_31B_IT.md" },
+  { key: "Claude Opus 4.5", label: "Claude Opus 4.5", file: "Claude_Opus_4.5.md" },
+  { key: "Laguna XS 2 1", label: "Laguna XS 2 1", file: "Laguna_XS_2_1.md" },
 ];
 
 export interface AiModel {

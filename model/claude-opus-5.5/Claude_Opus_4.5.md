@@ -78,7 +78,7 @@
 
 - **Cost efficiency: 76/100.** Opus 5.5 costs $4 per million input tokens and $20 per million output tokens. At $4/$20, this is between the ~$3/$15 (~60) and ~$10/$50 (~30) tiers, but closer to the lower-priced bracket. Using interpolation from the methodology scale: $4 in / $20 out ≈ 76. (Cost efficiency scored independently, not counted in Overall.)
 
-- **Overall Score: 86.8 → 86.8/100, rounded to 87/100.** Calculated as: (87 + 92 + 95 + 65 + 95) / 5 = 434 / 5 = **86.8 → 87/100** (half-up rounded). _Best-fit recommendation:_ Claude Opus 5.5 is the strongest verified choice for agentic coding agents, SWE-Pro-class software engineering, and knowledge-intensive professional work at sub-Fable pricing; teams sensitive to multimodal video/audio needs or long-context retrieval verification should evaluate alternatives.
+- **Overall Score: 86.8/100.** Calculated as: (87 + 92 + 95 + 65 + 95) / 5 = 434 / 5 = **86.8** (half-up). _Best-fit recommendation:_ Claude Opus 5.5 is the strongest verified choice for agentic coding agents, SWE-Pro-class software engineering, and knowledge-intensive professional work at sub-Fable pricing; teams sensitive to multimodal video/audio needs or long-context retrieval verification should evaluate alternatives.
 
 ---
 

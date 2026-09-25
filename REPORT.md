@@ -1,5 +1,19 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — sync auto-corrects Overall drift (no more agent callouts)
+
+1. `scripts/sync-data.mjs`: Overall drift `> 0.51` no longer fails — sync rewrites just the Overall number to the half-up five-dim mean, logs `AUTO  model/<slug>/<file>: Overall <old> -> <new>`, and averages proceed on the corrected value (both the in-memory entry and the codegen index are updated). Safe because Overall is derived, not judged; dims/benchmarks/prose are never touched, and unparsable lines still fail loudly. Would have auto-fixed all 3 drift cases from the last run (53→52, 76→80, 72→71.2).
+2. Docs: `tasks/sync-data.md` step 2, `RULES.md` scoring (auto-correct logged; only unparsable lines fail).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-25 — 4 Overall arithmetic fixes (3 wrong means, 1 unparsable line)
+
+1. `big-pickle/Kimi_K3.md`: 53 → 52 (dims sum 260/5 = 52.0; prose already said 52).
+2. `claude-opus-5.5/Claude_Opus_4.5.md`: line read `86.8 → 86.8/100, rounded to 87/100` — unparsable, so sync saw "missing score line". Rewrote as `86.8/100` (434/5 = 86.8 exact, drift 0).
+3. `gemini-3-pro/Kimi_K3.md`: 76 → 80 (dims sum 400/5; prose math `= 76.0` was wrong, fixed to `= 80.0 → 80`).
+4. `kimi-k2.7-code/Kimi_K3.md`: 72 → 71.2 (dims sum 356/5; prose `→ 71` contradicted the line — unified on exact 71.2).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — hyphenated STEMs broke the filename contract (Gemma + GPT-OSS)
 
 1. Sync failed on `model/gemini-1.5-pro/Gemma-4-31B-IT.md` (untracked, active agent run): hyphenated filename + `- **Label:** N` score lines the parser can't read. Root cause one level deeper: the assigned STEM itself (`Gemma-4-31B-IT`) violates the `/^[A-Za-z0-9_.]+\.md$/` contract — no correctly-named file under that STEM could ever pass. Same latent time-bomb in `GPT-OSS_120B`.
