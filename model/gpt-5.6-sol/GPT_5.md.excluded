@@ -1,0 +1,67 @@
+# GPT-5.6 Sol — findings by ChatGPT 5 (openai/gpt-5)
+
+- Source: OpenAI (`gpt-5.6-sol`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.6 Sol (Free-tier available via ChatGPT Free/Go) 【turn0search2】
+- **Short description:** OpenAI's flagship frontier model family released July 2026, optimized for agentic workflows, reasoning, coding, and long-horizon knowledge work. Sol is the top-tier variant alongside Terra (lower-cost) and Luna (efficient) 【turn0search16】.
+- **Provider / access:** OpenAI API (`gpt-5.6-sol`); also available via OpenRouter (`openai/gpt-5.6-sol`) and ChatGPT (Free/Go/Pro) 【turn0search9】【turn0search2】. Supports Chat Completions and Responses API 【turn0search14】.
+- **Release / knowledge:** 2026-07-09; knowledge cutoff not publicly verified 【turn0search2】.
+- **IDs:** `openai/gpt-5.6-sol` (no Free ID verified on OpenCode Zen; paid API only) 【turn0search9】.
+- **Context window:** No verified public score found for total context length. Long-context retrieval benchmarks (MRCR/RULER) not reported in public sources.
+- **Modalities:** Text in/out; reasoning enabled; tool calls supported; JSON mode available (inferred from API documentation, not explicitly verified in public benchmarks) 【turn0search14】.
+- **Pricing (as of 2026-09-25):** No verified public score found for API pricing. OpenRouter listing exists but exact per-1M token rates not disclosed in public sources 【turn0search9】.
+- **Architecture:** Proprietary; parameters and MoE structure not publicly verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **65.9%** (Artificial Analysis, max variant) 【turn0search9】
+- Tau3-Banking / Tau2-Bench: **85.1%** (τ²-Bench Telecom, Artificial Analysis, max) 【turn0search9】
+- GDPval-AA: **54.4%** (Artificial Analysis, max) 【turn0search9】
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **94.1%** (Artificial Analysis, max) 【turn0search9】
+- HLE: **49.5%** (Artificial Analysis, max) 【turn0search9】
+- LCR / MLCR: **84.0%** (AA-LCR, Artificial Analysis, max) 【turn0search9】
+- CritPt: **32.3%** (Artificial Analysis, max) 【turn0search9】
+- Artificial Analysis Intelligence Index / BenchLM overall: **47.0 / #rank not reported** (Artificial Analysis, max) 【turn0search9】
+- Omniscience Accuracy / Hallucination Rate: **59.4% / 7.8%** (AA-Omniscience, Artificial Analysis, max) 【turn0search9】
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: **57.1%** (Artificial Analysis, max) 【turn0search9】
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: **77.4** (Artificial Analysis Coding Index, max) 【turn0search9】
+
+Long context:
+
+- No long-context retrieval reported (MRCR/RULER/GraphWalks values not publicly available for this model) 【turn0search9】
+
+### Normalized scores (1-100)
+
+- **Tool use: 80/100.** Evidence: Terminal-Bench Hard 65.9% (above mid-tier 45-60%), τ²-Bench 85.1% (above frontier 50%), GDPval-AA 54.4% (mid-tier). Capped by lack of verified OSWorld/AutomationBench scores 【turn0search9】.
+- **Reasoning: 85/100.** Evidence: GPQA Diamond 94.1% (frontier >90%), HLE 49.5% (frontier >40%), but Intelligence Index 47.0 (below frontier 60+) and CritPt 32.3% (low). Capped by sub-frontier index and CritPt scores 【turn0search9】.
+- **Context window: 0/100.** No verified public context length or long-context retrieval benchmarks found. Cannot tier without verified total context window.
+- **Multimodal: 15/100.** Text-only input/output inferred from benchmarks; no verified image, video, PDF, or audio input scores found. Scored as text-only per methodology.
+- **Coding: 80/100.** Evidence: SciCode 57.1% (above frontier 55%), Terminal-Bench Hard 65.9% (below frontier 85%), Coding Index 77.4. Capped by lack of SWE-bench Verified and DeepSWE scores 【turn0search9】.
+- **Cost efficiency: 0/100.** No verified API pricing found. Cannot score without per-token cost data.
+- **Overall Score: 52.0/100.** Mean of five non-cost dimensions (80+85+0+15+80)/5 = 52.0. Recommended for agentic and coding workloads where tool use and reasoning are critical, but context window and multimodal needs are limited or unverified.
+
+---
+
+## Signature
+
+- Provided by: **ChatGPT 5 (openai/gpt-5)** — 2026-09-25
+- Method: Public internet research via web search and analysis of OpenAI documentation, Artificial Analysis benchmarks, and OpenRouter listings. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

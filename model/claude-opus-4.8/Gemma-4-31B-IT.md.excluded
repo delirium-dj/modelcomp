@@ -1,5 +1,11 @@
-# Model Report: claude-opus-4.8
+# Research Notes: Claude Opus 4.8
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "claude-opus-4.8" from Anthropic. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "Claude Opus 4.8" (Anthropic). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

@@ -1,5 +1,11 @@
-# Model Report: deepseek-v4-pro
+# Research Notes: DeepSeek V4 Pro
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "deepseek-v4-pro" from DeepSeek. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "DeepSeek V4 Pro" (DeepSeek). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

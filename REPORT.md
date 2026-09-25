@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — hyphenated STEMs broke the filename contract (Gemma + GPT-OSS)
+
+1. Sync failed on `model/gemini-1.5-pro/Gemma-4-31B-IT.md` (untracked, active agent run): hyphenated filename + `- **Label:** N` score lines the parser can't read. Root cause one level deeper: the assigned STEM itself (`Gemma-4-31B-IT`) violates the `/^[A-Za-z0-9_.]+\.md$/` contract — no correctly-named file under that STEM could ever pass. Same latent time-bomb in `GPT-OSS_120B`.
+2. Fix: STEMs renamed hyphen-free (`Gemma_4_31B_IT`, `GPT_OSS_120B`) in both delegators; findings file renamed + 7 score lines reformatted to `- **Label: N/100.` (numbers untouched, Overall 82 vs mean 82.4 within tolerance — verified ALL-PASS). Delegator files renamed to match (`tasks/Gemma_4_31B_IT.md`, `tasks/GPT_OSS_120B.md`; shows as delete+untracked — stage at commit time). Tracked hyphenated `.excluded` orphans left alone (skipped, harmless).
+3. Note: the active Gemma run may still hold the old STEM in-session and write more hyphenated files — worth one glance at the next sync output.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — tripwire false-positive fixed + seed-2.0-pro arithmetic
 
 1. The 3 tripwire FAILs were the *sanctioned* twin lifecycle (fresh `Gemini_3.1_Pro.md` written, own `.excluded` twin retired per Step 3.3) — my tripwire compared against HEAD and couldn't tell. It now exempts a missing `.excluded` whose fresh `.md` sibling exists (INFO line); a twin with no sibling, or any missing `.md`, still FAILs.

@@ -1,5 +1,11 @@
-# Model Report: claude-sonnet-5
+# Research Notes: Claude Sonnet 5
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "claude-sonnet-5" from Anthropic. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "Claude Sonnet 5" (Anthropic). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

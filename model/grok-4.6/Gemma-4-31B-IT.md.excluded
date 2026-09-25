@@ -1,5 +1,11 @@
-# Model Report: grok-4.6
+# Research Notes: Grok 4.6
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "grok-4.6" from xAI. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "Grok 4.6" (xAI). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

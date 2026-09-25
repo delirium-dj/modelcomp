@@ -1,6 +1,6 @@
 # Research assignment — single-edit delegator
 
-`AGENT_SOURCE_STEM: GPT-OSS_120B` <- EDIT ONLY THIS LINE TO REUSE (e.g. `Gemini_3.8_Flash`, `Claude_Sonnet_4.6`).
+`AGENT_SOURCE_STEM: GPT_OSS_120B` <- EDIT ONLY THIS LINE TO REUSE (e.g. `Gemini_3.8_Flash`, `Claude_Sonnet_4.6`).
 
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with STEM from the line above.
 

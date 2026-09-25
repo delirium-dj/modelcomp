@@ -1,5 +1,11 @@
-# Model Report: gpt-5.6-luna
+# Research Notes: GPT-5.6 Luna
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "gpt-5.6-luna" from OpenAI. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "GPT-5.6 Luna" (OpenAI). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

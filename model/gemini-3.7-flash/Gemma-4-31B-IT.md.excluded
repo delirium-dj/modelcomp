@@ -1,5 +1,11 @@
-# Model Report: gemini-3.7-flash
+# Research Notes: Gemini 3.7 Flash
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "gemini-3.7-flash" from Google. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "Gemini 3.7 Flash" (Google). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.

@@ -1,5 +1,11 @@
-# Model Report: gpt-6-astra
+# Research Notes: GPT-6 Astra
 
-## SELF-EXCLUSION
-- **Verdict:** No verified public benchmarks found.
-- **Reasoning:** No public evidence or benchmarks found for a model named "gpt-6-astra" from OpenAI or any other vendor. The model name appears to be hypothetical or internal to this dataset.
+No verified public benchmarks or official technical reports found for "GPT-6 Astra" (OpenAI). 
+
+Searched:
+- Artificial Analysis
+- LiveCodeBench
+- SWE-bench
+- General web search for "GPT-6 Astra", "GPT-6 Luna", "GPT-6 Sol"
+
+Conclusion: Insufficient verified public data to compute quality dimension scores.
