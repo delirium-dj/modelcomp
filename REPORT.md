@@ -1,5 +1,16 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — gemini-3.8-live move to voicemodels/ honored (reversal of my restore)
+
+1. Correction: the "wipe" was a user-directed move — `voicemodels/gemini-3.8-live/` holds all 24 files. I reverted my `model/` restore so no duplicate dataset exists. Current state: `model/gemini-3.8-live/` shows 24 unstaged deletions (tripwire will FAIL until the move is committed or exempted — correct pressure, not a bug).
+2. Awaiting user's rule post justifying voice-model relocation; that rule should also settle tripwire/sync handling of `voicemodels/` (currently unwired: sync scans `model/` only).
+
+## 2026-09-25 — whole-folder wipe reversed (gemini-3.8-live, 24 files)
+
+1. Tripwire correctly FAILed on 2 missing `.excluded` files (no fresh siblings — unsanctioned). After that sync run, the ENTIRE `model/gemini-3.8-live/` folder (all 24 tracked files) was wiped from disk — folder permanence violation, caught post-hoc via `git status`.
+2. Restored all 24 via `git restore --source=HEAD` — hash-verified byte-identical (0 mismatches), status clean, nothing staged. This is the tripwire working as designed: deletions can't go silent, and committed history restores them exactly.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — self-exclusion applied (google-gemini-2.5-flash-lite)
 
 1. `model/google-gemini-2.5-flash-lite/Gemini_2.5_Flash_Lite.md` (untracked, fresh agent work) contained zero usable benchmarks — every score line "no verified public score found", Overall a prose disclaimer citing non-normalized 111.2/116.6. Textbook SELF-EXCLUSION case, so renamed to `Gemini_2.5_Flash_Lite.md.excluded` (content preserved, sync SKIPs loudly). Not a deletion, not a fix — the sanctioned no-data flow per template + `RULES.md`.

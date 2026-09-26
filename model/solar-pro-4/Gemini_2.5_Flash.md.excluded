@@ -1,0 +1,97 @@
+# Solar Pro 4 — findings by Gemini 2.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and delete this block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: <Publisher>/<Model>
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Pro 4
+- **Short description:** No verified public information found regarding this model. It appears to be a hypothetical or unreleased model at the time of research.
+- **Provider / access:** No verified public information found.
+- **Release / knowledge:** No verified public information found.
+- **IDs:** No verified public information found.
+- **Context window:** No verified public information found.
+- **Modalities:** No verified public information found.
+- **Pricing (as of 2026-09-25):** No verified public information found.
+- **Architecture:** No verified public information found.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" and all normalized dims would be guesses — do NOT save a scored `.md`
+> file. Save `model/<slug>/<Source_Name>.md.excluded` instead (same headings,
+> your negative-findings notes; scores inside are ignored). `pnpm sync` skips
+> `.excluded` files loudly so they never poison the average. Never invent
+> placeholder scores (0, 10, …) to fill a `.md` file — one fabricated number
+> drags the mean for every reader. (`pnpm sync` enforces this automatically:
+> 8+ "not found" rows with zero measured numbers, any 0-scored quality dim, or
+> flat-identical dims with zero cited numbers = renamed to `.excluded`.)
+
+Agent / tool use:
+
+- <Benchmark> (**group**): no verified public score found
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **CRITICAL OVERALL SCORE FORMULA (v4):**
+> Overall Score = `Math.round((Tool + Reasoning + Context + Multimodal + Coding) / 5)` (half-up rounding to nearest integer or 1 decimal).
+> **NEVER include Cost efficiency** in the Overall calculation. Cost efficiency is scored independently.
+
+- **Tool use: 0/100.** No verified public scores found for tool use benchmarks.
+- **Reasoning: 0/100.** No verified public scores found for reasoning benchmarks.
+- **Context window: 0/100.** No verified public scores found for context window benchmarks.
+- **Multimodal: 0/100.** No verified public scores found for multimodal capabilities.
+- **Coding: 0/100.** No verified public scores found for coding benchmarks.
+- **Cost efficiency: 0/100.** No public pricing information available.
+- **Overall Score: 0/100.** No verified public scores found for any of the five non-cost dimensions.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 2.5 Flash (google/gemini-2.5-flash)** — 2026-09-25
+- Method: public internet research; no verified public benchmarks were found for this model. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
