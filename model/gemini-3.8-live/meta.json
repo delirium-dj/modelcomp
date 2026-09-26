@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-3-8-live",
+  "name": "Gemini 3.8 Live",
+  "short": "Google DeepMind's native speech-to-speech model for the Gemini Live API, with audio, image and video input and synthesized speech output.",
+  "contextWindow": "131K per session / 65K out",
+  "modalities": "Text, image, video, audio in; text, audio out",
+  "pricingNote": "Free via AI Studio unpaid quota; paid text $0.75/$4.50, audio $3/$12 per 1M",
+  "freeTierNote": "Free through Google AI Studio unpaid quota (traffic may feed product development; policy does not apply once billing is enabled)"
+}
