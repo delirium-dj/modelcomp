@@ -3,6 +3,10 @@ dist/
 server/
 .qwik/
 tmp/
+tmp_*/
+tmp_*
+temp_*/
+temp_*
 *.log
 *.tsbuildinfo
 .DS_Store

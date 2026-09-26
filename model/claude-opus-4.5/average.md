@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 85/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 80/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 72/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 70/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 88/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 50/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 79/100.** Fallback mean of all 1 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 86/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 86/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 70/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 65/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 89/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 45/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 79/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 1 below-gate source(s): Mimo v2.6 Flash.
-- Average from top 1 by Overall Score: Mimo v2.6 Flash.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
+- Average from top 1 by Overall Score: Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Mimo v2.6 Flash.

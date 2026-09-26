@@ -9,6 +9,9 @@ reports, and the website stay consistent.
 ## Repo layout
 
 - `model/<slug>/` — per-model folders (slugs listed in `model/README.md`).
+- `voicemodels/<slug>/` — voice/speech models only (`RULES.md` routing rule:
+  realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
+  as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.
 - `src/` — Qwik City app (`routes/`, `components/`, `data/models.ts`).
 - `PRD/prd.md` — product requirements (tooltips, layout).
 - `model-comparison.md` — overview table + methodology (per-model details live in `model/`).

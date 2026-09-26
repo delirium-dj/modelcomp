@@ -31,6 +31,14 @@ override.
   infrastructure — the gate reads the agent's own `average.md` from its
   folder, so a below-gate rater becomes eligible once its model is peer-rated
   above the gate.
+- **Voice/speech routing (absolute):** a model whose core capability is voice
+  or speech (realtime voice API, TTS/STT-first, voice-assistant I/O — name or
+  modalities say so) lives under `voicemodels/<slug>/`, never under
+  `model/<slug>/`. This applies to newly discovered models at scaffold time
+  and justifies relocating voice models already in `model/` (e.g.
+  `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Same
+  permanence, same file conventions — only the parent differs. (`voicemodels/`
+  sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
 
 ## Scoring rules
 

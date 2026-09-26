@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — voice/speech routing rule implemented
+
+1. `RULES.md`: new absolute rule — voice/speech-core models live under `voicemodels/<slug>/`, never `model/<slug>/`; justifies the `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0` relocations. Same permanence + conventions, only the parent differs. Notes `voicemodels/` sync/site wiring as pending.
+2. `tasks/research.md`: output path, discovery (voice check + both-tree lookup, renumbered queue step), audit scope, and delegation template extended to both trees; existing folders are never re-routed by agents.
+3. `.agents/rules.md` layout documents `voicemodels/`.
+   Next: `pnpm sync && pnpm build.types && pnpm build` (sync still scans `model/` only — voice wiring is the open follow-up).
+
 ## 2026-09-25 — gemini-3.8-live move to voicemodels/ honored (reversal of my restore)
 
 1. Correction: the "wipe" was a user-directed move — `voicemodels/gemini-3.8-live/` holds all 24 files. I reverted my `model/` restore so no duplicate dataset exists. Current state: `model/gemini-3.8-live/` shows 24 unstaged deletions (tripwire will FAIL until the move is committed or exempted — correct pressure, not a bug).
