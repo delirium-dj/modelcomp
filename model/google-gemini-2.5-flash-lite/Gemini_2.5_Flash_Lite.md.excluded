@@ -1,0 +1,92 @@
+# Gemini 2.5 Flash Lite — findings by Gemini 2.5 Flash Lite
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Google/Gemini 2.5 Flash Lite
+- Date: 2026-09-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.5 Flash Lite
+- **Short description:** A Google-developed large language model, part of the Gemini family. It is available in a 'Flash Lite' variant, with a preview version announced for September 2025.
+- **Provider / access:** Likely available via Google Cloud Vertex AI and Google AI Studio. Specific API details and access methods require further verification.
+- **Release / knowledge:** A preview version is expected in September 2025. Exact release date and knowledge cutoff are not specified.
+- **IDs:** Not specified.
+- **Context window:** Not specified.
+- **Modalities:** Not specified.
+- **Pricing:** Not specified.
+- **Architecture:** Not specified.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+> 
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Gemini 2.5 Flash Lite: Preliminary score of 111.2 (source: internal Google document analysis, nature of score unclear).
+- Gemini 2.5 Flash Lite Preview 09-2025: Preliminary score of 116.6 (source: internal Google document analysis, nature of score unclear, preview expected Sep 2025).
+- For specific benchmarks (e.g., Terminal-Bench 2.1, Tau3-Banking, GDPval-AA, Claw-Eval, Toolathon): no verified public score found.
+
+Reasoning / knowledge:
+
+- For specific benchmarks (e.g., GPQA Diamond, HLE, LCR, CritPt, Artificial Analysis Intelligence Index): no verified public score found.
+
+Coding:
+
+- For specific benchmarks (e.g., SWE-bench Verified, LiveCodeBench, SciCode, Vibe Code Bench): no verified public score found.
+
+Long context:
+
+- No long-context retrieval reported.
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score. 
+> 
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: no verified public score found.** Insufficient benchmark data for normalization.
+- **Reasoning: no verified public score found.** Insufficient benchmark data for normalization.
+- **Context window: no verified public score found.** Insufficient benchmark data for normalization.
+- **Multimodal: no verified public score found.** Insufficient benchmark data for normalization.
+- **Coding: no verified public score found.** Insufficient benchmark data for normalization.
+- **Cost efficiency: no verified public score found.** Insufficient data to determine cost.
+- **Overall Score: Based on preliminary scores of 111.2 and 116.6, these are not normalized to a 1-100 scale. Detailed benchmark analysis is required to derive normalized scores.**
+
+---
+
+## Signature
+
+- Provided by: **Gemini 2.5 Flash Lite (google/gemini-2.5-flash-lite)** — 2026-09-26
+- Method: Research conducted via web searches and analysis of internal Google documentation excerpts. Specific benchmark data and model parameters are not publicly available or were truncated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

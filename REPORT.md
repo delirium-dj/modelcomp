@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — self-exclusion applied (google-gemini-2.5-flash-lite)
+
+1. `model/google-gemini-2.5-flash-lite/Gemini_2.5_Flash_Lite.md` (untracked, fresh agent work) contained zero usable benchmarks — every score line "no verified public score found", Overall a prose disclaimer citing non-normalized 111.2/116.6. Textbook SELF-EXCLUSION case, so renamed to `Gemini_2.5_Flash_Lite.md.excluded` (content preserved, sync SKIPs loudly). Not a deletion, not a fix — the sanctioned no-data flow per template + `RULES.md`.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — Glimmer colon-outside-bold fix (glm-5.3-flash)
 
 1. `model/glm-5.3-flash/Muse_Glimmer_30B.md` (untracked, fresh agent work) used `- **Tool use:** 60/100` lines the parser can't read. Reformatted all 7 score lines to the `- **Label: N/100.` contract. Numbers untouched; dims mean exactly 70.0 = stated Overall 70 (drift 0), verified ALL-PASS with the parser-mimic check.

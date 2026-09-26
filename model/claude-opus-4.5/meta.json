@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-opus-4.5",
+  "name": "Claude Opus 4.5",
+  "short": "Anthropic's Nov 2025 Opus flagship that cut Opus-tier pricing by 67% ($5/$25) while reaching SOTA real-world software engineering at launch; still active but superseded by Opus 4.6 through 5.5.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing ($5 input / $25 output per 1M)",
+  "noFreeId": true
+}

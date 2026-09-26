@@ -1,0 +1,8 @@
+{
+  "id": "opencode/google-gemini-2.5-flash-lite",
+  "name": "Google Gemini 2.5 Flash Lite",
+  "short": "Google Gemini 2.5 Flash Lite model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

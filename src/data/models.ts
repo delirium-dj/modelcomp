@@ -87,7 +87,8 @@ export type SourceKey =
   | "Claude Opus 5.5"
   | "GPT 5"
   | "Gemini 2.0 Flash"
-  | "Grok 4.3";
+  | "Grok 4.3"
+  | "Gemini 2.5 Flash Lite";
 
 /**
  * Registry of reporting agents (key/label/file). Order here is NOT the dropdown
@@ -156,6 +157,7 @@ const SOURCE_DEFS: { key: SourceKey; label: string; file: string }[] = [
   { key: "GPT 5", label: "GPT 5", file: "GPT_5.md" },
   { key: "Gemini 2.0 Flash", label: "Gemini 2.0 Flash", file: "Gemini_2.0_Flash.md" },
   { key: "Grok 4.3", label: "Grok 4.3", file: "Grok_4.3.md" },
+  { key: "Gemini 2.5 Flash Lite", label: "Gemini 2.5 Flash Lite", file: "Gemini_2.5_Flash_Lite.md" },
 ];
 
 export interface AiModel {

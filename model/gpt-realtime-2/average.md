@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash.
 - Average from top 1 by Overall Score: Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Big Pickle, GLM 5.3, Ling 3.0 Flash Fin.
+- Ignored below-gate rater(s): Big Pickle, GLM 5.3, Ling 3.0 Flash Fin, Mimo v2.6 Flash.

@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 45.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 54.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 66.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 70/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 46.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 90.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 56.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 38.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 50.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 63.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 67.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 42.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 87.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 52.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 

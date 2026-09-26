@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 77.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 75.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 76/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 67/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 83.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 57.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 75.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 78/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 76.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 77.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 69.5/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 58.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 76.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
-- Average from top 5 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
+- Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
+- Average from top 6 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
 - Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0 Flash Fin, Mimo v2.6 Flash, Space Bunny Alpha.

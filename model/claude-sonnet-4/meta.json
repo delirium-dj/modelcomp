@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-sonnet-4",
+  "name": "Claude Sonnet 4",
+  "short": "Anthropic's May 2025 balanced Claude 4 model that matched Opus 4 on SWE-bench Verified (72.7%) at $3/$15; legacy tier superseded by Sonnet 4.5/4.6/5 but still served.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing ($3 input / $15 output per 1M)",
+  "noFreeId": true
+}
