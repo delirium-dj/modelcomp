@@ -1,0 +1,63 @@
+# LongCat 2.5 Preview — findings by GLM 5.3 Flash
+
+> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
+> numbers were found for this exact model/ID, so no scored `.md` was saved
+> (template SELF-EXCLUSION; `RULES.md` permanence). Scores inside are ignored
+> by `pnpm sync`.
+
+- Source: Meituan (`longcat_2.5_preview` — no verified public model ID found)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview (unverified)
+- **Short description:** Presumed preview of the next general-purpose LongCat model from Meituan. The LongCat-DeepResearch technical materials state that its model improvements "are intended to be incorporated into the next general-purpose LongCat model release," which a 2.5 preview would represent. No verified public model card, weight release, or API ID was found.
+- **Provider / access:** longcat.chat / LongCat API platform (JS app; no readable API listing extracted). No verified provider/model ID.
+- **Release / knowledge:** no verified release date found; LongCat-2.0 (the latest verified release) shipped July 2026.
+- **IDs:** no verified public ID found (no Free ID exists on Zen)
+- **Context window:** no verified public figure found; LongCat-2.0's specs do not transfer to a 2.5 preview.
+- **Modalities:** no verified public figure found.
+- **Pricing (as of 2026-09-27):** no verified public pricing found.
+- **Architecture:** no verified public figure found; the LongCat family's latest verified open release is LongCat-2.0, a 1.6T-total / ~48B-active MoE under MIT license (HuggingFace `meituan-longcat/LongCat-2.0`).
+
+### Raw benchmarks found
+
+> Research performed 2026-09-27 across HuggingFace (org page `meituan-longcat`, model search "longcat-2.5" → 0 results, full-text search "LongCat-2.5" → no model matches), Bing ("LongCat-2.5-Preview benchmark" → no results; "LongCat 2.5" preview → irrelevant results), DuckDuckGo (bot challenge), ModelScope API (404), and longcat.chat (JS-only, unreadable). HuggingFace lists 29 meituan-longcat models — LongCat-2.0 (1.8T, Jul 2026), LongCat-Flash-Lite-Sparse (69B, Aug 2026), LongCat-Next, LongCat-Flash-Omni, LongCat-Flash-Prover, LongCat-DeepResearch system — none named 2.5 or 2.5-Preview.
+
+Agent / tool use:
+
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench / Tau3-Banking: no verified public score found
+- GDPval-AA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> Not scored — self-exclusion. Zero verified public benchmark numbers for this
+> exact model/ID; never invent placeholder values.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
+- Method: public internet research (HuggingFace, Bing, ModelScope, longcat.chat, fetched 2026-09-27); no verified public model ID, specs, or benchmarks found — negative findings only, not counted as a scored source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings — or replace this exclusion with a scored `.md` once genuinely new verified evidence exists.

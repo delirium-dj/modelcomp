@@ -68,22 +68,4 @@ Long context:
 - Method: public internet research on 2026-09-27 (Google AI for Developers model page, Google DeepMind model card, Google launch blog post, Artificial Analysis model page, Emergent and AllTheModels write-ups); no peer `model/` findings files were read — only the single `- **Overall Score:` line of `average.md` was used to order the queue. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
-### Normalized scores (1–100)
 
-> Derived from the raw numbers above using the methodology in `model-comparison.md`. Overall = half-up mean of the five quality dims; Cost efficiency is excluded.
-
-- **Tool use: 88/100.** Terminal-Bench 2.1 89.4%, GDPval-AA 1545 Elo, OSWorld-2.0 59.0% and a complete native tool stack (function calling, code execution, file search, grounding, structured outputs, computer use) put it just below the frontier agents; capped by Terminal-Bench 4.0 / OSWorld trailing Claude Opus 5 and computer use still being Preview-grade.
-- **Reasoning: 86/100.** Intelligence Index 41 vs class median 26 (#40/211) plus HLE-Verified 54.9% is top-quartile reasoning; capped by the index sitting well below the current frontier and by heavy verbosity (170M index output tokens vs 88M median) that drives TTFT to 23.5s.
-- **Context window: 90/100.** Full 1,048,576-token input window with 90% cached-input discount and 65,536-token output; capped because no measured MRCR-class retrieval result exists for this ID and output is 16× smaller than input.
-- **Multimodal: 85/100.** Text + image + video + audio + PDF input with strong document/video readouts (CharXiv-R 0.86, LVBench 0.87); capped at text-only output — no image generation, no audio generation, no Live API.
-- **Coding: 89/100.** DeepSWE v1.1 73.7% is within 0.3pp of Claude Opus 5 and above GPT-5.6 Sol at a fraction of the price, with Terminal-Bench 2.1 leading the table; capped by missing SWE-bench Verified / LiveCodeBench evidence.
-- **Cost efficiency: 88/100.** $0.75 / $3.75 per 1M with 90% cache discount, $1.24 per intelligence-index task (#52/211) and a real free AI Studio / Zen tier; capped because introductory pricing ends 2026-12-31 (→ $1.50 / $7.50) and measured spend runs ~40% above 3.7 Flash from verbosity.
-- **Overall Score: 87.6/100.** Half-up mean of (88 + 86 + 90 + 85 + 89) = 438 / 5 = 87.6, Cost excluded. Best fit: high-volume agentic coding and finance/document agent pipelines that need near-frontier output at workhorse pricing.
-
----
-
-## Signature
-
-- Provided by: **Pixel Canary (vercel-ai-gateway/pixel-canary)** — 2026-09-27
-- Method: public internet research on 2026-09-27 (Google AI for Developers model page, Google DeepMind model card, Google launch blog post, Artificial Analysis model page, Emergent and AllTheModels independent write-ups); no peer `model/` findings were read. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
