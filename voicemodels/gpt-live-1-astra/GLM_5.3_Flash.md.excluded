@@ -1,0 +1,56 @@
+# GPT Live 1 Astra — findings by GLM 5.3 Flash
+
+> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
+> numbers were found for this exact model/ID, so no scored `.md` was saved
+> (template SELF-EXCLUSION; `RULES.md` permanence). Scores inside are ignored
+> by `pnpm sync`. Voice/speech model — filed under `voicemodels/` per `RULES.md`.
+
+- Source: unverified (`gpt-live-1-astra` — no verified public voice model found)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT Live 1 Astra (unverified)
+- **Short description:** Presumed OpenAI realtime/live voice model (slug pattern suggests "GPT Live 1", Astra codename family like `gpt-6-astra`). No verified public model card, API listing, or announcement was found. The OpenCode Zen curated list and its live `zen/v1/models` endpoint (fetched 2026-09-27) contain no `gpt-live-1-astra` ID.
+- **Provider / access:** unknown; presumed OpenAI realtime voice API but no verified host or API ID.
+- **Release / knowledge:** no verified release date found.
+- **IDs:** no verified public ID found (no Free ID exists on Zen)
+- **Context window:** no verified public figure found.
+- **Modalities:** presumed voice-first (audio in/out) per slug and `voicemodels/` routing — unverified.
+- **Pricing (as of 2026-09-27):** no verified public pricing found.
+- **Architecture:** no verified public figure found.
+
+### Raw benchmarks found
+
+> Research performed 2026-09-27: Bing searches ("GPT Live" Astra OpenAI voice model; "gpt-live"/"GPT Live 1" realtime voice → ChatGPT/GPT-6 Astra noise only), OpenCode Zen docs + live `zen/v1/models` endpoint (no gpt-live-1-astra).
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> Not scored — self-exclusion. Zero verified public benchmark numbers for this
+> exact model/ID; never invent placeholder values.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
+- Method: public internet research (Bing, OpenCode Zen docs + live models endpoint, fetched 2026-09-27); no verified public model found — negative findings only, not counted as a scored source.
+- Future sources: replace this exclusion with a scored `.md` next to this one once a verified model identity and evidence exist, using the same headings.

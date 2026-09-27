@@ -1,0 +1,58 @@
+# GPT-Realtime-2 — findings by GLM 5.3 Flash
+
+> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
+> numbers were found for this exact model/ID, so no scored `.md` was saved
+> (template SELF-EXCLUSION; `RULES.md` permanence). Scores inside are ignored
+> by `pnpm sync`. Voice/speech model — filed under `voicemodels/` per `RULES.md`.
+
+- Source: OpenAI (`gpt-realtime-2`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-Realtime-2
+- **Short description:** OpenAI's most capable realtime voice model: speech-to-speech interactions with configurable reasoning effort, stronger instruction following, and more reliable tool use for complex voice-agent workflows. Successor to GPT-Realtime-1.5.
+- **Provider / access:** OpenAI API, Realtime endpoint only (`v1/realtime`). All other endpoints (Chat Completions, Responses, Live sessions, transcription/translation) not supported. Realtime WebSocket/WebRTC session API.
+- **Release / knowledge:** release date not stated on the docs page (snapshots list only `gpt-realtime-2`); knowledge cutoff Sep 30, 2024.
+- **IDs:** `openai/gpt-realtime-2` (no Free ID exists on Zen)
+- **Context window:** 128,000 total tokens; 32,000 max output tokens (OpenAI model docs page, fetched 2026-09-27).
+- **Modalities:** input text, audio, image; output text, audio; reasoning token support with configurable reasoning effort; tool calls yes (function_calling); prompt caching supported.
+- **Pricing (as of 2026-09-27):** text $4.00 in / $24.00 out per 1M (cached input $0.40); audio $32.00 in / $64.00 out per 1M (cached input $0.40); image input $5.00 per 1M (cached $0.50). Paid only. Higher reasoning effort increases latency and token usage.
+- **Architecture:** proprietary; realtime speech-to-speech reasoning model. Comparison from docs: GPT-Realtime-1.5 is $4/$16 text — Realtime-2 costs 50% more on text output.
+
+### Raw benchmarks found
+
+> Research performed 2026-09-27: OpenAI model docs page (verified specs above), Artificial Analysis model page (404 — not benchmarked there), Bing searches (no benchmark results).
+
+Agent / tool use:
+
+- no verified public score found (docs claim "more reliable tool use" qualitatively; no measured value)
+
+Reasoning / knowledge:
+
+- no verified public score found (docs claim "stronger instruction following" qualitatively; no measured value)
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported — 128K window spec only.
+
+### Normalized scores (1–100)
+
+> Not scored — self-exclusion. Zero verified public benchmark numbers for this
+> exact model/ID; never invent placeholder values. Verified specs (128K context,
+> audio/image in, audio out, tool calling, prompt caching) are recorded above
+> for future scoring once benchmark evidence exists.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
+- Method: public internet research (OpenAI model docs page, fetched 2026-09-27); verified specs, zero verified benchmarks — negative findings only, not counted as a scored source.
+- Future sources: replace this exclusion with a scored `.md` next to this one once verified benchmark evidence exists, using the same headings.

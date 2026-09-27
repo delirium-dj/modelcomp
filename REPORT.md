@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — Cost N/A scored provisional (grok-4.1/LongCat)
+
+1. `model/grok-4.1/LongCat_2.5_Preview.md` (untracked, fresh agent work) had `Cost efficiency: N/A` — unparsable, and Cost is a required 1–100 line. Scored `50/100` provisional midpoint: paid-only, no verified pricing (Cost never counts toward Overall, so the 65 stands; provisional-cost phrasing has repo precedent). Verified ALL-PASS.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — LongCat 2.5 Preview rows link to model page
 
 1. Cause of the "wrong redirection": `LongCat 2.5 Preview` is a registered source with ~10 reports but had no `AGENT_MODEL_SLUG` entry, so table rows fell back to the homepage source view (`/?source=…` with top-3 slots) instead of the model page. Added `"LongCat 2.5 Preview": "longcat_2.5_preview"` — the folder has meta + average and is in the generated bundle, so `/model/longcat_2.5_preview/` exists. Side note: folder uses underscores (`longcat_2.5_preview`) — legal per slug rules, left as-is; also spotted a second delegator `tasks/LongCat_2.5_Preview_2.md` worth a glance.

@@ -1,0 +1,71 @@
+# Qwen 3.8 — findings by Qwen 3.8 27B
+
+- Source: (unresolved — no verified vendor ID found for the bare "Qwen 3.8" slug)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## SELF-EXCLUSION NOTE
+
+Zero verified public benchmark numbers were found for this exact model/ID, so this file is
+saved as `Qwen_3.8_27B.md.excluded` (notes only, never counted) per the template's
+SELF-EXCLUSION rule and `RULES.md`. No placeholder scores are assigned.
+
+## Model card
+
+- **Name:** Qwen 3.8
+- **Short description:** Repo entry for a "Qwen 3.8" evaluation slot; stub metadata (128K total, text in/out, "Standard pricing") with no verified vendor model card. The Qwen 3.8 family does exist publicly (e.g. Qwen3.8-Max, 2026-09-02), but no standalone bare "Qwen 3.8" model card or benchmark page could be verified.
+- **Provider / access:** No verified host or API ID found (repo meta lists `opencode/qwen-3.8`).
+- **Release / knowledge:** No verified public release date found.
+- **IDs:** No verified ID found (repo meta: `opencode/qwen-3.8`).
+- **Context window:** No verified public value found (repo meta: 128K total).
+- **Modalities:** No verified public matrix found (repo meta: text in/out).
+- **Pricing (as of 2026-09-27):** No verified public pricing found (repo meta: "Standard pricing").
+- **Architecture:** No verified public architecture found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- Not scored (self-excluded: zero verified public benchmarks found on 2026-09-27).
+
+Searched: Artificial Analysis model pages (`/models/qwen-3-8`, `/models/qwen3-8` — 404),
+OpenRouter (`/qwen/qwen3.8` — 404). If a distinct bare "Qwen 3.8" model card is published,
+re-research can replace this excluded twin.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-09-27
+- Method: public internet research (Artificial Analysis, OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,129 @@
+# LongCat-2.5-Preview — findings by Big Pickle
+
+> **SELF-EXCLUDED (notes only, not scored).** As of 2026-09-27 I found **zero verified
+> public benchmark numbers** for this exact model ID (`LongCat-2.5-Preview`). Meituan
+> shipped it on 2026-09-25 with a changelog entry, a price card and capability claims,
+> but no model card, no technical report, no benchmark table, and no independent
+> leaderboard entry. Per `model-report-TEMPLATE.md` (SELF-EXCLUSION) and `RULES.md`,
+> this model is saved as `Big_Pickle.md.excluded` instead of a scored `.md`, so no
+> placeholder numbers enter the dataset mean.
+
+- Source: Meituan/LongCat-2.5-Preview (OpenCode Zen ID `opencode/longcat-2.5-preview-free`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat-2.5-Preview (Meituan). On OpenCode Zen it is listed as
+  "LongCat 2.5 Preview Free"; this folder's slug is the underscore-normalized form of
+  the same model.
+- **Short description:** Meituan's preview-generation sparse MoE model, positioned for
+  long-horizon agent work across terminals, browsers, desktop GUIs, spreadsheets and
+  design tools. Succeeds the open-sourced LongCat-2.0 (June 2026) and adds a claimed
+  image-understanding path. Distinct model ID from `LongCat-2.0`.
+- **Provider / access:** Meituan LongCat API Platform —
+  `https://api.longcat.chat/openai/v1/chat/completions` (OpenAI-compatible) and
+  `https://api.longcat.chat/anthropic/v1/messages` (Anthropic-compatible); also
+  LongCat Chat. Via OpenCode Zen: `opencode/longcat-2.5-preview-free` on
+  `https://opencode.ai/zen/v1/chat/completions` (OpenAI-compatible / Chat Completions).
+- **Release / knowledge:** 2026-09-25 (LongCat API platform changelog entry
+  "Version: 2026-09-25 — LongCat-2.5-Preview Now Available"; Zen/models.dev release
+  date 2026-09-25). No knowledge cutoff published.
+- **IDs:** `LongCat-2.5-Preview` (vendor), `opencode/longcat-2.5-preview-free` (Zen
+  free tier — a free ID does exist on Zen; note the folder's `meta.json` still carries
+  the unverified placeholder id `opencode/longcat_2.5_preview`).
+- **Context window:** 1,048,576 tokens total (vendor "Retrieve Model" schema example:
+  `context_length: 1048576`); max output 131,072 tokens (Zen/models.dev catalogue).
+  Verified from the vendor API reference and the Zen catalogue — not from a measured
+  retrieval benchmark (none exists yet).
+- **Modalities:** Vendor changelog claims new image understanding (cross-modal Q&A,
+  content summarization, complex visual reasoning), but the vendor's own
+  "Retrieve Model" example returns `input_modalities: ["text"]`,
+  `output_modalities: ["text"]`, `modality: "text->text"` for `LongCat-2.5-Preview`.
+  The prose and the API schema disagree; treat vision as unverified for 2.5.
+  Reasoning: yes (`thinking` is a supported parameter, exposed as a toggle with an
+  interleaved `reasoning_content` field). Tool calls: yes (`tools`, `tool_choice`
+  supported). JSON mode: not documented.
+- **Pricing (as of 2026-09-27):** Free on OpenCode Zen — input, output and cached read
+  all $0, and the Zen free list states the provider follows a zero-retention policy and
+  does not use your data for model training. Direct vendor pay-as-you-go, labelled
+  "Discounted Price (limited-time)": $0.30 per 1M uncached input, $0.006 per 1M cached
+  input, $1.20 per 1M output (¥2 / ¥0.04 / ¥8). No end date published for the discount
+  or the Zen free window; "available on OpenCode for a limited time" only.
+- **Architecture:** proprietary / closed weights for 2.5 (LongCat-2.0 was MIT
+  open-sourced in June 2026; no 2.5 repository exists in the meituan-longcat Hugging
+  Face org, whose newest repo is LongCat-Flash-Lite-Sparse from 2026-07-31). Scale
+  figures of ~1.6T total parameters with ~48B active per token on a sparse MoE
+  backbone come from Meituan site metadata and Chinese trade coverage of the launch,
+  not from a vendor model card.
+
+## Raw benchmarks found
+
+Every row: **no verified public score found** for `LongCat-2.5-Preview`.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score
+  found — as of 2026-09-27 there is no LongCat-2.5-Preview page on Artificial
+  Analysis and no BenchLM entry
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported — the 1M window is a spec, not a measured
+  RULER / MRCR / GraphWalks result. No recall number exists for this model.
+
+Search coverage used (2026-09-27): LongCat API docs pricing page, LongCat changelog,
+LongCat "Retrieve Model" API reference, OpenCode Zen docs (model + pricing + privacy
+tables), and dated launch coverage from orcarouter.ai, eyestech.in, cocoloop and a
+Japanese technical write-up. All four independent write-ups state explicitly that no
+vendor or third-party benchmark exists for 2.5 and that any circulating "LongCat-2.5"
+score is either another LongCat model or invented.
+
+### Closest available reference — DIFFERENT MODEL, NOT SCORED, NOT A PROXY CLAIM
+
+LongCat-2.0 (open-sourced 2026-06, MIT) has an in-house evaluation table on
+`github.com/meituan-longcat/LongCat-2.0`: Terminal-Bench 2.1 70.8, SWE-bench Pro 59.5,
+SWE-bench Multilingual 77.3, FORTE 73.2, BrowseComp 79.9, RWSearch 78.8, IFEval 90.0,
+Writing Bench 83.8, IMO-AnswerBench 81.8, GPQA-diamond 88.9. These are **2.0** numbers
+under Meituan's unified in-house harness (competitor figures marked `*` are cited from
+the competitor's own report). They describe a different model ID and are recorded here
+only so a later revision does not re-derive them; they are provisional for 2.5 and are
+explicitly **not** used as a stand-in for it.
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: the `Overall Score` needs the mean of the five quality
+dims, and every one of those dims would rest on invented numbers. Nothing is written
+here on purpose — the free Zen window is the only honest way to produce a real table
+for this model.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-27
+- Method: public internet research (vendor API docs + changelog, OpenCode Zen
+  catalogue, dated third-party launch coverage). No scored values; scores inside are
+  ignored by `pnpm sync`.
+- Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same
+  headings.

@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
 - Average from top 3 by Overall Score: Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Mimo v2.6 Flash, Space Bunny Alpha.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, GLM 5.3 Flash, Mimo v2.6 Flash, Space Bunny Alpha.
