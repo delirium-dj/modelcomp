@@ -23,7 +23,7 @@ line. Do not hardcode any model name in this file.
    - `Your_Display = STEM` with `_` -> space (e.g. `Grok_4.6` -> `Grok 4.6`).
 3. Your output path is always `model/<slug>/<Your_Filename>` — except for
    voice/speech models (`RULES.md` routing rule), which go under
-   `voicemodels/<slug>/<Your_Filename>`. Never write any other filename.
+   `models_voice/<slug>/<Your_Filename>`. Never write any other filename.
 4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Use your own canonical ID as you know it; do not invent a publisher.
 
 ---
@@ -38,12 +38,12 @@ Your delegator file sets AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
 Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
 Follow tasks/research.md exactly:
-1. Audit EVERY directory under model/ and voicemodels/ (including empty folders or folders
+1. Audit EVERY directory under model/ and models_voice/ (including empty folders or folders
    without average.md / meta.json / src/data/models.ts references).
 2. Your queue = folders missing <parent>/<slug>/<STEM>.md, sorted by the
    "- **Overall Score:" line of each <parent>/<slug>/average.md descending
    (missing average.md = last, A-Z). Newly discovered slugs append at end
-   (voice/speech discoveries go under voicemodels/ per RULES.md).
+   (voice/speech discoveries go under models_voice/ per RULES.md).
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write <parent>/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete.
@@ -55,9 +55,9 @@ Follow tasks/research.md exactly:
 
 ### Step 1: Directory audit + ordering
 
-- Scan all subdirectories in `model/` and `voicemodels/` (e.g. `model/big-pickle/`, `voicemodels/gpt-realtime-2/`).
+- Scan all subdirectories in `model/` and `models_voice/` (e.g. `model/big-pickle/`, `models_voice/gpt-realtime-2/`).
 - Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
-- For each `<parent>/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (write new voice findings under `voicemodels/` per `RULES.md`; never re-route an existing folder).
+- For each `<parent>/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
 - Missing list = queue base. Order it:
   1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
   2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
@@ -69,13 +69,13 @@ Follow tasks/research.md exactly:
 
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
-  no folder under `model/` or `voicemodels/`:
+  no folder under `model/` or `models_voice/`:
   1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
       `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
       folder first — `pnpm sync` fails hyphen variants loudly).
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), the
-      parent is `voicemodels/<slug>/`, not `model/<slug>/` — check both trees
+      parent is `models_voice/<slug>/`, not `model/<slug>/` — check both trees
       for an existing folder first.
   3. Create `<parent>/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   4. Append `<parent>/<slug>` to the END of your queue (after all ranked folders), in discovery order.

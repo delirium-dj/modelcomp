@@ -1,0 +1,72 @@
+# LongCat-2.5-Preview — findings by Muse Spark 1.3
+
+- Source: Meituan/LongCat-2.5-Preview (`LongCat-2.5-Preview`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan sparse mixture-of-experts frontier preview (~1.6T total / ~48B active) with 1M context and new native image understanding. Positioned for long-horizon agentic work across terminals, browsers, GUIs, spreadsheets, and design tools.
+- **Provider / access:** Meituan LongCat API platform (OpenAI-compatible and Anthropic-compatible endpoints) and LongCat Chat; OpenCode catalogue lists a LongCat 2.5 Preview Free route (free for a limited time, zero retention). Chat Completions and Messages APIs.
+- **Release / knowledge:** 2026-09-25 vendor changelog entry ("LongCat-2.5-Preview Now Available"); knowledge cutoff unknown — no verified cutoff found.
+- **IDs:** `LongCat-2.5-Preview` (vendor API ID; OpenCode free-route Zen ID pattern not independently verified in fetched sources)
+- **Context window:** 1,048,576 total (1M) with 131,072 max output per OpenCode catalogue metadata; vendor quick-start lists 1M context with 128K max output — verified via listings/docs only, not via capability measurement.
+- **Modalities:** Text in/out; image in (native image understanding for cross-modal Q&A, summarisation, visual reasoning); reasoning toggle yes (`thinking` on/off with interleaved `reasoning_content` field); tool calls yes; no audio/video input or non-text output found.
+- **Pricing (as of 2026-09-27):** Vendor pay-as-you-go $0.30 per 1M uncached input, $0.006 per 1M cached input, $1.20 per 1M output (listed as limited-time discounted rate); OpenCode free with no request cap for a limited window (end date unannounced); vendor promo of 5M tokens for previously verified users per community report.
+- **Architecture:** Sparse MoE, ~1.6T total parameters with ~48B active per token, per vendor site metadata and Chinese trade coverage 2026-09-26; no technical report, model card, or weights published; not open-weights.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: deeper search on 2026-09-27 found zero verified public benchmark numbers for this exact model ID. Every row below is "no verified public score found". Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (orcarouter 2026-09-26: "no benchmark of any kind anywhere"; eyestech 2026-09-26: "no 2.5-specific benchmark table")
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- OSWorld / WebArena / computer-use: **no verified public score found** (target environments named by vendor without a measured end-to-end success rate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (OpenCode data compare shows neutral 50/100 placeholders with "No data" notes — not measured numbers)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (vendor "coding performance" claim without numbers; compatibility with Claude Code/Hermes/OpenClaw/OpenCode/Kilo Code is integration guidance, not a benchmark)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; 1M context and 131K max output are listing ceilings only (orcarouter 2026-09-26: "a benchmark number" exists for none; long-context recall unmeasured vs Gemini 3.1 Pro 82% baseline cited in comparisons).
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. No verified numbers exist, so no normalized dims are assigned (scores inside `.excluded` files are ignored by sync). Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — 1M/131K listing ceilings only, no measured retention.
+- **Multimodal:** not scored — image input per changelog only, no measured vision benchmark.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — free-window and discount pricing noted, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-27
+- Method: public internet research (Meituan changelog 2026-09-25 via IT之家/NetEase and NodeLoc reposts, AnyRouter model page, orcarouter free-window and Gemini-comparison posts 2026-09-26, eyestech launch analysis 2026-09-26, theresanaiforthat model page, OpenCode data-compare LongCat-2.5-Preview vs LongCat-2.0 placeholders); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

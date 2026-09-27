@@ -1,5 +1,17 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — self-exclusion ×2 (Gemini_2.5_Flash_Lite batch stamps)
+
+1. `model/claude-mythos-5.1/` + `model/claude-opus-5/Gemini_2.5_Flash_Lite.md` (both untracked, byte-identical 5,183 B — same stamp in two folders): zero usable benchmarks, Overall a prose disclaimer. Renamed both to `.md.excluded` (content preserved, sync SKIP). Pattern note: the Gemini_2.5_Flash_Lite run is stamping this evidence-free report across folders (3rd + 4th instance after google-gemini-2.5-flash-lite) — its delegator needs the self-exclusion nudge if it continues.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-27 — decouple agent source registrations into sources.generated.ts
+
+1. **Decoupled code generation from handwritten code:** Created `src/data/sources.generated.ts` (emitted by `scripts/sync-data.mjs`), which holds `type SourceKey`, `interface SourceDef`, and the `SOURCE_DEFS` array.
+2. **`src/data/models.ts` is now 100% immutable:** Removed in-place regex replacement from `scripts/sync-data.mjs`. `models.ts` simply imports `SOURCE_DEFS`, `SourceKey`, and `SourceDef` from `sources.generated.ts`. Auto-registration now appends new agents to `sources.generated.ts` instead of rewriting handwritten TS code.
+3. **Docs updated:** `README.md`, `model/README.md`, `.agents/rules.md`, and `tasks/sync-data.md` updated to document the new `sources.generated.ts` architecture.
+
+
 ## 2026-09-25 — voice/speech routing rule implemented
 
 1. `RULES.md`: new absolute rule — voice/speech-core models live under `voicemodels/<slug>/`, never `model/<slug>/`; justifies the `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0` relocations. Same permanence + conventions, only the parent differs. Notes `voicemodels/` sync/site wiring as pending.
