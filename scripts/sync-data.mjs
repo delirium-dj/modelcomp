@@ -36,6 +36,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const modelDir = join(root, "model");
 const modelsTsPath = join(root, "src", "data", "models.ts");
 
+const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
+
 const LABELS = [
   "Tool use",
   "Reasoning",
@@ -167,9 +169,10 @@ for (const slug of slugs) {
 // Findings-file stem -> rating-model slug, via the SOURCE_DEFS registry plus
 // AGENT_MODEL_SLUG (exact match first, case-insensitive fallback for legacy
 // registry casing drift). Stems with no tracked model never qualify.
+const sourcesTsGate = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
 const modelsTsGate = readFileSync(modelsTsPath, "utf8");
 const stemKey = new Map(); // stem -> SourceKey (registered only)
-for (const m of modelsTsGate.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
+for (const m of sourcesTsGate.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
   stemKey.set(m[2].replace(/\.md$/, ""), m[1]);
 }
 const agentSlug = new Map(); // SourceKey -> model slug
@@ -413,25 +416,25 @@ for (const slug of slugs) {
 }
 
 // ---- registry: every on-disk stem needs a SourceKey + SOURCES entry ----
-let ts = readFileSync(modelsTsPath, "utf8");
+let sourcesTs = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
 const keyOf = (stem) => stem.replace(/_/g, " ");
 const registered = new Set(
-  [...ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[2].replace(/\.md$/, "")),
+  [...sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[2].replace(/\.md$/, "")),
 );
 const missing = [...presentStems].filter((stem) => stem !== "average" && !registered.has(stem)).sort();
 const registeredFiles = new Set(
-  [...ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[1]),
+  [...sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[1]),
 );
 // New sources are appended to the registry; the dropdown order itself is derived
 // at build time (Average first, rest by max overall desc), so registry position
 // is irrelevant to the UI.
 const unionMembers = new Set(
-  [...(ts.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
+  [...(sourcesTs.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
 );
 const pending = [];
 for (const stem of missing) {
   const key = keyOf(stem);
-  const inSources = ts.includes(`key: "${key}"`);
+  const inSources = sourcesTs.includes(`key: "${key}"`);
   const inUnion = unionMembers.has(key);
   if (inSources) {
     // Key registered under a different filename -> genuine collision, human must decide.
@@ -443,27 +446,22 @@ for (const stem of missing) {
   pending.push({ key, stem, needUnion: !inUnion });
 }
 if (pending.length > 0) {
-  // NOTE: [^[]* (with star) skips the ": { key: ... }[] = " type annotation up to
-  // the array's opening bracket. A missing star here silently breaks matching.
   const unionRe = /(export type SourceKey =[\s\S]*?);/;
-  // NOTE: SOURCE_DEFS is module-local (no `export` keyword) — the derived
-  // `SOURCES` const is the exported one. Matching `export const` here silently
-  // breaks registration (as happened once already).
-  const arrRe = /(const SOURCE_DEFS[^[]*\[[\s\S]*?)\n\];/;
-  const um = ts.match(unionRe);
-  const am = ts.match(arrRe);
+  const arrRe = /(export const SOURCE_DEFS:[^[]*\[[\s\S]*?)\n\];/;
+  const um = sourcesTs.match(unionRe);
+  const am = sourcesTs.match(arrRe);
   if (!um || !am) {
-    fail("could not locate SourceKey union / SOURCE_DEFS registry in src/data/models.ts — register manually");
+    fail("could not locate SourceKey union / SOURCE_DEFS registry in src/data/sources.generated.ts — register manually");
   } else {
     const needUnion = pending.filter((p) => p.needUnion);
     if (needUnion.length > 0) {
-      ts = ts.replace(unionRe, `${um[1]}${needUnion.map((p) => `\n  | "${p.key}"`).join("")};`);
+      sourcesTs = sourcesTs.replace(unionRe, `${um[1]}${needUnion.map((p) => `\n  | "${p.key}"`).join("")};`);
     }
-    ts = ts.replace(
+    sourcesTs = sourcesTs.replace(
       arrRe,
       `${am[1]}${pending.map((p) => `\n  { key: "${p.key}", label: "${p.key}", file: "${p.stem}.md" },`).join("")}\n];`,
     );
-    writeFileSync(modelsTsPath, ts);
+    writeFileSync(sourcesTsPath, sourcesTs);
     for (const p of pending) {
       log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
     }
@@ -471,7 +469,7 @@ if (pending.length > 0) {
 }
 
 // Stale keys (registered but no file anywhere) are non-blocking info logs.
-for (const entry of ts.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
+for (const entry of sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
   const [, key, file] = entry;
   if (file === "average.md") continue;
   if (!presentStems.has(file.replace(/\.md$/, ""))) {

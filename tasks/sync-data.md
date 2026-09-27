@@ -45,8 +45,8 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
     `FALLBACK` and labeled in Agreement notes) — crown rule in `RULES.md`:
     every folder gets an average. Rewrites stale files,
     reports which ones.
-4. Registers any new reporting-agent filename in `src/data/models.ts`
-   (`SourceKey` + `SOURCES`, appended last). Per-model wiring needs no edits:
+4. Registers any new reporting-agent filename in `src/data/sources.generated.ts`
+   (`SourceKey` + `SOURCE_DEFS`, appended last; `src/data/models.ts` imports them directly). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
    so report prose never ships in the client bundle), and `meta.json` files
    are auto-discovered via `import.meta.glob` at build time.
