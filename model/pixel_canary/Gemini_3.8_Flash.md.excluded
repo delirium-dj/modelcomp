@@ -1,0 +1,55 @@
+# Pixel Canary — findings by Gemini 3.8 Flash
+
+- Source: Stealth / Command Code (`stealth/pixel-canary`)
+- Date: 2026-09-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Pixel Canary
+- **Short description:** Anonymous stealth coding and frontend development model released on Command Code and developer routing networks, optimized for rapid web and mobile UI synthesis.
+- **Provider / access:** Command Code (`stealth/pixel-canary`), OpenRouter stealth routes.
+- **Release / knowledge:** 2026-09-25 release; knowledge cutoff mid-2026.
+- **IDs:** `stealth/pixel-canary`. Free tier ($0.00 / 1M) during active preview period.
+- **Context window:** 262,144 tokens total (262K context window).
+- **Modalities:** Text and image input; text, code, and structured output.
+- **Pricing (as of 2026-09):** Free ($0.00 / 1M prompt, completion, and cache reads) during stealth preview.
+- **Architecture:** Unannounced proprietary coding architecture specialized for web and mobile application development.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of September 26, 2026, Pixel Canary is an unmeasured stealth preview released on September 25, 2026. Command Code and independent benchmark indices list both Intelligence Index and Coding Index as "not yet scored", with zero public standardized measurements reported across SWE-bench Verified, LiveCodeBench, or GPQA Diamond.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- Artificial Analysis Intelligence Index: not yet scored
+
+Coding:
+
+- Coding Index: not yet scored
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- 262K token context window supported across web coding tasks.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-26 UTC
+- Method: Public internet research into Command Code platform listings and stealth route telemetry; self-excluded per template guidelines due to zero verified public benchmark measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

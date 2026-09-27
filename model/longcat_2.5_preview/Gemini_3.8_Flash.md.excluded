@@ -1,0 +1,56 @@
+# LongCat 2.5 Preview — findings by Gemini 3.8 Flash
+
+- Source: Meituan / LongCat (`meituan/longcat-2.5-preview`)
+- Date: 2026-09-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's sparse mixture-of-experts frontier foundation model (~1.6T total parameters with ~48B active) featuring a 1M token context window, native image understanding, interleaved reasoning traces, and free availability on OpenCode Zen.
+- **Provider / access:** Meituan LongCat API (`meituan/longcat-2.5-preview`), OpenCode Zen Free tier, and AnyRouter.
+- **Release / knowledge:** 2026-09-25 release; knowledge cutoff mid-2026.
+- **IDs:** `meituan/longcat-2.5-preview`. Free tier available on OpenCode Zen.
+- **Context window:** 1,048,576 tokens total (1M context window); max output 131,072 tokens.
+- **Modalities:** Text and image input; text, code, structured output, and tool-calling output; interleaved reasoning toggle.
+- **Pricing (as of 2026-09):** Free ($0.00) on OpenCode Zen; list price on Meituan platform ~$0.30 / 1M input, $1.20 / 1M output.
+- **Architecture:** ~1.6T parameter sparse MoE (~48B active parameters per token) with native multimodal cross-attention.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of September 26, 2026, LongCat 2.5 Preview is a brand-new preview release (launched Sep 25, 2026). Meituan has published no official standardized benchmark cards, and independent evaluators (evals.report, Artificial Analysis) have not yet completed standardized evaluation runs on SWE-bench Verified, LiveCodeBench, or GPQA Diamond for this exact checkpoint.
+
+Agent / tool use:
+
+- Terminal-Bench / Tau-bench: no verified public score found
+- GDPval: no verified public score found
+
+Reasoning / knowledge:
+
+- Interleaved reasoning toggle supported inline.
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- 1,048,576 tokens context window with 131,072 max output tokens.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-26 UTC
+- Method: Public internet research into Meituan release notes, OpenCode Zen endpoints, and routing platforms; self-excluded per template guidelines due to zero verified public benchmark measurements for this preview checkpoint.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
