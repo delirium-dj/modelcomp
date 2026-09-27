@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3.
 - Average from top 1 by Overall Score: Kimi K3.
-- Ignored below-gate rater(s): Big Pickle, Mimo v2.6 Flash.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Mimo v2.6 Flash.

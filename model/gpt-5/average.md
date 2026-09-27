@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash.
 - Average from top 1 by Overall Score: Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Big Pickle, Mimo v2.6 Flash.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Mimo v2.6 Flash.
