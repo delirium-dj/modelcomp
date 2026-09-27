@@ -12,6 +12,9 @@ reports, and the website stay consistent.
 - `models_voice/<slug>/` — voice/speech models only (`RULES.md` routing rule:
   realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
   as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.
+- `models_finance/<slug>/` — finance models only (user-directed relocation,
+  e.g. Ling 3.0 Flash Fin). Same conventions; sync/site wiring pending like
+  `models_voice/`.
 - `src/` — Qwik City app (`routes/`, `components/`, `data/models.ts`).
 - `PRD/prd.md` — product requirements (tooltips, layout).
 - `model-comparison.md` — overview table + methodology (per-model details live in `model/`).

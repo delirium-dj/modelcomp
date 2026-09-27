@@ -1,5 +1,18 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — tripwire learns sanctioned relocations (12 Ling FAILs → INFO)
+
+1. The 12 FAILs were all relocated content with live counterparts under `models_finance/` (6 Ling stubs + 6 ling-folder stubs) — the tripwire only knew HEAD-vs-disk. It now also exempts a missing `model/` path whose same relative path exists under `models_voice/` or `models_finance/` (INFO "relocated, pending commit"). True deletions (no twin sibling, no mirror counterpart) still FAIL.
+2. Dry-run of the exact new logic: 1,811 present, 116 info-exempt, **0 fails**. `RULES.md` enforcement note updated.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-25 — Ling 3.0 Flash Fin relocated to models_finance/ (full retirement)
+
+1. Moved `model/ling-3.0-flash-fin-free/` → `models_finance/ling-3.0-flash-fin-free/` (whole folder) + 89 scattered `Ling_3.0_Flash_Fin.md` + 6 `.excluded` into mirror `models_finance/<slug>/` dirs (90 slug dirs total) + delegator `tasks/Ling_3.0_Flash_Fin.md` → `models_finance/` root (exact filename). `model/` is Ling-free (verified 0 remaining).
+2. Frontend removal: deleted the `SourceKey` union line + `SOURCE_DEFS` entry in `src/data/sources.generated.ts` (one-time hand-edit; sync only appends, so the removal persists) + `AGENT_MODEL_SLUG` line in `src/data/models.ts`. Remaining `scores.generated.ts` Ling entries vanish on next sync regen. No other `src/` references exist.
+3. Impact as previewed: Ling's 58.5 sits below the gate, so averages barely move; Ling rows + dropdown option + model page disappear. `models_finance/` sync/site wiring pending (same as `models_voice/`); ~120 unstaged deletions will tripwire-fail until committed.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — self-exclusion ×2 (Gemini_2.5_Flash_Lite batch stamps)
 
 1. `model/claude-mythos-5.1/` + `model/claude-opus-5/Gemini_2.5_Flash_Lite.md` (both untracked, byte-identical 5,183 B — same stamp in two folders): zero usable benchmarks, Overall a prose disclaimer. Renamed both to `.md.excluded` (content preserved, sync SKIP). Pattern note: the Gemini_2.5_Flash_Lite run is stamping this evidence-free report across folders (3rd + 4th instance after google-gemini-2.5-flash-lite) — its delegator needs the self-exclusion nudge if it continues.

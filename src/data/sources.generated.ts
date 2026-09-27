@@ -5,7 +5,6 @@ export type SourceKey =
   | "average"
   | "big-pickle"
   | "Muse Spark 1.3"
-  | "Ling 3.0 Flash Fin"
   | "Gemini 3.5 Flash Lite"
   | "Gemini 3.6 Flash"
   | "GLM 5.3 Flash"
@@ -72,7 +71,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "average", label: "Average", file: "average.md" },
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md" },
   { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md" },
-  { key: "Ling 3.0 Flash Fin", label: "Ling 3.0 Flash Fin", file: "Ling_3.0_Flash_Fin.md" },
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md" },

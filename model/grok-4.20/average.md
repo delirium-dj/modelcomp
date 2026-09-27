@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 5, Gemini 3.6 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.3.
 - Average from top 5 by Overall Score: Claude Sonnet 5, Gemini 3.6 Flash, Gemini 3.8 Flash, Kimi K3, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, Claude Fable 5.1, DeepSeek 4.1 Flash, Gemini 2.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, GPT 5, GPT 5.6 Luna, GPT 5.6 Sol, Grok 4, Grok 4.3, Ling 3.0 Flash Fin, Mimo v2.6 Flash, Space Bunny Alpha.
+- Ignored below-gate rater(s): Big Pickle, Claude Fable 5.1, DeepSeek 4.1 Flash, Gemini 2.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, GPT 5, GPT 5.6 Luna, GPT 5.6 Sol, Grok 4, Grok 4.3, Mimo v2.6 Flash, Space Bunny Alpha.

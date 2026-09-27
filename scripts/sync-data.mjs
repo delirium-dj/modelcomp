@@ -88,8 +88,16 @@ log(`sync-data: ${slugs.length} model folders`);
 // ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
 // Any git-tracked findings file (model/**/*.md / *.md.excluded, except the
 // regenerable average.md + README.md) missing from disk is a forbidden
-// deletion. FAIL loudly so it can never be cemented silently (a failing run
-// also skips rewriting scores.generated.ts and exits non-zero).
+// deletion — unless it survives somewhere sanctioned. FAIL loudly so a real
+// deletion can never be cemented silently (a failing run also skips rewriting
+// scores.generated.ts and exits non-zero).
+// Sanctioned survivals (INFO, never FAIL):
+//   - twin retirement: <.md.excluded> gone but its fresh <.md> sibling exists
+//     (tasks/research.md Step 3.3);
+//   - relocation: the same relative path exists under a sanctioned mirror tree
+//     (user-directed moves, e.g. models_voice/, models_finance/) — content
+//     preserved, pending commit.
+const MIRROR_ROOTS = ["models_voice", "models_finance"];
 try {
   const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model"], { cwd: root });
   for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
@@ -99,18 +107,23 @@ try {
     const diskPath = join(root, ...posix.split("/"));
     if (existsSync(diskPath)) continue;
     if (posix.includes(".md.excluded")) {
-      // Sanctioned twin retirement (tasks/research.md Step 3.3): the agent
-      // wrote a fresh evidence-backed <.md> and its own <.md.excluded> twin
-      // went. Only a twin with NO fresh sibling on disk is a real deletion.
       const sibling = diskPath.replace(/\.md\.excluded$/, ".md");
       if (existsSync(sibling)) {
         log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
         continue;
       }
+    }
+    const parts = posix.split("/");
+    if (parts[0] === "model") {
+      const mirror = MIRROR_ROOTS.find((m) => existsSync(join(root, m, ...parts.slice(1))));
+      if (mirror !== undefined) {
+        log(`  INFO  ${posix}: relocated to ${mirror}/${parts.slice(1).join("/")} (pending commit)`);
+        continue;
+      }
+    }
     fail(
       `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
     );
-    }
   }
 } catch {
   log("  WARN  git HEAD unreadable — deletion tripwire skipped (treat run as untrusted)");
