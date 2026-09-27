@@ -1,0 +1,58 @@
+# Grok Voice Think Fast 2.0 — findings by GLM 5.3 Flash
+
+> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
+> numbers were found for this exact model/ID, so no scored `.md` was saved
+> (template SELF-EXCLUSION; `RULES.md` permanence). Scores inside are ignored
+> by `pnpm sync`. Voice/speech model — filed under `voicemodels/` per `RULES.md`.
+
+- Source: xAI (`grok-voice-think-fast-2.0`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok Voice Think Fast 2.0
+- **Short description:** xAI's Speech-to-Speech voice model from the Grok Voice API family — "think fast" naming suggests low-latency speech-to-speech reasoning for voice-assistant I/O. Verified to exist in xAI's official docs pricing table (fetched 2026-09-27).
+- **Provider / access:** xAI Grok Voice API, Speech-to-Speech mode (`grok-voice-think-fast-2.0`).
+- **Release / knowledge:** release date not stated in fetched sources.
+- **IDs:** `xai/grok-voice-think-fast-2.0` (no Free ID exists on Zen)
+- **Context window:** no verified public figure found.
+- **Modalities:** speech-to-speech (audio in/out) with text input accepted; companion Grok Voice API modes: Speech to Text (REST/streaming) and Text to Speech.
+- **Pricing (as of 2026-09-27):** Speech to Speech $0.08 / min ($4.80 / hr) plus $0.004 / text input; Speech to Text $0.10 / hr (REST) or $0.20 / hr (Streaming); Text to Speech $15.00 / 1M chars (xAI docs Voice Pricing table, fetched 2026-09-27). Paid only.
+- **Architecture:** proprietary; speech-to-speech voice model.
+
+### Raw benchmarks found
+
+> Research performed 2026-09-27: xAI docs (verified pricing above; no specs or benchmarks for the voice model), Bing search (no benchmark results for "grok-voice-think-fast").
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> Not scored — self-exclusion. Zero verified public benchmark numbers for this
+> exact model/ID; never invent placeholder values. Verified pricing and
+> modality facts are recorded above for future scoring once benchmark
+> evidence exists.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
+- Method: public internet research (xAI docs + Bing, fetched 2026-09-27); verified pricing only, zero verified benchmarks — negative findings only, not counted as a scored source.
+- Future sources: replace this exclusion with a scored `.md` next to this one once verified benchmark evidence exists, using the same headings.

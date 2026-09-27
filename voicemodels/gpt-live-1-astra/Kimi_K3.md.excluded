@@ -1,0 +1,22 @@
+# GPT Live 1 Astra — findings by Kimi K3 (SELF-EXCLUDED: no verified public data)
+
+- Source: not identifiable (no publisher found)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative-findings notes
+
+Re-researched from scratch on 2026-09-27. Searched the public web for `gpt-live-1-astra`, `gpt live 1 astra`, and OpenAI realtime/live voice model variants:
+
+- **Zero search results** for the exact slug on DuckDuckGo web search (2026-09-27).
+- No OpenAI newsroom post, docs page, or model listing references this ID. OpenAI's realtime voice line (verified during the same session) is `gpt-realtime` → `gpt-realtime-2` (Nov 2025) → `gpt-realtime-2.1` / `2.1-mini` (2026-07-06), plus minute-metered companions `GPT-Realtime-Translate` / `GPT-Realtime-Whisper`; no "Live" or "Astra" product exists on that surface. ("Astra" nomenclature belongs to Google's Project Astra / Gemini Live line, not OpenAI.)
+- No benchmark page (BenchLM, Artificial Analysis, llm-stats) lists this model.
+- No Zen/model listing evidence found for an `astra` realtime ID.
+
+**Conclusion:** zero verified public benchmark numbers — and no verifiable evidence the model exists at all under this name. Per RULES.md / research.md self-exclusion, no scored `.md` is written. All template score rows would read `no verified public score found`.
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
+- Method: public internet research (DuckDuckGo web search, OpenAI community/docs cross-check); negative result, nothing scored.

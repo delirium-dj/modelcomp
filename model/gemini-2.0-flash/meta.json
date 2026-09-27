@@ -1,0 +1,10 @@
+{
+  "id": "google/gemini-2.0-flash",
+  "name": "Gemini 2.0 Flash",
+  "short": "Google's 2025 workhorse multimodal model with a 1M context window. Deprecated and shut down on 2026-06-01; kept as a historical reference for the 2.0 generation.",
+  "contextWindow": "1M total",
+  "modalities": "Text, image, audio, video in / text, image out; native tool use",
+  "pricingNote": "Shut down 2026-06-01. Historical Google AI Studio price $0.10/$0.40 per 1M (audio in $0.70); Vertex AI $0.15/$0.60",
+  "pricingTiers": ["Historical Google AI Studio $0.10/$0.40 per 1M", "Historical Vertex AI $0.15/$0.60 per 1M"],
+  "noFreeId": true
+}

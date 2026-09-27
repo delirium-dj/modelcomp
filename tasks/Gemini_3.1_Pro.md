@@ -6,6 +6,12 @@ Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.m
 
 > GEMINI-ONLY: this STEM belongs to a Gemini model. Before any other step, read `.agents/gemini-rate-limits.md` in full and obey it for the entire task (tool call in EVERY turn; never stop until the queue is empty or the user revokes it; resume-safe — skip folders already containing your file).
 
+> DEEP-RESEARCH PROTOCOL (binding — past reports under this STEM were too thin):
+> 1. Exhaust this checklist per folder BEFORE writing anything: (a) vendor model card + tech report; (b) Artificial Analysis model page (Intelligence Index, Elo, benchmark tabs); (c) task leaderboards matching the claim (SWE-bench / LiveCodeBench for coding, Terminal-Bench / TauBench for tool use, GPQA / HLE reports for reasoning, Vibe-Code / SciCode where relevant); (d) one aggregator (BenchLM, WaitWhichModel, Vals-style) for remaining gaps.
+> 2. A "no verified public score found" row is allowed ONLY after checking 2+ independent places — name them inline, e.g. `no verified public score found (checked AA, SWE-bench Verified board)`.
+> 3. Floor: fewer than 5 measured benchmark numbers after the full checklist → save `<STEM>.md.excluded` (honest self-exclusion), never a thin `.md` padded with not-founds. Thin is worse than absent: `pnpm sync` quarantines evidence-free files and the record stays weak forever.
+> 4. Existing `<STEM>.md` files are never rewritten (no-overwrite rule) — this protocol binds all new folders going forward.
+
 Effective orders (already resolved, do not re-derive):
 
 1. Your file is exactly `model/<slug>/<STEM>.md` (exact case-sensitive value from STEM line). Never write any other filename.

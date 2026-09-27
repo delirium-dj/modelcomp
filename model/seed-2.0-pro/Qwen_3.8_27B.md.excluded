@@ -1,0 +1,74 @@
+# ByteDance Seed 2.0 Pro — findings by Qwen 3.8 27B
+
+- Source: ByteDance (Seed team) — Seed-2.0-pro
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per template + `tasks/research.md` rule 9): zero verified public
+> benchmark numbers found for this exact model. No scored `.md` is written.
+> Verified specs are recorded below; all benchmark rows read "no verified public
+> score found".
+
+## Model card
+
+- **Name:** Seed 2.0 Pro (ByteDance)
+- **Short description:** ByteDance's proprietary "agent-era" flagship general model of the Seed 2.0 generation: complex reasoning, long-horizon multi-step planning, visual-text reasoning, hour-long video understanding, and tool-augmented execution (per vendor/DeepInfra model card).
+- **Provider / access:** DeepInfra `deepinfra/ByteDance/Seed-2.0-pro` (repo-registered; partner model). Not on current OpenCode Zen; not tracked on Artificial Analysis.
+- **Release / knowledge:** Seed 2.0 generation (2025/2026 lineage per AA family entries Seed-2.0-Lite/Mini, Seed 2.1 Pro/Turbo); exact release date for 2.0 Pro not verified here; knowledge cutoff not publicly stated.
+- **IDs:** `deepinfra/ByteDance/Seed-2.0-pro` (no Zen ID; no Free ID).
+- **Context window:** 256,000 tokens (DeepInfra model card; repo meta adds 65K max output).
+- **Modalities:** Text, image, video in; text out (DeepInfra "Multimodal"; vision input quality tiers low/high/xhigh; repo meta lists 256K/65K out).
+- **Pricing (as of 2026-09-27):** $0.50 in / $3.00 out / $0.10 cached per 1M on DeepInfra (partner model).
+- **Architecture:** Proprietary; parameter count not disclosed. Vendor claims: enterprise-grade agent orchestration, agentized coding, improved instruction following, upgraded multimodal/long-video/real-time video-stream understanding.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- AA-Briefcase / GDPval-AA / AutomationBench-AA / Terminal-Bench 4.0: no verified public score found (model not tracked on Artificial Analysis)
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (no `seed-2-0-pro` entry on the AA LLM leaderboard; AA tracks Seed 1.6 / Seed-2.0-Lite / Seed-2.0-Mini / Seed 2.1 Pro / Seed 2.1 Turbo)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 256K context window confirmed via DeepInfra card; no long-context retrieval (MRCR/RULER/GraphWalks) reported.
+
+### Verification steps performed (2026-09-27)
+
+1. Artificial Analysis: `https://artificialanalysis.ai/models/seed-2-0-pro` → 404; leaderboard contains no Seed 2.0 Pro entry.
+2. DeepInfra model page `deepinfra.com/ByteDance/Seed-2.0-pro` → verified specs + pricing + capability description (above).
+3. LMArena leaderboard (agent + overall, top-10 views) → no Seed 2.0 Pro entry found.
+4. Hugging Face ByteDance org → no Seed 2.0 Pro model card (proprietary).
+
+### Disposition
+
+- Repo `meta.json` notes "strong math/visual-reasoning capabilities" (curated claim, not a benchmark number). If a public benchmark table (vendor release page, Volcano Engine docs, or an independent eval) surfaces for Seed 2.0 Pro specifically, a scored `Qwen_3.8_27B.md` can replace this exclusion on a future re-research pass.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-09-27
+- Method: public internet research (DeepInfra model page, Artificial Analysis, LMArena, Hugging Face); no verified public benchmarks exist for this exact model, so no scores are recorded.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

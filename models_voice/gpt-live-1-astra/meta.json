@@ -1,0 +1,10 @@
+{
+  "id": "openai/gpt-live-1-astra",
+  "name": "GPT-Live-1 (Astra, medium)",
+  "short": "OpenAI's full-duplex speech-to-speech model with GPT-6 Astra (medium) as the delegated reasoning backend. Built for tool-heavy spoken customer support, where turn-taking quality matters as much as task completion.",
+  "contextWindow": "128K tokens per Live session",
+  "modalities": "Audio + text in / audio + text out; image and video unsupported; tool calls; reasoning delegated to backend",
+  "pricingNote": "$0.05 per minute of voice session ($3.00/hour), billed per second; backend model and tools billed separately",
+  "pricingTiers": ["Voice layer $0.05/min", "Backend model billed separately at its own rates"],
+  "noFreeId": true
+}

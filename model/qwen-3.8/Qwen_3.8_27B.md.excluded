@@ -1,32 +1,34 @@
 # Qwen 3.8 — findings by Qwen 3.8 27B
 
-- Source: (unresolved — no verified vendor ID found for the bare "Qwen 3.8" slug)
+- Source: Alibaba/Qwen ("Qwen 3.8", registry ID `opencode/qwen-3.8`)
 - Date: 2026-09-27 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## SELF-EXCLUSION NOTE
-
-Zero verified public benchmark numbers were found for this exact model/ID, so this file is
-saved as `Qwen_3.8_27B.md.excluded` (notes only, never counted) per the template's
-SELF-EXCLUSION rule and `RULES.md`. No placeholder scores are assigned.
+> SELF-EXCLUSION (per template + `tasks/research.md` rule 9): zero verified public
+> benchmarks found for a standalone "Qwen 3.8" model / ID `opencode/qwen-3.8`.
+> No scored `.md` is written. This file records the negative-findings evidence.
 
 ## Model card
 
-- **Name:** Qwen 3.8
-- **Short description:** Repo entry for a "Qwen 3.8" evaluation slot; stub metadata (128K total, text in/out, "Standard pricing") with no verified vendor model card. The Qwen 3.8 family does exist publicly (e.g. Qwen3.8-Max, 2026-09-02), but no standalone bare "Qwen 3.8" model card or benchmark page could be verified.
-- **Provider / access:** No verified host or API ID found (repo meta lists `opencode/qwen-3.8`).
-- **Release / knowledge:** No verified public release date found.
-- **IDs:** No verified ID found (repo meta: `opencode/qwen-3.8`).
-- **Context window:** No verified public value found (repo meta: 128K total).
-- **Modalities:** No verified public matrix found (repo meta: text in/out).
-- **Pricing (as of 2026-09-27):** No verified public pricing found (repo meta: "Standard pricing").
-- **Architecture:** No verified public architecture found.
+- **Name:** Qwen 3.8 (as registered in this repo; no standalone public release identified)
+- **Short description:** Repo registry entry (`meta.json`: "Qwen 3.8 model evaluation entry.", 128K total context, text in/out, "Standard pricing"). No matching standalone model found on any current registry as of 2026-09-27.
+- **Provider / access:** No current OpenCode Zen ID found (`opencode/qwen-3.8` not in the Zen model table; Zen's Qwen entries are `qwen3.8-max`, `qwen3.8-flash`, `qwen3.7-max`, `qwen3.7-plus`, `qwen3.6-plus`, `qwen3.5-plus`).
+- **Release / knowledge:** No standalone release date found.
+- **IDs:** `opencode/qwen-3.8` (repo-registered; no Free ID, no Zen listing, no models.dev entry found).
+- **Context window:** Repo meta says 128K total (unverified against any public source).
+- **Modalities:** Repo meta says text in/out (unverified).
+- **Pricing (as of 2026-09-27):** Repo meta says "Standard pricing" (no public price found for this ID).
+- **Architecture:** Unknown — no public model card for a standalone "Qwen 3.8" found.
 
 ### Raw benchmarks found
 
+> Negative findings — the exact model/ID `opencode/qwen-3.8` ("Qwen 3.8") has no
+> verified public benchmark numbers. All rows: **no verified public score found.**
+
 Agent / tool use:
 
+- AA-Briefcase / GDPval-AA / AutomationBench-AA / Terminal-Bench 4.0: no verified public score found
 - Terminal-Bench 2.1: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
 - GDPval-AA: no verified public score found
@@ -39,7 +41,7 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (no standalone "Qwen3.8" entry on the AA LLM leaderboard; AA tracks only Qwen3.8 variants: `qwen3-8-max`, `qwen3-8-2-4t-a95b`, `qwen3-8-flash-next`, `qwen3-8-27b`, `qwen3-8-omni-flash`)
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
@@ -52,20 +54,30 @@ Coding:
 
 Long context:
 
-- no long-context retrieval reported
+- No long-context retrieval reported for a standalone "Qwen 3.8".
 
-### Normalized scores (1–100)
+### Verification steps performed (2026-09-27)
 
-- Not scored (self-excluded: zero verified public benchmarks found on 2026-09-27).
+1. Artificial Analysis LLM leaderboard — no standalone `qwen3-8` slug; only Qwen3.8 variants (Max / 2.4T A95B / Flash-Next / 27B / Omni-Flash).
+2. models.dev `providers/opencode/models` listing — no `qwen-3.8.toml` / `qwen3-8.toml` (Qwen entries: `qwen3-coder`, `qwen3.5-plus`, `qwen3.6-plus(-free)`, `qwen3.8-flash`, `qwen3.8-max`).
+3. OpenCode Zen docs (verified 2026-09-26 page) — no `qwen-3.8` model ID in the current Zen table or pricing table.
+4. OpenRouter Qwen provider page — no plain `qwen/qwen3.8` (family entries only: qwen3.8-2.4t-a95b, qwen3.8-27b, qwen3.8-flash, qwen3.8-max, qwen3.8-max-0902, qwen3.8-max-prime, qwen3.8-omni-flash).
+5. Hugging Face API search `Qwen3.8` — official Qwen org releases are only `Qwen/Qwen3.8-27B` (2026-08-05, Apache-2.0, image-text-to-text) and `Qwen/Qwen3.8-Flash-Next` (2026-08-24); all other hits are community quants/fine-tunes of those two.
+6. Qwen blog (qwen.ai/research and qwenlm.github.io) — not server-side rendered / stale; no standalone "Qwen 3.8" release post found.
 
-Searched: Artificial Analysis model pages (`/models/qwen-3-8`, `/models/qwen3-8` — 404),
-OpenRouter (`/qwen/qwen3.8` — 404). If a distinct bare "Qwen 3.8" model card is published,
-re-research can replace this excluded twin.
+### Disposition
+
+- The repo's `qwen-3.8` entry appears to be a stale/placeholder registry record: the
+  underlying public models of the Qwen3.8 generation each have their own tracked
+  folders in this repo (`qwen3.8-max/`, `qwen-3.8-27b/`, `qwen-3.8-flash/`).
+- If a genuine standalone "Qwen 3.8" (e.g. a DashScope API alias) surfaces with
+  public benchmarks, a scored `Qwen_3.8_27B.md` can replace this exclusion on a
+  future re-research pass.
 
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-09-27
-- Method: public internet research (Artificial Analysis, OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (Artificial Analysis, models.dev, OpenCode Zen docs, OpenRouter, Hugging Face API); no verified public benchmarks exist for this exact model/ID, so no scores are recorded.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

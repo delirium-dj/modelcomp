@@ -1,0 +1,29 @@
+# LongCat 2.5 Preview — findings by Kimi K3 (SELF-EXCLUDED: no verified public benchmark numbers)
+
+- Source: Meituan (`longcat-2.5-preview`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative-findings notes (researched fresh, 2026-09-27)
+
+**What exists (verified, non-benchmark facts):**
+
+- Model: LongCat 2.5 Preview, Meituan — live on the LongCat API Platform (explainx.ai, 2026-09-26/27 update).
+- Specs: ~1.6T total parameters (MoE family, successor of LongCat 2.0's 1.6T/48B-active design), **~48B active**, **1M-token context**, image understanding (explainx update; cloudprice.net, blackbox/vercel gateway listings).
+- Pricing: limited-time **$0.30 / $1.20 per 1M** uncached input/output, cached input **$0.006** (list rates $0.75 / $0.015 / $2.95); 5M-token grant to existing verified users (longcat.chat pricing page via explainx).
+- Integrations: Claude Code, Hermes, OpenClaw, OpenCode, Kilo Code per Meituan messaging.
+- Positioning: agent-first — long-horizon execution, tool use, multi-step planning.
+
+**What does NOT exist (the reason for exclusion):**
+
+- **Zero verified public benchmark numbers for `longcat-2.5-preview`.** explainx.ai explicitly reports Meituan "has not yet published a full technical report with independently verifiable benchmark numbers at the time of writing" (article dated 2026-09-26, updated 2026-09-27).
+- Targeted search for SWE-bench / Terminal-Bench / GPQA results for this exact model returned no scores — only LongCat **2.0's** launch table (different model; Terminal-Bench, SWE-bench Pro, FORTE, BrowseComp, GPQA-diamond numbers from June 2026 must NOT be carried over).
+- No BenchLM / Artificial Analysis / independent-eval entry for the Preview.
+
+**Conclusion:** every template benchmark row would read `no verified public score found` → per RULES.md / research.md self-exclusion, this file is saved as `.excluded` (notes only, scores ignored). Revisit when Meituan's technical report or an independent evaluation lands.
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
+- Method: public internet research (explainx.ai LongCat 2.5 analysis + spec/pricing update, cloudprice.net, Vercel/Blackbox gateway listings); negative benchmark result, nothing scored.

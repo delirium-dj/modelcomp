@@ -9,7 +9,7 @@
 
 - **Name:** Grok 4.1
 - **Short description:** xAI's frontier model focused on real-world usability — creative, emotional, and collaborative interactions — while retaining Grok 4's reasoning. Ships in Thinking (code name `quasarflux`) and non-reasoning (`tensor`) modes.
-- **Provider / access:** grok.com, X, iOS/Android apps; xAI API (`grok-4.1` / `grok-4.1-<date>` aliases per xAI docs model-alias convention). Chat Completions and Responses API; note Grok 4.20+ drops `logprobs` support.
+- **Provider / access:** grok.com, X, iOS/Android apps; xAI API (`grok-4.1` or the dated release alias — per xAI docs model-alias convention, `modelname-date` refers to a specific release). Chat Completions and Responses API; note Grok 4.20+ drops `logprobs` support.
 - **Release / knowledge:** 2025-11-17 release (after a silent rollout Nov 1–14, 2025); knowledge cutoff not stated in fetched sources (xAI's current docs give Grok 4.7 a May 2026 cutoff).
 - **IDs:** `xai/grok-4.1` (Thinking and non-reasoning modes; no Free ID exists on Zen)
 - **Context window:** 256K total tokens (same generation tier as Grok 4; current xAI docs list 500K only from grok-4.5 onward — say how verified: xAI docs pricing table tiers).

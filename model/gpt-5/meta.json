@@ -1,0 +1,10 @@
+{
+  "id": "opencode/gpt-5",
+  "name": "GPT-5",
+  "short": "OpenAI's August 2025 flagship: a router system pairing a fast model with a deeper reasoning model. Set launch records in math and coding, then was superseded by GPT-5.1 and later.",
+  "contextWindow": "400K total (128K max output)",
+  "modalities": "Text, image, file in / text out; reasoning; tool calls",
+  "pricingNote": "Paid: OpenAI $1.25/$10 per 1M (cached $0.125); OpenCode Zen $1.07/$8.50",
+  "pricingTiers": ["OpenAI $1.25/$10 per 1M", "OpenCode Zen $1.07/$8.50 per 1M"],
+  "noFreeId": true
+}
