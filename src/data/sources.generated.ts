@@ -19,7 +19,6 @@ export type SourceKey =
   | "Gemini 3.8 Flash"
   | "Grok 4.6"
   | "Gemini 3.7 Flash"
-  | "Gemini 3.1 Pro"
   | "Laguna S 2.1"
   | "GLM 5.2 Coding"
   | "Mimo v2.6 Flash"
@@ -87,7 +86,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3.8 Flash", label: "Gemini 3.8 Flash", file: "Gemini_3.8_Flash.md" },
   { key: "Grok 4.6", label: "Grok 4.6", file: "Grok_4.6.md" },
   { key: "Gemini 3.7 Flash", label: "Gemini 3.7 Flash", file: "Gemini_3.7_Flash.md" },
-  { key: "Gemini 3.1 Pro", label: "Gemini 3.1 Pro", file: "Gemini_3.1_Pro.md" },
   { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md" },
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md" },
   { key: "Mimo v2.6 Flash", label: "MiMo V2.6 Flash", file: "Mimo_v2.6_Flash.md" },

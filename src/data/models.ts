@@ -265,7 +265,6 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Gemini 3.8 Flash": "gemini-3.8-flash",
   "Grok 4.6": "grok-4.6",
   "Gemini 3.7 Flash": "gemini-3.7-flash",
-  "Gemini 3.1 Pro": "gemini-3.1-pro",
   "Laguna S 2.1": "laguna-s-2.1",
   "Mimo v2.6 Flash": "mimo-v2.6-free",
   "Mimo v2.5 Free": "mimo-v2.5-free",
