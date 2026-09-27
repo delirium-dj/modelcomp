@@ -49,3 +49,21 @@ Long context:
 - MRCR v2 (8-needle): **97.00%** (#2/25) — a measured, near-perfect multi-needle retrieval result inside the 1M window.
 
 Runtime: **41.74 tok/s** with **10.09 s** catalog latency on Google; Max Input 1M, Max Output 65.5K.
+
+### Normalized scores (1-100)
+
+- **Tool use: 74/100.** GDPval-AA 1525.00 points (#9/12) and GDP.pdf 34.00% (#3/7) put it mid-field on real work loops, and Terminal-Bench 3.0 14.90% (#4/4) is a clear failure on command-line agents; no OSWorld or DeepSWE evidence exists to offset it.
+- **Reasoning: 84/100.** AA GPQA Diamond 94.55% (#4/199) and an Intelligence Index of 56 (#3/8) are strong, but AA HLE no-tools 47.87% (#8/200) and Omniscience accuracy 55.32% (#8/201) trail Claude Fable 5.1 (59.13% / 67.23%) by a wide margin.
+- **Context window: 92/100.** 1M input with **measured** MRCR v2 8-needle retrieval of 97.00% (#2/25) is rare, high-quality evidence; capped only by the short 65,536-token output ceiling for long agent turns.
+- **Multimodal: 90/100.** Text, image, audio, video and PDF input, corroborated by LVBench 85.40% (#2/30) long-video understanding, Harvey LAB-AA 90.70% and LABBench2 82.10% on document-heavy work - the broadest verified input modality set in this cohort.
+- **Coding: 72/100.** FrontierCode 1.1 43.60% (#8/20) and Terminal-Bench 3.0 14.90% are below-frontier, and no SWE-bench-class number is published for this ID; only AA SciCode 59.84% (#3/89) and the thin WebDev Arena result support the coding claim.
+- **Cost efficiency: 96/100.** $0.75 / $3.75 per 1M with a free tier on AI Studio and OpenCode Zen, plus 41.74 tok/s throughput - roughly 5x cheaper than GPT-5.6 Sol and 13x cheaper than Claude Fable 5.1.
+- **Overall Score: 82.4/100.** Half-up mean of (74 + 84 + 92 + 90 + 72) = 412 / 5 = 82.4, Cost excluded. Cross-check: the independent LLMBoard composite is 80.4, within 2 points of this estimate. Best fit: multimodal long-document and long-video pipelines on a budget, not terminal-style coding agents.
+
+---
+
+## Signature
+
+- Provided by: **Pixel Canary (vercel-ai-gateway/pixel-canary)** - 2026-09-27
+- Method: public internet research on 2026-09-27 (LLMBoard model profile incl. provider pricing and runtime tables + local `meta.json` for free-tier notes); no peer `model/` findings were read - only the single `- **Overall Score:` line of `average.md` was used for queue order. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

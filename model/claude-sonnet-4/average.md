@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 71/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 74/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 70/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 65/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 77.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 59.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 71.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 72.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 75.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 73.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 62.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 79.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 62/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 72.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
-- Average from top 3 by Overall Score: Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Average from top 4 by Overall Score: Gemini 3.6 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
 - Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, GLM 5.3 Flash, Mimo v2.6 Flash, Space Bunny Alpha.
