@@ -269,7 +269,6 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Mimo v2.6 Flash": "mimo-v2.6-free",
   "Mimo v2.5 Free": "mimo-v2.5-free",
   "Muse Spark 1.2": "muse-spark-1.2-free",
-  "Gemini 3.1 Flash Lite": "gemini-3.1-flash-lite",
   "Claude Sonnet 5": "claude-sonnet-5",
   "GPT 5.6 Luna": "gpt-5.6-luna",
   "GPT 6 Sol": "gpt-6-sol",

@@ -30,7 +30,6 @@ export type SourceKey =
   | "multi"
   | "Mimo v2.5 Free"
   | "Muse Spark 1.2"
-  | "Gemini 3.1 Flash Lite"
   | "Claude Sonnet 4.5"
   | "Claude Sonnet 5"
   | "GPT 5.6 Luna"
@@ -97,7 +96,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "multi", label: "Multi", file: "average.md" },
   { key: "Mimo v2.5 Free", label: "MiMo V2.5 Free", file: "Mimo_v2.5_Free.md" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md" },
-  { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md" },
   { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md" },
   { key: "GPT 5.6 Luna", label: "GPT 5.6 Luna", file: "GPT_5.6_Luna.md" },

@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — Gemini 3.1 Flash Lite retired as researcher (user-directed exception)
+
+1. Same playbook as the 3.1 Pro retirement: removed identity + all 70 research files — 62 `Gemini_3.1_Flash_Lite.md` + 6 `.excluded` from `model/`, 2 mirror `.md` (voice/finance), delegator `tasks/Gemini_3.1_Flash_Lite.md`. Verified 0 remaining anywhere. One-time user-directed exception, recoverable from git history.
+2. Registry: union line + `SOURCE_DEFS` entry + `AGENT_MODEL_SLUG` line dropped. Kept `model/gemini-3.1-flash-lite/` (22 files — other agents' work stays; average recomputes).
+3. Commit in PowerShell form (bash `VAR=1 cmd` does NOT work in PowerShell — lesson from the Pro retirement): set `$env:ALLOW_MODEL_DELETE="1"`, commit, then clear it.
+   Next: stage precisely, commit, then `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — 84 Glimmer FAILs are the uncommitted retirement (no action in code)
 
 1. Verified: all 84 tripwire FAILs are `Gemini_3.1_Pro` paths from the user-ordered retirement; zero non-Glimmer deletions on disk. The tripwire is pressuring the commit, exactly as designed — no script change made or needed.
