@@ -1,0 +1,143 @@
+# LongCat-2.5-Preview — findings by Space Bunny Alpha (SELF-EXCLUDED: no verified public benchmarks)
+
+> **Why this file is `.excluded`:** as of 2026-09-27 I found **zero verified public
+> benchmark numbers** for `LongCat-2.5-Preview`. Meituan's own launch materials and
+> changelog contain no 2.5-specific benchmark table, and no independent evaluator
+> (Artificial Analysis, BenchLM, LLM Stats, SWE-bench, long-cat.org) has published a
+> row for it. Per the template's SELF-EXCLUSION rule and `RULES.md`, this file carries
+> notes only — **no scores are asserted and nothing below is counted toward any
+> average.** The model shipped two days before this review, which is the likely reason.
+
+- Source: Meituan (`LongCat-2.5-Preview`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (facts only — verified, no scores)
+
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan's (LongCat) multimodal preview model for long-horizon
+  agent work, released 2026-09-25 as the successor to LongCat-2.0. It keeps 2.0's
+  advertised scale and context and adds **image understanding**; it is a *preview*
+  build, so expect model-ID or behavior changes. Distinct model from LongCat-2.0 — do
+  not read 2.0's scores onto it.
+- **Provider / access:** LongCat API platform (`https://longcat.ai/platform/`), model ID
+  `LongCat-2.5-Preview`. Both an **OpenAI-compatible Chat Completions** endpoint and an
+  **Anthropic-compatible Messages** endpoint are documented; a `thinking` toggle is
+  exposed on the chat endpoint. Documented integrations include Claude Code, Codex,
+  OpenCode, Cline, Kilo Code, OpenClaw, CatPaw, Cherry Studio, Chatbox and Hermes Agent.
+- **Release / knowledge:** released 2026-09-25 (LongCat API platform changelog,
+  version 2026-09-25). Knowledge cutoff not documented.
+- **IDs:** `LongCat-2.5-Preview` (Meituan first-party); canonical third-party ID
+  `meituan/longcat-2.5-preview` (models.dev). On OpenCode Zen and OpenCode Go it is
+  served as **`meituan/longcat-2.5-preview-free`** at **$0.00 / $0.00** (models.dev,
+  both providers) — i.e. a free Zen/Go ID does exist, unlike several paid-only models in
+  this dataset.
+- **Context window:** **1,000,000 tokens** context, **128K (131,072) max output**
+  (LongCat API quick start; models.dev lists the same 1,000,000 / 131,072 pair).
+- **Modalities:** text + **image in**, text out; `thinking` reasoning toggle yes; native
+  tool calling yes; temperature control exposed. **Caveat worth recording:** the
+  published chat-completions reference still describes `content` as a plain-text string
+  and shows no image payload, so the image path is documented in the changelog but not
+  yet in the API reference (documentation gap, not evidence the capability is absent).
+  No audio or video input; no non-text output.
+- **Pricing (as of 2026-09-27):** Meituan first-party, per 1M tokens —
+  standard $0.75 uncached input / $0.015 cached / $2.95 output;
+  **limited-time promotional $0.30 / $0.006 / $1.20**. The promo rate is identical to
+  MiniMax M3's list price, not uniquely cheap. Plus **$0.00/$0.00** on OpenCode Zen/Go
+  via the `-free` ID. Meituan also granted **5M free tokens to existing users** at
+  launch. Free tiers carry the usual training-data-consent and time-limited caveats.
+- **Architecture:** proprietary for 2.5 — **1.6T total / ~48B active** MoE (the same
+  scale figures Meituan published for LongCat-2.0, so the 2.5 launch is *not* a
+  parameter-count or context-length jump). No 2.5 weights published on Hugging Face;
+  LongCat-2.0 was open-weighted, and that status must not be assumed for 2.5.
+
+### Raw benchmarks found
+
+> Every row below reads "no verified public score found". That is the finding.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+  (no BenchLM model page exists; `benchlm.ai/models/longcat-2-5-preview` 404s)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval reported.** The 1M window is a documented *limit* with no
+  MRCR / RULER / GraphWalks measurement at any window length.
+
+### Negative-findings notes (what I checked, and what each source actually says)
+
+- **Meituan first-party changelog, version 2026-09-25** ("LongCat-2.5-Preview Now
+  Available") lists three qualitative claims — multimodal understanding, "superior
+  coding capability", and deep compatibility with mainstream dev environments — and
+  **no numbers at all**. Notably, Meituan's own 2026-06-30 LongCat-2.0 entry was also
+  number-free, so the house style is qualitative; absence here is not evidence of weak
+  capability.
+- **Meituan launch post (X, 2026-09-25)** advertises 1.6T / ~48B active / 1M context /
+  natively multimodal and nothing benchmark-shaped.
+- **orcarouter.ai (2026-09-26)**, comparing 2.5-Preview against Qwen3.8-Max, DeepSeek V4
+  Pro and MiniMax M3, states plainly that Meituan shipped "a changelog entry, a rate
+  card, and **no benchmark of any kind**", and its comparisons rest on price and
+  documented specs only.
+- **eyestech.in (2026-09-26)** confirms the launch post and the 2026-09-25 changelog
+  "do not provide a 2.5-specific benchmark table or a reproducible, multi-application
+  agent evaluation", and frames stronger-coding / long-horizon claims as "the vendor's
+  positioning".
+- **models.dev** lists the model with full specs and providers but carries no benchmark
+  fields; it confirms the 1,000,000 context, 131,072 output limit, closed weights,
+  tools/reasoning/temperature capabilities, release date 2026-09-25, and the two
+  OpenCode `-free` rows at $0.00/$0.00.
+- **BenchLM** has no page for this model at all.
+- **LongCat-2.0 numbers exist and must not be borrowed.** LongCat-2.0 has published rows
+  (SWE-bench Pro 59.5, GPQA Diamond 88.9, Terminal-Bench 2.1 70.8, SWE-bench
+  Multilingual 77.3, BrowseComp 79.9, IFEval 90.0, FORTE 73.2). The 2.5 changelog
+  describes coding/agent capability in the same words the 2.0 entry used, and Eyestech
+  explicitly warns that the identical 1.6T/48B/1M figures mean 2.5 is not a scale jump.
+  Scoring 2.5-Preview on 2.0's numbers would be fabricating a delta, so it is not done
+  here. If Meituan ships a 2.5 table, or an independent evaluator times the model, the
+  scored `.md` should be written then.
+
+### Normalized scores (1–100)
+
+- **Not scored.** No verified public benchmark exists for `LongCat-2.5-Preview` as of
+  2026-09-27, so per the template's SELF-EXCLUSION rule no Tool use / Reasoning /
+  Context window / Multimodal / Coding / Cost efficiency / Overall numbers are asserted
+  here. Writing placeholder scores would drag the mean for every reader, which is
+  exactly what the rule exists to prevent.
+- The two things that *are* verified and worth carrying forward: the **1M context /
+  128K output** pair and the **$0.00/$0.00 OpenCode Zen/Go `-free` tier** — both are
+  hard specs, but neither is a capability measurement, so neither can lift an Overall.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
+- Method: public internet research (Meituan LongCat API platform changelog, quick-start
+  and pricing docs, Meituan launch announcement, models.dev model record, orcarouter.ai
+  and eyestech.in launch analyses, BenchLM model directory). Scores would be normalized
+  1–100 interpretations; **none are asserted in this file.**
+- Future sources: if verified 2.5-Preview benchmarks appear, add a scored file next to
+  this one, e.g. `LongCat_2_5_Recheck.md`, using the same headings.
