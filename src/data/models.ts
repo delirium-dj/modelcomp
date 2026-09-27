@@ -283,6 +283,7 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Muse Glimmer 30B": "muse-glimmer-30b",
   "Laguna XS 2.1": "laguna-xs-2.1",
   "Claude Sonnet 4.5": "claude-sonnet-4.5",
+  "LongCat 2.5 Preview": "longcat_2.5_preview",
 };
 
 /**

@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — LongCat 2.5 Preview rows link to model page
+
+1. Cause of the "wrong redirection": `LongCat 2.5 Preview` is a registered source with ~10 reports but had no `AGENT_MODEL_SLUG` entry, so table rows fell back to the homepage source view (`/?source=…` with top-3 slots) instead of the model page. Added `"LongCat 2.5 Preview": "longcat_2.5_preview"` — the folder has meta + average and is in the generated bundle, so `/model/longcat_2.5_preview/` exists. Side note: folder uses underscores (`longcat_2.5_preview`) — legal per slug rules, left as-is; also spotted a second delegator `tasks/LongCat_2.5_Preview_2.md` worth a glance.
+   Next: `pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — tripwire learns sanctioned relocations (12 Ling FAILs → INFO)
 
 1. The 12 FAILs were all relocated content with live counterparts under `models_finance/` (6 Ling stubs + 6 ling-folder stubs) — the tripwire only knew HEAD-vs-disk. It now also exempts a missing `model/` path whose same relative path exists under `models_voice/` or `models_finance/` (INFO "relocated, pending commit"). True deletions (no twin sibling, no mirror counterpart) still FAIL.
