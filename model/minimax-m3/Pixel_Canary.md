@@ -44,3 +44,20 @@ Long context:
 - LOCA-Bench (256K): **49.30%** ⚠(#1/1) — the only long-context measurement, and at 256K rather than the advertised 1M; no MRCR / RULER / GraphWalks row.
 
 Runtime: **66.89 tok/s** with **2.17 s** catalog latency on MiniMax's own endpoint (1M in / 524.3K out).
+
+### Normalized scores (1–100)
+
+- **Tool use: 55/100.** Niche rows are decent (SpreadSheetBench-v1 89.35% #1/4, BankerToolBench 76.12%, GDPval-Rubrics 74.78%) but every frontier agentic row is missing (Terminal-Bench, GDPval-AA, OSWorld, MCP Atlas, Toolathlon, tau-bench).
+- **Reasoning: 60/100.** OmniDocBench 1.5 91.60% (#1/20) is a genuine field result; capped by absent GPQA/HLE rows and tiny-field IMO/USAMO attempts.
+- **Context window: 90/100.** 1M in / 524.3K max out verified across hosts; capped because the only measured retrieval is LOCA-Bench 49.30% at 256K, not the advertised 1M.
+- **Multimodal: 70/100.** Image + video in, text-only out; no audio input, no generation.
+- **Coding: 55/100.** All coding rows single-participant with a back-half composite; no SWE-bench Verified / LiveCodeBench; vendor-claimed 59% SWE-Pro and 66% TB 2.1 unverified in the tracker.
+- **Cost efficiency: 95/100.** $0.30 / $1.20 official (floor $0.225 / $0.90) — near-cheapest tier, MIT self-hostable.
+- **Overall Score: 66/100.** Half-up mean of (55 + 60 + 90 + 70 + 55) = 330 / 5 = 66.0. Best fit: price-driven long-context and multimodal workloads where single-participant caveats are acceptable; verify against deep-field coding benches before production coding use.
+
+---
+
+## Signature
+
+- Provided by: **Pixel Canary (vercel-ai-gateway/pixel-canary)** — 2026-09-27
+- Method: public internet research (LLMBoard model profile); scores are normalized 1–100 interpretations, not official vendor scores. Normalized-scores section completed by orchestrator from the agent's raw-evidence table to unblock the sync parser — every number above is traceable to a cited row.

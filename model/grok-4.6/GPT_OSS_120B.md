@@ -33,12 +33,13 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use:** 82 / 100 – strong tool‑use and terminal execution; limited by occasional step‑trajectory failures.
-- **Reasoning:** 86 / 100 – high MMLU‑Pro and GPQA scores; capped by edge‑case logical traps.
-- **Context window:** 95 / 100 – massive 2 M token window with reliable retrieval.
-- **Multimodal:** 72 / 100 – good visual comprehension and OCR; output is text‑only.
-- **Coding:** 84 / 100 – excellent LiveCodeBench and SWE‑bench performance.
-- **Overall Score:** 84 / 100 – half‑up mean of the five non‑cost dimensions (82+86+95+72+84)/5 ≈ 84.
+- **Tool use: 82/100.** Strong tool-use and terminal execution; limited by occasional step-trajectory failures.
+- **Reasoning: 86/100.** High MMLU-Pro and GPQA scores; capped by edge-case logical traps.
+- **Context window: 95/100.** Massive 2M token window with reliable retrieval.
+- **Multimodal: 72/100.** Good visual comprehension and OCR; output is text-only.
+- **Coding: 84/100.** Excellent LiveCodeBench and SWE-bench performance.
+- **Cost efficiency: 80/100.** Paid flagship at $2.00/$6.00 per 1M ($0.50 cached input) — below Opus-tier flagship pricing.
+- **Overall Score: 84/100.** Half-up mean of the five non-cost dimensions (82+86+95+72+84)/5 = 83.8 → 84.
 
 ---
 

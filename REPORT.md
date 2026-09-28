@@ -1,14 +1,15 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-25 — models_finance/ trimmed to the Ling model folder
+## 2026-09-25 — mojibake scores + missing Cost (grok-4.6/GPT_OSS_120B)
 
-1. Per user order (mirror dirs are duplicates — per-model info comes from `model/`): deleted all 89 mirror `models_finance/<slug>/` dirs (89 reports + 6 stubs) plus Ling's own `Ling_3.0_Flash_Fin.md` inside the ling folder. `models_finance/` now holds only `ling-3.0-flash-fin-free/` (21 files of other agents' work) + the root delegator (kept as retirement record — say the word if it should go too).
-2. Recovery note: all deleted content matches committed blobs under the old `model/` paths (`git show HEAD:model/<slug>/Ling_3.0_Flash_Fin.md`), so nothing is unrecoverable despite being untracked at deletion time.
+1. The restored file was committed with corrupted score lines (`82 / 100` with non-breaking spaces, en-dash separators, `≈` in Overall) plus no Cost line at all. Normalized all 5 dims to the `- **Label: N/100.` contract, added `Cost efficiency: 80/100` (paid flagship $2/$6, below Opus-tier pricing; Cost never affects Overall), cleaned the Overall line (83.8 → 84, drift 0.2). Numbers preserved, verified ALL-PASS. This file is a candidate for the proposed score-line format normalizer in sync.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
 
-## 2026-09-25 — duplicate gemini-3.8-live removed from model/ (voice wins)
+## 2026-09-25 — restored 2 true deletions + completed Pixel draft (minimax-m3)
 
-1. `model/gemini-3.8-live/` had been re-created (committed) alongside `models_voice/gemini-3.8-live/`. Diffed file-by-file: 20/21 shared files identical, averages numerically equal (71.5; only the ignored-rater prose differs), voice copy is the superset (+ `Ling_3.0_Flash_Fin.md`). Deleted the `model/` copy — zero research lost. 21 unstaged deletions will tripwire-fail until committed.
-2. `models_finance/` mirror dirs are NOT duplicates: spot-checked dirs hold only relocated Ling files (nothing else), and `model/` holds no Ling files. Left untouched by design.
+1. `model/gemini-1.5-pro/GPT_5.6_Terra.md` and `model/grok-4.6/GPT_OSS_120B.md`: tracked files missing with no mirror counterparts — true deletions, restored via `git restore --source=HEAD`.
+2. `model/minimax-m3/Pixel_Canary.md` (untracked draft): rich raw-evidence table but no Normalized scores section at all — the agent never finished. Completed normalization from its own cited rows (55/60/90/70/55/95, Overall exact 66.0), signature kept in the agent's convention with the method line disclosing orchestrator completion. Verified ALL-PASS.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
 
 ## 2026-09-25 — Gemini 3.1 Flash Lite retired as researcher (user-directed exception)
 
