@@ -1,13 +1,16 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import { MODELS, virtualDimFor } from "../data/models";
+import { DIMENSIONS, MODELS, virtualDimFor } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
 
 interface ModelCardsProps {
   source: SourceKey;
 }
 
+type ModelsView = "cards" | "list";
+
 export const ModelCards = component$<ModelCardsProps>(({ source }) => {
   const displayCount = useSignal(9);
+  const view = useSignal<ModelsView>("cards");
   // Virtual sort views mirror average scores but rank by one dimension (tiebreak Overall).
   const sortDim = virtualDimFor(source);
   const isVirtualView = sortDim !== undefined;
@@ -24,9 +27,41 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
 
   return (
     <section id="models" aria-labelledby="models-heading" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">
-      <h2 id="models-heading" class="text-2xl font-bold tracking-tight text-slate-900 transition-colors dark:text-white md:text-3xl">
-        All models
-      </h2>
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <h2 id="models-heading" class="text-2xl font-bold tracking-tight text-slate-900 transition-colors dark:text-white md:text-3xl">
+          All models
+        </h2>
+        <div class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-1 text-sm dark:border-slate-800 dark:bg-slate-900" role="group" aria-label="All models view">
+          <button
+            type="button"
+            aria-pressed={view.value === "cards"}
+            onClick$={() => {
+              view.value = "cards";
+            }}
+            class={`rounded-md px-3 py-1.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+              view.value === "cards"
+                ? "bg-white text-indigo-700 shadow-sm dark:bg-slate-800 dark:text-indigo-300"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+            }`}
+          >
+            Cards
+          </button>
+          <button
+            type="button"
+            aria-pressed={view.value === "list"}
+            onClick$={() => {
+              view.value = "list";
+            }}
+            class={`rounded-md px-3 py-1.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+              view.value === "list"
+                ? "bg-white text-indigo-700 shadow-sm dark:bg-slate-800 dark:text-indigo-300"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+            }`}
+          >
+            List
+          </button>
+        </div>
+      </div>
       <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
         Every entry below comes from the same data file that powers the chart, showing the currently
         selected results source. To list a new model everywhere, add a
@@ -34,6 +69,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
         with findings plus <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">meta.json</code> and
         run <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">pnpm sync</code>.
       </p>
+      {view.value === "cards" ? (
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {visibleModels.map((m) => (
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900">
@@ -85,6 +121,150 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
           </article>
         ))}
       </div>
+      ) : (
+      <>
+        <div class="mt-6 hidden overflow-x-auto md:block">
+          <table class="w-full min-w-[880px] table-fixed border-collapse text-sm">
+            <colgroup>
+              <col class="w-[180px]" />
+              {DIMENSIONS.map((d) => (
+                <col key={d.key} />
+              ))}
+              <col />
+              <col class="w-[140px]" />
+              <col class="w-[180px]" />
+            </colgroup>
+            <caption class="mb-2 text-left font-semibold text-slate-800 dark:text-slate-200">
+              Exact scores for all models
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                  Model
+                </th>
+                {DIMENSIONS.map((d) => (
+                  <th
+                    key={d.key}
+                    scope="col"
+                    title={`${d.label} — ${d.description}`}
+                    class="cursor-help border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                  >
+                    {d.short}
+                  </th>
+                ))}
+                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                  Overall
+                </th>
+                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                  Context window
+                </th>
+                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                  Pricing / 1M
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleModels.map((m) => (
+                <tr key={m.id} class="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <th scope="row" class="break-words px-3 py-2 text-left font-medium text-slate-700 dark:text-slate-300">
+                    <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+                      {m.name}
+                    </a>
+                    {!m.meta.noFreeId ? (
+                      <span
+                        class="ml-1.5 cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
+                        title={m.meta.freeTierNote ?? m.meta.pricingNote}
+                      >
+                        Free
+                      </span>
+                    ) : (
+                      <span class="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle transition-colors dark:bg-amber-950/80 dark:text-amber-300">
+                        Paid
+                      </span>
+                    )}
+                  </th>
+                  {DIMENSIONS.map((d) => (
+                    <td key={d.key} class="break-words px-3 py-2 text-slate-800 dark:text-slate-200">
+                      {m.scores[d.key]}
+                    </td>
+                  ))}
+                  <td class="break-words px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">
+                    {m.scores.overall}
+                  </td>
+                  <td class="break-words px-3 py-2 text-slate-800 dark:text-slate-200">{m.meta.contextWindow}</td>
+                  <td class="break-words px-3 py-2 align-top text-slate-800 dark:text-slate-200">
+                    <ul class="m-0 list-none space-y-0.5 p-0">
+                      {(m.meta.pricingTiers ?? [m.meta.pricingNote]).map((tier) => (
+                        <li key={tier}>{tier}</li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-6 space-y-4 md:hidden" aria-label="Exact scores for all models">
+          {visibleModels.map((m) => (
+            <article
+              key={m.id}
+              class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900"
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="flex-1 text-sm font-semibold text-slate-800 dark:text-slate-200">
+                  <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+                    {m.name}
+                  </a>
+                </h3>
+                <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  Overall {m.scores.overall}
+                </span>
+                {!m.meta.noFreeId ? (
+                  <span
+                    class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
+                    title={m.meta.freeTierNote ?? m.meta.pricingNote}
+                  >
+                    Free
+                  </span>
+                ) : (
+                  <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 transition-colors dark:bg-amber-950/80 dark:text-amber-300">
+                    Paid
+                  </span>
+                )}
+              </div>
+              <dl class="mt-3 divide-y divide-slate-100 text-sm dark:divide-slate-800">
+                {DIMENSIONS.map((d) => (
+                  <div key={d.key} class="flex items-baseline justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                    <dt class="font-medium text-slate-500 dark:text-slate-400">{d.label}</dt>
+                    <dd class="text-right font-semibold text-slate-800 dark:text-slate-200">
+                      {m.scores[d.key]}
+                    </dd>
+                  </div>
+                ))}
+                <div class="flex items-baseline justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <dt class="font-medium text-slate-500 dark:text-slate-400">Overall Score</dt>
+                  <dd class="text-right font-semibold text-slate-800 dark:text-slate-200">{m.scores.overall}</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <dt class="font-medium text-slate-500 dark:text-slate-400">Context window</dt>
+                  <dd class="text-right text-slate-800 dark:text-slate-200">{m.meta.contextWindow}</dd>
+                </div>
+                <div class="flex items-start justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <dt class="shrink-0 font-medium text-slate-500 dark:text-slate-400">Pricing / 1M</dt>
+                  <dd class="text-right text-slate-800 dark:text-slate-200">
+                    <ul class="m-0 list-none space-y-0.5 p-0">
+                      {(m.meta.pricingTiers ?? [m.meta.pricingNote]).map((tier) => (
+                        <li key={tier}>{tier}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+      </>
+      )}
       {displayCount.value < shown.length && (
         <div class="mt-8 text-center">
           <button
