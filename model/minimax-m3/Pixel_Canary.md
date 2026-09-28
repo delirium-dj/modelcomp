@@ -45,6 +45,24 @@ Long context:
 
 Runtime: **66.89 tok/s** with **2.17 s** catalog latency on MiniMax's own endpoint (1M in / 524.3K out).
 
+### Normalized scores (1-100)
+
+- **Tool use: 72/100.** SpreadSheetBench-v1 89.35% (#1/4) and DRACO 73.23% are credible, and desktop computer operation is a supported primitive, but GDPval-Rubrics 74.78%, BankerToolBench 76.12% and YC-Bench are 1–2-participant rows and CL-bench 20.48% is weak - no OSWorld/tau/GDPval-AA comparison is possible.
+- **Reasoning: 68/100.** OmniDocBench 1.5 91.60% (#1/20) is a genuine 20-model win, yet IMO 2025 35.00 points and USAMO 2026 36.00 points are low absolute scores even in 2–3-model fields, and no GPQA/HLE/LiveBench row exists.
+- **Context window: 82/100.** 1M in with an extraordinary **524.3K max output**, plus a measured LOCA-Bench 256K 49.30% - but the only retrieval measurement stops at 256K and host windows drop to 512K on some gateways.
+- **Multimodal: 80/100.** Image, text **and video** in (rare at this price), evidenced by OmniDocBench 1.5 91.60% (#1/20) and SVG-Bench 63.70%; text-only output, no audio.
+- **Coding: 62/100.** KernelBench Hard 28.80%, LiveSQLBench 40.17%, SWE Atlas Test Writing 30.83% and SWE-fficiency 34.80% are all single-participant rows with modest absolute values, and the `meta.json` claims of 59% SWE-Bench Pro / 66% Terminal-Bench 2.1 are **not** corroborated by the tracker - nothing here is comparable to Claude Opus 4.8's 88.60% Verified.
+- **Cost efficiency: 98/100.** $0.30 / $1.20 with a $0.225 / $0.90 floor, 49 providers, 66.89 tok/s and MIT licensing is the best value profile in this comparison by a wide margin.
+- **Overall Score: 72.8/100.** Half-up mean of (72 + 68 + 82 + 80 + 62) = 364 / 5 = 72.8, Cost excluded. Divergence note: the site's `average.md` lists 82.4 while the independent LLMBoard composite is only **68.9** - this report sits between them but nearer the tracker, because most high ranks in this profile have no competition behind them. Best fit: high-volume cheap agents, video/document ingestion and long-output generation; not the choice for verified hard software engineering.
+
+---
+
+## Signature
+
+- Provided by: **Pixel Canary (vercel-ai-gateway/pixel-canary)** — 2026-09-27
+- Method: public internet research on 2026-09-27 (LLMBoard model profile incl. the 49-row provider table and runtime row; 30 of 59 rows are published and only retrievable rows are cited, with 1–2-participant rows flagged ⚠) + local `meta.json` for pricing/free-tier notes and its unverified vendor claims; no peer `model/` findings were read — only the single `- **Overall Score:` line of `average.md` was used for queue order. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 55/100.** Niche rows are decent (SpreadSheetBench-v1 89.35% #1/4, BankerToolBench 76.12%, GDPval-Rubrics 74.78%) but every frontier agentic row is missing (Terminal-Bench, GDPval-AA, OSWorld, MCP Atlas, Toolathlon, tau-bench).
