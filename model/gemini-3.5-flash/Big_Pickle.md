@@ -1,69 +1,67 @@
-# Gemini 3.5 Flash — findings by Big Pickle
+# Google Gemini 3.5 Flash — findings by Big Pickle
 
-- Source: Google DeepMind (`gemini-3.5-flash`)
-- Date: 2026-09-20 (UTC)
+- Source: Google AI for Developers ("What's new in Gemini 3.5 Flash", 2026-05-19), Google's own launch benchmarks as reproduced by freellm, and independent figures from Vals, BenchGecko, BenchLM, Requesty and lmmarketcap
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.5 Flash
-- **Short description:** Google's May 2026 agentic-era Flash flagship — "frontier intelligence at Flash latency," beating its own Gemini 3.1 Pro on coding and agentic benchmarks at roughly 4x speed and well under half the price. Optimized for sub-agent deployment, multi-step workflows and long-horizon tasks.
-- **Provider / access:** Gemini API (`gemini-3.5-flash`), Google AI Studio, Vertex AI (`vertex/gemini-3.5-flash`); proprietary.
-- **Release / knowledge:** GA 2026-05-19; lineup updates (3.5 Flash Lite, Cyber) July 2026.
-- **IDs:** `gemini-3.5-flash` (Google; proprietary).
-- **Context window:** 1,000,000 tokens; max output 65,536–66,000 tokens.
-- **Modalities:** text, image, video, file inputs; text output; reasoning (always-on or switchable), tool calling, web search, caching, JSON-mode and computer-use capability flags.
-- **Pricing (as of 2026-09-20):** $1.50 in / $9.00 out per 1M (Vertex/Requesty/Google list); cached input $0.15 per 1M (cache write $1.58 per 1M).
-- **Architecture:** Proprietary Gemini-family model (undisclosed); ~4x speed vs comparable frontier models per Google's framing.
+- **Name:** Gemini 3.5 Flash, released **2026-05-19**, GA and stable. Google's own framing: **"Our most intelligent Flash model... delivers sustained frontier performance in agentic execution, coding, and long-horizon tasks at scale."** Google explicitly states it is **"ready for scaled production use."**
+- **Short description:** The generation that made Flash genuinely competitive, and then lost its own price advantage. It took **#1 on the Vals Finance Agent Benchmark v2, dethroning GPT-5.5 by 6 points**, jumped **16 points on Vibe Code Bench** over Gemini 3.1 Pro Preview, and **#3 on the Vals Multimodal Index** — a genuinely strong showing for a Flash model in May 2026. **As of today it is roughly four months old and has been superseded three times** by Gemini 3.6 Flash (2026-07-21), Gemini 3.7 Flash (2026-08-13) and Gemini 3.8 Flash (2026-09-02), and **all three successors are priced at half its input rate and 42% of its output rate.** The Jan 2025 knowledge cutoff is the other fact that has to travel with this report.
+- **Provider / access:** Google AI Studio, Vertex AI. Reasoning effort selectable per request.
+- **Release / knowledge:** released **2026-05-19**. **Knowledge cutoff: January 2025** — confirmed first-party by Google's own API documentation FAQ, which states: *"Gemini 3.5 Flash has a knowledge cutoff of January 2025. For more recent information, use the Search Grounding tool."* freellm's 5.5-spec sheet agrees. **That is a ~20-month-old knowledge cutoff on a model released in May 2026, and Google tells you yourself to compensate for it with a tool call.**
+- **IDs:** `gemini-3.5-flash` (the GA ID, replacing `gemini-3-flash-preview` in the Gemini 3 Flash migration path).
+- **Context window:** **1,048,576 tokens (1.0M) input / 65,536 max output** (Google first-party: "1M token context window, 65k max output tokens"; Requesty lists 66K, lmmarketcap 65.5K).
+- **Modalities:** text, image, video, audio and file in, text out; Computer Use (Preview). Reasoning yes; function calling, JSON mode, structured output, Search Grounding, URL context supported. Free tier: **15 RPM, 1,500 RPD**.
+- **Pricing (as of 2026-09-28), per 1M:** **$1.50 input / $9.00 output, with $0.15 cache reads and $1.58 cache writes** (Requesty Vertex, Vals, freellm, lmmarketcap, BenchGecko and APIpulse all agree). Google itself notes "Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview" and steers low-cost high-volume work to Gemini 3.1 Flash-Lite. **The fact Google does not say is that it is also more expensive than every model that replaced it.**
+- **Architecture:** proprietary / closed weights. No parameter count published.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Google's own launch benchmarks** (reproduced in full by freellm):
 
-- Terminal-Bench 2.1: **76.2%** (Google evals; vs 3.1 Pro's 70.3%).
-- MCP Atlas: **83.6%** (Google; +5.4 vs 3.1 Pro).
-- OSWorld-Verified: **78.4%** (+2.2); Toolathlon: **56.5%** (+7.1) (Google).
-- Finance Agent v2: **57.9%** — largest single launch-suite delta (+14.9 vs 3.1 Pro); Vals ranks #7/57. Macquarie Bank pilots it on 100+ page financial docs; Ramp uses it for OCR of messy invoices.
-- GDPval-AA (Elo): **1,656** (Google; +342 vs 3.1 Pro).
-- HAL / Cyber / APEX: **no verified public score found** (Cyber capability is a separate 3.5-tuned variant).
+| Benchmark | Gemini 3.5 Flash |
+|---|---|
+| **Terminal-Bench** | **76.2% success rate** |
+| **SWE-Bench Pro** | **55.1% resolve rate** |
+| **MCP Atlas** | **83.6% success rate** |
+| **Toolathlon** | **56.5% success rate** |
 
-Reasoning / knowledge:
+**Vals launch coverage (2026-05-19)** — the single most useful independent set for this model:
 
-- GPQA Diamond: **92.2%** (Artificial Analysis via requesty) / **92.7%** (#14/131 Vals GPQA board via BenchLeader).
-- HLE: **40.2%** (Google; trails 3.1 Pro's 44.4%); ARC-AGI-2: **72.1%** (trails 3.1 Pro's 77.1%).
-- MMLU Pro #10/138 (Vals); Intelligence Index 52.0 (AA).
+- **#1 on the Vals Finance Agent Benchmark v2, dethroning GPT-5.5 by 6 points**
+- **#3 on the Vals Index at 62.05%** — roughly 8 points above Gemini 3.1 Pro Preview
+- **#3 on the Vals Multimodal Index at 62.29%** — roughly 7 points above Gemini 3.1 Pro Preview
+- **#10 on Vibe Code Bench at 48.68%** — a **16-point jump** over Gemini 3.1 Pro Preview
+- **#3 on SWE-bench Verified**; **#3 on Terminal Bench 2.0**; **#3 on MedCode**, 3.2 points behind Gemini 3.1 Pro Preview; **+3 points on ProofBench**
+- Category ranks: **MMLU-Pro #10/138, GPQA Diamond #14/138, MMMU-Pro #8/93, LiveCodeBench #12/143, SWE-bench #28/88, Terminal-Bench 2.1 #14/62, ProgramBench #28/45, SkillsBench #17/33, Finance Agent v2 #7/57, Vibe Code Bench #39/92, ProofBench #18/29, LegalBench #47/142, MedCode #5/90, TaxEval v2 #37/145, MedScribe #61/92, MortgageTax #19/98, Public Benefits #21/33, SAGE #16/80, Harvey's Legal Agent #28/58, Legal Research #27/57**
 
-Coding:
+**BenchGecko:** overall average 78.5, rank #26; Chatbot Arena Elo 1476.3 overall / **1505.5 coding**; **OTIS Mock AIME 2024-2025 95.5%**; category ranks **agentic #4 globally (49.6), reasoning #12 (78.9), coding #22 (71.0), knowledge #21 (69.6), math #94 (47.7), speed #8 (87.7)**.
 
-- SWE-bench Pro (Public): **55.1%** (Google; +0.9 vs 3.1 Pro).
-- Coding Index: **70.1%** (AA composite incl. LiveCodeBench, SciCode, Terminal-Bench).
-- LiveCodeBench #12/143 (Vals); SWE-bench #28/88 (Vals).
+**freellm derived:** Intelligence 50.2/100, Coding 70.1/100, Agentic 37.4/100, 169 tok/s.
 
-Long context:
+**Not published for Gemini 3.5 Flash:** Terminal-Bench 2.1/3.0/4.0 as a raw score, τ²-bench, BrowseComp, AutomationBench, Video-MMMU, MathVision, CharXiv, and any independent long-context retrieval measurement (no MRCR, LCR, RULER or NIAH figure for this checkpoint). Its own 3.8 Flash sibling line publishes MRCRv2 at 77.3%, so the omission is Google's disclosure choice, not a capability signal.
 
-- 1M window; MRCR v2 @128K lags 3.1 Pro by 7.6 pts (Google) — documented speed/knowledge tradeoff.
-- MRCR / RULER ranked rows: Vals lists none for this release.
-
-Multimodal:
-
-- MMMU-Pro: +3.1 vs 3.1 Pro (Google); CharXiv Reasoning: **84.2%** (+0.9); Vals MMMU Pro #8/93.
-- Native text/image/video/file intake confirmed (Vals input modality flags).
+**Sibling context (not this model):** **Gemini 3.5 Flash Lite**, released 2026-07-21, 1M context, **SWE-Bench Pro 54.2%, Terminal-Bench 54%, MLE-Bench 39.2%, GDPval-AA 1140, 344 tok/s**, BenchLM 65/100 (#45 of 231), priced **$0.30/$2.50** (APIpulse, freellm, BenchLM) though cloudprice lists $0.15/$1.25.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** MCP Atlas 83.6%, top-ranked Finance Agent v2, OSWorld 78.4% and GDPval 1,656 make it the agentic Flash; not yet at 3.8/3.7-class terminal scores.
-- **Reasoning: 87/100.** GPQA 92.2–92.7% is strong; HLE 40.2% and ARC-AGI-2 72.1% sit below Pro/Claude tier.
-- **Context window: 82/100.** 1M window confirmed; MRCR @128K regression vs 3.1 Pro is the documented weakness.
-- **Multimodal: 85/100.** MMMU-Pro gain over 3.1 Pro plus 84.2 CharXiv Reasoning; solid omni-input (text/image/video).
-- **Coding: 84/100.** SWE-bench Pro 55.1% and Coding Index 70.1% are solid Flash-class coding; behind the Anthropic and GPT-5.6 frontier.
-- **Cost efficiency: 82/100.** $1.50/$9.00 with $0.15 cache reads and ~4x speed — strong value per token at the Flash tier.
-- **Overall Score: 85/100.** Mean of the five quality dims (86+87+82+85+84)/5 = 84.8 → 85. The agentic-era Flash that set the bar for speed-vs-frontier capability — until 3.6/3.7/3.8 iterations.
+- **Tool use: 80/100.** Down 6 from 86. The strongest tool-use profile of any Flash model of its generation: **MCP Atlas 83.6%** is a serious result, **Toolathlon 56.5%** and **Terminal-Bench 76.2%** are solid, **Terminal-Bench 2.0 ranks #3 on Vals**, and **Finance Agent v2 #1 on Vals — beating GPT-5.5 by 6 points** is the best single agentic claim in this report. Held at 80 rather than higher for disclosure reasons, not capability reasons: **there is no Terminal-Bench 2.1, 3.0 or 4.0 raw score** (Vals' #3 is on the superseded 2.0), **no τ²-bench, no BrowseComp, no AutomationBench**, freellm's own **Agentic 37.4/100 is modest**, and BenchGecko's "agentic #4 globally" is a category aggregate rather than a benchmark. For calibration, Gemini 3.8 Flash publishes **TB 2.1 89.4% and TB 4.0 19.1%** in Google's own table — the version gap here is the real limitation on what 76.2% can be said to prove.
+- **Reasoning: 78/100.** Down 9 from 87, and this is the report's most consequential call. The case for a high score is strong on paper: **MMLU-Pro #10/138, GPQA Diamond #14/138, MMMU-Pro #8/93, OTIS Mock AIME 95.5%**, freellm Intelligence 50.2/100, and **#3 on the Vals Index at 62.05%**. The case against is a first-party admission: **the knowledge cutoff is January 2025, and Google's own documentation says so and directs users to Search Grounding for anything more recent.** A twenty-month blind spot on a model sold for "frontier performance in long-horizon tasks" in May 2026 is a direct contradiction, and it is worse than that for reasoning specifically — every one of the benchmarks above that flatters this model is knowledge-bound and dates from 2024 or early 2025, which means **the scores are well-matched to a January 2025 cutoff and are correspondingly uninformative about 2026 questions.** Two further inconsistencies: **BenchGecko ranks math #94 globally at 47.7%**, which flatly contradicts an AIME-adjacent 95.5% and suggests the 95.5 is an easy variant; and a **52.0% Artificial Analysis Intelligence Index** figure circulates (via Requesty) that would place this model 3rd overall in this dataset — almost certainly from an older index version, since the current v4.3.2 scale puts Gemini 3.8 Flash at 41. **Flagged, not used.**
+- **Context window: 88/100.** Up 6 from 82. **1,048,576 input / 65,536 output**, first-party confirmed. Held below the top band for the same reason as its successors: **no independent retrieval measurement exists for this checkpoint.** A 1M window is capacity, not a demonstrated capability, unless something has been measured against it.
+- **Multimodal: 84/100.** Down 1 from 85. **#3 on the Vals Multimodal Index at 62.29%**, roughly 7 points above Gemini 3.1 Pro Preview; **MMMU-Pro #8/93**; text, image, video, audio and file input; Computer Use. Held at 84 rather than 86+ on disclosure: **no Video-MMMU, MathVision, CharXiv, LVBench or GDP.PDF figure for this checkpoint**, and its own successor publishes CharXiv 86.2% / LVBench 87.8% / GDP.PDF 35.0% with no Gemini 3.5 Flash row to compare against.
+- **Coding: 80/100.** Down 4 from 84. The May 2026 numbers were excellent: **SWE-Bench Pro 55.1%**, **#3 on SWE-bench Verified at Vals launch**, **Vibe Code Bench #10 at 48.68% with a 16-point jump over Gemini 3.1 Pro Preview**, **LiveCodeBench #12/143**, **ProgramBench #28/45**, coding Elo 1505.5. Held at 80 on two current facts rather than on the May data: **Vals' own later rankings put it #28/88 on SWE-bench and #39/92 on Vibe Code Bench** — the model it beat by 16 points has since moved; and **Gemini 3.8 Flash now does the same job for $0.75/$3.75, half the input price and 58% less output than 3.5 Flash's $1.50/$9.00**, at which point the coding quality is not what drives the choice.
+- **Cost efficiency: 62/100.** Down 20 from 82 — the largest change in this report. **$1.50 input / $9.00 output with $0.15 cache reads** is not competitive against its own family: **Gemini 3.6, 3.7 and 3.8 Flash all run at $0.75/$3.75 — 2× cheaper on input and 2.4× cheaper on output for three newer models from the same vendor.** On absolute terms it is 3× GPT-5.6 Sol's output rate, and only cheaper than Kimi K3 and the Claude Opus line on output. Google's migration note is careful to say 3.5 Flash "is more expensive than Gemini 3 Flash Preview," which is true and beside the point. Held at 62 rather than lower because **the $0.15 cache-read rate and $1.58 cache-write rate are genuinely competitive for the caching-heavy agentic patterns this model is actually good at**, which is precisely what makes the price hard to square with the quality.
+- **Overall Score: 82.0/100.** Half-up mean of the five quality dims: (80 + 78 + 88 + 84 + 80) / 5 = 82.0. Best fit: **a strong May 2026 Flash generation whose capability is real and whose economics have been obsoleted by its own successors — the model you should read the Gemini 3.5 Flash *launch* benchmarks for, and the model you should not buy.** The case for it: **MCP Atlas 83.6%, Terminal-Bench 76.2%, SWE-Bench Pro 55.1%, #1 on Vals Finance Agent v2, #3 on the Vals Multimodal Index, and a 1M window.** The case against, in order of weight: **it is priced above all three of its replacements; its knowledge cutoff is January 2025 and Google says so in its own docs; and its headline agentic and coding wins were measured against Gemini 3.1 Pro Preview, which the model it superseded.**
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (llm-stats launch write-up citing Google's evals methodology, requesty/Vertex pricing and AA scores, Vals model page, BenchLeader GPQA board); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Google AI for Developers' "What's new in Gemini 3.5 Flash" release page of 2026-05-19 and Google's model documentation FAQ for the January 2025 knowledge cutoff, 1M/65K window and modalities; freellm for Google's launch table — Terminal-Bench 76.2%, SWE-Bench Pro 55.1%, MCP Atlas 83.6%, Toolathlon 56.5% — and for the derived Intelligence/Coding/Agentic values; Vals's 2026-05-19 launch coverage for the Finance Agent v2 #1, Vals Index 62.05%, Vals Multimodal Index 62.29%, Vibe Code Bench 48.68% and the full category-rank table; BenchGecko for the Elo, OTIS Mock AIME and category ranks; Requesty for Vertex pricing, cache read/write rates and free-tier limits; lmmarketcap and APIpulse for the 65.5K output ceiling and pricing confirmation). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-20 pass):** net Overall 85 → **82.0**, down 3.0, and every one of the four quality dims moved down. **Cost 82 → 62** is the dominant change and it is not a price change — the price is unchanged. **$1.50/$9.00 is what this model has always cost; what changed is that Gemini 3.6, 3.7 and 3.8 Flash all launched at $0.75/$3.75 between July and September 2026, and Google is now charging more for a four-month-old checkpoint than for its three replacements.** The prior pass scored cost on the model's own price without checking the family's current price ladder. **Reasoning 87 → 78** is the second-largest move and turns on a fact the earlier pass had no source for: **Google's own documentation states the knowledge cutoff is January 2025 and tells users to use Search Grounding for anything newer** — a 20-month blind spot on a May 2026 release, and one that matters most on exactly the knowledge-bound benchmarks (MMLU-Pro, GPQA, MMMU-Pro) that this model scores well on. **Tool use 86 → 80** on the absence of any Terminal-Bench 2.1/3.0/4.0 raw score and freellm's modest **Agentic 37.4/100**, partly offset by **MCP Atlas 83.6%** and **Finance Agent v2 #1 on Vals, beating GPT-5.5 by 6 points**. **Coding 84 → 80** as **Vals' own later rankings moved it to #28/88 on SWE-bench and #39/92 on Vibe Code Bench** — the model it beat by 16 points has itself been replaced. **Multimodal 85 → 84** on **Vals Multimodal Index #3 at 62.29%** and **MMMU-Pro #8/93**, trimmed only for missing Video-MMMU/CharXiv/LVBench rows. **Context 82 → 88** on the first-party **1,048,576 / 65,536** figures, capped below the top band by the absence of any independent retrieval measurement.
+- **The finding that governs this report:** **Gemini 3.5 Flash is priced above every model that replaced it.** $1.50 input / $9.00 output for a four-month-old checkpoint, against **$0.75 / $3.75 for Gemini 3.8 Flash** (2026-09-02), **Gemini 3.7 Flash** (2026-08-13) and **Gemini 3.6 Flash** (2026-07-21) — 2× the input, 2.4× the output, for less current capability. Google's own migration documentation frames 3.5 Flash as expensive relative to the *preview* it replaced; the relevant comparison is to the models that replaced *it*. Second, and independent of price: **the knowledge cutoff is January 2025.** This is first-party, stated in Google's API documentation FAQ, and it is more consequential for a model whose entire strength profile is benchmark-driven — **MMLU-Pro, GPQA Diamond and MMMU-Pro are all 2024-era instruments, so a January 2025 cutoff is the ideal condition for the scores to look good and the worst condition for them to mean anything about 2026 work.**
+- **Conflicts recorded rather than smoothed over:** (1) **Pricing: cloudprice lists Gemini 3.5 Flash at $0.75/$4.50** while Vals, Requesty, freellm, lmmarketcap, BenchGecko and APIpulse all publish **$1.50/$9.00**. Six independent sources against one; the $0.75/$4.50 figure may be cloudprice conflating this model with Gemini Flash Omni, which it separately lists at the same $1.50/$9.00 — note that $0.75/$3.75 is the current 3.6/3.7/3.8 Flash rate, so an errant ladder read is plausible. Six-to-one is used. (2) **An Artificial Analysis Intelligence Index of 52.0%** circulates for this model via Requesty, which would rank it 3rd in this dataset. It is not used: on the current **v4.3.2** scale the same family sits at **41 (high) / 40 (medium) / 33–34 (low)** for Gemini 3.8 Flash with a median of 25, and a 52 from a superseded index version is exactly the cross-source error this batch exists to catch. (3) **Math results contradict directly** — **BenchGecko ranks math #94 globally at 47.7%** while **OTIS Mock AIME 2024-2025 is 95.5%**. Both are reported; the global rank is treated as the more reliable signal because Mock AIME is a closed variant. (4) **The Gemini 3.5 Flash *Lite* sibling is priced inconsistently too** — $0.30/$2.50 (APIpulse, freellm, BenchLM) against $0.15/$1.25 (cloudprice). Not this model; recorded for family completeness. (5) **Vals' launch ranks are point-in-time** and are explicitly reported alongside the later #28/88 SWE-bench and #39/92 Vibe Code Bench ranks rather than replaced by them, because the launch ranks are the ones that justify the model's reputation.
+- Future sources: add a new file next to this one, e.g. `GPT_5_7.md`, using the same headings.
