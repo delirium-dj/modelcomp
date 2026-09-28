@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.7 (Qwen3.7-Max flagship), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MRCR/spreadsheet/output-cap variance rows added; scores hold 84)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba Cloud (Model Studio API); OpenCode Zen `opencode/qwen-3.7`. Chat Completions-compatible API.
 - **Release / knowledge:** Qwen3.7-Max 2026-05-19/21 (announced at Alibaba Cloud Summit; per FrankX and GIGAZINE); Plus 2026-06-01 (Vals); Flash 2026-07-27 (LM Market Cap). Knowledge cutoff: no verified public statement found.
 - **IDs:** `opencode/qwen-3.7` (sub-variant ambiguous; cost scored on Max≈$1.50/$4.50 paid pricing)
-- **Context window:** 1M total tokens, 65–66K max output — verified via Vals (Plus page), pricepertoken (Max page), and BenchLM compare page
+- **Context window:** 1M total tokens, 65–66K max output — verified via Vals (Plus page), pricepertoken (Max page), and BenchLM compare page (swfte directory lists Max output 33K — variance noted, not scored)
 - **Modalities:** Text and image in (Plus documented text/image/video in, file out-of-scope, per Vals); text out; reasoning yes; tool/function calls yes (BFCL v4 75.0%)
 - **Pricing (as of 2026-09-23):** Max $1.48–$2.50/$4.42–$7.50, Plus $0.40/$1.60, Flash $0.03/$0.13 per 1M in/out (verified via pricepertoken, Vals, LM Market Cap). Zen `qwen-3.7` tier price unverified — scored on Max-class paid pricing. No $0 tier confirmed.
 - **Architecture:** Proprietary closed weights, reasoning agent model (params undisclosed)
@@ -39,6 +39,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index / BenchLM overall: AA Index v4.0 **56.6** — highest Chinese-model placement, global top 5 (via FrankX); BenchLM overall Max 68.56 / Plus 62.29
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - Apex reasoning: **44.5** (vendor-claimed via FrankX — provisional)
+- MRCR-v2 128K: **90.4%** (Alibaba launch table via DigitalApplied); **SpreadSheetBench v1 87.0%** (same table); lowest hallucination rate among frontier models **22.9%** (launch table — amended 2026-09-27)
 
 Coding:
 

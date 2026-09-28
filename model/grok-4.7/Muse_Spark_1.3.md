@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by Muse Spark 1.3
 
 - Source: xAI/Grok 4.7 (`opencode/grok-4.7`)
-- Date: 2026-09-26 (UTC)
+- Date: 2026-09-26 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: TB4.0 + safety rows + fast-variant note added; scores hold 81)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/grok-4.7` (Zen-hosted; xAI native grok-4.7 IDs).
 - **Context window:** 500K provisional — xAI serves 4.7 at 4.6's price/speed class and 4.6 is documented at 500K (xAI docs via release coverage); no 4.7-specific window published yet.
 - **Modalities:** Text in/out confirmed by launch positioning (coding/knowledge/long-task agents); image input assumed by Grok-family proxy (provisional — no 4.7 modality sheet published).
-- **Pricing (as of 2026-09-22):** $2 input / $6 output per 1M (NeoTeo launch report; xAI: same as Grok 4.6).
+- **Pricing (as of 2026-09-22):** $2 input / $6 output per 1M (NeoTeo launch report; xAI: same as Grok 4.6); enterprise fast variant at 2x output speed (amended 2026-09-27).
 - **Architecture:** Proprietary ~2.1T pre-train (Musk-stated), ~40% larger than 1.5T Grok 4.6.
 
 ### Raw benchmarks found
@@ -24,7 +24,8 @@ Agent / tool use:
 - GDPval Elo: **1695** (xAI comparison table via aimodeling, 2026-09-22; vs Grok 4.6 1605, GPT-6 Astra max 1542, Fable 5.1 max 1735)
 - AA Briefcase v1.1 (professional workloads): **1657** (xAI table via aimodeling; vs Grok 4.6 1546)
 - Harvey Legal Agent Benchmark: **19.6%**, highest of the four compared models (xAI table via aimodeling)
-- Terminal-Bench: **no verified public score found**
+- Terminal-Bench 4.0: **38.0%** (xAI table via Gate News, up from 20.3% on 4.6)
+- Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
@@ -38,6 +39,7 @@ Reasoning / knowledge:
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index: **no verified public score found** (predecessor 4.6: 61)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found** (xAI claims best-calibrated safeguards to date — qualitative only)
+- Safety/cyber rows (third-party mirror of xAI table): **BixBench MCQ 88.4 / WMDP-Bio 88.1 / WMDP-Cyber 88.1 / WMDP-Chem 84.9 / CyberGym 80.3** (amended 2026-09-27)
 
 Coding:
 
@@ -55,7 +57,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** GDPval 1695 (above GPT-6 Astra max, just under Fable 5.1 max) plus AA Briefcase 1657 and top Harvey Legal 19.6% evidence strong professional-agent work; capped by no public TB/Tau/Claw numbers.
+- **Tool use: 86/100.** GDPval 1695 (above GPT-6 Astra max, just under Fable 5.1 max) plus AA Briefcase 1657, Harvey Legal 19.6% and TB4.0 38.0% evidence strong professional-agent work; capped by TB4.0 mid-pack and no TB2.1/Tau/Claw numbers.
 - **Reasoning: 80/100.** EEBench 64.0% (well clear of Sol/Fable) is a strong domain-reasoning mark; capped hard with no GPQA/HLE/LCR/Index numbers for this ID.
 - **Context window: 88/100.** Provisional 500K (4.6 serving-class proxy) lands mid-band of the 500K–1M tier (85–94); flagged for re-check once xAI publishes the 4.7 window.
 - **Multimodal: 65/100.** Provisional text+image-in assumption by family proxy; text-only out keeps it mid-band pending a published modality sheet.

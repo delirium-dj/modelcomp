@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.8 (Qwen3.8-Max flagship), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: checkpoint-vs-hosted lane notes added; scores hold 91)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **86.6%** (88%+ frontier band; Vals independent subset 67.4% — harness differs, both cited)
+- Terminal-Bench 2.1: **86.6%** (88%+ frontier band; Vals independent subset 67.4% — harness differs, both cited; open-weights checkpoint reads 82.02% on the AA lane — amended 2026-09-27)
 - Tau3-Banking / Tau2-Bench: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
@@ -32,8 +32,8 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.6%** (Vals split 93.7%)
-- HLE: **43.6%** without tools / **56.2%** with tools
+- GPQA Diamond: **92.6%** (Vals split 93.7%; AA measures the open-weights checkpoint itself at 93.54% vs hosted Max at 92.73% — lane variance noted 2026-09-27)
+- HLE: **43.6%** without tools / **56.2%** with tools (AA checkpoint lane reads 42.45% no-tools vs hosted 43.05% — consistent band)
 - LCR / MLCR: LongBench v2 **66.3%**; classic LCR: no verified public score found
 - CritPt: no verified public score found
 - Artificial Analysis Intelligence Index / BenchLM overall: BenchLM overall 72.02 (#13/505); AA Index: no verified public score found

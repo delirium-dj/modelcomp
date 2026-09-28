@@ -7,12 +7,12 @@
 
 ## Model card
 
-- **Name:** Grok 4 Fast (shipped as `grok-4-fast-reasoning` and `grok-4-fast-non-reasoning`; free on grok.com, paid on the API)
+- **Name:** Grok 4 Fast (shipped as `grok-4-fast-reasoning` and `grok-4-fast-non-reasoning`; free on grok.com, paid on the API). **Re-verification 2026-09-27: xAI deprecated this model on 2026-05-15 and retired the API on 2026-08-15** (mid-2026 vendor-page records), so the entry is now a historical reference and no longer callable on new xAI work.
 - **Short description:** xAI's 2025-09-19 cost-efficiency play: one unified model whose reasoning and non-reasoning modes are steered by system prompt rather than separate weights, with a 2M-token window and heavy tool-use RL for web/X search. It matched Grok 4-level scores using ~40% fewer thinking tokens.
 - **Provider / access:** xAI API (OpenAI-compatible), grok.com/iOS/Android (free users included at launch), OpenRouter and Vercel AI Gateway. Proprietary/closed weights.
 - **Release / knowledge:** Released 2025-09-19. Reasoning behaviour is a prompt/`reasoning_effort` control, not a separate checkpoint.
 - **IDs:** `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning` (xAI API), `grok-4-fast-search` (arena codename `menlo`). No OpenCode Zen Free ID found.
-- **Context window:** 2,000,000 tokens on both variants (xAI launch post); pricing steps up above 128K tokens, which is the practical cost cliff even though the window is 2M.
+- **Context window:** 2,000,000 tokens on both variants (xAI launch post); pricing steps up above 128K tokens, which is the practical cost cliff even though the window is 2M. Re-check 2026-09-27: the served **max output is 16,000 tokens** (xAI playground cap, per the mid-2026 vendor-page record), so the 2M window is for ingestion, not for proportionally long generation.
 - **Modalities:** text and image in, text out; reasoning/non-reasoning modes, native tool calling, server-side web and X search, code execution. No audio or video.
 - **Pricing (as of 2026-09-27):** $0.20 / 1M input and $0.50 / 1M output under 128K context; $0.40 / $1.00 at ≥128K; cached input $0.05 / 1M.
 - **Architecture:** rebuilt Grok 4 class model with large-scale RL for "intelligence density" — ~98% lower cost than Grok 4 to reach the same frontier scores; parameter count undisclosed.
@@ -29,7 +29,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond **85.7%** (xAI) / **85.4%** and **84.7%** in two BenchmarkList rows; AIME 2025 **92.0%** (xAI) / **89.7%**; HMMT 2025 **93.3%**; HLE **20.0%** (xAI) / **19.1%**
 - MMLU-Pro **85.0%**; ARC-AGI-2 **5.3%**; MMMU Pro **72.8%**; CAIS Text Capabilities Index **13.3**
-- Artificial Analysis Intelligence Index **27.9** (71st pct); Artificial Analysis price-to-intelligence: SOTA at launch (98% cheaper than Grok 4 for equal benchmark performance)
+- Artificial Analysis Intelligence Index **27.9** (71st pct); **independent re-check 2026-09-27 measured 35** for the reasoning variant (227 tokens/s output speed, ranked #9 of 42) versus Grok 4's 33, so my first-pass 27.9 understated it; Artificial Analysis price-to-intelligence: SOTA at launch (98% cheaper than Grok 4 for equal benchmark performance)
 - Omniscience accuracy / hallucination rate: **no verified public score found**
 
 Coding:

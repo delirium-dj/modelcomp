@@ -1,20 +1,20 @@
 # Kimi K2.8 Preview — findings by Muse Spark 1.3 Contributor
 
 - Source: Moonshot AI/Kimi K2.8 Preview, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: preview rollout facts recorded; zero independent benchmarks so scores hold 78)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Kimi K2.8 Preview (Moonshot AI mid-tier preview)
-- **Short description:** Moonshot AI's mid-tier coding and agentic model inside Kimi Code, with 1M context and efficient reasoning between K2.7 Code and flagship K3.
+- **Short description:** Moonshot AI's mid-tier coding and agentic preview inside Kimi Code (near-K3 performance, above K2.7 Code), with 1M context and low/high/max thinking (max default); weights closed. No independent benchmark evidence published yet.
 - **Provider / access:** Moonshot AI via Kimi Code + Kimi API (`moonshot/kimi-k2-8-preview`); membership plan, no Zen Free ID (Chat Completions, tool calling supported).
-- **Release / knowledge:** 2026 (K2.8 preview); knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-09-11 preview rollout; full Kimi Code launch under the same `kimi-for-coding` ID (KuCoin/TechFlow, B.AI); knowledge cutoff undisclosed (amended 2026-09-27).
 - **IDs:** `moonshot/kimi-k2-8-preview` (state explicitly: no Free ID exists on Zen)
-- **Context window:** 1,048,576 (1M) — verified via curated repo metadata
-- **Modalities:** text, image in; text out; reasoning yes (efficient); tool calls yes
-- **Pricing (as of 2026-09-18):** Kimi membership plan (no per-token billing, no Zen Free ID)
+- **Context window:** 1,048,576 (1M) / 32,768 out — verified via curated repo metadata + models.dev (amended 2026-09-27)
+- **Modalities:** text, image, video in; text out; reasoning yes (low/high/max efforts, max default); tool calls yes
+- **Pricing (as of 2026-09-18, re-verified 2026-09-27):** $1/$4 per 1M single-source sheet (kie.ai); $0.00 Kimi For Coding route (models.dev); Kimi membership plan; no Zen Free ID
 - **Architecture:** proprietary MoE (mid-tier; params undisclosed)
 
 ### Raw benchmarks found
@@ -53,10 +53,10 @@ Long context:
 - **Tool use: 74/100.** Mid-tier Kimi Code agent positioning; capped by zero public harness numbers and below flagship K3.
 - **Reasoning: 74/100.** Efficient reasoning between K2.7 and K3; capped accordingly.
 - **Context window: 100/100.** 1M verified; top tier.
-- **Multimodal: 65/100.** Text+image in, text out; capped below video/audio omni models.
+- **Multimodal: 70/100.** Text/image/video in, text out; capped with no measured vision bench and text-only output.
 - **Coding: 76/100.** Mid-tier coding inside Kimi Code; capped below K3 flagship coding.
-- **Cost efficiency: 60/100.** Membership plan with no per-token billing and no free tier; mid value.
-- **Overall Score: 78/100.** Mean of the five non-cost dims (74+74+100+65+76)/5 = 77.8; best-fit mid-tier Kimi Code coding pick.
+- **Cost efficiency: 75/100.** $0.00 Kimi For Coding route plus $1/$4 sheet and membership plan; single-source pricing keeps it below free-tier 100.
+- **Overall Score: 79/100.** Mean of the five non-cost dims (74+74+100+70+76)/5 = 78.8; best-fit mid-tier Kimi Code coding pick.
 
 ---
 

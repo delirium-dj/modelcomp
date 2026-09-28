@@ -52,6 +52,7 @@ Coding:
 Long context:
 
 - AA-LCR 84.0% (medium) at 1M window (Artificial Analysis via BenchLeader); LVBench long-video 87.8% agentic / 87.1% static (Google model card 2026-09-02); no verified MRCR / RULER / GraphWalks score found.
+- Fresh-source note (2026-09-27 re-audit, user-signed-off exception to RULES.md permanence): cursorBench32 69.2% (BenchLM) absent from the original file; deepSWE 73.8% vs filed 73.7% is aggregator rounding; live AA page Index 47 (high) vs filed 59 (high-effort) and BenchLM overall 78.41 vs filed BenchLeader 63.6 are different lanes/effort levels — all corroborating, not contradicting; scores unchanged.
 
 ### Normalized scores (1–100)
 

@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen3.8-27B (`Qwen/Qwen3.8-27B`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: third-party lane variances + vision rows added; scores hold 82)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **73.0%** (Alibaba launch table 2026-08-14 vendor run, Claude Code harness; vs Opus 4.6 Max 78.2%)
+- Terminal-Bench 2.1: **73.0%** (Alibaba launch table 2026-08-14 vendor run, Claude Code harness; vs Opus 4.6 Max 78.2%; BenchLM Vals lane reads 58.4% — harness differs, both cited, amended 2026-09-27)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -40,15 +40,15 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - IFBench: **79.5%** (Alibaba launch table; instruction following; vs Opus 4.6 Max 62.5%)
-- MathVision with code interpreter: **94.6%** (Alibaba figures via HokAI aggregator; vendor notes fixed ground-truth annotations, provisional)
+- MathVision with code interpreter: **94.6%** (Alibaba figures via HokAI aggregator; vendor notes fixed ground-truth annotations, provisional); **OmniDocBench 91.1%** and **CharXiv-R 90.2%** (third-party mirrors — amended 2026-09-27)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **61.7% SWE-bench Pro** (Alibaba launch table 2026-08-14; vendor notes corrected problematic tasks and re-evaluated baselines, so not directly comparable to unmodified leaderboard)
+- SWE-bench Verified / SWE-Pro: **61.7% SWE-bench Pro** (Alibaba launch table 2026-08-14; vendor notes corrected problematic tasks and re-evaluated baselines, so not directly comparable to unmodified leaderboard); third-party Vals lane **86.0% SWE / 84.0% LiveCode** (BenchLM mirrors — harness differs)
 - LiveCodeBench: **90.3% LiveCodeBench v6** (Alibaba launch table; vs Opus 4.6 Max 88.8%)
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **DeepSWE 1.1 42.2%** (Alibaba launch table; vs Qwen3.6-27B 13.3%); **QwenSWEBench 79.0%** (Alibaba in-house bench, provisional — no published task list); **NL2Repo-Bench 42.3%** (Alibaba launch table); **CoWorkBench 70.7% / JobBench 33.4%** (Alibaba launch table, in-house office-work benches)
+- DeepSWE / Coding Index / other: **DeepSWE 1.1 42.2%** (Alibaba launch table; vs Qwen3.6-27B 13.3%); **QwenSWEBench 79.0%** (Alibaba in-house bench, provisional — no published task list); **NL2Repo-Bench 42.3%** (Alibaba launch table); **CoWorkBench 70.7% / JobBench 33.4%** (Alibaba launch table, in-house office-work benches); **82.6% VulcanBench v3** (third-party mirror); BenchLM overall **68.35–72.51 (#16–22)**, agentic 64 (#13), coding 54.5 (#48)
 
 Long context:
 

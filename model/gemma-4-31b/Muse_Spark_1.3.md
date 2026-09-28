@@ -1,7 +1,7 @@
 # Gemma 4 31B — findings by Muse Spark 1.3
 
 - Source: Google/Gemma 4 31B (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price drop + video modality + uncited rows recorded; scores hold 75)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,8 +13,8 @@
 - **Release / knowledge:** 2026-04-02 release (v1.0, HF + NVIDIA build); knowledge cutoff undisclosed
 - **IDs:** `google/gemma-4-31b-it` (open-weights ID; no paid Zen Free-ID distinction — weights are free)
 - **Context window:** 256,000 total — verified via Google AI for Developers Gemma 4 model card (medium models 256K, 31B dense 60 layers) and NVIDIA build page
-- **Modalities:** text, image in; text out; reasoning yes (thinking variant tracked); tool calls yes (native function calling); structured outputs yes
-- **Pricing (as of 2026-09-21):** Free open weights (Apache 2.0) + hosted ~$0.14 in / $0.40 out per 1M (CloudPrice 31B 256K panel, Sep 2026); OpenRouter free route available
+- **Modalities:** text, image, video in (InfoQ: native video+image processing across the lineup); text out; reasoning yes (thinking variant tracked); tool calls yes (native function calling); structured outputs yes
+- **Pricing (as of 2026-09-21, re-verified 2026-09-27):** Free open weights (Apache 2.0) + hosted ~$0.09 in / $0.34 out per 1M (down 25% from $0.12; pricepertoken Sep 2026); OpenRouter free route available
 - **Architecture:** open-weights dense, 30.7B total (11.95B-class 12B sibling is separate unified build), 60 layers, sliding window 1024, P-RoPE long-context; Apache 2.0
 
 ### Raw benchmarks found
@@ -25,6 +25,7 @@
 Agent / tool use:
 
 - Tau2 (average over 3): **76.9%** (NVIDIA build benchmark table, 31B column; vs 26B A4B 68.2%)
+- Gert Labs: **35.26%** (BenchLM mirror — amended 2026-09-27)
 - Terminal-Bench 2.1: **no verified public score found** (closest proxy: Terminal-Bench Hard pass@1 **27.08%**, Hugging Face NVIDIA NVFP4 eval card, temp 1.0)
 - Tau3-Banking: **no verified public score found** (Tau2 76.9% above is the tracked Tau-family number)
 - GDPval-AA: **no verified public score found**
@@ -37,6 +38,7 @@ Reasoning / knowledge:
 - HLE: **19.5% HLE no tools / 26.5% HLE with search** (NVIDIA build table); CodeSOTA aggregate **26.5% #21/74**
 - AIME 2026 no tools: **89.2%** (NVIDIA build table)
 - MMLU Pro: **85.2%** (NVIDIA build + Google model card; NVFP4 eval 84.94–85.25%; community MMLU 87.1% on gemma4 blog is a different harness)
+- IFBench: **92.6 (#12/120)** (BenchLM mirror — amended 2026-09-27)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy: llm-stats Score **33.2 #94**, Reasoning 33.9 #86)
@@ -47,10 +49,12 @@ Coding:
 - SWE-bench Verified / SWE-Pro: **no verified public score found**
 - LiveCodeBench: **80.0% LiveCodeBench v6** (NVIDIA build table; CodeSOTA confirms 80.0% #11/24; NVFP4 eval pass@1 82.27–82.49%)
 - Codeforces ELO: **2150** (NVIDIA build table, vs 26B A4B 1718)
+- SWE-Rebench: **41.6%** (BenchLM mirror); **React Native Evals 75.2%** (BenchLM mirror — amended 2026-09-27)
 - HumanEval: **76.8%** (gemma4 community benchmark compilation, Apr 2026)
 - SciCode / AA-SciCode: **33.61% SciCode subtask acc pass@1** (Hugging Face NVFP4 eval card; CloudPrice SciCode 0.4 panel consistent)
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: **no verified public score found** (closest proxy: CloudPrice Coding Index 33.2 #107 on non-reasoning config)
+- MMMU-Pro (multimodal evidence): **76.9%** (BenchLM mirror); **OmniDocBench 0.131 edit distance** (filed scoring evidence, recorded here — amended 2026-09-27)
 
 Long context:
 

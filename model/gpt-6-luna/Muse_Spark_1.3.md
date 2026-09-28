@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-6 Luna (`openai/gpt-6-luna`)
-- Date: 2026-09-26 (UTC)
+- Date: 2026-09-26 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: AutomationBench/OSWorld/factuality rows added; scores hold 78)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,6 +26,8 @@ Agent / tool use:
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- AutomationBench (high effort): **+5.4pp over predecessor at 58% lower cost per task** (OpenAI launch post)
+- OSWorld 2.0 offline: **exceeds GPT-5.6 Sol (medium) at one-tenth the cost** (OpenAI launch post)
 
 Reasoning / knowledge:
 
@@ -35,6 +37,7 @@ Reasoning / knowledge:
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Factuality (internal eval): **~half the mistakes of predecessor**; high effort matches GPT-5.6 Sol at ~1/100th the cost (OpenAI launch post)
 
 Coding:
 
@@ -51,7 +54,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Computer Use support and six reasoning levels verify agent-oriented design, but zero public agentic benchmark numbers (TB/Tau/GDPval/Claw) cap it at 70.
+- **Tool use: 70/100.** Computer Use support, AutomationBench gains and OSWorld-at-a-tenth-cost verify agent-oriented design, but zero public TB/Tau/GDPval/Claw harness numbers cap it at 70.
 - **Reasoning: 78/100.** Provisional on GPT-6 family strength (Astra GPQA 96.0%) and Luna's adjustable-reasoning stack; capped hard with no Luna-specific GPQA/HLE/Index number.
 - **Context window: 97/100.** Verified 1.05M total / 128K out clears the ≥1M tier; held below 100 for lack of any published full-length retrieval measurement.
 - **Multimodal: 65/100.** Native image understanding in, text-only out — mid-band of the 60–70 image-in tier.

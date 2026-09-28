@@ -26,5 +26,11 @@ Effective orders (already resolved, do not re-derive):
 2. Process missing folders highest-`Overall Score`-first (source: `- **Overall Score:` line of each `model/<slug>/average.md`; folders without `average.md` go last, A-Z; newly discovered slugs append at end).
 3. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete existing files.
 4. Scope: only create your files. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
+5. Template & Score Syntax Contract (STRICT):
+   - Every report MUST strip all template notice/instruction blocks (`> TEMPLATE...`) and submission checklists before saving.
+   - Every report MUST include all 7 score lines: `Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`, `Cost efficiency`, and `Overall Score`.
+   - Score lines MUST strictly match `- **<Label>: <N>/100.** <justification>` (colon inside `**` tag is forbidden: write `- **Tool use: 78/100.**`, NOT `- **Tool use:** 78 / 100`).
+   - `Overall Score` MUST equal the half-up arithmetic mean of the 5 non-cost quality dimensions `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. `Cost efficiency` is NEVER included in `Overall Score`.
+
 
 Reuse for a new agent: copy this file to `tasks/<stem_lower>.md`, change the STEM line once, save, delegate to the matching model.

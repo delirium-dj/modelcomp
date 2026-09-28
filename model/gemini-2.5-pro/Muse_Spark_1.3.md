@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by Muse Spark 1.3
 
 - Source: Google/Gemini 2.5 Pro, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MMMU citation fixed + Arena rows added; scores hold 81)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,8 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - AIME 2024 / 2025 (math proxy): **92.0% / 86.7%** pass@1 (Google official figures via DataCamp)
 - SimpleQA: **50.8** (Neura Market comparison table)
+- MMMU: **81.7%** pass@1 (Google official figures via DataCamp; 79.6% on an alternate snapshot — both cited, amended 2026-09-27)
+- LMArena jumps (06-05 cut): **1470 Elo (+24)** and **WebDevArena 1443 (+35, lead)** (9to5Google)
 
 Coding:
 
@@ -58,7 +60,7 @@ Long context:
 - **Tool use: 70/100.** SWE-bench Verified 63.8% plus Aider 74% show solid agentic coding, but zero verified Terminal-Bench/Tau3/GDPval numbers caps it at mid-tier.
 - **Reasoning: 80/100.** GPQA 84% and HLE 18.8% beat the mid band but trail the 90%+/40%+ frontier bar; AA Index 26 confirms upper-mid placement.
 - **Context window: 96/100.** Full 1M window with 91.5% MRCR at 128K; 1M-pointwise retrieval (~83%) keeps it just short of a perfect 100.
-- **Multimodal: 85/100.** Text/image/audio/video/PDF in with MMMU 79.6%; text-only output keeps it below the 90+ omni-output tier.
+- **Multimodal: 85/100.** Text/image/audio/video/PDF in with MMMU 81.7%; text-only output keeps it below the 90+ omni-output tier.
 - **Coding: 72/100.** SWE-V 63.8% and LiveCodeBench ~70–76% sit squarely mid-pack against today's 80%+ frontier.
 - **Cost efficiency: 75/100.** Paid-only $1.25/$10.00 (output-heavy workloads cost ~2x the $1.25/$4.25 tier); cheap input, punishing output.
 - **Overall Score: 81/100.** Mean of (70 + 80 + 96 + 85 + 72) / 5 = 80.6 → 81; best fit as a long-context reasoning/analysis pick, not a first-choice coder.

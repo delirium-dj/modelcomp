@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by Muse Spark 1.3 Contributor
 
 - Source: Google/Gemini 3.8 Flash Cyber, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch/Fairwind confirmations added; zero Cyber-specific numbers so scores hold 78)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,8 +9,8 @@
 
 - **Name:** Gemini 3.8 Flash Cyber (Google DeepMind cybersecurity fine-tune)
 - **Short description:** Google DeepMind's cybersecurity fine-tune of Gemini 3.8 Flash for finding, validating and patching vulnerabilities, available via the Fairwind Program.
-- **Provider / access:** Google DeepMind via Fairwind Program (`google/gemini-3-8-flash-cyber`); restricted access, no Zen Free ID (Chat Completions, tool calling + code execution).
-- **Release / knowledge:** 2026 (3.8 generation); knowledge cutoff undisclosed
+- **Provider / access:** Google DeepMind via Fairwind Program (`google/gemini-3-8-flash-cyber`) — governments + trusted partners (650 members incl. CrowdStrike, CIS) with CodeMender autonomous patch agent; restricted access, no Zen Free ID (Chat Completions, tool calling + code execution).
+- **Release / knowledge:** 2026-09-02 joint launch with Gemini 3.8 Flash (Google blog, Doshi + Popa); knowledge cutoff undisclosed (amended 2026-09-27).
 - **IDs:** `google/gemini-3-8-flash-cyber` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 1,048,576 (1M) / 65K out — verified via curated repo metadata
 - **Modalities:** text, code in; text, code out; reasoning yes; tool calls yes

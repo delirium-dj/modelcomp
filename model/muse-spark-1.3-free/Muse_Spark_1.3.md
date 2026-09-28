@@ -53,6 +53,7 @@ Coding:
 Long context:
 
 - **MRCR v2 8-needle 256K-512K: 98.5%** (BenchmarkList rank 2/8); **MRCR v2 8-needle 512K-1M: 98.1%** (BenchmarkList rank 1/9, self-reported 2026-09-02, max); **RULER-type retrieval at 1M essentially saturated per Meta table**
+- Fresh-source note (2026-09-27 re-audit, user-signed-off exception to RULES.md permanence): **DeepSearchQA 89.4%** (BenchLM compare pages) and max output 131K (AnotherWrapper/Meta pricing page), both absent from the original file — corroborating, not contradicting; scores unchanged.
 
 ### Normalized scores (1–100)
 

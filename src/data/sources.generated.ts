@@ -59,7 +59,8 @@ export type SourceKey =
   | "Grok 4.3"
   | "Gemini 2.5 Flash Lite"
   | "LongCat 2.5 Preview"
-  | "Pixel Canary";
+  | "Pixel Canary"
+  | "GPT OSS 120B";
 
 export interface SourceDef {
   key: SourceKey;
@@ -126,4 +127,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 2.5 Flash Lite", label: "Gemini 2.5 Flash Lite", file: "Gemini_2.5_Flash_Lite.md" },
   { key: "LongCat 2.5 Preview", label: "LongCat 2.5 Preview", file: "LongCat_2.5_Preview.md" },
   { key: "Pixel Canary", label: "Pixel Canary", file: "Pixel_Canary.md" },
+  { key: "GPT OSS 120B", label: "GPT OSS 120B", file: "GPT_OSS_120B.md" },
 ];

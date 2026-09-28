@@ -1,7 +1,7 @@
 # GPT-5.4 — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.4, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: breakpoint + Vals splits + standing added; scores hold 83)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/gpt-5.4` (paid tier; cost scored on paid pricing)
 - **Context window:** 1.0M total tokens (1.05M on one aggregator snapshot; 1.0M per llm-stats) — verified via llm-stats org/compare pages and BenchLM compare page
 - **Modalities:** Text and image in (screenshots via computer use), text out; reasoning yes (xhigh effort); tool calls, JSON mode, computer use yes
-- **Pricing (as of 2026-09-23):** $2.50/$15.00 per 1M in/out, cached input $0.25/1M (verified via llm-stats org page and BenchLM compare page). No $0 tier — paid only.
+- **Pricing (as of 2026-09-23, re-verified 2026-09-27):** $2.50/$5.00 in and $15.00/$22.50 out per 1M (272K breakpoint); cached input $0.25/1M. No $0 tier — paid only.
 - **Architecture:** Proprietary (undisclosed params), reasoning model
 
 ### Raw benchmarks found
@@ -41,7 +41,8 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: SWE-Pro (Public) **57.7%** (OpenAI official, xhigh); SWE-bench Verified: no verified public score found for this exact ID
+- SWE-bench Verified / SWE-Pro: SWE-Pro (Public) **57.7%** (OpenAI official, xhigh); SWE-bench Verified: no verified public score found for this exact ID; Vals difficulty splits **88/76/50/0%** (third-party lane — amended 2026-09-27)
+- Category standing: **#1 reasoning (70), #4 coding (61), #4 chat (96)** (LMC live composite — amended 2026-09-27)
 - LiveCodeBench: LiveCodeBench Pro **87.5%** (BenchLM compare page, sourced)
 - SciCode / AA-SciCode: no verified public score found
 - Vibe Code Bench: no verified public score found

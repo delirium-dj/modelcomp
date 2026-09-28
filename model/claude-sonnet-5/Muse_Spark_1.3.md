@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by Muse Spark 1.3 Contributor
 
 - Source: Anthropic/Claude Sonnet 5, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: catalog absolutes added, scores recomputed 83 → 84)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Sonnet 5 (Anthropic agentic Sonnet)
 - **Short description:** Anthropic's most capable Sonnet-class model, built for the agentic era with adaptive thinking and 1M context at a lower cost than Opus; close to Opus 4.8 at lower prices.
 - **Provider / access:** Anthropic via API `claude-sonnet-5` + Claude Code (default on Free/Pro plans); no Zen Free ID (Messages API, browsers/terminals, MCP).
-- **Release / knowledge:** 2026-06-30 release; knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-06-30 release; knowledge cutoff Jan 2026 (platform docs, amended 2026-09-27).
 - **IDs:** `anthropic/claude-sonnet-5` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 1M / 128K out — verified via curated repo metadata + Anthropic announcement (tokenizer note: 1.0–1.35x token mapping vs 4.6)
 - **Modalities:** text, image, file in; text out; reasoning yes (adaptive thinking, effort levels); tool calls yes; computer use yes
@@ -23,6 +23,7 @@ Agent / tool use:
 
 - BrowseComp (agentic search): **improvement curve over Sonnet 4.6, approaching Opus 4.8 at higher effort** (Anthropic cost-performance charts; exact % not stated in announcement text)
 - OSWorld-Verified (computer use): **strict improvement over Sonnet 4.6 (78.5%), wider cost-performance range than Opus 4.8, matching Opus 4.8 on some tasks** (Anthropic charts; exact % not stated)
+- Terminal-Bench 4.0: **12.4%** (tbench.ai board — weak tail)
 - Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
@@ -31,11 +32,11 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
+- GPQA Diamond: **91.1%** (Requesty/AA catalog row)
 - HLE: **no verified public score found** (Sonnet 4.6 baseline 34.6%/46.8%; Sonnet 5 delta not numerically stated)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Artificial Analysis Intelligence Index: **55.3%** (Requesty/AA catalog row)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found** (safety: lower undesirable-behavior rate than 4.6 per announcement)
 
 Coding:
@@ -44,7 +45,7 @@ Coding:
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- Coding Index: **71.5%** (Requesty/AA catalog composite of LiveCodeBench, SciCode, Terminal-Bench)
 
 Long context:
 
@@ -52,13 +53,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Charted strict gains on BrowseComp + OSWorld-Verified over 78.5% baseline with Opus-matching headroom; capped by absence of absolute harness percentages.
-- **Reasoning: 84/100.** Substantial agentic-reasoning gain over Sonnet 4.6 per vendor with safer profile; capped by zero public GPQA/HLE/CritPt absolutes.
+- **Tool use: 84/100.** Charted BrowseComp + OSWorld gains with Opus-matching headroom; capped by the TB4.0 12.4% tail and no TB2.1/Tau/GDPval numbers.
+- **Reasoning: 89/100.** GPQA 91.1% plus AA Index 55.3% show near-frontier reasoning; capped by zero HLE/LCR/CritPt numbers.
 - **Context window: 100/100.** 1M / 128K out verified; top tier.
 - **Multimodal: 62/100.** Text/image/file in, text out; capped below video/audio omni models.
-- **Coding: 84/100.** Near-Opus-4.8 coding per vendor positioning; capped by zero public SWE/LiveCodeBench numbers.
+- **Coding: 86/100.** Coding Index 71.5% with near-Opus-4.8 vendor positioning; capped by zero SWE/LiveCodeBench absolutes.
 - **Cost efficiency: 55/100.** Paid $2/$10 permanent intro pricing is good Sonnet value; no $0 tier caps below free models.
-- **Overall Score: 83/100.** Mean of the five non-cost dims (86+84+100+62+84)/5 = 83.2; best-fit premium-efficient agentic Sonnet near Opus capability.
+- **Overall Score: 84/100.** Mean of the five non-cost dims (84+89+100+62+86)/5 = 84.2; best-fit premium-efficient agentic Sonnet near Opus capability.
 
 ---
 

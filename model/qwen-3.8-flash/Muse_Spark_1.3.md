@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.8 Flash (125B efficiency tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price-cut + vision rows added; scores hold 85)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/qwen-3.8-flash` (paid tier; cost scored on Flash paid pricing)
 - **Context window:** 1.0M total tokens for the hosted Flash listing (llm-stats org page); Flash-Next checkpoint cataloged at 262K (BenchLM/modelscale). Scored at the 1M hosted figure.
 - **Modalities:** Multimodal in (text, image; Flash-Next measured rows cover MathVision, CharXiv, RealWorldQA), text out; reasoning yes; tool calls yes
-- **Pricing (as of 2026-09-23):** $0.15/$0.47 per 1M in/out for hosted Flash (llm-stats org page). Flash-Next publishes no hosted rate (self-host/open-weight row). No $0 tier confirmed.
+- **Pricing (as of 2026-09-23):** $0.15/$0.47 per 1M in/out for hosted Flash (llm-stats org page; cut from $0.16 on 2026-08-27 — amended 2026-09-27). Flash-Next publishes no hosted rate (self-host/open-weight row). No $0 tier confirmed.
 - **Architecture:** 125B MoE (6B active, per MarkTechPost) previewing the Qwen4 architecture; Flash-Next weights open under Qwen Community 1.0
 
 ### Raw benchmarks found
@@ -38,6 +38,7 @@ Reasoning / knowledge:
 - CritPt: proxy (Flash-Next, provisional) **11.1%** (BenchLM)
 - Artificial Analysis Intelligence Index / BenchLM overall: proxy (Flash-Next, provisional) AA Index **55.8** (BenchLM ledger; modelscale lists 39.8 on a different index cut — both cited); BenchLM overall 59.42–60.67 (Flash-Next page)
 - Omniscience Accuracy / Hallucination Rate: proxy (Flash-Next, provisional) accuracy 24.5% / hallucination 45.3% (modelscale)
+- Vision (proxy, provisional): **Vision2Web 64.0 / ERQA 72.3 / LVBench 76.6** (BenchLM Flash-Next ledger — amended 2026-09-27)
 
 Coding:
 
@@ -60,7 +61,7 @@ Long context:
 - **Multimodal: 88/100.** Multimodal-tier proxies (MathVision 90.6–95.7, CharXiv 90.6, RealWorldQA 88.5) with text-only output; provisional but consistent.
 - **Coding: 84/100.** Proxy SWE-Pro 62.5 with LiveCode v6 91.9 and DeepSWE 58.7 is near-frontier for an efficiency tier; provisional status caps it.
 - **Cost efficiency: 97/100.** $0.15/$0.47 metered pricing is within striking distance of $0-tier value at near-flagship capability.
-- **Overall Score: 85/100.** Mean of (75 + 88 + 92 + 88 + 84) / 5 = 85.4 → 85; best fit as the value-per-token coding/multimodal pick. (Proxy-leaning report: re-score when Flash-exact harness numbers publish.)
+- **Overall Score: 85/100.** Mean of (75 + 88 + 92 + 88 + 84) / 5 = 85.4 → 85; best fit as the value-per-token coding/multimodal pick. (Proxy-leaning report: re-score when Flash-exact harness numbers publish; amended 2026-09-27 with cut-price + vision rows, scores hold.)
 
 ---
 

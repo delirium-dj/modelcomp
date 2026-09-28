@@ -28,7 +28,7 @@
 Agent / tool use:
 
 - Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, SWE Atlas Codebase QnA, Terminal-Bench, Tau3-Banking / Tau2-Bench, GDPval-AA: **no verified public score found** — no harness has published tool-calling or agentic results for this model
-- OpenCode weekly usage data (proxy, not a benchmark): rank **#24** by token volume, 0.3% of observed 2M volume, **76B tokens** and **74K unique users** in the last week, 526,182 completed sessions, 69% weekly retention, cache ratio **93%**, average **4.2M tokens/session**, average cost **$0.23/session**
+- OpenCode weekly usage data (proxy, not a benchmark; **re-checked 2026-09-27, figures have drifted upward**): rank **#25** by token volume (was #24), 0.3% of observed 2M volume, **78B tokens** (was 76B) and **74K unique users**, **528,906 completed sessions** (was 526,182), 69% weekly retention, cache ratio **93%**, average **4.2M tokens/session**, average cost **$0.23/session**, total spend $121K, top geo China 34% / US 15%
 
 Reasoning / knowledge:
 

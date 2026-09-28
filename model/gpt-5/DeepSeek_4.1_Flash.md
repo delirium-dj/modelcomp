@@ -10,7 +10,7 @@
 - **Name:** GPT-5 (no Free-tier wording — paid on every route found)
 - **Short description:** OpenAI's August 2025 flagship: a routed system that pairs a fast responder with a deeper reasoning model behind one `gpt-5` ID. It set launch records in mathematics and coding, then was superseded by GPT-5.1 and the later 5.x/6.x line, so this entry is the historical 2025 frontier reference.
 - **Provider / access:** OpenAI (Responses and Chat Completions APIs) and OpenCode Zen as `opencode/gpt-5`. Proprietary, no open weights.
-- **Release / knowledge:** Released 2025-08-07 (tracked with its benchmark record). Knowledge cutoff not restated in the sources checked in this pass.
+- **Release / knowledge:** Released 2025-08-07 (tracked with its benchmark record); **knowledge cutoff 2024-09-30**, published on OpenAI's own API model page. (Correction from the first pass, which recorded "not restated": the cutoff is now stated by the vendor — re-verified 2026-09-27.)
 - **IDs:** `opencode/gpt-5` (OpenCode Zen) and `gpt-5` (OpenAI). No OpenCode Zen Free ID exists — paid on every route found.
 - **Context window:** 400,000 tokens total, split as 272K input / 128K max output in OpenAI's API; the repo's curated `meta.json` likewise records 400K total with 128K output. Verified from the published API spec via the model's consolidated eval record.
 - **Modalities:** text, image and file/PDF input; text out; reasoning yes (routed, with a reasoning-effort control); tool calls and structured outputs yes; no audio or video input and no image output.

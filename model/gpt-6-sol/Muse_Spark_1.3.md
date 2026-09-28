@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-6 Sol (`gpt-6-sol`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: TB4.0 row + permanent-price confirmation added; scores hold 81)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6-sol` (no Free ID exists on Zen; evaluated ID `opencode/gpt-6-sol`)
 - **Context window:** 1,050,000 total tokens (128K max output) — verified via OpenAI API docs, docsbot.ai, and ai-tldr.dev model pages
 - **Modalities:** text + image in; text out; configurable reasoning effort (none/low/medium/high/xhigh/max); function calling, web/file search, computer use; no audio/video in-out
-- **Pricing (as of 2026-09-23):** $2.00 / $10.00 per 1M in/out; cached input $0.20 per 1M (90% discount). Paid only; half the price of GPT-5.6 Sol ($4/$20); 5x cheaper than GPT-6 Astra ($10/$50).
+- **Pricing (as of 2026-09-23):** $2.00 / $10.00 per 1M in/out; cached input $0.20 per 1M (90% discount). Paid only; half the price of GPT-5.6 Sol ($4/$20); 5x cheaper than GPT-6 Astra ($10/$50); permanent rates, not promo (OpenAI spokesperson via VentureBeat — amended 2026-09-27).
 - **Architecture:** proprietary (undisclosed params/license; API only)
 
 ### Raw benchmarks found
@@ -24,6 +24,7 @@ Agent / tool use:
 - AutomationBench 1.0.6: **33.2%** at xhigh effort, $0.27/task (OpenAI launch charts via apidog.com/kingy.ai; beats GPT-6 Astra low 30.3% at 3.9x cost and Claude Opus 5 max 26.9% at 11.1x cost)
 - Agents' Last Exam V1: **56.4%** at max effort (OpenAI official via docsbot.ai; above Claude Opus 5 best at 60% lower cost per task)
 - OSWorld 2.0 offline: **64.4%** at max effort (docsbot.ai citing OpenAI; 60.5% at xhigh per apidog chart)
+- Terminal-Bench 4.0: **44%** (Artificial Analysis Codex lane, per CodingFleet TB4.0 roundup)
 - Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
@@ -56,7 +57,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** AutomationBench 33.2% leads frontier rivals at a fraction of cost plus OSWorld 2.0 64.4% and Agents' Last Exam 56.4% show strong autonomy; capped by missing Terminal-Bench/Tau/GDPval same-harness evidence.
+- **Tool use: 84/100.** AutomationBench 33.2% leads frontier rivals at a fraction of cost plus OSWorld 2.0 64.4% and Agents' Last Exam 56.4% show strong autonomy; capped by TB4.0 44% mid-pack and missing TB2.1/Tau/GDPval same-harness evidence.
 - **Reasoning: 78/100.** AA Index 48 plus Agents' Last Exam 56.4% and a low 4.5% difficult-prompt factual error rate indicate solid professional reasoning; capped by zero verified GPQA/HLE/LCR/CritPt scores one day post-launch.
 - **Context window: 96/100.** 1.05M window with 128K output sits in the top tier; capped below 100 absent any published ≥512K retrieval-accuracy evidence.
 - **Multimodal: 65/100.** Text + image in, text out with agent tool suite; capped at image-only (no video/audio/PDF-out evidence).

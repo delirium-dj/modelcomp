@@ -1,5 +1,15 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — models_finance/ trimmed to the Ling model folder
+
+1. Per user order (mirror dirs are duplicates — per-model info comes from `model/`): deleted all 89 mirror `models_finance/<slug>/` dirs (89 reports + 6 stubs) plus Ling's own `Ling_3.0_Flash_Fin.md` inside the ling folder. `models_finance/` now holds only `ling-3.0-flash-fin-free/` (21 files of other agents' work) + the root delegator (kept as retirement record — say the word if it should go too).
+2. Recovery note: all deleted content matches committed blobs under the old `model/` paths (`git show HEAD:model/<slug>/Ling_3.0_Flash_Fin.md`), so nothing is unrecoverable despite being untracked at deletion time.
+
+## 2026-09-25 — duplicate gemini-3.8-live removed from model/ (voice wins)
+
+1. `model/gemini-3.8-live/` had been re-created (committed) alongside `models_voice/gemini-3.8-live/`. Diffed file-by-file: 20/21 shared files identical, averages numerically equal (71.5; only the ignored-rater prose differs), voice copy is the superset (+ `Ling_3.0_Flash_Fin.md`). Deleted the `model/` copy — zero research lost. 21 unstaged deletions will tripwire-fail until committed.
+2. `models_finance/` mirror dirs are NOT duplicates: spot-checked dirs hold only relocated Ling files (nothing else), and `model/` holds no Ling files. Left untouched by design.
+
 ## 2026-09-25 — Gemini 3.1 Flash Lite retired as researcher (user-directed exception)
 
 1. Same playbook as the 3.1 Pro retirement: removed identity + all 70 research files — 62 `Gemini_3.1_Flash_Lite.md` + 6 `.excluded` from `model/`, 2 mirror `.md` (voice/finance), delegator `tasks/Gemini_3.1_Flash_Lite.md`. Verified 0 remaining anywhere. One-time user-directed exception, recoverable from git history.

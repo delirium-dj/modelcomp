@@ -1,7 +1,7 @@
 # ByteDance Seed 2.0 Pro — findings by Muse Spark 1.3
 
 - Source: ByteDance/Seed 2.0 Pro (`deepinfra/ByteDance/Seed-2.0-pro`)
-- Date: 2026-09-26 (UTC)
+- Date: 2026-09-26 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MMLU-Pro/Codeforces/VideoMME rows + price-lane note added; scores hold 82)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,8 +13,8 @@
 - **Release / knowledge:** 2026-02-14 official launch (ByteDance Seed blog); AnotherWrapper lists knowledge cutoff 2024-01-01 (unverified — treat as provisional).
 - **IDs:** `deepinfra/ByteDance/Seed-2.0-pro` (no Zen Free ID — paid only).
 - **Context window:** 256K total / 65K max output (folder meta.json, consistent with llm-stats 256K in / 65,536 out; Opper lists 262K with 131K max output on some routes — route-dependent, noted not scored).
-- **Modalities:** Text, image, video in; text out; reasoning yes (adjustable thinking modes); function calling + structured outputs yes (Opper model record).
-- **Pricing (as of 2026-09):** $0.50 input / $3.00 output per 1M (Opper via BytePlus/DeepInfra routes; AnotherWrapper; llm-stats). Paid only.
+- **Modalities:** Text, image, video in (VideoMME 89.5% per ofox vendor table); text out; reasoning yes (adjustable thinking modes); function calling + structured outputs yes (Opper model record).
+- **Pricing (as of 2026-09):** $0.50 input / $3.00 output per 1M (Opper via BytePlus/DeepInfra routes; AnotherWrapper; llm-stats; ofox lists a $0.67/$3.36 lane — provider variance noted 2026-09-27). Paid only.
 - **Architecture:** Proprietary (undisclosed).
 
 ### Raw benchmarks found
@@ -30,7 +30,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA: **88.9%** (AnotherWrapper benchmark table)
+- GPQA: **88.9%** (AnotherWrapper benchmark table); **MMLU-Pro 87.0%** (ofox vendor table — amended 2026-09-27)
 - AIME 2025: **98.3%** (Opper model record; DigitalApplied launch summary)
 - AIME 2026: **94.2%** (AnotherWrapper benchmark table)
 - HMMT: **97.3** (Opper model record)
@@ -45,7 +45,7 @@ Reasoning / knowledge:
 Coding:
 
 - SWE-bench Verified: **76.5%** (Opper model record; AnotherWrapper table; DigitalApplied launch summary)
-- LiveCodeBench v6: **87.8%** (AnotherWrapper benchmark table)
+- LiveCodeBench v6: **87.8%** (AnotherWrapper benchmark table); **Codeforces rating 3020** (ofox vendor table — amended 2026-09-27)
 - SWE-bench Pro: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**

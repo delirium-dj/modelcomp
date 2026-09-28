@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Opus 4.5 (`anthropic/claude-opus-4-5`)
-- Date: 2026-09-26 (UTC)
+- Date: 2026-09-26 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: release-year typo fixed + efficiency/integration notes added; scores hold 79)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Opus 4.5
 - **Short description:** Anthropic's Nov 2025 Opus flagship: first model past 80% on SWE-bench Verified (80.9%) with a 67% Opus-tier price cut ($15/$75 → $5/$25); still served but superseded by Opus 4.6 through 5.5. Top use case: heavy-duty agentic software engineering and computer use.
 - **Provider / access:** Anthropic API (`claude-opus-4-5`), Amazon Bedrock, Google Cloud Vertex AI. Messages API.
-- **Release / knowledge:** 2026-11-24 release (Anthropic announcement; TechCrunch); knowledge cutoff May 2025 (ApX model record).
+- **Release / knowledge:** 2025-11-24 release (Anthropic announcement; TechCrunch); knowledge cutoff May 2025 (ApX model record).
 - **IDs:** `anthropic/claude-opus-4-5` (no Free ID exists on Zen — paid only).
 - **Context window:** 200K (Anthropic system-card methodology note; folder meta.json). Shipped with long-context memory/compression improvements ("endless chat") but the window stays 200K.
 - **Modalities:** Text + image in; text out; reasoning yes (adjustable effort: low/medium/high, 64K thinking budget in evals); tool calls + computer use yes.
@@ -29,6 +29,7 @@ Agent / tool use:
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / SWE Atlas Codebase QnA: **no verified public score found**
+- Token efficiency: **76% fewer output tokens (medium, matched Sonnet 4.5 SWE-V) / 48% fewer (high, +4.3pp)**; Chrome + Excel integrations; lead-agent orchestration of Haiku sub-agents (Anthropic announcement — amended 2026-09-27)
 
 Reasoning / knowledge:
 

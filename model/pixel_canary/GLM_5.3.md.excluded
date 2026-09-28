@@ -1,0 +1,35 @@
+# Pixel_canary — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: stealth vendor undisclosed (`opencode/pixel_canary`)
+- Date: 2026-09-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (curated metadata only, no measured numbers):
+
+- **Identity:** "Pixel_canary" — a stealth/codename entry referenced as OpenCode Zen ID `opencode/pixel_canary`; vendor undisclosed. Curated metadata describes it only as a "model evaluation entry".
+- **Specs (curated, unverified by any leaderboard):** 128K total context; text in / text out; "Standard pricing" (no public price sheet found).
+
+Sources checked with no benchmark rows for this ID (2026-09-27):
+
+- OpenCode Zen live model list (`https://opencode.ai/zen/v1/models`, 2026-09-27 snapshot): `pixel_canary` **absent** — the ID is not currently served (no free tier, no paid tier).
+- Zen docs pricing/free/deprecation tables: no mention of Pixel_canary.
+- models.dev `pixel_canary.toml`: not found (404).
+- Artificial Analysis: no page (404). BenchLM: no page (404). BenchmarkList: no page (search engines return no model-related hits).
+- Web search ("pixel_canary" / "pixel-canary" AI model): zero relevant results — no vendor announcement, blog, or community eval exists for this ID.
+
+Interpolation from other stealth Zen models was deliberately NOT used to fabricate dimension scores. A future re-research should look for (a) Zen re-listing the ID, (b) a vendor reveal tying the codename to a real model, or (c) any aggregator coverage — then write a fresh `GLM_5.3.md` with real evidence.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-27
+- Method: public internet research (Zen live list + docs + models.dev + aggregators + web search); no verified public scores found for this stealth ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

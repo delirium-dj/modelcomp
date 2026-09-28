@@ -1,7 +1,7 @@
 # Muse Spark 1.1 — findings by Muse Spark 1.3
 
 - Source: Meta/Muse Spark 1.1, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: 1.1-exact tool/HLE/DeepSWE rows added, scores recomputed 80 → 85)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,21 +23,22 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified 1.1-exact number found; Meta vendor-claims 1.1 competitiveness on Terminal-bench (no figures). Proxy (base, provisional): TB 2.0 **59.55%** (Vals independent) / TB 2.1 **62.2%** (AA via temperature2)
+- Terminal-Bench 2.1: no verified 1.1-exact number found; Meta vendor-claims 1.1 competitiveness (no figures). Proxy (base, provisional): TB 2.0 **59.55%** (Vals) / TB 2.1 **62.2%** (AA); **TB2.0 80.0%** 1.1-exact (BenchLM mirror); **OSWorld 2.0 14.2%** 1.1-exact (weak tail)
 - Tau3-Banking / Tau2-Bench: no verified 1.1-exact number found. Proxy (base, provisional): Tau2-bench **91.5%** (AA via temperature2)
 - GDPval-AA: no verified 1.1-exact number found. Proxy (base, provisional): **1145** (BenchLM base page)
 - Claw-Eval / ClawProBench: no verified 1.1-exact number found. Proxy (base, provisional): Claw-Eval **63.8%** (BenchLM base page)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Toolathon / SWE Atlas Codebase QnA: **75.6% Toolathlon** 1.1-exact (BenchLM mirror); **MCP Atlas 88.1%** 1.1-exact (leads Ornith 80%); **OSWorld-Verified 80.8%** 1.1-exact; **JobBench 54.7%**, **Cybench 92.9%**, **ExploitGym 0.8%** (tail) (BenchLM mirrors); SWE Atlas: no verified score found
 - Meta vendor-claimed (no figures): 1.1 competitive with Opus 4.8 / Gemini 3.1 Pro / GPT-5.5 on BrowseComp, SpreadsheetBench, OSWorld (Computerworld summary of Meta blog)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified 1.1-exact number found. Proxy (base, provisional): **88.4%** (AA via temperature2) / 89.5% GPQA-D (BenchLM base page)
-- HLE: no verified 1.1-exact number found. Proxy (base, provisional): **40.7%** (AA via temperature2); LM Council lists "Muse Spark" 40.56% no-tools (variant ambiguous — provisional)
+- HLE: **62.1%** 1.1-exact (BenchLM mirror, #3 after Opus 5 64.7 / Mythos 64.5). Proxy (base, provisional): **40.7%** (AA); LM Council lists "Muse Spark" 40.56% no-tools (variant ambiguous)
 - LCR / MLCR: no verified 1.1-exact number found. Proxy (base, provisional): AA-LCR **77.0%** (temperature2)
 - CritPt: proxy (base, provisional) **11.3%** (BenchLM base page)
 - Artificial Analysis Intelligence Index / BenchLM overall: BenchLM **71.78** 1.1-exact overall; AA Index 1.1-exact: no verified public score found (base 44.3 — provisional proxy)
 - Omniscience Accuracy / Hallucination Rate: proxy (base, provisional) accuracy 49.6% / hallucination 84.2% (BenchLM base page)
+- FinanceAgent v2: **57.2%** 1.1-exact; **TaxEval 79.7% / CorpFin 71.3%** (finance board 1.1 rows); BenchLM 1.1 overall **77.14 (#8)** (vs filed 71.78 lane — both cited)
 
 Coding:
 
@@ -45,7 +46,7 @@ Coding:
 - LiveCodeBench: no verified 1.1-exact number found. Proxy (base, provisional): LiveCode Pro **80.0%** (BenchLM base page)
 - SciCode / AA-SciCode: no verified 1.1-exact number found. Proxy (base, provisional): **51.5%** (temperature2/BenchLM base)
 - Vibe Code Bench: no verified 1.1-exact number found. Proxy (base, provisional): 19.67% (BenchLM base — low, harness caveat, not scored on)
-- DeepSWE / Coding Index / other: no verified 1.1-exact number found. Proxy (base, provisional): AA Coding Index 58.6 (index, noted only)
+- DeepSWE: **53.3%** 1.1-exact (BenchLM mirror). Proxy (base, provisional): AA Coding Index 58.6 (index, noted only)
 - Meta Internal Coding Bench: 1.1 "significantly improves upon Muse Spark, competitive with leading alternatives" (Meta launch post — vendor-claimed, no figures)
 
 Long context:
@@ -54,13 +55,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** No 1.1-exact tool numbers; base proxies (TB ~60%, Tau2 91.5%, Claw 63.8%) plus vendor-claimed 1.1 parity with Opus 4.8-class agents justify low-70s, capped by provisional status.
-- **Reasoning: 80/100.** Base proxies (GPQA 88.4, HLE ~40.7, LCR 77) with claimed 1.1 gains point to low-80s; no 1.1-exact numbers cap it there.
+- **Tool use: 84/100.** TB2.0 80.0% plus MCP Atlas 88.1%, Toolathlon 75.6%, OSWorld 80.8% and Cybench 92.9% form a strong 1.1-exact agentic set; capped by the OSWorld-2.0 14.2% tail and no Tau/GDPval numbers.
+- **Reasoning: 90/100.** HLE 62.1% (#3) plus FinanceAgent 57.2%, TaxEval 79.7% and base-proxy GPQA 88.4 show strong reasoning; capped by no 1.1-exact GPQA/LCR/CritPt numbers.
 - **Context window: 90/100.** Verified 1M window with vendor-described active context management, but zero verified retrieval percentages keep it off the 95+ tier.
 - **Multimodal: 85/100.** Natively multimodal with base proxies (MMMU-Pro 80.4, CharXiv 86.4, ScreenSpot Pro 84.1) and claimed 1.1 multimodal gains; text-only output caps it.
-- **Coding: 76/100.** 1.1-exact SWE-Pro 61.5% trails the 67%+ leaders; base proxies (SWE-V 77.4, LiveCode Pro 80) support mid-70s, capped by the exact-ID gap to the leaders.
+- **Coding: 77/100.** 1.1-exact SWE-Pro 61.5% with DeepSWE 53.3% and base-proxy SWE-V 77.4; capped by the exact-ID gap to the leaders.
 - **Cost efficiency: 88/100.** $1.25/$4.25 paid pricing is the entry-frontier tier (~86% under GPT-5.5 output); not $0.
-- **Overall Score: 80/100.** Mean of (70 + 80 + 90 + 85 + 76) / 5 = 80.2 → 80; best fit for cost-sensitive agent pilots that need 1M-context orchestration cheaply. (Provisional-leaning report: re-score when 1.1-exact harness numbers publish.)
+- **Overall Score: 85/100.** Mean of (84+90+90+85+77)/5 = 85.2; best-fit for cost-sensitive agent pilots that need 1M-context orchestration cheaply.
 
 ---
 

@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Muse Spark 1.3
 
 - Source: Xiaomi/MiMo-V2.6-Flash (Free tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,6 +32,7 @@ Agent / tool use:
 - GDPval-AA: **no verified public score found for Flash** (Pro reported at 1673 Elo on Xiaomi page; no Flash Elo published)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- BenchLM MiMo-V2.6-Flash page: **14 source-displayable rows, no public overall score** (Sep 2026 third-party mirror — numbers not yet extracted into this report; amended 2026-09-27)
 
 Reasoning / knowledge:
 

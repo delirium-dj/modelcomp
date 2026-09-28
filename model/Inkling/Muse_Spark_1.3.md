@@ -1,7 +1,7 @@
 # Inkling — findings by Muse Spark 1.3
 
 - Source: Thinking Machines Lab/Inkling (`opencode/Inkling`)
-- Date: 2026-09-26 (UTC)
+- Date: 2026-09-26 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills added, Reasoning 84 → 85, Coding 84 → 86, Overall 87 → 88)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,9 +25,9 @@ Agent / tool use:
 - HLE with tools: **46.0%** (official model card; vs Fable 5 max 64.5%)
 - BrowseComp: **77.1%** (BenchLM Grok-4.1-Fast vs Inkling compare page, verified 2026-07-18)
 - MCP Atlas: **74.1%** (BenchLM compare page, verified 2026-07-18)
-- Terminal-Bench 2.0: **63.8%** (BenchLM compare page — same value as the card's 2.1 best-harness figure)
+- Terminal-Bench 2.0: **63.8%** (BenchLM compare page — same value as the card's 2.1 best-harness figure); **TB2.1 Vals lane 47.6%** (BenchLM mirror — harness differs)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- GDPval-AA: **36.7% / Elo 1234** (BenchLM mirror); **EnterpriseOps-Gym 38.0%**, **Agentic Index 34.1%** (BenchLM mirrors)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / SWE Atlas Codebase QnA: **no verified public score found**
 
@@ -37,10 +37,12 @@ Reasoning / knowledge:
 - HLE (text only): **29.7%** (official model card; AA-HLE 29.7% corroborates)
 - AIME 2026: **97.1%** (official model card)
 - Global-MMLU-Lite: **88.7%** (NVIDIA NIM model card, from official HF scores)
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
+- MMLU-Pro: **86.3% Vals lane** (BenchLM mirror); **IFBench 79.8%** (BenchLM mirror)
+- LCR: **73.3% AA-LCR** (BenchLM mirror)
+- CritPt: **5.4%** (BenchLM mirror — weak tail)
 - Artificial Analysis Intelligence Index: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **40.0% / 63.1%** (BenchLM compare page, AA-Omniscience — elevated hallucination noted)
+- Omniscience Accuracy / Hallucination Rate: **40.0% / 63.1%** (BenchLM compare page, AA-Omniscience — elevated hallucination noted; mirror lane reads 41.6% / 67.7%)
+- CharXiv: **82% (78.1% w/o tools)** (BenchLM mirror); **Design Arena 1227 website / 1257 agentic-dev** (BenchLM mirror); **AA Index 42.3%** (BenchLM mirror)
 
 Coding:
 
@@ -49,9 +51,9 @@ Coding:
 - SWE-bench Verified, Inkling (Vals AI, by task difficulty): **86% / 75% / 57% / 33%** (Vals AI page, Sep 2026)
 - AA-SciCode: **46.1%** (BenchLM compare page)
 - AA Coding Index: **52.1** (BenchLM compare page)
-- LiveCodeBench: **no verified public score found**
+- LiveCodeBench: **85.5% Vals lane** (BenchLM mirror)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / other: **no verified public score found**
+- DeepSWE: **no verified public score found**; **FrontierSWE v2 4.1%** (BenchLM mirror — weak tail)
 
 Long context:
 
@@ -60,12 +62,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 82/100.** TB 2.1 63.8% (best harness) plus BrowseComp 77.1%, MCP Atlas 74.1%, and HLE-with-tools 46.0% form a solid verified agentic set; capped by no Tau/GDPval numbers and a clear gap to harness-tuned leaders (Sol 89.5%).
-- **Reasoning: 84/100.** GPQA-D 87.2, AIME 2026 97.1, Global-MMLU-Lite 88.7 evidence strong reasoning; HLE text-only 29.7% and 63.1% omniscience hallucination rate cap it at 84.
+- **Reasoning: 85/100.** GPQA-D 87.2, AIME 2026 97.1, MMLU-Pro 86.3 and LCR 73.3 evidence strong reasoning; HLE text-only 29.7% and CritPt 5.4% tail cap it at 85.
 - **Context window: 97/100.** Verified 1M window clears the ≥1M tier; held below 100 for lack of any published full-length retrieval measurement (and Tinker's 64K/256K serving options as caveat).
 - **Multimodal: 90/100.** Native text/image/audio reasoning (VoiceBench 91.4%, MMMU Pro 73.3% per NIM card) hits the audio-in tier; text-only out keeps it at the tier floor of 90.
-- **Coding: 84/100.** SWE-Verified 77.6% + SWE-Pro 54.3% + Vals splits (86/75/57/33) is a verified mid-upper coding profile; AA-SciCode 46.1% and missing LiveCode/DeepSWE numbers cap it at 84.
+- **Coding: 86/100.** SWE-Verified 77.6% + SWE-Pro 54.3% + LiveCode 85.5% and Vals splits (86/75/57/33) is a verified mid-upper coding profile; AA-SciCode 46.1% and the FrontierSWE 4.1% tail cap it at 86.
 - **Cost efficiency: 82/100.** Hosted $1.87/$4.68 sits just above the ~$1.25/$4.25 (≈88) tier; Apache-2.0 self-hostability noted as upside, not scored.
-- **Overall Score: 87/100.** Mean of the five non-cost dims (82 + 84 + 97 + 90 + 84) / 5 = 87.4 → 87; best fit as the premier open-weights multimodal agent base for teams that fine-tune.
+- **Overall Score: 88/100.** Mean of the five non-cost dims (82 + 85 + 97 + 90 + 86) / 5 = 88.0 → 88; best fit as the premier open-weights multimodal agent base for teams that fine-tune.
 
 ---
 

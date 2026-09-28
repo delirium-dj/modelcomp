@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Muse Spark 1.3 Contributor
 
 - Source: Meta/Muse Spark 1.2, e.g. Meta (`muse-spark-1.2-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Tau3/Index corrected, LCR gap filled, Reasoning 88 → 89, Overall holds 91)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Muse Spark 1.2 Free (Meta, Contributor Free tier)
 - **Short description:** Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation; near-frontier free fallback when 1.3 Free is unavailable.
 - **Provider / access:** Meta via Meta Model API; OpenCode Zen `opencode/muse-spark-1.2-contributor-free` (Chat Completions, tool calling + MCP supported).
-- **Release / knowledge:** 2026-08-05 release (Artificial Analysis article date); knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-08-05 release (1.2 standard); Contributor tier 2026-08-21; knowledge cutoff undisclosed (amended 2026-09-27).
 - **IDs:** `opencode/muse-spark-1.2-contributor-free` (Free Contributor tier exists on Zen)
 - **Context window:** 1,048,576 (1M) — verified via Artificial Analysis 1.2 article (retains 1.1 1M window)
 - **Modalities:** text, image, audio, video, PDF in; text out; reasoning yes (xhigh); tool calls yes; structured output yes
@@ -21,9 +21,9 @@
 
 Agent / tool use:
 
-- GDPval-AA v2: **1631 Elo** (Artificial Analysis 1.2 article, #5 overall, +260 vs 1.1, ahead of Opus 4.8 max 1588)
+- GDPval-AA v2: **1631 Elo** (Artificial Analysis 1.2 article, #5 overall, +260 vs 1.1, ahead of Opus 4.8 max 1588); AA 1.3 article restates the 1.2 baseline as 1615 — variant-config lane variance
 - Terminal-Bench 2.1: **80%** (Artificial Analysis 1.2 article, +2 vs 1.1; BenchLM reports 82.9% variant config)
-- Tau3-Banking: **27%** (Artificial Analysis 1.2 article, +2 vs 1.1)
+- Tau3-Banking: **35%** (AA 1.3 article restating 1.2 xhigh baseline; corrects filed 27% — amended 2026-09-27)
 - MCP Atlas: **90.3%** (Benchgen model page meta/muse-spark-1-2)
 - SWE Atlas Codebase QnA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -32,9 +32,9 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **90.4%** (BenchLM muse-spark-1-2)
 - HLE: **45.5%** (BenchLM muse-spark-1-2; AA reports 44% Intelligence Index config)
-- LCR / MLCR: **no verified public score found**
+- LCR / MLCR: **83.3% AA-LCR** (DeepLearning.ai, #1 of all tested models at xhigh reasoning)
 - CritPt: **18%** (Artificial Analysis 1.2 article, +3 vs 1.1)
-- Artificial Analysis Intelligence Index / BenchLM overall: **54 Index** (Artificial Analysis 1.2 article); **71.88 BenchLM #11** (BenchLM)
+- Artificial Analysis Intelligence Index / BenchLM overall: **57 Index (xhigh, $0.40/task)** (DeepLearning.ai Aug 2026; corrects filed 54 — amended 2026-09-27); **71.88 BenchLM #11** (BenchLM); GDPval v2 predecessor read **1615** (AA 1.3 article; filed 1631 is a variant-config lane)
 - Omniscience Accuracy / Hallucination Rate: **38% accuracy / 28% hallucination / 67% attempt** (Artificial Analysis AA-Omniscience, heavy-abstention pattern)
 
 Coding:
@@ -47,17 +47,17 @@ Coding:
 
 Long context:
 
-- **no long-context retrieval reported**
+- **AA-LCR 83.3% (#1, xhigh)** fills the long-document reasoning slot; no MRCR/RULER percentage found
 
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** GDPval 1631 (#5), TB 80% and MCP Atlas 90.3% show frontier-adjacent tool orchestration; capped below 1.3 (GDPval 1754, TB 88.8%).
-- **Reasoning: 88/100.** GPQA 90.4% and Index 54 are strong; capped by HLE mid-40s and CritPt 18%.
+- **Reasoning: 89/100.** GPQA 90.4%, Index 57 and AA-LCR 83.3% (#1) are strong; capped by HLE mid-40s and CritPt 18%.
 - **Context window: 100/100.** Verified 1M window; top tier mapping.
 - **Multimodal: 90/100.** Full text/image/audio/video/PDF input coverage like 1.3; capped slightly as visual-reasoning execution evidence is thinner than 1.3.
 - **Coding: 88/100.** TB 80% + DeepSWE 59.3% are strong but a clear step below 1.3 DeepSWE 75.4%; caps the score.
 - **Cost efficiency: 100/100.** $0 Free Zen Contributor tier.
-- **Overall Score: 91/100.** Mean of the five non-cost dims (90+88+100+90+88)/5 = 91.2; best-fit near-frontier free fallback.
+- **Overall Score: 91/100.** Mean of the five non-cost dims (90+89+100+90+88)/5 = 91.4; best-fit near-frontier free fallback.
 
 ---
 

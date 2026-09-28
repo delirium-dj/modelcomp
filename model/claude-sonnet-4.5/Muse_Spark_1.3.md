@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Sonnet 4.5 (`claude-sonnet-4-5-20250929`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: ARC-AGI-2/BullshitBench/AIME/BenchLM rows + file-input modality added; scores hold 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,7 +13,7 @@
 - **Release / knowledge:** 2025-09-29 release; knowledge cutoff 2025-01-31
 - **IDs:** `anthropic/claude-sonnet-4-5-20250929` (no Free ID exists on Zen; evaluated ID `opencode/claude-sonnet-4.5`)
 - **Context window:** 200K total standard (64K max output); 1M beta available to Tier 4+ API users via `context-1m-2025-08-07` header with 2x input pricing beyond 200K — verified via Anthropic announcement and pricing trackers
-- **Modalities:** text + image in; text out; extended-thinking reasoning yes; tool calls (incl. parallel bash/file-edit, MCP) yes; structured/JSON output yes
+- **Modalities:** text + image + file in; text out; extended-thinking reasoning yes; tool calls (incl. parallel bash/file-edit, MCP) yes; structured/JSON output yes
 - **Pricing (as of 2026-09-23):** $3.00 / $15.00 per 1M in/out; cached input $0.30 per 1M (90% saving); 1M-beta inputs beyond 200K billed at 2x. Paid tier only, no $0 free tier.
 - **Architecture:** proprietary (undisclosed params/license)
 
@@ -27,6 +27,7 @@ Agent / tool use:
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- BenchLM ledger (retrieved 2026-08-31): **VITA-Bench 17.0 / Gert Labs 48.51** (agent rows); overall **52.9 (#99)** — amended 2026-09-27
 - OSWorld (computer use): **61.4%** (Anthropic announcement 2025-09-29; best-in-class at release)
 - SWE-bench Verified (agentic harness, bash + file-edit scaffold): **77.2%** standard (Anthropic official announcement, averaged over 10 trials, no test-time compute); **82.0%** with parallel test-time compute / selection (Anthropic press briefing)
 
@@ -40,6 +41,7 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - MMLU-Pro (proxy): **86.0%** (MindStudio model page aggregation)
 - MMMU (multimodal proxy): **68%** (aireleasetracker.com release figures)
+- ARC-AGI-2: **13.6%** (BenchLM ledger); **BullshitBench v2 79%** and **Next.js Evals 46%** (aireleasetracker release figures); **AIME 2025 87.0%** (llm-stats tracker) — amended 2026-09-27
 
 Coding:
 

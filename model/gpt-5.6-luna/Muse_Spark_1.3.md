@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.6 Luna (`gpt-5.6-luna`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills added, scores recomputed 77 → 78)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,7 @@ Agent / tool use:
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathlon: **53.4%** (OpenAI launch table; vs GPT-5.5 55.6%); BrowseComp: **83.3%** (OpenAI launch table; vs 5.5 84.4%); OSWorld 2.0: **45.6%** (OpenAI launch table; vs 5.5 47.5%)
 - Management Consulting Tasks (internal): **35.4%** (OpenAI launch table); AutomationBench: **14.9%** (OpenAI launch table)
+- Terminal-Bench 3.0: **14.3%** (BenchLM mirror — weak tail); **CyberGym 77.9%** and **ExploitGym 12.4%** (BenchLM mirrors); **TB2.1 Vals lane 79.0%** (BenchLM mirror)
 
 Reasoning / knowledge:
 
@@ -38,6 +39,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index / BenchLM overall: **51.2 v4.1 (vendor AA run) / 51 max (AA pre-release) / 38 v4.3 max** (OpenAI + AA July-Sept 2026; vs 5.5 54.8)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - FrontierMath Tier 1-3 v2: **78.6%** / Tier 4 v2: **58.5%** (OpenAI launch table); Big Finance Bench: **36%** (OpenAI launch table; vs 5.5 49%)
+- ARC-AGI-2: **59.5%** (BenchLM mirror)
 
 Coding:
 
@@ -46,7 +48,7 @@ Coding:
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **DeepSWE v1.1 67.2%** (OpenAI launch table); **AA Coding Agent Index 74.6** (OpenAI/AA; vs 5.5 76.4, Opus 4.8 72.5)
+- DeepSWE / Coding Index / other: **DeepSWE v1.1 67.2%** (OpenAI launch table); **AA Coding Agent Index 74.6** (OpenAI/AA; vs 5.5 76.4, Opus 4.8 72.5); **93.0% SWE Vals**, **85.5% VulcanBench v3**, **61.1% cursorBench32**, **55.1% FrontierCode Ext** (BenchLM mirrors)
 
 Long context:
 
@@ -54,13 +56,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** TB 2.1 84.7% plus BrowseComp 83.3% and Agents' Last Exam 50.3% (beats Fable) show capable volume agents; capped by Toolathlon 53.4% and OSWorld 45.6% below 5.5.
-- **Reasoning: 79/100.** GPQA 92.3% plus FrontierMath 78.6%/58.5% and Agents' Exam 50.3% show solid reasoning at nano price; capped by Big Finance 36% well below 5.5 49%.
+- **Tool use: 79/100.** TB 2.1 84.7% (79.0% Vals lane) plus BrowseComp 83.3%, CyberGym 77.9% and Agents' Exam 50.3% show capable volume agents; capped by TB3.0 14.3% and OSWorld 45.6% tails.
+- **Reasoning: 80/100.** GPQA 92.3% plus FrontierMath 78.6%/58.5%, ARC-AGI-2 59.5% and Agents' Exam 50.3% show solid reasoning at nano price; capped by Big Finance 36% well below 5.5 49%.
 - **Context window: 72/100.** 1M window keeps the tier, but MRCR 41.3% at 256K+ is a marked drop from 5.5 81.5%/74%; capped by weak measured long recall despite GraphWalks 51.2% at 1M.
 - **Multimodal: 76/100.** Text+image in with tool-driven BrowseComp/BenchCAD-class workflows implies adequate vision-text; capped by text-only output and no verified MMMU/CharXiv figure for Luna.
-- **Coding: 80/100.** SWE-Pro 62.7% beats 5.5 plus DeepSWE 67.2% and Coding Index 74.6 beats Opus 4.8 show real code ability; capped by TB 84.7% below Sol 88.8% and no Verified/LiveCodeBench figure.
+- **Coding: 83/100.** SWE-Pro 62.7% plus SWE Vals 93.0%, VulcanBench 85.5%, DeepSWE 67.2% and cursorBench 61.1% show strong volume coding; capped by no SWE-Verified/LiveCode/SciCode absolutes.
 - **Cost efficiency: 95/100.** $0.20/$1.20 at $0.21/index-task (~6 cents per task vs frontier, 99% cheaper than Fable on Agents' Exam) is elite paid value; capped below $0 free (100 only).
-- **Overall Score: 77/100.** Mean of the five non-cost dims (78+79+72+76+80)/5 = 77.0; best-fit high-volume routed automation where throughput and cost per success dominate.
+- **Overall Score: 78/100.** Mean of the five non-cost dims (79+80+72+76+83)/5 = 78.0; best-fit high-volume routed automation where throughput and cost per success dominate.
 
 ---
 

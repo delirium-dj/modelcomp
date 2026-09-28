@@ -1,7 +1,7 @@
 # DeepSeek V4 Vision Exp — findings by Muse Spark 1.3
 
 - Source: DeepSeek/DeepSeek V4 Flash Vision Exp (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** DeepSeek V4 Vision Exp (DeepSeek-V4-Flash-Vision-Exp, experimental multimodal)
 - **Short description:** DeepSeek's first experimental vision-capable V4-Flash model, continued-trained for multimodal agent workflows, UI automation and chart analysis, holding text parity with V4-Flash while closing the multimodal gap to Opus 4.8.
 - **Provider / access:** DeepSeek via API (`deepseek-v4-flash-vision-exp`, image input JPEG/PNG/GIF/WebP); OpenCode Zen `opencode/deepseek-v4-vision-exp` (Chat Completions, tool calling supported).
-- **Release / knowledge:** 2026-08-21 API launch; 2026-08-31 open weights (Hugging Face, MIT license); knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-08-21 API launch; 2026-08-31 open weights (Hugging Face, MIT license); **RETIRED 2026-09-10** — requests route to V4.1-Flash (DeepSeek news post); knowledge cutoff undisclosed (amended 2026-09-27)
 - **IDs:** `opencode/deepseek-v4-vision-exp` (Free experimental ID exists on Zen; native `deepseek-v4-flash-vision-exp` on DeepSeek API)
 - **Context window:** 1,048,576 in / 393,216 out — verified via llm-stats provider comparison (1,048,576 vs V4.1-Flash 1,040,000, both 393,216 out)
 - **Modalities:** text, image in; text out; reasoning yes (max effort, temp 1.0 top_p 0.95 per model-card eval setup); tool calls yes; document/chart screenshot understanding yes

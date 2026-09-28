@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Muse Spark 1.3
 
 - Source: xAI/Grok 4.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Vals lane gap-fills added, Coding 74 → 80, Overall 81 → 82)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,11 +22,11 @@
 Agent / tool use:
 
 - Tau2-Bench Telecom (AA harness): **98%** (Artificial Analysis, Apr–May 2026; #1 rank, in line with GLM-5.1; xAI vendor claim of #1 confirmed by AA) — also reported as τ²-bench **97.7%** (BenchLM lane, Jul 2026)
-- Terminal-Bench 2.1: **no verified public score found** (closest proxies, different harnesses: TerminalBench Hard **37.9%** per AA via llmbase.ai, provisional; Terminal-Bench 2.0 **no verified public score found**)
+- Terminal-Bench 2.1: **41.9% Vals lane** (BenchLM mirror — weak tail); TerminalBench Hard **37.9%** per AA via llmbase.ai (provisional)
 - Tau3-Banking / Tau2-Bench: Tau3-Banking **no verified public score found**; Tau2 figures as above
 - GDPval-AA: **1500 Elo** (Artificial Analysis, Apr 2026; +321 vs Grok 4.20 0309 v2's 1179; trails GPT-5.5 xhigh by 276); alternate BenchLM-lane figure GDPval-AA **1085 Elo / 29.2%** (BenchLM compare page, Jul 2026 — different lane, listed for traceability)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: APEX-Agents-AA **17.0%**, AA Agentic Index **24.1%** (BenchLM lanes, Jul 2026); Toolathon / MCP-Atlas / SWE Atlas proper **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: APEX-Agents-AA **17.0%**, AA Agentic Index **24.1%** (BenchLM lanes, Jul 2026); **Gert Labs 43.86%** and **ResearchClawBench 12.4%** (BenchLM mirrors); **Finance Agent v2 37.7%** (llm-stats mirror); Toolathon / MCP-Atlas / SWE Atlas proper **no verified public score found**
 
 Reasoning / knowledge:
 
@@ -39,8 +39,8 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public 4.3-specific score found** on either (Grok 4's 67.1% Verified figure belongs to Grok 4, not 4.3 — not attributed here)
-- LiveCodeBench: **no verified public 4.3-specific score found** (LiveBench Coding 70% below is a different benchmark, not LiveCodeBench)
+- SWE-bench Verified / SWE-Pro: **71.4% SWE Vals lane** (BenchLM mirror); no verified public 4.3-specific Verified-Proper/Pro score found on either (Grok 4's 67.1% Verified figure belongs to Grok 4, not 4.3 — not attributed here)
+- LiveCodeBench: **84.5% Vals lane** (BenchLM mirror); LiveBench Coding 70% is a different harness (not LiveCodeBench)
 - SciCode / AA-SciCode: **47.3%** (Artificial Analysis via llmbase.ai)
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: AA Coding Index proxy **41.0** (llmbase.ai composite); LiveBench Coding **70%**, Reasoning 71%, Math 84.3%, Data Analysis 56%, Global 62%, Agentic 19% (ApX/BenchGecko, all LiveBench harness — provisional proxies, not LiveCodeBench); Aider Polyglot **no verified public 4.3-specific score found**
@@ -51,13 +51,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** Tau2 Telecom 98% (#1) plus GDPval-AA 1500 Elo show elite support-agent tool calling; capped by TerminalBench Hard 37.9% and no verified TB2.1/Claw-Eval score.
+- **Tool use: 84/100.** Tau2 Telecom 98% (#1) plus GDPval-AA 1500 Elo show elite support-agent tool calling; capped by TB2.1 Vals 41.9% tail and TerminalBench Hard 37.9%.
 - **Reasoning: 86/100.** GPQA 90.1% is frontier-tier and AA Index 53 leads Muse Spark/Sonnet 4.6; capped by HLE 35.0% (below the 40% frontier bar) and no verified CritPt score.
 - **Context window: 95/100.** Full 1M tier per the ≥1M band; capped at 95 (not 100) because no verified ≥98% retrieval figure at 512K+ exists.
 - **Multimodal: 65/100.** Text + image in covers the +image band; capped because video/PDF/audio input and non-text output are unverified.
-- **Coding: 74/100.** SciCode 47.3% plus LiveBench Coding 70% and strong reasoning spillover support upper-mid; capped by no verified 4.3-specific SWE-Verified or LiveCodeBench score.
+- **Coding: 80/100.** LiveCodeBench Vals 84.5% plus SWE Vals 71.4% and SciCode 47.3% show solid coding; capped by no SWE-Pro/DeepSWE/Vibe numbers.
 - **Cost efficiency: 90/100.** $1.25/$2.50 base tier undercuts the ~$1.25/$4.25 reference band on outputs; capped by paid-only access with a 2x step-up above 200K tokens.
-- **Overall Score: 81/100.** Mean of the five quality dims (84 + 86 + 95 + 65 + 74) / 5 = 80.8 → 81; best fit as a paid enterprise agent/document-QA pick with elite tool-calling and a full 1M window.
+- **Overall Score: 82/100.** Mean of the five quality dims (84 + 86 + 95 + 65 + 80) / 5 = 82.0 → 82; best fit as a paid enterprise agent/document-QA pick with elite tool-calling and a full 1M window.
 
 ---
 

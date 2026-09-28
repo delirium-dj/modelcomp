@@ -1,7 +1,7 @@
 # Union Alpha — findings by Muse Spark 1.3
 
 - Source: Unbiased/Pareto 26.9 (stealth `union-alpha`), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,7 +44,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found** (OpenRouter CEO claim 2026-09-16 of outscoring GPT-5.6 Sol on SWE-Verified printed no numbers — unscored)
+- SWE-bench Verified: **74.2%** (union-alpha.org official features page; resolves the filed CEO-claim gap — amended 2026-09-27); SWE-Pro: **no verified public score found**
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
@@ -64,9 +64,9 @@ Long context:
 - **Reasoning: 82/100.** HLE 49 near frontier with ArXivMath 88 close to Astra 91 and MMMU-Pro 78 slightly ahead of DeepSeek; capped by missing GPQA/LCR/CritPt/Index runs.
 - **Context window: 74/100.** 262K tier (200K–500K maps 65–84, 200K = 70); capped by zero measured retrieval at length.
 - **Multimodal: 65/100.** Text + image in, text out (image-input verified, no video/audio); mid image-in band.
-- **Coding: 86/100.** DeepSWE 74 ties the Astra/DeepSeek frontier lead for agent coding; capped by unscored SWE-Verified/TB2.1 claims and TB4.0 trailing Astra by 7.
+- **Coding: 87/100.** SWE-Verified 74.2% plus DeepSWE 74 (Astra parity) show strong blended coding; capped by no SWE-Pro/LiveCode numbers and TB4.0 trailing Astra by 7.
 - **Cost efficiency: 70/100.** Paid $2.50/$7.50 ($0.25 cached) — ~1/4 Fable input, ~15% output per Unbiased; free window lasted only 33 hours so scored on paid.
-- **Overall Score: 77/100.** Mean of the five non-cost dims (78+82+74+65+86)/5 = 77.0 → 77; best-fit as DeepSWE-parity blended coder for retry-tolerant agent work behind a model switch, not hardwired.
+- **Overall Score: 77/100.** Mean of the five non-cost dims (78+82+74+65+87)/5 = 77.2 → 77; best-fit as DeepSWE-parity blended coder for retry-tolerant agent work behind a model switch, not hardwired.
 
 ---
 

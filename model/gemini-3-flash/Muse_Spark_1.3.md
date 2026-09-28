@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Muse Spark 1.3
 
 - Source: Google/Gemini 3 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch-lane variances + math/arena/MMMU rows added; scores hold 87)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,14 +30,16 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.4–89.8%** (AnotherWrapper 89.4%; DesignForOnline 89.8%)
+- GPQA Diamond: **89.4–89.8%** (AnotherWrapper 89.4%; DesignForOnline 89.8%; launch table 90.4% — lane variance noted 2026-09-27)
 - HLE: **34.7%** (DesignForOnline) / **43.5%** (AnotherWrapper snapshot — harness differs, both cited)
 - LCR / MLCR: LCR **66.3%** (DesignForOnline); MRCR v2 22.1% on one aggregator snapshot (scale unclear — noted, not used for scoring)
 - CritPt: no verified public score found
 - Artificial Analysis Intelligence Index / BenchLM overall: Index **35–38.7** (CloudPrice 35.0; DesignForOnline 38.7) / BenchLM overall 62.96
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - AIME 2025 (math proxy): **97–99.7%** (DesignForOnline 97%; AnotherWrapper 99.7% — effort/harness differs)
+- MATH 97.5% / GSM8K 96.8% / SimpleQA 68.7% / OTIS Mock AIME 92.8% / FM T1-3 51.2% / SimpleBench 53.3% / ARC-AGI 21.5% / Arena 1473 overall + 1437 coding (launch + BenchGecko rows — amended 2026-09-27)
 - MMLU-Pro / MMMLU: **89–91.8%** (DesignForOnline MMLU Pro 89%; AnotherWrapper MMMLU 91.8%)
+- MMMU-Pro: **81.2%** (launch; filed scoring evidence, recorded here — amended 2026-09-27)
 
 Coding:
 

@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by Muse Spark 1.3 Contributor
 
 - Source: Google/Gemini 3.6 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: model-card table added, scores recomputed 83 → 84)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,20 +10,22 @@
 - **Name:** Gemini 3.6 Flash (Google advanced 3.6)
 - **Short description:** Google's advanced 3.6 Flash model with improved reasoning.
 - **Provider / access:** Google via AI Studio + Vertex (`google/gemini-3.6-flash`); OpenCode Zen free tier (Chat Completions, tool calling supported).
-- **Release / knowledge:** 2026 (3.6 generation); knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-07-21 release (model card); knowledge cutoff undisclosed (amended 2026-09-27).
 - **IDs:** `google/gemini-3.6-flash` (Free tier exists via AI Studio/Zen)
 - **Context window:** 1,048,576 (1M) — verified via curated repo metadata
-- **Modalities:** text, image, audio, PDF in; text out; reasoning yes (improved); tool calls yes
-- **Pricing (as of 2026-09-18):** Free tier available; paid-tier fallback
+- **Modalities:** text, image, audio, video, PDF in (model card); text out; reasoning yes; tool calls yes
+- **Pricing (as of 2026-09-18, re-verified 2026-09-27):** $1.50/$7.50 per 1M (model card); free tier via AI Studio/Zen
 - **Architecture:** proprietary (undisclosed)
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 2.1: **78.0%** (model card, Terminus-2 harness; Vals lane 73.8%)
+- OSWorld-Verified: **83.0%** (model card, vs 3.5 78.4%)
+- MLE-Bench: **63.9%** (model card, vs 3.5 49.7%)
+- GDPval-AA v2: **1421 Elo** (model card, vs 3.5 1349)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
@@ -31,6 +33,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **no verified public score found**
 - HLE: **no verified public score found**
+- CharXiv Reasoning: **85.2% no-tools / 89.4% with tools** (model card)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy as provisional: AI Atlas Related-Model link from 1.3 page, no absolute)
@@ -38,25 +41,25 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- SWE-bench Pro (Public): **58.7%** (model card)
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- DeepSWE / Coding Index / other: **49% DeepSWE v1.1** (model card, vs 3.5 37%); **53.5% cursorBench32** (BenchLM mirror)
 
 Long context:
 
-- **1M window verified; no MRCR/RULER number found — no long-context retrieval reported**
+- **1M window verified; GDM-MRCR v2 (8-needle) 54.0%** (model card) — measured mid retrieval caps the tier
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Improved-reasoning 3.6 tool-use reputation above 3.5; capped by zero public harness absolutes.
-- **Reasoning: 78/100.** Improved-reasoning positioning per curated short; capped by zero public GPQA/HLE numbers.
-- **Context window: 100/100.** 1M verified; top tier.
+- **Tool use: 84/100.** TB2.1 78.0% plus OSWorld-Verified 83.0%, MLE-Bench 63.9% and GDPval 1421 show strong workhorse orchestration; capped by no Tau/Claw numbers.
+- **Reasoning: 80/100.** CharXiv 85.2%/89.4% is the lone measured reasoning signal; capped by zero GPQA/HLE/LCR/CritPt numbers.
+- **Context window: 93/100.** 1M verified with measured MRCR 54.0%; mid retrieval caps it below saturation peers.
 - **Multimodal: 85/100.** Broad text/image/audio/PDF input; capped as outputs remain text.
-- **Coding: 76/100.** Advanced Flash coding reputation; capped by zero public coding harness numbers.
+- **Coding: 80/100.** SWE-Pro 58.7% plus DeepSWE 49% and MLE-Bench 63.9% show solid workhorse coding; capped by zero SWE-Verified/LiveCode/SciCode numbers.
 - **Cost efficiency: 95/100.** Free tier available with cheap paid fallback.
-- **Overall Score: 83/100.** Mean of the five non-cost dims (76+78+100+85+76)/5 = 83.0; best-fit improved-reasoning free 3.6 Flash pick.
+- **Overall Score: 84/100.** Mean of the five non-cost dims (84+80+93+85+80)/5 = 84.4; best-fit improved-reasoning free 3.6 Flash pick — model-card absolutes now confirm it.
 
 ---
 

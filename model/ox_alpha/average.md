@@ -5,7 +5,7 @@
 
 ## Averaged scores
 
-- **Tool use: 74/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 74.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Reasoning: 73.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Context window: 92.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Multimodal: 76/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).

@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Muse Spark 1.3
 
 - Source: Stealth/Ox Alpha via OpenRouter (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: independent TB3.0 + LiveBench category rows added, Tool 74 → 75, Overall holds 83)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,6 +25,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 3.0 (independent): **26.58% pass@1 (25.00% strict full solves)** (HF era-logic eval record, Harbor harness, mini-swe-agent 2.4.6, max effort, Aug 21–22; 0.895B tokens total — efficient vs Opus 5 1.46B/Sol 1.16B)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Intelligence Index (vendor comparison page): **59** (ox-alpha.org vs-GLM-5 page, Ox Alpha column; GLM-5 57 — vendor-site claim, small-sample provenance)
@@ -36,7 +37,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **no verified public score found**
 - HLE: **no verified public score found**
-- LiveBench Reasoning (label-level only): **76.6** (LiveBench 2026-06-25 snapshot, label `ox-alpha-max`, transcribed by oxalpha.io disclosure page; route attribution to `stealth/ox-alpha` NOT established)
+- LiveBench Reasoning (label-level only): **76.6** (LiveBench 2026-06-25 snapshot, label `ox-alpha-max`, transcribed by oxalpha.io disclosure page; route attribution to `stealth/ox-alpha` NOT established); same listing: **Math 77.5 / Data 75.8 / Language 66.1 / IF 60.3 / Coding 75.8 / Agentic 52.6 / Overall 69.2** (label-level, $0/task)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy: vendor-page Intelligence Index 59 above)
@@ -63,13 +64,13 @@ Long context:
 > dimensions (Tool, Reasoning, Context, Multimodal, Coding) — Cost efficiency is
 > scored independently and excluded from Overall.
 
-- **Tool use: 74/100.** Vendor-page agentic coding 78 and Intelligence Index 59 suggest strong agency but lack independent harness provenance; capped by zero TB/Tau/GDPval absolutes.
+- **Tool use: 75/100.** Vendor-page agentic coding 78 and Intelligence Index 59 plus independent TB3.0 26.58% suggest strong agency but mixed provenance; capped by TB3.0 mid-pack and zero TB2.1/Tau/GDPval absolutes.
 - **Reasoning: 78/100.** Label-level LiveBench Reasoning 76.6 with frontier-reasoning positioning shows promise; capped by route-attribution limits and no GPQA/HLE absolutes.
 - **Context window: 97/100.** Verified 1,048,576 in / 131,072 out maps to the top tier; capped below 100 without retrieval-saturation proof.
 - **Multimodal: 85/100.** Text/image/video/PDF input with text output covers the video/PDF band; capped by text-only output with no audio synthesis.
 - **Coding: 82/100.** Community 10-task 80% ahead of Fable 5/GLM-5.3/GPT-5.6-sol references with label-level Coding 75.8; capped by the tiny 10-task sample and missing SWE/LiveCodeBench absolutes.
 - **Cost efficiency: 100/100.** $0 free preview with nothing to host.
-- **Overall Score: 83/100.** Mean of the five non-cost dims (74+78+97+85+82)/5 = 83.2; best-fit free stealth sandbox for long-context agentic coding while preview pricing holds.
+- **Overall Score: 83/100.** Mean of the five non-cost dims (75+78+97+85+82)/5 = 83.4; best-fit free stealth sandbox for long-context agentic coding while preview pricing holds.
 
 ---
 

@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.5 (`gpt-5.5`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills + breakpoint added, scores recomputed 85 → 87)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.5` (state explicitly if no Free ID exists on Zen — paid only)
 - **Context window:** 1M tokens API (1.05M reported), 400K in Codex — verified via OpenAI launch post and release trackers (April 2026).
 - **Modalities:** text/image in; text out; reasoning yes (none/low/medium/high/xhigh effort dial); tool calls yes (function calling, browsing, code execution, computer use); JSON mode yes (structured outputs).
-- **Pricing (as of 2026-09-19):** $5 / $30 per 1M input/output tokens, cached input $0.50; Batch/Flex half rate; Pro $30 / $180 per 1M; paid tier only ($).
+- **Pricing (as of 2026-09-19, re-verified 2026-09-27):** $5/$10 in and $30/$45 out per 1M (272K breakpoint); cached input $0.50; Batch/Flex half rate; Pro $30/$180; paid tier only ($).
 - **Architecture:** proprietary (reported MoE, community estimate 100-200B active — unverified; vendor discloses natively omnimodal co-design with NVIDIA GB200/GB300, unconfirmed).
 
 ### Raw benchmarks found
@@ -27,15 +27,16 @@ Agent / tool use:
 - GDPval (wins or ties): **84.9%** (OpenAI launch post); GDPval-AA Elo **1785 xhigh** (Artificial Analysis April 2026, #1)
 - GDPval-AA v2: **1494 Elo** (release tracker, April 2026)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathlon: **55.6%** (OpenAI launch post 2026-04-23); MCP Atlas: **75.3%** (OpenAI launch post); BrowseComp: **84.4%** (OpenAI launch post)
+- Toolathlon: **55.6%** (OpenAI launch post 2026-04-23); MCP Atlas: **75.3%** (launch); BrowseComp: **84.4%** (launch); **τ²-bench 98%** (BenchLM mirror); **FinanceAgent 60.0% / OfficeQA Pro 54.1% / IB-modeling 88.5%** (launch post — amended 2026-09-27)
 - OSWorld-Verified: **78.7%** (OpenAI launch post 2026-04-23; vs Opus 4.7 78.0%)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **93.6%** (OpenAI launch post 2026-04-23; vs Opus 4.7 94.2%)
-- HLE no tools: **41.4%** / with tools: **52.2%** (OpenAI launch post 2026-04-23; vs Opus 4.7 46.9% / 54.7%)
-- LCR / MLCR: **AA-LCR runner-up to other OpenAI models** (Artificial Analysis April 2026 qualitative; no verified public numeric score found for exact LCR %)
-- CritPt: **no verified public score found** (AA notes top-tier placement behind other OpenAI models, no number published)
+- HLE no tools: **41.4%** / with tools: **52.2%** (OpenAI launch post 2026-04-23; vs Opus 4.7 46.9% / 54.7%; mashable lane reads 40.6% — ~1pt variance)
+- LCR: **79.0% AA-LCR** (BenchLM mirror)
+- CritPt: **27.1** (BenchLM mirror)
+- ARC-AGI-1 Verified: **94.5% High** (mashable launch table; ARC-AGI-2 83.3% High lane vs filed 85.0% — harness variance noted)
 - Artificial Analysis Intelligence Index / BenchLM overall: **60 (AA Index, #1 at release, April 2026)** (Artificial Analysis); BenchLM coding sub-arena 1507 / overall 1474 #3 (BenchLM via aggregator)
 - Omniscience Accuracy / Hallucination Rate: **57% / 86%** (AA-Omniscience xhigh via Artificial Analysis April 2026; highest accuracy but high hallucination vs Opus 4.7 36%)
 - FrontierMath Tier 1-3: **51.7%** / Tier 4: **35.4%** (OpenAI launch post; leads Opus 4.7 43.8% / 22.9%); ARC-AGI-2 Verified: **85.0%** (OpenAI launch post; 84.6% tracker variant)
@@ -45,9 +46,10 @@ Coding:
 - SWE-bench Pro (public): **58.6%** (OpenAI launch post 2026-04-23; vs Opus 4.7 64.3%)
 - SWE-bench Verified: **88.7%** (aggregator citing vendor/July 2026 BenchLM; provisional — no official leaderboard entry verified)
 - SWE-bench Multilingual: **77.8%** (release tracker, April 2026)
-- LiveCodeBench: **no verified public score found** (closest proxy: DeepSWE 1.0 64.3% below)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
+- LiveCodeBench: **85.3% Vals lane** (BenchLM mirror)
+- SciCode: **56.1% AA-SciCode** (BenchLM mirror)
+- Vibe Code Bench: **69.85%** (BenchLM mirror)
+- Coding Index: **74.9%** (BenchLM mirror); **MMLU-Pro 88.1%** (BenchLM mirror)
 - DeepSWE / Coding Index / other: **DeepSWE 1.0 64.3%** (release tracker); **Expert-SWE internal 73.1%** (OpenAI launch post)
 
 Long context:
@@ -56,13 +58,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** TB 2.0 82.7% SOTA plus Tau2 98.0%, MCP Atlas 75.3% and GDPval 84.9% show elite tool orchestration; capped by Toolathlon 55.6% mid-range.
-- **Reasoning: 86/100.** GPQA 93.6% plus FrontierMath T1-3 51.7% lead and ARC-AGI-2 85.0% show strong math/reasoning; capped by HLE 41.4%/52.2% trailing Opus 4.7 and AA hallucination 86%.
+- **Tool use: 88/100.** TB 2.0 82.7% SOTA plus Tau2 98.0%, τ² 98%, FinanceAgent 60.0% and GDPval 84.9% show elite tool orchestration; capped by Toolathlon 55.6% mid-range.
+- **Reasoning: 88/100.** GPQA 93.6% plus LCR 79.0%, CritPt 27.1, ARC-AGI-1 94.5% and FrontierMath leads show strong math/reasoning; capped by HLE ~41%/52% trailing Opus 4.7 and AA hallucination 86%.
 - **Context window: 88/100.** 1M window with MRCR 94.8% at 128K and 74.0% at 1M plus Graphwalks 45-58% at 1M show strong retention; capped below perfect 1M recall.
 - **Multimodal: 82/100.** MMMU-Pro 81.2-83.2% plus CharXiv 84.1% show solid vision-text; capped by Blueprint-Bench 36.2% spatial weakness and text-only output.
-- **Coding: 84/100.** Expert-SWE 73.1% plus SWE-Verified 88.7% proxy and TB 2.0 82.7% show strong coding; capped by SWE-Pro 58.6% loss to Opus 4.7 64.3% and DeepSWE 64.3%.
+- **Coding: 88/100.** Expert-SWE 73.1% plus LiveCode 85.3%, Vibe 69.85%, SciCode 56.1% and Coding Index 74.9% show strong full-spectrum coding; capped by SWE-Pro 58.6% loss to Opus 4.7 64.3%.
 - **Cost efficiency: 55/100.** $5/$30 is 2x GPT-5.4 and $5 above Opus 4.7 output; paid frontier premium with only token-efficiency offset, capped well below cheap Flash tiers.
-- **Overall Score: 85/100.** Mean of the five non-cost dims (87+86+88+82+84)/5 = 85.4 → 85; best-fit agentic coding and computer-use foundation where accuracy outweighs price.
+- **Overall Score: 87/100.** Mean of the five non-cost dims (88+88+88+82+88)/5 = 86.8; best-fit agentic coding and computer-use foundation where accuracy outweighs price.
 
 ---
 

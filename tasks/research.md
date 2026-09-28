@@ -90,8 +90,8 @@ For each queued slug, in order:
    - Fresh public web search only. Forget/clear memory of previous results per folder.
 3. **Report generation & save:**
     - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
-    - Score contract: see `RULES.md` (Overall = half-up mean of the five
-      quality dims; Cost excluded; tolerance 0.51).
+    - Strip all template notice blocks (`> TEMPLATE...`) and submission checklist blocks before saving.
+    - Score contract & syntax: include all 7 score lines (`Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`, `Cost efficiency`, `Overall Score`). Score lines MUST strictly match `- **<Label>: <N>/100.**` (no colons inside bold tags, no spaces around `/`). `Overall Score` = half-up mean of the 5 non-cost quality dims (`RULES.md`).
     - Write immediately to `model/<slug>/<Your_Filename>` before advancing.
     - Twin check (only if YOUR OWN `model/<slug>/<Your_Stem>.md.excluded` exists —
       never another agent's file): do NOT open it before or during research; draft
