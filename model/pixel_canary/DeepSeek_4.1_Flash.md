@@ -21,7 +21,7 @@
 - **Context window:** 262K tokens total with a 131K max output (AI Gateway provider row, checked 2026-09-27). Note: the repo's curated `meta.json` still records 128K / text-only / "standard pricing" — the live gateway row is newer and larger.
 - **Modalities:** text in / text out per the vendor listings; the AI Gateway model page additionally documents image message parts ("images count as input tokens"), so image input is plausible but confirmed by no model card. Reasoning yes (adjustable effort: none / minimal / low / medium / high / xhigh). Tool-calling and structured-output support are not documented on either listing.
 - **Pricing (as of 2026-09-27):** $0.00 / 1M input, $0.00 / 1M output, no cache price listed — free while in stealth. **Privacy caveat:** no zero-data-retention option and "prompts and responses … may be used for training and model improvement".
-- **Architecture:** undisclosed; closed API-only. Live serving numbers from the gateway row: **~6.6 s p50 time-to-first-token** and **~8 tokens/s p50 throughput** on real gateway traffic.
+- **Architecture:** undisclosed; closed API-only. Live serving numbers from the gateway row: **8.9 s p50 time-to-first-token** and **~9 tokens/s p50 throughput** on real gateway traffic (re-checked 2026-09-27 — my first pass recorded ~6.6 s and ~8 tps, so latency has drifted upward on live traffic).
 
 ### Raw benchmarks found
 
@@ -61,5 +61,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (Vercel AI Gateway model page and 2026-09-25 changelog with the Next.js eval results, Command Code model page); scores are normalized 1–100 interpretations, not official vendor scores, and this is the least verified entry in the pack.
+- Method: public internet research (Vercel AI Gateway model page and 2026-09-25 changelog with the Next.js eval results, Command Code model page). **Re-verified 2026-09-27 against the AI Gateway page:** 262K context / 131K max output, Free pricing, provider "Stealth", release date 09/25/2026, the no-ZDR flag and the "prompts and outputs may be retained for training" warning all matched exactly, and the image-message-part example ("images count as input tokens") was confirmed again; **updated** — live p50 TTFT has risen to 8.9 s and throughput to ~9 tps. Scores are normalized 1–100 interpretations, not official vendor scores, and this is the least verified entry in the pack.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -67,5 +67,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (Sophon and BenchGecko consolidated eval records, Google's Gemini model list confirming shutdown, repo `meta.json` for curated pricing/modality fields); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (Sophon and BenchGecko consolidated eval records, Google's Gemini model list confirming shutdown, repo `meta.json` for curated pricing/modality fields). **Re-verified 2026-09-27:** Google's live deprecations table no longer carries an active 2.0-generation row for this model, consistent with the recorded 2026-06-01 shutdown (the 2.0 rows sit in the already-shutdown block), and the entry remains a historical reference; no benchmark figure changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

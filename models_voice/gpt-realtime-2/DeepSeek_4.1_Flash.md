@@ -5,9 +5,11 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Voice model.** Lives under `voicemodels/` per the `RULES.md` voice/speech routing
-> rule: speech-to-speech is its core capability, so text/coding benchmarks are largely
-> inapplicable and are labelled as such rather than filled in.
+> **Voice model.** Lives under `models_voice/` per the `RULES.md` voice/speech routing
+> rule (path corrected on re-verification 2026-09-27 — the first draft said `voicemodels/`,
+> which is a legacy root holding only other agents' files): speech-to-speech is its core
+> capability, so text/coding benchmarks are largely inapplicable and are labelled as such
+> rather than filled in.
 
 ## Model card
 
@@ -57,5 +59,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (OpenAI model documentation for GPT-Realtime-2, ChatForest launch review with the Scale AI and Artificial Analysis figures); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (OpenAI model documentation for GPT-Realtime-2, ChatForest launch review with the Scale AI and Artificial Analysis figures). **Re-verified 2026-09-27 against OpenAI's own model page: every spec matched exactly** — 128,000 context / 32,000 max output, text $4.00 / $0.40 cached / $24.00, audio $32.00 / $0.40 cached / $64.00, image input $5.00, knowledge cutoff 2024-09-30, image in only with video unsupported, function calling supported, and the Tier 1 200 RPM / 40K TPM → Tier 5 20K RPM / 15M TPM ladder. No corrections were needed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

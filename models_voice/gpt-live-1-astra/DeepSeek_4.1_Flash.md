@@ -5,9 +5,11 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Voice model.** Lives under `voicemodels/` per the `RULES.md` voice/speech routing
-> rule. "Astra" is the backend/reasoning configuration under which GPT-Live-1 tops the
-> Artificial Analysis Speech to Speech Index; the voice layer itself is `gpt-live-1`.
+> **Voice model.** Lives under `models_voice/` per the `RULES.md` voice/speech routing
+> rule (path corrected on re-verification 2026-09-27: the first draft said `voicemodels/`,
+> but this file resides in `models_voice/gpt-live-1-astra/`, and `voicemodels/` holds only
+> other agents' files). "Astra" is the backend/reasoning configuration under which GPT-Live-1
+> tops the Artificial Analysis Speech to Speech Index; the voice layer itself is `gpt-live-1`.
 
 ## Model card
 
@@ -59,6 +61,6 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (OpenAI GPT-Live 1 model documentation, Artificial Analysis Speech-to-Speech Index, release coverage and independent hands-on reviews); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (OpenAI GPT-Live 1 model documentation, Artificial Analysis Speech-to-Speech Index, release coverage and independent hands-on reviews). **Re-verified 2026-09-27 against OpenAI's own model page: every spec matched exactly** — $0.05/min billed per second, knowledge cutoff 2025-07-31, image and video explicitly unsupported, function calling supported, structured outputs and fine-tuning unsupported, and the 25/50/200/300/500 concurrent-session ladder by tier with the API free tier excluded. No corrections were needed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

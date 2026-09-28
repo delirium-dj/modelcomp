@@ -67,5 +67,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (Google Developers Blog GA post, Vercel AI Gateway model/provider rows, BenchmarkList consolidated eval record); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (Google Developers Blog GA post, Vercel AI Gateway model/provider rows, BenchmarkList consolidated eval record). **Re-verified 2026-09-27:** the OpenCode Zen free-tier/privacy list (page dated 2026-09-28) still shows **no free variant** for this model — the only Zen free IDs are Big Pickle, MiMo-V2.6-Flash Free, MiMo-V2.5 Free, Ling 3.0 Flash Fin Free, Nemotron 3 Ultra Free, Nemotron 3.5 Lightning Free and Muse Spark 1.3 Contributor Free — confirming the "paid only, no Free ID" finding; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

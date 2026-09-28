@@ -5,8 +5,9 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Voice model.** Lives under `voicemodels/` per the `RULES.md` voice/speech routing
-> rule: it is a speech-to-speech model, priced per minute of audio, so text/code
+> **Voice model.** Lives under `models_voice/` per the `RULES.md` voice/speech routing
+> rule (path corrected on re-verification 2026-09-27 — the first draft said `voicemodels/`):
+> it is a speech-to-speech model, priced per minute of audio, so text/code
 > benchmarks are inapplicable and are labelled as such.
 
 ## Model card
@@ -17,7 +18,7 @@
 - **Release / knowledge:** Released 2026-07-29; alias repointed 2026-08-05. No separate knowledge cutoff published for the voice model.
 - **IDs:** `grok-voice-think-fast-2.0`; alias `grok-voice-latest` (moved from 1.0 on 2026-08-05 — pinning 1.0 requires `grok-voice-think-fast-1.0`). No OpenCode Zen Free ID.
 - **Context window:** **no token window published** for the Voice API — sessions stream and bill per minute. The operational caps are the real limit: **10 concurrent sessions per team**, us-east-1 only, and no priority tier (xAI limits, via eesel).
-- **Modalities:** native audio (speech) in and out, text in/out alongside audio, realtime tool/function calling during live conversations, 20+ languages with mid-conversation code-switching, custom voices, 24 kHz PCM.
+- **Modalities:** native audio (speech) in and out, text in/out alongside audio, realtime tool/function calling during live conversations, **24 languages** with mid-conversation code-switching (xAI's launch post states 24 evaluated languages — re-verified 2026-09-27, the first pass said "20+"), custom voices, 24 kHz PCM.
 - **Pricing (as of 2026-09-27):** **$0.08 per minute of audio** — up from $0.05/minute for 1.0, and the alias repoint moved existing integrations to the higher rate automatically.
 - **Architecture:** proprietary; speech-to-speech with parallel reasoning (no separate ASR → LLM → TTS chain).
 
@@ -26,7 +27,8 @@
 Agent / tool use:
 
 - Artificial Analysis τ-Voice: **56.5%** — best in xAI's launch comparison table (1.0: 52.1%, GPT-Realtime-2.1 High: 45.7%, Gemini 3.1 Flash High: 37.7%), and reported independently as the leading agentic τ-Voice result in the AA field
-- Tool execution inside live calls, SIP/PSTN telephony, DTMF and 20+ language coverage are documented but unbenchmarked (no MCP-Atlas/Toolathon row exists for voice models)
+- Tool execution inside live calls, SIP/PSTN telephony, DTMF and 24-language coverage are documented but unbenchmarked (no MCP-Atlas/Toolathon row exists for voice models)
+- Production A/B on Starlink's inbound line (`+1 888 GO STARLINK`): xAI reports a significant increase in sales-conversion and support-containment rates with no prompt edits required (vendor claim; no figure published)
 
 Reasoning / knowledge:
 
@@ -58,6 +60,6 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (xAI Grok Voice Think Fast 2.0 launch post and Speech to Speech API docs, Artificial Analysis Speech-to-Speech Index, independent eesel review of the published limits); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (xAI Grok Voice Think Fast 2.0 launch post and Speech to Speech API docs, Artificial Analysis Speech-to-Speech Index, independent eesel review of the published limits). **Re-verified 2026-09-27 against xAI's own launch post: every headline figure matched exactly** — S2S Quality Index 82.9%, Big Bench Audio 97.2%, Full Duplex 95.1%, τ-voice 56.5%, TTFA 0.70 s, 0.4× reasoning tokens, $0.08/min, alias repoint 2026-08-05, and the 1.5–2.0× (≈10× in noise) transcription claim. Only correction: "20+ languages" → **24**. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

@@ -66,5 +66,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (consolidated vendor-reported benchmark record for the 2025-08-07 GPT-5 launch at evals.report, plus OpenCode Zen pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (consolidated vendor-reported benchmark record for the 2025-08-07 GPT-5 launch at evals.report, plus OpenCode Zen pricing). **Re-verified 2026-09-27:** OpenAI's own API model page now publishes the **2024-09-30 knowledge cutoff**, which the first pass recorded as "not restated" — that is the one substantive correction here; the benchmark record and the $1.25/$10.00 list price were unchanged. The OpenCode Zen row ($1.07/$8.50) could **not** be re-confirmed, because Zen's catalogue has since moved on to the 5.1–6.x generations. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
