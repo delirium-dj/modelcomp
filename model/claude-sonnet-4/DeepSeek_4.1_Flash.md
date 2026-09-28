@@ -9,7 +9,7 @@
 
 - **Name:** Claude Sonnet 4
 - **Short description:** Anthropic's 2025-05-22 mid-tier Claude 4 model. It posted 72.7% SWE-bench Verified — statistically level with the flagship Opus 4 — at one fifth of Opus pricing, which made it the default backbone of production coding agents (GitHub Copilot's coding agent launched on it). Superseded for new builds by Sonnet 4.5/4.6.
-- **Provider / access:** Anthropic Claude API (`claude-sonnet-4-20250514`) via the Messages API; Claude apps, Bedrock/Vertex resale; OpenAI-compatible via gateways. Proprietary, closed.
+- **Provider / access:** Anthropic Claude API (`claude-sonnet-4-20250514`) via the Messages API; Claude apps, Bedrock/Vertex resale; OpenAI-compatible via gateways. Proprietary, closed. **Re-verification 2026-09-27: Anthropic deprecated this model on 2026-04-14** (it no longer appears on the current model list, only under "Legacy models"), so it is supported but no longer recommended and carries a scheduled retirement date.
 - **Release / knowledge:** Released 2025-05-22; knowledge cutoff March 2025 (Benchgen model card).
 - **IDs:** `anthropic/claude-sonnet-4` (BenchmarkList/Artificial Analysis naming); `claude-sonnet-4-20250514` on Anthropic's API. No OpenCode Zen Free ID.
 - **Context window:** 200,000 tokens with 16,000 max output tokens (Benchgen; Anthropic). The 1M beta window belongs to Sonnet 4.6, not this checkpoint.

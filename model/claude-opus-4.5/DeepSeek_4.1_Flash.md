@@ -10,9 +10,9 @@
 - **Name:** Claude Opus 4.5
 - **Short description:** Anthropic's November 2025 flagship — a hybrid-reasoning model with extended thinking that took the coding and agentic lead at launch (80.9% SWE-bench Verified, best-in-class prompt-injection robustness) and remained the reference for long-horizon agent work until Opus 4.6 added a 1M-token beta context.
 - **Provider / access:** Anthropic Claude API (`claude-opus-4-5-*` family) through the Anthropic Messages API, plus Claude apps, Bedrock and Vertex resale. Proprietary, closed.
-- **Release / knowledge:** Released 2025-11-24; knowledge cutoff August 2025 (Artificial Analysis model page).
+- **Release / knowledge:** Released 2025-11-24 (`claude-opus-4-5-20251101`; alias `claude-opus-4-5`); **reliable knowledge cutoff May 2025, training-data cutoff August 2025** (Anthropic's own model page, re-checked 2026-09-27 — the first pass cited only Artificial Analysis's August 2025 figure, which is the training-data date). **Lifecycle: Active (legacy)** — Anthropic now labels it "Legacy" with retirement no sooner than 2026-11-24.
 - **IDs:** `anthropic/claude-opus-4.5` (Artificial Analysis / BenchmarkList naming); `claude-opus-4-5` on Anthropic's API. No OpenCode Zen Free ID.
-- **Context window:** 200,000 tokens (Artificial Analysis; BenchmarkList "At a glance"). The 1M-token tier arrived later with Opus 4.6 in beta, so 4.5 has no long-context tier.
+- **Context window:** 200,000 tokens with a **64,000 max output** (Anthropic's own model page, re-checked 2026-09-27; the first pass recorded the input window from Artificial Analysis / BenchmarkList "At a glance" but omitted the output ceiling). The 1M-token tier arrived later with Opus 4.6 in beta, so 4.5 has no long-context tier.
 - **Modalities:** text and image in, text out; extended thinking, tool/function calling, computer use, PDF input, structured output. No audio or video.
 - **Pricing (as of 2026-09-27):** $5.00 / 1M input, $25.00 / 1M output, 90% cache-read discount (Artificial Analysis; blend $3.85/1M). A Benchgen card still carries a stale $15/$75 row that does not match launch pricing — treated as unreliable.
 - **Architecture:** proprietary; parameter count undisclosed.

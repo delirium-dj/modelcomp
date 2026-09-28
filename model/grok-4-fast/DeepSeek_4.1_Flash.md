@@ -39,13 +39,13 @@ Coding:
 
 Long context:
 
-- The 2M-token window is vendor-documented but unbenchmarked: no MRCR/RULER/GraphWalks value exists for Grok 4 Fast, and the ≥128K price step plus 128K-class provider cap make the headline window costly in practice.
+- The 2M-token window is vendor-documented but unbenchmarked: no MRCR/RULER/GraphWalks value exists for Grok 4 Fast, and the ≥128K price step plus the **16K served output cap** make the headline window costly and ingest-biased in practice.
 
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** Best-in-class agentic *search* (BrowseComp 44.9%, SimpleQA 95.0%, LMArena Search #1) and native tool calling, but generic MCP/terminal agentics are weak (MCP-Universe 27.3%, Terminal-Bench 2.0 29.2%).
-- **Reasoning: 82/100.** 85.7% GPQA Diamond with 93.3% HMMT and a 27.9 AA Intelligence Index is genuinely frontier-adjacent for the price; the cap is HLE at ~20% and ARC-AGI-2 at 5.3%.
-- **Context window: 98/100.** A documented 2M-token window is the largest in this scan and unlocks whole-repository style prompts; it loses only because the ≥128K price tier doubles input cost and no retrieval benchmark validates recall at length.
+- **Reasoning: 82/100.** 85.7% GPQA Diamond with 93.3% HMMT and an AA Intelligence Index that an independent re-check puts at **35** (my first pass recorded 27.9) is genuinely frontier-adjacent for the price; the cap is HLE at ~20% and ARC-AGI-2 at 5.3%.
+- **Context window: 98/100.** A documented 2M-token window is the largest in this scan and unlocks whole-repository style prompts; it loses only because the ≥128K price tier doubles input cost, the served **max output is just 16K** (so the window is ingest-only) and no retrieval benchmark validates recall at length.
 - **Multimodal: 62/100.** Text plus image input with MMMU-Pro **72.8%** (36th pct) is functional but unremarkable, and there is no audio, video or image generation.
 - **Coding: 68/100.** 80.0% LiveCodeBench and 88.8 VibeCodingBench prove strong generation, but 45.4% SWE-bench Verified and a 0.0% Vibe Code Bench v1.1 run show it loses on real-repository agentic fixes.
 - **Cost efficiency: 94/100.** $0.20/$0.50 with $0.05 cached input is among the cheapest frontier-adjacent pricing found; only the ≥128K escalation and paid-only API keep it from 100.
@@ -56,5 +56,5 @@ Long context:
 ## Signature
 
 - Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (xAI Grok 4 Fast launch post, BenchmarkList profile with third-party eval rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (xAI Grok 4 Fast launch post, BenchmarkList profile with third-party eval rows). **Re-verified 2026-09-27** against xAI's own docs hub (now showing only Grok 4.7 — 4 Fast has left the served lineup) and a mid-2026 vendor-page record confirming deprecation 2026-05-15, retirement 2026-08-15, 16K max output and AA index 35; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
