@@ -1,0 +1,12 @@
+{
+  "id": "minimax-ai/minimax-m3.1-flash-preview",
+  "name": "MiniMax M3.1 Flash Preview",
+  "short": "MiniMax's preview-tier multimodal coding model (2026-09-27) — 1M context, text/image/video in, five effort levels, MiniMax Code / Token Plan only; no public benchmarks or price yet.",
+  "contextWindow": "1M total",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "No public per-token price (MiniMax Code / Token Plan only) — no Zen Free ID",
+  "pricingTiers": [
+    "MiniMax Code / Token Plan only (no public price)"
+  ],
+  "noFreeId": true
+}

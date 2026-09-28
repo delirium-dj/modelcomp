@@ -1,14 +1,16 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import { DIMENSIONS, MODELS, virtualDimFor } from "../data/models";
+import type { QRL } from "@builder.io/qwik";
+import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
 
 interface ModelCardsProps {
   source: SourceKey;
+  onSource$: QRL<(source: SourceKey) => void>;
 }
 
 type ModelsView = "cards" | "list";
 
-export const ModelCards = component$<ModelCardsProps>(({ source }) => {
+export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) => {
   const displayCount = useSignal(9);
   const view = useSignal<ModelsView>("cards");
   // Virtual sort views mirror average scores but rank by one dimension (tiebreak Overall).
@@ -142,18 +144,54 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
                 <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
                   Model
                 </th>
-                {DIMENSIONS.map((d) => (
-                  <th
-                    key={d.key}
-                    scope="col"
-                    title={`${d.label} — ${d.description}`}
-                    class="cursor-help border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                {DIMENSIONS.map((d) => {
+                  const sortKey = sortSourceFor(d.key);
+                  const isActive = source === sortKey;
+                  return (
+                    <th
+                      key={d.key}
+                      scope="col"
+                      aria-sort={isActive ? "descending" : "none"}
+                      class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                    >
+                      <button
+                        type="button"
+                        title={`${d.label} — ${d.description}. Sort all models by ${d.label}.`}
+                        aria-label={`Sort all models by ${d.label}`}
+                        aria-pressed={isActive}
+                        onClick$={() => onSource$(sortKey)}
+                        class={`cursor-pointer rounded underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+                          isActive ? "text-indigo-700 underline dark:text-indigo-300" : ""
+                        }`}
+                      >
+                        {d.short}
+                        {isActive && (
+                          <span aria-hidden="true"> ▲</span>
+                        )}
+                      </button>
+                    </th>
+                  );
+                })}
+                <th
+                  scope="col"
+                  aria-sort={source === "average" ? "descending" : "none"}
+                  class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                >
+                  <button
+                    type="button"
+                    title="Overall score — average of qualifying reports. Sort all models by Overall."
+                    aria-label="Sort all models by Overall"
+                    aria-pressed={source === "average"}
+                    onClick$={() => onSource$("average" as SourceKey)}
+                    class={`cursor-pointer rounded underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+                      source === "average" ? "text-indigo-700 underline dark:text-indigo-300" : ""
+                    }`}
                   >
-                    {d.short}
-                  </th>
-                ))}
-                <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
-                  Overall
+                    Overall
+                    {source === "average" && (
+                      <span aria-hidden="true"> ▲</span>
+                    )}
+                  </button>
                 </th>
                 <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
                   Context window
@@ -172,13 +210,13 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
                     </a>
                     {!m.meta.noFreeId ? (
                       <span
-                        class="ml-1.5 cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
+                        class="ml-1.5 inline-block cursor-help whitespace-nowrap rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                         title={m.meta.freeTierNote ?? m.meta.pricingNote}
                       >
                         Free
                       </span>
                     ) : (
-                      <span class="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle transition-colors dark:bg-amber-950/80 dark:text-amber-300">
+                      <span class="ml-1.5 inline-block whitespace-nowrap rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle transition-colors dark:bg-amber-950/80 dark:text-amber-300">
                         Paid
                       </span>
                     )}
@@ -203,6 +241,41 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2 md:hidden" role="group" aria-label="Sort all models">
+          {DIMENSIONS.map((d) => {
+            const sortKey = sortSourceFor(d.key);
+            const isActive = source === sortKey;
+            return (
+              <button
+                key={d.key}
+                type="button"
+                aria-pressed={isActive}
+                title={`Sort all models by ${d.label}`}
+                onClick$={() => onSource$(sortKey)}
+                class={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+                  isActive
+                    ? "border-indigo-600 bg-indigo-600 text-white dark:border-indigo-400 dark:bg-indigo-500"
+                    : "border-slate-200 bg-white text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+                }`}
+              >
+                {d.short}
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            aria-pressed={source === "average"}
+            title="Sort all models by Overall"
+            onClick$={() => onSource$("average" as SourceKey)}
+            class={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+              source === "average"
+                ? "border-indigo-600 bg-indigo-600 text-white dark:border-indigo-400 dark:bg-indigo-500"
+                : "border-slate-200 bg-white text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+            }`}
+          >
+            Overall
+          </button>
         </div>
         <div class="mt-6 space-y-4 md:hidden" aria-label="Exact scores for all models">
           {visibleModels.map((m) => (
@@ -266,7 +339,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
       </>
       )}
       {displayCount.value < shown.length && (
-        <div class="mt-8 text-center">
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
           <button
             type="button"
             onClick$={() => {
@@ -276,6 +349,17 @@ export const ModelCards = component$<ModelCardsProps>(({ source }) => {
           >
             Show more
           </button>
+          {view.value === "list" && (
+            <button
+              type="button"
+              onClick$={() => {
+                displayCount.value = shown.length;
+              }}
+              class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+            >
+              Show all ({shown.length})
+            </button>
+          )}
         </div>
       )}
     </section>

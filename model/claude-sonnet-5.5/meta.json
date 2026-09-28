@@ -1,0 +1,12 @@
+{
+  "id": "anthropic/claude-sonnet-5.5",
+  "name": "Claude Sonnet 5.5",
+  "short": "Anthropic's Sonnet-class everyday-work model (released 2026-09-28) succeeding Claude Sonnet 5 — thinking always on with effort control, 1M context, tuned for feature work, bug fixes and polished documents.",
+  "contextWindow": "1M total",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $2/$10 per 1M (no Zen Free ID)",
+  "pricingTiers": [
+    "Paid $2/$10 (no Zen Free ID)"
+  ],
+  "noFreeId": true
+}

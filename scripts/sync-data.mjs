@@ -264,8 +264,12 @@ for (const slug of slugs) {
   try {
     meta = JSON.parse(readFileSync(metaPath, "utf8"));
   } catch {
-    // Auto-scaffold missing meta.json to prevent build sync failures
-    const formattedName = slug.split("-").map(w => w.length > 0 ? w[0].toUpperCase() + w.slice(1) : "").join(" ");
+    // Auto-scaffold missing meta.json to prevent build sync failures.
+    // The name is a slug guess (title-cased, separators to spaces) — NEVER
+    // the official vendor display name. A human must replace it (plus the
+    // placeholder facts) before the entry is trustworthy; the "_" check
+    // below fails loudly on the worst derivation artifacts.
+    const formattedName = slug.split(/[-_]+/).map(w => w.length > 0 ? w[0].toUpperCase() + w.slice(1) : "").join(" ");
     meta = {
       id: `opencode/${slug}`,
       name: formattedName,
@@ -276,11 +280,18 @@ for (const slug of slugs) {
     };
     writeFileSync(metaPath, JSON.stringify(meta, null, 2));
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
+    log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${formattedName}") — set the official vendor display name and verified facts`);
   }
   for (const k of META_REQUIRED) {
     if (typeof meta[k] !== "string" || meta[k].length === 0) {
       fail(`model/${slug}/meta.json: missing required field "${k}"`);
     }
+  }
+  // Display-name gate: `name` is shown verbatim across the site (cards, list,
+  // compare table, detail pages). Underscores are slug artifacts, never valid
+  // in a vendor display name — fail loudly instead of cementing them on disk.
+  if (typeof meta.name === "string" && meta.name.includes("_")) {
+    fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
 
   const perFile = [];

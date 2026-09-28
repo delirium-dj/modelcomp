@@ -233,9 +233,20 @@ export const VIRTUAL_VIEWS: { key: SourceKey; label: string; dim: DimensionKey }
   { key: "multi", label: "Multi", dim: "multimodal" },
 ];
 
-/** Sort dimension for a virtual view, or undefined for Average / reporting agents. */
+/** Sort dimension for a virtual view, or undefined for Overall / reporting agents. */
 export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
   return VIRTUAL_VIEWS.find((v) => v.key === source)?.dim;
+}
+
+/**
+ * Global results-source key that ranks views by a dimension column.
+ * `overall` maps to the Overall average view (`average` key); every other
+ * dimension maps to its virtual sort view. All-models list headers use this
+ * so a header click runs the exact same logic as the Results-source dropdown.
+ */
+export function sortSourceFor(dim: DimensionKey | "overall"): SourceKey {
+  if (dim === "overall") return "average";
+  return VIRTUAL_VIEWS.find((v) => v.dim === dim)?.key ?? "average";
 }
 
 /**
@@ -307,17 +318,21 @@ function sourceRankOverall(key: SourceKey): number {
 }
 
 /**
- * Results-source dropdown order, derived -- not curated. Average stays first and
- * is the default view; the virtual sort views (same numbers as Average, ranked
+ * Results-source dropdown order, derived -- not curated. Overall stays first and
+ * is the default view; the virtual sort views (same numbers as Overall, ranked
  * by one dimension -- see VIRTUAL_VIEWS) follow in canonical DIMENSIONS order
  * by design; every other source is a reporting agent ranked by its own average
  * Overall -- the All-models number (see sourceRankOverall; stable sort, so
  * ties keep registry order).
  * A newly registered source slots itself in automatically -- never hand-sort.
+ *
+ * Display note: the `average` key keeps its stable key/file (`average.md`,
+ * `?source=average`) but is labeled "Overall" in the UI.
  */
 export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
-  const averageDef = SOURCE_DEFS.find((s) => s.key === "average");
-  if (!averageDef) throw new Error("[models] SOURCE_DEFS is missing the average entry");
+  const averageRaw = SOURCE_DEFS.find((s) => s.key === "average");
+  if (!averageRaw) throw new Error("[models] SOURCE_DEFS is missing the average entry");
+  const averageDef = { ...averageRaw, label: "Overall" };
   const virtualKeys = new Set<SourceKey>(VIRTUAL_VIEWS.map((v) => v.key));
   const virtualDefs = VIRTUAL_VIEWS.map((v) => SOURCE_DEFS.find((s) => s.key === v.key)).filter(
     (d): d is { key: SourceKey; label: string; file: string } => d !== undefined,

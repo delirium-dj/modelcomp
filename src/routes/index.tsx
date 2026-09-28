@@ -102,7 +102,7 @@ export default component$(() => {
 
   // Every results-source change re-seats the hexagon/table on that source's top 3
   // (dimension top-3 for virtual views, agent's own top-3 for reporting agents,
-  // average top-3 for Average). Slots stay user-overridable via the dropdowns.
+  // Overall top-3 for Overall). Slots stay user-overridable via the dropdowns.
   const handleSource = $((source: SourceKey) => {
     sel.source = source;
     const [a, b, c] = top3ForSource(source);
@@ -145,7 +145,7 @@ export default component$(() => {
       <Hero />
       <CompareSection a={sel.a} b={sel.b} c={sel.c} source={sel.source} onSelect$={handleSelect} onSource$={handleSource} />
       <Methodology />
-      <ModelCards source={sel.source} />
+      <ModelCards source={sel.source} onSource$={handleSource} />
     </>
   );
 });

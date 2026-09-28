@@ -36,6 +36,12 @@ Optional: `pricingTiers` (string[]), `freeTierNote` (string),
 `noFreeId` (boolean — set `true` when no Zen Free ID exists; cost is then
 scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
 
+`name` is shown verbatim across the site (cards, list, compare table, detail
+pages), so it must be the official vendor display name: spaces, never `_`
+(`pnpm sync` fails loudly on underscores in `name`), and exact vendor casing
+(`GPT OSS 120B`, not `Gpt Oss 120b`; `DeepSeek`, not `Deepseek`). `id` stays
+the provider ID (`opencode/<slug>`) and is never displayed.
+
 ```json
 {
   "id": "opencode/big-pickle",

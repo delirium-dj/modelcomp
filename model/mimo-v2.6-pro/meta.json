@@ -1,0 +1,13 @@
+{
+  "id": "xiaomi/mimo-v2.6-pro",
+  "name": "MiMo V2.6 Pro",
+  "short": "Xiaomi's flagship MIT open-weights 1.02T/42B omnimodal MoE (Sept 2026) — #1 open-weights model on the AA Intelligence Index (46), sibling of MiMo V2.6 Flash.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image, video, audio in; text out",
+  "pricingNote": "Paid $0.435/$0.87 per 1M (Xiaomi API; cached $0.0036) — no Zen Free ID",
+  "pricingTiers": [
+    "Paid $0.435/$0.87 (Xiaomi API)",
+    "Cached input $0.0036"
+  ],
+  "noFreeId": true
+}

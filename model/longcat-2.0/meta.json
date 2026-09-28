@@ -1,0 +1,13 @@
+{
+  "id": "meituan/longcat-2.0",
+  "name": "LongCat 2.0",
+  "short": "Meituan's MIT-licensed open-weights 1.6T/48B MoE for coding and agentic work (unveiled 2026-06-29) with 1M context — strong SWE-bench Pro/GPQA at budget pricing.",
+  "contextWindow": "1M total",
+  "modalities": "Text in/out",
+  "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006) — no Zen Free ID",
+  "pricingTiers": [
+    "Paid $0.30/$1.20 (LongCat API)",
+    "Cached input $0.006"
+  ],
+  "noFreeId": true
+}

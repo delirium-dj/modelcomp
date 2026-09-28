@@ -1,7 +1,7 @@
 {
   "id": "opencode/pixel_canary",
-  "name": "Pixel_canary",
-  "short": "Pixel_canary model evaluation entry.",
+  "name": "Pixel Canary",
+  "short": "Pixel Canary model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"

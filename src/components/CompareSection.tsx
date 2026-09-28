@@ -35,7 +35,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
       if (id === "") return undefined;
       const model = getModel(id);
       if (!model) return undefined;
-      // Virtual sort views show average scores (same numbers as Average).
+      // Virtual sort views show average scores (same numbers as Overall).
       const isVirtualView = virtualDimFor(source) !== undefined;
       const sourceScores = source === "average" || isVirtualView ? model.scores : model.sources[source];
       const hasData = source === "average" || isVirtualView || sourceScores !== undefined;
@@ -121,11 +121,11 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
               {source === "average" ? (
                 <span title={"All reporting agents:\n" + contributors.map((s) => `- ${s.label}`).join("\n") + "\n\nOnly reports from models with own Overall above 84.9 count toward the average."}>
-                  Average of qualifying reports (raters above 84.9 Overall).
+                  Overall score — average of qualifying reports (raters above 84.9 Overall).
                 </span>
               ) : virtualDimFor(source) !== undefined ? (
-                <span title={`Same numbers as the Average view, ranked by ${activeLabel} score.`}>
-                  Average scores, sorted by {activeLabel}.
+                <span title={`Same numbers as the Overall view, ranked by ${activeLabel} score.`}>
+                  Overall scores, sorted by {activeLabel}.
                 </span>
               ) : (
                 <span title={"Source file: " + activeFile}>Showing only the {activeLabel} report.</span>
@@ -207,13 +207,13 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                       <span>{s.model.name}</span>
                       {isFree ? (
                         <span
-                          class="ml-1.5 cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
+                          class="ml-1.5 inline-block cursor-help whitespace-nowrap rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                           title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}
                         >
                           Free
                         </span>
                       ) : (
-                        <span class="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle transition-colors dark:bg-amber-950/80 dark:text-amber-300">
+                        <span class="ml-1.5 inline-block whitespace-nowrap rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 align-middle transition-colors dark:bg-amber-950/80 dark:text-amber-300">
                           Paid
                         </span>
                       )}
