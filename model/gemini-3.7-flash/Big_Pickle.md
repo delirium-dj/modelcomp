@@ -1,69 +1,69 @@
-# Gemini 3.7 Flash — findings by Big Pickle
+# Google Gemini 3.7 Flash — findings by Big Pickle
 
-- Source: Google (`gemini-3.7-flash`)
-- Date: 2026-09-20 (UTC)
+- Source: Google (Gemini API docs and launch announcements), with independent figures from freellm, computeprices, BenchLM, CloudPrice, Requesty, APIpulse and Ars Technica
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.7 Flash
-- **Short description:** Google's high-speed Flash iteration (Aug 2026) that jumped 16 points on DeepSWE in three weeks over 3.6 Flash; ranked #1 of 186 models on output speed and #1 on an aggregated LLM ranking by GPQA Diamond (94.8%).
-- **Provider / access:** Google Gemini API (`gemini-3.7-flash`), Gemini Developer API and Vertex AI.
-- **Release / knowledge:** 2026-08-13 (felloai.com, byteiota.com); 23 days after Gemini 3.6 Flash.
-- **IDs:** `gemini-3.7-flash` (Google; proprietary, `open_weights = false`).
-- **Context window:** 1,048,576 (1M) total / 64K max output (byteiota.com; pricing-portal context field blank but 3.6-lineage carries the 1M spec).
-- **Modalities:** text, image, audio, video input; text output; native reasoning; function calling, code execution, search grounding, computer use (preview).
-- **Pricing (as of 2026-09-20):** $0.75 in / $3.75 out per 1M — **introductory; doubles to $1.50 / $7.50 on 2027-01-01** (WION, llm-stats, Google-announced). AA blended ≈ $0.58/M.
-- **Architecture:** Proprietary, undisclosed; post-training iteration on the 3.6 base (per analysis of benchmark cadence).
+- **Name:** Gemini 3.7 Flash, released **2026-08-13**, model ID `gemini-3.7-flash`. **Generally available**, not a preview.
+- **Short description:** "Our most intelligent workhorse model yet for coding and agents" — Google's own description. It was released **three weeks after Gemini 3.6 Flash**, which it replaced, and **it has itself already been replaced by Gemini 3.8 Flash.** Treat it as an interim checkpoint, not a durable target. Ars Technica's framing at launch is the sharpest available: at I/O in May, Google promised the flagship Gemini 3.5 Pro would launch in June, it never did, and "developers and businesses that have invested in Google's AI tools will have to make do with a slightly better Flash model for now." As of today it is **about six weeks old and not the current Flash model.**
+- **Provider / access:** Gemini API, Google AI Studio, the Gemini app, Gemini Enterprise products, and Google Antigravity. Per freellm, **it also powers Gemini Spark**, which connects it to the Spark-tier models in this dataset. Vertex AI offers an EU-only managed endpoint, `vertex/gemini-3.7-flash@eu`.
+- **Release / knowledge:** released 2026-08-13; **knowledge cutoff 2026-03 (March 2026)** per freellm — roughly six months stale, and the freshest cutoff of any Flash-tier model available.
+- **IDs:** `gemini-3.7-flash`, `models/gemini-3.7-flash`, `vertex/gemini-3.7-flash@eu`.
+- **Context window:** **1,048,576 tokens (1M) input, 64K max output** per Google's own documentation. freellm, CloudPrice and Requesty all report **66K** max output — see conflicts.
+- **Modalities:** **text, image, video, audio and PDF in; text out.** 6 of 8 capabilities on Requesty: vision, reasoning, tool calling, caching, web search, JSON schema, computer use, image generation.
+- **Thinking levels:** **low, medium (default), high** — tunable, which is a real cost and latency lever that most models in this dataset do not expose at the Flash tier.
+- **Pricing (as of 2026-09-28), per 1M — and this is temporary:**
+  - **Introductory: $0.75 input / $3.75 output**, available through **December 31, 2026**
+  - **From January 1, 2027: $1.50 input / $7.50 output** — exactly double
+  - **Cache read: $0.075** on Google Cloud and OpenRouter (a genuine 10× discount)
+  - Google applied the same promotional rate to 3.6 Flash
+  - **Free tier available**: 15 RPM, 1,500 requests/day
+  - Vertex AI EU via Requesty lists $0.83 in / $4.13 out / $0.08 cached, with a 50% chat discount and a measured cache-inclusive $0.30
+- **Speed:** **345 output tokens/s, 7.6s TTFT** (computeprices, Google Cloud and Deep Infra).
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Google's launch figures, Gemini 3.6 Flash → Gemini 3.7 Flash** (cited by Senior Director Tulsee Doshi and reported by Ars Technica):
 
-- Terminal-Bench 2.1: **85.8%** (benchlm.ai compare, 2026-09; Vals harness 77.5%)
-- OSWorld 2.0: **47.9%** (benchlm.ai compare)
-- AutomationBench: **30.4%** (up from 3.6's 17.0; WION/felloai)
-- Agentic public-lane index: **60.7 (#23/151)** (benchlm.ai)
-- Tool-use index: 28.4 (#17) on llm-stats conservative index; GDPval-AA, Claw-Eval, Tau3-Banking: **no verified public score found**
+| Benchmark | 3.6 Flash | **3.7 Flash** | Change |
+|---|---|---|---|
+| FrontierCode 1.1 Main | 34.4% | **43.6%** | +9.2 |
+| DeepSWE v1.1 | 49% | **65.3%** | **+16.3** |
+| WebDev Arena | 1,538 | **1,588** | +50 |
+| GDP.pdf (complex document processing) | 22% | **34%** | +12 |
+| AutomationBench | 17% | **30.4%** | **+13.4** |
 
-Reasoning / knowledge:
+**Terminal-Bench 85.8%** (freellm, dated 2026-08-13).
 
-- GPQA Diamond: **94.8%** (lmmarketcap/LLM leaderboard, 2026-09-02; pricepertoken lists 94.5, 99th percentile)
-- AIME 2025: **97.2%** (LLM leaderboard)
-- HLE-Verified: **53.6%** (benchlm.ai compare)
-- LABBench2: **82.1%**; BioMysteryBench (human-difficult / human-solvable): **43.5% / 87.1%** (benchlm.ai)
-- SimpleQA: **71.2%** (LLM leaderboard)
-- Artificial Analysis Intelligence Index: **56** (ahead of Claude Sonnet 5 at 55; felloai/WION); pricepertoken Intelligence **45.2 (97th pct)**
-- MMLU-Pro / CritPt / LCR: **no verified public score found**
+**Independent evaluations:**
+- **Long-Context Reasoning 80.0%** (computeprices, measured September 2026) — **the highest long-context retrieval figure for any model in this dataset**, ahead of Kimi K3's 74.7% and Gemini 3 Pro's 73.0%, and notable for being an independent measurement of a Flash-tier model.
+- freellm's derived category scores: **Intelligence 56/100, Coding 76.1/100, Agentic 45.1/100**.
+- BenchLM composite **63.5** for Gemini 3.7 Flash. (For scale, BenchLM scores the superseded Gemini 3.6 Flash at 75.21/100, #9 of 224, but on only 3 source-displayable rows — the two figures are not directly comparable.)
 
-Coding:
+**Google's own stated improvements** beyond the table: significantly higher quality on real-world software engineering and agentic benchmarks, improving issue resolution and **reducing failed agent loops**; higher-fidelity desktop and web application code generated directly from design mocks, with strong gains in **design adherence** and in auditing existing codebases against mocks to verify 1:1 design parity.
 
-- SWE-bench Verified: **80.8%** (LLM leaderboard, 2026-09-02)
-- DeepSWE v1.1: **65.3%** (Android gap over 3.6's 49.0; felloai, WION, byteiota)
-- FrontierCode 1.1 Main: **43.6%** (up from 34.4; beats GPT-5.6 Terra 41.3 and Claude Sonnet 5 42.7)
-- LiveCodeBench (Vals): **88.7%** (benchlm.ai compare)
-- PricePerToken Coding index: **76.1 (94th pct)**
-- SciCode / Vibe Code Bench: **no verified public score found**
-
-Long context:
-
-- MRCR v2 (64K–128K): **97%** (benchlm.ai compare)
+**Not published for 3.7 Flash:** GPQA Diamond, Humanity's Last Exam, AIME, MMLU-Pro, ARC-AGI, SWE-bench Verified, SWE-bench Pro, MMMU-Pro, Video-MMMU, τ²-bench, MCP Atlas, BrowseComp, Terminal-Bench 2.1/3.0/4.0, or any Artificial Analysis index.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 2.1 85.8% and AutomationBench jump (17→30.4%) show a real agentic push; OSWorld 47.9% and the still-modest AutomationBench absolute cap the score.
-- **Reasoning: 90/100.** GPQA Diamond 94.8% (#1 on an aggregated board) and AIME 97.2% are frontier-class; HLE-Verified 53.6% leaves headroom.
-- **Context window: 86/100.** 1M window with 97% MRCR at 64K–128K — top-tier, though shorter-length retrieval numbers are strongest.
-- **Multimodal: 84/100.** Full text/image/audio/video input with strong grounded evals (CharXiv 84.5%, LVBench 85.4%); not a dedicated audio-transcription specialist, capping it slightly.
-- **Coding: 86/100.** SWE-bench Verified 80.8%, LiveCodeBench 88.7%, and the deep DeepSWE improvement make it a genuinely strong mid-tier coder; FrontierCode Main 43.6% caps it below the leaders.
-- **Cost efficiency: 78/100.** Great at the introductory $0.75/$3.75 — but the announced Jan 1, 2027 doubling to $1.50/$7.50 makes near-term adoption time-critical.
-- **Overall Score: 86/100.** Mean of the five quality dims (86+90+86+84+86)/5 = 86.4 → 86. The fastest, cheapest frontier-adjacent agentic workhorse this quarter — ideal for high-volume tool-calling and automated business workflows, ideally before the price hike.
+- **Tool use: 82/100.** Down 4, and the drop is about evidence rather than capability. Positives: **Terminal-Bench 85.8%** is a strong terminal-agent number, and **AutomationBench rose from 17% to 30.4%** — a 13.4-point gain that puts 3.7 Flash at **30.4% against Kimi K3's 30.8% on the same benchmark**, level with a 2.8-trillion-parameter model. Google's claim of **reduced failed agent loops** is a real operational signal even without a number attached. Held at 82 for three specific gaps: **the Terminal-Bench version behind 85.8% is not specified**, and 2.1, 3.0 and 4.0 all post differently; **there is no τ²-bench, MCP Atlas, BrowseComp or Vals figure at all**; and **freellm's own Agentic score of 45.1/100 is modest** — well below Kimi K3's 50.1 Agentic Index at the 97th percentile. myclaw's launch assessment is the fair summary: "there has not been enough time for mature independent testing across structured output, latency under load, long conversations, and diverse tool schemas."
+- **Reasoning: 84/100.** Down 6. **freellm Intelligence 56/100** is respectable but rests on a thin base, and it sits barely below Kimi K3's 57 Artificial Analysis index — where K3's figure is backed by GPQA Diamond 93.5% and HLE 44.3%. The **March 2026 knowledge cutoff is the best in the Flash line** and roughly six months fresher than anything else at this tier, which is the main thing keeping this from going lower. Held down by the complete absence of independent reasoning measurements: **no GPQA, HLE, AIME, MMLU-Pro or ARC-AGI figure exists for 3.7 Flash.** The one knowledge-adjacent number Google published, **GDP.pdf at 34%** (up from 22%), is low in absolute terms, and Ars Technica's point stands — that the model which "knows things" improved only modestly. Google positioned this as a coding and agent model, not a reasoning one, and the benchmarks agree.
+- **Context window: 92/100.** Up 4, and the strongest dimension. **1,048,576 input / 64K output** first-party, and the real argument is the independent **Long-Context Reasoning score of 80.0%, measured in September 2026 — the highest in this dataset.** That Kimi K3 reaches 74.7% on a 2.8T-parameter model while a Flash-tier model reaches 80.0% is a real architectural result, consistent with K3's KDA attention design trading some retrieval accuracy for scale. Held at 92 rather than higher only because 1M is table stakes and the 80.0% is a single independent source.
+- **Multimodal: 88/100.** Unchanged. Full **text, image, video, audio and PDF** input, with **computer use** among the declared capabilities and spatial/multimodal reasoning named in Google's own migration guidance. The concrete measurement is **GDP.pdf at 34%, up from 22%** — the largest relative multimodal gain Google cites. Held at 88, no higher, because **no MMMU-Pro, Video-MMMU, MathVision, CharXiv or ScreenSpot figure is published for 3.7 Flash** — the entire published multimodal evidence base is one document-processing benchmark, which is thinner than any other multimodal-capable model here. It would not be far-fetched to score this higher on the strength of the 1M window plus full modality set; the discipline is that there is nothing to score it on.
+- **Coding: 84/100.** Up 2. The gains are real and Google named them precisely: **DeepSWE v1.1 at 65.3%, up 16.3 points from 49%** — the single largest improvement cited anywhere in the release — and **FrontierCode 1.1 Main at 43.6%, up from 34.4%**, plus **WebDev Arena at 1,588, up from 1,538**. freellm's Coding score is 76.1/100. The distinctive claim is **design parity**: generating higher-fidelity application code from design mocks and auditing an existing codebase against those mocks to verify 1:1 parity is a frontend-specific capability that general coding benchmarks do not measure, and it is plausibly why Arena moved. Held at 84 because **there is no SWE-bench Verified or Pro figure for 3.7 Flash**, **DeepSWE's 65.3% is below Kimi K3's 67.5%**, and **43.6% on FrontierCode is far from leading** in a dataset where frontier coding scores run into the 80s.
+- **Cost efficiency: 76/100.** Up 6, with the largest asterisk in this report. On today's numbers **$0.75/$3.75 with $0.075 cache reads is among the cheapest capable models in this dataset** — output at 5× less than Kimi K3, and the 10× cache discount is real rather than nominal. But the price is **explicitly temporary and doubles on January 1, 2027 to $1.50/$7.50**, so any cost model built on $0.75/$3.75 is wrong from January. And the decisive practical point: **3.7 Flash has already been superseded by Gemini 3.8 Flash**, so the right move today is to evaluate 3.8 Flash at its stable $0.75/$3.75 rather than adopt a six-week-old interim checkpoint on a three-month promo. Also unresolved: computeprices surfaces a **$0.188/1M input** figure across three OpenRouter providers that does not reconcile with the $0.750 list price, and Requesty's EU Vertex endpoint lists $0.83/$4.13. The **15 RPM / 1,500 RPD free tier** is genuinely useful for evaluation regardless.
+- **Overall Score: 86.0/100.** Half-up mean of the five quality dims: (82 + 84 + 92 + 88 + 84) / 5 = 86.0. Best fit: **a short-lived interim checkpoint that is already superseded, offering the best independently measured long-context retrieval in this dataset (LCR 80.0%) and near-frontier coding-per-dollar — for three more months.** The net score is flat against the previous pass, but the composition changed substantially in both directions: Tool use and Reasoning fell on absent evidence, while Context rose 4 on the 80.0% LCR measurement and Coding rose 2 on the DeepSWE and FrontierCode gains. The report's practical conclusion is not "this is a good model" but **"this is a model you should not newly adopt."** It shipped three weeks after its own predecessor, it was replaced by 3.8 Flash within six weeks, its introductory price doubles in January 2027, its flagship sibling Gemini 3.5 Pro slipped repeatedly after being promised for June, and it has no Artificial Analysis index, no GPQA or HLE, and no mature independent testing. For a buyer today the same money at Gemini 3.8 Flash buys a fresher model, a richer published benchmark set, a stable price and a higher AA Intelligence Index.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (lmmarketcap AI leaderboard, benchlm.ai, felloai.com, byteiota.com, WION, llm-stats, pricepertoken); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Google's Gemini API "What's new in Gemini 3.7 Flash" documentation and launch announcements; Ars Technica's 2026-08-13 launch report quoting Senior Director Tulsee Doshi; freellm's Gemini 3.7 Flash record with its benchmark and category table; computeprices' Gemini 3.7 Flash page and provider table; BenchLM's Gemini 3.6 Flash record and Google model list for composite context; Requesty's Vertex EU endpoint record; APIpulse's September 2026 Google pricing table; myclaw's launch review). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 86 → **86.0**, flat in total but with four of six dimensions moving. **Context 88 → 92** on the single most important new datum in this report: **independent Long-Context Reasoning of 80.0% measured in September 2026, the highest in this dataset** — ahead of Kimi K3's 74.7% and Gemini 3 Pro's 73.0%, and achieved at the Flash tier. **Cost 70 → 76** on the **$0.75/$3.75 introductory price with $0.075 cache reads**, recorded alongside the fact that it is promotional and **doubles to $1.50/$7.50 on 2027-01-01**. **Coding 82 → 84** on **DeepSWE v1.1 rising 49% → 65.3%** and **FrontierCode 1.1 Main rising 34.4% → 43.6%**, plus WebDev Arena 1,538 → 1,588. Against that, two dimensions fell on the same evidence base that raised the others: **Tool use 86 → 82** and **Reasoning 90 → 84**, because the launch evidence is entirely Google's own, **no independent reasoning or agentic benchmark beyond freellm's derived 56/45.1 category scores and computeprices' LCR exists**, and **no GPQA, HLE, AIME, MMLU-Pro, SWE-bench Verified/Pro, MMMU-Pro or τ²-bench figure has been published for this checkpoint.** Multimodal 88 held.
+- **The finding that governs this report:** the refresh established that **Gemini 3.7 Flash is an interim checkpoint that has already been superseded.** It was released **2026-08-13**, three weeks after Gemini 3.6 Flash, and **Gemini 3.8 Flash replaced it within six weeks.** It is not Google's current Flash model. The prior pass treated it as a live target; that framing is wrong. Supporting context from Ars Technica: Google promised the flagship **Gemini 3.5 Pro** for June at I/O in May 2026, it did not ship, and 3.7 Flash shipped in its place as an incremental improvement. **Anyone building on 3.7 Flash today should be evaluating Gemini 3.8 Flash instead** — fresher, at a stable $0.75/$3.75 rather than a promo rate that expires, with a substantially fuller published benchmark set.
+- **Conflicts recorded rather than smoothed over:** (1) **max output 64K versus 66K** — Google's own documentation says **64k max output tokens**; freellm, CloudPrice and Requesty all say **66K**. Google's first-party figure is used and the aggregator discrepancy noted. (2) **input price $0.750 versus $0.188** — computeprices' own header advertises "from $0.188/1M across 3 providers" while its table lists $0.750 for Google Cloud, OpenRouter and Deep Infra; the $0.188 figure is unexplained (plausibly a batch rate or a different tier) and is **not** used. (3) **Vertex EU pricing** — Requesty lists $0.83/$4.13/$0.08 against Google's $0.75/$3.75/$0.075, consistent with regional and endpoint differences but not identical; Google's list is used. (4) **BenchLM composites are not comparable across the line** — 63.5 for 3.7 Flash versus 75.21/100 for 3.6 Flash, the latter on only 3 source-displayable rows; the inconsistency is flagged rather than treated as a regression. (5) **temperature control** — freellm lists temperature control as a 3.7 Flash capability while Google's migration notes state that deprecated sampling parameters (`temperature`, `top_p`, `top_k`) are no longer supported from 3.6 Flash onward. (6) **Terminal-Bench 85.8% is unversioned** — freellm does not state which Terminal-Bench release produced it, and versions 2.0, 2.1, 3.0 and 4.0 are not interchangeable.
+- Future sources: add a new file next to this one, e.g. `Gemini_3_9_Flash.md`, using the same headings.

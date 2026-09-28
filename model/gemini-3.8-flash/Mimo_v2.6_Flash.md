@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **94.4%** (Vals AI independent; rank 4/138)
 - HLE-Verified: **54.9%** (Google model card) / **47.8%** (AA no-tools)
 - MMLU-Pro: **90.2%** (Vals AI)
-- Artificial Analysis Intelligence Index: **59** (AA, high effort)
+- Artificial Analysis Intelligence Index: **41** (AA v4.3.2 model page, 2026-09-28 — high effort; release-era 59 superseded, see Fresh-source note)
 - CritPt / LCR: no verified public score found
 - CharXiv Reasoning (no tools): **86.2%** (Google)
 
@@ -54,10 +54,12 @@ Long context:
 
 - No MRCR/RULER row published for 3.8 specifically; 1M window documented. Long-context retrieval: no verified public score found for this exact model.
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 41** (high effort) contradicts the release-era 59 — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 89/100.** TB2.1 ~87–91 across harnesses, OSWorld 59%, Tau3 38.1%, GDPval 1545; capped hard by TB4.0 only 19.1% on the current-generation agentic harness.
-- **Reasoning: 91/100.** GPQA 94.4%, HLE-Verified 54.9%, AA Index 59; capped because no-tools HLE ~47.8% and index still below 61+ frontier cluster.
+- **Reasoning: 91/100.** GPQA 94.4%, HLE-Verified 54.9%, AA Index 41 (v4.3.2 refresh); capped because no-tools HLE ~47.8% and the refreshed index sits mid-pack.
 - **Context window: 95/100.** 1M documented; no ≥98% retrieval evidence at 512K+ for this exact model (MRCR row missing), so 95 not 100.
 - **Multimodal: 90/100.** Text/image/audio/video in (audio input pushes into 90+ band); text-only out caps at 90.
 - **Coding: 89/100.** DeepSWE ~74 (near board top), SWE-bench 80%, LCB 89.5%, SWE-Pro 61.6%; capped by TB4.0 19.1% and SWE-Atlas 51.9% trailing frontier.

@@ -1,65 +1,69 @@
-# Gemini 3 Pro — findings by Big Pickle
+# Google Gemini 3 Pro — findings by Big Pickle
 
-- Source: Google/Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-09-24 (UTC)
+- Source: Google DeepMind (`gemini-3-pro-preview`); benchmarks from Google's launch model card, Artificial Analysis, BenchLM, llm-stats, Simon Willison and CloudPrice
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3 Pro
-- **Short description:** Google DeepMind's November 2025 frontier Pro model (pre-3.1 generation) — flagship reasoning/multimodal model with 1M context and Deep Think mode. Superseded by Gemini 3.1 Pro (Feb 2026, 2M context). Distinct entry from `gemini-3.1-pro`, `gemini-2.5-pro`, and the Flash line.
-- **Provider / access:** Google Gemini API / AI Studio / Vertex (`gemini-3-pro`, preview ~Nov–Dec 2025); on OpenCode Zen `opencode/gemini-3-pro` (Chat Completions-style endpoint).
-- **Release / knowledge:** 2025-11-18 (anotherwrapper / AI Flash Report); knowledge cutoff ~2025-01-31 (2025-11 per some trackers).
-- **IDs:** `google/gemini-3-pro`, `opencode/gemini-3-pro`
-- **Context window:** 1,000,000 tokens input (~1M; Artificial Analysis lists 1000k; some later trackers show 2M — 1M is the launch spec), max output ~65.5K (family spec).
-- **Modalities:** text + image + audio + video + PDF input; text output; extended reasoning + Deep Think mode; native tool calling / function use; no non-text output.
-- **Pricing (as of 2026-09-24):** ~$2.00 / $12.00 per 1M input/output tokens (AnotherWrapper snapshot; Google list pricing varies by region/route). Paid only.
-- **Architecture:** proprietary; parameters undisclosed.
+- **Name:** Gemini 3 Pro (`gemini-3-pro-preview`), released **2025-11-18** — the first Gemini 3 tier release, and the flagship at the time. **As of today it is roughly ten months old and two generations behind** Gemini 3.1 Pro (Feb 2026) and Gemini 3.8 Flash (Sep 2026). That framing governs most of this report.
+- **Short description:** A "reasoning-first" model for complex reasoning, coding and rich multimodal prompts. Simon Willison's summary from preview access — "it's Gemini 2.5 upgraded to match the leading rival models" — is the fairest one-line description available. Notable capabilities beyond the benchmark table: a **Deep Think** reasoning mode, integration with **Google Antigravity** (an infrastructure layer optimised for latency across massive context windows), **pixel-precise pointing** (emitting 2D coordinates for objects, enabling zero-shot object detection and keypoint estimation), and a claim of having **solved 5 of 6 IMO 2025 problems**. It ranked **#1 on LMSYS Arena at launch**.
+- **Provider / access:** Google AI Studio, Vertex AI, Gemini API. Also widely resold — ModelBench lists 10 providers, with prices ranging from **$0.57/$3.43** (QiHang) to **$4.00/$18.00** (OrcaRouter) for the same weights.
+- **Release / knowledge:** released **2025-11-18**. **Knowledge cutoff January 2025** (Simon Willison, ModelBench and llm-stats all state January 2025; llm-stats is more specific at 2025-01-31). **This is the most consequential fact in the report: at a January 2025 cutoff, the model has roughly twenty months of blind spot on current events as of September 2026**, and the line's successors are 1.3 to 2.8 years fresher.
+- **IDs:** `gemini-3-pro-preview`, `google/gemini-3-pro-preview`.
+- **Context window:** **1,048,576 tokens (1M) input, 65,536 max output** (ModelBench across 10 providers, llm-stats, computeprices). Simon Willison's first-party reading: "accepts 1 million input tokens, can output up to 64,000 tokens." Held at 1M because every provider catalogue agrees; see the conflicts note for the dissenting 2M figure.
+- **Modalities:** **text, image, audio, video and PDF in; text out** — the broadest input set of any model in this dataset. Reasoning yes; tool calling yes; structured output/JSON yes; attachments yes; vision yes.
+- **Pricing (as of 2026-09-28), per 1M, first-party:** **$2.00 input / $0.20 cached / $12.00 output.** Reseller spread is enormous and worth noting for anyone actually buying: $0.57/$3.43, $1.25/$15.00, $2.00/$12.00, $4.00/$18.00.
+- **Architecture:** **proprietary / closed weights.** Sparse MoE, **~1T parameters** (the only architecture detail published). BenchLM also tracks a separate **Gemini 3 Pro Deep Think** configuration, which scores **lower** (60.67) than the base model (67.23) on BenchLM's composite.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Google's launch model card** (Nov 2025), via Simon Willison and roboflow, with Google's own comparison set:
 
-- Terminal-Bench: **69.4%** (AnotherWrapper chart, harness unspecified; TB 2.0 rows vary 22.8–54.2% by harness)
-- Tau2-Bench (τ²-bench): **87.1%** (BenchLM)
-- OSWorld / OSWorld-Verified: **47.5%** (AnotherWrapper)
-- Claw-Eval / GDPval-AA: no verified public score found
+| Benchmark | Gemini 3 Pro | Gemini 2.5 Pro | Claude Sonnet 4.5 | GPT-5.1 |
+|---|---|---|---|---|
+| GPQA Diamond (no tools) | **91.9%** | 86.4% | 83.4% | 88.1% |
+| AIME 2025 (no tools) | **95.0%** | 88.0% | 87.0% | 94.0% |
+| AIME 2025 (with code exec) | **100.0%** | — | 100.0% | — |
+| MathArena Apex | **23.4%** | 0.5% | 1.6% | 1.0% |
+| Humanity's Last Exam (no tools) | **37.5%** | 21.6% | 13.7% | 26.5% |
+| HLE (with search + code) | **45.8%** | — | — | — |
+| ARC-AGI-2 (ARC Prize Verified) | **31.1%** | 4.9% | 13.6% | 17.6% |
+| MMMU-Pro | **81.0%** | 68.0% | 68.0% | 76.0% |
+| ScreenSpot-Pro | **72.7%** | 11.4% | 36.2% | 3.5% |
+| CharXiv Reasoning | **81.4%** | 69.6% | 68.5% | 69.5% |
+| OmniDocBench 1.5 (edit distance, lower better) | **0.115** | 0.145 | 0.145 | 0.147 |
+| Video-MMMU | **87.6%** | 83.6% | 77.8% | 80.4% |
+| LiveCodeBench Pro (Elo) | **2,439** | 1,775 | 1,418 | 2,243 |
+| Terminal-Bench 2.0 (Terminus-2) | **54.2%** | 32.6% | 42.8% | 47.6% |
+| SWE-bench Verified (single attempt) | **76.2%** | 59.6% | 77.2% | 76.3% |
+| τ²-bench | **85.4%** | 54.9% | 84.7% | 80.2% |
+| Vending-Bench 2 (net worth) | **$5,478.16** | $573.64 | $3,838.74 | $1,473.43 |
+| FACTS Benchmark Suite | **70.5%** | 63.4% | 50.4% | 50.8% |
 
-Reasoning / knowledge:
+**Artificial Analysis** (independent, measured September 2026): **Intelligence 40.6** — CloudPrice ranks it **#6 among Google's own lineup**; **MMLU-Pro 89.8%**, **GPQA Diamond 90.8%**, **HLE 39.7%**; **AIME 2025 95.7%**, Math 95.7; **LiveCodeBench 91.7%**, **SciCode 56.1%**; **Terminal-Bench Hard 41.7%**, **τ²-bench 87.1%**; **IFBench 70.4%**, **Long-Context Reasoning (LCR) 73.0%**. **139 output tokens/s, 20.4 s TTFT.**
 
-- GPQA Diamond: **91.9%** (Google self-reported; AA-GPQA 90.8% BenchLM)
-- HLE: **45.8%** (AnotherWrapper) / **39.7%** (AA-harness, BenchLM)
-- ARC-AGI-2: **31.1%** (45.1% in Deep Think mode)
-- Artificial Analysis Intelligence Index: **40.6%** (BenchLM)
-- AA-LCR: **73.0%** / CritPt: **9.1%** / AA-Omniscience Accuracy: **55.8%** (BenchLM)
+**BenchLM** (additional independent rows): **MathVision 86.6%**, **V\* 88.0%**, **AA-MMMU-Pro 80.2%**, **AA Global-MMLU-Lite 92.2%**, **AA-Omniscience Index 15.3%** at **55.8% accuracy against a 91.5% hallucination rate**, **CritPt 9.1%**, **AA-LCR 73.0%**, **FrontierMath v2 Tiers 1–3 37.600% / Tier 4 18.750%**, **Vibe Code Bench 14.30%**. Composite 67.23 (#1 MMMU-Pro row at 81% is 9th).
 
-Coding:
-
-- SWE-bench Verified: **76.2%** (Google; SWE-bench Pro 84.8% public)
-- LiveCodeBench: **86.4%** (AnotherWrapper) / **91.7%** (AA, pricepertoken)
-- AA-SciCode: **56.1%** (BenchLM)
-- Vibe Code Bench: **14.3%** (BenchLM/AnotherWrapper)
-- MMLU-Pro: **90.1%** (AnotherWrapper)
-
-Long context:
-
-- MRCR v2: **26.3%** (AnotherWrapper — harness/window ambiguous; Google's card does report MRCR for its models). Long-context retrieval at 1M independently verified ≥98% not established.
+**llm-stats:** LLM Stats Score **38.4–38.6, #61–62**; Reasoning 38.5 (#59), Coding 24.2 (#66–67), Agents 15.0 (#80), **Tool use index 13.5 (#90)**. Against Grok 4.5 — 8 months newer, 1.1 years fresher training data — Gemini 3 Pro wins **0 of 1** shared benchmark and trails on every index.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 69.4% plus Tau2-bench 87.1% and OSWorld 47.5% put it at the frontier agent tier; no GDPval/Claw-Eval rows and harness-shifted TB numbers keep it just below the 90+ band.
-- **Reasoning: 92/100.** GPQA 91.9%, HLE 39.7–45.8%, and ARC-AGI-2 31.1% are all frontier-tier (≥90%-GPQA per methodology); Deep Think extends it further (ARC-AGI-2 45.1%).
-- **Context window: 90/100.** Full 1M window (≥1M tier); not 95+ because MRCR v2 retrieval evidence is ambiguous (26.3% row, harness unspecified) and no ≥98%-at-512K+ verification.
-- **Multimodal: 88/100.** Text + image + audio + video + PDF input with strong vision rows (MMMU-Pro 81%, VideoMMMU 87.6%, MathVision 86.6%); text-only output keeps it below 90.
-- **Coding: 84/100.** SWE-bench Verified 76.2%, SWE-bench Pro 84.8%, LiveCodeBench 86.4–91.7%, AA-SciCode 56.1% — strong all-round coder; Vibe Code Bench 14.3% caps it below the DeepSWE-74%+ frontier tier.
-- **Cost efficiency: 72/100.** ~$2.00/$12.00 per 1M (methodology ~$3/$15 ≈ 60, ~$1.25/$4.25 ≈ 88) — mid-premium pricing, cheap-ish input.
-- **Overall Score: 88/100.** Mean of five quality dims (86+92+90+88+84)/5 = 88.0. Best fit: frontier multimodal reasoning with strong agentic/coding breadth at premium pricing.
+- **Tool use: 87/100.** Up 1. The best dimension, and the evidence is unusually deep: **τ²-bench 85.4% (Google) / 87.1% (AA)** — two independent sources agreeing, against 80.2% for GPT-5.1 — plus **Vending-Bench 2 at $5,478.16 mean net worth**, roughly 3.7× Claude Sonnet 4.5 and 3.7× GPT-5.1, which is a real and demanding long-horizon autonomy result. **FACTS Benchmark Suite 70.5%** leads Google's comparison set. Held at 87 because **Terminal-Bench 2.0 54.2% is a November-2025 measurement on the older 2.0 release**, and the harder successors post much lower — **Terminal-Bench Hard 41.7%** on AA — with **no Terminal-Bench 2.1, 3.0 or 4.0 figure published for this checkpoint at all.**
+- **Reasoning: 80/100.** Down 12, and the age of the model is the whole story. The knowledge-and-math profile is genuinely excellent and internally consistent: **GPQA Diamond 91.9% / 90.8%**, **AIME 2025 95.0% / 95.7%** (and 100% with code execution), **MMLU-Pro 89.4% / 89.8%**, **MathArena Apex 23.4%** against 0.5% for Gemini 2.5 Pro, and **HLE 37.5% without tools / 45.8% with search and code**. Against that: **ARC-AGI-2 31.1%**, **CritPt 9.1%**, **FrontierMath v2 Tier 4 18.750%**, and decisively the **Omniscience profile — 55.8% accuracy against a 91.5% hallucination rate, index 15.3** — the worst grounding ratio in this dataset by some distance. Combined with a **January 2025 knowledge cutoff**, this is a model that will answer authoritatively about a world it last saw twenty months ago. Strong closed-book reasoning over mathematics and scientific knowledge; not usable as a factual oracle.
+- **Context window: 93/100.** Up 3. **1,048,576 input / 65,536 output**, agreed across all ten provider catalogues in ModelBench plus llm-stats and computeprices, and confirmed first-party by Simon Willison at 1M/64K. **AA-LCR 73.0%** is a genuine independent long-context measurement, which most 1M-window models in this dataset cannot offer at all. Held below the top band because 73.0% retrieval is good rather than excellent, and because Gemini 3.8 Flash now offers the same window with a far fresher cutoff.
+- **Multimodal: 95/100.** Up 7 — the largest upgrade in this report, and the dimension where the model has aged best. **MMMU-Pro 81.0%**, **Video-MMMU 87.6%**, **MathVision 86.6%**, **V\* 88.0%**, **ScreenSpot-Pro 72.7%** (against 36.2% for Sonnet 4.5 and 3.5% for GPT-5.1), **CharXiv Reasoning 81.4%**, **OmniDocBench 1.5 at 0.115** edit distance, **AA-MMMU-Pro 80.2%**, and **Global-MMLU-Lite 92.2%**. **text, image, audio, video and PDF in** is the broadest declared input set in this dataset. Pixel-precise 2D coordinate output is a genuinely differentiated capability no other model here documents. Vision and video reasoning are time-robust in a way that factual recall is not, which is why this dimension holds up while Reasoning collapsed.
+- **Coding: 75/100.** Down 9. **SWE-bench Verified 76.2%** (Google's own card) and **LiveCodeBench Pro at 2,439 Elo** — the best Elo in Google's launch set — and **AA LiveCodeBench 91.7%** are respectable. But **Vibe Code Bench at 14.30% is close to unusable** and is the single worst figure in this report, and the terminal-agent number is **Terminal-Bench 2.0 54.2% on a now-superseded benchmark version**. Set against the current field — Claude Opus 5 at SWE-bench Verified 96.0%, Claude Fable 5.1 at SWE-bench Pro 81.2%, Gemini 3.8 Flash at LiveCodeBench 89.5% and Terminal-Bench 2.1 89.4% — this is a model that has been outclassed in its own family's niche as well as the market's.
+- **Cost efficiency: 78/100.** Up 6. **$2.00 in / $12.00 out with $0.20 cached** is the cheapest first-party price of any Pro-class model in this dataset — **2.5× cheaper than Claude Opus 5 on output** — and CloudPrice ranks its Intelligence composite **#6 among Google's lineup**. The 139 t/s output speed is respectable. Not higher because the **$12/M output rate buys a January 2025 knowledge cutoff and a 91.5% hallucination rate**, which is a poor trade at any price, and because **reseller pricing for identical weights spans $0.57/$3.43 to $4.00/$18.00** — a 5.2× spread on the same model, which means the right answer is to buy first-party.
+- **Overall Score: 86.0/100.** Half-up mean of the five quality dims: (87 + 80 + 93 + 95 + 75) / 5 = 86.0. Best fit: **a still-excellent multimodal and document/vision reasoning model with the broadest input modality set in this dataset, on a 1M window, at the lowest first-party Pro-class price** — and a model that should now be understood as a **perception specialist rather than a knowledge model.** The decisive caveat is the **January 2025 knowledge cutoff paired with a 91.5% hallucination rate at 55.8% accuracy**: it will state confidently and be wrong about anything after early 2025. For video, documents, charts, screen understanding and spatial reasoning it remains genuinely strong and hard to beat. For anything requiring current facts, its own family has better and cheaper options in **Gemini 3.8 Flash at $0.75/$3.75 with an AA Intelligence Index of 41 versus this model's 40.6 — better on more benchmarks at a third of the price.**
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-24
-- Method: public internet research (Google/DeepMind cards, BenchLM, Artificial Analysis, AnotherWrapper, AI Flash Report, UC Strategies); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Google's Gemini 3 Pro launch model card and developer blog as reproduced by Simon Willison and roboflow, Artificial Analysis-sourced figures via computeprices, CloudPrice's Google lineup table, BenchLM `gemini-3-pro` and `gemini-3-flash` model pages and the `gemini-3-pro-preview-vs-gemini-3.8-flash` comparison, llm-stats `gemini-3-pro-preview-vs-grok-4.5` and the SWE-bench Verified leaderboard, ModelBench and kyssta model records, aiflashreport, lushbinary). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 88 → **86.0**, and the cause is a single fact the earlier pass did not register: **Gemini 3 Pro was released 2025-11-18 with a January 2025 knowledge cutoff, making it roughly ten months old with a twenty-month blind spot as of today.** That drove **Reasoning 92 → 80** (the **Omniscience profile of 55.8% accuracy against a 91.5% hallucination rate** is the worst grounding ratio in this dataset, and llm-stats shows it losing 0-of-1 shared benchmarks to the eight-month-newer Grok 4.5) and **Coding 84 → 75** (**Vibe Code Bench 14.30%**, and a terminal-agent result measured on the superseded Terminal-Bench 2.0 while **Terminal-Bench Hard is only 41.7%**). Two dimensions moved up on evidence: **Multimodal 88 → 95**, the biggest upgrade in this report, on **Video-MMMU 87.6%, MathVision 86.6%, V\* 88.0%, ScreenSpot-Pro 72.7% and the broadest declared input set in the dataset (text/image/audio/video/PDF)**, plus the genuinely differentiated pixel-precise 2D-coordinate output; and **Context 90 → 93** on **AA-LCR 73.0%**, a real independent long-context measurement that most 1M-window models here cannot offer. **Cost 72 → 78** on the $2.00/$12.00 first-party price, which is the cheapest Pro-class list in this dataset.
+- **Conflicts recorded rather than smoothed over:** (1) **knowledge cutoff — four different values across sources**: January 2025 (Simon Willison, ModelBench, llm-stats at 2025-01-31 — three sources agreeing, used here), June 2025 (computeprices) and September 2025 (aiflashreport). The outlier sources are wrong or measuring something else; the three-way agreement is the basis for using January 2025. (2) **context window**: 1,048,576 across all ten provider catalogues, llm-stats and computeprices, versus **2M in BenchLM's Google pricing table** and 1M/32K max output on aiflashreport. The 2M figure is uncorroborated by any provider and is **not** used. (3) **pricing**: $2.00/$12.00 first-party (ModelBench's Google row, Merge, Neon, Requesty, Databricks, CloudPrice) versus **$2.50/$10.00 on aiflashreport** — a second first-party-shaped conflict; the provider-corroborated $2.00/$12.00 is used, and the 10× reseller spread is disclosed rather than averaged. (4) **SWE-bench Verified**: 76.2% on Google's own card versus **68.2% on aiflashreport**; Google's card is used. (5) **GPQA Diamond 91.9% (Google) vs 90.8% (AA)** and **HLE 37.5% no-tools (Google) vs 39.7% (AA)** — small harness differences, both recorded. (6) **Deep Think scores lower than base** on BenchLM (60.67 vs 67.23), which is counter-intuitive enough to flag rather than explain.
+- Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

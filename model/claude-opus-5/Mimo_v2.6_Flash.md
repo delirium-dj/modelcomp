@@ -40,7 +40,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **93.7%** (OpenAI comparison citing Anthropic)
 - FrontierMath Tier 4 v2: **73.2** (OpenAI table) / **56.1** (GPT-5.6 table) — harness variance
 - ARC-AGI-3: **30.2%** (Anthropic; ~3× next-best at launch)
-- Artificial Analysis Intelligence Index: **63.1** (OpenAI/AA citation)
+- Artificial Analysis Intelligence Index: **51** (AA v4.3.2 model page, 2026-09-28 — #13/216 at max effort; prior 63.1 citation superseded, see Fresh-source note)
 - CritPt / LCR: no verified public score found
 
 Coding:
@@ -55,10 +55,12 @@ Long context:
 
 - Programbench (system card long-context section): results published in Anthropic system card; exact retrieval % not isolated — no verified public MRCR row found for Opus 5 in sources read.
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 51** (#13/216) contradicts the original 63.1; AA also now marks Claude Opus 5 **deprecated** (superseded by Claude Opus 5.5) — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 96/100.** TB4.0 ~52–53, TB2.1 86.7–89.1, GDPval 1861, OSWorld ~70–75, AutomationBench leading at cost; capped slightly by TB-Science 29% and missing Tau3/Claw rows.
-- **Reasoning: 96/100.** HLE 56.6/63.6, AA Index 63.1, ARC-AGI-3 30.2 (3× field), GPQA 93.7; capped by FrontierMath T4 harness variance and HLE below Fable 5.1's 60.9+.
+- **Reasoning: 96/100.** HLE 56.6/63.6, AA Index 51 (v4.3.2 refresh — see Fresh-source note), ARC-AGI-3 30.2 (3× field), GPQA 93.7; capped by FrontierMath T4 harness variance and HLE below Fable 5.1's 60.9+.
 - **Context window: 95/100.** 1M window documented; no public ≥98% retrieval at 512K+ MRCR row for this model → 95.
 - **Multimodal: 70/100.** Text + image in (strong chart/filing vision per system-card multimodal section); no video/audio/non-text out → top of 60–70 image band.
 - **Coding: 96/100.** Frontier-Bench 43.3% SOTA, SWE-Pro 79.2%, DeepSWE ~74, TB4.0 ~52; capped by missing SWE-bench Verified/LCB rows and TB-Science behind Fable/Astra.

@@ -39,7 +39,7 @@ Reasoning / knowledge:
 - HLE: **49.8%** no tools / **57.9%** with tools (Anthropic/LLM Boss)
 - USAMO 2026: **96.7%** (Anthropic)
 - CharXiv Reasoning: **80.5%** no tools / **89.9%** with tools (LLM Boss)
-- Artificial Analysis Intelligence Index: **61** (TokenMix — #1 in 149-model class at launch)
+- Artificial Analysis Intelligence Index: **42** (AA v4.3.2 model page, 2026-09-28 — #42/216; the TokenMix 61 was a different indexer, see Fresh-source note)
 - CritPt / Omniscience / MLCR numeric: AA-LCR **67.7%** (LLM Boss); CritPt: no verified public score found in sources consulted
 
 Coding:
@@ -55,13 +55,15 @@ Long context:
 
 - 1M window official; MRCR/RULER retrieval percentage: no verified public score found in sources consulted (AA-LCR 67.7% is the long-context proxy)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 42** (#42/216) replaces the TokenMix-61 cross-index citation (different indexers are not on the same scale); AA now marks Claude Opus 4.8 **deprecated** (superseded by Claude Opus 5) — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`.
 
 - **Tool use: 94/100.** GDPval-AA 1890 Elo is in the elite knowledge-work band (clearly above 1750+ frontier ref), OSWorld 83.4% and MCP-Atlas 82.2% lead or near-lead their fields, BrowseComp 84.3%; TB2.1 range 74.6–84.6 (harness-dependent) keeps it from 96+, and missing Tau3/Claw rows prevent a full mark.
-- **Reasoning: 95/100.** GPQA 93.6% + HLE 49.8/57.9 both firmly in frontier band (HLE 40%+ → 90–100), AA Index 61 tops the launch-era leaderboard; small discounts for the −0.6 GPQA regression vs 4.7 and no CritPt row.
+- **Reasoning: 95/100.** GPQA 93.6% + HLE 49.8/57.9 both firmly in frontier band (HLE 40%+ → 90–100), AA Index 42 on v4.3.2 (refresh — see Fresh-source note); small discounts for the −0.6 GPQA regression vs 4.7 and no CritPt row.
 - **Context window: 95/100.** Official 1M window → ≥1M tier floor; no MRCR ≥98% retrieval figure published, so cannot earn the retrieval-backed 100; AA-LCR 67.7% is merely mid-tier retrieval evidence.
 - **Multimodal: 65/100.** Text + vision (image) in only (LLM Stats / launch docs) → image-in band 60–70; no audio/video/PDF input, no non-text output → mid image-in score. Vision-grounded work (OSWorld, ScreenSpot-class) supports the upper half of that band but not 70+.
 - **Coding: 96/100.** SWE-V 88.6% and SWE-Pro 69.2% are at/near the top of public closed-model tables at release; SWE-Multilingual 84.4% and DeepSWE 59% round out a frontier coding profile; held just below 97+ because DeepSWE still trails GPT-5.6 Sol/Fable (~70–73) and TB2.1 is harness-sensitive (74.6 Anthropic vs 84.6 AA).

@@ -36,7 +36,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **93.5%** (Moonshot)
 - HLE: **43.5%** full / **56.0%** with tools (Moonshot / Turiloop)
-- AA Intelligence Index: **57** (#3–4 overall at launch, top open-weight; later 59.7 on AA feed) — kie.ai / whatllm / Turiloop
+- AA Intelligence Index: **44** (AA v4.3.2 model page, 2026-09-28 — max effort, #3/116 open weights behind MiMo-V2.6-Pro 46 and GLM-5.3 45; launch-era 57/59.7 superseded, see Fresh-source note)
 - AA Coding Index: **76.2**; Agentic Index **54.3** (whatllm, 2026-08-28)
 - LCR / CritPt / Omniscience: **no verified public score found**
 - Arena Frontend Coding: **#1 at 1679** launch (independent blind votes)
@@ -59,10 +59,12 @@ Multimodal:
 - MMMU-Pro: **81.6%**; OmniDocBench: **91.1** (Moonshot)
 - Native image in; video/audio: **no verified public score found** (not claimed)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 44** (max, #3/116 open weights) contradicts the launch-era 57/59.7 feed values (kie.ai/whatllm/Turiloop) — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 94/100.** TB2.1 88.3, MCP Atlas 84.2, GDPval-AA v2 ~1668, BrowseComp 91.2 — near-top agentic/tool stack; capped by AutomationBench ~31 and no public Tau3 row.
-- **Reasoning: 93/100.** GPQA 93.5, HLE 43.5/56 tools, AA Index 57 (frontier open-weight leader); capped by HLE still below top Fable/Mythos-class 60%+ and verbose/slow serving notes from AA.
+- **Reasoning: 93/100.** GPQA 93.5, HLE 43.5/56 tools, AA Index 44 (v4.3.2 refresh — #3 open weights); capped by HLE still below top Fable/Mythos-class 60%+ and verbose/slow serving notes from AA.
 - **Context window: 96/100.** Full 1,048,576 in/out capacity (≥1M tier); no public MRCR % to claim the retrieval-verified 100.
 - **Multimodal: 80/100.** Native vision with MMMU-Pro 81.6 and OmniDocBench 91.1 (strong image/doc); no audio/video in/out → not 90+.
 - **Coding: 94/100.** TB2.1 88.3, DeepSWE 67.5, Program Bench 77.8, FrontierSWE 81.2, Arena #1 frontend — frontier coding/agent; capped slightly by no public SWE-V row and trails Fable 5/Sol on DeepSWE/FrontierSWE.

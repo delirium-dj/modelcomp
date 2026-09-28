@@ -1,72 +1,72 @@
 # Claude Opus 4.8 — findings by Big Pickle
 
-- Source: Anthropic (`claude-opus-4.8`)
-- Date: 2026-09-20 (UTC)
+- Source: Anthropic via Amazon Bedrock's model card and llm-stats; independent evaluation from Vals AI (2026-05-28), BenchLM, llm-stats leaderboards, Moonshot's Kimi K3 comparison table and apxml
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 4.8
-- **Short description:** The May 2026 GA upgrade of Anthropic's Opus flagship — a stronger coding/agentic Opus with an honesty push ("4x less likely to let its own code flaws pass unremarked"), dynamic-workflow subagent coordination, and a fast mode. Strongest computer-use/browser-agent model per Anthropic, only model to finish the Super-Agent benchmark end-to-end.
-- **Provider / access:** Claude API (`claude-opus-4-8`), Claude Code, AWS Bedrock, Google Vertex AI, Microsoft Foundry, Azure.
-- **Release / knowledge:** 2026-05-28 (42 days after Opus 4.7).
-- **IDs:** `claude-opus-4-8` / `claude-opus-4.8` (Anthropic; proprietary).
-- **Context window:** 1M tokens; max output 128K (300K in beta), per benchr/opper.
-- **Modalities:** text, image, PDF/file inputs; text output; reasoning, tools, structured output.
-- **Pricing (as of 2026-09-20):** $5.00 in / $25.00 out per 1M; cached input $0.50; fast mode $10/$50 (3x cheaper than the prior fast-mode price). Batch $2.50/$12.50 per 1M.
-- **Architecture:** Proprietary Claude hybrid-reasoning transformer (undisclosed); dynamic multi-subagent workflows.
+- **Name:** Claude Opus 4.8, released **2026-05-28** (Anthropic, confirmed by AWS Bedrock's model card, llm-stats, apxml and Vals). **It is Anthropic's upgrade to Opus 4.7 and was its most capable general-access model at launch** — but as of today it has been superseded **twice inside its own family**, by **Claude Opus 5 (2026-07-22)** and by **Claude Fable 5 / Fable 5.1**. Any read of this model has to be a read of a four-month-old flagship.
+- **Short description:** "Optimized for coding, agents, and deeper reasoning in enterprise workflows" (AWS). At launch Anthropic reported improvements across **software engineering, agentic tool use, reasoning, computer use and knowledge-work benchmarks** while shipping as Opus 4.7's drop-in upgrade. The launch position was genuinely dominant: **#1 on the Vals Index at 70.17% and #1 on the Vals Multimodal Index at 70.71%, edging out GPT 5.5 on both.** Where it sits now is the interesting part — Vals' current Index has **Claude Fable 5 at 75.15% in front of Opus 4.8's 70.36%**, so the model that led the field in May has been dethroned by its own lab's mid-tier.
+- **Provider / access:** Anthropic API and Google Vertex AI at identical pricing; Amazon Bedrock (`anthropic.claude-opus-4-8`, `us.anthropic.claude-opus-4-8`, `global.anthropic.claude-opus-4-8`) as a third-party Marketplace offering. **Bedrock quotas: 20M input TPM and 4M output TPM on bedrock-mantle, 30M TPM on bedrock-runtime, with no requests-per-minute quota** — throttling is governed purely by token throughput.
+- **Release / knowledge:** released 2026-05-28; **knowledge cutoff January 2026** per AWS Bedrock's model card. Roughly eight months stale, and materially fresher than Opus 4.7 but well behind Kimi K3 and DeepSeek V4.1 Flash.
+- **Context window:** **1,000,000 tokens input, 128,000 max output** — agreed by AWS Bedrock, llm-stats, Vals and BenchLM, and a genuinely useful ceiling; myclaw notes Opus 4.8 publishes a 128K max output where Kimi K3's launch page does not state an equivalent.
+- **Modalities:** **text and image in, text out; file input supported, video not supported** (AWS Bedrock and Vals). The absence of video is a real difference from the Gemini line's text/image/video/audio/PDF.
+- **Reasoning controls:** **adaptive thinking with effort control**, plus a **fast mode offering up to 2.5× speed at $10 input / $50 output** — a 2× premium tier over standard rates.
+- **Pricing (as of 2026-09-28), per 1M:** **$5.00 input / $0.50 cached / $25.00 output** on both Anthropic and Vertex AI. **Fast mode: $10.00 / $50.00.** This is **identical to Claude Opus 5**, the model that replaced it.
+- **Speed:** p95 TTFT **500 ms**, p95 throughput **42.0 characters/s** (llm-stats).
+- **Architecture:** undisclosed parameters, proprietary, closed weights.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Vals AI's independent evaluation, 2026-05-28** — the most thorough third-party assessment available for this model:
 
-- OSWorld-Verified: **83.4%** (Anthropic; vs GPT-5.5 78.7%, Gemini 3.1 Pro 76.2%, Opus 4.7 82.8%).
-- Terminal-Bench 2.1: **74.6%** (Anthropic; improves on 4.7's 66.1%, trails GPT-5.5's 78.2%). benchr board: Terminal-Bench 2.0 74.6%, Terminal-Bench 3.0 21.1%.
-- MCP Atlas: **82.2%**; BrowseComp: **84.3%**; DeepSearchQA: **93.1%** (benchr evidence ledger).
-- GDPval-AA: **1,890** — leads Opus 4.7 (1,753), GPT-5.5 (1,769), Gemini 3.1 Pro (1,314) (Anthropic/wandb).
-- Finance Agent v2: **53.9%** (narrowly ahead of Opus 4.7 51.5% and GPT-5.5 51.8%; Gemini 3.5 Flash reported 57.9%).
-- Online-Mind2Web: **84%** (Anthropic — strongest computer-use/browser-agent tested); Legal Agent Benchmark: first model to break 10% all-pass.
-- Super-Agent benchmark: only model to complete every case end-to-end (beating prior Opus and GPT-5.5 at parity on cost).
-- PinchBench (OpenClaw): **90.5% avg, #4/50** official models with cost per run ~$81.79 (kilo.ai).
+- **Vals Index 70.17%, #1 model at release**; **Vals Multimodal Index 70.71%, #1**, both edging out GPT 5.5
+- **#1 on SWE-bench Verified (88.60%)**, **#1 on Vibe Code Bench (82.72%)**, **#1 on ProofBench (69.00%)**; **#2 on Terminal Bench 2 (70.04%)**, **#2 on Finance Agent v2 (53.92%)**
+- Knowledge: **LCB 87.82% (#3)**, **GPQA 92.42% (#4)**, **MMLU Pro 89.58% (#4)**, **MMMU 86.59% (#9)**
+- Domain: **MortgageTax 69.91% (#2)**, MedCode 53.22% (#5), MedScribe 85.75% (#6), **TaxEval v2 75.63% (#7)**, CorpFin v2 66.71% (#8), SAGE 54.79% (#3), **Time Horizon Index KSP (#3 of 8)**
+- Cost per test **$12.67**; accuracy 60.91% ± 1.03; latency 36 min 22s
+- Rankings: ProgramBench #8/45, SkillsBench #8/33, EMB #8/54, MMLU Pro #9/138, LiveCodeBench #11/143, MedScribe #18/92, MMMU Pro #19/93, CyberBench #18/24, GPQA Diamond #16/138, SWE-bench #12/88, Terminal-Bench 2.1 #17/62
 
-Reasoning / knowledge:
+**BenchLM, 38 benchmarks, overall 72.3/100:**
 
-- GPQA Diamond: **93.6%** (benchr vs Gemini 3.1 Pro 94.3% — effectively tied).
-- ARC-AGI-2: **not published** (benchr note); AA Intelligence Index / LCR: **73.0%** long-context reasoning (kilo); IFBench 62.2% (AA).
-- HLE: not surfaced in compared rows.
+| Benchmark | Score | | Benchmark | Score |
+|---|---|---|---|---|
+| SWE-bench Verified | **88.6%** | | Terminal-Bench 2.0 | 74.6% |
+| SWE-bench Pro | **69.2%** | | **Terminal-Bench 3.0** | **21.1%** |
+| SWE Multilingual | **84.4%** | | Terminal-Bench 2.1 (Vals) | 71.9% |
+| **SWE Multimodal** | **38.4%** | | **OSWorld 2.0** | **20.6%** |
+| FrontierCode 1.1 Main | 46.5% | | **ResearchClawBench** | **21.1%** |
+| LiveCodeBench (Vals) | 87.8% | | BrowseComp | 84.3% |
+| cursorBench32 | 62.3% | | Finance Agent v2 | 53.92% |
+| cursorBench31 | 58.4% | | | |
 
-Coding:
+Public lanes: **agentic 63.2 (#16 of 151)**, **coding 66.5 (#12 of 183)**.
 
-- SWE-bench Verified: **88.6%** (Anthropic, consistent across LLM Stats and independent trackers).
-- SWE-bench Pro: **69.2%** — leads Opus 4.7 (64.3%), GPT-5.5 (58.6%), Gemini 3.1 Pro (54.2%).
-- SWE-bench Multilingual: **84.4%** (Anthropic).
-- AA Coding Index: **74.3%**; SciCode: 53.5%; TerminalBench Hard: 58.3% (kilo/AA).
-- Kilo "Kilo Bench" Terminal-Bench 2.0: 67.6% completion.
-- Frontend apps per Anthropic post: strong CursorBench-class claims without an independent row captured here.
+**Moonshot's Kimi K3 launch comparison, Opus 4.8 column:** Terminal Bench 2.1 84.6, **FrontierSWE 66.7**, SWE Marathon 40.0, Kimi Code Bench 2.0 71.7, BrowseComp 84.3, Automation Bench 27.2, SpreadsheetBench 2 31.6, Program Bench 71.9.
 
-Long context:
+**apxml:** GPQA 0.936 (#4), ProLLM Stack Unseen 0.928 (#4), LiveBench Reasoning 0.89 (#12), LiveBench Math 0.94 (#9), LiveBench Coding 0.82 (#8), LiveBench Global 0.76 (#18), Text Arena 1482, WebDev Arena 1563. Overall rank #26.
 
-- 1M window, 128K output (300K beta); LCR 73.0% (AA/kilo); strong context-management across long agent sessions (dynamic workflows/parallel subagents).
-
-Multimodal:
-
-- text/image/PDF inputs; computer-use and browser-agent strength (Online-Mind2Web 84%); no audio/video input listed for standard API.
+**Current standings, for context:** Vals SWE-bench now reads **Claude Opus 5 97.00%**, Fable 5 95.00%, **Opus 4.8 88.60% at #12**, Opus 4.7 82.00%. Vals Index now reads **Fable 5 75.15% (#1)**, **Opus 4.8 70.36% (#2)**, Sonnet 5 68.61% (#3), GPT 5.5 67.95% (#4).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** OSWorld 83.4%, MCP Atlas 82.2%, GDPval 1,890, Mind2Web 84% — an elite agentic tier; Trail below Fable-5.1-class in the later gen.
-- **Reasoning: 87/100.** GPQA 93.6% is top-tier; no ARC-AGI-2/HLE publication keeps it one notch under the anthropic 5.x flagships.
-- **Context window: 84/100.** 1M / 128K with LCR 73.0% and dynamic subagent coordination; no MRCR-ranked row surfaced.
-- **Multimodal: 82/100.** Strong computer-use vision grounding; standard text/image/file intake without audio/video.
-- **Coding: 88/100.** SWE-bench Verified 88.6% and SWE-bench Pro 69.2% are exceptional — the model Anthropic tuned specifically for coding accuracy; Terminal-Bench 2.1 trails GPT-5.5.
-- **Cost efficiency: 78/100.** $5/$25 with $0.50 cache — premium but flat across the Opus generation; fast mode at $10/$50 is workable.
-- **Overall Score: 86/100.** Mean of the five quality dims (87+87+84+82+88)/5 = 85.6 → 86. The strongest pre-Fable Opus 4.x — a coding/agentus workhorse whose only real competition in its bracket was GPT-5.5 and the soon-to-come Claude 5 line.
+- **Tool use: 80/100.** Down 2, and the reason is entirely about which benchmarks are current. At launch Vals had it **#2 on Terminal Bench 2 at 70.04%** and **#2 on Finance Agent v2 at 53.92%**, and it holds respectable mid-2026 figures — **Terminal-Bench 2.0 74.6%**, **Terminal-Bench 2.1 (Vals) 71.9%**, **BrowseComp 84.3%**, **Time Horizon Index #3 of 8** — with an agentic lane of 63.2 (#16/151). But on the benchmarks that have *replaced* those, it is the weakest model in this dataset with a published figure: **Terminal-Bench 3.0 at 21.1%**, against **Fable 5.1's 34.0%, GPT-5.6 Sol's 34.4% and DeepSeek's own table showing Opus-5.0 at 43.3%**; **OSWorld 2.0 at 20.6%**, which is a direct negative on the **computer use** that Anthropic listed as a headline launch improvement; and **ResearchClawBench 21.1%**. A 53-point fall from Terminal-Bench 2.0's 74.6% to Terminal-Bench 3.0's 21.1% is the single most consequential number in this report.
+- **Reasoning: 88/100.** Down 2. Solidly top-tier on knowledge and mathematics: **GPQA 92.42% (#4 on Vals)**, **MMLU-Pro 89.58% (#4)**, **LCB 87.82% (#3)**, **LiveBench Math 0.94 (#9)**, **LiveBench Reasoning 0.89 (#12)**, GPQA 0.936 (#4 on apxml). Held at 88 rather than higher because the **January 2026 knowledge cutoff is eight months stale** and the model is a generation behind: **DeepSeek V4.1-Flash posts GPQA Diamond 90.9% on a mid-2026 cutoff at a fifth of the price**, and Claude's own Opus 5 and Fable 5 now lead the Vals Index. **No HLE figure is published for this model**, so the hardest reasoning measure available for its generation is simply missing.
+- **Context window: 88/100.** Unchanged. **1,000,000 in / 128,000 out**, agreed across AWS, llm-stats, Vals and BenchLM, and the 128K output ceiling is one of the more generous ones published. Stated plainly as a limitation of this report: **no independent long-context retrieval measurement exists for Opus 4.8** — no AA-LCR, no MRCR 1M, no CorpusQA. Vals and BenchLM both evaluate it extensively and neither publishes a retrieval figure, so 1M is a capacity claim here, not a measured one.
+- **Multimodal: 86/100.** Unchanged, and firmed up by Vals. **#1 on the Vals Multimodal Index at 70.71%** at release, **MMMU 86.59%**, MMMU Pro #19/93, and text/image/file input with file support. Held at 86 for two specific reasons: **video input is not supported**, which is a genuine capability gap against the Gemini line; and **SWE Multimodal is only 38.4%** — the model is materially weaker on software issues that require reading images than on ones that do not.
+- **Coding: 88/100.** Up 4, and this is the dimension that still justifies the model. **#1 on SWE-bench Verified at 88.60%** at release, **SWE-bench Pro 69.2%**, **#1 on Vibe Code Bench at 82.72%**, **#1 on ProofBench at 69.00%**, **SWE Multilingual 84.4% — still #2 in the world on llm-stats' leaderboard, behind only Claude Mythos Preview's 87.3%**, **LiveCodeBench (Vals) 87.8%** with LiveCodeBench #11/143, **cursorBench32 62.3%**, **FrontierCode 1.1 Main 46.5%** (ahead of Gemini 3.7 Flash's 43.6%), ProgramBench 71.9, Kimi Code Bench 2.0 71.7, and **FrontierSWE 66.7%** on Moonshot's table. Held at 88 rather than higher because **SWE Multimodal at 38.4% is weak**, and because the whole profile is four months stale: **Opus 5 now leads Vals SWE-bench at 97.00% and Fable 5 at 95.00%, against Opus 4.8's 88.60% at #12.**
+- **Cost efficiency: 55/100.** Down 5, and the arithmetic is unforgiving. **$5.00/$25.00 with $0.50 cached is exactly the same as Claude Opus 5** — the model that replaced it. There is therefore **no price argument whatsoever for choosing Opus 4.8 today**: you would be paying Opus 5's price for a model that trails Opus 5 on every measured axis. Add the **fast mode at $10/$50**, a 2× premium for 2.5× speed. The comparison set is worse still: **Kimi K3 at $3/$15 is 40% cheaper**, Gemini 3.8 Flash at $0.75/$3.75 is roughly **6.7× cheaper on output**, and DeepSeek V4.1 Flash is cheaper again. Vals' own cost-per-test of **$12.67** is the one point in its favour — cheaper than Claude Sonnet 5's $17.61 — which reflects efficient token use rather than a competitive sticker price. myclaw's summary is the right frame: choose Opus 4.8 when judgment, recovery, or the cost of a failed run matters more than token savings; its advantages are a longer production record, adjustable effort and fast mode, not price.
+- **Overall Score: 86.0/100.** Half-up mean of the five quality dims: (80 + 88 + 88 + 86 + 88) / 5 = 86.0. Best fit: **a genuinely excellent coding model with a four-month-old flagship's profile, whose launch dominance has been fully erased by its own laboratory.** In May 2026 it was simultaneously **#1 on the Vals Index, #1 on the Vals Multimodal Index, #1 on SWE-bench Verified and #1 on Vibe Code Bench** — no other model in this dataset has held that many simultaneous #1 positions. Today it is **#2 on a Vals Index its own family now leads, #12 on Vals SWE-bench behind two Anthropic models, and the weakest model here on the current terminal and computer-use benchmarks (Terminal-Bench 3.0 21.1%, OSWorld 2.0 20.6%)**. What survives the refresh intact is the coding profile: **SWE-bench Pro 69.2%, SWE Multilingual 84.4% at #2 in the world, Vibe Code Bench 82.72%, LiveCodeBench 87.8%**. The honest recommendation is narrow — **for multilingual and multimodal-free software engineering at $5/$25 with an established production path, it remains excellent; for anything else, Opus 5 costs exactly the same and does more.**
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (Anthropic announcement/system card, benchr comparison, wandb/ml-news scores table, opper/kilocat listing, tech-insider cross-eval, benchlm evidence ledger); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (AWS Bedrock's Claude Opus 4.8 model card for launch date, knowledge cutoff, context, modalities and quotas; llm-stats' Claude Opus 4.8 record for pricing, latency and context; Vals AI's independent Claude Opus 4.8 evaluation and its current Vals Index and Vals SWE-bench standings; BenchLM's 38-benchmark Claude Opus 4.8 record and the Opus 4.8 vs Kimi K3 and Opus 4.8 vs DeepSeek V4 Pro comparisons; Moonshot's Kimi K3 launch comparison table; llm-stats' SWE-bench Multilingual leaderboard; apxml's Claude Opus 4.8 record; myclaw's Kimi K3 vs Opus 4.8 guide for the fast-mode and production-record comparison). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 85 → **86.0**, up 1, with the composition telling a much sharper story than the total. **Coding 84 → 88**, the only dimension that improved, on the full Vals independent profile the earlier pass had not captured — **#1 on SWE-bench Verified at 88.60%, #1 on Vibe Code Bench at 82.72%, #1 on ProofBench at 69.00%, SWE-bench Pro 69.2%, SWE Multilingual 84.4% (still #2 in the world on llm-stats behind only Claude Mythos Preview), LiveCodeBench 87.8%, FrontierCode 1.1 Main 46.5%**. Two dimensions fell on the same evidence. **Tool use 82 → 80**, because the launch numbers are on superseded benchmarks: while Vals had it **#2 on Terminal Bench 2 at 70.04%** and it holds **Terminal-Bench 2.0 74.6%** and **2.1 (Vals) 71.9%**, it posts the **lowest Terminal-Bench 3.0 figure of any model here at 21.1%** (against Fable 5.1's 34.0%, GPT-5.6 Sol's 34.4%, Opus-5.0's 43.3%) and **OSWorld 2.0 20.6%** — a direct negative on the computer use Anthropic listed as a launch improvement. **Cost 60 → 55**, because **$5.00/$25.00 is identical to Claude Opus 5**, the model that replaced it: there is now no price argument for Opus 4.8 at all, compounded by a **$10/$50 fast mode**, against **Kimi K3 at 40% less** and Gemini 3.8 Flash at ~6.7× less on output. **Reasoning 90 → 88** on the **January 2026 knowledge cutoff** and the absence of any HLE figure. Context 88 and Multimodal 86 held, both firmed up with Vals detail — **#1 on the Vals Multimodal Index at 70.71%** and MMMU 86.59% — while noting the real gaps of **no video input** and **SWE Multimodal at only 38.4%**.
+- **The finding that governs this report:** the refresh established that **Opus 4.8's launch dominance has been entirely erased by its own laboratory, at identical pricing.** In May 2026 it led the Vals Index (70.17%) and the Vals Multimodal Index (70.71%) and was simultaneously #1 on SWE-bench Verified and Vibe Code Bench. As of today **Claude Fable 5 leads the Vals Index at 75.15% against Opus 4.8's 70.36%**, and **Claude Opus 5 (97.00%) and Fable 5 (95.00%) both lead Opus 4.8's 88.60% on Vals SWE-bench, where it now ranks #12.** It was also superseded outright by **Claude Opus 5 on 2026-07-22**. Critically, **Opus 4.8 and Opus 5 are both priced at $5.00/$25.00** — so a buyer today pays Opus 5's price to get a model that trails Opus 5 on every measured axis. The only defensible reasons to keep specifying `claude-opus-4-8` are operational: a longer production record, adjustable reasoning effort, the 2.5× fast mode, and Bedrock's 20M input / 4M output TPM headroom.
+- **Conflicts recorded rather than smoothed over:** (1) **Vals Index score is quoted two ways** — **70.17%** in Vals' May 2026 launch note and **70.36%** in the same page's later summary; the small difference is a Vals-side revision and the later figure is treated as current. (2) **Terminal-Bench 2.1 appears as both 70.04% (as "Terminal Bench 2") and 71.9% (as "Terminal-Bench 2.1 (Vals)")** in BenchLM's tables — different harnesses, both recorded, neither used as a proxy for Terminal-Bench 3.0. (3) **Terminal-Bench 2.0 74.6% and 2.1 71.9% against 3.0 21.1%** is a 50-plus-point collapse across versions on one model, disclosed rather than reconciled: the older versions are not usable as evidence about the current ones. (4) **FrontierSWE 66.7% comes from Moonshot's Kimi K3 launch table**, a vendor-published comparison rather than an independent run, and is labelled as such. (5) **No long-context retrieval benchmark exists for Opus 4.8** despite extensive Vals and BenchLM coverage — 1M is recorded as a capacity claim only. (6) **Fast mode pricing ($10/$50) is sourced from myclaw**, a secondary comparison page, and is not confirmed on Anthropic's own pricing documentation in the sources reviewed.
+- Future sources: add a new file next to this one, e.g. `Claude_Opus_49.md`, using the same headings.

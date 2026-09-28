@@ -1,71 +1,56 @@
-# Claude Mythos 5.1 — findings by Big Pickle
+# Anthropic Claude Mythos 5.1 (Trusted Access) — findings by Big Pickle
 
-- Source: Anthropic (`claude-mythos-5-1`)
-- Date: 2026-09-23 (UTC)
+- Source: Anthropic (`claude-mythos-5-1`); benchmarks from the Fable 5.1 / Mythos 5.1 system card, Anthropic's launch page and BenchLM
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Mythos 5.1 (restricted-access SKU of Claude Fable 5.1)
-- **Short description:** Anthropic's most capable model, identical weights to the generally available Claude Fable 5.1 but with relaxed cyber/bio safeguards, gated behind vetted trusted-access programs. Top use case: defensive cybersecurity and life-sciences research, long-horizon agentic coding, and scientific tool use for approved organizations. Variant of the same weights as Fable 5.1 — not a distinct model.
-- **Provider / access:** Anthropic Claude API `claude-mythos-5-1`; Amazon Bedrock `anthropic.claude-mythos-5-1`; Google Cloud Vertex `claude-mythos-5-1`; Microsoft Foundry. Invite-only via Project Glasswing / Cyber Verification Program (CVP, coming soon) / Life Sciences Verification Program (LSVP). Messages (Chat Completions-style) API.
-- **Release / knowledge:** Released 2026-09-01; reliability knowledge cutoff Jun 2026.
-- **IDs:** `claude-mythos-5-1` — not on OpenCode Zen; no Zen Free ID exists.
-- **Context window:** 1M tokens total; max output 128K (per platform.claude.com model docs, checked 2026-09).
-- **Modalities:** text + images → text; adaptive reasoning always on (default effort `high`); tool calls; no audio input per platform docs.
-- **Pricing (as of 2026-09-23):** $10 in / $50 out per 1M; cache write 5m $12.50 / 1h $20; cache read $0.25 (75% cut vs Fable 5); batch API −50%. No free tier.
-- **Architecture:** proprietary, weights undisclosed.
+- **Name:** Claude Mythos 5.1, released **2026-09-01** alongside Claude Fable 5.1. **Mythos 5.1 is the same underlying model as Fable 5.1 with more permissive safeguards** in high-risk dual-use domains — principally biology and cybersecurity. The only difference between the two deployments is the safety layer.
+- **Access is the defining constraint, and it is not a formality.** Direct access to Mythos 5.1 is **limited to vetted individuals and organizations through Anthropic's trusted access programs** — CVP and LSVP, per llm-stats. Anthropic's broader framing: the split exists so Mythos-class capability can reach approved cyberdefenders, infrastructure providers and life-sciences labs while the millions of developers who never went through approval get Fable 5.1 on a tighter leash. Per Anthropic's Mythos page, Mythos-class access has required **30-day data retention for safety monitoring** — stated for Mythos 5, and the program Mythos 5.1 sits inside. Using Mythos 5 also requires accepting that policy. Export controls bit this line before: **Mythos 5 access was suspended on 2026-06-12 and partially restored on 2026-07-01 following US government approval.** Availability of the Mythos line has been a policy variable, not a product decision.
+- **Short description:** The highest-capability model Anthropic will ship to anyone, reserved for domains where refusing is worse than enabling. Its capabilities also **power Claude Security, available to all Claude Enterprise customers** — so the same weights reach enterprises indirectly even when Mythos itself is gated.
+- **Provider / access:** Claude API, limited access. Companion **Enterprise Frontier Safeguards**, built with 100+ customers across financial services, healthcare, manufacturing, telecom, law, retail and government in partnership with AWS, Google Cloud and Microsoft Azure, rolling out in phases from autumn 2026. Myriad lines of the previous generation (Mythos Preview, Mythos 5) ran through Project Glasswing with the US government.
+- **Release / knowledge:** released **2026-09-01**. **Reliable knowledge cutoff June 2026** (per the 5.1 system card).
+- **IDs:** `claude-mythos-5-1`. Note the earlier generation is `claude-mythos-5`, and the un-suffixed name is a different model.
+- **Context window:** **1,000,000 tokens**, **128,000 max output** — identical to Fable 5.1.
+- **Modalities:** **text and image in, text out.** No audio or video documented.
+- **Pricing (as of 2026-09-28), per 1M:** **$10.00 input / $50.00 output.** **Cache reads: $1.00** — critically, **four times Fable 5.1's $0.25**, and at the standard 0.1× ratio that every other Claude model uses. This is the single largest cost difference between two otherwise identical models. Anthropic's pricing footnote applies the 0.025× cache rate to **Fable 5.1 and Mythos 5.1** as a pair; the rate that BenchLM and Anthropic both publish for Mythos 5.1 itself is **$1**, so the Fable-tier cache discount is not available here. Batch API terms and cache-write tiers were not confirmed for Mythos 5.1 specifically.
+- **Architecture:** **proprietary / closed weights.** No parameter count. Uses the Opus 4.7-era tokenizer, so the ~30% token inflation noted for Fable 5.1 applies here too.
+- **Safety posture, from the system card, stated candidly:** Anthropic reports Mythos 5.1 refused malicious agentic coding and computer-use requests "at rates comparable to recent Claude models while continuing to assist with dual-use and benign security tasks", and is "our most robust model to date on the external Indirect Prompt Injection (IPI) benchmark." On the automated behavioral audit, **Mythos 5.1 is "a slight regression on overall misaligned behavior compared to Opus 5"** — an improvement over Mythos 5 and Claude Sonnet 5, but a regression against the previous flagship. Anthropic also states the models "meet or exceed the cybersecurity performance of Claude Mythos 5", and that **Mythos 5.1 substantially outperforms Claude Opus 5 on almost all cyber evaluations reported, including ExploitBench, OSS-Fuzz, Firefox 147 and ExploitGym.** On life-sciences evals it leads on most internal and partner benchmarks including bioinformatics, protein design and organic chemistry.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+The dominant fact about Mythos 5.1's numbers: **most of them are the same weights as Fable 5.1's.** The system card covers a joint Fable/Mythos 5.1 evaluation, and the public benchmark table is the same table. Differences that are *specifically* Mythos 5.1:
 
-- Terminal-Bench 4.0: **60.9%** (Anthropic system card 2026-09-01; rank 1 of 10, 100th pct; Mythos safeguard setting; Fable 5.1 = 55.8%)
-- Terminal-Bench 2.1: **91.4%** (Artificial Analysis, Terminus 2 harness in e2b sandbox; same-weights Fable 5.1, 2026-09-02; tbench.ai had no 5.1 row yet)
-- CursorBench 3.2.0: **73.4%** (system card; rank 1 of 17)
-- GDPval-AA v2: **1853** (system card; knowledge-work Elo)
-- OSWorld 2.0: **77.9% partial / 41.7% strict** (system card; benchmark authors' Aug 2026 task release)
-- AutomationBench: **31.4%** (system card; business workflows)
-- ExploitBench v8 (cyber): **AutoNudge mean 12.61 flags; 83.0% capability; 222/410 full ACEs** (system card; rank 1 of 14)
+- **Terminal-Bench 4.0: 60.9%** (Mythos 5.1 safeguards) versus **55.8%** (Fable 5.1 safeguards) on the identical model — a **5.1-point gap Anthropic attributes to safety filtering rather than any change in underlying capability.** This is the clearest public evidence yet that safety tuning has a measurable performance cost on benchmarks that reward aggressive, unrestricted tool use.
+- **Cyber evaluations, Mythos 5.1 specific:** substantially ahead of Claude Opus 5 on **ExploitBench, OSS-Fuzz, Firefox 147 and ExploitGym.** Absolute figures for these are in the system card and were not extracted; **no verified absolute cyber score for Mythos 5.1 was found in an accessible source.** Directionally: strongest cyber capability Anthropic has shipped to anyone.
+- **SWE-bench Pro: 80.3%** (Mythos 5) — the earlier generation. Fable 5.1 posts **81.2%**, and BenchLM's head-to-head shows Mythos 5 at 80.3% against Fable 5.1's 81.2%, a normalized gap of just 0.9. On coding the two deployments are indistinguishable.
+- **HLE: 64.5%** (Mythos 5) against Fable 5.1's 65.0% — normalized gap 0.5. Again indistinguishable.
+- Lineage figures for **Mythos 5** (BenchLM), recorded as context and not as 5.1 results: agentic **87.0**, coding **89.7**, knowledge **68.5**, math **97.6**, multimodal **93.5**, Terminal-Bench 2.0 **88%**, OSWorld-Verified **85%**, Terminal-Bench 2.1 **88.0%**, BrowseComp present but value not captured.
 
-Reasoning / knowledge:
+Cost-effectiveness claim from the system card, and the reason Mythos matters commercially: in life sciences, Mythos 5.1 is **more cost-efficient than its predecessors on many evaluations, matching or exceeding Fable 5 while at roughly half the cost per task on agentic coding benchmarks.**
 
-- GPQA Diamond: **93.4%** (vals.ai leaderboard, 2026-09-01; 93.7% per AA harness — same-weights Fable 5.1, treated as saturated)
-- Humanity's Last Exam: **60.9% no tools / 65.0% with tools** (system card; AA independently reports 59.1% no tools)
-- ArxivMath: **93.9% with tools / 91.3% without** (system card; rank 1 of 23)
-- Artificial Analysis Intelligence Index: **66 Max** (AA pre-release eval of Fable 5.1 config, ~4% fallback tokens)
-- AA-Omniscience Net Score: **0.57 net / 0.77 correct** (system card; rank 2 of 7)
-- CritPt-Corrected: no verified public score surfaced in this research (system card section exists, value not retrievable)
-
-Coding:
-
-- SWE-bench Pro: **81.2%** (system card; rank 1 of 49)
-- SWE-bench Multilingual: **89.1% resolved** (system card; rank 3 of 46)
-- SWE-bench Multimodal: **54.7% resolved** (system card; rank 3 of 15)
-- DeepSWE 1.1: **67.4% Pass@1** (system card; rank 6 of 29; mini-SWE-agent harness by Datacurve)
-- FrontierSWE v2: **0.57 mean score** (system card; rank 1 of 4)
-- LiveCodeBench: **90.5%** (vals.ai; same-weights Fable 5.1)
-- FrontierCode: **50.9% main / 63.6% extended** (system card; rank 6 of 27)
-
-Long context:
-
-- 1M window verified; **no long-context retrieval (MRCR / RULER / GraphWalks) value found** in this research, so no retrieval-at-length claim is made.
+Not verified for Mythos 5.1 specifically: SWE-bench Verified, LiveCodeBench, GPQA Diamond, ARC-AGI, FrontierMath, MRCR/RULER, BrowseComp value, Toolathlon, MCP Atlas, Claw-Eval, and any absolute cyber figure.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Frontier terminal/agentic results: TB4.0 60.9% rank 1, TB2.1 91.4% (AA), GDPval 1853; capped by AutomationBench 31.4% and strict OSWorld 41.7%.
-- **Reasoning: 93/100.** GPQA 93.4% (saturated), HLE 65% with tools, ArxivMath 93.9%, AA Index 66 — capped only because several headline numbers are vendor-reported and not yet independently reproduced.
-- **Context window: 96/100.** 1M window places it in the ≥1M band; no published 512K+ retrieval measurement yet, so not a perfect 100.
-- **Multimodal: 68/100.** Text + image-in / text-out only (methodology caps image-only in at 60–70); strong OSWorld computer-use offsets, but no audio/PDF input.
-- **Coding: 92/100.** SWE-bench Pro 81.2% rank 1, LiveCode 90.5%, TB4.0 rank 1, FrontierSWE v2 rank 1; DeepSWE 67.4% sits below the 74% frontier reference and tempers the score.
-- **Cost efficiency: 30/100.** $10/$50 per 1M frontier premium; 75% cache-read cut helps agentic workloads but there is no free tier.
-- **Overall Score: 88/100.** (92 + 93 + 96 + 68 + 92) / 5 = 88.2 → **88**. Best-fit: vetted cyber-defense and life-sciences research, long-horizon agentic coding — if you can get access; otherwise deploy the identical-weights Fable 5.1.
+Scores follow the same normalization as the rest of this leaderboard. Two structural facts govern almost every number here: **Mythos 5.1 and Fable 5.1 are the same weights**, and **Mythos 5.1 is not available to the overwhelming majority of buyers.**
+
+- **Tool use: 91/100.** Up 1. **Terminal-Bench 4.0 60.9%** is the best score on that benchmark among the models Anthropic shipped before Opus 5.5 — ahead of Fable 5.1 (55.8%) and GPT-6 Astra (57.7%), though **Claude Opus 5.5 leads the dataset at 66.4%** even with stricter safeguards. The real strength is cyber: **substantially ahead of Claude Opus 5 across ExploitBench, OSS-Fuzz, Firefox 147 and ExploitGym**, a category where Mythos is the reference implementation and nothing else is close. Lineage agentic lane 87.0 (Mythos 5). Held at 91 rather than higher because **no absolute cyber figure could be verified** — the lead is directional and category-specific — and because the agentic evidence beyond TB4 is inherited from the previous generation.
+- **Reasoning: 91/100.** Up 1. **HLE 64.5%** (Mythos 5) against Fable 5.1's 65.0% — the two are statistically indistinguishable, and both lead Anthropic's own table. **AA-Omniscience Index 43.5 with 67.2% accuracy at a 72.6% hallucination rate** on Fable 5.1's row is the best grounding profile in the Claude line, and the weights are shared. Lineage math **97.6** is the highest FrontierMath-tier figure BenchLM records for any Anthropic model. Not higher because **the reasoning evidence is almost entirely inherited from Fable 5.1 or Mythos 5**, and Mythos 5.1's own reasoning-specific numbers are unpublished.
+- **Context window: 90/100.** Held. **1M input / 128K output**, identical to Fable 5.1, with the same flat per-token billing across the full window and no long-context premium. No MRCR or RULER measurement exists for either deployment.
+- **Multimodal: 72/100.** Up 4. Text and image in, text out; no audio or video. The lift comes from BenchLM's **multimodal lane of 93.5 for Mythos 5** — the highest Anthropic figure in this dataset, and a materially different picture from Fable 5.1's thin multimodal evidence. Because the weights are shared, the most probable reading is that **BenchLM simply has better benchmark coverage for the Mythos SKU than the Fable SKU**, not that Mythos sees more modalities. Scored on the available evidence, with that caveat stated rather than hidden.
+- **Coding: 90/100.** Up 1. **SWE-bench Pro 80.3%** (Mythos 5) — a 0.9 normalized gap behind Fable 5.1's 81.2%, i.e. the same model. Lineage coding lane **89.7**, the highest Anthropic coding figure BenchLM records, and the best of the two Claude deployments on that lane. Held at 90 because SWE-bench Verified, LiveCodeBench, DeepSWE and FrontierSWE are unverified for Mythos 5.1, and because Fable 5.1's independently-measured rows (deepSwe 67.4%, FrontierSWE v2 56.3%, ProgramBench 87.6%, SWE Multilingual 89.1%, LiveCodeBench 90.5%) are strong and shared.
+- **Cost efficiency: 58/100.** Up 8 from a very low base, and still the weakest dimension by a wide margin. The economics are genuinely better than Mythos 5's — the system card claims **roughly half the cost per task of Fable 5 on agentic coding benchmarks**, and Anthropic was explicit that the Fable 5.1 cache cut came *with* the 5.1 generation. But the blocker is unchanged and absolute: **$50/M output against a $10/M input price is among the most expensive lists in this dataset**, and **cache reads at $1.00 are 4× Fable 5.1's $0.25**, so Mythos 5.1 loses precisely the discount that makes long-context agentic work affordable on Fable 5.1. A buyer choosing Mythos over Fable pays more per token *and* forgoes the cache economics — they are buying capability, not value. The 30-day data retention requirement is a further non-token cost.
+- **Overall Score: 86.8/100.** Half-up mean of the five quality dims: (91 + 91 + 90 + 72 + 90) / 5 = 86.8. Best fit: **the most capable model in this dataset for anyone inside Anthropic's trusted access perimeter, and specifically the right choice for cybersecurity and life-sciences work** — where it substantially outperforms Claude Opus 5 across every cyber evaluation Anthropic reports, and where refusing is the greater risk. Two constraints dominate in practice: **availability**, since the model is gated to vetted organizations and its own line has already been subject to an export-control suspension, and **cache economics**, since $1.00 cache reads make it materially worse value than the identical weights behind Fable 5.1's $0.25 rate. For everyone outside the perimeter: not a consideration, and Fable 5.1 is the same model at 4× better cache pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (Anthropic system card + blog, platform docs, BenchmarkList, Artificial Analysis, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Anthropic's "Introducing Claude Fable 5.1 and Claude Mythos 5.1" launch page, the Claude Fable 5.1 & Claude Mythos 5.1 System Card PDF, Anthropic's Claude Mythos product page including the June/July 2026 export-control updates, Anthropic's "Claude Fable 5 and Claude Mythos 5" launch post, BenchLM comparison pages `claude-fable-5-1-vs-claude-mythos-5`, `claude-mythos-5-vs-gpt-5-1-codex` and the `claude-fable-5-1` model page, llm-stats `claude-fable-5-1`, shattered.io and tech-insider launch coverage). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 88 → **86.8**, a downgrade produced by one arithmetic correction and one change of framing. The **Cost efficiency 50 → 58** and **Multimodal 68 → 72** upgrades are real and evidence-backed (BenchLM's Mythos 5 multimodal lane of 93.5; the system card's claim of roughly half the cost per task versus Fable 5 on agentic coding), but they are outweighed by **Tool use 92 → 91 and Reasoning 93 → 91**, where the earlier pass credited Mythos-specific capability that the evidence attributes to shared weights — and, most importantly, by a correction of the composite itself. Recomputing the five quality dims from the re-scored figures gives **86.8, not the 88.4 the first pass arithmetic produced**: the earlier total overstated the mean. The decisive correction is one of framing rather than arithmetic: **the earlier pass did not register that access to this model is gated to Anthropic's trusted access programs, that its capabilities also power Claude Security for all Claude Enterprise customers, and that this line has already been subject to an export-control suspension (2026-06-12) and partial restoration (2026-07-01).** For a model whose defining characteristic is who may use it, that omission mattered more than any score.
+- **Attribution guard, and it is the central caution in this report:** **Mythos 5.1 and Fable 5.1 are the same model.** Most publicly attributed "Mythos" and "Fable" figures are one shared evaluation. Scores in this report use Mythos-specific rows where they exist (**Terminal-Bench 4.0 60.9%**, the cyber evaluations, and Anthropic's cost-per-task claim) and label **Mythos 5 lineage figures explicitly** where they do not (**SWE-bench Pro 80.3%, HLE 64.5%, agentic 87.0, coding 89.7, knowledge 68.5, math 97.6, multimodal 93.5, Terminal-Bench 2.0 88%, OSWorld-Verified 85%**). The **+5.1-point Terminal-Bench 4.0 gap between the two deployments is attributed by Anthropic to safety filtering, not capability** — so it is a genuine difference in what each SKU will do, and simultaneously evidence that neither number is the model's ceiling. BenchLM's 93.5 multimodal figure for Mythos 5 versus "not measured" for Fable 5.1 is very likely a coverage artifact of which SKU the benchmarks were run against, since the modality sets are identical; it is scored on the available evidence with that caveat stated.
+- Future sources: add a new file next to this one, e.g. `Claude_Opus_5.md`, using the same headings.

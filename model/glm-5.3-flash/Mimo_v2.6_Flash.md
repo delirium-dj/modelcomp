@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** GLM-5.3-Flash
-- **Short description:** First natively multimodal GLM-5-series model (revealed 2026-08-26 after a week of anonymous "Ox Alpha" stealth testing): **320B total / 18B active MoE**, hybrid sparse+linear attention, **MIT open weights**, 1M checkpoint context. Beats larger GLM-5.2 across the board at ~1/10 the cost; approaches Opus 4.8 on coding/agentic (TB2.1 84.3 vs 85.0 vendor tables); AA Intelligence Index 57 at ~$0.09/task.
+- **Short description:** First natively multimodal GLM-5-series model (revealed 2026-08-26 after a week of anonymous "Ox Alpha" stealth testing): **320B total / 18B active MoE**, hybrid sparse+linear attention, **MIT open weights**, 1M checkpoint context. Beats larger GLM-5.2 across the board at ~1/10 the cost; approaches Opus 4.8 on coding/agentic (TB2.1 84.3 vs 85.0 vendor tables); AA Intelligence Index 42 (v4.3.2) at $0.25/task.
 - **Provider / access:** Z.ai API `glm-5.3-flash` / `z-ai/glm-5.3-flash`; OpenRouter, Fireworks, Together, Qubrid, etc.; Hugging Face `zai-org/GLM-5.3-Flash` (MIT); SGLang/vLLM/TokenSpeed. GLM Coding Plan includes Flash (3× usable quota vs GLM-5.3). Free stealth period as Ox Alpha; paid API + open self-host now.
 - **Release / knowledge:** stealth as Ox Alpha 2026-08-20; identified/released **2026-08-26** (HF date refs 2026-08-25); knowledge cutoff not isolated.
 - **IDs:** `glm-5.3-flash` / `zai-org/GLM-5.3-Flash` / `z-ai/glm-5.3-flash`.
@@ -39,7 +39,7 @@ Reasoning / knowledge:
 - HLE with tools: **55.3%** (Z.ai; vs Opus 4.8 57.9, GLM-5.2 54.7)
 - GPQA Diamond: **91.2%** (AA independent)
 - Humanity's Last Exam (AA independent): **39.9%** no-tools / **39.85%** (AI Atlas AA row)
-- Artificial Analysis Intelligence Index: **57** (Z.ai + AA via Qubrid/CheapestInference at max; cost $0.09/task) — **note AI Atlas shows AA v4.3 row 41.9** (version skew; cite both)
+- Artificial Analysis Intelligence Index: **42** (AA v4.3.2 model page, 2026-09-28 — #4/116 open weights; cost $0.25/task; AI Atlas 41.9 corroborates — version skew resolved, see Fresh-source note)
 - LiveBench Reasoning: **77.6%**; Mathematics **81.2%**; Global **71.6%** (LiveBench 2026-06-25 via AI Atlas)
 - ARC-AGI / FrontierMath / CritPt: no verified public score found
 
@@ -67,10 +67,12 @@ Multimodal:
 - MVbench: **77.8%**; MMVU: **80.5%** (Z.ai; video — note non-native-video models use 1fps frame extraction)
 - OfficeQA Pro: **62.4%** (Z.ai; > Opus 4.8 48.9)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): AA-native **Intelligence Index 42** (#4/116 open weights, v4.3.2) replaces the Qubrid/CheapestInference 57 and matches the AI Atlas 41.9 v4.3 row previously flagged; current cost per Index task $0.25 — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** TB2.1 84.3 (independent AA agrees), Toolathlon 78.4, GDPval-AA 1773 (table-leading in Z.ai set), AutomationBench 48.8; capped by OSWorld 59.1 mid, ALE 26.3 slightly behind closed frontier, missing MCP/Tau3/Claw.
-- **Reasoning: 86/100.** HLE-tools 55.3, GPQA 91.2, AA Index 57 (near GLM-5.3 60, ~3 behind top open); capped by HLE no-tools ~39.9 and AA version spread (41.9 on v4.3 snapshot).
+- **Reasoning: 86/100.** HLE-tools 55.3, GPQA 91.2, AA Index 42 (v4.3.2 refresh — near GLM-5.3 45, behind MiMo-V2.6-Pro 46 among open weights); capped by HLE no-tools ~39.9.
 - **Context window: 82/100.** Checkpoint claims 1M/1.31M but **served deployments list 400K (AA)** and no MRCR row — score for practical usable context with serving caveat → 82 (not 90+).
 - **Multimodal: 92/100.** Native text+image+video+file in; CharXiv 89.4 ≈ Opus, Chartography 78 leads set, OfficeQA 62.4, MMVU 80.5; capped by BabyVision 53.4 natural-image gap and no audio/non-text out → 92 (video lifts above pure vision 65–90 band).
 - **Coding: 88/100.** TB2.1 84.3 near-Opus, DeepSWE 63.4 > Opus, LiveBench Coding 79; capped by NL2Repo 56.3 behind Opus 69.7, TB4.0 32.8, missing SWE-V/Pro rows.

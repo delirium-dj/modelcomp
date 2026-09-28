@@ -40,7 +40,7 @@ Reasoning / knowledge:
 - FrontierMath Tiers 1–3 v2: **90.2** (Epoch AI)
 - SimpleQA Verified: **70.8** (Epoch AI)
 - LiveBench: **83.8** (max, 23 runs)
-- Artificial Analysis Intelligence Index: **65.7 / 66** (top of tracked field at launch)
+- Artificial Analysis Intelligence Index: **53** (AA v4.3.2 model page, 2026-09-28 — #5/216 at max effort; launch-era 65.7/66 superseded, see Fresh-source note)
 - OTIS Mock AIME 2024–2025: **100.0** (Epoch AI)
 
 Coding:
@@ -53,6 +53,8 @@ Coding:
 Long context:
 
 - 1M window documented; no MRCR/RULER published row for Fable 5.1 — long-context retrieval: no verified public score found.
+
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 53** (#5/216, v4.3.2) contradicts the launch-era 65.7/66 originally cited (AA rescale/index vintage) — scores unchanged (index is one input among several; full re-derivation not part of this refresh).
 
 ### Normalized scores (1–100)
 

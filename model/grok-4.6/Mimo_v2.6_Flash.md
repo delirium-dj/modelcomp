@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Grok 4.6
-- **Short description:** Post-training upgrade on Grok 4.5 (released 2026-08-12) for long-running agents and interactive/visual work — **ties GPT-5.6 Sol at AA Intelligence Index 61**; leads agentic knowledge work (GDPval-AA v2 1753, AA-Briefcase 1577) while trailing Sol/Fable on DeepSWE and Terminal-Bench v3. Same 500K context and $2/$6 base price as 4.5; longer trajectories, 200K price cliff, priority 2×.
+- **Short description:** Post-training upgrade on Grok 4.5 (released 2026-08-12) for long-running agents and interactive/visual work — **AA Intelligence Index 44 on v4.3.2 (was 61 launch-era — see Fresh-source note)**; leads agentic knowledge work (GDPval-AA v2 1753, AA-Briefcase 1577) while trailing Sol/Fable on DeepSWE and Terminal-Bench v3. Same 500K context and $2/$6 base price as 4.5; longer trajectories, 200K price cliff, priority 2×.
 - **Provider / access:** xAI API `grok-4.6` (Responses + Chat Completions); Cursor, Grok Build, OpenRouter, Vercel, Cloudflare. First-week 2× included usage promo in Cursor/Grok Build (ended). Closed API — no open weights. Not yet on Bedrock/Azure/Vertex (those still carry Grok 4.3).
 - **Release / knowledge:** 2026-08-12; knowledge cutoff **2026-02-01**.
 - **IDs:** `grok-4.6`.
@@ -33,7 +33,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **61** (AA; ties Sol Max, trails Fable 5 Max 62 / Opus 5 63; independent verification ~60.92 per Floatboat, rank ~4/184–20 depending on tracker window)
+- Artificial Analysis Intelligence Index: **44** (AA v4.3.2 model page, 2026-09-28 — high and xhigh both 44; launch-era 61/60.92 citation superseded, see Fresh-source note)
 - GPQA Diamond / AIME / MMLU-Pro / HLE / FrontierMath: **no verified public score found** (xAI did not publish at launch — same omission pattern as Grok 4.5)
 - Harvey LAB (Vals): **15.8%** (xAI — legal reasoning, low absolute)
 - AA blended price: **$1.35/M** (3:1 in:out); cost per index task: **$0.84** (AA; vs 4.5 $0.36, Sol $1.23, Opus 5 $2.34)
@@ -61,10 +61,12 @@ Latency / efficiency (AA independent):
 
 - TTFT high-effort: **40.44s** (vs 4.5 14.62s — big regression); output ~68 tok/s; ~20% more output tokens on index vs 4.5
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 44** (high/xhigh) contradicts the launch-era 61 ("ties Sol" reading) — also resolves the internal conflict with the sibling `grok-4.7` file, which already recorded 44 for Grok 4.6; scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** GDPval-AA v2 1753 (top-tier), AA-Briefcase 1577, CursorBench 69.9, APEX-Agents 57.5; capped by TB v3.0 26% (if the circulating 88.4% TB2.1 were verified it would lift this, but it is not in xAI's table — hold at 90 with TB3 loss noted).
-- **Reasoning: 88/100.** AA Intelligence Index 61 (ties Sol, frontier band); capped hard by **no GPQA/HLE/AIME/MMLU published** — evidence gap on science reasoning keeps it below 92+.
+- **Reasoning: 88/100.** (Score held from the launch-era derivation; Fresh-source note below: AA-native Index is now 44 on v4.3.2, not 61.) Capped hard by **no GPQA/HLE/AIME/MMLU published** — evidence gap on science reasoning keeps it below 92+ regardless; re-derivation deferred pending new first-party numbers.
 - **Context window: 75/100.** **500K only** (vs 1M+ frontier norm; Cursor 256K); no MRCR row; compaction helps but window is the constraint → 75.
 - **Multimodal: 65/100.** Text + image in only → 60–70 band → 65.
 - **Coding: 84/100.** DeepSWE 65.9, FrontierCode 61.3 ≥ Sol, APEX-SWE 56.4 solid; capped by **TB v3.0 26% well behind Sol/Fable ~34%** and DeepSWE −7 pts vs Sol; TB2.1 88.4% unverified.

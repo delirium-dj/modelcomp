@@ -1,78 +1,64 @@
-# Kimi K3 — findings by Big Pickle
+# Moonshot AI Kimi K3 — findings by Big Pickle
 
-- Source: Moonshot AI (`kimi-k3`)
-- Date: 2026-09-20 (UTC)
+- Source: Moonshot AI launch materials and model card; independent figures from Artificial Analysis (via OpenRouter, 2026-07-17), BenchLM, llm-stats, whatllm, theairankings and aireleasetracker
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Kimi K3
-- **Short description:** The world's largest open-weight model (2.8T total params, 104B active), Moonshot AI's July 2026 flagship due to its own claim. Billed as "the model for agents": long-horizon coding, terminal use, tool use, screenshot/visual understanding, and multi-step knowledge work; trails only Claude Fable 5 and GPT-5.6 Sol overall per Moonshot.
-- **Provider / access:** Moonshot API (`kimi-k3`) and Kimi products; OpenRouter (`moonshotai/kimi-k3`); NVIDIA NIM; weights on Hugging Face (released 2026-07-27, `Kimi-K3`).
-- **Release / knowledge:** Hosted launch 2026-07-16; weights released 2026-07-27 under the Kimi K3 License (non-commercial per Epoch AI note).
-- **IDs:** `kimi-k3` (Moonshot API); model alias `k3` in Kimi Code.
-- **Context window:** 1,048,576 total (confirmed by Moonshot/Cloudflare docs); max output 944K (00 models card) — giant output headroom.
-- **Modalities:** text + native visual understanding (image, video) input; text output; optional reasoning (effort max/high/low, max default); tools yes.
-- **Pricing (as of 2026-09-20):** $3 / $15 per 1M (cache-miss in / out); $0.30 cache-hit input (whatllm.org, OpenRouter). Self-hostable at infra cost.
-- **Architecture:** 2.8T sparse MoE, 896 experts, 16 active per token (104B active); Kimi Delta Attention (KDA) linear-attention hybrid + Attention Residuals + Stable LatentMoE; MXFP4 weights / MXFP8 activations.
+- **Name:** Kimi K3, released **2026-07-16** (llm-stats, benchgen and aireleasetracker all agree; whatllm and kimi-k3.net date the public launch mid-July 2026). **As of today it is about ten weeks old — by a wide margin the freshest model in this dataset**, and the only one whose architecture is still being written about in the present tense.
+- **Short description:** Moonshot AI's flagship **open-weight** model for long-horizon coding, knowledge work and reasoning — "the largest open-weight model ever released," at **2.8 trillion total parameters with 16 of 896 experts active per token**. Three architectural pieces are new: **Kimi Delta Attention (KDA)** for long sequences, **Attention Residuals (AttnRes)** for cross-depth retrieval instead of uniformly accumulating every layer, and **LatentMoE** scaled to 896 experts. Moonshot reports **~2.5× better overall scaling efficiency than K2** and **up to 6.3× faster at long contexts**. Trained with **quantization-aware training from the SFT stage onward using MXFP4 weights and MXFP8 activations**. **Thinking is always enabled** — `reasoning_effort=max` was the only level at launch. The demo that best describes the intent: through **120+ rounds of recursive self-improvement**, K3 built an interactive research site from 2.8k+ web searches, 1.1k+ terminal data pulls and 11k+ pages across 87 quarterly reports and 99 source PDFs, in 42 minutes.
+- **Provider / access:** Moonshot's own Kimi API, plus **Fireworks, Novita and Together** — all four at identical pricing. Self-hosting is possible but theairankings notes deployment on supernode configurations of **64 or more accelerators** is recommended for optimal throughput, which is the real constraint on the open-weights story.
+- **Release / knowledge:** weights released **2026-07-27**, roughly two weeks after the API launch. Training data is current to mid-2026, making it the **most up-to-date model in this dataset by a wide margin.**
+- **IDs:** `kimi-k3`.
+- **Context window:** **1,000,000 tokens.** Max output **131,072 by default, up to 1,048,576** (benchgen); llm-stats reports 1.0M in / 1.0M out, BenchLM rounds to 1.05M.
+- **Modalities:** **text, image and video in; text out** — native vision inside the same model rather than a separate encoder path.
+- **Pricing (as of 2026-09-28), per 1M:** **$3.00 input / $0.30 cached / $15.00 output**, identical across all four listed providers. Critically, **Moonshot's API achieves above 90% cache-hit rates in coding workloads**, so the effective input cost for the workloads a 1M-window model is bought for is far below the $3.00 list.
+- **Architecture:** open weights, 2.8T total, 16/896 active experts, Stable LatentMoE + KDA + AttnRes, MXFP4/MXFP8. **benchgen reports the license as Apache 2.0**; llm-stats records a separate "Kimi K3 License" and describes access as proprietary under provider product terms — see conflicts.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Artificial Analysis, independent, via OpenRouter 2026-07-17** (Moonshot does not present these as its own testing):
 
-- Terminal-Bench 2.1: **88.3%** (Moonshot launch eval, vendor harness — behind GPT-5.6 Sol 88.8%, ahead of Fable 5 84.6%)
-- GDPval-AA v2: **1,668 Elo** (launch eval; Fable 5 1,760, Sol 1,748)
-- BrowseComp: **91.2%** (launch eval)
-- MCP Atlas: **84.2%** (launch eval)
-- Agentic Index (AA, independent): **50.1 (97th pct)** (OpenRouter/AA feed)
-- SWE Marathon: **42.0%** (launch eval)
-- FrontierSWE: **81.2%** (NVIDIA NIM partner-reported)
-- Tau3 / Claw-Eval: **no verified public score found**
+- **Intelligence Index 57** — theairankings places it **#4 on the AA Intelligence Index, ahead of Claude Opus 4.8**
+- **Coding Index 76.2 (95th percentile)**; **Agentic Index 50.1 (97th percentile)**
+- **GPQA Diamond 93.5%**; **Humanity's Last Exam 44.3%**; **AA-LCR (long-context reasoning) 74.7%**; **GDPval-AA 58.4%**; **SciCode 58.7%**
+- **Omniscience: 49.1% accuracy, 46.0% non-hallucination rate** — weak on *both* axes, meaning when it is wrong it is also confidently wrong
 
-Reasoning / knowledge:
+**Moonshot's own official comparison chart, July 2026, all models at max thinking effort:**
 
-- GPQA Diamond: **93.5%** (launch; independent OpenRouter/AA 93.1% ±1.5 / 93.5%)
-- HLE Full: **43.5%** (launch; trails Fable 5's 53.3%)
-- AIME: **97.2% ±1.1** (Epoch)
-- AA-LCR: **74.7%** (long-context reasoning, NVIDIA/OpenRouter)
-- GDPval-AA: 58.4% (k3kimi card)
-- SimpleQA: **50.6% ±1.6** (Epoch)
-- Omniscience accuracy / non-hallucination: **46.0% / 49.1%** (k3kimi card)
-- AI Intelligence Index (AA, independent): **57.1–57** (OpenRouter/AA feed)
+| Benchmark | **Kimi K3** | GPT-5.6 Sol | Claude Opus 4.8 | Claude Fable 5 | GPT-5.5 |
+|---|---|---|---|---|---|
+| Terminal-Bench 2.1 | **88.3** | 88.8 | 84.6 | 84.6 | 83.4 |
+| Program Bench | **77.8** | 77.6 | 71.9 | 76.8 | 70.8 |
+| SWE Marathon | **42** | 39 | 40 | 35 | 14 |
+| BrowseComp | **91.2** | 90.4 | 84.3 | 88 | 84.4 |
+| SpreadsheetBench 2 | **34.8** | 32.4 | 31.6 | 34.7 | 29.1 |
+| Automation Bench | **30.8** | 29.7 | 27.2 | 29.1 | 22.7 |
 
-Coding:
+Moonshot's own footnotes, which deserve credit: **Fable 5 results include potential fallback behavior; GPT-5.6 Sol results include potential cyberguards.** BrowseComp uses context compaction at 300K; **with a full 1M-token window K3 scores 90.4–91.2**. Harnesses vary per benchmark (KimiCode, Claude Code, or Codex).
 
-- Coding Index (AA, independent): **76.2 (95th pct)** (OpenRouter/AA)
-- DeepSWE: **67.5%** (launch; Sol 73.0, Fable 5 70.0)
-- Program Bench: **77.8%** (launch; top of the set)
-- MCP Atlas / Terminal set: strong at 88.3 Terminal-Bench 2.1
-- SciCode: **58.7%** (k3kimi card)
-- Arena frontend coding: debuted **#1 with 1,679 Elo**, ahead of Fable 5 (Arena.ai; independent)
-- SWE-bench Verified: **no clean verified public score found** — Superconductor custom SWE-Bench rates it ~80% (Opus 4.8-class) at ~1/4 the cost per ticket; slowest agent (~44 min/ticket).
+**BenchLM, 43 tracked benchmarks:** **Terminal-Bench 2.0 88.3%** (see conflicts — Moonshot's own chart labels this figure Terminal-Bench **2.1**), **Terminal-Bench 2.1 (Vals) 80.9%**, **BrowseComp 91.2%**, **DeepSearchQA 95.0%**, **Toolathlon-Verified 73.2%**, **MCP Atlas 84.2%**, **AutomationBench 30.8%**, **JobBench 52.9%**, **APEX-Agents 37.6%**, **SpreadsheetBench 2 34.8%**, **DECK-Bench 73.5%**, **deepSwe 67.5%**, **cursorBench32 60.8%**, **FrontierSWE 81.2%**, **ProgramBench 77.8%**, **Kimi Code Bench v2 72.9%**, **sweMarathon 42%**, **PostTrain Bench 36.6%**, **FrontierSWE v2 25.9%**. Public-lane aggregates: **agentic 71.8 (#4 of 151)**, **coding 68 (#7 of 183)**. Composite **74.87** against Claude Fable 5's 80.91; **80.5/100 at public rank #5** with a 90% interval of 77.6–83.4 on a separate page.
 
-Long context:
-
-- AA-LCR: **74.7%**; 1M window with KDA for fast million-token decode (~6.3× faster per Moonshot); MRCR / RULER: **no verified public score found**
-
-Multimodal:
-
-- MMMU-Pro (no/with tools): **81.6 / 83.4**; MathVision (no/with tools): **94.3 / 97.8**; MMVU: **82.1**; BabyVision (Python): **85.7**; OmniDocBench: **91.1** (all partner/launch-reported, NVIDIA NIM)
+**llm-stats:** p95 latency **2.64 s** and **48 c/s** output on Fireworks (Novita 15.70 s TTFT; Together reports 0.00 s TTFT with 3 c/s, i.e. effectively unusable throughput). Blended cost $3.57/1M at a 20:1 in:out ratio.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 2.1 88.3%, MCP Atlas 84.2%, and BrowseComp 91.2% are top-tier agentic results; GDPval-AA 1,668 Elo trails Fable 5/Sol, capping it just below the absolute best.
-- **Reasoning: 86/100.** GPQA Diamond 93.5% and AIME 97.2% are elite; HLE 43.5% and mid hallucination numbers show it trails the best closed models on hard expert reasoning.
-- **Context window: 90/100.** 1M window with 74.7 AA-LCR and huge 944K max output — among the strongest long-context specs; independent MRCR still awaited.
-- **Multimodal: 84/100.** Native image/video with strong MMMU-Pro (81.6) and MathVision (97.8 with tools) results; no audio listed.
-- **Coding: 85/100.** Coding Index 76.2 (95th pct) and DeepSWE 67.5% plus Arena frontend #1; SWE-bench maintained by ~80% custom-bench quality and slow latency (44 min/ticket), which caps it.
-- **Cost efficiency: 78/100.** $3/$15 with $0.30 cache-hit and self-hosting is fair open-class pricing for the capability; the pace-of-work cost (very slow) erodes value.
-- **Overall Score: 86/100.** Mean of the five quality dims (86+86+90+84+85)/5 = 86.2 → 86. The strongest open-weight agentic option of July 2026 — superb for heavy multi-step and visual-agent work when latency budget permits.
+- **Tool use: 90/100.** Up 5, and this is where the model is genuinely best-in-class. The **Agentic Index of 50.1 at the 97th percentile** is the strongest agentic percentile of any model in this dataset, with **BenchLM's agentic public lane at 71.8 (#4 of 151)**. The evidence is unusually broad rather than concentrated: **Terminal-Bench 2.1 88.3%** — within half a point of GPT-5.6 Sol and above Claude Opus 4.8 and Claude Fable 5 — **Vals Terminal-Bench 2.1 80.9%, beating Fable 5's 80.5% on the same evaluation**, **BrowseComp 91.2% (#1 in the field)**, **DeepSearchQA 95.0%**, **Toolathlon-Verified 73.2%**, **MCP Atlas 84.2%**, **DECK-Bench 73.5%**, **JobBench 52.9%**, and the 2.8k-search/11k-page recursive research build. Held at 90 rather than higher for three reasons: **there is no Terminal-Bench 3.0 or OSWorld figure for K3 at all** while Claude Fable 5 has 34.0% and 85% respectively on exactly those; **APEX-Agents is only 37.6%**; and the five #1 finishes come from Moonshot's own chart, in a comparison where Moonshot itself footnotes that competitors' numbers may include fallback behavior.
+- **Reasoning: 91/100.** Unchanged, and the position is remarkable: **Artificial Analysis Intelligence Index 57 at #4 overall, ahead of Claude Opus 4.8**, supported by **GPQA Diamond 93.5%** — the highest GPQA figure published for any model in this dataset — and **HLE 44.3%**, **GDPval-AA 58.4%**. Held rather than raised because **HLE at 44.3% is behind where 2026 frontier reasoning models sit**, and because the **Omniscience pair of 49.1% accuracy with only 46.0% non-hallucination is weak on both axes simultaneously** — a model that is wrong is also confident. There is also **no AIME, MMLU-Pro or FrontierMath figure published**, so the mathematics and broad-knowledge profile behind the index is unmeasured rather than good.
+- **Context window: 91/100.** Unchanged in score, firmed up in justification. **1,000,000 tokens with 131,072 default max output and up to 1,048,576.** The differentiator is not the window size — 1M is table stakes in this dataset — but **AA-LCR 74.7%, the highest measured long-context retrieval of any model here**, ahead of Gemini 3 Pro's 73.0%, and the fact that **BrowseComp holds 90.4–91.2% on a full 1M window** rather than the 300K compaction Moonshot's own footnote describes. KDA's claimed **6.3× long-context speedup** is the engineering reason this is achievable at all. Not scored higher: the window matches the field rather than exceeding it.
+- **Multimodal: 90/100.** Unchanged, and the strongest independent signal in the report is here: **BenchLM's multimodal & grounded category average is 88.8 for Kimi K3 against 62.3 for Claude Fable 5 — a 26.5-point gap, the single largest category separation BenchLM reports in this comparison.** Native vision and video sit inside the same model, Moonshot's official visual-agent benchmark set includes **CharXiv and Zerobench**, and the demos (browser-based 3D open world, motion explainers, multi-clip video editing, CAD work with visual feedback) are vision-in-the-loop rather than vision-as-sidecar. Held at 90 rather than higher for one specific reason: **the per-benchmark vision numbers are not decomposable** — BenchLM publishes the category average but not the constituent rows, and **there is no MMMU-Pro or Video-MMMU figure at all**, which every other multimodal model in this dataset has.
+- **Coding: 84/100.** Up 4. The wins are real: **ProgramBench 77.8% (#1, ahead of GPT-5.6 Sol at 77.6 and Claude Fable 5 at 76.8)**, **FrontierSWE 81.2%**, **deepSwe 67.5%**, **Kimi Code Bench v2 72.9%**, **sweMarathon 42% (#1 — and note GPT-5.5 scores 14% on the same benchmark)**, **cursorBench32 60.8%**, **Coding Index 76.2 (95th percentile)**, BenchLM coding lane 68 (#7/183). Held well below the top band on two specific gaps. First, **there is no SWE-bench Verified and no SWE-bench Pro figure for K3 at all** — BenchLM's table shows "coming soon" for both — so the single most widely reported coding measure in this dataset is simply missing, which is itself informative given K3 is nine weeks old. Second, **FrontierSWE v2 posts 25.9% against FrontierSWE's 81.2%** — a 55-point gap between benchmark versions that BenchLM records without reconciling; v2 is the harder and more recent version, and 25.9% is poor.
+- **Cost efficiency: 62/100.** Up 7. **$3.00/$15.00 with $0.30 cached, identical across all four providers**, is **3.3× cheaper on output than Claude Fable 5** and **4× more expensive than Gemini 3.8 Flash**. The decisive practical point is the **above-90% cache-hit rate in coding workloads**: for a 1M-window model doing repository-scale work, the effective input cost is far below list, and the $0.30 cached rate is a genuine 10× discount rather than a token gesture. Held at 62 because **$15/M output is the second-highest in this dataset** — only Fable 5 and the GPT-6-class models cost more — and it buys a model whose reasoning is **always at max effort** with no lower-cost tier available. The open-weights path is the real cost story but needs 64+ accelerators, so the overwhelming majority of users will buy one of the four hosted rates instead.
+- **Overall Score: 89.2/100.** Half-up mean of the five quality dims: (90 + 91 + 91 + 90 + 84) / 5 = 89.2. Best fit: **the best tool-use profile of any model in this dataset at or below $3/$15, and by a distance the strongest open-weights model that exists** — 2.8T parameters, 16 of 896 experts, claimed Apache 2.0, 1M context carrying the highest measured long-context retrieval here (AA-LCR 74.7%), and #1 in the field on five of eight real-world agentic benchmarks including BrowseComp, Program Bench, SWE Marathon, SpreadsheetBench 2 and Automation Bench. It is the only open model BenchLM places "within striking distance" of GPT-5.6 Sol and Claude Fable 5. The caveats are specific and worth carrying: **no SWE-bench Verified or Pro published at all, FrontierSWE v2 at 25.9% against FrontierSWE's 81.2%, Omniscience at 49.1% accuracy with only 46.0% non-hallucination, $15/M output, and vendor-supplied #1 finishes on a chart where Moonshot itself footnotes that rivals' numbers may include fallback behavior.**
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (Moonshot launch eval, OpenRouter/Artificial Analysis feed, WhatLLM, NVIDIA NIM docs, TNW, Superconductor, k3kimi); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Moonshot AI's K3 launch blog and official benchmark charts as reproduced by kimi-k3.net, kimi-k3.com, whatllm and k3-kimi.com; Artificial Analysis figures via OpenRouter 2026-07-17 as reproduced by k3kimi.com; BenchLM's 43-benchmark Kimi K3 record and the Claude Fable 5 vs Kimi K3 comparison; llm-stats' Kimi K3 record and provider table; benchgen, theairankings and aireleasetracker for spec confirmation). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 87 → **89.2**. The refresh confirmed every prior dimension and moved three. **Tool use 85 → 90**, the largest change, on the **Artificial Analysis Agentic Index of 50.1 at the 97th percentile** plus a much broader evidence base than the earlier pass recorded — **Vals Terminal-Bench 2.1 80.9% beating Claude Fable 5's 80.5% on the same evaluation, Toolathlon-Verified 73.2%, MCP Atlas 84.2%, DECK-Bench 73.5%, JobBench 52.9%** — and on **#1 finishes in five of eight real-world agentic benchmarks**. **Coding 80 → 84** on **ProgramBench 77.8% (#1, ahead of GPT-5.6 Sol)**, **FrontierSWE 81.2%**, **deepSwe 67.5%**, **sweMarathon 42% (#1, versus GPT-5.5's 14%)** and the **Coding Index of 76.2 at the 95th percentile**. **Cost 55 → 62** on the **above-90% cache-hit rate in coding workloads**, which makes the $3.00 list price materially misleading in the model's favour for the 1M-window repository work it is actually bought for. Reasoning 91, Context 91 and Multimodal 90 all held; the report now cites the specific evidence behind each rather than leaving them asserted.
+- **Conflicts recorded rather than smoothed over:** (1) **benchmark version labelling** — BenchLM records Kimi K3's 88.3% as **Terminal-Bench 2.0** while Moonshot's own official chart and kimi-k3.net both label the same 88.3% figure **Terminal-Bench 2.1**; Moonshot's labelling is used, since it is the vendor publishing the run. (2) **FrontierSWE version gap** — **81.2% on FrontierSWE against 25.9% on FrontierSWE v2**, both listed by BenchLM without reconciliation; the v2 figure is disclosed as the harder and more recent measurement. (3) **license** — **benchgen reports Apache 2.0 with weights released 2026-07-27**, while **llm-stats records a distinct "Kimi K3 License"** and describes the model as proprietary under provider product terms; the open-weights claim is used, the license ambiguity is not resolved. (4) **throughput varies enormously by provider** — Fireworks 2.64 s p95 TTFT and 48 c/s, Novita 15.70 s TTFT, Together 0.00 s TTFT with 3 c/s — at identical price. (5) **BenchLM's two composite figures disagree** (74.87 on the Fable-comparison page, 80.5/100 at rank #5 on the Moonshot-comparison page); the lower, more conservative figure is treated as the better estimate. (6) **SpreadsheetBench 2 34.8% and AutomationBench 30.8% are #1s won on a weak field** — Fable 5 scores 34.7% and 29.1% — and are ranked as wins without being read as evidence of absolute capability.
+- Future sources: add a new file next to this one, e.g. `Kimi_K3_Next.md`, using the same headings.

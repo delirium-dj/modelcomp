@@ -30,7 +30,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA / HLE / AA Intelligence Index for Ox Alpha specifically: **no verified public score found** during stealth (community benchmark tables were unattributed guesses — explicitly not repeated per AI Catchup). Post-reveal GLM-5.3-Flash AA Index **57** (Z.ai/AA).
+- GPQA / HLE / AA Intelligence Index for Ox Alpha specifically: **no verified public score found** during stealth (community benchmark tables were unattributed guesses — explicitly not repeated per AI Catchup). Post-reveal GLM-5.3-Flash AA Index **42** (AA v4.3.2, 2026-09-28 — see Fresh-source note).
 
 Coding:
 
@@ -50,10 +50,12 @@ Censorship / behavior (CTGT fingerprint, not % benchmarks):
 - Narrow censorship blacklist: Xinjiang/Taiwan answered like US models (detailed, cites China-controversial sources); Xi Jinping/domestic legitimacy statistically ~DeepSeek V4 Flash (most-censored in CTGT set) — "not less censored, has a blacklist"
 - System prompt instructed not to reveal provenance (CTGT)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): the post-reveal GLM-5.3-Flash **Intelligence Index 42** (AA-native v4.3.2, same weights as this model) replaces the earlier 57 citation — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 85/100.** Independent DeepSWE ~63% (Sol-mid band) + post-reveal vendor tool stack (TB2.1 84.3 class, same weights); no independent TB/MCP/GDPval during stealth → 85 (trust community DeepSWE, hold vendor rows with same caution as GLM-5.3-Flash).
-- **Reasoning: 85/100.** Same weights as GLM-5.3-Flash (AA Index 57, HLE-tools 55.3 vendor / ~40 no-tools independent); no stealth-period independent reasoning run → provisional 85.
+- **Reasoning: 85/100.** Same weights as GLM-5.3-Flash (AA Index 42 on v4.3.2, HLE-tools 55.3 vendor / ~40 no-tools independent); no stealth-period independent reasoning run → provisional 85.
 - **Context window: 82/100.** Same 1M claim / 400K served caveat as GLM-5.3-Flash → 82.
 - **Multimodal: 92/100.** Native text+image+video (listing + reveal); scores = GLM-5.3-Flash multimodal set → 92.
 - **Coding: 87/100.** Independent DeepSWE ~63% cross-checks vendor 63.4; TB2.1 84.3 near-Opus (vendor/AA); slightly below GLM-5.3-Flash's 88 only because stealth-period independent evidence is DeepSWE-only → 87.

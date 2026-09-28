@@ -36,7 +36,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **90.4%** (HokAI)
 - HLE: no verified public score found as a distinct 3.5 Flash row in sources consulted
 - ARC-AGI-2: **72.1%** (HokAI)
-- Artificial Analysis Intelligence Index: **55** (HokAI/AA launch-era); AA release page later shows **34** for medium/high/minimal variants under Index v4.3 — methodology change noted, 55 used as launch-era primary
+- Artificial Analysis Intelligence Index: **33** (AA v4.3.2 model page, 2026-09-28 — high effort; supersedes both the launch-era 55 and the v4.3-row 34 previously noted; see Fresh-source note)
 - IF Bench: **76.30** (DataLearner catalog); DataLearner also lists a GPQA Diamond 92.80 row — treat 90.4% (HokAI) as primary, 92.80 as alternate catalog figure
 - CritPt / Omniscience numeric: no verified public score found in sources consulted
 
@@ -51,13 +51,15 @@ Long context:
 
 - 1M input confirmed; independent recall above 100K **not published for the 3.5 generation** (HokAI) → no long-context retrieval percentage reported
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 33** (high effort) resolves the earlier 55-vs-34 conflict; AA now marks Gemini 3.5 Flash **deprecated** (superseded by Gemini 3.7 Flash, benchmarking frozen to the default 10K workload) — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`.
 
 - **Tool use: 84/100.** MCP Atlas 83.6% (field-leading at June 2026), TB2.1 76.2%, OSWorld 78.4%, GDPval-AA v2 1349 — clearly above mid-tier and among the best Flash-class agentic tool stacks; capped below 88+ because GDPval trails Claude 1800+ and Tau3/Claw rows are missing.
-- **Reasoning: 87/100.** GPQA 90.4% hits the frontier-adjacent band and ARC-AGI-2 72.1% is strong (below 3.1 Pro's 77.1); discounted from 90+ due to no HLE row for this ID and AA Index 55 (launch) / 34 (v4.3) — solidly above mid but not Index-60 frontier.
+- **Reasoning: 87/100.** GPQA 90.4% hits the frontier-adjacent band and ARC-AGI-2 72.1% is strong (below 3.1 Pro's 77.1); discounted from 90+ due to no HLE row for this ID and AA Index 33 (v4.3.2 refresh — see Fresh-source note), mid-band absolute; the GPQA/ARC rows carry the frontier-adjacent claim.
 - **Context window: 93/100.** 1,048,576-token window qualifies for the ≥1M tier; no MRCR/RULER ≥98% retrieval proof for 3.5 gen (explicitly unpublished) → held at 93 (full window, zero retrieval evidence).
 - **Multimodal: 95/100.** Full text/image/audio/video/PDF in with MMMU-Pro **84.2%** — HokAI/AA call it the highest multimodal reasoning score AA had recorded at launch; text+tool-calls out only prevents 100, but audio/video/PDF input puts it in the top methodology band (75–90+) with a peak-quality bump to 95.
 - **Coding: 85/100.** SWE-V 78%, SWE-Pro 55.1%, TB2.1 76.2% is excellent Flash-tier coding (beats Gemini 3.1 Pro on some real-world rows per HokAI); capped below 88 because DeepSWE 37% is well behind frontier (~70) and no LiveCodeBench/SciCode rows for this ID.

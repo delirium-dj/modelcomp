@@ -1,73 +1,75 @@
-# Claude Opus 5 — findings by Big Pickle
+# Anthropic Claude Opus 5 — findings by Big Pickle
 
-- Source: Anthropic (`claude-opus-5`)
-- Date: 2026-09-20 (UTC)
+- Source: Anthropic (`claude-opus-5`); benchmarks from Artificial Analysis, Vals AI, Anthropic's launch benchmarks, BenchLM and claude5.ai
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 5
-- **Short description:** Anthropic's July 2026 flagship general-access model ("near-frontier intelligence of Claude Fable 5 at half the price") built for efficient agentic coding, knowledge work, scientific research, and computer use. Default model on Claude Max, strongest model on Claude Pro.
-- **Provider / access:** Claude API (`claude-opus-5`), claude.ai, Claude Code, Claude Cowork. Chat (Messages) API + Anthropic Agents SDK.
-- **Release / knowledge:** 2026-07-24; knowledge cutoff ~2026-05 (anotherwrapper.com).
-- **IDs:** `claude-opus-5` (Anthropic; proprietary).
-- **Context window:** 1,000,000 total (both default and maximum) / 128,000 max output (llm-stats.com, datanorth.ai).
-- **Modalities:** text + image input; text output; extended thinking on by default with per-request effort toggle (low/medium/high); tool calls.
-- **Pricing (as of 2026-09-20):** $5.00 in / $25.00 out per 1M; $0.50 cached input. Same as Opus 4.8; half of Fable 5.
-- **Architecture:** Proprietary, undisclosed. Pre-release codename "Honeycomb".
+- **Name:** Claude Opus 5 (`claude-opus-5`), released **2026-07-24** (Vals AI dates the model record 2026-07-22; the July 24 launch date is carried by Anthropic's own announcement coverage and is used here).
+- **Short description:** Anthropic's flagship and its deliberate strategic squeeze — "close to the frontier intelligence of Claude Fable 5 at half the price", at **$5/$25, identical to Opus 4.8 despite roughly double the agentic performance**. Anthropic framed it as a "thoughtful and proactive" model, and the commercial logic as commoditizing its own frontier: coverage from Bloomberg, CNBC and Fortune read the release as betting that dramatically better price-performance grows total API volume faster than it cannibalizes Fable 5 revenue.
+- **Provider / access:** claude.ai, Claude Code, Claude Cowork and the Claude API, available immediately at launch. **Became the default model on Claude Max** and the strongest model available on Claude Pro. Anthropic's own routing guidance: **Fable 5 only for long-horizon agents running autonomously for days; Sonnet 5 for high-volume, well-scoped tasks.**
+- **Release / knowledge:** released **2026-07-24**. **Knowledge cutoff May 1, 2026** (wisegpt; the earliest of the Claude 5.x line).
+- **IDs:** `claude-opus-5`.
+- **Context window:** **1,000,000 tokens as both default and maximum**, **128,000 max output**, and **300,000 output tokens via the Message Batches API (beta)**. Artificial Analysis independently confirms 1.0M. Extended thinking is on by default.
+- **Modalities:** **text, image and PDF in; text out.** Vals AI explicitly records **video input as not supported** — the same structural limit as the rest of the Claude line, and the reason Multimodal is not scored higher.
+- **Effort control:** a **new per-request effort toggle (low, medium, high)**, giving an unusually wide effective price range on one model ID — low-effort requests compete with mid-tier models on cost, high-effort requests with flagships on quality. Artificial Analysis evaluates it at both `medium` and `max` as separate configurations.
+- **Pricing (as of 2026-09-28), per 1M:** **$5.00 input / $25.00 output** standard; **fast mode $10 / $50** for roughly 2.5× faster serving; **$0.50 cache read**; **batch $2.75 in / $13.75 out (50% off)**. **Conflict flagged:** wisegpt and several aggregators list **$5.50 / $27.50** with $0.55 cached input and $6.875 5-minute cache creation — a consistent ~10% uplift, most likely a platform or reseller margin. Anthropic's list price is $5/$25, and that is used here. For scale, this is **half of Claude Fable 5 / Fable 5.1 and GPT-6 Astra at $10/$50, and 1.25× Claude Opus 5.5 at $4/$20**.
+- **Architecture:** **proprietary / closed weights.** No parameter count. Uses the Opus 4.7-era tokenizer, so the ~30% token inflation noted for Fable 5.1 likely applies.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Artificial Analysis — **the finding that moves this report**:
 
-- Frontier-Bench v0.1: **43.3%** — new SOTA, ahead of Fable 5's 33.7% (Anthropic launch).
-- GDPval-AA: **46.1%** (high/max reported effort; 39.9% low) — benchmarklist.
-- BrowseComp (multi-agent): **90.8%** (anotherwrapper).
-- OSWorld 2.0: **70.57%** (up from Opus 4.8's 55.7%; datanorth.ai).
-- AA Agentic Index: **55.3** (ahead of Fable 5's 52.8; datanorth.ai).
-- CursorBench 3.2 (max effort): within **0.5%** of Fable 5's peak at half the cost per task (Anthropic).
-- Claw-Eval / Tau3-Banking / MCP-Atlas: **no verified public score found**.
+- **Intelligence Index: 63 at max effort** — **ranks #1 in the public AA snapshot of 176 tested models**, ahead of **Claude Fable 5 (62.1)** and **Kimi K3 (59.7)** (BenchLM's mirror of that August leaderboard)
+- **59 at medium effort** (#22 of 202) — "well above average among comparable models (median: 36)"
+- For progression: Opus 4.6 adaptive max **45**, Opus 4.5 non-reasoning **28**
+- Output speed **52.9 t/s** at medium, #122 of 202 — "at the lower end" against a 71.8 t/s median for its price tier
+- **Concise:** 29M tokens generated on the Index against a 62M median — the most token-efficient frontier model measured in this re-run
+- **$1,116.24 to evaluate**, the highest cost-per-evaluation of any model here
+- AA's summary verdict: "amongst the leading models in intelligence, but **particularly expensive when comparing to other models of similar price**. It's also **notably slow**, however fairly concise."
 
-Reasoning / knowledge:
+Vals AI, evaluated across **27 benchmark leaderboards** at `max` compute effort (Terminal-Bench 2.1 at `high`), temperature 1.0:
 
-- GPQA Diamond: **93.4%** (benchmarklist; anotherwrapper lists 92.9%).
-- HLE: **64.7%** (anotherwrapper).
-- ARC-AGI-3: **30.2%** — roughly 3× the next-best model (Anthropic launch; datanorth).
-- AIIQ Composite IQ: **134** (97th pct, benchmarklist).
-- Artificial Analysis Intelligence Index: **61** at launch — top score, ahead of Fable 5 (60) and GPT-5.6 Sol (59) (datanorth.ai).
-- CritPt: **29.1%** (87th pct, benchmarklist).
-- SimpleQA: **56.7%** (anotherwrapper).
+- **Vals Index: 67.21% ± 0.98** — **#1**, within 1.18 points of Claude Fable 5 (68.39%)
+- **Vals Multimodal Index: 73.90% — #2 of 52**, within 0.26 points of Fable 5 (74.16%). The single best independent multimodal evidence in the Claude line.
+- **Terminal-Bench 2.1: 84.64% — #2 of 60**; **LiveCodeBench 89.03%**; **Vibe Code Bench 88.40%**; **MMLU Pro 91.59% — #2 of 138**; **ProofBench v1.1 78.00% — #2 of 28**
+- Ranked **#1 of 88 on SWE-bench**, **#1 of 43 on ProgramBench**, **#1 of 54 on Code Migration**, **#1 of 55 on Legal Research Bench**, **#1 of 89 on MedCode**, **#1 of 98 on MortgageTax**, **#1 of 8 on the Time Horizon Index (KSP)**, **#2 of 91 on MedScribe**, **#2 of 93 on MMMU Pro**
+- **#22 of 24 on CyberBench** — the clear weak spot, and structurally expected: Anthropic routes cyber work to Mythos-class deployments
+- **#5 of 55 on Finance Agent v2**, #3 of 52 on EMB, #7 of 33 on SkillsBench, #7 of 142 on SAGE and LegalBench
+- **$18.81 cost per test**, **55 min 49 s mean latency**
 
-Coding:
+**The fallback finding, and it is a good one:** Vals ran Opus 5 **with Claude Opus 4.8 as a server-side fallback for refusals.** Counting fallback-assisted results as failures moves Terminal-Bench 2.1 from **84.64% to 81.27%**, MMLU Pro from 91.59% to 91.58%, the Vals Index from 74.82% to 74.47%, and the Multimodal Index from 73.90% to 73.58%. A 3.4-point Terminal-Bench swing and near-zero movement elsewhere means **Opus 5 declines rarely** — a sharp contrast with Claude Opus 5.5, whose SRE Bench score collapses from 33.59% to 5.34% when fallbacks are removed. Fallbacks on Finance Agent v2 and CyberBench did not change their published scores at all.
 
-- SWE-bench Verified: **96.0%** (Anthropic / datanorth; 97.0% on benchmarklist's separate row).
-- SWE-bench Pro: **79.2%** — within a point of Mythos 5 (80.3%) and Fable 5 (80.0%).
-- LiveCodeBench: **89.0%** (anotherwrapper).
-- DeepSWE / DeepSWE 1.1: **73.7%** (anotherwrapper).
-- Vibe Code Bench v1.1: **88.4%**; SciCode: **55.7%** (anotherwrapper).
-- Terminal-Bench 2.1: **0.9%** reported at benchmarklist (provisional, non-agentic harness); AA Coding Index **76.9%** at benchlm for the family — treat Terminal-Bench number with caution.
-- KernelBench CUDA: **79.3%** (100th pct, benchmarklist).
-- IOI: **91.7%**; Arena Code Elo: **1711.88** (anotherwrapper).
+Anthropic launch benchmarks:
 
-Long context:
+- **SWE-bench Verified: 96.0%** — the highest in this dataset. (Note: the llm-stats leaderboard's 0.886 row for "Claude Opus 4.8" is Opus 4.8, not Opus 5; Vals' #1-of-88 placement on SWE-bench corroborates Opus 5.)
+- **SWE-bench Pro: 79.2%**, within a point of Mythos 5 (80.3%) and Fable 5 (80.0%)
+- **Frontier-Bench v0.1: 43.3%** against Fable 5's 33.7%
+- **ARC-AGI-3: 30.2%** — Anthropic called this "roughly three times the next-best model" at launch. **That claim is now stale: GPT-6 Astra posts 62.7% on ARC-AGI-3, more than double.**
+- **DeepSWE v1.1: 74.0%**; **Terminal-Bench 4.0: 52.3%**; **Terminal-Bench 3.0: 42.7%**; **OSWorld 2.0: 75.4% partial / 39.6% strict**; **AutomationBench 26.9%**; **CursorBench 3.2.0 70.0%**; **Toolathlon-Verified 80.6%** (Pass@3 87.0%, Pass³ 73.1%, 23.5 avg turns); **BrowseComp 90.8%**; **HLE 56.6% without tools / 63.6% with tools**
+- **GDPval-AA v2: 1861 Elo** (claude5.ai) against **1824** in Anthropic's own Fable 5.1 launch table and **1708** on the v2.1 scale used in the Opus 5.5 announcement. Three figures, three benchmark versions — all recorded, none averaged.
 
-- MRCR / RULER / GraphWalks: **no verified long-context retrieval score found**; 1M window advertised but retrieval evals not published on the pages reviewed.
+BenchLM composite: **80.67 overall**, agentic **77.4 (#2 of 151)**, coding **75.6 (#3 of 183)**, reasoning lane 75.6. Ahead of Claude Opus 4.8 (72.3) and Claude Sonnet 5 (70.76), behind GPT-6 Astra (81.05) and Claude Fable 5.1 (82.95).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Frontier-Bench SOTA 43.3%, BrowseComp 90.8%, and OSWorld 70.6% with the Agentic Index top score make it the strongest verified agentic model of its cohort.
-- **Reasoning: 93/100.** GPQA 93.4%, HLE 64.7%, and an ARC-AGI-3 3× lead over the field are elite; CritPt 29.1% leaves some headroom on hard-attack style tasks.
-- **Context window: 85/100.** 1M / 128K tier is top-scoped, but no published MRCR/RULER retrieval score means the "quality at 1M" claim is unverified.
-- **Multimodal: 78/100.** Text+image input with a strong multimodal index (Vals 73.9%), but no audio/video input — capped below omni models.
-- **Coding: 93/100.** SWE-bench Verified 96%, SWE-bench Pro 79.2%, LiveCodeBench 89% — near state of the art; only Fable 5 edges it on SWE-bench Pro.
-- **Cost efficiency: 70/100.** $5/$25 is fair for the tier and half of Fable 5, but clearly paid-tier pricing at production volume.
-- **Overall Score: 88/100.** Mean of the five quality dims (92+93+85+78+93)/5 = 88.2 → 88. The best value frontier coding/agent model of mid-2026 — default pick for agentic engineering unless long-context retrieval at 1M is a hard requirement.
+- **Tool use: 92/100.** Held, on the strongest and most varied agentic evidence of any model in this re-run. **Terminal-Bench 2.1 84.64% (#2 of 60)**, **Toolathlon-Verified 80.6%** at 23.5 average turns, **Terminal-Bench 3.0 42.7%**, **Terminal-Bench 4.0 52.3%**, **OSWorld 2.0 75.4% partial**, **AutomationBench 26.9%**, **BrowseComp 90.8%**, and Vals' **#1 on the Time Horizon Index (KSP) of 8** — that last one is the most direct available measure of sustained multi-step agent persistence. BenchLM's **#2 of 151** agentic lane agrees. Held at 92 because **#22 of 24 on CyberBench** is a real hole, and because Claude Opus 5.5 now leads Terminal-Bench 4.0 outright (66.4% vs 52.3%).
+- **Reasoning: 94/100.** Up 1. **The AA Intelligence Index of 63 at max effort is #1 in the field** — ahead of Fable 5 (62.1), Kimi K3 (59.7) and, for context, Opus 4.6 at 45. This is an independent, current, multi-evaluation index and it is the strongest single reasoning signal in the entire dataset. Reinforced by **MMLU Pro 91.59% (#2 of 138)**, **HLE 56.6% without tools and 63.6% with**, and **ProofBench 78.00%**. Not 100 because **ARC-AGI-3 at 30.2% is now more than double behind GPT-6 Astra's 62.7%**, which directly contradicts Anthropic's own launch claim of "roughly three times the next-best", and because no FrontierMath or GPQA Diamond figure is published.
+- **Context window: 90/100.** Up 5. **1,000,000 tokens as default and maximum, 128,000 max output, 300,000 via beta Message Batches API**, with 1.0M independently confirmed by Artificial Analysis. Held below the top band because **no MRCR, RULER or needle-in-a-haystack measurement has been published**, and because the 300K output path is beta-only.
+- **Multimodal: 80/100.** Up 2. The evidence improved materially with the **Vals Multimodal Index at 73.90%, #2 of 52** and **MMMU Pro #2 of 93** — real, independent, multi-benchmark multimodal measurement, which most Claude entries in this dataset lack. Held at 80 because **video input is explicitly not supported** (Vals) and audio is not documented, leaving Gemini's speech/video input and the Muse Spark family's video input unmatched, and because a multimodal index is a composite rather than a set of named per-skill results.
+- **Coding: 93/100.** Held. **SWE-bench Verified 96.0% is the highest in this dataset** and Vals ranks it **#1 of 88**. **SWE-bench Pro 79.2%** is within a point of the Mythos/Fable models. **LiveCodeBench 89.03%**, **Vibe Code Bench 88.40%**, **ProgramBench #1 of 43**, **DeepSWE v1.1 74.0%**, **Terminal-Bench 4.0 52.3%**, and **#1 of 54 on Code Migration** for long-horizon repo work. Capped because the Fable 5.1 SKU now posts a higher SWE-bench Pro (81.2%), because Terminal-Bench 4.0 is well behind Opus 5.5, and because the 96.0% SWE-bench Verified figure is vendor-reported and single-sourced.
+- **Cost efficiency: 74/100.** Up 4. **$5/$25 with $0.50 cache reads and 50% off batch** is genuinely good value for a model at the top of the field: **half of Fable 5 / Fable 5.1 / GPT-6 Astra at $10/$50**, and 1.25× cheaper than Opus 5.5's $4/$20 only in the other direction. The **low/medium/high effort toggle** is a real and underused lever — low-effort Opus 5 requests compete with mid-tier pricing on a frontier model ID — and AA confirms it is **highly token-efficient at 29M tokens against a 62M median**. Two things hold it below 80: **AA's explicit verdict that it is "particularly expensive when comparing to other models of similar price"** and "notably slow" at 52.9 t/s, and a real **$18.81 per Vals Index test** — the second-highest measured cost-per-test in this re-run. Anthropic itself routes buyers toward cheaper models for well-scoped work.
+- **Overall Score: 89.8/100.** Half-up mean of the five quality dims: (92 + 94 + 90 + 80 + 93) / 5 = 89.8. Best fit: **the most capable generally-available model in this dataset on independently measured reasoning (AA Index 63, #1 in the field) and coding (SWE-bench Verified 96.0%, #1 of 88), at half the price of the Fable tier — and, uniquely in the Claude line, a model that declines rarely** (a 3.4-point Terminal-Bench swing when fallbacks are stripped, against Opus 5.5's 28-point collapse). The trade-offs: **#22 of 24 on CyberBench**, no video input, 52.9 t/s, a real cost-per-test of $18.81, and a knowledge cutoff of May 2026 that is the oldest in the Claude 5.x line. As of today it is also **two generations behind Opus 5.5 on Terminal-Bench 4.0 and behind Fable 5.1 on SWE-bench Pro** — the fastest-moving frontier in the dataset.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (Anthropic launch page, llm-stats.com, benchmarklist.com, datanorth.ai, anotherwrapper.com, claude5.ai/ottermind); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (Artificial Analysis `claude-opus-5-medium`, `claude-opus-5` comparison pages and the BenchLM mirror of the AA August Intelligence Index leaderboard, Vals AI `anthropic_claude-opus-5` evaluation write-up, Anthropic's Fable 5.1/Mythos 5.1 launch comparison table, claude5.ai launch coverage, BenchLM comparison pages, llm-stats SWE-bench Verified leaderboard, wisegpt model record). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 88 → **89.8**, an upgrade driven by the single most important number surfaced in this entire re-run: **the Artificial Analysis Intelligence Index for Claude Opus 5 at max effort is 63, ranking #1 across 176 tested models**, ahead of Fable 5 (62.1) and Kimi K3 (59.7). The earlier pass did not have it, and Reasoning 93 → 94 follows directly. Two more upgrades on newly surfaced Vals AI evidence: **Context 85 → 90** and **Multimodal 78 → 80**, the latter on the **Vals Multimodal Index of 73.90% (#2 of 52)** and **MMMU Pro #2 of 93** — the first genuinely measured multimodal evidence this project has had for a Claude model, as opposed to a declared-modality inference. **Cost efficiency 70 → 74** on the $5/$25 with $0.50 cache and 50%-off batch structure, tempered by AA's own "particularly expensive... notably slow" verdict and a measured **$18.81 per Vals Index test**.
+- **Conflicts, staleness and corrections recorded rather than smoothed over:** (1) **Anthropic's "ARC-AGI-3 roughly three times the next-best" claim is now stale** — GPT-6 Astra posts 62.7% against Opus 5's 30.2%. Recorded as a superseded vendor claim, not as a current strength. (2) **GDPval-AA v2 appears as three different numbers** — 1861 (claude5.ai), 1824 (Anthropic's Fable 5.1 table) and 1708 (Anthropic's Opus 5.5 page, on v2.1). Different benchmark versions; all three recorded, none averaged. (3) **Pricing conflict:** $5/$25 first-party versus $5.50/$27.50 at wisegpt and other aggregators, a consistent ~10% uplift. Anthropic's list is used. (4) **SWE-bench Verified 96.0% is Opus 5**; the 0.886 row on llm-stats belongs to **Opus 4.8** and is not this model. (5) **Vals' own table renders Opus 5 at "2 / 52" on the Vals Index while its prose says "#1"** — the table appears to be in "fallbacks counted as failures" mode while the prose is not. Both are reported. (6) **Release date:** July 24 (Anthropic coverage) versus July 22 (Vals model record); July 24 used.
+- **The finding worth carrying forward:** Vals ran Opus 5 with **Claude Opus 4.8 as a server-side fallback for refusals**, and stripping fallbacks costs only **3.4 points on Terminal-Bench 2.1 (84.64% → 81.27%)** and essentially nothing elsewhere. This is the direct, measured contrast with **Claude Opus 5.5, where 217 of 262 SRE Bench tasks were fallback-assisted and the score collapses 33.59% → 5.34%.** Two models from the same lab, two months apart, with very different refusal calibration — and the newer one is the more autonomous. That is the kind of finding no vendor benchmark surfaces.
+- Future sources: add a new file next to this one, e.g. `Gemini_3_Pro.md`, using the same headings.

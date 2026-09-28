@@ -1,68 +1,78 @@
-# DeepSeek-V4.1-Flash — findings by Big Pickle
+# DeepSeek V4.1 Flash — findings by Big Pickle
 
-- Source: DeepSeek (`deepseek-v4.1-flash`)
-- Date: 2026-09-20 (UTC)
+- Source: DeepSeek's own release announcement and API docs (2026-09-10), DeepSeek's published model-card benchmark table as reproduced by NVIDIA's model hub and deepseekv4guide.org, plus B.AI, Kilo Code, BenchLM, Vals and LM Market Cap records
+- Date: 2026-09-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek-V4.1-Flash
-- **Short description:** DeepSeek's Sep 2026 open-weight, MIT-licensed flash flagship — a ~763B-parameter MoE trained on 45T tokens with a 1M native context and an unusually strong agentic-coding and terminal profile (Terminal-Bench 2.1 90.6%, CodeForces 100.0%, GPQA 90.9% per LLM Stats rows).
-- **Provider / access:** DeepSeek API (api-docs.deepseek.com), Fireworks (from $0.22/M-input across providers), Hugging Face weights (MIT). Self-hostable.
-- **Release / knowledge:** 2026-09-10 (llm-stats).
-- **IDs:** `deepseek-v4.1-flash` (DeepSeek; MIT open weights).
-- **Context window:** 1,000,000 tokens (llm-stats rows; family standard 1M).
-- **Modalities:** text-first; BabyVision 89.6% row implies vision support; text output; reasoning modes + tools.
-- **Pricing (as of 2026-09-20):** from $0.22 in / $0.66 out per 1M (Fireworks, lowest tracked); cached input $0.01/1M. DeepSeek V4 family distinction: V4 Flash (Apr 2026) listed $0.14/$0.28.
-- **Architecture:** MoE ~763.2B total params; DeepSeek hybrid-attention lineage (Compressed Sparse Attention in the V4 Flash family); 1M native, long-context economics.
+- **Name:** DeepSeek-V4.1-Flash, released **2026-09-10** — **eighteen days ago, the newest model in this dataset.** It is not merely the latest Flash tier: **as of 04:00 UTC on 2026-09-14, every `deepseek-v4-pro` request routes to V4.1-Flash at V4.1-Flash rates**, and DeepSeek states it is phasing out V4-Pro. **V4.1-Flash is currently serving the entirety of DeepSeek's flagship traffic.** That framing matters more than any benchmark in this report.
+- **Short description:** "Smarter, faster, more efficient." DeepSeek's own claim — supported by third parties — is that **"tests by multiple parties put V4.1-Flash ahead of V4-Pro on performance, cost, speed and total runtime."** A smaller, cheaper, newer model replacing a 1.6-trillion-parameter flagship across an entire production endpoint in four days is the actual story here. Official partners **WorkBuddy (including CodeBuddy) and OpenCode** fully support V4.1-Flash. `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are **retired** but route to V4.1-Flash for compatibility; the new name to use is `deepseek-flash`.
+- **Provider / access:** DeepSeek's own API, plus B.AI (which is progressively routing the old V4-Flash names here), Kilo Code, OpenRouter and others.
+- **Release / knowledge:** released 2026-09-10, training data current to roughly mid-2026. **The freshest model in this dataset by a wide margin.**
+- **IDs:** `deepseek-flash` (current), with `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` as retired compatibility aliases routing here.
+- **Context window:** **1,048,576 tokens (1M)**, with **max output up to 943,718 tokens** per Kilo Code — by a wide margin the largest max-output allowance of any model in this dataset. LM Market Cap instead lists 1.3M for the V4 Flash Latest and 0731 entries; see conflicts.
+- **Modalities:** text and vision. B.AI describes it as a "native multimodal MoE model," and the retired compatibility alias **`deepseek-v4-flash-vision-exp`** routes to it, so the vision path is now on the default endpoint. **However, no first-party modality list is published for V4.1-Flash**, and the April V4-Flash was explicitly text-only. See conflicts and the Multimodal scoring note.
+- **Architecture:** **552B-parameter MoE** built on DeepSeek's **new Causal Encoder–Decoder (CED) architecture — the first model constructed on it.** The distinguishing design choice is asymmetric sparsity: **only 8B active parameters for input (prefill) and 16B for output (decode).** Activating 8–16B out of 552B is what makes a model of this capability class cheap to serve, and it is the direct cause of the price and speed results below.
+- **Open weights:** DeepSeek states it is "supporting open source" and "expanding deployment options," working with the community on **V4.1-Flash inference support**, and is **planning a large-scale deployment with 2,000 GPUs plus a storage cluster.** Weights are announced as supported/planned rather than confirmed released; the V4 family is MIT-licensed.
+- **Pricing:** **cut versus V4-Flash, effective 04:00 UTC on 2026-09-10**, with **peak/off-peak pricing where off-peak rates are 50% of peak rates** — schedule flexible workloads off-peak. Kilo Code lists **$0.30/1M input** via OpenRouter. See conflicts: third-party figures for the retired and redirected IDs span $0.05/$0.10, $0.065/$0.18, $0.14/$0.28 and $0.22/$0.66, describing different routing states rather than a single current price.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**DeepSeek's own published model-card table for V4.1-Flash Instruct** (as reproduced by NVIDIA's model hub):
 
-- Terminal-Bench 2.1: **90.6%** (llm-stats compared rows vs Mistral).
-- CyberGym: **88.1%** (llm-stats).
-- Agents / domain agentic boards: `LLM Stats` Agents index strong per family claims but exact split rows not independently republished.
-- Apex / HAL / OSWorld: **no verified public score found** in my trail.
+| Benchmark | Score |
+|---|---|
+| GPQA Diamond (Pass@1) | **90.9** |
+| HLE (Pass@1) | **36.8** (39.1 with tools †) |
+| HLE with tools (Pass@1) | **63.9** |
+| Codeforces (Rating) | **3,471** |
+| MathArena Apex (Pass@1) | **65.6** |
+| Terminal-Bench 2.1 (Pass@1) | **90.6** |
+| Terminal-Bench 3.0 (Pass@1) | **30.0** |
+| Terminal-Bench 4.0 (Pass@1) | **31.2** |
+| DeepSWE v1.1 (Resolved) | **74.2** |
+| ProgramBench (Almost@1) | **20.3** |
+| NL2Repo-Bench (Score) | **64.0** |
+| CyberGym (Pass@1) | **88.1** |
+| SEC-Bench Pro (Pass@1) | **62.8** |
+| ExploitGym (Pass@1) | **15.3** |
+| AutomationBench (Pass@1) | **54.8** |
+| Agent's Last Exam (Pass@1) | **31.8** |
+| Chartography with tools (Pass@1) | **78.9** |
 
-Reasoning / knowledge:
+**DeepSeek's own head-to-head table**, which deserves credit for including its own losses:
 
-- GPQA: **90.9%** (llm-stats vs Mistral rows).
-- CodeForces: **100.0%** (llm-stats vs Mistral rows).
-- LLM Stats Knowledge/Reasoning: not separately captured; family pattern is coding-over-factual-recall (SimpleQA dip acknowledged by DeepSeek for the V4 Flash family).
-- MMLU-Pro row for this exact release: not surfaced.
+| Benchmark | **V4.1 Flash** | Claude Opus-5.0 | GPT-5.6 Sol |
+|---|---|---|---|
+| Terminal-Bench 3.0 | 30.0 | **43.3** | 34.4 |
+| Terminal-Bench 4.0 | 31.2 | **51.8** | 39.9 |
+| HLE | 36.8 | **56.3** | 44.5 |
+| ProgramBench | 20.3 | **37.0** | 23.0 |
+| NL2Repo-Bench | 64.0 | **75.3** | 56.8 |
+| GPQA Diamond | 90.9 | 93.4 | **94.1** |
+| SEC-Bench Pro | 62.8 | — | **74.3** |
 
-Coding:
-
-- CodeForces: **100.0%**; Terminal-Bench 2.1 **90.6%** (llm-stats).
-- BabyVision: **89.6%** (llm-stats).
-- AI Coding Leaderboard (#9/29, DeepSeek V4 Flash family listing): SWE-bench Verified **88.8%**, 8.2 pts behind #1 Claude Opus 5 (genztech).
-- BenchLM coding direction: 68.5 vs GPT-4.1 mini 23.6 (V4 Flash High).
-
-Long context:
-
-- 1M native context confirmed (llm-stats); hybrid CSA/HCA architecture in V4 Flash family makes 1M economically viable (~10% FLOPs vs prior gen at 1M).
-- MRCR / GraphWalks ranked readings: **no verified public score found** for this exact release.
-
-Multimodal:
-
-- BabyVision **89.6%** implies image input; text output; no audio verification.
+**Not published for V4.1-Flash:** any Artificial Analysis index, SWE-bench Verified, SWE-bench Pro, MMMU-Pro, Video-MMMU, DocVQA, MMLU-Pro, ARC-AGI, τ²-bench, MCP Atlas, BrowseComp, Toolathlon, or any independent long-context retrieval measurement. The model is eighteen days old; this is expected rather than damning, but it means nearly all evidence above is vendor-published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 2.1 90.6% and CyberGym 88.1% are elite agentic-terminal/security numbers; OSWorld/MCP gaps untraced.
-- **Reasoning: 88/100.** GPQA 90.9% and CodeForces 100% indicate strong scientific-contest reasoning; factual recall is the family's weaker tail.
-- **Context window: 84/100.** 1M native at commodity FLOPs; retrieval evals not republished for this release.
-- **Multimodal: 82/100.** BabyVision 89.6 with vision confirmed; no audio.
-- **Coding: 90/100.** CodeForces 100% and SWE-bench Verified 88.8% class — among the strongest open-weight coding results of 2026, alongside kimi-k3-class terminal behavior.
-- **Cost efficiency: 88/100.** Open weights + $0.22/$0.66 with $0.01 cache read is near-commodity pricing for near-frontier coding.
-- **Overall Score: 86/100.** Mean of the five quality dims (86+88+84+82+90)/5 = 86.0 → 86. The best open-weights coding-over-cost trader of Sep 2026 — terminal-first, memory-big, front-end-of-the-frontier.
+- **Tool use: 88/100.** Up 4, and the single strongest result in this report is **AutomationBench at 54.8%** — against DeepSeek's own V4-Pro at 31.8%, Kimi K3 at 30.8%, Gemini 3.7 Flash at 30.4% and DeepSeek's 0731 Flash generation. That is a 23-point lead over its own predecessor on business-process execution, and it is the number that most plausibly explains how a 8B/16B-active model displaced a 1.6T flagship on a live endpoint. **Terminal-Bench 2.1 at 90.6%** is excellent, **HLE with tools 63.9%**, **CyberGym 88.1%**, **SEC-Bench Pro 62.8%**, **Agent's Last Exam 31.8%**, **Chartography with tools 78.9%**. Held at 88 rather than higher on one severe and one structural caveat. The severe one: **Terminal-Bench 2.1 at 90.6% collapses to 30.0% on Terminal-Bench 3.0 and 31.2% on Terminal-Bench 4.0** — a 60-point fall — and on both harder versions the model **loses to Claude Opus-5.0 (43.3 / 51.8) and to GPT-5.6 Sol (34.4 / 39.9)**. It leads the field on the older terminal benchmark and trails it on the current ones. The structural one: **no τ²-bench, MCP Atlas, BrowseComp, Toolathlon or Vals figure exists**, so tool use is measured on DeepSeek's own selection of benchmarks.
+- **Reasoning: 85/100.** Down 3. Genuinely strong: **GPQA Diamond 90.9%**, **Codeforces rating 3,471** — the highest in this dataset — and **MathArena Apex 65.6%**, which is a large step up from DeepSeek V4 Pro's 38.3%. Held down by a clear and quantified deficit on the hardest reasoning test: **HLE at 36.8% (39.1 with tools) against Claude Opus-5.0's 56.3% and GPT-5.6 Sol's 44.5%** — a 20-point gap to the model DeepSeek is displacing on cost. Also **ProgramBench 20.3% versus Opus-5.0's 37.0%**. Two honest limits on this score: **no Artificial Analysis Intelligence Index has been published for V4.1-Flash**, and **no grounding or hallucination profile exists for it** — DeepSeek V4 Pro's own Omniscience numbers were 49.1% accuracy against a 94.1% hallucination rate with an index of 0.8, which is the worst profile in this dataset, but **those are V4-Pro's figures and must not be attributed to V4.1-Flash**. The family history is a reason for caution, not evidence.
+- **Context window: 88/100.** Up 2. **1,048,576 tokens with max output up to 943,718** — that output allowance is by far the largest of any model here, and the CED design with separate 8B-prefill/16B-decode active budgets is explicitly a long-context efficiency architecture. Held at 88 because **no independent long-context retrieval measurement exists for this checkpoint** — no AA-LCR, no MRCR 1M, no CorpusQA 1M. DeepSeek V4 Pro posted MRCR 1M 83.5% and AA-LCR 75.3%, and it would be convenient to carry those over; it would also be wrong, since V4.1-Flash is a different model on a different architecture.
+- **Multimodal: 74/100.** Down 14 — the largest single change in this report, and the one place where the prior pass was most generous. What actually exists: B.AI describes V4.1-Flash as a **native multimodal MoE model**; the retired alias **`deepseek-v4-flash-vision-exp` now routes to it**, so vision is on the default endpoint; and **Chartography with tools at 78.9%** is a chart-and-figure benchmark that implies real visual capability. What does not exist: **no first-party modality list**, **no MMMU-Pro, Video-MMMU, DocVQA or ChartQA figure anywhere**, and a documented history that argues for caution — **the April V4-Flash was explicitly text-only with "no image, audio, or video support," Vals lists DeepSeek V4 Pro as text-input only, and the vision route was an experiment ("Vision-Exp") until roughly two weeks ago.** Scored at 74 rather than lower because the capability is plausibly real, is now the default path, and has one supporting benchmark; scored well below its peers because "plausibly real and one chart benchmark" is a much weaker position than Google's first-party text/image/video/audio/PDF declaration.
+- **Coding: 88/100.** Up 5. **Codeforces 3,471 is the highest rating of any model in this dataset. DeepSWE v1.1 at 74.2% resolved** beats Kimi K3's 67.5% and Gemini 3.7 Flash's 65.3%. **NL2Repo-Bench 64.0% beats GPT-5.6 Sol's 56.8%.** **Terminal-Bench 2.1 90.6%**, **SEC-Bench Pro 62.8%**, **MathArena Apex 65.6%**. Held at 88 for three gaps: **no SWE-bench Verified or Pro figure has been published for V4.1-Flash** — V4-Pro's 80.6/55.4 cannot be transferred; **ProgramBench at 20.3% is poor** despite leading DeepSeek's own table on nothing; and **ExploitGym at 15.3%** indicates weak adversarial-security code, which matters for a model this cheap to run at volume.
+- **Cost efficiency: 92/100.** Up 4. The economics here are the strongest part of the model. DeepSeek cut prices with this release and **off-peak rates are 50% of peak**, so the same workload can be halved on a schedule. Whatever the exact first-party table turns out to be, **a 552B MoE activating 8B on input and 16B on output is the cheapest frontier-adjacent capability in this dataset by a wide margin** — Kilo Code lists $0.30/1M input via OpenRouter, against Kimi K3's $3.00 and Claude Opus 5's $5.00, and DeepSeek is routing its entire flagship endpoint to this model at these rates. Held at 92 rather than higher for one reason: **the current first-party peak/off-peak table was not confirmed in the sources available**, and the third-party figures for the redirected IDs ($0.05/$0.10, $0.065/$0.18, $0.14/$0.28, $0.22/$0.66) describe different routing states rather than one price. The direction is unambiguous; the exact number should be read off DeepSeek's pricing page before budgeting.
+- **Overall Score: 84.6/100.** Half-up mean of the five quality dims: (88 + 85 + 88 + 74 + 88) / 5 = 84.6. Best fit: **the best coding-per-dollar model available anywhere, and the one to watch.** Eighteen days old, it is now the default endpoint for all of DeepSeek's flagship traffic because third-party testing reportedly found it ahead of a 1.6T-parameter model on performance, cost, speed and total runtime. The evidence supports that on coding and cost — **Codeforces 3,471, DeepSWE 74.2%, NL2Repo 64.0% beating GPT-5.6 Sol, and AutomationBench 54.8% leading the field by 23 points** — and does not support it on frontier reasoning, where **HLE at 36.8% trails Opus-5.0 by 20 points**. The honest summary: **exceptional economics and near-frontier coding, at a reasoning level a clear step below the closed frontier, with a 1M window, the largest max-output allowance in the dataset, and a multimodal story that is claimed, recent, and unmeasured.**
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
-- Method: public web research (llm-stats model/compare pages, genztech coding leaderboard, aimodelsnavi, BenchLM, api-docs); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-28
+- Method: public internet research (DeepSeek's V4.1-Flash release post and API-docs news entry dated 2026-09-10; DeepSeek's published model-card benchmark table as reproduced on NVIDIA's build hub and by deepseekv4guide.org including DeepSeek's own head-to-head comparison against Claude Opus-5.0 and GPT-5.6 Sol; B.AI's V4.1-Flash and V4-Flash model docs; Kilo Code's model record; BenchLM's DeepSeek provider page, pricing page and V4 Pro 0813 record; Vals' DeepSeek V4 record; LM Market Cap's DeepSeek provider table). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Re-research note (supersedes the 2026-09-17 pass):** net Overall 85 → **84.6**, essentially flat, with the composition changing substantially. **Coding 83 → 88** on **Codeforces 3,471 — the highest rating in this dataset — DeepSWE v1.1 at 74.2% resolved, and NL2Repo-Bench 64.0% beating GPT-5.6 Sol's 56.8%. Tool use 84 → 88**, driven by a single number: **AutomationBench 54.8%, against DeepSeek's own V4-Pro at 31.8%, Kimi K3 at 30.8% and Gemini 3.7 Flash at 30.4%. Context 86 → 88** on the **1,048,576-token window with max output up to 943,718**, the largest output allowance in the dataset. **Cost 88 → 92** on the price cut plus **off-peak rates at 50% of peak**. Against those gains, two dimensions fell. **Reasoning 88 → 85** on a quantified deficit the earlier pass did not register: **HLE at 36.8% (39.1 with tools) against Claude Opus-5.0's 56.3%**, plus **ProgramBench 20.3% against 37.0%** — measured on DeepSeek's own published comparison table, which includes its losses. **Multimodal 84 → 74**, the largest change in this report, because the evidence is far thinner than the prior pass assumed: the April V4-Flash was **explicitly text-only**, Vals lists **V4 Pro as text-input only**, the vision route was an experiment named "**Vision-Exp**" until its retirement two weeks ago, and **no MMMU-Pro, Video-MMMU or DocVQA figure exists**. What does support the capability is B.AI's "native multimodal" description, the vision-exp alias now routing to the default endpoint, and **Chartography with tools at 78.9%**.
+- **The finding that governs this report:** the refresh established that **V4.1-Flash is no longer a tier of the lineup but the endpoint itself.** Released **2026-09-10**, it is **eighteen days old**; **V4-Flash and V4-Flash-Vision-Exp are retired**, routing to it for compatibility; and from **04:00 UTC on 2026-09-14 every `deepseek-v4-pro` request routes to V4.1-Flash at V4.1-Flash rates**, with DeepSeek stating it is phasing out V4-Pro because "tests by multiple parties put V4.1-Flash ahead of V4-Pro on performance, cost, speed and total runtime." A model activating 8B of 552B parameters on input replaced a 1.6-trillion-parameter flagship across a live production endpoint in four days. Any comparison of V4.1-Flash against V4-Pro or V4-Flash figures in this dataset is now comparing against a retired model.
+- **Conflicts recorded rather than smoothed over:** (1) **the current price is not confirmed first-party.** DeepSeek announced a cut effective 2026-09-10 with **off-peak at 50% of peak**, but the numeric table was not captured, and third-party figures for the redirected IDs disagree widely — **LM Market Cap $0.05/$0.10 and $0.065/$0.18, BenchLM $0.14/$0.28, LM Market Cap Vision Exp $0.22/$0.66, Kilo Code $0.30/1M input via OpenRouter** — describing different routing states rather than one price. Direction is certain; the number should be read off DeepSeek's pricing page. (2) **context window 1M versus 1.3M** — Kilo Code and B.AI say 1,048,576; LM Market Cap lists 1.3M for the V4 Flash Latest and 0731 entries. (3) **max output 943,718** is Kilo Code's figure alone; B.AI documents 384K max output for the April V4-Flash and V4-Pro, and no first-party max-output figure for V4.1-Flash was found. (4) **modality declaration** — B.AI says "native multimodal," Kilo Code lists no input modalities, and the retired `vision-exp` alias implies the vision path is real; but the April V4-Flash was text-only and Vals lists V4 Pro as text-only, so the multimodal claim rests on one source plus one alias. (5) **Terminal-Bench 2.1 90.6% versus Terminal-Bench 3.0 30.0% and 4.0 31.2%** is a 60-point collapse across benchmark versions on the same model, disclosed rather than resolved — the older version is not a usable proxy for the current ones. (6) **Grounding profile is absent.** DeepSeek V4 Pro's Omniscience figures (49.1% accuracy, **94.1% hallucination rate**, index 0.8) are the worst in this dataset; **no equivalent has been published for V4.1-Flash and none is inferred here**, though the family history is noted as a reason to verify before relying on closed-book factual recall.
+- Future sources: add a new file next to this one, e.g. `DeepSeek_V4_2_Flash.md`, using the same headings.

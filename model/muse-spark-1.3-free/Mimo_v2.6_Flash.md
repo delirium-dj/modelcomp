@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **94.1%** (Meta / AA, extra-high, no tools)
 - HLE: **48.7%** (max, no tools, text-only; BenchLM)
 - CritPt: **26.0** (extra-high, no tools; LLMLearner, rank 10/118)
-- Artificial Analysis Intelligence Index: **61** (xhigh public) / **62** (max, limited preview, rank ~6/600+)
+- Artificial Analysis Intelligence Index: **48** (AA v4.3.2 model page, 2026-09-28 — max #19/216, xhigh 45; launch-era 61/62 superseded, see Fresh-source note)
 - AA-LCR: **79%** (regressed from 83% on 1.2)
 - Omniscience Accuracy: **42%** (xhigh, down from 45%)
 
@@ -54,10 +54,12 @@ Long context:
 - MRCR v2 8-needle 256K–512K: **98.5%** (Meta max, rank 1/7)
 - MRCR v2 8-needle 512K–1M: **98.1%** (Meta max, rank 1/8)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 48** (max; xhigh 45) contradicts the launch-era 61/62 cited above (AA rescaled since) — scores unchanged pending re-derivation.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 95/100.** TB2.1 88.8% (near-frontier), DeepSWE 75.4% rank-1, GDPval 1754, OSWorld 66.9%; capped slightly because max-effort figures are preview-only and Tau3 47% trails the 50%+ frontier bar.
-- **Reasoning: 92/100.** GPQA 94.1%, HLE 48.7%, AA Index 61 tie frontier at lower cost; capped by HLE below 50% and AA-LCR regression to 79%.
+- **Reasoning: 92/100.** GPQA 94.1%, HLE 48.7%, AA Index 48 (v4.3.2 refresh) at lower cost; capped by HLE below 50% and AA-LCR regression to 79%.
 - **Context window: 100/100.** 1M window with 98.5%/98.1% MRCR retrieval at 256K–512K and 512K–1M bands — meets the ≥98% at 512K+ bar for 100.
 - **Multimodal: 85/100.** Native image + video input (text out); no audio/non-text output, so capped below 90.
 - **Coding: 95/100.** DeepSWE 75.4% #1, TB2.1 88.8%, SciCode 59.7%; capped slightly by preview max-effort caveat and missing LiveCodeBench/SWE-bench Verified rows for 1.3.

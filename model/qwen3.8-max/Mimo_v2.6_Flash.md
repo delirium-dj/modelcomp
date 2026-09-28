@@ -23,7 +23,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **86.6%** (BenchLM public row); Vals harness **67.4%** — harness split noted
 - Tau3-Banking / Tau2-Bench: no verified public score found under those exact names in reviewed rows
-- GDPval-AA: no verified public score found as a standalone row; AA Intelligence Index **46.9 (#13)** embeds GDPval among its nine evals (CloudPrice/pricepertoken AA card)
+- GDPval-AA: no verified public score found as a standalone row; AA Intelligence Index **45** (AA-native 2026-09-28) embeds GDPval among its ten evals
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathlon / MCP-Atlas: Toolathlon wins vs Plus peers on llm-stats shared set; exact Toolathlon % for Max not pinned in reviewed rows — no verified public score found for MCP-Atlas
 - HLE w/ tools: **56.2%** (BenchLM)
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - HLE: **43.6%** (no tools); **56.2%** with tools (BenchLM)
 - LCR / MLCR: AA-LCR not pinned for Max in reviewed rows — no verified public score found under that label; LCR rank #47 marker on CloudPrice AA card implies mid-high AA-LCR but exact value not captured
 - CritPt: no verified public score found for Max in reviewed rows
-- Artificial Analysis Intelligence Index: **46.9 / #13** (CloudPrice, pricepertoken — 98th percentile note)
+- Artificial Analysis Intelligence Index: **45** (AA-native, 2026-09-28; prior 46.9/#13 rollup close but superseded, see Fresh-source note)
 - MMLU-Pro (Vals): **88.6%**; IFBench 82.8%; IFEval lane #16 at 90.5 composite
 - Omniscience Accuracy / Hallucination Rate: no verified public score found for Max
 - DesignArena / Text Arena: DesignArena Elo **1322 (#8)** among coding-elo boards; Alibaba PR: **#5 Text Arena, #2 Vision Arena** at launch
@@ -55,10 +55,12 @@ Long context:
 - 1M window with long-context LLM-Stats index **#4** among reported peers; LongBench v2 wins vs Qwen3.6 Plus on llm-stats shared set
 - MRCR / RULER exact retrieval curves for Max: no verified public score found in reviewed sources
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): AA-native **Intelligence Index 45** (v4.3.2) replaces the 46.9/#13 rollup citation — corroborating within 2 points; scores unchanged.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Terminal-Bench 2.1 86.6% plus strong agentic lane (#9/151 public lane, HLE-with-tools 56.2%, CoWorkBench 74.8%) sits just under the TB2.1 ~88%+ frontier band; missing Tau3/GDPval/Claw-Eval standalone rows cap the top end.
-- **Reasoning: 89/100.** GPQA Diamond 92.6–93.7% and HLE 43.6% (56.2% with tools) clear the frontier references (GPQA 90+, HLE 40+); AA Index 46.9 and absent CritPt/Omniscience rows keep it from the mid-90s.
+- **Reasoning: 89/100.** GPQA Diamond 92.6–93.7% and HLE 43.6% (56.2% with tools) clear the frontier references (GPQA 90+, HLE 40+); AA Index 45 (v4.3.2 refresh) and absent CritPt/Omniscience rows keep it from the mid-90s.
 - **Context window: 94/100.** Full 1M / 131K-out lands in the ≥1M tier (95–100), held one point shy of the top because no ≥98%-at-512K retrieval proof (MRCR/RULER) was published for this exact ID.
 - **Multimodal: 88/100.** Native image/PDF/video in with #2 Vision Arena placement and chart/document claims; no audio input and text-only output keep it in the video/PDF band (75–90) rather than 90+.
 - **Coding: 89/100.** SWE-bench (Vals) 85.6%, LiveCodeBench 87.9%, SWE-Pro 67.7%, DeepSWE 56.6%, Coding Index 71.8 form a near-frontier stack — DeepSWE still trails the 74%+ frontier reference.

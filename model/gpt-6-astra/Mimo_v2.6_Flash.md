@@ -41,7 +41,7 @@ Reasoning / knowledge:
 - Humanity's Last Exam with tools: **57.2%** (OpenAI; Fable 5.1 65.0%)
 - ARC-AGI-3: **99.9%** (Responses API harness footnote)
 - ARC-AGI-2: **95.0%**; ARC-AGI-1: **98.5%** (OpenAI)
-- Artificial Analysis Intelligence Index v4.1.1: **61.2** (AA; Fable 5.1 65.7, Opus 5 63.1)
+- Artificial Analysis Intelligence Index: **53** (AA v4.3.2, 2026-09-28 — max effort; same-scale field: Fable 5.1 53, Opus 5 51; see Fresh-source note)
 - ExploitBench: **100%** (OpenAI cyber eval)
 
 Coding:
@@ -56,10 +56,12 @@ Long context:
 
 - MRCR (OpenAI): **100%** at 256K–512K; **96.3%** at 512K–1M (vs Sol 91.5% / 73.8%)
 
+- Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): AA-native **Intelligence Index 53** (v4.3.2, max effort) supersedes the v4.1.1 reading 61.2 — whole-index rescale, not a capability drop (Fable 5.1 and Opus 5 moved the same way) — scores unchanged.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 97/100.** TB4.0 57.9% SOTA-class, TB-Science 64.6%, OSWorld 72.6%, AutomationBench 41.4%, SRE-Bench 88%; capped slightly by missing GDPval/Tau3/Claw rows and restricted launch build for offensive cyber PoCs.
-- **Reasoning: 98/100.** FrontierMath T4 97.6%, GPQA 96%, ARC-AGI-2/3 95/99.9, HLE-tools 57.2%; capped just below 100 because AA Index 61.2 trails Fable 5.1/Opus 5 and HLE-tools trails Fable by ~8 pts.
+- **Reasoning: 98/100.** FrontierMath T4 97.6%, GPQA 96%, ARC-AGI-2/3 95/99.9, HLE-tools 57.2%; capped just below 100 because AA Index 53 (v4.3.2 refresh) sits level with Fable 5.1 and HLE-tools trails Fable by ~8 pts.
 - **Context window: 98/100.** 1.05M window with MRCR 100% (256K–512K) and 96.3% (512K–1M) — just under the ≥98% at 512K+ bar for a flat 100.
 - **Multimodal: 65/100.** Text + image in, text out; no video/audio/non-text out → 60–70 band.
 - **Coding: 96/100.** DeepSWE 74.1%, TB4.0 57.9%, FrontierCode 64.5; capped by missing SWE-bench Verified/LCB rows and DeepSWE not #1.
