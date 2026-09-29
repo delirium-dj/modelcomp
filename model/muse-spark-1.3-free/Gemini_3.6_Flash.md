@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by Gemini 3.6 Flash
 
 - Source: Meta (`opencode/muse-spark-1.3-contributor-free`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free`
 - **Context window:** 1,048,576 tokens input / 32,768 max output; verified via Meta Research blog.
 - **Modalities:** Text, image, video, PDF input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen Contributor tier).
+- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output (Free Zen Contributor tier).
 - **Architecture:** Open-weights MoE architecture.
 
 ### Raw benchmarks found
@@ -56,11 +56,11 @@ Long context:
 - **Multimodal: 85/100.** Comprehensive text, image, video, and PDF input.
 - **Coding: 95/100.** DeepSWE 75.4% surpassing Opus 74.0%.
 - **Cost efficiency: 100/100.** Free Contributor tier access ($0/1M tokens).
-- **Overall Score: 93/100.** Primary recommended free model for autonomous software engineering.
+- **Overall Score: 93/100.** Mean of five quality dims (95+92+100+85+95)/5 = 93.4 → 93. Primary recommended free model for autonomous software engineering.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
-- Method: Public internet research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

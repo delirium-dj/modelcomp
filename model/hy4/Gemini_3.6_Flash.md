@@ -1,7 +1,7 @@
 # HY4 — findings by Gemini 3.6 Flash
 
 - Source: Tencent / Hy4 preview (`hy4`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text input, text output; native tool calls, JSON mode.
-- **Pricing (as of 2026-09-21):** $0.60 / 1M input tokens, $2.40 / 1M output tokens (open-weights deployment options).
+- **Pricing (as of 2026-09-29):** $0.60 / 1M input tokens, $2.40 / 1M output tokens (open-weights deployment options).
 - **Architecture:** Open-weights 770B MoE (49B active), Apache 2.0 license.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 15/100.** Text input and output focus.
 - **Coding: 86/100.** Excellent coding capabilities across Terminal-Bench 2.1 (85.4%) and SWE-bench Multilingual (82.9%).
 - **Cost efficiency: 90/100.** Highly cost-effective open-weights model ($0.60/$2.40 per 1M tokens).
-- **Overall Score: 75/100.** Mean of the five quality dimensions (86, 91, 96, 15, 86); excellent open-weights long-horizon text reasoning model.
+- **Overall Score: 75/100.** Mean of five quality dims (86+91+96+15+86)/5 = 74.8 → 75. Excellent open-weights long-horizon text reasoning model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Gemini 3.6 Flash
 
 - Source: Anthropic / Claude Mythos 5.1 (`claude-mythos-5.1`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-mythos-5.1`
 - **Context window:** 1,000,000 tokens (1M input context, up to 128K output tokens).
 - **Modalities:** text and image input; text output; native tool use, JSON mode, reasoning mode.
-- **Pricing (as of 2026-09-21):** $10.00 / 1M input tokens, $50.00 / 1M output tokens ($0.25 / 1M cache read tokens).
+- **Pricing (as of 2026-09-29):** $10.00 / 1M input tokens, $50.00 / 1M output tokens ($0.25 / 1M cache read tokens).
 - **Architecture:** Proprietary frontier dense/MoE architecture.
 
 ### Raw benchmarks found
@@ -57,12 +57,11 @@ Long context:
 - **Multimodal: 64/100.** Supports high-resolution text and image inputs with text output; lacks native audio/video modalities.
 - **Coding: 93/100.** Exceptional coding performance across SWE-bench Pro (81.2%) and LiveCodeBench (2910 Elo).
 - **Cost efficiency: 30/100.** Premium tier pricing at $10.00/$50.00 per 1M tokens.
-- **Overall Score: 88/100.** Mean of the five quality dimensions (92, 93, 96, 64, 93); premier choice for specialized agentic, scientific, and security tasks.
+- **Overall Score: 88/100.** Mean of five quality dimensions (92+93+96+64+93)/5 = 87.6 → 88. Premier choice for specialized agentic, scientific, and security tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

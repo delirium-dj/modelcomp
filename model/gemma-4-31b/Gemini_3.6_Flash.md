@@ -1,7 +1,7 @@
 # Gemma 4 31B IT — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemma-4-31b-it`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemma-4-31b-it`, `gemma-4-31b-it`
 - **Context window:** 256,000 tokens (256K input / 16,384 max output tokens — verified via HuggingFace and OpenRouter specs).
 - **Modalities:** Text, image, and video input; text output; reasoning yes (configurable thinking mode); native tool calls yes.
-- **Pricing (as of 2026-09-21):** $0.15 / 1M input tokens, $0.40 / 1M output tokens (Free to run locally under Apache 2.0 license).
+- **Pricing (as of 2026-09-29):** $0.15 / 1M input tokens, $0.40 / 1M output tokens (Free to run locally under Apache 2.0 license).
 - **Architecture:** Dense 31-billion parameter multimodal architecture with thinking mode support.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 58/100.** Text, image, and video input capabilities; text output only.
 - **Coding: 81/100.** Strong competitive coding at 80.0% LiveCodeBench v6, capped by 48.5% SWE-bench score.
 - **Cost efficiency: 95/100.** Exceptional value as an Apache 2.0 open-weight model ($0.15/$0.40 per 1M hosted or zero marginal cost locally).
-- **Overall Score: 77/100.** Half-up mean of the five quality dimensions (83, 84, 81, 58, 81); top-tier open-weight 31B model.
+- **Overall Score: 77/100.** Mean of five quality dimensions (83+84+81+58+81)/5 = 77.4 → 77. Top-tier open-weight 31B model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

@@ -1,7 +1,7 @@
 # HY3 — findings by Gemini 3.6 Flash
 
 - Source: Tencent (`tencent/hy3`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy3` (no Free ID on Zen)
 - **Context window:** 256,000 tokens (256K) input / 32,768 (32K) output — verified via Tencent Hunyuan specifications.
 - **Modalities:** Text, image in; text out; tool integration, thinking mode toggle.
-- **Pricing (as of 2026-09-19):** TokenHub preview ~$0.18 / 1M input, $0.59 / 1M output tokens; Apache 2.0 open weights.
+- **Pricing (as of 2026-09-29):** TokenHub preview ~$0.18 / 1M input, $0.59 / 1M output tokens; Apache 2.0 open weights.
 - **Architecture:** Open-weight Sparse MoE (295B total / 21B active) with hybrid reasoning routing.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 70/100.** Reliable image understanding; text-only output caps score.
 - **Coding: 74/100.** Solid code synthesis and debugging for everyday scripts.
 - **Cost efficiency: 92/100.** Ultra-competitive open-weight pricing ($0.18/$0.59 per 1M tokens).
-- **Overall Score: 73.0/100.** Mean of the five quality dimensions; economical choice for open-weights self-hosting.
+- **Overall Score: 73/100.** Mean of five quality dims (74+72+75+70+74)/5 = 73.0 → 73. Economical choice for open-weights self-hosting.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
-- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

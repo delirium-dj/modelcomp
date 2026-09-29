@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by Gemini 3.6 Flash
 
 - Source: xAI (`xai/grok-4.6`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xai/grok-4.6` (no Free ID on Zen)
 - **Context window:** 1,000,000 tokens (1M) input / 128,000 (128K) output — verified via xAI developer documentation.
 - **Modalities:** Text, image in; text out; structured function calls, real-time search mode.
-- **Pricing (as of 2026-09-19):** Paid $2.00 / 1M input, $10.00 / 1M output tokens.
+- **Pricing (as of 2026-09-29):** Paid $2.00 / 1M input, $10.00 / 1M output tokens.
 - **Architecture:** Proprietary xAI frontier Transformer with specialized reasoning and retrieval heads.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 75/100.** Strong vision capabilities for image and diagram analysis.
 - **Coding: 84/100.** Top-tier coding and automated debugging performance.
 - **Cost efficiency: 70/100.** Competitive frontier pricing ($2/$10 per 1M tokens).
-- **Overall Score: 82.0/100.** Mean of the five quality dimensions; strong frontier option for reasoning and real-time research.
+- **Overall Score: 82/100.** Mean of five quality dims (82+84+85+75+84)/5 = 82.0 → 82. Strong frontier option for reasoning and real-time research.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
-- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Gemini 3.6 Flash
 
 - Source: Google / Gemini 3.1 Pro (`gemini-3.1-pro`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.1-pro`, `opencode/gemini-3.1-pro`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text, image, audio, video, PDF input; text output; native tool use, JSON mode, reasoning mode.
-- **Pricing (as of 2026-09-21):** $2.00 / 1M input tokens, $12.00 / 1M output tokens (standard tier).
+- **Pricing (as of 2026-09-29):** $2.00 / 1M input tokens, $12.00 / 1M output tokens (standard tier).
 - **Architecture:** Proprietary multimodal MoE architecture.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 88/100.** Native support for text, image, audio, video, and PDF inputs with text generation.
 - **Coding: 89/100.** Excellent coding capability backed by 80.6% on SWE-bench Verified, 59% on SciCode, and 2887 Elo on LiveCodeBench.
 - **Cost efficiency: 65/100.** Priced at $2.00/$12.00 per 1M tokens for standard flagship performance.
-- **Overall Score: 90/100.** Mean of the five quality dimensions (84, 92, 96, 88, 89); excellent flagship choice for heavy reasoning and multimodal agent tasks.
+- **Overall Score: 90/100.** Mean of five quality dimensions (84+92+96+88+89)/5 = 89.8 → 90. Excellent flagship choice for heavy reasoning and multimodal agent tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

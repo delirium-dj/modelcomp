@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by Gemini 3.6 Flash
 
 - Source: OpenAI / GPT-5.6 Sol (`gpt-5.6-sol`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.6-sol`
 - **Context window:** 1,050,000 tokens (1.05M input context, up to 64K output tokens).
 - **Modalities:** text and image input; text output; native tool use, JSON mode, reasoning effort control.
-- **Pricing (as of 2026-09-21):** $3.00 / 1M input tokens, $15.00 / 1M output tokens (standard tier).
+- **Pricing (as of 2026-09-29):** $3.00 / 1M input tokens, $15.00 / 1M output tokens (standard tier).
 - **Architecture:** Proprietary dense/MoE architecture.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 70/100.** Supports high-resolution text and image inputs with text output.
 - **Coding: 89/100.** Strong software engineering performance backed by 80.2% on SWE-bench Verified and 2850 Elo on LiveCodeBench.
 - **Cost efficiency: 55/100.** Mid-to-high flagship pricing at $3.00/$15.00 per 1M tokens.
-- **Overall Score: 86/100.** Mean of the five quality dimensions (88, 90, 95, 70, 89); excellent workhorse choice for long-horizon agentic development.
+- **Overall Score: 86/100.** Mean of five quality dims (88+90+95+70+89)/5 = 86.4 → 86. Excellent workhorse choice for long-horizon agentic development.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

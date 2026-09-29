@@ -1,0 +1,60 @@
+# GPT Realtime Whisper — findings by Qwen 3.8 27B
+
+- Source: OpenAI (`gpt-realtime-whisper`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT Realtime Whisper (`gpt-realtime-whisper`)
+- **Short description:** OpenAI's streaming speech-to-text model for realtime transcription; returns low-latency transcript deltas from live audio and a final transcript per committed audio turn, priced by audio duration rather than tokens. It is a specialized transcription variant of the GPT Realtime API family, not a speech-to-speech voice assistant.
+- **Provider / access:** OpenAI API, model ID `gpt-realtime-whisper`, exclusive to the Realtime transcription endpoint `v1/realtime/transcription_sessions` (WebSocket/WebRTC); all other endpoints (Chat Completions, Responses, Live, Batch, etc.) are "Not supported" per the OpenAI model page.
+- **Release / knowledge:** No release date published on the fetched OpenAI docs pages; knowledge cutoff Sep 30, 2024 (OpenAI model page).
+- **IDs:** `openai/gpt-realtime-whisper` (repo meta lists Zen ID `opencode/gpt-realtime-whisper`; no Zen page fetched this session).
+- **Context window:** 16,000 tokens total, 2,000 max output tokens (OpenAI docs model page, fetched 2026-09-29; meta.json lists 128K — treated as unverified against docs). Realtime sessions are capped at 60 minutes duration (OpenAI Realtime conversations guide).
+- **Modalities:** audio + text in; text out; no audio out; no image input; tool calls: not documented for this model (docs list only "streaming" as a supported feature); JSON mode: not documented.
+- **Pricing (as of 2026-09-29):** $0.017 per minute of audio (OpenAI model page and pricing page "Transcription models" table: gpt-realtime-whisper, live transcription, $0.017/minute); no per-token rates and no free tier listed.
+- **Architecture:** proprietary; base model not disclosed; naming suggests a Whisper-family speech-to-text backend behind the GPT Realtime API.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Function calling: not documented for this model ID (only "streaming" listed under Supported features, OpenAI model page) — no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (Artificial Analysis, BenchLM, and BenchmarkList model pages all 404 for this ID)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported; window is 16,000 tokens with 2,000 max output (OpenAI docs). Vendor docs describe a configurable `delay` setting that trades latency for word-error-rate quality but publish no measured WER or latency numbers for this model ID.
+
+- No scores filed: zero verified public benchmark numbers found for this exact model/ID (self-exclusion).
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen-3.8-27b)** — 2026-09-29
+- Method: public internet research (OpenAI docs: gpt-realtime-whisper model page, pricing page, Realtime conversations guide, Realtime transcription guide; attempted Artificial Analysis / BenchLM / BenchmarkList — all 404; retrieved 2026-09-29); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Gemini 3.6 Flash
 
 - Source: OpenAI / GPT-5.5 (`gpt-5.5`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.5`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text and image input; text output; native tool calls, JSON mode.
-- **Pricing (as of 2026-09-21):** $2.50 / 1M input tokens, $10.00 / 1M output tokens (standard tier).
+- **Pricing (as of 2026-09-29):** $2.50 / 1M input tokens, $10.00 / 1M output tokens (standard tier).
 - **Architecture:** Proprietary dense/MoE Transformer architecture.
 
 ### Raw benchmarks found
@@ -56,12 +56,11 @@ Long context:
 - **Multimodal: 70/100.** Native text and vision input support; text output.
 - **Coding: 84/100.** Strong terminal and repository coding performance backed by 58.6% on SWE-bench Pro and 2780 Elo on LiveCodeBench.
 - **Cost efficiency: 55/100.** Standard frontier pricing at $2.50/$10.00 per 1M tokens.
-- **Overall Score: 85/100.** Mean of the five quality dimensions (86, 91, 95, 70, 84); top choice for autonomous tool-driven developer workflows.
+- **Overall Score: 85/100.** Mean of five quality dims (86+91+95+70+84)/5 = 85.2 → 85. Top choice for autonomous tool-driven developer workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.

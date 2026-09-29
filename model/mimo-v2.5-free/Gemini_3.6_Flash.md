@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by Gemini 3.6 Flash
 
 - Source: Xiaomi (`opencode/mimo-v2.5-free`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free`
 - **Context window:** 200,000 tokens input / 32,768 max output on Zen (native 1M context); verified via models.dev.
 - **Modalities:** Text, image, audio, video input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
 - **Architecture:** Open-weights MoE (310B total / 15B active parameters).
 
 ### Raw benchmarks found
@@ -56,11 +56,11 @@ Long context:
 - **Multimodal: 95/100.** Omni-modal input support (text, image, audio, video).
 - **Coding: 78/100.** Strong SWE-Pro and LiveCodeBench performance.
 - **Cost efficiency: 100/100.** Completely free on Zen ($0/1M tokens).
-- **Overall Score: 79/100.** Top-performing free multimodal model for coding and agents.
+- **Overall Score: 79/100.** Mean of five quality dims (78+72+70+95+78)/5 = 78.6 → 79. Top-performing free multimodal model for coding and agents.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
-- Method: Public internet research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
