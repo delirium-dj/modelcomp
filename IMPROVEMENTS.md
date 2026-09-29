@@ -23,8 +23,10 @@ only the open work.
      item a non-empty string.
    - `freeTierNote`, if present: must be a non-empty string.
    - `noFreeId`, if present: must be a boolean.
-   - `id`: must contain exactly one `/` with non-empty vendor and model
-     sides (matches all current ids like `opencode/mimo-v2-6-free`).
+   - `id`: at least one `/` with no empty segments (hierarchical provider
+     ids like `deepinfra/ByteDance/Seed-2.0-pro` are legitimate).
+     Implemented 2026-09-29 in the sync meta loop; pre-checked all 108
+     metas — zero violations, so no existing file trips the new gates.
 3. **Deliberately untouched:** unknown extra keys (forward-compat for future
    stamps), the `name` rule (already gated), sync flow and scoring otherwise.
 4. **Verify:** `node --check`, then the next green `pnpm sync` validates all

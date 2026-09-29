@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — Meta schema validation implemented (Muse Spark 1.3)
+
+1. IMPROVEMENTS.md #4 done: sync meta loop now fail-louds on malformed optional fields — `pricingTiers` (non-empty array of non-empty strings), `freeTierNote` (non-empty string), `noFreeId` (boolean), `id` (≥1 slash, no empty segments; hierarchical provider ids legitimate). No new deps. Pre-audited all 108 `meta.json` files: exactly 1 would-be violation (`seed-2.0-pro` 3-segment id), which the hierarchical rule accepts — zero existing files trip the new gates. `node --check` passes.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-29 — IMPROVEMENTS.md consolidated; Meta validation planned (user order)
 
 1. Completed items merged here: #1 catalog split (glob gone; nuance: full metas bundled, no on-demand deep-dive yet), #2 pre-baked rankings (O(1) lookup, client sorts removed), #3 voice pipeline (multi-root sync, aligned tripwires, `voicemodels/` removed), #5 purification (scratch gone, SW trio removed with zero refs; helper scripts + gitignored guides remain open judgment calls). `IMPROVEMENTS.md` reduced to the one open item below.

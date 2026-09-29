@@ -346,6 +346,26 @@ for (const slug of slugs) {
   if (typeof meta.name === "string" && meta.name.includes("_")) {
     fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
+  // Structural schema validation (IMPROVEMENTS.md #4): optional fields must
+  // have the right shape when present — fail loudly instead of cementing
+  // malformed metadata that breaks cards, tables, or badges at runtime.
+  // (`id` allows hierarchical provider ids like deepinfra/ByteDance/X:
+  // at least one slash, no empty segments.)
+  if (meta.pricingTiers !== undefined && (!Array.isArray(meta.pricingTiers) || meta.pricingTiers.length === 0 || meta.pricingTiers.some((t) => typeof t !== "string" || t.length === 0))) {
+    fail(`model/${slug}/meta.json: "pricingTiers" must be a non-empty array of non-empty strings`);
+  }
+  if (meta.freeTierNote !== undefined && (typeof meta.freeTierNote !== "string" || meta.freeTierNote.length === 0)) {
+    fail(`model/${slug}/meta.json: "freeTierNote" must be a non-empty string`);
+  }
+  if (meta.noFreeId !== undefined && typeof meta.noFreeId !== "boolean") {
+    fail(`model/${slug}/meta.json: "noFreeId" must be a boolean`);
+  }
+  if (typeof meta.id === "string") {
+    const parts = meta.id.split("/");
+    if (parts.length < 2 || parts.some((p) => p.length === 0)) {
+      fail(`model/${slug}/meta.json: "id" must be "vendor/model" with non-empty sides (got "${meta.id}")`);
+    }
+  }
   // Store validated model metadata into our summary catalog map.
   // Frontend visibility: the site shows model/ entries only — record the
   // source root so models.ts (and rankings codegen below) can hide
