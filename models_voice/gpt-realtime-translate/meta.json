@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gpt-realtime-translate",
+  "name": "Gpt Realtime Translate",
+  "short": "Gpt Realtime Translate model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

@@ -1,9 +1,21 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-29 — model/gemini-3.8-live duplicate removed, voice canonical (user order)
+## 2026-09-29 — model/gemini-3.8-live reappeared again, cleared with zero loss (Muse Spark 1.3)
 
-1. `model/gemini-3.8-live/` (22 tracked files, 0 untracked strays) removed per user order; `models_voice/gemini-3.8-live/` (23 files) is now the sole home per the `RULES.md` voice-routing rule. Pre-removal verification: 19 files byte-identical across trees (safe), 3 differing (`average.md` regenerates via sync; `LongCat_2.5_Preview.md` + `Space_Bunny_Alpha.md` both dated 09-29 on both sides — model versions dropped with the folder), 1 voice-only file (`Ling_3.0_Flash_Fin.md`, untouched), 0 model-only files.
-2. Effect: next sync drops the `gemini-3.8-live` key from the site bundle (sync scans `model/` only; voice wiring still pending) — intended per the routing design. Committed with bypass — this entry is the sign-off.
+1. The cleared folder came back with 22 byte-identical untracked files (hash-verified against prior state): 19 byte-identical to voice canonicals + `average.md` (regenerable) deleted outright; `LongCat`/`Space_Bunny` variants hash-verified identical to the `tmp/quarantine-gemini-3.8-live/` copies, so also deleted — net data loss zero. Folder gone, voice tree untouched, nothing staged.
+2. Likely re-filer found: `.rerun/_queue.txt:80` still lists `71|gemini-3.8-live` and `_state.txt` tracks its DeepSeek file (09-29 09:28) — a stale re-run queue re-firing research into the dead `model/` path. Queue NOT edited (another lane's active bookkeeping); recommend the owner redirect it to `models_voice/` or drop the line — else the loop repeats on every sync.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-29 — model/gemini-3.8-live re-creation cleared, dup-check unblocked (Muse Spark 1.3)
+
+1. After commit a5da672, `model/gemini-3.8-live/` reappeared with 22 UNTRACKED files (mixed dates 09-17–09-29), tripping the new sync duplicate-slug FAIL (sync is now multi-root: `MODEL_ROOT_NAMES = ["model", "models_voice"]`, voice first-class). Hash-verified all 22 vs voice canonicals: 19 byte-identical (deleted, zero loss) + `average.md` (generated artifact, deleted — sync rewrites) + same-day `LongCat`/`Space_Bunny` variants (quarantined to gitignored `tmp/quarantine-gemini-3.8-live/` for reconciliation, NOT deleted). Folder fully gone; voice tree (23 files) untouched. Nothing staged, nothing to commit.
+2. Mid-operation incident (mine): a `Remove-Item` list contained a typo path (`model/gemini-2.5-flash-lite` instead of remaining 3.8-live files) — NonInteractive prompt refusal blocked it; verified `gemini-2.5-flash-lite/` intact at 24 files. No harm done.
+3. Architecture note: sync now scans `model/` + `models_voice/` (`scripts/sync-data.mjs:38`), so `RULES.md`, project-map, and `.agents/rules.md` statements saying "sync scans `model/` only" are stale — refresh offered, not yet done.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-29 — model/gemini-3.8-live duplicate removed, voice canonical (user order, logged belatedly)
+
+1. `model/gemini-3.8-live/` (22 tracked files, 0 untracked strays) removed per user order; `models_voice/gemini-3.8-live/` (23 files) kept as sole home per the `RULES.md` voice-routing rule. Pre-removal verification: 19 files byte-identical across trees, 3 differing (`average.md` regenerates via sync; `LongCat` + `Space_Bunny` both dated 09-29 both sides — model versions dropped), 1 voice-only file untouched, 0 model-only files. Committed as a5da672 with bypass — this entry (written belatedly after a concurrent edit displaced the original write) is the sign-off.
    Next: `pnpm sync && pnpm build.types && pnpm build`.
 
 ## 2026-09-25 — restored deepseek-v4.1-flash/Pixel_Canary.md (true deletion)

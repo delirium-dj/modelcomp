@@ -22,12 +22,12 @@ This document tracks identified architectural, structural, and hygiene improveme
 
 ---
 
-## 3. Formalize the Voice Models Pipeline (`models_voice/` vs. `model/`)
+## 3. Formalize the Voice Models Pipeline (`models_voice/` vs. `model/`) — DONE (2026-09-29)
 * **Concept:** Update build guards to recognize both model trees
-* **Current Behavior:** `models_voice/` was created for speech-first models (e.g., `gemini-3.8-live`, `gpt-realtime-2`), but `scripts/sync-data.mjs` only crawls `model/`. When models were moved between folders, the sync script's Git tripwire raised deletion alarms.
-* **Proposed Solution:**
-  - Teach `scripts/sync-data.mjs` to recognize `models_voice/` as a first-class directory alongside `model/`.
-  - Align automated deletion tripwires and score generation with the voice model routing rule in `RULES.md`.
+* **Executed Solution:**
+  - `scripts/sync-data.mjs` updated to crawl both `model/` and `models_voice/` as first-class model trees.
+  - Aligned deletion tripwires, score calculations, and catalog pre-baking across all model roots.
+  - Removed obsolete/duplicate `voicemodels/` directory.
 
 ---
 

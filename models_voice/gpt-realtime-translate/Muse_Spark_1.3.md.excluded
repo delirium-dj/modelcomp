@@ -1,0 +1,71 @@
+# GPT Realtime Translate — findings by Muse Spark 1.3
+
+- Source: OpenAI/GPT-Realtime-Translate (`openai/gpt-realtime-translate`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT Realtime Translate
+- **Short description:** OpenAI's streaming speech-to-speech translation model for live multilingual audio with translated-audio plus transcript deltas.
+- **Provider / access:** OpenAI Realtime translation endpoint `v1/realtime/translations`, model ID `gpt-realtime-translate` (dedicated endpoint only; Realtime, Chat Completions, and Responses not supported).
+- **Release / knowledge:** Release date not disclosed in fetched sources; knowledge cutoff 2026-09-30 (OpenAI docs)
+- **IDs:** `openai/gpt-realtime-translate`
+- **Context window:** 16,000 total with 2,000 max output (OpenAI docs)
+- **Modalities:** Audio in; audio and text out; streaming yes; no reasoning, tool-call, or image support listed
+- **Pricing (as of 2026-09-29):** $0.034 per audio minute (OpenAI docs; priced by duration, not tokens)
+- **Architecture:** Proprietary (no params, license, or weights disclosed)
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: search on 2026-09-29 found zero verified public benchmark numbers for this exact model ID. Every row below is "no verified public score found". Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (dedicated translation endpoint; no agent-benchmark harness applies)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (no BenchLM page found; no models.dev entry found)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; 16K context and 2K max output are listing ceilings only
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. No verified numbers exist, so no normalized dims are assigned (scores inside `.excluded` files are ignored by sync). Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — 16K/2K listing ceilings only, no measured retention.
+- **Multimodal:** not scored — audio in with audio+text out per spec only, no measured translation-quality benchmark.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — per-minute pricing noted, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-29
+- Method: public internet research (OpenAI model docs, BenchLM lookup, models.dev lookup); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

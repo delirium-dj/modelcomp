@@ -41,6 +41,7 @@ export const TOP_MODELS_BY_SOURCE: Record<string, [string, string, string]> = {
   "Laguna S 2.1": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
   "Laguna XS 2 1": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
   "Laguna XS 2.1": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
+  "Ling 3.0 Flash Fin": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
   "LongCat 2.5 Preview": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
   "Mimo v2.5 Free": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
   "Mimo v2.6 Flash": ["google/gemini-3.8-flash", "opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-pro"],
@@ -58,7 +59,7 @@ export const TOP_MODELS_BY_SOURCE: Record<string, [string, string, string]> = {
   "code": ["openai/gpt-6-astra", "anthropic/claude-opus-5-5", "anthropic/claude-mythos-5.1"],
   "context": ["opencode/muse-spark-1.3-contributor-free", "google/gemini-3.1-flash", "openai/gpt-6-astra"],
   "cost": ["opencode/muse-spark-1.3-contributor-free", "opencode/muse-spark-1.2-contributor-free", "opencode/space-bunny-free"],
-  "multi": ["google/gemini-3.8-flash", "google/gemini-3-8-live", "google/gemini-3.7-flash"],
+  "multi": ["opencode/gpt-realtime-2", "opencode/grok-voice-think-fast-2.0", "google/gemini-3.8-flash"],
   "reason": ["openai/gpt-6-astra", "anthropic/claude-opus-5", "anthropic/claude-mythos-5.1"],
   "tool": ["openai/gpt-6-astra", "anthropic/claude-opus-5-5", "anthropic/claude-opus-5"],
 };

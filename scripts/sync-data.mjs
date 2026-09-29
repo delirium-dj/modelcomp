@@ -33,7 +33,11 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const modelDir = join(root, "model");
+// Junior Developer Tip: MODEL_ROOT_DIRS lists all first-class model directories scanned by pnpm sync.
+// Voice models in models_voice/ are treated as first-class dataset entries alongside model/.
+const MODEL_ROOT_NAMES = ["model", "models_voice"];
+const MODEL_ROOT_DIRS = MODEL_ROOT_NAMES.map((name) => join(root, name)).filter((d) => existsSync(d));
+
 const modelsTsPath = join(root, "src", "data", "models.ts");
 
 const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
@@ -80,13 +84,24 @@ const parseScores = (md, where) => {
   return out;
 };
 
-const slugs = readdirSync(modelDir)
-  .filter((d) => statSync(join(modelDir, d)).isDirectory())
-  .sort();
-log(`sync-data: ${slugs.length} model folders`);
+/** Map of slug -> full folder path across model/ and models_voice/ */
+const slugToDir = {};
+
+for (const dirPath of MODEL_ROOT_DIRS) {
+  const dirs = readdirSync(dirPath).filter((d) => statSync(join(dirPath, d)).isDirectory());
+  for (const d of dirs) {
+    if (slugToDir[d]) {
+      fail(`duplicate model slug "${d}" found across model roots (${slugToDir[d]} and ${join(dirPath, d)})`);
+    }
+    slugToDir[d] = join(dirPath, d);
+  }
+}
+
+const slugs = Object.keys(slugToDir).sort();
+log(`sync-data: ${slugs.length} model folders across ${MODEL_ROOT_DIRS.length} model roots (${MODEL_ROOT_NAMES.join(", ")})`);
 
 // ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
-// Any git-tracked findings file (model/**/*.md / *.md.excluded, except the
+// Any git-tracked findings file (model/**/*.md or models_voice/**/*.md / *.md.excluded, except the
 // regenerable average.md + README.md) missing from disk is a forbidden
 // deletion — unless it survives somewhere sanctioned. FAIL loudly so a real
 // deletion can never be cemented silently (a failing run also skips rewriting
@@ -99,7 +114,7 @@ log(`sync-data: ${slugs.length} model folders`);
 //     preserved, pending commit.
 const MIRROR_ROOTS = ["models_voice", "models_finance"];
 try {
-  const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model"], { cwd: root });
+  const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model", "models_voice"], { cwd: root });
   for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
     const posix = rel.replace(/\\/g, "/");
     if (!posix.endsWith(".md") && !posix.includes(".md.excluded")) continue;
@@ -176,8 +191,9 @@ const SHORT = {
 const RATER_GATE = 84.9;
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
+  const dir = slugToDir[slug];
   try {
-    const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
+    const s = parseScores(readFileSync(join(dir, "average.md"), "utf8"), `${dir.replace(root, "").replace(/^[/\\]+/, "")}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
   } catch {
     // No usable average.md — cannot prove gate passage, never a rater.
@@ -204,7 +220,7 @@ function raterSlugFor(stem) {
 }
 
 for (const slug of slugs) {
-  const dir = join(modelDir, slug);
+  const dir = slugToDir[slug];
   // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
   // reporting agent forgot it): a findings file whose "Raw benchmarks found"
   // section holds 8+ "no verified public score found" rows and zero measured

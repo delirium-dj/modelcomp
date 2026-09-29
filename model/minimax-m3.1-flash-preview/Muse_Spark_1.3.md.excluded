@@ -1,0 +1,71 @@
+# MiniMax M3.1 Flash Preview — findings by Muse Spark 1.3
+
+- Source: MiniMax/MiniMax-M3.1-Flash-Preview (`minimax-ai/minimax-m3.1-flash-preview`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** MiniMax's preview-tier multimodal coding model served via MiniMax Code / Token Plan only; 1M context with text/image/video input.
+- **Provider / access:** MiniMax API `minimax-ai/minimax-m3.1-flash-preview` via MiniMax Code / Token Plan only (Chat Completions). No public per-token price; no Zen Free ID.
+- **Release / knowledge:** 2026-09-27 preview listing (curated meta); knowledge cutoff unknown — no verified cutoff found
+- **IDs:** `minimax-ai/minimax-m3.1-flash-preview` (no Free ID exists on Zen)
+- **Context window:** 1M total tokens (curated meta listing ceiling only; max output split not disclosed)
+- **Modalities:** Text, image, video in; text out; reasoning yes (BenchLM lists reasoning type); tool calls presumed yes (coding-model positioning) — verified via listings only, not capability measurement
+- **Pricing (as of 2026-09-29):** No public per-token price (MiniMax Code / Token Plan only)
+- **Architecture:** Proprietary (no params, MoE status, license, or weights disclosed)
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: search on 2026-09-29 found zero verified public benchmark numbers for this exact model ID. Every row below is "no verified public score found". Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (BenchLM tracks the model with 0 of 486 benchmarks covered, "coming soon", checked 2026-09-29)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** (Artificial Analysis has no model page, 404; BenchmarkList has no model page, 404)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (BenchLM overall "coming soon", unranked)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (vendor coding-model positioning without published numbers)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; 1M context is a listing ceiling only
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. No verified numbers exist, so no normalized dims are assigned (scores inside `.excluded` files are ignored by sync). Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — 1M listing ceiling only, no measured retention.
+- **Multimodal:** not scored — image/video input per listing only, no measured vision benchmark.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — no public price, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-29
+- Method: public internet research (MiniMax site, HuggingFace author search, BenchLM model page 0/486, Artificial Analysis 404, BenchmarkList 404, models.dev lookup); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

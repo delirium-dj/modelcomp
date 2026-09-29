@@ -41,7 +41,7 @@ override.
   and justifies relocating voice models already in `model/` (e.g.
   `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Same
   permanence, same file conventions — only the parent differs. (`models_voice/`
-  sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
+  sync/site wiring is active; `pnpm sync` scans both `model/` and `models_voice/`.)
 
 ## Scoring rules
 

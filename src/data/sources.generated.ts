@@ -61,7 +61,8 @@ export type SourceKey =
   | "LongCat 2.5 Preview"
   | "Pixel Canary"
   | "GPT OSS 120B"
-  | "Grok 4.20";
+  | "Grok 4.20"
+  | "Ling 3.0 Flash Fin";
 
 export interface SourceDef {
   key: SourceKey;
@@ -130,4 +131,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Pixel Canary", label: "Pixel Canary", file: "Pixel_Canary.md" },
   { key: "GPT OSS 120B", label: "GPT OSS 120B", file: "GPT_OSS_120B.md" },
   { key: "Grok 4.20", label: "Grok 4.20", file: "Grok_4.20.md" },
+  { key: "Ling 3.0 Flash Fin", label: "Ling 3.0 Flash Fin", file: "Ling_3.0_Flash_Fin.md" },
 ];
