@@ -1,0 +1,22 @@
+# LongCat 2.5 Preview — findings by GPT 5.6 Terra
+- Source: Meituan/LongCat-2.5-Preview
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+## Model card
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's multimodal reasoning preview for coding and agents.
+- **Provider / access:** [Vercel AI Gateway listing](https://vercel.com/ai-gateway/models/longcat-2.5-preview).
+- **Release / knowledge:** preview; cutoff unavailable.
+- **IDs:** `longcat-2.5-preview`.
+- **Context window:** 1,000,000 tokens.
+- **Modalities:** text and image input; text output.
+- **Pricing (as of 2026-09-29):** not independently verified.
+- **Architecture:** not publicly verified.
+### Raw benchmarks found
+No verified public benchmark number for this exact preview ID was found in fresh research. Documented capabilities and context cannot substantiate normalized scores.
+### Exclusion rationale
+Intentionally self-excluded until a verifiable raw benchmark is published.
+## Signature
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Method: public internet research; no score assigned due to absent benchmark evidence.
