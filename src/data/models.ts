@@ -197,8 +197,11 @@ export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
   for (const slug of Object.keys(GENERATED_SCORES)) {
-    if (!metaBySlug.has(slug)) {
-      console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
+    // Known to the catalog (any root, including voice/finance trees kept off
+    // the frontend) means metadata exists — warn only for truly meta-less
+    // slugs. The message names no parent: hidden trees keep their own layout.
+    if (!metaBySlug.has(slug) && !(slug in GENERATED_CATALOG)) {
+      console.warn(`[models] ${slug} has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }
   }
   const models: AiModel[] = [];
