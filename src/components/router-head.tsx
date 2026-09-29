@@ -14,15 +14,6 @@ export const RouterHead = component$(() => {
       <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#4f46e5" />
-      <script dangerouslySetInnerHTML={`
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').catch(err => {
-              console.error('SW registration failed:', err);
-            });
-          });
-        }
-      `} />
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}

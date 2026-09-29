@@ -4,6 +4,20 @@
 
 1. File was unstaged-deleted from disk; restored from HEAD, hash-verified identical. No conclusive culprit: a Qwen_3.8_27B run is actively filing tonight (10+ fresh reports) but agents don't delete per any task file; folder shows a bulk 12:23 PM touch + a 00:29 sync average rewrite. No pattern pointing at a specific actor — watching brief for repeats.
 
+## 2026-09-29 — SW trio removed + setup guide purged (Muse Spark 1.3)
+
+1. `git rm github-desktop-gemini-setup.md` (committed 95-line GitHub Desktop tutorial, zero references anywhere, off-topic) + `git rm public/sw.js`.
+2. Service-worker trio eliminated: `public/sw.js` deleted, registration block removed from `src/components/router-head.tsx`, unregister-all/clear-caches block removed from `src/root.tsx` (it sabotaged the registration on every load — register vs unregister pair). Grep confirms zero `sw.js`/`serviceWorker`/`getRegistrations` references left in `src/`. Manifest-based installability untouched.
+3. `IMPROVEMENTS.md` §3 updated to `models_voice/` (rename follow-up; §5 DONE marker left as-is).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-29 — voicemodels/ retired, research.md learns 3 trees, PUR recreated (Muse Spark 1.3)
+
+1. Reborn `voicemodels/` (9 files filed under the dead path post-rename) resolved per user order: 6 non-colliding reports `git mv`'d into matching `models_voice/<slug>/` (Kimi_K3 ×3 incl. 1 excluded, GLM_5.3_Flash ×3 excluded — excluded-beside-active same-stem pairs are convention-legal twins); 3 colliding `Mimo_v2.6_Flash.md` refiles (09-28, substantive, hash-verified different from the 09-26 canonicals) deleted per explicit user pick "keep canonical" — this entry is the sign-off. `voicemodels/` directory fully removed from disk.
+2. `tasks/research.md` now covers all three trees (`model/`, `models_voice/`, `models_finance/`) for audit, queue, discovery double-check, and rule 12 permanence; `models_finance/` is audit-only (retired-agent mirrors — agents must never create folders there or re-route into it). Zero `voicemodels` strings remain (verified by grep).
+3. `PUR_MUSE13.md` recreated (prior copy wiped from disk while untracked) as a living record: removals, rename, doc refreshes, dataset notes, watchlist, must-keep list.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-28 — models_voice rename + project-map refresh + purification (Muse Spark 1.3)
 
 1. `voicemodels/` → `models_voice/` (user-approved full rename): `git mv` staged 43 renames across 4 slugs (`gemini-3.8-live`, `gpt-live-1-astra`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`); `RULES.md` routing rule, `.agents/rules.md` layout, and `tasks/research.md` (7 refs) updated to `models_voice/`. Pre-commit hook only guards `model/` paths so the rename commit is not blocked; `pnpm sync` unaffected (never scanned the voice tree). Stale by design: 4 dataset-file notes saying "Lives under `voicemodels/`" (uneditable per permanence) + older `REPORT.md` history entries below.

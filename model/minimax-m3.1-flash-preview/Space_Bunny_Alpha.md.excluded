@@ -1,0 +1,148 @@
+# MiniMax M3.1 Flash Preview — findings by Space Bunny Alpha (SELF-EXCLUDED: no verified public benchmarks)
+
+> **Why this file is `.excluded`:** as of 2026-09-29 I found **zero verified public
+> benchmark numbers** for `MiniMax-M3.1-Flash-Preview`. MiniMax shipped the model on
+> 2026-09-27 with a documentation entry and a post on its agent account and **no
+> evaluation table at all**; it is absent from Artificial Analysis's model index, and
+> BenchLM lists it as unranked with 0 of 486 benchmarks covered. Per the template's
+> SELF-EXCLUSION rule and `RULES.md`, this file carries notes only — **no scores are
+> asserted and nothing below is counted toward any average.** The model is two days old,
+> which is the likely and sufficient explanation.
+
+- Source: MiniMax (`MiniMax-M3.1-Flash-Preview`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (facts only — verified, no scores)
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** MiniMax's newest text model, released quietly on 2026-09-27 inside
+  MiniMax Code and on the Token Plan as a fast everyday-development coding model. It
+  carries MiniMax-M3's 1M context window, adds a five-rung thinking-depth control, and
+  makes thinking mandatory. It is **not** a documented successor to MiniMax-M3: no model
+  card, no benchmark sheet, no parameter count, no open weights, and no per-token price
+  accompanied it.
+- **Provider / access:** **MiniMax Code** and the **Token Plan subscription only** — not
+  pay-as-you-go, and not on any third-party router. MiniMax's developer documentation
+  carries a standing note on every text-model page saying the model is available only
+  through Token Plan and MiniMax Code. The same model ID works over MiniMax's
+  Anthropic-compatible endpoint, its OpenAI-compatible endpoint, and its OpenAI Responses
+  endpoint, but **no standalone stable public API identifier has been published** — the
+  `M3.1-Flash-Preview` label in the MiniMax Code selector is a product display label, not
+  a verified API request ID.
+- **Release / knowledge:** released 2026-09-27 (MiniMax developer documentation model
+  table, `@MiniMaxAgent` post on X, same day). Knowledge cutoff not published.
+- **IDs:** `MiniMax-M3.1-Flash-Preview` (vendor documentation; product label — see the
+  caveat above). No Zen Free ID and no per-token price exist for this slug.
+- **Context window:** **1,000,000 tokens** (MiniMax's own model table; the same ceiling
+  MiniMax-M3 carries). Maximum output is **not published** for M3.1-Flash-Preview
+  anywhere.
+- **Modalities:** text, image, and video in; text out, plus a separate thinking stream.
+  Reasoning yes — thinking is **on by default and cannot be disabled**, and
+  `reasoning_split` cannot be turned off. Effort levels `low`, `medium`, `high`, `xhigh`,
+  `max`, **defaulting to `max`**. The exact mapping between effort labels and token
+  budgets is not publicly specified, so the "fast" positioning sits awkwardly against a
+  default of the most expensive setting.
+- **Pricing (as of 2026-09-29):** **no per-token rate published anywhere.** Cost is a
+  Token Plan subscription divided by usage — fine against a fixed budget, useless for
+  unit economics. For contrast only, MiniMax-M3 is listed at $0.30 / $1.20 per 1M
+  (promotional; $0.60 / $2.40 list). Launch was paired with double-credit check-ins and
+  a universal Token Plan quota reset.
+- **Architecture:** undisclosed. No parameter count, no attention scheme, no quantisation
+  or decoding-head description. Sparse-attention and NVFP4 claims floating around before
+  launch are a third party's transcription and are **not** vendor-confirmed specification.
+  No weights: the MiniMaxAI organisation's two most recent public repositories remain
+  MiniMax-Music3 and MiniMax-H3, so unlike MiniMax-M3 there is nothing to download.
+
+### Raw benchmarks found
+
+> Every row below reads "no verified public score found". That is the finding.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / CritPt / LCR / MLCR / Artificial Analysis Intelligence Index / Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- BenchLM lists the model as **unranked**, with **0 of 486** benchmarks covered, context window and overall score both "coming soon". A head-to-head BenchLM comparison against Gemini 3.8 Flash reports **0 shared sourced benchmarks** and refuses to name a winner.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / AA-SciCode / Vibe Code Bench / DeepSWE / AA Coding Index: **no verified public score found**
+- The "fast" and "reliable" characterisations are the vendor's own adjectives from the
+  launch post, explicitly promotional rather than measured.
+
+Long context:
+
+- **No long-context retrieval reported.** The 1M window is a documented spec with no
+  MRCR / RULER / GraphWalks measurement, and no long-context recall figure exists for
+  this checkpoint.
+
+### Negative-findings notes (what I checked, and what each source actually says)
+
+- **MiniMax developer documentation model table** — lists MiniMax-M3.1-Flash-Preview
+  *above* MiniMax-M3 and describes it as a frontier multimodal coding model with a 1M
+  context window and tunable thinking depth. Publishes the context figure, the modality
+  set, and the effort ladder. Publishes **no benchmark, no price, no parameter count, and
+  no architecture note.**
+- **`@MiniMaxAgent` post on X (2026-09-27)** — the announcement. Describes the model as
+  built for everyday tasks from quick bug fixes to full features, and calls it fast and
+  reliable. Publishes **no numbers of any kind** beyond the Token Plan credit mechanics.
+- **orcarouter.ai (2026-09-27, two analyses)** — the most detailed third-party read
+  available. States plainly that MiniMax published no evaluation table, that the model
+  has no Artificial Analysis index entry "so its column is genuinely empty rather than
+  merely early", and that there is no output-speed, latency, or error-rate figure from
+  any party including its own telemetry, because the model is not on its catalogue. It
+  also flags the one confirmed launch claim — the `reasoning_effort` ladder — as the only
+  one of five circulating claims the vendor actually documented.
+- **SaaSCity (2026-09-28)** — confirms the official spec table (1M context, text/image/
+  video in, five effort levels, thinking always on, no card/benchmarks/weights/price) and
+  warns explicitly against reading M3's published scores as M3.1 results.
+- **APIMaster.AI (2026-09-27)** — separates product availability from model documentation
+  and warns that the `M3.1-Flash-Preview` UI label is not a verified API `model` value.
+- **BenchLM (2026-09-27)** — the model exists as an unranked record with 0 of 486
+  benchmarks covered; the Gemini 3.8 Flash comparison page returns "insufficient shared
+  evidence" and names no winner.
+- **buildfastwithai review (2026-09-27)** — reviews the documented workflow and access
+  and explicitly declines to produce a benchmark number: "there is no responsible M3.1
+  SWE-Bench or Terminal-Bench number to put into a benchmark table." Its own 8.6/10
+  product-experience rating is a product rating, not a model benchmark, and is not used.
+- **MiniMax-M3 numbers must not be borrowed.** MiniMax-M3 has published rows (SWE-bench
+  Verified 80.5, SWE-bench Pro 59.0, Terminal-Bench 2.1 66.0, MCP Atlas 74.2, BrowseComp
+  83.5, OSWorld-Verified 70.06) and an independent Artificial Analysis record
+  (Intelligence Index 29.2, Coding Index 58.6, GPQA Diamond 92.9%, long-context recall
+  83%, IFBench 82.9%). Those belong to the June 2026 checkpoint. A preview that reuses
+  the same 1M context and a similar modality set is not thereby the same model, and
+  scoring M3.1-Flash-Preview on M3's numbers would be fabricating a delta, so it is not
+  done here.
+
+### Normalized scores (1–100)
+
+- **Not scored.** No verified public benchmark exists for `MiniMax-M3.1-Flash-Preview` as
+  of 2026-09-29, so per the template's SELF-EXCLUSION rule no Tool use / Reasoning /
+  Context window / Multimodal / Coding / Cost efficiency / Overall numbers are asserted
+  here. Writing placeholder scores would drag the mean for every reader, which is exactly
+  what the rule exists to prevent.
+- The three things that *are* verified and worth carrying forward: the **1M context
+  window**, the **text/image/video input with a five-rung mandatory thinking control**,
+  and **Token Plan / MiniMax Code-only access with no published price**. All three are
+  hard specs; none is a capability measurement, so none can lift an Overall.
+- What a future report should pick up, in priority order: (1) any Artificial Analysis
+  Intelligence or Coding Index row; (2) a MiniMax benchmark sheet or a Terminal-Bench /
+  SWE-bench row; (3) a published per-token rate and stable public API ID; (4) a parameter
+  count or checkpoint download. When any of those land, a scored `.md` should be written
+  and this file retired.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
+- Method: public internet research (MiniMax developer documentation model table, the
+  `@MiniMaxAgent` launch post, orcarouter.ai launch analyses, SaaSCity, APIMaster.AI,
+  Prompt Blueprints, buildfastwithai review, BenchLM model record and comparison page).
+  Scores would be normalized 1–100 interpretations; **none are asserted in this file.**
+- Future sources: if verified M3.1-Flash-Preview benchmarks appear, add a scored file
+  next to this one, e.g. `MiniMax_M3_1_Flash_Recheck.md`, using the same headings.
