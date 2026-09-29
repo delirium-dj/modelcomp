@@ -1,5 +1,15 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — restored deepseek-v4.1-flash/Pixel_Canary.md (true deletion)
+
+1. Tracked file missing with no mirror counterpart — restored from HEAD, hash-verified identical. No culprit established.
+
+## 2026-09-25 — fixed sync crash (undeclared prevCat/nextCat/catPath)
+
+1. A parallel catalog/rankings codegen addition wrote the `catalog.generated.ts` *write step* (`if (prevCat !== nextCat)`) but never declared or built `catPath`/`nextCat`/`prevCat` — instant `ReferenceError` on every run, before any codegen. Added the missing serialization (header + interface lines kept byte-identical to the committed file; entries as sorted `JSON.stringify(meta)`), following the scores-block pattern. Syntax-checked.
+2. Heads-up: `src/data/catalog.generated.ts` on disk currently holds an EMPTY map while `models.ts` loads models exclusively from it — the next green sync repopulates it; if the dev site looks model-less until then, that's why (not a new bug).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — restored gpt-5.6-luna/Qwen_3.8_27B.md, culprit unknown
 
 1. File was unstaged-deleted from disk; restored from HEAD, hash-verified identical. No conclusive culprit: a Qwen_3.8_27B run is actively filing tonight (10+ fresh reports) but agents don't delete per any task file; folder shows a bulk 12:23 PM touch + a 00:29 sync average rewrite. No pattern pointing at a specific actor — watching brief for repeats.

@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Muse Spark 1.3
 
 - Source: Xiaomi/MiMo-V2.6-Flash (Free tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90); re-verified 2026-09-29 (UTC, user-signed-off re-research: full-table extraction — ProgramBench 26.0/Visual 71.5/CyberBench 77.2/Exploit rows/ALE 27.6/DeepSWE-65.7 variant/batch pricing added; Tool 86 → 85, Coding 88 → 87, Overall 90 → 89)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2-6-free` (Zen Free tier); native `mimo-v2.6-flash` (Xiaomi, no separate Zen paid ID needed for scoring)
 - **Context window:** 1,048,576 tokens total (1M), up to 128,000 output tokens — verified via Xiaomi release docs, Hugging Face `XiaomiMiMo/MiMo-V2.6-Flash-RL` README, and VentureBeat 2026-09-22
 - **Modalities:** text/image/video/audio in; text out; reasoning yes (Thinking mode); tool calls yes; JSON/structured output via standard chat API
-- **Pricing (as of 2026-09-22):** Free Zen tier $0 in / $0 out / $0 cached (limited-time preview). Paid fallback (native Xiaomi API): $0.14 in / $0.28 out per 1M (VentureBeat 2026-09-22; Pro is $0.435/$0.87). No training on prompts per Zen zero-retention route; OpenRouter-style routes may retain prompts without training — use Zen for confidential code.
+- **Pricing (as of 2026-09-22):** Free Zen tier $0 in / $0 out / $0 cached (limited-time preview). Paid fallback (native Xiaomi API): $0.14 in / $0.28 out per 1M ($0.0028 cached; Batch API 50% off — re-verified 2026-09-29; Pro is $0.435/$0.87). No training on prompts per Zen zero-retention route; OpenRouter-style routes may retain prompts without training — use Zen for confidential code.
 - **Architecture:** sparse MoE, 309B total / 15B active (256 routed experts, 8 active), hybrid sliding-window/global attention, 681M-param MiMo ViT + audio tokenizer/patch encoder, MIT license, ungated weights
 
 ### Raw benchmarks found
@@ -28,6 +28,7 @@ Agent / tool use:
 - OSWorld-Verified: **80.8%** (Xiaomi official card; Pro 82.0, Opus 5 83.4 on same card)
 - Terminal-Bench 2.1: **87.6%** (Xiaomi official card; agent-terminal proxy, Pro 89.9)
 - Terminal-Bench 4.0: **28.8%** (Xiaomi official card; Pro 34.9, Opus 5 49.0 on same card)
+- Agents' Last Exam: **27.6%** (Pro 31.6 on same table — re-verified 2026-09-29)
 - Tau3-Banking / Tau2-Bench: **no verified public score found** (no V2.6-Flash Tau run published)
 - GDPval-AA: **no verified public score found for Flash** (Pro reported at 1673 Elo on Xiaomi page; no Flash Elo published)
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -49,8 +50,10 @@ Coding:
 - LiveCodeBench: **no verified V2.6-Flash-specific score found**
 - SciCode / AA-SciCode: **no verified public score found for V2.6-Flash**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE v1.1: **67.9%** (Xiaomi official card; Pro 71.9, Opus 5 74.0, GPT-5.6 Sol 73.0 on same card)
+- DeepSWE v1.1: **67.9%** card eval table (**65.7%** announcement RL-endpoint, 48.8→65.7 — official-figure conflict flagged per ModelGap — re-verified 2026-09-29); Pro 71.9, Opus 5 74.0, Sol 73.0 on same card
 - MiMo Code Bench (in-house): **61.2%** (Xiaomi official card; Pro 63.2)
+- ProgramBench: **26.0%** (weak tail — re-verified 2026-09-29); MiMo Visual Coding: **71.5%** (Pro 72.3 — re-verified 2026-09-29)
+- MiMo Cyber Bench: **77.2%** (Pro 80.2 — re-verified 2026-09-29); ExploitBench: **25.3%**; ExploitGym: **6.0%**; SEC Bench Pro: **47.5%** (same table — re-verified 2026-09-29)
 - JobBench: **61.2%** (Xiaomi official card; Pro 62.0, Opus 5 65.7 on same card)
 - CyberGym: **95.1%** (Xiaomi official card; Pro 94.0 — sole row Flash wins outright)
 
@@ -62,13 +65,13 @@ Long context:
 
 > Derived from the raw numbers above using the methodology in `model-comparison.md`.
 
-- **Tool use: 86/100.** AutomationBench 52.3 beats Opus 5 (50.3) with Toolathlon 73.6 + OSWorld 80.8 near-frontier; capped by TB4.0 28.8 trailing Pro/Opus on longest sessions.
+- **Tool use: 85/100.** AutomationBench 52.3 beats Opus 5 (50.3) with Toolathlon 73.6 + OSWorld 80.8 near-frontier; capped by TB4.0 28.8 and ALE 27.6 trailing on longest sessions.
 - **Reasoning: 84/100.** No Flash-direct GPQA/HLE, but Pro AA Index 46 (top open-weights, level with Grok 4.7) with Flash within 1–4 pts on every shared agent row; capped by zero Flash-direct reasoning numbers.
 - **Context window: 95/100.** 1M tier (1,048,576 in, 128K out) per tier mapping; capped below 100 because no 98%+ retrieval proof at 512K+.
-- **Multimodal: 95/100.** Native text/image/video/audio in, text out (omnimodal encoders verified); capped below 100 with no published vision-accuracy lead over Pro.
-- **Coding: 88/100.** TB2.1 87.6 exceeds the 85% frontier bar with DeepSWE 67.9 just under the 74% frontier bar; capped by missing SWE-Verified/LiveCode direct runs.
+- **Multimodal: 95/100.** Native text/image/video/audio in, text out (omnimodal encoders + Visual Coding 71.5 measured); capped below 100 with no published vision-accuracy lead over Pro.
+- **Coding: 87/100.** TB2.1 87.6 exceeds the 85% frontier bar with DeepSWE 67.9 just under the 74% bar and Cyber 77.2–95.1 security strength; capped by ProgramBench 26.0%, ExploitBench 25.3% tails and missing SWE-Verified/LiveCode direct runs.
 - **Cost efficiency: 100/100.** $0 Zen Free tier in/out; paid fallback $0.14/$0.28 is still ~1/20 frontier cost.
-- **Overall Score: 90/100.** Mean of the five non-cost dims (86+84+95+95+88)/5 = 89.6 → 90; best-fit as high-volume free omnimodal agent/coder, escalate to Pro/Opus for exploit-grade or 50%+ TB4.0 sessions.
+- **Overall Score: 89/100.** Mean of the five non-cost dims (85+84+95+95+87)/5 = 89.2 → 89; best-fit as high-volume free omnimodal agent/coder, escalate to Pro/Opus for exploit-grade or 50%+ TB4.0 sessions.
 
 ---
 

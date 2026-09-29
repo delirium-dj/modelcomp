@@ -17,8 +17,11 @@
 
 import { GENERATED_SCORES } from "./scores.generated";
 import { SOURCE_DEFS, type SourceKey, type SourceDef } from "./sources.generated";
+import { GENERATED_CATALOG, type MetaFile } from "./catalog.generated";
+import { TOP_MODELS_BY_SOURCE } from "./rankings.generated";
 
-export type { SourceKey, SourceDef };
+export type { SourceKey, SourceDef, MetaFile };
+export { TOP_MODELS_BY_SOURCE };
 
 export interface ModelScores {
   tool: number;
@@ -143,38 +146,21 @@ export type DimensionKey = (typeof DIMENSIONS)[number]["key"];
 export const MODEL_COLORS = ["#4f46e5", "#059669", "#d97706"];
 
 
-/** Validated contents of one model/<slug>/meta.json file. */
-interface MetaFile {
-  id: string;
-  name: string;
-  short: string;
-  contextWindow: string;
-  modalities: string;
-  pricingNote: string;
-  pricingTiers?: string[];
-  freeTierNote?: string;
-  noFreeId?: boolean;
-}
-
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"] as const;
 
-/** Curated metadata, one file per model folder. Keys look like "../../model/big-pickle/meta.json". */
-const metaModules = import.meta.glob("../../model/*/meta.json", {
-  eager: true,
-  import: "default",
-}) as Record<string, unknown>;
-
+/**
+ * Junior Developer Tip: loadMetas reads from GENERATED_CATALOG (pre-built by `pnpm sync`),
+ * removing the eager import.meta.glob that previously bundled every raw meta.json file
+ * into the main landing page JavaScript bundle.
+ */
 function loadMetas(): { slug: string; meta: MetaFile }[] {
   const entries: { slug: string; meta: MetaFile }[] = [];
   const seenIds = new Set<string>();
-  for (const path of Object.keys(metaModules)) {
-    const m = path.match(/^\.\.\/\.\.\/model\/([^/]+)\/meta\.json$/);
-    if (!m) throw new Error(`[models] unexpected meta path: ${path}`);
-    const slug = m[1];
-    const meta = metaModules[path] as Partial<MetaFile>;
+  for (const [slug, mRaw] of Object.entries(GENERATED_CATALOG)) {
+    const meta = mRaw as MetaFile;
     let valid = true;
     for (const k of META_REQUIRED) {
-      if (typeof meta[k] !== "string" || (meta[k] as string).length === 0) {
+      if (typeof meta[k as keyof MetaFile] !== "string" || (meta[k as keyof MetaFile] as string).length === 0) {
         // Warn-and-skip (never throw): in-progress research must not break the build.
         // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
         console.warn(`[models] model/${slug}/meta.json: missing required field "${k}" — skipped`);
@@ -182,13 +168,13 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
       }
     }
     if (!valid) continue;
-    const id = meta.id as string;
+    const id = meta.id;
     if (seenIds.has(id)) {
       console.warn(`[models] duplicate model id: ${id} — keeping first occurrence`);
       continue;
     }
     seenIds.add(id);
-    entries.push({ slug, meta: meta as MetaFile });
+    entries.push({ slug, meta });
   }
   entries.sort((a, b) => (a.meta.id < b.meta.id ? -1 : a.meta.id > b.meta.id ? 1 : 0));
   return entries;
@@ -345,6 +331,14 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() =>
 
 export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);
+}
+
+/**
+ * Junior Developer Tip: top3ForSource delivers an instant O(1) lookup using pre-computed rankings
+ * from rankings.generated.ts instead of sorting the 90+ MODELS array on every user interaction.
+ */
+export function top3ForSource(source: SourceKey): [string, string, string] {
+  return TOP_MODELS_BY_SOURCE[source] ?? TOP_MODELS_BY_SOURCE["average"] ?? ["", "", ""];
 }
 
 /** Dev check: every source's overall must sit within rounding distance of its

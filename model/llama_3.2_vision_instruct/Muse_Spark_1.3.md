@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by Muse Spark 1.3
 
 - Source: Meta/Llama-3.2-Vision-Instruct (`opencode/llama_3.2_vision_instruct`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-24 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: card reconfirmed + MGSM 68.9/86.9 + 0-shot base-set rows added; Reasoning 55 → 56 — Overall holds 57)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,6 +37,7 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - MMLU (CoT): **73.0% (11B) / 86.0% (90B)** (Meta vision model card)
 - MATH (CoT): **51.9% (11B) / 68.0% (90B)** (Meta vision model card)
+- MGSM (CoT): **68.9% (11B) / 86.9% (90B)** (Meta vision model card — re-verified 2026-09-29)
 - MGSM (CoT): **68.9% (11B) / 86.9% (90B)** (Meta vision model card)
 - MMMU val (CoT): **50.7% (11B) / 60.3% (90B)** (Meta vision model card); MMMU-Pro Standard **33.0% / 45.2%**, Vision **23.7% / 33.8%**; MathVista testmini **51.5% / 57.3%**
 
@@ -55,18 +56,19 @@ Long context:
 Vision detail (for the Multimodal score):
 
 - VQAv2 test: **75.2% (11B) / 78.1% (90B)**; DocVQA test ANLS **88.4% / 90.1%**; ChartQA test CoT **83.4% / 85.5%**; AI2 Diagram **91.1% / 92.3%** (all Meta vision model card, 0-shot). Competitive with Claude 3 Haiku and GPT-4o-mini on image recognition per Meta blog (Sept 2024).
+- 0-shot base variants: VQAv2 **66.8/73.6**, TextVQA **73.1/73.5**, DocVQA **62.3/70.7**, ChartQA **39.4/54.2**, InfographicsQA **43.2/56.8**, AI2 **62.4/75.3** (model card base rows — re-verified 2026-09-29)
 
 ### Normalized scores (1–100)
 
 > Size note: scores below use the 11B variant (conservative, since the folder ID does not specify a size); 90B figures are cited alongside and are higher on every row.
 
 - **Tool use: 40/100.** Zero agentic harness numbers (no TB/Tau/GDPval/Claw) for the vision variants; vendor tool-use claims cover the 1B/3B text models only — capped at chat-level agency.
-- **Reasoning: 55/100.** MMLU 73.0% plus MATH 51.9% show mid-tier 2024 text reasoning; capped by GPQA 32.8% and no HLE-era benchmark.
+- **Reasoning: 56/100.** MMLU 73.0% plus MATH 51.9% and MGSM 68.9% show mid-tier 2024 text reasoning; capped by GPQA 32.8% and no HLE-era benchmark.
 - **Context window: 70/100.** 128K window was top-tier at its Sept 2024 release; capped by no verified retrieval curve and two generations behind current 1M norms.
 - **Multimodal: 75/100.** VQAv2 75.2% plus DocVQA 88.4% and ChartQA 83.4% show strong 2024 open vision-text; capped by MMMU-Pro Vision 23.7% and text-only output.
 - **Coding: 45/100.** Zero coding-benchmark numbers (no SWE/LiveCode/SciCode); 2024 chat-vision tuning, not coding-tuned — capped at generalist level.
 - **Cost efficiency: 85/100.** Open weights with local deployment (11B fits single-GPU) and broad ecosystem support; Llama Community License terms cap below fully permissive Apache-2.0 weights.
-- **Overall Score: 57/100.** Mean of the five non-cost dims (40+55+70+75+45)/5 = 57.0 → 57; best-fit local visual Q&A and document understanding where open weights outweigh agentic limits.
+- **Overall Score: 57/100.** Mean of the five non-cost dims (40+56+70+75+45)/5 = 57.2 → 57; best-fit local visual Q&A and document understanding where open weights outweigh agentic limits.
 
 ---
 

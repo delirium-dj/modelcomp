@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Muse Spark 1.3
 
 - Source: xAI/Grok 4.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Vals lane gap-fills added, Coding 74 → 80, Overall 81 → 82)
+- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Vals lane gap-fills added, Coding 74 → 80, Overall 81 → 82); re-verified 2026-09-29 (UTC, user-signed-off re-research: Tau2 row added — was justification-only — + CritPt ladder + HLE/LCR/IFBench variants + release/pricing reconfirmed; Reasoning 86 → 87 — Overall holds 82)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,17 +23,19 @@ Agent / tool use:
 
 - Tau2-Bench Telecom (AA harness): **98%** (Artificial Analysis, Apr–May 2026; #1 rank, in line with GLM-5.1; xAI vendor claim of #1 confirmed by AA) — also reported as τ²-bench **97.7%** (BenchLM lane, Jul 2026)
 - Terminal-Bench 2.1: **41.9% Vals lane** (BenchLM mirror — weak tail); TerminalBench Hard **37.9%** per AA via llmbase.ai (provisional)
+- Tau2-Bench Telecom: **98%** headline (**97.7%** high / 91.2% medium / 88.9% low / 65.8% non-reasoning — OpenRouter AA panel — re-verified 2026-09-29; justifies filed Tool line)
 - Tau3-Banking / Tau2-Bench: Tau3-Banking **no verified public score found**; Tau2 figures as above
 - GDPval-AA: **1500 Elo** (Artificial Analysis, Apr 2026; +321 vs Grok 4.20 0309 v2's 1179; trails GPT-5.5 xhigh by 276); alternate BenchLM-lane figure GDPval-AA **1085 Elo / 29.2%** (BenchLM compare page, Jul 2026 — different lane, listed for traceability)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: APEX-Agents-AA **17.0%**, AA Agentic Index **24.1%** (BenchLM lanes, Jul 2026); **Gert Labs 43.86%** and **ResearchClawBench 12.4%** (BenchLM mirrors); **Finance Agent v2 37.7%** (llm-stats mirror); Toolathon / MCP-Atlas / SWE Atlas proper **no verified public score found**
+- IFBench: **81%** maintained (AA release — re-verified 2026-09-29)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.1%** (Artificial Analysis via llmbase.ai/BenchLM; head-to-head BenchLM win 90.1 vs 87.9, Jul 2026)
-- HLE: **35.0%** (Artificial Analysis via llmbase.ai; head-to-head BenchLM row 35 vs 46, Jul 2026)
-- LCR / MLCR: AA-LCR **64.3%** (BenchLM; head-to-head win 64.3 vs 63.3, Jul 2026); MRCR same-harness score no verified public score found
-- CritPt: **no verified public score found**
+- HLE: **35.0%** (Artificial Analysis via llmbase.ai; head-to-head BenchLM row 35 vs 46, Jul 2026); **37.2%** high / 30.0% medium / 18.4% low / 6.8% non-reasoning (OpenRouter AA panel — re-verified 2026-09-29)
+- LCR / MLCR: AA-LCR **64.3%** (BenchLM; head-to-head win 64.3 vs 63.3, Jul 2026); **73.0%** high / 75.0% medium / 74.0% low / 32.3% non-reasoning (OpenRouter AA panel — re-verified 2026-09-29); MRCR same-harness score no verified public score found
+- CritPt: **8.0%** high (4.9% medium / 0.6% low / 0.0% non-reasoning — OpenRouter AA panel — re-verified 2026-09-29)
 - Artificial Analysis Intelligence Index / BenchLM overall: AA Index **53/100 v4.0** (10-eval composite incl. GDPval, Tau2 Telecom, TB-Hard, SciCode, LCR, Omniscience, IFBench, HLE, GPQA, CritPt; leads Muse Spark and Sonnet 4.6, trails GPT-5.5 xhigh at 60); BenchLM public lane **65.1/100 (#31)** vs Inkling 67.54 (Jul 2026, different lane)
 - Omniscience Accuracy / Hallucination Rate: accuracy **up 8 pts vs Grok 4.20** per AA Apr 2026 (vendor-claimed #1 lowest-hallucination rank at launch; non-hallucination rate down 8 pts in the same AA release — tradeoff noted); exact current pair no verified public score found beyond the AA deltas
 
@@ -52,12 +54,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 84/100.** Tau2 Telecom 98% (#1) plus GDPval-AA 1500 Elo show elite support-agent tool calling; capped by TB2.1 Vals 41.9% tail and TerminalBench Hard 37.9%.
-- **Reasoning: 86/100.** GPQA 90.1% is frontier-tier and AA Index 53 leads Muse Spark/Sonnet 4.6; capped by HLE 35.0% (below the 40% frontier bar) and no verified CritPt score.
+- **Reasoning: 87/100.** GPQA 90.1% plus IFBench 81% with AA Index 53 leads Muse Spark/Sonnet 4.6; capped by HLE 35–37% (below the 40% frontier bar) and CritPt 8.0% low.
 - **Context window: 95/100.** Full 1M tier per the ≥1M band; capped at 95 (not 100) because no verified ≥98% retrieval figure at 512K+ exists.
 - **Multimodal: 65/100.** Text + image in covers the +image band; capped because video/PDF/audio input and non-text output are unverified.
 - **Coding: 80/100.** LiveCodeBench Vals 84.5% plus SWE Vals 71.4% and SciCode 47.3% show solid coding; capped by no SWE-Pro/DeepSWE/Vibe numbers.
 - **Cost efficiency: 90/100.** $1.25/$2.50 base tier undercuts the ~$1.25/$4.25 reference band on outputs; capped by paid-only access with a 2x step-up above 200K tokens.
-- **Overall Score: 82/100.** Mean of the five quality dims (84 + 86 + 95 + 65 + 80) / 5 = 82.0 → 82; best fit as a paid enterprise agent/document-QA pick with elite tool-calling and a full 1M window.
+- **Overall Score: 82/100.** Mean of the five quality dims (84 + 87 + 95 + 65 + 80) / 5 = 82.2 → 82; best fit as a paid enterprise agent/document-QA pick with elite tool-calling and a full 1M window.
 
 ---
 

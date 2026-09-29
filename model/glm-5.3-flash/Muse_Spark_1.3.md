@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.3-Flash (ex `ox-alpha` stealth), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: ox-alpha identity corroborated by datacamp/llm-stats + Vision rows added — justification-cited numbers now row-backed — + thinking-always-on noted; scores unchanged, Overall holds 88)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,7 +13,7 @@
 - **Release / knowledge:** 2026-08-26 release (stealth `ox-alpha` on OpenRouter/OpenCode the same week, served on domestic Chinese chips); knowledge cutoff undisclosed
 - **IDs:** `opencode/glm-5.3-flash` (Zen); `zai-org/GLM-5.3-Flash` (HF, MIT)
 - **Context window:** 1,048,576 tokens total (1M) — verified via Z.ai blog, HF card, and Artificial Analysis 1000K listing; eval footnotes confirm 256K–400K harnesses with 300K HLE-tools management strategy
-- **Modalities:** text + image in (AA verified) plus video per vendor (frame-extraction fallback for non-video endpoints); text out; reasoning yes; tool calls yes; JSON mode via standard chat API
+- **Modalities:** text + image in (AA verified) plus video per vendor (frame-extraction fallback for non-video endpoints); text out; reasoning yes (always-on, cannot be disabled); tool calls yes; JSON mode via standard chat API (re-verified 2026-09-29)
 - **Pricing (as of 2026-09-22):** Paid $0.15 in / $0.50 out / $0.03 cached per 1M (Zen + Z.ai list agree; 50% launch promo ended 2026-09-09). No $0 Free tier — scored on paid pricing. Zero-day retention on Zen/Go routes.
 - **Architecture:** MoE 320B total / 18B active, hybrid KDA-linear + NoPE sparse MLA attention (~3× less attention compute, 4.4× smaller KV cache), MIT open weights (~306 GiB FP8, Hopper+ for self-host)
 
@@ -43,6 +43,7 @@ Reasoning / knowledge:
 - Omniscience: **7–7.5 points** (AA comparison 7; BenchLM AA-Omniscience Index 7.5%)
 - LCR: **80%** (AA-LCR v1.1 on AA comparison, ties max 80%; dataconomy LCR 80% agrees)
 - Agents' Last Exam: **26.3%** (Z.ai blog; Opus 4.8 27.0, Terra 28.0 on same table)
+- Vision (z.ai blog table): OfficeQA Pro **62.4%**; CharXiv w/Tools **89.4%**; Chartography **78.0%**; BabyVision **53.4%**; MVBench **77.8%**; MMVU **80.5%**; OSWorld 2.0 **59.1%**; Vision2Web **77.8%** (justification-cited numbers now row-backed — re-verified 2026-09-29)
 
 Coding:
 

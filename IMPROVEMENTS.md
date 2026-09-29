@@ -13,12 +13,12 @@ This document tracks identified architectural, structural, and hygiene improveme
 
 ---
 
-## 2. Pre-bake Calculations & Top-3 Rankings at Build Time
+## 2. Pre-bake Calculations & Top-3 Rankings at Build Time — DONE (2026-09-29)
 * **Concept:** Avoid redundant client-side sorting
-* **Current Behavior:** In `src/routes/index.tsx`, when users switch between results sources or view categories, helper functions clone and sort the entire 90+ model array on every selection (`[...MODELS].sort(...)`) to find the top 3 models.
-* **Proposed Solution:**
-  - Precompute the top 3 lookup table (`TOP_MODELS: Record<SourceKey, [string, string, string]>`) during build or sync.
-  - The browser performs an instant $O(1)$ dictionary lookup instead of sorting arrays dynamically during user interaction.
+* **Executed Solution:**
+  - `scripts/sync-data.mjs` now precomputes top-3 rankings lookup table (`src/data/rankings.generated.ts`) during `pnpm sync`.
+  - `src/data/models.ts` exports `top3ForSource`, which performs an instant $O(1)$ dictionary lookup (`TOP_MODELS_BY_SOURCE[source]`) instead of sorting arrays dynamically in the browser.
+  - `src/routes/index.tsx` refactored to remove redundant client-side sorting functions (`top3ByOverall`, `top3ByDim`).
 
 ---
 

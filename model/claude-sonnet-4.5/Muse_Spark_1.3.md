@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Sonnet 4.5 (`claude-sonnet-4-5-20250929`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: ARC-AGI-2/BullshitBench/AIME/BenchLM rows + file-input modality added; scores hold 77)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: ARC-AGI-2/BullshitBench/AIME/BenchLM rows + file-input modality added; scores hold 77); re-verified 2026-09-29 (UTC, user-signed-off re-research: 1M-config 78.2 + MATH-97.7 + WebDev-1391 + TB-46.5 variant added; Reasoning 80 → 81 — Overall holds 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench: **50.0%** (theairankings.com model page, citing release-period evals)
+- Terminal-Bench: **50.0%** (theairankings.com model page, citing release-period evals); **46.5%** Epoch AI variant (re-verified 2026-09-29)
 - Tau2-Bench Retail: **86.2%** (MindStudio model page aggregation)
 - Tau2-Bench Telecom: **98.0%** (MindStudio model page aggregation)
 - GDPval-AA: **no verified public score found**
@@ -29,7 +29,7 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 - BenchLM ledger (retrieved 2026-08-31): **VITA-Bench 17.0 / Gert Labs 48.51** (agent rows); overall **52.9 (#99)** — amended 2026-09-27
 - OSWorld (computer use): **61.4%** (Anthropic announcement 2025-09-29; best-in-class at release)
-- SWE-bench Verified (agentic harness, bash + file-edit scaffold): **77.2%** standard (Anthropic official announcement, averaged over 10 trials, no test-time compute); **82.0%** with parallel test-time compute / selection (Anthropic press briefing)
+- SWE-bench Verified (agentic harness, bash + file-edit scaffold): **77.2%** standard (Anthropic official announcement, averaged over 10 trials, no test-time compute); **82.0%** with parallel test-time compute / selection (Anthropic press briefing); **78.2%** 1M-config (inference-issue caveat — re-verified 2026-09-29)
 
 Reasoning / knowledge:
 
@@ -42,6 +42,7 @@ Reasoning / knowledge:
 - MMLU-Pro (proxy): **86.0%** (MindStudio model page aggregation)
 - MMMU (multimodal proxy): **68%** (aireleasetracker.com release figures)
 - ARC-AGI-2: **13.6%** (BenchLM ledger); **BullshitBench v2 79%** and **Next.js Evals 46%** (aireleasetracker release figures); **AIME 2025 87.0%** (llm-stats tracker) — amended 2026-09-27
+- MATH Level 5: **97.7%**; WebDev Arena: **1391 Elo** (Epoch AI/modelbeat — re-verified 2026-09-29)
 
 Coding:
 
@@ -58,12 +59,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 85/100.** OSWorld 61.4% was best-in-class plus Tau2 Retail 86.2% / Telecom 98.0% show elite tool orchestration; capped because Terminal-Bench 50.0% is mid-pack and GDPval/Claw numbers are missing.
-- **Reasoning: 80/100.** GPQA Diamond 83.4% and AA Index 63 sit above mid but below frontier flagships (GPQA 90%+, Index leaders 66-68); capped by HLE 7.1% and missing LCR/CritPt evidence.
+- **Reasoning: 81/100.** GPQA Diamond 83.4% plus MATH-97.7% and AA Index 63 sit above mid but below frontier flagships (GPQA 90%+, Index leaders 66-68); capped by HLE 7.1% and missing LCR/CritPt evidence.
 - **Context window: 70/100.** Standard 200K maps to 70 per tier mapping; 1M beta is Tier-gated with 2x pricing and no retrieval-accuracy evidence, so no higher.
 - **Multimodal: 65/100.** Text + image in, text out with MMMU 68% coverage; capped at image-only (no video/audio out).
 - **Coding: 85/100.** SWE-bench Verified 77.2% was SOTA at release with 82.0% high-compute ceiling; capped by LiveCodeBench 59.0% and SciCode 42.8% trailing frontier coding specialists.
 - **Cost efficiency: 60/100.** Paid $3.00/$15.00 pricing tier per methodology (~$3/$15 = ~60); no free tier.
-- **Overall Score: 77/100.** Mean of the five non-cost dims (85+80+70+65+85)/5 = 77. Best-fit: long-horizon agentic coding and computer-use tasks where 30-hour autonomy matters more than max reasoning or 1M context.
+- **Overall Score: 77/100.** Mean of the five non-cost dims (85+81+70+65+85)/5 = 77.2 → 77. Best-fit: long-horizon agentic coding and computer-use tasks where 30-hour autonomy matters more than max reasoning or 1M context.
 
 ---
 

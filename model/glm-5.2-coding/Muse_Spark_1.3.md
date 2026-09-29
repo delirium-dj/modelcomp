@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.2 (coding preset), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: TB2.1 81.0/82.7 + FrontierSWE 74.4 + DeepSWE 46.2 + ProgramBench 63.7 + NL2Repo 48.9 + Marathon/PostTrain rows added — justification-cited numbers now row-backed — 753B firmed; Tool 84 → 87, Coding 87 → 88, Overall 74 → 75)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1,048,576 tokens total (1M solid), up to 131,072–163,840 output tokens — verified via Z.ai blog evaluation footnotes (400K SWE-Pro window, 256K Terminus-2 window, 300K HLE-tools window) and OpenRouter 1.0M/163,840 listing
 - **Modalities:** text in/out only; reasoning yes (High/Max thinking effort); tool calls yes; JSON/structured output via standard chat API
 - **Pricing (as of 2026-09-22):** Paid $1.40 in / $4.40 out / $0.26 cached per 1M (Zen + Z.ai list agree; no Zen Free ID for this coding preset). Coding Plan quota 3× peak / 2× off-peak (1× promo off-peak through September). MIT weights allow self-host.
-- **Architecture:** MoE 744B total / 40B active, IndexShare sparse attention (2.9× fewer FLOPs at 1M) + improved MTP speculative decoding, MIT open weights
+- **Architecture:** MoE 753B total / 40B active (filed 744B retired; venturebeat/benchr/convly/HF consensus — re-verified 2026-09-29), IndexShare sparse attention + improved MTP speculative decoding, MIT open weights
 
 ### Raw benchmarks found
 
@@ -26,6 +26,10 @@ Agent / tool use:
 - MCP-Atlas Public Set (500 tasks, think mode, 10-min timeout): **76.8%** (Z.ai blog 2026-06-16, Gemini-3.0-Pro judge; Opus 4.8 77.8, GPT-5.5 75.3 on same table)
 - Tool-Decathlon: **48.2%** (Z.ai blog; Opus 4.8 59.9, GPT-5.5 55.6, DeepSeek-V4-Pro 52.8 on same table)
 - GDPval-AA: **42.9%** (OpenRouter Artificial Analysis `GLM-5.2 (max)` listing; non-reasoning variant 36.6%)
+- Terminal-Bench 2.1: **81.0%** Terminus-2 (**82.7%** Claude Code lane — re-verified 2026-09-29; justification-cited numbers now row-backed)
+- FrontierSWE Dominance: **74.4%** (z.ai blog; vs Opus 4.8 75.1 — re-verified 2026-09-29)
+- DeepSWE: **46.2%**; ProgramBench: **63.7%**; NL2Repo: **48.9%** (z.ai blog table — re-verified 2026-09-29)
+- SWE-Marathon: **13.0%**; PostTrainBench: **34.3%** (z.ai blog/venturebeat — re-verified 2026-09-29)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - SWE Atlas Codebase QnA: **no verified public score found**
@@ -64,13 +68,13 @@ Long context:
 
 > Derived from the raw numbers above using the methodology in `model-comparison.md`.
 
-- **Tool use: 84/100.** MCP-Atlas 76.8 within 1 pt of Opus 4.8 with GDPval-AA 42.9% mid-pack; capped by Tool-Decathlon 48.2 trailing Opus by ~12.
+- **Tool use: 87/100.** TB2.1 81.0–82.7 plus MCP-Atlas 76.8 within 1 pt of Opus 4.8 show frontier open tool use; capped by Tool-Decathlon 48.2 trailing Opus by ~12 and GDPval-AA 42.9% mid-pack.
 - **Reasoning: 88/100.** GPQA 91.2 + AIME 99.2 + CritPt 20.9 (ties Opus) with HLE 40.5/54.7; capped by HLE still ~9 behind Opus full-set 49.8.
 - **Context window: 96/100.** Solid 1M tier with 131K+ output and AA-LCR 78.3%; capped below 100 without 98%+ retrieval at 512K+.
 - **Multimodal: 15/100.** Text-only in/out (verified OpenRouter + AI/TLDR); standard text-only band.
-- **Coding: 87/100.** SWE-Pro 62.1 leading GPT-5.5 with TB2.1 81.0–82.7 within 4 of Opus 85.0; capped by DeepSWE 46.2 and SWE-Marathon 13.0 trailing Opus by half.
+- **Coding: 88/100.** SWE-Pro 62.1 plus FrontierSWE 74.4%, DeepSWE 46.2%, ProgramBench 63.7% and TB2.1 81.0–82.7 show strong open engineering; capped by SWE-Marathon 13.0% trailing Opus badly.
 - **Cost efficiency: 80/100.** Paid $1.40/$4.40 ($0.26 cached), no Free ID; MIT self-host offsets but Zen bill is full frontier-mid price.
-- **Overall Score: 74/100.** Mean of the five non-cost dims (84+88+96+15+87)/5 = 74.0 → 74; best-fit as open-weights long-horizon coder where 1M stable context outweighs text-only limits.
+- **Overall Score: 75/100.** Mean of the five non-cost dims (87+88+96+15+88)/5 = 74.8 → 75; best-fit as open-weights long-horizon coder where 1M stable context outweighs text-only limits.
 
 ---
 
