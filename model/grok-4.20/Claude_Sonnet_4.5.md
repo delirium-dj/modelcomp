@@ -21,10 +21,10 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found (BenchmarkList lists Terminal-Bench Hard 40.9, rank 30 of 326 — different harness).
-- Tau3-Banking / Tau2-Bench: 97% on Tau2-Telecom (Artificial Analysis harness); Tau3-Banking: no verified public score found.
-- GDPval-AA: 1,062 Elo on GDPval-AA (AA), behind frontier peers and roughly in line with Grok 4.1 Fast; v2 revision 1,179 GDPval-AA Elo for Grok 4.20 0309 v2.
-- Claw-Eval / ClawProBench: Claw Bench 92, rank 16 of 37 (BenchmarkList).
+- Terminal-Bench 2.1: no verified public score found (BenchmarkList lists Terminal-Bench Hard **40.9**, rank 30 of 326 — different harness).
+- Tau3-Banking / Tau2-Bench: **97%** on Tau2-Telecom (Artificial Analysis harness); Tau3-Banking: no verified public score found.
+- GDPval-AA: **1,062** Elo on GDPval-AA (AA), behind frontier peers and roughly in line with Grok 4.1 Fast; v2 revision **1,179** GDPval-AA Elo for Grok 4.20 0309 v2.
+- Claw-Eval / ClawProBench: Claw Bench **92**, rank 16 of 37 (BenchmarkList).
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
 
 Reasoning / knowledge:
@@ -33,9 +33,9 @@ Reasoning / knowledge:
 - HLE: no verified public score found for Grok 4.20 specifically (included in AA Index but not itemized in accessible sources).
 - LCR / MLCR: no verified public score found.
 - CritPt: no verified public score found (part of AA Index composite).
-- Artificial Analysis Intelligence Index / BenchLM overall: Grok 4.20 0309 (Reasoning) achieves a score of 48 on the Artificial Analysis Intelligence Index, which evaluates models across reasoning, knowledge, mathematics, and coding; v2 (Reasoning) scores 26 on the AA Intelligence Index (median 25). BenchLM: ranks #93 out of 216 models on the public BenchAlign leaderboard, with a score of 54.26/100.
-- Omniscience Accuracy / Hallucination Rate: 78% on the AA-Omniscience non-hallucination metric — the best result AA had seen for this metric, reflecting the model only answering around one fifth of the time when it did not know the answer.
-- Additional: ARC-AGI-2 65.1 (rank 24/99), ARC-AGI-1 89.5 (rank 30/97).
+- Artificial Analysis Intelligence Index / BenchLM overall: Grok 4.20 0309 (Reasoning) achieves a score of **48** on the Artificial Analysis Intelligence Index, which evaluates models across reasoning, knowledge, mathematics, and coding; v2 (Reasoning) scores **26** on the AA Intelligence Index (median 25). BenchLM: ranks **#93** out of 216 models on the public BenchAlign leaderboard, with a score of **54.26/100**.
+- Omniscience Accuracy / Hallucination Rate: **78%** on the AA-Omniscience non-hallucination metric — the best result AA had seen for this metric, reflecting the model only answering around one fifth of the time when it did not know the answer.
+- Additional: ARC-AGI-2 **65.1** (rank 24/99), ARC-AGI-1 **89.5** (rank 30/97).
 
 Coding:
 
@@ -43,7 +43,7 @@ Coding:
 - LiveCodeBench: no verified public score found for Grok 4.20 (Grok 4 predecessor ~79%, not this model).
 - SciCode / AA-SciCode: no itemized public score found (component of AA Index composite).
 - Vibe Code Bench: no verified public score found.
-- DeepSWE / Coding Index / other: BenchLM: ranks #89 out of 133 eligible models for coding and programming, with a public category score of 46.3/100.
+- DeepSWE / Coding Index / other: BenchLM: ranks **#89** out of 133 eligible models for coding and programming, with a public category score of **46.3/100**.
 
 Long context:
 

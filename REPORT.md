@@ -1,5 +1,9 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — reactivated grok-4.20/Claude_Sonnet_4.5 (bold-only rescue)
+
+1. Bolded 13 measured numbers in the raw table (Tau2-Telecom 97, Claw 92, GDPval 1,062/1,179, AA Index 48/26, BenchAlign #93 @54.26, Omniscience 78%, ARC-AGI 65.1/89.5, coding #89 @46.3, TB-Hard 40.9 as labeled proxy). Deliberately left the `~78%` TokenMix secondary claim and `~79%` predecessor figure unbolded (agent marks both unverified/not-this-model). Renamed to `.md`. Verified: 10 not-founds but 14 numerics (QUAR passes), Overall 73.0 exact, ALL-PASS.
+
 ## 2026-09-29 — IMPROVEMENTS.md consolidated and eliminated (user order)
 
 1. All five roadmap items verified complete in HEAD and merged here: #1 catalog split (glob gone; nuance: full metas bundled, no on-demand deep-dive yet), #2 pre-baked rankings (O(1) lookup, client sorts removed), #3 voice pipeline (multi-root sync, aligned tripwires, `voicemodels/` removed), #4 meta schema validation (typed gates, 108/108 metas pass), #5 purification (scratch gone, SW trio removed; helper scripts + gitignored guides remain explicit non-work judgment calls). `IMPROVEMENTS.md` deleted as temporary; only `REPORT.md` history entries reference it now (kept as log).
