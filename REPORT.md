@@ -11,6 +11,14 @@
 3. `IMPROVEMENTS.md` §3 updated to `models_voice/` (rename follow-up; §5 DONE marker left as-is).
    Next: `pnpm sync && pnpm build.types && pnpm build`.
 
+## 2026-09-29 — google-gemini-2.5-flash-lite merged into gemini-2.5-flash-lite (user-ordered exception)
+
+1. User overrode the endpoint-distinction evidence (65.5 vs 67.4, Zen 128K vs native 1M, distinct research) and ordered the merge under rule "keep newer per Date line, tie → incoming". Hash-verified all 13 collisions: zero byte-identical pairs.
+2. Result: 11 google- reports won (incl. the LongCat tie-break toward incoming — same date+mtime, substantively different cards; recoverable from git history if ever revisited), plain- Space_Bunny_Alpha (09-29, newest of all) survived, twin `Gemini_2.5_Flash_Lite.md.excluded` moved cleanly (plain- had no file of that stem; the active twin file had already vanished as untracked churn), native `meta.json` kept (google- stub factually wrong per Big_Pickle's duplicate flag), both `average.md` files left for sync to recompute. Folder `google-gemini-2.5-flash-lite/` fully removed (15 files).
+3. Mid-merge incident (mine): a `-q` flag `git mv` doesn't support staged 10 deletions without moves — caught immediately, all 10 restored byte-identical from HEAD before proceeding. Concurrent agents also wrote into both folders during the window (averages recomputed ~09:35, +`Gemini_3.7` pair dated 09-25/09-20 and merged, active `Gemini_2.5_Flash_Lite.md` vanished).
+4. COMMIT WARNING: pre-commit hook BLOCKS this (model/ deletions) — commit with `ALLOW_MODEL_DELETE=1` citing this entry. `pnpm sync` FAILs on the removed tracked paths until committed; after commit run sync (drops the google- key from `scores.generated.ts`, recomputes the average, retires `/model/google-gemini-2.5-flash-lite/`). This entry is the sign-off.
+   Next: commit, then `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-29 — voicemodels/ retired, research.md learns 3 trees, PUR recreated (Muse Spark 1.3)
 
 1. Reborn `voicemodels/` (9 files filed under the dead path post-rename) resolved per user order: 6 non-colliding reports `git mv`'d into matching `models_voice/<slug>/` (Kimi_K3 ×3 incl. 1 excluded, GLM_5.3_Flash ×3 excluded — excluded-beside-active same-stem pairs are convention-legal twins); 3 colliding `Mimo_v2.6_Flash.md` refiles (09-28, substantive, hash-verified different from the 09-26 canonicals) deleted per explicit user pick "keep canonical" — this entry is the sign-off. `voicemodels/` directory fully removed from disk.

@@ -72,4 +72,12 @@ excluded; excluded-beside-active same-stem pairs are convention-legal twins),
 Build outputs (`dist/`, `server/`, `tsconfig.tsbuildinfo`) and `PRD/`,
 `instructions/`, `node_modules/` are gitignored local-only — leave alone.
 
+## 7. Merge: `google-gemini-2.5-flash-lite` → `gemini-2.5-flash-lite` (2026-09-29, user-ordered exception)
+
+Same weights, different endpoints (Zen 128K vs native 1M) — user ordered the
+merge anyway under "keep newer per Date line, tie → incoming". 11 google-
+reports won, plain- `Space_Bunny_Alpha` (newest) survived, twin moved
+cleanly, native `meta.json` kept, averages left for sync. Folder removed
+(15 files). Sign-off in `REPORT.md`; commit needs `ALLOW_MODEL_DELETE=1`.
+
 Verify after any change: `pnpm sync && pnpm build.types && pnpm build`.
