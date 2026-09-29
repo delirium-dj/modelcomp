@@ -16,17 +16,26 @@ const CY = 200;
 const MAX_R = 130;
 const LABEL_R = 168;
 
-function polar(value: number, index: number, radius: number): { x: number; y: number } {
+// Non-linear radial emphasis: 0–75 occupies the inner half of each axis,
+// 75–100 the outer half, with a smooth (kink-free) steepening slope.
+// r = (v/100)^GAMMA, GAMMA chosen so (75/100)^GAMMA = 0.5 → GAMMA ≈ 2.41.
+const GAMMA = Math.LN2 / Math.log(100 / 75);
+
+function scaleRadius(value: number, maxRadius: number): number {
   const clamped = Math.max(0, Math.min(100, value));
+  return Math.pow(clamped / 100, GAMMA) * maxRadius;
+}
+
+function polar(value: number, index: number, maxRadius: number = MAX_R): { x: number; y: number } {
   const angle = ((-90 + index * 60) * Math.PI) / 180;
-  const r = (clamped / 100) * radius;
+  const r = scaleRadius(value, maxRadius);
   return { x: CX + r * Math.cos(angle), y: CY + r * Math.sin(angle) };
 }
 
-function hexPoints(radius: number): string {
+function hexPoints(value: number): string {
   const pts: string[] = [];
   for (let i = 0; i < 6; i++) {
-    const p = polar(100, i, radius);
+    const p = polar(value, i);
     pts.push(`${p.x.toFixed(1)},${p.y.toFixed(1)}`);
   }
   return pts.join(" ");
@@ -59,19 +68,20 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
         <title id="hex-title">{"Radar chart comparing " + names}</title>
         <desc id="hex-desc">
           Hexagonal radar with axes Tool use, Reasoning, Context window, Multimodal, Coding and Cost
-          efficiency, scaled 0 to 100. Exact values are listed in the data table below the chart.
+          efficiency, scaled 0 to 100 with visual emphasis on the top end (the outer half of each axis
+          covers 75 to 100). Exact values are listed in the data table below the chart.
         </desc>
         {rings.map((r) => (
           <g key={r}>
             <polygon
-              points={hexPoints((r / 100) * MAX_R)}
+              points={hexPoints(r)}
               fill="none"
               class="stroke-slate-200 transition-colors dark:stroke-slate-800"
               stroke-width={r === 100 ? 2 : 1}
             />
             <text
               x={CX}
-              y={CY - (r / 100) * MAX_R - 5}
+              y={CY - scaleRadius(r, MAX_R) - 5}
               text-anchor="middle"
               font-size="9"
               class="fill-slate-400 dark:fill-slate-500 font-medium"
@@ -81,7 +91,7 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
           </g>
         ))}
         {DIMENSIONS.map((d, i) => {
-          const v = polar(100, i, MAX_R);
+          const v = polar(100, i);
           return (
             <line
               key={d.key}
@@ -96,7 +106,7 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
         })}
         {series.map((s) => {
           const pts = DIMENSIONS.map((d, i) => {
-            const p = polar(s.model.scores[d.key], i, MAX_R);
+            const p = polar(s.model.scores[d.key], i);
             return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
           }).join(" ");
           return (
@@ -115,7 +125,7 @@ export const HexRadar = component$<HexRadarProps>(({ series }) => {
         })}
         {series.map((s) =>
           DIMENSIONS.map((d, i) => {
-            const p = polar(s.model.scores[d.key], i, MAX_R);
+            const p = polar(s.model.scores[d.key], i);
             return (
               <circle
                 key={`${s.model.id}-${d.key}`}

@@ -1,5 +1,17 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — scratch lifecycle grace: 7-day leniency in both guards (user order)
+
+1. User ruling: agents draft findings incrementally and delete recent scratch on completion — missing files added to git < 7 days ago are INFO, not FAIL. Implemented in `scripts/sync-data.mjs` tripwire (age via `git log --diff-filter=A`; `meta.json` always FAILs as curated infrastructure; unknown age fails closed) and mirrored in `.githooks/pre-commit` (young deletions warn-and-allow, old deletions still blocked, bypass unchanged). Recorded in `RULES.md` (new bullet) + `tasks/sync-data.md` DoD. Calibrated: all recent churn cases were added 2026-09-29. `node --check` passes; hook reviewed (POSIX-only) but `sh` unavailable locally for `sh -n`.
+2. Gap found while verifying: `core.hooksPath` is EMPTY in this clone — the pre-commit hook (old or new) never runs here. Recommend one-time `git config core.hooksPath .githooks` (left for the user).
+   Next: `pnpm sync && pnpm build.types && pnpm build` (the grok-4.6 Pixel excluded case should now log INFO instead of FAIL).
+
+## 2026-09-29 — frontend restricted to model/ tree + GPT casing fix (Muse Spark 1.3)
+
+1. Site was displaying voice models (`Gpt Realtime 2`, `Grok Voice Think Fast 2.0`, …) because multi-root sync feeds them into the catalog. Fix: `pnpm sync` now stamps each catalog entry with its source `root` (`scripts/sync-data.mjs`: `basename(dirname(dir))`, `root?` added to the emitted `MetaFile` interface); `loadMetas` in `src/data/models.ts` skips entries whose root isn't `model` (missing field defaults to visible, so the current bundle keeps working until regen); rankings codegen builds top-3 lists from `model/` slugs only (a hidden voice ID in a top-3 slot would otherwise break homepage defaults). Per-model pages derive from `MODELS`, so they follow automatically. No agent cross-links point at voice slugs (verified).
+2. Bonus: `models_voice/gpt-realtime-2/meta.json` name/short fixed to "GPT Realtime 2" (was a slug-derivation artifact: gpt → Gpt).
+   Next: `pnpm sync && pnpm build.types && pnpm build` (regen stamps `root` + rebuilds rankings; voice models then vanish from selectors, hexagon, cards, and per-model pages).
+
 ## 2026-09-29 — log entry removed from worktree, restored + queue correction (Muse Spark 1.3)
 
 1. The "re-run queue fixed" entry below was deleted from the worktree copy by parties unknown (caught via `git diff`: 7-line removal, no replacement) and has been restored byte-identical from HEAD (0dd0710) — the Pixel untracking sign-off was never at risk, but worktree edits are now verified after every write.

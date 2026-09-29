@@ -158,6 +158,12 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
   const seenIds = new Set<string>();
   for (const [slug, mRaw] of Object.entries(GENERATED_CATALOG)) {
     const meta = mRaw as MetaFile;
+    // Frontend shows model/ entries only — voice/finance trees stay in the
+    // dataset (sync still validates them) but off the site until wired.
+    // Missing `root` (pre-regen bundles) defaults to visible, so the site
+    // keeps working until the next `pnpm sync` stamps the field.
+    const root = (meta as MetaFile & { root?: string }).root;
+    if (root !== undefined && root !== "model") continue;
     let valid = true;
     for (const k of META_REQUIRED) {
       if (typeof meta[k as keyof MetaFile] !== "string" || (meta[k as keyof MetaFile] as string).length === 0) {

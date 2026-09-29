@@ -51,4 +51,19 @@ Long context / multimodal:
 - Terminal-Bench-Science 0.1 **7.1** (#11/13); MedCode 44.7 (#27/54); MedScribe **86.5** (#15/56); MysteryMechanism 30.6 (#8/13)
 - MRCRv2 / RULER / GraphWalks: no verified public score found for this exact ID
 
-### Normalized scores (1–100)
+- **Tool use: 80/100.** Best-in-class vertical service work — τ³-Banking 50.7% (**#2 of 106**), APEX-Agents 57.5% (**#2 of 7**), GDPval-AA v2 1663 Elo (#7/14), Tax Agent Bench 70.8 (#5/20) — but the frontier agentic boards are much weaker: Terminal-Bench 4.0 20.3% (#21/54), Terminal-Bench 3.0 26.0%, SAGE **last of 55** and AA Harvey LAB 15.8 (#38/39).
+- **Reasoning: 76/100.** GPQA Diamond 94.0% (#11/187), ARC-AGI-1 87.5, ARC-AGI-2 67.1 and ECI 156 (#18/167) are strong, and AA-Omniscience accuracy 48.2% with a 34.3% hallucination rate (Index 30.5) is one of the better honesty profiles; capped by HLE 42.9%, CritPt 19.7% and AA Intelligence Index 44.3.
+- **Context window: 70/100.** 500K tokens with AA-LCR 80.3% and Context Arena 81.4 (#20/49); capped because the window is half the 1M now standard at this price class, EBR-bench persistence is only 30.5, and no MRCRv2/RULER/GraphWalks retrieval-depth row is published.
+- **Multimodal: 52/100.** Text + image in, text only out; measured evidence is thin — GDP.pdf 17.8 (#21/80) and Design Arena 1299 — with no MMMU-Pro, chart-reading, screen or video row for this ID and no audio/video path.
+- **Coding: 84/100.** SWE-bench (Vals) **95.6%**, LiveCodeBench (Vals) 88.2%, Terminal-Bench 2.1 88.4% (#8/51) and AA Coding Index 76.8 make it a top-tier agentic coder; held below 90 because DeepSWE is 67.5% (#17/43), AA Coding Agent Index v1.5 47 (#8/10), Terminal-Bench 4.0 20.3%, and the headline numbers come from the Vals harness rather than the canonical SWE-bench Verified board.
+- **Cost efficiency: 76/100.** $2.00 / $6.00 per 1M with $0.50 cached input (blended ≈ $2.80) and no OpenCode Zen Free ID, no batch or off-peak discount — roughly 13× DeepSeek V4.1-Flash and ~3.5× MiMo-V2.6-Pro per token for a materially better coding result.
+- **Overall Score: 72.4/100.** (80 + 76 + 70 + 52 + 84) / 5 = 72.4 — a premium paid agentic coding model whose strengths are repository work and structured service workflows, not long context, multimodality, or unsupervised factual answers.
+
+---
+
+## Signature
+
+- Provided by: **Pixel Canary (pixel-canary, early access via Vercel AI Gateway — underlying model not yet announced)** — 2026-09-29
+- Method: Public internet research (BenchLM profile `grok-4-6` refreshed 2026-09-28: composite 69.02/100, #18/512; LLMLearner 47-row benchmark snapshot with ranks; models.dev pricing/limit index for `xai/grok-4.6`). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

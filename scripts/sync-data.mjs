@@ -29,7 +29,7 @@
 // Non-zero = human action required (see error lines).
 import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, dirname } from "node:path";
+import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -313,8 +313,11 @@ for (const slug of slugs) {
   if (typeof meta.name === "string" && meta.name.includes("_")) {
     fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
-  // Store validated model metadata into our summary catalog map
-  catalogIndex[slug] = meta;
+  // Store validated model metadata into our summary catalog map.
+  // Frontend visibility: the site shows model/ entries only — record the
+  // source root so models.ts (and rankings codegen below) can hide
+  // voice/finance trees while sync still validates them as dataset.
+  catalogIndex[slug] = { ...meta, root: basename(dirname(dir)) };
 
   const perFile = [];
   let skipAverage = false;
@@ -584,6 +587,7 @@ if (failures === 0) {
     "  pricingTiers?: string[];",
     "  freeTierNote?: string;",
     "  noFreeId?: boolean;",
+    "  root?: string;",
     "}",
     "",
     "export const GENERATED_CATALOG: Record<string, MetaFile> = {",
@@ -612,7 +616,9 @@ if (failures === 0) {
   const rankPath = join(root, "src", "data", "rankings.generated.ts");
   const allSlugs = Object.keys(catalogIndex);
   const modelList = allSlugs
-    .filter((slug) => catalogIndex[slug] && scoreIndex[slug]?.["average.md"])
+    // Frontend shows model/ entries only — a hidden voice/finance ID in a
+    // top-3 slot would break homepage defaults, so rank model roots only.
+    .filter((slug) => catalogIndex[slug] && catalogIndex[slug].root === "model" && scoreIndex[slug]?.["average.md"])
     .map((slug) => ({
       id: catalogIndex[slug].id,
       slug,
