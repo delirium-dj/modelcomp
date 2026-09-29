@@ -1,8 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-29 — phantom warnings fix re-applied after revert (Muse Spark 1.3)
+## 2026-09-29 — Cost line re-applied + committed (Muse Spark 1.3)
 
-1. The `models.ts` warning-loop fix (warn only for slugs absent from the unfiltered catalog) was reverted pre-commit like the others; re-applied verbatim and committed immediately with this entry.
+1. The `Cost efficiency: 88/100` line was reverted pre-commit like other uncommitted work; re-applied verbatim and committed immediately with this entry (modification only — no bypass needed).
+
+## 2026-09-29 — missing score lines: 1 fixed, 1 in-progress (Muse Spark 1.3)
+
+1. `model/longcat-2.0/Gemini_3.5_Flash_Lite.md` (signed, stable): agent omitted the Cost line though pricing was cited ($0.30/$1.20, cached $0.006, paid-only). Orchestrator-added `Cost efficiency: 88/100` normalized from the cited rates with in-file disclosure (Pixel precedent); Overall left for sync AUTO-correct (5-dim mean is 59.1, file claims 69.9 — expect the AUTO line, not a FAIL). Verified the line matches the parser format.
+2. `model/mimo-v2.6-pro/DeepSeek_4.1_Flash.md`: 18-line model card only, content churning between reads — agent mid-draft, nothing to complete yet (no benchmarks cited). Left untouched; its FAIL clears when the agent finishes. Do not quarantine live work.
 
 ## 2026-09-29 — phantom backfill key removed (Muse Spark 1.3)
 

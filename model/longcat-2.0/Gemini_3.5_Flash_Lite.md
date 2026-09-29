@@ -47,6 +47,7 @@ Long context:
 - **Context window: 70/100.** 1M context support with strong long-horizon recall.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 70.5/100.** Strong coding performance on SWE-bench tasks.
+- **Cost efficiency: 88/100.** Paid $0.30/$1.20 per 1M (cached $0.006, as cited above), no free tier; MIT open weights allow self-hosting. (Orchestrator-added 2026-09-29: the agent cited pricing but omitted the Cost line; normalized from the cited rates. Overall left for `pnpm sync` AUTO-correct.)
 - **Overall Score: 69.9/100.** Capable open-weights 1.6T MoE model optimized for long-context programming tasks.
 
 ---
