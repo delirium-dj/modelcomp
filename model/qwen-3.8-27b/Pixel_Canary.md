@@ -51,6 +51,8 @@ Multimodal:
 - MathVision: **90.0%** (with Python **94.6%**); CharXiv: **90.2%** (83.7% without tools); OmniDocBench 1.5: **91.1%**; RealWorldQA **85.9%**; AA-MMMU-Pro 76.3%
 - Video-MME / MLVU: no verified row for this exact ID despite video being an accepted input
 
+### Normalized scores (1–100)
+
 - **Tool use: 72/100.** OSWorld-Verified **84.3%** is the best GUI/device-control score in this whole comparison group and AA τ³-Banking 48.0% plus AA Agentic Index 46.5% are respectable for 27B parameters; capped hard by the long-horizon tail — AA Terminal-Bench 4.0 **5.6%** and GDPval-AA 1409 Elo — and by the fact that terminal work degrades from 73.0% (TB 2.1) to single digits as task length grows.
 - **Reasoning: 62/100.** GPQA Diamond 89.2% (AA 90.5%) and MMLU-Pro 84.3% are the strongest open-weight 27B-class results around, and IFBench 79.5% shows instruction discipline; but the AA Intelligence Index is 33.7, HLE only 30.8%, CritPt 5.4%, and AA-Omniscience accuracy is **15.6%** — a ~27B model should not be trusted as an unaided knowledge source.
 - **Context window: 74/100.** 262,144 native (1M with YaRN) with AA-LCR 82.0% as genuinely good long-context-reasoning evidence; capped because the usable window and the output ceiling are host-dependent (DeepInfra 262K/32,768, Cerebras 131K/40,960, Groq 131K/16,384, only OpenRouter's paid route advertises the 1M YaRN extension) and no MRCRv2/RULER depth curve exists.

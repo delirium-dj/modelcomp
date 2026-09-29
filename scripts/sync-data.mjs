@@ -667,7 +667,8 @@ if (failures === 0) {
 
   // 3. Reporting agent sources top 3
   for (const entry of sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"([^"]+)",\s*file:\s*"([^"]+)"\s*\}/g)) {
-    const [, key, file] = entry;
+    // matchAll groups: [full, key, label, file] — skip label, bind filename.
+    const [, key, , file] = entry;
     if (key === "average" || VIRTUAL_DIM_MAP[key]) continue;
     const sorted = [...modelList].sort((a, b) => {
       const sa = a.sources[file]?.overall;

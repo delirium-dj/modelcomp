@@ -1,0 +1,62 @@
+# GPT-Realtime-Translate — findings by Mimo v2.6 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: OpenAI (`gpt-realtime-translate`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card
+
+- **Name:** GPT-Realtime-Translate
+- **Short description:** OpenAI's purpose-built continuous speech-to-speech translation model — one audio stream in (70+ input languages), translated speech plus translated transcript out (13 output languages), tracking the speaker without chunking or buffering. It is a translation pipe, not a conversational agent: no reasoning, no tools, no generated answers. Sibling of `gpt-realtime-2` / `gpt-realtime-whisper` from the same 2026-05-07 Realtime trio.
+- **Provider / access:** OpenAI Realtime API — the dedicated translation endpoint `v1/realtime/translations` only (official endpoint table marks Realtime, Chat Completions, Responses, Live, Transcription etc. as **not supported**; supported feature: `streaming`). Also deployed in Microsoft Foundry/Azure OpenAI as a Global Standard pay-as-you-go model (Azure docs `gpt-realtime-translate.md`, updated 2026-07-04).
+- **Release / knowledge:** 2026-05-07 (OpenAI "Advancing voice intelligence with new models in the API"; Reuters same day; OpenAI community topic 1380471). Knowledge cutoff: Sep 30, 2024 (official model page).
+- **IDs:** `gpt-realtime-translate` (OpenAI / Azure deployment name). **No OpenCode Zen Free ID** (Zen model list checked 2026-09-29: no `translate` id).
+- **Context window:** 16,000 tokens, 2,000 max output tokens (official model page) — the smallest window in this Realtime family, consistent with turn-scoped interpretation rather than long sessions.
+- **Modalities:** audio in; audio and text out (official model page). Reasoning: no — no effort parameter, supported features list only `streaming`. Tool calls: no. JSON mode: not applicable/not listed.
+- **Pricing (as of 2026-09-29):** **$0.034 per minute of audio** — duration-billed, not token-billed (official model page + launch post). Azure prices it hourly on the Audio Models rate card. Paid, no free tier.
+- **Architecture:** proprietary; parameters and training data not disclosed.
+
+### Raw benchmarks found
+
+> Measured numbers with (source / rank / harness). OpenAI's launch blog, the official model page, the Azure include page and subsequent coverage (MarkTechPost, TechCrunch, Reuters, notebookcheck, heise) publish **no benchmark table** for this model. The only quantitative claim located is a customer testimonial, not a benchmark:
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / tau3 / tau2 / GDPval-AA / Claw-Eval / Toolathon / OSWorld: **no verified public score found** (the model exposes no tool/function calling at all)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**
+
+Translation / speech (closest available evidence, NOT a named benchmark):
+
+- Word Error Rate across Hindi, Tamil, Telugu: BolnaAI's own internal evals claim **12.5% lower WER than any other model tested**, quoted by OpenAI on the launch blog — vendor-selected customer test, no named dataset, harness or sample size published → recorded as context only, never scored.
+
+Long context:
+
+- 16,000-token window documented (official model page); MRCR / RULER retrieval: **no verified public score found**
+
+Multimodal:
+
+- Audio in → audio + text out documented (official model page); MMMU / CharXiv / Video-MME / MMMU-style vision benches: **no verified public score found** (no image/video input)
+
+### Normalized scores (1–100)
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `gpt-realtime-translate` as shipped 2026-05-07).
+- Verified specs only: 16K/2K window, audio in → audio+text out, 70+ input → 13 output languages, endpoint `v1/realtime/translations`, streaming-only feature set, $0.034/min duration pricing, knowledge cutoff 2024-09-30, Azure Foundry availability.
+- If OpenAI or an independent lab publishes translation-quality numbers (BLEU/COMET/WER with a named harness) for this ID, replace this file with a scored `Mimo_v2.6_Flash.md` using the same headings.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-29
+- Method: public internet research (OpenAI product blog 2026-05-07, official OpenAI model documentation, Microsoft/Azure Foundry model include page, OpenAI community launch topic, Reuters/MarkTechPost coverage, OpenCode Zen model list); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

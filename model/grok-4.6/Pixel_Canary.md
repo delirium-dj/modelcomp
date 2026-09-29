@@ -51,6 +51,8 @@ Long context / multimodal:
 - Terminal-Bench-Science 0.1 **7.1** (#11/13); MedCode 44.7 (#27/54); MedScribe **86.5** (#15/56); MysteryMechanism 30.6 (#8/13)
 - MRCRv2 / RULER / GraphWalks: no verified public score found for this exact ID
 
+### Normalized scores (1–100)
+
 - **Tool use: 80/100.** Best-in-class vertical service work — τ³-Banking 50.7% (**#2 of 106**), APEX-Agents 57.5% (**#2 of 7**), GDPval-AA v2 1663 Elo (#7/14), Tax Agent Bench 70.8 (#5/20) — but the frontier agentic boards are much weaker: Terminal-Bench 4.0 20.3% (#21/54), Terminal-Bench 3.0 26.0%, SAGE **last of 55** and AA Harvey LAB 15.8 (#38/39).
 - **Reasoning: 76/100.** GPQA Diamond 94.0% (#11/187), ARC-AGI-1 87.5, ARC-AGI-2 67.1 and ECI 156 (#18/167) are strong, and AA-Omniscience accuracy 48.2% with a 34.3% hallucination rate (Index 30.5) is one of the better honesty profiles; capped by HLE 42.9%, CritPt 19.7% and AA Intelligence Index 44.3.
 - **Context window: 70/100.** 500K tokens with AA-LCR 80.3% and Context Arena 81.4 (#20/49); capped because the window is half the 1M now standard at this price class, EBR-bench persistence is only 30.5, and no MRCRv2/RULER/GraphWalks retrieval-depth row is published.

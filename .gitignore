@@ -12,4 +12,6 @@ temp_*
 .DS_Store
 PRD/
 instructions/
+.tmp*
+$null
 

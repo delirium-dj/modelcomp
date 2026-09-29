@@ -1,0 +1,22 @@
+# MiniMax M3.1 Flash Preview — findings by GPT 5.6 Terra
+- Source: MiniMax/M3.1 Flash Preview
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+## Model card
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** MiniMax preview model; exact public technical card was not located.
+- **Provider / access:** public preview access is reported, but exact provider API documentation was not verified.
+- **Release / knowledge:** preview; date and cutoff unavailable.
+- **IDs:** `minimax-m3.1-flash-preview`.
+- **Context window:** not verified.
+- **Modalities:** not verified.
+- **Pricing (as of 2026-09-29):** not verified.
+- **Architecture:** not disclosed.
+### Raw benchmarks found
+No verified public benchmark number for this exact preview model was found in fresh research.
+### Exclusion rationale
+Intentionally self-excluded until primary technical documentation or traceable benchmark evidence appears.
+## Signature
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Method: public internet research; no score assigned due to absent verified benchmark evidence.

@@ -50,6 +50,8 @@ Multimodal:
 - Design Arena (website Elo): **1228** (MiMo-V2.6-Pro 1325, Grok 4.6 1299, Qwen3.7 Plus 1279)
 - Video-MME / MLVU / OmniDocBench / audio: no rows — video and audio are not accepted inputs
 
+### Normalized scores (1–100)
+
 - **Tool use: 70/100.** Broad, competent tool work — Terminal-Bench 2.0 75.1%, OSWorld-Verified 75.0%, MCP Atlas 70.6%, Claw-Eval 60.3% — but it is no longer the agentic leader: GDPval-AA sits at 1307 Elo (36.6%), roughly 340 Elo behind MiMo-V2.6-Pro's 1673 and 300 behind Grok 4.6, and APEX-Agents-AA 33.3% / ResearchClawBench 15.3% show long-horizon autonomy is mid-pack.
 - **Reasoning: 72/100.** GPQA Diamond 92.8% and HLE 52.1% with tools are near-frontier, and CritPt 23.4% / FrontierMath Tier 4 27.1% are respectable; capped because the AA Intelligence Index is only 39.0 (below MiMo-V2.6-Pro's 46.3 and Grok 4.6's 44.3) and the AA-Omniscience profile is the worst honesty signal in this comparison group — 50.8% accuracy against a **91.7% hallucination rate**.
 - **Context window: 84/100.** 1,050,000 input tokens with 128,000 output, verified identical across the OpenAI and OpenCode listings, and AA-LCR 82.0% is the strongest long-context-reasoning number among the paid models in this set; capped below 90 because no MRCRv2/RULER/GraphWalks retrieval-depth curve is published and the 128K output ceiling is a third of DeepSeek V4.1-Flash's 384K.

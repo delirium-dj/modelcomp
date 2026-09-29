@@ -51,6 +51,8 @@ Multimodal:
 - Design Arena (website Elo): **1223** (below MiMo 1325, Grok 4.6 1299, Qwen3.7 Plus 1279)
 - GDP.pdf 20.0%; no MMMU-Pro, video or audio row published for this ID
 
+### Normalized scores (1–100)
+
 - **Tool use: 84/100.** The strongest agentic block in this comparison group: GDPval-AA **1695 Elo** (top of the six), AA AutomationBench 65.6% (best), AA Briefcase 1657 and Terminal-Bench 4.0 38.00% — well ahead of Grok 4.6's 20.3% on the same board; capped by AA ITBench 42.1%, AA Harvey LAB 19.6% and a Terminal-Bench 2.1 (Vals) of 73.4% that DeepSeek V4.1-Flash beats at 90.6%.
 - **Reasoning: 76/100.** AA Intelligence Index **46.5** is the highest of any model compared here, AA-HLE 43.1% and HealthBench Professional 56.7% are solid, and the AA-Omniscience pairing (47.4% accuracy, **29.3%** hallucination, Index 32.0) is the only genuinely honest profile in the group; capped because CritPt is 17.7% and no GPQA/HLE-full row is published yet for this ID.
 - **Context window: 70/100.** 500K input (models.dev also lists a 500K output ceiling, unusually generous) with AA-LCR 76.7%; capped because that window is half the 1M now standard among its peers, multi-document aggregation is poor at **MLCR-AA 15.0%**, and no MRCRv2/RULER retrieval-depth curve exists.

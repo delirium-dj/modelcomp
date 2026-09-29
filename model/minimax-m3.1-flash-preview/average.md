@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3.
 - Average from top 1 by Overall Score: Kimi K3.
-- Ignored below-gate rater(s): LongCat 2.5 Preview.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, LongCat 2.5 Preview.

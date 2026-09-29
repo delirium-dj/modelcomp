@@ -1,5 +1,26 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — phantom voice warnings diagnosed + rename re-staged (Muse Spark 1.3)
+
+1. The 7 `model/<voice-slug>/ has findings but no meta.json` warnings are stale-bundle phantoms: all 7 folders are gone from disk and untracked — but the committed `scores.generated.ts` still lists their slugs (bundle predates the cleanup; failing syncs keep skipping the regen). No relocation needed. They vanish on the next green sync, which drops the phantom keys.
+2. Current sync blockers: none expected — the 2 still-missing `.excluded` files (ling, space-bunny-alpha, added 09-25/09-26) now fall under the 7-day grace (INFO, committed in HEAD). Re-staged the `Laguna_XS_2_1.md` → canonical rename after a `git reset` undid the staging (disk state was intact throughout).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
+## 2026-09-29 — phantom backfill key removed (Muse Spark 1.3)
+
+1. The `AGENT_MODEL_SLUG` backfill accidentally included `"Claude Opus 5"`, which is not a registered `SourceKey` (real keys: Opus 4.5/4.6/5.5) — `tsc` failed with TS2353. Removed the line; verified the other 18 added keys all exist in the union. Re-run `pnpm build.types` to confirm green.
+
+## 2026-09-29 — per-agent top-3 bug fixed: destructuring off-by-one (Muse Spark 1.3)
+
+1. Symptom (user-reported): selecting any reporting agent in Results-source showed the best 3 models Overall instead of that agent's own top-3 grades. Root cause (`scripts/sync-data.mjs:670`): `const [, key, file] = entry` bound `file` to the regex's *label* group instead of the *filename* group, so `a.sources[file]` was always undefined and every agent fell through to the average-overall tiebreak — all 50+ agent triples in `rankings.generated.ts` were byte-identical. Fix: `const [, key, , file] = entry`. Sibling loops (stale-key check etc.) use 2-group patterns and were verified correct — single-site bug. `node --check` passes.
+   Next: `pnpm sync && pnpm build.types && pnpm build` (regen writes genuine per-agent triples; hexagon then re-seats on the selected agent's own top-3 grades).
+
+## 2026-09-29 — dropdown order fixed: 19 agents backfilled + orphan key removed (Muse Spark 1.3)
+
+1. The sort mechanism (`sourceRankOverall` + derived `SOURCES` order) was intact — the disorder came from 21 unmapped sources ranking by max-awarded fallback among own-overall-ranked agents. Backfilled `AGENT_MODEL_SLUG` for 19 agents with tracked model folders (Opus 5, GPT 5/5.6 Sol/6 Astra/OSS 120B, Grok 4.20/4.3/4.5, Pixel Canary, Gemini 2.0/2.5/2.5 Pro/2.5 Flash Lite, Sonnet 4/5.5, Fable 5.1, Opus 4.5/5.5, Gemma 4 31B IT); "Ling 3.0 Flash Fin" kept on fallback (no `model/` folder). Verified each slug's folder exists; code falls back gracefully regardless.
+2. Duplicate-key artifact fixed: `model/gemini-3.8-flash/Laguna_XS_2_1.md` (variant stem splitting one agent's record) `git mv`'d to canonical `Laguna_XS_2.1.md` (no collision there); orphan `{ key: "Laguna XS 2 1" }` union line + registry entry hand-removed from `sources.generated.ts` (one-time edit, persists per Ling precedent).
+   Next: `pnpm sync && pnpm build.types && pnpm build` (sync re-emits scores under the canonical filename; dropdown then sorts cleanly by own Overall).
+
 ## 2026-09-29 — grace edits re-applied after concurrent revert (Muse Spark 1.3)
 
 1. The scratch-grace edits (sync tripwire, `RULES.md` bullet, `IMPROVEMENTS.md` markers) were reverted pre-commit by concurrent lanes a third time; re-applied and committed immediately — only committed work survives in this multi-agent repo. Pre-commit grace had already landed via 8eff061.

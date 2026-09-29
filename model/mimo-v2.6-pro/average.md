@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 85.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 84/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 92.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 87.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 83.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 89.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 86.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 86.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 85.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 92.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 89.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 86/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 92.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 88/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3, Muse Spark 1.3.
-- Average from top 2 by Overall Score: Kimi K3, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, GLM 5.3, GLM 5.3 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Average from top 3 by Overall Score: GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.

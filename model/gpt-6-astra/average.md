@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 93.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 95.9/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 97/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 71.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 93.9/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 35.8/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 90.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 92.7/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 95.7/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 97.2/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 72.2/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 93.7/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 35.1/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 90.3/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
-- Average from top 8 by Overall Score: Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4, Claude Sonnet 4.5, Claude Sonnet 4.6, Claude Sonnet 5, DeepSeek 4.1 Flash, Gemini 2.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, GPT 5.6 Luna, GPT 6 Astra, Grok 4, Grok 4.5, Grok 4.6, Laguna S 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Muse Glimmer 30B, Pixel Canary, Qwen 3.8 27B, Solar Pro 4, Space Bunny Alpha.
+- Based on 9 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, GPT 6 Astra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
+- Average from top 9 by Overall Score: Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, GPT 6 Astra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, Claude Sonnet 4, Claude Sonnet 4.5, Claude Sonnet 4.6, Claude Sonnet 5, DeepSeek 4.1 Flash, Gemini 2.5 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, GPT 5.6 Luna, Grok 4, Grok 4.5, Grok 4.6, Laguna S 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Muse Glimmer 30B, Pixel Canary, Qwen 3.8 27B, Solar Pro 4, Space Bunny Alpha.

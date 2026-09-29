@@ -1,0 +1,63 @@
+# GPT-Realtime-Whisper — findings by Mimo v2.6 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: OpenAI (`gpt-realtime-whisper`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card
+
+- **Name:** GPT-Realtime-Whisper (also documented by Microsoft as **GPT Realtime Transcribe**)
+- **Short description:** OpenAI's streaming speech-to-text model for the Realtime API — transcribes live audio as the speaker talks instead of waiting for utterance completion, with a tunable latency/accuracy delay knob. Text-only output: it is an STT leg meant to run alongside `gpt-realtime-translate` (source-language transcript) or a speech-to-speech session, not an agent. Same 2026-05-07 Realtime trio as `gpt-realtime-2` and `gpt-realtime-translate`.
+- **Provider / access:** OpenAI Realtime API — the transcription endpoint `v1/realtime/transcription_sessions` only (official endpoint table marks Realtime, translation, Chat Completions, Responses, Live, `v1/audio/transcriptions` etc. as **not supported**; supported feature: `streaming`). Microsoft Foundry/Azure OpenAI hosts it as a Global Standard pay-as-you-go deployment (Azure include `gpt-realtime-whisper.md`, updated 2026-07-27); offline file transcription is explicitly routed to `gpt-transcribe` instead.
+- **Release / knowledge:** 2026-05-07 (OpenAI "Advancing voice intelligence with new models in the API"; Reuters 2026-05-07; OpenAI community topic 1380471). Knowledge cutoff: Sep 30, 2024 (official model page).
+- **IDs:** `gpt-realtime-whisper` (OpenAI / Azure deployment name). **No OpenCode Zen Free ID** (Zen model list checked 2026-09-29: no `whisper` id).
+- **Context window:** 16,000 tokens, 2,000 max output tokens (official model page).
+- **Modalities:** audio and text in; text out (official model page). Reasoning: no. Tool calls: no. JSON mode: not listed.
+- **Pricing (as of 2026-09-29):** **$0.017 per minute of audio** — duration-billed, not token-billed (official model page + launch post). Azure prices it hourly on the Audio Models rate card. Tier limits run 100 → 1,300 minutes-of-audio per minute by rate-limit tier. Paid, no free tier.
+- **Architecture:** proprietary streaming Whisper successor; parameters not disclosed (the classic `whisper-1` remains a separate, non-streaming file-transcription model).
+
+### Raw benchmarks found
+
+> Measured numbers with (source / rank / harness). No WER, CER, latency or benchmark number for `gpt-realtime-whisper` appears in OpenAI's launch blog, official model page, community announcement or Azure include page. Artificial Analysis's Speech-to-Text catalog lists an "OpenAI GPT Realtime Whisper" family entry, but no score for it was retrievable/verifiable in this search (their AA-WER page data is client-rendered; only the top-5 leaderboard text was reachable) → recorded as no verified public score found.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / tau3 / tau2 / GDPval-AA / Claw-Eval / Toolathon / OSWorld: **no verified public score found** (the model has no tool or function-calling surface)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**
+
+Transcription / speech (closest available evidence, NOT a named benchmark):
+
+- Word Error Rate: **no verified public score found** — no published number for this ID on AA-WER, Common Voice, LibriSpeech, VoxPopuli or any vendor table
+- Latency: only the qualitative design claim "low-latency transcript deltas with controllable delay settings" (official docs); no measured milliseconds published
+
+Long context:
+
+- 16,000-token window documented (official model page); MRCR / RULER retrieval: **no verified public score found**
+
+Multimodal:
+
+- Audio + text in → text out documented (official model page); no image/video input; MMMU / CharXiv / Video-MME: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `gpt-realtime-whisper` as shipped 2026-05-07).
+- Verified specs only: 16K/2K window, audio+text in → text out, endpoint `v1/realtime/transcription_sessions`, streaming with controllable latency/accuracy delay, $0.017/min duration pricing, tier ladder 100→1,300 audio-min/min, knowledge cutoff 2024-09-30, offline counterpart `gpt-transcribe`.
+- If OpenAI or an independent lab publishes WER/latency numbers (named harness) for this ID, replace this file with a scored `Mimo_v2.6_Flash.md` using the same headings.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-29
+- Method: public internet research (OpenAI product blog 2026-05-07, official OpenAI model documentation, Microsoft/Azure Foundry model include page, OpenAI community launch topic, Artificial Analysis Speech-to-Text page, OpenCode Zen model list); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

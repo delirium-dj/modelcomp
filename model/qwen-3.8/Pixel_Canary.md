@@ -56,6 +56,8 @@ Open-weights sibling for context (`Qwen3.8-27B`, BenchLM 55.26/100, #58/512): Te
 
 - Terminal-Bench 4.0 / Toolathon / SWE Atlas / GraphWalks at 1M: no verified public score found for this exact ID
 
+### Normalized scores (1–100)
+
 - **Tool use: 84/100.** Terminal-Bench 2.1 86.6% and OSWorld-Verified 86.1% are top-decile agentic/computer-use results, and HLE-with-tools 56.2% shows it uses tools productively; capped because independent indices stay mid-pack (AA Agentic Index 49.6, GDPval-AA Elo 1630 vs 1844–1846 for the Claude 5.5 leaders) and OSWorld 2.0 is only 19.4%.
 - **Reasoning: 76/100.** GPQA Diamond 92.6% and AA Intelligence Index 45.4 place it just behind the frontier tier, but HLE 43.6%, CritPt 17.7% and an AA-Omniscience accuracy of 31.7% against a 28.8% hallucination rate are the hard caps — it is strong inside known distributions, weak at the frontier of unknown questions.
 - **Context window: 85/100.** 1M input tokens with MRCRv2 92.9% is near-frontier retrieval evidence and 131K output is generous; capped because the OpenCode-hosted entry (`opencode/qwen3.8-max`) is capped at 262,144 and no GraphWalks/RULER curve at 1M exists.

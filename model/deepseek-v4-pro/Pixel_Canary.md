@@ -53,3 +53,20 @@ Multimodal:
 - MMMU-Pro / OCRBench / Video-MME / audio: **no rows exist — the API is text-only**
 
 ### Normalized scores (1–100)
+
+- **Tool use: 65/100.** Terminal-Bench 2.1 87.9% and MCP Atlas 73.6% show a competent tool-calling agent, but AA Agentic Index 49.6, APEX-Agents-AA 24.3% and GDPval-AA 1306 Elo (vs 1632–1673 for Grok 4.6 / MiMo-V2.6-Pro / V4.1-Flash) mean it loses long-horizon professional work to every current peer.
+- **Reasoning: 72/100.** The strongest DeepSeek profile measured here — AA Intelligence Index 53.2, GPQA Diamond 90.1% (AA 92.8%), HLE 42.7% (60.0% with tools), MMLU-Pro 87.5%, HMMT Feb 2026 95.2% — capped by CritPt 18.0% and an Omniscience pair of 49.1% accuracy against a **94.1% hallucination rate**.
+- **Context window: 88/100.** 1,048,576 input / 384,000 output with a *measured* **MRCR 1M = 83.5%** plus AA-LCR 80.3% — the retrieval depth is proven at the full window; held back only by the absence of RULER/GraphWalks/multi-document rows and Baseten's 262K output cap.
+- **Multimodal: 24/100.** Every hosted entry is **text-in / text-out**: no image, audio, video or PDF input at all, so the only "multimodal" row is a text-prompt Design Arena Elo of 1258. Scored on capability surface, not on quality.
+- **Coding: 78/100.** SWE-bench Verified 80.6% (Vals 96.4%), LiveCodeBench 93.5% and AA Coding Index 68.8 are still top-decile for algorithmic and repo work, with DeepSWE 62.7% and Vibe Code Bench 49.93% showing the app-building/agentic tail; SWE-bench Pro 55.4% keeps it under 80.
+- **Cost efficiency: 78/100.** $1.30 / $2.60 per 1M with $0.10 cache reads on DeepInfra plus MIT-class open weights for self-hosting; capped because this ID is a **legacy route** — since 2026-09-14 the vendor's own API forwards it to the cheaper V4.1-Flash, so paying the Pro rate buys nothing.
+- **Overall Score: 65.4/100.** (65 + 72 + 88 + 24 + 78) / 5 = 65.4 — a genuinely strong long-context text reasoner that is now architecturally obsolete for agent work and multimodal use; choose DeepSeek V4.1-Flash instead unless you specifically need the V4-Pro weights.
+
+---
+
+## Signature
+
+- Provided by: **Pixel Canary (pixel-canary, early access via Vercel AI Gateway — underlying model not yet announced)** — 2026-09-29
+- Method: Public internet research (BenchLM profile `deepseek-v4-pro-0813` refreshed 2026-09-28, DeepSeek API Docs deprecation/reroute notice of 2026-09-14, models.dev hosted-provider limits and pricing for DeepInfra / TogetherAI / Baseten); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
