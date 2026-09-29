@@ -1,10 +1,9 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-29 — voicemodels/ deleted again, strays documented (Muse Spark 1.3)
+## 2026-09-29 — model/gemini-3.8-live duplicate removed, voice canonical (user order)
 
-1. The 3 `Mimo_v2.6_Flash.md` refiles that reappeared under a resurrected `voicemodels/` (same 09-28 content already condemned under the "keep canonical" pick) deleted again per standing user order; empty dirs removed, tree gone from disk and index. Committed with bypass — this entry is the sign-off.
-2. Uneditable `voicemodels` strings remain by design: 4 dataset-file notes inside `models_voice/` (`DeepSeek_4.1_Flash.md` ×3, `Mimo_v2.6_Flash.md` ×1 — permanence forbids touching findings bytes) plus `REPORT.md`/`PUR_MUSE13.md` history. Verified by recursive grep: zero live code, procedure, or config references the old path.
-3. Root cause of the resurrections: agents filing from stale in-flight context — `tasks/research.md` and all 40+ delegators already say `models_voice/`. Recommend broadcasting the rename to all active sessions; nothing left to fix in-repo.
+1. `model/gemini-3.8-live/` (22 tracked files, 0 untracked strays) removed per user order; `models_voice/gemini-3.8-live/` (23 files) is now the sole home per the `RULES.md` voice-routing rule. Pre-removal verification: 19 files byte-identical across trees (safe), 3 differing (`average.md` regenerates via sync; `LongCat_2.5_Preview.md` + `Space_Bunny_Alpha.md` both dated 09-29 on both sides — model versions dropped with the folder), 1 voice-only file (`Ling_3.0_Flash_Fin.md`, untouched), 0 model-only files.
+2. Effect: next sync drops the `gemini-3.8-live` key from the site bundle (sync scans `model/` only; voice wiring still pending) — intended per the routing design. Committed with bypass — this entry is the sign-off.
    Next: `pnpm sync && pnpm build.types && pnpm build`.
 
 ## 2026-09-25 — restored deepseek-v4.1-flash/Pixel_Canary.md (true deletion)
