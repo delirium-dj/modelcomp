@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — docs resynced + grace re-applied after clobbering (Muse Spark 1.3)
+
+1. Uncommitted work was repeatedly reverted by concurrent lanes (concurrent checkouts/restores discard anything not yet committed). Response: this pass re-applied everything and commits immediately. Re-applied: scratch grace in sync tripwire + pre-commit + `RULES.md` (lost twice); `tasks/research.md` three-tree coverage; `tasks/sync-data.md` (multi-root, catalog/rankings/root, step 7, DoD); `README.md` (data flow, layout, hexagon bullet); `model/README.md` (catalog); `IMPROVEMENTS.md` (#1 DONE, #5 SW fix); `PUR_MUSE13.md` (§8); project-map + `.agents/rules.md` (done earlier, survived).
+2. Lesson recorded: in this multi-agent repo, only committed work survives — stage and commit promptly, verify post-commit.
+
 ## 2026-09-29 — scratch lifecycle grace: 7-day leniency in both guards (user order)
 
 1. User ruling: agents draft findings incrementally and delete recent scratch on completion — missing files added to git < 7 days ago are INFO, not FAIL. Implemented in `scripts/sync-data.mjs` tripwire (age via `git log --diff-filter=A`; `meta.json` always FAILs as curated infrastructure; unknown age fails closed) and mirrored in `.githooks/pre-commit` (young deletions warn-and-allow, old deletions still blocked, bypass unchanged). Recorded in `RULES.md` (new bullet) + `tasks/sync-data.md` DoD. Calibrated: all recent churn cases were added 2026-09-29. `node --check` passes; hook reviewed (POSIX-only) but `sh` unavailable locally for `sh -n`.

@@ -25,8 +25,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
 - Website wiring is automatic: `pnpm sync` pre-parses every `*.md` into
   `../src/data/scores.generated.ts` and `../src/data/sources.generated.ts`
   (numbers and registry only, so report prose never ships in the client bundle)
-  and `../src/data/models.ts` discovers every `meta.json` via `import.meta.glob`
-  at build time. **Adding files here needs no code edits** — just run
+  and pre-bakes summary metadata into `../src/data/catalog.generated.ts`.
+  **Adding files here needs no code edits** — just run
   `pnpm sync && pnpm build`.
 
 ## meta.json schema

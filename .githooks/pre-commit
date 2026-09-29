@@ -5,9 +5,36 @@
 # Bypass (explicit user sign-off only):  ALLOW_MODEL_DELETE=1 git commit ...
 set -u
 deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
-if [ -n "$deleted" ]; then
+# Scratch lifecycle grace (user-signed 2026-09-29, mirrors sync tripwire):
+# files added to git < 7 days ago may be agent scratch — warn, allow.
+# meta.json is curated infrastructure: always blocked. Unknown age: blocked.
+GRACE_DAYS=7
+now=$(date +%s)
+blocked=""
+recent=""
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  case "$f" in
+    */meta.json) blocked="${blocked}${f}\n"; continue;;
+  esac
+  added=$(git log --diff-filter=A --format=%ct -1 HEAD -- "$f" 2>/dev/null || true)
+  case "$added" in
+    ''|*[!0-9]*) blocked="${blocked}${f}\n"; continue;;
+  esac
+  if [ "$((now - added))" -lt "$((GRACE_DAYS * 86400))" ]; then
+    recent="${recent}${f}\n"
+  else
+    blocked="${blocked}${f}\n"
+  fi
+done <<EOF
+$deleted
+EOF
+if [ -n "$recent" ]; then
+  printf 'NOTE (scratch grace < %s days, recent agent scratch — allowed):\n%b' "$GRACE_DAYS" "$recent" >&2
+fi
+if [ -n "$blocked" ]; then
   echo "BLOCKED by RULES.md: this commit deletes permanent research files:" >&2
-  echo "$deleted" >&2
+  printf '%b' "$blocked" >&2
   echo "Restore them (git restore --source=HEAD -- <path>) or get explicit user sign-off," >&2
   echo "then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi

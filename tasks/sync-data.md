@@ -16,7 +16,9 @@ runs the identical checks and writes but prints only `FAIL` lines plus the
 final summary — no per-folder `SKIP` / `GATE` / `WRITE` / `INFO` noise. The
 exit code contract is unchanged (non-zero = read the `FAIL` lines).
 
-`pnpm sync` (`scripts/sync-data.mjs`) does, for every `model/<slug>/` folder:
+`pnpm sync` (`scripts/sync-data.mjs`) does, for every folder under the
+first-class roots `model/` and `models_voice/` (duplicate slugs across roots
+FAIL; `models_finance/` is mirror-only):
 
 1. Collects findings files (`*.md`, excluding `average.md`/`README.md`).
    Any filename containing `.excluded` is a self-excluded no-data report —
@@ -48,8 +50,11 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
 4. Registers any new reporting-agent filename in `src/data/sources.generated.ts`
    (`SourceKey` + `SOURCE_DEFS`, appended last; `src/data/models.ts` imports them directly). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
-   so report prose never ships in the client bundle), and `meta.json` files
-   are auto-discovered via `import.meta.glob` at build time.
+   so report prose never ships in the client bundle), summary metadata goes
+   into `src/data/catalog.generated.ts` (each entry stamped with its source
+   root — the frontend shows `model/` roots only), and top-3 rankings per
+   source go into `src/data/rankings.generated.ts` (model roots only, O(1)
+   lookup replacing client-side sorts).
 5. Validates every `meta.json` exists, parses, and has all required fields
    (`id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`).
    A new model folder without `meta.json` fails loudly — add it (schema in
@@ -60,6 +65,11 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    is never cemented. After adding or editing any findings file, re-running
    sync refreshes it; the file is committed (it is a build input, not build
    output).
+7. Enforces cross-root invariants: duplicate slugs across `model/` and
+   `models_voice/` FAIL (one slug lives in exactly one tree); missing
+   git-tracked findings files FAIL unless sanctioned (twin-retired sibling
+   present, mirror-tree relocation, or added < 7 days ago per the
+   scratch-lifecycle grace in `RULES.md` — `meta.json` always FAILs).
 
 Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines).
 

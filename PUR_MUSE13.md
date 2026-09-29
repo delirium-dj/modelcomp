@@ -80,4 +80,17 @@ reports won, plain- `Space_Bunny_Alpha` (newest) survived, twin moved
 cleanly, native `meta.json` kept, averages left for sync. Folder removed
 (15 files). Sign-off in `REPORT.md`; commit needs `ALLOW_MODEL_DELETE=1`.
 
+## 8. Docs + guards refresh (2026-09-29)
+
+- Scratch lifecycle grace (7 days) in sync tripwire + pre-commit hook
+  (`meta.json` excepted, unknown age fails closed); recorded in `RULES.md`,
+  `tasks/sync-data.md` DoD; `core.hooksPath` activated so the hook runs.
+- Frontend = `model/` only: catalog `root` stamp + rankings filtered to
+  model roots; voice models validated as dataset, hidden from site.
+- Hexagon non-linear scale (0–75 inner half, 75–100 outer half, γ≈2.41).
+- `gemini-3.8-live` saga closed (voice canonical; re-creations cleared with
+  zero loss; stale `.rerun` queue line identified as re-filer).
+- `google-gemini-2.5-flash-lite` merged into `gemini-2.5-flash-lite`
+  (newer-wins; exception sign-off in `REPORT.md`).
+
 Verify after any change: `pnpm sync && pnpm build.types && pnpm build`.

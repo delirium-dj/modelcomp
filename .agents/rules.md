@@ -11,10 +11,12 @@ reports, and the website stay consistent.
 - `model/<slug>/` — per-model folders (slugs listed in `model/README.md`).
 - `models_voice/<slug>/` — voice/speech models only (`RULES.md` routing rule:
   realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
-  as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.
+  as `model/`; first-class dataset — `pnpm sync` scans, validates, averages,
+  and catalogs both trees (duplicate slugs across roots FAIL). The frontend
+  shows `model/` entries only (source-`root` filter) until voice UI lands.
 - `models_finance/<slug>/` — finance models only (user-directed relocation,
-  e.g. Ling 3.0 Flash Fin). Same conventions; sync/site wiring pending like
-  `models_voice/`.
+  e.g. Ling 3.0 Flash Fin). Same conventions; mirror-only (unscanned by sync
+  except the relocation tripwire exemption); never create new folders there.
 - `src/` — Qwik City app (`routes/`, `components/`, `data/models.ts`).
 - `PRD/prd.md` — product requirements (tooltips, layout).
 - `model-comparison.md` — overview table + methodology (per-model details live in `model/`).
@@ -25,7 +27,7 @@ reports, and the website stay consistent.
 ## Website data flow (single source of truth)
 
 1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` (recomputed by `pnpm sync`, never by hand) and `meta.json` (curated display metadata — schema in `model/README.md`).
-2. `src/data/models.ts` imports numbers-only scores from `src/data/scores.generated.ts` and reporting agent source definitions from `src/data/sources.generated.ts` (both emitted by `pnpm sync`, which pre-parses findings files and registers sources) and discovers every `meta.json` via `import.meta.glob` into `AiModel.sources`; `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Even a brand-new reporting agent is registered automatically in `src/data/sources.generated.ts` by `pnpm sync`.
+2. `src/data/models.ts` imports numbers-only scores from `src/data/scores.generated.ts`, reporting agent source definitions from `src/data/sources.generated.ts`, and summary metadata from `src/data/catalog.generated.ts` (all three emitted by `pnpm sync`, which pre-parses findings files, registers sources, and stamps each catalog entry with its source `root`), plus pre-baked top-3 rankings from `src/data/rankings.generated.ts` (model roots only). The frontend hydrates `MODELS` from `model/`-rooted catalog entries only — voice/finance trees stay in the dataset but off the site. `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Even a brand-new reporting agent is registered automatically in `src/data/sources.generated.ts` by `pnpm sync`.
 3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports). Dropdown order is derived (Average first, virtual views in DIMENSIONS order, rest by rater own average Overall desc — see `sourceRankOverall` in `src/data/models.ts`) — never hand-sort it.
 
 ## average.md format contract (parser depends on it)
