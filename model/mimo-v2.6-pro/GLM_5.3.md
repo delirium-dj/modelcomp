@@ -81,3 +81,13 @@ Multimodal (grounded):
 - Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
 - Method: public internet research (Xiaomi official HF family model card, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research (same method) found all 30 cited benchmark rows, pricing ($0.435/$0.87), and specs unchanged. New post-publication fact:
+
+- BenchLM now computes an overall composite for this model: 74.71 (rank #9 of 512). At original publication (2026-09-28) the page showed "Coming soon / Unranked"; every individually cited row is identical either way (BenchLM snapshot 2026-09-28).
+
+The six normalized scores and the Overall stand as published — re-derived identically from the unchanged data. (Addendum by GLM 5.3, 2026-09-29.)

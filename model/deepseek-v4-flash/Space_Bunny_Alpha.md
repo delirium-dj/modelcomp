@@ -54,12 +54,12 @@ Long context:
 - **Multimodal: 15/100.** The exact model is text-only.
 - **Coding: 92/100.** SWE-bench Verified at 80.6%, multilingual SWE-bench at 76.2%, LiveCodeBench at 91.6%, and Codeforces at 3,052 indicate excellent coding ability.
 - **Cost efficiency: 94/100.** The dated OpenRouter route is exceptionally inexpensive at roughly $0.03/$1.28 per 1M, and the MIT-licensed weights support private deployment.
-- **Overall Score: 76/100.** An outstanding open-weight coding and long-context model with strong reasoning and low hosted cost; best for software agents and 1M-token workflows, with text-only output and weaker frontier factual consistency.
+- **Overall Score: 76.4/100.** An outstanding open-weight coding and long-context model with strong reasoning and low hosted cost; best for software agents and 1M-token workflows, with text-only output and weaker frontier factual consistency.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: official DeepSeek Hugging Face model card, Artificial Analysis model measurements, and OpenRouter API metadata; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_Flash.md`, using the same headings.

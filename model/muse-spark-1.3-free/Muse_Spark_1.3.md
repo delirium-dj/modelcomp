@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by Muse Spark 1.3 Contributor
 
 - Source: Meta/Muse Spark 1.3, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: AA v4.3 scale — max 48/xhigh 45 — + GPQA/HLE/TB effort-variants + LiveBench 81.6 added, all within noise/consistent — scores unchanged, Overall holds 93)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,17 +29,17 @@ Agent / tool use:
 - AutomationBench (business workflows): **49.4%** (BenchmarkList rank 6/42, 88th pct)
 - OSWorld 2.0 (agentic computer use): **66.9% binary** (Meta official; BenchmarkList rank 3/20, 89th pct)
 - Tau3-Banking: **50.5%** (LLMLearner, max with tools, rank 3/103)
-- Terminal-Bench 2.1: **88.8%** (BenchmarkList rank 4/182, 98th pct; Meta official table)
+- Terminal-Bench 2.1: **88.8%** (BenchmarkList rank 4/182, 98th pct; Meta official table); **85.8%** max / **85.4%** xhigh (AA-tracked — inside ±10.6 noise band, tie — re-verified 2026-09-29)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **59.4% SWE Atlas Codebase QnA** (BenchmarkList rank 5/28, 85th pct, max)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **94.1%** (LLMLearner, extra-high no-tools, rank 10/254)
-- HLE: **48.7%** (LLMLearner, max no-tools text-only, rank 38/218)
+- GPQA Diamond: **94.1%** xhigh no-tools (LLMLearner, rank 10/254); **93.8%** max (AA-tracked via ModelGap — saturated, trust-D — re-verified 2026-09-29)
+- HLE: **48.7%** (LLMLearner, max no-tools text-only, rank 38/218); **49.1%** max / **47.5%** xhigh (AA-tracked variants — re-verified 2026-09-29)
 - LCR / MLCR: **83.0% AA-LCR** (LLMLearner, extra-high, rank 12/91)
 - CritPt: **26.0** (LLMLearner, extra-high no-tools, rank 10/118)
-- Artificial Analysis Intelligence Index / BenchLM overall: **48 (AA Index, #13/199)** (Artificial Analysis model page); **ECI 153.53 #6/398** (BenchmarkList)
+- Artificial Analysis Intelligence Index: **48 max / 45 xhigh** (AA v4.3 scale; launch-week scale read 61–62 per heise — scale disambiguation — re-verified 2026-09-29); **ECI 153.53 #6/398** (BenchmarkList); BenchLM overall: **no verified public score found**
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
@@ -49,6 +49,7 @@ Coding:
 - SciCode / AA-SciCode: **59.7% SciCode** (LLMLearner, extra-high, rank 5/83)
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: **75.4% DeepSWE v1.1** (BenchmarkList rank 1/33, 100th pct; Meta official table); **CursorBench 4.0 41.6%** (LLMLearner rank 4/10); **Terminal-Bench 4.0 33.3%** (LLMLearner rank 7)
+- LiveBench: **81.6 overall** (xhigh, independent via ModelGap; +3.6 vs 1.2 matched-tier — re-verified 2026-09-29)
 
 Long context:
 

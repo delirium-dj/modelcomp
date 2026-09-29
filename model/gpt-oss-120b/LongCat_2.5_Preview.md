@@ -8,29 +8,32 @@
 ## Model card
 
 - **Name:** GPT-OSS 120B
-- **Short description:** OpenAI's open-weight mixture-of-experts model with 120B total parameters and ~5B active per token, designed for reasoning and tool use at a budget price point.
+- **Short description:** OpenAI's open-weight mixture-of-experts model with 116.8B total parameters and 5.1B active per token, released under Apache 2.0 license.
 - **Provider / access:** OpenAI API `gpt-oss-120b`; open-weight on HuggingFace. Chat Completions API (OpenAI-compatible).
-- **Release / knowledge:** 2025-04; knowledge cutoff not publicly specified.
+- **Release / knowledge:** 2025-08-05; knowledge cutoff June 2024.
 - **IDs:** `openai/gpt-oss-120b`
 - **Context window:** 131,072 tokens (128K).
-- **Modalities:** Text in; text out; reasoning yes; tool calls yes.
-- **Pricing (as of 2026-09-29):** $0.15/$0.60 per 1M in/out.
-- **Architecture:** MoE, 120B total params, ~5B active; open-weight (Apache 2.0).
+- **Modalities:** Text in; text out; reasoning yes; tool calls yes; structured output yes.
+- **Pricing (as of 2026-09-29):** Free (open-weight, Apache 2.0).
+- **Architecture:** MoE, 116.8B total params, 5.1B active; open-weight.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- No verified public agentic benchmark found for GPT-OSS 120B specifically.
+- Agentic Index: **44.9%** (Estimated · #97/151, BenchLM)
 
 Reasoning / knowledge:
 
-- GPQA: **67.2%** (PricePerToken)
-- LLM Stats Score: **49.26** (BenchLM comparison)
+- GPQA Diamond: **67.2%** (PricePerToken)
+- MMLU-Pro: **77.5%** (PricePerToken)
+- Reasoning: **57.7** (Unranked · 2 rankable rows, BenchLM)
+- Knowledge: **44.4%** (Estimated · #118/181, BenchLM)
 
 Coding:
 
 - SWE-bench Lite: **9.0%** (PricePerToken leaderboard)
+- Coding Index: **46.2%** (Estimated · #100/183, BenchLM)
 
 Long context:
 
@@ -38,13 +41,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 50/100.** No verified public agentic benchmark found for GPT-OSS 120B. Capped by absence of data.
-- **Reasoning: 65/100.** GPQA at 67.2% is moderate. Capped by limited reasoning benchmark coverage.
+- **Tool use: 50/100.** Agentic Index at 44.9% is moderate. Capped by limited agentic benchmark coverage.
+- **Reasoning: 62/100.** GPQA Diamond at 67.2% and MMLU-Pro at 77.5% are decent; Reasoning at 57.7 is moderate. Capped by limited reasoning benchmark diversity.
 - **Context window: 55/100.** 128K token context window is below the 1M+ frontier standard.
 - **Multimodal: 15/100.** Text-only input and output; no multimodal support.
-- **Coding: 40/100.** SWE-bench Lite at 9.0% is weak. Capped by limited coding benchmark coverage.
-- **Cost efficiency: 90/100.** $0.15/$0.60 per 1M is very cheap for a frontier-tier model.
-- **Overall Score: 45/100.** Mean of (50+65+55+15+40)/5 = 45.0 → 45. Best-fit recommendation: budget-friendly open-weight model with decent reasoning; held back by limited benchmark coverage and smaller context window.
+- **Coding: 45/100.** SWE-bench Lite at 9.0% is weak; Coding Index at 46.2% is moderate. Capped by limited coding benchmark coverage.
+- **Cost efficiency: 100/100.** Free (open-weight, Apache 2.0) is unmatched.
+- **Overall Score: 45/100.** Mean of (50+62+55+15+45)/5 = 45.4 → 45. Best-fit recommendation: free open-weight model with decent reasoning and moderate coding; held back by limited benchmark coverage and smaller context window.
 
 ---
 

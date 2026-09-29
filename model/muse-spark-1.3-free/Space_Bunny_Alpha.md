@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor Free — findings by Space Bunny Alpha
 
 - Source: Meta via OpenCode Zen (`opencode/muse-spark-1.3-contributor-free`; standard family ID `muse-spark-1.3`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,28 +10,28 @@
 - **Name:** Muse Spark 1.3 Contributor Free
 - **Short description:** OpenCode Zen's contributor-priced route to Meta's Muse Spark 1.3, intended for coding and agent workloads in exchange for permission to use prompts and completions for future Meta model training. It is an access/pricing alias of the Muse Spark 1.3 family, not a separately benchmarked public model.
 - **Provider / access:** OpenCode Zen (`https://opencode.ai/zen/v1/responses`), AI SDK OpenAI package. Zen lists `muse-spark-1.3-contributor-free` and standard `muse-spark-1.3`; the reviewed documentation identifies the contributor route as heavily discounted with training-data consent.
-- **Release / knowledge:** Muse Spark 1.3 was released by Meta on 2026-09-02 according to Artificial Analysis; no knowledge cutoff was shown on the reviewed pages.
+- **Release / knowledge:** Muse Spark 1.3 was released by Meta on 2026-09-02 according to Artificial Analysis; no knowledge cutoff was shown on the reviewed pages. No newer Muse Spark release was found as of 2026-09-29.
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` (evaluated alias); `muse-spark-1.3-contributor-free` (Zen model ID); standard family `muse-spark-1.3`.
-- **Context window:** 1M tokens for the standard Muse Spark 1.3 family (Artificial Analysis, accessed 2026-09-24). A separate alias-specific limit was not displayed by Zen.
+- **Context window:** 1M tokens for the standard Muse Spark 1.3 family (Artificial Analysis, accessed 2026-09-29). A separate alias-specific limit was not displayed by Zen.
 - **Modalities:** Standard family supports text, image, and video input with text output (Artificial Analysis). The alias-specific route was not documented with a different modality list.
-- **Pricing (as of 2026-09-24):** Zen calls the contributor route heavily discounted but the reviewed page exposes no numeric alias price. Standard Meta API pricing reported by Artificial Analysis is $1.25/$4.25 per 1M input/output tokens with an 88% cache discount; that standard price is not substituted as the contributor price.
+- **Pricing (as of 2026-09-29):** Zen calls the contributor route heavily discounted but the reviewed page exposes no numeric alias price. Standard Meta API pricing reported by Artificial Analysis is $1.25/$4.25 per 1M input/output tokens with an 88% cache discount (blended $0.78 per 1M); that standard price is not substituted as the contributor price.
 - **Architecture:** Proprietary; Meta has not disclosed parameter count.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Intelligence Index: **48/100**, rank **#17/210** for standard Muse Spark 1.3 max (Artificial Analysis, accessed 2026-09-24; composite benchmark)
-- Output speed: **218.6 tokens/s**; cost per Intelligence Index task: **$1.60** (Artificial Analysis, accessed 2026-09-24)
-- Terminal-Bench 2.1 / 4.0: **no verified public score found** for the exact contributor alias
-- Tau3-Banking / Tau2-Bench: **no verified public score found** for the exact contributor alias
+- Artificial Analysis Intelligence Index: **48/100**, rank **#19/216** for standard Muse Spark 1.3 max (Artificial Analysis, accessed 2026-09-29; composite benchmark). Index version is v4.3.2 — the value 48 is unchanged from the 2026-09-24 reading, and this model was not affected by the v4.1.1 → v4.3.2 re-basing.
+- Output speed: **184.0 tokens/s** (revised down from 218.6 tokens/s as measured on 2026-09-24); cost per Intelligence Index task: **$1.60** (unchanged) (Artificial Analysis, accessed 2026-09-29)
+- Terminal-Bench 2.1 / 4.0: **no verified public score found** for the exact contributor alias (the standard family scored 86% on Terminal-Bench 2.1 at launch, but AA has since re-based the index to Terminal-Bench 4.0 and no current alias-level value is published)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** for the exact contributor alias (standard family max scored 52% on Tau3-Banking at launch, per AA's 2026-09-02 release article — not an alias-level measurement)
 - GDPval-AA: **no verified public score found** as a standalone exact-alias value
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **48** for standard Muse Spark 1.3 max (Artificial Analysis, accessed 2026-09-24)
+- Artificial Analysis Intelligence Index: **48** for standard Muse Spark 1.3 max, v4.3.2 scale (unchanged from the 2026-09-24 reading)
 - GPQA Diamond: **no verified public score found**
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
@@ -50,12 +50,12 @@ Long context:
 
 - No public retrieval-at-length result for the exact contributor route was found. The standard family has a verified 1M-token context-window claim, but window size is not a retrieval benchmark.
 
-Sources consulted: [OpenCode Zen documentation](https://opencode.ai/docs/zen), [OpenCode Zen model list](https://opencode.ai/zen/v1/models), and [Artificial Analysis Muse Spark 1.3](https://artificialanalysis.ai/models/muse-spark-1-3), accessed 2026-09-24.
+Sources consulted: [OpenCode Zen documentation](https://opencode.ai/docs/zen), [OpenCode Zen model list](https://opencode.ai/zen/v1/models), [Artificial Analysis Muse Spark 1.3](https://artificialanalysis.ai/models/muse-spark-1-3), and [AA Muse Spark 1.3 release article](https://artificialanalysis.ai/articles/muse-spark-1-3), accessed 2026-09-29. Re-validation on 2026-09-29: the Intelligence Index figure of 48 still holds on the v4.3.2 scale; no release or pricing change was found since 2026-09-24.
 
 ### Normalized scores (1–100)
 
 - **Tool use: 84/100.** The standard family has an independently measured AA Intelligence Index of 48 and is positioned for coding agents, but exact alias-level Terminal-Bench, Tau, GDPval, and tool-call measurements were not published in the reviewed sources.
-- **Reasoning: 84/100.** AA Index 48 is well above the comparable-model median of 25; missing exact GPQA, HLE, and hallucination values prevent a higher evidence-based score.
+- **Reasoning: 84/100.** AA Index 48 (v4.3.2) is well above the comparable-model median of 26; missing exact GPQA, HLE, and hallucination values prevent a higher evidence-based score.
 - **Context window: 95/100.** The standard family is verified at 1M tokens; no measured long-context retrieval result for the contributor route was found.
 - **Multimodal: 90/100.** Standard Muse Spark 1.3 supports text, image, and video input with text output; the contributor route was not documented as a different model.
 - **Coding: 80/100.** The family is marketed for coding agents and the AA composite includes coding, but exact SWE-bench, DeepSWE, LiveCodeBench, and SciCode values were not found for the exact alias.
@@ -66,6 +66,6 @@ Sources consulted: [OpenCode Zen documentation](https://opencode.ai/docs/zen), [
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of OpenCode Zen documentation/model listing and Artificial Analysis model metadata; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

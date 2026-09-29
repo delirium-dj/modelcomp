@@ -62,12 +62,12 @@ Multimodal:
 - **Multimodal: 91/100.** Native image/video input and strong visual-agent, document, web, and real-world perception scores are backed by a broad exact-model benchmark set.
 - **Coding: 93/100.** SWE-bench Verified at 79.0%, SWE-bench Pro at 61.7%, LiveCodeBench v6 at 90.3%, and Terminal-Bench at 73.0% indicate exceptional coding-agent performance.
 - **Cost efficiency: 86/100.** At $0.42 input and $3.00 output per 1M tokens, hosted inference is reasonable but pricier than smaller open-weight alternatives; local deployment can reduce vendor cost.
-- **Overall Score: 92/100.** A high-end multimodal reasoning and coding agent with a million-token hosted window; best for software engineering, visual computer use, and long-running professional workflows.
+- **Overall Score: 91.6/100.** A high-end multimodal reasoning and coding agent with a million-token hosted window; best for software engineering, visual computer use, and long-running professional workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: official Qwen Hugging Face model card and local-deployment documentation, OpenRouter API metadata, and public benchmark tables; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_27B.md`, using the same headings.

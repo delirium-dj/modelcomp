@@ -67,6 +67,6 @@ Sources consulted: [Artificial Analysis Qwen3.8 Max](https://artificialanalysis.
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of Artificial Analysis, BenchLM, and Alibaba documentation with source-specific dates and harness labels; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

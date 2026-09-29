@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: public internet research (xAI docs model page, xAI release notes markdown, the xAI "Introducing Grok 4.7" launch post, and Artificial Analysis release/provider pages). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

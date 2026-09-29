@@ -153,6 +153,10 @@ const presentStems = new Set(); // findings filenames (without .md) seen anywher
 // Accumulated here, emitted as src/data/scores.generated.ts (only when this
 // run has zero failures, so invalid data is never cemented).
 const scoreIndex = {};
+// Junior Developer Tip: catalogIndex collects model metadata (name, context window, pricing, etc.)
+// from each model/<slug>/meta.json during sync. This allows us to pre-build a lightweight catalog.generated.ts
+// file instead of downloading raw meta.json files dynamically using expensive eager glob imports.
+const catalogIndex = {};
 const SHORT = {
   "Tool use": "tool",
   "Reasoning": "reasoning",
@@ -293,6 +297,8 @@ for (const slug of slugs) {
   if (typeof meta.name === "string" && meta.name.includes("_")) {
     fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
+  // Store validated model metadata into our summary catalog map
+  catalogIndex[slug] = meta;
 
   const perFile = [];
   let skipAverage = false;

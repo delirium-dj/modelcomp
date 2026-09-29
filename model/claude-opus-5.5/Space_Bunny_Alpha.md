@@ -59,12 +59,12 @@ Multimodal:
 - **Multimodal: 88/100.** Verified image input plus 89.0% Chartography and 81.8% OSWorld support strong visual/UI reasoning, though public visual evidence is narrower than text/agent evidence.
 - **Coding: 94/100.** Terminal-Bench 4.0, FrontierCode, CursorBench, and SciCode at 66.9% indicate top-tier coding-agent performance; no exact SWE-bench result was found.
 - **Cost efficiency: 82/100.** $4/$20 is expensive, but the $0.20 cache-read price, 40% lower typical workload cost than Opus 5, and more than 30% faster output improve the effective value.
-- **Overall Score: 94/100.** A frontier multimodal reasoning and coding model with a 1M window; best for demanding autonomous agents and complex knowledge work where quality and context outweigh token cost.
+- **Overall Score: 93.8/100.** (95 + 94 + 98 + 88 + 94) / 5 = 469 / 5 = 93.8. A frontier multimodal reasoning and coding model with a 1M window; best for demanding autonomous agents and complex knowledge work where quality and context outweigh token cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Anthropic's official launch post and model documentation, Artificial Analysis model measurements, and OpenRouter benchmark metadata; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

@@ -61,6 +61,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Artificial Analysis measurements and OpenRouter API metadata for the exact Qwen3.7 Plus route; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.7_Plus.md`, using the same headings.

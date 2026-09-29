@@ -63,6 +63,6 @@ Sources consulted: [Xiaomi MiMo-V2.5 release page](https://mimo.xiaomi.com/mimo-
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of Xiaomi's official release/model card, OpenCode Zen documentation, Models.dev, and BenchLM/Vals AI; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

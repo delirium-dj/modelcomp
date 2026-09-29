@@ -1,36 +1,26 @@
-# Kimi K2.8 Preview — findings by Qwen 3.8 27B
+# Kimi K2.8 Preview — findings by Qwen 3.8 27B (SELF-EXCLUDED)
 
-- Source: MoonshotAI (`kimi-for-coding` Kimi Code route; K2.8 Preview)
-- Date: 2026-09-28 (UTC)
+- Source: MoonshotAI (`kimi-k2.8-preview`)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> SELF-EXCLUSION (per template + `tasks/research.md` rule 9): zero verified public
-> benchmark numbers found for Kimi K2.8 Preview as of 2026-09-28. Every benchmark
-> row below reads "no verified public score found." No scored `.md` is written;
-> this file records the verified model-card facts and the negative-findings evidence.
 
 ## Model card
 
 - **Name:** Kimi K2.8 Preview
-- **Short description:** Moonshot AI's coding- and agent-focused Preview model (rolling rollout 2026-09-11), positioned between Kimi K2.7 Code and the flagship Kimi K3; a 1M-token context upgrade over K2.7 Code's 256K.
-- **Provider / access:** Moonshot AI — via Kimi Code / Kimi Code CLI / Kimi Work through the existing `kimi-for-coding` route (reportedly auto-routes to K2.8 without a model-ID change); also reachable via third-party tools (Qoder, Cindy). No dedicated public API endpoint or model ID confirmed. Not listed on OpenCode Zen.
-- **Release / knowledge:** Rolling Preview rollout reported 2026-09-11 (llm-stats, kie.ai, kucoin.com); knowledge cutoff not disclosed.
-- **IDs:** `kimi-for-coding` (Kimi Code route, third-party reported to point to K2.8 Preview); no confirmed dedicated API model ID; no OpenCode Zen ID.
-- **Context window:** Up to 1.0M tokens (llm-stats.com; multiple third-party reports; vs 256K for Kimi K2.7 Code).
-- **Modalities:** Text in/out; image and video input reported (llm-stats lists text/image/video in) but not independently confirmed.
-- **Pricing (as of 2026-09-28):** Not confirmed by Moonshot. Single third-party gateway price sheet lists $1 input / $4 output per 1M tokens (Cindy Gateway, 2026-09-14, via kie.ai) — uncorroborated, treat as provisional.
-- **Architecture:** Proprietary (Moonshot AI); parameter count not disclosed.
+- **Short description:** Moonshot AI's mid-tier coding/agentic preview checkpoint (Sept 2026), positioned between the coding-focused Kimi K2.7 Code and the flagship Kimi K3; closed/proprietary, a departure from the open-weight K2.7 Code and K3.
+- **Provider / access:** Moonshot first-party API + Kimi Code / Kimi Work apps; same API model ID as K2.7 Code (`kimi-for-coding`), so existing clients pick it up without config changes. Third-party gateway: TokenRa. No OpenCode Zen Free ID verified in this pass.
+- **Release / knowledge:** released 2026-09-11 (Moonshot via KuCoin/PANews reporting, llm-stats); knowledge cutoff not disclosed.
+- **IDs:** `moonshotai/kimi-k2.8-preview` (OpenCode data compare page); API id `kimi-for-coding` (shared with K2.7 Code). Proprietary — no open weights.
+- **Context window:** 1M total on every Kimi Code membership tier, up from 262,144 on K2.7 Code (Moonshot announcement via KuCoin flash; llm-stats confirms 1.0M).
+- **Modalities:** text / image / video in, text out; reasoning yes — three thinking-effort levels (low / high / max), max by default.
+- **Pricing (as of 2026-09-29):** no official first-party API pricing published for the preview as of 2026-09-15; gateway TokenRa lists ~$0.80 in / $3.35 out / $0.14 cached in per 1M (indicator only, not an official rate card).
+- **Architecture:** not disclosed (proprietary); MoE family (K2.7 Code / K3 are MoE) — unverified for this exact checkpoint.
 
 ### Raw benchmarks found
 
-> Negative findings — no verified public benchmark numbers exist for Kimi K2.8
-> Preview. Vendor claim "performance approaches Kimi K3" is relayed by community
-> sources with no benchmark name, score, harness, or confidence interval.
-
 Agent / tool use:
 
-- AA-Briefcase / GDPval-AA / AutomationBench-AA / Terminal-Bench 4.0: no verified public score found
 - Terminal-Bench 2.1: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
 - GDPval-AA: no verified public score found
@@ -43,7 +33,7 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (no K2.8 Preview entry on the AA LLM leaderboard or BenchLM)
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
@@ -56,25 +46,22 @@ Coding:
 
 Long context:
 
-- 1M context window is a verified product spec (llm-stats), but no MRCR / RULER / GraphWalks retrieval measurement at window length has been published.
+- 1M window announced; no long-context retrieval reported.
 
-### Verification steps performed (2026-09-28)
+Negative-findings notes:
 
-1. llm-stats.com/models/kimi-k2.8 — page confirms 1.0M context, multimodal (text/image/video in), 2026-09-11 release; no benchmark score table populated.
-2. kie.ai/blog/what-is-kimi-k2-8 (updated 2026-09-16) — "independent benchmark scores are not yet available"; hands-on tests mixed ("not at the same level of K3, but faster"); only a single-source $1/$4 price sheet.
-3. emergent.sh news (2026-09-14/15) — "pricing and benchmark details expected in coming weeks."
-4. kucoin.com news flash (2026-09-11) — "performance near K3" (vendor relayed claim, no numbers); `kimi-for-coding` ID confirmed.
-5. No K2.8 Preview entries found on the Artificial Analysis LLM leaderboard, BenchLM, or xAI/AA coding-agent leaderboards.
+- Moonshot's only published claim is qualitative: coding/agent performance "close to K3" with more efficient thinking vs K2.7 Code (vendor, via KuCoin/PANews). CCTest reporting (2026-09) explicitly notes the near-K3 claim is not yet backed by public benchmarks or independent testing; no LiveCodeBench / SWE-bench third-party scores exist as of 2026-09-29.
+- OpenCode's compare data shows no benchmark rows for this model (50/100 neutral placeholders only) and near-zero usage (17 sessions, 0% token share, 2026-09-29).
+- Zero verified public benchmark numbers for this exact model/ID → saved as `.md.excluded` per the template's SELF-EXCLUSION rule. Re-research once independent scores (LiveCodeBench, SWE-bench, TB2.1, AA Index) are published.
 
-### Disposition
+### Normalized scores (1–100)
 
-- Kimi K2.8 Preview has verified product specs (1M context, multimodal input, low/high/max thinking, `kimi-for-coding` routing) but zero verified public benchmark numbers as of 2026-09-28.
-- A scored `Qwen_3.8_27B.md` can replace this exclusion on a future re-research pass once independent/vendor benchmark numbers (GPQA, SWE-bench, Terminal-Bench, AA Index, etc.) are published.
+- Scores omitted — self-excluded; no verified benchmarks to normalize.
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-09-28
-- Method: public internet research (llm-stats.com, kie.ai, emergent.sh, kucoin.com); no verified public benchmark numbers exist for this exact model/ID, so no scores are recorded.
+- Provided by: **Qwen 3.8 27B (openrouter/qwen/qwen3.8-27b:free)** — 2026-09-29
+- Method: public internet research (llm-stats, OpenCode data compare, MagicShot/PANews/KuCoin/CCTest launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

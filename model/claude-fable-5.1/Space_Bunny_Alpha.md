@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Space Bunny Alpha
 
 - Source: Anthropic (`claude-fable-5-1`; adaptive reasoning, max effort with default fallback)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,19 +10,19 @@
 - **Name:** Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)
 - **Short description:** Anthropic's most capable generally available model for ambitious long-running coding, research, and knowledge work; it shares its underlying model with restricted Mythos 5.1 but has production safeguards and fallback behavior.
 - **Provider / access:** Anthropic Claude Platform and major cloud marketplaces; API ID `claude-fable-5-1`. Responses/agent workflows, browser and computer use, and long-running project tools are described by Anthropic.
-- **Release / knowledge:** Anthropic announced Fable 5.1 on 2026-09-01. The reviewed model overview lists a June 2026 reliable knowledge cutoff for the Fable 5.1 family.
+- **Release / knowledge:** Anthropic announced Fable 5.1 on 2026-09-01 (AA gives the same date). The reviewed model overview lists a June 2026 reliable knowledge cutoff for the Fable 5.1 family. Claude Opus 5.5 (released 2026-09-22) is described by Anthropic as performing "at the level of Claude Fable 5.1 on most work" at roughly 40% lower cost; Fable 5.1 itself is not flagged as deprecated as of 2026-09-29.
 - **IDs:** `claude-fable-5-1`.
-- **Context window:** 1M tokens; 128K maximum output tokens (Anthropic model overview, verified 2026-09-24).
+- **Context window:** 1M tokens; 128K maximum output tokens (Anthropic model overview, verified 2026-09-29; AA rounds the window to 1M).
 - **Modalities:** Text and image input; text output; multilingual, vision, and tool use supported (Anthropic model overview). Fable documentation specifically describes document/PDF understanding and vision-assisted coding.
-- **Pricing (as of 2026-09-24):** $10 per 1M input tokens and $50 per 1M output tokens; cache reads $0.25 per 1M. US-only inference is 1.1x input/output pricing. Enterprise Frontier Safeguards can provide customer-controlled storage and zero data retention when available.
+- **Pricing (as of 2026-09-29):** $10 per 1M input tokens and $50 per 1M output tokens; cache reads $0.25 per 1M (98% cache discount; blended 7:2:1 $7.17). US-only inference is 1.1x input/output pricing. Enterprise Frontier Safeguards can provide customer-controlled storage and zero data retention when available.
 - **Architecture:** Proprietary; Anthropic has not disclosed parameter count.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Intelligence Index: **53/100**, rank **#4/210** (Artificial Analysis, accessed 2026-09-24; composite benchmark)
-- Output speed: **65.8 tokens/s**; Intelligence Index task cost: **$7.63** (Artificial Analysis, accessed 2026-09-24)
+- Artificial Analysis Intelligence Index: **53/100**, rank **#5/216** (Artificial Analysis, accessed 2026-09-29; composite benchmark). Index version is v4.3.2 — the 53 figure is unchanged from the 2026-09-24 reading. Any higher pre-re-basing value (e.g. 65.7 on v4.1.1/v4.3) is superseded and no longer valid; on the current scale Fable 5.1 max sits 5 points under the 58 ceiling set by Claude Opus 5.5 adaptive/max.
+- Output speed: **68.5 tokens/s** (revised up from 65.8 tokens/s as measured on 2026-09-24); Intelligence Index task cost: **$7.63** (unchanged); time to first token: **290.53s** (Artificial Analysis, accessed 2026-09-29)
 - Terminal-Bench-Science 0.1: **21.4%** public leaderboard result for Claude Fable 5; Anthropic's reproduction is **24.7%**. These are Fable 5 results, not a separately reported Fable 5.1 value, and are labeled accordingly.
 - Frontier-Bench v0.1, GDPval-AA v2, OSWorld 2.0, HLE, AutomationBench, and DeepSearchQA: Anthropic presents comparative charts and claims frontier results, but the reviewed text exposes no exact Fable 5.1 values.
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
@@ -31,7 +31,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **53** (Artificial Analysis, accessed 2026-09-24)
+- Artificial Analysis Intelligence Index: **53** for adaptive reasoning at max effort with default fallback, v4.3.2 scale (unchanged from the 2026-09-24 reading)
 - Scientific protein-design competition context: Anthropic describes de novo binder work and compares against approximately **8–12 nM** for the best competitor; this is a scientific result, not a general model score.
 - GPQA Diamond, HLE absolute score, LCR/MLCR, CritPt, and hallucination metrics: **no verified public exact values found** for Fable 5.1.
 
@@ -63,6 +63,6 @@ Sources consulted: [Anthropic Fable page](https://www.anthropic.com/claude/fable
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of Anthropic's official Fable/Mythos pages, model overview, and Artificial Analysis metadata; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

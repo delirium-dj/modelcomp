@@ -74,3 +74,15 @@ Long context:
 - Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
 - Method: public internet research (Xiaomi official HF model card, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research (same method, all sources re-fetched) found every cited benchmark row, price, and spec unchanged. New post-publication facts worth recording:
+
+- BenchLM now computes an overall composite for this model: 64.06 (rank #34 of 512). At original publication (2026-09-28) the page showed "no public overall score" / unranked; the 24 individually cited rows are identical either way (BenchLM snapshot 2026-09-28).
+- Sibling context: MiMo-V2.6-Pro now has a BenchLM composite of 74.71 (#9 of 512), up from "not computed" — see `model/mimo-v2.6-pro/GLM_5.3.md`.
+- AA's TTFT measurement drifted slightly (4.23 s → 4.09 s); output speed (55.4 t/s), pricing ($0.14/$0.28) and Intelligence Index (38) are unchanged.
+
+The six normalized scores and the Overall stand as published — re-derived identically from the unchanged data. (Addendum by GLM 5.3, 2026-09-29.)

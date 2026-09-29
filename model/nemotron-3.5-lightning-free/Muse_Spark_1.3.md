@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by Muse Spark 1.3 Contributor
 
 - Source: NVIDIA/Nemotron 3.5 Lightning, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-18 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: release firmed 08-11 + HLE 11.7 filled + paid-fallback pricing added; Reasoning 62 → 61 — Overall holds 51)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Nemotron 3.5 Lightning Free (NVIDIA compact execution MoE)
 - **Short description:** Compact open 30B MoE (3B active) for high-volume, low-latency execution in always-on agents; pairs with a frontier planner.
 - **Provider / access:** NVIDIA via NIM + build.nvidia; OpenCode Zen `opencode/nemotron-3.5-lightning-free` (Chat Completions, tool calling supported).
-- **Release / knowledge:** 2026 (Lightning launch year); knowledge cutoff undisclosed
+- **Release / knowledge:** 2026-08-11 release (AnotherWrapper/NVIDIA); knowledge cutoff undisclosed (re-verified 2026-09-29)
 - **IDs:** `opencode/nemotron-3.5-lightning-free` (Free trial ID exists on Zen)
 - **Context window:** 262,144 native — verified via NIM docs (262,144 ctx)
 - **Modalities:** text-only; reasoning yes (light); tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-18):** Free $0 Zen/NVIDIA trial tier
+- **Pricing (as of 2026-09-18):** Free $0 Zen/NVIDIA trial tier; paid fallback $0.05/$0.20 (NVIDIA API — re-verified 2026-09-29)
 - **Architecture:** MoE 30B total / 3B active (execution layer); open weights
 
 ### Raw benchmarks found
@@ -31,7 +31,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **75.44%** (build.nvidia card)
-- HLE: **no verified public score found**
+- HLE: **11.7%** (AnotherWrapper comparison — re-verified 2026-09-29)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
@@ -52,12 +52,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 50/100.** TB 24.6% + Tau3 9.3% + GDPval 832 are weak for autonomous tool use by design (execution layer, not planner); caps the score.
-- **Reasoning: 62/100.** GPQA 75.4% is respectable for a 3B-active model; capped by missing HLE/LCR/CritPt depth.
+- **Reasoning: 61/100.** GPQA 75.4% is respectable for a 3B-active model; capped by HLE 11.7% and missing LCR/CritPt depth.
 - **Context window: 72/100.** 262K native maps to low-70s tier; capped below 1M models.
 - **Multimodal: 15/100.** Text-only per NIM docs and curated metadata; 15 is the text-only floor.
 - **Coding: 58/100.** SWE 51.6% is solid for its size but well below frontier; caps the score.
 - **Cost efficiency: 100/100.** $0 Free Zen/NVIDIA trial tier.
-- **Overall Score: 51/100.** Mean of the five non-cost dims (50+62+72+15+58)/5 = 51.4; best-fit high-volume low-latency execution paired with a frontier planner.
+- **Overall Score: 51/100.** Mean of the five non-cost dims (50+61+72+15+58)/5 = 51.2 → 51; best-fit high-volume low-latency execution paired with a frontier planner.
 
 ---
 

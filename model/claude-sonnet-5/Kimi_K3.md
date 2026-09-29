@@ -1,20 +1,20 @@
 # Claude Sonnet 5 — findings by Kimi K3
 
 - Source: Anthropic / Claude Sonnet 5 (`claude-sonnet-5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5
-- **Short description:** Anthropic's mid-tier Sonnet of the Claude 5 generation — balanced coding/agentic model with a strong CharXiv chart-understanding score and first-rate hallucination control for the price class.
+- **Short description:** Anthropic's mid-tier Sonnet of the Claude 5 generation — balanced coding/agentic model with a strong CharXiv chart-understanding score and first-rate hallucination control for the price class. Now legacy: superseded by Claude Sonnet 5.5 (2026-09-28).
 - **Provider / access:** Claude API (`claude-sonnet-5`), Amazon Bedrock, Google Cloud, Microsoft Foundry.
-- **Release / knowledge:** 2026 release (before the Sept 1 Fable 5.1 launch; exact date not verified in my sources); knowledge cutoff not verified.
+- **Release / knowledge:** Released 2026-06-30 (platform.claude.com docs); knowledge cutoff Jan 2026; retirement no sooner than 2027-06-30.
 - **IDs:** `anthropic/claude-sonnet-5` (no Free-tier ID verified on OpenCode Zen).
-- **Context window:** 1M tokens (benchlm.ai); max output not verified.
+- **Context window:** 1M tokens; max output 128K tokens (300K via Batch API `output-300k-2026-03-24` beta header) (platform.claude.com docs).
 - **Modalities:** text/image in (CharXiv, MMMU-Pro measured); text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** no verified public price found in my sources; Sonnet-tier below Opus 5's $5/$25 — provisional.
+- **Pricing (as of 2026-09-29):** $2/M input, $10/M output; cache reads $0.20/M; cache writes $2.50/M (5 min)/$4/M (1 h); Batch API 50% off (platform.claude.com docs).
 - **Architecture:** proprietary (Anthropic); params undisclosed.
 
 ### Raw benchmarks found
@@ -58,13 +58,13 @@ Multimodal:
 - **Context window: 86/100.** 1M window with LCR 82.0%; capped by missing max-window retrieval probes.
 - **Multimodal: 82/100.** CharXiv 88.3% is excellent; MMMU-Pro 77.3%; text-only output caps it.
 - **Coding: 84/100.** SWE-bench Verified 85.2%, LiveCodeBench 82.4%, VulcanBench CII 89.2%, Coding Index 71.5; capped by SWE Multimodal 28.1% and CursorBench 4.0 34.1%.
-- **Cost efficiency: 72/100.** Price unverified; scored provisional on Sonnet-tier positioning below Opus 5 ($5/$25).
+- **Cost efficiency: 72/100.** Verified $2/$10 per 1M (band ~70s) with $0.20 cache reads — the cheapest 1M-context Claude 5 family model; strong value.
 - **Overall Score: 83/100.** Mean of the five quality dims (83+81+86+82+84)/5 = 83.2 → 83. Best fit: high-volume coding/agentic work where Opus-class cost is unjustified; the sensible Claude default for most teams.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
+- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores. Reverified 2026-09-29: release date confirmed (2026-06-30), Jan 2026 cutoff, 128K max output (300K Batch beta), and pricing ($2/$10, cache reads $0.20, batch 50% off) now verified via platform.claude.com docs; noted supersession by Claude Sonnet 5.5 (2026-09-28); scores unchanged (cost justification de-provisionalized).
 - Future sources: add a new file next to this one using the same headings.

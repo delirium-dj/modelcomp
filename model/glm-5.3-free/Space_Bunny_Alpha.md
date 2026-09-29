@@ -55,6 +55,6 @@ Sources consulted: [OpenCode Zen documentation](https://opencode.ai/docs/zen/), 
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of OpenCode Zen's current catalog, repository metadata, BenchLM, and the underlying Z.AI model card; scores are normalized 1–100 interpretations. Proxy rows are labeled and excluded from exact-route evidence claims. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

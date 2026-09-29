@@ -53,6 +53,6 @@ Sources consulted: [BenchLM Hy3 profile](https://benchlm.ai/models/hy3), [curate
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of BenchLM, model metadata, and provider catalogs; scores are provisional normalized 1–100 interpretations where no verified benchmark rows exist, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

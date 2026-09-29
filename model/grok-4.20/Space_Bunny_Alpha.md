@@ -50,7 +50,7 @@ Reasoning / knowledge:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny-alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: public internet research (xAI docs model + release-notes pages, the xAI Grok 4.20 model card PDF header, Artificial Analysis model/provider pages, Benchable, and contemporaneous reporting of the launch results). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.
 

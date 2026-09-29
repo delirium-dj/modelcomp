@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Kimi K3
 
 - Source: Anthropic / Claude Opus 5.5 (`claude-opus-5-5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Claude Opus 5.5
 - **Short description:** Anthropic's newest Opus — BenchLM's #2 model overall (86.98/100), and Anthropic's own recommended default ("start with Opus 5.5", per docs since 22 Sept 2026). Best-in-class on terminal science, SWE-bench Pro, and instrumented tool use.
 - **Provider / access:** Claude API (`claude-opus-5-5`); system card: anthropic.com/claude-opus-5-5-system-card.
-- **Release / knowledge:** September 2026 (docs reference from 2026-09-22); knowledge cutoff not verified in my sources.
+- **Release / knowledge:** Released 2026-09-22; reliable knowledge cutoff June 2026; retirement not sooner than 2027-09-22 (platform.claude.com docs).
 - **IDs:** `anthropic/claude-opus-5.5` (no Zen Free ID verified).
-- **Context window:** 1M tokens (benchlm.ai); max output not verified.
+- **Context window:** 1M tokens; max output 128K tokens (300K via Batch API `output-300k-2026-03-24` beta header) (platform.claude.com docs).
 - **Modalities:** text/image in (MMMU-Pro, Chartography, BenchCAD measured); text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** no verified public price found in my sources; Opus-tier (below Fable's $10/$50) — provisional.
+- **Pricing (as of 2026-09-29):** $4/M input, $20/M output; cache reads $0.20/M (5% of input); cache writes $5/M (5 min)/$8/M (1 h); Batch API 50% off; Fast mode (research preview) $8/$40 (platform.claude.com docs, anthropic.com/claude-opus-5-5).
 - **Architecture:** proprietary (Anthropic).
 
 ### Raw benchmarks found
@@ -26,6 +26,7 @@ Agent / tool use:
 - Toolathlon-Verified: **77.8%** (Pass@3 82.4%, avg 26.9 turns) (benchlm.ai)
 - AA Briefcase: **1822**; AA AutomationBench: **69.5%**; AA Harvey LAB: **91.2%**; HLE w/ tools: **67.7%** (benchlm.ai)
 - OSWorld 2.0: **48.7%**; AutomationBench: **40.0%**; GDP.pdf (all-pass): **26.2%** (benchlm.ai)
+- OSWorld 2.1 (partial): **81.8%** (anthropic.com Opus 5.5 announcement); TB 4.0 66.4%, TB-Science 58.7%, GDPval-AA v2.1 1846, HLE w/ tools 67.7%, CursorBench 4.0 57.8%, FrontierCode 1.1 Main 54.4%, Chartography 89.0% all confirmed in the same vendor table
 - Tau3-Banking / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
@@ -62,13 +63,13 @@ Multimodal:
 - **Context window: 90/100.** 1M window with LCR 84.7%; capped by missing MRCR/RULER probes.
 - **Multimodal: 88/100.** MMMU-Pro 87.7%, Chartography 89%, biomedicine imaging — top chart/doc grounding; text-only output caps it.
 - **Coding: 90/100.** SWE-bench Pro 89.9% + SWE-Multilingual 93.9% + ProgramBench 91.2%: best-coding model in this cohort.
-- **Cost efficiency: 48/100.** Opus-tier flagship pricing (provisional — no public price found) with AA-measured cost-per-task trends rising vs Opus 5.
+- **Cost efficiency: 60/100.** Verified $4/$20 per 1M (band ~55–65) with $0.20 cache reads (60% cheaper than Opus 5); Anthropic reports ~40% lower total cost than Opus 5 at default settings — strong for a flagship, but not Sonnet-tier.
 - **Overall Score: 91/100.** Mean of the five quality dims (93+92+90+88+90)/5 = 90.6 → 91. Best fit: the 2026H2 Claude flagship — default for deep research, science agents, and production coding.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard, anthropic.com system card reference, felloai.com docs note); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
+- Method: fresh public web research (benchlm.ai scorecard, anthropic.com system card reference, felloai.com docs note); scores are normalized 1–100 interpretations, not official vendor scores. Reverified 2026-09-29: pricing now public ($4/$20, cache reads $0.20, batch 50% off, fast mode $8/$40), release date confirmed 2026-09-22, 128K max output (300K Batch beta), Jun 2026 cutoff, and OSWorld 2.1 81.8% added via platform.claude.com docs + anthropic.com announcement; cost score 48→60.
 - Future sources: add a new file next to this one using the same headings.

@@ -1,7 +1,7 @@
 # Qwen3.8-Max — findings by Muse Spark 1.3 Contributor
 
 - Source: Alibaba/Qwen3.8-Max, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: card + BenchLM absolutes added, scores recomputed 83 → 88)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: card + BenchLM absolutes added, scores recomputed 83 → 88); re-verified 2026-09-29 (UTC, user-signed-off re-research: official 08-03 table — PaperBench 93.0/IFBench 82.8/OSWorld-Ver 86.1/MRCR 92.9/QwenBench-trio — + 95B-active + weights-pending note added; Tool 87 → 89, Multimodal 80 → 84, Coding 86 → 88, Overall 88 → 90)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1M / 131K out — verified via curated repo metadata
 - **Modalities:** text, image, video, PDF in; text out; reasoning yes (low-reasoning advised — model overthinks); tool calls yes (CloudPrice caps)
 - **Pricing (as of 2026-09-18):** Paid $2 in / $6 out per 1M flat (one-time 1M-token free quota, no Zen Free ID)
-- **Architecture:** proprietary sparse MoE, 2.4T total (512 experts, 10 routed + 1 shared; MXFP4 native); API multimodal Max (amended 2026-09-27).
+- **Architecture:** sparse MoE, 2.4T total / 95B active (512 experts; MXFP4 native); Qwen-Max-class open weights promised w/o Aug 10 (license unstated at announcement — re-verified 2026-09-29)
 
 ### Raw benchmarks found
 
@@ -23,9 +23,12 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **86.6%** (BenchLM mirror)
 - CoWorkBench: **74.8%** (BenchLM mirror); **JobBench 53.4%** and **skillsBench 70.2%** (BenchLM mirrors)
+- PaperBench: **93.0%** (official table, leads Sol 90.5/Fable 88.8 — re-verified 2026-09-29); AndroidBench: **75.1%** (official table — re-verified 2026-09-29)
+- QwenBench in-house: SWEBench **80.7** / Qoder **58.4** / React **1724** / SVG **1713** (official table — re-verified 2026-09-29)
 - Agents' Last Exam: **52.4%** (BenchLM mirror)
+- IFBench: **82.8%** (official table — re-verified 2026-09-29)
 - AndroidWorld: **85.3%** (BenchLM mirror); **MobileWorld 77.8%** and **WebArena-Verified 66.8%** (BenchLM mirrors)
-- OSWorld 2.0: **19.4%** (BenchLM mirror — weak tail)
+- OSWorld-Verified: **86.1%** (official table, tops vision rows — re-verified 2026-09-29); OSWorld 2.0: **19.4%** (BenchLM mirror — weak tail, different harness)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -35,9 +38,11 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **92.6%** (Qwen model card via Featherless; llm-stats 0.926 #13)
 - HLE: **43.6% without tools / 56.2% with tools** (Qwen model card)
+- HealthBench: **60.2%**; PLawBench: **73.2%**; PRBench-Legal **57.6%** / Finance **58.3%**; $OneMillion-Bench: **52.5%** (official table — re-verified 2026-09-29)
 - AA-LCR: **0.8** (CloudPrice LCR row #47 — weak tail)
 - LCR / MLCR: see AA-LCR row above; no verified MLCR score found
 - CritPt: **no verified public score found**
+- OmniDocBench 1.5: **92.1%**; Parametric CAD Bench: **91.5%** (official table — re-verified 2026-09-29)
 - Artificial Analysis Intelligence Index: **46.9** (CloudPrice #13)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
@@ -51,17 +56,17 @@ Coding:
 
 Long context:
 
-- **1M / 131K out verified; no MRCR/RULER number found — no long-context retrieval reported**
+- **1M / 131K out verified; MRCR v2 256K: 92.9%** (official table — re-verified 2026-09-29); LongBench v2 **66.3%** (official table)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** TB2.1 86.6% plus CoWork 74.8%, AndroidWorld 85.3% and ALE 52.4% show broad device/web orchestration; capped by the OSWorld 19.4% tail and no Tau/GDPval/Claw numbers.
+- **Tool use: 89/100.** TB2.1 86.6% plus CoWork 74.8%, OSWorld-Verified 86.1%, IFBench 82.8% and ALE 52.4% show broad device/web orchestration; capped by the OSWorld-2.0 19.4% tail and no Tau/GDPval/Claw numbers.
 - **Reasoning: 89/100.** GPQA 92.6% plus HLE 56.2% and AA Index 46.9 show strong reasoning; capped by the AA-LCR 0.8 tail and no CritPt number.
-- **Context window: 100/100.** 1M / 131K out verified; top tier.
-- **Multimodal: 80/100.** Text/image/video in, text out; capped below audio/PDF omni models.
-- **Coding: 86/100.** SWE-Pro 67.7% (#7) plus FrontierSWE 73.5%, Coding Index 71.8 and DeepSWE 56.6 show strong flagship coding; capped by no SWE-Verified/LiveCode/Vibe numbers and the SciCode 0.5 tail.
+- **Context window: 100/100.** 1M / 131K out with MRCR 92.9% @256K measured; capped with no 1M-pointwise figure.
+- **Multimodal: 84/100.** Text/image/video in with OmniDocBench 92.1%, CAD 91.5% and OSWorld-Verified 86.1% measured; capped below audio omni models.
+- **Coding: 88/100.** SWE-Pro 67.7% plus PaperBench 93.0%, FrontierSWE 73.5%, QwenSWEBench 80.7 and DeepSWE 56.6 show strong flagship coding; capped by no SWE-Verified/LiveCode/Vibe numbers and the SciCode 0.5 tail.
 - **Cost efficiency: 60/100.** Paid $2/$6 flat with one-time free quota; mid paid value, no standing free tier.
-- **Overall Score: 88/100.** Mean of the five non-cost dims (87+89+100+80+86)/5 = 88.4; best-fit flagship long-context value MoE at flat pricing — card plus BenchLM absolutes now confirm it.
+- **Overall Score: 90/100.** Mean of the five non-cost dims (89+89+100+84+88)/5 = 90.0 → 90; best-fit flagship long-context value MoE at flat pricing — now evidence-backed.
 
 ---
 

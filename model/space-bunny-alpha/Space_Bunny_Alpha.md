@@ -65,11 +65,11 @@ Speed and reliability telemetry:
 - **Multimodal: 64/100.** Text, image, and video are supported, and the synthetic color probe scored 8/8 at 64×64, but one tiny-image test made an error and no document, chart, OCR, or video-quality evaluation was published.
 - **Coding: 55/100.** The model is marketed for coding and can emit code/tool requests, but no verified coding benchmark or pass rate was found; qualitative SVG examples do not warrant a higher normalized score.
 - **Cost efficiency: 100/100.** The current limited-time Zen and related OpenRouter routes list $0/M input and output; availability, rate limits, and the temporary nature of the promotion remain material caveats.
-- **Overall Score: 65/100.** Best fit as a free experimental route for million-token experiments, simple image checks, and qualitative SVG/coding exploration; evidence is not yet strong enough to recommend it for accuracy-critical production agent or coding workloads. Formula: half-up mean of 58, 56, 93, 64, and 55 = 65.2 → 65.
+- **Overall Score: 65.2/100.** Best fit as a free experimental route for million-token experiments, simple image checks, and qualitative SVG/coding exploration; evidence is not yet strong enough to recommend it for accuracy-critical production agent or coding workloads. Formula: half-up mean of 58, 56, 93, 64, and 55 = 65.2 → 65.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Independent public-web and API-catalog research using OpenCode, OpenRouter, pinned stealthprint measurements, the independent field guide, and TokenDyno telemetry; scores are normalized 1–100 interpretations, not official vendor scores.

@@ -54,6 +54,6 @@ Sources consulted: [OpenCode Data Union Alpha profile](https://opencode.ai/data/
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of OpenCode Data and the current Zen catalog; unresolved identity and missing exact benchmark evidence were not filled from peer reports or guessed from usage peers. Scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

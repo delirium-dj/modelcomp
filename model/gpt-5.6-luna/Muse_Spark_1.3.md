@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.6 Luna (`gpt-5.6-luna`)
-- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills added, scores recomputed 77 → 78)
+- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills added, scores recomputed 77 → 78); re-verified 2026-09-29 (UTC, user-signed-off re-research: SWE-V 93.0 Vals-independent + HLE 37.2 + TB2.1 Inkling variant + LMArena 1450 added; Coding 83 → 86, Overall 78 → 79)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.7%** (OpenAI launch table 2026-07-09 vendor run; vs Sol 88.8%, GPT-5.5 85.6%)
+- Terminal-Bench 2.1: **84.7%** (OpenAI launch table; **82.5%** Inkling-Small effort-0.99 variant — re-verified 2026-09-29; vs Sol 88.8%, GPT-5.5 85.6%)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA v2: **1591.8 Elo** (OpenAI launch table 2026-07-09; vs GPT-5.5 1493.7, Fable 5 1759.6)
 - Agents' Last Exam (long professional workflows): **50.3%** (OpenAI launch table; vs Fable 5 40.5%, GPT-5.5 46.9%)
@@ -33,10 +33,10 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **92.3%** (OpenAI launch table 2026-07-09; vs 5.5 93.6%)
-- HLE: **no verified public score found** (closest proxy: Agents' Last Exam 50.3% above)
+- HLE: **37.2%** (AA max-effort; 35.6 Inkling xhigh variant — re-verified 2026-09-29)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **51.2 v4.1 (vendor AA run) / 51 max (AA pre-release) / 38 v4.3 max** (OpenAI + AA July-Sept 2026; vs 5.5 54.8)
+- Artificial Analysis Intelligence Index / BenchLM overall: **51.2 v4.1 (vendor AA run) / 51 max (AA pre-release) / 38 v4.3 max** (OpenAI + AA July-Sept 2026; vs 5.5 54.8); LMArena Elo **1450** (xhigh text-arena — re-verified 2026-09-29)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - FrontierMath Tier 1-3 v2: **78.6%** / Tier 4 v2: **58.5%** (OpenAI launch table); Big Finance Bench: **36%** (OpenAI launch table; vs 5.5 49%)
 - ARC-AGI-2: **59.5%** (BenchLM mirror)
@@ -44,7 +44,7 @@ Reasoning / knowledge:
 Coding:
 
 - SWE-bench Pro: **62.7%** (OpenAI launch table 2026-07-09; vs 5.5 59.4%, Sol 64.6%)
-- SWE-bench Verified: **no verified public score found** (use Pro 62.7% as primary)
+- SWE-bench Verified: **93.0%** (Vals AI independent, third-party — re-verified 2026-09-29); SWE-Pro 62.7% retained as vendor primary
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
@@ -60,9 +60,9 @@ Long context:
 - **Reasoning: 80/100.** GPQA 92.3% plus FrontierMath 78.6%/58.5%, ARC-AGI-2 59.5% and Agents' Exam 50.3% show solid reasoning at nano price; capped by Big Finance 36% well below 5.5 49%.
 - **Context window: 72/100.** 1M window keeps the tier, but MRCR 41.3% at 256K+ is a marked drop from 5.5 81.5%/74%; capped by weak measured long recall despite GraphWalks 51.2% at 1M.
 - **Multimodal: 76/100.** Text+image in with tool-driven BrowseComp/BenchCAD-class workflows implies adequate vision-text; capped by text-only output and no verified MMMU/CharXiv figure for Luna.
-- **Coding: 83/100.** SWE-Pro 62.7% plus SWE Vals 93.0%, VulcanBench 85.5%, DeepSWE 67.2% and cursorBench 61.1% show strong volume coding; capped by no SWE-Verified/LiveCode/SciCode absolutes.
+- **Coding: 86/100.** SWE-Verified 93.0% (Vals independent) plus SWE-Pro 62.7%, VulcanBench 85.5%, DeepSWE 67.2% and cursorBench 61.1% show strong volume coding; capped by no LiveCode/SciCode absolutes.
 - **Cost efficiency: 95/100.** $0.20/$1.20 at $0.21/index-task (~6 cents per task vs frontier, 99% cheaper than Fable on Agents' Exam) is elite paid value; capped below $0 free (100 only).
-- **Overall Score: 78/100.** Mean of the five non-cost dims (79+80+72+76+83)/5 = 78.0; best-fit high-volume routed automation where throughput and cost per success dominate.
+- **Overall Score: 79/100.** Mean of the five non-cost dims (79+80+72+76+86)/5 = 78.6 → 79; best-fit high-volume routed automation where throughput and cost per success dominate.
 
 ---
 

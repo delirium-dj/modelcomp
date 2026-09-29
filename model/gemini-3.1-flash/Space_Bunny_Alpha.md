@@ -54,6 +54,6 @@ Sources consulted: [Google Gemini model index](https://ai.google.dev/gemini-api/
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of current Google, OpenCode Zen, and models.dev catalogs; exact-model absence was treated as a negative finding rather than filled with neighboring-model benchmarks. Scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

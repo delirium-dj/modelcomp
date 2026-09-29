@@ -1,0 +1,56 @@
+# Grok 4.20 — findings by Grok
+
+Source: xAI (grok-4.20-0309-reasoning)
+Date: 2026-09-29 (UTC)
+Overview and scoring methodology: ../../model-comparison.md
+Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+Name: Grok 4.20 (Reasoning). Alias family includes grok-4.20, grok-4.20-reasoning, and grok-4.20-reasoning-gv2. Not a free-tier model. Sibling: grok-4.20-0309-non-reasoning.
+Short description: xAI’s March 2026 reasoning chat model (docs.x.ai; models.dev lab xAI; Artificial Analysis and OpenRouter brand the lab SpaceXAI) aimed at document-heavy analysis and tool use. Artificial Analysis treats “Grok 4.20 0309 v2 (Reasoning)” as the current public card and marks it deprecated in favor of Grok 4.3; OpenCode Zen does not list it (catalog has Grok 4.5–4.7 only).
+Provider / access: xAI API model name grok-4.20-0309-reasoning, alias grok-4.20 (docs.x.ai chat model; function calling, structured outputs, Batch API). OpenRouter Chat Completions x-ai/grok-4.20. No OpenCode Zen ID (opencode/<id> not listed, 2026-09-28).
+Release / knowledge: Checkpoint/release 2026-03-09 (models.dev; ID 0309). Artificial Analysis dates the v2 card 2026-04-07 and an earlier 0309 card 2026-03-10. Knowledge cutoff not published.
+IDs: xai/grok-4.20-0309-reasoning; OpenRouter x-ai/grok-4.20. No Free ID on OpenCode Zen.
+Context window: 1,000,000 total, output limit 30,000 (docs.x.ai and models.dev first-party xAI row). Artificial Analysis and some gateways list 2,000,000; that figure is not on the vendor card, so scoring uses 1,000,000.
+Modalities: Text and image in (jpg/jpeg/png, max 20MiB); text out. Reasoning yes on the reasoning ID. Tool calls and structured outputs yes. No verified audio, video, or PDF in, and no non-text out. logprobs silently ignored on grok-4.20 and newer (docs.x.ai).
+Pricing (as of 2026-09-29): Paid. xAI: input $1.25 / cached $0.20 / output $2.50 per 1M under 200k prompt tokens; $2.50 / $0.40 / $5.00 at or above 200k (whole request billed at the higher rate). Batch API 20% off. Not free.
+Architecture: Proprietary closed weights. Parameter count not disclosed (Artificial Analysis; models.dev).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+Terminal-Bench 2.1: no verified public score found (Artificial Analysis terminalBench21 null for Grok 4.20 0309 v2 Reasoning)
+Tau3-Banking / Tau2-Bench: Tau3-Banking: no verified public score found. Tau2-Bench: 93.0% (Artificial Analysis tau2 0.9298, Grok 4.20 0309 v2 Reasoning)
+GDPval-AA: no verified public score found (Artificial Analysis gdpval null)
+Claw-Eval / ClawProBench: no verified public score found
+Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found Reasoning / knowledge:
+GPQA Diamond: 91.1% (Artificial Analysis gpqa 0.9111, Grok 4.20 0309 v2 Reasoning)
+HLE: 34.5% (Artificial Analysis hle 0.3452)
+LCR / MLCR: LCR 69% (Artificial Analysis lcr 0.69). MLCR: no verified public score found
+CritPt: 6.6% (Artificial Analysis critpt 0.0657; AA marks CritPt under review)
+Artificial Analysis Intelligence Index / BenchLM overall: 26 / #110 of 216 (AA display of 25.655; intelligenceIndexIsEstimated=true; independent evaluation forthcoming; not a completed Index run)
+Omniscience Accuracy / Hallucination Rate: 27.5% / 17.4% (Artificial Analysis; Omniscience Index 14.8) Coding:
+SWE-bench Verified / SWE-Pro: no verified public score found
+LiveCodeBench: no verified public score found (Artificial Analysis livecodebench null)
+SciCode / AA-SciCode: no verified public score found (Artificial Analysis scicode null)
+Vibe Code Bench: no verified public score found
+DeepSWE / Coding Index / other: Terminal-Bench Hard 37.9% (Artificial Analysis terminalbenchHard 0.3788). Terminal-Bench 4.0: no verified public score found Long context:
+no long-context retrieval reported (no MRCR / RULER / GraphWalks). AA-LCR 69% is long-context reasoning, not a 512K retrieval score.
+
+### Normalized scores (1-100)
+
+Tool use: 52/100. Function calling is confirmed, and Tau2 is 93.0%, but that is not Tau3. Terminal-Bench Hard is 37.9%, below the Terminal-Bench 2.1 mid band, and Terminal-Bench 2.1, Tau3-Banking, and GDPval-AA are missing.
+Reasoning: 74/100. GPQA 91.1% is in the frontier GPQA band, but HLE 34.5% misses the 40% frontier line, CritPt is 6.6%, and the Intelligence Index 26 is an estimate, not a measured Index.
+Context window: 95/100. Vendor-verified 1,000,000-token window (1M tier is 95–100). Not 100: no MRCR/RULER result at or above 98% retrieval past 512K.
+Multimodal: 68/100. Image in and text out only (60–70 band). MMMU-Pro 74.6% (Artificial Analysis) supports the top of that band; no verified video, PDF, or audio.
+Coding: 42/100. No SWE-bench Verified, LiveCodeBench, SciCode, or Terminal-Bench 2.1. Only Terminal-Bench Hard 37.9%, which is below the mid coding band.
+Cost efficiency: 90/100. Evaluated tier $1.25/$2.50 per 1M, between the ~$0.60/$2.20 (~92) and ~$1.25/$4.25 (~88) anchors. Paid, not free. Prompts at or above 200k bill $2.50/$5.00.
+Overall Score: 66.2/100. Half-up mean of 52, 74, 95, 68, and 42. Best fit for long-context document and image Q&A at a mid price, not as a frontier coding agent; vendor now points general use to Grok 4.7.
+
+## Signature
+
+Provided by: Grok (openrouter/~x-ai/grok-latest) — 2026-09-29
+Method: public internet research (docs.x.ai, models.dev, Artificial Analysis model record, OpenRouter, OpenCode Zen); scores are normalized 1-100 interpretations, not official vendor scores.
+Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

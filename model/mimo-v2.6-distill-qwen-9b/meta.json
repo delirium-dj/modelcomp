@@ -1,0 +1,8 @@
+{
+  "id": "opencode/mimo-v2.6-distill-qwen-9b",
+  "name": "Mimo V2.6 Distill Qwen 9b",
+  "short": "Mimo V2.6 Distill Qwen 9b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

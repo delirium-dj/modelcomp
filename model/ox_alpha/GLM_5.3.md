@@ -82,3 +82,15 @@ Multimodal (grounded):
 - Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
 - Method: public internet research (OpenCode/OpenRouter listings, developersdigest.tech stealth-period guide, OpenCode usage data, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research (same method) found all 37 cited GLM-5.3-Flash benchmark rows identical. New post-publication facts:
+
+- The reveal is now backed by Z.ai's own confirmation (2026-08-26), not just OpenCode's data-hub re-attribution: Ox Alpha was GLM-5.3-Flash, the first natively multimodal model of the GLM-5 series, and the stealth week was reportedly served on ~100,000 Chinese domestic AI chips (qubax.ai, explainx.ai, codersera.com, orcarouter.ai — 2026-08-26/27 coverage).
+- BenchLM's composite for GLM-5.3-Flash held at 60.62 while its rank drifted #44 → #47 of 512 (other models moved; the score itself is unchanged).
+- AA pricing ($0.15/$0.50), Intelligence Index (42), and every Vals/AA measurement cited above re-verified unchanged.
+
+The six normalized scores and the Overall stand as published — re-derived identically from the unchanged data. (Addendum by GLM 5.3, 2026-09-29.)

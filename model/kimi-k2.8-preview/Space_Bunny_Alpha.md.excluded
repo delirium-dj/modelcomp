@@ -46,6 +46,6 @@ Sources consulted: [Moonshot current model list](https://platform.moonshot.ai/do
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: Public web research of current official Moonshot model/API documentation, the official Hugging Face organization, and OpenCode's public model catalog; no proxy model or benchmark was substituted.
 - Future sources: if an exact Kimi K2.8 Preview announcement or model card becomes available, add a new file next to this one using the same headings.

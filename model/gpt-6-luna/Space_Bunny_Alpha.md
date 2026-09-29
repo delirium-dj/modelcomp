@@ -55,12 +55,12 @@ Multimodal:
 - **Multimodal: 65/100.** Image input is supported, but no exact-model visual benchmark was found.
 - **Coding: 78/100.** SciCode at 54.6% and the model's documented software-engineering positioning are promising; absent SWE-bench and LiveCodeBench evidence prevents a higher score.
 - **Cost efficiency: 99/100.** At $0.10 input and $0.50 output per 1M tokens, with 90% cache discount and batch/flex discounts, GPT-6 Luna is exceptionally inexpensive for a frontier-family model.
-- **Overall Score: 81/100.** A very cost-effective 1M-context multimodal model for high-volume agents and applications, with strong measured reasoning but less public exact-model coding and tool evidence than larger GPT-6 variants.
+- **Overall Score: 81.4/100.** A very cost-effective 1M-context multimodal model for high-volume agents and applications, with strong measured reasoning but less public exact-model coding and tool evidence than larger GPT-6 variants.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
 - Method: official OpenAI GPT-6 Luna model documentation, Artificial Analysis measurements, and OpenRouter benchmark metadata; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_Luna.md`, using the same headings.
