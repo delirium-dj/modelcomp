@@ -71,3 +71,9 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (OpenRouter/provider listings, independent AI BENCHY harness, tracker-run GPQA/MMLU-Pro subsets, community coding evals); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Post-publication developments (verified 2026-09-29): the free stealth window ended early - the OpenRouter stealth/space-bunny-alpha and OpenCode free routes were taken offline around the time MiniMax launched M3.1-Flash-Preview inside MiniMax Code (2026-09-27). The MiniMax linkage reported above has since strengthened: the model was reported to identify itself as a MiniMax model when asked in Chinese (AGI Hunt, 2026-09-24), and independent tokenizer studies (YFarmX, stealthprint) place it in the MiniMax family with specs matching M3.1-Flash-Preview (see model/minimax-m3.1-flash-preview/). The community-harness scores cited above were launch-window snapshots and re-verify unchanged; the pricing premise (free $0 preview) is now historical. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

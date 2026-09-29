@@ -1,71 +1,69 @@
 # Google Gemini 2.5 Flash Lite — findings by Muse Spark 1.3
 
-- Source: Google/Gemini 2.5 Flash Lite (`opencode/google-gemini-2.5-flash-lite`)
-- Date: 2026-09-26 (UTC)
+- Source: Google/Gemini 2.5 Flash Lite (`google/gemini-2.5-flash-lite`)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Google Gemini 2.5 Flash Lite
-- **Short description:** Google DeepMind's Jun 2025 lightweight hybrid-reasoning tier (thinking on/off): ultra-low-latency, high-volume classification/translation/coding support with a full 1M context at $0.10/$0.40 and falling. Top use case: cheapest Google-tier bulk inference where Lite-class quality suffices.
-- **Provider / access:** Google AI Studio / Vertex AI (`gemini-2.5-flash-lite`); OpenCode Zen ID `opencode/google-gemini-2.5-flash-lite`.
-- **Release / knowledge:** 2026-06-17 GA (llm-stats; model card published 2026-09-26 covering 06-17 GA + 09-2025 preview); knowledge cutoff 2025-01-01 (llm-stats).
-- **IDs:** `opencode/google-gemini-2.5-flash-lite` (Zen-hosted; Google native `gemini-2.5-flash-lite`).
-- **Context window:** 1,048,576 in / 65,536 out (llm-stats provider table; pricepertoken 1.0M). No public MRCR number for the Lite cut (DeepMind changed MRCR methodology to harder 8-needle going forward — no Lite score published).
-- **Modalities:** Text + vision + audio in (pricepertoken capability flags; Preview 09-2025 improved multimodal/translation); text out; hybrid reasoning yes (thinking toggle).
-- **Pricing (as of 2026-09):** $0.10 input / $0.40 output per 1M list (llm-stats; BenchGecko); floor pricing observed at $0.05/$0.20 via AI Studio (pricepertoken, −50% over 90 days). Paid, bottom-tier.
-- **Architecture:** Proprietary (undisclosed).
+- **Short description:** Google's speed-optimized non-reasoning lite model for high-throughput multimodal work at very low pricing.
+- **Provider / access:** Google API `google/gemini-2.5-flash-lite` (Chat Completions); also served via OpenRouter (`openrouter.ai/google/gemini-2.5-flash-lite`).
+- **Release / knowledge:** 2026-07-22 release listing (OpenRouter, via BenchmarkList); knowledge cutoff 2026-01-01 (Artificial Analysis)
+- **IDs:** `google/gemini-2.5-flash-lite`
+- **Context window:** 1M total tokens (Artificial Analysis; ~1500 A4 pages)
+- **Modalities:** Text, image, speech, and video in; text out; reasoning no (non-reasoning variant); tool calls yes (function calling measured); JSON mode yes
+- **Pricing (as of 2026-09-29):** $0.10/$0.40 per 1M in/out, 90% cache discount (Artificial Analysis / BenchmarkList)
+- **Architecture:** Proprietary, size undisclosed (Google has not disclosed parameter count)
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Berkeley Function-Calling Leaderboard (**tool use**): 36.9% overall (via BenchmarkList, source deepmind.google; Non-Live AST 86.6%, Live 65.8%, Multi-Turn 13.5%)
+- Terminal-Bench 2.1: **no verified public score found** (only Terminal-Bench Hard measured — see below)
+- Tau3-Banking / Tau2-Bench: Tau2-Bench Telecom **19.0%** (via BenchmarkList, source Artificial Analysis; vs Fable 5 at 98.5% on same board)
+- GDPval-AA: **321 Elo** (via BenchmarkList, source Artificial Analysis; rank 280/340, 18th percentile; vs O-5 at 1861)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: MCP-Bench **0.6** overall (via BenchmarkList; rank 11/20); Terminal-Bench Hard **4.5%** (via BenchmarkList, source Artificial Analysis; vs Fable 5 at 62.9%)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **64.6% non-thinking / 66.7% thinking** (Google 2.5 Flash-Lite model card, Jun 2025 results)
-- HLE (no tools): **5.1% non-thinking / 6.9% thinking** (Google model card)
-- AIME 2025: **49.8% non-thinking / 63.1% thinking** (Google model card)
-- SimpleQA: **10.7%** (Google model card)
-- HELM WildBench: **81.8%**; HELM IFEval: **81.0%**; HELM MMLU-Pro: **53.7%** (BenchGecko HELM-harness rows — different harness scale, provisional weight)
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **no verified public score found** (pricepertoken Intelligence 1.4, 18th percentile — aggregator composite, not AA proper)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **62.5%** (via BenchmarkList; rank 252/464, 46th percentile)
+- HLE: **6.8%** (via BenchmarkList; rank 234/466, 50th percentile)
+- LCR / MLCR: AA-LCR **56.3%** (via BenchmarkList; rank 161/409, 61st percentile)
+- CritPt: **no verified public score found for the Lite variant**
+- Artificial Analysis Intelligence Index / BenchLM overall: AA Index **11.41** (via BenchmarkList; rank 252/418, 40th percentile; AA model page estimates 7 for the non-reasoning release, #56/75 in class)
+- Omniscience Accuracy / Hallucination Rate: Vectara HHEM factual consistency **96.7%** (hallucination rate 3.3%, via BenchmarkList)
+- MMLU-Pro (**knowledge proxy, provisional**): 75.9% (via BenchmarkList; rank 156/312, 50th percentile)
 
 Coding:
 
-- SWE-bench Verified: **31.6% non-thinking / 27.6% thinking single-attempt; 42.6% / 44.9% multi-attempt** (Google model card; Google scaffolding draws multiple trajectories rescored by the model's own judgment)
-- LiveCodeBench v5: **33.7% non-thinking / 34.3% thinking** (Google model card)
-- Aider Polyglot (whole): **26.7% non-thinking / 27.1% thinking** (Google model card; non-default settings vs official leaderboard — noted)
-- SciCode / AA-SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **19.3%** (via BenchmarkList, verified Artificial Analysis eval; vs Fable 5.1 at 62.0%)
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- no long-context retrieval reported for the Lite cut (1M window verified; no public MRCR/RULER/GraphWalks number)
+- AA-LCR 56.3% at 1M ceiling (via BenchmarkList); no MRCR / RULER / GraphWalks value found
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** Zero public agentic benchmark numbers (TB/Tau/GDPval/Claw) for this ID; Aider-editing 26.7% is a code-editing proxy, not tool orchestration. Capped at 55.
-- **Reasoning: 66/100.** GPQA 64.6–66.7 and thinking-mode AIME 63.1 evidence real Lite reasoning, but HLE 5.1–6.9% is a hard knowledge ceiling and no LCR/Index numbers exist; capped at 66.
-- **Context window: 95/100.** Verified 1M in / 65K out clears the ≥1M tier at the cheapest Google price; held at the tier floor for lack of any Lite-cut retrieval measurement.
-- **Multimodal: 80/100.** Vision + audio input flags with text out, plus Preview-generation multimodal gains; held at 80 pending Lite-specific vision-bench numbers.
-- **Coding: 60/100.** SWE-Verified 31.6% single (44.9% multi-attempt), LiveCodeBench v5 ~34%, Aider 27.1% is a consistently weak verified coding set; capped at 60.
-- **Cost efficiency: 98/100.** $0.10/$0.40 list ($0.05/$0.20 floor observed) sits at the ~$0.10/$0.20 (97–99) reference — 98 on balance.
-- **Overall Score: 71/100.** Mean of the five non-cost dims (55 + 66 + 95 + 80 + 60) / 5 = 71.2 → 71; best fit as a bulk budget tier for long-context classification/translation/light coding, not an agent or coder.
+- **Tool use: 38/100.** BFCL 36.9% with multi-turn 13.5%, Tau2-Telecom 19.0%, GDPval 321, and TB-Hard 4.5%; capped by the TB-Hard gap to Fable 5 62.9%.
+- **Reasoning: 58/100.** GPQA 62.5% with HLE 6.8%, MMLU-Pro 75.9%, and AA Index 11.41; capped by below-median GPQA rank and single-digit HLE.
+- **Context window: 95/100.** 1M total hits the top tier; capped at 95 with AA-LCR 56.3% far below the 98% retrieval bar for 100.
+- **Multimodal: 78/100.** Text/image/speech/video in with text out; capped by measured CAIS Vision 47.9 and MMAU 61.6% weakness.
+- **Coding: 45/100.** SciCode 19.3% is the only measured coding number with TB-Hard 4.5% as proxy; capped by the SciCode gap to Fable 5.1 62.0% and zero SWE-bench/LiveCode coverage.
+- **Cost efficiency: 97/100.** $0.10/$0.40 with 90% cache discount is very competitive per Artificial Analysis; capped below 100 as paid rather than $0.
+- **Overall Score: 63/100.** Mean of the five non-cost dims (38+58+95+78+45)/5 = 62.8; best fit as a fast cheap multimodal workhorse, not a primary agent or coder.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
-- Method: public internet research (Google DeepMind 2.5 Flash-Lite model card PDF, llm-stats compare pages, BenchGecko HELM rows, pricepertoken pricing/capability table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-29
+- Method: public internet research (Artificial Analysis model page, BenchmarkList model page with 54 benchmarks, BenchLM family page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

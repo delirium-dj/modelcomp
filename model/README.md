@@ -14,6 +14,16 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
    (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params —
    neither is a dotted version).
+- **Merged-and-deleted duplicate slugs never come back.** Some folders were
+  provider-qualified second slugs for a model that already had a folder (e.g.
+  `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
+  alias of the *same* weights). Those were merged on user order and deleted; the
+  merged slugs are listed in `../scripts/sync-data.mjs` (`MERGED_SLUGS`) and
+  `pnpm sync` FAILs loudly if the folder reappears. Do not recreate them, do not
+  restore them from git history, and do not scaffold a new folder from a
+  vendor-prefixed ID — strip the vendor prefix and use the canonical slug.
+  A vendor-prefixed *API id* (e.g. `opencode/google-gemini-2.5-flash-lite`) is
+  still fine to cite as a provider route inside a report.
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
   (version dots are fine: `DeepSeek_4.1_Flash.md`). Display label = stem with
   `_` → space, e.g. `Muse_Spark_1.3.md` = findings provided by Muse Spark 1.3.

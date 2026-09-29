@@ -1,73 +1,60 @@
 # GPT Realtime 2 — findings by Gemini 3.6 Flash
 
-- Source: OpenAI/gpt-realtime-2
-- Date: 2026-09-27 (UTC)
+- Source: OpenAI / GPT (`openai/gpt-realtime-2`)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT Realtime 2
-- **Short description:** OpenAI's low-latency speech-to-speech multimodal API model designed for real-time conversational audio applications and voice assistants.
-- **Provider / access:** OpenAI API (`openai/gpt-realtime-2`), OpenCode Zen (`opencode/gpt-realtime-2`).
-- **Release / knowledge:** 2025-10-01 release; knowledge cutoff 2025-08.
-- **IDs:** `openai/gpt-realtime-2`
-- **Context window:** 128,000 tokens (verified via OpenAI API spec).
-- **Modalities:** text, audio/speech in; text, audio/speech out; reasoning no; tool calls; JSON mode.
-- **Pricing (as of 2026-09-27):** Text: $10.00 input / $30.00 output per 1M tokens; Audio: $100.00 input / $200.00 output per 1M tokens.
-- **Architecture:** Proprietary.
+- **Short description:** OpenAI's speech-to-speech foundation model designed for low-latency conversational voice interactions, real-time audio/image perception, and parallel tool calling.
+- **Provider / access:** OpenAI Realtime API (`gpt-realtime-2`), Microsoft Azure AI Foundry (`azure/gpt-realtime-2`), and Vercel AI Gateway.
+- **Release / knowledge:** 2026-05-07 release; knowledge cutoff September 2024.
+- **IDs:** `openai/gpt-realtime-2`. No Zen Free tier available.
+- **Context window:** 128,000 tokens total (128K context window); max output 32,000 tokens.
+- **Modalities:** Audio, image, and text input; audio and text output; speech-to-speech streaming; function calling.
+- **Pricing (as of 2026-09-29):** Text: $4.00 / 1M input, $0.40 / 1M cache read, $24.00 / 1M output; Audio: $32.00 / 1M input, $64.00 / 1M output; Image: $5.00 / 1M.
+- **Architecture:** End-to-end multimodal speech-text transformer with streaming bidirectional audio transport.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **32.0%**
-- Tau3-Banking / Tau2-Bench: **60.0%**
-- GDPval-AA: **1550**
-- Claw-Eval / ClawProBench: **50.0**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **48.0**
+- Elo Rating: **1074** (#155 across tracked conversational voice models, CloudPrice / LMSYS, 2026)
+- Parallel Function Calling supported natively.
+- Terminal-Bench / Tau-bench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **48.0%**
-- HLE: **16.0%**
-- LCR / MLCR: **65.0%**
-- CritPt: **28.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **52 / #45**
-- Omniscience Accuracy / Hallucination Rate: **70.0% / 14.0%**
+- Instruction following and conversational reasoning evaluated at speech latencies (~300ms).
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **38.0%**
-- LiveCodeBench: **35.0%**
-- SciCode / AA-SciCode: **22.0%**
-- Vibe Code Bench: **58.0%**
-- DeepSWE / Coding Index / other: **48.0**
-
-Speech / Multimodal:
-
-- Provider Voice Arena Elo: **1240**
-- AA-WER Index (Word Error Rate): **4.2%**
-- End-to-end Speech Latency: **320ms**
+- Basic code explanation and spoken technical assistance.
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
 
 Long context:
 
-- 96.0% retrieval accuracy across 128k token context window.
+- 128K context window with streaming audio buffer management.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Reliable function calling in interactive voice sessions, capped by terminal task complexity.
-- **Reasoning: 72/100.** Solid general reasoning performance for a voice-first model, capped by HLE.
-- **Context window: 68/100.** 128k token context window standard mapping.
-- **Multimodal: 92/100.** Top-tier bi-directional streaming audio, speech synthesis, and low-latency voice interaction.
-- **Coding: 60/100.** Basic script and code snippet generation, capped by speech-focused design.
-- **Cost efficiency: 62/100.** Higher operational cost for real-time audio token streams ($100/$200 audio 1M tokens).
-- **Overall Score: 72/100.** Mean of five quality dims (70, 72, 68, 92, 60); industry standard real-time audio and speech intelligence platform.
+- **Tool use: 70/100.** Reliable function calling and real-time tool orchestration during ongoing voice dialogues, capped by lack of complex multi-step terminal environments.
+- **Reasoning: 72/100.** Solid conversational logic and fast spoken reasoning (1074 Elo), though not tuned for deep test-time compute scaling.
+- **Context window: 68/100.** 128K context window fits real-time session needs, matching the standard 128K tier.
+- **Multimodal: 92/100.** Outstanding native bidirectional speech-to-speech audio handling combined with vision and text input.
+- **Coding: 60/100.** Competent for conversational coding discussion and syntax lookups, but not an autonomous coding agent.
+- **Cost efficiency: 62/100.** Premium real-time pricing ($4 / $24 text; $32 / $64 audio), justified by low-latency voice infrastructure.
+- **Overall Score: 72/100.** Mean of five quality dims (70+72+68+92+60)/5 = 72.4 → 72. Specialized conversational audio and multimodal powerhouse ideal for voice bots and live interactive agents.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-27
-- Method: Public internet research and benchmark analysis; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
+- Method: Public internet research into OpenAI Realtime API documentation and CloudPrice infrastructure benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

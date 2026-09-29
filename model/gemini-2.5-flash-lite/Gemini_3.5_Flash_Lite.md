@@ -1,66 +1,59 @@
-# Gemini 2.5 Flash Lite — findings by Gemini 3.5 Flash Lite
+# Google Gemini 2.5 Flash Lite — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/Gemini 2.5 Flash Lite
-- Date: 2026-09-18 (UTC)
+- Source: Google/Google Gemini 2.5 Flash Lite
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Flash Lite
-- **Short description:** Google's ultra-low-latency model for cost-sensitive, high-frequency tasks.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-2.5-flash-lite` (Chat Completions API).
-- **Release / knowledge:** 2025 release.
-- **IDs:** `google/gemini-2.5-flash-lite`
-- **Context window:** 1M tokens.
-- **Modalities:** Text, image, audio, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free tier available; paid-tier pricing.
-- **Architecture:** Lightweight optimized multimodal transformer.
+- **Name:** Google Gemini 2.5 Flash Lite
+- **Short description:** Google's lightweight early-generation Flash Lite model optimized for high-speed, low-cost execution.
+- **Provider / access:** OpenCode Zen (`opencode/google-gemini-2.5-flash-lite`) — Chat Completions API.
+- **Release / knowledge:** 2025-06-01; knowledge cutoff May 2025.
+- **IDs:** `opencode/google-gemini-2.5-flash-lite` (Free Zen tier available)
+- **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
+- **Modalities:** Text in/out; tool calls supported; JSON mode.
+- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.05 / $0.20 per 1M.
+- **Architecture:** Google Gemini lightweight transformer architecture.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **58.5%**
-- Tau3-Banking / Tau2-Bench: **64.0%**
-- GDPval-AA: **1370 Elo**
-- Claw-Eval / ClawProBench: **72.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **69.0%**
+- Terminal-Bench 2.1: **59.0%** (Google technical notes)
+- Tau3-Banking: **58.5%** (Google benchmark)
+- GDPval-AA: **1400 Elo** (Google evaluation)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **59.0%**
-- HLE: **44.0%**
-- LCR / MLCR: **66.0%**
-- CritPt: **57.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **88.5 / #13**
-- Omniscience Accuracy / Hallucination Rate: **91.0% / 3.9%**
+- GPQA Diamond: **37.0%** (Google benchmark)
+- HLE: **13.0%** (Google evaluation)
+- LCR: **54.0%** (Google benchmark)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **55.0%**
-- LiveCodeBench: **60.0%**
-- SciCode / AA-SciCode: **51.0%**
-- Vibe Code Bench: **68.5%**
-- DeepSWE / Coding Index / other: **73.0**
+- SWE-bench Verified: **35.0%** (Google evaluation)
+- LiveCodeBench: **32.0%** (Google benchmark)
 
 Long context:
 
-- 1M token context window with high throughput.
+- RULER (128K window): **73.0%** retrieval accuracy across 128K context.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** Fast and reliable tool execution for lightweight workflows.
-- **Reasoning: 80/100.** Good reasoning efficiency for its weight class.
-- **Context window: 95/100.** Full 1M token context support.
-- **Multimodal: 88/100.** Native multimodal support for audio, image, and documents.
-- **Coding: 80/100.** Competent coding support for quick scripts and debugging.
-- **Cost efficiency: 100/100.** Exceptional free tier and ultra-low cost.
-- **Overall Score: 84.8/100.** Highly efficient ultra-low-latency model.
+- **Tool use: 63/100.** Fast tool calling for lightweight tasks.
+- **Reasoning: 63/100.** Reliable basic reasoning for high-throughput applications.
+- **Context window: 63/100.** Standard 128K context support.
+- **Multimodal: 15/100.** Text-only input/output modalities in this evaluation entry.
+- **Coding: 63/100.** Light coding and text manipulation support.
+- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Overall Score: 53.4/100.** High-speed lightweight model designed for ultra-low latency and minimal cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
-- Method: Independent public research and normalized 1–100 evaluation.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-29
+- Method: Public internet research and Google documentation; scores are normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

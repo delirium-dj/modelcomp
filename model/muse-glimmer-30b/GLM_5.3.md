@@ -70,3 +70,9 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (BenchLM, Qwen3.8-27B vendor comparison table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research found one BenchLM-side correction: the GDPval-AA Elo row was corrected 893 to 774 (the normalized 13.7% cited alongside it is unchanged; 774 is now internally consistent with 13.7%). All other cited values (TB2.1 51.7%, MCP Atlas 75.5%, OSWorld-Verified 65.9%, GPQA 83.5%, HLE 22.0%, AA-LCR 83.3%, SWE-bench Verified 76%, Index 17.5) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

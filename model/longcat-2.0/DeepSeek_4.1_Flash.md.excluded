@@ -1,0 +1,18 @@
+- **Short description:** Meituan's frontier-scale MoE — "a substantial step up from previous LongCat models" (1.6T total vs the prior generation) — aimed at long-horizon coding and agentic workflows. Its distinguishing engineering story is hardware: **both the full training run and the large-scale deployment are built entirely on AI ASIC superpods**.
+- **Provider / access:** Open weights on Hugging Face (`meituan-longcat/LongCat-2.0`) and ModelScope, self-hostable via `transformers` with `trust_remote_code=True`. **No OpenCode Zen ID** (the Zen free tier is `longcat-2.5-preview-free`, a different model).
+- **Release / knowledge:** The model card publishes **no release date and no knowledge cutoff**. The bundled benchmark chart is labelled `longcat-pro-benchmark-charts-2026-06-29`. **No official release date could be verified.**
+- **IDs:** `meituan/longcat-2.0` (corpus id); pipeline tag `text-generation`. **Not** the same model as LongCat 2.5 Preview.
+- **Context window:** recorded as 1M in the corpus `meta.json`; the card supports it indirectly — "we train LongCat-2.0 on hundreds of billions of tokens of **1M-context** data" with LongCat Sparse Attention. **No explicit window or max-output figure is published, so 1M is inferred rather than specified.**
+- **Modalities:** text in / text out (`pipeline_tag: text-generation`), with thinking-mode support (`enable_thinking=True/False`) and tool-calling via a documented chat template. **No image, audio or video input is documented.**
+- **Pricing (as of 2026-09-29):** no published per-token price found — the model ships as open MIT weights, billed by whichever host serves it. **No verified price.**
+- **Architecture:** large-scale MoE, **1.6 trillion total parameters, ~48B activated per token**, **MIT licence**, LongCat Sparse Attention, pretrained over **>35 trillion tokens across millions of accelerator-days with no rollbacks or irrecoverable loss spikes** (vendor claim).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Vendor position: LongCat-2.0 is "deeply integrated with mainstream harnesses such as **Claude Code, OpenClaw, and Hermes**," delivering "strong performance across code understanding, repository-level edits, automated task execution, and agentic workflows." **No numeric agentic benchmark exists on the card.**
+- The card links one benchmark chart image (`figures/longcat-pro-benchmark-charts-2026-06-29.svg`) — **its values are not machine-readable text, so no benchmark numbers could be extracted.** Terminal-Bench, Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathlon, MCP-Atlas and SWE Atlas: **no verified public score found.**
+- Reasoning: **no GPQA Diamond, HLE, AIME, LCR, CritPt or AA Intelligence Index value is published — no verified score.** The card's quantitative claims are training-scale claims, not evaluation scores.
+- Coding: **no SWE-bench Verified/Pro, DeepSWE, LiveCodeBench, SciCode or Terminal-Bench number is published — no verified score.**
+- Long context: trained on **1M-context** data; **no MRCR/RULER/GraphWalks retrieval accuracy published.** Thinking mode is toggleable, with an option to preserve reasoning content and a token-efficiency mode with thinking off.

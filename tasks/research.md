@@ -73,7 +73,10 @@ Follow tasks/research.md exactly:
   no folder under `model/`, `models_voice/`, or `models_finance/`:
   1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
       `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
-      folder first — `pnpm sync` fails hyphen variants loudly).
+      folder first — `pnpm sync` fails hyphen variants loudly). Never scaffold a
+      folder from a vendor-prefixed id (`google-…`, `opencode-…`): strip the
+      prefix and use the canonical slug — merged-and-deleted duplicate slugs are
+      denylisted in `scripts/sync-data.mjs` (`MERGED_SLUGS`) and FAIL loudly.
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), the
       parent is `models_voice/<slug>/`, not `model/<slug>/` — check all three trees

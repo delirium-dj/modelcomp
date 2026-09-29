@@ -71,3 +71,9 @@ Multimodal (grounding):
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
 - Method: public internet research (Artificial Analysis, BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research found one revised value: the AA Briefcase Elo row was revised 1597 to 1587 (ongoing AA Elo updates; not score-relevant). Design Arena Website display drifted 1365 to 1364 (trivial). All other cited values (TB2.1 88.8%, Tau3-Banking 50.5%, GDPval-AA 1754/58.7%, MRCR v2 98.5%/98.1%, GPQA 93.5%, HLE 48.7%, DeepSWE 75.4%, SWE-Atlas 59.4%, SciCode 58.8%, Index 45/48.1) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

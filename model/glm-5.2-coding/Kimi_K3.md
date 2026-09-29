@@ -1,73 +1,67 @@
 # GLM 5.2 Coding — findings by Kimi K3
 
 - Source: Z.AI (Zhipu) / GLM 5.2 Coding (`opencode/glm-5.2-coding`; base weights `zai-org/GLM-5.2`, MIT)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.2 Coding
-- **Short description:** Coding-focused serving of Z.AI's GLM 5.2 open-weights reasoning model (released June 13, 2026, MIT) on OpenCode Zen. GLM 5.2 is a ~754B-class MoE with 1M context that posts SWE-bench Verified 78.7% and τ²-Telecom 99.1%; this entry tracks the coding plan endpoint (Zen deployment listed at 128K total context).
-- **Provider / access:** OpenCode Zen `opencode/glm-5.2-coding` (Chat Completions); base model also on ~30 OpenRouter providers (Z.ai, Baseten, Fireworks, Novita...) and open weights `zai-org/GLM-5.2`.
-- **Release / knowledge:** GLM 5.2 released 2026-06-13 (benchleader.com); knowledge cutoff not verified.
-- **IDs:** `opencode/glm-5.2-coding` (Zen; no separate Free ID); `zai-org/GLM-5.2` (weights).
-- **Context window:** 1M native (benchleader.com, measured); **Zen coding deployment listed at 128K total** per catalog.
-- **Modalities:** text in/out (Zen listing); reasoning yes (max-effort configuration the strongest); tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** hosted $1.40/$4.40 per 1M at Z.ai/Baseten/Fireworks; floor ~$0.56/$1.80 (DeepInfra fp4) (benchleader.com provider table); Zen tier pricing per plan.
-- **Architecture:** open-weight MoE (glm_moe_dsa; ~754B-class per community metadata), MIT license.
+- **Short description:** Coding-plan serving of Z.AI's GLM-5.2 open-weights reasoning MoE (released 2026-06-16, MIT; 744B-class / 40B active) on OpenCode Zen. Base GLM-5.2 was the strongest open-source coding model at launch (TB 2.1 81.0, SWE-bench Pro 62.1) with a "truly usable" 1M context; this Zen coding endpoint is listed at 128K total context.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.2-coding` (Chat Completions); base model via Z.AI API `glm-5.2`, ~30 OpenRouter providers, and MIT open weights `zai-org/GLM-5.2`.
+- **Release / knowledge:** GLM-5.2 released 2026-06-16 (aireleasetracker); coding-plan availability preceded the public launch (docs.z.ai). Knowledge cutoff not verified.
+- **IDs:** `opencode/glm-5.2-coding` (Zen coding plan; no separate Free ID on this deployment); `glm-5.2` (Z.AI API); `zai-org/GLM-5.2` (weights).
+- **Context window:** 1M native / 128K max output for the base model (docs.z.ai); **Zen coding deployment listed at 128K total** (repo catalog).
+- **Modalities:** text in/out (Zen listing and docs.z.ai); reasoning yes (max effort strongest); tool calls; JSON mode; MCP; context caching.
+- **Pricing (as of 2026-09-29):** coding-plan subscription tier (Zen "standard pricing" per catalog); base hosted ~$1.40/$4.40 per 1M, third-party floor ~$0.75/$2.40 (llm-stats); MIT self-host option.
+- **Architecture:** open-weight MoE (glm_moe_dsa), ~744B total / 40B active, MIT.
 
-### Raw benchmarks found (max reasoning-effort configuration, via benchleader.com aggregates of AA/Epoch/Vals/LiveBench)
+### Raw benchmarks found (base GLM-5.2, vendor-official — this entry is a serving of those weights)
 
 Agent / tool use:
 
-- τ²-Bench Telecom (AA): **99.1%** (#1); τ²-Bench Banking (AA): **34.6%** (benchleader/AA)
-- Terminal-Bench 2.1 (AA): **77.9%**; (Vals): **67.8%**; Terminal-Bench Hard: **50.8%** (AA) (benchleader)
-- MCP Atlas: **77.8%** (#15) (Scale SEAL via benchleader)
-- GDPval (AA): **42.9%** (benchleader)
-- LMArena Agent: **rank #4** (benchleader)
-- APEX-Agents (AA): **33.7%** (#6); ITBench SRE: **42.7%** (#13) (benchleader)
-- Tau3-Banking / Claw-Eval: no verified public score found
+- Terminal-Bench 2.1: **81.0** (vendor) (docs.z.ai / HF GLM-5.3 table)
+- Terminal-Bench 3.0: **4.6** (HF table)
+- CyberGym: **77.2**; ExploitBench: **24.4**; ExploitGym: **29/39 (2h/6h)** (HF table)
+- Toolathlon Verified: **59.9**; AutomationBench v1.0.6: **26.2**; ALE-CLI: **23.8**; GDPval-AA v2: **1508 Elo** (HF table / AA)
+- τ²-Bench / MCP Atlas / LMArena Agent (prior benchleader rows): not reverified in this pass
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.9%** (Epoch, #23); 89.5% (AA); 85.6% (Vals); 71.2% (Epoch, no-reasoning) (benchleader)
-- HLE (AA): **41.1%**; SimpleBench: **58.8%**; ARC-AGI-1: **77.0%**; ARC-AGI-2: **22.8%** (benchleader)
-- CritPt: **20.9%**; AA-LCR: **78.3%** (benchleader)
-- AA Intelligence Index: **33.7** (max effort); LiveBench: **73.2%**; SimpleQA Verified: **34.2%** (benchleader)
-- AA-Omniscience: **4.4 index** — accuracy 24.3%, non-hallucination 73.7% (benchleader/AA)
-- HMMT Feb 2026: **92.4%**; AIME 2026: **90.0%** (MathArena via benchleader)
+- HLE w/ tools: **54.7** (vendor) (HF table)
+- BenchLM overall: **62.62/100, #40 of 209** (benchlm.ai)
+- GPQA / AIME / HMMT / LCR (prior rows): not reverified this pass
 
 Coding:
 
-- SWE-bench Verified (Epoch): **78.7%** (#5 of 33) (benchleader)
-- SWE-bench (Vals): **82.8%**; Vibe Code Bench v1.1: **64.0%**; Code Migration: **37.9%** (Vals via benchleader)
-- LiveCodeBench (Vals): **69.5%**; SciCode (AA): **51.2%**; DeepSWE: **43.8%** (benchleader)
-- LMArena WebDev: **1600** (#21); LMArena Coding: **1510** (#48) (benchleader)
-- SWE Atlas: Codebase QnA 48.1% / Refactoring 42.4% / Test Writing 41.5% (Scale SEAL via benchleader)
+- SWE-bench Pro: **62.1** (vendor; ahead of GPT-5.5 at launch) (docs.z.ai / apidog)
+- FrontierSWE: **67.5**; PostTrainBench: **31.7**; SWE-Marathon: **19.4** — top open-source on all three at launch (docs.z.ai / HF table)
+- DeepSWE v1.1: **46.2**; NL2Repo: **48.9**; ProgramBench: **9.5** (HF table)
+- SWE-bench Verified (prior 78.7 row): not reverified this pass
 
 Long context:
 
-- AA-LCR 78.3% at up to 1M (benchleader); no MRCR/RULER row.
+- Base model: vendor-certified 1M "lossless" context for long-horizon agents (docs.z.ai) — but **this Zen coding endpoint caps at 128K**, so the 1M strength does not apply here. MRCR/RULER: no verified public score found.
 
 Multimodal:
 
-- Text-only per Zen listing and GLM-5.2 deployment data (no vision rows). 15-floor applies.
+- Text-only (Zen listing; docs.z.ai text in / text out).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** τ²-Telecom 99.1% (#1), MCP Atlas 77.8%, LMArena Agent #4, TB Hard 50.8%; capped by GDPval 42.9% and weak Tau3-Banking 34.6%.
-- **Reasoning: 79/100.** GPQA up to 91.9%, HMMT 92.4%, AIME 90%, LCR 78.3%; capped by ARC-AGI-2 22.8% and Omniscience accuracy 24.3%.
-- **Context window: 82/100.** Native 1M with AA-LCR 78.3% measured; Zen coding endpoint caps at 128K, costing practical headroom.
+- **Tool use: 80/100.** TB 2.1 81.0 + CyberGym 77.2 + Toolathlon 59.9 from the base model; capped by TB 3.0 4.6 and AutomationBench 26.2.
+- **Reasoning: 72/100.** AA Index ~33–34 band; HLE w/ tools 54.7; math rows not freshly verified.
+- **Context window: 62/100.** Scored on this deployment: 128K total on Zen coding plan — well below the base model's 1M and under the 200K band anchor.
 - **Multimodal: 15/100.** Text-only deployment — floor.
-- **Coding: 83/100.** SWE-bench Verified 78.7% (#5), SWE-bench (Vals) 82.8%, LMArena WebDev 1600 #21; capped by DeepSWE 43.8% and TB 4.0 (AA) 1.0%.
-- **Cost efficiency: 80/100.** ~$1.40/$4.40 typical hosted (down to $0.56/$1.80) with MIT open weights — strong value; not free on Zen coding plan.
-- **Overall Score: 69/100.** Mean of the five quality dims (84+79+82+15+83)/5 = 68.6 → 69. Best fit: agentic coding on a budget with open-weight portability; multimodal users must look elsewhere (text-only).
+- **Coding: 82/100.** SWE-bench Pro 62.1, TB 2.1 81.0, FrontierSWE 67.5 on the underlying weights; capped by DeepSWE 46.2.
+- **Cost efficiency: 85/100.** $1.40/$4.40-class hosted pricing via coding plan, with MIT self-host fallback; not free on this Zen deployment.
+- **Overall Score: 62.2/100.** Mean of the five quality dims (80+72+62+15+82)/5 = 62.2 → 62. Best fit: plan-bundled agentic coding where 128K context suffices; need 1M → use the full GLM-5.2 endpoint instead.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchleader.com aggregate of Artificial Analysis / Epoch / Vals / LiveBench / LMArena; HF hub metadata); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
+- Method: fresh public web research (docs.z.ai/guides/llm/glm-5.2, HF zai-org/GLM-5.3 comparison table, llm-stats, repo catalog); scores are normalized 1–100 interpretations, not official vendor scores. Reverified 2026-09-29: base release corrected to 2026-06-16; TB 2.1 set to vendor 81.0 and SWE-bench Pro 62.1 confirmed; dropped non-reverified benchleader rows (τ², MCP Atlas, LMArena, GPQA stack); Context scored on the actual 128K Zen coding deployment (82 → 62); Cost 80 → 85; Overall 69 → 63.
 - Future sources: add a new file next to this one using the same headings.

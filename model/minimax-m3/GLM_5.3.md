@@ -68,3 +68,9 @@ Multimodal (grounding):
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
 - Method: public internet research (BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification addendum (2026-09-29, UTC)
+
+Fresh re-research found one BenchLM-side correction: the GDPval-AA Elo row was corrected 1304 to 1230 (the normalized 36.5% and GDPval rubrics 74.7% cited alongside it are unchanged; 1230 is now internally consistent with 36.5%). All other cited values (TB2.1 66.0%, Tau2 88.9%, Claw-Eval 74.5%, MCP-Atlas 74.2%, GPQA 92.9%, HLE 39.0%, LCR 83.0%, SWE-bench Verified 80.5%, Index 29.2) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

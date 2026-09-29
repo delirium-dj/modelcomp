@@ -197,6 +197,11 @@ export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
   for (const slug of Object.keys(GENERATED_SCORES)) {
+    // Same visibility rule as loadMetas: voice/finance trees are validated by
+    // sync and stay in the catalog, but off the site — they are not "missing
+    // meta.json", so skip them here instead of warning on every build.
+    const catRoot = (GENERATED_CATALOG[slug] as (MetaFile & { root?: string }) | undefined)?.root;
+    if (catRoot !== undefined && catRoot !== "model") continue;
     if (!metaBySlug.has(slug)) {
       console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }

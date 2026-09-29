@@ -1,17 +1,31 @@
 # Google Gemini 2.5 Flash Lite — findings by DeepSeek 4.1 Flash
 
-- Source: Google DeepMind / Gemini 2.5 Flash-Lite (`opencode/google-gemini-2.5-flash-lite`)
+- Source: Google DeepMind / Gemini 2.5 Flash-Lite (`gemini-2.5-flash-lite`)
 - Date: 2026-09-27 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-validated and consolidated 2026-09-29.** This is now the single report for
+> this model. Two things changed on this pass:
+> **(1) The duplicate folder is gone.** `model/google-gemini-2.5-flash-lite/` was a
+> second slug for the *same* Google weights (it was already merged once in commit
+> `962c54e`/sign-off `REPORT.md`, then resurrected from git history). On explicit user
+> order it has been merged into this folder and deleted, with a `pnpm sync` guard added
+> so it cannot re-emerge as a folder. My score here is unchanged at Overall 63.6 —
+> the duplicate copy carried identical dims (38/52/95/88/45), so the merge moved no numbers.
+> **(2) The Zen route is no longer listed.** A live check of
+> `https://opencode.ai/zen/v1/models` on 2026-09-29 shows **no `opencode/google-gemini-2.5-flash-lite`
+> entry at all** — Zen carries `gemini-3.5-flash-lite`, `gemini-3.6/3.7/3.8-flash`, `gemini-3.1-pro`
+> and `gemini-3-flash` instead. The gateway ID is therefore recorded below as historical, and the
+> 128K `meta.json` cap that came from the Zen listing no longer describes any live route.
 
 ## Model card
 
 - **Name:** Google Gemini 2.5 Flash Lite (no Free-tier wording; it is the cheapest paid tier of the 2.5 family)
 - **Short description:** The fastest and lowest-cost model of Google's 2.5 generation, built for high-volume translation, classification and extraction. Vercel's gateway summary markets it for "high-throughput agentic pipelines", but the published agentic scores put it far below the 2.5 Flash tier, and it is now three Flash generations behind Gemini 3.8 Flash.
-- **Provider / access:** Google (Gemini API, AI Studio, Vertex AI) and OpenCode Zen as `opencode/google-gemini-2.5-flash-lite`; Vercel AI Gateway exposes it as `google/gemini-2.5-flash-lite` over Chat Completions, Responses, Anthropic Messages and the AI SDK. Proprietary, no open weights.
+- **Provider / access:** Google (Gemini API, AI Studio, Vertex AI); the OpenCode Zen gateway route `opencode/google-gemini-2.5-flash-lite` existed historically but is **delisted** as of the 2026-09-29 catalogue check. Vercel AI Gateway exposes it as `google/gemini-2.5-flash-lite` over Chat Completions, Responses, Anthropic Messages and the AI SDK. Proprietary, no open weights.
 - **Release / knowledge:** Public preview 2025-06-17; stable/GA 2025-07-22 (Google Developers Blog, Logan Kilpatrick). Knowledge cutoff not restated in the sources checked.
-- **IDs:** `google/gemini-2.5-flash-lite` (Google / AI Gateway), `opencode/google-gemini-2.5-flash-lite` (OpenCode Zen). No Free ID found on any route.
+- **IDs:** `google/gemini-2.5-flash-lite` (Google / AI Gateway), `opencode/google-gemini-2.5-flash-lite` (historical OpenCode Zen gateway id, delisted). No Free ID found on any route.
 - **Context window:** 1,000,000 tokens input with a 66K max output (AI Gateway provider rows; Google's GA post confirms the 1M window). The repo's curated `meta.json` records a 128K Zen cap — the live vendor and gateway rows are the 1M figure.
 - **Modalities:** text, image, audio, video and document/PDF input; text out; thinking/reasoning yes and configurable across four levels; native tools include Google Search grounding, code execution and URL context. No image generation.
 - **Pricing (as of 2026-09-27):** $0.10 / 1M input, $0.40 / 1M output, $0.01 / 1M cached read; audio input priced 40% below the preview launch; Search grounding billed separately (~$35 / 1K requests). Paid only, no free tier.

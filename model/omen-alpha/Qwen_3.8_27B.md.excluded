@@ -1,0 +1,60 @@
+# Omen Alpha — findings by Qwen 3.8 27B
+
+- Source: OpenCode Go stealth model, provider undisclosed (`opencode/omen-alpha`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Omen Alpha
+- **Short description:** OpenCode's second stealth (anonymous) coding model after Ox Alpha; shipped to OpenCode Go on 2026-09-04 with no model card, no named provider, and no benchmark sheet. Community forensics (tokenizer 95/95 match to the Zhipu GLM-5 family, internal `zhipu/omen-alpha` routing tag) point to Z.ai, but neither Z.ai nor OpenCode has confirmed identity; a competing Xiaomi MiMo-V3-Flash theory is also circulated.
+- **Provider / access:** OpenCode Go subscription only ($10/month, ~$100 bundled usage; caps of $12 / 5h, $30 / week, $60 / month per explainx.ai). OpenAI-compatible chat-completions endpoint inside OpenCode; not on OpenRouter and not in the OpenCode Zen docs model list or `zen/v1/models` fetched 2026-09-29.
+- **Release / knowledge:** Released 2026-09-04 via OpenCode Go (per explainx.ai); knowledge cutoff unknown.
+- **IDs:** `opencode/omen-alpha` (meta.json); `omen-alpha` inside OpenCode Go.
+- **Context window:** 500,000 tokens in / 128,000 max output (Pi model metadata, as reported by explainx.ai and blog.buildfastwithai.com; Pi page now 404s).
+- **Modalities:** Text + image in, text out; reasoning (low/high thinking levels); tool calls (coding-agent focused).
+- **Pricing (as of 2026-09-29):** Bundled in the $10/month OpenCode Go plan; reference pricing ~$0.20 input / ~$0.66 output per 1M tokens (explainx.ai). No standalone per-token API pricing.
+- **Architecture:** Undisclosed — no public parameter count, no weights, no model card.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Note: benchlm.ai, benchmarklist.com and artificialanalysis.ai all return 404 for `omen-alpha`; no leaderboard entry exists for this exact model/ID. Community speed reports (~180–190 tok/s) and tokenizer forensics (rankllms.com) are not benchmark scores; aicodingdaily.com confirms "Not yet scored on the LLM Coding Leaderboard".
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MRCR: no verified public score found
+- CritPt: no verified public score found
+- AA Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval (MRCR/RULER) numbers published for this exact model/ID.
+
+- No scores filed: zero verified public benchmark numbers found for this exact model/ID (self-exclusion).
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen-3.8-27b)** — 2026-09-29
+- Method: public internet research (explainx.ai/blog/opencode-omen-alpha-mystery-model-cheap-2026, rankllms.com/posts/omen-alpha-opencode-mystery-model-zhipu-glm, blog.buildfastwithai.com/omen-alpha-review, duckduckgo.com search results, opencode.ai/data/anthropic/omen-alpha, opencode.ai/zen/v1/models, benchlm.ai / benchmarklist.com / artificialanalysis.ai 404 checks; retrieved 2026-09-29); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

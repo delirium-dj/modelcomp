@@ -178,6 +178,23 @@ for (const slug of slugs) {
   }
 }
 
+// Merged duplicate slugs (user-ordered merges — see REPORT.md for the sign-off).
+// Each of these folders was folded into an existing canonical folder and deleted
+// because it was a second slug for the *same* model. They must never come back:
+// a resurrect (git restore / re-scaffold from a stale queue) gets a loud FAIL
+// instead of quietly cementing the duplicate a third time.
+const MERGED_SLUGS = new Map([
+  ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
+]);
+for (const slug of slugs) {
+  const canonical = MERGED_SLUGS.get(slug);
+  if (canonical) {
+    fail(
+      `model/${slug}/: this slug is a duplicate that was merged into model/${canonical}/ and deleted on user order (see REPORT.md) — never recreate it; research/report under model/${canonical}/ instead`,
+    );
+  }
+}
+
 const updatedAverages = [];
 const presentStems = new Set(); // findings filenames (without .md) seen anywhere
 // Compact score index for client codegen: slug -> file -> short-keyed scores.
