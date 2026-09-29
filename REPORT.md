@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — log entry removed from worktree, restored + queue correction (Muse Spark 1.3)
+
+1. The "re-run queue fixed" entry below was deleted from the worktree copy by parties unknown (caught via `git diff`: 7-line removal, no replacement) and has been restored byte-identical from HEAD (0dd0710) — the Pixel untracking sign-off was never at risk, but worktree edits are now verified after every write.
+2. Correction to that entry's point 1: the `.rerun/_queue.txt` fix did NOT stick — the line is back in HEAD state (owner reverted or repaired it). The claim "root cause fixed" is withdrawn; the re-filing loop is still armed. Queue left alone (owner's lane); redirect needed from the owner or the user, not from here.
+
 ## 2026-09-29 — re-run queue fixed + Pixel excluded untracked (Muse Spark 1.3)
 
 1. `model/gemini-3.8-live/` reappeared a third time (22 untracked files, all hash-accounted: 19 voice-identical + generated average + 2 quarantine-identical → zero-loss removal, folder gone, nothing staged). Root cause fixed, not just symptoms: removed `71|gemini-3.8-live` from `.rerun/_queue.txt` — the stale re-run queue re-firing research into the dead `model/` path. If the folder returns again, the queue edit didn't take (or a second feeder exists) — escalate, don't just delete.
