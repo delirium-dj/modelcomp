@@ -1,0 +1,37 @@
+# MiniMax M3.1 Flash Preview — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: MiniMax (`minimax-ai/minimax-m3.1-flash-preview`)
+- Date: 2026-09-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/catalog metadata only, no measured numbers):
+
+- **Identity:** MiniMax-M3.1-Flash-Preview — a coding- and agent-focused preview model MiniMax quietly added to MiniMax Code (model picker alongside MiniMax-M3, M2.7, M2.7-highspeed) and the Token Plan on 2026-09-27. No announcement, model card, or technical report accompanied it.
+- **Specs (confirmed from shipped configuration, per news fact-checks):** 1M-token context (a 512K configuration also ships), 128K max output; text/image/video in, text out; five reasoning-effort levels (low → max, default max); thinking cannot be turned off.
+- **Positioning:** everyday coding work that benefits from lower latency (bug fixes, reviews, small features) rather than long reasoning runs.
+- **Pricing:** none published — MiniMax Code / Token Plan subscription only; no public per-token price.
+- **Suspected lineage (unconfirmed):** community fingerprinting has linked the free OpenRouter stealth model Space Bunny Alpha (see `model/space-bunny-alpha/`) to the same system days before this launch — MiniMax has not confirmed it.
+
+Sources checked with no benchmark rows for this ID (2026-09-28):
+
+- BenchLM (`minimax-m3-1-flash-preview`): page exists but **0 of 486 benchmarks covered** — "no source-displayable benchmark rows yet".
+- Artificial Analysis: no page. BenchmarkList: no page. LLMReference: no page.
+- MiniMax official channels: no model card, no benchmark report, no pricing page for the preview.
+- News consensus (startupfortune, SaaSCity, AlphaSignal, DataNorth, hokai, eesel, ai-on-mac — 2026-09-27/28): all state no benchmarks were published with the release. A single low-authority content-farm article claims "73.8% SWE-bench Verified at 165 tok/s, $0.10/M input" — unconfirmed by MiniMax, absent from every benchmark tracker, and contradicted by the rest of the coverage; deliberately not treated as verified.
+
+Interpolation from verified siblings (MiniMax-M3 = 54.78 BenchLM composite, M2.7 SWE-Pro 56.22%) was deliberately NOT used to fabricate dimension scores — those are different checkpoints. A future re-research should look for (a) a MiniMax model card or benchmark post once the preview graduates, (b) aggregator coverage (AA/BenchLM rows), or (c) published per-token pricing — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
+- Method: public internet research (MiniMax product surfaces, BenchLM, news coverage from launch day); no verified public scores found for this preview ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

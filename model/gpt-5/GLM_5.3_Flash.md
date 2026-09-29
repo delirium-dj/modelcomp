@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - HLE: **no verified public score found** (OpenAI footnote notes launch-era numbers were run on a former HLE version and are not comparable)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **23 (estimated) / #125 of 211** (AA v4.3.2, default 10K-input workload only, model deprecated; below the 26 median for reasoning models in its price tier)
+- Artificial Analysis Intelligence Index: **23 (estimated) / #130 of 216** (AA v4.3.2, default 10K-input workload only, model deprecated; below the 26 median for reasoning models in its price tier; re-verified 2026-09-28 — same-day AA refresh moved the rank from #125 of 211 as newer models joined the class, index value unchanged)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found** — proxies: ~45% fewer factual errors than GPT-4o with web search enabled, ~80% fewer than o3 when thinking, ~6x fewer hallucinations than o3 on LongFact/FActScore-style factuality prompts; deception rate 2.1% vs o3's 4.8% on production-like conversations (all OpenAI system card/launch figures)
 
 Coding:
@@ -49,12 +49,12 @@ Long context:
 
 - No long-context retrieval reported (AA-LCR is an AA II v4.3.2 component but no public per-model value for GPT-5 was found; 400K window with no retrieval measurement)
 
-Speed context (not scored): 97.4 output tokens/s (#57/211) and 66.46s TTFT including thinking (both Artificial Analysis, OpenAI API).
+Speed context (not scored): 95.0 output tokens/s (#61 of 216) and 64.04s TTFT including thinking (Artificial Analysis, OpenAI API, re-verified 2026-09-28 — refreshed same-day from 97.4 t/s and 66.46s TTFT).
 
 ### Normalized scores (1–100)
 
 - **Tool use: 65/100.** 88% Aider Polyglot and OpenAI's reported agentic tool-call gains support solid mid-tier placement, but no verified Terminal-Bench 2.1, Tau3, or GDPval Elo exists for this exact model — that missing agentic-suite evidence caps it below the frontier band.
-- **Reasoning: 78/100.** 94.6% AIME 2025 without tools was SOTA at launch and hallucination/deception reductions are best-in-class improvements, but no verified GPQA Diamond or HLE for base GPT-5 thinking (only the pro variant's 88.4% GPQA) and a below-median AA Intelligence Index (23) cap it under the 90+ band.
+- **Reasoning: 78/100.** 94.6% AIME 2025 without tools was SOTA at launch and hallucination/deception reductions are best-in-class improvements, but no verified GPQA Diamond or HLE for base GPT-5 thinking (only the pro variant's 88.4% GPQA) and a below-median AA Intelligence Index (23, unchanged on re-verification) cap it under the 90+ band.
 - **Context window: 80/100.** 400K total tokens maps to the upper end of the 200K–500K tier (200K = 70 reference), capped by the 128K max-output caveat and no published long-context retrieval measurement.
 - **Multimodal: 82/100.** Text and image input with 84.2% MMMU (SOTA at launch) and reported video/spatial reasoning gains; text-only output and no verified audio/PDF input keep it below audio-vision-tier models.
 - **Coding: 72/100.** 74.9% SWE-bench Verified and 88% Aider Polyglot were frontier-class at launch, but the 2026 frontier cohort now sits at 95%+ SWE-bench, and no verified LiveCodeBench/SciCode/Vibe Code Bench results cap it in the upper-mid band.
@@ -66,5 +66,5 @@ Speed context (not scored): 97.4 output tokens/s (#57/211) and 66.46s TTFT inclu
 ## Signature
 
 - Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-28
-- Method: public internet research (OpenAI GPT-5 launch post and "GPT-5 is here" product page, Artificial Analysis GPT-5 model page, Vellum LLM leaderboard cross-check); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (OpenAI GPT-5 launch post and "GPT-5 is here" product page, Artificial Analysis GPT-5 model page re-verified 2026-09-28, Vellum LLM leaderboard cross-check); re-verification update — AA refreshed its measured speed (97.4 → 95.0 t/s), TTFT (66.46 → 64.04s), and class rank (#125/211 → #130/216) same-day; index value (23), all other benchmarks, and all normalized scores are unchanged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
