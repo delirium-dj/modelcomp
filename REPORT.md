@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — 5 misfiled V4.1 reports moved to deepseek-v4.1-flash/
+
+1. Audited every file in `model/deepseek-v4-flash/` by its Name/IDs card (not filename — `DeepSeek_4.1_Flash.md` is the *agent*, correctly rating V4 Flash, and stays). Five reports actually evaluate V4.1 Flash: `Claude_Sonnet_4.5`, `Claude_Sonnet_5.5`, `Gemini_2.5_Flash`, `GPT_5.6_Luna`, `Grok_4.5` → moved to `model/deepseek-v4.1-flash/` (no collisions). Classic lookalike-slug confusion (`v4-flash` vs `v4.1-flash`).
+   Next: `pnpm sync && pnpm build.types && pnpm build` (both folders' averages recompute).
+
 ## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
 
 1. Re-research pass merged: 25 stale `Gemini_3.6_Flash.md` reports (dated 09-17–09-21) refreshed to 2026-09-29 with fresh web research (spot-verified 2/25 landed; per-model scores live in the dataset files). Claimed highs: gpt-5.6-terra 94, muse-spark-1.3-free 93, muse-spark-1.2-free 91, gpt-6-astra / gemini-3.1-pro 90.
