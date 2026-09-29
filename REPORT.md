@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
+
+1. Re-research pass merged: 25 stale `Gemini_3.6_Flash.md` reports (dated 09-17–09-21) refreshed to 2026-09-29 with fresh web research (spot-verified 2/25 landed; per-model scores live in the dataset files). Claimed highs: gpt-5.6-terra 94, muse-spark-1.3-free 93, muse-spark-1.2-free 91, gpt-6-astra / gemini-3.1-pro 90.
+2. Purification candidates from the audit: user deleted `tmp/` (with it the gitignored quarantines — those variant bytes now survive only in git history where ever committed) and `tsconfig.tsbuildinfo` (regenerates automatically; harmless). NOT deleted: `.rerun/` (untracked workspace holding others' draft reports — deleting would destroy uncommitted work; left for its owner).
+3. `tasks/LongCat_2.5_Preview_2.md` removed (duplicate delegator: identical STEM, weaker 4-order subset of the canonical 7 orders, zero references anywhere). `GEM36F_IMP.md` removed as temporary.
+   Next: `pnpm sync && pnpm build.types && pnpm build` (sync recomputes averages from the re-researched scores).
+
 ## 2026-09-29 — 75 Gemma-4-31B-IT.md.excluded files removed (user order)
 
 1. All 75 `Gemma-4-31B-IT.md.excluded` files removed per user order (verified premise on samples: 7-11-line evidence-free notes, zero benchmarks, zero active `Gemma-4-31B-IT.md` counterparts anywhere — the agent never scored a model). Sync-neutral: excluded files are never counted, so no average changes. Delegator `tasks/Gemma_4_31B_IT.md` left in place (not ordered); future runs may file new notes, which sync SKIP/QUAR-handles silently. Committed with bypass — this entry is the sign-off.
