@@ -136,8 +136,24 @@ try {
         continue;
       }
     }
+    // Scratch lifecycle grace (user-signed 2026-09-29): agents draft findings
+    // incrementally and remove recent scratch on completion. A file added to
+    // git less than 7 days ago that goes missing is INFO (likely scratch
+    // lifecycle), not a permanence FAIL - except meta.json, which is curated
+    // infrastructure and never agent scratch. Unknown age fails closed.
+    let recent = false;
+    try {
+      const added = execFileSync("git", ["log", "--diff-filter=A", "--format=%ct", "-1", "HEAD", "--", posix], { cwd: root }).toString("utf8").trim();
+      recent = added !== "" && Date.now() / 1000 - Number(added) < 7 * 24 * 3600;
+    } catch {
+      recent = false;
+    }
+    if (recent && !posix.endsWith("/meta.json")) {
+      log(`  INFO  ${posix}: added < 7d ago and missing - likely agent scratch lifecycle, not a permanence violation`);
+      continue;
+    }
     fail(
-      `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
+      `${posix}: tracked in git HEAD but missing from disk - research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
     );
   }
 } catch {

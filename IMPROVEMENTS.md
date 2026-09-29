@@ -4,7 +4,13 @@ This document tracks identified architectural, structural, and hygiene improveme
 
 ---
 
-## 1. Split Model Metadata into "Summary Menu" vs. "Deep-Dive"
+## 1. Split Model Metadata into "Summary Menu" vs. "Deep-Dive" — DONE (2026-09-29)
+
+* **Executed:** `scripts/sync-data.mjs` now emits `src/data/catalog.generated.ts`
+  (summary metadata, source-`root` stamped) and `src/data/models.ts` hydrates
+  from it — the eager `meta.json` glob is gone. Nuance: the catalog ships full
+  metas in one bundle (no on-demand deep-dive loading yet) and now also covers
+  voice models; second half of the proposal remains future work.
 * **Concept:** Eager glob imports vs. lean bundle
 * **Current Behavior:** `src/data/models.ts` uses `import.meta.glob("../../model/*/meta.json", { eager: true })`, which bundles all model notes, descriptions, and pricing tiers into the main JavaScript bundle immediately on homepage load.
 * **Proposed Solution:**
@@ -49,6 +55,6 @@ This document tracks identified architectural, structural, and hygiene improveme
 * `.gitignore` already covers future scratch (`tmp_*`, `temp_*`, `*.log`), so no
   ignore refinement was needed; the deleted tracked files simply predate those patterns.
 * Still open (judgment calls, not auto-deleted): `scripts/debug-sync.mjs` +
-  `scripts/find-fails.mjs` (one-off debug helpers), the self-destructing SW pair
-  (`public/sw.js` + cleanup blocks in `root.tsx`/`router-head.tsx`), and the
-  gitignored `instructions/` guides.
+  `scripts/find-fails.mjs` (one-off debug helpers) and the gitignored
+  `instructions/` guides. SW trio (`public/sw.js` + registration/cleanup
+  blocks) removed 2026-09-29 — verified zero references.

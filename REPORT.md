@@ -1,9 +1,8 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-29 — docs resynced + grace re-applied after clobbering (Muse Spark 1.3)
+## 2026-09-29 — grace edits re-applied after concurrent revert (Muse Spark 1.3)
 
-1. Uncommitted work was repeatedly reverted by concurrent lanes (concurrent checkouts/restores discard anything not yet committed). Response: this pass re-applied everything and commits immediately. Re-applied: scratch grace in sync tripwire + pre-commit + `RULES.md` (lost twice); `tasks/research.md` three-tree coverage; `tasks/sync-data.md` (multi-root, catalog/rankings/root, step 7, DoD); `README.md` (data flow, layout, hexagon bullet); `model/README.md` (catalog); `IMPROVEMENTS.md` (#1 DONE, #5 SW fix); `PUR_MUSE13.md` (§8); project-map + `.agents/rules.md` (done earlier, survived).
-2. Lesson recorded: in this multi-agent repo, only committed work survives — stage and commit promptly, verify post-commit.
+1. The scratch-grace edits (sync tripwire, `RULES.md` bullet, `IMPROVEMENTS.md` markers) were reverted pre-commit by concurrent lanes a third time; re-applied and committed immediately — only committed work survives in this multi-agent repo. Pre-commit grace had already landed via 8eff061.
 
 ## 2026-09-29 — scratch lifecycle grace: 7-day leniency in both guards (user order)
 
