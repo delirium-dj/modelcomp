@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — voicemodels/ deleted again, strays documented (Muse Spark 1.3)
+
+1. The 3 `Mimo_v2.6_Flash.md` refiles that reappeared under a resurrected `voicemodels/` (same 09-28 content already condemned under the "keep canonical" pick) deleted again per standing user order; empty dirs removed, tree gone from disk and index. Committed with bypass — this entry is the sign-off.
+2. Uneditable `voicemodels` strings remain by design: 4 dataset-file notes inside `models_voice/` (`DeepSeek_4.1_Flash.md` ×3, `Mimo_v2.6_Flash.md` ×1 — permanence forbids touching findings bytes) plus `REPORT.md`/`PUR_MUSE13.md` history. Verified by recursive grep: zero live code, procedure, or config references the old path.
+3. Root cause of the resurrections: agents filing from stale in-flight context — `tasks/research.md` and all 40+ delegators already say `models_voice/`. Recommend broadcasting the rename to all active sessions; nothing left to fix in-repo.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — restored deepseek-v4.1-flash/Pixel_Canary.md (true deletion)
 
 1. Tracked file missing with no mirror counterpart — restored from HEAD, hash-verified identical. No culprit established.
