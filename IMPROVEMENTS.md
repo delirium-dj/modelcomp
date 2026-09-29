@@ -1,60 +1,33 @@
-# Proposed Improvements & Architecture Roadmap — modelcomp
+# Improvement plan — modelcomp (single open item)
 
-This document tracks identified architectural, structural, and hygiene improvements for the project.
-
----
-
-## 1. Split Model Metadata into "Summary Menu" vs. "Deep-Dive" — DONE (2026-09-29)
-
-* **Executed:** `scripts/sync-data.mjs` now emits `src/data/catalog.generated.ts`
-  (summary metadata, source-`root` stamped) and `src/data/models.ts` hydrates
-  from it — the eager `meta.json` glob is gone. Nuance: the catalog ships full
-  metas in one bundle (no on-demand deep-dive loading yet) and now also covers
-  voice models; second half of the proposal remains future work.
-* **Concept:** Eager glob imports vs. lean bundle
-* **Current Behavior:** `src/data/models.ts` uses `import.meta.glob("../../model/*/meta.json", { eager: true })`, which bundles all model notes, descriptions, and pricing tiers into the main JavaScript bundle immediately on homepage load.
-* **Proposed Solution:**
-  - Have `scripts/sync-data.mjs` compile a lightweight catalog (`catalog.generated.ts`) containing only the summary fields needed for selectors, comparison hexagons, and cards (`id`, `name`, `short`, `overall`, `badges`).
-  - Statically or dynamically load full per-model deep-dive details on demand for `/model/[slug]` pages without bloating the initial landing page bundle.
-
----
-
-## 2. Pre-bake Calculations & Top-3 Rankings at Build Time — DONE (2026-09-29)
-* **Concept:** Avoid redundant client-side sorting
-* **Executed Solution:**
-  - `scripts/sync-data.mjs` now precomputes top-3 rankings lookup table (`src/data/rankings.generated.ts`) during `pnpm sync`.
-  - `src/data/models.ts` exports `top3ForSource`, which performs an instant $O(1)$ dictionary lookup (`TOP_MODELS_BY_SOURCE[source]`) instead of sorting arrays dynamically in the browser.
-  - `src/routes/index.tsx` refactored to remove redundant client-side sorting functions (`top3ByOverall`, `top3ByDim`).
-
----
-
-## 3. Formalize the Voice Models Pipeline (`models_voice/` vs. `model/`) — DONE (2026-09-29)
-* **Concept:** Update build guards to recognize both model trees
-* **Executed Solution:**
-  - `scripts/sync-data.mjs` updated to crawl both `model/` and `models_voice/` as first-class model trees.
-  - Aligned deletion tripwires, score calculations, and catalog pre-baking across all model roots.
-  - Removed obsolete/duplicate `voicemodels/` directory.
-
----
+Completed items (#1 catalog split, #2 pre-baked rankings, #3 voice pipeline,
+#5 purification) were merged into `REPORT.md` on 2026-09-29; this file keeps
+only the open work.
 
 ## 4. Robust Schema Validation for `meta.json` Files
-* **Concept:** Validate data schema at sync time before rendering
-* **Current Behavior:** `scripts/sync-data.mjs` checks only whether required key names exist (`META_REQUIRED`). It does not validate data types, array items, or URL formats. Malformed tier descriptions or non-array fields can pass sync but cause runtime issues in the UI.
-* **Proposed Solution:**
-  - Add lightweight schema validation (such as a typed validator or Zod/Valibot schema) in `sync-data.mjs`.
-  - Validate that metadata fields like `pricingTiers` (array of strings) or `freeTierNote` are structurally valid before they ever reach the website.
 
----
+* **Concept:** Validate data schema at sync time before rendering.
+* **Current Behavior:** `scripts/sync-data.mjs` checks required-key presence,
+  non-empty strings, and the no-underscore display-name gate. It does not
+  validate data types, array items, or URL formats. Malformed tier
+  descriptions or non-array fields can pass sync but cause runtime issues
+  in the UI.
 
-## 5. Repository Purification & Scratch File Elimination — DONE (2026-09-27)
-* **Executed:** Deleted `scan.py`, `temp_sort.py`, `tmp_queue.cjs`, `tmp_queue.json`,
-  `tmp_new_queue.json`, `temp_missing.txt`, `queue.log`, `RULES copy.md`, the empty
-  `tmp/` dir, and the unreferenced PNG icons (`favicon.png`, `apple-touch-icon.png`,
-  `icon-192.png`, `icon-512.png` — router-head/manifest use `favicon.svg` only).
-* `tasks/audit_laguna.ps1` had already been removed earlier.
-* `.gitignore` already covers future scratch (`tmp_*`, `temp_*`, `*.log`), so no
-  ignore refinement was needed; the deleted tracked files simply predate those patterns.
-* Still open (judgment calls, not auto-deleted): `scripts/debug-sync.mjs` +
-  `scripts/find-fails.mjs` (one-off debug helpers) and the gitignored
-  `instructions/` guides. SW trio (`public/sw.js` + registration/cleanup
-  blocks) removed 2026-09-29 — verified zero references.
+## Implementation plan (2026-09-29)
+
+1. **Location:** `scripts/sync-data.mjs` meta loop — after the
+   `META_REQUIRED` check and the underscore gate, before the catalog insert.
+2. **Checks** (fail loudly with path, same style as existing gates; no new
+   dependencies):
+   - `pricingTiers`, if present: must be an Array with length > 0 and every
+     item a non-empty string.
+   - `freeTierNote`, if present: must be a non-empty string.
+   - `noFreeId`, if present: must be a boolean.
+   - `id`: must contain exactly one `/` with non-empty vendor and model
+     sides (matches all current ids like `opencode/mimo-v2-6-free`).
+3. **Deliberately untouched:** unknown extra keys (forward-compat for future
+   stamps), the `name` rule (already gated), sync flow and scoring otherwise.
+4. **Verify:** `node --check`, then the next green `pnpm sync` validates all
+   ~100 metas; any violation FAILs with path (fail-closed, consistent with
+   existing meta gates).
+5. **Log** completion to `REPORT.md`.

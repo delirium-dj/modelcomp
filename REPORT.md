@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — IMPROVEMENTS.md consolidated; Meta validation planned (user order)
+
+1. Completed items merged here: #1 catalog split (glob gone; nuance: full metas bundled, no on-demand deep-dive yet), #2 pre-baked rankings (O(1) lookup, client sorts removed), #3 voice pipeline (multi-root sync, aligned tripwires, `voicemodels/` removed), #5 purification (scratch gone, SW trio removed with zero refs; helper scripts + gitignored guides remain open judgment calls). `IMPROVEMENTS.md` reduced to the one open item below.
+2. Open: #4 Meta schema validation — implementation plan lives in `IMPROVEMENTS.md` (typed checks in the sync meta loop, no new deps, fail-loud).
+
 ## 2026-09-29 — purification record consolidated, PUR_MUSE13.md retired (user order)
 
 1. Completed stages merged here from temporary `PUR_MUSE13.md` (verified holding before merge): scratch removals — `RULES copy.md`, `scan.py`, `temp_sort.py`, `tmp_queue.cjs`, `tmp_queue.json`, `tmp_new_queue.json`, `temp_missing.txt`, `queue.log`, empty `tmp/`, `github-desktop-gemini-setup.md`, `public/sw.js` + SW code blocks (zero refs left); `voicemodels/` → `models_voice/` rename (43 files) with refile resolutions; doc refreshes (README, rules, project-map, sync-data, model/README, research three-tree, AGENTS map-first, IMPROVEMENTS #1/#5); `google-gemini-2.5-flash-lite` → `gemini-2.5-flash-lite` merge (newer-wins); guards refresh (7-day scratch grace in tripwire + hook, frontend `root` filter, hexagon γ≈2.41 scale); `gemini-3.8-live` saga closed (voice canonical, zero-loss clearings).
