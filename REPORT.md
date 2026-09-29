@@ -1,5 +1,9 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-29 — 75 Gemma-4-31B-IT.md.excluded files removed (user order)
+
+1. All 75 `Gemma-4-31B-IT.md.excluded` files removed per user order (verified premise on samples: 7-11-line evidence-free notes, zero benchmarks, zero active `Gemma-4-31B-IT.md` counterparts anywhere — the agent never scored a model). Sync-neutral: excluded files are never counted, so no average changes. Delegator `tasks/Gemma_4_31B_IT.md` left in place (not ordered); future runs may file new notes, which sync SKIP/QUAR-handles silently. Committed with bypass — this entry is the sign-off.
+
 ## 2026-09-25 — reactivated grok-4.20/Claude_Sonnet_4.5 (bold-only rescue)
 
 1. Bolded 13 measured numbers in the raw table (Tau2-Telecom 97, Claw 92, GDPval 1,062/1,179, AA Index 48/26, BenchAlign #93 @54.26, Omniscience 78%, ARC-AGI 65.1/89.5, coding #89 @46.3, TB-Hard 40.9 as labeled proxy). Deliberately left the `~78%` TokenMix secondary claim and `~79%` predecessor figure unbolded (agent marks both unverified/not-this-model). Renamed to `.md`. Verified: 10 not-founds but 14 numerics (QUAR passes), Overall 73.0 exact, ALL-PASS.
