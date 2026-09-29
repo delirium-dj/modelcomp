@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Muse Spark 1.3
 
 - Source: Poolside/Laguna S 2.1 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: vendor table reconfirmed via HF README + OpenRouter pricing firmed $0.09/$0.18 + no-think ablation noted — scores unchanged, Overall holds 68)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `laguna-labs/laguna-s-2.1` (state explicitly: no Free ID exists on Zen; vendor is Poolside, not Laguna Labs)
 - **Context window:** 1,048,576 total — verified via Poolside launch materials and ModelScope page (Ollama local variants capped at 256K/262144)
 - **Modalities:** text in/out only (text-to-text); reasoning yes (interleaved thinking between tool calls, thinking/no-thinking modes); tool calls yes
-- **Pricing (as of 2026-09-21):** ~$0.10 in / $0.20 out per 1M via API routes (orcarouter model page); open weights under OpenMDW-1.1 (fully permissive, commercial use allowed)
+- **Pricing (as of 2026-09-21):** $0.09 in / $0.18 out per 1M (OpenRouter; free 256K endpoint + dedicated 1M paid endpoint $0.10/$0.20/$0.01 cached — re-verified 2026-09-29); open weights under OpenMDW-1.1 (fully permissive, commercial use allowed)
 - **Architecture:** open-weights MoE, 118B total / ~8B active, 48 layers (12 global + 36 sliding-window-512, 1:3), 256 routed experts top-10 + 1 shared, GQA 8 KV heads, softplus gating, per-layer rotary scales; FP8/NVFP4/INT4/GGUF quantized variants
 
 ### Raw benchmarks found
@@ -24,7 +24,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **70.2%** (Poolside release table; Ollama library tagline confirms; vs Hy3 71.7%, Inkling 63.8%, Nemotron 3 Ultra 56.4%)
+- Terminal-Bench 2.1: **70.2%** max-thinking (Poolside table; 60.4% no-think ablation — re-verified 2026-09-29; vs Hy3 71.7%, Inkling 63.8%, Nemotron 3 Ultra 56.4%)
 - Toolathlon Verified: **49.7%** (Poolside release table via ModelScope page)
 - SWE Atlas Codebase QnA: **46.2%** (same table)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**

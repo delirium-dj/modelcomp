@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.2 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: FrontierSWE 74.4 absolute + DeepSWE 46.2 + ProgramBench 63.7 + HMMT 94.4 + AA Index 51 + TB2.1 82.7 lane added, 753B firmed; Reasoning 88 → 89, Coding 85 → 87, Overall 74 → 75)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1,000,000 total / 131K max out — verified via provider directory (1M, 131K out) and Opper gateway card (1M context)
 - **Modalities:** text in/out; reasoning yes (High/Max thinking effort); tool calls yes; structured output yes; PDF input on some routes
 - **Pricing (as of 2026-09-21):** Free Zen tier available; API reference $1.40 in / $4.40 out per 1M ($0.26 cached) via CloudPrice panel
-- **Architecture:** open-weights MoE, ~744–753B total / ~40B active, Dense-Sparse-Alternating attention with IndexShare (2.9x less compute at 1M), native MTP reasoning traces; MIT license
+- **Architecture:** open-weights MoE, 753B total / ~40B active (filed 744B variant retired; venturebeat/benchr/convly consensus — re-verified 2026-09-29), Dense-Sparse-Alternating attention with IndexShare, native MTP reasoning traces; MIT license
 
 ### Raw benchmarks found
 
@@ -24,7 +24,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **81.0%** (Z.AI official table; Apidog confirms 81.0 vs GLM-5.1 62.0–63.5, within points of Opus 4.8 85.0)
+- Terminal-Bench 2.1: **81.0%** Terminus-2 (Z.AI official table; **82.7%** Claude Code lane per groundy — re-verified 2026-09-29; within points of Opus 4.8 85.0)
 - MCP-Atlas: **76.8–77.0%** (Z.AI table 76.8; Apidog 77.0 vs Opus 4.8 77.8)
 - Tool-Decathlon: **48.2** (Brocker/NVIDIA NGC summary, vs GLM-5.1 40.7)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
@@ -37,16 +37,18 @@ Reasoning / knowledge:
 - GPQA Diamond: **91.2%** (Z.AI official table, vs GLM-5.1 86.2)
 - HLE: **40.5% HLE / 54.7% HLE with tools** (Z.AI official table, vs GLM-5.1 31.0/52.3)
 - AIME 2026: **99.2%** (Z.AI official table)
+- HMMT Nov 2025: **94.4%** (groundy/HF card — re-verified 2026-09-29)
 - CritPt: **16.7** (Z.AI official table, vs GLM-5.1 4.6)
 - LCR / MLCR: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Artificial Analysis Intelligence Index: **51** (independent, top open-weights — re-verified 2026-09-29); BenchLM overall: **no verified public score found**
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
 - SWE-bench Verified / SWE-Pro: **62.1% SWE-bench Pro** (Z.AI official table, ahead of GPT-5.5 58.6 and GLM-5.1 58.4, trailing Opus 4.8 69.2)
 - NL2Repo: **48.9** (Z.AI official table, vs GLM-5.1 42.7)
-- FrontierSWE: **highest open-source rank, within 1% of Opus 4.8** (Hugging Face blog; no absolute percentage published)
+- DeepSWE: **46.2%**; ProgramBench: **63.7%** (z.ai blog table — re-verified 2026-09-29)
+- FrontierSWE Dominance: **74.4%** (z.ai blog; vs Opus 4.8 75.1, GPT-5.5 72.6 — re-verified 2026-09-29)
 - SWE-Marathon: **13.0%** (Qubrid deep dive, vs Opus 4.8 26.0%)
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
@@ -66,12 +68,12 @@ Long context:
 > scored independently and excluded from Overall.
 
 - **Tool use: 87/100.** TB2.1 81.0% (first open model past 80) with MCP-Atlas 76.8% shows frontier open tool use; capped by missing Tau3/GDPval/Claw harnesses.
-- **Reasoning: 88/100.** GPQA 91.2%, HLE 40.5/54.7-tools and AIME 99.2 show strong open reasoning; capped by the weak CritPt 16.7 and missing LCR confirmation.
+- **Reasoning: 89/100.** GPQA 91.2%, HLE 40.5/54.7-tools, AIME 99.2 and HMMT 94.4 show strong open reasoning; capped by the weak CritPt 16.7 and missing LCR confirmation.
 - **Context window: 97/100.** Verified 1M/131K with IndexShare recall maps to the top tier; capped below 100 without published retrieval-saturation proof.
 - **Multimodal: 15/100.** Text-only per spec panels; 15 is the text-only floor.
-- **Coding: 85/100.** SWE-Pro 62.1% beating GPT-5.5 with FrontierSWE open lead and NL2Repo 48.9 show strong open engineering; capped by SWE-Marathon 13.0% trailing Opus badly.
+- **Coding: 87/100.** SWE-Pro 62.1% plus FrontierSWE 74.4%, DeepSWE 46.2%, ProgramBench 63.7% and NL2Repo 48.9 show strong open engineering; capped by SWE-Marathon 13.0% trailing Opus badly.
 - **Cost efficiency: 100/100.** Free Zen tier available during promo.
-- **Overall Score: 74/100.** Mean of the five non-cost dims (87+88+97+15+85)/5 = 74.4; best-fit free open long-horizon engineering flagship for self-hosted agentic coding.
+- **Overall Score: 75/100.** Mean of the five non-cost dims (87+89+97+15+87)/5 = 75.0 → 75; best-fit free open long-horizon engineering flagship for self-hosted agentic coding.
 
 ---
 

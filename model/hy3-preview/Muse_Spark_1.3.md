@@ -1,7 +1,7 @@
 # Hy3 Preview — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Preview Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: base-table breadth added — ARC/DROP/MMLU-Redux/C-Eval/MMMLU/INCLUDE/SimpleQA — + instruct-ops color noted; Reasoning 72 → 73, Overall 69 → 70)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,6 +27,7 @@ Agent / tool use:
 - Terminal-Bench 2.0: **competitive score claimed, no percentage published** (GitHub README Code & Agent section — qualitative only)
 - BrowseComp / WideSearch: **competitive scores claimed, no percentages published** (same section — qualitative only)
 - ClawEval / WildClawBench: **scores well claimed, no percentages published** (same section — qualitative only)
+- Instruct ops (vendor-reported, no percentages): Yuanbao TTFT −54%/E2E −47%/99.99% success; 495-step agent workflows; PPT +20%; 40% inference-efficiency gain (re-verified 2026-09-29)
 - Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
@@ -38,6 +39,8 @@ Reasoning / knowledge:
 - MMLU-Pro (base): **65.76%** (same base table, 5-shot)
 - MMLU (base): **87.42%** (same base table, 5-shot)
 - MATH (base): **76.28%** (same base table, 4-shot); GSM8K 95.37%, CMath 91.17%
+- ARC-Challenge (base): **96.66%**; DROP: **85.50%**; MMLU-Redux: **86.86%** (same base table — re-verified 2026-09-29)
+- C-Eval: **91.51%**; CMMLU: **89.61%**; MMMLU: **80.15%**; INCLUDE: **78.64%**; SimpleQA: **26.47%**; Chinese-simpleQA: **74.58%** (same base table — re-verified 2026-09-29)
 - FrontierScience-Olympiad / IMOAnswerBench: **strong performance claimed, no percentages published** (README highlights — qualitative only)
 - GPQA Diamond: **no verified public instruct score found**
 - HLE: **no verified public score found**
@@ -68,12 +71,12 @@ Long context:
 > scored independently and excluded from Overall.
 
 - **Tool use: 68/100.** Preview-checkpoint agent gains claimed across SWE/TB/BrowseComp/ClawEval without published absolutes; capped a touch below the full Hy3 release.
-- **Reasoning: 72/100.** Base SuperGPQA 51.60%, MMLU-Pro 65.76% and MATH 76.28% with strong Olympiad claims; capped by base-harness provenance and zero instruct absolutes.
+- **Reasoning: 73/100.** Base ARC-Challenge 96.66%, SuperGPQA 51.60%, MMLU-Pro 65.76% and MATH 76.28% with strong Olympiad claims; capped by base-harness provenance and zero instruct absolutes.
 - **Context window: 72/100.** Verified 256K maps to the low-70s tier; capped below 1M models with no retrieval proof.
 - **Multimodal: 65/100.** Text+image in, text out; capped below video/audio omni models.
 - **Coding: 70/100.** Base LiveCode 34.86% and MBPP 78.71% with competitive instruct SWE/TB claims; capped below the full release (SWE-Verified 78.0%) for missing preview absolutes.
 - **Cost efficiency: 94/100.** Preview ~$0.18/$0.60 cheap paid value with no $0 tier.
-- **Overall Score: 69/100.** Mean of the five non-cost dims (68+72+72+65+70)/5 = 69.4; best-fit superseded preview — prefer the full Hy3 release.
+- **Overall Score: 70/100.** Mean of the five non-cost dims (68+73+72+65+70)/5 = 69.6 → 70; best-fit superseded preview — prefer the full Hy3 release.
 
 ---
 

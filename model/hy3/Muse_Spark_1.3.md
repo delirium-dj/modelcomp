@@ -1,7 +1,7 @@
 # Hy3 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: blind-expert 2.67 + hallu-rate 5.4% + multi-turn gains + pricing variant added, MRCR-qualitative noted — scores unchanged, Overall holds 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy3` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 256,000 total (262K API listing) — verified via Tencent launch release (256K) and provider catalog (262K)
 - **Modalities:** text, image in; text out; reasoning yes (hybrid fast/slow thinking); tool calls yes
-- **Pricing (as of 2026-09-21):** ~$0.083 in / $0.330 out per 1M (provider catalog panel, Sep 2026; preview was $0.180/$0.600)
+- **Pricing (as of 2026-09-21):** ~$0.083 in / $0.330 out per 1M (provider catalog panel, Sep 2026; preview was $0.180/$0.600); Vercel lane $0.105/$0.435, API 1 RMB/4 RMB per 1M (re-verified 2026-09-29)
 - **Architecture:** open-weights MoE, 295B total / 21B active (+3.8B MTP layer), 80 layers, 192 experts top-8, GQA 64 heads; Apache 2.0
 
 ### Raw benchmarks found
@@ -29,6 +29,8 @@ Agent / tool use:
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** (BrowseComp/WideSearch competitiveness claimed in launch notes without percentages)
+- Blind expert eval (270 experts, work tasks): **2.67/4** (vs GLM-5.1 2.51; frontend/data/CI-CD strongest — re-verified 2026-09-29)
+- WorkBuddy internal: 72%→90% success, −34% time; −47.4%/−49% tokens vs GLM-5.2 (vendor internal — re-verified 2026-09-29)
 
 Reasoning / knowledge:
 
@@ -40,7 +42,7 @@ Reasoning / knowledge:
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy: provider catalog Score **74**, Arena Elo 1455)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Hallucination rate: **5.4%** (internal real-world eval, down from 12.5%; commonsense errors 25.4%→12.7% — re-verified 2026-09-29); Omniscience Accuracy: **no verified public score found**
 
 Coding:
 
@@ -52,7 +54,7 @@ Coding:
 
 Long context:
 
-- **256K hybrid-thinking window verified from spec** (no verified MRCR v2 / RULER / GraphWalks percentage found)
+- **256K hybrid-thinking window verified from spec** (vendor claims marked MRCR gains, no percentage published); multi-turn issue rate 17.4%→7.9% (internal — re-verified 2026-09-29)
 
 ### Normalized scores (1–100)
 
