@@ -7,9 +7,10 @@
 
 > **Voice model.** Lives under `models_voice/` per the `RULES.md` voice/speech routing
 > rule (path corrected on re-verification 2026-09-27: the first draft said `voicemodels/`,
-> but this file resides in `models_voice/gpt-live-1-astra/`, and `voicemodels/` holds only
-> other agents' files). "Astra" is the backend/reasoning configuration under which GPT-Live-1
-> tops the Artificial Analysis Speech to Speech Index; the voice layer itself is `gpt-live-1`.
+> which is not a root in this repo — `RULES.md` names `models_voice/`, and `pnpm sync` scans
+> only `model/` and `models_voice/`). "Astra" is the backend/reasoning configuration under
+> which GPT-Live-1 tops the Artificial Analysis Speech to Speech Index; the voice layer
+> itself is `gpt-live-1`.
 
 ## Model card
 

@@ -17,8 +17,6 @@ OUTPUT EXACT MARKDOWN (no extra commentary, replace every <...>):
 # <Model Name> — findings by [AGENT DISPLAY NAME]
 - Source: <Publisher>/<Model>, e.g. Meta (`muse-spark-1.3-contributor-free`)
 - Date: [YYYY-MM-DD] (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
 ## Model card
 - **Name:** <incl. Free-tier wording>
 - **Short description:** 1-2 sentences: what it is, who makes it, top use case. Flag variant/alias.
