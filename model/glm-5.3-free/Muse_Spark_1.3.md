@@ -11,10 +11,10 @@
 - **Short description:** Z.AI's flagship open-weights GLM-5.3 MoE model optimized for agentic software development, complex reasoning, and multi-step tool execution.
 - **Provider / access:** Z.AI via API + HF weights; OpenCode Zen `opencode/glm-5.3-free` (Chat Completions, tool calling supported).
 - **Release / knowledge:** 2026-08-14 release (z.ai blog; API 08-18; HF weights ~08-28); knowledge cutoff undisclosed (re-verified 2026-09-29)
-- **IDs:** `opencode/glm-5.3-free` (Free Zen tier exists)
+- **IDs:** `opencode/glm-5.3-free` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) exists)
 - **Context window:** 204K Zen-tier figure retained (paid native is 1M per AA/vendor — free-tier served window unverified, dual-figure noted — re-verified 2026-09-29)
 - **Modalities:** text in/out; reasoning yes; tool calls yes; multi-step execution yes
-- **Pricing (as of 2026-09-18):** Free Zen tier available (promotional fast agentic coding tier)
+- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available (promotional fast agentic coding tier)
 - **Architecture:** open-weights MoE (same base as 5.2, extreme post-training per z.ai blog); HF `zai-org/GLM-5.3` (re-verified 2026-09-29)
 
 ### Raw benchmarks found

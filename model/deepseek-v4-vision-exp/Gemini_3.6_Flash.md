@@ -11,10 +11,10 @@
 - **Short description:** DeepSeek's experimental native multimodal vision-language MoE model designed for multi-modal code understanding, UI layout reasoning, and image-to-code generation.
 - **Provider / access:** DeepSeek API / OpenCode (`opencode/deepseek-v4-vision-exp`), Chat Completions API.
 - **Release / knowledge:** 2026-08 release; 2026-02 knowledge cutoff.
-- **IDs:** `opencode/deepseek-v4-vision-exp` (Free Zen tier available)
+- **IDs:** `opencode/deepseek-v4-vision-exp` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 200,000 tokens input / 32,768 max output; verified via DeepSeek documentation.
 - **Modalities:** Text, image, diagram, document PDF input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Open-weights MoE vision architecture.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 70/100.** 200K context window mapped to 70/100 tier.
 - **Multimodal: 85/100.** Text, image, diagram, and PDF input support.
 - **Coding: 80/100.** High LiveCodeBench (78.0%) and strong vision-to-code generation.
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0/1M tokens).
 - **Overall Score: 78/100.** Excellent free multimodal model for UI/vision coding agents.
 
 ---

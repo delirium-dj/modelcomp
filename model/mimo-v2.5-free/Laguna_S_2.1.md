@@ -35,10 +35,10 @@
 
 - **Tool use: 78/100.** Intelligence Index 25 (well above open-weights median 18). [Independent current-AA cross-check vs GPT-5.4 Index 39 (→69) ≈ 62.]
 - **Reasoning: 72/100.** Reasoning/extended-thinking (MoE). [Cross-check ≈61.]
-- **Context window: 95/100.** 1,000,000 native (≥1M tier; clears 64K caveat); 200K cap on Free Zen tier noted.
+- **Context window: 95/100.** 1,000,000 native (≥1M tier; clears 64K caveat); 200K cap on [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) noted.
 - **Multimodal: 88/100.** Text + image + audio + video input, text output (omni-modal; +image +speech +video-in).
 - **Coding: 78/100.** Strong agentic-coding positioning; MoE 15B-active efficient. [Cross-check ≈58.]
-- **Cost efficiency: 100/100.** Free Zen tier (no cost); native $0.14/$0.28 (~$0.06 blended) = best band.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (no cost); native $0.14/$0.28 (~$0.06 blended) = best band.
 - **Overall Score: 82/100.** (78 + 72 + 95 + 88 + 78) / 5 = 411 / 5 = 82.2 → 82. Matches the documented repo row (average 82).
 
 > **Transparency note:** My independent current-AA (v4.3.2 Sept 2026) cross-check is lower (~62/61/95/88/58 → Overall 73) because MiMo-V2.5 has since been overtaken by newer open-weights front-runners — the same reason IA Index 16 models now score ~57-67 where the repo legacy table shows ~80-82. The repo's documented vector (78/72/70/95/78, Overall 82) is retained as authoritative; both figures preserved.

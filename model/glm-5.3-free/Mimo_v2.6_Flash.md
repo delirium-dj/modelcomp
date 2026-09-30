@@ -1,6 +1,6 @@
 # GLM 5.3 Free — findings by Mimo v2.6 Flash
 
-- Source: Zhipu AI / Z.AI/`glm-5.3` (Free Zen tier)
+- Source: Zhipu AI / Z.AI/`glm-5.3` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models))
 - Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-free` (Zen free); `zai/glm-5.3` / `zhipuai/glm-5.3` paid.
 - **Context window:** Full API **1,048,576** in / 131,072 out; **Zen free tier capped at 204K** (repo meta).
 - **Modalities:** text in; text out (**no vision**); thinking always enabled (`low`/`high`/`max`, default max — `thinking.type: "disabled"` removed vs 5.2); tool calls yes; structured outputs yes.
-- **Pricing (as of 2026-09-22):** Free Zen tier (primary entry); Z.AI list **$1.40 in / $4.40 out per 1M**, cache read $0.26; Coding Plan from ~$12.60/mo annual. AA measured ~$0.68 per Intelligence Index task (lowest in frontier cluster at launch).
+- **Pricing (as of 2026-09-22):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (primary entry); Z.AI list **$1.40 in / $4.40 out per 1M**, cache read $0.26; Coding Plan from ~$12.60/mo annual. AA measured ~$0.68 per Intelligence Index task (lowest in frontier cluster at launch).
 - **Architecture:** MoE **~743–753B total / ~40B active** (same base as GLM-5.2); all gains post-training (Z.ai Code Bench +50% vs 5.2); text-only; emergent multi-stage cyber exploitation reasoning noted by Z.AI.
 
 ### Raw benchmarks found
@@ -64,7 +64,7 @@ Multimodal:
 - **Context window: 68/100.** Full API is true 1M, but this Free entry is Zen-capped at **204K** per meta — effective free window is mid-large; no public long-context retrieval curve.
 - **Multimodal: 15/100.** Text-only product surface (template rule: 15).
 - **Coding: 90/100.** DeepSWE 66.9, SWE-Marathon 42.5, FrontierSWE 78.1, CyberGym 84.5, Z.ai Code Bench 34.5 beats Opus 4.8 — top open-weights coding claim at launch; missing SWE-bench Verified/Pro rows for 5.3 specifically keep a sliver of uncertainty.
-- **Cost efficiency: 100/100.** Free Zen tier with frontier-class coding agents; even paid $1.40/$4.40 undercuts Opus/Sol heavily — free-tier anchor = 100.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) with frontier-class coding agents; even paid $1.40/$4.40 undercuts Opus/Sol heavily — free-tier anchor = 100.
 - **Overall Score: 70/100.** Mean of five quality dims (90+86+68+15+90)/5 = 69.8 → 70.
 
 ---

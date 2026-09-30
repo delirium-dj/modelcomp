@@ -14,7 +14,7 @@
 - **IDs:** `opencode/kimi-k2.6` (Free tier available on Zen)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.50 / $2.00 per 1M.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.50 / $2.00 per 1M.
 - **Architecture:** Proprietary transformer architecture by Moonshot AI.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 82/100.** Reliable 128K context handling.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 82/100.** Competent coding and software development assistance.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 68.6/100.** Well-rounded model with dependable reasoning and strong context window performance.
 
 ---

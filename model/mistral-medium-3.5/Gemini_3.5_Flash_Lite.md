@@ -11,10 +11,10 @@
 - **Short description:** Mistral AI's balanced enterprise-grade mid-tier model optimized for efficient reasoning and multilingual tasks.
 - **Provider / access:** OpenCode Zen `opencode/mistral-medium-3.5`, Chat Completions API.
 - **Release / knowledge:** 2025-10-05; knowledge cutoff September 2025.
-- **IDs:** `opencode/mistral-medium-3.5` (Free Zen tier available)
+- **IDs:** `opencode/mistral-medium-3.5` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total tokens verified via Mistral AI specifications.
 - **Modalities:** Text in/out, function calling, JSON mode.
-- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.60 / $1.80 per 1M tokens.
+- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.60 / $1.80 per 1M tokens.
 - **Architecture:** Mistral proprietary transformer architecture.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 84/100.** Full 128K context window support.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 70/100.** Competent coding capabilities for standard developer tasks.
-- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M).
 - **Overall Score: 62.4/100.** Balanced mid-tier enterprise model with solid general-purpose efficiency.
 
 ---

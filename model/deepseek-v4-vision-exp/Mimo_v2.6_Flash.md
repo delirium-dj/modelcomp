@@ -14,7 +14,7 @@
 - **IDs:** `deepseek-v4-flash-vision-exp` (DeepSeek); `opencode/deepseek-v4-vision-exp` (Zen).
 - **Context window:** **1,048,576** native; max output **384K** (DeepSeek/AI-TLDR). Zen free tier per repo meta: **200K**. Images billed ≤384 tokens each (~800×800 resize).
 - **Modalities:** text/image/PDF-class document input (charts, screenshots, photos); text out; tool calls yes; JSON/structured outputs; prompt caching; experimental status.
-- **Pricing (as of 2026-09-22):** Free Zen tier (primary for this entry); DeepSeek API at V4-Flash text rates; Vercel gateway lists **$0.216 in / $0.647 out per 1M**.
+- **Pricing (as of 2026-09-22):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (primary for this entry); DeepSeek API at V4-Flash text rates; Vercel gateway lists **$0.216 in / $0.647 out per 1M**.
 - **Architecture:** V4-Flash base — **284B total / 13B active** MoE (43 layers, 256 routed experts, 6 active + 1 shared), +32-layer/1024-dim ViT + 2-layer aligner (~0.5B); FP4 experts + FP8 elsewhere, ~168GB checkpoint; DFlash attention, Hyper-Connections, DSpark draft; MIT license. (Some sources cite ~305B total — cellcog/vLLM favor 284B/13B.)
 
 ### Raw benchmarks found
@@ -61,7 +61,7 @@ Multimodal:
 - **Context window: 82/100.** Native 1M/384K output is top-tier tier mapping; Zen free cap is 200K and no long-context retrieval curve is published (vLLM notes only 32K measured) — practical confidence window lower than the sticker.
 - **Multimodal: 84/100.** Text+image native with OCRBench 83.5, Chartography 64.3, ZeroBench 35 (beats Opus-4.8), ApexBench jump 26→36 when actually looking at images; experimental flag and no audio/video cap below 90.
 - **Coding: 82/100.** DeepSWE 59.3 beats Opus-4.8, NL2Repo 57.7, CyberGym 75.3, TB2.1 83.9 — excellent agentic coding for a free/open Flash-class model; no SWE-Verified/LiveCodeBench rows.
-- **Cost efficiency: 100/100.** Free Zen tier with 1M-capable multimodal MoE; even paid gateway rates (~$0.22/$0.65) are bargain-bin — free-tier anchor = 100.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) with 1M-capable multimodal MoE; even paid gateway rates (~$0.22/$0.65) are bargain-bin — free-tier anchor = 100.
 - **Overall Score: 79/100.** Mean of five quality dims (80+68+82+84+82)/5 = 79.2 → 79. Best-fit: free multimodal coding agents (UI-to-code, chart/screenshot-driven loops) and OCR-heavy document pipelines; verify long-context retrieval yourself before trusting the 1M sticker on needle tasks.
 
 ---

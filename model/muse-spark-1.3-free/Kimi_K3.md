@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` (Free Zen ID); `muse-spark-1.3` and `muse-spark-1.3-contributor` on Meta API (benchlm.ai); Standard tier $1.25/$4.25.
 - **Context window:** 1,048,576 (1M) tokens, unchanged from 1.2 (benchlm.ai; artificialanalysis.ai; llm-stats.com).
 - **Modalities:** text/image/video input (artificialanalysis.ai; Zen listing also shows PDF in); text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier $0 (training-data consent trade); Standard $1.25 input / $4.25 output per 1M, cached input $0.15 (llm-stats.com; artificialanalysis.ai); Contributor paid-SKU price not re-verified in my sources. 1.3 (xhigh) costs $0.55 per Intelligence Index task — the lowest of any model scoring 59+ (artificialanalysis.ai); 1.3 (max) pricing not yet public.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0 (training-data consent trade); Standard $1.25 input / $4.25 output per 1M, cached input $0.15 (llm-stats.com; artificialanalysis.ai); Contributor paid-SKU price not re-verified in my sources. 1.3 (xhigh) costs $0.55 per Intelligence Index task — the lowest of any model scoring 59+ (artificialanalysis.ai); 1.3 (max) pricing not yet public.
 - **Architecture:** proprietary (Meta); params undisclosed.
 
 ### Raw benchmarks found
@@ -63,7 +63,7 @@ Multimodal:
 - **Context window: 100/100.** Full 1M window with 98%+ MRCR v2 retrieval verified in both measured bins (98.5% at 256K–512K, 98.1% at 512K–1M) — best-in-tier measured long-context performance.
 - **Multimodal: 85/100.** Text/image/video input confirmed (artificialanalysis.ai) plus PDF per Zen listing, with a strong Design Arena Elo (1365); capped modestly by absent third-party MMMU/CharXiv/LVBench rows and text-only output.
 - **Coding: 90/100.** DeepSWE 75.4%, AA Coding Index 75.8, SciCode ~59% and SWE-Atlas QnA 59.4% are near-frontier; capped by CursorBench 41.6% and missing SWE-bench Verified / LiveCodeBench rows.
-- **Cost efficiency: 100/100.** $0 on the Free Zen tier (training-data consent trade-off); even on paid Standard pricing, 1.3 (xhigh) is the cheapest per task ($0.55) of any 59+ Index model.
+- **Cost efficiency: 100/100.** $0 on the [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (training-data consent trade-off); even on paid Standard pricing, 1.3 (xhigh) is the cheapest per task ($0.55) of any 59+ Index model.
 - **Overall Score: 91/100.** Mean of the five quality dims (90+90+100+85+90)/5 = 91.0 → 91. Best fit: long-horizon agentic coding at zero cost when data-sharing consent is acceptable.
 
 ---

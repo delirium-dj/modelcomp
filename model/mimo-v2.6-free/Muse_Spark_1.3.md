@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2-6-free` (Zen Free tier); native `mimo-v2.6-flash` (Xiaomi, no separate Zen paid ID needed for scoring)
 - **Context window:** 1,048,576 tokens total (1M), up to 128,000 output tokens — verified via Xiaomi release docs, Hugging Face `XiaomiMiMo/MiMo-V2.6-Flash-RL` README, and VentureBeat 2026-09-22
 - **Modalities:** text/image/video/audio in; text out; reasoning yes (Thinking mode); tool calls yes; JSON/structured output via standard chat API
-- **Pricing (as of 2026-09-22):** Free Zen tier $0 in / $0 out / $0 cached (limited-time preview). Paid fallback (native Xiaomi API): $0.14 in / $0.28 out per 1M ($0.0028 cached; Batch API 50% off — re-verified 2026-09-29; Pro is $0.435/$0.87). No training on prompts per Zen zero-retention route; OpenRouter-style routes may retain prompts without training — use Zen for confidential code.
+- **Pricing (as of 2026-09-22):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0 in / $0 out / $0 cached (limited-time preview). Paid fallback (native Xiaomi API): $0.14 in / $0.28 out per 1M ($0.0028 cached; Batch API 50% off — re-verified 2026-09-29; Pro is $0.435/$0.87). No training on prompts per Zen zero-retention route; OpenRouter-style routes may retain prompts without training — use Zen for confidential code.
 - **Architecture:** sparse MoE, 309B total / 15B active (256 routed experts, 8 active), hybrid sliding-window/global attention, 681M-param MiMo ViT + audio tokenizer/patch encoder, MIT license, ungated weights
 
 ### Raw benchmarks found

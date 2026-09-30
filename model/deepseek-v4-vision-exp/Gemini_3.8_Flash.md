@@ -14,7 +14,7 @@
 - **IDs:** `opencode/deepseek-v4-vision-exp`
 - **Context window:** 200,000 tokens total (200K in / 32K out; verified via OpenCode Zen documentation).
 - **Modalities:** Text, image, and PDF in; text out; tool calls and JSON mode.
-- **Pricing (as of 2026-09-19):** Free Zen tier ($0).
+- **Pricing (as of 2026-09-19):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Architecture:** Experimental multimodal MoE architecture with native visual patch tokens.
 
 ### Raw benchmarks found

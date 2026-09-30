@@ -11,10 +11,10 @@
 - **Short description:** Z.AI's prior generation open-weights MoE model built for agentic tasks, long context processing, and enterprise software engineering.
 - **Provider / access:** Z.AI API / OpenCode (`opencode/glm-5.2`), Chat Completions API.
 - **Release / knowledge:** 2026-04 release; 2025-11 knowledge cutoff.
-- **IDs:** `opencode/glm-5.2` (Free Zen tier available)
+- **IDs:** `opencode/glm-5.2` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 204,800 tokens input / 65,536 max output; verified via Z.AI documentation.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Open-weights MoE architecture.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 70/100.** 200K context window mapped to 70/100 tier.
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 78/100.** High LiveCodeBench (76.0%) and solid SWE-bench performance.
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0/1M tokens).
 - **Overall Score: 63/100.** Reliable free open-weights model for general software tasks.
 
 ---

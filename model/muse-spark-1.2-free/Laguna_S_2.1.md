@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** Muse Spark 1.2 Free
-- **Short description:** Meta's prior-gen coding/agent model co-trained with Muse Code for terminal coding, MCP tool use, and whole-repo generation. Free Zen tier with training-data consent; superseded by Muse Spark 1.3.
+- **Short description:** Meta's prior-gen coding/agent model co-trained with Muse Code for terminal coding, MCP tool use, and whole-repo generation. [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) with training-data consent; superseded by Muse Spark 1.3.
 - **Provider / access:** Meta / OpenCode Zen (`opencode/muse-spark-1.2-contributor-free`); also Meta first-party API. Free Contributor-tier access via OpenCode Zen (training-data consent agreement). Standard tier $1.25 in / $4.25 out per 1M; cached input $0.15/MTok.
 - **Release / knowledge:** Released August 5, 2026 (Meta). Knowledge cutoff circa June 2026.
-- **IDs:** `opencode/muse-spark-1.2-contributor-free` (Free Zen tier available).
+- **IDs:** `opencode/muse-spark-1.2-contributor-free` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available).
 - **Context window:** 1,048,576 (1M) — verified via Meta model page and `meta.json`.
 - **Modalities:** Text, image, audio, video, PDF in; text out.
-- **Pricing (as of 2026-09-22):** Free Zen tier (training-data consent). Paid tiers: Contributor $0.10/$0.20, Standard $1.25/$4.25 per 1M. Cached input $0.15/MTok. Cost per task ~$0.40 (AA).
+- **Pricing (as of 2026-09-22):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (training-data consent). Paid tiers: Contributor $0.10/$0.20, Standard $1.25/$4.25 per 1M. Cached input $0.15/MTok. Cost per task ~$0.40 (AA).
 - **Architecture:** Proprietary Meta Muse-series model.
 
 ### Raw benchmarks found
@@ -60,7 +60,7 @@ Long context:
 - **Context window: 95/100.** 1M (1,048,576) verified via Meta page and meta.json. Caps: no AA-LCR or RULER retrieval data at 512K+ for perfect 100.
 - **Multimodal: 92/100.** Text, image, audio, video, PDF in; text out — full omni input. Caps: text-only output prevents 95+ tier.
 - **Coding: 86/100.** DeepSWE 59.3%, SciCode 56%, MCP Atlas 90.3%. Caps: DeepSWE below 74% frontier; no SWE-bench/LiveCodeBench data.
-- **Cost efficiency: 100/100.** Free Zen tier ($0). Caps: free tier requires training-data consent; time-limited; data-sharing caveat.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0). Caps: free tier requires training-data consent; time-limited; data-sharing caveat.
 - **Overall Score: 89.8/100.** Mean of five quality dimensions (86+90+95+92+86)/5 = 89.8. Strong prior-gen agent model: top-5 GDPval, 1M omni context, free tier. Behind Fable 5.1 and 1.3; use when 1.3 Free unavailable.
 
 ---

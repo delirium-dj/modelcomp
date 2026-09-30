@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-flash`
 - **Context window:** 204K tokens.
 - **Modalities:** Text in/out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free Zen tier available.
+- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available.
 - **Architecture:** Lightweight open-weights Mixture-of-Experts.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 83/100.** 204K context window.
 - **Multimodal: 15/100.** Text-in/text-out only.
 - **Coding: 83/100.** Strong rapid coding and script generation.
-- **Cost efficiency: 100/100.** Free Zen tier access.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access.
 - **Overall Score: 69.6/100.** Ultra-fast open-weights Flash coding model.
 
 ---

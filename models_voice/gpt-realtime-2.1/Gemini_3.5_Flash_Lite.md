@@ -11,10 +11,10 @@
 - **Short description:** OpenAI's updated real-time voice model with enhanced conversational cadence and reduced latency.
 - **Provider / access:** OpenCode Zen (`opencode/gpt-realtime-2.1`) — WebSocket Realtime API.
 - **Release / knowledge:** 2026-05-01; knowledge cutoff April 2026.
-- **IDs:** `opencode/gpt-realtime-2.1` (Free Zen tier available)
+- **IDs:** `opencode/gpt-realtime-2.1` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Audio + text in / audio + text out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.06 / min voice session.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.06 / min voice session.
 - **Architecture:** OpenAI real-time audio streaming transformer architecture.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 70/100.** 128K session context window.
 - **Multimodal: 70/100.** Native audio-to-audio streaming capabilities.
 - **Coding: 70.5/100.** Basic coding assistance during voice sessions.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 70.3/100.** Updated real-time voice model offering improved streaming cadence and low latency.
 
 ---

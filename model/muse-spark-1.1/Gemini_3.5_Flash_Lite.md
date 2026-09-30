@@ -11,10 +11,10 @@
 - **Short description:** Muse's earlier foundation model iteration providing solid baseline general reasoning and coding capabilities.
 - **Provider / access:** OpenCode Zen `opencode/muse-spark-1.1`, Chat Completions API.
 - **Release / knowledge:** 2025-08-15; knowledge cutoff July 2025.
-- **IDs:** `opencode/muse-spark-1.1` (Free Zen tier available in legacy rotation)
+- **IDs:** `opencode/muse-spark-1.1` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available in legacy rotation)
 - **Context window:** 128K total tokens verified via provider specifications.
 - **Modalities:** Text in/out, basic tool calling, JSON mode.
-- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.40 / $1.20 per 1M tokens.
+- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.40 / $1.20 per 1M tokens.
 - **Architecture:** Dense transformer foundation model.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 84/100.** Solid 128K context retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 75/100.** Capable coding assistant for routine programming tasks.
-- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M).
 - **Overall Score: 65/100.** Stable baseline frontier model offering solid performance across reasoning and tool use.
 
 ---

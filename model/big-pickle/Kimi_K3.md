@@ -14,7 +14,7 @@
 - **IDs:** `opencode/big-pickle` (Free Zen ID); consensus base `zai/glm-4.6`.
 - **Context window:** 200K total (160K in / 32K out) per Zen listing; GLM-4.6 native 200K (benchlm.ai) — consistent.
 - **Modalities:** text in/out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** Free Zen tier; paid GLM-4.6 equivalent ~$0.60/$2.20 per 1M (catalog note).
+- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid GLM-4.6 equivalent ~$0.60/$2.20 per 1M (catalog note).
 - **Architecture:** open-weight GLM-4.6 (Z.AI); params undisclosed here.
 
 ### Raw benchmarks found (measured on GLM-4.6 = consensus identity; provisional for big-pickle)

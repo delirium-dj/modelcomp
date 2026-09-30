@@ -63,5 +63,5 @@ Coding:
 ## Signature
 
 - Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-09-23
-- Method: public-internet research (Google Gemini API docs; Artificial Analysis Gemini 2.5 Flash Lite model page, Sept 2026; repo `meta.json` for 1M context, omni modalities, Free Zen tier). Anchored on AA Intelligence Index v4.3.2 ≈ 52 with explicit deprecation + hallucination + sparse-coding caps. Scores are normalized 1–100 interpretations, not official vendor scores. No peer findings files in `model/` were read (zero-influence).
+- Method: public-internet research (Google Gemini API docs; Artificial Analysis Gemini 2.5 Flash Lite model page, Sept 2026; repo `meta.json` for 1M context, omni modalities, [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)). Anchored on AA Intelligence Index v4.3.2 ≈ 52 with explicit deprecation + hallucination + sparse-coding caps. Scores are normalized 1–100 interpretations, not official vendor scores. No peer findings files in `model/` were read (zero-influence).
 - Future sources: add a new file next to this one using the same headings.

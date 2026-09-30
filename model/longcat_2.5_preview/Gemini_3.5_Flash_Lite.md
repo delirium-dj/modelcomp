@@ -11,10 +11,10 @@
 - **Short description:** LongCat Labs' preview model featuring enhanced long-context attention and robust multi-step reasoning.
 - **Provider / access:** OpenCode Zen (`opencode/longcat_2.5_preview`) — Chat Completions API.
 - **Release / knowledge:** 2026-04-15; knowledge cutoff March 2026.
-- **IDs:** `opencode/longcat_2.5_preview` (Free Zen tier available)
+- **IDs:** `opencode/longcat_2.5_preview` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.35 / $1.40 per 1M.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.35 / $1.40 per 1M.
 - **Architecture:** LongCat Labs transformer architecture with expanded attention span.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 74/100.** Reliable context handling up to 128K.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 73.5/100.** Competent programming and debugging support.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 61.9/100.** Promising preview model with robust attention and multi-step task execution.
 
 ---

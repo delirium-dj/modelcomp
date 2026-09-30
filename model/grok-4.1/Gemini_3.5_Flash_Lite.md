@@ -11,10 +11,10 @@
 - **Short description:** xAI's Grok 4.1 iterative update improving reasoning and tool integration.
 - **Provider / access:** OpenCode Zen (`opencode/grok-4.1`) — Chat Completions API.
 - **Release / knowledge:** 2026-05-01; knowledge cutoff April 2026.
-- **IDs:** `opencode/grok-4.1` (Free Zen tier available)
+- **IDs:** `opencode/grok-4.1` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.30 / $1.20 per 1M.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.30 / $1.20 per 1M.
 - **Architecture:** xAI Grok 4.1 transformer architecture.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 73/100.** Stable 128K context performance.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 74/100.** Competent coding and debugging support.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 62/100.** Incremental upgrade to Grok 4 offering enhanced reasoning and tool reliability.
 
 ---

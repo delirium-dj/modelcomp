@@ -14,7 +14,7 @@
 - **IDs:** `opencode/deepseek-v4-vision-exp`
 - **Context window:** 200K tokens.
 - **Modalities:** Text, image, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free Zen tier available for experimental usage.
+- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available for experimental usage.
 - **Architecture:** Open-weights Mixture-of-Experts with native vision encoder.
 
 ### Raw benchmarks found

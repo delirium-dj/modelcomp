@@ -55,7 +55,7 @@ Long context:
 - **Context window: 70/100.** Standard 200K context window with highly reliable retrieval accuracy.
 - **Multimodal: 65/100.** Input support for text and images, text-only output.
 - **Coding: 77/100.** Excellent coding and script synthesis performance, optimal for developer pipelines.
-- **Cost efficiency: 60/100.** Moderate pricing at $3.00/$15.00 per million tokens without Free Zen tier.
+- **Cost efficiency: 60/100.** Moderate pricing at $3.00/$15.00 per million tokens without [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
 - **Overall Score: 74/100.** Highly optimized mid-tier reasoning and coding model, providing strong efficiency and performance.
 
 ---

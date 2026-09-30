@@ -3,6 +3,7 @@ import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@bui
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
+import { withFreeZenLink } from "../../../components/freeZenLink";
 
 /** Pre-render one static page per model for the static adapter. */
 export const onStaticGenerate: StaticGenerateHandler = async () => {
@@ -136,7 +137,12 @@ export default component$(() => {
           </div>
           <div class="flex gap-1 sm:col-span-2">
             <dt class="font-semibold text-slate-700 dark:text-slate-200">Pricing:</dt>
-            <dd>{(model.meta.pricingTiers ?? [model.meta.pricingNote]).join(" · ")}</dd>
+            <dd>{(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => (
+              <span key={tier}>
+                {i > 0 ? " · " : ""}
+                {withFreeZenLink(tier)}
+              </span>
+            ))}</dd>
           </div>
         </dl>
       </section>

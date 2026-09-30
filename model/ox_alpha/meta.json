@@ -4,6 +4,6 @@
   "short": "Stealth frontier reasoning model (OpenRouter stealth/ox-alpha) for long-horizon coding agents with 1M context, free during preview.",
   "contextWindow": "1M / 131K out",
   "modalities": "Text, image, video, PDF in; text out",
-  "pricingNote": "Free Zen tier",
+  "pricingNote": "Free OpenCode Zen tier",
   "freeTierNote": "Free OpenCode Zen tier access for experimental agentic coding and logic puzzles"
 }

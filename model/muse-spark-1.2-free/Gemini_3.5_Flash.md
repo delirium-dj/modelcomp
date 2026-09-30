@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 75/100.** Strong support for text, image, audio, video, and PDF inputs, text-only output.
 - **Coding: 63/100.** Solid code generation capabilities, excellent terminal execution and scriptwriting support.
 - **Cost efficiency: 100/100.** Free Contributor-tier access is highly cost-effective for developer workflows.
-- **Overall Score: 80/100.** Highly robust, prior-generation coding and agentic model, extremely valuable under the Free Zen tier.
+- **Overall Score: 80/100.** Highly robust, prior-generation coding and agentic model, extremely valuable under the [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
 
 ---
 

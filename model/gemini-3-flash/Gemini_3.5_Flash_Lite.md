@@ -14,7 +14,7 @@
 - **IDs:** `opencode/gemini-3-flash`
 - **Context window:** 128K tokens total input/output
 - **Modalities:** Text, image, audio, video in; text out; native tool calling and JSON mode enabled.
-- **Pricing (as of 2026-09):** Standard tier pricing / Free Zen tier available.
+- **Pricing (as of 2026-09):** Standard tier pricing / [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available.
 - **Architecture:** Proprietary Google multimodal transformer architecture optimized for extreme latency reduction.
 
 ### Raw benchmarks found

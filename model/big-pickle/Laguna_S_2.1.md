@@ -16,7 +16,7 @@
 - Modalities: **text input → text output only** (Artificial Analysis: "supports text input only … not multimodal"). Repo `meta.json` "Text in/out only." (+text-in only)
 - Knowledge cutoff: not posted.
 - Reasoning: **No** — AA explicitly "Non-reasoning" / "not a reasoning model"; the page shows the non-reasoning variant (a reasoning variant exists per AA note "a reasoning variant may also exist").
-- Pricing (as of 2026-09-23): **Free Zen / OpenCode Zen limited-time free tier** (repo `meta.json` "Free Zen tier") → Cost efficiency scored on the $0 axis. Paid API equivalent $0.57/$2.20 per 1M (median across providers); cache discount 38%.
+- Pricing (as of 2026-09-23): **Free Zen / OpenCode Zen limited-time free tier** (repo `meta.json` "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)") → Cost efficiency scored on the $0 axis. Paid API equivalent $0.57/$2.20 per 1M (median across providers); cache discount 38%.
 - Speed: 34.5 output tok/s (slow; #18/44 among open-weights non-reasoning).
 
 ### Raw benchmarks found

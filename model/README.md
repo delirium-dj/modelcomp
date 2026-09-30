@@ -59,8 +59,8 @@ the provider ID (`opencode/<slug>`) and is never displayed.
   "short": "One or two sentences: what it is, who makes it, top use case.",
   "contextWindow": "200K total (160K in / 32K out)",
   "modalities": "Text in/out only",
-  "pricingNote": "Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20",
-  "pricingTiers": ["Free Zen tier", "Paid equiv. GLM-4.6 ~$0.60/$2.20"],
+  "pricingNote": "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equiv. GLM-4.6 ~$0.60/$2.20",
+  "pricingTiers": ["[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)", "Paid equiv. GLM-4.6 ~$0.60/$2.20"],
   "freeTierNote": "How the free tier is obtained (hover tooltip on the Free badge)",
   "noFreeId": true
 }

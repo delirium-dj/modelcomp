@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Muse Spark 1.2 Contributor Free
-- **Short description:** Free OpenCode Zen tier of Meta's Muse Spark 1.2 coding/agentic model (launched alongside the Muse Code agent), served under contributor data-use terms. Same weights as paid `muse-spark-1.2`; predecessor of Muse Spark 1.3.
+- **Short description:** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) of Meta's Muse Spark 1.2 coding/agentic model (launched alongside the Muse Code agent), served under contributor data-use terms. Same weights as paid `muse-spark-1.2`; predecessor of Muse Spark 1.3.
 - **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1/responses` — `opencode/muse-spark-1.2-contributor-free`; underlying model on Meta Model API (`muse-spark-1.2`) and in Muse Code (Responses-style API).
 - **Release / knowledge:** Released 2026-08-05 (Meta/llm-stats.com); knowledge cutoff not published.
 - **IDs:** `opencode/muse-spark-1.2-contributor-free`; paid twin `opencode/muse-spark-1.2`.

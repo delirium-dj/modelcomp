@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ox-alpha`
 - **Context window:** 1,000,000 tokens total (1M in / 131K out; verified via OpenRouter / Zen docs).
 - **Modalities:** Text, image, video, and PDF in; text out; tool calls and JSON mode.
-- **Pricing (as of 2026-09-19):** Free Zen tier ($0 during preview).
+- **Pricing (as of 2026-09-19):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0 during preview).
 - **Architecture:** Proprietary frontier reasoning architecture with adaptive thought chain.
 
 ### Raw benchmarks found

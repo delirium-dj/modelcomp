@@ -11,10 +11,10 @@
 - **Short description:** Z.AI's 744B-class open-weights MoE flagship for long-horizon agentic engineering with 1M context, IndexShare sparse attention, and MIT-licensed self-hostable weights.
 - **Provider / access:** Z.AI via API + Hugging Face open weights; OpenCode Zen `opencode/glm-5.2` (Chat Completions, tool calling, structured output, context caching).
 - **Release / knowledge:** 2026-06-13 Coding Plan early access; 2026-06-16 public weights + technical blog; knowledge cutoff undisclosed
-- **IDs:** `opencode/glm-5.2` (Free Zen tier exists)
+- **IDs:** `opencode/glm-5.2` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) exists)
 - **Context window:** 1,000,000 total / 131K max out — verified via provider directory (1M, 131K out) and Opper gateway card (1M context)
 - **Modalities:** text in/out; reasoning yes (High/Max thinking effort); tool calls yes; structured output yes; PDF input on some routes
-- **Pricing (as of 2026-09-21):** Free Zen tier available; API reference $1.40 in / $4.40 out per 1M ($0.26 cached) via CloudPrice panel
+- **Pricing (as of 2026-09-21):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available; API reference $1.40 in / $4.40 out per 1M ($0.26 cached) via CloudPrice panel
 - **Architecture:** open-weights MoE, 753B total / ~40B active (filed 744B variant retired; venturebeat/benchr/convly consensus — re-verified 2026-09-29), Dense-Sparse-Alternating attention with IndexShare, native MTP reasoning traces; MIT license
 
 ### Raw benchmarks found
@@ -72,7 +72,7 @@ Long context:
 - **Context window: 97/100.** Verified 1M/131K with IndexShare recall maps to the top tier; capped below 100 without published retrieval-saturation proof.
 - **Multimodal: 15/100.** Text-only per spec panels; 15 is the text-only floor.
 - **Coding: 87/100.** SWE-Pro 62.1% plus FrontierSWE 74.4%, DeepSWE 46.2%, ProgramBench 63.7% and NL2Repo 48.9 show strong open engineering; capped by SWE-Marathon 13.0% trailing Opus badly.
-- **Cost efficiency: 100/100.** Free Zen tier available during promo.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available during promo.
 - **Overall Score: 75/100.** Mean of the five non-cost dims (87+89+97+15+87)/5 = 75.0 → 75; best-fit free open long-horizon engineering flagship for self-hosted agentic coding.
 
 ---

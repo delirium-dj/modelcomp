@@ -14,7 +14,7 @@
 - **IDs:** `opencode/nemotron-3.5-lightning-free`
 - **Context window:** 1,000,000 tokens input / 16,384 max output; verified via NVIDIA NIM docs.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Hybrid MoE (Mamba-2 + MoE + Attention, 30B total / 3B active parameters).
 
 ### Raw benchmarks found

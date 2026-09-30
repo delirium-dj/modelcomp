@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.2-contributor-free` (Free Zen ID); paid `muse-spark-1.2` at $1.25/$4.25 (AA, Meta API).
 - **Context window:** 1M tokens (Artificial Analysis technical specs).
 - **Modalities:** Text, image, audio (speech), video in; text out (AA verified); reasoning yes; tool calls yes.
-- **Pricing (as of 2026-09-27):** Free Zen tier ($0 during limited free period; training-data consent required — do not use for confidential code); paid Standard $1.25/$4.25 per 1M; Contributor $0.10/$0.20.
+- **Pricing (as of 2026-09-27):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0 during limited free period; training-data consent required — do not use for confidential code); paid Standard $1.25/$4.25 per 1M; Contributor $0.10/$0.20.
 - **Architecture:** Proprietary; parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -56,7 +56,7 @@ Long context:
 - **Context window: 95/100.** 1M total context per AA specs (≥1M tier = 95–100); no verified ≥98% retrieval at 512K+ to justify 100.
 - **Multimodal: 90/100.** AA verifies text + image + speech + video in, text out; audio/video input puts it in the 90–100 band, capped at 90 for text-only output.
 - **Coding: 78/100.** Composite (Index 40) includes SciCode and Terminal-Bench 4.0; no direct SWE-bench Verified / LiveCodeBench public numbers to verify.
-- **Cost efficiency: 100/100.** Evaluated Free Zen tier = $0 (time-limited; training-data consent caveat — not for confidential code).
+- **Cost efficiency: 100/100.** Evaluated [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) = $0 (time-limited; training-data consent caveat — not for confidential code).
 - **Overall Score: 83/100.** (78 + 73 + 95 + 90 + 78) / 5 = 82.8 → 83. Best fit: near-frontier free fallback for long-horizon coding/agentic work when the 1.3 free tier is unavailable.
 
 ---

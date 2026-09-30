@@ -14,7 +14,7 @@
 - **IDs:** `zai/glm-5.3-flash`, `opencode/glm-5.3-flash`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text, image, multi-image, PDF input; text output; native tool use, JSON mode.
-- **Pricing (as of 2026-09-29):** $0.00 / 1M input tokens, $0.00 / 1M output tokens (Free Zen tier).
+- **Pricing (as of 2026-09-29):** $0.00 / 1M input tokens, $0.00 / 1M output tokens ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Open-weights 320B MoE (18B active) with hybrid sparse/linear attention.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 96/100.** 1M input context window with efficient KV cache architecture.
 - **Multimodal: 75/100.** Native text, image, screenshot, and PDF vision input capabilities.
 - **Coding: 85/100.** High performance on Terminal-Bench 2.1 (84.3%) and LiveCodeBench (81.0%).
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0/1M tokens).
 - **Overall Score: 85/100.** Mean of five quality dims (85+84+96+75+85)/5 = 85.0 → 85. Top-tier free multimodal agent model.
 
 ---

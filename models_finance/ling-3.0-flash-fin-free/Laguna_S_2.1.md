@@ -15,7 +15,7 @@
 - Context window: **256,000 (262,144) total tokens**, 32,800 max output (LM Market Cap: "262.1K token context, 32.8K max output") — matches repo `meta.json`. ≥64K-output caveat does NOT apply (32K output < 64K); context well above the 200K floor → cleared.
 - Modalities: **text input → text output only** (LM Market Cap "Input text / Output text"; `meta.json` "Text in/out only"; Ant docs positions text variants separate from the Ling-3.0-flash-VL vision model). (+text-in only; 0 of image/speech/video/PDF)
 - Reasoning / tools: Yes — hybrid reasoning (Ant docs: "cost-effective hybrid reasoning model"); tool calling true; structured/JSON outputs true on some routes (HF widget: toolCalling true, structuredOutput true on Vercel route).
-- Pricing (as of 2026-09-23): **Free Zen / OpenCode Zen limited-time promo tier** (repo `meta.json` "Free Zen tier (limited-time promo)") → cost efficiency scored on the $0 axis. Paid route $0.02 / $0.06 per 1M in/out (LM Market Cap); cache read 88% discount.
+- Pricing (as of 2026-09-23): **Free Zen / OpenCode Zen limited-time promo tier** (repo `meta.json` "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (limited-time promo)") → cost efficiency scored on the $0 axis. Paid route $0.02 / $0.06 per 1M in/out (LM Market Cap); cache read 88% discount.
 - Speed: ~227 tok/s best (deepinfra, HF widget) / 58.9 tok/s avg (Vercel route) (HF model-data).
 
 ### Raw benchmarks found

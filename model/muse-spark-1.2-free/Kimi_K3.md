@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.2-contributor-free` (Free ID); paid `muse-spark-1.2` (Standard $1.25/$4.25).
 - **Context window:** 1,048,576 (1M) tokens (benchlm.ai lists 1M; unchanged into 1.3 per artificialanalysis.ai).
 - **Modalities:** text/image/audio/video/PDF in; text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier $0 (data-consent trade); Standard $1.25/$4.25 per 1M, cached input $0.15 (Zen/Meta tier listing, artificialanalysis.ai); Contributor paid-SKU price not re-verified in my sources. AA measures $0.40 per Intelligence Index task for 1.2.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0 (data-consent trade); Standard $1.25/$4.25 per 1M, cached input $0.15 (Zen/Meta tier listing, artificialanalysis.ai); Contributor paid-SKU price not re-verified in my sources. AA measures $0.40 per Intelligence Index task for 1.2.
 - **Architecture:** proprietary (Meta Superintelligence Labs); params undisclosed.
 
 ### Raw benchmarks found
@@ -60,7 +60,7 @@ Multimodal:
 - **Context window: 84/100.** 1M window with LCR 79.0%; capped by missing max-window retrieval probes.
 - **Multimodal: 78/100.** Full image/audio/video/PDF input per Zen listing with Design Arena 1318; capped by absent MMMU/CharXiv/LVBench rows and text-only output.
 - **Coding: 80/100.** SWE-bench (Vals) 86.6%, TB 2.1 82.9%, VulcanBench 87%, Coding Index 72.2; capped by FrontierSWE v2 12% and DeepSWE 59.3%.
-- **Cost efficiency: 100/100.** $0 Free Zen tier (training-data consent); on paid pricing AA measures just $0.40 per Index task.
+- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (training-data consent); on paid pricing AA measures just $0.40 per Index task.
 - **Overall Score: 80/100.** Mean of the five quality dims (82+78+84+78+80)/5 = 80.4 → 80. Best fit: free-tier agentic coding when 1.3's access is an issue; broadly a slightly weaker 1.3.
 
 ---

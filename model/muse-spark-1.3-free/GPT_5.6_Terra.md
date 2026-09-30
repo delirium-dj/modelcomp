@@ -14,7 +14,7 @@
 - **IDs:** Free OpenCode Zen identifier not verified; upstream model ID reported as `muse-spark-1.3`.
 - **Context window:** 1M tokens in Max mode; provider documentation describes 300K regular context and 1M Max mode.
 - **Modalities:** Text, image, video, and document perception are described by Meta; text output.
-- **Pricing (as of 2026-09-18):** Free Zen tier; upstream listed price $1.25 input / $4.25 output per 1M tokens.
+- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); upstream listed price $1.25 input / $4.25 output per 1M tokens.
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found

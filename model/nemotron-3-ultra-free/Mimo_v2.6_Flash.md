@@ -9,7 +9,7 @@
 
 - **Name:** Nemotron 3 Ultra Free
 - **Short description:** NVIDIA's most capable open-weights hybrid Mamba-MoE (550B total / 55B active, 2026-06) for frontier reasoning and long-running agents — high throughput, low hallucination, 1M RULER; Free via OpenCode Zen + NVIDIA trial.
-- **Provider / access:** OpenCode Zen `opencode/nemotron-3-ultra-free` (Chat Completions; **Free Zen tier**); NVIDIA NIM/build.nvidia `nvidia/nemotron-3-ultra-550b-a55b` (BF16 + NVFP4); HF `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-*`; trial on build.nvidia.com.
+- **Provider / access:** OpenCode Zen `opencode/nemotron-3-ultra-free` (Chat Completions; **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)**); NVIDIA NIM/build.nvidia `nvidia/nemotron-3-ultra-550b-a55b` (BF16 + NVFP4); HF `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-*`; trial on build.nvidia.com.
 - **Release / knowledge:** 2026-06-04 (NVIDIA research page); technical report same era. Knowledge cutoff not restated in sources reviewed.
 - **IDs:** `opencode/nemotron-3-ultra-free` (Zen Free); `nvidia/nemotron-3-ultra-550b-a55b`.
 - **Context window:** **1M** native (meta: 1M / 262K default serve); RULER evaluated 64K→1M.

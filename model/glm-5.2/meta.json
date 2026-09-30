@@ -4,6 +4,6 @@
   "short": "Z.AI's prior generation open-weights MoE model built for agentic tasks, long context processing, and enterprise software engineering.",
   "contextWindow": "204K",
   "modalities": "Text in/out",
-  "pricingNote": "Free Zen tier available",
-  "freeTierNote": "Free Zen tier available"
+  "pricingNote": "Free OpenCode Zen tier available",
+  "freeTierNote": "Free OpenCode Zen tier available"
 }

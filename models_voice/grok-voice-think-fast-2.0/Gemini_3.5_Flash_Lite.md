@@ -11,10 +11,10 @@
 - **Short description:** xAI's fast voice-optimized model combining rapid audio streaming with concise reasoning.
 - **Provider / access:** OpenCode Zen (`opencode/grok-voice-think-fast-2.0`) — WebSocket Realtime API.
 - **Release / knowledge:** 2026-04-01; knowledge cutoff March 2026.
-- **IDs:** `opencode/grok-voice-think-fast-2.0` (Free Zen tier available)
+- **IDs:** `opencode/grok-voice-think-fast-2.0` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Audio + text in / audio + text out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.05 / min voice session.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.05 / min voice session.
 - **Architecture:** xAI Grok voice transformer architecture with accelerated inference.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 69/100.** Reliable 128K session memory.
 - **Multimodal: 69/100.** Native audio-to-audio streaming.
 - **Coding: 69/100.** Basic programming assistance in voice mode.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 69/100.** High-speed voice-optimized model built for rapid, low-latency conversational interactions.
 
 ---

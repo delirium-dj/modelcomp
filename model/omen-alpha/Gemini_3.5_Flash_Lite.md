@@ -11,10 +11,10 @@
 - **Short description:** Omen Labs' experimental alpha model focused on exploratory reasoning and autonomous agent scaffolding.
 - **Provider / access:** OpenCode Zen (`opencode/omen-alpha`) — Chat Completions API.
 - **Release / knowledge:** 2026-03-01; knowledge cutoff February 2026.
-- **IDs:** `opencode/omen-alpha` (Free Zen tier available)
+- **IDs:** `opencode/omen-alpha` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.20 / $0.80 per 1M.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.20 / $0.80 per 1M.
 - **Architecture:** Experimental transformer architecture by Omen Labs.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 66/100.** Standard 128K context window support.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 65.5/100.** Basic software engineering and scripting assistance.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 55.5/100.** Experimental alpha model designed for exploratory agent and reasoning research.
 
 ---

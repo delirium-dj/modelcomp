@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Muse Spark 1.3 Contributor Free
-- **Short description:** Free Zen tier of Meta's Muse Spark 1.3 agentic/coding flagship (Sept 2026). Same weights as standard 1.3; pricing + data-consent differ. Top use case: long-horizon coding/agentic work at $0.
+- **Short description:** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) of Meta's Muse Spark 1.3 agentic/coding flagship (Sept 2026). Same weights as standard 1.3; pricing + data-consent differ. Top use case: long-horizon coding/agentic work at $0.
 - **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1/responses` (OpenAI Responses-style, `@ai-sdk/openai`). Also Meta API and other gateways for the standard tier.
 - **Release / knowledge:** 2026-09-02; knowledge cutoff not publicly disclosed.
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` (Zen Free ID, limited time); standard tier `opencode/muse-spark-1.3` / Meta `muse-spark-1.3`.

@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-free`
 - **Context window:** 204,800 tokens input / 128,000 max output; verified via OpenCode Zen documentation.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Open-weights MoE architecture.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 70/100.** Standard 200K context window mapped to 70/100 tier.
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 90/100.** High LiveCodeBench (86.0%) and SOTA open-weights SWE-Pro score (66.2%).
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0/1M tokens).
 - **Overall Score: 70/100.** Exceptional free open-weights model for autonomous software engineering.
 
 ---

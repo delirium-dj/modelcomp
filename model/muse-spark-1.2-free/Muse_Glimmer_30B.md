@@ -16,7 +16,7 @@
 - **IDs:** `opencode/muse-spark-1.2-contributor-free`
 - **Context window:** 1,048,576 total tokens (1M)
 - **Modalities:** Text, image, audio, video, PDF in; text out; reasoning yes; tool calls yes
-- **Pricing (as of 2026-09-25):** Free Zen tier $0/$0; Contributor $0.10/$0.20 per 1M; Standard $1.25/$4.25 per 1M
+- **Pricing (as of 2026-09-25):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0; Contributor $0.10/$0.20 per 1M; Standard $1.25/$4.25 per 1M
 - **Architecture:** Proprietary Meta weights
 
 ### Raw benchmarks found

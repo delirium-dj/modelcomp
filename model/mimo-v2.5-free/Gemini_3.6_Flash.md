@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free`
 - **Context window:** 200,000 tokens input / 32,768 max output on Zen (native 1M context); verified via models.dev.
 - **Modalities:** Text, image, audio, video input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
 - **Architecture:** Open-weights MoE (310B total / 15B active parameters).
 
 ### Raw benchmarks found

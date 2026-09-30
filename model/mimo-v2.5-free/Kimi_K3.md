@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free` (Zen Free ID); HF `XiaomiMiMo/MiMo-V2.5` (and `MiMo-V2.5-Base`, 256K context, FP8 mixed).
 - **Context window:** native 1M (post-training extended 32K→256K→1M per official page); **200K cap on the Zen Free tier**; 32K max output (Zen listing).
 - **Modalities:** text/image/audio/video in (dedicated in-house vision + audio encoders via lightweight projectors); text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier ($0, capped); Xiaomi MiMo API V2.5-class rates ≈$0.14/$0.28 per 1M (llm-stats.com Flash-class listing; V2.6 announcement confirms V2.5-series prices unchanged).
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0, capped); Xiaomi MiMo API V2.5-class rates ≈$0.14/$0.28 per 1M (llm-stats.com Flash-class listing; V2.6 announcement confirms V2.5-series prices unchanged).
 - **Architecture:** Sparse MoE 310B total / 15B active, hybrid sliding-window attention backbone inherited from MiMo-V2-Flash, in-house pretrained vision and audio encoders with lightweight projectors, FP8 (E4M3) mixed precision, 48T training tokens (mimo.xiaomi.com).
 
 ### Raw benchmarks found

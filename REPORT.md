@@ -1,5 +1,16 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-25 — "Free OpenCode Zen tier" uniformly linked to free-models docs
+
+1. Markdown (105 files): every bare occurrence → `[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)` (verified zero bare left; byte-safe replace).
+2. Frontend: new shared `src/components/freeZenLink.tsx` (`FREE_ZEN_MODELS_URL` + `withFreeZenLink`) applied at all 6 pricing display sites (ModelCards card/table, CompareSection table/cards, per-model page — join converted to mapped spans). Meta strings stay plain so tooltips don't show markup; catalog regen unaffected.
+   Next: `pnpm build.types && pnpm build` (TSX needs typecheck — not run here).
+
+## 2026-09-25 — "Free Zen tier" → "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)" everywhere (112 files)
+
+1. Byte-exact ASCII replacement across all 112 tracked files containing the phrase (101 model findings/meta, 10 mirror files, generated catalog — regen keeps it consistent). Zero old-phrase hits remain; diff is pure 1:1 line substitutions, no whitespace/encoding damage. No sync/build needed (prose + display strings only; score lines untouched).
+2. Incidental finding, not mine: `src/routes/model/[slug]/index.tsx` carries a parallel agent's uncommitted 1-line edit (italic span removal) — left untouched.
+
 ## 2026-09-30 — revert investigation: stale-snapshot commits, not ghosts (Muse Spark 1.3)
 
 1. User-reported reverts + dev-server `global.css` HMR spam investigated. Findings: `git reflog` shows ONLY commits (zero resets/checkouts/restores) — every content revert traces to a concurrent lane committing whole files from stale snapshots with broad `git add`, last-writer-wins. No background writer active (45-min mtime scan: only this session's 4 files), no cloud-sync conflicts, no `.vscode` settings, no backup files. `global.css` byte-identical for 15h — the HMR pings are watcher noise (likely .git churn from minute-apart commits), cosmetic only; content provably untouched.

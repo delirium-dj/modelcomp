@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free`
 - **Context window:** 200K Zen cap (native 1M) / 32K out.
 - **Modalities:** Text, image, audio, video in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free Zen tier; native from ~$0.14/$0.28 per 1M.
+- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); native from ~$0.14/$0.28 per 1M.
 - **Architecture:** Native omni-modal Mixture-of-Experts.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 82/100.** 200K Zen cap (native 1M).
 - **Multimodal: 92/100.** Native text, image, audio, and video ingestion.
 - **Coding: 83/100.** Capable agentic coding benchmark performance.
-- **Cost efficiency: 100/100.** Free Zen tier access.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access.
 - **Overall Score: 84.8/100.** Versatile free omni-modal open-weights model.
 
 ---

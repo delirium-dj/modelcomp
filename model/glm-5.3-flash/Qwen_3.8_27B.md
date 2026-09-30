@@ -9,7 +9,7 @@
 
 - **Name:** GLM 5.3 Flash
 - **Short description:** Z.ai's open-weights 320B MoE (18B active) Flash-class model of the GLM 5.3 generation; very cheap, 1M context, top-5 open-weights class intelligence.
-- **Provider / access:** 20 API providers per Artificial Analysis; open weights on Hugging Face (`zai-org/GLM-5.3-Flash`); OpenCode Zen `opencode/glm-5.3-flash` (paid; repo meta says "Free Zen tier available" — current Zen docs list paid $0.15/$0.50, no Free tier).
+- **Provider / access:** 20 API providers per Artificial Analysis; open weights on Hugging Face (`zai-org/GLM-5.3-Flash`); OpenCode Zen `opencode/glm-5.3-flash` (paid; repo meta says "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available" — current Zen docs list paid $0.15/$0.50, no Free tier).
 - **Release / knowledge:** 2026-08-26 (Artificial Analysis FAQ); knowledge cutoff not publicly stated.
 - **IDs:** `zai/glm-5.3-flash`, `opencode/glm-5.3-flash` (no Free ID on Zen as of 2026-09-27).
 - **Context window:** 1M total (Artificial Analysis technical specs; repo meta lists 204K — AA-verified value used here).

@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2-6-free` (Zen); HF `XiaomiMiMo/MiMo-V2.6-Flash-RL`, `XiaomiMiMo/MiMo-V2.6-Pro-RL`; Xiaomi API `mimo-v2.6-pro` / `mimo-v2.6-flash`.
 - **Context window:** 1M tokens (official card: "Max Context Length 1M"; announcement confirms 1M-context RL training); Zen catalog lists 128K total for the free deployment — capped tier.
 - **Modalities:** text/image/video/audio in (native omnimodal; Pro can also drive TTS/video-gen toolchains per announcement demos); text out; reasoning (mimo parser); tool calls (mimo tool-call parser); JSON mode via serving stack. MTP/EAGLE speculative decoding.
-- **Pricing (as of 2026-09-29):** Free Zen tier; open weights (MIT) → self-host; hosted Flash listings from ~$0.14/M input ($0.003 cached) / $0.28/M output (llm-stats.com); Xiaomi MiMo API prices unchanged from V2.5 series (mimo.mi.com).
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); open weights (MIT) → self-host; hosted Flash listings from ~$0.14/M input ($0.003 cached) / $0.28/M output (llm-stats.com); Xiaomi MiMo API prices unchanged from V2.5 series (mimo.mi.com).
 - **Architecture:** Sparse MoE 309B total / 15B activated (Flash-RL; Pro is 1.02T/42B per codersera.com), 256 routed experts (8 active), 48 layers (39 SWA + 9 GA), 681M MiMo ViT vision encoder, 308M+127M audio encoders (official card).
 
 ### Raw benchmarks found (official card table; Flash column unless noted; vendor-run)
@@ -58,7 +58,7 @@ Multimodal:
 - **Context window: 85/100.** Native 1M with agent-trace focus; capped by unmeasured max-window retrieval and Zen free tier's 128K cap.
 - **Multimodal: 88/100.** True omnimodal: image + video + audio encoders in one model with VisualCoding 71.5%; text-only output caps it.
 - **Coding: 80/100.** DeepSWE 67.9% rivals Fable 5's 70.0 at open weights; capped by ProgramBench 26% and in-house-heavy evidence.
-- **Cost efficiency: 100/100.** Free Zen tier + MIT open weights; caveat: Zen free deployment caps context at 128K and carries free-tier rate limits — the full 1M window requires the paid Xiaomi MiMo API or self-hosting.
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) + MIT open weights; caveat: Zen free deployment caps context at 128K and carries free-tier rate limits — the full 1M window requires the paid Xiaomi MiMo API or self-hosting.
 - **Overall Score: 80.2/100.** Mean of the five quality dims (84+64+85+88+80)/5 = 80.2. Best fit: free/cheap omnimodal agentic coding with strong cyber exercises; verify hard-reasoning needs yourself — vendor table omits them for the Flash checkpoint.
 
 ---

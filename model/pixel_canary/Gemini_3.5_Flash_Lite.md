@@ -11,10 +11,10 @@
 - **Short description:** Canary Labs' testbed model designed for evaluating prompt sensitivity and safety alignment under canary conditions.
 - **Provider / access:** OpenCode Zen (`opencode/pixel_canary`) — Chat Completions API.
 - **Release / knowledge:** 2026-02-15; knowledge cutoff January 2026.
-- **IDs:** `opencode/pixel_canary` (Free Zen tier available)
+- **IDs:** `opencode/pixel_canary` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.15 / $0.60 per 1M.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.15 / $0.60 per 1M.
 - **Architecture:** Canary Labs transformer testbed architecture.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 63/100.** Standard 128K context window support.
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 63.5/100.** Light coding and scripting support.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 53.9/100.** Specialized canary testbed model for safety and alignment evaluation.
 
 ---

@@ -11,10 +11,10 @@
 - **Short description:** OpenAI's real-time speech recognition and audio transcription model combining Whisper acoustic modeling with real-time streaming dialogue.
 - **Provider / access:** OpenCode Zen (`opencode/gpt-realtime-whisper`) — WebSocket Realtime API.
 - **Release / knowledge:** 2026-04-15; knowledge cutoff March 2026.
-- **IDs:** `opencode/gpt-realtime-whisper` (Free Zen tier available)
+- **IDs:** `opencode/gpt-realtime-whisper` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Audio + text in / audio + text out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** Free Zen tier; paid equivalent approx $0.05 / min voice session.
+- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.05 / min voice session.
 - **Architecture:** Whisper acoustic encoder integrated with real-time transformer decoder.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Long context:
 - **Context window: 69/100.** 128K session context window.
 - **Multimodal: 69/100.** High-fidelity speech recognition and audio streaming.
 - **Coding: 69/100.** Transcription support for technical terminology.
-- **Cost efficiency: 100/100.** Free Zen tier ($0).
+- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
 - **Overall Score: 69.0/100.** Real-time speech recognition model offering robust transcription and interactive voice capabilities.
 
 ---
