@@ -17,6 +17,7 @@
     "deploy": "echo 'Run \"pnpm qwik add\" to install a server adapter'",
     "sync": "node scripts/sync-data.mjs",
     "sync:quiet": "node scripts/sync-data.mjs --quiet",
+    "test": "node --test scripts/lib/parse.test.mjs scripts/lib/quarantine.test.mjs scripts/lib/naming.test.mjs",
     "dev": "vite --mode ssr",
     "preview": "vite preview",
     "start": "vite --open --mode ssr",

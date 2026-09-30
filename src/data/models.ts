@@ -29,6 +29,20 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = Object.fromE
 
 export type { SourceKey, SourceDef, ViewKey, ResultsView };
 
+/**
+ * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
+ * per build environment (SSR bundle, client, SSG prerender), so a bare
+ * console.warn spams the same line 3-4x per build. Deduping by message keeps
+ * the production signal (e.g. someone built without re-running sync) while
+ * the log stays readable. `pnpm sync` remains the strict gate.
+ */
+const warned = new Set<string>();
+function warnOnce(msg: string): void {
+  if (warned.has(msg)) return;
+  warned.add(msg);
+  console.warn(msg);
+}
+
 export interface ModelScores {
   tool: number;
   reasoning: number;
@@ -83,7 +97,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
   }
   const avg = sources.average;
   if (!avg) {
-    console.warn(`[models] model/${slug}/: no usable average.md — skipped (run pnpm sync)`);
+    warnOnce(`[models] model/${slug}/: no usable average.md — skipped (run pnpm sync)`);
     return null;
   }
   return {
@@ -186,14 +200,14 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
       if (typeof meta[k] !== "string" || (meta[k] as string).length === 0) {
         // Warn-and-skip (never throw): in-progress research must not break the build.
         // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
-        console.warn(`[models] model/${slug}/meta.json: missing required field "${k}" — skipped`);
+        warnOnce(`[models] model/${slug}/meta.json: missing required field "${k}" — skipped`);
         valid = false;
       }
     }
     if (!valid) continue;
     const id = meta.id as string;
     if (seenIds.has(id)) {
-      console.warn(`[models] duplicate model id: ${id} — keeping first occurrence`);
+      warnOnce(`[models] duplicate model id: ${id} — keeping first occurrence`);
       continue;
     }
     seenIds.add(id);
@@ -215,7 +229,7 @@ export const MODELS: AiModel[] = (() => {
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
   for (const slug of Object.keys(GENERATED_SCORES)) {
     if (!metaBySlug.has(slug)) {
-      console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
+      warnOnce(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }
   }
   const models: AiModel[] = [];

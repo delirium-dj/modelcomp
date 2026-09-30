@@ -31,24 +31,41 @@ import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsS
 import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+// Pure helpers (tested: `npm test` / `node --test scripts/lib/`). Sync adds
+// fs/logging/FAIL accounting around them; behavior stays byte-identical.
+import {
+  LABELS,
+  META_REQUIRED,
+  FILENAME_RE,
+  RATER_GATE,
+  parseScoresPure,
+  shortenScores,
+  overallDrift,
+  applyOverallFix,
+  meanOf,
+  rankTop10,
+  partitionEligible,
+  sortLabelsAZ,
+} from "./lib/parse.mjs";
+import { quarantineReason } from "./lib/quarantine.mjs";
+import {
+  normName,
+  stemToKey,
+  labelOf,
+  resolveSourceMeta as resolveSourceMetaPure,
+  hyphenVersionViolation,
+  formatSlugGuess,
+  missingMetaFields,
+  metaNameHasUnderscore,
+} from "./lib/naming.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const modelDir = join(root, "model");
 
 const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 
-const LABELS = [
-  "Tool use",
-  "Reasoning",
-  "Context window",
-  "Multimodal",
-  "Coding",
-  "Cost efficiency",
-  "Overall Score",
-];
-const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"];
-// Dots are allowed: version numbers live in findings filenames (DeepSeek_4.1_Flash.md).
-const FILENAME_RE = /^[A-Za-z0-9_.]+\.md$/;
+// LABELS, META_REQUIRED, FILENAME_RE now live in scripts/lib/parse.mjs
+// (imported above) so regression tests lock the format contract.
 
 // Single edge-case map (SIMPLIFY-PLAN Phase 2): every filename-derived key
 // whose display label or model-page slug differs from the default.
@@ -67,13 +84,9 @@ const SOURCE_OVERRIDES = {
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
 };
 
-// Virtual sort-view keys (SIMPLIFY-PLAN Phase 3): never real reporting
-// agents, never registered in SOURCE_DEFS. Any grandfathered entries with
-// file "average.md" and one of these keys are removed from the registry.
-const VIRTUAL_KEYS = new Set(["tool", "reason", "context", "cost", "code", "multi"]);
-
-/** Standard half-up rounding to 1 decimal (72.25 -> 72.3). */
-const halfUp1 = (x) => Math.round(x * 10) / 10;
+// Virtual sort-view keys live in scripts/lib/naming.mjs (VIRTUAL_KEYS).
+// halfUp1 lives in scripts/lib/parse.mjs. Grandfathered virtual entries
+// (file "average.md") are pruned from the registry below.
 
 // `--quiet` / `-q` (aka `pnpm sync:quiet`): print only FAIL lines plus the
 // final summary. Same checks, same file writes, same exit code — minus the
@@ -89,16 +102,12 @@ const fail = (msg) => {
   console.error(`  FAIL  ${msg}`);
 };
 const parseScores = (md, where) => {
-  const out = {};
-  for (const label of LABELS) {
-    const m = md.match(new RegExp(`\\*\\*${label}:\\s*([\\d.]+)/100`));
-    if (!m) {
-      fail(`${where}: missing "- **${label}: <N>/100" score line`);
-      return null;
-    }
-    out[label] = Number(m[1]);
+  const r = parseScoresPure(md);
+  if (!r.ok) {
+    fail(`${where}: missing "- **${r.missingLabel}: <N>/100" score line`);
+    return null;
   }
-  return out;
+  return r.scores;
 };
 
 const slugs = readdirSync(modelDir)
@@ -162,12 +171,11 @@ try {
 // param sizes `gemma-4-31b` ("4" + 31B params) and `qwen-3.8-27b`
 // (version 3.8 + 27B params). (Single majors with codename/experimental
 // suffixes like `gpt-6-astra` never match the check at all.)
-const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b"]);
 for (const slug of slugs) {
-  if (SLUG_VERSION_EXCEPTION.has(slug)) continue;
-  if (/\d-\d/.test(slug)) {
+  const suggestion = hyphenVersionViolation(slug);
+  if (suggestion !== null) {
     fail(
-      `model/${slug}/: version numbers use "." not "-" — use "model/${slug.replace(/(\d)-(?=\d)/g, "$1.")}/" instead (e.g. gpt-5-5 → gpt-5.5); merge into the existing dotted folder, never create a hyphen variant`,
+      `model/${slug}/: version numbers use "." not "-" — use "model/${suggestion}/" instead (e.g. gpt-5-5 → gpt-5.5); merge into the existing dotted folder, never create a hyphen variant`,
     );
   }
 }
@@ -182,23 +190,15 @@ const scoreIndex = {};
 // from each model/<slug>/meta.json during sync. This allows us to pre-build a lightweight catalog.generated.ts
 // file instead of downloading raw meta.json files dynamically using expensive eager glob imports.
 const catalogIndex = {};
-const SHORT = {
-  "Tool use": "tool",
-  "Reasoning": "reasoning",
-  "Context window": "context",
-  "Multimodal": "multimodal",
-  "Coding": "coding",
-  "Cost efficiency": "cost",
-  "Overall Score": "overall",
-};
+// SHORT lives in scripts/lib/parse.mjs (imported above).
 
 // ---- rater gate: only reports written by models whose own committed average
 // Overall exceeds RATER_GATE count toward another model's average (top-10 cap
 // still applies within the eligible set). Qualification reads the on-disk
 // average.md files, so the gate is deterministic within a run; models without
 // a usable average.md (or without a tracked model page) never qualify as
-// raters. Keep RATER_GATE in sync with the UI caption in CompareSection.tsx.
-const RATER_GATE = 84.9;
+// raters. RATER_GATE lives in scripts/lib/parse.mjs — keep it in sync with
+// the UI caption in CompareSection.tsx.
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
   try {
@@ -211,7 +211,6 @@ for (const slug of slugs) {
 // Model catalog: normalized display name -> folder slug, across all model
 // trees. Single lookup behind both the rater gate and SOURCE_DEFS slug
 // emission (SIMPLIFY-PLAN Phase 1: slug lives inline in SourceDef).
-const normName = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const catalogNames = new Map(); // normalized name -> slug
 for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance")]) {
   if (!existsSync(rDir)) continue;
@@ -226,10 +225,7 @@ for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_fin
 }
 /** Resolve the display label + model-page slug for a source key. */
 function resolveSourceMeta(key) {
-  const ov = SOURCE_OVERRIDES[key];
-  const label = ov?.label ?? key;
-  const slug = ov?.slug ?? catalogNames.get(normName(key)) ?? undefined;
-  return { label, slug };
+  return resolveSourceMetaPure(key, SOURCE_OVERRIDES, (norm) => catalogNames.get(norm));
 }
 // Findings-file stem -> rating-model slug, via the SOURCE_DEFS registry plus
 // SOURCE_OVERRIDES / catalog lookup (exact match first, derived key fallback).
@@ -255,31 +251,8 @@ for (const slug of slugs) {
     .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
     .sort()) {
     const content = readFileSync(join(dir, f), "utf8");
-    const section = (content.split("### Raw benchmarks found")[1] || "").split("### Normalized scores")[0];
-    if (!section) continue;
-    const missing = (section.match(/no verified public score found/gi) || []).length;
-    // NOTE: [^\n*] (not [^*) — bold spans must stay on one line, otherwise the
-    // closing ** of one row pairs with the opening ** of the next (e.g. across
-    // "Tau3-Banking / Tau2-Bench:") and fakes a numeric hit on empty files.
-    const numerics = (section.match(/\*\*[^\n*]*\d[^\n*]*\*\*/g) || []).length;
-    // Normalized quality dims (Cost excluded — it never counts toward Overall).
-    const norm = (content.split("### Normalized scores")[1] || "").split("---")[0];
-    const dims = ["Tool use", "Reasoning", "Context window", "Multimodal", "Coding"].map(
-      (l) => Number((norm.match(new RegExp(`\\*\\*${l}:\\s*([\\d.]+)/100`)) || [])[1]),
-    );
-    const parsed = dims.filter((n) => Number.isFinite(n));
-    const evidenceFree = missing >= 8 && numerics === 0;
-    // A 0 in any quality dim is never legitimate (methodology floors are 10+):
-    // it is "no data" filed as a number. Flat-identical dims with zero cited
-    // numbers are invented uniformity. Either quarantines; real low scores
-    // (varied dims, cited numbers) are never touched.
-    const reason = evidenceFree
-      ? `no verified benchmarks (${missing}x "not found", 0 measured numbers)`
-      : parsed.some((n) => n === 0)
-        ? `zero-scored dimension(s) [${parsed.join("/")}] = "no data" filed as 0`
-        : parsed.length === 5 && parsed.every((n) => n === parsed[0]) && numerics === 0
-          ? `flat ${parsed[0]}/100 across all dims with 0 measured numbers`
-          : null;
+    // Criteria live in scripts/lib/quarantine.mjs (tested); sync only renames.
+    const reason = quarantineReason(content);
     if (reason) {
       renameSync(join(dir, f), join(dir, `${f}.excluded`));
       log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
@@ -314,7 +287,7 @@ for (const slug of slugs) {
     // the official vendor display name. A human must replace it (plus the
     // placeholder facts) before the entry is trustworthy; the "_" check
     // below fails loudly on the worst derivation artifacts.
-    const formattedName = slug.split(/[-_]+/).map(w => w.length > 0 ? w[0].toUpperCase() + w.slice(1) : "").join(" ");
+    const formattedName = formatSlugGuess(slug);
     meta = {
       id: `opencode/${slug}`,
       name: formattedName,
@@ -327,15 +300,13 @@ for (const slug of slugs) {
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
     log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${formattedName}") — set the official vendor display name and verified facts`);
   }
-  for (const k of META_REQUIRED) {
-    if (typeof meta[k] !== "string" || meta[k].length === 0) {
-      fail(`model/${slug}/meta.json: missing required field "${k}"`);
-    }
+  for (const k of missingMetaFields(meta, META_REQUIRED)) {
+    fail(`model/${slug}/meta.json: missing required field "${k}"`);
   }
   // Display-name gate: `name` is shown verbatim across the site (cards, list,
   // compare table, detail pages). Underscores are slug artifacts, never valid
   // in a vendor display name — fail loudly instead of cementing them on disk.
-  if (typeof meta.name === "string" && meta.name.includes("_")) {
+  if (metaNameHasUnderscore(meta.name)) {
     fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
   // Store validated model metadata into our summary catalog map
@@ -357,9 +328,7 @@ for (const slug of slugs) {
     continue;
   }
   for (const p of perFile) {
-    const entry = {};
-    for (const [label, short] of Object.entries(SHORT)) entry[short] = p.scores[label];
-    (scoreIndex[slug] ||= {})[p.file] = entry;
+    (scoreIndex[slug] ||= {})[p.file] = shortenScores(p.scores);
   }
 
   // Source-file Overall is DERIVED (half-up mean of the five quality dims,
@@ -369,15 +338,13 @@ for (const slug of slugs) {
   // never touched; unparsable score lines still fail loudly in parseScores
   // above (never invent structure).
   // (Matches the dev-time checkOverallScores() tolerance of 0.51.)
-  const QUALITY = ["Tool use", "Reasoning", "Context window", "Multimodal", "Coding"];
   for (const p of perFile) {
-    const mean5 = QUALITY.reduce((a, l) => a + p.scores[l], 0) / QUALITY.length;
-    const corrected = halfUp1(mean5);
-    if (Math.abs(p.scores["Overall Score"] - mean5) > 0.51) {
+    const { corrected, drifted } = overallDrift(p.scores);
+    if (drifted) {
       const fp = join(dir, p.file);
       const content = readFileSync(fp, "utf8");
-      const next = content.replace(/(\*\*Overall Score:\s*)([\d.]+)(\/100)/, `$1${corrected}$3`);
-      if (next === content) {
+      const next = applyOverallFix(content, corrected);
+      if (next === null) {
         fail(`model/${slug}/${p.file}: Overall drifted but score line not auto-fixable — hand-fix it`);
         skipAverage = true;
         continue;
@@ -389,20 +356,12 @@ for (const slug of slugs) {
     }
   }
 
-  // Filename stem -> display label, e.g. Gemini_3.6_Flash -> "Gemini 3.6 Flash".
-  // Agreement-notes order is case-insensitive A-Z (matches the committed convention,
-  // e.g. "Gemini 3.6 Flash" before "GLM 5.3 Flash"); plain .sort() would put "GLM" first.
-  const labelOf = (file) => file.replace(/\.md$/, "").replace(/_/g, " ");
-  const lower = (s) => s.toLowerCase();
   // Rater gate (RATER_GATE): only files written by models whose own committed
   // average Overall clears the gate count toward this average.
-  const ignoredLabels = [];
-  let eligible = perFile.filter((p) => {
-    const rs = raterSlugFor(p.file.replace(/\.md$/, ""));
-    if (rs !== null && (raterOwn.get(rs) ?? -Infinity) > RATER_GATE) return true;
-    ignoredLabels.push(labelOf(p.file));
-    return false;
-  });
+  // Partition lives in scripts/lib/parse.mjs (tested); label order (labelOf,
+  // case-insensitive A-Z) matches the committed Agreement-notes convention
+  // (e.g. "Gemini 3.6 Flash" before "GLM 5.3 Flash").
+  let { eligible, ignoredLabels } = partitionEligible(perFile, raterSlugFor, raterOwn);
   // Crown rule (RULES.md): every folder gets an average. When no rater clears
   // the gate, fall back to averaging all available reports (top-10 cap still
   // applies) instead of leaving the folder average-less.
@@ -412,21 +371,20 @@ for (const slug of slugs) {
     eligible = perFile;
     log(`  FALLBACK  model/${slug}/average.md: no qualifying raters (need own Overall > ${RATER_GATE}) — averaging all ${perFile.length} below-gate source(s)`);
   }
-  const labels = eligible.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+  const labels = sortLabelsAZ(eligible.map((p) => labelOf(p.file)));
 
-  const ranked = [...eligible].sort((a, b) => b.scores["Overall Score"] - a.scores["Overall Score"]);
-  const cohort = ranked.slice(0, 10);
+  const cohort = rankTop10(eligible);
   const totalSources = eligible.length;
   const cohortSize = cohort.length;
   const trimmed = totalSources > cohortSize;
-  const topLabels = cohort.map((p) => labelOf(p.file)).sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+  const topLabels = sortLabelsAZ(cohort.map((p) => labelOf(p.file)));
   const excludedLabels = labels.filter((l) => !topLabels.includes(l));
   if (!fallback && ignoredLabels.length > 0) {
-    ignoredLabels.sort((a, b) => (lower(a) < lower(b) ? -1 : lower(a) > lower(b) ? 1 : 0));
+    ignoredLabels = sortLabelsAZ(ignoredLabels);
     log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
   }
 
-  const mean = (label) => halfUp1(cohort.reduce((a, p) => a + p.scores[label], 0) / cohortSize);
+  const mean = (label) => meanOf(cohort, label);
   const mixNote = fallback
     ? `Fallback mean of all ${totalSources} reporting source(s) — no rater clears own Overall > ${RATER_GATE}, so the gate cannot filter (every model gets an average, RULES.md).`
     : trimmed
@@ -491,7 +449,7 @@ for (const slug of slugs) {
 // resolve via SOURCE_OVERRIDES + catalog lookup. Virtual keys are pruned.
 const ENTRY_RE = /\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"(?:,\s*slug:\s*"[^"]+")?\s*\}/g;
 let sourcesTs = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
-const keyOf = (stem) => stem.replace(/_/g, " ");
+const keyOf = stemToKey; // scripts/lib/naming.mjs (tested)
 // entryForStem keeps the exact on-disk filename (stems with
 // dots/legacy casing must round-trip, never re-derived from the key).
 const entryForStem = (key, stem) => {

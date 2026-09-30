@@ -13,44 +13,27 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ## High priority
 
-### 1. Auto-derive `AGENT_MODEL_SLUG` in sync (DONE 2026-09-30)
+### 2. De-duplicate build-time warnings (DONE 2026-10-01)
 
-* **Current:** `src/data/models.ts:253` hand-maintains a 52-entry
-  `SourceKey → model slug` map. A newly registered reporting agent that is
-  also a tracked model needs a manual code edit — even though
-  `sources.generated.ts` registers the source automatically. Casing drift in
-  the map is only absorbed indirectly (sync's case-insensitive fallback at
-  gate time, `scripts/sync-data.mjs:249`); `models.ts` itself matches
-  exact-only (`sourceRankOverall`).
-* **Proposal:** sync already computes `stemKey` (stem → SourceKey) and holds
-  `catalogIndex` (slug → `meta.name`). Match each SourceKey label against
-  catalog names (case/underscore-normalized) and emit the mapping into a new
-  generated file (e.g. `src/data/agent-slugs.generated.ts`), imported by
-  `models.ts` instead of the literal block. Keep an explicit hand-override
-  list for edge cases. Result: zero hand-edits when adding a model *or* an
-  agent, consistent with the existing auto-registration design.
-
-### 2. De-duplicate build-time warnings
-
-* **Current:** `console.warn` calls in `src/data/models.ts` (missing meta,
+- **Current:** `console.warn` calls in `src/data/models.ts` (missing meta,
   missing average, duplicate id) fire on **every module evaluation** — the
   module is re-evaluated per build environment (SSR bundle, client, SSG
   prerender), so one stale entry spams the same warning 3–4× per build (as
   seen in the 2026-09-29 build log). Build-time warnings are also redundant
   enforcement: `pnpm sync` already fails loudly on the same problems.
-* **Proposal:** gate all data-layer warnings behind `import.meta.env.DEV`
+- **Proposal:** gate all data-layer warnings behind `import.meta.env.DEV`
   (or a module-level `warned: Set<string>` so each message prints once per
   process). Keeps production builds clean; `pnpm sync` remains the strict
   gate that flags in-progress research for completion.
 
 ### 3. Add parser regression tests with `node:test` (zero new deps)
 
-* **Current:** no test framework; verification = `build.types` + `build` +
+- **Current:** no test framework; verification = `build.types` + `build` +
   manual spot-check of `dist/index.html`. The sync parser is regression-prone
   by nature — its own comments record historical escaping bugs (e.g. the
   `[^\n*]` bold-span note at `scripts/sync-data.mjs:269`) and the
   `average.md` format contract (`../.agents/rules.md` §average.md) is strict.
-* **Proposal:** Node's built-in test runner needs no devDependency (respects
+- **Proposal:** Node's built-in test runner needs no devDependency (respects
   the locked zero-dep stance): extract the pure functions (`parseScores`,
   `parseAverageScores`, QUAR criteria, filename regex, display-name gate)
   into `scripts/lib/` (sync-data.mjs imports them) and add
@@ -62,10 +45,10 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ### 4. Split `sync-data.mjs` (728 lines) into focused modules
 
-* **Current:** one file mixes gate logic (rater qualification), quarantine
+- **Current:** one file mixes gate logic (rater qualification), quarantine
   (QUAR), validation, averaging, and codegen (four generated files) — hard to
   review and to test in isolation.
-* **Proposal:** zero-dep file split alongside item #3:
+- **Proposal:** zero-dep file split alongside item #3:
   `scripts/lib/parse.mjs`, `scripts/lib/validate.mjs`,
   `scripts/lib/codegen.mjs`; `sync-data.mjs` becomes orchestration only.
   Behavior must stay byte-identical (verify with `pnpm sync` diff of
@@ -73,33 +56,33 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ### 5. Slim the client bundle: emit only `model/`-root entries
 
-* **Current:** `scores.generated.ts` (247 KB source) and
+- **Current:** `scores.generated.ts` (247 KB source) and
   `catalog.generated.ts` (41 KB) include `models_voice/` entries that the
   frontend filters out at runtime (`root !== "model"` check,
   `src/data/models.ts:166`) — they ship to the client unused (~6–7% of the
   scores data plus part of the catalog).
-* **Proposal:** have sync filter `scoreIndex`/catalog to `root === "model"`
-  for the *client* emitted files (voice/finance trees stay fully validated —
+- **Proposal:** have sync filter `scoreIndex`/catalog to `root === "model"`
+  for the _client_ emitted files (voice/finance trees stay fully validated —
   the validation lives in sync, not in the generated artifacts). Keep the
   `models.ts` `root` filter as a safety net: it already defaults a missing
   `root` to visible, which protects against stale pre-regen bundles.
 
 ### 6. Untrack `.rerun/**` (pending since the last purification)
 
-* **Current:** 17 files tracked in git although `.gitignore` lists
+- **Current:** 17 files tracked in git although `.gitignore` lists
   `.rerun/` — gitignore does not apply to already-tracked files. The disk
   files are the live research queue (the re-file loop actively reads/writes
   `.rerun/_queue.txt`).
-* **Proposal:** once the re-file loop finishes:
+- **Proposal:** once the re-file loop finishes:
   `git rm --cached -r .rerun/` (untrack only, keep disk files) + commit.
   Do **not** delete the working files.
 
 ### 7. Doc accuracy refresh
 
-* **Current:** `.agents/tech-stack.md` line 33 still claims "only small
+- **Current:** `.agents/tech-stack.md` line 33 still claims "only small
   `meta.json` files use `import.meta.glob`" — the glob was removed entirely
   (replaced by the pre-built `catalog.generated.ts`).
-* **Proposal:** one-line fix in tech-stack.md; while there, confirm
+- **Proposal:** one-line fix in tech-stack.md; while there, confirm
   `project-map.md` and `.agents/rules.md` still describe the data flow
   accurately (they do as of this review).
 
@@ -107,37 +90,37 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ### 8. Consolidate `tasks/*.md` research delegators
 
-* **Current:** ~40 files in `tasks/` are copies of the same one-line-reuse
+- **Current:** ~40 files in `tasks/` are copies of the same one-line-reuse
   delegator template (`AGENT_SOURCE_STEM: X ← EDIT ONLY THIS LINE`); only one
   is needed per run, and recovery re-delegation (`.agents/gemini-rate-limits.md`
   Rule 5) references `tasks/<STEM>.md` — a single canonical delegator matches
   the single-edit design.
-* **Proposal:** keep one delegator file (e.g. `tasks/research-assign.md`),
+- **Proposal:** keep one delegator file (e.g. `tasks/research-assign.md`),
   retire the rest. Needs user sign-off — workflow infrastructure.
 
 ### 9. Mark auto-scaffolded `meta.json` until curated
 
-* **Current:** sync auto-scaffolds missing meta.json with a slug-guessed
+- **Current:** sync auto-scaffolds missing meta.json with a slug-guessed
   `name` (`scripts/sync-data.mjs:325`) — e.g. "Gpt Realtime 2.1" — which
   passes the display-name gate (no underscores) and silently ships as the
   model's display name until a human curates it.
-* **Proposal:** stamp a `scaffolded: true` bit in the catalog entry (and/or
+- **Proposal:** stamp a `scaffolded: true` bit in the catalog entry (and/or
   meta.json) so the build log keeps reminding until replaced; optionally let
   `models.ts` warn in DEV when rendering a scaffolded entry.
 
 ### 10. Voice UI wiring (roadmap note, not architecture debt)
 
-* **Current:** the dataset already carries `models_voice/` entries stamped
+- **Current:** the dataset already carries `models_voice/` entries stamped
   `root: "models_voice"` and hides them from the site; schema, validation,
   and averaging are active. A future voice section needs no data-layer
   changes — only a frontend filter toggle or route reading the same
   generated files.
-* **Proposal:** note only; no action now.
+- **Proposal:** note only; no action now.
 
 ### 11. `vercel.json` relevance
 
-* **Current:** Vercel cache-header config; inert unless the site is deployed
+- **Current:** Vercel cache-header config; inert unless the site is deployed
   on Vercel (build is Qwik SSG via `adapters/static/`). A prior standing
   verdict marked it must-keep.
-* **Proposal:** revisit only if the deployment target changes; otherwise
+- **Proposal:** revisit only if the deployment target changes; otherwise
   leave untouched.
