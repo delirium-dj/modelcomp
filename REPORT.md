@@ -1,9 +1,8 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-25 — 5 misfiled V4.1 reports moved to deepseek-v4.1-flash/
+## 2026-09-29 — per-model heading: bold + italic name (user request)
 
-1. Audited every file in `model/deepseek-v4-flash/` by its Name/IDs card (not filename — `DeepSeek_4.1_Flash.md` is the *agent*, correctly rating V4 Flash, and stays). Five reports actually evaluate V4.1 Flash: `Claude_Sonnet_4.5`, `Claude_Sonnet_5.5`, `Gemini_2.5_Flash`, `GPT_5.6_Luna`, `Grok_4.5` → moved to `model/deepseek-v4.1-flash/` (no collisions). Classic lookalike-slug confusion (`v4-flash` vs `v4.1-flash`).
-   Next: `pnpm sync && pnpm build.types && pnpm build` (both folders' averages recompute).
+1. Whole heading bold again; model name additionally italic (`<span class="italic">`, bold inherited). (Interim split-weight version was reverted pre-commit; applied the final look in one step.)
 
 ## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
 

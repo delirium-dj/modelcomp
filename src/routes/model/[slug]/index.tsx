@@ -150,7 +150,7 @@ export default component$(() => {
 
       <section aria-label="Ratings by reporting agent" class="mx-auto max-w-6xl px-4 pb-12">
         <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-          How other agents rated this model
+          How other agents rated <span class="italic">{model.name}</span>
         </h2>
         <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
           Each reporting agent's overall score for {model.name} ({ratings.length} of{" "}
