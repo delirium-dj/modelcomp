@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — revert investigation: stale-snapshot commits, not ghosts (Muse Spark 1.3)
+
+1. User-reported reverts + dev-server `global.css` HMR spam investigated. Findings: `git reflog` shows ONLY commits (zero resets/checkouts/restores) — every content revert traces to a concurrent lane committing whole files from stale snapshots with broad `git add`, last-writer-wins. No background writer active (45-min mtime scan: only this session's 4 files), no cloud-sync conflicts, no `.vscode` settings, no backup files. `global.css` byte-identical for 15h — the HMR pings are watcher noise (likely .git churn from minute-apart commits), cosmetic only; content provably untouched.
+2. Remedy is discipline, not code: fresh reads immediately before writing, narrow `git add <paths>`, commit promptly (only committed work survives; verified repeatedly). Hot shared files (`REPORT.md`, queues, hooks, procedures) need append-only care or lane ownership. Header-anchor fix verified still in place at investigation time.
+
 ## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
 
 1. Re-research pass merged: 25 stale `Gemini_3.6_Flash.md` reports (dated 09-17–09-21) refreshed to 2026-09-29 with fresh web research (spot-verified 2/25 landed; per-model scores live in the dataset files). Claimed highs: gpt-5.6-terra 94, muse-spark-1.3-free 93, muse-spark-1.2-free 91, gpt-6-astra / gemini-3.1-pro 90.
