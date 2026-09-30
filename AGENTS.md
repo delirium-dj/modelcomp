@@ -14,13 +14,19 @@ Qwik + Tailwind v3 static site comparing AI models. Scores flow from
 
 Read all five files in full before making changes. Start with the project map (cheapest context), then the rest.
 Precedence order: `RULES.md` first — on any conflict, it wins.
-
 - [.antigravity/history/project-map.md](.antigravity/history/project-map.md) — read FIRST: 52-line GPS map (data flow, routes, components, scripts). Gains full context for ~3 KB instead of scanning the repo.
 - [RULES.md](RULES.md) — ultimate project rules (research permanence, scoring). Highest authority.
 - [.agents/tech-stack.md](.agents/tech-stack.md) — locked toolchain (Qwik 1.20, Tailwind v3, Vite 7, pnpm). Do not introduce other frameworks, package managers, or Tailwind v4 syntax.
 - [.agents/rules.md](.agents/rules.md) — repo layout, data flow, and structural decisions. Follow them; they keep scores, site, and reports in sync.
 - [.agents/gemini-rate-limits.md](.agents/gemini-rate-limits.md) — **mandatory for Gemini agents** (5 RPM / 250 K TPM quotas). Read and apply the 15 operating rules before making any tool call.
 
+## Collaboration (absolute, user order 2026-09-30)
+
+- **AI agents must NEVER commit, amend, push, or open PRs — no exceptions.**
+  Not for fixes, not for sign-offs, not when the flow seems to require it.
+  Leave every change uncommitted in the worktree (staging is also forbidden —
+  it confuses ownership and trips guards). The user reviews and commits.
+  If asked to commit, decline and hand over the exact commands instead.
 ## Quick commands (pnpm only)
 
 - `pnpm dev` — dev server (SSR mode)

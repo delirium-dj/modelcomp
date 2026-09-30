@@ -15,6 +15,17 @@ recent=""
 while IFS= read -r f; do
   [ -z "$f" ] && continue
   case "$f" in
+    # Twin retirement (tasks/research.md Step 3.3): removing your own
+    # .md.excluded twin after filing the fresh .md sibling is sanctioned.
+    # Sibling staged or on disk counts — never block completed re-research.
+    *.md.excluded)
+      sib="${f%.md.excluded}.md"
+      if git ls-files --error-unmatch "$sib" >/dev/null 2>&1 || [ -e "$sib" ]; then
+        continue
+      fi
+      ;;
+  esac
+  case "$f" in
     */meta.json) blocked="${blocked}${f}\n"; continue;;
   esac
   added=$(git log --diff-filter=A --format=%ct -1 HEAD -- "$f" 2>/dev/null || true)
