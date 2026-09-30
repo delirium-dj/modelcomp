@@ -34,20 +34,37 @@ import { fileURLToPath } from "node:url";
 // Pure helpers (tested: `npm test` / `node --test scripts/lib/`). Sync adds
 // fs/logging/FAIL accounting around them; behavior stays byte-identical.
 import {
-  LABELS,
   META_REQUIRED,
-  FILENAME_RE,
   RATER_GATE,
   parseScoresPure,
   shortenScores,
   overallDrift,
   applyOverallFix,
-  meanOf,
   rankTop10,
   partitionEligible,
   sortLabelsAZ,
 } from "./lib/parse.mjs";
 import { quarantineReason } from "./lib/quarantine.mjs";
+import {
+  MIRROR_ROOTS,
+  isResearchPath,
+  isRegenerablePath,
+  classifyMissingTracked,
+  findMirror,
+  deletionFailMessage,
+  checkFilename,
+  checkMetaFile,
+} from "./lib/validate.mjs";
+import { buildAverageEntry, buildAverageBody, applyAverageToPrev } from "./lib/average.mjs";
+import {
+  parseRegistryEntries,
+  buildRegistryEntry,
+  computePending,
+  collisionFailMessage,
+  appendPendingSources,
+  reconcileRegistry,
+  renderScoresFile,
+} from "./lib/codegen.mjs";
 import {
   normName,
   stemToKey,
@@ -55,8 +72,6 @@ import {
   resolveSourceMeta as resolveSourceMetaPure,
   hyphenVersionViolation,
   formatSlugGuess,
-  missingMetaFields,
-  metaNameHasUnderscore,
 } from "./lib/naming.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -64,8 +79,8 @@ const modelDir = join(root, "model");
 
 const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 
-// LABELS, META_REQUIRED, FILENAME_RE now live in scripts/lib/parse.mjs
-// (imported above) so regression tests lock the format contract.
+// Score-format constants live in scripts/lib/parse.mjs (imported above) so
+// regression tests lock the format contract.
 
 // Single edge-case map (SIMPLIFY-PLAN Phase 2): every filename-derived key
 // whose display label or model-page slug differs from the default.
@@ -135,28 +150,27 @@ try {
     const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model"], { cwd: root });
     for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
     const posix = rel.replace(/\\/g, "/");
-    if (!posix.endsWith(".md") && !posix.includes(".md.excluded")) continue;
-    if (/(^|\/)average\.md$/.test(posix) || /(^|\/)README\.md$/.test(posix)) continue;
+    // Filters + verdict live in scripts/lib/validate.mjs (tested); sync only
+    // consults fs/git and logs. MIRROR_ROOTS is defined there (it was a bare
+    // reference before, which threw on the first genuine tripwire hit).
+    if (!isResearchPath(posix)) continue;
+    if (isRegenerablePath(posix)) continue;
     const diskPath = join(root, ...posix.split("/"));
     if (existsSync(diskPath)) continue;
-    if (posix.includes(".md.excluded")) {
-      const sibling = diskPath.replace(/\.md\.excluded$/, ".md");
-      if (existsSync(sibling)) {
-        log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
-        continue;
-      }
-    }
+    const twinRetired =
+      posix.includes(".md.excluded") && existsSync(diskPath.replace(/\.md\.excluded$/, ".md"));
     const parts = posix.split("/");
-    if (parts[0] === "model") {
-      const mirror = MIRROR_ROOTS.find((m) => existsSync(join(root, m, ...parts.slice(1))));
-      if (mirror !== undefined) {
-        log(`  INFO  ${posix}: relocated to ${mirror}/${parts.slice(1).join("/")} (pending commit)`);
-        continue;
-      }
+    const mirror = findMirror(parts, MIRROR_ROOTS, (m, rest) => existsSync(join(root, m, ...rest)));
+    const verdict = classifyMissingTracked({ twinRetired, mirror });
+    if (verdict === "twin-retired") {
+      log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
+      continue;
     }
-    fail(
-      `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
-    );
+    if (verdict === "relocated") {
+      log(`  INFO  ${posix}: relocated to ${mirror}/${parts.slice(1).join("/")} (pending commit)`);
+      continue;
+    }
+    fail(deletionFailMessage(posix));
   }
 }
 } catch {
@@ -270,8 +284,9 @@ for (const slug of slugs) {
     .sort();
 
   for (const f of files) {
-    if (!FILENAME_RE.test(f)) {
-      fail(`model/${slug}/${f}: filename must match ${FILENAME_RE} (letters, digits, underscore only)`);
+    const hygiene = checkFilename(slug, f);
+    if (hygiene !== null) {
+      fail(hygiene);
     } else {
       presentStems.add(f.replace(/\.md$/, ""));
     }
@@ -300,14 +315,10 @@ for (const slug of slugs) {
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
     log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${formattedName}") — set the official vendor display name and verified facts`);
   }
-  for (const k of missingMetaFields(meta, META_REQUIRED)) {
-    fail(`model/${slug}/meta.json: missing required field "${k}"`);
-  }
-  // Display-name gate: `name` is shown verbatim across the site (cards, list,
-  // compare table, detail pages). Underscores are slug artifacts, never valid
-  // in a vendor display name — fail loudly instead of cementing them on disk.
-  if (metaNameHasUnderscore(meta.name)) {
-    fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
+  // Required fields + display-name gate live in scripts/lib/validate.mjs
+  // (checkMetaFile, tested) — sync only records the FAILs.
+  for (const msg of checkMetaFile(slug, meta, META_REQUIRED)) {
+    fail(msg);
   }
   // Store validated model metadata into our summary catalog map
   catalogIndex[slug] = meta;
@@ -384,37 +395,23 @@ for (const slug of slugs) {
     log(`  GATE  model/${slug}/average.md: ignored ${ignoredLabels.length} below-gate rater(s): ${ignoredLabels.join(", ")}`);
   }
 
-  const mean = (label) => meanOf(cohort, label);
-  const mixNote = fallback
-    ? `Fallback mean of all ${totalSources} reporting source(s) — no rater clears own Overall > ${RATER_GATE}, so the gate cannot filter (every model gets an average, RULES.md).`
-    : trimmed
-      ? `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources (ranked by Overall Score; only raters with own Overall > ${RATER_GATE} count).`
-      : `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${RATER_GATE}).`;
   // The default ("average") view needs this folder's recomputed means too:
   // the client never reads average.md itself, so index them like a source file.
   // (Folders with validation failures leave a stale average.md on disk, but a
   // failing run never rewrites scores.generated.ts — see the emit step below.)
-  (scoreIndex[slug] ||= {})["average.md"] = {
-    tool: mean("Tool use"),
-    reasoning: mean("Reasoning"),
-    context: mean("Context window"),
-    multimodal: mean("Multimodal"),
-    coding: mean("Coding"),
-    cost: mean("Cost efficiency"),
-    overall: mean("Overall Score"),
-  };
-  const lines = [
-    ...LABELS.slice(0, 6).map((l) => `- **${l}: ${mean(l)}/100.** ${mixNote}`),
-    `- **Overall Score: ${mean("Overall Score")}/100.** ${mixNote}`,
-  ];
-  const body =
-    `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
-    (fallback
-      ? `- Fallback: no qualifying raters (need own Overall > ${RATER_GATE}); average from all ${totalSources} below-gate source(s): ${labels.join(", ")}.\n`
-      : `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${RATER_GATE}): ${labels.join(", ")}.\n`) +
-    `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
-    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
-    (!fallback && ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "");
+  // Text assembly lives in scripts/lib/average.mjs (tested); sync only writes.
+  (scoreIndex[slug] ||= {})["average.md"] = buildAverageEntry(cohort);
+  const body = buildAverageBody({
+    cohort,
+    labels,
+    topLabels,
+    excludedLabels,
+    ignoredLabels,
+    fallback,
+    trimmed,
+    totalSources,
+    cohortSize,
+  });
 
   const avgPath = join(dir, "average.md");
   let prev = null;
@@ -423,17 +420,9 @@ for (const slug of slugs) {
   } catch {
     // created below
   }
-  let next;
-  if (prev === null) {
-    next =
-      `# ${meta.name} — Averaged findings\n\n` +
-      `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
-      `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
-      body;
+  const { next, created } = applyAverageToPrev(prev, meta.name, body);
+  if (created) {
     log(`  NEW   model/${slug}/average.md (created)`);
-  } else {
-    const head = prev.split("## Averaged scores")[0];
-    next = head + body;
   }
   if (!skipAverage && prev !== next) {
     writeFileSync(avgPath, next);
@@ -445,59 +434,30 @@ for (const slug of slugs) {
 }
 
 // ---- registry: every on-disk stem needs a SourceKey + SOURCES entry ----
-// Slug lives inline in SourceDef (SIMPLIFY-PLAN Phase 1); labels + slugs
-// resolve via SOURCE_OVERRIDES + catalog lookup. Virtual keys are pruned.
-const ENTRY_RE = /\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"(?:,\s*slug:\s*"[^"]+")?\s*\}/g;
+// Slug lives inline in SourceDef; labels + slugs resolve via SOURCE_OVERRIDES
+// + catalog lookup. Text surgery lives in scripts/lib/codegen.mjs (tested);
+// sync only consults the fs and writes. Virtual keys are pruned.
 let sourcesTs = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
 const keyOf = stemToKey; // scripts/lib/naming.mjs (tested)
 // entryForStem keeps the exact on-disk filename (stems with
 // dots/legacy casing must round-trip, never re-derived from the key).
-const entryForStem = (key, stem) => {
-  const { label, slug } = resolveSourceMeta(key);
-  return slug === undefined
-    ? `{ key: "${key}", label: "${label}", file: "${stem}.md" }`
-    : `{ key: "${key}", label: "${label}", file: "${stem}.md", slug: "${slug}" }`;
-};
-const registered = new Set(
-  [...sourcesTs.matchAll(ENTRY_RE)].map((m) => m[2].replace(/\.md$/, "")),
-);
+const entryForStem = (key, stem) => buildRegistryEntry(key, stem, resolveSourceMeta);
+const registered = new Set(parseRegistryEntries(sourcesTs).map((e) => e.file.replace(/\.md$/, "")));
 const missing = [...presentStems].filter((stem) => stem !== "average" && !registered.has(stem)).sort();
 // New sources are appended to the registry; the dropdown order itself is derived
 // at build time (Average first, rest by own average Overall desc), so registry
 // position is irrelevant to the UI.
-const unionMembers = new Set(
-  [...(sourcesTs.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
-);
-const pending = [];
-for (const stem of missing) {
-  const key = keyOf(stem);
-  const inSources = sourcesTs.includes(`key: "${key}"`);
-  const inUnion = unionMembers.has(key);
-  if (inSources) {
-    // Key registered under a different filename -> genuine collision, human must decide.
-    fail(`stem ${stem}.md maps to label "${key}" which is already registered for another file`);
-    continue;
-  }
-  // Not in SOURCES: needs (re)registration. inUnion covers repair of a partial
-  // earlier run that added the union line but not the SOURCES entry.
-  pending.push({ key, stem, needUnion: !inUnion });
+const { pending, collisions } = computePending(missing, sourcesTs, keyOf);
+for (const c of collisions) {
+  // Key registered under a different filename -> genuine collision, human must decide.
+  fail(collisionFailMessage(c.stem, c.key));
 }
 if (pending.length > 0) {
-  const unionRe = /(export type SourceKey =[\s\S]*?);/;
-  const arrRe = /(export const SOURCE_DEFS:[^[]*\[[\s\S]*?)\n\];/;
-  const um = sourcesTs.match(unionRe);
-  const am = sourcesTs.match(arrRe);
-  if (!um || !am) {
+  const { ok, text } = appendPendingSources(sourcesTs, pending, entryForStem);
+  if (!ok) {
     fail("could not locate SourceKey union / SOURCE_DEFS registry in src/data/sources.generated.ts — register manually");
   } else {
-    const needUnion = pending.filter((p) => p.needUnion);
-    if (needUnion.length > 0) {
-      sourcesTs = sourcesTs.replace(unionRe, `${um[1]}${needUnion.map((p) => `\n  | "${p.key}"`).join("")};`);
-    }
-    sourcesTs = sourcesTs.replace(
-      arrRe,
-      `${am[1]}${pending.map((p) => `\n  ${entryForStem(p.key, p.stem)},`).join("")}\n];`,
-    );
+    sourcesTs = text;
     writeFileSync(sourcesTsPath, sourcesTs);
     for (const p of pending) {
       log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
@@ -505,26 +465,11 @@ if (pending.length > 0) {
   }
 }
 
-// Reconcile labels + inline slugs for all registered entries (backfills the
-// slug on first run after the SIMPLIFY merge; idempotent afterwards).
+// Reconcile labels + inline slugs for all registered entries (idempotent).
 // Grandfathered virtual-view entries (file average.md, key != average) are
-// pruned — virtual views live in models.ts, not the registry (Phase 3).
+// pruned — virtual views live in models.ts, not the registry.
 {
-  let reconciled = sourcesTs;
-  // Prune virtual entries.
-  reconciled = reconciled.replace(
-    /\n  \{ key: "(?:tool|reason|context|cost|code|multi)", label: "[^"]+", file: "average\.md"(?:, slug: "[^"]+")? \},/g,
-    "",
-  );
-  // Prune virtual keys from the SourceKey union.
-  reconciled = reconciled.replace(/\n  \| "(?:tool|reason|context|cost|code|multi)"/g, "");
-  // Fix labels + slugs entry by entry.
-  for (const m of [...reconciled.matchAll(ENTRY_RE)]) {
-    const [full, key, file] = m;
-    if (file === "average.md") continue;
-    const expected = entryForStem(key, file.replace(/\.md$/, ""));
-    if (full !== expected) reconciled = reconciled.replace(full, expected);
-  }
+  const reconciled = reconcileRegistry(sourcesTs, entryForStem);
   if (reconciled !== sourcesTs) {
     sourcesTs = reconciled;
     writeFileSync(sourcesTsPath, sourcesTs);
@@ -533,8 +478,7 @@ if (pending.length > 0) {
 }
 
 // Stale keys (registered but no file anywhere) are non-blocking info logs.
-for (const entry of sourcesTs.matchAll(ENTRY_RE)) {
-  const [, key, file] = entry;
+for (const { key, file } of parseRegistryEntries(sourcesTs)) {
   if (file === "average.md") continue;
   if (!presentStems.has(file.replace(/\.md$/, ""))) {
     log(`  INFO  source "${key}" (${file}) has no active findings files in model folders`);
@@ -548,33 +492,8 @@ for (const entry of sourcesTs.matchAll(ENTRY_RE)) {
 // Keys are sorted so output is deterministic across runs.
 const genPath = join(root, "src", "data", "scores.generated.ts");
 if (failures === 0) {
-  const out = [
-    "// AUTO-GENERATED by `pnpm sync` (scripts/sync-data.mjs). Do not hand-edit.",
-    "// Compact per-source scores (numbers only). Re-run `pnpm sync` after",
-    "// adding or editing any model/<slug>/*.md findings file.",
-    "export interface GeneratedScores {",
-    "  tool: number;",
-    "  reasoning: number;",
-    "  context: number;",
-    "  multimodal: number;",
-    "  coding: number;",
-    "  cost: number;",
-    "  overall: number;",
-    "}",
-    "export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> = {",
-  ];
-  for (const slug of Object.keys(scoreIndex).sort()) {
-    out.push(`  "${slug}": {`);
-    for (const file of Object.keys(scoreIndex[slug]).sort()) {
-      const s = scoreIndex[slug][file];
-      out.push(
-        `    "${file}": { tool: ${s.tool}, reasoning: ${s.reasoning}, context: ${s.context}, multimodal: ${s.multimodal}, coding: ${s.coding}, cost: ${s.cost}, overall: ${s.overall} },`,
-      );
-    }
-    out.push("  },");
-  }
-  out.push("};", "");
-  const next = out.join("\n");
+  // Serializer lives in scripts/lib/codegen.mjs (tested, deterministic).
+  const next = renderScoresFile(scoreIndex);
   let prevGen = null;
   try {
     prevGen = readFileSync(genPath, "utf8");

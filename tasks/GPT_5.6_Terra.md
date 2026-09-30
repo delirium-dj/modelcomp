@@ -4,12 +4,15 @@
 
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with STEM from the line above.
 
-Effective orders (already resolved, do not re-derive):
+Effective orders (already resolved, do not re-derive — combined single pass: audit → queue → one-by-one):
+
 1. Your file is exactly `model/<slug>/<STEM>.md` (exact case-sensitive value from STEM line). Never write any other filename.
-2. Process missing folders highest-`Overall Score`-first (source: `- **Overall Score:` line of each `model/<slug>/average.md`; folders without `average.md` go last, A-Z; newly discovered slugs append at end).
-3. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete existing files.
-4. Scope: only create your files. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
-5. Quarantine (2026-09-19): 36 placeholder reports with `- **Overall Score: 15/100` were parked as `model/<slug>/GPT_5.6_Terra.md.excluded`. The `.excluded` suffix is intentional: `scripts/sync-data.mjs` collects only `*.md` and `src/data/models.ts` globs `model/*/*.md`, so excluded files are invisible to `average.md` and the site but stay alive on disk. 11 folders kept a real `GPT_5.6_Terra.md` (Overall != 15) — never touch those.
+2. Production scope: `model/` only (`models_voice/` deferred; park voice discoveries, never place them under `model/` per `RULES.md`).
+3. Process missing folders highest-`Overall Score`-first (source: `- **Overall Score:` line of each `model/<slug>/average.md`; folders without `average.md` go last, A-Z; newly discovered slugs append at end). A "first five" cap is the same queue with limit N=5.
+4. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete in-pass.
+5. Enrichment (own file only, approval-gated): if your own `<STEM>.md` Signature date (`Provided by: **...** — YYYY-MM-DD`) is older than 7 days and fresh search found genuinely new verified evidence that would change scores, do NOT overwrite — emit `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | new evidence <URLs> | delta` in your final summary and advance. Second-pass overwrites only explicitly user-approved slugs.
+6. Scope: only create your files (+ proposals). Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
+7. Quarantine (2026-09-19): 36 placeholder reports with `- **Overall Score: 15/100` were parked as `model/<slug>/GPT_5.6_Terra.md.excluded`. The `.excluded` suffix is intentional: `scripts/sync-data.mjs` collects only `*.md` and `src/data/models.ts` globs `model/*/*.md`, so excluded files are invisible to `average.md` and the site but stay alive on disk. 11 folders kept a real `GPT_5.6_Terra.md` (Overall != 15) — never touch those.
 
 ## Reactivation protocol (next GPT_5.6_Terra run)
 1. Queue = folders containing `model/<slug>/GPT_5.6_Terra.md.excluded` first (highest-`average.md`-Overall-first, same ordering as §2 above). Folders already containing a real `GPT_5.6_Terra.md` are skipped — never overwrite them.

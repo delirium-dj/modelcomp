@@ -20,13 +20,15 @@ Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.m
 > 5. Request/token pacing: 450 RPM is generous — no 12-second throttle needed — but do not burst parallel requests; sequential one-folder-at-a-time execution already paces you. If approaching 750,000 TPM in a minute (e.g. many large reads back-to-back), pause new reads until the next minute window.
 > 6. One search at a time: web searches are strictly sequential, one request per turn — never batch or parallelize search calls; retrieve and evaluate each result before starting the next search. (Incremental save, no-overwrite, and no-build rules: see Effective orders 3–4 below.)
 
-Effective orders (already resolved, do not re-derive):
+Effective orders (already resolved, do not re-derive — combined single pass: audit → queue → one-by-one):
 
 1. Your file is exactly `model/<slug>/<STEM>.md` (exact case-sensitive value from STEM line). Never write any other filename.
-2. Process missing folders highest-`Overall Score`-first (source: `- **Overall Score:` line of each `model/<slug>/average.md`; folders without `average.md` go last, A-Z; newly discovered slugs append at end).
-3. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete existing files.
-4. Scope: only create your files. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
-5. Template & Score Syntax Contract (STRICT):
+2. Production scope: `model/` only (`models_voice/` deferred; park voice discoveries, never place them under `model/` per `RULES.md`).
+3. Process missing folders highest-`Overall Score`-first (source: `- **Overall Score:` line of each `model/<slug>/average.md`; folders without `average.md` go last, A-Z; newly discovered slugs append at end). A "first five" cap is the same queue with limit N=5.
+4. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete in-pass.
+5. Enrichment (own file only, approval-gated): if your own `<STEM>.md` Signature date (`Provided by: **...** — YYYY-MM-DD`) is older than 7 days and fresh search found genuinely new verified evidence that would change scores, do NOT overwrite — emit `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | new evidence <URLs> | delta` in your final summary and advance. Second-pass overwrites only explicitly user-approved slugs.
+6. Scope: only create your files (+ proposals). Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
+7. Template & Score Syntax Contract (STRICT):
    - Every report MUST strip all template notice/instruction blocks (`> TEMPLATE...`) and submission checklists before saving.
    - Every report MUST include all 7 score lines: `Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`, `Cost efficiency`, and `Overall Score`.
    - Score lines MUST strictly match `- **<Label>: <N>/100.** <justification>` (colon inside `**` tag is forbidden: write `- **Tool use: 78/100.**`, NOT `- **Tool use:** 78 / 100`).

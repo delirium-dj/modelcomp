@@ -43,7 +43,7 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ## Medium priority
 
-### 4. Split `sync-data.mjs` (728 lines) into focused modules
+### 4. Split `sync-data.mjs` (728 lines) into focused modules (DONE 2026-10-01)
 
 - **Current:** one file mixes gate logic (rater qualification), quarantine
   (QUAR), validation, averaging, and codegen (four generated files) — hard to

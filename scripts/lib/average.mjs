@@ -1,0 +1,100 @@
+// Pure average.md recomputation builders for modelcomp sync.
+// Zero dependencies. Covered by average.test.mjs.
+//
+// Averages are arithmetic means over the top-10 cohort (highest Overall
+// first), half-up rounded to 1 decimal. Overall = mean of the cohort's
+// Overall scores, NOT re-derived from averaged dims. Crown rule (RULES.md):
+// every folder gets an average — zero eligible raters falls back to all
+// reports instead of leaving the folder average-less.
+
+import { LABELS, RATER_GATE, meanOf } from "./parse.mjs";
+
+/**
+ * The mix note appended to every score line: which reports counted.
+ * Three variants: fallback (no qualifying raters), trimmed top-N-of-M,
+ * or a plain mean of all qualifying sources.
+ */
+export function buildMixNote({ fallback, trimmed, totalSources, cohortSize, gate = RATER_GATE }) {
+  if (fallback) {
+    return (
+      `Fallback mean of all ${totalSources} reporting source(s) — no rater clears own Overall > ${gate}, ` +
+      `so the gate cannot filter (every model gets an average, RULES.md).`
+    );
+  }
+  if (trimmed) {
+    return (
+      `Mean of top ${cohortSize} of ${totalSources} qualifying reporting sources ` +
+      `(ranked by Overall Score; only raters with own Overall > ${gate} count).`
+    );
+  }
+  return `Mean of ${totalSources} qualifying reporting source(s) (raters with own Overall > ${gate}).`;
+}
+
+/** Short-keyed average entry for scoreIndex (the client never reads average.md). */
+export function buildAverageEntry(cohort) {
+  return {
+    tool: meanOf(cohort, "Tool use"),
+    reasoning: meanOf(cohort, "Reasoning"),
+    context: meanOf(cohort, "Context window"),
+    multimodal: meanOf(cohort, "Multimodal"),
+    coding: meanOf(cohort, "Coding"),
+    cost: meanOf(cohort, "Cost efficiency"),
+    overall: meanOf(cohort, "Overall Score"),
+  };
+}
+
+/** The seven `- **<Label>: <N>/100.** <mixNote>` score lines. */
+export function buildAverageLines(cohort, mixNote) {
+  return [
+    ...LABELS.slice(0, 6).map((l) => `- **${l}: ${meanOf(cohort, l)}/100.** ${mixNote}`),
+    `- **Overall Score: ${meanOf(cohort, "Overall Score")}/100.** ${mixNote}`,
+  ];
+}
+
+/**
+ * Full "## Averaged scores … ## Agreement notes" body for average.md.
+ * Lists are pre-sorted (case-insensitive A-Z) by the caller.
+ */
+export function buildAverageBody({
+  cohort,
+  labels,
+  topLabels,
+  excludedLabels,
+  ignoredLabels,
+  fallback,
+  trimmed,
+  totalSources,
+  cohortSize,
+  gate = RATER_GATE,
+}) {
+  const mixNote = buildMixNote({ fallback, trimmed, totalSources, cohortSize, gate });
+  const lines = buildAverageLines(cohort, mixNote);
+  return (
+    `## Averaged scores\n\n${lines.join("\n")}\n\n---\n\n## Agreement notes\n\n` +
+    (fallback
+      ? `- Fallback: no qualifying raters (need own Overall > ${gate}); average from all ${totalSources} below-gate source(s): ${labels.join(", ")}.\n`
+      : `- Based on ${totalSources} qualifying reporting source(s) (rater Overall > ${gate}): ${labels.join(", ")}.\n`) +
+    `- Average from top ${cohortSize} by Overall Score: ${topLabels.join(", ")}.\n` +
+    (trimmed ? `- Excluded bottom ${totalSources - cohortSize}: ${excludedLabels.join(", ")}.\n` : "") +
+    (!fallback && ignoredLabels.length > 0 ? `- Ignored below-gate rater(s): ${ignoredLabels.join(", ")}.\n` : "")
+  );
+}
+
+/**
+ * Merge a recomputed body into the on-disk average.md: brand-new files get
+ * the full header, existing files keep their head (title/links) and only the
+ * "## Averaged scores" tail is replaced. Returns { next, created }.
+ */
+export function applyAverageToPrev(prev, modelName, body) {
+  if (prev === null) {
+    return {
+      created: true,
+      next:
+        `# ${modelName} — Averaged findings\n\n` +
+        `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
+        `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
+        body,
+    };
+  }
+  return { created: false, next: prev.split("## Averaged scores")[0] + body };
+}

@@ -37,16 +37,17 @@ line. Do not hardcode any model name in this file.
 Your delegator file sets AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
 Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
-Follow tasks/research.md exactly:
-1. Audit EVERY directory under model/ and models_voice/ (including empty folders or folders
-   without average.md / meta.json / src/data/models.ts references).
-2. Your queue = folders missing <parent>/<slug>/<STEM>.md, sorted by the
-   "- **Overall Score:" line of each <parent>/<slug>/average.md descending
+Follow tasks/research.md exactly (combined single pass: audit → queue → one-by-one):
+1. Audit EVERY directory under model/ only — production scope, models_voice/ deferred
+   (including empty folders or folders without average.md / meta.json / src/data/models.ts references).
+2. Your queue = folders missing model/<slug>/<STEM>.md, sorted by the
+   "- **Overall Score:" line of each model/<slug>/average.md descending
    (missing average.md = last, A-Z). Newly discovered slugs append at end
-   (voice/speech discoveries go under models_voice/ per RULES.md).
+   (voice/speech discoveries are parked, never placed under model/ per RULES.md).
 3. Process ONE folder at a time: research from fresh web search, draft per
-   model-report-TEMPLATE.md, write <parent>/<slug>/<STEM>.md immediately,
-   then advance. Skip existing <STEM>.md files; never overwrite/edit/delete.
+   model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
+   then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
+   Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
 ```
 
 ---
@@ -55,9 +56,11 @@ Follow tasks/research.md exactly:
 
 ### Step 1: Directory audit + ordering
 
-- Scan all subdirectories in `model/` and `models_voice/` (e.g. `model/big-pickle/`, `models_voice/gpt-realtime-2/`).
+> Production scope (user-directed, 2026-09-30): scan `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. Full mode (when re-enabled) scans `model/` and `models_voice/`.
+
+- Scan all subdirectories in scope (e.g. `model/big-pickle/`; full mode also `models_voice/gpt-realtime-2/`).
 - Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
-- For each `<parent>/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
+- For each `model/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (full mode: check `<parent>/<slug>/` and write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
 - Missing list = queue base. Order it:
   1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
   2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
@@ -69,16 +72,17 @@ Follow tasks/research.md exactly:
 
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
-  no folder under `model/` or `models_voice/`:
+  no folder under `model/` (full mode: under `model/` or `models_voice/`):
   1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
       `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
       folder first — `pnpm sync` fails hyphen variants loudly).
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
-      speech (realtime voice API, TTS/STT-first, voice-assistant I/O), the
-      parent is `models_voice/<slug>/`, not `model/<slug>/` — check both trees
-      for an existing folder first.
-  3. Create `<parent>/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
-  4. Append `<parent>/<slug>` to the END of your queue (after all ranked folders), in discovery order.
+      speech (realtime voice API, TTS/STT-first, voice-assistant I/O), do NOT
+      place it under `model/`. Production scope: park it (note it in your final
+      summary, do not create or research it now). Full mode only: the parent is
+      `models_voice/<slug>/` — check both trees for an existing folder first.
+  3. Create `model/<slug>/` (full mode: `<parent>/<slug>/`; empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
+  4. Append `model/<slug>` (full mode: `<parent>/<slug>`) to the END of your queue (after all ranked folders), in discovery order.
 
 ### Step 3: Sequential one-folder-at-a-time execution
 
@@ -101,8 +105,20 @@ For each queued slug, in order:
       genuinely new verified evidence (real benchmarks the twin lacked, or its
       scores were placeholders) → write the fresh `<Your_Filename>`, then delete
       the twin. Never rename a twin back without new evidence backing the change.
+    - Enrichment of an existing `<Your_Filename>` (approval-gated, own file only):
+      never overwrite during the pass. If the folder already contains your own
+      `<Your_Filename>` AND its Signature date (`Provided by: **...** — YYYY-MM-DD`)
+      is older than 7 days AND fresh search surfaced genuinely new verified
+      evidence that would change scores (new benchmark numbers with sources,
+      corrected error with source, new pricing/context with source — rewording
+      alone never qualifies): do NOT write; emit an `ENRICH-PROPOSAL` line
+      (`<slug> | old <date>/<Overall> | new evidence <URLs> | expected delta`)
+      in your final summary and advance. Overwrite happens only in a second pass
+      over explicitly user-approved slugs, updating the Signature date.
 4. **Advance** only after the file is written — or after an explicit leave-it-excluded
-   decision (incremental save = interrupt-safe).
+   decision — or after logging an `ENRICH-PROPOSAL` (incremental save = interrupt-safe).
+5. **Combined single pass:** audit → queue → one-by-one in one delegation. A "first five"
+   request is the same queue with limit N=5, not a different mode.
 
 ### Step 4: Verification (no builds)
 
@@ -110,7 +126,9 @@ For each queued slug, in order:
 - All `<...>` placeholders replaced; no values copied from peer files.
 - Permanence holds (`RULES.md`): only new `<Your_Filename>` files added; the
   sole allowed deletion is your own `.md.excluded` twin after a re-research
-  that produced a fresh file with new evidence (Step 3.3).
+  that produced a fresh file with new evidence (Step 3.3). Approved second-pass
+  overwrites of your own `<Your_Filename>` (ENRICH-PROPOSAL → explicit user
+  approval per slug, Signature date updated) are the only sanctioned overwrites.
 - Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build`. The orchestrator
   runs those per `tasks/sync-data.md` (it recomputes `average.md`, registers the
   new source in `src/data/models.ts`, and validates `meta.json`/`average.md`).
@@ -119,13 +137,13 @@ For each queued slug, in order:
 
 ## 3. Strict rules & constraints
 
-1. **Audit all subdirectories** without exception (incl. empty/new folders).
-2. **Highest-Overall-first** per Step 1; discoveries append at end.
+1. **Audit all subdirectories in scope** without exception (production: `model/` only; full mode: `model/` + `models_voice/`; incl. empty/new folders).
+2. **Highest-Overall-first** per Step 1; discoveries append at end. A "first five" cap is the same queue with limit N=5.
 3. **Incremental save (one-by-one)** — write each file before moving on.
 4. **Zero influence:** never read peer findings before/during research (only the
-   single Overall line of `average.md` for ordering, plus the template).
+   single Overall line of `average.md` for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check — never copy its numbers.
 5. **No hallucination:** missing raw benchmark = `no verified public score found`, with source on every number.
-6. **No overwrites:** create `<Your_Filename>` only where missing/newly discovered.
+6. **No silent overwrites:** create `<Your_Filename>` only where missing/newly discovered. Existing files are never overwritten in-pass; enrichment is proposal-only (`ENRICH-PROPOSAL`), second pass only on explicitly user-approved slugs (own file, >7d old, new verified evidence, Signature date updated).
 7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
 8. **Forward slashes only** in paths (`tasks/research.md`, `model/<slug>/`).
 9. **Self-exclusion (no verified data):** if a folder's model yielded zero
@@ -135,7 +153,9 @@ For each queued slug, in order:
 10. **Twin re-research:** procedure in Step 3.3 — draft first, compare after;
     same verdict → write nothing; new evidence → write fresh, delete the
     twin. Never rename back without new evidence; never open another agent's
-    twin at any point.
+    twin at any point. **Enrichment twin:** existing `<Your_Filename>` older than
+    7 days (Signature date) with new verified evidence → `ENRICH-PROPOSAL`, never
+    in-pass overwrite; approved slugs only, second pass.
 11. **Agent-implies-model backfill:** if a reporting agent — any `SourceKey` in
     `src/data/models.ts`, or any signed `Provided by:` identity you meet — has no
     `model/<slug>/` folder, scaffold it on the spot: create the folder plus a
@@ -148,4 +168,6 @@ For each queued slug, in order:
 12. **Never delete research:** `RULES.md` (ultimate) — no agent or
     orchestrator ever deletes, overwrites, or moves another agent's files or
     any `model/<slug>/` folder. The sole deletable file is your own
-    `.md.excluded` twin after re-research with new evidence (Step 3.3).
+    `.md.excluded` twin after re-research with new evidence (Step 3.3). The sole
+    sanctioned overwrite is your own `<Your_Filename>` in an approved second pass
+    (ENRICH-PROPOSAL → explicit per-slug user approval).
