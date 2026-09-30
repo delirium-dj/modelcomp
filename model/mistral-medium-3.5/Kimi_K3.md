@@ -1,21 +1,21 @@
 # Mistral Medium 3.5 — findings by Kimi K3
 
 - Source: Mistral AI / Mistral Medium 3.5 (`mistral-medium-3.5`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mistral Medium 3.5
-- **Short description:** Mistral's open-weights mid-size reasoning model (documented variant `mistral-medium-3-5-26-04`; benchleader dates release 2026-04-29, broader listings cover it from 2026-05-22) — dense 128B, fast (144 tok/s), mid/lower-tier across AA/Vals benches but strongest at instruction following and maths; agentic/coding-optimized per Mistral docs. 77.6% SWE-Bench reported in launch coverage.
+- **Short description:** Mistral's open-weights mid-size reasoning model (released April 29, 2026) — fast (144 tok/s) and cheap-ish, but mid/lower-tier across benches: BenchLeader #328 of 736, strongest at instruction following and maths.
 - **Provider / access:** Mistral API (La Plateforme, `mistral-medium-3.5`); open weights; OpenRouter.
 - **Release / knowledge:** Released 2026-04-29 (benchleader.com); knowledge cutoff not verified.
 - **IDs:** `mistral/mistral-medium-3.5` (no Free-tier Zen ID verified).
 - **Context window:** 262K tokens (benchleader.com).
 - **Modalities:** text/image in (LMArena Vision 1222, MMMU-Pro 64.9% measured); text out; reasoning yes; tool calls; JSON mode.
 - **Pricing (as of 2026-09-24):** $1.50/M input, $7.50/M output via Mistral (benchleader.com).
-- **Architecture:** open weights, dense 128B (OpenRouter catalog), Modified MIT license (Mistral docs; AA Openness Index 33.3).
+- **Architecture:** open weights (AA Openness Index 33.3); params undisclosed.
 
 ### Raw benchmarks found (via benchleader.com aggregates of AA / Vals / LMArena)
 
@@ -39,7 +39,6 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-Bench: **77.6%** (aisotools launch review, 2026-05) — harness variant unstated, conflicts with the Vals 66.4% below; both recorded
 - SWE-bench (Vals): **66.4%** (#69); Code Migration (Vals): **5.1%**; Vibe Code Bench v1.1: **2.9%** (benchleader)
 - SciCode (AA): **40.2%**; LMArena Coding: **1479** (#95); LMArena WebDev: **1265** (#108) (benchleader)
 - LiveCodeBench / SWE-bench Verified: no verified public score found
@@ -66,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
-- Method: fresh public web research (benchleader.com aggregate of Artificial Analysis / Vals / LMArena). Reverified 2026-09-29: architecture now verified (dense 128B, Modified MIT, per OpenRouter catalog + Mistral docs `mistral-medium-3-5-26-04`); pricing $1.50/$7.50 re-confirmed (benchlm Sept-2026 Mistral pricing page); added launch-coverage SWE-Bench 77.6% (conflicts with Vals 66.4% — recorded); scores unchanged.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
+- Method: fresh public web research (benchleader.com aggregate of Artificial Analysis / Vals / LMArena); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

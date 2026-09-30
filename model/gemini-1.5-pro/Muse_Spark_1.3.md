@@ -1,7 +1,7 @@
 # Gemini 1.5 Pro — findings by Muse Spark 1.3
 
 - Source: Google/Google DeepMind (`gemini-1.5-pro`)
-- Date: 2026-09-24 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: retirement/specs reconfirmed + launch-era vendor rows — MMLU/MATH/HumanEval/MBPP/MMLU-Pro — + BenchLeader lanes (ARC/MMMU-Pro) + GPQA-variant added; scores unchanged, Overall holds 70)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,12 +29,10 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **58.9%** (Artificial Analysis, #143/187; corroborated 58.3% Vals AI, 57.2% Epoch AI, 59.1% TechBriefly aggregate); **53.5%** launch-era vendor figure (ai-tldr — harness variance — re-verified 2026-09-29)
+- GPQA Diamond: **58.9%** (Artificial Analysis, #143/187; corroborated 58.3% Vals AI, 57.2% Epoch AI, 59.1% TechBriefly aggregate)
 - HLE: **4.6%** (Scale AI / CAIS via Artificial Analysis and BenchLeader; BenchmarkList reports 4.9%)
 - LCR / MLCR: **no verified public score found** (closest proxy provisional: MRCR 82.6% reported in TechBriefly aggregate — long-context retrieval, different harness)
 - CritPt: **no verified public score found**
-- ARC-AGI-2: **0.8%** (BenchLeader/ARC Prize — anachronistic 2026 eval on 2024 model, informational only — re-verified 2026-09-29)
-- MMMU-Pro: **55.0%** AA / **46.9%** official (BenchLeader lanes — re-verified 2026-09-29)
 - Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy provisional: MMLU-Pro 75.0–75.8%, MATH 67.7% May-2024 tech report / 86.5% TechBriefly MATH aggregate, BIG-Bench Hard 89.2%)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
@@ -44,7 +42,7 @@ Coding:
 - LiveCodeBench: **41.7%** (Vals AI, rank 109/123, 11th percentile; corroborated 40.8 lmspeed.net provisional)
 - SciCode / AA-SciCode: **29.5%** (BenchmarkList / TechBriefly, rank 246/458)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found** (closest proxies: HumanEval **89%** launch-era (**84.1%** aggregate variant), MBPP **87.8%** launch (**74.6%** MBPP+ variant), MMLU-Pro **76.1%** launch, Natural2Code 85.4% / 42.3% variant — re-verified 2026-09-29)
+- DeepSWE / Coding Index / other: **no verified public score found** (closest proxies: HumanEval 84.1%, Natural2Code 85.4% / 42.3% variant, MBPP+ 74.6% per BenchmarkList/TechBriefly aggregates)
 
 Long context:
 

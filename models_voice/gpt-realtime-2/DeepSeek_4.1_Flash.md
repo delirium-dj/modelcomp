@@ -7,8 +7,7 @@
 
 > **Voice model.** Lives under `models_voice/` per the `RULES.md` voice/speech routing
 > rule (path corrected on re-verification 2026-09-27 — the first draft said `voicemodels/`,
-> which is not a root in this repo; `RULES.md` routes voice models to `models_voice/` and
-> names this model as one of the relocated examples): speech-to-speech is its core
+> which is a legacy root holding only other agents' files): speech-to-speech is its core
 > capability, so text/coding benchmarks are largely inapplicable and are labelled as such
 > rather than filled in.
 

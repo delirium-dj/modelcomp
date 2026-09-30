@@ -8,13 +8,13 @@
 ## Model card
 
 - Name: GLM 5.2 (Z.ai). Flagship general-purpose open-weights MoE (744B params, MIT license).
-- Short description: Z.ai's 744B-parameter open-weights MoE for general agentic tasks, long-context processing, and enterprise software engineering. [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models). Strong coding/agentic evals; Intelligence Index 34 (#6/674 models, tied with GPT-4.5 Pro Preview, "leading open weights").
+- Short description: Z.ai's 744B-parameter open-weights MoE for general agentic tasks, long-context processing, and enterprise software engineering. Free OpenCode Zen tier. Strong coding/agentic evals; Intelligence Index 34 (#6/674 models, tied with GPT-4.5 Pro Preview, "leading open weights").
 - Provider / access: Z.ai API (`glm-5.2`) + Hugging Face open weights (`zai-org/GLM-5.2`, MIT); OpenCode Zen `opencode/glm-5.2` (Chat Completions, tool calling).
 - Release / knowledge: March 2026 (Z.ai launch page, AI Agentic article). Knowledge cutoff: not verified.
-- IDs: `opencode/glm-5.2` — **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available** (repo `meta.json` freeTierNote).
+- IDs: `opencode/glm-5.2` — **Free Zen tier available** (repo `meta.json` freeTierNote).
 - Context window: **204,000 total tokens** (repo `meta.json` "204K" vs Z.ai "200K→204K"; Z.ai raised from 200K to 204K). 200K-class tier (<1M). Max output: not verified (Z.ai lists "up to 200K in, up to 131K out" — max output 131K, far exceeds the 64K caveat).
 - Modalities: **text in / text out only** (repo `meta.json` "Text in/out"; Z.ai "text input/output"). (+text-in only; 0 of image/audio/video/PDF)
-- Pricing (as of 2026-09-23): **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)** available (repo `meta.json`); free during launch (Z.ai). noFreeId absent → free tier exists.
+- Pricing (as of 2026-09-23): **Free OpenCode Zen tier** available (repo `meta.json`); free during launch (Z.ai). noFreeId absent → free tier exists.
 - Architecture: ~744B params total / MoE (16B active decode, 8B prefill — DeepSeek V4-Pro class figures reused in the 5.x family comparison), decoder, MIT license (open weights; commercial use allowed).
 
 ### Raw benchmarks found
@@ -60,7 +60,7 @@ Long context:
 - **Context window: 70/100.** 204,000 native tokens (200K-class tier; ≥200K, <1M); MRCR-1M 83.5 (beats Gemini 3.1-Pro) is strong but at a 200K window, no 1M-retrieval proof; max output 131K clears the <64K caveat.
 - **Multimodal: 15/100.** **Text in / text out only** (repo `meta.json` "Text in/out" + Z.ai "text input/output"). (+text-in only; 0 of image/audio/video/PDF). — The dominant cap vs any omni assumption.
 - **Coding: 88/100.** SWE-bench Verified 80.4% (leading open weights, beats GPT-5.5 79.5 + Sonnet 4.6 72.5) + LiveCodeBench 91.9% (leading, beats GPT-5.5 91.6) + DeepSWE 71.0 + SciCode 51.3 + Codeforces 3107; near-frontier open-weights coding. Capped by no SWE-bench-Pro / SWE-Atlas %.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (repo `meta.json` freeTierNote); Free during launch (Z.ai); $0 → 100.
+- **Cost efficiency: 100/100.** Free OpenCode Zen tier (repo `meta.json` freeTierNote); Free during launch (Z.ai); $0 → 100.
 - **Overall Score: 68/100.** (84 + 82 + 70 + 15 + 88) / 5 = 339 / 5 = 67.8 → 68.
 
 > ⚠️ **Reconciliation note:** Repo AI-Rankings average for `glm-5.2` is **72** (audit/model-comparison.md v4, 2026-09-17). My figure is **68** — close (within 4). The near-match is because base `glm-5.2` and the repo use the same anchors (Z.ai launch table: TB 71.8%, SWE-Verified 80.4%, GPQA 92.4%, GDPval 1554, MRCR 83.5) and the same text-only modality (Multimodal = 15). My score is slightly lower due to (a) the deliberate **200K-context cap** (70 tier, not 1M) and (b) absence of any standalone Tau3/Tau2/OSWorld figure for the base id, plus the HLE 35.9% floor on reasoning. (The sibling `glm-5.2-coding` entry is a distinct, separately-curated slug.)

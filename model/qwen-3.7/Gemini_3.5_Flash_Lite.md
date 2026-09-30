@@ -11,10 +11,10 @@
 - **Short description:** Alibaba's robust preceding generation open-weights model delivering strong multilingual and coding proficiency.
 - **Provider / access:** OpenCode Zen `opencode/qwen-3.7`, Chat Completions API.
 - **Release / knowledge:** 2025-11-10; knowledge cutoff October 2025.
-- **IDs:** `opencode/qwen-3.7` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
+- **IDs:** `opencode/qwen-3.7` (Free Zen tier available)
 - **Context window:** 128K total tokens verified via Alibaba specifications.
 - **Modalities:** Text in/out, tool calling, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.45 / $1.35 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.45 / $1.35 per 1M tokens.
 - **Architecture:** Dense transformer architecture (~32B/72B parameters), open-weights.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 84/100.** Dependable 128K context retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 78/100.** Competent programming and SWE-bench performance.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M).
+- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
 - **Overall Score: 66.8/100.** Dependable open-weights model balancing reasoning, coding, and cost efficiency.
 
 ---

@@ -1,6 +1,6 @@
 # MiMo V2.6 Flash — findings by Muse Spark 1.3
 
-- Source: Xiaomi/MiMo-V2.6-Flash (`xiaomi/mimo-v2.6-flash`)
+- Source: Xiaomi/MiMo-V2.6-Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
 - Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -8,65 +8,71 @@
 ## Model card
 
 - **Name:** MiMo V2.6 Flash
-- **Short description:** Xiaomi's MIT-licensed omnimodal sparse MoE tuned for long-horizon agentic coding at mid-tier pricing; the smaller, cheaper sibling of MiMo V2.6 Pro.
-- **Provider / access:** Xiaomi API `xiaomi/mimo-v2.6-flash` (Chat Completions). No Zen Free ID for this slug; the Zen free tier lives in `mimo-v2.6-free/`.
-- **Release / knowledge:** 2026-09-22 release (Xiaomi model card / announcement); knowledge cutoff not disclosed
-- **IDs:** `xiaomi/mimo-v2.6-flash` (no Free ID exists on Zen for this slug)
-- **Context window:** 1M total tokens (vendor spec, via curated meta; max output split not disclosed)
-- **Modalities:** Text, image, video, audio in; text out; reasoning yes; tool calls yes; JSON mode yes (vendor spec)
-- **Pricing (as of 2026-09-29):** Paid $0.14/$0.28 per 1M in/out, cached input ~$0.0028 (Xiaomi API); no $0 Zen tier for this slug
-- **Architecture:** 309B total / 15B active sparse MoE, MIT open weights (vendor)
+- **Short description:** Xiaomi's efficiency-tier MIT open-weights omnimodal MoE (309B/15B), Sept 2026, within 4 pts of Pro on every shared agent row and outright winner on CyberGym. Top use case is high-volume agentic coding and long-horizon tool workflows at one-third Pro price.
+- **Provider / access:** Xiaomi MiMo API `mimo-v2.6-flash` at `https://api.mimo.xiaomi.com/v1/chat/completions` (Chat Completions, OpenAI-compatible); also OpenRouter, Vercel AI Gateway, CheapestInference Core Pool (replaced v2.5 in place 2026-09-23). Weights `XiaomiMiMo/MiMo-V2.6-Flash-RL` on Hugging Face.
+- **Release / knowledge:** 2026-09-21 release (MIT weights, 6-day public RL run, ~750k trajectories shared with Pro, 30 steps, ~$850k RL cost); knowledge cutoff undisclosed
+- **IDs:** `xiaomi/mimo-v2.6-flash` (native); no Zen Free ID exists for this slug (Paid only — the Zen free tier lives in `mimo-v2.6-free/`)
+- **Context window:** 1,048,576 tokens total (1M), up to 128,000 output tokens — verified via Xiaomi release page, CheapestInference 2026-09-22, ModelGap 2026-09-22
+- **Modalities:** text/image/video/audio in; text out; reasoning yes (reasoning model, 5-layer multi-token prediction, 7 tokens/pass; off by default on some pools, on per request); tool calls yes; JSON/structured output via standard chat API
+- **Pricing (as of 2026-09-22):** Paid $0.14 in / $0.28 out per 1M, cached input $0.0028 (Xiaomi API, same as V2.5 series). No free tier on this slug.
+- **Architecture:** sparse MoE, 309B total / 15B active (48 layers, 256 routed experts 8 active, 681M ViT + 308M audio tokenizer + 127M patch encoder), hybrid sliding-window/global attention, MIT license, BF16+FP8 weights (172.9 GB / 65 shards)
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- AutomationBench v1.0.6 (**general agent**): 52.3% (Xiaomi model-card table, via promptblueprints 2026-09-21; beats Claude Opus 5 at 50.3% on same table)
-- Terminal-Bench 2.1: **87.6%** (Xiaomi model-card table, via themodelgap 2026-09-22 / minirouter; vs Pro 89.9%, Opus 5 89.1%, GPT-5.6 Sol 88.8% on same table; no independent tbench.ai listing found)
+- AutomationBench v1.0.6: **52.3%** (Xiaomi official card; Pro 53.1, Opus 5 50.3, GPT-5.6 Sol 45.8 on same card)
+- Toolathlon-Verified: **73.6%** (Xiaomi official card; Pro 76.9, Opus 5 80.6 on same card; ModelGap lists 73.6 as vendor-only, no independent runner as of 2026-09-22)
+- OSWorld-Verified: **80.8%** (Xiaomi official card; Pro 82.0, Opus 5 83.4 on same card)
+- Terminal-Bench 2.1: **87.6%** (Xiaomi official card; Pro 89.9, Opus 5 89.1 on same card; ModelGap vendor-only flag)
+- Terminal-Bench 4.0: **28.8%** (Xiaomi official card; Pro 34.9, Opus 5 49.0 on same card)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found** (Flash has no GDPval value in Xiaomi table; no Artificial Analysis page — URL returned 404 checked 2026-09-22)
+- GDPval-AA: **no verified public score found for Flash** (Pro reported at 1673 on same card; no Flash Elo published)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: Toolathlon-Verified **73.6%** (Xiaomi model-card table, via themodelgap / orcarouter 2026-09-22; vs Pro 76.9%, Opus 5 80.6% on same table; no independent toolathlon.xyz listing found)
-- OSWorld-Verified (**general agent, provisional**): 80.8% (Xiaomi model-card table, via computingforgeeks; vs Pro 82.0%, Opus 5 83.4%)
-- Terminal-Bench 4.0 (**general agent, provisional**): 28.8% (Xiaomi model-card table, via computingforgeeks; vs Pro 34.9%, Opus 5 49.0%)
-- CyberGym (**security agent, provisional**): 95.1% (Xiaomi model-card table, via tabbit 2026-09-22; vs Pro 94.0%)
+- MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- JobBench: **61.2%** (Xiaomi official card; Pro 62.0, Opus 5 65.7 on same card)
+- Agents' Last Exam: **27.6%** (Xiaomi official card per ModelGap/OrcaRouter; Pro 31.6 on same card)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (no AA page for Flash, 404; BenchLM compare page lists 12 covered benchmarks with null overall as of 2026-09-25)
+- GPQA Diamond: **no verified public score found for V2.6-Flash**
+- HLE: **no verified public separate score found for V2.6-Flash**
+- LCR / MLCR: **no verified public score found for V2.6-Flash**
+- CritPt: **no verified public score found for V2.6-Flash**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified Flash-specific score found** (AA has no Flash page — 404 as of 2026-09-22 per ModelGap; Pro scores 46 cited here only as family proxy, not scored as Flash)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
-- Agents' Last Exam (**professional-work proxy, provisional**): 27.6% (Xiaomi model-card table, via themodelgap 2026-09-22; vs Pro 31.6%, Opus 5 31.6%, GPT-5.6 Sol 30.8%)
+- ProgramBench: **26.0%** (Xiaomi official card per Tabbit 2026-09-22; Pro 26.5, Opus 5 37.0 on same card)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **no verified V2.6-Flash-specific score found** (Distill-Qwen-9B SFT baseline rows are a different checkpoint, NOT counted)
+- DeepSWE v1.1: **67.9%** (Xiaomi card eval table; announcement RL endpoint 65.7 from 48.8 — conflict flagged, card figure recorded; Pro 71.9, Opus 5 74.0 on same card; ModelGap vendor-only flag)
+- LiveCodeBench: **no verified V2.6-Flash-specific score found**
+- SciCode / AA-SciCode: **no verified public score found for V2.6-Flash**
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: DeepSWE v1.1 **67.9%** in card table (65.7% as RL-run endpoint up from 48.8% in announcement text; Xiaomi self-reported, via tabbit / themodelgap 2026-09-22; vs Pro 71.9%, Opus 5 74.0%, SWE-2 73.0%); MiMo Code Bench **61.2%** (vs Pro 63.2%, Opus 5 68.6%); ProgramBench **26.0%** (vs Pro 26.5%, Opus 5 37.0%); MiMo Visual Coding **71.5%** (vs Pro 72.3%, Opus 5 70.0%); JobBench **61.2%** (vs Pro 62.0%)
+- MiMo Code Bench (in-house): **61.2%** (Xiaomi official card; Pro 63.2)
+- MiMo Visual Coding: **71.5%** (Xiaomi official card; Pro 72.3, Opus 5 70.0 on same card)
+- CyberGym: **95.1%** (Xiaomi official card; Pro 94.0 — sole row Flash wins outright)
+- ExploitBench: **25.3%** (Xiaomi official card; Pro 47.9, Opus 5 70.0 — clear gap on hardest exploit rows)
 
 Long context:
 
-- No long-context retrieval reported (no MRCR / RULER / GraphWalks value at window length found; 1M window is vendor spec only)
+- **No long-context retrieval reported at a stated window length** (1M claimed; no MRCR/RULER/GraphWalks percentage at 512K/1M published for Flash)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** TB2.1 87.6% near frontier plus Toolathlon 73.6%, AutomationBench 52.3% beating Opus, and OSWorld 80.8%; capped by TB4.0 28.8% gap to Opus 49.0%.
-- **Reasoning: 72/100.** Only proxy is Agents' Last Exam 27.6% below Pro/Opus 31.6%; capped by zero verified GPQA, HLE, LCR, CritPt, or AA Index scores.
-- **Context window: 95/100.** 1M total hits the top tier; capped at 95 with no measured ≥512K retrieval score to grant 100.
-- **Multimodal: 92/100.** Audio+video+image in with text-only out; capped below 100 by text-only output and MiMo Visual Coding 71.5%.
-- **Coding: 83/100.** DeepSWE 67.9% plus visual-coding 71.5% beating Opus 70.0%; capped by ProgramBench 26.0% and the DeepSWE gap to Opus 74.0%.
-- **Cost efficiency: 97/100.** $0.14/$0.28 is near-free-tier pricing at roughly a third of Pro input price; capped below 100 as paid rather than $0.
-- **Overall Score: 86/100.** Mean of the five non-cost dims (86+72+95+92+83)/5 = 85.6; best fit as a value long-horizon coding agent when Pro is overkill.
+- **Tool use: 86/100.** AutomationBench 52.3 beats Opus 5 (50.3) with Toolathlon 73.6 + OSWorld 80.8 near-frontier and TB2.1 87.6 over the 85% bar; capped by TB4.0 28.8 trailing Pro/Opus on longest sessions.
+- **Reasoning: 84/100.** No Flash-direct GPQA/HLE, but Pro AA Index 46 (top open-weights) with Flash within 4 pts on every shared agent row; capped by zero Flash-direct reasoning numbers and no Flash AA page.
+- **Context window: 95/100.** 1M tier (1,048,576 in, 128K out) per tier mapping; capped below 100 because no 98%+ retrieval proof at 512K+.
+- **Multimodal: 95/100.** Native text/image/video/audio in, text out (omnimodal encoders + MiMo Visual Coding 71.5 beating Opus); capped below 100 with no published vision-accuracy lead over Pro.
+- **Coding: 88/100.** TB2.1 87.6 exceeds the 85% frontier bar with DeepSWE 67.9 just under the 74% bar and MiMo Visual Coding 71.5; capped by missing SWE-Verified/LiveCode direct runs and ExploitBench gap.
+- **Cost efficiency: 95/100.** Paid $0.14/$0.28 ($0.0028 cached) — roughly 1/3 Pro and 1/20 frontier cost, same price as V2.5; capped below 100 as paid (free tier lives in `mimo-v2.6-free/`).
+- **Overall Score: 90/100.** Mean of the five non-cost dims (86+84+95+95+88)/5 = 89.6 → 90; best-fit as high-volume paid omnimodal agent/coder at Pro-adjacent quality, escalate to Pro/Opus for exploit-grade or 50%+ TB4.0 sessions.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-29
-- Method: public internet research (Xiaomi model card via aggregators, Artificial Analysis absence check, BenchLM compare); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-29
+- Method: public internet research (Xiaomi release page, CheapestInference 2026-09-22, Tabbit Flash review 2026-09-22, ModelGap Flash page, OrcaRouter Pro-vs-Flash, ComputingForGeeks 2026-09-25); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

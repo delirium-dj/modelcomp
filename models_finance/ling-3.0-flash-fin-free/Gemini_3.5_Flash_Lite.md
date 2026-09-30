@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ling-3-0-flash-fin-free`
 - **Context window:** 262,144 (256K marketed) / 32K out.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (limited-time promo).
+- **Pricing (as of 2026-09-18):** Free Zen tier (limited-time promo).
 - **Architecture:** Finance-specialized Mixture-of-Experts.
 
 ### Raw benchmarks found

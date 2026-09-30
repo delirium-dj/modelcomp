@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.8 Flash
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,10 +57,6 @@ Long context:
 - **Overall Score: 92.4/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding: (89 + 87 + 98 + 95 + 93) / 5 = 92.4; best suited to multimodal, long-context, agentic software and knowledge workflows.
 
 ---
-
-## 2026-09-30 verification addendum
-
-The official September card confirms general availability and the report's core primary measurements: **73.7% DeepSWE v1.1**, **1545 GDPval-AA v2 Elo**, **61.4% Vals Finance Agent v2**, **89.4% Terminal-Bench 2.1**, **19.1% Terminal-Bench 4.0**, **59.0% OSWorld 2.0**, **54.9% HLE-Verified**, **87.8% agentic LVBench**, and **56.5% BioMysteryBench human-difficult**. It confirms 1M input / 64K output, text/image/audio/video input, and the $0.75/$3.75 introductory versus $1.50/$7.50 regular price. The existing scores remain unchanged; this refresh strengthens the primary-source provenance. [Google DeepMind model card](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
 
 ## Signature
 

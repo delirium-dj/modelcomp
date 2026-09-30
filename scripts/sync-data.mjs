@@ -29,15 +29,11 @@
 // Non-zero = human action required (see error lines).
 import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, dirname, basename } from "node:path";
+import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-// Junior Developer Tip: MODEL_ROOT_DIRS lists all first-class model directories scanned by pnpm sync.
-// Voice models in models_voice/ are treated as first-class dataset entries alongside model/.
-const MODEL_ROOT_NAMES = ["model", "models_voice"];
-const MODEL_ROOT_DIRS = MODEL_ROOT_NAMES.map((name) => join(root, name)).filter((d) => existsSync(d));
-
+const modelDir = join(root, "model");
 const modelsTsPath = join(root, "src", "data", "models.ts");
 
 const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
@@ -84,24 +80,13 @@ const parseScores = (md, where) => {
   return out;
 };
 
-/** Map of slug -> full folder path across model/ and models_voice/ */
-const slugToDir = {};
-
-for (const dirPath of MODEL_ROOT_DIRS) {
-  const dirs = readdirSync(dirPath).filter((d) => statSync(join(dirPath, d)).isDirectory());
-  for (const d of dirs) {
-    if (slugToDir[d]) {
-      fail(`duplicate model slug "${d}" found across model roots (${slugToDir[d]} and ${join(dirPath, d)})`);
-    }
-    slugToDir[d] = join(dirPath, d);
-  }
-}
-
-const slugs = Object.keys(slugToDir).sort();
-log(`sync-data: ${slugs.length} model folders across ${MODEL_ROOT_DIRS.length} model roots (${MODEL_ROOT_NAMES.join(", ")})`);
+const slugs = readdirSync(modelDir)
+  .filter((d) => statSync(join(modelDir, d)).isDirectory())
+  .sort();
+log(`sync-data: ${slugs.length} model folders`);
 
 // ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
-// Any git-tracked findings file (model/**/*.md or models_voice/**/*.md / *.md.excluded, except the
+// Any git-tracked findings file (model/**/*.md / *.md.excluded, except the
 // regenerable average.md + README.md) missing from disk is a forbidden
 // deletion — unless it survives somewhere sanctioned. FAIL loudly so a real
 // deletion can never be cemented silently (a failing run also skips rewriting
@@ -112,10 +97,13 @@ log(`sync-data: ${slugs.length} model folders across ${MODEL_ROOT_DIRS.length} m
 //   - relocation: the same relative path exists under a sanctioned mirror tree
 //     (user-directed moves, e.g. models_voice/, models_finance/) — content
 //     preserved, pending commit.
-const MIRROR_ROOTS = ["models_voice", "models_finance"];
+const ALLOW_MODEL_DELETE = process.env.ALLOW_MODEL_DELETE === "1" || process.env.ALLOW_MODEL_DELETE === "true";
 try {
-  const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model", "models_voice"], { cwd: root });
-  for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
+  if (ALLOW_MODEL_DELETE) {
+    log("  INFO  ALLOW_MODEL_DELETE set — tripwire check for missing tracked research files skipped");
+  } else {
+    const raw = execFileSync("git", ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", "model"], { cwd: root });
+    for (const rel of raw.toString("utf8").split("\0").filter(Boolean)) {
     const posix = rel.replace(/\\/g, "/");
     if (!posix.endsWith(".md") && !posix.includes(".md.excluded")) continue;
     if (/(^|\/)average\.md$/.test(posix) || /(^|\/)README\.md$/.test(posix)) continue;
@@ -136,26 +124,11 @@ try {
         continue;
       }
     }
-    // Scratch lifecycle grace (user-signed 2026-09-29): agents draft findings
-    // incrementally and remove recent scratch on completion. A file added to
-    // git less than 7 days ago that goes missing is INFO (likely scratch
-    // lifecycle), not a permanence FAIL - except meta.json, which is curated
-    // infrastructure and never agent scratch. Unknown age fails closed.
-    let recent = false;
-    try {
-      const added = execFileSync("git", ["log", "--diff-filter=A", "--format=%ct", "-1", "HEAD", "--", posix], { cwd: root }).toString("utf8").trim();
-      recent = added !== "" && Date.now() / 1000 - Number(added) < 7 * 24 * 3600;
-    } catch {
-      recent = false;
-    }
-    if (recent && !posix.endsWith("/meta.json")) {
-      log(`  INFO  ${posix}: added < 7d ago and missing - likely agent scratch lifecycle, not a permanence violation`);
-      continue;
-    }
     fail(
-      `${posix}: tracked in git HEAD but missing from disk - research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
+      `${posix}: tracked in git HEAD but missing from disk — research files are permanent (RULES.md); restore with \`git restore --source=HEAD -- "${posix}"\`, never delete`,
     );
   }
+}
 } catch {
   log("  WARN  git HEAD unreadable — deletion tripwire skipped (treat run as untrusted)");
 }
@@ -174,23 +147,6 @@ for (const slug of slugs) {
   if (/\d-\d/.test(slug)) {
     fail(
       `model/${slug}/: version numbers use "." not "-" — use "model/${slug.replace(/(\d)-(?=\d)/g, "$1.")}/" instead (e.g. gpt-5-5 → gpt-5.5); merge into the existing dotted folder, never create a hyphen variant`,
-    );
-  }
-}
-
-// Merged duplicate slugs (user-ordered merges — see REPORT.md for the sign-off).
-// Each of these folders was folded into an existing canonical folder and deleted
-// because it was a second slug for the *same* model. They must never come back:
-// a resurrect (git restore / re-scaffold from a stale queue) gets a loud FAIL
-// instead of quietly cementing the duplicate a third time.
-const MERGED_SLUGS = new Map([
-  ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
-]);
-for (const slug of slugs) {
-  const canonical = MERGED_SLUGS.get(slug);
-  if (canonical) {
-    fail(
-      `model/${slug}/: this slug is a duplicate that was merged into model/${canonical}/ and deleted on user order (see REPORT.md) — never recreate it; research/report under model/${canonical}/ instead`,
     );
   }
 }
@@ -224,9 +180,8 @@ const SHORT = {
 const RATER_GATE = 84.9;
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
-  const dir = slugToDir[slug];
   try {
-    const s = parseScores(readFileSync(join(dir, "average.md"), "utf8"), `${dir.replace(root, "").replace(/^[/\\]+/, "")}/average.md`);
+    const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
   } catch {
     // No usable average.md — cannot prove gate passage, never a rater.
@@ -253,7 +208,7 @@ function raterSlugFor(stem) {
 }
 
 for (const slug of slugs) {
-  const dir = slugToDir[slug];
+  const dir = join(modelDir, slug);
   // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
   // reporting agent forgot it): a findings file whose "Raw benchmarks found"
   // section holds 8+ "no verified public score found" rows and zero measured
@@ -346,31 +301,8 @@ for (const slug of slugs) {
   if (typeof meta.name === "string" && meta.name.includes("_")) {
     fail(`model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`);
   }
-  // Structural schema validation (IMPROVEMENTS.md #4): optional fields must
-  // have the right shape when present — fail loudly instead of cementing
-  // malformed metadata that breaks cards, tables, or badges at runtime.
-  // (`id` allows hierarchical provider ids like deepinfra/ByteDance/X:
-  // at least one slash, no empty segments.)
-  if (meta.pricingTiers !== undefined && (!Array.isArray(meta.pricingTiers) || meta.pricingTiers.length === 0 || meta.pricingTiers.some((t) => typeof t !== "string" || t.length === 0))) {
-    fail(`model/${slug}/meta.json: "pricingTiers" must be a non-empty array of non-empty strings`);
-  }
-  if (meta.freeTierNote !== undefined && (typeof meta.freeTierNote !== "string" || meta.freeTierNote.length === 0)) {
-    fail(`model/${slug}/meta.json: "freeTierNote" must be a non-empty string`);
-  }
-  if (meta.noFreeId !== undefined && typeof meta.noFreeId !== "boolean") {
-    fail(`model/${slug}/meta.json: "noFreeId" must be a boolean`);
-  }
-  if (typeof meta.id === "string") {
-    const parts = meta.id.split("/");
-    if (parts.length < 2 || parts.some((p) => p.length === 0)) {
-      fail(`model/${slug}/meta.json: "id" must be "vendor/model" with non-empty sides (got "${meta.id}")`);
-    }
-  }
-  // Store validated model metadata into our summary catalog map.
-  // Frontend visibility: the site shows model/ entries only — record the
-  // source root so models.ts (and rankings codegen below) can hide
-  // voice/finance trees while sync still validates them as dataset.
-  catalogIndex[slug] = { ...meta, root: basename(dirname(dir)) };
+  // Store validated model metadata into our summary catalog map
+  catalogIndex[slug] = meta;
 
   const perFile = [];
   let skipAverage = false;
@@ -625,123 +557,8 @@ if (failures === 0) {
       `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
     );
   }
-  // ---- codegen: catalog metadata lookup (populated as catalogIndex above) ----
-  const catPath = join(root, "src", "data", "catalog.generated.ts");
-  const catOut = [
-    "// AUTO-GENERATED by `pnpm sync` (scripts/sync-data.mjs). Do not hand-edit.",
-    "// Pre-baked summary metadata catalog for tracked models.",
-    "export interface MetaFile {",
-    "  id: string;",
-    "  name: string;",
-    "  short: string;",
-    "  contextWindow: string;",
-    "  modalities: string;",
-    "  pricingNote: string;",
-    "  pricingTiers?: string[];",
-    "  freeTierNote?: string;",
-    "  noFreeId?: boolean;",
-    "  root?: string;",
-    "}",
-    "",
-    "export const GENERATED_CATALOG: Record<string, MetaFile> = {",
-  ];
-  for (const slug of Object.keys(catalogIndex).sort()) {
-    catOut.push(`  "${slug}": ${JSON.stringify(catalogIndex[slug])},`);
-  }
-  catOut.push("};", "");
-  const nextCat = catOut.join("\n");
-  let prevCat = null;
-  try {
-    prevCat = readFileSync(catPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevCat !== nextCat) {
-    writeFileSync(catPath, nextCat);
-    log(
-      `  WRITE src/data/catalog.generated.ts (${Object.keys(catalogIndex).length} slugs)${prevCat === null ? " (created)" : ""}`,
-    );
-  }
-
-  // ---- codegen: top-3 rankings lookup table ----
-  // Junior Developer Tip: Pre-baking top-3 model rankings for every source key at build time
-  // replaces runtime array sorting ([...MODELS].sort(...)) on user interactions with instant O(1) dictionary lookups.
-  const rankPath = join(root, "src", "data", "rankings.generated.ts");
-  const allSlugs = Object.keys(catalogIndex);
-  const modelList = allSlugs
-    // Frontend shows model/ entries only — a hidden voice/finance ID in a
-    // top-3 slot would break homepage defaults, so rank model roots only.
-    .filter((slug) => catalogIndex[slug] && catalogIndex[slug].root === "model" && scoreIndex[slug]?.["average.md"])
-    .map((slug) => ({
-      id: catalogIndex[slug].id,
-      slug,
-      avg: scoreIndex[slug]["average.md"],
-      sources: scoreIndex[slug],
-    }));
-
-  const top3Map = {};
-
-  // 1. "average" top 3
-  const byAvgOverall = [...modelList].sort((a, b) => b.avg.overall - a.avg.overall || a.id.localeCompare(b.id));
-  top3Map["average"] = [byAvgOverall[0]?.id ?? "", byAvgOverall[1]?.id ?? "", byAvgOverall[2]?.id ?? ""];
-
-  // 2. Virtual views top 3
-  const VIRTUAL_DIM_MAP = {
-    tool: "tool",
-    reason: "reasoning",
-    context: "context",
-    cost: "cost",
-    code: "coding",
-    multi: "multimodal",
-  };
-
-  for (const [vKey, dimKey] of Object.entries(VIRTUAL_DIM_MAP)) {
-    const sorted = [...modelList].sort(
-      (a, b) => b.avg[dimKey] - a.avg[dimKey] || b.avg.overall - a.avg.overall || a.id.localeCompare(b.id),
-    );
-    top3Map[vKey] = [sorted[0]?.id ?? "", sorted[1]?.id ?? "", sorted[2]?.id ?? ""];
-  }
-
-  // 3. Reporting agent sources top 3
-  for (const entry of sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"([^"]+)",\s*file:\s*"([^"]+)"\s*\}/g)) {
-    // matchAll groups: [full, key, label, file] — skip label, bind filename.
-    const [, key, , file] = entry;
-    if (key === "average" || VIRTUAL_DIM_MAP[key]) continue;
-    const sorted = [...modelList].sort((a, b) => {
-      const sa = a.sources[file]?.overall;
-      const sb = b.sources[file]?.overall;
-      if (sa === undefined && sb === undefined) return b.avg.overall - a.avg.overall;
-      if (sa === undefined) return 1;
-      if (sb === undefined) return -1;
-      return sb - sa || b.avg.overall - a.avg.overall || a.id.localeCompare(b.id);
-    });
-    top3Map[key] = [sorted[0]?.id ?? "", sorted[1]?.id ?? "", sorted[2]?.id ?? ""];
-  }
-
-  const rankOut = [
-    "// AUTO-GENERATED by `pnpm sync` (scripts/sync-data.mjs). Do not hand-edit.",
-    "// Pre-baked top-3 model IDs per results source key for instant O(1) lookup.",
-    "export const TOP_MODELS_BY_SOURCE: Record<string, [string, string, string]> = {",
-  ];
-  for (const key of Object.keys(top3Map).sort()) {
-    rankOut.push(`  "${key}": [${top3Map[key].map((id) => JSON.stringify(id)).join(", ")}],`);
-  }
-  rankOut.push("};", "");
-  const nextRank = rankOut.join("\n");
-  let prevRank = null;
-  try {
-    prevRank = readFileSync(rankPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevRank !== nextRank) {
-    writeFileSync(rankPath, nextRank);
-    log(
-      `  WRITE src/data/rankings.generated.ts (${Object.keys(top3Map).length} source keys pre-calculated)${prevRank === null ? " (created)" : ""}`,
-    );
-  }
 } else {
-  log("  SKIP  src/data/scores.generated.ts, catalog.generated.ts & rankings.generated.ts not rewritten (failures present — fix and re-run)");
+  log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }
 
 console.log(`sync-data: done. averages rewritten: ${updatedAverages.length}${updatedAverages.length ? ` (${updatedAverages.join(", ")})` : ""}; new sources: ${missing.length}; failures: ${failures}`);

@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free`
 - **Context window:** 1,048,576 (1M) context window
 - **Modalities:** Text, image, video, PDF in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M tokens) with training-data consent; paid Contributor tier fallback at $0.10 / $0.20 per 1M tokens
+- **Pricing (as of 2026-09-18):** Free Zen tier ($0/1M tokens) with training-data consent; paid Contributor tier fallback at $0.10 / $0.20 per 1M tokens
 - **Architecture:** Proprietary transformer MoE architecture
 
 ### Raw benchmarks found

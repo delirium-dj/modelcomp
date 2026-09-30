@@ -14,7 +14,7 @@
 - **IDs:** `opencode/big-pickle`
 - **Context window:** 200K total (160K in / 32K out)
 - **Modalities:** Text in/out only
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 stealth (GLM-4.6 proxy) — note: [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equiv. GLM-4.6 ~$0.60/$2.20
+- **Pricing (as of 2026-09-23):** Free Zen tier $0/$0 stealth (GLM-4.6 proxy) — note: Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20
 - **Architecture:** Proprietary
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 70/100.** 200K total (160K in / 32K out) — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
 - **Multimodal: 15/100.** Text in/out only; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
 - **Coding: 60/100.** Evidence SWE-Ver 0.68 ; LiveCode 81% ; SciCode 38.4 ; Vibe 3.1; capped by missing isolated LiveCode/SciCode where noted.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 stealth (GLM-4.6 proxy).
+- **Cost efficiency: 100/100.** Free Zen tier $0/$0 stealth (GLM-4.6 proxy).
 - **Overall Score: 51/100.** Mean of five non-cost dims (55+55+70+15+60)/5=51.0 → 51; best-fit per scoring methodology.
 
 ---

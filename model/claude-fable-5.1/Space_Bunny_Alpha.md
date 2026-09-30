@@ -63,6 +63,6 @@ Sources consulted: [Anthropic Fable page](https://www.anthropic.com/claude/fable
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
+- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
 - Method: Public web research of Anthropic's official Fable/Mythos pages, model overview, and Artificial Analysis metadata; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

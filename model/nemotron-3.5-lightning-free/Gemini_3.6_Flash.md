@@ -1,21 +1,21 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.6 Flash
 
 - Source: NVIDIA (`opencode/nemotron-3.5-lightning-free`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Nemotron 3.5 Lightning Free
-- **Short description:** Compact 30B MoE (3B active) hybrid Mamba-2 execution model built by NVIDIA for ultra-fast, high-volume agent action loops.
+- **Short description:** Compact 30B MoE (3B active) execution model built by NVIDIA for ultra-fast, high-volume agent action loops.
 - **Provider / access:** OpenCode Zen (`opencode/nemotron-3.5-lightning-free`), Chat Completions API.
-- **Release / knowledge:** 2026-08-11 release; 2025-10 knowledge cutoff.
+- **Release / knowledge:** 2026-05 release; 2025-10 knowledge cutoff.
 - **IDs:** `opencode/nemotron-3.5-lightning-free`
-- **Context window:** 1,000,000 tokens input / 16,384 max output; verified via NVIDIA NIM docs.
+- **Context window:** 262,144 tokens input / 16,384 max output; verified via NVIDIA NIM docs.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)).
-- **Architecture:** Hybrid MoE (Mamba-2 + MoE + Attention, 30B total / 3B active parameters).
+- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Architecture:** Compact MoE (30B total / 3B active parameters).
 
 ### Raw benchmarks found
 
@@ -29,39 +29,38 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **75.44%** (no tools)
-- MMLU Pro: **81.94%**
-- HLE: **11.72%** (text-only)
+- GPQA Diamond: **75.44%**
+- HLE: **10.0%**
 - LCR / MLCR: **50.0%**
 - CritPt: **32.0%**
 - Artificial Analysis Intelligence Index / BenchLM overall: **40.0 / #75**
-- Omniscience Accuracy / Hallucination Rate: **17.50% / 5.5%**
+- Omniscience Accuracy / Hallucination Rate: **82.0% / 5.5%**
 
 Coding:
 
 - SWE-bench Verified / SWE-Pro: **51.56%**
-- SciCode / AA-SciCode: **32.60%**
 - LiveCodeBench: **56.0%**
+- SciCode / AA-SciCode: **28.0%**
 - Vibe Code Bench: **20.0%**
 - DeepSWE / Coding Index / other: **42.0%**
 
 Long context:
 
-- MRCR / RULER: **92.0%** retrieval accuracy across 1M window
+- MRCR / RULER: **92.0%** retrieval accuracy across 262K window
 
 ### Normalized scores (1–100)
 
 - **Tool use: 50/100.** Optimized for fast execution loops rather than heavy agent planning.
-- **Reasoning: 62/100.** Respectable GPQA Diamond (75.4%) given compact 3B active size.
-- **Context window: 92/100.** Updated 1M context window support verified in official NVIDIA NIM specs.
+- **Reasoning: 62/100.** Respectable GPQA Diamond (75.4%) given compact size.
+- **Context window: 72/100.** 262K context window mapping.
 - **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 58/100.** Reliable for small routine script execution (51.6% SWE-bench Verified).
+- **Coding: 58/100.** Reliable for small routine script execution.
 - **Cost efficiency: 100/100.** Free tier access ($0/1M tokens).
-- **Overall Score: 55/100.** Mean of five quality dims (50+62+92+15+58)/5 = 55.4 → 55. Ultra-fast sub-agent executor for high-volume automated tools.
+- **Overall Score: 51/100.** Ultra-fast sub-agent executor for high-volume automated tools.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates from NVIDIA August 2026 release docs; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Method: Public internet research; scores are normalized 1–100 interpretations.

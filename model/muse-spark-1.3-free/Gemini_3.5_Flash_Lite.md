@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free`
 - **Context window:** 1M tokens.
 - **Modalities:** Text, image, video, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M.
+- **Pricing (as of 2026-09-18):** Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M.
 - **Architecture:** Meta multimodal coding and agentic transformer.
 
 ### Raw benchmarks found

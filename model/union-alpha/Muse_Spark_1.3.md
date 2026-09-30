@@ -1,7 +1,7 @@
 # Union Alpha — findings by Muse Spark 1.3
 
 - Source: Unbiased/Pareto 26.9 (stealth `union-alpha`), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77); re-verified 2026-09-29 (UTC, user-signed-off re-research: reveal + card + specs + pricing all reconfirmed via OpenRouter/capitalandcompute/cellcog, no independent runs yet — scores unchanged, Overall holds 77)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -7,11 +7,11 @@
 
 ## Model card
 
-- Name: GLM 5.3 Free (Z.ai). Flagship open-weights GLM-5.3 MoE in the [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
+- Name: GLM 5.3 Free (Z.ai). Flagship open-weights GLM-5.3 MoE in the Free Zen tier.
 - Short description: Z.ai's 5.3-generation flagship open-weights MoE, optimized for agentic software development, complex reasoning, and multi-step tool execution. Free OpenCode Zen promotional tier (fast agentic-coding/tool tier).
 - Provider / access: Z.ai API + Hugging Face open weights; OpenCode Zen `opencode/glm-5.3-free` (Chat Completions, tool calling supported).
 - Release / knowledge: 2026 (5.3 generation); knowledge cutoff undisclosed. Release-date NOT found precisely in fetched pages.
-- IDs: `opencode/glm-5.3-free` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) exists — no noFreeId flag).
+- IDs: `opencode/glm-5.3-free` (Free Zen tier exists — no noFreeId flag).
 - Context window: **204,000 tokens** (repo `meta.json`; verified "204K" via curated metadata); <1M tier. Max output: not verified (assumed standard).
 - Modalities: **text in / text out only** (repo `meta.json` "Text in/out"; Z.ai 5.3 "text in/out"; tool calls yes). (+text-in only; 0 of image/audio/video/PDF)
 - Pricing (as of 2026-09-23): **Free OpenCode Zen promotional tier** (repo `meta.json` freeTierNote "Fast agentic coding and tool calls") — $0 within Zen rate limits. noFreeId absent → free tier exists.

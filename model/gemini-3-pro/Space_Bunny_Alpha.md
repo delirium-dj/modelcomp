@@ -67,7 +67,7 @@ Sources consulted: [Artificial Analysis Gemini 3 Pro](https://artificialanalysis
 - **Multimodal: 92/100.** Native text/image/audio/video input and 81.0% MMMU-Pro provide broad multimodal capability, though public exact-model visual evidence is limited.
 - **Coding: 86/100.** SWE-bench Verified at 76.2%, SciCode at 56%, LiveCodeBench at 2,439 Elo, and Terminal-Bench at 56.9% are strong; SWE-bench Pro at 43.3% caps the rating.
 - **Cost efficiency: 62/100.** Rescored down from 76. At $2/$12 the model was already the expensive end of its generation, and it was **discontinued on 2026-03-09** — Artificial Analysis now reports its pricing from third-party providers only and gives no speed or cost-per-task measurement. Nothing new can be routed to it.
-- **Overall Score: 88.2/100.** (87 + 88 + 88 + 92 + 86) / 5 = 441 / 5 = 88.0. Unchanged because cost efficiency is excluded from the mean. A capable multimodal reasoning and coding model with a 1M context, historically best for multimodal agents and long-context work — but the model is off sale, so route to Gemini 3.1 Pro, which AA scores at 30 with CritPt 18%, HLE 47%, and AA-LCR 82%.
+- **Overall Score: 88.0/100.** (87 + 88 + 88 + 92 + 86) / 5 = 441 / 5 = 88.0. Unchanged because cost efficiency is excluded from the mean. A capable multimodal reasoning and coding model with a 1M context, historically best for multimodal agents and long-context work — but the model is off sale, so route to Gemini 3.1 Pro, which AA scores at 30 with CritPt 18%, HLE 47%, and AA-LCR 82%.
 
 ---
 

@@ -61,7 +61,7 @@ Multimodal:
 - **Context window: 75/100.** **Scored on this repo's meta 128K** (methodology 128K ≈ 75); full model advertises 1M (would be ~94) — free endpoint may be the limiter; no retrieval curve.
 - **Multimodal: 90/100.** Native text+image+video+audio in on the model card (upper band); discount only for possible free-endpoint modality stripping (meta's text-only line).
 - **Coding: 85/100.** DeepSWE 67.9 and MiMo Code Bench 61.2 are strong agentic coding (vendor); Visual Coding 71.5 unique; no public SWE-Verified row for V2.6 Flash specifically — high but one tier below measured frontier SWE-Pro leaders.
-- **Cost efficiency: 100/100.** **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)** (meta) → maximum (promo/data-collection caveat).
+- **Cost efficiency: 100/100.** **Free Zen tier** (meta) → maximum (promo/data-collection caveat).
 - **Overall Score: 84/100.** Mean of five quality dims (88+82+75+90+85)/5 = 84.0 → **84**. **Deviation note:** single peer (`Gemini_3.6_Flash`) averaged **71.2** here — this report weights Xiaomi's much higher agentic tables (TB2.1 87.6, Toolathlon 73.6) and full omnimodal surface; **self-evaluation bias possible** — recommend a third-party re-score after independent AA/GPQA rows for V2.6 Flash appear. Best-fit: free multimodal agent coding + OSWorld-style GUI work on Zen while the promo lasts.
 
 ---

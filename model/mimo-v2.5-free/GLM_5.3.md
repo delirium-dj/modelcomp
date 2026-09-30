@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** MiMo V2.5 Free (Xiaomi MiMo-V2.5)
-- **Short description:** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) of Xiaomi's open-weights omni MiMo-V2.5 (April 2026) — full text/image/audio/video input at $0 during the limited free period. Top use case: free omni + balanced agent/coding work.
+- **Short description:** Free Zen tier of Xiaomi's open-weights omni MiMo-V2.5 (April 2026) — full text/image/audio/video input at $0 during the limited free period. Top use case: free omni + balanced agent/coding work.
 - **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1/chat/completions` (openai-compatible); OpenRouter `xiaomi/mimo-v2.5` ($0.105/$0.28); native Xiaomi platform serves the full 1M window.
 - **Release / knowledge:** 2026-04-22 (BenchmarkList/OpenRouter); knowledge cutoff not publicly disclosed.
 - **IDs:** `opencode/mimo-v2.5-free` (Zen Free ID, limited time — data used to improve the model)

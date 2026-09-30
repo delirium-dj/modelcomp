@@ -1,7 +1,7 @@
 # DeepSeek V4 Vision Exp — findings by Muse Spark 1.3
 
 - Source: DeepSeek/DeepSeek V4 Flash Vision Exp (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86); re-verified 2026-09-29 (UTC, user-signed-off re-research: card reconfirmed + NL2Repo 57.7 + Cybergym 75.3 + Automation 25.7 added, DSBench-Hard recategorized to Coding, image-cap/caveat noted — scores unchanged, Overall holds 86)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/deepseek-v4-vision-exp` (Free experimental ID exists on Zen; native `deepseek-v4-flash-vision-exp` on DeepSeek API)
 - **Context window:** 1,048,576 in / 393,216 out — verified via llm-stats provider comparison (1,048,576 vs V4.1-Flash 1,040,000, both 393,216 out)
 - **Modalities:** text, image in; text out; reasoning yes (max effort, temp 1.0 top_p 0.95 per model-card eval setup); tool calls yes; document/chart screenshot understanding yes
-- **Pricing (as of 2026-09-21):** $0.22 in / $0.66 out per 1M off-peak ($0.44/$1.32 peak; $0.007 cached input) — verified via llm-stats pricing panel and chat-deep API matrix; images ≤384 tokens each at text rates (~$0.000085/image off-peak) with 800×800 downscale caveat for dense OCR; Free Zen experimental tier available (re-verified 2026-09-29)
+- **Pricing (as of 2026-09-21):** $0.22 in / $0.66 out per 1M off-peak ($0.44/$1.32 peak; $0.007 cached input) — verified via llm-stats pricing panel and chat-deep API matrix; Free Zen experimental tier available
 - **Architecture:** open-weights MoE, ~284–305B total (Flash base 284B total / 13B active per DeepSeek paper; model card 305B with MIT license), vision encoder + aligner + DFlash attention + Hyper-Connections, continued training (not stitched adapter)
 
 ### Raw benchmarks found
@@ -27,9 +27,6 @@ Agent / tool use:
 - Terminal-Bench 2.1: **83.9%** (DeepSeek model-card table via AILog, vs 0731 baseline 82.7)
 - Toolathlon-Verified: **75.9%** (same table, vs 0731 70.3)
 - Agents' Last Exam: **27.3** (same table, vs Opus 4.8 25.7 — win)
-- NL2Repo: **57.7** (same table, vs 0731 54.2 — re-verified 2026-09-29)
-- Cybergym: **75.3** (same table, vs 0731 76.7 — re-verified 2026-09-29)
-- AutomationBench (Public): **25.7** (same table, vs 0731 25.1 — re-verified 2026-09-29)
 - ZeroBench Pass@5: **35.0** (same table, vs Opus 4.8 34.0 — win)
 - ApexBench Pass@1: **36.5** (same table, vs 0731 26.2 ignoring multimodal inputs; vs Opus 4.8 39.4 — loss)
 - Chartography: **64.3** (same table, vs Opus 4.8 65.0 — loss)
@@ -42,6 +39,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **88.1% GPQA Pass@1** (chat-deep V4 Flash Max official table — text-parity proxy; Vision-Exp holds small leads over 0731 across text-agent side per model card)
 - HLE: **no verified public score found**
+- DSBench-Hard: **63.6** (model-card table, vs 0731 59.6)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **0.52 Intelligence Index #28 / 0.53 Agentic Index #12** (apxml benchmark panel)
@@ -51,7 +49,7 @@ Coding:
 
 - SWE-bench Verified / SWE-Pro: **79.0% SWE Verified Resolved** (chat-deep V4 Flash Max official table — text-parity proxy)
 - LiveCodeBench: **91.6% LiveCodeBench-v6 Pass@1-CoT** (same official table — text-parity proxy); LiveBench Coding **0.68 #60** (apxml panel)
-- DeepSWE: **59.3** (model-card table, vs 0731 54.4); DSBench-Hard: **63.6** (same table, vs 0731 59.6 — recategorized from Reasoning on re-verification 2026-09-29)
+- DeepSWE: **59.3** (model-card table, vs 0731 54.4)
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
 - Coding Index / other: **0.65 Coding Index #30** (apxml panel); LiveBench Agentic **0.65 #3**, Reasoning 0.85 #32, Mathematics 0.88 #45
@@ -69,7 +67,7 @@ Long context:
 > scored independently and excluded from Overall.
 
 - **Tool use: 84/100.** TB2.1 83.9%, Toolathlon 75.9% and Agents' Last Exam win over Opus 4.8 show strong multimodal agency; capped by missing Tau3/GDPval harnesses.
-- **Reasoning: 80/100.** GPQA 88.1% text-parity proxy plus ApexBench vision lift show solid reasoning; capped by no published HLE/LCR/CritPt absolutes.
+- **Reasoning: 80/100.** GPQA 88.1% text-parity proxy plus DSBench-Hard 63.6 and ApexBench vision lift show solid reasoning; capped by no published HLE/LCR/CritPt absolutes.
 - **Context window: 96/100.** Verified 1,048,576 in / 393,216 out with MRCR-1M 78.7 proxy maps to the top tier; capped below 100 without Vision-Exp-labeled retrieval saturation proof.
 - **Multimodal: 85/100.** Native image-in continuation training with ZeroBench/Agents-Exam wins and Chartography near-parity to Opus 4.8; capped by text-only output with no video/audio synthesis.
 - **Coding: 84/100.** DeepSWE 59.3, SWE 79.0 proxy and LiveCode 91.6 proxy with DSBench-Hard gains show strong multimodal coding; capped by missing SWE-Pro/Vibe absolutes.

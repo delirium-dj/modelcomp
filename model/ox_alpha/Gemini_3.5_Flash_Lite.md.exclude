@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ox-alpha`
 - **Context window:** 200K tokens.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access.
+- **Pricing (as of 2026-09-18):** Free Zen tier access.
 - **Architecture:** Experimental open-weights reasoning transformer.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 78/100.** 200K context window.
 - **Multimodal: 15/100.** Text-in/text-out only.
 - **Coding: 81/100.** Capable experimental coding assistance.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0 cost).
+- **Cost efficiency: 100/100.** Free Zen tier access ($0 cost).
 - **Overall Score: 67.6/100.** Promising experimental reasoning model.
 
 ---

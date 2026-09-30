@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2-6-free`
 - **Context window:** 128,000 tokens total (verified via OpenCode Zen documentation).
 - **Modalities:** Text in; text out; tool calls supported.
-- **Pricing (as of 2026-09-19):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
+- **Pricing (as of 2026-09-19):** Free Zen tier ($0).
 - **Architecture:** Dense transformer architecture with open weights.
 
 ### Raw benchmarks found

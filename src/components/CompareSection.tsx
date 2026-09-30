@@ -4,7 +4,6 @@ import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor } fr
 import type { AiModel, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
-import { withFreeZenLink } from "./freeZenLink";
 import type { RadarDatum } from "./HexRadar";
 
 interface CompareSectionProps {
@@ -247,7 +246,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   <td key={s.model.id} class="break-words px-3 py-2 align-top text-slate-800 dark:text-slate-200">
                     <ul class="m-0 list-none space-y-0.5 p-0">
                       {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
-                        <li key={tier}>{withFreeZenLink(tier)}</li>
+                        <li key={tier}>{tier}</li>
                       ))}
                     </ul>
                   </td>
@@ -302,7 +301,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   <dd class="text-right text-slate-800 dark:text-slate-200">
                     <ul class="m-0 list-none space-y-0.5 p-0">
                       {(s.model.meta.pricingTiers ?? [s.model.meta.pricingNote]).map((tier) => (
-                        <li key={tier}>{withFreeZenLink(tier)}</li>
+                        <li key={tier}>{tier}</li>
                       ))}
                     </ul>
                   </dd>

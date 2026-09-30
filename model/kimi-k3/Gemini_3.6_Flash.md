@@ -1,7 +1,7 @@
 # Kimi K3 — findings by Gemini 3.6 Flash
 
 - Source: Moonshot AI (`moonshotai/kimi-k3`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `moonshotai/kimi-k3` (no Zen Free ID)
 - **Context window:** 1,048,576 tokens (1M input / 1M max output); verified via vendor API docs.
 - **Modalities:** Text, image, document input; text output; structured function calling.
-- **Pricing (as of 2026-09-29):** $3.00 / 1M input, $15.00 / 1M output ($0.30 cached; Paid tier).
+- **Pricing (as of 2026-09-18):** $3.00 / 1M input, $15.00 / 1M output ($0.30 cached; Paid tier).
 - **Architecture:** Proprietary Mixture-of-Experts (~2.8T parameters).
 
 ### Raw benchmarks found
@@ -56,11 +56,11 @@ Long context:
 - **Multimodal: 82/100.** Native support for text, image, and multi-page document vision understanding.
 - **Coding: 89/100.** Strong SWE-bench Verified (77.5%) and LiveCodeBench performance.
 - **Cost efficiency: 48/100.** Commercial paid tier ($3/$15 per 1M tokens) with prompt caching discounts.
-- **Overall Score: 88/100.** Mean of five quality dims (89+90+90+82+89)/5 = 88.0 → 88. Top-tier long-context flagship model for technical document analysis and agentic workflows.
+- **Overall Score: 88.0/100.** Top-tier long-context flagship model for technical document analysis and agentic workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-18
+- Method: Public internet research; scores are normalized 1–100 interpretations.

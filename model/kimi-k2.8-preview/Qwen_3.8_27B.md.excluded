@@ -1,8 +1,6 @@
-# Kimi K2.8 Preview — findings by Qwen 3.8 27B
+# Kimi K2.8 Preview — findings by Qwen 3.8 27B (SELF-EXCLUDED)
 
-> SELF-EXCLUDED (no verified public benchmarks for this exact model/ID) — scores inside are ignored by `pnpm sync`.
-
-- Source: Moonshot AI/Kimi K2.8 Preview (`moonshot/kimi-k2-8-preview` via OpenCode Zen)
+- Source: MoonshotAI (`kimi-k2.8-preview`)
 - Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -10,36 +8,60 @@
 ## Model card
 
 - **Name:** Kimi K2.8 Preview
-- **Short description:** Per curated project metadata: Moonshot AI's mid-tier coding/agentic model inside Kimi Code, positioned between K2.7 Code and flagship K3, with 1M context. Variant of the Kimi K2 line.
-- **Provider / access:** Kimi membership plans (no per-token billing); OpenCode Zen ID `moonshot/kimi-k2-8-preview` (no Zen Free ID).
-- **Release / knowledge:** preview-tier release, exact date not publicly verified in this research.
-- **IDs:** `moonshot/kimi-k2-8-preview` (no Free ID on Zen)
-- **Context window:** 1,048,576 (1M) per curated meta
-- **Modalities:** Text, image in; text out (per curated meta)
-- **Pricing (as of 2026-09-29):** Kimi membership plan (no per-token billing)
-- **Architecture:** not publicly disclosed for this exact ID
+- **Short description:** Moonshot AI's mid-tier coding/agentic preview checkpoint (Sept 2026), positioned between the coding-focused Kimi K2.7 Code and the flagship Kimi K3; closed/proprietary, a departure from the open-weight K2.7 Code and K3.
+- **Provider / access:** Moonshot first-party API + Kimi Code / Kimi Work apps; same API model ID as K2.7 Code (`kimi-for-coding`), so existing clients pick it up without config changes. Third-party gateway: TokenRa. No OpenCode Zen Free ID verified in this pass.
+- **Release / knowledge:** released 2026-09-11 (Moonshot via KuCoin/PANews reporting, llm-stats); knowledge cutoff not disclosed.
+- **IDs:** `moonshotai/kimi-k2.8-preview` (OpenCode data compare page); API id `kimi-for-coding` (shared with K2.7 Code). Proprietary — no open weights.
+- **Context window:** 1M total on every Kimi Code membership tier, up from 262,144 on K2.7 Code (Moonshot announcement via KuCoin flash; llm-stats confirms 1.0M).
+- **Modalities:** text / image / video in, text out; reasoning yes — three thinking-effort levels (low / high / max), max by default.
+- **Pricing (as of 2026-09-29):** no official first-party API pricing published for the preview as of 2026-09-15; gateway TokenRa lists ~$0.80 in / $3.35 out / $0.14 cached in per 1M (indicator only, not an official rate card).
+- **Architecture:** not disclosed (proprietary); MoE family (K2.7 Code / K3 are MoE) — unverified for this exact checkpoint.
 
 ### Raw benchmarks found
 
-- Agent / tool use (Terminal-Bench, Tau3, GDPval-AA, Claw-Eval): no verified public score found
-- Reasoning (GPQA Diamond, HLE, LCR, CritPt, AA Intelligence Index): no verified public score found
-- Coding (SWE-bench Verified, LiveCodeBench, SciCode, Vibe Code Bench): no verified public score found
-- Long context (MRCR / RULER): no verified public score found
+Agent / tool use:
 
-### Research notes (negative findings)
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
-- Wikipedia `Kimi (AI)` (checked 2026-09-29) documents K2 (Jul 2025, 1T/32B), K2-Instruct-0905 (256K ctx), K2.5 (Jan 2026, multimodal), K2.6 (Apr 2026), K2.7 Code (Jun 2026) and K3 (Jul 2026, 2.8T, open weights; AA Index 44 on the LLM leaderboard, HLE 46.9) — but no K2.8 entry of any kind.
-- Wikipedia full-text search for `K2.8` (2026-09-29): no relevant hits.
-- Artificial Analysis LLM leaderboard snapshot (2026-09-29): rows exist for Kimi K3 (max) 44 and Kimi K2.7 Code 26, but no row for a K2.8 / K2.8 Preview model.
-- Conclusion: zero verified public benchmark numbers for the exact `kimi-k2-8-preview` ID → self-excluded per template SELF-EXCLUSION and `tasks/sync-data.md` QUAR criteria. Nearest publicly verified siblings: K2.7 Code (AA Index 26, 256K) and K3 (AA Index 44, 1.05M).
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 1M window announced; no long-context retrieval reported.
+
+Negative-findings notes:
+
+- Moonshot's only published claim is qualitative: coding/agent performance "close to K3" with more efficient thinking vs K2.7 Code (vendor, via KuCoin/PANews). CCTest reporting (2026-09) explicitly notes the near-K3 claim is not yet backed by public benchmarks or independent testing; no LiveCodeBench / SWE-bench third-party scores exist as of 2026-09-29.
+- OpenCode's compare data shows no benchmark rows for this model (50/100 neutral placeholders only) and near-zero usage (17 sessions, 0% token share, 2026-09-29).
+- Zero verified public benchmark numbers for this exact model/ID → saved as `.md.excluded` per the template's SELF-EXCLUSION rule. Re-research once independent scores (LiveCodeBench, SWE-bench, TB2.1, AA Index) are published.
 
 ### Normalized scores (1–100)
 
-Not scored — self-excluded (no verified public benchmarks for this exact model/ID).
+- Scores omitted — self-excluded; no verified benchmarks to normalize.
 
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 27B (openrouter/qwen/qwen3.8-27b:free)** — 2026-09-29
-- Method: public internet research (Wikipedia `Kimi (AI)`, Wikipedia search API, Artificial Analysis LLM leaderboard snapshot 2026-09-29); negative-findings report, no values copied from peer files.
+- Method: public internet research (llm-stats, OpenCode data compare, MagicShot/PANews/KuCoin/CCTest launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -71,9 +71,3 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (BenchLM, models.dev Zen registry, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research found one BenchLM-side revision: the GDPval-AA Elo row was revised 1091 to 1000 (the normalized 33.1% cited alongside it is unchanged). Design Arena Website display drifted 1149 to 1147 (trivial). All other cited values (TB2.1 56.4%, TB Hard 36.4%, Tau3 70.9%, Tau2 83.3%, PinchBench 90.0%, GPQA 87.0%, HLE 26.7%, AA-LCR 67.0%, SWE-bench Verified 71.9%, LCB v6 89.0%, Index 22.9) re-verify unchanged. The tool-use score relied on the unchanged Tau3/Tau2/PinchBench rows, so the six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

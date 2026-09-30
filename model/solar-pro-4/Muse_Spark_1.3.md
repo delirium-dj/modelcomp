@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by Muse Spark 1.3
 
 - Source: Upstage/Solar Pro 4 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: vendor/AA reconfirmed + HLE 29.2 + Omni −1/19%/24% + SciCode 44.6 + GPQA 89.1-variant added; Coding 82 → 83 — Overall holds 69)
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,21 +36,21 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.0%** (Upstage blog; **89.1%** ModelBeat/Epoch variant — re-verified 2026-09-29)
+- GPQA Diamond: **89.0%** (Upstage official blog table, +3.4 over 85.6)
 - MMLU-Pro: **86.3%** (same table, +0.1)
 - AIME 2026: **95.3%** (same table, −0.4)
 - AA-LCR: **71.0%** (same table, +8.3 over 62.7; Seoul Economic Daily confirms 71, 2.3x predecessor)
-- HLE: **29.2%** (ModelBeat/Epoch AI — re-verified 2026-09-29)
+- HLE: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **42 AA Index** (Upstage PR + Seoul Economic Daily, Aug 2026, 3x predecessor; ahead of Nemotron 3 Ultra 38 and Gemini 3.5 Flash-Light 37)
-- Omniscience: **−1 index** (abstention-driven: 41% attempt; Accuracy 19%, hallucination 24% — AA via article — re-verified 2026-09-29)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - CrucibleMark proxies: Total Silver 75.42 (#21), Logical Reasoning 74.85, Code Quality 74.36, LLM Judge 3.85/5
 
 Coding:
 
 - SWE-bench Verified: **70.6% SWE-Verified (OpenHands harness)** (Upstage official blog table, +1.4 over 69.2)
 - LiveCodeBench: **87.8%** (same table, +0.8 over 87.0)
-- SciCode: **44.6%** (ModelBeat/Epoch AI — re-verified 2026-09-29)
+- SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: **no verified public score found** (closest proxy: ModelBench Coding Index #83/202; CrucibleMark Code Quality 74.36)
 
@@ -70,9 +70,9 @@ Long context:
 - **Reasoning: 82/100.** GPQA 89.0%, MMLU-Pro 86.3% and AIME 95.3% with AA Index 42 show strong enterprise reasoning; capped by missing HLE/CritPt absolutes.
 - **Context window: 90/100.** Verified 524K (512K vendor baseline) with AA-LCR 71.0 maps to the upper 500K–1M band; capped below true 1M models.
 - **Multimodal: 15/100.** No vision/attachment input per catalog; text-only floor applies.
-- **Coding: 83/100.** SWE-Verified 70.6% plus LiveCode 87.8% and SciCode 44.6% with Code Quality 74.36 show solid production coding; capped by missing SWE-Pro/DeepSWE absolutes.
+- **Coding: 82/100.** SWE-Verified 70.6% and LiveCode 87.8% with Code Quality 74.36 show solid production coding; capped by missing SWE-Pro/DeepSWE absolutes.
 - **Cost efficiency: 94/100.** $0.30/$1.20 upstream ($0.03/$0.12 budget routes) is cheap paid value with no $0 tier.
-- **Overall Score: 69/100.** Mean of the five non-cost dims (74+82+90+15+83)/5 = 68.8 → 69; best-fit reliable enterprise agent for document-heavy workflows where Korean/English production stability matters.
+- **Overall Score: 69/100.** Mean of the five non-cost dims (74+82+90+15+82)/5 = 68.6; best-fit reliable enterprise agent for document-heavy workflows where Korean/English production stability matters.
 
 ---
 

@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Gemini 3.6 Flash
 
 - Source: Zhipu AI / Z.AI (`glm-5.2-coding`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `z.ai/glm-5.2`, `opencode/glm-5.2`
 - **Context window:** 1M total tokens (1,000,000 in / 128K out — verified via Z.AI API specs)
 - **Modalities:** Text in/out (no native vision/multimodal)
-- **Pricing (as of 2026-09-29):** $1.40 input / $4.40 output per 1M tokens ($0.26 cached input per 1M). Paid pricing tier.
+- **Pricing (as of 2026-09-21):** $1.40 input / $4.40 output per 1M tokens ($0.26 cached input per 1M). Paid pricing tier.
 - **Architecture:** 753B parameter Mixture-of-Experts (MoE) with 40B active parameters.
 
 ### Raw benchmarks found
@@ -56,11 +56,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input/output architecture; baseline score of 15 assigned for non-multimodal models per methodology.
 - **Coding: 94/100.** SOTA open-weights SWE-bench Pro (62.1%) and LiveCodeBench performance for autonomous software engineering.
 - **Cost efficiency: 78/100.** Competitive pricing at $1.40/$4.40 per 1M tokens with input caching discounts.
-- **Overall Score: 76/100.** Mean of five quality dimensions (85+88+98+15+94)/5 = 76.0 → 76. Exceptional open-weights coding and long-context engine.
+- **Overall Score: 76.0/100.** Mean of five quality dimensions (85, 88, 98, 15, 94). Exceptional open-weights coding and long-context engine.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Method: Public web research & benchmark aggregation; scores normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `Claude_Opus_4.8.md`, using the same headings.

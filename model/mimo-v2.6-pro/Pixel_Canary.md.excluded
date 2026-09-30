@@ -1,0 +1,37 @@
+# MiMo V2.6 Pro — findings by Pixel Canary
+
+- Source: Xiaomi (`xiaomi/mimo-v2.6-pro`), API ID `mimo-v2.6-pro` (weights `XiaomiMiMo/MiMo-V2.6-Pro-RL`)
+- Date: 2026-09-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Xiaomi MiMo-V2.6-Pro (RL flagship of the MiMo-V2.6 series; no free API tier — paid, plus MIT open weights)
+- **Short description:** Xiaomi's native omnimodal (text/image/video/audio in) sparse-MoE flagship, open-sourced 2026-09-21/22 under MIT and trained with six days of large-scale agentic RL toward recursive self-improvement. Top open-weights model on the AA Intelligence Index; sibling of MiMo-V2.6-Flash.
+- **Provider / access:** Xiaomi MiMo Open Platform API (`mimo-v2.6-pro`, plus `mimo-v2.6-pro-ultraspeed` up to 20× faster), MiMo Studio / MiMo Code / Xiaomi MiMo Desktop, OpenRouter, Hugging Face weights; self-host via SGLang (TP16/DP2) or vLLM with `--reasoning-parser mimo --tool-call-parser mimo`. Chat Completions-style OpenAI-compatible API.
+- **Release / knowledge:** Released 2026-09-21 (technical report date) / announced 2026-09-22; knowledge cutoff not published.
+- **IDs:** `xiaomi/mimo-v2.6-pro`; API names are all-lowercase `mimo-v2.6-pro`, `mimo-v2.6-flash`, `mimo-v2.6-pro-ultraspeed`. No OpenCode Zen Free ID — cost scored on paid pricing.
+- **Context window:** 1M tokens native (Xiaomi model summary + Artificial Analysis); max output not published.
+- **Modalities:** Text, image, video, audio in; text out. Reasoning: yes (reasoning parser, thinking on by default per deployment recipes). Tool calling: yes (tool-call parser, agent harnesses). JSON/structured output supported through the OpenAI-compatible endpoint.
+- **Pricing (as of 2026-09-29):** $0.435 / 1M input, $0.87 / 1M output, 99% cache-read discount (≈$0.0036 cached; AA blended $0.18 / 1M at 7:2:1). AA measured **$0.13 per Intelligence-Index task**. Same price card as the V2.5 series; MIT weights make self-hosting free (hardware aside).
+- **Architecture:** Sparse MoE, 1.02T total / 42B activated parameters, 70 layers (60 sliding-window + 10 global attention), 384 routed experts with 8 active, no shared experts, 5-layer MTP speculative decoder (DFlash-style), 681M MiMo ViT vision encoder, 308M AudioTokenizer + 127M audio patch encoder. MIT license, weights on Hugging Face/ModelScope.
+
+### Raw benchmarks found
+
+Agent / tool use (Xiaomi technical-report table, MiMo-V2.6-Pro-RL column):
+
+- Toolathlon-Verified: **76.9** (vs Claude Opus 5 80.6, Claude Fable 5 77.9, GPT-5.6 Sol 74.9)
+- AutomationBench v1.0.6: **53.1** (vs Opus 5 50.3, GPT-5.6 Sol 45.8, Fable 5 46.2 — best in the comparison set)
+- OSWorld-Verified (computer use): **82.0** (vs Opus 5 83.4, GPT-5.6 Sol 83.0, Fable 5 86.0)
+- Terminal-Bench 2.1: **89.9** (vs Opus 5 89.1, GPT-5.6 Sol 88.8, Fable 5 84.3 — highest in the table)
+- JobBench (long-horizon work): **62.0** (vs Opus 5 65.7, GPT-5.6 Sol 45.4, Fable 5 57.4)
+- CyberGym **94.0**, MiMo Cyber Bench **80.2**, ExploitGym **17.8**, ExploitBench **47.9**, SEC Bench Pro **66.3** (agentic security; closed flagships lead ExploitBench at 70–78.5)
+- GDPval-AA 2.1: **1673** Elo (Opus 5 1708, GPT-5.6 Sol 1588, Fable 5 1595)
+- Artificial Analysis Intelligence Index v4.3.2: **46**, rank **#1 / 116** in the open-weights large class (class median 18); Xiaomi notes it trails Claude Fable 5.1 and GPT-6 Astra
+- AA inference metrics: **41.1 output tok/s** (#52/116, median 81.8), TTFT **3.93 s** (median 2.01 s), cost rank **#13 / 116**
+- GPQA Diamond / HLE / MMLU-Pro: no verified public score found (Xiaomi reports agent-task suites; HLE is an Index component but not broken out for this ID)
+- Tau2 / Tau3-Banking: no verified public score found; Toolathlon-Verified 76.9 + AutomationBench 53.1 are the verified tool-use evidence
+- CritPt / LCR / MLCR / Omniscience Accuracy + Hallucination Rate / GDP.pdf: no verified public score found (Index components, not individually published for this ID)
+
+<!--MORE-->

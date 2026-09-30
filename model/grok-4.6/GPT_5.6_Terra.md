@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by GPT 5.6 Terra
 
 - Source: xAI / Grok 4.6
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-19 original)
+- Date: 2026-09-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,10 +66,6 @@ Long context:
 - **Overall Score: 82.2/100.** Half-up mean of Tool use, Reasoning, Context window, Multimodal, and Coding: (82 + 91 + 86 + 60 + 92) / 5 = 82.2; best suited to high-capability coding and tool-using work where image input is sufficient.
 
 ---
-
-## 2026-09-30 verification addendum
-
-xAI's first-party release page confirms **61 AA Intelligence Index**, **1753 GDPVal-AA v2 Elo**, **69.9% CursorBench 3.2**, **65.9% DeepSWE v1.1**, **61.3% FrontierCode 1.1 Extended**, **57.5% APEX-Agents**, **26.0% Terminal-Bench 3.0**, **56.4% APEX-SWE**, and **15.8% Harvey LAB** for Grok 4.6 High. It also confirms API availability, $2/$6 per-million-token starting pricing, and a twice-priced fast variant. The original normalized scores remain supported. [xAI release](https://x.ai/news/grok-4-6)
 
 ## Signature
 

@@ -1,7 +1,7 @@
 # Claude Sonnet 4 — findings by Space Bunny Alpha
 
 - Source: Anthropic (`claude-sonnet-4-20250514`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-27 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,29 +10,23 @@
 - **Name:** Claude Sonnet 4 (May 2025 generation, mid-tier)
 - **Short description:** Anthropic's May 2025 Sonnet, a strong coding/agent model in its
   own launch window and the direct predecessor of the 4.5/4.6 Sonnet line. **It is
-  retired**: Anthropic's model-deprecations table lists `claude-sonnet-4-20250514` as
-  **Retired** (deprecated 2026-04-14, retirement date **June 15, 2026**) with
-  `claude-sonnet-4-6` named as the recommended replacement. Re-verified 2026-09-29 —
-  the state has moved from "deprecated" to **"Retired"**, and the `claude-sonnet-4-0`
-  alias is dead with the snapshot. It is kept here as a historical reference point, not
-  a current recommendation. Distinct from `claude-sonnet-4.5` / `claude-sonnet-4.6` /
-  `claude-sonnet-5`.
+  retired**: Anthropic shut `claude-sonnet-4-20250514` down on 2026-06-15 with
+  `claude-sonnet-4-6` named as the replacement, and Artificial Analysis flags it
+  "deprecated". It is kept here as a historical reference point, not a current
+  recommendation. Distinct from `claude-sonnet-4.5` / `claude-sonnet-4.6` / `claude-sonnet-5`.
 - **Provider / access:** Anthropic Messages API, model ID `claude-sonnet-4-20250514`;
   also AWS Bedrock and Google Vertex AI. Anthropic's own schema, not OpenAI-compatible.
   **Retired from all three as of 2026-06-15** — no live endpoint to score against.
 - **Release / knowledge:** released 2025-05-22; knowledge cutoff **2025-03-01**
   (Artificial Analysis technical specifications; aiflashreport lists "2025-03").
-- **IDs:** `claude-sonnet-4-20250514` (Anthropic/Claude Platform; the `claude-sonnet-4-0`
-  alias resolved to this snapshot and stopped resolving on 2026-06-15). The snapshot was
-  also deprecated in GitHub Copilot on **2026-05-06**. No Free-tier Zen ID exists;
-  Artificial Analysis now shows $0.00/$0.00 only because the model is withdrawn
+- **IDs:** `claude-sonnet-4-20250514` (Anthropic/Bedrock/Vertex). No Free-tier Zen ID
+  exists; Artificial Analysis now shows $0.00/$0.00 only because the model is withdrawn
   from the API, **not** because it is free.
 - **Context window:** **200,000 tokens** default, 64K max output (Anthropic pricing/docs;
-  BenchLM and aiflashreport both list 200K). The **1M-token context beta
-  (`context-1m-2025-08-07`) for Sonnet 4 and Sonnet 4.5 expired on 2026-04-30** —
-  **changed**: the prior revision treated 1M as a reachable tier. Artificial Analysis
-  still lists 1.0M on the model page, but that figure is now historical. The evals below
-  were run at 200K.
+  BenchLM and aiflashreport both list 200K). A **1M-token context beta** was offered for
+  the Claude 4 generation and Artificial Analysis lists the context window as 1.0M, so
+  1M is reachable but was never the default served limit — the 200K figure is what the
+  public evals below were run at.
 - **Modalities:** text + image in (PDF via document blocks), text out; non-reasoning
   (no extended thinking); tool calls; no audio/video input; no non-text output.
 - **Pricing (as of 2026-09-27):** list price at retirement was **$3.00 / 1M input,
@@ -71,13 +65,8 @@ Reasoning / knowledge:
   reading on both, consistent rather than a one-off harness glitch.
 - Artificial Analysis Intelligence Index / BenchLM overall: AA Intelligence Index
   **17** (#41/299 among non-reasoning models; "well above average" vs. a class median of
-  7, but far below the 60+ frontier band). **The current v4.3.2 index could not be read
-  for this retired model on 2026-09-29**; comparison pages still serve it as
-  **Claude 4 Sonnet (Non-reasoning) 26** / **Claude 4 Sonnet (Reasoning) 22** on the
-  older v4.1.1/v4.2 basis, and AA now shows a "deprecated — benchmarking limited to the
-  default 10k input workload" banner on the Claude 4 generation. BenchLM overall
-  **36.08/100, #129 of 508** (15/486 benchmarks covered — partial, conservative).
-  Epoch AI Capabilities Index **142, rank 94/253**.
+  7, but far below the 60+ frontier band). BenchLM overall **36.08/100, #129 of 508**
+  (15/486 benchmarks covered — partial, conservative).
 - Omniscience Accuracy / Hallucination Rate: **22.7% / 41.0%**; AA-Omniscience Index
   **−9.0%** (BenchLM) — a genuinely *negative* knowledge-reliability index, i.e. it
   produced more wrong answers than right on the probed set.
@@ -119,14 +108,15 @@ Long context:
   Omniscience Index of −9.0%, ARC-AGI-2 at 5.9% and an AA Intelligence Index of only 17 —
   squarely the methodology's "GPQA 60–80%, HLE <10%, LCR <40%, Index 20–35 → 55–65"
   band, nudged to the low end because the index is below even that band.
-- **Context window: 62/100.** Down from 78. The default served limit was 200K, and the
-  1M context beta that justified the prior uplift **expired on 2026-04-30**, so 200K is
-  the only limit this model ever served for any meaningful window. No MRCR/RULER/GraphWalks
-  retrieval was ever measured, AA-LCR is a mid-band 44.0%, and max output is only 64K.
+- **Context window: 78/100.** The default served limit is 200K, which the methodology
+  maps to 70, and a documented 1M context beta (which Artificial Analysis lists as the
+  model's context window) justifies the uplift toward the 500K–1M tier; it is held below
+  85 because no MRCR/RULER/GraphWalks retrieval was ever measured for this model and
+  AA-LCR is a mid-band 44.0%, plus max output is only 64K.
 - **Multimodal: 68/100.** Text and image in with document/PDF blocks, text out — the
   methodology's "+image in = 60–70" band, supported by MMMU 74.4% and AA-MMMU-Pro
   62.4%. Capped because nothing leaves the text channel and there is no audio or video
-  input. Score unchanged.
+  input.
 - **Coding: 72/100.** SWE-bench Verified 72.7% was a strong launch number and SciCode
   40.0% / Aider Polyglot 56.4% are respectable; it sits in the 65–75 mid band rather than
   the 90+ frontier band because LiveCodeBench is only 59.7%, Terminal-Bench 2.0 is
@@ -134,23 +124,20 @@ Long context:
 - **Cost efficiency: 60/100.** $3.00 in / $15.00 out is the methodology's explicit
   ~$3/$15 ≈ 60 anchor. Noted: the model is now withdrawn, so this is a historical price,
   and Artificial Analysis's current $0.00/$0.00 display reflects unavailability, not value.
-- **Overall Score: 63.0/100.** (55 + 58 + 62 + 68 + 72) / 5 = 315 / 5 = 63.0, down
-  from 66.2 on 2026-09-27. The only change is Context window, driven by the expiry of the
-  1M context beta on 2026-04-30. Best read as a historical baseline: a capable
-  2025-vintage coder whose tool-use and knowledge-hygiene numbers have been overtaken by
-  every current-generation alternative, and which is fully retired. For any live workload,
-  `claude-sonnet-4-6` or later supersedes it.
+- **Overall Score: 66.2/100.** (55 + 58 + 78 + 68 + 72) / 5 = 66.2 — best read as a
+  historical baseline: a capable 2025-vintage coder whose tool-use and knowledge-hygiene
+  numbers have been overtaken by every current-generation alternative, and which is no
+  longer purchasable. For any live workload, `claude-sonnet-4-6` or later supersedes it.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
-- Method: public internet research (Anthropic model-deprecations table, Artificial Analysis
-  model pages and Intelligence Index methodology, GitHub Copilot changelog, Epoch AI,
-  BenchLM model and benchmark leaderboards, LLM Stats Terminal-Bench
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
+- Method: public internet research (Artificial Analysis model page and Intelligence Index
+  methodology, BenchLM model and benchmark leaderboards, LLM Stats Terminal-Bench
   leaderboard, Anthropic pricing documentation, aiflashreport and anotherwrapper
-  aggregators for cross-checks), re-verified 2026-09-29. Scores are normalized 1–100
-  interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+  aggregators for cross-checks). Scores are normalized 1–100 interpretations, not
+  official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Sonnet_4_Recheck.md`, using the
   same headings.

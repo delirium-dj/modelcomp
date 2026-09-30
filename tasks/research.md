@@ -38,13 +38,12 @@ Your delegator file sets AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
 Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
 Follow tasks/research.md exactly:
-1. Audit EVERY directory under model/, models_voice/, and models_finance/ (including empty folders or folders
+1. Audit EVERY directory under model/ and models_voice/ (including empty folders or folders
    without average.md / meta.json / src/data/models.ts references).
 2. Your queue = folders missing <parent>/<slug>/<STEM>.md, sorted by the
    "- **Overall Score:" line of each <parent>/<slug>/average.md descending
    (missing average.md = last, A-Z). Newly discovered slugs append at end
-   (voice/speech discoveries go under models_voice/ per RULES.md; `models_finance/`
-   holds retired-agent mirrors — audit it, but never create new folders there).
+   (voice/speech discoveries go under models_voice/ per RULES.md).
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write <parent>/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete.
@@ -56,9 +55,9 @@ Follow tasks/research.md exactly:
 
 ### Step 1: Directory audit + ordering
 
-- Scan all subdirectories in `model/`, `models_voice/`, and `models_finance/` (e.g. `model/big-pickle/`, `models_voice/gpt-realtime-2/`).
+- Scan all subdirectories in `model/` and `models_voice/` (e.g. `model/big-pickle/`, `models_voice/gpt-realtime-2/`).
 - Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
-- For each `<parent>/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder — including `models_finance/` mirrors).
+- For each `<parent>/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
 - Missing list = queue base. Order it:
   1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
   2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
@@ -70,17 +69,14 @@ Follow tasks/research.md exactly:
 
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
-  no folder under `model/`, `models_voice/`, or `models_finance/`:
+  no folder under `model/` or `models_voice/`:
   1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
       `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
-      folder first — `pnpm sync` fails hyphen variants loudly). Never scaffold a
-      folder from a vendor-prefixed id (`google-…`, `opencode-…`): strip the
-      prefix and use the canonical slug — merged-and-deleted duplicate slugs are
-      denylisted in `scripts/sync-data.mjs` (`MERGED_SLUGS`) and FAIL loudly.
+      folder first — `pnpm sync` fails hyphen variants loudly).
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), the
-      parent is `models_voice/<slug>/`, not `model/<slug>/` — check all three trees
-      for an existing folder first (never create inside `models_finance/`).
+      parent is `models_voice/<slug>/`, not `model/<slug>/` — check both trees
+      for an existing folder first.
   3. Create `<parent>/<slug>/` (empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   4. Append `<parent>/<slug>` to the END of your queue (after all ranked folders), in discovery order.
 
@@ -110,7 +106,7 @@ For each queued slug, in order:
 
 ### Step 4: Verification (no builds)
 
-- Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from any `<parent>/<slug>/` (all three trees sit at the same depth, so `../../` works everywhere).
+- Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 - All `<...>` placeholders replaced; no values copied from peer files.
 - Permanence holds (`RULES.md`): only new `<Your_Filename>` files added; the
   sole allowed deletion is your own `.md.excluded` twin after a re-research
@@ -151,6 +147,5 @@ For each queued slug, in order:
     scaffold folders for names with zero evidence of a real model behind them.
 12. **Never delete research:** `RULES.md` (ultimate) — no agent or
     orchestrator ever deletes, overwrites, or moves another agent's files or
-    any `<parent>/<slug>/` folder under `model/`, `models_voice/`, or
-    `models_finance/`. The sole deletable file is your own
+    any `model/<slug>/` folder. The sole deletable file is your own
     `.md.excluded` twin after re-research with new evidence (Step 3.3).

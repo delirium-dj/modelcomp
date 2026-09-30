@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-5.6-terra`)
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,10 +51,6 @@ Long context:
 - **Overall Score: 87.4/100.** Mean of the five quality dimensions: (85 + 89 + 95 + 78 + 90) / 5 = 87.4; best suited to tool-enabled, long-context work where a paid mid-tier model is appropriate.
 
 ---
-
-## 2026-09-30 verification addendum
-
-Official OpenAI model documentation continues to list `gpt-5.6-terra` as the GPT-5.6 model that balances intelligence and cost. It confirms a **1.05M-token context window**, **128K maximum output**, **February 16, 2026 cutoff**, **$2/$12 per-million-token input/output pricing**, image input, and support for functions, web search, file search, and computer use. No newer official Terra-specific benchmark table was found in this refresh, so the existing raw benchmarks and normalized scores are retained. [Official OpenAI model listing](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4)
 
 ## Signature
 

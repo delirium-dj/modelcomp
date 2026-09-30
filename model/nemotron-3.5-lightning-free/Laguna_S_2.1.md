@@ -32,7 +32,7 @@
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded. Anchored on current AA Intelligence Index v4.3.2 = 13 (#31/142 open-weights; median 8), same-scale-consistent with my other Sept-2026 findings (Nemotron-3-Ultra-Free Index 23→54 here; Lightning's Index 13 is the smaller/faster sibling tier). [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) sets Cost = 100.
+> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded. Anchored on current AA Intelligence Index v4.3.2 = 13 (#31/142 open-weights; median 8), same-scale-consistent with my other Sept-2026 findings (Nemotron-3-Ultra-Free Index 23→54 here; Lightning's Index 13 is the smaller/faster sibling tier). Free Zen tier sets Cost = 100.
 
 - **Tool use: 45/100.** Intelligence Index 13 (AA composite includes Terminal-Bench + GDPval-AA + coding) — "well above average among comparable open-weights" but the 3.6B-active efficiency tier sits well below frontier open-weights (40+); no standalone Terminal-Bench/GDPval/SWE-bench % located.
 - **Reasoning: 42/100.** Intelligence Index 13 + reasoning variant (AA) + lightning-fast 267 tok/s; capped by no GPQA/HLE/CritPt and the efficiency-tier Index below frontier.

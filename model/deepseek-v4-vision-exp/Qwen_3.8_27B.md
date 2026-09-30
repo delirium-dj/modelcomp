@@ -13,7 +13,7 @@
 **Architecture:** V4-Flash MoE backbone (284B text lineage; vision package ≈304.6B total, 256 experts, 6 active per token, FP4 experts, ~168GB) + vision encoder + aligner; DFlash attention, Hyper-Connections, fused DSpark draft module. Built on the V4-Flash-0731 text checkpoint.
 **Context window:** 1,000,000 in / 384K out — inherits the V4-Flash line's native 1M context (documented for the V4 Flash family; vLLM recipe confirms 1M). Note: repo meta.json lists 200K, which conflicts with the official V4 Flash documentation; scored on the documented 1M.
 **Modalities:** Text + image in (JPEG/PNG/GIF/WebP, ≤384 tokens/image, ≤600 images/request) → text out. No video/audio input; no image generation.
-**Pricing:** Billed at V4-Flash rates with no vision premium: $0.14/M input (miss), $0.0028/M cache-hit, $0.28/M output. [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available in this ecosystem.
+**Pricing:** Billed at V4-Flash rates with no vision premium: $0.14/M input (miss), $0.0028/M cache-hit, $0.28/M output. Free OpenCode Zen tier available in this ecosystem.
 
 ### Raw benchmarks found
 

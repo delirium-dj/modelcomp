@@ -14,13 +14,13 @@ export const Hero = component$(() => {
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a
-            href="/#compare"
+            href="#compare"
             class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
           >
             Compare models
           </a>
           <a
-            href="/#methodology"
+            href="#methodology"
             class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:text-white"
           >
             How scoring works

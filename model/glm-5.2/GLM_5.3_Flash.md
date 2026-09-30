@@ -14,7 +14,7 @@
 - **IDs:** `glm-5.2` (Z.AI) / `opencode/glm-5.2` (Zen — free tier available per repo catalog).
 - **Context window:** 1,000,000-token input (Z.ai/opper; IndexShare designed for full-1M operation), ~131K max output. Note: OpenCode Zen's curated meta still lists a 204K serve window — verify the Zen-side cap before long-context work.
 - **Modalities:** text in / text out (repo catalog; GLM-5 series text convention). Thinking-effort levels High and Max; tools, structured output, caching.
-- **Pricing (as of 2026-09-18):** Z.AI route $1.40 in / $4.40 out per 1M (cache $0.26); cheap routes from $0.70/$2.20 (DigitalOcean) and $0.75/$2.40 (DeepInfra) — opper route table. [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available (repo catalog).
+- **Pricing (as of 2026-09-18):** Z.AI route $1.40 in / $4.40 out per 1M (cache $0.26); cheap routes from $0.70/$2.20 (DigitalOcean) and $0.75/$2.40 (DeepInfra) — opper route table. Free Zen tier available (repo catalog).
 - **Architecture:** sparse MoE, 744B total / 40B active, MIT license, self-hostable; IndexShare shares one indexer across every four attention layers (2.9× per-token compute reduction at 1M, Z.ai claim).
 
 ### Raw benchmarks found
@@ -49,7 +49,7 @@ Long context:
 - **Context window: 100/100.** Native 1M with IndexShare built to hold recall at full depth and long-context reasoning 78% measured; 131K output; only the unverified Zen 204K serve cap gives pause.
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 90/100.** SWE-Pro 62.1 (open-weights frontier), SciCode 51, AA Coding Index 68.8.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (repo catalog) plus $1.40/$4.40 list with $0.70/$2.20 third-party routes and MIT self-hosting as floors.
+- **Cost efficiency: 100/100.** Free Zen tier (repo catalog) plus $1.40/$4.40 list with $0.70/$2.20 third-party routes and MIT self-hosting as floors.
 - **Overall Score: 75/100.** Mean: (87 + 83 + 100 + 15 + 90 + 100) / 6 = 475/6 = 79.2 → **79**. Best fit: open-weights 1M-context flagship for repo-scale agents — text-only modality is the one real trade.
 
 ---

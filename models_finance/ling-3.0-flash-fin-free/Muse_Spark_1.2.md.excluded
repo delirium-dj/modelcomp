@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ling-3-0-flash-fin-free`
 - **Context window:** 262,144 (256K marketed) / 32K out
 - **Modalities:** Text in/out only
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 (Vercel free via 2026-09-25) — note: [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (limited-time promo)
+- **Pricing (as of 2026-09-23):** Free Zen tier $0/$0 (Vercel free via 2026-09-25) — note: Free Zen tier (limited-time promo)
 - **Architecture:** Proprietary
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 72/100.** 262,144 (256K marketed) / 32K out — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
 - **Multimodal: 15/100.** Text in/out only; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
 - **Coding: 60/100.** Evidence HumanEval 19/19 valid ; SWE-Pro no public number; capped by missing isolated LiveCode/SciCode where noted.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 (Vercel free via 2026-09-25).
+- **Cost efficiency: 100/100.** Free Zen tier $0/$0 (Vercel free via 2026-09-25).
 - **Overall Score: 53/100.** Mean of five non-cost dims (58+58+72+15+60)/5=52.6 → 53; best-fit per scoring methodology.
 
 ---

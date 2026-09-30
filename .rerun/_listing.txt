@@ -1,0 +1,18 @@
+
+FullName                                                               Length LastWriteTime
+--------                                                               ------ -------------
+E:\qwik\modelcomp\.rerun\_findings.txt                                   7835 29-Sep-26 12:23:55 PM
+E:\qwik\modelcomp\.rerun\_listing.txt                                     899 29-Sep-26 12:23:55 PM
+E:\qwik\modelcomp\.rerun\_top.txt                                          76 29-Sep-26 12:23:55 PM
+E:\qwik\modelcomp\.rerun\gemini-3.8-flash.md                             6768 29-Sep-26 12:17:23 PM
+E:\qwik\modelcomp\.rerun\muse-spark-1.3.md                               7722 29-Sep-26 12:26:58 PM
+E:\qwik\modelcomp\.rerun\old\claude-opus-4.8.DeepSeek_4.1_Flash.md       5520 29-Sep-26 12:16:17 PM
+E:\qwik\modelcomp\.rerun\old\gemini-3.1-pro.DeepSeek_4.1_Flash.md        7089 29-Sep-26 12:16:17 PM
+E:\qwik\modelcomp\.rerun\old\gemini-3.8-flash.DeepSeek_4.1_Flash.md      6090 29-Sep-26 12:16:17 PM
+E:\qwik\modelcomp\.rerun\old\gpt-6-astra.DeepSeek_4.1_Flash.md           6132 29-Sep-26 12:16:17 PM
+E:\qwik\modelcomp\.rerun\old\muse-spark-1.3-free.DeepSeek_4.1_Flash.md   5585 29-Sep-26 12:16:17 PM
+E:\qwik\modelcomp\.rerun\prior\gemini-3.1-pro.md                         5894 29-Sep-26 12:10:27 PM
+E:\qwik\modelcomp\.rerun\prior\gemini-3.8-flash.md                       5980 29-Sep-26 9:28:20 AM
+E:\qwik\modelcomp\.rerun\prior\gpt-6-astra.md                            5963 29-Sep-26 12:11:04 PM
+
+

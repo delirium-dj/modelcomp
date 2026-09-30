@@ -79,9 +79,3 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (BenchLM, official zai-org/GLM-5.3 Hugging Face model card and vendor benchmark table, OpenCode Zen pricing); scores are normalized 1–100 interpretations, not official vendor scores. Note: the researcher is itself the GLM-5.3 model; every number above is sourced from third-party or officially published vendor data, not self-assessment.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research re-verified every cited row. One revised value found: the AA Briefcase Elo row was revised 1525 to 1517 (ongoing AA Elo updates; not score-relevant). Design Arena Website display drifted 1312 to 1309 and the GDPval-AA normalized field now displays 57.2% (57.3% cited, rounding). All other values - TB2.1 88.2%, GDPval-AA 1769, Tau3 50.3%, Toolathlon-V 73.0%, GPQA 91.7%, HLE 62.5% w tools, SWE-bench (Vals) 95.4%, DeepSWE 66.9%, Index 44.8 - re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

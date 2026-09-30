@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 71.6/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 72.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 71.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 71.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Context window: 67.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Multimodal: 91.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Coding: 56.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Cost efficiency: 81.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 71.8/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 71.5/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
@@ -19,4 +19,4 @@
 
 - Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
 - Average from top 7 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT 5.6 Terra, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0 Flash Fin, LongCat 2.5 Preview, Mimo v2.6 Flash, MiniMax M3, Qwen 3.8 27B, Solar Pro 4, Space Bunny Alpha.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, Laguna S 2.1, Ling 3.0 Flash Fin, Mimo v2.6 Flash, MiniMax M3, Solar Pro 4, Space Bunny Alpha.

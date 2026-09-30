@@ -14,7 +14,7 @@
 - **IDs:** `opencode/big-pickle`
 - **Context window:** 200K total (160K in / 32K out) — verified via Zen endpoint specs.
 - **Modalities:** Text in/out only; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equiv. GLM-4.6 ~$0.60/$2.20 per 1M tokens.
+- **Pricing (as of 2026-09-18):** Free Zen tier; paid equiv. GLM-4.6 ~$0.60/$2.20 per 1M tokens.
 - **Architecture:** Proprietary / open-weights MoE (GLM-4.6 base).
 
 ### Raw benchmarks found

@@ -69,9 +69,3 @@ Multimodal (grounding):
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
 - Method: public internet research (Artificial Analysis, BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research found two BenchLM-side revisions: the GDPval-AA Elo row was revised 1605 to 1643 (the normalized value is unchanged at 55.3% - the figure the tool-use score actually relied on), and the AA Briefcase 1546 row no longer appears on the BenchLM page (AA Elo table update). All other cited values (TB2.1 Vals 78.3%, Tau3 50.7%, Agentic Index 53.4%, GPQA 94.9%, HLE 42.9%, SWE-bench Vals 95.6%, DeepSWE 65.9%, LCB 88.2%, Index 44.3) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

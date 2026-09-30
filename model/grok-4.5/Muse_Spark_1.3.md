@@ -1,7 +1,7 @@
 # Grok 4.5 — findings by Muse Spark 1.3
 
 - Source: xAI/Grok 4.5, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: lane variances + LiveCode/Vulcan/ARC rows added, Reasoning 92 → 91, Coding 82 → 85, Overall holds 83); re-verified 2026-09-29 (UTC, user-signed-off re-research: SWE-Marathon 29.0 + hallu-rate caveat + server-tool fees added, launch-table reconfirmed; Coding 85 → 86 — Overall holds 83)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: lane variances + LiveCode/Vulcan/ARC rows added, Reasoning 92 → 91, Coding 82 → 85, Overall holds 83)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/grok-4.5` (paid tier; cost scored on paid pricing)
 - **Context window:** 500K input tokens, up to 450K max output — verified via llm-stats compare pages and AI Cost Compare specs
 - **Modalities:** Text, image, file in; text out; reasoning yes; tool calls and JSON mode yes
-- **Pricing (as of 2026-09-23):** $2.00/$6.00 per 1M in/out, cache reads $0.30/1M (verified via Qubrid launch analysis, llm-stats, AI Cost Compare). No $0 tier — paid only. Notable efficiency: ~15,954 avg output tokens per SWE-Pro task, ~4.2× fewer than Claude Opus 4.8 (xAI via Qubrid). Server-side tools billed per call (search/code-exec $5/1K — re-verified 2026-09-29).
+- **Pricing (as of 2026-09-23):** $2.00/$6.00 per 1M in/out, cache reads $0.30/1M (verified via Qubrid launch analysis, llm-stats, AI Cost Compare). No $0 tier — paid only. Notable efficiency: ~15,954 avg output tokens per SWE-Pro task, ~4.2× fewer than Claude Opus 4.8 (xAI via Qubrid).
 - **Architecture:** Proprietary (undisclosed params); trained across tens of thousands of NVIDIA GB300 GPUs with async RL rollouts (per xAI via Qubrid)
 
 ### Raw benchmarks found
@@ -39,13 +39,12 @@ Reasoning / knowledge:
 - ARC-AGI-2: **52.6%** (BenchLM mirror); **ARC-AGI-3 0.3%** (BenchLM mirror — weak tail); **MMLU-Pro 89.2%** (BenchLM GPQA-D Vals lane 92.9%)
 - CritPt: no verified public score found
 - Artificial Analysis Intelligence Index / BenchLM overall: AA Index **55.8** / BenchLM overall 68.64
-- Omniscience Accuracy / Hallucination Rate: AA-Omniscience Index 63.0 (llm-stats) — split accuracy/hallucination rates: no verified public score found; **54% hallucination rate** per ARMES (vs 25% for 4.3 — caveat — re-verified 2026-09-29)
+- Omniscience Accuracy / Hallucination Rate: AA-Omniscience Index 63.0 (llm-stats) — split accuracy/hallucination rates: no verified public score found
 - LLM Stats Score 45.5–45.8 (#26/27, 11 evals)
 
 Coding:
 
 - SWE-bench Verified / SWE-Pro: SWE-Pro **64.7%** (xAI official); Verified proper: no verified public score found; **86.6% SWE Vals** and **78% Multilingual** (BenchLM mirrors); **89.9% VulcanBench v3**, **66.7% cursorBench32**, **42.4% FrontierCode 1.1** (BenchLM mirrors)
-- SWE Marathon: **29.0% pass@1** (xAI launch; beats Opus 4.8 26.0% — re-verified 2026-09-29)
 - LiveCodeBench: **67.7%** (LLMPodium); **87.4% Vals lane** (BenchLM mirror — harness differs)
 - SciCode / AA-SciCode: **54.1%** (AA independent)
 - Vibe Code Bench: no verified public score found
@@ -61,9 +60,9 @@ Long context:
 - **Reasoning: 91/100.** GPQA ~93% with HLE ~41% and MMLU-Pro 89.2% clears the frontier bar; capped by ARC-AGI-2 52.6% mid-pack and the ARC-AGI-3 0.3% tail.
 - **Context window: 87/100.** 500K window with AA-LCR 74%; top of the sub-1M band, no 1M-tier retrieval proof.
 - **Multimodal: 68/100.** Image and file input with text-only output — upper image-in band, no video/audio evidence.
-- **Coding: 86/100.** SWE-Pro 64.7% plus SWE Marathon 29.0% (beats Opus 4.8), LiveCode 67.7% (87.4% Vals lane), SWE Vals 86.6% and VulcanBench 89.9% show broad coding; capped by DeepSWE 53% trailing leaders.
+- **Coding: 85/100.** SWE-Pro 64.7% plus LiveCode 67.7% (87.4% Vals lane), SWE Vals 86.6%, VulcanBench 89.9% and cursorBench 66.7% show broad coding; capped by DeepSWE 53% trailing leaders.
 - **Cost efficiency: 78/100.** $2.00/$6.00 paid pricing plus best-in-class token efficiency (~4× fewer tokens per task than Opus 4.8) — cheap to run, not $0.
-- **Overall Score: 83/100.** Mean of (85 + 91 + 87 + 68 + 86) / 5 = 83.4 → 83; best fit as a token-efficient agentic coder where per-task cost matters.
+- **Overall Score: 83/100.** Mean of (85 + 91 + 87 + 68 + 85) / 5 = 83.2 → 83; best fit as a token-efficient agentic coder where per-task cost matters.
 
 ---
 

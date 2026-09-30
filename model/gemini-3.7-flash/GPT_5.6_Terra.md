@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`gemini-3.7-flash`)
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,10 +54,6 @@ Long context:
 - **Overall Score: 91/100.** Mean of the five quality dimensions: (87 + 88 + 98 + 92 + 90) / 5 = 91.0; best for long-context, multimodal agent workflows when Google's managed platform is suitable.
 
 ---
-
-## 2026-09-30 verification addendum
-
-Fresh official verification confirms **56 Artificial Analysis Intelligence Index**, **43.6% FrontierCode 1.1**, **65.3% DeepSWE v1.1**, **85.8% Terminal-Bench 2.1**, **1525 GDPval-AA v2 Elo**, **90.7% Harvey LAB-AA**, **97.0% MRCR v2 at 128K**, **53.6% HLE-Verified**, and the 1M input / 64K output specification. Google notes that the introductory $0.75/$3.75 per-million-token price expires at the end of 2026, after which $1.50/$7.50 applies. The existing scores already reflect these facts and remain unchanged. [Google DeepMind model card](https://deepmind.google/models/model-cards/gemini-3-7-flash/)
 
 ## Signature
 

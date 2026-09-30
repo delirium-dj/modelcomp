@@ -11,10 +11,10 @@
 - **Short description:** DeepSeek's flagship Mixture-of-Experts (MoE) reasoning and coding powerhouse.
 - **Provider / access:** OpenCode Zen `opencode/deepseek-v4-pro`, Chat Completions API.
 - **Release / knowledge:** 2026-01-20; knowledge cutoff December 2025.
-- **IDs:** `opencode/deepseek-v4-pro` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available during promotional window)
+- **IDs:** `opencode/deepseek-v4-pro` (Free Zen tier available during promotional window)
 - **Context window:** 128K total tokens (128K in / 16K out) verified via official model documentation.
 - **Modalities:** Text in/out, advanced reasoning, function calling, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.55 / $2.19 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.55 / $2.19 per 1M tokens.
 - **Architecture:** Mixture-of-Experts (MoE) architecture (~671B total / ~37B active parameters), open-weights.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 89/100.** Reliable 128K context handling with high retrieval fidelity.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 89/100.** Industry-leading coding and SWE-bench performance.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) promotion ($0/1M).
+- **Cost efficiency: 100/100.** Free Zen tier promotion ($0/1M).
 - **Overall Score: 74.2/100.** Premier frontier reasoning and coding MoE model.
 
 ---

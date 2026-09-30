@@ -15,9 +15,9 @@
 - **Context window:** 1,048,576 input tokens; **65,536 output tokens** (Google model documentation; Vertex AI confirms the input limit).
 - **Modalities:** Text, code, image, audio, video, and PDF input; text output; thinking (default `minimal`, with `medium`/`high` advised for subagents), function calling, structured outputs, code execution, search grounding, file search, URL context, Maps grounding, caching, batch/flex/priority inference, and computer use (preview) supported. Image/audio generation and the Live API are not supported.
 - **Pricing (as of 2026-09-29):** **$0.25 per 1M input, $0.025 cached input, $1.50 output** — unchanged from the prior revision and still the cheapest 1M-context multimodal tier in the Gemini 3 line. OpenRouter batch is ~$0.125 in / $0.75 out; Vertex/Google Cloud list $0.30 / $2.50.
-- **Speed / latency:** Artificial Analysis now reports **305.1 output tokens/s** (**#7 of 177** in its price class) and **5.33 s TTFT** — **both changed since the prior revision, which recorded ~199 output tokens/s and ~7.8 s TTFT**. The fastest single route is Google AI Studio at 318.6 t/s. TTFT remains slow for a "lite" tier.
+- **Speed / latency:** Artificial Analysis reports roughly **199 output tokens/s** and **~7.8 s TTFT** on the standard route — the TTFT is slow for a "lite" tier.
 - **Architecture:** Proprietary; Google has not disclosed parameter count.
-- **Deprecation / retirement:** The GA model is **not yet deprecated, but a hard shutdown date is published: May 7, 2027** (earliest possible), with **`gemini-3.5-flash-lite` as Google's recommended replacement** on the first-party Gemini API; the Vertex AI entry publishes the same May 7, 2027 retirement with no replacement named (re-verified 2026-09-29, unchanged). Gemini 3.5 Flash-Lite is GA (July 21, 2026), priced higher at $0.30 / $2.50. **The prior revision's "scores 37 vs 26" comparison is superseded**: on the current index Gemini 3.1 Flash-Lite is **19 (estimated)**, #57 of 177. Separately, Vertex AI still lists the preview as discontinued **July 9, 2026**, one month later than the first-party shutdown of May 25, 2026. Gemini 2.5 Flash-Lite retires October 20, 2026 with Gemini 3.1 Flash-Lite named as a replacement, so the model still absorbs migration traffic.
+- **Deprecation / retirement:** The GA model is **not yet deprecated, but a hard shutdown date is published: 2027-05-07**, with **Google's recommended replacement being `gemini-3.5-flash-lite`** (Google deprecations table, verified 2026-09-29). Gemini 3.5 Flash-Lite is GA (2026-07-21), priced higher at $0.30 / $2.50, and scores 37 on the Artificial Analysis Intelligence Index against 26 for 3.1 Flash-Lite.
 
 ### Raw benchmarks found
 
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **82.2%** (Artificial Analysis); the earlier Vals AI/BenchLM reading was 81.1%.
 - MMLU-Pro (Vals AI): **86.2%** (BenchLM, Vals AI leaderboard).
 - Humanity's Last Exam: **17.2%** (Artificial Analysis) — **added**; previously recorded as not found.
-- Artificial Analysis Intelligence Index **v4.3.2**: **19 (estimated)**, ranked **#57 of 177** in its price-class comparison (comparable-model median 12) — **changed**; the prior revision recorded the displayed value 26 and no v4.3.2 reading. A stale comparison page still shows 26 against Gemini 3 Pro Preview (low) at 34.
+- Artificial Analysis Intelligence Index: **26** (comparable-model median 18) as displayed on the AA model page; **no verified v4.3.2 reading (ceiling 58) was found**, so the value is recorded as displayed.
 - LCR/MLCR, CritPt, and hallucination metrics: **no verified public exact value found**
 
 Coding:
@@ -56,12 +56,12 @@ Sources consulted: [Google Gemini deprecations table](https://ai.google.dev/gemi
 ### Normalized scores (1–100)
 
 - **Tool use: 55/100.** Down from 62. The newly available Artificial Analysis rows are weak and now measurable: Terminal-Bench 2.1 31.1%, Terminal-Bench Hard 24.2%, τ²-bench 31.3%, τ-bench Banking 9.7%, against a documented but broad tool surface. The 2026-09-24 report could not see the τ and Terminal-Bench Hard rows and therefore over-weighted the documented tool list.
-- **Reasoning: 68/100.** Down from 72. HLE 17.2% is verified and is low; GPQA 82.2% and MMLU-Pro 86.2% are solid. LCR/CritPt remain absent, and the **newly verified AA Intelligence Index v4.3.2 value of 19 against a ceiling of 58** is the reason for the drop — the prior revision scored against a stale displayed 26. Score changed.
+- **Reasoning: 72/100.** Down from 75. HLE 17.2% is now verified and is low; GPQA 82.2% and MMLU-Pro 86.2% are solid. LCR/CritPt remain absent and the AA index reading of 26 (old-index basis) is mid-field.
 - **Context window: 95/100.** Unchanged. A 1M input context is confirmed, and the long-context reasoning composite of 71.3% now supplies the exact-model retrieval evidence the prior revision lacked.
 - **Multimodal: 95/100.** Unchanged. Google explicitly documents text, code, image, audio, video, and PDF input with text output.
 - **Coding: 68/100.** Down from 70. SciCode 41.9% is confirmed and Vibe Code Bench remains 0.00%; LiveCodeBench 80.1% and SWE-bench Vals 62.8% are the only strong rows, and SWE-Pro/DeepSWE are absent.
 - **Cost efficiency: 96/100.** Unchanged. The $0.25/$1.50 rate and $0.025 cached input remain highly competitive for a 1M multimodal model.
-- **Overall Score: 76.2/100.** (55 + 68 + 95 + 95 + 68) / 5 = 381 / 5 = 76.2, down from 77.0 on 2026-09-29. The only quality change is Reasoning, driven by the newly verified AA Intelligence Index v4.3.2 value of 19 (ceiling 58); faster output (305.1 t/s, 5.33 s TTFT) is recorded but does not enter Overall. Best fit: inexpensive high-volume multimodal extraction and subagent tasks, with little evidence for hard agentic coding and a retirement clock running to 2027-05-07.
+- **Overall Score: 77.0/100.** (55 + 72 + 95 + 95 + 68) / 5 = 385 / 5 = 77.0, down from 79.4 on 2026-09-24. The drop is entirely from newly verified weak agentic and SciCode rows, offset slightly by stronger long-context evidence. Best fit: inexpensive high-volume multimodal extraction and subagent tasks, with little evidence for hard agentic coding and a retirement clock running to 2027-05-07.
 
 ---
 

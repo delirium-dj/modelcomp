@@ -13,10 +13,9 @@
 - **Release / knowledge:** Hugging Face repository metadata shows creation on 2026-03-11; Artificial Analysis and LM Market Cap list the public release as **April 2026**. Google model-card citation identifies the Gemma 4 technical report as 2026. Training-data cutoff: **January 2025** (Google model card).
 - **IDs:** `google/gemma-4-31B-it`; base model `google/gemma-4-31B`.
 - **Context window:** **256K tokens** input (262,144) with a **16,384-token maximum output** (Google model card and LM Market Cap, re-verified 2026-09-29). The 16K output cap was **added** in this revision; the prior report recorded it as not shown.
-- **Modalities:** Text, image, **and video** input; text output. **Video input is newly documented on the Artificial Analysis model page (re-verified 2026-09-29); the prior revision recorded text/image only.** Thinking can be enabled with the documented control token; native function calling is supported. The 31B Google table lists text/image, not audio, for this variant.
+- **Modalities:** Text and image input; text output. Thinking can be enabled with the documented control token; native function calling is supported. The 31B table lists text/image, not audio, for this variant.
 - **Pricing (as of 2026-09-29):** No fixed first-party Google API price. Artificial Analysis lists **$0.00/1M** for the open-weight route; third-party hosted routes are around **$0.09 in / $0.34 out per 1M** (LM Market Cap). Self-hosting has infrastructure cost. The model is not treated as free merely because it is open-weight.
-- **Speed / latency:** Artificial Analysis measures **35.5 output tokens/s** (**#59 of 142**, below the 87.9 t/s open-weight median) and **1.00 s TTFT** (class median 2.20 s) on Google's API — the 35 t/s figure is confirmed, now quoted as 35.5. Cerebras reports **1,851 output tokens/s** and **~1.5 s** to first answer token. A community vLLM run on one RTX PRO 6000 reported ~0.7 s median TTFT. Speed is provider-dependent and drifts.
-- **Release (AA):** AA states a release date of **April 2, 2026**; the model page header says April 2026. Available through **12 API providers** on AA.
+- **Speed / latency:** Artificial Analysis measures **35 output tokens/s** and **1.00 s TTFT** on a standard hosted route; Cerebras reports **1,851 output tokens/s** and **~1.5 s** to first answer token. A community vLLM run on one RTX PRO 6000 reported ~0.7 s median TTFT. Speed is provider-dependent and drifts.
 - **Architecture:** Dense **30.7B** total parameters; 60 layers; hybrid local/global attention with a 1024-token sliding window; ~550M vision encoder parameters; Apache-2.0 weights/license.
 - **Deprecation:** **No deprecation, retirement, or shutdown date is published.** The model remains a current open-weight release; no successor has been named.
 
@@ -36,7 +35,7 @@ Reasoning / knowledge:
 - AIME 2026 no tools: **89.2%** (Google Gemma 4 model-card table, 31B column)
 - HLE no tools: **19.5%**; HLE with search: **26.5%** (Google Gemma 4 model-card table, 31B column)
 - MMMLU: **88.4%**; BigBench Extra Hard: **74.4%** — **added** (Google model-card table, 31B column)
-- Artificial Analysis Intelligence Index **v4.3.2**: **19 (estimated)**, ranked **#28 of 679** overall and **#13 of 142** within its intelligence comparison class (comparable-model median 8) — **changed**: the prior revision recorded the displayed value 30 and no v4.3.2 reading. The 19 is flagged "Estimate (independent evaluation forthcoming)". The non-reasoning variant is listed at 22 on a stale-index comparison page.
+- Artificial Analysis Intelligence Index: **30** on the AA page as currently displayed; **no verified value for the current v4.3.2 index (ceiling 58) was found** for this model, so the older figure is recorded but not rescaled.
 - LCR/MLCR, CritPt, and hallucination metrics: **no verified public exact value found**
 
 Coding:
@@ -60,13 +59,13 @@ Sources consulted: [Google Gemma 4 model card](https://ai.google.dev/gemma/docs/
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Down from 73. Tau2 76.9% and native function calling remain credible, but Gert Labs 35.26% and SWE-Rebench 41.6% pull the measured agentic picture down, no exact Terminal-Bench, Toolathlon, or MCP score was found, and the newly verified v4.3.2 index of 19/58 is dominated by agentic evals (AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, τ³-Banking). Score changed.
-- **Reasoning: 72/100.** Down from 76. AIME 2026 89.2%, GPQA 84.3%, MMLU-Pro 85.2%, MMMLU 88.4%, and BBH 74.4% are strong model-card numbers, while HLE 19.5% without tools and 26.5% with search are substantially lower; LCR/CritPt remain absent and the **newly verified v4.3.2 index of 19/58 (ceiling 58) is the reason for the drop** — the prior revision's score was written with no v4.3.2 reading available. Score changed.
+- **Tool use: 73/100.** Tau2 76.9% and native function calling provide credible agent evidence, but the added Gert Labs 35.26% and SWE-Rebench 41.6% rows pull the measured agentic picture down and no exact Terminal-Bench, Toolathlon, or MCP score was found. Score unchanged from the prior revision.
+- **Reasoning: 76/100.** AIME 2026 89.2%, GPQA 84.3%, MMLU-Pro 85.2%, MMMLU 88.4%, and BBH 74.4% are strong, while HLE 19.5% without tools and 26.5% with search are substantially lower; missing LCR/CritPt values and the absence of a verified v4.3.2 index reading cap the score. Score unchanged.
 - **Context window: 82/100.** The 256K input context is verified and MRCR 128K 66.4% is a direct retrieval result, placing the model in the 200K–500K tier rather than the top 500K+ tier; the newly documented 16K output cap does not move the tier. Score unchanged.
-- **Multimodal: 92/100.** Up from 90. The 31B column reports MMMU-Pro 76.9%, MATH-Vision 85.6%, and OmniDocBench 1.5, and **Artificial Analysis now explicitly documents video input alongside text and image** (audio is still not listed). Score changed.
+- **Multimodal: 90/100.** Google explicitly lists text/image input with text output, and the 31B column reports MMMU-Pro 76.9%, MATH-Vision 85.6%, and OmniDocBench 1.5; audio is not listed for the 31B variant. Score unchanged.
 - **Coding: 76/100.** LiveCodeBench v6 80.0%, Codeforces ELO 2150, and React Native Evals 75.2% are useful, but exact SWE-bench, DeepSWE, SciCode, and Vibe Code Bench results are still unavailable. Score unchanged.
 - **Cost efficiency: 88/100.** Open weights and self-hosting avoid a mandatory vendor token price (AA lists $0.00/1M), while the 31B dense model still has substantial compute requirements; third-party routes run roughly $0.09/$0.34. Score unchanged.
-- **Overall Score: 78.0/100.** (68 + 72 + 82 + 92 + 76) / 5 = 390 / 5 = 78.0, down from 79.4 on 2026-09-29. The driver is the newly verified AA Intelligence Index **v4.3.2 value of 19 (ceiling 58)**, which lowered Tool use and Reasoning; newly documented video input partly offset it under Multimodal. Best fit: self-hosted multimodal reasoning and coding where an Apache-2.0 31B model and image/video understanding matter more than frontier tool scores.
+- **Overall Score: 79.4/100.** (73 + 76 + 82 + 90 + 76) / 5 = 397 / 5 = 79.4. Unchanged from 2026-09-24. Best fit: self-hosted multimodal reasoning and coding where an Apache-2.0 31B model and image understanding matter more than frontier tool scores.
 
 ---
 

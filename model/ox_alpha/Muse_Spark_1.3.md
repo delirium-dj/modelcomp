@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Muse Spark 1.3
 
 - Source: Stealth/Ox Alpha via OpenRouter (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: independent TB3.0 + LiveBench category rows added, Tool 74 → 75, Overall holds 83); re-verified 2026-09-29 (UTC, user-signed-off re-research: OpenRouter compare page checked — 1M context + provider-variable pricing confirmed — no new verified benchmark data, scores unchanged, Overall holds 83)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: independent TB3.0 + LiveBench category rows added, Tool 74 → 75, Overall holds 83)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

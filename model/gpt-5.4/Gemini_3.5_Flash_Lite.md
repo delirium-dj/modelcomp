@@ -11,10 +11,10 @@
 - **Short description:** OpenAI's advanced frontier model iteration focusing on enhanced agentic workflows and complex multi-step reasoning.
 - **Provider / access:** OpenCode Zen `opencode/gpt-5.4`, Chat Completions API.
 - **Release / knowledge:** 2026-01-10; knowledge cutoff December 2025.
-- **IDs:** `opencode/gpt-5.4` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available during promotional windows)
+- **IDs:** `opencode/gpt-5.4` (Free Zen tier available during promotional windows)
 - **Context window:** 128K total tokens (128K in / 16K out) verified via OpenAI system card.
 - **Modalities:** Text in/out, advanced reasoning, robust tool use, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$1.50 / $6.00 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$1.50 / $6.00 per 1M tokens.
 - **Architecture:** Proprietary frontier transformer architecture with integrated reasoning steps.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 89/100.** Highly reliable 128K context retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality in this tier configuration.
 - **Coding: 90/100.** Exceptional programming and SWE-bench performance.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) promotion ($0/1M).
+- **Cost efficiency: 100/100.** Free Zen tier promotion ($0/1M).
 - **Overall Score: 74.8/100.** Top-tier frontier model offering exceptional reasoning and tool execution.
 
 ---

@@ -11,10 +11,10 @@
 - **Short description:** xAI's high-performance frontier conversational and reasoning model with real-time data integration.
 - **Provider / access:** OpenCode Zen `opencode/grok-4.5`, Chat Completions API.
 - **Release / knowledge:** 2026-02-01; knowledge cutoff January 2026.
-- **IDs:** `opencode/grok-4.5` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available during promotion)
+- **IDs:** `opencode/grok-4.5` (Free Zen tier available during promotion)
 - **Context window:** 128K total tokens (128K in / 8K out) verified via xAI specifications.
 - **Modalities:** Text in/out, real-time web grounding, tool use, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$1.00 / $4.00 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$1.00 / $4.00 per 1M tokens.
 - **Architecture:** Frontier Transformer architecture developed by xAI.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 84/100.** Reliable 128K context retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality in this deployment.
 - **Coding: 83/100.** Strong software engineering and programming benchmarks.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M).
+- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
 - **Overall Score: 70.4/100.** Highly capable frontier model with excellent reasoning and real-time grounding.
 
 ---

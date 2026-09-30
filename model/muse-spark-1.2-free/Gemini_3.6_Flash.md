@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Gemini 3.6 Flash
 
 - Source: Meta (`opencode/muse-spark-1.2-contributor-free`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.2-contributor-free`
 - **Context window:** 1,048,576 tokens input / 32,768 max output; verified via Meta Research.
 - **Modalities:** Text, image, audio, video, PDF input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-29):** $0.00 / 1M input, $0.00 / 1M output (Free Zen Contributor tier).
+- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen Contributor tier).
 - **Architecture:** Open-weights MoE architecture.
 
 ### Raw benchmarks found
@@ -56,11 +56,11 @@ Long context:
 - **Multimodal: 90/100.** Extensive input modality coverage.
 - **Coding: 88/100.** Strong coding and tool-augmented debugging abilities.
 - **Cost efficiency: 100/100.** Free Contributor tier access ($0/1M tokens).
-- **Overall Score: 91/100.** Mean of five quality dims (90+88+100+90+88)/5 = 91.2 → 91. Near-frontier free coding model for long-horizon agents.
+- **Overall Score: 91/100.** Near-frontier free coding model for long-horizon agents.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Method: Public internet research; scores are normalized 1–100 interpretations.

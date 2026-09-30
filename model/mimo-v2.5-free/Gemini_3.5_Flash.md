@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 95/100.** Native omni-modal input coverage (text, images, audio, video) with outstanding performance.
 - **Coding: 47/100.** Highly proficient and versatile coding capability, suited for basic software tasks.
 - **Cost efficiency: 100/100.** Free capped tier access on OpenCode Zen makes it exceptionally cost-effective.
-- **Overall Score: 72/100.** Excellent omni-modal model offering great versatility, agentic traits, and solid coding on the [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
+- **Overall Score: 72/100.** Excellent omni-modal model offering great versatility, agentic traits, and solid coding on the Free Zen tier.
 
 ---
 

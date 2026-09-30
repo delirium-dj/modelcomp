@@ -11,10 +11,10 @@
 - **Short description:** Alibaba's high-speed, lightweight variant of Qwen 3.8 optimized for low latency and high throughput.
 - **Provider / access:** OpenCode Zen `opencode/qwen-3.8-flash`, Chat Completions API.
 - **Release / knowledge:** 2026-03-01; knowledge cutoff January 2026.
-- **IDs:** `opencode/qwen-3.8-flash` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
+- **IDs:** `opencode/qwen-3.8-flash` (Free Zen tier available)
 - **Context window:** 128K total tokens (128K in / 8K out) verified via official model card.
 - **Modalities:** Text in/out, tool calling, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.20 / $0.60 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.20 / $0.60 per 1M tokens.
 - **Architecture:** Dense transformer architecture (~14B parameters), open-weights license.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 84/100.** Full 128K context support with strong retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 79/100.** High-speed coding assistance and competitive coding benchmarks.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M tokens).
+- **Cost efficiency: 100/100.** Free Zen tier ($0/1M tokens).
 - **Overall Score: 67.6/100.** High-speed lightweight flash model providing great latency-to-performance ratio.
 
 ---

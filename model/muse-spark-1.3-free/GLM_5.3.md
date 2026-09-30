@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Muse Spark 1.3 Contributor Free
-- **Short description:** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) of Meta's Muse Spark 1.3 agentic/coding flagship (Sept 2026). Same weights as standard 1.3; pricing + data-consent differ. Top use case: long-horizon coding/agentic work at $0.
+- **Short description:** Free Zen tier of Meta's Muse Spark 1.3 agentic/coding flagship (Sept 2026). Same weights as standard 1.3; pricing + data-consent differ. Top use case: long-horizon coding/agentic work at $0.
 - **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1/responses` (OpenAI Responses-style, `@ai-sdk/openai`). Also Meta API and other gateways for the standard tier.
 - **Release / knowledge:** 2026-09-02; knowledge cutoff not publicly disclosed.
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` (Zen Free ID, limited time); standard tier `opencode/muse-spark-1.3` / Meta `muse-spark-1.3`.
@@ -71,9 +71,3 @@ Multimodal (grounding):
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
 - Method: public internet research (Artificial Analysis, BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research found one revised value: the AA Briefcase Elo row was revised 1597 to 1587 (ongoing AA Elo updates; not score-relevant). Design Arena Website display drifted 1365 to 1364 (trivial). All other cited values (TB2.1 88.8%, Tau3-Banking 50.5%, GDPval-AA 1754/58.7%, MRCR v2 98.5%/98.1%, GPQA 93.5%, HLE 48.7%, DeepSWE 75.4%, SWE-Atlas 59.4%, SciCode 58.8%, Index 45/48.1) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.8 Flash (125B efficiency tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price-cut + vision rows added; scores hold 85); re-verified 2026-09-29 (UTC, user-signed-off re-research: HF vendor-table breadth added — NL2Repo/JobBench/IFBench/ClawEval-MM/Recreation/Vision2Web/ERQA/LVBench/RealWorldQA/MathVision/CharXiv rows — + AA-56 corroboration; Tool 75 → 76, Multimodal 88 → 89, Overall 85 → 86)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price-cut + vision rows added; scores hold 85)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,21 +29,16 @@ Agent / tool use:
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: proxy (Flash-Next, provisional) Toolathlon-Verified **73.5%**; OSWorld 2.0 **19.4%** (weak row — noted); AndroidWorld **84.5%** (BenchLM)
 - Agents' Last Exam (proxy, provisional): **51.2%** (BenchLM Flash-Next page)
-- JobBench (proxy, provisional): **55.7%** (HF vendor table — re-verified 2026-09-29)
-- NL2Repo-Bench (proxy, provisional): **48.1%** (HF vendor table — re-verified 2026-09-29)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified Flash-exact number found. Proxy (Flash-Next, provisional): **91.7%** (GPQA/GPQA-D via modelscale); AA-GPQA **92.3%** (BenchLM)
 - HLE: no verified Flash-exact number found. Proxy (Flash-Next, provisional): **35.9%** w/o tools (modelscale); AA-HLE **38.0%** (BenchLM)
-- IFBench (proxy, provisional): **81.3%** (HF vendor table — re-verified 2026-09-29)
 - LCR / MLCR: no verified Flash-exact number found. Proxy (Flash-Next, provisional): AA-LCR **77.0%** (BenchLM)
 - CritPt: proxy (Flash-Next, provisional) **11.1%** (BenchLM)
-- Artificial Analysis Intelligence Index / BenchLM overall: proxy (Flash-Next, provisional) AA Index **55.8** (BenchLM ledger; **56** AA-tracked per codersera; modelscale 39.8 different cut — all cited — re-verified 2026-09-29); BenchLM overall 59.42–60.67 (Flash-Next page)
+- Artificial Analysis Intelligence Index / BenchLM overall: proxy (Flash-Next, provisional) AA Index **55.8** (BenchLM ledger; modelscale lists 39.8 on a different index cut — both cited); BenchLM overall 59.42–60.67 (Flash-Next page)
 - Omniscience Accuracy / Hallucination Rate: proxy (Flash-Next, provisional) accuracy 24.5% / hallucination 45.3% (modelscale)
 - Vision (proxy, provisional): **Vision2Web 64.0 / ERQA 72.3 / LVBench 76.6** (BenchLM Flash-Next ledger — amended 2026-09-27)
-- ClawEval-MM: **64.4 pass@3 / 60.4 avg**; RecreationBench: **49.9**; RealWorldQA: **88.5** (HF vendor table — re-verified 2026-09-29)
-- MathVision: **90.6 w/o CI / 95.7 with CI**; CharXiv RQ: **84.6 w/o CI / 90.6 with CI** (HF vendor table — re-verified 2026-09-29)
 
 Coding:
 
@@ -60,13 +55,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Proxy rows (Toolathlon-V 73.5, CoWork 73.9, JobBench 55.7, GDPval 1743) show solid agency, but OSWorld 2.0 19.4% and zero Flash-exact tool numbers cap it in the mid-70s.
+- **Tool use: 75/100.** Proxy rows (Toolathlon-V 73.5, CoWork 73.9, GDPval 1743) show solid agency, but OSWorld 2.0 19.4% and zero Flash-exact tool numbers cap it in the mid-70s.
 - **Reasoning: 88/100.** Proxy GPQA 91.7 with HLE ~36–38 sits just under the frontier bar; all-provisional status caps it below 90.
 - **Context window: 92/100.** Exact-ID 1M hosted window with proxy LCR 77.0%; no MRCR proof keeps it off the 95+ tier.
-- **Multimodal: 89/100.** Measured vision breadth (RealWorldQA 88.5, ERQA 72.3, LVBench 76.6, ClawEval-MM 64.4, RecreationBench 49.9) with text-only output; provisional but consistent.
+- **Multimodal: 88/100.** Multimodal-tier proxies (MathVision 90.6–95.7, CharXiv 90.6, RealWorldQA 88.5) with text-only output; provisional but consistent.
 - **Coding: 84/100.** Proxy SWE-Pro 62.5 with LiveCode v6 91.9 and DeepSWE 58.7 is near-frontier for an efficiency tier; provisional status caps it.
 - **Cost efficiency: 97/100.** $0.15/$0.47 metered pricing is within striking distance of $0-tier value at near-flagship capability.
-- **Overall Score: 86/100.** Mean of (76 + 88 + 92 + 89 + 84) / 5 = 85.8 → 86; best fit as the value-per-token coding/multimodal pick. (Proxy-leaning report: re-score when Flash-exact harness numbers publish.)
+- **Overall Score: 85/100.** Mean of (75 + 88 + 92 + 88 + 84) / 5 = 85.4 → 85; best fit as the value-per-token coding/multimodal pick. (Proxy-leaning report: re-score when Flash-exact harness numbers publish; amended 2026-09-27 with cut-price + vision rows, scores hold.)
 
 ---
 

@@ -41,6 +41,7 @@ export type SourceKey =
   | "GLM 5.3"
   | "Kimi K3"
   | "Laguna XS 2.1"
+  | "Muse Glimmer 30B"
   | "Grok 4.5"
   | "Claude Sonnet 4"
   | "Claude Sonnet 5.5"
@@ -50,23 +51,23 @@ export type SourceKey =
   | "GPT 5.6 Sol"
   | "Gemma 4 31B IT"
   | "Claude Opus 4.5"
+  | "Laguna XS 2 1"
   | "Claude Fable 5.1"
   | "Claude Opus 5.5"
   | "GPT 5"
   | "Gemini 2.0 Flash"
   | "Grok 4.3"
-  | "Gemini 2.5 Flash Lite"
   | "LongCat 2.5 Preview"
   | "Pixel Canary"
   | "GPT OSS 120B"
   | "Grok 4.20"
-  | "Ling 3.0 Flash Fin"
   | "Claude Opus 5"
   | "Claude Sonnet 3.5"
   | "GPT 5.5"
   | "GPT 6 Luna"
+  | "Gemini 2.5"
   | "Gemini 2 Flash"
-  | "Gemini 2.5";
+  | "Gemini 3 Flash";
 
 export interface SourceDef {
   key: SourceKey;
@@ -114,6 +115,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md" },
   { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md" },
   { key: "Laguna XS 2.1", label: "Laguna XS 2.1", file: "Laguna_XS_2.1.md" },
+  { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
   { key: "Grok 4.5", label: "Grok 4.5", file: "Grok_4.5.md" },
   { key: "Claude Sonnet 4", label: "Claude Sonnet 4", file: "Claude_Sonnet_4.md" },
   { key: "Claude Sonnet 5.5", label: "Claude Sonnet 5.5", file: "Claude_Sonnet_5.5.md" },
@@ -123,21 +125,21 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 5.6 Sol", label: "GPT 5.6 Sol", file: "GPT_5.6_Sol.md" },
   { key: "Gemma 4 31B IT", label: "Gemma 4 31B IT", file: "Gemma_4_31B_IT.md" },
   { key: "Claude Opus 4.5", label: "Claude Opus 4.5", file: "Claude_Opus_4.5.md" },
+  { key: "Laguna XS 2 1", label: "Laguna XS 2 1", file: "Laguna_XS_2_1.md" },
   { key: "Claude Fable 5.1", label: "Claude Fable 5.1", file: "Claude_Fable_5.1.md" },
   { key: "Claude Opus 5.5", label: "Claude Opus 5.5", file: "Claude_Opus_5.5.md" },
   { key: "GPT 5", label: "GPT 5", file: "GPT_5.md" },
   { key: "Gemini 2.0 Flash", label: "Gemini 2.0 Flash", file: "Gemini_2.0_Flash.md" },
   { key: "Grok 4.3", label: "Grok 4.3", file: "Grok_4.3.md" },
-  { key: "Gemini 2.5 Flash Lite", label: "Gemini 2.5 Flash Lite", file: "Gemini_2.5_Flash_Lite.md" },
   { key: "LongCat 2.5 Preview", label: "LongCat 2.5 Preview", file: "LongCat_2.5_Preview.md" },
   { key: "Pixel Canary", label: "Pixel Canary", file: "Pixel_Canary.md" },
   { key: "GPT OSS 120B", label: "GPT OSS 120B", file: "GPT_OSS_120B.md" },
   { key: "Grok 4.20", label: "Grok 4.20", file: "Grok_4.20.md" },
-  { key: "Ling 3.0 Flash Fin", label: "Ling 3.0 Flash Fin", file: "Ling_3.0_Flash_Fin.md" },
   { key: "Claude Opus 5", label: "Claude Opus 5", file: "Claude_Opus_5.md" },
   { key: "Claude Sonnet 3.5", label: "Claude Sonnet 3.5", file: "Claude_Sonnet_3.5.md" },
   { key: "GPT 5.5", label: "GPT 5.5", file: "GPT_5.5.md" },
   { key: "GPT 6 Luna", label: "GPT 6 Luna", file: "GPT_6_Luna.md" },
-  { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
   { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md" },
+  { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
+  { key: "Gemini 3 Flash", label: "Gemini 3 Flash", file: "Gemini_3_Flash.md" },
 ];

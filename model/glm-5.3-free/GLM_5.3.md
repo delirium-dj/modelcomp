@@ -75,9 +75,3 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (BenchLM, OpenCode Zen docs, curated platform metadata); scores are normalized 1–100 interpretations, not official vendor scores. Note: the researcher is itself the GLM-5.3 model; all scores above are drawn from third-party measured data (BenchLM), not self-assessment.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research re-verified every cited row. One revised value found: the AA Briefcase Elo row was revised 1525 to 1517 (ongoing AA Elo updates; not score-relevant). Design Arena Website display drifted 1312 to 1309 and the GDPval-AA normalized field now displays 57.2% (57.3% cited, rounding). All other cited values re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

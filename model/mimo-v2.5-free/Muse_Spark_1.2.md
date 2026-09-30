@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free` (Zen Free), `XiaomiMiMo/MiMo-V2.5` (HF)
 - **Context window:** 1,048,576 native (1M) / 200K Zen cap / 32K out — verified via Xiaomi blog and HF model card (48T tokens, hybrid SWA 5:1)
 - **Modalities:** Text, image, audio, video in; text out; reasoning yes (MOPD/RL agentic); tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0; native pay-go $0.14 in / $0.28 out / $0.0028 cached per 1M (Xiaomi pricing page); Token Plan 1× credit
+- **Pricing (as of 2026-09-24):** Free Zen tier $0/$0; native pay-go $0.14 in / $0.28 out / $0.0028 cached per 1M (Xiaomi pricing page); Token Plan 1× credit
 - **Architecture:** 310B total, 15B active MoE (256 routed experts top-8) + 729M ViT + 261M audio encoder, 48 layers, 3 MTP modules (329M); MIT
 
 ### Raw benchmarks found
@@ -56,7 +56,7 @@ Long context:
 - **Context window: 94/100.** 1,048,576 native (1M tier) verified; Zen cap 200K practical but native 1M qualifies 95-100 tier, capped at 94 vs proven MRCR 98% retrievals.
 - **Multimodal: 88/100.** Native omni-modal (text/image/audio/video in) per HF — broadest tier; Text+image+video+audio → 90-95 tier, capped below 95 pending audio eval numbers.
 - **Coding: 71/100.** SWE-Pro 56.1 solid mid-tier + vendor MiMo Coding Bench 71.8 claim; capped by frontier SWE-Pro 62-69 and no DeepSWE/LiveCode verified.
-- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (cheaper than $0.14 native; training-data consent caveat) — max per methodology.
+- **Cost efficiency: 100/100.** $0 Free Zen tier (cheaper than $0.14 native; training-data consent caveat) — max per methodology.
 - **Overall Score: 79/100.** Mean of five non-cost dims (80+62+94+88+71)/5=79.0 → 79; best free omni-modal agent with 1M context when frontier coding not required.
 
 ---

@@ -1,80 +1,56 @@
-# Google Gemini 2.5 Flash-Lite — findings by Big Pickle
+# Gemini 2.5 Flash-Lite — findings by Big Pickle
 
-- Source: Google/Gemini 2.5 Flash-Lite (`gemini-2.5-flash-lite`)
-- Date: 2026-09-29 (UTC)
+- Source: Google DeepMind (`gemini-2.5-flash-lite`)
+- Date: 2026-09-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 2.5 Flash-Lite
-- **Short description:** Google's cost-efficient multimodal lane for high-volume classification, simple extraction and low-latency work — the cheap sibling under Gemini 2.5 Flash. Not an alias: a distinct stable model ID with its own thinking and non-thinking modes, predecessor to Gemini 3.5 Flash-Lite.
-- **Provider / access:** Google Gemini API `gemini-2.5-flash-lite` (generateContent), stable alias; the preview ID `gemini-2.5-flash-lite-preview-09-2025` is shut down. Also served by 23 providers per models.dev, including OpenRouter and Vercel AI Gateway under the prefixed ID `google/gemini-2.5-flash-lite`. Note: no OpenCode Zen listing found — this folder's `meta.json` id `opencode/google-gemini-2.5-flash-lite` is unverified and matches the OpenRouter-style prefix convention rather than a Zen id; flagged for the orchestrator, not edited here.
-- **Release / knowledge:** preview 2025-06-17, stable July 2025; knowledge cutoff January 2025.
-- **IDs:** `gemini-2.5-flash-lite` (Google Gemini API / AI Studio / Vertex); `google/gemini-2.5-flash-lite` (OpenRouter, Vercel AI Gateway, Kilo, Merge, NEAR AI Cloud, Ofox, OrcaRouter, AnyAPI, Impossibl).
-- **Context window:** 1,048,576 input tokens / 65,536 output tokens, verified from the Google AI for Developers model card and models.dev. Note the measured retrieval behaviour is far below that nominal window (see Long context).
-- **Modalities:** text, image, video, audio and PDF in; text out. Thinking supported; function calling, parallel tool calls, structured outputs, caching, code execution, file search, search grounding and URL context supported. Audio generation, image generation and the Live API are not supported.
-- **Pricing (as of 2026-09-29):** $0.10 input / $0.40 output per 1M; cached input $0.01 (litellm-sourced pricing, verified 2026-08-06). Poe lists a cheaper $0.07 / $0.28 tier. Paid only; no free tier advertised by the vendor.
-- **Architecture:** proprietary; weights not published.
+- **Short description:** Google's most cost-efficient multimodal model — the lite tier of the Gemini 2.5 thinking family, aimed at high-frequency classification, data extraction, translation, and ultra-low-latency apps where barely-paying-for-tokens matters more than peak intelligence.
+- **Provider / access:** Google AI Studio and Vertex AI (Gemini Developer API / Gemini API), model `gemini-2.5-flash-lite`; alias `gemini-flash-lite-latest`. Full native-tool support.
+- **Release / knowledge:** Preview 2026-06-17 (as `gemini-2.5-flashlite-preview-06-17`); stable GA 2026-07-22; updated Sep preview `gemini-2.5-flash-lite-preview-09-2025` (now shut down) with ~50% reduction in output-token usage. Knowledge cutoff January 2025.
+- **IDs:** `gemini-2.5-flash-lite` (proprietary; no open weights)
+- **Context window:** 1,048,576 input tokens (1M, ~1,500 A4 pages); max output 65,536 tokens.
+- **Modalities:** text, image, video, audio, PDF input; text output (audio/image generation not supported).
+- **Pricing (as of 2026-09-20):** $0.10 in / $0.40 out per 1M tokens; ~90% cache discount; audio-input price cut 40% from preview. Blended 7:2:1 rate ≈ $0.07/1M.
+- **Architecture:** Proprietary, undisclosed; controllable "thinking" budget via API parameter (thinking off by default for speed/cost, unlike stable siblings); ~324 tokens/s output, ~0.29s time-to-first-token. Artificial Analysis Intelligence Index (non-reasoning mode): 1.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- SWE-bench Verified, single attempt: **31.6%** non-thinking / **27.6%** thinking (Google's published comparison table).
-- SWE-bench Verified, multiple attempts: **42.6%** non-thinking / **44.9%** thinking.
-- FACTS grounding: **84.1%** non-thinking / **86.8%** thinking — the only direct tool-grounding measure published.
-- Terminal-Bench 2.1: **no verified public score found** (not on any leaderboard for this ID).
-- Tau3-Banking / Tau2-Bench: **no verified public score found.**
-- GDPval-AA: **no verified public score found.**
-- Claw-Eval / ClawProBench: **no verified public score found.**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found.**
-
 Reasoning / knowledge:
 
-- GPQA Diamond: **64.6%** non-thinking / **66.7%** thinking (Google's table).
-- HLE (no tools): **5.1%** non-thinking / **6.9%** thinking.
-- AIME 2025: **49.8%** non-thinking / **63.1%** thinking.
-- Global MMLU (Lite): **81.1%** / **84.5%**. Third-party MMLU-Pro 63.0%.
-- SimpleQA: **10.7%** / **13.0%** — very weak factual recall.
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** for this ID (AA tracks 2.5 Flash, not Flash-Lite).
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found** for this ID.
-- Chatbot Arena Elo: **1230** (third-party aggregator, entry-tier).
+- GPQA Diamond: **62.5%**; MMLU-Pro: **75.9%** (HELM 53.7%); WeirdML: **35.2%** (themodelbeat/Epoch AI figures, Sep 2025 preview).
+- AIME 2024/2025: **53.3%**; Artificial Analysis Intelligence Index (non-reasoning): **1** (median of comparable non-reasoning tier models: 6).
 
 Coding:
 
-- SWE-bench Verified: **31.6%** single attempt (see above).
-- LiveCodeBench: **33.7%** non-thinking / **34.3%** thinking.
-- Aider Polyglot (code editing): **26.7%** / **27.1%**.
-- SciCode / AA-SciCode: **no verified public score found.**
-- Vibe Code Bench: **no verified public score found.**
-- DeepSWE / Coding Index: **no verified public score found.**
+- LiveCodeBench: **59.3%**; SciCode: **19.3%**; Aider Polyglot: 56.7%; SWE-bench Verified: **48.9%** single attempt / **60.3%** multiple attempts (2.5 family paper lineage); τ²-bench: **18.4%**.
 
-Long context:
+Agent / tool use:
 
-- MRCR v2 (8-needle, 128K avg): **16.6%** non-thinking / **30.6%** thinking.
-- MRCR v2 (1M, pointwise): **4.1%** non-thinking / **5.4%** thinking. The nominal 1M window therefore carries essentially no usable retrieval — this is a spec, not a measured capability.
+- Function calling, code execution, file search, search grounding, Maps grounding, structured outputs, URL context, and caching all supported on the full 1M window; agentic ceilings remain lite-tier (τ²-bench 18.4%, SWE-bench 48.9% single).
+- HELM WildBench: **81.8%**; HELM IFEval: **81.0%** (instruction following).
 
-Vision:
+Long context / multimodal (2.5-family lineage; Flash-Lite runs the 1M window):
 
-- MMMU: **72.9%** (both modes). Vibe-Eval (Reka): **51.3%** / **57.5%**.
-
-> Third-party aggregators publish materially different figures for this model (e.g. GPQA Diamond 32.0%, SWE-bench Verified 22.0%, LiveCodeBench 28.0%, ARC-AGI 14.0% on one benchmark portal). Google's own published table is used above as the primary source because it is model-specific and mode-aware; the aggregator spread is noted rather than averaged.
+- Native text/image/video/audio input with improved audio transcription and image understanding (Sep 2025 update); text-only output.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 35/100.** Grounding is respectable (FACTS 84.1–86.8%) and function calling with parallel calls is supported, but there is no published Terminal-Bench, Tau2/Tau3, GDPval or Claw-Eval number at all, and SWE-bench Verified single-attempt is only 31.6%. A missing agentic-tool benchmark set is scored as a real limitation, never as a phantom high score.
-- **Reasoning: 55/100.** GPQA Diamond 64.6–66.7% and AIME 2025 63.1% sit in the mid band, matching the methodology's 55–65 reference (GPQA 60–80%, HLE <10%, LCR <40%). HLE at 6.9% and SimpleQA at 10.7% cap it; thinking mode barely moves the needle on either.
-- **Context window: 62/100.** The nominal 1,048,576-token window is the top tier on paper, but measured MRCR v2 retrieval is 4.1–5.4% at 1M and only 16.6–30.6% at a 128K average — nowhere near the ~98%-at-512K+ bar for a top-tier score. Scored on effective retrieval, not on the printed spec.
-- **Multimodal: 92/100.** Google documents text, image, video, audio and PDF input with text output, which is the highest coverage band short of audio generation (unsupported here). Backed by MMMU 72.9%, though Vibe-Eval at 51.3–57.5% shows the visual reasoning is not sharp.
-- **Coding: 32/100.** LiveCodeBench 33.7–34.3%, Aider Polyglot 26.7–27.1% and SWE-bench Verified 31.6% single-attempt place it in the low tier — usable for trivial edits and snippets, not for real repository work.
-- **Cost efficiency: 97/100.** $0.10 in / $0.40 out with cached input at $0.01 is one of the cheapest paid lanes in the dataset, only marginally above the ~$0.10/$0.20 reference band. Poe's $0.07/$0.28 route is cheaper still.
-- **Overall Score: 55/100.** (35 + 55 + 62 + 92 + 32) / 5 = 55.2 → 55. Best fit: high-volume classification, extraction, routing and latency-critical multimodal preprocessing at 1M nominal context — explicitly not for agentic tool use, coding or long-context retrieval, where the measured numbers are the weakest part of the card.
+- **Tool use: 54/100.** Every tool type is supported (calling, code execution, search, Maps, structured outputs, file search), but measured agentic ceilings are low — τ²-bench 18.4%, SWE-bench Verified 48.9% single-attempt — so capability support out-paces demonstrated agentic reliability.
+- **Reasoning: 59/100.** GPQA Diamond 62.5%, MMLU-Pro 75.9%, and AIME 53.3% are respectable lite-tier results, yet the AA Intelligence Index of 1 shows the non-reasoning default is comfortably mid-low; toggling the thinking budget helps demanding cases.
+- **Context window: 91/100.** The full 1M-token window with 65K output and grounded long-context tooling makes Flash-Lite genuinely strong on span — a real advantage over lighter competitors.
+- **Multimodal: 72/100.** Native text/image/video/audio/PDF input with improved transcription and image understanding; text-only output and no generation keep it from the omni tier.
+- **Coding: 56/100.** LiveCodeBench 59.3% and Aider Polyglot 56.7% are decent lite numbers, but SciCode 19.3% and low SWE-bench Verified (48.9% single) show a clear soft underbelly on real-world software engineering.
+- **Cost efficiency: 96/100.** $0.10/$0.40 per 1M with a ~90% cache discount at 324 tokens/s and 0.29s TTFT — among the best price-to-throughput ratios in the tracked catalog.
+- **Overall Score: 66/100.** Mean of the five quality dims (54+59+91+72+56)/5 = 66.4. An exceptional value/multimodal-context workhorse whose deliberate lite-tier reasoning and coding ceilings keep overall quality mid-pack.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-29
-- Method: public internet research (Google AI for Developers model card for capability and token limits, Google's published 2.5 Flash-Lite benchmark comparison table, models.dev provider/pricing matrix, litellm-sourced pricing verified 2026-08-06, third-party aggregator pages for cross-checking). Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Big_Pickle_Gemini_2.5_Flash_Lite.md`, using the same headings.
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Method: public web research (ai.google.dev gemini-api docs, developers.googleblog.com stable/preview/update posts, artificialanalysis.ai, themodelbeat.com, arxiv 2507.06261); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

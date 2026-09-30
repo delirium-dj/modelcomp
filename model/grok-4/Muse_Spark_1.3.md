@@ -1,7 +1,7 @@
 # Grok 4 — findings by Muse Spark 1.3
 
 - Source: xAI/Grok 4 (`grok-4-0709`)
-- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: deprecation + index gap-fills added, Reasoning 86 → 87, Overall 77 → 78); re-verified 2026-09-29 (UTC, user-signed-off re-research: Aider 79.6 + Omni splits + AA-HLE variant added, launch figures reconfirmed; Tool 82 → 83, Coding 80 → 81 — Overall holds 78)
+- Date: 2026-09-24 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: deprecation + index gap-fills added, Reasoning 86 → 87, Overall 77 → 78)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,16 +32,15 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **87.5%** (xAI launch report; corroborated 87.5% ModelBeats, ~89% Heavy variant)
-- HLE: **25–27% no-tools, 38.6% with Python + internet** (xAI; Heavy clears 50.7% text-only with tools — excluded here as Heavy-only); **26.69%** AA-HLE text-no-tools lane (BenchLM — re-verified 2026-09-29)
+- HLE: **25–27% no-tools, 38.6% with Python + internet** (xAI; Heavy clears 50.7% text-only with tools — excluded here as Heavy-only)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **34.1 Intelligence Index (#108)** and **92.7 Math Index (#19)** (CloudPrice rows); **MMLU-Pro 0.9 (#18), MATH-500 1.0 (#8), AIME 0.9 (#2), HMMT 2025 90%** (CloudPrice/xAI rows); **LCR 0.7 (#132)** (CloudPrice — weak tail); Vals suite: **CorpFin SOTA #1, LegalBench 2nd, MMLU-Pro 85.3% top-10, MMMU Pro 76.5%** (closest proxies: AIME 2025 91.7%, ARC-AGI-2 15.9% launch-leading, USAMO 2025 37.5% standard per xAI)
-- Omniscience Accuracy: **40.5%** / Hallucination Rate: **64.5%** (BenchLM AA-Omniscience lanes — re-verified 2026-09-29)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
 - SWE-bench Verified / SWE-Pro: **57.8%** (ModelBeats; standard-slice figure — Heavy marketing cites 72–75% on a tools-enabled slice, excluded as Heavy-only)
-- Aider polyglot: **79.6%** high-aider-diff (modelbenchmark third-party — re-verified 2026-09-29)
 - LiveCodeBench: **79.0%** (xAI, Jan–May slice; corroborated 79.4% Heavy slice)
 - SciCode: **0.5 (#70)** (CloudPrice index row — weak tail)
 - Vibe Code Bench: **no verified public score found**
@@ -53,13 +52,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 83/100.** Native parallel tool calling plus live X/web search with frontier-leading Vending-Bench and Aider 79.6% tool-editing; capped below 90 by zero verified Terminal-Bench/Tau/GDPval scores.
+- **Tool use: 82/100.** Native parallel tool calling plus live X/web search baked into training, with a frontier-leading Vending-Bench long-horizon result; capped below 90 by zero verified Terminal-Bench/Tau/GDPval scores.
 - **Reasoning: 87/100.** GPQA 87.5% with HLE 25–27% (38.6% with tools), MMLU-Pro/HMMT/MATH-500 strength and Vals CorpFin #1 sit just under the frontier anchor; capped by ARC-AGI-2 15.9% and the LCR 0.7 tail.
 - **Context window: 74/100.** 256K lands in the 200K–500K tier (200K = 70); capped by the small 8,000-token max output and no verified full-length retrieval measurement.
 - **Multimodal: 65/100.** Text + image input with vision understanding and app-level voice/camera covers the +image-in band (60–70); capped with no video ingest or non-text output via API.
-- **Coding: 81/100.** SWE-bench Verified 57.8% plus Aider 79.6% and LiveCodeBench 79.0% show solid coding; capped by no SciCode/DeepSWE evidence and Heavy-only 72–75% figures excluded.
+- **Coding: 80/100.** SWE-bench Verified 57.8% with LiveCodeBench 79.0% matches the mid-to-strong band; capped by no SciCode/DeepSWE evidence and Heavy-only 72–75% figures excluded.
 - **Cost efficiency: 60/100.** $3.00/$15.00 maps to the ~$3/$15 → ~60 methodology anchor; paid only with no free tier.
-- **Overall Score: 78/100.** Mean of the five non-cost dims (83 + 87 + 74 + 65 + 81) / 5 = 78.0 → 78; best-fit as a strong reasoning/tool-augmented pick where 256K suffices — escalate for 1M-context or abstract-pattern-heavy work.
+- **Overall Score: 78/100.** Mean of the five non-cost dims (82 + 87 + 74 + 65 + 80) / 5 = 77.6 → 78; best-fit as a strong reasoning/tool-augmented pick where 256K suffices — escalate for 1M-context or abstract-pattern-heavy work.
 
 ---
 

@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** MiMo V2.6 Free
-- **Short description:** Xiaomi's cost-optimized omni-modal Flash model (310B/15B active) from the V2.6 generation; balances frontier intelligence with 20× throughput vs Pro, [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
+- **Short description:** Xiaomi's cost-optimized omni-modal Flash model (310B/15B active) from the V2.6 generation; balances frontier intelligence with 20× throughput vs Pro, Free Zen tier.
 - **Provider / access:** OpenCode Zen `opencode/mimo-v2-6-free` (Chat Completions), Xiaomi API `mimo-v2.6-flash`, Hugging Face `XiaomiMiMo/MiMo-V2.6-Flash` (MIT)
 - **Release / knowledge:** 2026-09-22 (MiMo-V2.6 series); knowledge cutoff 2026-07
 - **IDs:** `opencode/mimo-v2-6-free` (Zen), `XiaomiMiMo/MiMo-V2.6-Flash` (HF)
 - **Context window:** 262,144 total (256K) with 1M RoPE-extended in Pro; Flash docs show 256K served, 1M research context — verified via Xiaomi V2.6 docs
 - **Modalities:** Text, image, audio, video in; text out; reasoning yes (RL-trained Flash-RL); tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0; native Flash ~$0.14/$0.28 per 1M (V2.5 Flash proxy, V2.6 Flash list not yet priced separately) — Token Plan 1×
+- **Pricing (as of 2026-09-24):** Free Zen tier $0/$0; native Flash ~$0.14/$0.28 per 1M (V2.5 Flash proxy, V2.6 Flash list not yet priced separately) — Token Plan 1×
 - **Architecture:** 310B total, 15B active MoE (256 experts top-8, hybrid SWA 5:1, 3 MTP layers); MIT; 1T Pro sibling 42B active
 
 ### Raw benchmarks found
@@ -58,7 +58,7 @@ Long context:
 - **Context window: 75/100.** 262,144 total (256K tier per methodology ~72-75); Pro 1M not counted for Flash served, capped below 1M tier.
 - **Multimodal: 88/100.** Full omni-modal (text/image/audio/video in) per Xiaomi V2.6 series; Flash retains ViT/audio encoders.
 - **Coding: 73/100.** Proxy via TB2.1 87.6 strong coding-agent but no SWE-Pro/DeepSWE verified for Flash, capped by Pro 65.97 not counted.
-- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (max per methodology; native ~$0.14/$0.28 still cheaper than frontier).
+- **Cost efficiency: 100/100.** $0 Free Zen tier (max per methodology; native ~$0.14/$0.28 still cheaper than frontier).
 - **Overall Score: 78/100.** Mean of five non-cost dims (86+66+75+88+73)/5=77.6 → 78; best free high-throughput omni-modal Flash when Pro not needed.
 
 ---

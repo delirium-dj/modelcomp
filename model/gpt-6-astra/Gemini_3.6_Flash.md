@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-6-astra`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6-astra` (no Zen Free ID)
 - **Context window:** 1,050,000 tokens total (1M input / 128K max output); verified via vendor documentation.
 - **Modalities:** Text and image input; text output; structured reasoning and function calling.
-- **Pricing (as of 2026-09-29):** $10.00 / 1M input, $50.00 / 1M output (Paid tier).
+- **Pricing (as of 2026-09-18):** $10.00 / 1M input, $50.00 / 1M output (Paid tier).
 - **Architecture:** Proprietary multi-agent MoE architecture.
 
 ### Raw benchmarks found
@@ -56,11 +56,11 @@ Long context:
 - **Multimodal: 75/100.** Advanced vision and image processing capabilities.
 - **Coding: 93/100.** Exceptional SWE-bench Verified score (82.8%) and LiveCodeBench performance.
 - **Cost efficiency: 33/100.** Premium frontier pricing ($10/$50 per 1M tokens).
-- **Overall Score: 90/100.** Mean of five quality dims (94+96+90+75+93)/5 = 89.6 → 90. Exceptional frontier reasoning and agentic model for demanding enterprise applications.
+- **Overall Score: 89.6/100.** Exceptional frontier reasoning and agentic model for demanding enterprise applications.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-18
+- Method: Public internet research; scores are normalized 1–100 interpretations.

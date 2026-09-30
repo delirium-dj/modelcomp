@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash — findings by Muse Spark 1.3 Contributor
 
 - Source: Google/Gemini 3.1 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: pricing firmed $0.50/$3.00, no new verified benchmark absolutes found for base ID — scores unchanged, still provisional)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.1-flash` (Free tier exists via AI Studio/Zen)
 - **Context window:** 1,048,576 (1M) — verified via curated repo metadata
 - **Modalities:** text, image, audio, PDF in; text out; reasoning yes; tool calls yes
-- **Pricing (as of 2026-09-18):** Free tier available; paid $0.50 in / $3.00 out per 1M, stable since May 2026 (UseRightAI catalog — re-verified 2026-09-29)
+- **Pricing (as of 2026-09-18):** Free tier available; paid-tier fallback
 - **Architecture:** proprietary (undisclosed)
 
 ### Raw benchmarks found

@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Muse Spark 1.3 Contributor
 
 - Source: Meta/Muse Spark 1.2, e.g. Meta (`muse-spark-1.2-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Tau3/Index corrected, LCR gap filled, Reasoning 88 → 89, Overall holds 91); re-verified 2026-09-29 (UTC, user-signed-off re-research: AA-article cross-check — GDPval/TB/GPQA/HLE/LCR/CritPt/SciCode all consistent — + Agentic Index 49.3 + Internal Coding Bench 70.6 + harness caveat + Index/Tau3 variance notes + open-weights status added — scores unchanged, Overall holds 91)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Tau3/Index corrected, LCR gap filled, Reasoning 88 → 89, Overall holds 91)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1,048,576 (1M) — verified via Artificial Analysis 1.2 article (retains 1.1 1M window)
 - **Modalities:** text, image, audio, video, PDF in; text out; reasoning yes (xhigh); tool calls yes; structured output yes
 - **Pricing (as of 2026-09-18):** Free $0 Zen Contributor tier; Contributor $0.10/$0.20; Standard $1.25 in / $0.15 cached / $4.25 out per 1M
-- **Architecture:** proprietary closed weights (open-weight 1.2 promised by Wang 08-10 but unshipped as of 09-29; only Glimmer 30B Apache-2.0 downloadable — re-verified 2026-09-29)
+- **Architecture:** proprietary (undisclosed)
 
 ### Raw benchmarks found
 
@@ -23,7 +23,7 @@ Agent / tool use:
 
 - GDPval-AA v2: **1631 Elo** (Artificial Analysis 1.2 article, #5 overall, +260 vs 1.1, ahead of Opus 4.8 max 1588); AA 1.3 article restates the 1.2 baseline as 1615 — variant-config lane variance
 - Terminal-Bench 2.1: **80%** (Artificial Analysis 1.2 article, +2 vs 1.1; BenchLM reports 82.9% variant config)
-- Tau3-Banking: **35%** (AA 1.3 restatement; **27%** AA 1.2-article text / **34.9%** eesel — three-reading variance across variants, newest restatement kept primary — re-verified 2026-09-29)
+- Tau3-Banking: **35%** (AA 1.3 article restating 1.2 xhigh baseline; corrects filed 27% — amended 2026-09-27)
 - MCP Atlas: **90.3%** (Benchgen model page meta/muse-spark-1-2)
 - SWE Atlas Codebase QnA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -34,8 +34,8 @@ Reasoning / knowledge:
 - HLE: **45.5%** (BenchLM muse-spark-1-2; AA reports 44% Intelligence Index config)
 - LCR / MLCR: **83.3% AA-LCR** (DeepLearning.ai, #1 of all tested models at xhigh reasoning)
 - CritPt: **18%** (Artificial Analysis 1.2 article, +3 vs 1.1)
-- Artificial Analysis Intelligence Index / BenchLM overall: **57 Index (xhigh, $0.40/task)** (DeepLearning.ai Aug 2026; **54** AA 1.2 article / **56.8** eesel board / **47** AA providers-current — config/date variance across four readings, 57 kept primary — re-verified 2026-09-29); **71.88 BenchLM #11** (BenchLM); GDPval v2 predecessor read **1615** (AA 1.3 article; filed 1631 is a variant-config lane); Agentic Index **49.3** (+9.6 vs 1.1 — eesel/AA — re-verified 2026-09-29)
-- Omniscience Accuracy / Hallucination Rate: **38% accuracy / 28% hallucination / 67% attempt** (Artificial Analysis AA-Omniscience, heavy-abstention pattern); Index variant **27.2** (eesel — re-verified 2026-09-29)
+- Artificial Analysis Intelligence Index / BenchLM overall: **57 Index (xhigh, $0.40/task)** (DeepLearning.ai Aug 2026; corrects filed 54 — amended 2026-09-27); **71.88 BenchLM #11** (BenchLM); GDPval v2 predecessor read **1615** (AA 1.3 article; filed 1631 is a variant-config lane)
+- Omniscience Accuracy / Hallucination Rate: **38% accuracy / 28% hallucination / 67% attempt** (Artificial Analysis AA-Omniscience, heavy-abstention pattern)
 
 Coding:
 

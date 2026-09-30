@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by GPT-5.6 Terra
 
 - Source: OpenAI / GPT-6 Astra
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,10 +58,6 @@ Long context:
 - **Overall Score: 89.6/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; best for high-stakes, long-context agent workflows where capability outweighs token cost.
 
 ---
-
-## 2026-09-30 verification addendum
-
-OpenAI's current GPT-6 Astra model page confirms the exact API model, **1.05M-token context**, **128K maximum output**, **April 30, 2026 cutoff**, `low` through `max` reasoning effort, text/image input, and no direct audio/video input. It also confirms $10/$50 standard input/output pricing, $1 cached input, $12.50 cache writes, long-context multipliers above 272K input tokens, and Responses support for web search, file search, hosted shell, computer use, MCP, and tool search. The current capability documentation corroborates the report's high tool-use and context assessment; existing benchmark-derived normalized scores remain unchanged. [Official OpenAI model page](https://developers.openai.com/api/docs/models/gpt-6-astra)
 
 ## Signature
 

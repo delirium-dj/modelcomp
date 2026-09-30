@@ -4,18 +4,67 @@ import { Hero } from "../components/Hero";
 import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
-import { MODELS, SOURCES, top3ForSource } from "../data/models";
-import type { SourceKey } from "../data/models";
+import { MODELS, SOURCES, virtualDimFor } from "../data/models";
+import type { DimensionKey, SourceKey } from "../data/models";
 
-// Junior Developer Tip: DEFAULTS uses top3ForSource("average") which is pre-computed at build time
-// via rankings.generated.ts, providing an instant O(1) lookup.
-const [TOP_A, TOP_B, TOP_C] = top3ForSource("average");
+/** Homepage defaults: top 3 models by average Overall Score (recomputed from MODELS). */
+function top3ByOverall(): [string, string, string] {
+  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
+
+const [TOP_A, TOP_B, TOP_C] = top3ByOverall();
 
 const DEFAULTS = {
   a: TOP_A,
   b: TOP_B,
   c: TOP_C,
 };
+
+/** Top 3 models by one average dimension score (tiebreak Overall). */
+function top3ByDim(dim: DimensionKey): [string, string, string] {
+  const sorted = [...MODELS].sort(
+    (a, b) => b.scores[dim] - a.scores[dim] || b.scores.overall - a.scores.overall,
+  );
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
+
+/** Top 3 model ids for a results source: by dimension for virtual views, by that
+ *  agent's own Overall for reporting agents (models it never rated sort last),
+ *  else average Overall. */
+function top3ForSource(source: SourceKey): [string, string, string] {
+  const dim = virtualDimFor(source);
+  if (dim !== undefined) return top3ByDim(dim);
+  if (source !== "average") {
+    const ranked = [...MODELS].sort((a, b) => {
+      const sa = a.sources[source]?.overall;
+      const sb = b.sources[source]?.overall;
+      if (sa === undefined && sb === undefined) return b.scores.overall - a.scores.overall;
+      if (sa === undefined) return 1;
+      if (sb === undefined) return -1;
+      return sb - sa || b.scores.overall - a.scores.overall;
+    });
+    return [
+      ranked[0]?.id ?? "",
+      ranked[1]?.id ?? "",
+      ranked[2]?.id ?? "",
+    ];
+  }
+  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
+  return [
+    sorted[0]?.id ?? "",
+    sorted[1]?.id ?? "",
+    sorted[2]?.id ?? "",
+  ];
+}
 
 function validId(raw: string | null, fallback: string): string {
   if (raw === "") {

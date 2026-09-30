@@ -1,7 +1,7 @@
 # Kimi K3 — findings by GPT-5.6 Terra
 
 - Source: Moonshot AI / Kimi K3
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,10 +49,6 @@ Long context:
 - **Overall Score: 88/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding: (88 + 91 + 95 + 75 + 91) / 5 = 88.0; a high-potential open-weight option whose mixed-provenance public benchmark disclosure still requires careful comparison.
 
 ---
-
-## 2026-09-30 verification addendum
-
-Moonshot's first-party K3 technical blog now supplies a fuller exact-model table: **67.5 DeepSWE**, **77.8 Program Bench**, **88.3 Terminal-Bench 2.1**, **81.2 FrontierSWE**, **1668 GDPval-AA v2 Elo**, **73.2 Toolathlon-Verified**, **84.2 MCP Atlas**, **93.5 GPQA Diamond**, **56.0 HLE with tools**, **81.6 MMMU-Pro**, and **91.3 CharXiv with Python**. It also confirms 2.8T total / 104B active parameters, native vision, 1M context, and official API pricing of $3 cache-miss input, $0.30 cache-hit input, and $15 output per million tokens. The Kimi API help center confirms `kimi-k3`, always-on thinking with low/high/max effort controls, and the 1M context limit. These stronger primary sources support the existing normalized scores. [Moonshot K3 technical blog](https://www.kimi.ai/blog/kimi-k3) · [Kimi API model selection](https://www.kimi.ai/help/kimi-api/api-model-selection)
 
 ## Signature
 

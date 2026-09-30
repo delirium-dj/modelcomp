@@ -62,7 +62,7 @@ Multimodal:
 - **Context window: 74/100.** 256K in the 200–500K tier (~74); 32K out a mild cap; LCR ~74% is healthy for the price class.
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 65/100.** AA Coding Index 55.6 and SciCode ~42 are respectable mid coding; no SWE-Verified/DeepSWE rows; finance valuation (FinCRAFT 54) is the real specialty, not general SWE.
-- **Cost efficiency: 100/100.** **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)** (meta) + MIT weights + $0.06/$0.18 paid floor + 5.1B active → maximum cost score.
+- **Cost efficiency: 100/100.** **Free Zen tier** (meta) + MIT weights + $0.06/$0.18 paid floor + 5.1B active → maximum cost score.
 - **Overall Score: 58/100.** Mean of five quality dims (65+70+74+15+65)/5 = 57.8 → 58. Best-fit: **free** finance research, filings reconciliation, and spreadsheet pipelines on Zen — not a terminal/OSWorld agent and not multimodal (use Ling-3.0-flash-VL for vision).
 
 ---

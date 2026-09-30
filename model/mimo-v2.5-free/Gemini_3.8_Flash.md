@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free`
 - **Context window:** 200,000 tokens on Zen cap (native 1M) / 32K max out (verified via Zen toml / docs).
 - **Modalities:** Text, image, audio, and video in; text out; tool calls and JSON mode.
-- **Pricing (as of 2026-09-19):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0); native hosting from ~$0.14/$0.28 per 1M.
+- **Pricing (as of 2026-09-19):** Free Zen tier ($0); native hosting from ~$0.14/$0.28 per 1M.
 - **Architecture:** 310B total / 15B active open-weights omni MoE under Apache 2.0.
 
 ### Raw benchmarks found

@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Opus 4.6
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-21 original)
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,10 +50,6 @@ Long context:
 - **Overall Score: 89/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 88.8; recommended for long-context, high-reliability coding and professional agents.
 
 ---
-
-## 2026-09-30 verification addendum
-
-Anthropic's official system card confirms exact max-effort results of **80.8% SWE-bench Verified**, **65.4% Terminal-Bench 2.0**, **91.9%/99.3% τ²-bench Retail/Telecom**, **59.5% MCP-Atlas**, **72.7% OSWorld-Verified**, **68.8% ARC-AGI-2 Verified**, **91.3% GPQA Diamond**, and **73.9%/77.3% MMMU-Pro without/with tools**. It identifies five-trial averaging (25 trials for SWE-bench) and a maximum evaluation context of 1M tokens. The existing score interpretation remains valid. [Anthropic system card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)
 
 ## Signature
 

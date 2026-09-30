@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` (Free Contributor), `opencode/muse-spark-1.3` (paid Standard)
 - **Context window:** 1,048,576 total (1M in / 128K out; max output 943,718 reported) — verified via Meta research blog and model card
 - **Modalities:** Text, image, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 (training-data consent); Contributor $0.10/$0.20 per 1M; Standard $1.25/$4.25 per 1M; $0.55/task Pareto reported
+- **Pricing (as of 2026-09-23):** Free Zen tier $0/$0 (training-data consent); Contributor $0.10/$0.20 per 1M; Standard $1.25/$4.25 per 1M; $0.55/task Pareto reported
 - **Architecture:** Proprietary (dense transformer, not disclosed)
 
 ### Raw benchmarks found
@@ -64,7 +64,7 @@ Long context:
 - **Context window: 100/100.** 1,048,576 total with 98%+ retrieval at 512K-1M; meets 95-100 tier for ≥1M verified.
 - **Multimodal: 85/100.** Text/image/video/PDF in → text out; lacks audio in / non-text out needed for 90+.
 - **Coding: 95/100.** DeepSWE 75.4 leads frontier + TB2.1 88.8 + SWE-Atlas 59.4 + SciCode 58.8; capped below 97 by missing LiveCode/SWE-Verified direct.
-- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) during limited period (training-data consent); paid-equivalent would be 88 at Standard pricing.
+- **Cost efficiency: 100/100.** $0 Free Zen tier during limited period (training-data consent); paid-equivalent would be 88 at Standard pricing.
 - **Overall Score: 93/100.** Mean of five non-cost dims (94+92+100+85+95)/5=93.2 → 93; best-fit for long-horizon agentic coding at zero cost.
 
 ---

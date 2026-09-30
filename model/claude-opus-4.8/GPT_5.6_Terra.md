@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Opus 4.8
-- Date: 2026-09-30 (UTC; refreshed from the 2026-09-21 original)
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,6 @@ Long context:
 - **Overall Score: 87/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 87.4; a fit for dependable high-stakes agent and coding work.
 
 ---
-
-## 2026-09-30 verification addendum
-
-Fresh Anthropic verification confirms that Claude Opus 4.8 remained available at $5/$25 per-million-token input/output pricing and that its published system card is the authoritative capability and safety reference. The card states that no web search or other tools were available during its reported benchmark evaluations, an important comparability caveat for the existing scores. No later exact-Opus-4.8 evaluation table supersedes the report's recorded values, so they are retained. [Anthropic release](https://www.anthropic.com/news/claude-opus-4-8) · [system card](https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf)
 
 ## Signature
 

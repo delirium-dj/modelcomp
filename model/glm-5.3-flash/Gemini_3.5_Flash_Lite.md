@@ -11,10 +11,10 @@
 - **Short description:** Z.AI's lightweight Flash-class MoE model engineered for ultra-fast agentic coding, high-frequency tool calls, and low latency.
 - **Provider / access:** OpenCode Zen `opencode/glm-5.3-flash`, Chat Completions API.
 - **Release / knowledge:** 2026-02-10; knowledge cutoff January 2026.
-- **IDs:** `opencode/glm-5.3-flash` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
+- **IDs:** `opencode/glm-5.3-flash` (Free Zen tier available)
 - **Context window:** 204K total tokens verified via Z.AI technical documentation.
 - **Modalities:** Text in/out, function calling, JSON mode.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M); paid equiv. ~$0.20 / $0.60 per 1M tokens.
+- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.20 / $0.60 per 1M tokens.
 - **Architecture:** Lightweight Mixture-of-Experts (MoE) architecture.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 92/100.** Generous 204K context window with reliable retrieval.
 - **Multimodal: 15/100.** Text-only input/output modality.
 - **Coding: 78/100.** Efficient coding performance and swift execution.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0/1M).
+- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
 - **Overall Score: 68.8/100.** Ultra-fast Flash-class MoE model offering great context length and low latency.
 
 ---

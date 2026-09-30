@@ -17,11 +17,8 @@
 
 import { GENERATED_SCORES } from "./scores.generated";
 import { SOURCE_DEFS, type SourceKey, type SourceDef } from "./sources.generated";
-import { GENERATED_CATALOG, type MetaFile } from "./catalog.generated";
-import { TOP_MODELS_BY_SOURCE } from "./rankings.generated";
 
-export type { SourceKey, SourceDef, MetaFile };
-export { TOP_MODELS_BY_SOURCE };
+export type { SourceKey, SourceDef };
 
 export interface ModelScores {
   tool: number;
@@ -146,27 +143,38 @@ export type DimensionKey = (typeof DIMENSIONS)[number]["key"];
 export const MODEL_COLORS = ["#4f46e5", "#059669", "#d97706"];
 
 
+/** Validated contents of one model/<slug>/meta.json file. */
+interface MetaFile {
+  id: string;
+  name: string;
+  short: string;
+  contextWindow: string;
+  modalities: string;
+  pricingNote: string;
+  pricingTiers?: string[];
+  freeTierNote?: string;
+  noFreeId?: boolean;
+}
+
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"] as const;
 
-/**
- * Junior Developer Tip: loadMetas reads from GENERATED_CATALOG (pre-built by `pnpm sync`),
- * removing the eager import.meta.glob that previously bundled every raw meta.json file
- * into the main landing page JavaScript bundle.
- */
+/** Curated metadata, one file per model folder. Keys look like "../../model/big-pickle/meta.json". */
+const metaModules = import.meta.glob("../../model/*/meta.json", {
+  eager: true,
+  import: "default",
+}) as Record<string, unknown>;
+
 function loadMetas(): { slug: string; meta: MetaFile }[] {
   const entries: { slug: string; meta: MetaFile }[] = [];
   const seenIds = new Set<string>();
-  for (const [slug, mRaw] of Object.entries(GENERATED_CATALOG)) {
-    const meta = mRaw as MetaFile;
-    // Frontend shows model/ entries only — voice/finance trees stay in the
-    // dataset (sync still validates them) but off the site until wired.
-    // Missing `root` (pre-regen bundles) defaults to visible, so the site
-    // keeps working until the next `pnpm sync` stamps the field.
-    const root = (meta as MetaFile & { root?: string }).root;
-    if (root !== undefined && root !== "model") continue;
+  for (const path of Object.keys(metaModules)) {
+    const m = path.match(/^\.\.\/\.\.\/model\/([^/]+)\/meta\.json$/);
+    if (!m) throw new Error(`[models] unexpected meta path: ${path}`);
+    const slug = m[1];
+    const meta = metaModules[path] as Partial<MetaFile>;
     let valid = true;
     for (const k of META_REQUIRED) {
-      if (typeof meta[k as keyof MetaFile] !== "string" || (meta[k as keyof MetaFile] as string).length === 0) {
+      if (typeof meta[k] !== "string" || (meta[k] as string).length === 0) {
         // Warn-and-skip (never throw): in-progress research must not break the build.
         // `pnpm sync` fails loudly on the same problem, so it still gets fixed.
         console.warn(`[models] model/${slug}/meta.json: missing required field "${k}" — skipped`);
@@ -174,13 +182,13 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
       }
     }
     if (!valid) continue;
-    const id = meta.id;
+    const id = meta.id as string;
     if (seenIds.has(id)) {
       console.warn(`[models] duplicate model id: ${id} — keeping first occurrence`);
       continue;
     }
     seenIds.add(id);
-    entries.push({ slug, meta });
+    entries.push({ slug, meta: meta as MetaFile });
   }
   entries.sort((a, b) => (a.meta.id < b.meta.id ? -1 : a.meta.id > b.meta.id ? 1 : 0));
   return entries;
@@ -197,11 +205,6 @@ export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
   for (const slug of Object.keys(GENERATED_SCORES)) {
-    // Same visibility rule as loadMetas: voice/finance trees are validated by
-    // sync and stay in the catalog, but off the site — they are not "missing
-    // meta.json", so skip them here instead of warning on every build.
-    const catRoot = (GENERATED_CATALOG[slug] as (MetaFile & { root?: string }) | undefined)?.root;
-    if (catRoot !== undefined && catRoot !== "model") continue;
     if (!metaBySlug.has(slug)) {
       console.warn(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }
@@ -279,6 +282,7 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Muse Spark 1.2": "muse-spark-1.2-free",
   "Claude Sonnet 5": "claude-sonnet-5",
   "GPT 5.6 Luna": "gpt-5.6-luna",
+  "GPT 5.6 Sol": "gpt-5.6-sol",
   "GPT 6 Sol": "gpt-6-sol",
   "Grok 4": "grok-4",
   "Gemini 1.5 Pro": "gemini-1.5-pro",
@@ -286,27 +290,10 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "GLM 5.3": "glm-5.3",
   "Kimi K3": "kimi-k3",
   "Space Bunny Alpha": "space-bunny-alpha",
+  "Muse Glimmer 30B": "muse-glimmer-30b",
   "Laguna XS 2.1": "laguna-xs-2.1",
   "Claude Sonnet 4.5": "claude-sonnet-4.5",
   "LongCat 2.5 Preview": "longcat_2.5_preview",
-  "GPT 5": "gpt-5",
-  "Grok 4.20": "grok-4.20",
-  "Pixel Canary": "pixel_canary",
-  "Gemini 2.5 Flash Lite": "gemini-2.5-flash-lite",
-  "Gemini 2.5 Flash": "gemini-2.5-flash",
-  "Gemini 2.0 Flash": "gemini-2.0-flash",
-  "Gemini 2.5 Pro": "gemini-2.5-pro",
-  "GPT 5.6 Sol": "gpt-5.6-sol",
-  "GPT 6 Astra": "gpt-6-astra",
-  "Claude Sonnet 4": "claude-sonnet-4",
-  "Claude Sonnet 5.5": "claude-sonnet-5.5",
-  "Claude Fable 5.1": "claude-fable-5.1",
-  "Claude Opus 4.5": "claude-opus-4.5",
-  "Claude Opus 5.5": "claude-opus-5.5",
-  "Grok 4.3": "grok-4.3",
-  "Grok 4.5": "grok-4.5",
-  "GPT OSS 120B": "gpt-oss-120b",
-  "Gemma 4 31B IT": "gemma-4-31b",
 };
 
 /**
@@ -359,14 +346,6 @@ export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() =>
 
 export function getModel(id: string): AiModel | undefined {
   return MODELS.find((m) => m.id === id);
-}
-
-/**
- * Junior Developer Tip: top3ForSource delivers an instant O(1) lookup using pre-computed rankings
- * from rankings.generated.ts instead of sorting the 90+ MODELS array on every user interaction.
- */
-export function top3ForSource(source: SourceKey): [string, string, string] {
-  return TOP_MODELS_BY_SOURCE[source] ?? TOP_MODELS_BY_SOURCE["average"] ?? ["", "", ""];
 }
 
 /** Dev check: every source's overall must sit within rounding distance of its

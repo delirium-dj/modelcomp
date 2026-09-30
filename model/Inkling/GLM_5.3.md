@@ -82,9 +82,3 @@ Safety (context):
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (Thinking Machines Lab announcement and benchmark tables, BenchLM, Design Arena leaderboard via vendor); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Fresh re-research found one BenchLM-side revision: the GDPval-AA Elo row was revised 1165 to 1064 (normalized 28.2%). The tool-use score relied on the vendor GDPval 1238 (effort 0.99), MCP Atlas and Tau3 rows rather than this one. All other cited values (TB2.1 63.8%, MCP Atlas 74.1%, SWE-bench Verified 77.6%, SWE-bench Pro 54.3%, LCB Vals 85.5%, GPQA 87.9%, HLE 46%/30%, AIME26 97.1%, Index 25.0, Design Arena Agentic Web Dev 1257) re-verify unchanged. The six normalized scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

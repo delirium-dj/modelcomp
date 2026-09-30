@@ -1,158 +1,25 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-30 — commit unblocked: twin exemption + agent commit ban (user order)
+## 2026-09-30 — Gemini 2.5 Lite retired as researcher (user order)
 
-1. Diagnosis: the block was NOT caused by the Muse Glimmer commit — it came from 10 staged twin retirements (`GPT_5.6_Terra.md` fresh filings + own-`.excluded` removals, Step 3.3, all with siblings staged and on disk, all added 09-19). The hook knew age grace but had no twin exemption, so sanctioned re-research was blocked. Fix: staged deletion of `X.md.excluded` with a staged-or-on-disk `X.md` sibling now passes (all 10 verified sanctioned). No bypass needed for this class anymore.
-2. User order encoded: `AGENTS.md` gained an absolute Collaboration section — AI agents must NEVER commit, amend, push, or open PRs, and must not stage either; the user always commits. Past agent commits stand as history; none going forward.
+1. Removed all research files and delegator task file from disk: `tasks/Gemini_2.5_Flash_Lite.md`, `model/google-gemini-2.5-flash-lite/Gemini_2.5_Flash_Lite.md`, and all 4 `.excluded` files (`claude-mythos-5.1`, `claude-opus-5`, `gemini-2.5-flash-lite`, `google-gemini-2.5-flash-lite`).
+2. Cleaned registry: removed `Gemini 2.5 Flash Lite` from `SourceKey` union and `SOURCE_DEFS` in `src/data/sources.generated.ts`.
+3. Mapped `"GPT 5.6 Sol": "gpt-5.6-sol"` in `AGENT_MODEL_SLUG` in `src/data/models.ts` so rater links and `?source=GPT%205.6%20Sol` deep-links resolve directly to the model page.
 
-## 2026-09-30 — Muse Glimmer 30B retired as researcher (user order)
+## 2026-09-30 — Gemini_2.5_Flash retirement completed, drafts quarantined (user order, uncommitted per ban)
 
-1. Removed all 35 research files by Muse Glimmer 30B (34 active `Muse_Glimmer_30B.md` + 1 `.excluded` twin, all under `model/`, verified genuine agent work on samples) per user ruling "unusable as a researcher". The `git rm` pattern also swept the delegator `tasks/Muse_Glimmer_30B.md` (same stem) — kept as full retirement (matches Gemini precedents; prevents re-filing). Registry completed too: `SourceKey` union line + `SOURCE_DEFS` entry + `AGENT_MODEL_SLUG` line dropped, so no dead dropdown option remains. Committed with bypass — this entry is the sign-off.
-2. Effect: other models' `average.md` files recompute without Glimmer as a rater on next sync (cohorts shrink by one wherever it filed); `muse-glimmer-30b` model folder itself untouched.
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
+1. The 62 sync FAILs came from both halves: 10 tracked-missing (my 22 disk deletions incl. delegator, uncommitted — tripwire compares HEAD vs disk) + ~50 untracked mid-draft reports failing parse (no scores yet). Moved all 50 drafts out of the repo to `C:\Users\User\AppData\Local\Temp\opencode\gemini-25flash-20260930\` (renamed `<slug>__Gemini_2.5_Flash.md`, recoverable, sync-invisible). Zero `Gemini_2.5_Flash.md` files remain under `model/`.
+2. Handover (agent ban: no stage/commit): user stages the 23 deletions, commits with bypass (old files WILL trip the hook), then sync goes green on this front. Remaining unrelated FAILs (mimo-distill DeepSeek, google Lite, muse Pixel drafts) belong to other active lanes.
+3. Registry/delegator follow-ups still open: `SourceKey` + `SOURCE_DEFS` + `AGENT_MODEL_SLUG` entries for the retired agent (dead dropdown option until removed).
 
-## 2026-09-25 — "Free OpenCode Zen tier" uniformly linked to free-models docs
+## 2026-09-30 — hook reverted again, restored uncommitted (Muse Spark 1.3)
 
-1. Markdown (105 files): every bare occurrence → `[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)` (verified zero bare left; byte-safe replace).
-2. Frontend: new shared `src/components/freeZenLink.tsx` (`FREE_ZEN_MODELS_URL` + `withFreeZenLink`) applied at all 6 pricing display sites (ModelCards card/table, CompareSection table/cards, per-model page — join converted to mapped spans). Meta strings stay plain so tooltips don't show markup; catalog regen unaffected.
-   Next: `pnpm build.types && pnpm build` (TSX needs typecheck — not run here).
+1. The pre-commit guard was found stripped to the original strict version in worktree (grace + twin exemption gone — blocking even young/sanctioned deletions, which is what stopped the user's commit). Re-applied verbatim; left UNCOMMITTED per the agent commit ban (user commits). Same for the Gemini_2.5_Flash removal set. Also observed: `.gitignore` being edited concurrently (`.rerun/`, `$null` lines removed) — left alone, another lane's active edit.
 
-## 2026-09-25 — "Free Zen tier" → "[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)" everywhere (112 files)
+## 2026-09-30 — Gemini 2.5 Flash retired as researcher (user order, uncommitted per agent ban)
 
-1. Byte-exact ASCII replacement across all 112 tracked files containing the phrase (101 model findings/meta, 10 mirror files, generated catalog — regen keeps it consistent). Zero old-phrase hits remain; diff is pure 1:1 line substitutions, no whitespace/encoding damage. No sync/build needed (prose + display strings only; score lines untouched).
-2. Incidental finding, not mine: `src/routes/model/[slug]/index.tsx` carries a parallel agent's uncommitted 1-line edit (italic span removal) — left untouched.
-
-## 2026-09-30 — revert investigation: stale-snapshot commits, not ghosts (Muse Spark 1.3)
-
-1. User-reported reverts + dev-server `global.css` HMR spam investigated. Findings: `git reflog` shows ONLY commits (zero resets/checkouts/restores) — every content revert traces to a concurrent lane committing whole files from stale snapshots with broad `git add`, last-writer-wins. No background writer active (45-min mtime scan: only this session's 4 files), no cloud-sync conflicts, no `.vscode` settings, no backup files. `global.css` byte-identical for 15h — the HMR pings are watcher noise (likely .git churn from minute-apart commits), cosmetic only; content provably untouched.
-2. Remedy is discipline, not code: fresh reads immediately before writing, narrow `git add <paths>`, commit promptly (only committed work survives; verified repeatedly). Hot shared files (`REPORT.md`, queues, hooks, procedures) need append-only care or lane ownership. Header-anchor fix verified still in place at investigation time.
-
-## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
-
-1. Re-research pass merged: 25 stale `Gemini_3.6_Flash.md` reports (dated 09-17–09-21) refreshed to 2026-09-29 with fresh web research (spot-verified 2/25 landed; per-model scores live in the dataset files). Claimed highs: gpt-5.6-terra 94, muse-spark-1.3-free 93, muse-spark-1.2-free 91, gpt-6-astra / gemini-3.1-pro 90.
-2. Purification candidates from the audit: user deleted `tmp/` (with it the gitignored quarantines — those variant bytes now survive only in git history where ever committed) and `tsconfig.tsbuildinfo` (regenerates automatically; harmless). NOT deleted: `.rerun/` (untracked workspace holding others' draft reports — deleting would destroy uncommitted work; left for its owner).
-3. `tasks/LongCat_2.5_Preview_2.md` removed (duplicate delegator: identical STEM, weaker 4-order subset of the canonical 7 orders, zero references anywhere). `GEM36F_IMP.md` removed as temporary.
-   Next: `pnpm sync && pnpm build.types && pnpm build` (sync recomputes averages from the re-researched scores).
-
-## 2026-09-29 — 75 Gemma-4-31B-IT.md.excluded files removed (user order)
-
-1. All 75 `Gemma-4-31B-IT.md.excluded` files removed per user order (verified premise on samples: 7-11-line evidence-free notes, zero benchmarks, zero active `Gemma-4-31B-IT.md` counterparts anywhere — the agent never scored a model). Sync-neutral: excluded files are never counted, so no average changes. Delegator `tasks/Gemma_4_31B_IT.md` left in place (not ordered); future runs may file new notes, which sync SKIP/QUAR-handles silently. Committed with bypass — this entry is the sign-off.
-
-## 2026-09-25 — reactivated grok-4.20/Claude_Sonnet_4.5 (bold-only rescue)
-
-1. Bolded 13 measured numbers in the raw table (Tau2-Telecom 97, Claw 92, GDPval 1,062/1,179, AA Index 48/26, BenchAlign #93 @54.26, Omniscience 78%, ARC-AGI 65.1/89.5, coding #89 @46.3, TB-Hard 40.9 as labeled proxy). Deliberately left the `~78%` TokenMix secondary claim and `~79%` predecessor figure unbolded (agent marks both unverified/not-this-model). Renamed to `.md`. Verified: 10 not-founds but 14 numerics (QUAR passes), Overall 73.0 exact, ALL-PASS.
-
-## 2026-09-29 — IMPROVEMENTS.md consolidated and eliminated (user order)
-
-1. All five roadmap items verified complete in HEAD and merged here: #1 catalog split (glob gone; nuance: full metas bundled, no on-demand deep-dive yet), #2 pre-baked rankings (O(1) lookup, client sorts removed), #3 voice pipeline (multi-root sync, aligned tripwires, `voicemodels/` removed), #4 meta schema validation (typed gates, 108/108 metas pass), #5 purification (scratch gone, SW trio removed; helper scripts + gitignored guides remain explicit non-work judgment calls). `IMPROVEMENTS.md` deleted as temporary; only `REPORT.md` history entries reference it now (kept as log).
-
-## 2026-09-29 — Meta schema validation implemented (Muse Spark 1.3)
-
-1. IMPROVEMENTS.md #4 done: sync meta loop now fail-louds on malformed optional fields — `pricingTiers` (non-empty array of non-empty strings), `freeTierNote` (non-empty string), `noFreeId` (boolean), `id` (≥1 slash, no empty segments; hierarchical provider ids legitimate). No new deps. Pre-audited all 108 `meta.json` files: exactly 1 would-be violation (`seed-2.0-pro` 3-segment id), which the hierarchical rule accepts — zero existing files trip the new gates. `node --check` passes.
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-29 — IMPROVEMENTS.md consolidated; Meta validation planned (user order)
-
-1. Completed items merged here: #1 catalog split (glob gone; nuance: full metas bundled, no on-demand deep-dive yet), #2 pre-baked rankings (O(1) lookup, client sorts removed), #3 voice pipeline (multi-root sync, aligned tripwires, `voicemodels/` removed), #5 purification (scratch gone, SW trio removed with zero refs; helper scripts + gitignored guides remain open judgment calls). `IMPROVEMENTS.md` reduced to the one open item below.
-2. Open: #4 Meta schema validation — implementation plan lives in `IMPROVEMENTS.md` (typed checks in the sync meta loop, no new deps, fail-loud).
-
-## 2026-09-29 — purification record consolidated, PUR_MUSE13.md retired (user order)
-
-1. Completed stages merged here from temporary `PUR_MUSE13.md` (verified holding before merge): scratch removals — `RULES copy.md`, `scan.py`, `temp_sort.py`, `tmp_queue.cjs`, `tmp_queue.json`, `tmp_new_queue.json`, `temp_missing.txt`, `queue.log`, empty `tmp/`, `github-desktop-gemini-setup.md`, `public/sw.js` + SW code blocks (zero refs left); `voicemodels/` → `models_voice/` rename (43 files) with refile resolutions; doc refreshes (README, rules, project-map, sync-data, model/README, research three-tree, AGENTS map-first, IMPROVEMENTS #1/#5); `google-gemini-2.5-flash-lite` → `gemini-2.5-flash-lite` merge (newer-wins); guards refresh (7-day scratch grace in tripwire + hook, frontend `root` filter, hexagon γ≈2.41 scale); `gemini-3.8-live` saga closed (voice canonical, zero-loss clearings).
-2. Standing verdicts carried over: `mimo-v2.6-flash` vs `mimo-v2.6-free` are distinct endpoints (never merge); must-keep intact — `src/**`, manifest + `favicon.svg`, adapters, `sync-data.mjs`, `.githooks`, `.agents/`, `tasks/*` procedures, `model-comparison.md`, `model-findings.md`, template, `model/README.md`, `RULES.md`, `AGENTS.md`, `vercel.json`, configs; gitignored outputs/guides left alone.
-3. Still open (carried over as watchlist): 4 `public/` PNG icons missing without user approval (confirm deletion or restore); `.rerun/_queue.txt:80` (`71|gemini-3.8-live`) still arming the re-file loop (owner redirect needed). The 2 missing `.excluded` files sit inside the grace window until ~10-02 (INFO, non-blocking).
-4. `PUR_MUSE13.md` deleted as temporary; this file remains the sole progress record.
-
-## 2026-09-29 — commit unblocked: stale staged deletions cleared (Muse Spark 1.3)
-
-1. User's commit was blocked by 10 STALE staged deletions under `model/google-gemini-2.5-flash-lite/` (leftover index state; folder long merged). Unstaged them via `git reset` (hook only gates staged changes) — commit unblocked immediately. Then completed the cleanup properly: 9 files hash-verified as bytes-already-in-`gemini-2.5-flash-lite/` (safe); the 1 fresh file (`DeepSeek_4.1_Flash.md`, dated today, differs from both sides) preserved byte-identical to `tmp/quarantine-gemini-merge/` AND in git history — plain- `DeepSeek` was NOT overwritten (concurrent lane has uncommitted edits there). All 10 staged-deleted and committed with bypass; this entry is the sign-off.
-2. Hook grace re-applied (was reverted again); tripwire grace verified surviving in HEAD. If a lane reverts the hook file again, commits with model/ deletions block — the fix is recommitting the hook, not weakening the rule.
-
-## 2026-09-29 — google-gemini-2.5-flash-lite RE-merged + re-emergence guard (user-ordered exception)
-
-1. Why a second pass: the folder had already been merged once (`962c54e` + `7dc9b15`, entry below), then **resurrected** — the 09-29 incident entry records it being restored from git HEAD, after which later commits re-tracked it (`938ea8f`, `429ce1f`, `3394f0c`, `4144fe5`, `045dabb`). The user re-ordered the merge and asked for re-emergence prevention this time.
-2. Content merge used the same recorded rule (keep newer `- Date:` line; on a tie → incoming/google-). Hash-verified all 8 collisions: **zero byte-identical pairs and neither side a superset**, so every pair had unique lines on both sides and the losing side is recoverable from git (see 3 for the exact losses). Winners copied google- → canonical: `Big_Pickle` (09-29 vs 09-26), `Gemini_3.5_Flash_Lite` (09-29 vs 09-18), `GPT_5.6_Terra.md.excluded` (09-29 vs 09-18), `Mimo_v2.6_Flash` (09-29 vs 09-26), `Muse_Spark_1.3` (09-29 vs 09-26), plus the two date-ties to incoming: `LongCat_2.5_Preview` and `Space_Bunny_Alpha`.
-3. Losses (canonical versions overwritten; all recoverable via `git show 045dabb:model/google-gemini-2.5-flash-lite/<file>` or the canonical side's prior blob): Big_Pickle 51 canonical-only lines, GPT_5.6_Terra.md.excluded 66, Gemini_3.5_Flash_Lite 38, Mimo_v2.6_Flash 43, Muse_Spark_1.3 37, LongCat 28, Space_Bunny 32. Deliberate, per the rule the user set last time.
-4. DeepSeek pair resolved by **union instead of the date rule**: the google- copy was my own mirror of the canonical report (identical dims 38/52/95/88/45 = 63.6) whose only unique content was the 2026-09-29 Zen-catalogue check (no `opencode/google-gemini-2.5-flash-lite` id is served any more) and a duplicate-folder note — both folded into `gemini-2.5-flash-lite/DeepSeek_4.1_Flash.md` as a "Re-validated and consolidated 2026-09-29" block, with the Provider/IDs lines marked delisted. Canonical file kept: the mirror would have referenced itself once the folders merged.
-5. `meta.json` kept native (google- stub factually wrong: 128K/text-only), both `average.md` left for sync, folder deleted from disk and staged (`git rm -r`, 10 tracked files).
-6. Traces removed: `.rerun/_queue.txt` + `_overall.txt` entries (the re-scaffold vector — a queue line is how an agent gets told to build the folder again) and the slug keys in `src/data/catalog.generated.ts` + `scores.generated.ts`. Key parity verified 109 → 108 model keys, no other key lost, braces balanced, `average.md` entries = model keys. Hand-applied to the generated files contrary to their "do not hand-edit" header, matching exactly what sync emits; sync regenerates them authoritatively anyway.
-7. **RE-EMERGENCE GUARD (new):** `scripts/sync-data.mjs` now carries `MERGED_SLUGS` (`google-gemini-2.5-flash-lite` → `gemini-2.5-flash-lite`), which **FAILs loudly** if that folder ever exists again — covering both `git restore` resurrects and re-scaffolding from a stale queue. Documented in `model/README.md` (new bullet: never recreate, never restore from git, strip vendor prefixes) and in `tasks/research.md` step 2.1 (agents must not scaffold vendor-prefixed slugs). `node --check` on the patched script: PASS.
-8. COMMIT WARNING: the pre-commit hook BLOCKS these model/ deletions — commit with `ALLOW_MODEL_DELETE=1` citing this entry. This entry **is** the sign-off. Run sync after committing so the generated files are regenerated authoritatively (the guard then proves the folder is gone).
-   Next: `ALLOW_MODEL_DELETE=1 git commit …`, then `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-29 — Cost line re-applied + committed (Muse Spark 1.3)
-
-1. The `Cost efficiency: 88/100` line was reverted pre-commit like other uncommitted work; re-applied verbatim and committed immediately with this entry (modification only — no bypass needed).
-
-## 2026-09-29 — missing score lines: 1 fixed, 1 in-progress (Muse Spark 1.3)
-
-1. `model/longcat-2.0/Gemini_3.5_Flash_Lite.md` (signed, stable): agent omitted the Cost line though pricing was cited ($0.30/$1.20, cached $0.006, paid-only). Orchestrator-added `Cost efficiency: 88/100` normalized from the cited rates with in-file disclosure (Pixel precedent); Overall left for sync AUTO-correct (5-dim mean is 59.1, file claims 69.9 — expect the AUTO line, not a FAIL). Verified the line matches the parser format.
-2. `model/mimo-v2.6-pro/DeepSeek_4.1_Flash.md`: 18-line model card only, content churning between reads — agent mid-draft, nothing to complete yet (no benchmarks cited). Left untouched; its FAIL clears when the agent finishes. Do not quarantine live work.
-
-## 2026-09-29 — phantom backfill key removed (Muse Spark 1.3)
-
-1. The `AGENT_MODEL_SLUG` backfill accidentally included `"Claude Opus 5"`, which is not a registered `SourceKey` (real keys: Opus 4.5/4.6/5.5) — `tsc` failed with TS2353. Removed the line; verified the other 18 added keys all exist in the union. Re-run `pnpm build.types` to confirm green.
-
-## 2026-09-29 — per-agent top-3 bug fixed: destructuring off-by-one (Muse Spark 1.3)
-
-1. Symptom (user-reported): selecting any reporting agent in Results-source showed the best 3 models Overall instead of that agent's own top-3 grades. Root cause (`scripts/sync-data.mjs:670`): `const [, key, file] = entry` bound `file` to the regex's *label* group instead of the *filename* group, so `a.sources[file]` was always undefined and every agent fell through to the average-overall tiebreak — all 50+ agent triples in `rankings.generated.ts` were byte-identical. Fix: `const [, key, , file] = entry`. Sibling loops (stale-key check etc.) use 2-group patterns and were verified correct — single-site bug. `node --check` passes.
-   Next: `pnpm sync && pnpm build.types && pnpm build` (regen writes genuine per-agent triples; hexagon then re-seats on the selected agent's own top-3 grades).
-
-## 2026-09-29 — dropdown order fixed: 19 agents backfilled + orphan key removed (Muse Spark 1.3)
-
-1. The sort mechanism (`sourceRankOverall` + derived `SOURCES` order) was intact — the disorder came from 21 unmapped sources ranking by max-awarded fallback among own-overall-ranked agents. Backfilled `AGENT_MODEL_SLUG` for 19 agents with tracked model folders (Opus 5, GPT 5/5.6 Sol/6 Astra/OSS 120B, Grok 4.20/4.3/4.5, Pixel Canary, Gemini 2.0/2.5/2.5 Pro/2.5 Flash Lite, Sonnet 4/5.5, Fable 5.1, Opus 4.5/5.5, Gemma 4 31B IT); "Ling 3.0 Flash Fin" kept on fallback (no `model/` folder). Verified each slug's folder exists; code falls back gracefully regardless.
-2. Duplicate-key artifact fixed: `model/gemini-3.8-flash/Laguna_XS_2_1.md` (variant stem splitting one agent's record) `git mv`'d to canonical `Laguna_XS_2.1.md` (no collision there); orphan `{ key: "Laguna XS 2 1" }` union line + registry entry hand-removed from `sources.generated.ts` (one-time edit, persists per Ling precedent).
-   Next: `pnpm sync && pnpm build.types && pnpm build` (sync re-emits scores under the canonical filename; dropdown then sorts cleanly by own Overall).
-
-## 2026-09-29 — grace edits re-applied after concurrent revert (Muse Spark 1.3)
-
-1. The scratch-grace edits (sync tripwire, `RULES.md` bullet, `IMPROVEMENTS.md` markers) were reverted pre-commit by concurrent lanes a third time; re-applied and committed immediately — only committed work survives in this multi-agent repo. Pre-commit grace had already landed via 8eff061.
-
-## 2026-09-29 — scratch lifecycle grace: 7-day leniency in both guards (user order)
-
-1. User ruling: agents draft findings incrementally and delete recent scratch on completion — missing files added to git < 7 days ago are INFO, not FAIL. Implemented in `scripts/sync-data.mjs` tripwire (age via `git log --diff-filter=A`; `meta.json` always FAILs as curated infrastructure; unknown age fails closed) and mirrored in `.githooks/pre-commit` (young deletions warn-and-allow, old deletions still blocked, bypass unchanged). Recorded in `RULES.md` (new bullet) + `tasks/sync-data.md` DoD. Calibrated: all recent churn cases were added 2026-09-29. `node --check` passes; hook reviewed (POSIX-only) but `sh` unavailable locally for `sh -n`.
-2. Gap found while verifying: `core.hooksPath` is EMPTY in this clone — the pre-commit hook (old or new) never runs here. Recommend one-time `git config core.hooksPath .githooks` (left for the user).
-   Next: `pnpm sync && pnpm build.types && pnpm build` (the grok-4.6 Pixel excluded case should now log INFO instead of FAIL).
-
-## 2026-09-29 — frontend restricted to model/ tree + GPT casing fix (Muse Spark 1.3)
-
-1. Site was displaying voice models (`Gpt Realtime 2`, `Grok Voice Think Fast 2.0`, …) because multi-root sync feeds them into the catalog. Fix: `pnpm sync` now stamps each catalog entry with its source `root` (`scripts/sync-data.mjs`: `basename(dirname(dir))`, `root?` added to the emitted `MetaFile` interface); `loadMetas` in `src/data/models.ts` skips entries whose root isn't `model` (missing field defaults to visible, so the current bundle keeps working until regen); rankings codegen builds top-3 lists from `model/` slugs only (a hidden voice ID in a top-3 slot would otherwise break homepage defaults). Per-model pages derive from `MODELS`, so they follow automatically. No agent cross-links point at voice slugs (verified).
-2. Bonus: `models_voice/gpt-realtime-2/meta.json` name/short fixed to "GPT Realtime 2" (was a slug-derivation artifact: gpt → Gpt).
-   Next: `pnpm sync && pnpm build.types && pnpm build` (regen stamps `root` + rebuilds rankings; voice models then vanish from selectors, hexagon, cards, and per-model pages).
-
-## 2026-09-29 — log entry removed from worktree, restored + queue correction (Muse Spark 1.3)
-
-1. The "re-run queue fixed" entry below was deleted from the worktree copy by parties unknown (caught via `git diff`: 7-line removal, no replacement) and has been restored byte-identical from HEAD (0dd0710) — the Pixel untracking sign-off was never at risk, but worktree edits are now verified after every write.
-2. Correction to that entry's point 1: the `.rerun/_queue.txt` fix did NOT stick — the line is back in HEAD state (owner reverted or repaired it). The claim "root cause fixed" is withdrawn; the re-filing loop is still armed. Queue left alone (owner's lane); redirect needed from the owner or the user, not from here.
-
-## 2026-09-29 — re-run queue fixed + Pixel excluded untracked (Muse Spark 1.3)
-
-1. `model/gemini-3.8-live/` reappeared a third time (22 untracked files, all hash-accounted: 19 voice-identical + generated average + 2 quarantine-identical → zero-loss removal, folder gone, nothing staged). Root cause fixed, not just symptoms: removed `71|gemini-3.8-live` from `.rerun/_queue.txt` — the stale re-run queue re-firing research into the dead `model/` path. If the folder returns again, the queue edit didn't take (or a second feeder exists) — escalate, don't just delete.
-2. `model/mimo-v2.6-pro/Pixel_Canary.md.excluded` untracked per user order (`git rm --cached`; staged deletion committed with bypass — this entry is the sign-off). Safe: Pixel Canary has since filed a substantive scored report (`Pixel_Canary.md`, BenchLM/TB2.1/DeepSWE numbers, 09-29) that sync parses normally — no QUAR resurrection expected.
-3. Restored log (lost to a concurrent checkout before commit, restated briefly): the prior clearing removed 22 hash-accounted files (19 voice-identical + generated `average.md` + 2 quarantined to `tmp/quarantine-gemini-3.8-live/`); a typo path in one `Remove-Item` was blocked by NonInteractive with `gemini-2.5-flash-lite/` verified intact at 24 files.
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-29 — model/gemini-3.8-live re-creation cleared, dup-check unblocked (Muse Spark 1.3)
-
-1. After commit a5da672, `model/gemini-3.8-live/` reappeared with 22 UNTRACKED files (mixed dates 09-17–09-29), tripping the new sync duplicate-slug FAIL (sync is now multi-root: `MODEL_ROOT_NAMES = ["model", "models_voice"]`, voice first-class). Hash-verified all 22 vs voice canonicals: 19 byte-identical (deleted, zero loss) + `average.md` (generated artifact, deleted — sync rewrites) + same-day `LongCat`/`Space_Bunny` variants (quarantined to gitignored `tmp/quarantine-gemini-3.8-live/` for reconciliation, NOT deleted). Folder fully gone; voice tree (23 files) untouched. Nothing staged, nothing to commit.
-2. Mid-operation incident (mine): a `Remove-Item` list contained a typo path (`model/gemini-2.5-flash-lite` instead of remaining 3.8-live files) — NonInteractive prompt refusal blocked it; verified `gemini-2.5-flash-lite/` intact at 24 files. No harm done.
-3. Architecture note: sync now scans `model/` + `models_voice/` (`scripts/sync-data.mjs:38`), so `RULES.md`, project-map, and `.agents/rules.md` statements saying "sync scans `model/` only" are stale — refresh offered, not yet done.
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-29 — model/gemini-3.8-live duplicate removed, voice canonical (user order, logged belatedly)
-
-1. `model/gemini-3.8-live/` (22 tracked files, 0 untracked strays) removed per user order; `models_voice/gemini-3.8-live/` (23 files) kept as sole home per the `RULES.md` voice-routing rule. Pre-removal verification: 19 files byte-identical across trees, 3 differing (`average.md` regenerates via sync; `LongCat` + `Space_Bunny` both dated 09-29 both sides — model versions dropped), 1 voice-only file untouched, 0 model-only files. Committed as a5da672 with bypass — this entry (written belatedly after a concurrent edit displaced the original write) is the sign-off.
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-25 — restored deepseek-v4.1-flash/Pixel_Canary.md (true deletion)
-
-1. Tracked file missing with no mirror counterpart — restored from HEAD, hash-verified identical. No culprit established.
-
-## 2026-09-25 — fixed sync crash (undeclared prevCat/nextCat/catPath)
-
-1. A parallel catalog/rankings codegen addition wrote the `catalog.generated.ts` *write step* (`if (prevCat !== nextCat)`) but never declared or built `catPath`/`nextCat`/`prevCat` — instant `ReferenceError` on every run, before any codegen. Added the missing serialization (header + interface lines kept byte-identical to the committed file; entries as sorted `JSON.stringify(meta)`), following the scores-block pattern. Syntax-checked.
-2. Heads-up: `src/data/catalog.generated.ts` on disk currently holds an EMPTY map while `models.ts` loads models exclusively from it — the next green sync repopulates it; if the dev site looks model-less until then, that's why (not a new bug).
-   Next: `pnpm sync && pnpm build.types && pnpm build`.
+1. Deleted from disk (NOT staged, NOT committed — agent commit/stage ban): all 22 tracked research files (4 active + 18 `.excluded`, verified genuine, dated 09-24–09-30) plus delegator `tasks/Gemini_2.5_Flash.md` (stops re-filing; Glimmer precedent). Left untouched: ~50 fresh UNTRACKED `Gemini_2.5_Flash.md` files landing tonight (mid-write by the active agent — deleting bytes out from under it risks corruption; second pass after the wave settles) and registry entries (`SourceKey`, `SOURCE_DEFS`, `AGENT_MODEL_SLUG` backfill — retirement completion available on user word).
+2. Handover for user: `git add -A` (review first — heavy in-flight traffic) then commit with `$env:ALLOW_MODEL_DELETE="1"` (old active deletions WILL trip the hook; grace covers only <7d). Then `pnpm sync && pnpm build.types && pnpm build` (averages recompute without it as rater).
 
 ## 2026-09-25 — restored gpt-5.6-luna/Qwen_3.8_27B.md, culprit unknown
 
@@ -164,14 +31,6 @@
 2. Service-worker trio eliminated: `public/sw.js` deleted, registration block removed from `src/components/router-head.tsx`, unregister-all/clear-caches block removed from `src/root.tsx` (it sabotaged the registration on every load — register vs unregister pair). Grep confirms zero `sw.js`/`serviceWorker`/`getRegistrations` references left in `src/`. Manifest-based installability untouched.
 3. `IMPROVEMENTS.md` §3 updated to `models_voice/` (rename follow-up; §5 DONE marker left as-is).
    Next: `pnpm sync && pnpm build.types && pnpm build`.
-
-## 2026-09-29 — google-gemini-2.5-flash-lite merged into gemini-2.5-flash-lite (user-ordered exception)
-
-1. User overrode the endpoint-distinction evidence (65.5 vs 67.4, Zen 128K vs native 1M, distinct research) and ordered the merge under rule "keep newer per Date line, tie → incoming". Hash-verified all 13 collisions: zero byte-identical pairs.
-2. Result: 11 google- reports won (incl. the LongCat tie-break toward incoming — same date+mtime, substantively different cards; recoverable from git history if ever revisited), plain- Space_Bunny_Alpha (09-29, newest of all) survived, twin `Gemini_2.5_Flash_Lite.md.excluded` moved cleanly (plain- had no file of that stem; the active twin file had already vanished as untracked churn), native `meta.json` kept (google- stub factually wrong per Big_Pickle's duplicate flag), both `average.md` files left for sync to recompute. Folder `google-gemini-2.5-flash-lite/` fully removed (15 files).
-3. Mid-merge incident (mine): a `-q` flag `git mv` doesn't support staged 10 deletions without moves — caught immediately, all 10 restored byte-identical from HEAD before proceeding. Concurrent agents also wrote into both folders during the window (averages recomputed ~09:35, +`Gemini_3.7` pair dated 09-25/09-20 and merged, active `Gemini_2.5_Flash_Lite.md` vanished).
-4. COMMIT WARNING: pre-commit hook BLOCKS this (model/ deletions) — commit with `ALLOW_MODEL_DELETE=1` citing this entry. `pnpm sync` FAILs on the removed tracked paths until committed; after commit run sync (drops the google- key from `scores.generated.ts`, recomputes the average, retires `/model/google-gemini-2.5-flash-lite/`). This entry is the sign-off.
-   Next: commit, then `pnpm sync && pnpm build.types && pnpm build`.
 
 ## 2026-09-29 — voicemodels/ retired, research.md learns 3 trees, PUR recreated (Muse Spark 1.3)
 

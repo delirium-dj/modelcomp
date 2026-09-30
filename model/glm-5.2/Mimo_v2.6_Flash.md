@@ -9,7 +9,7 @@
 
 - **Name:** GLM 5.2 (Zen entry `opencode/glm-5.2`)
 - **Short description:** Z.AI's prior-generation open-weights MoE flagship (2026-06) for agentic long-horizon tasks and enterprise SE — MIT, 753B/40B-active, 1M native context; Zen serves a **204K** window. Superseded at list price by GLM-5.3 (2026-08-18) at the same $1.40/$4.40.
-- **Provider / access:** OpenCode Zen `opencode/glm-5.2` (Chat Completions) with a **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available**; Z.AI API `glm-5.2`; third parties (DeepInfra, Fireworks, Sail Research ~$0.50/$3.04, OpenRouter); self-host MIT weights.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.2` (Chat Completions) with a **Free Zen tier available**; Z.AI API `glm-5.2`; third parties (DeepInfra, Fireworks, Sail Research ~$0.50/$3.04, OpenRouter); self-host MIT weights.
 - **Release / knowledge:** API 2026-06-13; open weights 2026-06-16 (HF). Knowledge cutoff not restated (GLM-5.x line ~early 2026).
 - **IDs:** `opencode/glm-5.2` (Zen); `zai/glm-5.2` / `zhipuai/glm-5.2`.
 - **Context window:** Zen meta **204K** total (verified meta.json); Z.AI native **1,000,000** in / ~131K out (IndexShare sparse attention). Scored on the **served 204K Zen window**; native 1M noted.
@@ -72,7 +72,7 @@ Multimodal:
 - **Context window: 70/100.** Scored on **verified Zen 204K** window (methodology: 200K tier = 70); native Z.AI 1M would score ~96 if served full — note as upgrade path via Z.AI API, not this Zen ID.
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 84/100.** SWE-Pro 62.1, FrontierSWE 74.4 (near Opus 4.8), SWE-Verified 78.7, AA Coding Index 68.8, Design Arena #1 — elite open coding; SWE-Marathon 13.0 and TB3.0 4.6 are the clear long-horizon/new-board caps.
-- **Cost efficiency: 100/100.** **[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available** on this ID (eval tier = $0 → 100); paid Z.AI $1.40/$4.40 also excellent if free quota ends.
+- **Cost efficiency: 100/100.** **Free Zen tier available** on this ID (eval tier = $0 → 100); paid Z.AI $1.40/$4.40 also excellent if free quota ends.
 - **Overall Score: 67/100.** Mean of five quality dims (79+87+70+15+84)/5 = 67.0. Best-fit: free-tier long-context text coding/agentic work on Zen where the 204K window suffices — step up to GLM-5.3 (same paid price, higher scores) or Z.AI's native 1M endpoint when window/peak quality matters more than the free tier.
 
 ---

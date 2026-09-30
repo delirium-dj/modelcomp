@@ -1,6 +1,6 @@
 # MiMo V2.5 Free — findings by Mimo v2.6 Flash
 
-- Source: Xiaomi/`mimo-v2.5` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models))
+- Source: Xiaomi/`mimo-v2.5` (Free Zen tier)
 - Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -56,7 +56,7 @@ Multimodal:
 - **Context window: 76/100.** Native 1M is excellent, but the Zen free route everyone evaluates here is hard-capped at **200K in / 32K out** — effective free-tier window is mid-size; no retrieval-quality curve published.
 - **Multimodal: 95/100.** Genuine omni-modal input (text/image/video/audio) with claimed video-parity to Gemini 3 Pro and multimodal-agentic parity to Sonnet 4.6 — full native coverage lifts this into the top band.
 - **Coding: 76/100.** Internal bench parity with V2.5-Pro at half cost and open SWE-bench Pro Pass³ rows on the HF card; no SWE-bench Verified/LiveCodeBench public % for V2.5 keeps this below official-Google/Anthropic coding tiers.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) with omni-modal inference; even paid native rates ($0.14/$0.28) are among the cheapest capable open-weight APIs — free-tier anchor = 100.
+- **Cost efficiency: 100/100.** Free Zen tier with omni-modal inference; even paid native rates ($0.14/$0.28) are among the cheapest capable open-weight APIs — free-tier anchor = 100.
 - **Overall Score: 80/100.** Mean of five quality dims (78+75+76+95+76)/5 = 80.0. Best-fit: free omni-modal understanding and light agentic coding where 200K context suffices; switch to paid native or mimo-v2.5-pro when you need full 1M context or harder long-horizon agent runs.
 
 ---

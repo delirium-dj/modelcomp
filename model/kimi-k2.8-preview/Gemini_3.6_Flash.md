@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Gemini 3.6 Flash
 
 - Source: Moonshot AI (`moonshot/kimi-k2-8-preview`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `moonshot/kimi-k2-8-preview` (no Free ID on Zen)
 - **Context window:** 1,048,576 tokens (1M) input — verified via Moonshot AI developer documentation.
 - **Modalities:** Text, image in; text out; tool usage, code workspace interaction.
-- **Pricing (as of 2026-09-29):** Kimi membership plan subscription (no public per-token API tier).
+- **Pricing (as of 2026-09-19):** Kimi membership plan subscription (no public per-token API tier).
 - **Architecture:** Proprietary Mixture-of-Experts with long-context linear attention mechanisms.
 
 ### Raw benchmarks found
@@ -56,11 +56,12 @@ Long context:
 - **Multimodal: 70/100.** Capable image and screenshot understanding; text output only.
 - **Coding: 82/100.** High-performing coding assistant tailored for repository navigation and refactoring.
 - **Cost efficiency: 70/100.** Flat membership pricing structure offers decent value for continuous developer usage.
-- **Overall Score: 78/100.** Mean of five quality dims (78+75+85+70+82)/5 = 78.0 → 78. Practical daily driver model for software engineering context.
+- **Overall Score: 78.0/100.** Mean of the five quality dimensions; practical daily driver model for software engineering context.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Re-researched with verified benchmark updates; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

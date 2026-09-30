@@ -2,7 +2,6 @@ import { component$, useSignal } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
 import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor } from "../data/models";
 import type { AiModel, SourceKey } from "../data/models";
-import { withFreeZenLink } from "./freeZenLink";
 
 interface ModelCardsProps {
   source: SourceKey;
@@ -114,7 +113,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
               </div>
               <div class="flex gap-1">
                 <dt class="font-semibold text-slate-700 dark:text-slate-200">Pricing:</dt>
-                <dd>{withFreeZenLink(m.meta.pricingNote)}</dd>
+                <dd>{m.meta.pricingNote}</dd>
               </div>
             </dl>
             <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
@@ -234,7 +233,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                   <td class="break-words px-3 py-2 align-top text-slate-800 dark:text-slate-200">
                     <ul class="m-0 list-none space-y-0.5 p-0">
                       {(m.meta.pricingTiers ?? [m.meta.pricingNote]).map((tier) => (
-                        <li key={tier}>{withFreeZenLink(tier)}</li>
+                        <li key={tier}>{tier}</li>
                       ))}
                     </ul>
                   </td>
@@ -328,7 +327,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                   <dd class="text-right text-slate-800 dark:text-slate-200">
                     <ul class="m-0 list-none space-y-0.5 p-0">
                       {(m.meta.pricingTiers ?? [m.meta.pricingNote]).map((tier) => (
-                        <li key={tier}>{withFreeZenLink(tier)}</li>
+                        <li key={tier}>{tier}</li>
                       ))}
                     </ul>
                   </dd>

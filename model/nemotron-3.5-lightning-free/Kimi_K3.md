@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning (Free) — findings by Kimi K3
 
 - Source: NVIDIA / Nemotron 3.5 Lightning 30B-A3B (NVFP4) (`opencode/nemotron-3.5-lightning-free`; HF `nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,18 +10,18 @@
 - **Name:** Nemotron 3.5 Lightning Free
 - **Short description:** NVIDIA's compact open 30B/3B-active MoE (NVFP4) built for high-volume low-latency execution as the "worker" paired with a frontier planner. Fast but shallow: CritPt 0%, TB 2.1 23.5%, GPQA 75.6%.
 - **Provider / access:** OpenCode Zen `opencode/nemotron-3.5-lightning-free` (free); NVIDIA trial; open weights on HF.
-- **Release / knowledge:** Released 2026-08-11 (NVIDIA open release, verified via layer3labs/llm-stats launch coverage); OpenMDW-1.1 license; cutoff not published.
+- **Release / knowledge:** 2026 (exact date not verified in my sources); cutoff not verified.
 - **IDs:** `opencode/nemotron-3.5-lightning-free` (Free ID); HF `nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4`.
 - **Context window:** 1M native per benchlm (catalog notes 262K native serve for the Zen tier); output limit unverified.
 - **Modalities:** text-only (catalog); reasoning yes; tool calls; JSON mode.
 - **Pricing (as of 2026-09-24):** Free Zen / NVIDIA trial ($0).
-- **Architecture:** open weights, hybrid Mamba-2 + MoE + attention, 30B total / ~3B active, NVFP4 quantized, DSpark speculative decoding, tuned for DGX Spark / single-GPU local deployment (benchmarklist/llm-stats launch notes, verified 2026-09-29).
+- **Architecture:** open weights, MoE 30B total / 3B active, NVFP4 quantized (HF card reference; AA Openness Index 83.3).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- PinchBench: **83.4%** (benchlm.ai); official NVIDIA BF16 checkpoint numbers (layer3labs): PinchBench **85.37**, GPQA **75.44**, MMLU-Pro **81.94**, SWE-bench Verified **51.56**
+- PinchBench: **83.4%** (benchlm.ai)
 - Terminal-Bench 2.1: **23.5%**; τ³-bench: **9.5%**; GDPval-AA: **865 Elo** (6.2% normalized); BrowseComp: **36.8%**; AA Agentic Index: **6.1%** (benchlm.ai)
 - Tau2 / Claw-Eval: no verified public score found
 
@@ -61,6 +61,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
-- Method: fresh public web research (benchlm.ai scorecard, repo catalog). Reverified 2026-09-29: release date now verified (2026-08-11), OpenMDW-1.1 license, DSpark/DGX-Spark serving targets added; official NVIDIA BF16 numbers (PinchBench 85.37, GPQA 75.44, MMLU-Pro 81.94, SWE-bench 51.56) recorded alongside benchlm rows; scores unchanged.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
+- Method: fresh public web research (benchlm.ai scorecard, repo catalog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ox-alpha`
 - **Context window:** 1,000,000 tokens input / 131,072 max output; verified via OpenRouter docs.
 - **Modalities:** Text, image, video, and PDF input; text output; reasoning and function calling.
-- **Pricing (as of 2026-09-24):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0.00 / 1M tokens during preview).
+- **Pricing (as of 2026-09-24):** Free OpenCode Zen tier access ($0.00 / 1M tokens during preview).
 - **Architecture:** Proprietary stealth reasoning architecture.
 
 ### Raw benchmarks found

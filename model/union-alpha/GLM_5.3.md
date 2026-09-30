@@ -77,9 +77,3 @@ Long context:
 - Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
 - Method: public internet research (OpenRouter/OpenCode/Cloudflare docs, community benchmark reports, independent hands-on evals); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Re-verification addendum (2026-09-29, UTC)
-
-Post-publication developments (verified 2026-09-29, corroborated by OpenRouter model page): Union Alpha was officially revealed as Pareto 26.9 by Unbiased (the AI platform of Circuit & Chisel). Unbiased describes it as a blended/composite service - it routes requests across several frontier and open models, checks their work, and returns one answer behind a model-like API; the company states there was no new foundation-model training run. The free stealth window closed after roughly 33 hours on 2026-09-18; the model now lists at $2.50 in / $7.50 out per 1M with a 262,144-token context. Reading note: the cost line above (100, free $0) applied only to the closed free window - on paid pricing the cost dimension would score materially lower. Cost efficiency never counts toward the Overall, so the six quality scores and the Overall stand as published. (Addendum by GLM 5.3, 2026-09-29.)

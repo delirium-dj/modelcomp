@@ -1,0 +1,68 @@
+# Grok 4.20 — findings by Claude (anthropic/claude-sonnet-4-5)
+
+- Source: xAI (`grok-4.20-0309-reasoning`)
+- Date: 2026-09-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.20 (variants: Reasoning, Non-reasoning, Multi-Agent; also referred to as "Grok 4.2" / "Grok 420"). No Free tier on xAI API; paid only.
+- **Short description:** xAI's flagship reasoning model released March 2026, notable for a native four-agent council (Grok coordinator, Harper research, Benjamin math/code, Lucas synthesis) that runs at inference time on shared weights and debates intermediate results before the coordinator synthesizes the final answer. Top use case: long-context agentic workflows with tool calling and low hallucination.
+- **Provider / access:** xAI direct (`grok-4.20-0309-reasoning`, `grok-4.20-multi-agent-0309`); also available through OpenRouter as `x-ai/grok-4.20`, exposed as a reasoning model with the reasoning parameter toggleable via API. Chat Completions API (legacy) plus Responses API supported per xAI docs.
+- **Release / knowledge:** Beta released February 17, 2026; full API access March 10, 2026. Knowledge cutoff not officially published.
+- **IDs:** `xai/grok-4.20-0309-reasoning`, `xai/grok-4.20-multi-agent-0309` (per docs.x.ai). No Free-tier ID on OpenCode Zen verified.
+- **Context window:** Official docs.x.ai lists 1,000,000 tokens with Text + Image input and Text output; Artificial Analysis lists Grok 4.20 0309 v2 at 2M context. Verified via vendor docs and third-party AA listing.
+- **Modalities:** Text + image input; text output; reasoning (togglable); function calling; structured outputs (JSON schema). Grok 4.20 accepts tools and tool_choice for function calling and supports structured outputs via a JSON schema in response_format.
+- **Pricing (as of 2026-09-25):** Grok 4.3 and Grok 4.20 (reasoning, non-reasoning, multi-agent) all use $1.25 / $0.20 / $2.50 per 1M tokens (input / cached / output) on docs.x.ai; AA still records the launch tier at $2.00 per 1M input tokens and $6.00 per 1M output tokens. Paid only; no Free tier.
+- **Architecture:** Proprietary closed-weights. Grok 4.20 is a proprietary closed-weight model developed by xAI; access is provided through grok.com, the Grok apps, and API endpoints, and xAI has not announced plans to release weights publicly. Parameter count not disclosed; uses a native 4-agent council at inference.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found (BenchmarkList lists Terminal-Bench Hard 40.9, rank 30 of 326 — different harness).
+- Tau3-Banking / Tau2-Bench: 97% on Tau2-Telecom (Artificial Analysis harness); Tau3-Banking: no verified public score found.
+- GDPval-AA: 1,062 Elo on GDPval-AA (AA), behind frontier peers and roughly in line with Grok 4.1 Fast; v2 revision 1,179 GDPval-AA Elo for Grok 4.20 0309 v2.
+- Claw-Eval / ClawProBench: Claw Bench 92, rank 16 of 37 (BenchmarkList).
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for Grok 4.20 specifically (individual score not published on AA page).
+- HLE: no verified public score found for Grok 4.20 specifically (included in AA Index but not itemized in accessible sources).
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found (part of AA Index composite).
+- Artificial Analysis Intelligence Index / BenchLM overall: Grok 4.20 0309 (Reasoning) achieves a score of 48 on the Artificial Analysis Intelligence Index, which evaluates models across reasoning, knowledge, mathematics, and coding; v2 (Reasoning) scores 26 on the AA Intelligence Index (median 25). BenchLM: ranks #93 out of 216 models on the public BenchAlign leaderboard, with a score of 54.26/100.
+- Omniscience Accuracy / Hallucination Rate: 78% on the AA-Omniscience non-hallucination metric — the best result AA had seen for this metric, reflecting the model only answering around one fifth of the time when it did not know the answer.
+- Additional: ARC-AGI-2 65.1 (rank 24/99), ARC-AGI-1 89.5 (rank 30/97).
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found from vendor/AA; secondary source TokenMix cites ~78% but is not primary.
+- LiveCodeBench: no verified public score found for Grok 4.20 (Grok 4 predecessor ~79%, not this model).
+- SciCode / AA-SciCode: no itemized public score found (component of AA Index composite).
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index / other: BenchLM: ranks #89 out of 133 eligible models for coding and programming, with a public category score of 46.3/100.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval scores publicly reported for Grok 4.20 at 512K or 1M/2M. Long-context retrieval accuracy not independently verified.
+
+### Normalized scores (1-100)
+
+- **Tool use: 78/100.** Very strong on Tau2-Telecom (97%) and Claw Bench (92), plus xAI positions it as a high-performance model with industry-leading speed and agentic tool calling capabilities combined with the lowest hallucination rate; capped by mid-pack GDPval-AA (1,062–1,179 Elo, well behind frontier) and Terminal-Bench Hard 40.9.
+- **Reasoning: 72/100.** AA Intelligence Index 48 places it "well above average among other reasoning models in a similar price tier (median: 36)", and it leads AA-Omniscience non-hallucination at 78%; capped by absence of itemized GPQA/HLE scores and by lagging the frontier (GPT-5.5 xhigh at 60 on the same index).
+- **Context window: 95/100.** Verified 1M (docs.x.ai) to 2M (AA, OpenRouter) total context — sits in the ≥1M tier. Capped below 100 because no MRCR/RULER retrieval accuracy at 512K+ is publicly reported.
+- **Multimodal: 65/100.** Text + image input; text-only output per docs.x.ai. No audio, video, or non-text output confirmed. Fits the "+image in" band.
+- **Coding: 55/100.** BenchLM assigns coding as its lowest eligible category at rank #89 with a category score of 46.3/100, and vendor/AA have not published SWE-bench Verified, LiveCodeBench, or SciCode itemized numbers. No verified frontier coding evidence found.
+- **Cost efficiency: 88/100.** docs.x.ai list rate $1.25 / $2.50 per 1M in/out (cached $0.20) maps to the ~$1.25/$4.25 band (~88). Even at the AA-listed $2/$6 tier, input is "somewhat expensive (average: $1.60)" and output is "moderately priced (average: $8.10)" — still competitive at that intelligence level.
+- **Overall Score: 73/100.** Mean of (78 + 72 + 95 + 65 + 55) / 5 = 73.0. Best fit: large-context agentic workloads (customer support, long-document analysis, tool orchestration) where low hallucination and 1M–2M context matter more than frontier coding or reasoning peaks.
+
+---
+
+## Signature
+
+- Provided by: **Claude (anthropic/claude-sonnet-4-5)** — 2026-09-25
+- Method: public internet research (docs.x.ai, Artificial Analysis, BenchLM, BenchmarkList, OpenRouter, xAI announcement coverage); scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

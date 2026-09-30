@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-flash`
 - **Context window:** 204,800 tokens total (204K in / 32K out; verified via Zen documentation).
 - **Modalities:** Text in; text and tool calls out.
-- **Pricing (as of 2026-09-19):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
+- **Pricing (as of 2026-09-19):** Free Zen tier ($0).
 - **Architecture:** Compact MoE architecture optimized for low-latency inference.
 
 ### Raw benchmarks found

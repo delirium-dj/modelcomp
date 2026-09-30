@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-free`
 - **Context window:** 204K
 - **Modalities:** Text in/out
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 — note: [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available
+- **Pricing (as of 2026-09-23):** Free Zen tier $0/$0 — note: Free Zen tier available
 - **Architecture:** Proprietary
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 72/100.** 204K — tiered per methodology (≥1M=95-100, 200K=70, 256K≈72).
 - **Multimodal: 50/100.** Text in/out; scored per multimodal rubric (text-only 15, image 60-70, video/PDF 75-90, audio-in 90-100).
 - **Coding: 76/100.** Evidence DeepSWE ~60% free; capped by missing isolated LiveCode/SciCode where noted.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0.
+- **Cost efficiency: 100/100.** Free Zen tier $0/$0.
 - **Overall Score: 69/100.** Mean of five non-cost dims (75+74+72+50+76)/5=69.4 → 69; best-fit per scoring methodology.
 
 ---

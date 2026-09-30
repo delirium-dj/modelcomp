@@ -1,64 +1,66 @@
-# Gemini 2.5 Flash-Lite (Google) — findings by GLM 5.3 Flash
+# Gemini 2.5 Flash-Lite — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-flash-lite`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-09-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Flash-Lite
-- **Short description:** Google's smallest, most cost-effective 2.5-class thinking model (GA June 17, 2025), built for high-volume, latency-sensitive tasks with native multimodality. Flag: variant/alias of the same underlying model as the `gemini-2.5-flash-lite` entry — this folder tracks the Google-published variant.
-- **Provider / access:** Gemini API (`gemini-2.5-flash-lite`, Chat Completions-compatible), Google AI Studio, Vertex AI, Gemini app; OpenCode Zen offers the Google variant as `google/gemini-2.5-flash-lite`.
-- **Release / knowledge:** 2025-06-17 GA (preview April 2025); knowledge cutoff ~January 2025 (widely documented).
-- **IDs:** `google/gemini-2.5-flash-lite` (Zen); `google/gemini-2.5-flash-lite` on the Gemini API (no separate Free ID on Zen beyond this)
-- **Context window:** 1,000,000 total tokens (2.5 family ships 1M; Gemini 2.5 announcement: "1 million token context window, 2 million coming soon").
-- **Modalities:** text / image / audio / video / PDF input; text output; reasoning yes (thinking with configurable thinking budget, can be disabled); tool calls yes (function calling, search grounding, JSON mode).
-- **Pricing (as of 2026-09-27):** $0.10 in / $0.40 out per 1M text tokens (Gemini API GA pricing, widely documented) — extremely low; free tier available via AI Studio/Gemini app with data-usage caveats.
-- **Architecture:** proprietary; sparse MoE efficiency class of the 2.5 generation; thinking built into the model.
+- **Name:** Gemini 2.5 Flash-Lite (smallest member of the 2.5 Flash family; later "Lite" refreshes exist in Google's catalog)
+- **Short description:** Google's lowest-cost, lowest-latency Gemini — a small proprietary model for high-volume classification, summarization and simple chat, with the same 1M window and multimodal input as its bigger Flash sibling but far weaker agentic/coding chops.
+- **Provider / access:** Google — Gemini API ID `gemini-2.5-flash-lite` (AI Studio, Vertex AI); single tracked provider on llm-stats (Google). `generateContent` API; tech report arXiv:2503.16534 (llm-stats link).
+- **Release / knowledge:** released 2025-06-17 per llm-stats (BenchmarkList dates the tracked build 2025-07-22); knowledge cutoff January 2025.
+- **IDs:** `gemini-2.5-flash-lite` (Google). Free tier available (Google AI Studio / Gemini API free tier; OpenCode Zen lists it with standard rate limits).
+- **Context window:** 1,000,000-token input / 65,536-token max output (Google provider row, llm-stats).
+- **Modalities:** text + image in, text out (llm-stats); BenchmarkList also tracks audio evals (SpeakerSleuth, AGL1K, HearSay), indicating audio input; no video/PDF documented on the pages checked. Tool calling, JSON mode.
+- **Pricing (as of 2026-09-18):** $0.10 in / $0.40 out per 1M (Google, lowest tracked price) — Google's cheapest paid Gemini tier. Free tier available (rate-limited).
+- **Architecture:** proprietary, parameters undisclosed (Gemini 2.5 tech report). No reasoning-by-default posture; hybrid thinking controls like the rest of the 2.5 family.
 
 ### Raw benchmarks found
 
-> Numbers below come from Google's Gemini 2.5 family announcement (fetched 2026-09-27) and Google's June 2025 GA figures as widely reported. The 2.5 Pro-specific values in the announcement are NOT attributed to Flash-Lite.
-
 Agent / tool use:
 
-- SWE-bench Verified: **~55.7%** (Google GA figures, June 2025, as widely reported; custom agent setup)
-- Terminal-Bench: no verified public score found
-- Tau2-Bench: no verified public score found
-- Live preference (LMArena): no verified public score found for Flash-Lite specifically (2.5 Pro debuted #1; Flash-Lite not charted)
+- BFCL-V4: **36.9%** (rank 50/98); BFCL v3 Multi-Turn: **13.5%** (rank 47/85) (BenchmarkList)
+- Tau2-Bench Telecom: **19.0%** (rank 262/332) (BenchmarkList)
+- Terminal-Bench Hard: **4.5%** (rank 207/326) (BenchmarkList)
+- GDPval-AA: **321** (rank 280/340, 18th pct) (BenchmarkList)
+- MCP-Bench: **0.6** (47th pct); Galileo Agent Leaderboard: **0.47** (67th pct); TRAP: **31.2** (83rd pct); OmniGAIA: **8.6%**; Omni-DeepSearch: **2.2%** (BenchmarkList)
+- TB2.0/TB2.1, Tau3, Claw Bench, OSWorld, BrowseComp: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **78.3%** (Google GA figures, June 2025, as widely reported)
-- AIME 2025: **84.1%** (Google GA figures, June 2025, as widely reported)
-- HLE: no verified public score found for Flash-Lite (2.5 Pro scored 18.8% no-tools — family context only)
-- Artificial Analysis Intelligence Index: no verified public score found in fetched sources
+- GPQA Diamond: **62.5%** (rank 252/464); MMLU-Pro: **75.9%** (rank 156/312); HLE: **6.8%** (rank 234/466) (BenchmarkList)
+- Artificial Analysis Intelligence Index: **11.41** (rank 252/418, 40th pct) (BenchmarkList)
+- AA-LCR: **56.3%** (rank 161/409, 61st pct — decent long-context reasoning for its class) (BenchmarkList)
+- ARC-AGI / CritPt / Omniscience: no verified public score found
 
 Coding:
 
-- LiveCodeBench v6: **~62.1%** (Google GA figures, June 2025, as widely reported)
-- SWE-bench Verified: ~55.7% (see above)
-- SciCode / AA-SciCode: no verified public score found
+- SciCode: **19.3%** (rank 353/458, 23rd pct) (BenchmarkList)
+- SWE-bench Verified / LiveCodeBench / SWE-Pro / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- "no long-context retrieval reported" for Flash-Lite specifically; 1M window spec (Gemini 2.5 announcement). Successor-generation GDM-MRCR v2 scores (3.5 Flash-Lite: 72.2% at 128k, 21.3% at 1M pointwise) show how the family later measured 1M-window degradation — context only.
+- Window: **1M tokens** in / 65.5K out (llm-stats); AA-LCR 56.3% evidences usable retrieval at depth
+- MRCR / RULER at window length: no verified public score found
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Function calling, search grounding, and JSON mode with modest SWE-bench Verified (~55.7%); capped by absent agent-benchmark coverage and the lite tier.
-- **Reasoning: 76/100.** GPQA Diamond 78.3% and AIME 2025 84.1% with thinking — strong for a lite model; capped by unverified HLE and no-tools limitations.
-- **Context window: 85/100.** 1M tokens — top-tier window at release; capped by no Flash-Lite-specific measured retrieval scores.
-- **Multimodal: 70/100.** Native multimodality: text/image/audio/video/PDF input, text out; no image/audio generation.
-- **Coding: 65/100.** SWE-bench Verified ~55.7% and LiveCodeBench v6 ~62.1% — capable for the size class, well below Pro-tier agentic coding (2.5 Pro: 63.8% custom setup, family context).
-- **Cost efficiency: 88/100.** $0.10/$0.40 per 1M tokens — among the cheapest frontier-adjacent tiers ever priced; excellent price-to-performance.
-- **Overall Score: 74/100.** Mean of the five quality dims (72+76+85+70+65)/5 = 73.6 → 74 half-up. Best fit: high-volume, latency-sensitive multimodal tasks at minimal cost.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+
+- **Tool use: 45/100.** BFCL-V4 36.9 with multi-turn 13.5, Tau2 Telecom 19.0, TB-Hard 4.5 and GDPval-AA 321 (18th pct) — breadth of tool support but bottom-quartile 2026 agentic execution.
+- **Reasoning: 55/100.** GPQA 62.5 and MMLU-Pro 75.9 are mid-tier; HLE 6.8 and AA II 11.41 (40th pct) put it a step below plain 2.5 Flash (GPQA 83, HLE 11).
+- **Context window: 97/100.** Full 1M input at the top tier of this repo with AA-LCR 56.3 as measured evidence; 65.5K output cap keeps it off 100.
+- **Multimodal: 75/100.** Text + image (+ audio per tracked evals) in, text out; no video/PDF documented and no MMMU-class vision score found to argue higher.
+- **Coding: 45/100.** SciCode 19.3 (23rd pct) and TB-Hard 4.5 with no SWE-bench-class result found — execution-tier coding only.
+- **Cost efficiency: 100/100.** Cheapest tracked Gemini rate ($0.10/$0.40) plus a rate-limited free tier — the $0-floor tier of this repo's cost scale.
+- **Overall Score: 63/100.** Mean: (45 + 55 + 97 + 75 + 45 + 100) / 6 = 417/6 = 69.5 → **70**. Best fit: ultra-cheap high-volume triage/summarization with standout hallucination resistance (Vectara HHEM 96.7%, #3/85) — not for agentic or hard coding work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
-- Method: public internet research (Google Gemini 2.5 family announcement fetched 2026-09-27; GA figures as widely reported); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Method: fresh public internet research from zero (llm-stats model page + provider table, BenchmarkList benchmark map with percentile ranks incl. BFCL-V4/Tau2/TB-Hard/GDPval-AA/AA-LCR/AA Intelligence Index, allthemodels-style aggregates via BenchmarkList results section); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

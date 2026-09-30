@@ -1,7 +1,7 @@
 # Hy4 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy4 preview (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: blind-eval 2.99 + API pricing $0.834/$2.501 added; Cost 90 → 92 — Overall holds 75)
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4` (state explicitly: no Free ID exists on Zen; preview API ID `hy4-preview` on TokenHub/OpenRouter)
 - **Context window:** 1M total (960K max input / 64K max output) — verified via Tencent Cloud TokenHub model list and FAQ (1M context, 960K in, 64K out)
 - **Modalities:** text in/out; reasoning yes (preserved thinking/Deep Reasoning); tool calls yes (function calling); structured output yes; no verified image/audio input found
-- **Pricing (as of 2026-09-21):** API $0.834 in / $2.501 out per 1M ($0.042 cached) — TokenHub list price published post-filing (re-verified 2026-09-29); open weights Apache 2.0 (self-host via vLLM/SGLang); two-week free WorkBuddy/CodeBuddy promo at launch
+- **Pricing (as of 2026-09-21):** Open weights under Apache 2.0 (self-host via vLLM/SGLang official images); no API list price published — cost is self-host infrastructure (two-week free WorkBuddy/CodeBuddy promo at launch)
 - **Architecture:** open-weights MoE, 770B total / 49B active, 78 layers (1 dense + 77 MoE, 256 routed + 1 shared experts, top-8 active), Gated DSA attention with IndexCache, identity Hyper-Connections, native MTP layer; Apache 2.0
 
 ### Raw benchmarks found
@@ -32,7 +32,6 @@ Agent / tool use:
 - JobBench: **61.7%** (same card)
 - CyberGym: **78.4%** (same card)
 - BankerToolBench: **78.6%** (same card)
-- Blind expert eval (163 experts, 203 engineering tasks): **2.99/4** (vs GLM-5.3 2.92, Kimi K3 2.94 — re-verified 2026-09-29)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - SWE Atlas Codebase QnA: **64.0%** (same card; Test Writing 57.8%, Refactoring 53.3%)
@@ -73,8 +72,8 @@ Long context:
 - **Context window: 97/100.** Verified 1M (960K in / 64K out) maps to the top tier; capped below 100 without published retrieval-saturation proof.
 - **Multimodal: 15/100.** No verified image/audio input found; text-only floor applies.
 - **Coding: 87/100.** SWE-Pro 65.7%, SWE-Multilingual 82.9% and DeepSWE 64.3 (2.3x Hy3) show large open coding gains; capped by ProgramBench 17.5% and missing LiveCodeBench absolute.
-- **Cost efficiency: 92/100.** Apache 2.0 open weights plus cheap API ($0.834/$2.501) approach free minus hosting/serving.
-- **Overall Score: 75/100.** Mean of the five non-cost dims (89+87+97+15+87)/5 = 75.0 → 75; best-fit open-weights long-horizon coding and productivity flagship for self-hosted agentic work.
+- **Cost efficiency: 90/100.** Apache 2.0 open weights with no API list price (self-host infra cost only) approach free minus hosting.
+- **Overall Score: 75/100.** Mean of the five non-cost dims (89+87+97+15+87)/5 = 75.0; best-fit open-weights long-horizon coding and productivity flagship for self-hosted agentic work.
 
 ---
 

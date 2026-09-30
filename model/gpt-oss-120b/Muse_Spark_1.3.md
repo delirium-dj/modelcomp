@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-OSS 120B, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-24 (UTC); re-verified 2026-09-29 (UTC, user-signed-off re-research: card reconfirmed + MMMLU 81.3 + HealthBench trio + Codeforces-2463 variant added; Reasoning 72 → 73 — Overall holds 56)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,8 +40,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **21.8% / 90.8%** (BenchLM AA-Omniscience, Sep 2026)
 - AIME 2025 (math): **92.5%** no-tools high / **97.9%** with-tools (official model card); AA-AIME 2025 **93.4%** (BenchLM)
 - MMLU: **90.0%** high (official model card); AA MMLU-Pro **80.8%** (BenchLM)
-- MMMLU (average): **81.3%** high (model card — re-verified 2026-09-29)
-- HealthBench: **57.6%** (30.0% Hard; 89.9% Consensus) (model card — re-verified 2026-09-29)
 
 Coding:
 
@@ -49,7 +47,7 @@ Coding:
 - LiveCodeBench: **87.8%** (Artificial Analysis via BenchLM / pricepertoken leaderboard, Sep 2026)
 - SciCode / AA-SciCode: **38.9%** (BenchLM, Sep 2026)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: AA Coding Index **30.4%** (BenchLM); Aider Polyglot **44.4%** high (official model card); Codeforces Elo **2463 no-tools / 2622 with-tools** (model card — re-verified 2026-09-29); React Native Evals **71.6%** (BenchLM)
+- DeepSWE / Coding Index / other: AA Coding Index **30.4%** (BenchLM); Aider Polyglot **44.4%** high (official model card); Codeforces Elo **~2622** (official model-card figure, high); React Native Evals **71.6%** (BenchLM)
 
 Long context:
 
@@ -58,12 +56,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 68/100.** Tau Retail 67.8% (high) plus Tau2 65.8% show strong function-calling for an open model; capped by terminalBenchHard 23.5% and GDPval Elo 803.
-- **Reasoning: 73/100.** GPQA 80.1% plus elite AIME 92.5–97.9%, MMLU 90.0% and MMMLU 81.3% show strong math/science; capped by HLE under 20% and CritPt 1.1%.
+- **Reasoning: 72/100.** GPQA 80.1% plus elite AIME 92.5–97.9% and MMLU 90.0% show strong math/science; capped by HLE under 20% and CritPt 1.1%.
 - **Context window: 55/100.** 128K native window sits mid-tier (100K–200K band); capped by RULER collapse beyond the window (52.3 @256K down to 22.3 @1M).
 - **Multimodal: 15/100.** Text in/out only per OpenAI (text-only training data); no image, audio, video, or PDF input.
 - **Coding: 70/100.** LiveCodeBench 87.8% is excellent and SWE-Verified 62.4% is solid for open weights; capped by SciCode 38.9% and no verified SWE-Pro score.
 - **Cost efficiency: 98/100.** Apache 2.0 open weights self-hostable at marginal $0 on one 80GB GPU; cheapest verified hosted routes ~$0.04/$0.18 per 1M.
-- **Overall Score: 56/100.** Mean of the five quality dims (68 + 73 + 55 + 15 + 70) / 5 = 56.2 → 56; best fit as a near-free self-hosted reasoning/coding workhorse where text-only and 128K suffice.
+- **Overall Score: 56/100.** Mean of the five quality dims (68 + 72 + 55 + 15 + 70) / 5 = 56.0; best fit as a near-free self-hosted reasoning/coding workhorse where text-only and 128K suffice.
 
 ---
 

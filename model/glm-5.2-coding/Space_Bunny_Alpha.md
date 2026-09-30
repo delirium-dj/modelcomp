@@ -64,6 +64,6 @@ Sources consulted: [Z.AI GLM-5.2 overview](https://docs.z.ai/guides/llm/glm-5.2)
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
+- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
 - Method: Public web research of Z.AI, Featherless, and AIHubMix provider documentation; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

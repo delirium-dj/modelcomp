@@ -41,14 +41,7 @@ override.
   and justifies relocating voice models already in `model/` (e.g.
   `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Same
   permanence, same file conventions — only the parent differs. (`models_voice/`
-  sync/site wiring is active; `pnpm sync` scans both `model/` and `models_voice/`.)
-- **Scratch lifecycle grace (user-signed 2026-09-29):** agents draft
-  findings incrementally and remove recent scratch on completion. A tracked
-  findings file added to git less than 7 days ago that goes missing is
-  logged as INFO (likely scratch lifecycle), not a permanence FAIL — in
-  both `pnpm sync`'s tripwire and this repo's pre-commit hook. `meta.json`
-  is curated infrastructure and always FAILs/is blocked; unknown age fails
-  closed. Files older than 7 days keep full permanence protection.
+  sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
 
 ## Scoring rules
 

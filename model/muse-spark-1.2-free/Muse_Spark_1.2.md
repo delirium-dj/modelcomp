@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.2-contributor-free` (Free), `opencode/muse-spark-1.2` (Standard)
 - **Context window:** 1,048,576 total (1M in / 128K out) — verified via Meta docs and felloai review
 - **Modalities:** Text, image, audio, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) $0/$0 (training-data consent); Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M
+- **Pricing (as of 2026-09-23):** Free Zen tier $0/$0 (training-data consent); Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M
 - **Architecture:** Proprietary (Muse family, co-trained with Muse Code)
 
 ### Raw benchmarks found
@@ -59,7 +59,7 @@ Long context:
 - **Context window: 96/100.** 1,048,576 total; tier 95-100 for ≥1M but capped below 100 vs 1.3's proven 98% retrieval.
 - **Multimodal: 90/100.** Broadest input (text/image/audio/video/PDF in) → text out; 90 tier for audio+video; capped below 95 by CharXiv 86.4 not 90+.
 - **Coding: 88/100.** SWE-Verified 77.4 + DeepSWE 59.3 + LC Pro 80.0 + Meta 70.6; trails Opus 5/Codex on every Meta chart, hence below 90.
-- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) (cheaper than all open-weight per musecodes.io map at $0.10/$0.20 contributor).
+- **Cost efficiency: 100/100.** $0 Free Zen tier (cheaper than all open-weight per musecodes.io map at $0.10/$0.20 contributor).
 - **Overall Score: 90/100.** Mean of five non-cost dims (88+87+96+90+88)/5=89.8 → 90; near-frontier free fallback when 1.3 unavailable (self-evaluated).
 
 ---

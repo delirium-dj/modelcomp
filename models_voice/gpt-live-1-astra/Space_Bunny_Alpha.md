@@ -219,7 +219,7 @@ Long context / latency / cost (voice-specific axes):
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
 - Method: public internet research (OpenAI GPT-Live-1 launch post and API model
   documentation, Artificial Analysis Speech-to-Speech leaderboard and index/methodology
   pages, OpenAI Developer Community announcement thread, Unite.AI, TechRepublic, GIGAZINE,

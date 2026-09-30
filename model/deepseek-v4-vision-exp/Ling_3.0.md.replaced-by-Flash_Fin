@@ -12,7 +12,7 @@
 - **IDs:** opencode/deepseek-v4-vision-exp
 - **Context window:** 200K tokens
 - **Modalities:** Text, image, PDF in; text out
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available; Paid $0.14/$0.28 (Flash) or $0.435/$0.87 (Pro) per 1M tokens
+- **Pricing (as of 2026-09-23):** Free Zen tier available; Paid $0.14/$0.28 (Flash) or $0.435/$0.87 (Pro) per 1M tokens
 - **Architecture:** 284B total, 13B active at inference (Flash) / 1.6T total, 49B active (Pro); MoE with native tool calling
 
 ### Raw benchmarks found
@@ -43,7 +43,7 @@ Long context:
 - **Context window: 75/100.** 200K context window is respectable but below the 1M standard of many frontier models; MRCR 1M 83.5% shows strong long-context retrieval despite the shorter window.
 - **Multimodal: 64/100.** The Vision Exp variant adds image and PDF input; MRCR 1M 83.5% and CorpusQA 1M 62.0% confirm strong multimodal retrieval, though the variant is still experimental.
 - **Coding: 90/100.** SWE-bench Verified 80.6% and LiveCodeBench 93.5 are top-tier coding scores; SWE-bench Pro 55.4% and DeepSWE 54.4% are solid but not leading.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available; even paid pricing ($0.14/$0.28 Flash) is among the lowest for frontier-class performance, roughly 5–30x cheaper than closed models.
+- **Cost efficiency: 100/100.** Free Zen tier available; even paid pricing ($0.14/$0.28 Flash) is among the lowest for frontier-class performance, roughly 5–30x cheaper than closed models.
 - **Overall Score: 78/100.** Strong reasoning and coding performance offset by shorter context window and limited multimodal benchmark data for the Vision variant.
 
 ---

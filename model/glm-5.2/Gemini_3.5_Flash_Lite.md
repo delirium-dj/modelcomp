@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.2`
 - **Context window:** 204K tokens.
 - **Modalities:** Text in/out; tool calls yes.
-- **Pricing (as of 2026-09-18):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available.
+- **Pricing (as of 2026-09-18):** Free Zen tier available.
 - **Architecture:** Open-weights Mixture-of-Experts.
 
 ### Raw benchmarks found
@@ -55,7 +55,7 @@ Long context:
 - **Context window: 83/100.** 204K context window.
 - **Multimodal: 15/100.** Text-in/text-out only.
 - **Coding: 86/100.** Excellent software engineering capabilities.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) access ($0 cost).
+- **Cost efficiency: 100/100.** Free Zen tier access ($0 cost).
 - **Overall Score: 71.2/100.** Highly capable open-weights enterprise coding model.
 
 ---

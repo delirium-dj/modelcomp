@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ox-alpha`
 - **Context window:** 1M total (1M in / 131K out) — verified via OpenRouter/Zen endpoint specs.
 - **Modalities:** Text, image, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-23):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) during preview; standard paid tier rates apply post-preview.
+- **Pricing (as of 2026-09-23):** Free Zen tier during preview; standard paid tier rates apply post-preview.
 - **Architecture:** Proprietary frontier MoE reasoning architecture.
 
 ### Raw benchmarks found

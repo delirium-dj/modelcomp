@@ -7,13 +7,9 @@ tmp_*/
 tmp_*
 temp_*/
 temp_*
-.rerun/
 *.log
 *.tsbuildinfo
 .DS_Store
 PRD/
 instructions/
-.tmp*
-$null
-.rerun/
 

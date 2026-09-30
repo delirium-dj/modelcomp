@@ -1,7 +1,7 @@
 # Hy3 Preview — findings by Kimi K3
 
 - Source: Tencent / Hy3 Preview (`hy3-preview`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Hy3 Preview
 - **Short description:** Tencent's preview of the Hunyuan 3 line — open weights, 256K context; SWE-bench Verified 74.4% was its calling card, with weak hallucination control (73%).
 - **Provider / access:** open weights; Tencent Cloud endpoints; succeeded by Hy3 (final) and Hy4 preview.
-- **Release / knowledge:** April 2026 preview (per llm-releases.com Tencent page), succeeded by Hy3 GA on 2026-07-06 and the Hy4 preview on 2026-08-28.
+- **Release / knowledge:** 2026, before Hy3 final; exact date not verified.
 - **IDs:** `tencent/hy3-preview` (no Zen Free ID verified).
 - **Context window:** 256K tokens (benchlm.ai).
 - **Modalities:** text in/out (no vision rows); reasoning yes; tool calls; JSON mode per serving.

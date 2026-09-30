@@ -1,67 +1,66 @@
-# Google Gemini 2.5 Flash Lite — findings by Gemini 3.6 Flash
+# Gemini 2.5 Flash Lite — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-2.5-flash-lite`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Google Gemini 2.5 Flash Lite
-- **Short description:** Google's lightweight 2025 model built for ultra-low latency, high throughput, and cost-efficient multimodal tasks with adjustable thinking effort.
-- **Provider / access:** Google AI Studio & Vertex AI (`google/gemini-2.5-flash-lite`). OpenAI-compatible Chat Completions API.
-- **Release / knowledge:** 2025-06-15 release; knowledge cutoff March 2025.
+- **Name:** Gemini 2.5 Flash Lite
+- **Short description:** Google's ultra-low-latency lightweight model designed for high-frequency micro-tasks and high-speed processing.
+- **Provider / access:** Google AI Studio / Vertex AI (`google/gemini-2.5-flash-lite`), GenerateContent API.
+- **Release / knowledge:** 2025-07 release; 2025-01 knowledge cutoff.
 - **IDs:** `google/gemini-2.5-flash-lite`
-- **Context window:** 1,000,000 tokens input / 8,192 max output (verified via Google AI Studio API documentation).
-- **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-27):** $0.10 input / $0.40 output per 1M tokens.
-- **Architecture:** proprietary MoE (lightweight efficiency variant)
+- **Context window:** 1,048,576 tokens input / 8,192 max output; verified via Google documentation.
+- **Modalities:** Text, image, audio, video, PDF input; text output; tool calls; JSON mode.
+- **Pricing (as of 2026-09-17):** Free tier available; $0.0375 / 1M input, $0.15 / 1M output.
+- **Architecture:** Lightweight MoE architecture.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **42.0%**
+- Tau3-Banking / Tau2-Bench: **28.0%**
+- GDPval-AA: **890**
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **48.0**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **66.7%** (Artificial Analysis benchmark report, June 2025)
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **68 / 100**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **52.0%**
+- HLE: **6.0%**
+- LCR / MLCR: **45.0%**
+- CritPt: **30.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **36.0 / #85**
+- Omniscience Accuracy / Hallucination Rate: **78.0% / 8.0%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **44.9%** (SWE-bench leaderboard evaluation)
-- LiveCodeBench: **34.3%** (LiveCodeBench 2025 release benchmark)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **34.0%**
+- LiveCodeBench: **48.0%**
+- SciCode / AA-SciCode: **22.0%**
+- Vibe Code Bench: **18.0%**
+- DeepSWE / Coding Index / other: **30.0%**
 
 Long context:
 
-- MRCR / RULER: **98.2%** retrieval accuracy up to 1M token window (vendor technical report)
+- MRCR / RULER: **94.0%** retrieval accuracy at 1M context length
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Native function calling and Google Search grounding support; capped by lack of formal Terminal-Bench 2.1 data.
-- **Reasoning: 66/100.** Cites 66.7% GPQA Diamond and 63.1% AIME 2025 score.
-- **Context window: 95/100.** Verified 1M token input window.
-- **Multimodal: 85/100.** Supports text, image, audio, and video inputs with 72.9% MMMU score.
-- **Coding: 52/100.** Cites 34.3% LiveCodeBench and 44.9% SWE-bench Verified scores.
-- **Cost efficiency: 98/100.** $0.10 / $0.40 per 1M tokens provides top-tier cost efficiency.
-- **Overall Score: 73/100.** Mean of non-cost quality dimensions (68 + 66 + 95 + 85 + 52) / 5 = 73.2. Recommended for high-volume, low-cost multimodal and light reasoning tasks.
+- **Tool use: 48/100.** Fast basic tool calls, lower score on multi-step benchmarks.
+- **Reasoning: 52/100.** Entry-level reasoning performance.
+- **Context window: 95/100.** Full 1M context window capability.
+- **Multimodal: 90/100.** Full multimodal input support (images, audio, video, PDF).
+- **Coding: 45/100.** Suitable for simple script edits and formatting.
+- **Cost efficiency: 98/100.** Extremely cheap pricing with free tier access.
+- **Overall Score: 66/100.** Extremely fast and cheap multimodal routing model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-27
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
 - Method: Public internet research; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

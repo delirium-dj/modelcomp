@@ -16,11 +16,5 @@ This workflow reads the local memory cache in `.antigravity/history/` to prime A
 3. Read the Last Lint Result receipt:
    `view_file` -> `.antigravity/history/last-lint-result.json`
 
-4. Apply check-first logic (bundled — no extra command needed):
-   - Treat steps 1-3 as truth for structure, stack, routes, data flow.
-   - Do NOT Glob/Grep/scan `src/`, `model/` to re-discover what history already covers.
-   - Only scan when receipt is stale/mismatched or task needs file content beyond the map.
-   - Prefer `average.md` Overall lines / `meta.json` over full findings files.
-
-5. Confirm cache activation to user:
+4. Confirm cache activation to user:
    Report that local context cache is active and project structure is fully loaded into memory.

@@ -1,67 +1,69 @@
 # Ling 3.0 Flash Fin Free — findings by Gemini 3.6 Flash
 
-- Source: Ling / Finance (`ling/ling-3.0-flash-fin-free`)
-- Date: 2026-09-29 (UTC)
+- Source: InclusionAI / Ant Group (`opencode/ling-3-0-flash-fin-free`)
+- Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Ling 3.0 Flash Fin (Free tier)
-- **Short description:** Specialized financial analysis and quantitative reasoning model provided as a free community tier.
-- **Provider / access:** OpenCode Zen (`opencode/ling-3.0-flash-fin-free`), Ling Platform API.
-- **Release / knowledge:** 2026-03-05 release; knowledge cutoff January 2026.
-- **IDs:** `ling/ling-3.0-flash-fin-free`, `opencode/ling-3.0-flash-fin-free`
-- **Context window:** 128,000 tokens (128k input, 16k output).
-- **Modalities:** text, financial tables in; text out; tool use, structured financial JSON.
-- **Pricing (as of 2026-09-29):** $0.00 (Free on OpenCode Zen; rate-limited).
-- **Architecture:** Specialized financial transformer with tabular and numerical reasoning optimizations.
+- **Name:** Ling 3.0 Flash Fin Free
+- **Short description:** Specialized financial open-weights MoE model by Ant Group's InclusionAI lab (released August 2026); features a Hybrid-Linear MoE architecture (124B total / ~5.1B active parameters per token) combining Kimi Delta Attention (KDA) and Gated MLA layers for investment research, valuation modeling, and financial spreadsheet operations.
+- **Provider / access:** OpenCode Zen (`opencode/ling-3-0-flash-fin-free`); Hugging Face (MIT open-weights). Chat Completions API.
+- **Release / knowledge:** 2026-08 release; knowledge cutoff late-2025.
+- **IDs:** `opencode/ling-3-0-flash-fin-free`
+- **Context window:** 262,144 tokens (~256K); verified via InclusionAI specifications and Artificial Analysis.
+- **Modalities:** Text input, text output; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-22):** $0.00 / $0.00 per 1M input/output tokens (Free Zen tier); MIT License open-weights.
+- **Architecture:** Open-weights MoE (124B total / ~5.1B active parameters per token); Hybrid-Linear MoE with KDA and Gated MLA layers.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **36.5%**
-- Tau3-Banking / Tau2-Bench: **72.0%**
-- GDPval-AA: **1210**
-- Claw-Eval / ClawProBench: **64.2**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **63.0%**
+- SpreadSheetBench-v1: **86.5%** (InclusionAI / llm-stats.com, 2026 — valuation & spreadsheet construction)
+- Finance Agent v1.1: **69.2%** (InclusionAI / llm-stats.com, 2026 — financial workflow execution)
+- Finance Agent v2: **59.8%** (InclusionAI / llm-stats.com, 2026)
+- Tau3-Banking: **41.0%** (InclusionAI / llm-stats.com, 2026 — banking tool execution)
+- APEX-Agents: **29.2%** (InclusionAI / llm-stats.com, 2026)
+- GDPval-AA: **29.6%** (~1171 Elo; Artificial Analysis, September 2026)
+- Terminal-Bench v4.0: **0%** (Artificial Analysis, September 2026 — complex multi-step terminal tasks)
+- Claw-Eval / ClawProBench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **58.0%**
-- HLE: **19.5%**
-- LCR / MLCR: **72.0%**
-- CritPt: **65.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **92 / #25**
-- Omniscience Accuracy / Hallucination Rate: **77.8% / 8.8%**
+- Long Context Reasoning (AA-LCR): **73.7%** (Artificial Analysis, September 2026)
+- Finance & Accounting Index: **24** (Artificial Analysis, September 2026)
+- Artificial Analysis Intelligence Index: **22.6** (Artificial Analysis, September 2026)
+- Humanity's Last Exam (HLE): **22.6%** (Artificial Analysis, September 2026)
+- Physics Reasoning (CritPt): **2.6%** (Artificial Analysis, September 2026)
+- GPQA Diamond: no verified public score found separately for Fin variant
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **38.5%**
-- LiveCodeBench: **36.0%**
-- SciCode / AA-SciCode: **58.0%**
-- Vibe Code Bench: **62.5%**
-- DeepSWE / Coding Index / other: **56.0**
+- Artificial Analysis Coding Index: **55.6** (Artificial Analysis, September 2026 — ranks better than 61% of models)
+- SpreadSheetBench-v1: **86.5%** (formula and code-assisted data manipulation)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
 
 Long context:
 
-- MRCR 128k needle retrieval 96.5%; RULER benchmark 90.8% at 128k tokens.
+- 262,144 tokens (~256K) context window confirmed; AA-LCR: **73.7%** long-context reasoning.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Strong financial API and tabular tool dispatch, capped on general terminal workflows.
-- **Reasoning: 70/100.** High accuracy on financial and numerical queries, capped on broad general reasoning.
-- **Context window: 81/100.** 128k context provides good support for quarterly reports and SEC filings.
-- **Multimodal: 68/100.** Tabular and chart image understanding; text output only.
-- **Coding: 66/100.** Capable Python pandas and financial scripting assistance.
-- **Cost efficiency: 100/100.** Completely free on OpenCode Zen.
-- **Overall Score: 71/100.** Mean of five quality dims (68+70+81+68+66)/5 = 70.6 → 71. Free specialized financial and quantitative analysis assistant.
+- **Tool use: 58/100.** High domain performance on SpreadSheetBench (86.5%), Finance Agent (69.2%), and Tau3-Banking (41.0%), offset by 0% on Terminal-Bench v4.0 and 29.2% on APEX-Agents. Scored 58 reflecting strong financial tool execution despite terminal limitations.
+- **Reasoning: 52/100.** AA-LCR 73.7% is solid long-context reasoning; HLE 22.6% is decent for a specialized MoE; AA Intelligence Index 22.6; CritPt 2.6% is low. Scored 52.
+- **Context window: 72/100.** 262,144 tokens (~256K) → 70–75 per tier mapping. Scored 72.
+- **Multimodal: 15/100.** Text input and text output only. Per methodology: text-only = 15.
+- **Coding: 56/100.** AA Coding Index 55.6 is mid-tier (better than 61% of models on AA leaderboard); SpreadSheetBench 86.5% demonstrates code/formula generation. Scored 56 based on AA Coding Index.
+- **Cost efficiency: 100/100.** $0.00 / 1M input and output on Free Zen tier → 100.
+- **Overall Score: 51/100.** Mean of (Tool 58 + Reasoning 52 + Context 72 + Multimodal 15 + Coding 56) / 5 = 253 / 5 = 50.6 → 51. Best-fit: specialized zero-cost model for financial analysis, valuation modeling, and spreadsheet workflows where terminal autonomy is not required.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-29
-- Method: Public benchmark analysis & normalized evaluation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-22
+- Method: Public internet research (Artificial Analysis September 2026, InclusionAI benchmark release, llm-stats.com, BusinessWire); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

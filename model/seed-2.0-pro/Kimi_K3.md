@@ -1,7 +1,7 @@
 # Seed 2.0 Pro — findings by Kimi K3
 
 - Source: ByteDance / Doubao Seed 2.0 Pro (`seed-2.0-pro`; Seed 2.0 family on Volcano Engine)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-24 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- AIME 2025: **98.3%** (digitalapplied.com, tokenmix.ai); HMMT: **97.3** (opper.ai model page)
+- AIME 2025: **98.3%** (digitalapplied.com, tokenmix.ai)
 - GPQA Diamond: **88.9%** (llmreference.com, tokenmix.ai)
 - MMLU-Pro: **87.0%** (llmreference.com)
 - Codeforces: **3020** (digitalapplied.com, tokenmix.ai)
@@ -60,5 +60,5 @@ Multimodal:
 ## Signature
 
 - Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (tokenmix.ai review, llmreference.com, digitalapplied.com guide, airank.dev, llm-stats.com). Reverified 2026-09-29: all headline numbers re-confirmed (AIME 98.3, GPQA 88.9, SWE-bench Verified 76.5, LCB v6 87.8, $0.47/$2.37, 256K); added HMMT 97.3 (opper.ai) and Volcano Engine launch note (four variants: Pro/Lite/Mini/Code). Scores unchanged.
+- Method: fresh public web research (tokenmix.ai review, llmreference.com, digitalapplied.com guide, airank.dev, llm-stats.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

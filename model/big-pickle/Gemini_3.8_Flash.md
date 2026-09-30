@@ -11,7 +11,7 @@
 - **Short description:** Free stealth reasoning model hosted on OpenCode Zen (community consensus points to GLM-4.6), offering solid coding capability at zero token cost during its promotional trial.
 - **Provider / access:** OpenCode Zen (`opencode/big-pickle`).
 - **Release / knowledge:** Active community stealth trial (mid-2026); knowledge cutoff early 2026.
-- **IDs:** `opencode/big-pickle` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models))
+- **IDs:** `opencode/big-pickle` (Free Zen tier)
 - **Context window:** 200,000 tokens total (160K input / 32K output).
 - **Modalities:** text and code in; text and code out; tool calling / JSON.
 - **Pricing (as of 2026-09-24):** Free on OpenCode Zen promotional tier; commercial counterpart (GLM-4.6) equivalent to ~$0.60 / 1M input, $2.20 / 1M output.

@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 90/100.** Wide input multimodal support (text, image, audio, PDF), text-only output.
 - **Coding: 26/100.** Basic script modification and code snippet generation capabilities.
 - **Cost efficiency: 100/100.** Highly cost-effective option featuring a generous free tier.
-- **Overall Score: 72/100.** Highly optimized, ultra-low latency model with unmatched context-window efficiency on the [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models).
+- **Overall Score: 72/100.** Highly optimized, ultra-low latency model with unmatched context-window efficiency on the Free Zen tier.
 
 ---
 

@@ -66,7 +66,7 @@ Long context:
 - **Context window: 70/100.** 200K class (160K in / 32K out) maps to the 70 tier; capped well below 1M models.
 - **Multimodal: 15/100.** Text-only per curated metadata; 15 is the text-only floor.
 - **Coding: 72/100.** Direct 50.8% QnA plus GLM-4.6 proxies (LiveCode ~82%, SWE ~68%) support Sonnet-class-at-$0 positioning; capped by proxy-only coding-harness status.
-- **Cost efficiency: 100/100.** $0 [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) during promo.
+- **Cost efficiency: 100/100.** $0 Free Zen tier during promo.
 - **Overall Score: 59/100.** Mean of the five non-cost dims (72+68+70+15+72)/5 = 59.4; best-fit zero-cost daily driver — escalate after repeated failures or for 1M-context jobs.
 
 ---

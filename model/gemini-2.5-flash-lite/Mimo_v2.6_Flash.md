@@ -1,70 +1,71 @@
 # Gemini 2.5 Flash-Lite — findings by Mimo v2.6 Flash
 
-- Source: Google (`gemini-2.5-flash-lite`)
-- Date: 2026-09-29 (UTC)
+- Source: Google DeepMind/`gemini-2.5-flash-lite`
+- Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Flash-Lite (non-reasoning default; thinking configurable)
-- **Short description:** Google DeepMind's cheapest Gemini 2.5 tier — a low-latency, cost-optimized multimodal model for high-volume chat, classification and light coding. Not a variant of another folder's entry on the evidence read here; note the dataset also carries a sibling slug `gemini-2.5-flash-lite` (peer files deliberately not read, so no cross-check was made).
-- **Provider / access:** Google Gemini API / Google AI Studio (`gemini-2.5-flash-lite`, native Gemini API plus OpenAI-compatible endpoint); OpenRouter `google/gemini-2.5-flash-lite` (incl. `:batch` variant). **Not on OpenCode Zen** — the Zen `/zen/v1/models` list checked 2026-09-29 contains no `gemini-2.5-*` id, so no Zen Free ID exists.
-- **Release / knowledge:** 2025-06-17 (llm-stats, RankedAGI); knowledge cutoff 2025-01-01 (RankedAGI, llm-stats). Artificial Analysis flags the model as **deprecated**, pointing to Gemini 2.5 Flash-Lite Preview (Sep '25) as the successor; it still serves traffic and is still benchmarked for the default workload.
-- **IDs:** `google/gemini-2.5-flash-lite` (OpenRouter), `gemini-2.5-flash-lite` (Gemini API) — **no Free ID on OpenCode Zen**.
-- **Context window:** 1,048,576 (1M) input, 65,536 max output (llm-stats provider row: 1.0M/65.5K; OpenRouter `context_length` 1048576).
-- **Modalities:** text, image, speech and video in; text out (Artificial Analysis modality row); llm-stats lists text + image in only — audio/video accepted by the Gemini API but under-documented on aggregators. Reasoning: toggleable thinking mode (OpenRouter describes it as a lightweight reasoning model); tool calls / function calling supported by the Gemini API; JSON mode supported by the Gemini API.
-- **Pricing (as of 2026-09-29):** $0.10 input / $0.40 output per 1M via Google (llm-stats, RankedAGI, Artificial Analysis); AA records a 90% cache discount (≈$0.01 cached) and a blended ≈$0.07/1M at a 7:2:1 cache/input/output mix. Paid only — no free tier on any tracked route (not listed on Zen), though Google AI Studio offers a generous free-tier quota outside these API rates.
-- **Architecture:** proprietary; parameter count not disclosed (Artificial Analysis FAQ).
+- **Name:** Gemini 2.5 Flash-Lite
+- **Short description:** Google's cheapest 2.5-family multimodal model (preview 2025-06-17, GA 2026-02-19) — $0.10/$0.40, 1M context, ~359 tok/s — built for high-volume classification/extraction/routing; **end-of-life: Vertex retirement 2026-10-20** (replacement: Gemini 3.1 Flash-Lite or Gemma 4).
+- **Provider / access:** Google AI Studio / Gemini API `gemini-2.5-flash-lite`; Vertex AI / Gemini Enterprise Agent Platform; **Free tier** on AI Studio and OpenCode Zen with standard rate limits (meta).
+- **Release / knowledge:** preview 2025-06-17; GA 2026-02-19; knowledge cutoff **January 2025**. **Retirement: 2026-10-20** (Gemini Enterprise model-versions table); AI Studio deprecation path aligned with 2.5 family (~June/Oct 2026 coverage in third-party docs — Vertex 2026-10-20 is the hard date cited).
+- **IDs:** `google/gemini-2.5-flash-lite`.
+- **Context window:** **1,048,576** input; **65,536** max output.
+- **Modalities:** text/image/video/audio/PDF in; text out; toggleable thinking budgets; Search grounding + code execution; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-09-22):** **$0.10 in / $0.40 out per 1M** (Tokenando/Awesome Agents/AA); cache/batch discounts apply; free AI Studio / Zen free tier (evaluated tier includes free access).
+- **Architecture:** proprietary sparse MoE (undisclosed); Lite tier of Gemini 2.5 hybrid-reasoning stack.
 
 ### Raw benchmarks found
 
+> Measured numbers with (source, rank, harness). Awesome Agents (official card, non-thinking default) primary; AA/Tokenando cross-checks.
+
 Agent / tool use:
 
-- GDPval-AA Elo: **322** (RankedAGI, Artificial Analysis variant) — far below the mid-tier reference band
-- RankedAGI Agentic: **29.8%** (RankedAGI)
-- Terminal-Bench 2.1 / Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathon / MCP-Atlas / OSWorld: no verified public score found
+- SWE-bench Verified: **31.6%** (Awesome Agents / official card non-thinking)
+- Terminal-Bench 2.1 / GDPval-AA / Toolathlon / MCP-Atlas: no verified public score found for 2.5 Flash-Lite (Lite tier not on many 2026 agentic boards; AA Index includes TB v4.0 in composite only)
+- OSWorld / AutomationBench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **66.7%** (RankedAGI)
-- AIME 2025: **63.1%** (RankedAGI)
-- Humanity's Last Exam: **6.9%** no-tools (RankedAGI)
-- MMLU: **84.5%** (RankedAGI); MMMU: **72.9%** (RankedAGI)
-- Artificial Analysis Intelligence Index: **7** (est.; Artificial Analysis, model page marked deprecated)
-- RankedAGI Reasoning: **38.1%**, RankedAGI Math: **57.6%**, RankedAGI Overall: **40.5%** (RankedAGI)
-- LCR / MLCR / CritPt / LiveBench: no verified public score found
+- GPQA Diamond: **64.6%** non-thinking (Awesome Agents); Tokenando cites **70%** (inherited-from-Flash variant note) — both cited, card non-thinking preferred
+- AIME 2025: **49.8%** non-thinking (Awesome Agents)
+- Global MMLU Lite: **81.1%**; MMLU: **84%** (Tokenando)
+- FACTS Grounding: **84.1%** (#3 overall at time of writeup) (Awesome Agents)
+- Artificial Analysis Intelligence Index: **9** reasoning / **7** non-reasoning (AA release page — very low vs 2026 frontier)
+- Humanity's Last Exam: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **44.9%** (RankedAGI, harness linked to swebench.com)
-- LiveCodeBench v6: **34.3%** (RankedAGI)
-- Aider Polyglot: **27.1%** (RankedAGI)
-- RankedAGI Coding: **35.3%** (RankedAGI)
-- SWE-bench Pro / DeepSWE / SciCode / Vibe Code Bench / Terminal-Bench: no verified public score found
+- LiveCodeBench: **33.7%** (Awesome Agents)
+- SWE-bench Verified: **31.6%** (Awesome Agents) / Tokenando cites **48%** (Flash-inherited figure — note conflict)
+- HumanEval: **87%** (Tokenando) / **90.5%** on sibling 3.1 Flash-Lite card (different model)
+- DeepSWE / SWE-Pro / Vibe: no verified public score found
 
 Long context:
 
-- 1M window documented (llm-stats / OpenRouter / AA); MRCR / RULER / GraphWalks retrieval quality: no verified public score found
+- 1M window; **MRCR v2 at 128K: 16.6%** (Awesome Agents — very weak mid-window retrieval despite 1M sticker)
 
 Multimodal:
 
-- MMMU 72.9% (RankedAGI) supports the vision claim; video/audio-input benchmarks (Video-MME, AudioBench): no verified public score found
+- Native text/image/video/audio/PDF in; **MMMU: 72.9%** (Awesome Agents)
+- CharXiv / Video-MMMU modern boards: no verified public score found
 
 ### Normalized scores (1–100)
 
-- **Tool use: 32/100.** The only agentic evidence is GDPval-AA Elo 322 and RankedAGI Agentic 29.8% — both far under the 900–1200 mid-tier GDPval reference — and no Terminal-Bench or tau score exists, so nothing can anchor a higher number.
-- **Reasoning: 52/100.** GPQA Diamond 66.7% sits in the 60–80 mid band and AIME 2025 63.1% is respectable, but HLE 6.9% and an AA Intelligence Index of 7 drag the dimension below the mid-band floor (index 20–35 ⇒ 55–65).
-- **Context window: 95/100.** 1,048,576 tokens clears the ≥1M tier (95–100); no published retrieval accuracy at 512K+ to justify the full 100.
-- **Multimodal: 85/100.** Text, image, speech and video input with text output (Artificial Analysis) puts it in the +video/+audio band (75–100); it is capped below 90 because llm-stats documents image-only input and no audio/video-specific evaluation exists — MMMU 72.9% is the sole vision number.
-- **Coding: 40/100.** SWE-bench Verified 44.9%, LiveCodeBench v6 34.3% and Aider Polyglot 27.1% are entry-level — well under the 65–75 mid band, with no Terminal-Bench or SWE-Pro evidence to offset.
-- **Cost efficiency: 96/100.** $0.10/$0.40 per 1M with a 90% cache discount is at the cheap end of the scale (methodology anchors ~$0.10/$0.20 ⇒ 97–99); it loses the top marks because there is no $0 Zen/first-party free route for this id.
-- **Overall Score: 61/100.** Mean of the five quality dims (32 + 52 + 95 + 85 + 40) / 5 = 60.8 → 61. Best fit: a dirt-cheap 1M-context multimodal workhorse for classification, summarization and light chat — not a reasoning, agentic or serious coding model.
+- **Tool use: 50/100.** SWE-Verified 31.6 shows functional but weak agentic coding; no TB2.1/GDPval/Toolathlon rows — Lite tier is for classification/routing, not long tool loops.
+- **Reasoning: 60/100.** GPQA 64.6 and AIME 49.8 non-thinking are mid for 2026; FACTS 84.1 grounding is a bright spot; AA Intelligence Index **9** confirms very low current-board reasoning vs frontier.
+- **Context window: 80/100.** Full 1M/64K sticker is excellent at this price, but **MRCR 16.6% @ 128K** means practical reliable range is well under 128K — window is for bulk stuffing, not deep retrieval.
+- **Multimodal: 90/100.** Full text/image/video/audio/PDF in with MMMU 72.9 — complete multimodal input coverage for a Lite tier (audio present → upper band).
+- **Coding: 55/100.** LiveCodeBench 33.7 and SWE-Verified 31.6 are budget-tier coding — fine for snippets, not production SWE agents.
+- **Cost efficiency: 97/100.** $0.10/$0.40 + free AI Studio/Zen tier + 359 tok/s is elite economics; not 100 only because **retirement 2026-10-20** (weeks away) makes new integrations a migration liability.
+- **Overall Score: 67/100.** Mean of five quality dims (50+60+80+90+55)/5 = 67.0. Best-fit: existing ultra-cheap multimodal pipelines with days of remaining runway — **new builds must target Gemini 3.1 Flash-Lite** (Google's designated replacement, similar $0.25/$1.50 tier).
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-29
-- Method: public internet research (Artificial Analysis model page, RankedAGI benchmark record, llm-stats model/provider pages, OpenRouter model registry, OpenCode Zen model list); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
+- Method: public internet research (Gemini Enterprise model-versions retirement table, Awesome Agents official-card deep-dive, Artificial Analysis release page, Tokenando pricing/benchmarks, AI Toolbox 3.1 comparison); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

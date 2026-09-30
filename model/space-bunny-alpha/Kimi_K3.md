@@ -1,20 +1,20 @@
 # Space Bunny Alpha — findings by Kimi K3
 
 - Source: Anonymous (stealth) / Space Bunny Alpha (`stealth/space-bunny-alpha` on OpenRouter; `space-bunny-free` on OpenCode Zen)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-09-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Space Bunny Alpha
-- **Short description:** Anonymous stealth-preview reasoning model listed on OpenRouter/OpenCode on 2026-09-23 — fast inference, coding/agentic focus, native multimodal input, five mandatory reasoning efforts (provider default max), 1M context. **Identity resolved (late Sept 2026): MiniMax's M3.1-Flash-Preview.** Tokenizer probes (24/24 matches to the MiniMax family), Chinese-language self-identification, and a full trait match with the model MiniMax launched inside MiniMax Code on 2026-09-27 (same 1M window, no model card, no published price) all point there; multiple outlets (cellcog, startupfortune, toolbit, agihunt) report MiniMax confirmed the link. The earlier OpenAI-Harmony reconstructed-prompt hypothesis is superseded. Cross-reference: `../minimax-m3.1-flash-preview/`.
+- **Short description:** Anonymous stealth-preview reasoning model listed on OpenRouter on 2026-09-23 — fast inference, coding/agentic focus, native multimodal input, always-on adjustable reasoning, 1M context. Identity unconfirmed: MiniMax-family tokenizer probes (24/24 matches) and an OpenAI-Harmony-style reconstructed prompt are both documented hypotheses.
 - **Provider / access:** OpenRouter `stealth/space-bunny-alpha` (Chat Completions); OpenCode Zen `space-bunny-free` (limited-time free, zero data retention per Zen docs; provider does not train on data).
 - **Release / knowledge:** listed 2026-09-23 (OpenRouter); knowledge cutoff undisclosed.
 - **IDs:** `opencode/space-bunny-free` (Zen Free tier, active); `stealth/space-bunny-alpha` (OpenRouter).
 - **Context window:** 1,000,000 tokens total / 524,288 max completion (OpenRouter catalog; reasoning counts toward completion budget).
 - **Modalities:** text/image/video in; text out; mandatory reasoning (low/medium/high/xhigh/max, provider default max); tool calls; JSON response format (no schema enforcement).
-- **Pricing (as of 2026-09-29):** $0/$0 per 1M on both OpenRouter and OpenCode Zen — free preview, time-limited. The identity-resolved sibling (M3.1-Flash-Preview) still has no published per-token price (MiniMax Code subscription surface).
+- **Pricing (as of 2026-09-25):** $0/$0 per 1M on both OpenRouter and OpenCode Zen — free preview, time-limited.
 - **Architecture:** undisclosed (anonymous). Speed: OpenRouter P50 87 tok/s, P50 latency 1.07s, 3-day inference availability 94.98% (OpenRouter dashboard snapshot 2026-09-24).
 
 ### Raw benchmarks found
@@ -56,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
-- Method: public internet research (spacebunnyalpha.com independent field guide with published AI BENCHY run and subset evals; OpenRouter catalog snapshot; OpenCode Zen docs; stealthprint long-context probe). Reverified 2026-09-29: identity now resolved to MiniMax M3.1-Flash-Preview (tokenizer match + self-identification + the 2026-09-27 MiniMax Code launch with an identical public profile, per cellcog/startupfortune/toolbit/agihunt); capability numbers unchanged — no new benchmark runs since 2026-09-25. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-25
+- Method: public internet research (spacebunnyalpha.com independent field guide with published AI BENCHY run and subset evals; OpenRouter catalog snapshot; OpenCode Zen docs; stealthprint long-context probe). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
