@@ -1,5 +1,11 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — Muse Glimmer 30B retired as researcher (user order)
+
+1. Removed all 35 research files by Muse Glimmer 30B (34 active `Muse_Glimmer_30B.md` + 1 `.excluded` twin, all under `model/`, verified genuine agent work on samples) per user ruling "unusable as a researcher". Delegator `tasks/Muse_Glimmer_30B.md` and registry entries left in place (not ordered — agent may re-file; retire fully on user word). Committed with bypass — this entry is the sign-off.
+2. Effect: other models' `average.md` files recompute without Glimmer as a rater on next sync (cohorts shrink by one wherever it filed); `muse-glimmer-30b` model folder itself untouched.
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-25 — "Free OpenCode Zen tier" uniformly linked to free-models docs
 
 1. Markdown (105 files): every bare occurrence → `[Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models)` (verified zero bare left; byte-safe replace).
