@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.6 Flash
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,6 +51,10 @@ Long context:
 - **Overall Score: 88.2/100.** Mean of the five quality dimensions: (82 + 89 + 91 + 93 + 86) / 5 = 88.2; best for multimodal, computer-use, and long-context workflows with measured 1M retrieval caveats.
 
 ---
+
+## 2026-09-30 verification addendum
+
+The official July-2026 card continues to support the report's key measurements: **58.7% SWE-Bench Pro**, **49.0% DeepSWE v1.1**, **78.0% Terminal-Bench 2.1**, **63.9% MLE-Bench**, **1421 GDPval-AA v2 Elo**, **83.0% OSWorld-Verified**, **85.2%/89.4% CharXiv without/with tools**, and **91.8% MRCR v2 at 128K versus 54.0% at 1M**. Its listed standard pricing is $1.50/$7.50 per million input/output tokens. The original interpretation and normalized scores remain supported. [Google DeepMind model card](https://deepmind.google/models/model-cards/gemini-3-6-flash/)
 
 ## Signature
 

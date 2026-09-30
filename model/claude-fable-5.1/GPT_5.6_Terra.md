@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Fable 5.1
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-21 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,10 @@ Long context:
 - **Overall Score: 93/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 93.2; best suited to costly, long-horizon engineering and research agents.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Anthropic's current Fable 5.1 materials confirm that its production-safeguarded evaluation compares it with Fable 5, Opus 5, and GPT-5.6 Sol, and explicitly notes benchmark-harness caveats for Terminal-Bench-Science and OSWorld 2.0. The announcement additionally reports **55.9% FrontierFinance rubric score**, versus 49.2% for Fable 5, and a customer-reported **57.0 RedlineBench** score versus 47.9% for Fable 5. These new details reinforce the original long-horizon knowledge-work characterization without mixing incompatible harnesses into its scores. [Anthropic announcement](https://www.anthropic.com/claude-fable-and-mythos-5-1) · [Fable page](https://www.anthropic.com/claude/fable)
 
 ## Signature
 

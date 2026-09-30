@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.2 Free
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,6 +55,10 @@ Long context:
 - **Overall Score: 86.6/100.** Mean of the five quality dimensions: (83 + 86 + 95 + 84 + 85) / 5 = 86.6; a compelling free option for coding and long-context work, with provider-specific availability caveats.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Fresh research confirms Meta's original Muse Spark release as the upstream Muse-family model, with natural voice interaction in Meta AI, but Meta's public announcement does **not** separately identify the OpenCode provider label `Muse Spark 1.2 Free` or publish a new exact-tier benchmark table. The free-tier routing, pricing, and benchmark values therefore remain clearly marked as provider/third-party evidence rather than being reassigned to a newer Muse version. Existing normalized scores are retained pending exact 1.2 first-party disclosure. [Meta’s Muse Spark announcement](https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/)
 
 ## Signature
 

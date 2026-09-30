@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.5 Flash
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,6 +50,10 @@ Long context:
 - **Overall Score: 89.2/100.** Mean of the five quality dimensions: (84 + 89 + 95 + 93 + 85) / 5 = 89.2; best for multimodal, tool-using, long-context work where its premium Flash pricing is justified.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Google's current first-party card confirms the exact model's reported table: **76.2% Terminal-Bench 2.1**, **55.1% SWE-Bench Pro**, **83.6% MCP Atlas**, **56.5% Toolathlon**, **78.4% OSWorld-Verified**, **1656 GDPval-AA Elo**, **83.6% MMMU-Pro**, **77.3% MRCR v2 at 128K**, **26.6% at 1M**, **40.2% HLE**, and **72.1% ARC-AGI-2**. It also confirms the 1M input / 64K output limits and native image, audio, and video input. This replaces reliance on secondary benchmark aggregation for the principal reported values; normalized scores remain unchanged. [Google DeepMind model card](https://deepmind.google/models/model-cards/gemini-3-5-flash/)
 
 ## Signature
 

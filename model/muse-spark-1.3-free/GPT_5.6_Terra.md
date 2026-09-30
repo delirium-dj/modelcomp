@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.3 Contributor
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,6 +49,10 @@ Long context:
 - **Overall Score: 91.8/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; especially compelling for free long-context, agentic coding while the Zen tier remains available.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Meta's developer product page now confirms that Muse Spark 1.3 is an upstream model available through the Meta Model API, while contemporary release coverage confirms its rollout to Muse Code and the API. Neither source verifies the exact OpenCode free-tier route, quota, or a replacement first-party public benchmark table, so this report preserves its explicit provider-tier caveat and does not transfer scores from Muse Spark 1.2. The existing normalized scores are retained as the best available exact-version assessment. [Meta developer products page](https://ai.meta.com/llama) · [release coverage](https://www.axios.com/2026/09/02/meta-debuts-muse-spark-13-as-personal-agent-work-continues)
 
 ## Signature
 

@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by GPT-5.6 Terra
 
 - Source: Anthropic / Claude Opus 5
-- Date: 2026-09-18 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-18 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,10 @@ Long context:
 - **Overall Score: 89.6/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; suited to high-value long-running agent and professional workflows.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Fresh first-party checks confirm that `claude-opus-5` remains active, retains a 1M-token context window and 128K maximum output, and is priced at $5/$25 per million input/output tokens. Anthropic's later Opus 5.5 comparison provides an updated, directly comparable reference for the predecessor: **52.3% Terminal-Bench 4.0**, **48.0% FrontierCode 1.1**, **46.6% CursorBench 4.0**, **1708 GDPval-AA v2.1 Elo**, **26.9% AutomationBench**, **63.6% HLE with tools**, **29.0% Terminal-Bench-Science**, and **74.0% partial OSWorld 2.0**. These values validate the report's high coding and reasoning assessment, while preserving the existing normalized scores because the later table uses different benchmark versions and harnesses. [Anthropic migration documentation](https://docs.anthropic.com/en/docs/about-claude/models/migrating-to-claude-4) · [Anthropic’s comparative table](https://www.anthropic.com/claude-opus-5-5)
 
 ## Signature
 

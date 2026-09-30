@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Sonnet 5
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-30 (UTC; refreshed from the 2026-09-21 original)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,10 @@ Long context:
 - **Overall Score: 89/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 89.0; a strong value choice for agentic coding and automation.
 
 ---
+
+## 2026-09-30 verification addendum
+
+Anthropic confirms `claude-sonnet-5` is available across plans and in the API at **$2 input / $10 output per million tokens**. Its release identifies it as an agentic Sonnet model that narrows the gap to Opus 4.8, and directs readers to the system card for the broader evaluation set. It also documents that Sonnet 5's cyber safeguards are enabled by default and that its cyber capability remains lower than current Opus models—useful context for interpreting broad benchmark results. The existing normalized scores remain unchanged. [Anthropic release](https://www.anthropic.com/research/claude-sonnet-5)
 
 ## Signature
 
