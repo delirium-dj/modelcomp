@@ -17,6 +17,9 @@
 
 import { GENERATED_SCORES } from "./scores.generated";
 import { SOURCE_DEFS, type SourceKey, type SourceDef } from "./sources.generated";
+import { AGENT_MODEL_SLUG } from "./agent-slugs.generated";
+
+export { AGENT_MODEL_SLUG };
 
 export type { SourceKey, SourceDef };
 
@@ -249,51 +252,6 @@ export function sortSourceFor(dim: DimensionKey | "overall"): SourceKey {
   return VIRTUAL_VIEWS.find((v) => v.dim === dim)?.key ?? "average";
 }
 
-/**
- * Reporting-agent key -> model slug of that same agent, for cross-linking
- * ("how other models rate the competition") and for ranking the results-source
- * dropdown by each rater's own average Overall. Extend when registering a
- * source whose agent is also a tracked model; agents without an entry link to
- * the homepage source view (`/?source=`) instead and rank by fallback (see below).
- * NOTE: declared before SOURCES -- the dropdown derivation reads it at module
- * load, so it must not move below.
- */
-export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
-  "big-pickle": "big-pickle",
-  "Muse Spark 1.3": "muse-spark-1.3-free",
-  "Gemini 3.5 Flash Lite": "gemini-3.5-flash-lite",
-  "Gemini 3.6 Flash": "gemini-3.6-flash",
-  "GLM 5.3 Flash": "glm-5.3-flash",
-  "GLM 5.2 Coding": "glm-5.2-coding",
-  "Ox Alpha": "ox_alpha",
-  "Claude Sonnet 4.6": "claude-sonnet-4.6",
-  "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
-  "Solar Pro 4": "solar-pro-4",
-  "MiniMax M3": "minimax-m3",
-  "GPT 5.6 Terra": "gpt-5.6-terra",
-  "Gemini 3.5 Flash": "gemini-3.5-flash",
-  "Claude Opus 4.6": "claude-opus-4.6",
-  "Gemini 3.8 Flash": "gemini-3.8-flash",
-  "Grok 4.6": "grok-4.6",
-  "Gemini 3.7 Flash": "gemini-3.7-flash",
-  "Laguna S 2.1": "laguna-s-2.1",
-  "Mimo v2.6 Flash": "mimo-v2.6-free",
-  "Mimo v2.5 Free": "mimo-v2.5-free",
-  "Muse Spark 1.2": "muse-spark-1.2-free",
-  "Claude Sonnet 5": "claude-sonnet-5",
-  "GPT 5.6 Luna": "gpt-5.6-luna",
-  "GPT 5.6 Sol": "gpt-5.6-sol",
-  "GPT 6 Sol": "gpt-6-sol",
-  "Grok 4": "grok-4",
-  "Gemini 1.5 Pro": "gemini-1.5-pro",
-  "Qwen 3.8 27B": "qwen-3.8-27b",
-  "GLM 5.3": "glm-5.3",
-  "Kimi K3": "kimi-k3",
-  "Space Bunny Alpha": "space-bunny-alpha",
-  "Laguna XS 2.1": "laguna-xs-2.1",
-  "Claude Sonnet 4.5": "claude-sonnet-4.5",
-  "LongCat 2.5 Preview": "longcat_2.5_preview",
-};
 
 /**
  * Dropdown ranking metric for a reporting agent: its own average Overall --

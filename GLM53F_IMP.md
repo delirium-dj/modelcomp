@@ -13,7 +13,7 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ## High priority
 
-### 1. Auto-derive `AGENT_MODEL_SLUG` in sync (remove a hand-maintained map)
+### 1. Auto-derive `AGENT_MODEL_SLUG` in sync (DONE 2026-09-30)
 
 * **Current:** `src/data/models.ts:253` hand-maintains a 52-entry
   `SourceKey → model slug` map. A newly registered reporting agent that is

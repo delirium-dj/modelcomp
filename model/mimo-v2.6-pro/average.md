@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 86.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 85.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 92.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 89.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 86/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 92.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 88/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 86.4/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Reasoning: 81/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Context window: 93.5/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Multimodal: 90/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Coding: 84.6/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Cost efficiency: 90.7/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Overall Score: 87.1/100.** Fallback mean of all 14 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
-- Average from top 3 by Overall Score: GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.
+- Fallback: no qualifying raters (need own Overall > 84.9); average from all 14 below-gate source(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, GPT 5.6 Terra, Kimi K3, LongCat 2.5 Preview, Mimo v2.6 Flash, Muse Spark 1.3, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.
+- Average from top 10 by Overall Score: Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Terra, Kimi K3, LongCat 2.5 Preview, Mimo v2.6 Flash, Muse Spark 1.3, Qwen 3.8 27B.
+- Excluded bottom 4: Claude Opus 4.6, GLM 5.3 Flash, Pixel Canary, Space Bunny Alpha.

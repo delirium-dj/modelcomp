@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — Merged gemini-3.8-live into models_voice & implemented Task 1 (Auto-derive AGENT_MODEL_SLUG)
+
+1. Merged `model/gemini-3.8-live/` contents into `models_voice/gemini-3.8-live/` and removed `model/gemini-3.8-live/` from `model/`.
+2. Implemented Task 1 from `GLM53F_IMP.md`: `scripts/sync-data.mjs` now auto-derives the `SourceKey -> model slug` mapping and writes `src/data/agent-slugs.generated.ts`. `src/data/models.ts` re-exports `AGENT_MODEL_SLUG` from the generated file.
+
 ## 2026-09-30 — Integrated .rerun research drafts and deleted .rerun folder (user order)
 
 1. Evaluated all files in `.rerun/`. Promoted updated reports for `gemini-3.8-flash` and `muse-spark-1.3-free` to `model/gemini-3.8-flash/DeepSeek_4.1_Flash.md` and `model/muse-spark-1.3-free/DeepSeek_4.1_Flash.md`.
