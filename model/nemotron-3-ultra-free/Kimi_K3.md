@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra (Free) — findings by Kimi K3
 
 - Source: NVIDIA / Nemotron 3 Ultra (`opencode/nemotron-3-ultra-free`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,12 +10,12 @@
 - **Name:** Nemotron 3 Ultra (Free)
 - **Short description:** NVIDIA's flagship open-weights hybrid (Mamba-MoE) reasoning model for long-running agents — PinchBench 90%, IFBench 81.7%, low hallucination (29.7%), 1M context; free on Zen/NVIDIA trial. Openness Index 83.3%.
 - **Provider / access:** OpenCode Zen `opencode/nemotron-3-ultra-free`; NVIDIA trial endpoints; open weights.
-- **Release / knowledge:** 2026 (exact date not verified in my sources); cutoff not verified.
+- **Release / knowledge:** Released 2026-06-01 (Computex keynote, Taipei — verified via NVIDIA research page + launch coverage); cutoff not published.
 - **IDs:** `opencode/nemotron-3-ultra-free` (Free Zen ID).
 - **Context window:** 1M native; 262K default serve per Zen catalog note; no separate max-output figure verified.
 - **Modalities:** text in/out (beyond-text unverified per catalog); reasoning yes; tool calls; JSON mode.
 - **Pricing (as of 2026-09-24):** Free Zen / NVIDIA trial ($0); open weights → self-host.
-- **Architecture:** open weights, hybrid Mamba-MoE (catalog); params not verified in my sources.
+- **Architecture:** open weights — 550B total / 55B active hybrid Mamba-Transformer MoE with Latent MoE and MTP layers, pre-trained in NVFP4 (NVIDIA research page, verified 2026-09-29); >300 tok/s claimed at launch.
 
 ### Raw benchmarks found
 
@@ -32,7 +32,8 @@ Reasoning / knowledge:
 - GPQA Diamond: **87.0%** (GPQA-D; AA 86.7%; Vals 86.1%) (benchlm.ai)
 - HLE: **26.7%** (no tools); 37.4% (w/ tools); AA-HLE 28.4% (benchlm.ai)
 - AA-LCR: **67.0%**; LongBench v2: **61.9%**; CritPt: **3.1%** (benchlm.ai)
-- Artificial Analysis Intelligence Index: **22.9**; AA Openness Index: **83.3**; BenchLM overall **43.3/100, #102 of 507**
+- Artificial Analysis Intelligence Index: **22.9** (benchlm.ai snapshot) — conflict: launch coverage (buildfastwithai/tech-insider) cites **48**; index-version drift suspected, both recorded; AA Openness Index: **83.3**; BenchLM overall **43.01/100, #114 of 209** (page refreshed Sept 2026); Vals Index **43.99%, #5 open-weight** (TaxEval v2 73.10% #3-open, CorpFin v2 65.46% #4-open, Finance Agent v2 37.53% #5-open)
+- Hosted pricing reference: $0.50 in / $0.10 cached / $2.20 out per 1M (llm-stats, paid providers; Zen/NVIDIA trial remains $0)
 - AA-Omniscience Accuracy / Hallucination Rate: **21.6% / 29.7%** — low hallucination, low accuracy (benchlm.ai)
 - MMLU-Pro: **86.8%**; MMLU-ProX: **83.0%**; IFBench: **81.7%** (benchlm.ai)
 
@@ -64,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard, repo catalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
+- Method: fresh public web research (benchlm.ai scorecard, repo catalog). Reverified 2026-09-29: release date now verified (2026-06-01 Computex), architecture now verified (550B/55B hybrid Mamba-Transformer, Latent MoE, MTP, NVFP4 per NVIDIA research page); added AA Index conflict (22.9 benchlm vs 48 launch coverage), Vals #5-open rank, hosted price reference; scores unchanged.
 - Future sources: add a new file next to this one using the same headings.

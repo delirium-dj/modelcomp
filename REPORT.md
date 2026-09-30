@@ -1,9 +1,5 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-09-29 — per-model heading: bold + italic name (user request)
-
-1. Whole heading bold again; model name additionally italic (`<span class="italic">`, bold inherited). (Interim split-weight version was reverted pre-commit; applied the final look in one step.)
-
 ## 2026-09-29 — GEM36F_IMP.md merged and retired (user order; Gemini 3.6 Flash audit)
 
 1. Re-research pass merged: 25 stale `Gemini_3.6_Flash.md` reports (dated 09-17–09-21) refreshed to 2026-09-29 with fresh web research (spot-verified 2/25 landed; per-model scores live in the dataset files). Claimed highs: gpt-5.6-terra 94, muse-spark-1.3-free 93, muse-spark-1.2-free 91, gpt-6-astra / gemini-3.1-pro 90.

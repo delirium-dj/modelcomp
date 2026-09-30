@@ -1,7 +1,7 @@
 # Hy3 — findings by Kimi K3
 
 - Source: Tencent / Hy3 (Hunyuan 3, `tencent/hy3`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,12 +10,12 @@
 - **Name:** Hy3 (Hunyuan 3, instruct)
 - **Short description:** Tencent's open-weight Hunyuan MoE — 295B total / 21B active, 256K context, hybrid fast-and-slow thinking, Apache 2.0. Mid-pack results with a decent LCR (79.0%) but weak agentic scores.
 - **Provider / access:** open weights (Apache 2.0); hosted preview on TokenHub ~$0.18/$0.59 per 1M; no OpenCode Zen Free ID.
-- **Release / knowledge:** 2026 (after Hy3 Preview; exact date not verified in my sources).
+- **Release / knowledge:** GA 2026-07-06 — officially launched and open-sourced after the April 2026 Hy3 preview (llm-releases.com Tencent lab page; aitooltier). EU/UK/SK download restriction lifted at GA.
 - **IDs:** `tencent/hy3`.
 - **Context window:** 256K tokens / 32K max output (catalog + benchlm.ai agree).
 - **Modalities:** text/image in; text out; reasoning yes (hybrid thinking); tool calls; JSON mode per serving stack.
 - **Pricing (as of 2026-09-24):** TokenHub preview ~$0.18/$0.59 per 1M (catalog note); open weights → self-host.
-- **Architecture:** MoE 295B total / 21B active, Apache 2.0.
+- **Architecture:** MoE 295B total / 21B active + an additional 3.8B multi-token-prediction (MTP) layer; three selectable inference modes blending fast/slow thinking; Apache 2.0 (GA terms, restriction lifted).
 
 ### Raw benchmarks found
 
@@ -61,5 +61,5 @@ Multimodal:
 ## Signature
 
 - Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard, repo catalog metadata); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: fresh public web research (benchlm.ai scorecard, repo catalog metadata). Reverified 2026-09-29: GA date now verified (2026-07-06, post-April-preview; llm-releases.com/aitooltier); added 3.8B MTP layer + EU/UK/SK restriction lifted at GA; no benchmark drift found. Scores unchanged.
 - Future sources: add a new file next to this one using the same headings.

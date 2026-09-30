@@ -8,14 +8,14 @@
 ## Model card
 
 - **Name:** Pixel Canary (stealth preview)
-- **Short description:** Anonymous coding-focused model launched in stealth on Vercel AI Gateway on 2026-09-25, free during preview. Strongest published result: Vercel's Next.js Agent Evals where it passes 28/31 tasks baseline and 30/31 with an AGENTS.md hint — tying Claude Opus 5.5 and GPT-6 Astra. Identity unconfirmed; stealthmodels.com fingerprinting points at Z.ai's GLM family (speculative "GLM-5.4").
+- **Short description:** Anonymous coding-focused model launched in stealth on Vercel AI Gateway on 2026-09-25, free during preview. Strongest published result: Vercel's Next.js Agent Evals where it passes 28/31 tasks baseline and 30/31 with an AGENTS.md hint — tying Claude Opus 5.5 and GPT-6 Astra. Identity unconfirmed; stealthmodels.com fingerprinting initially pointed at Z.ai's GLM family, but its updated comparison now has **Qwen3.8 Flash leading the identity match** — still speculative either way.
 - **Provider / access:** Vercel AI Gateway (OpenAI-compatible Chat Completions, `https://ai-gateway.vercel.sh/v1/chat/completions`, ID `stealth/pixel-canary`; payment method required even at $0); Cline Desktop (free account, no payment method); AI SDK Playground; Command Code (Go plan+).
 - **Release / knowledge:** Stealth since 2026-09-25 (Vercel changelog). Knowledge cutoff undisclosed.
 - **IDs:** `stealth/pixel-canary` (Vercel AI Gateway). Not on OpenRouter's public catalog as of 2026-09-27 (stealthmodels check). No Zen ID.
 - **Context window:** 262,144 tokens total / 131,072 max output (Vercel model catalog).
 - **Modalities:** Text + image in; text out. Reasoning yes (levels `none`/`low`/`medium`/`xhigh`); tool calls yes (enabled in Vercel's OpenCode eval config); implicit caching yes.
 - **Pricing (as of 2026-09-27):** $0 input / $0 output during temporary stealth preview — **data caveat: provider may retain prompts and outputs for training** (Vercel listing). Post-preview pricing unknown.
-- **Architecture:** Undisclosed (stealth). Community fingerprint: reasoning style closest to GLM/MiniMax/Kimi/Qwen family, least like Gemini; GLM (Z.ai) leading hypothesis — unconfirmed.
+- **Architecture:** Undisclosed (stealth). Community fingerprint: reasoning style closest to GLM/MiniMax/Kimi/Qwen family, least like Gemini; updated stealthmodels comparison (late Sept 2026) has **Qwen3.8 Flash** as the closest identity match — unconfirmed.
 
 ### Raw benchmarks found
 
@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
-- Method: public internet research (stealthmodels.com Pixel Canary dossier incl. Vercel eval transcription + six-clue identity analysis, AICrier/techandbusiness/lookonchain launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
+- Method: public internet research (stealthmodels.com Pixel Canary dossier incl. Vercel eval transcription + identity analysis, AICrier/techandbusiness/lookonchain/startupfortune/margrop coverage). Reverified 2026-09-29: benchmarks unchanged (no new runs); identity comparison now leans Qwen3.8 Flash (was GLM) per stealthmodels; scores unchanged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

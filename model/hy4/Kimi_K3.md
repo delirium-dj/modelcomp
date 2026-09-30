@@ -1,7 +1,7 @@
 # Hy4 — findings by Kimi K3
 
 - Source: Tencent / Hy4 (preview) (`tencent/hy4`; HF `tencent/Hy4-preview`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Hy4 (preview)
 - **Short description:** Tencent's August 2026 open-weights Hy4 flagship — 770B/49B-active MoE, 1M context (960K in / 64K out), Apache 2.0; strong agentic suite (GDPval-AA 1678, TB 2.1 85.4%, WideResearch 83.9%).
 - **Provider / access:** Apache 2.0 open weights (Hugging Face `tencent/Hy4-preview`); self-hosted; no Zen Free ID.
-- **Release / knowledge:** August 2026 preview (catalog); knowledge cutoff not verified.
+- **Release / knowledge:** Preview released 2026-08-28 (gptproto/apxml/hy4ai.com — "preview-stage flagship"); knowledge cutoff not published.
 - **IDs:** `tencent/hy4` / HF `tencent/Hy4-preview`.
 - **Context window:** 1M total (960K in / 64K out) (catalog; benchlm lists 1M).
 - **Modalities:** text in/out; reasoning yes; tool calls; JSON mode per serving stack.
@@ -65,5 +65,5 @@ Multimodal:
 ## Signature
 
 - Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard, repo catalog, HF model card reference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: fresh public web research (benchlm.ai scorecard, repo catalog, HF model card reference). Reverified 2026-09-29: preview release date now verified (2026-08-28; gptproto/apxml/hy4ai.com); architecture 770B/49B and 1M window re-confirmed; no benchmark drift found. Scores unchanged.
 - Future sources: add a new file next to this one using the same headings.
