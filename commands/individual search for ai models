@@ -1,0 +1,66 @@
+Research model Claude Opus 5 from fresh public web search and return a complete findings file in EXACTLY this repo format.
+Agent identity for signature: [YOUR AGENT DISPLAY NAME + vendor/model-id, e.g. ChatGPT 5 (openai/gpt-5)]
+Today (UTC): [YYYY-MM-DD]
+STRICT RULES:
+1. Independent: do not rely on prior chat memory. Use only verifiable public sources (official model card/docs, Artificial Analysis, BenchmarkList, BenchLM, LiveCodeBench, SWE-bench, vendor blog, OpenCode Zen docs, models.dev, HuggingFace).
+2. No hallucination: every raw number needs (source + rank/harness where available). Missing = write exactly "no verified public score found". Never invent, interpolate, or copy scores from memory.
+3. Self-exclusion: if ZERO verified benchmark numbers exist for this exact model ID, do NOT output scored dims. Output the same headings with negative-findings notes and start your reply with: EXCLUDED — no verified benchmarks.
+4. Overall formula (v4, mandatory): Overall Score = (Tool use + Reasoning + Context window + Multimodal + Coding) / 5, half-up rounded, max 1 decimal. Cost efficiency is scored independently and NEVER counted in Overall.
+5. Methodology mapping (1-100, higher=better):
+- Tool use: Terminal-Bench 2.1, Tau3-Banking, GDPval-AA, OSWorld/AutomationBench. Frontier: TB2.1 ~88%+, Tau3 ~50%+, GDPval ~1750+ = 90-100. Mid: TB2.1 45-60%, Tau3 10-25% = 50-70.
+- Reasoning: GPQA Diamond, HLE, LCR/MLCR, CritPt, AA Index. Frontier: GPQA 90%+, HLE 40%+, Index 60+ = 90-100. Mid: GPQA 60-80%, HLE <10% = 55-65.
+- Context window (tiered by VERIFIED total): >=1M = 95-100 (100 only if >=98% retrieval at 512K+ e.g. MRCR/RULER); 500K-1M = 85-94; 200K-500K = 65-84 (200K = 70); 100K-200K = 50-64; <100K = 10-49.
+- Multimodal: text-only = 10-20 (use 15); +image in = 60-70; +video/PDF in = 75-90; +audio in or non-text out = 90-100.
+- Coding: SWE-bench Verified, DeepSWE, LiveCodeBench, SciCode, SWE-Atlas, Terminal-Bench. Frontier: DeepSWE 74%+, TB2.1 85%+, SciCode 55%+ = 90-100.
+- Cost efficiency (on evaluated tier): $0 = 100; ~$0.10/$0.20 = 97-99; ~$0.60/$2.20 = ~92; ~$1.25/$4.25 = ~88; $3/$15 = ~60; $10/$50 = ~30.
+OUTPUT EXACT MARKDOWN (no extra commentary, replace every <...>):
+# <Model Name> — findings by [AGENT DISPLAY NAME]
+- Source: <Publisher>/<Model>, e.g. Meta (`muse-spark-1.3-contributor-free`)
+- Date: [YYYY-MM-DD] (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** <incl. Free-tier wording>
+- **Short description:** 1-2 sentences: what it is, who makes it, top use case. Flag variant/alias.
+- **Provider / access:** <host(s) with exact API ID, e.g. OpenCode Zen `opencode/<id>`>. Note Chat Completions or Responses API.
+- **Release / knowledge:** <YYYY-MM-DD release; cutoff if known>
+- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen)
+- **Context window:** <total; in/out if known — say how verified>
+- **Modalities:** <text/image/audio/video/PDF in; text out; reasoning yes/no; tool calls; JSON mode>
+- **Pricing (as of <date>):** <in/out/cached per 1M; mark Free or paid $; free-tier privacy caveat>
+- **Architecture:** <params total/active, MoE, open-weights license, or proprietary>
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: **<value>%** <(source/rank) or: no verified public score found>
+- Tau3-Banking / Tau2-Bench: **<value>%** <(harness)>
+- GDPval-AA: **<Elo>**
+- Claw-Eval / ClawProBench: **<value>** <or: no verified public score found>
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **<value>**
+Reasoning / knowledge:
+- GPQA Diamond: **<value>%**
+- HLE: **<value>%**
+- LCR / MLCR: **<value>%**
+- CritPt: **<value>%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **<value> / <#rank>**
+- Omniscience Accuracy / Hallucination Rate: **<value>% / <value>%**
+Coding:
+- SWE-bench Verified / SWE-Pro: **<value>%**
+- LiveCodeBench: **<value>%**
+- SciCode / AA-SciCode: **<value>%**
+- Vibe Code Bench: **<value>%**
+- DeepSWE / Coding Index / other: **<value>**
+Long context:
+- <MRCR / RULER / GraphWalks value at window length, or "no long-context retrieval reported">
+### Normalized scores (1-100)
+- **Tool use: <N>/100.** <evidence + what caps it>
+- **Reasoning: <N>/100.** <evidence + what caps it>
+- **Context window: <N>/100.** <tier mapping + actual measured limit>
+- **Multimodal: <N>/100.** <input/output coverage; 15 if text-only>
+- **Coding: <N>/100.** <evidence + what caps it>
+- **Cost efficiency: <N>/100.** <$0 = 100; paid value at price point>
+- **Overall Score: <N>/100.** <mean of five non-cost dims + one-line best-fit recommendation>
+---
+## Signature
+- Provided by: **[AGENT DISPLAY NAME] ([vendor/model-id])** — [YYYY-MM-DD]
+- Method: <how you researched, e.g. public internet research>; scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

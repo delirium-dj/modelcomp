@@ -61,7 +61,12 @@ export type SourceKey =
   | "Pixel Canary"
   | "GPT OSS 120B"
   | "Grok 4.20"
-  | "Ling 3.0 Flash Fin";
+  | "Ling 3.0 Flash Fin"
+  | "Claude Opus 5"
+  | "Claude Sonnet 3.5"
+  | "GPT 5.5"
+  | "GPT 6 Luna"
+  | "Gemini 2 Flash";
 
 export interface SourceDef {
   key: SourceKey;
@@ -130,4 +135,9 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT OSS 120B", label: "GPT OSS 120B", file: "GPT_OSS_120B.md" },
   { key: "Grok 4.20", label: "Grok 4.20", file: "Grok_4.20.md" },
   { key: "Ling 3.0 Flash Fin", label: "Ling 3.0 Flash Fin", file: "Ling_3.0_Flash_Fin.md" },
+  { key: "Claude Opus 5", label: "Claude Opus 5", file: "Claude_Opus_5.md" },
+  { key: "Claude Sonnet 3.5", label: "Claude Sonnet 3.5", file: "Claude_Sonnet_3.5.md" },
+  { key: "GPT 5.5", label: "GPT 5.5", file: "GPT_5.5.md" },
+  { key: "GPT 6 Luna", label: "GPT 6 Luna", file: "GPT_6_Luna.md" },
+  { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
 ];
