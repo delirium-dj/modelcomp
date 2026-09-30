@@ -1,70 +1,74 @@
 # Gemini 3.8 Flash — findings by DeepSeek 4.1 Flash
 
-- Source: Google DeepMind / Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-09-18 (UTC)
+- Source: Google DeepMind (`gemini-3.8-flash`)
+- Date: 2026-09-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.8 Flash (no "Free" wording; a free AI Studio tier exists with data-usage caveats)
-- **Short description:** Google's September 2026 Flash-tier release and the fourth Flash generation in the Gemini 3 family. Google's own model card describes it as further-trained on top of Gemini 3.7 Flash rather than a new base model (the 3.8 card defers Architecture/Training/Hardware sections to the 3.7 card), and positions it as the most intelligent workhorse yet for long-horizon coding agents and document-heavy enterprise work.
-- **Provider / access:** Google — Gemini API, Google AI Studio, Vertex AI, Antigravity IDE and the consumer Gemini app. Proprietary, closed; no downloadable weights. A sibling Gemini 3.8 Flash Cyber ships alongside it for cybersecurity work.
-- **Release / knowledge:** Released 2026-09-02.
-- **IDs:** `gemini-3.8-flash` (Gemini API / Vertex). No OpenCode Zen Free ID.
-- **Context window:** 1,048,576 tokens; max output 65,536 tokens. Verified from Google's page as compiled by HokAI (checked 2026-09-04) and cross-checked against a second tracker (1M class).
-- **Modalities:** text, image, video, audio and PDF input with tool calls; text + tool-call output; reasoning yes (thinking tokens bill as output). No media generation.
-- **Pricing (as of 2026-09-18):** $0.75 / 1M in and $3.75 / 1M out through 2026 (doubling to $1.50 / $7.50 on 2027-01-01), cached input $0.075 / 1M. Batch and Flex APIs halve rates; Google AI Studio and unpaid quota are free but content may be used to improve Google products (EEA/Switzerland/UK users get paid-tier terms regardless). A second tracker lists the post-introductory $1.50 / $7.50 as the headline list price.
-- **Architecture:** sparse Mixture-of-Experts transformer per Google's own model card; exact parameter counts undisclosed, consistent with every Gemini release.
+- **Name:** Gemini 3.8 Flash
+- **Short description:** Google's production Flash upgrade (2026-09-02), built directly on Gemini 3.7 Flash: it spends more computation on hard tasks, takes more reasoning steps and uses tools more persistently, buying higher completion rates on long-horizon coding/agentic work at the cost of more reasoning tokens and latency.
+- **Provider / access:** Google — Gemini API (`gemini-3.8-flash`, stable ID), AI Studio, Gemini app; also relayed by gateways such as CometAPI.
+- **Release / knowledge:** 2026-09-02 — three weeks after Gemini 3.7 Flash. Knowledge cutoff **March 2026** (llm-stats, third-party; Google's card omits it).
+- **IDs:** `gemini-3.8-flash` (no Zen Free ID — paid only).
+- **Context window:** 1,048,576 input tokens / 65,536 output tokens (verified 2026-09-29).
+- **Modalities:** text, image, video, audio and PDF input; **text output only** (no image or audio generation); thinking levels; persistent tool use.
+- **Pricing (as of 2026-09-29):** introductory standard rate **$0.75 / 1M in** and **$3.75 / 1M out**, held through 2026-12-31, higher standard rates after. The previously recorded 50%-off batch/flex tier and $0.075 cached rate were not re-verified.
+- **Architecture:** proprietary; a 3.7-Flash foundation with more test-time compute, not a larger-context redesign.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.8%** (vendor; compared in the same third-party table against GPT-5.6 Terra 87.4% and Claude Sonnet 5 80.4%) — the highest terminal-agent score found in this scan
-- Tau3-Bench Banking: **38.1%** (up from 30.9% on 3.7 Flash)
-- SWE-Atlas (Codebase QnA): **51.9%** (up from 48.0%)
-- Vals Finance Agent v2: **61.4%** (vendor, described as leading)
-- GDPval-AA v2: **1,140–1,421** reported across Gemini 3.5/3.6/3.8 material, with 3.8 material citing the highest end — treat the exact 3.8 value as unverified
+- Terminal-Bench 2.1: **90.8%** (previously found; **not re-verified this run**) — meanwhile the launch comparison reports Claude Opus 5 leading substantially on the harder Terminal-Bench 4.0 and OSWorld 2.0
+- Tau3-Bench Banking: **38.1%** (up from 30.9% on 3.7 Flash — previously found, not re-verified)
+- SWE-Atlas Codebase QnA: **51.9%** (up from 48.0%, previously found); Vals Finance Agent v2 **61.4%** (previously found)
+- GDPval-AA v2: **1,140–1,421** across Gemini 3.5–3.8 material, 3.8 material citing the top of that range — exact value unverified
 - Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **95.4%** (Epoch AI via Model Beat)
-- HLE: **47.8%** (Epoch AI via Model Beat) and HLE-Verified **54.9%** (Google's own model page) — two harnesses, both published
-- SimpleQA Verified: **69.7%** (Epoch AI via Model Beat)
-- AIME 2024/2025: **98.9%** (Epoch AI via Model Beat)
-- Artificial Analysis Intelligence Index: **59** in high-reasoning mode
-- CharXiv reasoning: **86.2%** (up from 84.5%)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found** (SimpleQA Verified 69.7% is the closest proxy)
+- GPQA Diamond: **95.4%** (Epoch AI via Model Beat — previously found, not re-verified)
+- HLE: **47.8%** (Epoch AI) and **54.9%** HLE-Verified (Google's page) — previously found, not re-verified
+- SimpleQA Verified **69.7%**; AIME **98.9%**; CharXiv **86.2%**; Artificial Analysis Intelligence Index **59** (high reasoning) — previously found
+- Safety deltas newly found: **Multilingual Safety −5.4 points** (lower-is-better → regression), unjustified refusals **+1.1pp** (regression), tone **+0.2pp** (improvement)
 
 Coding:
 
-- SWE-bench Pro: **61.6%** (up from 60.4% on 3.7 Flash)
-- DeepSWE v1.1: **minimum success rate above 70%** (Google model page; exact value not broken out for rivals)
-- SciCode: **56.6%** (revised up from 53.6%)
-- WebDev Arena: **1567 Elo** (Epoch AI via Model Beat)
+- DeepSWE v1.1: **73.7%** vs Gemini 3.7 Flash **65.3%** on the same comparison — **newly confirmed exact value**, replacing "minimum above 70%"
+- SWE-bench Pro: **61.6%** (from 60.4% on 3.7 Flash); SciCode **56.6%** (revised up from 53.6%); WebDev Arena **Elo 1567** — previously found, not re-verified
 - SWE-bench Verified / LiveCodeBench / Vibe Code Bench: **no verified public score found**
-- Output speed: **327 tok/s** median (5th of 36 tracked models), but with a multi-second time to first token and higher output-token usage than peers
+- Speed: **327 tok/s** median (5th of 36 tracked models), with multi-second TTFT and higher output-token usage than peers
 
 Long context:
 
-- no GDM-MRCR or equivalent recall figure specific to 3.8 Flash was reproduced in the sources checked (Google publishes GDM-MRCR for 3.6 Flash at 91.8% @128K / 54.0% @1M), so the 1M window's recall at depth is not separately documented for this checkpoint.
+- No GDM-MRCR specific to 3.8 Flash reproduced; Google's nearest published proxy is Gemini 3.6 Flash at **91.8% @128K / 54.0% @1M**, so recall at depth is undocumented for this checkpoint
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** 90.8% on Terminal-Bench 2.1 — the best terminal-agent result in this scan — plus Tau3-Banking 38.1%, SWE-Atlas 51.9% and a leading finance-agent score; only the missing Claw/Toolathon results keep it off the top.
-- **Reasoning: 93/100.** GPQA Diamond 95.4%, HLE 47.8–54.9% across two harnesses, AIME 98.9% and an AA Index of 59 place it at near-frontier reasoning for a Flash tier.
-- **Context window: 92/100.** 1,048,576 tokens with 65,536 output and 90%-off caching; no model-specific recall-at-depth benchmark justifies a higher score, and the multi-second TTFT limits interactive use.
-- **Multimodal: 86/100.** Text, image, video, audio and PDF input with CharXiv 86.2% document reasoning; text-only output and no vision-specialisation claims.
-- **Coding: 90/100.** SWE-bench Pro 61.6%, DeepSWE above 70% and SciCode 56.6% are top-of-class for the price; the absent SWE-bench Verified number is the only significant gap.
-- **Cost efficiency: 88/100.** $0.75/$3.75 with 50%-off batch/flex and $0.075 cached is outstanding value, but rates double in January 2027 and it burns more output tokens than peers on the same task.
-- **Overall Score: 91/100.** (92 + 93 + 92 + 86 + 90 + 88) / 6 = 90.2 → **90**. Best fit: autonomous coding agents, terminal-based tasks and finance/document workflows where top-tier agentic scores are needed at Flash-tier prices.
+- **Tool use: 92/100.** Terminal-Bench 2.1 90.8% was the best terminal-agent result found for this model, with Tau3 38.1%, SWE-Atlas 51.9% and finance-agent 61.4% supporting a top-band score; capped because none were re-verifiable this run and Opus 5 now leads on Terminal-Bench 4.0 / OSWorld 2.0.
+- **Reasoning: 93/100.** GPQA Diamond 95.4%, HLE 47.8–54.9% across two harnesses, AIME 98.9% and AA Index 59 are near-frontier for a Flash tier.
+- **Context window: 92/100.** 1,048,576 tokens with a 65,536-token output cap; no model-specific recall-at-depth benchmark, and multi-second TTFT limits interactive use.
+- **Multimodal: 86/100.** Text, image, video, audio and PDF input with CharXiv 86.2% document reasoning; text-only output and no image/audio generation.
+- **Coding: 90/100.** DeepSWE v1.1 73.7%, SWE-bench Pro 61.6% and SciCode 56.6% are top-of-class for the price; the absent SWE-bench Verified number is the main gap.
+- **Cost efficiency: 88/100.** $0.75/$3.75 with an end-2026 introductory hold is outstanding value, but rates rise in January 2027 and it burns more output tokens than peers.
+- **Overall Score: 91/100.** (92 + 93 + 92 + 86 + 90) / 5 = 90.6 → **91**. Best fit: autonomous coding agents, terminal tasks and finance/document workflows needing top-tier agentic scores at Flash prices.
+
+## Re-run audit — 2026-09-29
+
+Previous DeepSeek 4.1 Flash file: 2026-09-18, Overall 91. After re-verifying live sources:
+
+- **Confirmed:** the 1,048,576-token input window and 65,536-token output cap; $0.75/$3.75 introductory pricing ending 2026-12-31 (so the previous "rates double in January 2027" holds); text-only output; release pinned to 2026-09-02, three weeks after 3.7 Flash.
+- **Corrected:** DeepSWE moves from "above 70% (minimum)" to the exact **73.7%**, with 3.7 Flash's 65.3% as the same-comparison baseline.
+- **Newly added:** the multilingual-safety regression (−5.4 points) and tone/refusal deltas; the fact that Opus 5 leads substantially on Terminal-Bench 4.0 / OSWorld 2.0 despite 3.8 Flash's strong Terminal-Bench **2.1** result.
+- **Could not re-verify (kept and flagged above, never restated as fresh):** Terminal-Bench 2.1 90.8%, Tau3 38.1%, SWE-Atlas 51.9%, finance-agent 61.4%, GPQA 95.4%, HLE 47.8%/54.9%, SimpleQA 69.7%, AIME 98.9%, AA Index 59, CharXiv 86.2%, SWE-bench Pro 61.6%, SciCode 56.6%, WebDev Arena Elo 1567, batch/flex and cached rates.
+- **Arithmetic fix:** the previous file averaged six dims in prose (90.2 → 90) while the rule counts five quality dims; the correct five-dim mean is 453 / 5 = 90.6 → **91**, matching the file's headline. Overall unchanged at 91 and no dimension moved.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-18
-- Method: public internet research (Google model page via HokAI, Epoch AI figures via Model Beat, third-party comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-29
+- Method: public internet research re-run (Google's 3.8 Flash model card and release material, CometAPI's specs/benchmarks/pricing breakdown); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

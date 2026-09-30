@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — Integrated .rerun research drafts and deleted .rerun folder (user order)
+
+1. Evaluated all files in `.rerun/`. Promoted updated reports for `gemini-3.8-flash` and `muse-spark-1.3-free` to `model/gemini-3.8-flash/DeepSeek_4.1_Flash.md` and `model/muse-spark-1.3-free/DeepSeek_4.1_Flash.md`.
+2. Removed the `.rerun` directory completely from disk.
+
 ## 2026-09-30 — Muse Glimmer 30B retired as researcher (user order)
 
 1. Removed all 34 research files (`Muse_Glimmer_30B.md` / `.excluded`) across all `model/` folders and delegator task `tasks/Muse_Glimmer_30B.md`.
