@@ -1,4 +1,4 @@
-Research model Claude Opus 5 from fresh public web search and return a complete findings file in EXACTLY this repo format.
+Research model Claude Fable 5.1 from fresh public web search and return a complete findings file in EXACTLY this repo format.
 Agent identity for signature: [YOUR AGENT DISPLAY NAME + vendor/model-id, e.g. ChatGPT 5 (openai/gpt-5)]
 Today (UTC): [YYYY-MM-DD]
 STRICT RULES:

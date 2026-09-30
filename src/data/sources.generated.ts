@@ -65,7 +65,8 @@ export type SourceKey =
   | "Claude Sonnet 3.5"
   | "GPT 5.5"
   | "GPT 6 Luna"
-  | "Gemini 2 Flash";
+  | "Gemini 2 Flash"
+  | "Gemini 2.5";
 
 export interface SourceDef {
   key: SourceKey;
@@ -138,4 +139,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 5.5", label: "GPT 5.5", file: "GPT_5.5.md" },
   { key: "GPT 6 Luna", label: "GPT 6 Luna", file: "GPT_6_Luna.md" },
   { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
+  { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md" },
 ];

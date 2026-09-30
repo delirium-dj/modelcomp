@@ -45,11 +45,11 @@ Long context:
 
 - **Tool use: 72/100.** Best-in-class agentic *search* (BrowseComp 44.9%, SimpleQA 95.0%, LMArena Search #1) and native tool calling, but generic MCP/terminal agentics are weak (MCP-Universe 27.3%, Terminal-Bench 2.0 29.2%).
 - **Reasoning: 82/100.** 85.7% GPQA Diamond with 93.3% HMMT and an AA Intelligence Index that an independent re-check puts at **35** (my first pass recorded 27.9) is genuinely frontier-adjacent for the price; the cap is HLE at ~20% and ARC-AGI-2 at 5.3%.
-- **Context window: 98/100.** A documented 2M-token window is the largest in this scan and unlocks whole-repository style prompts; it loses only because the ≥128K price tier doubles input cost, the served **max output is just 16K** (so the window is ingest-only) and no retrieval benchmark validates recall at length.
+- **Context window: 94/100.** A documented 2M-token window is the largest in this scan and unlocks whole-repository style prompts; it loses because the ≥128K price tier doubles input cost, no retrieval benchmark validates recall at length, and — confirmed on re-verification rather than assumed — the served **max output is only 16K tokens** (a hard vendor ceiling, not a 128K-class generation budget), which clips exactly the long-form and agentic-output workloads a 2M window invites. *(Re-scored 2026-09-27: 98 → 94. The 98 was set on the first pass under an assumed 128K output budget; the ceiling is now documented, so the deduction for ingest-biased utility is larger.)*
 - **Multimodal: 62/100.** Text plus image input with MMMU-Pro **72.8%** (36th pct) is functional but unremarkable, and there is no audio, video or image generation.
 - **Coding: 68/100.** 80.0% LiveCodeBench and 88.8 VibeCodingBench prove strong generation, but 45.4% SWE-bench Verified and a 0.0% Vibe Code Bench v1.1 run show it loses on real-repository agentic fixes.
 - **Cost efficiency: 94/100.** $0.20/$0.50 with $0.05 cached input is among the cheapest frontier-adjacent pricing found; only the ≥128K escalation and paid-only API keep it from 100.
-- **Overall Score: 76.4/100.** (72 + 82 + 98 + 62 + 68) / 5 = 76.4. Best fit: high-volume search-heavy and long-document workloads where cost per token dominates quality edges.
+- **Overall Score: 75.6/100.** (72 + 82 + 94 + 62 + 68) / 5 = 75.6. Best fit: high-volume search-heavy and long-document *ingestion* workloads where cost per token dominates quality edges. Now a historical reference — the xAI endpoint was retired 2026-08-15, so this score describes capability, not present-day availability (re-scored from 76.4 on 2026-09-27; only the Context window dim moved).
 
 ---
 
