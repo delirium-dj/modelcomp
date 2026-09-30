@@ -1,11 +1,11 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
 import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor } from "../data/models";
-import type { AiModel, SourceKey } from "../data/models";
+import type { AiModel, ResultsView, SourceKey } from "../data/models";
 
 interface ModelCardsProps {
-  source: SourceKey;
-  onSource$: QRL<(source: SourceKey) => void>;
+  source: ResultsView;
+  onSource$: QRL<(source: ResultsView) => void>;
 }
 
 type ModelsView = "cards" | "list";
@@ -17,9 +17,9 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
   const sortDim = virtualDimFor(source);
   const isVirtualView = sortDim !== undefined;
   const shown: AiModel[] = MODELS.filter(
-    (m) => source === "average" || isVirtualView || m.sources[source] !== undefined,
+    (m) => source === "average" || isVirtualView || m.sources[source as SourceKey] !== undefined,
   )
-    .map((m) => (source === "average" || isVirtualView ? m : { ...m, scores: m.sources[source]! }))
+    .map((m) => (source === "average" || isVirtualView ? m : { ...m, scores: m.sources[source as SourceKey]! }))
     .sort((a, b) =>
       sortDim !== undefined
         ? b.scores[sortDim] - a.scores[sortDim] || b.scores.overall - a.scores.overall
@@ -182,7 +182,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                     title="Overall score — average of qualifying reports. Sort all models by Overall."
                     aria-label="Sort all models by Overall"
                     aria-pressed={source === "average"}
-                    onClick$={() => onSource$("average" as SourceKey)}
+                    onClick$={() => onSource$("average")}
                     class={`cursor-pointer rounded underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
                       source === "average" ? "text-indigo-700 underline dark:text-indigo-300" : ""
                     }`}
@@ -267,7 +267,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
             type="button"
             aria-pressed={source === "average"}
             title="Sort all models by Overall"
-            onClick$={() => onSource$("average" as SourceKey)}
+            onClick$={() => onSource$("average")}
             class={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
               source === "average"
                 ? "border-indigo-600 bg-indigo-600 text-white dark:border-indigo-400 dark:bg-indigo-500"

@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
-import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG, virtualDimFor } from "../../../data/models";
+import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, slugForSource, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
 import { withFreeZenLink } from "../../../components/freeZenLink";
@@ -36,8 +36,10 @@ export default component$(() => {
   const nextModel = modelIndex >= 0 && modelIndex < MODELS.length - 1 ? MODELS[modelIndex + 1] : undefined;
 
   // Every reporting agent that rated this model, best grade first.
+  // No virtualDimFor guard: virtual views are not SourceKeys and can never
+  // appear in `model.sources` (SIMPLIFY-PLAN Phase 3).
   const ratings = (Object.keys(model.sources) as SourceKey[])
-    .filter((key) => key !== "average" && virtualDimFor(key) === undefined && model.sources[key] !== undefined)
+    .filter((key) => key !== "average" && model.sources[key] !== undefined)
     .map((key) => ({
       key,
       label: SOURCES.find((s) => s.key === key)?.label ?? key,
@@ -245,7 +247,7 @@ export default component$(() => {
                 // Link the agent name to that agent's own model page when tracked;
                 // otherwise fall back to the homepage source view (always exists),
                 // so every row stays clickable and never a dead link.
-                const agentSlug = AGENT_MODEL_SLUG[r.key];
+                const agentSlug = slugForSource(r.key);
                 const agentModel = agentSlug ? MODELS.find((m) => m.slug === agentSlug) : undefined;
                 const fallbackHref = `/?source=${encodeURIComponent(r.key)}`;
                 return (

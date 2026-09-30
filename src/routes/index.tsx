@@ -4,8 +4,8 @@ import { Hero } from "../components/Hero";
 import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
-import { MODELS, SOURCES, virtualDimFor } from "../data/models";
-import type { DimensionKey, SourceKey } from "../data/models";
+import { MODELS, SOURCES, virtualDimFor, slugForSource } from "../data/models";
+import type { DimensionKey, ResultsView, SourceKey } from "../data/models";
 
 /** Homepage defaults: top 3 models by average Overall Score (recomputed from MODELS). */
 function top3ByOverall(): [string, string, string] {
@@ -40,13 +40,13 @@ function top3ByDim(dim: DimensionKey): [string, string, string] {
 /** Top 3 model ids for a results source: by dimension for virtual views, by that
  *  agent's own Overall for reporting agents (models it never rated sort last),
  *  else average Overall. */
-function top3ForSource(source: SourceKey): [string, string, string] {
+function top3ForSource(source: ResultsView): [string, string, string] {
   const dim = virtualDimFor(source);
   if (dim !== undefined) return top3ByDim(dim);
   if (source !== "average") {
     const ranked = [...MODELS].sort((a, b) => {
-      const sa = a.sources[source]?.overall;
-      const sb = b.sources[source]?.overall;
+      const sa = a.sources[source as SourceKey]?.overall;
+      const sb = b.sources[source as SourceKey]?.overall;
       if (sa === undefined && sb === undefined) return b.scores.overall - a.scores.overall;
       if (sa === undefined) return 1;
       if (sb === undefined) return -1;
@@ -66,8 +66,6 @@ function top3ForSource(source: SourceKey): [string, string, string] {
   ];
 }
 
-import { AGENT_MODEL_SLUG } from "../data/models";
-
 function validId(raw: string | null, fallback: string): string {
   if (raw === "") {
     return "";
@@ -78,17 +76,25 @@ function validId(raw: string | null, fallback: string): string {
   return fallback;
 }
 
-function validSource(raw: string | null, fallback: SourceKey): SourceKey {
+function validSource(raw: string | null, fallback: ResultsView): ResultsView {
   if (!raw) return fallback;
-  const match = (SOURCES as { key: string }[]).find(
+  // "overall" is an accepted alias for the canonical "average" key.
+  if (raw === "overall" || raw.toLowerCase() === "overall") return "average";
+  const match = SOURCES.find(
     (s) => s.key === raw || s.key.toLowerCase() === raw.toLowerCase(),
   );
-  if (match) return match.key as SourceKey;
-  // Check if raw matches a model slug (e.g. deepseek-v4.1-flash) or model name
+  if (match) return match.key;
+  // Check if raw matches an inline model slug (e.g. deepseek-v4.1-flash) or a
+  // normalized key (slug-style deep-links from model detail pages).
   const normRaw = raw.toLowerCase().replace(/[^a-z0-9]/g, "");
-  for (const [key, slug] of Object.entries(AGENT_MODEL_SLUG)) {
-    if (slug === raw || slug.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw || key.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw) {
-      return key as SourceKey;
+  for (const s of SOURCES) {
+    if (s.slug !== undefined) {
+      if (s.slug === raw || s.slug.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw) {
+        return s.key;
+      }
+    }
+    if (s.key.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw) {
+      return s.key;
     }
   }
   return fallback;
@@ -114,7 +120,7 @@ export default component$(() => {
   // Every results-source change re-seats the hexagon/table on that source's top 3
   // (dimension top-3 for virtual views, agent's own top-3 for reporting agents,
   // Overall top-3 for Overall). Slots stay user-overridable via the dropdowns.
-  const handleSource = $((source: SourceKey) => {
+  const handleSource = $((source: ResultsView) => {
     sel.source = source;
     const [a, b, c] = top3ForSource(source);
     sel.a = a;
@@ -128,7 +134,7 @@ export default component$(() => {
     const rawSource = query.get("source");
     const hasExplicitSlots = query.has("a") || query.has("b") || query.has("c");
     if (rawSource && !hasExplicitSlots) {
-      const agentSlug = AGENT_MODEL_SLUG[initialSource];
+      const agentSlug = slugForSource(initialSource);
       if (agentSlug) {
         window.location.replace(`/model/${agentSlug}/`);
         return;

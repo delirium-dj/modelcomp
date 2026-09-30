@@ -16,12 +16,18 @@
 // stays curated in model/<slug>/meta.json files.
 
 import { GENERATED_SCORES } from "./scores.generated";
-import { SOURCE_DEFS, type SourceKey, type SourceDef } from "./sources.generated";
-import { AGENT_MODEL_SLUG } from "./agent-slugs.generated";
+import { SOURCE_DEFS, type SourceKey, type SourceDef, type ViewKey, type ResultsView } from "./sources.generated";
 
-export { AGENT_MODEL_SLUG };
+/**
+ * Reporting-agent → tracked model-page slug, derived inline from SOURCE_DEFS
+ * (SIMPLIFY-PLAN Phase 1). Kept as a named export so existing call sites keep
+ * working; new code should prefer `SOURCES.find(s => s.key === key)?.slug`.
+ */
+export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = Object.fromEntries(
+  SOURCE_DEFS.filter((s) => s.slug !== undefined).map((s) => [s.key, s.slug!]),
+);
 
-export type { SourceKey, SourceDef };
+export type { SourceKey, SourceDef, ViewKey, ResultsView };
 
 export interface ModelScores {
   tool: number;
@@ -225,9 +231,10 @@ export const MODELS: AiModel[] = (() => {
  * average scores and only changes the ranking key (hexagon, legend, table and
  * All-models cards all follow it). Order here is the dropdown order of the
  * virtual views (canonical DIMENSIONS order); real reporting agents rank below
- * by own average overall. Not reporting agents -- never counted as such.
+ * by own average overall. Not reporting agents -- never registered in
+ * SOURCE_DEFS and never present in `AiModel.sources` (SIMPLIFY-PLAN Phase 3).
  */
-export const VIRTUAL_VIEWS: { key: SourceKey; label: string; dim: DimensionKey }[] = [
+export const VIRTUAL_VIEWS: { key: ViewKey; label: string; dim: DimensionKey }[] = [
   { key: "tool", label: "Tool", dim: "tool" },
   { key: "reason", label: "Reason", dim: "reasoning" },
   { key: "context", label: "Context", dim: "context" },
@@ -237,7 +244,7 @@ export const VIRTUAL_VIEWS: { key: SourceKey; label: string; dim: DimensionKey }
 ];
 
 /** Sort dimension for a virtual view, or undefined for Overall / reporting agents. */
-export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
+export function virtualDimFor(source: ResultsView): DimensionKey | undefined {
   return VIRTUAL_VIEWS.find((v) => v.key === source)?.dim;
 }
 
@@ -247,7 +254,7 @@ export function virtualDimFor(source: SourceKey): DimensionKey | undefined {
  * dimension maps to its virtual sort view. All-models list headers use this
  * so a header click runs the exact same logic as the Results-source dropdown.
  */
-export function sortSourceFor(dim: DimensionKey | "overall"): SourceKey {
+export function sortSourceFor(dim: DimensionKey | "overall"): ResultsView {
   if (dim === "overall") return "average";
   return VIRTUAL_VIEWS.find((v) => v.dim === dim)?.key ?? "average";
 }
@@ -260,6 +267,8 @@ export function sortSourceFor(dim: DimensionKey | "overall"): SourceKey {
  * must not float it above frontier raters). A source with no tracked agent
  * model falls back to the highest overall it awards any model, so a newly
  * registered agent still slots in visibly instead of sinking to the bottom.
+ * Takes SourceKey only: virtual views can never reach here (Phase 3), so no
+ * virtualDimFor guard is needed.
  */
 function sourceRankOverall(key: SourceKey): number {
   const slug = AGENT_MODEL_SLUG[key];
@@ -275,6 +284,11 @@ function sourceRankOverall(key: SourceKey): number {
   return max;
 }
 
+/** Inline slug lookup for any results view (reporting agents only). */
+export function slugForSource(source: ResultsView): string | undefined {
+  return SOURCES.find((s) => s.key === source)?.slug;
+}
+
 /**
  * Results-source dropdown order, derived -- not curated. Overall stays first and
  * is the default view; the virtual sort views (same numbers as Overall, ranked
@@ -287,15 +301,14 @@ function sourceRankOverall(key: SourceKey): number {
  * Display note: the `average` key keeps its stable key/file (`average.md`,
  * `?source=average`) but is labeled "Overall" in the UI.
  */
-export const SOURCES: { key: SourceKey; label: string; file: string }[] = (() => {
+export const SOURCES: { key: ResultsView; label: string; file: string; slug?: string }[] = (() => {
   const averageRaw = SOURCE_DEFS.find((s) => s.key === "average");
   if (!averageRaw) throw new Error("[models] SOURCE_DEFS is missing the average entry");
   const averageDef = { ...averageRaw, label: "Overall" };
-  const virtualKeys = new Set<SourceKey>(VIRTUAL_VIEWS.map((v) => v.key));
-  const virtualDefs = VIRTUAL_VIEWS.map((v) => SOURCE_DEFS.find((s) => s.key === v.key)).filter(
-    (d): d is { key: SourceKey; label: string; file: string } => d !== undefined,
-  );
-  const rest = SOURCE_DEFS.filter((s) => s.key !== "average" && !virtualKeys.has(s.key)).sort(
+  // Virtual views mirror average scores; they are built here, never registered
+  // in SOURCE_DEFS (Phase 3).
+  const virtualDefs = VIRTUAL_VIEWS.map((v) => ({ key: v.key as ResultsView, label: v.label, file: "average.md" }));
+  const rest = SOURCE_DEFS.filter((s) => s.key !== "average").sort(
     (a, b) => sourceRankOverall(b.key) - sourceRankOverall(a.key),
   );
   return [averageDef, ...virtualDefs, ...rest];

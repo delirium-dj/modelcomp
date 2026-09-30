@@ -27,14 +27,13 @@
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
-import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync, unlinkSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const modelDir = join(root, "model");
-const modelsTsPath = join(root, "src", "data", "models.ts");
 
 const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 
@@ -50,6 +49,28 @@ const LABELS = [
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"];
 // Dots are allowed: version numbers live in findings filenames (DeepSeek_4.1_Flash.md).
 const FILENAME_RE = /^[A-Za-z0-9_.]+\.md$/;
+
+// Single edge-case map (SIMPLIFY-PLAN Phase 2): every filename-derived key
+// whose display label or model-page slug differs from the default.
+// Defaults (no entry needed): label = key, slug = catalog lookup by
+// normalized name (see catalogNames below), absent when the agent has no
+// tracked model page.
+const SOURCE_OVERRIDES = {
+  "DeepSeek 4.1 Flash": { label: "DeepSeek v4.1 Flash", slug: "deepseek-v4.1-flash" },
+  "Mimo v2.6 Flash": { label: "MiMo v2.6 Flash", slug: "mimo-v2.6-free" },
+  "Mimo v2.5 Free": { label: "MiMo v2.5 Free", slug: "mimo-v2.5-free" },
+  "big-pickle": { label: "Big Pickle", slug: "big-pickle" },
+  "Ox Alpha": { slug: "ox_alpha" },
+  "Muse Spark 1.3": { slug: "muse-spark-1.3-free" },
+  "Muse Spark 1.2": { slug: "muse-spark-1.2-free" },
+  "GPT 5.6 Sol": { slug: "gpt-5.6-sol" },
+  "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
+};
+
+// Virtual sort-view keys (SIMPLIFY-PLAN Phase 3): never real reporting
+// agents, never registered in SOURCE_DEFS. Any grandfathered entries with
+// file "average.md" and one of these keys are removed from the registry.
+const VIRTUAL_KEYS = new Set(["tool", "reason", "context", "cost", "code", "multi"]);
 
 /** Standard half-up rounding to 1 decimal (72.25 -> 72.3). */
 const halfUp1 = (x) => Math.round(x * 10) / 10;
@@ -187,24 +208,40 @@ for (const slug of slugs) {
     // No usable average.md — cannot prove gate passage, never a rater.
   }
 }
+// Model catalog: normalized display name -> folder slug, across all model
+// trees. Single lookup behind both the rater gate and SOURCE_DEFS slug
+// emission (SIMPLIFY-PLAN Phase 1: slug lives inline in SourceDef).
+const normName = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const catalogNames = new Map(); // normalized name -> slug
+for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance")]) {
+  if (!existsSync(rDir)) continue;
+  for (const d of readdirSync(rDir)) {
+    const mPath = join(rDir, d, "meta.json");
+    if (!existsSync(mPath)) continue;
+    try {
+      const mData = JSON.parse(readFileSync(mPath, "utf8"));
+      if (mData.name) catalogNames.set(normName(mData.name), d);
+    } catch {}
+  }
+}
+/** Resolve the display label + model-page slug for a source key. */
+function resolveSourceMeta(key) {
+  const ov = SOURCE_OVERRIDES[key];
+  const label = ov?.label ?? key;
+  const slug = ov?.slug ?? catalogNames.get(normName(key)) ?? undefined;
+  return { label, slug };
+}
 // Findings-file stem -> rating-model slug, via the SOURCE_DEFS registry plus
-// AGENT_MODEL_SLUG (exact match first, case-insensitive fallback for legacy
-// registry casing drift). Stems with no tracked model never qualify.
+// SOURCE_OVERRIDES / catalog lookup (exact match first, derived key fallback).
+// Stems with no tracked model never qualify.
 const sourcesTsGate = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
-const modelsTsGate = readFileSync(modelsTsPath, "utf8");
 const stemKey = new Map(); // stem -> SourceKey (registered only)
-for (const m of sourcesTsGate.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
+for (const m of sourcesTsGate.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"(?:,\s*slug:\s*"[^"]+")?\s*\}/g)) {
   stemKey.set(m[2].replace(/\.md$/, ""), m[1]);
 }
-const agentSlug = new Map(); // SourceKey -> model slug
-{
-  const ab = modelsTsGate.match(/AGENT_MODEL_SLUG[^=]*=\s*\{([\s\S]*?)\};/);
-  if (ab) for (const m of ab[1].matchAll(/"([^"]+)":\s*"([^"]+)"/g)) agentSlug.set(m[1], m[2]);
-}
-const agentSlugLower = new Map([...agentSlug].map(([k, v]) => [k.toLowerCase(), v]));
 function raterSlugFor(stem) {
   const key = stemKey.get(stem) ?? stem.replace(/_/g, " ");
-  return agentSlug.get(key) ?? agentSlugLower.get(key.toLowerCase()) ?? null;
+  return resolveSourceMeta(key).slug ?? null;
 }
 
 for (const slug of slugs) {
@@ -450,18 +487,26 @@ for (const slug of slugs) {
 }
 
 // ---- registry: every on-disk stem needs a SourceKey + SOURCES entry ----
+// Slug lives inline in SourceDef (SIMPLIFY-PLAN Phase 1); labels + slugs
+// resolve via SOURCE_OVERRIDES + catalog lookup. Virtual keys are pruned.
+const ENTRY_RE = /\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"(?:,\s*slug:\s*"[^"]+")?\s*\}/g;
 let sourcesTs = existsSync(sourcesTsPath) ? readFileSync(sourcesTsPath, "utf8") : "";
 const keyOf = (stem) => stem.replace(/_/g, " ");
+// entryForStem keeps the exact on-disk filename (stems with
+// dots/legacy casing must round-trip, never re-derived from the key).
+const entryForStem = (key, stem) => {
+  const { label, slug } = resolveSourceMeta(key);
+  return slug === undefined
+    ? `{ key: "${key}", label: "${label}", file: "${stem}.md" }`
+    : `{ key: "${key}", label: "${label}", file: "${stem}.md", slug: "${slug}" }`;
+};
 const registered = new Set(
-  [...sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[2].replace(/\.md$/, "")),
+  [...sourcesTs.matchAll(ENTRY_RE)].map((m) => m[2].replace(/\.md$/, "")),
 );
 const missing = [...presentStems].filter((stem) => stem !== "average" && !registered.has(stem)).sort();
-const registeredFiles = new Set(
-  [...sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)].map((m) => m[1]),
-);
 // New sources are appended to the registry; the dropdown order itself is derived
-// at build time (Average first, rest by max overall desc), so registry position
-// is irrelevant to the UI.
+// at build time (Average first, rest by own average Overall desc), so registry
+// position is irrelevant to the UI.
 const unionMembers = new Set(
   [...(sourcesTs.match(/export type SourceKey =([\s\S]*?);/) || ["", ""])[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]),
 );
@@ -493,7 +538,7 @@ if (pending.length > 0) {
     }
     sourcesTs = sourcesTs.replace(
       arrRe,
-      `${am[1]}${pending.map((p) => `\n  { key: "${p.key}", label: "${p.key}", file: "${p.stem}.md" },`).join("")}\n];`,
+      `${am[1]}${pending.map((p) => `\n  ${entryForStem(p.key, p.stem)},`).join("")}\n];`,
     );
     writeFileSync(sourcesTsPath, sourcesTs);
     for (const p of pending) {
@@ -502,8 +547,35 @@ if (pending.length > 0) {
   }
 }
 
+// Reconcile labels + inline slugs for all registered entries (backfills the
+// slug on first run after the SIMPLIFY merge; idempotent afterwards).
+// Grandfathered virtual-view entries (file average.md, key != average) are
+// pruned — virtual views live in models.ts, not the registry (Phase 3).
+{
+  let reconciled = sourcesTs;
+  // Prune virtual entries.
+  reconciled = reconciled.replace(
+    /\n  \{ key: "(?:tool|reason|context|cost|code|multi)", label: "[^"]+", file: "average\.md"(?:, slug: "[^"]+")? \},/g,
+    "",
+  );
+  // Prune virtual keys from the SourceKey union.
+  reconciled = reconciled.replace(/\n  \| "(?:tool|reason|context|cost|code|multi)"/g, "");
+  // Fix labels + slugs entry by entry.
+  for (const m of [...reconciled.matchAll(ENTRY_RE)]) {
+    const [full, key, file] = m;
+    if (file === "average.md") continue;
+    const expected = entryForStem(key, file.replace(/\.md$/, ""));
+    if (full !== expected) reconciled = reconciled.replace(full, expected);
+  }
+  if (reconciled !== sourcesTs) {
+    sourcesTs = reconciled;
+    writeFileSync(sourcesTsPath, sourcesTs);
+    log("  WRITE src/data/sources.generated.ts (labels/slugs reconciled, virtual views pruned)");
+  }
+}
+
 // Stale keys (registered but no file anywhere) are non-blocking info logs.
-for (const entry of sourcesTs.matchAll(/\{\s*key:\s*"([^"]+)",\s*label:\s*"[^"]+",\s*file:\s*"([^"]+)"\s*\}/g)) {
+for (const entry of sourcesTs.matchAll(ENTRY_RE)) {
   const [, key, file] = entry;
   if (file === "average.md") continue;
   if (!presentStems.has(file.replace(/\.md$/, ""))) {
@@ -557,96 +629,18 @@ if (failures === 0) {
       `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
     );
   }
-  // ---- codegen: agent-slugs mapping ----
-  const agentSlugsGenPath = join(root, "src", "data", "agent-slugs.generated.ts");
-  const catalogNames = new Map(); // normalized name -> slug
-  const allModelDirs = [modelDir, join(root, "models_voice"), join(root, "models_finance")];
-  for (const rDir of allModelDirs) {
-    if (!existsSync(rDir)) continue;
-    for (const d of readdirSync(rDir)) {
-      const mPath = join(rDir, d, "meta.json");
-      if (existsSync(mPath)) {
-        try {
-          const mData = JSON.parse(readFileSync(mPath, "utf8"));
-          if (mData.name) {
-            const norm = mData.name.toLowerCase().replace(/[^a-z0-9]/g, "");
-            catalogNames.set(norm, d);
-          }
-        } catch {}
-      }
-    }
-  }
-
-  // Explicit overrides for edge cases or custom slug aliases
-  const OVERRIDES = {
-    "big-pickle": "big-pickle",
-    "Ox Alpha": "ox_alpha",
-    "Mimo v2.6 Flash": "mimo-v2.6-free",
-    "Mimo v2.5 Free": "mimo-v2.5-free",
-    "Muse Spark 1.3": "muse-spark-1.3-free",
-    "Muse Spark 1.2": "muse-spark-1.2-free",
-    "GPT 5.6 Sol": "gpt-5.6-sol",
-    "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
-    "LongCat 2.5 Preview": "longcat_2.5_preview",
-  };
-
-  // Display-label overrides: when the filename-derived key ("DeepSeek 4.1 Flash")
-  // differs from the vendor's official name ("DeepSeek V4.1 Flash"), override
-  // the label in SOURCE_DEFS so the UI shows the correct name everywhere.
-  const LABEL_OVERRIDES = {
-    "DeepSeek 4.1 Flash": "DeepSeek v4.1 Flash",
-    "Mimo v2.6 Flash": "MiMo v2.6 Flash",
-    "Mimo v2.5 Free": "MiMo v2.5 Free",
-  };
-
-  // Include newly registered pending source keys so their agent-slug
-  // mappings are generated in the same run (not deferred to the next sync).
-  for (const p of pending) registeredFiles.add(p.key);
-
-  const autoAgentSlugs = {};
-  const allSourceKeys = [...registeredFiles].filter((k) => k !== "average");
-  for (const k of allSourceKeys) {
-    if (OVERRIDES[k]) {
-      autoAgentSlugs[k] = OVERRIDES[k];
-      continue;
-    }
-    const normKey = k.toLowerCase().replace(/[^a-z0-9]/g, "");
-    if (catalogNames.has(normKey)) {
-      autoAgentSlugs[k] = catalogNames.get(normKey);
-    }
-  }
-
-  // Rewrite labels in SOURCE_DEFS to honour LABEL_OVERRIDES (so display names
-  // survive re-registration without hand-editing the generated file).
-  for (const [key, label] of Object.entries(LABEL_OVERRIDES)) {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const re = new RegExp(`(\\{\\s*key:\\s*"${escaped}",\\s*label:\\s*")([^"]+)(")`,'g');
-    sourcesTs = sourcesTs.replace(re, `$1${label}$3`);
-  }
-  // Persist any label rewrites back to disk.
-  writeFileSync(sourcesTsPath, sourcesTs);
-
-  const agentSlugsOut = [
-    "// AUTO-GENERATED by `pnpm sync` (scripts/sync-data.mjs). Do not hand-edit.",
-    'import type { SourceKey } from "./sources.generated";',
-    "",
-    "export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {",
-  ];
-  for (const k of Object.keys(autoAgentSlugs).sort()) {
-    agentSlugsOut.push(`  "${k}": "${autoAgentSlugs[k]}",`);
-  }
-  agentSlugsOut.push("};", "");
-  const nextAgentSlugs = agentSlugsOut.join("\n");
-  let prevAgentSlugs = null;
+  // Slugs already emitted inline in SOURCE_DEFS (see registry step above):
+  // no separate agent-slugs file (SIMPLIFY-PLAN Phase 1). The legacy file is
+  // removed when present so stale imports fail loudly instead of drifting.
   try {
-    prevAgentSlugs = readFileSync(agentSlugsGenPath, "utf8");
+    const legacySlugs = join(root, "src", "data", "agent-slugs.generated.ts");
+    if (existsSync(legacySlugs)) {
+      unlinkSync(legacySlugs);
+      log("  WRITE src/data/agent-slugs.generated.ts (deleted — slugs now inline in sources.generated.ts)");
+    }
   } catch {}
-  if (prevAgentSlugs !== nextAgentSlugs) {
-    writeFileSync(agentSlugsGenPath, nextAgentSlugs);
-    log(`  WRITE src/data/agent-slugs.generated.ts (${Object.keys(autoAgentSlugs).length} mappings)`);
-  }
 } else {
-  log("  SKIP  src/data/scores.generated.ts & agent-slugs.generated.ts not rewritten (failures present — fix and re-run)");
+  log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }
 
 console.log(`sync-data: done. averages rewritten: ${updatedAverages.length}${updatedAverages.length ? ` (${updatedAverages.join(", ")})` : ""}; new sources: ${missing.length}; failures: ${failures}`);

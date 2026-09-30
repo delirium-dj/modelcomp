@@ -5,18 +5,19 @@
 
 ## Averaged scores
 
-- **Tool use: 94.5/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 95.1/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 95.1/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 84.2/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 94.9/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 65.3/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 92.8/100.** Fallback mean of all 32 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 92.7/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 93.2/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 94/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 84.2/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 93.4/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 56.9/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 91.5/100.** Mean of top 10 of 14 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 32 below-gate source(s): Big Pickle, Claude Fable 5.1, Claude Opus 4.5, Claude Opus 5.5, Claude Sonnet 3.5, Claude Sonnet 4.5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 2.5 Pro, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.2 Coding, GLM 5.3, GLM 5.3 Flash, GPT 5.6 Luna, GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Luna, GPT 6 Sol, Grok 4, Grok 4.5, Grok 4.6, Kimi K3, LongCat 2.5 Preview, Mimo v2.6 Flash, Muse Spark 1.2, Muse Spark 1.3, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.
-- Average from top 10 by Overall Score: Claude Opus 5.5, Gemini 2.5 Pro, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Gemini 3.7 Flash, GPT 5.6 Sol, GPT 6 Sol, Mimo v2.6 Flash, Pixel Canary, Space Bunny Alpha.
-- Excluded bottom 22: Big Pickle, Claude Fable 5.1, Claude Opus 4.5, Claude Sonnet 3.5, Claude Sonnet 4.5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.2 Coding, GLM 5.3, GLM 5.3 Flash, GPT 5.6 Luna, GPT 5.6 Terra, GPT 6 Luna, Grok 4, Grok 4.5, Grok 4.6, Kimi K3, LongCat 2.5 Preview, Muse Spark 1.2, Muse Spark 1.3, Qwen 3.8 27B.
+- Based on 14 qualifying reporting source(s) (rater Overall > 84.9): Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Sol, Kimi K3, Muse Spark 1.2, Muse Spark 1.3.
+- Average from top 10 by Overall Score: Claude Fable 5.1, Claude Opus 5.5, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, GLM 5.3 Flash, GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Sol, Kimi K3.
+- Excluded bottom 4: Claude Sonnet 5.5, Gemini 3.8 Flash, Muse Spark 1.2, Muse Spark 1.3.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.5, Claude Sonnet 3.5, Claude Sonnet 4.5, Gemini 2.5 Pro, Gemini 3.5 Flash Lite, GLM 5.2 Coding, GLM 5.3, GPT 5.6 Luna, GPT 6 Luna, Grok 4, Grok 4.5, Grok 4.6, LongCat 2.5 Preview, Mimo v2.6 Flash, Pixel Canary, Qwen 3.8 27B, Space Bunny Alpha.

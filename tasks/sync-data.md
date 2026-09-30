@@ -46,7 +46,7 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
     every folder gets an average. Rewrites stale files,
     reports which ones.
 4. Registers any new reporting-agent filename in `src/data/sources.generated.ts`
-   (`SourceKey` + `SOURCE_DEFS`, appended last; `src/data/models.ts` imports them directly). Per-model wiring needs no edits:
+   (`SourceKey` + `SOURCE_DEFS` with inline `slug`, appended last; `src/data/models.ts` imports them directly; virtual sort views live in `models.ts`, never in the registry). Per-model wiring needs no edits:
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
    so report prose never ships in the client bundle), and `meta.json` files
    are auto-discovered via `import.meta.glob` at build time.
@@ -92,9 +92,10 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   All-models cards show (`sourceRankOverall` in `src/data/models.ts`, stable
   ties; agents with no tracked model fall back to the highest overall they
   award any model). Never hand-sort the dropdown — a newly registered source
-  slots itself in automatically on the next build. When registering a source
-  whose agent is also a tracked model, add its slug to `AGENT_MODEL_SLUG` so
-  it ranks (and cross-links) correctly.
+  slots itself in automatically on the next build. Its model-page slug resolves
+  automatically (catalog name lookup); only filename ≠ model-name edge cases
+  need a `SOURCE_OVERRIDES` entry in `scripts/sync-data.mjs` so it ranks (and
+  cross-links) correctly.
 - Components read `MODELS` only — never import findings files directly.
 - Scoring permanence: `RULES.md` (Cost excluded from every Overall; the gate
   filters averages only, never a reason to remove a file). Sync's only file

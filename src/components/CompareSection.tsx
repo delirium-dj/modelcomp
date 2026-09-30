@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
 import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor } from "../data/models";
-import type { AiModel, SourceKey } from "../data/models";
+import type { AiModel, ResultsView, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
 import type { RadarDatum } from "./HexRadar";
@@ -10,9 +10,9 @@ interface CompareSectionProps {
   a: string;
   b: string;
   c: string;
-  source: SourceKey;
+  source: ResultsView;
   onSelect$: QRL<(slot: "a" | "b" | "c", id: string) => void>;
-  onSource$: QRL<(source: SourceKey) => void>;
+  onSource$: QRL<(source: ResultsView) => void>;
 }
 
 const SLOT_LABELS = ["Model A", "Model B", "Model C"] as const;
@@ -36,8 +36,9 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
       const model = getModel(id);
       if (!model) return undefined;
       // Virtual sort views show average scores (same numbers as Overall).
+      // Cast: after the average/virtual checks only real SourceKeys remain.
       const isVirtualView = virtualDimFor(source) !== undefined;
-      const sourceScores = source === "average" || isVirtualView ? model.scores : model.sources[source];
+      const sourceScores = source === "average" || isVirtualView ? model.scores : model.sources[source as SourceKey];
       const hasData = source === "average" || isVirtualView || sourceScores !== undefined;
       const scores = sourceScores ?? model.scores;
       return {
@@ -116,7 +117,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
               options={SOURCES.map((s) => ({ id: s.key, name: s.label }))}
               excludeIds={[]}
               allowEmpty={false}
-              onChange$={(id: string) => onSource$(id as SourceKey)}
+              onChange$={(id: string) => onSource$(id as ResultsView)}
             />
             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
               {source === "average" ? (
