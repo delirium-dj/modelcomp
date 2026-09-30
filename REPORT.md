@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — Added deep-link redirect from `/?source=<AgentModel>` to `/model/<slug>/`
+
+1. Updated `validSource` in `src/routes/index.tsx` to match `SourceKey` case-insensitively.
+2. Added automatic client-side redirection in `src/routes/index.tsx`: navigating to `/?source=DeepSeek%204.1%20Flash` (or any tracked agent source without explicit `a/b/c` slots) automatically redirects to `/model/deepseek-v4.1-flash/`.
+
 ## 2026-09-30 — Merged gemini-3.8-live into models_voice & implemented Task 1 (Auto-derive AGENT_MODEL_SLUG)
 
 1. Merged `model/gemini-3.8-live/` contents into `models_voice/gemini-3.8-live/` and removed `model/gemini-3.8-live/` from `model/`.

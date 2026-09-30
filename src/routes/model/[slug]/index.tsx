@@ -3,6 +3,7 @@ import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@bui
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, AGENT_MODEL_SLUG, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
+import { withFreeZenLink } from "../../../components/freeZenLink";
 
 /** Pre-render one static page per model for the static adapter. */
 export const onStaticGenerate: StaticGenerateHandler = async () => {
@@ -136,7 +137,12 @@ export default component$(() => {
           </div>
           <div class="flex gap-1 sm:col-span-2">
             <dt class="font-semibold text-slate-700 dark:text-slate-200">Pricing:</dt>
-            <dd>{(model.meta.pricingTiers ?? [model.meta.pricingNote]).join(" · ")}</dd>
+            <dd>{(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => (
+              <span key={tier}>
+                {i > 0 ? " · " : ""}
+                {withFreeZenLink(tier)}
+              </span>
+            ))}</dd>
           </div>
         </dl>
       </section>
@@ -150,7 +156,7 @@ export default component$(() => {
 
       <section aria-label="Ratings by reporting agent" class="mx-auto max-w-6xl px-4 pb-12">
         <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-          How other agents rated this model
+          How other agents rated <span class="italic">{model.name}</span>
         </h2>
         <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
           Each reporting agent's overall score for {model.name} ({ratings.length} of{" "}

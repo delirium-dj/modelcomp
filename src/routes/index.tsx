@@ -66,6 +66,8 @@ function top3ForSource(source: SourceKey): [string, string, string] {
   ];
 }
 
+import { AGENT_MODEL_SLUG } from "../data/models";
+
 function validId(raw: string | null, fallback: string): string {
   if (raw === "") {
     return "";
@@ -77,9 +79,11 @@ function validId(raw: string | null, fallback: string): string {
 }
 
 function validSource(raw: string | null, fallback: SourceKey): SourceKey {
-  if (raw && (SOURCES as { key: string }[]).some((s) => s.key === raw)) {
-    return raw as SourceKey;
-  }
+  if (!raw) return fallback;
+  const match = (SOURCES as { key: string }[]).find(
+    (s) => s.key === raw || s.key.toLowerCase() === raw.toLowerCase(),
+  );
+  if (match) return match.key as SourceKey;
   return fallback;
 }
 
@@ -112,6 +116,18 @@ export default component$(() => {
   });
 
   useVisibleTask$(({ track }) => {
+    // If a user navigates directly to /?source=<AgentModelName> with no explicit slots,
+    // redirect them to that model's dedicated page /model/<slug>/
+    const rawSource = query.get("source");
+    const hasExplicitSlots = query.has("a") || query.has("b") || query.has("c");
+    if (rawSource && !hasExplicitSlots) {
+      const agentSlug = AGENT_MODEL_SLUG[initialSource];
+      if (agentSlug) {
+        window.location.replace(`/model/${agentSlug}/`);
+        return;
+      }
+    }
+
     // Track state changes to update URL query params dynamically
     track(() => sel.a + "|" + sel.b + "|" + sel.c + "|" + sel.source);
 
