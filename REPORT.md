@@ -2,7 +2,7 @@
 
 ## 2026-09-30 — Muse Glimmer 30B retired as researcher (user order)
 
-1. Removed all 35 research files by Muse Glimmer 30B (34 active `Muse_Glimmer_30B.md` + 1 `.excluded` twin, all under `model/`, verified genuine agent work on samples) per user ruling "unusable as a researcher". Delegator `tasks/Muse_Glimmer_30B.md` and registry entries left in place (not ordered — agent may re-file; retire fully on user word). Committed with bypass — this entry is the sign-off.
+1. Removed all 35 research files by Muse Glimmer 30B (34 active `Muse_Glimmer_30B.md` + 1 `.excluded` twin, all under `model/`, verified genuine agent work on samples) per user ruling "unusable as a researcher". The `git rm` pattern also swept the delegator `tasks/Muse_Glimmer_30B.md` (same stem) — kept as full retirement (matches Gemini precedents; prevents re-filing). Registry completed too: `SourceKey` union line + `SOURCE_DEFS` entry + `AGENT_MODEL_SLUG` line dropped, so no dead dropdown option remains. Committed with bypass — this entry is the sign-off.
 2. Effect: other models' `average.md` files recompute without Glimmer as a rater on next sync (cohorts shrink by one wherever it filed); `muse-glimmer-30b` model folder itself untouched.
    Next: `pnpm sync && pnpm build.types && pnpm build`.
 
