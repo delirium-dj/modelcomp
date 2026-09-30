@@ -12,6 +12,7 @@ export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = {
   "Claude Sonnet 4.6": "claude-sonnet-4.6",
   "Claude Sonnet 5": "claude-sonnet-5",
   "Claude Sonnet 5.5": "claude-sonnet-5.5",
+  "DeepSeek 4.1 Flash": "deepseek-v4.1-flash",
   "GLM 5.2 Coding": "glm-5.2-coding",
   "GLM 5.3": "glm-5.3",
   "GLM 5.3 Flash": "glm-5.3-flash",

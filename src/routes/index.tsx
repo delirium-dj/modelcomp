@@ -84,6 +84,13 @@ function validSource(raw: string | null, fallback: SourceKey): SourceKey {
     (s) => s.key === raw || s.key.toLowerCase() === raw.toLowerCase(),
   );
   if (match) return match.key as SourceKey;
+  // Check if raw matches a model slug (e.g. deepseek-v4.1-flash) or model name
+  const normRaw = raw.toLowerCase().replace(/[^a-z0-9]/g, "");
+  for (const [key, slug] of Object.entries(AGENT_MODEL_SLUG)) {
+    if (slug === raw || slug.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw || key.toLowerCase().replace(/[^a-z0-9]/g, "") === normRaw) {
+      return key as SourceKey;
+    }
+  }
   return fallback;
 }
 
