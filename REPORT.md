@@ -1,5 +1,10 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-09-30 — Muse Glimmer 30B retired as researcher (user order)
+
+1. Removed all 34 research files (`Muse_Glimmer_30B.md` / `.excluded`) across all `model/` folders and delegator task `tasks/Muse_Glimmer_30B.md`.
+2. Cleaned registry: removed `Muse Glimmer 30B` from `SourceKey` union, `SOURCE_DEFS` in `src/data/sources.generated.ts`, and `AGENT_MODEL_SLUG` in `src/data/models.ts`.
+
 ## 2026-09-30 — Gemini 2.5 Lite retired as researcher (user order)
 
 1. Removed all research files and delegator task file from disk: `tasks/Gemini_2.5_Flash_Lite.md`, `model/google-gemini-2.5-flash-lite/Gemini_2.5_Flash_Lite.md`, and all 4 `.excluded` files (`claude-mythos-5.1`, `claude-opus-5`, `gemini-2.5-flash-lite`, `google-gemini-2.5-flash-lite`).

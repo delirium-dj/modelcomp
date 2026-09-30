@@ -41,7 +41,6 @@ export type SourceKey =
   | "GLM 5.3"
   | "Kimi K3"
   | "Laguna XS 2.1"
-  | "Muse Glimmer 30B"
   | "Grok 4.5"
   | "Claude Sonnet 4"
   | "Claude Sonnet 5.5"
@@ -115,7 +114,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md" },
   { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md" },
   { key: "Laguna XS 2.1", label: "Laguna XS 2.1", file: "Laguna_XS_2.1.md" },
-  { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md" },
   { key: "Grok 4.5", label: "Grok 4.5", file: "Grok_4.5.md" },
   { key: "Claude Sonnet 4", label: "Claude Sonnet 4", file: "Claude_Sonnet_4.md" },
   { key: "Claude Sonnet 5.5", label: "Claude Sonnet 5.5", file: "Claude_Sonnet_5.5.md" },

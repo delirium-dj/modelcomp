@@ -1,8 +1,12 @@
 {
   "id": "opencode/mimo-v2.6-distill-qwen-9b",
   "name": "Mimo V2.6 Distill Qwen 9b",
-  "short": "Mimo V2.6 Distill Qwen 9b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Xiaomi MiMo's MIT-licensed 9.4B dense agentic SFT of Qwen3.5-9B (Sept 2026) — 262K context (hybrid linear/full attention), image+video in, self-host only; no Zen or OpenRouter route.",
+  "contextWindow": "262,144 (256K) native per config.json / max output not disclosed",
+  "modalities": "Text, image, video in; text out (reasoning yes, tool calls yes; audio tokens exist but no audio tower in config.json)",
+  "pricingNote": "$0 — MIT open weights, self-hosted (18.8 GB BF16 weights); no hosted API route on Zen, OpenRouter or HF inference — the id above is absent from zen/v1/models (verified 2026-09-30)",
+  "pricingTiers": [
+    "$0 self-hosted MIT weights (no hosted route)"
+  ],
+  "noFreeId": true
 }
