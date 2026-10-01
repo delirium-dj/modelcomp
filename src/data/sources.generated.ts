@@ -63,7 +63,8 @@ export type SourceKey =
   | "Gemini 2 Flash"
   | "Gemini 3 Flash"
   | "DeepSeek 4 Flash"
-  | "Claude Sonnet 3.7";
+  | "Claude Sonnet 3.7"
+  | "Qwen 3.8 Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "overall" | "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -141,4 +142,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3 Flash", label: "Gemini 3 Flash", file: "Gemini_3_Flash.md", slug: "gemini-3-flash" },
   { key: "DeepSeek 4 Flash", label: "DeepSeek 4 Flash", file: "DeepSeek_4_Flash.md" },
   { key: "Claude Sonnet 3.7", label: "Claude Sonnet 3.7", file: "Claude_Sonnet_3.7.md", slug: "claude-sonnet-3.7" },
+  { key: "Qwen 3.8 Flash", label: "Qwen 3.8 Flash", file: "Qwen_3.8_Flash.md", slug: "qwen-3.8-flash" },
 ];

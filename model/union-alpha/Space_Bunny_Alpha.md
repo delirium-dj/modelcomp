@@ -1,59 +1,68 @@
 # Union Alpha — findings by Space Bunny Alpha
 
-- Source: OpenCode (`union-alpha`; unresolved public alias)
-- Date: 2026-09-24 (UTC)
+- Source: Unbiased, the AI platform of Circuit & Chisel (`unbiased/pareto`, model card "Pareto 26.9"; originally `stealth/union-alpha` on OpenRouter)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Correction to my own earlier report.** A previous Space Bunny Alpha file for this
+> slug scored it **38/100**. That was wrong. It appears the entry was scored while
+> Union Alpha was still an unidentified `stealth/` listing and before Unbiased published
+> its model card. Re-researched 2026-10-01 against the published card, this file scores
+> **78/100**. The revision is recorded rather than quietly replaced.
+
 ## Model card
 
-- **Name:** Union Alpha
-- **Short description:** An OpenCode-hosted model alias with substantial observed usage but no public underlying-model attribution or exact technical specification in the reviewed sources.
-- **Provider / access:** OpenCode Data profile `union-alpha`; the current OpenCode Zen `/v1/models` list does not expose a `union-alpha` ID.
-- **Release / knowledge:** Release and knowledge cutoff are unknown in the current public profile.
-- **IDs:** `union-alpha`; no current stable Zen API ID was found.
-- **Context window:** Unknown. OpenCode Data explicitly reports context and output as unknown.
-- **Modalities:** Unknown. The current profile does not publish a modality table.
-- **Pricing (as of 2026-09-24):** OpenCode Data reports $0 total spend and no per-token cost for the observed period, but this is usage accounting rather than a published rate card. No free/paid tier terms are claimed.
-- **Architecture:** Unknown; no underlying vendor or parameter count is publicly identified.
+- **Name:** Union Alpha — the model card is titled **Pareto 26.9**
+- **Short description:** A **blended model**, not a single checkpoint: Unbiased runs several frontier and open-source models on each request and keeps the best answer, behind one model string and one bill. CellCog's framing is exact: "a blended model from Unbiased; the composite architecture means the model behind the API can be updated without changing the endpoint, which is a meaningful operational benefit for teams that need to maintain stable integration contracts." It launched anonymously as `stealth/union-alpha` on **2026-09-16 at 14:42 UTC**, was revealed ~33 hours later on 2026-09-17 at 23:24 UTC, and became paid. OpenRouter's launch line was "a multimodal model for research, coding, and agentic workflows." Not an alias of another entry in this dataset — it is a router product, and that is a material difference from every other model here.
+- **Provider / access:** **One provider: Unbiased** (`unbiased.ai`); OpenRouter forwards every request to it, and it is also on Cloudflare AI. OpenCode's Go route documented no training on user data and 0-day retention during the preview window. The `stealth/union-alpha` listing still has a page but **has had no endpoints since 2026-09-17**.
+- **Release / knowledge:** stealth-listed **2026-09-16**, revealed and priced **2026-09-17**. Knowledge cutoff **undisclosed**.
+- **IDs:** `unbiased/pareto` (OpenRouter), `pareto` (Unbiased API). Retired stealth ID: `stealth/union-alpha`.
+- **Context window:** **262,144 tokens (256K)**, **131,072 max output** — confirmed from the OpenRouter catalog API. This is a deliberate quarter of Ox Alpha's 1M; Siora's reading is that it is "not a downgrade, it's a different product," and that a high DeepSWE score on a 256K window "suggests the model isn't leaning on enormous context to do its work."
+- **Modalities:** **text and image in; text out** (OpenRouter listing). Tool calling: `tools`, `tool_choice`, and `response_format` structured JSON output — **but no JSON-schema enforcement**. **No reasoning control is exposed at all** — `max_tokens`, `temperature` and `top_p` only. Tokenizer listed as "Other." No audio or video input documented.
+- **Architecture:** **undisclosed and structurally not a single architecture.** It is a selection layer over "several frontier and open-source models." No weights, no parameter count, no model card for the underlying checkpoints. Capital & Compute's operational caution is the right posture: "keep it behind a switch rather than hardwired as the only model."
+- **Pricing (as of 2026-10-01):** **$2.50 / MTok input, $0.25 cached input, $7.50 / MTok output** (Unbiased model card and OpenRouter agree). The **$0 free preview lasted 33 hours**, against OpenCode's announcement of "free for the next week" — Enera's account is that demand hit billions of tokens per minute within hours, throughput degraded to unusable, AWS capacity was tripled overnight, and the team ended the free window early rather than degrade it further. Unbiased frames the price as **25% of Fable 5.1 on input and 15% on output**.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**All five scores are vendor-reported by Unbiased. No independent reproduction exists.** Unbiased does deserve credit for printing the losses alongside the tie, and its own model card states plainly that **measured task costs and a composite score have not been published**.
 
-- No exact public benchmark row was found.
-- Terminal-Bench, Tau3-Banking, GDPval-AA, Claw-Eval, Toolathlon, and MCP-Atlas: **no verified public exact score found**
+| Benchmark | Pareto 26.9 | Fable 5.1 | GPT-6 Astra | DeepSeek 4.1 Flash |
+|---|---|---|---|---|
+| **DeepSWE** | **74** | 67 | 74 | 74 |
+| **Terminal-Bench 4.0** | **51** | 56 | 58 | 31 |
+| **MMMU-Pro** | **78** | 81 | 87 | 77 |
+| **HLE (no tools)** | **49** | 55 | 54 | 39 |
+| **ArXivMath** | **88** | 72 | 91 | 28 |
 
-Reasoning / knowledge:
+The honest reading, per Capital & Compute: it **ties for the lead on one of five tests** (DeepSWE — the agentic coding benchmark most relevant to its stated purpose) and **trails on the other four**. Best comparative story is against Fable 5.1 on the two math-flavored sets, ArXivMath **88 vs 72** and DeepSWE **74 vs 67**. Against Astra it is level on DeepSWE and behind everywhere else, by 7 points on Terminal-Bench 4.0 and 9 on MMMU-Pro. Against DeepSeek 4.1 Flash it trades wins: level on DeepSWE, far ahead on Terminal-Bench 4.0 and ArXivMath, essentially tied on vision and factuality.
 
-- No exact public benchmark row was found.
-- GPQA, HLE, MRCR, LCR/MLCR, CritPt, hallucination, and Intelligence Index: **no verified public exact score found**
+Corroborating and non-corroborating third-party readings:
 
-Coding:
-
-- No exact public benchmark row was found.
-- SWE-bench, DeepSWE, LiveCodeBench, SciCode, and Vibe Code Bench: **no verified public exact score found**
-
-Long context:
-
-- Context and retrieval behavior are unknown; no long-context result was published.
-
-Sources consulted: [OpenCode Data Union Alpha profile](https://opencode.ai/data/unknown/union-alpha) and [OpenCode Zen model catalog](https://opencode.ai/zen/v1/models), accessed 2026-09-24. The absence of an exact public model mapping is retained as the finding.
+- **OpenRouter CEO Alex Atallah's launch-day chart** (2026-09-16 15:19 UTC): Union Alpha plotted at **near 73% on DeepSWE**, level with gemini-3.8-flash, gpt-6-astra and claude-opus-5, at near-zero cost. **No number printed on the chart** — a chart read, and Capital & Compute correctly calls it "a signal, not a verdict." Consistent with the vendor's 74.
+- **OpenCode's chart**, posted 14:58 UTC carrying **Artificial Analysis branding**, is a *different* benchmark: **Terminal-Bench v4.0 at roughly 52%** at about $1.60 per task, sitting on the drawn Pareto line. Also a chart read, and **not on Artificial Analysis's public model pages.**
+- Atallah's accompanying text claims — outperforms GPT-5.6 Sol on Terminal-Bench 2.1 and SWE-bench Verified, and outperforms Opus 5 on TBench 2.1 — are **unscored**: no numbers, and neither benchmark appears on tbench.ai or swebench.com.
+- **Manifold's own figures** put Union Alpha's "Other" family at **57%**, which CellCog records as the one crowd-sourced attribution that was correct.
+- An OpenCode coding snapshot reports **23.14/40 across four coding projects** at about $0.03 average cost per prompt.
+- **Manifold, Kimi, MiniMax and Z.ai attributions** were all wrong; it is a blended Unbiased product.
+- **Speed:** 16.5s P50 latency and ~24 t/s during the free window; **post-scaling 5.7s P50 and 27 t/s** (Enera). Neither profile suits real-time interfaces; both are workable for batch and background agents. Availability during the preview was 98.14%.
+- **Modelled cost**, not measured: Capital & Compute's standard multi-step agentic workload (3M input at 90% cache share, 80K output, one pass) costs **$2.03** for Pareto 26.9 against $4.85 Opus 5, $7.68 Fable 5.1 and $9.70 Astra. The one-file edit preset (150K input at 80% cache, 8K output) costs about **$0.17** against $0.82 for Astra.
+- GPQA Diamond / CritPt / AA-LCR / SciCode / SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Artificial Analysis Intelligence Index: **no verified public score found.** Union Alpha has **no Artificial Analysis index entry** despite OpenCode publishing a chart with AA branding.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Observed usage shows agent traffic, but no reproducible exact-model benchmark exists; the score is conservative and uncertainty is high.
-- **Reasoning: 45/100.** No exact reasoning benchmark or underlying model identity is published.
-- **Context window: 40/100.** Context and output limits are explicitly unknown.
-- **Multimodal: 15/100.** No modality table is published, so text-only is used only as a conservative floor rather than a claimed capability.
-- **Coding: 45/100.** No exact coding benchmark is published.
-- **Cost efficiency: 85/100.** Observed OpenCode Data spend is $0, but the source does not establish a durable price or free-tier entitlement.
-- **Overall Score: 38.0/100.** (45 + 45 + 40 + 15 + 45) / 5 = 38.0. Best fit: historical usage analysis only; do not select Union Alpha for a new workload until OpenCode publishes its exact ID, specifications, and rate.
+- **Tool use: 78/100.** The dimension where this model is strongest, and the one its vendor chose to lead with. **DeepSWE 74** ties GPT-6 Astra and DeepSeek 4.1 Flash at the top of the frontier and beats Fable 5.1 by 7 — that is the methodology's frontier anchor met exactly, on the benchmark most relevant to a model whose stated purpose is agentic coding. **Terminal-Bench 4.0 at 51%** (vendor) / ~52% (OpenCode chart) is a solid mid-to-high terminal-agent result, ahead of DeepSeek 4.1 Flash's 31 by 20 points but 7 behind Astra. Capped at 78 rather than 90+ by **complete absence of independent reproduction** on any of it, by no Tau3-Banking, GDPval-AA or Claw-Eval figure, and by the structural caveat that tool reliability belongs to whichever underlying model won the selection — Unbiased publishes nothing about per-model routing.
+- **Reasoning: 85/100.** Strong, and the vendor's own card shows it losing only to Astra and Fable on HLE. **HLE 49% without tools** is a clear pass of the methodology's "HLE 40%+ → 90–100" frontier reference territory on the reasoning axis, and **ArXivMath 88%** is ahead of Fable 5.1's 72 by 16 points and within 3 of Astra's 91. Capped at 85 for three reasons: **all five scores are vendor-run**, there is **no GPQA Diamond, CritPt or AA-LCR figure** to check breadth against, and a blended model whose underlying checkpoints can change without notice has a reasoning profile that is not guaranteed stable across a quarter. For scale, the frontier models it is being compared against typically pair HLE in the 50s with GPQA in the low 90s; Pareto's HLE is competitive and its GPQA is simply unknown.
+- **Context window: 72/100.** **262,144 tokens with 131,072 max output** — the methodology's 200K–500K band, scored just above its 200K tier point for a 256K window paired with an unusually large 131K output ceiling. Deliberately **not** in the 500K–1M band: this is a quarter of Ox Alpha's 1M, and Siora's point is the useful one — the high DeepSWE at 256K suggests tool use rather than context reliance. **No retrieval measurement exists** (no MRCR, RULER or GraphWalks), and buildfastwithai's caution is worth repeating: "large context does not guarantee correct long-context retrieval."
+- **Multimodal: 72/100.** **Text and image in; text out.** The methodology's "+image in = 60–70" band, scored **above** it on measured quality: **MMMU-Pro 78%** is genuinely strong — 3 points behind Fable 5.1's 81 and only 9 behind Astra's 87, and ahead of DeepSeek 4.1 Flash's 77. Capped at 72 by the absence of any second vision benchmark and by the modality ceiling: image-only input with text-only output cannot enter the 75–90 band on the strength of one row, and there is no audio, video or PDF input.
+- **Coding: 84/100.** The frontier benchmark in this dataset's methodology is **DeepSWE 74%+**, and this model meets it — a three-way tie at the top with GPT-6 Astra and DeepSeek 4.1 Flash, and 7 points clear of Fable 5.1. That is the strongest single coding number any model in this pass has posted. Held at 84 rather than 90+ because **Terminal-Bench 4.0 at 51%** is a full tier below DeepSWE, which is the classic signature of a model that writes strong patches and is less reliable driving a terminal through a long session, and because there is **no SWE-bench Verified, SWE-bench Pro, LiveCodeBench or SciCode figure** — the Terminal-Bench 2.1 and SWE-bench Verified claims from Atallah remain entirely unscored.
+- **Cost efficiency: 72/100.** **$2.50 / $7.50 per MTok with cached input at $0.25** — a 90% cache discount, and the price sits between the methodology's ~$1.25/$4.25 ≈ 88 anchor and its $3/$15 ≈ 60 anchor. Scored at 72 on the printed card. Two real credits: Unbiased prices it at **25% of Fable 5.1 on input and 15% on output**, and Capital & Compute's modelled multi-step agentic workload puts it at **$2.03 against Astra's $9.70**, a 4.8× advantage on the workload this model is actually for. Three deductions, all documented rather than assumed: **the $2.03 is modelled, not measured** — Unbiased's own card says no task cost has been published, and "scores do not establish cost per completed task"; **the free preview was withdrawn after 33 hours** because capacity could not keep up, which is a supply risk on a blended product; and **no figure exists for what a blended request costs to serve**, so $2.50/$7.50 is a pass-through price against an undisclosed and presumably higher internal cost.
+- **Overall Score: 78/100.** (78 + 85 + 72 + 72 + 84) / 5 = 78.2 → **78**. Best fit: **agentic coding on a budget** — DeepSWE-level patch generation at roughly a quarter of Fable 5.1's input rate and a fifth of Astra's modelled per-task cost, with strong maths and genuinely good vision for a blended endpoint. Capital & Compute's operating advice is the right summary and is repeated here deliberately: **benchmark it on a trial workload, keep it behind a switch rather than hardwired as the only model, and budget against the $2.50 / $0.25 / $7.50 card rather than the $0 preview that introduced it.** The two structural facts that cap this at 78 rather than 88 are that **every score is vendor-run with no independent reproduction**, and that **the model behind the endpoint can change without the model ID changing** — which is a real operational advantage and a real measurement problem in the same sentence.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
-- Method: Public web research of OpenCode Data and the current Zen catalog; unresolved identity and missing exact benchmark evidence were not filled from peer reports or guessed from usage peers. Scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
+- Method: public internet research, **second pass, superseding this agent's own earlier 38/100 report for the same slug** (the earlier report appears to have been scored while Union Alpha was still an unidentified `stealth/` listing and before Unbiased's model card existed). Sources: OpenRouter's `unbiased/pareto` catalog listing for the confirmed specs; Unbiased's model card for the five-score comparison table and its explicit statement that task costs and a composite score are unpublished; CellCog's launch timeline for the 14:42 UTC stealth listing, the 33-hour free window, the 23:24 UTC reveal and the claim-by-claim verdict table; Capital & Compute's Pareto 26.9 analysis for the modelled per-task costs and the honest "maker-set ceiling" framing; Siora Labs' launch-day deep dive for the OpenCode chart reads and the 256K-versus-1M framing; Enera for the capacity-collapse account behind the truncated free window and the post-scaling latency figures; buildfastwithai for the OpenCode coding snapshot and the long-context-retrieval caution. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. Every one of the five benchmark scores is labelled vendor-reported; chart reads and Atallah's unscored text claims are recorded separately and are not treated as results.
+- Future sources: add a new file next to this one, e.g. `Pareto_27.md`, using the same headings. Re-score when the first **independent** DeepSWE or Terminal-Bench run by anyone other than Unbiased appears, and when Unbiased publishes a measured cost per completed task — both would move the Tool use, Coding and Cost lines, and both are currently missing.

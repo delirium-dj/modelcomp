@@ -1,63 +1,59 @@
-# LongCat 2.5 Preview — findings by GLM 5.3 Flash
+# LongCat 2.5 Preview — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified benchmarks)
 
-> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
-> numbers were found for this exact model/ID, so no scored `.md` was saved
-> (template SELF-EXCLUSION; `RULES.md` permanence). Scores inside are ignored
-> by `pnpm sync`.
-
-- Source: Meituan (`longcat_2.5_preview` — no verified public model ID found)
-- Date: 2026-09-27 (UTC)
+- Source: Meituan (`meituan/longcat-2.5-preview`)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Model card
+## Model card (verified spec facts only)
 
-- **Name:** LongCat 2.5 Preview (unverified)
-- **Short description:** Presumed preview of the next general-purpose LongCat model from Meituan. The LongCat-DeepResearch technical materials state that its model improvements "are intended to be incorporated into the next general-purpose LongCat model release," which a 2.5 preview would represent. No verified public model card, weight release, or API ID was found.
-- **Provider / access:** longcat.chat / LongCat API platform (JS app; no readable API listing extracted). No verified provider/model ID.
-- **Release / knowledge:** no verified release date found; LongCat-2.0 (the latest verified release) shipped July 2026.
-- **IDs:** no verified public ID found (no Free ID exists on Zen)
-- **Context window:** no verified public figure found; LongCat-2.0's specs do not transfer to a 2.5 preview.
-- **Modalities:** no verified public figure found.
-- **Pricing (as of 2026-09-27):** no verified public pricing found.
-- **Architecture:** no verified public figure found; the LongCat family's latest verified open release is LongCat-2.0, a 1.6T-total / ~48B-active MoE under MIT license (HuggingFace `meituan-longcat/LongCat-2.0`).
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Multimodal reasoning LLM from Meituan for coding and agentic workflows, with a 1M-token context window and text + image inputs.
+- **Provider / access:** Vercel AI Gateway `meituan/longcat-2.5-preview` (per CloudPrice, 2026-10-01); Blackbox Router `blackboxai/meituan/longcat-2.5-preview` via `https://enterprise.blackbox.ai/v1/chat/completions` (OpenAI-compatible Chat Completions). No OpenCode Zen Free ID known.
+- **Release / knowledge:** Released 2026-09-26 (Blackbox model page + CloudPrice, corroborating). Knowledge cutoff: no verified public data found.
+- **IDs:** `meituan/longcat-2.5-preview`, `meituan-longcat-2-5-preview`, `blackboxai/meituan/longcat-2.5-preview` (no Zen Free ID exists)
+- **Context window:** 1.0M total — 1,048,576 tokens, max output 131,072 (verified via Blackbox model page and CloudPrice API, both retrieved 2026-10-01)
+- **Modalities:** Text + image in, text out; reasoning supported (default effort); function calling yes; parallel function calling no; prompt caching yes. Structured outputs: conflicting evidence (Blackbox tags list `structured-output`, CloudPrice API reports `native_structured_output: false`) — no verified data.
+- **Pricing (as of 2026-10-01):** Paid — $0.30 / 1M input, $1.20 / 1M output, $0.006 / 1M cache read (Vercel AI Gateway via CloudPrice; corroborated by Blackbox model page). No free tier found.
+- **Architecture:** Closed-weight (Blackbox: dedicated deployment not available, listed as closed-weight model); parameter count: no verified public data found.
 
-### Raw benchmarks found
-
-> Research performed 2026-09-27 across HuggingFace (org page `meituan-longcat`, model search "longcat-2.5" → 0 results, full-text search "LongCat-2.5" → no model matches), Bing ("LongCat-2.5-Preview benchmark" → no results; "LongCat 2.5" preview → irrelevant results), DuckDuckGo (bot challenge), ModelScope API (404), and longcat.chat (JS-only, unreadable). HuggingFace lists 29 meituan-longcat models — LongCat-2.0 (1.8T, Jul 2026), LongCat-Flash-Lite-Sparse (69B, Aug 2026), LongCat-Next, LongCat-Flash-Omni, LongCat-Flash-Prover, LongCat-DeepResearch system — none named 2.5 or 2.5-Preview.
+## Raw benchmarks found
 
 Agent / tool use:
 
-- no verified public score found
 - Terminal-Bench 2.1: no verified public score found
-- Tau2-Bench / Tau3-Banking: no verified public score found
+- Tau2-Bench: no verified public score found
 - GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified public score found
 - HLE: no verified public score found
-- Artificial Analysis Intelligence Index: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: no verified public score found
+- SWE-bench Verified / SWE-Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported
+- no verified public score found (1M window advertised by two providers; no measured long-context retrieval published)
 
-### Normalized scores (1–100)
+## Self-exclusion note
 
-> Not scored — self-exclusion. Zero verified public benchmark numbers for this
-> exact model/ID; never invent placeholder values.
+Zero verified public benchmark numbers were found for this exact model/ID across Blackbox (spec page + compare catalog), CloudPrice (page + REST API), Vercel AI Gateway listings, Artificial Analysis, and multiple web searches (Bing, DuckDuckGo, Mojeek, Startpage, Brave, Ecosia — all attempted 2026-10-01). The model was released 2026-09-26 (6 days old) and third-party benchmarks are not yet published. Saved as `.md.excluded` per the mandatory self-exclusion rule (`RULES.md`, `model-report-TEMPLATE.md`): no scores computed, no placeholder numbers invented. The spec facts above are verified and may be reused once benchmark data appears.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
-- Method: public internet research (HuggingFace, Bing, ModelScope, longcat.chat, fetched 2026-09-27); no verified public model ID, specs, or benchmarks found — negative findings only, not counted as a scored source.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings — or replace this exclusion with a scored `.md` once genuinely new verified evidence exists.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
+- Method: public internet research (vendor model pages, pricing trackers, public REST APIs, multiple search engines); no scores are included — self-excluded for zero verified public benchmarks.

@@ -1,0 +1,49 @@
+# Kimi K2.7 Code Highspeed — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (`https://artificialanalysis.ai/models/kimi-k2-7-code-highspeed`), BenchLM (`https://benchlm.ai/models/kimi-k2-7-code-highspeed`), HuggingFace, OpenRouter
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.7 Code Highspeed
+- **Short description:** Moonshot AI's high-speed agentic coding model delivering 180-260 tok/s throughput across a 262K token context window.
+- **Provider / access:** Moonshot AI Open Platform (`moonshot/kimi-k2.7-code-highspeed`), Microsoft Foundry
+- **Release / knowledge:** 2026-06-15 release; knowledge cutoff 2026-04
+- **IDs:** `opencode/kimi-k2.7-code-highspeed` (per `meta.json`); `kimi-k2-7-code-highspeed` (AA slug, dots→hyphens)
+- **Context window:** 262K total (per rater claims)
+- **Modalities:** text in; text out
+- **Pricing (as of 2026-10-01):** $1.90 / $8.00 / $0.38 cached per 1M tokens (per rater claims)
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.ai/models/kimi-k2-7-code-highspeed`) — **404 (page not found)**. Artificial Analysis has no entry for Kimi K2.7 Code Highspeed.
+2. Searched AA model page with alternate slug formats — **404 (page not found)** for all attempts (`kimi-k2-code-highspeed`, `kimi-k2-7`, `moonshot-kimi-k2-7-code-highspeed`).
+3. Searched BenchLM (`https://benchlm.ai/models/kimi-k2-7-code-highspeed`) — **404 (page not found)**. BenchLM has no entry for this model variant.
+4. Searched HuggingFace (`https://huggingface.co/moonshot-ai/Kimi-K2.7-Code-Highspeed`) — **401 (unauthorized/not found)**.
+5. Searched OpenRouter for `moonshot/kimi-k2.7-code-highspeed` — model not listed on OpenRouter models directory.
+6. Searched AA models directory for Kimi models — Kimi K3 exists on AA but K2.7 Code Highspeed is not listed.
+7. No official Moonshot AI launch post or tech report with benchmark numbers found.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Kimi K2.7 Code Highspeed / `opencode/kimi-k2.7-code-highspeed`.
+
+The model does not have entries on Artificial Analysis (404), BenchLM (404), or HuggingFace (401/404). No official launch post, tech report, or other verified public source with benchmark numbers could be found. Despite rater files claiming a SWE-bench Verified score of 67.8% from "SWE-bench Verified release data" and an AA Intelligence Index of 39 from "Artificial Analysis mid-2026 index," these sources could not be independently verified — the model does not appear on any of the listed official or benchmark platforms.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 72.5) are derived from peer model ratings only, not from verified public benchmarks. When Kimi K2.7 Code Highspeed publishes benchmark numbers and/or appears on Artificial Analysis or BenchLM, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+Note: `meta.json` claims 128K context window and "Text in/out" modalities, which differ from the rater file's claims of 262K context. This is consistent with `meta.json` being a placeholder.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research via Artificial Analysis, BenchLM, HuggingFace, and OpenRouter; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (404 on all major platforms: AA, BenchLM, HF, OpenRouter).
+
+---

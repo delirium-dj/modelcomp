@@ -1,58 +1,71 @@
 # Big Pickle — findings by Space Bunny Alpha
 
-- Source: OpenCode Zen (`opencode/big-pickle`; identity undisclosed by OpenCode)
-- Date: 2026-09-24 (UTC)
+- Source: OpenCode Zen (`big-pickle`; litellm route `openai/big-pickle`)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Correction to my own earlier report.** A previous Space Bunny Alpha file for this
+> slug scored it **44/100**. Re-researched 2026-10-01, it scores **50/100**. The
+> earlier figure appears to have treated Big Pickle as a single stable checkpoint. It
+> is not — it is a **rotating stealth slot** on OpenCode Zen whose underlying model has
+> changed at least twice, and the free tier was scored as a temporary promotion rather
+> than as what it now is: a standing $0 rate card. The revision is recorded rather than
+> quietly replaced.
 
 ## Model card
 
 - **Name:** Big Pickle
-- **Short description:** OpenCode Zen's curated stealth reasoning model for deliberate analysis, multi-step problem solving, and tool use. Community guesses about a GLM-family base are not treated as official identity evidence.
-- **Provider / access:** OpenCode Zen, Chat Completions at `https://opencode.ai/zen/v1/chat/completions`.
-- **Release / knowledge:** models.dev lists 2025-10-17 as release and January 2025 as knowledge cutoff; these are catalog metadata, not a vendor model card.
-- **IDs:** `opencode/big-pickle`; OpenCode owns the catalog entry.
-- **Context window:** 200,000 total tokens, including 160,000 input and 32,000 output (models.dev).
-- **Modalities:** Text input/output; reasoning enabled; tool calls and structured output supported; attachments are not supported.
-- **Pricing (as of 2026-09-24):** Free input, output, and cache reads on the limited-time Zen promotion. OpenCode warns that data collected during this period may be used to improve the model.
-- **Architecture:** Proprietary; OpenCode has not disclosed parameter count or weights.
+- **Short description:** A **stealth model on OpenCode Zen**, released **2025-10-17**, and — critically — **not a single checkpoint but a named slot whose underlying model has been swapped at least twice without the ID changing.** OpenCode's own maintainers have confirmed this in public: the model "has been updated," and commenters report the underlying weights moving from **GLM-4.6** to **`deepseek-v4-flash`**, with one report noting the actual context limit is "around 1M" while OpenCode still advertises 200K. OpenCode's stated philosophy is candid about why the slot exists — "if a new oss model comes out thats way better wed prolly switch to it" — and about the economics: "it's just one of the better OSS models, so since we can host it ourselves we have a lot of levers to allow cheaper pricing." **This is the single most important fact about this entry, and it caps every score below.**
+- **Provider / access:** **OpenCode Zen** only, at `https://opencode.ai/zen/v1` — an OpenAI-compatible endpoint. No other host. One provider, one model ID, no version suffix.
+- **Release / knowledge:** released **2025-10-17**. Knowledge cutoff recorded as **2025-01** by modelcompare.dev — for a slot whose weights have changed since, this is at best nominal.
+- **IDs:** `big-pickle` (Zen request body); `openai/big-pickle` (litellm route).
+- **Context window:** **200,000 tokens, max output 32,000** (OpenCode Zen / Pi / models.dev / whichllm all agree). **Conflict, flagged:** an OpenCode GitHub discussion reports the *actual* limit is "around 1M" while "they still haven't updated open code to reflect the actual context limit tho, cos it thinks 200k is the Max." **The advertised 200K/32K is used here** because it is what four independent registries carry, but the discrepancy is real and unresolved.
+- **Modalities:** **text only** (models.dev `big-pickle.toml` and Pi both list `input: ["text"]`). Reasoning: yes (`reasoning: true` in the Pi spec). API: OpenAI Completions compatibility, with `supportsStore: false` and `supportsDeveloperRole: false`.
+- **Pricing (as of 2026-10-01):** **$0 across every line — input, output, cache read, cache write, all requests.** Pi's rate table shows $0 on all four. whichllm shows cache read and cache write at $0.00. This is **not a limited-time promotion**: OpenCode's maintainer stated in public, "we are hoping to keep it free in perpetuity, we have done the math and it seems possible." That is a stated intention rather than a contractual guarantee, and the stealth-slot design means it could change without notice — but as of this report the rate card is unambiguously $0.
+- **Architecture:** **not disclosed, and not attributable.** Weights have not been published by OpenCode. The GLM-4.6 attribution was community consensus and has since been contradicted. Any self-hosting discussion refers to the *underlying* open model, not to "Big Pickle," which exists only as a Zen endpoint.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**This is the complete measured benchmark record, and it is one number from one third-party run.**
 
-- SWE Atlas Codebase QnA: **50.8% (63/124)** in a public reproducible community run using the official open-source scaffold and judge configuration (run 2026-08-11). The repository includes verifier logs and reproduction scripts; this is not an OpenCode or Scale-issued leaderboard score.
-- Terminal-Bench, Tau3-Banking, GDPval-AA, Claw-Eval, Toolathon, and MCP-Atlas: **no verified public exact score found**
+- **SWE Atlas Codebase QnA: 50.81% task resolve rate (63/124)** — Scale AI's benchmark, all 124 Codebase QnA tasks from `scaleapi/SWE-Atlas` (Apache-2.0), unmodified, using the **mini-swe-agent** scaffold with Scale's shipped `mswea_qa_config.yaml` (step_limit 250). Run and published by **PhillipChaffee**; full verifier logs and reproduction configs are in the linked repository.
+  - **Consumption for the full run: 674M input / 4.3M output tokens, at $0.**
+  - **Run cost: ~$70 of Modal compute at reduced sandbox resources** (4 CPU / 8 GB against a declared 16 CPU / 16 GB) plus ~$25 of Anthropic API for judging. The runner notes reduced resources "can only depress an agent's score… not inflate it," and verified this empirically: **zero command timeouts and zero exit-137 kills across all 124 trajectories.**
+  - **Placement on the official leaderboard (updated 2026):** **above Opus 4.8 (57.26 under Claude Code xHigh), below Opus 5 (63.17), and above GLM 5.2 (48.12, mini-SWE-agent), GPT-5.6-Sol (46.00) and GPT-5.5 (45.43).**
+  - **Critical caveat:** because the underlying weights have changed since this run, **this 50.8% may not describe the model currently served at this ID.**
 
-Reasoning / knowledge:
+**No other benchmark was found for Big Pickle under any name:**
 
-- GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Index, and MMLU-Pro: **no verified public exact score found**
+- No SWE-bench Verified, SWE-bench Pro, DeepSWE, LiveCodeBench, SciCode, Aider Polyglot, Terminal-Bench, Tau3-Banking, Tau2-Bench, GDPval-AA, Claw-Eval, Toolathlon or MCP-Atlas score.
+- No GPQA Diamond, HLE, CritPt, LCR, FrontierMath, ARC-AGI, Artificial Analysis Intelligence Index or AA-Omniscience score. **Big Pickle has no Artificial Analysis record.**
+- No MMMU, MMMUPro, DocVQA or OmniDocBench score — consistent with the text-only modality list.
+- No MRCR, RULER or GraphWalks long-context measurement.
 
-Coding:
+**Proxy data for the underlying model family — explicitly NOT transferred.** GLM-4.6 (the first reported occupant of this slot) has its own published record: 200K/203K context, $0.50/$2.00 with $0.10 cached, TB2.1 49.4%, Tau3 10.5%, GDPval 934, SciCode 38.4%, LiveCode 81.0%, Vibe 3.1%, BenchmarkList overall 53.94. **None of these numbers describes Big Pickle now**, and none is used in any score below.
 
-- SWE-bench Verified, SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified public exact score found**
-- The SWE Atlas Codebase QnA result is a repository question-answering benchmark, not SWE-bench or a general coding score.
-
-Long context:
-
-- MRCR, RULER, and GraphWalks: **no verified public score found**; only the catalog context limit is documented.
-
-Sources consulted: [OpenCode Zen documentation](https://opencode.ai/docs/zen/), [models.dev Big Pickle metadata](https://github.com/anomalyco/models.dev/blob/dev/providers/opencode/models/big-pickle.toml), and the [public SWE Atlas reproduction](https://github.com/PhillipChaffee/big-pickle-swe-atlas), accessed 2026-09-24. No proxy model's scores are substituted for Big Pickle.
+**Context for the SWE Atlas suite** (the benchmark paper, arXiv 2605.08366): GLM 5 under mini-SWE-agent scores **24.03 ±2.87 Pass@1** overall and **20.50 QnA**; Kimi K2.5 19.05/13.10; MiniMax M2.5 15.20/10.30; Gemini 3 Flash 15.65/8.20. Frontier closed models under their native scaffolds run far higher — GPT 5.4 (Codex) 43.49 Pass@1 / 40.80 QnA, Opus 4.7 (Claude Code) 41.89 / 40.30. So a **50.8 QnA figure is genuinely strong for a mini-SWE-agent run** — it is above every other mini-SWE-agent entry in the paper — which is the strongest argument for treating the number seriously despite the slot problem.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 40/100.** The 50.8% SWE Atlas QnA result is useful but narrow and community-run; standard agent and tool leaderboards are absent.
-- **Reasoning: 45/100.** The catalog confirms a reasoning model, but no exact reasoning or knowledge score is public, so the estimate is conservative.
-- **Context window: 70/100.** The documented 200K context is useful, with 32K maximum output and no retrieval measurement.
-- **Multimodal: 15/100.** Text-only input and output; attachments are explicitly unsupported.
-- **Coding: 50/100.** The one codebase-QnA measurement suggests basic repository reasoning, but no standard coding benchmark supports a higher estimate.
-- **Cost efficiency: 100/100.** The current Zen promotion is free, subject to its data-use and availability terms.
-- **Overall Score: 44.0/100.** (40 + 45 + 70 + 15 + 50) / 5 = 44.0. Best fit: a zero-cost fallback or exploratory route where sparse public evidence is acceptable.
+> **Scoring-integrity notice.** One benchmark exists for this model. **Tool use** and
+> **Coding** rest on it. **Reasoning**, **Context window** and **Multimodal** are scored
+> from specification alone and are capped *because* they are unmeasured. Above all
+> else: **the underlying weights can change without the model ID changing**, so every
+> number in this file is a statement about a moving target.
+
+- **Tool use: 60/100.** The strongest dimension, and the only one with a real measurement behind it. **50.81% on SWE Atlas Codebase QnA (63/124)** placed Big Pickle **third on the entire official leaderboard** — above Opus 4.8 under its own first-party Claude Code scaffold at xHigh, and above GLM 5.2, GPT-5.6-Sol and GPT-5.5 under comparable scaffolds. That is a codebase-comprehension result, not a tool-call result, and it is the closest thing this model has to agentic evidence. Capped at 60 rather than the 70s by: **no Terminal-Bench figure at any version**, which is the harness this dimension is normally anchored on; **no Tau3-Banking, Toolathlon, Claw-Eval or AutomationBench number**; and the decisive point that **the run measured weights that are no longer necessarily at this ID.** The methodological note in `model-comparison.md` about missing Claw-Eval applies with full force — and here the whole harness set is missing, not one benchmark.
+- **Reasoning: 50/100.** **No reasoning benchmark of any kind exists for this model** — no GPQA, no HLE, no CritPt, no FrontierMath, no ARC-AGI, no Intelligence Index, no LCR. The score is anchored entirely on specification and reputation: `reasoning: true`, a model OpenCode positions as "one of the better OSS models," and a user community that describes it as "very impressive for a 'free' model." That places it at the dataset's lower mid-scale and **no tighter claim is defensible.** Community reports do describe a real weakness worth recording: r/opencodeCLI users report the model being "**pretty limiting**" on speed, and one user comparing it directly against GLM 4.6/4.7 and MiniMax M2.1 concluded MiniMax "does most of the work that Claude did for me" — a useful signal that the free tier's headline capability is not evenly distributed across workloads.
+- **Context window: 65/100.** **200,000 tokens advertised with 32,000 max output** — the methodology's 200K–500K band, scored near its 200K tier point. Below the 70 tier point **because the advertised figure is disputed**: OpenCode's own GitHub discussion reports the real limit is "around 1M" while the UI still says 200K. Scored on the **advertised** number because that is what four registries carry and what a caller can rely on today; the discrepancy is flagged rather than resolved by taking the more favourable figure. **No retrieval measurement exists at any length** — no MRCR, no RULER, no GraphWalks — so a 200K window with no evidence of use is a spec and nothing more.
+- **Multimodal: 15/100.** **Text only.** models.dev's `big-pickle.toml` and Pi's spec both list `input: ["text"]` and nothing else; no registry lists image, audio or video. No vision benchmark exists and none could. Dataset floor for a text-only model — and the correct score here, since unlike the 3D-heavy and video-heavy models elsewhere in this dataset there is no documented capability being left uncredited.
+- **Coding: 58/100.** The best-evidenced dimension after Tool use. **50.81% on SWE Atlas Codebase QnA** is a genuinely strong result for a free open-weights-slot model: it is the **highest mini-SWE-agent entry in the SWE Atlas paper's own table** (GLM 5 at 20.50 QnA, Kimi K2.5 13.10, MiniMax M2.5 10.30, Gemini 3 Flash 8.20), and it beat Opus 4.8 on that specific benchmark. Capped at 58 by: **no SWE-bench Verified, no SWE-bench Pro, no DeepSWE, no LiveCodeBench, no SciCode and no Aider Polyglot figure**, so this model's coding ability cannot be placed against any peer in this dataset on a shared benchmark; the run used **reduced sandbox resources** (4 CPU / 8 GB vs the declared 16/16), which the runner argues could only depress the score; and again the slot problem — the weights behind 50.8% may not be the weights now served.
+- **Cost efficiency: 100/100.** **$0 on input, output, cache read and cache write, across all requests** — the full rate card, not a promo tier. Context growth is not billed, and because "reasoning tokens are not always retained," output is billed separately from context growth. OpenCode's public position is that they are "hoping to keep it free in perpetuity" and have "done the math" that it is sustainable, precisely because they self-host an open model and control their own serving cost. Two honest caveats that do not reduce the score but should be read with it: **free is a stated intention, not a contractual guarantee**, and **the model can change under you at no notice** — so the cost score is genuinely 100 for what you are buying today, while the *thing* you are buying is not guaranteed to persist.
+- **Overall Score: 50/100.** (60 + 50 + 65 + 15 + 58) / 5 = 49.6 → **50**. The shape of that number is worth reading carefully: **the two measured dimensions (Tool use 60, Coding 58) are carried entirely by a single third-party run of a single benchmark**, while the three unmeasured dimensions sit near their floors because there is no evidence for them. An earlier draft of this file scored 55 by averaging in a premium for the $0 rate card; that was a judgement rather than a calculation, and it is withdrawn — the cost line still records $0, but a free price on a model whose weights can change under you is not a capability. Best fit, stated honestly: **a free codebase-comprehension and coding assistant for everyday work on non-sensitive code** — the 50.8% Codebase QnA result is real, the price is $0, and 674M input tokens for a full benchmark run cost nothing. **Three explicit warnings.** First, **never use it for confidential code**: OpenCode's own Zen privacy notes warn about free-tier data usage and retention, and the weights are not yours to audit. Second, **pin nothing and assume drift** — the underlying model has already changed from GLM-4.6 to `deepseek-v4-flash`, so a regression you notice next month may not be a prompt problem. Third, **this is a cheap daily driver, not a frontier model** — escalate to a real model after two failures, or for 1M-context work, and note that if you want the same GLM lineage deterministically, paying Z.ai's **$0.60/$2.20 for GLM 4.6** buys you a fixed checkpoint instead of a rotating slot.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
-- Method: Public web research of OpenCode documentation, models.dev metadata, and a reproducible community benchmark repository; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
+- Method: public internet research, **second pass, superseding this agent's own earlier 44/100 report for the same slug.** Sources: **PhillipChaffee's `big-pickle-swe-atlas` repository** for the SWE Atlas Codebase QnA 50.81% (63/124) result, the full methodology disclosure (124 unmodified tasks, mini-SWE-agent scaffold, Scale's shipped `mswea_qa_config.yaml`, step_limit 250), the 674M/4.3M token consumption at $0, the ~$70 Modal + ~$25 judging cost, the reduced-sandbox caveat with its empirical zero-timeout verification, and the official-leaderboard placement against Opus 5 (63.17), Opus 4.8 (57.26), GLM 5.2 (48.12), GPT-5.6-Sol (46.00) and GPT-5.5 (45.43); **the arXiv SWE Atlas paper (2605.08366)** for the mini-SWE-agent comparison table showing Big Pickle's QnA figure is the strongest in that harness, and for the Pass@1/Pass3 consistency finding; **OpenCode's GitHub issue #4276** for the maintainer confirmations that the model has been updated, the GLM-4.6-to-`deepseek-v4-flash` weight change, the "around 1M" versus 200K context discrepancy, the self-hosting economics rationale and the "keep it free in perpetuity" statement; Pi's model spec and rate table for the $0-across-all-lines pricing, 200K/32K limits, text-only input, `reasoning: true` and the OpenAI-completions compatibility flags; models.dev's `big-pickle.toml` and whichllm for the text-only modality and context cross-checks; modelcompare.dev for the 2025-10-17 release date; and r/opencodeCLI for the qualitative speed and MiniMax-comparison reports. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. **No GLM-4.6 benchmark number is transferred to this model** despite GLM-4.6 being a previously reported occupant of the slot, and the slot-rotation finding is applied as a cap across every dimension.
+- Future sources: add a new file next to this one, e.g. `Big_Pickle_Recheck.md`, using the same headings. **Re-run this file whenever the underlying weights change again** — that is not a hypothetical, it has already happened once, and it invalidates the 50.8% anchor. A published Big Pickle SWE-bench Verified or LiveCodeBench row, or an OpenCode statement fixing the weights, would move three of the five dimensions.

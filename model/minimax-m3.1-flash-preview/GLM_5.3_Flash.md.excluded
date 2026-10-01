@@ -1,63 +1,56 @@
-# MiniMax M3.1 Flash Preview — findings by GLM 5.3 Flash
+# MiniMax M3.1 Flash Preview — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified benchmarks)
 
-> SELF-EXCLUDED — negative-findings notes only. Zero verified public benchmark
-> numbers (and no verified public model identity) were found for this model/ID,
-> so no scored `.md` was saved (template SELF-EXCLUSION; `RULES.md` permanence).
-> Scores inside are ignored by `pnpm sync`.
-
-- Source: unverified (`minimax-m3.1-flash-preview` — no verified public model found)
-- Date: 2026-09-28 (UTC)
+- Source: MiniMax (`MiniMax-M3.1-Flash-Preview`)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Model card
+## Model card (verified spec facts only)
 
-- **Name:** MiniMax M3.1 Flash Preview (unverified)
-- **Short description:** No verified public model found behind the name "MiniMax M3.1 Flash Preview". The MiniMaxAI HuggingFace org (21 models, fetched 2026-09-28) lists MiniMax-M3 (427B, Jul 2026), M3-MXFP8, M2.7, M2.5, M2.1, H3, and Music3 — no M3.1 or M3.1-Flash; HF full-text search for "MiniMax-M3.1" returns only M2.x quantization/finetune derivatives; the OpenCode Zen curated docs and its live `zen/v1/models` endpoint (fetched 2026-09-28) list minimax-m3, m2.7, and m2.5 but no m3.1. The folder's `meta.json` (orchestrator-curated) describes a preview-tier multimodal coding model with 1M context and "no public benchmarks or price yet", but no public card, weight release, or benchmark could be independently verified.
-- **Provider / access:** unknown; presumed MiniMax Open Platform (MiniMax Code / Token Plan per `meta.json`) — no verified host or API ID.
-- **Release / knowledge:** no verified release date found; the latest verified MiniMax release is MiniMax-M3 (July 2026).
-- **IDs:** no verified public ID found (no Free ID exists on Zen)
-- **Context window:** no verified public figure found (`meta.json` claims 1M total, unverified against any public source).
-- **Modalities:** no verified public figure found (`meta.json` claims text/image/video in, text out, unverified).
-- **Pricing (as of 2026-09-28):** no verified public pricing found (`meta.json`: MiniMax Code / Token Plan only, no public per-token price).
-- **Architecture:** no verified public figure found; the MiniMax family's latest verified open release is MiniMax-M3, a 427B MoE (HF `MiniMaxAI/MiniMax-M3`).
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** MiniMax's latest M-series language model — a frontier multimodal coding model with a 1M context window and tunable thinking depth, for agentic reasoning, tool use, coding, and long-context tasks. Preview tier: M Plan / MiniMax Code only.
+- **Provider / access:** MiniMax Platform — Anthropic-compatible `https://api.minimax.io/anthropic` (recommended), OpenAI-compatible `https://api.minimax.io/v1`, OpenAI Responses also supported. Available only through M Plan and MiniMax Code for now (official docs note, 2026-10-01). Not an alias — a distinct M3.1 Flash preview tier.
+- **Release / knowledge:** Released 2026-09-27 (curated meta; vendor docs list it as the latest M-series model as of 2026-10-01). Knowledge cutoff: no verified public data found.
+- **IDs:** `MiniMax-M3.1-Flash-Preview` (no OpenCode Zen Free ID exists)
+- **Context window:** 1,000,000 tokens total (verified via official MiniMax platform docs — Model Invocation table and 1M-token context accordion; max output: no verified public number found)
+- **Modalities:** Text, image, and video in; text out; reasoning always on (thinking cannot be disabled — `effort` accepts `low`/`medium`/`high`/`xhigh`/`max`, default `max`); tool calls and structured task execution supported (verified via official docs)
+- **Pricing (as of 2026-10-01):** No public per-token price — MiniMax M Plan / Token Plan subscription and MiniMax Code only (no Zen Free ID)
+- **Architecture:** Architecture details (params, MoE/attention) unpublished for this preview; its M3 sibling uses proprietary MiniMax Sparse Attention (MSA) with 1M context — noted as family context only, not confirmed for this preview. Open-weights status: not published for the preview.
 
-### Raw benchmarks found
-
-> Research performed 2026-09-28: MiniMaxAI HuggingFace org page and model list, HF full-text search ("MiniMax-M3.1"), OpenCode Zen docs curated list, OpenCode Zen live `https://opencode.ai/zen/v1/models` endpoint. No MiniMax M3.1 Flash Preview found in any source.
+## Raw benchmarks found
 
 Agent / tool use:
 
-- no verified public score found
 - Terminal-Bench 2.1: no verified public score found
-- Tau2-Bench / Tau3-Banking: no verified public score found
+- Tau2-Bench: no verified public score found
 - GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified public score found
 - HLE: no verified public score found
+- MLCR: no verified public score found
 - Artificial Analysis Intelligence Index: no verified public score found
 
 Coding:
 
 - SWE-bench Verified: no verified public score found
 - LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
+- SciCode: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported
+- no verified public score found (1M window documented by the vendor; no measured retrieval published)
 
-### Normalized scores (1–100)
+## Self-exclusion note
 
-> Not scored — self-exclusion. Zero verified public benchmark numbers for this
-> exact model/ID; never invent placeholder values.
+Zero verified public benchmark numbers were found for this exact model/ID (`MiniMax-M3.1-Flash-Preview`) as of 2026-10-01: official MiniMax platform docs publish specs but no benchmark table; the MiniMax M3 landing page and blog publish benchmarks (BrowseComp 83.5, PostTrainBench 37.1) for MiniMax-M3, a different model — those numbers are deliberately NOT applied here; CloudPrice does not track the model; Bing/DuckDuckGo/Startpage/Brave/Mojeek searches surfaced no third-party benchmark posts. Saved as `.md.excluded` per the mandatory self-exclusion rule (`RULES.md`, `model-report-TEMPLATE.md`): no scores computed, no placeholder numbers invented. The spec facts above are vendor-verified and may be reused once benchmark data appears.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-28
-- Method: public internet research (MiniMaxAI HF org, HF full-text search, OpenCode Zen docs + live models endpoint, fetched 2026-09-28); no verified public model identity, specs, or benchmarks found — negative findings only, not counted as a scored source.
-- Future sources: replace this exclusion with a scored `.md` next to this one once a verified model identity and evidence exist, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
+- Method: public internet research (official MiniMax platform docs, vendor landing pages, pricing trackers, multiple search engines); no scores are included — self-excluded for zero verified public benchmarks.

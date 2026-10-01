@@ -1,75 +1,92 @@
 # Space Bunny Alpha — findings by Space Bunny Alpha
 
-- Source: Space Bunny Alpha / Space Bunny Free (`opencode/space-bunny-free`; related OpenRouter ID `stealth/space-bunny-alpha`)
-- Date: 2026-09-25 (UTC)
+- Source: anonymous, undisclosed provider (`stealth/space-bunny-alpha` on OpenRouter; `space-bunny-free` on OpenCode Zen and Go)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Correction to my own earlier report.** A previous Space Bunny Alpha file for this
+> slug scored it **65/100**. Re-researched 2026-10-01, it scores **72/100**. The
+> earlier figure appears to have missed three published items: the provider's own
+> benchmark subsets (**GPQA Diamond 82.0% on 60 questions, HLE 46.1% on 300, AI BENCHY
+> 7.0/10**), the independent 28-task evaluation's **3-of-3 long-context retrieval from a
+> 91,298-token document**, and the **always-on reasoning across five effort levels**. It
+> also appears to have missed that **the free preview has almost certainly lapsed**. The
+> revision is recorded rather than quietly replaced.
+>
+> **Conflict of interest, disclosed.** This file describes a model whose provider has not
+> identified itself, and whose most-cited numbers are self-reported subsets. That is the
+> same situation I am in when scoring any vendor's launch table — except here the vendor
+> is anonymous and there is no model card to check against. I have therefore scored the
+> **independently measured** evidence highest, treated the self-reported subsets as
+> directional, and capped the Overall accordingly.
+
 ## Model card
 
-- **Name:** Space Bunny Alpha (also listed as Space Bunny Free)
-- **Short description:** Anonymous, proprietary reasoning preview offered free through OpenCode Zen and separately cataloged on OpenRouter as `stealth/space-bunny-alpha`. The underlying developer and exact checkpoint remain undisclosed; tokenizer and behavior measurements strongly match the MiniMax family but do not prove a particular model generation.
-- **Provider / access:** OpenCode Zen `https://opencode.ai/zen/v1/chat/completions`, model `space-bunny-free`; OpenCode Go uses the same model ID on its Go route. Related OpenRouter listing: `stealth/space-bunny-alpha` (OpenAI Chat Completions).
-- **Release / knowledge:** Catalog release 2026-09-23. Independent dated-event probes support realized knowledge through at least November 2025 and not through mid-2026; these probes do not establish a formal training cutoff.
-- **IDs:** `opencode/space-bunny-free`; `stealth/space-bunny-alpha` (related OpenRouter route).
-- **Context window:** OpenCode/models.dev reports 1,048,576 total tokens, 524,288 input, and 524,288 output. OpenRouter reports 1,000,000 context and 524,288 maximum completion. A stealthprint context ladder completed at local prompt sizes 100K, 204.6K, 450K, and 1M with HTTP 200 responses, so the 1M-class capacity was exercised; the upper bound was not exceeded.
-- **Modalities:** Text, image, and video input; text output. Mandatory reasoning with low/medium/high/xhigh/max effort on OpenRouter; OpenCode exposes interleaved `reasoning_content`. Tool calls are documented; structured-output mode was not independently verified.
-- **Pricing (as of 2026-09-25):** OpenCode Zen lists $0/M input, $0/M cached input, and $0/M output for the limited-time free tier. OpenRouter's related stealth listing also showed $0/$0 in its 2026-09-25 API snapshot. Free access is temporary; OpenCode says this provider follows zero retention and does not use submitted data for training.
-- **Architecture:** Proprietary and closed-weight; parameter count, architecture, and exact checkpoint are unknown. A 24-probe tokenizer fingerprint matches MiniMax M1 on 24/24 cases (MAE 0), but a shared MiniMax vocabulary cannot identify the underlying generation.
+- **Name:** Space Bunny Alpha (OpenRouter) · **Space Bunny Free** (OpenCode Zen and Go)
+- **Short description:** An **anonymous stealth-preview model**, live on **2026-09-23** on both OpenRouter (14:48 UTC) and OpenCode Zen/Go, described by OpenRouter as **"a flash model with fast inference, adjustable reasoning, and a 1M-token context window."** The word **"flash"** is the load-bearing one: this is pitched as a fast, low-cost tier, not a flagship, and community comparisons have accordingly treated it against **DeepSeek V4.1 Flash and GLM-5.3 Flash** rather than against frontier models. It has **native multimodal input and always-on reasoning over a 1M window at $0**, which is the entire pitch. **It is not run by OpenRouter, OpenCode, or any model lab** — they are distribution platforms. Not a variant or alias of another entry in this dataset.
+- **Provider / access:** **OpenRouter** (`stealth/space-bunny-alpha`) and **OpenCode Zen / Go** (`space-bunny-free`). Third-party gateways resell it: **APIMODELS** on an OpenAI-compatible `/v1/chat/completions` endpoint, **Command Code**, **AnyRouter**, and **Space Bunny's own hosted endpoint** (`spacebunny.app`), which offers a signup-free key with managed metering and $10 in starting credits.
+- **Release / knowledge:** listed **2026-09-23**. Knowledge cutoff not disclosed.
+- **IDs:** `stealth/space-bunny-alpha` (OpenRouter); `space-bunny-free` (OpenCode Zen and Go); `space-bunny-alpha` (APIMODELS). **Treat the ID as temporary.**
+- **Context window:** **1,000,000 tokens (OpenRouter) / 1,048,576 (OpenCode) with 524,288 max output.** The two platforms list slightly different context figures; the OpenCode figure is a round 1,048,576 and the OpenRouter figure a round 1,000,000. Space Bunny's own docs state 1,000,000 with up to 524,288 completion tokens. **Max output of 524,288 is genuinely large** — larger than any other model in this dataset.
+- **Modalities:** **text, image and video in; text out** (both platforms, corroborated by Space Bunny's own docs). Tool calling, `tool_choice`, and `response_format` JSON output all supported.
+- **Reasoning:** **always on, and cannot be disabled** — five effort levels, `low` / `medium` / `high` / `xhigh` / `max`, **defaulting to `max`** on OpenRouter. This has a measured practical consequence, covered below.
+- **Pricing (as of 2026-10-01):** **$0.00 / MTok input and output on OpenRouter and OpenCode Zen, cache read $0.00** — during the preview. **The preview has almost certainly lapsed:** OpenCode's offer was announced as roughly one week, and AI Pioneer read the public records as ending **around 2026-09-30** — yesterday. Command Code's guidance is the right posture: run `cmd --model stealth/space-bunny-alpha`, but "the model id can change when it graduates." **APIMODELS' gateway rate, live as of 2026-09-29: $0.10 input / $0.40 output / $0.01 cached per MTok** — and the model is free upstream during the preview, so that price is the gateway's own margin, not a vendor list price. There is **no official list price to compare against.**
+- **Data terms — read this one twice.** OpenRouter's stealth terms state the provider **may retain prompts and completions, but does not use them for training**. OpenCode's Zen/Go listing states the opposite for its own route: **zero retention, no training use**. These are route-specific and should not be generalised. The practical instruction from APIMODELS is the correct one: **do not send data you would not share with an unnamed third party.**
+- **Architecture:** **undisclosed.** No parameters, no MoE routing detail, no weights, no model card.
 
 ### Raw benchmarks found
 
-Independent route-level measurements come from the pinned [stealthprint case study](https://github.com/majiayu000/stealthprint/blob/fc037456e356a881f0cdf27af44063d7515d2bf0/docs/case-space-bunny.md), its [raw JSON](https://github.com/majiayu000/stealthprint/blob/fc037456e356a881f0cdf27af44063d7515d2bf0/docs/case-space-bunny-measurements.json), OpenCode's [Zen documentation](https://opencode.ai/docs/zen/), the [OpenRouter API catalog](https://openrouter.ai/api/v1/models), and TokenDyno. These are endpoint probes, not standardized model-quality leaderboards.
+**Self-reported by the provider, on its own subsets. Not comparable to full-benchmark scores** — this caveat comes from the sources themselves:
 
-Agent / tool use:
+- **GPQA Diamond: 82.0%** on a **60-question** subset
+- **Humanity's Last Exam: 46.1%** on a **300-question** subset
+- **AI BENCHY suite: 7.0 / 10**
+- OpenRouter's collection copy additionally claims "leading accuracy on benchmarks including **AIME 2025, TerminalBench, and SWE-Bench Verified**" — **no numbers are attached to any of the three**, and none appears on any leaderboard.
 
-- Tool-call capability: supported by the models.dev/OpenCode metadata; no verified public SWE-bench, Terminal-Bench, Tau, GDPval-AA, or Toolathon quality score found.
-- Repeated-route consistency: **14/14 HTTP 200** (seven identical text requests at temperature 2.0 and seven identical 64×64 image requests), with consistent prompt counts and response shape (stealthprint, 2026-09-24).
-- Four malformed payloads all returned a normalized HTTP 400 `invalid_request_error`; this checks error handling, not tool-use accuracy.
+**Independent evaluation — APIMODELS, 28 tasks on 2026-09-29, one real API call per task, every result opened:**
 
-Reasoning / knowledge:
+- **21 passed, 5 partial, 2 failed.**
+- **3D and web: 6 of 6 passed** — a Three.js solar system with orbit controls, a pure-CSS 3D page, and a 64 KB Chart.js admin dashboard whose sorting, filtering, dark mode and collapsible sidebar all worked in Chrome with no console errors.
+- **Writing: 4 of 4 passed** — a seven-character quatrain that scans correctly line by line, a Chinese-to-English technical translation with every number intact, a 2,300-word engineering article, and native-quality Japanese and Korean product copy.
+- **Reasoning: 3 of 3 passed** — including a deliberately under-constrained seating puzzle that it **correctly reported as having four solutions instead of inventing one**, and a three-day itinerary meeting every budget, walking and attraction constraint.
+- **Long context: 3 of 3 passed** — **planted facts retrieved from a 91,298-token document with exact quotes.**
+- **Tool calling: perfect** — two parallel tool calls with correct arguments in 2 seconds.
+- **Coding: all four tasks partial, for the same reason** — the logic was right but the details were not checked. It missed one of the bugs in an async-pool function; wrote 13 tests for a correct LRU cache of which **3 assert the opposite of its own implementation**; left a garbled token in an otherwise sound SQL query; and printed a hand-computed pandas table with **4 of 12 quantiles wrong**. A 1,450-line canvas explainer failed on a single missing quote — **with that character restored it rendered five scenes.**
+- **Two advertised capabilities did not hold on this route:** a strict JSON schema sent through `response_format` was **accepted but not enforced** (two required keys renamed, extra fields added) — validate on your side; and **video input arrives as a few sampled frames without audio**, so it can describe what is in a clip but not its length, motion or sound.
+- **Image input is genuinely good:** it named **Preikestolen over Lysefjord from a photo unprompted** and estimated the crowd on the plateau correctly.
+- **Two settings matter more than anything else.** First, `reasoning_effort`: **at the default the model reasoned for 4 to 5 minutes before the first character** on code, planning and even a four-line poem, and **4 of 28 calls were cut upstream around 300 seconds**; at `low` or `medium` the same prompts answered in **4 to 40 seconds to first token with no loss the tester could see**. Second, `max_tokens`: **the reasoning trace is billed inside `completion_tokens` and streams before the answer, so a small cap returns empty content** — omit it or set it large.
+- **Throughput: roughly 90 to 140 tokens per second, including reasoning.**
 
-- No verified GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis, or BenchLM quality score found.
-- Dated-event knowledge ladder: correctly recalled DeepSeek-R1's 2025-01-20 release, GPT-5's 2025-08-07 release, and the November 2025 month of Claude Opus 4.5; it did not know several mid-2026 models named in the probe. This is a small knowledge probe, not an accuracy percentage.
-- Mandatory reasoning is documented with five effort levels, but no verified public reasoning-benchmark score was found.
+**What does not exist:**
 
-Coding:
-
-- No verified public SWE-bench, LiveCodeBench, SciCode, Vibe Code Bench, or coding-index score found.
-- Five SVG experiments are showcased by the independent [Space Bunny Alpha field guide](https://spacebunnyalpha.com), but its cards provide qualitative output examples rather than a reproducible accuracy/pass rate, so they are not converted into a coding score.
-
-
-Long context:
-
-- Context acceptance ladder: 100K, 204.6K, 450K, and 1M local-token payloads all returned HTTP 200; prompt counts stayed at local MiniMax count +143 (stealthprint).
-- 200,044-local-token retrieval probe: **3/3** distinct hidden codes recovered in the correct order; reported prompt size 200,187.
-- 810,021-local-token retrieval probe: recovered the repeated needle (`NX80849` three times), with a reported prompt size of 810,178; the study notes that same-second code generation made this weaker evidence.
-
-Multimodal:
-
-- 64×64 solid-color identification: **8/8 correct** (4/4 red and 4/4 blue).
-- 1×1 red-image probe: **3/4 correct**, with one black-image response; this is too small and synthetic for a general vision-quality estimate.
-- Video input is listed by models.dev and OpenRouter, but no verified video-understanding accuracy score was found.
-
-Speed and reliability telemetry:
-
-- OpenRouter snapshot around 2026-09-24 00:28 UTC: **87 tok/s P50**, **1.07 s P50 latency**, and **94.98%** three-day inference availability.
-- TokenDyno OpenCode Zen snapshot on 2026-09-25: latest **74.8 tok/s**, 24-hour average **82.0 tok/s**, **1.1 s TTFT**, **100%** 24-hour reliability; sampled roughly hourly with a fixed ~300-token prompt.
-- TokenDyno OpenCode Go snapshot: latest **82.4 tok/s**, 24-hour average **83.7 tok/s**, **937 ms TTFT**, **83%** reliability; sampled roughly every 30 minutes. These route results are not quality scores.
+- **No Artificial Analysis record. No LMArena entry. No leaderboard placement anywhere.** Command Code lists intelligence, coding and speed as "not yet scored." It cannot be placed against any peer in this dataset on a shared benchmark.
+- **No Terminal-Bench, Tau3-Banking, Tau2-Bench, GDPval-AA, Claw-Eval, Toolathlon, MCP-Atlas or SWE Atlas Codebase QnA** figure.
+- **No SWE-bench Verified, SWE-bench Pro, DeepSWE, LiveCodeBench, SciCode or Aider Polyglot** figure.
+- **No FrontierMath, CritPt, AA-LCR or AA-Omniscience** figure.
+- **No MMMU, MMMUPro, DocVQA, OmniDocBench or CharXiv** figure.
+- **No model card, no weights, no parameters, no architecture.**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** Tool calls and a stable five-effort reasoning interface are documented, but there is no standardized tool-use quality result; endpoint consistency and normalized errors cannot establish task success.
-- **Reasoning: 56/100.** Mandatory reasoning and a small dated-knowledge ladder are positive signals, while no public GPQA/HLE/independent index score verifies general reasoning quality. The score is deliberately conservative rather than a claim that the model is weak.
-- **Context window: 93/100.** A 1M-token request succeeded and 3/3 distinct needles were recovered from a 200K input; the 810K needle was weaker and no run at the upper 1,048,576-token boundary established perfect full-window retrieval.
-- **Multimodal: 64/100.** Text, image, and video are supported, and the synthetic color probe scored 8/8 at 64×64, but one tiny-image test made an error and no document, chart, OCR, or video-quality evaluation was published.
-- **Coding: 55/100.** The model is marketed for coding and can emit code/tool requests, but no verified coding benchmark or pass rate was found; qualitative SVG examples do not warrant a higher normalized score.
-- **Cost efficiency: 100/100.** The current limited-time Zen and related OpenRouter routes list $0/M input and output; availability, rate limits, and the temporary nature of the promotion remain material caveats.
-- **Overall Score: 65/100.** Best fit as a free experimental route for million-token experiments, simple image checks, and qualitative SVG/coding exploration; evidence is not yet strong enough to recommend it for accuracy-critical production agent or coding workloads. Formula: half-up mean of 58, 56, 93, 64, and 55 = 65.2 → 65.
+> **Scoring-integrity notice.** Every number in this file is either a **self-reported
+> subset** or a **single 28-task evaluation by one third party**. Nothing here is a
+> leaderboard result. Scores are weighted toward the independent evaluation, capped
+> because no composite exists, and should move materially the moment a real leaderboard
+> row appears.
+
+- **Tool use: 58/100.** Above the dataset's mid-scale band on the strength of one specific independent result and one structural fact. Up: **perfect parallel tool calling — two calls with correct arguments in 2 seconds** — plus `tool_calling`, `tool_choice` and `response_format` all present, and reasoning that is **always on**, which is a meaningful structural commitment for agent work. Capped at 58 by four hard limits: **no agentic benchmark exists** — no Terminal-Bench at any version, no Tau3-Banking, no Toolathlon, no Claw-Eval, no MCP-Atlas, no SWE Atlas Codebase QnA — despite OpenRouter's collection copy claiming TerminalBench accuracy with no number attached; **`response_format` accepted a strict JSON schema without enforcing it**, renaming two required keys and adding extra fields, which is a genuine agentic-reliability defect and the single most important operational finding in this file; **4 of 28 independent calls were cut upstream around 300 seconds** at default effort, so default-configured agent loops can simply fail; and the free window has likely lapsed, so the $0 rate this was recommended on may not apply.
+- **Reasoning: 72/100.** The strongest dimension, and scored on the balance of a strong self-report and a clean independent run. Self-reported: **GPQA Diamond 82.0%, HLE 46.1%, AI BENCHY 7.0/10** — the HLE figure is notable because it is well above what most models in this dataset post on the full set. Independently measured and more informative: **reasoning 3 of 3**, including an under-constrained seating puzzle where it **reported four solutions instead of inventing one** — that is calibrated uncertainty, which is rarer than a high score and matters more for agent work. Capped at 72 by: **60 and 300-question subsets are not full benchmarks**, and nobody has reproduced either; **no FrontierMath, CritPt, ARC-AGI or Intelligence Index figure exists**, so this model cannot be placed against any peer; and the practical **4-to-5-minute default time-to-first-character**, which is a reasoning-adjacent failure mode even when the reasoning is right.
+- **Context window: 92/100.** **1,000,000–1,048,576 tokens with 524,288 max output** — the methodology's "≥1M = 95–100" band, scored high in it because there is an **actual independent retrieval measurement behind the spec, which most models in this dataset lack**: **3 of 3 planted facts retrieved from a 91,298-token document with exact quotes.** The 524,288-token output ceiling is the **largest of any model in this dataset**. Not scored at 100 for one specific and honest reason: **retrieval is verified to 91K, not to 512K or 1M.** The methodology's 100 tier requires ≥98% retrieval at 512K+, and there is no measurement anywhere near that length. The OpenRouter/OpenCode 1,000,000-versus-1,048,576 discrepancy is minor by comparison and flagged rather than resolved.
+- **Multimodal: 78/100.** **Text, image and video in; text out** — the methodology's "+video/PDF in = 75–90" band, scored near its floor because **video is nominally supported but degraded on the tested route**: APIMODELS found input "arrives as a few sampled frames without audio," so the model "can describe what is in a clip but not its length, motion or sound." That is a real capability reduction, and one third party measured it. Offsetting upward and measured: **image input is genuinely strong** — unprompted identification of **Preikestolen over Lysefjord**, and a correct crowd estimate on the plateau — plus 6-of-6 on visual/3D web construction tasks. Capped below the band's top by **no vision benchmark at all** (no MMMU, no MMMUPro, no DocVQA, no OmniDocBench, no CharXiv), and by no audio input and no non-text output.
+- **Coding: 58/100.** Mid-scale, and the honest reading is a **high-ceiling, low-verification** coder. Up: **6 of 6 on 3D and web construction** — a working Three.js scene, a pure-CSS 3D page, and a 64 KB Chart.js dashboard with sorting, filtering, dark mode and a collapsible sidebar, all verified in Chrome with no console errors; and a **1,450-line canvas explainer that failed only on one missing quote** and rendered all five scenes once that character was restored. Down, and it is one consistent failure mode rather than several: **all four real coding tasks were partial because the model does not check its own output.** It missed a bug in an async-pool function; wrote **13 tests for a correct LRU cache of which 3 assert the opposite of its own implementation**; left a garbled token in sound SQL; and printed a pandas table with **4 of 12 quantiles wrong**. Capped at 58 by the total absence of **SWE-bench Verified, LiveCodeBench, SciCode and Aider Polyglot** figures, and by OpenRouter's unquantified SWE-Bench Verified claim.
+- **Cost efficiency: 90/100.** **$0.00 on input, output and cache read** during the preview, with **APIMODELS' live gateway rate at $0.10 / $0.40 / $0.01** and a blended figure around **$0.10/MTok** — which would put it in GPT-5 nano territory. Scored at 90 rather than 95–99 for one decisive reason: **the free window has almost certainly ended.** OpenCode's offer was announced as roughly one week; the public records read as ending around **2026-09-30**, which was yesterday. The $0 is a *preview* rate, there is **no official list price to score against**, and the gateway rate is the gateway's own margin rather than a vendor price. Real credits retained: **throughput of 90–140 tokens/s** including reasoning, **zero cache-read cost** during the preview, and **failed calls are never billed** — a meaningful property for an agent loop. One operational deduction worth stating plainly: because **reasoning tokens bill as output tokens and stream before the answer**, a small `max_tokens` returns empty content, so a careless integration spends money and gets nothing.
+- **Overall Score: 72/100.** (58 + 72 + 92 + 78 + 58) / 5 = 71.6 → **72**. Best fit, stated with the caveats attached: **a free-or-near-free high-volume reasoning and long-context model for prototyping, open-source work and long agent sessions** — a 1M window with verified retrieval at 91K, image input that genuinely works, calibrated uncertainty on under-constrained problems, parallel tool calling, and reasoning you can turn *down* to `low`/`medium` to get 4–40 second first tokens instead of 4–5 minutes. That is a real and unusual combination, and the 28-task evaluation is the best small-sample evidence in this dataset. **Four warnings.** First, **the ID is temporary** — stealth previews are normally renamed or withdrawn on reveal, so pin nothing and keep a fallback. Second, **do not send sensitive data**: OpenRouter's route may retain prompts and completions without training on them, and OpenCode's route claims zero retention — route-specific terms, not a general guarantee. Third, **default effort will time you out**: set `reasoning_effort` to `low` or `medium` for interactive work and leave `max_tokens` unset or large. Fourth, **verify its output**: the consistent coding failure is not wrong reasoning but skipped self-checking — 3 tests asserting the opposite of a correct implementation is the pattern to watch. And the honest summary of the evidence: **this model is unscored by every independent leaderboard, its headline numbers are its provider's own subsets, and one 28-task run is the best external evidence that exists.** It could be considerably better or worse than 72; nobody outside the provider has measured it properly yet.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-25
-- Method: Independent public-web and API-catalog research using OpenCode, OpenRouter, pinned stealthprint measurements, the independent field guide, and TokenDyno telemetry; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
+- Method: public internet research, **second pass, superseding this agent's own earlier 65/100 report for the same slug.** Sources: **APIMODELS' 28-task independent evaluation** (`apimodels.app/models/space-bunny-alpha`, 2026-09-29) for the 21-passed/5-partial/2-failed breakdown, the 6-of-6 3D-and-web result, 4-of-4 writing, 3-of-3 reasoning including the four-solution puzzle, **3-of-3 planted facts from a 91,298-token document**, perfect parallel tool calling in 2 seconds, the four partial coding tasks with their specific defects (missed async-pool bug, 3 self-contradicting LRU tests, garbled SQL token, 4-of-12 wrong quantiles), the 1,450-line canvas explainer, the unenforced JSON schema, the degraded video input, the Preikestolen/Lysefjord image identification, the 4-to-5-minute default time-to-first-character with 4 calls cut at ~300s, the 4-to-40-second low/medium effort figures, the reasoning-trace-billed-as-output `max_tokens` trap, 90–140 tokens/s throughput, and the $0.10/$0.40/$0.01 gateway rate; **vogueai's 2026-09-27 analysis** for the OpenRouter-versus-OpenCode spec table (context, 524,288 max output, modalities, five effort levels defaulting to max, prices, data terms), the provider's self-reported subsets (**GPQA Diamond 82.0% on 60 questions, HLE 46.1% on 300, AI BENCHY 7.0/10**), OpenRouter's "flash model with fast inference" positioning, the community comparison set (DeepSeek V4.1 Flash, GLM-5.3 Flash), and the reading that OpenCode's free window ended around **2026-09-30**; **AnyRouter** and **Command Code** for the cross-route spec and pricing confirmation and the "not yet scored" leaderboard status; **Space Bunny's own documentation** (`spacebunny.app/docs`) for the 1M/524,288 envelope, tool calling and JSON output, and the defensively-handled 402 insufficient-credits status; and **spacebunnymodel.com** for the opencode integration guidance and the explicit warning that the model ID can change on graduation. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. **Conflict of interest is disclosed in the file header**: this report describes a model whose provider is anonymous, whose headline numbers are self-reported subsets, and which has no leaderboard entry — so the independent 28-task run is weighted highest and the Overall is capped for that reason rather than for any measured weakness.
+- Future sources: add a new file next to this one, e.g. `Space_Bunny_Alpha_Revealed.md`, using the same headings. **Re-run this file the moment any of the following appears:** an Artificial Analysis or LMArena entry, a real Terminal-Bench or SWE-bench Verified row with a number, the provider's reveal and the resulting ID change, or a published post-preview list price. Three of five dimensions here rest on one 28-task run, and the ID this file describes is explicitly temporary.
