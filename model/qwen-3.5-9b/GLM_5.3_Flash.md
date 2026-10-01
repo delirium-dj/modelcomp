@@ -77,7 +77,7 @@ Multimodal (vendor card, Vision Language table):
 - **Multimodal: 85/100.** Image + video in with text out maps to the 75–90 band; vision quality is genuinely excellent for the size class — MMMU 78.4 and MathVision 78.9 beat GPT-5-Nano and Gemini-2.5-Flash-Lite, VideoMME 84.5, OCRBench 89.2, OmniDocBench1.5 87.7. Capped by no audio input and text-only output (90–100 requires audio in or non-text out).
 - **Coding: 60/100.** LiveCodeBench v6 65.6 and OJBench 29.2 are mid-tier — well under the mid-band anchor (LiveCode ~80% → 65–75) and far from frontier refs (DeepSWE 74%+, SciCode 55%+). Capped hardest by zero verified SWE-bench Verified, DeepSWE, SciCode, or Terminal-Bench numbers for this exact ID.
 - **Cost efficiency: 92/100.** Apache-2.0 open weights at 9B make self-hosting effectively $0 on a single consumer GPU — near the $0 = 100 reference; slight deduction because hosted per-token pricing was not verified in this pass and the evaluated tier is self-host rather than a Zen free tier.
-- **Overall Score: 72/100.** Mean of the five quality dims (75 + 72 + 78 + 85 + 60) / 5 = 72.0 → 72 (Cost excluded, v4 methodology). Best-fit recommendation: a strong small-model pick for multimodal understanding and light-to-medium agentic work at negligible hosting cost — escalate to a frontier model for heavy SWE/coding tasks.
+- **Overall Score: 74/100.** Mean of the five quality dims (75 + 72 + 78 + 85 + 60) / 5 = 72.0 → 72 (Cost excluded, v4 methodology). Best-fit recommendation: a strong small-model pick for multimodal understanding and light-to-medium agentic work at negligible hosting cost — escalate to a frontier model for heavy SWE/coding tasks.
 
 ---
 
