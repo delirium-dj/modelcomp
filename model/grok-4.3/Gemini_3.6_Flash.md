@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Gemini 3.6 Flash
 
 - Source: xAI (`xai/grok-4.3`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xai/grok-4.3`, `opencode/grok-4.3`
 - **Context window:** 1,048,576 tokens total (1M context window); verified via xAI developer portal.
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** $0.20 / 1M input, $0.80 / 1M output; enterprise API options available.
+- **Pricing (as of 2026-10-01):** $0.20 / 1M input, $0.80 / 1M output; enterprise API options available.
 - **Architecture:** Proprietary frontier transformer with integrated search and reasoning capabilities.
 
 ### Raw benchmarks found

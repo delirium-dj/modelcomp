@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`gemini-3.7-flash`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against the current Google model card)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
 - Method: public internet research using Google DeepMind, Google Cloud and Gemini API documentation; scores are normalized interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

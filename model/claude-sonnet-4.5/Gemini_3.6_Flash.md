@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Gemini 3.6 Flash
 
 - Source: Anthropic (`anthropic/claude-sonnet-4.5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-sonnet-4.5` (no Zen Free ID)
 - **Context window:** 200,000 tokens input / 8,192 max output; verified via Anthropic documentation.
 - **Modalities:** Text, image, and PDF input; text output; computer use and function calling.
-- **Pricing (as of 2026-09-24):** $3.00 / 1M input, $15.00 / 1M output.
+- **Pricing (as of 2026-10-01):** $3.00 / 1M input, $15.00 / 1M output.
 - **Architecture:** Proprietary frontier Transformer architecture.
 
 ### Raw benchmarks found

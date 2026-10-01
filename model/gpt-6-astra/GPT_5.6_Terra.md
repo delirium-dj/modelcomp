@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by GPT-5.6 Terra
 
 - Source: OpenAI / GPT-6 Astra
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current OpenAI documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,13 +54,13 @@ Long context:
 - **Context window: 100/100.** A 1.05M-token window with 100% and 96.3% measured MRCR retrieval across 256K–1M supports the ceiling.
 - **Multimodal: 60/100.** Native image input and image-generation tooling are useful, but direct audio and video input are explicitly unsupported and output is text-only.
 - **Coding: 96/100.** DeepSWE 74.1%, Terminal-Bench 4.0 57.9%, and especially the SRE-Bench result establish exceptional coding and software-analysis ability; public independent results remain limited.
-- **Cost efficiency: 26/100.** $10/$50 per 1M tokens is premium pricing, even though batch/Flex discounts and lower task-token use can improve effective cost.
+- **Cost efficiency: 23/100.** $10/$50 per 1M tokens is premium pricing, even though batch/Flex discounts and lower task-token use can improve effective cost; current pricing doubles input and raises output to 1.5× for prompts over 272K tokens.
 - **Overall Score: 89.6/100.** Mean of Tool, Reasoning, Context, Multimodal, and Coding; best for high-stakes, long-context agent workflows where capability outweighs token cost.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
 - Method: Fresh public-web research using OpenAI's model page and launch evaluation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

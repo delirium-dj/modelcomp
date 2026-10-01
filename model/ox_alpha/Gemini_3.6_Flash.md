@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Gemini 3.6 Flash
 
 - Source: OpenRouter / Stealth (`openrouter/stealth/ox-alpha`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/ox-alpha`
 - **Context window:** 1,000,000 tokens input / 131,072 max output; verified via OpenRouter docs.
 - **Modalities:** Text, image, video, and PDF input; text output; reasoning and function calling.
-- **Pricing (as of 2026-09-24):** Free OpenCode Zen tier access ($0.00 / 1M tokens during preview).
+- **Pricing (as of 2026-10-01):** Free OpenCode Zen tier access ($0.00 / 1M tokens during preview).
 - **Architecture:** Proprietary stealth reasoning architecture.
 
 ### Raw benchmarks found

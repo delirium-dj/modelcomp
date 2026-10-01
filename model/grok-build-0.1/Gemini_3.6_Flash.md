@@ -1,7 +1,7 @@
 # Grok Build 0.1 — findings by Gemini 3.6 Flash
 
 - Source: xAI/grok-build-0.1
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xai/grok-build-0.1`
 - **Context window:** 256,000 tokens (verified via xAI API spec).
 - **Modalities:** text, image in; text out; reasoning no; tool calls; JSON mode.
-- **Pricing (as of 2026-09-27):** $0.40 input / $1.60 output / $0.08 cached per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.40 input / $1.60 output / $0.08 cached per 1M tokens.
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found

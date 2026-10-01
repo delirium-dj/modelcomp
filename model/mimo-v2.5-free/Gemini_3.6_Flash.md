@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by Gemini 3.6 Flash
 
 - Source: Xiaomi (`opencode/mimo-v2.5-free`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free`
 - **Context window:** 200,000 tokens input / 32,768 max output on Zen (native 1M context); verified via models.dev.
 - **Modalities:** Text, image, audio, video input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-10-01):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
 - **Architecture:** Open-weights MoE (310B total / 15B active parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

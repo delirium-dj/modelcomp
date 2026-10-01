@@ -1,7 +1,7 @@
 # Longcat 2.5 Preview — findings by Gemini 3.6 Flash
 
 - Source: Meituan/longcat-2.5-preview
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `longcat/longcat-2.5-preview`
 - **Context window:** 1,000,000 tokens (verified via Longcat API spec).
 - **Modalities:** text, image in; text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-27):** $0.80 input / $3.20 output / $0.16 cached per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.80 input / $3.20 output / $0.16 cached per 1M tokens.
 - **Architecture:** Mixture-of-Experts (MoE) proprietary.
 
 ### Raw benchmarks found

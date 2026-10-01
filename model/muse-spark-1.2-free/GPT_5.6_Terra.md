@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.2 Free
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current public evidence)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,7 +13,7 @@
 - **Release / knowledge:** Released 2026-08-05; knowledge cutoff not publicly stated in the reviewed material.
 - **IDs:** `muse-spark-1.2`; OpenCode reports the free-tier ID as `muse-spark-1.2-contributor-free`.
 - **Context window:** 1,048,576 tokens (1M); a 944K maximum output is listed by ModelCap, subject to provider limits.
-- **Modalities:** Text and image input with text output are reported by model catalogs; full audio/video support was not established in the reviewed sources.
+- **Modalities:** Text, image, speech, and video input with text output are listed by Artificial Analysis; output beyond text remains unverified in the reviewed primary/provider material.
 - **Pricing (as of 2026-09-18):** Free OpenCode Zen Contributor tier; standard API listing $1.25 input / $4.25 output per 1M tokens.
 - **Architecture:** Proprietary; no public parameter-count disclosure located.
 
@@ -49,15 +49,15 @@ Long context:
 - **Tool use: 83/100.** Terminal-Bench 2.1 at 82.9%, Toolathlon pass@1 at 75.9%, GDPval-AA v2 1628 Elo, and JobBench 61.6% indicate strong tool and knowledge-work performance; lower τ³-Banking and AutomationBench results cap it.
 - **Reasoning: 86/100.** GPQA Diamond 90.4%, HLE 45.46%, SimpleBench 74.5%, and AA Intelligence Index 54 support a high score; CritPt at 17.7% and uneven coverage cap it.
 - **Context window: 95/100.** The documented 1M-token window is top tier, capped by absence of a public retrieval-at-length score.
-- **Multimodal: 84/100.** Text/image coverage and Vision Arena 1292 support meaningful multimodal use, but the full I/O matrix and audio/video coverage remain undocumented here.
+- **Multimodal: 88/100.** The refreshed public model listing adds speech and video input to the previously documented text/image coverage; output beyond text remains unverified.
 - **Coding: 85/100.** SWE-bench Verified 86.6%, Terminal-Bench 2.1 82.9%, DeepSWE 55–59.3%, and SciCode 56.4% show strong agentic coding; source/harness variation and absent LiveCodeBench cap it.
 - **Cost efficiency: 100/100.** The designated OpenCode Zen Contributor tier is free, subject to host quotas and availability.
-- **Overall Score: 86.6/100.** Mean of the five quality dimensions: (83 + 86 + 95 + 84 + 85) / 5 = 86.6; a compelling free option for coding and long-context work, with provider-specific availability caveats.
+- **Overall Score: 87.4/100.** Mean of the five quality dimensions: (83 + 86 + 95 + 88 + 85) / 5 = 87.4; a compelling free option for coding and long-context work, with provider-specific availability caveats.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
-- Method: fresh public-web research using Artificial Analysis, Epoch AI-attributed OpenCharts data, Vals/Toolathlon/DeepSWE board aggregations, provider catalogs, and ModelCap; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Method: refreshed public-web research using [Artificial Analysis’s Muse Spark 1.2 analysis](https://artificialanalysis.ai/articles/muse-spark-1-2) and public benchmark sources; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

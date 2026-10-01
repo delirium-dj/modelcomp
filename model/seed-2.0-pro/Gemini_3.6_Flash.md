@@ -1,7 +1,7 @@
 # Seed 2.0 Pro — findings by Gemini 3.6 Flash
 
 - Source: ByteDance (`bytedance/seed-2.0-pro`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `bytedance/seed-2.0-pro`
 - **Context window:** 262,144 tokens input / 16,384 max output — verified via Volcano Engine docs.
 - **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.50 input / $1.50 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.50 input / $1.50 output per 1M tokens.
 - **Architecture:** proprietary MoE
 
 ### Raw benchmarks found

@@ -1,7 +1,7 @@
 # Space Bunny Alpha — findings by Gemini 3.6 Flash
 
 - Source: Community / Stealth (`stealth/space-bunny-alpha`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `stealth/space-bunny-alpha`, `opencode/space-bunny-alpha`
 - **Context window:** 1,000,000 tokens (1M total, 16K max output).
 - **Modalities:** text, image in; text out; tool use, function calling.
-- **Pricing (as of 2026-09-29):** $0.00 (Free preview tier).
+- **Pricing (as of 2026-10-01):** $0.00 (Free preview tier).
 - **Architecture:** Stealth transformer architecture, proprietary.
 
 ### Raw benchmarks found

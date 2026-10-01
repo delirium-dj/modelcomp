@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Gemini 3.6 Flash
 
 - Source: MiniMax (`minimax-ai/minimax-m3`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `minimax-ai/minimax-m3` (no Free ID on Zen)
 - **Context window:** 1,048,576 tokens (1M) input / 512,000 (512K) output — verified via MiniMax specifications.
 - **Modalities:** Text, image, video in; text out; tool usage, structured output.
-- **Pricing (as of 2026-09-19):** Paid $0.30 / 1M input, $1.20 / 1M output tokens; highly affordable open-weights tier.
+- **Pricing (as of 2026-10-01):** Paid $0.30 / 1M input, $1.20 / 1M output tokens; highly affordable open-weights tier.
 - **Architecture:** Open-weight Sparse MoE (~230B total / 9.8B active parameters per token).
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,20 @@
+# GPT 6.1 Sol — negative findings by GPT 5.6 Terra
+
+- Source: fresh public web research for `opencode/gpt-6.1-sol`
+- Date: 2026-10-01 (UTC)
+
+## Model card
+
+- **Name:** GPT 6.1 Sol
+- **Short description:** An OpenCode-served entry was found, but no authoritative OpenAI model documentation or attributable benchmark results for the exact ID were found.
+- **Provider / access:** OpenCode Zen routing is publicly listed; the underlying model identity and specifications were not verified.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for this exact model/ID.
+- No verified public context, modality, pricing, or architecture documentation found.
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Method: fresh public internet research. This report is self-excluded because it contains zero verified benchmark numbers.

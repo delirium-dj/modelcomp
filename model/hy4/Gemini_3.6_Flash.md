@@ -1,7 +1,7 @@
 # HY4 — findings by Gemini 3.6 Flash
 
 - Source: Tencent / Hy4 preview (`hy4`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text input, text output; native tool calls, JSON mode.
-- **Pricing (as of 2026-09-21):** $0.60 / 1M input tokens, $2.40 / 1M output tokens (open-weights deployment options).
+- **Pricing (as of 2026-10-01):** $0.60 / 1M input tokens, $2.40 / 1M output tokens (open-weights deployment options).
 - **Architecture:** Open-weights 770B MoE (49B active), Apache 2.0 license.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by Gemini 3.6 Flash
 
 - Source: Qwen / Alibaba Cloud (`Qwen/Qwen3.8-27B`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `Qwen/Qwen3.8-27B`, `opencode/qwen3.8-27b`
 - **Context window:** 262,144 tokens native (256K context window); verified via HuggingFace model card.
 - **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** Open weights (Apache 2.0); API pricing ~$0.20 / 1M input, $0.80 / 1M output.
+- **Pricing (as of 2026-10-01):** Open weights (Apache 2.0); API pricing ~$0.20 / 1M input, $0.80 / 1M output.
 - **Architecture:** Open-weights dense 27B parameter vision-language transformer.
 
 ### Raw benchmarks found

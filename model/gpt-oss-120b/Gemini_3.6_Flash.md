@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-oss-120b`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-oss-120b`, `opencode/gpt-oss-120b`
 - **Context window:** 131,072 tokens total (128K context window); verified via open repository configuration.
 - **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** Open weights (Apache 2.0); API provider rates ~$0.05 / 1M input, $0.15 / 1M output.
+- **Pricing (as of 2026-10-01):** Open weights (Apache 2.0); API provider rates ~$0.05 / 1M input, $0.15 / 1M output.
 - **Architecture:** Open-weights dense 120B parameter transformer architecture.
 
 ### Raw benchmarks found

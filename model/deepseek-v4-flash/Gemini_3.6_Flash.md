@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash — findings by Gemini 3.6 Flash
 
 - Source: DeepSeek (`deepseek/deepseek-v4-flash`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4-flash`
 - **Context window:** 1,048,576 tokens input / 16,384 max output — verified via DeepSeek documentation.
 - **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.15 input / $0.60 output per 1M tokens (hosted API); $0 (open weights).
+- **Pricing (as of 2026-10-01):** $0.15 input / $0.60 output per 1M tokens (hosted API); $0 (open weights).
 - **Architecture:** 284B total params, 13B active MoE (MIT license)
 
 ### Raw benchmarks found

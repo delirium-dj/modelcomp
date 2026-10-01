@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by Gemini 3.6 Flash
 
 - Source: Alibaba Cloud (`alibaba/qwen-3.7`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `alibaba/qwen-3.7`
 - **Context window:** 128,000 tokens total (128K input / 8K max output); verified via DashScope docs.
 - **Modalities:** Text input; text output; function calling and structured outputs.
-- **Pricing (as of 2026-09-24):** $0.60 / 1M input, $1.80 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.60 / 1M input, $1.80 / 1M output.
 - **Architecture:** Open-weights dense Transformer architecture.
 
 ### Raw benchmarks found

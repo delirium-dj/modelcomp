@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.6 Flash
 
 - Source: NVIDIA (`opencode/nemotron-3.5-lightning-free`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/nemotron-3.5-lightning-free`
 - **Context window:** 262,144 tokens input / 16,384 max output; verified via NVIDIA NIM docs.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
+- **Pricing (as of 2026-10-01):** $0.00 / 1M input, $0.00 / 1M output (Free Zen tier).
 - **Architecture:** Compact MoE (30B total / 3B active parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

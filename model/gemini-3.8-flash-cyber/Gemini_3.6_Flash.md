@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by Gemini 3.6 Flash
 
 - Source: Google DeepMind (`google/gemini-3-8-flash-cyber`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3-8-flash-cyber` (restricted access, no Free ID on Zen)
 - **Context window:** 1,048,576 tokens (1M) input / 65,536 (65K) output — verified via Google AI Studio security documentation.
 - **Modalities:** Text, code, binary disassembly in; text, code out; tool calls, sandboxed execution interfaces.
-- **Pricing (as of 2026-09-19):** Restricted access via Google Fairwind Program; public commercial rates pending.
+- **Pricing (as of 2026-10-01):** Restricted access via Google Fairwind Program; public commercial rates pending.
 - **Architecture:** Specialized fine-tune of Gemini 3.8 Flash architecture optimized for security telemetry and code reasoning.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

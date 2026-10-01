@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-3-flash`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3-flash`, `opencode/gemini-3-flash`
 - **Context window:** 1,048,576 tokens total (1M context window); verified via Google developer documentation and API responses.
 - **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** $0.075 / 1M input, $0.30 / 1M output; free tier available via OpenCode Zen / Google AI Studio.
+- **Pricing (as of 2026-10-01):** $0.075 / 1M input, $0.30 / 1M output; free tier available via OpenCode Zen / Google AI Studio.
 - **Architecture:** Proprietary mixture-of-experts (MoE) lightweight multimodal transformer.
 
 ### Raw benchmarks found

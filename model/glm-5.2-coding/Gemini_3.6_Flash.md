@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Gemini 3.6 Flash
 
 - Source: Zhipu AI / Z.AI (`glm-5.2-coding`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `z.ai/glm-5.2`, `opencode/glm-5.2`
 - **Context window:** 1M total tokens (1,000,000 in / 128K out — verified via Z.AI API specs)
 - **Modalities:** Text in/out (no native vision/multimodal)
-- **Pricing (as of 2026-09-21):** $1.40 input / $4.40 output per 1M tokens ($0.26 cached input per 1M). Paid pricing tier.
+- **Pricing (as of 2026-10-01):** $1.40 input / $4.40 output per 1M tokens ($0.26 cached input per 1M). Paid pricing tier.
 - **Architecture:** 753B parameter Mixture-of-Experts (MoE) with 40B active parameters.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public web research & benchmark aggregation; scores normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.8.md`, using the same headings.

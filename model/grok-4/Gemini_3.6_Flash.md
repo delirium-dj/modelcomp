@@ -1,7 +1,7 @@
 # Grok 4 — findings by Gemini 3.6 Flash
 
 - Source: xAI (`xai/grok-4`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xai/grok-4`
 - **Context window:** 262,144 tokens input / 16,384 max output — verified via xAI developer documentation.
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $2.00 input / $6.00 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $2.00 input / $6.00 output per 1M tokens.
 - **Architecture:** proprietary MoE
 
 ### Raw benchmarks found

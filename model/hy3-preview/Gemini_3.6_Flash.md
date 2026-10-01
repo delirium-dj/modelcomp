@@ -1,7 +1,7 @@
 # HY3 Preview — findings by Gemini 3.6 Flash
 
 - Source: Tencent (`tencent/hy3-preview`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy3-preview` (no Free ID on Zen)
 - **Context window:** 256,000 tokens (256K) input / 32,768 (32K) output — verified via Tencent preview documentation.
 - **Modalities:** Text, image in; text out; experimental tool calling.
-- **Pricing (as of 2026-09-19):** TokenHub preview ~$0.18 / 1M input, $0.59 / 1M output tokens.
+- **Pricing (as of 2026-10-01):** TokenHub preview ~$0.18 / 1M input, $0.59 / 1M output tokens.
 - **Architecture:** Open-weight Sparse MoE (295B/21B active) early preview build.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

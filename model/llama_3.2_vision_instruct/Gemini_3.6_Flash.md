@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by Gemini 3.6 Flash
 
 - Source: Meta (`meta/llama-3.2-vision-instruct`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta/llama-3.2-vision-instruct`, `opencode/llama_3.2_vision_instruct`
 - **Context window:** 131,072 tokens total (128K context window); verified via Meta Llama documentation.
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** Open weights (Llama Community License); API provider rates ~$0.05 / 1M input, $0.15 / 1M output.
+- **Pricing (as of 2026-10-01):** Open weights (Llama Community License); API provider rates ~$0.05 / 1M input, $0.15 / 1M output.
 - **Architecture:** Open-weights vision-language transformer adapter architecture.
 
 ### Raw benchmarks found

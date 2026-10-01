@@ -1,7 +1,7 @@
 # Google Gemini 2.5 Flash Lite — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-2.5-flash-lite`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-2.5-flash-lite`
 - **Context window:** 1,000,000 tokens input / 8,192 max output (verified via Google AI Studio API documentation).
 - **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-27):** $0.10 input / $0.40 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.10 input / $0.40 output per 1M tokens.
 - **Architecture:** proprietary MoE (lightweight efficiency variant)
 
 ### Raw benchmarks found

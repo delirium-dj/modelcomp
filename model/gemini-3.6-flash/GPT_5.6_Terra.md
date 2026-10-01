@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.6 Flash
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current Google primary sources)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **78.0%**; GDPval-AA v2: **1421 Elo**; OSWorld-Verified: **83.0%** (Google DeepMind model card).
+- Terminal-Bench 2.1: **78.0%**; GDPval-AA v2: **1422 Elo**; OSWorld-Verified: **83.0%** (current Google comparison table; the one-point correction does not alter normalized scores).
 - Agent's Last Exam: **24.2%**; AutomationBench-AA: **51.1%**; τ³-Banking: **29.9%** (BenchmarkList aggregation).
 - Claw-Eval / ClawProBench, Toolathlon, MCP Atlas, and SWE Atlas Codebase QnA: no public values were located in the official card or reviewed aggregations.
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
-- Method: fresh public-web research using Google DeepMind's Gemini 3.6 Flash model card, Google API documentation, and public benchmark aggregations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Method: refreshed against current [Google DeepMind model cards](https://deepmind.google/models/model-cards/); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

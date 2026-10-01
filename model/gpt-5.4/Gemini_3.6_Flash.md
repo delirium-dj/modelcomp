@@ -1,7 +1,7 @@
 # Gpt 5.4 — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-5.4`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.4` (no Zen Free ID)
 - **Context window:** 128,000 tokens total (128K input / 4K max output); verified via OpenAI API docs.
 - **Modalities:** Text input; text output; structured function calling and JSON mode.
-- **Pricing (as of 2026-09-24):** $2.50 / 1M input, $10.00 / 1M output.
+- **Pricing (as of 2026-10-01):** $2.50 / 1M input, $10.00 / 1M output.
 - **Architecture:** Proprietary frontier Transformer architecture.
 
 ### Raw benchmarks found

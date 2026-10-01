@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Gemini 3.6 Flash
 
 - Source: MiniMax (`opencode/minimax-m2.7`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/minimax-m2.7` (Paid pricing, no Free ID found on Zen)
 - **Context window:** 204,800 tokens input / 131,072 max output; verified via MiniMax documentation.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.30 / 1M input, $1.20 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.30 / 1M input, $1.20 / 1M output.
 - **Architecture:** Open-weights MoE architecture (229B total / 10B active parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

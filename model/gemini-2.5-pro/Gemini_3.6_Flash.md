@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-2.5-pro`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-2.5-pro`, `opencode/gemini-2.5-pro`
 - **Context window:** 2,097,152 tokens total (2M context window); verified via Google API documentation.
 - **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** $1.25 / 1M input, $5.00 / 1M output; scaled tier pricing available.
+- **Pricing (as of 2026-10-01):** $1.25 / 1M input, $5.00 / 1M output; scaled tier pricing available.
 - **Architecture:** Proprietary multimodal mixture-of-experts (MoE) architecture.
 
 ### Raw benchmarks found

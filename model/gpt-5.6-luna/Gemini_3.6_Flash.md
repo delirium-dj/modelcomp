@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-5.6-luna`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.6-luna` (no Free ID on Zen)
 - **Context window:** 1,050,000 tokens (1.05M) input / 128,000 (128K) output — verified via OpenAI API specifications.
 - **Modalities:** Text, image in; text out; tool integration, structured JSON output mode.
-- **Pricing (as of 2026-09-19):** Paid $0.20 / 1M input, $1.20 / 1M output tokens; high-volume enterprise discount available.
+- **Pricing (as of 2026-10-01):** Paid $0.20 / 1M input, $1.20 / 1M output tokens; high-volume enterprise discount available.
 - **Architecture:** Proprietary OpenAI efficient Sparse Transformer architecture.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

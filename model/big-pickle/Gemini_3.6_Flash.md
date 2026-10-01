@@ -1,7 +1,7 @@
 # Big Pickle (opencode/big-pickle) — findings by Gemini 3.6 Flash
 
 - Source: OpenCode Zen (`opencode/big-pickle`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/big-pickle`
 - **Context window:** 200,000 tokens total (160K input / 32K max output); verified via Zen documentation.
 - **Modalities:** Text input, text output; reasoning support; JSON mode supported.
-- **Pricing (as of 2026-09-17):** $0.00 / 1M input, $0.00 / 1M output (Free tier on Zen).
+- **Pricing (as of 2026-10-01):** $0.00 / 1M input, $0.00 / 1M output (Free tier on Zen).
 - **Architecture:** Proprietary / MoE (estimated ~357B total parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

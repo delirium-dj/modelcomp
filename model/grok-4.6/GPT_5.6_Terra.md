@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by GPT 5.6 Terra
 
 - Source: xAI / Grok 4.6
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current xAI documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,6 +26,7 @@ Agent / tool use:
 - APEX-Agents: **57.5%** (xAI announcement, Grok 4.6 High).
 - Terminal-Bench 3.0: **26.0%** (xAI announcement, Grok 4.6 High; not Terminal-Bench 2.1).
 - GDPVal-AA v2: **1753 Elo** (xAI announcement).
+- Harvey LAB: **15.8%** (xAI launch table, Grok 4.6 High).
 - Terminal-Bench 2.1: **78.3%** (public benchmark aggregation citing the xAI announcement; separate from the 26.0% Terminal-Bench 3.0 result).
 - SkillsBench: **55.8%** (public benchmark aggregation).
 - Claw-Eval / ClawProBench: no public score was located in xAI's release material or the benchmark aggregations consulted.
@@ -69,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-19
-- Method: Fresh public-web research using xAI's official Grok 4.6 documentation, release notes, and launch announcement, supplemented by Epoch AI, Artificial Analysis-attributed Sophon data, and public benchmark aggregations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Method: refreshed public-web research using [xAI’s launch evaluation](https://x.ai/news/grok-4-6) and [current model documentation](https://docs.x.ai/developers/models/grok-4.6); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

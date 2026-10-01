@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-6-luna`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6-luna`
 - **Context window:** 1,050,000 tokens input / 128,000 max output — verified via OpenAI API documentation.
 - **Modalities:** text, image, audio in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.10 input / $0.50 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.10 input / $0.50 output per 1M tokens.
 - **Architecture:** proprietary MoE
 
 ### Raw benchmarks found

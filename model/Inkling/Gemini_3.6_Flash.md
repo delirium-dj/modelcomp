@@ -1,7 +1,7 @@
 # Inkling — findings by Gemini 3.6 Flash
 
 - Source: Thinking Machines Lab (`thinking-machines/inkling`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `thinking-machines/inkling`
 - **Context window:** 262,144 tokens input / 16,384 max output — verified via Thinking Machines documentation.
 - **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.30 input / $0.90 output per 1M tokens (hosted API); $0 (open weights).
+- **Pricing (as of 2026-10-01):** $0.30 input / $0.90 output per 1M tokens (hosted API); $0 (open weights).
 - **Architecture:** 975B total params, 41B active MoE (Apache 2.0)
 
 ### Raw benchmarks found

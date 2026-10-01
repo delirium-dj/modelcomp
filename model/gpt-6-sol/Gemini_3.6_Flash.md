@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-6-sol`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6-sol`, `opencode/gpt-6-sol`
 - **Context window:** 1,000,000 tokens total (1M context window); verified via OpenAI developer documentation.
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** $1.25 / 1M input, $5.00 / 1M output; enterprise and developer API tiers available.
+- **Pricing (as of 2026-10-01):** $1.25 / 1M input, $5.00 / 1M output; enterprise and developer API tiers available.
 - **Architecture:** Proprietary frontier transformer architecture with extended chain-of-thought capabilities.
 
 ### Raw benchmarks found

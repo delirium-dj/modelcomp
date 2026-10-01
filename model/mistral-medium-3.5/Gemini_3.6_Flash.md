@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Gemini 3.6 Flash
 
 - Source: Mistral AI (`mistral/mistral-medium-3.5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `mistral/mistral-medium-3.5` (no Zen Free ID)
 - **Context window:** 128,000 tokens total (128K input / 8K max output); verified via Mistral AI docs.
 - **Modalities:** Text input; text output; function calling and JSON output mode.
-- **Pricing (as of 2026-09-24):** $0.90 / 1M input, $2.70 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.90 / 1M input, $2.70 / 1M output.
 - **Architecture:** Open-weights dense Transformer architecture.
 
 ### Raw benchmarks found

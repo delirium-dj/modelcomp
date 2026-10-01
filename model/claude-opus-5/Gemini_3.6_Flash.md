@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Gemini 3.6 Flash
 
 - Source: Anthropic (`anthropic/claude-opus-5`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-5` (no Zen Free ID)
 - **Context window:** 1,000,000 tokens total (1M input / 128K max output); verified via Anthropic documentation.
 - **Modalities:** Text, image, and PDF input; text output; computer use and tool calling supported.
-- **Pricing (as of 2026-09-18):** $5.00 / 1M input, $25.00 / 1M output (Paid tier).
+- **Pricing (as of 2026-10-01):** $5.00 / 1M input, $25.00 / 1M output (Paid tier).
 - **Architecture:** Proprietary frontier model architecture.
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-18
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

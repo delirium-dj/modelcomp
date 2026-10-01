@@ -1,14 +1,14 @@
 # Claude Fable 5.1 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Fable 5.1
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current Anthropic documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Fable 5.1
-- **Short description:** Anthropic's highest-capability generally available model for long-running coding, research, and knowledge-work agents.
+- **Short description:** Anthropic's highest-capability generally available model for long-running coding, research, and knowledge-work agents; Anthropic describes Fable 5.1 and Mythos 5.1 as the same model with different safeguard levels.
 - **Provider / access:** Anthropic Claude API, `claude-fable-5-1`; native API and cloud marketplaces.
 - **Release / knowledge:** 2026-09-01 release; knowledge cutoff not publicly specified.
 - **IDs:** `anthropic/claude-fable-5-1` (no Zen Free ID).
@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-21
-- Method: Public internet research using Anthropic's product page, platform documentation, and a cited leaderboard report; scores are normalized interpretations, not vendor scores.
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Method: refreshed public-web research using [Anthropic’s Fable 5.1 release](https://www.anthropic.com/claude-fable-and-mythos-5-1); current primary sources confirm the prior core specifications, while clarifying the Fable/Mythos safeguard relationship. Scores are normalized interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

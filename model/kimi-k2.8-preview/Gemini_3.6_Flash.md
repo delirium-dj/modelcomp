@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Gemini 3.6 Flash
 
 - Source: Moonshot AI (`moonshot/kimi-k2-8-preview`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `moonshot/kimi-k2-8-preview` (no Free ID on Zen)
 - **Context window:** 1,048,576 tokens (1M) input — verified via Moonshot AI developer documentation.
 - **Modalities:** Text, image in; text out; tool usage, code workspace interaction.
-- **Pricing (as of 2026-09-19):** Kimi membership plan subscription (no public per-token API tier).
+- **Pricing (as of 2026-10-01):** Kimi membership plan subscription (no public per-token API tier).
 - **Architecture:** Proprietary Mixture-of-Experts with long-context linear attention mechanisms.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

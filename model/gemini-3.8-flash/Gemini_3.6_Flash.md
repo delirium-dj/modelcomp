@@ -1,7 +1,7 @@
 # Google Gemini 3.8 Flash — findings by Gemini 3.6 Flash
 
 - Source: Google/Gemini 3.8 Flash (`google/gemini-3.8-flash`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.8-flash`
 - **Context window:** 1,000,000 tokens (1M input / 65,536 max output tokens — verified via Google documentation).
 - **Modalities:** Text, image, audio, video in; text out; reasoning yes (adjustable thinking: Low, Medium, High); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-19):** $0.75 / 1M input tokens, $3.75 / 1M output tokens ($0.075 / 1M cached input tokens; introductory pricing effective through Dec 31, 2026).
+- **Pricing (as of 2026-10-01):** $0.75 / 1M input tokens, $3.75 / 1M output tokens ($0.075 / 1M cached input tokens; introductory pricing effective through Dec 31, 2026).
 - **Architecture:** Mixture of Experts (MoE), proprietary closed-weights model.
 
 ### Raw benchmarks found
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

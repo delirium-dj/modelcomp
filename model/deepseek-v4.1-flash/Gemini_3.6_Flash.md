@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash — findings by Gemini 3.6 Flash
 
 - Source: DeepSeek (`deepseek/deepseek-v4.1-flash`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4.1-flash` (no Free ID on Zen)
 - **Context window:** 1,000,000 tokens (1M) input / 384,000 (384K) output — verified via DeepSeek documentation.
 - **Modalities:** Text, image in; text out; native function calling and terminal execution modes.
-- **Pricing (as of 2026-09-19):** Paid $0.30 / 1M input, $1.20 / 1M output tokens; MIT-licensed open weights.
+- **Pricing (as of 2026-10-01):** Paid $0.30 / 1M input, $1.20 / 1M output tokens; MIT-licensed open weights.
 - **Architecture:** Open-weights 552B total Sparse MoE (~16B active per token).
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-19
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

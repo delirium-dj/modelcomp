@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Gemini 3.6 Flash
 
 - Source: Anthropic (`anthropic/claude-opus-5-5`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-5-5`, `opencode/claude-opus-5.5`
 - **Context window:** 1,000,000 tokens input / 131,072 max output (1M total); verified via Anthropic documentation.
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-25):** $4.00 / 1M input, $20.00 / 1M output; prompt caching discounts available.
+- **Pricing (as of 2026-10-01):** $4.00 / 1M input, $20.00 / 1M output; prompt caching discounts available.
 - **Architecture:** Proprietary frontier transformer with dynamic context routing and adaptive reasoning.
 
 ### Raw benchmarks found

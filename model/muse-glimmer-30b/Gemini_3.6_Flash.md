@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Gemini 3.6 Flash
 
 - Source: Meta (`meta/muse-glimmer-30b`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta/muse-glimmer-30b`
 - **Context window:** 131,072 tokens input / 8,192 max output — verified via Meta release docs.
 - **Modalities:** text, image, audio, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.15 input / $0.45 output per 1M tokens (hosted API); $0 (open weights).
+- **Pricing (as of 2026-10-01):** $0.15 input / $0.45 output per 1M tokens (hosted API); $0 (open weights).
 - **Architecture:** 30B dense params + 1.8B perception encoder (Apache 2.0)
 
 ### Raw benchmarks found

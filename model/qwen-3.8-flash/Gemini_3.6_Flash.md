@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash — findings by Gemini 3.6 Flash
 
 - Source: Alibaba Cloud (`alibaba/qwen-3.8-flash`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `alibaba/qwen-3.8-flash`
 - **Context window:** 128,000 tokens total (128K input / 8K max output); verified via DashScope docs.
 - **Modalities:** Text input; text output; tool calling and structured output formatting.
-- **Pricing (as of 2026-09-24):** Free tier available; $0.10 / 1M input, $0.40 / 1M output.
+- **Pricing (as of 2026-10-01):** Free tier available; $0.10 / 1M input, $0.40 / 1M output.
 - **Architecture:** Open-weights lightweight MoE architecture.
 
 ### Raw benchmarks found

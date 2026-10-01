@@ -1,7 +1,7 @@
 # Muse Spark 1.1 — findings by Gemini 3.6 Flash
 
 - Source: Meta (`meta/muse-spark-1.1`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta/muse-spark-1.1`
 - **Context window:** 128,000 tokens total (128K input / 4K max output); verified via Meta docs.
 - **Modalities:** Text input; text output; function calling and structured formatting.
-- **Pricing (as of 2026-09-24):** $0.35 / 1M input, $1.05 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.35 / 1M input, $1.05 / 1M output.
 - **Architecture:** Open-weights Transformer architecture.
 
 ### Raw benchmarks found

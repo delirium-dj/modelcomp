@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Gemini 3.6 Flash
 
 - Source: Alibaba (`qwen/qwen-3.8`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `qwen/qwen-3.8`
 - **Context window:** 1,048,576 tokens input / 32,768 max output — verified via Alibaba DashScope documentation.
 - **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $2.00 input / $6.00 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $2.00 input / $6.00 output per 1M tokens.
 - **Architecture:** 2.4T total params, 95B active MoE
 
 ### Raw benchmarks found

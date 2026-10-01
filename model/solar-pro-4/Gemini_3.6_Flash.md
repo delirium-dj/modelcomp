@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by Gemini 3.6 Flash
 
 - Source: Upstage AI / Solar Pro 4 (`solar-pro-4`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `upstage/solar-pro-4`
 - **Context window:** 524,288 tokens (512K input context, up to 128K output tokens).
 - **Modalities:** text input, text output; native tool calls, JSON mode.
-- **Pricing (as of 2026-09-21):** $0.15 / 1M input tokens, $0.60 / 1M output tokens (standard API).
+- **Pricing (as of 2026-10-01):** $0.15 / 1M input tokens, $0.60 / 1M output tokens (standard API).
 - **Architecture:** Proprietary depth-up-scaled Transformer.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

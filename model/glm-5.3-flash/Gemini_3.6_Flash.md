@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Gemini 3.6 Flash
 
 - Source: Z.AI / GLM 5.3 Flash (`glm-5.3-flash`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `zai/glm-5.3-flash`, `opencode/glm-5.3-flash`
 - **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
 - **Modalities:** text, image, multi-image, PDF input; text output; native tool use, JSON mode.
-- **Pricing (as of 2026-09-21):** $0.00 / 1M input tokens, $0.00 / 1M output tokens (Free Zen tier).
+- **Pricing (as of 2026-10-01):** $0.00 / 1M input tokens, $0.00 / 1M output tokens (Free Zen tier).
 - **Architecture:** Open-weights 320B MoE (18B active) with hybrid sparse/linear attention.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

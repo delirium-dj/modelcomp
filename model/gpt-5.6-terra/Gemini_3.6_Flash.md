@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-5.6-terra`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.6-terra` (Paid pricing, no Free ID on Zen)
 - **Context window:** 1,048,576 tokens input / 32,768 max output; verified via OpenAI documentation.
 - **Modalities:** Text, image, audio, video, PDF input; text output; reasoning; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $2.50 / 1M input, $10.00 / 1M output.
+- **Pricing (as of 2026-10-01):** $2.50 / 1M input, $10.00 / 1M output.
 - **Architecture:** Proprietary multimodal MoE architecture.
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

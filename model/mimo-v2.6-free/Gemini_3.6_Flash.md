@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Gemini 3.6 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-free`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2-6-free`
 - **Context window:** 128,000 tokens total (128K input / 4K max output); verified via Xiaomi AI documentation.
 - **Modalities:** Text input; text output; structured function calling and JSON output.
-- **Pricing (as of 2026-09-24):** Free tier ($0.00 / 1M tokens on OpenCode Zen).
+- **Pricing (as of 2026-10-01):** Free tier ($0.00 / 1M tokens on OpenCode Zen).
 - **Architecture:** Open-weights lightweight Transformer architecture.
 
 ### Raw benchmarks found

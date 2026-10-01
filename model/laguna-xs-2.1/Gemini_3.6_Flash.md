@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Gemini 3.6 Flash
 
 - Source: Poolside (`poolside/laguna-xs-2.1`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `poolside/laguna-xs-2.1`
 - **Context window:** 262,144 tokens input / 16,384 max output — verified via Poolside release docs.
 - **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $0.10 input / $0.30 output per 1M tokens (hosted API); $0 (open weights).
+- **Pricing (as of 2026-10-01):** $0.10 input / $0.30 output per 1M tokens (hosted API); $0 (open weights).
 - **Architecture:** 33B total params, 3B active MoE (OpenMDW-1.1)
 
 ### Raw benchmarks found

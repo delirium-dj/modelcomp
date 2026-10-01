@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-3.5-flash`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.5-flash`
 - **Context window:** 1,048,576 tokens input / 8,192 max output; verified via Google documentation.
 - **Modalities:** Text, image, audio, video, PDF input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** Free tier available; $0.075 / 1M input, $0.30 / 1M output.
+- **Pricing (as of 2026-10-01):** Free tier available; $0.075 / 1M input, $0.30 / 1M output.
 - **Architecture:** Proprietary multimodal MoE architecture.
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

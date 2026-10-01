@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Gemini 3.6 Flash
 
 - Source: Omen/omen-alpha
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `omen/omen-alpha`
 - **Context window:** 500,000 tokens (verified via OpenCode Zen spec).
 - **Modalities:** text, image in; text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-27):** $0.50 input / $2.00 output / $0.10 cached per 1M tokens.
+- **Pricing (as of 2026-10-01):** $0.50 input / $2.00 output / $0.10 cached per 1M tokens.
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found

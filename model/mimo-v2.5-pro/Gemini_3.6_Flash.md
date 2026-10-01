@@ -1,7 +1,7 @@
 # Xiaomi MiMo-V2.5-Pro — findings by Gemini 3.6 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.5-pro`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xiaomi/mimo-v2.5-pro` (Paid pricing, no Free ID found on Zen)
 - **Context window:** 1,048,576 tokens input / 32,768 max output; verified via Xiaomi website.
 - **Modalities:** Text input, text output; tool calls; JSON mode.
-- **Pricing (as of 2026-09-17):** $0.44 / 1M input, $0.87 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.44 / 1M input, $0.87 / 1M output.
 - **Architecture:** Open-weights MoE (1.02T total / 42B active parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-17
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.

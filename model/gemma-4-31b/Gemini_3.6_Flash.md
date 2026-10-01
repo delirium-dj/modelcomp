@@ -1,7 +1,7 @@
 # Gemma 4 31B IT — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemma-4-31b-it`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemma-4-31b-it`, `gemma-4-31b-it`
 - **Context window:** 256,000 tokens (256K input / 16,384 max output tokens — verified via HuggingFace and OpenRouter specs).
 - **Modalities:** Text, image, and video input; text output; reasoning yes (configurable thinking mode); native tool calls yes.
-- **Pricing (as of 2026-09-21):** $0.15 / 1M input tokens, $0.40 / 1M output tokens (Free to run locally under Apache 2.0 license).
+- **Pricing (as of 2026-10-01):** $0.15 / 1M input tokens, $0.40 / 1M output tokens (Free to run locally under Apache 2.0 license).
 - **Architecture:** Dense 31-billion parameter multimodal architecture with thinking mode support.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

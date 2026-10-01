@@ -1,7 +1,7 @@
 # GLM 5.3 — findings by Gemini 3.6 Flash
 
 - Source: Zhipu AI (`zhipu/glm-5.3`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `zhipu/glm-5.3`
 - **Context window:** 1,048,576 tokens input / 16,384 max output — verified via Zhipu AI documentation.
 - **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $1.00 input / $3.00 output per 1M tokens.
+- **Pricing (as of 2026-10-01):** $1.00 input / $3.00 output per 1M tokens.
 - **Architecture:** 753B total params MoE (MIT-style license)
 
 ### Raw benchmarks found

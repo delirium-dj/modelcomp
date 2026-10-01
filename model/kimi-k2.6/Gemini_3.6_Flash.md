@@ -1,7 +1,7 @@
 # Moonshot Kimi K2.6 — findings by Gemini 3.6 Flash
 
 - Source: Moonshot AI (`moonshot/kimi-k2.6`)
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Gemini 3.6 Flash
 
 - Source: Anthropic / Claude Mythos 5.1 (`claude-mythos-5.1`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-mythos-5.1`
 - **Context window:** 1,000,000 tokens (1M input context, up to 128K output tokens).
 - **Modalities:** text and image input; text output; native tool use, JSON mode, reasoning mode.
-- **Pricing (as of 2026-09-21):** $10.00 / 1M input tokens, $50.00 / 1M output tokens ($0.25 / 1M cache read tokens).
+- **Pricing (as of 2026-10-01):** $10.00 / 1M input tokens, $50.00 / 1M output tokens ($0.25 / 1M cache read tokens).
 - **Architecture:** Proprietary frontier dense/MoE architecture.
 
 ### Raw benchmarks found
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

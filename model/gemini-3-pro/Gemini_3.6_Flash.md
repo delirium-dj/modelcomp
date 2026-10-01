@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by Gemini 3.6 Flash
 
 - Source: Google (`google/gemini-3-pro-preview`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3-pro-preview`
 - **Context window:** 1,048,576 tokens input / 64,000 max output — verified via official Google developer documentation.
 - **Modalities:** text, image, audio, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-09-25):** $1.25 input / $5.00 output per 1M tokens (prompts <= 128k); $2.50 input / $10.00 output (prompts > 128k).
+- **Pricing (as of 2026-10-01):** $1.25 input / $5.00 output per 1M tokens (prompts <= 128k); $2.50 input / $10.00 output (prompts > 128k).
 - **Architecture:** proprietary MoE
 
 ### Raw benchmarks found

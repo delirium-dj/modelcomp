@@ -1,7 +1,7 @@
 # Deepseek V4 Pro — findings by Gemini 3.6 Flash
 
 - Source: DeepSeek (`deepseek/deepseek-v4-pro`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4-pro` (no Zen Free ID)
 - **Context window:** 128,000 tokens total (128K input / 8K max output); verified via DeepSeek API docs.
 - **Modalities:** Text input; text output; structured function calling and JSON mode.
-- **Pricing (as of 2026-09-24):** $0.27 / 1M input, $1.10 / 1M output.
+- **Pricing (as of 2026-10-01):** $0.27 / 1M input, $1.10 / 1M output.
 - **Architecture:** Open-weights Mixture-of-Experts architecture.
 
 ### Raw benchmarks found

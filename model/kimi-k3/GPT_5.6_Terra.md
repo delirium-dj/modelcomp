@@ -1,7 +1,7 @@
 # Kimi K3 — findings by GPT-5.6 Terra
 
 - Source: Moonshot AI / Kimi K3
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current public evidence)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **93.5%** (Kimi K3 model card reproduced in Kempner Institute's HPC Agentic Recipes; Kimi Code harness caveat noted).
 - Artificial Analysis Intelligence Index: **57** (third-party comparison reported in contemporaneous coverage; rank #4 of 189 in that snapshot).
+- FrontierFinance: **46.4%** for Kimi K3 as the best open-weight model in the paper’s common finance-agent harness (independent academic evaluation).
 
 Coding:
 
@@ -52,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
-- Method: Fresh public-web research, emphasizing the Kimi Team technical report; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Method: refreshed public-web research, including the [Kimi K3 technical report](https://arxiv.org/abs/2607.24653) and [independent FrontierFinance evaluation](https://arxiv.org/abs/2608.11683); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-5.6-terra`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current OpenAI documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,13 +47,13 @@ Long context:
 - **Context window: 95/100.** The official 1.05M context plus MRCR v2 72.5% and GraphWalks 71.2% at the 1M tier support a high score, while showing real retrieval degradation at maximum length.
 - **Multimodal: 78/100.** Text and image input are confirmed and MMMU Pro reaches 80.7% without tools / 82.0% with tools; audio and video are unsupported and output is text-only.
 - **Coding: 90/100.** SWE-bench Pro at 63.4%, DeepSWE at 69.6%, Terminal-Bench 2.1 at 87.4%, and AA Coding Agent Index 77.4 demonstrate strong agentic coding; OpenAI does not publish LiveCodeBench or SciCode rows.
-- **Cost efficiency: 65/100.** $2/$12 per MTok is a paid mid-tier rate, not free-tier pricing.
+- **Cost efficiency: 63/100.** $2/$12 per MTok is a paid mid-tier rate, not free-tier pricing; current documentation also bills prompts above 272K tokens at 2× input and 1.5× output rates.
 - **Overall Score: 87.4/100.** Mean of the five quality dimensions: (85 + 89 + 95 + 78 + 90) / 5 = 87.4; best suited to tool-enabled, long-context work where a paid mid-tier model is appropriate.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-18
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
 - Method: public internet research using the official OpenAI model documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

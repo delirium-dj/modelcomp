@@ -84,10 +84,14 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** this is the better-retained of the two 2026-09-17 reports — no capability number had to be walked back, and the one measured regression (throughput) falls outside the scoring rubric. The real reason to revisit the conclusion is lifecycle: with the V2 line deprecated in favour of V2.6-Pro, the honest recommendation framing shifts from "top open long-horizon text model" to "still-competent 1M-context workhorse on a supported-cost basis, but plan a migration".
 
+### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
+
+- Independent re-attestation of the first 2026-10-01 pass: no newer benchmark, pricing, or lifecycle event for `mimo-v2.5-pro` surfaced. Scores unchanged: Tool 80 / Reasoning 78 / Context 100 / Multimodal 15 / Coding 82 / Cost 88 / **Overall 71**. The deprecation caveat (V2 line EOL 2026-06-30, migrate to V2.6-Pro) remains the actionable item.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
 - Method: public web research (Xiaomi HF model card + blog/API docs, Artificial Analysis, evals.report, BenchmarkList/Sophon, OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
