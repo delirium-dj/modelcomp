@@ -1,0 +1,45 @@
+# Space Bunny Alpha — self-exclusion by Laguna S 2.1
+
+- Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`), OpenCode Zen pricing page (`https://opencode.ai/docs/zen/#pricing`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Space Bunny Alpha (Zen ID: space-bunny-free)
+- **Short description:** Anonymous stealth preview reasoning model (vendor undisclosed) for coding, agentic tasks, tool use, and multimodal input; free limited-time tier on Zen as Space Bunny Free. Provider follows a zero-retention policy and does not use data for training.
+- **Provider / access:** OpenCode Zen only (`opencode/space-bunny-free`); free during limited preview period
+- **Context window:** 1M total (per `meta.json`)
+- **Modalities:** Text, image, video input; text output (per `meta.json`)
+
+## Research log
+
+1. Searched for model on Artificial Analysis (`https://artificialanalysis.ai/models/space-bunny-alpha`) — 404 (page not found).
+2. Searched for model on BenchLM (`https://benchlm.ai/models/space-bunny-alpha`) — 404 (page not found).
+3. Checked OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model listed as "Space Bunny Free" with no benchmark references.
+4. Checked Zen pricing section (`https://opencode.ai/docs/zen/#pricing`) — model priced as Free/Free/Free (no paid tier).
+5. Searched HuggingFace for "space-bunny" — no relevant model card found.
+6. Searched web for "Space Bunny Alpha AI model benchmarks" — no verified public benchmark numbers found.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Space Bunny Alpha / `space-bunny-free`.
+
+The model is an anonymous stealth preview with an undisclosed vendor, available only as a free tier on OpenCode Zen. No Artificial Analysis model page, no BenchLM entry, no HuggingFace model card, no published benchmark scores, and no official model card or launch post with benchmark numbers could be located.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. When Space Bunny Alpha is no longer anonymous (vendor disclosed) or publishes benchmark numbers on a public source (Artificial Analysis, BenchLM, HuggingFace, or an official announcement), this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+The model's `average.md` scores (Overall: 75.7) are derived from peer model ratings, not from verified public benchmarks. These peer ratings are internal cross-model assessments and do not constitute verified public benchmark numbers per the research methodology.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public internet research via OpenCode Zen docs, Artificial Analysis, BenchLM, and HuggingFace; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found.
+
+---
