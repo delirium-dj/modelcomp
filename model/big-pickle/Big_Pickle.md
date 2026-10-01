@@ -73,17 +73,10 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** the cleanest "no change" of the batch. The report was already conservative and the re-verification found no new verifiable evidence to revise any score. The recommendation "treat the 50.8% Codebase-QnA as the strongest verifiable datapoint" remains correct, as does the caveat that it's a zero-cost low-information model for the free window only.
 
-### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
-
-- **New primary source:** a Grokipedia entry for Big Pickle (fact-checked ~2026-09-28) documents that the underlying model **rotates periodically** — community consensus pinned the original serving as **GLM-4.6** (Zhipu, 355B/32B-active MoE), while the entry's metrics section describes the current host as **GLM-4.7** (358B) and lists its card numbers (MMLU-Pro 84.3, SWE-bench Verified 73.8, SWE-bench Multilingual 66.7, HLE 24.8/42.8 with tools). These are **inherited base-model numbers, not measurements of the `big-pickle` alias**, so they cannot raise scores — but they confirm the "stealth rotation" caveat and suggest the served quality has drifted upward since the 2026-08-11 SWE-Atlas run. Current identity remains undisclosed by OpenCode.
-- **Throughput signal:** TokenDyno ranks Big Pickle 3rd of 4 Zen models on measured tokens/s (mid-pack across 59 providers); a community comparison table quotes ~189 tok/s. Consistent with "usable, not fast."
-- **Real-world usage:** a month-long practitioner write-up (daniel-tenzler.de) reports successfully shipping several personal projects on the free tier — supports the "fine as a free fallback" recommendation.
-- **Scores unchanged:** no new *verified first-party* benchmark for the alias itself; Tool 40 / Reasoning 55 / Context 70 / Multimodal 15 / Coding 60 / Cost 100 / **Overall 48** all hold.
-
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
 - Method: public web research (models.dev, Pi.dev, OpenCode docs, community eval repos); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

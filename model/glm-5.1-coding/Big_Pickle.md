@@ -80,14 +80,10 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** a strong report that needed almost no walking-back. The single placeholder gap is filled with a top-tier number, every other score held, and the previously unmeasured weakness (throughput) is now documented. What genuinely changes the recommendation is lifecycle: with Z.AI steering users to GLM-5.2, the honest framing shifts from "top paid open long-horizon coding" to "still-strong, MIT-licensed and cheap to self-host, but deprecated upstream and slow — prefer GLM-5.2 for new work."
 
-### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
-
-- Independent re-attestation of the first 2026-10-01 pass: no newer benchmark, pricing, or lifecycle event for GLM-5.1 surfaced beyond what is already recorded (deprecation → GLM-5.2, AA Index 26 @ #22/117, 44.0 tok/s, $1.02/task). Scores unchanged: Tool 80 / Reasoning 78 / Context 70 / Multimodal 15 / Coding 86 / Cost 70 / **Overall 66**.
-
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
 - Method: public web research (Z.AI/HF model card, Z.AI docs, Artificial Analysis, Vals, BenchLM, Gate News, The Batch); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

@@ -1,0 +1,8 @@
+{
+  "id": "opencode/jev-1.13",
+  "name": "Jev 1.13",
+  "short": "Jev 1.13 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

@@ -84,14 +84,10 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** the cleanest re-verification of the batch so far — no capability number regressed, the $0 access that defines the entry is confirmed still available, and the one open caveat (orchestration speed) now has independent measurements pointing the model's way. The framing changes only slightly, from "verify orchestration" to "fast enough to stop verifying that".
 
-### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
-
-- Independent re-attestation of the first 2026-10-01 pass: no newer benchmark, pricing, or lifecycle event surfaced beyond what is already recorded (AA Index 23 @ v4.3.2 #36/117, 154.9 tok/s #11/117, Zen free tier live, text-only confirmed, not deprecated). Scores unchanged: Tool 75 / Reasoning 72 / Context 97 / Multimodal 15 / Coding 78 / Cost 100 / **Overall 67**.
-
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
 - Method: public web research (NVIDIA tech report + HF model card + developer blog, Artificial Analysis, BenchLM, models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

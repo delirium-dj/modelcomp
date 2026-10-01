@@ -90,17 +90,10 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** the original report was directionally right and its weakest number was the one that moved. The one caveat worth carrying forward is lifecycle, not capability — this is now a deprecated model line, so it belongs in a buyer's shortlist only where the $0 Zen tier and the 4-channel input coverage still matter more than a supported release train.
 
-### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
-
-- **Pricing drift check:** llm-stats now lists the native `mimo-v2.5` at **$0.168/M in, $0.003/M cached, $0.336/M out** — a slight uptick from the $0.14/$0.28 launch-window rates recorded on 2026-09-17. No score impact (Cost stays 100 — scored on the $0 Zen tier).
-- **Zen free tier re-confirmed** via pi.dev model registry: `opencode/mimo-v2.5-free`, OpenAI-completions, text+image in, reasoning on, **200,000 context / 32,000 max tokens** — matches the 2026-09-17 card exactly.
-- **Deprecation re-confirmed** from additional angles: BenchLM excludes MiMo-V2.5 from its public leaderboard pending non-generated coverage, and third-party trackers (evals.report) treat the V2.5 line as historical, pointing at MiMo-V2.6 — consistent with the 2026-06-30 end-of-life already noted above. Xiaomi's own `mimo.xiaomi.com/mimo-v2-5` launch page (2026-04-22, 1M context, native audio+visual) remains the canonical first-party anchor for the modality claims.
-- **Scores unchanged:** Tool 77 / Reasoning 70 / Context 70 / Multimodal 95 / Coding 72 / Cost 100 / **Overall 77** all hold — no new verified evidence contradicts the first-pass 2026-10-01 re-derivation.
-
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
 - Method: public web research (Xiaomi launch/open-source pages, HF model card, models.dev, Artificial Analysis, BenchmarkList, evals.report); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

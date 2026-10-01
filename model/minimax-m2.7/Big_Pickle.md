@@ -79,14 +79,10 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** every score held and the raw benchmark set needed no correction. What changes is lifecycle plus one newly visible weakness: at 47 tok/s this is a slow generator, so "best-value paid text coding/agent" needs the qualifier that it is the cheapest credible option rather than the fastest. With M3 out, the honest framing is "still a sound cheap workhorse, but plan a migration".
 
-### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
-
-- Independent re-attestation of the first 2026-10-01 pass: no newer benchmark, pricing, or lifecycle event for MiniMax-M2.7 surfaced beyond what is already recorded (deprecation → M3, AA Index 23 @ #38/117, 47.1 tok/s, $0.30/$1.20 unchanged, non-commercial license). Scores unchanged: Tool 78 / Reasoning 78 / Context 70 / Multimodal 15 / Coding 80 / Cost 88 / **Overall 64**.
-
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
 - Method: public web research (MiniMax/GitHub/HF card, arXiv 2605.26494, Artificial Analysis, OpenRouter, BenchLM, benchmarklist.com, OpenCode docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
