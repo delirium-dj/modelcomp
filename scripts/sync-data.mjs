@@ -182,9 +182,11 @@ try {
 // folder like `gpt-5-5` is a duplicate of `gpt-5.5`, not a new model — fail
 // loudly with the dotted destination instead of cementing the duplicate.
 // Slug exceptions (match digit-hyphen-digit but are NOT hyphen versions):
-// param sizes `gemma-4-31b` ("4" + 31B params) and `qwen-3.8-27b`
-// (version 3.8 + 27B params). (Single majors with codename/experimental
-// suffixes like `gpt-6-astra` never match the check at all.)
+// param sizes `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`
+// (version 3.8 + 27B params) and `qwen-3.5-9b` (version 3.5 + 9B params).
+// (Single majors with codename/experimental suffixes like `gpt-6-astra`
+// never match the check at all.) Full list: SLUG_VERSION_EXCEPTION in
+// scripts/lib/naming.mjs.
 for (const slug of slugs) {
   const suggestion = hyphenVersionViolation(slug);
   if (suggestion !== null) {

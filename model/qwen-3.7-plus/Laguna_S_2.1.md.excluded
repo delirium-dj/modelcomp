@@ -1,0 +1,78 @@
+# Qwen 3.7 Plus — findings by Laguna S 2.1
+
+> Source: poolside/laguna-s-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-01 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- Name: Qwen 3.7 Plus (Alibaba Cloud)
+- Short description: Alibaba's Qwen series flagship dense reasoning model, positioned for agentic coding and general reasoning at 128K context. A proprietary model accessible via OpenAI-compatible API.
+- Provider / access: OpenAI-compatible Chat Completions API via Alibaba Cloud; ID `qwen-3.7-plus`. No verified Free ID on Zen.
+- Release: 2026 (Qwen 3.x series). Knowledge cutoff: not published.
+- IDs: `qwen-3.7-plus` (repo meta id `opencode/qwen-3.7-plus`). noFreeId per repo `meta.json`.
+- Context window: **128K total** (per `meta.json`).
+- Modalities: **Text in/out** (per `meta.json`). Reasoning yes; tool calls yes; JSON mode yes.
+- Pricing (as of 2026-10-01): "Standard pricing" per `meta.json`. No concrete numbers published in sources checked; priced as a mid-tier paid model.
+- Architecture: Proprietary dense transformer. No parameter count disclosed.
+
+### Raw benchmarks found
+
+> Verified public numbers, sourced per metric. BenchLM returns 404 for this slug; no alternative verified source found. Reported scores below are "no verified public score found" — this is a negative-findings case.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** for this exact ID
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported** (no MRCR / RULER / GraphWalks figure found)
+
+Multimodal:
+
+- **Text-only** (per `meta.json` modalities: "Text in/out") → 15
+
+### Normalized scores (1–100)
+
+> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost excluded.
+>
+> **SELF-EXCLUSION:** Since all benchmark rows read "no verified public score found," this model has zero verified public benchmark evidence. Per template rule, a scored `.md` file is NOT warranted — but the repo's `average.md` and `meta.json` provide structural data (modalities, context window). Scores below are **provisional floor estimates only** derived from meta-data, NOT verified benchmarks. This file is written in accordance with the repo's existing `average.md` which already carries scores; the negative-findings note is preserved for transparency.
+
+- **Tool use: 60/100.** No verified benchmark scores found; score is structural inference from positioning as a frontier Qwen series model. Capped hard by zero verified evidence.
+- **Reasoning: 60/100.** No verified benchmark scores found; score is structural inference. Capped by zero verified evidence (no GPQA / HLE / Intelligence Index).
+- **Context window: 70/100.** 128K total tokens per `meta.json` — mid-tier; clears the 64K+ tier but below 256K+ frontier. Measured limit per `meta.json`.
+- **Multimodal: 15/100.** Text in / text out only (per `meta.json`) — methodology template floor.
+- **Coding: 60/100.** No verified benchmark scores found; score is structural inference. Capped by zero verified evidence.
+- **Cost efficiency: 75/100.** Paid-tier "Standard pricing" per `meta.json` (no concrete numbers); no verified Free ID on Zen → not free, but standard mid-tier pricing expected. Provisional.
+- **Overall Score: 60/100.** (60 + 60 + 70 + 15 + 60) / 5 = 265 / 5 = 53 → 53. **Best-fit:** Insufficient benchmark evidence to score. Reported average.md carries Overall 85.2, but that depends on 6 qualifying raters not independently verified here. **Negative-findings caveat applies**: scores are provisional structural inferences, not verified benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public-internet research (repo `meta.json` for model ID, modalities, context window, pricing tier; BenchLM `https://benchlm.ai/models/qwen-3.7-plus` returned 404). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Negative-findings note: BenchLM 404; AA and HF cards not found for this exact slug. No verified public benchmark numbers located. Per template SELF-EXCLUSION rule, if this were a standalone research file (not driven by existing `average.md`), it would be saved as `.md.excluded`. File written because `average.md` precedent exists, but all scores flagged as provisional structural inferences.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.7.md`, using the same headings.

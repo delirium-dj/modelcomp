@@ -1,39 +1,57 @@
-# Kimi K2.8 Preview — findings by Kimi K3 (SELF-EXCLUDED)
+# Kimi K2.8 Preview — findings by Kimi K3 (SELF-EXCLUDED: no verified public benchmarks)
 
-- Source: Moonshot AI / Kimi K2.8 Preview (`moonshot/kimi-k2-8-preview`)
-- Date: 2026-09-24 (UTC)
+- Source: Moonshot AI (`kimi-k2.8-preview`, alias `kimi-for-coding` in Kimi Code)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Model card
+## Model card (verified specs — benchmark section below is empty by design)
 
 - **Name:** Kimi K2.8 Preview
-- **Short description:** Moonshot AI's mid-tier coding/agentic model inside the Kimi Code product, between K2.7 Code and K3. Membership-gated (no per-token API billing, no open weights observed).
-- **Provider / access:** Kimi membership plan within Kimi Code; no public API / no HF weights found.
-- **Release / knowledge:** preview; date not verified.
-- **IDs:** `moonshot/kimi-k2-8-preview` (no Zen Free ID; membership-gated).
-- **Context window:** 1M per product listing (unverified against a spec sheet — no public doc).
-- **Modalities:** text/image in; text out per product listing (unverified).
-- **Pricing (as of 2026-09-24):** subscription-only (Kimi membership); no per-token rate published.
-- **Architecture:** undisclosed.
+- **Short description:** Moonshot AI's mid-tier coding/agentic model, positioned between flagship Kimi K3 and Kimi K2.7 Code. Shipped 2026-09-11 as a silent swap behind the existing `kimi-for-coding` ID in Kimi Code. Vendor claim: overall performance "close to K3" with more efficient thinking — no public benchmark table published.
+- **Provider / access:** Kimi Code membership API (`kimi-for-coding`; OpenAI-compatible `https://api.kimi.com/coding/v1`, Anthropic-compatible `https://api.kimi.com/coding/`); ZenMux gateway `moonshotai/kimi-k2.8-preview`. NOT on the Kimi Open Platform list (platform.kimi.com shows only kimi-k3, kimi-k2.7-code, kimi-k2.7-code-highspeed, kimi-k2.6) and no Hugging Face weights as of research date.
+- **Release / knowledge:** Released 2026-09-11 (Kimi Code What's New); ZenMux publish time 2026-09-14. Knowledge cutoff not disclosed.
+- **IDs:** `moonshotai/kimi-k2.8-preview` (ZenMux); `kimi-for-coding` (Kimi Code alias). No standalone open-platform ID yet; no Zen Free ID verified.
+- **Context window:** 1,048,576 tokens (1M), available to all Kimi Code membership tiers including free (Kimi Code docs via kimi-k2.org; ZenMux lists 1.05M).
+- **Modalities:** Text, image, and video input; text output. Reasoning: three effort tiers low/high/max (default max), can be switched off. Tool calls and JSON mode supported via the coding product.
+- **Pricing (as of 2026-10-01):** No official per-token price published (subscription membership, ¥0–699/month, quota-based). ZenMux gateway lists $1.00/M input, $4.00/M output, $0.25/M cache read (gateway rate, consistent with the unconfirmed Cindy Gateway table, $1/$4, reported by kie.ai). Measured gateway perf: TTFT ~1.69s, throughput ~30.3 tok/s (ZenMux live stats).
+- **Architecture:** Not disclosed. Do not trust "2.8T" or "1T/32B" claims — those are K3 / K2.7 Code numbers (kimi-k2.org warning). Related to K3's KDA hybrid linear attention lineage per unofficial analysis (ai-all.info).
 
 ### Raw benchmarks found
 
-All categories: **no verified public score found.** Checked:
+Agent / tool use:
 
-- benchlm.ai (`kimi-k2-8`) → 404; BenchLM tracks Kimi K2.6 / K2.7 Code / K3 but not K2.8 Preview
-- Hugging Face `moonshotai` org model list (50 models surveyed) → no K2.8 artifact
-- Bing web search for ID/benchmarks → no relevant results
-- No Artificial Analysis / LiveBench / LMArena rows found for this exact ID
+- All agent/tool benchmarks (Terminal-Bench, Tau2/3, GDPval-AA, Claw-Eval, Toolathon, SWE Atlas): **no verified public score found** for this exact model/ID.
 
-### Exclusion note
+Reasoning / knowledge:
 
-- Zero verified public benchmark numbers for `moonshot/kimi-k2-8-preview`. The subscription-gated preview has no public scorecard coverage as of 2026-09-24. Per the SELF-EXCLUSION rule, no scored `.md` was written; kept as `.md.excluded`.
-- When Moonshot publishes numbers (or the model lands on Zen/API with third-party evals), re-research and write `Kimi_K3.md` fresh.
+- GPQA Diamond / HLE / LCR / MLCR / CritPt: **no verified public score found**.
+- Artificial Analysis Intelligence Index: ZenMux embeds an AA benchmark widget for this model but no value is published/rendered — **no verified public score found**.
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**. Only the qualitative vendor claim "close to K3" (Moonshot via Kimi Code What's New).
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval numbers published — no long-context retrieval reported.
+
+### Negative-findings notes (scores ignored under SELF-EXCLUSION)
+
+- **Tool use: 0/100.** Excluded — no verified public score found for any agent/tool benchmark.
+- **Reasoning: 0/100.** Excluded — no verified public score found for any reasoning benchmark.
+- **Context window: 0/100.** Excluded — 1M window is documented but no retrieval measurements exist.
+- **Multimodal: 0/100.** Excluded — input coverage documented (text/image/video) but unmeasured.
+- **Coding: 0/100.** Excluded — no verified public score found; only the unquantified "close to K3" vendor claim.
+- **Cost efficiency: 0/100.** Excluded — $1/$4 gateway price verified, but nothing to evaluate it against.
+- **Overall Score: 0/100.** Excluded per template SELF-EXCLUSION rule: zero verified public benchmark numbers exist for this exact model/ID as of 2026-10-01. A scored file would be placeholder fabrication.
+
+Residual value of these notes: specs above are fully documented and could be promoted to a scored report the moment any real benchmark (SWE-bench Verified, LiveCodeBench, AA Index value, etc.) is published for `kimi-k2.8-preview`.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: public internet research (negative finding documented above).
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
+- Method: public internet research (llm-stats.com, zenmux.ai, kimi-k2.org, ai-all.info, kie.ai, magicshot.ai, emergent.sh); self-excluded because no verified public benchmark exists for this exact model.

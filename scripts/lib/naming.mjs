@@ -26,8 +26,12 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
   return { label, slug };
 }
 
-/** Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions. */
-export const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b"]);
+/**
+ * Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions.
+ * Param sizes: `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b` and
+ * `qwen-3.5-9b` (version + *B params — the hit is version-digit → param-digit).
+ */
+export const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b", "qwen-3.5-9b"]);
 
 /**
  * Hyphen-version gate (see model/README.md): version numbers use "." not "-".

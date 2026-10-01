@@ -1,0 +1,1 @@
+{"id": "anthropic/claude-3-5-sonnet", "name": "Claude Sonnet 3.5", "short": "Anthropic's mid-2024 workhorse Sonnet generation (Claude 3.5 Sonnet) — balanced text/image reasoning and coding for its era.", "contextWindow": "200K total (64K max output)", "modalities": "Text + image in, text out", "pricingNote": "Paid $3/$15 per 1M in/out", "noFreeId": true}

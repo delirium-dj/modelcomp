@@ -130,7 +130,7 @@ Full details moved to [`model/minimax-m2.7/Muse_Spark_1.3.md`](model/minimax-m2.
 
 ## Xiaomi MiMo-V2.5-Pro
 
-Full details moved to [`model/xiaomi-mimo-v2.5-pro/Muse_Spark_1.3.md`](model/xiaomi-mimo-v2.5-pro/Muse_Spark_1.3.md) (requested as Free with comma typo; no Free ID on Zen, scored on paid pricing).
+Full details moved to [`model/mimo-v2.5-pro/Muse_Spark_1.3.md`](model/mimo-v2.5-pro/Muse_Spark_1.3.md) (requested as Free with comma typo; no Free ID on Zen, scored on paid pricing).
 
 - **Scores:** Tool 82 / Reasoning 78 / Context 100 / Multimodal 15 / Coding 82 / Cost 85 → **Overall 74**
 - **One-liner:** top open long-horizon Pro; pair with V2.5 Free when vision/audio needed.

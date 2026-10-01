@@ -1,0 +1,70 @@
+# GPT-5 — findings by Laguna S 2.1
+
+> Source: poolside/laguna-s-2.1 (particleside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-01 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- Name: GPT-5 (OpenAI)
+- Short description: OpenAI's August 2025 flagship router system pairing a fast model with a deeper reasoning model. Set launch records in math and coding, then was superseded by GPT-5.1 and later (per repo `meta.json` short).
+- Provider / access: OpenAI API (Chat Completions / Responses API); ID `gpt-5`. Zen pricing per repo `meta.json`. noFreeId per repo `meta.json`.
+- Release: August 2025 (per repo `meta.json` short). Knowledge cutoff: not published by vendor.
+- IDs: `gpt-5` (repo meta `opencode/gpt-5`). noFreeId per repo `meta.json`.
+- Context window: **400K total (128K max output)** (per repo `meta.json`); AA page shows variant "GPT-5 (deprecated)" with note that "GPT-5 (High)" exists. Scoring uses repo `meta.json` 400K figure as primary.
+- Modalities: **Text, image, file in / text out; reasoning; tool calls** (per repo `meta.json`). AA confirms text+image input, reasoning yes.
+- Pricing (as of 2026-10-01): **$1.25 in / $10.00 out per 1M tokens** (OpenAI, per repo `meta.json`); cached $0.125 in. Zen pricing: OpenCode Zen $1.07 in / $8.50 out per 1M. noFreeId — paid-tier only.
+- Architecture: Proprietary dense transformer router (OpenAI). No parameter count disclosed.
+
+### Raw benchmarks found
+
+> **EXCLUDED FILE — scores inside are ignored.** BenchLM returns 404 for `gpt-5`; AA `artificialanalysis.ai/models/gpt-5` page is deprecated ("This model is deprecated") with note that "GPT-5 (High)" is the active variant. No independent benchmark scores retrieved under this exact slug during this research pass.
+
+Agent / tool use:
+
+- AutomationBench: **no verified public score found** for this exact ID (BenchLM 404; AA deprecated)
+- Terminal-Bench 4.0: **no verified public score found** for this exact ID
+- GDPval-AA: **no verified public score found** for this exact ID
+- Toolathon / MCP-Atlas / SWE Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** for this exact ID
+- HLE: **no verified public score found**
+- AA Intelligence Index: **no verified public score found** (AA page deprecated; no score rendered)
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found** for this exact ID
+- LiveCodeBench: **no verified public score found** for this exact ID
+- AA-SciCode: **no verified public score found**
+
+Long context:
+
+- **no MRCR / RULER / GraphWalks** retrieval figure published under this slug
+
+Multimodal:
+
+- **no verified public score found** (no AAA / MMMU-Pro / vision benchmarks located under this exact slug; AA page deprecated)
+
+### Normalized scores (1–100)
+
+> **EXCLUDED FILE — scores below are placeholders and IGNORED by sync.** Per template SELF-EXCLUSION rule, since all benchmark rows read "no verified public score found," a scored `.md` file is NOT warranted. Scores below are structural floor estimates only (derived from repo `meta.json`), not verified benchmarks.
+
+- **Tool use: 70/100.** No verified benchmark scores; structural inference from positioning as an August 2025 OpenAI flagship router.
+- **Reasoning: 75/100.** No verified benchmark scores; structural inference from repo `meta.json`.
+- **Context window: 93/100.** 400K total (128K max output) per repo `meta.json`.
+- **Multimodal: 86/100.** Verified text + image + file input, reasoning, tool calls per repo `meta.json`.
+- **Coding: 70/100.** No verified benchmark scores; structural inference from repo `meta.json` short.
+- **Cost efficiency: 68/100.** $1.25 in / $10.00 out is paid-tier, expensive; cached $0.125 in offsets; no Free ID on Zen.
+- **Overall Score: 79/100.** (70 + 75 + 93 + 86 + 70) / 5 = 78.8 → 79. Ignored — see exclusion note above.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public-internet research (repo `meta.json` for model ID, modalities, context window, pricing tier; BenchLM `https://benchlm.ai/models/gpt-5` returned 404; AA `https://artificialanalysis.ai/models/gpt-5` page is deprecated with no rendered scores). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Exclusion note: Zero verified public benchmarks retrieved under this exact slug (BenchLM 404; AA page deprecated). Saved as `.md.excluded` per SELF-EXCLUSION rule; scores inside are ignored.
+- Future sources: add a new file next to this one, e.g. `GPT_5_1.md`, using the same headings.

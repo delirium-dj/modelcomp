@@ -131,7 +131,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT OSS 120B", label: "GPT OSS 120B", file: "GPT_OSS_120B.md", slug: "gpt-oss-120b" },
   { key: "Grok 4.20", label: "Grok 4.20", file: "Grok_4.20.md", slug: "grok-4.20" },
   { key: "Claude Opus 5", label: "Claude Opus 5", file: "Claude_Opus_5.md", slug: "claude-opus-5" },
-  { key: "Claude Sonnet 3.5", label: "Claude Sonnet 3.5", file: "Claude_Sonnet_3.5.md" },
+  { key: "Claude Sonnet 3.5", label: "Claude Sonnet 3.5", file: "Claude_Sonnet_3.5.md", slug: "claude-sonnet-3.5" },
   { key: "GPT 5.5", label: "GPT 5.5", file: "GPT_5.5.md", slug: "gpt-5.5" },
   { key: "GPT 6 Luna", label: "GPT 6 Luna", file: "GPT_6_Luna.md", slug: "gpt-6-luna" },
   { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md" },

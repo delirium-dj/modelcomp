@@ -1,0 +1,8 @@
+{
+  "id": "opencode/gemini-4-argon",
+  "name": "Gemini 4 Argon",
+  "short": "Gemini 4 Argon model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

@@ -1,29 +1,57 @@
-# LongCat 2.5 Preview — findings by Kimi K3 (SELF-EXCLUDED: no verified public benchmark numbers)
+# LongCat-2.5-Preview — findings by Kimi K3 (SELF-EXCLUDED: no verified public benchmarks)
 
-- Source: Meituan (`longcat-2.5-preview`)
-- Date: 2026-09-27 (UTC)
+- Source: Meituan (`LongCat-2.5-Preview`)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Negative-findings notes (researched fresh, 2026-09-27)
+## Model card (verified specs — benchmark section below is empty by design)
 
-**What exists (verified, non-benchmark facts):**
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan's multimodal reasoning model for coding and agentic workflows — the follow-up to open-source LongCat-2.0, reframed around autonomous long-horizon agent execution (terminals, browsers, GUIs) with native image input. Successor/iterative variant of LongCat-2.0.
+- **Provider / access:** LongCat API Platform (`LongCat-2.5-Preview`, pay-as-you-go), longcat.ai web demo; third-party gateways: Vercel AI Gateway, Blackbox, AnyRouter; OpenCode two-week free trial (zero data retention per TensorFeed). Works with Claude Code, Hermes, OpenClaw, OpenCode, Kilo Code harnesses.
+- **Release / knowledge:** Live on Meituan's API 2026-09-25 (aideepthink.cn, technode.com); knowledge cutoff not disclosed.
+- **IDs:** `meituan/longcat-2.5-preview` (gateways); `LongCat-2.5-Preview` (LongCat API Platform). No Zen Free ID verified.
+- **Context window:** 1,000,000 tokens input; up to 131,072 output tokens (TensorFeed, per LongCat platform docs).
+- **Modalities:** Text + image input (native multimodal understanding — new vs text-only LongCat-2.0), text output; interleaved reasoning traces ("thinking" toggle); tool calling built for agent harnesses.
+- **Pricing (as of 2026-10-01):** Limited-time discounted: $0.30/M input, $0.006/M cached input, $1.20/M output; list rates $0.75 / $0.015 / $2.95 per 1M (explainx.ai update 2026-09-27, aideepthink.cn, longcat.chat pricing docs). Existing verified users granted 5M free tokens.
+- **Architecture:** Sparse MoE, ~1.6T total / ~48B active params (carried over from LongCat-2.0 — "official 口径" per aideepthink.cn; explainx notes exact active-param/routing deltas unconfirmed). Weights NOT published for 2.5 yet (LongCat-2.0 was MIT; 2.5 license unconfirmed).
 
-- Model: LongCat 2.5 Preview, Meituan — live on the LongCat API Platform (explainx.ai, 2026-09-26/27 update).
-- Specs: ~1.6T total parameters (MoE family, successor of LongCat 2.0's 1.6T/48B-active design), **~48B active**, **1M-token context**, image understanding (explainx update; cloudprice.net, blackbox/vercel gateway listings).
-- Pricing: limited-time **$0.30 / $1.20 per 1M** uncached input/output, cached input **$0.006** (list rates $0.75 / $0.015 / $2.95); 5M-token grant to existing verified users (longcat.chat pricing page via explainx).
-- Integrations: Claude Code, Hermes, OpenClaw, OpenCode, Kilo Code per Meituan messaging.
-- Positioning: agent-first — long-horizon execution, tool use, multi-step planning.
+### Raw benchmarks found
 
-**What does NOT exist (the reason for exclusion):**
+Agent / tool use:
 
-- **Zero verified public benchmark numbers for `longcat-2.5-preview`.** explainx.ai explicitly reports Meituan "has not yet published a full technical report with independently verifiable benchmark numbers at the time of writing" (article dated 2026-09-26, updated 2026-09-27).
-- Targeted search for SWE-bench / Terminal-Bench / GPQA results for this exact model returned no scores — only LongCat **2.0's** launch table (different model; Terminal-Bench, SWE-bench Pro, FORTE, BrowseComp, GPQA-diamond numbers from June 2026 must NOT be carried over).
-- No BenchLM / Artificial Analysis / independent-eval entry for the Preview.
+- Terminal-Bench / Tau2/3 / GDPval-AA / Claw-Eval / Toolathon: **no verified public score found** for this exact model/ID.
 
-**Conclusion:** every template benchmark row would read `no verified public score found` → per RULES.md / research.md self-exclusion, this file is saved as `.excluded` (notes only, scores ignored). Revisit when Meituan's technical report or an independent evaluation lands.
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: **no verified public score found**. Artificial Analysis has not published an index value for LongCat-2.5-Preview (aideepthink comparison table leaves its benchmark column "未公布" while listing AA numbers for peers).
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**. (LongCat-2.0's SWE-bench Pro 59.5 belongs to the predecessor model, not this ID, and is not carried over.)
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval numbers published — no long-context retrieval reported.
+
+Cross-source confirmation of the gap: aideepthink.cn spec table lists 基准成绩 "未公布" (benchmarks not published, "markedly different from LongCat-2.0's release"), and TensorFeed states "Meituan has published no independent or even self-reported benchmark scores for this release."
+
+### Negative-findings notes (scores ignored under SELF-EXCLUSION)
+
+- **Tool use: 0/100.** Excluded — agent-first framing is marketing language; no benchmark number backs it.
+- **Reasoning: 0/100.** Excluded — no reasoning benchmark published for this ID.
+- **Context window: 0/100.** Excluded — 1M window documented but no retrieval measurements exist.
+- **Multimodal: 0/100.** Excluded — image input documented but unmeasured.
+- **Coding: 0/100.** Excluded — no coding benchmark published; the 59.5 SWE-bench Pro figure belongs to LongCat-2.0.
+- **Cost efficiency: 0/100.** Excluded — $0.30/$1.20 discounted price is verified and cheap for its class, but there is nothing to evaluate it against.
+- **Overall Score: 0/100.** Excluded per template SELF-EXCLUSION rule: zero verified public benchmark numbers exist for this exact model/ID as of 2026-10-01. A scored file would be placeholder fabrication.
+
+Residual value of these notes: specs and pricing are fully documented; this report can be promoted to a scored `.md` the moment Meituan (or an independent evaluator) publishes real numbers for `LongCat-2.5-Preview`.
+
+---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
-- Method: public internet research (explainx.ai LongCat 2.5 analysis + spec/pricing update, cloudprice.net, Vercel/Blackbox gateway listings); negative benchmark result, nothing scored.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
+- Method: public internet research (explainx.ai, tensorfeed.ai, aideepthink.cn, technode.com, vercel.com, blackbox.ai, anyrouter.dev); self-excluded because no verified public benchmark exists for this exact model.
