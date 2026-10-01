@@ -2,6 +2,7 @@
 
 - Source: OpenCode Go stealth model, provider undisclosed (`opencode/omen-alpha`)
 - Date: 2026-09-29 (UTC)
+- Updated: 2026-10-01 (UTC) — additional findings appended below; self-exclusion unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,6 +51,13 @@ Long context:
 - No long-context retrieval (MRCR/RULER) numbers published for this exact model/ID.
 
 - No scores filed: zero verified public benchmark numbers found for this exact model/ID (self-exclusion).
+
+### Additional findings (2026-10-01, re-research pass)
+
+- OpenCode primary data (opencode.ai/data/unknown/omen-alpha, fetched 2026-10-01): still **no model facts** — Context/Output/Knowledge/Release all "Unknown"; no benchmark rows. Usage telemetry: 2.2T tokens Aug 7 → Oct 1 (+100%), 74K unique users, 532,874 completed sessions, 0.3% of 2M observed volume, rank #29, total spend $121K, avg $0.23/session, 4.2M tokens/session, 93% input cache ratio, 65% weekly retention. Geo #1 China (34%, 758B tokens). Note: lab paths `/data/zhipu/omen-alpha` and `/data/grok/omen-alpha` no longer resolve; `/data/unknown/omen-alpha` is the live path.
+- omenalpha.io/benchmarks.html (fetched 2026-10-01; fan/SEO site with Tokenra API CTA — secondary source): documents a dated OpenCode leaderboard coding snapshot of 2026-09-04 — overall coding **23.14 / 40**, leaderboard rank #15; per-project: CSV import (PHP) 4/5, offline sync (PHP) 3.5/5, bank feed (Dart/Flutter) 2.7/5, shipping quotes (Go) 3/5; code-quality component 9.94/20; observed $0.03 avg cost per prompt and 01:51 avg time per prompt; listed token pricing $0.20 in / $0.66 out / $0.04 cached read per 1M (Tokenra). Caveats: transcribed by the fan site, not exposed on opencode.ai's data page (cannot be independently verified on the primary source); prompts, raw logs and a downloadable result file are not published; the 4-project 40-point custom evaluation maps to no standard scoring dimension.
+- An OpenCode compare page `omen-alpha vs GLM-5.2` (opencode.ai/data/compare/unknown/omen-alpha/zhipuai/glm-5-2) now exists in search results — community identity theory has drifted from GLM-5 (tokenizer 95/95 match, `zhipu` routing tag) toward GLM-5.2; identity still officially unconfirmed.
+- Verdict unchanged as of 2026-10-01: still zero verified public standard benchmarks (GPQA / HLE / SWE-bench / LiveCodeBench / TB2.1 / GDPval / AA Index) for this exact model/ID; the only public number remains the small custom coding snapshot above. Self-exclusion stands; no scored file created.
 
 ---
 

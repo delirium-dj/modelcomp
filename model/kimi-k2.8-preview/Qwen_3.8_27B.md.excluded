@@ -2,6 +2,7 @@
 
 - Source: MoonshotAI (`kimi-k2.8-preview`)
 - Date: 2026-09-29 (UTC)
+- Updated: 2026-10-01 (UTC) — additional findings appended below; self-exclusion unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +58,13 @@ Negative-findings notes:
 ### Normalized scores (1–100)
 
 - Scores omitted — self-excluded; no verified benchmarks to normalize.
+
+### Additional findings (2026-10-01, re-research pass)
+
+- Official Kimi Code docs "What's New" (kimi.com/code/docs/en/kimi-code/whats-new.html, fetched 2026-10-01 — primary source): K2.8 Preview fully rolled out in Kimi Code on 2026-09-11; Model ID unchanged (`kimi-for-coding`); thinking levels `low` / `high` / `max` (default `max`); 1M context across all membership tiers. New detail: with thinking turned off, requests to the K3 series and K2.8 Preview are **served by K2.8 Preview** (no thinking) — it is the no-thinking backend for K3-series requests.
+- llm-stats.com/models/kimi-k2.8 (fetched 2026-10-01): no benchmark data displayed, pricing "—", 1 provider (Moonshot AI), multimodal input (text/image/video), 1.0M context.
+- Product context (same official docs): Kimi Code Desktop released 2026-09-17 (macOS/Windows); Kimi Code CLI v2.1.0 on 2026-09-23 (experimental fullscreen TUI, faster startup).
+- Verdict unchanged as of 2026-10-01: still zero verified public benchmark numbers for this exact model/ID — Moonshot's "performance close to K3" remains a qualitative claim; K3's published scores do not count for K2.8 Preview. Self-exclusion stands; no scored file created.
 
 ---
 

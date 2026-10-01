@@ -52,7 +52,7 @@ Long context:
 - **Multimodal: 40/100.** Image (vision) input was its era's selling point, but text-only output, no audio/video, and vision quality long surpassed — above text-only floor, clearly legacy.
 - **Coding: 50/100.** SWE-bench Verified 49.0% held the record in late 2024 and HumanEval 92% was top-tier then; both are entry-level on today's scale.
 - **Cost efficiency: 35/100.** $3/$15 per 1M was mid-tier in 2024; by 2026 standards it is expensive per unit of capability (GPT-6.1 Sol delivers an AA Index 52 at $2/$10; this model scores far lower at $3/$15).
-- **Overall Score: 44/100.** Half-up mean of (45+40+45+40+50)/5 = 44.0 → 44 minus-era adjustment lands at 44; reported as the straight half-up mean 44. Best fit: none for new deployments — historical reference / regression-testing anchor only; replaced several times over by the Sonnet 4.x/5.x line.
+- **Overall Score: 44/100.** Half-up mean of (45+40+45+40+50)/5 = 44.0 → 44. Best fit: none for new deployments — historical reference / regression-testing anchor only; replaced several times over by the Sonnet 4.x/5.x line.
 
 ---
 

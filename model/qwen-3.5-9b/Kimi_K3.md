@@ -57,7 +57,7 @@ Multimodal highlights (vision-language table): MMMU **78.4**, MMMU-Pro **70.1**,
 - **Multimodal: 65/100.** Image + video in / text out with strong measured quality (MMMU 78.4, MMMU-Pro 70.1, LVBench 70.0, OmniDocBench 87.7); capped by text-only output and no audio understanding.
 - **Coding: 58/100.** LiveCodeBench v6 65.6 is credible for the size class, but OJBench 29.2 and the absence of any SWE-bench evidence keep it clearly below coding-specialist models.
 - **Cost efficiency: 92/100.** Apache-2.0 open weights running in ~6 GB at 4-bit put the marginal cost near zero; capped from 100 by the heavy reasoning-token consumption inflating real serving cost per answer.
-- **Overall Score: 66.6/100.** Half-up mean of (68+72+70+65+58)/5 = 66.6 → 67; adjusted to 65 — recomputing: (68+72+70+65+58)=333, /5=66.6 → **67**. Best fit: on-device / cheap self-hosted multimodal assistant and agent prototyping where sub-10B footprint, vision+video input, and 262K context matter more than frontier coding.
+- **Overall Score: 66.6/100.** Mean of (68+72+70+65+58)/5 = 66.6. Best fit: on-device / cheap self-hosted multimodal assistant and agent prototyping where sub-10B footprint, vision+video input, and 262K context matter more than frontier coding.
 
 ---
 
