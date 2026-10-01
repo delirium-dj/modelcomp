@@ -1,0 +1,73 @@
+# Jev 1.13 — findings by GLM 5.3
+
+- Source: TypeSafe AI (`typesafe/jev-1.13`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Jev 1.13
+- **Short description:** The first "System One" model from TypeSafe AI — not an LLM: it ingests a `state` plus typed questions (Noul yes/no, Choice, Score) and returns structured answers (typed values, probabilities, confidence) that code branches on directly. Category outlier on this otherwise-LLM comparison site; served under aliases `jev-latest` and `jev-preview` (both currently resolve to `jev-1.13.0`).
+- **Provider / access:** TypeSafe AI, `https://api.typesafe.ai/v1/systemone` (custom System One endpoint — not Chat Completions, not Responses API). Also on OpenCode Zen via `https://opencode.ai/zen/v1/systemone` using the Zen API key.
+- **Release / knowledge:** release date not published; current version `jev-1.13.0` as of 2026-10-01 (official jaggedness page "Last reviewed 2026-09-17"); no documented knowledge cutoff.
+- **IDs:** `opencode/jev-1.13` (paid) and `opencode/jev-1.13-free` (limited-time Free ID on Zen); direct API model IDs `jev-1.13.0` / `jev-latest` / `jev-preview`.
+- **Context window:** 64K tokens per request total; 32K cap for `state` plus the longest question (verified on the official Models page). Rate limits 100K tokens/s and 40 requests/s (dynamically adjusting).
+- **Modalities:** text in only (string, JSON object, or array of text values — "No image, audio, or video input", official); structured answers out (noul 0–1; choice + per-option probabilities + confidence; score + probabilities + confidence). No free-text generation, no reasoning traces, no tool-call emission; structured output is the native format (no JSON-mode prompt needed).
+- **Pricing (as of 2026-10-01):** $0.042/Mtok input ($42/Btok), output tokens free (official; Zen lists Jev 1.13 at $0.042 in / Free out). `jev-1.13-free` is Free in/out on Zen for a limited time. Prompts and inputs are not used for training; data retained per TypeSafe privacy policy (zero data retention available for enterprise).
+- **Architecture:** proprietary; trained with RLCD (reinforcement learning for calibrated decisions); same weights serve every account (no per-customer fine-tuning); English is the primary language, other languages including CJK handled but weaker.
+
+### Raw benchmarks found
+
+> Standardized LLM harness scores below are architecturally inapplicable, not merely missing: Jev does not generate text, so it cannot sit inside an agentic or chat harness. Every absent row says "no verified public score found". The only measured public numbers are TypeSafe's own cookbook results (provisional proxies, vendor-run).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Function-calling cookbook (provisional, qualitative): natural-language trading requests turned into calls to ordinary typed functions by mapping function names and closed-set arguments to confidence-aware questions (source: docs.typesafe.ai/cookbooks/function_calling)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (not an LLM; untracked by both aggregators)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- Re-ranking cookbook (measured, provisional): 40 CLERC legal queries with 30-passage BM25 shortlists; one question per query-candidate pair raises top-1 accuracy from 5% to 18% and top-10 from 38% to 62% (source: docs.typesafe.ai/cookbooks/rerank_typesafe)
+- Parallel-questions cookbook (measured, provisional): a 13-question regulatory briefing over the GDPR Wikipedia article answered in one batched call is 12.2x cheaper and 10.0x faster than 13 separate LLM calls, with no change in answers (source: docs.typesafe.ai/cookbooks/parallel_questions)
+- Calibration examples (measured, provisional, official jaggedness page): on the same ticket, noul 0.22 vs Choice-yes 0.01 (confidence 0.97); a refund/not-refund noul pair summed to 1.19 — cross-primitive consistency is not guaranteed (source: docs.typesafe.ai/model-jaggedness/jev-1.13)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found (model cannot generate code)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- SDE cascade cookbook (provisional, qualitative): a mini → verify → reasoning structured-data-extraction cascade reaches "most of the quality of a big reasoning model at a fraction of the cost" (source: docs.typesafe.ai/cookbooks/sde_cascade)
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no long-context retrieval score reported; the official jaggedness page documents accuracy falling as the state grows with unrelated detail ("context rot") and recommends filtering state before sending it (source: docs.typesafe.ai/model-jaggedness/jev-1.13)
+
+### Normalized scores (1–100)
+
+- **Tool use: 10/100.** Zero agentic-harness scores exist and none can exist: Jev emits no text, no tool_use blocks, and no chat turns — officially "not a drop-in replacement for the LLM behind Claude Code, Cursor, opencode... Jev does none of that" (docs.typesafe.ai/introduction/coding-agents). It is a decision service consumed BY agents (TypeSafe agent skill), never the agent itself. Capped by the total absence of tool-execution capability.
+- **Reasoning: 28/100.** Officially "fast, calibrated, and good at common-sense judgment", and the cookbook rerank gains (BM25 top-1 5%→18%, top-10 38%→62%) prove genuinely useful semantic judgment with calibrated probabilities. But it is a System One model by design: the vendor documents failures on math, counting, date arithmetic, indirection, adversarial content, and System Two tasks, and no standardized reasoning benchmark exists. Capped by the deliberate shallow-judgment design and zero standardized scores.
+- **Context window: 35/100.** 64K tokens per request (32K for state plus the longest question), official — inside the <100K tier (10–49). The vendor-documented "context rot" (accuracy falls as irrelevant state grows) and the explicit advice to filter state first make the reliable window smaller than the hard cap; no MRCR/RULER retrieval numbers exist.
+- **Multimodal: 15/100.** Text-only input, official: "No image, audio, or video input" — strings, JSON, or text arrays in; structured values out (not even free text). Text-only convention (cf. Big Pickle 15).
+- **Coding: 10/100.** Official: Jev "does not generate text, write code, or hold a conversation"; forced generation "will not work well and will be very slow". No coding benchmark can be run; its only coding-adjacent role is picking among enumerated options (function-calling cookbook). Capped by the architectural absence of code generation.
+- **Cost efficiency: 100/100.** $0.042/Mtok input with free output tokens (official) — cheaper per Mtok than the ~$0.10/$0.20 reference tier (97–99) — plus a limited-time `jev-1.13-free` Zen tier at $0/$0. Inputs are not used for training; retention per TypeSafe privacy policy, with enterprise ZDR available.
+- **Overall Score: 20/100.** Half-up mean of the five quality dims: (10 + 28 + 35 + 15 + 10) / 5 = 19.6 → 20. Not usable as an LLM driver model: pair it with a real coding/reasoning model and reach for it where code needs fast, calibrated, structured decisions (routing, scoring, guardrails) at near-zero cost.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-01
+- Method: public internet research (TypeSafe official docs — Models, jaggedness, coding-agents, cookbooks — plus the OpenCode Zen model list and docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
