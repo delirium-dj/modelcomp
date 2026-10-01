@@ -1,5 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-01 — tasks/ delegators consolidated + zero-edit delegation (GLM53F_IMP item 8)
+
+1. **Consolidated 40 per-stem delegators** (`tasks/<STEM>.md` copies) into the single canonical `tasks/research-assign.md`; `tasks/` now holds exactly `research-assign.md`, `research.md`, `sync-data.md`. Every unique variant block was folded in as a conditional section: Gemini-run crash-guard note, Qwen 3.8 27B-class runtime quotas, and the 15/100 quarantine backlog (still live — 12 `GPT_5.6_Terra.md.excluded` twins pending reactivation). The redundant score-syntax copy was dropped (canonical text lives in `tasks/research.md` Step 3). Fixed along the way: `tasks/GPT_5.6_Sol.md` had been carrying `GPT_5.6_Terra`'s quarantine protocol (copy-paste bug the consolidation eliminates).
+2. **Zero-edit Identity resolution chain** in the delegator: kickoff line `AGENT_SOURCE_STEM: <value>` -> pinned STEM line (human override) -> self-identification from the agent's own official display name (validated: filename regex + exact source-key match in `src/data/sources.generated.ts`) -> otherwise stop & ask. Pasting the file with no edit is now a valid delegation; a brand-new agent asks for its STEM once, `pnpm sync` registers it, and all later runs are fully automatic.
+3. **References updated:** `AGENTS.md` directive 5, `tasks/research.md` §0/§1, `.agents/gemini-rate-limits.md` Rule 5 (recovery = same resolved STEM), `.agents/workflows/batch_research_all_models.md`, parked copy `models_finance/Ling_3.0_Flash_Fin.md` (reuse line), plus noting passes in `README.md`, `.antigravity/history/project-map.md`, and `.agents/rules.md` (never recreate per-stem copies). `GLM53F_IMP.md` item 8 marked DONE with the follow-up. Historical mentions in `REPORT.md`/`PUR_MUSE13.md` left as-is.
+4. Uncommitted per agent commit ban; zero `model/` files touched (permanence intact).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-09-30 — Fixed `DeepSeek 4.1 Flash` agent mapping & normalized deep-link redirection
 
 1. Added `"DeepSeek 4.1 Flash": "deepseek-v4.1-flash"` override mapping to `scripts/sync-data.mjs` so `agent-slugs.generated.ts` accurately maps `DeepSeek 4.1 Flash` to `deepseek-v4.1-flash`.

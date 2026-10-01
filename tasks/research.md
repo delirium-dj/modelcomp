@@ -4,8 +4,9 @@
 > The hard rule below restates it; the rest is procedure.
 
 This file defines the workflow only. Agent identity comes from the assigned
-delegator file (e.g. `tasks/grok_4.6.md`) via its single `AGENT_SOURCE_STEM`
-line. Do not hardcode any model name in this file.
+delegator file (`tasks/research-assign.md`) via its Identity resolution chain
+(kickoff line -> pinned STEM line -> validated self-identification -> ask).
+Do not hardcode any model name in this file.
 
 > **GEMINI AGENTS — read first (crash guard):** before any other step, read
 > `.agents/gemini-rate-limits.md` in full and apply it for the whole task
@@ -17,7 +18,12 @@ line. Do not hardcode any model name in this file.
 
 ## 0. Resolve identity (from your delegator task file)
 
-1. Read `AGENT_SOURCE_STEM` from the task file you were assigned (e.g. `Grok_4.6`).
+1. Resolve `STEM` via the **Identity resolution** chain in `tasks/research-assign.md`
+   (first match wins): kickoff line `AGENT_SOURCE_STEM: <value>` -> the file's
+   pinned STEM line -> self-identification from your own official model name
+   (spaces -> `_`), but only if it passes the filename regex AND matches a
+   registered source key in `src/data/sources.generated.ts` -> otherwise stop
+   and ask the orchestrator. Never guess.
 2. Derive:
    - `Your_Filename = <STEM>.md` (exact, case-sensitive; must match `/^[A-Za-z0-9_.]+\.md$/` per `tasks/sync-data.md`).
    - `Your_Display = STEM` with `_` -> space (e.g. `Grok_4.6` -> `Grok 4.6`).
@@ -30,11 +36,14 @@ line. Do not hardcode any model name in this file.
 
 ## 1. Copy-paste prompt template for agents
 
-> **Usage:** the orchestrator assigns a delegator file (e.g. `tasks/grok_4.6.md`)
-> that already sets `STEM`. Do NOT ask the agent to guess its filename.
+> **Usage:** the orchestrator pastes or points at `tasks/research-assign.md`.
+> STEM is resolved by that file's Identity resolution chain — pin it with an
+> `AGENT_SOURCE_STEM: <STEM>` line in the kickoff message only when you must
+> override self-identification. Do NOT ask the agent to guess its filename.
 
 ```text
-Your delegator file sets AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
+Your STEM is resolved by tasks/research-assign.md (Identity resolution chain),
+or pinned explicitly below: AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
 Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
 Follow tasks/research.md exactly (combined single pass: audit → queue → one-by-one):

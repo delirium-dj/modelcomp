@@ -54,10 +54,30 @@ Multimodal:
 - **Cost efficiency: 88/100.** Cheap, high-throughput Flash-tier pricing consistent with the family band ($0.25–$2 / $1.50–$12); not the cheapest rung (Lite is).
 - **Overall Score: 78/100.** Mean of the five quality dims (70+73+95+84+70)/5 = 78.4 → 78. A fast, solid, multimodal 1M-context workhorse — one or two steps below the 3.1 Pro reasoning/coding frontline.
 
+## Re-verification — 2026-10-01 (11 days after original)
+
+Original research date 2026-09-20. Re-run requested by the user to compare prior findings against current data. Original findings above are preserved; corrections are marked inline.
+
+| Dimension | 2026-09-20 | 2026-10-01 | Change |
+| --- | --- | --- | --- |
+| Tool use | 70 | 70 | — |
+| Reasoning | 73 | 73 | — |
+| Context window | 95 | 95 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 70 | 70 | — |
+| Cost efficiency | 88 | 88 | — |
+| **Overall** | **78** | **78** | **—** |
+
+**One original gap closed: pricing is now verified.** The 2026-09-20 report recorded "model-specific list price not verified"; current pricing trackers list **$0.50/M input, $3.00/M output** for `gemini-3.1-flash` (promptcost.org, retrieved 2026-10-01) — squarely inside the assumed 3.1-family band ($0.25–$2 in / $1.50–$12 out), so Cost efficiency holds at 88 without change.
+
+**No capability movement found.** Fresh search finds no new standalone benchmark entries for this exact tier (no Terminal-Bench / SWE-bench Verified / GPQA numbers specific to 3.1 Flash have appeared since), and no deprecation or successor announcement affecting it — the 3.8 Flash line exists alongside it, not instead of it. The report's family-context caveat (nearest measured siblings: 3.1 Flash-Lite below, 3.1 Pro above) remains the correct evidentiary stance.
+
+**Net assessment:** accurate as written; the only defect was an unverified price, now confirmed within band. Scores unchanged.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-20)
 - Method: public web research (deepmind.google, benchmarklist.com, aireleasetracker.com, hokai.io, benchlm.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

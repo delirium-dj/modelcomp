@@ -22,4 +22,4 @@ Effective orders (already resolved, do not re-derive):
 6. **Idempotence:** Skip any folder already containing your file. Never overwrite, edit, or delete existing files.
 7. **Scope & Execution:** Only create your files. Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
 
-Reuse for a new agent: copy this file to `tasks/<stem_lower>.md`, change the STEM line once, save, delegate to the matching model.
+Reuse for a new agent: edit ONLY the STEM line of the canonical delegator `tasks/research-assign.md`, save, delegate to the matching model (never copy this file to `tasks/<stem>.md`).

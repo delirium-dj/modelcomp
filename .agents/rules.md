@@ -37,6 +37,7 @@ reports, and the website stay consistent.
 
 ## Findings workflow
 
+- Delegation: one canonical delegator `tasks/research-assign.md` — its Identity resolution chain sets the STEM (kickoff line -> pinned line -> validated self-identification against `sources.generated.ts` -> ask). Never create per-stem `tasks/<stem>.md` copies.
 - One file per agent per model: `model/<slug>/<Source_Name>.md` (e.g. `Big_Pickle.md`), self-contained: model card → raw benchmarks → normalized scores → signature block.
 - New agents start from `model-report-TEMPLATE.md` and research independently (no reading other agents' files first).
 - Never invent benchmark numbers — write `no verified public score found` when missing; attach a source to every number. Zero verified benchmarks = self-exclude as `<Source_Name>.md.excluded` (notes only, never counted); sync's `QUAR` auto-quarantines evidence-free files (criteria in `tasks/sync-data.md`).

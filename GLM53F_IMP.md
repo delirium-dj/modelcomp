@@ -88,7 +88,7 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 
 ## Low priority / judgment calls
 
-### 8. Consolidate `tasks/*.md` research delegators
+### 8. Consolidate `tasks/*.md` research delegators (DONE 2026-10-01)
 
 - **Current:** ~40 files in `tasks/` are copies of the same one-line-reuse
   delegator template (`AGENT_SOURCE_STEM: X ← EDIT ONLY THIS LINE`); only one
@@ -97,6 +97,17 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
   the single-edit design.
 - **Proposal:** keep one delegator file (e.g. `tasks/research-assign.md`),
   retire the rest. Needs user sign-off — workflow infrastructure.
+- **Done:** 40 per-stem copies retired; canonical `tasks/research-assign.md`
+  keeps the STEM line as the only edit and folds in every unique variant block
+  (Gemini-run note, Qwen-class runtime quotas, 15/100 quarantine backlog).
+  References updated: `AGENTS.md` directive 5, `tasks/research.md`,
+  `.agents/gemini-rate-limits.md` Rule 5, `.agents/workflows/batch_research_all_models.md`,
+  and the parked copy `models_finance/Ling_3.0_Flash_Fin.md` (reuse line).
+  Historical mentions in `REPORT.md` / `PUR_MUSE13.md` left as-is.
+- **Follow-up (2026-10-01):** zero-edit delegation — Identity resolution chain
+  in `tasks/research-assign.md` (kickoff line -> pinned STEM line -> validated
+  self-identification against `sources.generated.ts` -> ask). The STEM line is
+  now an optional pin; pasting the file with no edit is a valid delegation.
 
 ### 9. Mark auto-scaffolded `meta.json` until curated
 

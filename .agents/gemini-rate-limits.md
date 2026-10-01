@@ -54,8 +54,9 @@ pnpm sync && pnpm build.types && pnpm build
 - Make every invocation resume-safe: incremental save (one file before
   advancing, per `tasks/research.md` Step 3), never overwrite/edit/delete,
   skip folders already containing your file. After a `400` crash the
-  orchestrator simply delegates the SAME `tasks/<STEM>.md` again and the new
-  session continues where the dead one left off.
+  orchestrator simply delegates `tasks/research-assign.md` again resolving
+  the same STEM (kickoff line unchanged) and the new session continues
+  where the dead one left off.
 
 ---
 
