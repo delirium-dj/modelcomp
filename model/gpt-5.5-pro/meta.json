@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.5-pro",
-  "name": "Gpt 5.5 Pro",
-  "short": "Gpt 5.5 Pro model evaluation entry.",
+  "name": "GPT 5.5 Pro",
+  "short": "GPT 5.5 Pro model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"

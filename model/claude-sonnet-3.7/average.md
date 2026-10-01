@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 75/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 76/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 70/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 70/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 60/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 74/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 78.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 81/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 72.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 75/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 66/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 78/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
-- Average from top 1 by Overall Score: Muse Spark 1.3.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Mimo v2.6 Flash, Qwen 3.8 27B.
+- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Muse Spark 1.3.
+- Average from top 2 by Overall Score: Gemini 3.6 Flash, Muse Spark 1.3.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny Alpha.

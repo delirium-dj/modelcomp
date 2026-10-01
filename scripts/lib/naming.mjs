@@ -53,7 +53,11 @@ export const VIRTUAL_KEYS = new Set(["tool", "reason", "context", "cost", "code"
 export function formatSlugGuess(slug) {
   return slug
     .split(/[-_]+/)
-    .map((w) => (w.length > 0 ? w[0].toUpperCase() + w.slice(1) : ""))
+    .map((w) => {
+      if (w.length === 0) return "";
+      if (w.toLowerCase() === "gpt") return "GPT";
+      return w[0].toUpperCase() + w.slice(1);
+    })
     .join(" ");
 }
 

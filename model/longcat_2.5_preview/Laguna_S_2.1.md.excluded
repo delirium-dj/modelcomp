@@ -1,0 +1,46 @@
+# LongCat 2.5 Preview — self-exclusion by Laguna S 2.1
+
+- Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`), Artificial Analysis (`https://artificialanalysis.ai/models/longcat-2-5-preview`), BenchLM (`https://benchlm.ai/models/longcat-2-5-preview`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Free preview model on OpenCode Zen (`longcat-2-5-preview-free`); zero-retention provider. No other public information available.
+- **Provider / access:** OpenCode Zen: `opencode/longcat-2.5-preview` (ID `longcat-2-5-preview-free` for free tier)
+- **Context window:** 128K total (per `meta.json`)
+- **Modalities:** Text input, text output (per `meta.json`)
+- **Pricing (as of 2026-10-01):** Free on OpenCode Zen (limited-time preview); zero-retention provider does not use data for training
+- **Reasoning:** Unknown
+- **Status:** Preview / free limited-time tier
+
+### Research log
+
+1. Checked OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model listed as "LongCat 2.5 Preview Free" with no benchmark references. Pricing: Free/Free/Free. Described as "free on OpenCode for a limited time" with "zero-retention policy."
+2. Searched AA model page (`https://artificialanalysis.ai/models/longcat-2-5-preview`) — 404 (page not found).
+3. Searched BenchLM for `longcat-2.5-preview` — 404 (page not found).
+4. Searched HuggingFace for "longcat" — no relevant model card found.
+5. Searched web for "LongCat 2.5 Preview" benchmarks — no verified public benchmark numbers found.
+6. `meta.json` is minimal: "LongCat 2.5 Preview model evaluation entry." No architecture, provider, or release information.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for LongCat 2.5 Preview.
+
+The model is only listed on the OpenCode Zen docs as a free preview tier ("LongCat 2.5 Preview Free"). No Artificial Analysis model page (404), no BenchLM entry (404), no HuggingFace model card, no official announcement with benchmark numbers, and no technical report could be found. The `meta.json` file is minimal ("LongCat 2.5 Preview model evaluation entry") with no provider, architecture, or benchmark information.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 72.0) are derived from peer model ratings only (1 qualifying rater: Gemini 3.7 Flash), not from verified public benchmarks. When LongCat 2.5 Preview publishes benchmark numbers on a public source, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public internet research via OpenCode Zen docs, Artificial Analysis, and BenchLM; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found.
+
+---

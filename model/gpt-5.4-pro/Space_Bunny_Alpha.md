@@ -1,0 +1,79 @@
+# GPT-5.4 Pro — findings by Space Bunny Alpha
+
+- Source: OpenAI (`gpt-5.4-pro`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Read the price before the Overall.** Per `RULES.md`, Cost efficiency is scored
+> but **never counted toward Overall**. GPT-5.4 Pro scores **12/100 on cost** —
+> $30.00 input / $180.00 output per MTok — while its Overall is 79. That gap is
+> deliberate and is the single most important fact on this page: this is the highest-
+> reasoning model in this dataset wrapped around an agentic and coding profile that is
+> merely good, at a price that is roughly an order of magnitude above everything else
+> scored here.
+
+## Model card
+
+- **Name:** GPT-5.4 Pro
+- **Short description:** OpenAI's maximum-compute reasoning tier. OpenAI's own description is the whole pitch: "GPT-5.4 Pro **uses more compute to think harder** and provide consistently better answers." It is built for hard problems where **"some requests may take several minutes to finish"** — OpenAI explicitly instructs developers to use **background mode** to avoid timeouts. Measured at three reasoning-effort settings (`medium` default, `high`, `xhigh`), it delivers the highest GPQA Diamond, HLE, FrontierMath and ARC-AGI figures of any model in this dataset. Its weakness, consistently reported by two independent aggregators, is that it is **not** the best agent or coder in the family despite costing 12× the flagship per output token. Not a variant or alias of another entry in this dataset.
+- **Provider / access:** **OpenAI Responses API only** — OpenAI restricts it to the Responses API "to enable support for multi-turn model interactions before responding to API requests, and other advanced API features in the future." It is **not available on Chat Completions**, and **not offered in Codex**. Background mode recommended for long requests.
+- **Release / knowledge:** released **2026-03-05** (snapshot `gpt-5.4-pro-2026-03-05`). Knowledge cutoff **2025-08-31** — the same generation as GPT-5.4, GPT-5.4 mini and GPT-5.4 nano.
+- **IDs:** `gpt-5.4-pro`; snapshot `gpt-5.4-pro-2026-03-05`.
+- **Context window:** **1,050,000 tokens, 128,000 max output** (OpenAI developer docs). **Long-context pricing surcharge:** for GPT-5.4 and GPT-5.4 Pro, **prompts with more than 272K input tokens are priced at 2× input and 1.5× output for the full session**, on standard, batch and flex alike. So the marginal cost of the 1.05M window is roughly 3× the marginal cost of the first 272K.
+- **Modalities:** **text and image in; text out** (OpenAI model page). Reasoning effort: **`medium` (default), `high`, `xhigh`** — note there is **no `none` and no `low`**, unlike GPT-5.4 and the mini/nano tiers which offer `none` as the default. That is consistent with a tier designed exclusively to think harder. No audio or video input documented; no non-text output.
+- **Pricing (as of 2026-10-01):** **$30.00 / MTok input, $180.00 / MTok output** (OpenAI developer docs). **No cached-input rate is published for GPT-5.4 Pro** — unlike GPT-5.4 ($0.25), GPT-5.4 mini ($0.075) and GPT-5.4 nano ($0.02), the Pro page lists only input and output. Regional processing (data-residency) endpoints carry a **10% uplift**. BenchLeader's blended figure at 7:2:1 cache-hit/input/output: **$67.50 per MTok**, which it describes as "among the most expensive ranked models." Artificial Analysis's comparison table records a blended **$45.00** on a different weighting. Both are recorded; neither is used as the score.
+- **Architecture:** proprietary. Parameter count not disclosed. OpenAI's only architectural claim is the compute-allocation one above.
+
+### Raw benchmarks found
+
+Reasoning / knowledge — this is where the evidence is strongest and best-sourced:
+
+- **GPQA Diamond: 94.4%** — **#5 of 455, 99th percentile** (BenchmarkList, sourced to OpenAI's 2026-04-23 launch post); also recorded as 94.6% at **#6 of 463** (DataLearner) and 94.6% at **#4** (Epoch AI Benchmarking Hub via BenchLeader). The Known Good renders it as 95 / 65th-percentile. **Consistently 94.4–94.6% across four independent trackers.**
+- **Humanity's Last Exam: 58.70% with tools** — **#5 of 173** (DataLearner); **44.32%** on the Scale AI / CAIS variant (#14 of 569) and **44%** in The Known Good's composite. OpenAI reports HLE-with-tools as the headline figure.
+- **FrontierMath: 50.00%** at `xhigh` — **#3 of 60** (DataLearner). **FrontierMath Tier 4: 38.00%** at `high`. For scale, GPT-5.4 mini's parent GPT-5.2 Thinking scored 40.3% on Tier 1–3 and 14.6% on Tier 4.
+- **CritPt: 30.0%** — **#7 of 204 / #9**, Artificial Analysis. This is the **only Artificial Analysis evaluation the model has a published value for**; its Intelligence Index, GDPval-AA, AA-LCR, AA-Omniscience and output-speed rows are all blank in AA's GPT-5.4 vs GPT-5.4 Pro comparison.
+- **ARC-AGI-1: 94.5%** — #24 (ARC Prize); **ARC-AGI-2: 83.3%** — #24. GPT-5.2 Pro managed 90.5% / 54.2%, so Pro's ARC-AGI-2 is a **+29.1 point** gain over its own predecessor tier and **+30.4 over the GPT-5.2 Thinking base model**.
+- **SimpleBench: 74.1%** — **#10 of 55** (91st percentile, BenchmarkList)
+- **BrowseComp (AI agent information gathering): 89.3%** with tools — Claude Opus 4.6 84.0%, Gemini 3.1 Pro Preview 85.9%, GPT-5.2 Pro 77.9%
+- Artificial Analysis composite index: **85.1%** as aggregated by sota-model. **No Artificial Analysis Intelligence Index score exists for this model.**
+- Artificial Analysis Intelligence Index for the sibling **GPT-5.4 (`xhigh`)** for reference: **39**, with GDPval-AA v2.1 Elo **1233**, HLE 44%, AA-Omniscience **+6** (positive, unlike almost every model here), AA-LCR 82%. These are **GPT-5.4's figures, not Pro's**, and are not transferred.
+
+Agent / tool use:
+
+- **Terminal-Bench: 55.1%** (sota-model aggregation). **This is the most important negative finding on this card:** the flagship GPT-5.4 scores **75.1%** on Terminal-Bench 2.0 and GPT-5.3-Codex scores **77.3%**, while the $180/MTok Pro tier scores **55.1%**. BenchLeader's independent profile agrees in shape, ranking GPT-5.4 Pro **#51 of 430** overall and naming **instruction following (67) as its weakest axis** and reasoning (75) as its strongest.
+- **GDPval-AA productivity knowledge: 82.00** (DataLearner). **Unit caveat:** DataLearner lists Claude Opus 4.6 at 1606.00 on the same row, which is an Elo, so 82.00 for Pro is on a different scale and **is not comparable to the Elo figures elsewhere in this dataset** (Artificial Analysis records GPT-5.4 at GDPval-AA Elo 1233).
+- Terminal-Bench 2.1 / Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathlon / MCP-Atlas / AutomationBench-AA / SWE Atlas Codebase QnA: **no verified public score found** for GPT-5.4 Pro at any effort setting.
+
+Coding:
+
+- **SWE-bench: 71.8%** (sota-model aggregation). For comparison, GPT-5.3-Codex records **80.0%** on OpenAI's launch figure and **85.0%** on the official board, and GPT-5.4 base records **57.7%** on the harder SWE-Bench Pro (a different, contamination-resistant, four-language benchmark — the two must not be compared directly).
+- SWE-Bench Pro / SWE-Lancer / DeepSWE / LiveCodeBench / SciCode / Aider Polyglot / SWE-rebench / Terminal-Bench 2.0: **no verified public score found** for GPT-5.4 Pro.
+
+Long context:
+
+- **No long-context retrieval measurement was found** — no MRCR, no RULER, no GraphWalks, no AA-LCR for GPT-5.4 Pro specifically. OpenAI published MRCR and GraphWalks rows for the GPT-5.4 mini/nano launch but **not** for Pro. The 1,050,000-token window is a documented spec with no retrieval evidence behind it.
+- OpenAI's own launch did publish **GPT-5.4 mini's** MRCR (47.7% / 33.6%) and GraphWalks figures, which establish that the 5.4 generation's long-context behaviour varies sharply by tier — but Pro's is simply unmeasured.
+
+Vision / multimodal:
+
+- Text and image input are documented on the model page, but **no MMMU, MMMUPro, DocVQA, OmniDocBench or CharXiv figure was found** for GPT-5.4 Pro. For reference, GPT-5.4 base records MMMUPro 81.2% and GPT-5.4 mini 76.6%, but those are different checkpoints.
+- Performance note: **output speed ~1 token per second**, first token in **5.8 s** (BenchLeader, measured 2026-03-23), placing it in the slowest quarter of 430 ranked models — with OpenAI's own warning that requests may take several minutes.
+
+### Normalized scores (1–100)
+
+- **Tool use: 65/100.** The weakest axis relative to price, and the finding two independent aggregators agree on. **Terminal-Bench 55.1%** is a mid-tier terminal-agent result sitting **~20 points below the flagship GPT-5.4's 75.1%** and **~22 below GPT-5.3-Codex's 77.3%** — on a model costing **12× the flagship per output token**. BenchLeader's profile corroborates the shape directly: **#51 of 430 overall**, with **instruction following 67** as its lowest axis against reasoning 75. Offsetting upward: **BrowseComp 89.3% with tools**, ahead of Claude Opus 4.6 (84.0%) and Gemini 3.1 Pro (85.9%), which is a genuine frontier result on agentic information gathering. Held to 65 — mid-scale, not frontier — because Terminal-Bench, Toolathlon, Tau3-Banking, MCP-Atlas and AutomationBench are all absent or weak and the one hard agentic number points down.
+- **Reasoning: 94/100.** The highest reasoning score in this dataset, on the best-sourced evidence of any file here. **GPQA Diamond 94.4–94.6% at #5 of 455 (99th percentile)**, consistent across four independent trackers. **FrontierMath 50.00% at #3 of 60** and **Tier 4 at 38.00%** — roughly 2.6× the GPT-5.2 Thinking base model's Tier 4 figure. **HLE 58.70% with tools at #5 of 173**, clearing the methodology's 40%+ frontier reference outright. **CritPt 30.0% at #7**, against 12% for GPT-5.2 Thinking and 0% for GPT-5 nano. **ARC-AGI-2 83.3%** and **ARC-AGI-1 94.5%**. **SimpleBench 74.1%**. Held at 94 rather than 98 because **HLE without tools is 44.32%**, not 58.70%, and because the model has **no Artificial Analysis Intelligence Index score at all** — only CritPt is published in AA's evaluation set for it — so it cannot be placed on the composite that most peers in this dataset are compared on.
+- **Context window: 95/100.** **1,050,000 tokens with 128,000 max output** — the methodology's "≥1M = 95–100" band, scored at its floor because **the 100 tier requires ≥98% retrieval at 512K+ and no retrieval measurement exists for this model** (no MRCR, no RULER, no GraphWalks, no AA-LCR). Not scored into the 85–94 band despite that being a better fit for unmeasured 1M windows, because the window genuinely is 1.05M and pretending otherwise would understate a real advantage. The **2× input / 1.5× output surcharge above 272K tokens** is a material practical qualification and is priced in the Cost line, not here.
+- **Multimodal: 68/100.** **Text and image in; text out.** Scored in the methodology's "+image in = 60–70" band, above its midpoint on the strength of what the 5.4 generation demonstrates generally and below its ceiling on what is measured for *this* model: **no MMMU, MMMUPro, DocVQA, OmniDocBench or CharXiv figure exists for GPT-5.4 Pro.** Sibling checkpoints score well (GPT-5.4 base MMMUPro 81.2%, GPT-5.4 mini 76.6%), but those are different models and are not borrowed. Capped at 70 because no audio, video or PDF input is documented, so the higher bands are unreachable on the available evidence regardless.
+- **Coding: 74/100.** Genuinely capable and clearly not the family's best code model, which is the point. **SWE-bench 71.8%** is a solid result in absolute terms. But GPT-5.3-Codex records **85.0% on the official SWE-bench board** (#7 of 81) and GPT-5.2 Thinking **80.0%**, and the coding-specialised Codex tier costs **$14.00/MTok against Pro's $180.00**. Combined with **Terminal-Bench at 55.1%**, the reading is consistent across both coding benchmarks: this model reasons better than anything else available and writes code less well than a tier that costs **one thirteenth as much**. Scored 74, held below the 84–87 range earned by the Codex line in this pass because the two independent numbers available both point below it and no SWE-Bench Pro, DeepSWE or LiveCodeBench figure exists to refine the picture.
+- **Cost efficiency: 12/100.** **$30.00 / $180.00 per MTok, with no published cached-input rate at all** — GPT-5.4 Pro is the only model in this dataset's launch cohort where OpenAI does not document a cache price. BenchLeader's blended **$67.50/MTok** is among the most expensive of 430 ranked models. The methodology's scale has **$10/$50 ≈ 30** and nothing above it; at **6× the $30 anchor on input and 3.6× the $50 anchor on output**, this is the most expensive model scored in this pass by a wide margin. Three documented penalties compound it: **no cache rate**, the **2×/1.5× surcharge above 272K input tokens**, and a **10% regional-processing uplift**. One credit is extended for genuinely lower cost-per-task on reasoning-heavy work — at ~1 token/s, the *time* cost and multi-minute request handling are real operational costs the token rate does not capture — but nothing offsets a $180 output rate. Twelve points is the methodology's neighbourhood for "$10/$50 ≈ 30" scaled for a tier three to six times beyond it, and the absence of a cache rate is the specific reason it does not score higher.
+- **Overall Score: 79/100.** (65 + 94 + 95 + 68 + 74) / 5 = 79.2 → **79**. **Best fit, and the caveat is the price:** frontier **scientific and mathematical reasoning, abstract-reasoning research, and frontier agentic information gathering** — the problems where a 94.6% GPQA Diamond, 50% FrontierMath, 83.3% ARC-AGI-2 and 89.3% BrowseComp justify $30/$180, where a request may legitimately take several minutes and background mode is the right call, and where nobody is waiting on latency. **Explicitly not** the choice for agentic or coding work: GPT-5.4 base at $2.50/$15, GPT-5.4 mini at $0.75/$4.50, or GPT-5.3-Codex at $1.75/$14 will beat this model on Terminal-Bench and SWE-bench at one-eighth to one-thirteenth the price. Note that the Overall formula **excludes cost by design**, so 79 does not and should not be read as "good value" — read the **12** on the cost line as the operative number for any procurement decision.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
+- Method: public internet research — OpenAI's developer model page for `gpt-5.4-pro` (Responses-API-only availability, the three reasoning-effort settings, the "several minutes" warning and background-mode guidance, the 1,050,000 / 128,000 context pair, the Aug 31 2025 knowledge cutoff, the $30/$180 rates, the absence of a cached-input rate, the >272K surcharge and the 10% regional uplift); Artificial Analysis's GPT-5.4 vs GPT-5.4 Pro and GPT-5.4 Pro vs GPT-5 comparison tables, which establish both Pro's CritPt 30% and the *absence* of an Intelligence Index score for it, while supplying the sibling GPT-5.4 figures used only for contrast; BenchmarkList, DataLearnerAI, BenchLeader, sota-model and The Known Good for the independent benchmark aggregations; and OpenAI's GPT-5.4 mini/nano launch for the sibling-tier comparisons. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. Sibling-model figures (GPT-5.4, GPT-5.4 mini, GPT-5.2 Pro, GPT-5.3-Codex) are used **only** as contrast and are never transferred to this checkpoint; GDPval-AA's unit mismatch is flagged rather than compared.
+- Future sources: add a new file next to this one, e.g. `GPT_5_5_Pro.md`, using the same headings. Re-score if OpenAI publishes a cached-input rate, an Artificial Analysis Intelligence Index score, or any long-context retrieval figure — all three are currently missing and all three would move the Cost, Reasoning and Context lines.

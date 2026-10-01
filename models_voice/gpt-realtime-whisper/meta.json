@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-realtime-whisper",
-  "name": "Gpt Realtime Whisper",
-  "short": "Gpt Realtime Whisper model evaluation entry.",
+  "name": "GPT Realtime Whisper",
+  "short": "GPT Realtime Whisper model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"

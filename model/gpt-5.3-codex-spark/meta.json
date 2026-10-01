@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.3-codex-spark",
-  "name": "Gpt 5.3 Codex Spark",
-  "short": "Gpt 5.3 Codex Spark model evaluation entry.",
+  "name": "GPT 5.3 Codex Spark",
+  "short": "GPT 5.3 Codex Spark model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"

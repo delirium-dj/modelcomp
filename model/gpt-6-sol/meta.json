@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-6-sol",
-  "name": "Gpt 6 Sol",
-  "short": "Gpt 6 Sol model evaluation entry.",
+  "name": "GPT 6 Sol",
+  "short": "GPT 6 Sol model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"

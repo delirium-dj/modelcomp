@@ -1,0 +1,49 @@
+# Grok 4 Fast — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (`https://artificialanalysis.ai/models/grok-4-fast`), OpenCode Zen docs (`https://opencode.ai/docs/zen`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4 Fast (Non-reasoning)
+- **Short description:** SpaceXAI's September 2025 non-reasoning, cost-optimized variant of Grok 4; $0.20/$0.50 per 1M tokens with 2M context. Deprecated — SpaceXAI launched Grok 4.1 Fast as a newer release.
+- **Provider / access:** SpaceXAI API; OpenCode Zen: not listed in Zen model table
+- **Release / knowledge:** Released September 19, 2025; knowledge cutoff not published
+- **IDs:** `opencode/grok-4-fast` (per `meta.json`); `grok-4-fast` (AA model page slug)
+- **Context window:** 2M total (per AA model page; `meta.json` says 128K — discrepancy)
+- **Modalities:** Text and image input, text output (per AA model page; `meta.json` says "Text in/out" — discrepancy)
+- **Pricing (as of 2026-10-01):** $0.20 input / $0.50 output per 1M tokens (per AA model page)
+- **Reasoning:** No (non-reasoning variant; AA page describes "Non-reasoning model")
+- **Status:** Deprecated (AA page notes SpaceXAI launched Grok 4.1 Fast as newer release)
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.ai/models/grok-4-fast`) — page exists but states "Not publicly available" for all benchmark details. Intelligence Index listed as 11 with note "Estimate (independent evaluation forthcoming)."
+2. Searched BenchLM for `grok-4-fast` — 404 (page not found). BenchLM has no entry for this model.
+3. Checked OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model not listed in Zen pricing table. No Zen model entry.
+4. Searched xAI news for "grok-4-fast" announcement — 404 (no announcement found at `/news/grok-4-fast`).
+5. All individual benchmarks on AA model page show "Not publicly available."
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Grok 4 Fast / `opencode/grok-4-fast`.
+
+The AA model page exists but only provides an estimated Intelligence Index of 11 (marked "Estimate — independent evaluation forthcoming"). All individual benchmarks (AA-Briefcase, GDPval-AA, AutomationBench, Terminal-Bench, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR) show "Not publicly available." BenchLM has no entry (404). No official launch post or technical report with benchmark numbers could be found.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 73.6) are derived from peer model ratings only, not from verified public benchmarks. When Grok 4 Fast publishes benchmark numbers on a public source (Artificial Analysis, BenchLM, official xAI announcement), this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+Note: `meta.json` discrepancies identified — meta.json lists 128K context window and text-only modalities, but the AA model page shows 2M context window with text+image input support. This suggests `meta.json` may be a placeholder or incorrect for this model.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public internet research via Artificial Analysis, BenchLM, and OpenCode Zen docs; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (AA Intelligence Index 11 is estimated, all benchmarks "Not publicly available").
+
+---

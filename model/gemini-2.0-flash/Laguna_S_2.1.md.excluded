@@ -1,0 +1,49 @@
+# Gemini 2.0 Flash — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (`https://artificialanalysis.ai/models/gemini-2-0-flash`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.0 Flash (Feb '25)
+- **Short description:** Google's February 2025 multimodal non-reasoning Flash model with 1M context; shut down June 1, 2026. Historical Google AI Studio price $0.10/$0.40 per 1M.
+- **Provider / access:** Google AI Studio, Vertex AI
+- **Release / knowledge:** Released February 5, 2025; knowledge cutoff June 1, 2024
+- **IDs:** `google/gemini-2.0-flash` (per `meta.json`); `gemini-2-0-flash` (AA model page slug)
+- **Context window:** 1M total (per AA model page and `meta.json` — consistent)
+- **Modalities:** Text, image, speech, and video input; text and image output (per AA model page and `meta.json`)
+- **Pricing (as of 2026-10-01):** Shut down / deprecated. Historical: Google AI Studio $0.10 input / $0.40 output per 1M; Vertex AI $0.15 / $0.60
+- **Reasoning:** No (non-reasoning model)
+- **Status:** Shut down (meta.json: "Shut down 2026-06-01"; AA page: "This model is deprecated")
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.ai/models/gemini-2-0-flash`) — page exists but states "Not publicly available" for all benchmark details. Intelligence Index listed as 9 with note "Estimate (independent evaluation forthcoming)."
+2. Searched BenchLM for `gemini-2-0-flash` — 404 (page not found). BenchLM has no entry for this model.
+3. Searched Google AI blog for Gemini 2.0 Flash announcement/benchmarks — 404 (no announcement page found at `/products/ai/gemini-2-0-flash`).
+4. Searched Google AI developer docs — no benchmark results page found.
+5. All individual benchmarks on AA model page show "Not publicly available."
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Gemini 2.0 Flash / `google/gemini-2.0-flash`.
+
+The AA model page exists but only provides an estimated Intelligence Index of 9 (marked "Estimate — independent evaluation forthcoming"). All individual benchmarks show "Not publicly available." BenchLM has no entry (404). Google's official Gemini 2.0 launch post (December 2024 / February 2025) could not be located — possible URL `/blog.google/products/ai/gemini-2-0-flash` returns 404. No HuggingFace model card (proprietary model).
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 72.5) are derived from peer model ratings only, not from verified public benchmarks. When Gemini 2.0 Flash benchmark numbers are published on a public source, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+Note: The model is documented as shut down (June 1, 2026) and deprecated on the AA page, which may explain the lack of independent benchmark verification. The AA Intelligence Index of 9 is an estimate, not a verified score.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
+- Method: public internet research via Artificial Analysis, BenchLM, and Google AI developer docs; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (AA Intelligence Index 9 is estimated, all benchmarks "Not publicly available").
+
+---
