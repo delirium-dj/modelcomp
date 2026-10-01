@@ -1,7 +1,7 @@
 # Qwen3.8-Max — findings by Gemini 3.6 Flash
 
 - Source: Alibaba Cloud (`alibaba/qwen3-8-max`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `alibaba/qwen3-8-max` (no Zen Free ID)
 - **Context window:** 1,000,000 tokens total (1M input / 131K max output); verified via DashScope docs.
 - **Modalities:** Text, image, and video input; text output; function calling and structured outputs.
-- **Pricing (as of 2026-09-18):** $2.00 / 1M input, $6.00 / 1M output (Paid tier; includes introductory trial quota).
+- **Pricing (as of 2026-10-01):** $2.00 / 1M input, $6.00 / 1M output (Paid tier; includes introductory trial quota).
 - **Architecture:** Proprietary Sparse Mixture-of-Experts (~2.4T total parameters).
 
 ### Raw benchmarks found
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-18
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public internet research; scores are normalized 1–100 interpretations.
