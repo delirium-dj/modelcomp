@@ -1185,6 +1185,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Claude_Sonnet_4.md": { tool: 80, reasoning: 82, context: 97, multimodal: 65, coding: 80, cost: 30, overall: 80.8 },
     "Claude_Sonnet_5.md": { tool: 85, reasoning: 84, context: 97, multimodal: 66, coding: 79, cost: 30, overall: 82.2 },
     "DeepSeek_4.1_Flash.md": { tool: 94, reasoning: 94, context: 95, multimodal: 82, coding: 90, cost: 45, overall: 91 },
+    "DeepSeek_4_Flash.md": { tool: 95, reasoning: 96, context: 100, multimodal: 85, coding: 93, cost: 30, overall: 94 },
     "GLM_5.3.md": { tool: 93, reasoning: 97, context: 98, multimodal: 70, coding: 93, cost: 30, overall: 90.2 },
     "GLM_5.3_Flash.md": { tool: 90, reasoning: 90, context: 96, multimodal: 68, coding: 91, cost: 33, overall: 87 },
     "GPT_5.6_Luna.md": { tool: 68, reasoning: 95, context: 97, multimodal: 80, coding: 90, cost: 30, overall: 86 },

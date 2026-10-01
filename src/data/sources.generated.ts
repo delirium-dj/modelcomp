@@ -61,7 +61,8 @@ export type SourceKey =
   | "GPT 6 Luna"
   | "Gemini 2.5"
   | "Gemini 2 Flash"
-  | "Gemini 3 Flash";
+  | "Gemini 3 Flash"
+  | "DeepSeek 4 Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "overall" | "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -137,4 +138,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md" },
   { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
   { key: "Gemini 3 Flash", label: "Gemini 3 Flash", file: "Gemini_3_Flash.md", slug: "gemini-3-flash" },
+  { key: "DeepSeek 4 Flash", label: "DeepSeek 4 Flash", file: "DeepSeek_4_Flash.md" },
 ];
