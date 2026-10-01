@@ -1,0 +1,35 @@
+# Omen Alpha — findings by Laguna S 2.1
+
+- Source: Project meta (placeholder); verified public sources all absent
+- Date: 2026-10-02 (UTC)
+- Status: **EXCLUDED** — zero verified public benchmarks found for this model ID
+- Exclusion rationale: `omen-alpha` is not a recognized public model. It returns HTTP 404 on Artificial Analysis, BenchLM, OpenRouter, and has no Hugging Face model card (community search for "omen" yields only hobbyist repos, not a published LLM). The repo `meta.json` short description is "Omen Alpha model evaluation entry" — a generic placeholder. No canonical vendor ID, no API endpoint, no benchmark data, no official launch documentation.
+
+## Model card (unverified)
+
+- **Name:** Omen Alpha (evaluation placeholder)
+- **Short description:** `meta.json` describes this as "Omen Alpha model evaluation entry."
+- **Provider / access:** None — 404 on all major model catalogs
+- **Release / knowledge:** Undisclosed
+- **IDs:** `opencode/omen-alpha` (project ID only)
+- **Context window:** 128K total (`meta.json`) — unverified
+- **Modalities:** Text in/out (`meta.json`) — unverified
+- **Pricing:** "Standard pricing" (`meta.json`) — unverified
+
+### Raw benchmarks found
+
+Zero. No verified public benchmark or independent evaluation exists for this model ID.
+
+### Exclusion declaration
+
+Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research (Arifical Analysis, BenchLM, OpenRouter, Hugging Face) — all returned 404 or no relevant results
+- Zero-influence: no peer `model/` findings files read during research.
+
+---

@@ -1,0 +1,12 @@
+schema_version: 1
+module_path: scripts_tooling
+title: Model Data Sync & Codegen Tooling
+scope:
+    - scripts/
+source_files: []
+depends_on: []
+related_to:
+    - path: frontend_app
+    - path: model_data_finance
+    - path: model_data_text
+    - path: model_data_voice

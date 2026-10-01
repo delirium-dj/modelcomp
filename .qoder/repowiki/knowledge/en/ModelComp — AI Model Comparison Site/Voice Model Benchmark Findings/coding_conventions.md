@@ -1,0 +1,5 @@
+- Each model report follows a fixed heading-and-bullet schema: Source, Date, Overview/cross-log links, Model card (Name, Provider/access, Release/knowledge, IDs, Context window, Modalities, Pricing, Architecture), Raw benchmarks found, Normalized scores (1–100 per dimension), and a Signature block naming the rater model and date.
+- Normalized scores are expressed as `Dimension: X/100` with a parenthetical justification, and Overall Score is computed as the mean of the five non-cost quality dimensions.
+- Cross-references to the parent project's methodology use relative paths (`../../model-comparison.md`, `../../model-findings.md`) rather than absolute URLs.
+- Provider access is recorded as a quoted API identifier string (e.g. `gemini-3.8-live`, `openai/gpt-5.6-terra`) alongside human-readable provider names.
+- Excluded or superseded reports are kept on disk but renamed with `.excluded` or `.replaced-by-<new-file>.md` suffixes instead of being deleted.

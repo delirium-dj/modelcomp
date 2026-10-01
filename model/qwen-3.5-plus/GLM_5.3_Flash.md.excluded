@@ -1,0 +1,56 @@
+# Qwen 3.5 Plus — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified benchmarks)
+
+- Source: Alibaba Qwen (`qwen3.5-plus`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified spec facts only)
+
+- **Name:** Qwen 3.5 Plus
+- **Short description:** The Plus-tier Qwen3.5 API model from Alibaba. The Qwen3.5 generation (first release 2026-02-16, 397B-A17B MoE open model) integrates a unified vision-language foundation, Gated Delta Networks + sparse MoE for efficient inference, RL across million-agent environments, and 201-language coverage (official QwenLM repo). CloudPrice separately tracks a "Qwen3.5 Omni Plus" (`qwen3.5-omni-plus`, ID dated 2026-03-15) — possible same-model alias, unverified.
+- **Provider / access:** OpenCode Zen `opencode/qwen-3.5-plus` via `https://opencode.ai/zen/v1/messages` (Anthropic-compatible Messages API, paid).
+- **Release / knowledge:** Qwen3.5 first open release 2026-02-16 (official repo news); Plus API tier release date not published in tracked sources. Knowledge cutoff: no verified public data found.
+- **IDs:** `opencode/qwen-3.5-plus` (Zen); `qwen3.5-plus` (Qwen API). Possibly related: `qwen3.5-omni-plus` (CloudPrice).
+- **Context window:** no verified public data found (folder meta says "128K total" — unverified; Qwen3.5-family open models serve at 262K context per SGLang/vLLM examples, noted as family context only, not confirmed for the Plus API tier)
+- **Modalities:** no verified public data found for the Plus tier (Qwen3.5 family is a unified vision-language foundation per the official repo; text out; reasoning + tool use expected but unverified for this tier)
+- **Pricing (as of 2026-10-01):** Paid — $0.20 / 1M input, $1.20 / 1M output, cache read $0.02 (OpenCode Zen pricing table)
+- **Architecture:** Proprietary API tier; open-weight Qwen3.5 family uses Gated Delta Networks + sparse MoE (397B-A17B first release, Apache-2.0). Parameter count for the Plus API tier: no verified public data found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- no verified public score found
+
+## Self-exclusion note
+
+Zero verified public benchmark numbers were found for this exact model/ID (`qwen3.5-plus`) as of 2026-10-01: the official QwenLM/Qwen3.8 repo and Qwen3.5 blog publish benchmark charts only for the OPEN model sizes (397B-A17B, 122B-A10B, 35B-A3B, 27B, 9B, 4B — image-based charts, and for different models anyway); CloudPrice does not track a plain `qwen3.5-plus` entry (no specs); qwen.ai blog pages render empty without JavaScript; Bing/DuckDuckGo searches surfaced nothing for the Plus tier. Saved as `.md.excluded` per the mandatory self-exclusion rule (`RULES.md`, `model-report-TEMPLATE.md`): no scores computed, no placeholder numbers invented. The pricing/endpoint facts above are verified (OpenCode Zen) and may be reused once benchmark data appears.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
+- Method: public internet research (official QwenLM GitHub repo, OpenCode Zen docs, CloudPrice REST API, web searches); no scores are included — self-excluded for zero verified public benchmarks.

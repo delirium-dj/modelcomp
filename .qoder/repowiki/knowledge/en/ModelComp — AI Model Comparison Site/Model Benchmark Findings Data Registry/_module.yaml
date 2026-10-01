@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: model_data_text
+title: Model Benchmark Findings Data Registry
+scope:
+    - model/
+source_files: []
+depends_on: []
+related_to:
+    - path: scripts_tooling

@@ -1,0 +1,96 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: master
+nodes_managed: true
+exported_at: "2026-10-01T22:21:29Z"
+modules:
+    "":
+        dir_name: ModelComp — AI Model Comparison Site
+        title: ModelComp — AI Model Comparison Site
+        scope:
+            - README.md
+            - AGENTS.md
+            - RULES.md
+            - IMPROVEMENTS.md
+            - model-comparison.md
+            - model-findings.md
+            - model-report-TEMPLATE.md
+            - package.json
+            - pnpm-lock.yaml
+            - vite.config.ts
+            - tailwind.config.js
+            - postcss.config.js
+            - tsconfig.json
+            - vercel.json
+            - .gitignore
+            - .agents/
+            - .antigravity/
+            - tasks/
+            - GLM53F_IMP.md
+            - PUR_MUSE13.md
+            - REPORT.md
+        source_files: []
+        children:
+            - frontend_app
+            - model_data_finance
+            - model_data_text
+            - model_data_voice
+            - scripts_tooling
+        depends_on: []
+        related_to: []
+    frontend_app:
+        dir_name: ModelComp QwikCity Frontend
+        title: ModelComp QwikCity Frontend
+        scope:
+            - src/
+            - public/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: scripts_tooling
+    model_data_finance:
+        dir_name: Finance Model Research Registry
+        title: Finance Model Research Registry
+        scope:
+            - models_finance/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: scripts_tooling
+    model_data_text:
+        dir_name: Model Benchmark Findings Data Registry
+        title: Model Benchmark Findings Data Registry
+        scope:
+            - model/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: scripts_tooling
+    model_data_voice:
+        dir_name: Voice Model Benchmark Findings
+        title: Voice Model Benchmark Findings
+        scope:
+            - models_voice/
+            - voicemodels/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: scripts_tooling
+    scripts_tooling:
+        dir_name: Model Data Sync & Codegen Tooling
+        title: Model Data Sync & Codegen Tooling
+        scope:
+            - scripts/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: frontend_app
+            - path: model_data_finance
+            - path: model_data_text
+            - path: model_data_voice

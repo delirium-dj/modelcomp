@@ -1,0 +1,51 @@
+# LongCat 2.0 — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (`https://artificialanalysis.ai/models/longcat-2-0`), BenchLM (`https://benchlm.ai/models/longcat-2-0`), HuggingFace
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.0
+- **Short description:** Meituan's MIT-licensed open-weights 1.6T/48B MoE model for coding and agentic work, 1M context window. (unveiled 2026-06-29)
+- **Provider / access:** LongCat API; open weights on HuggingFace
+- **Release / knowledge:** Released June 29, 2026; knowledge cutoff not published
+- **IDs:** `meituan/longcat-2.0` (per `meta.json`); `longcat-2-0` (AA slug); `longcat-2-0` (BenchLM slug)
+- **Context window:** 1M total (per AA model page; `meta.json` also says 1M — **consistent**)
+- **Modalities:** Text in/out (per AA model page: "Supports: text" and `meta.json`: "Text in/out" — **consistent**)
+- **Pricing (as of 2026-10-01):** $0.30 input / $1.20 output per 1M tokens (LongCat API); cache discount 98% (cache hit $0.006)
+- **Architecture:** Mixture-of-Experts (MoE); 1.6 trillion total parameters, 48 billion active
+- **License:** MIT (commercial use allowed)
+- **Open weights:** Yes — [Hugging Face](https://huggingface.co/meituan-longcat/LongCat-2.0)
+- **Reasoning:** Yes (extended thinking / chain-of-thinking)
+- **Speed:** N/A (per AA)
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.ai/models/longcat-2-0`) — page exists but Intelligence Index is **19 (estimated, rank #55/117, median: 18)** with note "Estimate (independent evaluation forthcoming)." All individual benchmarks on the AA model page show "Not publicly available."
+2. Searched BenchLM (`https://benchlm.ai/models/longcat-2-0`) — page exists but shows "Sourced benchmark coverage is coming soon" and "0 of 618" benchmarks covered. No benchmark scores found.
+3. Searched HuggingFace (`https://huggingface.co/meituan-longcat/LongCat-2.0`) — model weights page exists (open weights, MIT license), but no benchmark leaderboard data or model card with benchmark scores.
+4. Searched for LongCat 2.0 announcement or tech report — no official announcement page or benchmark report found.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for LongCat 2.0 / `meituan/longcat-2.0`.
+
+The AA model page exists but only provides an estimated Intelligence Index of 19 (marked "Estimate — independent evaluation forthcoming"). All individual benchmarks (AA-Briefcase, GDPval-AA, AutomationBench, Terminal-Bench, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR) show "Not publicly available." BenchLM's page exists but shows "0 of 618" benchmarks covered with "Sourced benchmark coverage is coming soon." HuggingFace hosts the model weights but contains no benchmark data. No official launch post or technical report with benchmark numbers could be found.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 71.5) are derived from peer model ratings only, not from verified public benchmarks. When LongCat 2.0 publishes benchmark numbers on a public source (Artificial Analysis, BenchLM, or with the open-weights model card on HuggingFace), this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+Note: `meta.json` correctly reports 1M context window and text-only modalities — consistent with the AA model page. No discrepancy for this model. However, the model is open weights under MIT license with HuggingFace weights available, which may make future benchmark verification more reliable.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research via Artificial Analysis, BenchLM, and HuggingFace; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (AA Intelligence Index 19 is estimated, all benchmarks "Not publicly available"; BenchLM shows 0 of 618 benchmarks).
+
+---

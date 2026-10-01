@@ -1,0 +1,5 @@
+Two sibling directories form a flat, data-only layout:
+- `models_voice/<api-family>/` holds one subdirectory per voice API (e.g. `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Each subdirectory contains a `meta.json` describing the API family (id, name, short description, context window, modalities, pricing/free-tier notes) plus one `.md` file per evaluated model (e.g. `GPT_5.6_Terra.md`, `Gemini_3.8_Flash.md`) authored by a specific rater/model, an `average.md` aggregating scores across raters, and a shared `Big_Pickle.md` baseline.
+- `voicemodels/` mirrors a subset of those API families but carries only the `Mimo_v2.6_Flash.md` report — used as a canonical reference copy.
+
+Files cross-reference the parent project's methodology via relative links (`../../model-comparison.md`, `../../model-findings.md`). Files marked `.excluded` or `.replaced-by-...` are intentionally ignored by the aggregator. Dependency direction is one-way: this module is consumed by the top-level comparison pipeline; it declares no code dependencies.

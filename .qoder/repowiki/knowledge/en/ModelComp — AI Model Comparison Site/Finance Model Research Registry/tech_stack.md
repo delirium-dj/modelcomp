@@ -1,0 +1,1 @@
+Plain Markdown + JSON metadata; no code, driven by the external `tasks/research.md` delegator protocol.

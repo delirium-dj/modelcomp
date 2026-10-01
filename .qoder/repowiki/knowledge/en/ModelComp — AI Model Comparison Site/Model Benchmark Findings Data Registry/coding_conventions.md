@@ -1,0 +1,6 @@
+- Each tracked model lives in its own `model/<slug>/` directory named as a filesystem-safe slug derived from the Zen ID suffix, with version numbers using dots (e.g. `gpt-5.5`) rather than hyphens.
+- Findings files follow the `<Source_Name>.md` naming convention using letters, digits and underscores only (version dots allowed), with display labels derived by replacing `_` with spaces.
+- Every model folder ships a `meta.json` declaring required fields `id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`, plus optional `pricingTiers`, `freeTierNote`, and `noFreeId`.
+- `name` in `meta.json` uses the official vendor display name verbatim (spaces, exact casing) while `id` stays the provider ID (e.g. `anthropic/claude-opus-4.6`) and is never displayed.
+- Excluded or superseded findings files are kept on disk with `.excluded` or `.replaced-by-<target>` suffixes instead of being deleted, letting the sync/build pipeline honor the intent without losing history.
+- Each findings file is self-contained — it starts from `../model-report-TEMPLATE.md` and is researched independently without reading other agents' files first.

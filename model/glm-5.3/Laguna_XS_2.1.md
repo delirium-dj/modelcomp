@@ -24,7 +24,7 @@ Derived from `average.md` scores using methodology in `model-comparison.md`:
 - **Multimodal: 26/100.** 26.3 very low; text-only model caps this dimension.
 - **Coding: 86/100.** 86.3 average; excellent coding capability.
 - **Cost efficiency: 76/100.** 75.8 average; good value for open model.
-- **Overall Score: 75/100.** Mean of (86+84+89+26+86)/5 = 74.2 → 74. Good coding model; multimodal capacity limits.
+- **Overall Score: 74.2/100.** Mean of (86+84+89+26+86)/5 = 74.2 → 74. Good coding model; multimodal capacity limits.
 
 ---
 

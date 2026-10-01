@@ -1,0 +1,5 @@
+- Each model report folder contains one `.md` per contributing rater plus an `average.md` summarizing cross-rater means and an agreement notes list of qualifying vs. ignored raters.
+- Model metadata is declared in a sibling `meta.json` with fields `id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`, `freeTierNote`, and `pricingTiers`.
+- Scoring files follow a fixed seven-line bullet contract: Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall Score (with Overall = mean of the first five).
+- Contributing models without public information are kept under the same slug but suffixed `.excluded`; superseded variants are suffixed `.replaced-by-Flash`.
+- Delegator files pin a single `AGENT_SOURCE_STEM` line and delegate execution to `tasks/research.md` rather than embedding research instructions inline.

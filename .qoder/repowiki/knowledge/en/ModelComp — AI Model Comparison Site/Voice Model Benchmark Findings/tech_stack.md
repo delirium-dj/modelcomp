@@ -1,0 +1,1 @@
+Markdown + JSON metadata; no executable code in scope. The `.md.excluded` / `.replaced-by-*.md` filename suffixes act as declarative exclusion markers for the aggregation tooling.

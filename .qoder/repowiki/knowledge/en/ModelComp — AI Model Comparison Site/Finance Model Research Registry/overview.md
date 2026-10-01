@@ -1,0 +1,1 @@
+Holds per-model research reports and averaged scores for finance-oriented LLMs (Ling 3.0 Flash Fin and its free tier), produced by delegated agent research runs.

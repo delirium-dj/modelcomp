@@ -1,0 +1,35 @@
+# Google Gemini 2.5 Flash Lite — findings by Laguna S 2.1
+
+- Source: Project meta (placeholder); verified public sources all absent
+- Date: 2026-10-02 (UTC)
+- Status: **EXCLUDED** — zero verified public benchmarks found for this model ID
+- Exclusion rationale: `google-gemini-2.5-flash-lite` is not a published Google model. It returns HTTP 404 on Artificial Analysis, BenchLM, OpenRouter, Google's official model docs, and has no Hugging Face model card (only community distill derivatives such as `TeichAI/Qwen3-1.7B-Gemini-2.5-Flash-Lite-Preview-Distill` reference the string in filenames). The separate `gemini-2.5-flash-lite` entry in this project was likewise excluded on 2026-09-29. This appears to be a generic/placeholder model evaluation entry (repo `meta.json` short = "Google Gemini 2.5 Flash Lite model evaluation entry"). No canonical vendor ID, no API endpoint, no benchmark data.
+
+## Model card (unverified)
+
+- **Name:** Google Gemini 2.5 Flash Lite (evaluation placeholder)
+- **Short description:** `meta.json` describes this as "Google Gemini 2.5 Flash Lite model evaluation entry." No independent confirmation exists.
+- **Provider / access:** None — 404 on all major model catalogs
+- **Release / knowledge:** Undisclosed
+- **IDs:** `opencode/google-gemini-2.5-flash-lite` (project ID only)
+- **Context window:** 128K total (`meta.json`) — unverified
+- **Modalities:** Text in/out (`meta.json`) — unverified
+- **Pricing:** "Standard pricing" (`meta.json`) — unverified
+
+### Raw benchmarks found
+
+Zero. No verified public benchmark or independent evaluation exists for this model ID. All searches return 404 or no results.
+
+### Exclusion declaration
+
+Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**. This folder carries no findings file because no research yields a single citable public score.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research (Artifical Analysis, BenchLM, OpenRouter, Google model docs, Hugging Face) — all returned 404 or only derivative references
+- Zero-influence: no peer `model/` findings files read during research.
+
+---

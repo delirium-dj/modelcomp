@@ -1,0 +1,79 @@
+# Qwen 3.6 Plus — findings by Qwen 3.8 27B
+
+- Source: Alibaba/Qwen3.6-Plus
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUDED — no verified public capability benchmarks found for this exact model/ID.**
+> Every capability row below reads "no verified public score found". Per the template's
+> mandatory self-exclusion rule, this report is saved as `.md.excluded` with no scores:
+> all that exists publicly is the hosted model's specs/pricing, one Artificial Analysis
+> intelligence *estimate* (independent evaluation still forthcoming), speed measurements,
+> and benchmark tables for sibling open models (Qwen3.6-27B / Qwen3.6-35B-A3B / the
+> hosted Qwen3.5-Plus generation) — none of which are verified scores for
+> `qwen3.6-plus` itself.
+
+## Model card
+
+- **Name:** Qwen 3.6 Plus
+- **Short description:** Alibaba's hosted "Plus" tier of the Qwen3.6 generation — "earlier Qwen multimodal workhorse for million-token agent and document tasks" (models.dev). Released 2026-04-02, ahead of the open Qwen3.6-35B-A3B (Apr 16) and Qwen3.6-27B (Apr 22) releases. Now deprecated on Artificial Analysis in favor of Qwen3.7 Plus.
+- **Provider / access:** OpenCode Zen `opencode/qwen-3.6-plus`; Alibaba Cloud Model Studio / DashScope `qwen3.6-plus` (OpenAI- and Anthropic-compatible APIs); 21 third-party providers per models.dev (302.AI, OpenRouter, Vercel AI Gateway, Requesty, Venice, …).
+- **Release / knowledge:** Released 2026-04-02 (models.dev + Artificial Analysis FAQ); knowledge cutoff 2025-04 per models.dev.
+- **IDs:** `qwen3.6-plus` on DashScope; `opencode/qwen-3.6-plus` on Zen.
+- **Context window:** 1,000,000 total; 65,536 max output on standard providers (one gateway lists 250,000) (verified via models.dev + AA; meta.json's "128K total" is a stale placeholder).
+- **Modalities:** text + image + video in; text out; reasoning (thinking mode by default, `preserve_thinking` available in the Qwen3.6 generation); tool calls; temperature supported.
+- **Pricing (as of 2026-10-01):** first-party $0.50 input / $3.00 output per 1M (90% cache discount, blended $0.43 per 1M per AA); gateway range $0.28–0.33 / $1.65–1.95; bundled free under Alibaba Token Plans (models.dev + AA).
+- **Architecture:** proprietary; Alibaba has not disclosed parameter count. Qwen3.6 generation highlights (from the open-model cards): improved agentic coding (frontend workflows, repository-level reasoning) and thinking preservation.
+
+### Raw benchmarks found
+
+> Verified via public web research: Artificial Analysis model page (`qwen3-6-plus`), models.dev provider/pricing database, OpenCode Zen registry, Qwen Hugging Face model cards for Qwen3.6-27B / Qwen3.6-35B-A3B / Qwen3.5-397B-A17B (family context only), Qwen3.8 GitHub release notes. **No public benchmark table exists for `qwen3.6-plus` itself** — not on the Qwen blog (SPA, no Plus column located in any Qwen model card), not on AA (evaluation pending), not on models.dev.
+
+Agent / tool use:
+
+- Tau2-Bench / Tau3-banking: no verified public score found for Qwen3.6 Plus
+- MCP Atlas / MCP-Mark / Toolathlon: no verified public score found for Qwen3.6 Plus
+- Claw-Eval / VITA-Bench / DeepPlanning: no verified public score found for Qwen3.6 Plus
+- Qwen3.6 open-model proxies (NOT this model): Claw-Eval Avg 68.7–72.4, Claw-Eval Pass^3 50.0–60.6, QwenClawBench 53.4 (Qwen3.6-35B-A3B / Qwen3.6-27B, April 2026, Qwen)
+- Hosted-generation proxy (NOT this model): Qwen3.5-Plus/397B-A17B TAU2 86.7, BFCL-V4 72.9, MCP-Mark 46.1 (February 2026, Qwen)
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index: **27 — ESTIMATE only** ("independent evaluation forthcoming"), rank #107/224, above the price-tier median of 26 (Artificial Analysis, estimate; not a completed independent measurement)
+- GPQA Diamond: no verified public score found for Qwen3.6 Plus
+- HLE / HLE-Verified: no verified public score found for Qwen3.6 Plus
+- AIME26 / HMMT / IMOAnswerBench: no verified public score found for Qwen3.6 Plus
+- Family proxies (NOT this model): Qwen3.6-27B GPQA 87.8 / HLE 24.0 / AIME26 94.1; Qwen3.5-397B GPQA 88.4 / HLE 28.7 (Qwen)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found for Qwen3.6 Plus
+- Terminal-Bench 2.0: no verified public score found for Qwen3.6 Plus
+- LiveCodeBench / SkillsBench / NL2Repo: no verified public score found for Qwen3.6 Plus
+- Family proxies (NOT this model): Qwen3.6-27B SWE-bench Verified 77.2 / SWE-Pro 53.5 / TB2.0 59.3; Qwen3.6-35B-A3B 73.4 / 49.5 / 51.5 (Qwen, April 2026)
+
+Long context:
+
+- 1M window (docs); no MRCR/RULER/AA-LCR retrieval scores published for Qwen3.6 Plus (family proxies: Qwen3.5-397B AA-LCR 68.7, LongBench v2 63.2)
+
+Multimodal:
+
+- Text + image + video input confirmed (AA + models.dev); no MMMU/VideoMME/OCR benchmark scores published for Qwen3.6 Plus (family proxies: Qwen3.6-27B VideoMME 87.5, MMMU 82.9; Qwen3.5-397B OCRBench 93.1)
+
+Supplementary measured data (Artificial Analysis, Alibaba first-party API):
+
+- Output speed: **56.0 tokens/s** (#133/224, slower than the tier median of 73.3); TTFT **2.13 s** (better than median 4.04 s)
+- Pricing: $0.50/$3.00 per 1M, 90% cache discount, blended $0.43/1M
+
+### Normalized scores (1–100)
+
+- **SELF-EXCLUDED — no scores recorded.** Rationale: zero verified public capability benchmarks exist for `qwen3.6-plus` (AA's only intelligence figure is an explicit estimate awaiting independent evaluation; all capability rows above are "no verified public score found"). Fabricating or proxy-scoring from sibling-model tables would violate the no-invented-values rule; a scored file would also trip the evidence-free quarantine in `tasks/sync-data.md`. The verified facts (1M context, $0.50/$3.00, April 2026 release, text+image+video in, 56 tok/s, AA estimate 27 ≈ slightly above GPT-5.1-level 25 in its price tier) suggest a solid mid-band workhorse, but a future scoring pass should wait for AA's independent evaluation or a Qwen-published table.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (openrouter/qwen/qwen3.8-27b:free)** — 2026-10-01
+- Method: public internet research (Artificial Analysis model page qwen3-6-plus, models.dev provider/pricing database, OpenCode Zen registry, Qwen Hugging Face model cards Qwen3.6-27B / Qwen3.6-35B-A3B / Qwen3.5-397B-A17B, Qwen3.8 GitHub release notes); scores are normalized 1–100 interpretations, not official vendor scores. No scores recorded in this file.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.7_Plus.md`, using the same headings.

@@ -1,0 +1,10 @@
+schema_version: 1
+module_path: model_data_voice
+title: Voice Model Benchmark Findings
+scope:
+    - models_voice/
+    - voicemodels/
+source_files: []
+depends_on: []
+related_to:
+    - path: scripts_tooling

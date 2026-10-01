@@ -1,0 +1,37 @@
+# GPT 5.3 Codex Spark — findings by Laguna S 2.1
+
+- Source: Project meta, BenchLM model listing (0/618 benchmarks), OpenCode Zen docs
+- Date: 2026-10-02 (UTC)
+- Status: **EXCLUDED** — zero verified public benchmark numbers found for this model ID
+
+## Model card (partially verified)
+
+- **Name:** GPT 5.3 Codex Spark
+- **Short description:** OpenAI Codex-family model listed on OpenCode Zen (`$1.75` input / `$14.00` output per 1M tokens). Repo `meta.json` describes it as "GPT 5.3 Codex Spark model evaluation entry."
+- **Provider / access:** OpenCode Zen (`opencode/gpt-5.3-codex-spark`); not found on OpenRouter or Artificial Analysis
+- **Release / knowledge:** Undisclosed
+- **IDs:** `gpt-5.3-codex-spark` (Zen), `opencode/gpt-5.3-codex-spark` (project)
+- **Context window:** 128K total (`meta.json`)
+- **Modalities:** Text in/out (`meta.json`)
+- **Pricing:** $1.75 input / $14.00 output per 1M tokens (Zen docs)
+
+### Raw benchmarks found
+
+- **Benchmarks covered: 0 of 618** — BenchLM model page (`benchlm.ai/models/gpt-5-3-codex-spark`) lists zero benchmark results; "Overall Score: Coming soon"
+- Artificial Analysis: **HTTP 404** — model not found (`artificialanalysis.ai/models/gpt-oss-120b` returned 404 for the similar slug)
+- OpenRouter: not listed
+- Hugging Face: no model card found
+
+### Exclusion declaration
+
+Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**. BenchLM lists this model but with 0/618 benchmarks and "Coming soon" for all scores. AA returns 404. No single citable public benchmark score exists.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research (BenchLM model listing, Artificial Analysis, OpenRouter catalog) — BenchLM shows 0/618 benchmarks; AA returns 404; OpenRouter has no entry
+- Zero-influence: no peer `model/` findings files read during research.
+
+---

@@ -1,0 +1,44 @@
+# Jev 1.13 — findings by Laguna S 2.1
+
+- Source: TypeSafe AI docs (`https://docs.typesafe.ai`), TypeSafe AI blog (`https://typesafe.ai/blog/introducing-system-one-models-and-jev`), OpenCode Zen docs (`https://opencode.ai/docs/zen`)
+- Date: 2026-10-02 (UTC)
+- Status: **EXCLUDED** — zero verified public benchmarks found for this model ID
+
+## Model card (partially verified)
+
+- **Name:** Jev 1.13
+- **Short description:** TypeSafe AI's first "System One Model" — a new class of frontier models built to make fast, structured decisions that software can use directly. Unlike LLMs that generate strings, Jev outputs type-safe structured values (Choice, Score, Noul question types) with calibrated probabilities and confidence scores. Optimized for automation, not chat. Available in early access via OpenCode Zen (`jev-1.13` / `jev-1.13-free`).
+- **Provider / access:** TypeSafe AI — OpenCode Zen endpoint `https://opencode.ai/zen/v1/systemone`; early access via `https://console.typesafe.ai/`
+- **Release / knowledge:** September 2026 (TypeSafe blog post "Introducing System One Models & Jev", published Sep 15, 2026); knowledge cutoff not disclosed
+- **IDs:** `jev-1.13` (Zen), `opencode/jev-1.13` (project)
+- **Context window:** 128K total (`meta.json` — unverified, System One models use "state" rather than tokens)
+- **Modalities:** Text in / structured decision out (`meta.json` — System One models don't generate text; they evaluate state against typed questions)
+- **Pricing:** $0.042 input per 1M tokens, $0.00 output per 1M tokens (Zen docs; effectively free output, "too cheap to meter")
+- **Architecture:** New model architecture with parallel sampler for maximum efficiency; trained with Reinforcement Learning for Calibrated Decisions (RLCD) — distinct from RLHF/RLVR used by LLMs
+
+### Raw benchmarks found
+
+Zero. Jev is a "System One Model" that makes structured decisions rather than generating text. It is evaluated on:
+- Workflow evals (TypeSafe's own evaluation methodology using reference probabilities from Astra and Fable models)
+- Wikiracing task completion
+- Doom game performance (real-time agentic task)
+- SVG benchmark (creative generation)
+- Side-by-side comparisons against GPT-5.6 Terra (not a public benchmark)
+
+No standard LLM benchmarks (GPQA, HLE, SWE-bench, LiveCodeBench, Terminal-Bench, τ²-bench, GDPval-AA, AA Intelligence Index, BenchLM, etc.) have been published for Jev 1.13. The model is not listed on Artificial Analysis, BenchLM, or OpenRouter. OpenCode Zen lists it only in the System One API endpoint section, not the standard model catalog.
+
+The TypeSafe blog post states: "Extraordinary claims require extraordinary evidence" and provides "receipts" — but these are TypeSafe's own workflow evaluations, not independently verified public benchmarks.
+
+### Exclusion declaration
+
+Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**. Jev 1.13 is a System One model that does not participate in standard LLM benchmark suites. No GPQA, HLE, SWE-bench, Terminal-Bench, AA Intelligence Index, or BenchLM score exists or can be found through public internet research.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research (TypeSafe AI docs, TypeSafe AI blog, OpenCode Zen docs, AA/BenchLM/OpenRouter checks — all returned 404 or no listing for Jev)
+- Zero-influence: no peer `model/` findings files read during research.
+
+---

@@ -1,0 +1,1 @@
+Root of the ModelComp site: a QwikCity frontend that renders benchmark data produced by per-domain model registries and codegen scripts into comparison tables, radar charts, and model cards.

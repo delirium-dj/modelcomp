@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 52/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 55/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 72/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 65/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 62/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 98/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 61/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 59/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 60/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 75/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 73.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 62/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 97.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 66/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Muse Spark 1.3.
-- Average from top 1 by Overall Score: Muse Spark 1.3.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Gemini 3.6 Flash, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny Alpha.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
+- Average from top 3 by Overall Score: Gemini 3.6 Flash, Kimi K3, Muse Spark 1.3.
+- Ignored below-gate rater(s): DeepSeek 4 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny Alpha.

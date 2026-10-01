@@ -1,0 +1,1 @@
+New model entries are created by editing only the STEM line in the delegator `models_finance/Ling_3.0_Flash_Fin.md` and delegating to the matching model; agents write drafts to `/tmp/draft.md` and must not run `pnpm sync` / `pnpm build.types` / `pnpm build` themselves.

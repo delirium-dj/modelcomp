@@ -1,0 +1,28 @@
+schema_version: 1
+module_path: ""
+title: ModelComp — AI Model Comparison Site
+scope:
+    - README.md
+    - AGENTS.md
+    - RULES.md
+    - IMPROVEMENTS.md
+    - model-comparison.md
+    - model-findings.md
+    - model-report-TEMPLATE.md
+    - package.json
+    - pnpm-lock.yaml
+    - vite.config.ts
+    - tailwind.config.js
+    - postcss.config.js
+    - tsconfig.json
+    - vercel.json
+    - .gitignore
+    - .agents/
+    - .antigravity/
+    - tasks/
+    - GLM53F_IMP.md
+    - PUR_MUSE13.md
+    - REPORT.md
+source_files: []
+depends_on: []
+related_to: []

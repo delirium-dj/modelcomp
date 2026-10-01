@@ -1,0 +1,6 @@
+Flat directory layout under `model/` where each subdirectory is a single tracked model (e.g. `claude-opus-4.6/`, `gpt-5.6-terra/`, `big-pickle/`). Inside each model folder:
+- One `<Source_Name>.md` file per reporting agent (e.g. `GLM_5.3.md`, `Gemini_3.8_Flash.md`, `Big_Pickle.md`) — self-contained findings with model card, raw benchmarks, normalized 1–100 scores, and signature.
+- `average.md` — auto-computed by `pnpm sync`, never edited by hand; aggregates per-agent scores.
+- `meta.json` — curated display metadata (`id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`, optional `pricingTiers`/`freeTierNote`/`noFreeId`), edited by hand when facts change.
+
+Discovery and wiring are code-free: `pnpm sync` pre-parses every `*.md` into `../src/data/scores.generated.ts` and `../src/data/sources.generated.ts`, while `../src/data/models.ts` discovers every `meta.json` via `import.meta.glob` at build time. The top-level `Inkling/` directory holds Inkling's own evaluation entries alongside other agents' results. Files ending in `.excluded` or `.replaced-by-*` are markers used by the sync/build pipeline to suppress or alias entries rather than delete them.
