@@ -8,6 +8,7 @@
 ## Model card
 
 - **Name:** Gemini 3.7 Flash
+- Updated: **2026-10-01 (UTC)** — re-research pass; deprecation flag + refreshed AA figures appended below; scores unchanged
 - **Short description:** Google's high-capability 3.7 Flash model (OpenCode Zen metadata), a fast proprietary reasoning model from Google positioned as the high-capability member of its Flash line. Superseded on Artificial Analysis by Gemini 3.8 Flash (high), which AA now recommends.
 - **Provider / access:** Google first-party (Google AI Studio, Vertex/Cloud API via OpenCode Zen `google/gemini-3.7-flash`; Artificial Analysis lists 4 API providers). Standard chat/completions-style provider API on Zen.
 - **Release / knowledge:** Released 2026-08-13 per Artificial Analysis model page ("About Gemini 3.7 Flash"); knowledge cutoff not stated in the sources captured.
@@ -88,3 +89,13 @@ Speed / cost (supplementary, not scored):
 - Provided by: **Qwen 3.8 27B (qwen-3.8-27b)** — 2026-09-24
 - Method: public internet research (Artificial Analysis model page and BenchLM model page, cross-checked against curated `meta.json`); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+## Additional findings (2026-10-01, re-research pass)
+
+Re-researched 8 days after the initial report; source: Artificial Analysis model page for Gemini 3.7 Flash (High), read 2026-10-01 (Intelligence Index v4.3.2). No capability-dimension changes; scores stand.
+
+- **Status — now marked deprecated on Artificial Analysis.** AA's page banner states: "This model is deprecated. We only continue performance benchmarking for the default 10k input token workload. Results for other workloads are historical and no longer updated. Google has launched a newer release, Gemini 3.8 Flash. We suggest considering it instead." This sharpens the initial report's "superseded on AA" note: 3.7 Flash (High) is no longer actively benchmarked on non-default workloads, and 3.8 Flash is the recommended successor. The model itself remains listed and available through 4 API providers.
+- **AA figures refreshed (v4.3.2, class grew 210 → 223):** Intelligence Index still **39** but rank now **#60 / 223** (was #50–210 — rank diluted by class growth, not a score change). Output speed improved to **291.2 tok/s, #1 / 223** (was 287.7, #2/210 — now the fastest in class). Cost per II task **$0.93, #45 / 223** (was #38/210). Verbosity **100M, #69 / 223** (was #59/210). TTFT (Google API) 11.42s (was 10.90s).
+- **Pricing unchanged:** $0.75 / $3.75 per 1M with 90% cache discount, blended 7:2:1 ≈ $0.58 — the price point in the initial report holds; the Cost 97/100 score is unaffected.
+- **Specs re-confirmed:** 1.0M context window, text + image + speech + video input, text output, reasoning (this page shows the reasoning/"High" variant), released 2026-08-13, proprietary, parameter count undisclosed.
+- **Scoring note:** deprecation is an availability/maintenance flag, not a capability change — none of the six scored dimensions (Tool/Reasoning/Context/Multimodal/Coding/Cost) is affected, so Overall 85/100 stands. For new workloads, Gemini 3.8 Flash (GA 2026-09-02, AA index 41) is the model to evaluate instead.

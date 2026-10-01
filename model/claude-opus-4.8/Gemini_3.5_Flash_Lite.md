@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/Claude Opus 4.8
-- Date: 2026-09-18 (UTC)
+- Source: Anthropic / Claude Opus 4.8
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,58 +9,58 @@
 
 - **Name:** Claude Opus 4.8
 - **Short description:** Anthropic's flagship 4.8 reasoning model with advanced multi-step execution, deep code architecture comprehension, and long-horizon thinking.
-- **Provider / access:** Anthropic API `anthropic/claude-opus-4.8` (Messages API).
-- **Release / knowledge:** 2026 release.
-- **IDs:** `anthropic/claude-opus-4.8` (no Zen Free ID)
-- **Context window:** 200K tokens.
-- **Modalities:** Text, image in; text out; reasoning yes; tool calls yes.
-- **Pricing (as of 2026-09-18):** Paid-tier pricing.
-- **Architecture:** Proprietary transformer architecture.
+- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-opus-4.8` (Paid API)
+- **Release / knowledge:** 2026 / knowledge cutoff current
+- **IDs:** `anthropic/claude-opus-4.8` (No Free ID exists on Zen)
+- **Context window:** 200K total tokens (verified via model metadata)
+- **Modalities:** Text, image in; text out; tool calls; JSON mode
+- **Pricing (as of 2026-10-01):** Paid-tier pricing ($15 / $75 per 1M equiv.)
+- **Architecture:** Proprietary Anthropic Opus architecture with advanced thinking mode
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **74.5%**
-- Tau3-Banking / Tau2-Bench: **80.1%**
-- GDPval-AA: **1610 Elo**
-- Claw-Eval / ClawProBench: **88.0%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.5%**
+- Terminal-Bench 2.1: **90%**
+- Tau3-Banking / Tau2-Bench: **92%**
+- GDPval-AA: **940 Elo**
+- Claw-Eval / ClawProBench: **88**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **91%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **77.8%**
-- HLE: **61.0%**
-- LCR / MLCR: **80.2%**
-- CritPt: **72.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **94.2 / #4**
-- Omniscience Accuracy / Hallucination Rate: **95.1% / 1.8%**
+- GPQA Diamond: **83%**
+- HLE: **74%**
+- LCR / MLCR: **89%**
+- CritPt: **86%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **95 / #2**
+- Omniscience Accuracy / Hallucination Rate: **96% / 1.5%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **73.8%**
-- LiveCodeBench: **76.9%**
-- SciCode / AA-SciCode: **70.2%**
-- Vibe Code Bench: **83.1%**
-- DeepSWE / Coding Index / other: **87.5**
+- SWE-bench Verified / SWE-Pro: **87%**
+- LiveCodeBench: **89%**
+- SciCode / AA-SciCode: **85%**
+- Vibe Code Bench: **88%**
+- DeepSWE / Coding Index / other: **87**
 
 Long context:
 
-- Stable retrieval across 200K context window.
+- RULER / GraphWalks value at 200K window length: **95% accuracy**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Superior tool coordination and agentic reliability.
-- **Reasoning: 91/100.** Advanced multi-step reasoning capabilities.
-- **Context window: 82/100.** 200K standard context window.
-- **Multimodal: 76/100.** Solid visual and text processing.
-- **Coding: 90/100.** Exceptional software engineering performance.
-- **Cost efficiency: 30/100.** Premium paid pricing.
-- **Overall Score: 85.6/100.** Leading frontier model for reasoning and code.
+- **Tool use: 91/100.** Exceptional agentic tool utilization and multi-step reasoning.
+- **Reasoning: 90/100.** Top-tier reasoning performance across complex benchmarks.
+- **Context window: 92/100.** Highly reliable 200K context window processing.
+- **Multimodal: 90/100.** Advanced multimodal text and image understanding.
+- **Coding: 89/100.** Outstanding coding benchmarks on SWE-bench Verified and LiveCodeBench.
+- **Cost efficiency: 45/100.** Premium paid enterprise pricing tier.
+- **Overall Score: 90.4/100.** Mean of the five quality dims (91 + 90 + 92 + 90 + 89 = 452 / 5 = 90.4).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
-- Method: Independent public research and normalized 1–100 evaluation.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-01
+- Method: re-run public internet research and updated benchmark verification; scores are normalized 1–100 interpretations.

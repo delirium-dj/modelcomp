@@ -23,20 +23,22 @@
 Agent / tool use:
 
 - Tau2-Bench Telecom: **94.2%** (AA/BenchmarkList, rank 29/332); IFBench **79.9%** (evals.report Official)
-- Terminal-Bench Hard **43.2%** (rank 25/326); TB 2.0 **68.4%** (Verified); Tau3 **72.9** (vendor, via NYU RITS)
-- Claw-Eval: **64% Pass³** general / **63.2%** multi-turn (HF eval results, first-party)
+- Terminal-Bench Hard **43.2%** (rank 25/326); TB 2.0 **68.4%** (Verified, re-confirmed 2026-10-01 via benchlm relay); Tau3 **72.9** (vendor, via NYU RITS)
+- Claw-Eval: **64% Pass³** general / **63.2%** multi-turn (HF eval results, first-party); **63.8%** (benchlm relay 2026-10-01 — consistent with the first-party general row)
 - GDPval-AA: **1,261 Elo** (AA) vs **1,571 Elo** ("Official" evals.report) — two different measurements
+- Gert Labs **36.68%** (benchlm relay 2026-10-01; MiMo-V2.5 scores 46.89% on the same suite)
 - Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA **86.6%** (Verified); HLE **33.8%** (Verified) / 35.7 (AA) / 48.0 tools (HF); AA-LCR **77.7%**; MMLU-Pro **85.1**
-- AA Intelligence Index **26** (current v4.3, #21/113); historical 43 (v4.1.x) / 42.9 (BenchmarkList) — cite version
-- Speed 51.8 tok/s (#42), TTFT 4.03s (AA 2026-09-17)
+- GPQA **86.6%** (Verified); HLE **33.8%** (Verified) / 35.7 (AA) / 48.0 tools (HF) / 48% (benchlm relay); AA-LCR **77.7%**; MMLU-Pro **85.1**
+- AA Intelligence Index **26** (v4.3.2, estimated, **#23/117** as of 2026-10-01 — was #21/113 on 2026-09-17; the value held, the class grew). Historical 43 (v4.1.x) / 42.9 (BenchmarkList) — cite version. Note: AA's cached *comparison* pages still render "43", but AA's live model page reads 26; treat the model page as authoritative.
+- Speed **28.7 tok/s** (#62/117) and TTFT **2.31s** on 2026-10-01 (Xiaomi first-party API) — **corrects the 51.8 tok/s (#42) / TTFT 4.03s recorded on 2026-09-17**: throughput dropped sharply while first-token latency improved
+- Cost efficiency datapoint (new 2026-10-01): **$0.05 per Intelligence Index task, #5/117**; **110M** output tokens on the Index (#13/117, concise vs 140M class median)
 
 Coding:
 
-- SWE-bench Verified **78.9%** (Verified); SWE-bench Pro **57.2%** (Verified); SciCode **50.2%**; AA Coding Index **60.2**
+- SWE-bench Verified **78.9%** (Verified; **78%** on a 2026-10-01 benchlm relay — consistent); SWE-bench Pro **57.2%** (Verified, re-confirmed); SciCode **50.2%**; AA Coding Index **60.2**
 
 Long context:
 
@@ -49,8 +51,38 @@ Long context:
 - **Context window: 100/100.** 1M with GraphWalks retention at 512K/1M.
 - **Multimodal: 15/100.** Text-only (pair with V2.5 for vision/audio).
 - **Coding: 82/100.** SWE Verified 78.9 + Pro 57.2 + Coding Index 60.2.
-- **Cost efficiency: 85/100.** Paid but very cheap for 1T class ($0.435/$0.87, 98% cache discount).
-- **Overall Score: 71/100.** Top open long-horizon text model; strong SWE + 1M context at low cost.
+- **Cost efficiency: 88/100.** Paid but very cheap for 1T class ($0.435/$0.87, 98% cache discount). Raised from 85 on 2026-10-01 on the strength of a measured **$0.05 per Intelligence Index task (#5/117)** and below-median verbosity (110M output tokens, #13/117 vs 140M class median) — the sticker-price rationale alone understated it. Still below a free tier, and the deprecated release train is a real cost of ownership.
+- **Overall Score: 71/100.** (80 + 78 + 100 + 15 + 82) / 5 = 71.0. Top open long-horizon text model; strong SWE + 1M context at low cost. Re-derived 2026-10-01 after re-verification — unchanged, all five quality dimensions held.
+
+## Re-verification — 2026-10-01 (14 days after original)
+
+Original research date 2026-09-17. Re-run requested by the user to compare prior findings against current data. Original findings above are preserved; corrections are marked inline.
+
+| Dimension | 2026-09-17 | 2026-10-01 | Change |
+| --- | --- | --- | --- |
+| Tool use | 80 | 80 | — (corroborated) |
+| Reasoning | 78 | 78 | — (corroborated) |
+| Context window | 100 | 100 | — (re-confirmed) |
+| Multimodal | 15 | 15 | — (re-confirmed text-only) |
+| Coding | 82 | 82 | — (corroborated) |
+| Cost efficiency | 85 | 88 | **+3** (not counted in Overall) |
+| **Overall** | **71** | **71** | **—** |
+
+**Corrections to prior findings:**
+
+- **Throughput was materially wrong: 51.8 → 28.7 tok/s.** The 2026-09-17 figure (recorded as #42 of the class) has fallen to **28.7 tok/s, #62/117** on AA's current measurement against Xiaomi's first-party API. First-token latency moved the other way, 4.03s → **2.31s**. Neither is a scored dimension, so no Overall change follows, but the practical story changed: this is a slow generator with a fast first token, which matters a great deal for interactive agent loops.
+- **AA Intelligence Index confirmed at 26**, rank slipping from #21/113 to **#23/117** purely because the comparison class grew. Worth flagging: AA's *cached comparison pages* still render "43" for this model, while AA's *live model page* reads 26. The original report's instinct to distrust the 43 as a v4.1.x artifact was correct.
+
+**What held up unchanged:** every scored dimension, and the raw benchmark set re-confirmed independently — Terminal-Bench 2.0 **68.4%**, SWE-bench Pro **57.2%**, τ³ **72.9%**, Claw-Eval **63.8%** (against the first-party 64% general row), HLE **48%**, SWE-bench Verified **78%** (vs the 78.9% originally recorded), SciCode **50.2%**, AA Coding Index **60.2**. Also re-confirmed: **text-only input** (AA's technical spec still reads "Supports: text"; no image path), so Multimodal stays at the methodology floor, and 1M context, so Context stays at 100. Also new: Gert Labs **36.68%**, where sibling MiMo-V2.5 scores 46.89%.
+
+**Newly found 2026-10-01:**
+
+- **The model is deprecated.** AA now carries: "This model is deprecated. We only continue performance benchmarking for the default 10k input token workload. Results for other workloads are historical and no longer updated," recommending `MiMo-V2.6-Pro`. Xiaomi's own site states the **entire MiMo-V2 series was deprecated 2026-06-30**.
+- **Measured cost efficiency:** **$0.05 per Intelligence Index task (#5/117)** and 110M output tokens (#13/117, below the 140M class median). This is the evidence behind the Cost efficiency bump to 88.
+- **AA index composition changed** (v4.3.2): Terminal-Bench 4.0, AA-Briefcase v1.1, AutomationBench-AA and GDP.pdf in; τ³-Banking, Terminal-Bench 2.1 and GPQA Diamond out. So the τ³ 72.9% anchor that supports the Tool use score is now a legacy, out-of-index measurement.
+- Sibling variant pricing reference: `MiMo-V2.5-Pro-UltraSpeed` remains early-access at 3x price (¥9/¥18 per 1M cache-miss/output, ~500–1000 tok/s, daily-approval limited capacity).
+
+**Net assessment:** this is the better-retained of the two 2026-09-17 reports — no capability number had to be walked back, and the one measured regression (throughput) falls outside the scoring rubric. The real reason to revisit the conclusion is lifecycle: with the V2 line deprecated in favour of V2.6-Pro, the honest recommendation framing shifts from "top open long-horizon text model" to "still-competent 1M-context workhorse on a supported-cost basis, but plan a migration".
 
 ---
 

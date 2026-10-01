@@ -45,12 +45,45 @@ Long context:
 - **Multimodal: 15/100.** Text-only in/out, no attachments.
 - **Coding: 60/100.** Community SWE-Atlas 50.8% hints mid-pack coding; anecdotal "Sonnet-class" claims have no official bench backing.
 - **Cost efficiency: 100/100.** $0/$0/$0 for a limited time.
-- **Overall Score: 48/100.** Mean of above. A zero-cost low-information model: fine as a free fallback, treat the 50.8% Codebase-QnA as the strongest verifiable datapoint.
+- **Overall Score: 48/100.** (40 + 55 + 70 + 15 + 60) / 5 = 48.0. A zero-cost low-information model: fine as a free fallback, treat the 50.8% Codebase-QnA as the strongest verifiable datapoint. Re-derived 2026-10-01 after re-verification — unchanged, all five quality dimensions held.
+
+## Re-verification — 2026-10-01 (14 days after original)
+
+Original research date 2026-09-17. Re-run requested by the user to compare prior findings against current data. Original findings above are preserved; corrections are marked inline.
+
+| Dimension | 2026-09-17 | 2026-10-01 | Change |
+| --- | --- | --- | --- |
+| Tool use | 40 | 40 | — (thin evidence still) |
+| Reasoning | 55 | 55 | — (no public reasoning benchmarks still) |
+| Context window | 70 | 70 | — (re-confirmed 200k) |
+| Multimodal | 15 | 15 | — (text-only confirmed) |
+| Coding | 60 | 60 | — (community SWE-Atlas 50.8% still the anchor) |
+| Cost efficiency | 100 | 100 | — (Zen free tier confirmed live for the listed ID) |
+| **Overall** | **48** | **48** | **—** |
+
+**Identity and stability remain unchanged.** The 2026-08-11 community run that produced **50.8% Task Resolve Rate** on SWE Atlas Codebase QnA (63/124) is the only robust public number for this ID. Since then, no additional public benchmark for `big-pickle` has surfaced; the model is still listed as a free, limited-time "stealth" entry on Zen.
+
+**No new public benchmarks.** A fresh web search across 2026-10-01 sources finds no new Terminal-Bench, SWE-bench Verified, GPQA, or AA Intelligence Index entries for `big-pickle`. That validates the report's conservative stance on tool/reasoning/coding beyond the single community eval. The ORPT-Bench reference remains the best other community datapoint, but still not enough to move the scores.
+
+**Free tier status:** OpenCode Zen's public documentation still lists **`big-pickle`** in the "free models" group (Input/Output/Cached Read = Free) and notes the free period caveat. So Cost efficiency stays at 100. The caution from the original report — that prompts may be used for training and the model can be swapped without notice — remains entirely valid.
+
+**Context and metadata re-confirmed:** models.dev/Pi.dev metadata is unchanged (200,000 total / 160,000 input / 32,000 output; `reasoning_content` interleaved; text in/out only; no attachments). OpenCode's Zen `/v1` serves it via OpenAI-compatible chat completions. The community suggestion that it's served via DeepSeek infrastructure on that alias is still unconfirmed by first-party sources.
+
+**One plausible refinement to the "strongest verifiable datapoint":** the community's full write-up does show language breakdowns (TS 58.1%, Py 55.2%, Go 50.0%, C 38.5%) and categories; the original report correctly treated this as community-sourced, not Scale-verified. With no other numbers, there's no basis to raise Tool use above 40 or Coding above 60.
+
+**Net assessment:** the cleanest "no change" of the batch. The report was already conservative and the re-verification found no new verifiable evidence to revise any score. The recommendation "treat the 50.8% Codebase-QnA as the strongest verifiable datapoint" remains correct, as does the caveat that it's a zero-cost low-information model for the free window only.
+
+### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
+
+- **New primary source:** a Grokipedia entry for Big Pickle (fact-checked ~2026-09-28) documents that the underlying model **rotates periodically** — community consensus pinned the original serving as **GLM-4.6** (Zhipu, 355B/32B-active MoE), while the entry's metrics section describes the current host as **GLM-4.7** (358B) and lists its card numbers (MMLU-Pro 84.3, SWE-bench Verified 73.8, SWE-bench Multilingual 66.7, HLE 24.8/42.8 with tools). These are **inherited base-model numbers, not measurements of the `big-pickle` alias**, so they cannot raise scores — but they confirm the "stealth rotation" caveat and suggest the served quality has drifted upward since the 2026-08-11 SWE-Atlas run. Current identity remains undisclosed by OpenCode.
+- **Throughput signal:** TokenDyno ranks Big Pickle 3rd of 4 Zen models on measured tokens/s (mid-pack across 59 providers); a community comparison table quotes ~189 tok/s. Consistent with "usable, not fast."
+- **Real-world usage:** a month-long practitioner write-up (daniel-tenzler.de) reports successfully shipping several personal projects on the free tier — supports the "fine as a free fallback" recommendation.
+- **Scores unchanged:** no new *verified first-party* benchmark for the alias itself; Tool 40 / Reasoning 55 / Context 70 / Multimodal 15 / Coding 60 / Cost 100 / **Overall 48** all hold.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
 - Method: public web research (models.dev, Pi.dev, OpenCode docs, community eval repos); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

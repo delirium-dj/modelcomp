@@ -8,6 +8,7 @@
 ## Model card
 
 - **Name:** Gemini 3.8 Flash
+- Updated: **2026-10-01 (UTC)** — re-research pass; refreshed AA figures + pricing end-date appended below; scores unchanged
 - **Short description:** Google's latest 3.8 Flash model, optimized for performance and efficiency (per curated Zen metadata). Released September 2026, proprietary. Sits between the 3.7 Flash and the Pro class in Google's lineup; the strongest Gemini flash-tier model found on independent trackers.
 - **Provider / access:** Google first-party API and Google AI Studio (free tier); OpenCode Zen (Free tier with standard rate limits). Responses/Chat-API specifics not independently verified here.
 - **Release / knowledge:** Released September 2026 (Artificial Analysis). Knowledge cutoff: not verified.
@@ -82,3 +83,13 @@ Cost / speed (Artificial Analysis, model page):
 - Provided by: **Qwen 3.8 27B (qwen-3.8-27b)** — 2026-09-24
 - Method: public internet research (Artificial Analysis model page, BenchLM model page, curated OpenCode Zen metadata); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+## Additional findings (2026-10-01, re-research pass)
+
+Re-researched 8 days after the initial report; sources: Artificial Analysis model page for Gemini 3.8 Flash (High) read 2026-10-01 (Intelligence Index v4.3.2) and OrcaRouter's 23 Sep 2026 explainer (figures read from Google's docs that day). No capability-dimension changes; scores stand.
+
+- **Status — still active, now the recommended Flash.** No deprecation flag on the AA page (contrast: 3.7 Flash is marked deprecated, and AA's banner explicitly points users to 3.8 Flash). Confirmed as the current top of Google's Flash line, GA 2026-09-02, 4 API providers.
+- **AA figures refreshed (v4.3.2, class grew 210 → 223, median now 26):** Intelligence Index still **41**, rank now **#49 / 223** (was #40/210 — rank diluted by class growth, not a score change). Output speed now **221.0 tok/s, #5 / 223** (was 292.4, #1/210 — still "notably fast" vs class median 69.8 t/s, but no longer the class speed leader). Cost per II task **$1.24, #61 / 223** (was #53/210). Verbosity **170M, #94 / 223** (was #82/210). TTFT (Google API) 17.45s (new capture).
+- **Pricing confirmed with an end-date:** $0.75 / $3.75 per 1M, 90% cache-read discount, blended 7:2:1 ≈ $0.58 — unchanged from the initial report. OrcaRouter's read of Google's docs (23 Sep 2026) flags this as **introductory pricing through 31 December 2026**, with a free tier available on Google's side; worth a re-check after that date for the Cost score.
+- **Specs re-confirmed:** 1.0M context, text + image + speech + video in, text out, reasoning (High variant shown; a non-reasoning variant may exist), released 2026-09-02, proprietary, parameter count undisclosed.
+- **Scoring note:** the speed drop (#1 → #5) and rank dilution are performance/availability context, not capability-dimension inputs — all five quality dims and Cost 100 stand; Overall 89.0/100 unchanged.

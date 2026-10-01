@@ -32,7 +32,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - AA-LCR **78.3%** (AA current) / 72.0 (paper); MMLU-Pro **81.8**; Omniscience **Index +1**, hallucination rate **34%** (AA; lowest recorded); IFBench **76.0**; HLE **28.0** (paper) / 29.6 (3P); GPQA **89.8** (paper) / 87.4 (3P)
-- AA Intelligence Index **50** at launch (2026-03-25) → **23** on current v4.3 — cite version
+- AA Intelligence Index **50** at launch (2026-03-25) → **23** on current v4.3.2 (re-confirmed 2026-10-01 at #38/117) — cite version
 
 Coding:
 
@@ -51,7 +51,33 @@ Long context:
 - **Multimodal: 15/100.** Text-only confirmed.
 - **Coding: 80/100.** SWE-Pro 56.2/Multilingual 76.5; Vibe 27 low caps.
 - **Cost efficiency: 88/100.** Cheap paid ($0.30/$1.20) + non-commercial license friction. Would be 100 at a free promo.
-- **Overall Score: 64/100.** Best-value paid text coding/agent; verify license if commercial.
+- **Overall Score: 64/100.** (78 + 78 + 70 + 15 + 80) / 5 = 64.2. Best-value paid text coding/agent; verify license if commercial. Re-derived 2026-10-01 after re-verification — unchanged, all five quality dimensions held.
+
+## Re-verification — 2026-10-01 (14 days after original)
+
+Original research date 2026-09-17. Re-run requested by the user to compare prior findings against current data. Original findings above are preserved; corrections are marked inline.
+
+| Dimension | 2026-09-17 | 2026-10-01 | Change |
+| --- | --- | --- | --- |
+| Tool use | 78 | 78 | — (corroborated) |
+| Reasoning | 78 | 78 | — (corroborated) |
+| Context window | 70 | 70 | — (re-confirmed ~205k) |
+| Multimodal | 15 | 15 | — (re-confirmed text-only) |
+| Coding | 80 | 80 | — (corroborated) |
+| Cost efficiency | 88 | 88 | — (pricing unchanged) |
+| **Overall** | **64** | **64** | **—** |
+
+**The model is deprecated.** AA now carries: "This model is deprecated. We only continue performance benchmarking for the default 10k input token workload. Results for other workloads are historical and no longer updated," pointing to **MiniMax-M3**. This matches what the original report already noted about NVIDIA NIM being deprecated; the deprecation has now spread to the primary source. Note that `opencode/minimax-m2.7` does **not** appear on Zen's published deprecation-date table (which lists MiniMax M2.5 at August 5, 2026 and M2.1 at March 15, 2026), so the paid Zen ID appears to remain available — vendor deprecation has not propagated to Zen.
+
+**Index held.** AA Intelligence Index is still **23**, now **#38/117** at v4.3.2. The launch-era 50 remains unusable for comparison, exactly as the original report warned. This is the third model in this refresh batch where the report's instinct to distrust a high cached AA figure proved correct.
+
+**New measured performance:** **47.1 output tok/s (#50/117)** with TTFT **1.62s**, against a 68.9 tok/s class median — AA rates this "notably slow" and gives Speed 1 of 4 units, its weakest grade. Against that, verbosity is a genuine strength: **92M output tokens (#11/117)**, the most concise in class against a 140M median. For an agentic model the combination is a reasonable trade: fewer wasted tokens, slower wall-clock.
+
+**Cost and coverage, measured:** pricing is unchanged at **$0.30 in / $1.20 out** with an **80% cache discount** and a blended $0.22/M at 7:2:1 — so Cost efficiency stays at 88. AA can no longer report cost per Intelligence Index task ("N/A", Unknown 0 of 4 units), which is a direct consequence of the deprecation freezing non-default workloads. Provider coverage has narrowed to **4**.
+
+**What held up unchanged, and one detail corrected:** AA re-confirms **text-only** ("Is MiniMax-M2.7 multimodal? No. It only supports text input"), **MIT-style non-commercial** licensing (commercial use still needs written authorization), and ~205k context — AA's technical spec says **205k** while its own FAQ on the same page says 200k, a minor internal inconsistency, but consistent with the 204,800 the report recorded from `config.json`. AA's parameters are **230B total / 10B active**, matching the 229.9B / 9.8B from the report's card.
+
+**Net assessment:** every score held and the raw benchmark set needed no correction. What changes is lifecycle plus one newly visible weakness: at 47 tok/s this is a slow generator, so "best-value paid text coding/agent" needs the qualifier that it is the cheapest credible option rather than the fastest. With M3 out, the honest framing is "still a sound cheap workhorse, but plan a migration".
 
 ---
 

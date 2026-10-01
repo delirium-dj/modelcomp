@@ -10,6 +10,7 @@ Provided by: **Qwen 3.8 27B (cerebras/qwen-3.8-27b)** — 2026-09-24
 ## Model card
 
 - **Name:** GPT-6 Astra
+- Updated: **2026-10-01 (UTC)** — re-research pass; refreshed AA figures + family context appended below; scores unchanged
 - **Short description:** OpenAI's GPT-6 family flagship — a 1M-context, reasoning-native model with a strong agentic computer-use and coding positioning; sibling GPT-6 Sol and GPT-6 Luna were added in a 2026-09-22 update (separate entries, not aliases of this one).
 - **Provider / access:** OpenAI first-party (OpenAI API, API ID `gpt-6-astra`; also Microsoft Azure and AWS Bedrock per the launch page) plus ChatGPT (Plus/Pro/Business/Enterprise). Not listed on OpenCode Zen; **no Free ID exists on Zen** — this is a paid API model.
 - **Release / knowledge:** limited preview to a select set of organizations in early September 2026 (Wikipedia dates the preview 2026-09-03); full rollout followed "over the coming days" per the launch page; 2026-09-22 launch update expands the family with GPT-6 Sol and GPT-6 Luna. Knowledge cutoff 2026-04-30 (Artificial Analysis).
@@ -93,3 +94,14 @@ Speed / cost extras:
 [^2]: BenchLM, "GPT-6 Astra" model page — overall 88.47/100, #1 of 507, 61/482 benchmarks (per-benchmark rows) — https://benchlm.ai/models/gpt-6-astra
 [^3]: Artificial Analysis, "GPT-6 Astra" model page — Intelligence Index (61.2 v4.1.1 at launch; 53 #6/210 on the current page), speed 51.3 tok/s, $10/$50, 90% cache discount, $3.26/task, 60M verbosity, knowledge cutoff 2026-04-30 — https://artificialanalysis.ai/models/gpt-6-astra
 [^4]: OpenAI API docs, GPT-6 Astra model reference (API ID and pricing-tier confirmation) — https://developers.openai.com/api/docs/models/gpt-6-astra
+
+## Additional findings (2026-10-01, re-research pass)
+
+Re-researched 8 days after the initial report; source: Artificial Analysis model page for GPT-6 Astra (Max), read 2026-10-01 (Intelligence Index v4.3.2). No capability-dimension changes; scores stand.
+
+- **AA figures refreshed (v4.3.2, class grew 210 → 223, median now 26):** Intelligence Index still **53**, rank now **#7 / 223** (was #6/210 — one new model entered above it; the value itself is unchanged). Output speed **51.1 tok/s, #143 / 223** (was 51.3, #133/210 — "notably slow", class median 69.8 t/s). Cost per II task **$3.26, #93 / 223** (value unchanged; the initial report did not capture a cost rank, so no rank comparison). Verbosity **60M, #44 / 223** (was #36/210). TTFT (OpenAI API) **326.68s** (new capture — extreme thinking latency, consistent with its high-reasoning positioning).
+- **Pricing confirmed:** $10.00 / $50.00 per 1M, 90% cache discount, blended 7:2:1 ≈ $7.70 — the initial report's standard rate holds (Fast mode 2× and the >272K surcharge are OpenAI-side tiers not re-verified on the AA page, which lists only standard).
+- **Availability broadened:** now **8 API providers** on AA (initial report captured OpenAI first-party plus Azure/Bedrock per the launch page). No deprecation flag; still actively benchmarked.
+- **Specs re-confirmed:** 1.0M context, text + image in, text out, reasoning, knowledge cutoff 2026-04-30, released 2026-09-03, proprietary, parameter count undisclosed.
+- **Family context (new since the initial report):** OpenAI added **GPT-6.1 Sol** on 2026-09-29 ($2.00/$10.00, ~13 tok/s per OrcaRouter's 23 Sep catalogue read) — a cheaper sibling, not a supersession of Astra; Astra remains OpenAI's flagship on the independent index.
+- **Scoring note:** rank dilution and the TTFT capture are performance/availability context, not capability-dimension inputs — all five quality dims and Cost 30 stand; Overall 89/100 unchanged.

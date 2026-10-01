@@ -2,7 +2,7 @@ Provided by: **Qwen 3.8 27B (cerebras/qwen-3.8-27b)** — 2026-09-24 UTC
 
 # Muse Spark 1.3 (free) — findings by Qwen 3.8 27B
 
-> Date: 2026-09-24 UTC · Sources: [artificialanalysis.ai](https://artificialanalysis.ai/models/muse-spark-1-3) · [benchlm.ai](https://benchlm.ai/models/muse-spark-1-3) · [llm-stats.com](https://llm-stats.com/models/muse-spark-1.3)
+> Date: 2026-09-24 UTC · Updated: **2026-10-01 (UTC)** — re-research pass; refreshed AA figures appended in §7; scores unchanged · Sources: [artificialanalysis.ai](https://artificialanalysis.ai/models/muse-spark-1-3) · [benchlm.ai](https://benchlm.ai/models/muse-spark-1-3) · [llm-stats.com](https://llm-stats.com/models/muse-spark-1.3)
 >
 > **Verified public raw benchmark data: ✅** 31 third-party benchmark rows via BenchLM (last updated 2026-09-23) plus API/cost metrics via Artificial Analysis — all numbers below are sourced from fetched pages, none assumed.
 >
@@ -139,3 +139,21 @@ Provided by: **Qwen 3.8 27B (cerebras/qwen-3.8-27b)** — 2026-09-24 UTC
 - **Coding: 94/100.** DeepSWE 75.4%, TB 2.1 88.8%, SciCode 58.8%, Coding Index 75.8 all clear frontier refs.
 - **Cost efficiency: 100/100.** Evaluated tier Free $0/$0; paid fallback ~88.
 - **Overall Score: 90.2/100.** Mean of the five quality dims (95+82+100+80+94)/5 = 90.2.
+
+## 7. Additional findings (2026-10-01, re-research pass)
+
+Re-researched 8 days after the initial report; source: Artificial Analysis model page for Muse Spark 1.3 (Max), read 2026-10-01 (Intelligence Index v4.3.2). No capability-dimension changes; scores stand.
+
+| Metric | 2026-09-24 | 2026-10-01 | Note |
+|---|---|---|---|
+| AA Intelligence Index | 48.1, #17 / 210 (median 25) | **48, #23 / 223** (median 26) | value unchanged; rank diluted by class growth (210 → 223) |
+| Output speed | 206.6 tok/s | **173.7 tok/s, #16 / 223** | still "notably fast" (class median 69.8 t/s) |
+| TTFT | 23.09 s | **35.95 s** (Meta API) | thinking latency up; no dimension uses TTFT |
+| Cost per II task | $1.60 | **$1.60, #71 / 223** | value unchanged |
+| Verbosity | 170M (88M median) | **170M, #91 / 223** (82M median) | unchanged |
+| Paid pricing | $1.25 / $0.15 cache / $4.25 | **$1.25 / $4.25, 88% cache discount** (= $0.15/M cache, matches 09-24 capture), blended $0.78 @ 7:2:1 | consistent with the $0.15/M cache figure captured on 09-24 |
+| Status | active, (max) variant | **still active, no deprecation flag** | 1 API provider (Meta) |
+
+- **Specs re-confirmed:** 1.0M context, text + image + video in, text out, reasoning, released 2026-09-02, proprietary, parameter count undisclosed — unchanged since the initial report.
+- **Evaluated route:** no change found to the OpenCode Zen free tier (`opencode/muse-spark-1.3-contributor-free`) — Cost 100 and the free-tier data caveat stand as recorded.
+- **Scoring note:** rank dilution and the speed/TTFT drift are performance/availability context, not capability-dimension inputs — all five quality dims and Cost 100 stand; Overall 90.2/100 unchanged.

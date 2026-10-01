@@ -8,6 +8,7 @@
 ## Model card
 
 - **Name:** Kimi K3 (max)
+- Updated: **2026-10-01 (UTC)** — re-research pass; refreshed AA figures appended below; scores unchanged
 - **Short description:** Moonshot AI's open-weights multimodal MoE flagship (July 2026): 2.8T-parameter MoE (104B active) with a 1M-token window, frontier multimodal/math-vision reasoning, terminal-agent coding, and premium pricing. Successor to the Kimi K2.5 (Feb 2026) / K2.6 (Apr 2026) line; not a variant or alias of any other catalog entry.
 - **Provider / access:** 21 API providers (Artificial Analysis listing); first-party Moonshot (Kimi) API over OpenAI-compatible Chat Completions. Not listed on OpenCode Zen (no Free ID, no Zen ID).
 - **Release / knowledge:** released 2026-07-16 (AA listing + BenchLM catalog); knowledge cutoff not publicly documented.
@@ -92,3 +93,12 @@ Long context:
 - Provided by: **Qwen 3.8 27B (qwen-3.8-27b)** — 2026-09-24
 - Method: public internet research (Artificial Analysis model page, BenchLM catalog, retrieved 2026-09-24); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+## Additional findings (2026-10-01, re-research pass)
+
+Re-researched 8 days after the initial report; source: Artificial Analysis model page for Kimi K3 (Max), read 2026-10-01 (Intelligence Index v4.3.2). No capability-dimension changes; scores stand.
+
+- **AA figures refreshed (open-weights class grew 113 → 117, median still 18):** Intelligence Index still **44**, rank still **#3 / 117** (was #3/113 — value and rank hold). Output speed **33.7 tok/s, #59 / 117** (new capture; "notably slow" vs class median 68.8 t/s). Cost per II task **$2.00, #34 / 117** (was #28/113 — rank diluted by class growth, value unchanged). Verbosity **160M, #26 / 117** (class median 140M). TTFT (Kimi API) 4.11s (new capture).
+- **Pricing confirmed:** $3.00 / $15.00 per 1M with 90% cache discount, 7:2:1 blend ≈ $2.31/1M — the initial report's figures hold; Cost 62/100 unaffected.
+- **Specs re-confirmed:** 1.0M context, text + image in, text out, MoE 2.8T total / 104B active, reasoning, released 2026-07-16, 21 API providers, open weights on Hugging Face (`moonshotai/Kimi-K3`) under the Kimi K3 License (commercial use with restrictions) — now directly confirmed by AA's technical-specs block, which the initial report marked as pending verification.
+- **Scoring note:** no new verified benchmarks surfaced and the index value is unchanged, so all five quality dims and Cost 62 stand; Overall 82.6/100 unchanged.

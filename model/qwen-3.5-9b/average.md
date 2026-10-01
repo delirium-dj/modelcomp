@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3.
 - Average from top 1 by Overall Score: Kimi K3.
-- Ignored below-gate rater(s): Big Pickle, GLM 5.3, Qwen 3.8 27B.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, Qwen 3.8 27B.

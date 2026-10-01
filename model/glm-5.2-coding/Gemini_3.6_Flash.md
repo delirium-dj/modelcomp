@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-21
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
 - Method: Public web research & benchmark aggregation; scores normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.8.md`, using the same headings.
