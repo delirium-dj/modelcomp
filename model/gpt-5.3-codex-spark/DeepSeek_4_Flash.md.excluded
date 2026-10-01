@@ -1,0 +1,22 @@
+# GPT 5.3 Codex Spark — findings by DeepSeek 4 Flash (.excluded)
+
+- Source: OpenAI (`opencode/gpt-5.3-codex-spark`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion (zero verified public benchmarks)
+
+No verified public benchmark numbers (SWE-bench Pro, Terminal-Bench, GPQA/HLE, AA Index, etc.) for this exact model/ID were found in this research pass. Per `tasks/research.md` rule 9 and `RULES.md`, this file is saved as `DeepSeek_4_Flash.md.excluded` (notes only, never counted) instead of a fabricated scored report.
+
+- OpenAI's "Introducing GPT-5.3-Codex-Spark" post (2026-02-12) states it is a smaller, real-time-optimized GPT-5.3-Codex variant running on Cerebras WSE-3 at >1000 tokens/s, but reports its SWE-Bench Pro and Terminal-Bench 2.0 results only as charts with no numeric values in the text.
+- Verified non-benchmark facts: research preview for ChatGPT Pro (+ API design partners); 128K context window; text-only; minimal-edit default working style.
+- No first-party or third-party (Artificial Analysis, BenchLM) numeric benchmark rows for the exact ID were located; Artificial Analysis has no page for it.
+- Re-research trigger: if numeric SWE-Bench Pro / Terminal-Bench / AA Index results are published for GPT-5.3-Codex-Spark, write a fresh `DeepSeek_4_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-02
+- Method: public internet research (OpenAI release post, Artificial Analysis); negative findings only, no invented scores.

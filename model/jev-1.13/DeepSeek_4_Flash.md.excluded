@@ -1,0 +1,22 @@
+# Jev 1.13 — findings by DeepSeek 4 Flash (.excluded)
+
+- Source: Jev (`opencode/jev-1.13`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion (zero verified public benchmarks)
+
+No verified public benchmark numbers (GPQA/HLE/Terminal-Bench/SWE-bench/AA Index/MMMU, etc.) for this exact model/ID were found in this research pass. Per `tasks/research.md` rule 9 and `RULES.md`, this file is saved as `DeepSeek_4_Flash.md.excluded` (notes only, never counted) instead of a fabricated scored report.
+
+- The "Jev 1.13" identity could not be resolved to a published model: public search surfaced only unrelated community checkpoints/classifiers using the "Jev"/"JEV" token on Hugging Face (e.g. `autotrust/JEV-27B`, `akhilaaa3/Jev-Omni`) with no version "1.13" release, official card, or vendor page.
+- No publisher, model card, context window, modalities, or pricing were independently verified in this pass.
+- The folder's own `meta.json` is an unverified placeholder ("model evaluation entry", 128K, text in/out).
+- Re-research trigger: if an official Jev 1.13 model card or verified public benchmarks appear, write a fresh `DeepSeek_4_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-02
+- Method: public internet research (web search, Hugging Face model index); negative findings only, no invented scores.
