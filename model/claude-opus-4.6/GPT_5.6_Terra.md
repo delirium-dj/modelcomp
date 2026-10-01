@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Opus 4.6
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current Anthropic documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-4-6` (no Zen Free ID).
 - **Context window:** 1M tokens, as reported at launch.
 - **Modalities:** Text and image input; text output; tool and coding-agent workflows.
-- **Pricing (as of 2026-09-21):** paid tier; exact current token rate not verified in sources reviewed.
+- **Pricing (as of 2026-10-01):** $5 input / $25 output per 1M tokens (Anthropic).
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found
@@ -27,6 +27,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GDPval-AA: **1,606 Elo** (Anthropic launch result, reported by ITPro).
+- ARC-AGI-2: **69.17%** at high effort (Anthropic system card).
 - GPQA Diamond / HLE: no verified public score found.
 
 Coding:
@@ -53,5 +54,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-21
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
 - Method: Public internet research using Anthropic system-card/launch reporting and independent coverage; scores are normalized interpretations, not official vendor scores.

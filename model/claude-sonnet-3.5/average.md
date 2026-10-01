@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Kimi K3.
 - Average from top 2 by Overall Score: GPT 5.6 Terra, Kimi K3.
-- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, GLM 5.3 Flash, Qwen 3.8 27B.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4 Flash, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, GLM 5.3 Flash, Qwen 3.8 27B.

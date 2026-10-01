@@ -60,4 +60,3 @@ Multimodal:
 - Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-01
 - Method: public internet research (BenchLM, Xiaomi, OpenRouter, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

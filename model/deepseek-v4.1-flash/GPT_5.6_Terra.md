@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash — findings by GPT 5.6 Terra
 
 - Source: DeepSeek / DeepSeek-V4.1-Flash
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current public evidence)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,6 +23,7 @@ Agent / tool use:
 
 - Agentic benchmark comparison: vendor chart published, but exact table values were not available as selectable public text.
 - Terminal-Bench 2.1: no verified public score found.
+- Last Human Gate: **74.18%** strict-gate success and **24.67%** complete-route success in an independent academic evaluation.
 
 Reasoning / knowledge:
 
@@ -52,5 +53,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-21
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
 - Method: Public internet research using DeepSeek's official release, Hugging Face card, and clearly labelled independent testing; scores are normalized interpretations, not official vendor scores.

@@ -79,10 +79,14 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** the report's positioning was right and is now better supported than when written. Every score held, the single index dip is composition drift, and the one prediction embedded in the framing — fastest execution tier by design — is independently confirmed at #1 of 142 on speed with the lowest cost per task in class. Recommendation unchanged: routed executor and single-GPU fallback, not planner.
 
+### Re-verification addendum — 2026-10-01 (second pass, user-approved refresh)
+
+- Independent re-attestation of the first 2026-10-01 pass: no newer benchmark, pricing, or lifecycle event surfaced beyond what is already recorded (AA Index 13 @ v4.3.2, #1-of-142 speed at 298 tok/s, $0.09/task, Zen free tier live, TNG GGUF 1M-on-24GB repack). Scores unchanged: Tool 45 / Reasoning 60 / Context 72 / Multimodal 15 / Coding 52 / Cost 100 / **Overall 49**.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-17)
 - Method: public web research (NVIDIA blog + model cards, Ollama library, Artificial Analysis, BenchLM, models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

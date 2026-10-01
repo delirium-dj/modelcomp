@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by GPT 5.6 Terra
 
 - Source: Z.AI / GLM-5.3-Flash
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-01 (UTC; refreshed against current primary model cards)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,10 +12,10 @@
 - **Provider / access:** Z.AI-compatible and hosted OpenAI-compatible APIs; `zai-org/GLM-5.3-Flash` weights.
 - **Release / knowledge:** 2026-08-25 model-card release; cutoff not specified.
 - **IDs:** `opencode/glm-5.3-flash`.
-- **Context window:** 204K tokens.
-- **Modalities:** Text input/output, reasoning and tool-oriented use.
+- **Context window:** up to 1,048,576 tokens.
+- **Modalities:** Text and image input; text output; reasoning and tool-oriented use.
 - **Pricing (as of 2026-09-21):** approximately $0.15 input / $0.50 output per 1M on reported hosted pricing; promotional free access may vary.
-- **Architecture:** Open-weight MoE; parameter detail not verified in the sources reviewed.
+- **Architecture:** MIT-licensed 320B-total / 18B-active MoE with hybrid sparse-plus-linear attention.
 
 ### Raw benchmarks found
 
@@ -42,15 +42,15 @@ Long context:
 
 - **Tool use: 91/100.** 84.3% Terminal-Bench 2.1 and 48.8% AutomationBench show strong agent execution; third-party harness coverage is limited.
 - **Reasoning: 90/100.** The 91.2% GPQA Diamond measurement is excellent; no broad reasoning index was found.
-- **Context window: 80/100.** 204K is capable but below 1M-class models, with no retrieval result.
-- **Multimodal: 15/100.** Public materials reviewed describe a text-only model.
+- **Context window: 95/100.** The corrected 1M context is frontier-scale, capped by no published retrieval-at-length measurement.
+- **Multimodal: 80/100.** Native image input is documented; no verified audio output coverage was found.
 - **Coding: 90/100.** 63.4% DeepSWE v1.1 is strong, capped by missing SWE-bench/LiveCodeBench results.
 - **Cost efficiency: 94/100.** Reported $0.15/$0.50 hosted pricing and open weights are exceptional value.
-- **Overall Score: 73/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 73.2; recommended for low-cost text-based coding agents.
+- **Overall Score: 89/100.** Half-up mean of Tool, Reasoning, Context, Multimodal and Coding = 89.2; recommended for low-cost multimodal coding agents.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-21
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
 - Method: Public internet research using the Z.AI model-card reporting and independent hosting/benchmark reports; scores are normalized interpretations, not official vendor scores.
