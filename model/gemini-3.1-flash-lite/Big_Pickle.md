@@ -46,10 +46,30 @@ Coding:
 - **Cost efficiency: 92/100.** $0.25/$1.50 per 1M at 363 tok/s makes it arguably the best cost-to-capability ratio on the market.
 - **Overall Score: 71/100.** Mean of the five quality dims (74+78+68+72+65)/5 = 71.4. A ruthlessly cost-efficient 1M-context workhorse; quality dims are led by strong GPQA for the price and held back by long-context retrieval and the lack of coding/agentic evals.
 
+## Re-verification — 2026-10-01 (11 days after original)
+
+Original research date 2026-09-20. Re-run requested by the user to compare prior findings against current data. Original findings above are preserved; corrections are marked inline.
+
+| Dimension | 2026-09-20 | 2026-10-01 | Change |
+| --- | --- | --- | --- |
+| Tool use | 74 | 74 | — |
+| Reasoning | 78 | 78 | — |
+| Context window | 68 | 68 | — |
+| Multimodal | 72 | 72 | — |
+| Coding | 65 | 65 | — |
+| Cost efficiency | 92 | 92 | — |
+| **Overall** | **71** | **71** | **—** |
+
+**Throughput re-confirmed, slightly better than recorded:** independent benchmarking measured **381 output tokens/s** (blog.buildfastwithai.com head-to-head vs 2.5 Flash's 232), consistent with the ~363 tok/s recorded on 2026-09-20. No price change found ($0.25/$1.50 stands).
+
+**Still no tier-specific benchmark movement:** no agentic or coding evals specific to `gemini-3.1-flash-lite` have appeared since — Tool use and Coding remain capability estimates, exactly as flagged. No deprecation signal; it remains the current cost floor of the Gemini 3.x line (3.8 Flash Lite exists above it).
+
+**Net assessment:** report holds as written; the speed claim is now independently corroborated. Scores unchanged.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-20)
 - Method: public web research (deepmind.google model cards, blog.google, ai.google.dev); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
