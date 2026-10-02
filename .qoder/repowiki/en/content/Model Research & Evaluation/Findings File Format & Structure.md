@@ -5,6 +5,7 @@
 - [model-report-TEMPLATE.md](file://model-report-TEMPLATE.md)
 - [model-comparison.md](file://model-comparison.md)
 - [model-findings.md](file://model-findings.md)
+- [RULES.md](file://RULES.md)
 - [README.md](file://README.md)
 - [model/README.md](file://model/README.md)
 - [scripts/lib/parse.mjs](file://scripts/lib/parse.mjs)
@@ -20,12 +21,11 @@
 
 ## Update Summary
 **Changes Made**
-- Updated to reflect comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics
-- Enhanced standardized v4 methodology documentation with Overall Score calculation excluding Cost efficiency
-- Added comprehensive model card format requirements covering provider access, release dates, IDs, context windows, modalities, pricing, and architecture
-- Expanded benchmark categorization across tool use, reasoning, coding, and long context domains
-- Updated normalization scoring system documentation with evidence-based justification requirements
-- Revised relationship between findings files and generated TypeScript structures for v4 compliance
+- Updated to reflect Applied Changes: standardized scoring methodology v4 applied consistently across new model evaluations with evidence-based normalization
+- Enhanced documentation of v4 methodology with Overall Score calculation excluding Cost efficiency
+- Added comprehensive evidence-based normalization requirements and justification standards
+- Updated examples to demonstrate consistent v4 methodology application across 141+ model evaluations
+- Revised relationship between findings files and generated TypeScript data structures for v4 compliance
 
 ## Table of Contents
 1. [Introduction](#introduction)

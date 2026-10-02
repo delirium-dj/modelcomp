@@ -3,7 +3,7 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-02T10:06:24Z"
+exported_at: "2026-10-02T11:06:29Z"
 modules:
     "":
         dir_name: ModelComp Benchmark Site
@@ -61,8 +61,8 @@ modules:
         related_to:
             - path: scripts_tooling
     model_data_text:
-        dir_name: Model Benchmark Data Registry
-        title: Model Benchmark Data Registry
+        dir_name: Model Benchmark Findings Registry
+        title: Model Benchmark Findings Registry
         scope:
             - model/
         source_files: []

@@ -1,1 +1,1 @@
-Root of the ModelComp site that wires per-domain model benchmark registries and a data-sync pipeline to a QwikCity frontend rendering comparison tables, radar charts, and model cards.
+Root of the ModelComp site that wires per-domain model benchmark registries, a data-sync pipeline, and a QwikCity frontend rendering comparison tables, radar charts, and model cards.

@@ -21,6 +21,7 @@
 - Added detailed explanation of recent infrastructure improvements affecting model family averages
 - Enhanced coverage of how recalculated averages impact specific model families like Claude Haiku 4.5 and DeepSeek V4 Flash
 - Updated mathematical formulas to reflect improved averaging mechanisms and enhanced validation
+- Strengthened evidence-free report detection with better vendor claim verification
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -289,7 +290,7 @@ Quality gates ensure consistency between raw scores, derived Overall, and rater 
 | Crown rule | Every model folder gets an average even if no rater qualifies | Fallback uses all reports |
 | Evidence-free quarantine | Reports without verified benchmarks are excluded | Auto-rename to `.md.excluded` |
 | Independent source weighting | Artificial Analysis/BenchLM preferred over vendor claims | Manual scoring guidance |
-| Enhanced validation | Recent infrastructure updates improve score consistency | Recalculated averages across model families |
+| Enhanced validation | Recent infrastructure improvements ensure consistent recalculations | Recalculated averages across model families |
 
 **Section sources**
 - [scripts/lib/parse.mjs:38-45](file://scripts/lib/parse.mjs#L38-L45)
@@ -332,8 +333,8 @@ Current representative scores across model families:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Big Pickle | 55 | 60 | 70 | 15 | 70 | 100 | 62 |
-| Muse Spark 1.3 Contributor | 95 | 92 | 100 | 85 | 95 | 100 | 95 |
+| Big Pickle | 40 | 55 | 70 | 15 | 60 | 100 | 48 |
+| Muse Spark 1.3 Contributor | 94 | 92 | 100 | 85 | 95 | 100 | 93 |
 | Ling 3.0 Flash Fin Free | 68 | 70 | 72 | 15 | 72 | 100 | 66 |
 | MiMo V2.5 Free | 78 | 72 | 70 | 95 | 78 | 100 | 82 |
 | Muse Spark 1.2 Free | 90 | 88 | 100 | 90 | 88 | 100 | 93 |
