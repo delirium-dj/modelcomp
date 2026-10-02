@@ -144,5 +144,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "DeepSeek 4 Flash", label: "DeepSeek 4 Flash", file: "DeepSeek_4_Flash.md" },
   { key: "Claude Sonnet 3.7", label: "Claude Sonnet 3.7", file: "Claude_Sonnet_3.7.md", slug: "claude-sonnet-3.7" },
   { key: "Qwen 3.8 Flash", label: "Qwen 3.8 Flash", file: "Qwen_3.8_Flash.md", slug: "qwen-3.8-flash" },
-  { key: "Fledge Alpha", label: "Fledge Alpha", file: "Fledge_Alpha.md" },
+  { key: "Fledge Alpha", label: "Fledge Alpha", file: "Fledge_Alpha.md", slug: "fledge-alpha" },
 ];

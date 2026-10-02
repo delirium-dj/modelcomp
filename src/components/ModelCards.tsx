@@ -349,17 +349,15 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
           >
             Show more
           </button>
-          {view.value === "list" && (
-            <button
-              type="button"
-              onClick$={() => {
-                displayCount.value = shown.length;
-              }}
-              class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              Show all ({shown.length})
-            </button>
-          )}
+          <button
+            type="button"
+            onClick$={() => {
+              displayCount.value = shown.length;
+            }}
+            class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+          >
+            Show all ({shown.length})
+          </button>
         </div>
       )}
     </section>

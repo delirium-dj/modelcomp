@@ -205,7 +205,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                         class="mr-1 inline-block h-2.5 w-2.5 rounded-full align-middle"
                         style={{ backgroundColor: s.color }}
                       />
-                      <span>{s.model.name}</span>
+                      <span><a href={`/model/${s.model.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">{s.model.name}</a></span>
                       {isFree ? (
                         <span
                           class="ml-1.5 inline-block cursor-help whitespace-nowrap rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
@@ -268,7 +268,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   class="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
                   style={{ backgroundColor: s.color }}
                 />
-                <h3 class="flex-1 text-sm font-semibold text-slate-800 dark:text-slate-200">{s.model.name}</h3>
+                <h3 class="flex-1 text-sm font-semibold text-slate-800 dark:text-slate-200"><a href={`/model/${s.model.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">{s.model.name}</a></h3>
                 <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                   {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
                 </span>
