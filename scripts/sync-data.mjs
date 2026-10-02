@@ -93,10 +93,11 @@ const SOURCE_OVERRIDES = {
   "Mimo v2.5 Free": { label: "MiMo v2.5 Free", slug: "mimo-v2.5-free" },
   "big-pickle": { label: "Big Pickle", slug: "big-pickle" },
   "Ox Alpha": { slug: "ox_alpha" },
-  // Muse Spark 1.3 has ONE model page: Contributor/Free/Standard/Max are tiers
-  // of the same weights (cost + Meta data-use differ), never separate folders.
+  // Muse Spark 1.2/1.3 each have ONE model page: Contributor/Free/Standard/Max
+  // are tiers of the same weights (cost + Meta data-use differ), never separate
+  // folders — tier-suffixed names must not resolve to a "-free"/"-max" folder.
   "Muse Spark 1.3": { slug: "muse-spark-1.3" },
-  "Muse Spark 1.2": { slug: "muse-spark-1.2-free" },
+  "Muse Spark 1.2": { slug: "muse-spark-1.2" },
   "GPT 5.6 Sol": { slug: "gpt-5.6-sol" },
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
 };

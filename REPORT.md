@@ -1,5 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-02 — Muse Spark 1.2 Free renamed to Muse Spark 1.2 (user sign-off)
+
+1. Mirrored the 1.3 merge (6c3eb9e): `git mv model/muse-spark-1.2-free/ → model/muse-spark-1.2/` (all 31 research files renamed as pure path moves — contents untouched, RULES.md permanence intact), display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (`meta.json`), `meta.json` id `opencode/muse-spark-1.2-contributor-free` → `opencode/muse-spark-1.2` (README convention `opencode/<slug>`; the free alias is dead on Zen anyway — Space Bunny re-validation 2026-09-29).
+2. Future-proofing so no agent can "discover" a phantom `Muse Spark 1.2 Max`: `model/README.md` Tier-aliases bullet for `muse-spark-1.2/` (never create `-free`/`-max` variants), `tasks/research.md` tier-name check example extended, `SOURCE_OVERRIDES` comment in `scripts/sync-data.mjs` covers 1.2 + 1.3, `model-comparison.md` v6 resolution note.
+3. Wired consistently: `src/data/sources.generated.ts` slug and `src/data/scores.generated.ts` key → `muse-spark-1.2`; `model/muse-spark-1.2/average.md` H1 fixed (was the scaffolded `muse spark 1 2 free`). Frozen history (findings prose, changelogs v2/v3, `.qoder` wiki) keeps tier-suffixed names by design.
+4. Committed with recorded user sign-off (pre-commit passes: rename detected as `R`, no `D` entries; tripwire reads HEAD, so sync is green post-commit per the approved full-rename+commit plan).
+   Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
+
 ## 2026-10-02 — root-absolute header/Hero anchors re-applied (3rd time; stale-snapshot revert)
 
 1. User-reported regression: header nav (desktop + mobile drawer) and both Hero CTAs were back to bare fragment hrefs (`#compare` / `#methodology` / `#models`). A bare fragment resolves against the *current* route, so from any detail page the click produced `http://localhost:5173/model/<slug>/#models` — a dead anchor that never reaches the homepage sections — instead of the expected `http://localhost:5173/#models`.

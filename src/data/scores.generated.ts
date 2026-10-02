@@ -2534,7 +2534,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Space_Bunny_Alpha.md": { tool: 94, reasoning: 88, context: 95, multimodal: 65, coding: 91, cost: 75, overall: 86.6 },
     "average.md": { tool: 81.3, reasoning: 81.8, context: 86.5, multimodal: 67.8, coding: 78, cost: 79.3, overall: 79 },
   },
-  "muse-spark-1.2-free": {
+  "muse-spark-1.2": {
     "Big_Pickle.md": { tool: 88, reasoning: 86, context: 100, multimodal: 85, coding: 87, cost: 100, overall: 89.2 },
     "Claude_Opus_4.6.md": { tool: 87, reasoning: 90, context: 97, multimodal: 65, coding: 80, cost: 100, overall: 84 },
     "Claude_Sonnet_4.6.md": { tool: 87, reasoning: 89, context: 95, multimodal: 85, coding: 83, cost: 100, overall: 88 },

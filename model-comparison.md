@@ -16,7 +16,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 | Muse Spark 1.3 (`opencode/muse-spark-1.3` — Free Contributor tier scored) | 95 | 92 | 100 | 85 | 95 | 100 | 95 |
 | Ling 3.0 Flash Fin Free (`opencode/ling-3.0-flash-fin-free`) | 68 | 70 | 72 | 15 | 72 | 100 | 66 |
 | MiMo V2.5 Free (`opencode/mimo-v2.5-free`) — also listed as Xiaomi MiMo-V2.5 Free, same ID | 78 | 72 | 70 | 95 | 78 | 100 | 82 |
-| Muse Spark 1.2 Free (`opencode/muse-spark-1.2-contributor-free`) | 90 | 88 | 100 | 90 | 88 | 100 | 93 |
+| Muse Spark 1.2 (`opencode/muse-spark-1.2` — Free Contributor tier scored) | 90 | 88 | 100 | 90 | 88 | 100 | 93 |
 | Nemotron 3 Ultra Free (`opencode/nemotron-3-ultra-free`) | 78 | 75 | 97 | 20 | 80 | 100 | 75 |
 | Nemotron 3.5 Lightning Free (`opencode/nemotron-3.5-lightning-free`) | 50 | 62 | 72 | 15 | 58 | 100 | 60 |
 | GLM 5.1 Coding (`glm-5.1` — requested as Free, no Free ID found on Zen) | 85 | 80 | 70 | 15 | 88 | 75 | 69 |
@@ -27,7 +27,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 
 - `Ling 3.0Flash Fin Free` → `Ling 3.0 Flash Fin Free` (`opencode/ling-3.0-flash-fin-free`).
 - `MiMo V2.5 Free` and `Xiaomi MiMo-V2.5 Free` → same Zen ID `opencode/mimo-v2.5-free` (models.dev `mimo-v2.5-free.toml`, 200K/32K cap). Listed once.
-- `Muse Spark 1.2 Free` → `opencode/muse-spark-1.2-contributor-free` (listed in Zen docs dev history as Free/Free/Free; current Zen page spotlights 1.3 Free — treat 1.2 Free as prior free tier, same weights as `muse-spark-1.2`).
+- `Muse Spark 1.2 Free`, `Muse Spark 1.2 Contributor` and `Muse Spark 1.2 Max` → **one model**: `opencode/muse-spark-1.2`, one folder `model/muse-spark-1.2/` (renamed from `muse-spark-1.2-free/` 2026-10-02, mirroring 1.3). Meta ships no separate Max or Contributor model — same weights everywhere; only price and how Meta uses your data differ. Listed in Zen docs dev history as Free/Free/Free; current Zen page spotlights 1.3 Free — treat 1.2 as the prior generation, same weights as `muse-spark-1.2`.
 - `Muse Spark 1.3 Contributor`, `Muse Spark 1.3 Free` and `Muse Spark 1.3 Max` → **one model**: `opencode/muse-spark-1.3`, one folder `model/muse-spark-1.3/`. Meta ships no separate Max or Contributor model — same weights everywhere. Contributor/Free is the $0 tier paid with training-data consent; Max is the Standard tier run at `reasoning_effort: "max"`; only price and how Meta uses your data differ.
 - `GLM 5.1 Coding Free` → no `glm-5.1-*-free` ID on Zen as of 2026-09-17. Closest is paid `opencode/glm-5.1` ($1.40/$4.40). Scored on paid pricing; cost would be 100 if a $0 promo appears.
 - `MiniMax M2.7 Free` → no `minimax-m2.7-free` ID on Zen as of 2026-09-17. Closest is paid `opencode/minimax-m2.7` ($0.30/$1.20). Cost scored 90 on paid pricing.
@@ -39,7 +39,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 - Muse Spark 1.3: (95 + 92 + 100 + 85 + 95 + 100) / 6 = 94.5 → **95**
 - Ling 3.0 Flash Fin Free: (68 + 70 + 72 + 15 + 72 + 100) / 6 = 66.2 → **66**
 - MiMo V2.5 Free: (78 + 72 + 70 + 95 + 78 + 100) / 6 = 82.2 → **82**
-- Muse Spark 1.2 Free: (90 + 88 + 100 + 90 + 88 + 100) / 6 = 92.7 → **93**
+- Muse Spark 1.2: (90 + 88 + 100 + 90 + 88 + 100) / 6 = 92.7 → **93**
 - Nemotron 3 Ultra Free: (78 + 75 + 97 + 20 + 80 + 100) / 6 = 75.0 → **75**
 - Nemotron 3.5 Lightning Free: (50 + 62 + 72 + 15 + 58 + 100) / 6 = 59.5 → **60**
 - GLM 5.1 Coding (paid pricing): (85 + 80 + 70 + 15 + 88 + 75) / 6 = 68.8 → **69**
@@ -85,12 +85,13 @@ Full details moved to [`model/mimo-v2.5-free/Muse_Spark_1.3.md`](model/mimo-v2.5
 
 ---
 
-## Muse Spark 1.2 Free
+## Muse Spark 1.2
 
-Full details moved to [`model/muse-spark-1.2-free/Muse_Spark_1.3.md`](model/muse-spark-1.2-free/Muse_Spark_1.3.md).
+Full details moved to [`model/muse-spark-1.2/Muse_Spark_1.3.md`](model/muse-spark-1.2/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 90 / Reasoning 88 / Context 100 / Multimodal 90 / Coding 88 / Cost 100 → **Overall 93**
 - **One-liner:** near-frontier free fallback when 1.3 Free unavailable.
+- **Tiers:** `Contributor`/`Free` and `Standard` are not separate models — same weights, only price and Meta's data use differ. See the resolution note above.
 
 ---
 
@@ -234,3 +235,4 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - 2026-09-17: v3 — split per-model details into `model/<slug>/Muse_Spark_1.3.md` (one folder per model, one file per source; see `model/README.md`). This file keeps the table, methodology, caveats, sources and changelog.
 - 2026-09-18: v4 — Cost efficiency excluded from Overall Score everywhere (source files and averages); Overall = mean of the five quality dimensions. Comparison table and per-model sections above remain frozen v1–v3 history; live scores come from `model/<slug>/average.md`.
 - 2026-10-02: v5 — merged `model/muse-spark-1.3-free/` and `model/muse-spark-1.3-max/` into one `model/muse-spark-1.3/` (one model, one folder: Contributor/Free/Max are tiers of the same weights, differing only in price and Meta's training-data use). On duplicate stems the newer report won (all nine came from the `-max` folder); display name is now `Muse Spark 1.3` with no tier suffix; `meta.json` context corrected to 1,048,576 (1M) total / 131,072 max output (the old `-max` entry carried a placeholder 128K).
+- 2026-10-02: v6 — renamed `model/muse-spark-1.2-free/` → `model/muse-spark-1.2/` and display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (same treatment as v5's 1.3 merge): Contributor/Free/Standard/Max are tiers of one model, `meta.json` id now `opencode/muse-spark-1.2`. Findings-file prose is frozen history — tier-suffixed mentions in older reports/signatures stay as written.

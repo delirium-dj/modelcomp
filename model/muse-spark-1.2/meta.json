@@ -1,7 +1,7 @@
 {
-  "id": "opencode/muse-spark-1.2-contributor-free",
-  "name": "Muse Spark 1.2 Free",
-  "short": "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation.",
+  "id": "opencode/muse-spark-1.2",
+  "name": "Muse Spark 1.2",
+  "short": "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation. Contributor, Free and Max are the same weights — only price and how Meta uses your data differ (one model, one folder).",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",

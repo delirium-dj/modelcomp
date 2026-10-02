@@ -102,7 +102,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md", slug: "glm-5.2-coding" },
   { key: "Mimo v2.6 Flash", label: "MiMo v2.6 Flash", file: "Mimo_v2.6_Flash.md", slug: "mimo-v2.6-free" },
   { key: "Mimo v2.5 Free", label: "MiMo v2.5 Free", file: "Mimo_v2.5_Free.md", slug: "mimo-v2.5-free" },
-  { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md", slug: "muse-spark-1.2-free" },
+  { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md", slug: "muse-spark-1.2" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md", slug: "claude-sonnet-4.5" },
   { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md", slug: "claude-sonnet-5" },
   { key: "GPT 5.6 Luna", label: "GPT 5.6 Luna", file: "GPT_5.6_Luna.md", slug: "gpt-5.6-luna" },

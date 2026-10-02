@@ -96,3 +96,10 @@ base slug instead of scaffolding a tier folder:
   — the Contributor/Free tier costs $0 because Meta may train on your prompts;
   `reasoning_effort: "max"` is available on the paid Standard tier only. Never
   create `model/muse-spark-1.3-free/` or `model/muse-spark-1.3-max/` again.
+- `muse-spark-1.2/` covers **every** Muse Spark 1.2 variant name —
+  `Contributor`, `Contributor Free`, `Free`, `Standard`, `Max`,
+  `muse-spark-1.2-free/`, `muse-spark-1.2-max/`, `muse-spark-1.2-contributor/`.
+  Same weights everywhere (only price and Meta's data-use differ); renamed
+  from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
+  a separate model. Never create `model/muse-spark-1.2-free/` or
+  `model/muse-spark-1.2-max/` again.

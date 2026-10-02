@@ -1,4 +1,4 @@
-# muse spark 1 2 free — Averaged findings
+# Muse Spark 1.2 — Averaged findings
 
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
