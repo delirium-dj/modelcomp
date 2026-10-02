@@ -34,15 +34,20 @@
 - [model/claude-haiku-4.5/Laguna_XS_2.1.md](file://model/claude-haiku-4.5/Laguna_XS_2.1.md)
 - [model/deepseek-v4-flash/Laguna_XS_2.1.md](file://model/deepseek-v4-flash/Laguna_XS_2.1.md)
 - [model/gemini-1.5-pro/Laguna_XS_2.1.md](file://model/gemini-1.5-pro/Laguna_XS_2.1.md)
+- [model/llama_3.2_vision_instruct/meta.json](file://model/llama_3.2_vision_instruct/meta.json)
+- [model/longcat_2.5_preview/meta.json](file://model/longcat_2.5_preview/meta.json)
+- [model/mercury-2.5/meta.json](file://model/mercury-2.5/meta.json)
+- [model/minimax-m3.1-flash-preview/meta.json](file://model/minimax-m3.1-flash-preview/meta.json)
+- [model/omen-alpha/meta.json](file://model/omen-alpha/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated Multi-Agent Evaluation Process section to reflect extensive expansion of model comparison database with new model directories including Muse Spark 1.3 Max, Ox Alpha, Pixel Canary, and Solar Pro 4 across ~130 model directories
-- Enhanced evaluation coverage documentation with specific examples from new model evaluations demonstrating diverse research methodologies including stealth model assessments and identity reconciliation
-- Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators including specialized assessment approaches for stealth models and renamed products
-- Added references to new evaluator methodologies including detailed benchmark analysis, cost-efficiency evaluation, identity resolution, and comparative scoring approaches for newly added models
-- Expanded cross-model signed log documentation to include recent additions from multiple providers with comprehensive evaluation patterns and stealth model handling
+- Updated Multi-Agent Evaluation Process section to reflect extensive expansion of model comparison database with new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across ~139 model directories
+- Enhanced evaluation coverage documentation with specific examples from new model evaluations demonstrating diverse research methodologies including vision-instruct models, preview-tier assessments, and specialized multimodal capabilities
+- Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators including specialized assessment approaches for preview models and multimodal variants
+- Added references to new evaluator methodologies including comprehensive benchmark analysis, cost-efficiency evaluation, and comparative scoring approaches for newly added cutting-edge AI models
+- Expanded cross-model signed log documentation to include recent additions from multiple providers with comprehensive evaluation patterns and preview model handling
 - Incorporated extensive scoring data synchronization across the expanded model directories maintaining standardized evaluation framework consistency
 
 ## Table of Contents
@@ -224,7 +229,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports including Muse Spark 1.3 Max, Ox Alpha, Pixel Canary, and Solar Pro 4 across approximately 130 model directories. These additions demonstrate diverse assessment approaches: Muse Spark 1.3 Max provides comprehensive long-horizon agentic coding evaluation with 1M context capabilities, Ox Alpha showcases stealth model identity reconciliation with GLM-5.3-Flash lineage documentation, Pixel Canary represents single-evidence stealth model assessment with specialized scoring philosophy, and Solar Pro 4 demonstrates provisional tracking methodology for unverified vendor specifications. The expanded coverage includes sophisticated evaluation patterns for renamed products, stealth models, and models with limited evidence bases, demonstrating consistent application of the standardized evaluation framework across different model types and evidence availability scenarios.
+**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across approximately 139 model directories. These additions demonstrate diverse assessment approaches: Llama 3.2 Vision Instruct provides comprehensive vision-instruct model evaluation with 128K context capabilities, LongCat 2.5 Preview showcases preview-tier model assessment with specialized evaluation methodology, Mercury 2.5 represents streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview demonstrates advanced multimodal capabilities with 1M context and text/image/video processing, and Omen Alpha shows specialized assessment approach with comprehensive benchmark coverage. The expanded coverage includes sophisticated evaluation patterns for vision-instruct models, preview-tier assessments, and multimodal variants, demonstrating consistent application of the standardized evaluation framework across different model types and evidence availability scenarios.
 
 ```mermaid
 flowchart TD
@@ -400,7 +405,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including Muse Spark 1.3 Max comprehensive long-horizon agentic coding assessment with 1M context capabilities, Ox Alpha stealth model identity reconciliation with GLM-5.3-Flash lineage documentation, Pixel Canary single-evidence stealth model assessment with specialized scoring philosophy, and Solar Pro 4 provisional tracking methodology. These diverse approaches showcase specialized cost-efficiency evaluation with detailed benchmark citation, stealth model handling with identity resolution, streamlined assessment methodologies with focused evaluation techniques, and provisional tracking for unverified specifications. The expanded coverage demonstrates consistent application of the standardized evaluation framework across different model families, evidence availability scenarios, and model types including stealth models, renamed products, and models with limited evidence bases.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including Llama 3.2 Vision Instruct comprehensive vision-instruct model assessment with 128K context capabilities, LongCat 2.5 Preview preview-tier model evaluation with specialized assessment methodology, Mercury 2.5 streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview advanced multimodal capabilities with 1M context and text/image/video processing, and Omen Alpha specialized assessment approach with comprehensive benchmark coverage. These diverse approaches showcase specialized evaluation techniques for vision-instruct models, preview-tier assessments, multimodal variants, and streamlined evaluation methodologies. The expanded coverage demonstrates consistent application of the standardized evaluation framework across different model families, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -433,7 +438,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from new model directories including Muse Spark 1.3 Max, Ox Alpha, Pixel Canary, and Solar Pro 4, demonstrating the expanded coverage and diverse assessment approaches now available in the system. These additions showcase specialized evaluation patterns for stealth models, identity reconciliation for renamed products, and provisional tracking methodologies for unverified specifications.
+**Updated** Recent additions include comprehensive evaluations from new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha, demonstrating the expanded coverage and diverse assessment approaches now available in the system. These additions showcase specialized evaluation patterns for vision-instruct models, preview-tier assessments, and multimodal variants.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -445,21 +450,24 @@ The comprehensive expansion of the model evaluation dataset introduces extensive
 
 New model evaluation characteristics:
 
-**Muse Spark 1.3 Max**: Provides comprehensive long-horizon agentic coding evaluation with 1M context capabilities, demonstrating sophisticated assessment methodology with detailed benchmark analysis including Terminal-Bench 88.8%, GPQA 93.5%, and specialized cost-efficiency evaluation with nuanced scoring justifications emphasizing long-context reasoning and multi-agent work capabilities.
+**Llama 3.2 Vision Instruct**: Provides comprehensive vision-instruct model evaluation with 128K context capabilities, demonstrating sophisticated assessment methodology with detailed benchmark analysis including specialized vision-instruct capabilities and comprehensive cost-efficiency evaluation with nuanced scoring justifications emphasizing vision processing and instruction-following capabilities.
 
-**Ox Alpha**: Represents stealth model identity reconciliation showcasing GLM-5.3-Flash lineage documentation with Bloomberg/Z.ai confirmation, demonstrating advanced evaluation methodology for renamed products with comprehensive benchmark analysis including SWE-bench 92.0%, Terminal-Bench 84.3%, and sophisticated cost-efficiency scoring reflecting free preview and MIT open weights status.
+**LongCat 2.5 Preview**: Represents preview-tier model assessment showcasing specialized evaluation methodology for early-access models with comprehensive benchmark analysis including long-context capabilities and sophisticated cost-efficiency evaluation reflecting preview status and limited availability.
 
-**Pixel Canary**: Demonstrates single-evidence stealth model assessment with specialized scoring philosophy, representing the most challenging evaluation scenario with only one benchmark result (Vercel Next.js Agent Evals 97%) requiring careful provisional scoring across all dimensions with explicit evidence gaps documented.
+**Mercury 2.5**: Demonstrates streamlined model evaluation with focused benchmark analysis, representing efficient assessment approach with comprehensive coverage across all six dimensions while maintaining evaluation framework consistency.
 
-**Solar Pro 4**: Shows provisional tracking methodology for unverified vendor specifications with unknown context window, modalities, and pricing, demonstrating how the system handles models with incomplete information while maintaining evaluation framework consistency.
+**MiniMax M3.1 Flash Preview**: Shows advanced multimodal capabilities with 1M context and text/image/video processing, demonstrating how the system handles complex multimodal models with specialized evaluation patterns for video processing and extended context windows.
+
+**Omen Alpha**: Represents specialized assessment approach with comprehensive benchmark coverage, showcasing evaluation methodology for models with unique positioning in the market landscape.
 
 ```mermaid
 graph TB
 Subgraph NewEvaluations["Expanded Evaluation Coverage"]
-Muse["Muse Spark 1.3 Max<br/>Long-Horizon Agentic Coding"]
-Ox["Ox Alpha<br/>Identity Reconciliation"]
-Pixel["Pixel Canary<br/>Single-Evidence Stealth"]
-Solar["Solar Pro 4<br/>Provisional Tracking"]
+Llama["Llama 3.2 Vision Instruct<br/>Vision-Instruct Assessment"]
+LongCat["LongCat 2.5 Preview<br/>Preview-Tier Evaluation"]
+Mercury["Mercury 2.5<br/>Streamlined Assessment"]
+MiniMax["MiniMax M3.1 Flash Preview<br/>Multimodal Capabilities"]
+Omen["Omen Alpha<br/>Specialized Assessment"]
 end
 Subgraph Coverage["Evaluation Coverage"]
 Diverse["Diverse Assessment<br/>Approaches"]
@@ -471,53 +479,59 @@ Coverage --> Enhanced
 ```
 
 **Diagram sources**
-- [model/muse-spark-1.3-max/Muse_Spark_1.3.md:1-69](file://model/muse-spark-1.3-max/Muse_Spark_1.3.md#L1-L69)
-- [model/ox_alpha/Qwen_3.8_Flash.md:1-63](file://model/ox_alpha/Qwen_3.8_Flash.md#L1-L63)
-- [model/pixel_canary/Qwen_3.8_Flash.md:1-68](file://model/pixel_canary/Qwen_3.8_Flash.md#L1-L68)
-- [model/solar-pro-4/meta.json:1-10](file://model/solar-pro-4/meta.json#L1-L10)
+- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
+- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
+- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
+- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
 
 **Section sources**
-- [model/muse-spark-1.3-max/Muse_Spark_1.3.md:1-69](file://model/muse-spark-1.3-max/Muse_Spark_1.3.md#L1-L69)
-- [model/ox_alpha/Qwen_3.8_Flash.md:1-63](file://model/ox_alpha/Qwen_3.8_Flash.md#L1-L63)
-- [model/pixel_canary/Qwen_3.8_Flash.md:1-68](file://model/pixel_canary/Qwen_3.8_Flash.md#L1-L68)
-- [model/solar-pro-4/meta.json:1-10](file://model/solar-pro-4/meta.json#L1-L10)
+- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
+- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
+- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
+- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
 
 ### Comprehensive Scoring Data Expansion
 The extensive scoring data synchronization across the expanded model directories encompasses evaluations across numerous new model families that significantly expand the evaluation coverage:
 
-**Muse Spark 1.3 Max Family**: Comprehensive evaluation with detailed long-horizon agentic coding analysis including Terminal-Bench 88.8%, GPQA 93.5%, and specialized cost-efficiency scoring with $1.25/$4.25 pricing, demonstrating robust assessment methodology with particular emphasis on 1M context capabilities and multi-agent work scenarios.
+**Llama 3.2 Vision Instruct Family**: Comprehensive evaluation with detailed vision-instruct model analysis including specialized vision processing capabilities, 128K context window performance, and comprehensive cost-efficiency scoring with standard pricing, demonstrating robust assessment methodology with particular emphasis on vision-instruct capabilities and instruction-following performance.
 
-**Ox Alpha Family**: Advanced evaluation with stealth model identity reconciliation showing GLM-5.3-Flash lineage, comprehensive benchmark coverage including SWE-bench 92.0%, Terminal-Bench 84.3%, and sophisticated cost-efficiency evaluation reflecting free preview status and MIT open weights availability.
+**LongCat 2.5 Preview Family**: Advanced evaluation with preview-tier model assessment showing specialized evaluation methodology for early-access models, comprehensive benchmark coverage including long-context capabilities, and sophisticated cost-efficiency evaluation reflecting preview status and limited availability.
 
-**Pixel Canary Family**: Specialized single-evidence evaluation with Vercel Next.js Agent Evals 97% performance, demonstrating unique scoring philosophy for models with minimal evidence base while maintaining framework consistency and explicit documentation of evidence limitations.
+**Mercury 2.5 Family**: Streamlined evaluation with focused benchmark analysis demonstrating efficient assessment approach with comprehensive coverage across all six dimensions while maintaining evaluation framework consistency and explicit documentation of evaluation methodology.
 
-These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including stealth models, renamed products, and provisionally tracked models.
+**MiniMax M3.1 Flash Preview Family**: Specialized multimodal evaluation with 1M context and text/image/video processing capabilities, demonstrating unique assessment philosophy for complex multimodal models while maintaining framework consistency and explicit documentation of multimodal limitations.
+
+These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
 
 **Section sources**
-- [model/muse-spark-1.3-max/Muse_Spark_1.3.md:20-60](file://model/muse-spark-1.3-max/Muse_Spark_1.3.md#L20-L60)
-- [model/ox_alpha/Qwen_3.8_Flash.md:21-54](file://model/ox_alpha/Qwen_3.8_Flash.md#L21-L54)
-- [model/pixel_canary/Qwen_3.8_Flash.md:20-58](file://model/pixel_canary/Qwen_3.8_Flash.md#L20-L58)
+- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
+- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
+- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
 
 ### New Model Evaluation Examples
 The expanded model directories showcase diverse evaluation approaches and methodologies:
 
-**Muse Spark 1.3 Max Evaluation Examples**: The comprehensive evaluation demonstrates sophisticated long-horizon agentic coding assessment with detailed benchmark citation including Terminal-Bench 88.8%, GPQA 93.5%, and specialized cost-efficiency analysis showing $1.25/$4.25 token rates with nuanced scoring across all six dimensions emphasizing 1M context capabilities and multi-agent work scenarios.
+**Llama 3.2 Vision Instruct Evaluation Examples**: The comprehensive evaluation demonstrates sophisticated vision-instruct model assessment with detailed benchmark citation including specialized vision processing capabilities, 128K context window performance, and comprehensive cost-efficiency analysis showing standard pricing with nuanced scoring across all six dimensions emphasizing vision-instruct capabilities and instruction-following performance.
 
 **Specialized Evaluation Patterns**: The new evaluations demonstrate various advanced evaluation patterns including:
-- Long-horizon agentic coding assessments (Muse Spark 1.3 Max)
-- Stealth model identity reconciliation (Ox Alpha/GLM-5.3-Flash)
-- Single-evidence stealth model assessment (Pixel Canary)
-- Provisional tracking for unverified specifications (Solar Pro 4)
-- Comprehensive retirement status documentation (DeepSeek 4 Flash)
-- Streamlined assessment methodologies (Laguna XS 2.1)
-- Legacy model contextualization (Gemini 1.5 Pro)
+- Vision-instruct model assessments (Llama 3.2 Vision Instruct)
+- Preview-tier model evaluation (LongCat 2.5 Preview)
+- Streamlined assessment methodologies (Mercury 2.5)
+- Advanced multimodal capabilities (MiniMax M3.1 Flash Preview)
+- Specialized assessment approaches (Omen Alpha)
+- Comprehensive benchmark coverage across diverse model types
 
 These examples illustrate the flexibility and consistency of the evaluation framework across different model types, evidence availability scenarios, and use cases while maintaining standardized scoring methodology.
 
 **Section sources**
-- [model/muse-spark-1.3-max/Muse_Spark_1.3.md:20-60](file://model/muse-spark-1.3-max/Muse_Spark_1.3.md#L20-L60)
-- [model/ox_alpha/Qwen_3.8_Flash.md:21-54](file://model/ox_alpha/Qwen_3.8_Flash.md#L21-L54)
-- [model/pixel_canary/Qwen_3.8_Flash.md:20-58](file://model/pixel_canary/Qwen_3.8_Flash.md#L20-L58)
+- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
+- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
+- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
+- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -597,8 +611,9 @@ Common issues and resolutions:
 | Voice model placed incorrectly | Routing rule violated | Move to `models_voice/<slug>/` per RULES.md |
 | New model directory issues | Improper meta.json configuration | Verify id, name, short, contextWindow, modalities, pricingNote fields |
 | Findings file validation fails | Missing required score lines | Use find-fails.mjs to identify problematic files |
-| Stealth model evaluation issues | Identity reconciliation required | Document lineage and provide evidence for renamed products |
-| Single-evidence model scoring | Insufficient benchmark data | Apply provisional scoring philosophy with explicit evidence gaps |
+| Vision-instruct model evaluation issues | Specialized assessment methodology required | Document vision capabilities and instruction-following performance |
+| Preview-tier model scoring | Limited evidence base | Apply provisional scoring philosophy with explicit evidence gaps |
+| Multimodal model evaluation | Complex capability assessment | Handle text/image/video processing with specialized evaluation patterns |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -609,7 +624,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with extensive new model evaluation reports including Muse Spark 1.3 Max, Ox Alpha, Pixel Canary, and Solar Pro 4 across approximately 130 model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from specialized long-horizon agentic coding evaluation to stealth model identity reconciliation, single-evidence stealth model assessment, and provisional tracking methodologies—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including stealth models, renamed products, and provisionally tracked models.
+**Updated** The comprehensive expansion with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across approximately 139 model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from specialized vision-instruct model evaluation to preview-tier assessments, streamlined evaluation methodologies, advanced multimodal capabilities, and specialized assessment approaches—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -618,8 +633,9 @@ For reliable contributions:
 - Run sync and build after every data change.
 - Treat averages as computed outputs, not editorial inputs.
 - Ensure new model directories have proper meta.json configuration.
-- Handle stealth models with appropriate identity reconciliation and evidence gap documentation.
-- Apply provisional scoring philosophy for models with limited evidence bases.
+- Handle vision-instruct models with appropriate specialized assessment methodology.
+- Apply provisional scoring philosophy for preview-tier models with limited evidence bases.
+- Accommodate multimodal capabilities with specialized evaluation patterns for complex model types.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

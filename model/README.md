@@ -80,6 +80,19 @@ model (e.g. a stale registry entry with no files and no vendor ID).
 
 One folder per tracked model, each self-described by its own `meta.json`
 (this list is intentionally not enumerated here — `meta.json` is the source
-of truth; examples: `big-pickle/`, `muse-spark-1.3-free/`,
-`ling-3.0-flash-fin-free/`, `glm-5.1-coding/`). Known alias: `mimo-v2.5-free/`
+of truth; examples: `big-pickle/`, `muse-spark-1.3/`,
+`ling-3.0-flash-fin-free/`, `glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
 also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it.
+
+**Tier aliases — one model, one folder, whatever the tier is called.** If a
+source names a model only by its pricing or effort tier, resolve it to the
+base slug instead of scaffolding a tier folder:
+
+- `muse-spark-1.3/` covers **every** Muse Spark 1.3 variant name —
+  `Contributor`, `Contributor Free`, `Free`, `Standard`, `Max`,
+  `muse-spark-1.3-free/`, `muse-spark-1.3-max/`, `muse-spark-1.3-contributor/`.
+  Meta ships one model: same weights, 1M context (131,072 max output),
+  text/image/video/PDF in. The only real differences are price and data policy
+  — the Contributor/Free tier costs $0 because Meta may train on your prompts;
+  `reasoning_effort: "max"` is available on the paid Standard tier only. Never
+  create `model/muse-spark-1.3-free/` or `model/muse-spark-1.3-max/` again.

@@ -85,6 +85,12 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
   1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
       `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
       folder first — `pnpm sync` fails hyphen variants loudly).
+      **Tier-name check:** a name whose suffix is only a pricing or effort tier
+      (Contributor, Contributor Free, Free, Standard, Max, …) is not a new
+      model — resolve it to the existing base folder via the "Tier aliases"
+      list in `model/README.md` (e.g. Muse Spark 1.3 Contributor / Free / Max
+      → `model/muse-spark-1.3/`, never a `-free`/`-max`/`-contributor`
+      variant folder) and write your findings into that base folder.
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), do NOT
       place it under `model/`. Production scope: park it (note it in your final

@@ -16,16 +16,22 @@
 - [src/data/models.ts](file://src/data/models.ts)
 - [model/claude-opus-4.6/Claude_Opus_4.6.md](file://model/claude-opus-4.6/Claude_Opus_4.6.md)
 - [model/gpt-5.6-terra/GPT_5.6_Terra.md](file://model/gpt-5.6-terra/GPT_5.6_Terra.md)
-- [model/muse-spark-1.3-free/Muse_Spark_1.3.md](file://model/muse-spark-1.3-free/Muse_Spark_1.3.md)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md](file://model/muse-spark-1.3/Muse_Spark_1.3.md)
+- [model/claude-opus-4.6/meta.json](file://model/claude-opus-4.6/meta.json)
+- [model/gpt-5.6-terra/meta.json](file://model/gpt-5.6-terra/meta.json)
+- [model/muse-spark-1.3/meta.json](file://model/muse-spark-1.3/meta.json)
+- [model/grok-4.6/meta.json](file://model/grok-4.6/meta.json)
+- [model/gpt-6-sol/meta.json](file://model/gpt-6-sol/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated to reflect Applied Changes: standardized scoring methodology v4 applied consistently across new model evaluations with evidence-based normalization
-- Enhanced documentation of v4 methodology with Overall Score calculation excluding Cost efficiency
-- Added comprehensive evidence-based normalization requirements and justification standards
-- Updated examples to demonstrate consistent v4 methodology application across 141+ model evaluations
-- Revised relationship between findings files and generated TypeScript data structures for v4 compliance
+- Updated to reflect Applied Changes: Expanded findings file format usage with new model documentation entries following established patterns
+- Added detailed model specifications, benchmark scores, and performance metrics for newly released AI models including Claude Opus 4.6, GPT-5.6 Terra, and Muse Spark 1.3
+- Enhanced examples with comprehensive model card formats showing provider access details, pricing structures, and architectural information
+- Updated meta.json schema documentation with real-world examples from multiple providers (Anthropic, OpenAI, Meta, xAI)
+- Expanded evidence-based normalization requirements with concrete scoring examples across different model tiers
+- Revised relationship between findings files and generated TypeScript data structures with updated v4 methodology compliance
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,7 +47,7 @@
 ## Introduction
 This document explains the self-contained findings file format used by ModelComp research, how researchers should populate it, and how it connects to generated TypeScript data structures. A findings file captures one agent's independent evaluation of a model: its card, raw benchmarks, normalized 1–100 scores, and signature. The repository maintains a cross-model signed log and per-model metadata for display.
 
-**Updated** The format has been standardized across 141+ model evaluations using consistent scoring methodologies and model card formats, ensuring uniformity in how models are evaluated and compared. The comprehensive evaluation report format now includes detailed model specifications, benchmark scores, pricing information, and normalized quality metrics across tool use, reasoning, context window, multimodal capabilities, coding performance, and cost efficiency.
+**Updated** The format has been expanded with new model documentation entries following established patterns, including detailed model specifications, benchmark scores, and performance metrics for newly released AI models such as Claude Opus 4.6, GPT-5.6 Terra, and Muse Spark 1.3. These additions demonstrate consistent application of the standardized v4 methodology across diverse model providers and use cases.
 
 ## Project Structure
 Findings live under `model/<slug>/`. Each folder represents one tracked model and contains:
@@ -81,7 +87,7 @@ Key responsibilities:
 - `pnpm sync` validates, quarantines evidence-free files, computes averages, and generates typed data.
 - The UI reads generated data; no manual edits to generated files are needed.
 
-**Updated** All findings files now follow the v4 standardized methodology with consistent scoring formulas and model card structures applied across 141+ model evaluations, featuring comprehensive evaluation reports with detailed specifications and normalized quality metrics.
+**Updated** New model documentation entries demonstrate expanded usage patterns with comprehensive model specifications, detailed benchmark categorization, and consistent scoring methodology application across major AI providers including Anthropic, OpenAI, Meta, and xAI.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -121,7 +127,7 @@ Sync-->>Researcher : Averages recomputed, new source registered
 ## Detailed Component Analysis
 
 ### Comprehensive Evaluation Report Format (v4)
-**Updated** The comprehensive evaluation report format has been standardized across all 141+ model evaluations with the following key components:
+**Updated** The comprehensive evaluation report format has been expanded with new model documentation entries demonstrating consistent application across diverse AI providers. Key components include:
 
 - **Detailed Model Specifications**: Complete model card with provider access, release dates, IDs, context windows, modalities, pricing, and architecture details
 - **Benchmark Scores**: Categorized raw benchmarks across agent/tool use, reasoning/knowledge, coding, and long context domains
@@ -153,7 +159,7 @@ Exclude --> End
 - [src/components/Methodology.tsx:14-18](file://src/components/Methodology.tsx#L14-L18)
 
 ### Standardized Scoring Methodology (v4)
-**Updated** The scoring methodology has been standardized across all 141+ model evaluations with the following key principles:
+**Updated** The scoring methodology has been consistently applied across new model documentation entries including Claude Opus 4.6, GPT-5.6 Terra, and Muse Spark 1.3. Key principles demonstrated:
 
 - **Overall Score Formula**: Overall = half-up mean of the five quality dimensions `(Tool + Reasoning + Context + Multimodal + Coding) / 5`
 - **Cost Efficiency Exclusion**: Cost efficiency is scored separately and never included in Overall calculations
@@ -183,9 +189,9 @@ Exclude --> End
 - [src/components/Methodology.tsx:14-18](file://src/components/Methodology.tsx#L14-L18)
 
 ### Comprehensive Model Card Format
-**Updated** All model cards now follow a consistent structure with required fields for detailed specifications:
+**Updated** New model documentation entries demonstrate enhanced model card formats with detailed specifications across different providers:
 
-- **Name**: Official model name including tier information (e.g., "Muse Spark 1.3 Contributor")
+- **Name**: Official model name including tier information (e.g., "Muse Spark 1.3 Max", "Claude Opus 4.6")
 - **Short description**: 1-2 sentences describing the model, provider, and primary use case
 - **Provider/access**: Exact API endpoints and access methods (Chat Completions vs Responses API)
 - **Release/knowledge**: Release date and knowledge cutoff information
@@ -207,19 +213,19 @@ Exclude --> End
 - Short description: OpenAI's GPT-5.6 tier for workloads that balance intelligence and cost; OpenAI describes it as approximately the earlier GPT-5 mini tier.
 - Provider/access: OpenAI API, `gpt-5.6-terra`, via both Chat Completions and Responses APIs.
 
-[Muse Spark 1.3 example:8-18](file://model/muse-spark-1.3-free/Muse_Spark_1.3.md#L8-L18):
-- Name: Muse Spark 1.3 Contributor (Meta, Contributor Free tier)
-- Short description: Meta's proprietary multimodal reasoning model for long-horizon agentic and coding workflows, served as the $0 Contributor Free tier on OpenCode Zen (same weights as standard 1.3, training-data consent in exchange for free use).
-- Provider/access: Meta via Meta Model API (`muse-spark-1.3` / `muse-spark-1.3-contributor`); OpenCode Zen `opencode/muse-spark-1.3-contributor-free` (Chat Completions + Responses-style tool calling, MCP supported).
+[Muse Spark 1.3 example:8-18](file://model/muse-spark-1.3/Muse_Spark_1.3.md#L8-L18):
+- Name: Muse Spark 1.3 Max
+- Short description: Meta Superintelligence Labs flagship max-reasoning tier (Sep 2026). Top use case is long-horizon agentic coding and multi-agent work at 1M context.
+- Provider/access: Meta Model API (`muse-spark-1.3`, reasoning max); OpenCode Zen `opencode/muse-spark-1.3` Standard tier. Chat Completions API.
 
 **Section sources**
 - [model-report-TEMPLATE.md:14-25](file://model-report-TEMPLATE.md#L14-L25)
 - [model/claude-opus-4.6/Claude_Opus_4.6.md:8-18](file://model/claude-opus-4.6/Claude_Opus_4.6.md#L8-L18)
 - [model/gpt-5.6-terra/GPT_5.6_Terra.md:8-18](file://model/gpt-5.6-terra/GPT_5.6_Terra.md#L8-L18)
-- [model/muse-spark-1.3-free/Muse_Spark_1.3.md:8-18](file://model/muse-spark-1.3-free/Muse_Spark_1.3.md#L8-L18)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md:8-18](file://model/muse-spark-1.3/Muse_Spark_1.3.md#L8-L18)
 
 ### Standardized Benchmark Categorization
-**Updated** All findings files now use consistent benchmark categories with comprehensive coverage:
+**Updated** New model documentation entries demonstrate consistent benchmark categorization with comprehensive coverage:
 
 - **Agent/tool use**: Terminal-Bench, Tau3-Banking, GDPval-AA, OSWorld/AutomationBench, Claw-Eval, Toolathon, MCP-Atlas
 - **Reasoning/knowledge**: GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Intelligence Index
@@ -232,6 +238,7 @@ Each benchmark entry includes source attribution and performance metrics with cl
 - [model-report-TEMPLATE.md:26-70](file://model-report-TEMPLATE.md#L26-L70)
 - [model/claude-opus-4.6/Claude_Opus_4.6.md:20-45](file://model/claude-opus-4.6/Claude_Opus_4.6.md#L20-L45)
 - [model/gpt-5.6-terra/GPT_5.6_Terra.md:20-41](file://model/gpt-5.6-terra/GPT_5.6_Terra.md#L20-L41)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md:20-51](file://model/muse-spark-1.3/Muse_Spark_1.3.md#L20-L51)
 
 ### Relationship Between Findings Files and Generated TypeScript Structures
 The sync process parses findings files and emits:
@@ -243,7 +250,7 @@ Score parsing contract:
 - Quality dimensions feed Overall; Cost efficiency is excluded from the mean
 - Overall drift tolerance triggers automatic correction when within bounds
 
-**Updated** The v4 methodology ensures consistency across all 141+ model evaluations with the Overall Score calculated as the mean of five quality dimensions only.
+**Updated** New model documentation entries demonstrate consistent application of the v4 methodology with Overall Score calculated as the mean of five quality dimensions only, ensuring uniformity across diverse model evaluations.
 
 ```mermaid
 classDiagram
@@ -286,11 +293,87 @@ Key aspects:
 - Changelog tracks methodology updates and additions
 - Provides context on free-tier usage and data privacy caveats
 
-**Updated** The changelog now reflects the v4 methodology standardization applied across all model evaluations.
+**Updated** The changelog now reflects expanded usage patterns with new model documentation entries following established patterns and consistent methodology application.
 
 **Section sources**
 - [model-findings.md:1-10](file://model-findings.md#L1-L10)
 - [model-findings.md:314-331](file://model-findings.md#L314-L331)
+
+### Enhanced Meta.json Schema Examples
+**Updated** New model documentation entries demonstrate expanded meta.json schema usage with comprehensive examples from multiple providers:
+
+**Required fields**: `id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`
+**Optional fields**: `pricingTiers` (string[]), `freeTierNote` (string), `noFreeId` (boolean)
+
+**Example implementations:**
+
+[Anthropic Claude Opus 4.6:1-10](file://model/claude-opus-4.6/meta.json#L1-L10):
+```json
+{
+  "id": "anthropic/claude-opus-4.6",
+  "name": "Claude Opus 4.6",
+  "short": "Anthropic's flagship reasoning-capable model, enhanced with thinking capabilities for complex, multi-step tasks.",
+  "contextWindow": "200K",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}
+```
+
+[OpenAI GPT-5.6 Terra:1-10](file://model/gpt-5.6-terra/meta.json#L1-L10):
+```json
+{
+  "id": "openai/gpt-5.6-terra",
+  "name": "GPT-5.6 Terra",
+  "short": "OpenAI's flagship 5.6 generation model optimized for ground-up agentic research, tool usage, long-context reasoning, and code synthesis.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Paid-tier pricing",
+  "noFreeId": true
+}
+```
+
+[Meta Muse Spark 1.3:1-15](file://model/muse-spark-1.3/meta.json#L1-L15):
+```json
+{
+  "id": "opencode/muse-spark-1.3",
+  "name": "Muse Spark 1.3",
+  "short": "Meta's frontier coding and long-horizon agentic model (Sep 2026) at 1M context / 131K output. Contributor (Free) and Max are the same weights: Free is the $0 training-consent tier and Max is the Standard tier's reasoning_effort \"max\" — only cost and how Meta uses your data differ.",
+  "contextWindow": "1,048,576 (1M) total; 131,072 max output",
+  "modalities": "Text, image, video, PDF in; text out",
+  "pricingNote": "Free OpenCode Zen tier; Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M",
+  "freeTierNote": "Free OpenCode Zen tier (Contributor) in exchange for training-data consent — same weights as paid Standard; Max reasoning effort is Standard-tier only",
+  "pricingTiers": [
+    "Free OpenCode Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard & Max effort $1.25/$4.25"
+  ]
+}
+```
+
+[xAI Grok 4.6:1-14](file://model/grok-4.6/meta.json#L1-L14):
+```json
+{
+  "id": "xai/grok-4.6",
+  "name": "Grok 4.6",
+  "short": "xAI's flagship frontier model for coding, agentic tasks, and knowledge work.",
+  "contextWindow": "500,000",
+  "modalities": "Text and image in; text out",
+  "pricingNote": "Paid $2/$6 per 1M (cached $0.50); doubles above 200K prompt",
+  "pricingTiers": [
+    "$2 in / $6 out per 1M, $0.50 cached (<200K prompt)",
+    "$4 in / $12 out per 1M, $1 cached (>200K prompt)"
+  ],
+  "noFreeId": true
+}
+```
+
+**Section sources**
+- [model/README.md:32-57](file://model/README.md#L32-L57)
+- [model/claude-opus-4.6/meta.json:1-10](file://model/claude-opus-4.6/meta.json#L1-L10)
+- [model/gpt-5.6-terra/meta.json:1-10](file://model/gpt-5.6-terra/meta.json#L1-L10)
+- [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
+- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
 
 ## Dependency Analysis
 The sync pipeline depends on pure modules for parsing, code generation, naming conventions, and quarantine logic.
@@ -322,7 +405,7 @@ Codegen --> Scores["scores.generated.ts"]
 - Findings files are parsed at build time; prose content does not ship to the client bundle.
 - Generated TypeScript files contain only compact numeric scores and registry data.
 - Auto-quarantine prevents evidence-free files from affecting averages.
-- Standardized format reduces parsing complexity and improves build performance across 141+ model evaluations.
+- Standardized format reduces parsing complexity and improves build performance across expanded model documentation.
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -337,9 +420,9 @@ Common issues and resolutions:
 Validation helpers:
 - Quarantine logic checks for missing benchmarks, zero scores, and flat distributions.
 - Naming utilities detect underscore violations and hyphen-version issues.
-- Overall score validation ensures consistency with v4 methodology across all model evaluations.
+- Overall score validation ensures consistency with v4 methodology across expanded model documentation.
 
-**Updated** Additional validation for standardized model card format and v4 scoring methodology compliance.
+**Updated** Additional validation for standardized model card format and v4 scoring methodology compliance demonstrated through new model documentation entries.
 
 **Section sources**
 - [scripts/lib/quarantine.mjs:33-56](file://scripts/lib/quarantine.mjs#L33-L56)
@@ -347,6 +430,6 @@ Validation helpers:
 - [src/data/models.ts:336-354](file://src/data/models.ts#L336-L354)
 
 ## Conclusion
-The ModelComp findings file format ensures consistent, auditable research documentation. By following the standardized v4 template, adhering to naming conventions, and maintaining accurate meta.json files, researchers contribute reliable data that powers the comparison site. The sync pipeline automates validation, quarantine, and TypeScript generation, minimizing manual overhead while preserving data integrity across 141+ model evaluations.
+The ModelComp findings file format ensures consistent, auditable research documentation. By following the standardized v4 template, adhering to naming conventions, and maintaining accurate meta.json files, researchers contribute reliable data that powers the comparison site. The sync pipeline automates validation, quarantine, and TypeScript generation, minimizing manual overhead while preserving data integrity across expanded model documentation.
 
-**Updated** The comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics ensures that all model evaluations are comparable and maintain high quality standards across the entire dataset. The standardized methodology and consistent formatting guarantee reliable comparisons and transparent evaluation processes.
+**Updated** The comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics ensures that all model evaluations are comparable and maintain high quality standards across the entire dataset. The standardized methodology and consistent formatting guarantee reliable comparisons and transparent evaluation processes, as demonstrated by new model documentation entries from major AI providers including Anthropic, OpenAI, Meta, and xAI.

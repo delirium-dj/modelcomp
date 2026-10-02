@@ -1,0 +1,14 @@
+{
+  "id": "opencode/muse-spark-1.3",
+  "name": "Muse Spark 1.3",
+  "short": "Meta's frontier coding and long-horizon agentic model (Sep 2026) at 1M context / 131K output. Contributor (Free) and Max are the same weights: Free is the $0 training-consent tier and Max is the Standard tier's reasoning_effort \"max\" — only cost and how Meta uses your data differ.",
+  "contextWindow": "1,048,576 (1M) total; 131,072 max output",
+  "modalities": "Text, image, video, PDF in; text out",
+  "pricingNote": "Free OpenCode Zen tier; Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M",
+  "freeTierNote": "Free OpenCode Zen tier (Contributor) in exchange for training-data consent — same weights as paid Standard; Max reasoning effort is Standard-tier only",
+  "pricingTiers": [
+    "Free OpenCode Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard & Max effort $1.25/$4.25"
+  ]
+}

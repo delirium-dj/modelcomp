@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-02 — root-absolute header/Hero anchors re-applied (3rd time; stale-snapshot revert)
+
+1. User-reported regression: header nav (desktop + mobile drawer) and both Hero CTAs were back to bare fragment hrefs (`#compare` / `#methodology` / `#models`). A bare fragment resolves against the *current* route, so from any detail page the click produced `http://localhost:5173/model/<slug>/#models` — a dead anchor that never reaches the homepage sections — instead of the expected `http://localhost:5173/#models`.
+2. Cause of the *recurrence*: `.rerun` commit `0a134f6` overwrote `src/components/Header.tsx` (12 lines) and `src/components/Hero.tsx` (4 lines) with a pre-fix snapshot, reverting `d51235a` (2026-09-30) byte-for-byte — the same stale-snapshot/last-writer-wins mechanism logged in the 2026-09-30 entry, not a code ghost.
+3. Fix re-applied to all 8 anchors: `/#compare`, `/#methodology`, `/#models`. All three targets exist on the homepage and carry `scroll-mt-20` for the sticky header (`CompareSection.tsx` `id="compare"`, `Methodology.tsx` `id="methodology"`, `ModelCards.tsx` `id="models"`); `grep 'href="#' src/` is now empty. Undo-resistant only if committed promptly with a narrow `git add src/components/Header.tsx src/components/Hero.tsx`.
+   Next: `pnpm build.types && pnpm build`, then verify from `/model/<slug>/` that a header link lands on `/#...`.
+
 ## 2026-10-01 — tasks/ delegators consolidated + zero-edit delegation (GLM53F_IMP item 8)
 
 1. **Consolidated 40 per-stem delegators** (`tasks/<STEM>.md` copies) into the single canonical `tasks/research-assign.md`; `tasks/` now holds exactly `research-assign.md`, `research.md`, `sync-data.md`. Every unique variant block was folded in as a conditional section: Gemini-run crash-guard note, Qwen 3.8 27B-class runtime quotas, and the 15/100 quarantine backlog (still live — 12 `GPT_5.6_Terra.md.excluded` twins pending reactivation). The redundant score-syntax copy was dropped (canonical text lives in `tasks/research.md` Step 3). Fixed along the way: `tasks/GPT_5.6_Sol.md` had been carrying `GPT_5.6_Terra`'s quarantine protocol (copy-paste bug the consolidation eliminates).

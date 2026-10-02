@@ -54,19 +54,19 @@ export const Header = component$(() => {
             {/* Desktop Nav */}
             <nav aria-label="Primary" class="hidden md:flex items-center gap-5 text-sm font-medium">
               <a
-                href="#compare"
+                href="/#compare"
                 class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               >
                 Compare
               </a>
               <a
-                href="#methodology"
+                href="/#methodology"
                 class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               >
                 Scoring
               </a>
               <a
-                href="#models"
+                href="/#models"
                 class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               >
                 Models
@@ -124,7 +124,7 @@ export const Header = component$(() => {
           {/* Centered Navigation Links */}
           <nav class="flex flex-col items-center justify-center gap-8 text-center text-2xl font-bold">
             <a
-              href="#compare"
+              href="/#compare"
               class="text-slate-800 transition-colors hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -133,7 +133,7 @@ export const Header = component$(() => {
               Compare
             </a>
             <a
-              href="#methodology"
+              href="/#methodology"
               class="text-slate-800 transition-colors hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -142,7 +142,7 @@ export const Header = component$(() => {
               Scoring
             </a>
             <a
-              href="#models"
+              href="/#models"
               class="text-slate-800 transition-colors hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
               onClick$={() => {
                 isMenuOpen.value = false;

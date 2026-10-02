@@ -1,0 +1,41 @@
+# Grok 5 — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, unreleased)
+
+- Source: xAI / Grok 5 (no public API ID; the repo folder id is `opencode/grok-5`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Grok 5 is **not publicly released** and publishes **zero verified benchmark numbers**, so no 1–100 scores are filed here — placeholder scores would drag the mean for every reader. The notes below record what is verifiable and what is still unconfirmed; nothing in this file is scored.
+
+## Model card (verified facts only)
+
+- **Name:** Grok 5
+- **Short description:** xAI's still-unreleased next flagship — reportedly training in two MoE variants (6T and 10T parameters) on the Colossus 2 gigawatt supercluster and positioned as the successor to the Grok 4.x line. No public weights, API ID, price or evaluation exists.
+- **Provider / access:** Not released. No public API, no OpenCode Zen ID, no weights. Prior Q1-2026 and Q2-2026 launch windows both closed without a launch; third-party trackers point to Q3 2026 or later.
+- **Release / knowledge:** Unreleased (as of 2026-10-01). xAI publicly confirmed the training run on 2026-01-06 alongside its Series E raise; no official release date has ever been announced. Knowledge cutoff not applicable.
+- **IDs:** None verified. Community usage of `grok-5` is speculative.
+- **Context window:** Not confirmed. Community expectation is only that it "exceeds Grok 4's 2M tokens" — unverified.
+- **Modalities:** Not confirmed (expected text; broader multimodality unconfirmed).
+- **Pricing (as of 2026-10-01):** Not announced. Only consumer-subscription speculation (SuperGrok $30/mo, SuperGrok Heavy $300/mo) exists — not a token price.
+- **Architecture:** Reportedly Mixture-of-Experts, training in ~6T and ~10T parameter variants on Colossus 2 (gigawatt-scale, Memphis). All figures are vendor-adjacent reporting, not a published spec sheet.
+
+### Raw benchmarks found
+
+- Agent / tool use: **no verified public score found** (model unreleased).
+- Reasoning / knowledge: **no verified public score found** — third-party previews only list the benchmarks Grok 5 "must close" (GPQA Diamond, HLE, SWE-bench Verified) as watch items, not results.
+- Coding: **no verified public score found**.
+- Long context: **no verified public score found**.
+
+### Why the file is excluded (evidence trail)
+
+- Multiple independent 2026 sources (Tesorb's "make-or-break quarter" analysis; kie.ai's "6T–10T parameter model" tracker; Overchat's release-date hub, updated 2026-09-13) agree that Grok 5 has **not been released** and that **no benchmark results, confirmed context window, or pricing exist**. Only parameter-count and training-cluster claims circulate, and those are labelled rumored/unconfirmed.
+- With zero measured numbers on any axis, every dimension row would read "no verified public score found", which is exactly the self-exclusion condition in `model-report-TEMPLATE.md` / `.agents/rules.md`. No number was invented.
+- Re-research trigger: if xAI (or an independent harness — Artificial Analysis, BenchmarkList, BenchLM, OpenRouter) publishes dated Grok 5 scores against a stable model ID, this file should be replaced by a fully scored `DeepSeek_4.1_Flash.md` and only this `.excluded` twin removed (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-01
+- Method: public internet research (Tesorb, kie.ai and Overchat Grok 5 trackers; xAI Series E reporting). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `Grok_5.md` (scored), using the same headings once benchmarks exist.

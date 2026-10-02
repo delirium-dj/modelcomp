@@ -83,7 +83,7 @@ export interface SourceDef {
 export const SOURCE_DEFS: SourceDef[] = [
   { key: "average", label: "Average", file: "average.md" },
   { key: "big-pickle", label: "Big Pickle", file: "Big_Pickle.md", slug: "big-pickle" },
-  { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md", slug: "muse-spark-1.3-free" },
+  { key: "Muse Spark 1.3", label: "Muse Spark 1.3", file: "Muse_Spark_1.3.md", slug: "muse-spark-1.3" },
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md", slug: "gemini-3.5-flash-lite" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md", slug: "gemini-3.6-flash" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md", slug: "glm-5.3-flash" },

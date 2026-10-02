@@ -27,10 +27,11 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ---
 
-## a) Model name: Muse Spark 1.3 Contributor
+## a) Model name: Muse Spark 1.3
 
 ### b) Findings
 
+- **One model, three access tiers — never separate folders.** Meta publishes a single `muse-spark-1.3`: the Contributor/Free tier (`opencode/muse-spark-1.3-contributor-free`, $0 because Meta may train on your prompts; paid Contributor $0.10/$0.20) and the Standard tier ($1.25/$4.25, not used for training), which is also where `reasoning_effort: "max"` is available (Meta documents max as Standard-tier only). Same weights, same 1M context / 131,072 max output — only price and data policy differ. Tracked in one folder, `model/muse-spark-1.3/` (merged 2026-10-02 from `muse-spark-1.3-free/` + `muse-spark-1.3-max/`).
 - Meta hosted multimodal reasoner (2026-09-02), same weights as standard 1.3. Free Contributor tier (`opencode/muse-spark-1.3-contributor-free`, Responses API) trades training-data consent for $0.
 - Specs: 1,048,576 ctx, text/image/video/PDF in / text out, reasoning yes. Paid: Contributor $0.10/$0.20, Standard $1.25/$4.25. ~20% fewer tool calls, ~25% fewer tokens vs 1.2; $0.55/task Pareto-frontier.
 - Agent: TB 2.1 88.8% (tie SOTA), Tau3 50.5% / 47% xhigh / 52% max (#1), GDPval 1754, OSWorld 66.9%. No verified Claw-Eval found.
@@ -362,6 +363,7 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 ### b) Findings
 
 - EXCLUDED — zero verified public benchmarks found for the exact model ID "muse-spark-1.3-max". OpenRouter returns "Author Not Found"; MuseSpark website (musespark.ai) is entirely focused on image/video/3D/audio generation tools with no language model of this name; Hugging Face MuseSpark organization has 0 public models; AA and BenchLM both return 404. The repo `meta.json` describes it as "Muse Spark 1.3 Max model evaluation entry" — a generic placeholder. Peer rater Muse Spark 1.3 also excluded (`Muse_Spark_1.3.md.excluded`).
+- Resolution (maintainer, 2026-10-02): confirmed — no such model ID exists. "Max" is `reasoning_effort: "max"` on the standard `muse-spark-1.3` (paid Standard tier, same weights as Contributor/Free). The `model/muse-spark-1.3-max/` folder was merged into `model/muse-spark-1.3/`, its reports (Vals AI max-effort lanes) preserved there; this entry stands as the rater's record that the ID itself never existed.
 
 ### c) Signature
 
@@ -387,3 +389,4 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 - 2026-09-18: v4 methodology — Cost efficiency excluded from Overall Score (now the mean of the five quality dimensions) across all findings files and averages. Per-model entries above remain frozen history under the v1–v3 six-dimension definition.
 - 2026-10-02: Added Laguna S 2.1 findings for 9 models (Pixel Canary 59, GPT-OSS 120B 38, MiMo V2.6 Distill Qwen 9B 45, Llama 3.2 Vision Instruct 48, Laguna XS 2.1 49) and 4 excluded entries (Google Gemini 2.5 Flash Lite, Omen Alpha, GPT 5.3 Codex Spark, Jev 1.13).
 - 2026-10-02: Added Laguna S 2.1 findings for 4 newly-discovered models (Ember 1 66, Mercury 2.5 45) and 2 excluded entries (Muse Spark 1.3 Max, Grok 5).
+- 2026-10-02: Merged `model/muse-spark-1.3-free/` + `model/muse-spark-1.3-max/` into a single `model/muse-spark-1.3/` — Muse Spark 1.3 is one model (Contributor/Free/Standard/Max = same weights; only price and how Meta uses your data differ). The newer report won on all 9 duplicate stems (all came from the `-max` folder); the 9 superseded reports, plus both `average.md`/`meta.json` pairs, were retired from those folders. Display name is now `Muse Spark 1.3` (no tier suffix) and `meta.json` carries the verified 1,048,576 (1M) total / 131,072 max output (the `-max` placeholder said 128K).
