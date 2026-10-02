@@ -3,6 +3,7 @@ import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@bui
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, slugForSource, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { HexRadar } from "../../../components/HexRadar";
+import { VendorIcon } from "../../../components/VendorIcon";
 import { withFreeZenLink } from "../../../components/freeZenLink";
 
 /** Pre-render one static page per model for the static adapter. */
@@ -108,7 +109,8 @@ export default component$(() => {
           </a>
         </p>
         <div class="mt-3 flex flex-wrap items-center gap-3">
-          <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 transition-colors dark:text-white md:text-4xl">
+          <h1 class="flex items-center gap-2.5 text-3xl font-extrabold tracking-tight text-slate-900 transition-colors dark:text-white md:text-4xl">
+            <VendorIcon id={model.id} name={model.name} size="lg" />
             {model.name}
           </h1>
           {!model.meta.noFreeId ? (

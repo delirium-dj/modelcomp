@@ -2,6 +2,7 @@ import { component$, useSignal } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
 import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor } from "../data/models";
 import type { AiModel, ResultsView, SourceKey } from "../data/models";
+import { VendorIcon } from "./VendorIcon";
 
 interface ModelCardsProps {
   source: ResultsView;
@@ -9,90 +10,6 @@ interface ModelCardsProps {
 }
 
 type ModelsView = "cards" | "list";
-
-// Vendor → homepage domain for company logos (Google favicons, no key needed).
-// Matched as token prefixes over `${id} ${name}` lowercase so e.g. "Inkling"
-// never matches "ling". Unknown/stealth models get a letter avatar instead.
-const VENDOR_DOMAINS: [match: string, domain: string][] = [
-  ["claude", "anthropic.com"],
-  ["gpt", "openai.com"],
-  ["codex", "openai.com"],
-  ["openai", "openai.com"],
-  ["gemini", "google.com"],
-  ["gemma", "google.com"],
-  ["google", "google.com"],
-  ["grok", "x.ai"],
-  ["glm", "z.ai"],
-  ["zhipu", "z.ai"],
-  ["chatglm", "z.ai"],
-  ["deepseek", "deepseek.com"],
-  ["mimo", "mi.com"],
-  ["qwen", "qwen.ai"],
-  ["kimi", "moonshot.ai"],
-  ["moonshot", "moonshot.ai"],
-  ["minimax", "minimax.io"],
-  ["llama", "meta.com"],
-  ["muse", "meta.com"],
-  ["meta", "meta.com"],
-  ["nemotron", "nvidia.com"],
-  ["mistral", "mistral.ai"],
-  ["solar", "upstage.ai"],
-  ["upstage", "upstage.ai"],
-  ["seed", "bytedance.com"],
-  ["bytedance", "bytedance.com"],
-  ["doubao", "bytedance.com"],
-  ["hunyuan", "tencent.com"],
-  ["hy3", "tencent.com"],
-  ["hy4", "tencent.com"],
-  ["tencent", "tencent.com"],
-  ["longcat", "meituan.com"],
-  ["meituan", "meituan.com"],
-  ["ling", "antgroup.com"],
-  ["bailing", "antgroup.com"],
-  ["laguna", "poolside.ai"],
-  ["poolside", "poolside.ai"],
-];
-
-// Vendors whose favicon ships light-on-dark (dark baked background): invert on
-// both themes so multiply (light) / screen (dark) can still dissolve the bg.
-const ALWAYS_INVERT = new Set(["moonshot.ai"]);
-
-function vendorDomainFor(m: AiModel): string | undefined {
-  const tokens = `${m.id} ${m.name}`.toLowerCase().split(/[^a-z0-9]+/);
-  return VENDOR_DOMAINS.find(([match]) => tokens.some((t) => t.startsWith(match)))?.[1];
-}
-
-function vendorLogo(m: AiModel) {
-  const domain = vendorDomainFor(m);
-  if (domain) {
-    const invertCls = ALWAYS_INVERT.has(domain) ? "invert" : "dark:invert";
-    return (
-      <img
-        aria-hidden="true"
-        src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
-        alt=""
-        width={20}
-        height={20}
-        loading="lazy"
-        referrerPolicy="no-referrer"
-        title={domain}
-        class={`h-5 w-5 shrink-0 rounded-full object-contain contrast-125 grayscale-[50%] mix-blend-multiply dark:mix-blend-screen ${invertCls}`}
-        onError$={(e) => {
-          const img = e.target as HTMLImageElement | null;
-          if (img) img.style.display = "none";
-        }}
-      />
-    );
-  }
-  return (
-    <span
-      aria-hidden="true"
-      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-200 text-[11px] font-bold uppercase text-slate-600 dark:bg-slate-700 dark:text-slate-300"
-    >
-      {m.name.charAt(0)}
-    </span>
-  );
-}
 
 export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) => {
   const displayCount = useSignal(9);
@@ -161,7 +78,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900">
             <div class="flex items-start justify-between gap-2">
               <h3 class="flex items-center gap-1.5 text-base font-semibold text-slate-900 dark:text-white">
-                {vendorLogo(m)}
+                <VendorIcon id={m.id} name={m.name} />
                 <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
                   {m.name}
                 </a>
@@ -290,9 +207,12 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
               {visibleModels.map((m) => (
                 <tr key={m.id} class="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
                   <th scope="row" class="break-words px-3 py-2 text-left font-medium text-slate-700 dark:text-slate-300">
-                    <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
-                      {m.name}
-                    </a>
+                    <span class="inline-flex items-center gap-1.5 align-middle">
+                      <VendorIcon id={m.id} name={m.name} />
+                      <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+                        {m.name}
+                      </a>
+                    </span>
                     {!m.meta.noFreeId ? (
                       <span
                         class="ml-1.5 inline-block cursor-help whitespace-nowrap rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
@@ -369,7 +289,8 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
               class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900"
             >
               <div class="flex flex-wrap items-center gap-2">
-                <h3 class="flex-1 text-sm font-semibold text-slate-800 dark:text-slate-200">
+                <h3 class="flex flex-1 items-center gap-1.5 text-sm font-semibold text-slate-800 dark:text-slate-200">
+                  <VendorIcon id={m.id} name={m.name} />
                   <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
                     {m.name}
                   </a>

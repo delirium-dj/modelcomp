@@ -1,0 +1,72 @@
+# Mai Experimental Test — findings by Mimo v2.6 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: unclaimed/anonymous (hosted as `opencode/mai-experimental-test`, OpenCode Zen)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** fresh research on 2026-10-02 found **zero verified public
+> benchmark numbers** for `mai-experimental-test` — no publisher is attached to
+> the model (catalogued under an "unknown" namespace on OpenCode), no model card,
+> no spec sheet, no leaderboard entry anywhere. Every score row below would be a
+> guess, so this file is saved as `.excluded` and `pnpm sync` skips it.
+> No scores below are used in averages.
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** anonymous free experimental slot on OpenCode Zen that has quietly accumulated major usage (#17 all-time-window rank); no company has claimed it and no evidence ties it to any tracked model. Origin unknown — not established as a variant of any other entry.
+- **Provider / access:** OpenCode Zen (`opencode/mai-experimental-test`); usage telemetry at `opencode.ai/data/unknown/mai-experimental-test` (publisher namespace "unknown").
+- **Release / knowledge:** OpenCode usage data runs 2026-08-08 → 2026-10-02; no release date published (page lists Release: Unknown); knowledge cutoff unknown.
+- **IDs:** `opencode/mai-experimental-test` (OpenCode Zen); no public per-token API ID published on OpenRouter/models.dev tracked sources.
+- **Context window:** Unknown — OpenCode's data page reports Context: Unknown; no provider spec sheet found. (The folder's scaffolded `meta.json` 128K figure is a stub, not verified evidence.)
+- **Modalities:** Unknown — OpenCode lists Inputs: Unknown; no modality documentation found.
+- **Pricing (as of 2026-10-02):** no published per-token price; served free — OpenCode data shows $0.00 total observed spend over 286B tokens. Free-tier caveat: an unclaimed model has no accountable data-handling policy.
+- **Architecture:** not disclosed. No parameters, MoE layout, or license published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP-Atlas / SWE Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported (window itself unpublished)
+
+### Non-benchmark evidence (why the model is tracked at all)
+
+- OpenCode usage rank **#17** last week; **286B tokens** over 2 months (+100% growth), **56K unique users**, **586,394** completed sessions, 71% cache ratio, 487K avg tokens/session (opencode.ai/data/unknown/mai-experimental-test, 2026-10-02).
+- Sharp demand spike at the end of the window: daily tokens 3.4–4.8B (Sep 22–29) → 18B (Sep 30) → 77B (Oct 1) → 159B (Oct 2); unique users 6.3K → 16K (same page).
+- Usage peers listed beside deepseek-v4-pro, mimo-v2.6-pro, nemotron-3.5-lightning, qwen3.8-flash (same page) — placement by token volume only, not evidence of shared origin.
+
+### Normalized scores (1–100)
+
+- No scores computed — self-excluded for lack of verified public benchmarks. A fresh research pass that surfaces measured numbers may replace this file with a scored sibling report (own-twin retirement per `tasks/research.md` Step 3.3).
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-02
+- Method: public internet research; no scores issued because no verified public benchmark exists for this model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
