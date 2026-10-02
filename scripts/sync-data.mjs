@@ -22,8 +22,9 @@
 //      src/data/scores.generated.ts (numbers only) at sync time, which
 //      src/data/models.ts imports instead of the raw markdown (keeps ~1.7 MB
 //      of report prose out of the client bundle).
-//   5. Validates every model/<slug>/meta.json exists, parses, and has all
-//      required fields (a new model folder without meta.json fails loudly).
+//   5. Validates every model/<slug>/meta.json parses and has all required
+//      fields; a missing file is auto-scaffolded with `scaffolded: true` and
+//      re-logged as SCAF every run until a human curates it (GLM53F_IMP #9).
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
@@ -71,7 +72,9 @@ import {
   labelOf,
   resolveSourceMeta as resolveSourceMetaPure,
   hyphenVersionViolation,
-  formatSlugGuess,
+  buildScaffoldMeta,
+  isScaffoldStub,
+  metaNameIsSlugGuess,
 } from "./lib/naming.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -205,6 +208,8 @@ for (const slug of slugs) {
 }
 
 const updatedAverages = [];
+// meta.json stubs still carrying sync's `scaffolded: true` stamp (GLM53F_IMP #9).
+const scaffoldStubs = [];
 const presentStems = new Set(); // findings filenames (without .md) seen anywhere
 // Compact score index for client codegen: slug -> file -> short-keyed scores.
 // Accumulated here, emitted as src/data/scores.generated.ts (only when this
@@ -304,6 +309,7 @@ for (const slug of slugs) {
 
   let meta = null;
   const metaPath = join(dir, "meta.json");
+  let scaffoldedNow = false;
   try {
     meta = JSON.parse(readFileSync(metaPath, "utf8"));
   } catch {
@@ -312,18 +318,30 @@ for (const slug of slugs) {
     // the official vendor display name. A human must replace it (plus the
     // placeholder facts) before the entry is trustworthy; the "_" check
     // below fails loudly on the worst derivation artifacts.
-    const formattedName = formatSlugGuess(slug);
-    meta = {
-      id: `opencode/${slug}`,
-      name: formattedName,
-      short: `${formattedName} model evaluation entry.`,
-      contextWindow: "128K total",
-      modalities: "Text in/out",
-      pricingNote: "Standard pricing",
-    };
+    // buildScaffoldMeta (naming.mjs, tested) also stamps `scaffolded: true`
+    // so the stub stays visible on every run until curated (GLM53F_IMP #9).
+    meta = buildScaffoldMeta(slug);
+    scaffoldedNow = true;
     writeFileSync(metaPath, JSON.stringify(meta, null, 2));
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
-    log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${formattedName}") — set the official vendor display name and verified facts`);
+    log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${meta.name}") — set the official vendor display name and verified facts`);
+  }
+  // Scaffolded-stub tracker (GLM53F_IMP #9): while `scaffolded: true` is
+  // present and `name` is still the slug guess, re-log the stub every run
+  // (fresh scaffolds already WARNed above) and count it in the run summary.
+  // Once `name` differs from the guess a human curated the entry — drop the
+  // stamp, logged as CURATED.
+  if (isScaffoldStub(meta)) {
+    if (metaNameIsSlugGuess(meta, slug)) {
+      scaffoldStubs.push(slug);
+      if (!scaffoldedNow) {
+        log(`  SCAF  model/${slug}/meta.json: scaffolded stub — set the official vendor name + verified facts (delete "scaffolded" when curated)`);
+      }
+    } else {
+      delete meta.scaffolded;
+      writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+      log(`  CURATED  model/${slug}/meta.json: official name set — "scaffolded" stamp removed`);
+    }
   }
   // Required fields + display-name gate live in scripts/lib/validate.mjs
   // (checkMetaFile, tested) — sync only records the FAILs.
@@ -530,5 +548,8 @@ if (failures === 0) {
   log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }
 
-console.log(`sync-data: done. averages rewritten: ${updatedAverages.length}${updatedAverages.length ? ` (${updatedAverages.join(", ")})` : ""}; new sources: ${missing.length}; failures: ${failures}`);
+if (scaffoldStubs.length > 0) {
+  log(`  SCAF  ${scaffoldStubs.length} scaffolded meta.json stub(s) pending curation: ${scaffoldStubs.join(", ")}`);
+}
+console.log(`sync-data: done. averages rewritten: ${updatedAverages.length}${updatedAverages.length ? ` (${updatedAverages.join(", ")})` : ""}; new sources: ${missing.length}; failures: ${failures}; scaffolded stubs: ${scaffoldStubs.length}`);
 process.exitCode = failures > 0 ? 1 : 0;

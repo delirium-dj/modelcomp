@@ -59,10 +59,12 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    scores are pre-parsed into `src/data/scores.generated.ts` (numbers only,
    so report prose never ships in the client bundle), and `meta.json` files
    are auto-discovered via `import.meta.glob` at build time.
-5. Validates every `meta.json` exists, parses, and has all required fields
+5. Validates every `meta.json` parses and has all required fields
    (`id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`).
-   A new model folder without `meta.json` fails loudly — add it (schema in
-   `model/README.md`), then re-run.
+   A missing file is auto-scaffolded with a slug-guessed name and stamped
+   `scaffolded: true`; every later run re-logs it as `SCAF` (plus the run
+   summary) until a human sets the official name, which clears the stamp
+   (`CURATED`). Schema in `model/README.md`.
 6. Emits `src/data/scores.generated.ts` (deterministic, sorted keys): every
    parseable findings file plus each folder's recomputed average means, as
    numbers only — but only when this run has zero failures, so invalid data

@@ -8,15 +8,16 @@
 - [sync-data.mjs](file://scripts/sync-data.mjs)
 - [models.ts](file://src/data/models.ts)
 - [catalog.generated.ts](file://src/data/catalog.generated.ts)
+- [meta.json](file://model/muse-spark-1.2/meta.json)
+- [meta.json](file://model/muse-spark-1.3/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated to reflect the complete implementation of standardized meta.json schema across all model folders
-- Added detailed examples from actual meta.json files showing real-world usage patterns
-- Enhanced validation rules documentation based on the implemented checkMetaFile function
-- Updated architecture diagrams to reflect the complete data flow from authoring to UI consumption
-- Added comprehensive troubleshooting guide based on actual validation error messages
+- Updated examples to reflect the unified model structure pattern demonstrated by Muse Spark 1.2 and 1.3
+- Enhanced optional field documentation with real-world examples showing tier-based pricing models
+- Added guidance on representing multiple pricing tiers within a single model folder
+- Updated troubleshooting section with examples from the consolidated Muse Spark structure
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -77,7 +78,7 @@ The `meta.json` schema has six required fields and three optional fields.
 | `noFreeId` | boolean | Indicates that no Zen Free ID exists for this model. | Optional. When true, cost is scored using paid pricing and the UI shows a Paid badge instead of Free. |
 
 ### Example of a Well-Formed `meta.json`
-A valid file should include all required fields and may include any combination of the optional fields. Here are real examples from the repository:
+A valid file should include all required fields and may include any combination of the optional fields. Here are real examples from the repository demonstrating different patterns:
 
 #### Basic Meta.json (Inkling)
 ```json
@@ -88,6 +89,42 @@ A valid file should include all required fields and may include any combination 
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing"
+}
+```
+
+#### Multi-Tier Pricing with Unified Model Structure (Muse Spark 1.2)
+```json
+{
+  "id": "opencode/muse-spark-1.2",
+  "name": "Muse Spark 1.2",
+  "short": "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation. Contributor, Free and Max are the same weights — only price and how Meta uses your data differ (one model, one folder).",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+  "freeTierNote": "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
+  "pricingTiers": [
+    "Free Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard $1.25/$4.25"
+  ]
+}
+```
+
+#### Multi-Tier Pricing with Advanced Features (Muse Spark 1.3)
+```json
+{
+  "id": "opencode/muse-spark-1.3",
+  "name": "Muse Spark 1.3",
+  "short": "Meta's frontier coding and long-horizon agentic model (Sep 2026) at 1M context / 131K output. Contributor (Free) and Max are the same weights: Free is the $0 training-consent tier and Max is the Standard tier's reasoning_effort \"max\" — only cost and how Meta uses your data differ.",
+  "contextWindow": "1,048,576 (1M) total; 131,072 max output",
+  "modalities": "Text, image, video, PDF in; text out",
+  "pricingNote": "Free OpenCode Zen tier; Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M",
+  "freeTierNote": "Free OpenCode Zen tier (Contributor) in exchange for training-data consent — same weights as paid Standard; Max reasoning effort is Standard-tier only",
+  "pricingTiers": [
+    "Free OpenCode Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard & Max effort $1.25/$4.25"
+  ]
 }
 ```
 
@@ -121,9 +158,13 @@ A valid file should include all required fields and may include any combination 
 }
 ```
 
+**Updated** Added comprehensive examples showing the unified model structure pattern where multiple pricing tiers exist within a single model folder, as demonstrated by Muse Spark 1.2 and 1.3.
+
 **Section sources**
 - [README.md:32-57](file://model/README.md#L32-L57)
 - [model/Inkling/meta.json:1-8](file://model/Inkling/meta.json#L1-L8)
+- [model/muse-spark-1.2/meta.json:1-15](file://model/muse-spark-1.2/meta.json#L1-L15)
+- [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
 - [model/big-pickle/meta.json:1-14](file://model/big-pickle/meta.json#L1-L14)
 - [model/claude-opus-4.6/meta.json:1-10](file://model/claude-opus-4.6/meta.json#L1-L10)
 
@@ -188,6 +229,9 @@ HasUnderscore --> |No| Pass["PASS"]
 #### `short`
 - Provides a concise summary of the model.
 - Should describe what the model is, who produces it, and its primary use case.
+- For unified models with multiple pricing tiers, explain that variants share the same weights but differ in pricing and data policies.
+
+**Updated** Enhanced guidance for describing unified models with multiple pricing tiers.
 
 **Section sources**
 - [README.md:45-56](file://model/README.md#L45-L56)
@@ -209,6 +253,9 @@ HasUnderscore --> |No| Pass["PASS"]
 #### `pricingNote`
 - Summarizes cost behavior, including free availability and paid equivalents.
 - Works together with optional fields to explain pricing tiers and free-tier access.
+- For unified models, clarify that different tiers offer the same model weights with varying costs and data policies.
+
+**Updated** Enhanced guidance for describing pricing in unified models where variants share the same weights.
 
 **Section sources**
 - [README.md:45-56](file://model/README.md#L45-L56)
@@ -219,6 +266,9 @@ HasUnderscore --> |No| Pass["PASS"]
 - An array of strings where each element represents one pricing tier.
 - Tiers are rendered stacked in the compare table.
 - Useful when a model offers multiple pricing options beyond a simple free/paid distinction.
+- For unified models like Muse Spark 1.2/1.3, list all available tiers (Free, Contributor, Standard, Max) even though they share the same underlying model weights.
+
+**Updated** Enhanced guidance for unified models where multiple pricing tiers represent different access levels to the same model weights.
 
 **Section sources**
 - [README.md:32-56](file://model/README.md#L32-L56)
@@ -227,6 +277,9 @@ HasUnderscore --> |No| Pass["PASS"]
 #### `freeTierNote`
 - Explains how the free tier is obtained.
 - Displayed as a tooltip next to the Free badge when present.
+- For unified models, specify the conditions for accessing the free tier (e.g., training-data consent agreements).
+
+**Updated** Enhanced guidance for unified models where free tier access may require specific agreements or conditions.
 
 **Section sources**
 - [README.md:32-56](file://model/README.md#L32-L56)
@@ -407,6 +460,28 @@ Here are common patterns observed in the repository:
 }
 ```
 
+#### Unified Model Structure (Muse Spark Pattern)
+For models where multiple pricing tiers represent the same underlying model weights:
+
+```json
+{
+  "id": "opencode/muse-spark-1.2",
+  "name": "Muse Spark 1.2",
+  "short": "Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation. Contributor, Free and Max are the same weights — only price and how Meta uses your data differ (one model, one folder).",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+  "freeTierNote": "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
+  "pricingTiers": [
+    "Free Zen tier",
+    "Contributor $0.10/$0.20",
+    "Standard $1.25/$4.25"
+  ]
+}
+```
+
+**Updated** Added comprehensive troubleshooting examples including the unified model structure pattern demonstrated by Muse Spark 1.2 and 1.3.
+
 **Section sources**
 - [README.md:32-63](file://model/README.md#L32-L63)
 - [validate.mjs:62-80](file://scripts/lib/validate.mjs#L62-L80)
@@ -414,3 +489,5 @@ Here are common patterns observed in the repository:
 
 ## Conclusion
 The `meta.json` schema is the authoritative source of display and pricing metadata for each model. It requires six core fields and supports optional fields for tiered pricing, free-tier explanations, and paid-only behavior. Validation is enforced during sync, while runtime hydration ensures that the UI consistently presents accurate model information. The standardized approach enables automated processing and validation across the entire model ecosystem, ensuring consistency and reliability in model comparisons and presentations. Maintaining correct `meta.json` files is essential for reliable builds, trustworthy comparisons, and clear user-facing pricing signals.
+
+**Updated** Enhanced conclusion to emphasize the unified model structure pattern where multiple pricing tiers can exist within a single model folder, as demonstrated by the Muse Spark consolidation.

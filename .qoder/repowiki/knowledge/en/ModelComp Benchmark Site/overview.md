@@ -1,1 +1,1 @@
-Root of the ModelComp site orchestrating per-domain model benchmark registries, a data-sync pipeline that emits TypeScript artifacts, and a QwikCity frontend rendering comparison tables and model cards.
+Root of the ModelComp site that wires per-domain model benchmark registries, a data-sync pipeline emitting TypeScript artifacts, and a QwikCity frontend rendering comparison tables and model cards.

@@ -21,6 +21,8 @@
 - [src/data/models.ts](file://src/data/models.ts)
 - [REPORT.md](file://REPORT.md)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
+- [model/muse-spark-1.2/meta.json](file://model/muse-spark-1.2/meta.json)
+- [model/muse-spark-1.2/Muse_Spark_1.2.md](file://model/muse-spark-1.2/Muse_Spark_1.2.md)
 - [model/muse-spark-1.3/meta.json](file://model/muse-spark-1.3/meta.json)
 - [model/muse-spark-1.3/Muse_Spark_1.3.md](file://model/muse-spark-1.3/Muse_Spark_1.3.md)
 - [model/ox_alpha/meta.json](file://model/ox_alpha/meta.json)
@@ -43,13 +45,11 @@
 
 ## Update Summary
 **Changes Made**   
-- Updated Multi-Agent Evaluation Process section to reflect extensive expansion of model comparison database with new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across ~139 model directories
-- Enhanced evaluation coverage documentation with specific examples from new model evaluations demonstrating diverse research methodologies including vision-instruct models, preview-tier assessments, and specialized multimodal capabilities
-- Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators including specialized assessment approaches for preview models and multimodal variants
-- Added references to new evaluator methodologies including comprehensive benchmark analysis, cost-efficiency evaluation, and comparative scoring approaches for newly added cutting-edge AI models
-- Expanded cross-model signed log documentation to include recent additions from multiple providers with comprehensive evaluation patterns and preview model handling
-- Incorporated extensive scoring data synchronization across the expanded model directories maintaining standardized evaluation framework consistency
-- **Updated Muse Spark 1.3 structure documentation to reflect major consolidation from separate tier directories (muse-spark-1.3-free/, muse-spark-1.3-max/) into unified model/muse-spark-1.3/ structure where Contributor Free, Contributor, and Max tiers are now part of single model with different pricing/access levels rather than separate models**
+- Updated Unified Model Organization section to reflect Muse Spark 1.2 reorganization from version 6 update, renaming `muse-spark-1.2-free/` to `muse-spark-1.2/`
+- Enhanced Muse Spark 1.3 consolidation example to version 5 noting merge of separate tier directories into unified structure
+- Added comprehensive guidance about unified model structure approach emphasizing that both Muse Spark versions cover every variant name as single model with identical weights
+- Updated tier alias resolution documentation to include Muse Spark 1.2 alongside Muse Spark 1.3 examples
+- Revised standards for contributing new model evaluations to emphasize unified model organization over separate tier directories
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -258,26 +258,30 @@ Label --> Output
 - [scripts/lib/parse.mjs:39-41](file://scripts/lib/parse.mjs#L39-L41)
 
 ### Unified Model Organization and Tier Management
-The model organization system supports unified model structures where different pricing tiers and access levels are consolidated under a single model directory rather than separate folders.
+The model organization system supports unified model structures where different pricing tiers and access levels are consolidated under a single model directory rather than separate folders. This approach emphasizes that models with multiple tiers should be treated as one model with identical weights, differing only in pricing and data policy.
 
 **Muse Spark 1.3 Consolidation Example**: The Muse Spark 1.3 model demonstrates the unified approach where Contributor Free, Contributor, Standard, and Max tiers are now part of a single `model/muse-spark-1.3/` directory. Meta ships one model with identical weights across all tiers - the only differences are pricing and data policy. The Contributor/Free tier costs $0 because Meta may train on your prompts, while `reasoning_effort: "max"` is available on the paid Standard tier only. This consolidation eliminates redundant directory structures like `muse-spark-1.3-free/`, `muse-spark-1.3-max/`, and `muse-spark-1.3-contributor/` in favor of a single authoritative model entry.
+
+**Muse Spark 1.2 Reorganization Example**: Following the same unified approach, Muse Spark 1.2 was reorganized from `muse-spark-1.2-free/` to `model/muse-spark-1.2/` (version 6 update). Every variant name including Contributor, Free, Standard, and Max are treated as tiers of the same model with identical weights. The directory rename ensures that tier suffixes cannot be misinterpreted as separate models.
 
 **Tier Alias Resolution**: The system maintains backward compatibility through tier alias resolution. When sources reference models by pricing or effort tiers, they resolve to the base slug rather than creating separate tier folders. This ensures consistency while preserving historical references and avoiding duplicate model entries.
 
 ```mermaid
 flowchart TD
-OldStructure["Old Structure:<br/>muse-spark-1.3-free/<br/>muse-spark-1.3-max/<br/>muse-spark-1.3-contributor/"] --> Consolidation["Consolidation Process"]
-NewStructure["New Structure:<br/>muse-spark-1.3/"] --> Tiers["Single Model with Multiple Tiers:<br/>Contributor Free ($0)<br/>Contributor ($0.10/$0.20)<br/>Standard ($1.25/$4.25)<br/>Max (Standard + max reasoning)"]
+OldStructure["Old Structure:<br/>muse-spark-1.3-free/<br/>muse-spark-1.3-max/<br/>muse-spark-1.3-contributor/<br/>muse-spark-1.2-free/"] --> Consolidation["Consolidation Process"]
+NewStructure["New Structure:<br/>muse-spark-1.3/<br/>muse-spark-1.2/"] --> Tiers["Single Models with Multiple Tiers:<br/>Contributor Free ($0)<br/>Contributor ($0.10/$0.20)<br/>Standard ($1.25/$4.25)<br/>Max (Standard + max reasoning)"]
 Tiers --> Pricing["Different Pricing Levels<br/>Same Weights & Capabilities"]
 ```
 
 **Diagram sources**
+- [model/muse-spark-1.2/meta.json:1-15](file://model/muse-spark-1.2/meta.json#L1-L15)
 - [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
-- [model/README.md:87-99](file://model/README.md#L87-L99)
+- [model/README.md:87-105](file://model/README.md#L87-L105)
 
 **Section sources**
+- [model/muse-spark-1.2/meta.json:1-15](file://model/muse-spark-1.2/meta.json#L1-L15)
 - [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
-- [model/README.md:87-99](file://model/README.md#L87-L99)
+- [model/README.md:87-105](file://model/README.md#L87-L105)
 
 ### Quarantine System for Evidence-Free Reports
 Quarantine protects the integrity of averages by excluding reports without sufficient evidence.
@@ -403,13 +407,13 @@ Important naming rules:
 - Findings filenames use letters, digits, underscores, and dots.
 - `meta.json` `name` must match vendor display casing and spacing.
 
-**Updated** For models with multiple pricing tiers or access levels, consolidate under a single model directory using tier alias resolution. Do not create separate directories for different tiers (e.g., avoid `model/muse-spark-1.3-free/` or `model/muse-spark-1.3-max/`). Instead, use the unified model structure with appropriate pricing metadata in `meta.json`.
+**Updated** For models with multiple pricing tiers or access levels, consolidate under a single model directory using tier alias resolution. Do not create separate directories for different tiers (e.g., avoid `model/muse-spark-1.3-free/`, `model/muse-spark-1.3-max/`, or `model/muse-spark-1.2-free/`). Instead, use the unified model structure with appropriate pricing metadata in `meta.json`. Both Muse Spark 1.2 and 1.3 now follow this pattern where every variant name (Contributor, Free, Standard, Max) represents tiers of the same model with identical weights.
 
 **Section sources**
 - [model/README.md:7-16](file://model/README.md#L7-L16)
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/README.md:59-77](file://model/README.md#L59-L77)
-- [model/README.md:87-99](file://model/README.md#L87-L99)
+- [model/README.md:87-105](file://model/README.md#L87-L105)
 
 ### Guidelines for Writing Research Findings
 Guidelines derived from the template and task instructions:
@@ -641,6 +645,7 @@ Common issues and resolutions:
 | Preview-tier model scoring | Limited evidence base | Apply provisional scoring philosophy with explicit evidence gaps |
 | Multimodal model evaluation | Complex capability assessment | Handle text/image/video processing with specialized evaluation patterns |
 | Model tier confusion | Using separate tier directories | Consolidate under unified model structure; use tier alias resolution |
+| Muse Spark directory issues | Old tier-based structure | Use `model/muse-spark-1.2/` or `model/muse-spark-1.3/` instead of `-free/` or `-max/` variants |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -665,6 +670,7 @@ For reliable contributions:
 - Accommodate multimodal capabilities with specialized evaluation patterns for complex model types.
 - Use unified model organization for models with multiple pricing tiers rather than separate tier directories.
 - Leverage tier alias resolution to maintain consistency while preserving historical references.
+- Follow Muse Spark consolidation patterns where every variant name represents tiers of the same model with identical weights.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

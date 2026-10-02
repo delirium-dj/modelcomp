@@ -13,6 +13,9 @@ import {
   formatSlugGuess,
   missingMetaFields,
   metaNameHasUnderscore,
+  buildScaffoldMeta,
+  isScaffoldStub,
+  metaNameIsSlugGuess,
 } from "./naming.mjs";
 
 // Sample overrides mirroring the real SOURCE_OVERRIDES shape in sync-data.mjs.
@@ -134,5 +137,31 @@ describe("meta validation gates", () => {
   it("rejects underscore display names (slug artifacts)", () => {
     assert.equal(metaNameHasUnderscore("Bad_Name"), true);
     assert.equal(metaNameHasUnderscore("Good Name"), false);
+  });
+});
+
+describe("scaffolded stub stamp (GLM53F_IMP #9)", () => {
+  it("buildScaffoldMeta stamps scaffolded: true with a slug-guess name", () => {
+    const meta = buildScaffoldMeta("ox_alpha");
+    assert.equal(meta.scaffolded, true);
+    assert.equal(meta.name, "Ox Alpha");
+    assert.equal(meta.id, "opencode/ox_alpha");
+    assert.equal(meta.short, "Ox Alpha model evaluation entry.");
+    assert.deepEqual(missingMetaFields(meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
+  });
+
+  it("isScaffoldStub detects only an exact true stamp", () => {
+    assert.equal(isScaffoldStub(buildScaffoldMeta("ox_alpha")), true);
+    assert.equal(isScaffoldStub({ name: "Curated" }), false);
+    assert.equal(isScaffoldStub({ name: "X", scaffolded: "true" }), false);
+    assert.equal(isScaffoldStub(null), false);
+    assert.equal(isScaffoldStub("scaffolded"), false);
+  });
+
+  it("metaNameIsSlugGuess drives auto-clear (curated name clears the stamp)", () => {
+    const stub = buildScaffoldMeta("ox_alpha");
+    assert.equal(metaNameIsSlugGuess(stub, "ox_alpha"), true);
+    assert.equal(metaNameIsSlugGuess({ ...stub, name: "Ox Alpha (GLM)" }, "ox_alpha"), false);
+    assert.equal(metaNameIsSlugGuess(undefined, "ox_alpha"), false);
   });
 });

@@ -177,6 +177,7 @@ interface MetaFile {
   pricingTiers?: string[];
   freeTierNote?: string;
   noFreeId?: boolean;
+  scaffolded?: boolean;
 }
 
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"] as const;
@@ -205,6 +206,13 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
       }
     }
     if (!valid) continue;
+    // GLM53F_IMP #9: sync's scaffold stamp — meta.json was auto-created with
+    // a slug-guess name. DEV-only, deduped console reminder; never ships.
+    if (import.meta.env.DEV && meta.scaffolded) {
+      warnOnce(
+        `[models] model/${slug}/meta.json: scaffolded stub — name is a slug guess (delete "scaffolded" once curated)`,
+      );
+    }
     const id = meta.id as string;
     if (seenIds.has(id)) {
       warnOnce(`[models] duplicate model id: ${id} — keeping first occurrence`);

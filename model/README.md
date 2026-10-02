@@ -34,7 +34,10 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
 Required: `id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`.
 Optional: `pricingTiers` (string[]), `freeTierNote` (string),
 `noFreeId` (boolean — set `true` when no Zen Free ID exists; cost is then
-scored on paid pricing and the UI shows a "Paid" badge instead of "Free").
+scored on paid pricing and the UI shows a "Paid" badge instead of "Free"),
+`scaffolded` (boolean — stamped by `pnpm sync` when it auto-creates the file;
+each later run re-logs the stub until a human replaces the slug-guessed
+`name`, which clears the stamp automatically; deleting it by hand also works).
 
 `name` is shown verbatim across the site (cards, list, compare table, detail
 pages), so it must be the official vendor display name: spaces, never `_`

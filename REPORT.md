@@ -1,5 +1,12 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-02 — scaffolded meta.json stamp (GLM53F_IMP item 9)
+
+1. **The stamp:** `scripts/lib/naming.mjs` gains `buildScaffoldMeta()` (now the exact factory sync uses when `model/<slug>/meta.json` is missing — same guessed name/placeholder facts plus `scaffolded: true`), `isScaffoldStub()`, `metaNameIsSlugGuess()`; `scripts/sync-data.mjs`'s inline scaffold object was replaced by the factory call.
+2. **The reminders:** every sync run re-logs `SCAF  model/<slug>/meta.json: scaffolded stub — …` per stamped file plus an end-of-run `SCAF  N scaffolded meta.json stub(s) pending curation: …` summary, and the always-printed done line now carries `scaffolded stubs: N`; `src/data/models.ts` adds a deduped `warnOnce` DEV-console notice gated by `import.meta.env.DEV` (never ships to production builds).
+3. **Auto-clear:** once `name` differs from the slug guess a human curated the entry — sync drops the stamp and logs `CURATED`; deleting the field by hand also works. `checkMetaFile` ignores extra fields (locked by a new `validate.test.mjs` case), `MetaFile.scaffolded?: boolean` added, `model/README.md` schema documents the field; `GLM53F_IMP.md` item 9 marked DONE. Also fixed stale "missing meta.json fails loudly" wording (`tasks/sync-data.md`, sync header). Zero `model/` files touched (permanence intact).
+   Next: `pnpm sync && pnpm build.types && pnpm build`.
+
 ## 2026-10-02 — Space Bunny Alpha unified to Space Bunny (user sign-off)
 
 1. Internet-verified as **one** anonymous stealth model under three marketplace labels: **Space Bunny** (canonical) = **Space Bunny Alpha** (OpenRouter `stealth/space-bunny-alpha`) = **Space Bunny Free** (OpenCode `space-bunny-free`, limited-time $0 tier). Evidence: HF blog ("OpenCode lists the same model as Space Bunny Free"), vogueai side-by-side table (same specs, both listed 2026-09-23), OpenCode Zen docs, models.dev, buildfastwithai.

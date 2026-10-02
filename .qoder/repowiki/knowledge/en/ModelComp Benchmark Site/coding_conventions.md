@@ -1,3 +1,3 @@
-- Per-model content lives in `model_data_<domain>/<slug>/` with one Markdown report per agent run plus a curated `meta.json` manifest describing the model.
+- Per-model content lives in model_data_<domain>/<slug>/ with one Markdown report per agent run plus a curated meta.json manifest describing the model.
 - Generated TypeScript registry and score artifacts live alongside the data and are consumed by the Qwik frontend rather than read from disk at runtime.
-- New model domains are added by creating a sibling directory under `model_data_*` following the existing report + manifest layout.
+- New model domains are added by creating a sibling directory under model_data_* following the existing report + manifest layout.

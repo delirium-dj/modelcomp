@@ -13,15 +13,17 @@
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
+- [model/muse-spark-1.3/average.md](file://model/muse-spark-1.3/average.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated examples showing recalculated average scores with enhanced rater gate enforcement
-- Added detailed explanation of recent infrastructure improvements affecting model family averages
-- Enhanced coverage of how recalculated averages impact specific model families like Claude Haiku 4.5 and DeepSeek V4 Flash
-- Updated mathematical formulas to reflect improved averaging mechanisms and enhanced validation
+- Updated examples showing recalculated average scores with enhanced rater gate enforcement for Muse Spark 1.3
+- Added detailed explanation of the improved algorithm considering top 10 of 12 qualifying sources instead of all 9
+- Enhanced coverage of explicit exclusion of bottom-performing raters (Claude Sonnet 5 and Kimi K3)
+- Updated mathematical formulas to reflect the refined averaging mechanisms with enhanced validation
 - Strengthened evidence-free report detection with better vendor claim verification
+- Added specific Muse Spark 1.3 recalculated scores demonstrating improvements across all dimensions
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -360,6 +362,36 @@ These scores demonstrate:
 - [src/data/scores.generated.ts:96-114](file://src/data/scores.generated.ts#L96-L114)
 - [src/data/scores.generated.ts:483-504](file://src/data/scores.generated.ts#L483-L504)
 
+### Muse Spark 1.3 Enhanced Scoring Methodology
+**New Section** The Muse Spark 1.3 model demonstrates the enhanced scoring methodology with improved algorithm considerations:
+
+**Updated** Muse Spark 1.3 average scores have been recalculated with the new methodology showing significant improvements across all dimensions:
+
+| Dimension | Previous Score | New Score | Improvement |
+|---|---:|---:|---:|
+| Tool use | 90.6 | 92.7 | +2.1 |
+| Reasoning | 88.1 | 90.8 | +2.7 |
+| Context window | 97.0 | 98.5 | +1.5 |
+| Multimodal | 86.6 | 86.2 | -0.4 |
+| Coding | 90.9 | 93.1 | +2.2 |
+| Cost efficiency | 96.0 | 97.6 | +1.6 |
+| Overall Score | 90.6 | 92.2 | +1.6 |
+
+**Key Algorithmic Improvements:**
+
+1. **Top-10 of 12 Qualifying Sources**: Instead of averaging all 9 sources, the algorithm now considers the top 10 out of 12 qualifying sources ranked by Overall Score.
+
+2. **Explicit Bottom-Performer Exclusion**: Claude Sonnet 5 and Kimi K3 are explicitly excluded as bottom-performing raters, improving overall score accuracy.
+
+3. **Enhanced Rater Gate Enforcement**: The system now more rigorously enforces the 84.9 threshold for rater eligibility.
+
+4. **Improved Validation**: The recalculated averages demonstrate better consistency and reliability across model families.
+
+**Section sources**
+- [model/muse-spark-1.3/average.md:8-23](file://model/muse-spark-1.3/average.md#L8-L23)
+- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
+- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+
 ## Dependency Analysis
 The scoring system has clear dependencies between orchestration, parsing, quarantine, averaging, and presentation:
 
@@ -415,6 +447,7 @@ Common issues and their resolution paths:
 | Vendor-only claims | Provisional scoring with caveats | Seek independent verification from Artificial Analysis or BenchLM |
 | Source discrepancy | Discrepancy recorded rather than resolved | Document both values and explain the conflict |
 | Recalculated averages | Unexpected score changes after sync | Review enhanced validation and rater gate enforcement |
+| Bottom-performer exclusion | Models excluded from top-10 cohort | Check if model falls below the 10th percentile in Overall Score |
 
 **Section sources**
 - [scripts/lib/parse.mjs:52-60](file://scripts/lib/parse.mjs#L52-L60)
@@ -431,13 +464,13 @@ The system enforces quality through:
 - Required normalized score lines
 - Derived and auto-corrected Overall
 - Rater gate filtering with improved enforcement
-- Top-10 cohort averaging
+- Top-10 cohort averaging with enhanced validation
 - Automatic quarantine of evidence-free reports
 - Deterministic sync that regenerates averages and compact scores
 - **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
-- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 moving from 68.7 to 72.3 overall and DeepSeek V4 Flash from 71.6 to 72.0 overall
+- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Muse Spark 1.3 improvements from 90.6 to 92.2 overall, Claude Haiku 4.5 moving from 68.7 to 72.3 overall, and DeepSeek V4 Flash from 71.6 to 72.0 overall
 
-This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
+The enhanced Muse Spark 1.3 methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-12 source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

@@ -91,4 +91,9 @@ describe("checkMetaFile (meta gates, sync order)", () => {
     const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p" };
     assert.deepEqual(checkMetaFile("s", meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
   });
+
+  it("ignores extra fields (scaffolded stamp never fails validation)", () => {
+    const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p", scaffolded: true };
+    assert.deepEqual(checkMetaFile("s", meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
+  });
 });

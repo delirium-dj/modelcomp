@@ -118,7 +118,7 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
   self-identification against `sources.generated.ts` -> ask). The STEM line is
   now an optional pin; pasting the file with no edit is a valid delegation.
 
-### 9. Mark auto-scaffolded `meta.json` until curated
+### 9. Mark auto-scaffolded `meta.json` until curated (DONE 2026-10-02)
 
 - **Current:** sync auto-scaffolds missing meta.json with a slug-guessed
   `name` (`scripts/sync-data.mjs:325`) — e.g. "Gpt Realtime 2.1" — which
@@ -127,6 +127,14 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 - **Proposal:** stamp a `scaffolded: true` bit in the catalog entry (and/or
   meta.json) so the build log keeps reminding until replaced; optionally let
   `models.ts` warn in DEV when rendering a scaffolded entry.
+- **Follow-up (2026-10-02):** done in `meta.json` itself — the catalog-entry
+  channel is a dead orphan (`catalog.generated.ts`, no importers).
+  `scripts/lib/naming.mjs` `buildScaffoldMeta()` stamps `scaffolded: true`;
+  sync re-logs `SCAF` per file + a run summary (and the done line) while the
+  stamp survives, and clears it (`CURATED`) once `name` differs from the slug
+  guess; `models.ts` gains a deduped DEV `warnOnce`; schema documented in
+  `model/README.md`. Tested: `naming.test.mjs` (factory/detect/clear) +
+  `validate.test.mjs` (extra fields never fail).
 
 ### 10. Voice UI wiring (roadmap note, not architecture debt)
 

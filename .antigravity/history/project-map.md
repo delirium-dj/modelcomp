@@ -7,7 +7,9 @@ High-level GPS map of components, routes, data flow, scripts, and relationships 
 ```text
 model/<slug>/<Source_Name>.md      Per-agent research findings (model card, raw benchmarks, 1–100 scores)
 model/<slug>/average.md            Arithmetic means (recomputed by scripts/sync-data.mjs)
-model/<slug>/meta.json             Curated display metadata (name, pricing, context window)
+model/<slug>/meta.json             Curated display metadata (name, pricing, context window;
+                                   auto-created stubs carry scaffolded:true — SCAF-logged every
+                                   pnpm sync until a human sets the name, then auto-cleared)
 models_voice/<slug>/               Same conventions for voice/speech models (RULES.md routing rule;
                                    NOT scanned by pnpm sync — model/ only)
 models_finance/<slug>/             Finance models (user-directed relocations; same story — not scanned)

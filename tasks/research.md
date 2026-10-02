@@ -90,9 +90,8 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
       model — resolve it to the existing base folder via the "Tier aliases"
       list in `model/README.md` (e.g. Muse Spark 1.3 Contributor / Free / Max
       → `model/muse-spark-1.3/`, Muse Spark 1.2 Free / Max →
-      `model/muse-spark-1.2/`, Space Bunny Alpha / Space Bunny Free →
-      `model/space-bunny/`, never a `-free`/`-max`/`-contributor`/
-      `-alpha` variant folder) and write your findings into that base folder.
+      `model/muse-spark-1.2/`, never a `-free`/`-max`/`-contributor`
+      variant folder) and write your findings into that base folder.
   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), do NOT
       place it under `model/`. Production scope: park it (note it in your final

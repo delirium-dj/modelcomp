@@ -61,6 +61,35 @@ export function formatSlugGuess(slug) {
     .join(" ");
 }
 
+/**
+ * Auto-scaffold stamp (GLM53F_IMP #9): sync writes `scaffolded: true` into a
+ * meta.json it creates itself; the stamp marks the file as an uncurated
+ * slug-guess stub until a human sets the official vendor name.
+ */
+export function isScaffoldStub(meta) {
+  return meta !== null && typeof meta === "object" && meta.scaffolded === true;
+}
+
+/** True while meta.name is still the auto-generated slug guess (uncurated). */
+export function metaNameIsSlugGuess(meta, slug) {
+  return !!meta && typeof meta === "object" && meta.name === formatSlugGuess(slug);
+}
+
+/** meta.json factory for a missing file: slug-guessed name + placeholder
+ * facts + `scaffolded: true` (cleared by sync once a human sets the name). */
+export function buildScaffoldMeta(slug) {
+  const name = formatSlugGuess(slug);
+  return {
+    id: `opencode/${slug}`,
+    name,
+    short: `${name} model evaluation entry.`,
+    contextWindow: "128K total",
+    modalities: "Text in/out",
+    pricingNote: "Standard pricing",
+    scaffolded: true,
+  };
+}
+
 /** Missing required meta.json fields (empty = valid). */
 export function missingMetaFields(meta, required) {
   return required.filter((k) => typeof meta[k] !== "string" || meta[k].length === 0);
