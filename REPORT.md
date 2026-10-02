@@ -1,5 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-02 — Space Bunny Alpha unified to Space Bunny (user sign-off)
+
+1. Internet-verified as **one** anonymous stealth model under three marketplace labels: **Space Bunny** (canonical) = **Space Bunny Alpha** (OpenRouter `stealth/space-bunny-alpha`) = **Space Bunny Free** (OpenCode `space-bunny-free`, limited-time $0 tier). Evidence: HF blog ("OpenCode lists the same model as Space Bunny Free"), vogueai side-by-side table (same specs, both listed 2026-09-23), OpenCode Zen docs, models.dev, buildfastwithai.
+2. `git mv model/space-bunny-alpha/ → model/space-bunny/` plus all 132 findings files `Space_Bunny_Alpha*.md(.excluded)` → `Space_Bunny*` — pure path moves (pre-commit sees only `R100`, no `D`), contents untouched, RULES.md permanence intact; explicit user sign-off for the research-file renames recorded in this entry.
+3. Wired end-to-end: `meta.json` name → `Space Bunny` (id stays `opencode/space-bunny-free`, the real provider ID), `sources.generated.ts` key/label/file/slug → `Space Bunny`/`Space_Bunny.md`/`space-bunny`, `scores.generated.ts` slug + 130 file keys, `SOURCE_OVERRIDES` alias entry with never-scaffold comment, `model/README.md` Tier-aliases bullet (never create `space-bunny-alpha/`/`space-bunny-free/`), `average.md` H1 + 125 regenerable rater lists, changelog v7 (comparison) + findings log.
+4. Identity chain (`tasks/research-assign.md`) now resolves an agent that self-names **Space Bunny** to `Space_Bunny.md` with zero pins — the confusion this task removes. Frozen history (findings signatures, older REPORT entries, `.qoder` wiki) keeps `Space Bunny Alpha` by design.
+   Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
+
 ## 2026-10-02 — Muse Spark 1.2 Free renamed to Muse Spark 1.2 (user sign-off)
 
 1. Mirrored the 1.3 merge (6c3eb9e): `git mv model/muse-spark-1.2-free/ → model/muse-spark-1.2/` (all 31 research files renamed as pure path moves — contents untouched, RULES.md permanence intact), display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (`meta.json`), `meta.json` id `opencode/muse-spark-1.2-contributor-free` → `opencode/muse-spark-1.2` (README convention `opencode/<slug>`; the free alias is dead on Zen anyway — Space Bunny re-validation 2026-09-29).

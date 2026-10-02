@@ -31,7 +31,7 @@ export type SourceKey =
   | "GPT 6 Sol"
   | "Gemini 1.5 Pro"
   | "Grok 4"
-  | "Space Bunny Alpha"
+  | "Space Bunny"
   | "Qwen 3.8 27B"
   | "GLM 5.3"
   | "Kimi K3"
@@ -109,7 +109,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 6 Sol", label: "GPT 6 Sol", file: "GPT_6_Sol.md", slug: "gpt-6-sol" },
   { key: "Gemini 1.5 Pro", label: "Gemini 1.5 Pro", file: "Gemini_1.5_Pro.md", slug: "gemini-1.5-pro" },
   { key: "Grok 4", label: "Grok 4", file: "Grok_4.md", slug: "grok-4" },
-  { key: "Space Bunny Alpha", label: "Space Bunny Alpha", file: "Space_Bunny_Alpha.md", slug: "space-bunny-alpha" },
+  { key: "Space Bunny", label: "Space Bunny", file: "Space_Bunny.md", slug: "space-bunny" },
   { key: "Qwen 3.8 27B", label: "Qwen 3.8 27B", file: "Qwen_3.8_27B.md", slug: "qwen-3.8-27b" },
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md", slug: "glm-5.3" },
   { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md", slug: "kimi-k3" },

@@ -98,6 +98,11 @@ const SOURCE_OVERRIDES = {
   // folders — tier-suffixed names must not resolve to a "-free"/"-max" folder.
   "Muse Spark 1.3": { slug: "muse-spark-1.3" },
   "Muse Spark 1.2": { slug: "muse-spark-1.2" },
+  // Space Bunny = Space Bunny Alpha (OpenRouter stealth/space-bunny-alpha) =
+  // Space Bunny Free (OpenCode space-bunny-free): one anonymous stealth model
+  // under three marketplace labels (confirmed 2026-10-02). Never scaffold
+  // space-bunny-alpha/ or space-bunny-free/.
+  "Space Bunny": { slug: "space-bunny" },
   "GPT 5.6 Sol": { slug: "gpt-5.6-sol" },
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
 };

@@ -103,3 +103,10 @@ base slug instead of scaffolding a tier folder:
   from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
   a separate model. Never create `model/muse-spark-1.2-free/` or
   `model/muse-spark-1.2-max/` again.
+- `space-bunny/` covers **every** name this anonymous stealth model ships
+  under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
+  `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,
+  limited-time $0 tier). All three verified as the same weights 2026-10-02;
+  renamed from `space-bunny-alpha/` so the marketplace suffix can never read
+  as a separate model. Never create `model/space-bunny-alpha/` or
+  `model/space-bunny-free/` again.
