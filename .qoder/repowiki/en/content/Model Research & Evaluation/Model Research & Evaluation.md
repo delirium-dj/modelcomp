@@ -21,8 +21,8 @@
 - [src/data/models.ts](file://src/data/models.ts)
 - [REPORT.md](file://REPORT.md)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
-- [model/muse-spark-1.3-max/meta.json](file://model/muse-spark-1.3-max/meta.json)
-- [model/muse-spark-1.3-max/Muse_Spark_1.3.md](file://model/muse-spark-1.3-max/Muse_Spark_1.3.md)
+- [model/muse-spark-1.3/meta.json](file://model/muse-spark-1.3/meta.json)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md](file://model/muse-spark-1.3/Muse_Spark_1.3.md)
 - [model/ox_alpha/meta.json](file://model/ox_alpha/meta.json)
 - [model/ox_alpha/Qwen_3.8_Flash.md](file://model/ox_alpha/Qwen_3.8_Flash.md)
 - [model/pixel_canary/meta.json](file://model/pixel_canary/meta.json)
@@ -49,6 +49,7 @@
 - Added references to new evaluator methodologies including comprehensive benchmark analysis, cost-efficiency evaluation, and comparative scoring approaches for newly added cutting-edge AI models
 - Expanded cross-model signed log documentation to include recent additions from multiple providers with comprehensive evaluation patterns and preview model handling
 - Incorporated extensive scoring data synchronization across the expanded model directories maintaining standardized evaluation framework consistency
+- **Updated Muse Spark 1.3 structure documentation to reflect major consolidation from separate tier directories (muse-spark-1.3-free/, muse-spark-1.3-max/) into unified model/muse-spark-1.3/ structure where Contributor Free, Contributor, and Max tiers are now part of single model with different pricing/access levels rather than separate models**
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -256,6 +257,28 @@ Label --> Output
 - [RULES.md:52-63](file://RULES.md#L52-L63)
 - [scripts/lib/parse.mjs:39-41](file://scripts/lib/parse.mjs#L39-L41)
 
+### Unified Model Organization and Tier Management
+The model organization system supports unified model structures where different pricing tiers and access levels are consolidated under a single model directory rather than separate folders.
+
+**Muse Spark 1.3 Consolidation Example**: The Muse Spark 1.3 model demonstrates the unified approach where Contributor Free, Contributor, Standard, and Max tiers are now part of a single `model/muse-spark-1.3/` directory. Meta ships one model with identical weights across all tiers - the only differences are pricing and data policy. The Contributor/Free tier costs $0 because Meta may train on your prompts, while `reasoning_effort: "max"` is available on the paid Standard tier only. This consolidation eliminates redundant directory structures like `muse-spark-1.3-free/`, `muse-spark-1.3-max/`, and `muse-spark-1.3-contributor/` in favor of a single authoritative model entry.
+
+**Tier Alias Resolution**: The system maintains backward compatibility through tier alias resolution. When sources reference models by pricing or effort tiers, they resolve to the base slug rather than creating separate tier folders. This ensures consistency while preserving historical references and avoiding duplicate model entries.
+
+```mermaid
+flowchart TD
+OldStructure["Old Structure:<br/>muse-spark-1.3-free/<br/>muse-spark-1.3-max/<br/>muse-spark-1.3-contributor/"] --> Consolidation["Consolidation Process"]
+NewStructure["New Structure:<br/>muse-spark-1.3/"] --> Tiers["Single Model with Multiple Tiers:<br/>Contributor Free ($0)<br/>Contributor ($0.10/$0.20)<br/>Standard ($1.25/$4.25)<br/>Max (Standard + max reasoning)"]
+Tiers --> Pricing["Different Pricing Levels<br/>Same Weights & Capabilities"]
+```
+
+**Diagram sources**
+- [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
+- [model/README.md:87-99](file://model/README.md#L87-L99)
+
+**Section sources**
+- [model/muse-spark-1.3/meta.json:1-15](file://model/muse-spark-1.3/meta.json#L1-L15)
+- [model/README.md:87-99](file://model/README.md#L87-L99)
+
 ### Quarantine System for Evidence-Free Reports
 Quarantine protects the integrity of averages by excluding reports without sufficient evidence.
 
@@ -380,10 +403,13 @@ Important naming rules:
 - Findings filenames use letters, digits, underscores, and dots.
 - `meta.json` `name` must match vendor display casing and spacing.
 
+**Updated** For models with multiple pricing tiers or access levels, consolidate under a single model directory using tier alias resolution. Do not create separate directories for different tiers (e.g., avoid `model/muse-spark-1.3-free/` or `model/muse-spark-1.3-max/`). Instead, use the unified model structure with appropriate pricing metadata in `meta.json`.
+
 **Section sources**
 - [model/README.md:7-16](file://model/README.md#L7-L16)
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/README.md:59-77](file://model/README.md#L59-L77)
+- [model/README.md:87-99](file://model/README.md#L87-L99)
 
 ### Guidelines for Writing Research Findings
 Guidelines derived from the template and task instructions:
@@ -614,6 +640,7 @@ Common issues and resolutions:
 | Vision-instruct model evaluation issues | Specialized assessment methodology required | Document vision capabilities and instruction-following performance |
 | Preview-tier model scoring | Limited evidence base | Apply provisional scoring philosophy with explicit evidence gaps |
 | Multimodal model evaluation | Complex capability assessment | Handle text/image/video processing with specialized evaluation patterns |
+| Model tier confusion | Using separate tier directories | Consolidate under unified model structure; use tier alias resolution |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -636,6 +663,8 @@ For reliable contributions:
 - Handle vision-instruct models with appropriate specialized assessment methodology.
 - Apply provisional scoring philosophy for preview-tier models with limited evidence bases.
 - Accommodate multimodal capabilities with specialized evaluation patterns for complex model types.
+- Use unified model organization for models with multiple pricing tiers rather than separate tier directories.
+- Leverage tier alias resolution to maintain consistency while preserving historical references.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 
