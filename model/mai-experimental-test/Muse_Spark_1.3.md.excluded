@@ -1,0 +1,71 @@
+# Mai Experimental Test — findings by Muse Spark 1.3
+
+- Source: Microsoft/OpenCode (`opencode/mai-experimental-test`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** Microsoft experimental OpenCode listing; underlying model identity and specs undisclosed.
+- **Provider / access:** OpenCode listing (`opencode/mai-experimental-test`); Microsoft experimental route.
+- **Release / knowledge:** Unknown — no verified release date or cutoff found.
+- **IDs:** `opencode/mai-experimental-test` (listing; no verified underlying API ID)
+- **Context window:** Unknown — OpenCode data page marks context/output unknown.
+- **Modalities:** Unknown — inputs marked unknown on data page.
+- **Pricing (as of 2026-10-02):** $0 observed spend snapshot on OpenCode data page; durable terms unknown.
+- **Architecture:** Unknown — no verified params, license, or weights found.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: search on 2026-10-02 found zero verified public benchmark numbers for this exact experimental listing. Saved as `.md.excluded` per SELF-EXCLUSION rule. Named Microsoft MAI suite results (MAI-Thinking-1, MAI-Code-1-Flash) are different models and NOT counted here.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; window unknown.
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — window unknown.
+- **Multimodal:** not scored — modalities unknown.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — terms unknown, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-02
+- Method: public internet research (OpenCode data page 2026-10-02, MAI suite review 2026-06-12 for family context only); no verified benchmarks for this listing — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
