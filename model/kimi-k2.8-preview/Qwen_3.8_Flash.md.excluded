@@ -1,0 +1,64 @@
+# Kimi K2.8 Preview — findings by Qwen 3.8 Flash
+
+- Source: public web research for `kimi-k2.8-preview` (`moonshot/kimi-k2-8-preview`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Status: SELF-EXCLUDED (`.md.excluded`)** — not enough *verified* benchmark data to compute an honest `Overall`. Identity and specs are confirmed; capability scores are not.
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mainstream/coding model, positioned between K2.7 Code and the flagship K3 (a "2.8" that arrives after "3"), delivered inside Kimi Code / Kimi Work and third-party clients under the unchanged `kimi-for-coding` model ID. Officially described as "close to K3" overall, but with **no benchmark table disclosed** — so this report makes no unsupported capability claim.
+- **Provider / access:** Moonshot AI — API + apps only (Kimi Code CLI, Kimi Work); **closed** (unlike the open-weight K2→K3 line). Same API model ID as K2.7 Code (`kimi-for-coding`; a `kimi-for-coding-highspeed` variant is noted).
+- **Release / knowledge:** 2026-09-11 (full rollout); knowledge cutoff not disclosed.
+- **IDs:** `moonshot/kimi-k2-8-preview` / `kimi-for-coding`.
+- **Context window:** **1M** tokens, available on every membership tier (confirmed across Moonshot/demandsphere/ai-all sources).
+- **Modalities:** Text + image + video in; text out (per ai-all.info and demandsphere; tiered reasoning effort low/high/max, max default).
+- **Pricing (as of 2026-10-02):** Subscription membership (¥0–699/month), **not** per-token; a free tier (Adagio) can call the model. No Zen Free API ID.
+- **Architecture:** proprietary/closed API tier of the K-series (KDA hybrid linear attention + Attention-Residuals mechanism, shared with K3, per ai-all.info).
+
+### Raw benchmarks found
+
+> Exhausted sources on 2026-10-02: BenchLM returns **404** (no `kimi-k2-8-preview` page, nor a `kimi-k2-8`/variant redirect); the demandsphere frontier tracker **added the model but recorded no benchmark table** and explicitly warns against trusting third-party directory figures (it flagged a directory "artifact" for a similarly-named non-existent model); the ai-all.info review states the benchmark is "not disclosed"; every numeric Kimi result surfaced resolves to **K2.5 / K2.6**, not K2.8. No independent (Artificial Analysis / Vals / system-card) number for K2.8 itself was found. Cross-variant borrowing from K2.7 Code / K3 is disallowed.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2-Tau3 / GDPval-AA / MCP-Atlas: **no verified public score for K2.8 found**
+- (A directory card's "SWE-Bench Verified ~70.9" could not be attributed to K2.8 by any primary or independent source and is treated as unconfirmed.)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience-Hallucination: **no verified public score for K2.8 found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE: **no verified public score for K2.8 found**
+
+Long context:
+
+- 1M window is specified, but no verified retrieval (MRCR/AA-LCR) result for K2.8 was found.
+
+Multimodal:
+
+- Image + video input is specified by secondary sources, but no verified MMMU-Pro/CharXiv/video score for K2.8 was found.
+
+### Normalized scores (1–100)
+
+> Not computable from verified evidence. Only the model-card specs (context, modalities, pricing) are confirmed; every capability dimension (Tool / Reasoning / Coding, and any measured Multimodal/long-context quality) has zero verified benchmark rows, so an honest five-dimension `Overall` mean cannot be produced. This file is therefore preserved as an evidence-limited self-exclusion rather than a scored report.
+
+- **Tool use: not scored.** No verified public tool-use benchmark found for K2.8.
+- **Reasoning: not scored.** No verified reasoning benchmark found for K2.8.
+- **Context window: not scored.** 1M is specified, but with no verified retrieval result it cannot anchor a scored dimension on its own.
+- **Multimodal: not scored.** Image+video input is specified; no verified capability score found.
+- **Coding: not scored.** No verified public coding benchmark found for K2.8.
+- **Cost efficiency: not scored.** Subscription (¥0–699/month, free tier available) is confirmed but is not a per-token rate comparable to the cost band.
+- **Overall Score: not computable.** Insufficient verified data — self-excluded per `RULES.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
+- Method: fresh public internet research (BenchLM 404; demandsphere tracker; ai-all.info review; Kimi blog/HF/lambda searches). Identity/specs confirmed; no capability benchmark values were inferred from peer reports or sibling variants. Self-excluded because `Overall` cannot be honestly computed from verified data.
+- Revisit trigger: if Moonshot publishes a K2.8 system card / benchmark table, or BenchLM/Artificial Analysis add a `kimi-k2-8-preview` page with verified rows, research deeper and write a fresh `Qwen_3.8_Flash.md` (only this own `.md.excluded` twin may then be retired).

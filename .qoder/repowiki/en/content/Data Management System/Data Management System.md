@@ -11,8 +11,20 @@
 - [scripts/lib/validate.mjs](file://scripts/lib/validate.mjs)
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [scripts/lib/codegen.mjs](file://scripts/lib/codegen.mjs)
+- [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
+- [src/data/sources.generated.ts](file://src/data/sources.generated.ts)
+- [src/data/catalog.generated.ts](file://src/data/catalog.generated.ts)
+- [src/data/rankings.generated.ts](file://src/data/rankings.generated.ts)
 - [model/Inkling/meta.json](file://model/Inkling/meta.json)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Updated scoring infrastructure documentation to reflect enhanced scores.generated.ts with expanded evaluator-model combinations
+- Added documentation for new generated artifacts: catalog.generated.ts and rankings.generated.ts
+- Expanded normalized score mappings documentation for comparison interface
+- Updated SourceKey union type documentation to reflect 67 reporting agents
+- Enhanced registry and code generation sections with new model coverage
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -49,6 +61,8 @@ The repository organizes model research data under `model/<slug>/`. Each model f
 At build time, the sync script produces:
 - `src/data/scores.generated.ts`: compact numeric scores per source.
 - `src/data/sources.generated.ts`: SourceKey union and SOURCE_DEFS registry.
+- `src/data/catalog.generated.ts`: pre-baked summary metadata catalog.
+- `src/data/rankings.generated.ts`: top-3 model IDs per results source key.
 - `src/data/models.ts`: hydrates MODELS and derives Results-source ordering.
 
 ```mermaid
@@ -69,6 +83,8 @@ end
 subgraph "Generated Artifacts"
 SG["src/data/scores.generated.ts"]
 SS["src/data/sources.generated.ts"]
+SC["src/data/catalog.generated.ts"]
+SR["src/data/rankings.generated.ts"]
 MD["src/data/models.ts"]
 end
 F --> S
@@ -79,8 +95,12 @@ S --> AV
 S --> CG
 S --> SG
 S --> SS
+S --> SC
+S --> SR
 SG --> MD
 SS --> MD
+SC --> MD
+SR --> MD
 A --> MD
 ```
 
@@ -149,6 +169,8 @@ class GeneratedScores {
 - Labels and slugs are resolved via overrides and catalog lookup.
 - Virtual sort views are pruned from the registry.
 
+**Updated** The SourceKey union now includes 67 reporting agents, reflecting substantial expansion in evaluator-model combinations and enhanced normalized score mappings for the comparison interface.
+
 ```mermaid
 flowchart TD
 Start(["New findings file"]) --> ParseStem["Parse stem to key"]
@@ -167,6 +189,7 @@ Collision --> Done
 **Section sources**
 - [scripts/lib/codegen.mjs:19-57](file://scripts/lib/codegen.mjs#L19-L57)
 - [scripts/lib/codegen.mjs:65-84](file://scripts/lib/codegen.mjs#L65-L84)
+- [src/data/sources.generated.ts:5-67](file://src/data/sources.generated.ts#L5-L67)
 
 ### Scoring Methodology
 Six dimensions are scored 1–100:
@@ -311,6 +334,44 @@ Accept --> End
 - [scripts/lib/parse.mjs:69-87](file://scripts/lib/parse.mjs#L69-L87)
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 
+### Enhanced Generated Artifacts
+**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface:
+
+#### Catalog Generated (`catalog.generated.ts`)
+Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports.
+
+#### Rankings Generated (`rankings.generated.ts`)
+Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations.
+
+```mermaid
+classDiagram
+class CatalogGenerated {
++Record~string, MetaFile~ GENERATED_CATALOG
+}
+class RankingsGenerated {
++Record~string, [string,string,string]~ TOP_MODELS_BY_SOURCE
+}
+class MetaFile {
++string id
++string name
++string short
++string contextWindow
++string modalities
++string pricingNote
++string[] pricingTiers
++string freeTierNote
++boolean noFreeId
+}
+```
+
+**Diagram sources**
+- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
+- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
+
+**Section sources**
+- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
+- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
+
 ## Architecture Overview
 The data synchronization pipeline transforms research markdown into typed, compact artifacts consumed by the UI.
 
@@ -337,6 +398,8 @@ Sync->>Codegen : renderScoresFile()
 Codegen-->>Sync : Generated scores text
 Sync->>FS : Write scores.generated.ts
 Sync->>FS : Write sources.generated.ts
+Sync->>FS : Write catalog.generated.ts
+Sync->>FS : Write rankings.generated.ts
 Sync->>FS : Update average.md
 App->>FS : Import generated artifacts
 App-->>User : Render compare view and per-model pages
@@ -431,7 +494,7 @@ Apply --> Output["Write average.md"]
 - [scripts/lib/average.mjs:54-100](file://scripts/lib/average.mjs#L54-L100)
 
 ### Registry and Code Generation
-The registry maintains SourceKey union members and SOURCE_DEFS entries. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores.
+**Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface.
 
 ```mermaid
 classDiagram
@@ -461,10 +524,14 @@ class Codegen {
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
 ### Relationship Between Data Sources
+**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface:
+
 - Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores.
 - `meta.json` supplies display metadata and pricing context.
 - `average.md` aggregates eligible raters’ scores into a cohort mean.
 - `scores.generated.ts` and `sources.generated.ts` provide compact, typed data to the app.
+- `catalog.generated.ts` provides pre-baked metadata catalog for efficient access.
+- `rankings.generated.ts` provides top-3 model IDs per source for instant lookup.
 - `model-findings.md` serves as the audit trail linking findings to signatures and cross-model history.
 
 ```mermaid
@@ -472,6 +539,8 @@ graph TB
 RF["Research Markdown<br/>model/<slug>/<Source_Name>.md"] --> Gen["Generated Scores<br/>scores.generated.ts"]
 MF["Meta JSON<br/>model/<slug>/meta.json"] --> Catalog["Catalog Metadata"]
 AM["Averaged Scores<br/>model/<slug>/average.md"] --> Gen
+CG["Catalog Generated<br/>catalog.generated.ts"] --> App
+RG["Rankings Generated<br/>rankings.generated.ts"] --> App
 Gen --> App["App Runtime<br/>models.ts + components"]
 AF["Audit Trail<br/>model-findings.md"] --> App
 ```
@@ -479,10 +548,14 @@ AF["Audit Trail<br/>model-findings.md"] --> App
 **Diagram sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
+- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
+- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
+- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
+- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
 
 ## Dependency Analysis
 The sync pipeline composes pure helpers for parsing, validation, averaging, and code generation. Coupling is minimized by isolating side effects in the main script and keeping helpers testable and deterministic.
@@ -510,10 +583,14 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 
 ## Performance Considerations
+**Updated** Performance optimizations now include additional generated artifacts:
+
 - Pre-parsing findings into `scores.generated.ts` removes ~1.7 MB of markdown prose from the client bundle.
 - Deterministic sorting and stable registry updates avoid unnecessary churn.
 - Rater gate and top-10 cohort reduce noise and stabilize averages.
 - Auto-quarantine prevents evidence-free reports from polluting metrics.
+- Pre-baked catalog and rankings provide O(1) lookup performance for enhanced comparison interface.
+- Expanded evaluator-model combinations are efficiently handled through optimized data structures.
 
 [No sources needed since this section provides general guidance]
 
@@ -524,6 +601,8 @@ Common issues and resolutions:
 - Hyphen-versioned folders: rename to dotted version convention.
 - Missing meta.json: scaffold and fill official vendor display name and facts.
 - Forbidden deletions: restore tracked files from git HEAD rather than deleting.
+- Registry collisions: resolve duplicate SourceKey assignments manually.
+- Generated artifact mismatches: re-run `pnpm sync` to regenerate all TypeScript artifacts.
 
 **Section sources**
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
@@ -533,6 +612,6 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Conclusion
-ModelComp’s data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The generated TypeScript artifacts keep the UI lightweight and type-safe, while the audit trail preserves provenance and transparency. Following the documented workflows ensures consistent, verifiable model comparisons.
+ModelComp’s data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The audit trail preserves provenance and transparency. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
 
 [No sources needed since this section summarizes without analyzing specific files]

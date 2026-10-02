@@ -1,0 +1,1 @@
+Root of the ModelComp site, wiring per-domain model benchmark registries and a data-sync pipeline to a QwikCity frontend that renders comparison tables, radar charts, and model cards.

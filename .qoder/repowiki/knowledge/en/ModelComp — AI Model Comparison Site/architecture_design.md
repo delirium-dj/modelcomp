@@ -1,5 +1,0 @@
-Three layers are wired together at build time:
-- Data layer (`model_data_text`, `model_data_finance`, `model_data_voice`) stores per-model Markdown reports plus a `meta.json` manifest per model slug.
-- Tooling layer (`scripts_tooling`) scans those directories via `pnpm sync`, validates/quarantines reports, recomputes averages, and emits TypeScript registry + scores modules consumed by the app.
-- Presentation layer (`frontend_app`) is a QwikCity SSR/SSG site built with Vite; it imports the generated registry to render comparison tables, hexagon radar charts, methodology pages, and per-model detail pages.
-The root `package.json` is the single entry point: `pnpm dev` starts the Qwik dev server, `pnpm build` runs Qwik/Vite builds (client + static SSR), and `pnpm sync` drives the data pipeline. `vercel.json` configures CDN cache headers for the deployed static output, while `vite.config.ts` registers the QwikCity plugin and disables HTML caching in preview mode.

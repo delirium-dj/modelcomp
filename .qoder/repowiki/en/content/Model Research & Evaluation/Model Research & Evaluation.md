@@ -17,7 +17,21 @@
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
+- [REPORT.md](file://REPORT.md)
+- [model/Inkling/Qwen_3.8_Flash.md](file://model/Inkling/Qwen_3.8_Flash.md)
+- [model/Inkling/Laguna_XS_2.1.md](file://model/Inkling/Laguna_XS_2.1.md)
+- [model/Inkling/DeepSeek_4_Flash.md](file://model/Inkling/DeepSeek_4_Flash.md)
+- [model/Inkling/Kimi_K3.md](file://model/Inkling/Kimi_K3.md)
+- [model/Inkling/GLM_5.3.md](file://model/Inkling/GLM_5.3.md)
 </cite>
+
+## Update Summary
+**Changes Made**   
+- Updated Multi-Agent Evaluation Process section to reflect the addition of five new evaluators (Qwen 3.8 Flash, Laguna XS 2.1, DeepSeek 4 Flash, Kimi K3, GLM 5.3) across 251+ model directories
+- Enhanced evaluation coverage documentation with specific examples from the Inkling model directory showing diverse evaluator perspectives
+- Updated evidence quality standards to account for the expanded multi-agent ecosystem
+- Added references to new evaluator methodologies and their contribution patterns
+- Expanded cross-model signed log documentation to include recent additions
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -126,7 +140,7 @@ Site-->>User : Hexagon, tables, cards, methodology
 ## Detailed Component Analysis
 
 ### Findings File Format
-Each agent’s report follows a strict structure:
+Each agent's report follows a strict structure:
 - Header with source, date, and links to methodology and cross-model log
 - Model card with provider, IDs, context window, modalities, pricing, architecture
 - Raw benchmarks section with sourced numbers
@@ -188,15 +202,17 @@ The methodology also documents frontier and mid-range reference bands and notes 
 
 ### Multi-Agent Evaluation Process
 Multiple reporting agents independently evaluate the same model. Each agent produces its own findings file under the same model folder. The system then:
-- Parses each agent’s seven score lines.
+- Parses each agent's seven score lines.
 - Validates label names and numeric ranges.
 - Quarantines evidence-free or invalid-quality-dimension reports.
 - Computes per-model averages using eligible raters.
 - Registers new reporting agents automatically.
 
 Eligibility rule:
-- Only raters whose own model average exceeds 84.9 count toward another model’s average.
+- Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
+
+**Updated** The evaluation dataset has been comprehensively expanded with five new evaluators (Qwen 3.8 Flash, Laguna XS 2.1, DeepSeek 4 Flash, Kimi K3, GLM 5.3) added across 251+ model directories. These evaluators demonstrate diverse assessment approaches: Qwen 3.8 Flash provides detailed benchmark analysis with explicit source citations, Laguna XS 2.1 offers comparative score analysis, DeepSeek 4 Flash focuses on open-weight model characteristics, Kimi K3 emphasizes vendor listing verification, and GLM 5.3 delivers comprehensive architectural analysis.
 
 ```mermaid
 flowchart TD
@@ -227,8 +243,8 @@ Label --> Output
 Quarantine protects the integrity of averages by excluding reports without sufficient evidence.
 
 Auto-quarantine triggers:
-- Eight or more rows reading “no verified public score found” with zero measured numbers in the Raw-benchmarks section.
-- Any quality dimension scored as 0 (floors are 10+; 0 indicates “no data” filed as 0).
+- Eight or more rows reading "no verified public score found" with zero measured numbers in the Raw-benchmarks section.
+- Any quality dimension scored as 0 (floors are 10+; 0 indicates "no data" filed as 0).
 - Flat-identical quality dimensions with zero cited numbers.
 
 Behavior:
@@ -266,7 +282,7 @@ Normalization converts raw benchmark results into comparable 1–100 scores. The
 
 - Each findings file must contain exactly seven labeled score lines.
 - Overall Score drift tolerance is 0.51.
-- If a file’s Overall differs from the half-up mean of its five quality dimensions by more than 0.51, sync rewrites only the Overall number and logs an AUTO line.
+- If a file's Overall differs from the half-up mean of its five quality dimensions by more than 0.51, sync rewrites only the Overall number and logs an AUTO line.
 - Benchmarks and prose are never rewritten by sync.
 
 ```mermaid
@@ -337,7 +353,7 @@ To add a new model:
 4. Run `pnpm sync` to create `average.md` and register data.
 5. Run typecheck and build.
 
-To add a new reporting agent’s findings:
+To add a new reporting agent's findings:
 1. Drop `<Source_Name>.md` into every model folder it evaluated.
 2. Run `pnpm sync`.
 3. Run typecheck and build.
@@ -372,6 +388,8 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Qwen 3.8 Flash emphasizes comprehensive benchmark citation with explicit source attribution, Laguna XS 2.1 focuses on comparative score analysis from top-tier raters, DeepSeek 4 Flash highlights open-weight model characteristics and limitations, Kimi K3 prioritizes vendor listing verification and pricing accuracy, and GLM 5.3 provides detailed architectural analysis with extensive benchmark coverage.
+
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
 - [tasks/research.md:98-143](file://tasks/research.md#L98-L143)
@@ -386,7 +404,7 @@ Evidence quality is enforced through:
 
 Permanence rules:
 - Existing findings files must not be deleted, overwritten, renamed, or moved.
-- Only sync’s quarantine rename is sanctioned.
+- Only sync's quarantine rename is sanctioned.
 - Reporting-agent folders are dataset infrastructure and must remain.
 - Below-gate or out-of-top-10 reports stay on disk and on the site; they only stop counting toward averages.
 
@@ -403,10 +421,59 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
+**Updated** Recent additions include comprehensive evaluations from the five new evaluators across the Inkling model directory, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
+
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
 - [model-findings.md:12-201](file://model-findings.md#L12-L201)
 - [model-findings.md:198-202](file://model-findings.md#L198-L202)
+
+### Expanded Evaluator Ecosystem
+The comprehensive expansion of the model evaluation dataset introduces five new evaluators that significantly enhance evaluation coverage and scoring infrastructure across 251+ model directories.
+
+New evaluator characteristics:
+
+**Qwen 3.8 Flash**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation and multimodal capabilities.
+
+**Laguna XS 2.1**: Offers comparative score analysis derived from top-tier raters, focusing on relative positioning within the broader model ecosystem. Emphasizes practical utility assessments and value propositions.
+
+**DeepSeek 4 Flash**: Specializes in open-weight model analysis, highlighting architectural details, licensing considerations, and self-hosting implications. Provides balanced assessments of both strengths and limitations.
+
+**Kimi K3**: Prioritizes vendor listing verification and pricing accuracy, with careful attention to official model specifications and availability. Focuses on accessibility and deployment considerations.
+
+**GLM 5.3**: Delivers comprehensive architectural analysis with extensive benchmark coverage, emphasizing technical specifications, training methodology, and performance characteristics across multiple domains.
+
+```mermaid
+graph TB
+Subgraph NewEvaluators["New Evaluator Categories"]
+Qwen["Qwen 3.8 Flash<br/>Benchmark Analysis"]
+Laguna["Laguna XS 2.1<br/>Comparative Analysis"]
+DeepSeek["DeepSeek 4 Flash<br/>Open-Weight Focus"]
+Kimi["Kimi K3<br/>Vendor Verification"]
+GLM["GLM 5.3<br/>Architectural Analysis"]
+end
+Subgraph Coverage["Evaluation Coverage"]
+Inkling["Inkling Model<br/>251+ Directories"]
+Diverse["Diverse Assessment<br/>Approaches"]
+Enhanced["Enhanced Infrastructure<br/>Scoring Accuracy"]
+end
+NewEvaluators --> Coverage
+Coverage --> Enhanced
+```
+
+**Diagram sources**
+- [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
+- [model/Inkling/Laguna_XS_2.1.md:1-35](file://model/Inkling/Laguna_XS_2.1.md#L1-L35)
+- [model/Inkling/DeepSeek_4_Flash.md:1-68](file://model/Inkling/DeepSeek_4_Flash.md#L1-L68)
+- [model/Inkling/Kimi_K3.md:1-63](file://model/Inkling/Kimi_K3.md#L1-L63)
+- [model/Inkling/GLM_5.3.md:1-85](file://model/Inkling/GLM_5.3.md#L1-L85)
+
+**Section sources**
+- [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
+- [model/Inkling/Laguna_XS_2.1.md:1-35](file://model/Inkling/Laguna_XS_2.1.md#L1-L35)
+- [model/Inkling/DeepSeek_4_Flash.md:1-68](file://model/Inkling/DeepSeek_4_Flash.md#L1-L68)
+- [model/Inkling/Kimi_K3.md:1-63](file://model/Inkling/Kimi_K3.md#L1-L63)
+- [model/Inkling/GLM_5.3.md:1-85](file://model/Inkling/GLM_5.3.md#L1-L85)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -485,7 +552,9 @@ Common issues and resolutions:
 - [RULES.md:37-44](file://RULES.md#L37-L44)
 
 ## Conclusion
-ModelComp’s evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
+ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
+
+**Updated** The comprehensive expansion with five new evaluators across 251+ model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to comparative score evaluation—provide richer insights into model capabilities and limitations.
 
 For reliable contributions:
 - Follow the template and methodology.

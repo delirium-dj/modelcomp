@@ -9,8 +9,17 @@
 - [validate.mjs](file://scripts/lib/validate.mjs)
 - [naming.mjs](file://scripts/lib/naming.mjs)
 - [average.mjs](file://scripts/lib/average.mjs)
+- [tmp-queue-stem.ps1](file://scripts/tmp-queue-stem.ps1)
+- [tmp-queue.ps1](file://scripts/tmp-queue.ps1)
 - [sync-data.md](file://tasks/sync-data.md)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Added documentation for PowerShell automation scripts that enhance the development workflow
+- Updated the architecture overview to include PowerShell-based queue management
+- Added new section covering PowerShell automation tools for systematic model evaluation tracking
+- Enhanced troubleshooting guide with PowerShell-specific guidance
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -18,11 +27,12 @@
 3. [Core Components](#core-components)
 4. [Architecture Overview](#architecture-overview)
 5. [Detailed Component Analysis](#detailed-component-analysis)
-6. [Dependency Analysis](#dependency-analysis)
-7. [Performance Considerations](#performance-considerations)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Conclusion](#conclusion)
-10. [Appendices](#appendices)
+6. [PowerShell Automation Scripts](#powershell-automation-scripts)
+7. [Dependency Analysis](#dependency-analysis)
+8. [Performance Considerations](#performance-considerations)
+9. [Troubleshooting Guide](#troubleshooting-guide)
+10. [Conclusion](#conclusion)
+11. [Appendices](#appendices)
 
 ## Introduction
 This document explains the ModelComp build and development pipeline that turns research markdown files into deterministic TypeScript data structures consumed by the static site. The central process is a Node.js synchronization script that scans model folders, parses scoring reports, validates metadata, recomputes averages, registers new sources, and emits compact generated TypeScript files. The pipeline is designed to be reproducible: it fails loudly on invalid input, auto-corrects derived values where safe, and only writes generated artifacts when no failures are present.
@@ -30,13 +40,15 @@ This document explains the ModelComp build and development pipeline that turns r
 The high-level workflow is:
 - Add or edit markdown findings under `model/<slug>/`.
 - Run the sync script to parse, validate, compute averages, register sources, and generate TypeScript.
+- Use PowerShell automation scripts to systematically identify models not yet evaluated by specific agents (like Qwen 3.8 Flash).
 - Run type checking and the Vite build to verify the final static site.
-- Deploy according to the project’s deployment configuration.
+- Deploy according to the project's deployment configuration.
 
 ## Project Structure
 At a high level, the repository contains:
 - Markdown research data under `model/`, plus mirrored research trees under `models_voice/` and `models_finance/`.
 - A Node-based sync pipeline under `scripts/`, with pure helper modules under `scripts/lib/`.
+- PowerShell automation scripts under `scripts/` for specialized queue management tasks.
 - Generated TypeScript data under `src/data/`.
 - A Qwik/Vite application under `src/` and root configuration files such as `package.json`, `tsconfig.json`, and `vite.config.ts`.
 
@@ -55,6 +67,10 @@ N["scripts/lib/naming.mjs"]
 A["scripts/lib/average.mjs"]
 C["scripts/lib/codegen.mjs"]
 end
+subgraph "PowerShell Automation"
+PS1["scripts/tmp-queue-stem.ps1"]
+PS2["scripts/tmp-queue.ps1"]
+end
 subgraph "Generated Artifacts"
 SGEN["src/data/sources.generated.ts"]
 DGEN["src/data/scores.generated.ts"]
@@ -72,6 +88,8 @@ SYNC --> A
 SYNC --> C
 SYNC --> SGEN
 SYNC --> DGEN
+PS1 --> M
+PS2 --> M
 SGEN --> APP
 DGEN --> APP
 ```
@@ -83,13 +101,15 @@ DGEN --> APP
 - [naming.mjs:1-73](file://scripts/lib/naming.mjs#L1-L73)
 - [average.mjs:1-101](file://scripts/lib/average.mjs#L1-L101)
 - [codegen.mjs:1-140](file://scripts/lib/codegen.mjs#L1-L140)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
 
 **Section sources**
 - [package.json:1-38](file://package.json#L1-L38)
 - [sync-data.md:1-114](file://tasks/sync-data.md#L1-L114)
 
 ## Core Components
-The pipeline has one orchestrator and several pure helpers:
+The pipeline has one orchestrator, several pure helpers, and PowerShell automation utilities:
 
 - Orchestrator: `scripts/sync-data.mjs`
   - Scans model directories.
@@ -109,6 +129,10 @@ The pipeline has one orchestrator and several pure helpers:
   - `scripts/lib/average.mjs`: average.md body generation, entry serialization, and merge logic.
   - `scripts/lib/codegen.mjs`: registry text surgery, union member handling, pending registration computation, and deterministic scores file rendering.
 
+- PowerShell automation utilities:
+  - `scripts/tmp-queue-stem.ps1`: Systematically identifies models not yet evaluated by Qwen 3.8 Flash, sorted by overall score.
+  - `scripts/tmp-queue.ps1`: General-purpose queue identification for missing model evaluations.
+
 **Section sources**
 - [sync-data.mjs:1-527](file://scripts/sync-data.mjs#L1-L527)
 - [parse.mjs:1-124](file://scripts/lib/parse.mjs#L1-L124)
@@ -116,9 +140,11 @@ The pipeline has one orchestrator and several pure helpers:
 - [naming.mjs:1-73](file://scripts/lib/naming.mjs#L1-L73)
 - [average.mjs:1-101](file://scripts/lib/average.mjs#L1-L101)
 - [codegen.mjs:1-140](file://scripts/lib/codegen.mjs#L1-L140)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
 
 ## Architecture Overview
-The sync pipeline follows a strict sequence: scan, quarantine, parse, validate, gate, average, register, and emit. It separates side-effectful orchestration from pure logic so behavior is testable and deterministic.
+The sync pipeline follows a strict sequence: scan, quarantine, parse, validate, gate, average, register, and emit. It separates side-effectful orchestration from pure logic so behavior is testable and deterministic. PowerShell automation scripts complement this workflow by providing targeted analysis capabilities for identifying evaluation gaps.
 
 ```mermaid
 flowchart TD
@@ -133,6 +159,10 @@ Gate --> Average["Recompute average.md and score index"]
 Average --> Register["Register new sources in sources.generated.ts"]
 Register --> Emit["Emit scores.generated.ts (only if no failures)"]
 Emit --> Exit(["Exit code 0 or non-zero"])
+PS_Automation["PowerShell Queue Management"] --> StemCheck["tmp-queue-stem.ps1:<br/>Identify missing Qwen 3.8 Flash evals"]
+PS_Automation --> GeneralQueue["tmp-queue.ps1:<br/>General missing evaluation queue"]
+StemCheck --> PriorityList["Priority list by overall score"]
+GeneralQueue --> WorkQueue["Work queue for researchers"]
 ```
 
 **Diagram sources**
@@ -141,6 +171,8 @@ Emit --> Exit(["Exit code 0 or non-zero"])
 - [validate.mjs:11-81](file://scripts/lib/validate.mjs#L11-L81)
 - [average.mjs:10-101](file://scripts/lib/average.mjs#L10-L101)
 - [codegen.mjs:9-140](file://scripts/lib/codegen.mjs#L9-L140)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
 
 ## Detailed Component Analysis
 
@@ -149,7 +181,7 @@ The orchestrator coordinates all phases and owns filesystem operations, logging,
 - Deterministic scanning and sorting of model folders.
 - Permanence enforcement using git HEAD to detect forbidden deletions.
 - Auto-quarantine of reports with insufficient evidence.
-- Parsing and validating each report’s seven scores.
+- Parsing and validating each report's seven scores.
 - Auto-correcting Overall scores when they drift beyond tolerance.
 - Applying the rater gate and selecting the top-10 cohort.
 - Rebuilding `average.md` while preserving headers.
@@ -323,8 +355,83 @@ Merge --> Result["next content + created flag"]
 **Section sources**
 - [average.mjs:1-101](file://scripts/lib/average.mjs#L1-L101)
 
+## PowerShell Automation Scripts
+
+### Purpose and Integration
+PowerShell automation scripts provide specialized functionality for identifying evaluation gaps in the model comparison pipeline. These scripts complement the main Node.js sync process by offering targeted analysis capabilities that are more efficient for Windows-based development workflows.
+
+### Qwen 3.8 Flash Evaluation Queue: scripts/tmp-queue-stem.ps1
+This script systematically identifies models that have not yet been evaluated by Qwen 3.8 Flash, prioritizing them by overall score to help researchers focus on the most impactful evaluations first.
+
+**Key Features:**
+- Scans all model directories under `model/`
+- Checks for existence of `Qwen_3.8_Flash.md` in each directory
+- Extracts overall scores from `average.md` files
+- Sorts results by score (descending) then by name (ascending)
+- Returns top 20 priority items for focused research
+
+```mermaid
+flowchart TD
+Start["Run tmp-queue-stem.ps1"] --> ScanDirs["Get-ChildItem 'model' -Directory"]
+ScanDirs --> CheckEval{"Has Qwen_3.8_Flash.md?"}
+CheckEval --> |No| ReadAvg["Read average.md for Overall Score"]
+CheckEval --> |Yes| NextDir["Next directory"]
+ReadAvg --> CreateRow["Create object: Name, Score"]
+CreateRow --> NextDir
+NextDir --> MoreDirs{"More directories?"}
+MoreDirs --> |Yes| ScanDirs
+MoreDirs --> |No| SortResults["Sort by Score desc, Name asc"]
+SortResults --> Top20["Select top 20 results"]
+Top20 --> Output["Format output: 'Score Name'"]
+```
+
+**Diagram sources**
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+
+**Section sources**
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+
+### General Queue Management: scripts/tmp-queue.ps1
+This utility provides general-purpose queue identification for models missing specific evaluations, useful for various research workflows beyond just Qwen 3.8 Flash.
+
+**Key Features:**
+- Identifies directories missing specific model evaluations
+- Extracts numerical scores from average.md files
+- Provides flexible filtering for different evaluation targets
+- Outputs formatted results suitable for processing pipelines
+
+```mermaid
+flowchart TD
+Start["Run tmp-queue.ps1"] --> FindCovered["Find directories with GLM_5.2_Coding.md"]
+FindCovered --> GetAllDirs["Get all model directories"]
+GetAllDirs --> FilterMissing["Filter out covered directories"]
+FilterMissing --> ProcessEach["Process each missing directory"]
+ProcessEach --> ReadScore["Extract score from average.md"]
+ReadScore --> FormatOutput["Format: 'score | dirname'"]
+FormatOutput --> SortDesc["Sort by score descending"]
+SortDesc --> Display["Display results"]
+```
+
+**Diagram sources**
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
+
+**Section sources**
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
+
+### Workflow Integration
+The PowerShell scripts integrate seamlessly with the existing build pipeline:
+
+1. **Pre-research Planning**: Use PowerShell scripts to identify evaluation gaps before starting research sessions
+2. **Priority-Based Research**: Focus on highest-scoring models first for maximum impact
+3. **Progress Tracking**: Monitor which models still need evaluation by specific agents
+4. **Windows-Friendly Development**: Provide native PowerShell support for Windows developers
+
+**Section sources**
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
+
 ## Dependency Analysis
-The sync pipeline composes pure modules to keep orchestration focused on I/O and policy decisions.
+The sync pipeline composes pure modules to keep orchestration focused on I/O and policy decisions. PowerShell scripts operate independently but complement the core pipeline.
 
 ```mermaid
 graph LR
@@ -336,6 +443,9 @@ SYNC --> CODEGEN["scripts/lib/codegen.mjs"]
 PARSE --> |"constants"| VALIDATE
 AVERAGE --> |"labels, gate, mean"| PARSE
 CODEGEN --> |"registry text"| SYNC
+PS1["scripts/tmp-queue-stem.ps1"] --> DATA["model/<slug>/data"]
+PS2["scripts/tmp-queue.ps1"] --> DATA
+DATA --> SYNC
 ```
 
 **Diagram sources**
@@ -344,6 +454,8 @@ CODEGEN --> |"registry text"| SYNC
 - [validate.mjs:9-12](file://scripts/lib/validate.mjs#L9-L12)
 - [average.mjs:10-11](file://scripts/lib/average.mjs#L10-L11)
 - [codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
 
 **Section sources**
 - [sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
@@ -358,6 +470,7 @@ CODEGEN --> |"registry text"| SYNC
 - Quiet mode: use `pnpm sync:quiet` for large repositories to reduce console noise while preserving identical checks and writes.
 - Incremental type checking: `pnpm build.types` uses TypeScript incremental mode to speed up repeated checks.
 - Avoid eager raw imports of markdown: the generated scores approach replaces expensive glob imports that previously inlined large chunks of markdown.
+- PowerShell efficiency: PowerShell scripts provide fast, targeted analysis without the overhead of full Node.js pipeline execution for simple queue identification tasks.
 
 [No sources needed since this section provides general guidance]
 
@@ -374,7 +487,7 @@ Common issues and resolutions:
   - Resolution: Rename to the dotted suggestion provided by the sync script.
 
 - Evidence-free report quarantined:
-  - Cause: Report has many “no verified public score found” rows and zero measured values.
+  - Cause: Report has many "no verified public score found" rows and zero measured values.
   - Resolution: Investigate benchmarks and either add verified data or accept the `.excluded` rename.
 
 - Overall score drift:
@@ -393,14 +506,23 @@ Common issues and resolutions:
   - Cause: Sync had failures during the run.
   - Resolution: Fix all FAIL lines and re-run sync; generated files are only written when there are zero failures.
 
+- PowerShell script path issues:
+  - Cause: Hardcoded absolute paths in PowerShell scripts don't work across different systems.
+  - Resolution: Update paths in `tmp-queue-stem.ps1` to use relative paths or environment variables.
+
+- PowerShell execution policy errors:
+  - Cause: PowerShell execution policy prevents script execution.
+  - Resolution: Run `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` or use `pwsh -ExecutionPolicy Bypass -File scripts/tmp-queue-stem.ps1`.
+
 **Section sources**
 - [sync-data.mjs:133-527](file://scripts/sync-data.mjs#L133-L527)
 - [validate.mjs:46-81](file://scripts/lib/validate.mjs#L46-L81)
 - [parse.mjs:38-87](file://scripts/lib/parse.mjs#L38-L87)
 - [sync-data.md:19-64](file://tasks/sync-data.md#L19-L64)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
 
 ## Conclusion
-ModelComp’s build and development pipeline centers on a deterministic sync process that transforms research markdown into typed, compact data structures. By separating orchestration from pure logic, enforcing strong invariants, and generating only what the application needs, the pipeline keeps the static site fast, reliable, and easy to maintain. Developers should follow the checklist in the task documentation, rely on the sync script’s feedback, and verify builds before deployment.
+ModelComp's build and development pipeline centers on a deterministic sync process that transforms research markdown into typed, compact data structures. By separating orchestration from pure logic, enforcing strong invariants, and generating only what the application needs, the pipeline keeps the static site fast, reliable, and easy to maintain. The addition of PowerShell automation scripts enhances the workflow by providing targeted analysis capabilities for identifying evaluation gaps, particularly for systematic coverage of models by specific agents like Qwen 3.8 Flash. Developers should follow the checklist in the task documentation, rely on the sync script's feedback, utilize PowerShell tools for planning research priorities, and verify builds before deployment.
 
 [No sources needed since this section summarizes without analyzing specific files]
 
@@ -410,15 +532,20 @@ ModelComp’s build and development pipeline centers on a deterministic sync pro
 Recommended steps after adding or editing model data:
 1. Add or update markdown findings under `model/<slug>/`.
 2. Ensure each model folder has a valid `meta.json`.
-3. Run `pnpm sync` (or `pnpm sync:quiet` for large repos).
-4. Review any FAIL, QUAR, GATE, AUTO, WRITE, REG, or INFO lines.
-5. Run `pnpm build.types` to verify TypeScript.
-6. Run `pnpm build` to produce the static site.
-7. Update `REPORT.md` as required by the team workflow.
+3. Use PowerShell scripts to identify evaluation gaps:
+   - Run `.\scripts\tmp-queue-stem.ps1` to find models missing Qwen 3.8 Flash evaluations
+   - Run `.\scripts\tmp-queue.ps1` for general queue management
+4. Run `pnpm sync` (or `pnpm sync:quiet` for large repos).
+5. Review any FAIL, QUAR, GATE, AUTO, WRITE, REG, or INFO lines.
+6. Run `pnpm build.types` to verify TypeScript.
+7. Run `pnpm build` to produce the static site.
+8. Update `REPORT.md` as required by the team workflow.
 
 **Section sources**
 - [sync-data.md:8-18](file://tasks/sync-data.md#L8-L18)
 - [sync-data.md:66-114](file://tasks/sync-data.md#L66-L114)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
 
 ### Build Scripts Summary
 - `pnpm sync`: Runs the deterministic sync pipeline.
@@ -429,6 +556,37 @@ Recommended steps after adding or editing model data:
 - `pnpm build.server`: Builds the server adapter for static hosting.
 - `pnpm dev`: Starts the development server.
 - `pnpm preview`: Previews the built site locally.
+- `.\scripts\tmp-queue-stem.ps1`: Identifies models missing Qwen 3.8 Flash evaluations.
+- `.\scripts\tmp-queue.ps1`: General-purpose queue identification for missing evaluations.
 
 **Section sources**
 - [package.json:11-24](file://package.json#L11-L24)
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)
+
+### PowerShell Script Usage Examples
+
+#### Identifying Qwen 3.8 Flash Evaluation Gaps
+```powershell
+# Navigate to project root
+cd 
+
+# Run the Qwen 3.8 Flash evaluation gap scanner
+.\scripts\tmp-queue-stem.ps1
+
+# Output format: "Score ModelName"
+# Example: "85.5 gpt-5.6-terra"
+```
+
+#### General Queue Management
+```powershell
+# Identify directories missing specific model evaluations
+.\scripts\tmp-queue.ps1
+
+# Output format: "score | dirname"
+# Example: "85.5 | gpt-5.6-terra"
+```
+
+**Section sources**
+- [tmp-queue-stem.ps1:1-14](file://scripts/tmp-queue-stem.ps1#L1-L14)
+- [tmp-queue.ps1:1-10](file://scripts/tmp-queue.ps1#L1-L10)

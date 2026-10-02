@@ -1,0 +1,45 @@
+# Gemini 3.1 Flash — findings by Qwen 3.8 Flash
+
+- Source: Google DeepMind / "Gemini 3.1 Flash" (`google/gemini-3.1-flash`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Status: SELF-EXCLUDED (`.md.excluded`)** — no verifiable general text/reasoning "Gemini 3.1 Flash" model exists as a distinct product with published benchmarks; an honest five-dimension `Overall` cannot be computed without borrowing a sibling's numbers (disallowed).
+
+## Model card (as curated in `meta.json`, not independently confirmed)
+
+- **Name:** Gemini 3.1 Flash
+- **Curated claim:** "Google's efficient 3.1 Flash model, balancing speed, capability, and cost." Context "1,048,576 (1M)"; modalities "Text, image, audio, PDF in; text out"; free tier on Google AI Studio + OpenCode Zen.
+- **Provider / access:** not resolvable to a live GA chat endpoint (see findings below).
+- **IDs:** curated `google/gemini-3.1-flash`; no matching OpenRouter / Vertex / AI-Studio chat ID found.
+
+### Raw benchmarks found
+
+> Exhausted sources on 2026-10-02. There is **no distinct, benchmarked "Gemini 3.1 Flash" text/chat model**:
+> - **BenchLM** has no `gemini-3-1-flash` page (404) — it carries `gemini-3-1-flash-lite` (#86, 47.46) and `gemini-3-1-pro`, but no base "3.1 Flash".
+> - **benchmarklist** `google-gemini-3.1-flash` returns 404.
+> - The definitive FelloAI Gemini-generation lineup table lists the 3.x chat tiers as **3 Pro (Nov 2025), 3 Flash (Dec 2025), 3.1 Pro (Feb 2026), 3.1 Flash-Lite (Mar 2026), 3.5 Flash (May 2026), 3.5 Flash-Lite (Jul 2026)** — no "3.1 Flash" base.
+> - The ai-toolbox "3.1 Pro vs Flash vs Flash-Lite" comparison describes the mid tier of that generation as **Gemini 3 Flash** (SWE-Bench Verified 78.0%), *not* a "3.1 Flash".
+> - **OpenRouter** exposes `google/gemini-3.1-flash-lite`, `google/gemini-3-flash-preview`, `google/gemini-3.5-flash` — the only "3.1 Flash" surface is a separate **"Gemini 3.1 Flash Image"** (an image-generation model, different modality/task), never a scored chat model.
+>
+> Net: Reasoning (GPQA/HLE/LCR), Coding (SWE-bench/LiveCodeBench), and Context/retrieval each have **zero verified rows for this exact model** — because the model itself does not appear to exist as a measurable text/chat product. Every candidate number found belongs to a *sibling* (Gemini 3 Flash, 3.1 Pro, 3.1 Flash-Lite, or 3.1 Flash Image), and cross-variant borrowing is disallowed.
+
+### Normalized scores (1–100)
+
+> Not computable from verified evidence. With no distinct benchmarked model to measure, a five-dimension general `Overall` would have to be fabricated from another tier's numbers. This file is preserved as a self-exclusion rather than a scored report.
+
+- **Tool use: not scored.** No verified "3.1 Flash" agentic rows found.
+- **Reasoning: not scored.** No verified "3.1 Flash" GPQA/HLE/LCR rows found.
+- **Context window: not scored.** Curated 1M claim is unconfirmed by any live product page.
+- **Multimodal: not scored.** Curated text/image/audio/PDF-in is a family-wide claim, not model-specific evidence.
+- **Coding: not scored.** No verified "3.1 Flash" SWE-bench/LiveCodeBench rows found.
+- **Cost efficiency: not scored.** No live endpoint → no authoritative rate card located.
+- **Overall Score: not computable.** Zero verified public benchmarks for this exact model — self-excluded per `RULES.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
+- Method: fresh public internet research (BenchLM 404; benchmarklist 404; FelloAI definitive Gemini-lineup table; ai-toolbox 3.x tier comparison; OpenRouter model catalog; Google DeepMind/AI-Studio docs — all 2026-10-02). Concluded "Gemini 3.1 Flash" is not a distinct benchmarked chat/reasoning product (the 3.1 generation = Pro + Flash-Lite; the mid text tier is Gemini 3 Flash / 3.5 Flash; "3.1 Flash" otherwise refers to a separate image model). Self-excluded rather than borrow sibling-tier numbers.
+- Revisit trigger: if Google publishes a distinct, ranked **Gemini 3.1 Flash** (text/chat) model card with general-capability rows (GPQA/HLE, SWE-bench/Coding, confirmed 1M context + pricing) on BenchLM/artificialanalysis/official docs, research deeper and write a fresh `Qwen_3.8_Flash.md` (only this own `.md.excluded` twin may then be retired). If instead the folder is confirmed to be a phantom of Gemini 3 Flash / 3.1 Flash-Lite, the orchestrator may relocate those real models' data instead.

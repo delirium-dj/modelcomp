@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-01T22:21:29Z"
+exported_at: "2026-10-01T23:36:17Z"
 modules:
     "":
-        dir_name: ModelComp — AI Model Comparison Site
-        title: ModelComp — AI Model Comparison Site
+        dir_name: ModelComp Benchmark Site
+        title: ModelComp Benchmark Site
         scope:
             - README.md
             - AGENTS.md
@@ -61,8 +61,8 @@ modules:
         related_to:
             - path: scripts_tooling
     model_data_text:
-        dir_name: Model Benchmark Findings Data Registry
-        title: Model Benchmark Findings Data Registry
+        dir_name: Model Benchmark Data Registry
+        title: Model Benchmark Data Registry
         scope:
             - model/
         source_files: []

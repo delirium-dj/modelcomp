@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: ModelComp — AI Model Comparison Site
+title: ModelComp Benchmark Site
 scope:
     - README.md
     - AGENTS.md
