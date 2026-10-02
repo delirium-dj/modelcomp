@@ -1,0 +1,8 @@
+{
+  "id": "opencode/qwen-3.7-max",
+  "name": "Qwen 3.7 Max",
+  "short": "Alibaba's proprietary Qwen3.7 flagship agent model (May 2026) for long-horizon coding, office automation and multi-agent workflows; 1M context, text-only.",
+  "contextWindow": "1,000,000 total (131,072 max output)",
+  "modalities": "Text in/out; reasoning and tool calls",
+  "pricingNote": "$1.48 in / $4.43 out per 1M (OpenRouter); cached ~$0.25"
+}

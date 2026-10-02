@@ -1,0 +1,31 @@
+# Kimi K2.8 Preview — self-exclusion (no verified public benchmarks)
+
+- Source: Moonshot AI (`kimi-k2.8-preview`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings — why this file is `.md.excluded`
+
+As of 2026-10-02, no verified public benchmark scores exist for `kimi-k2.8-preview` (Moonshot's Sept 11, 2026 Kimi Code Preview). Specifically:
+
+- No first-party benchmark table has been published by Moonshot for K2.8 Preview. Moonshot's Kimi Code docs name `kimi-for-coding` and route it to the same checkpoint family, but ship no scored evals.
+- No Artificial Analysis, vals.ai, tbench.ai, DeepSWE, LiveBench, SWE-bench, or arcprize.org row exists for it as of 2026-10-02 (LLM Stats tracks "28 reported for Kimi K2.6 · 0 for Kimi K2.8 Preview").
+- One widely-shared community comparison (@notjazii, X, 2026-09-11) reports a single-task run with no scored methodology — not sufficient for a normalized score.
+- A single third-party gateway card lists indicative $1/$4 per 1M tokens; Moonshot has not published an official PAYG rate card for this checkpoint, so cost rows would also be unsupported.
+
+## Model noted for identification
+
+- **Name:** Kimi K2.8 Preview
+- **Lab:** Moonshot AI
+- **Released:** 2026-09-11 (preview through Q4 2026)
+- **Positioning:** Mid-tier Kimi Code model between K3 and K2.7 Code; advertised as approaching K3 with more efficient thinking than K2.7 Code.
+- **Context:** 1,048,576 tokens (K3 is 262K in Kimi Code for Plus tier; K2.8 unlocks 1M); thinking low/high/max, max default; non-thinking requests route to K2.8.
+- **Modalities:** Text + image + video input, text out (Moonshot docs).
+- **Pricing:** None officially published; one gateway card at $1/$4 (APIMaster, unconfirmed).
+
+## Decision
+
+Because no verified public benchmark numbers exist for this exact model/ID, no scored `Fledge_Alpha.md` was written. Re-run the research once any of AA, vals.ai, tbench.ai, DeepSWE, or LiveBench publish a K2.8 Preview row, or Moonshot publishes a first-party benchmark table.
+
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02

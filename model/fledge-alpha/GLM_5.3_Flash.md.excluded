@@ -1,0 +1,56 @@
+# Fledge Alpha — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified benchmarks)
+
+- Source: unverified (`fledge-alpha`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified spec facts only)
+
+- **Name:** Fledge Alpha
+- **Short description:** Appears only as an auto-scaffolded OpenCode Zen endpoint entry (`opencode/fledge-alpha`, scaffolded stub, not human-curated). No verified public source confirms a real model behind this name, its publisher, or its specs.
+- **Provider / access:** OpenCode Zen endpoint list only (`opencode/fledge-alpha` — scaffolded stub). No other provider listings found.
+- **Release / knowledge:** no verified public data found — no release announcement, no model card, no knowledge cutoff.
+- **IDs:** `opencode/fledge-alpha` (scaffolded stub; no verified vendor API ID)
+- **Context window:** 128K total per the scaffolded stub — unverified against any vendor source.
+- **Modalities:** Text in/out per the scaffolded stub — unverified.
+- **Pricing (as of 2026-10-02):** "Standard pricing" per the scaffolded stub — no verified public pricing found.
+- **Architecture:** no verified public data found — no parameter count, no license, no weights listing (Hugging Face search for `fledge` returned only an unrelated CFD physics model).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (no AA model page)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- no verified public score found (128K stub value unverified; no measured retrieval published)
+
+## Self-exclusion note
+
+Zero verified public benchmark numbers were found for this exact model/ID (`fledge-alpha`) as of 2026-10-02: HokAI and Serenities AI have no model page (both 404), Hugging Face lists no such model, and Bing searches surfaced no third-party benchmark posts or release coverage. The folder's `meta.json` is an auto-scaffolded stub (`scaffolded: true`) — its 128K window, "Text in/out" modalities, and "Standard pricing" note are unverified against any vendor source. Saved as `.md.excluded` per the mandatory self-exclusion rule (`RULES.md`, `model-report-TEMPLATE.md`): no scores computed, no placeholder numbers invented.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-02
+- Method: public internet research (HokAI, Serenities AI, Hugging Face, Bing searches); no scores are included — self-excluded for zero verified public benchmarks.

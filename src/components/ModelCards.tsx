@@ -10,6 +10,90 @@ interface ModelCardsProps {
 
 type ModelsView = "cards" | "list";
 
+// Vendor → homepage domain for company logos (Google favicons, no key needed).
+// Matched as token prefixes over `${id} ${name}` lowercase so e.g. "Inkling"
+// never matches "ling". Unknown/stealth models get a letter avatar instead.
+const VENDOR_DOMAINS: [match: string, domain: string][] = [
+  ["claude", "anthropic.com"],
+  ["gpt", "openai.com"],
+  ["codex", "openai.com"],
+  ["openai", "openai.com"],
+  ["gemini", "google.com"],
+  ["gemma", "google.com"],
+  ["google", "google.com"],
+  ["grok", "x.ai"],
+  ["glm", "z.ai"],
+  ["zhipu", "z.ai"],
+  ["chatglm", "z.ai"],
+  ["deepseek", "deepseek.com"],
+  ["mimo", "mi.com"],
+  ["qwen", "qwen.ai"],
+  ["kimi", "moonshot.ai"],
+  ["moonshot", "moonshot.ai"],
+  ["minimax", "minimax.io"],
+  ["llama", "meta.com"],
+  ["muse", "meta.com"],
+  ["meta", "meta.com"],
+  ["nemotron", "nvidia.com"],
+  ["mistral", "mistral.ai"],
+  ["solar", "upstage.ai"],
+  ["upstage", "upstage.ai"],
+  ["seed", "bytedance.com"],
+  ["bytedance", "bytedance.com"],
+  ["doubao", "bytedance.com"],
+  ["hunyuan", "tencent.com"],
+  ["hy3", "tencent.com"],
+  ["hy4", "tencent.com"],
+  ["tencent", "tencent.com"],
+  ["longcat", "meituan.com"],
+  ["meituan", "meituan.com"],
+  ["ling", "antgroup.com"],
+  ["bailing", "antgroup.com"],
+  ["laguna", "poolside.ai"],
+  ["poolside", "poolside.ai"],
+];
+
+// Vendors whose favicon ships light-on-dark (dark baked background): invert on
+// both themes so multiply (light) / screen (dark) can still dissolve the bg.
+const ALWAYS_INVERT = new Set(["moonshot.ai"]);
+
+function vendorDomainFor(m: AiModel): string | undefined {
+  const tokens = `${m.id} ${m.name}`.toLowerCase().split(/[^a-z0-9]+/);
+  return VENDOR_DOMAINS.find(([match]) => tokens.some((t) => t.startsWith(match)))?.[1];
+}
+
+function vendorLogo(m: AiModel) {
+  const domain = vendorDomainFor(m);
+  if (domain) {
+    const invertCls = ALWAYS_INVERT.has(domain) ? "invert" : "dark:invert";
+    return (
+      <img
+        aria-hidden="true"
+        src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+        alt=""
+        width={20}
+        height={20}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        title={domain}
+        class={`h-5 w-5 shrink-0 rounded-full object-contain contrast-125 grayscale-[50%] mix-blend-multiply dark:mix-blend-screen ${invertCls}`}
+        onError$={(e) => {
+          const img = e.target as HTMLImageElement | null;
+          if (img) img.style.display = "none";
+        }}
+      />
+    );
+  }
+  return (
+    <span
+      aria-hidden="true"
+      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-200 text-[11px] font-bold uppercase text-slate-600 dark:bg-slate-700 dark:text-slate-300"
+    >
+      {m.name.charAt(0)}
+    </span>
+  );
+}
+
 export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) => {
   const displayCount = useSignal(9);
   const view = useSignal<ModelsView>("cards");
@@ -76,7 +160,8 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         {visibleModels.map((m) => (
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900">
             <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-semibold text-slate-900 dark:text-white">
+              <h3 class="flex items-center gap-1.5 text-base font-semibold text-slate-900 dark:text-white">
+                {vendorLogo(m)}
                 <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
                   {m.name}
                 </a>
