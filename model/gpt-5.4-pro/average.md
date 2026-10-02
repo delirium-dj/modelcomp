@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 80/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 92.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 93.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 73.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 83/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 28.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 84.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 80.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 93.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 95/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 74/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 17.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 85/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT 5.6 Terra, Muse Spark 1.3.
-- Average from top 3 by Overall Score: Gemini 3.6 Flash, GPT 5.6 Terra, Muse Spark 1.3.
-- Ignored below-gate rater(s): DeepSeek 4 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, Qwen 3.8 27B, Qwen 3.8 Flash, Space Bunny Alpha.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Average from top 3 by Overall Score: GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Ignored below-gate rater(s): DeepSeek 4 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, GLM 5.3 Flash, Laguna S 2.1, Mimo v2.6 Flash, Qwen 3.8 27B, Qwen 3.8 Flash, Space Bunny Alpha.

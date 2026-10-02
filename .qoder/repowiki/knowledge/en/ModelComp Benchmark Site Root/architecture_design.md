@@ -1,4 +1,4 @@
-Three layers are wired together at build time from this root:
+Three layers are wired together from this root:
 - Data layer (`model_data_text`, `model_data_finance`, `model_data_voice`) stores per-model Markdown reports plus a curated `meta.json` manifest per slug.
 - Tooling layer (`scripts_tooling`) is invoked via `pnpm sync`, scans those directories, validates/quarantines reports, recomputes averages, and emits TypeScript registry + scores modules alongside the data.
 - Presentation layer (`frontend_app`) is a QwikCity SSR/SSG site built with Vite; it imports the generated registry rather than reading disk at runtime.

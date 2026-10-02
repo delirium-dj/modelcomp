@@ -23,6 +23,11 @@
 - [model/Inkling/DeepSeek_4_Flash.md](file://model/Inkling/DeepSeek_4_Flash.md)
 - [model/Inkling/Kimi_K3.md](file://model/Inkling/Kimi_K3.md)
 - [model/Inkling/GLM_5.3.md](file://model/Inkling/GLM_5.3.md)
+- [model/kimi-k2.8-preview/meta.json](file://model/kimi-k2.8-preview/meta.json)
+- [model/muse-spark-1.1/meta.json](file://model/muse-spark-1.1/meta.json)
+- [model/ox_alpha/meta.json](file://model/ox_alpha/meta.json)
+- [model/qwen-3.6-plus/meta.json](file://model/qwen-3.6-plus/meta.json)
+- [model/gpt-5.3-codex-spark/meta.json](file://model/gpt-5.3-codex-spark/meta.json)
 </cite>
 
 ## Update Summary
@@ -32,6 +37,8 @@
 - Updated evidence quality standards to account for the expanded multi-agent ecosystem
 - Added references to new evaluator methodologies and their contribution patterns
 - Expanded cross-model signed log documentation to include recent additions
+- Added comprehensive documentation for new model directories: Kimi K2.8 Preview, Muse Spark 1.1, Ox Alpha, Qwen 3.6 Plus, and GPT-5.3-Codex-Spark
+- Updated scoring methodology documentation to reflect standardized evaluation framework improvements
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -475,6 +482,52 @@ Coverage --> Enhanced
 - [model/Inkling/Kimi_K3.md:1-63](file://model/Inkling/Kimi_K3.md#L1-L63)
 - [model/Inkling/GLM_5.3.md:1-85](file://model/Inkling/GLM_5.3.md#L1-L85)
 
+### New Model Directory Documentation
+The repository has been significantly expanded with five new model directories that demonstrate the standardized evaluation framework:
+
+**Kimi K2.8 Preview**: Moonshot AI's mid-tier coding and agentic model positioned between K2.7 Code and flagship K3, featuring 1M context window and efficient reasoning capabilities. Uses Kimi membership plan pricing with no per-token billing.
+
+**Muse Spark 1.1**: OpenCode's Muse Spark model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes.
+
+**Ox Alpha**: Stealth frontier reasoning model accessed through OpenRouter's stealth/ox-alpha endpoint, designed for long-horizon coding agents with 1M context window. Features free Zen tier access for experimental agentic coding and logic puzzles.
+
+**Qwen 3.6 Plus**: Qwen's 3.6 Plus variant with 128K context window and text in/out capabilities, representing standard pricing structure for evaluation framework.
+
+**GPT 5.3 Codex Spark**: OpenAI's specialized codex variant with 128K context window, following standard pricing model for consistent evaluation across the platform.
+
+```mermaid
+graph TB
+Subgraph NewModels["New Model Directories"]
+Kimi["Kimi K2.8 Preview<br/>Moonshot AI Mid-tier"]
+Muse["Muse Spark 1.1<br/>OpenCode Standard"]
+Ox["Ox Alpha<br/>Stealth Frontier"]
+Qwen["Qwen 3.6 Plus<br/>Qwen Variant"]
+GPT["GPT 5.3 Codex Spark<br/>Specialized Codex"]
+end
+Subgraph Framework["Standardized Framework"]
+Context["128K-1M Context Windows"]
+Modalities["Text In/Out Support"]
+Pricing["Standard Pricing Models"]
+Evaluation["Consistent Evaluation"]
+end
+NewModels --> Framework
+Framework --> Evaluation
+```
+
+**Diagram sources**
+- [model/kimi-k2.8-preview/meta.json:1-10](file://model/kimi-k2.8-preview/meta.json#L1-L10)
+- [model/muse-spark-1.1/meta.json:1-8](file://model/muse-spark-1.1/meta.json#L1-L8)
+- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
+- [model/qwen-3.6-plus/meta.json:1-8](file://model/qwen-3.6-plus/meta.json#L1-L8)
+- [model/gpt-5.3-codex-spark/meta.json:1-8](file://model/gpt-5.3-codex-spark/meta.json#L1-L8)
+
+**Section sources**
+- [model/kimi-k2.8-preview/meta.json:1-10](file://model/kimi-k2.8-preview/meta.json#L1-L10)
+- [model/muse-spark-1.1/meta.json:1-8](file://model/muse-spark-1.1/meta.json#L1-L8)
+- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
+- [model/qwen-3.6-plus/meta.json:1-8](file://model/qwen-3.6-plus/meta.json#L1-L8)
+- [model/gpt-5.3-codex-spark/meta.json:1-8](file://model/gpt-5.3-codex-spark/meta.json#L1-L8)
+
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
 
@@ -554,7 +607,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with five new evaluators across 251+ model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to comparative score evaluation—provide richer insights into model capabilities and limitations.
+**Updated** The comprehensive expansion with five new evaluators across 251+ model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to comparative score evaluation—provide richer insights into model capabilities and limitations. The addition of five new model directories (Kimi K2.8 Preview, Muse Spark 1.1, Ox Alpha, Qwen 3.6 Plus, GPT-5.3-Codex-Spark) further demonstrates the standardized evaluation framework's scalability and consistency.
 
 For reliable contributions:
 - Follow the template and methodology.

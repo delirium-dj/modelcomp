@@ -15,16 +15,18 @@
 - [src/data/sources.generated.ts](file://src/data/sources.generated.ts)
 - [src/data/catalog.generated.ts](file://src/data/catalog.generated.ts)
 - [src/data/rankings.generated.ts](file://src/data/rankings.generated.ts)
+- [src/data/models.ts](file://src/data/models.ts)
 - [model/Inkling/meta.json](file://model/Inkling/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated scoring infrastructure documentation to reflect enhanced scores.generated.ts with expanded evaluator-model combinations
-- Added documentation for new generated artifacts: catalog.generated.ts and rankings.generated.ts
-- Expanded normalized score mappings documentation for comparison interface
-- Updated SourceKey union type documentation to reflect 67 reporting agents
-- Enhanced registry and code generation sections with new model coverage
+- Updated scoring infrastructure documentation to reflect enhanced scores.generated.ts with expanded evaluator-model combinations and recalculated averages across all model categories
+- Added comprehensive documentation for new generated artifacts: catalog.generated.ts and rankings.generated.ts
+- Expanded normalized score mappings documentation for comparison interface with 67 reporting agents
+- Updated SourceKey union type documentation to reflect substantial expansion in evaluator coverage
+- Enhanced registry and code generation sections with new model coverage and performance optimizations
+- Updated architecture diagrams to include new pre-baked data structures for O(1) lookup performance
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -335,13 +337,13 @@ Accept --> End
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 
 ### Enhanced Generated Artifacts
-**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface:
+**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface with 67 reporting agents:
 
 #### Catalog Generated (`catalog.generated.ts`)
-Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports.
+Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports. The catalog supports O(1) lookup performance for the enhanced comparison interface.
 
 #### Rankings Generated (`rankings.generated.ts`)
-Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations.
+Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations. This eliminates runtime computation overhead for frequently accessed ranking data.
 
 ```mermaid
 classDiagram
@@ -494,7 +496,7 @@ Apply --> Output["Write average.md"]
 - [scripts/lib/average.mjs:54-100](file://scripts/lib/average.mjs#L54-L100)
 
 ### Registry and Code Generation
-**Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface.
+**Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface with 67 reporting agents.
 
 ```mermaid
 classDiagram
@@ -524,7 +526,7 @@ class Codegen {
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
 ### Relationship Between Data Sources
-**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface:
+**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations:
 
 - Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores.
 - `meta.json` supplies display metadata and pricing context.
@@ -583,7 +585,7 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 
 ## Performance Considerations
-**Updated** Performance optimizations now include additional generated artifacts:
+**Updated** Performance optimizations now include additional generated artifacts and enhanced data structures:
 
 - Pre-parsing findings into `scores.generated.ts` removes ~1.7 MB of markdown prose from the client bundle.
 - Deterministic sorting and stable registry updates avoid unnecessary churn.
@@ -591,8 +593,7 @@ Codegen --> TS["TypeScript Artifacts"]
 - Auto-quarantine prevents evidence-free reports from polluting metrics.
 - Pre-baked catalog and rankings provide O(1) lookup performance for enhanced comparison interface.
 - Expanded evaluator-model combinations are efficiently handled through optimized data structures.
-
-[No sources needed since this section provides general guidance]
+- The 67 reporting agents are processed through streamlined code generation pipelines.
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -603,6 +604,7 @@ Common issues and resolutions:
 - Forbidden deletions: restore tracked files from git HEAD rather than deleting.
 - Registry collisions: resolve duplicate SourceKey assignments manually.
 - Generated artifact mismatches: re-run `pnpm sync` to regenerate all TypeScript artifacts.
+- Catalog or rankings inconsistencies: verify meta.json files are properly formatted and complete.
 
 **Section sources**
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
@@ -612,6 +614,4 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Conclusion
-ModelComp’s data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The audit trail preserves provenance and transparency. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
-
-[No sources needed since this section summarizes without analyzing specific files]
+ModelComp’s data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.

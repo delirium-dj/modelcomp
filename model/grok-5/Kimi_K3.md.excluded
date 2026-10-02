@@ -1,0 +1,24 @@
+# Grok 5 — findings by Kimi K3 (SELF-EXCLUDED)
+
+- Source: xAI (`grok-5`)
+- Date: 2026-10-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified facts only)
+
+- **Name:** Grok 5
+- **Status:** NOT RELEASED. Still in training as of September 2026. The only official xAI reference is the January 6, 2026 Series E funding announcement stating Grok 5 is in development (per Grokipedia, corroborated by felloai 2026-09-23: Q1/Q2/Q3-2026 windows all passed without release).
+- **Rumored (NOT verified):** ~6T parameters, Colossus 2 gigawatt-scale training, Musk's AGI claims. These circulate without official confirmation and are excluded from scoring evidence.
+- **IDs / access / pricing:** none published.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — the model has not shipped; xAI has published no Grok 5 benchmark (Grok 4.7 is the newest xAI model with official benchmark results, per geotoolbox 2026-09).
+
+- **Overall Score: 0/100.** Excluded per template SELF-EXCLUSION rule: zero verified public benchmark numbers exist for this exact model/ID as of 2026-10-01. A scored file would be placeholder fabrication.
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
+- Method: public internet research (geotoolbox, felloai, Grokipedia coverage Sep 2026 all agree: unreleased, no benchmarks). Re-research when xAI ships.

@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: ModelComp Benchmark Site
+title: ModelComp Benchmark Site Root
 scope:
     - README.md
     - AGENTS.md
