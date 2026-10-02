@@ -1,0 +1,68 @@
+# GPT 5.4 Pro — findings by Gemini 2.5 Flash
+
+- Source: OpenAI/GPT 5.4 Pro
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT 5.4 Pro
+- **Short description:** No verified public information found regarding this model.
+- **Provider / access:** No verified public information found.
+- **Release / knowledge:** No verified public information found.
+- **IDs:** No verified public information found.
+- **Context window:** No verified public information found.
+- **Modalities:** No verified public information found.
+- **Pricing (as of 2026-10-02):** No verified public information found.
+- **Architecture:** No verified public information found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found.
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found.
+- **Reasoning: 0/100.** No verified public score found.
+- **Context window: 0/100.** No verified public score found.
+- **Multimodal: 0/100.** No verified public information found; assumed text-only for now.
+- **Coding: 0/100.** No verified public score found.
+- **Cost efficiency: 0/100.** No verified public information found.
+- **Overall Score: 0/100.** No verified public scores to compute an overall score.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 2.5 Flash (google/gemini-2.5-flash)** — 2026-10-02
+- Method: public internet research failed to yield verified information; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

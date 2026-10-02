@@ -27,9 +27,11 @@ pinned in `package.json` / `pnpm-lock.yaml`.
 - `build.types` — `tsc --incremental --noEmit` (typecheck).
 - `build` — `qwik build` = types + client + server + SSG.
 - `build.client` / `build.server` / `build.preview` / `preview` / `start` — granular variants.
+- `sync` / `sync:quiet` — `node scripts/sync-data.mjs` data pipeline (human workflow: `tasks/sync-data.md`).
+- `test` — `node --test scripts/lib/*.test.mjs` (Node's built-in runner, zero devDependencies).
 - `:direct` twins (`build.types:direct`, `build:direct`, `dev:direct`) — same steps invoked as `node <bin>`, bypassing the pnpm shims. Windows: bare `tsc`/`vite` shims embed a giant `NODE_PATH` that can exceed cmd.exe's ~8k line limit (`The input line is too long`, exit 255, tool never runs) — use the `:direct` forms there. Same output.
 
 ## Data layer (code)
 
 - Markdown findings are pre-parsed by `pnpm sync` into `src/data/scores.generated.ts` (numbers only — never `?raw`-import report prose into the client bundle); only small `meta.json` files use `import.meta.glob`.
-- No test framework is configured; verification = `build.types` + `build` (+ spot-check `dist/index.html`).
+- Zero-dep test suite: `pnpm test` runs Node's built-in `node --test` over `scripts/lib/*.test.mjs` (parser, quarantine, naming, validation, averaging, codegen contracts) — no test framework devDependency. Verification = `pnpm test` + `build.types` + `build` (+ spot-check `dist/index.html`).

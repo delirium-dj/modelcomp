@@ -25,7 +25,7 @@ reports, and the website stay consistent.
 ## Website data flow (single source of truth)
 
 1. `model/<slug>/` holds one findings file per agent (`Big_Pickle.md`, `Muse_Spark_1.3.md`) plus `average.md` (recomputed by `pnpm sync`, never by hand) and `meta.json` (curated display metadata — schema in `model/README.md`).
-2. `src/data/models.ts` imports numbers-only scores from `src/data/scores.generated.ts` and reporting agent source definitions from `src/data/sources.generated.ts` (both emitted by `pnpm sync`, which pre-parses findings files and registers sources) and discovers every `meta.json` via `import.meta.glob` into `AiModel.sources`; `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Even a brand-new reporting agent is registered automatically in `src/data/sources.generated.ts` by `pnpm sync`.
+2. `src/data/models.ts` imports numbers-only scores from `src/data/scores.generated.ts` and reporting agent source definitions from `src/data/sources.generated.ts` (both emitted by `pnpm sync`, which pre-parses findings files and registers sources) and discovers every `meta.json` via `import.meta.glob` (model-card metadata: pricing, context window, modalities); `scores` mirrors the average (default view). Adding a findings file or a whole model folder needs NO code edits — just run `pnpm sync && pnpm build`. Even a brand-new reporting agent is registered automatically in `src/data/sources.generated.ts` by `pnpm sync`.
 3. Components (`CompareSection`, `ModelCards`, `HexRadar`, `Methodology`) read `MODELS` only — never import findings files directly. The results-source selector is the shared `ModelSelect` component (`allowEmpty={false}`, options driven by the `SOURCES` array); it swaps `scores` for the chosen `sources` entry, so hexagon, table, legend, and cards all follow it. Selection is kept in the `?source=` URL param. Its caption states the mix size (derived from `SOURCES`, hover lists the contributing reports). Dropdown order is derived (Average first, virtual views in DIMENSIONS order, rest by rater own average Overall desc — see `sourceRankOverall` in `src/data/models.ts`) — never hand-sort it.
 
 ## average.md format contract (parser depends on it)
@@ -60,6 +60,6 @@ reports, and the website stay consistent.
 
 ## Verification & collaboration
 
-- After data or code changes: `pnpm build.types && pnpm build` (Windows cmd line-length failure → `pnpm build.types:direct && pnpm build:direct`), then spot-check `dist/index.html` for the changed values.
+- After data or code changes: `pnpm test && pnpm build.types && pnpm build` (Windows cmd line-length failure → `pnpm build.types:direct && pnpm build:direct`), then spot-check `dist/index.html` for the changed values.
 - Dev server quirk: `pnpm dev` needs `Accept: text/html` for curl (Windows: `pnpm dev:direct`).
 - Do not commit, push, or open PRs unless explicitly asked. Prefer editing files over creating new ones.
