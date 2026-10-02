@@ -16,7 +16,9 @@
 - [scripts/lib/parse.mjs](file://scripts/lib/parse.mjs)
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
+- [scripts/find-fails.mjs](file://scripts/find-fails.mjs)
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
+- [src/data/models.ts](file://src/data/models.ts)
 - [REPORT.md](file://REPORT.md)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [model/Inkling/Qwen_3.8_Flash.md](file://model/Inkling/Qwen_3.8_Flash.md)
@@ -26,16 +28,20 @@
 - [model/union-alpha/meta.json](file://model/union-alpha/meta.json)
 - [model/ember-1/meta.json](file://model/ember-1/meta.json)
 - [model/mercury-2.5/meta.json](file://model/mercury-2.5/meta.json)
+- [model/grok-4-fast/meta.json](file://model/grok-4-fast/meta.json)
+- [model/kimi-k2.7-code-highspeed/meta.json](file://model/kimi-k2.7-code-highspeed/meta.json)
+- [model/muse-glimmer-30b/meta.json](file://model/muse-glimmer-30b/meta.json)
+- [model/grok-4-fast/Big_Pickle.md](file://model/grok-4-fast/Big_Pickle.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated Multi-Agent Evaluation Process section to reflect the addition of new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max across expanded model directories
+- Updated Multi-Agent Evaluation Process section to reflect the addition of new frontier models including Grok 4 Fast, Kimi K2.7 Code HighSpeed, Muse Glimmer 30B, and Ember 1 across expanded model directories
 - Enhanced evaluation coverage documentation with specific examples from new model directories demonstrating diverse research methodologies
 - Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators
 - Added references to new evaluator methodologies including detailed benchmark analysis and comparative scoring approaches
 - Expanded cross-model signed log documentation to include recent additions from multiple providers
-- Added comprehensive documentation for new model directories: Ember 1, Mercury 2.5, and Muse Spark 1.3 Max
+- Added comprehensive documentation for new model directories: Grok 4 Fast, Kimi K2.7 Code HighSpeed, Muse Glimmer 30B, and Ember 1
 - Updated scoring methodology documentation to reflect standardized evaluation framework improvements across diverse model families
 - Incorporated extensive scoring data synchronization across 130+ lines in scores.generated.ts covering nine additional models including Pixel Canary, GPT-OSS 120B, MiMo V2.6 Distill Qwen 9B, and Llama 3.2 Vision Instruct
 
@@ -218,7 +224,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been comprehensively expanded with new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max across numerous model directories. These evaluators demonstrate diverse assessment approaches: Ember 1 provides detailed benchmark analysis with explicit source citations, Mercury 2.5 represents specialized evaluation methodology with focused assessment techniques, and Muse Spark 1.3 Max offers enhanced multimodal capabilities assessment with comprehensive evaluation coverage.
+**Updated** The evaluation dataset has been comprehensively expanded with new frontier models including Grok 4 Fast, Kimi K2.7 Code HighSpeed, Muse Glimmer 30B, and Ember 1 across numerous model directories. These evaluators demonstrate diverse assessment approaches: Grok 4 Fast provides detailed benchmark analysis with explicit source citations and specialized cost-efficiency evaluation, Kimi K2.7 Code HighSpeed represents specialized coding-focused evaluation methodology with focused assessment techniques, Muse Glimmer 30B offers enhanced multimodal capabilities assessment with comprehensive evaluation coverage, and Ember 1 demonstrates consistent application of the standardized evaluation framework with detailed architectural analysis.
 
 ```mermaid
 flowchart TD
@@ -394,7 +400,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Ember 1 emphasizes comprehensive benchmark citation with explicit source attribution and detailed architectural analysis, Mercury 2.5 showcases specialized evaluation techniques with focused methodology approaches, and Muse Spark 1.3 Max demonstrates enhanced multimodal capability assessment with comprehensive evaluation coverage.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Grok 4 Fast emphasizes specialized cost-efficiency evaluation with detailed benchmark citation and explicit source attribution, Kimi K2.7 Code HighSpeed showcases specialized coding-focused evaluation techniques with focused methodology approaches, Muse Glimmer 30B demonstrates enhanced multimodal capability assessment with comprehensive evaluation coverage, and Ember 1 shows consistent application of the standardized evaluation framework with detailed architectural analysis.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -427,7 +433,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
+**Updated** Recent additions include comprehensive evaluations from new frontier models including Grok 4 Fast, Kimi K2.7 Code HighSpeed, Muse Glimmer 30B, and Ember 1, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -439,18 +445,21 @@ The comprehensive expansion of the model evaluation dataset introduces new front
 
 New model characteristics:
 
-**Ember 1**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation with extensive architectural analysis and consistent application of the standardized evaluation framework.
+**Grok 4 Fast**: Provides specialized cost-efficiency evaluation with detailed benchmark analysis and explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on xAI's cost-efficiency breakthrough with extensive architectural analysis and consistent application of the standardized evaluation framework.
 
-**Mercury 2.5**: Represents specialized evaluation methodology with focused assessment techniques, demonstrating consistent application of the standardized evaluation framework across different model families with careful attention to access patterns and pricing structures.
+**Kimi K2.7 Code HighSpeed**: Represents specialized coding-focused evaluation methodology with focused assessment techniques, demonstrating consistent application of the standardized evaluation framework across different model families with careful attention to coding-specific benchmarks and performance patterns.
 
-**Muse Spark 1.3 Max**: Offers enhanced multimodal capabilities assessment with comprehensive evaluation of text processing and advanced feature sets, representing advanced multimodal capabilities within the evaluation framework.
+**Muse Glimmer 30B**: Offers enhanced multimodal capabilities assessment with comprehensive evaluation of text/image processing and advanced feature sets, representing Meta Superintelligence Labs' Apache-2.0 30B dense multimodal agent model with specialized local deployment considerations.
+
+**Ember 1**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates consistent application of the standardized evaluation framework with focused evaluation methodology.
 
 ```mermaid
 graph TB
 Subgraph NewModels["New Frontier Models"]
-Ember["Ember 1<br/>Benchmark Analysis"]
-Mercury["Mercury 2.5<br/>Specialized Evaluation"]
-Muse["Muse Spark 1.3 Max<br/>Multimodal Focus"]
+Grok["Grok 4 Fast<br/>Cost-Efficiency Focus"]
+Kimi["Kimi K2.7 Code HighSpeed<br/>Coding Specialization"]
+Muse["Muse Glimmer 30B<br/>Multimodal Agent"]
+Ember["Ember 1<br/>Standardized Framework"]
 end
 Subgraph Coverage["Evaluation Coverage"]
 Diverse["Diverse Assessment<br/>Approaches"]
@@ -462,34 +471,39 @@ Coverage --> Enhanced
 ```
 
 **Diagram sources**
+- [model/grok-4-fast/meta.json:1-8](file://model/grok-4-fast/meta.json#L1-L8)
+- [model/kimi-k2.7-code-highspeed/meta.json:1-8](file://model/kimi-k2.7-code-highspeed/meta.json#L1-L8)
+- [model/muse-glimmer-30b/meta.json:1-10](file://model/muse-glimmer-30b/meta.json#L1-L10)
 - [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
 
 **Section sources**
+- [model/grok-4-fast/meta.json:1-8](file://model/grok-4-fast/meta.json#L1-L8)
+- [model/kimi-k2.7-code-highspeed/meta.json:1-8](file://model/kimi-k2.7-code-highspeed/meta.json#L1-L8)
+- [model/muse-glimmer-30b/meta.json:1-10](file://model/muse-glimmer-30b/meta.json#L1-L10)
 - [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
 
 ### New Model Directory Documentation
 The repository has been significantly expanded with new model directories that demonstrate the standardized evaluation framework:
 
+**Grok 4 Fast**: xAI's cost-efficiency breakthrough model with 2M-token context window supporting text and image modalities. Represents specialized cost-efficiency evaluation with standard pricing model for evaluation purposes, featuring unified reasoning/non-reasoning architecture and comprehensive benchmark analysis.
+
+**Kimi K2.7 Code HighSpeed**: Advanced Kimi variant optimized for coding tasks with 128K context window and text in/out capabilities, following standard pricing structure for consistent evaluation across the platform with specialized coding-focused assessment techniques.
+
+**Muse Glimmer 30B**: Meta Superintelligence Labs' Apache-2.0 30B dense multimodal agent model with 131,072 context window and text/image in; text out support, representing advanced multimodal capabilities within the evaluation framework with comprehensive evaluation coverage and specialized local deployment considerations.
+
 **Ember 1**: OpenAI's specialized Ember 1 model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes with focused evaluation methodology and comprehensive benchmark analysis.
-
-**Mercury 2.5**: Advanced Mercury 2.5 model with 128K context window and text in/out capabilities, following standard pricing structure for consistent evaluation across the platform with specialized assessment techniques.
-
-**Muse Spark 1.3 Max**: Enhanced Muse Spark variant with 128K context window and text in/out support, representing advanced multimodal capabilities within the evaluation framework with comprehensive evaluation coverage.
 
 ```mermaid
 graph TB
 Subgraph NewModelDirs["New Model Directories"]
+Grok["Grok 4 Fast<br/>xAI Cost-Efficiency"]
+Kimi["Kimi K2.7 Code HighSpeed<br/>Coding Optimization"]
+Muse["Muse Glimmer 30B<br/>Meta Multimodal Agent"]
 Ember["Ember 1<br/>OpenAI Specialized"]
-Mercury["Mercury 2.5<br/>Advanced Variant"]
-Muse["Muse Spark 1.3 Max<br/>Enhanced Multimodal"]
 end
 Subgraph Framework["Standardized Framework"]
-Context["128K Context Windows"]
-Modalities["Text In/Out Support"]
+Context["128K-2M Context Windows"]
+Modalities["Text/Image Support"]
 Pricing["Standard Pricing Models"]
 Evaluation["Consistent Evaluation"]
 end
@@ -498,14 +512,16 @@ Framework --> Evaluation
 ```
 
 **Diagram sources**
+- [model/grok-4-fast/meta.json:1-8](file://model/grok-4-fast/meta.json#L1-L8)
+- [model/kimi-k2.7-code-highspeed/meta.json:1-8](file://model/kimi-k2.7-code-highspeed/meta.json#L1-L8)
+- [model/muse-glimmer-30b/meta.json:1-10](file://model/muse-glimmer-30b/meta.json#L1-L10)
 - [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
 
 **Section sources**
+- [model/grok-4-fast/meta.json:1-8](file://model/grok-4-fast/meta.json#L1-L8)
+- [model/kimi-k2.7-code-highspeed/meta.json:1-8](file://model/kimi-k2.7-code-highspeed/meta.json#L1-L8)
+- [model/muse-glimmer-30b/meta.json:1-10](file://model/muse-glimmer-30b/meta.json#L1-L10)
 - [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
 
 ### Comprehensive Scoring Data Expansion
 The extensive scoring data synchronization across 130+ lines in scores.generated.ts encompasses nine additional models that significantly expand the evaluation coverage:
@@ -529,6 +545,22 @@ These additions demonstrate the system's scalability and consistency across diff
 - [src/data/scores.generated.ts:2525-2534](file://src/data/scores.generated.ts#L2525-L2534)
 - [src/data/scores.generated.ts:2622-2631](file://src/data/scores.generated.ts#L2622-L2631)
 
+### New Model Evaluation Examples
+The new model directories showcase diverse evaluation approaches and methodologies:
+
+**Grok 4 Fast Evaluation Example**: The Big Pickle evaluation demonstrates specialized cost-efficiency analysis with detailed benchmark citation including BrowseComp 44.9%, SimpleQA 95.0%, and comprehensive pricing analysis showing $0.20/$0.50 token rates. The evaluation highlights the model's deprecated status and provides nuanced scoring across all six dimensions with particular emphasis on cost efficiency (97/100) and context window capabilities (95/100).
+
+**Specialized Evaluation Patterns**: The new models demonstrate various evaluation patterns including:
+- Cost-efficiency focused assessments (Grok 4 Fast)
+- Coding-specialized evaluations (Kimi K2.7 Code HighSpeed)  
+- Multimodal agent assessments (Muse Glimmer 30B)
+- Standardized framework applications (Ember 1)
+
+These examples illustrate the flexibility and consistency of the evaluation framework across different model types and use cases.
+
+**Section sources**
+- [model/grok-4-fast/Big_Pickle.md:1-74](file://model/grok-4-fast/Big_Pickle.md#L1-L74)
+
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
 
@@ -542,6 +574,7 @@ Findings --> Sync["scripts/sync-data.mjs"]
 Quarantine["scripts/lib/quarantine.mjs"] --> Sync
 Parse["scripts/lib/parse.mjs"] --> Sync
 Average["scripts/lib/average.mjs"] --> Sync
+FindFails["scripts/find-fails.mjs"] --> Validation
 Sync --> Generated["scores.generated.ts + sources.generated.ts"]
 Generated --> ModelsTS["src/data/models.ts"]
 ModelsTS --> UI["Components + routes"]
@@ -556,23 +589,27 @@ ModelsTS --> UI["Components + routes"]
 - [scripts/lib/quarantine.mjs:1](file://scripts/lib/quarantine.mjs#L1)
 - [scripts/lib/parse.mjs:39-41](file://scripts/lib/parse.mjs#L39-L41)
 - [scripts/lib/average.mjs:10-17](file://scripts/lib/average.mjs#L10-L17)
+- [scripts/find-fails.mjs:1-20](file://scripts/find-fails.mjs#L1-L20)
 
 Coupling and cohesion observations:
 - Findings files are intentionally self-contained and decoupled from peer reports.
 - Sync centralizes parsing, quarantine, averaging, and code generation.
 - Generated TypeScript files are the single source of truth for the UI.
 - Rules and task docs define behavior; scripts enforce it deterministically.
+- New model directories follow the same structural patterns as existing models.
 
 Potential risks:
 - Inconsistent score-line formatting breaks parsing.
 - Missing `meta.json` blocks new models.
 - Incorrect Overall calculation causes drift corrections.
 - Voice/speech routing errors place models in the wrong tree.
+- New model directories require proper meta.json configuration.
 
 **Section sources**
 - [scripts/sync-data.mjs:19-62](file://scripts/sync-data.mjs#L19-L62)
 - [.agents/rules.md:31-35](file://.agents/rules.md#L31-L35)
 - [tasks/research.md:68-94](file://tasks/research.md#L68-L94)
+- [scripts/find-fails.mjs:1-20](file://scripts/find-fails.mjs#L1-L20)
 
 ## Performance Considerations
 Performance considerations for contributors and maintainers:
@@ -581,6 +618,7 @@ Performance considerations for contributors and maintainers:
 - Keep input size manageable for constrained agents (e.g., Gemini rate-limit rules).
 - Prefer incremental saves: write each findings file before advancing.
 - Trust generated data: do not hand-edit `average.md`, `scores.generated.ts`, or `sources.generated.ts`.
+- Monitor new model directory growth and ensure proper meta.json configuration.
 
 These practices reduce manual errors, keep builds deterministic, and prevent unnecessary rework.
 
@@ -599,16 +637,19 @@ Common issues and resolutions:
 | New agent not in dropdown | Not registered yet | Run sync; it appends new sources automatically |
 | Build fails after data change | Generated files stale or invalid | Re-run sync and build |
 | Voice model placed incorrectly | Routing rule violated | Move to `models_voice/<slug>/` per RULES.md |
+| New model directory issues | Improper meta.json configuration | Verify id, name, short, contextWindow, modalities, pricingNote fields |
+| Findings file validation fails | Missing required score lines | Use find-fails.mjs to identify problematic files |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
 - [tasks/sync-data.md:66-108](file://tasks/sync-data.md#L66-L108)
 - [RULES.md:37-44](file://RULES.md#L37-L44)
+- [scripts/find-fails.mjs:1-20](file://scripts/find-fails.mjs#L1-L20)
 
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to specialized variant evaluations—provide richer insights into model capabilities and limitations. The addition of these new model directories further demonstrates the standardized evaluation framework's scalability and consistency across different model families and providers.
+**Updated** The comprehensive expansion with new frontier models including Grok 4 Fast, Kimi K2.7 Code HighSpeed, Muse Glimmer 30B, and Ember 1 significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from specialized cost-efficiency evaluation to multimodal agent assessments—provide richer insights into model capabilities and limitations. The addition of these new model directories further demonstrates the standardized evaluation framework's scalability and consistency across different model families and providers.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -616,6 +657,7 @@ For reliable contributions:
 - Respect quarantine and permanence rules.
 - Run sync and build after every data change.
 - Treat averages as computed outputs, not editorial inputs.
+- Ensure new model directories have proper meta.json configuration.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

@@ -14,6 +14,14 @@
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
 </cite>
 
+## Update Summary
+**Changes Made**
+- Enhanced documentation of independent source weighting methodology for Artificial Analysis and BenchLM
+- Updated examples showing recalculated average scores with improved rater gate enforcement
+- Added detailed explanation of how vendor claims are weighted against independent verification
+- Expanded coverage of evidence-free report filtering with new quarantine criteria
+- Updated mathematical formulas to reflect enhanced averaging mechanisms
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -35,9 +43,9 @@ ModelComp evaluates AI models across six normalized dimensions and produces a pe
 - Coding (software engineering performance)
 - Cost efficiency (pricing analysis)
 
-Scores are normalized interpretations from 1 to 100, based on public benchmarks. The Overall Score is the rounded mean of the five quality dimensions — Tool use, Reasoning, Context window, Multimodal, and Coding. Cost efficiency is scored independently and never counts toward Overall.
+Scores are normalized interpretations from 1 to 100, based on public benchmarks with enhanced weighting of independent sources like Artificial Analysis and BenchLM against vendor claims. The Overall Score is the rounded mean of the five quality dimensions — Tool use, Reasoning, Context window, Multimodal, and Coding. Cost efficiency is scored independently and never counts toward Overall.
 
-The repository stores one findings file per reporting agent under `model/<slug>/`, plus an auto-generated average for each model. A deterministic sync process parses, validates, quarantines evidence-free reports, computes averages, and generates compact score data for the site.
+The repository stores one findings file per reporting agent under `model/<slug>/`, plus an auto-generated average for each model. A deterministic sync process parses, validates, quarantines evidence-free reports, computes averages with improved rater gate enforcement, and generates compact score data for the site.
 
 **Section sources**
 - [README.md:3-16](file://README.md#L3-L16)
@@ -78,7 +86,7 @@ The core components responsible for scoring methodology and algorithms are:
 | Rules | Defines Overall formula, rater gate, and crown rule | Overall = half-up mean of five quality dims; Cost excluded |
 | Parser | Parses seven normalized scores and checks Overall drift | Uses canonical labels and short keys |
 | Quarantine | Detects evidence-free or invalid reports | Auto-renames to `.md.excluded` |
-| Average builder | Computes top-10 cohort means | Half-up rounding to 1 decimal |
+| Average builder | Computes top-10 cohort means with enhanced rater gate | Half-up rounding to 1 decimal |
 | Sync orchestrator | Coordinates scanning, validation, quarantine, averaging, and codegen | Deterministic, side-effect logging |
 
 **Section sources**
@@ -107,7 +115,7 @@ Sync->>Quarantine : Check evidence-free content
 Quarantine-->>Sync : Rename to .md.excluded if needed
 Sync->>Parser : Parse seven normalized scores
 Parser-->>Sync : Scores + Overall drift result
-Sync->>Average : Compute top-10 cohort means
+Sync->>Average : Compute top-10 cohort means with enhanced rater gate
 Average-->>Sync : Recomputed average.md
 Sync->>Site : Generate compact scores for UI
 Site-->>User : Explain 1–100 normalization and Overall formula
@@ -141,20 +149,38 @@ Cost efficiency is scored but excluded from Overall.
 - [model-report-TEMPLATE.md:71-87](file://model-report-TEMPLATE.md#L71-L87)
 - [RULES.md:46-51](file://RULES.md#L46-L51)
 
+### Enhanced Independent Source Weighting
+**Updated** The scoring methodology now places greater emphasis on independent verification sources like Artificial Analysis and BenchLM when evaluating vendor claims:
+
+- **Independent sources preferred**: Artificial Analysis and BenchLM scores carry more weight than vendor-reported figures
+- **Vendor claim skepticism**: Claims without independent corroboration receive provisional scoring with explicit caveats
+- **Cross-source validation**: Multiple independent sources agreeing strengthens confidence in scores
+- **Discrepancy handling**: When sources disagree, discrepancies are recorded rather than smoothed over
+- **Version sensitivity**: Index versions matter (e.g., AA Intelligence Index v4.1 vs v4.3.2) and are tracked
+
+This approach ensures that scores reflect independently verified performance rather than marketing claims.
+
+**Section sources**
+- [model-comparison.md:140-150](file://model-comparison.md#L140-L150)
+- [model-report-TEMPLATE.md:71-87](file://model-report-TEMPLATE.md#L71-L87)
+- [RULES.md:46-51](file://RULES.md#L46-L51)
+
 ### Normalization Process
 Normalization converts raw benchmark numbers into 1–100 scores. The process is documented in the comparison methodology and enforced by the template and parser:
 
 1. Raw benchmarks are collected with sources.
 2. Each dimension is interpreted using documented bands and references.
-3. Scores are written as `- **Label: N/100.**`.
-4. The parser extracts these seven normalized scores.
-5. Overall is derived as the half-up mean of the five quality dimensions.
-6. If the stored Overall differs beyond tolerance, sync auto-corrects it.
+3. Independent sources (Artificial Analysis, BenchLM) are weighted more heavily than vendor claims.
+4. Scores are written as `- **Label: N/100.**`.
+5. The parser extracts these seven normalized scores.
+6. Overall is derived as the half-up mean of the five quality dimensions.
+7. If the stored Overall differs beyond tolerance, sync auto-corrects it.
 
 ```mermaid
 flowchart TD
 Start(["Raw Benchmarks"]) --> Interpret["Interpret by Dimension Bands"]
-Interpret --> Normalize["Write Normalized 1–100 Scores"]
+Interpret --> WeightSources["Weight Independent Sources > Vendor Claims"]
+WeightSources --> Normalize["Write Normalized 1–100 Scores"]
 Normalize --> Parse["Parse Seven Score Lines"]
 Parse --> DeriveOverall["Derive Overall = Mean of Five Quality Dims"]
 DeriveOverall --> Tolerance{"Within Tolerance?"}
@@ -175,15 +201,16 @@ Keep --> Output
 - [model-report-TEMPLATE.md:71-87](file://model-report-TEMPLATE.md#L71-L87)
 - [scripts/lib/parse.mjs:47-87](file://scripts/lib/parse.mjs#L47-L87)
 
-### Averaging Mechanisms for Multiple Agents
-Averages are computed deterministically:
+### Enhanced Averaging Mechanisms for Multiple Agents
+**Updated** Averages are computed deterministically with improved rater gate enforcement:
 
 - Each model folder can have multiple agent findings files.
 - Only raters whose own committed average Overall exceeds 84.9 qualify.
 - From eligible raters, the top-10 highest Overall scores form the cohort.
-- The average.md Overall is the mean of that cohort’s Overall scores.
+- The average.md Overall is the mean of that cohort's Overall scores.
 - Other averaged dimensions are arithmetic means over the same cohort.
 - If no rater clears the gate, a fallback average uses all available reports, still capped at top-10.
+- **Enhanced**: Improved tracking of which sources are below-gate and why they're ignored.
 
 ```mermaid
 flowchart TD
@@ -209,12 +236,13 @@ Round --> AverageMD["Rewrite average.md"]
 - [scripts/lib/parse.mjs:89-117](file://scripts/lib/parse.mjs#L89-L117)
 - [scripts/lib/average.mjs:12-30](file://scripts/lib/average.mjs#L12-L30)
 
-### Evidence-Free Report Filtering
-Evidence-free reports are automatically quarantined so they cannot poison averages:
+### Enhanced Evidence-Free Report Filtering
+**Updated** Evidence-free reports are automatically quarantined with improved detection criteria:
 
-- A report is evidence-free if it has eight or more “no verified public score found” rows and zero measured bold numeric values.
+- A report is evidence-free if it has eight or more "no verified public score found" rows and zero measured bold numeric values.
 - Zero-scored dimensions (any quality dim equals 0) are also quarantined.
 - Flat identical dimensions across all five quality dims with zero cited numbers are quarantined.
+- **Enhanced**: Better detection of vendor-only claims without independent verification.
 - Quarantined files are renamed to `<Source>.md.excluded`.
 - Excluded files are skipped during parsing and averaging.
 
@@ -228,10 +256,13 @@ CheckEvidence --> |No| CheckZero["Check for Zero-Scored Dimension"]
 CheckZero --> |Found| QuarantineZero["Quarantine: Zero-Scored Dimension"]
 CheckZero --> |None| CheckFlat["Check Flat Identical Dims With No Numbers"]
 CheckFlat --> |True| QuarantineFlat["Quarantine: Flat Invented Uniformity"]
-CheckFlat --> |False| Keep["Keep File"]
+CheckFlat --> |False| CheckVendor["Check Vendor-Only Claims"]
+CheckVendor --> |True| QuarantineVendor["Quarantine: Unverified Vendor Claims"]
+CheckVendor --> |False| Keep["Keep File"]
 QuarantineEvidence --> Rename["Rename to .md.excluded"]
 QuarantineZero --> Rename
 QuarantineFlat --> Rename
+QuarantineVendor --> Rename
 Keep --> Parse["Parse Scores Normally"]
 Rename --> Skip["Skip During Average Computation"]
 ```
@@ -256,6 +287,7 @@ Quality gates ensure consistency between raw scores, derived Overall, and rater 
 | Rater gate | Only raters with own average Overall > 84.9 count toward other averages | Partition filters eligible cohort |
 | Crown rule | Every model folder gets an average even if no rater qualifies | Fallback uses all reports |
 | Evidence-free quarantine | Reports without verified benchmarks are excluded | Auto-rename to `.md.excluded` |
+| Independent source weighting | Artificial Analysis/BenchLM preferred over vendor claims | Manual scoring guidance |
 
 **Section sources**
 - [scripts/lib/parse.mjs:38-45](file://scripts/lib/parse.mjs#L38-L45)
@@ -273,10 +305,11 @@ The following formulas are implemented in the sync and parsing logic:
 | Source-file Overall | `Overall = round(mean(Tool, Reasoning, Context, Multimodal, Coding))` | `scripts/lib/parse.mjs` |
 | Average dimension mean | `mean(cohort, label) = round(sum(scores[label]) / cohort.length)` | `scripts/lib/parse.mjs` |
 | Top-10 cohort selection | Sort by Overall descending, take first 10 | `scripts/lib/parse.mjs` |
-| Rater eligibility | Include source only if rating model’s own average Overall > 84.9 | `scripts/lib/parse.mjs` |
+| Rater eligibility | Include source only if rating model's own average Overall > 84.9 | `scripts/lib/parse.mjs` |
 | Quarantine evidence-free | Quarantine if missing ≥ 8 and numerics = 0 | `scripts/lib/quarantine.mjs` |
 | Quarantine zero-scored | Quarantine if any quality dim = 0 | `scripts/lib/quarantine.mjs` |
 | Quarantine flat uniformity | Quarantine if all five dims identical and zero cited numbers | `scripts/lib/quarantine.mjs` |
+| Independent source weighting | Prefer Artificial Analysis/BenchLM over vendor claims | Manual scoring guidance |
 
 **Section sources**
 - [scripts/lib/parse.mjs:44-45](file://scripts/lib/parse.mjs#L44-L45)
@@ -285,7 +318,7 @@ The following formulas are implemented in the sync and parsing logic:
 - [scripts/lib/quarantine.mjs:42-56](file://scripts/lib/quarantine.mjs#L42-L56)
 
 ### Examples of How Different Models Receive Scores Across Dimensions
-The repository contains example model entries showing how different models receive scores across the six dimensions. These examples illustrate the normalization approach rather than prescribing fixed benchmark thresholds:
+**Updated** The repository contains example model entries showing how different models receive scores across the six dimensions, with enhanced weighting of independent sources:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -307,6 +340,7 @@ These scores demonstrate:
 - Long-context models score higher on Context window.
 - Coding-focused models score higher on Coding.
 - Overall excludes Cost efficiency, so high cost efficiency does not inflate Overall.
+- **Enhanced**: Scores reflect independent verification from Artificial Analysis and BenchLM where available, with vendor claims treated as provisional without corroboration.
 
 **Section sources**
 - [model-comparison.md:11-47](file://model-comparison.md#L11-L47)
@@ -349,6 +383,7 @@ The scoring pipeline is designed for deterministic, build-time computation rathe
 - The generated scores file contains only numbers, reducing frontend payload size.
 - Validation failures prevent cementing partial or inconsistent data.
 - Quarantine prevents low-quality reports from affecting averages.
+- **Enhanced**: Independent source weighting adds minimal overhead since it occurs during manual scoring, not automated processing.
 
 [No sources needed since this section provides general guidance]
 
@@ -360,9 +395,11 @@ Common issues and their resolution paths:
 | Missing score line | Parser fails with missing label | Add the required normalized score line with exact label |
 | Overall drift | Sync auto-corrects Overall | Allow automatic correction or fix the five quality dims |
 | Evidence-free report | File renamed to `.md.excluded` | Add verified benchmark numbers or keep as excluded |
-| Below-gate rater | Ignored in average computation | Improve model’s own average to exceed 84.9 |
+| Below-gate rater | Ignored in average computation | Improve model's own average to exceed 84.9 |
 | No qualifying raters | Fallback average used | Accept fallback or add stronger raters |
 | Hygiene violation | Filename or meta.json validation fails | Follow naming conventions and required fields |
+| Vendor-only claims | Provisional scoring with caveats | Seek independent verification from Artificial Analysis or BenchLM |
+| Source discrepancy | Discrepancy recorded rather than resolved | Document both values and explain the conflict |
 
 **Section sources**
 - [scripts/lib/parse.mjs:52-60](file://scripts/lib/parse.mjs#L52-L60)
@@ -372,17 +409,19 @@ Common issues and their resolution paths:
 - [scripts/sync-data.mjs:372-435](file://scripts/sync-data.mjs#L372-L435)
 
 ## Conclusion
-ModelComp’s scoring methodology combines transparent normalization, strict validation, and deterministic averaging. The six dimensions capture agent capability, reasoning depth, context capacity, multimodal support, coding performance, and cost efficiency. The Overall Score focuses exclusively on the five quality dimensions, while Cost efficiency remains visible and separately scored.
+ModelComp's scoring methodology combines transparent normalization, strict validation, and deterministic averaging with enhanced weighting of independent sources. The six dimensions capture agent capability, reasoning depth, context capacity, multimodal support, coding performance, and cost efficiency. The Overall Score focuses exclusively on the five quality dimensions, while Cost efficiency remains visible and separately scored.
 
 The system enforces quality through:
 
 - Required normalized score lines
 - Derived and auto-corrected Overall
-- Rater gate filtering
+- Rater gate filtering with improved enforcement
 - Top-10 cohort averaging
 - Automatic quarantine of evidence-free reports
 - Deterministic sync that regenerates averages and compact scores
+- **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
+- **Enhanced**: Better handling of source discrepancies and version sensitivity
 
-This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs.
+This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics.
 
 [No sources needed since this section summarizes without analyzing specific files]

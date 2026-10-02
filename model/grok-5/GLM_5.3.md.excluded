@@ -1,0 +1,32 @@
+# Grok 5 — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: xAI (`xai/grok-5`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**Grok 5 has not been released, and ZERO verified public benchmark numbers or specifications exist for it.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified:
+
+- **Identity:** Grok 5 is xAI's announced-but-unreleased next major model. The only official reference is the 2026-01-06 Series E funding announcement stating Grok 5 is currently in training on the Colossus supercluster. As of 2026-10-02 no launch post exists on x.ai/news; the current xAI flagship is Grok 4.7 (released 2026-09-21, 500K context, May 2026 knowledge cutoff).
+- **Marketplace status:** absent from the OpenCode Zen model list (latest Grok there: 4.7), absent from xAI's own developer model docs (docs.x.ai 404 for grok-5), and untracked by BenchLM (no page, 404).
+
+What was explicitly NOT treated as verified:
+
+- Rumored specifications (~6 trillion parameters MoE, ~1.5M native context, real-time video, gaming agents, Q2 2026 launch) circulate only via unofficial channels and Musk social posts; Grokipedia's fact-checked article marks them unconfirmed by xAI. None were scored.
+- Interpolation from released siblings (Grok 4.20 / 4.7) was deliberately NOT used.
+
+A future re-research should look for (a) the official launch post on x.ai/news, (b) a docs.x.ai model page with pricing and context window, (c) aggregator coverage (BenchLM/AA) once the model ships — then write a fresh `GLM_5.3.md`. Until release, this folder tracks a training-in-progress model.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
+- Method: public internet research (xAI news surface, docs.x.ai, BenchLM, Grokipedia's fact-checked article citing the Series E announcement); no verified public data exists for this unreleased model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
