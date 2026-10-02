@@ -20,11 +20,12 @@
 
 ## Update Summary
 **Changes Made**
-- Updated scoring methodology section to reflect v4 standardization across 141+ model evaluations
-- Enhanced model card format documentation with standardized field requirements
-- Added examples of consistent benchmark categorization and normalization approaches
-- Updated template structure to reflect applied changes in standardized evaluation format
-- Revised relationship between findings files and generated TypeScript structures
+- Updated to reflect comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics
+- Enhanced standardized v4 methodology documentation with Overall Score calculation excluding Cost efficiency
+- Added comprehensive model card format requirements covering provider access, release dates, IDs, context windows, modalities, pricing, and architecture
+- Expanded benchmark categorization across tool use, reasoning, coding, and long context domains
+- Updated normalization scoring system documentation with evidence-based justification requirements
+- Revised relationship between findings files and generated TypeScript structures for v4 compliance
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -40,7 +41,7 @@
 ## Introduction
 This document explains the self-contained findings file format used by ModelComp research, how researchers should populate it, and how it connects to generated TypeScript data structures. A findings file captures one agent's independent evaluation of a model: its card, raw benchmarks, normalized 1–100 scores, and signature. The repository maintains a cross-model signed log and per-model metadata for display.
 
-**Updated** The format has been standardized across 141+ model evaluations using consistent scoring methodologies and model card formats, ensuring uniformity in how models are evaluated and compared.
+**Updated** The format has been standardized across 141+ model evaluations using consistent scoring methodologies and model card formats, ensuring uniformity in how models are evaluated and compared. The comprehensive evaluation report format now includes detailed model specifications, benchmark scores, pricing information, and normalized quality metrics across tool use, reasoning, context window, multimodal capabilities, coding performance, and cost efficiency.
 
 ## Project Structure
 Findings live under `model/<slug>/`. Each folder represents one tracked model and contains:
@@ -80,7 +81,7 @@ Key responsibilities:
 - `pnpm sync` validates, quarantines evidence-free files, computes averages, and generates typed data.
 - The UI reads generated data; no manual edits to generated files are needed.
 
-**Updated** All findings files now follow the v4 standardized methodology with consistent scoring formulas and model card structures applied across 141+ model evaluations.
+**Updated** All findings files now follow the v4 standardized methodology with consistent scoring formulas and model card structures applied across 141+ model evaluations, featuring comprehensive evaluation reports with detailed specifications and normalized quality metrics.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -119,6 +120,38 @@ Sync-->>Researcher : Averages recomputed, new source registered
 
 ## Detailed Component Analysis
 
+### Comprehensive Evaluation Report Format (v4)
+**Updated** The comprehensive evaluation report format has been standardized across all 141+ model evaluations with the following key components:
+
+- **Detailed Model Specifications**: Complete model card with provider access, release dates, IDs, context windows, modalities, pricing, and architecture details
+- **Benchmark Scores**: Categorized raw benchmarks across agent/tool use, reasoning/knowledge, coding, and long context domains
+- **Pricing Information**: Current pricing with free/paid distinctions and data usage caveats
+- **Normalized Quality Metrics**: 1-100 scale scores with evidence-based justification for each dimension
+- **Cost Efficiency Scoring**: Separate evaluation that does not affect Overall Score calculations
+
+```mermaid
+flowchart TD
+Start(["Start comprehensive evaluation"]) --> Card["Fill detailed model card with specifications"]
+Card --> Benchmarks["Categorize raw benchmarks into standard groups"]
+Benchmarks --> Evidence{"Any verified public numbers?"}
+Evidence --> |No| Exclude["Save as .md.excluded"]
+Evidence --> |Yes| Normalize["Apply standardized normalization to 1-100 scale"]
+Normalize --> Formula["Compute Overall = mean of Tool + Reasoning + Context + Multimodal + Coding"]
+Formula --> Pricing["Evaluate cost efficiency separately"]
+Pricing --> Signature["Add signature block with methodology reference"]
+Signature --> End(["Complete comprehensive evaluation report"])
+Exclude --> End
+```
+
+**Diagram sources**
+- [model-report-TEMPLATE.md:71-87](file://model-report-TEMPLATE.md#L71-L87)
+- [model-comparison.md:140-150](file://model-comparison.md#L140-L150)
+
+**Section sources**
+- [model-report-TEMPLATE.md:71-87](file://model-report-TEMPLATE.md#L71-L87)
+- [model-comparison.md:140-150](file://model-comparison.md#L140-L150)
+- [src/components/Methodology.tsx:14-18](file://src/components/Methodology.tsx#L14-L18)
+
 ### Standardized Scoring Methodology (v4)
 **Updated** The scoring methodology has been standardized across all 141+ model evaluations with the following key principles:
 
@@ -149,8 +182,8 @@ Exclude --> End
 - [model-comparison.md:140-150](file://model-comparison.md#L140-L150)
 - [src/components/Methodology.tsx:14-18](file://src/components/Methodology.tsx#L14-L18)
 
-### Standardized Model Card Format
-**Updated** All model cards now follow a consistent structure with required fields:
+### Comprehensive Model Card Format
+**Updated** All model cards now follow a consistent structure with required fields for detailed specifications:
 
 - **Name**: Official model name including tier information (e.g., "Muse Spark 1.3 Contributor")
 - **Short description**: 1-2 sentences describing the model, provider, and primary use case
@@ -162,7 +195,7 @@ Exclude --> End
 - **Pricing**: Current pricing with free/paid distinctions and data usage caveats
 - **Architecture**: Parameter counts, MoE configuration, or proprietary status
 
-**Examples of standardized model cards:**
+**Examples of comprehensive model cards:**
 
 [Claude Opus 4.6 example:8-18](file://model/claude-opus-4.6/Claude_Opus_4.6.md#L8-L18):
 - Name: Claude Opus 4.6
@@ -186,7 +219,7 @@ Exclude --> End
 - [model/muse-spark-1.3-free/Muse_Spark_1.3.md:8-18](file://model/muse-spark-1.3-free/Muse_Spark_1.3.md#L8-L18)
 
 ### Standardized Benchmark Categorization
-**Updated** All findings files now use consistent benchmark categories:
+**Updated** All findings files now use consistent benchmark categories with comprehensive coverage:
 
 - **Agent/tool use**: Terminal-Bench, Tau3-Banking, GDPval-AA, OSWorld/AutomationBench, Claw-Eval, Toolathon, MCP-Atlas
 - **Reasoning/knowledge**: GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Intelligence Index
@@ -316,4 +349,4 @@ Validation helpers:
 ## Conclusion
 The ModelComp findings file format ensures consistent, auditable research documentation. By following the standardized v4 template, adhering to naming conventions, and maintaining accurate meta.json files, researchers contribute reliable data that powers the comparison site. The sync pipeline automates validation, quarantine, and TypeScript generation, minimizing manual overhead while preserving data integrity across 141+ model evaluations.
 
-**Updated** The standardized methodology and consistent formatting ensure that all model evaluations are comparable and maintain high quality standards across the entire dataset.
+**Updated** The comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics ensures that all model evaluations are comparable and maintain high quality standards across the entire dataset. The standardized methodology and consistent formatting guarantee reliable comparisons and transparent evaluation processes.

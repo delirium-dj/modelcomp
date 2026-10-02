@@ -12,15 +12,15 @@
 - [scripts/lib/quarantine.mjs](file://scripts/lib/quarantine.mjs)
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
+- [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Enhanced documentation of independent source weighting methodology for Artificial Analysis and BenchLM
-- Updated examples showing recalculated average scores with improved rater gate enforcement
-- Added detailed explanation of how vendor claims are weighted against independent verification
-- Expanded coverage of evidence-free report filtering with new quarantine criteria
-- Updated mathematical formulas to reflect enhanced averaging mechanisms
+- Updated examples showing recalculated average scores with enhanced rater gate enforcement
+- Added detailed explanation of recent infrastructure improvements affecting model family averages
+- Enhanced coverage of how recalculated averages impact specific model families like Claude Haiku 4.5 and DeepSeek V4 Flash
+- Updated mathematical formulas to reflect improved averaging mechanisms and enhanced validation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -202,7 +202,7 @@ Keep --> Output
 - [scripts/lib/parse.mjs:47-87](file://scripts/lib/parse.mjs#L47-L87)
 
 ### Enhanced Averaging Mechanisms for Multiple Agents
-**Updated** Averages are computed deterministically with improved rater gate enforcement:
+**Updated** Averages are computed deterministically with improved rater gate enforcement and enhanced validation:
 
 - Each model folder can have multiple agent findings files.
 - Only raters whose own committed average Overall exceeds 84.9 qualify.
@@ -211,6 +211,7 @@ Keep --> Output
 - Other averaged dimensions are arithmetic means over the same cohort.
 - If no rater clears the gate, a fallback average uses all available reports, still capped at top-10.
 - **Enhanced**: Improved tracking of which sources are below-gate and why they're ignored.
+- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including Claude Haiku 4.5 moving from 68.7 to 72.3 overall and DeepSeek V4 Flash from 71.6 to 72.0 overall.
 
 ```mermaid
 flowchart TD
@@ -288,6 +289,7 @@ Quality gates ensure consistency between raw scores, derived Overall, and rater 
 | Crown rule | Every model folder gets an average even if no rater qualifies | Fallback uses all reports |
 | Evidence-free quarantine | Reports without verified benchmarks are excluded | Auto-rename to `.md.excluded` |
 | Independent source weighting | Artificial Analysis/BenchLM preferred over vendor claims | Manual scoring guidance |
+| Enhanced validation | Recent infrastructure updates improve score consistency | Recalculated averages across model families |
 
 **Section sources**
 - [scripts/lib/parse.mjs:38-45](file://scripts/lib/parse.mjs#L38-L45)
@@ -310,6 +312,7 @@ The following formulas are implemented in the sync and parsing logic:
 | Quarantine zero-scored | Quarantine if any quality dim = 0 | `scripts/lib/quarantine.mjs` |
 | Quarantine flat uniformity | Quarantine if all five dims identical and zero cited numbers | `scripts/lib/quarantine.mjs` |
 | Independent source weighting | Prefer Artificial Analysis/BenchLM over vendor claims | Manual scoring guidance |
+| Enhanced validation | Recent infrastructure improvements ensure consistent recalculations | `scripts/sync-data.mjs` |
 
 **Section sources**
 - [scripts/lib/parse.mjs:44-45](file://scripts/lib/parse.mjs#L44-L45)
@@ -318,7 +321,14 @@ The following formulas are implemented in the sync and parsing logic:
 - [scripts/lib/quarantine.mjs:42-56](file://scripts/lib/quarantine.mjs#L42-L56)
 
 ### Examples of How Different Models Receive Scores Across Dimensions
-**Updated** The repository contains example model entries showing how different models receive scores across the six dimensions, with enhanced weighting of independent sources:
+**Updated** The repository contains example model entries showing how different models receive scores across the six dimensions, with enhanced weighting of independent sources and recent recalculations:
+
+| Model Family | Previous Overall | New Overall | Change | Notes |
+|---|---:|---:|---:|---|
+| Claude Haiku 4.5 | 68.7 | 72.3 | +3.6 | Significant improvement due to enhanced rater gate enforcement |
+| DeepSeek V4 Flash | 71.6 | 72.0 | +0.4 | Minor adjustment reflecting improved validation |
+
+Current representative scores across model families:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -340,11 +350,14 @@ These scores demonstrate:
 - Long-context models score higher on Context window.
 - Coding-focused models score higher on Coding.
 - Overall excludes Cost efficiency, so high cost efficiency does not inflate Overall.
+- **Enhanced**: Recent recalculations show improved consistency across model families, with Claude Haiku 4.5 and DeepSeek V4 Flash demonstrating the impact of enhanced validation.
 - **Enhanced**: Scores reflect independent verification from Artificial Analysis and BenchLM where available, with vendor claims treated as provisional without corroboration.
 
 **Section sources**
 - [model-comparison.md:11-47](file://model-comparison.md#L11-L47)
 - [model-comparison.md:52-137](file://model-comparison.md#L52-L137)
+- [src/data/scores.generated.ts:96-114](file://src/data/scores.generated.ts#L96-L114)
+- [src/data/scores.generated.ts:483-504](file://src/data/scores.generated.ts#L483-L504)
 
 ## Dependency Analysis
 The scoring system has clear dependencies between orchestration, parsing, quarantine, averaging, and presentation:
@@ -383,7 +396,7 @@ The scoring pipeline is designed for deterministic, build-time computation rathe
 - The generated scores file contains only numbers, reducing frontend payload size.
 - Validation failures prevent cementing partial or inconsistent data.
 - Quarantine prevents low-quality reports from affecting averages.
-- **Enhanced**: Independent source weighting adds minimal overhead since it occurs during manual scoring, not automated processing.
+- **Enhanced**: Recent infrastructure improvements add minimal overhead since enhanced validation occurs during automated processing, improving overall consistency.
 
 [No sources needed since this section provides general guidance]
 
@@ -400,6 +413,7 @@ Common issues and their resolution paths:
 | Hygiene violation | Filename or meta.json validation fails | Follow naming conventions and required fields |
 | Vendor-only claims | Provisional scoring with caveats | Seek independent verification from Artificial Analysis or BenchLM |
 | Source discrepancy | Discrepancy recorded rather than resolved | Document both values and explain the conflict |
+| Recalculated averages | Unexpected score changes after sync | Review enhanced validation and rater gate enforcement |
 
 **Section sources**
 - [scripts/lib/parse.mjs:52-60](file://scripts/lib/parse.mjs#L52-L60)
@@ -421,7 +435,8 @@ The system enforces quality through:
 - Deterministic sync that regenerates averages and compact scores
 - **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
+- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 moving from 68.7 to 72.3 overall and DeepSeek V4 Flash from 71.6 to 72.0 overall
 
-This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics.
+This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

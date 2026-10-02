@@ -1,0 +1,21 @@
+# Grok 5 — findings by DeepSeek 4 Flash (.excluded)
+
+- Source: xAI/Grok 5
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion (zero verified public benchmarks)
+
+No verified public benchmark numbers (GPQA/HLE/Terminal-Bench/SWE-bench/AA Index/MMMU, etc.) for Grok 5 were found in this research pass. Per `tasks/research.md` rule 9 and `RULES.md`, this file is saved as `DeepSeek_4_Flash.md.excluded` (notes only, never counted) instead of a scored report, to avoid fabricated placeholder scores.
+
+- Grok 5 has no model page on BenchLM or BenchmarkList as of 2026-10-01; xAI has not published a first-party benchmark set located in this pass.
+- Vendor specs, pricing and context window are likewise not independently verified.
+- Re-research trigger: if verified public benchmarks appear (official model card, Artificial Analysis, BenchLM, Vals AI, press launch coverage), write a fresh `DeepSeek_4_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-02
+- Method: public internet research; negative findings only.

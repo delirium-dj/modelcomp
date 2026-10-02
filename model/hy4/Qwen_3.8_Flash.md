@@ -56,7 +56,7 @@ Multimodal:
 - **Multimodal: 16/100.** Text-only deployment (band 10–20); OfficeQA is text-document work, not vision. Cohort's 20.8 sits within the same floor band — no real disagreement.
 - **Coding: 76/100.** SWE-Pro 65.7 / Multilingual 82.9 / DeepSWE 64.3 is a strong modern-harness trio, but sweMarathon 31.9 and ProgramBench 17.5 show marathon autonomy breaks and there's no SWE-V/LCB anchor. A shade under Kimi's 78.
 - **Cost efficiency: 88/100.** Apache 2.0 free weights; self-hosting a 770B/49B is datacenter money but marginal per-token is hardware-only. Matches the qualifying read. Cost excluded from Overall.
-- **Overall Score: 66/100.** Mean of Tool 80, Reasoning 78, Context 88, Multimodal 16, Coding 76 = 338/5 = 67.6 → **68**. Best fit: **self-hosted long-horizon text agents and multilingual repo work where Apache licensing is the requirement** — GDPval-top-2 open weights with a frontier-rare unfurnished HLE pass, held back by preview-status unknowns (no honesty panel) and harness-dependent execution. Sits exactly on the Kimi K3/67–cohort/68.7 band: this is one of the rare folders where the measurement and the reputation agree.
+- **Overall Score: 67.6/100.** Mean of Tool 80, Reasoning 78, Context 88, Multimodal 16, Coding 76 = 338/5 = 67.6 → **68**. Best fit: **self-hosted long-horizon text agents and multilingual repo work where Apache licensing is the requirement** — GDPval-top-2 open weights with a frontier-rare unfurnished HLE pass, held back by preview-status unknowns (no honesty panel) and harness-dependent execution. Sits exactly on the Kimi K3/67–cohort/68.7 band: this is one of the rare folders where the measurement and the reputation agree.
 
 ---
 

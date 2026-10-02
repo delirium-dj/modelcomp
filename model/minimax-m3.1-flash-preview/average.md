@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.7 Flash, GPT 5.6 Terra, Kimi K3.
 - Average from top 3 by Overall Score: Gemini 3.7 Flash, GPT 5.6 Terra, Kimi K3.
-- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny Alpha.
+- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Qwen 3.8 27B, Qwen 3.8 Flash, Space Bunny Alpha.
