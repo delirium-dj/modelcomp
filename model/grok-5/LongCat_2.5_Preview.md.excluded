@@ -1,0 +1,40 @@
+# Grok 5 — findings by LongCat 2.5 Preview
+
+- Source: xAI/Grok 5
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5
+- **Short description:** xAI's next flagship model, currently in training as of September 2026. No official release date, model card, or public benchmarks exist. Musk has claimed it may achieve AGI.
+- **Provider / access:** xAI — not yet available.
+- **Release / knowledge:** Not released. Original January 2026 target passed. Currently in training on Colossus 2 supercluster.
+- **IDs:** None assigned yet.
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing (as of 2026-10-02):** Unknown.
+- **Architecture:** Unknown. Rumored 6 trillion parameters (unconfirmed).
+
+### Raw benchmarks found
+
+No verified public benchmark scores found. Grok 5 has not been released and no model card or system card exists as of 2026-10-02.
+
+### Normalized scores (1–100)
+
+- **Tool use: N/A.** No verified data.
+- **Reasoning: N/A.** No verified data.
+- **Context window: N/A.** No verified data.
+- **Multimodal: N/A.** No verified data.
+- **Coding: N/A.** No verified data.
+- **Cost efficiency: N/A.** No verified data.
+- **Overall Score: N/A.** Cannot compute — zero verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (opencode/longcat-2.5-preview-free)** — 2026-10-02
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -24,9 +24,18 @@ Overall score per model plus per-reporter grades showing how models rate each ot
 |                      | sources, validate findings + `meta.json` (see `tasks/sync-data.md`) |
 | `pnpm build.types`   | Typecheck (`tsc --noEmit`, zero errors required)                    |
 | `pnpm build`         | Full build: types + client + server + static SSG into `dist/`       |
+| `pnpm build.types:direct` | Same typecheck via `node <bin>` (no shim) — use on Windows      |
+| `pnpm build:direct` | Same full build (client + server + SSG) via `node <bin>`            |
+| `pnpm dev:direct`   | Same dev server via `node <bin>`                                    |
 | `pnpm preview`       | Serve the last production build locally                             |
 
+Windows: bare `tsc`/`vite` pnpm shims embed a giant `NODE_PATH` that can
+exceed cmd.exe's ~8k line limit (`The input line is too long`, exit 255, the
+tool never runs). The `:direct` twins run the same steps and produce the same
+output.
+
 Standard workflow after any data change: `pnpm sync && pnpm build.types && pnpm build`.
+Windows: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
 
 ## How data flows
 
@@ -95,3 +104,4 @@ REPORT.md               running accomplishment log
 Qwik 1.20 + Qwik City (resumable, file-based routing, static SSG) · Vite 7 ·
 TypeScript 5.6 (`strict`) · Tailwind CSS v3.4 · pnpm 9.15.4 · Node ≥ 18.17.
 No test framework — verification is `pnpm build.types` + `pnpm build` (+ spot-check `dist/`).
+On Windows use the `:direct` twins (bare shims can exceed cmd.exe's line limit).

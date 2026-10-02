@@ -11,6 +11,15 @@
 pnpm sync && pnpm build.types && pnpm build
 ```
 
+Windows (bare `tsc`/`vite` shims exceed cmd.exe's ~8k line limit via a giant
+`NODE_PATH` — `The input line is too long`, exit 255, tool never runs):
+
+```text
+pnpm sync && pnpm build.types:direct && pnpm build:direct
+```
+
+(`build:direct` = client + server/SSG; typecheck stays a separate step, mirroring `qwik build`.)
+
 Large-repo tip: `pnpm sync:quiet` (same as `pnpm sync -- --quiet` / `-q`)
 runs the identical checks and writes but prints only `FAIL` lines plus the
 final summary — no per-folder `SKIP` / `GATE` / `WRITE` / `INFO` noise. The

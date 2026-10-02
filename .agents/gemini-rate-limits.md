@@ -45,6 +45,10 @@ final summary:
 pnpm sync && pnpm build.types && pnpm build
 ```
 
+Windows (bare shims exceed cmd.exe's ~8k line limit — `The input line is too
+long`): hand over `pnpm sync && pnpm build.types:direct && pnpm build:direct`
+instead (same steps via `node <bin>`, same output).
+
 ## Rule 5 — Never stop early; recovery is re-delegation
 
 - The task ends only when re-auditing `model/` shows zero folders missing

@@ -1,75 +1,68 @@
 # Claude Sonnet 3.7 — findings by Mimo v2.6 Flash
 
-- Source: Anthropic/`claude-3-7-sonnet`
-- Date: 2026-10-01 (UTC)
+- Source: Anthropic/Claude Sonnet 3.7 (`claude-3-7-sonnet-20250219`)
+- Date: 2026-10-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Sonnet 3.7 (Claude 3.7 Sonnet)
-- **Short description:** Anthropic's 2025-02-24 Sonnet release — the first Claude with hybrid extended thinking and a controllable thinking budget; a general-purpose coding/agent model that was Anthropic's mid-tier workhorse until the Sonnet 4 generation. Not a variant/alias of another entry in this dataset.
-- **Provider / access:** Anthropic Claude Platform Messages API (`https://api.anthropic.com/v1/messages`), Amazon Bedrock, Google Cloud Vertex AI; also Claude Code and Claude.ai apps. Messages API (Chat-completions style), not OpenAI Chat Completions.
-- **Release / knowledge:** released 2025-02-24 (`claude-3-7-sonnet-20250219` snapshot); knowledge cutoff not published in sources found. Availability note: Anthropic's pricing docs still listed Claude 3.7 Sonnet rates as of 2026-09-06 (AnotherWrapper reading of `platform.claude.com/docs/en/about-claude/pricing`), while one gateway (Future AGI, reading litellm metadata) flags the `-latest` alias as deprecated — verify live availability before adopting.
-- **IDs:** `claude-3-7-sonnet`, `claude-3-7-sonnet-20250219`, `claude-3-7-sonnet-latest`. **No OpenCode Zen Free ID found** — scored on paid API pricing.
-- **Context window:** 200,000 tokens input; max output 64,000 tokens (litellm via Future AGI; another pricing tracker lists 128K — treat 64K as the documented figure, 128K unverified).
-- **Modalities:** text + image + PDF in; text out; hybrid extended thinking (controllable budget); function calling, prompt caching, vision (Future AGI capability rows: "vision, pdf, text"; Vals: text/image/file in, video **not** supported). No audio/video input verified (the llm-stats multimodal table claiming audio/video is a generic matrix, contradicted by Vals).
-- **Pricing (as of 2026-10-01):** $3.00 / 1M input, $15.00 / 1M output (Anthropic pricing docs; identical to Claude Sonnet 4's list price); cached input $0.30 / 1M (litellm via Future AGI). Blended $18.00 / 1M in+out (AnotherWrapper). Paid tier only — no free API tier verified.
-- **Architecture:** proprietary; weights not released (Vals: "Weights: Private").
+- **Name:** Claude Sonnet 3.7 (API: `claude-3-7-sonnet-20250219`)
+- **Short description:** Anthropic's first hybrid-reasoning Sonnet (released 2025-02-24) — one checkpoint serving both instant answers and budget-controlled extended thinking; launched alongside the Claude Code CLI research preview and held the SWE-bench Verified record at launch. Superseded/deprecated by the Claude 4.x line (API id deprecated late 2025).
+- **Provider / access:** Anthropic first-party API (platform.claude.com, Chat-style Messages API with `thinking` budget) and Anthropic apps (claude.ai, Claude Code). No $0 free API tier found in reviewed sources — Anthropic first-party is paid.
+- **Release / knowledge:** released 2025-02-24 (model id dated 2025-02-19); knowledge cutoff January 2025.
+- **IDs:** `claude-3-7-sonnet-20250219` (deprecated); no Zen Free ID found.
+- **Context window:** 200,000 input; max output 64,000 (extended thinking) / 16,000 standard per benchgen, up to 128,000 including thinking tokens at launch beta (Anthropic docs).
+- **Modalities:** text + image in; text out; hybrid reasoning yes (on/off per request, thinking budget 1,024→up to 128K tokens, visible chain-of-thought); tool calls yes; prompt caching (90% cache-read discount).
+- **Pricing (as of 2026-10-02):** **$3.00 in / $15.00 out per 1M** (thinking tokens billed as output; same price as Claude 3.5 Sonnet) — Anthropic pricing docs.
+- **Architecture:** proprietary; parameters undisclosed.
 
 ### Raw benchmarks found
 
-> Measured numbers with (source, rank/percentile, harness) for traceability. Missing rows = no verified public score found.
+> Measured numbers with (source / rank / harness). Missing rows = "no verified public score found".
 
 Agent / tool use:
 
-- Terminal-Bench: **35.2%** (AnotherWrapper shared table); Terminal-Bench Hard: **21%** (Artificial Analysis via Opper)
-- τ²-Bench Retail: **81.2%**; τ²-Bench Airline: **58.4%** (AnotherWrapper shared table)
-- τ²-Bench Telecom: **50%** (AA via Opper)
-- OSWorld / OSWorld Verified: **35.8%** (AnotherWrapper shared table)
-- The Agent Company: **40.2%**; DeepResearch Bench: **43.6%** (AnotherWrapper)
-- GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
+- TAU-bench Retail: **81.2%** (Anthropic release table via AwesomeAgents); TAU2 Airline **64.2%** (55th pct, rank 10/21); Tau2 Telecom 50.0%; TAU Airline (HAL) 56.0% (90th pct, rank 2/11) — BenchmarkList/AA
+- GDPval-AA: **1046** (73rd pct, rank 91/340) — Artificial Analysis via BenchmarkList
+- Terminal-Bench Hard (AA subset): **21.2%** (69th pct, rank 102/326, 2026-06-10); Terminal-Bench 2.1: no verified public score found
+- OSWorld-Verified 35.8%; MCP-Universe 24.2%; AgentBench FC 53.2%; SHADE-Arena 26.2 overall success (Anthropic research post)
 
 Reasoning / knowledge:
 
-- GPQA: **84.8%**; GPQA Diamond: **78.5%** (AnotherWrapper shared table, thinking-on); GPQA Diamond: **66%** (AA via Opper, AA harness)
-- HLE: **8.0%** (AnotherWrapper); **4%** (AA via Opper)
-- MMLU-Pro: **80.7%** (AnotherWrapper) / **80%** (AA); MMMLU: **86.1%**; MGSM: **92.4%**; IFEval: **93.2%**; IFBench: **44%** (AA)
-- AIME 2025: **54.8%** (AnotherWrapper) / **21%** (AA harness); AIME 2024: **80%**; MATH-500: **96.2%**; MATH: **91.2%**
-- FrontierMath: **3.1%** (Tiers 1–3); ARC-AGI-1 Verified: **28.6%**; ARC-AGI-2: **0.9%**
-- Artificial Analysis Intelligence Index: **23.9** (AA via Opper); Math Index **21.0**; AA long-context reasoning **50%**
-- MMMU: **75%**; LiveBench: **76.1%**; SimpleBench: **46.4%**; Chatbot Arena ELO: **1,340–1,372** (Serenities AI / LMArena capture 2026-08-08)
+- GPQA Diamond: **84.8% with extended thinking** (Anthropic release, via AwesomeAgents); **78.5% official** entry on evals.report (2025-02-24); 68% snapshot in release-tracker summary (thinking-off context)
+- Humanity's Last Exam: **10.3%** (71st pct, rank 184/466); HLE text-only 7.9% — AA via BenchmarkList
+- MMLU-Pro: 80.3% (67th pct) / 80.7%; Artificial Analysis Intelligence Index: **27.06** (71st pct, rank 124/418)
+- AIME 2025: 80.0% (AwesomeAgents release summary); FrontierMath 4.14% (evals.report)
 
 Coding:
 
-- SWE-bench Verified: **70.3%** (Anthropic-reported figure via AnotherWrapper shared table); **62.3%** (Serenities AI index, different scaffold)
-- LiveCodeBench: **56.7%** (AnotherWrapper) / **39%** (AA via Opper)
-- SciCode: **38%** (AA via Opper); HumanEval+: **86.0%** (Serenities)
-- CyberBench: **20%**; Tax Eval v2: **72.4%** (AnotherWrapper)
-- SWE-bench Pro / DeepSWE / Vibe Code Bench: **no verified public score found**
+- SWE-bench Verified: **62.3%** at release (extended thinking, Anthropic official); **63.7%** vanilla on the n=489 solvable subset; **70.3%** with parallel test-time-compute scaffold (Anthropic release post) — still the headline launch record for early 2025
+- SWE-bench Full 33.8% (75th pct, rank 3/9); SWE-bench Lite 48.0%; SWE-bench Multimodal 30.6%; Multi-SWE-Bench 19.3% (90th pct, rank 2/11)
+- LiveCodeBench: **56.7%** (24th pct, rank 94/123); Aider Polyglot 64.9% (76th pct); SciCode 40.3% (75th pct); BigCodeBench 35.8% (Benchgen); BigCodeBench-Hard 32.4% (89th pct, rank 3/20)
 
 Long context:
 
-- 200K window (Anthropic pricing/spec rows); AA long-context reasoning (LCR) **50%**; MRCR / RULER / GraphWalks retrieval: **no verified public score found**
+- 200K window (Anthropic docs); MRCR / RULER / GraphWalks: no verified public score found
 
 Multimodal:
 
-- MMMU: **75%** (AnotherWrapper); MMMU Pro: measured by Vals (accuracy value not captured in sources found); PDF input supported (Future AGI modalities row)
+- MMMU Pro: **71.5%** (29th pct, rank 56/79) — AA via BenchmarkList; DocVQA 93.5%, ChartQA 91.2% (Anthropic); no audio/video-in
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** τ²-Bench Retail 81.2% and Airline 58.4% are solidly mid-upper, but Terminal-Bench 35.2% (AA Hard 21%) sits below the mid band (TB 45–60 → 50–70) and OSWorld 35.8% / The Agent Company 40.2% keep the model out of the frontier tier.
-- **Reasoning: 66/100.** GPQA 66–78.5% and MMLU-Pro ~80% push the top of the documented mid band, with AA Index 23.9 inside the 20–35 range; HLE 4–8%, FrontierMath 3.1% and ARC-AGI-2 0.9% are the caps.
-- **Context window: 70/100.** 200K tokens = the 200K anchor of the tier mapping; AA long-context reasoning at 50% is mid-pack for that window.
-- **Multimodal: 80/100.** Text + image + PDF input with a 75% MMMU score lands in the +video/PDF-in band (75–90); no audio in or non-text out, which caps it below 90.
-- **Coding: 72/100.** SWE-bench Verified 70.3% (Anthropic figure; 62.3% on an independent scaffold) is well above the mid band, but LiveCodeBench 39–57%, SciCode 38% and Terminal-Bench 35% prevent a frontier-grade score.
-- **Cost efficiency: 60/100.** $3/$15 is the documented ~60 anchor of the cost curve ($3/$15 ≈ 60); cached input at $0.30 and no $0 tier hold it there.
-- **Overall Score: 70/100.** (60 + 66 + 70 + 80 + 72) / 5 = 69.6 → 70 — best-fit as a proven PDF/vision + long-output workhorse at mid-tier pricing; strong τ² retail and MMMU, capped by Terminal-Bench-class agentic performance and a dated (Feb 2025) knowledge base.
+- **Tool use: 72/100.** Strong TAU-bench Retail 81.2% / TAU2 Airline 64.2% and GDPval-AA 1046 anchor the upper-mid band; capped below 80 by Terminal-Bench Hard 21.2%, MCP-Universe 24.2% and no TB2.1/Tau3-Banking number.
+- **Reasoning: 68/100.** GPQA Diamond 78.5–84.8% sits above the mid anchor, but HLE 10.3% and AA Intelligence Index 27.06 keep it out of the 90+ frontier band — top of the documented mid range.
+- **Context window: 70/100.** 200K input maps exactly to the methodology's 200K anchor (200K–500K band = 65–84, "200K = 70"); 64–128K output with thinking noted as a non-scored capability.
+- **Multimodal: 68/100.** Image input + text output with strong document/chart understanding (DocVQA 93.5, ChartQA 91.2, MMMU Pro 71.5) — top of the +image-in band (60–70), capped by no audio/video input or non-text output.
+- **Coding: 72/100.** SWE-bench Verified 62.3% (70.3% scaffolded) was launch-state-of-the-art and still solid mid-band alongside Aider Polyglot 64.9% / SciCode 40.3%; well below the 2026 frontier (80%+ SWE-V, TB2.1 85%+), so capped in the 65–75 mid band.
+- **Cost efficiency: 60/100.** Methodology anchor: $3/$15 per 1M = ~60 (paid only, thinking tokens billed as output); 90% cache-read discount helps but no free tier exists.
+- **Overall Score: 70/100.** (72+68+70+68+72)/5 = 70.0 → 70 — best-fit: proven 2025-era hybrid-reasoning workhorse for TAU-style tool tasks and reliable SWE work, now deprecated in favor of the Claude 4.x line; expensive at $3/$15.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
-- Method: public internet research (Anthropic pricing/model pages, Artificial Analysis via Opper AI, AnotherWrapper shared-benchmark table, Serenities AI AI Value Index, Vals AI model page, llm-stats, Future AGI/litellm spec sheet); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-02
+- Method: public internet research (Anthropic release post and pricing docs, BenchmarkList/Artificial Analysis aggregates, evals.report, benchgen, Awesome Agents); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

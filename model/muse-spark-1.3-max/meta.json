@@ -1,0 +1,8 @@
+{
+  "id": "opencode/muse-spark-1.3-max",
+  "name": "Muse Spark 1.3 Max",
+  "short": "Muse Spark 1.3 Max model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

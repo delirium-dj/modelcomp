@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.7 Flash.
 - Average from top 1 by Overall Score: Gemini 3.7 Flash.
-- Ignored below-gate rater(s): DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, Laguna XS 2.1, LongCat 2.5 Preview, Qwen 3.8 27B, Space Bunny Alpha.
+- Ignored below-gate rater(s): DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, Laguna XS 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny Alpha.

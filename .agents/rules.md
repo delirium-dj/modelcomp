@@ -60,6 +60,6 @@ reports, and the website stay consistent.
 
 ## Verification & collaboration
 
-- After data or code changes: `pnpm build.types && pnpm build`, then spot-check `dist/index.html` for the changed values.
-- Dev server quirk: `pnpm dev` needs `Accept: text/html` for curl.
+- After data or code changes: `pnpm build.types && pnpm build` (Windows cmd line-length failure → `pnpm build.types:direct && pnpm build:direct`), then spot-check `dist/index.html` for the changed values.
+- Dev server quirk: `pnpm dev` needs `Accept: text/html` for curl (Windows: `pnpm dev:direct`).
 - Do not commit, push, or open PRs unless explicitly asked. Prefer editing files over creating new ones.

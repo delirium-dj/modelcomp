@@ -1,0 +1,101 @@
+# Grok 5 — findings by Big Pickle
+
+> **SELF-EXCLUDED (notes only, not scored).** As of 2026-10-02 there is **no Grok 5
+> model to score**. xAI has confirmed only that Grok 5 exists and is in training (one
+> line in the January 2026 $20B Series E announcement). There is no model card, no
+> spec sheet, no API endpoint, no launch post and no public benchmark — and Grok 4.8
+> and Grok 4.9 still sit ahead of it in Musk's own roadmap. Per
+> `model-report-TEMPLATE.md` (SELF-EXCLUSION) and `RULES.md`, this model is saved as
+> `Big_Pickle.md.excluded` instead of a scored `.md`, so no rumored numbers enter the
+> dataset mean.
+
+- Source: xAI / SpaceXAI (OpenCode Zen ID `opencode/grok-5`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 — unreleased.
+- **Short description:** xAI's next-generation flagship MoE, confirmed to be in
+  training on Colossus 2 (Memphis) since at least January 2026. It is **not** Grok
+  4.5 / "V9-Medium", the 1.5T Cursor-trained coding model that shipped July 8, 2026 —
+  headlines routinely conflate the two. xAI shipped Grok 4.5 (Jul 8), 4.6 (Aug 12) and
+  4.7 (Sep 21) instead; 4.7 is the current flagship and Musk's Sep 14, 2026 roadmap
+  puts 4.8 and 4.9 ahead of Grok 5.
+- **Provider / access:** none. Not on the xAI API, not on OpenRouter, not on any
+  aggregator. Consumer access is speculation only.
+- **Release / knowledge:** no date. The original late-2025 target slipped to Q1 2026,
+  then Q2 2026; both windows closed with no launch, and the Q3 window closed with
+  4.7 shipping instead.
+- **IDs:** `opencode/grok-5` in this folder's `meta.json` is a registry placeholder —
+  xAI has published no API model-ID string for Grok 5.
+- **Context window:** unconfirmed. Shipping Grok 4.7 has 500K; Grok 4.3 has 1M; the
+  "1.5M–2M tokens" figure repeated across the web is an estimate with no source.
+- **Modalities:** unconfirmed. Rumored text/image/video/audio; Grok 4.7 is text and
+  image in, text out.
+- **Pricing:** unannounced. Analyst estimates cluster at $5–8 in / $20–30 out per
+  1M — a projection, not a rate card. For reference the shipping Grok 4.7 is $2 / $6
+  (doubled above 200K input tokens).
+- **Architecture:** unconfirmed. The most-repeated spec — 6T-parameter MoE, with a
+  parallel 10T variant — traces back to no named source. The only *sourced* figure is
+  1.5T, and that is attached to V9-Medium (Grok 4.5), not Grok 5.
+
+## Raw benchmarks found
+
+Every row: **no verified public score found** for Grok 5.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- AIME 2026: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score
+  found — there is no Grok 5 page on Artificial Analysis
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding / agents:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- Terminal-Bench / MCP Atlas / Tau3-Bench: no verified public score found
+- LiveCodeBench / SciCode: no verified public score found
+
+Long context / multimodal:
+
+- no published retrieval measurement and no published vision benchmark
+
+## Contradicted claim worth recording
+
+One low-quality aggregator (`recatools.com`, dated 2026-05-20) publishes a Grok 5
+table with GPQA Diamond 89% / 94% "Heavy", HLE 18%, AIME 2026 96% and SWE-bench
+Verified 78%. **These figures are not used.** The page claims a June 2026 launch that
+did not happen, and every other source checked — xAI's own channels, Artificial
+Analysis coverage, Polymarket resolution, and eight independent trackers — states that
+Grok 5 has no benchmark row. The numbers appear fabricated; they are logged here only
+so a future revision does not rediscover and re-import them.
+
+## Prediction market state (2026-10-01)
+
+Polymarket / Kalshi "will Grok 5 be released by": Oct 31 — 1%; Nov 1 — 8%; Nov 30 —
+16%; Dec 1 — 15%; Dec 31 — 66%; before 2027 — 55%. The earlier "released by June 30,
+2026" contract resolved No. Traders treat a 2026 launch as a coin flip, which is the
+right prior for anyone tempted to score this entry.
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: an Overall Score needs the mean of five quality dims, and
+for Grok 5 every one of them would rest on rumor. Scoring an unreleased model from
+Musk's posts would put fiction into the dataset mean, which is exactly what this
+exclusion exists to prevent.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-02
+- Method: public internet research (xAI's Series E funding announcement as reported by
+  named outlets, geotoolbox.ai and felloai.com release-status trackers dated Aug–Sep
+  2026, DataLLM Lab's source-tier ledger, whenthemodeldrop.com Polymarket/Kalshi
+  probabilities updated 2026-10-01, vegavid.com late-Sept lineup guide, buildbevy.com,
+  tesorb.com, kie.ai). No scored values; scores inside are ignored by `pnpm sync`.
+- Future sources: if xAI ships Grok 5, delete this file and write `Big_Pickle.md`
+  against the vendor model card. Future sources: add a new file next to this one,
+  e.g. `Grok_4.7.md`, using the same headings.

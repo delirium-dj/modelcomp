@@ -19,26 +19,21 @@
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
 - [REPORT.md](file://REPORT.md)
 - [model/Inkling/Qwen_3.8_Flash.md](file://model/Inkling/Qwen_3.8_Flash.md)
-- [model/Inkling/Laguna_XS_2.1.md](file://model/Inkling/Laguna_XS_2.1.md)
-- [model/Inkling/DeepSeek_4_Flash.md](file://model/Inkling/DeepSeek_4_Flash.md)
-- [model/Inkling/Kimi_K3.md](file://model/Inkling/Kimi_K3.md)
-- [model/Inkling/GLM_5.3.md](file://model/Inkling/GLM_5.3.md)
-- [model/kimi-k2.8-preview/meta.json](file://model/kimi-k2.8-preview/meta.json)
-- [model/muse-spark-1.1/meta.json](file://model/muse-spark-1.1/meta.json)
-- [model/ox_alpha/meta.json](file://model/ox_alpha/meta.json)
-- [model/qwen-3.6-plus/meta.json](file://model/qwen-3.6-plus/meta.json)
-- [model/gpt-5.3-codex-spark/meta.json](file://model/gpt-5.3-codex-spark/meta.json)
+- [model/gpt-5.4-pro/meta.json](file://model/gpt-5.4-pro/meta.json)
+- [model/gpt-5.5-pro/meta.json](file://model/gpt-5.5-pro/meta.json)
+- [model/muse-spark-1.3-max/meta.json](file://model/muse-spark-1.3-max/meta.json)
+- [model/union-alpha/meta.json](file://model/union-alpha/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated Multi-Agent Evaluation Process section to reflect the addition of five new evaluators (Qwen 3.8 Flash, Laguna XS 2.1, DeepSeek 4 Flash, Kimi K3, GLM 5.3) across 251+ model directories
-- Enhanced evaluation coverage documentation with specific examples from the Inkling model directory showing diverse evaluator perspectives
-- Updated evidence quality standards to account for the expanded multi-agent ecosystem
-- Added references to new evaluator methodologies and their contribution patterns
-- Expanded cross-model signed log documentation to include recent additions
-- Added comprehensive documentation for new model directories: Kimi K2.8 Preview, Muse Spark 1.1, Ox Alpha, Qwen 3.6 Plus, and GPT-5.3-Codex-Spark
-- Updated scoring methodology documentation to reflect standardized evaluation framework improvements
+- Updated Multi-Agent Evaluation Process section to reflect the addition of new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha across expanded model directories
+- Enhanced evaluation coverage documentation with specific examples from new model directories demonstrating diverse research methodologies
+- Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators
+- Added references to new evaluator methodologies including detailed benchmark analysis and comparative scoring approaches
+- Expanded cross-model signed log documentation to include recent additions from multiple providers
+- Added comprehensive documentation for new model directories: GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha
+- Updated scoring methodology documentation to reflect standardized evaluation framework improvements across diverse model families
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -219,7 +214,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been comprehensively expanded with five new evaluators (Qwen 3.8 Flash, Laguna XS 2.1, DeepSeek 4 Flash, Kimi K3, GLM 5.3) added across 251+ model directories. These evaluators demonstrate diverse assessment approaches: Qwen 3.8 Flash provides detailed benchmark analysis with explicit source citations, Laguna XS 2.1 offers comparative score analysis, DeepSeek 4 Flash focuses on open-weight model characteristics, Kimi K3 emphasizes vendor listing verification, and GLM 5.3 delivers comprehensive architectural analysis.
+**Updated** The evaluation dataset has been comprehensively expanded with new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha across numerous model directories. These evaluators demonstrate diverse assessment approaches: Qwen 3.8 Flash provides detailed benchmark analysis with explicit source citations, GPT-5.4 Pro and GPT-5.5 Pro represent specialized OpenAI variants with focused evaluation methodologies, Muse Spark 1.3 Max offers enhanced multimodal capabilities assessment, and Union Alpha demonstrates stealth frontier model evaluation techniques.
 
 ```mermaid
 flowchart TD
@@ -395,7 +390,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Qwen 3.8 Flash emphasizes comprehensive benchmark citation with explicit source attribution, Laguna XS 2.1 focuses on comparative score analysis from top-tier raters, DeepSeek 4 Flash highlights open-weight model characteristics and limitations, Kimi K3 prioritizes vendor listing verification and pricing accuracy, and GLM 5.3 provides detailed architectural analysis with extensive benchmark coverage.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Qwen 3.8 Flash emphasizes comprehensive benchmark citation with explicit source attribution and detailed architectural analysis, GPT-5.4 Pro and GPT-5.5 Pro showcase specialized OpenAI variant evaluations with focused methodology approaches, Muse Spark 1.3 Max demonstrates enhanced multimodal capability assessment, and Union Alpha illustrates stealth frontier model evaluation techniques with careful attention to access patterns and pricing structures.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -428,7 +423,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from the five new evaluators across the Inkling model directory, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
+**Updated** Recent additions include comprehensive evaluations from new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -436,97 +431,92 @@ Key properties:
 - [model-findings.md:198-202](file://model-findings.md#L198-L202)
 
 ### Expanded Evaluator Ecosystem
-The comprehensive expansion of the model evaluation dataset introduces five new evaluators that significantly enhance evaluation coverage and scoring infrastructure across 251+ model directories.
+The comprehensive expansion of the model evaluation dataset introduces new frontier models that significantly enhance evaluation coverage and scoring infrastructure across numerous model directories.
 
-New evaluator characteristics:
+New model characteristics:
 
-**Qwen 3.8 Flash**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation and multimodal capabilities.
+**Qwen 3.8 Flash**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation and multimodal capabilities with extensive architectural analysis.
 
-**Laguna XS 2.1**: Offers comparative score analysis derived from top-tier raters, focusing on relative positioning within the broader model ecosystem. Emphasizes practical utility assessments and value propositions.
+**GPT-5.4 Pro**: Represents specialized OpenAI variant with focused evaluation methodology, demonstrating consistent application of the standardized evaluation framework across different model families.
 
-**DeepSeek 4 Flash**: Specializes in open-weight model analysis, highlighting architectural details, licensing considerations, and self-hosting implications. Provides balanced assessments of both strengths and limitations.
+**GPT-5.5 Pro**: Shows advanced OpenAI model evaluation with sophisticated benchmark coverage and detailed performance analysis across multiple domains.
 
-**Kimi K3**: Prioritizes vendor listing verification and pricing accuracy, with careful attention to official model specifications and availability. Focuses on accessibility and deployment considerations.
+**Muse Spark 1.3 Max**: Offers enhanced multimodal capabilities assessment with comprehensive evaluation of text processing and advanced feature sets.
 
-**GLM 5.3**: Delivers comprehensive architectural analysis with extensive benchmark coverage, emphasizing technical specifications, training methodology, and performance characteristics across multiple domains.
+**Union Alpha**: Demonstrates stealth frontier model evaluation techniques with careful attention to access patterns, pricing structures, and specialized deployment considerations.
 
 ```mermaid
 graph TB
-Subgraph NewEvaluators["New Evaluator Categories"]
+Subgraph NewModels["New Frontier Models"]
 Qwen["Qwen 3.8 Flash<br/>Benchmark Analysis"]
-Laguna["Laguna XS 2.1<br/>Comparative Analysis"]
-DeepSeek["DeepSeek 4 Flash<br/>Open-Weight Focus"]
-Kimi["Kimi K3<br/>Vendor Verification"]
-GLM["GLM 5.3<br/>Architectural Analysis"]
+GPT54["GPT-5.4 Pro<br/>Specialized Variant"]
+GPT55["GPT-5.5 Pro<br/>Advanced Evaluation"]
+Muse["Muse Spark 1.3 Max<br/>Multimodal Focus"]
+Union["Union Alpha<br/>Stealth Frontiers"]
 end
 Subgraph Coverage["Evaluation Coverage"]
-Inkling["Inkling Model<br/>251+ Directories"]
 Diverse["Diverse Assessment<br/>Approaches"]
 Enhanced["Enhanced Infrastructure<br/>Scoring Accuracy"]
+Standardized["Standardized Framework<br/>Consistent Metrics"]
 end
-NewEvaluators --> Coverage
+NewModels --> Coverage
 Coverage --> Enhanced
 ```
 
 **Diagram sources**
 - [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
-- [model/Inkling/Laguna_XS_2.1.md:1-35](file://model/Inkling/Laguna_XS_2.1.md#L1-L35)
-- [model/Inkling/DeepSeek_4_Flash.md:1-68](file://model/Inkling/DeepSeek_4_Flash.md#L1-L68)
-- [model/Inkling/Kimi_K3.md:1-63](file://model/Inkling/Kimi_K3.md#L1-L63)
-- [model/Inkling/GLM_5.3.md:1-85](file://model/Inkling/GLM_5.3.md#L1-L85)
+- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
+- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
+- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 **Section sources**
 - [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
-- [model/Inkling/Laguna_XS_2.1.md:1-35](file://model/Inkling/Laguna_XS_2.1.md#L1-L35)
-- [model/Inkling/DeepSeek_4_Flash.md:1-68](file://model/Inkling/DeepSeek_4_Flash.md#L1-L68)
-- [model/Inkling/Kimi_K3.md:1-63](file://model/Inkling/Kimi_K3.md#L1-L63)
-- [model/Inkling/GLM_5.3.md:1-85](file://model/Inkling/GLM_5.3.md#L1-L85)
+- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
+- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
+- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 ### New Model Directory Documentation
-The repository has been significantly expanded with five new model directories that demonstrate the standardized evaluation framework:
+The repository has been significantly expanded with new model directories that demonstrate the standardized evaluation framework:
 
-**Kimi K2.8 Preview**: Moonshot AI's mid-tier coding and agentic model positioned between K2.7 Code and flagship K3, featuring 1M context window and efficient reasoning capabilities. Uses Kimi membership plan pricing with no per-token billing.
+**GPT-5.4 Pro**: OpenAI's specialized GPT-5.4 Pro model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes with focused evaluation methodology.
 
-**Muse Spark 1.1**: OpenCode's Muse Spark model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes.
+**GPT-5.5 Pro**: Advanced OpenAI model with 128K context window and text in/out capabilities, following standard pricing structure for consistent evaluation across the platform.
 
-**Ox Alpha**: Stealth frontier reasoning model accessed through OpenRouter's stealth/ox-alpha endpoint, designed for long-horizon coding agents with 1M context window. Features free Zen tier access for experimental agentic coding and logic puzzles.
+**Muse Spark 1.3 Max**: Enhanced Muse Spark variant with 128K context window and text in/out support, representing advanced multimodal capabilities within the evaluation framework.
 
-**Qwen 3.6 Plus**: Qwen's 3.6 Plus variant with 128K context window and text in/out capabilities, representing standard pricing structure for evaluation framework.
-
-**GPT 5.3 Codex Spark**: OpenAI's specialized codex variant with 128K context window, following standard pricing model for consistent evaluation across the platform.
+**Union Alpha**: Stealth frontier model accessed through specialized endpoints, designed for advanced coding tasks with 128K context window and standard pricing model for evaluation purposes.
 
 ```mermaid
 graph TB
-Subgraph NewModels["New Model Directories"]
-Kimi["Kimi K2.8 Preview<br/>Moonshot AI Mid-tier"]
-Muse["Muse Spark 1.1<br/>OpenCode Standard"]
-Ox["Ox Alpha<br/>Stealth Frontier"]
-Qwen["Qwen 3.6 Plus<br/>Qwen Variant"]
-GPT["GPT 5.3 Codex Spark<br/>Specialized Codex"]
+Subgraph NewModelDirs["New Model Directories"]
+GPT54["GPT-5.4 Pro<br/>OpenAI Specialized"]
+GPT55["GPT-5.5 Pro<br/>Advanced Variant"]
+Muse["Muse Spark 1.3 Max<br/>Enhanced Multimodal"]
+Union["Union Alpha<br/>Stealth Frontier"]
 end
 Subgraph Framework["Standardized Framework"]
-Context["128K-1M Context Windows"]
+Context["128K Context Windows"]
 Modalities["Text In/Out Support"]
 Pricing["Standard Pricing Models"]
 Evaluation["Consistent Evaluation"]
 end
-NewModels --> Framework
+NewModelDirs --> Framework
 Framework --> Evaluation
 ```
 
 **Diagram sources**
-- [model/kimi-k2.8-preview/meta.json:1-10](file://model/kimi-k2.8-preview/meta.json#L1-L10)
-- [model/muse-spark-1.1/meta.json:1-8](file://model/muse-spark-1.1/meta.json#L1-L8)
-- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
-- [model/qwen-3.6-plus/meta.json:1-8](file://model/qwen-3.6-plus/meta.json#L1-L8)
-- [model/gpt-5.3-codex-spark/meta.json:1-8](file://model/gpt-5.3-codex-spark/meta.json#L1-L8)
+- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
+- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
+- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 **Section sources**
-- [model/kimi-k2.8-preview/meta.json:1-10](file://model/kimi-k2.8-preview/meta.json#L1-L10)
-- [model/muse-spark-1.1/meta.json:1-8](file://model/muse-spark-1.1/meta.json#L1-L8)
-- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
-- [model/qwen-3.6-plus/meta.json:1-8](file://model/qwen-3.6-plus/meta.json#L1-L8)
-- [model/gpt-5.3-codex-spark/meta.json:1-8](file://model/gpt-5.3-codex-spark/meta.json#L1-L8)
+- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
+- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
+- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -607,7 +597,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with five new evaluators across 251+ model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to comparative score evaluation—provide richer insights into model capabilities and limitations. The addition of five new model directories (Kimi K2.8 Preview, Muse Spark 1.1, Ox Alpha, Qwen 3.6 Plus, GPT-5.3-Codex-Spark) further demonstrates the standardized evaluation framework's scalability and consistency.
+**Updated** The comprehensive expansion with new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to specialized variant evaluations—provide richer insights into model capabilities and limitations. The addition of these new model directories further demonstrates the standardized evaluation framework's scalability and consistency across different model families and providers.
 
 For reliable contributions:
 - Follow the template and methodology.

@@ -1,0 +1,43 @@
+# Muse Spark 1.3 Max — findings by Laguna S 2.1
+
+- Source: OpenRouter (`https://openrouter.ai/models/muse-spark-1.3-max`), MuseSpark website (`https://www.musespark.ai/`), Hugging Face (`https://huggingface.co/MuseSpark`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.3 Max
+- **Short description:** EXCLUDED — zero verified public benchmarks found for the exact model ID "muse-spark-1.3-max".
+
+## Research findings
+
+### Sources searched (all returned 404 or "not found"):
+
+- **Artificial Analysis (`artificialanalysis.ai`):** searched slug `muse-spark-1.3-max` — 404 Not Found
+- **BenchLM (`benchlm.ai`):** searched slug `muse-spark-1.3-max` — 404 Not Found
+- **OpenRouter (`openrouter.ai/models/muse-spark-1.3-max`):** returned "Author Not Found" — model does not exist in the OpenRouter catalog. The MuseSpark organization on OpenRouter publishes no language model with this ID.
+- **Hugging Face (`huggingface.co/MuseSpark`):** the MuseSpark organization (4 followers, joined recently) has **0 public models** — `None public yet`. No model card for "muse-spark-1.3-max" or any language model variant.
+- **MuseSpark website (`musespark.ai`):** the site is focused entirely on image, video, 3D, audio, and avatar generation workflows (WAN 2.7, Kling 3, Vidu Q3, Seedream 5.0, Nano Banana, etc.). No language model called "Muse Spark 1.3" or "Muse Spark 1.3 Max" exists in their Model Space or AI Tools catalog.
+- **Hugging Face search ("musespark"):** no language model results — only hobbyist repos with no relation to a "Muse Spark 1.3 Max" LLM.
+- **Google:** no model card, no launch post, no academic paper referencing "Muse Spark 1.3 Max" as a language model.
+
+### Note on the Muse Spark 1.3 family:
+
+The Muse Spark 1.3 series (referenced in `model-comparison.md`) appears to be a Meta-published multimodal research model (`muse-spark-1.3-xhigh` on AA, `muse-spark-1-3` on BenchLM). The "Max" variant is not a published or benchmarked identity anywhere in the public sources checked. The repo `meta.json` describes it as "Muse Spark 1.3 Max model evaluation entry" — a generic placeholder with no associated model card or benchmarks.
+
+### Conclusion:
+
+Zero verified public benchmarks exist for the exact model ID "muse-spark-1.3-max". The model has no page on AA, BenchLM, OpenRouter, or Hugging Face. MuseSpark's public presence is entirely focused on generative image/video/3D/audio tools, with no language model of this name. Per the self-exclusion rule (RULES.md), this model is excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
+- Method: public internet research via OpenRouter model catalog (404 / "Author Not Found"), Hugging Face organization page (0 public models), MuseSpark website (image/video/3D tools only, no language models), Artificial Analysis (404), and BenchLM (404).
+- Sources cited: `https://openrouter.ai/models/muse-spark-1.3-max`, `https://www.musespark.ai/`, `https://huggingface.co/MuseSpark`, `https://artificialanalysis.ai/models/muse-spark-1.3-max`, `https://benchlm.ai/models/muse-spark-1.3-max`
+- Zero-influence: did not read peer `model/` findings files during research.
+- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3_Max.md`, using the same headings.
+
+---

@@ -27,6 +27,7 @@ pinned in `package.json` / `pnpm-lock.yaml`.
 - `build.types` — `tsc --incremental --noEmit` (typecheck).
 - `build` — `qwik build` = types + client + server + SSG.
 - `build.client` / `build.server` / `build.preview` / `preview` / `start` — granular variants.
+- `:direct` twins (`build.types:direct`, `build:direct`, `dev:direct`) — same steps invoked as `node <bin>`, bypassing the pnpm shims. Windows: bare `tsc`/`vite` shims embed a giant `NODE_PATH` that can exceed cmd.exe's ~8k line limit (`The input line is too long`, exit 255, tool never runs) — use the `:direct` forms there. Same output.
 
 ## Data layer (code)
 

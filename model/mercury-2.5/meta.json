@@ -1,0 +1,8 @@
+{
+  "id": "opencode/mercury-2.5",
+  "name": "Mercury 2.5",
+  "short": "Mercury 2.5 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing"
+}

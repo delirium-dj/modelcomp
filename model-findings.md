@@ -3,7 +3,7 @@
 Purpose: per-model research findings with explicit attribution (signature = model that provided the findings).
 Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost / Overall) live in `model-comparison.md`. This file is the audit trail: what was found, what is missing, and who reported it.
 
-- Last updated: 2026-09-17 (UTC)
+- Last updated: 2026-10-02 (UTC)
 - Score scale reminder: all scores 1–100, higher is better. See `model-comparison.md` → `Scoring methodology`.
 - Free-tier note: `$0` = OpenCode Zen limited-time free tier. Free data may be used for training (Big Pickle, MiMo, Ling) or trial-logged (Nemotron NVIDIA endpoints) — no confidential code on free tiers.
 
@@ -195,7 +195,195 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ---
 
+## a) Model name: Pixel Canary
+
+### b) Findings
+
+- Anonymous stealth coding model on Vercel AI Gateway (`stealth/pixel-canary`); identity undisclosed, closest reasoning-habit match is Qwen3.8 Flash (63.8/100 similarity per Stealth Models).
+- Specs: 262K total / 131K output, text + image in / text out, reasoning yes (4 levels), tool calls yes, $0 during stealth preview (deprecation scheduled 1 Oct 2026 06:00 UTC).
+- Benchmarks: Vercel Next.js Agent Evals — 28/31 (90%) baseline, 30/31 (97%) with AGENTS.md (pass@4); avg 1015.8s per task. No GPQA, HLE, TB2.0, Terminal-Bench, GDPval-AA, Claw-Eval, SWE-bench, or LiveCodeBench scores found. Absent from AA and BenchLM.
+- Scores: Tool 68 / Reasoning 40 / Context 72 / Multimodal 30 / Coding 85 → Overall **59**.
+- Fit: free-tier coding workhorse for Next.js/front-end tasks while the preview lasts; assume prompts/outputs may be retained for training.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Google Gemini 2.5 Flash Lite
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found. `google-gemini-2.5-flash-lite` returns 404 on AA, BenchLM, OpenRouter, and Google model docs. HF has only community distill derivatives (e.g., `TeichAI/Qwen3-1.7B-Gemini-2.5-Flash-Lite-Preview-Distill`). Meta.json describes it as a "model evaluation entry" placeholder. Note: the separate `gemini-2.5-flash-lite` entry in this project was likewise excluded on 2026-09-29.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Omen Alpha
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found. `omen-alpha` returns 404 on AA, BenchLM, OpenRouter, and has no Hugging Face model card (community search for "omen" yields only hobbyist repos, not a published LLM). Meta.json short description is "Omen Alpha model evaluation entry" — a generic placeholder.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: GPT-OSS 120B
+
+### b) Findings
+
+- OpenAI open-weights 117B MoE reasoning model (5.1B active), Apache 2.0, released Aug 5 2025. 131K context, text in/out only, $0.15/$0.59 per 1M tokens (median across 20 providers).
+- Specs: 117B total / 5.1B active (MoE, 256 experts), 131K context, text-only, reasoning yes, knowledge cutoff May 2024.
+- Benchmarks: τ²-bench 65.8%, GDPval-AA (Elo) 745 / (raw) 4.8%, APEX-Agents-AA 3.1%, AA Agentic Index 6.2%, Gert Labs 29.61%. GPQA Diamond 78.2%, HLE 19.6%, CritPt 1.1%, AA-LCR 52.0%, Omniscience Index -49.2%, Omniscience Accuracy 21.8%. React Native Evals 71.6%, AA-SciCode 34.0%, AA Coding Index 30.4%, AA-IFBench 69.0%. Intelligence Index 12 (rank #9/65 open weights). BenchLM composite 38.37 (#138/645).
+- Scores: Tool 40 / Reasoning 48 / Context 54 / Multimodal 15 / Coding 32 → Overall **38**.
+- Fit: above-average open-weights model for budget-conscious experimentation; below 2026 frontier on all axes.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: MiMo V2.6 Distill Qwen 9B
+
+### b) Findings
+
+- Xiaomi MiMo 9.4B dense agentic SFT of Qwen3.5-9B, MIT-licensed, Sept 2026. 262K context (hybrid linear/full attention), image+video in, self-host only; no Zen or OpenRouter route. 18.8 GB BF16 weights.
+- Specs: 9.4B dense, 262K context, image+video in / text out, reasoning yes, $0 (self-hosted MIT). Not on AA (404) or BenchLM (404).
+- Benchmarks (from HF model card, verified public): SWE-bench Verified 61.1% (pass@1, avg@3), SWE-bench Pro 47.6% (pass@1), Terminal-Bench 2.0 37.5% (pass@1, 5 attempts), SWE-bench Multilingual 63.1%, Toolathlon-Verified 35.2%, AutomationBench 30.3%. (MiMo Code mini 51.6%, MiMo General mini 62.2%, MiMo Visual Coding mini 64.0% are internal eval sets from the technical report.)
+- Scores: Tool 35 / Reasoning 30 / Context 72 / Multimodal 25 / Coding 65 → Overall **45**.
+- Fit: strong SWE-bench Verified (61.1%) for a 9.4B model; best for local self-hosted agentic coding where image+video input and 262K context are useful.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Llama 3.2 Vision Instruct
+
+### b) Findings
+
+- Meta's 88.8B multimodal Llama 3.2 Vision, released Sept 25 2024. Text + image in / text out, 128K context, Llama 3.2 Community License (commercial). Knowledge cutoff Dec 2023. Not on AA (404) or BenchLM (404).
+- Specs: 88.8B params, 128K context, text+image in / text out, reasoning yes (chain-of-thought), tool calls not documented. Meta paid: not applicable (open weights). Note: meta.json says text-only but HF model card confirms text+image input.
+- Benchmarks (from HF model card, verified public): MMMU (val, CoT) 60.3%, MMMU-Pro Standard 45.2%, MMMU-Pro Vision 33.8%, MathVista 57.3%, ChartQA 85.5%, AI2 Diagram 92.3%, DocVQA 90.1%, VQAv2 78.1%. Text: MMLU 86.0%, MATH 68.0%, GPQA 46.7%, MGSM 86.9%. HF leaderboard: GSM8K 93.1, GPQA Diamond 46.09. No SWE-bench, LiveCodeBench, SciCode, GPQA via AA, HLE, or Terminal-Bench found.
+- Scores: Tool 15 / Reasoning 48 / Context 54 / Multimodal 85 / Coding 40 → Overall **48**.
+- Fit: excellent multimodal vision benchmarks (VQAv2 78.1%, DocVQA 90.1%, AI2 Diagram 92.3%); dated general reasoning (2024 release); best for vision-language tasks.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: GPT 5.3 Codex Spark
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found. Listed on BenchLM (`benchlm.ai/models/gpt-5-3-codex-spark`) as a model but with "Benchmarks covered: 0 of 618" and "Overall Score: Coming soon." AA returns 404. On OpenCode Zen docs at $1.75/$14.00 per 1M tokens but no benchmarks or model card with scores found. Meta.json describes it as "GPT 5.3 Codex Spark model evaluation entry."
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Laguna XS 2.1
+
+### b) Findings
+
+- Poolside's 33B total / 3B active MoE model for agentic coding, OpenMDW-1.1 license, Aug 2026. 262K context, text in/out, native reasoning (interleaved thinking), tool calls yes. HF `poolside/Laguna-XS-2.1` with 118K likes. Benchmarks from Poolside technical report via HF model card.
+- Specs: 33B/3B MoE (256 experts + 1 shared), 262K context (256K in benchmarks), 40 layers (10 global attention, 30 SWA, 3:1 ratio), FP8 KV cache, text-only, reasoning yes (interleaved), tool calls yes. $0.06/$0.12 per 1M on OpenRouter (free tier available). Not on AA (404) or BenchLM (404).
+- Benchmarks (from HF model card, verified public): SWE-bench Verified 61.1% (pass@1, avg@3), SWE-bench Pro 47.6% (pass@1), SWE-bench Multilingual 63.1%, Terminal-Bench 2.0 37.5% (pass@1, 5 attempts), Toolathlon-Verified 35.2%. Run with Harbor Framework + pool harness, 500 steps, sandboxed, temp=1.0, top_k=20, thinking enabled.
+- Scores: Tool 48 / Reasoning 35 / Context 72 / Multimodal 15 / Coding 74 → Overall **49**.
+- Fit: strong SWE-bench Verified (61.1%) for a 33B MoE; excellent for local agentic coding with permissive license, long context, and tool calling.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Jev 1.13
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found. Jev 1.13 is TypeSafe AI's first "System One Model" — a structured-decision model (not a text-generating LLM) available via OpenCode Zen (`jev-1.13`, `$0.042` input / `$0` output). Not on AA (404), BenchLM (404), or OpenRouter. TypeSafe AI's own workflow evals use reference probabilities from GPT-6 Astra/Fable — not independently verified public benchmarks. No GPQA, HLE, SWE-bench, Terminal-Bench, or standard LLM benchmark data exists.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Ember 1
+
+### b) Findings
+
+- Fireworks Research specialized token-efficient model built on Kimi K3, released September 23, 2026. 2.78T MoE, 1.04M context, text+image in / text out, reasoning yes, $3.00/$0.30/$15.00 per 1M tokens. Verified on BenchLM (5 of 645 benchmarks, unranked, no overall score assigned). Not on AA (404).
+- Benchmarks (from Fireworks launch post, via BenchLM): Terminal-Bench 2.1 82.0%, τ²-bench Airline 66.0%, SWE-bench Verified 92.2%, DeepSWE 75.2%.
+- Specs: 2.78T total params (MoE), 1,040K context (Fireworks page; meta.json says 128K/1M — incorrect), image input verified.
+- No GPQA, HLE, LCR, CritPt, AA Intelligence Index, Omniscience, or Humanity's Last Exam found.
+- Scores: Tool 72 / Reasoning 42 / Context 98 / Multimodal 30 / Coding 90 → Overall **66**.
+- Fit: strong specialized coding/agentic model (SWE-bench 92.2%, TB2.1 82.0%); lacks general reasoning benchmarks; premium $3/$15 pricing.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Mercury 2.5
+
+### b) Findings
+
+- Inception's most capable diffusion LLM, released September 8, 2026. 260K context, text-only, reasoning yes, $0.25/$0.75 per 1M tokens (launch 80% off at $0.04/$0.15). Scores 35.18/100 on BenchLM (#148/783), AA Intelligence Index 12 (rank #90/175). Not on OpenRouter (404).
+- Benchmarks (from BenchLM + AA + Inception launch blog): τ³-bench 96.0%, GPQA-D 79.0%, AA-LCR 68.0%, IFBench 77%, SciCode 38% / AA-SciCode 38.5%, Terminal-Bench 2.1 (Vals) 34.1%, GDPval-AA 0.0% Elo, CritPt 0.0%, AA-HLE 11.8%, AA-Omniscience Index -39.5%.
+- Specs: 260K context (AA confirms; meta.json says 128K — incorrect), text-only (meta.json accurate).
+- No SWE-bench, DeepSWE, LiveCodeBench, or AA Coding Index found.
+- Scores: Tool 58 / Reasoning 50 / Context 66 / Multimodal 15 / Coding 35 → Overall **45**.
+- Fit: fast (1,107 tok/s) and affordable reasoning model; τ³-bench 96% is exceptional but GDPval-AA 0% and SciCode 38% are weak; best for cost-sensitive agentic workloads.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Muse Spark 1.3 Max
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found for the exact model ID "muse-spark-1.3-max". OpenRouter returns "Author Not Found"; MuseSpark website (musespark.ai) is entirely focused on image/video/3D/audio generation tools with no language model of this name; Hugging Face MuseSpark organization has 0 public models; AA and BenchLM both return 404. The repo `meta.json` describes it as "Muse Spark 1.3 Max model evaluation entry" — a generic placeholder. Peer rater Muse Spark 1.3 also excluded (`Muse_Spark_1.3.md.excluded`).
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
+## a) Model name: Grok 5
+
+### b) Findings
+
+- EXCLUDED — zero verified public benchmarks found for the exact model ID "grok-5". AA 404, BenchLM 404, OpenRouter 404, no official model page on x.ai, no Hugging Face model, no launch post. Only community remixes found on HF (e.g., `alexkstern/odysseus_grok_5hp_*`). Peer raters Muse Spark 1.3 and Kimi K3 both excluded this model (`*.md.excluded`). The repo `meta.json` describes it as "Grok 5 model evaluation entry" — a generic placeholder.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+
+---
+
 ## Changelog
 
 - 2026-09-17: created log, added all 11 requested names (10 unique models + 1 duplicate note) with signatures.
 - 2026-09-18: v4 methodology — Cost efficiency excluded from Overall Score (now the mean of the five quality dimensions) across all findings files and averages. Per-model entries above remain frozen history under the v1–v3 six-dimension definition.
+- 2026-10-02: Added Laguna S 2.1 findings for 9 models (Pixel Canary 59, GPT-OSS 120B 38, MiMo V2.6 Distill Qwen 9B 45, Llama 3.2 Vision Instruct 48, Laguna XS 2.1 49) and 4 excluded entries (Google Gemini 2.5 Flash Lite, Omen Alpha, GPT 5.3 Codex Spark, Jev 1.13).
+- 2026-10-02: Added Laguna S 2.1 findings for 4 newly-discovered models (Ember 1 66, Mercury 2.5 45) and 2 excluded entries (Muse Spark 1.3 Max, Grok 5).

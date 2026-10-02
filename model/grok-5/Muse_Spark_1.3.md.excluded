@@ -1,0 +1,71 @@
+# Grok 5 — findings by Muse Spark 1.3
+
+- Source: xAI/Grok 5 (`grok-5`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5
+- **Short description:** xAI next flagship MoE (6T/10T rumored), in training on Colossus 2 since Jan 2026. Positioned as potential frontier leader above Grok 4.x; unreleased as of Oct 2026.
+- **Provider / access:** xAI (expected xAI API `grok-5`, X Premium+). No public API ID live as of 2026-10-02. Chat Completions expected.
+- **Release / knowledge:** Unreleased — in active training per xAI Series E Jan 2026; Q1/Q2 2026 windows slipped, no official date. Knowledge cutoff unknown.
+- **IDs:** `grok-5` (expected; no verified live provider ID found)
+- **Context window:** Undisclosed — no verified total / max output found; do not copy Grok 4.7 500K or Grok 4.20 2M figures
+- **Modalities:** Undisclosed — expected text/image in; no verified modality list found
+- **Pricing (as of 2026-10-02):** No public per-token price found; tiered SuperGrok speculation only — not scored
+- **Architecture:** 6T (and rumored 10T variant) MoE on Colossus 2 supercluster per kie.ai/xAI reports; proprietary, weights private
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: deeper search on 2026-10-02 found zero verified public benchmark numbers for this exact unreleased model ID. Every row below is "no verified public score found". Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers. Grok 4.x numbers (4.5/4.6/4.7/4.20) are different models and are NOT counted here.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; context length undisclosed
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. No verified numbers exist, so no normalized dims are assigned (scores inside `.excluded` files are ignored by sync). Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — undisclosed, no measured retention.
+- **Multimodal:** not scored — undisclosed modalities.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — no verified pricing, excluded from scoring.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-02
+- Method: public internet research (xAI Series E Jan 2026, kie.ai Grok 5 tracker Jul 2026, wavespeed launch tracker Jun 2026, Sep 2026 Grok 4.7 launch coverage sketching Grok 5 as future); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,61 @@
+# Grok 5 — findings by Mimo v2.6 Flash (EXCLUDED — unreleased, no verified benchmarks)
+
+- Source: SpaceXAI (xAI)/Grok 5
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** Grok 5 has not been released as of 2026-10-02 — there is no API, no model card, no spec sheet and **zero verified public benchmark numbers** for this exact model. Every score row would be a guess, so this file is saved as `.excluded` and `pnpm sync` skips it. No scores below are used in averages.
+
+## Model card
+
+- **Name:** Grok 5 (unreleased; xAI/SpaceXAI next flagship)
+- **Short description:** SpaceXAI's in-training successor to the Grok 4.x line, officially confirmed "in training" only in xAI's 2026-01-06 Series E announcement; positioned by Musk (2026-09-14 X replies) as two release rungs behind the current flagship — Grok 4.8 and 4.9 ship first. Not a usable model today.
+- **Provider / access:** **none** — no API endpoint, model ID, alpha/beta, or third-party host exists (kie.ai, geotoolbox, felloai all confirm as of late Sept 2026). Expected eventual rollout: X Premium+ / SuperGrok Heavy first, then app, then xAI API (historical xAI pattern, unconfirmed).
+- **Release / knowledge:** **no release date.** Missed windows: late 2025 (Musk, Nov 2025), Q1 2026, Q2 2026; Q3 2026 also closed with nothing on xAI's News page (felloai, 2026-09-23). Polymarket priced "released by 2026-12-31" at roughly a coin flip (mid-40s–mid-50s%, 2026-09-16).
+- **IDs:** none assigned. (Shipping xAI models: `grok-4.5` / `grok-4.6` / `grok-4.7` — 500K ctx, $2/$6 — are different checkpoints.)
+- **Context window:** no official figure. Rumored ~1.5M tokens (unconfirmed estimate; shipping Grok 4.7 = 500K, Grok 4.3 = 1M).
+- **Modalities:** rumored natively multimodal text/image/audio/real-time video (Tesorb leak-level reporting) — unconfirmed; nothing official.
+- **Pricing:** not announced. Existing SuperGrok tiers ($10/$30/$100/$300 per month; X Premium+ $40) and API pattern ($2/$6 for 4.x flagships) are anchors only, not Grok 5 prices.
+- **Architecture:** rumored 6T (Musk, Baron Capital Nov 2025) and 10T MoE variants training on Colossus 2 (Memphis, ~520K GB200 + 30K GB300); reports of dynamic agent spawning and cross-session memory are leaks. xAI has published no spec sheet.
+
+### Raw benchmarks found
+
+> Measured numbers with (source / rank / harness). Missing rows = "no verified public score found".
+
+Agent / tool use:
+
+- Terminal-Bench / Tau / GDPval / Toolathon / OSWorld: **no verified public score found** (model unreleased)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AA Intelligence Index / BenchLM: **no verified public score found** (no leaderboard entry anywhere; xAI has published no benchmark for Grok 5)
+
+Coding:
+
+- SWE-bench / LiveCodeBench / DeepSWE: **no verified public score found**
+
+Long context:
+
+- No official window; MRCR/RULER: **no verified public score found**
+
+Multimodal:
+
+- No official modality list; MMMU / Video-MME: **no verified public score found**
+
+### Explicitly NOT attributable to this model
+
+Grok 4.5 / 4.6 / 4.7 numbers (TB2.1 83.3%, SWE-Pro 64.7%, AA Index 54, GPQA 93% for 4.5; 4.6/4.7 at AA Index 61-class, SWE-V 95.6% Vals for 4.7's line) belong to **different shipped checkpoints** and must not be copied into a Grok 5 row. Leaks ("Project Valis" etc.) are flagged unreliable by trackers.
+
+### Normalized scores (1–100)
+
+- Not scored — self-exclusion triggered (unreleased model; zero verified public benchmark numbers).
+- Re-evaluate when xAI publishes an official launch post with a model card, API endpoint and benchmark table.
+
+---
+
+## Signature
+
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-02
+- Method: public internet research (x.ai Series E announcement and release notes, geotoolbox September-2026 status breakdown, felloai timeline update 2026-09-23, kie.ai, Tesorb, Build Bevy); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

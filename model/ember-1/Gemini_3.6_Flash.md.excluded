@@ -1,0 +1,67 @@
+# Ember 1 — findings by Gemini 3.6 Flash
+
+- Source: Ember (`ember-1`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ember 1
+- **Short description:** Specialized embedding or niche model (`ember-1`).
+- **Provider / access:** `ember-1`
+- **Release / knowledge:** 2024–2026 release; knowledge cutoff unknown.
+- **IDs:** `ember-1`
+- **Context window:** Unverified context window for general language generation benchmarks.
+- **Modalities:** text in; text out; reasoning no; tool calls no; JSON mode no.
+- **Pricing (as of 2026-10-02):** Unverified public API pricing.
+- **Architecture:** Proprietary / open-weight embedding or small transformer model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval benchmark reported.
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found; self-excluded.
+- **Reasoning: 0/100.** No verified public score found; self-excluded.
+- **Context window: 0/100.** No verified public score found; self-excluded.
+- **Multimodal: 0/100.** No verified public score found; self-excluded.
+- **Coding: 0/100.** No verified public score found; self-excluded.
+- **Cost efficiency: 0/100.** No verified public score found; self-excluded.
+- **Overall Score: 0/100.** Self-excluded due to lack of verified public benchmark scores.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-02
+- Method: Public internet search; zero verified public benchmarks found, self-excluded per template rules.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

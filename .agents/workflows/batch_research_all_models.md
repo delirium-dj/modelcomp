@@ -12,6 +12,6 @@ description: Research all models under model directory
    - Draft a full report using `model-report-TEMPLATE.md`.
    - Write the report to `model/<slug>/<ReportFile>.md` (or `.md.excluded` if no verified benchmarks).
    - Advance to the next folder.
-5. **Completion** – when the queue is empty, the workflow ends. The orchestrator will later run `pnpm sync && pnpm build.types && pnpm build`.
+5. **Completion** – when the queue is empty, the workflow ends. The orchestrator will later run `pnpm sync && pnpm build.types && pnpm build` (Windows: `pnpm sync && pnpm build.types:direct && pnpm build:direct` — bare shims can exceed cmd.exe's line limit).
 
 **Note:** This workflow follows `tasks/research.md` rules: one‑folder‑at‑a‑time, no reading of peer reports, no overwriting, and respects Gemini rate limits.

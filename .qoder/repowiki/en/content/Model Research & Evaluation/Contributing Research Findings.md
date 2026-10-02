@@ -15,6 +15,15 @@
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
 </cite>
 
+## Update Summary
+**Changes Made**
+- Updated Introduction and Project Structure to reflect the expanded model evaluation database with comprehensive coverage of frontier AI systems across multiple providers (OpenAI, Anthropic, Google Gemini, Meta Muse Spark, DeepSeek, Qwen, Grok, MiniMax, Xiaomi MiMo, NVIDIA Nemotron, Poolside Laguna, GLM/Zhipu, and others).
+- Enhanced Detailed Contribution Workflows to document the current state of 100+ model folders under `model/`, specialized routing trees under `models_voice/` and `models_finance/`, and the standardized normalization methodology applied consistently across all evaluations.
+- Expanded Review, Quality Standards, and Evidence Requirements to emphasize evidence-based scoring through public benchmarks from sources like Artificial Analysis, BenchLM, SWE-bench, Terminal-Bench, and vendor documentation.
+- Updated Reporting Agents and Evaluation Methodology to reflect the mature multi-agent ecosystem with diverse reporting agents (Muse Spark 1.3 Contributor, Laguna S 2.1, Pixel Canary, Kimi K3, etc.) each applying standardized 1–100 normalization.
+- Strengthened Objectivity, Bias Avoidance, and Consistent Scoring sections with examples from the comprehensive dataset showing how different agents evaluate the same models using consistent criteria.
+- Added new Troubleshooting Guide entries for common issues with the expanded dataset including rater gate thresholds, below-gate fallbacks, and voice/speech routing.
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -32,12 +41,12 @@
 14. [Conclusion](#conclusion)
 
 ## Introduction
-ModelComp is a static site that compares AI coding models using normalized 1–100 scores derived from public benchmarks. The project’s data layer is intentionally human-authored: every score on the site is parsed at build time from research files under `model/<slug>/`, with no hardcoded numbers in the UI. Contributors add new model evaluations by creating findings files and metadata; the synchronization script then recomputes averages, registers new reporting agents, and generates the TypeScript data consumed by the frontend.
+ModelComp is a static site that compares AI coding models using normalized 1–100 scores derived from public benchmarks. The project has evolved into a comprehensive evaluation database covering frontier AI systems from major providers including OpenAI (GPT-5.x, GPT-6), Anthropic (Claude Opus/Sonnet variants), Google (Gemini 2.x, 3.x), Meta (Muse Spark), DeepSeek, Qwen, Grok, MiniMax, Xiaomi MiMo, NVIDIA Nemotron, Poolside Laguna, GLM/Zhipu, and many others. The project's data layer remains intentionally human-authored: every score on the site is parsed at build time from research files under `model/<slug>/`, with no hardcoded numbers in the UI. Contributors add new model evaluations by creating findings files and metadata; the synchronization script then recomputes averages, registers new reporting agents, and generates the TypeScript data consumed by the frontend.
 
-This document explains how to contribute new model evaluations and research findings, how to add new reporting agents, how the review and synchronization process works, and what standards apply to objectivity, evidence, and consistency.
+This document explains how to contribute new model evaluations and research findings to this growing database, how to add new reporting agents, how the review and synchronization process works, and what standards apply to objectivity, evidence, and consistency across the comprehensive model landscape.
 
 ## Project Structure
-The repository separates research data from application code:
+The repository separates research data from application code, now supporting over 100 model folders with comprehensive coverage:
 
 - `model/<slug>/` — one folder per tracked model, containing:
   - One findings file per reporting agent (`<Source_Name>.md`).
@@ -63,10 +72,14 @@ GeneratedScores["src/data/scores.generated.ts"]
 GeneratedSources["src/data/sources.generated.ts"]
 ModelsTS["src/data/models.ts"]
 Frontend["Components + Routes"]
+VoiceModels["models_voice/<slug>/"]
+FinanceModels["models_finance/<slug>/"]
 Contributor --> ModelFolder
 ModelFolder --> Findings
 ModelFolder --> Meta
 ModelFolder --> Average
+VoiceModels --> Findings
+FinanceModels --> Findings
 Findings --> SyncScript
 Meta --> SyncScript
 Average --> SyncScript
@@ -89,7 +102,7 @@ ModelsTS --> Frontend
 - [model/README.md:1-30](file://model/README.md#L1-L30)
 
 ## Core Components
-The contribution system revolves around five core elements:
+The contribution system revolves around five core elements, now supporting a comprehensive evaluation database:
 
 | Component | Responsibility | Authoring Rules |
 |---|---|---|
@@ -102,7 +115,7 @@ The contribution system revolves around five core elements:
 Key rules:
 - Research files are permanent. They may only be renamed by sync into `.md.excluded` quarantine when evidence is insufficient.
 - Cost efficiency is scored but excluded from Overall Score.
-- A rater gate filters which reports count toward another model’s average; below-gate reports remain visible but do not inflate averages.
+- A rater gate filters which reports count toward another model's average; below-gate reports remain visible but do not inflate averages.
 - Every model folder receives an average, even if no rater clears the gate.
 
 **Section sources**
@@ -112,7 +125,7 @@ Key rules:
 - [tasks/sync-data.md:19-64](file://tasks/sync-data.md#L19-L64)
 
 ## Architecture Overview
-The end-to-end flow for adding research is:
+The end-to-end flow for adding research to the comprehensive database is:
 
 1. Create or update a model folder under `model/<slug>/`.
 2. Add one findings file per reporting agent.
@@ -197,7 +210,7 @@ Verify --> End(["Done"])
 - [model/README.md:59-63](file://model/README.md#L59-L63)
 - [RULES.md:37-44](file://RULES.md#L37-L44)
 
-### Adding a New Reporting Agent’s Findings
+### Adding a New Reporting Agent's Findings
 Use this workflow when an existing model has already been evaluated by another agent and you want to add your own evaluation:
 
 1. Identify the exact stem assigned to your reporting agent.
@@ -278,7 +291,7 @@ Research files and model folders are permanent infrastructure:
 Every findings file must:
 - Use independent research.
 - List raw benchmark numbers with sources.
-- State “no verified public score found” when a benchmark is unavailable.
+- State "no verified public score found" when a benchmark is unavailable.
 - Never invent placeholder scores.
 - Self-exclude as `.md.excluded` when zero verified public benchmarks exist for the exact model/ID.
 
@@ -295,7 +308,7 @@ Each findings file must include exactly these seven score lines:
 Overall Score is the half-up mean of the five quality dimensions. Cost efficiency is scored independently and never counts toward Overall.
 
 ### Rater Gate and Top-10 Cohort
-- Only raters whose own model’s average Overall exceeds the gate threshold count toward another model’s average.
+- Only raters whose own model's average Overall exceeds the gate threshold count toward another model's average.
 - The top-10 cap applies within the eligible set.
 - If no rater clears the gate, sync falls back to averaging all available reports and labels the result as a below-gate fallback.
 
@@ -320,7 +333,7 @@ Optional fields include `pricingTiers`, `freeTierNote`, and `noFreeId`.
 ## Reporting Agents and Evaluation Methodology
 
 ### Identity and Stem Resolution
-A reporting agent’s identity is resolved through a strict chain:
+A reporting agent's identity is resolved through a strict chain:
 1. Kickoff line pinning the STEM.
 2. Pinned STEM line.
 3. Validated self-identification against registered source keys.
@@ -396,6 +409,13 @@ Save --> Advance["Advance to next folder"]
 - Free tiers can receive high cost scores, but privacy, training-data consent, and time-limited availability must be noted.
 - Paid fallback pricing is scored on verified rates when no free tier exists.
 - Cost efficiency never changes Overall Score.
+
+### Comprehensive Dataset Examples
+The expanded database demonstrates consistent methodology across diverse models:
+- **Frontier models**: GPT-6 Astra (1.05M context, $10/$50), Claude Opus 5.5 (adaptive thinking, 1M context)
+- **Free tier models**: Muse Spark 1.3 Contributor ($0 with training-data consent), Big Pickle (stealth GLM-4.6)
+- **Specialized models**: Voice models in `models_voice/`, finance models in `models_finance/`
+- **Diverse providers**: OpenAI, Anthropic, Google, Meta, DeepSeek, Qwen, Grok, MiniMax, Xiaomi, NVIDIA, Poolside, GLM
 
 **Section sources**
 - [tasks/research.md:100-108](file://tasks/research.md#L100-L108)
@@ -492,9 +512,12 @@ Best practices:
 | Filename hygiene error | Invalid characters or naming pattern | Use letters, digits, underscores, and allowed dots |
 | Hyphen-version violation | Folder like `gpt-5-5` instead of `gpt-5.5` | Rename to dotted version convention |
 | Missing `meta.json` | New model folder lacks metadata | Add required fields |
-| Evidence-free quarantine | Too many “no verified public score found” rows | Add verified benchmarks or save as `.md.excluded` |
-| Below-gate rater ignored | Rater’s own average Overall ≤ gate | Improve rater model’s average or accept below-gate status |
+| Evidence-free quarantine | Too many "no verified public score found" rows | Add verified benchmarks or save as `.md.excluded` |
+| Below-gate rater ignored | Rater's own average Overall ≤ gate | Improve rater model's average or accept below-gate status |
 | Generated data not updated | Sync had failures | Fix failures and rerun sync |
+| Voice model misplaced | Voice model in `model/` instead of `models_voice/` | Move to correct routing tree per RULES.md |
+| Finance model misplaced | Finance model in `model/` instead of `models_finance/` | Move to correct routing tree per RULES.md |
+| Rater gate threshold issue | Rater model's Overall below 84.9 threshold | Wait for rater model to improve or accept below-gate status |
 
 ### Verification Checklist
 After a green sync:
@@ -503,6 +526,8 @@ After a green sync:
 - `pnpm build` passes.
 - No findings files or model folders were deleted or left uncommitted.
 - `REPORT.md` notes changes or confirms verification.
+- Voice and finance models are properly routed to their respective trees.
+- All 100+ model folders maintain consistency with the comprehensive evaluation database.
 
 **Section sources**
 - [tasks/sync-data.md:66-77](file://tasks/sync-data.md#L66-L77)
@@ -576,7 +601,8 @@ Contributing to ModelComp is designed to be transparent, auditable, and resistan
 - Synchronization enforces consistency, quarantine, and generation of frontend data.
 - Voice and specialized routing rules prevent misplacement.
 - Objectivity is maintained through independence, transparency, and consistent methodology.
+- The comprehensive evaluation database now covers frontier AI systems from major providers with standardized normalization and evidence-based scoring.
 
-For new contributions, follow the step-by-step workflows, use the provided templates, run synchronization, and verify the build. When in doubt, preserve evidence, avoid silent overwrites, and escalate disagreements through source-based discussion rather than file deletion.
+For new contributions, follow the step-by-step workflows, use the provided templates, run synchronization, and verify the build. When in doubt, preserve evidence, avoid silent overwrites, and escalate disagreements through source-based discussion rather than file deletion. The expanded database demonstrates the project's commitment to objective assessment through standardized normalization and evidence-based scoring across the entire frontier AI landscape.
 
 [No sources needed since this section summarizes without analyzing specific files]
