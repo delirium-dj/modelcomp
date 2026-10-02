@@ -74,20 +74,47 @@ export const DeepseekContinueRetry: Plugin = async ({ client }: any) => {
       // This plugin ONLY handles "Invalid input".
       if (!text.includes(MATCH)) return
 
+      // Debug breadcrumb: proves the trigger fired. Check OpenCode logs
+      // if you ever doubt the plugin saw the error.
+      try {
+        await client.app.log({
+          body: {
+            service: "deepseek-continue-retry",
+            level: "info",
+            message: `matched "${MATCH}" len=${text.length} head=${text.slice(0, 200)}`,
+          },
+        })
+      } catch {
+        // Logging must never break the plugin.
+      }
+
       // Optional model guard: if the event tells us the model name and it
       // is NOT DeepSeek, ignore it. If no model name is found, we proceed
       // anyway (fail-open) so we never miss a real DeepSeek failure.
+      // BUGFIX: the old code did JSON.stringify("") which gives '""'
+      // (truthy!) and blocked EVERYTHING when no model field was present.
+      // Now we use String() and check for empty first.
       if (MODEL_FILTER) {
-        const modelText =
-          ((event.properties as any)?.model ??
-            (event.properties as any)?.modelID ??
-            "") as string
-        const modelLower = JSON.stringify(modelText).toLowerCase()
+        const props = (event.properties as any) ?? {}
+        const raw =
+          (props.model ?? props.modelID ?? props.session?.model ?? "") as unknown
+        const modelLower = String(raw ?? "").toLowerCase()
         // Only skip when we POSITIVELY know the model and it is not DeepSeek.
-        if (modelLower && !modelLower.includes(MODEL_FILTER)) return
-        // Fallback: also check the full event text for "deepseek".
-        // If the full text mentions deepseek, it is ours for sure.
-        // If it mentions neither, we still continue (fail-open).
+        // Empty string = unknown model -> proceed (fail-open).
+        if (modelLower && !modelLower.includes(MODEL_FILTER)) {
+          try {
+            await client.app.log({
+              body: {
+                service: "deepseek-continue-retry",
+                level: "debug",
+                message: `skip non-deepseek model: ${modelLower.slice(0, 120)}`,
+              },
+            })
+          } catch {
+            // Logging must never break the plugin.
+          }
+          return
+        }
       }
 
       // Get the session ID from the event, e.g. "ses_abc123".
