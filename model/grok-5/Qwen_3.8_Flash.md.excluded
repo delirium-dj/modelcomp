@@ -1,0 +1,52 @@
+# Grok 5 — findings by Qwen 3.8 Flash (self-excluded: model not released, no verified benchmarks)
+
+- Source: xAI (`grok-5`; curated id `opencode/grok-5`)
+- Date: 2026‑10‑02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because **xAI has not released Grok 5** — the model is still in training as of September / October 2026, with **zero first-party benchmark numbers published** for this exact ID. Per `RULES.md`, a findings file is self-excluded (never fabricated) when there are zero verified benchmarks. Reattributing Grok 4.7 / 4.6 / 4.5 numbers to this slug would double-count different models, so no scores are asserted. Every other rater in this folder has already self-excluded (see `Kimi_K3.md.excluded`, `Muse_Spark_1.3.md.excluded`, `GLM_5.3.md.excluded`, `Big_Pickle.md.excluded`, `DeepSeek_4.1_Flash.md.excluded`, `Laguna_S_2.1.md.excluded`, `LongCat_2.5_Preview.md.excluded`, `Mimo_v2.6_Flash.md.excluded`, `Space_Bunny_Alpha.md.excluded`, etc.) — the consensus across the panel is unanimous exclusion.
+
+## Model card (verified facts only)
+
+- **Name:** Grok 5
+- **Status:** **NOT RELEASED.** Still in training as of September / October 2026. The only official xAI reference is the January 6, 2026 Series E funding announcement stating Grok 5 is in development (per Grokipedia, corroborated by felloai 2026‑09‑23 — Q1 / Q2 / Q3‑2026 windows all passed without release).
+- **Rumored (NOT verified — excluded from scoring evidence):** ~6T parameters, Colossus 2 gigawatt‑scale training, Musk's AGI claims. These circulate without official confirmation.
+- **Provider / access / IDs:** none published by xAI; no API endpoint, no OpenRouter listing, no Zen ID for a released Grok 5 model.
+- **Release / knowledge:** no verified release date; no knowledge cutoff disclosed.
+- **Context window:** curated `meta.json` says "128K total" — placeholder template, not a verified spec.
+- **Modalities:** curated `meta.json` says "Text in/out" — placeholder template, not a verified spec.
+- **Pricing:** curated `meta.json` "Standard pricing" — placeholder; no first-party price schedule exists.
+- **Architecture:** no verified architecture disclosure found for this exact entry.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — the model has not shipped; xAI has published no Grok 5 benchmark. Grok **4.7** is the newest xAI model with official benchmark results (per geotoolbox 2026‑09, felloai 2026‑09‑23, and cross-check of the `grok-4.7/` folder scored separately in this registry).
+
+Agent / tool use:
+
+- Terminal‑Bench / τ² / τ³ / GDPval‑AA / OSWorld / Claw‑Eval / MCP‑Atlas: **no verified public score found for this exact model**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / AA Omniscience / MMLU‑Pro: **no verified public score found**
+
+Coding:
+
+- SWE‑bench Verified / SWE‑Pro / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU‑Pro / video / audio: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self-excluded for zero verified benchmarks; scoring it would require fabricating data or reattributing a sibling Grok 4.x variant's numbers, both prohibited by `RULES.md`. If/when xAI ships Grok 5 with first-party benchmarks (or Artificial Analysis / BenchLM / OpenRouter expose a distinct `grok-5` ID), replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
+- Method: public internet research cross-referenced with the panel's unanimous prior self-exclusion coverage in this folder (Kimi K3 2026‑10‑01, Muse Spark 1.3, GLM 5.3, Big Pickle, DeepSeek 4/4.1 Flash, Laguna S 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Space Bunny Alpha — all `.excluded`). No benchmark values inferred from peer reports or borrowed from Grok 4.x siblings. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate).
+- Revisit trigger: xAI officially ships Grok 5 with a first-party model card and published GPQA / SWE‑V / Terminal‑Bench / AA Index numbers.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.
