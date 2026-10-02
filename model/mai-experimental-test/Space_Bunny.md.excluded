@@ -1,0 +1,70 @@
+# Mai Experimental Test — findings by Space Bunny
+
+- Source: OpenCode (`mai-experimental-test`; Zen/Go internal experimental route, no public API ID)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUDED — no verified public benchmark numbers.** Every benchmark row
+> below reads "no verified public score found". That is the finding, and it is why
+> this file is saved as `.md.excluded` rather than a scored `.md`. Per the template's
+> SELF-EXCLUSION rule, no placeholder scores were invented: one fabricated number
+> would drag the mean for every reader. `pnpm sync` ignores `.md.excluded` files.
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** An unnamed-vendor experimental model routed inside OpenCode under the internal slug `mai-experimental-test`. Despite carrying the highest observed traffic of any non-flagship OpenCode route (292B tokens, 587K sessions, 56K users over two months), it has **no public model documentation of any kind**: no vendor, no model card, no spec sheet, no context limit, no modality table and no benchmark. The name itself reads as a test/staging artifact rather than a marketing name. Nothing in the public record identifies what weights it runs.
+- **Provider / access:** OpenCode's built-in provider / OpenCode Zen gateway only. **Not** present in OpenCode Zen's public API model list (`https://opencode.ai/zen/v1/models`), which enumerates `fledge-alpha-free`, `space-bunny-free`, `ling-3.1-flash-free` and the rest of the curated catalogue but no `mai-experimental-test`. It is therefore an internal route surfaced through OpenCode usage telemetry rather than a generally documented endpoint.
+- **Release / knowledge:** **Unknown.** OpenCode's own telemetry page lists Release as "Unknown", as it does for every un-documented route. Knowledge cutoff not published.
+- **IDs:** `mai-experimental-test` as seen in OpenCode usage telemetry only. No API model ID string, no vendor ID. Do not construct one. **Note:** this folder's `meta.json` carries id `opencode/mai-experimental-test` with `scaffolded: true` and a placeholder `contextWindow: "128K total"`; that 128K figure is an auto-stub, not a verified spec — see below. Correcting `meta.json` is the orchestrator's job per `tasks/sync-data.md`, so it is left untouched here.
+- **Context window:** **Unknown.** OpenCode's telemetry page lists Context, Output and Knowledge as "Unknown", and its comparison view lists context length "Unknown". The repository's stub 128K value is **not** treated as verified. No long-context retrieval result exists at any window length.
+- **Modalities:** **Unknown.** Input modalities, output modalities and reasoning support are all listed as "Unknown" by OpenCode. No attachment or vision support is documented. Nothing is inferred here.
+- **Pricing (as of 2026-10-02):** **No published per-token price.** OpenCode's telemetry shows **$0.00 total spend** and **$0.00 average cost per session** across 587,191 completed sessions, and the comparison view lists Input/Output/Cached as "Unknown" rather than $0 — so the $0.00 is unpriced/unmetered, not a verified free-tier price. It is deliberately **not** scored as a $0 model here.
+- **Architecture:** **Proprietary and undisclosed.** No vendor, no parameter count, no MoE/dense layout, no license.
+- **Observed production scale (OpenCode usage data, trailing 2 months):** 292B tokens (+100% growth), **56K unique users**, **587,191 completed sessions**, 71% input-token cache ratio, ~497K average tokens per session, ranked **#17** by observed OpenCode token volume — ahead of `fledge-alpha` (#20). Growth is sharply front-loaded: daily tokens ran ~3–5B through Sep 22–29, then jumped to 18B (Sep 30), 77B (Oct 1) and 166B (Oct 2).
+- **Reliability signal:** zero OpenCode GitHub issues match `mai-experimental-test` (the sibling `fledge-alpha-free` route has three open reports on the same day), so no user-visible failure mode is publicly documented — which is weak evidence about an internal route, not evidence of quality.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark numbers were found. OpenCode's comparison view renders all six normalized dimensions — Reasoning, Coding, Cost efficiency, Context window, Multimodal and Tool use — as "No data; neutral placeholder" (50/100 each), explicitly flagging them as hollow defaults rather than measurements.
+- No Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval, Toolathon or MCP-Atlas figure exists for this route.
+- Tool-use quality is not inferable from the 587K completed sessions; volume is not accuracy.
+
+Reasoning / knowledge:
+
+- No verified public benchmark numbers were found. OpenCode's telemetry lists Knowledge as "Unknown".
+- No GPQA Diamond, HLE, LCR, CritPt, Artificial Analysis Index, Omniscience or hallucination-rate figure exists.
+- Mai Experimental Test is absent from the Artificial Analysis LLM Leaderboard, Vals AI, llm-stats and BenchLM.
+
+Coding:
+
+- No verified public benchmark numbers were found. No SWE-bench Verified, SWE-Pro, Terminal-Bench, LiveCodeBench, SciCode or Vibe Code Bench entry exists anywhere.
+- **No other model's numbers are transferred to it.** Nothing in the public record links this route to DeepSeek V4 Pro, MiMo V2.6 Pro or any other model that happens to sit near it in OpenCode's usage ranking; proximity in a token-volume list is not evidence of shared weights.
+
+Long context:
+
+- No verified long-context retrieval result (no MRCR / RULER / GraphWalks figure at any window length). The 71% cache ratio and ~497K-token average session length are usage observations, not retrieval-quality evidence, and the context limit itself is undocumented.
+
+Sources consulted (all accessed 2026-10-02): OpenCode usage telemetry page `https://opencode.ai/data/unknown/mai-experimental-test` (292B tokens, 56K users, 587,191 sessions, 71% cache ratio, 497K avg tokens/session, $0.00 spend, rank #17, daily token/unique-user series, and Context/Output/Knowledge/Release/Inputs all "Unknown"); OpenCode comparison view vs Fledge Alpha (all six dimensions "No data; neutral placeholder", context length and pricing "Unknown"); OpenCode Zen's official public model list `https://opencode.ai/zen/v1/models` (**no** `mai-experimental-test` entry — it is not a generally documented Zen route); OpenCode's GitHub issue search for `mai-experimental-test` (**0 results**); llm-stats' model page for `mai-experimental-test` (no benchmark data). Negative confirmations: no entry on modelcompare.dev, modelgrep, models.dev, Artificial Analysis, Vals AI or BenchLM; a Bing RSS query for `"mai-experimental-test" OR "Mai Experimental Test"` returned **zero** results, and Brave, DuckDuckGo, Qwant, Mojeek and Ecosia returned no usable hits. No vendor has claimed this model.
+
+### Normalized scores (1–100)
+
+> Scores are intentionally omitted. The template's SELF-EXCLUSION rule applies: zero
+> verified public benchmark numbers means every quality dimension would be an
+> invention. High traffic volume, a 71% cache ratio and a zero metered cost are real
+> operational facts documented above, but none of them measures tool use, reasoning,
+> coding or context retrieval — and an internal experimental route with an entirely
+> unknown context limit cannot be scored on the Context window dimension at all. A
+> scored `.md` here would convert "we could not measure it" into a quality claim.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-02
+- Method: Public internet research of OpenCode's public usage-telemetry and comparison pages, OpenCode Zen's official model list, OpenCode's GitHub issue tracker, and five independent model indexes (llm-stats, modelcompare.dev, modelgrep, models.dev, Artificial Analysis) plus Vals AI and BenchLM. No peer `model/` findings file was read before or during this research, and no proxy model's benchmark was substituted. Scores are not produced; this file is a negative-findings record.
+- Future sources: if OpenCode publishes `mai-experimental-test` in its Zen model list, or a vendor claims the route, add a new scored file next to this one using the same headings. Also re-check if the sharp 2026-09-30→10-02 traffic ramp (3–5B/day to 166B/day) is followed by any published capability data — that ramp is the most likely signal that a real launch is imminent.
+

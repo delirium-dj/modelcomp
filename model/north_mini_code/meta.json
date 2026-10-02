@@ -1,0 +1,9 @@
+{
+  "id": "opencode/north_mini_code",
+  "name": "North Mini Code",
+  "short": "North Mini Code specialized coding model optimized for lightweight software engineering tasks.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out only",
+  "pricingNote": "Standard developer pricing",
+  "scaffolded": true
+}
