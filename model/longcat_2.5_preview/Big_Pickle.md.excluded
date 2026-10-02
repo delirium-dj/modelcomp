@@ -1,129 +1,136 @@
-# LongCat-2.5-Preview — findings by Big Pickle
+# LongCat 2.5 Preview — findings by Big Pickle
 
-> **SELF-EXCLUDED (notes only, not scored).** As of 2026-09-27 I found **zero verified
-> public benchmark numbers** for this exact model ID (`LongCat-2.5-Preview`). Meituan
-> shipped it on 2026-09-25 with a changelog entry, a price card and capability claims,
-> but no model card, no technical report, no benchmark table, and no independent
-> leaderboard entry. Per `model-report-TEMPLATE.md` (SELF-EXCLUSION) and `RULES.md`,
-> this model is saved as `Big_Pickle.md.excluded` instead of a scored `.md`, so no
-> placeholder numbers enter the dataset mean.
-
-- Source: Meituan/LongCat-2.5-Preview (OpenCode Zen ID `opencode/longcat-2.5-preview-free`)
-- Date: 2026-09-27 (UTC)
+- Source: Meituan (`longcat-2.5-preview`)
+- Date: 2026-10-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat-2.5-Preview (Meituan). On OpenCode Zen it is listed as
-  "LongCat 2.5 Preview Free"; this folder's slug is the underscore-normalized form of
-  the same model.
-- **Short description:** Meituan's preview-generation sparse MoE model, positioned for
-  long-horizon agent work across terminals, browsers, desktop GUIs, spreadsheets and
-  design tools. Succeeds the open-sourced LongCat-2.0 (June 2026) and adds a claimed
-  image-understanding path. Distinct model ID from `LongCat-2.0`.
-- **Provider / access:** Meituan LongCat API Platform —
-  `https://api.longcat.chat/openai/v1/chat/completions` (OpenAI-compatible) and
-  `https://api.longcat.chat/anthropic/v1/messages` (Anthropic-compatible); also
-  LongCat Chat. Via OpenCode Zen: `opencode/longcat-2.5-preview-free` on
-  `https://opencode.ai/zen/v1/chat/completions` (OpenAI-compatible / Chat Completions).
-- **Release / knowledge:** 2026-09-25 (LongCat API platform changelog entry
-  "Version: 2026-09-25 — LongCat-2.5-Preview Now Available"; Zen/models.dev release
-  date 2026-09-25). No knowledge cutoff published.
-- **IDs:** `LongCat-2.5-Preview` (vendor), `opencode/longcat-2.5-preview-free` (Zen
-  free tier — a free ID does exist on Zen; note the folder's `meta.json` still carries
-  the unverified placeholder id `opencode/longcat_2.5_preview`).
-- **Context window:** 1,048,576 tokens total (vendor "Retrieve Model" schema example:
-  `context_length: 1048576`); max output 131,072 tokens (Zen/models.dev catalogue).
-  Verified from the vendor API reference and the Zen catalogue — not from a measured
-  retrieval benchmark (none exists yet).
-- **Modalities:** Vendor changelog claims new image understanding (cross-modal Q&A,
-  content summarization, complex visual reasoning), but the vendor's own
-  "Retrieve Model" example returns `input_modalities: ["text"]`,
-  `output_modalities: ["text"]`, `modality: "text->text"` for `LongCat-2.5-Preview`.
-  The prose and the API schema disagree; treat vision as unverified for 2.5.
-  Reasoning: yes (`thinking` is a supported parameter, exposed as a toggle with an
-  interleaved `reasoning_content` field). Tool calls: yes (`tools`, `tool_choice`
-  supported). JSON mode: not documented.
-- **Pricing (as of 2026-09-27):** Free on OpenCode Zen — input, output and cached read
-  all $0, and the Zen free list states the provider follows a zero-retention policy and
-  does not use your data for model training. Direct vendor pay-as-you-go, labelled
-  "Discounted Price (limited-time)": $0.30 per 1M uncached input, $0.006 per 1M cached
-  input, $1.20 per 1M output (¥2 / ¥0.04 / ¥8). No end date published for the discount
-  or the Zen free window; "available on OpenCode for a limited time" only.
-- **Architecture:** proprietary / closed weights for 2.5 (LongCat-2.0 was MIT
-  open-sourced in June 2026; no 2.5 repository exists in the meituan-longcat Hugging
-  Face org, whose newest repo is LongCat-Flash-Lite-Sparse from 2026-07-31). Scale
-  figures of ~1.6T total parameters with ~48B active per token on a sparse MoE
-  backbone come from Meituan site metadata and Chinese trade coverage of the launch,
-  not from a vendor model card.
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's 1.6T-parameter mixture-of-experts model for long-horizon
+  agent work, released 2026-09-25 as a preview: 1M-token context, native image input added on
+  top of the LongCat-2.0 base, and no vendor benchmark table at launch. Meituan shipped **no
+  model card, no technical report and no benchmark numbers** for it; everything below comes
+  from vendor API documentation plus one independent coding-leaderboard measurement.
+- **Provider / access:** Meituan LongCat API platform (OpenAI-compatible Chat Completions and
+  Anthropic-compatible Messages endpoints, both documented) and OpenCode Zen as
+  `opencode/longcat-2.5-preview-free`. Chat API exposes a switchable `thinking` setting;
+  reasoning traces arrive interleaved as `reasoning_content`.
+- **Release / knowledge:** 2026-09-25 (vendor changelog entry "LongCat-2.5-Preview Now
+  Available"). Knowledge cutoff not published by Meituan.
+- **IDs:** `meituan/longcat-2.5-preview` (Vercel AI Gateway), `LongCat-2.5-Preview` (vendor),
+  `opencode/longcat-2.5-preview-free` (OpenCode Zen — free tier of the same weights).
+- **Context window:** 1,048,576 tokens (1M) total, 131,072 max output — vendor API quick-start
+  docs plus Vercel AI Gateway and models.dev metadata, all agreeing. Longest published value is
+  the spec; **no retrieval benchmark at that length is reported**.
+- **Modalities:** text + image in (vendor changelog: image understanding for cross-modal QA,
+  summarisation, visual reasoning); text out; reasoning yes (toggle); tool calling yes. One
+  secondary write-up adds "video / screen-recording" input, but no vendor doc or model listing
+  confirms it, so it is not counted.
+- **Pricing (as of 2026-10-02):** free through OpenCode Zen (`longcat-2.5-preview-free`) — "free
+  for a limited time", unlimited, zero data retention, not used for training. Direct Meituan
+  pay-as-you-go: **$0.30 / $1.20 per 1M in/out**, cached input $0.006 / 1M, flagged by the vendor
+  page as a limited-time discounted rate with no published end date. Meituan's X account said
+  "two weeks" on 2026-09-26, which points at roughly 2026-10-10 — treat the free window as
+  expiring without notice.
+- **Architecture:** proprietary MoE, ~1.6T total / ~48B active per token (~3% active). Weights
+  **not** released — the previous LongCat-2.0 was MIT-licensed on Hugging Face, this preview is
+  API-only.
 
-## Raw benchmarks found
-
-Every row: **no verified public score found** for `LongCat-2.5-Preview`.
+### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench 2.1: **no verified public score found** (vendor published none; the 70.8 figure
+  in circulation belongs to LongCat-2.0, a different model — provisional family proxy only)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- AI Coding Daily LLM Coding Leaderboard (agentic harness run, OpenCode): **46.65 / 80 points,
+  rank 36**, measured 2026-10-02 — the only independent measured score found for this exact ID.
+  Per-project breakdown: Laravel Code Quality 16.98/20, React-TS Code Quality 16.67/20, Bug
+  Finding Test 2.4/20, CSV Import (PHP) 3/20, Offline Sync (PHP) 2.7/20, Bank Feed
+  (Dart/Flutter) 4/20, Shipping Quotes (Go) 0.9/20. Avg time per prompt 16:50; cost N/A (free
+  tier). For calibration on the same board and date: GPT-6.1-Sol (High) 68.1, Opus 5.5 (High)
+  67.41, Qwen 3.8 27B 47.76, GLM-5.3-Flash 47.51, Gemini-3.8-Flash 47.09, GPT-6-Luna (Medium)
+  43.74, Gemini-3.1-Pro 42.36.
+  (An earlier snapshot of the same board showed 44.25 at rank 34 on 2026-09-28 — same harness,
+  same per-project numbers, slightly different total; the 2026-10-02 figure is the current one.)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score
-  found — as of 2026-09-27 there is no LongCat-2.5-Preview page on Artificial
-  Analysis and no BenchLM entry
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+  (the model does not appear on Artificial Analysis; the LongCat-2.0 comparison pages there are a
+  different model)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Provisional family proxy (LongCat-2.0, 2026-06-30, MIT weights — same 1.6T/48B backbone but
+  text-only and not this model): Artificial Analysis Intelligence Index 34, Terminal-Bench 2.1
+  70.8, SWE-bench Multilingual 77.3, SWE-bench Pro 59.5. Do not read these as 2.5 Preview
+  results.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index / other: no verified public score found
+- SWE-bench Verified / SWE-Pro: **no verified public score found** for this ID (59.5 SWE-bench
+  Pro is the 2.0 figure)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- AI Coding Daily per-project coding scores (OpenCode harness, 2026-10-02): Laravel 16.98/20 and
+  React-TS 16.67/20 — strong front-end scaffolding; Shipping Quotes (Go) 0.9/20, Offline Sync
+  (PHP) 2.7/20, Bug Finding 2.4/20 — near-failure on multi-step and multi-language logic work.
 
 Long context:
 
-- no long-context retrieval reported — the 1M window is a spec, not a measured
-  RULER / MRCR / GraphWalks result. No recall number exists for this model.
+- **no long-context retrieval reported.** 1M tokens is a documented spec, with no MRCR, RULER,
+  GraphWalks or recall number at any length from Meituan or from any third party.
 
-Search coverage used (2026-09-27): LongCat API docs pricing page, LongCat changelog,
-LongCat "Retrieve Model" API reference, OpenCode Zen docs (model + pricing + privacy
-tables), and dated launch coverage from orcarouter.ai, eyestech.in, cocoloop and a
-Japanese technical write-up. All four independent write-ups state explicitly that no
-vendor or third-party benchmark exists for 2.5 and that any circulating "LongCat-2.5"
-score is either another LongCat model or invented.
+### Normalized scores (1–100)
 
-### Closest available reference — DIFFERENT MODEL, NOT SCORED, NOT A PROXY CLAIM
+- **Tool use: 58/100.** Tool calling is declared and the vendor lists deep compatibility with
+  Claude Code, OpenCode, Kilo Code, OpenClaw and Hermes, and the one independent measurement we
+  have (a real tool-driven agent harness) shows solid completion on structured UI work. Capped
+  by the complete absence of Terminal-Bench / Tau3 / GDPval / Claw-Eval numbers for this ID and
+  by weak scores on the tasks that need planning plus verification (bug finding 2.4/20), with a
+  16:50 average per prompt.
+- **Reasoning: 52/100.** Provisional anchor only: the LongCat-2.0 sibling scored 34 on the
+  Artificial Analysis Intelligence Index, which the methodology maps into the 55–65 mid band,
+  while the 2.5 preview is newer, multimodal and thinking-mode capable. Scored low inside that
+  band because not one reasoning measurement exists for this ID — no GPQA, HLE, LCR or CritPt.
+- **Context window: 96/100.** 1,048,576 tokens (1M) is verified by vendor docs, Vercel and
+  models.dev, with a 131,072 max output. Tier mapping puts ≥1M at 95–100; 100 would require
+  ≥98% retrieval measured at 512K+, and nothing has been measured, so it sits just below the top
+  of the band.
+- **Multimodal: 65/100.** Native image input is claimed in the vendor changelog and flagged by
+  the models.dev attachment flag, which maps to the +image-in band at 60–70. No audio input and
+  no non-text output; no independent vision benchmark to lift it further. The "video input"
+  claim in one secondary write-up is unconfirmed and not counted.
+- **Coding: 60/100.** The only independent measurement puts it mid-pack at 46.65/80 (rank 36),
+  above Gemini-3.1-Pro and Composer 2.5, below GPT-6-Luna (Medium) — with a sharp internal split:
+  excellent on Laravel and React-TS UI generation, close to zero on Go quoting, PHP offline sync
+  and bug finding. Provisional family scores (SWE-Pro 59.5, TB2.1 70.8) are not transferable to
+  this ID and do not lift the score.
+- **Cost efficiency: 100/100.** Free through OpenCode Zen right now, unlimited and zero
+  retention. Flagged as time-limited: the paid fallback is $0.30 / $1.20 per 1M, which is
+  cheap-but-paid territory, and neither the Zen window nor the vendor discount carries a
+  published end date.
+- **Overall Score: 66.2/100.** Half-up mean of the five quality dims
+  (58 + 52 + 96 + 65 + 60) / 5 = 66.2. Best fit: use it as a free, 1M-context, vision-capable
+  executor for UI scaffolding and bulk file work while the free window lasts — not as the
+  planner of record, since every reasoning, agentic and multi-step-logic benchmark the model
+  could be judged on is still unpublished.
 
-LongCat-2.0 (open-sourced 2026-06, MIT) has an in-house evaluation table on
-`github.com/meituan-longcat/LongCat-2.0`: Terminal-Bench 2.1 70.8, SWE-bench Pro 59.5,
-SWE-bench Multilingual 77.3, FORTE 73.2, BrowseComp 79.9, RWSearch 78.8, IFEval 90.0,
-Writing Bench 83.8, IMO-AnswerBench 81.8, GPQA-diamond 88.9. These are **2.0** numbers
-under Meituan's unified in-house harness (competitor figures marked `*` are cited from
-the competitor's own report). They describe a different model ID and are recorded here
-only so a later revision does not re-derive them; they are provisional for 2.5 and are
-explicitly **not** used as a stand-in for it.
-
-## Normalized scores (1–100)
-
-Not scored. Self-excluded: the `Overall Score` needs the mean of the five quality
-dims, and every one of those dims would rest on invented numbers. Nothing is written
-here on purpose — the free Zen window is the only honest way to produce a real table
-for this model.
+---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-27
-- Method: public internet research (vendor API docs + changelog, OpenCode Zen
-  catalogue, dated third-party launch coverage). No scored values; scores inside are
-  ignored by `pnpm sync`.
-- Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same
-  headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-02
+- Method: public internet research (vendor changelog and API docs, Vercel AI Gateway and
+  models.dev model metadata, AI Coding Daily leaderboard, several independent launch write-ups).
+  Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `LongCat_2.6.md`, using the same headings.

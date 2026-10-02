@@ -1,0 +1,22 @@
+# Fledge Alpha — findings by DeepSeek 4 Flash (.excluded)
+
+- Source: Fledge Alpha
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion (zero verified public benchmarks)
+
+No verified public benchmark numbers (GPQA/HLE/Terminal-Bench/SWE-bench/AA Index/MMMU, etc.) for this exact model/ID were found in this research pass. Per `tasks/research.md` rule 9 and `RULES.md`, this file is saved as `DeepSeek_4_Flash.md.excluded` (notes only, never counted) instead of a scored report, to avoid fabricated placeholder scores.
+
+- Free OpenCode Zen stealth listing; no lab, specifications or benchmark table published on its data page.
+- Third-party coverage (stealthmodels.com) reports qualitative SVG-output variance and ~61 output tokens/s only — no numeric benchmark score.
+- OpenCode usage data (2026-10-02): rank #21, 179B tokens, $0.00 spend, 92% input cache ratio, ~1.7M tokens/session.
+- Re-research trigger: if verified public benchmarks appear (official model card, Artificial Analysis, BenchLM, Vals AI, vendor launch post), write a fresh `DeepSeek_4_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-02
+- Method: public internet research; negative findings only.

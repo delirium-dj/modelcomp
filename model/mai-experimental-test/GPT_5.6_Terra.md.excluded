@@ -1,0 +1,43 @@
+# MAI Experimental Test — findings by GPT 5.6 Terra
+
+- Source: Unidentified experimental listing (`mai-experimental-test`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI Experimental Test
+- **Short description:** Experimental model folder with no verified public publisher, API identifier, model card, or release announcement located in fresh research.
+- **Provider / access:** Unknown.
+- **Release / knowledge:** Unknown.
+- **IDs:** `mai-experimental-test` (folder identifier only).
+- **Context window:** no verified public score found.
+- **Modalities:** no verified public score found.
+- **Pricing (as of 2026-10-02):** no verified public score found.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found.
+
+Reasoning / knowledge:
+
+- no verified public score found.
+
+Coding:
+
+- no verified public score found.
+
+Long context:
+
+- no verified public score found.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-02
+- Method: Fresh public web research. The search yielded no reliable model-specific documentation or benchmarks, so this report is self-excluded.

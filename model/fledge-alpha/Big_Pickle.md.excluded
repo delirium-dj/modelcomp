@@ -1,0 +1,138 @@
+# Fledge Alpha — findings by Big Pickle
+
+> **SELF-EXCLUDED (notes only, not scored).** Fledge Alpha is a real, heavily used model —
+> 179B tokens and ~107,000 completed sessions on OpenCode Zen in its first two days — but it
+> has **no identified lab, no official specs, no vendor benchmark and no independent
+> evaluation**. The only public numbers about its quality come from one user's ad-hoc checks
+> whose own write-up says they do not support a model review or quality ranking. Per
+> `model-report-TEMPLATE.md` (SELF-EXCLUSION) and `RULES.md`, this is saved as
+> `Big_Pickle.md.excluded` instead of a scored `.md`, so no pseudo-benchmark enters the
+> dataset mean.
+
+- Source: OpenCode Zen / unattributed lab (`opencode/fledge-alpha-free`, `opencode/fledge-alpha`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha (tier: `fledge-alpha-free`)
+- **Short description:** An unidentified model that appeared on OpenCode Zen in stealth mode
+  around 2026-10-01 and immediately drew heavy agentic traffic. It is served free
+  (subscription-plan pricing) with a 1M-token context and a reasoning toggle. Nobody — not
+  OpenCode, not the vendor, not the trackers — will say who builds it or what sits underneath.
+- **Provider / access:** OpenCode Zen, `opencode/fledge-alpha-free` (the free tier entry) and
+  `opencode/fledge-alpha` in OpenCode's usage data. Served via the Zen Responses endpoint.
+- **Release / knowledge:** 2026-10-01 (Zen catalogue date). No knowledge cutoff published.
+- **IDs:** `fledge-alpha-free`, `fledge-alpha` on Zen. No vendor model-ID string exists.
+- **Context window:** 1,048,576 tokens total, 131,072 max output (models.dev / modelcompare.dev
+  metadata). This folder covers the base model; the `-free` suffix is a pricing tier, not a
+  different model.
+- **Modalities:** text in/out. models.dev marks **attachments unsupported**, so it is treated as
+  text-only for scoring purposes. Reasoning: yes, with `low` / `high` / `max` effort modes.
+  Tool calling: yes. Structured/JSON mode: not reported.
+- **Pricing (as of 2026-10-02):** **$0 in / $0 out** — subscription-plan pricing on Zen, $0.0000
+  average cost per session, $0 total recorded spend. No paid tier is documented.
+- **Architecture:** proprietary, not open weights. Parameter count, MoE/dense structure and
+  training data are all unknown.
+
+## Raw benchmarks found
+
+Every benchmark row: **no verified public score found** for Fledge Alpha. There is no
+Artificial Analysis page, no BenchLM page, no entry on the AI Coding Daily coding leaderboard
+(their tracked-model list does not include it), no vendor model card and no technical report.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+
+- **no published retrieval benchmark.** The one long-context claim (see below) is a user test
+  over inputs of up to ~1 million **characters** — roughly a quarter of the advertised 1M-token
+  window — and is explicitly not a 1M-token retrieval result.
+
+## Unverified user-run checks (recorded, NOT scored)
+
+One early tester (@MikelEcheve, via promptblueprints.tech, 2026-10-02) posted ad-hoc results:
+
+- **61 / 61** executable code checks passed (LongCat 2.5 Preview: 59/61; a Nemotron model timed out)
+- **6 / 6** math checks
+- **4 / 4** logic checks
+- **12 / 12** hidden-key retrieval checks from inputs up to ~1 million **characters**
+
+These are **not scored** for four reasons: no harness, rubric or reproduction path is published;
+the sample sizes (6 and 4) are too small to normalize; the testing conditions contradict each
+other (one account says effort was pinned to `high` then `max` then `low` as a control, another
+says the numbers came from default settings with no pinned effort), and the sourcing write-up
+itself concludes the results are "not enough to support a model review, a broad quality ranking
+or a production recommendation." Encoding them as scores would launder a single anonymous
+user's smoke test into the project average.
+
+Also excluded on purpose: modelcompare.dev's "model fit scores" (Coding 71, Agents 66, Long
+context 81, Vision 81, Production-readiness 45). That site states plainly that these "reward
+declared capabilities, context size, price and provider availability — they are not benchmark
+results." A Vision 81 for a model whose attachment flag is **off** shows exactly why declared-
+capability scores must not be read as capability scores.
+
+## Identity unknown — open theories, none confirmed
+
+- OpenCode Zen carried it in "stealth mode," unannounced, before the catalogue entry appeared.
+- A model-tracking account (`@aitrackerbot`) suggests **Thinking Machines Lab**, citing OpenCode
+  PR references to Tinker and reasoning settings that match another OpenCode model it calls
+  "Inkling" — but states no tokenizer match was found and that owner and underlying model
+  remain unconfirmed.
+- Other reporting guesses **DeepSeek v4.1 Pro**. Nothing supports it.
+- opencode.ai/data lists the lab as literally **"unknown."**
+
+Treat all of the above as rumor. Nothing about the identity is load-bearing for this file beyond
+"we cannot name a vendor."
+
+## Verified facts that are not quality measurements
+
+For the record, from OpenCode's own usage data (updated 2026-10-02) — these measure adoption,
+not capability, and are logged so a future revision does not mistake them for scores:
+
+- 179B tokens over the past two months; **rank #21** by tokens across OpenCode last week
+- 3.6K unique users; **106,996 completed sessions**; ~1.7M average tokens per session
+- Daily ramp: 2026-09-30 — 861K tokens / 4 sessions; 2026-10-01 — 29B / 23,080 sessions;
+  2026-10-02 — 150B / 83,912 sessions
+- 92.1% of input tokens served from cache; $0.0000 average cost per session; $0 total spend
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: every quality dimension would have to be inferred from one
+anonymous tester's unreproducible checks, while the model itself has no model card, no named
+lab and no measured benchmark. An Overall Score here would be a number without a source, which
+is precisely what this exclusion exists to prevent.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-02
+- Method: public internet research (OpenCode Zen catalogue and Zen docs, models.dev, opencode.ai
+  usage data pages, modelcompare.dev and models.sulat.com metadata mirrors, promptblueprints.tech
+  and theneuralfeed.tech launch coverage, `@aitrackerbot` tracker posts). No scored values;
+  scores inside are ignored by `pnpm sync`.
+- Future sources: if the vendor is identified and publishes benchmarks — or an independent
+  harness scores it — delete this file and write `Big_Pickle.md` against those numbers.
+- Future sources: add a new file next to this one, e.g. `Fledge_Beta.md`, using the same headings.

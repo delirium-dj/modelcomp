@@ -1,0 +1,89 @@
+# MAI Experimental Test — findings by Big Pickle
+
+> **SELF-EXCLUDED (notes only, not scored).** `mai-experimental-test` is a real, heavily
+> used route on OpenCode — 255B tokens and 571,956 completed sessions from 55K unique users —
+> but it is **not a documented model**. OpenCode's own data pages return an empty spec for
+> every field (context, output limit, modalities, reasoning, tool calling, weights, release
+> date, all three prices), its capability table prints "50/100 — No data; neutral
+> placeholder" on all six dimensions, no lab claims it, and no benchmark anywhere measures
+> it. There is nothing to normalize, so per `model-report-TEMPLATE.md` (SELF-EXCLUSION) and
+> `RULES.md` this is `Big_Pickle.md.excluded`, not a scored `.md`.
+
+- Source: OpenCode (lab listed as "unknown") (`mai-experimental-test`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI Experimental Test (as served: `mai-experimental-test`)
+- **Short description:** An unlabeled test route on OpenCode that carries real production
+  traffic. The name is the giveaway: a `mai-` prefix with an `-experimental-test` suffix reads
+  as an internal experiment or A/B lane rather than a shipping model, and the platform treats
+  it that way — every metadata field is blank and its lab is recorded as "unknown".
+- **Provider / access:** OpenCode, model ID `mai-experimental-test`.
+- **Release / knowledge:** no release date recorded; no knowledge cutoff published.
+- **IDs:** `mai-experimental-test` only. No vendor model-ID string exists.
+- **Context window:** **not published.** The field renders as `-` on OpenCode's own comparison
+  pages, and the platform falls back to "50/100 — No data; neutral placeholder".
+- **Modalities:** not published (renders as `-`). Reasoning and tool-calling support are
+  likewise blank, so even text-only is an assumption rather than a documented fact.
+- **Pricing (as of 2026-10-02):** $0.0000 average cost per session and $0 total recorded spend
+  across the whole two-month window — the tokens were served free. No per-token rate is
+  published for any tier.
+- **Architecture:** unknown — parameter count, MoE/dense structure, open-weights status and
+  training data are all unpublished.
+
+## Raw benchmarks found
+
+Every row: **no verified public score found**. No vendor benchmark, no independent evaluation,
+no leaderboard entry (it is absent from the AI Coding Daily tracked-model list), and no
+Artificial Analysis or BenchLM page.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau3 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: **no verified
+  public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Artificial Analysis Intelligence Index /
+  Omniscience Accuracy: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified
+  public score found**
+
+Long context / multimodal:
+
+- **no published retrieval measurement and no published modality list**
+
+## Verified facts that are not quality measurements
+
+From OpenCode's usage data (page updated 2026-10-02T15:40Z). These measure adoption, not
+capability — logged so a future revision does not mistake them for scores:
+
+- **255B tokens** over the past two months, **rank #18** by tokens across OpenCode last week
+  (+100% versus the prior two months); a second, broader ranking page shows it at #9 with 50B
+- **55K unique users**; **571,956 completed sessions**; ~445K average tokens per session
+- 69.3% of input tokens served from cache; $0.0000 average cost per session; $0 total spend
+
+A caveat on the usage itself: sessions averaging 445K tokens on a route with no published
+context window mean the served limit is unstated, and a high cache-hit ratio (69.3%) is a
+property of the harness, not the model.
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: not one specification and not one benchmark is public. Any Overall
+here would be built from the platform's own explicitly-labelled neutral placeholders.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-02
+- Method: public internet research (opencode.ai/data usage and model-comparison pages for
+  `mai-experimental-test`, OpenCode Data provider and ranking pages, AI Coding Daily tracked
+  model list). No scored values; scores inside are ignored by `pnpm sync`.
+- Future sources: if this route is promoted to a real model with a name, specs and a model
+  card, migrate this folder to the model's slug and write `Big_Pickle.md` then.
+- Future sources: add a new file next to this one, e.g. `MAI_2.md`, using the same headings.

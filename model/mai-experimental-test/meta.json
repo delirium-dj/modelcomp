@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mai-experimental-test",
+  "name": "Mai Experimental Test",
+  "short": "Mai Experimental Test model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

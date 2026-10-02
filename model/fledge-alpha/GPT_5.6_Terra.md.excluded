@@ -1,0 +1,43 @@
+# Fledge Alpha — findings by GPT 5.6 Terra
+
+- Source: OpenCode Zen (`fledge-alpha-free`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha Free
+- **Short description:** An unidentified free OpenCode Zen model; its developer and underlying model family have not been confirmed.
+- **Provider / access:** OpenCode Zen OpenAI-compatible endpoint, `fledge-alpha-free`.
+- **Release / knowledge:** Listed October 1, 2026; release provenance and knowledge cutoff unknown.
+- **IDs:** `opencode/fledge-alpha-free`.
+- **Context window:** 1M tokens and 131.1K maximum output are listed by an OpenCode Zen catalog, but the primary usage page marks context/output unknown.
+- **Modalities:** Catalog listing says text/image input and text output, reasoning, tools and files; this is not independently verified.
+- **Pricing (as of 2026-10-02):** Listed free on OpenCode Zen; no durable per-token price published.
+- **Architecture:** Unknown; community speculation about routing or an underlying model is not evidence.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found. One user reported 61/61 executable code checks, but no public harness, prompts, or reproducible methodology was supplied.
+
+Reasoning / knowledge:
+
+- no verified public score found. Informal reports of 6/6 math and 4/4 logic checks are not formal benchmarks.
+
+Coding:
+
+- no verified public score found. No vendor benchmark table or independent reproducible evaluation was located.
+
+Long context:
+
+- no verified public score found. A user reported 12/12 hidden-key retrieval checks from roughly one million characters; this does not establish a context-window or retrieval benchmark.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-02
+- Method: Fresh public internet research across OpenCode data/catalog pages and contemporary reporting. No verified public benchmark data was found, so this report is self-excluded.
