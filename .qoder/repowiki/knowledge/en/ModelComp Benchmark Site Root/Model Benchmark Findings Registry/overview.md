@@ -1,1 +1,0 @@
-Data-only registry of model benchmark findings, one folder per tracked model containing per-agent Markdown reports and a curated meta.json manifest consumed by the site build.

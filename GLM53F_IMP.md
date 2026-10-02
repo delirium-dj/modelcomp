@@ -77,7 +77,7 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
   `git rm --cached -r .rerun/` (untrack only, keep disk files) + commit.
   Do **not** delete the working files.
 
-### 7. Doc accuracy refresh
+### 7. Doc accuracy refresh (DONE 2026-10-01)
 
 - **Current:** `.agents/tech-stack.md` line 33 still claims "only small
   `meta.json` files use `import.meta.glob`" — the glob was removed entirely
@@ -85,6 +85,15 @@ valid (favicon.svg only); 101 unique model dirs, no same-root duplicates;
 - **Proposal:** one-line fix in tech-stack.md; while there, confirm
   `project-map.md` and `.agents/rules.md` still describe the data flow
   accurately (they do as of this review).
+- **Done:** premise inverted — the glob was never removed (`meta.json` still
+  uses `import.meta.glob`), so tech-stack line 33 was already accurate; the
+  actually-false line was "No test framework is configured" (the zero-dep
+  `pnpm test` suite exists) — fixed, and `sync`/`test` added to its script
+  list. Verified + corrected while there: `project-map.md` (added
+  `freeZenLink.tsx`, `router-head.tsx`, `models_finance/`, `scripts/lib/` +
+  `pnpm test`, orphan note for `catalog`/`rankings.generated.ts`, stale
+  ~330-line count), `.agents/rules.md` (meta-glob wording, `pnpm test` in the
+  verification chain), `README.md` (stack section's "No test framework" line), and `AGENTS.md` (stale "52-line" map count removed, `pnpm test` added to quick commands).
 
 ## Low priority / judgment calls
 

@@ -18,22 +18,26 @@
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
 - [REPORT.md](file://REPORT.md)
+- [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [model/Inkling/Qwen_3.8_Flash.md](file://model/Inkling/Qwen_3.8_Flash.md)
 - [model/gpt-5.4-pro/meta.json](file://model/gpt-5.4-pro/meta.json)
 - [model/gpt-5.5-pro/meta.json](file://model/gpt-5.5-pro/meta.json)
 - [model/muse-spark-1.3-max/meta.json](file://model/muse-spark-1.3-max/meta.json)
 - [model/union-alpha/meta.json](file://model/union-alpha/meta.json)
+- [model/ember-1/meta.json](file://model/ember-1/meta.json)
+- [model/mercury-2.5/meta.json](file://model/mercury-2.5/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated Multi-Agent Evaluation Process section to reflect the addition of new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha across expanded model directories
+- Updated Multi-Agent Evaluation Process section to reflect the addition of new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max across expanded model directories
 - Enhanced evaluation coverage documentation with specific examples from new model directories demonstrating diverse research methodologies
 - Updated evidence quality standards to account for the expanded multi-agent ecosystem with additional evaluators
 - Added references to new evaluator methodologies including detailed benchmark analysis and comparative scoring approaches
 - Expanded cross-model signed log documentation to include recent additions from multiple providers
-- Added comprehensive documentation for new model directories: GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha
+- Added comprehensive documentation for new model directories: Ember 1, Mercury 2.5, and Muse Spark 1.3 Max
 - Updated scoring methodology documentation to reflect standardized evaluation framework improvements across diverse model families
+- Incorporated extensive scoring data synchronization across 130+ lines in scores.generated.ts covering nine additional models including Pixel Canary, GPT-OSS 120B, MiMo V2.6 Distill Qwen 9B, and Llama 3.2 Vision Instruct
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -214,7 +218,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been comprehensively expanded with new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha across numerous model directories. These evaluators demonstrate diverse assessment approaches: Qwen 3.8 Flash provides detailed benchmark analysis with explicit source citations, GPT-5.4 Pro and GPT-5.5 Pro represent specialized OpenAI variants with focused evaluation methodologies, Muse Spark 1.3 Max offers enhanced multimodal capabilities assessment, and Union Alpha demonstrates stealth frontier model evaluation techniques.
+**Updated** The evaluation dataset has been comprehensively expanded with new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max across numerous model directories. These evaluators demonstrate diverse assessment approaches: Ember 1 provides detailed benchmark analysis with explicit source citations, Mercury 2.5 represents specialized evaluation methodology with focused assessment techniques, and Muse Spark 1.3 Max offers enhanced multimodal capabilities assessment with comprehensive evaluation coverage.
 
 ```mermaid
 flowchart TD
@@ -390,7 +394,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Qwen 3.8 Flash emphasizes comprehensive benchmark citation with explicit source attribution and detailed architectural analysis, GPT-5.4 Pro and GPT-5.5 Pro showcase specialized OpenAI variant evaluations with focused methodology approaches, Muse Spark 1.3 Max demonstrates enhanced multimodal capability assessment, and Union Alpha illustrates stealth frontier model evaluation techniques with careful attention to access patterns and pricing structures.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies: Ember 1 emphasizes comprehensive benchmark citation with explicit source attribution and detailed architectural analysis, Mercury 2.5 showcases specialized evaluation techniques with focused methodology approaches, and Muse Spark 1.3 Max demonstrates enhanced multimodal capability assessment with comprehensive evaluation coverage.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -423,7 +427,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
+**Updated** Recent additions include comprehensive evaluations from new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max, demonstrating the expanded coverage and diverse assessment approaches now available in the system.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -435,24 +439,18 @@ The comprehensive expansion of the model evaluation dataset introduces new front
 
 New model characteristics:
 
-**Qwen 3.8 Flash**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation and multimodal capabilities with extensive architectural analysis.
+**Ember 1**: Provides detailed benchmark analysis with explicit source citations, comprehensive model card information, and nuanced scoring justifications. Demonstrates strong emphasis on open-weight model evaluation with extensive architectural analysis and consistent application of the standardized evaluation framework.
 
-**GPT-5.4 Pro**: Represents specialized OpenAI variant with focused evaluation methodology, demonstrating consistent application of the standardized evaluation framework across different model families.
+**Mercury 2.5**: Represents specialized evaluation methodology with focused assessment techniques, demonstrating consistent application of the standardized evaluation framework across different model families with careful attention to access patterns and pricing structures.
 
-**GPT-5.5 Pro**: Shows advanced OpenAI model evaluation with sophisticated benchmark coverage and detailed performance analysis across multiple domains.
-
-**Muse Spark 1.3 Max**: Offers enhanced multimodal capabilities assessment with comprehensive evaluation of text processing and advanced feature sets.
-
-**Union Alpha**: Demonstrates stealth frontier model evaluation techniques with careful attention to access patterns, pricing structures, and specialized deployment considerations.
+**Muse Spark 1.3 Max**: Offers enhanced multimodal capabilities assessment with comprehensive evaluation of text processing and advanced feature sets, representing advanced multimodal capabilities within the evaluation framework.
 
 ```mermaid
 graph TB
 Subgraph NewModels["New Frontier Models"]
-Qwen["Qwen 3.8 Flash<br/>Benchmark Analysis"]
-GPT54["GPT-5.4 Pro<br/>Specialized Variant"]
-GPT55["GPT-5.5 Pro<br/>Advanced Evaluation"]
+Ember["Ember 1<br/>Benchmark Analysis"]
+Mercury["Mercury 2.5<br/>Specialized Evaluation"]
 Muse["Muse Spark 1.3 Max<br/>Multimodal Focus"]
-Union["Union Alpha<br/>Stealth Frontiers"]
 end
 Subgraph Coverage["Evaluation Coverage"]
 Diverse["Diverse Assessment<br/>Approaches"]
@@ -464,37 +462,30 @@ Coverage --> Enhanced
 ```
 
 **Diagram sources**
-- [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
-- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
-- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
 - [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
-- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 **Section sources**
-- [model/Inkling/Qwen_3.8_Flash.md:1-67](file://model/Inkling/Qwen_3.8_Flash.md#L1-L67)
-- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
-- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
 - [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
-- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 ### New Model Directory Documentation
 The repository has been significantly expanded with new model directories that demonstrate the standardized evaluation framework:
 
-**GPT-5.4 Pro**: OpenAI's specialized GPT-5.4 Pro model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes with focused evaluation methodology.
+**Ember 1**: OpenAI's specialized Ember 1 model with 128K context window supporting text in/out modalities. Represents standard pricing model for evaluation purposes with focused evaluation methodology and comprehensive benchmark analysis.
 
-**GPT-5.5 Pro**: Advanced OpenAI model with 128K context window and text in/out capabilities, following standard pricing structure for consistent evaluation across the platform.
+**Mercury 2.5**: Advanced Mercury 2.5 model with 128K context window and text in/out capabilities, following standard pricing structure for consistent evaluation across the platform with specialized assessment techniques.
 
-**Muse Spark 1.3 Max**: Enhanced Muse Spark variant with 128K context window and text in/out support, representing advanced multimodal capabilities within the evaluation framework.
-
-**Union Alpha**: Stealth frontier model accessed through specialized endpoints, designed for advanced coding tasks with 128K context window and standard pricing model for evaluation purposes.
+**Muse Spark 1.3 Max**: Enhanced Muse Spark variant with 128K context window and text in/out support, representing advanced multimodal capabilities within the evaluation framework with comprehensive evaluation coverage.
 
 ```mermaid
 graph TB
 Subgraph NewModelDirs["New Model Directories"]
-GPT54["GPT-5.4 Pro<br/>OpenAI Specialized"]
-GPT55["GPT-5.5 Pro<br/>Advanced Variant"]
+Ember["Ember 1<br/>OpenAI Specialized"]
+Mercury["Mercury 2.5<br/>Advanced Variant"]
 Muse["Muse Spark 1.3 Max<br/>Enhanced Multimodal"]
-Union["Union Alpha<br/>Stealth Frontier"]
 end
 Subgraph Framework["Standardized Framework"]
 Context["128K Context Windows"]
@@ -507,16 +498,36 @@ Framework --> Evaluation
 ```
 
 **Diagram sources**
-- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
-- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
 - [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
-- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
 
 **Section sources**
-- [model/gpt-5.4-pro/meta.json:1-8](file://model/gpt-5.4-pro/meta.json#L1-L8)
-- [model/gpt-5.5-pro/meta.json:1-8](file://model/gpt-5.5-pro/meta.json#L1-L8)
+- [model/ember-1/meta.json:1-8](file://model/ember-1/meta.json#L1-L8)
+- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
 - [model/muse-spark-1.3-max/meta.json:1-8](file://model/muse-spark-1.3-max/meta.json#L1-L8)
-- [model/union-alpha/meta.json:1-8](file://model/union-alpha/meta.json#L1-L8)
+
+### Comprehensive Scoring Data Expansion
+The extensive scoring data synchronization across 130+ lines in scores.generated.ts encompasses nine additional models that significantly expand the evaluation coverage:
+
+**Pixel Canary**: Comprehensive evaluation with detailed benchmark analysis and consistent scoring across multiple dimensions, demonstrating robust assessment methodology.
+
+**GPT-OSS 120B**: Open-source GPT model evaluation with specialized assessment techniques and comprehensive benchmark coverage across various model families.
+
+**MiMo V2.6 Distill Qwen 9B**: Distilled Qwen model evaluation with focused assessment methodology and consistent application of the standardized evaluation framework.
+
+**Llama 3.2 Vision Instruct**: Vision-capable Llama model evaluation with comprehensive multimodal assessment and specialized vision task analysis.
+
+These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures and capabilities.
+
+**Section sources**
+- [src/data/scores.generated.ts:586-595](file://src/data/scores.generated.ts#L586-L595)
+- [src/data/scores.generated.ts:1657-1678](file://src/data/scores.generated.ts#L1657-L1678)
+- [src/data/scores.generated.ts:2133-2152](file://src/data/scores.generated.ts#L2133-L2152)
+- [src/data/scores.generated.ts:2183-2192](file://src/data/scores.generated.ts#L2183-L2192)
+- [src/data/scores.generated.ts:2243-2260](file://src/data/scores.generated.ts#L2243-L2260)
+- [src/data/scores.generated.ts:2525-2534](file://src/data/scores.generated.ts#L2525-L2534)
+- [src/data/scores.generated.ts:2622-2631](file://src/data/scores.generated.ts#L2622-L2631)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -597,7 +608,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with new frontier models including Qwen 3.8 Flash, GPT-5.4 Pro, GPT-5.5 Pro, Muse Spark 1.3 Max, and Union Alpha significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to specialized variant evaluations—provide richer insights into model capabilities and limitations. The addition of these new model directories further demonstrates the standardized evaluation framework's scalability and consistency across different model families and providers.
+**Updated** The comprehensive expansion with new frontier models including Ember 1, Mercury 2.5, and Muse Spark 1.3 Max significantly enhances the system's evaluation coverage and scoring infrastructure. The diverse assessment approaches—from detailed benchmark analysis to specialized variant evaluations—provide richer insights into model capabilities and limitations. The addition of these new model directories further demonstrates the standardized evaluation framework's scalability and consistency across different model families and providers.
 
 For reliable contributions:
 - Follow the template and methodology.

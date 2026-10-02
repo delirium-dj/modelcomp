@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-02T08:36:16Z"
+exported_at: "2026-10-02T09:06:58Z"
 modules:
     "":
-        dir_name: ModelComp Benchmark Site Root
-        title: ModelComp Benchmark Site Root
+        dir_name: ModelComp Benchmark Site
+        title: ModelComp Benchmark Site
         scope:
             - README.md
             - AGENTS.md

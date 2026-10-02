@@ -103,5 +103,5 @@ REPORT.md               running accomplishment log
 
 Qwik 1.20 + Qwik City (resumable, file-based routing, static SSG) · Vite 7 ·
 TypeScript 5.6 (`strict`) · Tailwind CSS v3.4 · pnpm 9.15.4 · Node ≥ 18.17.
-No test framework — verification is `pnpm build.types` + `pnpm build` (+ spot-check `dist/`).
+Zero-dep tests: `pnpm test` (Node's built-in runner over `scripts/lib/*.test.mjs`); verification is `pnpm test` + `pnpm build.types` + `pnpm build` (+ spot-check `dist/`).
 On Windows use the `:direct` twins (bare shims can exceed cmd.exe's line limit).
