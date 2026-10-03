@@ -1,0 +1,67 @@
+# GPT-6.1 Sol — findings by Claude Opus 4.6
+
+- Source: OpenAI (`gpt-6.1-sol`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.1 Sol
+- **Short description:** OpenAI's upgraded mid-tier model in the GPT-6 family, released September 29, 2026 at DevDay. Provides near-Astra performance for agentic coding and professional workflows at one-fifth the flagship cost.
+- **Provider / access:** OpenAI API (`gpt-6.1-sol`), ChatGPT Work, Codex. Responses API and Chat Completions API. Available to Plus, Pro, Business, Enterprise, and Edu users.
+- **Release / knowledge:** 2026-09-29 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `openai/gpt-6.1-sol`
+- **Context window:** 1,050,000 tokens total; max output 128,000 tokens (verified via OpenAI docs).
+- **Modalities:** Text + image (vision) in; text out; function calling; web search; file search; computer use; JSON mode.
+- **Pricing (as of 2026-09-29):** $2.00 / $10.00 per 1M tokens (input / output). Cached input: $0.10 per 1M (95% discount).
+- **Architecture:** Proprietary; parameter count undisclosed. Upgraded iteration of GPT-6 Sol.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: no verified GPT-6.1 Sol-specific score found (family context: Astra leads at 58.2%).
+- Computer use: supported natively (function calling, web search, file search, computer use).
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified GPT-6.1 Sol-specific score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- DeepSWE v1.1: matches GPT-6 Astra top-end accuracy (OpenAI announcement; ~74.1% Astra reference).
+- SWE-bench Verified / SWE-bench Pro: no verified Sol-specific score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+
+Long context:
+
+- 1,050,000-token window confirmed. "Notes" feature preserves state across context windows in Codex. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+### Normalized scores (1–100)
+
+- **Tool use: 86/100.** Native computer use, function calling, web/file search. GPT-6 generation agentic infrastructure. Context-preserving "notes" feature for long-running tasks. Capped by absence of Sol-specific benchmarks.
+- **Reasoning: 85/100.** Near-Astra performance confirmed by OpenAI; designed for complex professional workflows. Capped by missing GPQA/HLE data.
+- **Context window: 88/100.** 1.05M-token window with 128K output is top-tier. "Notes" feature extends effective context across sessions. Capped by absence of formal MRCR/RULER scores.
+- **Multimodal: 72/100.** Text + image input with computer-use vision. No audio/video input; text-only output. Capped by vision-only multimodal scope.
+- **Coding: 86/100.** Matches Astra on DeepSWE v1.1; positioned as primary choice for agentic coding. 80% cheaper per task than Astra with comparable accuracy. Capped by sparse independent benchmarks.
+- **Cost efficiency: 75/100.** $2/$10 per 1M is competitive; $0.10 cached input is excellent (95% discount). One-fifth of Astra's cost. Capped by standard mid-tier pricing.
+- **Overall Score: 83/100.** Mean of (86 + 85 + 88 + 72 + 86) / 5 = 83.4, rounded to 83. Excellent cost-performance ratio in the GPT-6 family.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-10-03
+- Method: Public internet research (OpenAI announcements, API docs, therundown.ai, independent evaluations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

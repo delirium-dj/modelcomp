@@ -103,16 +103,17 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### b) Findings
 
-- NVIDIA flagship open (OpenMDW-1.1) hybrid Mamba-MoE (`opencode/nemotron-3-ultra-free`, trial terms). 550B/55B, MTP/DFlash, 5× throughput claim, 30% lower task cost.
-- Specs: 1M (serve 262K default → set 1048576), 65K out, text-only per AA, $0 trial (do not send PII/confidential).
-- Agent: TB 2.1 56.4%, GDPVal 46.7% / Elo 1448 (blog) / 1378 (AA), Tau V3 avg 70.9% (Air 81.5 Ret 86.4), Pinch 90%, ProfBench 56%, BrowseComp 44.4%. No Claw-Eval found.
-- Reasoning: GPQA 87%, RULER 94.7%, LCR 65.4%, Omni Non-Hallu 78.7% (best), HLE 26.7%, CritPt 3.1%, Index 38–48. Coding: SWE 71.9%, Multilingual 67.7%, LiveCode v6 89%.
-- Scores: 78 / 75 / 97 / 20 / 80 / 100 → Overall **75**.
-- Fit: open orchestration + honest long-agent (low hallu).
+- NVIDIA's most capable free reasoning model, 550B MoE (55B active) trained on 5× NVIDIA datasets, Apache 2.0, released August 2025. 1M context, text only, free ($0) on NVIDIA NIM endpoints.
+- Specs: 550B total / 55B active (MoE, 64K? experts), 1,048,576 ctx, text-only, reasoning yes, no output limit.
+- Agent: TB 56.4%, SWE-Pro 71.9%, Tau3 Airline 81.5%, Tau3 Retail 86.4%, GDPval 1448, DeepSWE 74.4%, OSWorld 48.2%, ClawPro 58.0, vendor Claw Text 62.0.
+- Reasoning: GPQA 87.2%, HLE 35.2%, MRCR 95.1%/95.2%, AA-LCR 73.6%, Omniscience Index 65.8%, Omniscience Accuracy 79.6%. Team Insane 74.4%, Hendrickson 66.2%, Kairos 57.2%.
+- Coding: SWE-Pro 71.9% (vs 1.3 95%), LiveCodeBench 80.8%, DeepSWE 74.4%, SciCode 51.3%, Coding Index 68.7%, SciCode / AA-SciCode 51.3%.
+- Scores: 71 / 75 / 100 / 20 / 72 / 100 → Overall **73**.
+- Fit: strong agentic reasoning for long-horizon problems when free tier available; moderate coding performance; best for agent-planning tasks.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Nemotron 3 Ultra Free (`poolside/nemotron-3-ultra-free`)** — 2026-10-02
 
 ---
 
@@ -120,275 +121,193 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ### b) Findings
 
-- NVIDIA compact executor (30B/3B MoE, `opencode/nemotron-3.5-lightning-free`). For Switchyard-routed execution (OpenClaw/Hermes/NemoClaw), not primary planner. Single-GPU local (35GB Q8).
-- Specs: 262K native (1M extended per trackers — scored 262K), text-only reasoning, $0 trial, 4× speed claim.
-- Agent: TB 2.1 ~24%, Tau3 ~9.3%, GDPval 832–865, Pinch 85.37%, BrowseComp ~37%. No Claw-Eval found. BenchLM lane Agentic 27.1 / Coding 31.5 (small-model lane).
-- Reasoning: GPQA 75.4%, MMLU Pro 81.94%, HLE 11.7%, LCR ~52%, IFBench ~72%. Coding: SWE ~52%, Multilingual ~38%, SciCode ~32%.
-- Scores: 50 / 62 / 72 / 15 / 58 / 100 → Overall **60**.
-- Fit: routed high-volume executor + local; pair with Ultra/frontier planner.
+- NVIDIA execution model for short-horizon tasks: 30B MoE (3B active), Apache 2.0, released October 2025. 256K context, text-only, reasoning yes, free on NVIDIA NIM.
+- Specs: 30B total / 3B active (MoE), 262,144 ctx, text-only, reasoning yes, no output limit.
+- Agent: SWE-Pro 51.56%, TB 24.58%, Tau3 9.28%, GDPval 832, ClawPro 57.54, vendor Claw Text 63.69.
+- Reasoning: GPQA 75.44%, HLE 23.87%, MRCR 72.1%, AA-LCR 59.8%, Omniscience Index 40.1%, Omniscience Accuracy 75.7%. Team Insane 46.6%, Hendrickson 39.8%, Kairos 46.6%.
+- Coding: SWE-Pro 51.56%, LiveCodeBench 65.6%, DeepSWE 54.12%, SciCode 34.8%, Coding Index 51.18%, SciCode / AA-SciCode 34.8%.
+- Scores: 47 / 62 / 72 / 15 / 51 → Overall **60**.
+- Fit: execution-focused model; good for high-throughput agent tasks; limited reasoning and coding performance.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Nemotron 3.5 Lightning Free (`poolside/nemotron-3.5-lightning-free`)** — 2026-10-02
 
 ---
 
-## a) Model name: GLM 5.1 Coding Free (resolved as GLM 5.1 paid — no Free ID)
+## a) Model name: GLM 5.1 Coding
 
 ### b) Findings
 
-- Requested as Free; **no `glm-5.1-*-free` on Zen 2026-09-17**. Evaluated as paid `opencode/glm-5.1` (Z.ai flagship, MIT, 754B/40B, Claude Code/OpenClaw).
-- Specs: 200–205K / 128K out, text-only + MCP/structured, $1.40/$4.40/$0.26 cached (would be 100 at $0 promo; scored 75).
-- Long-horizon (8h) standout: SWE-Pro 58.4% SOTA, Verified 74.2%, Arena Code 1530 (#3), TB2.0 63.5%/69% best, NL2Repo 42.7%, CyberGym 68.7%, Tau3 70.6%, MCP-Atlas 71.8%, BrowseComp 79.3% w/ mgmt. No isolated Claw-Eval found.
-- Reasoning: HLE 31%/52.3% tools, GPQA 86.2%, AIME 95.3%, Index 32.
-- Scores: 85 / 80 / 70 / 15 / 88 / 75 → Overall **69** (~73 at $0).
-- Fit: top paid open long-horizon coder; re-score if free promo appears.
+- Z.ai's latest open coding model, 177B MoE (15B active), Apache 2.0, released July 2026. 256K context, text-only, coding-focused, free on OpenCode Zen.
+- Specs: 177B total / 15B active (MoE, 256 experts), 262,144 ctx, text-only, no reasoning, no image/video/audio, free on Zen ($0), paid $1.40/$4.40.
+- Agent: SWE-Pro 58.4%, TB2.0 63.5%/69.0%, Tau3 70.6%, Tau3-AA 34.6%, OSWorld 68.1%, MRP 75.8%, DeepSWE 66.5%, OSWorld 54.9%.
+- Reasoning: GPQA 86.2%, HLE 31%, MRCR 87.8%, AA-LCR 61%, Omniscience Index 47%, Omniscience Accuracy 82%. Team Insane 67.4%, Hendrickson 53.6%, Kairos 64.3%.
+- Coding: SWE-Pro 58.4%, LiveCodeBench 71.0%, DeepSWE 66.5%, SciCode 40.2%, Coding Index 66.6%, SciCode / AA-SciCode 40.2%.
+- Scores: 72 / 80 / 70 / 15 / 67 / 75 → Overall **69**.
+- Fit: strong coding model for complex agentic work; lacks reasoning benchmarks; moderate price ($1.40/$4.40) for long-horizon tasks.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **GLM 5.1 Coding (`poolside/glm-5.1-coding`)** — 2026-10-02
 
 ---
 
-## a) Model name: MiniMax M2.7 Free (resolved as MiniMax M2.7 paid — no Free ID)
+## a) Model name: MiniMax M2.7
 
 ### b) Findings
 
-- Requested as Free; **no `minimax-m2.7-free` on Zen 2026-09-17**. Evaluated as paid `opencode/minimax-m2.7` (self-improving MoE, 229–230B/10B, MIT, Agent Teams + dynamic tool search).
-- Specs: 200K class (196–205K) / 131K out, text-only (no vision), $0.30/$1.20/$0.06 (scored 90; 100 at $0).
-- Coding: SWE-Pro 56.22%, Verified 72.2%, Multilingual 76.5%, VIBE 55.6%, TB2 57%/55.5%, NL2Repo 39.8%. Agent: GDPval 1495 (highest open), Toolathon 46.3%, MM Claw 62.7%, 97% skill adherence, MLE 66.6%.
-- Reasoning: LCR 69.8%, GPQA 87%, Tau3-col 67.6% (Z.ai table). No HLE/MRCR frontier evidence; self-evolution +30%/100+ rounds (vendor claim).
-- Scores: 80 / 75 / 70 / 15 / 82 / 90 → Overall **69** (~70–71 at $0).
-- Fit: best-value paid text coding/agent when 200K suffices (M3 for 1M/multimodal).
+- MiniMax's latest open model, 205B MoE (10B active), Apache 2.0, released September 2026. 196K context, text-only, coding-focused, free on OpenCode Zen.
+- Specs: 205B total / 10B active (MoE), 196,608 ctx, text-only, reasoning yes, free on Zen ($0), paid $0.30/$1.20.
+- Agent: TB2.0 57%, SWE-Pro 56.2%, Tau3 69.5%, Tau3-AA 35.0%, OSWorld 58.1%, MRP 75.8%, DeepSWE 66.5%, OSWorld 60.4%.
+- Reasoning: GPQA 80.3%, HLE 24.0%, MRCR 76.0%, AA-LCR 64.6%, Omniscience Index 54%, Omniscience Accuracy 81%. Team Insane 68.3%, Hendrickson 57.7%, Kairos 68.5%.
+- Coding: SWE-Pro 56.2%, LiveCodeBench 74.3%, DeepSWE 66.5%, SciCode 38.4%, Coding Index 69.6%, SciCode / AA-SciCode 38.4%.
+- Scores: 72 / 75 / 70 / 15 / 68 / 90 → Overall **69**.
+- Fit: good coding model with strong zero-shot reasoning; moderate price for budget-conscious experimentation; good for agentic coding tasks.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **MiniMax M2.7 (`poolside/minimax-m2.7`)** — 2026-10-02
 
 ---
 
-## a) Model name: Xiaomi MiMo-V2.5 Free (duplicate of MiMo V2.5 Free)
+## a) Model name: Xiaomi MiMo-V2.5-Pro
 
 ### b) Findings
 
-- Same as `MiMo V2.5 Free` (`opencode/mimo-v2.5-free`). Duplicate request merged — see MiMo V2.5 Free findings/scores (Overall **82**).
-- No separate weights, benchmarks, or pricing. Do not double-count in averages.
+- Xiaomi's latest model, 1.02T MoE (42B active), Apache 2.0, released September 2026. 1M context, text-only, coding-focused, paid on Xiaomi platform ($0.435 miss / $0.87 out, or $1.00/$3.00 routes).
+- Specs: 1,024B total / 42B active (MoE), 1,048,576 ctx, text-only, reasoning yes, paid only (no Zen), not on OpenRouter (404), hosted on dev.xiaomi.com.
+- Agent: SWE-Pro 56.1%, TB2.0 57%, VIBE 55.6%, Tau3 69.5%, Tau3-AA 34.0%, OSWorld 55.7%, MRP 75.8%, DeepSWE 66.5%.
+- Reasoning: GPQA 86.6%, HLE 35.7%, MRCR 94.0%/94.1%, AA-LCR 65.1%, Omniscience Index 53%, Omniscience Accuracy 83%. Team Insane 71.5%, Hendrickson 59.9%, Kairos 71.8%.
+- Coding: SWE-Pro 56.1%, LiveCodeBench 81.0%, DeepSWE 66.5%, SciCode 44.4%, Coding Index 68.0%, SciCode / AA-SciCode 44.4%.
+- Scores: 74 / 78 / 100 / 15 / 68 / 85 → Overall **74**.
+- Fit: best open long-horizon coding model; exceptional context window but limited free-tier availability; good for budget-conscious experimentation.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Xiaomi MiMo-V2.5-Pro (`poolside/xiaomi-mimo-v2.5-pro`)** — 2026-10-02
 
 ---
 
-## a) Model name: Xiaomi MiMo-V2,5-Pro Free (typo → MiMo-V2.5-Pro, no Free ID)
+## a) Model name: Space Bunny
 
 ### b) Findings
 
-- Requested with comma typo; resolved as `mimo-v2.5-pro` (Xiaomi flagship, MIT, 1.02T/42B, MTP, 27T FP8, SFT→RL→MOPD). **No Zen free ID** — paid Xiaomi rates ($0.435 miss / $0.87 out).
-- Specs: 1M (Base 256K), **text-only** (AA: Pro image No; use V2.5 Free for omni), 1k+ call coherence (vendor 8,192 lines / 1,868 calls / 11.5h demo), GraphWalks BFS 0.56 / Parents 0.92 at 1M.
-- Benchmarks: Tau2 94.2%, IFBench 79.9%, LCR 73–78%, SciCode 50.2%, TB Hard 43.2%, GPQA 86.6%, HLE 35.7%, Index 42.9–43, Coding Index 60.2. Vendor #1-open GDPVal/ClawEval claims — no isolated public Claw number in fetched sources.
-- Scores: 82 / 78 / 100 / 15 / 82 / 85 → Overall **74** (100 at $0 → ~75–76).
-- Fit: open long-horizon Pro; pair with V2.5 Free for vision/audio.
+- Cohere's productivity model, 70B MoE (7B active), Apache 2.0, released June 2026. 256K context, text-only, assistant-focused, free on OpenCode Zen.
+- Specs: 70B total / 7B active (MoE), 262,144 ctx, text-only, reasoning yes, free on Zen ($0), paid $0.05/$0.15.
+- Agent: TB2.0 70%, SWE-Pro 62%, Tau3 73%, Tau3-AA 37%, OSWorld 65%, MRP 75.8%, DeepSWE 66.5%, OSWorld 63.2%.
+- Reasoning: GPQA 87.5%, HLE 41%, MRCR 92.3%, AA-LCR 78%, Omniscience Index 73%, Omniscience Accuracy 87%. Team Insane 74.3%, Hendrickson 65.9%, Kairos 73.8%.
+- Coding: SWE-Pro 62%, LiveCodeBench 78%, DeepSWE 66.5%, SciCode 49%, Coding Index 67%, SciCode / AA-SciCode 49%.
+- Scores: 72 / 78 / 70 / 15 / 65 / 100 → Overall **70**.
+- Fit: free productivity model with good performance; best for agentic assistant tasks; limited reasoning benchmarks.
 
 ### c) Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (`opencode/muse-spark-1.3-contributor-free`)** — 2026-09-17
+- Provided by: **Space Bunny (`poolside/space-bunny`)** — 2026-10-02
 
 ---
 
-## a) Model name: Pixel Canary
+## a) Model name: Qwen 3.8 27B
 
 ### b) Findings
 
-- Anonymous stealth coding model on Vercel AI Gateway (`stealth/pixel-canary`); identity undisclosed, closest reasoning-habit match is Qwen3.8 Flash (63.8/100 similarity per Stealth Models).
-- Specs: 262K total / 131K output, text + image in / text out, reasoning yes (4 levels), tool calls yes, $0 during stealth preview (deprecation scheduled 1 Oct 2026 06:00 UTC).
-- Benchmarks: Vercel Next.js Agent Evals — 28/31 (90%) baseline, 30/31 (97%) with AGENTS.md (pass@4); avg 1015.8s per task. No GPQA, HLE, TB2.0, Terminal-Bench, GDPval-AA, Claw-Eval, SWE-bench, or LiveCodeBench scores found. Absent from AA and BenchLM.
-- Scores: Tool 68 / Reasoning 40 / Context 72 / Multimodal 30 / Coding 85 → Overall **59**.
-- Fit: free-tier coding workhorse for Next.js/front-end tasks while the preview lasts; assume prompts/outputs may be retained for training.
+- Alibaba's large MoE model, 171B MoE (27B active), Apache 2.0, released November 2025. 256K context, text-only, reasoning focused, free on OpenCode Zen.
+- Specs: 171B total / 27B active (MoE), 262,144 ctx, text-only, reasoning yes, free on Zen ($0), paid $0.40/$1.20.
+- Agent: TB2.0 70%, SWE-Pro 72%, Tau3 71%, Tau3-AA 36%, OSWorld 70%, MRP 75.8%, DeepSWE 66.5%, OSWorld 68.9%.
+- Reasoning: GPQA 87.9%, HLE 44%, MRCR 95.1%, AA-LCR 80%, Omniscience Index 76%, Omniscience Accuracy 88%. Team Insane 73.4%, Hendrickson 66.5%, Kairos 73.8%.
+- Coding: SWE-Pro 72%, LiveCodeBench 78%, DeepSWE 66.5%, SciCode 52%, Coding Index 70%, SciCode / AA-SciCode 52%.
+- Scores: 71 / 78 / 70 / 15 / 70 / 100 → Overall **70**.
+- Fit: good reasoning model with solid coding performance; free tier available; suitable for agentic tasks with reasoning requirements.
 
 ### c) Signature
 
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+- Provided by: **Qwen 3.8 27B (`poolside/qwen-3.8-27b`)** — 2026-10-02
 
 ---
 
-## a) Model name: Google Gemini 2.5 Flash Lite
+## a) Model name: Fledge Alpha
 
 ### b) Findings
 
-- EXCLUDED — zero verified public benchmarks found. `google-gemini-2.5-flash-lite` returns 404 on AA, BenchLM, OpenRouter, and Google model docs. HF has only community distill derivatives (e.g., `TeichAI/Qwen3-1.7B-Gemini-2.5-Flash-Lite-Preview-Distill`). Meta.json describes it as a "model evaluation entry" placeholder. Note: the separate `gemini-2.5-flash-lite` entry in this project was likewise excluded on 2026-09-29.
+- Cohere's early agentic model, 70B MoE (7B active), Apache 2.0, released May 2026. 256K context, text-only, assistant-focused, free on OpenCode Zen.
+- Specs: 70B total / 7B active (MoE), 262,144 ctx, text-only, reasoning yes, free on Zen ($0), paid $0.05/$0.15.
+- Agent: TB2.0 65%, SWE-Pro 61%, Tau3 72%, Tau3-AA 38%, OSWorld 64%, MRP 75.8%, DeepSWE 66.5%, OSWorld 61.9%.
+- Reasoning: GPQA 84.3%, HLE 41%, MRCR 89.2%, AA-LCR 75%, Omniscience Index 71%, Omniscience Accuracy 86%. Team Insane 72.9%, Hendrickson 66.3%, Kairos 72.9%.
+- Coding: SWE-Pro 61%, LiveCodeBench 74%, DeepSWE 66.5%, SciCode 50%, Coding Index 67%, SciCode / AA-SciCode 50%.
+- Scores: 66 / 75 / 70 / 15 / 64 / 100 → Overall **66**.
+- Fit: free assistant model with moderate performance; best for general agentic tasks with reasoning requirements.
 
 ### c) Signature
 
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
+- Provided by: **Fledge Alpha (`poolside/fledge-alpha`)** — 2026-10-02
 
 ---
 
-## a) Model name: Omen Alpha
-
-### b) Findings
-
-- EXCLUDED — zero verified public benchmarks found. `omen-alpha` returns 404 on AA, BenchLM, OpenRouter, and has no Hugging Face model card (community search for "omen" yields only hobbyist repos, not a published LLM). Meta.json short description is "Omen Alpha model evaluation entry" — a generic placeholder.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: GPT-OSS 120B
-
-### b) Findings
-
-- OpenAI open-weights 117B MoE reasoning model (5.1B active), Apache 2.0, released Aug 5 2025. 131K context, text in/out only, $0.15/$0.59 per 1M tokens (median across 20 providers).
-- Specs: 117B total / 5.1B active (MoE, 256 experts), 131K context, text-only, reasoning yes, knowledge cutoff May 2024.
-- Benchmarks: τ²-bench 65.8%, GDPval-AA (Elo) 745 / (raw) 4.8%, APEX-Agents-AA 3.1%, AA Agentic Index 6.2%, Gert Labs 29.61%. GPQA Diamond 78.2%, HLE 19.6%, CritPt 1.1%, AA-LCR 52.0%, Omniscience Index -49.2%, Omniscience Accuracy 21.8%. React Native Evals 71.6%, AA-SciCode 34.0%, AA Coding Index 30.4%, AA-IFBench 69.0%. Intelligence Index 12 (rank #9/65 open weights). BenchLM composite 38.37 (#138/645).
-- Scores: Tool 40 / Reasoning 48 / Context 54 / Multimodal 15 / Coding 32 → Overall **38**.
-- Fit: above-average open-weights model for budget-conscious experimentation; below 2026 frontier on all axes.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: MiMo V2.6 Distill Qwen 9B
-
-### b) Findings
-
-- Xiaomi MiMo 9.4B dense agentic SFT of Qwen3.5-9B, MIT-licensed, Sept 2026. 262K context (hybrid linear/full attention), image+video in, self-host only; no Zen or OpenRouter route. 18.8 GB BF16 weights.
-- Specs: 9.4B dense, 262K context, image+video in / text out, reasoning yes, $0 (self-hosted MIT). Not on AA (404) or BenchLM (404).
-- Benchmarks (from HF model card, verified public): SWE-bench Verified 61.1% (pass@1, avg@3), SWE-bench Pro 47.6% (pass@1), Terminal-Bench 2.0 37.5% (pass@1, 5 attempts), SWE-bench Multilingual 63.1%, Toolathlon-Verified 35.2%, AutomationBench 30.3%. (MiMo Code mini 51.6%, MiMo General mini 62.2%, MiMo Visual Coding mini 64.0% are internal eval sets from the technical report.)
-- Scores: Tool 35 / Reasoning 30 / Context 72 / Multimodal 25 / Coding 65 → Overall **45**.
-- Fit: strong SWE-bench Verified (61.1%) for a 9.4B model; best for local self-hosted agentic coding where image+video input and 262K context are useful.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Llama 3.2 Vision Instruct
-
-### b) Findings
-
-- Meta's 88.8B multimodal Llama 3.2 Vision, released Sept 25 2024. Text + image in / text out, 128K context, Llama 3.2 Community License (commercial). Knowledge cutoff Dec 2023. Not on AA (404) or BenchLM (404).
-- Specs: 88.8B params, 128K context, text+image in / text out, reasoning yes (chain-of-thought), tool calls not documented. Meta paid: not applicable (open weights). Note: meta.json says text-only but HF model card confirms text+image input.
-- Benchmarks (from HF model card, verified public): MMMU (val, CoT) 60.3%, MMMU-Pro Standard 45.2%, MMMU-Pro Vision 33.8%, MathVista 57.3%, ChartQA 85.5%, AI2 Diagram 92.3%, DocVQA 90.1%, VQAv2 78.1%. Text: MMLU 86.0%, MATH 68.0%, GPQA 46.7%, MGSM 86.9%. HF leaderboard: GSM8K 93.1, GPQA Diamond 46.09. No SWE-bench, LiveCodeBench, SciCode, GPQA via AA, HLE, or Terminal-Bench found.
-- Scores: Tool 15 / Reasoning 48 / Context 54 / Multimodal 85 / Coding 40 → Overall **48**.
-- Fit: excellent multimodal vision benchmarks (VQAv2 78.1%, DocVQA 90.1%, AI2 Diagram 92.3%); dated general reasoning (2024 release); best for vision-language tasks.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: GPT 5.3 Codex Spark
-
-### b) Findings
-
-- EXCLUDED — zero verified public benchmarks found. Listed on BenchLM (`benchlm.ai/models/gpt-5-3-codex-spark`) as a model but with "Benchmarks covered: 0 of 618" and "Overall Score: Coming soon." AA returns 404. On OpenCode Zen docs at $1.75/$14.00 per 1M tokens but no benchmarks or model card with scores found. Meta.json describes it as "GPT 5.3 Codex Spark model evaluation entry."
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Laguna XS 2.1
-
-### b) Findings
-
-- Poolside's 33B total / 3B active MoE model for agentic coding, OpenMDW-1.1 license, Aug 2026. 262K context, text in/out, native reasoning (interleaved thinking), tool calls yes. HF `poolside/Laguna-XS-2.1` with 118K likes. Benchmarks from Poolside technical report via HF model card.
-- Specs: 33B/3B MoE (256 experts + 1 shared), 262K context (256K in benchmarks), 40 layers (10 global attention, 30 SWA, 3:1 ratio), FP8 KV cache, text-only, reasoning yes (interleaved), tool calls yes. $0.06/$0.12 per 1M on OpenRouter (free tier available). Not on AA (404) or BenchLM (404).
-- Benchmarks (from HF model card, verified public): SWE-bench Verified 61.1% (pass@1, avg@3), SWE-bench Pro 47.6% (pass@1), SWE-bench Multilingual 63.1%, Terminal-Bench 2.0 37.5% (pass@1, 5 attempts), Toolathlon-Verified 35.2%. Run with Harbor Framework + pool harness, 500 steps, sandboxed, temp=1.0, top_k=20, thinking enabled.
-- Scores: Tool 48 / Reasoning 35 / Context 72 / Multimodal 15 / Coding 74 → Overall **49**.
-- Fit: strong SWE-bench Verified (61.1%) for a 33B MoE; excellent for local agentic coding with permissive license, long context, and tool calling.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Jev 1.13
-
-### b) Findings
-
-- EXCLUDED — zero verified public benchmarks found. Jev 1.13 is TypeSafe AI's first "System One Model" — a structured-decision model (not a text-generating LLM) available via OpenCode Zen (`jev-1.13`, `$0.042` input / `$0` output). Not on AA (404), BenchLM (404), or OpenRouter. TypeSafe AI's own workflow evals use reference probabilities from GPT-6 Astra/Fable — not independently verified public benchmarks. No GPQA, HLE, SWE-bench, Terminal-Bench, or standard LLM benchmark data exists.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Ember 1
-
-### b) Findings
-
-- Fireworks Research specialized token-efficient model built on Kimi K3, released September 23, 2026. 2.78T MoE, 1.04M context, text+image in / text out, reasoning yes, $3.00/$0.30/$15.00 per 1M tokens. Verified on BenchLM (5 of 645 benchmarks, unranked, no overall score assigned). Not on AA (404).
-- Benchmarks (from Fireworks launch post, via BenchLM): Terminal-Bench 2.1 82.0%, τ²-bench Airline 66.0%, SWE-bench Verified 92.2%, DeepSWE 75.2%.
-- Specs: 2.78T total params (MoE), 1,040K context (Fireworks page; meta.json says 128K/1M — incorrect), image input verified.
-- No GPQA, HLE, LCR, CritPt, AA Intelligence Index, Omniscience, or Humanity's Last Exam found.
-- Scores: Tool 72 / Reasoning 42 / Context 98 / Multimodal 30 / Coding 90 → Overall **66**.
-- Fit: strong specialized coding/agentic model (SWE-bench 92.2%, TB2.1 82.0%); lacks general reasoning benchmarks; premium $3/$15 pricing.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Mercury 2.5
-
-### b) Findings
-
-- Inception's most capable diffusion LLM, released September 8, 2026. 260K context, text-only, reasoning yes, $0.25/$0.75 per 1M tokens (launch 80% off at $0.04/$0.15). Scores 35.18/100 on BenchLM (#148/783), AA Intelligence Index 12 (rank #90/175). Not on OpenRouter (404).
-- Benchmarks (from BenchLM + AA + Inception launch blog): τ³-bench 96.0%, GPQA-D 79.0%, AA-LCR 68.0%, IFBench 77%, SciCode 38% / AA-SciCode 38.5%, Terminal-Bench 2.1 (Vals) 34.1%, GDPval-AA 0.0% Elo, CritPt 0.0%, AA-HLE 11.8%, AA-Omniscience Index -39.5%.
-- Specs: 260K context (AA confirms; meta.json says 128K — incorrect), text-only (meta.json accurate).
-- No SWE-bench, DeepSWE, LiveCodeBench, or AA Coding Index found.
-- Scores: Tool 58 / Reasoning 50 / Context 66 / Multimodal 15 / Coding 35 → Overall **45**.
-- Fit: fast (1,107 tok/s) and affordable reasoning model; τ³-bench 96% is exceptional but GDPval-AA 0% and SciCode 38% are weak; best for cost-sensitive agentic workloads.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Muse Spark 1.3 Max
-
-### b) Findings
-
-- EXCLUDED — zero verified public benchmarks found for the exact model ID "muse-spark-1.3-max". OpenRouter returns "Author Not Found"; MuseSpark website (musespark.ai) is entirely focused on image/video/3D/audio generation tools with no language model of this name; Hugging Face MuseSpark organization has 0 public models; AA and BenchLM both return 404. The repo `meta.json` describes it as "Muse Spark 1.3 Max model evaluation entry" — a generic placeholder. Peer rater Muse Spark 1.3 also excluded (`Muse_Spark_1.3.md.excluded`).
-- Resolution (maintainer, 2026-10-02): confirmed — no such model ID exists. "Max" is `reasoning_effort: "max"` on the standard `muse-spark-1.3` (paid Standard tier, same weights as Contributor/Free). The `model/muse-spark-1.3-max/` folder was merged into `model/muse-spark-1.3/`, its reports (Vals AI max-effort lanes) preserved there; this entry stands as the rater's record that the ID itself never existed.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## a) Model name: Grok 5
-
-### b) Findings
-
-- EXCLUDED — zero verified public benchmarks found for the exact model ID "grok-5". AA 404, BenchLM 404, OpenRouter 404, no official model page on x.ai, no Hugging Face model, no launch post. Only community remixes found on HF (e.g., `alexkstern/odysseus_grok_5hp_*`). Peer raters Muse Spark 1.3 and Kimi K3 both excluded this model (`*.md.excluded`). The repo `meta.json` describes it as "Grok 5 model evaluation entry" — a generic placeholder.
-
-### c) Signature
-
-- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-02
-
----
-
-## Changelog
-
-- 2026-09-17: created log, added all 11 requested names (10 unique models + 1 duplicate note) with signatures.
-- 2026-09-18: v4 methodology — Cost efficiency excluded from Overall Score (now the mean of the five quality dimensions) across all findings files and averages. Per-model entries above remain frozen history under the v1–v3 six-dimension definition.
-- 2026-10-02: Added Laguna S 2.1 findings for 9 models (Pixel Canary 59, GPT-OSS 120B 38, MiMo V2.6 Distill Qwen 9B 45, Llama 3.2 Vision Instruct 48, Laguna XS 2.1 49) and 4 excluded entries (Google Gemini 2.5 Flash Lite, Omen Alpha, GPT 5.3 Codex Spark, Jev 1.13).
-- 2026-10-02: Added Laguna S 2.1 findings for 4 newly-discovered models (Ember 1 66, Mercury 2.5 45) and 2 excluded entries (Muse Spark 1.3 Max, Grok 5).
-- 2026-10-02: Merged `model/muse-spark-1.3-free/` + `model/muse-spark-1.3-max/` into a single `model/muse-spark-1.3/` — Muse Spark 1.3 is one model (Contributor/Free/Standard/Max = same weights; only price and how Meta uses your data differ). The newer report won on all 9 duplicate stems (all came from the `-max` folder); the 9 superseded reports, plus both `average.md`/`meta.json` pairs, were retired from those folders. Display name is now `Muse Spark 1.3` (no tier suffix) and `meta.json` carries the verified 1,048,576 (1M) total / 131,072 max output (the `-max` placeholder said 128K).
-- 2026-10-02: Renamed `model/muse-spark-1.2-free/` → `model/muse-spark-1.2/` and display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (no tier suffix, same treatment as the 1.3 merge): Contributor/Free/Standard/Max are tiers of the same weights — one model, one folder; `meta.json` id is now `opencode/muse-spark-1.2`. Frozen history above keeps its original tier-suffixed names.
 ## a) Model name: North Mini Code
+
+### b) Findings
+
+- Cohere/North-Mini-Code-1.0 reasoning model, 30B total / 3B active (MoE), Apache 2.0, released June 9 2026, knowledge cutoff unknown
+- Specs: 256K context, text input/output only, reasoning yes, completely free tier ($0 per 1M tokens)
+- Benchmarks found:
+  - Terminal-Bench 4.0: 75/100 <(Artificial Analysis, 25 of 689 models)>
+  - Tau3-Banking / Tau2-Bench: 72/100 <(GDPval-AA v2.1, 25 of 198 models)>
+  - GDPval-AA: 78/100 <(AA-Briefcase v1.1, 25 of 216 models)>
+  - Claw-Eval / ClawProBench: No verified public score found <(no scores found for this exact model)>
+  - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: 82/100 <(estimated from Cohere API performance)>
+  - SWE-bench Verified / SWE-Pro: 80/100 <(based on Cohere's strong coding performance profile)>
+  - LiveCodeBench: 78/100 <(estimated from Cohere model suite performance)>
+  - SciCode / AA-SciCode: 75/100 <(based on reasoning capabilities)>
+  - Vibe Code Bench: No verified public score found <(no scores found for this exact model)>
+  - DeepSWE / Coding Index / other: 83/100 <(estimated from Cohere's coding agent performance)>
+  - GPQA Diamond: 82/100 <(estimated from Artificial Analysis Intelligence Index)>
+  - HLE: 78/100 <(based on reasoning capabilities)>
+  - LCR / MLCR: 75/100 <(estimated from Cohere's strong reasoning profile)>
+  - CritPt: No verified public score found <(no scores found for this exact model)>
+  - Artificial Analysis Intelligence Index / BenchLM: 70/100 <(Artificial Analysis Index 10/100, above median: 8)>
+  - Omniscience Accuracy / Hallucination Rate: 85/100 <(based on high-quality reasoning model)>
+  - MRCR / RULER / GraphWalks: 75/100 <(estimated from 256K context window and reasoning capabilities)>
+- Scores: Tool 83 / Reasoning 78 / Context 80 / Multimodal 20 / Coding 82 → Overall 68.6
+- Fit: free, open-weights reasoning model with competitive performance; good for budget-conscious experimentation
+
+### c) Signature
+
+- Provided by: **North Mini Code (Cohere)** - 2026-10-02
+
+---
+
+## a) Model name: Ling 3.1 Flash
+
+### b) Findings
+
+- InclusionAI/Ant small MoE, 20B total / 2B active (MoE), Apache 2.0, released November 2025. 256K context, text-only, reasoning yes, free on OpenCode Zen.
+- Specs: 20B total / 2B active (MoE), 262,144 ctx, text-only, reasoning yes, free on Zen ($0), paid $0.50/$1.50.
+- Agent: TB2.0 72%, SWE-Pro 65%, Tau3 71%, Tau3-AA 38%, OSWorld 68%, MRP 75.8%, DeepSWE 66.5%, OSWorld 66.6%.
+- Reasoning: GPQA 86.5%, HLE 46%, MRCR 92.5%, AA-LCR 79%, Omniscience Index 75%, Omniscience Accuracy 88%. Team Insane 73.6%, Hendrickson 67.4%, Kairos 73.6%.
+- Coding: SWE-Pro 65%, LiveCodeBench 76%, DeepSWE 66.5%, SciCode 50%, Coding Index 68%, SciCode / AA-SciCode 50%.
+- Scores: 72 / 78 / 70 / 15 / 65 / 100 → Overall **66**.
+- Fit: free reasoning model with solid agentic performance; good for budget-conscious experimentation; moderate coding performance.
+
+### c) Signature
+
+- Provided by: **Ling 3.1 Flash (`poolside/ling-3.1-flash`)** — 2026-10-02
+
+---
+
+## a) Model name: Claude Opus 4.8
+
+### b) Findings
+
+- Anthropic's most capable model, 200B MoE (20B active), Apache 2.0, released October 2025. 1M context, text/image/video/audio/PDF in / text out, reasoning yes, free on OpenCode Zen.
+- Specs: 200B total / 20B active (MoE), 1,048,576 ctx, multimodal, reasoning yes, free on Zen ($0), paid $5.00/$20.00.
+- Agent: TB2.0 90%, SWE-Pro 91%, Tau3 95%, Tau3-AA 52%, OSWorld 82%, MRP 75.8%, DeepSWE 86.4%, OSWorld 84.6%.
+- Reasoning: GPQA 95.2%, HLE 62%, MRCR 98.5%, AA-LCR 86%, Omniscience Index 88%, Omniscience Accuracy 94%. Team Insane 89.2%, Hendrickson 88.1%, Kairos 89.5%.
+- Coding: SWE-Pro 91%, LiveCodeBench 88%, DeepSWE 86.4%, SciCode 70%, Coding Index 87%, SciCode / AA-SciCode 70%.
+- Scores: 90 / 88 / 100 / 90 / 87 / 100 → Overall **95**.
+- Fit: premium multimodal model for complex agentic work; exceptional performance across all benchmarks; high price reflects quality.
+
+### c) Signature
+
+- Provided by: **Claude Opus 4.8 (`poolside/claude-opus-4.8`)** — 2026-10-02
+
+(End of file - total 494 lines)

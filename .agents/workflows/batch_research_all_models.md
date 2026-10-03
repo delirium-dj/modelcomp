@@ -5,7 +5,7 @@ description: Research all models under model directory
 
 1. **Load model list** – list all subdirectories in `model/`.
 2. **Determine queue** – for each subdirectory, check if a report file `<STEM>.md` (STEM per `tasks/research-assign.md` Identity resolution) already exists. Skip those that exist.
-3. **Order queue** – read the `- **Overall Score:**` line from each `average.md` (if present) and sort descending. Folders without `average.md` go last, sorted alphabetically.
+3. **Order queue** – read `model-queue.md` (repo root, `<Overall> <slug>` lines, already highest-first) and process top-down. Folders absent there (no `average.md` yet) go last, sorted alphabetically. Fallback only (queue missing/stale): the `- **Overall Score:**` line from each `average.md`.
 4. **Process each folder** – for each folder in the ordered queue:
    - Derive the report filename from the resolved STEM (e.g., `Grok_4.6` -> `Grok_4.6.md`).
    - Perform independent web research for the model (benchmarks, pricing, specs).

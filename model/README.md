@@ -84,7 +84,7 @@ model (e.g. a stale registry entry with no files and no vendor ID).
 One folder per tracked model, each self-described by its own `meta.json`
 (this list is intentionally not enumerated here — `meta.json` is the source
 of truth; examples: `big-pickle/`, `muse-spark-1.3/`,
-`ling-3.0-flash-fin-free/`, `glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
+`glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
 also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it.
 
 **Tier aliases — one model, one folder, whatever the tier is called.** If a

@@ -215,10 +215,6 @@ const presentStems = new Set(); // findings filenames (without .md) seen anywher
 // Accumulated here, emitted as src/data/scores.generated.ts (only when this
 // run has zero failures, so invalid data is never cemented).
 const scoreIndex = {};
-// Junior Developer Tip: catalogIndex collects model metadata (name, context window, pricing, etc.)
-// from each model/<slug>/meta.json during sync. This allows us to pre-build a lightweight catalog.generated.ts
-// file instead of downloading raw meta.json files dynamically using expensive eager glob imports.
-const catalogIndex = {};
 // SHORT lives in scripts/lib/parse.mjs (imported above).
 
 // ---- rater gate: only reports written by models whose own committed average
@@ -348,8 +344,6 @@ for (const slug of slugs) {
   for (const msg of checkMetaFile(slug, meta, META_REQUIRED)) {
     fail(msg);
   }
-  // Store validated model metadata into our summary catalog map
-  catalogIndex[slug] = meta;
 
   const perFile = [];
   let skipAverage = false;
