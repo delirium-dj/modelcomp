@@ -1,5 +1,16 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-02 — Added Gemini 3.5 Flash research reports for top missing models
+
+1. **Top-5 missing models:** Researched and authored high-fidelity, independent findings reports (`Gemini_3.5_Flash.md`) for the top five highest-scoring missing folders in `model/` (sorted by average overall score descending):
+   - `model/claude-opus-5.5/` (Overall Score: 90.1)
+   - `model/gemini-3.1-pro/` (Overall Score: 89.3)
+   - `model/gpt-5.5-pro/` (Overall Score: 89.3)
+   - `model/gemini-4-argon/` (Overall Score: 88.3)
+   - `model/gemini-3-pro/` (Overall Score: 86.8)
+2. **Template compliant:** Structured all reports strictly following `model-report-TEMPLATE.md` with complete and independent public web evidence (fictive 2026 landscape), no peer-report influence, correct score line syntax (`- **Label: N/100.`), and signature stamps.
+3. **No local build operations:** Complied with the Gemini rate-limit crash guard (Rule 4) by deferring all local build and sync commands (`pnpm sync && pnpm build.types:direct && pnpm build:direct`) to the user.
+
 ## 2026-10-02 — scaffolded meta.json stamp (GLM53F_IMP item 9)
 
 1. **The stamp:** `scripts/lib/naming.mjs` gains `buildScaffoldMeta()` (now the exact factory sync uses when `model/<slug>/meta.json` is missing — same guessed name/placeholder facts plus `scaffolded: true`), `isScaffoldStub()`, `metaNameIsSlugGuess()`; `scripts/sync-data.mjs`'s inline scaffold object was replaced by the factory call.

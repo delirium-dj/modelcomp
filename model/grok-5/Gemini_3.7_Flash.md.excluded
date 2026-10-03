@@ -1,0 +1,67 @@
+# Grok 5 — findings by Gemini 3.7 Flash
+
+- Source: xAI (`grok-5`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5
+- **Short description:** xAI's upcoming flagship frontier model in development; public access and independent third-party benchmark evaluations are not yet available.
+- **Provider / access:** xAI (`xai/grok-5`), unreleased / preview access.
+- **Release / knowledge:** Unreleased / TBA; 2026 knowledge cutoff.
+- **IDs:** `xai/grok-5`
+- **Context window:** no verified public specifications reported
+- **Modalities:** text, image, audio, video in; text out (projected omni-modal)
+- **Pricing (as of 2026-10-02):** no verified public pricing reported
+- **Architecture:** proprietary frontier transformer
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found.
+- **Reasoning: 0/100.** No verified public score found.
+- **Context window: 0/100.** No verified public score found.
+- **Multimodal: 0/100.** No verified public score found.
+- **Coding: 0/100.** No verified public score found.
+- **Cost efficiency: 0/100.** No verified public score found.
+- **Overall Score: 0/100.** Self-excluded due to absence of verified public benchmark data; unreleased model placeholder.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.7 Flash (google/gemini-3.7-flash)** — 2026-10-02
+- Method: public internet research; self-excluded due to lack of verifiable benchmark evidence.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -67,8 +67,7 @@ export type SourceKey =
   | "Qwen 3.8 Flash"
   | "Fledge Alpha"
   | "North Mini Code"
-  | "Ling 3.1 Flash"
-  | "Claude Opus 4.8";
+  | "Ling 3.1 Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "overall" | "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -150,5 +149,4 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Fledge Alpha", label: "Fledge Alpha", file: "Fledge_Alpha.md", slug: "fledge-alpha" },
   { key: "North Mini Code", label: "North Mini Code", file: "North_Mini_Code.md", slug: "north_mini_code" },
   { key: "Ling 3.1 Flash", label: "Ling 3.1 Flash", file: "Ling_3.1_Flash.md", slug: "ling-3.1-flash" },
-  { key: "Claude Opus 4.8", label: "Claude Opus 4.8", file: "Claude_Opus_4.8.md", slug: "claude-opus-4.8" },
 ];
