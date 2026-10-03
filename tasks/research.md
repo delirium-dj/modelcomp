@@ -101,6 +101,9 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
       place it under `model/`. Production scope: park it (note it in your final
       summary, do not create or research it now). Full mode only: the parent is
       `models_voice/<slug>/` — check both trees for an existing folder first.
+      Never create `voicemodels/` (retired pre-2026-09-28 name, forbidden
+      duplicate of `models_voice/`); if you find one on disk, report it and
+      leave it for the orchestrator's merge pass.
   3. Create `model/<slug>/` (full mode: `<parent>/<slug>/`; empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   4. Append `model/<slug>` (full mode: `<parent>/<slug>`) to the END of your queue (after all ranked folders), in discovery order.
 

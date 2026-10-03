@@ -1,0 +1,9 @@
+{
+  "id": "opencode/claude-haiku-3.5",
+  "name": "Claude Haiku 3.5",
+  "short": "Claude Haiku 3.5 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

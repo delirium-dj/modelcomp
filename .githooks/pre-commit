@@ -4,6 +4,18 @@
 # Activate once per clone:  git config core.hooksPath .githooks
 # Bypass (explicit user sign-off only):  ALLOW_MODEL_DELETE=1 git commit ...
 set -u
+# Retired duplicate root (RULES.md voice-routing rule): voicemodels/ is the
+# pre-2026-09-28 name of models_voice/ and must never be recreated. Block any
+# staged addition under it — merge into the matching models_voice/<slug>/
+# folder instead.
+retired="$(git diff --cached --name-only --diff-filter=A -z -- voicemodels | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$retired" ]; then
+  echo "BLOCKED by RULES.md: voicemodels/ is a retired duplicate of models_voice/ — never recreate it:" >&2
+  printf '%s\n' "$retired" >&2
+  echo "Move these files into the matching models_voice/<slug>/ folders and unstage voicemodels/," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 # Scratch lifecycle grace (user-signed 2026-09-29, mirrors sync tripwire):
 # files added to git < 7 days ago may be agent scratch — warn, allow.

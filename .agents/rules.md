@@ -12,6 +12,8 @@ reports, and the website stay consistent.
 - `models_voice/<slug>/` — voice/speech models only (`RULES.md` routing rule:
   realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
   as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.
+  The pre-2026-09-28 name `voicemodels/` is a forbidden duplicate — never
+  create it; `pnpm sync` FAILs while it exists.
 - `models_finance/<slug>/` — finance models only (user-directed relocation,
   e.g. Ling 3.0 Flash Fin). Same conventions; sync/site wiring pending like
   `models_voice/`.

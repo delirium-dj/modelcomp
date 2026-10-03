@@ -4,6 +4,8 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import {
   MIRROR_ROOTS,
+  FORBIDDEN_ROOTS,
+  forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
   classifyMissingTracked,
@@ -58,6 +60,19 @@ describe("findMirror (user-directed relocations)", () => {
 
   it("MIRROR_ROOTS covers the voice + finance trees", () => {
     assert.deepEqual(MIRROR_ROOTS, ["models_voice", "models_finance"]);
+  });
+});
+
+describe("forbidden duplicate roots (voicemodels/ never recurs)", () => {
+  it("FORBIDDEN_ROOTS lists the retired voice-tree name", () => {
+    assert.deepEqual(FORBIDDEN_ROOTS, ["voicemodels"]);
+  });
+
+  it("message routes to the canonical tree", () => {
+    const msg = forbiddenRootMessage("voicemodels");
+    assert.match(msg, /voicemodels\//);
+    assert.match(msg, /models_voice\//);
+    assert.match(msg, /never recreate/);
   });
 });
 

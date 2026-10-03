@@ -38,10 +38,14 @@ override.
   or speech (realtime voice API, TTS/STT-first, voice-assistant I/O — name or
   modalities say so) lives under `models_voice/<slug>/`, never under
   `model/<slug>/`. This applies to newly discovered models at scaffold time
-  and justifies relocating voice models already in `model/` (e.g.
-  `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Same
-  permanence, same file conventions — only the parent differs. (`models_voice/`
-  sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
+   and justifies relocating voice models already in `model/` (e.g.
+   `gemini-3.8-live`, `gpt-realtime-2`, `grok-voice-think-fast-2.0`). Same
+   permanence, same file conventions — only the parent differs. (`models_voice/`
+   sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
+   The retired `voicemodels/` name (pre-2026-09-28) must never be recreated:
+   any `voicemodels/` directory on disk is a forbidden duplicate of
+   `models_voice/` — merge its contents into the matching `models_voice/<slug>/`
+   and remove it; `pnpm sync` FAILs loudly while `voicemodels/` exists.
 
 - **Tier identity (Muse Spark only):** for Muse Spark 1.3 / 1.2, a pricing,
   subscription, or reasoning-effort tier suffix (`Contributor`, `Free`,

@@ -12,6 +12,23 @@ import { FILENAME_RE, META_REQUIRED } from "./parse.mjs";
 export const MIRROR_ROOTS = ["models_voice", "models_finance"];
 
 /**
+ * Forbidden duplicate roots: retired names that must never be recreated
+ * (e.g. `voicemodels/` is the pre-2026-09-28 name of `models_voice/`).
+ * Sync FAILs loudly while one exists on disk so the duplicate can never be
+ * cemented silently — merge into the canonical tree, then remove it.
+ */
+export const FORBIDDEN_ROOTS = ["voicemodels"];
+
+/** Exact FAIL text for a forbidden duplicate root present on disk. */
+export function forbiddenRootMessage(root) {
+  const canonical = root === "voicemodels" ? "models_voice" : "the canonical tree";
+  return (
+    `${root}/ exists — retired duplicate name, never recreate it; ` +
+    `merge its contents into matching ${canonical}/<slug>/ folders, remove ${root}/, then re-run`
+  );
+}
+
+/**
  * Research-file filter: only *.md / *.md.excluded paths participate.
  * (Verbatim sync semantics: skip when NEITHER matches.)
  */

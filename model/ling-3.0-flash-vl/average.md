@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 63.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 70/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 79.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 82.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 69/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 88/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 73/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 66/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 72/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 78/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 82.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 69.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 90.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 73.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Kimi K3.
-- Average from top 3 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Kimi K3.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, Ling 3.1 Flash, Qwen 3.8 27B.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Kimi K3, Muse Spark 1.3.
+- Average from top 4 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Kimi K3, Muse Spark 1.3.
+- Ignored below-gate rater(s): DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, Ling 3.1 Flash, Qwen 3.8 27B.

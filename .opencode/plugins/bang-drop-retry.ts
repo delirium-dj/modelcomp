@@ -2,20 +2,37 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// What we catch: "!"-storm drops. Kimi K3 kills the connection with bodies
-// like "!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", sometimes 50+ bangs.
-// The bangs may arrive as the WHOLE message or buried inside a longer
-// provider wrapper (e.g. "Upstream error: !!!!..."), so we match three shapes:
+// What we catch, shape 1: "!"-storm drops. Kimi K3 kills the connection
+// with bodies like "!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", sometimes
+// 50+ bangs. The bangs may arrive as the WHOLE message or buried inside a
+// longer provider wrapper (e.g. "Upstream error: !!!!..."), so we match
+// three shapes:
 //   1. a string that is ONLY bangs (>= MIN_BANGS of them),
 //   2. any single LINE that is only bangs (>= MIN_BANGS),
-//   3. a long embedded run (> LONG_RUN bangs in a row — real prose never
+//   3. a long embedded run (>= LONG_RUN bangs in a row — real prose never
 //      shouts with 10+ "!" in a row, so this is a safe tripwire).
+// const MIN_BANGS = 3
+// const LONG_RUN = 10
+//
+// What we catch, shape 2: "lock"-storm stalls. The same model sometimes
+// answers with "locklocklock..." (hundreds of glued "lock"s) instead of a
+// real reply. Same recovery (wait, then "continue"), so the same plugin
+// owns it. Thresholds MIN_LOCKS / LONG_LOCK_RUN live next to lockRun() below.
 const MIN_BANGS = 3
 const LONG_RUN = 10
 
+// "lock"-storm thresholds (shape 2, see header). Real prose never repeats
+// the standalone word "lock" back-to-back, so these tripwires are safe:
+// a lock-only message needs >= MIN_LOCKS locks; an embedded run needs
+// >= LONG_LOCK_RUN locks in a row. Substring hosts ("unlock", "locked",
+// "deadlock") can only contribute short runs, far below either threshold.
+const MIN_LOCKS = 3
+const LONG_LOCK_RUN = 10
+
 // Which model to handle. Empty string = ANY model.
-// Kimi K3 drops this way today, but any model can send the same bang-only
-// payload in the future — so we deliberately leave this open.
+// Kimi K3 drops these ways today (bang-storms and lock-storms), but any
+// model can send the same degenerate payload in the future — so we
+// deliberately leave this open.
 // To restrict to Kimi only later, set this to "kimi".
 const MODEL_FILTER = ""
 
@@ -96,6 +113,28 @@ function bangRun(text: string): number {
   return best
 }
 
+// Longest consecutive "lock" run in the text (0 = no match). Whitespace is
+// stripped first, so "lock lock\nlock..." and "locklocklock..." score the
+// same; each "lock" is 4 chars, so run length / 4 = lock count. Matching is
+// case-insensitive ("LOCKLOCK..." trips it too). Both regexes are linear
+// (no nested quantifiers), so even thousand-lock storms scan fast.
+function lockRun(text: string): number {
+  const compact = text.replace(/[\s]/g, "").toLowerCase()
+  if (/^(?:lock)+$/.test(compact)) {
+    const n = compact.length / 4
+    if (n >= MIN_LOCKS) return n
+  }
+  const m = compact.match(new RegExp(`(?:lock){${LONG_LOCK_RUN},}`, "g"))
+  let best = 0
+  if (m) {
+    for (const run of m) {
+      const n = run.length / 4
+      if (n > best) best = n
+    }
+  }
+  return best
+}
+
 // Small helper: toasts must never break the retry. If the TUI client is
 // missing (headless run, odd version), we log and carry on with the timer.
 async function toast(client: any, message: string, variant: string): Promise<void> {
@@ -154,21 +193,30 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       if (event.type !== "session.error") return
 
       // Gather every string inside the error payload and score each for
-      // bang-drop shapes (whole / line / long run). This stays correct
-      // whether the provider puts the "!!!!" in `error`, `message`,
+      // bang-drop shapes (whole / line / long run) and lock-storm shapes
+      // (lock-only / long run). This stays correct whether the provider
+      // puts the "!!!!" or "locklock..." in `error`, `message`,
       // `error.message`, `detail`, or wraps it ("Upstream error: !!!!...").
       const props = (event.properties as any) ?? event
       const strings: string[] = []
       collectStrings(props, strings)
       let bangLen = 0
+      let lockLen = 0
       for (const s of strings) {
-        const n = bangRun(s)
-        if (n > bangLen) bangLen = n
+        const b = bangRun(s)
+        if (b > bangLen) bangLen = b
+        const l = lockRun(s)
+        if (l > lockLen) lockLen = l
       }
 
-      // No bang shape anywhere -> some other error, ignore it.
+      // No bang shape and no lock shape anywhere -> some other error,
+      // ignore it.
       // (Other plugins own quota, Invalid input, endpoint-down, pool-empty.)
-      if (!bangLen) return
+      if (!bangLen && !lockLen) return
+
+      // Human-readable trigger for the logs/toasts below.
+      const trigger =
+        lockLen > bangLen ? `${lockLen}x"lock"` : `${bangLen}x"!"`
 
       // Optional model guard. Empty MODEL_FILTER = handle ANY model
       // (Kimi K3 today, whoever sends bangs tomorrow).
@@ -199,7 +247,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
             body: {
               service: "bang-drop-retry",
               level: "warn",
-              message: `matched ${bangLen}x"!" but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
+              message: `matched ${trigger} but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
             },
           })
         } catch {
@@ -215,7 +263,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       if (stopped.has(sessionID)) return
 
       // How many consecutive failures in a row? Default = 0.
-      // (bangLen was already scored above: longest "!" run in the payload.)
+      // (bangLen / lockLen were already scored above: longest runs found.)
       const used = consecutive.get(sessionID) ?? 0
 
       // Emergency brake: 30 failures in a row with no success between them.
@@ -224,7 +272,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       if (used >= MAX_CONSECUTIVE) {
         stopped.add(sessionID)
         pending.delete(sessionID)
-        await toast(client, `Bang-drop ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`, "error")
+        await toast(client, `Drop/storm ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`, "error")
         return
       }
 
@@ -235,7 +283,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
           body: {
             service: "bang-drop-retry",
             level: "info",
-            message: `matched ${bangLen}x"!" (${used + 1}/${MAX_CONSECUTIVE})`,
+            message: `matched ${trigger} (${used + 1}/${MAX_CONSECUTIVE})`,
           },
         })
       } catch {
@@ -249,7 +297,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
 
       // Show a small popup in OpenCode Desktop so you see it working.
       // (Wrapped: a throwing toast must never kill the retry below.)
-      await toast(client, `Connection drop (${bangLen}x "!"), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
+      await toast(client, `Drop/storm (${trigger}), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
 
       // Wait 8 seconds, then try again.
       setTimeout(async () => {

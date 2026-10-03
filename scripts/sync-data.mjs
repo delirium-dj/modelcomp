@@ -48,6 +48,8 @@ import {
 import { quarantineReason } from "./lib/quarantine.mjs";
 import {
   MIRROR_ROOTS,
+  FORBIDDEN_ROOTS,
+  forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
   classifyMissingTracked,
@@ -140,6 +142,16 @@ const slugs = readdirSync(modelDir)
   .filter((d) => statSync(join(modelDir, d)).isDirectory())
   .sort();
 log(`sync-data: ${slugs.length} model folders`);
+
+// ---- forbidden duplicate roots (RULES.md voice-routing rule) ----
+// Retired tree names (e.g. `voicemodels/`, pre-2026-09-28 name of
+// `models_voice/`) must never be recreated by research agents. FAIL loudly
+// while one exists so the duplicate is merged away, never cemented.
+for (const root of FORBIDDEN_ROOTS) {
+  if (existsSync(join(root, root))) {
+    fail(forbiddenRootMessage(root));
+  }
+}
 
 // ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
 // Any git-tracked findings file (model/**/*.md / *.md.excluded, except the

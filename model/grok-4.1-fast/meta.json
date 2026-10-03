@@ -1,0 +1,9 @@
+{
+  "id": "opencode/grok-4.1-fast",
+  "name": "Grok 4.1 Fast",
+  "short": "Grok 4.1 Fast model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

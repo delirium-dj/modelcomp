@@ -1,0 +1,63 @@
+# Grok 4.20 — findings by Claude Opus 4.6
+
+- Source: xAI (`grok-4.20`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.20
+- **Short description:** xAI's agentic-focused model with the largest context window in the Grok lineup (2M tokens). Available in Reasoning, Non-Reasoning, and Multi-Agent configurations. Designed for complex multi-step tasks.
+- **Provider / access:** xAI API, third-party platforms.
+- **Release / knowledge:** Mid-2026 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `xai/grok-4.20`
+- **Context window:** 2,000,000 tokens (2M — largest in Grok family).
+- **Modalities:** Text + image (native vision) in; text out; function/tool calling; structured outputs (JSON schema); built-in web search.
+- **Pricing (as of 2026):** $1.25 / $2.50 per 1M tokens (input / output) via xAI API.
+- **Architecture:** Proprietary. Multi-Agent variant uses 4 parallel agents for collaboration, debate, and verification.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Multi-Agent mode: 4 parallel agents collaborate, debate, and verify findings (xAI).
+- Terminal-Bench: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: predecessor Grok 4.3 scored 1500 Elo; 4.20 expected similar or lower.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- Reasoning variant optimized for deep step-by-step solving.
+- HLE: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- Designed for long-horizon coding tasks leveraging 2M context.
+
+Long context:
+
+- 2,000,000-token window — industry-leading context length. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+### Normalized scores (1–100)
+
+- **Tool use: 82/100.** Multi-Agent mode with 4 parallel agents is unique. Function calling, web search, structured output built in. Capped by absent benchmarks.
+- **Reasoning: 78/100.** Reasoning variant for deep solving; older base than Grok 4.7. Capped by absent GPQA/HLE data.
+- **Context window: 95/100.** 2M-token window is the largest in the Grok family and among the largest anywhere. Exceptional for long-horizon tasks. Capped only by unverified retrieval quality.
+- **Multimodal: 68/100.** Text + image input natively; text-only output. Capped by no audio/video.
+- **Coding: 76/100.** Designed for long-horizon coding with massive context. Uses older base than 4.7. Capped by absent benchmarks and older architecture.
+- **Cost efficiency: 85/100.** $1.25/$2.50 with 2M context is exceptional value per token of context. Very competitive pricing.
+- **Overall Score: 80/100.** Mean of (82 + 78 + 95 + 68 + 76) / 5 = 79.8, rounded to 80. Unique value proposition with industry-leading context window.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-10-03
+- Method: Public internet research (xAI docs, community reports); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

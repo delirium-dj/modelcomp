@@ -9,7 +9,8 @@ model/<slug>/<Source_Name>.md      Per-agent research findings (model card, raw 
 model/<slug>/average.md            Arithmetic means (recomputed by scripts/sync-data.mjs)
 model/<slug>/meta.json             Curated display metadata (name, pricing, context window)
 models_voice/<slug>/               Same conventions for voice/speech models (RULES.md routing rule;
-                                   NOT scanned by pnpm sync — model/ only)
+                                   NOT scanned by pnpm sync — model/ only; retired
+                                   `voicemodels/` name must never be recreated)
           │
            ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle
