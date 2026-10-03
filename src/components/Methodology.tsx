@@ -25,6 +25,10 @@ export const Methodology = component$(() => {
             Averaged, not single-opinion: a model&apos;s scores are the mean across independent reporting agents;
             reports without verified benchmarks are quarantined and never counted.
           </li>
+          <li>
+            Re-researched weekly: every report is checked against fresh benchmarks once it is older than seven
+            days, and scores are refreshed whenever new verified evidence would change them.
+          </li>
           <li>Tool use: Terminal-Bench, Tau-bench, GDPval and tool-call efficiency.</li>
           <li>Reasoning: GPQA, Humanity&apos;s Last Exam, long-context retrieval and intelligence indexes.</li>
           <li>Context window: tiered by size; 1M+ scores 95–100, 200K scores around 70.</li>
