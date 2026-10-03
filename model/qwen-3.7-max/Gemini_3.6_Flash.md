@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-09-24
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
 - Method: Public internet research; scores are normalized 1–100 interpretations.

@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 75.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 77.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 95/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 37.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 76.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 89/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 72.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 74.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 76.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 93.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 47/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 75/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 90/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 73.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.7 Flash, Muse Spark 1.3.
-- Average from top 2 by Overall Score: Gemini 3.7 Flash, Muse Spark 1.3.
-- Ignored below-gate rater(s): DeepSeek 4 Flash, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, Gemini 3.6 Flash, GLM 5.3, GLM 5.3 Flash, Laguna XS 2.1, Ling 3.1 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Qwen 3.8 27B, Qwen 3.8 Flash, Space Bunny.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.7 Flash, Muse Spark 1.3.
+- Average from top 3 by Overall Score: Gemini 3.6 Flash, Gemini 3.7 Flash, Muse Spark 1.3.
+- Ignored below-gate rater(s): DeepSeek 4 Flash, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, Laguna XS 2.1, Ling 3.1 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Qwen 3.8 27B, Qwen 3.8 Flash, Space Bunny.
