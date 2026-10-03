@@ -14,6 +14,7 @@ type ModelsView = "cards" | "list";
 export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) => {
   const displayCount = useSignal(9);
   const view = useSignal<ModelsView>("cards");
+  const query = useSignal("");
   // Virtual sort views mirror average scores but rank by one dimension (tiebreak Overall).
   const sortDim = virtualDimFor(source);
   const isVirtualView = sortDim !== undefined;
@@ -26,7 +27,16 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         ? b.scores[sortDim] - a.scores[sortDim] || b.scores.overall - a.scores.overall
         : b.scores.overall - a.scores.overall,
     );
-  const visibleModels = shown.slice(0, displayCount.value);
+  const q = query.value.trim().toLowerCase();
+  const filtered = q
+    ? shown.filter(
+        (m) =>
+          m.name.toLowerCase().includes(q) ||
+          m.id.toLowerCase().includes(q) ||
+          m.short.toLowerCase().includes(q),
+      )
+    : shown;
+  const visibleModels = filtered.slice(0, displayCount.value);
 
   return (
     <section id="models" aria-labelledby="models-heading" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-10">
@@ -72,7 +82,46 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         with findings plus <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">meta.json</code> and
         run <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">pnpm sync</code>.
       </p>
-      {view.value === "cards" ? (
+      <div class="mt-4 flex max-w-md items-center gap-2">
+        <label for="model-search" class="sr-only">
+          Search models
+        </label>
+        <input
+          id="model-search"
+          type="search"
+          value={query.value}
+          placeholder="Search models…"
+          autoComplete="off"
+          onInput$={(_, el) => {
+            query.value = el.value;
+            displayCount.value = 9;
+          }}
+          class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
+        />
+        {query.value !== "" && (
+          <button
+            type="button"
+            aria-label="Clear search"
+            onClick$={() => {
+              query.value = "";
+              displayCount.value = 9;
+            }}
+            class="shrink-0 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+          >
+            ×
+          </button>
+        )}
+      </div>
+      {query.value.trim() !== "" && (
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400" aria-live="polite">
+          {filtered.length} of {shown.length} models
+        </p>
+      )}
+      {filtered.length === 0 ? (
+        <p class="mt-6 text-sm text-slate-600 dark:text-slate-300">
+          No models match your search for the current results source. Try a different search or source.
+        </p>
+      ) : view.value === "cards" ? (
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {visibleModels.map((m) => (
           <article key={m.id} class="flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900">
@@ -344,7 +393,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         </div>
       </>
       )}
-      {displayCount.value < shown.length && (
+      {displayCount.value < filtered.length && (
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
           <button
             type="button"
@@ -358,11 +407,11 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
           <button
             type="button"
             onClick$={() => {
-              displayCount.value = shown.length;
+              displayCount.value = filtered.length;
             }}
             class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
           >
-            Show all ({shown.length})
+            Show all ({filtered.length})
           </button>
         </div>
       )}
