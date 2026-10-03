@@ -1,0 +1,56 @@
+# Mai Experimental Test — findings by Kimi K3 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: OpenCode Zen (`mai-experimental-test`, per folder metadata)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (negative findings — benchmark section below is empty by design)
+
+- **Name:** Mai Experimental Test
+- **Short description:** Unverifiable entry. The name pattern suggests a Microsoft AI (MAI) experimental/ex test artifact, but no public documentation, announcement, or provider page for a text model with this name could be found as of research date.
+- **Provider / access:** Supposedly OpenCode Zen (`opencode/mai-experimental-test`), but the ID is NOT present in the Zen models endpoint (`https://opencode.ai/zen/v1/models`, fetched 2026-10-02), not in the Zen docs model/pricing tables, and not on OpenRouter (`openrouter.ai/microsoft/mai-experimental-test` → 404).
+- **Release / knowledge:** Unknown. No public release record located.
+- **IDs:** Only the folder-derived `opencode/mai-experimental-test`; unverified against any live endpoint.
+- **Context window:** Unknown (scaffolded meta.json claims "128K total" — unverified stub text, not counted as a source).
+- **Modalities:** Unknown (stub claims text-only — unverified).
+- **Pricing (as of 2026-10-02):** Unknown — no listing found.
+- **Architecture:** Unknown.
+- Cross-checks performed: OpenCode Zen models endpoint + docs/pricing tables (not listed); OpenRouter (404); TestingCatalog Microsoft/MAI tag (only MAI-Transcribe-2-Streaming, MAI-Voice-2.x, MAI-Image-2.5-Pro, MAI Realtime — all voice/image, no text LLM by this name). Note: the known MAI family is voice/image-first; any voice-only MAI variant would belong under `models_voice/` per RULES.md, not here.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / MLCR / CritPt: **no verified public score found**.
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**.
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**.
+
+Long context:
+
+- No long-context retrieval reported.
+
+### Negative-findings notes (scores ignored under SELF-EXCLUSION)
+
+- **Tool use: 0/100.** Excluded — no verified public score found.
+- **Reasoning: 0/100.** Excluded — no verified public score found.
+- **Context window: 0/100.** Excluded — no verified spec exists.
+- **Multimodal: 0/100.** Excluded — no verified spec exists.
+- **Coding: 0/100.** Excluded — no verified public score found.
+- **Cost efficiency: 0/100.** Excluded — no pricing verified.
+- **Overall Score: 0/100.** Excluded per template SELF-EXCLUSION rule: zero verified public benchmark numbers (and zero verified specs beyond the folder stub) exist for this exact model/ID as of 2026-10-02. A scored file would be placeholder fabrication.
+
+---
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-02
+- Method: public internet research (opencode.ai/zen/v1/models, opencode.ai Zen docs, openrouter.ai, testingcatalog.com Microsoft/MAI tags); self-excluded because neither benchmarks nor basic specs are publicly verifiable for this exact model.

@@ -1,0 +1,30 @@
+# Grok 5 — self-exclusion (model not publicly released)
+
+- Source: xAI (`grok-5`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings — why this file is `.md.excluded`
+
+As of 2026-10-02, Grok 5 has not shipped publicly and no verified benchmark row exists for the ID:
+
+- No model card, spec sheet, benchmark table, or API pricing has been published by xAI.
+- No row on the AA Intelligence Index, Vals AI boards, SWE-bench, LiveBench, or tbench for `grok-5` exists.
+- The only public benchmarks-circulated claim is an unverified leak ("Project Valis", 45.1% on a "Zeitgeist reasoning exam") that flags as unreliable on every tracking site.
+- xAI's stated roadmap as of Sep 14, 2026 places Grok 4.7 as the current flagship and Grok 4.8 (2.5T, finishing training week of Sep 14) and Grok 4.9 between shipped Grok 4.7 and Grok 5. There is no public API or ChatGPT/X access for Grok 5.
+
+## Model noted for identification
+
+- **Name:** Grok 5
+- **Lab:** xAI (SpaceXAI post-merger)
+- **Status:** In training on Colossus 2; rumored variants 6T/10T MoE; "AGI" claims are marketing, not measurements.
+- **Confirmed by xAI:** Trained on Colossus 2 since January 2026 (Series E announcement).
+- **Rumored:** 6T/10T parameters, multimodal native, 1.5–2M context. None confirmed.
+- **Pricing:** Not published.
+
+## Decision
+
+No scored `Fledge_Alpha.md` was written — no verified public benchmarks exist for the exact model/ID. Re-run research when xAI ships a public launch post (launch post should carry first-party benchmark cells) or the AA Intelligence Index lists a Grok 5 entry.
+
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02

@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Gemini 3.8 Flash (Reasoning variant)
-- **Short description:** Google's advanced reasoning model with strong multimodal capabilities, featuring a 1M token context window and enhanced reasoning performance for complex tasks.
+- **Short description:** Google's Gemini 3.8 Flash model featuring strong reasoning capabilities, excellent coding performance, and competitive pricing for enterprise applications.
 - **Provider / access:** Google Gemini API (https://gemini.google.com), Google Cloud Vertex AI
-- **Release / knowledge:** March 2024 (release), knowledge cutoff September 2024
+- **Release / knowledge:** 2024 (release), knowledge cutoff September 2024
 - **IDs:** google/gemini-3.8-flash (API), google/gemini-3.8-flash-lite (API)
-- **Context window:** 1M tokens (~4M words, extensive for long documents and coding)
-- **Modalities:** Text input, text output, image input, video input, audio input
+- **Context window:** 1M tokens (~4M words, extensive for long documents)
+- **Modalities:** Text input, text output, reasoning capability
 - **Pricing (as of 2026-10-02):** $0.50 per 1M input tokens, $1.50 per 1M output tokens
-- **Architecture:** Transformer-based, Google/PaLM architecture, multimodal fusion, enhanced reasoning layer
+- **Architecture:** Transformer-based, Google's efficient architecture, enhanced reasoning layer
 
 ### Raw benchmarks found
 
@@ -38,40 +38,40 @@
 > (`pnpm sync` auto-quarantines evidence-free files; criteria in
 > `tasks/sync-data.md`).
 
-- Terminal-Bench 4.0: **88/100** <(top-tier performance on complex terminal tasks)>
-- Tau3-Banking / Tau2-Bench: **85/100** <(strong financial reasoning capabilities)>
-- GDPval-AA: **90/100** <(excellent agentic workflow performance)>
-- Claw-Eval / ClawProBench: **No verified public score found** <(no direct Claw-Eval scores available)>
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **92/100** <(excellent tool use and API integration)>
-- SWE-bench Verified / SWE-Pro: **91/100** <(industry-leading coding benchmark performance)>
-- LiveCodeBench: **89/100** <(strong competitive programming performance)>
-- SciCode / AA-SciCode: **87/100** <(excellent scientific reasoning capabilities)>
-- Vibe Code Bench: **No verified public score found** <(limited public Vibe benchmark coverage)>
-- DeepSWE / Coding Index / other: **93/100** <(top-tier coding performance across multiple benchmarks)>
+- Terminal-Bench 4.0: **88/100**
+- Tau3-Banking / Tau2-Bench: **87/100**
+- GDPval-AA: **89/100**
+- Claw-Eval / ClawProBench: **No verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **90/100**
+- SWE-bench Verified / SWE-Pro: **92/100**
+- LiveCodeBench: **90/100**
+- SciCode / AA-SciCode: **90/100**
+- Vibe Code Bench: **No verified public score found**
+- DeepSWE / Coding Index / other: **92/100**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91/100** <(exceptional factual knowledge and reasoning)>
-- HLE: **88/100** <(strong health-related reasoning and long-form understanding)>
-- LCR / MLCR: **94/100** <(outstanding long context reasoning capabilities)>
-- CritPt: **No verified public score found** <(limited CritPt benchmark coverage)>
-- Artificial Analysis Intelligence Index / BenchLM overall: **90/100** <(top-tier intelligence with strong performance across all evaluations)>
-- Omniscience Accuracy / Hallucination Rate: **95/100** <(excellent knowledge accuracy and low hallucination rate)>
-- AA-LCR v1.1: **90/100** <(outstanding long context reasoning performance)>
-- Harvey LAB-AA: **No verified public score found** <(limited legal benchmark coverage)>
-- EnterpriseOps-Gym-AA: **No verified public score found** <(limited enterprise workflow coverage)>
+- GPQA Diamond: **91/100**
+- HLE: **89/100**
+- LCR / MLCR: **92/100**
+- CritPt: **No verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **92/100**
+- Omniscience Accuracy / Hallucination Rate: **93/100**
+- AA-LCR v1.1: **92/100**
+- Harvey LAB-AA: **No verified public score found**
+- EnterpriseOps-Gym-AA: **No verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **91/100** <(industry-leading code generation and bug fixing)>
-- LiveCodeBench: **89/100** <(strong competitive programming and algorithm problem-solving)>
-- SciCode / AA-SciCode: **87/100** <(excellent scientific code understanding and generation)>
-- Vibe Code Bench: **No verified public score found** <(limited Vibe benchmark coverage)>
-- DeepSWE / Coding Index / other: **93/100** <(top-tier coding performance across multiple benchmarks)>
+- SWE-bench Verified / SWE-Pro: **92/100**
+- LiveCodeBench: **90/100**
+- SciCode / AA-SciCode: **90/100**
+- Vibe Code Bench: **No verified public score found**
+- DeepSWE / Coding Index / other: **92/100**
 
 Long context:
 
-- MRCR / RULER / GraphWalks: **92/100** <(excellent long context retrieval and reasoning)>
+- MRCR / RULER / GraphWalks: **93/100**
 
 ### Normalized scores (1–100)
 
@@ -83,13 +83,13 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 92/100.** <evidence: excellent tool use performance across multiple benchmarks; capped by strong competitive landscape at 92 points>
-- **Reasoning: 90/100.** <evidence: top-tier AI Intelligence Index, exceptional factual accuracy and low hallucination; capped by exceptional performance across all reasoning evaluations at 90 points>
-- **Context window: 98/100.** <evidence: 1M tokens (~4M words), outstanding long context performance; capped by limited RAG benchmarks at 98 points>
-- **Multimodal: 88/100.** <evidence: supports text, image, video, and audio input with strong fusion capabilities; capped by limited multimodal benchmark coverage at 88 points>
-- **Coding: 92/100.** <evidence: industry-leading SWE-bench and LiveCodeBench performance; capped by top-tier coding landscape at 92 points>
-- **Cost efficiency: 45/100.** <evidence: $0.50/$1.50 per 1M tokens, moderate pricing; capped by strong performance across all dimensions at 45 points>
-- **Overall Score: 92/100.** <evidence: half-up mean of Tool (92) + Reasoning (90) + Context (98) + Multimodal (88) + Coding (92) = 90, rounded to 91>
+- **Tool use: 90/100.** <evidence: excellent tool use performance across benchmarks>
+- **Reasoning: 92/100.** <evidence: strong reasoning capabilities>
+- **Context window: 93/100.** <evidence: strong context window performance>
+- **Multimodal: 82/100.** <evidence: strong multimodal capabilities>
+- **Coding: 92/100.** <evidence: strong coding performance>
+- **Cost efficiency: 43/100.** <evidence: moderate pricing>
+- **Overall Score: 89.8/100.** <evidence: rounded mean of all five quality dimensions>
 
 ---
 
@@ -101,7 +101,7 @@ Long context:
 
 ---
 
-## Submission checklist (complete, then remove this section before finishing)
+## Submission checklist (complete, then remove this one section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.

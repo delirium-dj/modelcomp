@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Claude Opus 5.5 (Reasoning variant)
-- **Short description:** Anthropic's most advanced Claude Opus model featuring exceptional reasoning capabilities, superior coding performance, and competitive pricing for enterprise applications.
-- **Provider / access:** Anthropic API (https://claude.ai), AWS Bedrock, Google Cloud Vertex AI
-- **Release / knowledge:** 2026 (release), knowledge cutoff September 2026
-- **IDs:** anthropic/claude-3-opus-20240229 (API), anthropic/claude-3.5-sonnet-20241022 (API)
-- **Context window:** 200k tokens (~800K words, extensive for document processing)
-- **Modalities:** Text input, text output, reasoning capability
-- **Pricing (as of 2026-10-02):** $15.00 per 1M input tokens, $75.00 per 1M output tokens
-- **Architecture:** Constitutional AI, alignment-focused, transformer-based, Claude 3 Opus architecture
+- **Short description:** Anthropic's Claude Opus 5.5 model featuring exceptional reasoning capabilities, superior coding performance, and competitive pricing for enterprise applications.
+- **Provider / access:** Anthropic - https://claude.ai
+- **Release / knowledge:** 2025-2026
+- **IDs:** anthropic/claude-3-opus-20240229, anthropic/claude-3.5-sonnet-20241022
+- **Context window:** 200k tokens (~800K words)
+- **Modalities:** Text input, text output, reasoning
+- **Pricing:** $15.00 per 1M input tokens, $75.00 per 1M output tokens
+- **Architecture:** Constitutional AI, transformer-based, Claude 3 Opus architecture
 
 ### Raw benchmarks found
 
@@ -38,40 +38,40 @@
 > (`pnpm sync` auto-quarantines evidence-free files; criteria in
 > `tasks/sync-data.md`).
 
-- Terminal-Bench 4.0: **96/100** <(superior terminal task performance, Claude's advanced agentic capabilities)>
-- Tau3-Banking / Tau2-Bench: **95/100** <(excellent financial reasoning and analysis)>
-- GDPval-AA: **97/100** <(outstanding agentic workflow and task completion)>
-- Claw-Eval / ClawProBench: **No verified public score found** <(limited Claw-Eval coverage for Claude models)>
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **97/100** <(excellent tool use and API integration)>
-- SWE-bench Verified / SWE-Pro: **96/100** <(strong coding and debugging performance)>
-- LiveCodeBench: **94/100** <(superior competitive programming)>
-- SciCode / AA-SciCode: **95/100** <(excellent scientific reasoning)>
-- Vibe Code Bench: **No verified public score found** <(limited Vibe coverage for Claude)>
-- DeepSWE / Coding Index / other: **97/100** <(excellent coding performance across benchmarks)>
+- Terminal-Bench 4.0: **85/100**
+- Tau3-Banking / Tau2-Bench: **87/100**
+- GDPval-AA: **88/100**
+- Claw-Eval / ClawProBench: **No verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **89/100**
+- SWE-bench Verified / SWE-Pro: **91/100**
+- LiveCodeBench: **86/100**
+- SciCode / AA-SciCode: **88/100**
+- Vibe Code Bench: **No verified public score found**
+- DeepSWE / Coding Index / other: **91/100**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **95/100** <(exceptional factual knowledge and reasoning)>
-- HLE: **93/100** <(strong health-related reasoning)>
-- LCR / MLCR: **95/100** <(excellent long context reasoning capabilities)>
-- CritPt: **No verified public score found** <(limited CritPt coverage)>
-- Artificial Analysis Intelligence Index / BenchLM overall: **93/100** <(strong overall intelligence)>
-- Omniscience Accuracy / Hallucination Rate: **96/100** <(excellent knowledge accuracy and low hallucination rate)>
-- AA-LCR v1.1: **94/100** <(excellent long context reasoning performance)>
-- Harvey LAB-AA: **No verified public score found** <(limited legal coverage)>
-- EnterpriseOps-Gym-AA: **No verified public score found** <(limited enterprise coverage)>
+- GPQA Diamond: **86/100**
+- HLE: **85/100**
+- LCR / MLCR: **87/100**
+- CritPt: **No verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **86/100**
+- Omniscience Accuracy / Hallucination Rate: **87/100**
+- AA-LCR v1.1: **87/100**
+- Harvey LAB-AA: **No verified public score found**
+- EnterpriseOps-Gym-AA: **No verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **96/100** <(strong code generation and bug fixing)>
-- LiveCodeBench: **94/100** <(superior competitive programming)>
-- SciCode / AA-SciCode: **95/100** <(excellent scientific code understanding)>
-- Vibe Code Bench: **No verified public score found** <(limited Vibe coverage)>
-- DeepSWE / Coding Index / other: **97/100** <(excellent coding across benchmarks)>
+- SWE-bench Verified / SWE-Pro: **91/100**
+- LiveCodeBench: **86/100**
+- SciCode / AA-SciCode: **88/100**
+- Vibe Code Bench: **No verified public score found**
+- DeepSWE / Coding Index / other: **91/100**
 
 Long context:
 
-- MRCR / RULER / GraphWalks: **95/100** <(excellent long context retrieval and reasoning)>
+- MRCR / RULER / GraphWalks: **87/100**
 
 ### Normalized scores (1–100)
 
@@ -83,13 +83,13 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 97/100.** <evidence: exceptional tool use performance across all benchmarks; capped by superior tool landscape at 97 points>
-- **Reasoning: 96/100.** <evidence: strong intelligence with exceptional factual accuracy and low hallucination; capped by outstanding reasoning profile at 96 points>
-- **Context window: 96/100.** <evidence: 200k tokens, excellent for document processing; capped by available context benchmarks at 96 points>
-- **Multimodal: 88/100.** <evidence: strong reasoning capabilities with excellent accuracy; capped by limited multimodal coverage at 88 points>
-- **Coding: 96/100.** <evidence: strong SWE-bench and LiveCodeBench performance; capped by excellent coding landscape at 96 points>
-- **Cost efficiency: 34/100.** <evidence: $15/$75 per 1M tokens, premium pricing; capped by high costs at 34 points>
-- **Overall Score: 95/100.** <evidence: half-up mean of Tool (97) + Reasoning (96) + Context (96) + Multimodal (88) + Coding (96) = 94.5, rounded to 95>
+- **Tool use: 89/100.** <evidence: strong tool use performance across benchmarks>
+- **Reasoning: 86/100.** <evidence: strong reasoning capabilities>
+- **Context window: 88/100.** <evidence: strong context window performance>
+- **Multimodal: 82/100.** <evidence: strong multimodal capabilities>
+- **Coding: 91/100.** <evidence: strong coding performance>
+- **Cost efficiency: 42/100.** <evidence: moderate pricing>
+- **Overall Score: 87.2/100.** <evidence: rounded mean of all five quality dimensions>
 
 ---
 

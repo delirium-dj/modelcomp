@@ -1,0 +1,9 @@
+{
+  "id": "opencode/ling-3.0-flash-vl",
+  "name": "Ling 3.0 Flash Vl",
+  "short": "Ling 3.0 Flash Vl model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

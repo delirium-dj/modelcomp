@@ -1,0 +1,32 @@
+# Fledge Alpha — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown (`opencode/fledge-alpha`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers — or any verified public facts at all — were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-02):
+
+- **Identity:** the only trace of "Fledge Alpha" is this repo's scaffolded stub `meta.json` (`opencode/fledge-alpha`, `scaffolded: true`, placeholder "128K / text in/out / standard pricing"). No vendor, publisher, or official model name could be established.
+- **OpenCode Zen docs** (complete endpoints + pricing tables, fetched 2026-10-02): no `fledge-alpha` anywhere — not in the model list, not in pricing, not in the deprecated list. The `opencode/` ID namespace resolves to Zen IDs, so the stub's ID currently matches no live Zen model.
+- **BenchLM** (`fledge-alpha`): 404; not in the 783-model directory.
+- **LLMReference** (`fledge-alpha`): 404.
+- **models.dev** (`providers/opencode/models/fledge-alpha.toml`): 404.
+- **Grokipedia** (`Fledge_Alpha`): 404.
+- **Web search** ("Fledge Alpha" model opencode benchmark): no relevant results.
+
+Even the stub's specs (128K context, text in/out) are scaffold placeholders — no verified source backs them. With no identity, no specs, and no benchmarks there is nothing an honest Overall score could be computed from. A future re-research should look for (a) a live `fledge-alpha` ID on Zen or any provider, (b) a vendor announcement, or (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
+- Method: public internet research (Zen docs, BenchLM, LLMReference, models.dev, Grokipedia, web search); no verified public data found for this ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
