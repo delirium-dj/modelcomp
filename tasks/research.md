@@ -30,7 +30,7 @@ Do not hardcode any model name in this file.
 3. Your output path is always `model/<slug>/<Your_Filename>` — except for
    voice/speech models (`RULES.md` routing rule), which go under
    `models_voice/<slug>/<Your_Filename>`. Never write any other filename.
-4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Use your own canonical ID as you know it; do not invent a publisher.
+4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Date = run day in UTC, never a future date. Use your own canonical ID as you know it (your publisher — the subject model's vendor never belongs here); do not invent a publisher.
 
 ---
 
@@ -49,9 +49,11 @@ Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 Follow tasks/research.md exactly (combined single pass: audit → queue → one-by-one):
 1. Audit EVERY directory under model/ only — production scope, models_voice/ deferred
    (including empty folders or folders without average.md / meta.json / src/data/models.ts references).
-2. Your queue = folders missing model/<slug>/<STEM>.md, sorted by the
-   "- **Overall Score:" line of each model/<slug>/average.md descending
-   (missing average.md = last, A-Z). Newly discovered slugs append at end
+2. Your queue = folders missing model/<slug>/<STEM>.md, in `model-queue.md`
+   order (repo root, `<Overall> <slug>` lines, already highest-first; missing
+   average.md = unlisted = last, A-Z). If `model-queue.md` is missing or older
+   than the latest findings, fall back to the "- **Overall Score:" line of each
+   model/<slug>/average.md descending. Newly discovered slugs append at end
    (voice/speech discoveries are parked, never placed under model/ per RULES.md).
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
@@ -70,10 +72,12 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 - Scan all subdirectories in scope (e.g. `model/big-pickle/`; full mode also `models_voice/gpt-realtime-2/`).
 - Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
 - For each `model/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (full mode: check `<parent>/<slug>/` and write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
+- Shell tip (this repo runs under Windows PowerShell): no `head`/`grep`/Unix pipes — use `Select-Object -First N`; a directory also lists via the Read tool. Tip only — whichever works in your harness is fine.
 - Missing list = queue base. Order it:
-  1. Parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`.
-  2. Sort descending by that number. Folders with missing/unparseable `average.md` go last, sorted A-Z by slug.
-- Allowed carve-out: reading that single Overall line for ordering is fine
+  1. Read `model-queue.md` (repo root, one read) — process top-down.
+  2. Slugs absent there (no `average.md` yet) go last, sorted A-Z by slug.
+  3. Fallback only (queue missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
+- Allowed carve-out: reading `model-queue.md` (or, in fallback, that single Overall line) for ordering is fine
   (see rate-limit Rule 2). Do NOT read any other line of `average.md` and do
   NOT read any peer `*.md` findings file before/during research.
 
@@ -156,8 +160,7 @@ For each queued slug, in order:
 1. **Audit all subdirectories in scope** without exception (production: `model/` only; full mode: `model/` + `models_voice/`; incl. empty/new folders).
 2. **Highest-Overall-first** per Step 1; discoveries append at end. A "first five" cap is the same queue with limit N=5.
 3. **Incremental save (one-by-one)** — write each file before moving on.
-4. **Zero influence:** never read peer findings before/during research (only the
-   single Overall line of `average.md` for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check — never copy its numbers.
+4. **Zero influence:** never read peer findings before/during research (only `model-queue.md` — or, in fallback, the single Overall line of `average.md` — for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check — never copy its numbers.
 5. **No hallucination:** missing raw benchmark = `no verified public score found`, with source on every number.
 6. **No silent overwrites:** create `<Your_Filename>` only where missing/newly discovered. Existing files are never overwritten in-pass; enrichment is proposal-only (`ENRICH-PROPOSAL`), second pass only on explicitly user-approved slugs (own file, >7d old, new verified evidence, Signature date updated).
 7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
@@ -187,3 +190,18 @@ For each queued slug, in order:
     `.md.excluded` twin after re-research with new evidence (Step 3.3). The sole
     sanctioned overwrite is your own `<Your_Filename>` in an approved second pass
     (ENRICH-PROPOSAL → explicit per-slug user approval).
+13. **Task and rule files are read-only:** never edit, pin, or otherwise
+    modify `tasks/research-assign.md`, `tasks/research.md`,
+    `tasks/sync-data.md`, `RULES.md`, anything under `.agents/`, or
+    `model-report-TEMPLATE.md`. A STEM override belongs in the delegation
+    kickoff message (`AGENT_SOURCE_STEM: <value>`), never in the delegator
+    file. The only files a research run may create or touch are its own
+    `model/<slug>/<STEM>.md` (or `.md.excluded`) findings, its own
+    `.md.excluded` twin retirement (Step 3.3), and approved second-pass
+    overwrites of its own file.
+14. **Finish the whole queue:** the queue is the entire missing-set — no
+    partial assignment exists unless the kickoff message states an explicit
+    cap (`first five`, `N=5`, …). The task ends only when the missing-set is
+    empty or the user revokes it; a completed prefix (16 of 129, …) is never
+    "the assigned queue". If asked why you stopped with work remaining,
+    resume — never argue that a prefix was the whole task.

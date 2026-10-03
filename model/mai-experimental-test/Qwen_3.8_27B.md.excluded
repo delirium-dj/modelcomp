@@ -1,0 +1,56 @@
+# Mai Experimental Test — findings by Qwen 3.8 27B (SELF-EXCLUDED)
+
+- Source: opencode/mai-experimental-test (OpenCode Zen experimental listing)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** An OpenCode Zen experimental/test channel entry (`opencode/mai-experimental-test`). The "MAI" name suggests a Microsoft MAI-family model, but no public documentation ties this exact ID to a released Microsoft model, and it does not appear in any public model catalog checked this pass.
+- **Provider / access:** OpenCode Zen `opencode/mai-experimental-test` per the folder's `meta.json`. As of 2026-10-03 the ID is NOT listed in the Zen docs endpoint table nor in the live `https://opencode.ai/zen/v1/models` API response, nor on OpenRouter or models.dev's `providers/opencode` catalog — the listing appears to be unlisted/experimental (or already delisted).
+- **Release / knowledge:** unknown — no release date or knowledge cutoff published for this ID.
+- **IDs:** `opencode/mai-experimental-test`. No other public ID verified in this pass.
+- **Context window:** unknown — no verified figure (the folder `meta.json` "128K total" is a scaffold placeholder, not a verified source).
+- **Modalities:** unknown — text in / text out assumed from the `meta.json` placeholder, not verified.
+- **Pricing (as of 2026-10-03):** unknown — not listed in any public pricing table.
+- **Architecture:** unknown — no parameter count, license, or provider-identity disclosure found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau3 / Tau2 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / LCR / MLCR / CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (no AA leaderboard entry, no BenchLM page — 404)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported; window length itself unverified.
+
+Negative-findings notes:
+
+- Zero verified public benchmark numbers for this exact model/ID.
+- Sources checked on 2026-10-03: OpenCode Zen docs (endpoint + pricing + deprecated-models tables), live `https://opencode.ai/zen/v1/models` API, OpenRouter model catalog + `/api/v1/models` JSON (no `*mai*` ID exists), models.dev `providers/opencode` catalog (no `mai-experimental-test.toml`), Artificial Analysis LLM leaderboard snapshot (no "MAI" entry), BenchLM model page (404).
+- The ID is an experimental/test channel name; its underlying model, provider, and specs could not be verified from public sources in this pass.
+
+### Normalized scores (1–100)
+
+- Scores omitted — self-excluded; no verified benchmarks to normalize.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-10-03
+- Method: public internet research (OpenCode Zen docs + live models API, OpenRouter API JSON, models.dev opencode catalog, Artificial Analysis leaderboard snapshot, BenchLM — all checked 2026-10-03); no verified public data found, saved as `.md.excluded` per the SELF-EXCLUSION rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

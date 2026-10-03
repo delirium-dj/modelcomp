@@ -2,13 +2,16 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// What we catch: an error whose MESSAGE is nothing but "!" signs.
-// Kimi K3 drops the connection with bodies like "!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-// sometimes 50+ bangs — never any other text. So instead of matching a fixed
-// string, we check: does the error carry a string that is ONLY bangs?
-// We compare against the extracted message fields (not the whole JSON blob,
-// which always contains quotes, keys and other characters around the message).
+// What we catch: "!"-storm drops. Kimi K3 kills the connection with bodies
+// like "!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", sometimes 50+ bangs.
+// The bangs may arrive as the WHOLE message or buried inside a longer
+// provider wrapper (e.g. "Upstream error: !!!!..."), so we match three shapes:
+//   1. a string that is ONLY bangs (>= MIN_BANGS of them),
+//   2. any single LINE that is only bangs (>= MIN_BANGS),
+//   3. a long embedded run (> LONG_RUN bangs in a row — real prose never
+//      shouts with 10+ "!" in a row, so this is a safe tripwire).
 const MIN_BANGS = 3
+const LONG_RUN = 10
 
 // Which model to handle. Empty string = ANY model.
 // Kimi K3 drops this way today, but any model can send the same bang-only
@@ -61,6 +64,11 @@ function collectStrings(value: unknown, out: string[]): void {
   }
 }
 
+// A Set of event-type names we already logged (bounds log spam: each type
+// is reported once per OpenCode restart). Tells us which event types exist,
+// in case a drop ever arrives as something other than `session.error`.
+const seenTypes = new Set<string>()
+
 // True when the text is ONLY "!" signs (plus harmless whitespace/newlines)
 // and carries at least MIN_BANGS of them. Examples: "!!!", "!!!!...50x".
 // Anything with a letter, digit or other punctuation returns false.
@@ -70,12 +78,64 @@ function isBangOnly(text: string): boolean {
   return /^[!]+$/.test(compact)
 }
 
+// True for any of the three bang-drop shapes (whole string / single line /
+// long embedded run). Returns the longest bang run found (0 = no match).
+function bangRun(text: string): number {
+  if (isBangOnly(text)) return text.replace(/[\s]/g, "").length
+  let best = 0
+  for (const line of text.split(/\r?\n/)) {
+    if (isBangOnly(line)) {
+      const n = line.replace(/[\s]/g, "").length
+      if (n > best) best = n
+    }
+  }
+  const m = text.match(new RegExp(`!{${LONG_RUN},}`, "g"))
+  if (m) {
+    for (const run of m) if (run.length > best) best = run.length
+  }
+  return best
+}
+
+// Small helper: toasts must never break the retry. If the TUI client is
+// missing (headless run, odd version), we log and carry on with the timer.
+async function toast(client: any, message: string, variant: string): Promise<void> {
+  try {
+    await client.tui.showToast({ body: { message, variant } })
+  } catch {
+    try {
+      await client.app.log({
+        body: { service: "bang-drop-retry", level: "warn", message: `toast failed: ${message}` },
+      })
+    } catch {
+      // Last resort: silence. The retry timer below still runs.
+    }
+  }
+}
+
 // Every plugin exports a function. OpenCode calls it once at startup.
 // `client` lets us talk to OpenCode (send prompts, show toasts, log).
 export const BangDropRetry: Plugin = async ({ client }: any) => {
   // We return an object with hooks. `event` runs on every OpenCode event.
   return {
     event: async ({ event }: any) => {
+      // Taxonomy breadcrumb (once per event type per restart): if a drop
+      // ever arrives as something other than `session.error`, the logs will
+      // show us which type it was so we can widen the trigger below.
+      if (event?.type && !seenTypes.has(event.type)) {
+        seenTypes.add(event.type)
+        try {
+          await client.app.log({
+            body: {
+              service: "bang-drop-retry",
+              level: "debug",
+              message: `saw event type: ${event.type}`,
+            },
+          })
+        } catch {
+          // Logging must never break the plugin.
+        }
+      }
+
       // Case 1: session finished fine (model answered, now waiting for user).
       // One success breaks the failure streak, so we reset everything:
       // unlock the timer, reset the consecutive counter, lift the brake.
@@ -93,17 +153,22 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       // While the agent works (thinking, tools, messages) we exit here.
       if (event.type !== "session.error") return
 
-      // Gather every string inside the error payload and look for one that
-      // is bang-only. This stays correct whether the provider puts the
-      // "!!!!" in `error`, `message`, `error.message`, `detail`, etc.
+      // Gather every string inside the error payload and score each for
+      // bang-drop shapes (whole / line / long run). This stays correct
+      // whether the provider puts the "!!!!" in `error`, `message`,
+      // `error.message`, `detail`, or wraps it ("Upstream error: !!!!...").
       const props = (event.properties as any) ?? event
       const strings: string[] = []
       collectStrings(props, strings)
-      const bang = strings.find((s) => isBangOnly(s))
+      let bangLen = 0
+      for (const s of strings) {
+        const n = bangRun(s)
+        if (n > bangLen) bangLen = n
+      }
 
-      // No bang-only string anywhere -> some other error, ignore it.
+      // No bang shape anywhere -> some other error, ignore it.
       // (Other plugins own quota, Invalid input, endpoint-down, pool-empty.)
-      if (!bang) return
+      if (!bangLen) return
 
       // Optional model guard. Empty MODEL_FILTER = handle ANY model
       // (Kimi K3 today, whoever sends bangs tomorrow).
@@ -118,19 +183,40 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         if (modelLower && !modelLower.includes(MODEL_FILTER)) return
       }
 
-      // Get the session ID from the event, e.g. "ses_abc123".
-      const sessionID = (event.properties as any)?.sessionID as string
+      // Get the session ID. Quota errors carry `properties.sessionID`
+      // (like budget-retry.ts), but a drop payload may nest it, so try
+      // the common alternates before giving up.
+      const sessionID = ((event.properties as any)?.sessionID ??
+        (event.properties as any)?.session?.id ??
+        (event.properties as any)?.sessionId ??
+        "") as string
 
-      // If no ID, or we already scheduled a retry for this session, stop.
-      if (!sessionID || pending.has(sessionID)) return
+      // Trace exits: if we matched bangs but stop here, the log says why.
+      // (Previously these exits were silent, which hid the real cause.)
+      if (!sessionID) {
+        try {
+          await client.app.log({
+            body: {
+              service: "bang-drop-retry",
+              level: "warn",
+              message: `matched ${bangLen}x"!" but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
+            },
+          })
+        } catch {
+          // Logging must never break the plugin.
+        }
+        return
+      }
+      // If we already scheduled a retry for this session, stop.
+      if (pending.has(sessionID)) return
 
       // If the brake already tripped for this session, stay silent.
       // Only a `session.idle` success will lift it again.
       if (stopped.has(sessionID)) return
 
       // How many consecutive failures in a row? Default = 0.
+      // (bangLen was already scored above: longest "!" run in the payload.)
       const used = consecutive.get(sessionID) ?? 0
-      const bangLen = bang.replace(/[\s]/g, "").length
 
       // Emergency brake: 30 failures in a row with no success between them.
       // We latch the session as stopped so the next 31st, 32nd... error
@@ -138,12 +224,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       if (used >= MAX_CONSECUTIVE) {
         stopped.add(sessionID)
         pending.delete(sessionID)
-        await client.tui.showToast({
-          body: {
-            message: `Bang-drop ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`,
-            variant: "error",
-          },
-        })
+        await toast(client, `Bang-drop ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`, "error")
         return
       }
 
@@ -167,12 +248,8 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       consecutive.set(sessionID, used + 1)
 
       // Show a small popup in OpenCode Desktop so you see it working.
-      await client.tui.showToast({
-        body: {
-          message: `Connection drop (${bangLen}x "!"), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`,
-          variant: "warning",
-        },
-      })
+      // (Wrapped: a throwing toast must never kill the retry below.)
+      await toast(client, `Connection drop (${bangLen}x "!"), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
 
       // Wait 8 seconds, then try again.
       setTimeout(async () => {

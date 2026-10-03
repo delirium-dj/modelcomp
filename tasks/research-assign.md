@@ -2,11 +2,15 @@
 
 `AGENT_SOURCE_STEM: <STEM>` — placeholder. The Identity resolution chain below decides your STEM; manually setting this line pins it and beats self-derivation.
 
+`STEM` = your filename stem (e.g. `North_Mini_Code`) — your reporter identity, i.e. the `<Source_Name>` in every `model/<slug>/<Source_Name>.md` you write. It is NOT your research subject: you research every model folder except ones already containing your file; your own model folder is just one of many.
+
+> **READ-ONLY for research agents:** never edit this file (or any file under `tasks/`, `RULES.md`, `.agents/`, `model-report-TEMPLATE.md`). A STEM override belongs in the delegation kickoff message (`AGENT_SOURCE_STEM: <value>`), never here.
+
 Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with the resolved STEM. One active STEM at a time: finish (or revoke) the current assignment before reassigning; a recovery re-delegation resolves the same STEM again (see `.agents/gemini-rate-limits.md` Rule 5).
 
 ## Identity resolution (no file edit required — first match wins)
 
-1. **Kickoff line:** if the delegation message that delivered this file contains `AGENT_SOURCE_STEM: <value>` (anything other than the literal `<STEM>`), use that value.
+1. **Kickoff line:** if the delegation message that delivered this file contains `AGENT_SOURCE_STEM: <value>` (anything other than the literal `<STEM>`), use that value. A display form with spaces (e.g. `North Mini Code`) counts as the same pin — convert spaces to `_` (`North_Mini_Code`) and continue below.
 2. **This file's STEM line:** if a human manually set it to a real value, use it — an explicit pin beats everything below.
 3. **Self-identification:** derive from your own model identity: official display name with spaces -> `_` (e.g. `Gemini 3.8 Flash` -> `Gemini_3.8_Flash`). Proceed ONLY if BOTH checks pass:
    - the STEM matches `/^[A-Za-z0-9_.]+\.md$/`, and
@@ -22,7 +26,7 @@ Effective orders (already resolved, do not re-derive — combined single pass: a
 
 1. Your file is exactly `model/<slug>/<STEM>.md` (exact, case-sensitive resolved STEM). Never write any other filename.
 2. Production scope: `model/` only (`models_voice/` deferred; park voice discoveries, never place them under `model/` per `RULES.md`).
-3. Process missing folders highest-`Overall Score`-first (source: `model-queue.md` at repo root — `<Overall> <slug>` lines, already sorted highest-first by the last `pnpm sync`; slugs absent there (= no `average.md` yet) go last, A-Z; newly discovered slugs append at end). If `model-queue.md` is missing or older than the latest findings, fall back to the `- **Overall Score:` line of each `model/<slug>/average.md`. A "first five" cap is the same queue with limit N=5.
+3. Process missing folders highest-`Overall Score`-first (source: `model-queue.md` at repo root — `<Overall> <slug>` lines, already sorted highest-first by the last `pnpm sync`; slugs absent there (= no `average.md` yet) go last, A-Z; newly discovered slugs append at end). Your missing-set = queue folders lacking `model/<slug>/<STEM>.md`, verified folder by folder — never assume top-of-queue folders are done, and never jump to a queue position without checking it. If `model-queue.md` is missing or older than the latest findings, fall back to the `- **Overall Score:` line of each `model/<slug>/average.md`. A "first five" cap is the same queue with limit N=5.
 4. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete in-pass.
 5. Enrichment (own file only, approval-gated): if your own `<STEM>.md` Signature date (`Provided by: **...** — YYYY-MM-DD`) is older than 7 days and fresh search found genuinely new verified evidence that would change scores, do NOT overwrite — emit `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | new evidence <URLs> | delta` in your final summary and advance. Second-pass overwrites only explicitly user-approved slugs.
 6. Scope: only create your files (+ proposals). Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
