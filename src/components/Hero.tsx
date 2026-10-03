@@ -4,15 +4,15 @@ import { HeroArt } from "./HeroArt";
 export const Hero = component$(() => {
   return (
     <section class="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-10 pt-12 md:pt-16 lg:grid-cols-3">
-      <div class="lg:col-span-2">
+      <div class="text-center lg:col-span-2 lg:text-left">
         <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 transition-colors dark:text-white md:text-5xl">
           Compare AI coding models on what actually matters
         </h1>
-        <p class="mt-4 max-w-2xl text-lg text-slate-600 transition-colors dark:text-slate-300">
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600 transition-colors dark:text-slate-300 lg:mx-0">
           Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from public
           benchmarks so current and future models can be compared side by side.
         </p>
-        <div class="mt-6 flex flex-wrap gap-3">
+        <div class="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
           <a
             href="/#compare"
             class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"

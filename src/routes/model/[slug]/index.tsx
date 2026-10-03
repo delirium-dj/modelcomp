@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, slugForSource, virtualDimFor } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
@@ -92,6 +92,7 @@ export default component$(() => {
   };
   const sortKey = useSignal<string>("overall");
   const sortDir = useSignal<1 | -1>(-1);
+  const scrollerRef = useSignal<HTMLDivElement>();
   // Default view: overall desc, ties alphabetical. Re-sorted on header click.
   const sortedRatings = [...ratings].sort((a, b) => {
     if (sortKey.value === "agent") return sortDir.value * a.label.localeCompare(b.label);
@@ -99,6 +100,25 @@ export default component$(() => {
     const bv = sortKey.value === "overall" ? b.scores.overall : b.scores[sortKey.value as DimensionKey];
     return sortDir.value * (av - bv) || a.label.localeCompare(b.label);
   });
+  // Mobile-only: the active sort dimension jumps next to Overall (agent
+  // labels stay leftmost, Overall stays the first score column).
+  // Desktop keeps the fixed TABLE_DIM_ORDER.
+  const isNarrow = useSignal(false);
+  useVisibleTask$(({ cleanup }) => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const update = () => {
+      isNarrow.value = mq.matches;
+    };
+    update();
+    mq.addEventListener("change", update);
+    cleanup(() => mq.removeEventListener("change", update));
+  });
+  const activeDim =
+    sortKey.value !== "overall" && sortKey.value !== "agent" ? (sortKey.value as DimensionKey) : null;
+  const orderedDims =
+    activeDim && isNarrow.value
+      ? [DIMENSIONS.find((d) => d.key === activeDim)!, ...tableDims.filter((d) => d.key !== activeDim)]
+      : tableDims;
 
   return (
     <>
@@ -164,9 +184,9 @@ export default component$(() => {
         </h2>
         <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
           Each reporting agent's overall score for {model.name} ({ratings.length} of{" "}
-          {SOURCES.filter((s) => s.key !== "average" && virtualDimFor(s.key) === undefined).length} agents reporting). Click a column header to sort.
+          {SOURCES.filter((s) => s.key !== "average" && virtualDimFor(s.key) === undefined).length} agents reporting). Click a column header to sort — on mobile the sorted dimension moves next to Overall.
         </p>
-        <div class="mt-4 overflow-x-auto">
+        <div ref={scrollerRef} class="mt-4 overflow-x-auto">
           <table class="w-full min-w-[720px] table-fixed border-collapse text-sm">
             <colgroup>
               <col class="w-[30%]" />
@@ -190,12 +210,18 @@ export default component$(() => {
                         sortKey.value = "agent";
                         sortDir.value = 1;
                       }
+                      if (isNarrow.value) {
+                        scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
+                      }
                     }}
                     aria-label="Sort by reporting agent"
                     title="Sort by reporting agent"
-                    class="inline-flex cursor-pointer items-center gap-1 hover:text-indigo-600 dark:hover:text-indigo-400"
+                    class="inline-flex cursor-pointer flex-col items-center gap-0.5 hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
-                    Reporting agent{sortKey.value === "agent" ? (sortDir.value === 1 ? " ▲" : " ▼") : ""}
+                    <span>Reporting agent</span>
+                    <span aria-hidden="true" class={`text-[10px] leading-none ${sortKey.value === "agent" ? "" : "invisible"}`}>
+                      {sortKey.value === "agent" && sortDir.value === 1 ? "▲" : "▼"}
+                    </span>
                   </button>
                 </th>
                 <th scope="col" class="border-b border-slate-200 px-3 py-2 text-center font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
@@ -208,15 +234,21 @@ export default component$(() => {
                         sortKey.value = "overall";
                         sortDir.value = -1;
                       }
+                      if (isNarrow.value) {
+                        scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
+                      }
                     }}
                     aria-label="Sort by overall score"
                     title="Sort by overall score"
-                    class="inline-flex cursor-pointer items-center gap-1 hover:text-indigo-600 dark:hover:text-indigo-400"
+                    class="inline-flex cursor-pointer flex-col items-center gap-0.5 hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
-                    Overall{sortKey.value === "overall" ? (sortDir.value === 1 ? " ▲" : " ▼") : ""}
+                    <span>Overall</span>
+                    <span aria-hidden="true" class={`text-[10px] leading-none ${sortKey.value === "overall" ? "" : "invisible"}`}>
+                      {sortKey.value === "overall" && sortDir.value === 1 ? "▲" : "▼"}
+                    </span>
                   </button>
                 </th>
-                {tableDims.map((d) => (
+                {orderedDims.map((d) => (
                   <th
                     key={d.key}
                     scope="col"
@@ -231,13 +263,18 @@ export default component$(() => {
                           sortKey.value = d.key;
                           sortDir.value = -1;
                         }
+                        if (isNarrow.value) {
+                          scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
+                        }
                       }}
                       aria-label={`Sort by ${d.label}`}
                       title={`Sort by ${d.label}`}
-                      class="inline-flex cursor-pointer items-center gap-1 hover:text-indigo-600 dark:hover:text-indigo-400"
+                      class="inline-flex cursor-pointer flex-col items-center gap-0.5 hover:text-indigo-600 dark:hover:text-indigo-400"
                     >
-                      {d.short}
-                      {sortKey.value === d.key ? (sortDir.value === 1 ? " ▲" : " ▼") : ""}
+                      <span>{d.short}</span>
+                      <span aria-hidden="true" class={`text-[10px] leading-none ${sortKey.value === d.key ? "" : "invisible"}`}>
+                        {sortKey.value === d.key && sortDir.value === 1 ? "▲" : "▼"}
+                      </span>
                     </button>
                   </th>
                 ))}
@@ -276,7 +313,7 @@ export default component$(() => {
                     <td title={o.title} class={o.cls}>
                       {Math.round(r.scores.overall)}
                     </td>
-                    {tableDims.map((d) => {
+                    {orderedDims.map((d) => {
                       const c = hl(Math.round(r.scores[d.key]), dimStats[d.key], d.label, false);
                       return (
                         <td key={d.key} title={c.title} class={c.cls}>

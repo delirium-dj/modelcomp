@@ -1,32 +1,69 @@
-# Fledge Alpha — findings by GLM 5.3 (SELF-EXCLUDED)
+# Fledge Alpha (Free) — findings by GLM 5.3
 
-- Source: unknown (`opencode/fledge-alpha`)
-- Date: 2026-10-02 (UTC)
+- Source: unknown (`opencode/fledge-alpha-free`)
+- Date: 2026-10-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Negative findings (why this file is `.excluded`)
+## Model card
 
-**ZERO verified public benchmark numbers — or any verified public facts at all — were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+- **Name:** Fledge Alpha Free (the "Free" tier of the unidentified Fledge Alpha model — no paid tier exists yet)
+- **Short description:** An unidentified free-tier reasoning model that appeared on OpenCode Zen around 2026-10-01. No lab, vendor, or official model card exists; Zen lists it as a limited-time free preview, and its operator metadata describes a reasoning model with text and image input and tool use. It went from 1 user to ~1,818 in two days (2.7K unique users, 81,517 completed sessions, 129B tokens, ~1.6M tokens/session, 93% input-cache ratio per the OpenCode data-page snapshot) — rapid early adoption for an unidentified listing.
+- **Provider / access:** OpenCode Zen, `https://opencode.ai/zen/v1/chat/completions` (OpenAI Chat Completions-compatible; Pi lists API `openai-completions`). Reasoning effort mapped `low` / `high` / `max`.
+- **Release / knowledge:** free-tier listing live by 2026-10-01 (operator-supplied catalog metadata dated 2026-10-01); knowledge cutoff unknown.
+- **IDs:** `opencode/fledge-alpha-free` (Zen free ID only; no paid ID, no other provider — Pi: "no obvious cross-provider matches found")
+- **Context window:** 1,048,576 tokens total; 131,072 max output — verified from the operator-supplied models.dev catalog TOML (2026-10-01) and the Pi model-page configuration (both fetched 2026-10-03). The OpenCode data page itself marks context as "unknown", so the catalog figures are the only sourced numbers.
+- **Modalities:** text and image in; text out; reasoning yes (effort low/high/max); tool calls yes; strict JSON mode yes (Pi compatibility flags); no audio/video/PDF input.
+- **Pricing (as of 2026-10-03):** $0 input / $0 output / $0 cached (Zen free tier, limited time). Caveat: during the free period collected data may be used to improve the model — do not route confidential code through it.
+- **Architecture:** unknown — no vendor, no parameter count, `open_weights = false` (proprietary). Treat every provenance claim on social media as speculation.
 
-What was checked (2026-10-02):
+### Raw benchmarks found
 
-- **Identity:** the only trace of "Fledge Alpha" is this repo's scaffolded stub `meta.json` (`opencode/fledge-alpha`, `scaffolded: true`, placeholder "128K / text in/out / standard pricing"). No vendor, publisher, or official model name could be established.
-- **OpenCode Zen docs** (complete endpoints + pricing tables, fetched 2026-10-02): no `fledge-alpha` anywhere — not in the model list, not in pricing, not in the deprecated list. The `opencode/` ID namespace resolves to Zen IDs, so the stub's ID currently matches no live Zen model.
-- **BenchLM** (`fledge-alpha`): 404; not in the 783-model directory.
-- **LLMReference** (`fledge-alpha`): 404.
-- **models.dev** (`providers/opencode/models/fledge-alpha.toml`): 404.
-- **Grokipedia** (`Fledge_Alpha`): 404.
-- **Web search** ("Fledge Alpha" model opencode benchmark): no relevant results.
+> No formal, harness-based benchmark has been published for this model by any operator or aggregator (Artificial Analysis, BenchLM, and Grokipedia have no page for it). The only public measured numbers are a single early tester's undocumented checks (@MikelEcheve, X thread 2026-10-02, reported by promptblueprints.tech) — listed below as provisional community observations, NOT verified benchmark scores.
 
-Even the stub's specs (128K context, text in/out) are scaffold placeholders — no verified source backs them. With no identity, no specs, and no benchmarks there is nothing an honest Overall score could be computed from. A future re-research should look for (a) a live `fledge-alpha` ID on Zen or any provider, (b) a vendor announcement, or (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+Agent / tool use:
 
-Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+- Terminal-Bench 2.1: **no verified public score found** (provisional community proxy: 61/61 executable code checks vs LongCat 2.5 Preview at 59/61 and a timed-out Nemotron — single-run X-thread test, no harness)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** (provisional community proxy: 6/6 math checks, 4/4 logic checks — tiny undocumented samples)
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (neither site tracks the model)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No formal MRCR / RULER / GraphWalks score exists. Provisional community proxy: 12/12 hidden-key retrieval checks from inputs of up to about 1 million characters (the tester's own caveat: this does not establish a 1M-token context claim). Operator-supplied catalog: 1,048,576-token window.
+
+### Normalized scores (1–100)
+
+- **Tool use: 70/100.** Tool calls, reasoning effort tiers, and strict mode are verified in the operator-supplied catalog, and 81.5K completed agentic coding sessions on Zen show it functioning as a coding agent; the 61/61 executable-code community checks (vs LongCat 2.5 Preview 59/61) provisionally suggest solid routine performance. No formal tool benchmark exists, which caps the score.
+- **Reasoning: 68/100.** Reasoning (low/high/max) is a verified capability and the community math/logic checks passed 6/6 and 4/4, but those samples are tiny and undocumented; with zero formal reasoning benchmarks the score stays provisional and capped.
+- **Context window: 95/100.** Verified 1,048,576-token context (operator-supplied models.dev TOML + Pi config) sits in the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ exists, so not 100. Community 12/12 retrieval at ~1M-character inputs is consistent but not formal.
+- **Multimodal: 65/100.** Verified text + image input, text-only output (models.dev, Pi, Zen listing) places it in the "+image in = 60–70" band; no audio/video/PDF evidence.
+- **Coding: 70/100.** Provisional community head-to-head: 61/61 executable code checks vs LongCat 2.5 Preview 59/61 suggests routine coding competence; no formal coding benchmark exists, which caps the score.
+- **Cost efficiency: 100/100.** $0 input / $0 output on Zen (verified); free tier is time-limited and prompts may be used to improve the model — a privacy cost, not a dollar cost.
+- **Overall Score: 74/100.** Half-up mean of the five quality dims (70+68+95+65+70)/5 = 73.6 → 74 — a free unidentified 1M-context agent worth trying for exploratory coding and long-input retrieval, unverified for production or multimodal-heavy work; every quality score is provisional pending formal benchmarks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
-- Method: public internet research (Zen docs, BenchLM, LLMReference, models.dev, Grokipedia, web search); no verified public data found for this ID.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-03
+- Method: public internet research (OpenCode Zen docs, models.dev operator TOML, Pi model page, promptblueprints.tech coverage of the @MikelEcheve community tests); scores are normalized 1–100 interpretations, not official vendor scores, and lean on provisional community tests — no formal benchmark exists for this stealth listing.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

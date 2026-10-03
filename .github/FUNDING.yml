@@ -1,0 +1,8 @@
+# Sponsor button for the repo. `github:` needs a GitHub Sponsors profile.
+# Fill in your platform usernames/links below (uncomment when ready).
+# PayPal and Stripe have no dedicated key — they go under `custom:` (max 4 URLs).
+github: delirium-dj
+# ko_fi: YOURNAME
+# patreon: YOURNAME
+# buy_me_a_coffee: YOURNAME
+# custom: ["https://www.paypal.me/YOURNAME", "https://buy.stripe.com/YOUR_LINK"]

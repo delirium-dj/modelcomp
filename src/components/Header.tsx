@@ -71,6 +71,12 @@ export const Header = component$(() => {
               >
                 Models
               </a>
+              <a
+                href="/contact"
+                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+              >
+                Contact
+              </a>
             </nav>
 
             {/* Mobile Hamburger / Close Button trigger (swaps in place) */}
@@ -149,6 +155,15 @@ export const Header = component$(() => {
               }}
             >
               Models
+            </a>
+            <a
+              href="/contact"
+              class="text-slate-800 transition-colors hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
+              onClick$={() => {
+                isMenuOpen.value = false;
+              }}
+            >
+              Contact
             </a>
           </nav>
         </div>
