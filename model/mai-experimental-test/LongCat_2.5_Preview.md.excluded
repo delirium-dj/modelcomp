@@ -1,0 +1,58 @@
+# mai-experimental-test — findings by LongCat 2.5 Preview
+
+- Source: Unknown/mai-experimental-test (OpenCode Zen `unknown/mai-experimental-test`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** mai-experimental-test
+- **Short description:** Anonymous model listed on OpenCode with no identified developer, lab, or underlying architecture. Significant platform usage but zero verified public specifications or benchmarks.
+- **Provider / access:** OpenCode Zen `unknown/mai-experimental-test` (free tier, $0 total spend).
+- **Release / knowledge:** Unknown.
+- **IDs:** `unknown/mai-experimental-test` (OpenCode Zen)
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing (as of 2026-10-03):** Free on OpenCode Zen ($0 total spend reported).
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found for this exact model/ID.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Cannot compute — zero verified public benchmarks for quality dimensions.
+
+- **Tool use: N/A.** No verified public score found.
+- **Reasoning: N/A.** No verified public score found.
+- **Context window: N/A.** No verified public score found.
+- **Multimodal: N/A.** No verified public score found.
+- **Coding: N/A.** No verified public score found.
+- **Cost efficiency: N/A.** Free tier verified but no quality benchmark for Overall computation.
+- **Overall Score: N/A.** Cannot compute — zero verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (opencode/longcat-2.5-preview-free)** — 2026-10-03
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

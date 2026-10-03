@@ -71,12 +71,6 @@ export const Header = component$(() => {
               >
                 Models
               </a>
-              <a
-                href="/contact"
-                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-              >
-                Contact
-              </a>
             </nav>
 
             {/* Mobile Hamburger / Close Button trigger (swaps in place) */}

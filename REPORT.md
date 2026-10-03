@@ -1,5 +1,13 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-03 — Research backer footer: ExtraWebSite logo + support tiers documented
+
+1. **Footer support block (`src/components/Footer.tsx`):** tier buttons (`$5 Coffee` one-time thanks · `$19/mo Supporter` name in README · `$99/mo Research backer` logo in footer) all link to `https://github.com/sponsors/delirium-dj`; `EXTRA_DONATE_LINKS` (Ko-fi / Patreon / Buy Me a Coffee / PayPal / Stripe) render as links only when `href` is set, otherwise as dashed "soon" placeholders.
+2. **First Research backer:** [ExtraWebSite](https://extraweb.site) via `RESEARCH_BACKERS` — logo vendored at `public/backers/extrawebsite.png` (official `favicon.png`, transparent 255×255 RGBA, zero opaque-white pixels) so the footer never hotlinks third-party assets; link uses `rel="sponsored noopener noreferrer"` with a "thanks, never influences scores" title.
+3. **Transparent fix:** removed the `bg-white` pill + `bg-white` img backing that rendered as an ugly white box (the file itself was already transparent) — backer row is now chrome-free (`bg-transparent` img, underline-on-hover link), clean in light + dark mode.
+4. **Docs:** `README.md` gains a "Support the research (sponsorship)" section (tiers, Also-via behavior, backer list, add-a-backer recipe).
+   Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct`, then spot-check the footer row.
+
 ## 2026-10-03 — Pre-sorted research queue (`model-queue.md`) + delegator hardening
 
 1. **Agents burned tokens re-deriving queue order:** every research run scanned all ~130 `model/<slug>/average.md` files just to sort folders by Overall (plus ad-hoc `scripts/tmp-queue*.ps1` helpers). `pnpm sync` (`scripts/sync-data.mjs`) now also emits root `model-queue.md` — one `<Overall> <slug>` line per model, highest-first (ties A-Z), zero-failures freshness contract like `scores.generated.ts`, committed as build input. Builder `buildQueueFile()` lives in `scripts/lib/average.mjs` (pure + tested, 2 new `average.test.mjs` cases, 13/13 green); `tasks/research-assign.md` step 3 and `tasks/research.md` Step 1 read one file instead of scanning (fallback: single Overall lines if the queue is missing/stale); `tasks/sync-data.md` step 7 + project map record it.

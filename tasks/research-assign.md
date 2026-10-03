@@ -1,6 +1,6 @@
 # Research assignment — single-edit delegator (canonical)
 
-`AGENT_SOURCE_STEM: <STEM>` — placeholder. The Identity resolution chain below decides your STEM; manually setting this line pins it and beats self-derivation.
+`AGENT_SOURCE_STEM: Laguna_XS_2_1` — pinned STEM for this delegation.
 
 `STEM` = your filename stem (e.g. `North_Mini_Code`) — your reporter identity, i.e. the `<Source_Name>` in every `model/<slug>/<Source_Name>.md` you write. It is NOT your research subject: you research every model folder except ones already containing your file; your own model folder is just one of many.
 

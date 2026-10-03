@@ -67,6 +67,24 @@ components + routes             hexagon, tables, cards, per-model pages (SSG pre
   `model/README.md`, sync rules in `tasks/sync-data.md`, signed cross-model log in
   `model-findings.md`. (`model-comparison.md` is frozen v1–v3 history.)
 
+## Support the research (sponsorship)
+
+Independent, no paid promotions — donations fund compute and research time, never rankings.
+
+- **Tiers** (buttons in `Footer`, all linking to `https://github.com/sponsors/delirium-dj`):
+  `$5 Coffee` (one-time thanks) · `$19/mo Supporter` (name in README) ·
+  `$99/mo Research backer` (logo in footer).
+- **Also via:** `Ko-fi` / `Patreon` / `Buy Me a Coffee` / `PayPal` / `Stripe` —
+  placeholders in `EXTRA_DONATE_LINKS` (`src/components/Footer.tsx`); only entries
+  with a non-empty `href` render as links, the rest show as "soon".
+- **Research backers:** [ExtraWebSite](https://extraweb.site) (website design &
+  development) — first `$99/mo` backer. Logo vendored at
+  `public/backers/extrawebsite.png` (transparent 255×255 RGBA, never hotlinked)
+  and rendered transparently (no white box: link + `img` carry no `bg-white`)
+  via `RESEARCH_BACKERS` with `rel="sponsored noopener noreferrer"`.
+- **Add a backer:** drop their logo in `public/backers/` and append an entry to
+  `RESEARCH_BACKERS` in `src/components/Footer.tsx` — no other code changes needed.
+
 ## Project layout
 
 ```text

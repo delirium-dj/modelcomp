@@ -24,6 +24,19 @@ const TIERS = [
   },
 ];
 
+// Research backers ($99/mo tier) earn a logo in the footer.
+// Logos are vendored under public/backers/ so the footer never hotlinks
+// third-party assets. To add a backer: drop their logo in public/backers/
+// and append an entry here.
+const RESEARCH_BACKERS = [
+  {
+    name: "ExtraWebSite",
+    href: "https://extraweb.site",
+    imgSrc: "/backers/extrawebsite.png",
+    alt: "ExtraWebSite — website design & development",
+  },
+];
+
 // Extra platforms — fill in your own URLs; only entries with a
 // non-empty href are rendered.
 const EXTRA_DONATE_LINKS = [
@@ -94,8 +107,52 @@ export const Footer = component$(() => {
           )}
         </div>
       </div>
-      <p class="mt-4">Data syncs from per-model research files on every build. Scores are normalized interpretations, not official vendor scores.</p>
-      <p class="mt-1">© 2026 ModelComp — independent AI model comparisons, no sponsored rankings.</p>
+      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span class="font-medium uppercase tracking-wide">Research backer:</span>
+        {RESEARCH_BACKERS.map((b) => (
+          <a
+            key={b.name}
+            href={b.href}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            title={`${b.name} — Research backer (logo placement thanks, never influences scores)`}
+            class="inline-flex items-center gap-2 rounded-md px-1 py-1 text-lg font-medium text-slate-700 hover:text-slate-900 hover:underline dark:text-slate-200 dark:hover:text-white"
+          >
+            <img
+              src={b.imgSrc}
+              alt={b.alt}
+              width={32}
+              height={32}
+              loading="lazy"
+              class="h-8 w-auto bg-transparent"
+            />
+            {b.name}
+          </a>
+        ))}
+      </div>
+      <div class="mt-4 flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <p>Data syncs from per-model research files on every build. Scores are normalized interpretations, not official vendor scores.</p>
+          <p>Independent AI model comparisons, no sponsored rankings.</p>
+        </div>
+        <div class="flex items-center justify-between gap-4 pt-6 px-2">
+          <p>
+            © 2026{" "}
+            <a
+              href="/"
+              class="text-slate-600 underline-offset-4 hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-white"
+            >
+              ModelComp
+            </a>
+          </p>
+          <a
+            href="/contact"
+            class="text-slate-600 underline-offset-4 hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-white"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
     </footer>
   );
 });
