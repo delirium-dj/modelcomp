@@ -27,7 +27,6 @@
 85.3 gemini-3.5-flash
 85.3 qwen-3.7-plus
 85.3 qwen-3.8-max
-85 muse-spark-1.3-max
 84.9 claude-sonnet-5
 84.9 gemini-3-flash
 84.9 gpt-5.2

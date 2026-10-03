@@ -43,6 +43,25 @@ override.
   permanence, same file conventions — only the parent differs. (`models_voice/`
   sync/site wiring is pending; until then `pnpm sync` scans `model/` only.)
 
+- **Tier identity (Muse Spark only):** for Muse Spark 1.3 / 1.2, a pricing,
+  subscription, or reasoning-effort tier suffix (`Contributor`, `Free`,
+  `Standard`, `Max`, …) is never a separate model. Every Muse Spark 1.3 tier
+  name resolves to `model/muse-spark-1.3/`; every Muse Spark 1.2 tier name
+  resolves to `model/muse-spark-1.2/` — same weights, same context window,
+  same modalities; only price and Meta's training-data use differ (see
+  `model/muse-spark-1.3/meta.json`). For other vendors (Qwen, GLM, GPT, …)
+  this rule claims nothing: whether a tier-suffixed name is a separate model
+  is decided per vendor evidence (weights, specs), never by analogy to Muse.
+  Forbidden duplicate folders (`model/muse-spark-1.3-max/`,
+  `model/muse-spark-1.3-free/`, `model/muse-spark-1.3-contributor/`, and the
+  `muse-spark-1.2-*` equivalents) must not be scaffolded, researched, or
+  written to: a research agent that encounters one during audit skips it
+  entirely (never queued, never written) and surfaces it for user-directed
+  deletion. Removing a forbidden tier-duplicate folder is the sole sanctioned
+  `model/<slug>/` removal, and only with explicit per-instance user sign-off
+  (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the
+  deletion commit itself). This exception never extends to real model folders.
+
 ## Scoring rules
 
 - Source-file `Overall` = half-up mean of the five quality dims (Tool use,

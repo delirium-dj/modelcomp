@@ -2849,6 +2849,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "muse-spark-1.1": {
     "Big_Pickle.md": { tool: 85, reasoning: 80, context: 90, multimodal: 88, coding: 79, cost: 88, overall: 84 },
+    "Claude_Opus_4.6.md": { tool: 85, reasoning: 78, context: 87, multimodal: 82, coding: 72, cost: 78, overall: 81 },
     "DeepSeek_4.1_Flash.md": { tool: 82, reasoning: 72, context: 94, multimodal: 15, coding: 78, cost: 80, overall: 68 },
     "DeepSeek_4_Flash.md": { tool: 88, reasoning: 80, context: 90, multimodal: 78, coding: 82, cost: 85, overall: 84 },
     "Fledge_Alpha.md": { tool: 84, reasoning: 74, context: 93, multimodal: 88, coding: 74, cost: 74, overall: 83 },
@@ -2946,11 +2947,6 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Solar_Pro_4.md": { tool: 85, reasoning: 82, context: 93, multimodal: 75, coding: 88, cost: 95, overall: 85 },
     "Space_Bunny.md": { tool: 92, reasoning: 90, context: 100, multimodal: 85, coding: 91, cost: 87, overall: 92 },
     "average.md": { tool: 93.6, reasoning: 90.7, context: 99.3, multimodal: 86.8, coding: 94.1, cost: 95.6, overall: 92.9 },
-  },
-  "muse-spark-1.3-max": {
-    "Gemini_3.5_Flash_Lite.md": { tool: 82, reasoning: 85, context: 95, multimodal: 85, coding: 78, cost: 75, overall: 85 },
-    "Qwen_3.8_27B.md": { tool: 82, reasoning: 85, context: 96, multimodal: 85, coding: 78, cost: 75, overall: 85 },
-    "average.md": { tool: 82, reasoning: 85, context: 95.5, multimodal: 85, coding: 78, cost: 75, overall: 85 },
   },
   "nemotron-3-ultra-free": {
     "Big_Pickle.md": { tool: 75, reasoning: 72, context: 97, multimodal: 15, coding: 78, cost: 100, overall: 67 },
@@ -3151,6 +3147,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "qwen-3.7-max": {
     "Big_Pickle.md": { tool: 78, reasoning: 87, context: 90, multimodal: 20, coding: 84, cost: 84, overall: 72 },
+    "Claude_Opus_4.6.md": { tool: 85, reasoning: 88, context: 84, multimodal: 50, coding: 84, cost: 70, overall: 78 },
     "DeepSeek_4.1_Flash.md": { tool: 78, reasoning: 80, context: 94, multimodal: 85, coding: 85, cost: 88, overall: 84 },
     "DeepSeek_4_Flash.md": { tool: 78, reasoning: 88, context: 92, multimodal: 15, coding: 84, cost: 72, overall: 71 },
     "Fledge_Alpha.md": { tool: 80, reasoning: 80, context: 92, multimodal: 15, coding: 78, cost: 72, overall: 69 },
