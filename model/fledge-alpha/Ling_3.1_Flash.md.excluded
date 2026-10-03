@@ -1,0 +1,44 @@
+# Fledge Alpha — findings by Ling 3.1 Flash (EXCLUDED — no verified benchmarks)
+
+- Source: Ling 3.1 Flash (opencode/ling-3.1-flash-free) / Fledge Alpha
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md`): ZERO verified public benchmark numbers were found for this model. This file is saved as `.md.excluded` — scores are ignored and `pnpm sync` quarantines evidence-free files.
+
+## Model card (what is known — mostly unverified)
+
+- **Name:** Fledge Alpha (OpenCode Zen listing `fledge-alpha-free`)
+- **Short description:** Anonymous free stealth-preview model that appeared on OpenCode Zen on 2026-10-01; developer, lab, and underlying model unidentified. Community speculation includes a DeepSeek V4.1 Pro origin (unconfirmed); OpenCode usage patterns suggest it may be a router backed by fast models.
+- **Provider / access:** OpenCode Zen free preview (`opencode/fledge-alpha-free` per models.dev / AnyRouter); region support beyond the US unconfirmed.
+- **Release / knowledge:** Released 2026-10-01 (per models.dev); knowledge cutoff, training data, and release notes unknown.
+- **IDs:** `opencode/fledge-alpha` (repo meta.json, stale stub: "128K total", "Text in/out", "Standard pricing", `scaffolded: true`).
+- **Context window:** Listed 1,048,576 tokens (1M) with 131,072-token output limit (models.dev / AnyRouter) — listing metadata, not verified by the developer.
+- **Modalities:** Text + images in; text out; reasoning effort low/high/max; tool calls (per models.dev listing).
+- **Pricing:** $0 input/output on the OpenCode Zen preview route (recorded spend $0 in OpenCode's snapshot).
+- **Architecture:** unknown; likely a router — repeated identical tokenizer prompts returned significantly different input-token counts (7,536 → 7,536 → 6,499), and SVG output quality swung widely.
+
+## Raw benchmarks found
+
+Agent / tool use: no verified public score found.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: no verified public score found.
+
+Only anecdotal, single-user, non-controlled checks exist (X post by @MikelEcheve, 2026-10-01/02): 61/61 executable code checks (vs LongCat 59/61; Nemotron timed out), 6/6 math, 4/4 logic, 12/12 hidden-key retrieval from inputs of ~1M characters — with no pinned reasoning-effort mode and no methodology disclosed. These are user-run tests, not benchmarks.
+
+OpenCode usage snapshot (platform activity, not quality): 2.7K unique users, 81,517 completed sessions, 129B tokens, $0 spend, ~1.6M tokens/session average, 93% input-cache ratio, ~61 output tokens/s.
+
+## Normalized scores (1–100)
+
+Not scored — no verified benchmark evidence exists for any dimension. The repo's `average.md` (81.0, single rater) cannot be reconciled with any public evidence located.
+
+---
+
+## Signature
+
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-03
+- Method: public internet research (Exa web search); this file records negative findings only.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

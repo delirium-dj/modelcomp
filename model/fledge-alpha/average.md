@@ -5,18 +5,17 @@
 
 ## Averaged scores
 
-- **Tool use: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 90/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 80/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 96/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 81/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 72.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Reasoning: 71/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Context window: 83.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Multimodal: 53.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Coding: 72/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Cost efficiency: 93.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Overall Score: 70.5/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash.
-- Average from top 1 by Overall Score: Gemini 3.6 Flash.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite.
+- Fallback: no qualifying raters (need own Overall > 84.9); average from all 3 below-gate source(s): Fledge Alpha, Gemini 3.5 Flash Lite, Gemini 3.6 Flash.
+- Average from top 3 by Overall Score: Fledge Alpha, Gemini 3.5 Flash Lite, Gemini 3.6 Flash.

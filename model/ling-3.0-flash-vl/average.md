@@ -19,3 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3.
 - Average from top 1 by Overall Score: Kimi K3.
+- Ignored below-gate rater(s): GLM 5.3, Ling 3.1 Flash.

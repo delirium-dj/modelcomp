@@ -1,0 +1,30 @@
+# Mai Experimental Test — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown (`opencode/mai-experimental-test`)
+- Date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers — or any verified public facts at all — were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-02):
+
+- **Identity:** the only trace is this repo's scaffolded stub `meta.json` (`opencode/mai-experimental-test`, `scaffolded: true`, placeholder "128K / text in/out / standard pricing"). The name suggests a Microsoft MAI-family experimental/test SKU (BenchLM tracks MAI-Thinking-1, MAI-Code-1.1-Flash, MAI-Cyber-1-Flash, MAI-Voice/Transcribe models), but no source ties this exact ID to any of them — no vendor confirmation, no announcement.
+- **OpenCode Zen docs** (complete endpoints + pricing tables, fetched 2026-10-02): no `mai-experimental-test` anywhere — not in the model list, not in pricing, not in the deprecated list. The `opencode/` ID currently matches no live Zen model; it most plausibly was a transient test alias.
+- **BenchLM** (`mai-experimental-test`): 404; no "Mai Experimental Test" entry in the 783-model directory.
+- **LLMReference** (`mai-experimental-test`): 404.
+- **Artificial Analysis** (`mai-experimental-test`): 404.
+
+Even the stub's specs (128K, text in/out) are scaffold placeholders with no verified source behind them. With no identity, no specs, and no benchmarks there is nothing an honest Overall score could be computed from. A future re-research should look for (a) a live `mai-experimental-test` ID on Zen or any provider, (b) a Microsoft MAI announcement covering an experimental test SKU, or (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
+- Method: public internet research (Zen docs, BenchLM, LLMReference, Artificial Analysis); no verified public data found for this ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

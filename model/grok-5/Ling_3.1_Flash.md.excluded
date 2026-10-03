@@ -1,0 +1,38 @@
+# Grok 5 — findings by Ling 3.1 Flash (EXCLUDED — model unreleased)
+
+- Source: Ling 3.1 Flash (opencode/ling-3.1-flash-free) / Grok 5
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md`): Grok 5 has not been released and has ZERO verified public benchmark numbers. This file is saved as `.md.excluded` — scores are ignored and `pnpm sync` quarantines evidence-free files.
+
+## Model card (rumored specifications — none verified)
+
+- **Name:** Grok 5 (xAI next flagship; unreleased)
+- **Short description:** xAI's next-generation flagship, reportedly in active training on Colossus 2 (xAI's ~2GW supercluster, ~520K GB200 + 30K GB300 GPUs). Every published release window (late 2025, Q1 2026, Q2 2026) has passed without a release; full API access was "expected Q3 2026" as of the most recent tracker (2026-07-08).
+- **Provider / access:** xAI — not yet available. xAI's official model & pricing documentation (2026-09-21) lists grok-4.6 / 4.5 / 4.3 / 4.20 / build-0.1 and no grok-5; no announcement exists on x.ai/news.
+- **Release / knowledge:** Unreleased as of 2026-10-03 (latest evidence: still training, 2026-07-08).
+- **IDs:** `opencode/grok-5` (repo meta.json, stale stub: "128K total", "Text in/out", "Standard pricing").
+- **Context window:** Rumored 1.5–2M tokens (unconfirmed; confidence "medium" at best per trackers).
+- **Modalities:** Rumored native text/image/audio/video (unconfirmed).
+- **Pricing:** Not announced; estimates ~$3–5 input / $15–20 output per 1M (unconfirmed).
+- **Architecture:** Rumored ~6T-parameter MoE (a ~10T variant also rumored, less well-sourced); MoE means only a fraction of parameters activate per query.
+
+## Raw benchmarks found
+
+No verified public benchmark exists for Grok 5. One unverified leak ("Project Valis" candidate, reportedly 45.1% on a "Zeitgeist reasoning exam" vs Gemini 3 Pro's 32.4%) is flagged as unreliable — possibly cherry-picked or fabricated — and is not evidence.
+
+For reference only (predecessor, verified): Grok 4 (2025-07) GPQA 87.0–87.5% / HLE 24.5% no-tools; Grok 4.20 (2026-03) GPQA 82.7% / HLE 22.8–30.0%.
+
+## Normalized scores (1–100)
+
+Not scored — the model is unreleased; any score would be fabricated from rumors. The repo's `average.md` (80.0, fallback mean of 1 source, no rater clears the >84.9 gate) cannot be reconciled with any public evidence located.
+
+---
+
+## Signature
+
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-03
+- Method: public internet research (Exa web search); this file records negative findings only.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
