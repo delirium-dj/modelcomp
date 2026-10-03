@@ -1,7 +1,7 @@
 # Union Alpha — findings by Gemini 3.6 Flash
 
 - Source: OpenRouter stealth listing `stealth/union-alpha` (revealed as Pareto by Unbiased)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
 - Method: Public web research & benchmark aggregation; scores normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.8.md`, using the same headings.

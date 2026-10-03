@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Gemini 3.6 Flash
 
 - Source: Mistral AI (`mistral/mistral-medium-3.5`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

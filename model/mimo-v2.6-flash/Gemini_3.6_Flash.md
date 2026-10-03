@@ -1,7 +1,7 @@
 # MiMo v2.6 Flash — findings by Gemini 3.6 Flash
 
 - Source: Xiaomi (`mimo-v2.6-flash`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-01
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
 - Method: Public internet search and official technical report extraction; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

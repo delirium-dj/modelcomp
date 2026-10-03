@@ -1,0 +1,1 @@
+cohere/north-mini-code:free | ctx=256000 | maxout=64000 | in=0 | out=0 | mods=text->text | created=2026-06-17 | AA={"design_arena":[],"artificial_analysis":{"intelligence_index":9.9,"coding_index":36.5,"agentic_index":1.1}}
