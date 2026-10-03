@@ -43,7 +43,18 @@ Long context:
 
 - No MRCR / RULER / GraphWalks retrieval result at any window length found. The 200K window and the $0.08 cache-read rate are capacity and price facts, not retrieval-quality measurements; with an 8,192 output cap this model is not built for long-generation work.
 
-PLACEHOLDER_SCORES
+### Normalized scores (1–100)
+
+> Derived from the raw numbers above using `model-comparison.md` (v4). Overall = half-up
+> mean of the five quality dims; Cost efficiency is scored but never counted.
+
+- **Tool use: 52/100.** Tool calling is supported and Anthropic called out improved tool-use accuracy at launch, but the only quantified agentic evidence is SWE-bench Verified **40.6%**, which is a software-engineering score rather than a tool-use one, and it sits below the methodology's TB2.1 45–60% mid band. Terminal-Bench, Tau3, GDPval-AA and Claw-Eval are all absent, and the 8,192-token output cap throttles long tool loops. Not scored lower: the model beat GPT-4o and the original Claude 3.5 Sonnet on that SWE-bench run at 2024-era pricing.
+- **Reasoning: 35/100.** AA Intelligence Index **9** (estimated) is only modestly above the 7 median for non-reasoning models in its price tier, and the model has **no reasoning mode at all** (`reasoning = false`). With no GPQA, HLE, LCR or CritPt figure published, there is no path to the methodology's mid band (GPQA 60–80% / Index 20–35 → 55–65); an Index of 9 sits inside that 20–35 band's floor. Deliberately conservative: the AA number is an *estimate* on a deprecated model, so it is treated as a floor-plus signal rather than a measurement.
+- **Context window: 68/100.** Verified 200,000 total maps to the 200K–500K = 65–84 band, whose stated anchor is 200K = 70. Placed just under the anchor because the **8,192 max output** is far below the methodology's 64K caveat threshold and no retrieval-quality result exists at any window length — this is a long-*input*, short-output model.
+- **Multimodal: 82/100.** Text, image and PDF input with text output: image input plus PDF pushes it into the 75–90 band rather than the 60–70 plain-image band. Not higher: output is text-only, there is no video or audio path, and the vision/PDF path has no published evaluation in retrievable text.
+- **Coding: 55/100.** SWE-bench Verified **40.6%** is a real, dated, first-party number and was genuinely strong for a small fast model in October 2024 (above GPT-4o at the time), but it is far below both the methodology's mid band (TB2.1 45–60%) and its frontier anchors (TB2.1 85%+, DeepSWE 74%+). Held here rather than lower because the score is verifiable and above the floor for the class; capped there because SciCode, LiveCodeBench and the Coding Index are all missing.
+- **Cost efficiency: 92/100.** $0.80 in / $4.00 out per 1M with a $0.08 cache-read rate is right at the methodology's ~$0.60/$2.20 ≈ 92 anchor — a genuinely cheap rate card. Not scored as free despite Artificial Analysis showing $0.00: no provider currently serves this model, so the price is historical and the entry is unreachable in practice.
+- **Overall Score: 58.4/100.** Mean of (52 + 35 + 68 + 82 + 55) / 5 = 58.4. Best understood as a historical artifact rather than a live recommendation: a cheap, fast, image/PDF-capable Haiku for latency-bound classification and extraction, now fully superseded by Claude Haiku 4.5, which carries a 200K window, extended thinking and far higher benchmark scores.
 
 ---
 

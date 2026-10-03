@@ -1,0 +1,121 @@
+# Qwen 3.5 — findings by Big Pickle
+
+> **SELF-EXCLUDED (notes only, not scored).** `qwen-3.5` is scaffolded in this repo
+> (`meta.json` carries `"scaffolded": true`) and points at a bare `opencode/qwen3.5` ID that
+> **no vendor or platform actually serves.** OpenCode's live Zen catalog (`/zen/v1/models`,
+> 86 entries) lists four Qwen routes — `qwen3.8-flash`, `qwen3.6-plus`, `qwen3.5-plus`,
+> `qwen3.8-max` — and has no unsuffixed `qwen3.5`. OpenCode's own data record for
+> `qwen3.5` is an empty shell: every spec field null and zero usage. Officially, Qwen 3.5
+> is a **family of eight named checkpoints** plus proprietary hosted tiers; there is no bare
+> "Qwen 3.5" model to measure, and the two real variants this alias could mean are already
+> owned by sibling folders (`qwen-3.5-9b`, `qwen-3.5-plus`). Attributing any number to this
+> ID would mean guessing which checkpoint it aliases, so per
+> `model-report-TEMPLATE.md` (SELF-EXCLUSION) and `RULES.md` this is
+> `Big_Pickle.md.excluded`, not a scored `.md`.
+
+- Source: OpenCode (`qwen3.5`, scaffolded entry) — lab recorded as Qwen/Alibaba
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 (as scaffolded; **not a distinct shipping model**)
+- **Short description:** This entry is a family label, not a model. Alibaba's Qwen team
+  shipped Qwen 3.5 as eight named open-weight checkpoints (397B-A17B, 122B-A10B, 35B-A3B,
+  27B, 9B, 4B, 2B, 0.8B) plus proprietary API tiers (Plus/Flash/Max) and Qwen3.5-Omni. A bare
+  `qwen3.5` corresponds to none of them unambiguously, so this is an alias with no resolvable
+  target — the same condition `model-comparison.md` treats as unscoreable.
+- **Provider / access:** **none.** `https://opencode.ai/zen/v1/models` does not return a
+  `qwen3.5` route, so there is no live endpoint and no API surface (Chat Completions vs
+  Responses) to document.
+- **Release / knowledge:** no release date recorded for this ID. The family's checkpoints
+  released 2026-02-16 (397B-A17B), 2026-02-24 (122B-A10B / 35B-A3B / 27B) and 2026-03-02
+  (9B / 4B / 2B / 0.8B); no knowledge cutoff published for this entry.
+- **IDs:** `opencode/qwen3.5` (OpenCode Data record `id: "qwen3.5"`, lab `qwen`) — the only
+  string, and it resolves to no served model. No vendor model-ID string exists.
+- **Context window:** **not published for this ID.** OpenCode records `contextTokens: null`.
+  (Family-level figure, not attributable here: the Qwen 3.5 checkpoints are natively
+  262,144 tokens, extensible to ~1,010,000 via YaRN.)
+- **Modalities:** not published — `inputModalities: []`, `outputModalities: []`,
+  `reasoning: null`, `toolCall: null`. Even text-only is an assumption here.
+- **Pricing (as of 2026-10-03):** `priceUsdPer1M: null`. No per-token rate exists for a route
+  that is not served; recorded spend is $0.
+- **Architecture:** unknown for this ID. (Family-level, unattainable: hybrid Gated DeltaNet +
+  gated attention, sparse MoE on the large checkpoints, dense on 27B/9B/4B/2B/0.8B, Apache 2.0
+  open weights.)
+
+## Raw benchmarks found
+
+Every row: **no verified public score found** for this exact ID. OpenCode's record returns
+`benchmarks: []`. No Artificial Analysis or BenchLM page exists for a bare `qwen3.5`, and no
+vendor card publishes scores under that name.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2-Bench / Tau3 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas:
+  **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Artificial Analysis Intelligence Index /
+  Omniscience Accuracy: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench:
+  **no verified public score found**
+
+Long context / multimodal:
+
+- **no published retrieval measurement and no published modality list**
+
+### Measured numbers deliberately NOT attributed here
+
+Research surfaced strong, fully-sourced Qwen 3.5 results, but every one belongs to a
+*named* checkpoint rather than this ID. Recorded so a future revision can reuse them only
+after the alias question is settled:
+
+- **Qwen3.5-397B-A17B** (family flagship): MMLU-Pro 87.8, MMLU-Redux 94.9, SuperGPQA 70.4,
+  C-Eval 93.0, MMMU 85.0, MMMU-Pro 79.0, MathVision 88.6, MathVista-mini 90.3 (Qwen model
+  card / Ollama readme).
+- **Qwen3.5-35B-A3B**: BenchLM 56.38/100, rank #98 of 228 (source-verified #52 of 105);
+  262K context; 35B total / 3B active; 256 experts (8 routed + 1 shared), 40 layers.
+- **Qwen3.5-9B**: MMLU-Pro 82.5, GPQA Diamond 81.7, IFEval 91.5, LongBench v2 55.2,
+  MMMU-Pro 70.1, MathVision 78.9, MathVista-mini 85.7, BFCL-v4 66.1, TAU2-Bench 79.1,
+  ScreenSpot Pro 65.2, OSWorld-Verified 41.8; 262,144 native context extensible past 1M
+  via YaRN.
+- **Qwen3.5-27B / 122B-A10B / 4B / 2B / 0.8B** also exist as distinct cards.
+
+These span a 0.8B→397B parameter range, so they cannot be pooled. Choosing one would be a
+guess about what the alias means.
+
+## Verified facts that are not quality measurements
+
+From OpenCode's usage record (page updated 2026-09-28T12:09:39Z). Adoption, not capability:
+
+- **0 tokens** total, **0 unique users**, **3 completed sessions** (all on 2026-09-19)
+- $0.0000 average cost per session, $0 total spend, 0% share, no weekly rank
+
+A route with three lifetime sessions, zero users and a fully null spec block reads as a
+placeholder that was created and never populated.
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: the ID resolves to no served model, so there is nothing to
+normalize. Context, Multimodal and Cost efficiency would fall back to neutral placeholders,
+and Reasoning/Tool/Coding have no measurable subject at all. Scoring this would either
+manufacture numbers or silently pick one of the eight checkpoints and file its results under
+the wrong name.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-03
+- Method: public internet research — OpenCode Zen live model catalog (`/zen/v1/models`),
+  OpenCode Data record and JSON for `qwen3.5`, Qwen's official Qwen3.5 release notes and
+  model cards, BenchLM model listings. No scored values; scores inside are ignored by
+  `pnpm sync`.
+- Future sources: if OpenCode lists a live unsuffixed `qwen3.5` route with published specs,
+  migrate this folder to that model's slug and write `Big_Pickle.md` then. The concrete
+  variants already have homes at `qwen-3.5-9b` and `qwen-3.5-plus`.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.5_Plus.md`, using the same headings.

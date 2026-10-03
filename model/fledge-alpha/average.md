@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash.
 - Average from top 1 by Overall Score: Gemini 3.6 Flash.
-- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, Space Bunny.
+- Ignored below-gate rater(s): Big Pickle, DeepSeek 4.1 Flash, Fledge Alpha, Gemini 3.5 Flash Lite, Laguna S 2.1, Space Bunny.

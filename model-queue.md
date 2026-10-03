@@ -126,8 +126,8 @@
 61.5 gpt-5-nano
 60.2 laguna-xs-2.1
 59 gpt-oss-120b
-58.7 north_mini_code
 58.2 llama_3.2_vision_instruct
+57.3 north_mini_code
 56.1 big-pickle
 55.1 nemotron-3.5-lightning-free
 52.4 mimo-v2.6-distill-qwen-9b
