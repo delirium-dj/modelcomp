@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT 6 Astra.
 - Average from top 2 by Overall Score: Gemini 3.6 Flash, GPT 6 Astra.
-- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Space Bunny.
+- Ignored below-gate rater(s): Big Pickle, Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.5 Flash Lite, GLM 5.3, GLM 5.3 Flash, LongCat 2.5 Preview, Mimo v2.6 Flash, Space Bunny.

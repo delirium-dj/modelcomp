@@ -2064,6 +2064,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Big_Pickle.md": { tool: 66, reasoning: 55, context: 95, multimodal: 60, coding: 50, cost: 95, overall: 65.2 },
     "Claude_Opus_4.6.md": { tool: 62, reasoning: 58, context: 95, multimodal: 35, coding: 55, cost: 95, overall: 61 },
     "DeepSeek_4.1_Flash.md": { tool: 62, reasoning: 64, context: 95, multimodal: 62, coding: 58, cost: 95, overall: 68 },
+    "GLM_5.3.md": { tool: 80, reasoning: 65, context: 95, multimodal: 15, coding: 60, cost: 95, overall: 63 },
     "GLM_5.3_Flash.md": { tool: 92, reasoning: 62, context: 94, multimodal: 65, coding: 58, cost: 95, overall: 74 },
     "GPT_6_Astra.md": { tool: 82, reasoning: 62, context: 95, multimodal: 70, coding: 60, cost: 94, overall: 74 },
     "Gemini_3.5_Flash_Lite.md": { tool: 81, reasoning: 79, context: 78, multimodal: 75, coding: 77, cost: 86, overall: 78.2 },
