@@ -56,7 +56,7 @@ import {
   checkFilename,
   checkMetaFile,
 } from "./lib/validate.mjs";
-import { buildAverageEntry, buildAverageBody, applyAverageToPrev } from "./lib/average.mjs";
+import { buildAverageEntry, buildAverageBody, applyAverageToPrev, buildQueueFile } from "./lib/average.mjs";
 import {
   parseRegistryEntries,
   buildRegistryEntry,
@@ -532,6 +532,23 @@ if (failures === 0) {
     writeFileSync(genPath, next);
     log(
       `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
+    );
+  }
+  // Research queue for AI agents (model-queue.md): pre-sorted `<Overall> <slug>`
+  // lines so agents stop scanning every average.md themselves. Same freshness
+  // contract as scores.generated.ts — only on zero failures, committed.
+  const queuePath = join(root, "model-queue.md");
+  const queueNext = buildQueueFile(scoreIndex);
+  let prevQueue = null;
+  try {
+    prevQueue = readFileSync(queuePath, "utf8");
+  } catch {
+    // created below
+  }
+  if (prevQueue !== queueNext) {
+    writeFileSync(queuePath, queueNext);
+    log(
+      `  WRITE model-queue.md (${Object.keys(scoreIndex).length} models, Overall desc)${prevQueue === null ? " (created)" : ""}`,
     );
   }
   // Slugs already emitted inline in SOURCE_DEFS (see registry step above):

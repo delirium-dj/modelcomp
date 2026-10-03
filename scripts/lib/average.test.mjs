@@ -2,7 +2,7 @@
 // Run: `pnpm test` (zero deps, node:test only).
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { buildMixNote, buildAverageEntry, buildAverageLines, buildAverageBody, applyAverageToPrev } from "./average.mjs";
+import { buildMixNote, buildAverageEntry, buildAverageLines, buildAverageBody, applyAverageToPrev, buildQueueFile } from "./average.mjs";
 
 const entry = (overall, rest = {}) => ({
   file: `R${overall}.md`,
@@ -117,5 +117,26 @@ describe("applyAverageToPrev (header preservation)", () => {
     assert.match(next, /custom link/);
     assert.match(next, /NEW BODY$/);
     assert.doesNotMatch(next, /OLD BODY/);
+  });
+});
+
+describe("buildQueueFile (research queue)", () => {
+  const index = {
+    "b-model": { "average.md": { overall: 80 } },
+    "a-model": { "average.md": { overall: 91.8 } },
+    "c-model": { "average.md": { overall: 80 } },
+    "no-average": { "Some_Rater.md": { overall: 99 } },
+  };
+
+  it("sorts Overall desc, ties A-Z, skips slugs without an average entry", () => {
+    const out = buildQueueFile(index);
+    assert.match(out, /do not hand-edit/);
+    const rows = out.split("\n").filter((l) => l && !l.startsWith("#"));
+    assert.deepEqual(rows, ["91.8 a-model", "80 b-model", "80 c-model"]);
+  });
+
+  it("ends with exactly one trailing newline", () => {
+    assert.match(buildQueueFile({}), /#.*\n$/);
+    assert.doesNotMatch(buildQueueFile({}), /\n\n$/);
   });
 });

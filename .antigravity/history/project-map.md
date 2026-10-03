@@ -11,9 +11,10 @@ model/<slug>/meta.json             Curated display metadata (name, pricing, cont
 models_voice/<slug>/               Same conventions for voice/speech models (RULES.md routing rule;
                                    NOT scanned by pnpm sync — model/ only)
           │
-          ▼ pnpm sync (scripts/sync-data.mjs)
+           ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle
 src/data/sources.generated.ts     Reporting-agent registry + SourceKey union (auto-registered)
+model-queue.md                    Pre-sorted `<Overall> <slug>` research queue (agents read this, not every average.md)
           │
           ▼ import
 src/data/models.ts                 Hydrates MODELS, SOURCES, DIMENSIONS arrays & source selectors

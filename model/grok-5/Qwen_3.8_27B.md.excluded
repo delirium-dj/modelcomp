@@ -1,0 +1,57 @@
+# Grok 5 — findings by Qwen 3.8 27B
+
+- Source: xAI/Grok-5 (no verified vendor source located)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUDED — no verified public capability benchmarks found for a model named "Grok 5" as of 2026-10-03.**
+> Every capability row below reads "no verified public score found". Per the template's
+> mandatory self-exclusion rule, this report is saved as `.md.excluded` with no scores.
+> xAI's own API docs (checked 2026-10-03) list Grok 4.7 as "the most capable model
+> we've built" and no `grok-5` ID exists on xAI docs, OpenRouter, Artificial Analysis,
+> BenchLM, or models.dev.
+
+## Model card
+
+- **Name:** Grok 5
+- **Short description:** Presumed xAI (SpaceXAI) model implied by the repo slug `grok-5`; no public release, benchmark, or API listing verified as of 2026-10-03. May be an unreleased/just-announced model or an alias — xAI's docs top out at Grok 4.7.
+- **Provider / access:** Not verified. Not on OpenRouter (xAI text lineup there: grok-4.7, 4.6, 4.5, 4.3, 4.20, grok-build-0.1); no `grok-5` row in xAI API docs' Text API Pricing table.
+- **Release / knowledge:** No release date found; xAI docs' knowledge-cutoff note (May 2026) refers to Grok 4.7, not Grok 5.
+- **IDs:** Not verified — no `grok-5` ID found on xAI docs, OpenRouter, or models.dev.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing:** Not verified.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found
+
+> Checked (2026-10-03): OpenRouter models API (no grok-5 entry; `~x-ai/grok-latest` = "always redirects to the latest Grok model", lineup tops out at 4.7), Artificial Analysis LLM leaderboard (no Grok 5 entry; latest Grok = 4.7) and `artificialanalysis.ai/models/grok-5` (404), xAI docs model list (`docs.x.ai/docs/models`), `docs.x.ai/developers/models/grok-5` (404), xAI changelog paths (404), BenchLM `benchlm.ai/models/grok-5` (404), models.dev `providers/x-ai/models/grok-5.toml` (404), x.ai news/marketing pages (403, inaccessible).
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **SELF-EXCLUDED — no scores recorded.** Rationale: zero verified public benchmarks exist for a model named "Grok 5" (no release, no ID, no benchmark table on any checked source as of 2026-10-03; xAI docs name Grok 4.7 — 500k context, $2/$6 per 1M under 200k prompts, May 2026 cutoff — as the most capable model they've built). Scoring from the Grok 4.7 table would be proxy-scoring a different model and violate the no-invented-values rule. A future pass should re-check once xAI publishes a `grok-5` API ID or benchmark page.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — 2026-10-03
+- Method: public internet research (OpenRouter models API, Artificial Analysis leaderboard + model page, xAI docs, BenchLM, models.dev); no scores recorded in this file.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

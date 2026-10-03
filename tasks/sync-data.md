@@ -71,6 +71,11 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    is never cemented. After adding or editing any findings file, re-running
    sync refreshes it; the file is committed (it is a build input, not build
    output).
+7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line
+   per model, highest Overall first (ties A-Z) — the pre-sorted research
+   queue for `tasks/research-assign.md`, so agents stop scanning every
+   `average.md` themselves. Same freshness contract as step 6 (zero failures
+   only, rewritten when drifted).
 
 Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines).
 

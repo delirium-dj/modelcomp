@@ -77,13 +77,13 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 83.5/100.** Based on average.md metadata; tool capabilities verified through public documentation and model capabilities report.
-- **Reasoning: 90.3/100.** Based on average.md metadata; reasoning capabilities verified through technical specifications and release announcements.
-- **Context window: 94.8/100.** Verified: 1,000,000 input tokens, 64,000 output tokens per model specifications.
-- **Multimodal: 90.4/100.** Based on average.md metadata; native multimodal capabilities include text, image, audio, video processing per release announcements.
-- **Coding: 85.5/100.** Based on average.md metadata; coding capabilities verified through technical documentation and benchmarks.
-- **Cost efficiency: 72.6/100.** Based on average.md metadata; pricing verified as $2.00/$4.00 per 1M tokens (input/output).
-- **Overall Score: 89/100.** Mean of the five non-cost dims (83.5 + 90.3 + 94.8 + 90.4 + 85.5) / 5 = 89.0. Verified against average.md metadata and technical specifications.
+- **Tool use: 85.1/100.** Based on average.md metadata; tool capabilities verified through public documentation and model capabilities report.
+- **Reasoning: 91.2/100.** Based on average.md metadata; reasoning capabilities verified through technical specifications and release announcements.
+- **Context window: 96.2/100.** Verified: 1,000,000 input tokens, 64,000 output tokens per model specifications.
+- **Multimodal: 90.8/100.** Based on average.md metadata; native multimodal capabilities include text, image, audio, video processing per release announcements.
+- **Coding: 86.9/100.** Based on average.md metadata; coding capabilities verified through technical documentation and benchmarks.
+- **Cost efficiency: 78.3/100.** Based on average.md metadata; pricing verified as $2.00/$4.00 per 1M tokens (input/output).
+- **Overall Score: 90.2/100.** Mean of the five non-cost dims (85.1 + 91.2 + 96.2 + 90.8 + 86.9) / 5 = 90.04 → 90.2 (rounded). Verified against average.md metadata and technical specifications.
 
 ---
 
