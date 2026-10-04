@@ -1,0 +1,35 @@
+# Kimi K2.8 Preview — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Moonshot AI (`moonshot/kimi-k2-8-preview`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research found **no verified public benchmark numbers** for Kimi K2.8 Preview (an in-product preview inside Kimi Code; BenchLM 404). Per `RULES.md` I file notes-only `.md.excluded` rather than interpolate between K2.7 Code and K3 or invent scores.
+
+## Model card (from curated meta only — not benchmark-verified)
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding/agentic preview inside Kimi Code, positioned between K2.7 Code and flagship K3; 1M context (per curated `meta.json`).
+- **Provider / access:** Moonshot `moonshot/kimi-k2-8-preview` (Kimi membership plan; no per-token billing; no Zen Free ID).
+- **Context window:** 1,048,576 (1M) (per `meta.json`; unverified).
+- **Modalities:** text, image in; text out (per `meta.json`).
+- **Pricing:** Kimi membership plan.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found (preview; no standalone published evals)
+
+Searched BenchLM (`/models/kimi-k2-8-preview`) on 2026-10-03 — 404. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks once K2.8 is formally benchmarked.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research returned no verified public benchmarks for this exact preview model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

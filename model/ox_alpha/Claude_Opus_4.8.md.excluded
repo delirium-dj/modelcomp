@@ -1,0 +1,35 @@
+# Ox Alpha — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: OpenRouter stealth (`opencode/ox-alpha`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: Ox Alpha is an anonymous **stealth** model (`stealth/ox-alpha`); by nature it has **no verified public benchmark numbers**. My independent research found none (BenchLM 404). Per `RULES.md` I file notes-only `.md.excluded` rather than invent scores.
+
+## Model card (from curated meta only — not benchmark-verified)
+
+- **Name:** Ox Alpha
+- **Short description:** Stealth frontier reasoning model for long-horizon coding agents; 1M context, free during preview (per curated `meta.json`). Vendor/weights undisclosed.
+- **Provider / access:** OpenCode Zen `opencode/ox-alpha` (Free Zen tier); OpenRouter `stealth/ox-alpha`.
+- **Context window:** 1M / 131K out (per `meta.json`; unverified).
+- **Modalities:** text, image, video, PDF in; text out (per `meta.json`).
+- **Pricing:** Free Zen preview tier.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / GDPval / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found (stealth model — vendor undisclosed, no published evals)
+
+Searched BenchLM (`/models/ox-alpha`) on 2026-10-03 — 404. Stealth models publish no benchmarks. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks (e.g. once the model exits stealth and is benchmarked).
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research returned no verified public benchmarks for this stealth model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
