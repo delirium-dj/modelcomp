@@ -924,6 +924,18 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B5. `RouterHead` now emits `og:
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B6 (+D22 same fix). The `84.9` rater gate now has one source (`parse.mjs`): sync maintains a managed `RATER_GATE` export in `sources.generated.ts` (tested `ensureRaterGateLine`), and the `CompareSection` caption imports it — drift made impossible. Determinism proved pre-sync (`changed: false` on the placed line). `pnpm test` 100/100 green.
 
+## 2026-10-04 - Purification audit item B8 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B8. Deleted the superseded "curated, never reorder" invariant from `tasks/sync-data.md` (order is derived via `sourceRankOverall`); fixed the stale `CompareSection` comment to match. Repo-wide grep: no other live occurrences. `pnpm test` 100/100 green.
+
+## 2026-10-04 - Purification audit item B9 decided: KEEP BOTH (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B9. Proved same-rater (identical `Provided by` identity; byte-identical duplicates in some folders, two dated runs in others) — but per user decision both registry keys stay, double-counting documented as known-accepted. Consolidation (sync-side alias, averages shift) declined. No files touched.
+
+## 2026-10-04 - Purification audit item C1 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` C1. Fixed the false "no test framework" line in `.agents/tech-stack.md` (zero-dep `node --test` suite, 100 tests) and added the missing `test` + `sync`/`sync:quiet` script entries. Docs-only.
+
 Post-fix: the shipped version missed the `ensureRaterGateLine` import in `sync-data.mjs` (call wired, import not) — caught by the user's sync run, fixed immediately. Two process notes: always grep-verify imports, and never verify by importing a side-effecting module (the check executed a full sync; `git status` confirmed it wrote nothing).
 
 ## 2026-10-04 - Purification audit item A17 decided: KEEP (Muse Spark 1.3)

@@ -28,8 +28,10 @@ pinned in `package.json` / `pnpm-lock.yaml`.
 - `build` — `qwik build` = types + client + server + SSG.
 - `build.client` / `build.server` / `build.preview` / `preview` / `start` — granular variants.
 - `:direct` twins (`build.types:direct`, `build:direct`, `dev:direct`) — same steps invoked as `node <bin>`, bypassing the pnpm shims. Windows: bare `tsc`/`vite` shims embed a giant `NODE_PATH` that can exceed cmd.exe's ~8k line limit (`The input line is too long`, exit 255, tool never runs) — use the `:direct` forms there. Same output.
+- `test` — zero-dep tests (`node --test` built-in runner over `scripts/lib/*.test.mjs`, no framework).
+- `sync` / `sync:quiet` — deterministic data sync (`node scripts/sync-data.mjs`; `:quiet` prints only FAIL lines plus the summary).
 
 ## Data layer (code)
 
 - Markdown findings are pre-parsed by `pnpm sync` into `src/data/scores.generated.ts` (numbers only — never `?raw`-import report prose into the client bundle); only small `meta.json` files use `import.meta.glob`.
-- No test framework is configured; verification = `build.types` + `build` (+ spot-check `dist/index.html`).
+- Zero-dep tests: `pnpm test` (Node's built-in runner over `scripts/lib/*.test.mjs`); verification is `pnpm test` + `pnpm build.types` + `pnpm build` (+ spot-check `dist/index.html`).

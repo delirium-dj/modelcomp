@@ -21,7 +21,8 @@ const SLOT_LABELS = ["Model A", "Model B", "Model C"] as const;
 export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source, onSelect$, onSource$ }) => {
   const ids = [a, b, c];
   // Model selectors (A/B/C) always render A–Z by display name; the results-source
-  // selector keeps its curated SOURCES order and must NOT be sorted here.
+  // selector order is derived in models.ts (average first, virtual views, then
+  // agents by own average) and must NOT be sorted here.
   // Decision models are excluded: hexagon dimensions don't apply to them —
   // they live on the decision shelf under All models instead.
   const options = MODELS.filter((m) => !isDecisionModel(m))

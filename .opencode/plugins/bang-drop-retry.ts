@@ -18,6 +18,15 @@ import type { Plugin } from "@opencode-ai/plugin"
 // answers with "locklocklock..." (hundreds of glued "lock"s) instead of a
 // real reply. Same recovery (wait, then "continue"), so the same plugin
 // owns it. Thresholds MIN_LOCKS / LONG_LOCK_RUN live next to lockRun() below.
+//
+// What we catch, shape 3: "silent" drops. Sometimes the storm does NOT
+// arrive as a `session.error` at all — the provider stream just ends and
+// the degenerate text sits in the transcript as a NORMAL assistant message,
+// followed by a plain `session.idle`. No error event ever fires, so shapes
+// 1+2 alone stay blind (this exact mode is why the plugin seemed to "not
+// react" to bang-storms that completed as regular messages). Case 1a in the
+// hook below therefore re-reads the last assistant message on every
+// `session.idle` and scores it with the same matchers.
 const MIN_BANGS = 3
 const LONG_RUN = 10
 

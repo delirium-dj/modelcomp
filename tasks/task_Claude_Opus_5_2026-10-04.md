@@ -360,7 +360,8 @@ such folder — so it is currently skipped by `models.ts` with a `warnOnce`.
 **Guidance:** run `pnpm sync` before anything else in this list; several items
 below (A20, E2) resolve or re-confirm themselves on that run.
 
-### B8. `tasks/sync-data.md` contradicts itself four lines apart
+### ✅ B8. `tasks/sync-data.md` contradicts itself four lines apart
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (line 100–102 "curated, never reorder" vs line 105+ "derived" — code confirms derived via `sourceRankOverall`). Deleted the superseded sentence (A/B/C A–Z half kept); fixed the `CompareSection` comment to say "derived". Grep confirms no other live "curated/never reorder" claims outside the audit's own quotation. `pnpm test` 100/100 green.
 - line 101–102: *"the Results-source dropdown keeps curated `SOURCES` order (new sources append last — **never reorder existing entries**)"*
 - line 105: *"Results-source dropdown order is **derived, not curated**"*
 
@@ -370,7 +371,8 @@ The same stale word appears in `src/components/CompareSection.tsx:23`
 **Guidance:** delete the line 100–102 invariant (it is superseded) and fix the
 `CompareSection` comment to say "derived".
 
-### B9. Duplicate target slug in `SOURCE_DEFS`
+### ✅ B9. Duplicate target slug in `SOURCE_DEFS`
+**Status (2026-10-04): DECIDED — KEEP BOTH, DOCUMENTED per user.** Evidence (not just the audit's "almost certainly"): both stems sign as the SAME rater — `Laguna XS 2.1 (poolside/laguna-xs-2-1)` — across sampled folders; `gemini-3.8-flash/` holds byte-identical duplicates (same date), `muse-spark-1.3/` holds two runs (2026-10-01 vs 2026-10-04). So yes, one rater under two filename spellings, currently double-counted in averages wherever both qualify. User chose to keep both keys (consolidation would shift averages via a new sync-side alias rule — declined). Files stay untouched per RULES.md permanence either way.
 `"Laguna XS 2.1"` (line 120) and `"Laguna XS 2 1"` (line 130) both map to
 `slug: "laguna-xs-2.1"`. Verified: the only duplicate slug among 61 slug-bearing
 entries. Two source keys cross-link to the same model page and both rank by the
@@ -392,7 +394,8 @@ menus structurally identical.
 
 ## PART C — Documentation drift
 
-### C1. `.agents/tech-stack.md:35` — "No test framework is configured"
+### ✅ C1. `.agents/tech-stack.md:35` — "No test framework is configured"
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (line 35 false: `package.json` defines `test`, currently 100 tests green). Replaced with the zero-dep statement matching `README.md`, and added `test` + `sync`/`sync:quiet` to the script list. Docs-only change.
 False. `package.json:22` defines `test` (Node's built-in runner over six
 `scripts/lib/*.test.mjs` files) and it is green: **95 tests, 39 suites, 0 fail**.
 Ironically `GLM53F_IMP.md:90–91` records fixing exactly this line — the fix did
