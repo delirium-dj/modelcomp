@@ -28,7 +28,7 @@
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
-import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync, unlinkSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, renameSync, statSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -557,16 +557,6 @@ if (failures === 0) {
       `  WRITE model-queue.md (${Object.keys(scoreIndex).length} models, Overall desc)${prevQueue === null ? " (created)" : ""}`,
     );
   }
-  // Slugs already emitted inline in SOURCE_DEFS (see registry step above):
-  // no separate agent-slugs file (SIMPLIFY-PLAN Phase 1). The legacy file is
-  // removed when present so stale imports fail loudly instead of drifting.
-  try {
-    const legacySlugs = join(root, "src", "data", "agent-slugs.generated.ts");
-    if (existsSync(legacySlugs)) {
-      unlinkSync(legacySlugs);
-      log("  WRITE src/data/agent-slugs.generated.ts (deleted — slugs now inline in sources.generated.ts)");
-    }
-  } catch {}
 } else {
   log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }

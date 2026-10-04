@@ -57,6 +57,7 @@ reports, and the website stay consistent.
 - `MODEL_COLORS` maps to Model A/B/C slots.
 - Per-model pages live at `src/routes/model/[slug]/` (pre-rendered for every slug via `onStaticGenerate`); link model names (cards, legend) to `/model/<slug>/`. Each page shows meta, average hexagon, and a best-first table of every reporting agent's overall for that model.
 - `meta.noFreeId` marks models with no Zen Free ID (cost scored on paid pricing); legend shows a "Paid" badge.
+- `meta.category` marks the model paradigm (`"generative"` default, `"decision"` for typed-decision System-One models like Jev — schema in `model/README.md`). Decision models stay in `model/<slug>/` (permanence) and are separated at render time: own shelf in `ModelCards` with native specs, excluded from A/B/C compare slots and Overall ranking. Never rename folders or exile models to express paradigm — add a category value instead.
 - Tooltips: cost/context/multimodal dots show raw values; tool/reasoning/coding show scores; axis labels show `description` (see PRD §7).
 - Tailwind v3 utilities only; keep table cells narrow (stacked lists, short strings).
 

@@ -35,6 +35,9 @@ Required: `id`, `name`, `short`, `contextWindow`, `modalities`, `pricingNote`.
 Optional: `pricingTiers` (string[]), `freeTierNote` (string),
 `noFreeId` (boolean — set `true` when no Zen Free ID exists; cost is then
 scored on paid pricing and the UI shows a "Paid" badge instead of "Free"),
+`category` ("generative" | "decision" — omit for generative; set `"decision"`
+for typed-decision System-One models like Jev, which return judgments instead
+of text and are never comparable to generative Overall),
 `scaffolded` (boolean — stamped by `pnpm sync` when it auto-creates the file;
 each later run re-logs the stub until a human replaces the slug-guessed
 `name`, which clears the stamp automatically; deleting it by hand also works).
@@ -58,6 +61,19 @@ the provider ID (`opencode/<slug>`) and is never displayed.
   "noFreeId": true
 }
 ```
+
+## Model categories (paradigms, not folders)
+
+A model whose outputs are typed decisions rather than generated text (a
+System-One model such as Jev 1.13) gets `"category": "decision"` in its
+`meta.json` — it stays in `model/<slug>/` like everything else (permanence,
+`RULES.md`) and is separated at render time instead: the site shows decision
+models on their own shelf with native specs (state budget, I/O shape,
+input-only pricing), excludes them from the A/B/C compare slots, and never
+ranks their scores against generative Overall. Omit `category` (or use
+`"generative"`) for every text-generating model, MoE or dense, open or
+proprietary. A new paradigm later gets a new category value the same way —
+never a renamed folder.
 
 ## Adding a new model
 

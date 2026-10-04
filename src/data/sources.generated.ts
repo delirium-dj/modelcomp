@@ -141,7 +141,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Claude Sonnet 3.5", label: "Claude Sonnet 3.5", file: "Claude_Sonnet_3.5.md", slug: "claude-sonnet-3.5" },
   { key: "GPT 5.5", label: "GPT 5.5", file: "GPT_5.5.md", slug: "gpt-5.5" },
   { key: "GPT 6 Luna", label: "GPT 6 Luna", file: "GPT_6_Luna.md", slug: "gpt-6-luna" },
-  { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md" },
+  { key: "Gemini 2.5", label: "Gemini 2.5", file: "Gemini_2.5.md", slug: "gemini-2.5" },
   { key: "Gemini 2 Flash", label: "Gemini 2 Flash", file: "Gemini_2_Flash.md" },
   { key: "Gemini 3 Flash", label: "Gemini 3 Flash", file: "Gemini_3_Flash.md", slug: "gemini-3-flash" },
   { key: "DeepSeek 4 Flash", label: "DeepSeek 4 Flash", file: "DeepSeek_4_Flash.md" },

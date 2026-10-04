@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
-import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor } from "../data/models";
+import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor, isDecisionModel } from "../data/models";
 import type { AiModel, ResultsView, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
@@ -21,9 +21,11 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
   const ids = [a, b, c];
   // Model selectors (A/B/C) always render A–Z by display name; the results-source
   // selector keeps its curated SOURCES order and must NOT be sorted here.
-  const options = MODELS.map((m) => ({ id: m.id, name: m.name })).sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  // Decision models are excluded: hexagon dimensions don't apply to them —
+  // they live on the decision shelf under All models instead.
+  const options = MODELS.filter((m) => !isDecisionModel(m))
+    .map((m) => ({ id: m.id, name: m.name }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const contributors = SOURCES.filter((s) => s.key !== "average" && virtualDimFor(s.key) === undefined);
   const activeLabel = SOURCES.find((s) => s.key === source)?.label ?? source;
@@ -82,7 +84,8 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
       </h2>
       <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
         Pick up to three models. The hexagon shows the six scored dimensions (0–100); Overall Score is
-        listed in the legend and table.
+        listed in the legend and table. Decision models (e.g. Jev) can&apos;t be picked here — their
+        scores aren&apos;t comparable; see the decision shelf below.
       </p>
 
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">

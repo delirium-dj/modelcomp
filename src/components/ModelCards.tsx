@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
-import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor } from "../data/models";
+import { DIMENSIONS, MODELS, sortSourceFor, virtualDimFor, isDecisionModel } from "../data/models";
 import type { AiModel, ResultsView, SourceKey } from "../data/models";
 import { VendorIcon } from "./VendorIcon";
 
@@ -28,14 +28,17 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         : b.scores.overall - a.scores.overall,
     );
   const q = query.value.trim().toLowerCase();
-  const filtered = q
-    ? shown.filter(
-        (m) =>
-          m.name.toLowerCase().includes(q) ||
-          m.id.toLowerCase().includes(q) ||
-          m.short.toLowerCase().includes(q),
-      )
-    : shown;
+  // Decision (System-One) models never share the generative shelf: their
+  // scores are not comparable to Overall, so they render separately below.
+  const generativeShown = shown.filter((m) => !isDecisionModel(m));
+  const decisionShown = shown.filter((m) => isDecisionModel(m));
+  const matchesQuery = (m: AiModel) =>
+    q === "" ||
+    m.name.toLowerCase().includes(q) ||
+    m.id.toLowerCase().includes(q) ||
+    m.short.toLowerCase().includes(q);
+  const filtered = generativeShown.filter(matchesQuery);
+  const decisionFiltered = decisionShown.filter(matchesQuery);
   const visibleModels = filtered.slice(0, displayCount.value);
 
   return (
@@ -81,6 +84,8 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">model/&lt;slug&gt;/</code> folder
         with findings plus <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">meta.json</code> and
         run <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">pnpm sync</code>.
+        Decision models (typed-decision systems like Jev) are listed on a separate shelf below — their
+        scores are not comparable to generative Overall.
       </p>
       <div class="mt-4 flex max-w-md items-center gap-2">
         <label for="model-search" class="sr-only">
@@ -114,7 +119,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
       </div>
       {query.value.trim() !== "" && (
         <p class="mt-2 text-sm text-slate-500 dark:text-slate-400" aria-live="polite">
-          {filtered.length} of {shown.length} models
+          {filtered.length} of {generativeShown.length} models
         </p>
       )}
       {filtered.length === 0 ? (
@@ -413,6 +418,51 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
           >
             Show all ({filtered.length})
           </button>
+        </div>
+      )}
+      {decisionFiltered.length > 0 && (
+        <div class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
+          <h3 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Decision models
+          </h3>
+          <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
+            System-One models return typed judgments (choice, score, yes/no probability) instead of
+            generated text — for routing, triage, and guardrails inside agent pipelines. They are
+            scored on different axes and are <strong>not comparable</strong> to generative Overall
+            scores, so they are never listed in the table above or in the A/B/C compare slots.
+          </p>
+          <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {decisionFiltered.map((m) => (
+              <article key={m.id} class="flex flex-col rounded-xl border border-amber-200 bg-white p-4 shadow-sm transition-colors dark:border-amber-900 dark:bg-slate-900">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="flex items-center gap-1.5 text-base font-semibold text-slate-900 dark:text-white">
+                    <VendorIcon id={m.id} name={m.name} />
+                    <a href={`/model/${m.slug}/`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+                      {m.name}
+                    </a>
+                  </h4>
+                  <span class="shrink-0 rounded bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                    Decision
+                  </span>
+                </div>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{m.short}</p>
+                <dl class="mt-3 space-y-1 text-xs text-slate-600 dark:text-slate-300">
+                  <div class="flex gap-1">
+                    <dt class="font-semibold text-slate-700 dark:text-slate-200">State budget:</dt>
+                    <dd>{m.meta.contextWindow}</dd>
+                  </div>
+                  <div class="flex gap-1">
+                    <dt class="font-semibold text-slate-700 dark:text-slate-200">I/O:</dt>
+                    <dd>{m.meta.modalities}</dd>
+                  </div>
+                  <div class="flex gap-1">
+                    <dt class="font-semibold text-slate-700 dark:text-slate-200">Pricing:</dt>
+                    <dd>{m.meta.pricingNote}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
         </div>
       )}
     </section>

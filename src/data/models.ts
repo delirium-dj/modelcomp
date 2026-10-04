@@ -53,6 +53,9 @@ export interface ModelScores {
   overall: number;
 }
 
+/** Model paradigm: text-generating models vs typed-decision (System-One) models. */
+export type ModelCategory = "generative" | "decision";
+
 export interface AiModel {
   id: string;
   name: string;
@@ -67,6 +70,13 @@ export interface AiModel {
     contextWindow: string;
     modalities: string;
     pricingNote: string;
+    /**
+     * Model paradigm, curated in meta.json (`category`). Decision models
+     * (e.g. Jev) return typed judgments instead of text, so their scores are
+     * never comparable to generative Overall — the UI renders them on a
+     * separate shelf. Always normalized in hydrateModel; missing = generative.
+     */
+    category: ModelCategory;
     /** Free tier note / description explaining how free tier is obtained */
     freeTierNote?: string;
     /** One line per pricing tier, shown stacked in the compare table. */
@@ -111,11 +121,17 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
       contextWindow: meta.contextWindow,
       modalities: meta.modalities,
       pricingNote: meta.pricingNote,
+      category: meta.category === "decision" ? "decision" : "generative",
       pricingTiers: meta.pricingTiers,
       freeTierNote: meta.freeTierNote,
       noFreeId: meta.noFreeId,
     },
   };
+}
+
+/** True for typed-decision (System-One) models, which never share a shelf with generative scores. */
+export function isDecisionModel(m: AiModel): boolean {
+  return m.meta.category === "decision";
 }
 
 /** Fixed axis order, clockwise from top of the hexagon. */
@@ -178,6 +194,8 @@ interface MetaFile {
   freeTierNote?: string;
   noFreeId?: boolean;
   scaffolded?: boolean;
+  /** Optional paradigm tag: "generative" (default) or "decision". */
+  category?: string;
 }
 
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"] as const;

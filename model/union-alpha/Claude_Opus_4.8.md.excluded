@@ -1,0 +1,33 @@
+# Union Alpha — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: OpenCode Zen (`opencode/union-alpha`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: "Union Alpha" is a stealth/ambiguous model entry with **no verified public benchmark numbers** and no BenchLM page (404). Per `RULES.md` I file notes-only `.md.excluded` rather than invent scores.
+
+## Model card (from curated meta/stub only — not benchmark-verified)
+
+- **Name:** Union Alpha
+- **Short description:** OpenCode Zen `opencode/union-alpha`; curated `meta.json` is a scaffold stub (128K / text in-out / standard) that identifies no vendor or real model.
+- **Provider / access:** OpenCode Zen `opencode/union-alpha`.
+- **Context window / modalities / pricing:** no verified public values found.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/union-alpha`) on 2026-10-03 — 404. No verified model/benchmarks identified. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks once a real model is identified.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research returned no verified public benchmarks for this model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

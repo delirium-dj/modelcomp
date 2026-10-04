@@ -29,6 +29,11 @@ export const Methodology = component$(() => {
             Re-researched weekly: every report is checked against fresh benchmarks once it is older than seven
             days, and scores are refreshed whenever new verified evidence would change them.
           </li>
+          <li>
+            Decision models are a separate paradigm: System-One models (e.g. Jev) return typed
+            judgments instead of generated text, so their scores are never comparable to generative
+            Overall. They render on their own shelf and can&apos;t be picked in model comparison.
+          </li>
           <li>Tool use: Terminal-Bench, Tau-bench, GDPval and tool-call efficiency.</li>
           <li>Reasoning: GPQA, Humanity&apos;s Last Exam, long-context retrieval and intelligence indexes.</li>
           <li>Context window: tiered by size; 1M+ scores 95–100, 200K scores around 70.</li>

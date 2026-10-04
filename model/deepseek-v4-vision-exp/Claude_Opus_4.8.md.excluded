@@ -1,0 +1,35 @@
+# DeepSeek V4 Vision Exp — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: DeepSeek (`opencode/deepseek-v4-vision-exp`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: This is an **experimental** native-multimodal vision model; my independent research found **no verified public benchmark numbers** for this exact model/ID (BenchLM 404). Per `RULES.md` I file notes-only `.md.excluded` rather than invent numbers.
+
+## Model card (from curated meta only — not benchmark-verified)
+
+- **Name:** DeepSeek V4 Vision Exp
+- **Short description:** DeepSeek's experimental native multimodal vision-language MoE for multimodal code understanding, UI layout reasoning, and image-to-code. 200K context, text/image/PDF in (per curated `meta.json`).
+- **Provider / access:** OpenCode Zen `opencode/deepseek-v4-vision-exp` (Free Zen tier).
+- **Context window:** 200K (per `meta.json`; unverified).
+- **Modalities:** text, image, PDF in; text out.
+- **Pricing:** Free Zen tier (multimodal experimentation).
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found (experimental; no published evals)
+
+Searched BenchLM (`/models/deepseek-v4-vision-exp`) on 2026-10-03 — 404. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks once the experimental model is benchmarked.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research returned no verified public benchmarks for this experimental model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
