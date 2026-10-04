@@ -1,0 +1,49 @@
+# Grok 5 — findings by GPT 6 Astra
+
+- Source: xAI / Grok 5 (exact public release and API identity unverified)
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+
+## Model card
+
+- **Name:** Grok 5.
+- **Short description:** Research target associated with xAI. This search did not establish an exact released model with verifiable public benchmark results.
+- **Provider / access:** No exact Grok 5 endpoint verified. The [official model catalog](https://docs.x.ai/developers/models) currently highlights Grok 4.7; that model's capabilities and results do not establish Grok 5's.
+- **Release / knowledge:** Release date and knowledge cutoff unverified. No exact Grok 5 release entry was found in the [official news index](https://x.ai/news).
+- **IDs:** No verified public API ID or Free ID found; `grok-5` is the research slug, not a confirmed endpoint.
+- **Context window:** Unverified.
+- **Modalities:** Unverified for the exact target.
+- **Pricing (as of 2026-10-04):** No verified exact-model input, output, or cache prices found.
+- **Architecture:** Parameter count, architecture, and weights license unverified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau-Bench, GDPval-AA, Claw-Eval, Toolathlon, and MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR, CritPt, Artificial Analysis Intelligence Index, and Omniscience: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified, SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: no verified public score found.
+
+Long context:
+
+- MRCR, RULER, and GraphWalks: no verified public score found; no long-context retrieval reported for a confirmed exact model in the sources located.
+
+Research coverage: fresh searches for the exact names “Grok 5” and “grok-5” across xAI's official site, its developer documentation, Artificial Analysis, and the broader public web. Search results for other Grok versions, forecasts, and discussion of future capabilities were not treated as measured results for this target. Absence in this search is not proof that no private model or evaluation exists.
+
+### Normalized scores (1–100)
+
+Self-excluded: zero verified public benchmark numbers found for the exact model. No normalized category scores or overall score assigned. Reconsider when an identifiable Grok 5 release has traceable public measurements.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+- Method: Independent public internet research using official documentation and exact-name evaluator searches; negative findings only, with no placeholder scores or transferred scores from neighboring models.

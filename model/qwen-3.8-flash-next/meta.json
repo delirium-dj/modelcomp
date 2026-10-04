@@ -1,0 +1,9 @@
+{
+  "id": "opencode/qwen-3.8-flash-next",
+  "name": "Qwen 3.8 Flash Next",
+  "short": "Qwen 3.8 Flash Next model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

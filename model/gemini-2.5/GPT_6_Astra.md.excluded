@@ -1,0 +1,50 @@
+# Gemini 2.5 — findings by GPT 6 Astra
+
+- Source: Google DeepMind / Gemini 2.5 (unsuffixed identity unresolved)
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+
+## Model card
+
+- **Name:** Gemini 2.5, as named by this folder.
+- **Short description:** Google uses Gemini 2.5 as a family name. Its [original announcement](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/) explicitly identifies the first released member as Pro Experimental. This does not establish which member or snapshot the unsuffixed folder represents.
+- **Provider / access:** Google; no exact unsuffixed endpoint verified.
+- **Release / knowledge:** Family introduced March 25, 2025; exact subject release and cutoff unresolved.
+- **IDs:** The [official catalog](https://ai.google.dev/gemini-api/docs/models) distinguishes named variants. No independently verified `gemini-2.5` API model or Zen Free ID found.
+- **Context window:** Cannot assign one exact configuration without variant identification.
+- **Modalities:** Family members differ; no exact configuration assigned.
+- **Pricing (2026-10-04):** No verified price for a distinct unsuffixed model.
+- **Architecture:** No distinct unsuffixed checkpoint established.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval, Toolathlon and MCP-Atlas: no verified public score found attributable to a distinct unsuffixed model.
+
+Reasoning / knowledge:
+
+- GPQA, HLE, LCR, CritPt, Intelligence Index and Omniscience: no verified public score found for the unresolved exact identity.
+
+Coding:
+
+- SWE-bench, SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench and DeepSWE: no verified public score found for the unresolved exact identity.
+
+Long context:
+
+- No verified public score found for an independently identified unsuffixed model.
+
+Fresh searches covered Google's catalog, original family announcement and exact-name/API-ID searches. Public results belong to Pro, Flash, Flash-Lite or dated previews. Assigning one member's measurements to this folder would require an unsupported identity assumption. Existing sibling folders remain separate and untouched.
+
+### Normalized scores (1–100)
+
+Self-excluded pending exact variant or provider-alias identification. No placeholder category scores or overall score assigned.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+- Method: Fresh public identity research; negative findings for the exact unsuffixed target, with no transferred family-member scores.
+

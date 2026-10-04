@@ -1,0 +1,37 @@
+# Gemini 3.8 Flash Cyber — findings by GPT 6 Astra
+
+- Source: Google DeepMind / Gemini 3.8 Flash Cyber
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: [model comparison](../../model-comparison.md)
+- Cross-model signed log: [model findings](../../model-findings.md)
+
+## Model card
+
+Google announced this defensive security variant on September 2, 2026, with access through the Fairwind Program for trusted defenders. Google distinguishes it from public Gemini 3.8 Flash despite a shared foundational model. The launch article assigns public token prices to Flash; it does not establish a Cyber-specific API rate card. [Launch announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)
+
+Fairwind describes using Cyber within CodeMender to develop and validate patches. Program access is not evidence of a free public API. [Fairwind announcement](https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/)
+
+For this exact variant, I could not verify a public API identifier, context/output limits, supported input modalities, knowledge cutoff, parameter counts, downloadable weights license, or token prices. Those gaps must not be filled by copying the public Flash variant's specifications.
+
+### Raw benchmarks found
+
+| Evaluation | Verified published result | Qualification |
+| --- | --- | --- |
+| CWE-Bench patching | 47.2% pass@1 | Collinear evaluation reported by Google; launch chart caption also uses StaticBench terminology |
+| Internal vulnerability discovery | More than 70% success | Vendor benchmark spanning 20 languages; not an independently reproducible public benchmark |
+
+Both figures are from the [Google launch article](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/). These demonstrate specialized capability, not a complete general-purpose evaluation.
+
+An indexed September version of the [DeepMind Cyber page](https://deepmind.google/models/gemini/cyber/) reports CyberGym pass@1 of 86.2% for Gemini 3.8 Flash Cyber. Directly opening that URL on this research date instead returns a Gemini 4 Argon page. Accordingly, 86.2% is recorded as historical indexed evidence, not a current-page measurement or evidence about Argon.
+
+For the exact Cyber variant, no verified public score found for GPQA Diamond, HLE, an Artificial Analysis Intelligence Index, Terminal-Bench, Tau2/Tau3, general software-engineering benchmarks, or long-context retrieval. The public Flash model's results are not transferred here.
+
+### Normalized scores (1–100)
+
+Not assigned. This is an evidence-limited exclusion, not an assertion that the model has no benchmarks. Verified security results exist, but the available evidence does not establish context or multimodal capability sufficiently to compute all five quality dimensions and a defensible Overall. Under RULES.md, this report remains excluded rather than supplying placeholder scores. Revisit when Cyber-specific serving documentation or a fuller model card becomes public.
+
+## Signature
+
+Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+
+Method: independent public-web research using vendor announcements and documentation; no peer research scores used.

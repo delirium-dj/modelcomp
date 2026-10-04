@@ -1,0 +1,31 @@
+# Fledge Alpha — findings by GPT 5.6 Luna
+
+- Source: Fledge Alpha
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha
+- **Short description:** Exact provider, API identity, specifications, and public documentation could not be verified.
+- **Provider / access:** No verified public provider or API ID found.
+- **Release / knowledge:** Not verified.
+- **IDs:** Not verified.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-04):** Not verified.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found
+
+- No verified public benchmark score found for the exact Fledge Alpha model/ID after fresh searches.
+
+## Normalized scores (1–100)
+
+- Not scored: zero verified benchmark evidence. This file is intentionally excluded from averages.
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04
+- Method: fresh public web research; self-excluded because no verified benchmark evidence was found.

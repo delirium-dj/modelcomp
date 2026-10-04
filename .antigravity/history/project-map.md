@@ -50,6 +50,7 @@ src/components/ & src/routes/      UI components (HexRadar, ModelCards, CompareS
 
 - **Scripts & Admin**:
   - `scripts/sync-data.mjs`: Data sync script executed via `pnpm sync`.
+  - `BACKLOG.md`: Living improvement backlog (open items only; dated history in `REPORT.md`).
   - `tasks/`: `research-assign.md` (canonical delegator — the agent resolves its own STEM via its Identity resolution chain), `research.md` (research workflow), `sync-data.md` (sync workflow).
   - `.agents/`: Rules, tech-stack, rate limit guidelines for agents.
   - `.antigravity/`: Antigravity-specific rules and local cache workflows.
