@@ -70,20 +70,45 @@ export default component$(() => {
   // Context, Reason, Multi, Tool, Code, Cost last (Cost = independent stat).
   const TABLE_DIM_ORDER: DimensionKey[] = ["context", "reasoning", "multimodal", "tool", "coding", "cost"];
   const tableDims = TABLE_DIM_ORDER.map((key) => DIMENSIONS.find((d) => d.key === key)!);
-  // Auto verdict: best/worst quality dimension from the averaged scores.
-  // Cost excluded by design (never counts toward Overall, RULES.md) — this
-  // answers "genuinely best at THIS, worst use case is THAT" with zero new
-  // data. Curated editorial override is future work (see model/README.md).
+  // Auto verdict (grouped, Option A sentence): strength cluster = dims >= 90,
+  // weakness cluster = dims < 75, each summarized into one classification.
+  // Cost IS included here (a frontier model can be genuinely bad at cost
+  // efficiency) even though cost never counts toward Overall (RULES.md).
+  // Empty clusters fall back to single best/worst. Curated editorial
+  // override is future work (see model/README.md).
   const VERDICT_USE: Record<string, string> = {
     tool: "agentic tool use",
     reasoning: "complex, multi-step reasoning",
     context: "large-context work",
     coding: "software engineering and coding",
     multimodal: "multimodal work (images, audio, video)",
+    cost: "cost efficiency",
   };
-  const qualityDims = DIMENSIONS.filter((d) => d.key !== "cost");
-  const verdictBest = qualityDims.reduce((a, b) => (model.scores[b.key] > model.scores[a.key] ? b : a));
-  const verdictWorst = qualityDims.reduce((a, b) => (model.scores[b.key] < model.scores[a.key] ? b : a));
+  const clusterLabel = (keys: DimensionKey[]): string => {
+    const s = new Set(keys);
+    const has = (k: DimensionKey) => s.has(k);
+    const core = has("tool") && has("reasoning") && has("coding");
+    if (core && has("context")) return "frontier long-context agentic work";
+    if (core) return "frontier agentic coding & reasoning";
+    if (has("reasoning") && has("coding")) return "hard reasoning & coding tasks";
+    if (has("multimodal") && has("cost")) return "cheap multimodal breadth";
+    if (s.size >= 4) return "demanding high-quality work";
+    if (s.size === 1) {
+      const only = DIMENSIONS.find((d) => d.key === keys[0])!;
+      return VERDICT_USE[only.key] ?? only.label.toLowerCase();
+    }
+    return keys.map((k) => (VERDICT_USE[k] ?? k).toLowerCase()).join(", ");
+  };
+  const verdictByDesc = [...DIMENSIONS].sort((a, b) => model.scores[b.key] - model.scores[a.key]);
+  const verdictByAsc = [...DIMENSIONS].sort((a, b) => model.scores[a.key] - model.scores[b.key]);
+  const verdictStrengths = verdictByDesc.filter((d) => model.scores[d.key] >= 90);
+  const verdictWeaknesses = verdictByAsc.filter((d) => model.scores[d.key] < 75);
+  if (verdictStrengths.length === 0) verdictStrengths.push(verdictByDesc[0]);
+  if (verdictWeaknesses.length === 0) verdictWeaknesses.push(verdictByAsc[0]);
+  const verdictEven =
+    verdictStrengths.length === 1 &&
+    verdictWeaknesses.length === 1 &&
+    verdictStrengths[0].key === verdictWeaknesses[0].key;
   const hl = (value: number, st: ColStats, label: string, bold: boolean) => {
     const isBest = st.best !== null && value === st.best;
     const isWorst = st.worst !== null && value === st.worst && value !== st.best;
@@ -198,19 +223,30 @@ export default component$(() => {
         <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-300">
           <p>
             <span class="font-semibold text-slate-900 dark:text-white">Verdict: </span>
-            {verdictBest.key === verdictWorst.key ? (
+            {verdictEven ? (
               <>Scores are even across dimensions — no standout strength or weakness yet.</>
             ) : (
               <>
-                This model is genuinely best at {VERDICT_USE[verdictBest.key] ?? verdictBest.label} (
-                {verdictBest.label} {model.scores[verdictBest.key]}/100) and weakest at{" "}
-                {VERDICT_USE[verdictWorst.key] ?? verdictWorst.label} ({verdictWorst.label}{" "}
-                {model.scores[verdictWorst.key]}/100).
+                This model is genuinely best at {clusterLabel(verdictStrengths.map((d) => d.key))} (
+                {verdictStrengths.map((d, i) => (
+                  <span key={d.key}>
+                    {i > 0 ? ", " : ""}
+                    {d.label} {model.scores[d.key]}
+                  </span>
+                ))}
+                /100) and weakest at {clusterLabel(verdictWeaknesses.map((d) => d.key))} (
+                {verdictWeaknesses.map((d, i) => (
+                  <span key={d.key}>
+                    {i > 0 ? ", " : ""}
+                    {d.label} {model.scores[d.key]}
+                  </span>
+                ))}
+                /100).
               </>
             )}
           </p>
           <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            Auto-derived from average scores (highest vs. lowest quality dimension; cost excluded).
+            Auto-derived from average scores (strengths ≥ 90, weaknesses &lt; 75; cost included).
           </p>
         </div>
       </section>

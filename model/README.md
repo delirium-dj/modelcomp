@@ -43,8 +43,9 @@ each later run re-logs the stub until a human replaces the slug-guessed
 `name`, which clears the stamp automatically; deleting it by hand also works).
 
 Future (not yet implemented): curated editorial verdict. The per-model page
-currently shows an auto-derived verdict (highest vs. lowest average quality
-dimension, cost excluded). A true editorial verdict would add optional
+currently shows a grouped auto-derived verdict sentence (strength cluster ≥ 90
+vs. weakness cluster < 75, cost included, each summarized into one
+classification with score breakdown). A true editorial verdict would add optional
 `bestUse` / `avoidUse` strings here (1–2 sentences, hand-curated per model,
 e.g. `"bestUse": "Genuinely best at cheap agentic coding sprints."`,
 `"avoidUse": "Worst use case: multimodal work."`) rendered as an override
