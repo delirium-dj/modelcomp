@@ -1,0 +1,28 @@
+# Kimi K2.8 Preview — findings by GPT 6 Astra
+
+## Model card
+
+Moonshot's Kimi Code documentation confirms K2.8 Preview is served as `kimi-for-coding`, with 1,048,576 context tokens, image/video input and low/high/max thinking (default max). Access requires an eligible coding membership; new Go plans have no coding quota. Overseas API bases are `https://api.kimi.ai/coding/v1` (OpenAI compatible) and `https://api.kimi.ai/coding/` (Anthropic compatible). [Official configuration](https://www.kimi.com/code/docs/en/kimi-code/models.html).
+
+The September 11, 2026 rollout retained the existing API ID. Earlier measurements under that mutable ID cannot automatically be attributed to K2.8. The vendor makes a qualitative comparison to K3, not an exact score-equivalence claim. [Release log](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html).
+
+Maximum output, cutoff, parameter count, downloadable weights and exact per-token pricing were not verified. K3 architecture, K2.7 Code benchmarks and HighSpeed throughput are not transferred to this model.
+
+### Raw benchmarks found
+
+No verified public score found for this exact version on SWE-bench, Terminal-Bench, GPQA, HLE, Toolathlon, Claw-Eval, long-context retrieval or an independent Intelligence Index. Fresh searches of official documentation and evaluator domains did not establish a reproducible numerical evaluation for K2.8 Preview.
+
+The official configuration establishes identity and capabilities, but advertised similarity to another model is insufficient to derive benchmark scores. The vendor's broader release log includes other model releases; their numbers are not K2.8 evidence.
+
+### Normalized scores (1–100)
+
+Not assigned. Self-excluded under RULES.md because no verified public numerical benchmark for the exact version was found. Preserve these identity/access notes and revisit when a model card or evaluator publishes K2.8-specific results; no placeholder Overall is supplied.
+
+[Scoring methodology](../../model-comparison.md) · [Signed log](../../model-findings.md)
+
+## Signature
+
+Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+
+Method: independent fresh public-web research; no peer scores used.
+
