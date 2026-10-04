@@ -124,7 +124,11 @@ pre-2026-10 sections into an archive file), and retire `GLM53F_IMP.md` /
 `IMPROVEMENTS.md` once extracted. This preserves history while ending the
 four-competing-backlogs situation.
 
-### A7. `package.json:19` — placeholder `deploy` script
+### ✅ A7. `package.json:19` — placeholder `deploy` script
+**Status (2026-10-04): SOLVED.** Line deleted (1-line diff, JSON re-validated
+via `node -e`, all 15 remaining scripts intact); repo-wide grep showed no live
+docs reference `pnpm deploy` (only IDE cache + this audit), so no other .md
+needed updating.
 `"deploy": "echo 'Run \"pnpm qwik add\" to install a server adapter'"` is a
 scaffold leftover: the site ships via the static adapter
 (`adapters/static/vite.config.ts` → `dist/`) plus `vercel.json`, not via

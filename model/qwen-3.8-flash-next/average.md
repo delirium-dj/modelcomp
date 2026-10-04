@@ -19,3 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Qwen 3.8 Flash.
 - Average from top 1 by Overall Score: Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Space Bunny.

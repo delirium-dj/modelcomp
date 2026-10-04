@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.7 Flash, GPT 5.6 Sol, Qwen 3.8 Flash.
 - Average from top 3 by Overall Score: Gemini 3.7 Flash, GPT 5.6 Sol, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): GPT 5.6 Luna, Qwen 3.8 27B.
+- Ignored below-gate rater(s): GPT 5.6 Luna, Qwen 3.8 27B, Space Bunny.

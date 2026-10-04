@@ -876,6 +876,10 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A6-A7, each re-verified before 
 1. **A10** — moved all 21 brand SVGs (`public/icons/`, 41,739 B of undeployed dead weight, all copied to `dist/icons/` on every build) to `assets/vendor-icons/` via `git mv` (history preserved); removed the empty dir. `public/` now holds only referenced assets. Re-labeled the `vendorIcons.generated.ts` header honestly (new source path + hand-maintained, no generator). `pnpm test` 94/94 green.
 2. **Readability** — added ✅ markers to the eighth solved headings (A1–A8) in `tasks/task_Claude_Opus_5_2026-10-04.md`; A9 deliberately unmarked (skipped per user).
 
+## 2026-10-04 - Purification audit item A13 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A13. Deleted the stale committed typecheck receipt (`.antigravity/history/last-lint-result.json`, frozen 2026-09-21) via `git rm`. Followed the guidance's conditional: the `/kickstart` workflow did read that file, so `.antigravity/workflows/kickstart.md` (step 3) and `.antigravity/rules.md` (memory-store list + command effect) were rewired to a live `pnpm build.types` check instead of a snapshot. `pnpm test` 94/94 green.
+
 ## 2026-10-04 - Purification audit item A8 applied (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A8. Deleted the hardcoded Big Pickle branch in `HexRadar.tsx` `tooltipFor` and replaced it with a generic `freeTierNote` append — 23 model folders carry that field, so all of them benefit instead of one. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.

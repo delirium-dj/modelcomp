@@ -165,7 +165,8 @@ drawer and is prerendered.
 the fallback message already points at. Shipping a form that can never submit
 is worse than no form.
 
-### A13. `.antigravity/history/last-lint-result.json` — stale committed receipt
+### ✅ A13. `.antigravity/history/last-lint-result.json` — stale committed receipt
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (frozen 2026-09-21 snapshot, no git ref inside). Nuance beyond the guidance: the `/kickstart` protocol DID read this file (`kickstart.md` step 3 + `rules.md` memory-store list), so a bare delete would have broken the workflow — removed via `git rm` AND rewired both docs to a live `pnpm build.types` check instead of a committed snapshot. Zero remaining references outside the audit's own historical text. `pnpm test` 94/94 green.
 `{"timestamp":"2026-09-21T16:06:00Z","status":"success","errors":0}` — a frozen
 typecheck result, 13 days stale. `.antigravity/rules.md:22–24` instructs agents
 to treat `.antigravity/history/` as authoritative "if files match current git

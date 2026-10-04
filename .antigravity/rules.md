@@ -12,12 +12,14 @@ To ensure instant context warming, zero-token re-scanning, and deterministic cac
 1. **Local Memory Store:** All static project memory is pre-built in `.antigravity/history/`:
    - `.antigravity/history/project-map.md`: High-level GPS of components, routes, data flow.
    - `.antigravity/history/dependency-graph.md`: Tech stack, libraries, scripts.
-   - `.antigravity/history/last-lint-result.json`: Typecheck receipt file.
+   - Type health has no committed receipt file by design (a frozen snapshot goes
+     stale and cannot prove it matches git state) — run `pnpm build.types` live.
 
 2. **The `/kickstart` Slash Command:**
    - Command: `/kickstart`
     - Workflow file: `.antigravity/workflows/kickstart.md`
-   - Effect: Reads `.antigravity/history/project-map.md`, `.antigravity/history/dependency-graph.md`, and `.antigravity/history/last-lint-result.json` in a single fixed step at conversation start.
+   - Effect: Reads `.antigravity/history/project-map.md` and `.antigravity/history/dependency-graph.md`
+     in a single fixed step at conversation start, then verifies type health with a live `pnpm build.types` run.
 
 3. **Check-First Logic:**
    - Before executing code analysis or full codebase searches, verify `.antigravity/history/` receipt files.

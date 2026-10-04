@@ -16,7 +16,6 @@
     "build.types": "tsc --incremental --noEmit",
     "build.types:direct": "node node_modules/typescript/bin/tsc --incremental --noEmit",
     "build:direct": "node node_modules/vite/bin/vite.js build && node node_modules/vite/bin/vite.js build -c adapters/static/vite.config.ts",
-    "deploy": "echo 'Run \"pnpm qwik add\" to install a server adapter'",
     "sync": "node scripts/sync-data.mjs",
     "sync:quiet": "node scripts/sync-data.mjs --quiet",
     "test": "node --test scripts/lib/parse.test.mjs scripts/lib/quarantine.test.mjs scripts/lib/naming.test.mjs scripts/lib/validate.test.mjs scripts/lib/average.test.mjs scripts/lib/codegen.test.mjs",

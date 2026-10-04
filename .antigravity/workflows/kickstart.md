@@ -13,8 +13,10 @@ This workflow reads the local memory cache in `.antigravity/history/` to prime A
 2. Read the Dependency Graph:
    `view_file` -> `.antigravity/history/dependency-graph.md`
 
-3. Read the Last Lint Result receipt:
-   `view_file` -> `.antigravity/history/last-lint-result.json`
+3. Verify type health live (no committed snapshot — a frozen receipt goes stale
+   and cannot prove it matches git state):
+   run `pnpm build.types` (Windows: `pnpm build.types:direct`) and treat its
+   output as the receipt.
 
 4. Confirm cache activation to user:
    Report that local context cache is active and project structure is fully loaded into memory.
