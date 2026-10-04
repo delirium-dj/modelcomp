@@ -4,12 +4,21 @@ import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
   const loc = useLocation();
+  const description = head.meta.find((m) => m.name === "description")?.content;
 
   return (
     <>
       <title>{head.title}</title>
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:site_name" content="ModelComp" />
+      <meta property="og:title" content={head.title} />
+      {description && <meta property="og:description" content={description} />}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={loc.url.href} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={head.title} />
+      {description && <meta name="twitter:description" content={description} />}
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />

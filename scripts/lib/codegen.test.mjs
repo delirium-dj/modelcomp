@@ -11,8 +11,8 @@ import {
   appendPendingSources,
   reconcileRegistry,
   renderScoresFile,
+  renderRobotsTxt,
 } from "./codegen.mjs";
-
 const SOURCES_TS = `// AUTO-GENERATED
 export type SourceKey =
   | "average"
@@ -141,5 +141,12 @@ describe("renderScoresFile (deterministic emit)", () => {
     assert.ok(text.indexOf('"A.md"') < text.indexOf('"Z.md"'));
     assert.match(text, /"B\.md": \{ tool: 1, reasoning: 2, context: 3, multimodal: 4, coding: 5, cost: 6, overall: 7 \},/);
     assert.ok(text.endsWith("};\n"));
+  });
+});
+
+describe("renderRobotsTxt (absolute Sitemap URL)", () => {
+  it("allows all, points at the origin sitemap, ends with newline", () => {
+    const text = renderRobotsTxt("https://example.com");
+    assert.equal(text, "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n");
   });
 });

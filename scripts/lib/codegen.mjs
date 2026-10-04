@@ -137,3 +137,13 @@ export function renderScoresFile(scoreIndex) {
   out.push("};", "");
   return out.join("\n");
 }
+
+/**
+ * Render public/robots.txt. The Sitemap URL must be absolute (crawlers), and
+ * the origin is only known at sync/build time — so it rides the same
+ * SITE_ORIGIN knob as the static-adapter canonical URLs (see README, B2),
+ * defaulting to the local preview origin.
+ */
+export function renderRobotsTxt(origin) {
+  return ["User-agent: *", "Allow: /", "", `Sitemap: ${origin}/sitemap.xml`, ""].join("\n");
+}

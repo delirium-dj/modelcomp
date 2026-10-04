@@ -68,6 +68,7 @@ import {
   appendPendingSources,
   reconcileRegistry,
   renderScoresFile,
+  renderRobotsTxt,
 } from "./lib/codegen.mjs";
 import {
   normName,
@@ -556,6 +557,21 @@ if (failures === 0) {
     log(
       `  WRITE model-queue.md (${Object.keys(scoreIndex).length} models, Overall desc)${prevQueue === null ? " (created)" : ""}`,
     );
+  }
+  // robots.txt Sitemap must be absolute: same SITE_ORIGIN knob as the
+  // static-adapter origin (adapters/static/vite.config.ts). Written here
+  // (not hand-maintained) so the two can never disagree.
+  const robotsPath = join(root, "public", "robots.txt");
+  const robotsNext = renderRobotsTxt(process.env.SITE_ORIGIN ?? "http://localhost:4173");
+  let prevRobots = null;
+  try {
+    prevRobots = readFileSync(robotsPath, "utf8");
+  } catch {
+    // created below
+  }
+  if (prevRobots !== robotsNext) {
+    writeFileSync(robotsPath, robotsNext);
+    log(`  WRITE public/robots.txt (Sitemap: ${process.env.SITE_ORIGIN ?? "http://localhost:4173"}/sitemap.xml)`);
   }
 } else {
   log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");

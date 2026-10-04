@@ -434,12 +434,17 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Model details — ModelComp",
-  meta: [
-    {
-      name: "description",
-      content: "Per-model scores and how each reporting agent rated this model.",
-    },
-  ],
+export const head: DocumentHead = ({ params }) => {
+  const m = MODELS.find((x) => x.slug === params.slug);
+  return m
+    ? {
+        title: `${m.name} — scores & agent ratings | ModelComp`,
+        meta: [
+          {
+            name: "description",
+            content: `${m.name}: Overall ${m.scores.overall}/100. ${m.short}`,
+          },
+        ],
+      }
+    : { title: "Model not found — ModelComp" };
 };

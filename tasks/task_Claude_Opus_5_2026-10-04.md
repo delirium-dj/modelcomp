@@ -310,7 +310,8 @@ and document `SITE_ORIGIN` in `README.md`. Re-verify by grepping
 delete the `root.tsx` block, which also removes the `isDev` import if unused
 elsewhere. See **D21**.
 
-### B4. All 133 model pages share one `<title>` — **verified in `dist/`**
+### ✅ B4. All 133 model pages share one `<title>` — **verified in `dist/`**
+**Status (2026-10-04): SOLVED by Muse Spark 1.3 (pending a real build to re-verify).** Re-verified (static `head` object, one title + generic description). Converted to a `DocumentHead` resolver looking up `MODELS` by `params.slug`: per-model title + description (name, Overall, short blurb), with a "Model not found" fallback matching the component's own 404 branch. `MODELS` was already imported in the file. `pnpm test` 96/96 green; distinct titles verified on the next user build.
 133 prerendered pages, **1** distinct title: `"Model details — ModelComp"`.
 `src/routes/model/[slug]/index.tsx:364–372` exports a static `head` object.
 Duplicate titles across 133 pages are an SEO and tab-usability problem, and the
@@ -326,7 +327,8 @@ export const head: DocumentHead = ({ params }) => {
 };
 ```
 
-### B5. No social/crawler metadata
+### ✅ B5. No social/crawler metadata
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Head tags per guidance: `og:site_name/title/description/type/url` + `twitter:card/title/description` in `RouterHead`, all derived from `useDocumentHead()`/`useLocation()` (so B4's per-model titles flow into shares for free; description guarded for pages without one). Robots: deliberately NOT a static file — a compliant Sitemap directive must be absolute and the origin is only known at sync/build time — so `pnpm sync` now generates `public/robots.txt` from the same `SITE_ORIGIN` knob as B2 (new tested `renderRobotsTxt` in `codegen.mjs`; only rewrites on change; `README` extended). Seeded the initial file with the localhost-default content so the tree is complete before the next sync. `node --check` clean, `pnpm test` 97/97 green (96 + 1 new).
 Verified: `dist/index.html` has **0** `og:*` and **0** `twitter:*` meta tags,
 and `dist/robots.txt` does not exist (though `dist/sitemap.xml` does).
 **Guidance:** add `og:title` / `og:description` / `og:url` / `og:type` in
