@@ -14,20 +14,19 @@
 - [scripts/lib/codegen.mjs](file://scripts/lib/codegen.mjs)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [src/data/sources.generated.ts](file://src/data/sources.generated.ts)
-- [src/data/catalog.generated.ts](file://src/data/catalog.generated.ts)
-- [src/data/rankings.generated.ts](file://src/data/rankings.generated.ts)
 - [src/data/models.ts](file://src/data/models.ts)
 - [model/Inkling/meta.json](file://model/Inkling/meta.json)
 - [model/big-pickle/meta.json](file://model/big-pickle/meta.json)
+- [model/gpt-6.1-sol/meta.json](file://model/gpt-6.1-sol/meta.json)
+- [model/qwen-3.8-flash-next/meta.json](file://model/qwen-3.8-flash-next/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Enhanced data synchronization pipeline with automatic scaffolded meta.json file support for missing model metadata
-- Strengthened validation rules in scripts/lib/validate.mjs with improved filename hygiene and meta.json field validation
-- Improved naming conventions in scripts/lib/naming.mjs with better slug guessing and display name validation
-- Added comprehensive scaffolded stub tracking system that automatically generates placeholder metadata until human curation
-- Enhanced validation logic to prevent underscore usage in vendor display names and enforce proper naming conventions
+- Updated SourceKey union type to reflect 70 reporting agents with new model variants including Claude Opus 4.8, GPT 5.1-6.1 series, Gemini 3.5-4.0 variants, Qwen 3.5-3.8 series, DeepSeek, Grok, Kimi, and Muse Spark models
+- Enhanced scaffolded meta.json support with automatic stub generation for missing model metadata across hundreds of new evaluation files
+- Expanded generated data infrastructure with improved validation rules and naming conventions for the substantially larger evaluator-model combination space
+- Updated scoring algorithms to handle the increased complexity of multi-provider model evaluations while maintaining normalized 1-100 score consistency
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -46,7 +45,7 @@ ModelComp is a static site that compares AI coding models across six normalized 
 The data model centers around:
 - An implicit `AiModel` interface representing a model entry with short display metadata and normalized scores.
 - A `ModelScores` interface for compact numeric scores used by generated code.
-- A `SourceKey` union type identifying each reporting agent’s findings file.
+- A `SourceKey` union type identifying each reporting agent's findings file.
 
 This document explains the data structures, scoring methodology, synchronization pipeline, validation rules, and relationships between research markdown, generated TypeScript, and runtime data.
 
@@ -175,7 +174,7 @@ class GeneratedScores {
 - Labels and slugs are resolved via overrides and catalog lookup.
 - Virtual sort views are pruned from the registry.
 
-**Updated** The SourceKey union now includes 67 reporting agents, reflecting substantial expansion in evaluator-model combinations and enhanced normalized score mappings for the comparison interface.
+**Updated** The SourceKey union now includes 70 reporting agents, reflecting substantial expansion in evaluator-model combinations with new model variants including Claude Opus 4.8, GPT 5.1-6.1 series, Gemini 3.5-4.0 variants, Qwen 3.5-3.8 series, DeepSeek, Grok, Kimi, and Muse Spark models.
 
 ```mermaid
 flowchart TD
@@ -195,7 +194,7 @@ Collision --> Done
 **Section sources**
 - [scripts/lib/codegen.mjs:19-57](file://scripts/lib/codegen.mjs#L19-L57)
 - [scripts/lib/codegen.mjs:65-84](file://scripts/lib/codegen.mjs#L65-L84)
-- [src/data/sources.generated.ts:5-67](file://src/data/sources.generated.ts#L5-L67)
+- [src/data/sources.generated.ts:5-71](file://src/data/sources.generated.ts#L5-L71)
 
 ### Scoring Methodology
 Six dimensions are scored 1–100:
@@ -282,9 +281,9 @@ Log --> Next
 - [tasks/sync-data.md:19-30](file://tasks/sync-data.md#L19-L30)
 
 ### Enhanced Meta.json Schema and Scaffolded Support
-**Updated** The `meta.json` schema now supports automatic scaffolding for missing model metadata. Required fields include id, name, short, contextWindow, modalities, and pricingNote. Optional fields include pricingTiers, freeTierNote, and noFreeId. The name must be the official vendor display name with spaces, not underscores.
+**Updated** The `meta.json` schema now supports automatic scaffolding for missing model metadata across hundreds of new evaluation files. Required fields include id, name, short, contextWindow, modalities, and pricingNote. Optional fields include pricingTiers, freeTierNote, and noFreeId. The name must be the official vendor display name with spaces, not underscores.
 
-The system now automatically scaffolds missing `meta.json` files with placeholder data marked with `scaffolded: true`. These scaffolded stubs are tracked and logged until a human curates them with official vendor information.
+The system now automatically scaffolds missing `meta.json` files with placeholder data marked with `scaffolded: true`. These scaffolded stubs are tracked and logged until a human curates them with official vendor information. New model directories like `gpt-6.1-sol` and `qwen-3.8-flash-next` demonstrate this enhanced scaffolding capability.
 
 ```mermaid
 erDiagram
@@ -306,11 +305,15 @@ boolean scaffolded
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/Inkling/meta.json:1-8](file://model/Inkling/meta.json#L1-L8)
 - [model/big-pickle/meta.json:1-14](file://model/big-pickle/meta.json#L1-L14)
+- [model/gpt-6.1-sol/meta.json:1-8](file://model/gpt-6.1-sol/meta.json#L1-L8)
+- [model/qwen-3.8-flash-next/meta.json:1-9](file://model/qwen-3.8-flash-next/meta.json#L1-L9)
 
 **Section sources**
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/Inkling/meta.json:1-8](file://model/Inkling/meta.json#L1-L8)
 - [model/big-pickle/meta.json:1-14](file://model/big-pickle/meta.json#L1-L14)
+- [model/gpt-6.1-sol/meta.json:1-8](file://model/gpt-6.1-sol/meta.json#L1-L8)
+- [model/qwen-3.8-flash-next/meta.json:1-9](file://model/qwen-3.8-flash-next/meta.json#L1-L9)
 
 ### Findings File Format
 Findings files follow a template and contain:
@@ -346,13 +349,13 @@ Accept --> End
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 
 ### Enhanced Generated Artifacts
-**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface with 67 reporting agents:
+**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface with 70 reporting agents across multiple providers:
 
 #### Catalog Generated (`catalog.generated.ts`)
-Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports. The catalog supports O(1) lookup performance for the enhanced comparison interface.
+Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports. The catalog supports O(1) lookup performance for the enhanced comparison interface with hundreds of new model evaluation files.
 
 #### Rankings Generated (`rankings.generated.ts`)
-Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations. This eliminates runtime computation overhead for frequently accessed ranking data.
+Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers. This eliminates runtime computation overhead for frequently accessed ranking data.
 
 ```mermaid
 classDiagram
@@ -462,7 +465,7 @@ class Parser {
 - [scripts/lib/parse.mjs:47-124](file://scripts/lib/parse.mjs#L47-L124)
 
 ### Enhanced Validation Rules
-**Updated** Validation now covers filename hygiene, meta.json required fields, and display-name constraints with improved error messaging. The system includes permanence tripwires to prevent silent deletion of tracked research files and enhanced checks for forbidden duplicate roots.
+**Updated** Validation now covers filename hygiene, meta.json required fields, and display-name constraints with improved error messaging for the expanded model evaluation space. The system includes permanence tripwires to prevent silent deletion of tracked research files and enhanced checks for forbidden duplicate roots across hundreds of new model directories.
 
 ```mermaid
 flowchart TD
@@ -485,7 +488,7 @@ Result --> |No| Pass["Allow sync"]
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ### Improved Naming Conventions
-**Updated** The naming system now provides better slug guessing for scaffolded meta.json files and improved display name validation. The system includes helper functions for formatSlugGuess, isScaffoldStub, and metaNameIsSlugGuess to track and manage scaffolded metadata.
+**Updated** The naming system now provides better slug guessing for scaffolded meta.json files and improved display name validation across the substantially expanded evaluator-model combination space. The system includes helper functions for formatSlugGuess, isScaffoldStub, and metaNameIsSlugGuess to track and manage scaffolded metadata for hundreds of new model directories.
 
 ```mermaid
 flowchart TD
@@ -534,7 +537,7 @@ Apply --> Output["Write average.md"]
 - [scripts/lib/average.mjs:54-100](file://scripts/lib/average.mjs#L54-L100)
 
 ### Registry and Code Generation
-**Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface with 67 reporting agents.
+**Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries across 70 reporting agents. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface with hundreds of new model evaluation files across multiple providers.
 
 ```mermaid
 classDiagram
@@ -564,10 +567,10 @@ class Codegen {
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
 ### Relationship Between Data Sources
-**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations:
+**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers:
 
-- Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores.
-- `meta.json` supplies display metadata and pricing context, with automatic scaffolding support.
+- Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores across hundreds of new model evaluation files.
+- `meta.json` supplies display metadata and pricing context, with automatic scaffolding support for missing model directories.
 - `average.md` aggregates eligible raters' scores into a cohort mean.
 - `scores.generated.ts` and `sources.generated.ts` provide compact, typed data to the app.
 - `catalog.generated.ts` provides pre-baked metadata catalog for efficient access.
@@ -626,16 +629,16 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 
 ## Performance Considerations
-**Updated** Performance optimizations now include additional generated artifacts and enhanced data structures:
+**Updated** Performance optimizations now include additional generated artifacts and enhanced data structures to handle the substantially expanded evaluator-model combination space:
 
 - Pre-parsing findings into `scores.generated.ts` removes ~1.7 MB of markdown prose from the client bundle.
-- Deterministic sorting and stable registry updates avoid unnecessary churn.
+- Deterministic sorting and stable registry updates avoid unnecessary churn across 70 reporting agents.
 - Rater gate and top-10 cohort reduce noise and stabilize averages.
 - Auto-quarantine prevents evidence-free reports from polluting metrics.
 - Pre-baked catalog and rankings provide O(1) lookup performance for enhanced comparison interface.
-- Expanded evaluator-model combinations are efficiently handled through optimized data structures.
-- The 67 reporting agents are processed through streamlined code generation pipelines.
-- Automatic scaffolding of missing meta.json files prevents build failures while maintaining data integrity.
+- Expanded evaluator-model combinations across multiple providers are efficiently handled through optimized data structures.
+- The 70 reporting agents are processed through streamlined code generation pipelines.
+- Automatic scaffolding of missing meta.json files prevents build failures while maintaining data integrity across hundreds of new model directories.
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -649,6 +652,7 @@ Common issues and resolutions:
 - Catalog or rankings inconsistencies: verify meta.json files are properly formatted and complete.
 - Scaffolded stub warnings: review SCAF logs and curate scaffolded meta.json files with official vendor names.
 - Underscore in display names: replace underscores with spaces in meta.json name fields.
+- New model directory issues: ensure proper scaffolding for newly added model evaluation files.
 
 **Section sources**
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
@@ -658,4 +662,4 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Conclusion
-ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
+ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 70 reporting agents across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards across hundreds of new model evaluation files. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.

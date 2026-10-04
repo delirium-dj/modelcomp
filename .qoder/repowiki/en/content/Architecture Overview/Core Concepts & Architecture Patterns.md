@@ -18,6 +18,12 @@
 - [src/components/theme-toggle/theme-toggle.tsx](file://src/components/theme-toggle/theme-toggle.tsx)
 </cite>
 
+## Update Summary
+**Changes Made**
+- Updated Per-Model Detail Pages section to document enhanced container widths and centered hexagon layouts
+- Added specific details about the `max-w-6xl` container pattern and hexagon centering implementation
+- Enhanced architecture diagrams to reflect improved layout consistency across per-model pages
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -30,10 +36,10 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-ModelComp is a Qwik + Qwik City application that compares AI coding models across standardized dimensions. It uses a data-first, static-site generation approach with SSR support, a component-based UI, and a theme system driven by CSS variables and Tailwind’s class-based dark mode. The site also supports PWA installation through a web manifest.
+ModelComp is a Qwik + Qwik City application that compares AI coding models across standardized dimensions. It uses a data-first, static-site generation approach with SSR support, a component-based UI, and a theme system driven by CSS variables and Tailwind's class-based dark mode. The site also supports PWA installation through a web manifest.
 
 This document explains:
-- How Qwik’s resumable paradigm differs from traditional React applications.
+- How Qwik's resumable paradigm differs from traditional React applications.
 - When and why the project uses static site generation versus server-side rendering.
 - The component composition model, state management, and data flow.
 - The theme system using CSS variables and Tailwind dark mode.
@@ -92,7 +98,7 @@ Key architectural concepts implemented in ModelComp:
 - Static site generation (SSG): Per-model pages are pre-rendered via a static generator handler.
 - Server-side rendering (SSR): Development runs in SSR mode; production can serve SSR or static output depending on adapter/build.
 - Data hydration: Scores and source registry are generated at build time and hydrated into typed model objects.
-- Theme system: A synchronous anti-flash script sets `.dark` on `<html>` before paint; Tailwind’s `dark:` utilities and CSS variables provide consistent theming.
+- Theme system: A synchronous anti-flash script sets `.dark` on `<html>` before paint; Tailwind's `dark:` utilities and CSS variables provide consistent theming.
 - PWA: A manifest is included in production builds to enable installability on supported browsers.
 
 **Section sources**
@@ -119,7 +125,7 @@ QwikCity["Qwik City Router"]
 Root["Root Provider<br/>Anti-flash script<br/>PWA manifest"]
 Layout["Route Layout"]
 Home["Home Route<br/>Hero / Compare / Methodology / Cards"]
-ModelPage["Per-Model Page<br/>StaticGenerateHandler"]
+ModelPage["Per-Model Page<br/>StaticGenerateHandler<br/>Full-width max-w-6xl layout"]
 DataLayer["Data Layer<br/>MODELS, SOURCES, DIMENSIONS"]
 Components["UI Components<br/>CompareSection, HexRadar, ModelCards"]
 Client --> Vite
@@ -235,6 +241,47 @@ Compare->>Home : Update URL query params
 - [src/components/ModelCards.tsx:1-368](file://src/components/ModelCards.tsx#L1-L368)
 - [src/data/models.ts:46-77](file://src/data/models.ts#L46-L77)
 
+### Enhanced Per-Model Detail Pages Layout
+**Updated** Per-model detail pages now implement a consistent full-width layout pattern with enhanced visual hierarchy:
+
+- **Full-width containers**: All sections use `max-w-6xl` container width for consistent spacing and readability across the entire page
+- **Centered hexagon displays**: The hexagonal radar chart maintains its 560px size but is horizontally centered using `flex justify-center` within the full-width container
+- **Consistent section spacing**: Each major section (header, average scores, verdict, ratings table) shares the same container width for visual harmony
+- **Improved readability**: The wider layout allows for better text flow and more comfortable reading experience on larger screens
+
+Implementation details:
+- Header section: Uses `mx-auto max-w-6xl px-4 pb-4 pt-8` for consistent top padding and bottom margins
+- Average scores section: Centers the hexagon with `flex justify-center` while maintaining the 560px maximum width
+- Verdict callout: Spans full-width between the hexagon and ratings table for seamless visual flow
+- Ratings table: Maintains the same `max-w-6xl` container width as other sections
+
+```mermaid
+graph TB
+subgraph "Per-Model Page Layout"
+Header["Header Section<br/>max-w-6xl container"]
+AvgScores["Average Scores<br/>Centered hexagon (560px)<br/>flex justify-center"]
+Verdict["Verdict Callout<br/>Full-width container"]
+Ratings["Ratings Table<br/>max-w-6xl container"]
+Navigation["Previous/Next Navigation<br/>Full-width container"]
+end
+Header --> AvgScores
+AvgScores --> Verdict
+Verdict --> Ratings
+Ratings --> Navigation
+```
+
+**Diagram sources**
+- [src/routes/model/[slug]/index.tsx:164-211](file://src/routes/model/[slug]/index.tsx#L164-L211)
+- [src/routes/model/[slug]/index.tsx:213-220](file://src/routes/model/[slug]/index.tsx#L213-L220)
+- [src/routes/model/[slug]/index.tsx:222-252](file://src/routes/model/[slug]/index.tsx#L222-L252)
+- [src/routes/model/[slug]/index.tsx:254-432](file://src/routes/model/[slug]/index.tsx#L254-L432)
+
+**Section sources**
+- [src/routes/model/[slug]/index.tsx:164-211](file://src/routes/model/[slug]/index.tsx#L164-L211)
+- [src/routes/model/[slug]/index.tsx:213-220](file://src/routes/model/[slug]/index.tsx#L213-L220)
+- [src/routes/model/[slug]/index.tsx:222-252](file://src/routes/model/[slug]/index.tsx#L222-L252)
+- [src/routes/model/[slug]/index.tsx:254-432](file://src/routes/model/[slug]/index.tsx#L254-L432)
+
 ### Theme System: CSS Variables and Tailwind Dark Mode
 - Tailwind is configured with `darkMode: "class"`, so dark mode is controlled by adding/removing a class.
 - An anti-flash script runs synchronously in `<head>` to set `.dark` on `<html>` before the first paint based on stored preference or system setting.
@@ -285,7 +332,7 @@ Browser --> Install["Install Prompt / App Shell"]
 - [public/manifest.json:1-18](file://public/manifest.json#L1-L18)
 
 ### Routing, Lifecycle, and Hydration Flow
-Qwik City maps URLs to route components. The home route manages selection state and URL synchronization. The per-model route pre-generates static pages and renders detailed comparisons.
+Qwik City maps URLs to route components. The home route manages selection state and URL synchronization. The per-model route pre-generates static pages and renders detailed comparisons with enhanced layout consistency.
 
 ```mermaid
 sequenceDiagram
@@ -303,6 +350,7 @@ Browser->>Router : GET "/model/<slug>"
 Router->>Layout : Render layout
 Layout->>Model : Render model page
 Model->>Model : Pre-render via StaticGenerateHandler
+Model->>Model : Apply full-width max-w-6xl layout
 ```
 
 **Diagram sources**
@@ -348,19 +396,21 @@ Components["src/components/*"] --> Data
 
 ## Performance Considerations
 - Use SSG for stable, content-rich pages to maximize cacheability and reduce runtime work.
-- Keep client bundles lean by relying on Qwik’s lazy hydration and avoiding unnecessary global state.
+- Keep client bundles lean by relying on Qwik's lazy hydration and avoiding unnecessary global state.
 - Prefer generated data over raw markdown imports to avoid bloating the client bundle.
 - Ensure the anti-flash script runs early to prevent theme flicker.
 - Validate data at build time with the sync script to keep the UI predictable and performant.
+- The enhanced per-model layout with full-width containers improves readability without impacting performance since it's purely CSS-based.
 
 [No sources needed since this section provides general guidance]
 
 ## Troubleshooting Guide
 Common issues and resolutions:
 - Missing generated data: If average scores or source registry are missing, rebuild generated files using the sync script.
-- Theme flicker: Ensure the anti-flash script is present and runs before paint; verify Tailwind’s `darkMode: "class"` setting.
+- Theme flicker: Ensure the anti-flash script is present and runs before paint; verify Tailwind's `darkMode: "class"` setting.
 - PWA not installing: Confirm the manifest is included in production builds and served at the expected path.
 - Route not found: Verify file-based routing structure and that per-model pages have a valid slug.
+- Layout inconsistencies: Ensure per-model pages maintain consistent `max-w-6xl` container widths across all sections for proper visual alignment.
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
@@ -370,10 +420,11 @@ Common issues and resolutions:
 
 ## Conclusion
 ModelComp demonstrates a modern, efficient web architecture:
-- Qwik’s resumable model minimizes runtime overhead while preserving rich interactivity.
-- Qwik City’s file-based routing simplifies navigation and integrates seamlessly with SSG and SSR.
+- Qwik's resumable model minimizes runtime overhead while preserving rich interactivity.
+- Qwik City's file-based routing simplifies navigation and integrates seamlessly with SSG and SSR.
 - A typed data layer keeps the UI consistent and maintainable.
 - A robust theme system and PWA setup deliver a polished, installable experience.
+- Enhanced per-model detail pages provide improved readability with consistent full-width layouts and centered visual elements.
 By following the documented patterns, teams can extend the site with new models, sources, and features while preserving performance and clarity.
 
 [No sources needed since this section summarizes without analyzing specific files]

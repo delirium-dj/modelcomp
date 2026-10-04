@@ -8,7 +8,15 @@
 - [tasks/sync-data.md](file://tasks/sync-data.md)
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
 - [src/data/models.ts](file://src/data/models.ts)
+- [BACKLOG.md](file://BACKLOG.md)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Added reference to new BACKLOG.md centralized improvement tracking system
+- Updated project structure section to include BACKLOG.md
+- Enhanced troubleshooting section with information about the new backlog system
+- Added context about the retirement of GLM53F_IMP.md and IMPROVEMENTS.md files
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,6 +53,7 @@ At a high level, ModelComp is organized around data-driven pages built with Qwik
 - `src/data/scores.generated.ts`: Auto-generated compact score index used by the client bundle.
 - `scripts/sync-data.mjs`: Deterministic sync script behind `pnpm sync`.
 - `tasks/sync-data.md`: Human workflow documentation for running sync safely.
+- `BACKLOG.md`: Centralized living improvement backlog tracking open items and standing decisions.
 - `public/`: Static assets like the PWA manifest and brand favicon.
 - `dist/` and `server/`: Build output directories produced by the build process.
 
@@ -55,6 +64,7 @@ ModelDir["model/<slug>/"]
 SrcData["src/data/"]
 Scripts["scripts/"]
 Tasks["tasks/"]
+Backlog["BACKLOG.md"]
 SrcRoutes["src/routes/"]
 SrcComponents["src/components/"]
 Public["public/"]
@@ -63,28 +73,30 @@ Repo --> ModelDir
 Repo --> SrcData
 Repo --> Scripts
 Repo --> Tasks
+Repo --> Backlog
 Repo --> SrcRoutes
 Repo --> SrcComponents
 Repo --> Public
 Repo --> Dist
 ModelDir --> SrcData
 Scripts --> SrcData
-SrcData --> SrcRoutes
-SrcData --> SrcComponents
+Backlog --> Repo
 ```
 
 **Diagram sources**
 - [README.md:61-82](file://README.md#L61-L82)
 - [model/README.md:1-30](file://model/README.md#L1-L30)
+- [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
 
 **Section sources**
 - [README.md:61-82](file://README.md#L61-L82)
 - [model/README.md:1-30](file://model/README.md#L1-L30)
+- [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
 
 ## Core Components
-ModelComp’s core workflow revolves around four main areas:
+ModelComp's core workflow revolves around four main areas:
 
-1. **Research data**: Findings files under `model/<slug>/` describe each reporting agent’s evaluation of a model.
+1. **Research data**: Findings files under `model/<slug>/` describe each reporting agent's evaluation of a model.
 2. **Sync pipeline**: `pnpm sync` validates, parses, quarantines evidence-free reports, recomputes averages, registers new sources, and emits generated TypeScript files.
 3. **Data hydration**: `src/data/models.ts` imports generated scores and source definitions, then builds the runtime `MODELS` array used by the UI.
 4. **Build and preview**: `pnpm dev`, `pnpm build`, and `pnpm preview` drive the Qwik/Vite development and production workflows.
@@ -93,11 +105,13 @@ Key responsibilities:
 - `scripts/sync-data.mjs` scans model folders, enforces naming hygiene, auto-quarantines weak reports, recomputes `average.md`, updates the source registry, and writes `scores.generated.ts`.
 - `src/data/models.ts` reads generated scores and `meta.json` files to construct typed model objects, dimension definitions, virtual sort views, and the results-source dropdown order.
 - `tasks/sync-data.md` documents the human checklist and invariants around sync behavior.
+- `BACKLOG.md` serves as the single source of truth for open improvement items and standing decisions, replacing the previous scattered improvement tracking system.
 
 **Section sources**
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
 - [src/data/models.ts:6-16](file://src/data/models.ts#L6-L16)
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
+- [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
 
 ## Architecture Overview
 The data flow is intentionally designed so contributors never edit application source code when adding or updating model evaluations. The typical path is:
@@ -163,7 +177,7 @@ For large repositories, `pnpm sync:quiet` runs the same checks and writes but pr
 ### How to Add New Model Data Without Editing Source Code
 ModelComp is designed so you do not edit `src/` code when adding model data. All wiring is automatic once you follow the data conventions.
 
-#### Adding a New Reporting Agent’s Findings
+#### Adding a New Reporting Agent's Findings
 If an existing model has been evaluated by another reporting agent:
 
 1. Create a findings file named `<Source_Name>.md` inside every relevant `model/<slug>/` folder.
@@ -304,8 +318,22 @@ When running `pnpm sync`, pay attention to these message categories:
 - `AUTO`: The script corrected something safe, such as an Overall Score drift or an auto-scaffolded `meta.json`.
 - `WRITE`: A generated or computed file was rewritten, such as `average.md`, `scores.generated.ts`, or `sources.generated.ts`.
 - `SKIP`: A self-excluded findings file was intentionally ignored because it contained no verified benchmarks.
-- `GATE`: A rater’s report was excluded from averaging because the rater’s own overall did not clear the quality gate.
+- `GATE`: A rater's report was excluded from averaging because the rater's own overall did not clear the quality gate.
 - `FALLBACK`: No qualifying raters were found, so all available reports were averaged instead.
+
+### Improvement Tracking System
+ModelComp now uses a centralized improvement backlog system through `BACKLOG.md`. This replaces the previous scattered improvement tracking in `GLM53F_IMP.md` and `IMPROVEMENTS.md`, which were retired on 2026-10-04.
+
+Key aspects of the new system:
+- **Open items only**: `BACKLOG.md` tracks current improvement opportunities and standing decisions.
+- **Centralized location**: All improvement tracking is consolidated in one place.
+- **Historical preservation**: Previous improvement logs remain in git history and `REPORT.md`.
+- **Precedence**: `RULES.md` takes precedence over any conflicting backlog items.
+
+Common backlog categories include:
+- **Performance**: Client optimization and ranking improvements.
+- **Data pipeline**: Sync and processing enhancements.
+- **Standing decisions**: Permanent architectural decisions that should not be treated as TODOs.
 
 ### Permanence and Deletion Safety
 ModelComp protects research history through a permanence tripwire. If a tracked findings file is missing from disk, sync treats it as a potential accidental deletion unless:
@@ -330,6 +358,7 @@ After making data changes:
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
 - [tasks/sync-data.md:66-108](file://tasks/sync-data.md#L66-L108)
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
+- [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
 
 ## Conclusion
 ModelComp makes it straightforward to compare AI coding models without maintaining complex application state. You add Markdown findings and metadata, run `pnpm sync`, and let the build pipeline generate the data the UI needs. The result is a static site that shows side-by-side comparisons, hexagon charts, sortable tables, and per-model pages.
@@ -343,4 +372,4 @@ For beginners, the safest starting point is:
 5. Run `pnpm sync && pnpm build.types && pnpm build`.
 6. Run `pnpm preview` to inspect the production output.
 
-When in doubt, read the `FAIL` lines from sync, check the model and tasks documentation, and avoid editing application source code when adding model data.
+When in doubt, read the `FAIL` lines from sync, check the model and tasks documentation, consult the centralized `BACKLOG.md` for improvement tracking, and avoid editing application source code when adding model data.

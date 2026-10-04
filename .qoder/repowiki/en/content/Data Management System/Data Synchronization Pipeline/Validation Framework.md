@@ -10,7 +10,15 @@
 - [scripts/lib/parse.mjs](file://scripts/lib/parse.mjs)
 - [scripts/lib/naming.mjs](file://scripts/lib/naming.mjs)
 - [scripts/lib/validate.test.mjs](file://scripts/lib/validate.test.mjs)
+- [scripts/lib/naming.test.mjs](file://scripts/lib/naming.test.mjs)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Updated Meta.json Validation section to reflect centralized naming utilities
+- Added reference to new naming utility functions for meta validation
+- Updated dependency analysis to show the refactored import structure
+- Enhanced examples to demonstrate the centralized validation approach
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -27,7 +35,7 @@
 This document explains the validation framework that protects data integrity across the model comparison sync pipeline. It covers:
 
 - Filename hygiene checks for research files.
-- `meta.json` validation, including required fields and display-name rules.
+- `meta.json` validation with centralized naming utilities, including required fields and display-name rules.
 - The permanence tripwire that prevents accidental deletion of tracked research files.
 - The quarantine mechanism that automatically isolates evidence-free reports based on benchmark analysis.
 - The mirror root system used for sanctioned file relocations.
@@ -48,6 +56,7 @@ Sync --> Quarantine["scripts/lib/quarantine.mjs"]
 Sync --> Parse["scripts/lib/parse.mjs"]
 Sync --> Naming["scripts/lib/naming.mjs"]
 Validate --> Parse
+Validate --> Naming
 Quarantine --> Parse
 ModelDir["model/<slug>/"] --> Findings["Findings *.md"]
 ModelDir --> Average["average.md (generated)"]
@@ -57,10 +66,10 @@ MirrorRoots["models_voice/, models_finance/"] --> Relocated["Sanctioned relocate
 
 **Diagram sources**
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
-- [scripts/lib/validate.mjs:1-81](file://scripts/lib/validate.mjs#L1-L81)
+- [scripts/lib/validate.mjs:1-97](file://scripts/lib/validate.mjs#L1-L97)
 - [scripts/lib/quarantine.mjs:1-57](file://scripts/lib/quarantine.mjs#L1-L57)
 - [scripts/lib/parse.mjs:1-124](file://scripts/lib/parse.mjs#L1-L124)
-- [scripts/lib/naming.mjs:1-73](file://scripts/lib/naming.mjs#L1-L73)
+- [scripts/lib/naming.mjs:1-99](file://scripts/lib/naming.mjs#L1-L99)
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
@@ -70,7 +79,7 @@ MirrorRoots["models_voice/, models_finance/"] --> Relocated["Sanctioned relocate
 The validation framework is composed of focused, side-effect-free helpers invoked by the sync orchestrator:
 
 - **Filename hygiene**: Ensures findings filenames match the allowed pattern.
-- **Meta validation**: Enforces required fields and display-name rules.
+- **Meta validation**: Enforces required fields and display-name rules using centralized naming utilities.
 - **Permanence tripwire**: Prevents silent deletion of git-tracked research files unless they survive in a sanctioned location.
 - **Quarantine decision**: Automatically renames evidence-free or invalid reports to `.md.excluded`.
 - **Mirror roots**: Recognizes relocated files under sanctioned directories.
@@ -79,7 +88,7 @@ The validation framework is composed of focused, side-effect-free helpers invoke
 These components are imported and orchestrated by `scripts/sync-data.mjs`, which performs filesystem and Git operations and logs outcomes.
 
 **Section sources**
-- [scripts/lib/validate.mjs:1-81](file://scripts/lib/validate.mjs#L1-L81)
+- [scripts/lib/validate.mjs:1-97](file://scripts/lib/validate.mjs#L1-L97)
 - [scripts/lib/quarantine.mjs:1-57](file://scripts/lib/quarantine.mjs#L1-L57)
 - [scripts/lib/parse.mjs:30-45](file://scripts/lib/parse.mjs#L30-L45)
 - [scripts/lib/naming.mjs:36-62](file://scripts/lib/naming.mjs#L36-L62)
@@ -150,18 +159,20 @@ Fail --> End
 ```
 
 **Diagram sources**
-- [scripts/lib/validate.mjs:54-60](file://scripts/lib/validate.mjs#L54-L60)
+- [scripts/lib/validate.mjs:72-78](file://scripts/lib/validate.mjs#L72-L78)
 - [scripts/lib/parse.mjs:35-36](file://scripts/lib/parse.mjs#L35-L36)
 - [scripts/lib/naming.mjs:14-15](file://scripts/lib/naming.mjs#L14-L15)
 
 **Section sources**
-- [scripts/lib/validate.mjs:54-60](file://scripts/lib/validate.mjs#L54-L60)
+- [scripts/lib/validate.mjs:72-78](file://scripts/lib/validate.mjs#L72-L78)
 - [scripts/lib/parse.mjs:35-36](file://scripts/lib/parse.mjs#L35-L36)
 - [scripts/lib/naming.mjs:14-15](file://scripts/lib/naming.mjs#L14-L15)
 - [scripts/sync-data.mjs:288-295](file://scripts/sync-data.mjs#L288-L295)
 
 ### Meta.json Validation
 Each model folder must include a `meta.json` with required fields. If missing, sync scaffolds a placeholder entry and warns that the name is a slug guess requiring human correction. Required fields are enforced first; then the display-name gate rejects underscores in `name`.
+
+**Updated** The validation now uses centralized naming utilities from `scripts/lib/naming.mjs` for improved code organization and maintainability.
 
 Required fields:
 - `id`
@@ -175,14 +186,18 @@ Display-name rule:
 - `name` must be the official vendor display name with spaces, never underscores.
 - Underscores in `name` trigger a FAIL message directing the user to set the correct vendor casing.
 
+The validation leverages two centralized functions:
+- `missingMetaFields()`: Identifies empty or missing required fields
+- `metaNameHasUnderscore()`: Validates that display names don't contain slug artifacts
+
 ```mermaid
 flowchart TD
 Start(["Load meta.json"]) --> Exists{"Exists?"}
 Exists --> |No| Scaffold["Scaffold placeholder meta.json<br/>Warn about slug-guess name"]
 Exists --> |Yes| Parse["Parse JSON"]
-Scaffold --> ValidateFields["Check required fields"]
+Scaffold --> ValidateFields["Use missingMetaFields() to check required fields"]
 Parse --> ValidateFields
-ValidateFields --> NameGate{"name contains '_'?"}
+ValidateFields --> NameGate{"Use metaNameHasUnderscore() to check name"}
 NameGate --> |Yes| FailName["FAIL — replace with official vendor display name"]
 NameGate --> |No| Success["Valid meta.json"]
 FailName --> End(["Exit non-zero if other failures exist"])
@@ -191,15 +206,15 @@ Success --> End
 
 **Diagram sources**
 - [scripts/sync-data.mjs:297-326](file://scripts/sync-data.mjs#L297-L326)
-- [scripts/lib/validate.mjs:62-80](file://scripts/lib/validate.mjs#L62-L80)
+- [scripts/lib/validate.mjs:85-96](file://scripts/lib/validate.mjs#L85-L96)
+- [scripts/lib/naming.mjs:91-98](file://scripts/lib/naming.mjs#L91-L98)
 - [scripts/lib/parse.mjs:33](file://scripts/lib/parse.mjs#L33)
-- [scripts/lib/naming.mjs:49-62](file://scripts/lib/naming.mjs#L49-L62)
 
 **Section sources**
 - [scripts/sync-data.mjs:297-326](file://scripts/sync-data.mjs#L297-L326)
-- [scripts/lib/validate.mjs:62-80](file://scripts/lib/validate.mjs#L62-L80)
+- [scripts/lib/validate.mjs:85-96](file://scripts/lib/validate.mjs#L85-L96)
+- [scripts/lib/naming.mjs:91-98](file://scripts/lib/naming.mjs#L91-L98)
 - [scripts/lib/parse.mjs:33](file://scripts/lib/parse.mjs#L33)
-- [scripts/lib/naming.mjs:49-62](file://scripts/lib/naming.mjs#L49-L62)
 - [model/README.md:32-43](file://model/README.md#L32-L43)
 
 ### Permanence Tripwire
@@ -239,11 +254,11 @@ Next --> End
 - [scripts/lib/validate.test.mjs:16-29](file://scripts/lib/validate.test.mjs#L16-L29)
 
 ### Quarantine Mechanism
-The quarantine mechanism enforces the template’s self-exclusion rule even if the reporting agent forgets it. A findings file is renamed to `.md.excluded` when it is evidence-free or otherwise invalid. Quarantined files are skipped during parsing and averaging.
+The quarantine mechanism enforces the template's self-exclusion rule even if the reporting agent forgets it. A findings file is renamed to `.md.excluded` when it is evidence-free or otherwise invalid. Quarantined files are skipped during parsing and averaging.
 
 Decision criteria:
-- Evidence-free: eight or more “no verified public score found” rows and zero measured bold numeric values.
-- Zero-scored: any quality dimension parsed as zero (“no data” filed as 0).
+- Evidence-free: eight or more "no verified public score found" rows and zero measured bold numeric values.
+- Zero-scored: any quality dimension parsed as zero ("no data" filed as 0).
 - Flat: all five quality dimensions identical and zero cited numbers (invented uniformity).
 
 Real low scores with varied dimensions and cited numbers are preserved.
@@ -296,12 +311,12 @@ NoMirror --> Deleted
 ```
 
 **Diagram sources**
-- [scripts/lib/validate.mjs:40-44](file://scripts/lib/validate.mjs#L40-L44)
+- [scripts/lib/validate.mjs:58-62](file://scripts/lib/validate.mjs#L58-L62)
 - [scripts/sync-data.mjs:160-173](file://scripts/sync-data.mjs#L160-L173)
 
 **Section sources**
 - [scripts/lib/validate.mjs:11-12](file://scripts/lib/validate.mjs#L11-L12)
-- [scripts/lib/validate.mjs:40-44](file://scripts/lib/validate.mjs#L40-L44)
+- [scripts/lib/validate.mjs:58-62](file://scripts/lib/validate.mjs#L58-L62)
 - [scripts/sync-data.mjs:160-173](file://scripts/sync-data.mjs#L160-L173)
 
 ### Classification of Missing Tracked Files
@@ -321,11 +336,11 @@ Mirror --> |No| Deleted["Return 'deleted'"]
 ```
 
 **Diagram sources**
-- [scripts/lib/validate.mjs:34-38](file://scripts/lib/validate.mjs#L34-L38)
+- [scripts/lib/validate.mjs:52-56](file://scripts/lib/validate.mjs#L52-L56)
 - [scripts/lib/validate.test.mjs:31-35](file://scripts/lib/validate.test.mjs#L31-L35)
 
 **Section sources**
-- [scripts/lib/validate.mjs:34-38](file://scripts/lib/validate.mjs#L34-L38)
+- [scripts/lib/validate.mjs:52-56](file://scripts/lib/validate.mjs#L52-L56)
 - [scripts/lib/validate.test.mjs:31-35](file://scripts/lib/validate.test.mjs#L31-L35)
 
 ### Sanitization of Suspicious Filenames
@@ -335,7 +350,7 @@ Suspicious filenames are rejected early in the per-folder loop. The sanitizer us
 - Error message includes the full path and the expected pattern.
 
 **Section sources**
-- [scripts/lib/validate.mjs:54-60](file://scripts/lib/validate.mjs#L54-L60)
+- [scripts/lib/validate.mjs:72-78](file://scripts/lib/validate.mjs#L72-L78)
 - [scripts/lib/parse.mjs:35-36](file://scripts/lib/parse.mjs#L35-L36)
 - [scripts/sync-data.mjs:288-295](file://scripts/sync-data.mjs#L288-L295)
 
@@ -359,7 +374,7 @@ Below are representative failure scenarios produced by the framework:
   - Output: FAIL instructing to set the official vendor display name with spaces.
 
 - Quarantine:
-  - A findings file has many “not found” rows and no measured numbers.
+  - A findings file has many "not found" rows and no measured numbers.
   - Output: QUAR with reason explaining evidence-free status.
 
 - Rater gate fallback:
@@ -374,7 +389,7 @@ These examples correspond to the logging and error paths in the sync orchestrato
 - [scripts/sync-data.mjs:288-295](file://scripts/sync-data.mjs#L288-L295)
 - [scripts/sync-data.mjs:320-324](file://scripts/sync-data.mjs#L320-L324)
 - [scripts/sync-data.mjs:372-386](file://scripts/sync-data.mjs#L372-L386)
-- [scripts/lib/validate.mjs:46-52](file://scripts/lib/validate.mjs#L46-L52)
+- [scripts/lib/validate.mjs:64-70](file://scripts/lib/validate.mjs#L64-L70)
 - [scripts/lib/quarantine.mjs:42-56](file://scripts/lib/quarantine.mjs#L42-L56)
 
 ### Legitimate Operations: Twin Retirement and Relocation
@@ -397,6 +412,8 @@ These operations maintain data consistency while allowing real workflow changes.
 ## Dependency Analysis
 The sync orchestrator depends on several pure helper modules. The diagram shows import relationships and responsibilities.
 
+**Updated** The dependency structure now reflects the refactored naming utilities integration.
+
 ```mermaid
 graph LR
 Sync["scripts/sync-data.mjs"] --> Validate["scripts/lib/validate.mjs"]
@@ -404,12 +421,13 @@ Sync --> Quarantine["scripts/lib/quarantine.mjs"]
 Sync --> Parse["scripts/lib/parse.mjs"]
 Sync --> Naming["scripts/lib/naming.mjs"]
 Validate --> Parse
+Validate --> Naming
 Quarantine --> Parse
 ```
 
 **Diagram sources**
 - [scripts/sync-data.mjs:36-75](file://scripts/sync-data.mjs#L36-L75)
-- [scripts/lib/validate.mjs:9](file://scripts/lib/validate.mjs#L9)
+- [scripts/lib/validate.mjs:9-10](file://scripts/lib/validate.mjs#L9-L10)
 - [scripts/lib/quarantine.mjs:9](file://scripts/lib/quarantine.mjs#L9)
 
 Coupling and cohesion:
@@ -417,6 +435,7 @@ Coupling and cohesion:
 - Helper modules are side-effect free and testable in isolation.
 - `parse.mjs` is shared by both `validate.mjs` and `quarantine.mjs`, centralizing scoring and naming contracts.
 - `naming.mjs` provides slug conventions and display-name utilities consumed by sync and codegen.
+- **New**: `validate.mjs` now imports `missingMetaFields()` and `metaNameHasUnderscore()` from `naming.mjs`, reducing code duplication and improving maintainability.
 
 Potential circular dependencies:
 - None observed; imports are unidirectional from sync to helpers, and helpers depend only on `parse.mjs` and `naming.mjs`.
@@ -427,7 +446,7 @@ External dependencies:
 
 **Section sources**
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
-- [scripts/lib/validate.mjs:9](file://scripts/lib/validate.mjs#L9)
+- [scripts/lib/validate.mjs:9-10](file://scripts/lib/validate.mjs#L9-L10)
 - [scripts/lib/quarantine.mjs:9](file://scripts/lib/quarantine.mjs#L9)
 - [scripts/lib/naming.mjs:1-7](file://scripts/lib/naming.mjs#L1-L7)
 
@@ -436,6 +455,7 @@ External dependencies:
 - Validation and quarantine run before heavy computation, failing fast on invalid inputs.
 - Top-10 cohort selection and rater gating limit averaging work to eligible, high-quality sources.
 - Quiescent runs can suppress verbose logs with the quiet flag, though all validations still execute.
+- Centralized naming utilities reduce code duplication and improve maintainability without impacting runtime performance.
 
 [No sources needed since this section provides general guidance]
 
@@ -464,7 +484,7 @@ Common issues and resolutions:
 
 - Rater gate fallback:
   - Symptom: FALLBACK log indicating no qualifying raters.
-  - Resolution: Ensure the rating model’s own average Overall exceeds the gate threshold, or accept that all available sources are averaged.
+  - Resolution: Ensure the rating model's own average Overall exceeds the gate threshold, or accept that all available sources are averaged.
 
 **Section sources**
 - [scripts/sync-data.mjs:114-118](file://scripts/sync-data.mjs#L114-L118)
@@ -472,19 +492,19 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:288-295](file://scripts/sync-data.mjs#L288-L295)
 - [scripts/sync-data.mjs:320-324](file://scripts/sync-data.mjs#L320-L324)
 - [scripts/sync-data.mjs:372-386](file://scripts/sync-data.mjs#L372-L386)
-- [scripts/lib/validate.mjs:46-52](file://scripts/lib/validate.mjs#L46-L52)
+- [scripts/lib/validate.mjs:64-70](file://scripts/lib/validate.mjs#L64-L70)
 - [scripts/lib/quarantine.mjs:42-56](file://scripts/lib/quarantine.mjs#L42-L56)
 
 ## Conclusion
 The validation framework safeguards the integrity of the model comparison dataset through layered checks:
 
 - Filename hygiene prevents unsafe or ambiguous filenames.
-- `meta.json` validation ensures curated metadata is complete and display-safe.
+- `meta.json` validation ensures curated metadata is complete and display-safe, now leveraging centralized naming utilities for improved code organization.
 - The permanence tripwire blocks accidental deletion of tracked research files, while permitting twin retirement and sanctioned relocation.
 - Quarantine isolates evidence-free or invalid reports automatically.
 - Mirror roots provide a controlled relocation path for specialized model categories.
 - Missing-file classification distinguishes legitimate changes from forbidden deletions.
 
-Together, these mechanisms keep the sync pipeline deterministic, auditable, and resilient to common mistakes, while still supporting legitimate workflows like re-research and file relocation.
+Together, these mechanisms keep the sync pipeline deterministic, auditable, and resilient to common mistakes, while still supporting legitimate workflows like re-research and file relocation. The recent refactoring to use centralized naming utilities improves maintainability and reduces code duplication without changing the validation behavior.
 
 [No sources needed since this section summarizes without analyzing specific files]
