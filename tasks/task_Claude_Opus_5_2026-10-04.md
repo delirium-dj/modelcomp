@@ -404,7 +404,8 @@ not land, or was reverted.
 `README.md:124`, and add `pnpm test` + `pnpm sync` / `sync:quiet` to the script
 list in that file.
 
-### C2. `.antigravity/history/project-map.md` is materially incomplete
+### ✅ C2. `.antigravity/history/project-map.md` is materially incomplete
+**Status (2026-10-04): SOLVED by Muse Spark 1.3 (manual refresh).** Re-verified every gap against disk (all 6 missing items confirmed absent from the map). Rewrote with current facts: 13 components (added `VendorIcon`, `freeZenLink`, `router-head`), `contact/` route, 4 data files, full `scripts/lib/` module inventory (6+6 zero-dep suites), `models.ts` ~370 lines, plus the month's architecture changes (decision shelf, `RATER_GATE` line, robots.txt generation, `SITE_ORIGIN`, per-model head resolver, `assets/vendor-icons/`). On the "generate it in sync" idea: declined — a second code path emitting docs risks its own drift; the file carries a "refreshed" date so staleness is now detectable. Docs-only change.
 Missing from the component/data inventory: `VendorIcon.tsx`, `freeZenLink.tsx`,
 `router-head.tsx`, `routes/contact/`, `src/data/vendorIcons.generated.ts`, and
 the entire `scripts/lib/` module split (6 modules + 6 test files).

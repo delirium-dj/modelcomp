@@ -127,10 +127,17 @@ base slug instead of scaffolding a tier folder:
 - `muse-spark-1.2/` covers **every** Muse Spark 1.2 variant name —
   `Contributor`, `Contributor Free`, `Free`, `Standard`, `Max`,
   `muse-spark-1.2-free/`, `muse-spark-1.2-max/`, `muse-spark-1.2-contributor/`.
-  Same weights everywhere (only price and Meta's data-use differ); renamed
-  from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
-  a separate model. Never create `model/muse-spark-1.2-free/` or
-  `model/muse-spark-1.2-max/` again.
+   Same weights everywhere (only price and Meta's data-use differ); renamed
+   from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
+   a separate model. Never create `model/muse-spark-1.2-free/` or
+   `model/muse-spark-1.2-max/` again.
+- `gemini-2.5-pro/` covers **every** Gemini 2.5 Pro route name —
+  `gemini-2.5-pro` (Zen / AI Studio, `opencode/gemini-2.5-pro`), the Google API /
+  OpenRouter route (`google/gemini-2.5-pro`), and the bare family shorthand
+  `gemini-2.5` (never a separate model — Google ships no such endpoint). Same
+  weights everywhere (only serving route, price, and harness differ). Merged
+  from `model/gemini-2.5/` 2026-10-04 (newer report won per stem); never
+  re-scaffold `model/gemini-2.5/`.
 - `space-bunny/` covers **every** name this anonymous stealth model ships
   under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
   `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,

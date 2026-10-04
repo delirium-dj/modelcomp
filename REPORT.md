@@ -932,9 +932,21 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B8. Deleted the superseded "cur
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B9. Proved same-rater (identical `Provided by` identity; byte-identical duplicates in some folders, two dated runs in others) — but per user decision both registry keys stay, double-counting documented as known-accepted. Consolidation (sync-side alias, averages shift) declined. No files touched.
 
+## 2026-10-04 - Gemini 2.5 Pro merge ATTEMPTED then HALTED — tree contested (Muse Spark 1.3)
+
+User ordered one Gemini 2.5 Pro folder with a Muse-style identity rule. Collision table built (5 newer-wins for `gemini-2.5/`, 2 ties/undated kept incumbent, 1 twin joined its sibling); winners moved via `git mv -f`, losers + `meta.json`/`average.md` removed via `git rm`, folder removed (verified gone); RULES.md route-identity rule + README alias + changelog v8 written. THEN: `model/gemini-2.5/` reappeared on disk with all 10 files at identical sizes (now untracked `??`), and the moved twin vanished from `gemini-2.5-pro/` (staged `AD`). Another party is writing to the tree concurrently (other agents active, user running sync). ALL FILE WORK STOPPED — staged merge left as-is for the user to arbitrate; no commit, no further moves/deletes. Do not re-run: reconcile with whoever restored the folder first.
+
+2026-10-04 (later) — merge resumed (other agents stopped) and completed, then a casualty surfaced: the untracked 10-05 Mimo winner was destroyed when the other party's restore overwrote it. Recovered byte-exact from the git object store (`git cat-file -p 0ebb51…`, 7674 bytes, hash-verified identical) back into `model/gemini-2.5-pro/Mimo_v2.6_Flash.md`. Lesson: never leave a merge winner only-untracked while the tree is contested — stage immediately.
+
+RESOLUTION FOR THE SYNC FAILS (`tracked in HEAD but missing from disk` x7): expected pre-commit — the tripwire compares worktree against HEAD, and the merge deletions are staged but uncommitted. Fix is the deletion commit itself: `git add -A && ALLOW_MODEL_DELETE=1 git commit -m "..." && node scripts/sync-data.mjs --quiet` must then pass with 0 failures (tripwire clears on the deletion commit per RULES.md). Commit left for the user (no commit without explicit request).
+
 ## 2026-10-04 - Purification audit item C1 applied (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` C1. Fixed the false "no test framework" line in `.agents/tech-stack.md` (zero-dep `node --test` suite, 100 tests) and added the missing `test` + `sync`/`sync:quiet` script entries. Docs-only.
+
+## 2026-10-04 - Purification audit item C2 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` C2. Manually refreshed `.antigravity/history/project-map.md` (all gaps verified against disk first): 13 components, `contact/` route, 4 data files, `scripts/lib/` inventory, current line counts, and the month's architecture changes. Auto-generation in sync deliberately declined (second code path, own drift risk); freshness now detectable via the refreshed date. Docs-only.
 
 Post-fix: the shipped version missed the `ensureRaterGateLine` import in `sync-data.mjs` (call wired, import not) — caught by the user's sync run, fixed immediately. Two process notes: always grep-verify imports, and never verify by importing a side-effecting module (the check executed a full sync; `git status` confirmed it wrote nothing).
 

@@ -1,56 +1,70 @@
 # ModelComp — Project Map
 
 High-level GPS map of components, routes, data flow, scripts, and relationships for AI agents.
+Refreshed 2026-10-04 (prior version drifted: component/route/data lists were incomplete).
 
 ## Architecture & Data Flow
 
 ```text
 model/<slug>/<Source_Name>.md      Per-agent research findings (model card, raw benchmarks, 1–100 scores)
 model/<slug>/average.md            Arithmetic means (recomputed by scripts/sync-data.mjs)
-model/<slug>/meta.json             Curated display metadata (name, pricing, context window)
+model/<slug>/meta.json             Curated display metadata (name, pricing, context window,
+                                   optional category: "generative" default, "decision" for
+                                   typed-decision System-One models like Jev)
 models_voice/<slug>/               Same conventions for voice/speech models (RULES.md routing rule;
-                                   NOT scanned by pnpm sync — model/ only; retired
-                                   `voicemodels/` name must never be recreated)
-          │
-           ▼ pnpm sync (scripts/sync-data.mjs)
+                                    NOT scanned by pnpm sync — model/ only; retired
+                                    `voicemodels/` name must never be recreated)
+           │
+            ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle
 src/data/sources.generated.ts     Reporting-agent registry + SourceKey union (auto-registered)
+                                   + managed RATER_GATE export (single source: scripts/lib/parse.mjs)
 model-queue.md                    Pre-sorted `<Overall> <slug>` research queue (agents read this, not every average.md)
-          │
-          ▼ import
+public/robots.txt                 Generated Sitemap pointer (absolute URL from SITE_ORIGIN knob)
+           │
+           ▼ import
 src/data/models.ts                 Hydrates MODELS, SOURCES, DIMENSIONS arrays & source selectors
-          │
-          ▼ consumed by
+                                   (~370 lines; ModelCategory + isDecisionModel live here)
+           │
+           ▼ consumed by
 src/components/ & src/routes/      UI components (HexRadar, ModelCards, CompareSection) & SSG pages
 ```
+
+Site origin for prerendered canonical URLs + sitemap is `SITE_ORIGIN`
+(`adapters/static/vite.config.ts`, localhost default — deploys must set it).
 
 ## Component & Layout Directory
 
 - **Routes (`src/routes/`)**:
   - `layout.tsx`: Main layout wrapper (`Header` + `Slot` + `Footer`).
   - `index.tsx`: Main comparison page (`/`). Renders `Hero`, `CompareSection`, `Methodology`.
-  - `model/[slug]/index.tsx`: Per-model detail page (`/model/<slug>/`). Renders model meta, radar, and best-first reporting table.
+  - `model/[slug]/index.tsx`: Per-model detail page (`/model/<slug>/`). Renders model meta, radar, and best-first reporting table. Per-model `<title>`/description via a `DocumentHead` resolver.
+  - `contact/index.tsx`: Contact page (unconfigured inbox — see audit B12).
 
-- **Components (`src/components/`)**:
+- **Components (`src/components/`, 13 files)**:
   - `Header.tsx`: Navigation header with model count badge, mobile hamburger drawer, and theme toggle.
   - `Hero.tsx`: Page hero banner with key stats.
   - `HeroArt.tsx`: SVG hex radar decorative background graphics.
-  - `CompareSection.tsx`: Model A/B/C comparison section with radar chart, exact score table, model cards, and source selector.
-  - `HexRadar.tsx`: Interactive SVG radar chart mapping 6 dimensions (Tool, Reasoning, Context, Cost, Coding, Multimodal).
-  - `ModelCards.tsx`: Displays model cards with pricing badges, context window size, short description, and links.
+  - `CompareSection.tsx`: Model A/B/C comparison section with radar chart, exact score table, model cards, and source selector. Decision models are excluded from the A/B/C slots.
+  - `HexRadar.tsx`: Interactive SVG radar chart mapping 6 dimensions (Tool, Reasoning, Context, Cost, Coding, Multimodal). Tooltips append `freeTierNote` when present.
+  - `ModelCards.tsx`: Displays model cards with pricing badges, context window size, short description, and links. Decision models render on a separate shelf with native specs (never ranked against Overall).
   - `ModelSelect.tsx`: Dropdown for switching Results source (`Average` or specific reporting agent).
-  - `Methodology.tsx`: Explains the 1–100 scoring rules and Overall score formula (mean of 5 quality dimensions, cost excluded).
+  - `Methodology.tsx`: Explains the 1–100 scoring rules and Overall score formula (mean of 5 quality dimensions, cost excluded), plus the decision-model paradigm note.
+  - `router-head.tsx`: Owns `<title>`, canonical link, `og:`/`twitter:` tags, favicon, manifest.
+  - `VendorIcon.tsx`: Brand icons inlined from `vendorIcons.generated.ts` (no `<img>`, no network requests).
+  - `freeZenLink.tsx`: Links "Free OpenCode Zen tier" strings to the Zen catalog.
   - `theme-toggle/theme-toggle.tsx`: Dark/light mode switcher interacting with `document.documentElement`.
   - `Footer.tsx`: Footer with credits and copyright.
 
-- **Data Layer (`src/data/`)**:
-  - `models.ts`: Core data logic (~330 lines), zero hardcoded model entries.
-  - `scores.generated.ts`: Pre-parsed numbers-only scores, auto-generated by `scripts/sync-data.mjs`.
-  - `sources.generated.ts`: Reporting-agent registry + `SourceKey` union, auto-generated by `scripts/sync-data.mjs`.
+- **Data Layer (`src/data/`, 4 files)**:
+  - `models.ts`: Core data logic, zero hardcoded model entries.
+  - `scores.generated.ts`: Pre-parsed numbers-only scores, auto-generated by `pnpm sync`.
+  - `sources.generated.ts`: Reporting-agent registry + `SourceKey` union, auto-generated by `pnpm sync`.
+  - `vendorIcons.generated.ts`: Inlined brand-SVG artwork (hand-maintained; source SVGs vendored under `assets/vendor-icons/`, kept out of `public/` so they are not deployed).
 
 - **Scripts & Admin**:
   - `scripts/sync-data.mjs`: Data sync script executed via `pnpm sync`.
-  - `BACKLOG.md`: Living improvement backlog (open items only; dated history in `REPORT.md`).
+  - `scripts/lib/` (6 modules + 6 `*.test.mjs` suites, zero-dep `node:test`): `parse` (score parsing, `RATER_GATE`), `quarantine` (evidence-free exclusion), `naming` (stems/slugs/scaffold), `validate` (tripwires, meta gates), `average` (means, queue), `codegen` (registry surgery, scores emit, robots.txt).
   - `tasks/`: `research-assign.md` (canonical delegator — the agent resolves its own STEM via its Identity resolution chain), `research.md` (research workflow), `sync-data.md` (sync workflow).
   - `.agents/`: Rules, tech-stack, rate limit guidelines for agents.
   - `.antigravity/`: Antigravity-specific rules and local cache workflows.
