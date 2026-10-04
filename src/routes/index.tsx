@@ -5,16 +5,17 @@ import { CompareSection } from "../components/CompareSection";
 import { Methodology } from "../components/Methodology";
 import { ModelCards } from "../components/ModelCards";
 import { MODELS, SOURCES, virtualDimFor, slugForSource } from "../data/models";
-import type { DimensionKey, ResultsView, SourceKey } from "../data/models";
+import type { AiModel, DimensionKey, ResultsView, SourceKey } from "../data/models";
+
+/** Top-3 model ids under a comparator (missing slots are ""). */
+const top3 = (cmp: (a: AiModel, b: AiModel) => number): [string, string, string] => {
+  const s = [...MODELS].sort(cmp);
+  return [s[0]?.id ?? "", s[1]?.id ?? "", s[2]?.id ?? ""];
+};
 
 /** Homepage defaults: top 3 models by average Overall Score (recomputed from MODELS). */
 function top3ByOverall(): [string, string, string] {
-  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
-  return [
-    sorted[0]?.id ?? "",
-    sorted[1]?.id ?? "",
-    sorted[2]?.id ?? "",
-  ];
+  return top3((a, b) => b.scores.overall - a.scores.overall);
 }
 
 const [TOP_A, TOP_B, TOP_C] = top3ByOverall();
@@ -27,14 +28,7 @@ const DEFAULTS = {
 
 /** Top 3 models by one average dimension score (tiebreak Overall). */
 function top3ByDim(dim: DimensionKey): [string, string, string] {
-  const sorted = [...MODELS].sort(
-    (a, b) => b.scores[dim] - a.scores[dim] || b.scores.overall - a.scores.overall,
-  );
-  return [
-    sorted[0]?.id ?? "",
-    sorted[1]?.id ?? "",
-    sorted[2]?.id ?? "",
-  ];
+  return top3((a, b) => b.scores[dim] - a.scores[dim] || b.scores.overall - a.scores.overall);
 }
 
 /** Top 3 model ids for a results source: by dimension for virtual views, by that
@@ -44,7 +38,7 @@ function top3ForSource(source: ResultsView): [string, string, string] {
   const dim = virtualDimFor(source);
   if (dim !== undefined) return top3ByDim(dim);
   if (source !== "average") {
-    const ranked = [...MODELS].sort((a, b) => {
+    return top3((a, b) => {
       const sa = a.sources[source as SourceKey]?.overall;
       const sb = b.sources[source as SourceKey]?.overall;
       if (sa === undefined && sb === undefined) return b.scores.overall - a.scores.overall;
@@ -52,18 +46,8 @@ function top3ForSource(source: ResultsView): [string, string, string] {
       if (sb === undefined) return -1;
       return sb - sa || b.scores.overall - a.scores.overall;
     });
-    return [
-      ranked[0]?.id ?? "",
-      ranked[1]?.id ?? "",
-      ranked[2]?.id ?? "",
-    ];
   }
-  const sorted = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
-  return [
-    sorted[0]?.id ?? "",
-    sorted[1]?.id ?? "",
-    sorted[2]?.id ?? "",
-  ];
+  return top3ByOverall();
 }
 
 function validId(raw: string | null, fallback: string): string {

@@ -47,15 +47,15 @@
 83.6 muse-spark-1.1
 83.5 kimi-k2.6
 83.5 seed-2.0-pro
+83.4 gemini-2.5-pro
 83.2 ox_alpha
 83 gpt-5.2
-82.6 gemini-2.5-pro
 82.5 grok-4.5
-82.5 qwen-3.8-flash-next
 82.3 deepseek-v4-pro
 82.3 deepseek-v4-vision-exp
 82.3 grok-4.3
 82 qwen-3.5-plus
+82 qwen-3.8-flash-next
 81.9 gpt-5.3-codex
 81.9 mimo-v2.6-free
 81.7 gpt-5

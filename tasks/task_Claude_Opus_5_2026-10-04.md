@@ -494,6 +494,7 @@ reference) + `REPORT.md` as the append-only dated history. Retire the rest
 ### Data layer & routes
 
 **D1. `src/routes/index.tsx` — three copies of "sort, take 3 ids".**
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Collapsed to one `top3(cmp)` helper; comparators unchanged. Re-applied once after an external revert; staged. Tests 100/100; typecheck pending user build.
 `top3ByOverall()` (11–18), `top3ByDim()` (29–38) and the `average` branch of
 `top3ForSource()` (61–66) are the same shape; the first and third are
 *identical*. Collapse to one helper:
