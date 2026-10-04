@@ -880,6 +880,10 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A6-A7, each re-verified before 
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A13. Deleted the stale committed typecheck receipt (`.antigravity/history/last-lint-result.json`, frozen 2026-09-21) via `git rm`. Followed the guidance's conditional: the `/kickstart` workflow did read that file, so `.antigravity/workflows/kickstart.md` (step 3) and `.antigravity/rules.md` (memory-store list + command effect) were rewired to a live `pnpm build.types` check instead of a snapshot. `pnpm test` 94/94 green.
 
+## 2026-10-04 - Purification audit item A14 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A14. Replaced the duplicated `.antigravity/history/dependency-graph.md` body (31 lines, ~90% overlap with `.agents/tech-stack.md`) with a pointer to the canonical file; file itself kept so kickstart/rules references keep resolving. `pnpm test` 94/94 green.
+
 ## 2026-10-04 - Purification audit item A8 applied (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A8. Deleted the hardcoded Big Pickle branch in `HexRadar.tsx` `tooltipFor` and replaced it with a generic `freeTierNote` append — 23 model folders carry that field, so all of them benefit instead of one. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.

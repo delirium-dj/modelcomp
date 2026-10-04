@@ -175,7 +175,8 @@ state", which cannot be determined from this file.
 `/kickstart` protocol needs it, generate it from the build instead of committing
 a snapshot.
 
-### A14. `.antigravity/history/dependency-graph.md` duplicates `.agents/tech-stack.md`
+### ✅ A14. `.antigravity/history/dependency-graph.md` duplicates `.agents/tech-stack.md`
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (same versions/scripts, ~90% overlap; only unique line was the Windows-shell note, already covered by the environment spec). Took the pointer option: body replaced with a one-line pointer to the canonical `.agents/tech-stack.md`, file kept so kickstart/rules references keep resolving (31-line dup → 3-line pointer). `pnpm test` 94/94 green.
 Same versions, same script list, same locked-stack statement, ~90 % overlap.
 `.agents/tech-stack.md` is the canonical home (it is in AGENTS.md's required
 reading list; dependency-graph.md is not).
