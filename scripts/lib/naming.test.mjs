@@ -9,7 +9,6 @@ import {
   resolveSourceMeta,
   SLUG_VERSION_EXCEPTION,
   hyphenVersionViolation,
-  VIRTUAL_KEYS,
   formatSlugGuess,
   missingMetaFields,
   metaNameHasUnderscore,
@@ -104,13 +103,6 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("qwen-3.8-27b"), null);
     // Version 3.5 + 9B params: the "5-9" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-9b"), null);
-  });
-});
-
-describe("VIRTUAL_KEYS", () => {
-  it("holds exactly the six sort views (never average)", () => {
-    assert.deepEqual([...VIRTUAL_KEYS].sort(), ["code", "context", "cost", "multi", "reason", "tool"]);
-    assert.ok(!VIRTUAL_KEYS.has("average"));
   });
 });
 

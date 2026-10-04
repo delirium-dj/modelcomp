@@ -112,7 +112,7 @@ const SOURCE_OVERRIDES = {
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
 };
 
-// Virtual sort-view keys live in scripts/lib/naming.mjs (VIRTUAL_KEYS).
+// Virtual sort-view keys live in src/data/models.ts (VIRTUAL_VIEWS).
 // halfUp1 lives in scripts/lib/parse.mjs. Grandfathered virtual entries
 // (file "average.md") are pruned from the registry below.
 

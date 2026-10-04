@@ -7,6 +7,7 @@
 // does the fs/git calls and logging, these functions lock the *decisions*.
 
 import { FILENAME_RE, META_REQUIRED } from "./parse.mjs";
+import { missingMetaFields, metaNameHasUnderscore } from "./naming.mjs";
 
 /** Sanctioned mirror trees for user-directed relocations (e.g. voice models). */
 export const MIRROR_ROOTS = ["models_voice", "models_finance"];
@@ -83,12 +84,10 @@ export function checkFilename(slug, f) {
  */
 export function checkMetaFile(slug, meta, required = META_REQUIRED) {
   const messages = [];
-  for (const k of required) {
-    if (typeof meta[k] !== "string" || meta[k].length === 0) {
-      messages.push(`model/${slug}/meta.json: missing required field "${k}"`);
-    }
+  for (const k of missingMetaFields(meta, required)) {
+    messages.push(`model/${slug}/meta.json: missing required field "${k}"`);
   }
-  if (typeof meta.name === "string" && meta.name.includes("_")) {
+  if (metaNameHasUnderscore(meta.name)) {
     messages.push(
       `model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`,
     );

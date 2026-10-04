@@ -68,6 +68,7 @@ is long finished.
 **Guidance:** delete the block and the comment above it.
 
 ### A3. `scripts/lib/naming.mjs` — three exports no production code uses
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** `checkMetaFile` now calls `missingMetaFields` + `metaNameHasUnderscore` (byte-identical messages, covered by existing `validate.test.mjs` contract tests); `VIRTUAL_KEYS` deleted from `naming.mjs` (it was *fully* orphaned — not even the claimed comment reference, which pointed at it without importing it) plus its test block and import; `sync-data.mjs:115` comment repointed at the real home (`src/data/models.ts` `VIRTUAL_VIEWS`). `node --check` clean on all three files, zero remaining `VIRTUAL_KEYS` references, `pnpm test` 94/94 green (one test removed by design).
 - `VIRTUAL_KEYS` (line 47) — referenced only by a stale comment at
   `sync-data.mjs:115` and by `naming.test.mjs`.
 - `missingMetaFields` (line 94) — only `naming.test.mjs`.

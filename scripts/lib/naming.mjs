@@ -43,9 +43,6 @@ export function hyphenVersionViolation(slug, exceptions = SLUG_VERSION_EXCEPTION
   return slug.replace(/(\d)-(?=\d)/g, "$1.");
 }
 
-/** Virtual sort-view keys: never real agents, never in SOURCE_DEFS. */
-export const VIRTUAL_KEYS = new Set(["tool", "reason", "context", "cost", "code", "multi"]);
-
 /**
  * Auto-scaffolded meta.json display name: a slug guess (title-cased). NEVER
  * the official vendor name — a human must replace it before it is trustworthy.

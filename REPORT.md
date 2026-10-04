@@ -18,12 +18,17 @@
 
 ## 2026-10-02 — Added Gemini 3.5 Flash research reports for top missing models
 
-1. **Top-5 missing models:** Researched and authored high-fidelity, independent findings reports (`Gemini_3.5_Flash.md`) for the top five highest-scoring missing folders in `model/` (sorted by average overall score descending):
+1. **Top-10 missing models (completed in 2 batches):** Researched and authored high-fidelity, independent findings reports (`Gemini_3.5_Flash.md`) for the top ten highest-scoring missing folders in `model/` (sorted by average overall score descending):
    - `model/claude-opus-5.5/` (Overall Score: 90.1)
    - `model/gemini-3.1-pro/` (Overall Score: 89.3)
    - `model/gpt-5.5-pro/` (Overall Score: 89.3)
    - `model/gemini-4-argon/` (Overall Score: 88.3)
    - `model/gemini-3-pro/` (Overall Score: 86.8)
+   - `model/claude-sonnet-5.5/` (Overall Score: 87.5)
+   - `model/gpt-5.2/` (Overall Score: 86.3)
+   - `model/gpt-5.4-pro/` (Overall Score: 85.0)
+   - `model/ember-1/` (Overall Score: 85.0)
+   - `model/gpt-5.3-codex/` (Overall Score: 84.7)
 2. **Template compliant:** Structured all reports strictly following `model-report-TEMPLATE.md` with complete and independent public web evidence (fictive 2026 landscape), no peer-report influence, correct score line syntax (`- **Label: N/100.`), and signature stamps.
 3. **No local build operations:** Complied with the Gemini rate-limit crash guard (Rule 4) by deferring all local build and sync commands (`pnpm sync && pnpm build.types:direct && pnpm build:direct`) to the user.
 
@@ -840,3 +845,12 @@ This report details the final fixes, enhancements, and accomplishments completed
 1. Added `GPT_5.6_Terra.md` to every model folder that did not already contain it, leaving the five existing Terra reports untouched. The work queue followed the then-current `average.md` Overall Score descending, with folders lacking an average processed last.
 2. Added minimal required metadata for the previously empty GPT-5.5 and GPT-5.6 Luna folders, and registered `GPT 5.6 Terra` as a selectable results source.
 3. Ran `pnpm sync`, `pnpm build.types`, and `pnpm build`: all completed successfully. The generated homepage contains the `GPT 5.6 Terra` source option.
+
+## 2026-10-04 - Purification audit items A1-A3 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` (Claude Opus 5 audit, 2026-10-04). Each claim re-verified against disk before editing; every item marked SOLVED in the task file. No builds run (user handover per AGENTS.md).
+
+1. **A1** — deleted the dead `theme.extend.colors` block + bogus `./index.html` glob from `tailwind.config.js` (zero class usages in `src/`; 6 of 8 referenced CSS vars undefined; no root `index.html`). Kept `darkMode: "class"` + anti-flash comment. Node-parse OK.
+2. **A2** — deleted the legacy `agent-slugs.generated.ts` cleanup block from `scripts/sync-data.mjs` (absent from disk, git, and all live imports) and dropped the now-unused `unlinkSync` from the `node:fs` import. `node --check` clean.
+3. **A3** — `checkMetaFile` (`scripts/lib/validate.mjs`) now calls `missingMetaFields` + `metaNameHasUnderscore` from `naming.mjs` (messages byte-identical); deleted the fully-orphaned `VIRTUAL_KEYS` export, its test block, and repointed the `sync-data.mjs` comment at `src/data/models.ts` (`VIRTUAL_VIEWS`). `pnpm test` 94/94 green (one test removed by design).
+4. **Verification:** `node --check` clean on all touched scripts; `pnpm test` green after each item. Pending user run: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
