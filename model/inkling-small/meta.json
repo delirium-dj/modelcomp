@@ -1,0 +1,9 @@
+{
+  "id": "opencode/inkling-small",
+  "name": "Inkling Small",
+  "short": "Inkling Small model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}
