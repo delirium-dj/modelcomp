@@ -71,7 +71,7 @@ export type SourceKey =
   | "Claude Opus 4.8";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
-export type ViewKey = "overall" | "tool" | "reason" | "context" | "cost" | "code" | "multi";
+export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
 
 /** Any selectable results-source value: a real source or a virtual view. */
 export type ResultsView = ViewKey | SourceKey;

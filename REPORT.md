@@ -854,3 +854,28 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` (Claude Opus 5 audit, 2026-10-0
 2. **A2** — deleted the legacy `agent-slugs.generated.ts` cleanup block from `scripts/sync-data.mjs` (absent from disk, git, and all live imports) and dropped the now-unused `unlinkSync` from the `node:fs` import. `node --check` clean.
 3. **A3** — `checkMetaFile` (`scripts/lib/validate.mjs`) now calls `missingMetaFields` + `metaNameHasUnderscore` from `naming.mjs` (messages byte-identical); deleted the fully-orphaned `VIRTUAL_KEYS` export, its test block, and repointed the `sync-data.mjs` comment at `src/data/models.ts` (`VIRTUAL_VIEWS`). `pnpm test` 94/94 green (one test removed by design).
 4. **Verification:** `node --check` clean on all touched scripts; `pnpm test` green after each item. Pending user run: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
+
+## 2026-10-04 - Purification audit item A5 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A5. Re-verified via repo-wide grep, then trimmed `src/data/models.ts`: `SourceDef` dropped from both the `sources.generated` import and the type re-export (it appeared on those two lines only, never in any body); `ViewKey` dropped from the re-export but kept on the import (used internally by `VIRTUAL_VIEWS`). Re-export is now `export type { SourceKey, ResultsView }`. `pnpm test` 94/94 green; full typecheck pending user `build.types`.
+
+## 2026-10-04 - Purification audit item A4 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A4 (whitespace only — unrelated to A5's dead re-exports). Removed the 5 leading blank lines at the top of `src/data/models.ts`; `git diff` confirms only those 5 deletions. CRLF line endings required a byte-exact strip. `pnpm test` 94/94 green.
+
+## 2026-10-04 - Purification audit items A6-A7 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A6-A7, each re-verified before editing.
+
+1. **A6** — deleted `AGENT_MODEL_SLUG` (sole call site `sourceRankOverall`; zero test refs) and inlined `SOURCE_DEFS.find((s) => s.key === key)?.slug`. Deliberately NOT `SOURCES.find` — that would read `SOURCES` inside its own initializer (TDZ crash). Also removes one phantom "SIMPLIFY-PLAN" citation (A21).
+2. **A7** — dropped dead `"overall"` from the `ViewKey` union in `src/data/sources.generated.ts`. Correction to the audit: no script emits that union (same header overclaim as A10), so it was edited in place and no `pnpm sync` can restore it. `sortSourceFor`, `validSource`, and `parseUnionMembers` are all independent of it — verified.
+3. **Verification:** zero remaining `AGENT_MODEL_SLUG` references (excl. audit/history docs); `pnpm test` 94/94 green. Full typecheck pending user run: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
+
+## 2026-10-04 - Purification audit item A10 applied, A1-A8 marked (Muse Spark 1.3)
+
+1. **A10** — moved all 21 brand SVGs (`public/icons/`, 41,739 B of undeployed dead weight, all copied to `dist/icons/` on every build) to `assets/vendor-icons/` via `git mv` (history preserved); removed the empty dir. `public/` now holds only referenced assets. Re-labeled the `vendorIcons.generated.ts` header honestly (new source path + hand-maintained, no generator). `pnpm test` 94/94 green.
+2. **Readability** — added ✅ markers to the eighth solved headings (A1–A8) in `tasks/task_Claude_Opus_5_2026-10-04.md`; A9 deliberately unmarked (skipped per user).
+
+## 2026-10-04 - Purification audit item A8 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A8. Deleted the hardcoded Big Pickle branch in `HexRadar.tsx` `tooltipFor` and replaced it with a generic `freeTierNote` append — 23 model folders carry that field, so all of them benefit instead of one. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.

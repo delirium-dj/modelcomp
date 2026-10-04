@@ -53,8 +53,8 @@ function tooltipFor(model: AiModel, d: Dimension): string {
   } else if (d.key === "multimodal") {
     base = model.name + " — Multimodal: " + model.meta.modalities;
   }
-  if (model.id === "opencode/big-pickle" || model.name.includes("Big Pickle")) {
-    base += " (Free stealth tier on OpenCode Zen during promotional period.)";
+  if (model.meta.freeTierNote) {
+    base += " (" + model.meta.freeTierNote + ")";
   }
   return base;
 }

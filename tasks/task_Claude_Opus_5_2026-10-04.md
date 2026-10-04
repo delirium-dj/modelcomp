@@ -37,7 +37,7 @@ dead code because of a variable-shadowing bug and has never once fired.
 
 ## PART A — Eliminate (no longer relevant)
 
-### A1. `tailwind.config.js` — the whole `theme.extend.colors` block is dead
+### ✅ A1. `tailwind.config.js` — the whole `theme.extend.colors` block is dead
 **Status (2026-10-04): SOLVED by Muse Spark 1.3.** Independently re-verified (zero class usages in `src/`; only `--color-bg` / `--color-text-main` defined in `global.css`; no root `index.html`), config reduced to `{ darkMode: "class", content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"], plugins: [] }` with the anti-flash comment kept, node-parse OK. Pending user `pnpm sync && build` verification.
 `tailwind.config.js:5–20` defines `background`, `surface`, `primary`,
 `secondary`, `text.{main,muted,inverted}`, `border` mapped to CSS variables.
@@ -60,14 +60,14 @@ export default { darkMode: "class", content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
 Keep the `darkMode: "class"` comment — it is load-bearing for the anti-flash
 script in `root.tsx`.
 
-### A2. `scripts/sync-data.mjs:560–569` — legacy `agent-slugs.generated.ts` cleanup
+### ✅ A2. `scripts/sync-data.mjs:560–569` — legacy `agent-slugs.generated.ts` cleanup
 **Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (absent from disk, `git ls-files`, and all live imports — only REPORT.md history and the audit itself mention it). Deleted the `try/unlinkSync` block and dropped the now-unused `unlinkSync` from the `node:fs` import (`existsSync` stays — used elsewhere). `node --check` clean, `pnpm test` 95/95 green.
 A `try/unlinkSync` block that deletes `src/data/agent-slugs.generated.ts`.
 Verified absent from disk **and** from `git ls-files`. The migration it guards
 is long finished.
 **Guidance:** delete the block and the comment above it.
 
-### A3. `scripts/lib/naming.mjs` — three exports no production code uses
+### ✅ A3. `scripts/lib/naming.mjs` — three exports no production code uses
 **Status (2026-10-04): SOLVED by Muse Spark 1.3.** `checkMetaFile` now calls `missingMetaFields` + `metaNameHasUnderscore` (byte-identical messages, covered by existing `validate.test.mjs` contract tests); `VIRTUAL_KEYS` deleted from `naming.mjs` (it was *fully* orphaned — not even the claimed comment reference, which pointed at it without importing it) plus its test block and import; `sync-data.mjs:115` comment repointed at the real home (`src/data/models.ts` `VIRTUAL_VIEWS`). `node --check` clean on all three files, zero remaining `VIRTUAL_KEYS` references, `pnpm test` 94/94 green (one test removed by design).
 - `VIRTUAL_KEYS` (line 47) — referenced only by a stale comment at
   `sync-data.mjs:115` and by `naming.test.mjs`.
@@ -81,15 +81,18 @@ The last two are worse than dead: `scripts/lib/validate.mjs:86–95`
 exports live), then delete `VIRTUAL_KEYS` and the `sync-data.mjs:115` comment.
 See also **D17**.
 
-### A4. `src/data/models.ts:1–5` — five leading blank lines before the first comment.
+### ✅ A4. `src/data/models.ts:1–5` — five leading blank lines before the first comment.
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Different from A5 (that was dead type re-exports; this is pure whitespace). Removed the 5 leading blank lines byte-precisely (`git diff` shows only those 5 deletions in that hunk). Note: the file uses CRLF line endings, so the deletion was done via a byte-exact strip rather than the edit tool. `pnpm test` 94/94 green.
 
-### A5. `src/data/models.ts:30` — dead type re-exports
+### ✅ A5. `src/data/models.ts:30` — dead type re-exports
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified via repo-wide grep: `SourceDef` appeared only on the import + re-export lines (never used in any body), `ViewKey` is used internally (`VIRTUAL_VIEWS`) but never imported by any consumer. Removed `SourceDef` from both the import and the re-export, `ViewKey` from the re-export only — one step beyond the guidance, which covered only the re-export line. Remaining `SourceDef` refs are just its canonical definition in `sources.generated.ts`. `pnpm test` 94/94 green (typecheck of the touched file is pending user `build.types`).
 `export type { SourceKey, SourceDef, ViewKey, ResultsView }`. Verified: no file
 imports `SourceDef` or `ViewKey` from `../data/models` (consumers import
 `AiModel`, `ResultsView`, `SourceKey`, `DimensionKey`, `ModelScores` only).
 **Guidance:** keep `SourceKey` + `ResultsView`, drop the other two.
 
-### A6. `src/data/models.ts:26–28` — `AGENT_MODEL_SLUG` export is unnecessary
+### ✅ A6. `src/data/models.ts:26–28` — `AGENT_MODEL_SLUG` export is unnecessary
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (sole call site `sourceRankOverall`; zero test references). Inlined as `SOURCE_DEFS.find((s) => s.key === key)?.slug` — behavior-identical — and deleted the constant + its comment. Caution honored: did NOT inline `SOURCES.find` (that would read `SOURCES` inside its own initializer → TDZ crash); `SOURCE_DEFS` is an import, always initialized. Side effect: removes one of the six phantom "SIMPLIFY-PLAN" citations (A21). `pnpm test` 94/94 green.
 Its own doc-comment says it is "kept as a named export so existing call sites
 keep working" and recommends `SOURCES.find(s => s.key === key)?.slug` for new
 code. Verified: the **only** call site is `sourceRankOverall` at line 296, in
@@ -97,7 +100,8 @@ the same file.
 **Guidance:** drop `export`, or inline it into `sourceRankOverall` as the
 comment advises.
 
-### A7. `ViewKey` carries a dead `"overall"` member
+### ✅ A7. `ViewKey` carries a dead `"overall"` member
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (`"overall"` never a `VIRTUAL_VIEWS` key, never in `SOURCES`; `sortSourceFor`'s `"overall"` is its own inline literal; `validSource` takes `string` and returns `"average"`; `parseUnionMembers` regexes only the `SourceKey` union). Correction to the guidance: the emitter is NOT `codegen.mjs` — no script emits the `ViewKey` union, it is hand-curated in the generated file (same overclaim class as A10), so the union was edited in place and no script change was needed; next `pnpm sync` cannot restore it. Union is now `"tool" | "reason" | "context" | "cost" | "code" | "multi"`. `pnpm test` 94/94 green; full typecheck pending user `build.types`.
 `src/data/sources.generated.ts:74` declares
 `ViewKey = "overall" | "tool" | ...`. `"overall"` is never a `VIRTUAL_VIEWS`
 key, never appears in `SOURCES`, and `validSource` (`routes/index.tsx:82`)
@@ -107,7 +111,8 @@ rewrites it to `"average"`. `sortSourceFor` accepts `"overall"` as a
 `scripts/lib/codegen.mjs` / the committed generated file — change the generated
 source and re-run `pnpm sync` to confirm it round-trips.
 
-### A8. `src/components/HexRadar.tsx:56–58` — hardcoded Big Pickle special case
+### ✅ A8. `src/components/HexRadar.tsx:56–58` — hardcoded Big Pickle special case
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (branch matched on id/name; `model/big-pickle/meta.json` already carries the same sentence as `freeTierNote`). Replaced with a generic `if (model.meta.freeTierNote)` append — verified 23 model folders carry `freeTierNote`, so every one of them now gets the tooltip note instead of just Big Pickle. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.
 ```ts
 if (model.id === "opencode/big-pickle" || model.name.includes("Big Pickle")) {
   base += " (Free stealth tier on OpenCode Zen during promotional period.)";
@@ -129,7 +134,8 @@ the only orphan.
 **Guidance:** pick one — wire `{ match: "hunyuan", icon: "hunyuan", … }` (better
 branding for `model/hy3/`, `hy3-preview/`, `hy4/`) or drop both assets.
 
-### A10. `public/icons/` is published dead weight
+### ✅ A10. `public/icons/` is published dead weight
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (21 SVGs / 41,739 B in `public/icons`, all 21 copied to `dist/icons`; `VendorIcon` inlines from the generated file with no `<img>`/network; nothing outside history docs references `public/icons` or `/icons/` URLs; no generator script exists). Moved all 21 files with history via `git mv` to `assets/vendor-icons/` and removed the empty `public/icons/` dir — `public/` now holds only referenced assets (favicon, manifest, backers image). Re-labeled the generated-file header honestly (source path + "no generator script — hand-maintained"), which also resolves the related sub-finding. `pnpm test` 94/94 green.
 21 SVGs (41 KB) are copied to `dist/icons/` on every build (verified: 21 files
 present in `dist/icons/`) but are **never requested at runtime** —
 `VendorIcon.tsx:26–28` states it inlines everything from

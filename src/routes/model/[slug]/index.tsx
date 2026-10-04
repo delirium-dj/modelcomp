@@ -70,6 +70,20 @@ export default component$(() => {
   // Context, Reason, Multi, Tool, Code, Cost last (Cost = independent stat).
   const TABLE_DIM_ORDER: DimensionKey[] = ["context", "reasoning", "multimodal", "tool", "coding", "cost"];
   const tableDims = TABLE_DIM_ORDER.map((key) => DIMENSIONS.find((d) => d.key === key)!);
+  // Auto verdict: best/worst quality dimension from the averaged scores.
+  // Cost excluded by design (never counts toward Overall, RULES.md) — this
+  // answers "genuinely best at THIS, worst use case is THAT" with zero new
+  // data. Curated editorial override is future work (see model/README.md).
+  const VERDICT_USE: Record<string, string> = {
+    tool: "agentic tool use",
+    reasoning: "complex, multi-step reasoning",
+    context: "large-context work",
+    coding: "software engineering and coding",
+    multimodal: "multimodal work (images, audio, video)",
+  };
+  const qualityDims = DIMENSIONS.filter((d) => d.key !== "cost");
+  const verdictBest = qualityDims.reduce((a, b) => (model.scores[b.key] > model.scores[a.key] ? b : a));
+  const verdictWorst = qualityDims.reduce((a, b) => (model.scores[b.key] < model.scores[a.key] ? b : a));
   const hl = (value: number, st: ColStats, label: string, bold: boolean) => {
     const isBest = st.best !== null && value === st.best;
     const isWorst = st.worst !== null && value === st.worst && value !== st.best;
@@ -149,8 +163,8 @@ export default component$(() => {
             Overall {model.scores.overall}
           </span>
         </div>
-        <p class="mt-3 max-w-3xl text-base text-slate-600 transition-colors dark:text-slate-300">{model.short}</p>
-        <dl class="mt-4 grid max-w-3xl grid-cols-1 gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
+        <p class="mt-3 text-base text-slate-600 transition-colors dark:text-slate-300">{model.short}</p>
+        <dl class="mt-4 grid grid-cols-1 gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
           <div class="flex gap-1">
             <dt class="font-semibold text-slate-700 dark:text-slate-200">Context:</dt>
             <dd>{model.meta.contextWindow}</dd>
@@ -173,8 +187,31 @@ export default component$(() => {
 
       <section aria-label="Average scores" class="mx-auto max-w-6xl px-4 py-6">
         <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Average scores</h2>
-        <div class="mt-4 max-w-[560px]">
-          <HexRadar series={[{ model, color: MODEL_COLORS[0] as string }]} />
+        <div class="mt-4 flex justify-center">
+          <div class="w-full max-w-[560px]">
+            <HexRadar series={[{ model, color: MODEL_COLORS[0] as string }]} />
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Verdict" class="mx-auto max-w-6xl px-4 pb-6">
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-300">
+          <p>
+            <span class="font-semibold text-slate-900 dark:text-white">Verdict: </span>
+            {verdictBest.key === verdictWorst.key ? (
+              <>Scores are even across dimensions — no standout strength or weakness yet.</>
+            ) : (
+              <>
+                This model is genuinely best at {VERDICT_USE[verdictBest.key] ?? verdictBest.label} (
+                {verdictBest.label} {model.scores[verdictBest.key]}/100) and weakest at{" "}
+                {VERDICT_USE[verdictWorst.key] ?? verdictWorst.label} ({verdictWorst.label}{" "}
+                {model.scores[verdictWorst.key]}/100).
+              </>
+            )}
+          </p>
+          <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+            Auto-derived from average scores (highest vs. lowest quality dimension; cost excluded).
+          </p>
         </div>
       </section>
 

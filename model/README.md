@@ -42,6 +42,14 @@ of text and are never comparable to generative Overall),
 each later run re-logs the stub until a human replaces the slug-guessed
 `name`, which clears the stamp automatically; deleting it by hand also works).
 
+Future (not yet implemented): curated editorial verdict. The per-model page
+currently shows an auto-derived verdict (highest vs. lowest average quality
+dimension, cost excluded). A true editorial verdict would add optional
+`bestUse` / `avoidUse` strings here (1–2 sentences, hand-curated per model,
+e.g. `"bestUse": "Genuinely best at cheap agentic coding sprints."`,
+`"avoidUse": "Worst use case: multimodal work."`) rendered as an override
+below the hexagon. Do not add these fields until the UI override is built.
+
 `name` is shown verbatim across the site (cards, list, compare table, detail
 pages), so it must be the official vendor display name: spaces, never `_`
 (`pnpm sync` fails loudly on underscores in `name`), and exact vendor casing

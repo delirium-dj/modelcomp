@@ -1,8 +1,3 @@
-
-
-
-
-
 // Scores are pre-parsed by `pnpm sync` (scripts/sync-data.mjs) from
 // model/<slug>/ findings files (one per reporting agent) plus
 // model/<slug>/average.md into src/data/scores.generated.ts (numbers only).
@@ -16,18 +11,9 @@
 // stays curated in model/<slug>/meta.json files.
 
 import { GENERATED_SCORES } from "./scores.generated";
-import { SOURCE_DEFS, type SourceKey, type SourceDef, type ViewKey, type ResultsView } from "./sources.generated";
+import { SOURCE_DEFS, type SourceKey, type ViewKey, type ResultsView } from "./sources.generated";
 
-/**
- * Reporting-agent → tracked model-page slug, derived inline from SOURCE_DEFS
- * (SIMPLIFY-PLAN Phase 1). Kept as a named export so existing call sites keep
- * working; new code should prefer `SOURCES.find(s => s.key === key)?.slug`.
- */
-export const AGENT_MODEL_SLUG: Partial<Record<SourceKey, string>> = Object.fromEntries(
-  SOURCE_DEFS.filter((s) => s.slug !== undefined).map((s) => [s.key, s.slug!]),
-);
-
-export type { SourceKey, SourceDef, ViewKey, ResultsView };
+export type { SourceKey, ResultsView };
 
 /**
  * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
@@ -311,7 +297,9 @@ export function sortSourceFor(dim: DimensionKey | "overall"): ResultsView {
  * virtualDimFor guard is needed.
  */
 function sourceRankOverall(key: SourceKey): number {
-  const slug = AGENT_MODEL_SLUG[key];
+  // SOURCE_DEFS (not SOURCES) on purpose: this runs inside the SOURCES
+  // initializer below, so reading SOURCES here would hit its own TDZ.
+  const slug = SOURCE_DEFS.find((s) => s.key === key)?.slug;
   if (slug !== undefined) {
     const agent = MODELS.find((m) => m.slug === slug);
     if (agent !== undefined) return agent.scores.overall;
