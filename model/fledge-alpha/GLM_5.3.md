@@ -12,18 +12,20 @@
 - **Provider / access:** OpenCode Zen, `https://opencode.ai/zen/v1/chat/completions` (OpenAI Chat Completions-compatible; Pi lists API `openai-completions`). Reasoning effort mapped `low` / `high` / `max`.
 - **Release / knowledge:** free-tier listing live by 2026-10-01 (operator-supplied catalog metadata dated 2026-10-01); knowledge cutoff unknown.
 - **IDs:** `opencode/fledge-alpha-free` (Zen free ID only; no paid ID, no other provider — Pi: "no obvious cross-provider matches found")
-- **Context window:** 1,048,576 tokens total; 131,072 max output — verified from the operator-supplied models.dev catalog TOML (2026-10-01) and the Pi model-page configuration (both fetched 2026-10-03). The OpenCode data page itself marks context as "unknown", so the catalog figures are the only sourced numbers.
+- **Context window:** **1,048,576** tokens total, **131,072** max output — verified from the operator-supplied models.dev catalog TOML (2026-10-01) and the Pi model-page configuration (both fetched 2026-10-03). The OpenCode data page itself marks context as "unknown", so the catalog figures are the only sourced numbers.
 - **Modalities:** text and image in; text out; reasoning yes (effort low/high/max); tool calls yes; strict JSON mode yes (Pi compatibility flags); no audio/video/PDF input.
 - **Pricing (as of 2026-10-03):** $0 input / $0 output / $0 cached (Zen free tier, limited time). Caveat: during the free period collected data may be used to improve the model — do not route confidential code through it.
 - **Architecture:** unknown — no vendor, no parameter count, `open_weights = false` (proprietary). Treat every provenance claim on social media as speculation.
 
 ### Raw benchmarks found
 
-> No formal, harness-based benchmark has been published for this model by any operator or aggregator (Artificial Analysis, BenchLM, and Grokipedia have no page for it). The only public measured numbers are a single early tester's undocumented checks (@MikelEcheve, X thread 2026-10-02, reported by promptblueprints.tech) — listed below as provisional community observations, NOT verified benchmark scores.
+> No formal, harness-based benchmark has been published for this model by any operator or aggregator (Artificial Analysis, BenchLM, and Grokipedia have no page for it). The only public measured numbers are a single early tester's undocumented checks (@MikelEcheve, X thread 2026-10-02, reported by promptblueprints.tech) — listed below as bold provisional community rows, NOT verified benchmark scores.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found** (provisional community proxy: 61/61 executable code checks vs LongCat 2.5 Preview at 59/61 and a timed-out Nemotron — single-run X-thread test, no harness)
+- Community agentic executable-code checks (provisional, no harness): **61/61** (@MikelEcheve via promptblueprints.tech — single-run X-thread test; LongCat 2.5 Preview comparison **59/61**, Nemotron timed out)
+- Zen adoption telemetry (verified platform stats): **81,517** completed agentic coding sessions, **129B** tokens, **93%** input-cache ratio (OpenCode data-page snapshot)
+- Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -31,7 +33,8 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found** (provisional community proxy: 6/6 math checks, 4/4 logic checks — tiny undocumented samples)
+- Community math checks (provisional): **6/6**; community logic checks (provisional): **4/4** (same source; tiny undocumented samples)
+- GPQA Diamond: **no verified public score found**
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
@@ -40,6 +43,7 @@ Reasoning / knowledge:
 
 Coding:
 
+- Community executable-code head-to-head (provisional): Fledge Alpha **61/61** vs LongCat 2.5 Preview **59/61** (single run, no harness)
 - SWE-bench Verified / SWE-Pro: **no verified public score found**
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
@@ -48,15 +52,17 @@ Coding:
 
 Long context:
 
-- No formal MRCR / RULER / GraphWalks score exists. Provisional community proxy: 12/12 hidden-key retrieval checks from inputs of up to about 1 million characters (the tester's own caveat: this does not establish a 1M-token context claim). Operator-supplied catalog: 1,048,576-token window.
+- Community hidden-key retrieval at ~1M-character inputs (provisional): **12/12** (the tester's own caveat: this does not establish a 1M-token context claim)
+- Operator-supplied context window: **1,048,576** tokens / **131,072** output
+- MRCR / RULER / GraphWalks: **no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Tool calls, reasoning effort tiers, and strict mode are verified in the operator-supplied catalog, and 81.5K completed agentic coding sessions on Zen show it functioning as a coding agent; the 61/61 executable-code community checks (vs LongCat 2.5 Preview 59/61) provisionally suggest solid routine performance. No formal tool benchmark exists, which caps the score.
-- **Reasoning: 68/100.** Reasoning (low/high/max) is a verified capability and the community math/logic checks passed 6/6 and 4/4, but those samples are tiny and undocumented; with zero formal reasoning benchmarks the score stays provisional and capped.
-- **Context window: 95/100.** Verified 1,048,576-token context (operator-supplied models.dev TOML + Pi config) sits in the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ exists, so not 100. Community 12/12 retrieval at ~1M-character inputs is consistent but not formal.
+- **Tool use: 70/100.** Tool calls, reasoning effort tiers, and strict mode are verified in the operator-supplied catalog, and 81.5K completed agentic coding sessions on Zen show it functioning as a coding agent; the provisional 61/61 executable-code community checks (vs LongCat 2.5 Preview 59/61) suggest solid routine performance. No formal tool benchmark exists, which caps the score.
+- **Reasoning: 68/100.** Reasoning (low/high/max) is a verified capability and the provisional community math/logic checks passed 6/6 and 4/4, but those samples are tiny and undocumented; with zero formal reasoning benchmarks the score stays provisional and capped.
+- **Context window: 95/100.** Verified 1,048,576-token context (operator-supplied models.dev TOML + Pi config) sits in the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ exists, so not 100. The provisional 12/12 retrieval at ~1M-character inputs is consistent but not formal.
 - **Multimodal: 65/100.** Verified text + image input, text-only output (models.dev, Pi, Zen listing) places it in the "+image in = 60–70" band; no audio/video/PDF evidence.
-- **Coding: 70/100.** Provisional community head-to-head: 61/61 executable code checks vs LongCat 2.5 Preview 59/61 suggests routine coding competence; no formal coding benchmark exists, which caps the score.
+- **Coding: 70/100.** The provisional community head-to-head (61/61 vs LongCat 2.5 Preview 59/61) suggests routine coding competence; no formal coding benchmark exists, which caps the score.
 - **Cost efficiency: 100/100.** $0 input / $0 output on Zen (verified); free tier is time-limited and prompts may be used to improve the model — a privacy cost, not a dollar cost.
 - **Overall Score: 74/100.** Half-up mean of the five quality dims (70+68+95+65+70)/5 = 73.6 → 74 — a free unidentified 1M-context agent worth trying for exploratory coding and long-input retrieval, unverified for production or multimodal-heavy work; every quality score is provisional pending formal benchmarks.
 
