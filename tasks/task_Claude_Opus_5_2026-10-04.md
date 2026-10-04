@@ -183,8 +183,7 @@ reading list; dependency-graph.md is not).
 **Guidance:** replace the body with a one-line pointer to
 `.agents/tech-stack.md`, or delete and fix `.antigravity/rules.md:14`.
 
-### ✅ A15. `commands/individual search for ai models` — orphan one-off prompt
-**Status (2026-10-04): SOLVED by Muse Spark 1.3 — already half-done on disk.** Re-verified: the file is absent (not on disk, nothing under `commands/` in git) — only the empty `commands/` shell directory remained. Removed it. Only references anywhere are the audit's own text (plus a mention in an orchestrator task file, left alone). `pnpm test` 94/94 green.
+### A15. `commands/individual search for ai models` — orphan one-off prompt
 4 939 B, no file extension, first line hardcoded to
 *"Research model **Claude Fable 5.1**…"*. It restates the v4 scoring
 methodology and output format already owned by `model-report-TEMPLATE.md`,
@@ -194,14 +193,16 @@ references anywhere in the repo.
 contents). If the standalone-chat variant is still wanted, fold it into
 `tasks/research-assign.md` as an appendix so the methodology lives in one place.
 
-### A16. `.agents/gemma-rate-limits.md` — unreferenced and self-contradictory
+### ✅ A16. `.agents/gemma-rate-limits.md` — unreferenced and self-contradictory
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (header: 12,000 TPM; body: "16K" three times — contradiction confirmed; zero references outside the audit; no Gemma runtime exists in the delegation workflow). Took the delete option: a rate-limit doc with wrong numbers and no readers is worse than absent — a future Gemma integration should write fresh numbers. Removed via `git rm`. `pnpm test` 94/94 green.
 Verified: referenced by nothing live (`AGENTS.md` names only
 `.agents/gemini-rate-limits.md`). It also contradicts itself — the header says
 **12 000** TPM, Rules 1 and 2 say **16K** three times.
 **Guidance:** delete, or fix the number and add it to AGENTS.md's required
 reading so it is actually reachable.
 
-### A17. `.agents/workflows/batch_research_all_models.md` — unreferenced
+### ✅ A17. `.agents/workflows/batch_research_all_models.md` — unreferenced
+**Status (2026-10-04): DECIDED — KEEP per user.** Re-verified (17-line checklist mirroring `tasks/research.md`; the "only mention" claim was slightly overstated — REPORT.md history lists it in the delegation reference set — but nothing actively invokes it). User chose to keep it as the short-form checklist; `tasks/research.md` remains the authoritative procedure.
 Only mention anywhere is a historical line in `GLM53F_IMP.md:113`.
 **Guidance:** confirm with the user whether the batch workflow is still used; if
 not, delete.

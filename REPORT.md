@@ -884,10 +884,18 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A13. Deleted the stale committe
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A14. Replaced the duplicated `.antigravity/history/dependency-graph.md` body (31 lines, ~90% overlap with `.agents/tech-stack.md`) with a pointer to the canonical file; file itself kept so kickstart/rules references keep resolving. `pnpm test` 94/94 green.
 
+## 2026-10-04 - Purification audit item A8 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A8. Deleted the hardcoded Big Pickle branch in `HexRadar.tsx` `tooltipFor` and replaced it with a generic `freeTierNote` append — 23 model folders carry that field, so all of them benefit instead of one. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.
+
 ## 2026-10-04 - Purification audit item A15 applied (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A15. The orphan prompt file was already absent (not on disk, untracked); only the empty `commands/` shell directory remained, so that was the entire fix — removed it. `pnpm test` 94/94 green.
 
-## 2026-10-04 - Purification audit item A8 applied (Muse Spark 1.3)
+## 2026-10-04 - Purification audit item A16 applied (Muse Spark 1.3)
 
-Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A8. Deleted the hardcoded Big Pickle branch in `HexRadar.tsx` `tooltipFor` and replaced it with a generic `freeTierNote` append — 23 model folders carry that field, so all of them benefit instead of one. Zero remaining `Big Pickle` references in `src/components/`. `pnpm test` 94/94 green.
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A16. Deleted `.agents/gemma-rate-limits.md` via `git rm` (12,000 vs 16K TPM self-contradiction confirmed; zero references; no Gemma runtime in the workflow). `pnpm test` 94/94 green.
+
+## 2026-10-04 - Purification audit item A17 decided: KEEP (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A17. Investigated (17-line checklist mirroring `tasks/research.md`; nothing invokes it, but REPORT.md history lists it in the delegation reference set). Per the item's own guidance the user was asked — decision: keep the file, no change. `tasks/research.md` stays the authoritative procedure.
