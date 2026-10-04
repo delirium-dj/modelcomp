@@ -10,6 +10,7 @@ import {
   isRegenerablePath,
   classifyMissingTracked,
   findMirror,
+  findForbiddenRoot,
   deletionFailMessage,
   checkFilename,
   checkMetaFile,
@@ -73,6 +74,23 @@ describe("forbidden duplicate roots (voicemodels/ never recurs)", () => {
     assert.match(msg, /voicemodels\//);
     assert.match(msg, /models_voice\//);
     assert.match(msg, /never recreate/);
+  });
+
+  it("findForbiddenRoot detects a present root, ignores an absent one", () => {
+    const present = (r, f) => r === "/repo" && f === "voicemodels";
+    assert.equal(findForbiddenRoot("/repo", FORBIDDEN_ROOTS, present), "voicemodels");
+    assert.equal(findForbiddenRoot("/repo", FORBIDDEN_ROOTS, () => false), undefined);
+  });
+
+  it("findForbiddenRoot joins repo root + name (never name + name)", () => {
+    // Regression for the shadowed loop variable that probed
+    // "voicemodels/voicemodels" instead of "<root>/voicemodels" (B1).
+    const seen = [];
+    findForbiddenRoot("/repo", FORBIDDEN_ROOTS, (r, f) => {
+      seen.push([r, f]);
+      return false;
+    });
+    assert.deepEqual(seen, [["/repo", "voicemodels"]]);
   });
 });
 

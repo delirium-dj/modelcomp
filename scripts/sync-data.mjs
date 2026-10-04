@@ -54,6 +54,7 @@ import {
   isRegenerablePath,
   classifyMissingTracked,
   findMirror,
+  findForbiddenRoot,
   deletionFailMessage,
   checkFilename,
   checkMetaFile,
@@ -87,7 +88,7 @@ const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 // Score-format constants live in scripts/lib/parse.mjs (imported above) so
 // regression tests lock the format contract.
 
-// Single edge-case map (SIMPLIFY-PLAN Phase 2): every filename-derived key
+// Single edge-case map: every filename-derived key
 // whose display label or model-page slug differs from the default.
 // Defaults (no entry needed): label = key, slug = catalog lookup by
 // normalized name (see catalogNames below), absent when the agent has no
@@ -147,10 +148,9 @@ log(`sync-data: ${slugs.length} model folders`);
 // Retired tree names (e.g. `voicemodels/`, pre-2026-09-28 name of
 // `models_voice/`) must never be recreated by research agents. FAIL loudly
 // while one exists so the duplicate is merged away, never cemented.
-for (const root of FORBIDDEN_ROOTS) {
-  if (existsSync(join(root, root))) {
-    fail(forbiddenRootMessage(root));
-  }
+{
+  const hit = findForbiddenRoot(root, FORBIDDEN_ROOTS, (r, f) => existsSync(join(r, f)));
+  if (hit !== undefined) fail(forbiddenRootMessage(hit));
 }
 
 // ---- permanence tripwire (RULES.md is ultimate, precedence #1) ----
@@ -247,7 +247,7 @@ for (const slug of slugs) {
 }
 // Model catalog: normalized display name -> folder slug, across all model
 // trees. Single lookup behind both the rater gate and SOURCE_DEFS slug
-// emission (SIMPLIFY-PLAN Phase 1: slug lives inline in SourceDef).
+// emission (slug lives inline in SourceDef).
 const catalogNames = new Map(); // normalized name -> slug
 for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance")]) {
   if (!existsSync(rDir)) continue;

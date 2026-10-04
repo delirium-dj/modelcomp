@@ -1,9 +1,9 @@
 // Pure naming / slug-convention helpers for modelcomp sync.
 // Zero dependencies. Covered by naming.test.mjs.
 //
-// Filename stem -> display key -> model-page slug is the fragile pipeline
-// SIMPLIFY-PLAN collapsed: these pure functions are the contract, sync-data.mjs
-// supplies the live catalog (meta.json scan) and SOURCE_OVERRIDES.
+// Filename stem -> display key -> model-page slug is the fragile pipeline.
+// These pure functions are the contract (no hidden state, no fs calls);
+// sync-data.mjs supplies the live catalog (meta.json scan) and SOURCE_OVERRIDES.
 
 /** Case/punctuation-folded comparison (deep-links, catalog matching). */
 export const normName = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");

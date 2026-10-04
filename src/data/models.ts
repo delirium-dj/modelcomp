@@ -258,7 +258,7 @@ export const MODELS: AiModel[] = (() => {
  * All-models cards all follow it). Order here is the dropdown order of the
  * virtual views (canonical DIMENSIONS order); real reporting agents rank below
  * by own average overall. Not reporting agents -- never registered in
- * SOURCE_DEFS and never present in `AiModel.sources` (SIMPLIFY-PLAN Phase 3).
+ * SOURCE_DEFS and never present in `AiModel.sources`.
  */
 export const VIRTUAL_VIEWS: { key: ViewKey; label: string; dim: DimensionKey }[] = [
   { key: "tool", label: "Tool", dim: "tool" },

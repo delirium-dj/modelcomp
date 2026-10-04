@@ -61,6 +61,16 @@ export function findMirror(parts, mirrorRoots, existsAt) {
   return mirrorRoots.find((m) => existsAt(m, parts.slice(1)));
 }
 
+/**
+ * First forbidden duplicate root present on disk (or undefined).
+ * `existsAt` receives (repoRoot, name) so the join lives in exactly one
+ * place — a shadowed loop variable here once produced "root/root" paths
+ * that could never exist, silencing the whole tripwire (B1).
+ */
+export function findForbiddenRoot(root, forbiddenRoots, existsAt) {
+  return forbiddenRoots.find((f) => existsAt(root, f));
+}
+
 /** Exact FAIL text for a forbidden deletion (locked: it tells how to restore). */
 export function deletionFailMessage(posix) {
   return (

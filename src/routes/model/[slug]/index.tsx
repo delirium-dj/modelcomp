@@ -38,7 +38,7 @@ export default component$(() => {
 
   // Every reporting agent that rated this model, best grade first.
   // No virtualDimFor guard: virtual views are not SourceKeys and can never
-  // appear in `model.sources` (SIMPLIFY-PLAN Phase 3).
+  // appear in `model.sources`.
   const ratings = (Object.keys(model.sources) as SourceKey[])
     .filter((key) => key !== "average" && model.sources[key] !== undefined)
     .map((key) => ({

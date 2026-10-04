@@ -236,7 +236,8 @@ only such stem out of 65). `pnpm sync` already logs it as a non-blocking
 (the registry is regenerable, not research data, so this is not a RULES.md
 permanence question).
 
-### A21. "SIMPLIFY-PLAN" is cited 6× but does not exist
+### ✅ A21. "SIMPLIFY-PLAN" is cited 6× but does not exist
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified and found SIX citations across FIVE files — the audit's list missed `src/routes/model/[slug]/index.tsx:41` (and my earlier A6 edit had already removed a seventh). All six rewritten to state the invariant instead of citing the phantom doc (contract terms, edge-case map, inline slug, registry homes). Repo-wide grep: zero remaining `SIMPLIFY-PLAN` references outside the audit's own historical text. `node --check` clean, `pnpm test` 94/94 green.
 `src/data/models.ts:23`, `models.ts:257`, `sources.generated.ts:3`,
 `sync-data.mjs:90`, `sync-data.mjs:250`, `scripts/lib/naming.mjs:5` all
 reference "SIMPLIFY-PLAN Phase 1/2/3". Verified: no `SIMPLIFY-PLAN*` file exists
@@ -249,7 +250,8 @@ citing a phantom document — e.g. "slug lives inline in `SourceDef`" rather tha
 
 ## PART B — Bugs found while scanning
 
-### B1. The `voicemodels/` tripwire has never fired (variable shadowing)
+### ✅ B1. The `voicemodels/` tripwire has never fired (variable shadowing)
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (line 82 repo-root `root` vs loop `root` → probed `voicemodels/voicemodels`). Fix goes one step beyond the one-liner: the check now goes through a new pure helper `findForbiddenRoot(root, forbiddenRoots, existsAt)` in `validate.mjs` (same injection style as `findMirror`), so the join lives in exactly one tested place — plus two regression tests, one asserting the probe receives `("/repo", "voicemodels")` and never `("voicemodels", "voicemodels")`. `node --check` clean, `pnpm test` 96/96 green (94 + 2 new). End-to-end proof (temp `voicemodels/` → sync must FAIL) needs a real `pnpm sync` run — left for the user handover per AGENTS.md.
 `scripts/sync-data.mjs:150–154`:
 ```js
 for (const root of FORBIDDEN_ROOTS) {      // shadows repo root from line 82
