@@ -12,7 +12,10 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "http://localhost:4173",
+        // Production origin for canonical URLs + sitemap. Dev default keeps
+        // local previews working; deploys MUST set SITE_ORIGIN (see README)
+        // or every page self-canonicalises to localhost (B2).
+        origin: process.env.SITE_ORIGIN ?? "http://localhost:4173",
       }),
     ],
   };

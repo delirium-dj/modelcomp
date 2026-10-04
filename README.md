@@ -37,6 +37,13 @@ output.
 Standard workflow after any data change: `pnpm sync && pnpm build.types && pnpm build`.
 Windows: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
 
+**`SITE_ORIGIN` (required for deploys):** prerendered canonical URLs and
+`sitemap.xml` use `process.env.SITE_ORIGIN`, defaulting to
+`http://localhost:4173` for local previews. Any public deployment must set it
+(e.g. `SITE_ORIGIN=https://example.com pnpm build`) or every page advertises a
+localhost canonical. Verify after building: `dist/sitemap.xml` must contain
+zero `localhost` entries.
+
 ## How data flows
 
 ```text

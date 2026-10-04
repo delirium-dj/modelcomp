@@ -280,7 +280,8 @@ non-zero exit) so the call site is covered, not just the message builder.
 under `voicemodels/`, and `core.hooksPath` is set to `.githooks` in this clone —
 so the second line of defence is live.
 
-### B2. Canonical URLs and the sitemap point at `localhost` — **verified in `dist/`**
+### ✅ B2. Canonical URLs and the sitemap point at `localhost` — **verified in `dist/`**
+**Status (2026-10-04): SOLVED by Muse Spark 1.3 (pending a real build to re-verify).** Mechanism re-verified (`staticAdapter` origin → `loc.url.href` at prerender). Fix per guidance: `origin: process.env.SITE_ORIGIN ?? "http://localhost:4173"` with an explanatory comment, plus `SITE_ORIGIN` documented in `README.md` (required for deploys, with the `dist/sitemap.xml` zero-localhost check). No production domain exists anywhere in the repo, so no hardcoded origin was possible — env-driven is the correct shape. Note: `adapters/` is outside `tsconfig` scope (D25), so the typecheck won't cover this file; the user's build verifies it.
 ```
 dist/index.html:            <link rel="canonical" href="http://localhost:4173/" …>
 dist/model/big-pickle/:     <link rel="canonical" href="http://localhost:4173/model/big-pickle/" …>
@@ -299,7 +300,8 @@ staticAdapter({ origin: process.env.SITE_ORIGIN ?? "http://localhost:4173" })
 and document `SITE_ORIGIN` in `README.md`. Re-verify by grepping
 `dist/sitemap.xml` after a build.
 
-### B3. `<link rel="manifest">` is emitted twice on every page — **verified in `dist/`**
+### ✅ B3. `<link rel="manifest">` is emitted twice on every page — **verified in `dist/`**
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** Re-verified (unconditional copy in `router-head.tsx:15` + `!isDev` copy in `root.tsx:40–45`). Kept the RouterHead one, deleted the `root.tsx` block and the now-unused `isDev` import — zero remaining `isDev` in `root.tsx`. One deliberate micro-change: the manifest link is now unconditional (also present in dev), which is harmless — dev serves `public/` too. Full dedupe of head-tag ownership is D21, left open. `pnpm test` 96/96 green.
 `dist/index.html` contains 2 occurrences. Sources:
 - `src/root.tsx:40–45` — `{!isDev && <link rel="manifest" href={BASE_URL + "manifest.json"} />}`
 - `src/components/router-head.tsx:15` — `<link rel="manifest" href="/manifest.json" />`

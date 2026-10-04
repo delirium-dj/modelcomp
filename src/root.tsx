@@ -1,4 +1,4 @@
-import { component$, isDev } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head";
 import "./global.css";
@@ -33,16 +33,9 @@ export default component$(() => {
         />
 
         {/**
-         * PWA Support:
-         * The manifest.json file tells mobile devices how to "install" your site
-         * as an app (icon, theme color, etc.). We only include it in production.
+         * PWA manifest lives in RouterHead (src/components/router-head.tsx),
+         * which owns all head links — kept here would emit it twice (B3).
          */}
-        {!isDev && (
-          <link
-            rel="manifest"
-            href={`${import.meta.env.BASE_URL}manifest.json`}
-          />
-        )}
 
         <RouterHead />
       </head>

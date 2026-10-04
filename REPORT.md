@@ -904,6 +904,14 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A21. Rewrote all six phantom "S
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B1 (highest-value correctness bug: the `voicemodels/` tripwire could never fire). Fixed the shadowed loop variable via a new pure, unit-tested `findForbiddenRoot` helper in `validate.mjs`, wired in at the `sync-data.mjs` call site, plus two regression tests (present/absent + exact join-args assertion). `node --check` clean, `pnpm test` 96/96 green. End-to-end proof (temp `voicemodels/` → `pnpm sync` must FAIL non-zero, then remove the dir) left for the user run.
 
+## 2026-10-04 - Purification audit item B2 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B2. Static-adapter origin is now `process.env.SITE_ORIGIN ?? "http://localhost:4173"` (no production domain exists in the repo, so env-driven is the only correct shape); `SITE_ORIGIN` documented in `README.md` as deploy-required with the zero-localhost sitemap check. Re-verify via `dist/sitemap.xml` on the next user build.
+
+## 2026-10-04 - Purification audit item B3 applied (Muse Spark 1.3)
+
+Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B3. Deleted the duplicate manifest link in `src/root.tsx` (kept the `RouterHead` copy) plus the orphaned `isDev` import. Manifest link is now unconditional — harmless in dev. `pnpm test` 96/96 green.
+
 ## 2026-10-04 - Purification audit item A17 decided: KEEP (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` A17. Investigated (17-line checklist mirroring `tasks/research.md`; nothing invokes it, but REPORT.md history lists it in the delegation reference set). Per the item's own guidance the user was asked — decision: keep the file, no change. `tasks/research.md` stays the authoritative procedure.
