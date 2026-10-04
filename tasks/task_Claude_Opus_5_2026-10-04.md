@@ -336,7 +336,8 @@ and `dist/robots.txt` does not exist (though `dist/sitemap.xml` does).
 free) and a `public/robots.txt` pointing at the sitemap. Low effort, and it is
 the kind of thing that silently never gets done.
 
-### B6. The rater gate `84.9` is duplicated as a bare literal in the UI
+### ✅ B6. The rater gate `84.9` is duplicated as a bare literal in the UI
+**Status (2026-10-04): SOLVED by Muse Spark 1.3.** `pnpm sync` now maintains a managed `export const RATER_GATE` line in `sources.generated.ts` (new tested `ensureRaterGateLine`: insert-before-union when missing, correct drift, no-op when current), single-sourced from `parse.mjs`; `CompareSection` imports and interpolates it in both caption strings, and the old "keep it in sync" comment is reworded to state the automation. Proved determinism without running sync: the helper run against the hand-placed line returns `changed: false`, so the next real sync no-ops on it. `node --check` clean, `pnpm test` 100/100 (97 + 3 new). Prose mentions of 84.9 in docs intentionally left (documentation, not drift). **Post-fix (2026-10-04):** the first version wired the call but missed the `codegen.mjs` import — user's sync run caught it (`ReferenceError`), import added, fixed. Lesson logged: verify imports, not just bodies.
 - `scripts/lib/parse.mjs:39` — `export const RATER_GATE = 84.9;` (the real constant)
 - `src/components/CompareSection.tsx:124` — `"…own Overall above 84.9 count toward the average."`
 - `src/components/CompareSection.tsx:125` — `"(raters above 84.9 Overall)."`

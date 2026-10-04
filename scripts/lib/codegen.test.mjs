@@ -12,6 +12,7 @@ import {
   reconcileRegistry,
   renderScoresFile,
   renderRobotsTxt,
+  ensureRaterGateLine,
 } from "./codegen.mjs";
 const SOURCES_TS = `// AUTO-GENERATED
 export type SourceKey =
@@ -148,5 +149,25 @@ describe("renderRobotsTxt (absolute Sitemap URL)", () => {
   it("allows all, points at the origin sitemap, ends with newline", () => {
     const text = renderRobotsTxt("https://example.com");
     assert.equal(text, "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n");
+  });
+});
+
+describe("ensureRaterGateLine (managed RATER_GATE)", () => {
+  const base = "// head\nexport type SourceKey =\n  | \"average\"\n;";
+  it("inserts before the union when missing", () => {
+    const { changed, text } = ensureRaterGateLine(base, 84.9);
+    assert.equal(changed, true);
+    assert.match(text, /export const RATER_GATE = 84\.9;/);
+    assert.ok(text.indexOf("RATER_GATE") < text.indexOf("export type SourceKey"));
+  });
+  it("corrects drift, no-ops when current", () => {
+    const drifted = ensureRaterGateLine(base, 80).text;
+    const fixed = ensureRaterGateLine(drifted, 84.9);
+    assert.equal(fixed.changed, true);
+    assert.match(fixed.text, /export const RATER_GATE = 84\.9;/);
+    assert.equal(ensureRaterGateLine(fixed.text, 84.9).changed, false);
+  });
+  it("leaves text without a union anchor untouched", () => {
+    assert.deepEqual(ensureRaterGateLine("// nothing here\n", 84.9), { changed: false, text: "// nothing here\n" });
   });
 });

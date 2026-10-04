@@ -139,6 +139,28 @@ export function renderScoresFile(scoreIndex) {
 }
 
 /**
+ * Maintain the managed RATER_GATE line in sources.generated.ts. Single
+ * source is RATER_GATE in scripts/lib/parse.mjs; the UI imports the value
+ * from the registry file, so the caption can never drift from the gate.
+ * Inserts before the SourceKey union when missing, corrects drift otherwise.
+ * Returns { changed, text }.
+ */
+export function ensureRaterGateLine(sourcesTs, value) {
+  const wanted = `export const RATER_GATE = ${value};`;
+  const re = /export const RATER_GATE = [0-9.]+;/;
+  if (re.test(sourcesTs)) {
+    const text = sourcesTs.replace(re, wanted);
+    return { changed: text !== sourcesTs, text };
+  }
+  const anchor = "export type SourceKey =";
+  if (!sourcesTs.includes(anchor)) return { changed: false, text: sourcesTs };
+  const block =
+    `/** Rater gate: only reports by models with own Overall above this count ` +
+    `(managed by \`pnpm sync\` from scripts/lib/parse.mjs — do not hand-edit). */\n${wanted}\n\n`;
+  return { changed: true, text: sourcesTs.replace(anchor, block + anchor) };
+}
+
+/**
  * Render public/robots.txt. The Sitemap URL must be absolute (crawlers), and
  * the origin is only known at sync/build time — so it rides the same
  * SITE_ORIGIN knob as the static-adapter canonical URLs (see README, B2),

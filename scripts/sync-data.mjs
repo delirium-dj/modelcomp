@@ -69,6 +69,7 @@ import {
   reconcileRegistry,
   renderScoresFile,
   renderRobotsTxt,
+  ensureRaterGateLine,
 } from "./lib/codegen.mjs";
 import {
   normName,
@@ -235,8 +236,8 @@ const scoreIndex = {};
 // still applies within the eligible set). Qualification reads the on-disk
 // average.md files, so the gate is deterministic within a run; models without
 // a usable average.md (or without a tracked model page) never qualify as
-// raters. RATER_GATE lives in scripts/lib/parse.mjs — keep it in sync with
-// the UI caption in CompareSection.tsx.
+// raters. The UI caption reads the same value from the registry
+// (RATER_GATE, maintained above) — no manual sync needed.
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
   try {
@@ -509,6 +510,18 @@ if (pending.length > 0) {
     sourcesTs = reconciled;
     writeFileSync(sourcesTsPath, sourcesTs);
     log("  WRITE src/data/sources.generated.ts (labels/slugs reconciled, virtual views pruned)");
+  }
+}
+
+// Managed RATER_GATE line: the UI caption imports it from the registry, so
+// the gate value has exactly one source (scripts/lib/parse.mjs) — no manual
+// sync with CompareSection.tsx possible anymore.
+{
+  const { changed, text } = ensureRaterGateLine(sourcesTs, RATER_GATE);
+  if (changed) {
+    sourcesTs = text;
+    writeFileSync(sourcesTsPath, sourcesTs);
+    log(`  WRITE src/data/sources.generated.ts (RATER_GATE = ${RATER_GATE})`);
   }
 }
 

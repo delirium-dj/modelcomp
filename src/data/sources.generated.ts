@@ -2,6 +2,9 @@
 // Registry of reporting agents. Virtual sort views live in src/data/models.ts,
 // never here.
 
+/** Rater gate: only reports by models with own Overall above this count (managed by `pnpm sync` from scripts/lib/parse.mjs — do not hand-edit). */
+export const RATER_GATE = 84.9;
+
 export type SourceKey =
   | "average"
   | "big-pickle"

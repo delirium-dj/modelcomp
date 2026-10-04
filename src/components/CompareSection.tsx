@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { QRL } from "@builder.io/qwik";
 import { MODELS, MODEL_COLORS, DIMENSIONS, SOURCES, getModel, virtualDimFor, isDecisionModel } from "../data/models";
+import { RATER_GATE } from "../data/sources.generated";
 import type { AiModel, ResultsView, SourceKey } from "../data/models";
 import { ModelSelect } from "./ModelSelect";
 import { HexRadar } from "./HexRadar";
@@ -124,8 +125,8 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
             />
             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
               {source === "average" ? (
-                <span title={"All reporting agents:\n" + contributors.map((s) => `- ${s.label}`).join("\n") + "\n\nOnly reports from models with own Overall above 84.9 count toward the average."}>
-                  Overall score — average of qualifying reports (raters above 84.9 Overall).
+                <span title={"All reporting agents:\n" + contributors.map((s) => `- ${s.label}`).join("\n") + `\n\nOnly reports from models with own Overall above ${RATER_GATE} count toward the average.`}>
+                  Overall score — average of qualifying reports (raters above {RATER_GATE} Overall).
                 </span>
               ) : virtualDimFor(source) !== undefined ? (
                 <span title={`Same numbers as the Overall view, ranked by ${activeLabel} score.`}>
