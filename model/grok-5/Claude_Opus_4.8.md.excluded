@@ -1,0 +1,33 @@
+# Grok 5 — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: xAI (`opencode/grok-5`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent public web research surfaced **zero verified public benchmark numbers** for Grok 5. Per `RULES.md` and the template, I am saving negative-findings notes as `.md.excluded` rather than a scored `.md` with invented numbers. Scores are omitted and would be ignored by `pnpm sync`.
+
+## Model card (from curated meta/stub only — not benchmark-verified)
+
+- **Name:** Grok 5
+- **Short description:** xAI's next-generation flagship (announced). Curated `meta.json` is a scaffold stub (128K / text in-out / standard) and is not independently verified.
+- **Provider / access:** xAI; OpenCode Zen `opencode/grok-5`.
+- **Context window / modalities / pricing:** no verified public values found.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / GDPval / OSWorld / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/grok-5`), Artificial Analysis (`/models/grok-5`), and xAI (`x.ai/news/grok-5`) on 2026-10-03 — all 404 / no published benchmark evidence. Grok 5 appears announced but not yet publicly benchmarked. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). The folder's existing below-gate FALLBACK average is unaffected; replace this only with a `Grok_5`-sourced... i.e. a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research (BenchLM, Artificial Analysis, xAI) returned no verified public benchmarks for this exact model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

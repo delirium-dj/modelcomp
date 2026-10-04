@@ -1,1 +1,1 @@
-Node.js scripts that scan model/<slug>/ findings, validate and quarantine reports, recompute per-model averages, and emit TypeScript registry + scores code for the client bundle.
+Node.js tooling that scans model/<slug>/ findings, validates and quarantines reports, recomputes per-model averages, and emits TypeScript registry + scores artifacts for the client bundle.

@@ -6,13 +6,23 @@
 - [HexRadar.tsx](file://src/components/HexRadar.tsx)
 - [ModelCards.tsx](file://src/components/ModelCards.tsx)
 - [ModelSelect.tsx](file://src/components/ModelSelect.tsx)
+- [VendorIcon.tsx](file://src/components/VendorIcon.tsx)
 - [index.tsx](file://src/routes/index.tsx)
 - [models.ts](file://src/data/models.ts)
 - [Header.tsx](file://src/components/Header.tsx)
 - [theme-toggle.tsx](file://src/components/theme-toggle/theme-toggle.tsx)
+- [router-head.tsx](file://src/components/router-head.tsx)
 - [tailwind.config.js](file://tailwind.config.js)
 - [README.md](file://README.md)
 </cite>
+
+## Update Summary
+**Changes Made**   
+- Added new VendorIcon component documentation section
+- Updated ModelCards component to include VendorIcon usage
+- Enhanced architecture diagram to show VendorIcon integration
+- Updated dependency analysis to reflect VendorIcon relationships
+- Added vendor icon performance and reliability improvements
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -44,6 +54,7 @@ Route["Homepage route<br/>src/routes/index.tsx"] --> Compare["CompareSection<br/
 Route --> Cards["ModelCards<br/>src/components/ModelCards.tsx"]
 Compare --> Select["ModelSelect<br/>src/components/ModelSelect.tsx"]
 Compare --> Radar["HexRadar<br/>src/components/HexRadar.tsx"]
+Cards --> Vendor["VendorIcon<br/>src/components/VendorIcon.tsx"]
 Compare --> Data["Models data layer<br/>src/data/models.ts"]
 Cards --> Data
 Header["Header + ThemeToggle<br/>src/components/Header.tsx<br/>src/components/theme-toggle/theme-toggle.tsx"] --> Route
@@ -67,6 +78,7 @@ Header["Header + ThemeToggle<br/>src/components/Header.tsx<br/>src/components/th
 | `HexRadar` | Renders the SVG hexagonal radar chart | `series` | Draws grid rings, axes, dimension labels, filled polygons per model, and tooltip dots |
 | `ModelCards` | Displays all models in cards or list view | `source`, `onSource$` | Filters/sorts by current results source, supports pagination, sortable headers, and mobile filter buttons |
 | `ModelSelect` | Reusable dropdown for model or source selection | `label`, `selectId`, `value`, `options`, `excludeIds`, `allowEmpty`, `onChange$` | Validates duplicates, supports optional empty option, emits change events |
+| `VendorIcon` | Renders local inline SVG vendor marks for model providers | `id`, `name`, `size` | Matches vendor names to inline SVGs, provides fallback glyphs, supports chip styling and theme adaptation |
 | `Header` | Sticky header, desktop navigation, mobile drawer menu, theme toggle entry point | None | Toggles mobile drawer state; embeds `ThemeToggle` |
 | `ThemeToggle` | Dark/light mode toggle | None | Reads/writes `html.dark`, persists preference to `localStorage` |
 
@@ -75,6 +87,7 @@ Header["Header + ThemeToggle<br/>src/components/Header.tsx<br/>src/components/th
 - [HexRadar.tsx:5-12](file://src/components/HexRadar.tsx#L5-L12)
 - [ModelCards.tsx:6-9](file://src/components/ModelCards.tsx#L6-L9)
 - [ModelSelect.tsx:4-18](file://src/components/ModelSelect.tsx#L4-L18)
+- [VendorIcon.tsx:4-9](file://src/components/VendorIcon.tsx#L4-L9)
 - [Header.tsx:4-7](file://src/components/Header.tsx#L4-L7)
 - [theme-toggle.tsx:3-4](file://src/components/theme-toggle/theme-toggle.tsx#L3-L4)
 
@@ -87,6 +100,7 @@ participant User as "User"
 participant Route as "Homepage route<br/>index.tsx"
 participant Compare as "CompareSection"
 participant Cards as "ModelCards"
+participant Vendor as "VendorIcon"
 participant Data as "models.ts"
 User->>Route : Open /?source=...&a=...&b=...&c=...
 Route->>Data : Read MODELS, SOURCES
@@ -101,6 +115,7 @@ Compare->>Route : onSource$(source)
 Route->>Route : Recompute top 3 for source
 Route->>Compare : New props
 Route->>Cards : New source prop
+Cards->>Vendor : Render vendor icons for models
 ```
 
 **Diagram sources**
@@ -291,7 +306,7 @@ Props:
 | `onSource$` | QRL callback | Called when a user sorts by a dimension or Overall |
 
 Local state:
-- `displayCount`: Controls how many models are shown before “Show more”.
+- `displayCount`: Controls how many models are shown before "Show more".
 - `view`: Switches between card and list layouts.
 
 Filtering and sorting:
@@ -301,11 +316,13 @@ Filtering and sorting:
 
 Card view:
 - Shows model name, Overall badge, Free/Paid status, short description, context, modalities, pricing note, and inline dimension scores.
+- Uses `VendorIcon` to display provider logos alongside model names.
 
 List view:
 - Desktop table with sortable column headers.
 - Mobile filter buttons for each dimension and Overall.
 - Stacked card layout for mobile exact scores.
+- Includes `VendorIcon` in table rows for consistent branding.
 
 Accessibility:
 - Section has `aria-labelledby`.
@@ -340,7 +357,7 @@ Props:
 | `value` | `string` | Required | Current selected value |
 | `options` | `ModelOption[]` | Required | Dropdown options with `id` and `name` |
 | `excludeIds` | `string[]` | Required | IDs excluded from this selector to prevent duplicate selections |
-| `allowEmpty` | `boolean` | `true` | Whether to show an empty “Choose” option |
+| `allowEmpty` | `boolean` | `true` | Whether to show an empty "Choose" option |
 | `onChange$` | QRL callback | Required | Emits the selected ID |
 
 Behavior:
@@ -355,6 +372,47 @@ Accessibility:
 **Section sources**
 - [ModelSelect.tsx:4-18](file://src/components/ModelSelect.tsx#L4-L18)
 - [ModelSelect.tsx:20-47](file://src/components/ModelSelect.tsx#L20-L47)
+
+### VendorIcon
+`VendorIcon` renders local inline SVG vendor marks for AI model providers, replacing external Google favicon dependencies with self-contained brand logos. This improves performance and reliability across all supported providers.
+
+Props:
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `id` | `string` | Required | Model identifier used for vendor matching |
+| `name` | `string` | Required | Model name used for vendor matching |
+| `size` | `"sm" \| "lg"` | `"sm"` | Icon size: "sm" (20px for lists/cards) or "lg" (matches page headings) |
+
+Vendor matching logic:
+- Token-prefix matching over `${id} ${name}` lowercase strings.
+- Supports 20+ major AI providers including Anthropic, OpenAI, Google, xAI, Zhipu, DeepSeek, Xiaomi, Qwen, Moonshot AI, MiniMax, Meta, NVIDIA, Mistral, Upstage, ByteDance, Tencent, Meituan, Ant Group.
+- Fallback to generic hexagonal glyph with first letter for unknown vendors.
+
+Visual variants:
+- **Chip style**: Dark background with white logo for brands requiring contrast (Anthropic).
+- **Adaptive style**: Theme-aware colors that adapt to light/dark mode.
+- **Invert style**: White logos that invert appropriately for different backgrounds.
+- **Brand color**: Custom color application for specific vendors like Xiaomi.
+
+Rendering behavior:
+- Imports inline SVGs from generated data module (`vendorIcons.generated`).
+- No network requests or external image loading.
+- Responsive sizing with Tailwind CSS classes.
+- Accessibility attributes including `role="img"` and `aria-label`.
+
+Accessibility:
+- All vendor icons have proper `role="img"` and descriptive `aria-label`.
+- Unknown vendors show "Unknown vendor" with appropriate fallback.
+- Screen reader friendly with semantic SVG structure.
+
+Performance benefits:
+- Eliminates external network requests for vendor logos.
+- Reduces bundle size compared to external image dependencies.
+- Improves reliability by removing dependency on third-party services.
+- Enables better caching and offline support.
+
+**Section sources**
+- [VendorIcon.tsx:1-124](file://src/components/VendorIcon.tsx#L1-L124)
 
 ### Homepage Route Integration
 The homepage route initializes default model selections, validates query parameters, synchronizes state with the URL, and composes the UI.
@@ -427,11 +485,14 @@ CompareSection["CompareSection.tsx"] --> Models["models.ts"]
 CompareSection --> ModelSelect["ModelSelect.tsx"]
 CompareSection --> HexRadar["HexRadar.tsx"]
 ModelCards["ModelCards.tsx"] --> Models
+ModelCards --> VendorIcon["VendorIcon.tsx"]
 HexRadar["HexRadar.tsx"] --> Models
 IndexRoute["routes/index.tsx"] --> CompareSection
 IndexRoute --> ModelCards
 IndexRoute --> Models
 Header["Header.tsx"] --> ThemeToggle["theme-toggle.tsx"]
+VendorIcon["VendorIcon.tsx"] --> Generated["vendorIcons.generated.ts"]
+RouterHead["router-head.tsx"] --> Favicon["favicon.svg"]
 ```
 
 **Diagram sources**
@@ -440,12 +501,15 @@ Header["Header.tsx"] --> ThemeToggle["theme-toggle.tsx"]
 - [HexRadar.tsx:1-3](file://src/components/HexRadar.tsx#L1-L3)
 - [index.tsx:1-8](file://src/routes/index.tsx#L1-L8)
 - [Header.tsx:1-2](file://src/components/Header.tsx#L1-L2)
+- [VendorIcon.tsx:1-2](file://src/components/VendorIcon.tsx#L1-L2)
+- [router-head.tsx:12-14](file://src/components/router-head.tsx#L12-L14)
 
 Coupling and cohesion:
 - `CompareSection` depends on `ModelSelect`, `HexRadar`, and `models.ts`.
-- `ModelCards` depends on `models.ts` and communicates through `onSource$`.
+- `ModelCards` depends on `models.ts`, `VendorIcon`, and communicates through `onSource$`.
 - `HexRadar` is presentation-only and depends on `models.ts` only for dimension definitions.
 - `ModelSelect` is self-contained and reused by multiple parents.
+- `VendorIcon` depends on generated vendor SVG data and is self-contained.
 - The route owns cross-component state and URL synchronization.
 
 External dependencies:
@@ -453,6 +517,7 @@ External dependencies:
 - Qwik City location API for URL handling.
 - Tailwind CSS for styling.
 - Generated data modules for scores and sources.
+- Inline SVG vendor icons for reliable brand representation.
 
 Potential circular dependencies:
 - No circular imports are evident; components import data, and data does not import components.
@@ -463,19 +528,23 @@ Potential circular dependencies:
 - [HexRadar.tsx:1-3](file://src/components/HexRadar.tsx#L1-L3)
 - [index.tsx:1-8](file://src/routes/index.tsx#L1-L8)
 - [models.ts:18-19](file://src/data/models.ts#L18-L19)
+- [VendorIcon.tsx:1-2](file://src/components/VendorIcon.tsx#L1-L2)
 
 ## Performance Considerations
 - **Generated data**: Scores and source registry are pre-parsed into generated TypeScript modules, avoiding client-side parsing of markdown and reducing bundle size.
 - **SSG and static assets**: The README indicates static SSG output, meaning pages can be prerendered.
 - **Minimal re-renders**: Components derive local arrays from props; only the route mutates shared state.
 - **SVG chart**: HexRadar computes points during render; for very large datasets this could benefit from memoization, but current usage is limited to up to three series.
-- **Pagination**: `ModelCards` limits initial render to nine models and offers “Show more” or “Show all”.
+- **Pagination**: `ModelCards` limits initial render to nine models and offers "Show more" or "Show all".
 - **URL sync**: Query parameter updates use `replaceState` instead of pushing history entries repeatedly.
+- **Vendor icons**: Local inline SVGs eliminate external network requests and improve reliability.
+- **Favicon optimization**: SVG favicon replaces PNG dependencies for better scalability and smaller file size.
 
 Optimization recommendations:
 - Consider memoizing expensive computations in `CompareSection` if model count grows significantly.
 - Keep `ModelCards` pagination reasonable; avoid rendering hundreds of cards at once.
 - Ensure generated data remains in sync with research files via `pnpm sync`.
+- Monitor vendor icon bundle size as new providers are added.
 
 [No sources needed since this section provides general guidance]
 
@@ -490,6 +559,8 @@ Common issues and resolutions:
 | Duplicate model selection | Warning message appears | Choose different models for each slot |
 | Theme flash or incorrect initial theme | Initial theme mismatch | Verify `darkMode: "class"` and that `html.dark` is set before paint |
 | Mobile menu not closing | Drawer stays open | Check that navigation links update `isMenuOpen` state |
+| Missing vendor icons | Generic fallback glyphs appear | Ensure vendor names match expected patterns in `VENDOR_ICON_SVGS` |
+| Slow icon loading | External network requests detected | Verify vendor icons are properly inlined and not loading external resources |
 
 **Section sources**
 - [models.ts:79-119](file://src/data/models.ts#L79-L119)
@@ -497,10 +568,13 @@ Common issues and resolutions:
 - [ModelSelect.tsx:20-47](file://src/components/ModelSelect.tsx#L20-L47)
 - [theme-toggle.tsx:3-34](file://src/components/theme-toggle/theme-toggle.tsx#L3-L34)
 - [Header.tsx:76-155](file://src/components/Header.tsx#L76-L155)
+- [VendorIcon.tsx:25-67](file://src/components/VendorIcon.tsx#L25-L67)
 
 ## Conclusion
-The ModelComp UI is built around a clear separation of concerns: the homepage route manages global state and URL synchronization, `CompareSection` orchestrates the comparison workflow, `HexRadar` visualizes multi-dimensional comparisons, `ModelCards` provides comprehensive model browsing, and `ModelSelect` standardizes input. The architecture relies on generated data, Tailwind CSS, and Qwik’s resumable components to deliver a responsive, accessible, and maintainable interface.
+The ModelComp UI is built around a clear separation of concerns: the homepage route manages global state and URL synchronization, `CompareSection` orchestrates the comparison workflow, `HexRadar` visualizes multi-dimensional comparisons, `ModelCards` provides comprehensive model browsing, `ModelSelect` standardizes input, and `VendorIcon` delivers reliable brand representation. The architecture relies on generated data, Tailwind CSS, and Qwik's resumable components to deliver a responsive, accessible, and maintainable interface.
 
-The hexagonal radar chart is the centerpiece of visual comparison, mapping six normalized dimensions with non-linear emphasis on high scores. Responsive layouts, mobile drawer navigation, and theme toggling round out the user experience. Customization is primarily driven by data configuration and Tailwind utilities rather than complex component APIs.
+The hexagonal radar chart is the centerpiece of visual comparison, mapping six normalized dimensions with non-linear emphasis on high scores. The new `VendorIcon` component enhances the user experience by providing local inline SVG vendor marks that eliminate external dependencies while maintaining brand consistency across all supported AI providers. Responsive layouts, mobile drawer navigation, and theme toggling round out the user experience. Customization is primarily driven by data configuration and Tailwind utilities rather than complex component APIs.
+
+The addition of `VendorIcon` represents a significant improvement in performance and reliability, ensuring that vendor logos load instantly without network requests while maintaining full accessibility and visual consistency across light and dark themes.
 
 [No sources needed since this section summarizes without analyzing specific files]

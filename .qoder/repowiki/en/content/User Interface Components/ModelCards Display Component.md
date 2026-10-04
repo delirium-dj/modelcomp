@@ -9,6 +9,14 @@
 - [README.md](file://README.md)
 </cite>
 
+## Update Summary
+**Changes Made**
+- Added comprehensive documentation for the new live search filtering functionality
+- Updated component architecture section to include search state management
+- Enhanced interactive elements section with search-specific features
+- Added search accessibility considerations and user experience patterns
+- Updated performance considerations to address real-time filtering
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -26,7 +34,7 @@ The ModelCards component is the primary UI surface for browsing and comparing AI
 - Cards view: a responsive card grid with summary information per model.
 - List view: a sortable table on desktop and a stacked list on mobile.
 
-The component integrates with the project’s data pipeline so that every displayed number comes from pre-parsed benchmark results rather than hardcoded values.
+The component integrates with the project's data pipeline so that every displayed number comes from pre-parsed benchmark results rather than hardcoded values. **Updated**: The component now includes live search filtering functionality that allows users to interactively filter models by name, ID, or short description through a dedicated search input field.
 
 ## Project Structure
 ModelCards lives under `src/components` and consumes typed model data from `src/data/models.ts`. The data layer imports auto-generated score and source registries produced by the build-time sync script.
@@ -73,11 +81,12 @@ ModelCards is a Qwik component that receives:
 
 Internally, it manages:
 
-- `displayCount`: how many models are initially rendered before “Show more”.
+- `displayCount`: how many models are initially rendered before "Show more".
 - `view`: whether the user is in cards or list mode.
+- `query`: the current search query string for live filtering.
 - `sortDim` and `isVirtualView`: derived state indicating whether the current view ranks by a specific dimension.
 
-It computes a filtered and sorted list of models based on the selected source, then renders either cards or a list/table depending on the view mode.
+It computes a filtered and sorted list of models based on the selected source and search query, then renders either cards or a list/table depending on the view mode.
 
 Key responsibilities:
 
@@ -88,18 +97,21 @@ Key responsibilities:
 - Render six dimension scores.
 - Provide sorting controls for both table headers and mobile filter chips.
 - Paginate large datasets through incremental loading.
+- **New**: Handle live search filtering by name, ID, or short description.
+- **New**: Manage search state and reset pagination when search is applied.
 
 **Section sources**
 - [ModelCards.tsx:6-28](file://src/components/ModelCards.tsx#L6-L28)
 
 ## Architecture Overview
-The component follows a unidirectional data flow:
+The component follows a unidirectional data flow with enhanced search capabilities:
 
 1. The parent route or page supplies the active `source`.
 2. ModelCards filters and sorts `MODELS` according to that source.
-3. For non-average sources, it temporarily swaps each model’s `scores` with the selected source’s scores.
-4. It renders the selected view (cards or list).
-5. Sorting changes call back into the parent via `onSource$`.
+3. For non-average sources, it temporarily swaps each model's `scores` with the selected source's scores.
+4. **New**: Apply live search filtering based on the `query` signal.
+5. It renders the selected view (cards or list).
+6. Sorting changes call back into the parent via `onSource$`.
 
 ```mermaid
 sequenceDiagram
@@ -107,10 +119,13 @@ participant Parent as "Parent Page"
 participant MC as "ModelCards"
 participant Data as "models.ts"
 participant Generated as "generated scores & sources"
+participant Search as "Search Filter"
 Parent->>MC : render(source, onSource$)
 MC->>Data : read MODELS, DIMENSIONS, sortSourceFor, virtualDimFor
 MC->>Generated : use pre-parsed scores and source registry
 MC->>MC : filter + map + sort models
+MC->>Search : apply query filter (name, id, short)
+Search-->>MC : return filtered models
 MC-->>Parent : render cards or list
 Parent->>MC : new source selected
 MC->>MC : recompute visibleModels
@@ -164,6 +179,46 @@ Pricing can be a single note or multiple tiers. When `pricingTiers` exists, the 
 - [ModelCards.tsx:232-239](file://src/components/ModelCards.tsx#L232-L239)
 - [ModelCards.tsx:325-334](file://src/components/ModelCards.tsx#L325-L334)
 
+### Live Search Filtering System
+**New Feature**: The component implements a comprehensive search system that allows users to filter models in real-time.
+
+#### Search State Management
+- Uses a `query` signal to store the current search input
+- Automatically resets pagination (`displayCount`) when search is applied
+- Trims and lowercases the query for case-insensitive matching
+
+#### Search Criteria
+The search filters models based on three fields:
+- **Name**: Full model name matching
+- **ID**: Provider identifier matching  
+- **Short**: Short description matching
+
+#### User Interface Elements
+- **Search Input Field**: Dedicated search box with placeholder text "Search models…"
+- **Clear Button**: Appears when search is active, allows quick reset
+- **Result Counter**: Shows "X of Y models" when search is active
+- **Empty State**: Displays helpful message when no matches are found
+
+```mermaid
+flowchart TD
+Input["User types in search"] --> Query["Update query signal"]
+Query --> Trim["Trim and lowercase query"]
+Trim --> Check{"Query empty?"}
+Check --> |Yes| NoFilter["Use original shown array"]
+Check --> |No| Filter["Filter by name/id/short"]
+Filter --> Count["Count filtered results"]
+Count --> Display["Display results with counter"]
+NoFilter --> Display
+```
+
+**Diagram sources**
+- [ModelCards.tsx:17-39](file://src/components/ModelCards.tsx#L17-L39)
+- [ModelCards.tsx:85-124](file://src/components/ModelCards.tsx#L85-L124)
+
+**Section sources**
+- [ModelCards.tsx:17-39](file://src/components/ModelCards.tsx#L17-L39)
+- [ModelCards.tsx:85-124](file://src/components/ModelCards.tsx#L85-L124)
+
 ### Responsive Design Patterns
 ModelCards uses Tailwind utility classes to adapt between screens:
 
@@ -210,8 +265,10 @@ Interactive elements include:
 - Model name links navigating to `/model/<slug>/`.
 - Table header buttons that trigger sorting by dimension or Overall.
 - Mobile sort chips that also trigger sorting.
-- “Show more” button to incrementally load additional models.
-- “Show all” button in list view to expand the dataset.
+- "Show more" button to incrementally load additional models.
+- "Show all" button in list view to expand the dataset.
+- **New**: Search input field with real-time filtering.
+- **New**: Clear search button that appears when search is active.
 
 **Section sources**
 - [ModelCards.tsx:36-65](file://src/components/ModelCards.tsx#L36-L65)
@@ -219,6 +276,7 @@ Interactive elements include:
 - [ModelCards.tsx:147-195](file://src/components/ModelCards.tsx#L147-L195)
 - [ModelCards.tsx:245-279](file://src/components/ModelCards.tsx#L245-L279)
 - [ModelCards.tsx:341-364](file://src/components/ModelCards.tsx#L341-L364)
+- [ModelCards.tsx:85-114](file://src/components/ModelCards.tsx#L85-L114)
 
 ### Integration with Model Data Structures
 ModelCards depends on:
@@ -310,27 +368,34 @@ ModelCards includes several accessibility features:
 - Sort buttons expose descriptive `aria-label` and `title` attributes.
 - Keyboard focus styles are provided through focus rings.
 - Links to model detail pages use meaningful hrefs.
+- **New**: Search input has proper `label` and `aria-label` attributes.
+- **New**: Search results counter uses `aria-live="polite"` for screen reader announcements.
+- **New**: Clear search button has descriptive `aria-label`.
 
 Potential improvements could include:
 
-- Adding `aria-live` regions around dynamic “Show more” updates.
+- Adding `aria-live` regions around dynamic "Show more" updates.
 - Providing skip links if this section appears deep in a page.
 - Ensuring screen reader announcements for pagination changes.
+- **New**: Consider adding debouncing for search input to improve performance.
 
 **Section sources**
 - [ModelCards.tsx:31-36](file://src/components/ModelCards.tsx#L31-L36)
 - [ModelCards.tsx:36-65](file://src/components/ModelCards.tsx#L36-L65)
 - [ModelCards.tsx:147-195](file://src/components/ModelCards.tsx#L147-L195)
 - [ModelCards.tsx:245-279](file://src/components/ModelCards.tsx#L245-L279)
+- [ModelCards.tsx:85-119](file://src/components/ModelCards.tsx#L85-L119)
 
 ### Example Customization Patterns
 Customizing ModelCards typically involves adjusting its props or surrounding state:
 
-- Change the initial view by updating the parent’s `source` value.
+- Change the initial view by updating the parent's `source` value.
 - Adjust pagination by modifying the initial `displayCount` signal or adding a prop.
 - Extend metadata display by reading additional fields from `AiModel.meta`.
 - Add new dimension badges by extending `DIMENSIONS` and corresponding score fields.
 - Customize styling by overriding Tailwind classes or introducing theme tokens.
+- **New**: Modify search criteria by extending the filter logic in the query processing.
+- **New**: Customize search UI by modifying the search input and clear button components.
 
 Because the component reads from generated data structures, adding a new model requires only:
 
@@ -369,11 +434,13 @@ MC --> ROUTE["/model/<slug>/"]
 ## Performance Considerations
 ModelCards implements several performance-oriented patterns:
 
-- **Incremental rendering:** Only the first nine models are rendered initially. Additional models are loaded by clicking “Show more.”
-- **List-only expansion:** In list view, a “Show all” button allows expanding to the full dataset without forcing immediate rendering of every model.
+- **Incremental rendering:** Only the first nine models are rendered initially. Additional models are loaded by clicking "Show more."
+- **List-only expansion:** In list view, a "Show all" button allows expanding to the full dataset without forcing immediate rendering of every model.
 - **Filtered and sorted data:** Filtering and sorting happen once per source change, not per rendered item.
 - **Generated data:** Scores and sources are pre-parsed at build time, avoiding heavy markdown parsing in the client bundle.
 - **Responsive layout:** CSS-driven responsive grids and hidden desktop tables reduce unnecessary DOM complexity on mobile.
+- **New**: **Real-time search optimization**: Search filtering operates on already filtered and sorted data, minimizing redundant computations.
+- **New**: **Pagination reset**: Search automatically resets pagination to show initial results, preventing performance issues with large filtered datasets.
 
 Recommendations for very large datasets:
 
@@ -381,10 +448,12 @@ Recommendations for very large datasets:
 - Debounce or throttle expensive sorting operations if additional client-side filtering is added.
 - Keep generated data minimal by ensuring the sync script excludes unnecessary fields.
 - Use lazy loading for images or heavy assets if future card designs include media.
+- **New**: Consider implementing search debouncing for extremely large datasets to reduce frequent re-renders.
 
 **Section sources**
 - [ModelCards.tsx:14-28](file://src/components/ModelCards.tsx#L14-L28)
 - [ModelCards.tsx:341-364](file://src/components/ModelCards.tsx#L341-L364)
+- [ModelCards.tsx:85-124](file://src/components/ModelCards.tsx#L85-L124)
 - [models.ts:6-16](file://src/data/models.ts#L6-L16)
 
 ## Troubleshooting Guide
@@ -396,14 +465,18 @@ Common issues and resolutions:
 | Wrong scores shown | Incorrect `source` value passed to ModelCards | Verify parent page state and `onSource$` callback |
 | Sorting does not work | `sortSourceFor` mapping mismatch or missing dimension | Confirm `DIMENSIONS` and `VIRTUAL_VIEWS` alignment |
 | Free/Paid badge incorrect | `noFreeId` or missing `freeTierNote` | Update `meta.json` with correct pricing metadata |
-| Large dataset feels slow | Too many models rendered at once | Rely on “Show more” or add virtualization |
+| Large dataset feels slow | Too many models rendered at once | Rely on "Show more" or add virtualization |
 | Build warns about missing data | Sync script was not run after adding findings | Run `pnpm sync` before building |
+| **New**: Search not working | Invalid search query or empty model fields | Check model data integrity and search field availability |
+| **New**: Search results not updating | Signal not properly reactive | Verify Qwik signal usage and event handlers |
+| **New**: Clear button not appearing | Query state not properly managed | Check query signal initialization and conditional rendering |
 
 **Section sources**
 - [models.ts:79-119](file://src/data/models.ts#L79-L119)
 - [models.ts:190-218](file://src/data/models.ts#L190-L218)
 - [models.ts:220-241](file://src/data/models.ts#L220-L241)
 - [README.md:84-91](file://README.md#L84-L91)
+- [ModelCards.tsx:85-124](file://src/components/ModelCards.tsx#L85-L124)
 
 ## Conclusion
 ModelCards provides a clear, accessible, and responsive interface for exploring AI models. It separates concerns cleanly:
@@ -412,4 +485,6 @@ ModelCards provides a clear, accessible, and responsive interface for exploring 
 - The data layer hydrates models from generated scores and curated metadata.
 - The build pipeline ensures numbers remain synchronized with research files.
 
-Its design supports customization, accessibility, and scalability. For future growth, the component is well positioned to adopt virtualization, richer metadata, and additional interactive features while maintaining its current separation of data and presentation.
+**Updated**: The addition of live search filtering significantly enhances the user experience by allowing users to quickly find specific models through real-time filtering by name, ID, or description. The search functionality integrates seamlessly with existing pagination and sorting features while maintaining accessibility standards.
+
+Its design supports customization, accessibility, and scalability. For future growth, the component is well positioned to adopt virtualization, richer metadata, and additional interactive features while maintaining its current separation of data and presentation. The search implementation provides a solid foundation for potential enhancements like advanced filtering options, search history, or saved searches.

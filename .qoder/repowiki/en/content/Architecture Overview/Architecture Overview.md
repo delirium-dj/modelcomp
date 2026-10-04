@@ -14,18 +14,32 @@
 - [src/routes/index.tsx](file://src/routes/index.tsx)
 - [src/data/models.ts](file://src/data/models.ts)
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
+- [.opencode/package.json](file://.opencode/package.json)
+- [.opencode/plugins/bang-drop-retry.ts](file://.opencode/plugins/bang-drop-retry.ts)
+- [.opencode/plugins/budget-retry.ts](file://.opencode/plugins/budget-retry.ts)
+- [.opencode/plugins/deepseek-continue-retry.ts](file://.opencode/plugins/deepseek-continue-retry.ts)
+- [.opencode/plugins/fledge-endpoint-retry.ts](file://.opencode/plugins/fledge-endpoint-retry.ts)
+- [.opencode/plugins/gpt-sol-budget-retry.ts](file://.opencode/plugins/gpt-sol-budget-retry.ts)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Added new section documenting the OpenCode plugin ecosystem with specialized retry mechanisms
+- Updated project structure to include OpenCode plugins directory and dependencies
+- Enhanced architecture diagrams to show plugin integration with model providers
+- Added detailed analysis of retry strategies for handling various API edge cases across different model providers
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
 3. [Core Components](#core-components)
 4. [Architecture Overview](#architecture-overview)
-5. [Detailed Component Analysis](#detailed-component-analysis)
-6. [Dependency Analysis](#dependency-analysis)
-7. [Performance Considerations](#performance-considerations)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Conclusion](#conclusion)
+5. [OpenCode Plugin Ecosystem](#opencode-plugin-ecosystem)
+6. [Detailed Component Analysis](#detailed-component-analysis)
+7. [Dependency Analysis](#dependency-analysis)
+8. [Performance Considerations](#performance-considerations)
+9. [Troubleshooting Guide](#troubleshooting-guide)
+10. [Conclusion](#conclusion)
 
 ## Introduction
 ModelComp is a static site that compares AI coding models across tool use, reasoning, context window, multimodal support, coding ability, and cost efficiency. Scores are normalized to 1–100 from public benchmarks and rendered at build time from research markdown files under `model/<slug>/`. The application uses Qwik with Qwik City for resumable components and file-based routing, Vite as the build system, and TypeScript for type safety. It supports SSR during development and preview, static site generation for production, and PWA capabilities through a web manifest.
@@ -34,6 +48,7 @@ The platform separates concerns into:
 - Research data: per-model markdown findings and curated metadata.
 - Build-time sync pipeline: deterministic parsing, validation, averaging, registry updates, and generated TypeScript.
 - Runtime UI: Qwik components and routes rendering comparison views, model detail pages, methodology, and cards.
+- **OpenCode plugin ecosystem**: specialized retry mechanisms for handling various API edge cases across different model providers.
 
 **Section sources**
 - [README.md:1-17](file://README.md#L1-L17)
@@ -47,6 +62,8 @@ At a high level:
 - `src/data/models.ts` hydrates the model catalog from generated scores and meta, defines dimensions, virtual views, and source ordering.
 - `src/routes/` provides Qwik City pages: homepage compare view and per-model detail pages.
 - `src/components/` holds reusable UI components (compare section, hex radar, model cards, methodology, header/footer).
+- `.opencode/plugins/` contains specialized retry plugins for handling API edge cases across different model providers.
+- `.opencode/package.json` declares the OpenCode plugin dependency.
 - `public/manifest.json` enables PWA installation hints.
 - `vite.config.ts` wires Qwik City and Qwik optimizer plugins.
 - `tailwind.config.js` configures Tailwind with class-based dark mode and CSS variables for theming.
@@ -68,10 +85,18 @@ R["src/data/models.ts"]
 RT["src/routes/*"]
 C["src/components/*"]
 end
+subgraph "OpenCode Plugins"
+P1[".opencode/plugins/bang-drop-retry.ts"]
+P2[".opencode/plugins/budget-retry.ts"]
+P3[".opencode/plugins/deepseek-continue-retry.ts"]
+P4[".opencode/plugins/fledge-endpoint-retry.ts"]
+P5[".opencode/plugins/gpt-sol-budget-retry.ts"]
+OP[".opencode/package.json"]
+end
 subgraph "Build & Deploy"
 V["vite.config.ts"]
 T["tailwind.config.js"]
-P["public/manifest.json"]
+PM["public/manifest.json"]
 end
 M --> S
 A --> S
@@ -84,7 +109,12 @@ R --> RT
 R --> C
 V --> RT
 T --> RT
-P --> RT
+PM --> RT
+OP --> P1
+OP --> P2
+OP --> P3
+OP --> P4
+OP --> P5
 ```
 
 **Diagram sources**
@@ -95,6 +125,7 @@ P --> RT
 - [vite.config.ts:1-7](file://vite.config.ts#L1-L7)
 - [tailwind.config.js:1-22](file://tailwind.config.js#L1-L22)
 - [public/manifest.json:1-17](file://public/manifest.json#L1-L17)
+- [.opencode/package.json:1-6](file://.opencode/package.json#L1-L6)
 
 **Section sources**
 - [README.md:61-80](file://README.md#L61-L80)
@@ -107,6 +138,7 @@ P --> RT
 - App shell (`src/root.tsx`): Provides QwikCityProvider, anti-flash theme script, PWA manifest link in production, and RouterHead.
 - Build configuration (`vite.config.ts`, `tailwind.config.js`): Enables Qwik City + Qwik optimizer, sets preview headers, configures Tailwind dark mode via class and CSS variables.
 - PWA manifest (`public/manifest.json`): Defines app name, start URL, display mode, theme color, and icons.
+- **OpenCode plugin ecosystem**: Specialized retry mechanisms for handling various API edge cases including budget exhaustion, endpoint unavailability, invalid input errors, connection drops, and provider-specific issues.
 
 **Section sources**
 - [src/data/models.ts:6-19](file://src/data/models.ts#L6-L19)
@@ -125,7 +157,7 @@ P --> RT
 - [public/manifest.json:1-17](file://public/manifest.json#L1-L17)
 
 ## Architecture Overview
-The system follows a clear separation between data, build, and runtime layers:
+The system follows a clear separation between data, build, runtime, and plugin layers:
 
 ```mermaid
 graph TB
@@ -141,6 +173,7 @@ MD["Research Markdown<br/>model/<slug>/*.md"]
 META["Meta JSON<br/>model/<slug>/meta.json"]
 TAIL["Tailwind Theme<br/>tailwind.config.js"]
 PWA["PWA Manifest<br/>public/manifest.json"]
+OC["OpenCode Plugins<br/>.opencode/plugins/*"]
 U --> QW
 QW --> SSR
 SSR --> ROOT
@@ -152,6 +185,7 @@ SYNC <-- MD
 SYNC <-- META
 ROOT --> TAIL
 ROOT --> PWA
+OC --> U
 ```
 
 **Diagram sources**
@@ -162,6 +196,74 @@ ROOT --> PWA
 - [scripts/sync-data.mjs:1-29](file://scripts/sync-data.mjs#L1-L29)
 - [tailwind.config.js:1-22](file://tailwind.config.js#L1-L22)
 - [public/manifest.json:1-17](file://public/manifest.json#L1-L17)
+
+## OpenCode Plugin Ecosystem
+
+### Overview
+The OpenCode plugin ecosystem provides specialized retry mechanisms for handling various API edge cases across different model providers. Each plugin implements a consistent pattern for detecting specific error conditions and automatically retrying failed requests with appropriate delays and safeguards.
+
+### Plugin Architecture
+All plugins follow a standardized architecture:
+- **Error Detection**: Monitor `session.error` events for specific error patterns
+- **Session Management**: Track retry state per session using Sets and Maps
+- **Retry Logic**: Implement exponential backoff or fixed delays based on error type
+- **Safety Mechanisms**: Include emergency brakes to prevent infinite retry loops
+- **User Feedback**: Provide toast notifications and logging for transparency
+
+```mermaid
+flowchart TD
+Event["session.error Event"] --> Detect["Error Pattern Detection"]
+Detect --> Match{"Matches Known Pattern?"}
+Match --> |No| Ignore["Ignore - Other Error Type"]
+Match --> |Yes| SessionCheck["Check Session State"]
+SessionCheck --> Pending{"Already Retrying?"}
+Pending --> |Yes| Exit["Exit - Prevent Duplicate"]
+Pending --> |No| BrakeCheck{"Emergency Brake Active?"}
+BrakeCheck --> |Yes| Stop["Stop Retry - Too Many Failures"]
+BrakeCheck --> |No| Schedule["Schedule Retry Timer"]
+Schedule --> Notify["Show Toast Notification"]
+Notify --> Wait["Wait Delay Period"]
+Wait --> Retry["Send Continue Prompt"]
+Retry --> Success{"Success?"}
+Success --> |Yes| Reset["Reset Session State"]
+Success --> |No| Streak["Increment Failure Streak"]
+Streak --> CheckBrake{"Exceed Emergency Brake?"}
+CheckBrake --> |Yes| Stop
+CheckBrake --> |No| Exit
+```
+
+**Diagram sources**
+- [.opencode/plugins/bang-drop-retry.ts:154-324](file://.opencode/plugins/bang-drop-retry.ts#L154-L324)
+- [.opencode/plugins/budget-retry.ts:18-86](file://.opencode/plugins/budget-retry.ts#L18-L86)
+- [.opencode/plugins/deepseek-continue-retry.ts:49-183](file://.opencode/plugins/deepseek-continue-retry.ts#L49-L183)
+
+### Specialized Retry Strategies
+
+#### Budget Exhaustion Handling
+- **BudgetRetry**: Handles generic budget pool quota exhaustion with 55-second delays
+- **GptSolBudgetRetry**: Specific handling for GPT Sol pool exhaustion with 83.5-second intervals and Chinese error detection
+
+#### Connection and Endpoint Issues
+- **FledgeEndpointRetry**: Manages endpoint unavailability errors with 10-second retry intervals
+- **BangDropRetry**: Detects connection drops indicated by "!" storms or "lock" patterns from Kimi K3
+
+#### Provider-Specific Errors
+- **DeepseekContinueRetry**: Handles "Invalid input" errors from DeepSeek models with 7-second delays
+
+### Common Patterns and Safeguards
+All plugins implement consistent safety mechanisms:
+- **Consecutive Failure Tracking**: Monitors failure streaks per session
+- **Emergency Brakes**: Stops retries after configurable consecutive failures (typically 30)
+- **Session State Management**: Uses Sets and Maps to track pending retries and failure counts
+- **Graceful Degradation**: Ensures logging and toast failures don't break retry logic
+
+**Section sources**
+- [.opencode/plugins/bang-drop-retry.ts:1-324](file://.opencode/plugins/bang-drop-retry.ts#L1-L324)
+- [.opencode/plugins/budget-retry.ts:1-86](file://.opencode/plugins/budget-retry.ts#L1-L86)
+- [.opencode/plugins/deepseek-continue-retry.ts:1-183](file://.opencode/plugins/deepseek-continue-retry.ts#L1-L183)
+- [.opencode/plugins/fledge-endpoint-retry.ts:1-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L1-L171)
+- [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
+- [.opencode/package.json:1-6](file://.opencode/package.json#L1-L6)
 
 ## Detailed Component Analysis
 
@@ -186,7 +288,7 @@ Emit --> End(["Exit code 0 if no failures"])
 Key behaviors:
 - Evidence-free reports are renamed to `.excluded` so they never poison averages.
 - Overall drift is corrected automatically when it deviates from the half-up mean of the five quality dimensions.
-- Only raters whose own committed average Overall exceeds the rater gate count toward another model’s average; otherwise, all available reports are averaged as fallback.
+- Only raters whose own committed average Overall exceeds the rater gate count toward another model's average; otherwise, all available reports are averaged as fallback.
 - New reporting agents are appended to the SourceKey union and SOURCE_DEFS registry; dropdown order is derived at build time.
 - Compact numeric indexes are emitted to avoid bundling full report prose.
 
@@ -200,7 +302,7 @@ Key behaviors:
 - [scripts/sync-data.mjs:490-523](file://scripts/sync-data.mjs#L490-L523)
 
 ### Static Site Generation, SSR, and PWA Support
-- SSR: The SSR entry renders the root component tree using Qwik’s server renderer and attaches the client manifest.
+- SSR: The SSR entry renders the root component tree using Qwik's server renderer and attaches the client manifest.
 - SSG: The build produces static output via Qwik/Vite; preview headers disable HTML caching locally.
 - PWA: In production builds, the root injects a manifest link; the manifest defines app identity, start URL, display mode, theme color, and icons.
 
@@ -316,6 +418,7 @@ High-level dependencies:
 - Build system integrates Qwik City and Qwik optimizer via Vite plugins.
 - Styling relies on Tailwind with class-based dark mode and CSS variables.
 - PWA support is declared in the manifest and linked conditionally in production.
+- **OpenCode plugins depend on @opencode-ai/plugin package for event handling and client communication**.
 
 ```mermaid
 graph LR
@@ -327,12 +430,16 @@ SYNC["scripts/sync-data.mjs"]
 MODELS["src/data/models.ts"]
 ROUTES["src/routes/*"]
 ROOT["src/root.tsx"]
+OPKG[".opencode/package.json"]
+PLUGINS[".opencode/plugins/*"]
 PKG --> VCFG
 VCFG --> ROUTES
 TCFG --> ROOT
 MAN --> ROOT
 SYNC --> MODELS
 MODELS --> ROUTES
+OPKG --> PLUGINS
+PLUGINS --> USER["OpenCode Runtime"]
 ```
 
 **Diagram sources**
@@ -343,6 +450,7 @@ MODELS --> ROUTES
 - [scripts/sync-data.mjs:490-523](file://scripts/sync-data.mjs#L490-L523)
 - [src/data/models.ts:6-19](file://src/data/models.ts#L6-L19)
 - [src/root.tsx:1-65](file://src/root.tsx#L1-L65)
+- [.opencode/package.json:1-6](file://.opencode/package.json#L1-L6)
 
 **Section sources**
 - [package.json:11-24](file://package.json#L11-L24)
@@ -358,6 +466,7 @@ MODELS --> ROUTES
 - Use SSR for initial HTML to improve perceived performance and SEO.
 - Disable HTML cache in local preview to ensure accurate testing of generated pages.
 - Keep Tailwind v3 syntax and rely on CSS variables for theme switching to minimize runtime overhead.
+- **OpenCode plugins operate independently of the main application, providing resilience without impacting build or runtime performance**.
 
 [No sources needed since this section provides general guidance]
 
@@ -368,6 +477,7 @@ Common issues and resolutions:
 - Overall drift: Auto-corrected; if not fixable programmatically, hand-edit the Overall line.
 - New sources not appearing: Ensure filename hygiene and run sync; check SourceKey union and SOURCE_DEFS registration.
 - Build failures due to stale generated files: Re-run sync before building; verify exit code and logs.
+- **OpenCode plugin issues**: Check OpenCode logs for plugin service names; verify error patterns match expected formats; ensure proper session ID extraction.
 
 **Section sources**
 - [scripts/sync-data.mjs:297-326](file://scripts/sync-data.mjs#L297-L326)
@@ -377,5 +487,7 @@ Common issues and resolutions:
 
 ## Conclusion
 ModelComp combines a robust data pipeline with a modern Qwik-based frontend to deliver fast, statically generated comparison pages. The sync script enforces data integrity and keeps the client bundle lean by emitting compact TypeScript indexes. Qwik City routing and component composition provide a clean user experience, while SSR and PWA features enhance performance and installability. Theme management, responsive design, and SEO are addressed through Tailwind, CSS variables, and document head configuration.
+
+**The addition of the OpenCode plugin ecosystem significantly enhances reliability by providing specialized retry mechanisms for handling various API edge cases across different model providers. These plugins operate independently, ensuring that transient provider issues don't disrupt the user experience while maintaining clear separation from the core application architecture.**
 
 [No sources needed since this section summarizes without analyzing specific files]

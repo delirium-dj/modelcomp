@@ -9,6 +9,7 @@
 - [tasks/sync-data.md](file://tasks/sync-data.md)
 - [scripts/lib/parse.mjs](file://scripts/lib/parse.mjs)
 - [scripts/lib/validate.mjs](file://scripts/lib/validate.mjs)
+- [scripts/lib/naming.mjs](file://scripts/lib/naming.mjs)
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
 - [scripts/lib/codegen.mjs](file://scripts/lib/codegen.mjs)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
@@ -17,16 +18,16 @@
 - [src/data/rankings.generated.ts](file://src/data/rankings.generated.ts)
 - [src/data/models.ts](file://src/data/models.ts)
 - [model/Inkling/meta.json](file://model/Inkling/meta.json)
+- [model/big-pickle/meta.json](file://model/big-pickle/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated scoring infrastructure documentation to reflect enhanced scores.generated.ts with expanded evaluator-model combinations and recalculated averages across all model categories
-- Added comprehensive documentation for new generated artifacts: catalog.generated.ts and rankings.generated.ts
-- Expanded normalized score mappings documentation for comparison interface with 67 reporting agents
-- Updated SourceKey union type documentation to reflect substantial expansion in evaluator coverage
-- Enhanced registry and code generation sections with new model coverage and performance optimizations
-- Updated architecture diagrams to include new pre-baked data structures for O(1) lookup performance
+- Enhanced data synchronization pipeline with automatic scaffolded meta.json file support for missing model metadata
+- Strengthened validation rules in scripts/lib/validate.mjs with improved filename hygiene and meta.json field validation
+- Improved naming conventions in scripts/lib/naming.mjs with better slug guessing and display name validation
+- Added comprehensive scaffolded stub tracking system that automatically generates placeholder metadata until human curation
+- Enhanced validation logic to prevent underscore usage in vendor display names and enforce proper naming conventions
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -73,12 +74,13 @@ subgraph "Research Data"
 M["model/<slug>/"]
 F["Findings files<br/>*.md"]
 A["average.md<br/>(generated)"]
-J["meta.json<br/>(curated)"]
+J["meta.json<br/>(curated or scaffolded)"]
 end
 subgraph "Sync Pipeline"
 S["scripts/sync-data.mjs"]
 P["scripts/lib/parse.mjs"]
 V["scripts/lib/validate.mjs"]
+N["scripts/lib/naming.mjs"]
 AV["scripts/lib/average.mjs"]
 CG["scripts/lib/codegen.mjs"]
 end
@@ -93,6 +95,7 @@ F --> S
 J --> S
 S --> P
 S --> V
+S --> N
 S --> AV
 S --> CG
 S --> SG
@@ -111,6 +114,7 @@ A --> MD
 - [scripts/sync-data.mjs:1-29](file://scripts/sync-data.mjs#L1-L29)
 - [scripts/lib/parse.mjs:1-7](file://scripts/lib/parse.mjs#L1-L7)
 - [scripts/lib/validate.mjs:1-8](file://scripts/lib/validate.mjs#L1-L8)
+- [scripts/lib/naming.mjs:1-7](file://scripts/lib/naming.mjs#L1-L7)
 - [scripts/lib/average.mjs:1-8](file://scripts/lib/average.mjs#L1-L8)
 - [scripts/lib/codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
 
@@ -119,7 +123,7 @@ A --> MD
 - [model/README.md:1-30](file://model/README.md#L1-L30)
 
 ## Core Components
-This section documents the core data model and processing logic behind ModelComp’s data management system.
+This section documents the core data model and processing logic behind ModelComp's data management system.
 
 ### AiModel Interface
 `AiModel` represents a model entry consumed by the UI. It includes:
@@ -166,7 +170,7 @@ class GeneratedScores {
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
 ### SourceKey Union Type
-`SourceKey` is a union of string literals identifying each reporting agent’s findings file stem. It is auto-generated and maintained by the sync pipeline:
+`SourceKey` is a union of string literals identifying each reporting agent's findings file stem. It is auto-generated and maintained by the sync pipeline:
 - New stems are appended to the union and SOURCE_DEFS array.
 - Labels and slugs are resolved via overrides and catalog lookup.
 - Virtual sort views are pruned from the registry.
@@ -224,7 +228,7 @@ Cost --> End(["Final scores"])
 - [scripts/lib/parse.mjs:69-78](file://scripts/lib/parse.mjs#L69-L78)
 
 ### Multi-Agent Evaluation and Rater Gate
-Each reporting agent contributes a findings file with normalized scores. Only reports from models whose own committed average Overall exceeds the rater gate count toward another model’s average. The gate threshold is strict greater-than. If no raters qualify, the system falls back to averaging all available reports while still applying the top-10 cap.
+Each reporting agent contributes a findings file with normalized scores. Only reports from models whose own committed average Overall exceeds the rater gate count toward another model's average. The gate threshold is strict greater-than. If no raters qualify, the system falls back to averaging all available reports while still applying the top-10 cap.
 
 ```mermaid
 flowchart TD
@@ -252,8 +256,8 @@ Cohort --> End(["Averages"])
 
 ### Evidence-Free Report Quarantine
 Reports lacking verified benchmarks are quarantined automatically:
-- Eight or more “no verified public score found” rows and zero measured values.
-- Zero in any quality dimension when it indicates “no data”.
+- Eight or more "no verified public score found" rows and zero measured values.
+- Zero in any quality dimension when it indicates "no data".
 - Flat-identical quality dimensions with zero cited numbers.
 
 Quarantined files are renamed to `.md.excluded` and excluded from parsing, averaging, and registration.
@@ -277,8 +281,10 @@ Log --> Next
 - [scripts/sync-data.mjs:259-276](file://scripts/sync-data.mjs#L259-L276)
 - [tasks/sync-data.md:19-30](file://tasks/sync-data.md#L19-L30)
 
-### Meta.json Schema
-`meta.json` provides curated display metadata for each model. Required fields include id, name, short, contextWindow, modalities, and pricingNote. Optional fields include pricingTiers, freeTierNote, and noFreeId. The name must be the official vendor display name with spaces, not underscores.
+### Enhanced Meta.json Schema and Scaffolded Support
+**Updated** The `meta.json` schema now supports automatic scaffolding for missing model metadata. Required fields include id, name, short, contextWindow, modalities, and pricingNote. Optional fields include pricingTiers, freeTierNote, and noFreeId. The name must be the official vendor display name with spaces, not underscores.
+
+The system now automatically scaffolds missing `meta.json` files with placeholder data marked with `scaffolded: true`. These scaffolded stubs are tracked and logged until a human curates them with official vendor information.
 
 ```mermaid
 erDiagram
@@ -292,16 +298,19 @@ string pricingNote
 string[] pricingTiers
 string freeTierNote
 boolean noFreeId
+boolean scaffolded
 }
 ```
 
 **Diagram sources**
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/Inkling/meta.json:1-8](file://model/Inkling/meta.json#L1-L8)
+- [model/big-pickle/meta.json:1-14](file://model/big-pickle/meta.json#L1-L14)
 
 **Section sources**
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/Inkling/meta.json:1-8](file://model/Inkling/meta.json#L1-L8)
+- [model/big-pickle/meta.json:1-14](file://model/big-pickle/meta.json#L1-L14)
 
 ### Findings File Format
 Findings files follow a template and contain:
@@ -383,6 +392,7 @@ participant User as "User"
 participant Sync as "sync-data.mjs"
 participant Parse as "parse.mjs"
 participant Validate as "validate.mjs"
+participant Naming as "naming.mjs"
 participant Average as "average.mjs"
 participant Codegen as "codegen.mjs"
 participant FS as "Filesystem"
@@ -390,6 +400,8 @@ participant App as "App Runtime"
 User->>Sync : Run pnpm sync
 Sync->>FS : Scan model/<slug>/*.md
 Sync->>Validate : checkFilename()
+Sync->>Naming : buildScaffoldMeta()
+Naming-->>Sync : Scaffolded meta.json
 Sync->>Parse : parseScoresPure()
 Parse-->>Sync : Scores or missing label
 Sync->>Parse : overallDrift()
@@ -411,6 +423,7 @@ App-->>User : Render compare view and per-model pages
 - [scripts/sync-data.mjs:1-29](file://scripts/sync-data.mjs#L1-L29)
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
 - [scripts/lib/validate.mjs:54-60](file://scripts/lib/validate.mjs#L54-L60)
+- [scripts/lib/naming.mjs:78-91](file://scripts/lib/naming.mjs#L78-L91)
 - [scripts/lib/average.mjs:33-44](file://scripts/lib/average.mjs#L33-L44)
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
@@ -448,14 +461,16 @@ class Parser {
 - [scripts/lib/parse.mjs:8-31](file://scripts/lib/parse.mjs#L8-L31)
 - [scripts/lib/parse.mjs:47-124](file://scripts/lib/parse.mjs#L47-L124)
 
-### Validation Rules
-Validation covers filename hygiene, meta.json required fields, and display-name constraints. Permanence tripwires prevent silent deletion of tracked research files.
+### Enhanced Validation Rules
+**Updated** Validation now covers filename hygiene, meta.json required fields, and display-name constraints with improved error messaging. The system includes permanence tripwires to prevent silent deletion of tracked research files and enhanced checks for forbidden duplicate roots.
 
 ```mermaid
 flowchart TD
 Start(["Input: filename + meta.json"]) --> Filename["checkFilename(slug, f)"]
 Filename --> Meta["checkMetaFile(slug, meta, required)"]
-Meta --> Perma["Permanence tripwire (git HEAD vs disk)"]
+Meta --> NameCheck{"Name has underscores?"}
+NameCheck --> |Yes| NameFail["FAIL: use spaces, not underscores"]
+NameCheck --> |No| Perma["Permanence tripwire (git HEAD vs disk)"]
 Perma --> Result{"Any FAIL?"}
 Result --> |Yes| Block["Block sync writes"]
 Result --> |No| Pass["Allow sync"]
@@ -468,6 +483,29 @@ Result --> |No| Pass["Allow sync"]
 **Section sources**
 - [scripts/lib/validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
+
+### Improved Naming Conventions
+**Updated** The naming system now provides better slug guessing for scaffolded meta.json files and improved display name validation. The system includes helper functions for formatSlugGuess, isScaffoldStub, and metaNameIsSlugGuess to track and manage scaffolded metadata.
+
+```mermaid
+flowchart TD
+Start(["Slug input"]) --> Guess["formatSlugGuess(slug)"]
+Guess --> Create["buildScaffoldMeta(slug)"]
+Create --> Stamp["Add scaffolded: true"]
+Stamp --> Track["Track as scaffolded stub"]
+Track --> Monitor["Monitor for curation"]
+Monitor --> Curated{"Human sets official name?"}
+Curated --> |Yes| RemoveStamp["Remove scaffolded stamp"]
+Curated --> |No| Continue["Continue monitoring"]
+```
+
+**Diagram sources**
+- [scripts/lib/naming.mjs:53-91](file://scripts/lib/naming.mjs#L53-L91)
+- [scripts/sync-data.mjs:318-353](file://scripts/sync-data.mjs#L318-L353)
+
+**Section sources**
+- [scripts/lib/naming.mjs:53-91](file://scripts/lib/naming.mjs#L53-L91)
+- [scripts/sync-data.mjs:318-353](file://scripts/sync-data.mjs#L318-L353)
 
 ### Averaging Mechanism
 Averages are computed over the top-10 cohort of eligible raters. The mix note documents whether fallback occurred, trimming happened, and which sources were ignored due to the rater gate.
@@ -529,8 +567,8 @@ class Codegen {
 **Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations:
 
 - Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores.
-- `meta.json` supplies display metadata and pricing context.
-- `average.md` aggregates eligible raters’ scores into a cohort mean.
+- `meta.json` supplies display metadata and pricing context, with automatic scaffolding support.
+- `average.md` aggregates eligible raters' scores into a cohort mean.
 - `scores.generated.ts` and `sources.generated.ts` provide compact, typed data to the app.
 - `catalog.generated.ts` provides pre-baked metadata catalog for efficient access.
 - `rankings.generated.ts` provides top-3 model IDs per source for instant lookup.
@@ -539,7 +577,7 @@ class Codegen {
 ```mermaid
 graph TB
 RF["Research Markdown<br/>model/<slug>/<Source_Name>.md"] --> Gen["Generated Scores<br/>scores.generated.ts"]
-MF["Meta JSON<br/>model/<slug>/meta.json"] --> Catalog["Catalog Metadata"]
+MF["Meta JSON<br/>model/<slug>/meta.json<br/>(curated or scaffolded)"] --> Catalog["Catalog Metadata"]
 AM["Averaged Scores<br/>model/<slug>/average.md"] --> Gen
 CG["Catalog Generated<br/>catalog.generated.ts"] --> App
 RG["Rankings Generated<br/>rankings.generated.ts"] --> App
@@ -560,16 +598,18 @@ AF["Audit Trail<br/>model-findings.md"] --> App
 - [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
 
 ## Dependency Analysis
-The sync pipeline composes pure helpers for parsing, validation, averaging, and code generation. Coupling is minimized by isolating side effects in the main script and keeping helpers testable and deterministic.
+The sync pipeline composes pure helpers for parsing, validation, naming, averaging, and code generation. Coupling is minimized by isolating side effects in the main script and keeping helpers testable and deterministic.
 
 ```mermaid
 graph TB
 Sync["scripts/sync-data.mjs"] --> Parse["scripts/lib/parse.mjs"]
 Sync --> Validate["scripts/lib/validate.mjs"]
+Sync --> Naming["scripts/lib/naming.mjs"]
 Sync --> Average["scripts/lib/average.mjs"]
 Sync --> Codegen["scripts/lib/codegen.mjs"]
 Parse --> Types["Label/Short/Quality Dims"]
 Validate --> Rules["Filename/Meta Rules"]
+Naming --> Conventions["Slug/Naming Conventions"]
 Average --> Metrics["Cohort Means"]
 Codegen --> TS["TypeScript Artifacts"]
 ```
@@ -578,6 +618,7 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [scripts/lib/parse.mjs:1-7](file://scripts/lib/parse.mjs#L1-L7)
 - [scripts/lib/validate.mjs:1-8](file://scripts/lib/validate.mjs#L1-L8)
+- [scripts/lib/naming.mjs:1-7](file://scripts/lib/naming.mjs#L1-L7)
 - [scripts/lib/average.mjs:1-8](file://scripts/lib/average.mjs#L1-L8)
 - [scripts/lib/codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
 
@@ -594,17 +635,20 @@ Codegen --> TS["TypeScript Artifacts"]
 - Pre-baked catalog and rankings provide O(1) lookup performance for enhanced comparison interface.
 - Expanded evaluator-model combinations are efficiently handled through optimized data structures.
 - The 67 reporting agents are processed through streamlined code generation pipelines.
+- Automatic scaffolding of missing meta.json files prevents build failures while maintaining data integrity.
 
 ## Troubleshooting Guide
 Common issues and resolutions:
 - Missing score lines: ensure all seven labels are present exactly as defined.
 - Overall drift: allow auto-fix or manually correct the Overall number.
 - Hyphen-versioned folders: rename to dotted version convention.
-- Missing meta.json: scaffold and fill official vendor display name and facts.
+- Missing meta.json: scaffolded files are automatically created with placeholder data - replace with official vendor information.
 - Forbidden deletions: restore tracked files from git HEAD rather than deleting.
 - Registry collisions: resolve duplicate SourceKey assignments manually.
 - Generated artifact mismatches: re-run `pnpm sync` to regenerate all TypeScript artifacts.
 - Catalog or rankings inconsistencies: verify meta.json files are properly formatted and complete.
+- Scaffolded stub warnings: review SCAF logs and curate scaffolded meta.json files with official vendor names.
+- Underscore in display names: replace underscores with spaces in meta.json name fields.
 
 **Section sources**
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
@@ -614,4 +658,4 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Conclusion
-ModelComp’s data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
+ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 67 reporting agents provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.

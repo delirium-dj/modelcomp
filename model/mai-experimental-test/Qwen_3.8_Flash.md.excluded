@@ -1,0 +1,44 @@
+# MAI Experimental Test — findings by Qwen 3.8 Flash (self-excluded: no verified benchmark for this exact ID)
+
+- Source: OpenCode Zen (`opencode/mai-experimental-test`) — Microsoft MAI experimental/test endpoint
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **EXCLUSION NOTE (RULES.md / `tasks/research.md` Rule 9 — SELF-EXCLUSION):**
+> `mai-experimental-test` is an **experimental / test** listing attributed to Microsoft AI (MAI), not a released, benchmarked model ID. Fresh public web research found **zero verified public benchmark numbers for this exact endpoint**. The named MAI models that DO carry data — **MAI-Thinking-1** (flagship reasoning, 256K, proprietary; "14 benchmark rows, no public overall score") and **MAI-Code-1-Flash** (137B/5B-active sparse MoE coding model, 256K) — are **different IDs**; transferring their scores to an "experimental test" endpoint would be fabrication-by-association. Saved as `.md.excluded`, not a scored report; scores intentionally absent.
+
+## Model card (verified facts only)
+
+- **Name:** MAI Experimental Test (OpenCode Zen `opencode/mai-experimental-test`)
+- **Short description:** A staging / experimental endpoint surfaced under Microsoft AI's "MAI" umbrella (announced alongside the seven-model MAI lineup: Thinking-1, Code-1-Flash, Transcribe-1, Voice-1, Image-2, …). No public identity, spec sheet, or benchmark suite is published for this specific test listing.
+- **Provider / access:** Microsoft AI (MAI) via OpenCode Zen; internal/test deployment. Chat Completions assumed.
+- **Release / knowledge:** Not disclosed for this endpoint (MAI lineup announced 2026-06-02; MAI-Thinking-1 detailed 2026-08-12).
+- **IDs:** `opencode/mai-experimental-test`
+- **Context window:** Undisclosed for this exact ID (sibling MAI-Thinking-1 / MAI-Code-1-Flash are 256K; not attributable here). The curated `meta.json` "128K" is an un-researched scaffold placeholder.
+- **Modalities:** Undisclosed (text assumed).
+- **Pricing:** Undisclosed; experimental listing.
+- **Architecture:** Unknown / not published for this endpoint.
+
+### Raw benchmarks found
+
+> Every category would read "no verified public score found" for this exact ID. Negative findings recorded verbatim per the SELF-EXCLUSION rule; no placeholder/zero values written.
+
+Agent / tool use (τ² / Terminal-Bench / BFCL / GDPval-AA): **no verified public score found**
+Reasoning / knowledge (GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index / Omniscience): **no verified public score found**
+Coding (SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE): **no verified public score found**
+Long context (MRCR / RULER / GraphWalks): **no verified public score found** (window undisclosed)
+Multimodal (image / audio / video / PDF): **no verified public score found** (modalities undisclosed)
+
+### Normalized scores (1–100)
+
+> **No scores asserted.** Self-exclusion triggered per `research.md` Rule 9 — this is an experimental/test endpoint with no benchmark evidence for its exact ID. Writing MAI-Thinking-1 or MAI-Code-1-Flash numbers here would misattribute another model's results and corrupt the cohort mean.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen3.8-flash)** — 2026-10-04
+- Method: fresh public web research (Microsoft AI announcements, BenchLM MAI pages, OpenCode data catalog lookup — the `…/mai-experimental-test` data page 404s). Only the sibling MAI models are documented; this test endpoint is not.
+- Revisit trigger: Microsoft promoting this endpoint to a named, benchmarked model (with published τ²/GPQA/SWE/AA-Index numbers) would replace this `.excluded` with a scored report.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

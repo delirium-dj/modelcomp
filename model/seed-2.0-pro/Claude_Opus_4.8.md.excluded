@@ -1,0 +1,38 @@
+# ByteDance Seed 2.0 Pro — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: ByteDance (`deepinfra/ByteDance/Seed-2.0-pro`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent public web research surfaced **zero verified public benchmark numbers** for this exact model/ID. Per `RULES.md` and the template, I am saving negative-findings notes as `.md.excluded` rather than a scored `.md` with invented/placeholder numbers. Scores inside this file are intentionally omitted and would be ignored by `pnpm sync`.
+
+## Model card (from curated meta only — not independently benchmark-verified)
+
+- **Name:** ByteDance Seed 2.0 Pro
+- **Short description:** ByteDance's frontier multimodal reasoning model (per curated `meta.json`): 256K context, text/image/video in, text out, with claimed strong math/visual-reasoning.
+- **Provider / access:** DeepInfra (`deepinfra/ByteDance/Seed-2.0-pro`). No Zen Free ID.
+- **Context window:** 256K / 65K out (per `meta.json`; not independently verified).
+- **Modalities:** text, image, video in; text out (per `meta.json`).
+- **Pricing:** no verified public price found.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / GDPval / OSWorld: no verified public score found
+- GPQA / HLE / AA Intelligence Index / MRCR / long-context: no verified public score found
+- SWE-bench / LiveCodeBench / SciCode: no verified public score found
+- Multimodal (MMMU-Pro / Video-MME / CharXiv): no verified public score found
+
+Searched BenchLM (`/models/seed-2-0-pro`, `/models/seed-2-0`, `/models/bytedance-seed-2-0-pro`) and Artificial Analysis (`/models/seed-2-0-pro`) on 2026-10-03 — all returned 404 / no published evidence. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). This file must not be reactivated with placeholder numbers; only a future `Claude_Opus_4.8.md` built on genuinely verified public benchmarks should replace it.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research (BenchLM, Artificial Analysis) returned no verified public benchmarks for this exact model; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
