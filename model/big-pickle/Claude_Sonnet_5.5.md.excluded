@@ -1,0 +1,58 @@
+Let me read the original repo for the harness details.# Big Pickle — findings by Claude Sonnet 5.5
+- Source: Undisclosed publisher (stealth model served by OpenCode Zen) / Big Pickle (`big-pickle`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** Big Pickle (free on OpenCode Zen for a limited time)
+- **Short description:** A stealth model that OpenCode offers free for a limited time to collect feedback. It is served by OpenCode (Anomaly) and the underlying model and vendor are undisclosed, so treat it as an alias. The main use case is as a coding agent inside OpenCode.
+- **Provider / access:** OpenCode Zen `opencode/big-pickle`. It uses the Chat Completions API (`https://opencode.ai/zen/v1/chat/completions`, `@ai-sdk/openai-compatible`), not Responses. The docs list it on the OpenAI-compatible chat endpoint. Users have reported errors when a client routes it through the Anthropic `/messages` format (issue #28146) and outages (issue #28141, May 2026; issue #38644, intermittent 500s).
+- **Release / knowledge:** 2025-10-17 release date, knowledge cutoff 2025-01, per the models.dev catalog. These are catalog values, not vendor-confirmed.
+- **IDs:** `opencode/big-pickle` (OpenCode config) and `big-pickle` (API `model` field). No separate Free-suffixed ID exists on Zen. Its free status comes from its pricing row, unlike the `*-free` IDs such as `mimo-v2.5-free`.
+- **Context window:** 200K total, split as 160K input and 32K output. This was verified only from catalog metadata (models.dev, and Pi lists the same 200K window and 32K max output). The Zen docs don't state a window, and no retrieval test was found.
+- **Modalities:** Text in, text out. Reasoning is supported (interleaved `reasoning_content`), as are tool calls and structured output; attachments are not. A separate JSON-mode flag is not documented. No image, audio, video or PDF input.
+- **Pricing (as of 2026-10-05):** Free for input, output and cached read; cached write is not listed. Privacy caveat: during the free period, collected data may be used to improve the model, so don't send confidential code.
+- **Architecture:** Proprietary and undisclosed. models.dev lists `open_weights = false`, and parameter counts are not disclosed. Identity is unconfirmed. In Nov 2025 a user asked whether it is GLM 4.6, noting the matching 200K context, and OpenCode's docs name no model. A 2026-08 third-party eval author wrote that leaked provider errors suggest DeepSeek-served infrastructure and the model behind the alias may change without notice. A setup guide also says the underlying model may vary.
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **50.8%** on SWE Atlas Codebase QnA (Task Resolve Rate, 63/124). Toolathon and MCP-Atlas: no verified public score found.
+  - The run is a third-party, self-reported run dated 2026-08-11, with Scale not having run or verified it.
+  - The harness was Harbor v0.18.0 with mini-swe-agent 2.4.6, Modal sandboxes, step limit 250, a single trial per task, and 4 CPU / 8 GB instead of the declared 16 CPU / 16 GB.
+  - The judge was claude-opus-4-5-20251101. The author estimates a standard error of about ±4.5 points. Treating two tasks with unscored rubrics as fails gives a strict lower bound of 49.2%.
+  - No Big Pickle row appears on Scale's official board (checked 2026-10-05), so there is no official rank.
+  - For context, official rows include Opus 5 (Claude Code) 63.17±5.01, Opus 4.8 (Claude Code) 57.26±4.93, GLM 5.2 (Mini-SWE-Agent) 48.12±5.07 and GPT 5.5 (Codex) 45.43±5.08. Scale raised the mini-swe-agent step count from 250 to 500 for newer models on July 28, so the comparison is not exactly like-for-like.
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found (the only other coding-type result is SWE Atlas Codebase QnA, listed above)
+
+Long context:
+- no long-context retrieval reported
+### Normalized scores (1-100)
+- **Tool use: not scored.** There is no verified public score on Terminal-Bench 2.1, Tau3-Banking, GDPval-AA or OSWorld/AutomationBench. The SWE Atlas run did sustain a bash tool loop, but that benchmark is not a mapped Tool-use input, so nothing is inferred from it.
+- **Reasoning: not scored.** No verified public score on GPQA Diamond, HLE, LCR, CritPt or the AA Index. GLM-4.6 or DeepSeek numbers are not transferable because the model's identity is unconfirmed.
+- **Context window: 70/100.** The 200K total falls in the 200K–500K tier, where 200K maps to 70. It is verified from catalog metadata only, and usable input is capped at 160K. No MRCR or RULER result was found, so there is nothing to lift it higher.
+- **Multimodal: 15/100.** Text-only input and output, so the rubric's text-only value of 15 applies.
+- **Coding: 70/100 (provisional, low confidence).** The only mapped evidence is SWE Atlas Codebase QnA at 50.8%. That sits between the official top group (about 57–63) and the GLM 5.2 and GPT 5.5 group (about 45–48), with overlapping confidence intervals. It is capped because it is a single self-reported trial, a code-comprehension task rather than patch generation, and there is no SWE-bench Verified, DeepSWE, LiveCodeBench, SciCode or Terminal-Bench 2.1 result. Rejected as unverified: a vendor-style directory quotes "SWE-bench ~72%" and Grokipedia quotes about 68%. Both are approximate, unsourced, give no harness, and conflict with each other.
+- **Cost efficiency: 100/100.** The price is $0 across input, output and cached read. The caveats are that it is free only for a limited time and that prompts may be used to improve the model.
+- **Overall Score: not computed.** The v4 formula needs all five non-cost dimensions, and Tool use and Reasoning have no verified inputs. Scored so far: Coding 70, Context 70, Multimodal 15; cost is excluded from Overall. Best fit: a zero-cost default for codebase exploration, Q&A and light agentic coding in OpenCode when data sharing is acceptable. It is not suitable for confidential code, and it needs a benchmarked model where tool-use or reasoning reliability matters.
+---
+## Signature
+- Provided by: **Claude Sonnet 5.5 (anthropic/claude-sonnet-5-5)** — 2026-10-05
+- Method: Public internet research, using the OpenCode Zen docs, models.dev, the Pi catalog, OpenCode GitHub issues, Scale Labs' SWE Atlas leaderboard, and the third-party SWE Atlas run repo. Artificial Analysis, BenchLM and LiveCodeBench searches surfaced no Big Pickle entry. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
