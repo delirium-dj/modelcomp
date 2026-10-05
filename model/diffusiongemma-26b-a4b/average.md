@@ -19,4 +19,4 @@
 
 - Based on 6 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Muse Spark 1.3.
 - Average from top 6 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, GPT 5.6 Luna.
+- Ignored below-gate rater(s): Big Pickle, GPT 5.6 Luna, Space Bunny.

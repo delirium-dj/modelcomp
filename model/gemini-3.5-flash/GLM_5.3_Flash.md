@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.5-flash`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,7 +28,8 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA / HLE / MMMLU / AA Intelligence Index / LMArena: no verified public score found (Google's launch comparisons for 3.5 Flash were coding/agentic-focused)
+- Artificial Analysis Intelligence Index: **55** (high thinking) — ~5th overall at publication, ahead of Grok 4.3 (53) and Claude Sonnet 4.6 max (52), behind GPT-5.5 (60) and Opus 4.7 (57) (artificialanalysis.ai write-up; corroborated by officechai.com coverage) — fills the gap the 2026-09-18 pass marked "no verified public score found"
+- GPQA / HLE / MMMLU / LMArena: no verified public score found (Google's launch comparisons for 3.5 Flash were coding/agentic-focused)
 
 Coding:
 
@@ -41,20 +42,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
-
 - **Tool use: 90/100.** TB2.1 76.2 beats the prior Pro tier and Opus 4.7, plus MCP Atlas and Finance Agent v2 wins over 3.1 Pro and native computer use — elite tool-loop tier at Flash speed; only the lack of published tau/OSWorld numbers keeps it under 95.
-- **Reasoning: 75/100.** No published GPQA/HLE/AA Index for this model — provisionally scored on its 3-Pro-derived architecture, `thinking_level` control and frontier agentic results; capped hard by the missing reasoning evidence.
+- **Reasoning: 87/100.** The AA Intelligence Index of 55 (high thinking), ~5th overall and ahead of Grok 4.3 and Sonnet 4.6 max, replaces the 2026-09-18 "no reasoning evidence" dock with a verified independent composite near the frontier; GPQA/HLE rows still missing.
 - **Context window: 97/100.** 1M-token input at the top tier of this repo; ~64K output cap and no measured long-context retrieval score.
 - **Multimodal: 88/100.** Text + image + audio + video + PDF in — the full omni-input set — but text-only output and no published vision benchmark.
 - **Coding: 86/100.** SWE-Pro 55.1 (above 3.1 Pro, below Opus 4.7) plus TB2.1 76.2 on the Terminus-2 harness is a genuinely strong agentic-coding pair.
 - **Cost efficiency: 78/100.** Free tier exists, but the paid rate ($1.50/$9.00 with thinking tokens billed as output) is well above open-weights paid tier pricing (e.g. GLM-5.1 $1.40/$4.40).
-- **Overall Score: 87/100.** Mean: (90 + 75 + 97 + 88 + 86 + 78) / 6 = 514/6 = 85.7 → **86**. Best fit: the 2026 agent/coding workhorse — frontier-class tool loops at ~280 tok/s; check 3.6/3.7/3.8 first since this is now last-gen.
+- **Overall Score: 89.6/100.** Five-dim mean per `RULES.md` (Cost excluded): (90 + 87 + 97 + 88 + 86) / 5 = 448/5 = 89.6. Best fit: the 2026 agent/coding workhorse — frontier-class tool loops at ~280 tok/s with independently verified near-frontier reasoning; check 3.6/3.7/3.8 first since this is now last-gen.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
-- Method: fresh public internet research from zero (ai-tldr.dev Gemini 3.5 Flash page quoting Google's model card, launch benchmark table, pricing page and release notes; Flash-lineage table for generation dates); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-18 pass: ai-tldr.dev Gemini 3.5 Flash page quoting Google's model card, launch benchmark table, pricing page and release notes; 2026-10-05 approved enrichment pass: Artificial Analysis Intelligence Index via artificialanalysis.ai/officechai.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

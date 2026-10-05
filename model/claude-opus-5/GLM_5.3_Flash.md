@@ -1,14 +1,14 @@
 # Claude Opus 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-5`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5 (current Opus tier; successor to Opus 4.8; new default on Claude Max at launch)
-- **Short description:** Anthropic's July 2026 Opus: complex agentic coding and enterprise work at half of Fable 5's per-token price — stronger self-verification, iteration and long-horizon completion, plus gains in scientific research (chemistry, biology, bioinformatics) and visual artifact generation.
+- **Short description:** Anthropic's July 2026 Opus: complex agentic coding and enterprise work at half of Fable 5's per-token price — stronger self-verification, iteration and long-horizon completion, plus gains in scientific research (chemistry, biology, bioinformatics) and visual artifact generation. The 2026-10-05 enrichment pass added an independent SWE-bench Verified leaderboard reading.
 - **Provider / access:** Anthropic Messages API (`claude-opus-5`; Vertex `claude-opus-5`; Bedrock `anthropic.claude-opus-5`); also Claude Platform on AWS, Google Cloud, Microsoft Foundry, Claude Code. Messages (not Chat Completions) API. Model IDs are pinned snapshots.
 - **Release / knowledge:** released 2026-07-24. Reliable knowledge cutoff **May 2026**.
 - **IDs:** `claude-opus-5` (API/Vertex), `anthropic.claude-opus-5` (Bedrock). No API free tier; chat-plan access via Claude Max (default model).
@@ -33,8 +33,9 @@ Reasoning / knowledge:
 
 Coding:
 
-- Agentic-coding package above: TB2.1 86.7 + DeepSWE 65.0 + Meta ICB 79.4 — the strongest coding table row captured in this pass
-- SWE-bench Verified / Pro / LiveCodeBench: no verified public score found for Opus 5 specifically
+- SWE-bench Verified: **97.00%** — leader of 86 models on the Vals AI SWE-bench Verified leaderboard (vals.ai); independently confirmed by DataCamp's "meilleur LLM pour coder" roundup dated 2026-09-25 (post-dating the 2026-09-18 pass) — fills the gap that pass marked "no verified public score found for Opus 5 specifically"
+- Agentic-coding package above: TB2.1 86.7 + DeepSWE 65.0 + Meta ICB 79.4 — the strongest coding table row captured in the 2026-09-18 pass
+- SWE-bench Pro / LiveCodeBench: no verified public score found for Opus 5 specifically
 
 Long context:
 
@@ -42,20 +43,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
-
 - **Tool use: 96/100.** Best-in-table TB2.1 86.7 with Claude Code plus DeepSWE 65.0 and ICB 79.4 — the top agentic-coding package measured in this pass; missing OSWorld/BrowseComp rows cap it.
 - **Reasoning: 88/100.** No published GPQA/HLE for Opus 5 — scored on CursorBench-near-Fable positioning, the May 2026 cutoff and self-verification emphasis; below the 90s for lack of published reasoning evidence.
 - **Context window: 100/100.** 1M input with a 128K standard output and 300K batch output — the most generous output package measured here.
 - **Multimodal: 82/100.** Text + vision in, text out; no PDF/media limits documented this pass.
-- **Coding: 92/100.** Top-of-table agentic coding across three harnesses; the missing SWE-bench rows keep it under 95.
+- **Coding: 96/100.** The independent SWE-bench Verified 97.00% (#1 of 86 on Vals AI, confirmed by DataCamp 2026-09-25) sits on top of the best-in-table agentic package (TB2.1 86.7, DeepSWE 65.0, ICB 79.4); only the missing SWE-Pro/LiveCodeBench rows keep it from 98+.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing with no free API route — same expensive tier as Opus 4.6/4.8; Fast mode doubles it.
-- **Overall Score: 92/100.** Mean: (96 + 88 + 100 + 82 + 92 + 20) / 6 = 478/6 = 79.7 → **80**. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows; Fable 5.1 remains the capability ceiling at 2× the price.
+- **Overall Score: 92.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (96 + 88 + 100 + 82 + 96) / 5 = 462/5 = 92.4. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows — now with the strongest independent SWE-bench Verified reading in this repo; Fable 5.1 remains the capability ceiling at 2× the price.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
-- Method: fresh public internet research from zero (ai-tldr.dev Claude Opus 5 page quoting Anthropic's announcement, pricing page and lineage; Meta's 2026-08-05 launch table (via the Muse Spark 1.2 page) for the head-to-head coding rows); processed here per the dynamic-discovery queue opened in `model/claude-opus-4.8/GLM_5.3_Flash.md`. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-18 pass: ai-tldr.dev Claude Opus 5 page quoting Anthropic's announcement, pricing page and lineage, plus Meta's 2026-08-05 launch table via the Muse Spark 1.2 page; 2026-10-05 approved enrichment pass: Vals AI SWE-bench Verified leaderboard via vals.ai, DataCamp roundup 2026-09-25); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

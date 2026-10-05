@@ -1,14 +1,14 @@
 # Claude Opus 5.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-5-5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5.5
-- **Short description:** Anthropic's September 2026 flagship general-release model — near-Fable 5.1 performance at 60% less per token, #1 on the Artificial Analysis Intelligence Index, and the leader on agentic coding (Terminal-Bench 4.0, FrontierCode, CursorBench) and knowledge work (GDPval-AA). Smaller and cheaper than Fable 5.1; the first model of the Claude 5.5 family.
+- **Short description:** Anthropic's September 2026 flagship general-release model — near-Fable 5.1 performance at 60% less per token, #1 on the Artificial Analysis Intelligence Index, and the leader on agentic coding (Terminal-Bench 4.0, FrontierCode, CursorBench) and knowledge work (GDPval-AA). Smaller and cheaper than Fable 5.1; the first model of the Claude 5.5 family. The 2026-10-05 enrichment pass added the system card's SWE-bench rows.
 - **Provider / access:** Claude Platform API (`claude-opus-5-5`, Messages API; Bedrock `anthropic.claude-opus-5-5`); Claude apps (Pro/Max/Team/Enterprise), Claude Code, Claude Cowork; Google Cloud Vertex AI, Microsoft Foundry. No Free ID on OpenCode Zen.
 - **Release / knowledge:** Released 2026-09-22; knowledge cutoff June 2026 (verified via Anthropic launch coverage).
 - **IDs:** `claude-opus-5-5` (Anthropic API / Bedrock / Vertex). No Free ID on Zen.
@@ -37,16 +37,17 @@ Reasoning / knowledge:
 - AA-Briefcase: **1822 Elo** (Artificial Analysis, independent — new AA high)
 - Artificial Analysis Intelligence Index: **58 / #1** (Artificial Analysis, launch-day independent; ahead of GPT-6 Astra and Fable 5.1, both 53)
 - GPQA Diamond: no verified public score found (Anthropic's table doesn't headline it; OpenAI reports GPT-6 Astra at 96.0%)
-- LCR / MLCR, CritPt: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- LCR / MLCR, CritPt, Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
+- SWE-bench Pro: **89.9%** (Anthropic Claude Opus 5.5 system card §8.2 "SWE-bench Pro, Multilingual, and Multimodal", dated 2026-09-22; corroborated by benchlm.ai/models/claude-opus-5-5 updated 2026-10-05 and codingfleet.com/morphllm.com Sep–Oct 2026 SWE-bench Pro leaderboards — leads the field, ahead of Claude Sonnet 5.5's 81.3% and Fable 5.1's 81.2%) — fills the gap the 2026-09-24 pass marked "no verified public score found"
+- SWE-bench Multilingual: **93.9%**; SWE-bench Multimodal: **61.4%** (same system card via benchlm.ai, 2026-10-05)
+- DeepSWE v1.1: **74.2%** (llm-stats.com, mini-swe-agent harness, Oct 2026) — fills the DeepSWE gap
 - Terminal-Bench 4.0: **66.4%** / **59.6%** independent (as above)
 - FrontierCode v1.1 Main: **54.4%** (as above)
 - CursorBench 4.0: **57.8%** (as above)
-- SWE-bench Verified / SWE-bench Pro: no verified public score found (Anthropic's launch table uses newer tests; no SWE-bench headline)
-- LiveCodeBench: no verified public score found
+- SWE-bench Verified / LiveCodeBench: no verified public score found (Anthropic's launch table uses newer tests; no SWE-bench Verified headline)
 - SciCode / AA-SciCode: **66.9%** (AA, independent; as above)
 - Efficiency: A 680K-line code migration finished in under a day; 200K-line codebase audit under 3 hours vs 20+ hours for Opus 5 (Anthropic customer reports)
 
@@ -61,14 +62,14 @@ Long context:
 - **Reasoning: 94/100.** HLE 67.7% (vendor) / 61.4% (AA, new independent high), SciCode 66.9% (new high) and the #1 AA Index of 58 all exceed the frontier refs (GPQA 90%+, HLE 40%+, Index 60+ on the old scale); docked for the vendor-vs-independent gaps (−6.3 to −6.8 pts) and the missing GPQA number.
 - **Context window: 95/100.** 1M tokens with no long-context surcharge maps to the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ keeps it off the maximum.
 - **Multimodal: 80/100.** Text + image + PDF input with strong vision (Chartography 89.0%, OSWorld 2.0 81.8% computer use); no audio/video input — the +video/PDF band is 75–90.
-- **Coding: 88/100.** TB4.0 66.4%/59.6%, FrontierCode 54.4% and CursorBench 57.8% lead the field; the missing SWE-bench headline and the AA finding of parity (not superiority) with Astra on TB4.0 prevent 90+.
+- **Coding: 90/100.** The system card's SWE-bench Pro 89.9% — a clear field lead over Sonnet 5.5's 81.3% and Fable 5.1's 81.2% — plus SWE Multilingual 93.9% and DeepSWE 74.2% fill the old gaps and lift the score; SWE-bench Verified remains unpublished, capping it below 92+.
 - **Cost efficiency: 55/100.** $4/$20 per 1M sits just above the $3/$15 = ~60 methodology reference, landed at 55; no long-context surcharge, cache reads at 5% of input and strong medium-effort efficiency are offsets, but at max effort ~119K output tokens per task (AA) erodes the savings.
-- **Overall Score: 90/100.** Mean of the five quality dims (92 + 94 + 95 + 80 + 88) / 5 = 89.8 → 90. Best-fit: the top pick for agentic coding, professional knowledge-work deliverables and long-horizon agents — with GPT-6 Astra for agentic science and token-efficient max-effort runs.
+- **Overall Score: 90.2/100.** Five-dim mean per `RULES.md` (Cost excluded): (92 + 94 + 95 + 80 + 90) / 5 = 451/5 = 90.2. Best-fit: the top pick for agentic coding, professional knowledge-work deliverables and long-horizon agents — the SWE-bench Pro field lead confirms the coding story; with GPT-6 Astra for agentic science and token-efficient max-effort runs.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
-- Method: public internet research (Anthropic launch coverage and system-card findings via Kingy AI with AA/Zapier independent data, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-24 pass: Anthropic launch coverage and system-card findings via Kingy AI with AA/Zapier independent data; 2026-10-05 approved enrichment pass: Opus 5.5 system card §8.2 via benchlm.ai updated 2026-10-05, llm-stats DeepSWE row); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.md`, using the same headings.

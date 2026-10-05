@@ -1,14 +1,14 @@
 # Gemini 2.5 Flash-Lite — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-flash-lite`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 2.5 Flash-Lite (smallest member of the 2.5 Flash family; later "Lite" refreshes exist in Google's catalog)
-- **Short description:** Google's lowest-cost, lowest-latency Gemini — a small proprietary model for high-volume classification, summarization and simple chat, with the same 1M window and multimodal input as its bigger Flash sibling but far weaker agentic/coding chops.
+- **Short description:** Google's lowest-cost, lowest-latency Gemini — a small proprietary model for high-volume classification, summarization and simple chat, with the same 1M window and multimodal input as its bigger Flash sibling but far weaker agentic/coding chops. The 2026-10-05 enrichment pass added LiveCodeBench and SWE-bench Verified readings.
 - **Provider / access:** Google — Gemini API ID `gemini-2.5-flash-lite` (AI Studio, Vertex AI); single tracked provider on llm-stats (Google). `generateContent` API; tech report arXiv:2503.16534 (llm-stats link).
 - **Release / knowledge:** released 2025-06-17 per llm-stats (BenchmarkList dates the tracked build 2025-07-22); knowledge cutoff January 2025.
 - **IDs:** `gemini-2.5-flash-lite` (Google). Free tier available (Google AI Studio / Gemini API free tier; OpenCode Zen lists it with standard rate limits).
@@ -37,8 +37,10 @@ Reasoning / knowledge:
 
 Coding:
 
+- LiveCodeBench: **59.3%** (Requesty gemini-2.5-flash-lite model page benchmark chart, requesty.ai, aggregator data ~mid-2025) — fills the gap the 2026-09-18 pass marked "no verified public score found"
+- SWE-bench Verified: **31.6%** (anotherwrapper.com Claude Opus 4.5 vs Gemini 2.5 Flash-Lite comparison; LLMLearner independently lists 27.6) — fills the same marked gap; confirms weak repo-level agentic work
 - SciCode: **19.3%** (rank 353/458, 23rd pct) (BenchmarkList)
-- SWE-bench Verified / LiveCodeBench / SWE-Pro / Vibe Code Bench: no verified public score found
+- SWE-Pro / Vibe Code Bench: no verified public score found
 
 Long context:
 
@@ -47,20 +49,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
-
 - **Tool use: 45/100.** BFCL-V4 36.9 with multi-turn 13.5, Tau2 Telecom 19.0, TB-Hard 4.5 and GDPval-AA 321 (18th pct) — breadth of tool support but bottom-quartile 2026 agentic execution.
 - **Reasoning: 55/100.** GPQA 62.5 and MMLU-Pro 75.9 are mid-tier; HLE 6.8 and AA II 11.41 (40th pct) put it a step below plain 2.5 Flash (GPQA 83, HLE 11).
 - **Context window: 97/100.** Full 1M input at the top tier of this repo with AA-LCR 56.3 as measured evidence; 65.5K output cap keeps it off 100.
 - **Multimodal: 75/100.** Text + image (+ audio per tracked evals) in, text out; no video/PDF documented and no MMMU-class vision score found to argue higher.
-- **Coding: 45/100.** SciCode 19.3 (23rd pct) and TB-Hard 4.5 with no SWE-bench-class result found — execution-tier coding only.
+- **Coding: 50/100.** The new LiveCodeBench 59.3% (Requesty) adds a solid algorithmic-coding datapoint above the old evidence vacuum, but the measured SWE-bench Verified 31.6% (anotherwrapper; LLMLearner 27.6) confirms weak repo-level agentic work; SciCode 19.3 stays bottom-tier.
 - **Cost efficiency: 100/100.** Cheapest tracked Gemini rate ($0.10/$0.40) plus a rate-limited free tier — the $0-floor tier of this repo's cost scale.
-- **Overall Score: 63/100.** Mean: (45 + 55 + 97 + 75 + 45 + 100) / 6 = 417/6 = 69.5 → **70**. Best fit: ultra-cheap high-volume triage/summarization with standout hallucination resistance (Vectara HHEM 96.7%, #3/85) — not for agentic or hard coding work.
+- **Overall Score: 64.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (45 + 55 + 97 + 75 + 50) / 5 = 322/5 = 64.4. Best fit: ultra-cheap high-volume triage/summarization with standout hallucination resistance (Vectara HHEM 96.7%, #3/85) — now with measured coding bounds: fine for algorithmic snippets, not for agentic repo work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
-- Method: fresh public internet research from zero (llm-stats model page + provider table, BenchmarkList benchmark map with percentile ranks incl. BFCL-V4/Tau2/TB-Hard/GDPval-AA/AA-LCR/AA Intelligence Index, allthemodels-style aggregates via BenchmarkList results section); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-18 pass: llm-stats model page + provider table, BenchmarkList benchmark map with percentile ranks; 2026-10-05 approved enrichment pass: Requesty LiveCodeBench chart, anotherwrapper SWE-bench comparison with LLMLearner corroboration); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

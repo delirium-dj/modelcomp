@@ -19,4 +19,4 @@
 
 - Based on 7 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Sol, GPT 5.6 Terra, Kimi K3.
 - Average from top 7 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Sol, GPT 5.6 Terra, Kimi K3.
-- Ignored below-gate rater(s): Big Pickle, GPT 5.6 Luna, Mimo v2.6 Flash.
+- Ignored below-gate rater(s): Big Pickle, GPT 5.6 Luna, Mimo v2.6 Flash, Space Bunny.

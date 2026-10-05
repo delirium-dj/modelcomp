@@ -1,14 +1,14 @@
 # GLM 5.2 Coding — findings by GLM 5.3 Flash
 
 - Source: Z.ai / Zhipu AI (`opencode/glm-5.2-coding`; upstream `zai-org/GLM-5.2`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM-5.2-Coding (GLM Coding Plan serving of GLM-5.2)
-- **Short description:** Z.ai's coding-first serving of GLM-5.2 — the June 2026 flagship open-weights MoE that led all open-weight coding models at release. Variant/alias note: GLM-5.2-Coding shares the GLM-5.2 weights (the "Coding" ID is the plan/agent-serving lane, not a separate checkpoint); benchmarks below are the shared GLM-5.2 record.
+- **Short description:** Z.ai's coding-first serving of GLM-5.2 — the June 2026 flagship open-weights MoE that led all open-weight coding models at release. Variant/alias note: GLM-5.2-Coding shares the GLM-5.2 weights (the "Coding" ID is the plan/agent-serving lane, not a separate checkpoint); benchmarks below are the shared GLM-5.2 record. The 2026-10-05 enrichment pass added an independent BenchLM composite.
 - **Provider / access:** OpenCode Zen `opencode/glm-5.2-coding` (no Free ID on Zen); Z.ai API `https://api.z.ai/api/paas/v4/chat/completions` (OpenAI-compatible Chat Completions), plus OpenRouter, Fireworks, AWS Bedrock, Google Vertex AI, DeepInfra. Tool calls, structured JSON output, streaming; thinking effort High/Max.
 - **Release / knowledge:** Released 2026-06-13 via the GLM Coding Plan; MIT-licensed weights on Hugging Face 2026-06-16. Knowledge cutoff: not published in the sources reviewed.
 - **IDs:** `opencode/glm-5.2-coding` (Zen), `zai-org/GLM-5.2` (Hugging Face). No Zen Free ID — scored on paid pricing.
@@ -19,25 +19,20 @@
 
 ### Raw benchmarks found
 
-> Z.ai published no vendor benchmark sheet at launch — every score below is from independent evaluators (Emergent explainer, 2026-07-01; HokAI model hub, checked 2026-08-31).
+> Z.ai published no vendor benchmark sheet at launch — every score below is from independent evaluators (Emergent explainer, 2026-07-01; HokAI model hub, checked 2026-08-31; BenchLM, Oct 2026).
 
 Agent / tool use:
 
 - Terminal-Bench 2.1: **81.0%** (Emergent/HokAI; up from GLM-5.1's 62.0)
 - Tool-Decathlon: well behind Claude Opus 4.8 and GPT-5.5 (no exact value published — Emergent names tool-heavy agentic workflows the weakest area)
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- MCP Atlas / Toolathon: no verified public score found
+- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / MCP Atlas / Toolathon: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **80.3%** (HokAI — highest published result for an open-weights model as of mid-2026)
 - MMLU: **91.72%**; MMLU-Pro: **80.63%** (HokAI)
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (AA operational stats: 113 tok/s, blended $2.15/1M at 3:1, price rank #33/61)
+- BenchLM composite: **63.16/100**, rank **#44 of 212**, evidence status "Supported" (BenchLM.ai GLM-5.2 leaderboard page, snapshot updated October 2026 — post-dates the 2026-09-21 pass; scale corroborated by gpt-oss-120b at 38.4/#138 on the same board) — fills the gap that pass marked "no verified public score found"
+- HLE / LCR / MLCR / CritPt: no verified public score found (AA operational stats: 113 tok/s, blended $2.15/1M at 3:1, price rank #33/61)
 
 Coding:
 
@@ -57,18 +52,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** Terminal-Bench 2.1 at 81.0% sits between the mid (45–60) and frontier (88+) TB bands, but the tool-heavy picture is mixed — Tool-Decathlon clearly trails the closed frontier and Tau3/GDPval/MCP rows are unmeasured, capping it in the high 70s.
-- **Reasoning: 72/100.** GPQA 80.3% tops the open-weights field and reaches the very top of the 60–80% mid band, with MMLU-Pro 80.63% corroborating; no HLE/LCR/Index data and no 90%+ frontier-band evidence cap it at the mid-band ceiling.
+- **Reasoning: 78/100.** GPQA 80.3% tops the open-weights field and the new independent BenchLM composite of 63.16 (#44/212, "Supported") resolves the 2026-09-21 "no Index data" dock; it lands in the upper-mid band rather than the 80s because the composite still trails the closed frontier and HLE remains unmeasured.
 - **Context window: 95/100.** 1M tokens puts it in the ≥1M = 95–100 tier; missing published recall verification (and an unverified Zen-serving cap) hold it at the tier floor rather than 100.
 - **Multimodal: 15/100.** Text in/out only — vision requires the separate GLM-5V-Turbo model.
 - **Coding: 86/100.** Open-weight leadership across SWE-Pro 62.1% / FrontierSWE 74.4% / TB2.1 81.0% plus Design Arena #1 is near-frontier, but it trails Opus 4.8 on SWE-Pro by 7 and SWE-Marathon by up to 13, and DeepSWE/LiveCodeBench/SciCode are unmeasured — high 80s ceiling, not 90+.
 - **Cost efficiency: 87/100.** $1.40/$4.40 per 1M maps to the ~88 band ($1.25/$4.25) with the ~$0.26 cached rate and MIT self-hosting as bonuses; no free tier on Zen.
-- **Overall Score: 69/100.** (78 + 72 + 95 + 15 + 86) / 5 = 69.2 → 69. Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos; pair with a vision model and verify long-context jobs >500K before committing.
+- **Overall Score: 70.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (78 + 78 + 95 + 15 + 86) / 5 = 352/5 = 70.4. Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos — now with independent composite backing; pair with a vision model and verify long-context jobs >500K before committing.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-21
-- Method: public internet research (Emergent benchmark explainer, HokAI model hub, apidog pricing page, OpenRouter listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-21 pass: Emergent benchmark explainer, HokAI model hub, apidog pricing page, OpenRouter listing; 2026-10-05 approved enrichment pass: BenchLM GLM-5.2 leaderboard composite, October 2026 snapshot); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

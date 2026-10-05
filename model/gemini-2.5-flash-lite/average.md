@@ -9,9 +9,9 @@
 - **Reasoning: 56.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Context window: 92.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Multimodal: 80.3/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 51.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 51.6/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Cost efficiency: 97.4/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 66/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 66.2/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 

@@ -1,14 +1,14 @@
 # Muse Glimmer 30B — findings by GLM 5.3 Flash
 
 - Source: Meta (`meta-models/Muse-Glimmer-30B`, Apache 2.0 open weights)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Glimmer 30B
-- **Short description:** Meta Superintelligence Labs' Apache-2.0 30B dense multimodal agent model distilled from Muse Spark (Meta's internal frontier line) — an American-developed open-weight option tuned for tool use, long-horizon tasks and failure recovery; runs on a single 24GB consumer GPU via first-party GGUFs.
+- **Short description:** Meta Superintelligence Labs' Apache-2.0 30B dense multimodal agent model distilled from Muse Spark (Meta's internal frontier line) — an American-developed open-weight option tuned for tool use, long-horizon tasks and failure recovery; runs on a single 24GB consumer GPU via first-party GGUFs. The 2026-10-05 enrichment pass added the independent AA Intelligence Index reading.
 - **Provider / access:** Open weights (Apache 2.0 + Meta Usage Policy) on Hugging Face (`meta-models/Muse-Glimmer-30B`, plus official GGUF, vision projector and DFlash drafter); hosted launch partners Together AI, Fireworks, OpenRouter (public per-token pricing not independently verified — repo meta lists ~$0.30 in / $1.10 out, Fireworks/Together/Vercel ~$0.35/$1.50, NVIDIA NIM $0); llama.cpp build b10353+, Transformers 5.15+, vLLM. No Zen Free ID found.
 - **Release / knowledge:** Released 2026-08-10; knowledge cutoff 2026-01-04 (official model card).
 - **IDs:** `meta-models/Muse-Glimmer-30B` (Hugging Face); `muse-glimmer-30b` (NVIDIA NIM / catalogs).
@@ -35,21 +35,19 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
+- Artificial Analysis Intelligence Index: **35** (High) — artificialanalysis.ai model page "Muse Glimmer (high)", live as of 2026-10-05; corroborated by forwardfuture.com (35, +21 over Llama 4 Maverick's 14) and qubrid.com (5th of 140 open-weight models) — fills the gap the 2026-09-24 pass marked "no verified public score found"
 - AIME 2026: **94.7%** (Meta; competitors vendor-reported)
 - GPQA Diamond: **83.5%** (AA, all three; Gemma 4 31B leads at 85.7%)
 - HLE (text, no tools): **22.0%** (AA; Gemma leads at 23.6%)
 - SciCode: **43.6** (AA; leads row)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
-- CritPt: no verified public score found
+- Omniscience Accuracy / Hallucination Rate / CritPt: no verified public score found
 
 Coding:
 
 - SWE-Bench Pro: **51.2** (as above); SWE-Bench Verified: **76.0** (as above)
 - Terminal-Bench 2.1: **51.7** (as above)
 - SciCode: **43.6** (as above)
-- LiveCodeBench: no verified public score found
-- Vibe Code Bench: no verified public score found
+- LiveCodeBench / Vibe Code Bench: no verified public score found
 
 Long context:
 
@@ -59,17 +57,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** MCP Atlas 75.5 (leads its row), DeepSearch QA 74.6, WildClawBench 47.6 and GAIA2 43.3 are solid agentic results, but tau3-Banking 23.5 and GDPVal 953 (trailing Qwen) plus Terminal-Bench 2.1 51.7 keep it mid-band; all launch-table evidence is scaffold-specific and Meta-internal.
-- **Reasoning: 75/100.** AIME 2026 94.7% and SciCode 43.6 (leading) are strong, but GPQA Diamond 83.5% (third behind Gemma) and HLE no-tools 22.0% sit low; the vendor-favorable-selection caveat caps it.
+- **Reasoning: 68/100.** The independently measured AA Intelligence Index of 35 (High) — top of the 20–35 mid band on this repo's own AA mapping (Mistral Medium 3.5 at AA 30 → Reasoning 62; DeepSeek V4 Flash at AA 50 → 82) — corrects the 2026-09-24 reasoning score downward from a 75 that rested on Meta-internal launch tables; AIME 94.7 and GPQA 83.5 remain strong individual rows but the composite is what generalizes.
 - **Context window: 60/100.** 131,072 tokens maps to the 100K–200K tier (50–64); the AA-LCR 80.0 is strong for reasoning over long context but the 131K ceiling is well below the 256K–1M models.
 - **Multimodal: 68/100.** Text + image input (video as frames) with CharXiv 78.8, ScreenSpot Pro 75.4 and MMMU Pro 74; text-only output, no audio — per methodology the image-in band is 60–70.
 - **Coding: 74/100.** SWE-Bench Pro 51.2 (leads row) and Verified 76.0% are strong mid-frontier, but Qwen3.6-27B beats it on SWE-Bench Verified, TerminalBench and most multimodal tests; missing LiveCodeBench prevents 80+.
 - **Cost efficiency: 95/100.** Apache 2.0 weights with no per-token fee self-hosted on a 24GB GPU; hosted rates (~$0.30/$1.10 per repo meta) are unverified but low; Meta Usage Policy review required for commercial use.
-- **Overall Score: 70/100.** Mean of the five quality dims (72 + 75 + 60 + 68 + 74) / 5 = 69.8 → 70. Best-fit: a local coding/research agent model for existing 24–32GB hardware and American-jurisdiction open-weight needs — not for low-memory laptops, audio workflows, or decisions requiring independently reproduced benchmark leadership.
+- **Overall Score: 68.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (72 + 68 + 60 + 68 + 74) / 5 = 342/5 = 68.4. Best-fit: a local coding/research agent model for existing 24–32GB hardware and American-jurisdiction open-weight needs — the independent AA composite confirms mid-band reasoning, so temper launch-table expectations.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
-- Method: public internet research (Meta model card and methodology report via Kingy AI's documentation-based launch analysis, NVIDIA NIM, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-24 pass: Meta model card and methodology report via Kingy AI's documentation-based launch analysis, NVIDIA NIM; 2026-10-05 approved enrichment pass: AA Intelligence Index via artificialanalysis.ai with forwardfuture.com and qubrid.com corroboration); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Glimmer.md`, using the same headings.

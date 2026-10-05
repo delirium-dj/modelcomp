@@ -1,14 +1,14 @@
 # Xiaomi MiMo-V2.5-Pro — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`mimo-v2.5-pro`; no Zen Free ID — scored on paid pricing)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Xiaomi MiMo-V2.5-Pro (Xiaomi's most capable model; the text-focused Pro sibling of the omni MiMo-V2.5)
-- **Short description:** A 1.02T-param MoE (42B active) with hybrid 6:1 sliding-window/global attention and a 1M-token window, built for ultra-long-horizon agency: 1,000+ tool-call tasks, a complete SysY compiler written in 4.3 hours (233/233), and ClawEval frontier capability at 40–60% fewer tokens than Opus 4.6 / Gemini 3.1 Pro / GPT-5.4.
+- **Short description:** A 1.02T-param MoE (42B active) with hybrid 6:1 sliding-window/global attention and a 1M-token window, built for ultra-long-horizon agency: 1,000+ tool-call tasks, a complete SysY compiler written in 4.3 hours (233/233), and ClawEval frontier capability at 40–60% fewer tokens than Opus 4.6 / Gemini 3.1 Pro / GPT-5.4. The 2026-10-05 enrichment pass added an independent SWE-bench Verified run.
 - **Provider / access:** Xiaomi native API (`mimo-v2.5-pro`, Token Plans; "no change in pricing" vs V2-Pro), AI Studio; OpenCode Zen lists it paid (no `*-free` ID found); open weights on Hugging Face (FP8 E4M3 mixed; Base 256K + 1M checkpoints), SGLang/vLLM deployment guides.
 - **Release / knowledge:** released and open-sourced 2026-04-27 (five days after MiMo-V2.5). Knowledge cutoff not verified in this pass.
 - **IDs:** `mimo-v2.5-pro` (Xiaomi) / `xiaomi/mimo-v2-5-pro` (repo id). **No Zen Free ID** — scored on paid pricing.
@@ -33,8 +33,8 @@ Reasoning / knowledge:
 
 Coding:
 
+- SWE-bench Verified: **74.00%** ("MiMo V2.5 Pro", Mini-SWE-agent harness, $0.02/task, Vals AI's 500-instance independent run — vals.ai/benchmarks/swebench, page updated 2026-09-01) — fills the gap the 2026-09-18 pass marked "no verified public score found for the Pro variant"
 - MiMo Coding Bench (in-house, agentic frameworks): "closing the gap to Opus 4.6" (vendor claim, no public number)
-- SWE-bench Verified / Terminal-Bench: no verified public score found for the Pro variant
 
 Long context:
 
@@ -42,20 +42,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
-
 - **Tool use: 87/100.** Tau2 94.2% + ClawEval 64% Pass³ at 40–60% fewer tokens + demonstrated 672–1,868-call autonomous runs — the strongest long-horizon tool-discipline evidence measured here.
 - **Reasoning: 82/100.** GPQA 86.6 / HLE 35.7 / AA II 43 — frontier-adjacent knowledge and reasoning.
 - **Context window: 100/100.** 1M native (Base 256K separate) with ultra-long coherence as the design goal.
 - **Multimodal: 15/100.** Text-only (Pro has no image input per AA's comparison).
-- **Coding: 85/100.** Near-Opus-4.6 in-house coding bench and a perfect 233/233 compiler build; missing public SWE-bench rows keep it under the top coding packages.
+- **Coding: 87/100.** The independent SWE-bench Verified 74.00% (Vals AI, 500 instances, $0.02/task) converts the "near-Opus-4.6" vendor claim into measured mid-frontier territory, alongside the perfect 233/233 compiler build; LiveCodeBench rows still missing.
 - **Cost efficiency: 85/100.** No Zen Free ID, but ~$0.44/$0.87 is cheap for the class, and permissive-license weights cap long-run costs.
-- **Overall Score: 74/100.** Mean: (87 + 82 + 100 + 15 + 85 + 85) / 6 = 454/6 = 75.7 → **76**. Best fit: the 1M-coherence text flagship for 1,000+-call autonomous engineering at open-weights prices.
+- **Overall Score: 74.2/100.** Five-dim mean per `RULES.md` (Cost excluded): (87 + 82 + 100 + 15 + 87) / 5 = 371/5 = 74.2. Best fit: the 1M-coherence text flagship for 1,000+-call autonomous engineering at open-weights prices — coding competence now independently confirmed.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
-- Method: fresh public internet research from zero (Xiaomi's official MiMo-V2.5-Pro launch page for architecture, demos, ClawEval token-efficiency and licensing; Sophon Pro and Artificial Analysis rows as catalogued in `../../model-comparison.md`); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-18 pass: Xiaomi's official MiMo-V2.5-Pro launch page for architecture, demos, ClawEval token-efficiency and licensing, Sophon Pro and Artificial Analysis rows; 2026-10-05 approved enrichment pass: Vals AI SWE-bench Verified leaderboard via vals.ai/benchmarks/swebench, updated 2026-09-01); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

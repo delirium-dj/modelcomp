@@ -1,14 +1,14 @@
 # gpt-oss-120b — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`openai/gpt-oss-120b`, Apache 2.0 open weights)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** gpt-oss-120b (reasoning "high" configuration measured by Artificial Analysis)
-- **Short description:** OpenAI's open-weight August 2025 entry into the open-source space — a 117B-parameter MoE (5.1B active) under Apache 2.0, targeting research applications, on-premises deployments and custom fine-tuning workflows. Text-only with a modest 131K context window; well above average for its open-weight size class but far below frontier models.
+- **Short description:** OpenAI's open-weight August 2025 entry into the open-source space — a 117B-parameter MoE (5.1B active) under Apache 2.0, targeting research applications, on-premises deployments and custom fine-tuning workflows. Text-only with a modest 131K context window; well above average for its open-weight size class but far below frontier models. The 2026-10-05 enrichment pass recovered OpenAI's official SWE-bench Verified figure.
 - **Provider / access:** Apache 2.0 weights on Hugging Face (`openai/gpt-oss-120b`); hosted via ~20 API providers (median pricing $0.15/$0.59); OpenAI reference at `https://huggingface.co/openai`. No Free ID on OpenCode Zen.
 - **Release / knowledge:** Released 2025-08-05; knowledge cutoff 2024-05-31 (verified via Artificial Analysis).
 - **IDs:** `openai/gpt-oss-120b` (open weights); hosted `gpt-oss-120b` per provider catalogs.
@@ -29,12 +29,13 @@ Reasoning / knowledge:
 - GPQA Diamond: **78.3%** (airank.dev, unverified harness; strongest verified result)
 - Artificial Analysis Intelligence Index: **12 / #9 of 65** open-weight-class models (Artificial Analysis model page, Sep 2026; well above the class median of 8)
 - HLE: no verified public score found
-- LCR / MLCR, CritPt: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- LCR / MLCR, CritPt, Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
-- No verified public SWE-bench Verified/SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench or DeepSWE score found for this exact model (OpenAI's model-card figures were not retrievable in machine-readable form from the sources consulted)
+- SWE-bench Verified: **62.4%** (OpenAI official model-card figure via the NVIDIA NGC catalog, model card dated 2025-08; companion figure gpt-oss-20b 60.7) — fills the gap the 2026-09-24 pass marked "OpenAI's model-card figures were not retrievable in machine-readable form"
+- SWE-bench Verified (Bash-only variant): **26.0%** (BenchGecko/llmrun.dev leaderboard) — shows heavy scaffold dependence
+- SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE: no verified public score found for this exact model
 
 Long context:
 
@@ -47,14 +48,14 @@ Long context:
 - **Reasoning: 62/100.** GPQA Diamond 78.3% is in the 60–80 mid band, but the AA Index of 12 sits below the 20–35 band used for modern reasoning models; the 2024 knowledge cutoff and small context reinforce the lower-mid placement.
 - **Context window: 55/100.** 131K tokens maps to the 100K–200K tier (50–64); no measured retrieval.
 - **Multimodal: 15/100.** Text-only in/out — no image, audio or video input per Artificial Analysis.
-- **Coding: 55/100.** No verified public coding benchmarks for this exact model — score rests on thin evidence, conservative per the no-hallucination rule.
+- **Coding: 65/100.** The recovered official SWE-bench Verified 62.4% (OpenAI model card via NVIDIA NGC) replaces the thin-evidence placeholder — a real mid-band result for a 5.1B-active open model, though the 26.0% Bash-only variant shows it is scaffold-dependent.
 - **Cost efficiency: 96/100.** $0.15/$0.59 per 1M (blended $0.18) sits in the ~$0.10/$0.20 = 97–99 methodology band; free Apache 2.0 weights as an extra cost lever.
-- **Overall Score: 47/100.** Mean of the five quality dims (50 + 62 + 55 + 15 + 55) / 5 = 47.4 → 47. Best-fit: a cheap open-weight base for self-hosted fine-tuning and research — not a competitor for frontier agentic, coding or multimodal work.
+- **Overall Score: 49.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (50 + 62 + 55 + 15 + 65) / 5 = 247/5 = 49.4. Best-fit: a cheap open-weight base for self-hosted fine-tuning and research with a now-verified mid-band coding floor — not a competitor for frontier agentic, coding or multimodal work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
-- Method: public internet research (Artificial Analysis model page, airank.dev, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-05
+- Method: public internet research (2026-09-24 pass: Artificial Analysis model page, airank.dev; 2026-10-05 approved enrichment pass: OpenAI model-card figure via the NVIDIA NGC catalog, BenchGecko/llmrun.dev Bash-only variant); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_OSS.md`, using the same headings.
