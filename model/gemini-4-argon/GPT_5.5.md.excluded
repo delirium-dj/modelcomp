@@ -1,0 +1,66 @@
+# Gemini 4 Argon — findings by GPT 5.5
+
+- Source: Google/Gemini 4 Argon
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google's next-generation Gemini 4 Argon is a restricted-access frontier model initially shown to cybersecurity partners and benchmark watchers.
+- **Provider / access:** Google partner access / Gemini ecosystem; repo metadata tracks `opencode/gemini-4-argon`.
+- **Release / knowledge:** Public coverage on 2026-09-30 described a small partner unveiling.
+- **IDs:** `opencode/gemini-4-argon`
+- **Context window:** Repo metadata says 128K total; public third-party coverage discusses launch pricing and benchmark/cost behavior but did not expose a stable official context card.
+- **Modalities:** Repo metadata says text in/out; some external Gemini 4 discussion suggests broader capability but was not verified for this exact tracked ID.
+- **Pricing (as of 2026-10-05):** Third-party coverage reports introductory Gemini 4 Argon pricing around $2/M input and $10/M output, with cached input discounted heavily; access is limited.
+- **Architecture:** Proprietary Google model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Axios launch coverage: Google said benchmarks indicate Gemini 4 Argon is competitive with OpenAI and Anthropic frontier systems, but did not expose exact rows in the accessible result (`https://www.axios.com/2026/09/30/google-gemini-4`).
+- Oflight summary: reports Gemini 4 Argon leads Vals Index and DeepSWE v1.1 but trails rivals on FrontierSWE v2 and Terminal-bench 4.0 (`https://www.oflight.co.jp/en/columns/gemini-4-argon-pricing-benchmarks-2026`).
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+
+Reasoning / knowledge:
+
+- Emergent benchmark explainer: discusses Gemini 4 Argon benchmarks and cost per task, but accessible text did not expose exact reasoning rows (`https://emergent.sh/learn/gemini-4-argon-benchmarks`).
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+
+Coding:
+
+- Oflight summary: reports leadership on DeepSWE v1.1 and weaker results on FrontierSWE v2 / Terminal-bench 4.0; exact values were not exposed in accessible snippet (`https://www.oflight.co.jp/en/columns/gemini-4-argon-pricing-benchmarks-2026`).
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- DeepSWE v1.1: **leader claim, exact score not verified in accessible result**
+
+Long context:
+
+- No verified independent MRCR/RULER result found for the exact tracked ID.
+
+### Normalized scores (1–100)
+
+- **Tool use: 90/100.** Vals/agent leadership claims support strong tool use, capped by limited-access status and missing exact public rows.
+- **Reasoning: 92/100.** Coverage frames Argon as frontier-competitive, capped by sparse public benchmark disclosure.
+- **Context window: 72/100.** The repo-tracked ID lists 128K, good but below 1M/2M frontier windows.
+- **Multimodal: 35/100.** Text-only metadata caps this sharply despite broader Gemini-family expectations.
+- **Coding: 92/100.** DeepSWE leadership claims justify a high coding score, capped by FrontierSWE/Terminal-bench caveats and missing exact rows.
+- **Cost efficiency: 82/100.** $2/$10 introductory pricing is attractive for a frontier model, but access is restricted and final pricing may change.
+- **Overall Score: 76/100.** Mean of the five quality dimensions; best fit is restricted frontier coding/security evaluation, pending fuller public specs.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

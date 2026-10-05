@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 40/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 50/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 52/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 75/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 45/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 99/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 52/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 40/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 50/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 52/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 76.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 46.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 97.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 53/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Kimi K3.
-- Average from top 1 by Overall Score: Kimi K3.
-- Ignored below-gate rater(s): Fledge Alpha, Qwen 3.8 27B.
+- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Kimi K3.
+- Average from top 2 by Overall Score: DeepSeek 4.1 Flash, Kimi K3.
+- Ignored below-gate rater(s): Fledge Alpha, Mimo v2.6 Flash, Qwen 3.8 27B.

@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash.
 - Average from top 1 by Overall Score: Gemini 3.6 Flash.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Ling 3.1 Flash.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GPT 5.6 Luna, Ling 3.1 Flash.

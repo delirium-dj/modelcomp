@@ -57,7 +57,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Agent/tool use: 80/100.** τ²-Bench 80.3% beats the ≥50% frontier reference and TB 2.0 46.4% sits at the ≈44%→85 anchor, with Claw Bench 79% and Pinch 84.3% alongside — but no GDPval/MCP/Claw-Eval rows and TB Hard 35.6% (mid-field) cap the composite at 80.
+- **Tool use: 80/100.** τ²-Bench 80.3% beats the ≥50% frontier reference and TB 2.0 46.4% sits at the ≈44%→85 anchor, with Claw Bench 79% and Pinch 84.3% alongside — but no GDPval/MCP/Claw-Eval rows and TB Hard 35.6% (mid-field) cap the composite at 80.
 - **Reasoning: 75/100.** GPQA 82.4%, MMLU-Pro 85.0 and AIME 93.1 are solid, yet HLE 25.1% sits below the ≥30 frontier band, ARC-AGI-2 4.0% and CritPt 2.9% are weak, and no AA Intelligence Index exists for this model.
 - **Context window: 55/100.** 164K sits mid-band (131K–262K → 40–79); with no MRCR/AA-LCR retrieval evidence and only a design-side sparse-attention claim, the conservative midpoint 55 applies.
 - **Multimodal: 25/100.** Text-only input and output — the 1–29 tier; no vision, audio, or video paths exist on V3.2.
