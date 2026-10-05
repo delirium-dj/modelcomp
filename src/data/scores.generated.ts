@@ -1720,6 +1720,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Space_Bunny.md": { tool: 91, reasoning: 86, context: 95, multimodal: 65, coding: 92, cost: 97, overall: 85.8 },
     "average.md": { tool: 88.5, reasoning: 85.6, context: 95.7, multimodal: 82.9, coding: 88, cost: 94.3, overall: 88.2 },
   },
+  "glm-5.3-flashx": {
+    "GLM_5.3_Flash.md": { tool: 86, reasoning: 85, context: 95, multimodal: 85, coding: 85, cost: 93, overall: 87 },
+    "average.md": { tool: 86, reasoning: 85, context: 95, multimodal: 85, coding: 85, cost: 93, overall: 87 },
+  },
   "glm-5.3-free": {
     "Big_Pickle.md": { tool: 76, reasoning: 81, context: 82, multimodal: 68, coding: 73, cost: 100, overall: 76 },
     "Claude_Opus_4.8.md": { tool: 88, reasoning: 87, context: 88, multimodal: 15, coding: 88, cost: 100, overall: 73.2 },
