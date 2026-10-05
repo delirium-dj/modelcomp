@@ -1,0 +1,36 @@
+# GLM-5.3 Free — findings by GPT 6 Astra
+
+- Source: Z.ai model / third-party free routing offers
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** GLM-5.3 Free (provider-dependent promotional access).
+- **Identity / access:** No exact GLM-5.3 Free entry was found in the current [OpenCode Zen catalog](https://opencode.ai/docs/en/zen/); it lists paid GLM-5.3. The folder name does not identify a single stable serving route.
+- **Verified historical route:** [ZenMux](https://zenmux.ai/z-ai/glm-5.3-free) identifies `z-ai/glm-5.3-free` as a BigModel route, but explicitly marks both model and provider **Sunset**. Its retained price is $0 input/output/cache, with 1M context and 128K maximum output.
+- **Other offer:** [UnoRouter](https://unorouter.com/en/models/zhipu/glm-5.3:free) lists `glm-5.3:free`, $0 input/output and 204.8K context. Its description refers generically to GLM-5; this does not establish checkpoint, reasoning settings or serving parity.
+- **TokenRouter:** The formerly advertised [model URL](https://www.tokenrouter.com/models/z-ai/glm-5.3-free/) returned 404 during this research.
+- **Architecture / modalities:** The underlying GLM-5.3 is an open-weight text-only model; the exact deployed checkpoint and settings of remaining free routes were not verified.
+- **Release / knowledge:** Free-route introduction date and cutoff unverified.
+- **Pricing/privacy (2026-10-05):** Free is a provider offer, not an intrinsic model property. Current quotas, retention and training-use policies were not established; do not assume paid API policies apply.
+
+### Raw benchmarks found
+
+- **Exact free endpoint:** No verified public score found for reasoning, coding, agent/tool use or long-context retrieval.
+- **Base-model evidence:** The [publisher model card](https://huggingface.co/zai-org/GLM-5.3) contains measured GLM-5.3 results, but does not identify these free serving endpoints as the evaluated deployment.
+- A retired route and a second route with different limits cannot be treated as one benchmarked, currently available SKU. No inference from the multimodal GLM-5.3-Flash free endpoint is used.
+
+### Normalized scores (1–100)
+
+Excluded: exact-route benchmark evidence and a stable serving identity are insufficient. No placeholder scores assigned. Revisit when a provider confirms checkpoint/settings and supplies reproducible endpoint-specific evidence.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-05
+- Method: Fresh primary-source catalog and benchmark research; exclusion records uncertainty rather than model quality.
+- Future sources: add a separate report beside this file.
+
