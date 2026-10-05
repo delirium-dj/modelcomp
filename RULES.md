@@ -84,3 +84,15 @@ override.
   (while in their top-10 qualifiers). Example 2: a model with `Overall` = 92
   that does NOT count toward some average (below that folder's top-10 cut) is
   still displayed for that model and must never be deleted for any reason.
+
+## Agent git-restore rule (absolute — no exceptions without explicit user sign-off)
+
+- An agent restores a file from git only one file at a time, and only the
+  single file it demonstrably needs. Restoring the whole tree or session
+  (`git checkout HEAD -- .`, `git restore .`, `git reset --hard`,
+  `git checkout <commit> -- .`, or any equivalent) is strictly forbidden
+  without explicit user interaction — this is what wiped the working tree on
+  2026-10-05.
+- Every single-file restore requires prior user permission via a confirmation
+  popup: name the exact file, state why it is needed, and proceed only after
+  the user confirms. No confirmation → no restore.
