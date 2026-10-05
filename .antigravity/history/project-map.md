@@ -50,7 +50,7 @@ Site origin for prerendered canonical URLs + sitemap is `SITE_ORIGIN`
   - `ModelCards.tsx`: Displays model cards with pricing badges, context window size, short description, and links. Decision models render on a separate shelf with native specs (never ranked against Overall).
   - `ModelSelect.tsx`: Dropdown for switching Results source (`Average` or specific reporting agent).
   - `Methodology.tsx`: Explains the 1–100 scoring rules and Overall score formula (mean of 5 quality dimensions, cost excluded), plus the decision-model paradigm note.
-  - `router-head.tsx`: Owns `<title>`, canonical link, `og:`/`twitter:` tags, favicon, manifest.
+  - `router-head.tsx`: Owns `<title>`, canonical link, `og:`/`twitter:` tags, tab favicon (`/avatar.png` Vercel PNG) + apple-touch/PWA icon (`/favicon.svg` brand SVG), manifest.
   - `VendorIcon.tsx`: Brand icons inlined from `vendorIcons.generated.ts` (no `<img>`, no network requests).
   - `freeZenLink.tsx`: Links "Free OpenCode Zen tier" strings to the Zen catalog.
   - `theme-toggle/theme-toggle.tsx`: Dark/light mode switcher interacting with `document.documentElement`.

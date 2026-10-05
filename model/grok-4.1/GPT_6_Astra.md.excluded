@@ -1,0 +1,30 @@
+# Grok 4.1 — findings by GPT 6 Astra
+
+- Source: xAI / Grok 4.1
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+Grok 4.1 is the consumer model released November 17, 2025 on grok.com, X and mobile apps, with thinking and non-thinking modes. Its proprietary architecture, exact context/output limits, cutoff and token pricing were not established for this exact consumer model. No distinct public API ID or Zen Free ID was verified. [Publisher announcement](https://x.ai/news/grok-4-1), [model card](https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf)
+
+Grok 4.1 Fast is separately named and released: its 2M context and API specifications must not be silently assigned to this entry. [Fast provider listing](https://openrouter.ai/x-ai/grok-4.1-fast)
+
+### Raw benchmarks found
+
+Publisher's launch snapshot reports LMArena text Elo 1483 for Thinking (quasarflux), rank 1; 1465 for non-thinking (tensor), rank 2; live-traffic preference over the previous model 64.78%. These are preference evaluations, not coding, retrieval or tool-success benchmarks. [Launch evaluation](https://x.ai/news/grok-4-1)
+
+Exact-model GPQA, HLE, Terminal-Bench, Tau, GDPval, SWE-bench, LiveCodeBench, SciCode and measured retrieval: no verified public score found in this pass.
+
+### Normalized scores (1–100)
+
+Excluded from aggregation because the available exact-model evidence cannot support the required complete seven-score contract without inventing context, cost and engineering capability values. This is **not** a claim that the model has zero public benchmarks: the verified preference results are preserved above. Revisit with exact consumer specifications or a documented API identity. No placeholder scores supplied.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-05 UTC
+- Method: Fresh primary-source research; notes-only exclusion due to insufficient dimensional evidence and unresolved deployment specifications.
+

@@ -1,0 +1,33 @@
+# LongCat 2.5 Preview — findings by GPT 6 Astra
+
+- Source: Meituan / LongCat-2.5-Preview
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview, including Zen Free access.
+- **Release:** September 25, 2026; image understanding, reasoning and coding workflows advertised. Cutoff and parameter count not verified. [Publisher changelog](https://longcat.chat/platform/docs/ChangeLog.html)
+- **Provider / IDs:** Native `LongCat-2.5-Preview`, OpenAI-compatible Chat Completions and Anthropic Messages; 1M context, 128K output. [API quickstart](https://longcat.chat/platform/docs/)
+- **Zen route:** `opencode/longcat-2.5-preview-free`, Chat Completions. Input/output/cache free for a limited period; provider promises zero retention and no model training on data for this route. [Zen documentation](https://opencode.ai/docs/zen/)
+- **Modalities:** Publisher claims text/image understanding, text output; thinking toggle documented. [Publisher integration guide](https://longcat.chat/platform/docs/OpenCode.html)
+- **Architecture:** No verified public weights, license or architecture specification found. No paid native tariff verified in primary sources retrieved here.
+
+### Raw benchmarks found
+
+No verified public quality score found for this exact preview. Searches checked publisher documentation, hosted-provider listings and benchmark queries. TokenDyno has no successful throughput samples or intelligence result; its displayed zero reliability is not a model-quality benchmark. [Direct monitoring page](https://tokendyno.com/models/opencode-zen/longcat-2.5-preview-free/)
+
+GPQA, HLE, Terminal-Bench, Tau, GDPval, MCP-Atlas, SWE-bench, LiveCodeBench, SciCode, Vibe Code Bench and measured long-context retrieval: no verified public score found. Qualitative demos and unsourced cross-model claims are insufficient to assign normalized scores.
+
+### Normalized scores (1–100)
+
+Notes-only exclusion under the zero-verified-benchmark rule. No placeholder numbers. Revisit when an exact-ID evaluation with a documented harness becomes available.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-05 UTC
+- Method: Fresh public primary-source research; excluded from score aggregation.
+

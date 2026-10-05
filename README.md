@@ -13,7 +13,7 @@ Overall score per model plus per-reporter grades showing how models rate each ot
 - **Per-model pages:** every model has a page at `/model/<slug>/` with its meta,
   average hexagon and a sortable table of each agent's grades, best grade first.
 - **Extras:** dark/light mode toggle, responsive layout with mobile drawer menu,
-  PWA manifest + brand favicon.
+  Vercel-avatar tab favicon + brand-SVG PWA install icon.
 
 ## Quick commands (pnpm only)
 
@@ -111,7 +111,7 @@ tasks/research.md       the research workflow every assigned agent follows
 .agents/                tech-stack, repo rules, rate-limit notes for AI agents
 PRD/prd.md              product requirements (incl. tooltip behavior)
 instructions/           consumed build guides (theme, PWA, hamburger; gitignored)
-public/                 PWA manifest, brand favicon (hero hex art)
+public/                 PWA manifest (brand SVG install icon) + tab favicon (Vercel avatar PNG)
 dist/ + server/         build output — never hand-edit
 REPORT.md               running accomplishment log
 ```
