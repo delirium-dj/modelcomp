@@ -54,6 +54,7 @@
 82.3 deepseek-v4-pro
 82.3 deepseek-v4-vision-exp
 82.3 grok-4.3
+82 pareto-26.10-preview
 82 qwen-3.5-plus
 81.9 gpt-5.3-codex
 81.9 mimo-v2.6-free
@@ -88,11 +89,11 @@
 74.8 gpt-5.4-mini
 74.8 grok-4.1-fast
 74.5 claude-sonnet-4
-74.5 gemma-4.12b-unified
 74.5 space-bunny
 74.3 claude-sonnet-3.7
 74.2 gemini-2.5-flash
-73.8 gemma-4.26b-a4b
+74 gemma-4.12b-unified
+72.9 gemma-4.26b-a4b
 72.9 glm-5.2
 72.9 grok-4.1
 72.9 ling-3.0-flash-vl
@@ -102,7 +103,7 @@
 71.3 deepseek-v4-flash
 70.8 hy3
 70.5 gemini-2.0-flash
-70.2 qwen-3.5-9b
+70.3 qwen-3.5-9b
 69.8 claude-haiku-4.5
 69.8 hy4
 69.4 longcat-2.0
@@ -113,7 +114,6 @@
 68.6 minimax-m3.1-flash-preview
 67.8 glm-5.1-coding
 67.7 grok-build-0.1
-66 deepseek-v3.2
 65.7 solar-pro-4
 65.6 gemini-2.5-flash-lite
 65.2 hy3-preview
@@ -128,15 +128,16 @@
 61 gpt-5.3-codex-spark
 61 laguna-s-2.1
 59.7 omen-alpha
+59 gemma-4-e4b
+58 deepseek-v3.2
 57.8 laguna-xs-2.1
-57.5 gemma-4-e4b
 55.5 gpt-oss-120b
 54.8 big-pickle
 54.8 north_mini_code
 54.1 llama_3.2_vision_instruct
 53.6 mimo-v2.6-distill-qwen-9b
-53 gemma-4-e2b
 52.6 nemotron-3.5-lightning-free
+52 gemma-4-e2b
 51 mercury-2.5
 50 grok-5
 36.4 jev-1.13

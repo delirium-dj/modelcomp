@@ -19,4 +19,4 @@
 
 - Based on 9 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.8, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, GPT 5.6 Sol, GPT 6 Astra, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
 - Average from top 9 by Overall Score: Claude Opus 4.8, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, GPT 5.6 Sol, GPT 6 Astra, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GPT 5.6 Luna, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny.

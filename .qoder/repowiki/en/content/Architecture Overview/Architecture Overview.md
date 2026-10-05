@@ -20,14 +20,15 @@
 - [.opencode/plugins/deepseek-continue-retry.ts](file://.opencode/plugins/deepseek-continue-retry.ts)
 - [.opencode/plugins/fledge-endpoint-retry.ts](file://.opencode/plugins/fledge-endpoint-retry.ts)
 - [.opencode/plugins/gpt-sol-budget-retry.ts](file://.opencode/plugins/gpt-sol-budget-retry.ts)
+- [model/README.md](file://model/README.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Added new section documenting the OpenCode plugin ecosystem with specialized retry mechanisms
-- Updated project structure to include OpenCode plugins directory and dependencies
-- Enhanced architecture diagrams to show plugin integration with model providers
-- Added detailed analysis of retry strategies for handling various API edge cases across different model providers
+- Updated model directory structure to reflect consolidation of Gemini 2.5 directories into gemini-2.5-pro/, removing the old model/gemini-2.5/ directory
+- Enhanced documentation to clarify the current routing architecture with proper model catalog organization
+- Added detailed explanation of the sync pipeline's handling of model directory consolidation
+- Updated architectural diagrams to reflect the current model folder structure and data flow
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,7 +46,7 @@
 ModelComp is a static site that compares AI coding models across tool use, reasoning, context window, multimodal support, coding ability, and cost efficiency. Scores are normalized to 1–100 from public benchmarks and rendered at build time from research markdown files under `model/<slug>/`. The application uses Qwik with Qwik City for resumable components and file-based routing, Vite as the build system, and TypeScript for type safety. It supports SSR during development and preview, static site generation for production, and PWA capabilities through a web manifest.
 
 The platform separates concerns into:
-- Research data: per-model markdown findings and curated metadata.
+- Research data: per-model markdown findings and curated metadata organized by model slug (e.g., `gemini-2.5-pro/`, `gemini-2.5-flash/`, `gemini-2.5-flash-lite/`).
 - Build-time sync pipeline: deterministic parsing, validation, averaging, registry updates, and generated TypeScript.
 - Runtime UI: Qwik components and routes rendering comparison views, model detail pages, methodology, and cards.
 - **OpenCode plugin ecosystem**: specialized retry mechanisms for handling various API edge cases across different model providers.
@@ -57,7 +58,7 @@ The platform separates concerns into:
 
 ## Project Structure
 At a high level:
-- `model/<slug>/` contains research findings per reporting agent, an `average.md`, and a `meta.json`.
+- `model/<slug>/` contains research findings per reporting agent, an `average.md`, and a `meta.json`. Current structure includes consolidated directories like `gemini-2.5-pro/`, `gemini-2.5-flash/`, and `gemini-2.5-flash-lite/` following the removal of the old `gemini-2.5/` directory.
 - `scripts/sync-data.mjs` parses, validates, averages, registers new sources, and emits generated TypeScript files consumed by the runtime.
 - `src/data/models.ts` hydrates the model catalog from generated scores and meta, defines dimensions, virtual views, and source ordering.
 - `src/routes/` provides Qwik City pages: homepage compare view and per-model detail pages.
@@ -133,7 +134,7 @@ OP --> P5
 
 ## Core Components
 - Data layer (`src/data/models.ts`): Hydrates `MODELS` from pre-parsed scores and meta; defines dimension keys, colors, virtual sort views, source ordering, and helpers like `virtualDimFor`, `sortSourceFor`, and `slugForSource`.
-- Sync pipeline (`scripts/sync-data.mjs`): Scans model folders, quarantines evidence-free reports, validates filenames and meta, computes top-10 cohort averages, auto-fixes Overall drift, registers new sources, reconciles labels/slugs, and emits compact score indexes.
+- Sync pipeline (`scripts/sync-data.mjs`): Scans model folders, quarantines evidence-free reports, validates filenames and meta, computes top-10 cohort averages, auto-fixes Overall drift, registers new sources, reconciles labels/slugs, and emits compact score indexes. Handles model directory consolidation and slug normalization.
 - Routing and pages (`src/routes/index.tsx`, `src/routes/layout.tsx`): Homepage composes Hero, CompareSection, Methodology, and ModelCards; layout wraps Header, main content slot, and Footer.
 - App shell (`src/root.tsx`): Provides QwikCityProvider, anti-flash theme script, PWA manifest link in production, and RouterHead.
 - Build configuration (`vite.config.ts`, `tailwind.config.js`): Enables Qwik City + Qwik optimizer, sets preview headers, configures Tailwind dark mode via class and CSS variables.
@@ -291,6 +292,7 @@ Key behaviors:
 - Only raters whose own committed average Overall exceeds the rater gate count toward another model's average; otherwise, all available reports are averaged as fallback.
 - New reporting agents are appended to the SourceKey union and SOURCE_DEFS registry; dropdown order is derived at build time.
 - Compact numeric indexes are emitted to avoid bundling full report prose.
+- **Model directory consolidation**: The sync pipeline handles the consolidation of Gemini 2.5 directories, ensuring proper slug normalization and preventing duplicate entries.
 
 **Diagram sources**
 - [scripts/sync-data.mjs:259-436](file://scripts/sync-data.mjs#L259-L436)
@@ -478,6 +480,7 @@ Common issues and resolutions:
 - New sources not appearing: Ensure filename hygiene and run sync; check SourceKey union and SOURCE_DEFS registration.
 - Build failures due to stale generated files: Re-run sync before building; verify exit code and logs.
 - **OpenCode plugin issues**: Check OpenCode logs for plugin service names; verify error patterns match expected formats; ensure proper session ID extraction.
+- **Model directory issues**: When consolidating model directories (like Gemini 2.5), ensure proper slug naming conventions and run sync to update generated files.
 
 **Section sources**
 - [scripts/sync-data.mjs:297-326](file://scripts/sync-data.mjs#L297-L326)
@@ -489,5 +492,7 @@ Common issues and resolutions:
 ModelComp combines a robust data pipeline with a modern Qwik-based frontend to deliver fast, statically generated comparison pages. The sync script enforces data integrity and keeps the client bundle lean by emitting compact TypeScript indexes. Qwik City routing and component composition provide a clean user experience, while SSR and PWA features enhance performance and installability. Theme management, responsive design, and SEO are addressed through Tailwind, CSS variables, and document head configuration.
 
 **The addition of the OpenCode plugin ecosystem significantly enhances reliability by providing specialized retry mechanisms for handling various API edge cases across different model providers. These plugins operate independently, ensuring that transient provider issues don't disrupt the user experience while maintaining clear separation from the core application architecture.**
+
+**The model directory structure has been streamlined with the consolidation of Gemini 2.5 directories into dedicated folders (gemini-2.5-pro/, gemini-2.5-flash/, gemini-2.5-flash-lite/), improving organization and maintainability while the sync pipeline continues to handle slug normalization and registry updates automatically.**
 
 [No sources needed since this section summarizes without analyzing specific files]

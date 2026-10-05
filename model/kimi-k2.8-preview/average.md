@@ -19,4 +19,4 @@
 
 - Based on 7 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Sol, Muse Spark 1.3.
 - Average from top 7 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT 5.6 Sol, Muse Spark 1.3.
-- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, Laguna S 2.1, Ling 3.1 Flash, LongCat 2.5 Preview.
+- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, GPT 5.6 Luna, Laguna S 2.1, Ling 3.1 Flash, LongCat 2.5 Preview.

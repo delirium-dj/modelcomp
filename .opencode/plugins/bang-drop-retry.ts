@@ -4,15 +4,13 @@ import type { Plugin } from "@opencode-ai/plugin"
 
 // What we catch, shape 1: "!"-storm drops. Kimi K3 kills the connection
 // with bodies like "!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", sometimes
-// 50+ bangs. The bangs may arrive as the WHOLE message or buried inside a
-// longer provider wrapper (e.g. "Upstream error: !!!!..."), so we match
-// three shapes:
+// 50+ bangs. The bangs may arrive as the WHOLE error body or buried inside
+// a longer provider wrapper (e.g. "Upstream error: !!!!..."), so we match
+// three forms:
 //   1. a string that is ONLY bangs (>= MIN_BANGS of them),
 //   2. any single LINE that is only bangs (>= MIN_BANGS),
 //   3. a long embedded run (>= LONG_RUN bangs in a row — real prose never
 //      shouts with 10+ "!" in a row, so this is a safe tripwire).
-// const MIN_BANGS = 3
-// const LONG_RUN = 10
 //
 // What we catch, shape 2: "lock"-storm stalls. The same model sometimes
 // answers with "locklocklock..." (hundreds of glued "lock"s) instead of a
@@ -24,9 +22,16 @@ import type { Plugin } from "@opencode-ai/plugin"
 // the degenerate text sits in the transcript as a NORMAL assistant message,
 // followed by a plain `session.idle`. No error event ever fires, so shapes
 // 1+2 alone stay blind (this exact mode is why the plugin seemed to "not
-// react" to bang-storms that completed as regular messages). Case 1a in the
+// react" to bang-storms that completed as regular messages). Case 1 in the
 // hook below therefore re-reads the last assistant message on every
 // `session.idle` and scores it with the same matchers.
+//
+// What we catch, shape 4: "embedded" drops. Kimi K3 also streams REAL
+// paragraphs first, then appends "!!!..." and the connection dies. The
+// `session.error` that follows carries generic transport noise
+// ("terminated", socket drop) with NO bangs, and no `session.idle` ever
+// follows. So when the error payload has no storm, we fall back to scoring
+// the last assistant message before classifying it as "some other error".
 const MIN_BANGS = 3
 const LONG_RUN = 10
 
@@ -50,6 +55,13 @@ const MODEL_FILTER = ""
 // before nudging the session forward.
 const DELAY = 8_000
 
+// Grace period before reading the transcript back (idle and error paths):
+// 500 milliseconds. Parts stream into storage as they arrive; a terminal
+// event (`session.idle` / `session.error`) can land a hair BEFORE the final
+// chunk is committed, so we wait a moment to avoid scoring a half-written
+// message.
+const SETTLE = 500
+
 // Emergency brake: stop after this many CONSECUTIVE failures in a row.
 // "Consecutive" means with no `session.idle` success in between.
 // 30 means: 30x bang-drops back-to-back -> we assume the outage is real
@@ -68,13 +80,18 @@ const pending = new Set<string>()
 
 // A Map counts CONSECUTIVE failures per session (no success in between).
 // Example: "ses_abc123" -> 2 means 2x bang-drops in a row.
-// Any `session.idle` (one good answer) resets this back to 0.
+// Any clean `session.idle` (one good answer) resets this back to 0.
 const consecutive = new Map<string, number>()
 
 // A Set remembers sessions where the emergency brake tripped.
-// Once braked, we stay silent until a `session.idle` proves the session
-// works again (which removes it from here).
+// Once braked, we stay silent until a clean `session.idle` proves the
+// session works again (which removes it from here).
 const stopped = new Set<string>()
+
+// A Map remembers, per session, the ID of the last assistant message we
+// already judged (silent-drop path on idle, embedded path on error). Stops
+// double-counting when the same final message is seen twice.
+const handledMessage = new Map<string, string>()
 
 // Walk any value and collect every string inside it (nested objects/arrays
 // included). The error message can hide at different depths depending on
@@ -95,11 +112,11 @@ function collectStrings(value: unknown, out: string[]): void {
 // in case a drop ever arrives as something other than `session.error`.
 const seenTypes = new Set<string>()
 
-// ONE shared reader for the session ID, used by BOTH the idle-reset path
-// and the error path so the two can never drift apart. Before this, the
-// idle path only tried `properties.sessionID` while the error path tried
-// three nestings — an idle with a differently-nested ID would silently
-// skip the reset and latch the emergency brake until restart.
+// ONE shared reader for the session ID, used by BOTH the idle path and the
+// error path so the two can never drift apart. Before this, the idle path
+// only tried `properties.sessionID` while the error path tried three
+// nestings — an idle with a differently-nested ID would silently skip the
+// reset and latch the emergency brake until restart.
 // Returns "" when no known shape matches.
 function readSessionID(event: any): string {
   const p = (event.properties as any) ?? {}
@@ -120,8 +137,8 @@ function isBangOnly(text: string): boolean {
   return /^[!]+$/.test(compact)
 }
 
-// True for any of the three bang-drop shapes (whole string / single line /
-// long embedded run). Returns the longest bang run found (0 = no match).
+// Scores the three bang-drop forms (whole string / single line / long
+// embedded run). Returns the longest bang run found (0 = no match).
 function bangRun(text: string): number {
   if (isBangOnly(text)) return text.replace(/[\s]/g, "").length
   let best = 0
@@ -176,9 +193,143 @@ async function toast(client: any, message: string, variant: string): Promise<voi
   }
 }
 
+// Transcript scanner (shapes 3+4, see header): read the session's last
+// assistant message and score its text with the same bang/lock matchers.
+// Returns the longest runs plus the message ID (for dedupe), or null when
+// there is no storm (clean answer, no assistant message, or fetch failed).
+// The MODEL_FILTER guard (fail-open, same as the error path) also lives
+// here, using the assistant message's providerID/modelID fields.
+async function lastAssistantStorm(
+  client: any,
+  sessionID: string,
+): Promise<{ bangLen: number; lockLen: number; messageID: string } | null> {
+  try {
+    const msgs = await client.session.messages({ path: { id: sessionID } })
+    const last = [...(msgs?.data ?? [])]
+      .reverse()
+      .find((m: any) => m?.info?.role === "assistant")
+    if (!last) return null
+
+    // Optional model guard: only skip when we POSITIVELY know the model and
+    // it is not wanted (same fail-open rule as the error path).
+    if (MODEL_FILTER) {
+      const raw =
+        last.info?.modelID ?? last.info?.providerID ?? last.info?.model ?? ""
+      const modelLower = String(raw ?? "").toLowerCase()
+      if (modelLower && !modelLower.includes(MODEL_FILTER)) return null
+    }
+
+    // Concatenate the text parts (a drop storm is always text). The
+    // whole-string, line-based and long-run matchers all work on the join.
+    const text = (last.parts ?? [])
+      .filter((p: any) => p?.type === "text" && typeof p.text === "string")
+      .map((p: any) => p.text)
+      .join("\n")
+    if (!text) return null
+
+    const bangLen = bangRun(text)
+    const lockLen = lockRun(text)
+    if (!bangLen && !lockLen) return null
+
+    return { bangLen, lockLen, messageID: String(last.info?.id ?? "") }
+  } catch {
+    // A failed fetch must never break the plugin: treat as clean.
+    return null
+  }
+}
+
+// Human-readable trigger label for the logs/toasts.
+function triggerLabel(bangLen: number, lockLen: number): string {
+  return lockLen > bangLen ? `${lockLen}x"lock"` : `${bangLen}x"!"`
+}
+
 // Every plugin exports a function. OpenCode calls it once at startup.
 // `client` lets us talk to OpenCode (send prompts, show toasts, log).
 export const BangDropRetry: Plugin = async ({ client }: any) => {
+  // Shared schedule-and-retry block, used by all triggers (payload error,
+  // silent idle, embedded error). Bumps the streak, honors brake/pending,
+  // toasts, and sends "continue" after DELAY. All state lives in the maps
+  // above.
+  const scheduleRetry = async (
+    sessionID: string,
+    trigger: string,
+  ): Promise<void> => {
+    // If we already scheduled a retry for this session, stop.
+    if (pending.has(sessionID)) return
+
+    // If the brake already tripped for this session, stay silent.
+    // Only a clean `session.idle` success will lift it again.
+    if (stopped.has(sessionID)) return
+
+    // How many consecutive failures in a row? Default = 0.
+    const used = consecutive.get(sessionID) ?? 0
+
+    // Emergency brake: MAX_CONSECUTIVE failures in a row with no success
+    // between them. Latch as stopped so further failures stay silent (no
+    // toast or timer spam).
+    if (used >= MAX_CONSECUTIVE) {
+      stopped.add(sessionID)
+      pending.delete(sessionID)
+      await toast(client, `Drop/storm ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`, "error")
+      return
+    }
+
+    // MARK FIRST, AWAIT SECOND. The plugin is single-threaded: another
+    // event can only run in at an `await`. The old order was check ->
+    // await log -> mark, so two back-to-back errors could BOTH pass the
+    // guard above before either marked — scheduling duplicate timers (a
+    // double "continue") and undercounting the streak (both read used=0,
+    // both wrote 1), which delayed the emergency brake. Marking
+    // synchronously right after the checks makes check+mark atomic.
+    pending.add(sessionID)
+    consecutive.set(sessionID, used + 1)
+
+    // Debug breadcrumb: proves the trigger fired. Check OpenCode logs
+    // if you ever doubt the plugin saw the drop.
+    try {
+      await client.app.log({
+        body: {
+          service: "bang-drop-retry",
+          level: "info",
+          message: `matched ${trigger} (${used + 1}/${MAX_CONSECUTIVE})`,
+        },
+      })
+    } catch {
+      // Logging must never break the plugin.
+    }
+
+    // Show a small popup in OpenCode Desktop so you see it working.
+    // (Wrapped: a throwing toast must never kill the retry below.)
+    await toast(client, `Drop/storm (${trigger}), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
+
+    // Wait 8 seconds, then try again.
+    setTimeout(async () => {
+      // Unlock the moment the timer fires — NOT after the prompt await
+      // below. `client.session.prompt` can block for the WHOLE agent turn
+      // (minutes). Holding the "retry scheduled" lock until that await
+      // settled meant: if this nudge itself dropped, the new terminal event
+      // would see the lock, be ignored, and only then would the catch
+      // unlock us — leaving nobody to schedule the next retry (silent chain
+      // death until a manual "continue"). Unlocking now lets a failing
+      // nudge be retried (the streak counter + brake still bound it); the
+      // rare cost is one harmless duplicate nudge.
+      pending.delete(sessionID)
+      try {
+        // Send a FRESH tiny message on the SAME model (no model field = no switch).
+        // This is exactly like you typing "continue" by hand: the agent
+        // keeps full history and resumes the broken task.
+        await client.session.prompt({
+          path: { id: sessionID },
+          body: { parts: [{ type: "text", text: CONTINUE_TEXT }] },
+        })
+      } catch {
+        // The nudge request itself failed (e.g. session deleted).
+        // Nothing to unlock anymore; if the session errors, the next
+        // event schedules a fresh retry (streak still bounds it).
+      }
+    }, DELAY)
+  }
+
   // We return an object with hooks. `event` runs on every OpenCode event.
   return {
     event: async ({ event }: any) => {
@@ -200,43 +351,86 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         }
       }
 
-      // Case 1: session finished fine (model answered, now waiting for user).
-      // One success breaks the failure streak, so we reset everything:
-      // unlock the timer, reset the consecutive counter, lift the brake.
+      // Case 1: session went idle (turn finished, now waiting for user).
+      //   a) Silent bang/lock drop (shape 3): the storm arrived as a NORMAL
+      //      assistant message; no session.error ever fired. Score the last
+      //      assistant message with the same matchers and treat a hit as a
+      //      failure — do NOT reset the streak, this idle IS the failure
+      //      signal.
+      //   b) Anything else: real success. One success breaks the failure
+      //      streak, so reset everything: unlock the timer, reset the
+      //      consecutive counter, lift the brake.
       if (event.type === "session.idle") {
         // readSessionID() is the SAME reader the error path below uses,
         // so the two can never drift apart on the ID shape.
         const id = readSessionID(event)
-        if (id) {
-          pending.delete(id)
-          consecutive.delete(id)
-          stopped.delete(id)
-        } else if (!loggedIdleNoID) {
+        if (!id) {
           // Trace exit: an idle we cannot attribute to a session. Log once
           // per restart so an event-shape change shows up in the logs
           // instead of hiding as a session whose brake never lifts.
-          loggedIdleNoID = true
-          try {
-            await client.app.log({
-              body: {
-                service: "bang-drop-retry",
-                level: "warn",
-                message: `session.idle carried no sessionID head=${JSON.stringify(event).slice(0, 200)}`,
-              },
-            })
-          } catch {
-            // Logging must never break the plugin.
+          if (!loggedIdleNoID) {
+            loggedIdleNoID = true
+            try {
+              await client.app.log({
+                body: {
+                  service: "bang-drop-retry",
+                  level: "warn",
+                  message: `session.idle carried no sessionID head=${JSON.stringify(event).slice(0, 200)}`,
+                },
+              })
+            } catch {
+              // Logging must never break the plugin.
+            }
           }
+          return
         }
-        return // do nothing else
+
+        // Let the final streamed chunk commit before judging the message.
+        await new Promise((r) => setTimeout(r, SETTLE))
+        const hit = await lastAssistantStorm(client, id)
+        if (hit) {
+          // Already judged this exact message: leave all state untouched so
+          // the streak/brake survive duplicate idles.
+          if (handledMessage.get(id) !== hit.messageID) {
+            handledMessage.set(id, hit.messageID)
+            const trigger = triggerLabel(hit.bangLen, hit.lockLen)
+            try {
+              await client.app.log({
+                body: {
+                  service: "bang-drop-retry",
+                  level: "warn",
+                  message: `silent ${trigger} in assistant message ${hit.messageID}`,
+                },
+              })
+            } catch {
+              // Logging must never break the plugin.
+            }
+            await scheduleRetry(id, `${trigger} (silent drop)`)
+          }
+          return
+        }
+
+        // Clean answer (or unreadable transcript): success resets everything.
+        handledMessage.delete(id)
+        pending.delete(id)
+        consecutive.delete(id)
+        stopped.delete(id)
+        return
       }
 
       // Case 2: ignore everything that is NOT an error.
       // While the agent works (thinking, tools, messages) we exit here.
       if (event.type !== "session.error") return
 
+      // Get the session ID via the SHARED reader (same as the idle path
+      // above): `properties.sessionID` is the common shape, but a drop
+      // payload may nest it — readSessionID() tries the common alternates
+      // before giving up. Needed by BOTH matchers below (payload scan
+      // first, message fallback second).
+      const sessionID = readSessionID(event)
+
       // Gather every string inside the error payload and score each for
-      // bang-drop shapes (whole / line / long run) and lock-storm shapes
+      // bang-drop forms (whole / line / long run) and lock-storm forms
       // (lock-only / long run). This stays correct whether the provider
       // puts the "!!!!" or "locklock..." in `error`, `message`,
       // `error.message`, `detail`, or wraps it ("Upstream error: !!!!...").
@@ -252,14 +446,38 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         if (l > lockLen) lockLen = l
       }
 
-      // No bang shape and no lock shape anywhere -> some other error,
-      // ignore it.
+      // No bang/lock shape in the ERROR PAYLOAD. The storm may still be
+      // embedded mid-prose in the partial assistant MESSAGE while the error
+      // itself is generic transport noise (shape 4, see header). So before
+      // calling this "some other error", fall back to scoring the last
+      // assistant message.
       // (Other plugins own quota, Invalid input, endpoint-down, pool-empty.)
-      if (!bangLen && !lockLen) return
+      if (!bangLen && !lockLen) {
+        if (sessionID) {
+          // Let the final streamed chunk commit before judging.
+          await new Promise((r) => setTimeout(r, SETTLE))
+          const hit = await lastAssistantStorm(client, sessionID)
+          if (hit && handledMessage.get(sessionID) !== hit.messageID) {
+            handledMessage.set(sessionID, hit.messageID)
+            const trigger = triggerLabel(hit.bangLen, hit.lockLen)
+            try {
+              await client.app.log({
+                body: {
+                  service: "bang-drop-retry",
+                  level: "warn",
+                  message: `embedded ${trigger} in assistant message ${hit.messageID} (generic error payload)`,
+                },
+              })
+            } catch {
+              // Logging must never break the plugin.
+            }
+            await scheduleRetry(sessionID, `${trigger} (embedded)`)
+          }
+        }
+        return
+      }
 
-      // Human-readable trigger for the logs/toasts below.
-      const trigger =
-        lockLen > bangLen ? `${lockLen}x"lock"` : `${bangLen}x"!"`
+      // Payload matched (classic shape 1/2).
 
       // Optional model guard. Empty MODEL_FILTER = handle ANY model
       // (Kimi K3 today, whoever sends bangs tomorrow).
@@ -274,12 +492,6 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         if (modelLower && !modelLower.includes(MODEL_FILTER)) return
       }
 
-      // Get the session ID via the SHARED reader (same as the idle path
-      // above): `properties.sessionID` is the common shape, but a drop
-      // payload may nest it — readSessionID() tries the common alternates
-      // before giving up.
-      const sessionID = readSessionID(event)
-
       // Trace exits: if we matched bangs but stop here, the log says why.
       // (Previously these exits were silent, which hid the real cause.)
       if (!sessionID) {
@@ -288,7 +500,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
             body: {
               service: "bang-drop-retry",
               level: "warn",
-              message: `matched ${trigger} but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
+              message: `matched ${triggerLabel(bangLen, lockLen)} but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
             },
           })
         } catch {
@@ -296,84 +508,10 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         }
         return
       }
-      // If we already scheduled a retry for this session, stop.
-      if (pending.has(sessionID)) return
 
-      // If the brake already tripped for this session, stay silent.
-      // Only a `session.idle` success will lift it again.
-      if (stopped.has(sessionID)) return
-
-      // How many consecutive failures in a row? Default = 0.
-      // (bangLen / lockLen were already scored above: longest runs found.)
-      const used = consecutive.get(sessionID) ?? 0
-
-      // Emergency brake: 30 failures in a row with no success between them.
-      // We latch the session as stopped so the next 31st, 32nd... error
-      // does NOT spam more toasts or timers.
-      if (used >= MAX_CONSECUTIVE) {
-        stopped.add(sessionID)
-        pending.delete(sessionID)
-        await toast(client, `Drop/storm ${MAX_CONSECUTIVE}x in a row, brake ON. Try /compact or a new session.`, "error")
-        return
-      }
-
-      // MARK FIRST, AWAIT SECOND. The plugin is single-threaded: another
-      // event can only run in at an `await`. The old order was check ->
-      // await log -> mark, so two back-to-back errors could BOTH pass the
-      // guard above before either marked — scheduling duplicate timers
-      // (a double "continue") and undercounting the streak (both read
-      // used=0, both wrote 1), which delayed the emergency brake. Marking
-      // synchronously right after the checks makes check+mark atomic.
-      // Mark this session as "retry scheduled" so we don't double-schedule.
-      pending.add(sessionID)
-      // Bump the consecutive-failure streak (resets to 0 on next success).
-      consecutive.set(sessionID, used + 1)
-
-      // Debug breadcrumb: proves the trigger fired. Check OpenCode logs
-      // if you ever doubt the plugin saw the error.
-      try {
-        await client.app.log({
-          body: {
-            service: "bang-drop-retry",
-            level: "info",
-            message: `matched ${trigger} (${used + 1}/${MAX_CONSECUTIVE})`,
-          },
-        })
-      } catch {
-        // Logging must never break the plugin.
-      }
-
-      // Show a small popup in OpenCode Desktop so you see it working.
-      // (Wrapped: a throwing toast must never kill the retry below.)
-      await toast(client, `Drop/storm (${trigger}), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
-
-      // Wait 8 seconds, then try again.
-      setTimeout(async () => {
-        // Unlock the moment the timer fires — NOT after the prompt await
-        // below. `client.session.prompt` (sync form) blocks for the WHOLE
-        // agent turn (minutes). The old code held the "retry scheduled"
-        // lock until that await settled: if this nudge itself dropped, the
-        // new `session.error` would see the lock, be ignored, and only
-        // then would the catch unlock us — leaving nobody to schedule the
-        // next retry (silent chain death until a manual "continue").
-        // Unlocking now lets a failing nudge be retried (the streak
-        // counter + brake still bound it); the rare cost is one harmless
-        // duplicate nudge.
-        pending.delete(sessionID)
-        try {
-          // Send a FRESH tiny message on the SAME model (no model field = no switch).
-          // This is exactly like you typing "continue" by hand: the agent
-          // keeps full history and resumes the broken task.
-          await client.session.prompt({
-            path: { id: sessionID },
-            body: { parts: [{ type: "text", text: CONTINUE_TEXT }] },
-          })
-        } catch {
-          // The nudge request itself failed (e.g. session deleted).
-          // Nothing to unlock anymore; if the session errors, the next
-          // `session.error` schedules a fresh retry (streak still bounds it).
-        }
-      }, DELAY)
+      // Shared with the silent/embedded paths: pending/brake guards,
+      // mark-first streak bump, breadcrumb log, toast, 8s "continue" timer.
+      await scheduleRetry(sessionID, triggerLabel(bangLen, lockLen))
     },
   }
 }

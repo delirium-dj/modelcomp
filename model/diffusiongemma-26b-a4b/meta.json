@@ -1,0 +1,9 @@
+{
+  "id": "opencode/diffusiongemma-26b-a4b",
+  "name": "Diffusiongemma 26b A4b",
+  "short": "Diffusiongemma 26b A4b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

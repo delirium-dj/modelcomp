@@ -1,0 +1,1 @@
+Node.js CLI tooling that scans model/<slug>/ findings, validates and quarantines reports, recomputes per-model averages, and emits TypeScript registry + scores artifacts for the client bundle.

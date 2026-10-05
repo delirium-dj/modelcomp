@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: scripts_tooling
-title: Model Data Sync & Codegen Tooling
+title: Model Data Sync & Validation Tooling
 scope:
     - scripts/
 source_files: []
