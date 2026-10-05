@@ -1,9 +1,9 @@
 {
   "id": "opencode/north_mini_code",
   "name": "North Mini Code",
-  "short": "North Mini Code specialized coding model optimized for lightweight software engineering tasks.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out only",
-  "pricingNote": "Standard developer pricing",
-  "scaffolded": true
+  "short": "Cohere's open-weight MoE reasoning model for code (30B total, 3B active, Apache 2.0) with a free tier and sub-second latency.",
+  "contextWindow": "256,000 total",
+  "modalities": "Text in/out; reasoning",
+  "pricingNote": "Free tier ($0/$0)",
+  "freeTierNote": "Completely free tier ($0 input / $0 output)"
 }

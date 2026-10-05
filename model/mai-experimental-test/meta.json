@@ -1,9 +1,8 @@
 {
   "id": "opencode/mai-experimental-test",
   "name": "Mai Experimental Test",
-  "short": "Mai Experimental Test model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Exploratory sandbox model on OpenCode Zen for testing integration pipelines and benchmarking frameworks.",
+  "contextWindow": "128,000 total",
+  "modalities": "Text in/out only",
+  "pricingNote": "Experimental tier pricing"
 }

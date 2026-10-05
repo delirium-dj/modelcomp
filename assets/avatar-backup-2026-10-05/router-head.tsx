@@ -19,9 +19,8 @@ export const RouterHead = component$(() => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={head.title} />
       {description && <meta name="twitter:description" content={description} />}
-      <link rel="icon" type="image/png" sizes="256x256" href="/avatar.png" />
-      <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#4f46e5" />
       {head.meta.map((m) => (

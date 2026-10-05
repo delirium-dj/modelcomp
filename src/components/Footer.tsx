@@ -55,7 +55,10 @@ const EXTRA_DONATE_LINKS = [
 export const Footer = component$(() => {
   return (
     <footer class="mx-auto max-w-6xl px-4 py-8 text-xs text-slate-500 transition-colors dark:text-slate-400">
-      <div class="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+      {/* PageSpeed contrast: body copy here is slate-600 (7.2:1 on slate-50),
+        not the footer-wide slate-500 (~4.3:1 on slate-50 — fails 4.5:1).
+        Headings and buttons inside carry their own explicit colors. */}
+      <div class="rounded-lg border border-slate-200 bg-slate-50 p-4 text-slate-600 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300">
         <p class="text-sm font-semibold text-slate-700 dark:text-slate-200">
           100% independent research — no paid promotions, no vendor funding influences scores.
         </p>
@@ -73,12 +76,14 @@ export const Footer = component$(() => {
               title={l.detail}
               class={
                 l.primary
-                  ? "inline-flex items-center gap-1.5 rounded-md bg-pink-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-pink-700"
+                  // PageSpeed contrast: white on pink-700 is 6.3:1 (pink-600 is ~4.0:1 — fails 4.5:1).
+                  ? "inline-flex items-center gap-1.5 rounded-md bg-pink-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-pink-800"
                   : "inline-flex items-center gap-1.5 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
               }
             >
               <span aria-hidden="true">♥</span> {l.label}
-              <span class="font-normal opacity-80">· {l.detail}</span>
+              {/* No opacity here — faded white-on-pink fails contrast; font-weight alone sets it apart. */}
+              <span class="font-normal">· {l.detail}</span>
             </a>
           ))}
         </div>
@@ -96,10 +101,13 @@ export const Footer = component$(() => {
                 {l.label}
               </a>
             ) : (
+              /* No opacity-60 here: faded slate on slate-50 fails contrast. The
+                 dashed border + cursor-not-allowed + "· soon" already signal
+                 disabled; text color inherits the box's slate-600/slate-300. */
               <span
                 key={l.label}
                 title="Coming soon — link not configured yet"
-                class="inline-flex cursor-not-allowed items-center gap-1.5 rounded-md border border-dashed border-slate-300 px-3 py-1.5 text-sm font-medium opacity-60 dark:border-slate-600"
+                class="inline-flex cursor-not-allowed items-center gap-1.5 rounded-md border border-dashed border-slate-300 px-3 py-1.5 text-sm font-medium dark:border-slate-600"
               >
                 {l.label} · soon
               </span>

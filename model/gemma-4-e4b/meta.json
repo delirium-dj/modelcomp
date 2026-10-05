@@ -1,9 +1,12 @@
 {
   "id": "opencode/gemma-4-e4b",
-  "name": "Gemma 4 E4b",
-  "short": "Gemma 4 E4b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Gemma 4 E4B",
+  "short": "Google DeepMind's April 2026 edge-optimized 4.5B-effective multimodal model (8B with embeddings) built for mobile and edge latency.",
+  "contextWindow": "128,000 total",
+  "modalities": "Text, image, audio in; text out; reasoning + function calling",
+  "pricingNote": "Apache 2.0 open weights; hosted ~$0.02/$0.10 per 1M",
+  "pricingTiers": [
+    "Open weights (Apache 2.0, self-host)",
+    "Hosted ~$0.02/$0.10 per 1M"
+  ]
 }

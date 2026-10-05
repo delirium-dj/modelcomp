@@ -1,9 +1,8 @@
 {
   "id": "opencode/qwen-3.5",
   "name": "Qwen 3.5",
-  "short": "Qwen 3.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Alibaba's Qwen 3.5 flagship generation (2026) for general and agentic work. The tracked tier is unconfirmed, so several facts here are family-proxy provisional.",
+  "contextWindow": "128K–1M (family range; tracked tier unconfirmed)",
+  "modalities": "Text in/out (multimodal coverage unverified for tracked tier)",
+  "pricingNote": "Low-cost Qwen tier (exact price unverified)"
 }

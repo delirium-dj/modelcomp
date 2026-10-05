@@ -1,0 +1,35 @@
+# Grok 4.1 — findings by Claude Opus 4.8 (SELF-EXCLUDED: insufficient verified public benchmarks)
+
+- Source: xAI (`opencode/grok-4.1`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research found only **one** public benchmark row for Grok 4.1 (ResearchClawBench 13.5%; BenchLM lists no overall score). That is insufficient to compute five quality-dimension scores without fabricating values. Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores.
+
+## Model card (from curated meta/stub + BenchLM only)
+
+- **Name:** Grok 4.1
+- **Short description:** xAI's Grok 4.1 (non-reasoning base per BenchLM), 1M context. Curated `meta.json` is a scaffold stub (128K / text in-out / standard).
+- **Provider / access:** xAI API (`grok-4-1`); OpenCode Zen `opencode/grok-4.1`.
+- **Context window:** BenchLM 1M (stub lists 128K — understated).
+- **Modalities / pricing:** no verified public values for this exact model.
+
+### Raw benchmarks found
+
+- ResearchClawBench: **13.5%** (the only published row)
+- Terminal-Bench / τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/grok-4-1`) on 2026-10-03 — 1 of 645 benchmarks, no overall. Insufficient to score; no scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — insufficient verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` once Grok 4.1 has enough verified public benchmarks to compute all five quality dims.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research (BenchLM) found only one benchmark row; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

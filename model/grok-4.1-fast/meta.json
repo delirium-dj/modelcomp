@@ -1,9 +1,9 @@
 {
   "id": "opencode/grok-4.1-fast",
   "name": "Grok 4.1 Fast",
-  "short": "Grok 4.1 Fast model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "xAI's November 2025 speed tier (non-reasoning route): a 2M-context agentic model for high-volume tool calling at roughly a tenth of frontier pricing.",
+  "contextWindow": "2,000,000 total; ~30,000 max output",
+  "modalities": "Text + image in; text out; tool calling + structured output",
+  "pricingNote": "xAI native $0.20/$0.50 per 1M (cached $0.05)",
+  "noFreeId": true
 }

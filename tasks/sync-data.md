@@ -118,8 +118,14 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   infrastructure (rule 11 in `tasks/research.md`) — never deleted or left
   uncommitted.
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
-- Slug versions use `.` not `-` (full convention in `model/README.md`);
-  `pnpm sync` fails hyphen variants loudly so they are never cemented.
+- Slug versions use `.` not `-` (`RULES.md` slug identity; full convention in
+  `model/README.md`; canonical normalizer `normalizeSlug()` in
+  `scripts/lib/naming.mjs`); `pnpm sync` FAILs hyphen variants loudly and
+  writes nothing for them (no `meta.json` scaffold, no `average.md`, no
+  registry/score input — `SKIP` line). Fix = move the stray file(s) into the
+  existing dotted folder, remove the hyphen folder (sanctioned removal, needs
+  explicit per-instance user sign-off), re-run; the pre-commit hook blocks
+  staging hyphen variants.
 
 ## Definition of Done
 

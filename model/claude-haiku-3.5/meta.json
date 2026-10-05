@@ -1,9 +1,9 @@
 {
   "id": "opencode/claude-haiku-3.5",
   "name": "Claude Haiku 3.5",
-  "short": "Claude Haiku 3.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's October 2024 small/fast model — a drop-in upgrade to Claude 3 Haiku that beat Claude 3 Opus on several knowledge benchmarks at release. Retired 2026-02-19 (replaced by claude-haiku-4-5); no first-party access remains.",
+  "contextWindow": "200,000 total; 8,192 max output",
+  "modalities": "Text in/out; image + PDF input (image added 2025-02-25); text-only output",
+  "pricingNote": "Retired 2026-02-19; final rate $0.80/$4.00 per 1M",
+  "noFreeId": true
 }

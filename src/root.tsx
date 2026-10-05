@@ -50,7 +50,10 @@ export default component$(() => {
         Having bg-white here caused a specificity tie with dark:bg-slate-950,
         and bg-white was winning (appearing earlier = lower priority in CSS).
       */}
-      <body lang="en" class="antialiased transition-colors duration-200">
+      {/* lang lives on <html> via containerAttributes in entry.ssr.tsx — that is
+        what screen readers and the PageSpeed i18n audit check, and <body>
+        inherits it automatically. */}
+      <body class="antialiased transition-colors duration-200">
         <RouterOutlet />
       </body>
     </QwikCityProvider>

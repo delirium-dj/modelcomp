@@ -1,9 +1,12 @@
 {
   "id": "opencode/gemma-4-e2b",
-  "name": "Gemma 4 E2b",
-  "short": "Gemma 4 E2b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Gemma 4 E2B",
+  "short": "Google DeepMind's 2.3B-effective edge variant of Gemma 4 (April 2026) for phones, laptops and Jetson/Pi-class hardware, with native image and audio input.",
+  "contextWindow": "128,000 total",
+  "modalities": "Text, image, audio in; text out",
+  "pricingNote": "Apache 2.0 open weights; hosted ~$0.04/$0.08 per 1M",
+  "pricingTiers": [
+    "Open weights (Apache 2.0, self-host)",
+    "Hosted ~$0.04/$0.08 per 1M"
+  ]
 }

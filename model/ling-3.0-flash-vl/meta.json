@@ -1,9 +1,9 @@
 {
   "id": "opencode/ling-3.0-flash-vl",
-  "name": "Ling 3.0 Flash Vl",
-  "short": "Ling 3.0 Flash Vl model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Ling 3.0 Flash VL",
+  "short": "InclusionAI (Ant Group) open-weight native multimodal build of Ling-3.0-flash (124B total MoE) with image and video perception for visual agent work.",
+  "contextWindow": "262,144 (256K) served; 32,768 max output",
+  "modalities": "Text, image, video in; text out; tool calling",
+  "pricingNote": "OpenRouter $0.021/$0.0616 per 1M (free windows expired)",
+  "noFreeId": true
 }

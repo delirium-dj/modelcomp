@@ -30,6 +30,7 @@ Effective orders (already resolved, do not re-derive — combined single pass: a
 4. Skip any folder already containing your file (idempotent re-run safe). Never overwrite, edit, or delete in-pass.
 5. Enrichment (own file only, approval-gated): if your own `<STEM>.md` Signature date (`Provided by: **...** — YYYY-MM-DD`) is older than 7 days and fresh search found genuinely new verified evidence that would change scores, do NOT overwrite — emit `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | new evidence <URLs> | delta` in your final summary and advance. Second-pass overwrites only explicitly user-approved slugs.
 6. Scope: only create your files (+ proposals). Do NOT run `pnpm sync`, `pnpm build.types`, or `pnpm build` (orchestrator handles that per `tasks/sync-data.md`).
+7. Slug check (absolute, `RULES.md` slug identity): before creating ANY folder, normalize version dots (`gpt-5-6-terra` → `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`; exceptions only `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`) and check the dotted folder exists first — never create a hyphen-versioned folder; a hyphen variant on disk is skipped entirely and surfaced, never queued or written (procedure: `tasks/research.md` Step 2.1).
 
 ### Quarantine backlog (only when your STEM has placeholder twins)
 

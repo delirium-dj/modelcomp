@@ -8,6 +8,7 @@ import {
   labelOf,
   resolveSourceMeta,
   SLUG_VERSION_EXCEPTION,
+  normalizeSlug,
   hyphenVersionViolation,
   formatSlugGuess,
   missingMetaFields,
@@ -85,6 +86,21 @@ describe("resolveSourceMeta (override precedence)", () => {
 describe("hyphenVersionViolation (model/README.md convention)", () => {
   it("flags digit-hyphen-digit with the dotted suggestion", () => {
     assert.equal(hyphenVersionViolation("gpt-5-5"), "gpt-5.5");
+  });
+
+  it("flags multi-digit hyphen versions (2026-10-05 repeat incident)", () => {
+    assert.equal(hyphenVersionViolation("gemma-4-12b-unified"), "gemma-4.12b-unified");
+    assert.equal(hyphenVersionViolation("gemma-4-26b-a4b"), "gemma-4.26b-a4b");
+    assert.equal(hyphenVersionViolation("gemma-4.12b-unified"), null);
+  });
+
+  it("normalizeSlug is the canonical normalizer (gate delegates to it)", () => {
+    assert.equal(normalizeSlug("gpt-5-6-terra"), "gpt-5.6-terra");
+    assert.equal(normalizeSlug("gemma-4-12b-unified"), "gemma-4.12b-unified");
+    assert.equal(normalizeSlug("gpt-5.5"), "gpt-5.5");
+    assert.equal(normalizeSlug("gpt-6-astra"), "gpt-6-astra");
+    assert.equal(normalizeSlug("gemma-4-31b"), "gemma-4-31b");
+    assert.equal(normalizeSlug("qwen-3.8-27b"), "qwen-3.8-27b");
   });
 
   it("leaves codename suffixes alone (gpt-6-astra)", () => {

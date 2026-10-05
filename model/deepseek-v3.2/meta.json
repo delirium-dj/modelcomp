@@ -1,9 +1,9 @@
 {
   "id": "opencode/deepseek-v3.2",
-  "name": "Deepseek V3.2",
-  "short": "Deepseek V3.2 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "DeepSeek V3.2",
+  "short": "DeepSeek's December 2025 open-weight MoE flagship (685B total, 37B active) unifying chat and deep reasoning, with sparse attention for long-context efficiency.",
+  "contextWindow": "164,000 total; 8K–128K max output (provider-dependent)",
+  "modalities": "Text in/out; hybrid thinking/reasoning, tool calls, structured JSON; no vision/audio",
+  "pricingNote": "DeepSeek API ~$0.21/$0.31 per 1M (cached input $0.022)",
+  "noFreeId": true
 }

@@ -1,9 +1,9 @@
 {
   "id": "opencode/fledge-alpha",
   "name": "Fledge Alpha",
-  "short": "Fledge Alpha model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Free OpenCode Zen listing (Oct 2026) of unpublished vendor identity; routing probes show a multi-model backend (DeepSeek V4.1, Kimi K3). No formal benchmarks exist, so scores are provisional.",
+  "contextWindow": "1,048,576 (1M) total; 131,072 max output",
+  "modalities": "Text + image in; text out",
+  "pricingNote": "Free OpenCode Zen preview ($0/$0)",
+  "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0"
 }

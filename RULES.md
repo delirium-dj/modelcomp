@@ -61,10 +61,29 @@ override.
   `muse-spark-1.2-*` equivalents) must not be scaffolded, researched, or
   written to: a research agent that encounters one during audit skips it
   entirely (never queued, never written) and surfaces it for user-directed
-  deletion. Removing a forbidden tier-duplicate folder is the sole sanctioned
-  `model/<slug>/` removal, and only with explicit per-instance user sign-off
-  (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the
-  deletion commit itself). This exception never extends to real model folders.
+   deletion. Removing a forbidden tier-duplicate folder is a sanctioned
+   `model/<slug>/` removal, and only with explicit per-instance user sign-off
+   (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the
+   deletion commit itself). These exceptions never extend to real model folders.
+
+- **Slug identity (absolute):** version numbers use `.` not `-` (`gpt-5.5`,
+  never `gpt-5-5`; `gemma-4.12b-unified`, never `gemma-4-12b-unified`).
+  Normalize every freshly derived slug before creating or comparing anything:
+  replace each digit-hyphen-digit join with a dot (`4-12` → `4.12`) — the only
+  exceptions are param sizes, never versions (`gemma-4-31b`, `qwen-3.8-27b`,
+  `qwen-3.5-9b`); single majors with codename/experimental suffixes
+  (`gpt-6-astra`) never match. A hyphen-versioned folder is a forbidden
+  duplicate, never a new model: it must not be scaffolded, researched, or
+  written to — always check for the existing dotted folder first (both trees
+  in full mode) and write into it. A research agent that encounters a hyphen
+  variant during audit skips it entirely (never queued, never written) and
+  surfaces it for user-directed deletion. Removing a forbidden hyphen-duplicate
+  folder (merge contents into the dotted folder, then remove it) is a
+  sanctioned `model/<slug>/` removal alongside tier duplicates, and only with
+  explicit per-instance user sign-off. Enforcement is automatic: `pnpm sync`
+  FAILs hyphen variants and writes nothing for them (no `meta.json` scaffold,
+  no `average.md`, no registry/score input); the pre-commit hook blocks
+  staging them.
 
 ## Scoring rules
 

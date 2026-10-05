@@ -34,13 +34,25 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
 export const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b", "qwen-3.5-9b"]);
 
 /**
+ * Canonical slug normalizer (single source of truth — RULES.md slug identity).
+ * Version numbers use "." not "-": every digit-hyphen-digit join becomes a
+ * dot (`gpt-5-6-terra` → `gpt-5.6-terra`, `gemma-4-12b-unified` →
+ * `gemma-4.12b-unified`). Param-size exceptions pass through untouched.
+ * Always run a freshly derived slug through this before creating a folder
+ * or comparing against on-disk slugs.
+ */
+export function normalizeSlug(slug, exceptions = SLUG_VERSION_EXCEPTION) {
+  if (exceptions.has(slug)) return slug;
+  return slug.replace(/(\d)-(?=\d)/g, "$1.");
+}
+
+/**
  * Hyphen-version gate (see model/README.md): version numbers use "." not "-".
  * Returns the dotted suggestion, or null when the slug is fine.
  */
 export function hyphenVersionViolation(slug, exceptions = SLUG_VERSION_EXCEPTION) {
-  if (exceptions.has(slug)) return null;
-  if (!/\d-\d/.test(slug)) return null;
-  return slug.replace(/(\d)-(?=\d)/g, "$1.");
+  const next = normalizeSlug(slug, exceptions);
+  return next !== slug ? next : null;
 }
 
 /**

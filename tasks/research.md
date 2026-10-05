@@ -87,8 +87,11 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
   no folder under `model/` (full mode: under `model/` or `models_voice/`):
   1. Derive a filesystem-safe slug per `model/README.md`, then NORMALIZE it
-      before creating anything (2026-10-05 incident: `gemma-4-12b-unified/`
-      and `gemma-4-26b-a4b/` failed `pnpm sync` — a human had to rename both):
+      per `RULES.md` slug identity (absolute; canonical logic is
+      `normalizeSlug()` in `scripts/lib/naming.mjs`) before creating anything
+      (2026-10-05 incident: `gemma-4-12b-unified/` and `gemma-4-26b-a4b/`
+      failed `pnpm sync` — a human had to rename both; repeat Kimi_K3 misdrop
+      merged 2026-10-05):
       a. Dots for versions: `gpt-5.6-terra`, never `gpt-5-6-terra`;
          `gemma-4.12b-unified`, never `gemma-4-12b-unified`.
       b. Self-check: if the slug has a digit on BOTH sides of a hyphen

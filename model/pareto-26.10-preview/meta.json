@@ -1,9 +1,9 @@
 {
   "id": "opencode/pareto-26.10-preview",
   "name": "Pareto 26.10 Preview",
-  "short": "Pareto 26.10 Preview model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Unbiased's composite/blended multimodal preview for research, coding and agents; no verified public benchmark scores yet, so it carries no average.",
+  "contextWindow": "1,000,000 in; 131,000 max output",
+  "modalities": "Text + image in; text out",
+  "pricingNote": "$0.80/$3.20 per 1M (cached $0.03)",
+  "noFreeId": true
 }

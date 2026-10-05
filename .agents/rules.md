@@ -9,8 +9,11 @@ reports, and the website stay consistent.
 ## Repo layout
 
 - `model/<slug>/` — per-model folders (slugs listed in `model/README.md`;
-  version numbers use dots, never hyphens: `gpt-5.5`, `gemma-4.12b-unified` —
-  the pre-commit hook blocks hyphen variants and `pnpm sync` FAILs them).
+  slug identity is absolute in `RULES.md`: version numbers use dots, never
+  hyphens: `gpt-5.5`, `gemma-4.12b-unified` — hyphen variants are forbidden
+  duplicates (normalize before creating, check the dotted folder first);
+  the pre-commit hook blocks hyphen variants and `pnpm sync` FAILs them
+  with zero writes).
 - `models_voice/<slug>/` — voice/speech models only (`RULES.md` routing rule:
   realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
   as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.
@@ -25,6 +28,44 @@ reports, and the website stay consistent.
 - `model-findings.md` — signed cross-model log.
 - `model-report-TEMPLATE.md` — blank template for new reporting agents.
 - `dist/` + `server/` — build output, never hand-edit.
+
+## OpenCode plugin suite (`.opencode/plugins/`)
+
+- Runtime retry suite for OpenCode, auto-loaded at startup; NOT part of the
+  Qwik build or `pnpm` typecheck (each file carries `// @ts-nocheck`).
+  Each plugin catches transient `session.error` shapes (quota, pool-empty,
+  endpoint-down, bang/lock drops, DNS/network breaks, model-turn rejects),
+  waits, then sends a tiny nudge (`please continue` in newer plugins,
+  `continue` in older ones) on the same model; per-session
+  consecutive-failure brake; any `session.idle` success resets everything.
+  Current members: `budget-retry`, `deepseek-continue-retry`,
+  `fledge-endpoint-retry`, `gpt-sol-budget-retry`, `bang-drop-retry`,
+  `api-connect-retry` (2026-10-05, DNS/connection breaks, any model),
+  `model-turn-retry` (2026-10-05, "requests ending with a model turn"
+  rejects, any model).
+- Hardening conventions (established by the 2026-10-05 `bang-drop-retry`
+  pass; apply to every plugin in the suite):
+  - **Mark before await.** Check `pending`/`stopped`, then mark
+    (`pending.add` + `consecutive.set`) synchronously — NO `await` between
+    check and mark. The plugin is single-threaded: another event can only
+    interleave at an `await`, so a check→mark window containing an `await`
+    lets two back-to-back errors both pass the guard (duplicate timers,
+    undercounted streak, delayed brake).
+  - **Unlock at timer fire, not after the prompt.** The sync
+    `client.session.prompt` awaits the WHOLE agent turn (minutes). Delete
+    the `pending` entry the moment the `setTimeout` fires — BEFORE the
+    prompt await. Holding it longer makes a failing nudge get ignored
+    (lock still up) and its late `catch` unlock kills the retry chain
+    silently. Accepted cost: a rare harmless duplicate nudge.
+  - **One shared `readSessionID(event)`** (tries `properties.sessionID` →
+    `properties.session.id` → `properties.sessionId`) on BOTH the
+    `session.idle` reset path and the error path, so they never drift apart
+    on the ID shape; an idle with no recognizable ID logs a
+    once-per-restart warning (trace exit).
+  - **Trace every silent exit**: when the trigger matched but the plugin
+    stops anyway (missing sessionID, unrecognized event type), log it
+    (once-bounded) so future event-shape changes surface in logs instead of
+    hiding as dead sessions.
 
 ## Website data flow (single source of truth)
 

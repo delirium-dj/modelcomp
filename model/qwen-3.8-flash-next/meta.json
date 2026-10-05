@@ -1,9 +1,13 @@
 {
   "id": "opencode/qwen-3.8-flash-next",
   "name": "Qwen 3.8 Flash Next",
-  "short": "Qwen 3.8 Flash Next model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Alibaba's open-weight experimental checkpoint (125B language params, 6B active), distinct from managed Qwen3.8-Flash; 262K native context with image and video understanding.",
+  "contextWindow": "262,144 native (extensible to 1M with YaRN)",
+  "modalities": "Text, image, video in; text out; tool use",
+  "pricingNote": "Vercel $0.12/$0.40 per 1M; open weights (Qwen Community license)",
+  "pricingTiers": [
+    "Vercel AI Gateway $0.12/$0.40 per 1M",
+    "Self-host (Qwen Community license)"
+  ],
+  "noFreeId": true
 }

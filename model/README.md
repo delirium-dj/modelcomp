@@ -86,9 +86,18 @@ never a renamed folder.
 
 ## Adding a new model
 
-1. Create `model/<slug>/` with findings file(s) + `meta.json` (schema above).
-2. Run `pnpm sync` (creates `average.md`, validates everything).
-3. Run `pnpm build.types && pnpm build`.
+1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then
+   NORMALIZE it per `RULES.md` slug identity before creating anything:
+   replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
+   `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b` (param sizes, not versions).
+   Then check for an existing dotted folder first: a hyphen-versioned folder
+   is a duplicate, not a new model — never create it, write into the dotted
+   folder instead.
+2. Create `model/<slug>/` with findings file(s) + `meta.json` (schema above).
+3. Run `pnpm sync` (creates `average.md`, validates everything; FAILs hyphen
+   variants and writes nothing for them — merge into the dotted folder first).
+4. Run `pnpm build.types && pnpm build`.
 
 Discovery trigger: if any reporting agent (`SourceKey` in `src/data/models.ts`,
 or a signed file attribution) has no `model/<slug>/` folder, whoever finds it

@@ -212,9 +212,17 @@ try {
 // (Single majors with codename/experimental suffixes like `gpt-6-astra`
 // never match the check at all.) Full list: SLUG_VERSION_EXCEPTION in
 // scripts/lib/naming.mjs.
+// Hyphen-versioned folders are forbidden duplicates, never new models — so
+// beyond FAILing, sync must not cement them: no meta.json scaffold, no
+// average.md rewrite, no score-index / registry input from these folders.
+// (2026-10-05 repeat incident: sync auto-created meta.json + average.md inside
+// `model/gemma-4-12b-unified/`, turning a one-file misdrop into a
+// look-alike model folder that had to be unpicked by hand.)
+const hyphenSlugs = new Set();
 for (const slug of slugs) {
   const suggestion = hyphenVersionViolation(slug);
   if (suggestion !== null) {
+    hyphenSlugs.add(slug);
     fail(
       `model/${slug}/: version numbers use "." not "-" — use "model/${suggestion}/" instead (e.g. gpt-5-5 → gpt-5.5); merge into the existing dotted folder, never create a hyphen variant`,
     );
@@ -240,6 +248,7 @@ const scoreIndex = {};
 // (RATER_GATE, maintained above) — no manual sync needed.
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
+  if (hyphenSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   try {
     const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
@@ -254,6 +263,7 @@ const catalogNames = new Map(); // normalized name -> slug
 for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance")]) {
   if (!existsSync(rDir)) continue;
   for (const d of readdirSync(rDir)) {
+    if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry
     const mPath = join(rDir, d, "meta.json");
     if (!existsSync(mPath)) continue;
     try {
@@ -280,6 +290,10 @@ function raterSlugFor(stem) {
 }
 
 for (const slug of slugs) {
+  if (hyphenSlugs.has(slug)) {
+    log(`  SKIP  model/${slug}/ (hyphen-version duplicate — merge into the dotted folder first; no files written)`);
+    continue;
+  }
   const dir = join(modelDir, slug);
   // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
   // reporting agent forgot it): a findings file whose "Raw benchmarks found"

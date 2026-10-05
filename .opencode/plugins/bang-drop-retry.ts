@@ -95,6 +95,22 @@ function collectStrings(value: unknown, out: string[]): void {
 // in case a drop ever arrives as something other than `session.error`.
 const seenTypes = new Set<string>()
 
+// ONE shared reader for the session ID, used by BOTH the idle-reset path
+// and the error path so the two can never drift apart. Before this, the
+// idle path only tried `properties.sessionID` while the error path tried
+// three nestings — an idle with a differently-nested ID would silently
+// skip the reset and latch the emergency brake until restart.
+// Returns "" when no known shape matches.
+function readSessionID(event: any): string {
+  const p = (event.properties as any) ?? {}
+  return ((p.sessionID ?? p.session?.id ?? p.sessionId ?? "") as string) || ""
+}
+
+// Once-per-restart flag: a `session.idle` that carried NO recognizable
+// session ID is logged a single time (trace exit) so a future event-shape
+// change shows up in the logs instead of hiding as a dead session.
+let loggedIdleNoID = false
+
 // True when the text is ONLY "!" signs (plus harmless whitespace/newlines)
 // and carries at least MIN_BANGS of them. Examples: "!!!", "!!!!...50x".
 // Anything with a letter, digit or other punctuation returns false.
@@ -188,11 +204,29 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       // One success breaks the failure streak, so we reset everything:
       // unlock the timer, reset the consecutive counter, lift the brake.
       if (event.type === "session.idle") {
-        const id = (event.properties as any)?.sessionID as string
+        // readSessionID() is the SAME reader the error path below uses,
+        // so the two can never drift apart on the ID shape.
+        const id = readSessionID(event)
         if (id) {
           pending.delete(id)
           consecutive.delete(id)
           stopped.delete(id)
+        } else if (!loggedIdleNoID) {
+          // Trace exit: an idle we cannot attribute to a session. Log once
+          // per restart so an event-shape change shows up in the logs
+          // instead of hiding as a session whose brake never lifts.
+          loggedIdleNoID = true
+          try {
+            await client.app.log({
+              body: {
+                service: "bang-drop-retry",
+                level: "warn",
+                message: `session.idle carried no sessionID head=${JSON.stringify(event).slice(0, 200)}`,
+              },
+            })
+          } catch {
+            // Logging must never break the plugin.
+          }
         }
         return // do nothing else
       }
@@ -240,13 +274,11 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         if (modelLower && !modelLower.includes(MODEL_FILTER)) return
       }
 
-      // Get the session ID. Quota errors carry `properties.sessionID`
-      // (like budget-retry.ts), but a drop payload may nest it, so try
-      // the common alternates before giving up.
-      const sessionID = ((event.properties as any)?.sessionID ??
-        (event.properties as any)?.session?.id ??
-        (event.properties as any)?.sessionId ??
-        "") as string
+      // Get the session ID via the SHARED reader (same as the idle path
+      // above): `properties.sessionID` is the common shape, but a drop
+      // payload may nest it — readSessionID() tries the common alternates
+      // before giving up.
+      const sessionID = readSessionID(event)
 
       // Trace exits: if we matched bangs but stop here, the log says why.
       // (Previously these exits were silent, which hid the real cause.)
@@ -285,6 +317,18 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         return
       }
 
+      // MARK FIRST, AWAIT SECOND. The plugin is single-threaded: another
+      // event can only run in at an `await`. The old order was check ->
+      // await log -> mark, so two back-to-back errors could BOTH pass the
+      // guard above before either marked — scheduling duplicate timers
+      // (a double "continue") and undercounting the streak (both read
+      // used=0, both wrote 1), which delayed the emergency brake. Marking
+      // synchronously right after the checks makes check+mark atomic.
+      // Mark this session as "retry scheduled" so we don't double-schedule.
+      pending.add(sessionID)
+      // Bump the consecutive-failure streak (resets to 0 on next success).
+      consecutive.set(sessionID, used + 1)
+
       // Debug breadcrumb: proves the trigger fired. Check OpenCode logs
       // if you ever doubt the plugin saw the error.
       try {
@@ -299,17 +343,23 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
         // Logging must never break the plugin.
       }
 
-      // Mark this session as "retry scheduled" so we don't double-schedule.
-      pending.add(sessionID)
-      // Bump the consecutive-failure streak (resets to 0 on next success).
-      consecutive.set(sessionID, used + 1)
-
       // Show a small popup in OpenCode Desktop so you see it working.
       // (Wrapped: a throwing toast must never kill the retry below.)
       await toast(client, `Drop/storm (${trigger}), saying "continue" in 8s... (${used + 1}/${MAX_CONSECUTIVE})`, "warning")
 
       // Wait 8 seconds, then try again.
       setTimeout(async () => {
+        // Unlock the moment the timer fires — NOT after the prompt await
+        // below. `client.session.prompt` (sync form) blocks for the WHOLE
+        // agent turn (minutes). The old code held the "retry scheduled"
+        // lock until that await settled: if this nudge itself dropped, the
+        // new `session.error` would see the lock, be ignored, and only
+        // then would the catch unlock us — leaving nobody to schedule the
+        // next retry (silent chain death until a manual "continue").
+        // Unlocking now lets a failing nudge be retried (the streak
+        // counter + brake still bound it); the rare cost is one harmless
+        // duplicate nudge.
+        pending.delete(sessionID)
         try {
           // Send a FRESH tiny message on the SAME model (no model field = no switch).
           // This is exactly like you typing "continue" by hand: the agent
@@ -318,13 +368,10 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
             path: { id: sessionID },
             body: { parts: [{ type: "text", text: CONTINUE_TEXT }] },
           })
-
-          // Unlock the timer: if this retry also fails, the next
-          // `session.error` bumps the streak again (brake at 30).
-          pending.delete(sessionID)
         } catch {
-          // If something crashed (e.g. session deleted), just unlock.
-          pending.delete(sessionID)
+          // The nudge request itself failed (e.g. session deleted).
+          // Nothing to unlock anymore; if the session errors, the next
+          // `session.error` schedules a fresh retry (streak still bounds it).
         }
       }, DELAY)
     },
