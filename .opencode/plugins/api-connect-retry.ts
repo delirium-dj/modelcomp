@@ -19,6 +19,11 @@ import type { Plugin } from "@opencode-ai/plugin"
 //   econnaborted                         connection aborted
 //   enetworkunreachable / ehostunreach   no route to the host
 //   etimedout                            connect timed out
+//   response headers timed out           provider/gateway-side timeout, e.g.
+//                                        "Provider response headers timed out
+//                                        after 300000ms" (seen with DeepSeek) —
+//                                        human-phrased, so etimedout alone
+//                                        does NOT catch it
 //   socket hang up                       server dropped the socket mid-request
 //   fetch failed                         undici's catch-all for network-level failures
 //   network request failed               provider wrapper
@@ -33,6 +38,7 @@ const MATCHES = [
   "enetworkunreachable",
   "ehostunreach",
   "etimedout",
+  "response headers timed out",
   "socket hang up",
   "fetch failed",
   "network request failed",

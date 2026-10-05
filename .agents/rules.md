@@ -40,7 +40,9 @@ reports, and the website stay consistent.
   consecutive-failure brake; any `session.idle` success resets everything.
   Current members: `budget-retry`, `deepseek-continue-retry`,
   `fledge-endpoint-retry`, `gpt-sol-budget-retry`, `bang-drop-retry`,
-  `api-connect-retry` (2026-10-05, DNS/connection breaks, any model),
+  `api-connect-retry` (2026-10-05, DNS/connection/provider-transport breaks
+  incl. gateway "response headers timed out" — match is on error text only,
+  `MODEL_FILTER` empty = ANY model),
   `model-turn-retry` (2026-10-05, "requests ending with a model turn"
   rejects, any model).
 - Hardening conventions (established by the 2026-10-05 `bang-drop-retry`
