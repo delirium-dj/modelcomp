@@ -86,6 +86,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-26
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-26
 - Method: public internet research (Anthropic system card + launch post, Artificial Analysis model pages and 2025-11-25 analysis article, Scale's MCP-Atlas paper, BenchmarkList / BenchLM / RankedAGI / Vector Wire leaderboards, Benchmark Atlas Terminal-Bench 2.1 board, chaseai long-context write-up, Anthropic platform model + pricing docs). Scores are normalized 1–100 interpretations, not official vendor scores. Where harnesses disagree I list both numbers rather than picking a flattering one.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

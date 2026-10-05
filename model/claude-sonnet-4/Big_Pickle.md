@@ -76,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-26
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-26
 - Method: public internet research (Anthropic *Introducing Claude 4* launch post and Claude Opus 4 / Sonnet 4 system card, Anthropic 1M-context announcement and pricing/context-window docs, Artificial Analysis model and comparison pages incl. AA-LCR / AA-Omniscience, Scale's MCP-Atlas paper, SWE-bench leaderboard, Benchmark Atlas / Vector Wire / AI War Tracker / pricepertoken / modelgrep aggregators). Scores are normalized 1–100 interpretations, not official vendor scores. Where the same benchmark has three published values I list all three and name the harness rather than picking the flattering one.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

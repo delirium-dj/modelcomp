@@ -70,6 +70,6 @@ Original research date 2026-09-20. Re-run requested by the user to compare prior
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-10-01 (re-verified; original research 2026-09-20)
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-01 (re-verified; original research 2026-09-20)
 - Method: public web research (deepmind.google model cards, blog.google, ai.google.dev); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

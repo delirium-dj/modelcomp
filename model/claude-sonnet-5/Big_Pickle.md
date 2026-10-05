@@ -59,6 +59,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
 - Method: public web research (Anthropic announcement/system card, Anthropic.com Claude Sonnet product page, llm-stats OSWorld-Verified leaderboard, lmmarketcap head-to-head, dev.to Sonnet 5 roundup); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

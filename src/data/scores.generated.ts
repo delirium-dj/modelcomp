@@ -657,6 +657,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "average.md": { tool: 92, reasoning: 92.1, context: 94.6, multimodal: 77.8, coding: 91.7, cost: 74.1, overall: 89.6 },
   },
   "deepseek-v3.2": {
+    "Big_Pickle.md": { tool: 80, reasoning: 76, context: 58, multimodal: 15, coding: 78, cost: 96, overall: 61 },
     "DeepSeek_4.1_Flash.md": { tool: 70, reasoning: 72, context: 62, multimodal: 15, coding: 80, cost: 93, overall: 60 },
     "Fledge_Alpha.md": { tool: 74, reasoning: 82, context: 84, multimodal: 15, coding: 80, cost: 93, overall: 67 },
     "GLM_5.3_Flash.md": { tool: 76, reasoning: 80, context: 62, multimodal: 15, coding: 84, cost: 95, overall: 63.4 },
@@ -1501,6 +1502,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "average.md": { tool: 77.7, reasoning: 80.8, context: 79.5, multimodal: 70.8, coding: 80.3, cost: 96.3, overall: 77.7 },
   },
   "gemma-4-e2b": {
+    "Big_Pickle.md": { tool: 32, reasoning: 30, context: 45, multimodal: 86, coding: 28, cost: 99, overall: 44 },
     "DeepSeek_4.1_Flash.md": { tool: 40, reasoning: 50, context: 52, multimodal: 78, coding: 48, cost: 96, overall: 54 },
     "Fledge_Alpha.md": { tool: 38, reasoning: 55, context: 82, multimodal: 70, coding: 42, cost: 97, overall: 57 },
     "GLM_5.3_Flash.md": { tool: 42, reasoning: 55, context: 60, multimodal: 58, coding: 40, cost: 97, overall: 51 },
@@ -1513,6 +1515,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "average.md": { tool: 39.4, reasoning: 50.8, context: 55.8, multimodal: 58.8, coding: 45.6, cost: 98, overall: 50.2 },
   },
   "gemma-4-e4b": {
+    "Big_Pickle.md": { tool: 48, reasoning: 42, context: 48, multimodal: 88, coding: 42, cost: 99, overall: 54 },
     "DeepSeek_4.1_Flash.md": { tool: 42, reasoning: 55, context: 58, multimodal: 82, coding: 52, cost: 96, overall: 58 },
     "Fledge_Alpha.md": { tool: 44, reasoning: 62, context: 82, multimodal: 68, coding: 52, cost: 97, overall: 62 },
     "GLM_5.3_Flash.md": { tool: 45, reasoning: 58, context: 62, multimodal: 60, coding: 45, cost: 92, overall: 54 },

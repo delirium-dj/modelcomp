@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
 - Method: public web research (anotherwrapper comparison sheets, getdeploying, pricepertoken, Blognone Thai coverage, Gemini API pricing docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

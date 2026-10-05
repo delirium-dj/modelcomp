@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
 - Method: public web research (OpenRouter/OpenCode listings, aimlapi.com, gate.com news, mindstudio.ai, local-ai-zone.github.io, syntaxandsignal.tech, capitalandcompute.net); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

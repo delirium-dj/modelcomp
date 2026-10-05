@@ -77,6 +77,6 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-17
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-17
 - Method: public web research (models.dev, Pi.dev, OpenCode docs, community eval repos); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

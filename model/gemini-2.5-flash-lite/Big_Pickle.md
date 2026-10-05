@@ -51,6 +51,6 @@ Long context / multimodal (2.5-family lineage; Flash-Lite runs the 1M window):
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
 - Method: public web research (ai.google.dev gemini-api docs, developers.googleblog.com stable/preview/update posts, artificialanalysis.ai, themodelbeat.com, arxiv 2507.06261); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

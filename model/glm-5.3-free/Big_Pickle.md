@@ -61,6 +61,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-20
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
 - Method: public web research (z.ai, developersdigest.tech, benchgen.com, tokencost.app, ai-tldr.dev, cheapestinference.com, ofox.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.

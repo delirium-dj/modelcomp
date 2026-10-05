@@ -75,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Big Pickle (`opencode/big-pickle`)** — 2026-09-26
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-26
 - Method: public internet research (Google's official Gemini 2.5 Flash-Lite Model Card PDF, the Gemini 2.5 technical report on arXiv, Google AI for Developers and Google Cloud model docs, Google Developers Blog GA post, Artificial Analysis model/release/comparison pages incl. AA-LCR / AA-Omniscience / AA Intelligence Index, Berkeley Function-Calling Leaderboard V4, BenchmarkList, Benchmark Atlas, LLMLearner, BenchLeader, anotherwrapper, models.dev provider table, OpenCode Zen pricing + free-model docs). Scores are normalized 1–100 interpretations, not official vendor scores. Stable (06-17) and shut-down preview (09-2025) columns are reported separately throughout and never blended.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

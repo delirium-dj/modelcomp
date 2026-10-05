@@ -99,3 +99,63 @@ exclusion exists to prevent.
 - Future sources: if xAI ships Grok 5, delete this file and write `Big_Pickle.md`
   against the vendor model card. Future sources: add a new file next to this one,
   e.g. `Grok_4.7.md`, using the same headings.
+
+---
+
+## Second pass, 2026-10-05 — exclusion re-confirmed by exhaustive catalog sweep
+
+Re-researched independently before opening this file. The self-exclusion stands unchanged, and
+this pass replaces "no evidence found" with a systematic negative across every catalog that could
+possibly list a shipping model.
+
+**A full sweep of the `models.dev` API — every provider, every model ID containing `grok` — returns
+roughly 200 Grok records and not one of them is `grok-5`.** The list tops out at:
+
+- **Grok 4.7** (released 2026-09-21) — the current flagship, and the highest-numbered text model
+  xAI actually ships
+- Grok 4.6 (2026-08-12), Grok 4.5 (2026-07-08), Grok 4.3 (2026-04-30), Grok 4.20 and its
+  multi-agent variant, Grok 4.2 Fast, Grok 4.1 Fast, Grok 4, Grok 3 / 3 Mini
+- Grok Build 0.1, Grok Code Fast 1
+- Non-text routes: Grok Imagine Image / Image 2.0 / Video / Video 1.5 / Video 1.5 Lite,
+  Grok Voice / Voice Think Fast, Grok TTS, Grok STT
+
+There is no gap in the numbering where a 5 would sit, and no provider anywhere is serving a
+preview or beta under that name.
+
+**OpenCode Zen does not carry it.** The `opencode` provider in models.dev lists `grok-4.7`,
+`grok-4.5`, `grok-4.6`, `grok-build-0.1` and `grok-code`; the separate `opencode-go` provider lists
+`grok-4.7`, `grok-4.5`, `grok-4.6`. The Zen reference tables likewise stop at `grok-4.7`,
+`grok-4.6`, `grok-4.5` and `grok-build-0.1`. So `opencode/grok-5` is not a thinly-documented
+route — it is absent from the very gateway the folder's `meta.json` names.
+
+**xAI's own position is unchanged.** Grok 5 remains "in training on Colossus 2" per xAI's
+January 2026 Series E announcement, the Q1 2026 target slipped, Q2 passed with no launch, and the
+prediction market never resolved Yes. The 6T-parameter MoE figure repeated across the web is the
+same unsourced rumor the original pass already rejected — one aggregator restates it verbatim with
+no attribution, which is corroboration of nothing.
+
+**What xAI shipped instead is now documented, which sharpens the contrast.** Grok 4.7 has a real
+published model card (`media.x.ai`, 2026-09-21): "our most capable model to date", **pretraining
+data cutoff June 2026** with supplemental training data generated as late as August 2026,
+**supplemental training on anonymized Cursor workflow data** to improve coding and agentic
+performance, four configurable reasoning-effort levels, **500K context**, and agentic RL covering
+knowledge work, general coding, kernel optimization, web development and computer-aided design. It
+reached **Amazon Bedrock on 2026-09-28** at the same 500K context with text and image input. xAI
+now trades as **SpaceXAI**, a DBA name of XAI LLC. That is the standard a real flagship release
+meets in this repo; Grok 5 meets none of it.
+
+**Correction to the folder's `meta.json`.** It records "128K total" context, "Text in/out" and
+"Standard pricing" with the filler description "Grok 5 model evaluation entry.", and — unlike
+`model/diffusiongemma-26b-a4b/meta.json` — it is **not** marked `"scaffolded": true`, so the
+auto-generated origin is invisible to tooling. Both recorded specs are wrong even against the
+shipping Grok line: every current Grok 4.x route is 500K–2M context, and Grok 4.7 accepts text
+*and* image input. The `opencode/grok-5` id is a registry placeholder for a model that has never
+shipped.
+
+**Verdict.** Unchanged. An unreleased model with no model card, no spec, no endpoint, no price and
+no benchmark cannot be normalized, and the single low-quality aggregator publishing Grok 5 numbers
+is already logged above as fabricated. Scoring it would inject rumor into the dataset mean.
+
+**Retirement condition.** This is retired the moment xAI publishes a Grok 5 model card or ships an
+API endpoint under that name. At that point delete this file and write `Big_Pickle.md` against the
+vendor card — do not score it from the 6T rumor, or from Grok 4.7's numbers.
