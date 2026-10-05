@@ -83,9 +83,9 @@
 76.9 union-alpha
 75.8 kimi-k2.7-code-highspeed
 75.7 gemini-3.1-flash-lite
+74.9 muse-glimmer-30b
 74.8 glm-5.2-coding
-74.2 claude-sonnet-4
-74.2 muse-glimmer-30b
+74.5 claude-sonnet-4
 74.1 space-bunny
 74 claude-sonnet-3.7
 74 gemma-4.12b-unified
