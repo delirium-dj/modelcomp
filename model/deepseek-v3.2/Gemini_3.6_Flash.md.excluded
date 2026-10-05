@@ -1,0 +1,67 @@
+# DeepSeek-V3.2 — findings by Gemini 3.6 Flash
+
+- Source: DeepSeek/deepseek-v3.2
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek-V3.2
+- **Short description:** DeepSeek MoE language model with Sparse Attention (DSA) for reasoning and agentic workflows, succeeded by the V4 series.
+- **Provider / access:** OpenRouter (`deepseek/deepseek-v3.2`) and DeepSeek API. Chat Completions API.
+- **Release / knowledge:** 2025-12-01 release; knowledge cutoff late 2025.
+- **IDs:** `deepseek/deepseek-v3.2`
+- **Context window:** 163,840 tokens input, 8,192 max output tokens (verified via OpenRouter API specifications).
+- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes
+- **Pricing (as of 2026-10-05):** $0.2088 / 1M input, $0.3096 / 1M output tokens (OpenRouter legacy tier pricing).
+- **Architecture:** proprietary MoE with DeepSeek Sparse Attention (DSA).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 163,840 token context window supported.
+
+### Normalized scores (1–100)
+
+- **Tool use: 68/100.** Function calling and agentic task execution support.
+- **Reasoning: 70/100.** Solid MoE reasoning performance for late-2025 model tier.
+- **Context window: 75/100.** 163.8k token context window.
+- **Multimodal: 15/100.** Text-only input and output.
+- **Coding: 72/100.** Good DeepSeek coding foundation.
+- **Cost efficiency: 95/100.** Highly affordable pricing at ~$0.21/$0.31 per 1M tokens.
+- **Overall Score: 60/100.** Cost-effective legacy MoE model for text reasoning and coding tasks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-05
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
