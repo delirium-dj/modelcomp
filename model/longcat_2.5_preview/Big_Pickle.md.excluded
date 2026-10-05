@@ -98,10 +98,16 @@ Long context:
   by the complete absence of Terminal-Bench / Tau3 / GDPval / Claw-Eval numbers for this ID and
   by weak scores on the tasks that need planning plus verification (bug finding 2.4/20), with a
   16:50 average per prompt.
-- **Reasoning: 52/100.** Provisional anchor only: the LongCat-2.0 sibling scored 34 on the
-  Artificial Analysis Intelligence Index, which the methodology maps into the 55–65 mid band,
-  while the 2.5 preview is newer, multimodal and thinking-mode capable. Scored low inside that
-  band because not one reasoning measurement exists for this ID — no GPQA, HLE, LCR or CritPt.
+- **Reasoning: not scored (was 52/100 — score withdrawn 2026-10-05).** The 52 was anchored on
+  the LongCat-2.0 sibling's Artificial Analysis Intelligence Index of 34. That is a **different
+  model** — text-only, MIT-weights, superseded — and `RULES.md` forbids transferring one model's
+  numbers to another. With the anchor removed, **zero** reasoning measurements exist for this ID:
+  no GPQA, no HLE, no LCR, no CritPt, no Index, no Omniscience. Thinking mode is *declared* but
+  never measured. Any number here would be a placeholder in disguise, which drags the folder mean
+  for every reader, so the dimension is left explicitly unscored rather than filled. This is the
+  single reason the whole file stays excluded: Tool use and Coding rest on one community
+  leaderboard run, Context and Multimodal rest on verified specs, Cost rests on a verified $0
+  tier — Reasoning has no measurable subject at all.
 - **Context window: 96/100.** 1,048,576 tokens (1M) is verified by vendor docs, Vercel and
   models.dev, with a 131,072 max output. Tier mapping puts ≥1M at 95–100; 100 would require
   ≥98% retrieval measured at 512K+, and nothing has been measured, so it sits just below the top
@@ -119,11 +125,17 @@ Long context:
   retention. Flagged as time-limited: the paid fallback is $0.30 / $1.20 per 1M, which is
   cheap-but-paid territory, and neither the Zen window nor the vendor discount carries a
   published end date.
-- **Overall Score: 66.2/100.** Half-up mean of the five quality dims
-  (58 + 52 + 96 + 65 + 60) / 5 = 66.2. Best fit: use it as a free, 1M-context, vision-capable
-  executor for UI scaffolding and bulk file work while the free window lasts — not as the
-  planner of record, since every reasoning, agentic and multi-step-logic benchmark the model
-  could be judged on is still unpublished.
+- **Overall Score: not scored (was 66.2/100 — score withdrawn 2026-10-05).** The 66.2 was the
+  half-up mean of 58 / 52 / 96 / 65 / 60 and is **void**, because one of its five inputs (the
+  LongCat-2.0-derived Reasoning 52) has been withdrawn. A mean cannot survive the removal of a
+  component without silently becoming a different number, so it is retired rather than
+  recomputed. The remaining four dims average 69.75, but that figure is **not** an Overall: with
+  Reasoning missing, the five-dim mean the methodology mandates cannot be formed at all. This is
+  the mechanical reason the file stays `.md.excluded`. (Cost is excluded from Overall regardless.)
+  For what the evidence does support, un-averaged: Context 96 and Cost 100 are on verified specs
+  and a verified $0 tier; Tool use 58 and Coding 60 rest on a single community leaderboard run.
+  Best fit if you use it anyway: a free, 1M-context, image-capable executor for UI scaffolding
+  and bulk file work while the free window lasts — not as the planner of record.
 
 ---
 
@@ -134,3 +146,65 @@ Long context:
   models.dev model metadata, AI Coding Daily leaderboard, several independent launch write-ups).
   Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `LongCat_2.6.md`, using the same headings.
+
+---
+
+## Second pass, 2026-10-05 — exclusion re-confirmed; Reasoning score withdrawn
+
+Re-researched independently before opening this file. The self-exclusion stands, and the pass
+surfaced one methodological error in the original, now corrected above.
+
+**Meituan has published no benchmarks for this model, and no aggregator has independently
+evaluated it.** That is now confirmed across every major index rather than inferred:
+
+- **Enera (2026-09-27)** states it plainly: "Meituan has published no benchmark scores for
+  LongCat-2.5-Preview… no third-party verified performance numbers. LongCat-2.0 scored 59.5 on
+  SWE-bench Pro when it was open-sourced in July, and that is the last verified data point for
+  the model family." (2.0 is **not** this model.)
+- **Artificial Analysis:** the model does not appear. The LongCat-2.0 pages there are the
+  superseded sibling.
+- **BenchLM:** only a LongCat-2.0 entry exists, with **0** benchmarks covered.
+- **CloudPrice:** the LongCat 2.5 Preview page carries specs and pricing but **no benchmark
+  table** at all — no Intelligence Index, GPQA, HLE, IFBench, SciCode, LCR, TerminalBench or
+  TAU2 row, unlike the Gemma 4 pages on the same site. It has a "Benchmarks API" endpoint link
+  that returns nothing for this model.
+- **Orca Router** logs it as "Meituan, listed 2026-09-25, **no benchmark published**… coding
+  index not published, long-context recall not published."
+- **OpenCode's own data page** (`opencode.ai/data/unknown/longcat-2.5-preview`) carries
+  Reasoning 50/100, Coding 50/100 and Tool use 50/100 — each explicitly labelled "Reasoning
+  supported; **no comparable benchmark**", "**No data; neutral placeholder**" and "Tool calling
+  supported; no comparable benchmark". These are the site's own neutral fallbacks, **not
+  measurements**, and must never be read as data or lifted as scores.
+
+**Correction carried out.** The original Reasoning score of 52/100 was derived from the
+LongCat-2.0 sibling's Index of 34 — a model-transferred number, prohibited by `RULES.md`. That
+score is withdrawn and the dimension is now explicitly unscored. Everything else in the original
+stands on its own evidence and is unchanged.
+
+**Facts verified this pass that strengthen the model card** (no benchmark implications):
+
+- **Dual API confirmed independently.** Enera and the vendor platform both document
+  **OpenAI-compatible *and* Anthropic-compatible** endpoints. The Anthropic-compatible surface
+  is what makes the claimed Claude Code / Hermes / OpenClaw / OpenCode / Kilo Code compatibility
+  real rather than aspirational.
+- **Video input: still unconfirmed, still not counted.** Enera lists modalities as "Text, image,
+  video (URL)" but models.dev, the vendor changelog and CloudPrice's capability matrix all
+  record text + image only. CloudPrice's matrix is internally broken for this entry (it marks
+  only Image ✓ and leaves Text blank), so it is not usable as a tiebreaker. Treat video as
+  unresolved.
+- **Adoption is real and large.** OpenCode's data page: **ranked #08** by weekly usage at 0.2%
+  share, **2T tokens** (Aug 6 → Sep 30, +100% on the prior two months), **34K unique users**,
+  **1,445,553 completed sessions**, average **1.4M tokens per session**, **96% input cache
+  ratio**, **$0.00 total spend**. A separate compare view shows 18K unique users and 606,195
+  sessions on a different window. Adoption, not capability — but it does establish that the free
+  tier is heavily exercised rather than vestigial.
+- **Spec re-confirmed:** 1,048,576-token context, 131,072 max output, ~1.6T total / ~48B active
+  sparse MoE, thinking on by default and switchable, interleaved `reasoning_content`, closed
+  weights (2.5 is API-only; 2.0 was the MIT release).
+- **Pricing re-confirmed:** $0.30 in / $1.20 out / $0.006 cache read per 1M direct (Vercel AI
+  Gateway and Blackbox both list the same triple), $0 on OpenCode Zen with zero retention.
+
+**Retirement condition.** This twin is retired only when a real benchmark lands for this exact
+ID — Meituan publishing an eval table, an Artificial Analysis or BenchLM entry appearing, or a
+second independent leaderboard run on a named harness. Any of those would let Reasoning be
+scored on this model's own numbers and the whole file become a scored `.md`.

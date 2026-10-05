@@ -87,3 +87,54 @@ here would be built from the platform's own explicitly-labelled neutral placehol
 - Future sources: if this route is promoted to a real model with a name, specs and a model
   card, migrate this folder to the model's slug and write `Big_Pickle.md` then.
 - Future sources: add a new file next to this one, e.g. `MAI_2.md`, using the same headings.
+
+---
+
+## Second pass, 2026-10-05 — exclusion re-confirmed, identity question closed
+
+Re-researched independently before opening this file. The self-exclusion stands unchanged. This
+pass exists to close the one question the original left open: **is this an undocumented alias of
+some real model, rather than a genuinely unlabeled test lane?** Answer: no, and the negative is
+now positive evidence rather than absence of evidence.
+
+**Not served anywhere.** The live Zen catalog (`https://opencode.ai/zen/v1/models`, fetched
+2026-10-05) contains no `mai-experimental-test`. It is absent from the Zen reference tables and
+pricing pages on `opencode.ai/docs/zen`, and from every archived Zen mirror
+(`open-code.ai`, `dev.opencode.ai`, `opencode.ubitools.com`, `opencode-tutorial.com`,
+`open-code.ai`). The mirrors matter because they are dated snapshots — the 2026-08-09 fallback
+catalogue lists 61 models across GPT / Claude / Gemini / Grok / Muse / Qwen / GLM / Kimi /
+DeepSeek / MiniMax plus 9 free-tier routes, and none of them is `mai-`.
+
+**Not in models.dev, any provider.** A regex sweep of the whole `models.dev` API for `mai`
+returned only unrelated Microsoft MAI *media and code* models, none served by OpenCode and none
+carrying this name:
+
+| Provider | ID | Notes |
+| --- | --- | --- |
+| Vercel | `microsoft/mai-voice-2`, `-2-flash`, `-2.1`, `-2.1-flash` | speech, released 2026-06-02 → 2026-10-01 |
+| Vercel | `microsoft/mai-transcribe-1.5`, `-2`, `-2-streaming` | transcription, released 2026-06-01 → 2026-10-01 |
+| GitHub Copilot | `mai-code-1-flash-picker` (MAI-Code-1-Flash) | $0.75/$4.50, 256K ctx, released 2026-06-02 |
+| GitHub Copilot | `mai-code-1.1-flash` (MAI-Code-1.1-Flash) | $0.20/$1.20, 256K ctx, released 2026-08-11 |
+| nano-gpt | `Steelskull/L3.3-Cu-Mai-R1-70b` | unrelated community merge, `mai` inside a typo'd name |
+
+So `MAI` is a real vendor prefix (Microsoft MAI), which is why the alias is plausible on its face.
+But **no Microsoft model matches this name**, and — the stronger point — every genuine MAI text
+model is a *code* model sold through GitHub Copilot, while the rest of the family is speech and
+transcription. None is a general text LLM on Zen, and none is priced at the $0 total spend this
+folder records. There is therefore no candidate identity to migrate to, which is what separates
+this case from a mere unsized alias of a known checkpoint.
+
+**A web search for the exact string `"mai-experimental-test"` returned no model page at all** —
+only the Zen catalog mirrors above. Nothing outside OpenCode has ever written the name down.
+
+**On the residual "it's probably MAI-Code-1.x behind a test lane" hypothesis.** Even if that
+were true, it would not license a score: the only MAI-Code numbers are GitHub Copilot's own
+listing, and attributing those to a $0 OpenCode route is exactly the model-transferred number
+`RULES.md` prohibits. It would also fail the sync gate — a scored file would be five dimensions
+of invented numbers, with the platform's own labelled 50/100 placeholders as the only "source."
+
+**Verdict.** Unchanged and now over-determined: unserved, unnamed, unpublished, unbenchmarked,
+and with no resolvable identity. The 69.3% cache ratio and 445K average tokens per session remain
+harness properties, not capabilities. Retirement condition is unchanged — this is retired only if
+OpenCode promotes the route to a real model with a model card, specs and a price, at which point
+this folder should be migrated to the real model's slug rather than scored in place.

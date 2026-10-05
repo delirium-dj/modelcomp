@@ -119,3 +119,41 @@ the wrong name.
   migrate this folder to that model's slug and write `Big_Pickle.md` then. The concrete
   variants already have homes at `qwen-3.5-9b` and `qwen-3.5-plus`.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_Plus.md`, using the same headings.
+
+## Second pass, 2026-10-05 — self-exclusion re-confirmed, not lifted
+
+Re-researched independently before opening this file; the verdict above held, so this file stays
+`.md.excluded` and no scored sibling was written. What the pass added is a stronger, catalog-wide
+basis for the exclusion — the first pass only checked OpenCode's own catalog.
+
+**A bare `qwen3.5` does not exist in any provider catalog.**
+
+- **OpenCode Zen live catalog** (`https://opencode.ai/docs/zen/`, endpoint and pricing tables):
+  the six Qwen routes are `qwen3.8-max`, `qwen3.8-flash`, `qwen3.7-max`, `qwen3.7-plus`,
+  `qwen3.6-plus`, `qwen3.5-plus`. No unsuffixed entry.
+- **models.dev `opencode` provider** (`https://models.dev/api.json`, 116 models): `qwen3-coder`,
+  `qwen3.5-plus`, `qwen3.6-plus`, `qwen3.6-plus-free`, `qwen3.8-flash`, `qwen3.8-max`. No
+  unsuffixed entry.
+- **models.dev, every provider, regex `^qwen-?3\.5`**: ~50 provider hits, all either sized
+  open-weight checkpoints (`qwen3.5-397b-a17b`, `-122b-a10b`, `-35b-a3b`, `-27b`, `-9b`, `-4b`,
+  `-2b`, `-0.8b`) or suffixed hosted tiers (`qwen3.5-plus`, `qwen3.5-flash`). **Zero** bare
+  `qwen3.5` entries across the whole catalog.
+
+So the blocker is not that OpenCode happens not to route it. "Qwen 3.5" is a family label with no
+single referent, and `opencode/qwen-3.5` in this folder's `meta.json` names no catalog entry.
+
+**Why the flagship's numbers were still not filed here.** The family flagship
+`Qwen3.5-397B-A17B` has a large, fully sourced public set (MMMU-Pro 79.0, MathVision 88.6, LingoQA
+81.6, GPQA Diamond 88.4, SWE-bench Verified 76.4, SWE-bench Pro 50.9, Terminal-Bench 2 52.5,
+SciCode 42.0, BFCL-v4 72.9, AA Intelligence Index 34.0 on v4.1.1, 262,144 native tokens extensible
+to ~1,010,000 via YaRN, Apache 2.0). Those are real measurements — of a *different model ID*. No
+folder in this repo owns `qwen3.5-397b-a17b`, but filing them under the unresolvable `qwen-3.5`
+alias would attribute one checkpoint's results to a label that does not identify it, and would
+score an alias the repo itself marks `"tracked tier is unconfirmed"` in `meta.json`. That is the
+misattribution `RULES.md` prohibits, so the numbers stay recorded here and unscored.
+
+**Retirement condition, now specific.** This twin is retired only when the alias resolves — i.e.
+OpenCode or models.dev lists a live unsuffixed `qwen3.5` route with published specs, or the
+folder is migrated to a concrete checkpoint slug such as `qwen-3.5-397b-a17b` (which would need
+its own folder; do not rename or move this one, `RULES.md` forbids it). The two resolved variants
+already have homes at `qwen-3.5-9b` and `qwen-3.5-plus`.
