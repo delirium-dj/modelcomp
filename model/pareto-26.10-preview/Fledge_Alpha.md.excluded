@@ -1,0 +1,19 @@
+# Pareto 26.10 Preview — self-exclusion (no verified numeric scores)
+
+- Source: Unbiased (`pareto-26.10-preview`, `unbiased/pareto-26.10-preview`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings - why this file is `.md.excluded`
+
+As of 2026-10-05, verified numeric benchmark scores for `Pareto 26.10 Preview` are not public:
+
+- Unbiased's model card (unbiased.ai/model-card) describes preliminary matches/sets on GPQA-Diamond, HLE (text-only), DeepSWE v1.1, and Terminal-Bench 4.0, but does not publish those four scores in the visible excerpt.
+- BenchLM labels it "3 source-displayable benchmark rows but no public overall score… Unranked".
+- NanoGPT explicitly states "No public benchmark scores for this model yet."
+- Sibling Pareto 26.9 has only ad-hoc figures (DeepSWE 74%, Terminal-Bench 51%, GPQA visible elsewhere) and is a different variant.
+
+Specs (for a future real run): composite/blended multimodal model for research/coding/agents via OpenRouter, 1M input / 131K output, $0.80 / $3.20 per 1M (cached $0.03), 26.1B params (rumored), text+image in.
+
+No scores → `.md.excluded`. Re-research once a dated independent table of the four preliminary rows ships.

@@ -1,0 +1,34 @@
+# GLM-5.2 Coding — findings by GPT 6 Astra
+
+- Source: Z.ai / unresolved coding-specific label
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** GLM-5.2 Coding (folder label).
+- **Identity:** Public primary documentation identifies GLM-5.2 and the GLM Coding Plan, but no separate model or canonical API ID `glm-5.2-coding` was verified.
+- **Provider / access:** The [official GLM-5.2 guide](https://docs.z.ai/guides/llm/glm-5.2) uses `glm-5.2` at the Chat Completions endpoint and states that Coding Plan users received early access. This establishes distribution through a plan, not a separate coding checkpoint.
+- **Closest verified model:** GLM-5.2 supports text input/output, 1M context, 128K output, reasoning, function calling and structured outputs. These specifications belong to the unsuffixed model.
+- **Pricing (2026-10-05):** [Z.ai pricing](https://docs.z.ai/guides/overview/pricing) lists GLM-5.2 at $1.40 input/$4.40 output/$0.26 cached input per million tokens. No separate coding-model token rate found. A subscription quota cannot be converted into a fixed token rate without usage assumptions.
+- **Release / knowledge / architecture:** Separate coding-variant release date, cutoff, architecture and weights are unverified.
+
+### Raw benchmarks found
+
+- No verified public score found for an exact `glm-5.2-coding` model.
+- The [publisher GLM-5.2 card](https://huggingface.co/zai-org/GLM-5.2) reports GPQA 91.2, HLE 40.5, SWE-bench Pro 62.1 and Terminal-Bench 2.1 81.0 in Terminus-2. Those are explicitly GLM-5.2 results, not proof of a distinct coding variant.
+- Exact-variant tool use, reasoning, coding and retrieval benchmarks remain unavailable. The coding-plan documentation does not establish a separately benchmarked checkpoint.
+
+### Normalized scores (1–100)
+
+Excluded pending verified identity. No placeholder quality or cost scores assigned. If this folder is intended to represent ordinary GLM-5.2 through a subscription, the model identity should be clarified before treating it as an additional scored model; existing project files remain untouched.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-05
+- Method: Fresh primary-source identity, pricing and benchmark research; exclusion reflects unresolved identity, not poor performance.
+- Future sources: add a separate report beside this file.
+

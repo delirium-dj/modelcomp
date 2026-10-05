@@ -1,0 +1,17 @@
+# Mai Experimental Test - self-exclusion (no verified public benchmarks)
+
+- Source: Microsoft (`mai-experimental-test`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings - why this file is `.md.excluded`
+
+As of 2026-10-05, no verified public model, benchmark, or pricing exists for `mai-experimental-test`:
+
+- `mai-experimental-test` does not resolve to any published Microsoft MAI model. The publicly documented MAI line is MAI-Thinking-1, MAI-Code-1-Flash, MAI-Image-2.5/2.6, MAI-Voice-2, MAI-Transcribe-1.5/2 — none is listed or aliased as "mai-experimental-test".
+- No artificial-analysis row, Vals AI entry, or OpenRouter/ModelRouter `mai-experimental-test` ID exists.
+- The folder's metadata is a scaffold placeholder ("Mai Experimental Test model evaluation entry.", 128K generic spec) with no provider, ID, or pricing.
+- Every verifiable MAI finding therefore cannot be attributed to this exact slug; writing scores would be invention.
+
+If Microsoft later publishes a model matching this slug, re-research and file a real scored report.

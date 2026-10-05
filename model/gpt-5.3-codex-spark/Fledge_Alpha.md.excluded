@@ -1,0 +1,17 @@
+# GPT-5.3-Codex-Spark - self-exclusion (no verified public benchmarks)
+
+- Source: OpenAI (`gpt-5.3-codex-spark`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings - why this file is `.md.excluded`
+
+As of 2026-10-05, no verified public benchmark scores exist for `gpt-5.3-codex-spark`:
+
+- OpenAI's Feb 12, 2026 launch post says it is stronger than GPT-5.1-Codex-mini on SWE-Bench Pro and Terminal-Bench 2.0, but publishes no numbers.
+- The Cerebras co-launch blog makes the same qualitative claim without a table.
+- BenchLM / Artificial Analysis / vals.ai carry zero sourced benchmark rows for the exact ID.
+- CloudPrice lists spec (128K context, text in/text out, image input in one listing) but no pricing or benchmark row.
+
+Writing normalized scores would require inventing rows; re-research after OpenAI or a third party publishes per-benchmark numbers.

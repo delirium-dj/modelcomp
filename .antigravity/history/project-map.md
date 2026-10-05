@@ -1,7 +1,7 @@
 # ModelComp — Project Map
 
 High-level GPS map of components, routes, data flow, scripts, and relationships for AI agents.
-Refreshed 2026-10-04 (prior version drifted: component/route/data lists were incomplete).
+Refreshed 2026-10-05 (2026-10-04 version missed `.opencode/plugins/` runtime retry suite).
 
 ## Architecture & Data Flow
 
@@ -66,5 +66,6 @@ Site origin for prerendered canonical URLs + sitemap is `SITE_ORIGIN`
   - `scripts/sync-data.mjs`: Data sync script executed via `pnpm sync`.
   - `scripts/lib/` (6 modules + 6 `*.test.mjs` suites, zero-dep `node:test`): `parse` (score parsing, `RATER_GATE`), `quarantine` (evidence-free exclusion), `naming` (stems/slugs/scaffold), `validate` (tripwires, meta gates), `average` (means, queue), `codegen` (registry surgery, scores emit, robots.txt).
   - `tasks/`: `research-assign.md` (canonical delegator — the agent resolves its own STEM via its Identity resolution chain), `research.md` (research workflow), `sync-data.md` (sync workflow).
+  - `.opencode/plugins/`: OpenCode runtime retry suite (NOT part of the Qwik build — 7 plugins: `budget-retry`, `deepseek-continue-retry`, `fledge-endpoint-retry`, `gpt-sol-budget-retry`, `bang-drop-retry` incl. silent-drop `session.idle` rescan, plus 2026-10-05 `api-connect-retry` for DNS/network breaks and `model-turn-retry` for model-turn rejects; each waits then sends `please continue` with a consecutive-failure brake).
   - `.agents/`: Rules, tech-stack, rate limit guidelines for agents.
   - `.antigravity/`: Antigravity-specific rules and local cache workflows.

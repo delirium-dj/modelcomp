@@ -1,0 +1,9 @@
+{
+  "id": "opencode/deepseek-v3.2",
+  "name": "Deepseek V3.2",
+  "short": "Deepseek V3.2 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

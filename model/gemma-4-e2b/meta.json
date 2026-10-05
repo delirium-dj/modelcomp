@@ -1,0 +1,9 @@
+{
+  "id": "opencode/gemma-4-e2b",
+  "name": "Gemma 4 E2b",
+  "short": "Gemma 4 E2b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

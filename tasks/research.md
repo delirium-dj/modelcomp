@@ -86,9 +86,20 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 - While fetching benchmarks (official cards, Artificial Analysis, LiveCodeBench,
   SWE-bench, Eden AI comparison posts, etc.), if you find a relevant model with
   no folder under `model/` (full mode: under `model/` or `models_voice/`):
-  1. Derive a filesystem-safe slug per `model/README.md` (dots for versions:
-      `gpt-5.6-terra`, never `gpt-5-6-terra`; check for an existing dotted
-      folder first — `pnpm sync` fails hyphen variants loudly).
+  1. Derive a filesystem-safe slug per `model/README.md`, then NORMALIZE it
+      before creating anything (2026-10-05 incident: `gemma-4-12b-unified/`
+      and `gemma-4-26b-a4b/` failed `pnpm sync` — a human had to rename both):
+      a. Dots for versions: `gpt-5.6-terra`, never `gpt-5-6-terra`;
+         `gemma-4.12b-unified`, never `gemma-4-12b-unified`.
+      b. Self-check: if the slug has a digit on BOTH sides of a hyphen
+         (`0-9 - 0-9`, e.g. the `4-1` in `gemma-4-12b`) and is NOT one of
+         `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b` (param sizes, not
+         versions — the only exceptions), replace every such join with a
+         dot (`4-12` → `4.12`) before proceeding.
+      c. Check for an existing dotted folder first (both trees in full mode)
+         — a hyphen-versioned folder is a duplicate, not a new model.
+         `pnpm sync` FAILs hyphen variants loudly and the pre-commit hook
+         blocks staging them, so an unnormalized slug wastes the whole pass.
       **Tier-name check:** a name whose suffix is only a pricing or effort tier
       (Contributor, Contributor Free, Free, Standard, Max, …) is not a new
       model — resolve it to the existing base folder via the "Tier aliases"
@@ -180,7 +191,9 @@ For each queued slug, in order:
     in-pass overwrite; approved slugs only, second pass.
 11. **Agent-implies-model backfill:** if a reporting agent — any `SourceKey` in
     `src/data/models.ts`, or any signed `Provided by:` identity you meet — has no
-    `model/<slug>/` folder, scaffold it on the spot: create the folder plus a
+    `model/<slug>/` folder, scaffold it on the spot: normalize the slug per
+    Step 2.1 first (dots for versions — never create a hyphen-versioned
+    folder), then create the folder plus a
     `meta.json` with verified facts only (schema in `model/README.md`; use the
     agent's vendor ID, documented context window, modalities, and pricing — never
     invent specs), then queue it for research like any other folder. This keeps

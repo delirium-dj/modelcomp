@@ -932,6 +932,16 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B8. Deleted the superseded "cur
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` B9. Proved same-rater (identical `Provided by` identity; byte-identical duplicates in some folders, two dated runs in others) — but per user decision both registry keys stay, double-counting documented as known-accepted. Consolidation (sync-side alias, averages shift) declined. No files touched.
 
+## 2026-10-04 - Gemini 2.5 Pro merge ATTEMPTED then HALTED — tree contested (Muse Spark 1.3)
+
+User ordered one Gemini 2.5 Pro folder with a Muse-style identity rule. Collision table built (5 newer-wins for `gemini-2.5/`, 2 ties/undated kept incumbent, 1 twin joined its sibling); winners moved via `git mv -f`, losers + `meta.json`/`average.md` removed via `git rm`, folder removed (verified gone); RULES.md route-identity rule + README alias + changelog v8 written. THEN: `model/gemini-2.5/` reappeared on disk with all 10 files at identical sizes (now untracked `??`), and the moved twin vanished from `gemini-2.5-pro/` (staged `AD`). Another party is writing to the tree concurrently (other agents active, user running sync). ALL FILE WORK STOPPED — staged merge left as-is for the user to arbitrate; no commit, no further moves/deletes. Do not re-run: reconcile with whoever restored the folder first.
+
+2026-10-04 (later) — merge resumed (other agents stopped) and completed, then a casualty surfaced: the untracked 10-05 Mimo winner was destroyed when the other party's restore overwrote it. Recovered byte-exact from the git object store (`git cat-file -p 0ebb51…`, 7674 bytes, hash-verified identical) back into `model/gemini-2.5-pro/Mimo_v2.6_Flash.md`. Lesson: never leave a merge winner only-untracked while the tree is contested — stage immediately.
+
+RESOLUTION FOR THE SYNC FAILS (`tracked in HEAD but missing from disk` x7): expected pre-commit — the tripwire compares worktree against HEAD, and the merge deletions are staged but uncommitted. Fix is the deletion commit itself: `git add -A && ALLOW_MODEL_DELETE=1 git commit -m "..." && node scripts/sync-data.mjs --quiet` must then pass with 0 failures (tripwire clears on the deletion commit per RULES.md). Commit left for the user (no commit without explicit request).
+
+*(Restored 2026-10-05 — block was deleted from REPORT.md by commit f98d7dc8 with no note; history loss, re-added verbatim.)*
+
 ## 2026-10-04 - Purification audit item C1 applied (Muse Spark 1.3)
 
 Source: `tasks/task_Claude_Opus_5_2026-10-04.md` C1. Fixed the false "no test framework" line in `.agents/tech-stack.md` (zero-dep `node --test` suite, 100 tests) and added the missing `test` + `sync`/`sync:quiet` script entries. Docs-only.
@@ -953,3 +963,41 @@ Source: `tasks/task_Claude_Opus_5_2026-10-04.md` D1. Collapsed the three "sort, 
 ## 2026-10-04 - NOTE: C3, C4-C7, A19 log entries lost to concurrent write (restored here)
 
 Dated REPORT.md entries for those items were overwritten by a concurrent editor; substance is intact in the audit file (all carry status lines). Restored record: C3 closed (triple absence: `catalog.generated.ts`, the `root` filter, and host `GLM53F_IMP.md` itself); C4 closed (`.rerun/` absent, deletion on record); C5 closed (zero-dep suite live at 100 tests); C6 closed (registry at 66 entries with accepted B9 duplicate; `AGENT_MODEL_SLUG` since deleted); C7 closed (all three scripts/assets absent, SW removal on record); A19 closed (both host files already absent; backlog half deferred to C11). No code in any of them.
+
+## 2026-10-05 — Retry plugins added without docs (api-connect + model-turn) + bang-drop silent-drop fix
+
+1. Commit `4ed4c453` (2026-10-05) added two runtime OpenCode plugins with zero `.md` coverage until this entry:
+   - `.opencode/plugins/api-connect-retry.ts` (265 lines, general — `MODEL_FILTER = ""`): catches transient network/endpoint breaks (`getaddrinfo`, `enotfound`, `econnrefused/reset/aborted`, `enetworkunreachable`/`ehostunreach`, `etimedout`, `socket hang up`, `fetch failed`, `network request failed`, `network socket disconnected`, `cannot connect` — e.g. `Cannot connect to API: getaddrinfo ENOTFOUND integrate.api.nvidia.com`); waits 10s, sends `please continue`, 30-consecutive brake, dedupes timers per session.
+   - `.opencode/plugins/model-turn-retry.ts` (230 lines, general): catches the structural `requests ending with a model turn are not supported` provider reject; waits 7s, sends `please continue` (turns last message back into a user turn), same 30-consecutive brake.
+   - Pre-existing suite this joins (all under `.opencode/plugins/`): `budget-retry.ts`, `deepseek-continue-retry.ts`, `fledge-endpoint-retry.ts`, `gpt-sol-budget-retry.ts`, `bang-drop-retry.ts` — now 7 total. Canonical project docs (`.antigravity/history/project-map.md`, `README.md`, `.agents/`) list none of them; only generated `.qoder/repowiki` mirrors the older 5.
+2. Commit `dc9f441b` (2026-10-05) extended `.opencode/plugins/bang-drop-retry.ts` (+9 lines, shape 3 "silent drops"): bang/lock storms that land as a NORMAL assistant message + `session.idle` (no `session.error` ever fires) were invisible to shapes 1+2 — Case 1a now re-reads the last assistant message on every `session.idle` and scores it with the same matchers. That commit's REPORT.md entries covered only B8/C1; the plugin behavior change itself had no log line until now.
+   Next: user decides whether `.antigravity/history/project-map.md` should own a one-line `.opencode/plugins/` inventory (added 2026-10-05, see map) or stay code-only; no sync/build impact (plugins load at OpenCode runtime, not Qwik build).
+
+## 2026-10-05 — New model findings committed + untracked wave pending sync
+
+1. Commit `4ed4c453` (2026-10-05) added 7 research files (commit message only, no REPORT entry until now):
+   - `model/gpt-5.1/Gemini_3.8_Flash.md`, `model/gpt-5.6-luna/GPT_6_Astra.md`, `model/qwen-3.8-flash-next/Gemini_3.6_Flash.md`, `model/qwen-3.8-flash-next/Gemini_3.7_Flash.md` (new reports)
+   - `model/gemini-3.1-flash/GPT_6_Astra.md.excluded`, `model/gemini-3.8-flash-cyber/Qwen_3.8_Flash.md.excluded`, `model/qwen-3.8/Qwen_3.8_Flash.md.excluded` (evidence-free self-exclusions, never counted toward averages)
+2. Commit `2d53fa62` (2026-10-05, `Update model evaluation scores and mobile header padding` — commit message only, no `.md` entry until the 2026-10-05 Header section below) committed the Fledge_Alpha / GPT_6_Astra wave (34 files): 8× `Fledge_Alpha.md` (`gemini-2.5-flash/`, `glm-5.3-free/`, `grok-4.1-fast/`, `inkling-small/`, `ling-3.0-flash-vl/`, `mimo-v2.5-pro/` — note: distinct from `mimo-v2.6-flash/` — `qwen-3.5/`, `qwen-3.8-flash-next/`), 7× `GPT_6_Astra.md` + 1 excluded (`gemma-4-31b/`, `glm-5.3/`, `grok-4/`, `grok-4.20/`, `kimi-k2.7-code/`, `qwen-3.8-flash-next/`, `union-alpha/`, + `glm-5.3-free/GPT_6_Astra.md.excluded`), with recomputed `average.md` files, refreshed `model-queue.md`, updated `src/data/scores.generated.ts`, and the Header mobile spacing tweak.
+3. Still untracked (`git status ??` at write time, new in-flight wave — NOT in queue/scores/averages/any prior REPORT entry): `model/deepseek-v4-flash/Fledge_Alpha.md`, `model/glm-5.2/Fledge_Alpha.md`, `model/grok-4-fast/GPT_6_Astra.md`, `model/kimi-k2.7-code-highspeed/GPT_6_Astra.md`. Tree is actively written by other agents — expect this list to shift.
+   Next: `pnpm sync` for the untracked wave (registers new sources if stems are new, recomputes averages, rebuilds queue) — user runs; then `pnpm build` spot-check.
+
+## 2026-10-05 — RULES.md agent git-restore rule (working-tree wipe response)
+
+Commit `a1e864fd` (2026-10-05, `Update RULES.md with agent git-restore restrictions`) added the absolute `Agent git-restore rule`: single-file restores only, only the demonstrably-needed file, and only after explicit user confirmation via popup (name file + why); whole-tree/session restores (`git checkout HEAD -- .`, `git restore .`, `git reset --hard`, `git checkout <commit> -- .`, equivalents) strictly forbidden — this is what wiped the working tree on 2026-10-05. No REPORT.md entry existed until now; no propagation to `.agents/rules.md` / `AGENTS.md` / `tasks/*` (RULES.md wins on conflict by design, so propagation is optional — user decides).
+
+## 2026-10-05 — Header mobile drawer spacing
+
+`src/components/Header.tsx` mobile drawer (`isMenuOpen` overlay, lines ~125–162): `nav` `gap-8` → `gap-10` (32px → 40px between links) and each of the 4 links (Compare / Scoring / Models / Contact) gains `px-6 py-3` for a larger touch target and more vertical breathing room. Desktop nav untouched. Committed in `2d53fa62` (commit message only — this entry is the `.md` record). Docs previously said only "mobile hamburger drawer" (project-map) / "mobile drawer menu" (README) with no spacing detail. Verify visually after `pnpm build` on a <768px viewport.
+
+## 2026-10-05 — Sync FAIL fix: hyphen-versioned Gemma folders renamed to dotted slugs
+
+User's `node scripts/sync-data.mjs --quiet` failed exit 1 on 2 folders: `model/gemma-4-12b-unified/` and `model/gemma-4-26b-a4b/` (sync: `version numbers use "." not "-"`; convention `model/README.md`, gate `hyphenVersionViolation` in `scripts/lib/naming.mjs`). Both were fully untracked scaffold stubs (each: `average.md` + `Fledge_Alpha.md` + `Qwen_3.8_27B.md` + scaffolded `meta.json`), and the dotted destinations did not exist — so a plain rename, no merge, no tracked history touched (RULES.md permanence tripwire only covers git-tracked files). Fixed: `gemma-4-12b-unified/` → `gemma-4.12b-unified/`, `gemma-4-26b-a4b/` → `gemma-4.26b-a4b/`, plus `meta.json` `id` (`opencode/<slug>`) aligned to the dotted slug in both. Verified with the lib gate over every `model/*/` dir: `CLEAN: no hyphen-versioned folders`. User re-runs sync (their run had also rewritten 38 averages + 16 scaffolded stubs — untouched here).
+
+## 2026-10-05 — Hardened slug-convention guardrails (hyphen-versioned folders)
+
+The Gemma incident above cost a human rename pass even though the rule already existed (`model/README.md` + one line in `tasks/research.md` Step 2.1 + sync FAIL). Three layers added so the error is caught before sync instead of by sync:
+1. `tasks/research.md` Step 2.1 — was a one-line "derive per README" pointer; now a mechanical normalize-before-create procedure (dots-for-versions with the Gemma example, digit-hyphen-digit self-check with the exact transform, the 3 param-size exceptions `gemma-4-31b` / `qwen-3.8-27b` / `qwen-3.5-9b`, dotted-folder check first). Rule 11 backfill now points at Step 2.1 instead of implying a bare `mkdir`.
+2. `.githooks/pre-commit` — new hyphen-version block (mirrors the `voicemodels/` block): staged additions under `model/<digit-hyphen-digit>/` (minus the 3 exceptions, same set as `SLUG_VERSION_EXCEPTION`) are blocked with the dotted rename instruction; same `ALLOW_MODEL_DELETE=1` bypass on explicit user sign-off. Agents don't commit (ban), so this protects the user's commit — the error now surfaces at stage time with the fix spelled out, not as a sync FAIL later.
+3. `.agents/rules.md` — repo-layout bullet now states the dot convention inline (was "slugs listed in model/README.md" only), so the GPS map itself carries the rule.
+Deliberately NOT changed: `pnpm sync` keeps FAILing (never auto-renaming — permanence; a wrong guess cemented silently is worse than a loud failure), and `SLUG_VERSION_EXCEPTION` is untouched (no new param-size evidence). Verified: `sh -n` clean on the hook; lib gate over `model/*/` still CLEAN.

@@ -16,6 +16,33 @@ if [ -n "$retired" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Slug version convention (model/README.md): version numbers use "." not "-".
+# Block staged additions under hyphen-versioned model folders — they FAIL
+# `pnpm sync` (hyphenVersionViolation in scripts/lib/naming.mjs), so catching
+# them here saves a failed sync pass. Rename to the dotted slug first (e.g.
+# model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/). Param-size
+# exceptions (NOT versions): gemma-4-31b, qwen-3.8-27b, qwen-3.5-9b.
+hyphen_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '^model/[^/]*/' || true)"
+hyphen_blocked=""
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  slug="$(printf '%s' "$f" | sed -e 's|^model/||' -e 's|/.*$||')"
+  case "$slug" in
+    gemma-4-31b|qwen-3.8-27b|qwen-3.5-9b) continue;;
+  esac
+  case "$slug" in
+    *[0-9]-[0-9]*) hyphen_blocked="${hyphen_blocked}${f}\n";;
+  esac
+done <<EOF
+$hyphen_added
+EOF
+if [ -n "$hyphen_blocked" ]; then
+  echo "BLOCKED by model/README.md slug convention (version numbers use \".\" not \"-\"):" >&2
+  printf '%b' "$hyphen_blocked" >&2
+  echo "Rename to the dotted slug first (e.g. model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/)," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 # Scratch lifecycle grace (user-signed 2026-09-29, mirrors sync tripwire):
 # files added to git < 7 days ago may be agent scratch — warn, allow.

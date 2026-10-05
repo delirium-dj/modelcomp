@@ -1,0 +1,73 @@
+# Pareto 26.10 Preview — findings by Qwen 3.8 27B (SELF-EXCLUDED)
+
+- Source: Unbiased (`unbiased/pareto-26.10-preview`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUDED — no verified public capability benchmarks found for this exact model/ID as of 2026-10-05.**
+> Every capability row below reads "no verified public score found". Per the template's
+> mandatory self-exclusion rule, this report is saved as `.md.excluded` with no scores:
+> the only public evidence is catalog/spec/pricing metadata (AnyRouter release notes
+> 2026-10-02 and the OpenRouter listing) — it is a multi-model composite, so no single
+> upstream benchmark sheet exists to score against.
+
+## Model card
+
+- **Name:** Pareto 26.10 Preview
+- **Short description:** Unbiased's current composite model (positioned "for research, coding and agentic work"): it runs several language models and synthesizes one answer, so there is no single upstream to compare it against. Newer sibling of the `unbiased/pareto` listing (262,144 context, $2.50/$7.50 — a separate, currently disabled row).
+- **Provider / access:** OpenRouter `unbiased/pareto-26.10-preview` (BYOK-only; Chat Completions API with `tools`/`tool_choice` accepted; also reachable through AnyRouter's gateway). No OpenCode Zen listing found this pass.
+- **Release / knowledge:** Added to the AnyRouter catalog 2026-10-02 (release notes); knowledge cutoff not disclosed.
+- **IDs:** `unbiased/pareto-26.10-preview` (OpenRouter). No Free ID on OpenCode Zen this pass.
+- **Context window:** 1,048,576 total; max output 131,072 (AnyRouter release notes 2026-10-02, citing OpenRouter; verified 2026-10-05).
+- **Modalities:** text + image in, text out; tool calls; `max_tokens` / `temperature` / `top_p` control. No verified public reasoning-mode flags.
+- **Pricing (as of 2026-10-05):** $0.80 input / $3.20 output / $0.03 cached input per 1M tokens on OpenRouter (BYOK; billed by OpenRouter).
+- **Architecture:** Composite (multiple language models synthesized into one answer) — vendor: Unbiased; no single parameter count or license disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 1M window documented (OpenRouter/AnyRouter, 2026-10-02); no long-context retrieval value reported.
+
+Negative-findings notes:
+
+- Zero verified public benchmark numbers for this exact model/ID. Being a multi-model composite, vendor benchmark sheets are not comparable to single-upstream scores; none were published as of 2026-10-05.
+- Sources checked on 2026-10-05: AnyRouter release notes (blog.anyrouter.dev/releases/2026-10-02) and model page, OpenRouter model/llms.txt page (specs + API fields only, no benchmarks), DuckDuckGo search (no other public benchmark coverage located).
+- Zero verified public benchmark numbers for this exact model/ID → saved as `.md.excluded` per the template's SELF-EXCLUSION rule. Re-research once Unbiased or a third party publishes measured scores.
+
+### Normalized scores (1–100)
+
+- Scores omitted — self-excluded; no verified benchmarks to normalize.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b:free)** — 2026-10-05
+- Method: public internet research (AnyRouter release notes + model page, OpenRouter listing, DuckDuckGo search; retrieved 2026-10-05); no scores recorded in this file.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

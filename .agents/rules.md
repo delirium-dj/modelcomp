@@ -8,7 +8,9 @@ reports, and the website stay consistent.
 
 ## Repo layout
 
-- `model/<slug>/` — per-model folders (slugs listed in `model/README.md`).
+- `model/<slug>/` — per-model folders (slugs listed in `model/README.md`;
+  version numbers use dots, never hyphens: `gpt-5.5`, `gemma-4.12b-unified` —
+  the pre-commit hook blocks hyphen variants and `pnpm sync` FAILs them).
 - `models_voice/<slug>/` — voice/speech models only (`RULES.md` routing rule:
   realtime voice, TTS/STT-first, voice-assistant I/O). Same file conventions
   as `model/`; sync/site wiring pending — `pnpm sync` scans `model/` only.

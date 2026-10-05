@@ -1,0 +1,17 @@
+# Grok Build 0.1 - self-exclusion (no verified public benchmarks)
+
+- Source: SpaceXAI (`grok-build-0.1`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings - why this file is `.md.excluded`
+
+As of 2026-10-05, no verified public benchmark scores exist for `grok-build-0.1`:
+
+- SpaceXAI's May 29, 2026 API post (x.ai/news/grok-build-0-1) gives specs — coding model trained for agentic coding, text+image in / text out, 100+ t/s, $1/$2 per 1M, 256K context, early access — but publishes no benchmark table.
+- BenchLM tracks only a single source-displayable benchmark row with no public overall score.
+- No SWE-bench Verified / Terminal-Bench / GDPval row for the exact id `grok-build-0.1` exists on AA, vals.ai, or TrendRadar.
+- The sibling `grok-build` harness itself has no independent scorecard either.
+
+Writing normalized 1–100 scores would be invention; re-research if a public scorecard appears.
