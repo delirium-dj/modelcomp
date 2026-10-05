@@ -1,0 +1,49 @@
+# MAI Experimental Test — negative findings by GPT 5.5
+
+- Source: Microsoft AI / experimental route (`mai-experimental-test`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI Experimental Test
+- **Short description:** Experimental/preview model route apparently associated with Microsoft AI playground or OpenRouter-style test catalogs, not a stable documented public model.
+- **Provider / access:** Experimental route references such as `unknown/mai-experimental-test`; Microsoft AI has a limited MAI Playground and public MAI model announcements, but this exact ID is not documented as a stable benchmarked model.
+- **Release / knowledge:** Not verified.
+- **IDs:** `mai-experimental-test`.
+- **Context window:** No verified public context ceiling found.
+- **Modalities:** No verified modality matrix found.
+- **Pricing (as of 2026-10-05):** No verified public token price found.
+- **Architecture:** Undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Reasoning / knowledge:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Coding:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Long context:
+
+- No verified public context or retrieval benchmark found.
+
+### Normalized scores (1–100)
+
+Excluded from scoring: every benchmark row would be evidence-free for the exact `mai-experimental-test` ID, so this file is saved as `.md.excluded` per the assignment rules.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
+- Method: Public internet research; no scored report saved because no verified public benchmark numbers were found for the exact model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings if benchmark evidence becomes public.
+

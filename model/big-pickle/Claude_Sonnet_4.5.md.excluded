@@ -1,0 +1,60 @@
+# Big Pickle — findings by Claude Sonnet 4.5
+- Source: OpenCode Zen (`big-pickle`) — stealth model, underlying publisher undisclosed
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** Big Pickle (free stealth model on OpenCode Zen; "free on OpenCode for a limited time" during feedback period — no separate `-free` suffix ID exists)
+- **Short description:** A proprietary reasoning/coding model served anonymously ("stealth") by the OpenCode team through OpenCode Zen, described in models.dev as a reasoning model for deliberate analysis, multi-step problem solving, and tool use; top use case is terminal/agentic coding — a stealth model optimized for coding agents. Publisher is undisclosed; third-party speculation linking it to another model family is unverified and is not treated as a confirmed alias.
+- **Provider / access:** OpenCode Zen, API ID `opencode/big-pickle`, base URL `https://opencode.ai/zen/v1`, API type openai-completions. It uses the Chat Completions API exclusively (wire API `chat`); no Responses API support documented. Also routable via Mastra's model router and Pi as `opencode/big-pickle`.
+- **Release / knowledge:** Release date 2025-10-17, last updated 2025-10-17, knowledge cutoff 2025-01
+- **IDs:** `opencode/big-pickle` (model ID `big-pickle`, family `big-pickle`). No separate Free-tier ID exists on Zen — the single ID is free during the stealth period.
+- **Context window:** 200,000 tokens, max tokens 32,000 — verified from the models.dev provider TOML and mirrored in the Pi registry and TypingMind provider index. No vendor-published retrieval validation.
+- **Modalities:** text in / text out only — input: text; reasoning: yes; attachment = false, reasoning = true with interleaved field `reasoning_content`, temperature = true, tool_call = true, structured_output = true. No image, audio, video or PDF input.
+- **Pricing (as of 2026-10-05):** $0.00/1M input, $0.00/1M output, $0.00 cache read, $0.00 cache write. Privacy caveat: during its free period, collected data may be used to improve the model.
+- **Architecture:** Proprietary and closed — open_weights = false, availability: Proprietary API. No verified public score found for parameter count, active parameters or MoE structure.
+
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported (no MRCR, RULER or GraphWalks result published for `big-pickle`; the 200K figure is a declared limit, not a measured one)
+
+### Normalized scores (1-100)
+- **Tool use: not scored — no verified benchmarks.** It can call external tools and functions for agentic workflows as a declared capability, but zero agentic benchmark results exist for this ID, so no defensible mapping is possible.
+- **Reasoning: not scored — no verified benchmarks.** It supports advanced reasoning for complex multi-step tasks per provider metadata, but no GPQA, HLE, LCR, CritPt or AA Index entry exists.
+- **Context window: not scored — no verified benchmarks.** The verified 200,000-token total would nominally sit in the 200K-500K tier, but self-exclusion applies and no retrieval evidence exists.
+- **Multimodal: not scored — no verified benchmarks.** Documentation verifies text-only input, consistent with the text-only band, but under self-exclusion no dimension is scored.
+- **Coding: not scored — no verified benchmarks.** Shipped as an OpenCode default coding model, yet no SWE-bench Verified, LiveCodeBench, SciCode or Terminal-Bench number is published. A public OpenCode issue reports that the free model opencode/big-pickle is currently unusable, exhibiting severe generation defects including looping — a qualitative report, not a benchmark.
+- **Cost efficiency: not scored — no verified benchmarks.** Price is verified at $0.00 in/out (the $0 = 100 anchor), but cost efficiency is reported on the evaluated tier and this model has no evaluated tier.
+- **Overall Score: not scored — no verified benchmarks.** The v4 mean cannot be computed. Best-fit recommendation: treat as a zero-cost experimental coding assistant for non-sensitive, non-critical work only, and exclude from scored comparison tables until benchmarks are published.
+
+---
+
+## Signature
+- Provided by: **Claude Sonnet 4.5 (anthropic/claude-sonnet-4-5)** — 2026-10-05
+- Method: public internet research (OpenCode Zen docs, models.dev provider TOML, Pi model registry, Mastra provider listing, TypingMind pricing index, OpenCode issue tracker, OpenCode School docs); Artificial Analysis / BenchmarkList / LiveCodeBench / SWE-bench searches surfaced no entry for this model ID. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+The file is saved as `Big_Pickle.md`.

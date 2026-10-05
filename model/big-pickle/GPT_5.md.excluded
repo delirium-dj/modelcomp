@@ -1,0 +1,52 @@
+EXCLUDED — no verified benchmarks
+
+# Big Pickle — findings by Research Agent (openai/gpt-5)
+- Source: OpenCode Zen (`big-pickle`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** Big Pickle (free stealth model on OpenCode Zen)
+- **Short description:** A free stealth coding/reasoning model served via OpenCode Zen’s OpenAI-compatible endpoint. Its upstream provider is undisclosed; community speculation links it to GLM-5.2 or DeepSeek variants, but no official confirmation exists. Alias: `big-pickle`.
+- **Provider / access:** OpenCode Zen `opencode/big-pickle` (chat/completions endpoint). Does not support the Responses API. Base URL: `https://opencode.ai/zen/v1`.
+- **Release / knowledge:** Not officially disclosed. First public mentions in late 2025; still available free as of October 2026. Knowledge cutoff unknown.
+- **IDs:** `opencode/big-pickle` (no separate “Free” ID; the model itself is free during the stealth period).
+- **Context window:** 200,000 tokens (verified via multiple third-party model catalogs). Max output 32,000 tokens. No verified long-context retrieval benchmarks (MRCR/RULER) reported.
+- **Modalities:** Text input only; text output. Reasoning: yes. Tool calls: supported. JSON mode: supported. Image/audio/video/PDF input not supported by the model (gateway wrappers may add OCR preprocessing, but the model itself is text-only).
+- **Pricing (as of 2026-10-05):** $0 per 1M input/output tokens (free during stealth period). Free-tier privacy caveat: data may be used for model improvement.
+- **Architecture:** Proprietary stealth model; parameters, MoE configuration, and license undisclosed.
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **SWE Atlas Codebase QnA: 50.8% (63/124)** (source: GitHub PhillipChaffee/big-pickle-swe-atlas; mini-swe-agent scaffold, Harbor v0.18.0, official Scale AI harness)
+Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+Coding:
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (third-party claim of ~72% exists but no verifiable source or harness detail)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+Long context:
+- No long-context retrieval reported (no MRCR, RULER, or GraphWalks values at any window length)
+### Normalized scores (1-100)
+- **Tool use: no verified public score found.** No Terminal-Bench 2.1, Tau3-Banking, GDPval-AA, OSWorld, or AutomationBench results available. The SWE Atlas QnA result is a coding/agentic task but does not map cleanly to the tool-use dimension.
+- **Reasoning: no verified public score found.** No GPQA Diamond, HLE, LCR/MLCR, CritPt, or AA Intelligence Index results available.
+- **Context window: 70/100.** Verified total context of 200,000 tokens maps to the 200K tier (score 70). No retrieval accuracy at 512K+ is claimed or verified.
+- **Multimodal: 15/100.** Text-only input and output. No image, video, PDF, or audio processing capability verified.
+- **Coding: 60/100.** SWE Atlas Codebase QnA 50.8% (63/124) under the official Scale AI harness and mini-swe-agent scaffold. This is a mid-range coding result; no other verified coding benchmarks are available to refine the score. Caps due to lack of SWE-bench Verified, LiveCodeBench, SciCode, or DeepSWE numbers.
+- **Cost efficiency: 100/100.** $0 per 1M input and output tokens (free during stealth period).
+- **Overall Score: not computable under the mandatory v4 formula.** Five non-cost dimensions are required for the mean; only three (context window, multimodal, coding) have any verified basis. A mean of the three scored dimensions would be (70 + 15 + 60) / 3 = 48.3, but this violates the stated formula. The model has insufficient public benchmark coverage for a valid overall score. Best-fit recommendation: suitable for free, text-only coding tasks where a 200K context and zero cost outweigh the absence of verified reasoning/tool-use performance data.
+---
+## Signature
+- Provided by: **Research Agent (openai/gpt-5)** — 2026-10-05
+- Method: Public internet research via search and direct source inspection (OpenCode Zen docs, GitHub benchmark repositories, third-party model catalogs). Scores are normalized 1-100 interpretations, not official vendor scores. All raw numbers are sourced; missing values are marked exactly as specified.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

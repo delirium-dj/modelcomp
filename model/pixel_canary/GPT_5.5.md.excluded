@@ -1,0 +1,49 @@
+# Pixel Canary — negative findings by GPT 5.5
+
+- Source: Unknown / experimental route (`pixel_canary`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Pixel Canary
+- **Short description:** The exact `pixel_canary` queue entry appears to be an experimental or anonymous route rather than a documented model with a stable public card.
+- **Provider / access:** No verified public provider page found for the exact ID.
+- **Release / knowledge:** Not verified.
+- **IDs:** `pixel_canary`.
+- **Context window:** No verified public context ceiling found.
+- **Modalities:** No verified public modality matrix found.
+- **Pricing (as of 2026-10-05):** No verified public token price found.
+- **Architecture:** Undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Reasoning / knowledge:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Coding:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Long context:
+
+- No verified public context or retrieval benchmark found.
+
+### Normalized scores (1–100)
+
+Excluded from scoring: every benchmark row would be evidence-free for the exact `pixel_canary` ID, so this file is saved as `.md.excluded` per the assignment rules.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
+- Method: Public internet research; no scored report saved because no verified public benchmark numbers were found for the exact model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings if benchmark evidence becomes public.
+

@@ -1,0 +1,50 @@
+# Big Pickle — findings by GPT 5.6 Sol
+- Source: OpenCode Zen/Big Pickle (`big-pickle`) 
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** Big Pickle (limited-time Free on OpenCode Zen; no separate Free-suffixed ID)
+- **Short description:** A closed, undisclosed stealth reasoning-model alias served by OpenCode Zen for coding-agent, multi-step problem-solving, and tool-use workloads. The underlying developer and model are not publicly identified. 
+- **Provider / access:** OpenCode Zen `opencode/big-pickle` through `https://opencode.ai/zen/v1/chat/completions`; OpenAI-compatible Chat Completions API. 
+- **Release / knowledge:** 2025-10-17 release metadata; models.dev lists knowledge as 2025-01, but no vendor-authored cutoff was found. 
+- **IDs:** `opencode/big-pickle`; no separate `opencode/big-pickle-free` ID exists in the published Zen model table—the unsuffixed ID is the limited-time Free offering. 
+- **Context window:** 200,000 tokens total; 160,000 maximum input and 32,000 maximum output, verified from models.dev catalog metadata rather than a retrieval benchmark. 
+- **Modalities:** Text input and text output; no image, audio, video, or PDF input; reasoning yes; tool calls yes; structured output yes; JSON mode not separately documented. 
+- **Pricing (as of 2026-10-05):** US$0 input, US$0 output, and US$0 cached read per 1M tokens; cached write is not listed. Free for a limited time; collected data may be used to improve the model during the free period. 
+- **Architecture:** Undisclosed closed-weight architecture; models.dev marks `open_weights = false`. Parameter count, active parameters, MoE design, underlying model identity, and license are not publicly disclosed. 
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+Long context:
+- MRCR / RULER / GraphWalks: no verified public score found
+### Normalized scores (1-100)
+- **Tool use: not scored.** No verified benchmark number was found for the exact `opencode/big-pickle` ID.
+- **Reasoning: not scored.** No verified benchmark number was found for the exact model ID.
+- **Context window: not scored.** Catalog limits exist, but the self-exclusion rule applies because no verified benchmark measurement exists.
+- **Multimodal: not scored.** Capability metadata exists, but the self-exclusion rule prohibits scored dimensions.
+- **Coding: not scored.** No approved-source benchmark number was verified for the exact alias.
+- **Cost efficiency: not scored.** Pricing is verified as Free, but normalized scoring is withheld under the self-exclusion rule.
+- **Overall Score: not scored.** The mandatory v4 mean was not computed because all scored dimensions are excluded.
+---
+## Signature
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-05
+- Method: fresh public internet research restricted to the requested source set; scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

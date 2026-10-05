@@ -1,0 +1,57 @@
+# Big Pickle — findings by Claude Sonnet 5 (anthropic/claude-sonnet-5)
+- Source: OpenCode / OpenCode Zen (`opencode/big-pickle`)
+- Date: 2026-10-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** Big Pickle (Free — "stealth" model, OpenCode Zen free tier)
+- **Short description:** An undisclosed/anonymous ("stealth") large language model hosted free of charge on OpenCode Zen, OpenCode's model gateway for its terminal coding agent. OpenCode has stated it is free for a limited time while "the team collects feedback and improves the model"; the underlying vendor/base model has not been officially confirmed. Some community members speculate it behaves similarly to Zhipu's GLM-4.6 (matching 200K context and response style), but this is unverified user speculation, not a vendor-confirmed fact, and is flagged here as such.
+- **Provider / access:** OpenCode Zen, API ID `opencode/big-pickle`. OpenAI-compatible Chat Completions endpoint (`https://opencode.ai/zen/v1/chat/completions`), not the Anthropic Messages format (confirmed by multiple OpenCode GitHub issues where routing it through `/v1/messages` fails).
+- **Release / knowledge:** Listed release date 2025-10-17 per a third-party pricing aggregator (TypingMind) — not an official OpenCode/vendor announcement, so treat as low-confidence. No knowledge-cutoff date is publicly disclosed.
+- **IDs:** `opencode/big-pickle` (no separate "free-tier" ID exists — the model is free-only; there is no paid SKU under this name).
+- **Context window:** 200,000 tokens total; max output 32,000 tokens. Verified via OpenCode Zen's own model config (mirrored by Pi's and Mastra's model directories, both of which pull from OpenCode Zen's published model metadata). No independent long-context retrieval test (e.g., MRCR/RULER) was found.
+- **Modalities:** Text input only; text output. Reasoning: yes (model config flags `"reasoning": true`). Tool calling: yes. Structured/JSON output: yes. No image, audio, video, or PDF input.
+- **Pricing (as of 2026-10-05):** $0 input / $0 output / $0 cache read / $0 cache write — fully free. OpenCode has described this as a time-limited free arrangement, not a permanent pricing tier; no stated privacy caveat was found in official docs.
+- **Architecture:** Undisclosed. No parameter count, MoE structure, license, or base-model confirmation from any official source. Proprietary/stealth by design.
+
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported
+
+### Normalized scores (1-100)
+- **Tool use: not scored.** No verified benchmark data; model is excluded from scoring per rule 3.
+- **Reasoning: not scored.** No verified benchmark data; model is excluded from scoring per rule 3.
+- **Context window: not scored.** Context size (200K) is verified, but per rule 3 scored dims are withheld when zero benchmark numbers exist for the model overall.
+- **Multimodal: not scored.** Text-only input/output is verified, but withheld for the same reason.
+- **Coding: not scored.** No verified benchmark data; model is excluded from scoring per rule 3.
+- **Cost efficiency: not scored.** Pricing ($0/$0) is verified and would map to 100/100 under the methodology, but is withheld here for consistency since this file reports negative findings throughout.
+- **Overall Score: N/A.** Cannot compute — zero of the five required dimensions have verified benchmark numbers.
+
+---
+## Signature
+- Provided by: **Claude Sonnet 5 (anthropic/claude-sonnet-5)** — 2026-10-05
+- Method: Fresh public web research (web search across OpenCode/OpenCode Zen docs, Pi's and Mastra's model directories, TypingMind's model pricing page, and multiple OpenCode GitHub issues/discussions) conducted independently of any prior chat memory. No scores were found on Artificial Analysis, BenchmarkList, BenchLM, LiveCodeBench, the official SWE-bench leaderboard, a vendor blog, OpenCode Zen's own docs, models.dev, or HuggingFace for the exact ID `big-pickle`; one unverified third-party aggregator claim ("72% SWE-bench") was found but excluded as it is not from an approved source and is uncorroborated. Scores above are normalized 1-100 interpretations, not official vendor scores, where present.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
