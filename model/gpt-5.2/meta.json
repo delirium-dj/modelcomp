@@ -1,8 +1,10 @@
 {
   "id": "opencode/gpt-5.2",
   "name": "GPT 5.2",
-  "short": "GPT 5.2 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's December-2025 Thinking-tier flagship family (Instant/Thinking/Pro) for professional knowledge work and multi-language code fixing.",
+  "contextWindow": "400,000 (400K); 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.75/$14.00 per 1M; $0.175 cached",
+  "pricingTiers": ["$1.75/$14.00 per 1M Thinking", "$21.00/$168.00 per 1M Pro"],
+  "noFreeId": true
 }

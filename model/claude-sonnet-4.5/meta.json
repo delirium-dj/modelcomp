@@ -1,8 +1,9 @@
 {
   "id": "opencode/claude-sonnet-4.5",
   "name": "Claude Sonnet 4.5",
-  "short": "Claude Sonnet 4.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Anthropic's Sept 2025 Sonnet flagship, best-in-class long-horizon coding agent and computer-use model of its generation; superseded by Sonnet 4.6.",
+  "contextWindow": "200,000 standard (64K out); 1M beta (Tier 4+)",
+  "modalities": "Text, image, file in; text out",
+  "pricingNote": "Paid $3.00/$15.00 per 1M; $0.30 cached",
+  "noFreeId": true
 }

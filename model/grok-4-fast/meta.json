@@ -1,8 +1,9 @@
 {
   "id": "opencode/grok-4-fast",
   "name": "Grok 4 Fast",
-  "short": "Grok 4 Fast model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's cost-efficient reasoning model (Sep 2025) blending reasoning and non-reasoning modes in one weights set with a 2M window at ~1/15 of Grok 4 cost; best for high-volume grounded search and long-document work. Deprecated May 2026 in favour of Grok 4.1 Fast.",
+  "contextWindow": "2,000,000 (2M); 30,000 max out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.20/$0.50 per 1M in/out; $0.05 cached input",
+  "noFreeId": true
 }

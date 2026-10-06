@@ -1,8 +1,10 @@
 {
   "id": "opencode/mimo-v2-6-free",
   "name": "MiMo V2.6 Free",
-  "short": "MiMo V2.6 Free model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Xiaomi's open-weights omnimodal Flash MoE (309B/15B, MIT) served as the $0 Zen free tier; top pick for high-volume agentic coding at near-zero cost.",
+  "contextWindow": "1,048,576 (1M; 128K out)",
+  "modalities": "Text, image, video, audio in; text out",
+  "pricingNote": "Free Zen tier $0; paid fallback $0.14/$0.28 per 1M",
+  "pricingTiers": ["Free Zen tier $0 in/out", "Paid fallback $0.14/$0.28 per 1M"],
+  "freeTierNote": "Free tier on OpenCode Zen ($0 in/out); paid fallback $0.14/$0.28 per 1M"
 }

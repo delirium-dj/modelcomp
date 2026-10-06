@@ -1,8 +1,8 @@
 {
   "id": "opencode/claude-haiku-4.5",
   "name": "Claude Haiku 4.5",
-  "short": "Claude Haiku 4.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Anthropic's fastest, cheapest frontier-class model (released 2025-10-15) with extended thinking and computer use; matches Sonnet 4 on coding at a third of the cost — best for sub-agents and high-volume workloads.",
+  "contextWindow": "200,000 (64K max out)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.00/$5.00 per 1M"
 }

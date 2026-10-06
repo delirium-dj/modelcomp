@@ -1,8 +1,10 @@
 {
   "id": "opencode/deepseek-v4-flash",
-  "name": "Deepseek V4 Flash",
-  "short": "Deepseek V4 Flash model evaluation entry.",
-  "contextWindow": "128K total",
+  "name": "DeepSeek V4 Flash",
+  "short": "DeepSeek's open-weights MoE reasoning model (284B total / 13B active, MIT) with 1M context; top agentic price-to-capability for coding agents — text-only on this ID.",
+  "contextWindow": "1,000,000 total (384K max out)",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "Paid ~$0.14/$0.28 per 1M; $0 free tier (200K cap)",
+  "pricingTiers": ["Paid ~$0.14/$0.28 per 1M in/out (Zen)", "Free $0: opencode/deepseek-v4-flash-free (200K ctx cap)"],
+  "freeTierNote": "Free tier on Zen (opencode/deepseek-v4-flash-free, $0/$0, 200K ctx cap) with rate-limit caveats"
 }

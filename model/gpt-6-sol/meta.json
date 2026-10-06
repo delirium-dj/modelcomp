@@ -1,8 +1,10 @@
 {
   "id": "opencode/gpt-6-sol",
   "name": "GPT 6 Sol",
-  "short": "GPT 6 Sol model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's mainstream GPT-6 Sol tier below Astra, holding agentic-coder performance at ~50% below GPT-5.6 Sol prices.",
+  "contextWindow": "1,050,000 total (128K output)",
+  "modalities": "Text, image, file in; text out",
+  "pricingNote": "$2/$10 per 1M; cached $0.20",
+  "pricingTiers": ["Standard $2.00/$10.00 per 1M in/out", "Cached input $0.20 per 1M"],
+  "noFreeId": true
 }

@@ -1,8 +1,10 @@
 {
   "id": "opencode/grok-4.20",
   "name": "Grok 4.20",
-  "short": "Grok 4.20 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's Mar 2026 multi-agent generation (four-agent council) with 1M–2M context; strong tool use and science at value pricing, weak long-context QA.",
+  "contextWindow": "1,000,000–2,000,000 (variant-dependent; multi-agent 1M)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $1.25/$2.50 per 1M (<200K); $2.50/$5.00 above",
+  "pricingTiers": ["$1.25/$2.50 per 1M under 200K prompt", "$2.50/$5.00 per 1M at >=200K prompt"],
+  "noFreeId": true
 }

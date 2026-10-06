@@ -1,8 +1,9 @@
 {
   "id": "opencode/grok-4.1",
   "name": "Grok 4.1",
-  "short": "Grok 4.1 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's chat flagship (Nov 2025) in Thinking and Non-Thinking configs, tuned for style, personality and factuality; LMArena Text #1 at launch. Distinct from the separate Grok 4.1 Fast API model.",
+  "contextWindow": "128K (Zen listing; trackers claim up to 2M)",
+  "modalities": "Text in/out; image in via consumer app",
+  "pricingNote": "Paid; third-party rates conflict",
+  "noFreeId": true
 }

@@ -1,8 +1,10 @@
 {
   "id": "opencode/gemma-4.12b-unified",
-  "name": "Gemma 4 12b Unified",
-  "short": "Gemma 4 12b Unified model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "name": "Gemma 4 12B Unified",
+  "short": "Google's mid-size open-weight dense model (11.95B, Apache 2.0), the encoder-free Gemma 4 variant with native text+image+audio input at 256K context — best for local multimodal agents.",
+  "contextWindow": "256,000 (262,144; hosts serve 32K–256K)",
+  "modalities": "Text, image, audio in; text out",
+  "pricingNote": "~$0.10/$0.30 per 1M; self-host $0",
+  "pricingTiers": ["Paid ~$0.10/$0.30 per 1M in/out (median; cheapest $0.05/$0.25)", "Self-host $0 (Apache 2.0)"],
+  "noFreeId": true
 }

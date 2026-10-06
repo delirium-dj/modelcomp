@@ -1,8 +1,9 @@
 {
   "id": "opencode/glm-5.2-coding",
-  "name": "Glm 5.2 Coding",
-  "short": "Glm 5.2 Coding model evaluation entry.",
-  "contextWindow": "128K total",
+  "name": "GLM 5.2 Coding",
+  "short": "Zhipu's June 2026 open-weights MoE flagship (744B/40B-active, MIT) as a coding-plane SKU; long-horizon agentic coding and Claude Code-compatible drop-in at ~1/6 closed-frontier cost.",
+  "contextWindow": "128K Zen coding tier; 1M on base GLM-5.2",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",
+  "noFreeId": true
 }

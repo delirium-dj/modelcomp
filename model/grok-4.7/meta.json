@@ -1,8 +1,10 @@
 {
   "id": "opencode/grok-4.7",
   "name": "Grok 4.7",
-  "short": "Grok 4.7 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's September-2026 flagship (~210B params, SpaceX data in training) for long-running coding and professional knowledge work at Grok 4.6 pricing.",
+  "contextWindow": "500,000 (500K)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$2.00/$6.00 per 1M; doubles past 200K",
+  "pricingTiers": ["$2.00/$6.00 per 1M standard", "$4.00/$12.00 per 1M fast variant"],
+  "noFreeId": true
 }

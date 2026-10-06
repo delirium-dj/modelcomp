@@ -1,8 +1,10 @@
 {
   "id": "opencode/mercury-2.5",
   "name": "Mercury 2.5",
-  "short": "Mercury 2.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Inception Labs' diffusion LLM (Sep 2026, largest dLLM per vendor) refining tokens in parallel at 770–1,100 tok/s; built for latency-sensitive coding subagents, compaction and routing, not frontier reasoning.",
+  "contextWindow": "260K total (65K max output)",
+  "modalities": "Text in/out only",
+  "pricingNote": "Paid $0.20/$0.75 per 1M ($0.02 cached); launch 80% off $0.04/$0.15",
+  "pricingTiers": ["List $0.20/$0.75 per 1M ($0.02 cached)", "Launch discount $0.04/$0.15 per 1M ($0.004 cached)"],
+  "noFreeId": true
 }

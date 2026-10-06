@@ -1,8 +1,9 @@
 {
   "id": "opencode/pixel_canary",
   "name": "Pixel Canary",
-  "short": "Pixel Canary model evaluation entry.",
-  "contextWindow": "128K total",
+  "short": "Anonymous stealth coding specialist sold through Vercel AI Gateway for Next.js/web builds (90.3% baseline, 96.8% with docs on Vercel's 31-task suite); free during stealth, vendor undisclosed.",
+  "contextWindow": "262,144 total (131,072 max out; gateway-declared)",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "$0 — free while in stealth",
+  "freeTierNote": "Free for a limited time while in stealth (Vercel AI Gateway); no ZDR, prompts may be used for training"
 }

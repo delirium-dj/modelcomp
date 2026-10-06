@@ -1,9 +1,8 @@
 {
   "id": "opencode/glm-5.3-flashx",
-  "name": "Glm 5.3 Flashx",
-  "short": "Glm 5.3 Flashx model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "GLM 5.3 FlashX",
+  "short": "Z.ai's high-speed serving variant of GLM-5.3-Flash with identical weights at ~200 tok/s for low-latency multimodal agentic coding.",
+  "contextWindow": "1,048,576 (1M); 128K output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.37/$1.25 per 1M"
 }

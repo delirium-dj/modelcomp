@@ -1,8 +1,9 @@
 {
   "id": "opencode/ember-1",
   "name": "Ember 1",
-  "short": "Ember 1 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Fireworks Research's first specialized model (Research Preview 2026-09-23), a token-thrifty Kimi K3 derivative for agentic coding loops at K3-max quality with ~40% fewer tokens.",
+  "contextWindow": "1,048,576 (1M); 131K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$3.00/$15.00 per 1M; $0.30 cached",
+  "noFreeId": true
 }

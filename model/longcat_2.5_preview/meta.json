@@ -1,8 +1,9 @@
 {
   "id": "opencode/longcat_2.5_preview",
   "name": "LongCat 2.5 Preview",
-  "short": "LongCat 2.5 Preview model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Meituan's open-weight MoE preview for autonomous agents and coding with 1M context; cheap high-volume agentic runs via API gateways.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text in/out (image input listed on some routers, unverified)",
+  "pricingNote": "~$0.30/$1.20 per 1M in/out (reseller input ~$0.20)",
+  "noFreeId": true
 }

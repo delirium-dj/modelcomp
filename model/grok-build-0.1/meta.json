@@ -1,8 +1,10 @@
 {
   "id": "opencode/grok-build-0.1",
   "name": "Grok Build 0.1",
-  "short": "Grok Build 0.1 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's fast coding model (public beta 2026-05-29) for agentic software engineering at 100+ tok/s; economical high-throughput fallback for coding loops and MCP tooling.",
+  "contextWindow": "256,000 (230,400 max out)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.00/$2.00 per 1M (cached $0.20; 2× past 200K)",
+  "pricingTiers": ["Standard $1.00/$0.20 cached/$2.00 per 1M (under 200K prompt)", "Long-context $2.00/$0.40/$4.00 (at/above 200K)"],
+  "noFreeId": true
 }

@@ -1,8 +1,10 @@
 {
   "id": "opencode/gpt-5-nano",
   "name": "GPT 5 Nano",
-  "short": "GPT 5 Nano model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's fastest, cheapest GPT-5 tier (Aug 2025) for high-volume summarization, classification and device automation; legacy — OpenAI steers new speed-tier work to GPT-5.6 Luna.",
+  "contextWindow": "400K total (128K max output)",
+  "modalities": "Text, image in; text out; reasoning; tool calls",
+  "pricingNote": "Paid $0.05/$0.40 per 1M ($0.005 cached)",
+  "pricingTiers": ["OpenAI $0.05/$0.40 per 1M ($0.005 cached)", "Azure $0.055/$0.44 per 1M"],
+  "noFreeId": true
 }

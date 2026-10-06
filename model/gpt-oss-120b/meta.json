@@ -1,8 +1,10 @@
 {
   "id": "opencode/gpt-oss-120b",
   "name": "GPT OSS 120B",
-  "short": "GPT OSS 120B model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's open-weights flagship reasoning MoE (117B total / 5.1B active, Apache 2.0, Aug 2025) running on a single 80GB GPU; best as a near-free self-hosted reasoning and coding workhorse.",
+  "contextWindow": "128K total (131,072)",
+  "modalities": "Text in/out only; reasoning; tool calls",
+  "pricingNote": "Apache 2.0 open weights (self-host $0); hosted ~$0.04–$0.15/$0.17–$0.60 per 1M",
+  "pricingTiers": ["Apache 2.0 open weights (self-host $0, single 80GB GPU)", "Hosted ~$0.04/$0.18 per 1M (DeepInfra/Geodd)", "Hosted ~$0.09–$0.15/$0.45–$0.60 per 1M (OpenAI/Fireworks/Bedrock)"],
+  "noFreeId": true
 }

@@ -1,8 +1,9 @@
 {
   "id": "opencode/kimi-k2.7-code",
   "name": "Kimi K2.7 Code",
-  "short": "Kimi K2.7 Code model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Moonshot AI's dedicated long-horizon coding model (June 2026), the coding-specialised cut of the Kimi K2 line; a general coding-agent workhorse that replaces K2.6 inside Kimi Code.",
+  "contextWindow": "262,144 (256K)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.95/$4.00 per 1M in/out; $0.19 cached input",
+  "noFreeId": true
 }

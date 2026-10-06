@@ -1,8 +1,10 @@
 {
   "id": "opencode/kimi-k2.6",
   "name": "Kimi K2.6",
-  "short": "Kimi K2.6 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Moonshot AI's open-weights trillion-parameter MoE flagship of spring 2026 for long-horizon coding and agent-swarm orchestration.",
+  "contextWindow": "262,144 (256K); ~236K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.95/$4.00 per 1M; $0.16 cached",
+  "pricingTiers": ["$0.95/$4.00 per 1M Moonshot list", "$0.80/$3.40 via OpenRouter"],
+  "noFreeId": true
 }

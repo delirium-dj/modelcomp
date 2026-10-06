@@ -1,8 +1,8 @@
 {
   "id": "opencode/claude-sonnet-3.7",
   "name": "Claude Sonnet 3.7",
-  "short": "Claude Sonnet 3.7 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Anthropic's first hybrid-reasoning model (Feb 2025) with fast mode plus visible extended thinking on a configurable budget; launch-time SWE-bench Verified leader. Deprecated, superseded by Sonnet 4.6.",
+  "contextWindow": "200,000 total; 64,000 max out (extended thinking)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input"
 }

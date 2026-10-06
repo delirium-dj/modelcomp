@@ -1,8 +1,10 @@
 {
   "id": "opencode/omen-alpha",
   "name": "Omen Alpha",
-  "short": "Omen Alpha model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Anonymous stealth coding model (spotted Sep 2026, vendor unconfirmed, likely GLM-family) — cheap, competent coding/agent tier at $0.20/$0.66 with zero retention.",
+  "contextWindow": "~500K community-reported (128K max output)",
+  "modalities": "Text, image in; text out; reasoning; tool calls",
+  "pricingNote": "Paid $0.20/$0.66 per 1M ($0.04 cached; TokenRa promo $0.08/$0.26)",
+  "pricingTiers": ["OpenCode Go $0.20/$0.66 per 1M ($0.04 cached)", "TokenRa promo $0.08/$0.26 per 1M"],
+  "noFreeId": true
 }

@@ -1,8 +1,9 @@
 {
   "id": "opencode/gpt-5.4-nano",
   "name": "GPT 5.4 Nano",
-  "short": "GPT 5.4 Nano model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's smallest, cheapest GPT-5.4 member (released 2026-03-17, API-only) for classification, extraction, ranking and coding subagents; strong GPQA and SWE-Bench Pro for the price.",
+  "contextWindow": "400,000 (128,000 max out)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.20/$1.25 per 1M (cached $0.02)",
+  "noFreeId": true
 }

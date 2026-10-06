@@ -1,8 +1,10 @@
 {
   "id": "opencode/qwen-3.7-plus",
   "name": "Qwen 3.7 Plus",
-  "short": "Qwen 3.7 Plus model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Alibaba's mid-tier Qwen3.7 closed model between Flash and Max, kept for cost-balanced agentic coding and tool-use productivity workflows.",
+  "contextWindow": "1,000,000 (1M); 131K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.32-$0.40/$1.28-$1.60 per 1M (<=256K)",
+  "pricingTiers": ["$0.40/$1.60 per 1M (<=256K input)", "$1.20/$4.80 per 1M (256K-1M input)", "$0.32/$1.28 via OpenRouter/OpenCode Go"],
+  "noFreeId": true
 }

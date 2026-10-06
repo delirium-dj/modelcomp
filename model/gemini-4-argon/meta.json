@@ -1,8 +1,10 @@
 {
   "id": "opencode/gemini-4-argon",
   "name": "Gemini 4 Argon",
-  "short": "Gemini 4 Argon model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Google's Gemini 4 flagship for long-horizon software engineering, enterprise knowledge work, and defensive cybersecurity.",
+  "contextWindow": "1M total (262K output; 1M via continuation)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Intro $2/$10 per 1M; then $4/$20",
+  "pricingTiers": ["Intro $2.00/$10.00 per 1M in/out", "Standard $4.00/$20.00 per 1M in/out", "Cached input $0.10 per 1M"],
+  "noFreeId": true
 }

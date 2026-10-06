@@ -1,8 +1,9 @@
 {
   "id": "opencode/qwen-3.8",
   "name": "Qwen 3.8",
-  "short": "Qwen 3.8 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Alibaba's Apache-2.0 open-weight Qwen3.8 27B dense model for self-hosted agentic work with near-flagship results on a single 24 GB GPU.",
+  "contextWindow": "262K native (1M via YaRN; 33K output)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$0.42/$3.00 per 1M; $0 self-host",
+  "pricingTiers": ["API ~$0.42/$3.00 per 1M in/out", "Self-hosted $0 (Apache 2.0 open weights)"]
 }

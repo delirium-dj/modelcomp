@@ -47,10 +47,10 @@
 84.4 grok-4.7
 84.4 kimi-k2.6
 84.3 qwen-3.8-27b
+84.1 qwen-3.6-plus
 84 seed-2.0-pro
 83.9 gpt-5.2
 83.7 muse-spark-1.1
-83.7 qwen-3.6-plus
 83.5 qwen-3.8-flash-next
 83.4 gemini-2.5-pro
 83.3 qwen-3.5-plus
@@ -81,7 +81,7 @@
 78.4 gemini-3.1-flash
 78.4 grok-4.1-fast
 78.1 gemma-4-31b
-78 glm-5.3
+78.1 glm-5.3
 77.3 glm-5.3-free
 76.9 gemini-2.5-flash
 76.9 union-alpha

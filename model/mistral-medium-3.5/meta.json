@@ -1,8 +1,9 @@
 {
   "id": "opencode/mistral-medium-3.5",
   "name": "Mistral Medium 3.5",
-  "short": "Mistral Medium 3.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "Mistral's flagship merged model (Apr 2026), a dense 128B open-weight model unifying instruction-following, reasoning and coding; top open-weight SWE-bench Verified at release, best self-hosted on four GPUs.",
+  "contextWindow": "256,000 (256K)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.50/$7.50 per 1M in/out",
+  "noFreeId": true
 }

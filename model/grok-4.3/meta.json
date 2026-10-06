@@ -1,8 +1,10 @@
 {
   "id": "opencode/grok-4.3",
   "name": "Grok 4.3",
-  "short": "Grok 4.3 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "xAI's Apr 2026 enterprise reasoning flagship with 1M context and aggressive sub-200K pricing; elite support-agent tool use and science reasoning.",
+  "contextWindow": "1,000,000 total",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $1.25/$2.50 per 1M (<200K); $2.50/$5.00 above",
+  "pricingTiers": ["$1.25/$2.50 per 1M under 200K prompt", "$2.50/$5.00 per 1M at >=200K prompt"],
+  "noFreeId": true
 }

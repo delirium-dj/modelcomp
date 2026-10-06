@@ -1,8 +1,10 @@
 {
   "id": "opencode/qwen-3.5-9b",
-  "name": "Qwen 3.5 9b",
-  "short": "Qwen 3.5 9b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "name": "Qwen 3.5 9B",
+  "short": "Alibaba's open-weights dense 9B vision-language reasoner (Apache 2.0) with strong math and OCR for its size; thinking on by default — best for cheap local math, OCR and short tool-calling tasks.",
+  "contextWindow": "262,144 native (hosts serve 128K–262K)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "~$0.10/$0.15 per 1M; self-host $0",
+  "pricingTiers": ["Hosted ~$0.10/$0.15 per 1M in/out", "Self-host $0 (Apache 2.0)"],
+  "noFreeId": true
 }

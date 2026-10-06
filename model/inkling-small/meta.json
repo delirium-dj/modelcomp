@@ -3,6 +3,6 @@
   "name": "Inkling Small",
   "short": "Thinking Machines Lab's smaller open-weight hybrid-reasoning model (sibling of Inkling) with 1M context; strong math and knowledge, weak agentics — cheap open-weights reasoning and coding.",
   "contextWindow": "1,000,000 total",
-  "modalities": "Text in/out; image input (MMMU-Pro 74%)",
+  "modalities": "Text in/out; image and audio input",
   "pricingNote": "Open weights (free self-host)"
 }

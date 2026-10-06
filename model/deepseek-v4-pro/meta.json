@@ -1,8 +1,10 @@
 {
   "id": "opencode/deepseek-v4-pro",
-  "name": "Deepseek V4 Pro",
-  "short": "Deepseek V4 Pro model evaluation entry.",
-  "contextWindow": "128K total",
+  "name": "DeepSeek V4 Pro",
+  "short": "DeepSeek's 1.6T/49B MIT open-weights flagship MoE for reasoning and software engineering; frontier-adjacent coding at a fraction of flagship price.",
+  "contextWindow": "1,000,000 total (up to 384K out)",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "Paid ~$0.66–$1.74/$1.98–$3.96 per 1M; MIT self-host free",
+  "pricingTiers": ["Official ~$1.32/$3.96 peak, $0.66/$1.98 off-peak per 1M", "Third-party from ~$0.435/$0.87 per 1M", "MIT open weights: free self-host"],
+  "noFreeId": true
 }
