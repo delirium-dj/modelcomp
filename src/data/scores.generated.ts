@@ -934,9 +934,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "average.md": { tool: 61.8, reasoning: 61.6, context: 90.1, multimodal: 85.8, coding: 57, cost: 93.4, overall: 71.3 },
   },
   "gemini-2.5": {
+    "DeepSeek_4.1_Flash.md": { tool: 70, reasoning: 76, context: 95, multimodal: 88, coding: 72, cost: 62, overall: 80 },
     "Gemini_3.5_Flash_Lite.md": { tool: 76, reasoning: 76, context: 92, multimodal: 92, coding: 49, cost: 72, overall: 77 },
     "Gemini_3.6_Flash.md": { tool: 75, reasoning: 78, context: 88, multimodal: 82, coding: 72, cost: 65, overall: 79 },
-    "average.md": { tool: 75, reasoning: 78, context: 88, multimodal: 82, coding: 72, cost: 65, overall: 79 },
+    "average.md": { tool: 72.5, reasoning: 77, context: 91.5, multimodal: 85, coding: 72, cost: 63.5, overall: 79.5 },
   },
   "gemini-2.5-flash": {
     "Big_Pickle.md": { tool: 62, reasoning: 77, context: 84, multimodal: 80, coding: 67, cost: 85, overall: 74 },
@@ -1751,9 +1752,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "glm-5.3-flashx": {
     "Claude_Opus_5.md": { tool: 87, reasoning: 82, context: 95, multimodal: 86, coding: 88, cost: 74, overall: 87.6 },
+    "DeepSeek_4.1_Flash.md": { tool: 88, reasoning: 84, context: 95, multimodal: 83, coding: 87, cost: 94, overall: 87 },
     "GLM_5.3_Flash.md": { tool: 86, reasoning: 85, context: 95, multimodal: 85, coding: 85, cost: 93, overall: 87 },
     "Gemini_3.5_Flash_Lite.md": { tool: 85, reasoning: 84, context: 95, multimodal: 88, coding: 84, cost: 86, overall: 87 },
-    "average.md": { tool: 86.5, reasoning: 83.5, context: 95, multimodal: 85.5, coding: 86.5, cost: 83.5, overall: 87.3 },
+    "average.md": { tool: 87, reasoning: 83.7, context: 95, multimodal: 84.7, coding: 86.7, cost: 87, overall: 87.2 },
   },
   "glm-5.3-free": {
     "Big_Pickle.md": { tool: 76, reasoning: 81, context: 82, multimodal: 68, coding: 73, cost: 100, overall: 76 },

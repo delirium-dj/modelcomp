@@ -25,7 +25,7 @@
 87.9 gemini-3.5-flash
 87.7 gemini-3.6-flash
 87.4 gpt-5.4-pro
-87.3 glm-5.3-flashx
+87.2 glm-5.3-flashx
 87.1 gpt-5.5
 86.9 gemini-3-flash
 86.8 claude-sonnet-5
@@ -73,7 +73,7 @@
 80.1 gemini-3.5-flash-lite
 79.9 claude-sonnet-4.5
 79.8 mimo-v2.5-free
-79 gemini-2.5
+79.5 gemini-2.5
 79 grok-4
 78.9 grok-4.20
 78.9 kimi-k2.7-code
