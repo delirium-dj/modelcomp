@@ -6,7 +6,7 @@
 92 gemini-3.8-flash
 91.8 gemini-3.1-pro
 91.2 claude-opus-5
-91 gpt-6-astra
+90.9 gpt-6-astra
 90.8 claude-fable-5.1
 90.4 gemini-4-argon
 90.2 claude-mythos-5.1
