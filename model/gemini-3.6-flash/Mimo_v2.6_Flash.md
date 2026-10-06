@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by Mimo V2.6 Flash
 
 - Source: Google DeepMind (`gemini-3.6-flash`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.6-flash`. Free tier available in Google AI Studio with account-specific rate limits (HokAI).
 - **Context window:** 1,000,000 tokens; max output 66K tokens (Requesty / DeepMind).
 - **Modalities:** multimodal input (image/audio/video supported per Flash-series lineage and product pages; text out); reasoning yes; tool calls yes; Computer Use built into Gemini API (HokAI); JSON/structured outputs yes.
-- **Pricing (as of 2026-09-23):** $1.50 in / $7.50 out per 1M standard (DeepMind card; Requesty lists $1.50/$7.00 via their route). Batch 50% off; Priority ~+$80%; cache input $0.075–$0.15 / 1M depending on tier (HokAI).
+- **Pricing (as of 2026-10-06):** DeepMind card cited **$1.50 in / $7.50 out** at launch; BenchLeader provider table (2026-10-06) now shows **$0.75 in / $3.75 out standard**, priority $1.35/$6.75, batch $0.375/$1.88 — likely a price cut or tier restructure since launch, **conflict flagged** (Requesty had listed $1.50/$7.00). Batch 50% off; cache input $0.075–$0.15 / 1M depending on tier (HokAI). Free Studio tier.
 - **Architecture:** proprietary (dense/MoE undisclosed).
 
 ### Raw benchmarks found
@@ -35,7 +35,9 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **92.8%** (AA-measured via WaitWhichModel); **93.4%** independent 2026-07-28 (BenchmarkList)
 - HLE: **38.3%** (Artificial Analysis measurement via WaitWhichModel — not Google-reported)
-- Artificial Analysis Intelligence Index: **50** third-party (WaitWhichModel; HokAI cites 34 under a later v4.3 methodology — methodology shift, both noted)
+- Artificial Analysis Intelligence Index: **50** third-party (WaitWhichModel; HokAI cites 34 under a later v4.3 methodology — methodology shift, both noted); BenchLeader AA row (2026-10-06): **34.0, #87 of tracked configs** at high effort
+- BenchLeader composite index (2026-10-06): **60.5, #103 of 750** (high effort, best config) — categories Reasoning 63 / Knowledge 66 / Human-preference 68 / Long-context 65 / Multimodal 66 / Maths 60 / Coding 57 / Agents&tools 52
+- LiveBench: **73.6% (#43)**; LiveBench Language **83.9% (#17)**; LiveBench IF **75.4% (#9)**; LMArena Text **1483 (#22)**, Vision **1297 (#20)**, IF **1472 (#34)**; Epoch Capabilities Index **154.3 (#36)**; MMMU-Pro **83.2% (#26, AA) / 88.4% (#7, Vals)** (BenchLeader 2026-10-06)
 - LMArena Text Elo: **1485** rank 12 (WaitWhichModel / arena.ai)
 - CritPt / Omniscience numeric: no verified public score found in sources consulted
 
@@ -51,7 +53,7 @@ Coding:
 
 Long context:
 
-- GDM-MRCR v2 128K: **91.8%**; 1M: **54%** (DeepMind/HokAI vendor-reported)
+- GDM-MRCR v2 128K: **91.8%**; 1M: **54%** (DeepMind/HokAI vendor-reported). AA-LCR: **80.0% (#71)** (Artificial Analysis via BenchLeader, 2026-10-06 — independent long-context confirmation)
 
 ### Normalized scores (1–100)
 
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (DeepMind Gemini 3.6 Flash model card, BenchmarkList independent runs, WaitWhichModel/HokAI/Requesty aggregations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (DeepMind Gemini 3.6 Flash model card, BenchmarkList independent runs, WaitWhichModel/HokAI/Requesty aggregations); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 60.5 #103/750, AA 34.0 #87, LiveBench 73.6, AA-LCR 80.0 #71, MMMU-Pro 83.2/88.4, Epoch 154.3, provider price table showing $0.75/$3.75 standard — conflict with launch $1.50/$7.50 flagged). Scores unchanged: (85+90+93+88+88)/5 = 88.8 → 89. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

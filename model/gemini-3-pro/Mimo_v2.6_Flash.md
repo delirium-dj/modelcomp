@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by Mimo v2.6 Flash
 
 - Source: Google DeepMind/Gemini 3 Pro (`gemini-3-pro-preview`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-24 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,13 +27,16 @@ Agent / tool use:
 - BrowseComp: **59.2%** (Google self-reported)
 - Vending-Bench 2: mean net worth **$5,478** (272% higher than GPT-5.1 — Vellum summary of Google results)
 - ITBench: **58.3%** (official leaderboard, Dec 2025)
-- Tau3 / GDPval-AA / OSWorld: **no verified public score found** for this snapshot in the sources gathered
+- Tau3 / OSWorld: **no verified public score found** for this snapshot in the sources gathered (re-checked 2026-10-06)
+- GDPval: **40.3, #5 of 11 configurations** (BenchLeader 2026-10-06 — metric form shown as rank-only in its top-5 list; Elo absolute not stated in the extract)
 - Claw-Eval / Toolathlon: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.9%** thinking-high no-tools (Google DeepMind model card; evals.report also lists 92.6 official — same family of runs)
-- Humanity's Last Exam: **37.5%** no tools / **45.8%** search+code (Google 3.1 Pro card comparison column for 3 Pro)
+- GPQA Diamond: **91.9%** thinking-high no-tools (Google DeepMind model card; evals.report also lists 92.6 official — same family of runs); **92.6% #25** (Epoch AI via BenchLeader 2026-10-06); AA harness 88.7% (high) / 90.8% (not-stated); Vals 91.7% (high)
+- Humanity's Last Exam: **37.5%** no tools / **45.8%** search+code (Google 3.1 Pro card comparison column for 3 Pro); **37.5% #7** re-confirmed (Scale AI/CAIS via BenchLeader); AA rows 29.5% (high) / 39.7% (not-stated)
+- Artificial Analysis Intelligence Index (v4.3.2 scale): **28.0 (#125) high / 22.3 (#187) low** (BenchLeader 2026-10-06 — launch-era indexes were on the pre-rescale scale; see note below)
+- BenchLeader composite index: **60.7 (#99 of 750, best config)**; categories Human-preference 68 / Multimodal 66 / Reasoning 66 / Instruction-following 62 / Knowledge 57 / Coding 58 / Maths 54; Epoch Capabilities Index 152.9 (#42)
 - ARC-AGI-2: **31.1%** (ARC Prize Verified; Deep Think variant 45.1%)
 - MMLU-Pro: **89.8%** (launch coverage)
 - MathArena Apex: **23.4%** (launch; vs ~1% GPT-5.1/Claude at the time)
@@ -51,11 +54,11 @@ Coding:
 
 Long context:
 
-- 1M window; long-context retrieval quality (MRCR/RULER numbers): **no verified public score found** in gathered sources for this snapshot
+- 1M window; long-context retrieval quality (MRCR/RULER numbers): **no verified public score found** in gathered sources for this snapshot. AA-LCR: **76.0% (high, #135) / 74.0% (low, #154)** (Artificial Analysis via BenchLeader 2026-10-06 — first measured long-context row for 3 Pro)
 
 Multimodal:
 
-- MMMU-Pro: **81.0%** (Google launch)
+- MMMU-Pro: **81.0%** (Google launch — official MMMU board **#1** per BenchLeader 2026-10-06) / **80.2%** (AA, high) / **87.5%** (Vals); LMArena Text **1486 (#19)**, Creative Writing **1484 (#8)**, Vision **1305 (#15)** (BenchLeader 2026-10-06)
 - Video-MMMU: **87.6%** (Vellum summary of Google results)
 - ScreenSpot-Pro / CharXiv: measured in Google multimodal suite — absolute values **no verified public score found** in the rows gathered
 
@@ -73,6 +76,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-24
-- Method: public internet research (DeepMind evals methodology + 3.1 Pro model card comparison columns, evals.report, TAAFA, Awesome Agents, Vellum); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (DeepMind evals methodology + 3.1 Pro model card comparison columns, evals.report, TAAFA, Awesome Agents, Vellum); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 60.7 #99/750, GPQA 92.6 Epoch #25, HLE 37.5 #7 re-confirmed, AA v4.3.2 28.0/22.3 rows, AA-LCR 76.0/74.0 filling the long-context gap, MMMU-Pro official #1, GDPval #5, LMArena rows) — scores unchanged: (72+86+97+88+78)/5 = 84.2. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

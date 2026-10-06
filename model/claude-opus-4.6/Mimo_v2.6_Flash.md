@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic/`claude-opus-4-6`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-22 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,22 +23,23 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.0 (Terminus-2): **65.4%** (Anthropic; **SOTA at launch** — first model >65; vs Opus 4.5 59.8, GPT-5.2 Codex-CLI 64.7, Gemini 3 Pro 56.2). TB2.1: no verified public score found (4.6 predates 2.1 tables in sources read).
-- OSWorld: **72.7%** (Anthropic/Digital Applied; +6.4 vs 4.5 — best computer-use at launch)
-- GDPval-AA: **1606 Elo** (Anthropic; +144 over GPT-5.2 1462, +190 over Opus 4.5)
+- Terminal-Bench 2.0 (Terminus-2): **65.4%** (Anthropic; **SOTA at launch** — first model >65; vs Opus 4.5 59.8, GPT-5.2 Codex-CLI 64.7, Gemini 3 Pro 56.2). Terminal-Bench Hard: **48.5%** (BenchmarkList 2026-10-06, rank 12/326). TB2.1: no verified public score found (4.6 predates 2.1 tables; re-checked 2026-10-06)
+- OSWorld: **72.7%** (Anthropic/Digital Applied; +6.4 vs 4.5 — best computer-use at launch); OSWorld-Verified **72.7% (rank 27/70)** — BenchmarkList 2026-10-06 confirms the same figure
+- GDPval-AA: **1619 Elo** (BenchmarkList 2026-10-06, rank 25/352; Anthropic launch cited 1606, +144 over GPT-5.2 1462 — both rows kept)
 - BrowseComp: **84.0%** single-agent / **86.57%** multi-agent harness (Anthropic; SOTA at launch)
 - Finance Agent: **60.7%** (Anthropic; SOTA at launch)
-- MCP Atlas (high effort): **62.7%** (Anthropic)
-- τ²-Bench Telecom: **99.3%** (Anthropic; vs GPT-5.2 98.7)
+- MCP Atlas (high effort): **62.7%** (Anthropic) / **76.8%** (BenchmarkList 2026-10-06, rank 21/48 — harness/config spread noted)
+- τ²-Bench Telecom: **99.3%** (Anthropic; vs GPT-5.2 98.7); Tau2-Bench Telecom **92.1%** (BenchmarkList, rank 43/332)
+- BrowseComp: **83.7%** (BenchmarkList, rank 27/60 — confirms the Anthropic 84.0 single-agent row)
 - OpenRCA: **34.9%** (Anthropic)
-- Toolathlon / Tau3 / Claw-Eval: no verified public score found
+- Toolathlon / Tau3 / Claw-Eval: no verified public score found (re-checked 2026-10-06)
 
 Reasoning / knowledge:
 
 - Humanity's Last Exam with tools: **53.0–53.1%** (Anthropic; leads frontier at launch vs GPT-5.2 Pro 50.0, Gemini 3 Pro 45.8)
 - GPQA Diamond: **91.3%** (Digital Applied comparison)
-- ARC-AGI-2: **68.8%** (The AI Rankings; ~2× Opus 4.5 37.6, vs GPT-5.2 54.2 — largest single-gen jump cited)
-- Artificial Analysis Intelligence Index: no verified public score found for 4.6 specifically
+- ARC-AGI-2: **68.8%** (The AI Rankings) / **69.2%** (BenchmarkList 2026-10-06, rank 20/99 — ~2× Opus 4.5 37.6, vs GPT-5.2 54.2 — largest single-gen jump cited); ARC-AGI-1: **94.0%** (rank 17/97)
+- Artificial Analysis Intelligence Index: no verified public score found for 4.6 specifically (re-checked 2026-10-06)
 - FrontierMath / CritPt: no verified public score found
 
 Coding:
@@ -71,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (Anthropic Opus 4.6 research + announcement pages, Benchgen, Digital Applied, Code Velocity, The AI Rankings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (Anthropic Opus 4.6 research + announcement pages, Benchgen, Digital Applied, Code Velocity, The AI Rankings); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (200 benchmarks) — confirmed OSWorld-Verified 72.7 (rank 27), extended GDPval to 1619 (rank 25), added TB-Hard 48.5, MCP Atlas 76.8, Tau2-Telecom 92.1, BrowseComp 83.7, ARC-AGI-1/2 rows; TB2.1/Toolathlon/Tau3/Claw/AA-Index gaps re-confirmed. Scores unchanged: (89+91+91+65+88)/5 = 84.8 → 85. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

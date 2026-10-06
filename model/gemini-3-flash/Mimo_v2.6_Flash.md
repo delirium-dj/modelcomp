@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Mimo V2.6 Flash
 
 - Source: Google/`gemini-3-flash`
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,8 @@ Reasoning / knowledge:
 - GPQA Diamond: **90.4%** (Google launch)
 - HLE: **33.7%** no tools / **43.5%** with tools (Google launch)
 - MATH: **97.5%** (Google launch)
-- AA Intelligence Index: **no verified public score found** as a stable row in this pass
+- AA Intelligence Index (v4.3.2): **26.3 (#139)** not-stated config / **17.9 (#240)** no-reasoning (Artificial Analysis via BenchLeader 2026-10-06 — **fills the former AA Index gap**; pre-rescale launch-era indexes are not comparable)
+- BenchLeader composite index: **59.3 (#120 of 750, thinking)**; categories Instruction-following 76 / Knowledge 66 / Long-context 64 / Multimodal 63 / Reasoning 56 / Agents&tools 55; Epoch Capabilities Index 151.8 (#47); IFBench **78.0% (#14, not-stated)** / 55.1% (#145, no-reasoning)
 
 Coding:
 
@@ -42,12 +43,11 @@ Coding:
 
 Long context:
 
-- 1M window documented; MRCR / RULER retrieval % at depth: **no verified public score found** in this pass
+- 1M window documented; MRCR / RULER retrieval % at depth: **no verified public score found** in this pass. AA-LCR: **78.0% (#111, not-stated config) / 55.3% (#278, no-reasoning)** (Artificial Analysis via BenchLeader 2026-10-06 — first measured long-context row for Gemini 3 Flash)
 
 Multimodal:
 
-- MMMU-Pro: **81.2%** no tools / **87.6%** with tools (Google launch)
-- Chatbot Arena text-vision: **1467** Elo (Google / LMArena row)
+- MMMU-Pro: **81.2%** no tools / **87.6%** with tools (Google launch); **78.5–79.9%** (AA via BenchLeader 2026-10-06) / **87.6% (#13, Vals)**; GeoBench **88.0% (#1)**; Chatbot Arena text-vision: **1467** Elo (Google / LMArena row) — LMArena now 1458–1473 text / 1266–1285 vision by config (BenchLeader 2026-10-06)
 
 ### Normalized scores (1–100)
 
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (Google DeepMind launch blog, BenchmarkList, models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (Google DeepMind launch blog, BenchmarkList, models.dev); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 59.3 #120/750 thinking, AA 26.3 #139 filling the AA-Index gap, AA-LCR 78.0/55.3 filling the long-context gap, MMMU-Pro/GeoBench/LMArena rows, IFBench 78.0) — scores unchanged: (72+89+95+88+85)/5 = 85.8 → 86. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

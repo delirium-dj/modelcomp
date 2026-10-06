@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by Mimo v2.6 Flash
 
 - Source: Google DeepMind/`gemini-3.8-flash`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-22 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gemini-3.8-flash` (Google); Zen route `opencode/gemini-3.8-flash` where listed.
 - **Context window:** 1,048,576 tokens input / 65,536 max output (model card ~64K).
 - **Modalities:** text/image/audio/video in; text out; reasoning yes (effort levels); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-09-22):** intro $0.75 in / $3.75 out per 1M (through 2026-12-31), cached $0.075; from 2027-01-01 $1.50/$7.50. Batch 50% off. Paid, not free — intro expires year-end.
+- **Pricing (as of 2026-10-06):** intro $0.75 in / $3.75 out per 1M (through 2026-12-31), cached $0.075; from 2027-01-01 $1.50/$7.50. Batch $0.375/$1.88; priority $1.35/$6.75 (BenchLeader provider table, 2026-10-05 — unchanged). Paid, not free — intro expires year-end.
 - **Architecture:** proprietary (based on Gemini 3.7 Flash post-training; no new pretrain per model card).
 
 ### Raw benchmarks found
@@ -38,9 +38,11 @@ Reasoning / knowledge:
 - GPQA Diamond: **94.4%** (Vals AI independent; rank 4/138)
 - HLE-Verified: **54.9%** (Google model card) / **47.8%** (AA no-tools)
 - MMLU-Pro: **90.2%** (Vals AI)
-- Artificial Analysis Intelligence Index: **41** (AA v4.3.2 model page, 2026-09-28 — high effort; release-era 59 superseded, see Fresh-source note)
-- CritPt / LCR: no verified public score found
+- Artificial Analysis Intelligence Index: **41** high effort / **39.8** medium / **33.5** low (AA v4.3.2 via BenchLeader, 2026-10-05 — high #52, medium #58 of 756; release-era 59 superseded, see Fresh-source note)
+- CritPt: no verified public score found; AA-LCR (long-context): **80.7–84.0%** across efforts (best **84.0%, #11** of tracked models) and MLCR **21.7% (#16)** (Artificial Analysis via BenchLeader, 2026-10-05) — first verified long-context rows for 3.8 Flash
 - CharXiv Reasoning (no tools): **86.2%** (Google)
+- MMMU-Pro: **84.5%** (AA, low effort) / **89.1% (Vals AI, #4)**; LMArena Text **1495 (#8)**; Vals Index **54.8 (#15)**; Epoch Capabilities Index **156.9 (#15)** (BenchLeader, 2026-10-05)
+- LiveBench: **75.8% (#33)** composite; Language 87.8% (#7); Instruction-Following 81.4% (**#1**) (LiveBench via BenchLeader, 2026-10-05)
 
 Coding:
 
@@ -52,9 +54,10 @@ Coding:
 
 Long context:
 
-- No MRCR/RULER row published for 3.8 specifically; 1M window documented. Long-context retrieval: no verified public score found for this exact model.
+- No MRCR/RULER row published for 3.8 specifically; 1M window documented. Long-context reasoning now has proxy evidence: **AA-LCR up to 84.0% (#11)** and MLCR 21.7% (BenchLeader 2026-10-05) — but no ≥98% retrieval-at-depth figure, so the context score stays at 95. BenchLeader long-context category: **68**.
 
 - Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 41** (high effort) contradicts the release-era 59 — scores unchanged pending re-derivation.
+- Fresh-source note (2026-10-06 re-run, user-approved enrichment): BenchLeader (2026-10-05) composite index **64.7, #48 of 756** (medium best; high 63.8, low 61.2) with category scores Agents&tools 75 / Knowledge 75 / Reasoning 63 / Coding 58 / Multimodal 68 / Long-context 68; AA high-effort index re-confirmed at 40.9≈41. Filled former CritPt/LCR and long-context gaps with AA-LCR/MLCR rows; added MMMU-Pro, LMArena, LiveBench, Vals/Epoch composite rows. Scores unchanged: (89+91+95+90+89)/5 = 90.8 → 91.
 
 ### Normalized scores (1–100)
 
@@ -70,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (Google model card/blog, AA, Vals/BenchLM, DataCamp, Coursiv, IntuitionLabs, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (Google model card/blog, AA, Vals/BenchLM, DataCamp, Coursiv, IntuitionLabs, The Model Gap); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 64.7 #48/756, category scores, AA-LCR/MLCR, MMMU-Pro, LMArena, LiveBench, provider price table) — filled the CritPt/LCR and long-context gaps; AA index cross-checked (40.9 high). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

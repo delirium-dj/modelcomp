@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Mimo V2.6 Flash
 
 - Source: Google DeepMind/`gemini-3.1-pro`
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Gemini 3.1 Pro
 - **Short description:** Google DeepMind's February 2026 flagship reasoning model — the "0.1" refresh of Gemini 3 Pro with large gains on ARC-AGI-2, GPQA, and agentic coding while holding $2/$12 pricing. Not an alias of Gemini 3 Pro (measurably stronger evals).
 - **Provider / access:** Google AI Studio / Gemini API (Chat Completions-style `generateContent`), Vertex AI, Gemini CLI; also surfaced as `google/gemini-3.1-pro` and free-tier access on OpenCode Zen. Free tier available on AI Studio; paid API on Google's price list.
-- **Release / knowledge:** 2026-02-19 (DeepMind model card / release trackers); knowledge cutoff not separately published for 3.1 Pro in the sources reviewed.
+- **Release / knowledge:** 2026-02-19 (DeepMind model card / release trackers); BenchLeader's release table dates it **5 Mar 2026** (conflict noted, 2026-10-06); knowledge cutoff not separately published for 3.1 Pro in the sources reviewed.
 - **IDs:** `gemini-3.1-pro` (Google API; often `gemini-3.1-pro-preview` at launch); Zen `google/gemini-3.1-pro`.
 - **Context window:** 1M tokens input common tier (Google pricing tables; >200K billed at a higher tier implies long-window support); 64K max output reported in site metadata / model-card notes. Verified via Google pricing tiers and model-card eval tables (MRCR v2 reported at 128K and 1M points).
 - **Modalities:** text, image, audio, video, PDF in; text out; thinking/adaptive reasoning (low/medium/high); tool calls; structured output supported.
-- **Pricing (as of 2026-09-23):** $2.00 / $12.00 per 1M in/out up to 200K context; $4.00 / $18.00 over 200K context; context-cache hits ~$0.50 input. Free tier on AI Studio (rate-limited). Paid.
+- **Pricing (as of 2026-10-06):** $2.00 / $12.00 per 1M in/out up to 200K context; $4.00 / $18.00 over 200K context; context-cache hits ~$0.50 input. BenchLeader provider table (2026-10-06) also shows a **$1.00 / $6.00 Google AI Studio route** alongside Vertex $2/$12 (studio promo/measure difference — cheapest verified entry point). Free tier on AI Studio (rate-limited). Paid.
 - **Architecture:** proprietary closed weights.
 
 ### Raw benchmarks found
@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **70.3%** (AI Release Tracker / Google-published suite)
+- Terminal-Bench 2.1: **70.3%** (AI Release Tracker / Google-published suite) / **80.2% (BenchLeader #3 of 80 configurations, 2026-10-06)** — harness/panel spread, both kept
 - Terminal-Bench 2.0: **68.5%** (DeepMind model card, Terminus-2 harness)
 - Tau2-Bench: **95.6%** (Dataconomy aggregated card; harness as listed there)
 - MCP Atlas: **78.2%** (AI Release Tracker; Dataconomy lists 69.2% — harness/version drift, both noted)
@@ -37,12 +37,13 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **94.3%** (DeepMind model card, no tools)
-- HLE: **44.4%** no tools / **51.4%** search+code (DeepMind model card)
+- GPQA Diamond: **94.3%** (DeepMind model card, no tools) / **94.4% #7 / 94.1% #10** (Epoch AI Benchmarking Hub via BenchLeader, 2026-10-06 — independent confirmation)
+- HLE: **44.4%** no tools / **51.4%** search+code (DeepMind model card); **46.4% (BenchLeader #3 of 46 configs, 2026-10-06)** as the current independent row
 - ARC-AGI-2: **77.1%** (DeepMind model card, ARC Prize verified)
 - FrontierMath (T1–3): **36.9%** (AI Release Tracker)
 - LCR: **82%** (Dataconomy)
-- AA Intelligence Index: **57.2** (Dataconomy); Coding Index **55.5**
+- AA Intelligence Index: **57.2** (Dataconomy); Coding Index **55.5** — **conflict flag:** BenchLeader's AA row (2026-10-06) reads **29.7 (#113)** on the v4.3.2 scale while Dataconomy's 57.2 predates the rescale (same vintage issue as Opus 5/Fable 5.1) — both kept, treat 57.2 as launch-era scale; BenchLeader composite index **62.5 (#77 of 750, best config)** with categories Reasoning 69 / Knowledge 67 / Instruction-following 70 / Long-context 66 / Coding 57 / Agents&tools 57
+- LiveBench: **77.0% (#25)**; SimpleBench **79.6 (#3)**; MultiChallenge **71.4 (#3)**; AIME 2026 **98.3% (#4)**; MathArena Apex **60.9 (#5)** (BenchLeader 2026-10-06)
 - Omniscience / hallucination: **no verified public score found** (AA-Omniscience not in the rows reviewed)
 
 Coding:
@@ -58,7 +59,7 @@ Coding:
 
 Long context:
 
-- MRCR v2 (8-needle) 128K average: **84.9%**; 1M pointwise: **26.3%** (AI Release Tracker / Google) — strong at 128K, soft at 1M pointwise.
+- MRCR v2 (8-needle) 128K average: **84.9%**; 1M pointwise: **26.3%** (AI Release Tracker / Google) — strong at 128K, soft at 1M pointwise. AA-LCR: **82.0% (#42)** (Artificial Analysis via BenchLeader, 2026-10-06 — independent long-context confirmation)
 - RULER: **no verified public score found**
 
 Multimodal:
@@ -81,6 +82,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (DeepMind model card, AI Release Tracker, Dataconomy, MetricNexus, NxCode); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (DeepMind model card, AI Release Tracker, Dataconomy, MetricNexus, NxCode); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 62.5 #77/750, category scores, GPQA 94.4/94.1 Epoch, HLE 46.4 #3, TB2.1 80.2 #3, LiveBench 77.0 #25, AA-LCR 82.0 #42, AIME 98.3, provider pricing incl. $1/$6 studio route) — independent confirmations added, AA-index scale conflict flagged; scores unchanged: (90+95+96+88+90)/5 = 91.8 → 92. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

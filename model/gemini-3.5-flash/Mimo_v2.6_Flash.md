@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by Mimo V2.6 Flash
 
 - Source: Google DeepMind (`gemini-3.5-flash`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,9 +36,11 @@ Reasoning / knowledge:
 - GPQA Diamond: **90.4%** (HokAI)
 - HLE: no verified public score found as a distinct 3.5 Flash row in sources consulted
 - ARC-AGI-2: **72.1%** (HokAI)
-- Artificial Analysis Intelligence Index: **33** (AA v4.3.2 model page, 2026-09-28 — high effort; supersedes both the launch-era 55 and the v4.3-row 34 previously noted; see Fresh-source note)
+- Artificial Analysis Intelligence Index: **33** (AA v4.3.2 model page, 2026-09-28 — high effort; supersedes both the launch-era 55 and the v4.3-row 34 previously noted; see Fresh-source note). BenchLeader AA rows (2026-10-06): medium **33.6 (#93)**, high **32.6 (#98)**, minimal 23.9 (#167) — consistent with the 33 refresh
 - IF Bench: **76.30** (DataLearner catalog); DataLearner also lists a GPQA Diamond 92.80 row — treat 90.4% (HokAI) as primary, 92.80 as alternate catalog figure
 - CritPt / Omniscience numeric: no verified public score found in sources consulted
+- BenchLeader composite index (2026-10-06): **63.1, #66 of 750** (medium effort, best config; high 62.6 #76, minimal 56.5 #186) — categories Instruction-following 73 / Knowledge 71 / Agents&tools 68 / Maths 67 / Multimodal 67 / Human-preference 67 / Long-context 62 / Reasoning 62 / Coding 57
+- LiveBench: **74.6% (#38)**; IFBench **76.3% high (#21) / 74.6% medium (#35)**; MMMU-Pro **84.3% high (#20) / 83.9% medium (#24)** (AA) and **88.3% (#8)** (Vals); Vals Index **44.8 (#31)**; Epoch Capabilities Index **154.5 (#35)**; LMArena Text **1476–1477**, Vision **1308–1310** (BenchLeader 2026-10-06)
 
 Coding:
 
@@ -49,7 +51,7 @@ Coding:
 
 Long context:
 
-- 1M input confirmed; independent recall above 100K **not published for the 3.5 generation** (HokAI) → no long-context retrieval percentage reported
+- 1M input confirmed; independent recall above 100K **not published for the 3.5 generation** (HokAI) → no long-context retrieval percentage reported. AA-LCR (independent): **61.3% minimal / 74.3% medium / 73.3% high** (#149–255 by effort) and MLCR **18.3% (#20)** (Artificial Analysis via BenchLeader, 2026-10-06 — first measured long-context rows for 3.5 Flash)
 
 - Fresh-source note (2026-09-28 re-audit, user-signed-off exception to RULES.md permanence): current AA-native **Intelligence Index 33** (high effort) resolves the earlier 55-vs-34 conflict; AA now marks Gemini 3.5 Flash **deprecated** (superseded by Gemini 3.7 Flash, benchmarking frozen to the default 10K workload) — scores unchanged pending re-derivation.
 
@@ -60,7 +62,7 @@ Long context:
 
 - **Tool use: 84/100.** MCP Atlas 83.6% (field-leading at June 2026), TB2.1 76.2%, OSWorld 78.4%, GDPval-AA v2 1349 — clearly above mid-tier and among the best Flash-class agentic tool stacks; capped below 88+ because GDPval trails Claude 1800+ and Tau3/Claw rows are missing.
 - **Reasoning: 87/100.** GPQA 90.4% hits the frontier-adjacent band and ARC-AGI-2 72.1% is strong (below 3.1 Pro's 77.1); discounted from 90+ due to no HLE row for this ID and AA Index 33 (v4.3.2 refresh — see Fresh-source note), mid-band absolute; the GPQA/ARC rows carry the frontier-adjacent claim.
-- **Context window: 93/100.** 1,048,576-token window qualifies for the ≥1M tier; no MRCR/RULER ≥98% retrieval proof for 3.5 gen (explicitly unpublished) → held at 93 (full window, zero retrieval evidence).
+- **Context window: 93/100.** 1,048,576-token window qualifies for the ≥1M tier; no MRCR/RULER ≥98% retrieval proof for 3.5 gen (explicitly unpublished); AA-LCR 74.3% medium (BenchLeader 2026-10-06) is decent but well short of the 98% bar → held at 93.
 - **Multimodal: 95/100.** Full text/image/audio/video/PDF in with MMMU-Pro **84.2%** — HokAI/AA call it the highest multimodal reasoning score AA had recorded at launch; text+tool-calls out only prevents 100, but audio/video/PDF input puts it in the top methodology band (75–90+) with a peak-quality bump to 95.
 - **Coding: 85/100.** SWE-V 78%, SWE-Pro 55.1%, TB2.1 76.2% is excellent Flash-tier coding (beats Gemini 3.1 Pro on some real-world rows per HokAI); capped below 88 because DeepSWE 37% is well behind frontier (~70) and no LiveCodeBench/SciCode rows for this ID.
 - **Cost efficiency: 80/100.** $1.50/$9.00 with $0.15 cached input (90% cache discount) — cheaper than Opus/Fable/GPT-5.4 output and reasonable for a multimodal agentic Flash; above the $0.50/$3 Flash Preview tier and well under $3/$15, so ~80 not 92+.
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (DeepMind Gemini 3.5 Flash model card, Google AI what's-new FAQ, HokAI/DataLearner/modelpricewatch/AA release aggregations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (DeepMind Gemini 3.5 Flash model card, Google AI what's-new FAQ, HokAI/DataLearner/modelpricewatch/AA release aggregations); re-run 2026-10-06 (user-approved enrichment): BenchLeader model page (index 63.1 #66/750 medium, AA 33.6 #93 confirming the 33 refresh, LiveBench 74.6, AA-LCR 61.3–74.3 + MLCR 18.3 filling the long-context gap, MMMU-Pro 84.3 #20, IFBench 76.3) — scores unchanged: (84+87+93+95+85)/5 = 88.8 → 89. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

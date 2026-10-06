@@ -1,7 +1,7 @@
 # Claude Sonnet 4.6 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic/`claude-sonnet-4-6`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-22 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,11 +24,11 @@
 Agent / tool use:
 
 - Terminal-Bench 2.0 (Terminus-2, Harbor): **59.1%** (Anthropic system card; **thinking off**, no effort set; vs Opus 4.6 65.4, GPT-5.2 Codex 64.7). Epoch/themodelbeat cite **53.4%** Terminal-Bench (variant unclear — cite both).
-- OSWorld-Verified: **72.5%** (Anthropic system card)
-- GDPval-AA: **1606 Elo** (Anthropic system card)
+- OSWorld-Verified: **72.5%** (Anthropic system card) / **81.5%** (BenchmarkList 2026-10-06, rank 1 of 72 on the OSWorld leaderboard — configuration spread noted; also 81.5% OSWorld-Verified rank 14/70)
+- GDPval-AA: **1606 Elo** (Anthropic system card, previously cited) / **1395 Elo** (BenchmarkList 2026-10-06, rank 3 of 11 small field — conflict noted; harness/panel differences likely, both kept)
 - MCP-Atlas: **61.3%** (Anthropic system card)
 - τ²-bench Retail: **91.7%**; Telecom: **97.9%** (Anthropic system card)
-- Finance Agent / BrowseComp / Toolathlon / Tau3 / Claw-Eval: scores exist in system card sections but not isolated in extracted text — no verified single number in this pass
+- Finance Agent / BrowseComp / Toolathlon / Claw-Eval: scores exist in system card sections but not isolated in extracted text — no verified single number in this pass (re-checked on BenchmarkList 2026-10-06: Tau3-Banking **34.4% (30/176)**, GDPval-AA **1395 Elo (3/11 small field)**, OSWorld-Verified **81.5% (14/70)**, ClawProBench **60.5 (11/48)** now found; Toolathlon/BrowseComp still absent)
 
 Reasoning / knowledge:
 
@@ -59,18 +59,18 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 83/100.** OSWorld 72.5, GDPval 1606, τ²-Telecom 97.9 / Retail 91.7 strong; capped by TB2.0 59.1 (thinking-off config), MCP 61.3 mid, missing Tau3/Claw/BrowseComp numbers in this pass.
+- **Tool use: 84/100.** OSWorld 72.5 (BenchmarkList alt 81.5), GDPval 1606/1395, τ²-Telecom 97.9 / Retail 91.7, Tau3-Banking 34.4 and ClawProBench 60.5 now measured (2026-10-06 fill); capped by TB2.0 59.1 (thinking-off config), MCP 61.3 mid, and still-absent Toolathlon/BrowseComp numbers.
 - **Reasoning: 84/100.** GPQA 89.9, ARC-AGI-2 58.3–60.4 solid mid-frontier; capped by HLE ~34.6 (weak raw), no AA Index row.
 - **Context window: 88/100.** 1M beta (compaction beta helps effective length); **no MRCR/GraphWalks numbers isolated** → cannot claim 95-class retrieval evidence → 88 (window verified, retrieval % gap).
 - **Multimodal: 65/100.** Text + image in only → 60–70 band → 65 (FigQA/MMMU-Pro/CharXiv in system card but scores not extracted).
 - **Coding: 84/100.** SWE-V 79.6/80.2 solid, SWE-Multilingual 75.9, TB2.0 59.1 mid; capped by TB behind Opus 4.6 and no DeepSWE/SWE-Pro/LCB rows.
 - **Cost efficiency: 65/100.** $3/$15 mid-tier (methodology ~65 band); cache 90% off + batch 50% off help; now undercut by Sonnet 5 at $2/$10 with better scores — hurts value case for new adopters.
-- **Overall Score: 81/100.** Mean of five quality dims (83+84+88+65+84)/5 = 80.8 → 81. Best-fit: legacy default for teams standardized on Sonnet 4.6 behavior/contracts; **new builds should prefer Sonnet 5** ($2/$10, higher agentic scores) unless locked to 4.6 eval profiles.
+- **Overall Score: 81/100.** Mean of five quality dims (84+84+88+65+84)/5 = 81.0 → 81. Best-fit: legacy default for teams standardized on Sonnet 4.6 behavior/contracts; **new builds should prefer Sonnet 5** ($2/$10, higher agentic scores) unless locked to 4.6 eval profiles.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (Anthropic Sonnet 4.6 announcement + research page + system card PDF, themodelbeat/Epoch, o-mega comparison table); scores are normalized 1–100 interpretations, not official vendor scores; several system-card sections (MRCR, GraphWalks, MMMU-Pro, CharXiv, Finance, BrowseComp, HLE clean row) not numerically extracted in this pass and marked as gaps.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (Anthropic Sonnet 4.6 announcement + research page + system card PDF, themodelbeat/Epoch, o-mega comparison table); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (200 benchmarks) — added Tau3 34.4, OSWorld alt 81.5, ClawProBench 60.5, GDPval alt 1395 (conflict flagged), TB-Hard 53.0, ARC-AGI-2 alt 60.4, APEX/AA-Briefcase rows; Tool 83→84, Overall 80.8→81.0. MRCR/GraphWalks/LCB/DeepSWE gaps re-confirmed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

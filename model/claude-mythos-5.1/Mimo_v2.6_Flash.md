@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Mimo V2.6 Flash
 
 - Source: Anthropic/`claude-mythos-5.1`
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-mythos-5-1` (logical; API docs show generation IDs like `claude-mythos-5` for the prior Mythos 5 — confirm exact 5.1 ID with Anthropic account team). Not available as a free ID.
 - **Context window:** 1M tokens input / 128K max output (Fable 5.1 / Mythos spec tables).
 - **Modalities:** text, image in; text out; adaptive thinking always on (default effort high); tool calls; no audio/video out.
-- **Pricing (as of 2026-09-23):** $10.00 / $50.00 per 1M in/out; cache reads **$0.25**/1M (75% cut vs Fable 5); batch 50% off. Paid; invite-gated so price is list rate for approved orgs only.
+- **Pricing (as of 2026-10-06):** $10.00 / $50.00 per 1M in/out (Fable-5.1 sibling list rate); cache reads **$0.25**/1M (75% cut vs Fable 5); batch 50% off — list rate for approved orgs only. BenchmarkList (2026-10-06) shows **"Price not published"** for Mythos 5.1 itself (8 tracked benchmarks, all first-party) — invite-gated, so sibling pricing is the anchor.
 - **Architecture:** proprietary; identical weights to Fable 5.1 — difference is safeguard configuration only.
 
 ### Raw benchmarks found
@@ -38,7 +38,8 @@ Reasoning / knowledge:
 - HLE with tools: **65.0%** (Anthropic, Fable 5.1 sibling — same weights)
 - GPQA Diamond: **no verified public score found** in the 5.1 announcement rows reviewed (prior Mythos/Fable-class scores exist but not republished here — not inventing a value)
 - LCR / MLCR / CritPt: **no verified public score found**
-- AA Intelligence Index / BenchLM overall: **no verified public score found** for Mythos 5.1 (invite-only limits third-party indexing)
+- AA Intelligence Index / BenchLM overall: **no verified public score found** for Mythos 5.1 (invite-only limits third-party indexing; BenchmarkList 2026-10-06 tracks only 8 first-party rows — no AA Index)
+- AA-Omniscience net score: **0.56 / 0.57 net** (0.77 correct / 0.20 incorrect / 0.02 abstained) — rank **3 of 11**, behind only O-5.5's 0.58 (Anthropic system card via BenchmarkList, 2026-10-06 — fills the former Omniscience gap)
 - Omniscience: **no verified public score found**
 
 Coding:
@@ -47,6 +48,9 @@ Coding:
 - CursorBench 3.2.0: **73.4%** (Fable 5.1 sibling)
 - SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe: **no verified public score found** in the sources reviewed for this exact 5.1 release (system card has fuller tables behind Anthropic's PDF; numbers not in the public snippets used here)
 - Domain demos: protein binder design ~50% hit rate across 12 targets; Venus map; 2.5× GPU-kernel speedups (Anthropic) — qualitative/scientific, not standard coding benches
+- Terminal-Bench 4.0 (BenchmarkList, 2026-10-06): **60.9%, rank 3 of 29** — confirmed as the same system-card row; BenchmarkList notes it "mainly shows the effect of fewer cyber-safeguard interventions vs Fable 5.1" (Fable sibling 55.8%)
+- ExploitBench v8-bench: **83.0% capability, 222/410 full ACEs** (rank 2/16 — Anthropic system card; the cyber-safeguard differentiation in numbers)
+- ArxivMath: **93.9% with tools / 91.3% without** (rank 5/35); ProteinGym Hard: **49.3% rank correlation (rank 1/10)**; BioMysteryBench 90.3% solvable / 44.1% difficult; LatchBio SpatialBench Verified 77.6% / SingleCellBench 61.8% (rank 2/7); BBQ 89.9% disambiguated (BenchmarkList 2026-10-06)
 
 Long context:
 
@@ -59,7 +63,7 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 93/100.** TB4.0 60.9, CursorBench 73.4, GDPval-AA v2 1853 (above Opus 5 / Sol), AutomationBench 31.4 — elite agentic/tool profile; capped by missing public Tau/MCP/Claw rows and invite-only third-party verification.
-- **Reasoning: 93/100.** HLE-with-tools 65.0% on identical weights is frontier; missing public GPQA/Index rows for Mythos specifically prevent a 95+.
+- **Reasoning: 93/100.** HLE-with-tools 65.0% on identical weights is frontier; AA-Omniscience net 0.56 (rank 3/11) now measured; still missing public GPQA/Index rows for Mythos specifically, which prevents a 95+.
 - **Context window: 95/100.** 1M input / 128K output hits the ≥1M tier (95–100); no public MRCR % to justify higher.
 - **Multimodal: 68/100.** Image + text in only (no audio/video/PDF called out, text out) → +image-in band 60–70.
 - **Coding: 93/100.** TB4 60.9 (Mythos), CursorBench 73.4, science-terminal 52.6, GPU-kernel demos — top agentic coding; capped slightly by no public SWE-V/LCB row for this exact ID.
@@ -70,6 +74,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (Anthropic announcement, system card PDF snippets, AI/TLDR, Coursiv, OrcaRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (Anthropic announcement, system card PDF snippets, AI/TLDR, Coursiv, OrcaRouter); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (8 first-party rows, price not published) — filled AA-Omniscience (0.56, rank 3/11), ExploitBench v8 (83.0%), ArxivMath, ProteinGym Hard (rank 1), LatchBio, BioMysteryBench, BBQ rows; TB4.0 60.9% rank 3/29 confirmed; GPQA/LCR/Index/SWE-V/LCB gaps re-confirmed. Scores unchanged: 93+93+95+68+93 = 442/5 = 88.4 → 88. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

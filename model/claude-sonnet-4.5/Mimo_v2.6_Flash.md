@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic / Claude Sonnet 4.5 (`claude-sonnet-4-5-20250929`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-23 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,8 +25,8 @@ Agent / tool use:
 - Terminal-Bench 2.0: **51.0%** (Claude Sonnet 4.6 system card comparison table) / **50%** (BenchLM shared row)
 - τ²-bench (retail): **86.2%** (llm-stats); airline/telecom reported with prompt addenda (Anthropic methodology footnote)
 - MCP-Atlas: **43.8%** pass rate, 62.1% mean coverage (Scale AI arXiv 2602.00933 Table 3)
+- Toolathlon / MCP Atlas / OSWorld 2.0 / Tau3-Banking: previously missing — BenchmarkList 2026-10-06 fills: **Toolathlon 41.0% (38/41)**, **MCP Atlas 59.5% (41/48)**, **Tau3-Banking 24.5% (43/176)**, **OSWorld 62.9% (11/72) / OSWorld-Verified 62.9% (34/70)**, **GDPval-AA 1055 Elo (100/352)**, **TAU3-Bench 62.9% (13/13)** (Anthropic launch table had OSWorld-Verified 61.4%)
 - JobBench: **27.7%**; VITA-Bench **17.0%**; Gert Labs **48.51%** (BenchLM ledger)
-- Toolathlon / MCP Atlas (llm-stats index rows) / OSWorld 2.0 / Tau3-Banking: **no verified public score found** for this ID in reviewed rows
 - Agentic public-lane composite: **55.4 / #~100 of 151** (BenchLM directional index)
 
 Reasoning / knowledge:
@@ -62,18 +62,18 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 73/100.** OSWorld 61.4% and τ²-retail 86.2% were launch-frontier and still respectable; TB2.0 ~50–51% and MCP-Atlas 43.8% sit mid-band well short of 2026 75%+ / 60%+ refs; low JobBench/VITA rows cap the mid-70s.
+- **Tool use: 74/100.** OSWorld 61.4/62.9% and τ²-retail 86.2% were launch-frontier and still respectable; TB2.0 ~50–51%, MCP-Atlas 59.5% (BenchmarkList rank 41/48) and Toolathlon 41.0% (rank 38/41) sit mid/low-band — filled-gap re-rate 2026-10-06 — short of 2026 75%+/60%+ refs; Tau3 24.5% also low.
 - **Reasoning: 71/100.** GPQA 83.4% and AIME 87% clear the strong-upper band, but ARC-AGI-2 13.6% and HLE ~9% are far below frontier (50%+/40%+); AA Index 37 (reasoning) is mid-pack. No CritPt/LCR rows to push higher.
 - **Context window: 68/100.** 200K GA is the honest number (1M beta deprecated and scored 18.5% MRCR); usable for agent loops with context editing/memory tools shipped alongside, but no ≥1M tier and no strong published retrieval scores at depth.
 - **Multimodal: 68/100.** Text/image/PDF in with MMMUval 77.8% is solid image-in quality; no video/audio, text-only output, and no CharXiv/MMMU-Pro rows block the 75+ multimodal band.
 - **Coding: 78/100.** SWE-bench Verified 77.2% (82% high-compute) was SOTA at launch and remains upper-mid; LiveCodeBench 62–71%, Aider 68%, AA Coding 52% are solid but short of 2026 DeepSWE 74%+ / SWE-Pro 60%+ / Coding Index 70%+ frontier refs; no SWE-Pro or DeepSWE row for this ID.
 - **Cost efficiency: 60/100.** $3/$15 is the methodology's ~$3/$15 ≈60 tier with −90% cache and 50% batch helping repetitive agents; no Free ID; competitive vs Opus but no longer price-performance leader vs Sonnet 5 ($2/$10 intro → permanent) or open-weight peers.
-- **Overall Score: 71.6/100.** Mean of (73 + 71 + 68 + 68 + 78) / 5 = 71.6; best-fit as Anthropic's proven agentic-coding workhorse when 200K context is enough and the mature Claude Code / Agent SDK ecosystem matters more than topping 2026 leaderboards.
+- **Overall Score: 71.8/100.** Mean of (74 + 71 + 68 + 68 + 78) / 5 = 71.8; best-fit as Anthropic's proven agentic-coding workhorse when 200K context is enough and the mature Claude Code / Agent SDK ecosystem matters more than topping 2026 leaderboards.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-23
-- Method: fresh public web research (Anthropic launch post + methodology footnotes, Sonnet 4.6 system card comparison, BenchLM ledger, llm-stats, Artificial Analysis, ModelBeats OSWorld, Scale MCP-Atlas arXiv, yage.ai long-context timeline, Serenities/Kilo aggregates); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: fresh public web research (Anthropic launch post + methodology footnotes, Sonnet 4.6 system card comparison, BenchLM ledger, llm-stats, Artificial Analysis, ModelBeats OSWorld, Scale MCP-Atlas arXiv, yage.ai long-context timeline, Serenities/Kilo aggregates); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (196 benchmarks) — filled Toolathlon (41.0), MCP Atlas (59.5), Tau3 (24.5), OSWorld (62.9), GDPval (1055), GAIA/Berkeley-FC/ARC-AGI rows; Tool 73→74, Overall 71.6→71.8. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

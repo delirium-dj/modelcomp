@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by Mimo v2.6 Flash
 
 - Source: Google DeepMind/`google/gemini-3.7-flash`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-06 (UTC) — re-run of the 2026-09-22 research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,8 +31,8 @@ Agent / tool use:
 - OSWorld-2.0: **47.9%** (Google; vs Terra 50.2)
 - Harvey LAB-AA: **90.7%** (Google/BenchLM)
 - Agents' Last Exam: **26.3%** (BenchLM — mid)
-- MCP Atlas / Toolathlon / Tau3: no verified public score found for 3.7 Flash in this pass
-- AA Agentic Index: **36.4** (BenchLM)
+- MCP Atlas / Toolathlon: no verified public score found for 3.7 Flash in this pass (re-checked BenchmarkList 2026-10-06); Tau3-Banking: **35.5%** (rank 25/176 — fills the Tau3 gap); BrowseComp: **79.2% ±6.0** (rank 37/60); Finance Agent v2: **59.0%** (rank 8/50)
+- AA Agentic Index: **36.4** (BenchLM); AA-Briefcase **1113 (49/145)**; RuneBench **6 (8/61)** (BenchmarkList 2026-10-06)
 
 Reasoning / knowledge:
 
@@ -40,12 +40,15 @@ Reasoning / knowledge:
 - HLE-Verified: **53.6%** (Google — leads comparison set incl. Terra 51.1)
 - CharXiv Reasoning (no tools): **84.5%** (Google — slight **loss** vs 3.6 85.2); with tools 88.7 (3.6 89.4)
 - GDP.pdf (expert PDF): **34.0%** (Google — leads set)
-- GPQA Diamond / MMLU-Pro / AIME: no verified public score found (AA gap per eesel)
+- GPQA Diamond: **94.5%** (BenchmarkList 2026-10-06, rank 5/468 — **fills the former GPQA gap**); MMLU-Pro / AIME: no verified public score found (AA gap per eesel)
+- ARC-AGI-2: **84.6%** (rank 8/99); ARC-AGI-1: **95.5%** (rank 12/97); AIIQ Composite IQ **128 (19/147)**; HLE (all rows): **47.9%** (rank 17/478) alongside HLE-Verified 53.6% (BenchmarkList 2026-10-06)
 
 Coding:
 
-- DeepSWE v1.1: **65.3%** (Google/AA table; vs 3.6 48.6/49.0, Sonnet 5 53.8, Muse 54.9; **Terra 69.6 ahead**)
-- FrontierCode 1.1 Main: **43.6%** (Google — **top of comparison set** vs Sonnet 5 42.7, Terra 41.3)
+- DeepSWE v1.1: **65.5%** (BenchmarkList 2026-10-06, rank 25/52; Google/AA table cited 65.3 — vs 3.6 48.6/49.0, Sonnet 5 53.8, Muse 54.9; **Terra 69.6 ahead**)
+- FrontierCode 1.1 Main: **43.6%** (Google — **top of comparison set** vs Sonnet 5 42.7, Terra 41.3; BenchmarkList rank 15/36)
+- SciCode: **59.8%** (BenchmarkList, rank 7/296 — supersedes AA-SciCode 57.2); CursorBench 3.2: **61.6%** (rank 9/17); ProgramBench: **61.2% raw** (rank 13/37)
+- OSWorld 2.0: **50.6%** (BenchmarkList, rank 11/24 — updated from the 47.9% launch row)
 - Code Arena (WebDev Elo): **1588** (Google — leads set)
 - AA Coding Index: **76.1** (BenchLM); AA-SciCode **57.2**; FrontierSWE v2 **20.3** (BenchLM — weak harder SWE)
 - LiveCodeBench (Vals): **88.7**; SWE-bench (Vals): **80.8** (Vals platform — harness-specific)
@@ -53,7 +56,7 @@ Coding:
 
 Long context:
 
-- **1M / ~65K out**; **GDM-MRCR v2 @128k: 97.0%** (Google — **leads comparison set** incl. Terra 93.5, 3.6 91.8)
+- **1M / ~65K out**; **GDM-MRCR v2 @128k: 97.0%** (Google — **rank 1 of 20** on BenchmarkList's MRCR-v2 board, 2026-10-06, confirming the lead incl. Terra 93.5, 3.6 91.8); **AA-LCR 83.0%** (rank 16/408); Context Arena (GDM-MRCRv2) high 83.0% (1/30) / medium 79.6% (2/20) / low 74.5% (3/31)
 
 Multimodal:
 
@@ -62,17 +65,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 86/100.** TB2.1 **85.8** (AA/Google) solid; AutomationBench 30.4 and OSWorld 47.9 mid-high; **TB3.0 14.9 / TB4.0 13.6** low on hardest terminal variants; GDPval 1525 trails Terra/Muse/Sonnet — strong Flash-tier tools, not Sol/Opus-5 class.
-- **Reasoning: 88/100.** AA Intelligence Index **56** (high) is excellent for Flash tier (beats Sonnet 5 55, nearly Terra 57); HLE-Verified **53.6 leads set**; missing GPQA/MMLU/AIME independent rows + CharXiv slight regression → high but not fully instrumented.
+- **Reasoning: 89/100.** AA Intelligence Index **56** (high, BenchmarkList rank 12/427) is excellent for Flash tier (beats Sonnet 5 55, nearly Terra 57); HLE-Verified **53.6 leads set** (47.9 all-tools row rank 17/478); **GPQA 94.5% now measured (rank 5/468)** and ARC-AGI-2 84.6 fill the former gaps; CharXiv slight regression and missing MMLU-Pro/AIME still cap the low 90s.
 - **Context window: 97/100.** Full **1M** with **MRCR 97.0% @128k** (best in Google's comparison) — top-tier long-context quality, not just sticker.
 - **Multimodal: 90/100.** Text+image+audio+PDF in (meta) + LVBench 85.4 + GDP.pdf 34.0 + CharXiv 84.5 — upper multimodal band (video via LVBench path strengthens it).
 - **Coding: 86/100.** DeepSWE **65.3** (+17 vs 3.6), FrontierCode Main **43.6 (set leader)**, Code Arena 1588, Coding Index 76.1 — best-in-class Flash coding; **Terra still wins DeepSWE 69.6 and TB**; FrontierSWE v2 20.3 is a soft spot; no official SWE-V row.
 - **Cost efficiency: 96/100.** **$0.75/$3.75 intro + free AI Studio/Zen tier + batch $0.375/$1.88** is elite intelligence-per-dollar (AA 56 at ¼ Terra input); not 100 because **intro expires 2026-12-31 (doubles 2027-01-01)** — plan at $1.50/$7.50 for long-term unit economics (still cheaper than Sonnet 5/Terra list).
-- **Overall Score: 89/100.** Mean of five quality dims (86+88+97+90+86)/5 = 89.4 → **89**. Matches peer `average.md` Overall **89.5**. Best-fit: free/cheap multimodal workhorse for coding agents, long-context PDF/video analysis, and web dev — take **GPT-5.6 Terra** when long-horizon terminal/SWE-Pro must maximize; lock intro pricing before 2027-01-01 or budget the doubled rate.
+- **Overall Score: 89.6/100.** Mean of five quality dims (86+89+97+90+86)/5 = 448/5 = 89.6. Best-fit: free/cheap multimodal workhorse for coding agents, long-context PDF/video analysis, and web dev — take **GPT-5.6 Terra** when long-horizon terminal/SWE-Pro must maximize; lock intro pricing before 2027-01-01 or budget the doubled rate.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (deepmind.google/models/model-cards/gemini-3-7-flash, blog.google Gemini 3.7 Flash intro, emergent.sh benchmark digest, eesel.ai review with full Google 21-row table + caveats, AI Atlas pricing/AA rows, BenchLM composite, techjournal launch note); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
+- Method: public internet research (deepmind.google/models/model-cards/gemini-3-7-flash, blog.google Gemini 3.7 Flash intro, emergent.sh benchmark digest, eesel.ai review with full Google 21-row table + caveats, AI Atlas pricing/AA rows, BenchLM composite, techjournal launch note); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (56 benchmarks) — **filled GPQA (94.5 rank 5/468)** and Tau3 (35.5), added ARC-AGI-1/2, BrowseComp, AA-LCR 83.0, Context Arena, SciCode 59.8, OSWorld 50.6, DeepSWE 65.5; Reasoning 88→89, Overall 89.4→89.6. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
