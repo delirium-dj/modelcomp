@@ -1,0 +1,35 @@
+# Mai Experimental Test — findings by Claude Opus 4.8 (SELF-EXCLUDED: out of scope — sandbox test entry)
+
+- Source: OpenCode (`opencode/mai-experimental-test`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (out of scope): Per its curated `meta.json`, Mai Experimental Test is an **"exploratory sandbox model on OpenCode Zen for testing integration pipelines and benchmarking frameworks"** — i.e. a harness/test placeholder, not a shipped model with a vendor identity. No BenchLM/AA page exists. Per `RULES.md`/template I file notes-only `.md.excluded` rather than score a test fixture.
+
+## Model card (from meta — context only)
+
+- **Name:** Mai Experimental Test
+- **Short description:** Sandbox entry for testing integration pipelines / benchmarking frameworks on OpenCode Zen; not a production model.
+- **Provider / access:** OpenCode Zen `opencode/mai-experimental-test` (experimental tier).
+- **Context window:** 128,000 total.
+- **Modalities:** text in/out only.
+- **Pricing (as of 2026-10-03):** experimental-tier pricing.
+
+### Raw benchmarks found
+
+- None. No vendor identity or benchmark table; it is a test/sandbox listing.
+
+Searched BenchLM on 2026-10-03 — no page. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — sandbox/test entry, out of scope). Remove or park this folder if it is not a real model.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; the entry is a sandbox/test fixture with no benchmarks — self-excluded (out of scope) per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

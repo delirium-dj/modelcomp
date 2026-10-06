@@ -1,0 +1,34 @@
+# Hy3 (Tencent Hunyuan) — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified benchmarks located)
+
+- Source: Tencent (`tencent/hy3`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: Hy3 is a **real** Tencent Hunyuan open-weight MoE (per its detailed, non-scaffolded `meta.json`: 295B total / 21B active, 256K context, hybrid fast/slow thinking, Apache 2.0, text+image in). However, my research could **not locate verified public benchmark rows** at the sources used — BenchLM returned 404 across every slug tried (`hunyuan-3`, `hunyuan-4`, `hunyuan-large`, `hunyuan-a21b`), and no Artificial Analysis page was found under the `hy3`/Hunyuan names. Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores. This is a "benchmarks-not-found" exclusion, **not** a stealth-model exclusion — it should be re-attempted once the correct benchmark slug/source is identified.
+
+## Model card (from meta — specs curated, benchmarks unverified)
+
+- **Name:** Hy3 (Hunyuan)
+- **Short description:** Tencent's open-weight Hunyuan MoE (295B total / 21B active) with 256K context and hybrid fast-and-slow thinking, Apache 2.0 licensed; the full July-2026 release (preview in `../hy3-preview/`).
+- **Provider / access:** Tencent; TokenHub preview; OpenCode Zen `tencent/hy3`. No Zen Free ID.
+- **Context window:** 256,000 (256K) / 32K out.
+- **Modalities:** text + image in; text out.
+- **Pricing (as of 2026-10-03):** TokenHub preview ~$0.18/$0.59 per 1M.
+- **Architecture:** 295B total / 21B active open-weight MoE.
+
+### Raw benchmarks found
+
+- τ²-bench / SWE-bench / Terminal-Bench / AA Index / AA-LCR / MMMU-Pro: no verified public row located (BenchLM 404 on all tried slugs; no AA page found)
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — benchmarks not located). A strong-spec model that merits a future scored pass once a verified benchmark source/slug is identified.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; specs are curated/real, but no verified public benchmarks were locatable at the sources used — self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

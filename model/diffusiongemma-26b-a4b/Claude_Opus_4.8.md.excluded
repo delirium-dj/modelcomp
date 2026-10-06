@@ -1,0 +1,33 @@
+# Diffusiongemma 26B A4B — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Google (`opencode/diffusiongemma-26b-a4b`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research surfaced **no verified public benchmark numbers** for Diffusiongemma 26B A4B (BenchLM 404; no Artificial Analysis page; the curated `meta.json` is explicitly `"scaffolded": true`). Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores. (It appears to be an experimental diffusion-based Gemma MoE; the standard autoregressive `gemma-4.26b-a4b` is scored in its own folder — do not conflate.)
+
+## Model card (from stub only — not benchmark-verified)
+
+- **Name:** Diffusiongemma 26B A4B
+- **Short description:** Scaffolded entry (`"scaffolded": true`) for an apparent diffusion-based Gemma 26B/A4B variant. Curated `meta.json` is a placeholder (128K / text in-out / standard); no vendor card verified here.
+- **Provider / access:** OpenCode Zen `opencode/diffusiongemma-26b-a4b`.
+- **Context window / modalities / pricing:** no verified public values.
+
+### Raw benchmarks found
+
+- τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/diffusiongemma-26b-a4b`) on 2026-10-03 — 404. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research found no verified public benchmarks (scaffolded stub; BenchLM 404); self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

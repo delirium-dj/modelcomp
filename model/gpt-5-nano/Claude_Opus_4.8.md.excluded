@@ -1,0 +1,34 @@
+# GPT 5 Nano — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: OpenAI (`opencode/gpt-5-nano`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research surfaced **no verified public benchmark numbers** for GPT-5 nano (BenchLM lists 0 of 649, "coming soon"). Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent five dimension scores.
+
+## Model card (from BenchLM/meta only — not benchmark-verified)
+
+- **Name:** GPT 5 Nano
+- **Short description:** OpenAI's smallest GPT-5 reasoning tier (2025). Curated `meta.json` is a scaffold stub (128K / text in-out / standard); BenchLM reports 400K context, reasoning.
+- **Provider / access:** OpenAI API (`gpt-5-nano`); OpenCode Zen `opencode/gpt-5-nano`.
+- **Context window:** BenchLM 400K (stub lists 128K).
+- **Modalities / pricing:** no verified public values for this exact model.
+
+### Raw benchmarks found
+
+- Terminal-Bench / τ²-bench / SWE-bench / LiveCodeBench / GPQA / HLE / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/gpt-5-nano`) on 2026-10-03 — 0 of 649 benchmarks ("coming soon"). Insufficient to score; no scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` once GPT-5 nano has enough verified public benchmarks to compute all five quality dims.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research (BenchLM) found no verified public benchmarks; self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

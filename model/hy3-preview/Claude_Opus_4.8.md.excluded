@@ -1,0 +1,33 @@
+# Hy3 Preview (Tencent Hunyuan) — findings by Claude Opus 4.8 (SELF-EXCLUDED: superseded preview, no verified benchmarks)
+
+- Source: Tencent (`tencent/hy3-preview`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: Hy3 Preview is Tencent's April-2026 **preview** of the Hunyuan Hy3 MoE (295B/21B, 256K), explicitly **"superseded by the full July 2026 release"** (`../hy3/`). No verified public benchmark rows were locatable (BenchLM 404 across `hunyuan-3`/`hunyuan-4`/`hunyuan-large`/`hunyuan-a21b`; no AA page). Per `RULES.md`/template I file notes-only `.md.excluded`; the superseding full release (`hy3`) is the one to score once a benchmark source is found.
+
+## Model card (from meta — specs curated, benchmarks unverified)
+
+- **Name:** Hy3 Preview (Hunyuan)
+- **Short description:** Tencent's April-2026 preview of the Hy3 Hunyuan MoE (295B/21B, 256K context), superseded by the full July-2026 `hy3` release.
+- **Provider / access:** Tencent; TokenHub preview; OpenCode Zen `tencent/hy3-preview`. No Zen Free ID.
+- **Context window:** 256,000 (256K) / 32K out.
+- **Modalities:** text + image in; text out.
+- **Pricing (as of 2026-10-03):** TokenHub preview ~$0.18/$0.59 per 1M.
+
+### Raw benchmarks found
+
+- None locatable (BenchLM 404 on all tried slugs; no AA page). Superseded preview SKU.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — superseded preview; benchmarks not located). Prefer scoring the full `hy3` release.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; superseded preview with no locatable verified benchmarks — self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

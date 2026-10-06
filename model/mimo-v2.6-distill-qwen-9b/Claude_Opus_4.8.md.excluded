@@ -1,0 +1,33 @@
+# MiMo V2.6 Distill Qwen 9B — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Xiaomi (`opencode/mimo-v2.6-distill-qwen-9b`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research surfaced **no verified public benchmark numbers** for the MiMo V2.6 distillation into Qwen-9B (BenchLM 404; no Artificial Analysis page). Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores or borrow from MiMo V2.6 Flash/Pro (distinct, larger SKUs — a 9B distill would not share their scores).
+
+## Model card (unverified)
+
+- **Name:** MiMo V2.6 Distill Qwen 9B
+- **Short description:** A ~9B Qwen-based distillation of Xiaomi's MiMo V2.6. No vendor benchmark table located for this exact distilled SKU.
+- **Provider / access:** OpenCode Zen `opencode/mimo-v2.6-distill-qwen-9b`; likely open weights.
+- **Context window / modalities / pricing:** no verified public values for this exact SKU.
+
+### Raw benchmarks found
+
+- τ²-bench / SWE-bench / AA Index / AA-LCR / MMMU-Pro: no verified public score found for the 9B distill
+
+Searched BenchLM (`/models/mimo-v2-6-distill-qwen-9b`) on 2026-10-03 — 404. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on verified public benchmarks for this exact SKU.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research found no verified public benchmarks for the 9B distill (BenchLM 404); self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

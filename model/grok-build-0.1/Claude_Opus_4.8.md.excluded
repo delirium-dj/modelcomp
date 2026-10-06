@@ -1,0 +1,34 @@
+# Grok Build 0.1 — findings by Claude Opus 4.8 (SELF-EXCLUDED: insufficient verified benchmarks)
+
+- Source: xAI (`opencode/grok-build-0.1`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (insufficient coverage): BenchLM lists Grok Build 0.1 with only **1 of 649 benchmarks** — a single Gert Labs agentic row (49.15%) — and **no public overall score (unranked)**; no Artificial Analysis page. One agentic data point cannot responsibly populate the reasoning, context, multimodal, and coding dimensions, so per `RULES.md`/template I file notes-only `.md.excluded` rather than extrapolate a 5-dimension score from a single number.
+
+## Model card (partially verified)
+
+- **Name:** Grok Build 0.1
+- **Short description:** An early "Build" (likely agentic-coding) model from xAI; non-reasoning, 256K context per BenchLM. Only one public benchmark row exists so far.
+- **Provider / access:** xAI; OpenCode Zen `opencode/grok-build-0.1`.
+- **Context window:** 256K (BenchLM; curated stub says 128K — **flag**).
+- **Modalities / pricing:** no verified public values beyond the single row.
+
+### Raw benchmarks found
+
+- Gert Labs **49.15%** (sole row); τ²-bench / SWE-bench / Terminal-Bench / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM (`/models/grok-build-0-1`) on 2026-10-03 — present, 1 row, unranked. No scored report produced (insufficient coverage).
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — insufficient verified benchmarks: single row). Replace with a future `Claude_Opus_4.8.md` once multi-dimension coverage is published.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research found only one benchmark row (BenchLM 1/649, unranked); self-excluded for insufficient coverage per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,33 @@
+# GLM 5.3 FlashX — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Zhipu AI (`opencode/glm-5.3-flashx`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: My independent research surfaced **no verified public benchmark numbers** for GLM 5.3 FlashX (BenchLM 404; no Artificial Analysis page; curated `meta.json` is explicitly `"scaffolded": true`). Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores or borrow from GLM 5.3 Flash (`../glm-5.3-flash/`, a distinct SKU scored separately).
+
+## Model card (from stub only — not benchmark-verified)
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Scaffolded entry (`"scaffolded": true`) for an apparent speed-optimized "FlashX" variant of GLM 5.3 Flash. Curated `meta.json` is a placeholder (128K / text in-out / standard); no vendor card verified here.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.3-flashx`.
+- **Context window / modalities / pricing:** no verified public values for this exact SKU.
+
+### Raw benchmarks found
+
+- τ²-bench / SWE-bench / Terminal-Bench / AA Index / AA-LCR: no verified public score found for the FlashX SKU
+
+Searched BenchLM (`/models/glm-5-3-flashx`) on 2026-10-03 — 404. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — no verified public benchmarks). Replace only with a future `Claude_Opus_4.8.md` built on verified public benchmarks for this exact SKU.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research found no verified public benchmarks (scaffolded stub; BenchLM 404); self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,33 @@
+# Omen Alpha — findings by Claude Opus 4.8 (SELF-EXCLUDED: stealth alpha, no verified benchmarks)
+
+- Source: unpublished vendor (`opencode/omen-alpha`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: Omen Alpha is a stealth/"alpha" OpenCode Zen listing with a scaffold-stub `meta.json` (128K / text in-out / standard) and **no disclosed vendor identity**. BenchLM/AA have no page for it, and no official benchmark table exists. Per `RULES.md`/template I file notes-only `.md.excluded` rather than invent scores.
+
+## Model card (from stub only — not benchmark-verified)
+
+- **Name:** Omen Alpha
+- **Short description:** Stealth "alpha" listing; curated `meta.json` is a placeholder (128K / text in-out / standard). No vendor card verified.
+- **Provider / access:** OpenCode Zen `opencode/omen-alpha`.
+- **Context window / modalities / pricing:** no verified public values.
+
+### Raw benchmarks found
+
+- τ²-bench / SWE-bench / AA Index / MMMU-Pro: no verified public score found
+
+Searched BenchLM on 2026-10-03 — no page. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — stealth alpha, no verified benchmarks). Replace once the vendor and dedicated benchmarks are published.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research found no verified public benchmarks (stealth alpha, stub); self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

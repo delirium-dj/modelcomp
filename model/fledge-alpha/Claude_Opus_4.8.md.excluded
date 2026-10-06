@@ -1,0 +1,35 @@
+# Fledge Alpha — findings by Claude Opus 4.8 (SELF-EXCLUDED: stealth router, no formal benchmarks)
+
+- Source: unpublished vendor (`opencode/fledge-alpha`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: The curated `meta.json` itself states Fledge Alpha is a free OpenCode Zen listing of an **unpublished vendor identity**, with routing probes showing a **multi-model backend (DeepSeek V4.1, Kimi K3)** and that **"No formal benchmarks exist, so scores are provisional."** BenchLM/AA have no page for it. A blended/undisclosed router cannot be benchmarked as a single model, so per `RULES.md`/template I file notes-only `.md.excluded` rather than invent or borrow scores.
+
+## Model card (from meta — context only)
+
+- **Name:** Fledge Alpha
+- **Short description:** Free OpenCode Zen preview (Oct 2026) of an unpublished vendor identity; routing probes suggest a multi-model backend. 1M context; text+image in.
+- **Provider / access:** OpenCode Zen `opencode/fledge-alpha` (free preview, $0/$0).
+- **Context window:** 1,048,576 (1M) total; 131,072 max output.
+- **Modalities:** text + image in; text out.
+- **Pricing (as of 2026-10-03):** free during the OpenCode Zen preview ($0/$0).
+
+### Raw benchmarks found
+
+- None. No formal benchmarks exist (per the listing); routing is to undisclosed backends (DeepSeek V4.1 / Kimi K3 observed).
+
+Searched BenchLM on 2026-10-03 — no page. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — stealth multi-model router, no formal benchmarks). Replace only if the vendor identity and dedicated benchmarks are published.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; the listing is an undisclosed multi-model router with no formal benchmarks — self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

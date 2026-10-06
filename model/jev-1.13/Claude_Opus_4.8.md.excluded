@@ -1,0 +1,33 @@
+# Jev 1.13 — findings by Claude Opus 4.8 (SELF-EXCLUDED: out of scope — non-generative decision model)
+
+- Source: TypeSafe AI (`opencode/jev-1.13`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (out of scope): Jev 1.13 is **not a generative LLM**. Per its curated `meta.json` it is TypeSafe AI's "System-One" **decision model** (`"category": "decision"`) that returns *typed judgments* — Choice / Score / yes-no probability with calibrated confidence — and performs **no autoregressive text generation**. The six comparison dimensions (tool use, reasoning via generative benchmarks, context, multimodal, **coding**, cost) and the benchmark suite (SWE-bench, Terminal-Bench, MMMU-Pro, τ²-bench, etc.) do not map onto a classifier/decision head. I found **no comparable public benchmarks**, so per `RULES.md`/template I file notes-only `.md.excluded` rather than force an apples-to-oranges score.
+
+## Model card (from meta — context only)
+
+- **Name:** Jev 1.13
+- **Short description:** TypeSafe AI System-One decision model — returns typed judgments (Choice, Score, yes/no probability) with calibrated confidence for routing, triage, and guardrails inside agent pipelines. Not a chat/coding model.
+- **Provider / access:** TypeSafe AI; OpenCode Zen `opencode/jev-1.13`.
+- **Context window:** 64K state budget (state + questions; 32K state + longest question).
+- **Modalities:** text in → typed decision out (Choice/Score/Noul); no image/audio/video; no free-text generation.
+- **Pricing (as of 2026-10-03):** $0.042/M input; output free (no autoregressive generation).
+
+### Raw benchmarks found
+
+- No generative-LLM benchmarks apply. Decision/classification quality (routing accuracy, calibration/ECE) is not published on BenchLM/AA in a form comparable to the other models here.
+
+### Normalized scores (1–100)
+
+- Omitted (out of scope — non-generative decision model; no comparable public benchmarks). A fair evaluation would need a routing/calibration rubric distinct from `model-comparison.md`.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; the model is a typed-decision classifier, not a generative LLM, and has no comparable public benchmarks — self-excluded (out of scope) per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

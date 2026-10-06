@@ -1,0 +1,35 @@
+# Pareto 26.10 Preview — findings by Claude Opus 4.8 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Unbiased (`opencode/pareto-26.10-preview`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: The curated `meta.json` itself states Pareto 26.10 Preview is Unbiased's **composite/blended multimodal preview** and that it has **"no verified public benchmark scores yet, so it carries no average."** A blended/composite preview with no published per-model benchmarks cannot be scored on the single-model rubric, so per `RULES.md`/template I file notes-only `.md.excluded`.
+
+## Model card (from meta — context only)
+
+- **Name:** Pareto 26.10 Preview
+- **Short description:** Unbiased's composite/blended multimodal preview for research, coding and agents; no verified public benchmarks yet (carries no average by design).
+- **Provider / access:** Unbiased; OpenCode Zen `opencode/pareto-26.10-preview`. No Zen Free ID.
+- **Context window:** 1,000,000 in; 131,000 max output.
+- **Modalities:** text + image in; text out.
+- **Pricing (as of 2026-10-03):** $0.80/$3.20 per 1M (cached $0.03).
+
+### Raw benchmarks found
+
+- None. Composite/blended preview; no verified public benchmark rows (per the listing).
+
+Searched BenchLM on 2026-10-03 — no scored page. No scored report produced.
+
+### Normalized scores (1–100)
+
+- Omitted (self-excluded — composite preview, no verified public benchmarks). Replace once dedicated, verifiable benchmarks are published.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.8 (anthropic/claude-opus-4.8)** — 2026-10-03
+- Method: public internet research; blended composite preview with no verified public benchmarks — self-excluded per `RULES.md`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
