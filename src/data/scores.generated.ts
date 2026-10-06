@@ -14,6 +14,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   "Inkling": {
     "Big_Pickle.md": { tool: 70, reasoning: 75, context: 95, multimodal: 92, coding: 76, cost: 89, overall: 82 },
     "Claude_Opus_4.8.md": { tool: 68, reasoning: 76, context: 90, multimodal: 63, coding: 77, cost: 85, overall: 74.8 },
+    "Claude_Opus_5.md": { tool: 68, reasoning: 72, context: 90, multimodal: 88, coding: 76, cost: 90, overall: 78.8 },
     "DeepSeek_4.1_Flash.md": { tool: 72, reasoning: 80, context: 92, multimodal: 74, coding: 74, cost: 80, overall: 78.4 },
     "DeepSeek_4_Flash.md": { tool: 72, reasoning: 72, context: 92, multimodal: 76, coding: 72, cost: 60, overall: 77 },
     "Fledge_Alpha.md": { tool: 68, reasoning: 75, context: 92, multimodal: 86, coding: 72, cost: 84, overall: 79 },
@@ -40,7 +41,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Qwen_3.8_27B.md": { tool: 68, reasoning: 74, context: 88, multimodal: 90, coding: 76, cost: 89, overall: 79 },
     "Qwen_3.8_Flash.md": { tool: 68, reasoning: 62, context: 90, multimodal: 75, coding: 72, cost: 95, overall: 73 },
     "Space_Bunny.md": { tool: 86, reasoning: 87, context: 95, multimodal: 87, coding: 87, cost: 72, overall: 88.4 },
-    "average.md": { tool: 76.7, reasoning: 83, context: 86.6, multimodal: 84.6, coding: 80.3, cost: 84, overall: 82.2 },
+    "average.md": { tool: 76.3, reasoning: 82.2, context: 86.4, multimodal: 86, coding: 80.5, cost: 85, overall: 82.3 },
   },
   "big-pickle": {
     "Big_Pickle.md": { tool: 40, reasoning: 55, context: 70, multimodal: 15, coding: 60, cost: 100, overall: 48 },
@@ -542,6 +543,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Big_Pickle.md": { tool: 82, reasoning: 84, context: 84, multimodal: 80, coding: 80, cost: 84, overall: 82 },
     "Claude_Opus_4.6.md": { tool: 70, reasoning: 72, context: 90, multimodal: 65, coding: 78, cost: 82, overall: 75 },
     "Claude_Opus_4.8.md": { tool: 76, reasoning: 76, context: 72, multimodal: 67, coding: 80, cost: 55, overall: 74.2 },
+    "Claude_Opus_5.md": { tool: 76, reasoning: 72, context: 70, multimodal: 68, coding: 80, cost: 38, overall: 73.2 },
     "Claude_Sonnet_4.6.md": { tool: 72, reasoning: 78, context: 95, multimodal: 65, coding: 73, cost: 55, overall: 77 },
     "DeepSeek_4.1_Flash.md": { tool: 86, reasoning: 78, context: 95, multimodal: 80, coding: 88, cost: 70, overall: 85 },
     "DeepSeek_4_Flash.md": { tool: 74, reasoning: 64, context: 72, multimodal: 72, coding: 80, cost: 60, overall: 72 },
@@ -2134,6 +2136,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   "gpt-5.6-luna": {
     "Big_Pickle.md": { tool: 82, reasoning: 84, context: 78, multimodal: 72, coding: 78, cost: 97, overall: 79 },
     "Claude_Opus_4.8.md": { tool: 85, reasoning: 86, context: 95, multimodal: 66, coding: 86, cost: 85, overall: 83.6 },
+    "Claude_Opus_5.md": { tool: 86, reasoning: 88, context: 95, multimodal: 70, coding: 88, cost: 90, overall: 85.4 },
     "DeepSeek_4.1_Flash.md": { tool: 70, reasoning: 58, context: 95, multimodal: 62, coding: 65, cost: 88, overall: 70 },
     "DeepSeek_4_Flash.md": { tool: 86, reasoning: 82, context: 96, multimodal: 78, coding: 88, cost: 95, overall: 86 },
     "Fledge_Alpha.md": { tool: 78, reasoning: 76, context: 93, multimodal: 65, coding: 78, cost: 95, overall: 78 },
@@ -2159,7 +2162,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Qwen_3.8_27B.md": { tool: 80, reasoning: 86, context: 95, multimodal: 70, coding: 88, cost: 93, overall: 84 },
     "Qwen_3.8_Flash.md": { tool: 80, reasoning: 76, context: 92, multimodal: 68, coding: 85, cost: 90, overall: 80 },
     "Space_Bunny.md": { tool: 91, reasoning: 87, context: 99, multimodal: 78, coding: 90, cost: 96, overall: 89 },
-    "average.md": { tool: 81.1, reasoning: 80.5, context: 89.5, multimodal: 72.6, coding: 81.6, cost: 91.2, overall: 81.2 },
+    "average.md": { tool: 81.8, reasoning: 81.5, context: 90.3, multimodal: 72.8, coding: 82.5, cost: 92.6, overall: 81.9 },
   },
   "gpt-5.6-sol": {
     "Big_Pickle.md": { tool: 88, reasoning: 92, context: 90, multimodal: 84, coding: 86, cost: 45, overall: 88 },

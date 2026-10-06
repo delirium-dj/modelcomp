@@ -64,9 +64,9 @@
 82.7 gpt-5
 82.7 gpt-5.1
 82.7 pareto-26.10-preview
-82.2 Inkling
+82.3 Inkling
+81.9 gpt-5.6-luna
 81.5 claude-opus-4.5
-81.2 gpt-5.6-luna
 80.9 qwen-3.7-max
 80.8 gpt-6-luna
 80.6 qwen-3.5
