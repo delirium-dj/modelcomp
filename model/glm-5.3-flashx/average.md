@@ -19,3 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 5, GLM 5.3 Flash.
 - Average from top 2 by Overall Score: Claude Opus 5, GLM 5.3 Flash.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite.
