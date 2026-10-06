@@ -6,6 +6,7 @@ import {
   normName,
   stemToKey,
   labelOf,
+  formatGptLabel,
   resolveSourceMeta,
   SLUG_VERSION_EXCEPTION,
   normalizeSlug,
@@ -197,5 +198,38 @@ describe("scaffolded stub stamp (GLM53F_IMP #9)", () => {
     assert.equal(metaNameIsSlugGuess(stub, "ox_alpha"), true);
     assert.equal(metaNameIsSlugGuess({ ...stub, name: "Ox Alpha (GLM)" }, "ox_alpha"), false);
     assert.equal(metaNameIsSlugGuess(undefined, "ox_alpha"), false);
+  });
+});
+
+describe("formatGptLabel (official OpenAI hyphen style)", () => {
+  it("hyphenates GPT + version (never 'GPT 5.6 Terra')", () => {
+    assert.equal(formatGptLabel("GPT 5.6 Terra"), "GPT-5.6 Terra");
+    assert.equal(formatGptLabel("GPT 5"), "GPT-5");
+    assert.equal(formatGptLabel("GPT 6 Sol"), "GPT-6 Sol");
+  });
+
+  it("hyphenates GPT-OSS", () => {
+    assert.equal(formatGptLabel("GPT OSS 120B"), "GPT-OSS 120B");
+  });
+
+  it("leaves non-GPT and voice product names alone", () => {
+    assert.equal(formatGptLabel("Gemini 3.6 Flash"), "Gemini 3.6 Flash");
+    assert.equal(formatGptLabel("GPT Realtime 2"), "GPT Realtime 2");
+  });
+
+  it("labelOf hyphenates GPT findings files", () => {
+    assert.equal(labelOf("GPT_5.6_Terra.md"), "GPT-5.6 Terra");
+    assert.equal(labelOf("GPT_OSS_120B.md"), "GPT-OSS 120B");
+  });
+
+  it("formatSlugGuess hyphenates GPT scaffolds", () => {
+    assert.equal(formatSlugGuess("gpt-5.6-terra"), "GPT-5.6 Terra");
+  });
+
+  it("resolveSourceMeta defaults to the hyphenated label", () => {
+    assert.deepEqual(resolveSourceMeta("GPT 5.5", {}, () => undefined), {
+      label: "GPT-5.5",
+      slug: undefined,
+    });
   });
 });

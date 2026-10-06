@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-5.1",
-  "name": "GPT 5.1",
+  "name": "GPT-5.1",
   "short": "OpenAI's Nov 2025 usability flagship revision of GPT-5 with adaptive Instant/Thinking variants; low-cost conversational generalist with 400K context.",
   "contextWindow": "400,000 total (128,000 out)",
   "modalities": "Text, image in; text out",

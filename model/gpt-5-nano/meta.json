@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-5-nano",
-  "name": "GPT 5 Nano",
+  "name": "GPT-5 Nano",
   "short": "OpenAI's fastest, cheapest GPT-5 tier (Aug 2025) for high-volume summarization, classification and device automation; legacy — OpenAI steers new speed-tier work to GPT-5.6 Luna.",
   "contextWindow": "400K total (128K max output)",
   "modalities": "Text, image in; text out; reasoning; tool calls",

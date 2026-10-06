@@ -17,6 +17,6 @@
 
 ## Agreement notes
 
-- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Astra, Kimi K3, Muse Spark 1.3.
-- Average from top 8 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Astra, Kimi K3, Muse Spark 1.3.
+- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, Kimi K3, Muse Spark 1.3.
+- Average from top 8 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, Kimi K3, Muse Spark 1.3.
 - Ignored below-gate rater(s): Big Pickle, Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, Laguna S 2.1, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny.

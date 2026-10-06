@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-oss-120b",
-  "name": "GPT OSS 120B",
+  "name": "GPT-OSS 120B",
   "short": "OpenAI's open-weights flagship reasoning MoE (117B total / 5.1B active, Apache 2.0, Aug 2025) running on a single 80GB GPU; best as a near-free self-hosted reasoning and coding workhorse.",
   "contextWindow": "128K total (131,072)",
   "modalities": "Text in/out only; reasoning; tool calls",

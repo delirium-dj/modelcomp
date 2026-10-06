@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-5.4-pro",
-  "name": "GPT 5.4 Pro",
+  "name": "GPT-5.4 Pro",
   "short": "OpenAI's top-performance Pro compute tier of the GPT-5.4 family for expert reasoning, math generalization, and deep research.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image in; text out",

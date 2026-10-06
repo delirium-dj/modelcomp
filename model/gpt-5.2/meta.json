@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-5.2",
-  "name": "GPT 5.2",
+  "name": "GPT-5.2",
   "short": "OpenAI's December-2025 Thinking-tier flagship family (Instant/Thinking/Pro) for professional knowledge work and multi-language code fixing.",
   "contextWindow": "400,000 (400K); 128K out",
   "modalities": "Text, image in; text out",

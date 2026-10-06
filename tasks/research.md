@@ -117,9 +117,17 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
        → `model/gemini-2.5-flash-lite/`, never a new
        `model/google-gemini-2.5-flash-lite/` folder). A vendor-prefixed *API
        route* is fine to cite inside a report — it just never becomes a
-       folder. A vendor-prefixed folder on disk is skipped entirely and
-       surfaced, never queued or written (same as hyphen variants).
-   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
+        folder. A vendor-prefixed folder on disk is skipped entirely and
+        surfaced, never queued or written (same as hyphen variants).
+      **Display-name check (GPT):** when the discovered model is an OpenAI GPT
+      model, its `meta.json` `name` and your report's Model-card `Name:` use the
+      hyphenated vendor style (`GPT-5.6 Terra`, `GPT-OSS 120B` — never
+      `GPT 5.6 Terra`; verified against openai.com model pages and the `gpt-5.x`
+      API IDs). The filename stem still uses underscores (`GPT_5.6_Terra.md`)
+      and the folder slug keeps version dots (`gpt-5.6-terra`) — only the
+      human-facing display name hyphenates. (`pnpm sync` FAILs the space form,
+      so a wrong name wastes the whole pass like a hyphen-versioned slug.)
+    2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), do NOT
       place it under `model/`. Production scope: park it (note it in your final
       summary, do not create or research it now). Full mode only: the parent is

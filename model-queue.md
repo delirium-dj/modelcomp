@@ -80,8 +80,8 @@
 78.5 grok-4-fast
 78.4 gemini-3.1-flash
 78.4 grok-4.1-fast
+78.2 glm-5.3
 78.1 gemma-4-31b
-78.1 glm-5.3
 77.3 glm-5.3-free
 76.9 gemini-2.5-flash
 76.9 union-alpha

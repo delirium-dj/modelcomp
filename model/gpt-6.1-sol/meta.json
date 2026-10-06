@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-6.1-sol",
-  "name": "GPT 6.1 Sol",
+  "name": "GPT-6.1 Sol",
   "short": "OpenAI's mid-tier GPT-6.1 upgrade replacing GPT-6 Sol, nearing Astra on agentic coding and computer use at ~one-fifth the token cost.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image in; text out",

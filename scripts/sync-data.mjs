@@ -114,7 +114,23 @@ const SOURCE_OVERRIDES = {
   // under three marketplace labels (confirmed 2026-10-02). Never scaffold
   // space-bunny-alpha/ or space-bunny-free/.
   "Space Bunny": { slug: "space-bunny" },
-  "GPT 5.6 Sol": { slug: "gpt-5.6-sol" },
+  // GPT display labels (official OpenAI style is hyphenated "GPT-5.x", never
+  // "GPT 5.x" — openai.com/index/gpt-5-1/, openai.com/index/gpt-4, API IDs
+  // like `gpt-5.4-2026-03-05`). Filename stems keep underscores
+  // (`GPT_5.6_Terra.md`, never renamed per RULES.md), so registry keys stay
+  // stem-derived (spaces) and only labels hyphenate — existing `?source=`
+  // deep links keep working. naming.mjs formatGptLabel() applies the same
+  // rule by default, so newly discovered GPT models need no entry here
+  // unless their slug differs; these entries pin slug + label explicitly.
+  "GPT 5.6 Terra": { label: "GPT-5.6 Terra", slug: "gpt-5.6-terra" },
+  "GPT 5.6 Luna": { label: "GPT-5.6 Luna", slug: "gpt-5.6-luna" },
+  "GPT 6 Sol": { label: "GPT-6 Sol", slug: "gpt-6-sol" },
+  "GPT 6 Astra": { label: "GPT-6 Astra", slug: "gpt-6-astra" },
+  "GPT 5.6 Sol": { label: "GPT-5.6 Sol", slug: "gpt-5.6-sol" },
+  "GPT 5": { label: "GPT-5", slug: "gpt-5" },
+  "GPT OSS 120B": { label: "GPT-OSS 120B", slug: "gpt-oss-120b" },
+  "GPT 5.5": { label: "GPT-5.5", slug: "gpt-5.5" },
+  "GPT 6 Luna": { label: "GPT-6 Luna", slug: "gpt-6-luna" },
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
 };
 

@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-6-sol",
-  "name": "GPT 6 Sol",
+  "name": "GPT-6 Sol",
   "short": "OpenAI's mainstream GPT-6 Sol tier below Astra, holding agentic-coder performance at ~50% below GPT-5.6 Sol prices.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image, file in; text out",

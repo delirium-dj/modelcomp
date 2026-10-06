@@ -11,8 +11,21 @@ export const normName = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 /** Findings-file stem -> source key, e.g. Gemini_3.6_Flash -> "Gemini 3.6 Flash". */
 export const stemToKey = (stem) => stem.replace(/_/g, " ");
 
+/**
+ * Display-label hyphenation for OpenAI GPT models. Official vendor style is
+ * hyphenated ("GPT-5.6 Terra", "GPT-OSS 120B" — see openai.com/index/gpt-5-1/,
+ * openai.com/index/gpt-4, API IDs like `gpt-5.4-2026-03-05`), never
+ * "GPT 5.6 Terra". Filename stems keep underscores (`GPT_5.6_Terra.md` —
+ * RULES.md permanence, files are never renamed) and registry keys stay
+ * stem-derived (spaces) so SourceKeys and `?source=` deep links never churn;
+ * only the human-facing label hyphenates. Non-GPT names (incl. voice product
+ * names like "GPT Realtime 2") pass through untouched.
+ */
+export const formatGptLabel = (label) =>
+  label.replace(/^GPT OSS(?=\s|$)/, "GPT-OSS").replace(/^GPT (?=\d)/, "GPT-");
+
 /** Findings filename -> Agreement-notes label. */
-export const labelOf = (file) => file.replace(/\.md$/, "").replace(/_/g, " ");
+export const labelOf = (file) => formatGptLabel(file.replace(/\.md$/, "").replace(/_/g, " "));
 
 /**
  * Resolve display label + model-page slug for a source key.
@@ -21,7 +34,7 @@ export const labelOf = (file) => file.replace(/\.md$/, "").replace(/_/g, " ");
  */
 export function resolveSourceMeta(key, overrides, catalogLookup) {
   const ov = overrides[key];
-  const label = ov?.label ?? key;
+  const label = ov?.label ?? formatGptLabel(key);
   const slug = ov?.slug ?? catalogLookup(normName(key)) ?? undefined;
   return { label, slug };
 }
@@ -91,7 +104,7 @@ export function vendorPrefixViolation(slug, slugs) {
  * the official vendor name — a human must replace it before it is trustworthy.
  */
 export function formatSlugGuess(slug) {
-  return slug
+  const guess = slug
     .split(/[-_]+/)
     .map((w) => {
       if (w.length === 0) return "";
@@ -99,6 +112,7 @@ export function formatSlugGuess(slug) {
       return w[0].toUpperCase() + w.slice(1);
     })
     .join(" ");
+  return formatGptLabel(guess);
 }
 
 /**

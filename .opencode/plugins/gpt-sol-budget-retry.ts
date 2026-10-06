@@ -2,7 +2,7 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// The stable part of the GPT 5.6 Sol pool error (Chinese for "no available channel").
+// The stable part of the GPT-5.6 Sol pool error (Chinese for "no available channel").
 // Full message looks like:
 //   "当前分组 default 下对于模型 gpt-5.6-sol 无可用渠道 (request id: ...)"
 // The request id changes every time, so we only match this stable fragment.

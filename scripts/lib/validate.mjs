@@ -121,5 +121,10 @@ export function checkMetaFile(slug, meta, required = META_REQUIRED) {
       `model/${slug}/meta.json: "name" must use spaces, never underscores (got "${meta.name}") — set the official vendor display name`,
     );
   }
+  if (typeof meta.name === "string" && (/^GPT \d/.test(meta.name) || /^GPT OSS(?=\s|$)/.test(meta.name))) {
+    messages.push(
+      `model/${slug}/meta.json: "name" must hyphenate the GPT prefix (official OpenAI style "GPT-5.6 Terra" / "GPT-OSS 120B", never with a space — got "${meta.name}")`,
+    );
+  }
   return messages;
 }

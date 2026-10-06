@@ -145,3 +145,23 @@ describe("checkMetaFile (meta gates, sync order)", () => {
     assert.deepEqual(checkMetaFile("s", meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
   });
 });
+
+describe("checkMetaFile (GPT display-name gate)", () => {
+  const REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"];
+  const good = { id: "a", name: "GPT-5.6 Terra", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p" };
+
+  it("passes hyphenated GPT names", () => {
+    assert.deepEqual(checkMetaFile("s", good, REQUIRED), []);
+    assert.deepEqual(checkMetaFile("s", { ...good, name: "GPT-OSS 120B" }, REQUIRED), []);
+  });
+
+  it("fails space-separated GPT names", () => {
+    const msgs = checkMetaFile("s", { ...good, name: "GPT 5.6 Terra" }, REQUIRED);
+    assert.equal(msgs.length, 1);
+    assert.match(msgs[0], /hyphenate the GPT prefix/);
+  });
+
+  it("leaves voice product names alone", () => {
+    assert.deepEqual(checkMetaFile("s", { ...good, name: "GPT Realtime 2" }, REQUIRED), []);
+  });
+});

@@ -65,7 +65,12 @@ below the hexagon. Do not add these fields until the UI override is built.
 `name` is shown verbatim across the site (cards, list, compare table, detail
 pages), so it must be the official vendor display name: spaces, never `_`
 (`pnpm sync` fails loudly on underscores in `name`), and exact vendor casing
-(`GPT OSS 120B`, not `Gpt Oss 120b`; `DeepSeek`, not `Deepseek`). `id` stays
+(`GPT-OSS 120B`, not `Gpt Oss 120b`; `DeepSeek`, not `Deepseek`). OpenAI GPT
+models always hyphenate the prefix: `GPT-5.6 Terra`, `GPT-5.5`, `GPT-OSS 120B`
+— never `GPT 5.6 Terra` (official style per openai.com model pages and the
+`gpt-5.x` API IDs; `pnpm sync` fails the space form). Filename stems keep
+underscores (`GPT_5.6_Terra.md`) and slugs keep version dots
+(`gpt-5.6-terra`) — only the display name hyphenates. `id` stays
 the provider ID (`opencode/<slug>`) and is never displayed.
 
 ```json

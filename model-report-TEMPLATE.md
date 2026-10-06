@@ -13,7 +13,7 @@
 
 ## Model card
 
-- **Name:** <Model Name, incl. "Free"-tier wording>
+- **Name:** <Model Name, incl. "Free"-tier wording; GPT models use the hyphenated vendor style, e.g. GPT-5.6 Terra — never "GPT 5.6 Terra">
 - **Short description:** 1–2 sentences: what it is, who makes it, top use case. Flag if it is a variant/alias of another entry.
 - **Provider / access:** <Host(s) with exact API ID, e.g. OpenCode Zen `opencode/<id>` or `https://<host>/v1/...`>. Note whether it is Chat Completions or Responses API.
 - **Release / knowledge:** <YYYY-MM-DD release; knowledge cutoff if known>
