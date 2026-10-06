@@ -1,0 +1,9 @@
+{
+  "id": "google/gemini-2.5-pro",
+  "name": "Gemini 2.5",
+  "short": "Google's Gemini 2.5 family flagship (served as `gemini-2.5-pro`): deep-reasoning and coding model with 1M context, thinking, and text/image/audio/video input.",
+  "contextWindow": "1,048,576 (1M)",
+  "modalities": "Text/image/audio/video in; text out (thinking on)",
+  "pricingNote": "$1.25/$10.00 per 1M (Google API; OpenRouter google/gemini-2.5-pro, verified 2026-10-04); legacy access-limited model per Gemini API docs",
+  "noFreeId": true
+}
