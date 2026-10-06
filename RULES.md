@@ -63,8 +63,28 @@ override.
   entirely (never queued, never written) and surfaces it for user-directed
    deletion. Removing a forbidden tier-duplicate folder is a sanctioned
    `model/<slug>/` removal, and only with explicit per-instance user sign-off
-   (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the
+   (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the    sync tripwire clears on the
    deletion commit itself). These exceptions never extend to real model folders.
+
+- **Vendor-prefix identity (absolute):** a leading vendor name is never part
+  of the slug. A folder named `<vendor>-<rest>` (e.g. `google-gemini-2.5-flash-lite`,
+  `openai-gpt-5.5`, `anthropic-claude-opus-4.8`) whose `<rest>` already exists
+  as a folder (`gemini-2.5-flash-lite`, …) is a forbidden duplicate, never a
+  new model: it must not be scaffolded, researched, or written to — always
+  strip the vendor prefix and check the unprefixed folder first (both trees
+  in full mode), then write into it. A research agent that encounters a
+  vendor-prefixed variant during audit skips it entirely (never queued, never
+  written) and surfaces it for user-directed deletion. Removing a forbidden
+  vendor-duplicate folder (merge contents into the canonical folder, then
+  remove it) is a sanctioned `model/<slug>/` removal alongside tier and hyphen
+  duplicates, and only with explicit per-instance user sign-off (pre-commit
+  bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the deletion
+  commit itself). A vendor-prefixed *API route* (e.g.
+  `opencode/google-gemini-2.5-flash-lite`) is still fine to cite as a provider
+  ID inside a report — it just never becomes a folder. Enforcement is
+  automatic: `pnpm sync` FAILs vendor-prefixed duplicates and writes nothing
+  for them (no `meta.json` scaffold, no `average.md`, no registry/score
+  input); the pre-commit hook blocks staging them.
 
 - **Slug identity (absolute):** version numbers use `.` not `-` (`gpt-5.5`,
   never `gpt-5-5`; `gemma-4.12b-unified`, never `gemma-4-12b-unified`).

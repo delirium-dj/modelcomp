@@ -49,6 +49,8 @@ import { quarantineReason } from "./lib/quarantine.mjs";
 import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
+  MERGED_MODEL_SLUGS,
+  mergedSlugMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -77,6 +79,7 @@ import {
   labelOf,
   resolveSourceMeta as resolveSourceMetaPure,
   hyphenVersionViolation,
+  vendorPrefixViolation,
   buildScaffoldMeta,
   isScaffoldStub,
   metaNameIsSlugGuess,
@@ -229,6 +232,31 @@ for (const slug of slugs) {
   }
 }
 
+// Merged + vendor-prefixed duplicate slugs (RULES.md vendor-prefix identity,
+// model/README.md merged-slug list): a folder that is a resurrected merged
+// slug or `<vendor>-<rest>` with `<rest>` on disk is a forbidden duplicate,
+// never a new model — fail loudly with the canonical destination instead of
+// cementing the duplicate. Beyond FAILing, sync cements nothing for them:
+// no meta.json scaffold, no average.md rewrite, no score-index / registry
+// input (same hardening as hyphen variants: a scaffolded stub would turn a
+// one-file misdrop into a look-alike model folder).
+const mergedSlugs = new Set();
+for (const slug of slugs) {
+  const canonical = MERGED_MODEL_SLUGS.get(slug);
+  if (canonical !== undefined) {
+    mergedSlugs.add(slug);
+    fail(mergedSlugMessage(slug, canonical));
+    continue;
+  }
+  const stripped = vendorPrefixViolation(slug, slugs);
+  if (stripped !== null) {
+    mergedSlugs.add(slug);
+    fail(
+      `model/${slug}/: vendor-prefixed duplicate — use "model/${stripped}/" instead (a leading vendor name is never part of the slug); merge into the canonical folder, never create a vendor-prefixed variant`,
+    );
+  }
+}
+
 const updatedAverages = [];
 // meta.json stubs still carrying sync's `scaffolded: true` stamp (GLM53F_IMP #9).
 const scaffoldStubs = [];
@@ -249,6 +277,7 @@ const scoreIndex = {};
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) continue; // forbidden duplicate — never a rater
+  if (mergedSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   try {
     const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
@@ -264,6 +293,8 @@ for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_fin
   if (!existsSync(rDir)) continue;
   for (const d of readdirSync(rDir)) {
     if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry
+    if (MERGED_MODEL_SLUGS.has(d)) continue; // forbidden duplicate — never the catalog entry
+    if (vendorPrefixViolation(d, slugs) !== null) continue; // forbidden duplicate — never the catalog entry
     const mPath = join(rDir, d, "meta.json");
     if (!existsSync(mPath)) continue;
     try {
@@ -292,6 +323,10 @@ function raterSlugFor(stem) {
 for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) {
     log(`  SKIP  model/${slug}/ (hyphen-version duplicate — merge into the dotted folder first; no files written)`);
+    continue;
+  }
+  if (mergedSlugs.has(slug)) {
+    log(`  SKIP  model/${slug}/ (merged/vendor-prefixed duplicate — merge into the canonical folder first; no files written)`);
     continue;
   }
   const dir = join(modelDir, slug);

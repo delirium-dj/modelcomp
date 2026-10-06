@@ -43,6 +43,19 @@ if [ -n "$hyphen_blocked" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged-and-deleted duplicate slugs (RULES.md vendor-prefix identity):
+# model/google-gemini-2.5-flash-lite/ was folded into
+# model/gemini-2.5-flash-lite/ on user order — block any staged addition
+# under it so the duplicate can never be re-cemented. Research/report under
+# model/gemini-2.5-flash-lite/ instead.
+merged_added="$(git diff --cached --name-only --diff-filter=A -z -- model/google-gemini-2.5-flash-lite | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$merged_added" ]; then
+  echo "BLOCKED by RULES.md: model/google-gemini-2.5-flash-lite/ is a merged duplicate of model/gemini-2.5-flash-lite/ — never recreate it:" >&2
+  printf '%s\n' "$merged_added" >&2
+  echo "Write into model/gemini-2.5-flash-lite/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 # Scratch lifecycle grace (user-signed 2026-09-29, mirrors sync tripwire):
 # files added to git < 7 days ago may be agent scratch — warn, allow.

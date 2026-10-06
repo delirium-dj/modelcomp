@@ -1,4 +1,4 @@
-# Gemini 2.5 Flash-Lite — findings by GPT 5.6 Luna
+# Gemini 2.5 Flash Lite — findings by GPT 5.6 Luna
 
 - Source: Google DeepMind/Gemini 2.5 Flash-Lite
 - Date: 2026-10-05 (UTC)

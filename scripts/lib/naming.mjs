@@ -56,6 +56,37 @@ export function hyphenVersionViolation(slug, exceptions = SLUG_VERSION_EXCEPTION
 }
 
 /**
+ * Vendor-prefix gate (see RULES.md vendor-prefix identity): a leading vendor
+ * name is never part of the slug. Returns the canonical slug when `slug` is
+ * `<vendor>-<rest>` and `rest` is a known folder, otherwise null.
+ * `slugs` is the on-disk folder list (or any known-slug list); matching is
+ * exact (case-sensitive, already normalized).
+ */
+export const VENDOR_PREFIXES = [
+  "google",
+  "openai",
+  "anthropic",
+  "meta",
+  "mistral",
+  "deepseek",
+  "alibaba",
+  "xai",
+  "microsoft",
+  "nvidia",
+  "cohere",
+];
+
+export function vendorPrefixViolation(slug, slugs) {
+  for (const vendor of VENDOR_PREFIXES) {
+    if (slug.startsWith(`${vendor}-`)) {
+      const rest = slug.slice(vendor.length + 1);
+      if (rest.length > 0 && slugs.includes(rest)) return rest;
+    }
+  }
+  return null;
+}
+
+/**
  * Auto-scaffolded meta.json display name: a slug guess (title-cased). NEVER
  * the official vendor name — a human must replace it before it is trustworthy.
  */

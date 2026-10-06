@@ -10,6 +10,8 @@ import {
   SLUG_VERSION_EXCEPTION,
   normalizeSlug,
   hyphenVersionViolation,
+  VENDOR_PREFIXES,
+  vendorPrefixViolation,
   formatSlugGuess,
   missingMetaFields,
   metaNameHasUnderscore,
@@ -119,6 +121,30 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("qwen-3.8-27b"), null);
     // Version 3.5 + 9B params: the "5-9" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-9b"), null);
+  });
+});
+
+describe("vendorPrefixViolation (RULES.md vendor-prefix identity)", () => {
+  it("flags google- prefix when the stripped slug exists", () => {
+    assert.equal(
+      vendorPrefixViolation("google-gemini-2.5-flash-lite", ["gemini-2.5-flash-lite", "google-gemini-2.5-flash-lite"]),
+      "gemini-2.5-flash-lite",
+    );
+  });
+
+  it("passes when the stripped slug is absent (a genuinely new name)", () => {
+    assert.equal(vendorPrefixViolation("google-new-model-xyz", ["gemini-2.5-flash-lite"]), null);
+  });
+
+  it("passes non-prefixed slugs and bare vendor names", () => {
+    assert.equal(vendorPrefixViolation("gemini-2.5-flash-lite", ["gemini-2.5-flash-lite"]), null);
+    assert.equal(vendorPrefixViolation("google", ["google"]), null);
+  });
+
+  it("covers the known vendor list", () => {
+    assert.ok(VENDOR_PREFIXES.includes("google"));
+    assert.ok(VENDOR_PREFIXES.includes("openai"));
+    assert.ok(VENDOR_PREFIXES.includes("anthropic"));
   });
 });
 

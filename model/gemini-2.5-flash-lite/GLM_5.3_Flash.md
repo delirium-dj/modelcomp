@@ -1,4 +1,4 @@
-# Gemini 2.5 Flash-Lite — findings by GLM 5.3 Flash
+# Gemini 2.5 Flash Lite — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-flash-lite`)
 - Date: 2026-10-05 (UTC)
@@ -33,12 +33,14 @@ Reasoning / knowledge:
 - GPQA Diamond: **62.5%** (rank 252/464); MMLU-Pro: **75.9%** (rank 156/312); HLE: **6.8%** (rank 234/466) (BenchmarkList)
 - Artificial Analysis Intelligence Index: **11.41** (rank 252/418, 40th pct) (BenchmarkList)
 - AA-LCR: **56.3%** (rank 161/409, 61st pct — decent long-context reasoning for its class) (BenchmarkList)
+- AIME 2025: **84.1%** (Google GA figures, June 2025, as widely reported — ported from duplicate-folder report 2026-09-27; vendor/custom-harness figure, kept separate from BenchmarkList rows above)
 - ARC-AGI / CritPt / Omniscience: no verified public score found
 
 Coding:
 
 - LiveCodeBench: **59.3%** (Requesty gemini-2.5-flash-lite model page benchmark chart, requesty.ai, aggregator data ~mid-2025) — fills the gap the 2026-09-18 pass marked "no verified public score found"
 - SWE-bench Verified: **31.6%** (anotherwrapper.com Claude Opus 4.5 vs Gemini 2.5 Flash-Lite comparison; LLMLearner independently lists 27.6) — fills the same marked gap; confirms weak repo-level agentic work
+- SWE-bench Verified (vendor GA figure): **~55.7%** (Google GA figures, June 2025 custom agent setup, as widely reported — ported from duplicate-folder report 2026-09-27; vendor/custom-harness figure, kept separate from measured rows above)
 - SciCode: **19.3%** (rank 353/458, 23rd pct) (BenchmarkList)
 - SWE-Pro / Vibe Code Bench: no verified public score found
 

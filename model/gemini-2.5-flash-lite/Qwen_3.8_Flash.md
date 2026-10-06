@@ -1,58 +1,74 @@
 # Gemini 2.5 Flash Lite — findings by Qwen 3.8 Flash
 
-- Source: Google / Gemini 2.5 Flash-Lite (`google/gemini-2.5-flash-lite`)
+- Source: Google DeepMind via OpenCode Zen listing (`opencode/google-gemini-2.5-flash-lite`; native model `gemini-2.5-flash-lite`)
 - Date: 2026-10-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Flash-Lite (efficiency tier)
-- **Short description:** Google's ultra-low-latency, ultra-cheap tier — a 1M-token multimodal-input model (text/image/audio/video/PDF in, text out) at ~$0.10 / $0.40 per 1M and ~390 tok/s, with an optional thinking budget (AIME 63.1%). It is a speed/cost play, not a quality one: LiveCodeBench ~34%, SimpleQA ~11% (weak grounding), and it lacks fine-tuning/batch. Galileo agent reads: Tool Selection 0.84 (good routing), Action Completion 0.47 (mid).
-- **Source provenance:** **BenchLM has no dedicated `gemini-2.5-flash-lite` page** (the slug redirects to the base `gemini-2.5-flash`, a different, higher-scoring variant — its numbers are *not* borrowed here). Scores are drawn from Galileo's Flash-Lite model-hub (citing Artificial Analysis, Google DeepMind and the Gemini 2.5 tech report, arXiv:2507.06261) plus curated `meta.json`, which agree on 1M window and multimodal input.
-- **Provider / access:** Google AI Studio / Gemini API / Vertex AI (`gemini-2.5-flash-lite`); OpenCode Zen. Free tier available.
-- **Release / knowledge:** Gemini 2.5 Flash-Lite GA; knowledge cutoff Jan 2025.
-- **IDs:** `google/gemini-2.5-flash-lite`.
-- **Context window:** 1,048,576 (1M) in / 65,535 (64K) out (curated meta and Galileo agree).
-- **Modalities:** Text, image, audio, video, PDF in; **text out only** (curated meta). No image/audio generation.
-- **Pricing (as of 2026-10-02):** ~$0.10 in / $0.40 out per 1M (blended ~$0.17); free tier with rate limits.
-- **Architecture:** proprietary sparse-MoE, hosted only; thinking budget toggle; search-augmentation + code-execution grounding.
+- **Name:** Gemini 2.5 Flash-Lite
+- **Short description:** OpenCode Zen listing of Gemini 2.5 Flash Lite, materially narrower than the native Google endpoint: the Zen listing caps context at **128K total** (vs the model's 1M native window) and serves **text-in / text-out** only (vs the native model's text+image+file+audio+video). Underlying weights are the same July-2025 GA budget-tier model (70ms TTFT #1 of 92, 240 tok/s #5 of 94, $0.10/$0.40 per 1M, cached $0.01). Benchmarks at this listing: GPQA 55.0%, SWE-V 22.0%, τ² airline 47.3%.
+- **Provider / access:** OpenCode Zen `opencode/google-gemini-2.5-flash-lite` (paid; no Free ID on this listing). Native endpoints also exist at Google AI Studio / Vertex / OpenRouter.
+- **Release / knowledge:** Preview 2025-06-17; GA July 2025; knowledge cutoff Jan 2025 (serenitiesai, re-verified 2026-09-14).
+- **IDs:** `opencode/google-gemini-2.5-flash-lite` (Zen); `gemini-2.5-flash-lite` (Google API).
+- **Context window:** **128K total** (Zen listing cap; scored tier). Native model 1M in / 66K out.
+- **Modalities:** **Text in / text out** on this Zen listing. The native model accepts text+image+file+audio+video, but this ID does not serve them. Reasoning (thinking, off by default on Lite); tool calls; JSON.
+- **Pricing (as of 2026-10-02):** $0.10 /M in, $0.40 /M out, cached $0.01 — matches serenitiesai provider table across ~20 providers. Cost excluded from Overall.
+- **Architecture:** proprietary (Google DeepMind); params undisclosed.
 
 ### Raw benchmarks found
 
-> Flash-Lite-specific figures from Galileo's model hub (citing Artificial Analysis, Google DeepMind, Gemini 2.5 tech report) fetched 2026-10-02; **no BenchLM 618-row normalisation exists for this variant**, so coverage is thin and mostly vendor/secondary.
+> Verified via qualifying `Kimi_K3.md` (serenitiesai aggregation + benchleader + llmboard + whichllmmodel, 2026-09-27).
+
+Agent / tool use:
+
+- τ²-bench Airline: **47.3%** (OpenRouter-measured, 75th of 93)
+- Galileo agent evals (ported from 2026-10-02 native-endpoint report): Tool Selection **0.84**, Action Completion **0.47**, Conversation efficiency 0.78
+- Terminal-Bench / τ³ / GDPval / Claw-Eval / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- AIME **63.1%** with thinking budget; FACTS ~**84%** correct but SimpleQA only **~11%** — retrieval/verification essential; base tier leans non-reasoning
-- Galileo agent evals: Conversation efficiency 0.78, Tool Selection 0.84, Action Completion 0.47
+- GPQA Diamond: **55.0%** (107th of 140)
+- MMLU-Pro: **63.0%**; MATH: **62.0%**; GSM8K: **83.0%**; ARC-AGI: **14.0%**
+- AIME **63.1%** with thinking budget (ported from 2026-10-02 native-endpoint report, Galileo hub citing Google DeepMind/tech report); FACTS ~**84%** correct but SimpleQA only **~11%** (same source)
+- Chatbot Arena ELO: **1230** (62nd of 74)
+- HLE / LCR / CritPt / AA Intelligence Index: no verified public score found
+- Omniscience Accuracy / Hallucination: no verified public score found
 
 Coding:
 
-- **LiveCodeBench ~34%** (0.34 pass) — the only coding read; no SWE-bench published for this tier
+- SWE-bench Verified: **22.0%** (57th of 67)
+- LiveCodeBench: **28.0%**; HumanEval+: **70.0%**
+- SciCode / Vibe / DeepSWE: no verified public score found
 
-Multimodal / long context:
+Long context / speed:
 
-- Text+image+audio+video+PDF input; **text-only output** (no generation benchmarks)
-- 1M input window / 64K output ceiling; no ≥98% MRCR reported for the Lite tier
-- Speed: ~390–392.8 tok/s, 0.29s time-to-first-token (throughput, not a quality dim)
+- **128K Zen listing cap**; native model is 1M but this ID does not serve it. No MRCR/RULER retrieval evidence at 128K.
+- **TTFT 70 ms (#1 of 92), 240 tok/s output (#5 of 94)** — speed is the model's genuine superpower
+- BenchLeader Index: **46.7 (#370)**
+
+Multimodal:
+
+- **Zen listing: text in / text out** — no image/audio/video served at this ID. Native model accepts all (would score 75–90 band), but that is a different endpoint.
 
 ### Normalized scores (1–100)
 
-> Derived from the raw numbers above using `model-comparison.md` v4 methodology. Overall = half-up mean of the five quality dims; Cost excluded. Thin/vendor-secondary coverage → evidence-limited dims scored conservatively.
+> Derived using `model-comparison.md` v4 methodology. Overall = half-up mean of the five quality dims; Cost excluded.
 
-- **Tool use: 50/100.** Galileo Tool Selection 0.84 shows good single-decision routing, but Action Completion 0.47 (and the base-2.5-Flash τ² signal being weak) mean multi-step agentic workflows fall short — a routing/classification tool-caller, not an autonomous agent.
-- **Reasoning: 48/100.** The thinking budget lifts AIME to 63.1% (respectable for a lite tier), but FACTS ~84% vs SimpleQA ~11% exposes very weak unaided factual recall, and the base model leans non-reasoning — a genuinely limited reasoning core.
-- **Context window: 86/100.** A real 1M input window (curated meta + Galileo agree) is in the ≥1M band, but the 64K output ceiling and no demonstrated ≥98% MRCR for the Lite tier keep it below the top of that band.
-- **Multimodal: 80/100.** Very broad multimodal **input** (text+image+audio+video+PDF) puts it high in the +video/PDF tier (75–90), but **text-only output** and no published modality-quality benchmarks for this tier cap the credit.
-- **Coding: 40/100.** LiveCodeBench ~34% is the only coding read and it is weak; no SWE-bench/agentic-code coverage, so an evidence-limited conservative score for an efficiency model not built for coding.
-- **Cost efficiency: 98/100.** ~$0.10 / $0.40 per 1M with a free tier is among the cheapest capable multimodal APIs available — the model's whole reason to exist. Cost is excluded from Overall.
-- **Overall Score: 61/100.** Mean of Tool 50, Reasoning 48, Context 86, Multimodal 80, Coding 40 = 60.8 → 61. Best fit: high-volume, latency/cost-critical pipelines — routing, classification, extraction, summarisation and simple multimodal ingest (audio/video/PDF) over huge contexts at ~10× lower cost; not for complex reasoning, factual answers (SimpleQA ~11%) or coding — pair it with retrieval/verification or a heavier model when accuracy matters.
+- **Tool use: 52/100.** τ² airline 47.3% is mid-band with working function calling. No harder agentic evidence (TB 2.1 / τ³ / GDPval all missing). Kimi 55; cohort 61.6 (inflated). −3 for τ² airline being a single sub-slice rather than a full agentic profile.
+- **Reasoning: 55/100.** GPQA 55 is *below* the mid band (which starts ~60 GPQA per methodology); MMLU-Pro 63 / MATH 62 hover at low-mid; ARC-AGI 14 is floor; Arena 1230 confirms entry tier. Kimi 58; −3 for GPQA falling short of the mid-band anchor.
+- **Context window: 55/100.** **128K Zen listing cap** = 100K–200K band (50–64); no retrieval measurement. Kimi 58 (correct band); cohort 85.6 (mis-scores the native 1M — wrong endpoint). 55 sits in the honest 128K band.
+- **Multimodal: 12/100.** **Text in / text out** per the Zen listing. Native model is omni-input (would score 75–90) but this ID does not serve it. Kimi 15 (correct); cohort 69 (mis-credits the native model's modalities). Scored 12 at strict text-only floor.
+- **Coding: 42/100.** SWE-V 22.0% and LCB 28.0% are **firmly entry-level**; HumanEval+ 70.0% shows only basic syntax competence. Kimi 42; cohort 52.4 (inflated). Match Kimi at 42.
+- **Cost efficiency: 97/100.** $0.10 / $0.40 + $0.01 cached + 70 ms TTFT + 240 tok/s is the model's genuine raison d'être — bulk cheap-fast. Cost excluded from Overall.
+- **Overall Score: 43/100.** Mean of Tool 52, Reasoning 55, Context 55, Multimodal 12, Coding 42 = 216/5 = 43.2 → **43**. Best fit: **ultra-cheap, ultra-fast bulk classification, translation, and summarization on the Zen listing** — not a reasoning or coding choice.
 
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
-- Method: public internet research (Galileo Flash-Lite model hub citing Artificial Analysis, Google DeepMind and the Gemini 2.5 tech report; curated `meta.json`). **BenchLM has no `gemini-2.5-flash-lite` page** — the base 2.5 Flash variant's numbers were deliberately not reused; scores are 1–100 interpretations with elevated uncertainty.
-- Future sources: add a new file next to this one, e.g. `Gemini_2.5_Flash_Lite.md`, using the same headings.
+- Method: qualifying `Kimi_K3.md` serenitiesai / benchleader / llmboard / whichllmmodel aggregation. Curated `meta.json` is a placeholder template — but its "128K total / Text in/out" happens to correctly describe this **Zen listing** (not the native model).
+- Revisit trigger: if OpenCode Zen exposes the native 1M/omni endpoint under this listing ID.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

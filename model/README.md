@@ -14,6 +14,17 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
    (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params —
    neither is a dotted version).
+- **Merged-and-deleted duplicate slugs never come back.** Some folders were
+  provider-qualified second slugs for a model that already had a folder (e.g.
+  `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
+  alias of the *same* weights, merged 2026-10-06). Those were merged on user
+  order and deleted; the merged slugs are listed in
+  `../scripts/lib/validate.mjs` (`MERGED_MODEL_SLUGS`) and `pnpm sync` FAILs
+  loudly if one reappears. Do not recreate them, do not restore them from git
+  history, and do not scaffold a new folder from a vendor-prefixed ID — strip
+  the vendor prefix and use the canonical slug. A vendor-prefixed *API id*
+  (e.g. `opencode/google-gemini-2.5-flash-lite`) is still fine to cite as a
+  provider route inside a report.
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
   (version dots are fine: `DeepSeek_4.1_Flash.md`). Display label = stem with
   `_` → space, e.g. `Muse_Spark_1.3.md` = findings provided by Muse Spark 1.3.
@@ -93,6 +104,11 @@ never a renamed folder.
    `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b` (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted
+   folder instead. Then strip any leading vendor prefix (`google-`,
+   `openai-`, `anthropic-`, …) and check the unprefixed folder too: a
+   vendor-prefixed folder whose remainder already exists (e.g.
+   `google-gemini-2.5-flash-lite` when `gemini-2.5-flash-lite/` exists) is a
+   duplicate, not a new model — never create it, write into the canonical
    folder instead.
 2. Create `model/<slug>/` with findings file(s) + `meta.json` (schema above).
 3. Run `pnpm sync` (creates `average.md`, validates everything; FAILs hyphen
@@ -141,9 +157,15 @@ base slug instead of scaffolding a tier folder:
   a separate model. Never create `model/muse-spark-1.2-free/` or
   `model/muse-spark-1.2-max/` again.
 - `space-bunny/` covers **every** name this anonymous stealth model ships
-  under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
-  `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,
-  limited-time $0 tier). All three verified as the same weights 2026-10-02;
-  renamed from `space-bunny-alpha/` so the marketplace suffix can never read
-  as a separate model. Never create `model/space-bunny-alpha/` or
-  `model/space-bunny-free/` again.
+   under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
+   `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,
+   limited-time $0 tier). All three verified as the same weights 2026-10-02;
+   renamed from `space-bunny-alpha/` so the marketplace suffix can never read
+   as a separate model. Never create `model/space-bunny-alpha/` or
+   `model/space-bunny-free/` again.
+- `gemini-2.5-flash-lite/` covers **every** name this Google model ships
+   under: `Gemini 2.5 Flash Lite` (canonical, `google/gemini-2.5-flash-lite`,
+   1M context, multimodal) and the vendor-prefixed alias
+   `opencode/google-gemini-2.5-flash-lite` (same weights, Zen gateway route).
+   Merged from `model/google-gemini-2.5-flash-lite/` 2026-10-06 — never create
+   `model/google-gemini-2.5-flash-lite/` again.

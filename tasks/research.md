@@ -109,8 +109,17 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
       list in `model/README.md` (e.g. Muse Spark 1.3 Contributor / Free / Max
       → `model/muse-spark-1.3/`, Muse Spark 1.2 Free / Max →
       `model/muse-spark-1.2/`, never a `-free`/`-max`/`-contributor`
-      variant folder) and write your findings into that base folder.
-  2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
+       variant folder) and write your findings into that base folder.
+       **Vendor-prefix check:** a name with a leading vendor name is not a new
+       model when the unprefixed remainder already has a folder — strip the
+       prefix (`google-`, `openai-`, `anthropic-`, …) and check first (e.g.
+       `Google Gemini 2.5 Flash Lite` / `opencode/google-gemini-2.5-flash-lite`
+       → `model/gemini-2.5-flash-lite/`, never a new
+       `model/google-gemini-2.5-flash-lite/` folder). A vendor-prefixed *API
+       route* is fine to cite inside a report — it just never becomes a
+       folder. A vendor-prefixed folder on disk is skipped entirely and
+       surfaced, never queued or written (same as hyphen variants).
+   2. Voice check (`RULES.md`, absolute): if the model qualifies as voice /
       speech (realtime voice API, TTS/STT-first, voice-assistant I/O), do NOT
       place it under `model/`. Production scope: park it (note it in your final
       summary, do not create or research it now). Full mode only: the parent is

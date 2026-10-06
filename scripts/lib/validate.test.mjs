@@ -5,6 +5,8 @@ import assert from "node:assert/strict";
 import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
+  MERGED_MODEL_SLUGS,
+  mergedSlugMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -91,6 +93,19 @@ describe("forbidden duplicate roots (voicemodels/ never recurs)", () => {
       return false;
     });
     assert.deepEqual(seen, [["/repo", "voicemodels"]]);
+  });
+});
+
+describe("merged duplicate slugs (never come back)", () => {
+  it("maps google-gemini-2.5-flash-lite to its canonical folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("google-gemini-2.5-flash-lite"), "gemini-2.5-flash-lite");
+  });
+
+  it("message names both slugs and the canonical research route", () => {
+    const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
+    assert.match(msg, /google-gemini-2\.5-flash-lite/);
+    assert.match(msg, /gemini-2\.5-flash-lite/);
+    assert.match(msg, /never recreate/);
   });
 });
 

@@ -1,4 +1,4 @@
-# Gemini 2.5 Flash-Lite — findings by Ling 3.1 Flash
+# Gemini 2.5 Flash Lite — findings by Ling 3.1 Flash
 
 - Source: Ling 3.1 Flash (opencode/ling-3.1-flash-free) / Gemini 2.5 Flash-Lite
 - Date: 2026-10-03 (UTC)

@@ -20,6 +20,25 @@ export const MIRROR_ROOTS = ["models_voice", "models_finance"];
  */
 export const FORBIDDEN_ROOTS = ["voicemodels"];
 
+/**
+ * Merged-and-deleted duplicate slugs (user-ordered merges). Each key was
+ * folded into an existing canonical folder and deleted because it was a
+ * second slug for the *same* model. They must never come back: a resurrect
+ * (git restore / re-scaffold from a stale queue) gets a loud FAIL instead of
+ * quietly cementing the duplicate again.
+ */
+export const MERGED_MODEL_SLUGS = new Map([
+  ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
+]);
+
+/** Exact FAIL text for a resurrected merged slug present on disk. */
+export function mergedSlugMessage(slug, canonical) {
+  return (
+    `model/${slug}/: this slug is a duplicate that was merged into model/${canonical}/ and deleted on user order ` +
+    `— never recreate it; research/report under model/${canonical}/ instead`
+  );
+}
+
 /** Exact FAIL text for a forbidden duplicate root present on disk. */
 export function forbiddenRootMessage(root) {
   const canonical = root === "voicemodels" ? "models_voice" : "the canonical tree";

@@ -1,4 +1,4 @@
-# Gemini 2.5 Flash-Lite — findings by DeepSeek 4.1 Flash
+# Gemini 2.5 Flash Lite — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 2.5 Flash-Lite (`gemini-2.5-flash-lite`)
 - Date: 2026-10-01 (UTC) — refreshed second pass (previous Signature 2026-09-18)
@@ -25,6 +25,7 @@ Agent / tool use:
 - Berkeley Function-Calling Leaderboard: **36.9%**; GDPval-AA: **321 Elo**
 - Terminal-Bench Hard: **4.5%** (rank 207 of 326)
 - GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
+- Ported from sibling 2026-09-27 report (same weights): BFCL v3 Multi-Turn **13.5%**; Galileo Agent Leaderboard **0.47** (rank 8 of 22); MCP-Bench **0.6** (rank 11 of 20); VerdictBench **52.9%**; TRAP **31.2**; OmniGAIA **8.6%**; Omni-DeepSearch **2.2%**.
 
 Reasoning / knowledge:
 
@@ -32,15 +33,21 @@ Reasoning / knowledge:
 - BenchmarkList ECI: **107.66 / 100** (rank 169 of 354); Artificial Analysis Intelligence Index: **11.41**
 - AIME 2024/2025: **53.3%**; LCR / MLCR / CritPt: **no verified public score found**
 - AA-LCR (long-context reasoning): **56.3%** (rank 161 of 409) — the standout long-context figure
+- Ported from sibling 2026-09-27 report (same weights): ObviousBench **88.2%**; SycoEval-EM **88.0%** (rank 2 of 19); Vectara HHEM factual consistency **96.7%** (98th percentile, rank 3 of 85); LisanBench **122.33**; MedCode **27.1%**; CAIS Text Capabilities Index **5.1** (rank 41 of 41); Alignment DVMap **45.3%**.
 
 Coding:
 
 - LiveCodeBench: **59.3%**; SciCode: **19.3%**
 - SWE-bench Verified / Pro / Vibe Code Bench / DeepSWE: **no verified public score found**
 
+Multimodal (ported from sibling 2026-09-27 report, same weights):
+
+- Audio: SpeakerSleuth **55.3%** (rank 9 of 21), AGL1K **1687.97** (rank 9 of 19), HearSay **22.9%**; InfiniteBM Hold'em **1684.29 Elo** (rank 1 of 20), Liar's Dice **1380.31 Elo**.
+
 Long context:
 
 - AA-LCR **56.3%** at long context; no MRCR/RULER/GraphWalks recall value found.
+- Ported from sibling 2026-09-27 report (same weights): Beyond Static Dialogues long-term-memory probe **16.0%**.
 
 ### Normalized scores (1–100)
 

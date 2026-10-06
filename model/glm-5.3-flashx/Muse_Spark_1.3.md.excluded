@@ -1,0 +1,71 @@
+# GLM 5.3 FlashX — findings by Muse Spark 1.3
+
+- Source: Z.ai (z-ai/glm-5.3-flashx)
+- Date: 2026-10-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z.ai's high-speed variant of GLM-5.3-Flash on the same hybrid sparse + linear attention architecture, tuned for efficient coding, visual understanding, and long-horizon agents at up to 200 tokens/s.
+- **Provider / access:** OpenRouter `z-ai/glm-5.3-flashx` (single Z.ai-hosted provider); OpenAI-compatible API. Function calling supported (agentic positioning); JSON-mode enforcement undisclosed.
+- **Release / knowledge:** 2026-09-18 release (OpenRouter, verified); knowledge cutoff unknown.
+- **IDs:** `z-ai/glm-5.3-flashx` (OpenRouter); `opencode/glm-5.3-flashx` (Zen).
+- **Context window:** 1,000,000 (OpenRouter, verified); max output undisclosed.
+- **Modalities:** native multimodal per vendor (coding + visual understanding + long-horizon agents); exact input/output list undisclosed on spec page — text verified, image/video unconfirmed.
+- **Pricing (as of 2026-10-06):** $0.37/$1.25 per 1M in/out, cache read $0.09 (OpenRouter, verified).
+- **Architecture:** hybrid sparse + linear attention, 320B total / 18B active (OpenRouter vendor description, verified); proprietary.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: public web research on 2026-10-06 found zero verified FlashX-specific benchmark numbers. OpenRouter carries specs only (no benchmark rows); BenchmarkList has no FlashX page (404); BenchLM has no FlashX page (404); the Z.ai GLM-5.3 blog page renders no extractable text. GLM-5.3 / GLM-5.3-Flash numbers are different models and are NOT counted here. Saved as `.md.excluded` per the template's SELF-EXCLUSION rule — never a scored `.md` with placeholder numbers.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks score found; 1M window verified via spec only, no measured retention.
+
+### Normalized scores (1–100)
+
+> Not scored — excluded. Notes only.
+
+- **Tool use:** not scored — no verified public score found.
+- **Reasoning:** not scored — no verified public score found.
+- **Context window:** not scored — window spec verified but no measured retention.
+- **Multimodal:** not scored — vendor claims native multimodality but exact I/O unconfirmed with no measured vision score.
+- **Coding:** not scored — no verified public score found.
+- **Cost efficiency:** not scored — pricing verified but excluded from scoring without benchmarks.
+- **Overall Score:** not scored — zero verified benchmarks, self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-06
+- Method: public internet research (OpenRouter FlashX specs page, BenchmarkList lookup, BenchLM lookup, Z.ai blog check); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified FlashX-specific benchmark numbers found — filed as `.md.excluded` per SELF-EXCLUSION.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

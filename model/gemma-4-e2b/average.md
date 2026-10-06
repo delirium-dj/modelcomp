@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 36.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 49/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 55.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 60.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 42.3/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 98/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 49/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 37.6/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 48.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 56.6/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 61.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 43.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 97.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 49.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.8, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Kimi K3.
-- Average from top 6 by Overall Score: Claude Opus 4.8, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Kimi K3.
+- Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.8, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
+- Average from top 7 by Overall Score: Claude Opus 4.8, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT 5.5, GPT 5.6 Terra, Kimi K3, Muse Spark 1.3.
 - Ignored below-gate rater(s): Big Pickle, Fledge Alpha, GPT 5.6 Luna, Mimo v2.6 Flash, Qwen 3.8 27B, Space Bunny.

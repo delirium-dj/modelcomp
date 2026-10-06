@@ -1,66 +1,64 @@
 # Gemini 2.5 Flash Lite — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/Gemini 2.5 Flash Lite
-- Date: 2026-09-18 (UTC)
+- Source: Google / Gemini (`google/gemini-2.5-flash-lite`)
+- Date: 2026-10-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Flash Lite
-- **Short description:** Google's ultra-low-latency model for cost-sensitive, high-frequency tasks.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-2.5-flash-lite` (Chat Completions API).
-- **Release / knowledge:** 2025 release.
-- **IDs:** `google/gemini-2.5-flash-lite`
-- **Context window:** 1M tokens.
-- **Modalities:** Text, image, audio, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free tier available; paid-tier pricing.
-- **Architecture:** Lightweight optimized multimodal transformer.
+- **Name:** Google Gemini 2.5 Flash Lite
+- **Short description:** Google's lightweight, low-latency frontier-efficiency model in the Gemini 2.5 family, optimized for high-volume data extraction, routing, translation, and multimodal analysis.
+- **Provider / access:** Google AI Studio / Gemini API (`gemini-2.5-flash-lite`), Google Cloud Vertex AI, and OpenRouter (`google/gemini-2.5-flash-lite`).
+- **Release / knowledge:** Released July 2025; knowledge cutoff January 2025.
+- **IDs:** `google/gemini-2.5-flash-lite` (Free tier available on Google AI Studio / Zen).
+- **Context window:** 1,048,576 tokens total (1M context window); max output 65,536 tokens.
+- **Modalities:** Native multimodal input (text, images, audio, video, PDF); text/code output; optional controllable thinking budget; function calling; Google Search grounding.
+- **Pricing (as of 2026-10-01):** $0.10 / 1M input tokens (text/image/video), $0.025 / 1M cached input, $0.40 / 1M output tokens. Free tier available.
+- **Architecture:** Sparse mixture-of-experts (MoE) transformer with test-time compute scaling.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **58.5%**
-- Tau3-Banking / Tau2-Bench: **64.0%**
-- GDPval-AA: **1370 Elo**
-- Claw-Eval / ClawProBench: **72.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **69.0%**
+- FACTS Grounding: **84.1%** (Google Technical Report, 2025)
+- Terminal-Bench / Tau-bench: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **59.0%**
-- HLE: **44.0%**
-- LCR / MLCR: **66.0%**
-- CritPt: **57.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **88.5 / #13**
-- Omniscience Accuracy / Hallucination Rate: **91.0% / 3.9%**
+- GPQA Diamond (thinking enabled): **64.6%** (Google Technical Report, 2025)
+- AIME 2025: **49.8%** (Google Technical Report, 2025)
+- Global MMLU-Lite: **81.1%** (Google Technical Report, 2025)
+- Humanity's Last Exam: **5.1%** (Google Technical Report, 2025)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **55.0%**
-- LiveCodeBench: **60.0%**
-- SciCode / AA-SciCode: **51.0%**
-- Vibe Code Bench: **68.5%**
-- DeepSWE / Coding Index / other: **73.0**
+- SWE-bench Verified: **31.6%** (Google Technical Report, 2025)
+- Aider Polyglot: **26.7%** (Google Technical Report, 2025)
+
+Multimodal:
+
+- MMMU: **72.9%** (Google Technical Report, 2025)
+- Vibe-Eval: **51.3%** (Google Technical Report, 2025)
 
 Long context:
 
-- 1M token context window with high throughput.
+- 1M token context window evaluated with 100% needle-in-a-haystack retrieval across multi-hour audio and video.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** Fast and reliable tool execution for lightweight workflows.
-- **Reasoning: 80/100.** Good reasoning efficiency for its weight class.
-- **Context window: 95/100.** Full 1M token context support.
-- **Multimodal: 88/100.** Native multimodal support for audio, image, and documents.
-- **Coding: 80/100.** Competent coding support for quick scripts and debugging.
-- **Cost efficiency: 100/100.** Exceptional free tier and ultra-low cost.
-- **Overall Score: 84.8/100.** Highly efficient ultra-low-latency model.
+- **Tool use: 72/100.** Strong grounding accuracy (84.1% FACTS) and function calling support, but moderate on complex multi-step autonomous agent loops.
+- **Reasoning: 64/100.** Solid scientific and mathematical reasoning with thinking enabled (64.6% GPQA Diamond, 49.8% AIME 2025), trailing frontier models.
+- **Context window: 90/100.** Full 1M token context window with reliable multi-hour audio and video understanding.
+- **Multimodal: 85/100.** Native omni-modal architecture processing text, images, video, audio, and documents (72.9% MMMU).
+- **Coding: 48/100.** Capable basic code generation and script writing, scoring 31.6% on SWE-bench Verified.
+- **Cost efficiency: 98/100.** Highly cost-effective at $0.10 / $0.40 per 1M tokens with generous free-tier options.
+- **Overall Score: 72/100.** High-throughput multimodal workhorse ideal for document extraction, video analysis, and high-volume classification pipelines.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
-- Method: Independent public research and normalized 1–100 evaluation.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-01
+- Method: Public internet research into Google DeepMind's official Gemini 2.5 technical report and developer documentation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
