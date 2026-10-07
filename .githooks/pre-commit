@@ -28,7 +28,7 @@ while IFS= read -r f; do
   [ -z "$f" ] && continue
   slug="$(printf '%s' "$f" | sed -e 's|^model/||' -e 's|/.*$||')"
   case "$slug" in
-    gemma-4-31b|qwen-3.8-27b|qwen-3.5-9b) continue;;
+    gemma-4-31b|qwen-3.8-27b|qwen-3.5-9b|qwen-3.5-397b) continue;;
   esac
   case "$slug" in
     *[0-9]-[0-9]*) hyphen_blocked="${hyphen_blocked}${f}\n";;

@@ -227,7 +227,8 @@ try {
 // loudly with the dotted destination instead of cementing the duplicate.
 // Slug exceptions (match digit-hyphen-digit but are NOT hyphen versions):
 // param sizes `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`
-// (version 3.8 + 27B params) and `qwen-3.5-9b` (version 3.5 + 9B params).
+// (version 3.8 + 27B params), `qwen-3.5-9b` (version 3.5 + 9B params) and
+// `qwen-3.5-397b` (version 3.5 + 397B params, Qwen3.5-397B-A17B).
 // (Single majors with codename/experimental suffixes like `gpt-6-astra`
 // never match the check at all.) Full list: SLUG_VERSION_EXCEPTION in
 // scripts/lib/naming.mjs.

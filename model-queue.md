@@ -13,8 +13,8 @@
 90 gemini-3.7-flash
 89.6 claude-sonnet-5.5
 89.6 kimi-k3
+89.5 gpt-5.6-terra
 89.4 gpt-5.5-pro
-89.4 gpt-5.6-terra
 89.4 muse-spark-1.2
 89.3 gemini-3-pro
 89.3 mimo-v2.6-pro
@@ -63,9 +63,9 @@
 82.8 grok-4.3
 82.7 gpt-5
 82.7 gpt-5.1
-82.7 pareto-26.10-preview
 82.3 Inkling
 81.9 gpt-5.6-luna
+81.7 pareto-26.10-preview
 81.5 claude-opus-4.5
 80.9 qwen-3.7-max
 80.8 gpt-6-luna
@@ -111,6 +111,7 @@
 69.1 gemma-4.12b-unified
 69 mai-experimental-test
 68.8 hy4
+68.8 qwen-3.5-397b
 68.6 minimax-m3.1-flash-preview
 67.9 qwen-3.5-9b
 67.8 longcat-2.0

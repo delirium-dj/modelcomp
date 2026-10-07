@@ -118,10 +118,13 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.ok(SLUG_VERSION_EXCEPTION.has("gemma-4-31b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.8-27b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-9b"));
+    assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-397b"));
     assert.equal(hyphenVersionViolation("gemma-4-31b"), null);
     assert.equal(hyphenVersionViolation("qwen-3.8-27b"), null);
     // Version 3.5 + 9B params: the "5-9" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-9b"), null);
+    // Version 3.5 + 397B params (Qwen3.5-397B-A17B): the "5-397" hit is not a hyphen version.
+    assert.equal(hyphenVersionViolation("qwen-3.5-397b"), null);
   });
 });
 

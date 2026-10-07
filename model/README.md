@@ -12,8 +12,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   folders with the dotted destination.) Exception: digits that are NOT a version
   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
-   (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params —
-   neither is a dotted version).
+   (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
+   `qwen-3.5-397b` = Qwen 3.5, 397B params — none is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
   provider-qualified second slugs for a model that already had a folder (e.g.
   `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
@@ -106,7 +106,8 @@ never a renamed folder.
    NORMALIZE it per `RULES.md` slug identity before creating anything:
    replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
    `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
-   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b` (param sizes, not versions).
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`
+   (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted
    folder instead. Then strip any leading vendor prefix (`google-`,

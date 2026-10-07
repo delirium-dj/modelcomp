@@ -95,8 +95,8 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
       a. Dots for versions: `gpt-5.6-terra`, never `gpt-5-6-terra`;
          `gemma-4.12b-unified`, never `gemma-4-12b-unified`.
       b. Self-check: if the slug has a digit on BOTH sides of a hyphen
-         (`0-9 - 0-9`, e.g. the `4-1` in `gemma-4-12b`) and is NOT one of
-         `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b` (param sizes, not
+          (`0-9 - 0-9`, e.g. the `4-1` in `gemma-4-12b`) and is NOT one of
+          `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b` (param sizes, not
          versions — the only exceptions), replace every such join with a
          dot (`4-12` → `4.12`) before proceeding.
       c. Check for an existing dotted folder first (both trees in full mode)

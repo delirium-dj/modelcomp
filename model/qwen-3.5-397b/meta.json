@@ -1,0 +1,9 @@
+{
+  "id": "opencode/qwen-3.5-397b",
+  "name": "Qwen 3.5 397b",
+  "short": "Qwen 3.5 397b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}
