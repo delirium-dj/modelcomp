@@ -1,0 +1,8 @@
+{
+  "id": "opencode/claude-haiku-5.5",
+  "name": "Claude Haiku 5.5",
+  "short": "Anthropic's fastest Claude 5.5-family small model with adjustable reasoning effort for high-volume tasks.",
+  "contextWindow": "1,000,000 total (128K max output)",
+  "modalities": "Text, image, PDF in; text out",
+  "pricingNote": "$0.10/$0.50 per 1M in/out (prompts ≤100K), $0.50/$2.50 above 100K"
+}

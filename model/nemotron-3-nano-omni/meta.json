@@ -1,0 +1,8 @@
+{
+  "id": "opencode/nemotron-3-nano-omni",
+  "name": "Nemotron 3 Nano Omni",
+  "short": "NVIDIA's open 30B-A3B omni-modal reasoning model with native audio, vision, and text support.",
+  "contextWindow": "262,144 total (65,536 max output)",
+  "modalities": "Text, image, video, audio in; text out",
+  "pricingNote": "$0 via NVIDIA Build free API endpoint; open checkpoints available"
+}

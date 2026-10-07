@@ -1,7 +1,7 @@
 # Gemma 4 31B IT — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`gemma-4-31b`) — instruction-tuned (IT) release; public sources label it simply "Gemma 4 31B"
-- Date: 2026-09-20 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,17 +23,40 @@ Agent / tool use (the model's weakest area):
 
 - MCP-Atlas: **54.2%** (from Meta's own published comparison for rival Muse Glimmer, which scored 75.5)
 - DeepSearch QA: **61.7** (same comparison; Muse Glimmer 74.6)
-- Tau2-Bench: **59.9** (vendor-reported)
+- Tau2-Bench / τ²-bench: **59.9%** (vendor-reported; the BenchLM/Artificial Analysis panel agrees at 59.9%)
 - Terminal-Bench Hard: **36.4** (vendor-reported — reported as "modest" by independent reviewers, better suited to supervised automation than autonomous computer use)
-- Claw-Eval / ClawProBench / Toolathon / SWE Atlas Codebase QnA / GDPval-AA: no verified public score found
+- GDPval-AA: **6.1%** normalized / **755 Elo** (Artificial Analysis, via BenchLM) — well below the 900–1200 Elo mid band
+- AA Agentic Index: **6.7%** (Artificial Analysis); Gert Labs: **35.26%**
+- Claw-Eval / ClawProBench / Toolathon / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **85.7%** (vendor-reported; rank #26 of 44 peers, median 88.3%)
+- GPQA Diamond: **85.7%** (vendor-reported; rank #26 of 44 peers, median 88.3%) — AA-GPQA Diamond agrees at **85.7%**; BenchLM's upstream GPQA row reads **84.3%**
 - AIME 2026: **89.2%**; MMLU-Pro: **85.2%** (vendor-reported)
+- HLE: **26.5%** with tools / **19.5%** without (model card); AA-HLE **23.6%** — below the 40%+ frontier reference
+- AA-LCR: **69.7%** (Artificial Analysis long-context reasoning); CritPt: **1.4%**
 - LMArena rank: **#3** among evaluated models at launch (vendor-reported)
-- Artificial Analysis Intelligence Index: **15.4** (cited AA, 2026-09-16 — implausibly low versus its own component benchmarks, so flagged rather than used)
-- HLE / LCR / MLCR / CritPt / Omniscience accuracy / Hallucination rate: no verified public score found
+- Artificial Analysis Intelligence Index: **14.7** (BenchLM citing AA, 2026-10-07) — corroborates the earlier 15.4 reading, so the low value is real rather than a typo
+- AA-Omniscience Accuracy: **20.0%**; Hallucination Rate: **85.0%** (Artificial Analysis)
+- MLCR / CritPt detail beyond the row above: no further verified public score found
+
+Coding:
+
+- SWE-Rebench: **41.6%** (SWE-Rebench leaderboard); React Native Evals: **75.2%**
+- AA-SciCode: **45.5%**; AA Coding Index: **43.4%** (Artificial Analysis)
+- SWE-bench Verified / DeepSWE / LiveCodeBench / Vibe Code Bench / SWE-Atlas: no verified public score found
+
+Multimodal:
+
+- MMMU-Pro: **76.9%** (Gemma 4 31B model card); AA-MMMU-Pro: **73.4%** (Artificial Analysis). Image in, text out; no audio or video.
+
+Long context:
+
+- No MRCR, RULER or GraphWalks retrieval score was found at the 262K window; the window itself is documented on the model card, but depth retrieval is unverified.
+
+Composite panels:
+
+- BenchLM: **40.56/100, #131 of 887** tracked models (partial coverage — 24 of 623 benchmarks), so its overall is explicitly conservative.
 
 ### Normalized scores (1–100)
 

@@ -1,0 +1,35 @@
+# Gemini 2.5 — findings by GPT 6 Astra
+
+- Source: Google DeepMind / unresolved family-level name
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: [methodology](../../model-comparison.md)
+- Cross-model signed log: [findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** Gemini 2.5, without a variant suffix.
+- **Short description:** The name identifies a family, not a sufficiently specified checkpoint for this report. Google's catalog distinguishes Pro, Flash and Flash-Lite, alongside specialized variants. [Official model catalog](https://ai.google.dev/gemini-api/docs/models)
+- **Provider / access / IDs:** Verified examples are `gemini-2.5-pro` and `gemini-2.5-flash`; no distinct unsuffixed `gemini-2.5` API model or Zen Free ID verified. [Pro documentation](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro), [Flash documentation](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash)
+- **Release / knowledge:** No exact checkpoint resolved, so no single release or cutoff assigned.
+- **Context window:** Variant-dependent; not assigned to the bare family name.
+- **Modalities:** The family includes multimodal models, but a single endpoint capability contract is unresolved.
+- **Pricing (2026-10-07):** No independently verified price for the unsuffixed identifier. Pro and Flash tariffs must not be blended.
+- **Architecture:** Proprietary family; no unique parameter count or checkpoint established for this entry.
+
+### Raw benchmarks found
+
+The Google technical report evaluates named Pro and Flash models separately. Their benchmark results cannot establish a third, unsuffixed model's performance. [Publisher technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf?pubDate=20250702)
+
+For an exact unsuffixed model: no verified public score found for agent/tool use, reasoning, coding, multimodal understanding or long-context retrieval. This is an identity-resolution exclusion, not a claim that the Gemini 2.5 family lacks evaluations.
+
+### Normalized scores (1–100)
+
+Not assigned. Retain this entry as excluded until an authoritative provider mapping identifies the intended variant and version. Existing Pro and Flash reports are separate records; this file does not copy or average them.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-07 UTC
+- Method: Fresh public web research; insufficient exact-model evidence for scoring.
+- Future sources: add a separate signed report with a verified identifier.

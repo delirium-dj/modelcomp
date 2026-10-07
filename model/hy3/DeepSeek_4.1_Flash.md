@@ -1,7 +1,7 @@
 # HY3 — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/HY3 (`tencent/Hy3`, served as `hunyuan-hy3` / `hy3`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,12 +38,13 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.7%** (BenchmarkList, rank 39/464)
-- HLE: **33.5%** overall; **37.0%** text-only; **53.2%** with tools (BenchmarkList)
-- LCR / MLCR: AA-LCR **74.7%** (BenchmarkList, 89th percentile, rank 45/409) — no published MLCR
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **26 / rank 24 of 113** (AA v4.3 page); BenchmarkList reports AAII **42.2** on its own index scale (rank 47/418, 89th percentile) plus ECI **133.97 (rank 62/398; open-weight rank 19/158)**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **89.7%** (BenchmarkList rank 39/464; AA-GPQA Diamond 89.7% via BenchLM, 2026-10-07)
+- HLE: **33.5%** overall; **37.0%** text-only; **53.2%** with tools (BenchmarkList; AA-HLE 33.5%)
+- LCR / MLCR: AA-LCR **79.0%** (Artificial Analysis via BenchLM, 2026-10-07; BenchmarkList printed 74.7%) — no published MLCR
+- CritPt: **4.9%** (Artificial Analysis via BenchLM, 2026-10-07)
+- Artificial Analysis Intelligence Index: **25.3%** (AA via BenchLM); **26 / rank 24 of 113** (AA v4.3 page); BenchmarkList reports AAII **42.2** on its own index scale plus ECI **133.97 (rank 62/398)**
+- Omniscience Accuracy **32.0%** / Hallucination Rate **74.1%** (Artificial Analysis via BenchLM, 2026-10-07)
+- GDPval-AA **1,136** raw / **28.3%** normalized; AA Agentic Index **25.6%** (Artificial Analysis via BenchLM)
 - Context Arena: 66.1% / 66.8% / 25.4% across three variants (BenchmarkList)
 
 Coding:
@@ -51,7 +52,7 @@ Coding:
 - SWE-bench Verified: **78.0%** (BenchmarkList, rank 20/46)
 - SWE-bench Pro: **57.9%** (rank 30/49); SWE-bench Multilingual: **75.8%** (rank 16/46)
 - LiveCodeBench: **no verified public score found**
-- SciCode: **47.6%** (rank 41/458)
+- SciCode: **47.6%** (rank 41/458); AA-SciCode **48.6%**; AA Coding Index **58.8%** (Artificial Analysis via BenchLM, 2026-10-07)
 - Vibe Code Bench: **no verified public score found**
 - Other: NL2Repo **45.6%**, WebDev Arena Elo **1511.17**, SkillsBench **55.3%** (BenchmarkList); no DeepSWE / Coding Index result published
 
@@ -69,12 +70,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output per the official model card, Hugging Face config and Artificial Analysis — no image/audio/video input, no non-text output, so it takes the text-only band (10–20) rather than the 60+ image-in band.
 - **Coding: 76/100.** SWE-bench Verified 78.0%, SWE-bench Pro 57.9%, SciCode 47.6%, TB 2.1 71.7% and WebDev Arena 1511 put it clearly above the mid band (LiveCode 80% + Vibe <10% + SciCode <40% → 65–75), but every frontier reference (DeepSWE 74%+, TB2.1 85%+, SciCode 55%+, Coding Index 70%+) is still unmet and no LiveCodeBench/DeepSWE number exists.
 - **Cost efficiency: 95/100.** $0.132 in / $0.528 out with a $0.033 cached rate and 75% cache discount works out to a ≈$0.11 blended rate — cheaper than the ~$0.10/$0.20 = 97–99 band on output and well ahead of MiniMax-class $0.30/$1.20 pricing; capped by being paid-only (no $0 Free ID) and by trial-only free access, so it cannot reach the $0 = 100 slot.
-- **Overall Score: 65/100.** (78 + 82 + 72 + 15 + 76 + 95) / 6 = 69.7 → **70**. Best fit: self-hosted or TokenHub-routed agents that need near-flagship reasoning/coding at roughly a tenth of frontier output pricing and have no image/video input requirement.
+- **Overall Score: 65/100.** Cost-excluded v4 mean of the five quality dims (78 + 82 + 72 + 15 + 76) / 5 = 64.6 → **65**. Best fit: self-hosted or TokenHub-routed agents that need near-flagship reasoning/coding at roughly a tenth of frontier output pricing and have no image/video input requirement.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: Public internet research from zero — Tencent newsroom release note (2026-07-06), `Tencent-Hunyuan/Hy3` GitHub model card, Hugging Face `tencent/Hy3`, Tencent Cloud TokenHub access/pricing docs, Artificial Analysis and BenchmarkList aggregator pages. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_Astra.md`, using the same headings.

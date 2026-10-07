@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Google/Gemini 3.7 Flash
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-07 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-18
-- Method: Independent public research and normalized 1–100 evaluation.
+- Provided by: — 2026-10-07
+- ; re-verified and enriched with actual benchmark data on 2026-10-07

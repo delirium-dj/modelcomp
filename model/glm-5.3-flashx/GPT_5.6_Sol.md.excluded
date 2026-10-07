@@ -1,0 +1,35 @@
+# GLM-5.3-FlashX — negative findings by GPT 5.6 Sol
+
+- Source: Z.ai (`glm-5.3-flashx`)
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-5.3-FlashX
+- **Short description:** High-throughput serving variant of Z.ai's multimodal GLM-5.3-Flash, advertised at about 200 tokens/s.
+- **Provider / access:** Z.ai/OpenAI-compatible chat API; third-party route ID `tencent/glm-5.3-flashx`.
+- **Release / knowledge:** Added September 2026; knowledge cutoff not published.
+- **IDs:** `glm-5.3-flashx`, `zai/glm-5.3-flashx`; no verified Zen Free ID.
+- **Context window:** Provider catalogs report 1,048,576 tokens and up to 131,072 output tokens.
+- **Modalities:** Text, image, video, and file input; text output; reasoning, tools, caching, and JSON schema advertised.
+- **Pricing (as of 2026-10-07):** $0.37/M input, $1.25/M output, about $0.075/M cached input ([current catalog](https://www.requesty.ai/models/tencent/glm-5.3-flashx)).
+- **Architecture:** Reported as the GLM-5.3 hybrid sparse/linear-attention family; exact FlashX weights are not independently documented.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found for this exact FlashX variant.
+- Reasoning / knowledge: no verified public score found for this exact FlashX variant.
+- Coding: no verified public score found for this exact FlashX variant.
+- Long context: no verified public retrieval score found for this exact FlashX variant.
+
+Multiple current catalogs explicitly report zero published benchmarks for FlashX; base GLM-5.3-Flash scores were not transferred because the exact serving variant has not been independently established as score-identical.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
+- Method: Fresh public internet search of provider/catalog and benchmark sources; self-excluded because no verified public benchmark number exists for the exact model.
+- Future sources: add a new file next to this one when exact-variant benchmark evidence becomes available.

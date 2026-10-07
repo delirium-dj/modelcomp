@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax/MiniMax M3 (`minimax-ai/minimax-m3`, API string `MiniMax-M3`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -20,60 +20,66 @@
 
 ### Raw benchmarks found
 
-> Vendor figures are self-reported through MiniMax's model page as compiled by Traictory, except where a source is marked "Verified" or "independent". Independent rows (RankLLMs, BenchLM, AA) are listed next to them because the harness gap is large.
+> Vendor figures are self-reported through MiniMax's model page as compiled by Traictory, except where a source is marked "Verified" or "independent". Independent rows (RankLLMs, BenchLM, AA) are listed next to them because the harness gap is large. BenchLM's page (`benchlm.ai/models/minimax-m3`, checked 2026-10-07) computes a conservative **54.46 / 100, rank #63 of 887** overall on 56 of 621 benchmarks.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **66.0%** (self-reported) — vs **34.4%** independent (RankLLMs)
-- Claw-Eval Pass^3: **74.5%** (self-reported)
+- Terminal-Bench 2.1: **66.0%** (self-reported) — vs **34.4%** independent (RankLLMs); AA Terminal-Bench 2.1 **65.2%** and Vals AI **53.6%** via BenchLM
+- Claw-Eval Pass^3: **74.5%** (self-reported); Claw-Eval **74.5%** (Claw-Eval leaderboard via BenchLM)
 - MCP Atlas: **74.2%** (self-reported)
-- OSWorld-Verified (max steps 200): **70.1%** (self-reported) — vs **27.8%** independent (RankLLMs)
+- OSWorld-Verified (max steps 200): **70.1%** (self-reported) — vs **27.8%** independent (RankLLMs); OSWorld 2.0 only **4.6%** via BenchLM
 - BrowseComp: **83.5%** (self-reported; MiniMax claims it beats Claude Opus 4.7 at 79.3) — vs **27.8%** independent (RankLLMs)
 - APEX-Agents: **27.7%** (self-reported); PaperBench **52.6%**; PostTrainBench **37.1** (vendor ranks it #3 behind Opus 4.7 42.4 and GPT-5.5 39.3)
-- SWE Atlas Codebase QnA **37.9%**; SWE Atlas Test Writing **30.8%**; Finance Agent v2 **48.3% (verified)**; GDPval-Rubrics **74.8%**; GDPval-AA / Code Arena Elo **1056** (independent, RankLLMs)
-- Tau3-Banking / Tau2: **no verified public score found**
+- SWE Atlas Codebase QnA **37.9%**; SWE Atlas Test Writing **30.8%**; Finance Agent v2 **48.3% (verified)**; GDPval-Rubrics **74.8%**
+- GDPval-AA: **1245** raw / **37.3%** normalized (Artificial Analysis via BenchLM; RankLLMs' independent Code Arena Elo prints **1056**)
+- AA Agentic Index **30.8%**; terminalBenchHard **42.4%**; AA Tau3 Banking **15.3%**; Harvey LAB **88.4%**; EnterpriseOps-Gym **32.1%**; AutomationBench **21.3%**; AnalystAgent **10.0%**; GDP.pdf **9.8%** (Artificial Analysis via BenchLM)
+- BankerToolBench **76.1%**; ResearchClawBench **19.8%** (MiniMax M3 model card / leaderboard via BenchLM)
+- Tau3-Banking / Tau2: split signal — BenchLM lists τ²-bench **88.9%** (Artificial Analysis) while AA Tau3 Banking prints only **15.3%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found** (RankLLMs' independent GPQA proxy prints **41.8%**)
-- HLE / CritPt / LCR: **no verified public score found**
+- GPQA Diamond: **92.9%** (AA) / **92.7%** (Vals) via BenchLM — previously unpublished; RankLLMs' independent GPQA proxy prints **41.8%**
+- HLE: **39.0%** (Artificial Analysis); CritPt **3.7%**; MLCR-AA **17.2%** (via BenchLM)
+- AA-LCR: **83.0%** (Artificial Analysis via BenchLM)
 - Math: IMO 2025 **83.3%**; USAMO 2026 **85.7%**; MATH-500 **41.8%** (independent, RankLLMs)
-- Artificial Analysis Intelligence Index: **30 / rank 15 of 113** (AA v4.3) — top-quintile and the best-placed open-weight entry in this repo's set at research time
-- BenchLM overall: **61.3 / 100, rank 54 of 230**, strongest eligible category Multimodal & Grounded at #34; RankLLMs composite **41.9 / 100, rank #51 of 80**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index: **29.2** (AA via BenchLM) / **30 / rank 15 of 113** (AA v4.3) — top-quintile and the best-placed open-weight entry in this repo's set at research time
+- BenchLM overall: **54.46 / 100, rank 63 of 887** (updated 2026-10-07; previously recorded as 61.3 / rank 54 of 230), strongest eligible category Multimodal & Grounded; RankLLMs composite **41.9 / 100, rank #51 of 80**
+- AA-Omniscience Accuracy **16.7%**, Hallucination Rate **18.4%**, Omniscience Index **1.4%** (Artificial Analysis via BenchLM)
+- MMLU-Pro (Vals): **84.2%** (Vals AI via BenchLM)
 
 Coding:
 
-- SWE-bench Verified: **80.5%** (self-reported) — vs **34.4%** independent (RankLLMs)
+- SWE-bench Verified: **80.5%** (self-reported) — vs **34.4%** independent (RankLLMs); Vals AI SWE-bench **75.0%** via BenchLM
 - SWE-Bench Pro: **59.0%** (self-reported; matches the 59% recorded in this repo's metadata)
 - Terminal-Bench 2.1: **66.0%** (self-reported; matches the repo's 66%)
 - LiveBench (2026-01-08): **70.0% (verified)**; VIBE-V2 **50.1%**; NL2Repo **42.1%**; SWE-fficiency **34.8%**; KernelBench Hard **28.8%**; FrontierCode 1.1 mergeability **14.7% (verified)**; LiveSQLBench **40.2%** (all remaining rows self-reported)
-- LiveCodeBench / SciCode / DeepSWE / Coding Index: **no verified public score found**
+- LiveCodeBench (Vals): **82.2%** (Vals AI via BenchLM); SciCode: **47.1%** (Artificial Analysis); AA Coding Index: **58.6%** (Artificial Analysis via BenchLM)
+- DeepSWE / Vibe Code Bench: **no verified public score found**
 
 Multimodal:
 
-- MMMU-Pro **78.1%**; Video-MME (with subtitles) **85.4%**; VideoMMMU **84.6%**; OmniDocBench 1.5 **92.0%**; SpreadSheetBench-v1 **89.3%**; SVG-Bench **63.7%**; OfficeQA Pro **45.1%** (all self-reported)
+- MMMU-Pro **78.1%** (self-reported); AA-MMMU-Pro **78.6%** (Artificial Analysis via BenchLM); Video-MME (with subtitles) **85.4%**; VideoMMMU **84.6%**; OmniDocBench 1.5 **92.0%** (91.6% via BenchLM); SpreadSheetBench-v1 **89.3%**; SVG-Bench **63.7%**; OfficeQA Pro **45.1%** (all remaining self-reported); Design Arena Website **1264** (OpenRouter via BenchLM)
 
 Long context:
 
-- The 1M window (512K guaranteed) is vendor-verified via MSA; the only long-context benchmark found is **LOCA-Bench (256k) 49.3%** (self-reported). **No MRCR / RULER / GraphWalks / AA-LCR value was published**, so retrieval-at-depth above 256K remains unproven publicly.
+- The 1M window (512K guaranteed) is vendor-verified via MSA; **LOCA-Bench (256k) 49.3%** (self-reported) and **AA-LCR 83.0%** (Artificial Analysis via BenchLM) are the published long-context figures. **No MRCR / RULER / GraphWalks value was published**, so retrieval-at-depth above 256K remains largely unproven publicly.
 
 ### Normalized scores (1–100)
 
-> Derived from the raw numbers above using the methodology in `../../model-comparison.md`; Overall = arithmetic mean of the six. Vendor self-reported values are discounted where independent harnesses disagree substantially.
+> Derived from the raw numbers above using the methodology in `../../model-comparison.md`; Overall = arithmetic mean of the five quality dimensions. Vendor self-reported values are discounted where independent harnesses disagree substantially.
 
-- **Tool use: 74/100.** Vendor rows are strong — Claw-Eval 74.5%, MCP Atlas 74.2%, OSWorld-Verified 70.1%, TB 2.1 66.0%, BrowseComp 83.5% — which lands above the mid band (TB 45–60%, GDPval ~900–1200 where Code Arena Elo is 1056), but the frontier bar (TB2.1 ~88%+, Tau3 ~50%+, GDPval ~1750+) is not reached, independent RankLLMs prints TB 2.1 34.4% / OSWorld 27.8%, APEX-Agents is only 27.7% and no Tau3 row exists.
-- **Reasoning: 80/100.** The AA Intelligence Index of 30 at rank 15/113 is the strongest open-weight placement researched here, and math is genuinely frontier-adjacent (USAMO 2026 85.7%, IMO 2025 83.3%); capped below 85 by the complete absence of a vendor GPQA Diamond / HLE / CritPt number and by RankLLMs' 41.8% independent GPQA proxy.
+- **Tool use: 74/100.** Vendor rows are strong — Claw-Eval 74.5%, MCP Atlas 74.2%, OSWorld-Verified 70.1%, TB 2.1 66.0%, BrowseComp 83.5% — which lands above the mid band (TB 45–60%, GDPval ~900–1200 where GDPval-AA is 1245), but the frontier bar (TB2.1 ~88%+, Tau3 ~50%+, GDPval ~1750+) is not reached, independent RankLLMs prints TB 2.1 34.4% / OSWorld 27.8%, and AA Tau3 Banking is only 15.3%.
+- **Reasoning: 80/100.** The AA Intelligence Index of ~29–30 at rank 15/113 is the strongest open-weight placement researched here, and math is genuinely frontier-adjacent (USAMO 2026 85.7%, IMO 2025 83.3%); now that independent AA GPQA Diamond (92.9%) and HLE (39.0%) exist they confirm the tier, though RankLLMs' 41.8% GPQA proxy and CritPt 3.7% keep it below 85.
 - **Context window: 95/100.** 1M tokens with a guaranteed 512K minimum sits in the ≥1M tier (95–100); it takes the tier floor because the only depth-restricted long-context number (LOCA-Bench at 256K, 49.3%) is not the ≥512K/98%-recall evidence the rubric requires for 100.
 - **Multimodal: 85/100.** Native text + image + video input (trained multimodal from step zero) with MMMU-Pro 78.1%, Video-MME 85.4% and OmniDocBench 92.0% puts it in the +video/PDF band (75–90); held below 90 because there is no audio input and no non-text output.
 - **Coding: 77/100.** SWE-bench Verified 80.5% and SWE-bench Pro 59.0% with TB 2.1 66.0%, LiveBench verified 70.0% and VIBE-V2 50.1% clear the mid band (65–75) and beat HY3's profile, but DeepSWE 74%+, TB2.1 85%+, SciCode 55%+ and Coding Index 70%+ frontier references are unmet, and the independent SWE-bench Verified row (34.4%) is a sharp disagreement.
 - **Cost efficiency: 90/100.** $0.30/$1.20 is the same price point the methodology anchors at ~90 (MiniMax M2.7) while delivering far more capability, and an 80% cache discount ($0.06 cached, $0.22 blended) plus 161 tok/s throughput sweeten it; capped by being paid-only with no $0 tier and well above the $0.10/$0.20 = 97–99 band.
-- **Overall Score: 82/100.** (74 + 80 + 95 + 85 + 77 + 90) / 6 = 83.5 → **84**. Best fit: a single open-weight checkpoint that must do long-context, multimodal document/video work *and* serious agentic coding at a mid-market price — the equal-weight rubric rewards that breadth over HY4's text-only frontier-agent profile (76), which is a deliberate trade-off, not a claim that M3 wins every head-to-head.
+- **Overall Score: 82/100.** (74 + 80 + 95 + 85 + 77) / 5 = 82.2 → **82**. Best fit: a single open-weight checkpoint that must do long-context, multimodal document/video work *and* serious agentic coding at a mid-market price — the equal-weight rubric rewards that breadth over HY4's text-only frontier-agent profile (76), which is a deliberate trade-off, not a claim that M3 wins every head-to-head.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-18
-- Method: Public internet research from zero — MiniMax M3 official model page (MSA, 1M/512K, vendor demos), Traictory catalogue (harness-tagged self-reported and verified rows, pricing, licence, max output), Artificial Analysis (Intelligence Index, speed, cache discount, params, modalities), RankLLMs and BenchLM independent leaderboards. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
+- Method: Public internet research from zero — MiniMax M3 official model page (MSA, 1M/512K, vendor demos), Traictory catalogue (harness-tagged self-reported and verified rows, pricing, licence, max output), Artificial Analysis (Intelligence Index, speed, cache discount, params, modalities), BenchLM independent leaderboard page (checked 2026-10-07) plus RankLLMs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_4.md`, using the same headings.

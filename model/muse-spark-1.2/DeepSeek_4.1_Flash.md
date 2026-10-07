@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by DeepSeek 4.1 Flash
 
 - Source: Meta / Muse Spark 1.2 Free (`opencode/muse-spark-1.2-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,50 +19,55 @@
 
 ### Raw benchmarks found
 
+> BenchLM re-published the Meta model-page rows and Artificial Analysis/Vals AI rows on 2026-10-06; where vendor and independent figures differ, both are listed.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Terminal-Bench 2.0: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
-- Positioning evidence: Meta markets 1.2 for complex agentic tasks and Artificial Analysis lists it at an Intelligence Index of **57** (cited in a Gemini 3.7 Flash comparison), but no agentic-harness score was published.
+- Terminal-Bench 2.1: **82.9%** (Meta model page via BenchLM) / **69.7%** (Vals AI) — the previously missing agentic-harness result
+- GDPval-AA: **1,631** (Meta model page via BenchLM) / **48.9%** normalized (Artificial Analysis)
+- AA Agentic Index: **44.0%** (Artificial Analysis via BenchLM)
+- Tau3-Banking / Tau2-Bench, Claw-Eval / ClawProBench, Toolathon / MCP-Atlas, SWE Atlas Codebase QnA: **no verified public score found**
+- Positioning evidence: Meta markets 1.2 for complex agentic tasks and Artificial Analysis lists it at an Intelligence Index of **57** (cited in a Gemini 3.7 Flash comparison).
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (Epoch AI via Model Beat)
-- HLE: **45.5%** (Epoch AI via Model Beat)
+- GPQA Diamond: **90.4%** (Artificial Analysis via BenchLM)
+- HLE: **45.5%** (Artificial Analysis via BenchLM)
 - SimpleBench: **74.5%** — common-sense trick questions (Epoch AI via Model Beat)
 - SimpleQA Verified: **60.3%**; WeirdML: **60.3%** (Epoch AI via Model Beat)
+- MMLU-Pro: **88.3%** (Vals AI via BenchLM)
+- AA-LCR: **79.0%** (Artificial Analysis via BenchLM); CritPt: **17.7%**; MLCR: **no verified public score found**
 - Artificial Analysis Intelligence Index: **57** (95th percentile framing is not applied to 1.2; the tracker's Epoch-derived percentile is 80th overall)
-- CritPt / LCR / MLCR: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found** (SimpleQA Verified 60.3% is the closest proxy)
+- AA-Omniscience: Accuracy **45.4%**, Index **27.2%**, Hallucination Rate **33.3%** (via BenchLM)
+- BenchLM overall: **66.51/100, rank #27 of 887**
 
 Coding:
 
-- SciCode: **57.4%** (Epoch AI via Model Beat)
-- WebDev Arena: **1534 Elo** (Epoch AI via Model Beat)
+- SciCode: **57.4%** (Artificial Analysis); WebDev Arena: **1534 Elo** (Epoch AI via Model Beat); AA Coding Index: **72.2%**
+- DeepSWE: **59.3%** (Meta model page via BenchLM) — the previously missing repo-level number
+- SWE-bench (Vals AI): **86.6%**; VulcanBench v3: **87.0%**; FrontierSWE v2: **12.0%**
+- Design Arena Website: **1319** (OpenRouter via BenchLM)
 - Coding index: **84th percentile** of tracked models (Epoch AI via Model Beat)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: **no verified public score found**
+- SWE-bench Pro / LiveCodeBench / Vibe Code Bench: **no verified public score found**
 
 Long context:
 
-- no MRCR/RULER/GraphWalks recall value published for the 1M window; recall at depth is unmeasured in the sources checked.
+- AA-LCR **79.0%** is the only published long-context reasoning value for the 1M window; no MRCR/RULER/GraphWalks recall-at-depth measurement was found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Positioned and structured for agentic work with tool calling and a 1M window, and an AA Intelligence Index of 57; capped hard by the complete absence of any Terminal-Bench, Tau3, GDPval or Claw result.
-- **Reasoning: 90/100.** GPQA Diamond 90.4%, HLE 45.5%, SimpleBench 74.5% and WeirdML 60.3% form a consistently strong reasoning profile; missing CritPt/LCR numbers keep it just short of the 1.3 tier.
+- **Tool use: 89/100.** Terminal-Bench 2.1 82.9% (69.7% independent), GDPval-AA 1631 and a 44.0% AA agentic index now exist and are strong; the absence of any Tau3 or Claw result keeps it just short of the frontier tier.
+- **Reasoning: 90/100.** GPQA Diamond 90.4%, HLE 45.5%, MMLU-Pro 88.3%, AA-LCR 79.0% and SimpleBench 74.5% form a consistently strong reasoning profile; CritPt 17.7% is modest and keeps it just short of the 1.3 tier.
 - **Context window: 95/100.** 1,000,000 tokens with multimodal ingestion and a large output allowance; no recall-at-depth evidence.
 - **Multimodal: 88/100.** Text, image, video, file and audio input with text output; no media generation and no published vision benchmark of its own.
-- **Coding: 88/100.** SciCode 57.4%, WebDev Arena 1534 Elo and an 84th-percentile coding index are strong; the lack of SWE-bench/DeepSWE results caps it below the 1.3 tier.
+- **Coding: 90/100.** SWE-bench Verified 86.6% (Vals) and DeepSWE 59.3% now exist, alongside SciCode 57.4%, VulcanBench v3 87.0% and a 72.2% coding index; FrontierSWE v2 12.0% is the weak spot.
 - **Cost efficiency: 100/100.** $0 through the Zen contributor tier; the real cost is that prompts and completions train future Meta models.
-- **Overall Score: 89/100.** (85 + 90 + 95 + 88 + 88 + 100) / 6 = 91.0 → **91**. Best fit: free agentic/reasoning workloads that can tolerate contributor data terms and need a 1M multimodal window.
+- **Overall Score: 90/100.** (89 + 90 + 95 + 88 + 90) / 5 = 90.4 → **90**. Best fit: free agentic/reasoning workloads that can tolerate contributor data terms and need a 1M multimodal window.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-18
-- Method: public internet research (Epoch AI figures via Model Beat, Artificial Analysis index citations, OpenCode Zen privacy page, third-party cost analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
+- Method: public internet research (Meta model page, Vals AI and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI figures via Model Beat, OpenCode Zen privacy page, third-party cost analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

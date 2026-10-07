@@ -9,14 +9,16 @@
 - [scripts/sync-data.mjs](file://scripts/sync-data.mjs)
 - [src/data/models.ts](file://src/data/models.ts)
 - [BACKLOG.md](file://BACKLOG.md)
+- [RULES.md](file://RULES.md)
+- [scripts/lib/validate.mjs](file://scripts/lib/validate.mjs)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Added reference to new BACKLOG.md centralized improvement tracking system
-- Updated project structure section to include BACKLOG.md
-- Enhanced troubleshooting section with information about the new backlog system
-- Added context about the retirement of GLM53F_IMP.md and IMPROVEMENTS.md files
+- Updated project structure section to clarify slug naming conventions and duplicate prevention
+- Enhanced troubleshooting section with information about merged model slugs and vendor prefix rules
+- Added guidance on handling the google-gemini-2.5-flash-lite → gemini-2.5-flash-lite consolidation
+- Updated examples to reflect current directory structure and URL paths
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,13 +47,14 @@ This getting started guide explains how to install ModelComp, set up your enviro
 ## Project Structure
 At a high level, ModelComp is organized around data-driven pages built with Qwik City and Vite:
 
-- `model/<slug>/`: Per-model research folders containing findings files, `average.md`, and `meta.json`.
+- `model/<slug>/`: Per-model research folders containing findings files, `average.md`, and `meta.json`. Slug names follow strict conventions — version numbers use dots (`gpt-5.5`), not hyphens, and vendor-prefixed duplicates like `google-gemini-2.5-flash-lite` are automatically consolidated into canonical slugs like `gemini-2.5-flash-lite`.
 - `src/routes/`: File-based routes for the homepage compare view and per-model detail pages.
 - `src/components/`: UI components such as the compare section, hexagon radar, model cards, methodology panel, header, theme toggle, and footer.
 - `src/data/models.ts`: Data layer that hydrates models from pre-parsed scores and meta files.
 - `src/data/sources.generated.ts`: Auto-generated registry of reporting agents.
 - `src/data/scores.generated.ts`: Auto-generated compact score index used by the client bundle.
 - `scripts/sync-data.mjs`: Deterministic sync script behind `pnpm sync`.
+- `scripts/lib/validate.mjs`: Validation logic including merged slug mappings and duplicate detection.
 - `tasks/sync-data.md`: Human workflow documentation for running sync safely.
 - `BACKLOG.md`: Centralized living improvement backlog tracking open items and standing decisions.
 - `public/`: Static assets like the PWA manifest and brand favicon.
@@ -69,6 +72,7 @@ SrcRoutes["src/routes/"]
 SrcComponents["src/components/"]
 Public["public/"]
 Dist["dist/ + server/"]
+Validate["scripts/lib/validate.mjs"]
 Repo --> ModelDir
 Repo --> SrcData
 Repo --> Scripts
@@ -78,8 +82,10 @@ Repo --> SrcRoutes
 Repo --> SrcComponents
 Repo --> Public
 Repo --> Dist
+Repo --> Validate
 ModelDir --> SrcData
 Scripts --> SrcData
+Validate --> Scripts
 Backlog --> Repo
 ```
 
@@ -87,11 +93,13 @@ Backlog --> Repo
 - [README.md:61-82](file://README.md#L61-L82)
 - [model/README.md:1-30](file://model/README.md#L1-L30)
 - [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 **Section sources**
 - [README.md:61-82](file://README.md#L61-L82)
 - [model/README.md:1-30](file://model/README.md#L1-L30)
 - [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 ## Core Components
 ModelComp's core workflow revolves around four main areas:
@@ -103,12 +111,14 @@ ModelComp's core workflow revolves around four main areas:
 
 Key responsibilities:
 - `scripts/sync-data.mjs` scans model folders, enforces naming hygiene, auto-quarantines weak reports, recomputes `average.md`, updates the source registry, and writes `scores.generated.ts`.
+- `scripts/lib/validate.mjs` provides validation helpers including merged slug detection and duplicate prevention.
 - `src/data/models.ts` reads generated scores and `meta.json` files to construct typed model objects, dimension definitions, virtual sort views, and the results-source dropdown order.
 - `tasks/sync-data.md` documents the human checklist and invariants around sync behavior.
 - `BACKLOG.md` serves as the single source of truth for open improvement items and standing decisions, replacing the previous scattered improvement tracking system.
 
 **Section sources**
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 - [src/data/models.ts:6-16](file://src/data/models.ts#L6-L16)
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
 - [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
@@ -120,7 +130,8 @@ The data flow is intentionally designed so contributors never edit application s
 flowchart TD
 Start(["Contributor adds or edits findings"]) --> Sync["Run pnpm sync"]
 Sync --> Validate["Validate filenames, scores, and meta.json"]
-Validate --> Quarantine["Auto-quarantine evidence-free reports"]
+Validate --> CheckSlug["Check for merged slug duplicates"]
+CheckSlug --> Quarantine["Auto-quarantine evidence-free reports"]
 Quarantine --> Parse["Parse 1–100 scores from findings files"]
 Parse --> Average["Recompute average.md per model"]
 Average --> Registry["Register new reporting-agent sources"]
@@ -133,6 +144,7 @@ Build --> Site["Static site with compare view and per-model pages"]
 - [README.md:31-44](file://README.md#L31-L44)
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 ## Detailed Component Analysis
 
@@ -194,28 +206,34 @@ The Results-source dropdown and hexagon will show the new source on the next bui
 #### Adding a New Model
 To add a completely new model:
 
-1. Create a new folder under `model/<slug>/`.
-2. Add one or more findings files for the reporting agents that evaluated this model.
-3. Add a `meta.json` file with required fields: `id`, `name`, `short`, `contextWindow`, `modalities`, and `pricingNote`. Optional fields include `pricingTiers`, `freeTierNote`, and `noFreeId`.
-4. Run `pnpm sync`. It creates `average.md`, validates metadata, and prepares generated data.
-5. Run `pnpm build.types && pnpm build`.
+1. Derive the slug following the naming conventions below.
+2. Create a new folder under `model/<slug>/`.
+3. Add one or more findings files for the reporting agents that evaluated this model.
+4. Add a `meta.json` file with required fields: `id`, `name`, `short`, `contextWindow`, `modalities`, and `pricingNote`. Optional fields include `pricingTiers`, `freeTierNote`, and `noFreeId`.
+5. Run `pnpm sync`. It creates `average.md`, validates metadata, and prepares generated data.
+6. Run `pnpm build.types && pnpm build`.
 
 The model appears in selectors, cards, and its own `/model/<slug>/` page automatically.
 
-#### Slug Naming Rules
+#### Slug Naming Rules and Duplicate Prevention
 Slug names are filesystem-safe identifiers for models. Important rules include:
 
 - Version numbers use dots, not hyphens. For example, use `gpt-5.5`, not `gpt-5-5`.
 - Hyphen-versioned folders are treated as duplicates of dotted variants.
+- Vendor prefixes are stripped automatically. A folder like `google-gemini-2.5-flash-lite` is automatically recognized as a duplicate of `gemini-2.5-flash-lite` and redirected to the canonical slug.
 - Exceptions exist for parameter sizes and codenames, such as `gemma-4-31b`, `qwen-3.8-27b`, `gpt-6-astra`, and experimental suffixes.
-- `pnpm sync` fails loudly on invalid slug versions so they are never cemented.
+- `pnpm sync` fails loudly on invalid slug versions and merged duplicates so they are never cemented.
+
+**Updated** The project now enforces strict slug normalization to prevent duplicate model folders. Vendor-prefixed slugs like `google-gemini-2.5-flash-lite` are automatically consolidated into canonical slugs like `gemini-2.5-flash-lite`.
 
 **Section sources**
 - [model/README.md:7-16](file://model/README.md#L7-L16)
 - [model/README.md:17-30](file://model/README.md#L17-L30)
 - [model/README.md:32-57](file://model/README.md#L32-L57)
 - [model/README.md:59-77](file://model/README.md#L59-L77)
+- [model/README.md:172-177](file://model/README.md#L172-L177)
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 ### Typical Workflow Example
 Here is a practical example of adding a new findings file for an existing model:
@@ -234,11 +252,14 @@ sequenceDiagram
 participant Dev as "Developer"
 participant Sync as "pnpm sync"
 participant Script as "scripts/sync-data.mjs"
+participant Validate as "validate.mjs"
 participant Data as "Generated data"
 participant Build as "pnpm build"
 participant Site as "Preview site"
 Dev->>Dev : "Create <Source_Name>.md under model/<slug>/"
 Dev->>Sync : "Run pnpm sync"
+Sync->>Validate : "Check for merged slug duplicates"
+Validate-->>Sync : "Return canonical slug if duplicate"
 Sync->>Script : "Validate, parse, quarantine, compute averages"
 Script-->>Data : "Write scores.generated.ts and sources.generated.ts"
 Dev->>Build : "Run pnpm build.types && pnpm build"
@@ -248,6 +269,7 @@ Build-->>Site : "Serve dist/ locally"
 **Diagram sources**
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
 - [tasks/sync-data.md:19-63](file://tasks/sync-data.md#L19-L63)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 **Section sources**
 - [model/README.md:59-77](file://model/README.md#L59-L77)
@@ -258,6 +280,7 @@ ModelComp separates data authoring from application code. The main dependency ch
 
 - Research authors write Markdown findings and `meta.json`.
 - `scripts/sync-data.mjs` transforms those files into deterministic TypeScript artifacts.
+- `scripts/lib/validate.mjs` provides validation helpers including merged slug detection.
 - `src/data/models.ts` consumes generated scores and source definitions.
 - Routes and components render the compare view and per-model pages.
 
@@ -265,6 +288,7 @@ ModelComp separates data authoring from application code. The main dependency ch
 graph LR
 Findings["Findings .md files"] --> Sync["sync-data.mjs"]
 Meta["meta.json"] --> Sync
+Validate["validate.mjs"] --> Sync
 Sync --> ScoresGen["scores.generated.ts"]
 Sync --> SourcesGen["sources.generated.ts"]
 ScoresGen --> ModelsTs["models.ts"]
@@ -276,11 +300,13 @@ ModelsTs --> Components["src/components/"]
 **Diagram sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 - [src/data/models.ts:6-16](file://src/data/models.ts#L6-L16)
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [src/data/models.ts:6-16](file://src/data/models.ts#L6-L16)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
 
 ## Performance Considerations
 ModelComp avoids shipping full Markdown report prose into the browser bundle. The sync script pre-parses findings files into a compact numeric score index stored in `src/data/scores.generated.ts`. This keeps the client bundle small while preserving detailed research in the repository.
@@ -291,6 +317,7 @@ Important performance-related behaviors include:
 - The UI imports hydrated model data rather than reading raw Markdown at runtime.
 - `pnpm build.types` catches type errors early, preventing expensive failed builds.
 - `pnpm sync:quiet` reduces console noise during large sync runs while preserving the same validation and exit-code contract.
+- Merged slug detection prevents redundant processing of duplicate model folders.
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
@@ -310,16 +337,31 @@ Important performance-related behaviors include:
 | New model does not appear | Missing `meta.json` or incomplete sync/build | Add `meta.json`, run `pnpm sync`, then rebuild. |
 | New source does not appear in dropdown | Sync did not register the source or build was skipped | Rerun `pnpm sync && pnpm build`. |
 | Average looks stale | Findings changed but sync was not rerun | Run `pnpm sync` again. |
+| Slug validation fails | Using hyphenated version numbers or vendor-prefixed duplicates | Use dotted versions (`gpt-5.5`) and canonical slugs (`gemini-2.5-flash-lite`). |
+| Merged slug error | Trying to recreate deleted duplicate folder | Use the canonical slug instead of the vendor-prefixed version. |
 
 ### Understanding Sync Messages
 When running `pnpm sync`, pay attention to these message categories:
 
-- `FAIL`: A hard error requiring human action. Examples include invalid filenames, missing required score lines, malformed `meta.json`, or forbidden deletions of tracked research files.
+- `FAIL`: A hard error requiring human action. Examples include invalid filenames, missing required score lines, malformed `meta.json`, forbidden deletions of tracked research files, or attempts to recreate merged duplicate slugs.
 - `AUTO`: The script corrected something safe, such as an Overall Score drift or an auto-scaffolded `meta.json`.
 - `WRITE`: A generated or computed file was rewritten, such as `average.md`, `scores.generated.ts`, or `sources.generated.ts`.
 - `SKIP`: A self-excluded findings file was intentionally ignored because it contained no verified benchmarks.
 - `GATE`: A rater's report was excluded from averaging because the rater's own overall did not clear the quality gate.
 - `FALLBACK`: No qualifying raters were found, so all available reports were averaged instead.
+
+### Merged Model Slugs and Duplicate Prevention
+ModelComp enforces strict slug normalization to prevent duplicate model folders. Key rules include:
+
+- **Vendor prefix stripping**: A folder named `<vendor>-<rest>` (e.g., `google-gemini-2.5-flash-lite`) whose `<rest>` already exists as a folder is treated as a duplicate.
+- **Automatic consolidation**: The `google-gemini-2.5-flash-lite` directory was completely merged into `gemini-2.5-flash-lite` on 2026-10-06.
+- **Permanent deletion**: Merged duplicate slugs are permanently deleted and must never be recreated.
+- **API route exceptions**: While folder names cannot use vendor prefixes, API routes like `opencode/google-gemini-2.5-flash-lite` are still valid to cite in reports.
+
+If you encounter a merged slug error:
+1. Use the canonical slug (`gemini-2.5-flash-lite`) instead of the vendor-prefixed version.
+2. Do not attempt to restore deleted duplicate folders from git history.
+3. If you have old references, update them to point to the canonical slug.
 
 ### Improvement Tracking System
 ModelComp now uses a centralized improvement backlog system through `BACKLOG.md`. This replaces the previous scattered improvement tracking in `GLM53F_IMP.md` and `IMPROVEMENTS.md`, which were retired on 2026-10-04.
@@ -359,6 +401,8 @@ After making data changes:
 - [tasks/sync-data.md:66-108](file://tasks/sync-data.md#L66-L108)
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 - [BACKLOG.md:1-44](file://BACKLOG.md#L1-L44)
+- [scripts/lib/validate.mjs:30-32](file://scripts/lib/validate.mjs#L30-L32)
+- [RULES.md:69-87](file://RULES.md#L69-L87)
 
 ## Conclusion
 ModelComp makes it straightforward to compare AI coding models without maintaining complex application state. You add Markdown findings and metadata, run `pnpm sync`, and let the build pipeline generate the data the UI needs. The result is a static site that shows side-by-side comparisons, hexagon charts, sortable tables, and per-model pages.
@@ -372,4 +416,4 @@ For beginners, the safest starting point is:
 5. Run `pnpm sync && pnpm build.types && pnpm build`.
 6. Run `pnpm preview` to inspect the production output.
 
-When in doubt, read the `FAIL` lines from sync, check the model and tasks documentation, consult the centralized `BACKLOG.md` for improvement tracking, and avoid editing application source code when adding model data.
+When in doubt, read the `FAIL` lines from sync, check the model and tasks documentation, consult the centralized `BACKLOG.md` for improvement tracking, and avoid editing application source code when adding model data. Remember that slug names must follow strict conventions — use dotted versions and canonical slugs, and never recreate merged duplicate folders like `google-gemini-2.5-flash-lite`.

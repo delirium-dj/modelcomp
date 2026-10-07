@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Nemotron 3.5 Lightning Free (`opencode/nemotron-3.5-lightning-free`, NVIDIA)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,48 +19,57 @@
 
 ### Raw benchmarks found
 
+> BenchLM re-published the Hugging Face card rows for the NVFP4 checkpoint (30B-A3B) and Artificial Analysis rows on 2026-10-06; the vendor card and independent runs agree closely.
+
 Agent / tool use:
 
-- PinchBench: NVIDIA reports it **completes 10,000 tasks 30% faster than Qwen3.6 35B at comparable accuracy** — a speed/accuracy Pareto claim rather than a point score
-- Artificial Analysis Intelligence Index: described by NVIDIA as defining the **accuracy-speed Pareto frontier for small open models**; the tracker's Epoch-derived placement is the **11th percentile overall and 8th percentile on coding**
-- Terminal-Bench 2.0 / 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- PinchBench: **83.4%** (Hugging Face card via BenchLM) — NVIDIA also reports it **completes 10,000 tasks 30% faster than Qwen3.6 35B at comparable accuracy**, a speed/accuracy Pareto claim rather than a point score
+- Terminal-Bench 2.1: **23.5%** (HF card via BenchLM)
+- τ³-bench: **9.5%** (HF card via BenchLM)
+- GDPval-AA: **865** (HF card) / **7.0%** normalized (Artificial Analysis) — both weak
+- BrowseComp: **36.8%** (HF card via BenchLM)
+- AA Agentic Index: **6.1%** (Artificial Analysis)
+- Artificial Analysis Intelligence Index: described by NVIDIA as defining the **accuracy-speed Pareto frontier for small open models**; the Model Beat tracker's Epoch-derived placement is the **11th percentile overall and 8th percentile on coding**
+- Tau3-Banking / Tau2-Bench, Claw-Eval / ClawProBench, Toolathon / MCP-Atlas, SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **74.3%** (Epoch AI via Model Beat)
-- HLE: **10.6%** (Epoch AI via Model Beat) — very low, consistent with a small execution-tier model
-- SciCode: **32.1%** (Epoch AI via Model Beat)
-- MMLU-Pro / AIME / CritPt: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
+- GPQA Diamond: **75.6%** (HF card via BenchLM) / **74.3%** (Artificial Analysis)
+- MMLU-Pro: **81.6%** (HF card via BenchLM)
+- HLE without tools: **10.5%** (HF card) / **10.6%** (Artificial Analysis) — very low, consistent with a small execution-tier model
+- SciCode: **31.4%** (HF card) / **32.1%** (Artificial Analysis)
+- CritPt: **0.0%** (Artificial Analysis); MLCR: **no verified public score found**
+- AA-LCR: **49.2%** (HF card via BenchLM)
+- AA Intelligence Index: **12.9%**; BenchLM overall **21.9/100, rank #203 of 887**
+- Omniscience Accuracy **14.4%**, Index **-17.7%**, Hallucination Rate **37.6%** (via BenchLM)
+- IFBench: **72.9%** (HF card via BenchLM)
 
 Coding:
 
-- SciCode: **32.1%**; coding index at the 8th percentile of tracked models (Epoch AI via Model Beat)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: **no verified public score found**
+- SWE-bench Verified: **52.8%** (HF card via BenchLM) — the first repository-level coding score found for Lightning
+- SWE Multilingual: **36.5%** (HF card via BenchLM)
+- SciCode: **31.4%** (HF card) / **32.1%** (AA); coding index at the 8th percentile of tracked models (Epoch AI via Model Beat); AA Coding Index **26.8%**
+- SWE-bench Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: **no verified public score found**
 - Efficiency claim: designed for high-volume execution with speculative decoding, so latency and cost per tool call are the actual selling points rather than raw scores
 
 Long context:
 
-- no MRCR/RULER/GraphWalks recall value published; the vendor's window history itself moved between 262K and 1M, so 262K should be treated as the current, tracked figure without recall evidence.
+- no MRCR/RULER/GraphWalks recall value published; AA-LCR **49.2%** is the only long-context signal. The vendor's window history moved between 262K and 1M, and BenchLM's NVFP4 card now lists **1M**, while the tracked Zen/NIM figure remains **262,144**, so recall at depth is unmeasured.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** It exists precisely to run tool calls and validation steps fast, and NVIDIA's routing architecture treats it as such, but with no Terminal-Bench, Tau3, GDPval or Claw score and an 11th-percentile composite, capability is unproven above midpoint.
-- **Reasoning: 55/100.** GPQA Diamond 74.3% is respectable for a 3B-active model, but HLE 10.6% and SciCode 32.1% show how narrow the model is.
-- **Context window: 72/100.** 262,144 tokens is mid-tier and the vendor's own spec history oscillated between 262K and 1M — plus there is no recall measurement at any depth.
+- **Tool use: 45/100.** It exists precisely to run tool calls and validation steps fast, and NVIDIA's routing architecture treats it as such, but the newly published Terminal-Bench 2.1 23.5%, τ³ 9.5%, GDPval-AA 865 and 6.1% AA agentic index confirm capability below midpoint.
+- **Reasoning: 55/100.** GPQA Diamond 74.3–75.6% and MMLU-Pro 81.6% are respectable for a 3B-active model, but HLE 10.6%, CritPt 0.0% and SciCode ~32% show how narrow the model is.
+- **Context window: 72/100.** 262,144 tokens is mid-tier; the vendor's spec history oscillated between 262K and 1M and BenchLM's NVFP4 card now lists 1M, but the tracked Zen/NIM figure stays 262K and AA-LCR 49.2% is the only recall measurement.
 - **Multimodal: 15/100.** Text-in/text-out only.
-- **Coding: 50/100.** SciCode 32.1% and an 8th-percentile coding index place it well below coding-capable peers; its value is executing steps other models planned, not writing repository-level patches.
+- **Coding: 55/100.** SWE-bench Verified 52.8% is a genuine repository-level result for a 3B-active model, but SWE Multilingual 36.5%, SciCode ~32% and an 8th-percentile coding index still trail coding-capable peers.
 - **Cost efficiency: 100/100.** Free through Zen and NVIDIA trial endpoints, with a $0.07/$0.20 paid floor and open weights for self-hosting; the free-tier trade-off is trial-only, logged usage.
-- **Overall Score: 47/100.** (45 + 55 + 72 + 15 + 50 + 100) / 6 = 56.2 → **56**. Best fit: high-volume execution/validation subagents inside a routed multi-model agent system, not standalone reasoning or coding.
+- **Overall Score: 48/100.** (45 + 55 + 72 + 15 + 55) / 5 = 48.4 → **48**. Best fit: high-volume execution/validation subagents inside a routed multi-model agent system, not standalone reasoning or coding.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-18
-- Method: public internet research (NVIDIA Nemotron 3.5 Lightning launch blog, Epoch AI/Artificial Analysis figures via Model Beat, OpenCode Zen privacy page, OpenRouter/ModelScope hosting listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
+- Method: public internet research (NVIDIA Nemotron 3.5 Lightning launch blog, Hugging Face NVFP4 model card and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI/Artificial Analysis figures via Model Beat, OpenCode Zen privacy page, OpenRouter/ModelScope hosting listings); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

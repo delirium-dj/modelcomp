@@ -1,7 +1,7 @@
 # HY4 (Hy4 Preview) — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/Hy4 preview (`tencent/Hy4-preview`, served as `hy4-preview`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,9 @@ Agent / tool use:
 - Toolathlon-Verified: **74.1%** (Tencent self-reported — reported to surpass Qwen 3.8 Max and GPT-5.6 Sol)
 - MCP Atlas (public set): **83.7%** (Tencent self-reported; RankLLMs' independent agent pillar prints 45.2 for its Toolathlon-style aggregate)
 - APEX-Agents pass@1: **37.1%**; Agents' Last Exam (ALE-CLI): **22.8%**; AutomationBench v1.0.6: **32.1%**; GDPval-AA v2 Elo (max 3000 scale): **55.9%** of scale (all Tencent self-reported)
-- OSWorld (independent, RankLLMs): **49.0%**; BrowseComp (independent, RankLLMs): **45.2%** vs Tencent's own WideSearch **83.9%**
+- OSWorld (independent, RankLLMs): **49.0%**; BrowseComp (independent, RankLLMs): **45.2%** vs Tencent's own WideSearch **83.9%** (BenchLM confirms WideResearch 83.9%, 2026-10-07)
+- Terminal-Bench 2.1 (Vals, independent): **55.1%** vs Tencent self-reported 85.4% — a ~30-point vendor/independent divergence (Vals AI via BenchLM, 2026-10-07)
+- GDPval-AA: **1,678** raw (Tencent appendix via BenchLM); CWE-bench v1 **53.0%** (Collinear via BenchLM)
 - CyberGym: **78.4%**; BankerToolBench: **78.6%** (Tencent self-reported)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Tau3-Banking / Tau2: **no verified public score found**
@@ -69,12 +71,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only: the preview explicitly ships without visual input, and there is no audio/video/PDF input or non-text output — the text-only band (10–20).
 - **Coding: 84/100.** TB 2.1 85.4% meets the frontier terminal reference, DeepSWE 64.3 is a 36-point jump over Hy3, and SWE-bench Pro 65.7% / Multilingual 82.9% / SWE-bench Verified 77.0% are strong; capped by DeepSWE still under the 74% frontier ref, SWE-bench Verified under Claude Opus 4.8-class ~81%, and no SciCode, LiveCodeBench or Coding Index result.
 - **Cost efficiency: 90/100.** $0.834 in / $2.501 out is slightly above the ~$0.60/$2.20 ≈ 92 anchor and well below $1.25/$4.25 ≈ 88, so ~90 is the right band, helped by a $0.042 cache-hit rate (≈95% discount) and by Apache 2.0 self-hosting at no per-token cost; capped by the paid-only API and by the multi-node GPU footprint needed to self-host 770B at usable speed.
-- **Overall Score: 74/100.** (87 + 87 + 95 + 15 + 84 + 90) / 6 = 76.3 → **76**. Best fit: self-hosted or TokenHub-routed long-horizon coding/agent work that genuinely needs a 1M-token window and permissive licensing, and can absorb preview-grade latency and over-verification; not a fit for image/audio input or cost-sensitive high-volume text.
+- **Overall Score: 74/100.** Cost-excluded v4 mean of the five quality dims (87 + 87 + 95 + 15 + 84) / 5 = 73.6 → **74**. Best fit: self-hosted or TokenHub-routed long-horizon coding/agent work that genuinely needs a 1M-token window and permissive licensing, and can absorb preview-grade latency and over-verification; not a fit for image/audio input or cost-sensitive high-volume text.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: Public internet research from zero — `Tencent-Hunyuan/Hy4-preview` GitHub model card, Tencent launch coverage (Winzheng 2026-08-30), ToolWorthy release review, Traictory model catalogue, RankLLMs leaderboard and BenchLM model record. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

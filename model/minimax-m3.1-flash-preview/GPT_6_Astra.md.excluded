@@ -1,0 +1,49 @@
+# MiniMax M3.1 Flash Preview — findings by GPT 6 Astra
+
+- Source: MiniMax / MiniMax-M3.1-Flash-Preview
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** Verified multimodal coding preview. This is not presumed to be Space Bunny or the existing M3 checkpoint.
+- **Provider / access:** M Plan and MiniMax Code only at present. Documented Chat Completions at `https://api.minimax.io/v1/chat/completions`; an Anthropic-compatible interface also exists. [Model availability](https://platform.minimax.io/docs/guides/models-intro), [API](https://platform.minimax.io/docs/api-reference/text-chat-openai)
+- **Release / knowledge:** Exact official launch date and knowledge cutoff not verified; independent evaluation recorded September 28, 2026.
+- **IDs:** `MiniMax-M3.1-Flash-Preview`; no verified Zen Free ID.
+- **Context window:** 1M tokens; maximum output unverified. [Official model table](https://platform.minimax.io/docs/guides/models-intro)
+- **Modalities:** Text/image/video input, text output, tools; mandatory thinking with low/medium/high/xhigh/max effort, default max. JSON-schema enforcement unverified. [API specifications](https://platform.minimax.io/docs/api-reference/text-chat-openai)
+- **Pricing (as of 2026-10-07):** Subscription access confirmed; exact per-million input/output/cache prices not verified. The [official price table](https://platform.minimax.io/docs/pricing/overview) lists M3 rates, which must not be transferred to M3.1. [M Plan documentation](https://platform.minimax.io/docs/m-plan/intro) confirms inclusion across its tiers, without enough usage/cost detail here to calculate comparable token economics. Privacy terms not independently evaluated.
+- **Architecture:** Parameters, active size, topology and weight license unverified; no M3 architecture extrapolation.
+
+### Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench 2.1, Tau3/Tau2, GDPval-AA, Claw-Eval, Toolathon and MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, AA Intelligence Index and Omniscience: no verified public score found.
+- ModelDial max-effort knowledge/reasoning: **75/100**, limited private task set.
+
+Coding:
+- ModelDial max effort: backend/testing **75/100**, frontend/interaction **57/100**; its own weighted overall **69.6/100**, rank **19/33**, evaluation time **54m 7s**, reference cost unavailable. Backend test dated September 28; snapshot October 5, 2026. [Evaluator's results](https://modeldial.com/en/models/MiniMax-M3.1-Flash-Preview?axis=overall&config=MiniMax-M3.1-Flash-Preview~max)
+- SWE-bench, DeepSWE, LiveCodeBench, SciCode and Vibe Code Bench: no verified public score found.
+
+Long context:
+- No verified retrieval score found for the advertised 1M window.
+
+Evidence limitations:
+- ModelDial is a primary evaluator, not a vendor benchmark announcement. Its [methodology](https://modeldial.com/en/method) uses five backend questions, a frontend application exercise and twenty reasoning questions; the aggregate weights are 40/30/30. Its [datasets](https://modeldial.com/en/datasets) are private. This is useful narrow evidence but not equivalent to the project's agent/science/coding benchmark ladder.
+- Neither private-suite scores nor M3's published results are substituted for missing M3.1 measurements.
+
+### Normalized scores (1–100)
+
+Self-excluded for insufficient calibrated evidence across the quality dimensions, particularly tool execution and broad reasoning. Some verified narrow benchmark results exist; this is not a zero-evidence or nonexistent-model verdict. Comparable token cost also remains unknown. No placeholder scores or Overall are assigned. Revisit when broader evaluations and pricing are published.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-07 UTC
+- Method: Independent primary-source research; notes-only exclusion under RULES.md's insufficient-data rule.
+- Future sources: Add a separate signed report using the same headings.
+

@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Poolside/Laguna S 2.1 (`poolside/laguna-s-2.1`, served as `laguna-s-2.1`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,8 +15,8 @@
 - **Correction to folder metadata:** this repo's `meta.json` attributes the model to "Laguna Labs" with no verified public information. Public sources (Traictory catalogue, RankLLMs, BenchLM) all attribute Laguna S 2.1 to **Poolside**; the folder metadata predates the public release and should be refreshed by the maintainer (I did not modify it).
 - **Context window:** **1,048,576 tokens (1M)**, per Traictory and RankLLMs. Max output not published.
 - **Modalities:** **Text in / text out only.** Thinking and no-thinking modes; tool calls; structured output; no image/audio/video input.
-- **Pricing (as of 2026-09-18):** **$0.10 / 1M in, $0.20 / 1M out** (Traictory); RankLLMs prints a $0.11 blended figure. Self-hosting is free of per-token cost under the open-weight licence, but needs multi-GPU VRAM.
-- **Architecture:** MoE, **118B total / 8B active**, 256 routed experts + 1 shared expert, interleaved thinking, 1M context. Licence **OpenMDW** (open weights, model-distribution licence rather than Apache/MIT).
+- **Pricing (as of 2026-10-06):** **$0.10 / 1M in, $0.01 / 1M cached input, $0.20 / 1M out** via Poolside (LLM Stats, 2026-10-06); Traictory lists $0.10/$0.20 and RankLLMs prints a $0.11 blended figure. Self-hosting is free of per-token cost under the open-weight licence, but needs multi-GPU VRAM.
+- **Architecture:** MoE, **118B total / 8B active**, 256 routed experts + 1 shared expert, 48 layers, interleaved thinking, 1M context. Licence **OpenMDW License v1.1** (open weights, model-distribution licence rather than Apache/MIT); weights on Hugging Face (`poolside/Laguna-S-2.1`).
 
 ### Raw benchmarks found
 
@@ -52,7 +52,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Derived from the raw numbers above using the methodology in `../../model-comparison.md`; Overall = arithmetic mean of the six.
+> Derived from the raw numbers above using the methodology in `../../model-comparison.md`; Overall = arithmetic mean of the five quality dimensions (Cost excluded).
 
 - **Tool use: 62/100.** Vendor numbers (TB 2.1 70.2%, Toolathlon 49.7%, SWE Atlas Codebase QnA 46.2%) sit at/above the mid band, but RankLLMs' independent harness prints TB 2.1 33.1%, OSWorld 25.7% and BrowseComp 25.7%, and there is no GDPval, Claw-Eval or Tau3 row at all — so the defensible position is the mid-band midpoint rather than the vendor peak.
 - **Reasoning: 52/100.** The only reasoning evidence is RankLLMs' independent GPQA proxy and MATH-500 at 41.5% each — below the 60–80% mid band — with no vendor GPQA, no HLE, no CritPt and no LCR/Intelligence Index, so this coding-first model gets a below-mid, evidence-thin reasoning score.
@@ -60,12 +60,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out; no image/audio/video/PDF input and no non-text output (the text-only band 10–20).
 - **Coding: 68/100.** SWE-bench Multilingual 78.5% and SWE-Bench Pro 59.4% with TB 2.1 70.2% are solidly above the mid band (65–75) for a specialised open-weight coder, but DeepSWE 40.4% and the independent SWE-bench Verified 33.1% show how harness-dependent those numbers are, and no SciCode/LiveCodeBench/DeepSWE frontier reference is met (74%+/85%+/55%+).
 - **Cost efficiency: 98/100.** $0.10 in / $0.20 out lands exactly on the 97–99 band anchor, and OpenMDW open weights make self-hosting cost-free per token; only the absence of a $0 API tier keeps it off 100.
-- **Overall Score: 58/100.** (62 + 52 + 95 + 15 + 68 + 98) / 6 = 65.0 → **65**. Best fit: self-hosted or OpenRouter coding agents that need a genuine 1M-token window at low per-token cost and will validate vendor harness claims on their own repo before trusting them.
+- **Overall Score: 58/100.** (62 + 52 + 95 + 15 + 68) / 5 = 58.4 → **58**. Best fit: self-hosted or OpenRouter coding agents that need a genuine 1M-token window at low per-token cost and will validate vendor harness claims on their own repo before trusting them.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-18
-- Method: Public internet research from zero — Traictory model catalogue (specs, harness-annotated self-reported evals, pricing, licence), RankLLMs leaderboard (independent benchmark rows, speed, rank), BenchLM model record (evidence coverage). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
+- Method: Public internet research from zero — Poolside launch post and docs, LLM Stats model page (specs, pricing incl. cached-input, licence, launch date re-verified 2026-10-06), Traictory model catalogue, RankLLMs leaderboard, BenchLM model record (which re-confirms the same six sourced rows and still assigns no public overall score). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_4.md`, using the same headings.

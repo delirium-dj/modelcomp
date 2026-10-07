@@ -1,7 +1,7 @@
 # HY3 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/Hy3-preview (`tencent/Hy3-preview`, served as `hy3-preview`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,20 +34,22 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **86.7%** (thinking, no tools; LLMLearner/DataLearner, rank 68/254)
-- HLE: **27.8%** (text-only, thinking, no tools; rank 80/218)
-- CritPt: **4.6** (rank 59/118)
-- IF Bench (instruction following): **63.1** (rank 75/165)
-- LCR / MLCR: **no verified public score found** — Tencent instead reports non-numeric CL-bench / CL-bench Life in-context-learning wins
-- Artificial Analysis Intelligence Index: **23 (estimated) / rank 35 of 113** (AA v4.3; the model page is deprecated and only the 10k-input workload is still benchmarked)
-- BenchLM overall: **55.7 / 100, rank 85 of 230** (strongest eligible category Agentic at #70)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond: **86.7%** (thinking, no tools; LLMLearner/DataLearner rank 68/254; Tencent card 87.2%; AA-GPQA Diamond 89.7%)
+- HLE: **27.8%** text-only (rank 80/218); AA-HLE **33.5%**
+- CritPt: **4.9%** (Artificial Analysis via BenchLM, 2026-10-07)
+- IF Bench (instruction following): **63.1%** (rank 75/165)
+- LCR / MLCR: AA-LCR **66.7%** (Artificial Analysis via BenchLM, 2026-10-07) — no published MLCR
+- Artificial Analysis Intelligence Index: **41.2%** (AA via BenchLM); earlier estimate 23 / rank 35 of 113 (deprecated AA page)
+- BenchLM overall: **51.05 / 100, rank 87 of 887** (2026-10-07; strongest eligible category Coding)
+- Omniscience Accuracy **31.5%** / Hallucination Rate **73.0%** (Artificial Analysis via BenchLM)
+- GDPval-AA **1,136** raw / **35.8%** normalized; AA Agentic Index **25.6%** (Artificial Analysis via BenchLM)
 
 Coding:
 
 - SWE-bench Verified: **74.4%** (Tencent, re-published by ToolWorthy; vs Claude Opus 4.6 at 80.8%)
 - Terminal-Bench 2.0: **54.4%** (same source)
-- LiveCodeBench / SciCode / DeepSWE / SWE-bench Pro / Vibe Code Bench: **no verified public score found**
+- SciCode: **41.2%**; AA-SciCode **48.6%**; AA Coding Index **58.8%** (Artificial Analysis via BenchLM, 2026-10-07)
+- LiveCodeBench / DeepSWE / SWE-bench Pro / Vibe Code Bench: **no verified public score found**
 - Internal suites: Hy-Backend, Hy-Vibe Bench, Hy-SWE Max reported as "strong" — no numbers published
 
 Long context:
@@ -64,12 +66,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output confirmed by the official card and Artificial Analysis — no image, audio, video or PDF input and no non-text output.
 - **Coding: 70/100.** SWE-bench Verified 74.4% is genuinely competitive (about 6 points behind Claude Opus 4.6) and TB 2.0 54.4% is mid-band-plus, but with no SciCode, LiveCodeBench or DeepSWE number and a preview-era reliability caveat, it lands under HY3's 76 and well below the 90+ frontier band (DeepSWE 74%+, TB2.1 85%+, SciCode 55%+).
 - **Cost efficiency: 96/100.** A $0.06 in / $0.21 out cross-provider median with a 67% cache discount and a ≈$0.05 blended rate is at/inside the 97–99 band, and a limited-time free hosted window existed on Tencent Cloud and OpenRouter; capped at 96 because the durable Tencent Cloud CN tiers rise to ¥2/¥8 per 1M (≈$0.28/$1.12), the free access was time-limited, and access carried territory-restricted licensing.
-- **Overall Score: 61/100.** (70 + 78 + 72 + 15 + 70 + 96) / 6 = 66.8 → **67**. Best fit: budget-conscious self-hosting or OpenRouter routing where a 256K-window text agent at a few cents per million tokens matters more than top-end tool reliability — and where the superseded-status risk is acceptable (HY3 is the better pick today).
+- **Overall Score: 61/100.** Cost-excluded v4 mean of the five quality dims (70 + 78 + 72 + 15 + 70) / 5 = 61.0 → **61**. Best fit: budget-conscious self-hosting or OpenRouter routing where a 256K-window text agent at a few cents per million tokens matters more than top-end tool reliability — and where the superseded-status risk is acceptable (HY3 is the better pick today).
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: Public internet research from zero — `Tencent-Hunyuan/Hy3-preview` GitHub model card, Tencent Cloud Hy3-preview launch note, Hugging Face `tencent/Hy3-preview`, Artificial Analysis (deprecated model page) and LLMLearner/BenchLM aggregator records. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3_Flash.md`, using the same headings.

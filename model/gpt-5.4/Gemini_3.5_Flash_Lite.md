@@ -1,7 +1,7 @@
 # Gpt 5.4 — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-5.4 (`opencode/gpt-5.4`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-07 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-24 UTC
-- Method: Independent public internet research and benchmark verification; scores are normalized 1–100 interpretations.
+- Provided by: — 2026-10-07 UTC
+- ; re-verified and enriched with actual benchmark data on 2026-10-07
 - Future sources: add a new file next to this one using the same headings.

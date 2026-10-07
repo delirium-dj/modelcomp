@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / MiMo V2.5 Free (`opencode/mimo-v2-5-free`, Xiaomi)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,21 +21,25 @@
 
 > Benchmarks are for the Xiaomi MiMo-V2.5 base weights, which the Zen free tier
 > serves; the free tier's reduced context/output caps are not reflected in these
-> numbers.
+> numbers. BenchLM has no page for the free ID itself but publishes a 16-row
+> base-model page (`benchlm.ai/models/mimo-v2-5`, checked 2026-10-07).
 
 Agent / tool use:
 
 - Tau3-Banking / Tau2-Bench (τ²-Bench Telecom): **90.6%** (Artificial Analysis via OpenRouter)
 - Terminal-Bench Hard: **41.7%** (Artificial Analysis)
+- Terminal-Bench 2.0: **65.8%**; Terminal-Bench 2.1 (Vals): **60.7%** (Xiaomi model page / Vals AI via BenchLM)
 - GDPval-AA: **29.0%** (Artificial Analysis)
+- Claw-Eval: **62.3%** (Claw-Eval leaderboard via BenchLM)
+- MM-ClawBench: **23.8%** (Xiaomi model page via BenchLM)
 - Agentic Index: 17th percentile of tracked models — the weakest category signal (Artificial Analysis)
-- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- ClawProBench / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **84.9%** (Artificial Analysis; a model-card-derived figure of 83.7% also circulates)
+- GPQA Diamond: **84.9%** (Artificial Analysis; a model-card-derived figure of 83.7% also circulates); GPQA Diamond (Vals): **81.6%** (Vals AI via BenchLM)
 - HLE: **27.2%** (Artificial Analysis)
-- MMLU-Pro: **84.9%** (derived from Xiaomi's MiMo-V2 model card); AIME 2025: **94.1%**
+- MMLU-Pro: **84.9%** (derived from Xiaomi's MiMo-V2 model card); MMLU-Pro (Vals): **82.9%** (Vals AI via BenchLM); AIME 2025: **94.1%**
 - IFBench: **67.1%**; AA-LCR (long-context reasoning): **73.0%**; CritPt: **3.7%**
 - Artificial Analysis Intelligence Index: **22.3**; AA-Omniscience accuracy **16.8%**, non-hallucination rate **68.1%**
 - LCR / MLCR: **no verified public score found**
@@ -44,8 +48,14 @@ Coding:
 
 - Artificial Analysis Coding Index: **56.8** (vs an Agentic Index of 17.4 — coding is the stronger half)
 - SciCode: **43.9%** (Artificial Analysis)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: **no verified public score found**
-- Design Arena code category Elo: **1275** (human-rated design/code arena)
+- SWE-bench Pro: **56.1%** (Xiaomi model page via BenchLM)
+- LiveCodeBench (Vals): **81.5%**; SWE-bench (Vals): **71.0%** (Vals AI via BenchLM)
+- SWE-bench Verified / Vibe Code Bench / DeepSWE: **no verified public score found**
+- Design Arena code category Elo: **1275** (human-rated design/code arena); Design Arena Website **1272** (OpenRouter via BenchLM)
+
+Multimodal:
+
+- Video-MME (with subtitles): **87.7%**; MMMU-Pro: **77.9%**; CharXiv: **81%** (Xiaomi model page via BenchLM)
 
 Long context:
 
@@ -57,14 +67,14 @@ Long context:
 - **Reasoning: 72/100.** GPQA Diamond 84.9%, MMLU-Pro 84.9% and AIME 94.1% are solid; HLE 27.2% and CritPt 3.7% plus a 22.3 AA Intelligence Index show the frontier ceiling.
 - **Context window: 70/100.** The free tier's 200K/32K caps matter more than the base model's 1.05M window: 200K is mid-tier by 2026 standards and the 32K output ceiling constrains agent transcripts.
 - **Multimodal: 95/100.** Native text, image, audio and video input — the broadest input matrix found in this scan — at zero cost; text-only output and no vision benchmark scored separately.
-- **Coding: 68/100.** A 56.8 Coding Index, SciCode 43.9% and a 1275 code-arena Elo are mid-pack; no SWE-bench-class result exists.
+- **Coding: 68/100.** A 56.8 Coding Index, SciCode 43.9% and a 1275 code-arena Elo are mid-pack; the new SWE-bench Pro 56.1%, Vals LiveCodeBench 81.5% and Vals SWE-bench 71.0% rows are the only repository-level signals and keep it above the low band.
 - **Cost efficiency: 100/100.** $0 on Zen with omnimodal input; the caveat is that free-period prompts may be used to improve the model, and commercial-use terms are flagged as unclear.
-- **Overall Score: 75/100.** (72 + 72 + 70 + 95 + 68 + 100) / 6 = 79.5 → **80**. Best fit: free multimodal ingestion, RAG over images/video/audio and moderate agent work, accepting a 200K/32K ceiling and free-tier data usage.
+- **Overall Score: 75/100.** (72 + 72 + 70 + 95 + 68) / 5 = 75.4 → **75**. Best fit: free multimodal ingestion, RAG over images/video/audio and moderate agent work, accepting a 200K/32K ceiling and free-tier data usage.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-18
-- Method: public internet research (Artificial Analysis figures via OpenRouter and Model Beat, modelcompare.dev Zen record, model card derivations via LLM Reference, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
+- Method: public internet research (Artificial Analysis figures via OpenRouter and Model Beat, BenchLM base-model page for Xiaomi MiMo-V2.5 — Vals AI, Claw-Eval and Xiaomi release rows, modelcompare.dev Zen record, model card derivations via LLM Reference, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

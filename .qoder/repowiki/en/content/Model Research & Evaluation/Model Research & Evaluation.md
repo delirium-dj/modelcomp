@@ -42,17 +42,23 @@
 - [model/mercury-2.5/meta.json](file://model/mercury-2.5/meta.json)
 - [model/minimax-m3.1-flash-preview/meta.json](file://model/minimax-m3.1-flash-preview/meta.json)
 - [model/omen-alpha/meta.json](file://model/omen-alpha/meta.json)
+- [model/qwen-3.5-397b/meta.json](file://model/qwen-3.5-397b/meta.json)
+- [model/qwen-3.5-397b/Claude_Opus_5.md](file://model/qwen-3.5-397b/Claude_Opus_5.md)
+- [model/qwen-3.8-flash-next/meta.json](file://model/qwen-3.8-flash-next/meta.json)
+- [model/gemini-3.8-flash/meta.json](file://model/gemini-3.8-flash/meta.json)
+- [model/gemini-3.8-flash/Grok_4.6.md](file://model/gemini-3.8-flash/Grok_4.6.md)
+- [model/grok-4.6/meta.json](file://model/grok-4.6/meta.json)
 - [model-queue.md](file://model-queue.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added comprehensive documentation for the sophisticated research queue system through model-queue.md auto-generated file
-- Updated architecture overview to include deterministic queue ordering based on overall scores
-- Enhanced multi-agent evaluation process section with queue-based processing workflow
-- Added new section documenting the research queue system and its benefits
-- Updated troubleshooting guide with queue-related issues and resolutions
-- Revised performance considerations to emphasize queue efficiency over scanning
+- Updated comprehensive evaluation dataset expansion section to reflect 785-file addition with new model directories including Qwen variants (qwen-3.5-397b, qwen-3.8-flash-next), Gemini models (gemini-3.8-flash), Grok models (grok-4.6), and Kimi models
+- Enhanced expanded evaluator ecosystem documentation with detailed analysis of new model evaluation patterns and methodologies
+- Added specific examples of new model directories and their evaluation approaches
+- Updated scoring data expansion section with concrete examples from the massive dataset growth
+- Revised conclusion to reflect the significant scale of evaluation coverage expansion
+- Maintained all existing architectural and process documentation while updating content to reflect current state
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -239,7 +245,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across approximately 139 model directories. These additions demonstrate diverse assessment approaches: Llama 3.2 Vision Instruct provides comprehensive vision-instruct model evaluation with 128K context capabilities, LongCat 2.5 Preview showcases preview-tier model assessment with specialized evaluation methodology, Mercury 2.5 represents streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview demonstrates advanced multimodal capabilities with 1M context and text/image/video processing, and Omen Alpha shows specialized assessment approach with comprehensive benchmark coverage. The expanded coverage includes sophisticated evaluation patterns for vision-instruct models, preview-tier assessments, and multimodal variants, demonstrating consistent application of the standardized evaluation framework across different model types and evidence availability scenarios.
+**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, Grok 4.6, and many others across approximately 139 model directories. These additions demonstrate diverse assessment approaches: Qwen 3.5 397B provides comprehensive open-weight flagship model evaluation with detailed multimodal capability analysis showing vendor-independent measurement divergences, Qwen 3.8 Flash Next showcases experimental checkpoint evaluation with specialized multimodal processing capabilities, Gemini 3.8 Flash demonstrates advanced Flash-tier model assessment with 1M context capabilities, Grok 4.6 represents xAI's frontier model evaluation with comprehensive coding and agentic task analysis, and the expanded coverage includes sophisticated evaluation patterns for open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models with specialized capabilities.
 
 ```mermaid
 flowchart TD
@@ -487,7 +493,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including Llama 3.2 Vision Instruct comprehensive vision-instruct model assessment with 128K context capabilities, LongCat 2.5 Preview preview-tier model evaluation with specialized assessment methodology, Mercury 2.5 streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview advanced multimodal capabilities with 1M context and text/image/video processing, and Omen Alpha specialized assessment approach with comprehensive benchmark coverage. These diverse approaches showcase specialized evaluation techniques for vision-instruct models, preview-tier assessments, multimodal variants, and streamlined evaluation methodologies. The expanded coverage demonstrates consistent application of the standardized evaluation framework across different model families, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including Llama 3.2 Vision Instruct comprehensive vision-instruct model assessment with 128K context capabilities, LongCat 2.5 Preview preview-tier model evaluation with specialized assessment methodology, Mercury 2.5 streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview advanced multimodal capabilities with 1M context and text/image/video processing, Omen Alpha specialized assessment approach with comprehensive benchmark coverage, Qwen 3.5 397B detailed open-weight flagship evaluation with sophisticated multimodal capability analysis showing vendor-independent measurement divergences, Qwen 3.8 Flash Next experimental checkpoint assessment with specialized multimodal processing capabilities, Gemini 3.8 Flash advanced Flash-tier model evaluation with 1M context optimization, and Grok 4.6 comprehensive xAI frontier model assessment with coding and agentic task analysis. These diverse approaches showcase specialized evaluation techniques for open-weight models, experimental checkpoints, Flash-tier optimizations, frontier models, vision-instruct models, preview-tier assessments, and multimodal variants.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -520,7 +526,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha, demonstrating the expanded coverage and diverse assessment approaches now available in the system. These additions showcase specialized evaluation patterns for vision-instruct models, preview-tier assessments, and multimodal variants.
+**Updated** Recent additions include comprehensive evaluations from new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, and Grok 4.6, demonstrating the expanded coverage and diverse assessment approaches now available in the system. These additions showcase specialized evaluation patterns for open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -532,24 +538,21 @@ The comprehensive expansion of the model evaluation dataset introduces extensive
 
 New model evaluation characteristics:
 
-**Llama 3.2 Vision Instruct**: Provides comprehensive vision-instruct model evaluation with 128K context capabilities, demonstrating sophisticated assessment methodology with detailed benchmark analysis including specialized vision-instruct capabilities and comprehensive cost-efficiency evaluation with nuanced scoring justifications emphasizing vision processing and instruction-following capabilities.
+**Qwen 3.5 397B**: Represents open-weight flagship model evaluation with sophisticated multimodal capability analysis showing vendor-independent measurement divergences. The evaluation demonstrates detailed analysis of 397B total parameters with 17B active sparse MoE architecture, comprehensive benchmark coverage across 49 of 613 tracked slots, and nuanced assessment of multimodal capability gaps between vendor-reported and independent measurements.
 
-**LongCat 2.5 Preview**: Represents preview-tier model assessment showcasing specialized evaluation methodology for early-access models with comprehensive benchmark analysis including long-context capabilities and sophisticated cost-efficiency evaluation reflecting preview status and limited availability.
+**Qwen 3.8 Flash Next**: Showcases experimental checkpoint evaluation with specialized multimodal processing capabilities. The model features 125B language parameters with 6B active, 262K native context extensible to 1M with YaRN, and text/image/video understanding capabilities. Evaluation reflects Vercel pricing structure and open weights licensing considerations.
 
-**Mercury 2.5**: Demonstrates streamlined model evaluation with focused benchmark analysis, representing efficient assessment approach with comprehensive coverage across all six dimensions while maintaining evaluation framework consistency.
+**Gemini 3.8 Flash**: Demonstrates advanced Flash-tier model assessment with 1M context capabilities and omni-modal input processing. The evaluation covers Google's latest Flash model optimized for long-horizon software engineering, autonomous agents, and enterprise workflows with comprehensive benchmark analysis including 1,048,576 input tokens and specialized pricing tiers.
 
-**MiniMax M3.1 Flash Preview**: Shows advanced multimodal capabilities with 1M context and text/image/video processing, demonstrating how the system handles complex multimodal models with specialized evaluation patterns for video processing and extended context windows.
-
-**Omen Alpha**: Represents specialized assessment approach with comprehensive benchmark coverage, showcasing evaluation methodology for models with unique positioning in the market landscape.
+**Grok 4.6**: Represents xAI's flagship frontier model evaluation for coding, agentic tasks, and knowledge work. The assessment includes comprehensive analysis of 500,000 context window, text and image processing capabilities, and sophisticated pricing structure with cached vs standard pricing tiers.
 
 ```mermaid
 graph TB
 Subgraph NewEvaluations["Expanded Evaluation Coverage"]
-Llama["Llama 3.2 Vision Instruct<br/>Vision-Instruct Assessment"]
-LongCat["LongCat 2.5 Preview<br/>Preview-Tier Evaluation"]
-Mercury["Mercury 2.5<br/>Streamlined Assessment"]
-MiniMax["MiniMax M3.1 Flash Preview<br/>Multimodal Capabilities"]
-Omen["Omen Alpha<br/>Specialized Assessment"]
+Qwen35["Qwen 3.5 397B<br/>Open-Weight Flagship Assessment"]
+QwenFlash["Qwen 3.8 Flash Next<br/>Experimental Checkpoint Evaluation"]
+Gemini38["Gemini 3.8 Flash<br/>Advanced Flash-Tier Assessment"]
+Grok46["Grok 4.6<br/>Frontier Model Evaluation"]
 end
 Subgraph Coverage["Evaluation Coverage"]
 Diverse["Diverse Assessment<br/>Approaches"]
@@ -561,59 +564,54 @@ Coverage --> Enhanced
 ```
 
 **Diagram sources**
-- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
-- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
-- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
+- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
+- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
 
 **Section sources**
-- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
-- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
-- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
+- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
+- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
 
 ### Comprehensive Scoring Data Expansion
 The extensive scoring data synchronization across the expanded model directories encompasses evaluations across numerous new model families that significantly expand the evaluation coverage:
 
-**Llama 3.2 Vision Instruct Family**: Comprehensive evaluation with detailed vision-instruct model analysis including specialized vision processing capabilities, 128K context window performance, and comprehensive cost-efficiency scoring with standard pricing, demonstrating robust assessment methodology with particular emphasis on vision-instruct capabilities and instruction-following performance.
+**Qwen Family Expansion**: The Qwen model family has been substantially expanded with new variants including Qwen 3.5 397B (open-weight flagship with 397B total/17B active parameters), Qwen 3.8 Flash Next (experimental checkpoint with 125B language params, 6B active), and additional variants across the 3.5, 3.6, 3.7, and 3.8 generations. These additions demonstrate sophisticated evaluation methodologies for open-weight models, experimental checkpoints, and specialized multimodal capabilities.
 
-**LongCat 2.5 Preview Family**: Advanced evaluation with preview-tier model assessment showing specialized evaluation methodology for early-access models, comprehensive benchmark coverage including long-context capabilities, and sophisticated cost-efficiency evaluation reflecting preview status and limited availability.
+**Gemini Family Enhancement**: The Gemini model family has been enhanced with Gemini 3.8 Flash representing Google's latest Flash-tier optimization with 1M context capabilities and omni-modal input processing. The evaluation showcases advanced Flash-tier model assessment with comprehensive benchmark coverage and specialized pricing analysis.
 
-**Mercury 2.5 Family**: Streamlined evaluation with focused benchmark analysis demonstrating efficient assessment approach with comprehensive coverage across all six dimensions while maintaining evaluation framework consistency and explicit documentation of evaluation methodology.
+**Grok Family Development**: The Grok model family has been expanded with Grok 4.6 representing xAI's flagship frontier model for coding, agentic tasks, and knowledge work. The evaluation includes sophisticated analysis of frontier model capabilities with comprehensive coding and agentic task assessment.
 
-**MiniMax M3.1 Flash Preview Family**: Specialized multimodal evaluation with 1M context and text/image/video processing capabilities, demonstrating unique assessment philosophy for complex multimodal models while maintaining framework consistency and explicit documentation of multimodal limitations.
-
-These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
+These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models.
 
 **Section sources**
-- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
-- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
+- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
+- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
 
 ### New Model Evaluation Examples
 The expanded model directories showcase diverse evaluation approaches and methodologies:
 
-**Llama 3.2 Vision Instruct Evaluation Examples**: The comprehensive evaluation demonstrates sophisticated vision-instruct model assessment with detailed benchmark citation including specialized vision processing capabilities, 128K context window performance, and comprehensive cost-efficiency analysis showing standard pricing with nuanced scoring across all six dimensions emphasizing vision-instruct capabilities and instruction-following performance.
+**Qwen 3.5 397B Evaluation Examples**: The comprehensive evaluation demonstrates sophisticated open-weight flagship model assessment with detailed benchmark citation including 397B total/17B active sparse MoE architecture, comprehensive multimodal capability analysis showing vendor-independent measurement divergences (MMMU-Pro 79% vendor vs 52.7% independent), and nuanced scoring across all six dimensions emphasizing open-weight advantages and multimodal capability gaps.
 
-**Specialized Evaluation Patterns**: The new evaluations demonstrate various advanced evaluation patterns including:
-- Vision-instruct model assessments (Llama 3.2 Vision Instruct)
-- Preview-tier model evaluation (LongCat 2.5 Preview)
-- Streamlined assessment methodologies (Mercury 2.5)
-- Advanced multimodal capabilities (MiniMax M3.1 Flash Preview)
-- Specialized assessment approaches (Omen Alpha)
-- Comprehensive benchmark coverage across diverse model types
+**Qwen 3.8 Flash Next Evaluation Examples**: The experimental checkpoint evaluation showcases specialized assessment methodology for Alibaba's open-weight experimental checkpoint with 125B language parameters, 6B active parameters, 262K native context extensible to 1M with YaRN, and text/image/video understanding capabilities. The evaluation reflects Vercel pricing structure ($0.12/$0.40 per 1M) and open weights licensing considerations.
+
+**Gemini 3.8 Flash Evaluation Examples**: The advanced Flash-tier model assessment demonstrates comprehensive evaluation of Google's latest Flash model with 1,048,576 input tokens, omni-modal input processing (text, image, video, audio, PDF), and specialized pricing analysis covering Google introductory pricing ($0.75/$3.75) and standard pricing ($1.50/$7.50).
+
+**Grok 4.6 Evaluation Examples**: The frontier model evaluation represents xAI's flagship model assessment with comprehensive analysis of 500,000 context window, text and image processing capabilities, and sophisticated pricing structure with cached vs standard pricing tiers ($2/$6 per 1M standard, $0.50 cached for <200K prompt).
 
 These examples illustrate the flexibility and consistency of the evaluation framework across different model types, evidence availability scenarios, and use cases while maintaining standardized scoring methodology.
 
 **Section sources**
-- [model/llama_3.2_vision_instruct/meta.json:1-8](file://model/llama_3.2_vision_instruct/meta.json#L1-L8)
-- [model/longcat_2.5_preview/meta.json:1-8](file://model/longcat_2.5_preview/meta.json#L1-L8)
-- [model/mercury-2.5/meta.json:1-8](file://model/mercury-2.5/meta.json#L1-L8)
-- [model/minimax-m3.1-flash-preview/meta.json:1-13](file://model/minimax-m3.1-flash-preview/meta.json#L1-L13)
-- [model/omen-alpha/meta.json:1-8](file://model/omen-alpha/meta.json#L1-L8)
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/qwen-3.5-397b/Claude_Opus_5.md:1-75](file://model/qwen-3.5-397b/Claude_Opus_5.md#L1-L75)
+- [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
+- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
+- [model/gemini-3.8-flash/Grok_4.6.md:1-78](file://model/gemini-3.8-flash/Grok_4.6.md#L1-L78)
+- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -710,6 +708,10 @@ Common issues and resolutions:
 | Research queue not working | `model-queue.md` missing or stale | Run `pnpm sync` to regenerate; fallback to individual average.md parsing |
 | Agents scanning too many files | Queue not being used | Ensure agents read `model-queue.md` instead of scanning all average.md files |
 | Queue ordering inconsistent | Stale queue file | Regenerate with `pnpm sync`; queue sorts by Overall desc, ties A-Z |
+| Open-weight model evaluation issues | Licensing and self-hosting considerations | Document license terms and self-hosting feasibility |
+| Experimental checkpoint scoring | Limited availability and specialized capabilities | Apply provisional scoring with explicit evidence gaps and capability limitations |
+| Flash-tier model assessment | Optimization-focused evaluation | Focus on latency-performance tradeoffs and specialized Flash capabilities |
+| Frontier model evaluation | Advanced capability assessment | Apply comprehensive analysis of cutting-edge capabilities and specialized use cases |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -720,7 +722,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, and Omen Alpha across approximately 139 model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The diverse assessment approaches—from specialized vision-instruct model evaluation to preview-tier assessments, streamlined evaluation methodologies, advanced multimodal capabilities, and specialized assessment approaches—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including vision-instruct models, preview-tier models, and multimodal variants.
+**Updated** The comprehensive expansion with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, Grok 4.6, and many others across approximately 139 model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The diverse assessment approaches—from specialized open-weight flagship evaluation to experimental checkpoint assessment, Flash-tier optimizations, frontier model analysis, vision-instruct model evaluation, preview-tier assessments, streamlined evaluation methodologies, advanced multimodal capabilities, and specialized assessment approaches—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including open-weight models, experimental checkpoints, Flash-tier optimizations, frontier models, vision-instruct models, preview-tier models, and multimodal variants.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -737,6 +739,10 @@ For reliable contributions:
 - Follow Space Bunny and Muse Spark consolidation patterns where every marketplace variant represents the same model with identical weights.
 - Utilize the pre-sorted research queue (`model-queue.md`) for efficient agent processing instead of scanning all average.md files.
 - Trust the deterministic queue ordering (highest Overall first, ties A-Z) for reproducible research workflows.
+- Apply specialized evaluation methodologies for open-weight models considering licensing and self-hosting implications.
+- Handle experimental checkpoint assessments with appropriate consideration for limited availability and specialized capabilities.
+- Assess Flash-tier models with focus on latency-performance tradeoffs and optimization characteristics.
+- Evaluate frontier models with comprehensive analysis of cutting-edge capabilities and specialized use cases.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

@@ -1,7 +1,8 @@
 # Gemini 3.1 Flash — findings by Muse Spark 1.3 Contributor
 
 - Source: Google/Gemini 3.1 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-07 (UTC)
+- Re-research note (2026-10-07, user-approved second pass): deep re-search finds still zero verified public benchmark rows for the exact `gemini-3.1-flash` ID — DeepMind publishes model cards for 3.1 Flash-Lite, 3.1 Flash Audio/Live and 3 Flash, but no 3.1 Flash card; BenchLM/Vals/AA carry no 3.1-Flash rows; Lite-variant numbers (GPQA 86.9, LiveCode 72–80, TB2.1 34.1) are a different model and NOT counted here. Scores unchanged pending first verified data.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-07
+- Method: public internet research + 2026-10-07 deep re-research pass (DeepMind model-card index, BenchLM/Vals/AA/layerlens aggregations, UseRightAI/LLM-Pulse tracker cross-checks — no verified rows for this exact ID); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

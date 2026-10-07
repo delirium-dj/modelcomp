@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mai-code-1.1-flash",
+  "name": "MAI-Code-1.1-Flash",
+  "short": "Microsoft AI's vision-capable coding model for GitHub Copilot — fast agentic coding with image and PDF input.",
+  "contextWindow": "256,000 total (128,000 out)",
+  "modalities": "Text, image, PDF in; text out",
+  "pricingNote": "$0.20/$1.20 per 1M in/out (GitHub Copilot), cached input $0.02",
+  "noFreeId": true
+}

@@ -1,0 +1,35 @@
+# Gemini 2.5 — negative findings by GPT 5.6 Sol
+
+- Source: Google (ambiguous family label)
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.5
+- **Short description:** “Gemini 2.5” is a family/marketing label rather than an exact callable model. Public releases include distinct Pro, Flash, Flash-Lite, Deep Think, Computer Use, and audio variants.
+- **Provider / access:** No exact Google API model ID `gemini-2.5` was verified; official APIs require a variant-specific ID such as `gemini-2.5-pro` or `gemini-2.5-flash`.
+- **Release / knowledge:** Family introduced in March 2025; exact-model cutoff is undefined.
+- **IDs:** No exact unqualified provider ID verified; no Zen Free ID established.
+- **Context window:** Not assignable without selecting a specific family member.
+- **Modalities:** Vary by family member.
+- **Pricing (as of 2026-10-07):** Varies by variant; Google's [current pricing](https://ai.google.dev/gemini-api/docs/pricing) lists variant-specific rates only.
+- **Architecture:** Proprietary Gemini family; parameters undisclosed.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found for an exact unqualified `Gemini 2.5` model.
+- Reasoning / knowledge: no verified public score found for an exact unqualified `Gemini 2.5` model.
+- Coding: no verified public score found for an exact unqualified `Gemini 2.5` model.
+- Long context: no exact-model result found.
+
+Search results and Google's technical report discuss the Gemini 2.5 family but attribute benchmark rows to named configurations. Transferring Pro or Flash evidence to this ambiguous entry would conflate distinct models.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
+- Method: Fresh public internet research against Google's model catalog, pricing, and family report; self-excluded because no exact model identity or exact-model benchmark exists.
+- Future sources: add a new file next to this one when the entry is tied to a documented exact provider ID.

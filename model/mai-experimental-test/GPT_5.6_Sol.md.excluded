@@ -1,0 +1,35 @@
+# MAI Experimental Test — negative findings by GPT 5.6 Sol
+
+- Source: Unknown (`mai-experimental-test`)
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** mai-experimental-test
+- **Short description:** An unidentified experimental endpoint observed in OpenCode usage data; no publisher, stable model identity, or technical documentation could be verified.
+- **Provider / access:** Unknown.
+- **Release / knowledge:** Unknown.
+- **IDs:** `mai-experimental-test`; no verified public API or Zen Free ID.
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing (as of 2026-10-07):** Unknown.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found.
+- Reasoning / knowledge: no verified public score found.
+- Coding: no verified public score found.
+- Long context: no verified public score found.
+
+The only relevant indexed result is an [OpenCode comparison page](https://opencode.ai/tr/data/compare/unknown/mai-experimental-test/xai/grok-4-6) that explicitly labels every dimension as a neutral no-data placeholder and lists the author, context, modalities, and prices as unknown. Placeholder scores were not copied.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
+- Method: Fresh public internet research for the exact endpoint and likely aliases; self-excluded because neither identity nor a verified benchmark number was found.
+- Future sources: add a new file next to this one only after the endpoint is publicly identified and measured.

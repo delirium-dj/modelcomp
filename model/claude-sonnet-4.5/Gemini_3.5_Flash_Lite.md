@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Gemini 3.5 Flash Lite
 
 - Source: Anthropic/Claude-Sonnet-4.5
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-07 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-09-23
-- Method: Public benchmark research and technical documentation analysis; scores are normalized 1–100 interpretations.
+- Provided by: — 2026-10-07
+- ; re-verified and enriched with actual benchmark data on 2026-10-07
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

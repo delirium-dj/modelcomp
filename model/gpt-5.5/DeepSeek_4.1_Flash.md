@@ -21,37 +21,42 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **83.4%** (RankLLMs verified panel, explicitly "via Codex CLI" — a harness-specific number)
-- GDPval-AA: **1769 Elo** (RankLLMs blind human-eval code arena — at the frontier reference level used in this project, 1750+)
-- OSWorld-Verified computer use: **78.7%**; BrowseComp: **78.7%** (RankLLMs — both rows show the same value, so treat the pairing as unconfirmed)
-- HLE with tools: **52.2%** (RankLLMs); HealthBench Pro: **51.8%**
-- Tau3-Banking / Tau2-Bench / MCP-Atlas / Claw-Eval / Toolathon / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench 2.0: **82.0%** (Terminal-Bench 2.0 leaderboard); Terminal-Bench 2.1 via Vals: **76.4%** (harness-specific, below the 88%+ frontier reference)
+- GDPval-AA: **1396 Elo / 42.7%** (Artificial Analysis, via BenchLM) — mid-upper, against the 1750+ frontier reference; this supersedes the earlier 1769-Elo RankLLMs reading, now treated as an outlier
+- τ²-bench: **98%** (OpenAI launch page); OSWorld-Verified: **78.7%**; BrowseComp: **84.4%** (correcting the earlier unconfirmed 78.7% pairing)
+- CyberGym: **81.8%**; MCP Atlas: **75.3%**; Toolathlon: **55.6%** (all OpenAI launch page)
+- APEX-Agents-AA: **37.7%**; AA ITBench: **45.8%**; AA AnalystAgent: **50.0%**; JobBench: **42.7%**; OSWorld 2.0: **13.0%**; ApprenticeBench: **20%**; AA Agentic Index: **37.3%**; Gert Labs: **72.93%**
+- Tau3-Banking / Claw-Eval / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- HLE (with tools): **52.2%** (RankLLMs — above the 40%+ frontier reference)
-- GPQA Diamond: **56.4%** and MATH-500: **52.2%** (RankLLMs radar values — far below the 88.3% GPQA peer median and inconsistent with the HLE result, so flagged as unconfirmed; the whole radar column on that site sits in the 50–65 range for every model, which suggests a normalised value rather than raw accuracy)
-- Blueprint-Bench 2 spatial reasoning: **36.2%** (RankLLMs)
-- Artificial Analysis Intelligence Index / LCR / MLCR / CritPt / Omniscience accuracy / Hallucination rate: no verified public score found
+- GPQA Diamond: **93.6%** (OpenAI launch page; AA-GPQA Diamond 93.5%, Vals 93.2%) — this corrects the earlier unconfirmed 56.4% reading decisively
+- HLE: **52.2%** with tools / **41.4%** without (OpenAI launch page; AA-HLE 45.8%) — above the 40%+ frontier reference
+- AA-LCR: **84.3%**; MRCR v2 64K–128K: **83.1%**; MRCR v2 128K–256K: **87.5%** (OpenAI launch page)
+- ARC-AGI-1: **95.0%**; ARC-AGI-2: **85%**; ARC-AGI-3: **0.4%**; CritPt: **27.1%**
+- Artificial Analysis Intelligence Index: **38.4%** (BenchLM citing AA) — the clearest figure still below the 60+ frontier reference
+- MMLU-Pro (Vals): **88.1%**; AA-Omniscience Accuracy: **58.0%** / Hallucination Rate: **89.0%**; AA-IFBench: **75.9%**
+- MLCR / Omniscience Index: no separate verified public score found
 
 Coding:
 
-- SWE-bench Verified: **75.6%** (RankLLMs verified panel — near the 78.3–78.5% peer median)
-- SWE-Bench Pro: **58.6%** (RankLLMs)
-- Terminal-Bench 2.1: **83.4%** via Codex CLI (RankLLMs); Blueprint-Bench 2 36.2% is a separate spatial-reasoning result, not coding
-- DeepSWE / LiveCodeBench / SciCode / AA-SciCode / Vibe Code Bench / SWE-Atlas: no verified public score found
+- SWE-bench (Vals): **82.6%**; SWE-bench Pro: **58.6%** (OpenAI launch page)
+- LiveCodeBench (Vals): **85.3%**; Vibe Code Bench: **69.85%**; React Native Evals: **84.7%**
+- AA-SciCode: **55.8%** (at the 55%+ frontier reference); AA Coding Index: **74.9%** (above the 70%+ frontier reference)
+- CursorBench 3.1: **59.2%**; CursorBench 3.2: **58.4%**; FrontierCode 1.1 Main: **43.0%**; PostTrainBench v1.1: **27.2%**
+- DeepSWE / Vibe Code Bench beyond v1.1 / SWE-Atlas: no verified public score found
 
 Multimodal:
 
-- No verified public input/output matrix or image benchmark was found for this ID. Benchmark panels publish no MMMU, VideoMME or CharXiv row for GPT-5.5, so multimodal capability is unverified.
+- MMMU-Pro: **81.2%**; MMMU-Pro with Python: **83.2%**; AA-MMMU-Pro: **79.9%**; OfficeQA Pro: **54.1%**. Image input with text output is now verified; no audio/video benchmark exists.
 
 Long context:
 
-- No MRCR, RULER or GraphWalks retrieval result exists at any window length; the 1.1M window itself is a single aggregator's claim with no vendor confirmation, so long-context capability is effectively unverified.
+- MRCR v2 reaches **87.5%** at 128K–256K and AA-LCR is **84.3%**, but no MRCR/RULER figure at 512K–1M exists — retrieval near the full 1M window is unverified.
 
 Composite panels:
 
-- RankLLMs: **52.2/100, #27 of 80** tracked models; throughput **33 tps** (slowest in this scan's sample).
+- BenchLM: **67.79/100, #24 of 887** tracked models (64 of 623 benchmarks covered). RankLLMs had reported 52.2/100, #27 of 80; the much larger BenchLM cohort and corrected knowledge rows supersede it.
 
 ### Normalized scores (1–100)
 

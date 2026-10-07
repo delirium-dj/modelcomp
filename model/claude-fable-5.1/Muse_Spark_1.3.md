@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Muse Spark 1.3 Contributor
 
 - Source: Anthropic/Claude Fable 5.1, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch + Vals absolutes added, scores recomputed 89 → 90)
+- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch + Vals absolutes added, scores recomputed 89 → 90); re-research pass 2026-10-07 adds Mythos-sibling and absence-confirmation notes, scores unchanged at 90
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,8 +21,8 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **55.8%** (Anthropic launch, vs Fable 5 42.0%; AA lane read 52% — different harness)
-- Terminal-Bench-Science 0.1: **52.6%** (Anthropic launch, vs Fable 5 24.7% and Sol 22.4%)
+- Terminal-Bench 4.0: **55.8%** (Anthropic launch, vs Fable 5 42.0%; AA lane read 52% — different harness); same-weights sibling Mythos 5.1 **60.9%** (gap attributed to cyber-safeguard interventions on Fable, per launch page — sibling context, not this ID)
+- Terminal-Bench-Science 0.1: **52.6%** (Anthropic launch, vs Fable 5 24.7% and Sol 22.4%; ±3.5–4.5 pts SE; public board reproduces Opus 5 29.0/Fable 5 24.7 within noise)
 - Terminal-Bench 2.1: **85.02% Vals lane** (Vals suite, #2 behind Sol 85.77%, up from Fable 5 80.52%)
 - AutomationBench: **31.4%** (Anthropic launch, vs Sol 19.6%; AA lane differs)
 - GDPval-AA v2: **1853 Elo** (Anthropic launch, vs Sol 1711)
@@ -38,13 +38,13 @@ Reasoning / knowledge:
 - HLE: **60.9% without tools / 65.0% with tools** (Anthropic launch, both ahead of Opus 5)
 - ProofBench v1.1: **100.00%** (Vals suite, up from Fable 5 95.00%)
 - LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
+- CritPt: **no verified public score found** (system card §8.9 CritPT-Corrected and §8.10 ArXivMath exist, but no public absolutes extracted as of 2026-10-07 — sections noted, numbers not invented)
 - Artificial Analysis Intelligence Index / BenchLM overall: **66 AA Index (max)** (heise/AA, outright #1 ahead of Fable 5 62, Opus 5 63, Sol 61); **67.87% Vals Index #1** (Vals suite, ahead of Opus 5 67.21%)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **81.2% SWE-bench Pro** (BenchLM leaderboard #1 of 70); no labeled SWE-Verified absolute found (family: Fable 5 95% headline)
+- SWE-bench Verified / SWE-Pro: **81.2% SWE-bench Pro** (BenchLM leaderboard #1 of 70); SWE-bench Verified explicitly NOT reported for Fable 5.1 (oneinfer.ai launch audit: any circulating Verified figure is extrapolated or fabricated — absence confirmed by design, not an evidence gap); family context: Fable 5 95% headline
 - LiveCodeBench: **90.52% Vals lane** (Vals suite, #1)
 - SciCode: **top value** (AA, highest to date per heise)
 - Vibe Code Bench: **90.26%** (Vals suite, within noise of Fable 5 90.35%)
@@ -68,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research (Artificial Analysis Astra benchmarking article, BenchmarkList leader tags); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-07
+- Method: public internet research (Artificial Analysis Astra benchmarking article, BenchmarkList leader tags) + 2026-10-07 re-research pass (Fable/Mythos 5.1 system-card PDF, Anthropic launch page, oneinfer.ai/thequery.in launch audits, sdd.sh leaderboard analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

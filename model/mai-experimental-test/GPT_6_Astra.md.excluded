@@ -1,0 +1,48 @@
+# MAI Experimental Test — findings by GPT 6 Astra
+
+- Source: Unresolved publisher / mai-experimental-test
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Name:** MAI Experimental Test
+- **Short description:** Observed experimental label without a verified public checkpoint identity.
+- **Provider / access:** OpenCode's own telemetry comparison lists the label under `unknown`; that does not establish a supported API route or publisher. [Telemetry entry](https://stats.opencode.ai/data/compare/moonshotai/kimi-k2-6/unknown/mai-experimental-test)
+- **Release / knowledge:** No verified release date or knowledge cutoff found.
+- **IDs:** Observed label `mai-experimental-test`; exact native model ID, endpoint protocol and Zen Free availability unverified.
+- **Context window:** Unverified.
+- **Modalities:** Inputs, outputs, reasoning, tools and JSON enforcement unverified.
+- **Pricing (as of 2026-10-07):** Input/output/cache prices and data-use terms unverified.
+- **Architecture:** Parameters, topology and license unverified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval, Toolathon and MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+- GPQA, HLE, LCR/MLCR, CritPt, AA Intelligence Index and Omniscience: no verified public score found.
+
+Coding:
+- SWE-bench, LiveCodeBench, SciCode, Vibe Code Bench and DeepSWE: no verified public score found.
+
+Long context:
+- No verified public score found; no measured retrieval result linked to this exact identity.
+
+Research decision:
+- Exact-label searches returned OpenCode telemetry pages whose capability cells explicitly identify their values as no-data placeholders. Usage counts are not quality benchmarks and were not converted into scores. [OpenCode entry](https://opencode.ai/data/compare/unknown/mai-experimental-test/zhipuai/glm-5-1)
+- Microsoft's [official model announcements](https://microsoft.ai/news-categories/models/page/2/) identify MAI-1-preview and MAI-Thinking-1, but do not establish that this experimental label maps to either. Microsoft authorship is therefore not assumed.
+- This is an evidence gap, not proof that the experimental deployment never existed.
+
+### Normalized scores (1–100)
+
+Self-excluded: no verified benchmark tied to the exact model identity. No placeholder scores or Overall are assigned. Reconsider when a publisher mapping and reproducible evaluation become available.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-07 UTC
+- Method: Independent exact-name web research and primary-provider checks; notes-only exclusion.
+- Future sources: Add a separate signed report using the same headings.
+

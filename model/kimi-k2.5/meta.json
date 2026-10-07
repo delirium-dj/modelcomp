@@ -1,0 +1,9 @@
+{
+  "id": "opencode/kimi-k2.5",
+  "name": "Kimi K2.5",
+  "short": "Moonshot AI's open-weight 1T-parameter MoE flagship (1T total / 32B active) for long-context agents, coding and multimodal work.",
+  "contextWindow": "262,144 total (65,536 out)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.60/$3.00 per 1M in/out (OpenCode Zen), cached input $0.08",
+  "noFreeId": true
+}

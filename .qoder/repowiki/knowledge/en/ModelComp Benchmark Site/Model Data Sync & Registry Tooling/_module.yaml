@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: scripts_tooling
-title: Model Data Sync & Validation Tooling
+title: Model Data Sync & Registry Tooling
 scope:
     - scripts/
 source_files: []

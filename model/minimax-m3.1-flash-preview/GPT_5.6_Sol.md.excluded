@@ -1,0 +1,35 @@
+# MiniMax M3.1 Flash Preview — negative findings by GPT 5.6 Sol
+
+- Source: MiniMax (`MiniMax-M3.1-Flash-Preview`)
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** Subscription-only preview for fast multimodal coding, agentic reasoning, research, and long-context work.
+- **Provider / access:** MiniMax Code and M Plan subscription keys; no pay-as-you-go endpoint or open weights verified.
+- **Release / knowledge:** Announced 2026-09-27; cutoff not published.
+- **IDs:** `MiniMax-M3.1-Flash-Preview`; no verified Zen Free ID.
+- **Context window:** 1,000,000 tokens.
+- **Modalities:** Text, image, and video input; text output; always-on reasoning with low through max effort; caching supported.
+- **Pricing (as of 2026-10-07):** No per-token price published; included in M Plan subscriptions starting at $220/year ([official plan](https://www.minimax.io/m-plan)).
+- **Architecture:** Not published; open weights not announced.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public numeric score found.
+- Reasoning / knowledge: no verified public numeric score found.
+- Coding: no verified public numeric score found.
+- Long context: no verified public retrieval score found.
+
+MiniMax's [official preview guide](https://agent.minimax.io/tools/m3-1-flash-preview) documents capabilities and example workflows but publishes no benchmark table. Independent evidence checks likewise found no official scores, parameter count, open weights, or metered price. M3 scores were not transferred to the distinct M3.1 Preview.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
+- Method: Fresh public internet research across MiniMax's official preview, plan, API, and third-party evidence records; self-excluded because no exact-model public benchmark number exists.
+- Future sources: add a new file next to this one when MiniMax publishes exact-model evaluations.

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/qwen3-max",
+  "name": "Qwen3 Max",
+  "short": "Alibaba's proprietary Qwen3-generation flagship for coding agents, complex reasoning and tool use, with thinking mode.",
+  "contextWindow": "262,144 total (65,536 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "$1.20/$6.00 per 1M in/out (Alibaba; tiered above 32K/128K)",
+  "noFreeId": true
+}

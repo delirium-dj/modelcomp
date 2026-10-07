@@ -1,0 +1,35 @@
+# Hy3 — negative findings by GPT 5.6 Sol
+
+- Source: Tencent (`tencent/hy3`)
+- Date: 2026-10-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Hy3
+- **Short description:** Tencent's open-weight sparse MoE for configurable reasoning, coding, and tool-driven production workloads.
+- **Provider / access:** OpenRouter and six routed providers as `tencent/hy3`; open weights are also available.
+- **Release / knowledge:** Released 2026-07-06; cutoff not published.
+- **IDs:** `tencent/hy3`; a free OpenRouter route has been advertised.
+- **Context window:** 262,144 tokens, up to 131,072 output tokens ([OpenRouter model record](https://openrouter.ai/tencent/hy3)).
+- **Modalities:** Text input/output; no-think, low, and high reasoning modes; tool calling and JSON schema supported.
+- **Pricing (as of 2026-10-07):** Approximately $0.13/M input, $0.53/M output, and $0.033/M cached input; provider routes vary.
+- **Architecture:** Open-weight Apache-2.0 sparse MoE, 295B total / 21B active, 192 experts with top-8 routing.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public numeric score found.
+- Reasoning / knowledge: no verified public numeric score found.
+- Coding: no verified public numeric score found.
+- Long context: no verified public retrieval score found.
+
+Tencent describes strong relative performance and catalogs expose detailed specifications, but the fresh search found no exact numeric public benchmark row for Hy3. A current evidence catalog likewise states that no independently run benchmark scores are published. Qualitative claims and user anecdotes are not sufficient to compute normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
+- Method: Fresh public internet research across Tencent materials, provider catalogs, and benchmark indexes; self-excluded because no verified exact-model benchmark number was found.
+- Future sources: add a new file next to this one when numeric exact-model benchmark evidence is published.

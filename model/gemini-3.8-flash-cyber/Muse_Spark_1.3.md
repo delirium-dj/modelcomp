@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by Muse Spark 1.3 Contributor
 
 - Source: Google/Gemini 3.8 Flash Cyber, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch/Fairwind confirmations added; zero Cyber-specific numbers so scores hold 78)
+- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch/Fairwind confirmations added; zero Cyber-specific numbers so scores hold 78); re-research pass 2026-10-07 adds CyberGym/CWE-Bench/vuln-discovery absolutes, scores recomputed 78 → 79
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,10 +38,11 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found** (closest proxy as provisional: vuln-patch coding specialization, vendor claim)
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (vuln-patch specialization, not general SWE)
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
+- Cyber-security coding: **86.2% CyberGym Pass@1 Final-submission** (vendor run; BenchmarkList rank 8/43, 83rd pct, field-leader tag; vs GPT-5.5-Cyber 85.6%, Mythos 5 83.8%, Sol 83.6%, 3.5 Cyber 77.5% — harnesses differ by owner); **47.2% CWE-Bench Pass@1** (Collinear held-out audit-and-patch, 100 tasks/54 CWEs; $3.64/rollout; vs Fable 5 47.8%/$10.27, Sol 44.2%/$2.29 — Pareto frontier); **71.0% recall on Google's private 20-language real-world vuln set** (1,200+ confirmed vulns; vs 3.7 Flash 58.9%, 3.5 Cyber 46.6% — vendor-reported, not independently verifiable); **6.0% Gray Swan indirect-prompt-injection ASR@15** (vs 3.8 Flash 5.5%, Opus 5 4.8% — lower is better)
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
@@ -54,14 +55,14 @@ Long context:
 - **Reasoning: 80/100.** 3.8-generation reasoning with security specialization; capped by zero public GPQA/HLE numbers.
 - **Context window: 100/100.** 1M / 65K out verified; top tier.
 - **Multimodal: 50/100.** Text/code in-out focus; capped well below image/audio/video omni models.
-- **Coding: 84/100.** Vuln-patch specialization on a latest-Flash coding base; capped by zero public SWE numbers.
+- **Coding: 88/100.** CyberGym 86.2% plus CWE-Bench 47.2% (Pareto frontier at $3.64/rollout) and 71% real-world vuln recall evidence elite defensive-security coding; capped by zero general SWE/LiveCode/DeepSWE rows and gated reproducibility.
 - **Cost efficiency: 40/100.** Restricted Fairwind Program with no public pricing; access cost caps value.
-- **Overall Score: 78/100.** Mean of the five non-cost dims (78+80+100+50+84)/5 = 78.4; best-fit restricted security-patch specialist pick.
+- **Overall Score: 79/100.** Mean of the five non-cost dims (78+80+100+50+88)/5 = 79.2 → 79; best-fit restricted security-patch specialist pick.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-07
+- Method: public internet research + 2026-10-07 re-research pass (DataCamp launch coverage, BenchmarkList cyber rows, Traictory spec page, kingy.ai evidence audit with harness caveats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

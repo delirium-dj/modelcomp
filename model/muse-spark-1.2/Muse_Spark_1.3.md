@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Muse Spark 1.3 Contributor
 
 - Source: Meta/Muse Spark 1.2, e.g. Meta (`muse-spark-1.2-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Tau3/Index corrected, LCR gap filled, Reasoning 88 → 89, Overall holds 91)
+- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Tau3/Index corrected, LCR gap filled, Reasoning 88 → 89, Overall holds 91); re-research pass 2026-10-07 adds Oct-2026 third-party confirmations, scores unchanged at 91
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - GDPval-AA v2: **1631 Elo** (Artificial Analysis 1.2 article, #5 overall, +260 vs 1.1, ahead of Opus 4.8 max 1588); AA 1.3 article restates the 1.2 baseline as 1615 — variant-config lane variance
-- Terminal-Bench 2.1: **80%** (Artificial Analysis 1.2 article, +2 vs 1.1; BenchLM reports 82.9% variant config)
+- Terminal-Bench 2.1: **80%** (Artificial Analysis 1.2 article, +2 vs 1.1; BenchLM reports 82.9% variant config); **82.90%** (llmboard.ai independent eval, rank 19/42, evaluated 2026-10-06 — confirms the variant-config lane)
 - Tau3-Banking: **35%** (AA 1.3 article restating 1.2 xhigh baseline; corrects filed 27% — amended 2026-09-27)
 - MCP Atlas: **90.3%** (Benchgen model page meta/muse-spark-1-2)
 - SWE Atlas Codebase QnA: **no verified public score found**
@@ -30,7 +30,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (BenchLM muse-spark-1-2)
+- GPQA Diamond: **90.4%** (BenchLM muse-spark-1-2); **90.40%** (llmboard.ai, rank 33/199, evaluated 2026-10-06 — confirms); Sophon tracks 17 evals across 9 domains with GPQA 90.4% as best (#40/511)
 - HLE: **45.5%** (BenchLM muse-spark-1-2; AA reports 44% Intelligence Index config)
 - LCR / MLCR: **83.3% AA-LCR** (DeepLearning.ai, #1 of all tested models at xhigh reasoning)
 - CritPt: **18%** (Artificial Analysis 1.2 article, +3 vs 1.1)
@@ -43,7 +43,7 @@ Coding:
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **56%** (Artificial Analysis 1.2 article, -2 vs 1.1)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **59.3% DeepSWE** (BenchLM muse-spark-1-2)
+- DeepSWE / Coding Index / other: **59.3% DeepSWE** (BenchLM muse-spark-1-2); **59.30%** (llmboard.ai, rank 24/40, evaluated 2026-10-06 — confirms); Meta's 1.2 methodology page documents the Daytona-sandbox + Muse Code harness setup (5 attempts, pass@1) behind the vendor TB2.1/DeepSWE runs
 
 Long context:
 
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research (Artificial Analysis 1.2 article, BenchLM, Benchgen); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-07
+- Method: public internet research (Artificial Analysis 1.2 article, BenchLM, Benchgen) + 2026-10-07 re-research pass (Meta 1.2 model + methodology pages, llmboard.ai Oct-2026 independent eval, Sophon tracker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
