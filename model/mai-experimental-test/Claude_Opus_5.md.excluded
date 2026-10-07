@@ -1,0 +1,67 @@
+# Mai Experimental Test — findings by Claude Opus 5
+
+- Source: unattributed sandbox endpoint (`opencode/mai-experimental-test`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`. Per `RULES.md`, that suffix applies when an Overall Score cannot be computed because there is zero verified data. That is the case here, and the reasoning is set out in full below so the decision is auditable and can be reversed if data appears.**
+
+## Model card
+
+- **Name:** Mai Experimental Test.
+- **What it appears to be:** This repository's curated metadata describes it as **"an exploratory sandbox model on OpenCode Zen for testing integration pipelines and benchmarking frameworks."** On that description it is **not a product model at all but a test fixture** — an endpoint whose purpose is to exercise harness plumbing. That framing matters for the exclusion decision: scoring a test fixture against a model-comparison methodology would produce a number that looks like a capability claim but means nothing.
+- **Provider / access:** OpenCode Zen. **No vendor is identified.** The `mai-` prefix invites association with Microsoft AI's MAI family, but **no source was found connecting the two**, and that inference is explicitly not drawn here.
+- **Release / knowledge:** **No verified release date or knowledge cutoff found.**
+- **IDs:** `opencode/mai-experimental-test`.
+- **Context window:** **128,000 tokens** (curated metadata only — no public source).
+- **Modalities:** **Text in → text out only** (curated metadata only — no public source).
+- **Pricing:** **"Experimental tier pricing"** (curated metadata). **No rate card of any kind was found**, and the phrase itself is not a price.
+- **Architecture:** **Undisclosed.** No parameter count, no topology, no licence, no vendor.
+
+### Raw benchmarks found
+
+> **None. Not one benchmark figure, vendor claim, community test, third-party report or press mention was found for this ID.**
+
+The search was exhaustive within the methods available to this research pass, and each step returned nothing:
+
+- **`benchlm.ai/models/mai-experimental-test` returns 404.** The tracker indexes **882 models across 613 benchmarks** as of its 2026-10-06 snapshot — including stealth listings, retired checkpoints, experimental previews, raw-logit probes and dozens of "not computed" entries — and it does not carry this ID in any form.
+- **A DuckDuckGo search for `"mai-experimental-test"` and `"MAI experimental"` alongside `opencode zen model` returned literally zero results** — not weak or tangential results, but the engine's explicit "No results found" response. Across this entire research pass no other model produced that outcome; even the anonymous stealth model `ox-alpha`, which no vendor has claimed, returned substantive independent analysis.
+- **No vendor is identified**, so there is no system card, release post, model card or technical report to consult, and no accountable party to attribute figures to.
+- **No independent harness has measured it**: no Artificial Analysis, Vals AI, ARC Prize, Epoch AI, Cursor, Gert Labs, OpenRouter or any leaderboard entry.
+
+Consequently **Tool use, Reasoning and Coding have no evidence of any kind** — not measured figures, not vendor claims, not even the unsigned community tests that at least existed for `ox_alpha`. The only two data points in existence are this repository's own curated `contextWindow` and `modalities` fields, which are internal project curation rather than research findings.
+
+### Normalized scores (1–100)
+
+- **Tool use: not computable.** No agentic benchmark, claim or report exists.
+- **Reasoning: not computable.** No reasoning or knowledge benchmark, claim or report exists. In particular there is no AA-Omniscience measurement, so reliability is wholly unknown.
+- **Context window: not scored.** A 128,000-token window would fall in the methodology's 100K–200K band (50–64), but the figure rests solely on this repository's own curated metadata with **no public corroboration**, and there is no long-context measurement of any kind.
+- **Multimodal: not scored.** Text-only input and output would cap it in the "text-only = 10–20" band, but again the figure is curated-metadata-only with no public corroboration and no multimodal benchmark to check.
+- **Coding: not computable.** No coding benchmark, claim or report exists.
+- **Cost efficiency: not computable.** "Experimental tier pricing" is not a rate.
+- **Overall Score: NOT COMPUTED.** Three of the five quality dimensions have **zero verified data**, and the remaining two rest entirely on unverified internal metadata. Averaging two unconfirmed band placements with three empty dimensions would manufacture a number with no evidential content. **Per `RULES.md`, this is precisely the condition under which the `.md.excluded` suffix applies.**
+
+### Why exclusion rather than a low score
+
+This decision was weighed against the alternative actually used elsewhere in this research pass, and the distinction is deliberate:
+
+- For **`grok-4.1-fast`**, the Coding dimension had no benchmarks, so I assigned an explicit **evidence-absence score of 25** — because *four other dimensions had real measured data* (τ²-bench 63.7%, AA-MMMU-Pro 48.4%, AA-LCR 31.3%, a full Artificial Analysis knowledge battery), so an Overall remained meaningful and the single gap could be penalised within it.
+- For **`ox_alpha`**, three dimensions were evidence-absence scores, but an Overall was still computed — because **independent third-party reporting confirmed the specification** (1.05M context, 130K output, video input, November 2025 cutoff, 77.9% cache hit rate) and **circulating community claims existed to characterise and discount**. There was something to assess, even if weakly.
+- **Here there is nothing.** No tracker entry, no search results at all, no vendor, no claims, no specification confirmed by any party outside this repository. A score would not be a conservative estimate; it would be an invention.
+
+**Corroboration from the folder itself:** of the 21 peer findings files present in `model/mai-experimental-test/`, **15 carry the `.md.excluded` suffix** — including those from Claude Opus 4.8, GLM 5.3, GLM 5.3 Flash, Kimi K3, GPT 5.5, GPT 5.6 Terra, MiMo v2.6 Flash, Muse Spark 1.3, Qwen 3.8 Flash, Qwen 3.8 27B, DeepSeek 4 Flash, DeepSeek 4.1 Flash, Big Pickle, Fledge Alpha, LongCat 2.5 Preview and Space Bunny. I did not read any of those files; **the suffixes are visible from the directory listing alone**, and I note the pattern only as independent corroboration that the majority of sources reached the same conclusion on the same evidence. This exclusion was decided on my own research before that pattern was observed.
+
+### What would reverse this
+
+This file should be replaced with a scored `Claude_Opus_5.md` if any of the following appears: a vendor claims the model and publishes a model card or system card; a benchmark tracker or independent harness (Artificial Analysis, Vals AI, ARC Prize, Epoch AI, Cursor) publishes a single figure for it; a rate card is published; or the ID is confirmed to be an alias for an identifiable model, in which case the substitution logic applied to `deepseek-v4-flash`, `glm-5.3-free` and `qwen-3.8-flash` in this research pass would make an assessment possible.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-03
+- Method: fresh public internet research only, plus this repository's own curated `model/mai-experimental-test/meta.json`, which supplied the **only two data points in existence for this ID** — a 128,000-token context window and "Text in/out only" modalities — along with the description of it as "an exploratory sandbox model on OpenCode Zen for testing integration pipelines and benchmarking frameworks" and the non-price "Experimental tier pricing" note. Research steps attempted, all of which returned nothing: **`benchlm.ai/models/mai-experimental-test` returned 404**, notable because that tracker indexes 882 models across 613 benchmarks as of its 2026-10-06 snapshot and does carry stealth listings, retired checkpoints, experimental previews and raw-logit probes, so the absence is meaningful rather than a coverage gap; and **a DuckDuckGo search for `"mai-experimental-test"` and `"MAI experimental"` with `opencode zen model` returned the engine's explicit "No results found" response** — zero hits, which is an outcome no other model in this entire research pass produced, including the unclaimed stealth model `ox-alpha`. No vendor is identified, so no system card, release post or technical report exists to consult; **the `mai-` prefix invites association with Microsoft AI's MAI family, and that inference is explicitly declined** because no source was found connecting them and guessing a vendor would be worse than reporting none. **The decision to exclude rather than assign low evidence-absence scores is argued explicitly against the two precedents I set earlier in this same research pass** — `grok-4.1-fast`, where a single empty dimension was scored at 25 because four others had real data, and `ox_alpha`, where three empty dimensions still permitted an Overall because independent reporting confirmed the specification and community claims existed to characterise — and the distinguishing fact is stated plainly: here there is no tracker entry, no search result, no vendor, no claim and no externally confirmed specification, so a score would be an invention rather than a conservative estimate. The curated metadata's own description of the endpoint as a fixture for "testing integration pipelines and benchmarking frameworks" is treated as a further substantive reason not to score it, since a test fixture assessed against a model-comparison methodology would yield a number that reads as a capability claim while carrying none. **No peer `model/` findings files were read.** The observation that 15 of the 21 peer findings files in this folder already carry the `.md.excluded` suffix is drawn **solely from the directory listing**, where suffixes are visible without opening any file, and is recorded only as independent corroboration **after** the exclusion had been decided on my own research — not as a basis for it. The file is written as `Claude_Opus_5.md.excluded` in accordance with `RULES.md`, which reserves that suffix for cases where an Overall Score cannot be computed from zero verified data, and **explicit reversal criteria are documented above** so the decision is provisional on evidence rather than permanent. Unavailable items — which here means every benchmark figure, the vendor identity, the architecture, the parameter count, the licence, the release date, the knowledge cutoff, the rate card, and any public corroboration of the context window or modalities — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

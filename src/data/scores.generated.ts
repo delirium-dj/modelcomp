@@ -510,6 +510,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   "claude-sonnet-4.5": {
     "Big_Pickle.md": { tool: 76, reasoning: 78, context: 98, multimodal: 68, coding: 88, cost: 62, overall: 82 },
     "Claude_Opus_4.8.md": { tool: 65, reasoning: 72, context: 72, multimodal: 65, coding: 78, cost: 62, overall: 70.4 },
+    "Claude_Opus_5.md": { tool: 58, reasoning: 48, context: 72, multimodal: 64, coding: 68, cost: 30, overall: 62 },
     "DeepSeek_4.1_Flash.md": { tool: 72, reasoning: 70, context: 93, multimodal: 78, coding: 74, cost: 60, overall: 77 },
     "DeepSeek_4_Flash.md": { tool: 62, reasoning: 55, context: 72, multimodal: 72, coding: 78, cost: 60, overall: 68 },
     "Fledge_Alpha.md": { tool: 78, reasoning: 76, context: 70, multimodal: 62, coding: 80, cost: 76, overall: 73 },
@@ -679,6 +680,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   "deepseek-v4-flash": {
     "Big_Pickle.md": { tool: 90, reasoning: 90, context: 95, multimodal: 15, coding: 90, cost: 98, overall: 76 },
     "Claude_Opus_4.8.md": { tool: 83, reasoning: 80, context: 94, multimodal: 20, coding: 86, cost: 90, overall: 72.6 },
+    "Claude_Opus_5.md": { tool: 86, reasoning: 74, context: 96, multimodal: 18, coding: 88, cost: 96, overall: 72.4 },
     "DeepSeek_4.1_Flash.md": { tool: 84, reasoning: 62, context: 90, multimodal: 30, coding: 76, cost: 90, overall: 68.4 },
     "DeepSeek_4_Flash.md": { tool: 85, reasoning: 76, context: 93, multimodal: 15, coding: 85, cost: 99, overall: 71 },
     "Fledge_Alpha.md": { tool: 82, reasoning: 85, context: 97, multimodal: 62, coding: 82, cost: 95, overall: 82 },
@@ -703,7 +705,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Qwen_3.8_27B.md": { tool: 78, reasoning: 72, context: 95, multimodal: 15, coding: 82, cost: 97, overall: 68 },
     "Qwen_3.8_Flash.md": { tool: 80, reasoning: 76, context: 96, multimodal: 15, coding: 86, cost: 96, overall: 71 },
     "Space_Bunny.md": { tool: 88, reasoning: 89, context: 98, multimodal: 15, coding: 92, cost: 94, overall: 76 },
-    "average.md": { tool: 81.4, reasoning: 80, context: 92.7, multimodal: 18.3, coding: 83.9, cost: 93.1, overall: 71.3 },
+    "average.md": { tool: 81.6, reasoning: 81.2, context: 93.3, multimodal: 17.1, coding: 85.1, cost: 93.7, overall: 71.7 },
   },
   "deepseek-v4-pro": {
     "Big_Pickle.md": { tool: 90, reasoning: 88, context: 90, multimodal: 15, coding: 86, cost: 82, overall: 74 },
@@ -740,6 +742,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "deepseek-v4-vision-exp": {
     "Big_Pickle.md": { tool: 76, reasoning: 81, context: 84, multimodal: 70, coding: 73, cost: 95, overall: 77 },
+    "Claude_Opus_5.md": { tool: 86, reasoning: 74, context: 76, multimodal: 76, coding: 88, cost: 96, overall: 80 },
     "DeepSeek_4.1_Flash.md": { tool: 88, reasoning: 82, context: 95, multimodal: 85, coding: 82, cost: 90, overall: 86 },
     "DeepSeek_4_Flash.md": { tool: 80, reasoning: 82, context: 70, multimodal: 80, coding: 82, cost: 94, overall: 79 },
     "Fledge_Alpha.md": { tool: 76, reasoning: 72, context: 93, multimodal: 78, coding: 72, cost: 95, overall: 78 },
@@ -767,7 +770,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Qwen_3.8_Flash.md": { tool: 82, reasoning: 68, context: 95, multimodal: 65, coding: 78, cost: 96, overall: 78 },
     "Solar_Pro_4.md": { tool: 40, reasoning: 40, context: 50, multimodal: 70, coding: 40, cost: 50, overall: 48 },
     "Space_Bunny.md": { tool: 68, reasoning: 68, context: 85, multimodal: 85, coding: 65, cost: 85, overall: 74.2 },
-    "average.md": { tool: 82.9, reasoning: 78.6, context: 90.6, multimodal: 80.1, coding: 81.1, cost: 95, overall: 82.7 },
+    "average.md": { tool: 83.3, reasoning: 79.2, context: 88.7, multimodal: 81.2, coding: 82.1, cost: 95, overall: 82.9 },
   },
   "deepseek-v4.1-flash": {
     "Big_Pickle.md": { tool: 88, reasoning: 85, context: 88, multimodal: 74, coding: 88, cost: 92, overall: 84.6 },
@@ -2836,6 +2839,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   "inkling-small": {
     "Big_Pickle.md": { tool: 73, reasoning: 74, context: 93, multimodal: 92, coding: 78, cost: 94, overall: 82 },
     "Claude_Opus_4.8.md": { tool: 72, reasoning: 76, context: 90, multimodal: 63, coding: 78, cost: 85, overall: 75.8 },
+    "Claude_Opus_5.md": { tool: 66, reasoning: 80, context: 95, multimodal: 88, coding: 76, cost: 92, overall: 81 },
     "DeepSeek_4.1_Flash.md": { tool: 64, reasoning: 80, context: 95, multimodal: 90, coding: 72, cost: 93, overall: 80 },
     "Fledge_Alpha.md": { tool: 82, reasoning: 78, context: 95, multimodal: 93, coding: 80, cost: 88, overall: 86 },
     "GLM_5.3_Flash.md": { tool: 82, reasoning: 87, context: 84, multimodal: 60, coding: 85, cost: 92, overall: 79.6 },
@@ -2853,7 +2857,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Qwen_3.8_27B.md": { tool: 66, reasoning: 68, context: 95, multimodal: 90, coding: 80, cost: 95, overall: 80 },
     "Qwen_3.8_Flash.md": { tool: 72, reasoning: 84, context: 92, multimodal: 88, coding: 82, cost: 96, overall: 84 },
     "Space_Bunny.md": { tool: 62, reasoning: 74, context: 72, multimodal: 82, coding: 72, cost: 88, overall: 72 },
-    "average.md": { tool: 77.2, reasoning: 84.7, context: 91.7, multimodal: 86.2, coding: 83.5, cost: 94.2, overall: 84.7 },
+    "average.md": { tool: 75.6, reasoning: 84, context: 92.8, multimodal: 89, coding: 82.6, cost: 94.2, overall: 84.8 },
   },
   "jev-1.13": {
     "Big_Pickle.md": { tool: 32, reasoning: 56, context: 40, multimodal: 10, coding: 14, cost: 92, overall: 30.4 },
@@ -3784,6 +3788,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
   },
   "ox_alpha": {
     "Big_Pickle.md": { tool: 68, reasoning: 66, context: 82, multimodal: 64, coding: 71, cost: 75, overall: 70 },
+    "Claude_Opus_5.md": { tool: 55, reasoning: 55, context: 92, multimodal: 80, coding: 60, cost: 70, overall: 68.4 },
     "Claude_Sonnet_4.6.md": { tool: 83, reasoning: 80, context: 95, multimodal: 80, coding: 82, cost: 98, overall: 84 },
     "DeepSeek_4.1_Flash.md": { tool: 89, reasoning: 86, context: 95, multimodal: 88, coding: 86, cost: 92, overall: 89 },
     "DeepSeek_4_Flash.md": { tool: 55, reasoning: 75, context: 95, multimodal: 80, coding: 78, cost: 100, overall: 77 },
@@ -3968,6 +3973,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScores>> =
     "Big_Pickle.md": { tool: 78, reasoning: 87, context: 90, multimodal: 20, coding: 84, cost: 84, overall: 72 },
     "Claude_Opus_4.6.md": { tool: 85, reasoning: 88, context: 84, multimodal: 50, coding: 84, cost: 70, overall: 78 },
     "Claude_Opus_4.8.md": { tool: 78, reasoning: 82, context: 94, multimodal: 15, coding: 83, cost: 80, overall: 70.4 },
+    "Claude_Opus_5.md": { tool: 76, reasoning: 86, context: 96, multimodal: 16, coding: 78, cost: 54, overall: 70.4 },
     "DeepSeek_4.1_Flash.md": { tool: 78, reasoning: 80, context: 94, multimodal: 85, coding: 85, cost: 88, overall: 84 },
     "DeepSeek_4_Flash.md": { tool: 78, reasoning: 88, context: 92, multimodal: 15, coding: 84, cost: 72, overall: 71 },
     "Fledge_Alpha.md": { tool: 80, reasoning: 80, context: 92, multimodal: 15, coding: 78, cost: 72, overall: 69 },

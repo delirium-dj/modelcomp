@@ -38,8 +38,8 @@
 86 gpt-6-sol
 85.5 ember-1
 85.5 qwen-3.7-plus
+84.8 inkling-small
 84.7 grok-4.6
-84.7 inkling-small
 84.6 claude-sonnet-4.6
 84.6 gpt-5.4
 84.6 muse-spark-1.1
@@ -58,9 +58,9 @@
 83.2 gemini-3.8-flash-cyber
 83.1 grok-4.5
 83 deepseek-v4-pro
+82.9 deepseek-v4-vision-exp
 82.9 gpt-5.3-codex
 82.8 grok-4.3
-82.7 deepseek-v4-vision-exp
 82.7 gpt-5
 82.7 gpt-5.1
 82.7 pareto-26.10-preview
@@ -99,8 +99,8 @@
 72.9 glm-5.2
 72.6 mistral-medium-3.5
 72 mimo-v2.5-pro
+71.7 deepseek-v4-flash
 71.5 hy3
-71.3 deepseek-v4-flash
 71.3 gemini-2.0-flash
 70.9 gemini-1.5-pro
 70.4 longcat_2.5_preview
