@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Laguna XS 2.1
 
 > Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-09-24 (UTC)
+> Date: 2026-10-09 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2-1`.
 - **Context window:** 262,144 tokens (official model card; 256K in benchmark settings).
 - **Modalities:** Text in/out only; optional interleaved reasoning between tool calls and native function/tool calling. No image/audio/video input is documented.
-- **Pricing (as of 2026-09-24):** OpenRouter lists $0.06 input, $0.03 cached input, and $0.12 output per 1M tokens; a free OpenRouter route also exists.
+- **Pricing (as of 2026-10-09):** OpenRouter lists $0.06 input, $0.03 cached input, and $0.12 output per 1M tokens; a free OpenRouter route also exists.
 - **Architecture:** OpenMDW-1.1 open-weight MoE, 33B total / 3B active parameters, 40 layers, 256 experts plus one shared expert, mixed sliding-window/global attention, and FP8 KV cache.
 
 ### Raw benchmarks found
@@ -39,7 +39,7 @@ Long context:
 
 - The verified 262K context was used for the official coding-agent evaluations, but no standalone MRCR/RULER/GraphWalks retrieval-at-length result was found.
 
-### Normalized scores (1-100)
+### Normalized scores (1–100)
 
 Derived from the benchmarks above using methodology in `model-comparison.md`:
 
@@ -55,6 +55,6 @@ Derived from the benchmarks above using methodology in `model-comparison.md`:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2.1)** — 2026-09-24
-- Method: public-internet research (Hugging Face model card, Poolside release blog, OpenRouter API metadata); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-09
+- Method: public-internet research (Hugging Face model card, Poolside release blog, OpenRouter API metadata, Poolside GitHub repository); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_6.md`, using the same headings.

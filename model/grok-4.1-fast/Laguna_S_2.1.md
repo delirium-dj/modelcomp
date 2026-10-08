@@ -56,7 +56,7 @@ Long context:
 - **Multimodal: 42/100.** Supports text and image input; AA-MMMU-Pro 48.4% confirms basic multimodal capability.
 - **Coding: 30/100.** No direct coding benchmarks (SWE-bench, LiveCodeBench) published; inferred from general intelligence.
 - **Cost efficiency: 100/100.** $0.20/$0.50 is very competitive for a 2M-context model; free for prompts ≤100K tokens per meta.json.
-- **Overall Score: 53/100.** Mean of five quality dims (50+41+95+42+30)/5 = 51.6, rounds to 53. Best-fit use case: high-volume tool-calling agentic workflows with 2M context at very low cost.
+- **Overall Score: 51.6/100.** Mean of five quality dims (50+41+95+42+30)/5 = 51.6, rounds to 53. Best-fit use case: high-volume tool-calling agentic workflows with 2M context at very low cost.
 
 ---
 

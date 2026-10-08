@@ -29,7 +29,7 @@
 - **Multimodal: 92/100.** Good vision and input processing.
 - **Coding: 93/100.** Very capable coding assistant.
 - **Cost efficiency: 65/100.** High performance with significant cost; lower efficiency than newer 5.5 models.
-- **Overall Score: 92/100.** A robust and capable model for complex professional tasks, now effectively succeeded by the more efficient Claude Opus 5.5.
+- **Overall Score: 92.6/100.** A robust and capable model for complex professional tasks, now effectively succeeded by the more efficient Claude Opus 5.5.
 
 ---
 

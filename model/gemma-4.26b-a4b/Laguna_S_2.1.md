@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 58/100.** Supports text, image, speech, video input; AA-MMMU-Pro 82.0% confirms strong multimodal reasoning.
 - **Coding: 52/100.** AA-SciCode 58.3% is decent; no SWE-bench or LiveCodeBench published.
 - **Cost efficiency: 75/100.** $0.15/$0.60 is reasonable for a 26B MoE model; also open-weights (free self-host).
-- **Overall Score: 55/100.** Mean of five quality dims (50+40+95+58+52)/5 = 55.0. Best-fit use case: open-weight multimodal MoE model with 256K context and strong image/speech/video support.
+- **Overall Score: 59/100.** Mean of five quality dims (50+40+95+58+52)/5 = 55.0. Best-fit use case: open-weight multimodal MoE model with 256K context and strong image/speech/video support.
 
 ---
 

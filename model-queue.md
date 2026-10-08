@@ -140,8 +140,8 @@
 61.5 mai-thinking-1
 61.1 gpt-5.3-codex-spark
 60.1 omen-alpha
-60 deepseek-v3.2
-59 gpt-oss-120b
+59.8 deepseek-v3.2
+59.5 gpt-oss-120b
 59 laguna-xs-2.1
 59 solar-open-2
 57.8 gemma-4-e4b

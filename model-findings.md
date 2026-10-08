@@ -400,3 +400,12 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 ---| Claude Haiku 5.5 | 63 | 2026-10-08 | BenchLM 66.32/100 #28/887, AA Intel Index 43* #2/182, TB4 39.2%, AA-LCR 82.7%, HLE 44.4%, Harvey LAB 89.9%, Briefcase 1578 Elo |
 | MAI-Thinking-1 | 62 | 2026-10-08 | 14/623 BenchLM benchmarks, LiveCodeBench 87.7%, SWE-bench 73.5%, GPQA 84.2%, AIME26 94.5%, Graphwalks BFS 128K 90% |
+| Claude Haiku 3.5 | 49 | 2026-10-08 | BenchLM 41.55/100 #127/887, retired Feb 2026, SWE-bench 73.3%, JobBench 16.0% |
+| DeepSeek V3.2 | 52 | 2026-10-08 | BenchLM 49.47/100 #96/887, AA IQ 16* #16/46, tau2-bench 78.9%, SWE-Rebench 60.9%, GPQA 75.1% |
+| Gemma 4 E2B | 36 | 2026-10-08 | BenchLM 30.24/100 #172/887, AA IQ 8* #67/142, 16/623 benchmarks |
+| Gemma 4 E4B | 39 | 2026-10-08 | BenchLM 31.36/100 #165/887, AA IQ 9* #51/142, 17/623 benchmarks |
+| Gemma 4 12B Unified | 55 | 2026-10-08 | AA IQ 14* #21/142, AA-MMMU-Pro 82.0%, 1M context |
+| Grok 4.1 Fast | 53 | 2026-10-08 | BenchLM 36.47/100 #146/887, AA IQ 11* #75/300, tau2-bench 63.7%, 2M context |
+| Qwen 3.5 397B | 57 | 2026-10-08 | BenchLM 53.97/100 #68/887, AA IQ 18* #59/117, SWE-bench 76.2%, LiveCodeBench 83.6%, GPQA 88.4% |
+| Ling 3.0 Flash VL | 57 | 2026-10-08 | BenchLM 47.41/100 #108/887, AA IQ 25* #1/65, GPQA 86.2%, AAA-LCR 78.3%, 11/623 benchmarks |
+| Gemma 4 26B A4B | 55 | 2026-10-08 | AA IQ 10* #45/142, AAA-Briefcase 1330 Elo, AAA-SciCode 58.3%, 12/623 benchmarks |

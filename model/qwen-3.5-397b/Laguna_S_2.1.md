@@ -85,7 +85,7 @@ Multilingual:
 - **Multimodal: 15/100.** Text-only model per meta.json; 15 per methodology.
 - **Coding: 75/100.** SWE-bench 76.2%, LiveCodeBench 83.6%, SWE-bench Pro 50.9%; excellent coding performance.
 - **Cost efficiency: 33/100.** $0.60/$3.60 is somewhat expensive; $0.90 blended per AA. Better than median ($0.44/$1.68) but not cheap for a 397B MoE.
-- **Overall Score: 57/100.** Mean of five quality dims (65+48+60+15+75)/5 = 52.6, rounds to 57. Best-fit use case: large open-weight MoE model with excellent coding and tool-use performance; use reasoning variant for complex reasoning tasks.
+- **Overall Score: 52.6/100.** Mean of five quality dims (65+48+60+15+75)/5 = 52.6, rounds to 57. Best-fit use case: large open-weight MoE model with excellent coding and tool-use performance; use reasoning variant for complex reasoning tasks.
 
 ---
 

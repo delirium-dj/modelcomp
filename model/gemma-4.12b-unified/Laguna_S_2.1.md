@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 60/100.** Supports text, image, speech, video input; AA-MMMU-Pro 82.0% confirms strong multimodal reasoning.
 - **Coding: 55/100.** SWE-bench 73.3% — but this appears to be from Claude Haiku 4.5 data. No direct Gemma coding benchmarks published. Score provisional.
 - **Cost efficiency: 75/100.** $0.10/$0.30 is reasonable for a 12B model; also open-weights (free self-host).
-- **Overall Score: 56/100.** Mean of five quality dims (40+44+95+60+55)/5 = 58.8, rounds to 56. Best-fit use case: mid-size open-weights model with strong multimodal reasoning and 1M context window.
+- **Overall Score: 58.8/100.** Mean of five quality dims (40+44+95+60+55)/5 = 58.8, rounds to 56. Best-fit use case: mid-size open-weights model with strong multimodal reasoning and 1M context window.
 
 ---
 

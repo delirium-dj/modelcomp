@@ -57,7 +57,7 @@ Knowledge:
 - **Multimodal: 55/100.** Supports text, image, speech, video input; AA-MMMU-Pro 51.4% confirms multimodal capability.
 - **Coding: 22/100.** AA Coding Index 9.4% and AA-SciCode 24.4% are low; no SWE-bench published.
 - **Cost efficiency: 100/100.** Apache 2.0 open weights; free for self-hosting; hosted prices very competitive ($0.02/$0.10).
-- **Overall Score: 39/100.** Mean of five quality dims (15+39+60+55+22)/5 = 38.2, rounds to 39. Best-fit use case: edge/mobile deployment with multimodal input where open-weights licensing justifies lower performance.
+- **Overall Score: 38.2/100.** Mean of five quality dims (15+39+60+55+22)/5 = 38.2, rounds to 39. Best-fit use case: edge/mobile deployment with multimodal input where open-weights licensing justifies lower performance.
 
 ---
 
