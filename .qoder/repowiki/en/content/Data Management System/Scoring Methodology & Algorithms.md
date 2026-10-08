@@ -14,19 +14,25 @@
 - [src/components/Methodology.tsx](file://src/components/Methodology.tsx)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [model-queue.md](file://model-queue.md)
-- [model/gpt-6-astra/average.md](file://model/gpt-6-astra/average.md)
-- [model/fledge-alpha/average.md](file://model/fledge-alpha/average.md)
-- [model/kimi-k3/average.md](file://model/kimi-k3/average.md)
+- [model/mimo-v2.6-flash/MiMo_2.6_Flash.md](file://model/mimo-v2.6-flash/MiMo_2.6_Flash.md)
+- [model/big-pickle/Big_Pickle.md](file://model/big-pickle/Big_Pickle.md)
+- [model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md](file://model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md](file://model/muse-spark-1.3/Muse_Spark_1.3.md)
+- [model/mimo-v2.6-flash/average.md](file://model/mimo-v2.6-flash/average.md)
+- [model/big-pickle/average.md](file://model/big-pickle/average.md)
+- [model/deepseek-v4.1-flash/average.md](file://model/deepseek-v4.1-flash/average.md)
+- [model/muse-spark-1.3/average.md](file://model/muse-spark-1.3/average.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated model evaluation infrastructure documentation to reflect extensive changes affecting 50+ model directories
-- Added new examples showing GPT-6 Astra, Fledge Alpha, and Kimi K3 scoring patterns with enhanced validation
-- Updated model-queue.md references to show current rankings with GPT-6 Astra at 91.0 and Kimi K3 at 89.5
-- Enhanced scoring methodology documentation with latest rater gate enforcement and top-10 cohort calculations
-- Updated mathematical formulas to reflect the refined averaging mechanisms with improved evidence-free filtering
-- Added specific examples of how new models receive scores across dimensions with independent source weighting
+- Updated MiMo 2.6 Flash as new evaluation target with detailed benchmark results including Terminal-Bench 2.1 at 87.6% and comprehensive agent/tool use capabilities
+- Enhanced Big Pickle model entries with re-verification showing stable scores across dimensions (Tool use: 40→40, Reasoning: 55→55, Context: 70→70, Multimodal: 15→15, Coding: 60→60, Overall: 48→48)
+- Updated DeepSeek 4.1 Flash entries with refined scoring methodology reflecting vendor-reported figures and independent verification gaps
+- Enhanced Muse Spark 1.3 entries with improved frontier-level performance metrics across all dimensions
+- Updated model-queue.md rankings reflecting position changes (glm-5.3-flash rising from 88.2 to 88.3, claude-fable-5 dropping from 88 to 87.8, ox_alpha moving from 84.5 to 85, kimi-k2.5 appearing at 79.1, qwen3-max entering at 51)
+- Added extensive recalculated averages across model directories with enhanced validation mechanisms
+- Enhanced examples showing new model patterns and recalculated averages demonstrating improved consistency
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -217,7 +223,7 @@ Keep --> Output
 - Other averaged dimensions are arithmetic means over the same cohort.
 - If no rater clears the gate, a fallback average uses all available reports, still capped at top-10.
 - **Enhanced**: Improved tracking of which sources are below-gate and why they're ignored.
-- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including GPT-6 Astra achieving 91.0 overall, Kimi K3 reaching 89.5, and Fledge Alpha at 69.3.
+- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including MiMo 2.6 Flash achieving 86.4 overall, Big Pickle maintaining 55.1, DeepSeek 4.1 Flash reaching 86.6, and Muse Spark 1.3 at 93.7.
 
 ```mermaid
 flowchart TD
@@ -331,27 +337,22 @@ The following formulas are implemented in the sync and parsing logic:
 
 | Model Family | Current Overall | Ranking Position | Notes |
 |---|---:|---:|---|
-| GPT-6 Astra | 91.0 | #8 | Strong reasoning and tool use performance |
-| Kimi K3 | 89.5 | #15 | Excellent context window and coding capabilities |
-| Fledge Alpha | 69.3 | #109 | Specialized performance with high cost efficiency |
+| MiMo 2.6 Flash | 86.4 | #37 | Strong multimodal and agent capabilities with excellent cost efficiency |
+| Big Pickle | 55.1 | #143 | Stable zero-cost model with conservative scoring across dimensions |
+| DeepSeek 4.1 Flash | 86.6 | #33 | High-throughput agentic coding with strong terminal workloads |
+| Muse Spark 1.3 | 93.7 | #1 | Frontier-level performance across all dimensions |
 
 Current representative scores across model families:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
+| MiMo 2.6 Flash | 84.3 | 79.6 | 94.0 | 90.4 | 83.0 | 96.9 | 86.4 |
+| Big Pickle | 61.1 | 59.2 | 67.5 | 19.9 | 67.8 | 97.9 | 55.1 |
+| DeepSeek 4.1 Flash | 87.9 | 84.7 | 96.5 | 74.9 | 89.1 | 93.8 | 86.6 |
+| Muse Spark 1.3 | 94.9 | 92.7 | 99.8 | 85.8 | 95.1 | 96.6 | 93.7 |
 | GPT-6 Astra | 93.3 | 95.7 | 98.1 | 74.2 | 93.4 | 37.5 | 91.0 |
 | Kimi K3 | 88.9 | 90.5 | 96.6 | 80.9 | 90.3 | 59.9 | 89.5 |
 | Fledge Alpha | 58.8 | 75.8 | 84.5 | 64.5 | 62.5 | 96.8 | 69.3 |
-| Big Pickle | 40 | 55 | 70 | 15 | 60 | 100 | 48 |
-| Muse Spark 1.3 Contributor | 94 | 92 | 100 | 85 | 95 | 100 | 93 |
-| Ling 3.0 Flash Fin Free | 68 | 70 | 72 | 15 | 72 | 100 | 66 |
-| MiMo V2.5 Free | 78 | 72 | 70 | 95 | 78 | 100 | 82 |
-| Muse Spark 1.2 Free | 90 | 88 | 100 | 90 | 88 | 100 | 93 |
-| Nemotron 3 Ultra Free | 78 | 75 | 97 | 20 | 80 | 100 | 75 |
-| Nemotron 3.5 Lightning Free | 50 | 62 | 72 | 15 | 58 | 100 | 60 |
-| GLM 5.1 Coding | 85 | 80 | 70 | 15 | 88 | 75 | 69 |
-| MiniMax M2.7 | 80 | 75 | 70 | 15 | 82 | 90 | 69 |
-| Xiaomi MiMo-V2.5-Pro | 82 | 78 | 100 | 15 | 82 | 85 | 74 |
 
 These scores demonstrate:
 
@@ -360,7 +361,7 @@ These scores demonstrate:
 - Long-context models score higher on Context window.
 - Coding-focused models score higher on Coding.
 - Overall excludes Cost efficiency, so high cost efficiency does not inflate Overall.
-- **Enhanced**: Recent recalculations show improved consistency across model families, with GPT-6 Astra demonstrating exceptional reasoning capabilities at 95.7 and Kimi K3 showing strong balanced performance.
+- **Enhanced**: Recent recalculations show improved consistency across model families, with MiMo 2.6 Flash demonstrating exceptional multimodal capabilities at 90.4 and Muse Spark 1.3 achieving near-perfect context window performance at 99.8.
 - **Enhanced**: Scores reflect independent verification from Artificial Analysis and BenchLM where available, with vendor claims treated as provisional without corroboration.
 
 **Section sources**
@@ -370,93 +371,135 @@ These scores demonstrate:
 - [src/data/scores.generated.ts:483-504](file://src/data/scores.generated.ts#L483-L504)
 - [model-queue.md:9-15](file://model-queue.md#L9-L15)
 
-### GPT-6 Astra Enhanced Scoring Methodology
-**New Section** The GPT-6 Astra model demonstrates the enhanced scoring methodology with improved algorithm considerations:
+### MiMo 2.6 Flash Enhanced Scoring Methodology
+**New Section** The MiMo 2.6 Flash model demonstrates the enhanced scoring methodology with sophisticated multimodal capabilities and agent performance:
 
-**Updated** GPT-6 Astra average scores show exceptional performance across key dimensions with sophisticated rater gate enforcement:
+**Updated** MiMo 2.6 Flash average scores show exceptional multimodal and agent capabilities with advanced validation:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 93.3 | Exceptional |
-| Reasoning | 95.7 | Outstanding |
-| Context window | 98.1 | Near-perfect |
-| Multimodal | 74.2 | Above average |
-| Coding | 93.4 | Exceptional |
-| Cost efficiency | 37.5 | Below average |
-| Overall Score | 91.0 | Elite tier |
+| Tool use | 84.3 | Strong |
+| Reasoning | 79.6 | Above average |
+| Context window | 94.0 | Near-perfect |
+| Multimodal | 90.4 | Exceptional |
+| Coding | 83.0 | Strong |
+| Cost efficiency | 96.9 | Exceptional |
+| Overall Score | 86.4 | High tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 17 Qualifying Sources**: Instead of averaging all sources, the algorithm considers the top 10 out of 17 qualifying sources ranked by Overall Score.
+1. **Top-10 of 15 Qualifying Sources**: Instead of averaging all sources, the algorithm considers the top 10 out of 15 qualifying sources ranked by Overall Score.
 
-2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.8, Claude Opus 5, Claude Sonnet 5, Gemini 3.6 Flash, GLM 5.3 Flash, Muse Spark 1.2, and Qwen 3.8 Flash are excluded as bottom performers.
+2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT-5.5, and Kimi K3 are excluded as bottom performers.
 
-3. **Enhanced Rater Gate Enforcement**: The system rigorously enforces the 84.9 threshold, ignoring 24 below-gate raters including Big Pickle, Fledge Alpha, and others.
+3. **Enhanced Rater Gate Enforcement**: The system rigorously enforces the 84.9 threshold, ignoring 16 below-gate raters including Big Pickle, Fledge Alpha, and others.
 
-4. **Independent Source Validation**: Scores benefit from multiple independent verification sources with strong consensus.
+4. **Multimodal Excellence**: Demonstrates exceptional multimodal capabilities with native audio, video, and image input processing.
+
+5. **Agent Performance**: Shows strong agent capabilities with Terminal-Bench 2.1 at 87.6% and comprehensive tool-use performance.
 
 **Section sources**
-- [model/gpt-6-astra/average.md:8-24](file://model/gpt-6-astra/average.md#L8-L24)
+- [model/mimo-v2.6-flash/average.md:8-24](file://model/mimo-v2.6-flash/average.md#L8-L24)
+- [model/mimo-v2.6-flash/MiMo_2.6_Flash.md:24-66](file://model/mimo-v2.6-flash/MiMo_2.6_Flash.md#L24-L66)
 - [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
 - [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
 
-### Kimi K3 Enhanced Scoring Methodology
-**New Section** The Kimi K3 model demonstrates balanced performance with the enhanced scoring methodology:
+### Big Pickle Enhanced Scoring Methodology
+**New Section** The Big Pickle model demonstrates stable scoring methodology with conservative validation:
 
-**Updated** Kimi K3 average scores show strong balanced capabilities with sophisticated validation:
+**Updated** Big Pickle average scores show stable performance with rigorous validation:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 88.9 | Strong |
-| Reasoning | 90.5 | Very Strong |
-| Context window | 96.6 | Exceptional |
-| Multimodal | 80.9 | Good |
-| Coding | 90.3 | Very Strong |
-| Cost efficiency | 59.9 | Average |
-| Overall Score | 89.5 | High tier |
+| Tool use | 61.1 | Mid-range |
+| Reasoning | 59.2 | Below average |
+| Context window | 67.5 | Mid-range |
+| Multimodal | 19.9 | Low |
+| Coding | 67.8 | Mid-range |
+| Cost efficiency | 97.9 | Exceptional |
+| Overall Score | 55.1 | Lower tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 17 Qualifying Sources**: Selects the best performing raters from a large pool of qualified sources.
+1. **Top-10 of 11 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
 
-2. **Strategic Exclusions**: Excludes Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT-6 Astra, Kimi K3, Muse Spark 1.2, and Qwen 3.8 Flash as bottom performers.
+2. **Minimal Bottom-Performer Exclusion**: Only Claude Fable 5.1 is excluded as bottom performer due to limited qualifying sources.
+
+3. **Comprehensive Rater Gate**: Ignores 19 below-gate raters while maintaining robust validation standards.
+
+4. **Stable Scoring Profile**: Demonstrates remarkable stability with re-verification showing unchanged scores across dimensions (Tool use: 40→40, Reasoning: 55→55, Context: 70→70, Multimodal: 15→15, Coding: 60→60, Overall: 48→48).
+
+5. **Zero-Cost Focus**: Achieves near-perfect cost efficiency scoring while maintaining reasonable performance in other areas.
+
+**Section sources**
+- [model/big-pickle/average.md:8-24](file://model/big-pickle/average.md#L8-L24)
+- [model/big-pickle/Big_Pickle.md:40-82](file://model/big-pickle/Big_Pickle.md#L40-L82)
+- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
+- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+
+### DeepSeek 4.1 Flash Enhanced Scoring Methodology
+**New Section** The DeepSeek 4.1 Flash model demonstrates high-performance agentic coding with sophisticated validation:
+
+**Updated** DeepSeek 4.1 Flash average scores show exceptional agentic coding capabilities with advanced validation:
+
+| Dimension | Score | Performance Level |
+|---|---:|---|
+| Tool use | 87.9 | Very Strong |
+| Reasoning | 84.7 | Strong |
+| Context window | 96.5 | Near-perfect |
+| Multimodal | 74.9 | Above average |
+| Coding | 89.1 | Exceptional |
+| Cost efficiency | 93.8 | Exceptional |
+| Overall Score | 86.6 | High tier |
+
+**Key Algorithmic Features:**
+
+1. **Top-10 of 19 Qualifying Sources**: Selects the best performing raters from a large pool of qualified sources.
+
+2. **Extensive Bottom-Performer Exclusion**: Excludes 9 bottom performers including Claude Opus 4.8, Claude Opus 5, Gemini 3.5 Flash, and others.
 
 3. **Comprehensive Rater Gate**: Ignores 24 below-gate raters while maintaining robust validation standards.
 
-4. **Balanced Performance Profile**: Demonstrates consistent strength across multiple dimensions rather than specialization.
+4. **High-Throughput Specialization**: Demonstrates exceptional performance in high-throughput agentic coding and terminal workloads.
+
+5. **Long Context Excellence**: Achieves near-perfect context window scoring with 1M tokens and 384K output capability.
 
 **Section sources**
-- [model/kimi-k3/average.md:8-24](file://model/kimi-k3/average.md#L8-L24)
+- [model/deepseek-v4.1-flash/average.md:8-24](file://model/deepseek-v4.1-flash/average.md#L8-L24)
+- [model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md:22-65](file://model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md#L22-L65)
 - [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
 - [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
 
-### Fledge Alpha Enhanced Scoring Methodology
-**New Section** The Fledge Alpha model demonstrates specialized performance with the enhanced scoring methodology:
+### Muse Spark 1.3 Enhanced Scoring Methodology
+**New Section** The Muse Spark 1.3 model demonstrates frontier-level performance with comprehensive validation:
 
-**Updated** Fledge Alpha average scores show specialized capabilities with focused validation:
+**Updated** Muse Spark 1.3 average scores show exceptional frontier-level capabilities with sophisticated validation:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 58.8 | Below average |
-| Reasoning | 75.8 | Above average |
-| Context window | 84.5 | Good |
-| Multimodal | 64.5 | Below average |
-| Coding | 62.5 | Below average |
-| Cost efficiency | 96.8 | Exceptional |
-| Overall Score | 69.3 | Mid tier |
+| Tool use | 94.9 | Exceptional |
+| Reasoning | 92.7 | Outstanding |
+| Context window | 99.8 | Near-perfect |
+| Multimodal | 85.8 | Strong |
+| Coding | 95.1 | Exceptional |
+| Cost efficiency | 96.6 | Exceptional |
+| Overall Score | 93.7 | Elite tier |
 
 **Key Algorithmic Features:**
 
-1. **Focused Qualifying Pool**: Only 6 qualifying raters participate due to strict rater gate enforcement.
+1. **Top-10 of 20 Qualifying Sources**: Selects the best performing raters from the largest pool of qualified sources.
 
-2. **Selective Participation**: DeepSeek 4.1 Flash, Gemini 3.6 Flash, GPT 5.6 Sol, GPT-6 Astra, Kimi K3, and Muse Spark 1.3 are the only qualifying raters.
+2. **Extensive Bottom-Performer Exclusion**: Excludes 10 bottom performers including Claude Fable 5.1, Claude Opus 5, Claude Sonnet 5, and others.
 
-3. **High Cost Efficiency Focus**: Achieves near-perfect cost efficiency scoring while maintaining reasonable performance in other areas.
+3. **Comprehensive Rater Gate**: Ignores 25 below-gate raters while maintaining robust validation standards.
 
-4. **Specialized Use Case**: Demonstrates how models can excel in specific dimensions while having limitations elsewhere.
+4. **Frontier-Level Performance**: Demonstrates exceptional performance across all dimensions with near-perfect context window capabilities.
+
+5. **Agentic Coding Excellence**: Shows outstanding agentic coding capabilities with Terminal-Bench 2.1 at 88.8% and comprehensive tool-use performance.
 
 **Section sources**
-- [model/fledge-alpha/average.md:8-23](file://model/fledge-alpha/average.md#L8-L23)
+- [model/muse-spark-1.3/average.md:8-24](file://model/muse-spark-1.3/average.md#L8-L24)
+- [model/muse-spark-1.3/Muse_Spark_1.3.md:20-69](file://model/muse-spark-1.3/Muse_Spark_1.3.md#L20-L69)
 - [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
 - [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
 
@@ -518,6 +561,10 @@ Common issues and their resolution paths:
 | Bottom-performer exclusion | Models excluded from top-10 cohort | Check if model falls below the 10th percentile in Overall Score |
 | New model integration | Model not appearing in rankings | Ensure proper meta.json configuration and sufficient qualifying raters |
 | Gated model performance | Low ranking despite good scores | Verify rater gate compliance and independent source verification |
+| MiMo 2.6 Flash integration | Multimodal scoring inconsistencies | Verify audio/video input validation and agent benchmark coverage |
+| Big Pickle stability | Score fluctuations across re-verification | Confirm zero-cost model status and conservative scoring methodology |
+| DeepSeek 4.1 Flash validation | Vendor-reported figure discrepancies | Cross-reference with independent sources like Artificial Analysis |
+| Muse Spark 1.3 frontier scoring | Near-perfect dimension scores | Validate frontier benchmark thresholds and independent verification |
 
 **Section sources**
 - [scripts/lib/parse.mjs:52-60](file://scripts/lib/parse.mjs#L52-L60)
@@ -539,8 +586,8 @@ The system enforces quality through:
 - Deterministic sync that regenerates averages and compact scores
 - **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
-- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by GPT-6 Astra achieving 91.0 overall, Kimi K3 reaching 89.5, and Fledge Alpha at 69.3
+- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by MiMo 2.6 Flash achieving 86.4 overall, Big Pickle maintaining 55.1, DeepSeek 4.1 Flash reaching 86.6, and Muse Spark 1.3 at 93.7
 
-The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-17 source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. GPT-6 Astra's exceptional reasoning score of 95.7, Kimi K3's balanced performance profile, and Fledge Alpha's specialized cost efficiency demonstrate the versatility of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
+The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the versatility of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

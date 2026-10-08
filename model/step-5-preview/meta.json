@@ -1,0 +1,9 @@
+{
+  "id": "opencode/step-5-preview",
+  "name": "Step 5 Preview",
+  "short": "Step 5 Preview model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

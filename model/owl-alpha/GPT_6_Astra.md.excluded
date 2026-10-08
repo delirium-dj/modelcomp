@@ -1,0 +1,35 @@
+# Owl Alpha — findings by GPT 6 Astra
+
+- Source: Owl Alpha public primary sources
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** Owl Alpha.
+- **Short description:** Stealth agentic model; attribution to LongCat-2.0 appears in secondary coverage but exact checkpoint equivalence was not established from readable primary evidence.
+- **Provider / access:** Historical OpenRouter Chat Completions ID `openrouter/owl-alpha`; no verified Zen Free ID.
+- **Release / knowledge:** Provider listing April 28, 2026; cutoff undisclosed.
+- **Context window:** Provider lists 1.0M; maximum output unverified.
+- **Modalities:** Native tools advertised; text-oriented service, additional input modalities and strict JSON support not established.
+- **Pricing (2026-10-08):** No current price or active endpoint shown in retrieved provider listing. ARA describes it as free in its June evaluation; that does not verify current availability.
+- **Architecture / license:** Not verified for the exact stealth checkpoint.
+- **Data usage:** Provider warns prompts/completions may be logged and used to improve the model. [OpenRouter](https://openrouter.ai/openrouter/owl-alpha)
+
+### Raw benchmarks found
+
+- **Narrow risk-assessment evaluation:** ARA Eval reports **F2 0.89**, hard-gate precision **100%**, recall **87%**, fingerprint calibration **75%**, with **2** false negatives. June 17 analysis; API/structured-prompt risk-gate scenarios. This evaluates risk classification, not general tool execution or code repair. [Evaluator results](https://ara-eval.org/leaderboard)
+- **General reasoning, coding, agent execution and retrieval:** GPQA, HLE, SWE-bench, Terminal-Bench, Tau2 and long-context retrieval: no verified public score found for this exact ID.
+- The [LongCat announcement](https://longcat.chat/blog/longcat-2.0/) returned no readable body. Successor benchmarks were not transferred to the stealth checkpoint.
+- Research covered the provider listing, exact-name evaluator results, and the suggested successor announcement. The ARA measurement is retained as useful evidence but cannot support all five quality dimensions.
+
+### Normalized scores (1–100)
+
+Not scored: a verified narrow risk-classification benchmark exists, but coding, general reasoning and current endpoint evidence are insufficient for a defensible complete rating. This exclusion is not a claim that no benchmarks exist.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Independent fresh public-web research; normalized scores are interpretations, not official benchmark scores. No local model tests.
+

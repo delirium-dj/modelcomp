@@ -1,0 +1,35 @@
+# Ling 3.0 Flash Sante — findings by GPT 6 Astra
+
+- Source: Ling 3.0 Flash Sante public primary sources
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante.
+- **Short description:** inclusionAI health/medicine specialization of Ling 3.0 Flash; general Flash benchmarks do not establish this fine-tune's performance.
+- **Provider / access:** OpenRouter Chat Completions ID `inclusionai/ling-3.0-flash-sante:free`; no verified Zen Free ID.
+- **Release / knowledge:** Provider listing September 4, 2026; cutoff unknown.
+- **Context window:** 262,144 tokens; output cap unverified.
+- **Modalities:** Text-oriented reasoning/agent service; exact tool schema and JSON guarantees not independently established.
+- **Architecture / license:** Provider describes 124B total / 5.1B active MoE; weights and license for Sante itself not verified.
+- **Pricing (2026-10-08):** OpenRouter still lists free input/output, rate limited; endpoint availability and data-retention policy not tested. [Provider](https://openrouter.ai/inclusionai/ling-3.0-flash-sante:free)
+- Vercel's introductory free offer explicitly ran through October 4; it is not evidence of a continuing free Vercel route. [Vercel announcement](https://vercel.com/changelog/ling-3-0-flash-sante-is-now-available-on-ai-gateway-for-free)
+
+### Raw benchmarks found
+
+- Agent/tool, general reasoning, coding, medical benchmark and long-context retrieval: **no verified public score found in accessible primary material for this exact model**.
+- Exact-name searches surfaced secondary reproductions of medical scores, but the linked [vendor announcement](https://x.com/AntLingAGI/status/2095953758148853892) returned HTTP 403. Those numbers were not promoted to verified findings.
+- The expected official Hugging Face Sante repository was inaccessible; provider pages establish identity/specifications, not measured quality.
+- No scores transferred from Ling 3.0 Flash, Fin or VL. A future accessible vendor table or evaluator run can resolve this exclusion.
+
+### Normalized scores (1–100)
+
+Not scored: no verified public benchmark for this exact model was established.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Independent fresh public-web research; normalized scores are interpretations, not official benchmark scores. No local model tests.
+

@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, GPT-5.6 Sol.
 - Average from top 2 by Overall Score: Gemini 3.8 Flash, GPT-5.6 Sol.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GPT 5.6 Luna.
+- Ignored below-gate rater(s): Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GPT 5.6 Luna.

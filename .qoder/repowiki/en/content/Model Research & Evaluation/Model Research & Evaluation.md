@@ -45,20 +45,33 @@
 - [model/qwen-3.5-397b/meta.json](file://model/qwen-3.5-397b/meta.json)
 - [model/qwen-3.5-397b/Claude_Opus_5.md](file://model/qwen-3.5-397b/Claude_Opus_5.md)
 - [model/qwen-3.8-flash-next/meta.json](file://model/qwen-3.8-flash-next/meta.json)
+- [model/pareto-26.10-preview/meta.json](file://model/pareto-26.10-preview/meta.json)
+- [model/gemini-2.5/meta.json](file://model/gemini-2.5/meta.json)
+- [model/qwen-3.5/meta.json](file://model/qwen-3.5/meta.json)
+- [model/fledge-alpha/meta.json](file://model/fledge-alpha/meta.json)
 - [model/gemini-3.8-flash/meta.json](file://model/gemini-3.8-flash/meta.json)
 - [model/gemini-3.8-flash/Grok_4.6.md](file://model/gemini-3.8-flash/Grok_4.6.md)
 - [model/grok-4.6/meta.json](file://model/grok-4.6/meta.json)
 - [model-queue.md](file://model-queue.md)
+- [model/Inkling/GLM_5.3_Flash.md](file://model/Inkling/GLM_5.3_Flash.md)
+- [model/Inkling/Fledge_Alpha.md](file://model/Inkling/Fledge_Alpha.md)
+- [model/claude-fable-5/GLM_5.3_Flash.md](file://model/claude-fable-5/GLM_5.3_Flash.md)
+- [model/claude-fable-5/Fledge_Alpha.md](file://model/claude-fable-5/Fledge_Alpha.md)
+- [model/gemini-2.5/GLM_5.3_Flash.md](file://model/gemini-2.5/GLM_5.3_Flash.md)
+- [model/qwen-3.8-flash-next/GLM_5.3_Flash.md](file://model/qwen-3.8-flash-next/GLM_5.3_Flash.md)
+- [model/qwen-3.8-flash-next/Qwen_3.8_Flash.md](file://model/qwen-3.8-flash-next/Qwen_3.8_Flash.md)
+- [model/pareto-26.10-preview/GLM_5.3_Flash.md](file://model/pareto-26.10-preview/GLM_5.3_Flash.md)
+- [model/claude-fable-5.1/Gemini_2.5.md](file://model/claude-fable-5.1/Gemini_2.5.md)
+- [model/qwen-3.5/GLM_5.3_Flash.md](file://model/qwen-3.5/GLM_5.3_Flash.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated comprehensive evaluation dataset expansion section to reflect 785-file addition with new model directories including Qwen variants (qwen-3.5-397b, qwen-3.8-flash-next), Gemini models (gemini-3.8-flash), Grok models (grok-4.6), and Kimi models
-- Enhanced expanded evaluator ecosystem documentation with detailed analysis of new model evaluation patterns and methodologies
-- Added specific examples of new model directories and their evaluation approaches
-- Updated scoring data expansion section with concrete examples from the massive dataset growth
-- Revised conclusion to reflect the significant scale of evaluation coverage expansion
-- Maintained all existing architectural and process documentation while updating content to reflect current state
+- Updated new model evaluation coverage section to include GLM 5.3 Flash (67/100), Inkling Small (74/100), Qwen 3.8 Flash Next (73/100), Pareto 26.10 Preview (66/100), Gemini 2.5 (63/100), Qwen 3.5 (69/100), and Fledge Alpha stealth model evaluations
+- Enhanced multi-provider coverage documentation with detailed analysis of GLM 5.3 Flash entries across claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next directories
+- Added comprehensive examples of new model evaluation patterns including experimental checkpoints, preview models, and stealth model assessments
+- Updated research methodology documentation to reflect systematic approach to evaluating diverse model types including open-weight models, legacy models, and free-tier previews
+- Expanded evaluator ecosystem analysis with specific examples from the extensive dataset growth including sophisticated multimodal capability analysis and vendor-independent measurement divergences
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -245,7 +258,7 @@ Eligibility rule:
 - Only raters whose own model average exceeds 84.9 count toward another model's average.
 - If no rater clears the gate, the average falls back to all available reports (top-10 cap still applies), and this fallback is logged.
 
-**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, Grok 4.6, and many others across approximately 139 model directories. These additions demonstrate diverse assessment approaches: Qwen 3.5 397B provides comprehensive open-weight flagship model evaluation with detailed multimodal capability analysis showing vendor-independent measurement divergences, Qwen 3.8 Flash Next showcases experimental checkpoint evaluation with specialized multimodal processing capabilities, Gemini 3.8 Flash demonstrates advanced Flash-tier model assessment with 1M context capabilities, Grok 4.6 represents xAI's frontier model evaluation with comprehensive coding and agentic task analysis, and the expanded coverage includes sophisticated evaluation patterns for open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models with specialized capabilities.
+**Updated** The evaluation dataset has been significantly expanded with extensive new model evaluation reports covering GLM 5.3 Flash (67/100) across multiple provider directories including Inkling, Claude Fable 5, Gemini 2.5, Qwen 3.5, and Qwen 3.8 Flash Next, demonstrating consistent assessment methodology across different provider contexts. Additionally, new model evaluations include Inkling Small (74/100), Qwen 3.8 Flash Next (73/100), Pareto 26.10 Preview (66/100), Gemini 2.5 (63/100), Qwen 3.5 (69/100), and stealth model Fledge Alpha with detailed methodology documentation showcasing specialized evaluation approaches for experimental checkpoints, preview models, and stealth models.
 
 ```mermaid
 flowchart TD
@@ -493,7 +506,7 @@ Best practices for objectivity:
 - Treat free tiers carefully: note time limits and training-data caveats.
 - Keep Cost efficiency separate from Overall.
 
-**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including Llama 3.2 Vision Instruct comprehensive vision-instruct model assessment with 128K context capabilities, LongCat 2.5 Preview preview-tier model evaluation with specialized assessment methodology, Mercury 2.5 streamlined model evaluation with focused benchmark analysis, MiniMax M3.1 Flash Preview advanced multimodal capabilities with 1M context and text/image/video processing, Omen Alpha specialized assessment approach with comprehensive benchmark coverage, Qwen 3.5 397B detailed open-weight flagship evaluation with sophisticated multimodal capability analysis showing vendor-independent measurement divergences, Qwen 3.8 Flash Next experimental checkpoint assessment with specialized multimodal processing capabilities, Gemini 3.8 Flash advanced Flash-tier model evaluation with 1M context optimization, and Grok 4.6 comprehensive xAI frontier model assessment with coding and agentic task analysis. These diverse approaches showcase specialized evaluation techniques for open-weight models, experimental checkpoints, Flash-tier optimizations, frontier models, vision-instruct models, preview-tier assessments, and multimodal variants.
+**Updated** The expanded evaluator ecosystem demonstrates diverse research methodologies through extensive new model evaluations including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, plus specialized evaluation patterns for experimental checkpoints like Qwen 3.8 Flash Next (73/100), preview models like Pareto 26.10 Preview (66/100), legacy models like Gemini 2.5 (63/100), and stealth models like Fledge Alpha with detailed methodology documentation. Specific examples include Inkling Small (74/100) representing Thinking Machines Lab's open-weights flagship evaluation, Qwen 3.5 (69/100) showcasing Alibaba's flagship generation assessment, and sophisticated multimodal capability analysis showing vendor-independent measurement divergences.
 
 **Section sources**
 - [model-report-TEMPLATE.md:1-104](file://model-report-TEMPLATE.md#L1-L104)
@@ -526,7 +539,7 @@ Key properties:
 - Name resolution notes clarify aliases, typos, and paid-vs-free mismatches.
 - The changelog tracks methodology transitions, including v4 exclusion of Cost from Overall.
 
-**Updated** Recent additions include comprehensive evaluations from new model directories including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, and Grok 4.6, demonstrating the expanded coverage and diverse assessment approaches now available in the system. These additions showcase specialized evaluation patterns for open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models.
+**Updated** Recent additions include comprehensive evaluations from new model directories including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, plus specialized assessments for experimental checkpoints like Qwen 3.8 Flash Next (73/100), preview models like Pareto 26.10 Preview (66/100), legacy models like Gemini 2.5 (63/100), and stealth models like Fledge Alpha with detailed methodology documentation.
 
 **Section sources**
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
@@ -538,21 +551,27 @@ The comprehensive expansion of the model evaluation dataset introduces extensive
 
 New model evaluation characteristics:
 
-**Qwen 3.5 397B**: Represents open-weight flagship model evaluation with sophisticated multimodal capability analysis showing vendor-independent measurement divergences. The evaluation demonstrates detailed analysis of 397B total parameters with 17B active sparse MoE architecture, comprehensive benchmark coverage across 49 of 613 tracked slots, and nuanced assessment of multimodal capability gaps between vendor-reported and independent measurements.
+**GLM 5.3 Flash Multi-Provider Coverage (67/100)**: Showcases ZhiPu AI's GLM 5.3 Flash model evaluated across multiple provider directories including Inkling, Claude Fable 5, Gemini 2.5, Qwen 3.5, and Qwen 3.8 Flash Next. The evaluation demonstrates consistent assessment methodology across different provider contexts with specialized handling for various model architectures and capabilities, achieving a solid 67/100 overall score.
 
-**Qwen 3.8 Flash Next**: Showcases experimental checkpoint evaluation with specialized multimodal processing capabilities. The model features 125B language parameters with 6B active, 262K native context extensible to 1M with YaRN, and text/image/video understanding capabilities. Evaluation reflects Vercel pricing structure and open weights licensing considerations.
+**Qwen 3.8 Flash Next Experimental Assessment (73/100)**: Represents Alibaba's open-weight experimental checkpoint (125B language params, 6B active) with 262K native context extensible to 1M with YaRN, distinct from managed Qwen3.8-Flash. The evaluation showcases specialized assessment techniques for experimental checkpoints with image and video understanding capabilities.
 
-**Gemini 3.8 Flash**: Demonstrates advanced Flash-tier model assessment with 1M context capabilities and omni-modal input processing. The evaluation covers Google's latest Flash model optimized for long-horizon software engineering, autonomous agents, and enterprise workflows with comprehensive benchmark analysis including 1,048,576 input tokens and specialized pricing tiers.
+**Pareto 26.10 Preview Specialized Evaluation (66/100)**: Demonstrates Unbiased's composite/blended multimodal preview model for research, coding and agents with 1M context and 131K max output. The evaluation handles the challenge of preview models with no verified public benchmark scores yet, carrying provisional scoring with explicit evidence gaps.
 
-**Grok 4.6**: Represents xAI's flagship frontier model evaluation for coding, agentic tasks, and knowledge work. The assessment includes comprehensive analysis of 500,000 context window, text and image processing capabilities, and sophisticated pricing structure with cached vs standard pricing tiers.
+**Gemini 2.5 Legacy Model Assessment (63/100)**: Showcases Google's Gemini 2.5 family flagship served as `gemini-2.5-pro` with deep-reasoning and coding capabilities, 1M context, thinking, and text/image/audio/video input. The evaluation demonstrates specialized handling of legacy access-limited models with comprehensive multimodal capability analysis.
+
+**Qwen 3.5 Flagship Generation Evaluation (69/100)**: Represents Alibaba's Qwen 3.5 flagship generation (2026) for general and agentic work with 128K–1M context range and text in/out capabilities. The evaluation handles the complexity of unconfirmed tracked tiers with family-proxy provisional facts.
+
+**Fledge Alpha Stealth Model Investigation**: Demonstrates sophisticated evaluation of unpublished vendor identity with routing probes revealing multi-model backend (DeepSeek V4.1, Kimi K3). The evaluation showcases specialized methodology for stealth models with free OpenCode Zen preview access and provisional scoring due to lack of formal benchmarks.
 
 ```mermaid
 graph TB
 Subgraph NewEvaluations["Expanded Evaluation Coverage"]
-Qwen35["Qwen 3.5 397B<br/>Open-Weight Flagship Assessment"]
-QwenFlash["Qwen 3.8 Flash Next<br/>Experimental Checkpoint Evaluation"]
-Gemini38["Gemini 3.8 Flash<br/>Advanced Flash-Tier Assessment"]
-Grok46["Grok 4.6<br/>Frontier Model Evaluation"]
+GLMFlash["GLM 5.3 Flash<br/>Multi-Provider Coverage (67/100)"]
+QwenNext["Qwen 3.8 Flash Next<br/>Experimental Assessment (73/100)"]
+ParetoPreview["Pareto 26.10 Preview<br/>Specialized Evaluation (66/100)"]
+GeminiLegacy["Gemini 2.5<br/>Legacy Assessment (63/100)"]
+QwenFlagship["Qwen 3.5<br/>Flagship Evaluation (69/100)"]
+FledgeStealth["Fledge Alpha<br/>Stealth Model Investigation"]
 end
 Subgraph Coverage["Evaluation Coverage"]
 Diverse["Diverse Assessment<br/>Approaches"]
@@ -564,54 +583,82 @@ Coverage --> Enhanced
 ```
 
 **Diagram sources**
-- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/Inkling/GLM_5.3_Flash.md:1-69](file://model/Inkling/GLM_5.3_Flash.md#L1-L69)
 - [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
-- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
-- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
+- [model/pareto-26.10-preview/meta.json:1-10](file://model/pareto-26.10-preview/meta.json#L1-L10)
+- [model/gemini-2.5/meta.json:1-10](file://model/gemini-2.5/meta.json#L1-L10)
+- [model/qwen-3.5/meta.json:1-9](file://model/qwen-3.5/meta.json#L1-L9)
+- [model/fledge-alpha/meta.json:1-10](file://model/fledge-alpha/meta.json#L1-L10)
 
 **Section sources**
-- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/Inkling/GLM_5.3_Flash.md:1-69](file://model/Inkling/GLM_5.3_Flash.md#L1-L69)
+- [model/claude-fable-5/GLM_5.3_Flash.md:1-64](file://model/claude-fable-5/GLM_5.3_Flash.md#L1-L64)
+- [model/gemini-2.5/GLM_5.3_Flash.md:1-69](file://model/gemini-2.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.5/GLM_5.3_Flash.md:1-69](file://model/qwen-3.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.8-flash-next/GLM_5.3_Flash.md:1-69](file://model/qwen-3.8-flash-next/GLM_5.3_Flash.md#L1-L69)
 - [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
-- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
-- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
+- [model/pareto-26.10-preview/meta.json:1-10](file://model/pareto-26.10-preview/meta.json#L1-L10)
+- [model/gemini-2.5/meta.json:1-10](file://model/gemini-2.5/meta.json#L1-L10)
+- [model/qwen-3.5/meta.json:1-9](file://model/qwen-3.5/meta.json#L1-L9)
+- [model/fledge-alpha/meta.json:1-10](file://model/fledge-alpha/meta.json#L1-L10)
 
 ### Comprehensive Scoring Data Expansion
 The extensive scoring data synchronization across the expanded model directories encompasses evaluations across numerous new model families that significantly expand the evaluation coverage:
 
-**Qwen Family Expansion**: The Qwen model family has been substantially expanded with new variants including Qwen 3.5 397B (open-weight flagship with 397B total/17B active parameters), Qwen 3.8 Flash Next (experimental checkpoint with 125B language params, 6B active), and additional variants across the 3.5, 3.6, 3.7, and 3.8 generations. These additions demonstrate sophisticated evaluation methodologies for open-weight models, experimental checkpoints, and specialized multimodal capabilities.
+**GLM 5.3 Flash Multi-Provider Integration**: The GLM 5.3 Flash model has been comprehensively evaluated across multiple provider directories including Inkling, Claude Fable 5, Gemini 2.5, Qwen 3.5, and Qwen 3.8 Flash Next, achieving a consistent 67/100 overall score. These evaluations demonstrate sophisticated multimodal capability analysis, vendor-independent measurement divergences, and specialized assessment methodologies for Flash-tier optimizations.
 
-**Gemini Family Enhancement**: The Gemini model family has been enhanced with Gemini 3.8 Flash representing Google's latest Flash-tier optimization with 1M context capabilities and omni-modal input processing. The evaluation showcases advanced Flash-tier model assessment with comprehensive benchmark coverage and specialized pricing analysis.
+**Qwen 3.8 Flash Next Experimental Assessment**: The Qwen 3.8 Flash Next model represents Alibaba's open-weight experimental checkpoint with 125B language parameters and 6B active parameters, achieving 73/100 overall score. The evaluation showcases specialized assessment techniques for experimental checkpoints with 262K native context extensible to 1M with YaRN, demonstrating advanced multimodal capabilities including image and video understanding.
 
-**Grok Family Development**: The Grok model family has been expanded with Grok 4.6 representing xAI's flagship frontier model for coding, agentic tasks, and knowledge work. The evaluation includes sophisticated analysis of frontier model capabilities with comprehensive coding and agentic task assessment.
+**Pareto 26.10 Preview Specialized Evaluation**: The Pareto 26.10 Preview model demonstrates Unbiased's composite/blended multimodal preview approach, achieving 66/100 overall score. The evaluation handles the unique challenges of preview models with no verified public benchmark scores yet, applying provisional scoring methodology with explicit evidence gaps while maintaining comprehensive multimodal capability analysis.
 
-These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including open-weight models, experimental checkpoints, Flash-tier optimizations, and frontier models.
+**Gemini 2.5 Legacy Model Assessment**: The Gemini 2.5 model showcases Google's legacy flagship model serving as `gemini-2.5-pro`, achieving 63/100 overall score. The evaluation demonstrates specialized handling of legacy access-limited models with comprehensive analysis of deep-reasoning and coding capabilities, 1M context window, and text/image/audio/video input processing.
+
+**Qwen 3.5 Flagship Generation Evaluation**: The Qwen 3.5 model represents Alibaba's 2026 flagship generation for general and agentic work, achieving 69/100 overall score. The evaluation handles the complexity of unconfirmed tracked tiers with family-proxy provisional facts, showcasing 128K–1M context range and text in/out capabilities with sophisticated assessment methodology.
+
+**Fledge Alpha Stealth Model Investigation**: The Fledge Alpha model demonstrates sophisticated evaluation methodology for unpublished vendor identity with routing probes revealing multi-model backend architecture (DeepSeek V4.1, Kimi K3). The evaluation showcases specialized techniques for stealth models with free OpenCode Zen preview access and provisional scoring due to lack of formal benchmarks.
+
+These additions demonstrate the system's scalability and consistency across different model families and providers, maintaining the standardized evaluation framework while accommodating diverse model architectures, evidence availability scenarios, and model types including experimental checkpoints, preview models, legacy models, stealth models, and Flash-tier optimizations.
 
 **Section sources**
-- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/Inkling/GLM_5.3_Flash.md:1-69](file://model/Inkling/GLM_5.3_Flash.md#L1-L69)
+- [model/claude-fable-5/GLM_5.3_Flash.md:1-64](file://model/claude-fable-5/GLM_5.3_Flash.md#L1-L64)
+- [model/gemini-2.5/GLM_5.3_Flash.md:1-69](file://model/gemini-2.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.5/GLM_5.3_Flash.md:1-69](file://model/qwen-3.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.8-flash-next/GLM_5.3_Flash.md:1-69](file://model/qwen-3.8-flash-next/GLM_5.3_Flash.md#L1-L69)
 - [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
-- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
-- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
+- [model/pareto-26.10-preview/meta.json:1-10](file://model/pareto-26.10-preview/meta.json#L1-L10)
+- [model/gemini-2.5/meta.json:1-10](file://model/gemini-2.5/meta.json#L1-L10)
+- [model/qwen-3.5/meta.json:1-9](file://model/qwen-3.5/meta.json#L1-L9)
+- [model/fledge-alpha/meta.json:1-10](file://model/fledge-alpha/meta.json#L1-L10)
 
 ### New Model Evaluation Examples
 The expanded model directories showcase diverse evaluation approaches and methodologies:
 
-**Qwen 3.5 397B Evaluation Examples**: The comprehensive evaluation demonstrates sophisticated open-weight flagship model assessment with detailed benchmark citation including 397B total/17B active sparse MoE architecture, comprehensive multimodal capability analysis showing vendor-independent measurement divergences (MMMU-Pro 79% vendor vs 52.7% independent), and nuanced scoring across all six dimensions emphasizing open-weight advantages and multimodal capability gaps.
+**GLM 5.3 Flash Multi-Provider Evaluation Examples**: The comprehensive evaluation demonstrates consistent assessment methodology across multiple provider directories including Inkling, Claude Fable 5, Gemini 2.5, Qwen 3.5, and Qwen 3.8 Flash Next. The evaluation showcases sophisticated multimodal capability analysis with vendor-independent measurement divergences, achieving consistent 67/100 overall score across different provider contexts with specialized handling for various model architectures and capabilities.
 
-**Qwen 3.8 Flash Next Evaluation Examples**: The experimental checkpoint evaluation showcases specialized assessment methodology for Alibaba's open-weight experimental checkpoint with 125B language parameters, 6B active parameters, 262K native context extensible to 1M with YaRN, and text/image/video understanding capabilities. The evaluation reflects Vercel pricing structure ($0.12/$0.40 per 1M) and open weights licensing considerations.
+**Qwen 3.8 Flash Next Experimental Assessment Examples**: The experimental checkpoint evaluation represents Alibaba's open-weight model with 125B language parameters and 6B active parameters, achieving 73/100 overall score. The evaluation demonstrates specialized assessment techniques for experimental checkpoints with 262K native context extensible to 1M with YaRN, comprehensive multimodal capability analysis including image and video understanding, and sophisticated pricing structure analysis with Vercel AI Gateway and self-host options.
 
-**Gemini 3.8 Flash Evaluation Examples**: The advanced Flash-tier model assessment demonstrates comprehensive evaluation of Google's latest Flash model with 1,048,576 input tokens, omni-modal input processing (text, image, video, audio, PDF), and specialized pricing analysis covering Google introductory pricing ($0.75/$3.75) and standard pricing ($1.50/$7.50).
+**Pareto 26.10 Preview Specialized Evaluation Examples**: The preview model assessment showcases Unbiased's composite/blended multimodal approach with 1M context and 131K max output, achieving 66/100 overall score. The evaluation handles the unique challenges of preview models with no verified public benchmark scores yet, applying provisional scoring methodology with explicit evidence gaps while maintaining comprehensive multimodal capability analysis and sophisticated pricing structure analysis.
 
-**Grok 4.6 Evaluation Examples**: The frontier model evaluation represents xAI's flagship model assessment with comprehensive analysis of 500,000 context window, text and image processing capabilities, and sophisticated pricing structure with cached vs standard pricing tiers ($2/$6 per 1M standard, $0.50 cached for <200K prompt).
+**Gemini 2.5 Legacy Model Assessment Examples**: The legacy model evaluation demonstrates Google's Gemini 2.5 family flagship served as `gemini-2.5-pro`, achieving 63/100 overall score. The evaluation showcases specialized handling of legacy access-limited models with comprehensive analysis of deep-reasoning and coding capabilities, 1M context window, and text/image/audio/video input processing, including sophisticated generational demotion implications analysis.
 
-These examples illustrate the flexibility and consistency of the evaluation framework across different model types, evidence availability scenarios, and use cases while maintaining standardized scoring methodology.
+**Qwen 3.5 Flagship Generation Evaluation Examples**: The flagship generation assessment represents Alibaba's 2026 model for general and agentic work, achieving 69/100 overall score. The evaluation handles the complexity of unconfirmed tracked tiers with family-proxy provisional facts, showcasing 128K–1M context range and text in/out capabilities with sophisticated assessment methodology for next-generation model evaluation.
+
+**Fledge Alpha Stealth Model Investigation Examples**: The stealth model evaluation demonstrates sophisticated methodology for unpublished vendor identity with routing probes revealing multi-model backend architecture (DeepSeek V4.1, Kimi K3). The evaluation showcases specialized techniques for stealth models with free OpenCode Zen preview access, comprehensive benchmark coverage despite lack of formal benchmarks, and sophisticated pricing structure analysis with free tier considerations.
+
+These examples illustrate the flexibility and consistency of the evaluation framework across different model types, evidence availability scenarios, and use cases while maintaining standardized scoring methodology and sophisticated analytical approaches.
 
 **Section sources**
-- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
-- [model/qwen-3.5-397b/Claude_Opus_5.md:1-75](file://model/qwen-3.5-397b/Claude_Opus_5.md#L1-L75)
+- [model/Inkling/GLM_5.3_Flash.md:1-69](file://model/Inkling/GLM_5.3_Flash.md#L1-L69)
+- [model/claude-fable-5/GLM_5.3_Flash.md:1-64](file://model/claude-fable-5/GLM_5.3_Flash.md#L1-L64)
+- [model/gemini-2.5/GLM_5.3_Flash.md:1-69](file://model/gemini-2.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.5/GLM_5.3_Flash.md:1-69](file://model/qwen-3.5/GLM_5.3_Flash.md#L1-L69)
+- [model/qwen-3.8-flash-next/GLM_5.3_Flash.md:1-69](file://model/qwen-3.8-flash-next/GLM_5.3_Flash.md#L1-L69)
 - [model/qwen-3.8-flash-next/meta.json:1-14](file://model/qwen-3.8-flash-next/meta.json#L1-L14)
-- [model/gemini-3.8-flash/meta.json:1-10](file://model/gemini-3.8-flash/meta.json#L1-L10)
-- [model/gemini-3.8-flash/Grok_4.6.md:1-78](file://model/gemini-3.8-flash/Grok_4.6.md#L1-L78)
-- [model/grok-4.6/meta.json:1-14](file://model/grok-4.6/meta.json#L1-L14)
+- [model/pareto-26.10-preview/meta.json:1-10](file://model/pareto-26.10-preview/meta.json#L1-L10)
+- [model/gemini-2.5/meta.json:1-10](file://model/gemini-2.5/meta.json#L1-L10)
+- [model/qwen-3.5/meta.json:1-9](file://model/qwen-3.5/meta.json#L1-L9)
+- [model/fledge-alpha/meta.json:1-10](file://model/fledge-alpha/meta.json#L1-L10)
 
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
@@ -712,6 +759,17 @@ Common issues and resolutions:
 | Experimental checkpoint scoring | Limited availability and specialized capabilities | Apply provisional scoring with explicit evidence gaps and capability limitations |
 | Flash-tier model assessment | Optimization-focused evaluation | Focus on latency-performance tradeoffs and specialized Flash capabilities |
 | Frontier model evaluation | Advanced capability assessment | Apply comprehensive analysis of cutting-edge capabilities and specialized use cases |
+| GLM 5.3 Flash multi-provider issues | Inconsistent evaluation methodology across providers | Ensure standardized assessment approach with consistent scoring methodology |
+| Qwen 3.8 Flash Next integration problems | Improper experimental checkpoint setup | Verify proper integration within experimental checkpoint directory structure |
+| Pareto 26.10 Preview evaluation issues | Preview model with no verified benchmarks | Apply provisional scoring methodology with explicit evidence gaps |
+| Gemini 2.5 legacy model issues | Access-limited model handling | Document legacy access limitations and specialized assessment methodology |
+| Qwen 3.5 family proxy issues | Unconfirmed tracked tier | Apply family-proxy provisional facts with appropriate uncertainty markers |
+| Fledge Alpha stealth model issues | Unpublished vendor identity | Document routing probe findings and multi-model backend analysis |
+| Multi-provider coverage gaps | Missing provider directory entries | Add GLM_5.3_Flash.md files under all required provider directories |
+| Experimental checkpoint assessment problems | Specialized evaluation methodology required | Apply comprehensive analysis of experimental capabilities and licensing considerations |
+| Preview model scoring inconsistencies | Limited evidence base handling | Maintain consistent provisional scoring philosophy across preview models |
+| Legacy model evaluation issues | Generational demotion implications | Document service continuity considerations and specialized assessment approaches |
+| Stealth model investigation problems | Multi-model backend complexity | Apply sophisticated routing probe methodology and backend analysis techniques |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -722,7 +780,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with extensive new model evaluation reports including Llama 3.2 Vision Instruct, LongCat 2.5 Preview, Mercury 2.5, MiniMax M3.1 Flash Preview, Omen Alpha, Qwen 3.5 397B, Qwen 3.8 Flash Next, Gemini 3.8 Flash, Grok 4.6, and many others across approximately 139 model directories significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The diverse assessment approaches—from specialized open-weight flagship evaluation to experimental checkpoint assessment, Flash-tier optimizations, frontier model analysis, vision-instruct model evaluation, preview-tier assessments, streamlined evaluation methodologies, advanced multimodal capabilities, and specialized assessment approaches—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including open-weight models, experimental checkpoints, Flash-tier optimizations, frontier models, vision-instruct models, preview-tier models, and multimodal variants.
+**Updated** The comprehensive expansion with extensive new model evaluation reports including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, Qwen 3.8 Flash Next experimental assessment (73/100), Pareto 26.10 Preview specialized evaluation (66/100), Gemini 2.5 legacy model assessment (63/100), Qwen 3.5 flagship generation evaluation (69/100), and Fledge Alpha stealth model investigation significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The diverse assessment approaches—from specialized experimental checkpoint evaluation to preview model assessment, legacy model analysis, stealth model investigation, and multi-provider coverage—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including experimental checkpoints, preview models, legacy models, stealth models, and Flash-tier optimizations.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -739,10 +797,14 @@ For reliable contributions:
 - Follow Space Bunny and Muse Spark consolidation patterns where every marketplace variant represents the same model with identical weights.
 - Utilize the pre-sorted research queue (`model-queue.md`) for efficient agent processing instead of scanning all average.md files.
 - Trust the deterministic queue ordering (highest Overall first, ties A-Z) for reproducible research workflows.
-- Apply specialized evaluation methodologies for open-weight models considering licensing and self-hosting implications.
-- Handle experimental checkpoint assessments with appropriate consideration for limited availability and specialized capabilities.
-- Assess Flash-tier models with focus on latency-performance tradeoffs and optimization characteristics.
-- Evaluate frontier models with comprehensive analysis of cutting-edge capabilities and specialized use cases.
+- Apply specialized evaluation methodologies for experimental checkpoints considering licensing and self-hosting implications.
+- Handle preview model assessments with appropriate consideration for limited evidence bases and provisional scoring requirements.
+- Assess legacy models with focus on generational demotion implications and service continuity considerations.
+- Investigate stealth models with sophisticated routing probe methodology and multi-model backend analysis.
+- Ensure consistent evaluation methodology across multiple provider directories for models like GLM 5.3 Flash.
+- Handle multi-provider coverage gaps by adding missing provider directory entries for comprehensive model assessment.
+- Maintain standardized assessment approaches when integrating new model types into existing provider directories.
+- Apply comprehensive analysis techniques for experimental checkpoints, preview models, legacy models, and stealth models with appropriate specialized methodologies.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

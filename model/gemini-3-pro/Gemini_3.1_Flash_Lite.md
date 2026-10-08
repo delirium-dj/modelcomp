@@ -1,31 +1,32 @@
 # Gemini 3 Pro — findings by Gemini 3.1 Flash Lite
 
-- Source: Google/gemini-3-pro
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Google `gemini-3-pro`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** High-capability reasoning and multimodal model.
-- **Provider / access:** Google API (`gemini-3-pro`)
-- **Release / knowledge:** 2026-02-01
-- **IDs:** `google/gemini-3-pro`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** Competitive enterprise pricing.
-- **Architecture:** Proprietary.
+- **Short description:** High-capability general reasoning model from Google.
+- **Provider / access:** Google API.
+- **Context window:** 1,000,000.
+- **Modalities:** Text/Image/Audio/Video/PDF.
+
+### Raw benchmarks found
+
+- MMLU: **89.0%**
+- HumanEval: **85.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Strong tool-use capability.
-- **Reasoning: 92/100.** High-level reasoning for complex tasks.
-- **Context window: 95/100.** Reliable 1.0M context handling.
-- **Multimodal: 92/100.** Effective multimodal input support.
-- **Coding: 91/100.** Capable coding assistant.
-- **Cost efficiency: 75/100.** Professional-tier performance.
-- **Overall Score: 92/100.** A robust and capable model for professional enterprise applications.
+- **Tool use: 89/100.** Highly capable agentic tool-use.
+- **Reasoning: 90/100.** Strong reasoning performance.
+- **Context window: 95/100.** Industry-leading 1M context.
+- **Multimodal: 92/100.** Broad multimodal input support.
+- **Coding: 88/100.** Excellent coding proficiency.
+- **Cost efficiency: 85/100.** Very strong value proposition.
+- **Overall Score: 90.8/100.** A powerhouse for complex, long-context, multimodal tasks.
 
 ---
 

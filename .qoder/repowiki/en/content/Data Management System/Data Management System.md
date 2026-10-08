@@ -23,10 +23,11 @@
 
 ## Update Summary
 **Changes Made**
-- Updated SourceKey union type to reflect 70 reporting agents with new model variants including Claude Opus 4.8, GPT 5.1-6.1 series, Gemini 3.5-4.0 variants, Qwen 3.5-3.8 series, DeepSeek, Grok, Kimi, and Muse Spark models
+- Updated SourceKey union type to reflect 70 reporting agents with extensive new model evaluations including Gemini 3.1 Flash Lite, Laguna S 2.1, Solar Pro 4, Qwen 3.8 Flash Next, Claude Opus 4.8, and numerous other model variants
 - Enhanced scaffolded meta.json support with automatic stub generation for missing model metadata across hundreds of new evaluation files
 - Expanded generated data infrastructure with improved validation rules and naming conventions for the substantially larger evaluator-model combination space
 - Updated scoring algorithms to handle the increased complexity of multi-provider model evaluations while maintaining normalized 1-100 score consistency
+- Added comprehensive quarantine mechanisms for evidence-free reports and enhanced registry management for the expanded model ecosystem
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -63,8 +64,6 @@ The repository organizes model research data under `model/<slug>/`. Each model f
 At build time, the sync script produces:
 - `src/data/scores.generated.ts`: compact numeric scores per source.
 - `src/data/sources.generated.ts`: SourceKey union and SOURCE_DEFS registry.
-- `src/data/catalog.generated.ts`: pre-baked summary metadata catalog.
-- `src/data/rankings.generated.ts`: top-3 model IDs per results source key.
 - `src/data/models.ts`: hydrates MODELS and derives Results-source ordering.
 
 ```mermaid
@@ -86,8 +85,6 @@ end
 subgraph "Generated Artifacts"
 SG["src/data/scores.generated.ts"]
 SS["src/data/sources.generated.ts"]
-SC["src/data/catalog.generated.ts"]
-SR["src/data/rankings.generated.ts"]
 MD["src/data/models.ts"]
 end
 F --> S
@@ -99,12 +96,8 @@ S --> AV
 S --> CG
 S --> SG
 S --> SS
-S --> SC
-S --> SR
 SG --> MD
 SS --> MD
-SC --> MD
-SR --> MD
 A --> MD
 ```
 
@@ -174,7 +167,7 @@ class GeneratedScores {
 - Labels and slugs are resolved via overrides and catalog lookup.
 - Virtual sort views are pruned from the registry.
 
-**Updated** The SourceKey union now includes 70 reporting agents, reflecting substantial expansion in evaluator-model combinations with new model variants including Claude Opus 4.8, GPT 5.1-6.1 series, Gemini 3.5-4.0 variants, Qwen 3.5-3.8 series, DeepSeek, Grok, Kimi, and Muse Spark models.
+**Updated** The SourceKey union now includes 70 reporting agents, reflecting substantial expansion in evaluator-model combinations with new model variants including Gemini 3.1 Flash Lite, Laguna S 2.1, Solar Pro 4, Qwen 3.8 Flash Next, Claude Opus 4.8, and numerous other model variants from providers like Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark.
 
 ```mermaid
 flowchart TD
@@ -348,44 +341,6 @@ Accept --> End
 - [scripts/lib/parse.mjs:69-87](file://scripts/lib/parse.mjs#L69-L87)
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 
-### Enhanced Generated Artifacts
-**Updated** The system now generates additional TypeScript artifacts to support the expanded comparison interface with 70 reporting agents across multiple providers:
-
-#### Catalog Generated (`catalog.generated.ts`)
-Pre-baked summary metadata catalog for tracked models, providing efficient access to model information without dynamic imports. The catalog supports O(1) lookup performance for the enhanced comparison interface with hundreds of new model evaluation files.
-
-#### Rankings Generated (`rankings.generated.ts`)
-Pre-baked top-3 model IDs per results source key for instant O(1) lookup, supporting the enhanced comparison interface with expanded evaluator-model combinations across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers. This eliminates runtime computation overhead for frequently accessed ranking data.
-
-```mermaid
-classDiagram
-class CatalogGenerated {
-+Record~string, MetaFile~ GENERATED_CATALOG
-}
-class RankingsGenerated {
-+Record~string, [string,string,string]~ TOP_MODELS_BY_SOURCE
-}
-class MetaFile {
-+string id
-+string name
-+string short
-+string contextWindow
-+string modalities
-+string pricingNote
-+string[] pricingTiers
-+string freeTierNote
-+boolean noFreeId
-}
-```
-
-**Diagram sources**
-- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
-- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
-
-**Section sources**
-- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
-- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
-
 ## Architecture Overview
 The data synchronization pipeline transforms research markdown into typed, compact artifacts consumed by the UI.
 
@@ -415,8 +370,6 @@ Sync->>Codegen : renderScoresFile()
 Codegen-->>Sync : Generated scores text
 Sync->>FS : Write scores.generated.ts
 Sync->>FS : Write sources.generated.ts
-Sync->>FS : Write catalog.generated.ts
-Sync->>FS : Write rankings.generated.ts
 Sync->>FS : Update average.md
 App->>FS : Import generated artifacts
 App-->>User : Render compare view and per-model pages
@@ -573,17 +526,13 @@ class Codegen {
 - `meta.json` supplies display metadata and pricing context, with automatic scaffolding support for missing model directories.
 - `average.md` aggregates eligible raters' scores into a cohort mean.
 - `scores.generated.ts` and `sources.generated.ts` provide compact, typed data to the app.
-- `catalog.generated.ts` provides pre-baked metadata catalog for efficient access.
-- `rankings.generated.ts` provides top-3 model IDs per source for instant lookup.
 - `model-findings.md` serves as the audit trail linking findings to signatures and cross-model history.
 
 ```mermaid
 graph TB
 RF["Research Markdown<br/>model/<slug>/<Source_Name>.md"] --> Gen["Generated Scores<br/>scores.generated.ts"]
-MF["Meta JSON<br/>model/<slug>/meta.json<br/>(curated or scaffolded)"] --> Catalog["Catalog Metadata"]
+MF["Meta JSON<br/>model/<slug>/meta.json<br/>(curated or scaffolded)"] --> App
 AM["Averaged Scores<br/>model/<slug>/average.md"] --> Gen
-CG["Catalog Generated<br/>catalog.generated.ts"] --> App
-RG["Rankings Generated<br/>rankings.generated.ts"] --> App
 Gen --> App["App Runtime<br/>models.ts + components"]
 AF["Audit Trail<br/>model-findings.md"] --> App
 ```
@@ -591,14 +540,10 @@ AF["Audit Trail<br/>model-findings.md"] --> App
 **Diagram sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
-- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
-- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
-- [src/data/catalog.generated.ts:1-16](file://src/data/catalog.generated.ts#L1-L16)
-- [src/data/rankings.generated.ts:1-70](file://src/data/rankings.generated.ts#L1-L70)
 
 ## Dependency Analysis
 The sync pipeline composes pure helpers for parsing, validation, naming, averaging, and code generation. Coupling is minimized by isolating side effects in the main script and keeping helpers testable and deterministic.
@@ -629,13 +574,12 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 
 ## Performance Considerations
-**Updated** Performance optimizations now include additional generated artifacts and enhanced data structures to handle the substantially expanded evaluator-model combination space:
+**Updated** Performance optimizations now include enhanced data structures to handle the substantially expanded evaluator-model combination space:
 
 - Pre-parsing findings into `scores.generated.ts` removes ~1.7 MB of markdown prose from the client bundle.
 - Deterministic sorting and stable registry updates avoid unnecessary churn across 70 reporting agents.
 - Rater gate and top-10 cohort reduce noise and stabilize averages.
 - Auto-quarantine prevents evidence-free reports from polluting metrics.
-- Pre-baked catalog and rankings provide O(1) lookup performance for enhanced comparison interface.
 - Expanded evaluator-model combinations across multiple providers are efficiently handled through optimized data structures.
 - The 70 reporting agents are processed through streamlined code generation pipelines.
 - Automatic scaffolding of missing meta.json files prevents build failures while maintaining data integrity across hundreds of new model directories.
@@ -649,7 +593,6 @@ Common issues and resolutions:
 - Forbidden deletions: restore tracked files from git HEAD rather than deleting.
 - Registry collisions: resolve duplicate SourceKey assignments manually.
 - Generated artifact mismatches: re-run `pnpm sync` to regenerate all TypeScript artifacts.
-- Catalog or rankings inconsistencies: verify meta.json files are properly formatted and complete.
 - Scaffolded stub warnings: review SCAF logs and curate scaffolded meta.json files with official vendor names.
 - Underscore in display names: replace underscores with spaces in meta.json name fields.
 - New model directory issues: ensure proper scaffolding for newly added model evaluation files.
@@ -662,4 +605,4 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Conclusion
-ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 70 reporting agents across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers provides comprehensive model evaluation capabilities. The pre-baked catalog and rankings artifacts deliver optimal performance for the enhanced comparison interface. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards across hundreds of new model evaluation files. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
+ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 70 reporting agents across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers provides comprehensive model evaluation capabilities. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards across hundreds of new model evaluation files. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.

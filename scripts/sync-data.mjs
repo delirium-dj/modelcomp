@@ -365,7 +365,7 @@ for (const slug of slugs) {
     continue;
   }
   const dir = join(modelDir, slug);
-  const entries = readdirSync(dir).sort();
+  let entries = readdirSync(dir).sort();
   // Forbidden duplicate stems, on-disk gate (RULES.md findings-stem identity):
   // - a merged-and-deleted stem (validate.mjs MERGED_SOURCE_STEMS, e.g.
   //   `Laguna_XS_2_1` folded into `Laguna_XS_2.1` 2026-10-08) that reappears
@@ -417,6 +417,11 @@ for (const slug of slugs) {
       log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
     }
   }
+  // Quarantine renamed *.md -> *.md.excluded above — refresh the snapshot so
+  // the SKIP log and `files` below never reference a path that no longer exists
+  // (a stale pre-rename listing made the parse step die with ENOENT, e.g.
+  // model/step-5-preview/Claude_Opus_4.6.md on 2026-10-08).
+  entries = readdirSync(dir).sort();
   // Self-excluded findings (agent found no verified benchmarks — see
   // model-report-TEMPLATE.md): never parsed, never averaged, never registered.
   // Logged so exclusions stay visible instead of silently vanishing.

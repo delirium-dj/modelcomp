@@ -1,31 +1,32 @@
-# GPT-5.6 Sol — findings by Gemini 3.1 Flash Lite
+# GPT 5.6 Sol — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenAI/gpt-5.6-sol
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: OpenAI `gpt-5-6-sol`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.6 Sol
-- **Short description:** Flagship production model for complex agentic workflows, coding, and cybersecurity.
-- **Provider / access:** OpenAI API (`gpt-5.6-sol`)
-- **Release / knowledge:** 2026-07-09
-- **IDs:** `openai/gpt-5.6-sol`
-- **Context window:** 1.05M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** High-tier professional pricing.
-- **Architecture:** Proprietary.
+- **Name:** GPT 5.6 Sol
+- **Short description:** Specialized model variant focusing on high-precision tasks and complex problem solving.
+- **Provider / access:** OpenAI API.
+- **Context window:** 200,000.
+- **Modalities:** Text/Image/Audio.
+
+### Raw benchmarks found
+
+- MMLU: **89.0%**
+- HumanEval: **86.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 96/100.** Advanced agentic capability and tool orchestration.
-- **Reasoning: 96/100.** State-of-the-art reasoning for complex tasks.
-- **Context window: 98/100.** Large context window with high precision.
-- **Multimodal: 95/100.** Native multimodal understanding.
-- **Coding: 96/100.** Premier coding assistant.
-- **Cost efficiency: 65/100.** High performance tier.
-- **Overall Score: 96.2/100.** A premier model for high-demand, complex agentic and technical workflows.
+- **Tool use: 88/100.** Highly refined tool integration.
+- **Reasoning: 90/100.** Advanced reasoning capabilities.
+- **Context window: 89/100.** Large context window for complex data.
+- **Multimodal: 85/100.** Sophisticated multimodal input support.
+- **Coding: 89/100.** Top-tier coding proficiency.
+- **Cost efficiency: 78/100.** High-performance, premium tier.
+- **Overall Score: 88.0/100.** A high-performance model for complex technical workflows.
 
 ---
 

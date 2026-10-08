@@ -1,5 +1,0 @@
-- Pure helper functions in `scripts/lib/` export stateless builders/parsers and are paired with co-located `*.test.mjs` files, keeping IO and logging in the entry points.
-- Sync entry points drive side effects (fs reads/writes, `console.log`/`console.error`, exit codes) while delegating all parsing, validation, and text-surgery logic to the lib modules.
-- Failure reporting uses a local `fail(msg)` counter that increments and prints `FAIL`-prefixed lines, with the script exiting non-zero when any failures occurred.
-- Generated artifacts (`sources.generated.ts`, `scores.generated.ts`, `average.md`) are written only after all checks pass, so invalid data is never cemented on disk.
-- Deterministic output is enforced by sorting inputs (slugs, filenames, labels via `sortLabelsAZ`) before serializing registry entries and score indexes.

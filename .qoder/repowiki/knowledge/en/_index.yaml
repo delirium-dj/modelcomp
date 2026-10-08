@@ -3,7 +3,7 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-07T20:39:04Z"
+exported_at: "2026-10-08T20:13:13Z"
 modules:
     "":
         dir_name: ModelComp Benchmark Site
@@ -51,8 +51,8 @@ modules:
         related_to:
             - path: scripts_tooling
     model_data_finance:
-        dir_name: Finance Model Research Registry
-        title: Finance Model Research Registry
+        dir_name: Finance-Enhanced LLM Model Evaluation Data
+        title: Finance-Enhanced LLM Model Evaluation Data
         scope:
             - models_finance/
         source_files: []
@@ -82,8 +82,8 @@ modules:
         related_to:
             - path: scripts_tooling
     scripts_tooling:
-        dir_name: Model Data Sync & Registry Tooling
-        title: Model Data Sync & Registry Tooling
+        dir_name: Model Findings Sync & Registry Codegen
+        title: Model Findings Sync & Registry Codegen
         scope:
             - scripts/
         source_files: []

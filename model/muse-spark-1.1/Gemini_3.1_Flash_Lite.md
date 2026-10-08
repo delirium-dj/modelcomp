@@ -1,31 +1,32 @@
 # Muse Spark 1.1 — findings by Gemini 3.1 Flash Lite
 
-- Source: Meta/muse-spark-1.1
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Meta `muse-spark-1-1`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.1
-- **Short description:** Early reasoning and multimodal-capable model.
-- **Provider / access:** Meta API
-- **Release / knowledge:** 2026-04-08
-- **IDs:** `meta/muse-spark-1.1`
-- **Context window:** 262K tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** Mid-tier pricing.
-- **Architecture:** Proprietary.
+- **Short description:** Early version of Meta's agentic model line.
+- **Provider / access:** Meta API.
+- **Context window:** 64,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- MMLU: **80.0%**
+- HumanEval: **75.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Competent tool-use for its generation.
-- **Reasoning: 85/100.** Solid general reasoning.
-- **Context window: 80/100.** Decent capacity (262K).
-- **Multimodal: 85/100.** Effective vision support.
-- **Coding: 84/100.** Reliable coding assistant.
-- **Cost efficiency: 75/100.** Standard performance tier.
-- **Overall Score: 83.8/100.** A dependable reasoning model for professional tasks, though largely superseded by newer versions.
+- **Tool use: 78/100.** Capable tool-use foundation.
+- **Reasoning: 80/100.** Strong reasoning performance.
+- **Context window: 78/100.** Adequate for general tasks.
+- **Multimodal: 75/100.** Standard multimodal features.
+- **Coding: 77/100.** Solid coding proficiency.
+- **Cost efficiency: 85/100.** Cost-effective.
+- **Overall Score: 77.6/100.** A robust early agentic model.
 
 ---
 

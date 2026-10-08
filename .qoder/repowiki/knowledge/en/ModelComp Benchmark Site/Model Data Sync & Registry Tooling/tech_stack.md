@@ -1,1 +1,0 @@
-Plain Node.js ESM (`node:fs`, `node:path`, `node:child_process`) with no third-party dependencies; tests run via `node --test scripts/lib/*.test.mjs`.

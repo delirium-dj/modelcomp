@@ -1,1 +1,0 @@
-`pnpm sync` runs `scripts/sync-data.mjs`; `pnpm sync:quiet` passes `-q` to suppress per-folder logs. `scripts/debug-sync.mjs` re-runs sync and prints only FAIL lines. `scripts/find-fails.mjs` recursively scans `model/` for markdown files missing the `**Tool use:` marker. Set `ALLOW_MODEL_DELETE=1` to bypass the git-tripwire check that forbids deleting tracked research files.

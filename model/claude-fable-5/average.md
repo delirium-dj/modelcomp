@@ -19,4 +19,4 @@
 
 - Based on 8 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Opus 5, Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
 - Average from top 8 by Overall Score: Claude Opus 4.6, Claude Opus 5, Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1, Ling 3.1 Flash, MiMo 2.6 Flash.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1, Ling 3.1 Flash, MiMo 2.6 Flash, Step 5 Preview.

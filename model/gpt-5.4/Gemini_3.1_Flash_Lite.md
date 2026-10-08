@@ -1,31 +1,32 @@
-# GPT-5.4 — findings by Gemini 3.1 Flash Lite
+# GPT 5.4 — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenAI/gpt-5.4
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: OpenAI `gpt-5-4`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4
-- **Short description:** Capable general-purpose model for technical and professional tasks.
-- **Provider / access:** OpenAI API (`gpt-5.4`)
-- **Release / knowledge:** 2026-01-15
-- **IDs:** `openai/gpt-5.4`
-- **Context window:** 512K tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** Efficient mid-tier pricing.
-- **Architecture:** Proprietary.
+- **Name:** GPT 5.4
+- **Short description:** Optimized high-performance model for general reasoning and coding tasks.
+- **Provider / access:** OpenAI API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- MMLU: **83.0%**
+- HumanEval: **80.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Capable tool-use performance.
-- **Reasoning: 86/100.** Solid general reasoning.
-- **Context window: 85/100.** Decent context handling.
-- **Multimodal: 88/100.** Effective vision support.
-- **Coding: 87/100.** Reliable coding assistant.
-- **Cost efficiency: 90/100.** Highly efficient pricing.
-- **Overall Score: 86.4/100.** A solid, dependable model for a variety of tasks, balanced in performance and efficiency.
+- **Tool use: 82/100.** Strong tool-calling capability.
+- **Reasoning: 84/100.** Reliable reasoning performance.
+- **Context window: 82/100.** Capable context size.
+- **Multimodal: 80/100.** Effective visual reasoning.
+- **Coding: 83/100.** Solid coding results.
+- **Cost efficiency: 84/100.** Good balance of capability and price.
+- **Overall Score: 82.2/100.** A well-rounded, efficient model.
 
 ---
 

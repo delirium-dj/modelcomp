@@ -13,6 +13,8 @@
 - Added comprehensive documentation for the new `formatGptLabel` function that handles OpenAI GPT- prefix formatting
 - Updated VENDOR_PREFIXES section to include all 11 supported vendors (google, openai, anthropic, meta, mistral, deepseek, alibaba, xai, microsoft, nvidia, cohere)
 - Enhanced slug exception documentation to include qwen-3.5-397b parameter-size exception
+- **Added detailed documentation for improved stem normalization including proper handling of version separators (converting underscore versions like Laguna_XS_2_1 to dotted versions Laguna_XS_2.1)**
+- **Added comprehensive coverage of parameter-size exceptions for models like Gemma_4_31B_IT and Qwen_3.8_27B**
 - Updated examples and diagrams to reflect the new GPT label formatting behavior
 
 ## Table of Contents
@@ -31,6 +33,8 @@ This document explains the naming conventions and utility functions that standar
 
 - Display name normalization with `normName`.
 - **New**: OpenAI GPT- prefix formatting with `formatGptLabel` for official vendor styling.
+- **Enhanced**: Improved stem normalization with proper handling of version separators (converting underscore versions like `Laguna_XS_2_1` to dotted versions `Laguna_XS_2.1`).
+- **Updated**: Parameter-size exceptions for models like `Gemma_4_31B_IT` and `Qwen_3.8_27B` that should not be treated as version violations.
 - Conversion between filesystem filenames and internal source keys with `stemToKey` and `labelOf`.
 - Hyphen-version violation detection to prevent duplicate model folders such as `gpt-5-5` versus `gpt-5.5`.
 - The virtual key system used for special sort views.
@@ -85,6 +89,8 @@ The core naming utilities are small, pure functions designed to be stable across
 |---|---|---|---|---|
 | `normName` | Case- and punctuation-folded comparison for deep-links and catalog matching | String display or filename text | Lowercase string without non-alphanumeric characters | Used to map a human-readable name to a normalized form for catalog lookup. |
 | **`formatGptLabel`** | **Format OpenAI GPT models with official hyphenated style** | String label | Formatted label with GPT- prefix | **New**: Converts "GPT 5.6 Terra" to "GPT-5.6 Terra", "GPT OSS 120B" to "GPT-OSS 120B". |
+| **`normalizeStem`** | **Canonical findings-stem normalizer with improved version separator handling** | Filename stem | Stem with digit-underscore-digit patterns converted to dots | **Enhanced**: Converts `Laguna_XS_2_1` to `Laguna_XS_2.1`, respects parameter-size exceptions. |
+| **`stemVersionViolation`** | **Underscore-version gate for findings-file stems** | Filename stem | Suggested dotted stem or `null` if valid | **New**: Detects underscore-separated version patterns like `Laguna_XS_2_1`. |
 | `stemToKey` | Convert a findings-file stem to an internal source key | Filename stem without `.md` | Source key with spaces replacing underscores | Example: `Gemini_3.6_Flash` becomes `Gemini 3.6 Flash`. |
 | `labelOf` | Extract the Agreement-notes label from a full filename | Full `.md` filename | Label with underscores replaced by spaces and extension removed | Uses `formatGptLabel` for GPT models; used for deterministic A-Z sorting of sources. |
 | `resolveSourceMeta` | Resolve display label and model-page slug for a source key | Source key, overrides map, catalog lookup function | Object containing `label` and optional `slug` | Overrides take precedence; otherwise the normalized key is matched against the catalog. |
@@ -98,12 +104,13 @@ The core naming utilities are small, pure functions designed to be stable across
 **Section sources**
 - [naming.mjs:8-27](file://scripts/lib/naming.mjs#L8-L27)
 - [naming.mjs:29-72](file://scripts/lib/naming.mjs#L29-L72)
+- [naming.mjs:78-101](file://scripts/lib/naming.mjs#L78-L101)
 
 ## Architecture Overview
 The naming utilities participate in three main flows:
 
 1. **Sync-time identification**: `sync-data.mjs` scans model folders, converts filenames to keys, resolves labels and slugs, validates metadata, and generates source registries and score indexes.
-2. **Convention enforcement**: Hyphen-version violations are rejected early so duplicate model folders cannot be created. Missing or malformed `meta.json` files are scaffolded with a slug guess and flagged for manual review.
+2. **Convention enforcement**: Hyphen-version violations are rejected early so duplicate model folders cannot be created. **Underscore-version violations in findings files are also detected**. Missing or malformed `meta.json` files are scaffolded with a slug guess and flagged for manual review.
 3. **Runtime presentation**: `src/data/models.ts` consumes generated sources and defines virtual views for sorting results by dimension.
 
 ```mermaid
@@ -115,17 +122,21 @@ CheckHyphen --> |Valid| ReadMeta["Read or scaffold meta.json"]
 ReadMeta --> ScaffoldGuess["Use formatSlugGuess when meta.json is missing"]
 ScaffoldGuess --> ValidateMeta["Validate required fields"]
 ValidateMeta --> ParseFiles["Parse findings files and scores"]
-ParseFiles --> StemToKey["Convert stems to source keys"]
+ParseFiles --> CheckStems["Check findings-file stems for underscore versions"]
+CheckStems --> |Violation| FailStem["Fail with dotted stem suggestion"]
+CheckStems --> |Valid| StemToKey["Convert stems to source keys"]
 StemToKey --> ResolveMeta["Resolve label + slug via SOURCE_OVERRIDES and catalog"]
 ResolveMeta --> GenerateSources["Generate sources.generated.ts"]
 GenerateSources --> GenerateScores["Generate scores.generated.ts"]
 GenerateScores --> End(["End sync"])
 FailHyphen --> End
+FailStem --> End
 ```
 
 **Diagram sources**
 - [sync-data.mjs:180-197](file://scripts/sync-data.mjs#L180-L197)
 - [sync-data.mjs:297-326](file://scripts/sync-data.mjs#L297-L326)
+- [sync-data.mjs:371-398](file://scripts/sync-data.mjs#L371-L398)
 - [sync-data.mjs:438-480](file://scripts/sync-data.mjs#L438-L480)
 - [sync-data.mjs:490-523](file://scripts/sync-data.mjs#L490-L523)
 
@@ -197,6 +208,42 @@ NonGpt --> Output
 **Section sources**
 - [naming.mjs:15-25](file://scripts/lib/naming.mjs#L15-L25)
 - [naming.test.mjs:207-238](file://scripts/lib/naming.test.mjs#L207-L238)
+
+### Enhanced Stem Normalization: `normalizeStem` and `stemVersionViolation`
+**Enhanced functionality**: The naming system now includes improved stem normalization that properly handles version separators in findings-file stems. This prevents duplicate model entries caused by inconsistent version formatting.
+
+Key behaviors:
+- Converts digit-underscore-digit patterns to dotted versions (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`).
+- Respects parameter-size exceptions that should not be treated as version violations.
+- Provides both a canonical normalizer (`normalizeStem`) and a violation detector (`stemVersionViolation`).
+
+**Parameter-size exceptions**: The system recognizes specific model names where digit-underscore-digit patterns represent parameter sizes rather than version separators:
+- `Gemma_4_31B_IT`: Represents "Gemma 4 with 31B parameters" - the "4_31" pattern is not a version separator
+- `Qwen_3.8_27B`: Represents "Qwen 3.8 with 27B parameters" - the "8_2" pattern is not a version separator
+
+Example transformations:
+- `Laguna_XS_2_1` → `Laguna_XS_2.1` (version separator corrected)
+- `Gemma_4_31B_IT` → `Gemma_4_31B_IT` (parameter size preserved)
+- `Qwen_3.8_27B` → `Qwen_3.8_27B` (parameter size preserved)
+- `DeepSeek_4.1_Flash` → `DeepSeek_4.1_Flash` (already correct)
+
+```mermaid
+flowchart TD
+Input["Input stem"] --> ExceptionCheck{"Is stem in STEM_VERSION_EXCEPTION?"}
+ExceptionCheck --> |Yes| Valid["Return unchanged (parameter size)"]
+ExceptionCheck --> |No| PatternCheck{"Does stem contain digit-underscore-digit?"}
+PatternCheck --> |No| Valid
+PatternCheck --> |Yes| Normalize["Replace underscore with dot between digits"]
+Normalize --> ReturnSuggestion["Return normalized stem"]
+```
+
+**Diagram sources**
+- [naming.mjs:78-101](file://scripts/lib/naming.mjs#L78-L101)
+- [naming.test.mjs:134-160](file://scripts/lib/naming.test.mjs#L134-L160)
+
+**Section sources**
+- [naming.mjs:78-101](file://scripts/lib/naming.mjs#L78-L101)
+- [naming.test.mjs:134-160](file://scripts/lib/naming.test.mjs#L134-L160)
 
 ### Filename-to-Key Conversion: `stemToKey` and `labelOf`
 `stemToKey` converts a findings-file stem into an internal source key by replacing underscores with spaces. This is the bridge between filesystem naming and the application's internal representation.
@@ -429,6 +476,8 @@ participant Runtime as "models.ts"
 FS->>Sync : Findings files and model folders
 Sync->>Naming : stemToKey(filename)
 Naming-->>Sync : Source key
+Sync->>Naming : normalizeStem(stem)
+Naming-->>Sync : Normalized stem
 Sync->>Naming : resolveSourceMeta(key, overrides, catalog)
 Naming-->>Sync : Label and slug
 Sync->>Registry : Append or reconcile registry entries
@@ -438,11 +487,13 @@ Runtime->>Runtime : Build VIRTUAL_VIEWS and SOURCES
 
 **Diagram sources**
 - [sync-data.mjs:242-257](file://scripts/sync-data.mjs#L242-L257)
+- [sync-data.mjs:371-398](file://scripts/sync-data.mjs#L371-L398)
 - [sync-data.mjs:438-480](file://scripts/sync-data.mjs#L438-L480)
 - [models.ts:318-329](file://src/data/models.ts#L318-L329)
 
 **Section sources**
 - [sync-data.mjs:242-257](file://scripts/sync-data.mjs#L242-L257)
+- [sync-data.mjs:371-398](file://scripts/sync-data.mjs#L371-L398)
 - [sync-data.mjs:438-480](file://scripts/sync-data.mjs#L438-L480)
 - [models.ts:318-329](file://src/data/models.ts#L318-L329)
 
@@ -477,6 +528,7 @@ The naming utilities are designed for performance and determinism:
 
 - `normName`, `stemToKey`, and `labelOf` are simple string operations with linear complexity relative to input length.
 - `formatGptLabel` performs constant-time regex replacements for GPT-specific formatting.
+- **`normalizeStem` and `stemVersionViolation` perform efficient regex-based conversions with exception checking**.
 - `resolveSourceMeta` performs constant-time override lookup and one normalized catalog lookup.
 - `hyphenVersionViolation` uses a single regular expression and replacement pass.
 - `vendorPrefixViolation` iterates through 11 vendor prefixes with constant-time string operations.
@@ -492,6 +544,7 @@ Common issues and how the utilities help diagnose them:
 | Issue | Symptom | Utility or Rule Involved | Resolution |
 |---|---|---|---|
 | Duplicate model folder due to hyphenated version | Sync fails with a suggestion to use a dotted version | `hyphenVersionViolation` | Rename the folder to use dots, such as `gpt-5.5`, and merge content into the existing folder. |
+| **Duplicate findings file due to underscore version** | **Sync fails with a suggestion to use a dotted stem** | **`stemVersionViolation`** | **Rename the findings file to use dots, such as `Laguna_XS_2.1.md`, and merge content into the existing file.** |
 | Wrong display label for GPT models | Dropdown shows "GPT 5.6 Terra" instead of "GPT-5.6 Terra" | `formatGptLabel` | The automatic formatting should handle this; check if custom override is interfering. |
 | Wrong display label for a source | Dropdown shows unexpected casing or wording | `SOURCE_OVERRIDES` | Add or update the override for the source key with the correct label. |
 | Source key not linked to a model page | Source has no slug after sync | `resolveSourceMeta` and catalog lookup | Ensure the normalized display name exists in a `meta.json`, or add an explicit slug override. |
@@ -501,11 +554,13 @@ Common issues and how the utilities help diagnose them:
 
 **Section sources**
 - [sync-data.mjs:180-197](file://scripts/sync-data.mjs#L180-L197)
+- [sync-data.mjs:371-398](file://scripts/sync-data.mjs#L371-L398)
 - [sync-data.mjs:302-326](file://scripts/sync-data.mjs#L302-L326)
 - [naming.mjs:17-27](file://scripts/lib/naming.mjs#L17-L27)
 - [naming.mjs:49-72](file://scripts/lib/naming.mjs#L49-L72)
+- [naming.mjs:78-101](file://scripts/lib/naming.mjs#L78-L101)
 
 ## Conclusion
-The naming conventions and utilities in this project provide a stable contract between filesystem artifacts, generated sources, and runtime presentation. `normName` ensures robust comparison, **the new `formatGptLabel` function ensures proper OpenAI GPT- prefix formatting**, `stemToKey` and `labelOf` bridge filenames and display keys, `hyphenVersionViolation` prevents duplicate model folders, the **expanded `VENDOR_PREFIXES` system supports 11 major AI vendors**, the virtual key system enables consistent sort views, and `SOURCE_OVERRIDES` handles edge cases. Together, they keep the pipeline predictable, auditable, and maintainable as new models and sources are added.
+The naming conventions and utilities in this project provide a stable contract between filesystem artifacts, generated sources, and runtime presentation. `normName` ensures robust comparison, **the new `formatGptLabel` function ensures proper OpenAI GPT- prefix formatting**, **the enhanced `normalizeStem` and `stemVersionViolation` functions ensure proper handling of version separators in findings files**, `stemToKey` and `labelOf` bridge filenames and display keys, `hyphenVersionViolation` prevents duplicate model folders, the **expanded `VENDOR_PREFIXES` system supports 11 major AI vendors**, the virtual key system enables consistent sort views, and `SOURCE_OVERRIDES` handles edge cases. Together, they keep the pipeline predictable, auditable, and maintainable as new models and sources are added.
 
 [No sources needed since this section summarizes without analyzing specific files]
