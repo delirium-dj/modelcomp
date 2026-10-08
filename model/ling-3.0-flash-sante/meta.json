@@ -1,9 +1,9 @@
 {
   "id": "opencode/ling-3.0-flash-sante",
   "name": "Ling 3.0 Flash Sante",
-  "short": "Ling 3.0 Flash Sante model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Ant Group's health/medicine domain fine-tune of Ling 3.0 Flash ('santé' = health) for medical reasoning, healthcare tasks and evidence-based retrieval.",
+  "contextWindow": "262,144 total; 32,768 max output (OpenRouter)",
+  "modalities": "Text in/out; reasoning (switchable); function calling; no vision",
+  "pricingNote": "Paid after $0 promo ended 2026-10-04; list price unpublished",
+  "noFreeId": true
 }

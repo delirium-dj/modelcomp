@@ -22,17 +22,22 @@
 - [model/big-pickle/average.md](file://model/big-pickle/average.md)
 - [model/deepseek-v4.1-flash/average.md](file://model/deepseek-v4.1-flash/average.md)
 - [model/muse-spark-1.3/average.md](file://model/muse-spark-1.3/average.md)
+- [model/claude-haiku-4.5/average.md](file://model/claude-haiku-4.5/average.md)
+- [model/claude-haiku-5.5/average.md](file://model/claude-haiku-5.5/average.md)
+- [model/gpt-5.6-luna/average.md](file://model/gpt-5.6-luna/average.md)
+- [model/claude-haiku-4.5/meta.json](file://model/claude-haiku-4.5/meta.json)
+- [model/claude-haiku-5.5/meta.json](file://model/claude-haiku-5.5/meta.json)
+- [model/gpt-5.6-luna/meta.json](file://model/gpt-5.6-luna/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated MiMo 2.6 Flash as new evaluation target with detailed benchmark results including Terminal-Bench 2.1 at 87.6% and comprehensive agent/tool use capabilities
-- Enhanced Big Pickle model entries with re-verification showing stable scores across dimensions (Tool use: 40→40, Reasoning: 55→55, Context: 70→70, Multimodal: 15→15, Coding: 60→60, Overall: 48→48)
-- Updated DeepSeek 4.1 Flash entries with refined scoring methodology reflecting vendor-reported figures and independent verification gaps
-- Enhanced Muse Spark 1.3 entries with improved frontier-level performance metrics across all dimensions
-- Updated model-queue.md rankings reflecting position changes (glm-5.3-flash rising from 88.2 to 88.3, claude-fable-5 dropping from 88 to 87.8, ox_alpha moving from 84.5 to 85, kimi-k2.5 appearing at 79.1, qwen3-max entering at 51)
-- Added extensive recalculated averages across model directories with enhanced validation mechanisms
-- Enhanced examples showing new model patterns and recalculated averages demonstrating improved consistency
+- Updated claude-haiku-4.5 scoring from 72.5 to 72.8 overall with enhanced top-10 cohort averaging across 13 qualifying sources
+- Updated claude-haiku-5.5 scoring from 80.1 to 79.7 overall reflecting refined rater gate enforcement and improved validation mechanisms
+- Enhanced gpt-5.6-luna with expanded scoring dimensions showing 81.9 overall score with sophisticated multimodal capabilities
+- Updated src/data/scores.generated.ts with new model entries and recalculated averages across numerous model directories
+- Added extensive recalculated averages demonstrating improved consistency and enhanced validation mechanisms
+- Enhanced examples showing new model patterns and recalculated averages with better independent source weighting
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -223,7 +228,7 @@ Keep --> Output
 - Other averaged dimensions are arithmetic means over the same cohort.
 - If no rater clears the gate, a fallback average uses all available reports, still capped at top-10.
 - **Enhanced**: Improved tracking of which sources are below-gate and why they're ignored.
-- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including MiMo 2.6 Flash achieving 86.4 overall, Big Pickle maintaining 55.1, DeepSeek 4.1 Flash reaching 86.6, and Muse Spark 1.3 at 93.7.
+- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including Claude Haiku 4.5 achieving 72.8, Claude Haiku 5.5 reaching 79.7, and GPT-5.6 Luna at 81.9.
 
 ```mermaid
 flowchart TD
@@ -337,6 +342,9 @@ The following formulas are implemented in the sync and parsing logic:
 
 | Model Family | Current Overall | Ranking Position | Notes |
 |---|---:|---:|---|
+| Claude Haiku 4.5 | 72.8 | #89 | Fastest Anthropic model with extended thinking capabilities |
+| Claude Haiku 5.5 | 79.7 | #67 | Claude 5.5-family small model with adjustable reasoning effort |
+| GPT-5.6 Luna | 81.9 | #58 | Cost-sensitive high-volume OpenAI model with expanded dimensions |
 | MiMo 2.6 Flash | 86.4 | #37 | Strong multimodal and agent capabilities with excellent cost efficiency |
 | Big Pickle | 55.1 | #143 | Stable zero-cost model with conservative scoring across dimensions |
 | DeepSeek 4.1 Flash | 86.6 | #33 | High-throughput agentic coding with strong terminal workloads |
@@ -346,13 +354,13 @@ Current representative scores across model families:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
+| Claude Haiku 4.5 | 70.9 | 71.4 | 73.1 | 69.6 | 79.4 | 86.6 | 72.8 |
+| Claude Haiku 5.5 | 79.3 | 79.8 | 94.0 | 72.4 | 73.4 | 95.2 | 79.7 |
+| GPT-5.6 Luna | 81.8 | 81.5 | 90.3 | 72.8 | 82.5 | 92.6 | 81.9 |
 | MiMo 2.6 Flash | 84.3 | 79.6 | 94.0 | 90.4 | 83.0 | 96.9 | 86.4 |
 | Big Pickle | 61.1 | 59.2 | 67.5 | 19.9 | 67.8 | 97.9 | 55.1 |
 | DeepSeek 4.1 Flash | 87.9 | 84.7 | 96.5 | 74.9 | 89.1 | 93.8 | 86.6 |
 | Muse Spark 1.3 | 94.9 | 92.7 | 99.8 | 85.8 | 95.1 | 96.6 | 93.7 |
-| GPT-6 Astra | 93.3 | 95.7 | 98.1 | 74.2 | 93.4 | 37.5 | 91.0 |
-| Kimi K3 | 88.9 | 90.5 | 96.6 | 80.9 | 90.3 | 59.9 | 89.5 |
-| Fledge Alpha | 58.8 | 75.8 | 84.5 | 64.5 | 62.5 | 96.8 | 69.3 |
 
 These scores demonstrate:
 
@@ -361,7 +369,7 @@ These scores demonstrate:
 - Long-context models score higher on Context window.
 - Coding-focused models score higher on Coding.
 - Overall excludes Cost efficiency, so high cost efficiency does not inflate Overall.
-- **Enhanced**: Recent recalculations show improved consistency across model families, with MiMo 2.6 Flash demonstrating exceptional multimodal capabilities at 90.4 and Muse Spark 1.3 achieving near-perfect context window performance at 99.8.
+- **Enhanced**: Recent recalculations show improved consistency across model families, with Claude Haiku 4.5 demonstrating exceptional value at 72.8, Claude Haiku 5.5 showing refined performance at 79.7, and GPT-5.6 Luna achieving sophisticated multimodal capabilities at 81.9.
 - **Enhanced**: Scores reflect independent verification from Artificial Analysis and BenchLM where available, with vendor claims treated as provisional without corroboration.
 
 **Section sources**
@@ -370,6 +378,105 @@ These scores demonstrate:
 - [src/data/scores.generated.ts:96-114](file://src/data/scores.generated.ts#L96-L114)
 - [src/data/scores.generated.ts:483-504](file://src/data/scores.generated.ts#L483-L504)
 - [model-queue.md:9-15](file://model-queue.md#L9-L15)
+
+### Claude Haiku 4.5 Enhanced Scoring Methodology
+**New Section** The Claude Haiku 4.5 model demonstrates the enhanced scoring methodology with fast, cost-effective frontier-class capabilities:
+
+**Updated** Claude Haiku 4.5 average scores show optimized performance with sophisticated validation:
+
+| Dimension | Score | Performance Level |
+|---|---:|---|
+| Tool use | 70.9 | Above average |
+| Reasoning | 71.4 | Above average |
+| Context window | 73.1 | Mid-range |
+| Multimodal | 69.6 | Mid-range |
+| Coding | 79.4 | Strong |
+| Cost efficiency | 86.6 | Very good |
+| Overall Score | 72.8 | Upper mid-tier |
+
+**Key Algorithmic Features:**
+
+1. **Top-10 of 13 Qualifying Sources**: Instead of averaging all sources, the algorithm considers the top 10 out of 13 qualifying sources ranked by Overall Score.
+
+2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.8, GLM 5.3 Flash, and Qwen 3.8 Flash are excluded as bottom performers.
+
+3. **Enhanced Rater Gate Enforcement**: The system rigorously enforces the 84.9 threshold, ignoring 16 below-gate raters including Big Pickle, DeepSeek 4 Flash, Fledge Alpha, and others.
+
+4. **Fastest Anthropic Model**: Demonstrates exceptional speed and cost efficiency while maintaining frontier-class performance.
+
+5. **Extended Thinking Capabilities**: Shows advanced reasoning capabilities with computer use functionality.
+
+**Section sources**
+- [model/claude-haiku-4.5/average.md:8-24](file://model/claude-haiku-4.5/average.md#L8-L24)
+- [model/claude-haiku-4.5/meta.json:1-8](file://model/claude-haiku-4.5/meta.json#L1-L8)
+- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
+- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+
+### Claude Haiku 5.5 Enhanced Scoring Methodology
+**New Section** The Claude Haiku 5.5 model demonstrates refined scoring methodology with adjustable reasoning effort:
+
+**Updated** Claude Haiku 5.5 average scores show optimized performance with enhanced validation:
+
+| Dimension | Score | Performance Level |
+|---|---:|---|
+| Tool use | 79.3 | Strong |
+| Reasoning | 79.8 | Strong |
+| Context window | 94.0 | Near-perfect |
+| Multimodal | 72.4 | Above average |
+| Coding | 73.4 | Above average |
+| Cost efficiency | 95.2 | Exceptional |
+| Overall Score | 79.7 | Upper mid-tier |
+
+**Key Algorithmic Features:**
+
+1. **Top-9 of 9 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
+
+2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
+
+3. **Comprehensive Rater Gate**: Ignores 7 below-gate raters while maintaining robust validation standards.
+
+4. **Adjustable Reasoning Effort**: Demonstrates flexible reasoning capabilities with Claude 5.5-family architecture.
+
+5. **High-Volume Optimization**: Achieves near-perfect context window scoring with 1M tokens total capacity.
+
+**Section sources**
+- [model/claude-haiku-5.5/average.md:8-23](file://model/claude-haiku-5.5/average.md#L8-L23)
+- [model/claude-haiku-5.5/meta.json:1-9](file://model/claude-haiku-5.5/meta.json#L1-L9)
+- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
+- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+
+### GPT-5.6 Luna Enhanced Scoring Methodology
+**New Section** The GPT-5.6 Luna model demonstrates sophisticated scoring methodology with expanded dimensions:
+
+**Updated** GPT-5.6 Luna average scores show enhanced performance with comprehensive validation:
+
+| Dimension | Score | Performance Level |
+|---|---:|---|
+| Tool use | 81.8 | Strong |
+| Reasoning | 81.5 | Strong |
+| Context window | 90.3 | Near-perfect |
+| Multimodal | 72.8 | Above average |
+| Coding | 82.5 | Strong |
+| Cost efficiency | 92.6 | Exceptional |
+| Overall Score | 81.9 | Upper mid-tier |
+
+**Key Algorithmic Features:**
+
+1. **Top-10 of 15 Qualifying Sources**: Selects the best performing raters from a large pool of qualified sources.
+
+2. **Extensive Bottom-Performer Exclusion**: Excludes 5 bottom performers including Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Kimi K3, and Muse Spark 1.3.
+
+3. **Comprehensive Rater Gate**: Ignores 16 below-gate raters while maintaining robust validation standards.
+
+4. **Cost-Sensitive Design**: Demonstrates exceptional cost efficiency while maintaining strong performance across all dimensions.
+
+5. **Expanded Scoring Dimensions**: Shows sophisticated multimodal capabilities with image input processing.
+
+**Section sources**
+- [model/gpt-5.6-luna/average.md:8-24](file://model/gpt-5.6-luna/average.md#L8-L24)
+- [model/gpt-5.6-luna/meta.json:1-10](file://model/gpt-5.6-luna/meta.json#L1-L10)
+- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
+- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
 
 ### MiMo 2.6 Flash Enhanced Scoring Methodology
 **New Section** The MiMo 2.6 Flash model demonstrates the enhanced scoring methodology with sophisticated multimodal capabilities and agent performance:
@@ -561,7 +668,10 @@ Common issues and their resolution paths:
 | Bottom-performer exclusion | Models excluded from top-10 cohort | Check if model falls below the 10th percentile in Overall Score |
 | New model integration | Model not appearing in rankings | Ensure proper meta.json configuration and sufficient qualifying raters |
 | Gated model performance | Low ranking despite good scores | Verify rater gate compliance and independent source verification |
-| MiMo 2.6 Flash integration | Multimodal scoring inconsistencies | Verify audio/video input validation and agent benchmark coverage |
+| Claude Haiku 4.5 integration | Fast model scoring inconsistencies | Verify extended thinking capabilities and computer use validation |
+| Claude Haiku 5.5 refinement | Adjustable reasoning effort issues | Confirm Claude 5.5-family architecture and reasoning calibration |
+| GPT-5.6 Luna expansion | Expanded dimension scoring problems | Verify image input validation and cost-sensitive design parameters |
+| MiMo 2.6 Flash multimodal | Audio/video input validation errors | Check multimodal processing and agent benchmark coverage |
 | Big Pickle stability | Score fluctuations across re-verification | Confirm zero-cost model status and conservative scoring methodology |
 | DeepSeek 4.1 Flash validation | Vendor-reported figure discrepancies | Cross-reference with independent sources like Artificial Analysis |
 | Muse Spark 1.3 frontier scoring | Near-perfect dimension scores | Validate frontier benchmark thresholds and independent verification |
@@ -586,8 +696,8 @@ The system enforces quality through:
 - Deterministic sync that regenerates averages and compact scores
 - **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
-- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by MiMo 2.6 Flash achieving 86.4 overall, Big Pickle maintaining 55.1, DeepSeek 4.1 Flash reaching 86.6, and Muse Spark 1.3 at 93.7
+- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 achieving 72.8, Claude Haiku 5.5 reaching 79.7, and GPT-5.6 Luna at 81.9
 
-The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the versatility of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
+The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. Claude Haiku 4.5's fast frontier-class performance at 72.8, Claude Haiku 5.5's refined adjustable reasoning at 79.7, GPT-5.6 Luna's sophisticated multimodal capabilities at 81.9, MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the versatility of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

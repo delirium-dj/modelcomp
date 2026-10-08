@@ -15,11 +15,11 @@
 
 ## Update Summary
 **Changes Made**
-- Added comprehensive documentation for merged source stem tracking system with MERGED_SOURCE_STEMS map and mergedStemMessage function
-- Updated permanence tripwire section to include merged-source classification
-- Enhanced duplicate filename variant prevention documentation
-- Added examples of underscore-separated vs dotted version handling
-- Updated architecture diagrams to reflect merged stem detection flow
+- Enhanced documentation for the .excluded suffix pattern system used for evidence-free reports and failed validation cases
+- Updated quarantine mechanism section to reflect expanded criteria including zero-scored dimensions and flat scoring patterns
+- Added examples of real-world excluded files from big-pickle, ling-3.0-flash-sante, mai-code-1-flash, and owl-alpha models
+- Updated troubleshooting guide with specific guidance for handling .excluded files
+- Enhanced examples section with concrete evidence-free report scenarios
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -38,18 +38,18 @@ This document explains the validation framework that protects data integrity acr
 - Filename hygiene checks for research files.
 - `meta.json` validation with centralized naming utilities, including required fields and display-name rules.
 - The permanence tripwire that prevents accidental deletion of tracked research files.
-- **New**: Merged source stem tracking that prevents recreation of deleted duplicate filename variants, addressing cases where underscore-separated versions were permanently deleted in favor of dotted versions.
-- The quarantine mechanism that automatically isolates evidence-free reports based on benchmark analysis.
+- Merged source stem tracking that prevents recreation of deleted duplicate filename variants, addressing cases where underscore-separated versions were permanently deleted in favor of dotted versions.
+- **Enhanced**: The quarantine mechanism that automatically identifies and isolates evidence-free reports based on benchmark analysis, using the `.md.excluded` suffix pattern to mark files that fail validation or quality checks.
 - The mirror root system used for sanctioned file relocations.
 - Classification of missing tracked files.
 - Sanitization of suspicious filenames.
-- Examples of validation failures.
+- Examples of validation failures and quarantine decisions.
 - How the framework maintains consistency while allowing legitimate operations such as twin retirement and relocation.
 
-The sync process is deterministic: it scans model folders, validates inputs, quarantines bad evidence, recomputes averages, registers new sources, and emits generated data only when no failures are present.
+The sync process is deterministic: it scans model folders, validates inputs, quarantines bad evidence (renaming to `.md.excluded`), recomputes averages, registers new sources, and emits generated data only when no failures are present.
 
 ## Project Structure
-At a high level, the validation framework lives under `scripts/`, with the orchestrator in `scripts/sync-data.mjs` and pure helpers under `scripts/lib/`. Research data lives under `model/<slug>/`, with per-agent findings files, an auto-generated average, and curated metadata.
+At a high level, the validation framework lives under `scripts/`, with the orchestrator in `scripts/sync-data.mjs` and pure helpers under `scripts/lib/`. Research data lives under `model/<slug>/`, with per-agent findings files, an auto-generated average, and curated metadata. Evidence-free or invalid files are automatically renamed with the `.md.excluded` suffix to prevent them from being counted in averages.
 
 ```mermaid
 graph TB
@@ -61,6 +61,7 @@ Validate --> Parse
 Validate --> Naming
 Quarantine --> Parse
 ModelDir["model/<slug>/"] --> Findings["Findings *.md"]
+ModelDir --> Excluded["*.md.excluded (quarantined)"]
 ModelDir --> Average["average.md (generated)"]
 ModelDir --> Meta["meta.json (curated)"]
 MirrorRoots["models_voice/, models_finance/"] --> Relocated["Sanctioned relocated files"]
@@ -85,7 +86,7 @@ The validation framework is composed of focused, side-effect-free helpers invoke
 - **Meta validation**: Enforces required fields and display-name rules using centralized naming utilities.
 - **Permanence tripwire**: Prevents silent deletion of git-tracked research files unless they survive in a sanctioned location.
 - **Merged source stem tracking**: Prevents recreation of deleted duplicate filename variants through MERGED_SOURCE_STEMS mapping.
-- **Quarantine decision**: Automatically renames evidence-free or invalid reports to `.md.excluded`.
+- **Enhanced quarantine decision**: Automatically renames evidence-free, zero-scored, or flat-scoring reports to `.md.excluded` based on sophisticated analysis criteria.
 - **Mirror roots**: Recognizes relocated files under sanctioned directories.
 - **Missing-file classification**: Distinguishes between twin retirement, relocation, merged-source, and forbidden deletion.
 
@@ -99,7 +100,7 @@ These components are imported and orchestrated by `scripts/sync-data.mjs`, which
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 
 ## Architecture Overview
-The sync pipeline applies validation gates before any data generation or registry updates. The flow below maps directly to the source code, including the new merged stem detection.
+The sync pipeline applies validation gates before any data generation or registry updates. The flow below maps directly to the source code, including the enhanced quarantine system and merged stem detection.
 
 ```mermaid
 sequenceDiagram
@@ -127,6 +128,8 @@ Sync->>MergedStems : Check MERGED_SOURCE_STEMS for duplicates
 alt Duplicate stem detected
 Sync-->>User : FAIL (merged duplicate stem)
 else Evidence-free or invalid
+Sync->>Quarantine : Analyze content for quarantine criteria
+alt Quarantine conditions met
 Sync->>FS : Rename to *.md.excluded
 Sync-->>User : QUAR reason
 end
@@ -151,11 +154,12 @@ Sync-->>User : Summary (averages rewritten, new sources, failures)
 ## Detailed Component Analysis
 
 ### Filename Hygiene Checks
-Filename hygiene ensures that findings files use safe, predictable names. The rule allows letters, digits, underscores, and dots, ending in `.md`. Violations fail loudly during sync.
+Filename hygiene ensures that findings files use safe, predictable names. The rule allows letters, digits, underscores, and dots, ending in `.md`. Violations fail loudly during sync. Note that files with `.md.excluded` suffix are recognized as valid quarantine targets.
 
 - Allowed pattern: letters, digits, underscore, dot, then `.md`.
 - Version dots are permitted inside stems (e.g., `DeepSeek_4.1_Flash.md`).
 - Display label is derived from the stem by replacing underscores with spaces.
+- Quarantine files follow the same pattern but with `.md.excluded` suffix.
 
 ```mermaid
 flowchart TD
@@ -274,7 +278,7 @@ Next --> End
 - [scripts/lib/validate.test.mjs:16-29](file://scripts/lib/validate.test.mjs#L16-L29)
 
 ### Merged Source Stem Tracking
-**New Section** The merged source stem tracking system prevents recreation of deleted duplicate filename variants. This addresses specific cases where underscore-separated versions were permanently deleted in favor of dotted versions.
+The merged source stem tracking system prevents recreation of deleted duplicate filename variants. This addresses specific cases where underscore-separated versions were permanently deleted in favor of dotted versions.
 
 The system uses a `MERGED_SOURCE_STEMS` map that tracks which duplicate stems should never be recreated:
 
@@ -308,15 +312,16 @@ Normal --> Continue["Continue processing"]
 - [scripts/sync-data.mjs:369-398](file://scripts/sync-data.mjs#L369-L398)
 - [scripts/lib/validate.test.mjs:123-134](file://scripts/lib/validate.test.mjs#L123-L134)
 
-### Quarantine Mechanism
-The quarantine mechanism enforces the template's self-exclusion rule even if the reporting agent forgets it. A findings file is renamed to `.md.excluded` when it is evidence-free or otherwise invalid. Quarantined files are skipped during parsing and averaging.
+### Enhanced Quarantine Mechanism
+The quarantine mechanism enforces the template's self-exclusion rule even if the reporting agent forgets it. A findings file is renamed to `.md.excluded` when it fails validation or quality checks. Quarantined files are skipped during parsing and averaging, preserving their content for reference while preventing them from affecting model averages.
 
-Decision criteria:
-- Evidence-free: eight or more "no verified public score found" rows and zero measured bold numeric values.
-- Zero-scored: any quality dimension parsed as zero ("no data" filed as 0).
-- Flat: all five quality dimensions identical and zero cited numbers (invented uniformity).
+**Enhanced** Decision criteria now include multiple failure modes:
 
-Real low scores with varied dimensions and cited numbers are preserved.
+- **Evidence-free**: eight or more "no verified public score found" rows and zero measured bold numeric values.
+- **Zero-scored**: any quality dimension parsed as zero ("no data" filed as 0).
+- **Flat**: all five quality dimensions identical and zero cited numbers (invented uniformity).
+
+Real low scores with varied dimensions and cited numbers are preserved. The system automatically handles various exclusion scenarios including models like Claude Sonnet 4.5 in big-pickle, GPT 6 Astra in ling-3.0-flash-sante, and MAI-Code-1-Flash assessments.
 
 ```mermaid
 flowchart TD
@@ -408,20 +413,34 @@ Suspicious filenames are rejected early in the per-folder loop. The sanitizer us
 
 - Regex: letters, digits, underscore, dot, ending in `.md`.
 - Error message includes the full path and the expected pattern.
+- Files with `.md.excluded` suffix are recognized as valid quarantine targets.
 
 **Section sources**
 - [scripts/lib/validate.mjs:124-130](file://scripts/lib/validate.mjs#L124-L130)
 - [scripts/lib/parse.mjs:35-36](file://scripts/lib/parse.mjs#L35-L36)
 - [scripts/sync-data.mjs:437-444](file://scripts/sync-data.mjs#L437-L444)
 
-### Examples of Validation Failures
-Below are representative failure scenarios produced by the framework:
+### Examples of Validation Failures and Quarantine Decisions
+Below are representative failure scenarios produced by the framework, including recent enhanced quarantine patterns:
+
+- **Evidence-free quarantine** (big-pickle/Claude_Sonnet_4.5.md.excluded):
+  - File contains 8+ "no verified public score found" entries with zero measured numbers
+  - Result: Renamed to `.md.excluded` with reason "no verified benchmarks (multiple 'not found', 0 measured numbers)"
+
+- **Evidence-free quarantine** (ling-3.0-flash-sante/GPT_6_Astra.md.excluded):
+  - Model card shows "Not scored: no verified public benchmark for this exact model was established"
+  - All benchmark categories report missing data
+  - Result: Quarantined as evidence-free
+
+- **Incomplete data quarantine** (mai-code-1-flash/GPT_6_Astra.md.excluded):
+  - Some benchmarks verified but critical dimensions missing (context window, pricing)
+  - Result: Quarantined due to incomplete data profile
 
 - Forbidden deletion:
   - A tracked research file is missing from disk and is not a twin retirement, relocation, or merged-source case.
   - Output: FAIL with restoration instructions using Git.
 
-- **New**: Merged duplicate stem:
+- Merged duplicate stem:
   - A duplicate filename variant (e.g., `Laguna_XS_2_1.md`) that was intentionally merged into a canonical version (`Laguna_XS_2.1.md`) reappears.
   - Output: FAIL with message directing users to use the canonical stem instead.
 
@@ -436,10 +455,6 @@ Below are representative failure scenarios produced by the framework:
 - Display-name gate:
   - `meta.json.name` contains underscores.
   - Output: FAIL instructing to set the official vendor display name with spaces.
-
-- Quarantine:
-  - A findings file has many "not found" rows and no measured numbers.
-  - Output: QUAR with reason explaining evidence-free status.
 
 - Rater gate fallback:
   - No qualifying raters clear the threshold.
@@ -469,7 +484,7 @@ The framework explicitly supports three legitimate changes to tracked research f
   - When a tracked file moves to a sanctioned mirror root (`models_voice` or `models_finance`) at the same relative path, the tripwire logs INFO and continues.
   - Content remains preserved; the move is pending commit.
 
-- **New**: Merged duplicates:
+- Merged duplicates:
   - When a duplicate filename variant (like `Laguna_XS_2_1.md`) was intentionally merged into a canonical version (`Laguna_XS_2.1.md`), the system recognizes this as a sanctioned merge.
   - The duplicate stem is marked as forbidden and cannot be recreated.
   - Users must write content to the canonical stem instead.
@@ -486,7 +501,7 @@ These operations maintain data consistency while allowing real workflow changes.
 ## Dependency Analysis
 The sync orchestrator depends on several pure helper modules. The diagram shows import relationships and responsibilities.
 
-**Updated** The dependency structure now reflects the merged stem tracking integration.
+**Updated** The dependency structure now reflects the enhanced quarantine system integration.
 
 ```mermaid
 graph LR
@@ -512,7 +527,7 @@ Coupling and cohesion:
 - `parse.mjs` is shared by both `validate.mjs` and `quarantine.mjs`, centralizing scoring and naming contracts.
 - `naming.mjs` provides slug conventions and display-name utilities consumed by sync and codegen.
 - `validate.mjs` imports `missingMetaFields()` and `metaNameHasUnderscore()` from `naming.mjs`, reducing code duplication and improving maintainability.
-- **New**: `validate.mjs` defines `MERGED_SOURCE_STEMS` map and `mergedStemMessage()` function for duplicate prevention.
+- `validate.mjs` defines `MERGED_SOURCE_STEMS` map and `mergedStemMessage()` function for duplicate prevention.
 
 Potential circular dependencies:
 - None observed; imports are unidirectional from sync to helpers, and helpers depend only on `parse.mjs` and `naming.mjs`.
@@ -534,18 +549,27 @@ External dependencies:
 - Top-10 cohort selection and rater gating limit averaging work to eligible, high-quality sources.
 - Quiescent runs can suppress verbose logs with the quiet flag, though all validations still execute.
 - Centralized naming utilities reduce code duplication and improve maintainability without impacting runtime performance.
-- **New**: Merged stem checking uses efficient Map lookups for O(1) duplicate detection.
+- Merged stem checking uses efficient Map lookups for O(1) duplicate detection.
+- **Enhanced**: Quarantine analysis processes files efficiently, only renaming those that meet specific failure criteria.
 
 [No sources needed since this section provides general guidance]
 
 ## Troubleshooting Guide
 Common issues and resolutions:
 
+- **Evidence-free quarantine** (files renamed to `.md.excluded`):
+  - Symptom: QUAR log renaming a findings file to `.md.excluded` with reason "no verified benchmarks".
+  - Resolution: Investigate whether the report truly lacks evidence. If valid, add measured benchmark values and ensure normalized scores are not zero or uniformly flat. Examples include Claude Sonnet 4.5 in big-pickle and GPT 6 Astra in ling-3.0-flash-sante.
+
+- **Zero-scored quarantine**:
+  - Symptom: QUAR log indicating "zero-scored dimension(s)".
+  - Resolution: Ensure all quality dimensions have valid non-zero scores. Files like MAI-Code-1-Flash assessments may need complete data profiles.
+
 - Forbidden deletion:
   - Symptom: FAIL message stating a tracked file is missing from disk.
   - Resolution: Restore the file using Git as instructed in the error message. Do not delete tracked research files.
 
-- **New**: Merged duplicate stem:
+- Merged duplicate stem:
   - Symptom: FAIL message indicating a duplicate stem like `Laguna_XS_2_1.md` was merged into `Laguna_XS_2.1.md`.
   - Resolution: Move content to the canonical stem (`Laguna_XS_2.1.md`) and remove the duplicate variant. Never recreate the underscore-separated version.
 
@@ -560,10 +584,6 @@ Common issues and resolutions:
 - Display-name gate:
   - Symptom: FAIL message indicating `name` contains underscores.
   - Resolution: Replace underscores with spaces and set the official vendor display name with correct casing.
-
-- Quarantine:
-  - Symptom: QUAR log renaming a findings file to `.md.excluded`.
-  - Resolution: Investigate whether the report truly lacks evidence. If valid, add measured benchmark values and ensure normalized scores are not zero or uniformly flat.
 
 - Rater gate fallback:
   - Symptom: FALLBACK log indicating no qualifying raters.
@@ -586,11 +606,9 @@ The validation framework safeguards the integrity of the model comparison datase
 - Filename hygiene prevents unsafe or ambiguous filenames.
 - `meta.json` validation ensures curated metadata is complete and display-safe, leveraging centralized naming utilities for improved code organization.
 - The permanence tripwire blocks accidental deletion of tracked research files, while permitting twin retirement, sanctioned relocation, and recognizing intentional merges.
-- **New**: Merged source stem tracking prevents recreation of deleted duplicate filename variants, ensuring consistent stem identity across the dataset.
-- Quarantine isolates evidence-free or invalid reports automatically.
+- Merged source stem tracking prevents recreation of deleted duplicate filename variants, ensuring consistent stem identity across the dataset.
+- **Enhanced**: Quarantine isolates evidence-free, zero-scored, or invalid reports automatically using the `.md.excluded` suffix pattern, preventing them from affecting model averages while preserving their content for reference.
 - Mirror roots provide a controlled relocation path for specialized model categories.
-- Missing-file classification distinguishes legitimate changes from forbidden deletions, including the new merged-source category.
+- Missing-file classification distinguishes legitimate changes from forbidden deletions, including the merged-source category.
 
-Together, these mechanisms keep the sync pipeline deterministic, auditable, and resilient to common mistakes, while still supporting legitimate workflows like re-research, file relocation, and intentional duplicate consolidation. The recent addition of merged stem tracking further strengthens data integrity by preventing accidental recreation of intentionally consolidated duplicate filenames.
-
-[No sources needed since this section summarizes without analyzing specific files]
+Together, these mechanisms keep the sync pipeline deterministic, auditable, and resilient to common mistakes, while still supporting legitimate workflows like re-research, file relocation, and intentional duplicate consolidation. The enhanced quarantine system with its sophisticated `.excluded` suffix pattern further strengthens data integrity by automatically identifying and isolating problematic reports while maintaining their historical record. Recent additions like evidence-free quarantine for models such as Claude Sonnet 4.5 demonstrate the system's ability to handle complex validation scenarios while preserving valuable research data.

@@ -1,9 +1,9 @@
 {
   "id": "opencode/ling-2.6.1t",
-  "name": "Ling 2.6.1t",
-  "short": "Ling 2.6.1t model evaluation entry.",
-  "contextWindow": "128K total",
+  "name": "Ling-2.6-1T",
+  "short": "InclusionAI's trillion-parameter instruct (non-thinking) flagship — 1T total / 63B active sparse MoE with hybrid MLA + linear attention and fast-thinking compressed CoT. MIT open weights.",
+  "contextWindow": "262,144 total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Hosted ~$0.30/$2.50 per 1M (AA); MIT open weights",
+  "freeTierNote": "Free OpenRouter endpoint (inclusionai/ling-2.6-1t:free); MIT weights free self-host"
 }

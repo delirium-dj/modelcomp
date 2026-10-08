@@ -1,0 +1,26 @@
+# Jev 1.13 — findings by GPT 6 Astra
+
+- Source: Jev 1.13 public primary sources
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- TypeSafe AI proprietary System One decision model, September 2026 early access; exact architecture/parameters/cutoff undisclosed. Textual structured state in, typed decisions and probabilities out; no free-form text/code generation. [Vendor introduction](https://typesafe.ai/blog/introducing-system-one-models-and-jev).
+- `typesafe/jev-1.13`: 64K context, September 18 gateway listing; USD/M $0.042 input, $0 output. Token-generation output limit not applicable to this decision interface. [Gateway](https://openrouter.ai/typesafe/jev-1.13).
+
+### Raw benchmarks found
+
+PriorBench evaluated `typesafe/jev-1.13-20260917` on September 20: 5,721 calls over 21 experiments; 95.9% on its own 400-item zero-shot classification benchmark. Out-of-scope handling failed without an explicit abstention choice; this is narrow custom evaluation, not general intelligence or software-agent accuracy. [Independent evaluator](https://github.com/priorbench/jev).
+Vendor documents failures in counting, date ordering and numeric representations. [Known limitations](https://docs.typesafe.ai/model-jaggedness/jev-1.13). GPQA, HLE, SWE Verified, Terminal-Bench and long-context retrieval: no verified public score found.
+
+### Normalized scores (1–100)
+
+Excluded from the general-model aggregate: available evidence concerns structured classification decisions, and the interface cannot generate code or prose. Mapping classification accuracy to all five quality dimensions would be misleading. Retain these findings as coverage rather than assigning arbitrary low scores to inapplicable dimensions.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Independent fresh public-web research; normalized scores are interpretations, not official benchmark scores. No local model tests.
+

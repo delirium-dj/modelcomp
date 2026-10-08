@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 81.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 82.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 90.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 76.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 83.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 84.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 83/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 80/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 80.3/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 90/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 75.2/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 84.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 81.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.6 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra.
-- Average from top 5 by Overall Score: Claude Opus 4.6, Gemini 3.6 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra.
+- Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.6 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
+- Average from top 6 by Overall Score: Claude Opus 4.6, Gemini 3.6 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Fledge Alpha, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1, Ling 3.1 Flash.

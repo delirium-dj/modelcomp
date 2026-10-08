@@ -1,0 +1,39 @@
+# Llama 3.2 Vision Instruct — findings by GPT 6 Astra
+
+- Source: Llama 3.2 Vision Instruct public primary sources
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name / identity:** Family-level entry, ambiguous between 11B and 90B. Project metadata names both and supplies no unique checkpoint mapping.
+- **Description:** Meta image/text assistant family.
+- **IDs / access:** `meta-llama/Llama-3.2-11B-Vision-Instruct` and `meta-llama/Llama-3.2-90B-Vision-Instruct`; local inference or provider-specific APIs. Project alias `opencode/llama_3.2_vision_instruct` is not independently verified as a live route.
+- **Release / cutoff:** September 25, 2024 / December 2023.
+- **Context:** 128K; hosted output limits vary.
+- **Modalities:** Text/image input, text output; no verified family-wide tools/JSON contract.
+- **Architecture / license:** Dense language backbone plus vision cross-attention adapter; Llama 3.2 Community License.
+- **Pricing (2026-10-08):** No single price can be assigned without checkpoint/host selection; no verified Zen Free ID. [Meta card](https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct)
+
+### Raw benchmarks found
+
+Meta instruction-tuned results, separate variants:
+| Benchmark | 11B | 90B |
+|---|---:|---:|
+| GPQA, zero-shot accuracy | 32.8 | 46.7 |
+| MMMU validation, CoT | 50.7 | 60.3 |
+| MMMU-Pro standard | 33.0 | 45.2 |
+| MATH, CoT | 51.9 | 68.0 |
+[Official table](https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct).
+No blended family score is meaningful. Exact-alias agent, coding and retrieval: no verified public score found. The listed GPQA row is not relabeled Diamond.
+
+### Normalized scores (1–100)
+
+Not scored: verified family benchmarks exist, but the project entry does not resolve to one checkpoint. Choosing 11B or 90B would silently change the research subject; both sets of findings are preserved separately.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Independent fresh public-web research; normalized scores are interpretations, not official benchmark scores. No local model tests.
+

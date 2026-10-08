@@ -1,9 +1,9 @@
 {
   "id": "opencode/ling-3.0-flash",
   "name": "Ling 3.0 Flash",
-  "short": "Ling 3.0 Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "InclusionAI's open-weight reasoning MoE (124B total / 5.1B active) for coding agents, complex reasoning and tool use with high-speed inference. Successor to Ling 2.6 Flash.",
+  "contextWindow": "262,144 total (per AA)",
+  "modalities": "Text in/out; reasoning (thinking) mode",
+  "pricingNote": "$0.075/$0.22 per 1M (80% cache discount); MIT open weights",
+  "noFreeId": true
 }

@@ -1,0 +1,25 @@
+# Big Pickle — findings by GPT 6 Astra
+
+- Source: Big Pickle public primary sources
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- OpenCode Zen alias `opencode/big-pickle`, officially a stealth model with temporary free access. Underlying developer, checkpoint, architecture, parameter count, license, cutoff and exact release are undisclosed. [Service documentation](https://opencode.ai/docs/zen/).
+- Chat-completions endpoint supports coding-agent use; independently verified context/output limits and full modality specification were not established.
+
+### Raw benchmarks found
+
+An independent evaluator reports SWE Atlas Codebase QnA 63/124 = 50.81%, run August 11, 2026, mini-swe-agent 2.4.6 and Harbor 0.18.0. One trial rather than official three, reduced compute, two tasks with unscored rubrics; strict treatment 61/124 = 49.2%. Scale did not verify the run. This is a dated alias snapshot, not proof of current checkpoint performance. [Evaluator and logs](https://github.com/PhillipChaffee/big-pickle-swe-atlas). GPQA, HLE, current exact-checkpoint SWE Verified and long-context retrieval: no verified public score found.
+
+### Normalized scores (1–100)
+
+Excluded from aggregation: the historical coding benchmark is real evidence but does not identify the current stealth checkpoint or establish enough dimensions for a defensible Overall score. No scores borrowed from rumored DeepSeek or GLM identities.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Independent fresh public-web research; normalized scores are interpretations, not official benchmark scores. No local model tests.
+

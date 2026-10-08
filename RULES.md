@@ -102,7 +102,7 @@ override.
   Normalize every freshly derived slug before creating or comparing anything:
   replace each digit-hyphen-digit join with a dot (`4-12` → `4.12`) — the only
   exceptions are param sizes, never versions (`gemma-4-31b`, `qwen-3.8-27b`,
-  `qwen-3.5-9b`); single majors with codename/experimental suffixes
+  `qwen-3.5-9b`, `qwen-3.5-397b`); single majors with codename/experimental suffixes
   (`gpt-6-astra`) never match. A hyphen-versioned folder is a forbidden
   duplicate, never a new model: it must not be scaffolded, researched, or
   written to — always check for the existing dotted folder first (both trees
@@ -135,6 +135,22 @@ override.
   (`Laguna_XS_2_1` → `Laguna_XS_2.1`, merged 2026-10-08). A merged-stem
   variant deleted from disk is a sanctioned permanence survival while its
   canonical dotted sibling exists.
+
+- **Qwen 3.5 397B identity (user-confirmed 2026-10-08):**
+  `Qwen/Qwen3.5-397B-A17B` and the project's `opencode/qwen-3.5-397b`
+  identify the same model. Research belongs in `model/qwen-3.5-397b/`;
+  never create another model folder for the upstream name or replace the
+  parameter-size hyphen with a dot. The `397B` suffix is a parameter count,
+  not a version component. This project alias does not establish that an
+  identically named live OpenCode endpoint exists.
+  The original `meta.json` is marked `scaffolded: true`: its `128K total`,
+  `Text in/out`, and `opencode/` prefix come from generic defaults in
+  `scripts/lib/naming.mjs` (`buildScaffoldMeta`), not provider evidence.
+  Do not infer a separate text-only or 128K model from those placeholders.
+  The [official model card](https://huggingface.co/Qwen/Qwen3.5-397B-A17B)
+  specifies 397B total/17B active parameters, 262,144 native context
+  (extensible to 1,010,000), and text/image/video input with text output.
+  Actual hosted endpoint limits must be verified separately.
 
 ## Scoring rules
 

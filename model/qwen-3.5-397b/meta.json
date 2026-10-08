@@ -1,9 +1,9 @@
 {
   "id": "opencode/qwen-3.5-397b",
-  "name": "Qwen 3.5 397b",
-  "short": "Qwen 3.5 397b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Qwen 3.5 397B",
+  "short": "Alibaba's Qwen3.5-series flagship open-weights MoE (397B total / 17B active) — a natively multimodal early-fusion model for reasoning, coding, agents and vision.",
+  "contextWindow": "262,144 native (extensible to ~1,010,000; 1M hosted)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "AA $0.60/$3.60 per 1M; Apache 2.0 open weights (free self-host)",
+  "noFreeId": true
 }

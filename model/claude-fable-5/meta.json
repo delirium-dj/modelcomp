@@ -1,9 +1,9 @@
 {
   "id": "opencode/claude-fable-5",
   "name": "Claude Fable 5",
-  "short": "Claude Fable 5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's first broadly available Mythos-class model — the tier above Opus, built for long-horizon agentic work and software engineering. Legacy since Claude Fable 5.1 (June 2026).",
+  "contextWindow": "1,000,000 total; 128,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$10/$50 per 1M; cache read $1/MTok (90% off)",
+  "noFreeId": true
 }
