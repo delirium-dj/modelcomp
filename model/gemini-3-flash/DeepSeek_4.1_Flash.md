@@ -1,9 +1,17 @@
 # Gemini 3 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind/Gemini 3 Flash (`gemini-3-flash-preview`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-3-flash).
+> BenchLM overall **54.46/100** (#63), context **1M**, pricing **$0.50 input / $3 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 31.6, #82/122): JobBench 11.4%; Terminal-Bench 2.1 (Vals) 53.9%; Claw-Eval 49.2%; Gert Labs 56.63%
+> - Coding (BenchLM 33.7, #85/146): LiveCodeBench (Vals) 85.6%; Vibe Code Bench 20.20%; SWE-bench (Vals) 75.0%
+> - Knowledge (BenchLM 53.6, #57/174): MMLU-Pro (Vals) 88.6%; GPQA Diamond (Vals) 87.9%
+> - Math (BenchLM 50): FrontierMath v2 (Tiers 1-3) 35.640%; FrontierMath v2 (Tier 4) 4.167%
 
 ## Model card
 
@@ -66,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (Google release blog, Google Gemini API model docs, OpenRouter model page with Artificial Analysis rows, evals.report 38-row benchmark table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

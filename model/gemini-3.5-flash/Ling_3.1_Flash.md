@@ -64,8 +64,21 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Full release-benchmark set found (AI Release Tracker's 26 tracked scores + DeepMind's model card and evals PDF):
+
+- Toolathlon: **56.5%** (HKUST authors' figures, per DeepMind's methodology) — fills the Toolathlon gap; mid-band
+- Finance Agent v2: **57.9%** (vals.ai leaderboard); GDPval-AA v2: **1349** Elo; MRCR v2 (8-needle): **77.3%** at 128K average / **26.6%** at 1M pointwise — the 1M figure confirms the "under 27%" estimate precisely
+- Arena Elo: Text **1476**, Code **1509**; BU Bench 58%; Blueprint-Bench 2 33.6%; CursorBench v3.1 49.8% / v3.2 48.8%; Gray Swan IPI k=1 14.1% / k=10 54.2% / k=15 60.5%; BullshitBench v2 20%
+- Model card comparison columns confirmed: vs Gemini 3 Flash (TB2.1 58.0%, SWE-bench Pro 49.6%, OSWorld 65.1%), 3.1 Pro (70.3%, 54.2%, 76.2%), Opus 4.7 (66.1%, 64.3%, 78.0%), GPT-5.5 (78.2%, 58.6%, 78.7%)
+- Methodology confirmations: MCP Atlas from the Scale AI leaderboard; Toolathlon from the HKUST authors; OSWorld-Verified self-computed (5-run avg, 1080p, 100-step cap, pyautogui, UI-specific function declarations); SWE-bench Pro self-computed (5× runs, internal Antigravity harness); MMMU-Pro averaged across Standard and Vision settings
+- No score change: Toolathlon 56.5% and Finance Agent v2 57.9% sit mid-band, consistent with Tool 83; the MRCR 1M pointwise of 26.6% confirms Context 95
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind model card + evaluation PDF, Google AI blog, LLM Reference, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_5_Flash.md`, using the same headings.

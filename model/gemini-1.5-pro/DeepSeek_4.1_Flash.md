@@ -1,9 +1,13 @@
 # Gemini 1.5 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google / Gemini 1.5 Pro (`gemini-1.5-pro`, API ids `gemini-1.5-pro-001` / `gemini-1.5-pro-002`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-1-5-pro).
+> BenchLM overall **n/a**, context **1M**, pricing **$1.25 input / $5 output**.
+> New/updated measurements that fill gaps in the rows above:
 
 ## Model card
 
@@ -70,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-24
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: public internet research — Google Cloud's needle-in-a-haystack write-up and the Gemini 1.5 report for long-context and long-document QA numbers, Google's Gemini 1.5 launch post for context tiers and pricing structure, the Gemini API long-context doc for the multi-needle caveat, Google's model-card benchmark table as reproduced by Langbase, plus BenchmarkList and Artificial Analysis aggregate harness runs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

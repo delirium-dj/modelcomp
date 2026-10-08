@@ -1,9 +1,18 @@
 # Muse Spark 1.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Meta (Meta Superintelligence Labs)/Muse Spark 1.1 (`muse-spark-1.1`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/muse-spark-1-1).
+> BenchLM overall **65.83/100** (#32), context **1M**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 57.1, #32/122): OSWorld 2.0 14.2%; Terminal-Bench 2.1 80.0%; OSWorld-Verified 80.8%; JobBench 54.7%; MCP Atlas 88.1%; Terminal-Bench 2.1 (Vals) 69.3%
+> - Coding (BenchLM 53.7, #35/146): SWE-bench Pro 61.5%; LiveCodeBench (Vals) 85.9%; Terminal-Bench 2.1 80.0%; SWE-bench (Vals) 82.0%
+> - Reasoning (BenchLM 75.7): MRCR 1M 54.1%
+> - Multimodal (BenchLM 78.3): CharXiv 88.4%; BabyVision 76.3%
+> - Knowledge (BenchLM 66.6, #21/174): HLE 62.1%; HLE w/o tools 52.2%; MMLU-Pro (Vals) 88.7%; GPQA Diamond (Vals) 91.2%; HealthBench Professional 59.3%
 
 ## Model card
 
@@ -61,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (Lumina model profile and evidence log — Meta evaluation report, Artificial Analysis leaderboards, the verified Terminal-Bench 2.1 submission, BenchLM datasets — plus the RankLLMs aggregator table, whose repeated values were flagged rather than trusted); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

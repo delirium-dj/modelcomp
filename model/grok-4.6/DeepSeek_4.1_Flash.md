@@ -1,9 +1,18 @@
 # Grok 4.6 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (`grok-4.6`)
-- Date: 2026-09-20 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-6).
+> BenchLM overall **67.91/100** (#22), context **500K**, pricing **$2 input / $6 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 68.6, #9/122): Terminal-Bench 2.1 (Vals) 78.3%; Terminal-Bench 3.0 26.5%; APEX-Agents 57.5%; ApprenticeBench 13%; CWE-bench v1 57.0%
+> - Coding (BenchLM 60, #22/146): FrontierSWE v2 25.3%; LiveCodeBench (Vals) 88.2%; VulcanBench v3 87.0%; DeepSWE 65.9%; CursorBench 3.2 70.8%; Bug Hunt Bench 27.0 fixes
+> - Reasoning (BenchLM 57.7, #24/28): ARC-AGI-2 67.1%; ARC-AGI-3 2.1%; ARC-AGI-1 87.00%
+> - Knowledge (BenchLM 68.3, #16/174): MMLU-Pro (Vals) 89.4%; GPQA Diamond (Vals) 94.7%
+> - Inst. Following (no category score): Gray Swan IPI (15 attempts) 51.8%
 
 ## Model card
 
@@ -63,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: fresh public internet research on 2026-09-20 — xAI launch post (2026-08-12), LLM Stats release analysis, RankLLMs verified panel (updated 2026-09-18) and BenchLM model record (data 2026-09-18); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

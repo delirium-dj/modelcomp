@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **50.6%** task success; Terminal-Bench 2.0 **30.3%**; Terminal-Bench Hard **33.3%** (BenchmarkList, checked 2026-09-22)
-- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList — the same model scores very differently across the two harness versions)
+- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList) and τ³-Telecom **91.4%** (official Hugging Face model card) — the same model scores very differently across the three harness versions
 - GDPval-AA **936 Elo**; AA-Briefcase **517**; AutomationBench-AA **13.7%**; Gert Labs Rankings **37.3%** (BenchmarkList)
 - Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
 - Vendor claims (unquantified): parallel cloud coding agents, Work mode cross-tool workflows, synchronous tool calling in Vibe/Le Chat.
@@ -34,10 +34,11 @@ Reasoning / knowledge:
 - LCR / MLCR: **AA-LCR 65.3%**; Context Arena **17.6%** (rank 44/51) and **32.0%** (rank 28/30) — weak long-context retrieval
 - Artificial Analysis Intelligence Index **30.4** (rank 115/418); AIIQ composite IQ **98**; Epoch Capabilities Index **123.87** (#123 of 398, open-weight #52); MMLU Pro **75.3%**; ObviousBench **91.7%**; IFBench **0.688**; ProofBench **10.0%**; Vals Index **37.8%**
 - Factuality: AA-Omniscience **-36.8** (4th percentile, rank 27/28); SAGE **37.6%**; MedScribe **67.7%**
+- Other knowledge: LEXam-hard **31.89** (Hugging Face eval results — niche legal-exam signal)
 
 Coding:
 
-- SWE-bench Verified: **77.6%** per the vendor's launch claim (MarkTechPost headline, 2026-05-02) versus **66.4%** on the independent BenchmarkList table (rank 58 of 72) — a ~11-point vendor/independent gap, both recorded
+- SWE-bench Verified: **77.6%** per the vendor's launch claim (MarkTechPost headline, 2026-05-02; confirmed on the official Hugging Face model card and its SWE-bench Verified eval row) versus **66.4%** on the independent BenchmarkList table (rank 58 of 72) — a ~11-point vendor/independent gap, both recorded
 - SWE-bench Pro / DeepSWE / LiveCodeBench: **no verified public score found**
 - SciCode **39.6%**; Vibe Code Bench v1.1 **2.9%** (rank 66 of 71 — very weak agentic coding); WebDev Arena **1265.16**; Design Arena **1162**; MedCode **33.8%**
 
@@ -59,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
-- Method: public internet research (Mistral official launch post for version/pricing/licence/positioning, Mistral docs model overview for IDs and lifecycle, ChatForest review for context window and architecture, BenchmarkList 44-row evidence table for measured scores); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
+- Method: public internet research (Mistral official launch post for version/pricing/licence/positioning, official Hugging Face model card for context/architecture/agentic benchmarks, LLM Stats model page, Mistral docs model overview for IDs and lifecycle, ChatForest review for context window and architecture, BenchmarkList 44-row evidence table for measured scores); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

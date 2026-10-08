@@ -1,9 +1,17 @@
 # Gemini 2.5 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind/Gemini 2.5 Pro (`gemini-2.5-pro`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-2-5-pro).
+> BenchLM overall **49.4/100** (#95), context **1M**, pricing **$1.25 input / $10 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 24.6, #97/122): Gert Labs 42.01%
+> - Coding (BenchLM 23.3, #110/146): SWE-bench Verified 63.8%; Vibe Code Bench 0.40%; SWE-bench (Vals) 54.4%
+> - Knowledge (BenchLM 44, #87/174): HLE 18.8%; GPQA 83%
+> - Math (BenchLM 35.1): FrontierMath v2 (Tiers 1-3) 14.138%; FrontierMath v2 (Tier 4) 4.167%
 
 ## Model card
 
@@ -65,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (Google Gemini API model docs, OpenRouter model page with Artificial Analysis rows and the deprecation notice, evals.report 50-row benchmark table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

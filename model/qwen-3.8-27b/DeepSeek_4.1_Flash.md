@@ -1,9 +1,19 @@
 # Qwen3.8-27B — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen / Qwen3.8-27B (`Qwen/Qwen3.8-27B`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-8-27b).
+> BenchLM overall **58.2/100** (#54), context **262K**, pricing **Self-hosted; infrastructure cost varies**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 61.9, #19/122): Terminal-Bench 2.1 73.0%; OSWorld-Verified 84.3%; JobBench 33.4%; Terminal-Bench 2.1 (Vals) 58.4%; Agents' Last Exam 42.9%; CoWorkBench 70.7%
+> - Coding (BenchLM 47.5, #47/146): SWE-bench Pro 61.7%; DeepSWE 42.2%; LiveCodeBench (Vals) 84.0%; VulcanBench v3 82.6%; Terminal-Bench 2.1 73.0%; NL2Repo 42.3%
+> - Multimodal (BenchLM 80.9, #11/49): CharXiv 90.2%; MathVision 90.0%; MathVision w/ Python 94.6%; BabyVision 65.7%; BabyVision w/ Python 85.6%; Vision2Web 62.9%
+> - Knowledge (BenchLM 49.4, #70/174): HLE 30.8%; HLE w/o tools 30.8%; MMLU-Pro (Vals) 84.3%; GPQA 89.2%; GPQA Diamond (Vals) 88.9%; GPQA-D 89.2%
+> - Inst. Following (BenchLM 82.5, #49/125): IFBench 79.5%
+> - External signals (): WinoGrande (Perplexity panel) 73.10%; FinancialPhraseBank (Perplexity panel) 75.68%; RAGTruth (Perplexity panel) 61.53%; JudgeBench (Perplexity panel) 68.86%; BBH (Perplexity panel) 72.80%; JevBench public hard (Perplexity panel) 72.28%
 
 ## Model card
 
@@ -65,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
 - Method: public internet research (BenchmarkList model page, vendor/registry entries); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -58,8 +58,19 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Full Artificial Analysis row found (fills the AA-LCR and LiveCodeBench gaps; reasoning / non-reasoning):
+
+- Intelligence Index **29.1 / 23.7**; Math Index 91.3 / 62.7; GPQA Diamond **86.6% / 81.0%**; HLE **30.1% / 13.2%**; IFBench 58.0% / 43.0%; τ²-Bench Telecom 89.5% / 86.3%; **AA-LCR 77.3% / 70.7%**; CritPt 4.6% / 0.3%; **LiveCodeBench 87.1% / 73.8%**; Terminal-Bench Hard 47.0% / 40.9%; MMLU-Pro 89.5% / 88.9%; AA-Omniscience Accuracy 46.6% / 40.9%, Non-Hallucination Rate 39.0% / 23.8%; AIME 2025 91.3% / 62.7%
+- Vals AI (nonthinking): Aider 76.9%, Aider v2 61.3%, AnalystAgent v1 54.5%, GPQA 79.5%, IOI v1 23.6%, LiveCodeBench 75.0%, LegalBench 82.8%
+- LiveBench **75.96%** (llmboard, rank 12/38, evaluated 2026-10-07); category snapshot (aiagentstore, 2026-10-08): Math 90.4, Language 81.3, Coding 79.7, Reasoning 80.1, Data analysis 74.4, Instruction following 62.5, Agentic coding 39.7 (equal-weight avg 72.6)
+- Lineup context (2026-10-07): Anthropic launched Haiku 5.5 and halved Sonnet 5.5 cache reads; Opus 4.5 pricing unchanged (retirement still scheduled 2026-11-24)
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Opus 4.5 launch + system card, Artificial Analysis, RankedAGI, BenchmarkList, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4_5.md`, using the same headings.

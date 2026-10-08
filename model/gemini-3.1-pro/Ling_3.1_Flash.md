@@ -64,8 +64,21 @@ Multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+SciCode, DeepSWE and vals.ai rows found (DeepMind's comparison table, modelscale, Traictory, plus DeepMind's published evals methodology):
+
+- SciCode: **59%** (DeepMind's table; AA-SciCode **58.7%** on modelscale) — fills the SciCode gap; above the 55% frontier reference
+- DeepSWE v1.1: **12% ± 2%** (mini-swe-agent harness, high effort, Pass@1, Traictory-verified) — far below the model's own SWE-bench Verified 80.6%; a scaffold-specific result, but the weakest coding signal in the file and now a stated caveat
+- LiveCodeBench (vals.ai): **88.5%** (fills the gap); LiveCodeBench Pro **82.9** on quarter-specific contest sets (modelscale) alongside the self-reported 2887 Elo; LiveBench **79.9%** (High effort, 2026-01-08, verified); SWE-bench (vals.ai) **78.8%** confirms the existing row
+- DeepMind's published methodology notes: the SWE-bench Verified score was adjusted **+0.6%** after Gemini 3.1 Pro passed three items (astropy-7606, sphinx-8595, sphinx-9711) that are impossible under the official harness due to vendor-side bugs; SciCode is sourced from Artificial Analysis; GDPval-AA Elo from the AA leaderboard (numeric value still not captured); the τ²-bench airline variant was excluded for lower grading quality; MCP Atlas results are sourced from Turing
+- Still no verified public score for: Claw-Eval/ClawProBench, Agents' Last Exam (numeric), MRCR v2 at 512K–1M, RULER, GraphWalks, CharXiv, GDP.pdf, LVBench, AA Omniscience
+- No score change: SciCode 59% and LiveCodeBench (vals.ai) 88.5% support Coding 84, while the DeepSWE 12% mini-swe-agent result and the unpublished 512K+ retrieval keep it there
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (DeepMind model card and eval methodology, vals.ai, Artificial Analysis, tbench.ai, Toolathlon, The Model Gap, MetricNexus); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

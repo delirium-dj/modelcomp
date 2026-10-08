@@ -59,18 +59,32 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** GDPval-AA v2 1773 Elo clears the ~1750+ frontier bar (#1 in its launch table), Toolathlon Verified 78.4% and AutomationBench 48.8% (best in table) are strong, and OSWorld 2.0 59.1% leads the table; Terminal-Bench 2.1 at 84.3% sits 0.7 points under the 85% bar, Agents' Last Exam 26.3% is mid, and all figures are Z.ai-run launch evals awaiting independent reproduction.
-- **Reasoning: 86/100.** GPQA Diamond 91.2% (AA's runs) clears the 90%+ frontier band and HLE 55.3% with tools clears the 40%+ bar, with the AA Intelligence Index of 57 (v4.1.1, max — level with GPT-5.6 Terra, 3 behind GLM-5.3) supporting; HLE 39.9% (AA's runs), CritPt 15.4% and AA-Omniscience 27.5% accuracy cap the score.
+- **Tool use: 82/100.** GDPval-AA v2 1773 Elo (launch table; AA's current v2.1 read: 1647) and Toolathlon Verified 78.4% lead, with AutomationBench 48.8% vendor / 60% (AA's own run) and OSWorld 2.0 59.1% supporting; Terminal-Bench 2.1 at 84.3% sits 0.7 points under the 85% bar, but Terminal-Bench 4.0 at 33% (AA's independent run) is far under the 55–66% frontier, Agents' Last Exam 26.3% is mid, and all headline figures are Z.ai-run launch evals awaiting independent reproduction.
+- **Reasoning: 84/100.** GPQA Diamond 91.2% (AA) / 90.2% (Epoch AI, independent) clears the 90%+ frontier band and HLE 55.3% with tools clears the 40%+ bar; the cap comes from AA's current reads — Intelligence Index 42 (v4.3.2-era vs the vendor-cited 57 on v4.1.1 at max — level with GPT-5.6 Terra, 3 behind GLM-5.3), HLE 40% (no tools), FrontierMath Tier 4 17.1%, CritPt 15.4%, AA-Omniscience accuracy 7 and ARC-AGI-2 65.8% (semi-private, mid-tier).
 - **Context window: 95/100.** 1M-token window (hybrid sparse+linear attention, IndexPool) with AA-LCR 80.0%; no ≥98%-at-512K+ retrieval figure, so 100 is not justified; community reports note drift beyond ~700K tokens.
 - **Multimodal: 85/100.** text/image/video in with text out — the +video/PDF band (75–90), corroborated by CharXiv w/tools 89.4%, MMVU 80.5%, Chartography 78.0%, MVbench 77.8% and Vision2Web 77.8%; BabyVision 53.4% trails Gemini 3.7 Flash's 70.9%.
-- **Coding: 78/100.** Terminal-Bench 2.1 84.3% sits just under the 85% bar and the AA Coding Index of 71.5 clears the 70% reference, with DeepSWE 63.4% (best-in-table ahead of Opus 4.8's 58.0%) and NL2Repo 56.3% supporting; DeepSWE is under the 74% frontier bar and SciCode 51.6% is under the 55% reference.
+- **Coding: 76/100.** Terminal-Bench 2.1 84.3% sits just under the 85% bar and the AA Coding Index of 71.5 clears the 70% reference, with DeepSWE 63.4% (best-in-table ahead of Opus 4.8's 58.0%) and NL2Repo 56.3% supporting; FrontierCode 1.1 Main 31.8% (Cognition, chisel harness) is well under the frontier, and SciCode 51.6–52% and DeepSWE 63.4% sit under their 55%/74% references.
 - **Cost efficiency: 95/100.** Z.ai list $0.15/$0.50 per 1M, limited-time promo $0.075/$0.25, blended ~$0.10/M and third-party hosts from $0.026/$0.93 — all at or beyond the ~97–99 ($0.10/$0.20) anchor; the ~306 GiB FP8 self-hosting footprint and ~49 tok/s throughput are the practical offsets.
-- **Overall Score: 86/100.** (84+86+95+85+78)/5 = 85.6 → 86 — the best-value agentic model of its generation: GDPval-AA 1773 Elo (#1), Toolathlon 78.4%, AutomationBench 48.8%, GPQA 91.2%, 1M multimodal context, MIT weights, at ~$0.10 blended per 1M; the vendor-run evals, TB2.1 84.3% (just under the bar) and DeepSWE 63.4% are the gaps.
+- **Overall Score: 84/100.** (82+84+95+85+76)/5 = 84.4 → 84 — the best-value agentic model of its generation: GDPval-AA 1773 Elo (#1), Toolathlon 78.4%, AutomationBench 48.8%, GPQA 91.2%, 1M multimodal context, open weights, at ~$0.10 blended per 1M; AA's current independent reads (Index 42, TB 4.0 33%, FrontierCode 31.8%), the vendor-run evals and DeepSWE 63.4% are the gaps.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+ARC Prize, Cognition, Epoch AI and AA's current-page rows found:
+
+- ARC-AGI-2 (semi-private, ARC Prize official leaderboard, 2026-10-01): **65.8%** (GLM-5.3-Flash Max) — fills the ARC-AGI-2 gap; mid-tier vs the 77–95% frontier
+- FrontierCode 1.1 Main (Cognition, chisel harness, 100 tasks, mean@5, 2026-10-05): **31.8%** — fills the FrontierCode gap; well under the frontier (Fable 5.1 53.4% Main, Opus 5.5 53.4% Main / 63.6% Extended)
+- FrontierMath Tier 4 v2 (Epoch AI, private set, run 2026-08-27): **17.1%** — fills the FrontierMath gap
+- GPQA Diamond (Epoch AI Inspect harness, 198 Q, run 2026-08-26): **90.2%** — independent confirmation of AA's 91.2%
+- AA's current comparison page (vs GLM-5.3 Max): Intelligence Index **42** (Max 45), GDPval-AA v2.1 **1647** (Max 1653), AutomationBench-AA **60%** (Max 62%), Terminal-Bench 4.0 **33%** (Max 42%), SciCode **52%** (Max 59%), HLE **40%** (Max 42%), GDP.pdf 15%, CritPt 15%, AA-Omniscience **7** (Max 14), AA-LCR v1.1 80%; cost per task $0.25 (Max $2.01), cost to run the Intelligence Index $280 (Max $2,503), 51 tok/s, 1035s per task
+- License note: SinoAIHub reads the GitHub repo metadata as **Apache-2.0** (the README has no separate weights-license section) — the "MIT" in the model card line should be verified against the HF card before reuse
+- **Scores revised**: Tool 84→82 (TB 4.0 33% is far under the frontier), Reasoning 86→84 (AA's current Index reads 42 vs the vendor-cited 57; HLE 40% no-tools, FrontierMath T4 17.1%, Omniscience 7), Coding 78→76 (FrontierCode Main 31.8%), Overall 86→84 ((82+84+95+85+76)/5 = 84.4)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Z.ai GLM-5.3-Flash launch blog, HF model card via Benchgen, Artificial Analysis via OpenRouter, The Decoder via Traictory, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5_3_Flash.md`, using the same headings.

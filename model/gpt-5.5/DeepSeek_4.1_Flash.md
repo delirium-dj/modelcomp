@@ -1,9 +1,20 @@
 # GPT-5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-09-20 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-5-5).
+> BenchLM overall **67.7/100** (#24), context **1M**, pricing **$5 input / $30 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 60.9, #22/122): OSWorld 2.0 13.0%; BrowseComp 84.4%; Terminal-Bench 2.0 82%; OSWorld-Verified 78.7%; JobBench 42.7%; MCP Atlas 75.3%
+> - Coding (BenchLM 62.4, #15/146): SWE-bench Pro 58.6%; CursorBench 3.2 58.4%; LiveCodeBench (Vals) 85.3%; FrontierCode 1.1 Main 43.0%; Terminal-Bench 2.0 82.0%; Vibe Code Bench 69.85%
+> - Reasoning (BenchLM 66.7, #18/28): ARC-AGI-2 85%; ARC-AGI-3 0.4%; MRCR v2 64K-128K 83.1%; MRCR v2 128K-256K 87.5%; ARC-AGI-1 95.00%
+> - Multimodal (BenchLM 71.4, #19/49): MMMU-Pro 81.2%; OfficeQA Pro 54.1%; MMMU-Pro w/ Python 83.2%
+> - Knowledge (BenchLM 69.3, #14/174): HLE 52.2%; HLE w/o tools 41.4%; MMLU-Pro (Vals) 88.1%; GPQA 93.6%; GPQA Diamond (Vals) 93.2%; GPQA-D 93.6%
+> - Math (BenchLM 69.4): FrontierMath v2 (Tiers 1-3) 51.700%; FrontierMath v2 (Tier 4) 35.400%; FrontierMath (legacy) 51.7%
+> - External signals (): SEC-Bench Pro 45.8%; Atomic network attacks 100%; Atomic vulnerability research 92%; Atomic evasion 54%
 
 ## Model card
 
@@ -67,6 +78,6 @@ Composite panels:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: fresh public internet research on 2026-09-20 — RankLLMs verified panel (updated 2026-09-18) as the only source publishing numbers for this ID; no vendor model card, pricing page or system card could be located, so card fields were marked unverified rather than invented. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

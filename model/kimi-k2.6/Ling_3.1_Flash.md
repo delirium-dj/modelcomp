@@ -69,8 +69,19 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Hugging Face model card, SemiAnalysis and aggregator rows found — the file's figures check out against the vendor's own card:
+
+- HF card confirms: GPQA Diamond **90.5%** (the card's own table — the blog's 88.4% was the conservative read), AIME 2026 **96.4%** (card; blog 93.3%), HLE-Full no-tools 34.7%, HMMT 92.7%, IMO-AnswerBench 86.0%, MMMU-Pro 79.4% (80.1% w/ python), CharXiv-RQ 80.4% (86.7% w/ python), MathVision 87.4% (93.2% w/ python), BabyVision 39.8% (68.5% w/ python), V* 96.9% (w/ python)
+- Evaluation-protocol footnotes (HF card): Terminal-Bench 2.0 via Terminus-2 with the JSON parser in preserve-thinking mode; SWE-bench family via an in-house SWE-agent adaptation (bash/createfile/insert/view/strreplace/submit tools), **averaged over 10 independent runs**; BrowseComp with the same discard-all context management as K2.5/DeepSeek-V3.2; DeepSearchQA with no context management (over-length tasks counted as failed); WideSearch under the "hide tool result" setting; Claw Eval v1.1 at 16,384 max-tokens-per-step; APEX-Agents over 452 of the 480 public tasks (excluding Investment Banking Worlds 244/246); vision evals at 98,304 max tokens (avg@3), python-tool settings at 65,536/50 steps
+- Other fills: Chatbot Arena **1462** (2026-05-17), HumanEval 92.0%, MMLU PRO 84.6%, Instruction-Following 89.8%; SemiAnalysis tracks K2.7-Code's in-house benchmark at 62.0 vs K2.6's 50.9 (K2.7-Code is the coding-focused successor); Verdent notes the SEAL mini-swe-agent harness reads GPT-5.4 at 59.1% and Opus 4.6 at 51.9% on SWE-bench Pro (vs Moonshot's in-house reads of 57.7%/53.4%) — harness choice moves these numbers by ~2 points
+- No score change: all headline figures (SWE-bench Verified 80.2%, Pro 58.6%, LiveCodeBench 89.6%, HLE-Full 54.0% w/tools) are confirmed by the vendor's own card; no new independent agentic boards (TB 2.1, DeepSWE, AA Coding Index) have appeared for K2.6
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Moonshot Kimi K2.6 tech blog, Models.dev, ARMES, AI Release Tracker, haimaker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K2_6.md`, using the same headings.

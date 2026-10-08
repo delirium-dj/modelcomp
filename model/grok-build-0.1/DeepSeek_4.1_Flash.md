@@ -1,9 +1,14 @@
 # Grok Build 0.1 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok Build 0.1 (`x-ai/grok-build-0.1`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-build-0-1).
+> BenchLM overall **n/a**, context **256K**, pricing **$1 input / $2 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 29.1, #87/122): Gert Labs 49.15%
 
 ## Model card
 
@@ -67,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06 UTC
 - Method: public internet research across BenchmarkList's measured rows for the Grok Build 0.1 `0616` profile, modelgrep's OpenRouter-derived specs and Artificial Analysis-cited figures, Model Beat / themodelbeat.com (specs, release date, pricing) and the AI BENCHY leaderboard; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

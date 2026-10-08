@@ -67,8 +67,21 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+BenchLM, BenchmarkList, goml and RankLLMs rows found:
+
+- Terminal-Bench 2.1: **88.0%** (BenchmarkList, max, verified 2026-07-21, rank 12/194, 94th percentile; $0.17 weighted cost/task, 166s) — an independent read above the vendor's 87.4%; field leader Fable 5.1 at 91.4%. Vals.ai's own run reads 77.5% (setup-dependent)
+- Coding fills: SWE-bench (Vals) **95.4%** — conflicts hard with BenchmarkList's SWE-bench Verified **75.2%** (rank 29/72) and RankLLMs' 77.4%; an unresolved ~20-point spread across harnesses, so neither is adopted into the score. LiveCodeBench (Vals) **85.9%**, Vibe Code Bench v1.1 67.8%, Convex Coding Evals 69.8% (111 tasks, no guidelines), CursorBench 3.1/3.2 64.9%, CursorBench 4.0 41.3%, IOI 65.3%, Code Migration 36.4%, FrontierCode 1.1 Extended 55.8% (Cognition/Devin), FrontierCode 41.3%, Senior SWE-Bench 27.4%, SWE-sweep 1.5%, SWE-Marathon 52/160 trials, Terminal-Bench 4.0 23.6%, Terminal-Bench 3.0 20.8%
+- DeepSWE detail (BenchmarkList, verified 2026-10-03): 69.6% pass@1 (95% CI 67.1–72.2%), pass@4 88.5%, mean $4.95/attempt (median $4.11), 75.9 mean agent steps, 9.23M mean input tokens; field leader Opus 5.5 at 74.2%
+- Tool/agent fills: BrowseComp **87.5%**, OSWorld 2.0 50.2%, Toolathlon 53.1%, CyberGym 81.8%, ExploitGym 23.2%, AA ITBench 51.0%, APEX-Agents-AA 38.9%, AA Agentic Index 43.7, ApprenticeBench 16%, Android Bench 86.8% (rank 7/46), ReactBench 40.5%, BenchCAD 0.714, VulcanBench v3 87.0%, CodeRabbit long-horizon repository tasks 40.7% pass
+- Other: CharXiv 85.9%, BioMysteryBench 49.4% (difficult); goml cross-check: Intelligence Index 55 (max), ~50% lower cost per task than Sol ($0.55 vs $1.04), Coding Agent Index 77 at ~60% lower cost, Pareto position behind Sol and Luna ("at every reasoning effort level, a Sol or Luna setting matches or beats Terra's intelligence at equal or lower cost")
+- No score change: TB 2.1 88.0% and BrowseComp 87.5% sit within the Tool 86 / Coding 89 rationale; the SWE-bench spread (75.2–95.4%) is flagged unresolved
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5.6 launch page and API docs, Artificial Analysis, OpenRouter, ARMES docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

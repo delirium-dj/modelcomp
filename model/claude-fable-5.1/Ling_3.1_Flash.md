@@ -67,8 +67,22 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+New verified data found — fills every previously-open gap:
+
+- **Toolathlon-Verified: 77.8%** (system card §8.15.5, 2026-09-20; BenchLM rank 5/21; Pass@3 81.5%, Pass³ 73.1%, 23.7 avg turns) — was "no verified public score found"
+- **SciCode: 63.1%** (BenchmarkList, rank 2/296) and **Vibe Code Bench v1.1: 90.3%** (vals.ai, rank 3/75) — both were open gaps
+- BenchmarkList additions: MCP Atlas **87.2%** (rank 2/48), Tau3-Banking **47.2%** (rank 6/176), DRACO **87.7%** (rank 2/24), BrowseComp **85.2% ±5.3** (493/520), PostTrainBench 40.2% (rank 5/31), ApprenticeBench 72%, CWE-bench v1 58.0%, ProgramBench 82.7% (rank 2/37), Senior SWE-Bench 34.7% (rank 1/19), SWE Atlas Test Writing 67.0% (rank 1/30) / Refactoring 56.7% (rank 2/21), Convex Coding Evals 81.1%, KernelBench Mega 22.95, Vending-Bench 2 5421.56, AutomationBench-AA 59.4%, ARC-AGI-1 97.5%, ReactBench 45.6%, BenchCAD 84.3%, FrontierSWE v2 56.3%
+- Terminal-Bench 4.0 (max): **57.9%** per BenchmarkList (2026-10-03) — 2.1pp above the system-card 55.8%; Terminal-Bench 2.1 (Vals run): **85.0%** (BenchLM); AA's own TB 2.1 rows: 91.4% max / 91.0% xhigh / 89.9% high (all "Default Fallback")
+- tbench.ai canonical TB 4.0 board: still no Fable 5.1 entry (populated through GLM-5.3, Aug 14); Anthropic's self-reported 55.8% would rank #1 ahead of Opus 5's verified 51.8% if it holds under the canonical harness
+- Platform docs: retirement "not sooner than 2027-09-01"; cache read $0.25/M (2.5% of input) and 1-hr cache write $20/M confirmed
+- Lineup context (2026-10-07): Anthropic launched Claude Haiku 5.5 ($0.10/$0.50 per 1M ≤100K tokens) and halved Sonnet 5.5 cache reads to $0.10/M; Fable 5.1 pricing unchanged
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Fable 5.1 launch page, platform docs and system card, Artificial Analysis, vals.ai, ARC Prize, LiveBench, BenchmarkList, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

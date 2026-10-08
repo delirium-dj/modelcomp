@@ -45,17 +45,29 @@ Long context / multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 76/100.** Terminal-Bench 2.1 83.3% nearly reaches the 85% frontier bar and SWE Marathon 29.0% (pass@1) led its table, with SWE-bench Pro 64.7% and DeepSWE 1.0 62.0%/1.1 53% mid-tier; the AA Intelligence Index of 54 and the absence of MCP Atlas/Toolathlon figures cap the score.
-- **Reasoning: 68/100.** Only the AA Intelligence Index of 54 (independent) was captured as a cross-domain reasoning composite — no GPQA Diamond, HLE or FrontierMath figure was published in the materials reviewed, so the "smartest model" launch positioning is unquantified here.
+- **Reasoning: 73/100.** GPQA Diamond 93% (ARMES-documented, AA-sourced — an attribution caveat: xAI published no reasoning suite at launch) reaches the 90%+ frontier band, with the AA Intelligence Index of 54 (#4 of 168) supporting; a 54% hallucination rate (vs 25% on Grok 4.3, per ARMES) and the absence of HLE, FrontierMath or AIME figures cap the score.
 - **Context window: 80/100.** 500K-token window (xAI's official card — not the 1M some third parties claim, which is Grok 4.3's spec); no ≥98%-at-depth retrieval figure.
 - **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70); no MMMU figure captured.
 - **Coding: 74/100.** Terminal-Bench 2.1 83.3% nearly reaches the 85% frontier bar, with SWE-bench Pro 64.7% and SWE Marathon 29.0% (best in its table) supporting; DeepSWE 1.1 53% is mid-tier, SWE-bench Verified was not captured, and ~4.2× token efficiency over Opus 4.8 (max) is a documented cost-per-task advantage.
 - **Cost efficiency: 84/100.** $2/$6 per 1M below 200K (blended ~$3.00/M at 3:1) sits just under the ~$1.25/$4.25≈88 anchor; ≥200K prompts double the entire request ($4/$12), cache reads are 15% of input, there is no Batch API discount, and the 4.2× token efficiency over Opus 4.8 (max) cuts cost-per-task.
-- **Overall Score: 73/100.** (76+68+80+65+74)/5 = 72.6 → 73 — a strong July-2026 coding agent (TB2.1 83.3%, SWE Marathon 29.0%, 4.2× token efficiency at $2/$6) whose unpublished reasoning evals, 500K window and mid-tier DeepSWE/SWE-bench Pro keep it below the October-2026 frontier.
+- **Overall Score: 74/100.** (76+73+80+65+74)/5 = 73.6 → 74 — a strong July-2026 coding agent (TB2.1 83.3%, SWE Marathon 29.0%, τ³-Banking 33% #1, 4.2× token efficiency at $2/$6) whose hallucination rate (54%), 500K window and mid-tier DeepSWE/SWE-bench Pro keep it below the October-2026 frontier.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+ARMES, HokAI and aggregator rows found:
+
+- AA reads: AA Intelligence Index **54** (#4 of 168), AA Coding Agent Index **76** (on par with GPT-5.5), τ³-Banking **33%** (#1 of 28 models), GPQA Diamond **93%**, output speed 90 tok/s (AA median)
+- Tool/agent fills: τ³-Banking 33% (#1) is a new strong tool-use row; AA Coding Agent Index 76 (par with GPT-5.5) supports the agentic tier; LiveBench agentic coding **56.5** (Grok 4.5 — note Grok 4.6 later read 54.2 on the same board, i.e. 4.5 was the stronger agentic-coding model there)
+- Weakness fills: hallucination rate **54%** (vs 25% on Grok 4.3, per ARMES) — a documented factual-reliability gap; 500K context smaller than peers' 1M
+- Launch-vs-independent check: all four launch coding figures (DeepSWE 1.0 62.0%, DeepSWE 1.1 53%, TB 2.1 83.3%, SWE-bench Pro 64.7%) check out against xAI's announcement and third-party transcriptions (apidog, Appwrite, Layer3Labs); no independent re-run of the coding boards has appeared since launch — treat as vendor-reported
+- **Reasoning revised 68→73** (GPQA Diamond 93% now captured, with the ARMES attribution caveat); Overall 73→74 ((76+73+80+65+74)/5 = 73.6)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (SpaceXAI Grok 4.5 launch + docs, benchr review, DataLLM Lab executed benchmark, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4_5.md`, using the same headings.

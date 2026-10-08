@@ -44,18 +44,31 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** MCP Atlas 57.4% and Toolathlon 49.4% sit in the strong-mid band, with SWE-bench Verified 78% (ahead of Gemini 3 Pro per Google) supporting; no Tau³ or GDPval-AA figure was captured.
-- **Reasoning: 80/100.** GPQA Diamond 90.4% reaches the 90%+ frontier band, with HLE 33.7% (no tools) and MMMU-Pro 81.2% supporting; no AA Intelligence Index or FrontierMath figure was captured.
-- **Context window: 95/100.** 1M-token input window with automatic context caching; no ≥98%-at-512K+ retrieval figure, so 100 is not justified.
+- **Tool use: 68/100.** MCP Atlas 57.4%, Toolathlon 49.4%, τ²-bench 43.3% (AA) and OSWorld-Verified 65.1% (Google, 5-run avg) sit in the mid band, with SWE-bench Verified 75.0–78% supporting; Terminal-Bench 2.1 at 31% (Google's own Terminus-2 run; 53.9% on vals.ai) is far under the frontier and pulls the score below the launch estimate.
+- **Reasoning: 80/100.** GPQA Diamond 90.4% reaches the 90%+ frontier band, with HLE 33.7% (no tools), MMMU-Pro 81.2%, ARC-AGI-1 84.67% and LMArena 1466 supporting; FrontierMath 35.64% (official) and the unpublished AA Intelligence Index cap the score.
+- **Context window: 95/100.** 1M-token input window with automatic context caching; GDM-MRCR v2 60.1% (Google's own run) is a moderate retrieval score and no ≥98%-at-512K+ figure exists, so 100 is not justified.
 - **Multimodal: 92/100.** Native text/image/audio/video/PDF input with text output — the audio-in/video band (90–100); MMMU-Pro 81.2% supports.
-- **Coding: 74/100.** SWE-bench Verified 78% is strong by late-2025 standards and edges Gemini 3 Pro on Google's figures, but sits under the ~80%+ October-2026 frontier band; DeepSWE, LiveCodeBench, Terminal-Bench 2.x and the AA Coding Index are unpublished.
+- **Coding: 72/100.** LiveCodeBench 85.6% (vals.ai) / 79.7% pass@1 and SWE-bench Verified 75.0–78% are strong, but DeepSWE 37% (Google's self-computed run; 5.16% in the December-2025 official evals), SWE-bench Pro 34.6–49.6%, Vibe Code Bench v1.1 20.2% and Terminal-Bench 2.1 31% cap the score.
 - **Cost efficiency: 90/100.** $0.50/$3 per 1M (blended ~$1.13/M at 3:1) with 10%-of-input cache reads ($0.05/M) and a free Gemini API tier sits between the ~$0.10/$0.20≈97–99 and ~$1.25/$4.25≈88 anchors; audio input costs $1.00/M.
-- **Overall Score: 83/100.** (74+80+95+92+74)/5 = 83.0 — frontier-grade reasoning (GPQA 90.4%) and a 1M multimodal window at $0.50/$3 with a free tier; mid-tier agentic tooling (MCP Atlas 57.4%, Toolathlon 49.4%) and a 78% SWE-bench keep it below the October-2026 agent frontier.
+- **Overall Score: 81/100.** (68+80+95+92+72)/5 = 81.4 → 81 — frontier-grade reasoning (GPQA 90.4%) and a 1M multimodal window at $0.50/$3 with a free tier; mid-tier agentic tooling (τ²-bench 43.3%, Toolathlon 49.4%, TB 2.1 31% self-computed) and a 75–78% SWE-bench keep it below the October-2026 agent frontier.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Large set of new rows found (Google's own July-2026 comparison tables plus vals.ai, evals.report, BenchLM and AA):
+
+- Agent / tool use: τ²-bench **43.3%** (AA); Claw-Eval **49.2%** (Claw-Eval leaderboard); OSWorld-Verified **65.1%** (Google, 5-run avg, pyautogui, 1080p, 100-step cap); GDPval-AA v2 **642**; Terminal-Bench 2.1 **31%** (Google self-computed, Terminus 2, per the Gemini 3.6 Flash launch) vs **53.9%** (vals.ai)
+- Coding: DeepSWE **37%** (Google self-computed, Datacurve, per the 3.6 Flash launch) vs **5.16%** (evals.report's official Dec-2025 row — an early-scaffold figure); SWE-bench Pro **49.6%** (Google, 5× runs, internal Antigravity harness) vs **34.63%** (official, Dec 2025); LiveCodeBench **85.6%** (vals.ai) / **79.7%** pass@1 (unverified); LiveCodeBench Pro **2316 Elo**; Vibe Code Bench v1.1 **20.2%** (vals.ai); SWE-bench Verified **75.0%** (vals.ai)
+- Reasoning: FrontierMath **35.64%** (official); ARC-AGI-1 **84.67%**; LMArena **1466**; MLE Bench **49.7%**
+- Long context: GDM-MRCR v2 **60.1%** (Google's own run — fills the MRCR gap; moderate, well under the 84.9% Opus 4.6-class figures)
+- Other: JobBench 11.4%, Gert Labs 56.63%
+- **Scores revised** (see Normalized scores): Tool 74→68, Coding 74→72, Overall 83→81 — Google's own Terminus-2 TB 2.1 run (31%), τ²-bench (43.3%) and DeepSWE (37%) sit well under the 2026 agentic frontier the launch-era 74s assumed
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google Gemini 3 Flash launch + model card, AI/TLDR, llm-stats, Gemini API docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_Flash.md`, using the same headings.

@@ -49,18 +49,29 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** SWE-bench Verified 74.9% (with 22% fewer output tokens and 45% fewer tool calls than o3) and Aider Polyglot 88.0% are strong coding-agent signals, but no general agentic-tool benchmarks (Terminal-Bench 2.x, BrowseComp, MCP Atlas, OSWorld, τ-Bench) were found in the materials reviewed.
+- **Tool use: 70/100.** SWE-bench Verified 74.9% (vendor, fixed n=477 subset; 65.9% on TrustTheBench's independent run) and Aider Polyglot 88.0% are strong coding-agent signals, and Terminal-Bench 59.2% (TrustTheBench, independent, 2026-08-23) fills the agentic gap at mid-band; FireBench 80.2% supports, but no MCP Atlas/OSWorld/τ-Bench figure exists.
 - **Reasoning: 78/100.** AIME 94.6% and HMMT 93.3% (no tools) are top-tier and GPT-5 Pro's GPQA 88.4% was a launch SOTA, but base GPQA 85.7% sits under the 90%+ frontier band, HLE 24.8% (no tools) is weak, and the AA Intelligence Index is unpublished.
 - **Context window: 76/100.** 400K-token window (272K in + 128K out) — double the 200K=70 reference, well under the 1M frontier, with no ≥98%-at-512K+ figure.
 - **Multimodal: 68/100.** text/image/file in with text out — the +image/PDF band (60–70), corroborated by MMMU 84.2% (a launch SOTA in its day).
-- **Coding: 75/100.** SWE-bench Verified 74.9% and Aider Polyglot 88.0% are solid, with SWE-Lancer $112K and the 70% front-end win over o3 supporting, but all figures are August-2025-era and no Terminal-Bench 2.x, DeepSWE, SciCode, LiveCodeBench or AA Coding Index figures were found.
+- **Coding: 72/100.** SWE-bench Verified 74.9% (vendor) / 65.9% (independent) and Aider Polyglot 88.0% are solid, with SWE-Lancer $112K, FireBench 80.2% and the 70% front-end win over o3 supporting; SWE-bench Pro 52.4% and SWE-bench 57.5% (independent rows) are mid-tier, and all figures are August-2025-era with no DeepSWE, SciCode, LiveCodeBench or AA Coding Index captured.
 - **Cost efficiency: 73/100.** $1.25/$10.00 per 1M (cached $0.125/M; Zen $1.07/$8.50) interpolates to ~73 between the ~88 ($1.25/$4.25) and ~60 ($3/$15) references — the $10 output half is the drag.
-- **Overall Score: 74/100.** (72+78+76+68+75)/5 = 73.8 → 74 — a landmark August-2025 flagship (AIME 94.6%, SWE-bench Verified 74.9%, Aider 88%, MMMU 84.2%, 400K context) scored against the October-2026 frontier, where its missing agentic-board evidence and $10/M output price place it mid-pack.
+- **Overall Score: 73/100.** (70+78+76+68+72)/5 = 72.8 → 73 — a landmark August-2025 flagship (AIME 94.6%, SWE-bench Verified 74.9%, Aider 88%, MMMU 84.2%, 400K context) scored against the October-2026 frontier, where the independent Terminal-Bench 59.2% and SWE-bench Verified 65.9% reads, missing agentic-board evidence and the $10/M output price place it mid-pack.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Independent board rows found (TrustTheBench, 2026-08-15→23):
+
+- Terminal-Bench: **59.2%** (independent, rank 80) — fills the Terminal-Bench gap; mid-band
+- SWE-bench Verified: **65.9%** (independent, rank 25 of the saturated board, 2026-08-16) vs the vendor's 74.9% (fixed n=477 subset — the gap is config-driven)
+- SWE-bench Pro: **52.4%** (independent, rank 90); SWE-bench (deprecated board): **57.5%**; FireBench: **80.2%** (rank 95); MMLU-Redux: saturated
+- **Scores revised**: Tool 72→70 and Coding 75→72 on the independent reads (TB 59.2% mid-band, SWE-bench Verified 65.9%); Overall 74→73 ((70+78+76+68+72)/5 = 72.8)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5 launch + developer docs, OpenAI API model docs, Vercel AI Gateway, allthings.how); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,21 @@
 # Claude Opus 4.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Opus 4.5 (`anthropic/claude-opus-4.5`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/claude-opus-4-5).
+> BenchLM overall **54.03/100** (#67), context **200K**, pricing **$5 input / $25 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 31.2, #84/122): Terminal-Bench 2.0 59.3%; OSWorld-Verified 66.3%; JobBench 32.3%; MCP Atlas 42.3%; Toolathlon 43.5%; τ³-bench results 70.2%
+> - Coding (BenchLM 41.3, #62/146): SWE-bench Pro 57.1%; SWE Multilingual 77.5%; SWE-bench Verified 80.9%; LiveCodeBench v6 84.8%; NL2Repo 43.2%
+> - Reasoning (BenchLM 73.3): LongBench v2 64.4%; AI-Needle 74%
+> - Multimodal (BenchLM 24.5, #47/49): MMMU-Pro 70.6%; CharXiv 68.5%; MathVision 74.3%; VideoMMMU 84.4%; ScreenSpot Pro 45.7%; V* 67.0%
+> - Knowledge (BenchLM 49.4, #71/174): HLE 30.8%; MMLU-Pro 89.5%; GPQA 87%; SuperGPQA 70.6%; MMLU-Redux 96.6%; C-Eval 92.2%
+> - Multilingual (BenchLM 96.5, #2/16): MMLU-ProX 85.7%; NOVA-63 56.7%
+> - Inst. Following (BenchLM 30.6, #115/125): IFBench 58%; IFEval 90.9%
+> - Math (BenchLM 57.9, #6/7): FrontierMath v2 (Tiers 1-3) 20.690%; AIME26 95.1%; HMMT Feb 2026 85.3%; FrontierMath v2 (Tier 4) 4.167%; HMMT Feb 2025 92.9%; HMMT Nov 2025 93.3%
 
 ## Model card
 
@@ -60,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: public internet research (Artificial Analysis model page and Intelligence Index, BenchmarkList profile, Vellum launch-benchmark breakdown); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

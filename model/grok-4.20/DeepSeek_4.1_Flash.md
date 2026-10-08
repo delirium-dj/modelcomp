@@ -1,9 +1,18 @@
 # Grok 4.20 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.20 (`x-ai/grok-4.20`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-20).
+> BenchLM overall **57.29/100** (#56), context **1M**, pricing **$1.25 input / $2.50 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 24.5, #98/122): Terminal-Bench 2.0 47.1%; Terminal-Bench 2.1 (Vals) 44.2%; DeepSearchQA 62.8%; Gert Labs 38.36%
+> - Coding (BenchLM 22.5, #114/146): SWE-bench Pro 51.8%; LiveCodeBench (Vals) 84.3%; LiveCodeBench Pro 74.2%; SWE-bench Verified 76.7%; Vibe Code Bench 4.06%; SWE-bench (Vals) 72.2%
+> - Reasoning (BenchLM 41.1): ARC-AGI-2 53.3%; ARC-AGI-3 0.1%
+> - Multimodal (BenchLM 35.6, #44/49): MMMU-Pro 75.2%; CharXiv 60.9%; ERQA 54.1%; SimpleVQA 57.4%; MedXpertQA (MM) 65.8%
+> - Knowledge (BenchLM 50.5, #66/174): HLE w/o tools 31.6%; MMLU-Pro (Vals) 86.3%; GPQA Diamond (Vals) 88.6%; GPQA-D 88.5%; HealthBench Hard 20.3%; MedXpertQA (Text) 50.2%
 
 ## Model card
 
@@ -71,6 +80,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06 UTC
 - Method: public internet research across Artificial Analysis (release page + cited figures), BenchmarkList's measured-row profile, HokAI's vendor-checked review, modelgrep's OpenRouter-derived specs and the AI BENCHY leaderboard; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

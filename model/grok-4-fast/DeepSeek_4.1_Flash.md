@@ -1,9 +1,14 @@
 # Grok 4 Fast — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4 Fast (`xai/grok-4-fast`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-fast-reasoning).
+> BenchLM overall **43.64/100** (#119), context **2M**.
+> New/updated measurements that fill gaps in the rows above:
+> - Coding (BenchLM 21.7, #116/146): Vibe Code Bench 0.00%
 
 ## Model card
 
@@ -55,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: public internet research (xAI Grok 4 Fast launch post, BenchmarkList profile with third-party eval rows). **Re-verified 2026-09-27** against xAI's own docs hub (now showing only Grok 4.7 — 4 Fast has left the served lineup) and a mid-2026 vendor-page record confirming deprecation 2026-05-15, retirement 2026-08-15, 16K max output and AA index 35; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

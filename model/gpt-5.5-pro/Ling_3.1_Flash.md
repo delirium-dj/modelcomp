@@ -68,8 +68,22 @@ Multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+BenchmarkList, tensor.news and ModelCadence rows found:
+
+- FrontierMath (Epoch AI, reproduced): Tiers 1–3 v2 private **87.72%**, Tier 4 v2 private **78.05%** — strong reproduced research-math reads (vs the 51.7%/39.6% v1-era rows on file)
+- ARC-AGI-1 **96.5%** (rank 9/97, $4.53/task); ARC-AGI-2 **84.6%** (rank 10/99, $10.51/task; pass@2 84.6%, rank 2/71 — the file's 83.3% is the launch reading)
+- HLE (system card, 2026-06-09): **57.2%** with tools / **43.1%** no tools (rank 10/478; field leader Opus 5.5 at 67.7%) — confirms the 57.2% Pro-compute row
+- Rank-1 rows: TaxBench **29.3%** mean pass^5 (rank 1/16, field leader; pass@1 77.7%, tax knowledge 84.2%, tax calculations 74.3%, data retrieval 74.5%), GeneBench **33.2%** (rank 1/16, field leader), GeneBench-Pro **20.5%** (rank 7/30, extended mode, 5 runs)
+- Other: BrowseComp 90.1% (rank 8/60, field leader), GDPval 82.3% (rank 3/18), SimpleBench 76.9% (rank 3/36), BLXBench 44.5% (163/366 tests), CADGenBench 0.3871 (rank 5/18), DTBench 93.33, LMCA 63.46, Chess Puzzles 62.12 (reproduced), OTIS Mock AIME 100 (reproduced), GPQA Diamond 91.9% (Epoch, reproduced)
+- Composites: Epoch Capabilities Index standing #6 of 270 (score 162.38); ModelCap Index 79.7 (#16 of 337, range 73.6–85.9); ModelCadence rescaled: Reasoning 80+2.5 (top 5%), Math 72+5.2 (top 12%), Science 69−5.9 (top 24%); 5 of 10 tensor.news scores independently reproduced
+- No score change: FrontierMath v2 (87.7%/78.05%) and the reproduced GPQA 91.9% sit within the Reasoning 91 rationale
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI launch page, LLM Reference, HokAI, OpenRouter, Artificial Analysis, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,19 @@
 # GPT-5.4 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-5.4 (`gpt-5.4`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-5-4).
+> BenchLM overall **66.92/100** (#26), context **1.05M**, pricing **$2.50 input / $15 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 50.3, #45/122): BrowseComp 82.7%; Terminal-Bench 2.0 75.1%; OSWorld-Verified 75%; JobBench 38.9%; MCP Atlas 70.6%; Toolathlon 54.6%
+> - Coding (BenchLM 48.4, #46/146): SWE-bench Pro 57.7%; LiveCodeBench Pro 87.5%; React Native Evals 85.3%; Vibe Code Bench 67.42%; PostTrainBench v1.1 19.0%
+> - Reasoning (BenchLM 60.6, #22/28): ARC-AGI-2 74.0%; ARC-AGI-3 0.2%; ARC-AGI-1 93.67%
+> - Multimodal (BenchLM 69.3, #20/49): MMMU-Pro 81.2%; OfficeQA Pro 53.2%; CharXiv 82.8%; MMMU-Pro w/ Python 82.1%; ERQA 65.4%; SimpleVQA 61.1%
+> - Knowledge (BenchLM 65.8, #23/174): HLE 52.1%; HLE w/o tools 39.8%; GPQA 92.8%; GPQA-D 92.8%; HealthBench Hard 40.1%; MedXpertQA (Text) 59.6%
+> - Math (BenchLM 64.4): FrontierMath v2 (Tiers 1-3) 47.600%; FrontierMath v2 (Tier 4) 27.100%
 
 ## Model card
 
@@ -61,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (OpenAI API model catalog page for specs/tools/pricing, evals.report 46-row benchmark table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

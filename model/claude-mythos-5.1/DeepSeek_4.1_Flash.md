@@ -1,9 +1,14 @@
 # Claude Mythos 5.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic (`claude-mythos-5-1`)
-- Date: 2026-09-20 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/claude-mythos-5-1).
+> BenchLM overall **n/a**, context **1M**, pricing **API rate not published**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (no category score): Terminal-Bench 4.0 60.90%
 
 ## Model card
 
@@ -66,6 +71,6 @@ Composite panels:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: fresh public internet research on 2026-09-20 — Anthropic's launch post "Introducing Claude Fable 5.1 and Claude Mythos 5.1" (2026-09-01, system card referenced), Vellum's benchmark walkthrough (2026-09-02) and The AI Rankings access/restriction dossier (last verified 2026-09-02), cross-checked against the curated record for this folder. Mythos 5.1 is deliberately under-disclosed, so most dimensions are flagged provisional proxies rather than measured values; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

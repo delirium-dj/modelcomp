@@ -55,8 +55,22 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+- **Terminal-Bench 2.0: 65.4%** (CodingFleet / dev.to cross-model table; system-card era) — fills the "exact figure not stated" gap; SWE-bench Verified **80.8%** (25-trial average; **81.42%** with the prompt modification per the launch post); BenchGecko: SWE-bench 78.7%, TB 66.4 ±7.4
+- **Claw-Eval (arXiv 2604.06132, Peking University, 2026-04-07; 300 human-verified tasks, 3 trials, full-trajectory grading)** — fills the "Claw-Eval: no verified public score found" gap:
+  - General: Score 80.6 / Pass@3 80.8 / Pass³ 70.8
+  - Multi-turn: 79.6 / 89.5 / 68.4
+  - **Overall: 80.4 / 82.4 / 70.4 — #1 Overall Pass³ of 14 models** (most reliable agent; Sonnet 4.6 leads Score at 81.4)
+  - Multimodal: 54.7 / 52.5 / 24.8 (2nd overall; Video 15.4, Doc & Image 45.5, Code 25.9 — Video led jointly with Sonnet 4.6 at 15.4%)
+  - Most resilient under error injection: Pass³ drops only 14.3pp at 0.6 error rate (vs Gemini 3.1 Pro −24.2pp), holding 56.5% Pass³ even at 0.6
+  - Caveat: Opus 4.6 also served as the simulated-user agent and LLM judge for Claw-Eval's multi-turn tasks (temperature 0.7)
+- Lineup context (2026-10-07): Haiku 5.5 launched; Sonnet 5.5 cache reads halved; Opus 4.6 pricing unchanged
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Opus 4.6 launch/news, Udit GA announcement, BenchGecko, LLM Stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4_6.md`, using the same headings.

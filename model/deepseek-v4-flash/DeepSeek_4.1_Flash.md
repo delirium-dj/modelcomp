@@ -1,9 +1,18 @@
 # DeepSeek V4 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek / DeepSeek V4 Flash (`deepseek/deepseek-v4-flash`; checkpoints "Preview" 2026-04-24 and "0731" July 2026)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/deepseek-v4-flash).
+> BenchLM overall **n/a**, context **1M**, pricing **$0.14 input / $0.28 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 52): BrowseComp 73.2%; Terminal-Bench 2.0 56.9%; MCP Atlas 69%; Terminal-Bench 2.1 (Vals) 67.0%; HLE w/ tools 45.1%; Toolathlon 47.8%
+> - Coding (BenchLM 53.2): SWE-bench Pro 52.6%; LiveCodeBench (Vals) 87.3%; SWE Multilingual 73.3%; VulcanBench v3 88.4%; Terminal-Bench 2.0 56.9%; DeepSWE 54.4%
+> - Reasoning (BenchLM 57): ARC-AGI-2 61.4%; MRCR 1M 78.7%; CorpusQA 1M 60.5%; ARC-AGI-1 89.00%
+> - Knowledge (BenchLM 61.5): HLE 34.8%; MMLU-Pro 86.2%; MMLU-Pro (Vals) 86.2%; GPQA 88.1%; GPQA Diamond (Vals) 89.9%; SimpleQA 34.1%
+> - Math (BenchLM 79.9): HMMT Feb 2026 94.8%; IMOAnswerBench 88.4%; Apex 33.0%; Apex Shortlist 85.7%
 
 ## Model card
 
@@ -61,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-24
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: public internet research — BenchmarkList third-party harness rows for agentic, coding and long-context benchmarks (TAU3, Tau2, DABstep, ATRBench, GDPval-AA, LiveCodeBench, SciCode, SWE-bench Verified/Multilingual, DeepSWE, ALE-Bench, AA-Briefcase); Artificial Analysis for the Intelligence Index, parameters (284B/13B), MIT license, context window, pricing, speed, verbosity and modality confirmation; llm.ing for the OpenRouter route pricing, max output, knowledge cutoff and LMArena ratings; llm-index.com for the LiveBench-based LLM Index breakdown. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

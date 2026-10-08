@@ -52,18 +52,28 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** SWE-bench Verified 77.2% (launch SOTA, 10-trial avg) and OSWorld 61.4% (led at launch, up from Sonnet 4's 42.2%) lead, with GDPval win/tie 50.3%, Terminal-Bench 46.5% and >30-hour continuous autonomy supporting; τ²-Bench's value was not captured, and the model is 13 months old with Terminal-Bench far under the current 85% bar.
-- **Reasoning: 70/100.** GPQA Diamond 82.3%, AIME 2024/2025 77.8% and MATH Level 5 97.7% are strong, but FrontierMath 15.2% (Tier 4: 4.2%), SimpleQA Verified 30.7% and the absence of an HLE figure cap the score; the model is 13 months old.
-- **Context window: 70/100.** 200K-token window — the methodology's 70 anchor; a 1M configuration exists but was implicated in Anthropic's inference issues, so Anthropic reports the 200K result as primary; no MRCR/RULER/AA-LCR figure captured.
-- **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70); no MMMU/Video-MMMU figure captured.
-- **Coding: 74/100.** SWE-bench Verified 77.2% (78.2% in the 1M configuration; 82.0% under Anthropic's high-compute candidate-selection regime) was the launch SOTA, with WebDev Arena 1391 supporting; Terminal-Bench 46.5% is far under the current bar, GSO is 14.7%, and LiveCodeBench/DeepSWE/AA Coding Index were not captured.
+- **Tool use: 71/100.** SWE-bench Verified 77.2% (launch SOTA, 10-trial avg) and OSWorld 61.4% (led at launch, up from Sonnet 4's 42.2%) lead, with τ²-Bench Telecom 78.1% (AA) and GDPval win/tie 50.3% supporting; Terminal-Bench 2.1 55.8% (AA), Terminal-Bench Hard 35.6% and the AA Agentic Index of 15.8 sit well under the current frontier, and the model is 13 months old.
+- **Reasoning: 69/100.** GPQA Diamond 83.4% (AA) / 82.3% (themodelbeat), AIME 2024/2025 77.8% (AA's AIME 2025 row: 88.0%) and MATH Level 5 97.7% are strong, but HLE 17.8% (AA), FrontierMath 15.2% (Tier 4: 4.2%), CritPt 1.1%, ARC-AGI v2 13.6% (BenchmarkList; themodelbeat reads 63.7% on an unspecified version) and SimpleQA Verified 30.7% cap the score; the model is 13 months old.
+- **Context window: 70/100.** 200K-token window — the methodology's 70 anchor; AA-LCR **72.3%** (AA) supports the anchor; a 1M configuration exists but was implicated in Anthropic's inference issues, so Anthropic reports the 200K result as primary.
+- **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70); MMMU Pro 79.3% (BenchmarkList) supports, no Video-MMMU figure captured.
+- **Coding: 71/100.** SWE-bench Verified 77.2% (78.2% in the 1M configuration; 70.0–71.4% on BenchmarkList's independent rows) was the launch SOTA, with IDE-Bench 87.5% (rank 1/15) and LiveCodeBench 71.4% (AA) / 73.0% (BenchmarkList) supporting; SciCode 44.7–45.7%, Vibe Code Bench v1.1 22.6%, SWE-bench Multilingual 67.0% and Terminal-Bench 2.1 55.8% cap the score.
 - **Cost efficiency: 60/100.** $3/$15 per 1M is the methodology's ~60 anchor exactly; 10%-of-input cache reads ($0.30/M) and half-rate Batch API ($1.50/$7.50) are offsets.
-- **Overall Score: 71/100.** (74+70+70+65+74)/5 = 70.6 → 71 — the September-2025 agentic-coding SOTA (SWE-bench Verified 77.2%, OSWorld 61.4%, >30-hour autonomy at $3/$15) whose age, 200K window, Terminal-Bench (46.5%) and FrontierMath (15.2%) place it well below the October-2026 frontier; deprecated with retirement on 2026-11-30.
+- **Overall Score: 69/100.** (71+69+70+65+71)/5 = 69.2 → 69 — the September-2025 agentic-coding SOTA (SWE-bench Verified 77.2%, OSWorld 61.4%, >30-hour autonomy at $3/$15) whose age, 200K window, Terminal-Bench 2.1 (55.8%), HLE (17.8%) and SciCode (44.7%) place it well below the October-2026 frontier; deprecated with retirement on 2026-11-30.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Full Artificial Analysis row found (fills the HLE, LiveCodeBench, SciCode, AA-LCR and Terminal-Bench gaps; reasoning / non-reasoning):
+
+- Intelligence Index **20.7 / 19.3** (easy-benchmarks' newer AA index version reads 36.4); Coding Index 52.1; Math Index 88.0 / 37.0; Agentic Index 15.8; GPQA Diamond **83.4% / 72.7%**; HLE **17.8% / 7.2%**; IFBench 57.3% / 42.7%; τ²-Bench Telecom **78.1% / 70.5%**; **AA-LCR 72.3% / 54.0%**; τ-Bench Banking 24.5%; GDPval-AA 20.5%; CritPt 1.1% / 0.0%; **LiveCodeBench 71.4% / 59.0%**; **SciCode 45.7%**; Terminal-Bench Hard 35.6% / 28.8%; **Terminal-Bench 2.1 55.8%**; Terminal-Bench 4.0 0.0%; AIME 2025 88.0% / 37.0%; MMLU-Pro 87.5% / 86.0%; AA-Omniscience Accuracy 28.4% / Non-Hallucination Rate 47.3% (non-reasoning)
+- BenchmarkList additions: ABC-Bench 63.2% (rank 1/11), AssertLLM2 28.3% (rank 1/6), IDE-Bench 87.5% (rank 1/15), SWE-bench Verified Mini (HAL) 72.0% (rank 1/13), CORE-Bench Hard 62.2% (rank 2/18), LongWebBench 6.74 (rank 2/13), SWE-rebench 60.0% (rank 9/29), PerfCodeBench 61.6% (rank 9/23), VibeCodingBench 88.56 (rank 6/15), OpenHands Index 54.6% (rank 11/26), ALE-Bench 796.15 (rank 35/83), IOI 18.3% (rank 26/58), Terminal-Bench 2.0 41.6% (rank 32/68), CVerifBench 94.9% (rank 8/14), **Vibe Code Bench v1.1 22.6%** (rank 39/71), LiveCodeBench 73.0% (rank 70/123), NL2Repo 40.2 (rank 18/31), KOCO-BENCH 6.1% (rank 7/11), WebDev Arena 1385.28, Android Bench 54.2%, SWE-bench Multilingual 67.0%, Cangjie-bench 81.9% (rank 1/4), ContextBench 53.0% (rank 1/4), ProjDevBench 70.88 (rank 3/3), SWE-bench Live 30.0–44.1% (small fields), ObviousBench 97.2%, HLE Text Only 14.1% ±1.47, EnigmaEval 6.0%, MultiNRC 35.8%, CAIS Text Capabilities Index 25.4, MMMU Pro 79.3%, NYT Connections Extended 47.4%
+- **Scores revised** (see Normalized scores): Tool 74→71, Reasoning 70→69, Coding 74→71, Overall 71→69 on the filled gaps (TB 2.1 55.8%, HLE 17.8%, SciCode 44.7–45.7%, Vibe Code Bench 22.6% all sit well under the 2026 frontier)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Sonnet 4.5 launch + platform docs, Epoch AI, themodelbeat, CometAPI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4_5.md`, using the same headings.

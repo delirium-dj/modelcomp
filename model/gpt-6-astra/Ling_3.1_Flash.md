@@ -72,8 +72,22 @@ Cyber (vendor-reported, limited release):
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+BenchmarkList, The AI Rankings, ARC Prize and The Model Gap rows found:
+
+- Rank-1 rows (BenchmarkList): Agents' Last Exam score 59.3% (rank 1/41 — the partial-credit score; Snorkel's pass rate is 34.2%), ARC-AGI-3 Provider-Adapter 99.9% (rank 1/13), RuneBench 7.3 (rank 1/61), Terminal-Bench Science 68.1% (rank 1/17), Vending-Bench 2 15514.7 (rank 1/60), BenchCAD 95.9% (rank 1/28), Convex Coding Evals 84.7% (rank 1/30), ProgramBench 85.4% (rank 1/37), SWE Atlas Refactoring 59.0% (rank 1/21)
+- Near-top rows: ARC-AGI-1 98.5% (rank 2/97), ARC-AGI-2 95.0% (rank 2/99), BrowseComp 94.2% ± 3.2% (rank 2/60 — a strong new tool-use row), ScreenSpot-Pro 92.7% (rank 2/59 — GUI grounding), PostTrainBench 44.3% (rank 3/31), Vibe Code Bench v1.1 ~89% (near the top of 75), FrontierSWE v2 65.5% (rank 10/20), SWE-Math 51.1% (rank 6/30), SWE-Marathon 68/160 trials, AA-Briefcase 1569 (rank 12/145), τ³-Banking 41.4% (rank 15/176), GDPval-AA 1542 (rank 32/352), AutomationBench-AA 68.5% (rank 5/26), DRACO 76.8% (rank 18/24), SciCode 56.5%, AA Coding Agent Index 67 (rank 8/10)
+- ARC Prize effort ladder (arcprize.org, 2026-09-02): Max 97.5/95.0/62.71/98.55 (ARC-AGI-1 / -2 / -3 Standard / -3 Provider Adapter); XHigh 98.5/93.3/59.34/98.44; High 98.5/92.1/54.82/**99.95**; Medium 97.5/92.1/38.59/98.44; Low 96.5/85.4/17.45/98.03; None 86.0/59.6/35.18/96.72 — the file's "99.9% Provider Adapter" is the High tier; at Max it is 98.55%
+- Version drift flagged: AA Intelligence Index reads **53** (max, v4.3, The AI Rankings — level with Fable 5.1 and Gemini 4 Argon; Opus 5.5 58, Sonnet 5.5 56, Opus 5 51, Sol 47) vs 55 on the v4.2 read on file; AA Coding Agent Index reads **62** (current — level with Fable 5.1, above Opus 5's 60) vs 67.0 on the v1.4 read on file
+- Terminal-Bench 4.0: **59.1%** on AA's independent run (vs 57.7% vendor; Fable 5.1: 52.0%); throughput measured at 54 tok/s; ~60% more per task than Sol
+- Confirmed absent: no SWE-bench figure of any kind (Pro or Verified) — the second frontier launch in a week to skip it, after Fable 5.1; LiveCodeBench, SWE-bench Verified, Toolathlon-Verified, LiveBench and HMMT Feb 2026 still had no Astra row as of the 2026-10-08 check
+- No score change: BrowseComp 94.2% and ScreenSpot-Pro 92.7% sit within the Tool 92 rationale; the index drift (55→53, 67→62) is flagged but the HLE 54.7% / ARC-AGI-2 95% anchors hold Reasoning 93 and Coding 92
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI launch page, tbench.ai, Artificial Analysis, ARC Prize, Datacurve DeepSWE board, Snorkel, The Model Gap, Agent.Space); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -56,17 +56,31 @@ Long context / multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 79/100.** τ²-Bench Telecom 86.0% (AA, xhigh) is at the frontier bar and Terminal-Bench 2.0 77.3% was a launch SOTA, with OSWorld-Verified 64.7%, GDPval 70.9% win-or-tie and the AA Intelligence Index of 54 supporting; the February-2026 SOTA figures are superseded (TB2.0 now trails the 82–88% leaders) and Terminal-Bench Hard 53.0% caps the score.
-- **Reasoning: 83/100.** GPQA Diamond 91.5% (AA, xhigh) clears the 90%+ frontier band and HLE 42.5% clears the 40%+ bar, with IFBench 75.4% and AA-LCR 83.3% supporting; CritPt 16.9%, AA-Omniscience (52.9% accuracy, 10.8% non-hallucination) and the AA Intelligence Index of 54 cap the score.
+- **Reasoning: 81/100.** GPQA Diamond 91.5% (AA, xhigh) clears the 90%+ frontier band and HLE 42.5% clears the 40%+ bar, with IFBench 75.4% and AA-LCR 83.3% supporting; CritPt 16.9%, AA-Omniscience (52.9% accuracy, 10.8% non-hallucination) and AA's current Intelligence Index read of 33 (v4.3.2 — vs the 54 cited from an older index version) cap the score.
 - **Context window: 76/100.** 400K-token window — double the 200K=70 reference, well under the 1M frontier; AA-LCR 83.3% (xhigh) supports, no ≥98%-at-512K+ figure.
 - **Multimodal: 68/100.** text/image/PDF in with text out — the +image/PDF band (60–70); no MMMU or vision-suite figure captured.
 - **Coding: 74/100.** SWE-Lancer 81.4% and Terminal-Bench 2.0 77.3% were launch SOTAs, but SWE-bench Pro 56.8% is now mid-tier, SciCode 53.2% is under the 55% reference, the AA Coding Index of 53.1 is under the 70% bar, and Terminal-Bench Hard 53.0% is weak; DeepSWE and SWE-bench Verified are unpublished.
 - **Cost efficiency: 70/100.** $1.75/$14.00 per 1M (blended $4.81/M) interpolates to ~70 between the ~88 ($1.25/$4.25) and ~60 ($3/$15) references — the $14 output half is the drag; cached reads at $0.175/M and the Fast tier (2×) are the offsets.
-- **Overall Score: 76/100.** (79+83+76+68+74)/5 = 76.0 → 76 — a strong February-2026 coding frontier (launch SOTAs across SWE-bench Pro, TB2.0, OSWorld, SWE-Lancer; AA GPQA 91.5%) whose launch-era coding leads are superseded and whose AA Coding Index (53.1), SciCode (53.2%) and omniscience hallucination rate (89.2%) are the gaps.
+- **Overall Score: 76/100.** (79+81+76+68+74)/5 = 75.6 → 76 — a strong February-2026 coding frontier (launch SOTAs across SWE-bench Pro, TB2.0, OSWorld, SWE-Lancer; AA GPQA 91.5%) whose launch-era coding leads are superseded and whose AA Coding Index (53.1), SciCode (53.2%) and omniscience hallucination rate (89.2%) are the gaps.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+evals.report's official-ingestion rows and AA's current-page read found:
+
+- SWE-bench Verified: **74.8%** (official, 2026-02-05) — fills the gap; strong for its era
+- Vibe Code Bench: **61.77%** (official) — fills the gap; mid-tier
+- WeirdML: **77.9%**; SWE-rebench: **58.2%** (unverified); PostTrainBench: **17.76%** (weak); WebDev Arena **1407** Elo; Design Arena **1199** Elo; GDPval **1482** Elo; task-completion time horizon **349.5 min** (~5.8 h at the 5% horizon)
+- Launch-table deltas vs GPT-5.2-Codex confirmed (digitalapplied): TB 2.0 77.3% vs 64.0% (+13.3), OSWorld-Verified 64.7% vs 38.2% (+26.5), Cybersecurity CTF 77.6% vs 67.4%, SWE-Lancer 81.4% vs 76.0%, SWE-bench Pro 56.8% vs 56.4% (+0.4 — incremental, not a step change)
+- AA's current page reads the Intelligence Index at **33** (v4.3.2) for GPT-5.3 Codex (xhigh) — vs the 54 on file from an older index version; flagged as an index-version mismatch, and the cap on Reasoning
+- Still unpublished: BrowseComp, MCP Atlas, Toolathlon, DeepSWE, AA Coding Index (current), LiveCodeBench
+- **Reasoning revised 83→81** (AA's current composite reads 33 vs the older-version 54); Overall unchanged at 76 ((79+81+76+68+74)/5 = 75.6)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI API docs, AI/TLDR, Artificial Analysis via OpenRouter, Dataconomy, CloudPrice); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_3_Codex.md`, using the same headings.

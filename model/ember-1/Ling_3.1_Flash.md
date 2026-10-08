@@ -57,8 +57,20 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Corroboration and gap check — no new capability benchmarks have been published for Ember-1 since launch:
+
+- BenchLM (2026-10-08): only two published rows remain — Terminal-Bench 2.1 **82.0%** and τ²-bench Airline **66.0%**; GPQA, HLE, MCP Atlas, Toolathlon, LiveCodeBench, SciCode, Claw-Eval and every other tracked row are still "Coming soon"
+- AI Primer's five-score review of Fireworks' table: three gains over Kimi K3 max (TB 2.1 +1.1 pts, DeepSWE 1.1 +8.8 pts, τ²-Airline +2.0 pts) and two dips (SWE-bench Verified −1.0 pt, SWE-Interact −1.3 pts) — all company-reported
+- Head-to-head: Terminal-Bench 2.1 82.0% vs Ornith-1.5-397B's 86.1% (BenchLM) — Ember-1 trails the newer 397B model on the one shared benchmark
+- Still unpublished: GPQA/HLE/FrontierMath, MCP Atlas/Claw-Eval/GDPval-AA/Agents' Last Exam, LiveCodeBench/SciCode/Vibe Code Bench/AA Coding Index, MRCR/RULER/LCR, and any multimodal benchmark (modalities remain inferred from the Kimi K3 base)
+- No score change: the launch data still stands as the only evidence base
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Fireworks Ember-1 launch, Fireworks model page, OpenRouter, LavX News); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Ember_1.md`, using the same headings.

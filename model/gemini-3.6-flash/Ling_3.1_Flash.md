@@ -64,8 +64,20 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+vals.ai, Traictory and cross-source rows found:
+
+- Vals Index: Accuracy **55.35%** ± 1.09, $3.030/test, 22m 8s; SWE-bench Verified Vals subset **77.45%** (+1.96 over 3.5 Flash); **Vibe Code Bench Vals subset 57.88%** (+3.17 over 3.5 Flash) — fills the Vibe Code Bench gap; Terminal-Bench 2.1 **73.78%** across three full trials (#8 of 43); MedCode **53.15%** (#7 of 74)
+- Traictory: DeepSWE v1.1 **49% ± 5%** (mini-swe-agent harness, high effort, verified) — matches the vendor's 49%
+- AI Model Timeline: CharXiv Reasoning **with tools 89.4%** (the no-tools figure was already captured); GPQA Diamond **90.4%** on Google's card (AA reads 92.8%, Vals 93.4% — a three-way spread, noted)
+- Awesome Agents' cross-table: GDPval-AA v2 1421 vs GPT-5.6 Luna 1584 / Grok 4.5 1535 / Sonnet 5 1607; GDM-MRCR v2 128K 91.8% vs Luna 74.8% / Grok 81.4% / Sonnet 71.6%; OSWorld-Verified 83.0% vs Luna 72.6% / Sonnet 81.2%; token-efficiency detail: DeepSWE output per task fell 276K→97K tokens (−65%), AA Index 28K→23K (−17%)
+- No score change: Vibe Code 57.88% and MedCode 53.15% are mid-tier, consistent with Coding 78; the three-way GPQA spread (90.4–93.4%) is within the Reasoning 82 rationale
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind model card, AI/TLDR, Wait Which Model, BenchLM, Vals AI, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_6_Flash.md`, using the same headings.

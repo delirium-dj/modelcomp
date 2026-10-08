@@ -1,9 +1,18 @@
 # GPT-6 Luna — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-6 Luna (`gpt-6-luna`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-6-luna).
+> BenchLM overall **65.55/100** (#34), context **1.05M**, pricing **$0.10 input / $0.50 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 55, #38/122): ExploitGym 11.6%
+> - Coding (BenchLM 53.6, #36/146): DeepSWE 66.6%; Bug Hunt Bench 18.3 fixes
+> - Reasoning (BenchLM 55.9, #25/28): ARC-AGI-2 59.3%; ARC-AGI-3 0.1%; ARC-AGI-1 86.70%
+> - Knowledge (BenchLM 64.3, #28/174): HealthBench (raw) 50.0%; HealthBench (length-adjusted) 54.5%; HealthBench Professional 60.8%; HealthBench Professional (raw) 61.2%; HealthBench Hard 31.4%
+> - External signals (): SEC-Bench Pro 34.2%
 
 ## Model card
 
@@ -57,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (HokAI vendor-checked model page for specs, pricing, launch results and context; OpenRouter model page for Artificial Analysis benchmark rows, pricing and endpoint performance; Artificial Analysis sibling article reference for the cost-efficiency claim); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

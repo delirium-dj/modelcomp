@@ -64,8 +64,20 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+- **DeepSWE v1.1: 74.2%** (system card) — fills the gap; **AA-SciCode: 66.9%** (Artificial Analysis SciCode leaderboard, max effort with default fallback — **#1**; xhigh 65.0%; Fable 5.1 max 63.1%) — fills the SciCode gap
+- FrontierCode 1.1 Extended **63.6%**; ProgramBench **91.2%**; FrontierSWE v2 **62.3%** (Proximal); PostTrainBench v1.1 **49.3%** (Google's Gemini 4 Argon launch chart)
+- Artificial Analysis' own runs (graysoft capture): **AA-LCR 84.7%** (fills the long-context gap), HLE 57.5% (xhigh, default fallback), Terminal-Bench 4.0 **59.6%** (AA's own run vs 66.4% system card), AA Intelligence Index 56.00
+- BenchLM: overall **86.37/100, rank #1 of 887**; LMSpeed: Coding V3.0 estimated 69, coding score 86.6 (#4/94)
+- Vals AI TB 2.1 mirror: **87.6%** (Sep 27 snapshot — separately tagged Vals run, not a tbench.ai public-board submission)
+- Still unpublished for 5.5: GPQA Diamond, AIME, MMLU-Pro, ARC-AGI-2, LiveCodeBench, Vibe Code Bench, SWE-bench Verified, MRCR/RULER/GraphWalks, Omniscience
+- Lineup context (2026-10-07): Haiku 5.5 launched; Sonnet 5.5 cache reads halved to $0.10/M; Opus 5.5 pricing unchanged ($4/$20, cache reads $0.20/M)
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic system card, Artificial Analysis, Zapier AutomationBench leaderboard, VulcanBench, HokAI, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

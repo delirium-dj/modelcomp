@@ -68,8 +68,17 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+- **Toolathlon-Verified: 77.8%** is shared with Fable 5.1 (system card §8.15.5, 2026-09-20; Pass@3 81.5%, Pass³ 73.1%, 23.7 avg turns) — fills the open Toolathlon gap for the shared weight set; BenchLM lists Mythos-specific rows (TB-Science, OSWorld 2.0, AutomationBench) as "coming soon"
+- Shared-set additions (BenchmarkList, Fable 5.1 rows): SciCode 63.1% (rank 2/296), Vibe Code Bench v1.1 90.3% (rank 3/75), MCP Atlas 87.2% (rank 2/48), DRACO 87.7% (rank 2/24), BrowseComp 85.2% ±5.3, ProgramBench 82.7% (rank 2/37), Senior SWE-Bench 34.7% (rank 1/19), SWE Atlas Test Writing 67.0% (rank 1/30), CWE-bench v1 58.0%, ApprenticeBench 72%, FrontierSWE v2 56.3%
+- Access: platform docs now describe Mythos 5.1 availability via Anthropic's **Cyber Verification Program** (vetted organizations); retirement not sooner than 2027-09-01
+- Lineup context (2026-10-07): Haiku 5.5 launched; Sonnet 5.5 cache reads halved to $0.10/M; Mythos 5.1 pricing unchanged
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Fable 5.1 & Mythos 5.1 system card and launch page, platform.claude.com docs, Artificial Analysis, vals.ai, BenchmarkList, Gradually); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

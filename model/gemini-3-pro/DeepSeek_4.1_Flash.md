@@ -1,9 +1,18 @@
 # Gemini 3 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind/Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-3-pro).
+> BenchLM overall **59.42/100** (#52), context **2M**, pricing **$2 input / $12 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (no category score): JobBench 11.4%; Gert Labs 63.23%
+> - Coding (BenchLM 43.3, #55/146): Vibe Code Bench 14.30%
+> - Reasoning (BenchLM 46.5): ARC-AGI-2 31.1%; ARC-AGI-1 75.00%
+> - Multimodal (BenchLM 75.2, #17/49): MMMU-Pro 81%; CharXiv 81.4%; MathVision 86.6%; VideoMMMU 87.6%; ScreenSpot Pro 72.7%; V* 88.0%
+> - Math (BenchLM 55.2): FrontierMath v2 (Tiers 1-3) 37.600%; FrontierMath v2 (Tier 4) 18.750%
 
 ## Model card
 
@@ -63,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (evals.report 52-row benchmark table for official/verified rows, llm-stats launch guide for context/output/pricing/modalities and launch-era benchmark summary, Google's current Gemini API model docs for the deprecated-preview availability note); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

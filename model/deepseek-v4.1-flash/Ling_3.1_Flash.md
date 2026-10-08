@@ -65,8 +65,21 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Independent and board data found (fills the LiveBench, MMMU-Pro and harness-sensitivity gaps):
+
+- **LiveBench (official board, via AI-Atlas): current group leader in all eight tracked groups** — Agentic Coding 77.3%, Coding 80.0% (−6.34 vs Claude Fable 5.1), Reasoning 86.7% (−5.96 vs gpt-6-astra), Mathematics 93.3%, Language 81.2%, Data Analysis 79.3% (−3.72 vs gpt-6-astra), Instruction Following 70.0%, global average 81.1%
+- Artificial Analysis re-runs (obs. 2026-09-16): Intelligence Index **39.5** (−13.8 vs Claude Fable 5.1), HLE **39.3%** (no tools), SciCode **51.9%**, MMMU-Pro **77.0%** (fills the multimodal gap; −9.89 vs gpt-6-astra), Terminal-Bench 4.0 **26.8%** (independent, vs 31.2% on DeepSeek's card)
+- Harness sensitivity (DeepSeek's own scaffold study, N=8 on DeepSWE / N=3 on TB 2.1, 1M context, max_steps=500, TB 2.1 without network): DeepSWE v1.1 spans 65.5% (OpenCode) – 74.2% (mini-SWE) — Claude Code 69.8%, Codex 65.6%, Pi 66.2%, DSH Minimal 72.6%, DSH Standard 70.5%, DSH PTC 67.6%; Terminal-Bench 2.1 spans 84.1% (Codex) – 90.6% (DSH Minimal) — Claude Code 88.0%, OpenCode 85.0%, Pi 86.1%, mini-SWE 90.3%, DSH Standard/PTC 85.8%. The 90.6%/74.2% headlines are best-config figures, not the median
+- BenchLM cross-model rows: DeepSWE 74.2% (ahead of Claude Opus 5's 68.8% on that board), ProgramBench 20.3% (far behind Opus 5's 93.0%), NL2Repo 65.4%, OpenHarmony Bench 60.3%, Terminal-Bench 3.0 30%
+- MCP Atlas / BrowseComp / OSWorld / τ-Bench / Toolathlon: still no verified public score (BenchLM lists all as "Coming soon" as of 2026-10-08)
+- No score change: LiveBench's eight group-leadership rows and MMMU-Pro 77.0% corroborate the 84/87/94/72/84 profile; the AA TB 4.0 run (26.8%) and the harness spread are noted as caveats
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (DeepSeek V4.1-Flash launch, Artificial Analysis, DeepInfra, LLMLearner, ARMES Docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_1_Flash.md`, using the same headings.

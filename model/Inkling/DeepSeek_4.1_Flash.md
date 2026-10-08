@@ -1,9 +1,19 @@
 # Inkling — findings by DeepSeek 4.1 Flash
 
 - Source: Thinking Machines Lab / Inkling (`thinkingmachines/inkling`, alias `inkling`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/Inkling).
+> BenchLM overall **53.21/100** (#81), context **1M**, pricing **$1.87 input / $4.68 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 36.6, #69/122): Terminal-Bench 2.1 63.8%; BrowseComp 77.1%; MCP Atlas 74.1%; Terminal-Bench 2.1 (Vals) 47.6%; CWE-bench v1 37.0%
+> - Coding (BenchLM 35.3, #76/146): SWE-bench Pro 54.3%; FrontierSWE v2 4.1%; LiveCodeBench (Vals) 85.5%; Terminal-Bench 2.1 63.8%; SWE-bench Verified 77.6%; SWE-bench (Vals) 77.6%
+> - Multimodal (BenchLM 49.6, #40/49): MMMU-Pro 73.5%; CharXiv 82%; CharXiv w/o tools 78.1%
+> - Knowledge (BenchLM 54.1, #52/174): HLE 46%; HLE w/o tools 30%; MMLU-Pro (Vals) 86.3%; GPQA 87.9%; GPQA Diamond (Vals) 87.1%; GPQA-D 87.9%
+> - Inst. Following (BenchLM 83.2, #44/125): IFBench 79.8%
+> - Math (BenchLM 78.5): AIME26 97.1%
 
 ## Model card
 
@@ -63,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-24
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: public internet research — Thinking Machines Lab's official Inkling model card (release date, licence, architecture, modalities, serving requirements), Artificial Analysis's Inkling (xhigh) profile and OpenRouter's Artificial Analysis / Design Arena benchmark summary (indices, GPQA Diamond, HLE, AA-LCR, GDPval-AA, CritPt, SciCode, AA-Omniscience), evals.report's 17 labeled rows (ARC-AGI-1/2, AIME 2026, SWE-bench Verified and Pro, Terminal-Bench 2.1, MCP Atlas, BrowseComp, MMMU-Pro, CharXiv, FrontierCode), OpenRouter's listing (pricing, context, max completion, tool/JSON support, free-endpoint data terms) and Sebastian Raschka's architecture and benchmark notes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

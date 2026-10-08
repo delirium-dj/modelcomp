@@ -60,8 +60,22 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Independent runs found (The Model Gap, all external evaluators) — fills every coding/reasoning gap:
+
+- **GPQA Diamond: 88.9%** (vals.ai, 2026-08-17) — the report excluded RankLLMs' 58.6% as unreliable; vals.ai's independent 88.9% is consistent with the HLE results and now anchors the reasoning score
+- **LiveCodeBench: 82.4%** ±1.09 (vals.ai v6, rank 50/138, 2026-08-15) — fills the gap
+- **DeepSWE v1.1: 54.0%** ±4 (Datacurve, mini-swe-agent harness, rank 13/17, $26.40 avg cost/task) — fills the gap
+- **Toolathlon-Verified: 71.6%** ±9.7 (toolathlon.xyz's own board, 2026-08-20) — fills the gap
+- SWE-bench Verified **79.6%** (vals.ai, 2026-08-17; vs 75.8% RankLLMs); HLE no-tools **41.3%** (AA, 2026-08-17; vs 43.2% card); Terminal-Bench 2.1 **74.6%** (tbench.ai, 2026-09-03, ±10.6 — 5.8pp under the card's 80.4%; harness-dependent); LiveBench **76.0** (2026-08-24); AA-AnalystAgent 46.3 (2026-09-29)
+- AnotherWrapper corroborates: SWE-bench Verified 85.2% (xhigh), DeepSWE 53.9%, LiveCodeBench 82.4%
+- Still unpublished: Vibe Code Bench, SciCode, AA Coding Index, MRCR/RULER/GraphWalks, official GPQA
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Sonnet 5 announcement, LLM Boss, RankLLMs, ApiDog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Sonnet_5.md`, using the same headings.

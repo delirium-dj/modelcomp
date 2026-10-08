@@ -53,14 +53,27 @@ Long context / multimodal:
 - **Reasoning: 73/100.** HLE 38.5% (AA run, max) and ARC-AGI-2 59.3% are near-mid frontier, with the AA Intelligence Index of 37–38.1 (max) and Arena text 1444 supporting; ARC-AGI-3 at 0.2% (medium) is very weak, and no GPQA Diamond or FrontierMath figure was captured for Luna.
 - **Context window: 95/100.** 1.05M-token window (128K out) with 90%-off cached reads; no ≥98%-at-depth retrieval figure captured, so 100 is not justified.
 - **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70); no MMMU figure captured.
-- **Coding: 73/100.** DeepSWE v1.1 66.6% (max) and the Arena coding Elo of 1511 (#53 of 405) are mid-strong, with the community Codexometer 3/3 pass supporting; SWE-bench Pro/Verified, Terminal-Bench 2.1, LiveCodeBench and the AA Coding Index for Luna were not published (FrontierCode and Agents' Last Exam figures are Sol-only).
+- **Coding: 74/100.** DeepSWE v1.1 66.6% (max), the Arena coding Elo of 1511 (#53 of 405) and AA-SciCode 55% (max — at the 55% frontier reference) are mid-strong, with the community Codexometer 3/3 pass supporting; SWE-bench Pro/Verified, Terminal-Bench 2.1, LiveCodeBench and the AA Coding Index for Luna were not published (FrontierCode and Agents' Last Exam figures are Sol-only).
 - **Cost efficiency: 96/100.** $0.10/$0.50 per 1M (blended ~$0.18/M at 3:1) with 10%-of-input cache reads ($0.01/M) and half-rate Batch/Flex ($0.05/$0.25) sits just under the ~$0.10/$0.20≈97–99 anchor; the >272K repricing (2× input/cache, 1.5× output) is the caveat, and DeepSWE tasks cost 93–96% less than Opus 5/Fable 5 per task.
-- **Overall Score: 76/100.** (72+73+95+65+73)/5 = 75.6 → 76 — a sub-$0.50-output tier with solid DeepSWE (66.6%) and HLE (38.5%) at $0.10/$0.50, held back by unpublished Luna-specific evals, ARC-AGI-3 (0.2%) and LMArena Agent (1.7%).
+- **Overall Score: 76/100.** (72+73+95+65+74)/5 = 75.8 → 76 — a sub-$0.50-output tier with solid DeepSWE (66.6%) and HLE (38.5%) at $0.10/$0.50, held back by unpublished Luna-specific evals, ARC-AGI-3 (0.2%) and LMArena Agent (1.7%).
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Artificial Analysis v4.3.2 component breakdown found (fills several Luna-only gaps):
+
+- Intelligence Index ladder (v4.3.2): Max **38**, Xhigh 35, High 33, Medium 30, Low 22, Non-reasoning 18 (#25 of 696 models at Max; 127 tok/s at Max, 0.87s TTFT non-reasoning, $0.0045/task at Low)
+- Component reads at Max: AA-Briefcase 1336, GDPval-AA v2.1 1437, AutomationBench-AA **53%**, Terminal-Bench 4.0 13%, SciCode **55%**, HLE 39%, GDP.pdf 23%, CritPt 19%, AA-Omniscience **+1**, AA-LCR **83%**
+- vs GPT-5.6 Luna (Max): Intelligence 38 vs 37; AutomationBench-AA 53% vs 50%; TB 4.0 13% vs 12%; SciCode 55% vs 54%; HLE 39% vs 39%; GDP.pdf 23% vs 24%; CritPt 19% vs 21%; AA-Omniscience +1 vs −10; AA-LCR 83% vs 84% — a small step up on most components, a small step down on GDP.pdf/CritPt/AA-LCR
+- **AA-LCR 83% (max) fills the long-context retrieval gap** on file ("no MRCR/RULER/AA-LCR figure captured"); SciCode 55% fills a coding gap
+- Still absent for Luna specifically: SWE-bench Pro/Verified, Terminal-Bench 2.1, LiveCodeBench, AA Coding Index, GPQA Diamond, FrontierMath, MMMU
+- **Coding revised 73→74** (AA-SciCode 55% at the frontier reference); Overall unchanged at 76 ((72+73+95+65+74)/5 = 75.8)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-6 Sol/Luna launch, OpenAI API docs, Artificial Analysis, ModelCap, OpenAI Developer Community); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_Luna.md`, using the same headings.

@@ -49,17 +49,31 @@ Long context / multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 80/100.** The AA Intelligence Index of 52 (Max) is a near-frontier composite, with OSWorld 2.0 71.4% (within 2.1 points of Astra), Terminal-Bench Science 0.1 57.0% and AutomationBench 36.1% supporting; all figures are OpenAI-preliminary launch runs with no independent verification at launch, and TB2.1/BrowseComp/MCP Atlas/τ-Bench are unpublished.
-- **Reasoning: 78/100.** The AA Intelligence Index of 52 (which folds in HLE, CritPt and AA-Omniscience) and GDP.pdf 32.0% are the only anchors; GPQA Diamond and standalone HLE are unpublished, and the 11.1-point Terminal-Bench Science gap to Astra marks the scientific-reasoning ceiling.
+- **Reasoning: 81/100.** GPQA Diamond 95.4% (Epoch AI run, #3 of 102), HLE 52.9% (AA, max — no tools), ARC-AGI-2 94.2% (Max, #2 of 85) and LiveBench Reasoning 92.6% (max, #2 of 62) clear the frontier bands, with the AA Intelligence Index of 51.8–52 (max) and MultiChallenge Chat 82.0% (#1 of 30) supporting; CritPt 31.7% and the 11.1-point Terminal-Bench Science gap to Astra cap the score.
 - **Context window: 95/100.** 1M-token window (AA-listed); no ≥98%-at-512K+ retrieval figure, so 100 is not justified; the >272K whole-request repricing (2×/1.5×) is a usage caveat.
 - **Multimodal: 65/100.** text in with text out — placed in the +image-in band (60–70) because its OSWorld 2.0 computer-use evaluation requires screenshot input (vision not explicitly confirmed in the materials reviewed); no MMMU figure captured.
 - **Coding: 82/100.** DeepSWE v1.1 75.2% (high) clears the 74% frontier bar and ties GPT-6 Astra at ~1/5 the task cost, with Terminal-Bench Science 0.1 57.0% supporting; SWE-bench Verified/Pro, Terminal-Bench 2.1 and the AA Coding Index are unpublished.
 - **Cost efficiency: 74/100.** $2/$10 per 1M interpolates to ~74 between the ~88 ($1.25/$4.25) and ~60 ($3/$15) references; cached reads at $0.10/M (a 95% discount), half-rate Batch/Flex, $1.50 per AA Index task and ~$9.60 per solved TB-Science task are offsets; the >272K whole-request repricing ($4/$15) is a premium.
-- **Overall Score: 80/100.** (80+78+95+65+82)/5 = 80.0 → 80 — the value tier of the GPT-6 line: Astra-tying DeepSWE (75.2%) and near-Astra computer use at one-fifth the token price, with the 11.1-point Terminal-Bench Science gap, all-vendor launch evals and the >272K repricing as the caveats.
+- **Overall Score: 81/100.** (80+81+95+65+82)/5 = 80.6 → 81 — the value tier of the GPT-6 line: Astra-tying DeepSWE (75.2%), near-Astra computer use at one-fifth the token price and now frontier GPQA/HLE/ARC-AGI-2 reads, with the 11.1-point Terminal-Bench Science gap, mid LiveBench Agentic Coding (54.5–56.8%) and the >272K repricing as the caveats.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Full AA effort ladder, Epoch, Vals, fru.dev and BenchLeader rows found — several launch gaps filled:
+
+- Reasoning fills: GPQA Diamond **95.4%** (Epoch AI run, max, #3 of 102; provider-routed variants 93.3–94.8%), HLE **52.9%** (AA, max, no tools; ladder: Low 47.4% → Max 52.9%), ARC-AGI-2 **94.2%** (Max, #2 of 85), LiveBench Reasoning **92.6%** (max, #2 of 62; 91.6% at xhigh, #6), MultiChallenge Chat **82.0%** (#1 of 30), Chess Puzzles 61% (Epoch), EBR-bench 54.3% (Epoch), Epoch ECI **166.1** (#3 of 100)
+- AA Intelligence Index v4.3.2 ladder: Low 42.1, Medium 47.8, High 50.2, Xhigh 51.0, Max **51.8** ($4.00/task, 55 tok/s) — with the full component ladder: HLE 47.4→52.9%, AA-LCR 84.0/83.3/82.3/79.7/83.0%, GDPval-AA 39.9→53.8%, CritPt 24.9→31.7% (#4 of 28 at max), SciCode 53.2→55.8%, Terminal-Bench 4.0 30.8→56.1% (#9 of 41 at max), AA-Omniscience accuracy 58.9→62.1% / non-hallucination 48.4→45.7%
+- Terminal-Bench 4.0: AA 56.1% (max, #9) / Vals 55.0–55.1% (#6 of 40) / official board 58.2% (#17) — three independent reads
+- Agentic/coding: APEX-Agents 60.0% (max, #12, Mercor), LMArena Agent 11.2 (#5), LiveBench Agentic Coding 56.8% (xhigh, #24) / 54.5% (max, #31), WebDev Arena 1757 (#4 of 100), Vision Arena 1291 (#8), Text Arena 1483 (#18), LMArena Hard Prompts 1509 (#18), OpenRouter usage 1.4T tokens (#19)
+- Vals Index: **61.15% ± 1.01** (#8 of 45), best result #2 of 38 on Terminal-Bench Science (52.86% ± 6.01 — vs the vendor's 57.0%), $3.237/test, 43m10s latency; context 1M, max output 128K, text/image/file input (no video)
+- Still unpublished: SWE-bench Verified/Pro, DeepSWE, Terminal-Bench 2.1, AA Coding Index, SciCode standalone (AA component only), Toolathlon-Verified
+- **Reasoning revised 78→81** (GPQA 95.4%, HLE 52.9%, ARC-AGI-2 94.2%, LiveBench Reasoning 92.6% — four frontier reads); Overall 80→81 ((80+81+95+65+82)/5 = 80.6)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI API docs, Artificial Analysis release page, The Daily Brief / beri.net, RohitAI, Layer3 Labs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_1_Sol.md`, using the same headings.

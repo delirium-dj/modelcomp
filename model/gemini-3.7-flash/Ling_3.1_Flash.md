@@ -60,17 +60,29 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 86/100.** Terminal-Bench 2.1 85.8% (AA) is just under the 88%+ frontier bar and the vals.ai run (77.53%) shows harness spread; AutomationBench 30.4% and GDPval-AA 1525 are mid-tier despite leading Sonnet 5 and Terra.
-- **Reasoning: 90/100.** GPQA 94.5% (AA) and HLE-Verified 53.6% (47.9% no-tools, AA) clear the frontier reference bars; the AA Intelligence Index of 56 (just under the 60+ bar) and ARC-AGI-2 84.6% keep it out of the 92+ band.
+- **Reasoning: 89/100.** GPQA 94.5% (AA) and HLE-Verified 53.6% (47.9% no-tools, AA) clear the frontier reference bars, but the AA Intelligence Index is contested — AA's own page now reads **39** (#61/225) vs the 56 Google's table cites (likely an index-version mismatch) — and ARC-AGI-2 84.6% keeps it out of the 92+ band.
 - **Context window: 95/100.** 1M-token window with GDM-MRCR v2 97.0% at 128K only — no ≥98% retrieval-at-512K+ figure, so 100 is not justified.
 - **Multimodal: 92/100.** text/image/audio/PDF in with text out — the +audio-in band (90–100); CharXiv 84.5% and GDP.pdf 34.0% corroborate.
 - **Coding: 88/100.** LiveCodeBench 88.7% (rank 3), SWE-bench Verified 80.8%, FrontierCode 43.6% (top of Google's set) and WebDev Arena 1588 Elo are strong; DeepSWE 65.3% sits 9 pts under the 74% frontier reference.
 - **Cost efficiency: 100/100.** Free tier on Google AI Studio and OpenCode Zen; the $0.75/$3.75 introductory paid rate (through 2026-12-31) would itself score ~93 before doubling to $1.50/$7.50 in 2027.
-- **Overall Score: 90/100.** (86+90+95+92+88)/5 = 90.2 → 90 — the value workhorse: frontier GPQA/HLE and rank-3 LiveCodeBench at Flash pricing, with Terminal-Bench 3.0 (14.9%) showing the ceiling of the Flash tier on open-ended agentics.
+- **Overall Score: 90/100.** (86+89+95+92+88)/5 = 90.0 → 90 — the value workhorse: frontier GPQA/HLE and rank-3 LiveCodeBench at Flash pricing, with Terminal-Bench 3.0 (14.9%) showing the ceiling of the Flash tier on open-ended agentics.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+DeepMind's full August-2026 comparison table, the evals-methodology PDF and ARC Prize results found:
+
+- New benchmark rows: Harvey LAB-AA (complex legal workflows) **90.7%** (vs 3.6 Flash 85.1%, Sonnet 5 90.1%, Terra 85.2%); LVBench (long-video understanding) **85.4%** (vs 3.6 Flash 84.2%, Sonnet 5 68.5%, Terra 78.9%); OSWorld 2.0 **47.9%** (vs 3.6 Flash 33.8%, Terra 50.2%); BioMysteryBench **87.1%** human-solvable / **43.5%** human-difficult; LABBench2 (biology research) **82.1%**; CharXiv Reasoning **with tools 88.7%** (search + code execution); ARC-AGI-1 **95.5%** at high effort ($0.12/task; medium 91.2%, low 85.2%)
+- Comparison-set fills: DeepSWE v1.1 65.3% vs 3.6 Flash 48.6% / Sonnet 5 53.8% / Terra 69.6% / Muse Spark 1.2 54.9%; TB 2.1 85.8% vs Terra 87.4% / Muse 82.9% / Sonnet 5 80.4%; GDPval-AA v2 1525 vs Muse 1628 / Sonnet 5 1598 / Terra 1578; TB 3.0 14.9% vs Terra 20.8% / Sonnet 5 14.6% / 3.6 Flash 5.4%
+- **AA Intelligence Index conflict flagged:** AA's own model page reads **39** for Gemini 3.7 Flash (high) (#61 of 225, median 26) while Google's table cites 56 — likely an index-version mismatch (AA's v4.3.2 composite includes TB 4.0, SciCode, GDP.pdf, CritPt, AA-Omniscience, AA-LCR, AA-Briefcase, GDPval-AA v2.1 and AutomationBench-AA, several of which are unpublished for this model); **Reasoning revised 90→89** on the conflict
+- Methodology notes: DeepSWE for Gemini models is Datacurve's public leaderboard (highest thinking level); 3.7 Flash's own DeepSWE/TB 3.0 runs use a mini-swe-agent harness with LiteLLM 1.96 (minor task modifications for TB 3.0); OSWorld 2.0 self-computed (max over 3 runs, partial score, the OSWorld 2.0 repo's Anthropic/Gemini CUA harness, pyautogui screenshot-only, the 08.08 patch for comparability); LVBench self-computed with 1024 frames and no tools (300 for Sonnet 5)
+- Still unpublished: Claw-Eval/ClawProBench, Toolathlon-Verified, AA-Omniscience, SciCode, Vibe Code Bench, MRCR beyond 128K
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind launch blog, Artificial Analysis, vals.ai, Datacurve DeepSWE board, ARC Prize, LiveBench, The Model Gap, Emergent, HokAI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

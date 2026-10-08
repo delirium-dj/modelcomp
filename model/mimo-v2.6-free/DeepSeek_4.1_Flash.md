@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi MiMo (`mimo-v2.6-flash-free` on OpenCode Zen) — the free-promotion route of MiMo-V2.6-Flash
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

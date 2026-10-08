@@ -1,9 +1,16 @@
 # Grok 4.7 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (branded "SpaceXAI" on launch materials) / Grok 4.7 (`x-ai/grok-4.7`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-7).
+> BenchLM overall **n/a**, context **500K**, pricing **$2 input / $6 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 75.6): Terminal-Bench 4.0 38.00%; Terminal-Bench 2.1 (Vals) 73.4%; CWE-bench v1 68.0%
+> - Coding (BenchLM 62.4): DeepSWE 71.0%; FrontierSWE v2 29.5%; CursorBench 4.0 46.3%; EEBench 64.0%; Bug Hunt Bench 28.8 fixes
+> - Knowledge (BenchLM 74.4): HealthBench Professional 56.7%
 
 ## Model card
 
@@ -67,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06 UTC
 - Method: public internet research across xAI launch material as relayed by HokAI and Emergent.sh, the ARMES model documentation page, modelgrep's Artificial Analysis-derived rows, and BenchmarkList; conflicting harness readings are listed rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

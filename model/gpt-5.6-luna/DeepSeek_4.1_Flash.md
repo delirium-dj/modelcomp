@@ -1,9 +1,20 @@
 # GPT-5.6 Luna — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`gpt-5.6-luna`)
-- Date: 2026-09-20 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-5-6-luna).
+> BenchLM overall **65.95/100** (#30), context **1.05M**, pricing **$0.20 input / $1.20 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 55.2, #36/122): OSWorld 2.0 45.6%; Terminal-Bench 2.1 84.7%; BrowseComp 83.3%; Terminal-Bench 2.1 (Vals) 79.0%; Terminal-Bench 3.0 14.3%; Toolathlon 53.4%
+> - Coding (BenchLM 63, #13/146): SWE-bench Pro 62.7%; DeepSWE 67.2%; CursorBench 3.2 61.1%; VulcanBench v3 85.5%; Terminal-Bench 2.1 84.7%; FrontierCode 1.1 Extended 55.1%
+> - Reasoning (BenchLM 54.5, #26/28): ARC-AGI-2 59.5%; ARC-AGI-3 0.2%; ARC-AGI-1 88.00%
+> - Multimodal (BenchLM 68.1, #21/49): MMMU-Pro 78.4%; MMMU-Pro w/ Python 79.5%
+> - Knowledge (BenchLM 64.5, #25/174): MMLU-Pro (Vals) 86.0%; GPQA 92.3%; GPQA Diamond (Vals) 91.7%; GPQA-D 92.3%; HealthBench Professional 55.7%; HealthBench Hard 32.0%
+> - Math (BenchLM 94.2): FrontierMath v2 (Tiers 1-3) 78.600%; FrontierMath v2 (Tier 4) 58.500%; FrontierMath (legacy) 78.6%
+> - External signals (): ExploitBench 33%
 
 ## Model card
 
@@ -63,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: fresh public internet research on 2026-09-20 — HokAI vendor-page-checked review (checked 19 Aug 2026) and RankLLMs verified panel (updated 2026-09-18), cross-checked against the curated record already stored for this folder; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

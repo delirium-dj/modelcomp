@@ -52,18 +52,30 @@ Independent (Artificial Analysis, xhigh unless noted; model deprecated — histo
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** OSWorld-Verified 72.1% (approaching GPT-5.4's 75.0%), τ²-Bench Telecom 93.4% and MCP Atlas 57.7% lead, with Toolathlon 42.9%, Terminal-Bench 2.0 60.0% and AA-LCR 77.0% supporting; GDPval-AA 25.0% and the AA Agentic Index of 17.9 (xhigh) are weak, and SWE-bench Verified/DeepSWE were not captured.
-- **Reasoning: 73/100.** GPQA Diamond 88.0% and HLE 41.5% (with tools) are near the frontier bands, with MMMU-Pro 76.6–78.0% supporting; the AA Intelligence Index of 24.1 (xhigh), CritPt 10.0% and AA-Omniscience (37.5% accuracy, 9.8% non-hallucination) cap the score.
+- **Tool use: 71/100.** OSWorld-Verified 72.1% (approaching GPT-5.4's 75.0%), τ²-Bench Telecom 93.4% and MCP Atlas 57.7% (vendor) / 56.7% (BenchmarkList) lead, with Toolathlon 42.9%, Terminal-Bench 2.0 60.0% and AA-LCR 77.0% supporting; Terminal-Bench 2.1 at 54.7% (vals.ai) / 60.7% (BenchmarkList), APEX-Agents-AA 28.2%, GDPval-AA 25.8% and the AA Agentic Index of 19.6 are weak, and SWE-bench Verified/DeepSWE were not captured.
+- **Reasoning: 72/100.** GPQA Diamond 88.0% and HLE 41.5% (with tools) are near the frontier bands, with MMMU-Pro 76.6–78.0% supporting; ARC-AGI-2 at 18.9% (BenchmarkList), the AA Intelligence Index of 24.1 (xhigh), CritPt 10.0% and AA-Omniscience (37.5% accuracy, 9.8% non-hallucination) cap the score.
 - **Context window: 75/100.** 400K-token window with AA-LCR 77.0% (xhigh) and GraphWalks BFS 76.3% at 0–128K; MRCR v2 at 47.7% (64–128K) and 33.6% (128–256K) shows weak needle retrieval, so this sits well below the 90+ band despite exceeding the 200K=70 anchor.
 - **Multimodal: 68/100.** text/image in with text out — the +image-in band (60–70); MMMU-Pro 76.6–78.0% and OmniDocBench 0.1263 edit distance support the top of the band.
 - **Coding: 70/100.** SWE-bench Pro 54.4%, the AA Coding Index of 56.1 (xhigh), Terminal-Bench 2.0 60.0% and SciCode 52.1% are mid-tier; SWE-bench Verified, LiveCodeBench and DeepSWE were not captured, and this is explicitly a subagent/high-volume tier rather than a peak-coding model.
 - **Cost efficiency: 90/100.** $0.75/$4.50 per 1M (blended ~$1.28/M at 3:1) with 10%-of-input cache reads ($0.075/M) and half-rate Batch/Flex ($0.375/$2.25) sits between the ~$0.10/$0.20≈97–99 and ~$1.25/$4.25≈88 anchors, at $0.41 per AA Intelligence Index task.
-- **Overall Score: 72/100.** (72+73+75+68+70)/5 = 71.6 → 72 — a fast, cheap mini tier (OSWorld 72.1%, τ²-Telecom 93.4%, GPQA 88.0%, HLE 41.5% w/tools at $0.75/$4.50, 232 tok/s) whose AA Intelligence Index (24.1), Agentic Index (17.9), GDPval-AA (25.0%) and MRCR retrieval (33.6–47.7%) keep it below the frontier.
+- **Overall Score: 71/100.** (71+72+75+68+70)/5 = 71.2 → 71 — a fast, cheap mini tier (OSWorld 72.1%, τ²-Telecom 93.4%, GPQA 88.0%, HLE 41.5% w/tools at $0.75/$4.50, 232 tok/s) whose AA Intelligence Index (24.1), Agentic Index (17.9–19.6), GDPval-AA (25.8%) and MRCR retrieval (33.6–47.7%) keep it below the frontier.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+BenchLM, BenchmarkList and vals.ai rows found:
+
+- Coding: LiveCodeBench (vals.ai) **81.5%** and SWE-bench (vals.ai) **73.0%** — strong for the tier; Vibe Code Bench v1.1 **47.97%**, FrontierCode 1.1 Main **27.0%**, AA-SciCode 52.1%, LiveCodeBench-Plus 29.6%, ProgramBench 16.4% raw pass rate, Code Migration 12.9%, IOI 6.4%, VeriContest 1.1%
+- Agentic: Terminal-Bench 2.1 **54.7%** (vals.ai) / **60.7%** (BenchmarkList) — mid-band; Terminal-Bench Hard 52.3% (rank 9/326); APEX-Agents-AA 28.2%, APEX-Agents 37.5%, AA Agentic Index 19.6, GDPval-AA 25.8% / 1095 Elo, τ³-Banking 25.6%, ITBench-AA 35.2%, MCP Atlas 56.7% (rank 45/48), AgentCIBench 60.7%, PinchBench 76.2%, Agentic Skills Evaluation Framework 84.5%, Hindsight Memory 86.4%, TeamBench 33.3% (rank 2/13), Momento 75.2% (rank 3/5)
+- Reasoning: ARC-AGI-2 **18.9%** (rank 47/99 — weak for the era), ARC-AGI-1 63.7%, CalBench 1.49 (rank 1/7)
+- Other: Vals Index accuracy 52.42% ± 2.05, 1050s latency, $0.66/test; vals.ai lists max output 128K (resolves the 28K/128K spec discrepancy in favor of 128K); WebDev Arena 1397.24; ALE-Bench 1188.58 (rank 12/83)
+- **Scores revised**: Tool 72→71 (TB 2.1 54.7–60.7% and APEX-Agents-AA 28.2% are mid/weak), Reasoning 73→72 (ARC-AGI-2 18.9%), Overall 72→71 ((71+72+75+68+70)/5 = 71.2)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5.4 mini/nano launch + API docs, Artificial Analysis, OpenRouter, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_4_Mini.md`, using the same headings.

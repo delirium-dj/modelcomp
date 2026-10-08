@@ -1,9 +1,16 @@
 # Grok 4.3 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.3 (`grok-4.3`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-3).
+> BenchLM overall **53.59/100** (#72), context **1M**, pricing **$1.25 input / $2.50 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 26.9, #94/122): Terminal-Bench 2.1 (Vals) 41.9%; Gert Labs 43.86%; ResearchClawBench 12.4%
+> - Coding (BenchLM 28.4, #97/146): LiveCodeBench (Vals) 84.5%; SWE-bench (Vals) 71.4%
+> - Knowledge (BenchLM 54, #53/174): MMLU-Pro (Vals) 85.8%; GPQA Diamond (Vals) 91.4%
 
 ## Model card
 
@@ -63,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
 - Method: public internet research (BenchmarkList, LLM Reference, OfficeChai launch analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

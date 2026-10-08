@@ -1,9 +1,15 @@
 # GPT-OSS-120B — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / gpt-oss-120b (`openai/gpt-oss-120b`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-oss-120b).
+> BenchLM overall **37.23/100** (#143), context **128K**, pricing **Self-hosted; infrastructure cost varies**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 19.4, #103/122): Gert Labs 29.61%
+> - Coding (BenchLM 24.3, #106/146): React Native Evals 71.6%
 
 ## Model card
 
@@ -63,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
 - Method: public internet research (evals.report benchmark ledger, OpenAI GPT-OSS model card); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

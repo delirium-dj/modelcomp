@@ -1,9 +1,18 @@
 # Muse Glimmer 30B — findings by DeepSeek 4.1 Flash
 
 - Source: Meta Superintelligence Labs / Muse Glimmer 30B (`meta/muse-glimmer-30b`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/muse-glimmer-30b).
+> BenchLM overall **41.7/100** (#125), context **131K**, pricing **Self-hosted; infrastructure cost varies**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 24.9, #96/122): OSWorld-Verified 65.9%; MCP Atlas 75.5%; DeepSearchQA 74.6%; skillsBench 44.3%
+> - Coding (BenchLM 31.9, #89/146): SWE-bench Pro 51.2%; SciCode 43.6%; SWE-bench Verified 76%; Terminal-Bench 2.1 51.7%
+> - Multimodal (BenchLM 47.4, #41/49): MMMU-Pro 74%; CharXiv 78.8%; ScreenSpot Pro 75.4%; OmniDocBench 1.5 75.8%
+> - Inst. Following (BenchLM 77, #55/125): IFBench 77%
+> - Math (BenchLM 75.4): AIME26 94.7%
 
 ## Model card
 
@@ -68,6 +77,6 @@ Local-deployment measurements (vendor card, not accuracy benchmarks):
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-25 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
 - Method: public internet research (slm.expert model profile, vendor model card references, provider pricing listings); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

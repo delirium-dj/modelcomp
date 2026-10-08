@@ -49,15 +49,27 @@ Independent:
 - **Tool use: 76/100.** Terminal-Bench 2.1 83.9% (near the 85% frontier bar), Toolathlon-Verified 75.9% and CyberGym 75.3% lead, with DeepSWE 59.3% (above Opus 4.8's 58.0%), NL2Repo 57.7% and DSBench-Hard 63.6% supporting; AutomationBench 25.7% is weak, and MCP Atlas/τ³/BrowseComp were not captured.
 - **Reasoning: 68/100.** No GPQA Diamond, HLE or FrontierMath figure was captured for this checkpoint (DeepSeek states text-only reasoning matches DeepSeek-V4-Flash); multimodal reasoning signals are ZeroBench 35.0 (pass@5, above Opus 4.8's 34.0), Chartography 64.3 and OCRBench 83.5%, with Agents' Last Exam 27.3% (above Opus 4.8's 25.7%) supporting.
 - **Context window: 95/100.** 1,048,576-token window; no ≥98%-at-depth retrieval figure captured, so 100 is not justified.
-- **Multimodal: 72/100.** text/image in with text out — between the +image-in band (60–70) and the +video/PDF band (75–90), reflecting strong agentic vision scores (OCRBench 83.5%, Chartography 64.3, ZeroBench 35.0 pass@5 above Opus 4.8) without general MMMU/Video-MMMU evidence; PDF input is claimed by the repo meta.json but not confirmed in DeepSeek's materials.
+- **Multimodal: 74/100.** text/image in with text out — between the +image-in band (60–70) and the +video/PDF band (75–90), reflecting strong agentic vision scores (OCRBench 83.5%, Chartography 64.3, ZeroBench 35.0 pass@5 above Opus 4.8) plus MMVU 72.7% (field leader, rank 5/46), CharXiv-R 80.4% and MMMU 74.8% (aggregator); PDF input is claimed by the repo meta.json but not confirmed in DeepSeek's materials.
 - **Coding: 74/100.** Terminal-Bench 2.1 83.9% (near the 85% frontier bar) and DeepSWE 59.3% (above Opus 4.8's 58.0%) lead, with NL2Repo 57.7% and DSBench-Hard 63.6% supporting; SWE-bench, LiveCodeBench and the AA Coding Index were not captured.
 - **Cost efficiency: 88/100.** The Vision-Exp-specific API rate was not captured; the DeepSeek V4 Flash family lists $0.15–0.30/$0.60–1.20 per 1M (off-peak/peak) as the reference point — near the ~$1.25/$4.25≈88 anchor — with free OpenCode Zen tier access (per the repo meta.json) and open weights (~168GB, FP4+FP8) to self-host.
-- **Overall Score: 77/100.** (76+68+95+72+74)/5 = 77.0 — a legitimate experimental multimodal agent (TB2.1 83.9%, Toolathlon 75.9%, DeepSWE 59.3%, ZeroBench and Agents' Last Exam above Opus 4.8, OCRBench 83.5%) at 1M context with free Zen access and open weights, held back by unpublished reasoning evals and an unconfirmed PDF-input claim.
+- **Overall Score: 77/100.** (76+68+95+74+74)/5 = 77.4 → 77 — a legitimate experimental multimodal agent (TB2.1 83.9%, Toolathlon 75.9%, DeepSWE 59.3%, ZeroBench and Agents' Last Exam above Opus 4.8, OCRBench 83.5%) at 1M context with free Zen access and open weights, held back by unpublished reasoning evals and an unconfirmed PDF-input claim.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Multimodal board rows found (BenchmarkList + aggregator cross-checks):
+
+- MMVU (multimodal video understanding): **72.7%** — 91st percentile, rank 5 of 46, field leader on BenchmarkList (self-reported, 2026-08-26) — fills the video-understanding gap
+- CharXiv-R: **80.4%** (rank 20 of 35); BabyVision: **35.1%** (rank 23 of 38); Chartography 64.3% confirmed (rank 16 of 39)
+- Aggregator rows (AnotherWrapper/llm-stats, lower trust): MMMU **74.8%**, MMMLU 87.3%, MMLU 90.2% — the first MMMU figure for this checkpoint (moderate, not SOTA-class)
+- HF model card re-check: the vendor table is unchanged since the 2026-08-21 card; GPQA Diamond, HLE, SWE-bench, LiveCodeBench, MCP Atlas and MRCR/RULER/AA-LCR remain unpublished
+- **Multimodal revised 72→74** (MMVU 72.7% field leader + CharXiv-R 80.4% + MMMU 74.8%); Overall unchanged at 77 ((76+68+95+74+74)/5 = 77.4)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (DeepSeek HF model card + API release notes, vLLM recipes, MindStudio analysis, OCRBench run); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_Flash_Vision_Exp.md`, using the same headings.

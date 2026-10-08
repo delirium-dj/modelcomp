@@ -48,14 +48,27 @@ Long context / multimodal:
 - **Reasoning: 80/100.** GPQA Diamond 88.1% sits just under the 90%+ frontier band and AIME 2025 94% / Mock AIME 89 (vs a 54 average) are strong, but HLE and the AA Intelligence Index are unpublished, and 88.1% GPQA trails the 93%+ current frontier.
 - **Context window: 76/100.** 400K-token window — double the 200K=70 reference, well under the 1M frontier, with no ≥98%-at-512K+ figure.
 - **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70); MMMU was evaluated but its figure was not captured.
-- **Coding: 72/100.** SWE-bench Verified 76.3% (release-reported; 68% tracked) is mid-tier by 2026 standards (frontier 80–88%), and no Terminal-Bench 2.x, DeepSWE, SciCode, LiveCodeBench or AA Coding Index figures were found.
+- **Coding: 70/100.** SWE-bench Verified 76.3% (release-reported) vs 66.9% ± 2.1 (Epoch AI, high, 2 runs) / 68.0% (official ingestion) / 66.0% (medium, mini-SWE-agent) — the independent reads cluster at 66–68%, mid-tier by 2026 standards; LiveCodeBench Pro 2269 Elo (official) is below the 2400+ frontier, and no Terminal-Bench 2.x, DeepSWE, SciCode or AA Coding Index figures were found.
 - **Cost efficiency: 73/100.** $1.25/$10.00 per 1M interpolates to ~73 between the ~88 ($1.25/$4.25) and ~60 ($3/$15) references — the $10 output half is the drag; Batch API at half rate (~88) and cached reads at $0.125/M are offsets.
-- **Overall Score: 72/100.** (68+80+76+65+72)/5 = 72.2 → 72 — a solid late-2025 flagship (GPQA 88.1%, AIME 94%, SWE-bench Verified 76.3%, 400K context) whose evidence base is thin on the 2026 agentic boards and whose $10/M output price dates it; scored against the October-2026 frontier, not its launch-era standing.
+- **Overall Score: 72/100.** (68+80+76+65+70)/5 = 71.8 → 72 — a solid late-2025 flagship (GPQA 88.1%, AIME 94%, SWE-bench Verified 76.3%, 400K context) whose evidence base is thin on the 2026 agentic boards and whose $10/M output price dates it; scored against the October-2026 frontier, not its launch-era standing.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Epoch AI, evals.report and unifybench rows found:
+
+- SWE-bench Verified (Epoch AI, 2026-02-18): **66.9% ± 2.1** at high (2 runs); **66.0%** at medium (mini-SWE-agent) — vs the 76.3% release-reported figure; evals.report's official ingestion reads **68.0%** (sources disagree by ~1 point; all stand)
+- LiveCodeBench Pro: **2269** Codeforces Elo (official, launch) — fills the LiveCodeBench gap; below the 2400+ frontier
+- GPQA Diamond: **87.6%** (official ingestion) vs 88.1% release-reported — consistent
+- unifybench's Nova-2 table rows: SWE-bench Verified 76.3% (first-party, effort unspecified) with 88.9% observed win share; LiveCodeBench 100.0% observed win share; Terminal-Bench 1.0 53.8% (legacy board)
+- Still unpublished: Terminal-Bench 2.x, BrowseComp, MCP Atlas, OSWorld, τ-Bench, GDPval, DeepSWE, SciCode, AA Coding Index, AA Intelligence Index, MMMU figure
+- **Coding revised 72→70** (independent SWE-bench Verified reads cluster at 66–68%, LiveCodeBench Pro 2269 Elo is under the frontier); Overall unchanged at 72 ((68+80+76+65+70)/5 = 71.8)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI API docs, AI Release Tracker, The Known Good, TheModelverse); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_1.md`, using the same headings.

@@ -1,9 +1,16 @@
 # Grok 4 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4 (`grok-4`, `grok-4-0709`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4).
+> BenchLM overall **51.97/100** (#86), context **128K**, pricing **API rate not published**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (no category score): Gert Labs 42.34%
+> - Coding (BenchLM 76.8): React Native Evals 72.6%
+> - Math (BenchLM 38.3): FrontierMath v2 (Tiers 1-3) 19.655%; FrontierMath v2 (Tier 4) 2.083%
 
 ## Model card
 
@@ -73,6 +80,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-24
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: public internet research — xAI's Grok 4 announcement for HLE, ARC-AGI-2, USAMO, Vending-Bench and context-window claims; evals.report's labeled per-benchmark rows (official / verified / unverified) for GPQA, HLE, FrontierMath, METR, MCP-Universe, BFCL and others; BenchmarkList third-party harness runs for SWE-bench Verified, LiveCodeBench, Terminal-Bench, Tau2 and arena Elo; Artificial Analysis for the Intelligence Index, pricing and modality specs; Benchgen and Awesome Agents for spec cross-checks. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

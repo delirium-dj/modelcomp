@@ -63,14 +63,28 @@ Long context / multimodal:
 - **Reasoning: 85/100.** GPQA Diamond 93.6% clears the 90%+ frontier bar near the top and HLE 52.2% with tools (41.4% without) clears the 40%+ bar in the frontier's lower band; the AA Intelligence Index of 38.4 (new agentic-heavy revision) and AA-Omniscience (58.0% accuracy, 89.0% hallucination) are caveats.
 - **Context window: 95/100.** 1.05M-token window (400K in Codex); no ≥98% retrieval-at-512K+ figure, so 100 is not justified.
 - **Multimodal: 65/100.** text/image in with text out (multimodal per LLM Reference; MMMU-Pro 88.3%) — the +image-in band (60–70); no audio/video input documented.
-- **Coding: 83/100.** SWE-bench Verified 82.6% (Vals, #8 of 81) and LiveCodeBench 85.3% are strong, and the AA Coding Index of 74.9% and AA-SciCode of 55.8% clear their 70%/55% references, but Terminal-Bench 2.1 76.4–79.4% (under the 85% bar), SWE-bench Pro 58.6% (mid-tier), Vibe Code Bench 69.85% and FrontierCode 43.0% cap the score; DeepSWE unpublished.
+- **Coding: 82/100.** SWE-bench Verified 82.6% (Vals, #8 of 81) / 80.6% (official ingestion) and LiveCodeBench 85.3% are strong, and the AA Coding Index of 74.9% and AA-SciCode of 55.8% clear their 70%/55% references, but DeepSWE 67.0–70.05% (under the 74% frontier bar), Terminal-Bench 2.1 76.4–83.4% (under the 85% bar), SWE-bench Pro 58.6% (mid-tier), Vibe Code Bench 69.85% and FrontierCode 43.0% cap the score.
 - **Cost efficiency: 49/100.** $5/$30 per 1M interpolates to ~49 between the ~60 ($3/$15) and ~30 ($10/$50) references; Batch/Flex at half rate (~60) and cache reads at $0.50/M are offsets; Fast mode (2.5x cost) and the >272K surcharge are premiums.
-- **Overall Score: 82/100.** (83+85+95+65+83)/5 = 82.2 → 82 — a strong April-2026 agentic model (TB2.0 SOTA 82.7%, SWE-bench Verified 82.6%, GPQA 93.6%) now mid-pack on the 2026 agentic boards (TB2.1 ~78%, AA Index 38.4), with text-only multimodal and a $5/$30 list price as the trade-offs.
+- **Overall Score: 82/100.** (83+85+95+65+82)/5 = 82.0 → 82 — a strong April-2026 agentic model (TB2.0 SOTA 82.7%, SWE-bench Verified 82.6%, GPQA 93.6%) now mid-pack on the 2026 agentic boards (TB2.1 ~78%, DeepSWE 67–70%, AA Index 38.4 on the v4.3.2 revision vs ~60 on older versions), with text-only multimodal and a $5/$30 list price as the trade-offs.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+evals.report, LLM Boss, aimodelsnavi and FlowHunt rows found:
+
+- DeepSWE v1.1: **70.05%** (evals.report, official) / **67.0%** (LLM Boss, #4 of 7) — fills the DeepSWE gap; under the 74% frontier bar
+- SWE-bench Verified: **80.6%** (evals.report, official) / 82.6% (Vals) / 88.7% (vendor) — three readings spanning 8 points; SWE-bench Multilingual **77.8%** (LLM Boss, #4 of 4) fills that gap
+- Long context (aimodelsnavi, MRCR v2): 93.0% (8–16K), 90.0% (32–64K), 87.5% (128–256K), 81.5% (256–512K), **74.0%** (512K–1M) — fills the depth-retrieval gap (vs GPT-5.4's 36.6% at 512K–1M)
+- AA-LCR: **74.3%** (LLM Boss, #1 of 4); Terminal-Bench 2.1 **83.4%** (LLM Boss, #4 of 9); GSO 40.2% Opt@1 (evals.report); FrontierMath 51.7% (Tiers 1–3, official); GPQA Diamond 94.0% (official ingestion); AIME 2026 97.5%; ARC-AGI-2 85.0%; tool-call success 97.4% (first attempt)
+- AA Intelligence Index: **~60** (#1–#2 per aimodelsnavi/FlowHunt, older index versions) vs **38.4** on file (the v4.3.2 TB4.0/AutomationBench-heavy revision) — version conflict flagged; AA-Omniscience hallucination 86–89% remains a weakness
+- SWE-bench Pro caveat: OpenAI footnotes memorization evidence and a later audit estimated ~30% of its tasks are broken — read the 58.6% with that caveat; FlowHunt reads 68.4% (vs 58.6% elsewhere) — conflicting rows noted
+- **Coding revised 83→82** (DeepSWE 67.0–70.05% is under the 74% bar); Overall unchanged at 82 ((83+85+95+65+82)/5 = 82.0)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5.5 launch, LLM Reference, BenchLM, VectorWire, AnotherWrapper); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_5.md`, using the same headings.

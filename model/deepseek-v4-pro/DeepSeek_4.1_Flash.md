@@ -1,9 +1,18 @@
 # DeepSeek V4 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek/DeepSeek-V4-Pro (0813) (`deepseek-v4-pro`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/deepseek-v4-pro).
+> BenchLM overall **63.95/100** (#39), context **1M**, pricing **$1.32 input / $3.96 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 52.4, #42/122): BrowseComp 83.4%; Terminal-Bench 2.0 67.9%; MCP Atlas 73.6%; Terminal-Bench 2.1 (Vals) 54.7%; HLE w/ tools 60.0%; Toolathlon 51.8%
+> - Coding (BenchLM 48.5, #45/146): SWE-bench Pro 55.4%; LiveCodeBench (Vals) 87.5%; SWE Multilingual 76.2%; Terminal-Bench 2.0 67.9%; DeepSWE 62.7%; LiveCodeBench Pass@1-COT 93.5%
+> - Reasoning (BenchLM 56.9): ARC-AGI-2 61.3%; MRCR 1M 83.5%; CorpusQA 1M 62.0%; ARC-AGI-1 90.00%
+> - Knowledge (BenchLM 62.7, #37/174): HLE 42.7%; MMLU-Pro 87.5%; MMLU-Pro (Vals) 87.0%; GPQA 90.1%; GPQA Diamond (Vals) 92.4%; SimpleQA 57.9%
+> - Math (BenchLM 80.2): HMMT Feb 2026 95.2%; IMOAnswerBench 89.8%; Apex 38.3%; Apex Shortlist 90.2%
 
 ## Model card
 
@@ -62,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (DeepSeek official API pricing/feature page for context, output cap, vision support and peak/off-peak rates; the DeepSeek-V4 model card and technical report as summarised by InferenceX/SemiAnalysis; BenchmarkList 33-row evidence table for measured scores; HokAI vendor-checked model page for SWE-bench Verified/GPQA/MMLU figures); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

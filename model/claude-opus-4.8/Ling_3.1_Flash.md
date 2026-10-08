@@ -63,8 +63,20 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Fills the DeepSWE and Vibe Code Bench gaps:
+
+- **DeepSWE v1.1: 58% ±5% [max]** (DeepSWE/Datacurve leaderboard, 2026-05-30; AIEvals 58.97%; Datacurve 59% ±2%, $13.22/task, 135k tokens, 120 steps) — was "no verified public score found". Effort curve: medium 47% → high 51% → max 58%; max averages $12.58/task, 136k output tokens, ~44 min runtime (high: $3.98). GPT-5.5 [xhigh] still leads at 70% ±4%
+- **Vibe Code Bench v1.1: 82.72%** (Vals AI, via AIEvals) — was "no verified public score found"
+- AIEvals additional rows: GPQA Diamond 92.42%, MMLU-Pro 89.59%, MMMU Pro 86.59%, Terminal-Bench 4.0 21.72% (AIEvals' own run vs 21.1% system card)
+- Terminal-Bench 2.1: **78.9%** (The Vibe Father live leaderboard; vs 74.6% Terminus-2 system-card run)
+- Lineup context (2026-10-07): Haiku 5.5 launched; Sonnet 5.5 cache reads halved; Opus 4.8 pricing unchanged
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Opus 4.8 announcement/system card, LLM Reference, BenchLM, Howardism/The Register); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Opus_4_8.md`, using the same headings.

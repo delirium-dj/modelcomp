@@ -52,18 +52,32 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Terminal-Bench 2.0 64.7% sits just above the mid band (45–60% → 50–70), with GDPval 70.9% wins-or-ties (launch SOTA), SWE-Lancer 74.6% and GraphWalks 94.0% as offsets; GDPval-AA/Tau2/ALE unpublished for the non-Codex model.
+- **Tool use: 74/100.** τ²-bench **84.8%** (Epoch AI) is a strong new signal at the frontier bar, with Terminal-Bench 64.9% (Epoch) / 64.7% (vendor) / 53.9→59.6% (independent rerun with retries) mid-band and GDPval 70.9% wins-or-ties (launch SOTA), SWE-Lancer 74.6%, GraphWalks 94.0% and APEX 34.4% as offsets; GDPval-AA/ALE unpublished for the non-Codex model.
 - **Reasoning: 84/100.** GPQA Diamond 92.4% clears the 90%+ frontier bar and HLE 45.5% (with search+Python) clears the 40%+ bar; HLE no-tools 34.5%, FrontierMath T4 14.6% and ARC-AGI-2 52.9% (all far below 2026 frontier levels) cap the score despite saturated AIME/HMMT results.
 - **Context window: 76/100.** 400K window (between the 200K=70 and 1M=95 anchors); MRCRv2 98.2% only at 4–8K, falling to 77.0% at 128–256K — no ≥98% retrieval at 512K+, so a higher score is not justified.
 - **Multimodal: 65/100.** text/image in with text out — the +image-in band (60–70) per the official API docs; no audio/video input.
 - **Coding: 81/100.** SWE-bench Verified 80.0% (official) and LiveCodeBench 88.9% are strong, but Terminal-Bench 2.0 64.7% (under the 85% bar), SciCode 52.1% (just under the 55% reference) and SWE-bench Pro 55.6% (below 2026 mid-tier) cap the score.
 - **Cost efficiency: 71/100.** $1.75/$14 per 1M interpolates between the ~88 ($1.25/$4.25) and ~60 ($3/$15) references to ~71; 90% cached-input discount and the vendor's claim of lower cost-per-quality via token efficiency are offsets.
-- **Overall Score: 76/100.** (72+84+76+65+81)/5 = 75.6 → 76 — a late-2025 frontier model still top-band on GPQA and launch-era SOTA claims (GDPval, ARC-AGI-2, MRCRv2), but held down by its 400K window, image-only input, and mid-tier 2026 agentic-coding numbers (TB2.0 64.7%, SciCode 52.1%).
+- **Overall Score: 76/100.** (74+84+76+65+81)/5 = 76.0 → 76 — a late-2025 frontier model still top-band on GPQA and launch-era SOTA claims (GDPval, ARC-AGI-2, MRCRv2), but held down by its 400K window, image-only input, and mid-tier 2026 agentic-coding numbers (TB2.0 64.7%, SciCode 52.1%).
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Epoch AI (Model Beat, updated 2026-10-06), evals.report and an independent TB 2.0 rerun found:
+
+- Epoch AI composite indexes: Intelligence Index **60** (60th percentile), Coding Index **56**, Agentic Index **62**
+- Agentic & tools: τ²-bench **84.8%** (fills the τ²-bench gap — strong); Terminal-Bench **64.9%**; APEX **34.4%**; METR task horizon **5.9 h**; GDPval 70.9% win/tie
+- Coding: SWE-bench Verified **73.8%** (Epoch/evals.report — matches the third-party rerun already on file), SWE-bench Multilingual **66.7%** (official, fills the gap), WebDev Arena **1480**, GSO 27.5%; **SWE-bench Pro conflict flagged: evals.report's official ingestion reads 29.94%** vs the 55.6% launch-reported SOTA — the launch figure may reflect a different configuration/effort; both are noted, neither is adopted blindly
+- Reasoning: GPQA Diamond **91.4%** (Epoch — confirms the 92.4% vendor figure), HLE **27.8%** (Epoch, no tools — weaker than the 34.5% Thinking figure on file), MMLU-Pro 87.4%, SimpleQA Verified 37.1%, SimpleBench 45.8%, WeirdML 72.2%, FrontierMath 40.7% / Tier 4 18.8%, AIME 2024/2025 96.1%
+- Benchmark revisions (2026-08-05 changelog): ARC-AGI-2 was revised **72.9% → 52.9%** and ARC-AGI **94.5% → 86.2%** — the figures on file are the revised ones
+- Independent TB 2.0 rerun (xdotli, 89 tasks): gpt-5.2 **53.9%** original / **59.6%** after retries (7→0 timeouts); gpt-5.1-codex-max identical rate on different tasks; gpt-5.2-pro 44.9→52.8%
+- **Tool use revised 72→74** (τ²-bench 84.8% is a genuine frontier-bar signal); Overall unchanged at 76 ((74+84+76+65+81)/5 = 76.0)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5.2 launch, OpenAI API docs, airank.dev TB2.0 leaderboard, themodelbeat, Model Beats, ARMES); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_2.md`, using the same headings.

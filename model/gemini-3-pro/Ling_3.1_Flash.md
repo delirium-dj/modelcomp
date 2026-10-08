@@ -65,8 +65,19 @@ Multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+SciCode figure and methodology confirmations found (DeepMind's Gemini 3.1 Pro comparison table and evals-methodology pages):
+
+- SciCode: **56%** (sourced from Artificial Analysis per DeepMind's stated methodology) — fills the SciCode gap; sits just above the 55% frontier reference
+- Methodology confirmations: Terminal-Bench 2.0 from the public leaderboard (Terminus 2 harness); SWE-bench Verified single-attempt (bash tool + file operations + submit), averaged over 10 runs; LiveCodeBench Pro Elo from the public leaderboard; MMMU-Pro GDM-computed via official APIs
+- Still no verified public score for: DeepSWE, AA Coding Index, Vibe Code Bench, Claw-Eval / ClawProBench, GDPval-AA, Agents' Last Exam, and 512K+ retrieval (MRCR v2 128K 84.9% remains the deepest published figure)
+- No score change: SciCode 56% corroborates Coding 80 (it edges the 55% reference while TB 2.0 54.2–56.9% and SWE-bench Pro 43.3% remain the caps)
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind Gemini 3 launch, DeepMind evals methodology, Artificial Analysis, AI/TLDR, LLM Registry, Model Beats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.

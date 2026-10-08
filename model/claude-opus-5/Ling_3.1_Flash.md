@@ -60,8 +60,25 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Fills the LiveCodeBench, DeepSWE, SciCode and Vibe Code Bench gaps:
+
+- **DeepSWE v1.1: 74% ±4%** (Datacurve independent run, 2026-08-17; $11.84/task, 118k tokens, 99 steps) — **#1 on the leaderboard**, +4pp over Fable 5's 70% at 45% lower cost per task; Anthropic's own system card reports 68.8% under the Claude Code harness — was "no verified public score found"
+- **LiveCodeBench: 89.0%** (vals.ai, 2026-07-28, ±0.91, rank 2/123; field leader Fable 5 89.8%) — fills gap
+- **SciCode: 56.4%** (max, rank 21/296; leader Opus 5.5 66.9%) — fills gap
+- **Vibe Code Bench v1.1: 88.4%** (vals.ai, rank 6/75) — fills gap
+- SWE-bench Verified **97.0%** (vals.ai, 2026-08-17; system-card 5-trial mean 96.0%); SWE-bench Multilingual 89.5%; SWE-bench Multimodal 59.4%
+- **Toolathlon Verified: 80.6% — #1 of 21** (BenchLM leaderboard)
+- BenchmarkList additions: SWE Atlas Test Writing 62.2% (rank 2/30), Codebase QnA 66.0% (rank 3/37), Senior SWE-Bench 34.7% (rank 3/19), SWE-Marathon 48.0% (rank 1/8; 80/160 passing trials), Code Migration 57.5% (rank 1/33), NL2Repo 75.3% (rank 1/34), KernelBench CUDA 79.3% (rank 1/11), KernelBench Mega 24.29 (rank 1/15), KernelBench Hard 21.8% (rank 1/17), ProgramBench 93.0% Anthropic harness (rank 1/10) / 82.3% (rank 3/37), Android Bench 91.8% (rank 1/46), IOI 91.7% (rank 6/58), Convex Coding Evals 81.7%, SkillsBench 63.7%, FrontierSWE v2 52.0%, CursorBench 3.2 70.0% / 3.1 66.7%, ReactBench 42.1%
+- Terminal-Bench 2.1 **89.1%** (AA, 2026-08-20, ±10.6, rank 7/194); Terminal-Bench 4.0 52.3% (rank 7/29); WebDev Arena 1663; AA Coding Agent Index 68.1; AA-AnalystAgent 53.8 (2026-09-29); HLE no-tools **54.9%** (AA, 2026-08-19); LiveBench 80.1; ARC-AGI-2 90.4% (2026-08-24); GPQA 93.4% (vals.ai); Agents' Last Exam 32.2% (Snorkel AI, 2026-10-01); OSWorld 2.0 70.6% (vendor); AutomationBench 26.0%; BrowseComp 90.8% (vendor)
+- The Model Gap (2026-10-08): all ten tracked scores are independent runs; DeepSWE +15.0 over Opus 4.8 and HLE +6.2 are "real gaps"; TB 2.1 +10.2 is "setup-dependent"; SWE-bench Verified / GPQA / LiveCodeBench saturated
+- Lineup context (2026-10-07): Haiku 5.5 launched; Sonnet 5.5 cache reads halved; Opus 5 pricing unchanged
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Opus 5 system card and launch page, Zapier AutomationBench leaderboard, Jesse Moraga's verified-numbers breakdown, OpenAI GPT-6 Astra comparison table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

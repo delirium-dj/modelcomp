@@ -1,9 +1,21 @@
 # Claude Opus 5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic/Claude Opus 5.5 (`claude-opus-5-5`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/claude-opus-5-5).
+> BenchLM overall **86.32/100** (#1), context **1M**, pricing **$4 input / $20 output**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 89, #1/122): OSWorld 2.0 48.7%; Terminal-Bench 4.0 66.40%; AutomationBench 40.0%; HLE w/ tools 67.7%; Toolathlon-Verified 77.8%; Terminal-Bench-Science 0.1 58.7%
+> - Coding (BenchLM 83.5, #2/146): SWE-bench Pro 89.9%; DeepSWE 74.2%; FrontierSWE v2 62.3%; SWE Multilingual 93.9%; FrontierCode 1.1 Main 54.4%; CursorBench 4.0 57.8%
+> - Reasoning (BenchLM 82.4, #3/28): ARC-AGI-2 91.7%; ARC-AGI-1 97.50%; GraphWalks BFS 256K–1M 66.8%
+> - Multimodal (BenchLM 88.8, #3/49): OfficeQA Pro 67.7%; Chartography (tools) 89.0%; Chartography (no tools) 64.4%; BenchCAD Vision2Code (no tools) 0.730; BenchCAD Vision2Code (tools) 0.962; Biomedical image analysis 71.4%
+> - Knowledge (BenchLM 88.4, #1/174): HLE w/o tools 64.4%; HealthBench (raw) 68.1%; HealthBench (length-adjusted) 60.6%; HealthBench Professional 65.6%; HealthBench Professional (raw) 77.1%; BioMysteryBench (human-solvable) 89.3%
+> - Multilingual (no category score): GMMLU 94.3%; MILU 93.1%
+> - Inst. Following (no category score): Gray Swan IPI (15 attempts) 1.0%
+> - Math (no category score): ArXivMath Aug. 2026 (no tools) 91.2%; ArXivMath Aug. 2026 (tools) 96.9%
 
 ## Model card
 
@@ -60,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (HokAI vendor-checked model page for specs, pricing and the system-card benchmark table; Artificial Analysis launch article for the Intelligence Index, Briefcase/GDPval Elo, Terminal-Bench and pricing details); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

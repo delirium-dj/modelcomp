@@ -1,9 +1,20 @@
 # Qwen 3.7 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen/Qwen 3.7 (`Qwen3.7-Max`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-7-max).
+> BenchLM overall **62.65/100** (#42), context **1M**, pricing **API rate not published**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 39.6, #63/122): Terminal-Bench 2.0 69.7%; MCP Atlas 76.4%; Terminal-Bench 2.1 (Vals) 61.0%; BFCL v4 75.0%; HLE w/ tools 53.5%; QwenClawBench 64.3%
+> - Coding (BenchLM 44.9, #52/146): SWE-bench Pro 60.6%; SciCode 53.5%; LiveCodeBench (Vals) 87.1%; SWE Multilingual 78.3%; Terminal-Bench 2.0 69.7%; SWE-bench Verified 80.4%
+> - Reasoning (BenchLM 76.3): MRCRv2 90.4%; CritPt 13.4%
+> - Knowledge (BenchLM 59.7, #42/174): HLE 41.4%; MMLU-Pro 89.6%; MMLU-Pro (Vals) 89.3%; GPQA 92.4%; SuperGPQA 73.6%; GPQA Diamond (Vals) 90.2%
+> - Multilingual (BenchLM 100, #1/16): MMLU-ProX 87%; NOVA-63 59.0%; INCLUDE 86.2%; MAXIFE 89.2%; PolyMath 86.5%
+> - Inst. Following (BenchLM 89.2, #17/125): IFBench 79.1%; IFEval 94.3%
+> - Math (BenchLM 81.9): HMMT Feb 2026 97.1%; IMOAnswerBench 90.0%; Apex 44.5%
 
 ## Model card
 
@@ -57,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
 - Method: public internet research (Yotta Labs 2026-08-04 benchmark survey quoting Qwen's figures, llm-stats model page for release/pricing/context/licence, RankLLMs aggregator table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

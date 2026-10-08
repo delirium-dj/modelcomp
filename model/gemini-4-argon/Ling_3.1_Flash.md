@@ -59,17 +59,30 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** AutomationBench-AA 78% (rank 1), Vals Index leadership, Harvey's Legal 19.6% (3.5x Astra) and GraphWalks 84.2% show enterprise-agent breadth; Terminal-Bench 4.0 57.4% and FrontierSWE 55.0% (10.5 pts behind Astra) cap the score.
-- **Reasoning: 81/100.** the AA Intelligence Index of 53 (matching GPT-6 Astra max) is the only disclosed general-reasoning composite and sits below the 60+ frontier bar; GPQA/HLE are unpublished, and TB-Science 57.6% trails Astra/Opus 5.5 — GraphWalks 84.2% prevents a lower score.
+- **Reasoning: 85/100.** HLE **57.1%** (AskClash's cross-board, vs GPT-6 Astra's 57.2%) reaches the frontier leader band and is the strongest single signal, with the AA Intelligence Index of 53 (matching GPT-6 Astra and Fable 5.1), AA-Omniscience 50.0% accuracy / 15.0% hallucination (Astra: 63% / 51%), LABBench2 88.8% and RiemannBench 76.0% supporting; TB-Science 57.6% (6× verifier timeout) trails Astra/Opus 5.5 and GPQA Diamond remains unpublished.
 - **Context window: 95/100.** 1M tokens / 262K out with GraphWalks 99.x% at 128K; the 256K–1M band reads 84.2%, under the ≥98%-at-512K+ bar for 100.
 - **Multimodal: 85/100.** text/image/video/file in with text out — the +video-in band, corroborated by LVBench 91.7% (best in set).
 - **Coding: 90/100.** DeepSWE 77.9% (SOTA, above the 74% frontier ref) and Vibe Code 91.9% (best in set) are exceptional; FrontierSWE 55.0% and Terminal-Bench 4.0 57.4% lag the leaders.
 - **Cost efficiency: 75/100.** introductory $2/$10 per 1M (active as of 2026-10-02) with 95%-off cached input ($0.10/M) — AA's $1.99 per Intelligence Index task is 60% of GPT-6 Astra's; standard $4/$20 after the promo would score ~56.
-- **Overall Score: 88/100.** (88+81+95+85+90)/5 = 87.8 → 88 — the enterprise-workflow leader: DeepSWE SOTA, Vals Index, and legal/finance agent dominance at one-fifth of GPT-6 Astra's intro price, with a still-limited rollout as the caveat.
+- **Overall Score: 89/100.** (88+85+95+85+90)/5 = 88.6 → 89 — the enterprise-workflow leader: DeepSWE SOTA, Vals Index, HLE 57.1% and legal/finance agent dominance at one-fifth of GPT-6 Astra's intro price, with a still-limited rollout as the caveat.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+Full 19-row launch table (apidog/emergent audits), AskClash's cross-board and AA's independent reads found:
+
+- New rows: Agents' Last Exam **39.5%** (Argon self-computed; vs Astra 34.2%, Opus 5.5 38.2%, Fable 5.1 n/r — best of set); OSWorld-2.0 (offline) **69.2%** (self-computed; Astra 72.6% per OpenAI's blog); Chartography **71.6%** (Surge; Astra 71.0%, Opus 5.5 66.3%, Fable 5.1 46.2%); LABBench2 **88.8%** (self-computed; Astra 85.4%, Opus 5.5 73.1%, Fable 5.1 68.6%); RiemannBench **76.0%** (Surge; Astra 72.0%, Opus 5.5 69.6%, Fable 5.1 65.6%); LVBench **91.7%** (self-computed; Astra 87.5%, Opus 5.5 83.7%, Fable 5.1 79.7%)
+- HLE: **57.1%** (AskClash cross-board; GPT-6 Astra 57.2%) — fills the HLE gap at frontier level; GDPval-AA 1627.0 (vs Astra 1629.3)
+- AA independent reads: Intelligence Index **53** (tied with GPT-6 Astra and Fable 5.1; below Sonnet 5.5's 56 and Opus 5.5's 58); AutomationBench-AA **77.5%** (top of AA's independent run — the 78% in the card table is the rounded figure); AA-Omniscience **50.0% accuracy / 15.0% hallucination rate** (vs Astra's 63% / 51% — an unusually asymmetric profile: fewer hallucinations, lower accuracy)
+- Source-quality map (apidog's audit of all 19 rows): 9 rows come from public leaderboards for every model (Vals AI, Zapier, Proximal, Surge, CWE-bench) — Argon leads 7 and ties 1; Google ran 5 rows for all four models (PostTrainBench, LABBench2, LVBench, GraphWalks, and one more) — Argon leads 4; Argon trails on 5 rows: FrontierSWE v2 (55.0% vs Astra 65.5%), TB 4.0 (57.4% vs Opus 5.5 66.4%), PostTrainBench (45.3% vs Opus 5.5 49.3%), TB-Science 0.1 (57.6% vs Astra 68.1%) and OSWorld-2.0 (69.2% vs Astra 72.6%)
+- AskClash composite: Overall 67.4, rank #9 (vs GPT-6 Astra 72.5, #6) — Argon's lead is row-specific, not universal
+- **Reasoning revised 81→85** (HLE 57.1% fills the gap at frontier level, with AA-Omniscience 50%/15% and LABBench2 88.8% supporting); **Overall revised 88→89** ((88+85+95+85+90)/5 = 88.6)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind launch blog, Artificial Analysis, vals.ai, VentureBeat); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,14 @@
 # Grok 4.1 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.1 (`xai/grok-4.1`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-1).
+> BenchLM overall **n/a**, context **1M**, pricing **API rate not published**.
+> New/updated measurements that fill gaps in the rows above:
+> - Agentic (BenchLM 84): ResearchClawBench 13.5%
 
 ## Model card
 
@@ -56,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: public internet research (xAI Grok 4.1 launch post, LLM Stats provider/model page, BenchmarkList profile, ChatForest review). **Re-verification attempt 2026-09-27:** xAI's public models hub now surfaces only **Grok 4.7** (500K context, $2.00/$6.00, knowledge cutoff May 2026) and exposes a "Model Retirement (May 15, 2026)" notice; the retirement schedule page itself returned 404 on the URL tried, so **Grok 4.1's live availability on the xAI API could not be confirmed in this pass** — the specs and scores below stand as researched, but treat the endpoint status as unverified. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-sonnet-5.5`. No Free ID on OpenCode Zen (`noFreeId`) — scored on paid pricing.
 - **Context window:** 1M tokens total.
 - **Modalities:** text and image in; text out; tool calls, structured outputs, code execution.
-- **Pricing (as of 2026-10-02):** $2/$10 per 1M input/output (Sonnet 5's rate made permanent); cache reads $0.20/M, cache writes $2.50/M (5-min) / $4/M (1-hr); Batch API 50% off ($1/$5).
+- **Pricing (as of 2026-10-08):** $2/$10 per 1M input/output (Sonnet 5's rate made permanent); **cache reads $0.10/M** (halved from $0.20/M on 2026-10-07 — ~20% cheaper on most agentic work; 5% of input), cache writes $2.50/M (5-min) / $4/M (1-hr); Batch API 50% off ($1/$5).
 - **Architecture:** proprietary (Anthropic); parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -69,8 +69,20 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+- **Pricing change (2026-10-07): cache reads halved $0.20 → $0.10/M** (Anthropic announcement; ~20% cheaper on most agentic work). Cache writes unchanged ($2.50 5-min / $4 1-hr). Anthropic also announced monthly Claude Platform API credits for Max/Team ($100 Max 5x / $200 Max 20x / up to $500 pooled Team)
+- **AA-SciCode: 61.0%** (Artificial Analysis SciCode leaderboard) — fills the SciCode gap (~6 points below Opus 5.5 per AA)
+- Artificial Analysis' own runs (graysoft capture): **AA-LCR 82.7%** (fills the long-context gap), HLE 55.0%, Terminal-Bench 4.0 **63.6%** (AA's own run vs 70.6% system card), AA Intelligence Index 56.00
+- BenchLeader's own runs: **GPQA Diamond 95.6%** (third-party run — fills the GPQA gap; AA's own GPQA row still unpublished), FrontierMath Tiers 1–3 88.8% / Tier 4 80.5%, OTIS Mock AIME 100.0%, SimpleQA Verified 46.5%, APEX-Agents 75.5%, ProofBench 100.0%, LiveBench 75.7% (Reasoning 91.6 / Coding 91.4 / Agentic Coding 56.3 / Math 96.1 / Data Analysis 59.5 / Language 78.0 / Instruction Following 56.8), AA-Omniscience 32.3; BenchLeader Index 67.6, composite 72.6; 129 tok/s
+- Vals AI TB 2.1 mirror: **83.1%** (Sep 27 snapshot — separately tagged Vals run, not a tbench.ai public-board submission)
+- AA (2026-09-28): Sonnet 5.5 is #2 on the AA index; AA-Omniscience accuracy 54% vs Opus 5.5's 66% with a lower hallucination rate (47% vs 59%)
+- Still unpublished: LiveCodeBench, Vibe Code Bench, official GPQA (AA), MRCR/RULER/GraphWalks
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Anthropic Sonnet 5.5 launch page and system card, Artificial Analysis, Zapier, Cognition, Cursor, apidog, ComputingForGeeks, HokAI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

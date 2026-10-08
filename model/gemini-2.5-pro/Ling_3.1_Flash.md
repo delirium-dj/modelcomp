@@ -61,8 +61,20 @@ Other:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Full Artificial Analysis Intelligence Index row found (v4.3.2; fills the composite-index and AA-LCR gaps):
+
+- AA Intelligence Index: **16** (snapshots rank it #173 of 225 up to #292 of 696; 107th of 182 reasoning tools on modelgrep; median for its price tier: 26) — far below the frontier, as expected for a 16-month-old model
+- Index sub-scores: AA-Briefcase v1.1 **298**, GDPval-AA v2.1 **459**, AutomationBench-AA **2%**, Terminal-Bench 4.0 **0%**, SciCode **46%**, Humanity's Last Exam **23%**, GDP.pdf **10%**, CritPt **3%**, AA-Omniscience **−16**, AA-LCR v1.1 **69%**
+- tokenstat's AA split: Intelligence 16.1, Coding 33.3, Agentic 1.6; HLE (no tools) 18.8%; SWE-bench Verified 63.8%; modelgrep lists GPQA Diamond 84%
+- The AA row corroborates the original assessment — TB 4.0 0%, AutomationBench 2%, AA Agentic 1.6 and CritPt 3% are all far below the October-2026 frontier; AA-LCR 69% sits between the MRCR v2 128K (58.0%) and 1M (16.4%) figures, consistent with the Context score of 80
+- No score change
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind Gemini 2.5 Pro model card + benchmark table, Google Cloud pricing, Artificial Analysis, LLM Reference); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2_5_Pro.md`, using the same headings.

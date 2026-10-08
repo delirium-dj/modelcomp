@@ -62,14 +62,27 @@ Multimodal:
 - **Reasoning: 91/100.** GPQA Diamond 94.44% (rank 4/138) and HLE-Verified 54.9% clear the frontier reference bars (GPQA 90%+, HLE 40%+); the no-tools HLE of 47.8% and unknown MRCR/Intelligence-Index rows keep it out of the 93+ band.
 - **Context window: 96/100.** Full 1M-token window (65,536 out); Google's GDM-MRCR v2 is self-computed but no ≥98% retrieval-at-512K+ figure is published, so 100 is not justified.
 - **Multimodal: 92/100.** text/image/audio/video in with text out — the +audio-in band (90–100); CharXiv 86.2% corroborates strong visual reasoning.
-- **Coding: 93/100.** DeepSWE 74% ties the board's top spot, LiveCodeBench 89.48% is rank 3, SWE-bench Verified 80.0% and SWE-bench Pro 61.6% are solid; capped below 95 because the headline DeepSWE tie is a single board and SciCode/Vibe Code are unpublished.
+- **Coding: 92/100.** DeepSWE 74% ±1 (mini-swe-agent, high effort) and LiveCodeBench 89.48% (rank 3) lead, with SWE-bench Verified 80.0% and SWE-bench Pro 61.6% solid; capped below 95 because Google now flags that the Opus 5 74% it appeared to tie was a rounding artifact on Datacurve's board (so the "top spot" tie is uncertain — and Gemini 4 Argon's 77.9% has since led), and SciCode/Vibe Code are unpublished.
 - **Cost efficiency: 100/100.** Free tier on Google AI Studio and OpenCode Zen (standard rate limits); paid introductory $0.75/$3.75 would itself score ~93 before the 2027-01-01 doubling.
-- **Overall Score: 92/100.** (90+91+96+92+93)/5 = 92.4 → 92 — the efficiency frontier pick: near-frontier agentic coding and reasoning at Flash pricing, with the widest caveat being harness variance on Terminal-Bench 2.1.
+- **Overall Score: 92/100.** (90+91+96+92+92)/5 = 92.2 → 92 — the efficiency frontier pick: near-frontier agentic coding and reasoning at Flash pricing, with the widest caveat being harness variance on Terminal-Bench 2.1.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+ARC Prize results, LVBench rows and DeepMind's evals methodology found:
+
+- ARC-AGI (arcprize.org, 2026-09-02): ARC-AGI-1 **98.5%** and ARC-AGI-2 **89.2%** at high reasoning (medium 97.5%/82.9%, low 90.5%/77.5%) — fills the ARC-AGI gap; ARC-AGI-3 (new, semi-private): **10.4%** with the Standard harness / **35.0%** with the Provider Adapter harness at high
+- LVBench (BenchmarkRegistry, self-reported 2026-09-02): **87.8%** agentic / **87.1%** static (1024 frames) — fills the LVBench gap; strong long-video understanding
+- DeepMind's flash page confirms HLE-Verified **54.9%** and frames DeepSWE as outperforming "most larger frontier models... at a fraction of the cost"
+- Evals methodology notes: DeepSWE self-computed (mini-swe-agent harness, high thinking — Google notes it originally mis-reported Opus 5's 74% due to rounding on Datacurve's public leaderboard); TB 4.0 from the official public leaderboard (highest thinking level per the TB authors); GDPval-AA v2 from the AA leaderboard; Vals Finance Agent v2 and Harvey's Legal Agent Benchmark from Vals.AI; LVBench self-computed without tools (1024 frames; 300 for Claude models); GDM-MRCR v2 128K cumulative; OSWorld 2.0 self-computed (max 500 steps, batched tool calls, the OSWorld 2.0 repo's CUA harness, pyautogui screenshot-only, runs completed before the 08.08 patch); HLE-Verified self-computed on the full 1,811-item verified set (668 original + 1,143 revised, excluding 689 uncertain; content-policy filters blocked a significant proportion of questions for Sonnet 5 and a small number for Opus 5); LABBench2 self-computed (macro-average across 11 sub-tasks)
+- Still unpublished: LiveBench, AA-AnalystAgent, SciCode, Vibe Code Bench, MRCR numeric at depth, Toolathlon, Agents' Last Exam, Claw-Eval, AA Intelligence Index, AA-Omniscience
+- **Coding revised 93→92** (the DeepSWE "tie for the top spot" is uncertain after Google's rounding correction, and Argon's 77.9% now leads); Overall unchanged at 92 ((90+91+96+92+92)/5 = 92.2)
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Google DeepMind model card and eval methodology, Artificial Analysis, vals.ai, Datacurve DeepSWE board, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

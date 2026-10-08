@@ -63,8 +63,21 @@ Long context:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Benchmark Atlas, BenchGecko and comparison-table rows found:
+
+- BrowseComp: **89.3%** (Pro's own row — ahead of GPT-5.5's 84.4% on the same table; BenchLM comparison)
+- FrontierMath (Benchmark Atlas, private sets): Tiers 1–3 v2 **82.5%** (v1: 50.0%), Tier 4 v2 **58.5%** (v1: 38.0%) — strong research-math reads
+- Reasoning cross-checks: GPQA Diamond **92.8%** (BenchGecko; launch 94.4%, DataLearner 94.6%), HLE **44.3%** (Atlas) / 45.3% text-only ± 2.1 (system card), SimpleQA Verified **47.8%**, ArXivMath 02/2026 75.8%, MultiNRC 62.3%, MASK 91.7%, PrinzBench 79.0% (legal research 59.0%, search 20.0%), Chess Puzzles 58.6%, MineBench BT rating 1830 (conservative 1671), MultiChallenge 69.2%, CritPt (avg@5) 30.0%, FORTRESS ARS 14.8
+- Composites: Epoch Capabilities Index **159**, BenchGecko average 80.7 (rank #20), Vector Wire tracks 19 results on 17 benchmarks
+- GeneBench-Pro breakdown (Atlas): 16.3 overall — AA subset 9.2, externally reviewed 15.4, not-externally-reviewed 17.9, public-release subset 20.0
+- No score change: BrowseComp 89.3% and FrontierMath v2 (82.5%/58.5%) sit within the Tool 86 / Reasoning 90 rationale
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (OpenAI GPT-5.4 launch, OpenAI API docs, Artificial Analysis, DeepLearning.AI, BenchmarkList, evals.report); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_4_Pro.md`, using the same headings.
