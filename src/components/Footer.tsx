@@ -50,8 +50,6 @@ const EXTRA_DONATE_LINKS = [
   { label: "PayPal", href: "" },
   // e.g. your Stripe Payment Link "https://buy.stripe.com/..."
   { label: "Stripe", href: "" },
-  // e.g. your Lemon Squeezy checkout "https://YOURSTORE.lemonsqueezy.com/checkout/buy/..."
-  { label: "Lemon Squeezy", href: "" },
 ];
 
 export const Footer = component$(() => {

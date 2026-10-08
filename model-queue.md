@@ -78,10 +78,10 @@
 79.9 mimo-v2.5-free
 79.7 claude-haiku-5.5
 79 grok-4
+79 step-5-preview
 78.9 grok-4.20
 78.9 kimi-k2.7-code
 78.5 grok-4-fast
-78.5 step-5-preview
 78.4 gemini-3.1-flash
 78.4 grok-4.1-fast
 78.2 glm-5.3
@@ -143,7 +143,7 @@
 62.3 qwen3-max
 61.7 ring-2.6.1t
 61.1 gpt-5.3-codex-spark
-61 mai-thinking-1
+60.5 mai-thinking-1
 60.3 ling-2.6.1t
 60.1 omen-alpha
 59.8 deepseek-v3.2
@@ -151,10 +151,10 @@
 59.5 laguna-xs-2.1
 59.1 gemma-4-e4b
 59.1 mai-code-1-flash
-59 solar-mini-4
 57.1 mimo-v2.6-distill-qwen-9b
 56.9 llama_3.2_vision_instruct
 56.5 ling-3.0-flash-sante
+56.3 solar-mini-4
 56.2 north_mini_code
 55.4 nemotron-3.5-lightning-free
 54.8 big-pickle

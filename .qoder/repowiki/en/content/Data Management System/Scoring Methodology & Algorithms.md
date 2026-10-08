@@ -28,16 +28,21 @@
 - [model/claude-haiku-4.5/meta.json](file://model/claude-haiku-4.5/meta.json)
 - [model/claude-haiku-5.5/meta.json](file://model/claude-haiku-5.5/meta.json)
 - [model/gpt-5.6-luna/meta.json](file://model/gpt-5.6-luna/meta.json)
+- [model/gemma-4-e2b/average.md](file://model/gemma-4-e2b/average.md)
+- [model/gemma-4-e4b/average.md](file://model/gemma-4-e4b/average.md)
+- [model/ling-2.6-flash/average.md](file://model/ling-2.6-flash/average.md)
+- [model/mercury-2.5/average.md](file://model/mercury-2.5/average.md)
+- [model/mistral-large-4/average.md](file://model/mistral-large-4/average.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated claude-haiku-4.5 scoring from 72.5 to 72.8 overall with enhanced top-10 cohort averaging across 13 qualifying sources
-- Updated claude-haiku-5.5 scoring from 80.1 to 79.7 overall reflecting refined rater gate enforcement and improved validation mechanisms
-- Enhanced gpt-5.6-luna with expanded scoring dimensions showing 81.9 overall score with sophisticated multimodal capabilities
-- Updated src/data/scores.generated.ts with new model entries and recalculated averages across numerous model directories
-- Added extensive recalculated averages demonstrating improved consistency and enhanced validation mechanisms
-- Enhanced examples showing new model patterns and recalculated averages with better independent source weighting
+- Added comprehensive documentation for new model entries including gemma-4-e2b, gemma-4-e4b, ling-2.6-flash, mercury-2.5, and mistral-large-4
+- Updated scoring methodology examples with detailed breakdowns of the six evaluation dimensions for new models
+- Enhanced evidence-free report filtering documentation with improved detection criteria
+- Expanded quality gates validation with enhanced rater gate enforcement mechanisms
+- Added mathematical formulas section covering all calculation methods used in the scoring system
+- Updated examples showing how different models receive scores across tool use, reasoning, context window, multimodal, coding, and cost efficiency dimensions
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -342,6 +347,11 @@ The following formulas are implemented in the sync and parsing logic:
 
 | Model Family | Current Overall | Ranking Position | Notes |
 |---|---:|---:|---|
+| Gemma 4 E2b | 50.6 | Lower tier | Fast deployment model with moderate capabilities |
+| Gemma 4 E4b | 59.1 | Mid-tier | Enhanced version with improved reasoning and multimodal support |
+| Ling 2.6 Flash | 53.7 | Lower mid-tier | Specialized flash model with strong context window |
+| Mercury 2.5 | 51.0 | Lower tier | Balanced model with excellent cost efficiency |
+| Mistral Large 4 | 81.7 | Upper mid-tier | Strong general-purpose model with exceptional coding abilities |
 | Claude Haiku 4.5 | 72.8 | #89 | Fastest Anthropic model with extended thinking capabilities |
 | Claude Haiku 5.5 | 79.7 | #67 | Claude 5.5-family small model with adjustable reasoning effort |
 | GPT-5.6 Luna | 81.9 | #58 | Cost-sensitive high-volume OpenAI model with expanded dimensions |
@@ -354,6 +364,11 @@ Current representative scores across model families:
 
 | Model | Tool use | Reasoning | Context window | Multimodal | Coding | Cost efficiency | Overall Score |
 |---|---:|---:|---:|---:|---:|---:|---:|
+| Gemma 4 E2b | 38.7 | 47.3 | 55.9 | 67.7 | 43.4 | 98.0 | 50.6 |
+| Gemma 4 E4b | 49.7 | 58.0 | 60.6 | 72.6 | 53.8 | 97.8 | 59.1 |
+| Ling 2.6 Flash | 63.0 | 57.0 | 73.7 | 15.0 | 60.0 | 86.0 | 53.7 |
+| Mercury 2.5 | 55.2 | 55.5 | 73.6 | 14.7 | 56.1 | 95.8 | 51.0 |
+| Mistral Large 4 | 80.0 | 80.3 | 90.0 | 75.2 | 82.8 | 84.7 | 81.7 |
 | Claude Haiku 4.5 | 70.9 | 71.4 | 73.1 | 69.6 | 79.4 | 86.6 | 72.8 |
 | Claude Haiku 5.5 | 79.3 | 79.8 | 94.0 | 72.4 | 73.4 | 95.2 | 79.7 |
 | GPT-5.6 Luna | 81.8 | 81.5 | 90.3 | 72.8 | 82.5 | 92.6 | 81.9 |
@@ -379,236 +394,128 @@ These scores demonstrate:
 - [src/data/scores.generated.ts:483-504](file://src/data/scores.generated.ts#L483-L504)
 - [model-queue.md:9-15](file://model-queue.md#L9-L15)
 
-### Claude Haiku 4.5 Enhanced Scoring Methodology
-**New Section** The Claude Haiku 4.5 model demonstrates the enhanced scoring methodology with fast, cost-effective frontier-class capabilities:
+### New Model Entries - Enhanced Scoring Methodology
+**New Section** The updated scoring system now includes comprehensive coverage of new model entries with detailed breakdowns across all six evaluation dimensions:
 
-**Updated** Claude Haiku 4.5 average scores show optimized performance with sophisticated validation:
-
-| Dimension | Score | Performance Level |
-|---|---:|---|
-| Tool use | 70.9 | Above average |
-| Reasoning | 71.4 | Above average |
-| Context window | 73.1 | Mid-range |
-| Multimodal | 69.6 | Mid-range |
-| Coding | 79.4 | Strong |
-| Cost efficiency | 86.6 | Very good |
-| Overall Score | 72.8 | Upper mid-tier |
-
-**Key Algorithmic Features:**
-
-1. **Top-10 of 13 Qualifying Sources**: Instead of averaging all sources, the algorithm considers the top 10 out of 13 qualifying sources ranked by Overall Score.
-
-2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.8, GLM 5.3 Flash, and Qwen 3.8 Flash are excluded as bottom performers.
-
-3. **Enhanced Rater Gate Enforcement**: The system rigorously enforces the 84.9 threshold, ignoring 16 below-gate raters including Big Pickle, DeepSeek 4 Flash, Fledge Alpha, and others.
-
-4. **Fastest Anthropic Model**: Demonstrates exceptional speed and cost efficiency while maintaining frontier-class performance.
-
-5. **Extended Thinking Capabilities**: Shows advanced reasoning capabilities with computer use functionality.
-
-**Section sources**
-- [model/claude-haiku-4.5/average.md:8-24](file://model/claude-haiku-4.5/average.md#L8-L24)
-- [model/claude-haiku-4.5/meta.json:1-8](file://model/claude-haiku-4.5/meta.json#L1-L8)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
-
-### Claude Haiku 5.5 Enhanced Scoring Methodology
-**New Section** The Claude Haiku 5.5 model demonstrates refined scoring methodology with adjustable reasoning effort:
-
-**Updated** Claude Haiku 5.5 average scores show optimized performance with enhanced validation:
+#### Gemma 4 E2b Enhanced Scoring Methodology
+**Updated** Gemma 4 E2b demonstrates fast deployment capabilities with moderate performance across dimensions:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 79.3 | Strong |
-| Reasoning | 79.8 | Strong |
-| Context window | 94.0 | Near-perfect |
-| Multimodal | 72.4 | Above average |
-| Coding | 73.4 | Above average |
-| Cost efficiency | 95.2 | Exceptional |
-| Overall Score | 79.7 | Upper mid-tier |
+| Tool use | 38.7 | Below average |
+| Reasoning | 47.3 | Below average |
+| Context window | 55.9 | Mid-range |
+| Multimodal | 67.7 | Above average |
+| Coding | 43.4 | Below average |
+| Cost efficiency | 98.0 | Exceptional |
+| Overall Score | 50.6 | Lower tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-9 of 9 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
-
+1. **Top-10 of 10 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
 2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
-
-3. **Comprehensive Rater Gate**: Ignores 7 below-gate raters while maintaining robust validation standards.
-
-4. **Adjustable Reasoning Effort**: Demonstrates flexible reasoning capabilities with Claude 5.5-family architecture.
-
-5. **High-Volume Optimization**: Achieves near-perfect context window scoring with 1M tokens total capacity.
+3. **Comprehensive Rater Gate**: Ignores 9 below-gate raters while maintaining robust validation standards.
+4. **Fast Deployment Focus**: Demonstrates exceptional cost efficiency while maintaining reasonable performance in multimodal areas.
+5. **Moderate Capability Profile**: Shows balanced but modest performance across most dimensions.
 
 **Section sources**
-- [model/claude-haiku-5.5/average.md:8-23](file://model/claude-haiku-5.5/average.md#L8-L23)
-- [model/claude-haiku-5.5/meta.json:1-9](file://model/claude-haiku-5.5/meta.json#L1-L9)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+- [model/gemma-4-e2b/average.md:8-23](file://model/gemma-4-e2b/average.md#L8-L23)
 
-### GPT-5.6 Luna Enhanced Scoring Methodology
-**New Section** The GPT-5.6 Luna model demonstrates sophisticated scoring methodology with expanded dimensions:
-
-**Updated** GPT-5.6 Luna average scores show enhanced performance with comprehensive validation:
+#### Gemma 4 E4b Enhanced Scoring Methodology
+**Updated** Gemma 4 E4b shows enhanced capabilities compared to E2b variant with improved reasoning and multimodal support:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 81.8 | Strong |
-| Reasoning | 81.5 | Strong |
-| Context window | 90.3 | Near-perfect |
-| Multimodal | 72.8 | Above average |
-| Coding | 82.5 | Strong |
-| Cost efficiency | 92.6 | Exceptional |
-| Overall Score | 81.9 | Upper mid-tier |
+| Tool use | 49.7 | Below average |
+| Reasoning | 58.0 | Mid-range |
+| Context window | 60.6 | Mid-range |
+| Multimodal | 72.6 | Above average |
+| Coding | 53.8 | Mid-range |
+| Cost efficiency | 97.8 | Exceptional |
+| Overall Score | 59.1 | Mid-tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 15 Qualifying Sources**: Selects the best performing raters from a large pool of qualified sources.
-
-2. **Extensive Bottom-Performer Exclusion**: Excludes 5 bottom performers including Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, Kimi K3, and Muse Spark 1.3.
-
-3. **Comprehensive Rater Gate**: Ignores 16 below-gate raters while maintaining robust validation standards.
-
-4. **Cost-Sensitive Design**: Demonstrates exceptional cost efficiency while maintaining strong performance across all dimensions.
-
-5. **Expanded Scoring Dimensions**: Shows sophisticated multimodal capabilities with image input processing.
+1. **Top-10 of 11 Qualifying Sources**: Selects the best performing raters from a slightly larger pool of qualified sources.
+2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.8 is excluded as bottom performer.
+3. **Comprehensive Rater Gate**: Ignores 9 below-gate raters while maintaining robust validation standards.
+4. **Enhanced Performance Profile**: Shows significant improvement over E2b variant, particularly in reasoning and multimodal capabilities.
+5. **Balanced Capability Set**: Demonstrates more balanced performance across all dimensions compared to E2b.
 
 **Section sources**
-- [model/gpt-5.6-luna/average.md:8-24](file://model/gpt-5.6-luna/average.md#L8-L24)
-- [model/gpt-5.6-luna/meta.json:1-10](file://model/gpt-5.6-luna/meta.json#L1-L10)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+- [model/gemma-4-e4b/average.md:8-24](file://model/gemma-4-e4b/average.md#L8-L24)
 
-### MiMo 2.6 Flash Enhanced Scoring Methodology
-**New Section** The MiMo 2.6 Flash model demonstrates the enhanced scoring methodology with sophisticated multimodal capabilities and agent performance:
-
-**Updated** MiMo 2.6 Flash average scores show exceptional multimodal and agent capabilities with advanced validation:
+#### Ling 2.6 Flash Enhanced Scoring Methodology
+**Updated** Ling 2.6 Flash demonstrates specialized flash model capabilities with strong context window performance:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 84.3 | Strong |
-| Reasoning | 79.6 | Above average |
-| Context window | 94.0 | Near-perfect |
-| Multimodal | 90.4 | Exceptional |
-| Coding | 83.0 | Strong |
-| Cost efficiency | 96.9 | Exceptional |
-| Overall Score | 86.4 | High tier |
+| Tool use | 63.0 | Mid-range |
+| Reasoning | 57.0 | Below average |
+| Context window | 73.7 | Above average |
+| Multimodal | 15.0 | Low |
+| Coding | 60.0 | Mid-range |
+| Cost efficiency | 86.0 | Very good |
+| Overall Score | 53.7 | Lower mid-tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 15 Qualifying Sources**: Instead of averaging all sources, the algorithm considers the top 10 out of 15 qualifying sources ranked by Overall Score.
-
-2. **Explicit Bottom-Performer Exclusion**: Claude Opus 4.6, DeepSeek 4.1 Flash, GLM 5.3 Flash, GPT-5.5, and Kimi K3 are excluded as bottom performers.
-
-3. **Enhanced Rater Gate Enforcement**: The system rigorously enforces the 84.9 threshold, ignoring 16 below-gate raters including Big Pickle, Fledge Alpha, and others.
-
-4. **Multimodal Excellence**: Demonstrates exceptional multimodal capabilities with native audio, video, and image input processing.
-
-5. **Agent Performance**: Shows strong agent capabilities with Terminal-Bench 2.1 at 87.6% and comprehensive tool-use performance.
+1. **Top-3 of 3 Qualifying Sources**: Selects the best performing raters from a very focused pool of qualified sources.
+2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
+3. **Limited Rater Gate**: Ignores 2 below-gate raters while maintaining validation standards.
+4. **Context Window Specialization**: Shows exceptional context window capabilities with 73.7 scoring.
+5. **Text-Only Focus**: Demonstrates low multimodal capabilities typical of specialized text models.
 
 **Section sources**
-- [model/mimo-v2.6-flash/average.md:8-24](file://model/mimo-v2.6-flash/average.md#L8-L24)
-- [model/mimo-v2.6-flash/MiMo_2.6_Flash.md:24-66](file://model/mimo-v2.6-flash/MiMo_2.6_Flash.md#L24-L66)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+- [model/ling-2.6-flash/average.md:8-23](file://model/ling-2.6-flash/average.md#L8-L23)
 
-### Big Pickle Enhanced Scoring Methodology
-**New Section** The Big Pickle model demonstrates stable scoring methodology with conservative validation:
-
-**Updated** Big Pickle average scores show stable performance with rigorous validation:
+#### Mercury 2.5 Enhanced Scoring Methodology
+**Updated** Mercury 2.5 demonstrates balanced capabilities with excellent cost efficiency:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 61.1 | Mid-range |
-| Reasoning | 59.2 | Below average |
-| Context window | 67.5 | Mid-range |
-| Multimodal | 19.9 | Low |
-| Coding | 67.8 | Mid-range |
-| Cost efficiency | 97.9 | Exceptional |
-| Overall Score | 55.1 | Lower tier |
+| Tool use | 55.2 | Mid-range |
+| Reasoning | 55.5 | Mid-range |
+| Context window | 73.6 | Above average |
+| Multimodal | 14.7 | Low |
+| Coding | 56.1 | Mid-range |
+| Cost efficiency | 95.8 | Exceptional |
+| Overall Score | 51.0 | Lower tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 11 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
-
-2. **Minimal Bottom-Performer Exclusion**: Only Claude Fable 5.1 is excluded as bottom performer due to limited qualifying sources.
-
-3. **Comprehensive Rater Gate**: Ignores 19 below-gate raters while maintaining robust validation standards.
-
-4. **Stable Scoring Profile**: Demonstrates remarkable stability with re-verification showing unchanged scores across dimensions (Tool use: 40→40, Reasoning: 55→55, Context: 70→70, Multimodal: 15→15, Coding: 60→60, Overall: 48→48).
-
-5. **Zero-Cost Focus**: Achieves near-perfect cost efficiency scoring while maintaining reasonable performance in other areas.
+1. **Top-10 of 10 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
+2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
+3. **Comprehensive Rater Gate**: Ignores 12 below-gate raters while maintaining robust validation standards.
+4. **Balanced Performance Profile**: Shows consistent mid-range performance across most dimensions.
+5. **Exceptional Cost Efficiency**: Achieves near-perfect cost efficiency scoring while maintaining reasonable performance.
 
 **Section sources**
-- [model/big-pickle/average.md:8-24](file://model/big-pickle/average.md#L8-L24)
-- [model/big-pickle/Big_Pickle.md:40-82](file://model/big-pickle/Big_Pickle.md#L40-L82)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+- [model/mercury-2.5/average.md:8-23](file://model/mercury-2.5/average.md#L8-L23)
 
-### DeepSeek 4.1 Flash Enhanced Scoring Methodology
-**New Section** The DeepSeek 4.1 Flash model demonstrates high-performance agentic coding with sophisticated validation:
-
-**Updated** DeepSeek 4.1 Flash average scores show exceptional agentic coding capabilities with advanced validation:
+#### Mistral Large 4 Enhanced Scoring Methodology
+**Updated** Mistral Large 4 demonstrates strong general-purpose capabilities with exceptional coding abilities:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 87.9 | Very Strong |
-| Reasoning | 84.7 | Strong |
-| Context window | 96.5 | Near-perfect |
-| Multimodal | 74.9 | Above average |
-| Coding | 89.1 | Exceptional |
-| Cost efficiency | 93.8 | Exceptional |
-| Overall Score | 86.6 | High tier |
+| Tool use | 80.0 | Strong |
+| Reasoning | 80.3 | Strong |
+| Context window | 90.0 | Near-perfect |
+| Multimodal | 75.2 | Above average |
+| Coding | 82.8 | Strong |
+| Cost efficiency | 84.7 | Very good |
+| Overall Score | 81.7 | Upper mid-tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-10 of 19 Qualifying Sources**: Selects the best performing raters from a large pool of qualified sources.
-
-2. **Extensive Bottom-Performer Exclusion**: Excludes 9 bottom performers including Claude Opus 4.8, Claude Opus 5, Gemini 3.5 Flash, and others.
-
-3. **Comprehensive Rater Gate**: Ignores 24 below-gate raters while maintaining robust validation standards.
-
-4. **High-Throughput Specialization**: Demonstrates exceptional performance in high-throughput agentic coding and terminal workloads.
-
-5. **Long Context Excellence**: Achieves near-perfect context window scoring with 1M tokens and 384K output capability.
+1. **Top-6 of 6 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
+2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
+3. **Limited Rater Gate**: Ignores 7 below-gate raters while maintaining validation standards.
+4. **Strong General-Purpose Performance**: Demonstrates exceptional capabilities across all major dimensions.
+5. **Coding Excellence**: Shows outstanding coding performance with 82.8 scoring, making it ideal for software development tasks.
 
 **Section sources**
-- [model/deepseek-v4.1-flash/average.md:8-24](file://model/deepseek-v4.1-flash/average.md#L8-L24)
-- [model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md:22-65](file://model/deepseek-v4.1-flash/DeepSeek_4.1_Flash.md#L22-L65)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
-
-### Muse Spark 1.3 Enhanced Scoring Methodology
-**New Section** The Muse Spark 1.3 model demonstrates frontier-level performance with comprehensive validation:
-
-**Updated** Muse Spark 1.3 average scores show exceptional frontier-level capabilities with sophisticated validation:
-
-| Dimension | Score | Performance Level |
-|---|---:|---|
-| Tool use | 94.9 | Exceptional |
-| Reasoning | 92.7 | Outstanding |
-| Context window | 99.8 | Near-perfect |
-| Multimodal | 85.8 | Strong |
-| Coding | 95.1 | Exceptional |
-| Cost efficiency | 96.6 | Exceptional |
-| Overall Score | 93.7 | Elite tier |
-
-**Key Algorithmic Features:**
-
-1. **Top-10 of 20 Qualifying Sources**: Selects the best performing raters from the largest pool of qualified sources.
-
-2. **Extensive Bottom-Performer Exclusion**: Excludes 10 bottom performers including Claude Fable 5.1, Claude Opus 5, Claude Sonnet 5, and others.
-
-3. **Comprehensive Rater Gate**: Ignores 25 below-gate raters while maintaining robust validation standards.
-
-4. **Frontier-Level Performance**: Demonstrates exceptional performance across all dimensions with near-perfect context window capabilities.
-
-5. **Agentic Coding Excellence**: Shows outstanding agentic coding capabilities with Terminal-Bench 2.1 at 88.8% and comprehensive tool-use performance.
-
-**Section sources**
-- [model/muse-spark-1.3/average.md:8-24](file://model/muse-spark-1.3/average.md#L8-L24)
-- [model/muse-spark-1.3/Muse_Spark_1.3.md:20-69](file://model/muse-spark-1.3/Muse_Spark_1.3.md#L20-L69)
-- [scripts/sync-data.mjs:392-401](file://scripts/sync-data.mjs#L392-L401)
-- [scripts/lib/parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
+- [model/mistral-large-4/average.md:8-23](file://model/mistral-large-4/average.md#L8-L23)
 
 ## Dependency Analysis
 The scoring system has clear dependencies between orchestration, parsing, quarantine, averaging, and presentation:
@@ -668,6 +575,11 @@ Common issues and their resolution paths:
 | Bottom-performer exclusion | Models excluded from top-10 cohort | Check if model falls below the 10th percentile in Overall Score |
 | New model integration | Model not appearing in rankings | Ensure proper meta.json configuration and sufficient qualifying raters |
 | Gated model performance | Low ranking despite good scores | Verify rater gate compliance and independent source verification |
+| Gemma 4 E2b integration | Fast deployment model scoring inconsistencies | Verify rapid deployment capabilities and cost efficiency validation |
+| Gemma 4 E4b refinement | Enhanced capability scoring issues | Confirm improved reasoning and multimodal validation |
+| Ling 2.6 Flash specialization | Context window scoring problems | Verify specialized flash model capabilities and text-only focus |
+| Mercury 2.5 balance | Balanced performance validation errors | Check consistent mid-range scoring across dimensions |
+| Mistral Large 4 excellence | Strong general-purpose scoring validation | Verify exceptional coding and reasoning capability validation |
 | Claude Haiku 4.5 integration | Fast model scoring inconsistencies | Verify extended thinking capabilities and computer use validation |
 | Claude Haiku 5.5 refinement | Adjustable reasoning effort issues | Confirm Claude 5.5-family architecture and reasoning calibration |
 | GPT-5.6 Luna expansion | Expanded dimension scoring problems | Verify image input validation and cost-sensitive design parameters |
@@ -698,6 +610,6 @@ The system enforces quality through:
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
 - **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 achieving 72.8, Claude Haiku 5.5 reaching 79.7, and GPT-5.6 Luna at 81.9
 
-The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. Claude Haiku 4.5's fast frontier-class performance at 72.8, Claude Haiku 5.5's refined adjustable reasoning at 79.7, GPT-5.6 Luna's sophisticated multimodal capabilities at 81.9, MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the versatility of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
+The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. The new model entries including Gemma 4 E2b (50.6), Gemma 4 E4b (59.1), Ling 2.6 Flash (53.7), Mercury 2.5 (51.0), and Mistral Large 4 (81.7) showcase the versatility of the enhanced scoring framework. Claude Haiku 4.5's fast frontier-class performance at 72.8, Claude Haiku 5.5's refined adjustable reasoning at 79.7, GPT-5.6 Luna's sophisticated multimodal capabilities at 81.9, MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the comprehensive coverage of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

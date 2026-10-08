@@ -63,15 +63,25 @@
 - [model/pareto-26.10-preview/GLM_5.3_Flash.md](file://model/pareto-26.10-preview/GLM_5.3_Flash.md)
 - [model/claude-fable-5.1/Gemini_2.5.md](file://model/claude-fable-5.1/Gemini_2.5.md)
 - [model/qwen-3.5/GLM_5.3_Flash.md](file://model/qwen-3.5/GLM_5.3_Flash.md)
+- [model/ring-2.6.1t/meta.json](file://model/ring-2.6.1t/meta.json)
+- [model/ring-2.6.1t/average.md](file://model/ring-2.6.1t/average.md)
+- [model/solar-mini-4/meta.json](file://model/solar-mini-4/meta.json)
+- [model/solar-mini-4/average.md](file://model/solar-mini-4/average.md)
+- [model/solar-open-2/meta.json](file://model/solar-open-2/meta.json)
+- [model/solar-open-2/average.md](file://model/solar-open-2/average.md)
+- [model/qwen-3.5-397b/meta.json](file://model/qwen-3.5-397b/meta.json)
+- [model/qwen-3.5-397b/average.md](file://model/qwen-3.5-397b/average.md)
+- [model/mistral-large-4/meta.json](file://model/mistral-large-4/meta.json)
+- [model/ling-3.1-flash/meta.json](file://model/ling-3.1-flash/meta.json)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated new model evaluation coverage section to include GLM 5.3 Flash (67/100), Inkling Small (74/100), Qwen 3.8 Flash Next (73/100), Pareto 26.10 Preview (66/100), Gemini 2.5 (63/100), Qwen 3.5 (69/100), and Fledge Alpha stealth model evaluations
-- Enhanced multi-provider coverage documentation with detailed analysis of GLM 5.3 Flash entries across claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next directories
-- Added comprehensive examples of new model evaluation patterns including experimental checkpoints, preview models, and stealth model assessments
-- Updated research methodology documentation to reflect systematic approach to evaluating diverse model types including open-weight models, legacy models, and free-tier previews
-- Expanded evaluator ecosystem analysis with specific examples from the extensive dataset growth including sophisticated multimodal capability analysis and vendor-independent measurement divergences
+- Added comprehensive documentation for four major new model entries: Qwen 3.5 397B A17B (massive hybrid Gated DeltaNet MoE), Ring 2.6 1T (trillion-parameter reasoning model), Solar Mini 4 (proprietary MoE), and Solar Open 2
+- Updated scoring methodologies with new model evaluation patterns including specialized assessment techniques for experimental checkpoints, preview models, legacy models, and stealth models
+- Enhanced model queue reorganization system with sophisticated research queue management for efficient agent processing
+- Expanded evaluator ecosystem analysis with extensive new model directories including Gemini variants, Ling models, Mercury 2.5, Mistral Large 4, and other specialized model types
+- Updated multi-provider coverage documentation with GLM 5.3 Flash evaluations across multiple provider directories
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -660,6 +670,70 @@ These examples illustrate the flexibility and consistency of the evaluation fram
 - [model/qwen-3.5/meta.json:1-9](file://model/qwen-3.5/meta.json#L1-L9)
 - [model/fledge-alpha/meta.json:1-10](file://model/fledge-alpha/meta.json#L1-L10)
 
+### Major New Model Entries Documentation
+The latest updates introduce four major new model entries that significantly expand the evaluation coverage:
+
+**Qwen 3.5 397B A17B (74.9/100)**: Alibaba's massive hybrid Gated DeltaNet Mixture-of-Experts model with 397B total parameters and 17B active parameters. This natively multimodal early-fusion model excels in reasoning, coding, agents, and vision tasks. The evaluation demonstrates sophisticated assessment of large-scale MoE architectures with 262K native context extensible to ~1M, achieving strong performance across all dimensions with particular strength in reasoning (75.8/100) and coding (76.8/100).
+
+**Ring-2.6-1T (61.7/100)**: InclusionAI's trillion-parameter open-weight reasoning flagship with 1T total parameters and 63B active parameters. This specialized reasoning model serves as the thinking half of the 2.6-1T pair with adjustable Reasoning Effort settings. The evaluation showcases specialized assessment techniques for ultra-large reasoning models with 128K native context (256K with YaRN), demonstrating exceptional cost efficiency (96/100) while maintaining competitive reasoning capabilities (75/100).
+
+**Solar Mini 4 (59/100)**: Upstage's efficient lightweight model optimized for high-throughput enterprise tasks and fast inference. This proprietary MoE model demonstrates specialized assessment for enterprise-focused models with 65,536 total context window, achieving excellent cost efficiency (97.3/100) while maintaining solid reasoning (64/100) and coding (66/100) capabilities.
+
+**Solar Open 2 (65.8/100)**: Upstage's open-weights model designed for flexible enterprise fine-tuning and domain-specific knowledge integration. The evaluation demonstrates sophisticated assessment of open-weight enterprise models with 65,536 total context window, achieving strong context window performance (92.8/100) and balanced capabilities across reasoning (75/100) and coding (76.5/100).
+
+```mermaid
+graph TB
+Subgraph MajorNewModels["Major New Model Entries"]
+Qwen397B["Qwen 3.5 397B<br/>Massive Hybrid MoE (74.9/100)"]
+Ring1T["Ring-2.6-1T<br/>Trillion-Parameter Reasoning (61.7/100)"]
+SolarMini4["Solar Mini 4<br/>Proprietary Enterprise MoE (59/100)"]
+SolarOpen2["Solar Open 2<br/>Open-Weights Enterprise (65.8/100)"]
+end
+Subgraph SpecializedAssessment["Specialized Assessment Patterns"]
+LargeScale["Large-Scale MoE Assessment"]
+ReasoningFocus["Reasoning-Focused Evaluation"]
+EnterpriseOptimization["Enterprise Optimization Analysis"]
+OpenWeightAnalysis["Open-Weight Capability Analysis"]
+end
+MajorNewModels --> SpecializedAssessment
+```
+
+**Diagram sources**
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/ring-2.6.1t/meta.json:1-9](file://model/ring-2.6.1t/meta.json#L1-L9)
+- [model/solar-mini-4/meta.json:1-10](file://model/solar-mini-4/meta.json#L1-L10)
+- [model/solar-open-2/meta.json:1-10](file://model/solar-open-2/meta.json#L1-L10)
+- [model/qwen-3.5-397b/average.md:1-23](file://model/qwen-3.5-397b/average.md#L1-L23)
+- [model/ring-2.6.1t/average.md:1-23](file://model/ring-2.6.1t/average.md#L1-L23)
+- [model/solar-mini-4/average.md:1-23](file://model/solar-mini-4/average.md#L1-L23)
+- [model/solar-open-2/average.md:1-23](file://model/solar-open-2/average.md#L1-L23)
+
+**Section sources**
+- [model/qwen-3.5-397b/meta.json:1-9](file://model/qwen-3.5-397b/meta.json#L1-L9)
+- [model/ring-2.6.1t/meta.json:1-9](file://model/ring-2.6.1t/meta.json#L1-L9)
+- [model/solar-mini-4/meta.json:1-10](file://model/solar-mini-4/meta.json#L1-L10)
+- [model/solar-open-2/meta.json:1-10](file://model/solar-open-2/meta.json#L1-L10)
+- [model/qwen-3.5-397b/average.md:1-23](file://model/qwen-3.5-397b/average.md#L1-L23)
+- [model/ring-2.6.1t/average.md:1-23](file://model/ring-2.6.1t/average.md#L1-L23)
+- [model/solar-mini-4/average.md:1-23](file://model/solar-mini-4/average.md#L1-L23)
+- [model/solar-open-2/average.md:1-23](file://model/solar-open-2/average.md#L1-L23)
+
+### Additional Model Additions
+Beyond the four major new entries, the system has incorporated numerous smaller model additions that enhance evaluation diversity:
+
+**Mercury 2.5**: Advanced multimodal model with comprehensive evaluation across multiple provider directories, demonstrating sophisticated assessment methodology for complex multimodal capabilities.
+
+**Mistral Large 4**: Enterprise-focused model with specialized evaluation patterns for large-scale deployment scenarios and enterprise optimization requirements.
+
+**Ling 3.1 Flash**: High-performance flash model with optimized inference capabilities and specialized assessment for latency-sensitive applications.
+
+These additions demonstrate the system's ability to accommodate diverse model architectures, use cases, and deployment scenarios while maintaining consistent evaluation standards.
+
+**Section sources**
+- [model/mercury-2.5/meta.json:1-10](file://model/mercury-2.5/meta.json#L1-L10)
+- [model/mistral-large-4/meta.json:1-10](file://model/mistral-large-4/meta.json#L1-L10)
+- [model/ling-3.1-flash/meta.json:1-10](file://model/ling-3.1-flash/meta.json#L1-L10)
+
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
 
@@ -770,6 +844,13 @@ Common issues and resolutions:
 | Preview model scoring inconsistencies | Limited evidence base handling | Maintain consistent provisional scoring philosophy across preview models |
 | Legacy model evaluation issues | Generational demotion implications | Document service continuity considerations and specialized assessment approaches |
 | Stealth model investigation problems | Multi-model backend complexity | Apply sophisticated routing probe methodology and backend analysis techniques |
+| Qwen 3.5 397B integration issues | Massive MoE model complexity | Apply specialized assessment for large-scale hybrid Gated DeltaNet architectures |
+| Ring 2.6 1T evaluation problems | Trillion-parameter model assessment | Document specialized reasoning-focused evaluation techniques |
+| Solar Mini 4 enterprise issues | Proprietary MoE model handling | Apply enterprise optimization assessment methodology |
+| Solar Open 2 open-weight issues | Flexible fine-tuning model assessment | Document open-weight capability analysis and enterprise integration patterns |
+| Mercury 2.5 multimodal issues | Complex multimodal capability assessment | Apply comprehensive multimodal evaluation methodology |
+| Mistral Large 4 enterprise issues | Large-scale deployment assessment | Document enterprise-focused evaluation patterns |
+| Ling 3.1 Flash optimization issues | Flash model performance assessment | Apply specialized latency-performance optimization evaluation |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -780,7 +861,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with extensive new model evaluation reports including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, Qwen 3.8 Flash Next experimental assessment (73/100), Pareto 26.10 Preview specialized evaluation (66/100), Gemini 2.5 legacy model assessment (63/100), Qwen 3.5 flagship generation evaluation (69/100), and Fledge Alpha stealth model investigation significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The diverse assessment approaches—from specialized experimental checkpoint evaluation to preview model assessment, legacy model analysis, stealth model investigation, and multi-provider coverage—provide richer insights into model capabilities and limitations. The addition of these new evaluation patterns further demonstrates the standardized evaluation framework's scalability and consistency across different model families, evidence availability scenarios, and model types including experimental checkpoints, preview models, legacy models, stealth models, and Flash-tier optimizations.
+**Updated** The comprehensive expansion with extensive new model evaluation reports including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, Qwen 3.8 Flash Next experimental assessment (73/100), Pareto 26.10 Preview specialized evaluation (66/100), Gemini 2.5 legacy model assessment (63/100), Qwen 3.5 flagship generation evaluation (69/100), and Fledge Alpha stealth model investigation significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The addition of four major new model entries—Qwen 3.5 397B A17B (74.9/100), Ring-2.6-1T (61.7/100), Solar Mini 4 (59/100), and Solar Open 2 (65.8/100)—along with numerous smaller model additions like Mercury 2.5, Mistral Large 4, and Ling 3.1 Flash further expands the evaluation diversity. The diverse assessment approaches—from specialized experimental checkpoint evaluation to preview model assessment, legacy model analysis, stealth model investigation, multi-provider coverage, and specialized assessment of massive MoE architectures—provide richer insights into model capabilities and limitations.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -805,6 +886,10 @@ For reliable contributions:
 - Handle multi-provider coverage gaps by adding missing provider directory entries for comprehensive model assessment.
 - Maintain standardized assessment approaches when integrating new model types into existing provider directories.
 - Apply comprehensive analysis techniques for experimental checkpoints, preview models, legacy models, and stealth models with appropriate specialized methodologies.
+- Handle massive MoE architectures like Qwen 3.5 397B with specialized assessment for large-scale hybrid Gated DeltaNet models.
+- Assess trillion-parameter reasoning models like Ring-2.6-1T with focused reasoning capability evaluation techniques.
+- Evaluate enterprise-focused models like Solar Mini 4 and Solar Open 2 with appropriate enterprise optimization and open-weight capability analysis.
+- Accommodate diverse model architectures including multimodal models, flash models, and specialized enterprise deployments.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

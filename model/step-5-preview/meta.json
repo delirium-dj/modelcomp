@@ -1,9 +1,9 @@
 {
   "id": "opencode/step-5-preview",
   "name": "Step 5 Preview",
-  "short": "StepFun's flagship 600B MoE multimodal model (27B active) with a 1M context window and high token efficiency for software engineering and agentic workflows.",
-  "contextWindow": "1,000,000 total; 64,000 max output",
-  "modalities": "Text, image, video in; text out; reasoning; tool calls; JSON mode",
-  "pricingNote": "$1.00/$2.70 per 1M (StepFun API)",
-  "noFreeId": true
+  "short": "Step 5 Preview model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
 }

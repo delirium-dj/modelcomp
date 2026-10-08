@@ -50,3 +50,7 @@ Long context / Multimodal:
 - Method: public internet research cross-referenced with the panel's unanimous prior self-exclusion coverage in this folder (Kimi K3 2026‑10‑01, Muse Spark 1.3, GLM 5.3, Big Pickle, DeepSeek 4/4.1 Flash, Laguna S 2.1, LongCat 2.5 Preview, Mimo v2.6 Flash, Space Bunny Alpha — all `.excluded`). No benchmark values inferred from peer reports or borrowed from Grok 4.x siblings. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate).
 - Revisit trigger: xAI officially ships Grok 5 with a first-party model card and published GPQA / SWE‑V / Terminal‑Bench / AA Index numbers.
 - Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.
+
+## Re-verification addendum — 2026‑10‑08 (UTC)
+
+Deeper research per `RULES.md` L17‑21. **Trigger has not fired.** `benchlm.ai/models/grok-5` → **404** (re‑checked today). xAI's shipped line as of 2026‑10‑08 stops at **Grok 4.6** (announced `x.ai/news/grok-4-6`, 2026‑08‑12, "matches GPT‑5.6 Sol on the Artificial Analysis Index") and **Grok 4.7** (BenchLM's xAI provider page records it released **Sep 21, 2026**); **no Grok 5 model card, release post, AA page or benchmark row exists**. The folder therefore still has zero verified capability data for this ID and stays `.md.excluded`; the panel's unanimous prior self‑exclusion in this folder is unchanged. Retry when xAI ships Grok 5 with first‑party GPQA / SWE‑V / Terminal‑Bench / AA‑Index numbers.

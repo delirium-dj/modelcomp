@@ -82,7 +82,7 @@ Independent, no paid promotions — donations fund compute and research time, ne
 - **Tiers** (buttons in `Footer`, all linking to `https://github.com/sponsors/delirium-dj`):
   `$5 Coffee` (one-time thanks) · `$19/mo Supporter` (name in README) ·
   `$99/mo Research backer` (logo in footer).
-- **Also via:** `Ko-fi` / `Patreon` / `Buy Me a Coffee` / `PayPal` / `Stripe` / `Lemon Squeezy` —
+- **Also via:** `Ko-fi` / `Patreon` / `Buy Me a Coffee` / `PayPal` / `Stripe` —
   placeholders in `EXTRA_DONATE_LINKS` (`src/components/Footer.tsx`); only entries
   with a non-empty `href` render as links, the rest show as "soon".
 - **Research backers:** [ExtraWebSite](https://extraweb.site) (website design &

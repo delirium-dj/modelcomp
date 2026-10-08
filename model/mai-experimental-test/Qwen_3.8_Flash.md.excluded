@@ -42,3 +42,7 @@ Multimodal (image / audio / video / PDF): **no verified public score found** (mo
 - Method: fresh public web research (Microsoft AI announcements, BenchLM MAI pages, OpenCode data catalog lookup — the `…/mai-experimental-test` data page 404s). Only the sibling MAI models are documented; this test endpoint is not.
 - Revisit trigger: Microsoft promoting this endpoint to a named, benchmarked model (with published τ²/GPQA/SWE/AA-Index numbers) would replace this `.excluded` with a scored report.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+## Re-verification addendum — 2026‑10‑08 (UTC)
+
+Deeper research per `RULES.md` L17‑21. **Trigger has not fired.** Searching this ID today still surfaces **no Microsoft model card, no release post, no BenchLM page and no Artificial Analysis entry** for `mai-experimental-test` — it remains an OpenCode Zen **sandbox/test endpoint** rather than a shipped model, and its own data page 404s. Microsoft's named, documented first‑party model is **MAI‑Thinking‑1** (`microsoft.ai/news/introducing-mai-thinking-1/`, "35B‑active, ~1T‑total parameters, sparse Mixture of Experts"), which has its **own folder** — `model/mai-thinking-1/` — scored in this pass at **Overall 59** from that model's own verified evidence. Borrowing those numbers across IDs would violate the no‑fabrication rule, so this folder's self‑exclusion stands unchanged.
