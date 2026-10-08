@@ -72,7 +72,8 @@ export type SourceKey =
   | "North Mini Code"
   | "Ling 3.1 Flash"
   | "Claude Opus 4.8"
-  | "MiMo 2.6 Flash";
+  | "MiMo 2.6 Flash"
+  | "Gemini 3.1 Flash Lite";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -156,4 +157,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Ling 3.1 Flash", label: "Ling 3.1 Flash", file: "Ling_3.1_Flash.md", slug: "ling-3.1-flash" },
   { key: "Claude Opus 4.8", label: "Claude Opus 4.8", file: "Claude_Opus_4.8.md", slug: "claude-opus-4.8" },
   { key: "MiMo 2.6 Flash", label: "MiMo 2.6 Flash", file: "MiMo_2.6_Flash.md" },
+  { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md", slug: "gemini-3.1-flash-lite" },
 ];

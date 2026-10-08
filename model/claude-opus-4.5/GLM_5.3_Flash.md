@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-5-20251101`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **87.1%** (Anthropic-reported; chart in announcement)
-- HLE: no verified public score found in fetched sources (Anthropic chart values are image-only)
+- HLE: **32.0%** (third-party-reported in Moonshot's Kimi K2.5 launch comparative table, via serenitiesai — found 2026-10-08, previously missing from this report; K2.5's 50.2% "beats Claude Opus 4.5 (32.0%)" — treat as indicative, harness differs)
 - Artificial Analysis Intelligence Index v4.3.2: **24 / #8** in non-reasoning class (AA model page, estimated by AA)
 - Aider Polyglot: **+10.6 pp** over Sonnet 4.5 (Anthropic announcement)
 - Effort scaling: at high effort exceeds Sonnet 4.5 on SWE-bench Verified by **4.3 pp** while using 48% fewer output tokens; medium effort matches Sonnet 4.5's best with 76% fewer tokens (Anthropic announcement)
@@ -52,17 +52,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** SWE-bench Verified SOTA at release, Terminal-Bench ~59%, Vending-Bench +29%, BrowseComp-Plus 70→85% with memory/subagents, and strong multi-subagent orchestration; capped by the τ2-bench creative-path failure and unspecified tau3/MCP-Atlas scores.
-- **Reasoning: 86/100.** GPQA Diamond 87.1%, Aider Polyglot +10.6 pp, AA Intelligence Index 24 (#8 non-reasoning class); capped by unverified HLE and the strong 2026 field.
+- **Reasoning: 84/100.** GPQA Diamond 87.1%, Aider Polyglot +10.6 pp, AA Intelligence Index 24 (#8 non-reasoning class); HLE now verified at 32.0% (third-party comparative, under the 40% bar) — capped by the strong 2026 field.
 - **Context window: 70/100.** 200K tokens with compaction and memory tooling, in the standard 200K frontier tier; capped versus 1M+-token peers and no measured >200K retrieval result.
 - **Multimodal: 55/100.** Text + image input with strong vision (announcement: "better vision"), text out; no audio/video input and no image generation.
 - **Coding: 90/100.** SWE-bench Verified 80.9% (SOTA at release), leads 7/8 languages on SWE-bench Multilingual, +10.6 pp Aider Polyglot; capped only by newer 2026 models.
 - **Cost efficiency: 40/100.** $5/$25 per 1M tokens — premium pricing, though a large drop from prior Opus tiers ($15/$75) and 90% cache discount; expensive vs the ~$1.88/$9.50 medians (Artificial Analysis, 2026).
-- **Overall Score: 78/100.** Mean of the five quality dims (90+86+70+55+90)/5 = 78.2 → 78 half-up. Best fit: hard agentic coding and long-horizon computer-use work where quality beats latency.
+- **Overall Score: 78/100.** Mean of the five quality dims (90+84+70+55+90)/5 = 77.8 → 78 half-up. Best fit: hard agentic coding and long-horizon computer-use work where quality beats latency.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-27
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (Anthropic announcement + Artificial Analysis model page, fetched 2026-09-27); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

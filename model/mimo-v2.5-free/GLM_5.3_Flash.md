@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`opencode/mimo-v2.5-free` — also covers the "Xiaomi MiMo-V2.5 Free" alias; native model MiMo-V2.5)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,7 +43,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08).
 
 - **Tool use: 80/100.** Tau2 Telecom 90.6 + TB-Hard 41.7 (91st pct) + GDPval-AA 1146 + Claw-Eval 62.3 — the strongest measured free-tier agentic profile in the repo's open-model band.
 - **Reasoning: 76/100.** GPQA 84.9 / HLE 27.2 / AA II 38 — solid frontier-adjacent knowledge.
@@ -51,12 +51,12 @@ Long context:
 - **Multimodal: 93/100.** Native image + audio + video understanding with MMMU-Pro 80, Vals Multimodal 52.8 and Design Arena 1288 (80th pct) — the best multimodal package on a free tier in this repo.
 - **Coding: 80/100.** SWE-V 71 + LCB 81.5 + TB2.1 63.7 — balanced strong, not specialist-deep (Vibe 42.2).
 - **Cost efficiency: 100/100.** Evaluated $0 Zen tier; list pricing $0.105/$0.28 is among the cheapest paid rates measured here.
-- **Overall Score: 86/100.** Mean: (80 + 76 + 100 + 93 + 80 + 100) / 6 = 529/6 = 88.2 → **88**. Best fit: the default free omni pick — multimodal agency, 1M context and $0 in one model.
+- **Overall Score: 86/100.** v4 formula: mean of the five quality dims (80 + 76 + 100 + 93 + 80) / 5 = 85.8 → **86** (Cost excluded per `RULES.md`; the original /6 = 88.2→88 math was stale v1 history, corrected 2026-10-08). Best fit: the default free omni pick — multimodal agency, 1M context and $0 in one model.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (Xiaomi's official MiMo-V2.5 launch page for architecture/training/Claw-Eval claims, BenchmarkList model page with 45 tracked benchmarks and percentiles, repo catalog's models.dev Zen serve config); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

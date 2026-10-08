@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Mistral AI/Mistral Medium 3.5 (`mistral-medium-26.04`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,9 +10,9 @@
 - **Name:** Mistral Medium 3.5 (docs version tag `v26.04`)
 - **Short description:** Mistral's "frontier-class multimodal model optimized for agentic and coding use cases" — a 128B **dense** (all parameters active) open-weight model that consolidates three earlier models into one endpoint: Mistral Medium 3.1 (chat), Magistral (reasoning) and Devstral 2 (Vibe coding agent). It powers Mistral's cloud "remote agents" in Vibe and the Le Chat Work mode. Not an alias of Mistral Large 3 or Mistral Small 4.
 - **Provider / access:** Mistral AI API (`mistral-medium-latest`, v26.04; Studio/Vibe/Le Chat) plus open weights on Hugging Face and NVIDIA NIM / build.nvidia.com. Text + image input with adjustable `reasoning_effort`; synchronous tool calling.
-- **Release / knowledge:** conflicting dates on the pages checked — official Mistral blog post dated **2026-05-22**, ChatForest records **2026-04-29**, BenchmarkList **2026-04-28**; the `v26.04` tag suggests the April checkpoint, so treat April–May 2026 as the release window. Knowledge cutoff not published.
+- **Release / knowledge:** conflicting dates on the pages checked — official Mistral launch post dated **2026-05-22**, while ChatForest, the Hugging Face model collection (updated Apr 29) and LLM Stats all record **2026-04-29** and BenchmarkList **2026-04-28**; the `v26.04` tag suggests the April checkpoint, so treat April–May 2026 as the release window. Knowledge cutoff not published.
 - **IDs:** `mistral-medium-latest` / v26.04 (successor to `mistral-medium-2508`); Zen route `opencode/mistral-medium-3.5`. No Free ID verified → cost scored on paid pricing.
-- **Context window:** 256K tokens (ChatForest review of the vendor card; not exposed on the docs overview page checked). Max output not published.
+- **Context window:** 256K tokens (official Hugging Face model card and LLM Stats both state 256K; ChatForest review agrees). LLM Stats additionally lists 256K output, but the vendor card only says "256k context window", so max output remains unconfirmed.
 - **Modalities:** text + image in → text out; reasoning yes (adjustable effort); agentic tool calling; positioned alongside Mistral OCR 4.1 for document intelligence.
 - **Pricing (as of 2026-09-23):** $1.50 in / $7.50 out per 1M tokens (official Mistral blog card); cached-input rate not published; sold on Pro/Team/Enterprise plans rather than as a free tier.
 - **Architecture:** 128B dense open-weight model (not MoE) under a **modified MIT licence** with a $20M/month revenue cap — a deliberate narrowing versus the Apache-2.0 Devstral 2 it replaces. Self-hosting needs roughly 256GB VRAM.
@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **50.6%** task success; Terminal-Bench 2.0 **30.3%**; Terminal-Bench Hard **33.3%** (BenchmarkList, checked 2026-09-22)
-- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList — the same model scores very differently across the two harness versions)
+- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList) and τ³-Telecom **91.4%** (official Hugging Face model card) — the same model scores very differently across the three harness versions
 - GDPval-AA **936 Elo**; AA-Briefcase **517**; AutomationBench-AA **13.7%**; Gert Labs Rankings **37.3%** (BenchmarkList)
 - Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
 - Vendor claims (unquantified): parallel cloud coding agents, Work mode cross-tool workflows, synchronous tool calling in Vibe/Le Chat.

@@ -1,7 +1,7 @@
 # Qwen3.8 Flash — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`qwen/qwen3.8-flash`, production version of the open-weight Qwen3.8-Flash-Next)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - HLE: **35.9** (Alibaba release table; behind Opus 4.6 Max's 40.0)
 - LiveCodeBench v6: **91.9** (Alibaba release table; vs Opus 4.6 Max's 88.8)
 - Agents' Last Exam Pass@1: **24.3** (Alibaba release table; DeepSeek-V4-Flash-0731 edges it at 25.2)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: **40** for the underlying open-weight checkpoint Qwen3.8-Flash-Next (artificialanalysis.ai/models/qwen3-8-flash-next, found 2026-10-08, previously missing from this report; production Flash reading not published separately)
 - LCR / MLCR, CritPt: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (Alibaba Cloud launch blog, DataCamp Flash-Next analysis, llm-stats and OrcaRouter model pages, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

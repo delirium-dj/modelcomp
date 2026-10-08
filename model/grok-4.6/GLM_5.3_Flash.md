@@ -1,14 +1,14 @@
 # Grok 4.6 — findings by GLM 5.3 Flash
 
 - Source: xAI / SpaceXAI (`grok-4.6`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.6 (proprietary frontier; no Free-tier wording)
-- **Short description:** xAI's August 2026 frontier model, built on Grok 4.5 with a focus on long-running agents and ambitious interactive/visual work — strongest-in-table GDPval-AA and AA-Briefcase scores, trained with agentic RL across kernel optimization, web development and CAD environments.
+- **Short description:** xAI's August 2026 frontier model, built on Grok 4.5 with a focus on long-running agents and ambitious interactive/visual work — strongest-in-table GDPval-AA and AA-Briefcase scores, trained with agentic RL across kernel optimization, web development and CAD environments. Superseded by Grok 4.7 (released September 21, 2026; AA 46.3 on v4.3.2 vs 4.6's 44.3, same $2/$6 — felloai, found 2026-10-08).
 - **Provider / access:** xAI API (`grok-4.6`) and xAI Console; also OpenRouter, Vercel, Cloudflare; bundled in Cursor and Grok Build (2x included usage first week). Not on OpenCode Zen (no Zen Free ID).
 - **Release / knowledge:** Released August 12, 2026. Knowledge cutoff February 1, 2026.
 - **IDs:** `grok-4.6` (xAI API); fast variant priced 2x.
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: xAI launch post and evals table, Artificial Analysis model page, LLMReference dossier with Cursor rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

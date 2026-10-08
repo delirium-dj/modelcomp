@@ -1,14 +1,14 @@
 # GPT-5.6 Luna — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.6-luna`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.6 Luna (cost-sensitive high-volume tier; no Free-tier wording)
-- **Short description:** The nano-tier model of OpenAI's GPT-5.6 family (Sol / Terra / Luna lineup) — fast, low-cost workhorse for summarization, drafting, autocomplete and routine automation, with the full 1.05M context window and OpenAI's complete tool suite at $0.20/$1.20 per 1M.
+- **Short description:** The nano-tier model of OpenAI's GPT-5.6 family (Sol / Terra / Luna lineup) — fast, low-cost workhorse for summarization, drafting, autocomplete and routine automation, with the full 1.05M context window and OpenAI's complete tool suite at $0.20/$1.20 per 1M. Successor GPT-6 Luna released September 22, 2026 (felloai, found 2026-10-08); Haiku 5.5's October 2026 launch pricing explicitly "matches OpenAI's GPT-6 Luna" at the bottom of the market.
 - **Provider / access:** OpenAI API (`gpt-5.6-luna`), ChatGPT, Codex; also OpenRouter and 15+ routers/gateways. Not on OpenCode Zen (no Zen Free ID).
 - **Release / knowledge:** Generally available July 9, 2026 across ChatGPT, Codex and the API. Knowledge cutoff February 16, 2026.
 - **IDs:** `gpt-5.6-luna` (snapshots/aliases under the same ID). Siblings: `gpt-5.6-sol` (flagship), `gpt-5.6-terra`.
@@ -58,7 +58,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: OpenAI API model page, Artificial Analysis model page, LLMReference dossier with Cursor rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

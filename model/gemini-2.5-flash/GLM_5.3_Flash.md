@@ -47,7 +47,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08).
 
 - **Tool use: 65/100.** Solid function calling (BFCL 56.2, Claw Bench 88 pts, DPBench 90) but the 2026-generation agentic evals are weak: Tau2 Telecom 31.6, TB-Hard 13.6, MCP-Universe 21.6, midpack GDPval-AA 742.
 - **Reasoning: 68/100.** GPQA 83 and AIME 2024 88 are respectable, but AIME 2025 72, HLE 11 and ARC-AGI-2 2.5 trail the 2026 frontier badly; AA II 10 (#27/80) confirms above-median-only.

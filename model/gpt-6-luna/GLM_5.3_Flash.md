@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-6-luna`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,7 +24,10 @@ Agent / tool use:
 - AutomationBench 1.0.6: **20.7%** max ($0.037/task; OpenAI vendor-reported chart data — beats GPT-5.6 Luna's 17.0%; unusable at low effort: 1.2%)
 - Agents' Last Exam V1: **50.9%** max ($0.15/task; roughly matches GPT-5.6 Luna's 50.4% at ~6% of the cost; within 5 points of Opus 5's best 55.9%)
 - OSWorld 2.0 offline: **52.7%** max ($0.27/task; flat vs predecessor at ~45% lower cost)
-- Terminal-Bench, Tau3, GDPval-AA: no verified public score found (OpenAI didn't report Terminal-Bench for Luna)
+- OSWorld 2.1: **48.9%** (Anthropic-reported in the Haiku 5.5 launch table, 2026-10-07 — found 2026-10-08, previously missing from this report; vs Haiku 5.5 72.4%, Sonnet 5.5 83.9%)
+- Terminal-Bench 4.0: **16.4%** (same Haiku 5.5 launch table; vs Haiku 5.5 39.2%, Sonnet 5.5 70.6% — weak on the newer terminal harness)
+- GDPval-AA v2.1: **1437 Elo** (same Haiku 5.5 launch table; vs Haiku 5.5 1620, Sonnet 5.5 1840)
+- Terminal-Bench 2.1, Tau3: no verified public score found (OpenAI didn't report Terminal-Bench for Luna)
 
 Reasoning / knowledge:
 
@@ -50,18 +53,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Agents' Last Exam 50.9% at $0.15/task and OSWorld 52.7% are solid mid-band results at remarkable cost; AutomationBench 20.7% is low and missing Terminal-Bench/Tau3/GDPval numbers cap the score.
+- **Tool use: 66/100.** Agents' Last Exam 50.9% at $0.15/task and OSWorld 2.0 52.7% are solid mid-band results at remarkable cost; but the newly surfaced Terminal-Bench 4.0 16.4% (very weak on the newer terminal harness), AutomationBench 20.7% and OSWorld 2.1 48.9% cap the score.
 - **Reasoning: 62/100.** No GPQA/HLE/index run exists — only a 7.6% factual error rate at max (better than GPT-5.6 Sol's best); "Sol and Luna have no published results" on hard reasoning per launch coverage, so the score rests on thin evidence.
 - **Context window: 95/100.** 1.05M tokens maps to the ≥1M tier (95–100) with 128K output; no measured ≥98% retrieval at 512K+ and the >272K surcharge keep it off the maximum.
 - **Multimodal: 65/100.** Text + image input only, text output, no audio/video/PDF input — per methodology the image-in band is 60–70.
 - **Coding: 82/100.** DeepSWE 66.6% at $0.22/task (near Opus 5 at medium) and FrontierCode 42.4% are strong cost-adjusted results; trailing the flagship peaks and missing SWE-bench Verified/LiveCodeBench prevent 85+.
 - **Cost efficiency: 99/100.** $0.10/$0.50 per 1M with a 90% cache discount ($0.01 cached) is the cheapest frontier-lab model tracked — at the top of the ~$0.10/$0.20 = 97–99 methodology band.
-- **Overall Score: 75/100.** Mean of the five quality dims (70 + 62 + 95 + 65 + 82) / 5 = 74.8 → 75. Best-fit: high-volume classification, extraction, routing and cheap coding sub-agents where cost per token matters more than frontier capability.
+- **Overall Score: 74/100.** Mean of the five quality dims (66 + 62 + 95 + 65 + 82) / 5 = 74. Best-fit: high-volume classification, extraction, routing and cheap coding sub-agents where cost per token matters more than frontier capability.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (OpenAI launch-chart analysis via Kingy AI with full per-effort tables, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

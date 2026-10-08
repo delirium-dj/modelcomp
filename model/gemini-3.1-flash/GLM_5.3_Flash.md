@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.1-flash`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,7 @@ Multimodal / long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08).
 
 - **Tool use: 70/100.** Mid-pack ToolBench-X 0.42 (50th pct) plus llmdb's 86/100 tool-calling figure; no TB/tau/BFCL numbers found — scored on the evidence available.
 - **Reasoning: 62/100.** GPQA 51–60.5 (conflicted sources) and MATH 78 with Arena Elo 1,265 are solid mid-tier for 2026 but well below the 3.1 Pro class and even below the official GPQA 86.9 its Lite sibling reports — scored on the published numbers, not positioning.
@@ -55,12 +55,12 @@ Multimodal / long context:
 - **Multimodal: 85/100.** Text + image + audio + PDF (+ video) in with CC-OCR 61.4 and HarmVideoBench 81.3 (90th pct); text-only output.
 - **Coding: 68/100.** SWE-V 35% (UseRightAI) is weak for 2026; HumanEval 88.5 and the non-comparable SWE-Pro 93.1 (r3/6) suggest better, settling at workhorse level.
 - **Cost efficiency: 95/100.** Rate-limited free tier plus either $0.25/$1.50 or $0.50/$3.00 — cheap under both readings; output-side pricing keeps it off 100.
-- **Overall Score: 76/100.** Mean: (70 + 62 + 97 + 85 + 68 + 95) / 6 = 477/6 = 79.5 → **80**. Best fit: high-volume multimodal budget model — 1M context and free tier make it the default cheap workhorse, not a frontier agent/coder.
+- **Overall Score: 76/100.** v4 formula: mean of the five quality dims (70 + 62 + 97 + 85 + 68) / 5 = 76.4 → **76** (Cost excluded per `RULES.md`; the original /6 = 79.5→80 math was stale v1 history, corrected 2026-10-08). Best fit: high-volume multimodal budget model — 1M context and free tier make it the default cheap workhorse, not a frontier agent/coder.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (llmdb.app model page, UseRightAI model page incl. daily price tracking, BenchmarkList benchmark map, ai-tldr lineage pages for the Flash-Lite sibling for generational context); conflicting tracker numbers are quoted side-by-side rather than averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

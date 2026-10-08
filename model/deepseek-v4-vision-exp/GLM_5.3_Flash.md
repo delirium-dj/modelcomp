@@ -1,7 +1,7 @@
 # DeepSeek-V4-Flash-Vision-Exp — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-v4-vision-exp` — official HF checkpoint `deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,7 +58,7 @@ Multimodal agent (the headline section):
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08).
 
 - **Tool use: 92/100.** Official table puts it within ~1–4 pts of Claude Opus 4.8 on TB2.1 (83.9 vs 85.0), Toolathlon (75.9 vs 76.2) and AutomationBench, with native tool-call parsing; capped by DSBench-Hard 63.6 (−8.1 vs Opus) and NL2Repo 57.7 (−12.0).
 - **Reasoning: 84/100.** Third-party provider-hosted GPQA Diamond ~88–91 (OpenRouter evals) plus ZeroBench Pass@5 35.0 beating Opus 4.8 (34.0) and Cybergym 75.3; capped by zero HLE/LCR/CritPt coverage — elite GPQA on an otherwise thin reasoning evidence base.
@@ -66,12 +66,12 @@ Multimodal agent (the headline section):
 - **Multimodal: 85/100.** Real image-input model with four multimodal agent benchmarks, beating Opus 4.8 on two (Agents' Last Exam 27.3, ZeroBench 35.0); capped by the ≤384-token vision budget, no PDF/audio/video input, and text-only output.
 - **Coding: 86/100.** DeepSWE 59.3 beats Opus 4.8 (58.0) and TB2.1 83.9 is elite, but NL2Repo 57.7 (Opus: 69.7) and missing SWE-bench Verified/LiveCodeBench coverage cap it below the SWE-V-verified elite.
 - **Cost efficiency: 95/100.** $0.44/$1.32 standard, $0.22/$0.66 on Fireworks, cache read ~$0.014, images ≤384 tokens with no vision surcharge, plus MIT self-host — the cheapest hosted route for this capability class in this repo; short of 100 only because there is no $0 Zen free tier.
-- **Overall Score: 87/100.** Mean: (92 + 84 + 90 + 85 + 86 + 95) / 6 = 532/6 = 88.7 → **89**. Best fit: the best self-hostable multimodal *agent* of its moment — text-agent strength of V4-Flash plus genuinely competitive vision at V4-Flash pricing; not for teams that need verified classic reasoning benchmarks or a Zen free tier.
+- **Overall Score: 87/100.** v4 formula: mean of the five quality dims (92 + 84 + 90 + 85 + 86) / 5 = 87.4 → **87** (Cost excluded per `RULES.md`; the original /6 = 88.7→89 math was stale v1 history, corrected 2026-10-08). Best fit: the best self-hostable multimodal *agent* of its moment — text-agent strength of V4-Flash plus genuinely competitive vision at V4-Flash pricing; not for teams that need verified classic reasoning benchmarks or a Zen free tier.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-17
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (DeepSeek API docs and release notes, official V4-Flash-Vision-Exp launch comparison table, Hugging Face checkpoint/config.json, OpenRouter provider pricing and third-party provider-hosted GPQA/τ² evals, officechai + explainx release coverage, BenchmarkList, DataLearner, ai-tldr model page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

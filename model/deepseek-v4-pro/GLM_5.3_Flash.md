@@ -1,14 +1,14 @@
 # DeepSeek V4 Pro — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-v4-pro`, MIT open weights; GA build V4-Pro-0813)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** DeepSeek V4 Pro (production build: V4-Pro-0813, the official GA release superseding the April preview with "greatly enhanced agentic capabilities")
-- **Short description:** DeepSeek's 1.6T-parameter MoE flagship with a 1M-token context window under a fully permissive MIT license; top use cases are top-tier coding, competition math, and large-codebase agentic analysis. Text-only.
+- **Short description:** DeepSeek's 1.6T-parameter MoE flagship with a 1M-token context window under a fully permissive MIT license; top use cases are top-tier coding, competition math, and large-codebase agentic analysis. Text-only. **Deprecation: since September 14, 2026, `deepseek-v4-pro` API requests reroute to DeepSeek V4.1-Flash at Flash prices** (found 2026-10-08 via the V4.1-Flash research — previously missing from this report).
 - **Provider / access:** DeepSeek API (`deepseek-v4-pro`, OpenAI-compatible at `https://api.deepseek.com/v1`, Chat Completions); drop-in backend for Claude Code (Anthropic-compatible), OpenClaw and OpenCode; weights on Hugging Face for self-hosting. No Free ID on OpenCode Zen.
 - **Release / knowledge:** Released 2026-04-24 (preview), GA build 0813 on 2026-08-13; knowledge cutoff not verified (33T-token training corpus).
 - **IDs:** `deepseek-v4-pro` (DeepSeek API). No Free ID on Zen.
@@ -64,6 +64,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (AI Made Tools DeepSeek V4 Pro guide with vendor-table data, Together AI model page, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_4.md`, using the same headings.

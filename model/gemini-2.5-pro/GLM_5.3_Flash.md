@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-pro`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,10 @@
 
 Agent / tool use:
 
-- No verified public Terminal-Bench, Tau3-Banking/Tau2-Bench, GDPval-AA, Claw-Eval, Toolathon/MCP-Atlas or SWE Atlas score found for this exact model. Google's launch materials highlight "strong agentic coding capabilities" and built-in search/code-execution tools but publish no machine-readable agentic-tool numbers.
+- No verified public Terminal-Bench, Tau3-Banking/Tau2-Bench, Claw-Eval, Toolathon or SWE Atlas score found for this exact model. Google's launch materials highlight "strong agentic coding capabilities" and built-in search/code-execution tools but publish no machine-readable agentic-tool numbers.
+- GDPval: **23.3%** (airank.dev aggregation, Unverified badge; found 2026-10-08, previously missing from this report)
+- MCP-Atlas: **8.8%** (airank.dev, Unverified badge; found 2026-10-08)
+- BrowseComp (agentic search): **7.8%** (airank.dev, Unverified badge; found 2026-10-08)
 - Artificial Analysis: Intelligence Index 16 (bottom of the reasoning-model class) — its agentic-tool component rows are not broken out for this model.
 
 Reasoning / knowledge:
@@ -50,18 +53,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 65/100.** Function calling, search-as-tool and code execution are built in and Google cites strong agentic coding, but zero verified public agentic benchmark numbers (no Terminal-Bench, Tau3, GDPval) and a bottom-of-class AA Index cap the score in the mid band.
+- **Tool use: 58/100.** Function calling, search-as-tool and code execution are built in and Google cites strong agentic coding, but the newly found agentic numbers are low-band (GDPval 23.3%, MCP-Atlas 8.8%, BrowseComp 7.8% — airank.dev, Unverified badges) with no Terminal-Bench/Tau3 coverage — score in the high-40s/low-50s band.
 - **Reasoning: 72/100.** GPQA Diamond 86.4% is high-mid (60–80% band) and AIME 2025 88% is strong, but HLE 21.6% sits well under the 40% frontier ref and the AA Index of 16 is the lower end of the reasoning class; those gaps cap it below 80.
 - **Context window: 95/100.** 1M total tokens maps to the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ keeps it off the maximum; the 200K surcharge is a pricing caveat only.
 - **Multimodal: 90/100.** Text, image, speech/audio and video input with MMMU 82% and text-only output; audio input pushes it into the 90–100 band.
 - **Coding: 72/100.** LiveCodeBench 74.2%, Aider Polyglot 82.2% and SWE-bench Verified 63.8% (custom-agent harness caveat) are solid mid-band results; missing SciCode/DeepSWE numbers and the dated 63.8% SWE figure cap it in the 65–75 band.
 - **Cost efficiency: 85/100.** $1.25/$10.00 per 1M with 90% cache discount and $0.23/task on the AA Intelligence Index; between the ~$1.25/$4.25 = ~88 methodology reference and the higher-output-price penalty, landed at 85.
-- **Overall Score: 79/100.** Mean of the five quality dims (65 + 72 + 95 + 90 + 72) / 5 = 78.8 → 79. Best-fit: a still-capable multimodal workhorse for long-context document/video analysis, but superseded by Gemini 3 Flash at similar cost and better reasoning.
+- **Overall Score: 77.4/100.** Mean of the five quality dims (58 + 72 + 95 + 90 + 72) / 5 = 77.4. Best-fit: a still-capable multimodal workhorse for long-context document/video analysis, but superseded by Gemini 3 Flash at similar cost and better reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (Artificial Analysis model page, datatunnel.io benchmark roundup, futureagi.substack.com, LinkedIn/Dataclysm HLE comparisons, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.md`, using the same headings.

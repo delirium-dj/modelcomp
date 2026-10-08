@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`Qwen/Qwen3.8-27B`, Apache 2.0 open weights)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,7 +61,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** OSWorld-Verified 84.3%, AndroidWorld 81.9% and Terminal-Bench 2.1 73.0% are strong agentic results that beat many larger models; in-house-benchmark share (CoWorkBench, QwenSWEBench) and the missing GDPval/Tau3 numbers keep it under 85.
-- **Reasoning: 78/100.** GPQA Diamond 89.2% sits just under the 90% frontier reference; HLE 30.8% stays well under the 40% bar and no independent index run exists — frontier math/multidisciplinary reasoning is where it still loses.
+- **Reasoning: 80/100.** GPQA Diamond 89.2% sits just under the 90% frontier reference; HLE 30.8% stays well under the 40% bar; AA Index 52 at max effort / 33.70 at default xhigh (AA's top-ranked open-weights under 40B) now provides an independent run — frontier math/multidisciplinary reasoning is where it still loses.
 - **Context window: 78/100.** 262K native tokens maps to the 200K–500K tier (65–84, above the 200K=70 anchor); the 1M YaRN extension is a scaling claim, not a measured retrieval.
 - **Multimodal: 82/100.** Native image + video input with strong vision benchmarks (MathVision 94.6 with CI, OmniDocBench 91.1); text-only output and the CI-vs-no-CI gap on vision scores cap it in the 75–90 band.
 - **Coding: 82/100.** LiveCodeBench v6 90.3% and independent Code Arena #9 (1595) are elite signals, but SWE-bench Pro 61.7% (Claude Code harness caveat) and DeepSWE 42.2% trail frontier models on deep engineering.
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (Alibaba model card coverage via OrcaRouter benchmark roundup, qubrid.com, hokai.io, regolo.ai, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

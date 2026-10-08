@@ -16,8 +16,8 @@
 89.5 gpt-5.6-terra
 89.5 muse-spark-1.2
 89.4 gpt-5.5-pro
+89.4 mimo-v2.6-pro
 89.3 gemini-3-pro
-89.3 mimo-v2.6-pro
 88.9 gpt-5.6-sol
 88.6 qwen-3.8-max
 88.2 claude-opus-4.8
@@ -27,8 +27,8 @@
 87.7 claude-fable-5
 87.4 gpt-5.4-pro
 87.1 gpt-5.5
+87 claude-sonnet-5
 86.9 gemini-3-flash
-86.8 claude-sonnet-5
 86.6 deepseek-v4.1-flash
 86.6 gpt-6.1-sol
 86.5 claude-opus-4.6
@@ -52,11 +52,11 @@
 84.1 qwen-3.6-plus
 84 seed-2.0-pro
 83.9 gpt-5.2
-83.7 mimo-v2.6-free
+83.8 mimo-v2.6-free
 83.7 qwen-3.8-flash-next
-83.4 gemini-2.5-pro
 83.3 gemini-3.8-flash-cyber
 83.3 qwen-3.5-plus
+83.2 gemini-2.5-pro
 83.1 grok-4.5
 83 deepseek-v4-pro
 82.9 deepseek-v4-vision-exp
@@ -88,9 +88,9 @@
 77.2 gemini-2.5
 77 kimi-k2.5
 76.9 gemini-2.5-flash
+76.9 kimi-k2.7-code-highspeed
 76.9 union-alpha
 76.5 gpt-5.4-mini
-75.8 kimi-k2.7-code-highspeed
 75.7 gemini-3.1-flash-lite
 75.5 claude-sonnet-4
 75.5 grok-4.1

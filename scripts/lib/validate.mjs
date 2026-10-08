@@ -39,6 +39,26 @@ export function mergedSlugMessage(slug, canonical) {
   );
 }
 
+/**
+ * Merged-and-deleted duplicate findings-file stems (user-ordered merges).
+ * One rater filed under two filename spellings (`Laguna_XS_2_1` — version
+ * separator written as `_` — vs `Laguna_XS_2.1`) was folded into the canonical
+ * file and the variant removed (2026-10-08). Variants never come back: a
+ * resurrect would silently double-count the same rater, so sync FAILs the
+ * stem and writes nothing for it (never registered, parsed, or averaged).
+ */
+export const MERGED_SOURCE_STEMS = new Map([
+  ["Laguna_XS_2_1", "Laguna_XS_2.1"],
+]);
+
+/** Exact FAIL text for a resurrected merged findings-file stem. */
+export function mergedStemMessage(stem, canonical) {
+  return (
+    `findings file "${stem}.md": duplicate spelling that was merged into "${canonical}.md" and deleted on user order ` +
+    `— never recreate it; write "${canonical}.md" instead`
+  );
+}
+
 /** Exact FAIL text for a forbidden duplicate root present on disk. */
 export function forbiddenRootMessage(root) {
   const canonical = root === "voicemodels" ? "models_voice" : "the canonical tree";
@@ -64,11 +84,14 @@ export function isRegenerablePath(posix) {
 /**
  * Classify a tracked research file that is missing from disk.
  * Inputs are precomputed by sync (fs already consulted):
+ * - mergedSource: it is a merged duplicate stem whose canonical sibling exists
+ *   (user-ordered source merge, 2026-10-08);
  * - twinRetired: its fresh <.md> sibling exists (own-twin re-research);
  * - mirror: name of the sanctioned mirror tree holding the same path (if any).
- * Returns "twin-retired" | "relocated" | "deleted" (=> loud FAIL).
+ * Returns "merged-source" | "twin-retired" | "relocated" | "deleted" (=> FAIL).
  */
-export function classifyMissingTracked({ twinRetired, mirror }) {
+export function classifyMissingTracked({ twinRetired, mirror, mergedSource }) {
+  if (mergedSource) return "merged-source";
   if (twinRetired) return "twin-retired";
   if (mirror !== undefined) return "relocated";
   return "deleted";

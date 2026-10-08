@@ -1,7 +1,7 @@
 # GLM 5.3 Free — findings by GLM 5.3 Flash
 
 - Source: Z.AI (`glm-5.3`; OpenCode Zen promotional free tier `opencode/glm-5.3-free`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** GLM 5.3 Free (free Zen promotional tier of Z.AI's GLM-5.3 flagship; disclosed as fast agentic coding + tool calls)
 - **Short description:** The strongest open-weights coding model of its generation (Z.AI's claim, backed by TB2.1 88.2 and DeepSWE 66.9), with a 1M context and security fine-tuning (CyberGym 84.5) — evaluated here on the $0 OpenCode Zen promotional tier.
-- **Provider / access:** OpenCode Zen free promotional tier (`opencode/glm-5.3-free`, Chat Completions); Z.AI paid API (`glm-5.1`-style, `api.z.ai`); 14 gateway routes on opper; weights on Hugging Face under the GLM-5.3 license (not MIT like 5.2 — a ~2-week safety review delayed publication).
+- **Provider / access:** OpenCode Zen free promotional tier (`opencode/glm-5.3-free`, Chat Completions); Z.AI paid API (`glm-5.1`-style, `api.z.ai`); 14 gateway routes on opper; weights on Hugging Face under the GLM-5.3 license — publication confirmed August 28, 2026 (the ~2-week safety review completed on schedule; found 2026-10-08).
 - **Release / knowledge:** announced 2026-08-14, released 2026-08-18 (opper release tracker). Knowledge cutoff not verified in this pass.
 - **IDs:** `opencode/glm-5.3-free` (Zen free tier); `glm-5.3` (Z.AI paid). Paid list $1.40/$4.40.
 - **Context window:** 1,000,000-token input, 128K max output (opper body; key-info table displays 131K).
@@ -44,7 +44,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08).
 
 - **Tool use: 95/100.** TB2.1 88.2 + TB3.0 28.3 + DeepSWE 66.9 — top-of-class open-weights agentic package, statistically tied with Muse Spark 1.3's terminal result.
 - **Reasoning: 90/100.** GPQA 92 / HLE 42 / AA II 44.9 (rank #20/643) — flagship-class knowledge and reasoning.
@@ -52,12 +52,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 93/100.** AA Coding Index 74.8, SciCode 59, DeepSWE 66.9, CyberGym 84.5 — just under Muse Spark 1.3's package.
 - **Cost efficiency: 100/100.** Evaluated on the $0 Zen promotional tier (paid $1.40/$4.40 and MIT-free self-host alternatives noted).
-- **Overall Score: 79/100.** Mean: (95 + 90 + 100 + 15 + 93 + 100) / 6 = 493/6 = 82.2 → **82**. Best fit: the default free coding/agent flagship when multimodal isn't needed; the GLM-5.3 license (not MIT) is the main self-host caveat.
+- **Overall Score: 79/100.** v4 formula: mean of the five quality dims (95 + 90 + 100 + 15 + 93) / 5 = 78.6 → **79** (Cost excluded per `RULES.md`; the original /6 = 82.2→82 math was stale v1 history, corrected 2026-10-08). Best fit: the default free coding/agent flagship when multimodal isn't needed; the GLM-5.3 license (not MIT) is the main self-host caveat.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (opper.ai GLM-5.3 model page with AA benchmark feed and 14-route pricing table; Z.ai launch claims for TB3.0/DeepSWE/CyberGym and the GLM-5.3 license change); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

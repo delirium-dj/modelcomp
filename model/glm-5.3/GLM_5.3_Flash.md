@@ -1,7 +1,7 @@
 # GLM-5.3 — findings by GLM 5.3 Flash
 
 - Source: Z.ai / Zhipu AI (`glm-5.3`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1,000,000 total tokens; 131,072 max output (verified via Z.ai docs and theairankings).
 - **Modalities:** text input; text output; multilingual; reasoning always on (cannot disable — `thinking.type: "enabled"` with `reasoning_effort`: low/high/max, default max); tool calls; JSON mode.
 - **Pricing (as of 2026-09-24):** $1.40 / $4.40 per 1M in/out; cached input $0.26 per 1M — unchanged from GLM-5.2/5.1. China-hosted API; Zhipu is on the US Entity List (data-residency/compliance caveat).
-- **Architecture:** Mixture-of-Experts ~750B total / ~40B active — same base as GLM-5.2; licence not yet published (MIT expected for the GLM-5 line, unconfirmed).
+- **Architecture:** Mixture-of-Experts ~750B total / ~40B active — same base as GLM-5.2; **full weights published on Hugging Face August 28, 2026 under a custom glm-5.3 license** (deepnoodle.ai timeline + ccleaks + neodrop + truescho — the original Sept 24 text "weights announced for late August 2026, not yet published" was outdated, corrected 2026-10-08; the MIT-licensed GLM-5.3-Flash is a separately trained sibling).
 
 ### Raw benchmarks found
 
@@ -58,13 +58,13 @@ Long context:
 - **Context window: 95/100.** 1M tokens maps to the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ keeps it off the maximum.
 - **Multimodal: 15/100.** Text-only in/out — no vision path, the clearest capability gap vs Sol/Fable 5/Grok 4.6/Kimi K3.
 - **Coding: 87/100.** DeepSWE 66.9% and SWE-Marathon 42.5% (up ~2x from 5.2) are near-frontier and TB2.1 88.2% is elite; the complete absence of any SWE-bench figure — for a model marketed on coding — caps it.
-- **Cost efficiency: 90/100.** $1.40/$4.40 per 1M (cached $0.26) sits just above the ~$1.25/$4.25 = ~88 methodology reference; $0.68/task was the lowest in the frontier cluster — docked on verbosity (170M tokens vs 72M median) inflating real bills.
+- **Cost efficiency: 92/100.** $1.40/$4.40 per 1M (cached $0.26) sits just above the ~$1.25/$4.25 = ~88 methodology reference; $0.68/task was the lowest in the frontier cluster; the Aug 28 open weights add a free self-hosting lever — docked on verbosity (170M tokens vs 72M median) inflating real bills.
 - **Overall Score: 75/100.** Mean of the five quality dims (90 + 88 + 95 + 15 + 87) / 5 = 75. Best-fit: long-horizon coding agents at frontier-cluster quality and open-model prices — best avoided where vision, self-hosting today, or Western data residency are required.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (theairankings.com model page with Z.ai docs and Artificial Analysis data, llm-stats, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.md`, using the same headings.

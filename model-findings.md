@@ -462,3 +462,61 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 - Coding: AA Coding Index 31.0% (weak), LiveCodeBench v6 72.0% (moderate). No SWE-bench or DeepSWE.
 - Multimodal: MMMU-Pro 69.1-69.7%, MATH-Vision 79.7% (strong).
 - Sources: Artificial Analysis (Intelligence Index 14 estimated, .10/.30), BenchLM (Overall 31.9/100, #163/887, 26 of 623 benchmarks), HuggingFace model card.
+
+---
+
+## a) Model name: DiffusionGemma 26B A4B
+
+### b) Findings
+
+- Google's DiffusionGemma 26B A4B text-diffusion MoE (25.2B total / 3.8B active, Apache 2.0). 256K context, text+image+video in; text out, reasoning yes (thinking mode).
+- Scores: Tool 62 / Reasoning 63 / Context 72 / Multimodal 85 / Coding 59 -> Overall **70**.
+- Specs: Discrete text diffusion generates 256-token blocks in parallel, encoder-decoder block-autoregressive, 8 active/128 total MoE experts, ~24GB VRAM quantized.
+- Agent: AA Intelligence Index 10* estimated (#45/142, median 8), GDPval-AA no score found, Tau2-Bench no score found.
+- Reasoning: GPQA 73.2%, MMLU Pro 77.6%, HLE 11.0-11.9% (weak), BigBench Extra Hard 47.6%.
+- Coding: LiveCodeBench v6 69.1%, AIME 69.1%, Codeforces ELO 1429, SciCode no score found.
+- Multimodal: MMMU-Pro 54.3%, MATH-Vision 70.5%, video support up to 60s.
+- Long context: MRCR v2 8 needle 32.0%.
+- Sources: Artificial Analysis (Intelligence Index 10 estimated), BenchLM (12 of 623 benchmarks), HuggingFace model card.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-08
+
+---
+
+## a) Model name: North Mini Code
+
+### b) Findings
+
+- Cohere's North-Mini-Code-1.0 reasoning MoE (30B total / 3B active, Apache 2.0). 256K context, text-only, reasoning yes. Completely free tier (/).
+- Scores: Tool 57 / Reasoning 60 / Context 72 / Multimodal 15 / Coding 72 -> Overall **59**.
+- Specs: Decoder-only MoE (8 active/128 total experts), sliding-window attention with RoPE + global attention (3:1 ratio), 64K max output.
+- Agent: SWE-bench Verified 67.6%, SWE-bench Pro 40.2%, Terminal-Bench v2 36%, Tau2-Bench 37.4%, GDPval-AA 0.0% (weak).
+- Reasoning: AA Intelligence Index 10 (#41/142, median 8), GPQA 75.7%, HLE 11.1% (weak), AA-Omniscience Index -48.6 (hallucination-prone), LCR 37.3%.
+- Coding: SWE-bench Verified 67.6%, Pro 40.2%, LiveCodeBench v6 69.1%, SciCode 38.8%.
+- Cost efficiency:  free tier (self-host + Cohere API).
+- Sources: Artificial Analysis (Intelligence Index 10, #41/142), BenchLM (12 of 623 benchmarks), HuggingFace model card eval results.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-08
+
+---
+
+## a) Model name: Claude Fable 5
+
+### b) Findings
+
+- Anthropic proprietary reasoning model (deprecated, replaced by Claude Fable 5.1). 1M context (meta.json says 128K but AA shows 1M; using AA), text+image in; text out, reasoning yes. Pricing / per 1M (expensive).
+- Scores: Tool 87 / Reasoning 82 / Context 95 / Multimodal 60 / Coding 87 -> Overall **82**.
+- Agent: BenchLM Overall 78.84/100 (#8/887), TB 2.1 84.3%, OSWorld-Verified 85%, GDPval-AA Elo 1747, Tau2-Bench 98.5%, Harvey LAB 93.6%, TB Hard 62.9%, Agentic Index 51.0%.
+- Reasoning: AA Intelligence Index 50 (#19/225, median 26), GPQA 92.6%, ARC-AGI-1 98.5%, AA-LCR 82.3%, HLE 55.5%, AA-Omniscience Index 43.3%.
+- Coding: SWE-bench Verified 95%, Pro 80%, LiveCodeBench 89.8% (Vals), AA Coding Index 76.5%, VulcanBench 89.5%, SciCode 61.0%.
+- Multimodal: Text+image in (AA confirmed; meta.json says text-only). OfficeQA Pro 57.9%. No MMMU-Pro score found.
+- Cost efficiency: 20/100. \/\ per 1M tokens (expensive, median \/\). noFreeId=true.
+- Sources: Artificial Analysis (Intelligence Index 50, #19/225), BenchLM (Overall 78.84/100, #8/887), Anthropic system card, ARC Prize, Vals AI, OpenRouter.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-08
