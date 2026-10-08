@@ -1,0 +1,58 @@
+# Solar Mini 4 — findings by Muse Spark 1.3
+
+- Source: Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Mini 4
+- **Short description:** Upstage's efficient lightweight model for high-throughput enterprise tasks and fast inference. No public benchmark record found in any fetched catalog.
+- **Provider / access:** Upstage + OpenCode Zen `opencode/solar-mini-4`.
+- **Release / knowledge:** Unknown (no verified release record in fetched sources).
+- **IDs:** `opencode/solar-mini-4` (no Free ID on Zen — paid only).
+- **Context window:** 65,536 total (16,384 max output) — repo stub only, unverified by catalog.
+- **Modalities:** Text in/out (repo stub; unverified).
+- **Pricing (as of 2026-10-08):** $0.20 / $0.80 per 1M (repo stub; unverified by catalog).
+- **Architecture:** Undisclosed (no params/license published in fetched sources).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers found — AA page 404, LLM Reference page 404, Upstage blog 404, docs fetch failed. Per template rule this file is `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- No verified public score found (Terminal-Bench, Tau, GDPval-AA, Claw-Eval, Toolathon all unreported).
+
+Reasoning / knowledge:
+
+- No verified public score found (GPQA, HLE, LCR/MLCR, CritPt, Index, Omniscience all unreported).
+
+Coding:
+
+- No verified public score found (SWE-bench, LiveCodeBench, SciCode, Vibe, DeepSWE all unreported).
+
+Long context:
+
+- No MRCR / RULER / GraphWalks number published — no long-context retrieval reported.
+
+### Normalized scores (1–100)
+
+> Ignored — `.md.excluded` (evidence-free). Headings only.
+
+- **Tool use: 15/100.** Placeholder — no evidence.
+- **Reasoning: 15/100.** Placeholder — no evidence.
+- **Context window: 15/100.** Placeholder — no evidence.
+- **Multimodal: 15/100.** Placeholder — no evidence.
+- **Coding: 15/100.** Placeholder — no evidence.
+- **Cost efficiency: 15/100.** Placeholder — no evidence.
+- **Overall Score: 15/100.** Placeholder — no evidence.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-10-08
+- Method: public internet research (AA 404, LLM Reference 404, Upstage blog 404, Upstage docs fetch failed); zero verified benchmarks so filed as self-exclusion.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

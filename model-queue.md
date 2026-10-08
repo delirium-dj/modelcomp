@@ -139,9 +139,9 @@
 65 grok-5
 64.6 diffusiongemma-26b-a4b
 64.6 laguna-s-2.1
+63.3 ring-2.6.1t
 63 ling-3.0-flash
-62.3 qwen3-max
-61.7 ring-2.6.1t
+62.4 qwen3-max
 61.2 mai-thinking-1
 61.1 gpt-5.3-codex-spark
 60.1 mai-code-1-flash
@@ -151,6 +151,7 @@
 59.5 laguna-xs-2.1
 59.3 ling-2.6.1t
 59.1 gemma-4-e4b
+59 owl-alpha
 58.3 ling-3.0-flash-sante
 57.1 mimo-v2.6-distill-qwen-9b
 56.9 llama_3.2_vision_instruct
@@ -159,7 +160,6 @@
 55.4 nemotron-3.5-lightning-free
 54.8 big-pickle
 53.8 ling-2.6-flash
-53.5 owl-alpha
 51.8 ling-3.0-tiny
 51 mercury-2.5
 50.6 gemma-4-e2b
