@@ -62,7 +62,33 @@ Multimodal:
 - **Multimodal: 84/100.** Native image/audio/video input with no separate transcription step at a $0.30/$2.50 price point.
 - **Coding: 71/100.** SWE-bench Verified ~75%, SWE-bench Pro 54.2%, LiveCodeBench 79% — above its class but several gaps short of the SWE frontier (Opus 5 ~97%).
 - **Cost efficiency: 95/100.** $0.30/$2.50 with $0.03 cached input is among the cheapest 1M-context, omni-input APIs in its class — an aggressive price-to-performance ratio.
-- **Overall Score: 78/100.** Mean of the five quality dims (71+82+82+84+71)/5 = 78. A fast, cheap, omni-input subagent workhorse and arguably the strongest value argument in Google's 2026 Lite line.
+- **Overall Score: 78/100.** Mean of the five quality dims (71+82+82+84+71)/5 = 78 (unchanged). A fast, cheap, omni-input subagent workhorse and arguably the strongest value argument in Google's 2026 Lite line.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 71 | 71 | — |
+| Reasoning | 82 | 82 | — |
+| Context window | 82 | 82 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 71 | 71 | — |
+| Cost efficiency | 95 | 95 | — |
+| **Overall** | **78** | **78** | **—** |
+
+New and corrected data (all found 2026-10-08 via BenchLM, updated 2026-10-07 unless noted):
+
+- **Every original figure independently confirmed** on the BenchLM profile (24/623 covered): Terminal-Bench 2.1 54.0% (Vals 50.2%), OSWorld-Verified 74%, GDPval-AA 1,139 (24.3% normalized), SWE-bench Pro 54.2%, MRCRv2 72.2%, GPQA Diamond 83.8% (Vals), HLE (AA) 18.8%, AA Intelligence Index 22.2, AA Coding Index 49.3, MMLU-Pro (Vals) 85.8%, LiveCodeBench (Vals) 79.0%, SWE-bench (Vals) 75.0%, AA-SciCode 41.3%.
+- **New context row: AA-LCR 76.0%** — an independent long-context-reasoning figure that sits comfortably in the Lite tier's band (3.5 Flash-Lite 76 vs 3.6 Flash 80 vs flagship ~85).
+- **New multimodal row: AA-MMMU-Pro 79.0%** — surprisingly strong for the price tier; validates the 84 multimodal score and the "no transcription step" omni-input claim.
+- **New weak corners: CritPt 0.0%** (hardest-counterexample eval) and AA-Omniscience Index 5.2% (accuracy 29.5, hallucination 34.4) — the Lite reasoner's honest floor.
+- AA Agentic Index 15.9% (vs 3.6 Flash 30.1%, 3.8 Flash ~44%) — the tier gap is widest exactly in agentic work, consistent with the original "far from elite" Tool-use note.
+- **Pricing recheck: unchanged** — $0.30/$2.50, cached $0.03; the 3.6/3.7/3.8 Flash line ($0.75/$3.75 promo) has since crowded just above it, but nothing cheaper with this omni-input/1M spec exists from Google.
+- BenchLM: 50.77, #89/887; family note: Gemini 3.8 Flash (73.0), 3.7 Flash (67.6), 3.6 Flash (63.2), 3.5 Flash (62.5), 3.1 Flash-Lite (50.0) — the Lite line has been passed by the entire 3.5-3.8 Flash family on quality while staying competitive on price.
+
+Gaps still open after re-run: GDPval-AA rank verification, τ²/τ³ agentic rows, MCP Atlas harness row, dedicated FrontierMath row for this tier (26.0% was LLMLearner-provisional), 1M-edge retrieval beyond the Google MRCR pointwise figure (21.3%).
 
 ---
 

@@ -1,7 +1,8 @@
 # Hy3 Preview — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Preview Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-07 (UTC)
+- Re-research note (2026-10-07, user-approved second pass): modelpricewatch preview rows (GPQA 87.2, SWE-V 74.4, vendor-reported) recorded as preview-checkpoint context; full-release Hy3 numbers (GPQA 90.4, SWE-V 78.0) confirm the preview→release delta; scores unchanged at 69 — prefer the full Hy3 release.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,7 +40,7 @@ Reasoning / knowledge:
 - MMLU (base): **87.42%** (same base table, 5-shot)
 - MATH (base): **76.28%** (same base table, 4-shot); GSM8K 95.37%, CMath 91.17%
 - FrontierScience-Olympiad / IMOAnswerBench: **strong performance claimed, no percentages published** (README highlights — qualitative only)
-- GPQA Diamond: **no verified public instruct score found**
+- GPQA Diamond: **no verified public instruct score found** (preview-checkpoint vendor rows: **87.2%** per modelpricewatch; full-release Hy3 90.4% — different checkpoints, listed for lineage only)
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
@@ -48,7 +49,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified: **competitive score claimed, no percentage published** (README Code & Agent section — qualitative only; superseded by full Hy3 78.0%)
+- SWE-bench Verified: **competitive score claimed, no percentage published** (README Code & Agent section — qualitative only; preview-checkpoint vendor row **74.4%** per modelpricewatch; superseded by full Hy3 78.0%)
 - LiveCodeBench (base): **34.86% LiveCodeBench-v6** (GitHub README base table, 1-shot base-model row)
 - MBPP-plus (base): **78.71%** (same base table, 3-shot); CRUXEval-I 71.19% / CRUXEval-O 68.38%
 - SciCode / AA-SciCode: **no verified public score found**
@@ -79,6 +80,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent GitHub Hy3-preview README spec + base benchmark tables, provider catalog pricing/score panel, Tencent launch releases); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent GitHub Hy3-preview README spec + base benchmark tables, provider catalog pricing/score panel, Tencent launch releases) + 2026-10-07 re-research pass (modelpricewatch preview rows, innfactory full-release comparison); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

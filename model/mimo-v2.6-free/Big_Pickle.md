@@ -28,13 +28,14 @@ Agent / tool use (all vendor-run Xiaomi harness unless noted):
 - JobBench: **61.2%** (Opus 5 65.7)
 - Agents' Last Exam: **27.6%** (Pro 31.6; Opus 5 31.6)
 - Terminal-Bench 4.0: **28.8%** (Pro 34.9; Opus 5 49.0, GPT-5.6 Sol 39.9) — the weak spot
-- GDPval-AA 2.1: not reported for Flash (Pro 1673); no verified public score found for this variant
+- GDPval-AA 2.1: **55.5%** (AA normalized; Pro 1673 vs Flash 55.5% — AA now publishes a Flash row)
 
 Reasoning / knowledge:
 
-- **No independent Artificial Analysis Index exists for Flash** (AA publishes only Pro = 46; none for Flash) — no verified public reasoning index
+- **Artificial Analysis Intelligence Index: 37.9** (AA page for Flash, 2026-10 — the "no AA index for Flash" gap is closed; Pro measures higher)
+- AA-HLE: **35.1%**; AA-LCR: **74.3%**; CritPt: **12.0%**; AA-MMMU-Pro: **73.1%** (multimodal reasoning)
 - Cyber/security (partly reasoning-intensive): CyberGym **95.1%** (Flash beats Pro's 94.0), MiMo Cyber Bench **77.2%**, ExploitBench **25.3%**, ExploitGym **6.0%**, SEC Bench Pro **47.5%**
-- General reasoning proxies: Agents' Last Exam 27.6% (above); no GPQA/HLE verified public scores found for the Flash checkpoint
+- General reasoning proxies: Agents' Last Exam 27.6% (above); no independent GPQA row published for the Flash checkpoint
 
 Coding:
 
@@ -50,18 +51,44 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** TB2.1 87.6%, AutomationBench 52.3% (tops Opus 5), Toolathlon 73.6%, OSWorld 80.8% — near-frontier agent stack; capped by TB4.0 28.8% and vendor-only harnesses.
-- **Reasoning: 68/100.** No independent index/GPQA/HLE for Flash; closest verified signals are agent/knowledge rows (Agents' Last Exam 27.6%, JobBench 61.2%); series Pro measured 46 on AA Index. Thin direct evidence caps the score.
-- **Context window: 96/100.** Full 1M total (1,048,576) with 128K out; no measured 512K+ retrieval published, so not a perfect 100.
-- **Multimodal: 92/100.** Native text/image/speech/video input with text output (audio input → 90–100 band per methodology); MiMo Visual Coding 71.5% demonstrates real image grounding.
-- **Coding: 80/100.** DeepSWE 67.9% (near Opus 5's 74.0), TB2.1 87.6%, Visual Coding 71.5%; ProgramBench 26.0% and ExploitBench 25.3% are weak long-horizon rows that cap the score.
-- **Cost efficiency: 100/100.** Free promo tier on Zen at launch; standard $0.14/$0.28 with a $0.0028 cache-hit is among the cheapest frontier-tier APIs if the promo expires.
-- **Overall Score: 84/100.** (82 + 68 + 96 + 92 + 80) / 5 = 83.6 → **84**. Best-fit: high-volume multimodal + agentic workloads on a budget; verify its reasoning limits before trusting it with long autonomous sessions.
+- **Tool use: 82/100.** TB2.1 87.6%, AutomationBench 52.3% (tops Opus 5), Toolathlon 73.6%, OSWorld 80.8%, now with GDPval-AA 55.5% — near-frontier agent stack; capped by TB4.0 28.8% and vendor-only harnesses.
+- **Reasoning: 72/100.** AA Intelligence Index 37.9 (AA now publishes Flash), AA-LCR 74.3%, AA-HLE 35.1% and CritPt 12.0% add real independent signals; still no GPQA row and the II reading sits below Pro-class models.
+- **Context window: 96/100.** Full 1M total (1,048,576) with 128K out and AA-LCR 74.3% long-context reasoning; no measured MRCR 128K/1M retrieval published, so not a perfect 100.
+- **Multimodal: 92/100.** Native text/image/speech/video input with text output (audio input → 90–100 band per methodology); AA-MMMU-Pro 73.1% and MiMo Visual Coding 71.5% demonstrate real image grounding.
+- **Coding: 80/100.** DeepSWE 67.9% (near Opus 5's 74.0), TB2.1 87.6%, Visual Coding 71.5%; ProgramBench 26.0%, AA-SciCode 51.3% and ExploitBench 25.3% are weak long-horizon rows that cap the score.
+- **Cost efficiency: 96/100.** Launch free week on Zen has expired (promo ran 09-21 → ~09-28); at standard $0.14/$0.28 with a $0.0028 cache-hit it remains among the cheapest frontier-tier APIs.
+- **Overall Score: 84/100.** (82 + 72 + 96 + 92 + 80) / 5 = 84.4 → **84** (dimensions refreshed on 2026-10-08, see Re-verification — Overall unchanged). Best-fit: high-volume multimodal + agentic workloads on a budget; verify its reasoning limits before trusting it with long autonomous sessions.
+
+---
+
+## Re-verification — 2026-10-08 (15 days after original)
+
+Re-run closes the reasoning-index and GDPval gaps (AA now publishes Flash rows; BenchLM profile 65.41, #34/887, 24/623, updated 2026-10-07) and confirms the promo window has lapsed.
+
+| Dimension | 2026-09-23 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 82 | 82 | — |
+| Reasoning | 68 | 72 | +4 |
+| Context window | 96 | 96 | — |
+| Multimodal | 92 | 92 | — |
+| Coding | 80 | 80 | — |
+| Cost efficiency | 100 | 96 | −4 |
+| **Overall** | **84** | **84** | **—** |
+
+New and corrected data:
+
+- **AA now publishes a Flash index:** Intelligence Index **37.9** on the Flash page (the original "no index exists for Flash" gap is closed — it's real, and lower than Pro; AA-HLE 35.1%, AA-LCR 74.3%, CritPt 12.0%, AA-MMMU-Pro 73.1%). Reasoning 68 → 72 on the strength of independent signals.
+- **GDPval-AA row found:** **55.5%** (AA normalized) — the earlier "not reported for Flash" line is superseded.
+- **Free promo expired:** the "free for a promotional week" tier ended ~2026-09-28; Cost 100 → 96 (standard $0.14/$0.28 + $0.0028 cache-hit is still among the cheapest frontier APIs).
+- **All launch agentic rows re-confirmed** on the BenchLM profile: TB2.1 87.6%, OSWorld-V 80.8%, AutomationBench 52.3%, Toolathlon 73.6%, JobBench 61.2%, ALE 27.6%, TB4.0 28.8%, ExploitGym 6.0%; added AA-SciCode 51.3% to the coding stack (DeepSWE 67.9%, ProgramBench 26.0% unchanged).
+- Positioning unchanged: #34/887 overall; Pro sibling 74.18 (#14); no newer V2.6 release found.
+
+Gaps still open after re-run: independent GPQA row for Flash, MRCR/RULER at 128K/1M retrieval, an OSWorld 2.0 row for Flash, official tool-use run outside Xiaomi's harness.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (Xiaomi MiMo news + model card/HF README, SiliconANGLE, VentureBeat, TechNode, CellCog, OrcaRouter, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
+- Method: public internet research (Xiaomi MiMo model card/technical report, SiliconANGLE, VentureBeat, TechNode, CellCog, OrcaRouter, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

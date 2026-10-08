@@ -52,13 +52,40 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 62/100.** Terminal-Bench 13.6% on earlier harnesses and a 60.4% SWE-bench ceiling put it well below the agentic frontier by 2026 standards; fine for basic function calling.
-- **Reasoning: 77/100.** GPQA Diamond 82.8% maps to the 76–80 band — a genuinely useful reasoner for its 2025 era, now clearly mid-pack.
-- **Context window: 84/100.** Full 1M window with decent LOFT 128K (82.1) but sharp MRCR drop-off at full length (21% @1M).
-- **Multimodal: 80/100.** Native text/image/video/audio input (MMMU 79.7%) at a budget price — a strong modality set for its age.
-- **Coding: 67/100.** SWE-bench Verified 60.4% and LiveCodeBench 71.3% are respectable mid-tier results, ~20 points behind 2026 leaders.
-- **Cost efficiency: 85/100.** $0.30/$2.50 with free thinking tokens was the value benchmark of its era, and remains cheap — but it is about to be shut down.
-- **Overall Score: 74/100.** Mean of the five quality dims (62+77+84+80+67)/5 = 74.0 → 74. A fast, cheap, genuinely capable multimodal workhorse that is now a legacy model: still serviceable, best replaced by Gemini 3.5 Flash after October 2026.
+- **Tool use: 62/100.** Terminal-Bench 13.6% (earlier harness) and AA τ²-bench 14.9% (current harness) — both bottom-tier by 2026 standards; fine for basic function calling only.
+- **Reasoning: 74/100.** GPQA Diamond 82.8% (Google card, thinking) is the best-case ceiling, but AA measures 68.3% on the default (no-thinking) config with AA Intelligence Index 9.8, AA-HLE 4.7, CritPt 1.4% — legacy-era pie by current frontier standards.
+- **Context window: 70/100.** Full 1M window structurally, but AA-LCR 49.9% (was recorded 61.7 from a different harness) and FrontierMath retention at 1M degrade sharply; LOFT 128K 82.1% remains the bright spot.
+- **Multimodal: 70/100.** Native text/image/video/audio input, and AA-MMMU-Pro 65.5% (updated from the 2025-era MMMU 79.7 card figure) — a solid modality set, modest visual-reasoning depth by 2026 bars.
+- **Coding: 67/100.** SWE-bench Verified 60.4% and LiveCodeBench 71.3% remain the best coding rows; ~20 points behind 2026 leaders. No current AA coding rows exist for this model.
+- **Cost efficiency: 45/100.** $0.30/$2.50 with free thinking was the value benchmark of its era — but the model is on a hard deprecation horizon: API shutdown **2026-10-16** (8 days out), with Gemini 3.5 Flash the official replacement; an EOL model is no longer an efficiency purchase.
+- **Overall Score: 69/100.** Mean of the five quality dims (62+74+70+70+67)/5 = 68.6 → 69 (lowered from 74 on 2026-10-08, see Re-verification). A once-great budget workhorse now measured on 2026 harnesses: mid-pack quality on every axis and days from being shut down.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+Re-run re-measures the model on current AA harnesses (BenchLM profile, updated 2026-10-07, 14/623 covered). The 2025-era card figures — 82.8% GPQA, 79.7% MMMU, 60.4% SWE-V — survive as best-case/thinking-mode rows, but the as-served 2026 numbers are markedly lower, and the model is 8 days from its shutdown date.
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 62 | 62 | — (τ² 14.9% confirms) |
+| Reasoning | 77 | 74 | −3 |
+| Context window | 84 | 70 | −14 |
+| Multimodal | 80 | 70 | −10 |
+| Coding | 67 | 67 | — |
+| Cost efficiency | 85 | 45 | −40 (EOL) |
+| **Overall** | **74** | **69** | **−5** |
+
+New and corrected data:
+
+- **Deprecation is imminent and binding:** Gemini 2.5 Flash's official API deprecation date of **2026-10-16** (recorded originally via awesomeagents.ai) stands — that is **8 days away**, with Gemini 3.5 Flash the mandated replacement. This is what collapses Cost efficiency 85 → 45: no ongoing efficiency purchase exists for a model that will be un-servable next week.
+- **AA/current-harness rows are the correction vector:** AA-GPQA 68.3% (against the 82.8% thinking-mode card figure — both are real, they measure different configs), AA Intelligence Index 9.8, AA-HLE 4.7%, CritPt 1.4%, AA-LCR 49.9% (supersedes the 61.7 previously recorded from a different harness), AA-MMMU-Pro 65.5% (supersedes the 2025-era MMMU 79.7% card row), AA-IFBench 39.0%, AA-Omniscience Index −42.6 (hallucination rate 93%).
+- **τ²-bench 14.9%** (AA, current harness) corroborates the original bottom-tier Terminal-Bench 13.6% — no agentic redemption exists for this model on any 2026 harness.
+- **FrontierMath v2:** 4.844% (Tiers 1–3) / 4.167% (Tier 4) — essentially floor performance on frontier math, consistent with the weak reasoning corners above.
+- BenchLM overall **42.32, #124/887** (vs 3.1 Flash-Lite 48.15, Gemma 4 31B 40.56); pricing last verified $0.30/$2.50, cached $0.03.
+- **Recommendation unchanged and now one-way:** do not onboard new workloads; migrate anything on Gemini 2.5 Flash to Gemini 3.5 Flash (BenchLM 62.5; $0.75/$4.50) before 2026-10-16.
+
+Gaps still open after re-run: AA coding rows for this model (none published — Coding stays card-era 60.4%/71.3%), MRCR 1M long-context verification, a thinking-mode AA pass (AA defaults to no-thinking, understating the toggleable ceiling), post-shutdown migration cost estimate.
 
 ---
 

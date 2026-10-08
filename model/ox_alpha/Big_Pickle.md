@@ -41,13 +41,37 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Native function calling with reasoning-control tiers is real and was exercised at scale by coding agents in the preview week, but JSON outputs aren't schema-enforced and the full DeepSWE run (~58-63%) reveals the hype 80% sample overstated agentic reliability.
-- **Reasoning: 66/100.** Mandatory reasoning with low/high/max effort and a strong 87.5% Kingbench showing, but that result is a community-run board, and no GPQA/HLE-class score has been published to date.
-- **Context window: 82/100.** The 1M-token window with 131K output is genuinely top-tier; unverified retrieval quality and slow ~30 tok/s throughput on very long prompts keep it below the best.
-- **Multimodal: 64/100.** Text/image/native video input (video encoder matches GLM 5V Turbo) is a strong multimodal read; text-only output and no audio input cap it.
-- **Coding: 71/100.** A purpose-built coding model: DeepSWE ~58-63% (level with GPT-5.6-sol mid) and strong short code tasks, but LiveCodeBench 28% pass@1 and SlopCodeBench 17.9% are modest.
-- **Cost efficiency: 75/100.** Free during preview with massive claimed capacity is superb, but the window is time-limited with no announced post-preview price, and slow throughput adds real time-cost.
-- **Overall Score: 70/100.** Mean of the five quality dims (68+66+82+64+71)/5 = 70.2. An impressive, unclaimed coding/agentic model whose measured results sit a step below the initial viral 80% claim.
+- **Tool use: 76/100.** (Raised from 68 on 2026-10-08.) Identity confirmed (below) → the full GLM-5.3-Flash agentic suite now applies: Terminal-Bench 2.1 84.3% (AA 84.27%), Toolathlon 78.4%, GDPval-AA v2 1,773 Elo, DeepSWE ~63% (the original full-run figure stands); Terminal-Bench 4.0 32.8% and Agents' Last Exam 26.3% keep it off top-tier.
+- **Reasoning: 84/100.** (Raised from 66 on 2026-10-08.) The old "no GPQA/HLE found" gap is closed by the confirmed identity: **GPQA Diamond 91.2% (AA) / 86.4% (Vals)**, HLE w/tools 55.3% (Z.ai) vs AA-HLE 39.9% independent, FrontierMath v2 55.8%, Kingbench 87.5% still stands as the original community result.
+- **Context window: 86/100.** (Raised from 82 on 2026-10-08.) Native 1M window with hybrid sparse/linear attention; independent AA-LCR 80.0 and Context Arena 79.5 now fill the old "no verified retrieval score" gap; MRCR still unpublished.
+- **Multimodal: 76/100.** (Raised from 64 on 2026-10-08.) Native image/video input confirmed as GLM-5.3-Flash's first multimodal GLM stack — CharXiv 89.4%, MMVU 80.5%, MVbench 77.8%, OfficeQA Pro 62.4%; no audio, text-only output.
+- **Coding: 78/100.** (Raised from 71 on 2026-10-08.) **LiveCodeBench (Vals) 80.5%** and **SWE-bench (Vals) 92.0%** close the old gaps; SWE-bench Verified 78.2%, DeepSWE 63.4% (matches the original full-run estimate); AA Coding Index 58.6 keeps it below the frontier tier. The old LCB 28% pass@1 row was a no-scaffold greedy run, not the comparable protocol.
+- **Cost efficiency: 75/100.** Unchanged — the stealth endpoint was free only during the Aug 20-27 preview; its OpenRouter page now 404s (delisted after the reveal), no post-preview price was ever published for `stealth/ox-alpha`, and the same weights live on as GLM-5.3-Flash ($0.15/$0.50 list).
+- **Overall Score: 80/100.** Mean of the five quality dims (76+84+86+76+78)/5 = 80.0 → 80 (raised from 70). Not an independent model at all — the re-run confirms what the original forensics suspected: this is GLM-5.3-Flash.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 68 | 76 | +8 |
+| Reasoning | 66 | 84 | +18 |
+| Context window | 82 | 86 | +4 |
+| Multimodal | 64 | 76 | +12 |
+| Coding | 71 | 78 | +7 |
+| Cost efficiency | 75 | 75 | — |
+| **Overall** | **70** | **80** | **+10** |
+
+New and corrected data (all found 2026-10-08):
+
+- **Identity solved: Ox Alpha = Z.ai GLM-5.3-Flash.** OpenRouter's model page now discloses: "This stealth model was developed and operated by ZAI, revealed to be ZAI GLM-5.3-Flash." The original tokenizer/encoder forensics (~90-99% confidence, GLM-5.x line) are confirmed — this resolves the report's central unknown.
+- **Method:** quality dims realigned to our re-verified `glm-5.3-flash/Big_Pickle.md` (same weights, same re-verification date), which supplies the GPQA/HLE/LiveCodeBench/AA-LCR rows the original report could not find: GPQA Diamond 91.2% (AA) / 86.4% (Vals), HLE 55.3% w/tools (Z.ai) vs 39.9% (AA-HLE), LiveCodeBench (Vals) 80.5%, SWE-bench (Vals) 92.0%, AA-LCR 80.0, CharXiv 89.4%, Terminal-Bench 2.1 84.3% (AA-confirmed), AA Intelligence Index 41.8 (v4.3 re-base).
+- Original stand-alone findings confirmed rather than overturned: DeepSWE full-run ~63% (vs the viral 80% sample), Kingbench 87.5% community result, LCB 28% greedy no-scaffold row (protocol caveat, now superseded by the Vals protocol figure).
+- **Access status: the OpenRouter `stealth/ox-alpha` page now returns 404** — delisted after the reveal; no post-preview pricing was ever published. The model continues as `glm-5.3-flash` (open weights, MIT).
+- Third-party: lmmarketcap scores Ox Alpha's coding composite at 40/100 (#233) — its own ranking predates/does not use the reveal mapping.
+
+Gaps still open after re-run: MRCR (AA-LCR/Context Arena only), τ²-bench, audio modality — all inherited from the GLM-5.3-Flash profile.
 
 ---
 

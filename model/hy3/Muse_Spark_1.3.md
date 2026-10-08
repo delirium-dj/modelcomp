@@ -1,7 +1,8 @@
 # Hy3 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-07 (UTC)
+- Re-research note (2026-10-07, user-approved second pass): BrowseComp claim resolved to 84.2, Tencent research page + MathArena/pricing rows added; scores unchanged at 77.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +15,7 @@
 - **IDs:** `tencent/hy3` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 256,000 total (262K API listing) — verified via Tencent launch release (256K) and provider catalog (262K)
 - **Modalities:** text, image in; text out; reasoning yes (hybrid fast/slow thinking); tool calls yes
-- **Pricing (as of 2026-09-21):** ~$0.083 in / $0.330 out per 1M (provider catalog panel, Sep 2026; preview was $0.180/$0.600)
+- **Pricing (as of 2026-10-07):** ~$0.083 in / $0.330 out per 1M (provider catalog panel, Sep 2026; preview was $0.180/$0.600); **$0.18/$0.59 Tencent Cloud route** (innfactory Sep 2026 — both listed)
 - **Architecture:** open-weights MoE, 295B total / 21B active (+3.8B MTP layer), 80 layers, 192 experts top-8, GQA 64 heads; Apache 2.0
 
 ### Raw benchmarks found
@@ -28,12 +29,12 @@ Agent / tool use:
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** (BrowseComp/WideSearch competitiveness claimed in launch notes without percentages)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** (BrowseComp **84.2** and WideSearch competitiveness now quantified via innfactory compilation — fills prior claim gap); Tencent ran a 270-expert blind productivity eval: **2.67/4** (beats GLM-5.1 2.51; frontend/dev/storage strongest); SWE-Verified variance ±4% across CodeBuddy/Cline/KiloCode scaffolds (robustness note)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.4%** (vendor release figures via dataforcee, Jul 2026)
-- USAMO 2026: **72.0** (same source, math-reasoning proxy)
+- USAMO 2026: **72.0** (same source, math-reasoning proxy); **38.7 MathArena Apex** (innfactory; vs GPT-5.5 85.4 — new, weak tail)
 - SuperGPQA (base): **51.60%** (GitHub Hy3-preview README_CN base table, 5-shot; vs Kimi-K2 base 51.10 — base-model row, not instruct)
 - MMLU-Pro (base): **65.76%** (same base table, 5-shot)
 - HLE: **no verified public score found**
@@ -74,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent launch release, GitHub Hy3-preview README base table, provider catalog pricing/score panel, dataforcee release-figures summary); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent launch release, GitHub Hy3-preview README base table, provider catalog pricing/score panel, dataforcee release-figures summary) + 2026-10-07 re-research pass (Tencent Hy3 research page, HF model page, innfactory/modelpricewatch compilations); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

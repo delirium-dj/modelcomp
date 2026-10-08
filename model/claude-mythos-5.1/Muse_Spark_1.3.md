@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Mythos 5.1 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: same-weights absolutes added, scores recomputed 92 → 93)
+- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: same-weights absolutes added, scores recomputed 92 → 93); re-research pass 2026-10-07 adds BenchmarkList-tracked Mythos rows + ExploitBench, scores unchanged at 93
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,7 @@ Agent / tool use:
 - GDPval-AA v2 (economically useful knowledge work): **1764 Elo** (Artificial Analysis Intelligence Index component via DeepLearning.ai report, Sep 2026, Fable 5.1 max-reasoning with fallback, leads index)
 - AA-Briefcase (multi-week knowledge work): **1662 Elo** (same source, leads hardest component)
 - Terminal-Bench 2.1: **85.0% Vals lane** (Fable 5.1 same-weights proxy, BenchLM); older proxy 84.3% (Fable 5, lmmarketcap Jun 2026)
-- Terminal-Bench 4.0: **60.9% Mythos-5.1-labeled** (SaaSCity launch table, beats Fable 5.1 55.8% — same weights, classifier delta)
+- Terminal-Bench 4.0: **60.9% Mythos-5.1-labeled** (system card; BenchmarkList tracks it rank 3/29, 93rd pct — field leader Opus 5.5 66.4%; beats Fable 5.1 55.8% — same weights, classifier delta; same-model statement re-confirmed on the 2026-09-29 launch page)
 - Terminal-Bench-Science 0.1: **52.6%** (Fable 5.1 same-weights proxy, SaaSCity launch table)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA (v1): **no verified public v1 score found** (v2 1764 above is the tracked successor)
@@ -39,7 +39,8 @@ Reasoning / knowledge:
 - GPQA Diamond: **94.1%** (lmmarketcap Fable 5 system-card summary, same-weights proxy; Mythos Preview system lineage reports 94.5%)
 - HLE: **65.0% HLE no-tools text** (llm-stats HLE leaderboard, Claude Fable 5.1 #1 at 0.650; Mythos Preview 0.647 second; Fable 5 system card 59.0% on earlier harness); shared table reads 65% with tools / 60.9% without — consistent band
 - ARC-AGI-2: **90.0%** (Fable 5.1 same-weights proxy, shared table); **ARC-AGI-1 97.5%** (same source)
-- ArXivMath: **91.3% (93.9% with tools)** (Fable 5.1 same-weights proxy, shared table)
+- ArXivMath: **91.3% (93.9% with tools)** (Fable 5.1 same-weights proxy, shared table); **93.9% w/ tools / 91.3% w/o, rank 5/35** (BenchmarkList Mythos page — corroborates)
+- ExploitBench v8-bench: **12.61 flags mean, 83.0% capability, 222/410 full ACEs** (BenchmarkList, rank 2/16 — new, restricted-tier cyber relevance)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index / BenchLM overall: **53 AA Intelligence Index v4.3** (DeepLearning.ai / Artificial Analysis, Sep 2026, tied #1 with GPT-6 Astra)
@@ -77,6 +78,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
-- Method: public internet research (Anthropic launch announcement, system-card summaries, Artificial Analysis Index via DeepLearning.ai, BenchLM SWE-Pro leaderboard, llm-stats HLE leaderboard); Fable 5.1 numbers cited as same-weights proxies per Anthropic same-model statement; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
+- Method: public internet research (Anthropic launch announcement, system-card summaries, Artificial Analysis Index via DeepLearning.ai, BenchLM SWE-Pro leaderboard, llm-stats HLE leaderboard) + 2026-10-07 re-research pass (Fable/Mythos 5.1 system-card PDF, 2026-09-29 launch page, BenchmarkList Mythos page, finallyoffline/sdd.sh analyses); Fable 5.1 numbers cited as same-weights proxies per Anthropic same-model statement; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

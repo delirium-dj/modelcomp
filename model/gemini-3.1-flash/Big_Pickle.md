@@ -52,7 +52,31 @@ Multimodal:
 - **Multimodal: 84/100.** Native text/image/audio/video input at Flash-tier price points (community 84).
 - **Coding: 70/100.** Community 70.2; a capable volume-coding model, clearly below the 3.1 Pro / Opus-line frontier.
 - **Cost efficiency: 88/100.** Cheap, high-throughput Flash-tier pricing consistent with the family band ($0.25–$2 / $1.50–$12); not the cheapest rung (Lite is).
-- **Overall Score: 78/100.** Mean of the five quality dims (70+73+95+84+70)/5 = 78.4 → 78. A fast, solid, multimodal 1M-context workhorse — one or two steps below the 3.1 Pro reasoning/coding frontline.
+- **Overall Score: 78/100.** Mean of the five quality dims (70+73+95+84+70)/5 = 78.4 → 78 (unchanged). A fast, solid, multimodal 1M-context workhorse — one or two steps below the 3.1 Pro reasoning/coding frontline.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 70 | 70 | — |
+| Reasoning | 73 | 73 | — |
+| Context window | 95 | 95 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 70 | 70 | — |
+| Cost efficiency | 88 | 88 | — |
+| **Overall** | **78** | **78** | **—** |
+
+New and corrected data (all found 2026-10-08):
+
+- **No standalone primary data has ever appeared for this exact tier.** BenchLM still returns no page for `gemini-3-1-flash` (404); Vals' release index does not list a standalone Gemini 3.1 Flash; llm-stats carries no row. The original report's reliance on community averages (`average.md`) is therefore still the only signal — and it remains uncorroborated.
+- **Family anchors refreshed:** Gemini 3.1 Flash-Lite (Vals): Terminal-Bench 2.1 34.1%, LiveCodeBench 80.1%, SWE-bench 62.8%, GPQA Diamond 81.1%, MMLU-Pro 86.2%, CharXiv 73.2% — all still mid-tier and consistent with the 70-73 quality band assigned to 3.1 Flash.
+- **Supersession confirmed:** the 3.1 Flash tier has effectively been retired inside the line — Google's current catalog runs 3.5 Flash (2026-05-19), 3.6 Flash (07-21), 3.7 Flash (08-13), 3.8 Flash (09-02), all at $0.75/$3.75 promo (→$1.50/$7.50 from 2027-01-01). The 3.1 family's only surviving listings are 3.1 Flash-Lite ($0.25/$1.50), 3.1 Flash Image ($0.50/$3.00, 131K), and 3.1 Flash Live.
+- **Pricing:** no clean unique rate was ever published for the standalone 3.1 Flash; the family band ($0.25–$2.00 / $1.50–$12.00) with the $0.25/$1.50 Flash-Lite anchor remains the best estimate — note 3.1 Flash Image's $0.50/$3.00 as the most likely Flash-tier rate.
+- **Positioning note:** 3.5 Flash (BenchLM 62.5) is the cheapest current model with verified rows in this band; 3.1 Flash sits between it and 3.1 Flash-Lite (48.15) on quality but has no verified rows of its own — if a user needs this capability tier today, 3.5 Flash or 3.6 Flash should be chosen instead.
+
+Gaps still open after re-run: every verified row for `gemini-3.1-flash` itself (TB2.1, GPQA, SWE-bench, MRCR, MMMU-Pro), unique list price, BenchLM/llm-stats coverage.
 
 ---
 

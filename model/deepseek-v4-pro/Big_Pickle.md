@@ -51,28 +51,46 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** TB2.1 87.9% (0813), Toolathon 74.1%, GDPval-AA 1554 and Cybergym 83.3% are near-frontier; capped just below the ~88%+ frontier refs because several tool-use benches (Claw-Eval, Tau3) are unpublished.
-- **Reasoning: 88/100.** GPQA 90.1% is frontier-tier and AA Index 52 leads (or ties) open weights; HLE 37.7% trails the 40%+ frontier ref, capping the score.
-- **Context window: 90/100.** 1M native window with verified MRCR 1M 83.5 retrieval; under the ≥98% threshold at 512K that would earn 100.
+- **Tool use: 88/100.** TB2.1 87.9% (0813), Toolathlon-Verified 74.1%, MCP Atlas 73.6%, τ²-bench 96.2% and CyberGym 83.3% are near-frontier; AutomationBench 31.8%, APEX-Agents 24.3% and AA Agentic Index 49.6% are the honest hard-cuts.
+- **Reasoning: 88/100.** GPQA 90.1% is frontier-tier, AA Index 53.2 leads open weights, ARC-AGI-1 90.0%/ARC-AGI-2 61.3% verified and MMLU-Pro 87.5%; HLE no-tools 37.7% (HLE-with-tools 60.0%) trails the 40%+ frontier ref, capping the score.
+- **Context window: 90/100.** 1M native window with verified MRCR-1M 83.5 retrieval and CorpusQA-1M 62.0%; AA-LCR 80.3%; under the ≥98% threshold at 512K that would earn 100.
 - **Multimodal: 15/100.** Text in/out only — no image/audio/video input or output.
-- **Coding: 86/100.** SWE-bench Verified 80.6%, LiveCodeBench 93.5% and Codeforces 3206 are elite; DeepSWE 62.7% sits below the 74%+ frontier ref that defines 90–100.
+- **Coding: 86/100.** SWE-bench Verified 80.6% (Vals 96.4), LiveCodeBench 93.5% and Codeforces 3206 are elite; AA Coding Index 68.8, SWE-bench Pro 55.4%, Vibe Code Bench 49.9% and DeepSWE 62.7% temper the 90s claim.
 - **Cost efficiency: 82/100.** Open weights (MIT) are free to self-host, and the ~$1.74/$3.48 list is mid-price with strong cache prices; below the $0.875 promo or V4-Flash's $0.14/$0.28.
-- **Overall Score: 74/100.** (90 + 88 + 90 + 15 + 86) / 5 = 73.8 → 74. Best-fit: frontier-adjacent open-weights reasoning/coding agent for hard SWE and agentic pipelines; text-only, so pair with an omni model for multimodal input.
+- **Overall Score: 73/100.** (88 + 88 + 90 + 15 + 86) / 5 = 73.4 → 73 (lowered from 74 on 2026-10-08, see Re-verification). Best-fit: frontier-adjacent open-weights reasoning/coding agent for hard SWE and agentic pipelines; text-only, so pair with an omni model for multimodal input.
+
+---
+
+## Re-verification — 2026-10-08 (15 days after original)
+
+Re-run adds 25+ primary rows (BenchLM profile 64.02, #38/887, 60/623, updated 2026-10-07) — several hard-cut corners surface that lower the Overall by one point.
+
+| Dimension | 2026-09-23 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 90 | 88 | −2 |
+| Reasoning | 88 | 88 | — |
+| Context window | 90 | 90 | — |
+| Multimodal | 15 | 15 | — |
+| Coding | 86 | 86 | — |
+| Cost efficiency | 82 | 82 | — |
+| **Overall** | **74** | **73** | **−1** |
+
+New and corrected data:
+
+- **Tool-use corners now published (the original "capped, unpublished" items):** AutomationBench **31.8%**, APEX-Agents-AA **24.3%**, AA Agentic Index 49.6%, AA EnterpriseOps-Gym 49.6%, ALE 25.7%; alongside strong confirmed rows TB2.1 87.9%, Toolathlon-Verified 74.1% (vs raw Toolathlon 51.8%), MCP Atlas **73.6%**, τ²-bench **96.2%**, BrowseComp **83.4%**, CyberGym 83.3%, GDPval-AA 54.5%. Tool 90 → 88.
+- **Coding stack expanded:** AA Coding Index **68.8** (not previously listed), AA-SciCode 51.0%, NL2Repo 61.5%, SWE Multilingual 76.2%, Vibe Code Bench **49.9%** (a real IDE-workflow weak spot), OpenHarmony 59.0%; SWE-bench (Vals) **96.4%** is the standout. LCB 93.5 / Codeforces 3206 / SWE-V 80.6 / DeepSWE 62.7 / DSBench 71.1-67.2 all re-confirmed.
+- **Reasoning/knowledge growth:** AA Intelligence Index now **53.2** (AA page; the "52 (DeepInfra snapshot)" figure is superseded), AA-GPQA 92.8, AA-HLE 41.0, ARC-AGI-1 **90.0%** / ARC-AGI-2 **61.3%** (ARC verified), HLE rows split as HLE-with-tools **60.0%** and no-tools **37.7%**, MMLU-Pro 87.5, Chinese-SimpleQA 84.4, AA-IFBench 76.5, HMMT 95.2, IMOAnswerBench 89.8, Apex 38.3 / Apex-Shortlist 90.2.
+- **Long-context deepened:** MRCR-1M 83.5 confirmed and now paired with **CorpusQA-1M 62.0%** and AA-LCR 80.3%.
+- **Hallucination flag:** AA-Omniscience Index **0.8** with **94.1%** hallucination rate — worst-in-class hall on that eval despite high GPQA; surfaces honest limits for factual pipelines.
+- **GDPval note:** AA-normalized 54.5% (the 1554/1306 absolute figure varies by eval build).
+- **Lineage:** V4.1 Flash (67.88, #31) exists; V4 Pro 0813 pricing/model card unchanged.
+
+Gaps still open after re-run: Claw-Eval row, τ³/SWE-Marathon, FrontierMath-v2, official MRCR-512K intermediate, DP-exact POC evaluation.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (DeepSeek official releases + cards, DeepInfra/Lightning overviews, trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
+- Method: public internet research (DeepSeek official releases + technical report + agent update, DeepInfra/Lightning overviews, BenchLM, AA, Vals, ARC Prize, OpenHarmony); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.6_Terra.md`, using the same headings.
-
----
-
-## Submission checklist (delete before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
-4. No raw benchmark invented — "no verified public score found" used where missing.
-5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

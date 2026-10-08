@@ -1,7 +1,8 @@
 # Hy4 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy4 preview (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-07 (UTC)
+- Re-research note (2026-10-07, user-approved second pass): HLE-with-tools + LiveCode-estimate + BenchLM-overall + math rows added; scores unchanged at 75.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,19 +39,20 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.3%** (Tencent model card; llm-stats GPQA board confirms 0.923)
-- HLE: **43.4% HLE** (Tencent model card, no-tools variant)
+- GPQA Diamond: **92.3%** (Tencent model card; llm-stats GPQA board confirms 0.923; pareto rank #17/179)
+- HLE: **43.4% HLE** (Tencent model card, no-tools variant); **55.4% HLE with-tools variant** (BenchLM appendix row — both listed)
 - WideSearch: **83.9%** (same card)
 - CritPt: **16.9%** (same card)
 - LCR / MLCR: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (closest proxy: llm-stats Score **51.1 #14**, Reasoning 50.7, Agent 36.3)
+- Artificial Analysis Intelligence Index / BenchLM overall: **60.83 BenchLM overall #48/882** (Oct-2026 page — fills prior gap); **no verified AA Index found** (closest proxy: llm-stats Score **51.1 #14**, Reasoning 50.7, Agent 36.3)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - SUPERChem / ArXivMath (science proxies): **66.4% / 66.6%** (same card); OfficeQA Pro 66.2%
 
 Coding:
 
 - SWE-bench Verified / SWE-Pro: **65.7% SWE-bench Pro** (Tencent model card); **82.9% SWE-bench Multilingual** (same card, up from Hy3 75.8%)
-- LiveCodeBench: **no verified public score found**
+- LiveCodeBench: **~82.9% estimated** (Model Pareto third-party estimate, ~#7/25 — estimated, not measured; kept provisional)
+- Harbor-Index: **39.6%** (model-card appendix via benchgen — new); **8.8% HorizonMath, 54.6% BrokenArXiv, 74.2% MathArena Apex 2025** (same appendix — new)
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE / Coding Index / other: **64.3% DeepSWE** (same card, up from Hy3 28.0%); **58.9% NL2Repo-Bench**; **17.5% ProgramBench**; **31.9% SWE-Marathon** (same card)
@@ -79,6 +81,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent research/launch pages, TokenHub FAQ, Benchgen model card transcribing the official appendix, llm-stats boards); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent research/launch pages, TokenHub FAQ, Benchgen model card transcribing the official appendix, llm-stats boards) + 2026-10-07 re-research pass (HF model page, BenchLM overall page, benchgen sourcing notes, Model Pareto estimates); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

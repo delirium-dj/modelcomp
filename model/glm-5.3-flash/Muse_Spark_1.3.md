@@ -1,7 +1,8 @@
 # GLM 5.3 Flash — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.3-Flash (ex `ox-alpha` stealth), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-07 (UTC)
+- Re-research note (2026-10-07, user-approved second pass): AA v4.3.2 comparison + Vals/OpenRouter third-party rows fill SWE/LiveCode/Vibe/MLCR/MMMU gaps; scores recomputed 88 → 89.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +30,9 @@ Agent / tool use:
 - Tau3-Banking: **47.2%** (BenchLM `glm-5-3-flash` AA Tau3 Banking row)
 - GDPval-AA v2: **1773** (Z.ai blog, AA-evaluated; GLM-5.2 1504, Opus 4.8 1582 on same table) and **1655** (AA v4.3 comparison page, current revision — version drift, both listed)
 - AA-Briefcase: **1449** (BenchLM panel; AA comparison 1449 vs 1504 for max)
-- Terminal-Bench 2.1: **84.3%** (Z.ai blog, Claude Code 2.1.207, temp 1.0, 6h timeout; Opus 4.8 85.0, GPT-5.6 Terra 87.4, GLM-5.2 81.0 on same table)
+- Terminal-Bench 2.1: **84.3%** (Z.ai blog, Claude Code 2.1.207, temp 1.0, 6h timeout; Opus 4.8 85.0, GPT-5.6 Terra 87.4, GLM-5.2 81.0 on same table); **84.3% AA lane** (BenchLM); **62.9% Vals lane** (OpenRouter Vals summary — harness differs, all listed)
+- Terminal-Bench 4.0: **32.8–33%** (BenchLM AA lane / AA v4.3.2 comparison — new)
+- EnterpriseOps-Gym: **33.2%** (BenchLM; AA comparison — new); **51.2% AA ITBench** (BenchLM — new); **50.9% AA Agentic Index, 71.5% AA Coding Index** (OpenRouter AA summary — new)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
@@ -39,15 +42,17 @@ Reasoning / knowledge:
 - HLE with tools: **55.3%** (Z.ai blog full set, 300K ctx, GPT-5.6-luna-medium judge; 10/27, 65th pct on BenchmarkList)
 - HLE (AA independent): **39.9–40%** (BenchmarkList 29/466 94th pct; AA comparison `40%` vs max 42% — text-only subset vs tools-assisted 55.3 above)
 - CritPt: **15%** (AA comparison; max 19%)
-- Artificial Analysis Intelligence Index: **42 points v4.3** (AA model page + AA Flash-vs-max comparison, current) and **57–57.5 points v4.1/v4.1.1** (Z.ai-era: 57 at $0.045/task Pareto frontier per blog; 57.5 #29/636 per dataconomy; 41.9 BenchLM row — index revisions, not comparable head-to-head)
-- Omniscience: **7–7.5 points** (AA comparison 7; BenchLM AA-Omniscience Index 7.5%)
+- Artificial Analysis Intelligence Index: **42 points v4.3** (AA model page + AA Flash-vs-max comparison, current) and **57–57.5 points v4.1/v4.1.1** (Z.ai-era: 57 at $0.045/task Pareto frontier per blog; 57.5 #29/636 per dataconomy; 41.9 BenchLM row — index revisions, not comparable head-to-head); AA v4.3.2 component cross-check: **Briefcase 1454, GDPval 1647, AutoBench 60, TB4.0 33, SciCode 52, HLE 40, GDP.pdf 15, CritPt 15, Omni 7, LCR 80** (AA comparison — corroborates filed rows)
+- Omniscience: **7–7.5 points** (AA comparison 7; BenchLM AA-Omniscience Index 7.5%); **27.5% accuracy / 72.4% non-hallucination** (OpenRouter AA summary — new)
+- MMLU-Pro / MMMU-Pro: **86.1% / 86.0% Vals** (OpenRouter Vals summary — fills prior gap); **51.1% MLCR-AA** (BenchLM — fills prior gap); **15.4% CritPt AA lane** (BenchLM — corroborates filed 15)
 - LCR: **80%** (AA-LCR v1.1 on AA comparison, ties max 80%; dataconomy LCR 80% agrees)
 - Agents' Last Exam: **26.3%** (Z.ai blog; Opus 4.8 27.0, Terra 28.0 on same table)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found** (SWE-Pro not in Z.ai Flash table; NL2Repo + DeepSWE below are the coded proxies)
-- LiveCodeBench: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **92.0% SWE-bench Vals** (OpenRouter Vals summary — fills prior gap; SWE-Pro not in Z.ai Flash table; NL2Repo + DeepSWE below are the coded proxies)
+- LiveCodeBench: **80.5% Vals** (OpenRouter Vals summary — fills prior gap)
+- Vibe Code Bench: **30.8% v1.1 / 16.0% 1-100** (OpenRouter Vals summary — fills prior gap, weak rows); **0.0% ProgramBench, 21.0% ProofBench v1.1, 40.2% SkillsBench, 20.5% Code Migration** (Vals — new weak rows); **67.9% CyberBench v1.1, 57.9% Finance Agent v2, 83.9% LegalBench, 88.9% MedScribe, 75.6% TaxEval v2, 62.0% Tax Agent Bench, 55.9% EMB, 52.5% IOI, 45.2% Legal Research, 6.7% Harvey Legal** (Vals — new domain rows)
 - SciCode: **52%** (AA comparison; max 59%) — **46.1%** on BenchmarkList independent row (54/458, 88th pct; harness differs)
 - Vibe Code Bench: **no verified public score found**
 - DeepSWE v1.1: **63.4%** (Z.ai blog mini-swe-agent, temp 0.95, 400K ctx; GLM-5.2 46.2, Opus 4.8 58.0, Terra 69.6 on same table; 13/33 63rd pct on BenchmarkList)
@@ -67,15 +72,15 @@ Long context:
 - **Tool use: 88/100.** Toolathlon 78.4 beats Opus 4.8 with Automation 48.8 beating Opus by ~8 and Tau3 47.2 frontier-class; capped by AA Automation 60% trailing full 5.3 (62%).
 - **Reasoning: 86/100.** GPQA 91.2 + HLE-tools 55.3 with Index 42 (v4.3) leading open flash class; capped by CritPt 15 and HLE-text 40 trailing max (42).
 - **Context window: 97/100.** Native 1M tier with measured AA-LCR 80%; capped below 100 without 98%+ retrieval at 512K+.
-- **Multimodal: 78/100.** Text + image verified (OfficeQA 62.4 ahead of Opus, CharXiv 89.4, Chartography 78.0, MMVU 80.5, OSWorld 2.0 59.1 ahead of Opus); capped below video-native leaders (MVBench 77.8 trails Gemini 82.2, BabyVision 53.4 mid).
-- **Coding: 90/100.** TB2.1 84.3 within 0.7 of Opus with DeepSWE 63.4 beating Opus by 5+ and NL2Repo best-in-set; capped by SWE-Marathon mid-pack and missing SWE-Verified head-to-head.
+- **Multimodal: 80/100.** Text + image verified (OfficeQA 62.4 ahead of Opus, CharXiv 89.4, Chartography 78.0, MMVU 80.5, MMMU-Pro 86.0, OSWorld 2.0 59.1 ahead of Opus); capped below video-native leaders (MVBench 77.8 trails Gemini 82.2, BabyVision 53.4 mid).
+- **Coding: 92/100.** SWE-bench 92.0% plus TB2.1 84.3, LiveCode 80.5%, DeepSWE 63.4 beating Opus by 5+ and NL2Repo best-in-set; capped by SWE-Marathon mid-pack and Vibe/ProgramBench weak tails.
 - **Cost efficiency: 95/100.** Paid $0.15/$0.50 ($0.03 cached) — ~1/10th GLM-5.3, $0.045/task Pareto point; capped below $0 by definition.
-- **Overall Score: 88/100.** Mean of the five non-cost dims (88+86+97+78+90)/5 = 87.8 → 88; best-fit as default high-volume multimodal coder, keep Opus/Terra for longest-horizon summits.
+- **Overall Score: 89/100.** Mean of the five non-cost dims (88+86+97+80+92)/5 = 88.6 → 89; best-fit as default high-volume multimodal coder, keep Opus/Terra for longest-horizon summits.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
-- Method: public internet research (Z.ai GLM-5.3-Flash blog 2026-08-26 + HF `zai-org/GLM-5.3-Flash`, AA model + comparison pages, BenchLM/BenchmarkList panels, datacamp/marktechpost summaries); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-07
+- Method: public internet research (Z.ai GLM-5.3-Flash blog 2026-08-26 + HF `zai-org/GLM-5.3-Flash`, AA model + comparison pages, BenchLM/BenchmarkList panels, datacamp/marktechpost summaries) + 2026-10-07 re-research pass (AA v4.3.2 Flash-vs-Max comparison, OpenRouter AA/Vals batch summaries, Vals model page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

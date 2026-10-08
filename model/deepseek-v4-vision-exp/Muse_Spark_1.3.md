@@ -1,7 +1,7 @@
 # DeepSeek V4 Vision Exp — findings by Muse Spark 1.3
 
 - Source: DeepSeek/DeepSeek V4 Flash Vision Exp (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86)
+- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86); re-research pass 2026-10-07 adds HF-README/BenchmarkList/aggregator rows, scores unchanged at 86
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,21 +24,25 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **83.9%** (DeepSeek model-card table via AILog, vs 0731 baseline 82.7)
+- Terminal-Bench 2.1: **83.9%** (DeepSeek model-card table via AILog, vs 0731 baseline 82.7; BenchmarkList rank 25/194, 88th pct — field leader Fable 5.1 91.4%)
+- NL2Repo: **57.7%** (HF README table; vs 0731 54.2, Opus 4.8 69.7; BenchmarkList rank 9/34 — new)
+- Cybergym: **75.3%** (HF README; vs 0731 76.7, Opus 4.8 78.3 — new)
+- AutomationBench (Public): **25.7%** (HF README; vs 0731 25.1, Opus 4.8 27.2 — new)
 - Toolathlon-Verified: **75.9%** (same table, vs 0731 70.3)
 - Agents' Last Exam: **27.3** (same table, vs Opus 4.8 25.7 — win)
 - ZeroBench Pass@5: **35.0** (same table, vs Opus 4.8 34.0 — win)
 - ApexBench Pass@1: **36.5** (same table, vs 0731 26.2 ignoring multimodal inputs; vs Opus 4.8 39.4 — loss)
-- Chartography: **64.3** (same table, vs Opus 4.8 65.0 — loss)
+- Chartography: **64.3** (same table, vs Opus 4.8 65.0 — loss; BenchmarkList rank 16/39)
+- MMVU: **72.7% (rank 5/46, field-leader tag)** (BenchmarkList — new); **80.4% CharXiv-R** (rank 20/35), **35.1% BabyVision** (rank 23/38) (BenchmarkList — new)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- GDPval-AA: **1675 Elo** (rankllms aggregator — provisional single-source, fills prior gap)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **88.1% GPQA Pass@1** (chat-deep V4 Flash Max official table — text-parity proxy; Vision-Exp holds small leads over 0731 across text-agent side per model card)
-- HLE: **no verified public score found**
+- GPQA Diamond: **88.1% GPQA Pass@1** (chat-deep V4 Flash Max official table — text-parity proxy; Vision-Exp holds small leads over 0731 across text-agent side per model card); rankllms prints 55.1% for this variant — conflicts with the sibling-parity evidence, excluded as likely mislabeled, noted here
+- HLE: **55.1 HLE w/ Tools score** (rankllms aggregator — provisional single-source, fills prior gap)
 - DSBench-Hard: **63.6** (model-card table, vs 0731 59.6)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
@@ -47,9 +51,9 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **79.0% SWE Verified Resolved** (chat-deep V4 Flash Max official table — text-parity proxy)
+- SWE-bench Verified / SWE-Pro: **79.0% SWE Verified Resolved** (chat-deep V4 Flash Max official table — text-parity proxy); **72.5% variant-specific** (rankllms aggregator — provisional, both listed)
 - LiveCodeBench: **91.6% LiveCodeBench-v6 Pass@1-CoT** (same official table — text-parity proxy); LiveBench Coding **0.68 #60** (apxml panel)
-- DeepSWE: **59.3** (model-card table, vs 0731 54.4)
+- DeepSWE: **59.3** (model-card table, vs 0731 54.4; BenchmarkList rank 8/24 — field leader Sol 73.0%); **14.8% FrontierSWE v2** (BenchmarkList, rank 18/20 — new, weak tail)
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
 - Coding Index / other: **0.65 Coding Index #30** (apxml panel); LiveBench Agentic **0.65 #3**, Reasoning 0.85 #32, Mathematics 0.88 #45
@@ -78,6 +82,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (DeepSeek model-card benchmark table via AILog, llm-stats provider comparison, chat-deep V4 spec/benchmark matrix, apxml benchmark panel, DeepSeek-V4 paper); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (DeepSeek model-card benchmark table via AILog, llm-stats provider comparison, chat-deep V4 spec/benchmark matrix, apxml benchmark panel, DeepSeek-V4 paper) + 2026-10-07 re-research pass (HF README eval table, BenchmarkList multimodal rows, kinonn-bot research vault, explainx.ai analysis, rankllms aggregation with mislabel audit); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

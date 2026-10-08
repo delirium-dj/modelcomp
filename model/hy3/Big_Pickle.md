@@ -45,13 +45,39 @@ Productivity:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** SWE-Bench Verified 78, Terminal-Bench 2.1 90.4, stable multi-scaffold tool calling, and strong BrowseComp/WideSearch results make it a genuinely production-grade agent model.
-- **Reasoning: 72/100.** Hybrid fast/slow thinking with effort control and a solid 2.67/4 expert panel, but an Intelligence Index of 41 and no published GPQA/HLE keep it below the true frontier.
-- **Context window: 72/100.** 256K is strong for agentic coding and multi-doc work, with real MRCR improvements; still well short of the 1M open/closed leaders.
+- **Tool use: 72/100.** SWE-Bench Verified 78 and Terminal-Bench 2.1 90.4 on the HF card are strong, and multi-scaffold reliability is validated — but AA Agentic Index 25.6% and GDPval-AA 1,136 (28.3%) are lower than "production-grade" pitch implies (contrast GLM-5.2's 39.4/43.7%).
+- **Reasoning: 70/100.** AA-GPQA Diamond 89.7% and AA-HLE 33.5% are solid, and the hybrid fast/slow design with effort control is real; but CritPt 4.9%, a 2.67/4 expert panel, and the AA II ambiguity (25.3 current vs 41.2 snapshot, see Re-verification) keep it clearly below the true frontier.
+- **Context window: 74/100.** 256K is strong for agentic coding and multi-doc work, with an independently measured AA-LCR **79.0%** (the strongest long-context-reasoning row in its price class); still well short of the 1M leaders.
 - **Multimodal: 50/100.** Text-only in and out — no vision, audio, or generation; this pins the floor for omni-capability.
-- **Coding: 78/100.** SWE-bench Verified 78 and Terminal-Bench 2.1 90.4 with the strongest expert-panel lifts in frontend and CI/CD make it a very capable open coding agent; Multilingual/SWE-bench Pro results stay modest.
+- **Coding: 74/100.** SWE-bench Verified 78 and Terminal-Bench 2.1 90.4 on the card with the strongest expert-panel lifts in frontend and CI/CD; AA Coding Index 58.8% and AA-SciCode 48.6% show the harness-level ceiling is solid mid-tier, not frontier.
 - **Cost efficiency: 88/100.** ~$0.14/$0.58 per 1M with MTP-accelerated decoding, Apache-2.0 weights, quantized single-GPU builds, and ~47% fewer tokens than GLM-5.2 on real tasks — outstanding value.
-- **Overall Score: 70/100.** Mean of the five quality dims (76+72+72+50+78)/5 = 69.6. A cheap, reliable, open 256K agentic workhorse with near-frontier coding for 21B active parameters; multimodal absence and unbenchmarked frontier reasoning hold it to a "very good" score.
+- **Overall Score: 68/100.** Mean of the five quality dims (72+70+74+50+74)/5 = 68 (lowered from 70 on 2026-10-08, see Re-verification). A cheap, reliable, open 256K agentic workhorse with near-frontier coding for 21B active parameters; multimodal absence and harness-verified mid-tier agentic/reasoning keep it at "very good".
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+Re-run adds independent verification and clears two "no verified score found" gaps (BenchLM profile, updated 2026-10-07, 14/623 covered; AA; HF card).
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 76 | 72 | −4 |
+| Reasoning | 72 | 70 | −2 |
+| Context window | 72 | 74 | +2 |
+| Multimodal | 50 | 50 | — |
+| Coding | 78 | 74 | −4 |
+| Cost efficiency | 88 | 88 | — |
+| **Overall** | **70** | **68** | **−2** |
+
+New and corrected data:
+
+- **Knowledge gaps filled:** AA-GPQA Diamond **89.7%**, AA-HLE **33.5%**, AA-LCR **79.0%**, CritPt 4.9%, AA-Omniscience Index −18.5 (accuracy 32.0, hallucination 74.1), AA Coding Index 58.8%, AA-SciCode 48.6%, AA Agentic Index 25.6%, GDPval-AA 1,136 (28.3%).
+- **AA Intelligence Index ambiguity (worth flagging):** the current AA row for `hy3` reads **25.3**; an earlier AA snapshot of the same row reads **41.2** (which is what BenchLM attaches to Hy3 Preview, and whence the original report's "41" came). The 25.3 is the newer full-release (likely no-thinking default) figure. Reasoning is scored on the evidence mix, not either number alone.
+- **Vendor coding rows stay as the high-water mark:** SWE-bench Verified 78 and Terminal-Bench 2.1 90.4 (HF card) — against harness-level AA Coding 58.8/48.6, the vendor-vs-AA gap is deliberately preserved.
+- **Positioning:** BenchLM **52.76, #82/887** (14/623); Hy3 Preview 51.11; **Hy4 Preview now exists at 60.79** — the family line has moved one generation past this model. Pricing unchanged (~$0.14/$0.58 DeepInfra/$0.035 cached; ¥1/4 official).
+- BrowseComp/WideSearch search-agent claims remain vendor-stated (no independent row surfaced).
+
+Gaps still open after re-run: FRONTIER Math row, official MRCR 1M-style retrieval number, independent BrowseComp/WideSearch scores, SWE-bench Verified on Vals' harness (76-model leaderboard has no Hy3 row yet), τ²-bench/UBP agentic rows beyond AA Agentic Index.
 
 ---
 

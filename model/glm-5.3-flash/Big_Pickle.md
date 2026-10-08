@@ -58,13 +58,43 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Terminal-Bench 2.1 84.3% (independently confirmed) is just under the 85% elite line, and Toolathlon 78.4% is strong; AutomationBench 48.8% and Terminal-Bench 4.0 32.8% keep it from top-tier.
-- **Reasoning: 84/100.** GPQA Diamond 91.2% (independent) lands in the 90–93 → 86–88 band before moderation; HLE w/tools 55.3% is solid; a step behind the 94%+ GPQA models.
-- **Context window: 86/100.** Native 1M window engineered for cheap long-context (hybrid sparse/linear attention), with Context Arena 79.5; some gateways list up to 1.31M.
-- **Multimodal: 76/100.** First native GLM-5 multimodal input (image+video) with strong grounded evals (CharXiv 89.4, MMVU 80.5); no audio and text-only output cap it.
-- **Coding: 76/100.** SWE-bench Verified ~78% and DeepSWE 63.4% (ahead of Opus 4.8) are strong open-weight results; not yet in the 85%+ elite coding tier.
-- **Cost efficiency: 95/100.** ~$0.10 blended per 1M with frontier-adjacent agentic scores — the release's defining story; roughly one-tenth the cost of GLM-5.3.
-- **Overall Score: 80/100.** Mean of the five quality dims (76+84+86+76+76)/5 = 79.6 → 80. A cheap, open, natively multimodal coding/agent powerhouse that outperforms its bigger sibling on nearly every axis.
+- **Tool use: 76/100.** Terminal-Bench 2.1 84.3% (independently confirmed by AA) is just under the 85% elite line, and Toolathlon 78.4% plus AA AutomationBench 60.4% are strong; Terminal-Bench 4.0 32.8% and Agents' Last Exam 26.3% keep it from top-tier (independent TB2.1 Vals 62.9% is the low outlier).
+- **Reasoning: 84/100.** GPQA Diamond 91.2% (AA) / 86.4% (Vals) lands in the 90–93 → 86–88 band before moderation; HLE w/tools 55.3% (Z.ai) vs AA-HLE 39.9% independent shows a wide self-reported-vs-independent spread; a step behind the 94%+ GPQA models.
+- **Context window: 86/100.** Native 1M window engineered for cheap long-context (hybrid sparse/linear attention), with Context Arena 79.5 and now independent AA-LCR 80.0; some gateways list up to 1.31M.
+- **Multimodal: 76/100.** First native GLM-5 multimodal input (image+video) with strong grounded evals (CharXiv 89.4, MMVU 80.5, Design Arena Website 1278 Elo); no audio and text-only output cap it.
+- **Coding: 78/100.** (Raised from 76 on 2026-10-08.) LiveCodeBench (Vals) 80.5% finally fills the missing independent number; SWE-bench (Vals) 92.0%, SWE-bench Verified 78.2%, DeepSWE 63.4% (ahead of Opus 4.8), NL2Repo 56.3%; still short of the 85%+ elite coding tier.
+- **Cost efficiency: 94/100.** (Lowered from 95 on 2026-10-08.) Launch promo ended 2026-09-09; list $0.15 in / $0.50 out (cached $0.03) → blended ~$0.24 per 1M — still roughly one-tenth GLM-5.3.
+- **Overall Score: 80/100.** Mean of the five quality dims (76+84+86+76+78)/5 = 80.0 → 80 (unchanged). A cheap, open, natively multimodal coding/agent powerhouse that outperforms its bigger sibling on nearly every axis.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 76 | 76 | — |
+| Reasoning | 84 | 84 | — |
+| Context window | 86 | 86 | — |
+| Multimodal | 76 | 76 | — |
+| Coding | 76 | 78 | +2 |
+| Cost efficiency | 95 | 94 | −1 |
+| **Overall** | **80** | **80** | **—** |
+
+New and corrected data (all found 2026-10-08):
+
+- **LiveCodeBench gap filled: 80.5%** (Vals AI leaderboard, via BenchLM) — old file had "no verified public score".
+- **SWE-bench (Vals): 92.0%** (independent Vals harness; higher than the RankLLMs 78.2 used originally); SWE-bench Pro still unpublished for this model.
+- **Tau gap partially filled: AA τ³-Banking 47.2%** (Artificial Analysis, via BenchLM); τ²-bench still unpublished.
+- **AA-HLE: 39.9%** independent vs Z.ai's self-reported HLE w/tools 55.3% — both stand; use the pair as the band.
+- **AA Intelligence Index re-based:** 41.8–41.9 on the current v4.3 scale (modelpricewatch, OpenTools, BenchLM) vs the old 57 on v4.1.1 — methodology version change, not a capability drop; Apidog/DataCamp's 57 was the Aug 2026 v4.1 snapshot.
+- **Long context:** AA-LCR 80.0 independent (confirms the old Context Arena 79.5 band); MLCR-AA 51.1 (medical long-context); MRCR still no public score.
+- **Agentic additions:** AA-Briefcase 1454 Elo, AA ITBench 51.2%, AA EnterpriseOps-Gym 33.2%, AA AutomationBench 60.4% (vs Z.ai's 48.8 on AutomationBench v1.0.6 — different harness), GDP.pdf 15.4%, Terminal-Bench 2.1 84.3% confirmed by both Z.ai and AA.
+- **Coding additions:** OpenHarmony Bench 57.3%, FrontierSWE v2 18.1% (hard new eval), AA-SciCode 51.6% confirmed; GPQA Diamond (Vals) 86.4%, MMLU-Pro (Vals) 86.1%, CritPt 15.4%, AA-Omniscience 7.5.
+- **Pricing correction:** the 50% launch promo ($0.075/$0.25) ended 2026-09-09 24:00 UTC+8; list **$0.15 / $0.50, cached $0.03** has been in effect since 2026-09-10 (modelpricewatch price history, OpenRouter standard tier, B.AI standard effective date). Cost score trimmed 95 → 94.
+- Third-party composite: BenchLM overall 57.37 (#56/887), 38 of 623 benchmarks covered, updated 2026-10-07.
+- OpenRouter reports max output 943,718 tokens on its gateway vs the API's official 131,072 — gateway variance, official spec unchanged.
+
+Gaps still open after re-run: Claw-Eval (BenchLM shows "coming soon"), MRCR, SWE-bench Pro, Vibe Code Bench, audio modality.
 
 ---
 

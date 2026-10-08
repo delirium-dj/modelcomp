@@ -48,28 +48,45 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** MCP Atlas 88.1 and Toolathlon 75.6% are near-frontier, but independently verified Terminal-Bench 2.1 (76.2±1.2) trails Meta's own 80.0% claim and no Tau3/GDPval numbers exist.
-- **Reasoning: 80/100.** Intelligence Index 43.3 and LLM-stats reasoning #12 suggest a strong mid-frontier model; sparse directly-verified GPQA/HLE figures cap it below the 90s.
-- **Context window: 90/100.** 1M window with LCR ≈0.80 long-context reasoning evidence; not near the ≥98%-retrieval standard that earns 100.
-- **Multimodal: 88/100.** Native text/image/audio/video/PDF input (the full omni suite except non-text output — kept below 90 for text-only out).
-- **Coding: 79/100.** DeepSWE 53.3% is mid, SWE-Pro 61.5% strong-mid and Coding Index 71.3 supports an upper-mid reading; no verified SWE-bench Verified number keeps it out of the 90s.
+- **Tool use: 84/100.** MCP Atlas 88.1 and Toolathlon 75.6% are near-frontier, and OSWorld-Verified 80.8% + DeepSearchQA 84.9% add new strong rows; but AA Agentic Index 27.5%, OSWorld 2.0's 14.2% and ExploitGym 0.8% cap it below the elite.
+- **Reasoning: 80/100.** AA-GPQA 89.8% (Vals 91.2), MMLU-Pro 88.7, AA-HLE 46.2% and HLE 62.1% are strong mid-frontier; AA II 33.7 (BenchLM-normalized; the 43.3 cited originally was the cloudprice tracker figure) and CritPt 15.1% keep it below the 90s.
+- **Context window: 88/100.** 1M window with a real MRCR-1M row (54.1%) and AA-LCR 77.7% — very good, but the 54.1% full-1M retrieval is not the ≥98%-retrieval standard that earns 90+.
+- **Multimodal: 88/100.** Native text/image/audio/video/PDF input (the full omni suite except non-text output — kept below 90 for text-only out); CharXiv 88.4% and BabyVision 76.3% verify chart/vision strength.
+- **Coding: 79/100.** DeepSWE 53.3%, SWE-Pro 61.5%, SWE-bench (Vals) 82.0%, LCB (Vals) 85.9% and Coding Index 71.3 support an upper-mid reading; no verified SWE-bench Verified number keeps it out of the 90s.
 - **Cost efficiency: 88/100.** $1.25/$4.25 lands exactly on the ~$1.25/$4.25 ref used elsewhere (≈88); cache-read $0.15 sweetens it.
-- **Overall Score: 84/100.** (85 + 80 + 90 + 88 + 79) / 5 = 84.4 → 84. Best-fit: multimodal agentic/orchestration work + tool use at keen pricing; factor the independent-vs-vendor TB2.1 gap into coding expectations.
+- **Overall Score: 84/100.** (84 + 80 + 88 + 88 + 79) / 5 = 83.8 → 84 (dimension mix refreshed on 2026-10-08, see Re-verification — Overall unchanged). Best-fit: multimodal agentic/orchestration work + tool use at keen pricing; factor the independent-vs-vendor TB2.1 gap into coding expectations.
+
+---
+
+## Re-verification — 2026-10-08 (15 days after original)
+
+Re-run replaces secondary sourcing with primary rows (BenchLM profile, updated 2026-10-07, 40/623 covered; Meta evaluation report; Vals; AA) and clears the knowledge/retrieval gaps.
+
+| Dimension | 2026-09-23 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 85 | 84 | −1 |
+| Reasoning | 80 | 80 | — |
+| Context window | 90 | 88 | −2 |
+| Multimodal | 88 | 88 | — |
+| Coding | 79 | 79 | — |
+| Cost efficiency | 88 | 88 | — |
+| **Overall** | **84** | **84** | **—** |
+
+New and corrected data:
+
+- **Reasoning fully grounded:** GPQA Diamond (Vals) **91.2%**, AA-GPQA 89.8%, MMLU-Pro (Vals) 88.7%, HLE **62.1%** (Meta) with AA-HLE 46.2%, AA Intelligence Index **33.7** (BenchLM-normalized — note the 43.3 quoted originally was cloudprice's tracker value of the same index; both are real, different normalizations), CritPt 15.1%, AA-Omniscience Index 28.1 (accuracy 52.1, hallucination 50.0).
+- **First MRCR 1M row: 54.1%** (Meta eval report) plus AA-LCR **77.7%** — the missing long-context evidence is in; it's good but not elite, which trims Context 90 → 88.
+- **Tool-use corners found:** OSWorld 2.0 **14.2%**, ExploitGym 0.8%, AA Agentic Index 27.5% (contrast the launch-showcase rows) — new honest hard-cuts; vs. new strong rows WebArena-Verified 69%, DeepSearchQA 84.9%, OSWorld-Verified 80.8%, Finance Agent v2 57.2%, CyberGym 59.0%, Cybench 92.9%, JobBench 54.7%.
+- **Coding confirmed:** AA Coding Index 71.3%, SWE-bench (Vals) **82.0%**, LiveCodeBench (Vals) 85.9%, AA-SciCode 58.8%, plus launch rows (SWE-Pro 61.5%, DeepSWE 53.3%, TB2.1 80.0% vendor / 69.3% Vals).
+- **Vision verified:** CharXiv **88.4%**, BabyVision 76.3%, Design Arena 1275 — the multimodal 88 now has data, not just modality claims.
+- **Positioning:** BenchLM **65.95, #31/887**; siblings Muse Spark 1.2 (66.51) and 1.3 (no score yet) have shipped. Pricing unchanged ($1.25/$4.25, cache $0.15).
+
+Gaps still open after re-run: Tau3-Banking row for this model, APEX-Agents/MCP-Atlas independent run, official SWE-bench Verified number, audio-benchmark row, MRCR 128K intermediate points.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (Meta blogs/API announcements, AI Weekly, Kingy.ai, cloudprice, llm-stats, Poolside comparison table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
+- Method: public internet research (Meta blogs/API announcements/evaluation report, BenchLM, Kingy.ai, cloudprice, llm-stats, Poolside comparison table, Vals); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
-
----
-
-## Submission checklist (delete before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
-4. No raw benchmark invented — "no verified public score found" used where missing.
-5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

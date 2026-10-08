@@ -48,18 +48,44 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** TB2.1 57.3%, GDPval-AA Elo 1277 (above human baseline), τ³-Banking 23.0% — a large jump from Solar Pro 3 but still mid-tier vs the agentic frontier.
-- **Reasoning: 70/100.** GPQA 89.1% is strong; HLE 29.2% and CritPt 5.4 are modest, and the Index claim ranges 28–42 depending on configuration.
-- **Context window: 90/100.** ~512–524K window with a direct long-context retrieval score (AA-LCR 71–74%) — right at the top of the 500K–1M band.
+- **Tool use: 68/100.** TB2.1 57.3%, MCP Atlas 61.4%, GDPval-AA Elo 1277 (above human baseline); APEX-Agents **18.7%** is a notable hard-cut — a large jump from Solar Pro 3 but still mid-tier vs the agentic frontier.
+- **Reasoning: 70/100.** GPQA 89.1% is strong; HLE 29.2% and CritPt 5.4 are modest, and the AA Index sits at 28.1 (AA tracking row; the "42" was the Upstage-cited launch config).
+- **Context window: 90/100.** ~512–524K window with a direct long-context retrieval score (AA-LCR 71.0–74%) — right at the top of the 500K–1M band.
 - **Multimodal: 15/100.** Text-only; no image/audio/video input.
 - **Coding: 74/100.** SWE-bench Verified 70.6% (in-house harness) and LiveCodeBench 87.8% are competitive; SciCode 44.6% and TB2.1 57.3% cap it below the closed frontier.
-- **Cost efficiency: 94/100.** $0.30/$1.20 with $0.06 cached input (plus a 90%-off launch promo) — ~4× cheaper than mid-tier paid rivals at its capability level.
-- **Overall Score: 64/100.** (70 + 70 + 90 + 15 + 74) / 5 = 63.8 → **64**. Best-fit: cost-controlled long-context agentic and document workflows in EN/KO/JA; verify AA Index config (28 vs 42) before trusting its frontier claim.
+- **Cost efficiency: 94/100.** $0.30/$1.20 with $0.06 cached input (90%-off launch promo ended 2026-09-10) — ~4× cheaper than mid-tier paid rivals at its capability level.
+- **Overall Score: 63/100.** (68 + 70 + 90 + 15 + 74) / 5 = 63.4 → **63** (lowered from 64 on 2026-10-08, see Re-verification). Best-fit: cost-controlled long-context agentic and document workflows in EN/KO/JA; verify AA Index config (28 vs 42) before trusting its frontier claim.
+
+---
+
+## Re-verification — 2026-10-08 (15 days after original)
+
+Re-run refreshes the profile (BenchLM tracks 22 sourced rows, unranked/no overall score, updated 2026-10-07) with new APEX/MCP-atlas rows and confirms promo end.
+
+| Dimension | 2026-09-23 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 70 | 68 | −2 |
+| Reasoning | 70 | 70 | — |
+| Context window | 90 | 90 | — |
+| Multimodal | 15 | 15 | — |
+| Coding | 74 | 74 | — |
+| Cost efficiency | 94 | 94 | — |
+| **Overall** | **64** | **63** | **−1** |
+
+New and corrected data:
+
+- **New tool-use rows:** MCP Atlas **61.4%** (vendor card), APEX-Agents **18.7%** (a genuine hard-cut), GDPval-AA normalized 30.5% — Tool 70 → 68; τ³-Banking 23.0% and TB2.1 57.3% hold.
+- **Knowledge rows confirmed:** AA Intelligence Index **28.1** (AA tracking row — the 42 launch number was Upstage's AA-cited config; cite the config when quoting), GPQA-D 89.0/AA 89.1, HLE 29.2, MMLU-Pro 86.3, CritPt 5.4, AA-Omniscience −0.8 (acc 18.9, hall 24.4).
+- **Coding/context confirmed:** SWE-bench Verified 70.6, LiveCodeBench 87.8, AA-SciCode 44.6, AA-LCR 71.0 — all still current; KMMLU-Pro **79.2** (new Korean row) and AIME26 95.3; Design Arena 1183.
+- **Promo confirmed lapsed:** 90%-off run ended 2026-09-10 (23:59 UTC); standard $0.30/$1.20 / $0.06 cached in is the effective rate now — Cost stays 94 (still ~4× cheaper than mid-tier peers).
+- **Positioning unchanged:** unranked/not-computed on BenchLM; only 22/623 rows — evidence base still thin vs the label.
+
+Gaps still open after re-run: independent SWE-V reproduction (70.6 is in-house), MRCR/RULER at 512K, East-Asia (JA) vs frontier gap tests, BenchLM overall score.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (Artificial Analysis article + provider pages, Upstage PR, llm-stats, AI Atlas, BenchLeader, Model Beat, allthemodels); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
+- Method: public internet research (Artificial Analysis article + provider pages, Upstage PR, BenchLM, llm-stats, AI Atlas, BenchLeader, Model Beat, allthemodels); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

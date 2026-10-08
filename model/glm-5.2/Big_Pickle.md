@@ -44,13 +44,40 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** MCP-Atlas 76.8 with day-one integration across eight major coding agents is a strong agentic story, but Tool-Decathlon 48.2 is mid-tier and every number is vendor-run.
-- **Reasoning: 70/100.** GPQA-Diamond 91.2 and AIME 2026 99.2 look elite, yet text-only HLE 40.5 and CritPt 20.9 are genuinely mid, and the composite AA Intelligence Index lands ~51.
-- **Context window: 80/100.** A native 1M window with IndexShare-accelerated sparse attention and 128K output is a real advance; long-context retrieval lacks independent verification (the "solid 1M" claim is Z.ai's own).
-- **Multimodal: 50/100.** Text-in / text-out only — no vision, audio, or generation capabilities.
-- **Coding: 65/100.** Strongest open-source standard-coding claim (SWE-bench Pro 62.1, Terminal-Bench 2.1 81.0, FrontierSWE 74.4), but DeepSWE 46.2 and NL2Repo 48.9 trail the closed frontier, and all figures are vendor-reported.
-- **Cost efficiency: 85/100.** $1.40/$4.40 per 1M (or $0.75/$2.40 via DeepInfra), ~1/6-1/10th of US frontier pricing, MIT open weights, cheap cached input, MTP-accelerated decoding — outstanding ROI for long-horizon agents.
-- **Overall Score: 67/100.** Mean of the five quality dims (70+70+80+50+65)/5 = 67.0. A text-only, MIT-licensed long-horizon agent powerhouse whose unverified vendor benchmarks and mid-tier HLE/CritPt keep it solidly good rather than frontier.
+- **Tool use: 73/100.** MCP-Atlas 76.8 with day-one integration across eight major coding agents is a strong agentic story, and AA τ²-bench 99.1% is elite; AA Agentic Index 39.4, APEX-Agents 33.7 and ResearchClawBench 20.7 temper the ceiling, and TB2.1 Vals 67.8 sits below the vendor's own 81.0 harness.
+- **Reasoning: 72/100.** AA-GPQA Diamond 89.5 (Vals 85.6, MMLU-Pro 86.7), AA-HLE 41.1 and AIME 2026 99.2 are strong; but text-only HLE 40.5, CritPt 20.9, and AA Intelligence Index 33.7 (corrected from ~51, see Re-verification) are genuinely mid.
+- **Context window: 82/100.** A native 1M window with IndexShare-accelerated sparse attention and 128K output plus an independent AA-LCR 78.3% — a real, now-measured long-context row.
+- **Multimodal: 50/100.** Text-in / text-out only — no vision, audio, or generation capabilities (Design Arena row is HTML/web-design, not parametric vision).
+- **Coding: 70/100.** Strong open-source standard-coding claim (SWE-bench Verified 82.8% Vals, SWE-bench Pro 62.1%, Terminal-Bench 2.1 81.0/67.8, AA Coding Index 68.8, CursorBench 3.2 55.0%), but DeepSWE 46.2 and NL2Repo 48.9 trail the closed frontier, and core announcement figures remain vendor-run.
+- **Cost efficiency: 85/100.** $1.40/$4.40 per 1M (or $0.75/$2.40 via DeepInfra), ~1/6-1/10th of US frontier pricing, MIT open weights, cheap cached input, MTP-accelerated decoding — outstanding ROI for long-horizon agents; note GLM-5.3 replaced it at identical pricing on 2026-08-18.
+- **Overall Score: 69/100.** Mean of the five quality dims (73+72+82+50+70)/5 = 69.4 → 69 (raised from 67 on 2026-10-08, see Re-verification). A text-only, MIT-licensed long-horizon agent powerhouse — not frontier, but the most cost-justified open-weights agent stack until GLM-5.3 sample bandwidth arrives.
+
+---
+
+## Re-verification — 2026-10-08 (18 days after original)
+
+Re-run adds independent verification for the previously vendor-only figures (BenchLM profile, updated 2026-10-07, 43/623 covered; AA; Vals; Cursor/OpenHarmony rankings).
+
+| Dimension | 2026-09-20 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 70 | 73 | +3 |
+| Reasoning | 70 | 72 | +2 |
+| Context window | 80 | 82 | +2 |
+| Multimodal | 50 | 50 | — |
+| Coding | 65 | 70 | +5 |
+| Cost efficiency | 85 | 85 | — |
+| **Overall** | **67** | **69** | **+2** |
+
+New and corrected data:
+
+- **AA Intelligence Index correction:** the original report's "~51" was wrong; the current AA II is **33.7** (BenchLM). This is the single most important correction — it realigns GLM-5.2 solidly mid-pack on composite intelligence (contrast GLM-5.3's 44.8, top-tier ~60+).
+- **Coding independently confirmed high:** SWE-bench Verified **82.8%** (Vals), AA Coding Index **68.8%**, AA-SciCode 51.2%, LiveCodeBench (Vals) 69.5%, CursorBench 3.2 **55.0%**, OpenHarmony Bench 58.4%, PostTrainBench v1.1 31.7% — plus the verified vendor rows (SWE-bench Pro 62.1, NL2Repo 48.9, ProgramBench 63.7, TB2.1 81.0).
+- **Agentic rows filled:** AA τ²-bench **99.1%** (elite-class double-turn), AA Agentic Index 39.4%, AA ITBench 42.7%, APEX-Agents 33.7%, ResearchClawBench 20.7%, GDPval-AA 1418 (43.7%), MCP Atlas 76.8, Toolathlon 48.2; TB2.1 (Vals) 67.8% shows the harness gap vs Z.ai's own 81.0%.
+- **Long context now measured:** AA-LCR **78.3%** — a genuine independent long-context-reasoning figure (above GLM-5.3-Flash's 77.9, below flagship GLM-5.3's 79.7).
+- **Knowledge rows confirmed:** GPQA Diamond 91.2 (Z.ai) with AA cross-check 89.5 (Vals 85.6), MMLU-Pro (Vals) 86.7, AA-HLE 41.1, HLE 54.7 w-tools / 40.5 text-only, CritPt 20.9, AA-Omniscience Index 4.4 (accuracy 24.3, hallucination 26.3), math set (AIME26 99.2, HMMT Nov 94.4, HMMT Feb 92.5, IMOAnswerBench 91.0).
+- **Positioning:** BenchLM **61.56, #47/887** — clearly below GLM-5.3 (68.71) as expected after the 08-18 replacement; pricing unchanged ($1.40/$4.40; DeepInfra $0.75/$2.40).
+
+Gaps still open after re-run: MRCR-style 1M retrieval row, DeepSWE external reproducibility, τ³/enterprise long-horizon harness scores other than ITBench, first-party FrontierSWE dominance replication.
 
 ---
 

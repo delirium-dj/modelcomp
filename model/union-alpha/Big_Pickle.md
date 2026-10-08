@@ -44,18 +44,43 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** TB4.0 51% is solid-but-behind-frontier and DeepSWE 74% (agentic) ties the lead; Official A tools 2/2; capped by the absence of any independent agentic-coding reproduction of the headline rows.
+- **Tool use: 72/100.** TB4.0 51% is solid-but-behind-frontier and DeepSWE 74% (agentic) ties the lead; Official A tools 2/2; still no independent reproduction of the headline rows (2026-10).
 - **Reasoning: 78/100.** HLE-no-tools 49%, ArXivMath 88%, independent Official A reasoning 30/30; strong mid-frontier shape behind Fable/Astra on HLE.
 - **Context window: 72/100.** 256K window (262,144) with 131K output sits in the 200K–500K band; no retrieval-at-length measurement published.
 - **Multimodal: 68/100.** Text + image in / text out only (60–70 band), buoyed by MMMU-Pro 78 (vendor-run vision-reasoning).
 - **Coding: 85/100.** DeepSWE 74% equals the current field leader and Official A coding 26/30 is strong; TB4.0 51% + vendor-only scoring cap it below the 90s.
 - **Cost efficiency: 72/100.** $2.50/$7.50 with $0.25 cached input is ~25–42% of frontier pricing and per-task modeling favors it; the free tier is gone, and blended routing's real cost-per-task is unmeasured.
-- **Overall Score: 75/100.** (72 + 78 + 72 + 68 + 85) / 5 = 75.0 → **75**. Best-fit: budget agentic-coding and research workloads where DeepSWE-class performance at ~25% of Astra's input price matters — keep a switch for A/B vs a named frontier model until the 74 is independently reproduced.
+- **Overall Score: 75/100.** (72 + 78 + 72 + 68 + 85) / 5 = 75.0 → **75** (light re-verification 2026-10-08 — all rows held). Best-fit: budget agentic-coding and research workloads where DeepSWE-class performance at ~25% of Astra's input price matters — keep a switch for A/B vs a named frontier model until the 74 is independently reproduced.
+
+---
+
+## Re-verification — 2026-10-08 (15 days after original)
+
+Light re-verification — no material change; all dimensions hold. Confirmed via BenchLM compare pages (updated 2026-09-28), Unbiased's live Pareto 26.9 card, endpoints.run (2026-10-06) and The Model Gap.
+
+| Dimension | 2026-09-23 | 2026-10-08 | Δ |
+|---|---|---|---|
+| Tool use | 72 | 72 | — |
+| Reasoning | 78 | 78 | — |
+| Context window | 72 | 72 | — |
+| Multimodal | 68 | 68 | — |
+| Coding | 85 | 85 | — |
+| Cost efficiency | 72 | 72 | — |
+| **Overall** | **75** | **75** | **—** |
+
+Confirmations and notes:
+
+- **All five numbers still stand:** Terminal-Bench 4.0 51%, DeepSWE 74%, HLE w/o tools 49%, ArXivMath 88%, MMMU-Pro 78% — still vendor-only (BenchLM tracks the model with 4 sourced rows but no standalone overall score; no independent lab reproduction exists as of 2026-10).
+- **Pricing/context unchanged:** $2.50 in / $0.25 cached / $7.50 out, 262K ctx / 131K out, two providers (Unbiased + OpenRouter); free stealth period still ended.
+- **Lineage advances:** **Pareto 26.10 Preview** (confirmed 2026-10-01, 3 display rows, no overall score yet) is the next blend; a Pareto 26.8 card also exists. Formal 26.9 launch was slated for 2026-10-10.
+- **No BenchLM profile page** resolves for the model (`unbiased-pareto` → 404) — it is only present in compare mirrors; still no AA/ARC/DeepSWE-board registration.
+
+Gaps still open after re-run: independent reproduction of the 74 DeepSWE, real cost-per-task measurement, retrieval-at-length, audio input, non-text output.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
-- Method: public internet research (OpenRouter listing, Unbiased Pareto 26.9 model card, CellCog, Capital & Compute, OrcaRouter, Siora, Enera Labs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
+- Method: public internet research (OpenRouter listing, Unbiased Pareto 26.9 model card, BenchLM compare mirrors, endpoints.run, The Model Gap, CellCog, Capital & Compute, OrcaRouter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

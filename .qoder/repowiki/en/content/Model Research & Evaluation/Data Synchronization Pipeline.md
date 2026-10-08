@@ -16,12 +16,11 @@
 
 ## Update Summary
 **Changes Made**
-- Updated infrastructure documentation to reflect enhanced sync pipeline supporting increased volume and complexity of model data
-- Added coverage for widespread Laguna XS 2.1 model adoption across numerous model directories
-- Enhanced validation and synchronization process descriptions ensuring data consistency across the entire model comparison database
-- Updated generated outputs section to reflect current state of sources.registry with Laguna XS 2.1 integration
-- Improved scoring system and data generation methodology with refined model average calculations
-- **Updated naming convention**: Source code files src/data/scores.generated.ts and src/data/sources.generated.ts regenerated to use new Space Bunny naming convention instead of Space Bunny Alpha references
+- Enhanced documentation for merged slug handling and canonical slug resolution system
+- Improved troubleshooting guidance for batch operation validation failures
+- Updated workflow descriptions to reflect enhanced duplicate detection mechanisms
+- Added comprehensive coverage of vendor-prefix violation handling and slug normalization
+- Expanded error handling documentation for merged model directories and forbidden duplicates
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -147,6 +146,7 @@ Responsibilities:
 Key behaviors:
 - Permanence tripwire: compares git HEAD with disk; allows twin retirement and sanctioned mirror relocation; otherwise fails loudly.
 - Slug version convention: rejects hyphenated versions between digits and suggests dotted form.
+- **Enhanced merged slug handling**: Detects resurrected merged slugs and vendor-prefixed duplicates, preventing them from being processed as new models. Merged slugs are mapped to their canonical destinations and fail loudly with clear instructions.
 - Rater gate: reads committed average Overall per model; only raters above threshold contribute to another model's average.
 - Fallback rule: if no raters qualify, average all available reports (top-10 cap still applies).
 - Registry reconciliation: prunes virtual-view entries and ensures labels/slugs are consistent.
@@ -158,6 +158,7 @@ Key behaviors:
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
 - [scripts/sync-data.mjs:180-197](file://scripts/sync-data.mjs#L180-L197)
+- [scripts/sync-data.mjs:252-275](file://scripts/sync-data.mjs#L252-L275)
 - [scripts/sync-data.mjs:259-286](file://scripts/sync-data.mjs#L259-L286)
 - [scripts/sync-data.mjs:297-327](file://scripts/sync-data.mjs#L297-L327)
 - [scripts/sync-data.mjs:328-370](file://scripts/sync-data.mjs#L328-L370)
@@ -196,16 +197,19 @@ Responsibilities:
 - Produces exact failure messages for forbidden deletions.
 - Validates filenames against allowed characters.
 - Validates meta.json required fields and display-name constraints.
+- **Enhanced merged slug detection**: Maintains a comprehensive map of merged model slugs that must never be recreated, providing clear error messages directing users to canonical destinations.
 
 Error handling:
 - Deletion failures include explicit restoration instructions.
 - Filename hygiene failures prevent cementing invalid structures.
 - Meta.json validation returns ordered FAIL messages for missing fields and underscores in names.
+- **Improved batch operation validation**: Enhanced error messages for merged slugs and vendor-prefix violations provide clear guidance for resolving duplicate model directories.
 
 **Section sources**
 - [scripts/lib/validate.mjs:1-25](file://scripts/lib/validate.mjs#L1-L25)
 - [scripts/lib/validate.mjs:27-52](file://scripts/lib/validate.mjs#L27-L52)
 - [scripts/lib/validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
+- [scripts/lib/validate.mjs:30-40](file://scripts/lib/validate.mjs#L30-L40)
 
 ### Averaging Logic: scripts/lib/average.mjs
 Responsibilities:
@@ -252,16 +256,19 @@ Responsibilities:
 - Resolves label and slug via overrides and catalog lookup.
 - Detects hyphen-version violations and provides suggestions.
 - Formats slug guesses for auto-scaffolded metadata.
+- **Enhanced canonical slug handling**: Provides robust slug normalization with exception handling for parameter-size variants like `gemma-4-31b`, `qwen-3.8-27b`, etc.
 
 Conflict resolution:
 - Overrides take precedence for label and slug mapping.
 - Catalog lookup falls back to normalized name matching.
+- **Improved vendor-prefix detection**: Comprehensive list of known vendor prefixes with exact matching against existing slugs to prevent duplicate creation.
 
 **Section sources**
 - [scripts/lib/naming.mjs:8-27](file://scripts/lib/naming.mjs#L8-L27)
 - [scripts/lib/naming.mjs:29-44](file://scripts/lib/naming.mjs#L29-L44)
 - [scripts/lib/naming.mjs:46-62](file://scripts/lib/naming.mjs#L46-L62)
 - [scripts/lib/naming.mjs:64-72](file://scripts/lib/naming.mjs#L64-L72)
+- [scripts/lib/naming.mjs:79-101](file://scripts/lib/naming.mjs#L79-L101)
 
 ### Quarantine System: scripts/lib/quarantine.mjs
 Responsibilities:
@@ -290,7 +297,7 @@ These files are deterministic and regenerated by the pipeline; they exclude pros
 **Updated** The generated outputs now include widespread adoption of Laguna XS 2.1 model across numerous model directories, with proper integration into the registry system and enhanced scoring methodology. Additionally, the naming convention has been updated to use "Space Bunny" instead of "Space Bunny Alpha" references throughout the generated TypeScript files, reflecting the canonical model naming convention.
 
 **Section sources**
-- [src/data/sources.generated.ts:1-147](file://src/data/sources.generated.ts#L1-L147)
+- [src/data/sources.generated.ts:1-158](file://src/data/sources.generated.ts#L1-L158)
 - [src/data/scores.generated.ts:1-200](file://src/data/scores.generated.ts#L1-L200)
 
 ## Dependency Analysis
@@ -329,6 +336,7 @@ Codegen --> |uses| NamingResolve["resolveSourceMeta via naming.mjs"]
 - Client bundle optimization: only numeric scores are emitted to `scores.generated.ts`, avoiding large markdown payloads.
 - Minimal I/O: pure helpers perform computations; orchestrator batches filesystem operations and avoids unnecessary writes.
 - Early exits: generated files are skipped when failures exist, preventing partial cementation.
+- **Enhanced duplicate detection**: Optimized slug validation and merged slug checking prevents unnecessary processing of forbidden duplicates.
 
 **Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved performance characteristics for larger datasets, including optimized handling of widespread Laguna XS 2.1 model adoption and streamlined processing of updated naming conventions.
 
@@ -375,12 +383,28 @@ Common issues and resolutions:
   - Cause: Legacy references to older naming conventions in generated files.
   - Resolution: Run `pnpm sync` to regenerate files with updated naming conventions; ensure all model directories use canonical "Space Bunny" naming.
 
-**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions.
+- **Enhanced merged slug errors**:
+  - Symptom: FAIL indicating a slug is a duplicate that was merged into another folder.
+  - Cause: A resurrected merged slug (e.g., `google-gemini-2.5-flash-lite`) exists on disk.
+  - Resolution: Research and report under the canonical destination folder (e.g., `gemini-2.5-flash-lite`); never recreate merged slugs.
+
+- **Vendor-prefix violations**:
+  - Symptom: FAIL indicating vendor-prefixed duplicate.
+  - Cause: A folder with a leading vendor name (e.g., `openai-gpt-5.6-terra`) when the canonical slug exists.
+  - Resolution: Use the canonical slug without vendor prefix (e.g., `gpt-5.6-terra`); merge contents into the existing folder.
+
+- **Hyphen-version violations**:
+  - Symptom: FAIL suggesting to use "." instead of "-" between digits.
+  - Cause: Folder names like `gpt-5-5` instead of `gpt-5.5`.
+  - Resolution: Rename the folder to use dotted version numbers; merge into the existing canonical folder.
+
+**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues.
 
 **Section sources**
 - [scripts/sync-data.mjs:119-126](file://scripts/sync-data.mjs#L119-L126)
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 - [scripts/sync-data.mjs:372-386](file://scripts/sync-data.mjs#L372-L386)
+- [scripts/sync-data.mjs:252-275](file://scripts/sync-data.mjs#L252-L275)
 - [scripts/sync-data.mjs:288-324](file://scripts/sync-data.mjs#L288-L324)
 - [scripts/sync-data.mjs:145-178](file://scripts/sync-data.mjs#L145-L178)
 - [scripts/sync-data.mjs:452-467](file://scripts/sync-data.mjs#L452-L467)
@@ -389,4 +413,4 @@ Common issues and resolutions:
 ## Conclusion
 The data synchronization pipeline transforms research Markdown into reliable runtime data through strict parsing, validation, and deterministic aggregation. It safeguards data integrity via quarantine, rater gating, top-10 cohort averaging, and permanence tripwires. New reporting agents are automatically discovered and registered, while generated TypeScript artifacts provide efficient, type-safe access to scores and source definitions. Following the troubleshooting guidance ensures quick resolution of common sync errors and maintains a healthy, auditable dataset.
 
-**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, and standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts.
+**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations.
