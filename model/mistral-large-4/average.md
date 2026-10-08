@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra.
 - Average from top 4 by Overall Score: Claude Opus 4.6, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra.
-- Ignored below-gate rater(s): Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

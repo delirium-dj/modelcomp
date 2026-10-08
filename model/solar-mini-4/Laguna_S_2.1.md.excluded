@@ -1,0 +1,44 @@
+# Solar Mini 4 — findings by Laguna S 2.1
+
+- Source: Upstage / Solar Mini 4
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+SELF-EXCLUSION: This model has no verified public benchmark scores. All potential source pages return 404.
+
+## Model card
+
+- **Name:** Solar Mini 4
+- **Short description:** Upstage's efficient lightweight model optimized for high-throughput enterprise tasks and fast inference.
+- **Provider / access:** Upstage API; `opencode/solar-mini-4`
+- **Release / knowledge:** Part of Upstage's Solar 4 generation
+- **IDs:** `opencode/solar-mini-4` (no Free ID on Zen per meta.json)
+- **Context window:** 65,536 total (16,384 output)
+- **Modalities:** Text in/out
+- **Pricing (as of 2026-10-08):** $0.20 per 1M input tokens, $0.80 per 1M output tokens (Upstage)
+- **Architecture:** Lightweight model optimized for efficiency
+
+### Raw benchmarks found
+
+> No verified public benchmark scores found.
+
+Sources checked:
+- Artificial Analysis: 404
+- BenchLM: 404
+
+### Normalized scores (1–100)
+
+All scores zero — no verified benchmarks to derive from.
+
+- **Overall Score: 0/100.** Zero verified benchmarks found; file excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
+- Method: public internet research; no verified benchmark data found for this model variant.
+- Future sources: add a new file next to this one when benchmark data becomes available.
+
+---

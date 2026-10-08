@@ -409,3 +409,9 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 | Qwen 3.5 397B | 57 | 2026-10-08 | BenchLM 53.97/100 #68/887, AA IQ 18* #59/117, SWE-bench 76.2%, LiveCodeBench 83.6%, GPQA 88.4% |
 | Ling 3.0 Flash VL | 57 | 2026-10-08 | BenchLM 47.41/100 #108/887, AA IQ 25* #1/65, GPQA 86.2%, AAA-LCR 78.3%, 11/623 benchmarks |
 | Gemma 4 26B A4B | 55 | 2026-10-08 | AA IQ 10* #45/142, AAA-Briefcase 1330 Elo, AAA-SciCode 58.3%, 12/623 benchmarks |
+| MAI-Code-1.1-Flash | 58 | 2026-10-08 | SWE-bench 72.6%, Terminal-Bench 62.9%, 3/623 BenchLM benchmarks (unranked), .20/.20 |
+| MAI-Code-1-Flash | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404) |
+| MAI-Experimental-Test | 0 | 2026-10-08 | SELF-EXCLUDED — experimental sandbox test model, no benchmarks |
+| Nemotron 3 Nano Omni | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM/NVIDIA NGC 404) |
+| Owl Alpha | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404, stealth model) |
+| Solar Mini 4 | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404) |

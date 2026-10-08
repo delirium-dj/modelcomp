@@ -1,0 +1,40 @@
+# MAI-Experimental-Test — findings by Laguna S 2.1
+
+- Source: Microsoft AI / MAI-Experimental-Test
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+SELF-EXCLUSION: This model is a sandbox/experimental test entry with no real-world performance data.
+
+## Model card
+
+- **Name:** MAI-Experimental-Test
+- **Short description:** Experimental test/sandbox model entry. No real-world performance data available.
+- **Provider / access:** None (experimental sandbox)
+- **Release / knowledge:** Not released
+- **IDs:** `opencode/mai-experimental-test`
+- **Context window:** N/A
+- **Modalities:** Unknown
+- **Pricing:** N/A
+- **Architecture:** Experimental test fixture
+
+### Raw benchmarks found
+
+> No verified public benchmark scores found. This is a self-excluded experimental test model.
+
+### Normalized scores (1–100)
+
+All scores zero — experimental test model, no benchmark data.
+
+- **Overall Score: 0/100.** Self-excluded experimental test model; file excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
+- Method: This is a self-excluded experimental test entry with no benchmark data.
+- Future sources: N/A
+
+---

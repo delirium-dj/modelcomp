@@ -1,9 +1,17 @@
 # GLM-5.2 Coding — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai / Zhipu AI (`glm-5.2` delivered through the GLM Coding Plan — catalogued in coding agents as "Z.ai: GLM 5.2 Coding"; no Free ID)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-verified 2026-10-06: this route serves the GLM-5.2 weights, so the base model's now-public
+> BenchLM suite applies and fills several gaps — Terminal-Bench 3.0 **4.6%**, τ²-bench **99.1%**,
+> Toolathlon **48.2%**, GDPval-AA **1,418** / **43.7%**, AA Agentic Index **39.4%**, SWE-bench
+> Verified **82.8%** (Vals), LiveCodeBench **69.5%** (Vals), SciCode/AA-SciCode **51.2%**, AA Coding
+> Index **68.8%**, CritPt **20.9%**, AA-LCR **78.3%**, MMLU-Pro **86.7%**, AIME26 **99.2%**,
+> Omniscience Accuracy **24.3%** / Hallucination **26.3%**, BenchLM overall **61.52/100 (#46 of 887)**.
+> Scores unchanged (the earlier missing Tau3/LCR/SciCode rows are now measured).
 
 ## Model card
 
@@ -87,7 +95,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-21
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
 - Method: public internet research — Z.ai's GLM-5.2 launch blog and the `zai-org/GLM-5.2` Hugging Face card/model card, vendor benchmark tables as re-reported by Apidog, Emergent and Verdent, OpenRouter/GetDeploying/Kilo spec and pricing listings, the Braintrust × Baseten long-context retrieval eval, TheVibeFather sourced composites, and GLM Coding Plan coverage; scores are normalized 1–100 interpretations, not official vendor scores.
 - Idempotency: created only because this folder had no `DeepSeek_4.1_Flash.md`; no existing file was read, overwritten, or deleted.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

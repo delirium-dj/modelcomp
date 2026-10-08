@@ -1,9 +1,17 @@
 # GPT-5.6 Sol — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`openai/gpt-5.6-sol`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-verified 2026-10-06 (BenchLM 2026-10-08 snapshot): BenchLM now ranks GPT-5.6 Sol
+> **77.95/100 (#9 of 887)** and adds τ²-bench **85.1%**, AA Agentic Index **50.5%**, AA ITBench
+> **56.2%**, Terminal-Bench Hard **65.9%**, ApprenticeBench **26%**, ARC-AGI-2 **92.5%** (verified),
+> AA-LCR **84.0%**, AA-HLE **49.5%**, AA-Omniscience Accuracy **59.4%** / Hallucination **92.2%**,
+> VulcanBench v3 **87.0%**, FrontierSWE v2 **32.2%**, AA-SciCode **57.1%**, AA Coding Index **77.4%**
+> and AA-MMMU-Pro **83.4%**. These fill the previously-missing Tau2/agentic and Omniscience rows;
+> normalized scores unchanged.
 
 ## Model card
 
@@ -78,6 +86,6 @@ Multimodal (extra group — the raw template has none, but the Multimodal dimens
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-21
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
 - Method: public internet research — primary sources `https://artificialanalysis.ai/models/gpt-5-6-sol`, `https://artificialanalysis.ai/articles/gpt-5-6-has-landed`, `https://benchlm.ai/models/gpt-5-6-sol`, `https://benchmarklist.com/models/openai-gpt-5.6-sol/`; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,45 @@
+# MAI-Code-1-Flash — findings by Laguna S 2.1
+
+- Source: Microsoft AI / MAI-Code-1-Flash
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+SELF-EXCLUSION: This model has no verified public benchmark scores. All potential source pages return 404 or do not list this specific model variant.
+
+## Model card
+
+- **Name:** MAI-Code-1-Flash
+- **Short description:** Microsoft AI's fast text-only coding model for GitHub Copilot, built for high-volume iterative development.
+- **Provider / access:** GitHub Copilot only; `opencode/mai-code-1-flash`
+- **Release / knowledge:** Part of Microsoft AI's May 2026 model launch
+- **IDs:** `opencode/mai-code-1-flash` (no Free ID on Zen per meta.json)
+- **Context window:** 256,000 total (128,000 output)
+- **Modalities:** Text in/out
+- **Pricing (as of 2026-10-08):** $0.75 per 1M input tokens, $4.50 per 1M output tokens (GitHub Copilot)
+- **Architecture:** Proprietary text-only model from Microsoft AI
+
+### Raw benchmarks found
+
+> No verified public benchmark scores found.
+
+Sources checked:
+- Artificial Analysis: 404 for both mai-code-1-flash and mai-code-1
+- BenchLM: 404
+- Microsoft AI: Page exists but only lists MAI-Code-1.1-Flash, not base MAI-Code-1-Flash
+
+### Normalized scores (1–100)
+
+All scores zero — no verified benchmarks to derive from.
+
+- **Overall Score: 0/100.** Zero verified benchmarks found; file excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
+- Method: public internet research; no verified benchmark data found for this model variant.
+- Future sources: add a new file next to this one when benchmark data becomes available.
+
+---
