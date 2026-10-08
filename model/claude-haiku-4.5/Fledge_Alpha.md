@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by Fledge Alpha
 
 - Source: Anthropic (`claude-haiku-4-5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,8 @@
 - **Context window:** 200,000 tokens; 64K max output; 128K thinking budget.
 - **Modalities:** text + image in; text out; manual extended thinking, tool calling & computer use support.
 - **Pricing:** $1/M in, $0.10/M cache read, $5/M out; Batch 50% off; tooluse system tokens 496/588.
-- **Architecture:** Proprietary hybrid reasoning; successor to Haiku 3.5 retirement tier on Oct 15, 2026.
+- **Architecture:** Proprietary hybrid reasoning.
+- **Lifecycle (2026-10-08):** Anthropic has scheduled Haiku 4.5 retirement no sooner than **2026-10-15** (Forkast/Yahoo, Oct 6). Successor **Claude Haiku 5.5** launched 2026-10-07 at $0.10/$0.50 (≤100K) — 90% cheaper short-prompt, but migration is not drop-in and Priority Tier capacity does not carry over (mixed-news, Oct 8).
 
 ### Raw benchmarks found
 
@@ -45,12 +46,12 @@ Long context: no 1M tier; named in 200K window class.
 - **Multimodal: 62/100.** Text + image input; no audio/video surface.
 - **Coding: 74/100.** SWE-bench Verified 73.3% — high for the price tier, parity-claimed with Sonnet 4 at launch.
 - **Cost efficiency: 92/100.** $1/$5 with 10% cache-read and 50% Batch discount — cheapest Anthropic frontier row.
-- **Overall Score: 64/100.** Half-up mean of the five non-cost dims: (66+62+55+62+74)/5 = 63.8 → 64.
+- **Overall Score: 64/100.** Half-up mean of the five non-cost dims: (66+62+55+62+74)/5 = 63.8 → 64. Recommendation unchanged for existing integrations until the 2026-10-15 retirement; new builds should target Haiku 5.5.
 
 ---
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
-- Method: public internet research (Anthropic Haiku 4.5 launch post, platform docs AA via OpenRouter table, AI/TLDR card, Vercel AI Gateway); scores are normalized 1–100 interpretations.
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
+- Method: public internet research (Anthropic Haiku 4.5 launch post, platform docs AA via OpenRouter table, AI/TLDR card, Vercel AI Gateway; refreshed with Forkast/Yahoo retirement + Haiku 5.5 succession coverage); scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one using the same headings.

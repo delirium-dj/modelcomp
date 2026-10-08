@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Fledge Alpha
 
 - Source: Meta (`muse-spark-1.3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Muse Spark 1.3
 - **Short description:** Meta's fourth Muse Spark release (Sept 2, 2026), a proprietary multimodal reasoning model for agentic coding and long-document work.
 - **Provider / access:** Meta Model API (`muse-spark-1.3`), OpenRouter (`meta/muse-spark-1.3`), OpenCode Zen, Vercel AI Gateway; Chat Completions-compatible.
-- **Release / knowledge:** 2026-09-02.
+- **Release / knowledge:** 2026-09-02. **2026-10-03/04:** Meta published six maths papers with named mathematician collaborators in which Muse Spark models helped solve 6 open problems (probability, differential equations; incl. disproving two conjectures) — first-party evidence of research-level math utility (India Today, aitoolsrecap). Muse Spark 1.4 not yet released as of 2026-10-08.
 - **IDs:** `meta/muse-spark-1.3`; contributor SKU `muse-spark-1.3-contributor`
 - **Context window:** 1,048,576 tokens; max output 943,718 on the API tier.
 - **Modalities:** text/image/video in (audio degraded vs 1.2 — Meta says use 1.2 for audio); text out; reasoning yes (xhigh generally available, max in limited preview).
@@ -59,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (Meta launch materials, Artificial Analysis, vals.ai, independent trackers); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

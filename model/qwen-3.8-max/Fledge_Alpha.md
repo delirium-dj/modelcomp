@@ -1,7 +1,7 @@
 # Qwen3.8-Max — findings by Fledge Alpha
 
 - Source: Alibaba (`qwen-3.8-max`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **92.6%** (AA-confirmed by third parties)
 - HLE: **43.6%** (Alibaba; with tools 56.2%)
 - AA Intelligence Index: **45–56** (45 on v4.3.2 for the 0902 snapshot; 56 at launch scale)
+- Recursive self-improvement (Apsara, 2026-09-23): the updated Qwen3.8-Max completed 33 fully automated training iterations, raising its AA score from 40 to 45 in company materials; a chip-design experiment made 10,000+ EDA tool calls over 60+ hours (vendor-stated). Qwen 4 confirmed in training; Qwen 4.5/5 roadmap at 5–10T params.
 - IFBench: **82.8%** (leads peers); PLawBench 73.2; HealthBench 60.2
 
 Coding:
@@ -61,6 +62,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (Qwen blog, Alibaba Model Studio docs, AA, independent trackers); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

@@ -47,6 +47,17 @@ override.
    `models_voice/` — merge its contents into the matching `models_voice/<slug>/`
    and remove it; `pnpm sync` FAILs loudly while `voicemodels/` exists.
 
+- **Finance domain routing (absolute):** a model designed specifically for
+  finance or financial tasks (e.g. `ling-3.0-flash-fin`, ending in `-fin` or
+  finance domain models) lives under `models_finance/<slug>/`, never under
+  `model/<slug>/`. This applies to newly discovered models at scaffold time
+  and justifies relocating finance models already in `model/` (e.g.
+  `ling-3.0-flash-fin`) to `models_finance/<slug>/`. Research agents auditing
+  `model/` must skip finance models or route/park them under `models_finance/`.
+  Same permanence and file conventions apply (`models_finance/` sync/site
+  wiring is pending like `models_voice/`).
+
+
 - **Tier identity (Muse Spark only):** for Muse Spark 1.3 / 1.2, a pricing,
   subscription, or reasoning-effort tier suffix (`Contributor`, `Free`,
   `Standard`, `Max`, …) is never a separate model. Every Muse Spark 1.3 tier
@@ -143,6 +154,26 @@ override.
   (while in their top-10 qualifiers). Example 2: a model with `Overall` = 92
   that does NOT count toward some average (below that folder's top-10 cut) is
   still displayed for that model and must never be deleted for any reason.
+
+## Model roster & Overall scores (single point of reference — no self-investigation)
+
+- `model-queue.md` (repo root) is THE single point of reference for "which
+  models exist and what is their Overall score": one `<Overall> <slug>` line
+  per model, highest first (ties A-Z), regenerated and committed by
+  `pnpm sync` (`buildQueueFile` in `scripts/lib/average.mjs`). Any question
+  of the form "list the models" / "what did X score overall" is answered by
+  reading that ONE file — never by listing `model/`, walking folders, parsing
+  every `average.md`, or opening any findings/research `*.md` file.
+- **No self-investigation:** a delegated agent never derives its own identity,
+  STEM, or score from the repo — the kickoff message supplies the STEM
+  (identity resolution: `tasks/research-assign.md`) — and never reads peer
+  findings files to learn scores (zero-influence: `tasks/research.md`). The
+  queue file is the only permitted roster/score source; in fallback (queue
+  missing/stale) read only the single `- **Overall Score:` line of each
+  `average.md`.
+- Full per-rater dimensions live only in `src/data/scores.generated.ts`
+  (numbers only, ~500 KB — grep targeted keys, never read whole); the
+  human-facing overview table is `model-comparison.md`.
 
 ## Agent git-restore rule (absolute — no exceptions without explicit user sign-off)
 

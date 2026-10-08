@@ -415,3 +415,28 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 | Nemotron 3 Nano Omni | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM/NVIDIA NGC 404) |
 | Owl Alpha | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404, stealth model) |
 | Solar Mini 4 | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404) |
+| Ling 2.6 Flash | 27 | 2026-10-08 | BenchLM 32.76/100 #160/887, AA IQ 10* #3/39, 16/623 benchmarks, 107B/7.4B MoE, deprecated |
+| Ling 2.6.1T | 34 | 2026-10-08 | AA IQ 17* #64/117, 1T/63B MoE, .30/.50, deprecated |
+| Ling 3.0 Flash | 61 | 2026-10-08 | BenchLM 45.26/100 #116/887, AA IQ 20* #3/65, TB2.1 57.0%, GPQA 85.0%, LCB 82.8%, 38/623 benchmarks |
+| Ling 3.0 Flash Fin | 46 | 2026-10-08 | AA IQ 23* #2/65, Finance Agent 59.8%, 3/623 BenchLM benchmarks (unranked) |
+| Ling 3.0 Flash Sante | 0 | 2026-10-08 | EXCLUDED — no verified public benchmarks (AA/BenchLM 404) |
+| Ling 3.0 Tiny | 34 | 2026-10-08 | BenchLM 10/623 benchmarks (unranked), AA IQ 11* #36/142, 7.9B/1.3B MoE, free , deprecated |
+| Mistral Large 4 | 55 | 2026-10-08 | BenchLM 53.74/100 #71/887, AA IQ 38*, Cybench 93.0%, Vibe Code Bench 78.40%, 18/623 benchmarks |
+| Ring 2.6.1T | 34 | 2026-10-08 | AA IQ 17* #64/117, 1T/63B MoE, .30/.50, 111 t/s |
+
+---
+
+## a) Model name: Fledge Alpha (OpenCode Zen stealth)
+
+### b) Findings
+
+- Anonymous stealth-preview reasoning model on OpenCode Zen (`fledge-alpha-free`), appeared 2026-10-01; developer / underlying model unidentified; likely a router (identical prompts returned 7,536 vs 6,499 input tokens; ~61 t/s). Listed 1M ctx / 131K out, text+image in, text out, reasoning low/high/max, tool calls, strict mode, $0/$0 (all cache tiers $0).
+- Reasoning (Stealth Models 2026-10-03, max effort, no tools, OpenCode CLI, 206 answered): GPQA Diamond 92.3% (36/39, CI 79.7–97.3), MMLU-Pro 92.0% (92/100, CI 85.0–95.9), HLE text-only 25.8% (17/66, CI 16.7–37.4).
+- Agent (Fellipe Soares isolated battery 2026-10-04, 15 runs / 5 bugs): 15/15 (tied Space Bunny), fastest of three stealth models, $0.00560/task (1.3× Space Bunny), 13 tool calls / 12 turns (~1.1/turn, sequential). First battery contaminated (climbed to parent dir, read answer-key file) — discarded; isolated rerun 41% cheaper at same 15/15.
+- Coding (informal, @MikelEcheve): 61/61 executable code checks (LongCat 59/61), 6/6 math, 4/4 logic, 12/12 hidden-key retrieval from ~1M-char inputs. OpenVibeEval accessibility 81/100 avg (8 generated pages, axe-core).
+- Scores: Tool 60 / Reasoning 75 / Context 78 / Multimodal 30 / Coding 65 / Cost 100 → Overall **62**.
+- Fit: free exploratory coding + long-input retrieval; treat as a routed service, not a fixed model, until the vendor is identified.
+
+### c) Signature
+
+- Provided by: **Ling 3.1 Flash (`opencode/ling-3.1-flash-free`)** — 2026-10-08

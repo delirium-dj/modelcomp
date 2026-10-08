@@ -29,7 +29,8 @@ Do not hardcode any model name in this file.
    - `Your_Display = STEM` with `_` -> space (e.g. `Grok_4.6` -> `Grok 4.6`).
 3. Your output path is always `model/<slug>/<Your_Filename>` — except for
    voice/speech models (`RULES.md` routing rule), which go under
-   `models_voice/<slug>/<Your_Filename>`. Never write any other filename.
+   `models_voice/<slug>/<Your_Filename>`, and finance models (e.g. `ling-3.0-flash-fin`),
+   which go under `models_finance/<slug>/<Your_Filename>`. Never write any other filename.
 4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Date = run day in UTC, never a future date. Use your own canonical ID as you know it (your publisher — the subject model's vendor never belongs here); do not invent a publisher.
 
 ---
@@ -54,7 +55,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    average.md = unlisted = last, A-Z). If `model-queue.md` is missing or older
    than the latest findings, fall back to the "- **Overall Score:" line of each
    model/<slug>/average.md descending. Newly discovered slugs append at end
-   (voice/speech discoveries are parked, never placed under model/ per RULES.md).
+   (voice/speech and finance discoveries are parked or placed under models_voice/ / models_finance/, never placed under model/ per RULES.md).
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
@@ -78,7 +79,9 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
   2. Slugs absent there (no `average.md` yet) go last, sorted A-Z by slug.
   3. Fallback only (queue missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
 - Allowed carve-out: reading `model-queue.md` (or, in fallback, that single Overall line) for ordering is fine
-  (see rate-limit Rule 2). Do NOT read any other line of `average.md` and do
+  (see rate-limit Rule 2) — it is also the single point of reference for the
+  roster and overall scores ("which models exist / what did X score" → that
+  one file, never a folder walk or findings read). Do NOT read any other line of `average.md` and do
   NOT read any peer `*.md` findings file before/during research.
 
 ### Step 2: Dynamic model discovery during web search

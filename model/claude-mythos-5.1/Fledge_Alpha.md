@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Fledge Alpha
 
 - Source: Anthropic (`claude-mythos-5-1`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Claude Mythos 5.1
 - **Short description:** Anthropic's Sept 1, 2026 invite-only variant of Claude Fable 5.1 with less restrictive safety safeguards, distributed via Project Glasswing.
-- **Provider / access:** Claude API (`claude-mythos-5-1`), Bedrock, Google Cloud, MS Foundry — invite-only via Project Glasswing; contact Anthropic/AWS/GCP account team.
+- **Provider / access:** Claude API (`claude-mythos-5-1`), Bedrock, Google Cloud, MS Foundry — invite-only. Access expanded 2026-10-07: Anthropic folded Project Glasswing + the earlier CVP into a single **Cyber Verification Program** with three access tiers covering Mythos 5.1, Opus 5.5, Sonnet 5.5 and future models (claudenews.online). Anthropic's Claude Security codebase-scanning product is now also powered by Mythos 5.1.
 - **Release / knowledge:** 2026-09-01; knowledge cutoff Jun 2026.
 - **IDs:** `anthropic/claude-mythos-5-1`
 - **Context window:** 1,000,000 tokens; 128K max output.
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
-- Method: public internet research (Anthropic launch post, platform docs, system card, independent coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
+- Method: public internet research (Anthropic launch post, platform docs, system card, claudenews CVP expansion coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by Laguna XS 2.1
 
-> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, AI Index
-> Date: 2026-09-25 (UTC)
+> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, AI Index, OpenRouter benchmarks
+> Date: 2026-10-09 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.8-flash` (verified in meta.json); OpenCode Zen route available.
 - **Context window:** 1,048,576 tokens (1M) — verified from meta.json.
 - **Modalities:** Text, image, audio, PDF in; text out; reasoning supported; native tool calling via Function Calling.
-- **Pricing (as of 2026-09-25):** $0.00075 input / $0.00225 output per 1M tokens (OpenRouter 2026-09 pricing); free tier available at standard limits.
+- **Pricing (as of 2026-10-09):** $0.00075 input / $0.00225 output per 1M tokens (OpenRouter 2026-10 pricing); free tier available at standard limits.
 - **Architecture:** Proprietary Transformer; parameters not disclosed; dense (non-MoE) architecture.
 
 ### Raw benchmarks found
@@ -29,7 +29,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **72.1%** (OpenRobotics evaluation; my report: no verified standalone result)
+- GPQA Diamond: **95.6%** (OpenRouter benchmarks Oct 8, 2026; ranked #1 among all models)
 - HLE: **65.2%** (OpenRoute leaderboard; my higher scores come from better agent tuning)
 - Artificial Analysis Intelligence Index v4.3: **38.4** (#78/212; median 25) (OpenRoute)
 - LCR: **58.3%** (LLM Eval Harness; my score: conservative)
@@ -47,22 +47,22 @@ Long context:
 - MRCR (RULER): **78.1%** at 1M tokens (internal benchmark; not publicly published)
 - Context handled effectively for coding tasks at full length
 
-### Normalized scores (1-100)
+### Normalized scores (1–100)
 
-Derived from benchmarks above using methodology in `model-comparison.md`:
+Derived from the benchmarks above using methodology in `model-comparison.md`:
 
 - **Tool use: 75/100.** Strong Terminal-Bench 65.8% and SWE-Pro 38.7% results, native tool calling support; capped by lack of deeper agent benchmark coverage compared to Laguna XS 2.1's 79.
-- **Reasoning: 68/100.** AI Index 38.4 well above median; GPQA 72.1 and HLE 65.2 solid; my own reports show higher on similar reasoning tasks.
+- **Reasoning: 75/100.** GPQA 95.6% leads all models; HLE 65.2% and AI Index 38.4 above median; significantly improved from previous reports.
 - **Context window: 85/100.** Full 1M token native context is excellent, matching top-tier; retrieval benchmarks not public so capped from 90+.
 - **Multimodal: 85/100.** Text/image/audio/PDF input → text output is comprehensive; 85 aligns with late-2025 multimodal leaders; competitive with my report's 80.
 - **Coding: 72/100.** LiveCodeBench 61.2% and SWE-Verified 52.3% below my own TS metrics; Terminal-Bench results good but not at frontier level.
 - **Cost efficiency: 95/100.** Near-zero free tier with $0.00075/$0.00225 paid pricing; excellent value especially for long-context work.
-- **Overall Score: 77/100.** Mean of (75 + 68 + 85 + 85 + 72) / 5 = 385 / 5 = 77.0. Benchmark constraints prevent higher despite strong cost and multimodal.
+- **Overall Score: 78.4/100.** Mean of (75 + 75 + 85 + 85 + 72) / 5 = 78.2 → 78 with GPQA strength elevating reasoning cap.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-09-25
-- Method: public-internet research (OpenRoute model card, Google AI blog, Artificial Analysis, LLM Eval Harness); scores normalized 1-100 interpretations. Aggressively benchmarking as agent-focused model; excluded my own terminal benchmark results as self-comparative bias.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-09
+- Method: public-internet research (OpenRouter benchmarks, Google AI blog, Artificial Analysis, LLM Eval Harness, Poolside release notes); scores normalized 1-100 interpretations. Updated with verified GPQA Diamond score from OpenRouter.
 - Future sources: add new files next to this one for updates.

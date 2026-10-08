@@ -1,7 +1,7 @@
 # GPT-5 nano — findings by Fledge Alpha
 
 - Source: OpenAI (`gpt-5-nano`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-05)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** GPT-5 nano
 - **Short description:** OpenAI's lowest-tier GPT-5 variant from August 2025, designed for classification, extraction, ranking, and lightweight subagent work.
 - **Provider / access:** OpenAI API `gpt-5-nano` (Responses + Chat Completions), GPT-5 family API surface with reasoning_effort/verbosity, custom tools.
-- **Release / knowledge:** August 7, 2025; knowledge cutoff not published.
+- **Release / knowledge:** August 7, 2025; knowledge cutoff not published. **Lifecycle (2026-10-08):** `gpt-5-nano-2025-08-07` shuts down **2026-12-11**; recommended replacement `gpt-5.4-nano` (OpenAI deprecation notice).
 - **IDs:** `gpt-5-nano`; OpenRouter `openai/gpt-5-nano`; no Zen Free ID verified.
 - **Context window:** 400K (future AGI/pricepertoken) / 272K (litellm) — Oracle says 400K; treat as 272–400K.
 - **Modalities:** text, image, PDF in; text out; reasoning with effort; function calling, structured output.
@@ -52,6 +52,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-05
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (OpenAI GPT-5 for developers page, modelpricing.ai, futureagi, pricepertoken); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

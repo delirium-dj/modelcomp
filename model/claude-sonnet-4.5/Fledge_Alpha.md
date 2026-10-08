@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Fledge Alpha
 
 - Source: Anthropic (`claude-sonnet-4-5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Sonnet 4.5
 - **Short description:** Anthropic's Sep 29, 2025 Sonnet flagship; first Sonnet-tier model to beat GPT-5 on SWE-bench Verified; default free/Pro model in Feb 2026 before Sonnet 4.6/5.
 - **Provider / access:** Claude API (`claude-sonnet-4-5`), Bedrock, Vertex AI, Foundry; superseded as the default by Sonnet 4.6 / Sonnet 5.
-- **Release / knowledge:** 2025-09-29.
+- **Release / knowledge:** 2025-09-29. **Deprecated 2026-09-30; retires on the Claude API 2026-11-30** — Anthropic recommends migrating to Claude Sonnet 5.5 (Anthropic deprecations notice via releasebot/endoflife.ai).
 - **IDs:** `anthropic/claude-sonnet-4-5`
 - **Context window:** 200,000 tokens standard, expandable to 1M with prompt tier ≥4 (tiered by organization); 64K max output.
 - **Modalities:** Text + image in; text out; hybrid reasoning with up-to-64K thinking budget.
@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (Anthropic launch post, AIReleaseTracker, VectorWire, llm-stats.com, ChatForest); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

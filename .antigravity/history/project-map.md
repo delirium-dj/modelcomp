@@ -22,7 +22,7 @@ models_finance/<slug>/             Same conventions for finance models (.agents/
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle
 src/data/sources.generated.ts     Reporting-agent registry + SourceKey union (auto-registered)
                                    + managed RATER_GATE export (single source: scripts/lib/parse.mjs)
-model-queue.md                    Pre-sorted `<Overall> <slug>` research queue (agents read this, not every average.md)
+model-queue.md                    Single point of reference for model roster + Overall scores (auto-sorted `<Overall> <slug>`; agents read this one file — never scan average.md/findings, RULES.md § Model roster & Overall scores)
 public/robots.txt                 Generated Sitemap pointer (absolute URL from SITE_ORIGIN knob)
            │
            ▼ import

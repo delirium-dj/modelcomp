@@ -1,0 +1,44 @@
+# Ling 3.0 Flash Sante — findings by Laguna S 2.1
+
+- Source: InclusionAI / Ling 3.0 Flash Sante
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+SELF-EXCLUSION: This model has no verified public benchmark scores. All potential source pages return 404.
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante
+- **Short description:** InclusionAI's Ling 3.0 Flash Sante model entry. Likely a variant or regional release in the Ling 3.0 Flash family.
+- **Provider / access:** `opencode/ling-3.0-flash-sante` (scaffolded)
+- **Release / knowledge:** Part of the September 2026 InclusionAI Ling 3.0 Flash family
+- **IDs:** `opencode/ling-3.0-flash-sante` (scaffolded per meta.json)
+- **Context window:** 128,000 total — per meta.json
+- **Modalities:** Text in/out
+- **Pricing:** Standard pricing (scaffolded)
+- **Architecture:** Unknown (scaffolded entry)
+
+### Raw benchmarks found
+
+> No verified public benchmark scores found.
+
+Sources checked:
+- Artificial Analysis: 404 (https://artificialanalysis.ai/models/ling-3-0-flash-sante)
+- BenchLM: 404
+
+### Normalized scores (1–100)
+
+All scores zero — no verified benchmarks to derive from.
+
+- **Overall Score: 0/100.** Zero verified benchmarks found; file excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
+- Method: public internet research; no verified benchmark data found for this model variant.
+- Future sources: add a new file next to this one when benchmark data becomes available.
+
+---

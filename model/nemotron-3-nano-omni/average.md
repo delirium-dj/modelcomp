@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 62/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 62.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 76.8/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 91.3/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 55.2/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 97.2/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 69.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 64.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 64.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 77.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 90.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 57.6/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 97.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 70.9/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 6 qualifying reporting source(s) (rater Overall > 84.9): GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
-- Average from top 6 by Overall Score: GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GPT 5.6 Luna.
+- Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
+- Average from top 7 by Overall Score: Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GPT 5.6 Luna, Ling 3.1 Flash.

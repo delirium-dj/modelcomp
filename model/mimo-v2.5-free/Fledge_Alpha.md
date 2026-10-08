@@ -1,7 +1,7 @@
 # MiMo-V2.5 Free — findings by Fledge Alpha
 
 - Source: Xiaomi (free alias of `mimo-v2.5`: `mimo-v2.5-free`, `mimo-v2-5:free`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** MiMo-V2.5 Free
 - **Short description:** Free-tier alias of Xiaomi's April 2026 omnimodal V2.5 model — same weights as `mimo-v2.5`, exposed with $0 pricing on several free tiers.
 - **Provider / access:** OpenCode Zen (`mimo-v2.5-free`), Kenari (`mimo-v2-5:free`), LMAPI free routes.
-- **Release / knowledge:** 2026-04-22 (parent model); free aliases have existed since at least May 2026.
+- **Release / knowledge:** 2026-04-22 (parent model); free aliases have existed since at least May 2026. **Lifecycle (2026-10-08):** parent `mimo-v2.5` deprecates **2026-10-21 10:00 Beijing time** — migrate to the V2.6 series (mimo.mi.com).
 - **IDs:** `mimo-v2.5-free`, `mimo-v2-5:free`
 - **Context window:** 1,000,000 tokens; 131K max output.
 - **Modalities:** Text, vision, audio, video in; text out (same omni-modal surface as V2.5-Pro).
@@ -55,6 +55,6 @@ Multimodal: Omni-modal surface shared with V2.5-Pro; MMMU/Video-class rows exist
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (allaimodel.com, llmprice, modelbenchmark.io, easy-benchmarks, OpenRouter parent rows); free-tier rows inherit the parent V2.5 benchmark set because no distinct evaluation has been published.
 - Future sources: add a new file next to this one using the same headings.

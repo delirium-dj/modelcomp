@@ -8,24 +8,24 @@
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** Flagship variant of the GPT-6 family, focused on reasoning and production-grade agentic work.
+- **Short description:** High-performance reasoning model for production-grade agentic work, coding, and technical research.
 - **Provider / access:** OpenAI API (`gpt-6.1-sol`)
 - **Release / knowledge:** 2026-09-29
 - **IDs:** `openai/gpt-6.1-sol`
 - **Context window:** 2.0M tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** Premium professional pricing.
+- **Modalities:** Text/Image/Audio/Video in; Text out. Computer use.
+- **Pricing (as of 2026-10-08):** $2.00/M input, $10.00/M output.
 - **Architecture:** Proprietary.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 97/100.** Advanced agentic capability.
-- **Reasoning: 98/100.** Elite reasoning performance.
-- **Context window: 99/100.** Frontier-level context window.
-- **Multimodal: 96/100.** Native vision integration.
-- **Coding: 98/100.** Top-tier coding assistant.
-- **Cost efficiency: 55/100.** Premium flagship pricing.
-- **Overall Score: 98/100.** State-of-the-art model for complex enterprise tasks.
+- **Tool use: 97/100.** Premier agentic and computer-use capability.
+- **Reasoning: 97/100.** State-of-the-art reasoning for complex professional tasks.
+- **Context window: 98/100.** Massive 2.0M token capacity.
+- **Multimodal: 96/100.** Native multimodal understanding.
+- **Coding: 98/100.** Top-tier coding and software engineering capability.
+- **Cost efficiency: 75/100.** High-performance tier, optimized for cost-effective agentic workflows.
+- **Overall Score: 97/100.** A premier flagship model for complex, high-stakes technical and autonomous agentic workflows.
 
 ---
 

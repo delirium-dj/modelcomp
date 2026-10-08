@@ -1,7 +1,7 @@
 # MiMo-V2.5-Pro — findings by Fledge Alpha
 
 - Source: Xiaomi (`mimo-v2.5-pro`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-05)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** MiMo-V2.5-Pro
 - **Short description:** Xiaomi's open-weights flagship MoE for agentic and long-horizon software engineering, released April 2026.
 - **Provider / access:** Xiaomi API/AI Studio; Hugging Face `XiaomiMiMo/MiMo-V2.5-Pro`; OpenRouter `xiaomi/mimo-v2.5-pro`; Chat-Completions-compatible hosted endpoints.
-- **Release / knowledge:** April 22–23, 2026; knowledge cutoff not published.
+- **Release / knowledge:** April 22–23, 2026; knowledge cutoff not published. **Lifecycle (2026-10-08):** `mimo-v2.5-pro` and `mimo-v2.5` officially deprecate **2026-10-21 10:00 Beijing time** — Xiaomi recommends switching to the V2.6 series (mimo.mi.com model docs).
 - **IDs:** `xiaomi/mimo-v2.5-pro`, HF `XiaomiMiMo/MiMo-V2.5-Pro`; no Zen Free ID verified.
 - **Context window:** 1,048,576 / 1.05M tokens (listed as 1M–1.1M).
 - **Modalities:** text in/out; reasoning; function calling; structured outputs.
@@ -59,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-05
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (Xiaomi MiMo launch page, BenchLM comparison pages, The Model Beat, Token Tape); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

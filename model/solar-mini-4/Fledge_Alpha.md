@@ -14,7 +14,7 @@
 - **IDs:** `upstage/solar-mini4` (no Free ID on Zen found)
 - **Context window:** 524,288 (512K) tokens; max output 131,072 (128K).
 - **Modalities:** text in; text out; reasoning; tool calling + parallel tool calling; JSON mode / JSON Schema structured outputs. Fluent Korean, strong English/Japanese.
-- **Pricing (as of 2026-10-08):** $0.10 input / $0.40 output per 1M; cached input $0.01; 50% launch promo ($0.05/$0.20) through 2026-10-22 UTC. Excludes 10% VAT.
+- **Pricing (as of 2026-10-08):** $0.10 input / $0.40 output per 1M; cached input $0.01; launch promo (50% off per blog banner through 2026-10-22 UTC; body text cites a 70% Console discount through 2026-10-10 — promo terms in flux). Excludes 10% VAT.
 - **Architecture:** 35B total / 3B active MoE; proprietary (API + on-prem only, no weights).
 
 ### Raw benchmarks found

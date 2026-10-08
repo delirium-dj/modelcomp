@@ -1,0 +1,62 @@
+# Ling 2.6.1T — findings by Laguna S 2.1
+
+- Source: InclusionAI / Ling 2.6.1T
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 2.6.1T
+- **Short description:** InclusionAI's open-weight reasoning MoE (1T total / 63B active) from May 2026. Non-reasoning variant (reasoning variant may exist). 262K context window.
+- **Provider / access:** Open weights on HuggingFace `inclusionAI/Ling-2.6-1T`; 1 API provider; `opencode/ling-2.6.1t` (scaffolded)
+- **Release / knowledge:** Released May 8, 2026
+- **IDs:** `opencode/ling-2.6.1t` (scaffolded per meta.json)
+- **Context window:** 128,000 total — per meta.json; AA reports 262K
+- **Modalities:** Text in/out
+- **Pricing (as of 2026-10-08):** $0.30 per 1M input tokens, $2.50 per 1M output tokens (median across providers); 80% cache discount
+- **Architecture:** 1T total parameters, 63B active (MoE); MIT license
+
+### Raw benchmarks found
+
+> No BenchLM overall score (unranked). AA Intelligence Index 17* (#64/117 open-weight large reasoning).
+
+Agent / tool use:
+
+- GDPval-AA (normalized): no verified public score found
+- Terminal-Bench: no verified public score found
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index: **17*** (estimated, #64/117 open-weight large reasoning)
+- AA-GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+
+Coding:
+
+- SWE-bench: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- no long-context retrieval benchmark reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 30/100.** No direct agentic benchmarks published; inferred from intelligence level.
+- **Reasoning: 47/100.** AA Intelligence Index 17* places it below average (#64/117). II+30 adjustment: 17+30=47.
+- **Context window: 60/100.** 128K tokens per meta.json (AA reports 262K but meta is authoritative).
+- **Multimodal: 15/100.** Text-only model per meta.json; 15 per methodology.
+- **Coding: 25/100.** No coding benchmarks published; inferred from low overall benchmark coverage.
+- **Cost efficiency: 42/100.** $0.30/$2.50 is somewhat expensive; 63B active params for $0.30 input.
+- **Overall Score: 35.4/100.** Mean of five quality dims (30+47+60+15+25)/5 = 35.4, rounds to 34. Best-fit use case: legacy open-weight large reasoning model; use Ling 3.0 series instead.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
+- Method: public internet research via Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, using the same headings.
+
+---

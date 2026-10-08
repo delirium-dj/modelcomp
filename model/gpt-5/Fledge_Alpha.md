@@ -1,7 +1,7 @@
 # GPT-5 — findings by Fledge Alpha
 
 - Source: OpenAI (`gpt-5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-08 (UTC, refreshed from 2026-10-02)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** GPT-5
 - **Short description:** OpenAI's August 2025 flagship foundation model; router across Instant/Thinking, now superseded by GPT-5.1–5.5.
 - **Provider / access:** OpenAI API, Azure (`gpt-5`); Chat Completions and Responses APIs.
-- **Release / knowledge:** 2025-08-07; knowledge cutoff 2024-09-30.
+- **Release / knowledge:** 2025-08-07; knowledge cutoff 2024-09-30. **Lifecycle (2026-10-08):** OpenAI's deprecation notice shuts down `gpt-5-2025-08-07` on **2026-12-11**; recommended replacement `gpt-5.5` (OpenAI developer community deprecation thread).
 - **IDs:** `openai/gpt-5`
 - **Context window:** 400,000 tokens, 128K max output.
 - **Modalities:** text + image in; text out; reasoning yes (Thinking); tool calls; JSON mode.
@@ -56,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
 - Method: public internet research (OpenAI system card, Epoch AI, SWE-bench, aggregators); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

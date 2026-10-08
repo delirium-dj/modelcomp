@@ -161,6 +161,10 @@ of truth; examples: `big-pickle/`, `muse-spark-1.3/`,
 `glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
 also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it.
 
+**Domain routing — Voice & Finance models do NOT live in `model/`.**
+- Voice/speech models live strictly under `models_voice/<slug>/` (`RULES.md` routing rule).
+- Finance domain models (e.g. `ling-3.0-flash-fin`) live strictly under `models_finance/<slug>/` (`RULES.md` routing rule). Never place or scaffold them under `model/`.
+
 **Tier aliases — one model, one folder, whatever the tier is called.** If a
 source names a model only by its pricing or effort tier, resolve it to the
 base slug instead of scaffolding a tier folder:
