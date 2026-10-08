@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5, GPT-6 Astra.
 - Average from top 2 by Overall Score: GPT-5.5, GPT-6 Astra.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1.

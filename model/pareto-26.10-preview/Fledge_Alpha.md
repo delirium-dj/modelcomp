@@ -49,7 +49,7 @@ Long context:
 - **Multimodal: 62/100.** Text+image input confirmed (OpenRouter/Kilo); no audio/video, no published vision benchmark numbers.
 - **Coding: 84/100.** DeepSWE 69.9% is strong (above GLM-5.3-Flash's 63.4); capped by missing SWE-bench Verified/LiveCodeBench rows.
 - **Cost efficiency: 52/100.** $2.50/$7.50 per 1M is mid-tier pricing for a preview model; search-augmented runs measured at $116/1K tasks (efficient vs peers like Claude Opus 5's $1,012).
-- **Overall Score: 75/100.** Mean of (80, 84, 62, 62, 84) = 74.4 → 74. Best fit: search-heavy research and agentic coding workflows tolerant of preview instability.
+- **Overall Score: 74/100.** Mean of (80, 84, 62, 62, 84) = 74.4 → 74. Best fit: search-heavy research and agentic coding workflows tolerant of preview instability.
 
 ---
 

@@ -14,6 +14,9 @@ model/<slug>/meta.json             Curated display metadata (name, pricing, cont
 models_voice/<slug>/               Same conventions for voice/speech models (RULES.md routing rule;
                                     NOT scanned by pnpm sync — model/ only; retired
                                     `voicemodels/` name must never be recreated)
+models_finance/<slug>/             Same conventions for finance models (.agents/rules.md routing
+                                    rule; user-directed relocation e.g. ling-3.0-flash-fin;
+                                    NOT scanned by pnpm sync — model/ only; wiring pending)
            │
             ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle

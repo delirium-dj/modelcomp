@@ -48,6 +48,10 @@ Long context:
 
 - AA-LCR 79.3% is the only long-context retrieval signal found; no 500K-retention (MRCR/RULER) score is published.
 
+Multimodal:
+
+- AA-MMMU-Pro **80.4%** (Artificial Analysis) — the first verified vision benchmark found for this ID.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 85/100.** Terminal-Bench 2.1 83.3% is close to the 88%+ frontier band with APEX 56.2% and AA Agentic Index 41.2 backing it up; capped because Tau3-Banking/τ² and every Claw/MCP harness score was missing, and GDPval-AA is published only as a 43.5% preference figure rather than Elo.

@@ -69,7 +69,7 @@ Full details moved to [`model/muse-spark-1.3/Muse_Spark_1.3.md`](model/muse-spar
 
 ## Ling 3.0 Flash Fin Free
 
-Full details moved to [`model/ling-3.0-flash-fin-free/Muse_Spark_1.3.md`](model/ling-3.0-flash-fin-free/Muse_Spark_1.3.md).
+Full details moved to [`models_finance/ling-3.0-flash-fin-free/Muse_Spark_1.3.md`](models_finance/ling-3.0-flash-fin-free/Muse_Spark_1.3.md).
 
 - **Scores:** Tool 68 / Reasoning 70 / Context 72 / Multimodal 15 / Coding 72 / Cost 100 → **Overall 66**
 - **One-liner:** niche pick for finance + efficient execution.

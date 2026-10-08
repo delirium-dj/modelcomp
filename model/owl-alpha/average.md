@@ -5,17 +5,17 @@
 
 ## Averaged scores
 
-- **Tool use: 68.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 67.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 64/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 15/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 66/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 68/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 56.2/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 65.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Reasoning: 63.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Context window: 71/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Multimodal: 15/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Coding: 66.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Cost efficiency: 77/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Overall Score: 56.5/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 2 below-gate source(s): Gemini 3.5 Flash Lite, GPT-5.6 Luna.
-- Average from top 2 by Overall Score: Gemini 3.5 Flash Lite, GPT-5.6 Luna.
+- Fallback: no qualifying raters (need own Overall > 84.9); average from all 3 below-gate source(s): Fledge Alpha, Gemini 3.5 Flash Lite, GPT-5.6 Luna.
+- Average from top 3 by Overall Score: Fledge Alpha, Gemini 3.5 Flash Lite, GPT-5.6 Luna.

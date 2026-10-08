@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5.
 - Average from top 1 by Overall Score: GPT-5.5.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.
+- Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.
