@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5-1`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,7 +36,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **65.7** on v4.2 (#1/418); **53** on v4.3.2 (Sept reading, #1/200 tie with GPT-6 Astra at max)
+- Artificial Analysis Intelligence Index: **65.7** on v4.2 (#1/418); **53** on v4.3.2 (Sept reading, #1/200 tie with GPT-6 Astra at max; October re-read: 53, now rank #5/225 as Astra/Opus 5.5-class models were added above it — artificialanalysis.ai/models/claude-fable-5-1, verified 2026-10-08)
 - HLE: **65.0%** (with tools; #1/466 on BenchmarkList; OpenAI's cross-table agrees)
 - GPQA Diamond: **93.7%** (98th percentile)
 - ARC-AGI-2: **90.0%** verified (rank 5/99); ARC-AGI-1: **97.5%**
@@ -75,7 +75,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: BenchmarkList dossier, explainx launch analysis, Apidog spec guide, Artificial Analysis model page, OpenAI cross-table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

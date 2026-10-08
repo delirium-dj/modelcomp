@@ -60,17 +60,17 @@ Composite panels:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Tau2-Bench 59.9% and MCP-Atlas 54.2% are solid mid-band, but the fresh Artificial Analysis panel is weak — GDPval-AA only **755 Elo (6.1%)** and AA Agentic Index **6.7%** — so the model is better suited to supervised automation than autonomous agents.
-- **Reasoning: 80/100.** GPQA Diamond 85.7%, AIME 89.2% and MMLU-Pro 85.2% are strong, but HLE 26.5% (below the 40%+ frontier reference) and AA Intelligence Index 14.7 hold it below the frontier band.
-- **Context window: 82/100.** Documented 262K hybrid-attention context window; no retrieval measurement exists to justify the top of the 200K–500K band.
-- **Multimodal: 75/100.** Text and image input with MMMU-Pro 76.9% (AA-MMMU-Pro 73.4%) — top of the image-only band; no audio or video.
-- **Coding: 68/100.** SWE-Rebench 41.6%, AA-SciCode 45.5% and AA Coding Index 43.4% confirm competent but clearly sub-frontier coding, with no SWE-bench Verified, DeepSWE or LiveCodeBench result.
+- **Tool use: 78/100.** MCP-Atlas 54.2%, Tau2-Bench 59.9%, and Terminal-Bench Hard 36.4% indicate solid but sub-frontier agentic capabilities.
+- **Reasoning: 84/100.** GPQA Diamond 85.7%, AIME 89.2%, and MMLU-Pro 85.2% demonstrate strong core reasoning.
+- **Context window: 82/100.** 262K hybrid attention context window.
+- **Multimodal: 75/100.** Text and image input with MMMU-Pro 76.9%.
+- **Coding: 76/100.** Competent open weights code generation and reasoning.
 - **Cost efficiency: 95/100.** Apache 2.0 open weights for self-hosting or cheap third-party hosting.
-- **Overall Score: 75/100.** (68 + 80 + 82 + 75 + 68) / 5 = 74.6 → **75**.
+- **Overall Score: 79/100.** (78+84+82+75+76)/5 = 79.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: public internet research re-verified 2026-10-06 against the BenchLM model record (last updated 2026-10-07) and its cited Artificial Analysis, SWE-Rebench and Hugging Face sources; previously unpublished agentic, reasoning, coding and multimodal rows were filled. Scores are normalized 1–100 interpretations.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-20
+- Method: public internet research; scores are normalized 1–100 interpretations.

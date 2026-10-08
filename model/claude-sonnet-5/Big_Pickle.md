@@ -47,43 +47,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** OSWorld-Verified 81.2% plus browser/terminal autonomy matching Opus 4.8 at xhigh effort — the agentic Sonnet debut; now backed by hard rows: Terminal-Bench 2.1 **80.4%** (system card), GDPval-AA **1,603** (48.3% normalized), BrowseComp 84.7%, AA Agentic Index 44.3% (new).
-- **Reasoning: 86/100.** (Raised from 84 on 2026-10-08.) HLE gap filled: **43.2% no-tools / 57.4% with tools** (system card) — the with-tools figure beats Opus 4.6's launch-leading 53.1%; GPQA Diamond 91.1% (AA) / 88.9% (Vals); MMLU-Pro (Vals) 87.5%; CritPt 16.9% is the weak spot.
-- **Context window: 85/100.** 1M window with 128K output — great long-agent specs; AA-LCR 82.0% (new) is the only long-context signal; MRCR/RULER still not published for this model.
-- **Multimodal: 84/100.** Image/file intake with strong computer-use; CharXiv 88.3% (w/ tools) and AA-MMMU-Pro 77.3% (new) verify the visual stack; SWE-bench Multimodal only 28.1% and no audio/video.
-- **Coding: 86/100.** (Raised from 84 on 2026-10-08.) **SWE-bench Verified corrected to 85.2%** (system card; the old 63.4% lmmarketcap row was a mis-surface) with independent Vals 79.6%; SWE-bench Pro 63.2% confirmed; LiveCodeBench (Vals) 82.4%, AA Coding Index 71.5%, CursorBench 3.2 61.5% all new; CursorBench 4.0 only 34.1%.
-- **Cost efficiency: 83/100.** $2/$10 confirmed **permanent** 2026-10-08 (Anthropic changelog 2026-08-10; requesty rates updated 2026-09-30) — strong Sonnet-tier price with caching and batch discounts; caveat: new tokenizer can inflate token counts up to ~35% on code/structured text.
-- **Overall Score: 85/100.** Mean of the five quality dims (84+86+85+84+86)/5 = 85.0 → 85 (raised from 84). The best "default workhorse agent" of its generation — Opus-4.8-grade behavior at roughly half the price.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 84 | 84 | — |
-| Reasoning | 84 | 86 | +2 |
-| Context window | 85 | 85 | — |
-| Multimodal | 84 | 84 | — |
-| Coding | 84 | 86 | +2 |
-| Cost efficiency | 83 | 83 | — |
-| **Overall** | **84** | **85** | **+1** |
-
-New and corrected data (all found 2026-10-08, BenchLM updated 2026-10-07 unless noted):
-
-- **HLE gap filled: 43.2% no-tools / 57.4% with tools** (Sonnet 5 system card) — old file said "system-card values referenced but not surfaced"; with-tools now leads Opus 4.6's 53.1%.
-- **GPQA gap filled: 91.1% (AA) / 88.9% (Vals)**; MMLU-Pro (Vals) 87.5%.
-- **SWE-bench Verified corrected: 85.2%** (system card) vs the old 63.4% lmmarketcap head-to-head row (a mis-surface); independent Vals 79.6%.
-- **GDPval-AA gap filled: 1,603 Elo / 48.3% normalized** — old file had "no clean public figure"; this lands at Opus-4.6 altitude (1,606).
-- New agentic rows: Terminal-Bench 2.1 80.4% (Vals 74.5%), BrowseComp 84.7%, AA Agentic Index 44.3%, Terminal-Bench 3.0 only 14.6%, ApprenticeBench 16%.
-- New coding rows: LiveCodeBench (Vals) 82.4%, AA Coding Index 71.5%, CursorBench 3.2 61.5% / 4.0 34.1%, FrontierCode 1.1 Main 42.7%, SWE Multilingual 78.3%, AA-SciCode 54.3%.
-- New reasoning/context rows: AA-LCR 82.0%, CritPt 16.9%, AA-Omniscience 16.5 (accuracy 40.1, hallucination 39.4), LABBench2 80.1%, HLE-Verified 31.0%.
-- New multimodal rows: CharXiv 88.3% (77% w/o tools), AA-MMMU-Pro 77.3%, Design Arena Website 1,281 Elo.
-- **Artificial Analysis Intelligence Index: 38.2** on the current v4.3 scale (era re-base across all models, not a regression).
-- **Pricing recheck: unchanged** — $2/$10, cache read $0.20 (Anthropic changelog confirms intro made permanent 2026-08-10; requesty provider rates updated 2026-09-30). Anthropic pricing page now leads with **Sonnet 5.5 at the same $2/$10** — Sonnet 5 has been superseded within the family.
-- BenchLM: 65.89, #32/887 (partial coverage, conservative); gradually.ai family standings show Sonnet 5.5 (83.89) above Sonnet 5.
-
-Gaps still open after re-run: MRCR / RULER long-context retrieval (only AA-LCR), no audio/video input verification, HAL / CyberBench / APEX, τ³-Banking.
+- **Tool use: 84/100.** OSWorld-Verified 81.2% plus browser/terminal autonomy matching Opus 4.8 at xhigh effort — the agentic Sonnet debut.
+- **Reasoning: 84/100.** Substantial jump over Sonnet 4.6 and Opus-4.8-class in places; HLE and GPQA rows are not independently surfaced, keeping it at 84.
+- **Context window: 85/100.** 1M window with 128K output — great long-agent specs; no long-retrieval eval captured.
+- **Multimodal: 84/100.** Image/file with strong computer-use; no audio/video verification.
+- **Coding: 84/100.** SWE-bench Pro 63.2% (vs GPT-5.5's 58.6%) is far above Sonnet-class norms from a year prior but below the Opus-5/Fable frontier.
+- **Cost efficiency: 83/100.** $2/$10 permanent is a strong Sonnet-tier price with caching and batch discounts — real value for agentic workloads.
+- **Overall Score: 84/100.** Mean of the five quality dims (84+84+85+84+84)/5 = 84.2 → 84. The best "default workhorse agent" of its generation — Opus-4.8-grade behavior at roughly half the price.
 
 ---
 

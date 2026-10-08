@@ -1,7 +1,7 @@
 # MiMo-V2.6-Pro — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`XiaomiMiMo/MiMo-V2.6-Pro-RL`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `XiaomiMiMo/MiMo-V2.6-Pro-RL` (no Free ID exists on Zen for this model)
 - **Context window:** 1M tokens (verified via HF model card architecture table — Max Context Length 1M).
 - **Modalities:** Text, image, video, and audio input; text output; reasoning yes (RL reasoning model, `--reasoning-parser mimo`); tool calls yes (`--tool-call-parser mimo`, `--enable-auto-tool-choice`); JSON mode not independently verified.
-- **Pricing (as of 2026-09-28):** no verified public pricing found (paid-only; OpenRouter/Xiaomi platform pricing not published in readable form during research).
+- **Pricing (as of 2026-10-08):** verified — "the MiMo-V2.6 series keeps the API pricing of the V2.5 series" (Xiaomi official mimo.xiaomi.com/mimo-v2-6): $0.435 miss / $0.87 out per 1M, or the $1.00/$3.00 route (V2.5-Pro platform pricing, per `../../model-comparison.md` v2 notes); paid-only, no Zen Free ID.
 - **Architecture:** Sparse MoE, 1.02T total / 42B activated parameters (HF safetensors lists 1T total); hybrid SWA/GA backbone (70 layers, sliding window 128, 384 routed experts / 8 activated); 681M MiMo ViT vision encoder; 308M AudioTokenizer + 127M audio patch encoder; 5-layer speculative MTP decoder. MIT license (open weights).
 
 ### Raw benchmarks found
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **46.32** (Xiaomi official mimo.xiaomi.com/mimo-v2-6 + mimo.mi.com news + kingy.ai — surpasses Kimi K3 and Qwen3.8 Max to become the strongest open-source model to date; ~$0.13 per index task; found 2026-10-08, previously missing from this report)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
@@ -58,17 +58,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Terminal-Bench 2.1 89.9% reaches the ~88%+ frontier reference (beating Claude Opus 5) and GDPval-AA 1673 Elo trails Opus 5's 1708 only slightly, with Toolathlon 76.9% and OSWorld 80.8% corroborating; capped by mid-tier Terminal-Bench 4.0 (34.9%) and AutomationBench (53.1%).
-- **Reasoning: 58/100.** No verified GPQA Diamond, HLE, AA Intelligence Index, or math-suite numbers exist for the Pro checkpoint — only Agents' Last Exam 31.6%; scored at the conservative mid band rather than guessing.
+- **Reasoning: 68/100.** AA Intelligence Index 46.32 — now the strongest open-source model per Xiaomi, sitting between the mid (20–35) and frontier (60+) reference bands — plus Agents' Last Exam 31.6%; still no verified GPQA Diamond, HLE, or math-suite numbers for the Pro checkpoint, which caps it below the 90s.
 - **Context window: 95/100.** 1M tokens maps to the ≥1M tier (95–100), capped at the band floor because no ≥98%-retrieval measurement at 512K+ was published.
 - **Multimodal: 90/100.** Text, image, video, and audio input with verified dedicated ViT (681M) and audio encoders meets the omni-tier floor (90–100); text-only output and no measured multimodal benchmark keep it at the floor.
 - **Coding: 78/100.** DeepSWE v1.1 71.9% and Terminal-Bench 2.1 89.9% are strong, but the DeepSWE frontier reference is 74%+ and no verified LiveCodeBench/SciCode exists — capped in the upper-mid band just under the frontier.
-- **Cost efficiency: 50/100.** Provisional midpoint — paid-only with no verified public pricing found (Cost never counts toward Overall, so the quality dims stand; provisional-cost phrasing has repo precedent).
-- **Overall Score: 81.8/100.** Mean of the five non-cost dims (88 + 58 + 95 + 90 + 78) / 5 = 81.8 — best fit as an open-weights omnimodal agentic flagship for self-hosting on coding, cybersecurity, and tool-driven automation; pair with a frontier reasoner for deep science/math reasoning.
+- **Cost efficiency: 88/100.** Verified V2.5-series API pricing ($0.435/$0.87, or the $1.00/$3.00 route) maps near the ~$1.25/$4.25 ≈ 88 reference; ~$0.13 per AA index task (45× cheaper than Claude Opus 5 at max effort) makes it an exceptional price/quality open-weights pick.
+- **Overall Score: 83.8/100.** Mean of the five non-cost dims (88 + 68 + 95 + 90 + 78) / 5 = 83.8 — best fit as an open-weights omnimodal agentic flagship for self-hosting on coding, cybersecurity, and tool-driven automation at exceptional price/quality; pair with a frontier reasoner for deep science/math reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-28
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (official HF model card for XiaomiMiMo/MiMo-V2.6-Pro-RL with eval-results hub, XiaomiMiMo HF org page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

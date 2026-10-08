@@ -48,44 +48,28 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** τ³-Telecom 91.4% and COLLIE 95.8% are strong vendor agentic rows, but BenchAlign lanes rank the agentic profile #99/117, Terminal-Bench 2.1 (Vals) is only 39.0% and Terminal-Bench Hard 33.3% — the independent agentic picture is weaker than the headline.
-- **Reasoning: 65/100.** AA now pins the Intelligence Index at **14** (native; vs GLM-5.2's 34); GPQA Diamond (Vals) **34.8%** contradicts the vendor's 74.8 — treat vendor reasoning claims with caution; HLE 13.8% and a negative omniscience index cap it well below frontier.
-- **Context window: 72/100.** 256K hits the 200K–500K band (65-84); LCR 65.3% is the only retrieval-ish reading; no full-window MRCR/RULER benchmark published.
-- **Multimodal: 68/100.** Vision (image) input with a purpose-trained encoder; no video/audio input or non-text output; BenchLM multimodal lane 56.7.
-- **Coding: 75/100.** SWE-bench Verified 77.6% was the open-weight leader at launch; SWE-bench (Vals) 66.4%, AA Coding Index 46.9, SciCode ~40% and a #101/142 BenchAlign coding lane keep it solid-mid.
+- **Tool use: 78/100.** τ³-Telecom 91.4% and τ² 94.2% are strong agentic-tool numbers, but Terminal-Bench Hard 33.3% and an unremarkable agentic index keep it mid-high rather than frontier.
+- **Reasoning: 68/100.** GPQA 74.8% and AIME 86.3% are solid-mid; HLE 13.8%, a low/negative omniscience index and a muddled AA Index cap it well below frontier.
+- **Context window: 72/100.** 256K hits the 200K–500K band (65-84); no full-window retrieval benchmark published, so it stays mid-band.
+- **Multimodal: 68/100.** Vision (image) input with a purpose-trained encoder; no video/audio input or non-text output.
+- **Coding: 77/100.** SWE-bench Verified 77.6% was the open-weight leader at launch; SciCode ~40% and Coding Index 46.9 are mid, and no DeepSWE/LiveCodeBench verifies the ceiling.
 - **Cost efficiency: 78/100.** $1.50/$7.50 is moderate; input is cheap but output pricing is steep relative to the ~$0.60/$2.20 and $1.25/$4.25 references; open weights offset some API cost.
-- **Overall Score: 71/100.** (74 + 65 + 72 + 68 + 75) / 5 = 70.8 → **71** (lowered from 73 on 2026-10-08, see Re-verification). Best-fit: affordable open-weights agentic coding/workflow model with vision; watch hallucinations (negative omniscience) in knowledge-heavy use.
-
----
-
-## Re-verification — 2026-10-08 (15 days after original)
-
-Light-to-medium re-verification — no dedicated BenchLM profile (404; tracked only in compare mirrors as `mistral-medium-3-5-128b`, 7 sourced rows, overall 36.23), but AA now pins the Intelligence Index and new Vals rows surface.
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 78 | 74 | −4 |
-| Reasoning | 68 | 65 | −3 |
-| Context window | 72 | 72 | — |
-| Multimodal | 68 | 68 | — |
-| Coding | 77 | 75 | −2 |
-| Cost efficiency | 78 | 78 | — |
-| **Overall** | **73** | **71** | **−2** |
-
-New and corrected data:
-
-- **AA Intelligence Index resolved: 14** (native scale, on AA's Mistral provider page — the earlier "14.2–30.4 inconsistent" range is now pinned at the bottom). Context: GLM-5.2 max 34, Mistral Small 4 11.
-- **Vals rows (first independent coding/reasoning lines):** GPQA Diamond (Vals) **34.8%** — dramatically below the vendor's 74.8%, likely a different config/effort — flag as a vendor-vs-independent conflict; MMLU-Pro (Vals) 75.3%; SWE-bench (Vals) 66.4%; Terminal-Bench 2.1 (Vals) 39.0%; Gert Labs 39.10%.
-- **BenchAlign lanes:** overall 36.23; agentic #99/117 (19.7), coding #101/142 (26.7), knowledge #119/168 (33.8), instruction-following #48/124 (82.6), reasoning 69.9 (2 rows), multimodal 56.7 (1 row).
-- **τ³-Telecom 91.4% re-confirmed** (BenchLM row) — the flagship agentic claim still holds alongside COLLIE 95.8 / τ² 94.2.
-- **No successor release found**; pricing $1.50/$7.50 unchanged (262K ctx / 210K max out per Puter/lmmarketcap).
-
-Gaps still open after re-run: DeepSWE, LiveCodeBench, SWE-bench Pro rows for this model; MRCR/RULER; independent reproduction of the vendor 77.6 SWE-V / 74.8 GPQA numbers.
+- **Overall Score: 73/100.** (78 + 68 + 72 + 68 + 77) / 5 = 72.6 → 73. Best-fit: affordable open-weights agentic coding/workflow model with vision, watch hallucinations (negative omniscience) in knowledge-heavy use.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Mistral blog/docs, Artificial Analysis, BenchLM compare mirrors, Vals, llm-stats, modelscale, Puter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Mistral blog/docs, Artificial Analysis, llm-stats, modelscale, Puter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+
+---
+
+## Submission checklist (delete before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

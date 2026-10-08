@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mistral-large-4",
+  "name": "Mistral Large 4",
+  "short": "Mistral AI's flagship frontier model featuring native multilingual fluency, advanced reasoning, and robust tool use.",
+  "contextWindow": "131,072 total (32,768 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "$2.00 / $6.00 per 1M tokens (Mistral AI)",
+  "noFreeId": true
+}

@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-mythos-5-1` — Project Glasswing trusted access)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,7 @@ Agent / tool use:
 - Harvey LAB (Vals): **11.3%** (xAI launch table, Fable-5 column)
 - GDPval-AA v2: **1741** (xAI table, Fable-5 weights); AA-Briefcase: **1574**
 - APEX-Agents: **59.2%**; APEX-SWE: **58.8%**; Terminal-Bench v3.0: **34.1%** (xAI table, Fable-5 weights)
+- Terminal-Bench 4.0: **60.9%** (Anthropic 1 Sept 2026 launch table — top of Anthropic's agentic-coding table, +5.1 pts over Fable 5.1's 55.8%, +18.9 over Mythos 5's 42.0%; vendor-run, the only benchmark Anthropic published for 5.1; no independent measurement since AA cannot access it — theairankings.com, verified 2026-10-08)
 
 Reasoning / knowledge (Fable-5.1 weights, published rows):
 
@@ -45,18 +46,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Fable-5.1-weight rows (GDPval 1741–1853 class, Briefcase 1574+) plus the CyberGym 83.8% security-agent evidence and permissive cyber surface — capped by Google-harness provenance on the cyber rows.
+- **Tool use: 93/100.** Fable-5.1-weight rows (GDPval 1741–1853 class, Briefcase 1574+) plus the CyberGym 83.8% security-agent evidence, permissive cyber surface, and the Terminal-Bench 4.0 60.9% top-of-Anthropic-table result — capped by Google-harness provenance on the cyber rows and the single-benchmark disclosure for 5.1.
 - **Reasoning: 94/100.** Identical weights to Fable 5.1: HLE 65.0% (#1), GPQA 93.7%, AA-Omniscience #1, Index 65.7/53 tie-#1.
 - **Context window: 95/100.** 1M window with 80.0% AA-LCR (Fable-5.1 evidence); MRCR-at-depth unverified for the gated deployment.
 - **Multimodal: 82/100.** Text/image/PDF in with Fable-5.1-class grounded-vision rows; text-only output.
 - **Coding: 93/100.** SWE-Pro 81.2% #1 and SciCode 62.0% #1 on the shared weights, with SWE-V 93.9% corroboration from the Mythos Preview ladder; exploit-development capability adds a defensive-coding dimension Fable cannot ship.
 - **Cost efficiency: 30/100.** No public rate card; presumed Fable-5.1-class $10/$50 premium pricing under contract — scored at that anchor pending verified terms.
-- **Overall Score: 91.2/100.** (92+94+95+82+93)/5 = 91.2. Best fit: vetted defensive-security and life-science teams that need Fable-5.1-class reasoning with the safety envelope lifted — unobtainable without Glasswing approval.
+- **Overall Score: 91.4/100.** (93+94+95+82+93)/5 = 91.4. Best fit: vetted defensive-security and life-science teams that need Fable-5.1-class reasoning with the safety envelope lifted — unobtainable without verification-program approval.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: explainx launch analysis, Apidog Fable/Mythos guides, Kingy CyberGym table, xAI evals table, LLMReference SWE-V ladder); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

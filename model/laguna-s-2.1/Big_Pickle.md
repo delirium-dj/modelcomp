@@ -62,33 +62,18 @@ Long context:
 
 ---
 
-## Re-verification — 2026-10-08 (15 days after original)
+## Signature
 
-Light re-verification — no material new data; all six sourced benchmarks hold and the evidence base is unchanged (BenchLM tracks 6/623 rows, unranked/no overall score, updated 2026-10-07).
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 73 | 73 | — |
-| Reasoning | 55 | 55 | — |
-| Context window | 90 | 90 | — |
-| Multimodal | 15 | 15 | — |
-| Coding | 73 | 73 | — |
-| Cost efficiency | 98 | 98 | — |
-| **Overall** | **61** | **61** | **—** |
-
-Confirmations and notes:
-
-- **All sourced rows re-cited on the BenchLM profile:** TB2.1 70.2%, Toolathlon-Verified 49.7%, SWE Multilingual 78.5%, SWE-bench Pro (Public) 59.4%, DeepSWE 40.4% — no revision.
-- **Still no knowledge/reasoning rows:** GPQA, HLE, LCR, CritPt, AA Intelligence Index, AA-Omniscience remain unpublished for 2.1; independent CrucibleMark (Total 69.1, Logical Reasoning 67.93, ToolUse 62.62, Code Quality 67.24) remains the only non-Poolside reasoning signal.
-- **Still no long-context retrieval row** (MRCR/RULER) despite the 1M marquee spec — the aiweekly caveat holds; Ollama local builds still cap at 256K.
-- **Lineage:** Laguna M.1, Laguna XS.2, and Laguna XS 2.1 siblings exist (all unranked on BenchLM); no newer S-family release found. Pricing unchanged (~$0.10/$0.20, cache $0.009).
-
-Gaps still open after re-run: GDPval-AA/Tau3/Claw figures, GPQA/HLE for 2.1, MRCR at 512K+, LiveCodeBench/SciCode for 2.1, an AA Intelligence Index entry.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Poolside release + model card + independent trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
 
 ---
 
-## Signature
+## Submission checklist (delete before finishing)
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Poolside release + model card, BenchLM, CrucibleMark, unsloth card, aiweekly); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

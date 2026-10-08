@@ -54,34 +54,6 @@ Multilingual: MMMLU 80.15, INCLUDE 78.64; Chinese C-Eval 89.80, CMMLU 89.61.
 
 ---
 
-## Re-verification — 2026-10-08 (18 days after original)
-
-Re-run adds independent rows and clears the longest-standing verification gaps (BenchLM profile, updated 2026-10-07, 22/623 covered; AA; HF card). **All dimensions hold.**
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 72 | 72 | — |
-| Reasoning | 68 | 68 | — |
-| Context window | 72 | 72 | — |
-| Multimodal | 50 | 50 | — |
-| Coding | 73 | 73 | — |
-| Cost efficiency | 84 | 84 | — |
-| **Overall** | **67** | **67** | **—** |
-
-New and corrected data:
-
-- **Original vendor rows independently confirmed:** SWE-bench Verified **74.4%** and Terminal-Bench 2.0 **54.4%** are carried on the HF card and now also mirrored on BenchLM's profile; GPQA Diamond 87.2 likewise.
-- **HLE corrected: 25.5%** (AA, current harness) — original "~30" was a loose read; the AA row is authoritative.
-- **Reasoning corroborated:** AA-GPQA Diamond **89.7%** (above the vendor 87.2), AA II **41.2%** (matches the original "41"), CritPt 4.9% (the frontier-reasoning weak corner), AA-Omniscience Index −18.5 (accuracy 31.5, hallucination 73.0).
-- **Context now measured:** AA-LCR **66.7%** — a genuine independent long-context-reasoning row for the 256K window (below full Hy3's 79.0).
-- **Agentic rows:** AA Agentic Index 25.6%, GDPval-AA 1,136 (35.8%), Gert Labs 36.91% — modest harness-level agentic, consistent with the "vendor-claimed strong agent" framing being scaled down.
-- **Coding harness rows:** AA Coding Index 58.8%, AA-SciCode 48.6% (SciCode 41.2), IFBench 63.1%.
-- **Positioning:** BenchLM **51.11, #88/887** (22/623); full Hy3 at 52.76; **Hy4 Preview now exists at 60.79** — this model is two generations back and the preview-era caveats have all been resolved by release or obsoleted by succession. Pricing unchanged (TokenHub ≈$0.17/$0.55).
-
-Gaps still open after re-run: SuperGPQA verification, DeepSWE-style agent rows, MRCR official retrieval, Vals-harness SWE-bench row, LLMLearner FrontierMath 26.0% provenance.
-
----
-
 ## Signature
 
 - Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20

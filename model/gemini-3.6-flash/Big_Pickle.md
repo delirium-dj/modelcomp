@@ -51,43 +51,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** (Lowered from 82 on 2026-10-08.) OSWorld-Verified 83%, Terminal-Bench 2.1 78% (independent Vals 73.8%), MLE-bench 63.9% and GDPval-AA 1,423 make it a solid mid-frontier agent; AA Agentic Index 30.1%, DeepSWE 49.0%, and CursorBench 3.2 53.5% (all new) pull it down a notch.
-- **Reasoning: 87/100.** (Raised from 85 on 2026-10-08.) GPQA Diamond **92.8% (AA) / 93.4% (Vals)** — the old 86.4% was a mis-read row; HLE 40.8% (AA) now found; MMLU-Pro 89.3% and ARC-AGI-2 60.4% hold; CritPt 10.6% is weak.
-- **Context window: 83/100.** 1M window with strong @128K retrieval (MRCR 91.8%) but reproducible drop at the 1M edge (54% pointwise); AA-LCR 80.0% (new) confirms the mid band.
-- **Multimodal: 84/100.** Full text/image/video/audio intake, 89.4 CharXiv-R, and now **MMMU-Pro 83.2%** (AA, was unlisted); Design Arena Website 1,304 Elo (new).
-- **Coding: 82/100.** SWE-bench Verified 79.6% and LiveCodeBench 88.1% are respectable; SWE-bench Pro 58.7% trails the frontier tier; AA Coding Index 69.2% (new).
-- **Cost efficiency: 86/100.** $0.75/$3.75 with ~181–189 tokens/s throughput — but this is **promotional pricing that doubles to $1.50/$7.50 on 2027-01-01**; cached input $0.075.
-- **Overall Score: 83/100.** Mean of the five quality dims (81+87+83+84+82)/5 = 83.4 → 83 (unchanged). The dependable workhorse Flash — very well-rounded value, outpaced only by 3.7/3.8 Flash and the Anthropic frontier.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 82 | 81 | −1 |
-| Reasoning | 85 | 87 | +2 |
-| Context window | 83 | 83 | — |
-| Multimodal | 84 | 84 | — |
-| Coding | 82 | 82 | — |
-| Cost efficiency | 86 | 86 | — |
-| **Overall** | **83** | **83** | **—** |
-
-New and corrected data (all found 2026-10-08):
-
-- **HLE gap filled: 40.8%** (AA-HLE via BenchLM) — old file had "not independently listed".
-- **MMMU-Pro gap filled: 83.2%** (AA) — old file had "not listed on the compared rows".
-- **GPQA Diamond corrected: 92.8% (AA) / 93.4% (Vals)** — the old 86.4% (which matches the Vals row for a different model family) loses; reasoning evidence improves materially.
-- **AA Intelligence Index: 34.0** on the current v4.3 scale (freellm/BenchLM "Intelligence 34/100") — cross-era comparison only; llm-stats composite Score 42.9 (#51).
-- New agentic rows: DeepSWE 49.0%, CursorBench 3.2 53.5%, Terminal-Bench 2.1 (Vals) 73.8%, AA Agentic Index 30.1%, GDPval-AA normalized 39.3% (1,423 Elo, up from 1,421).
-- New coding rows: AA Coding Index 69.2%, AA-SciCode 53.4% (old 52.7), LiveCodeBench (Vals) 88.1% confirmed, SWE-bench (Vals) 79.6% confirmed.
-- New reasoning rows: AA-LCR 80.0%, CritPt 10.6%, AA-Omniscience 22.1 (accuracy 50.0, hallucination rate 55.6), GPQA Diamond (Vals) 93.4%, MMLU-Pro (Vals) 89.3% confirmed.
-- ARC Prize confirms ARC-AGI-1 Verified 91.20% and ARC-AGI-2 60.4% independently.
-- **Pricing nuance:** $0.75 in / $3.75 out (cache $0.075) unchanged today, but getmoretokens/Google pricing docs confirm it is promotional — standard rate $1.50/$7.50 applies from 2027-01-01; the old "Google Cloud list $1.50/$7.50" line was that future standard rate.
-- Third-party composites: BenchLM 63.24 (#41/887, updated 2026-10-07); gradually.ai 70.4/100.
-- Gemini 3.7 Flash (2026-08-13) and 3.8 Flash (2026-09-02) have since shipped at the same $0.75/$3.75 — 3.6 is now two generations back.
-
-Gaps still open after re-run: HAL / CyberBench / APEX, Tau3-Banking, GraphWalks (no public scores for this model), MRCR only via the original anotherwrapper figures.
+- **Tool use: 82/100.** OSWorld 83%, Terminal-Bench 78%, MLE-bench 63.9% and GDPval 1,421 make it a solid mid-frontier agent; below the 85%+ terminal leaders.
+- **Reasoning: 85/100.** GPQA 86.4%, MMLU-Pro 89.3% and ARC-AGI-2 60.4% are strong general reasoning; no published HLE keeps it mid-80s.
+- **Context window: 83/100.** 1M window with strong @128K retrieval (91.8%) but reproducible drop at the 1M edge (54% pointwise).
+- **Multimodal: 84/100.** Full text/image/video/audio intake plus 89.4 CharXiv-R reasoning — genuinely omni input, text-only output.
+- **Coding: 82/100.** SWE-bench Verified 79.6% and LiveCodeBench 88.1% are respectable; SWE-bench Pro 58.7% trails the frontier tier.
+- **Cost efficiency: 86/100.** $0.75/$3.75 with ~189 tokens/s throughput — one of the faster cheap-frontier options in 2026.
+- **Overall Score: 83/100.** Mean of the five quality dims (82+85+83+84+82)/5 = 83.2 → 83. The dependable workhorse Flash — very well-rounded value, outpaced only by 3.7/3.8 Flash and the Anthropic frontier.
 
 ---
 

@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3-pro-preview`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - MathArena Apex: only model that looks somewhat capable; >20x jump over prior models (vellum.ai)
 - MMMLU: **91.8%** (#1); Global PIQA: **93.4%** (vellum.ai)
 - MMMU-Pro: **81.0%** (+5 over GPT-5.1); Video-MMMU: **87.6%** (vellum.ai)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: **28** on the AA Intelligence Index (launch-week reading, artificialanalysis.ai — "first in 5 of the 10 evaluations" with improved token efficiency vs 2.5 Pro, Kimi K2 Thinking and Grok 4; scale predates the v4.x re-basing, so not comparable to current Index readings — found 2026-10-08, previously missing from this report)
 - LCR / MLCR, CritPt: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (vellum.ai benchmark breakdown, airank.dev, aiwiki.ai, llm-stats, Kingy AI frontier price table, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.

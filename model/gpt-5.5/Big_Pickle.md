@@ -51,39 +51,9 @@ Long context:
 - **Reasoning: 67/100.** GPQA Diamond 93.6% and ARC-AGI-2 ~85% are excellent, yet HLE without tools (41.4%) trails peers (Opus 49.8%, Gemini 3.1 Pro 45.0%) and OpenAI flagged possible SWE-bench memorization — a genuinely "jagged" frontier profile.
 - **Context window: 71/100.** The 1M window is the first fully usable one of its class (74.0% MRCR at 512K-1M vs GPT-5.4's 36.6%), but long sessions >272K are surcharged 2x, Codex caps at 400K, and output is limited to 128K.
 - **Multimodal: 61/100.** Text + image input with strong grounded results (CharXiv 84.1%, MMMU-Pro 81.2%) but no native audio/video input and text-only output.
-- **Coding: 69/100.** (Raised from 67 on 2026-10-08.) Terminal-Bench 82.7% and independent SWE-bench Verified 82.6% (3rd on Vals) are clearly strong; new independent rows LiveCodeBench (Vals) 85.3%, Vibe Code Bench 69.85%, and AA Coding Index 74.9% broaden the picture; still SWE-Bench Pro 58.6% trails Claude (64.3-69.2%) and DeepSWE 64.3% is good-not-great.
-- **Cost efficiency: 52/100.** $5/$30 per 1M confirmed unchanged 2026-10-08 (no price cut, unlike the 5.6 line) — a flat 2x over GPT-5.4, the largest single-release price jump in the line; ~40% token-efficiency offsets some of it (net ~+20% per task), and batch/flex halves the rate, but long-context surcharges add up.
-- **Overall Score: 67/100.** Mean of the five quality dims (67+67+71+61+69)/5 = 67.0 → 67 (unchanged). A powerful, genuinely usable-1M agentic flagship whose 2x price hike, jagged mid-tier HLE, and sub-Claude resolution coding keep its composite score in the mid-60s.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 67 | 67 | — |
-| Reasoning | 67 | 67 | — |
-| Context window | 71 | 71 | — |
-| Multimodal | 61 | 61 | — |
-| Coding | 67 | 69 | +2 |
-| Cost efficiency | 52 | 52 | — |
-| **Overall** | **67** | **67** | **—** |
-
-New and corrected data (all found 2026-10-08):
-
-- **Pricing recheck: unchanged** — $5.00 in / $30.00 out / $0.50 cached (aipricinghub verified 2026-09-20; modelpricing.ai 2026-09-27; 272K+ breakpoint $10/$45). GPT-5.5 never got the 2026 price cuts its siblings (Sol/Luna/Terra) received.
-- **LiveCodeBench gap filled: 85.3%** (Vals harness, independent) — was not previously listed.
-- **Vibe Code Bench gap filled: 69.85%** — new independent coding surface.
-- New coding/agent rows: AA Coding Index 74.9, CursorBench 3.1 59.2 / 3.2 58.4 (independent, vs vendor 64.3/53.8-58.4), SWE-bench (Vals) 82.6% confirmed, SWE-Bench Pro 58.6% confirmed, FrontierCode 1.1 Main 43.0, AA-SciCode 55.8, MCP Atlas 75.3 / Toolathlon 55.6 confirmed, **τ²-bench 98%** confirmed.
-- New agentic rows: APEX-Agents (AA) 37.7, ITBench 45.8, GDPval-AA 1,396 / 42.7% normalized (vs 84.9% win/tie original), Terminal-Bench 2.1 (Vals) 76.4 (vs 78.2 observed earlier — within noise), OSWorld 2.0 only **13.0%** (harsher successor eval; OSWorld-Verified 78.7% still stands), MCP Atlas confirmed.
-- New reasoning rows: **AA-HLE 45.8**, AA-GPQA 93.5 (confirmed), HLE 52.2/41.4 confirmed, FrontierMath 51.7/35.4 confirmed, ARC-AGI-1 95 / ARC-AGI-2 85 confirmed, AA-Omniscience 20.5 (accuracy 47.1, hallucination 64.9), IFBench 75.9, CritPt 27.1.
-- **Artificial Analysis Intelligence Index re-based 60 → 38.4** — v4.3-scale methodology reset, not a capability regression (same era effect seen across all models).
-- New multimodal row: Design Arena Website 1,262; MMMU-Pro 81.2 (83.2 w/ Python) and AA-MMMU-Pro 79.9 confirmed.
-- Long context: MRCR v2 rows confirmed (64K-128K 83.1 / 128K-256K 87.5) with AA-LCR 84.3 new; the original 128K average 94.8% and 512K-1M 74.0% stand as vendor figures.
-- Newer siblings shipped since: GPT-5.6 Sol/Luna/Terra (July-Aug 2026) at lower prices; BenchLM (updated 2026-10-07) ranks 5.5 at 67.79, #24/887.
-- Other composites: gradually.ai 75.8/100; Kilo self-run TB2.0 74.2% / AA Coding Index 71.6 (harness variance).
-
-Gaps still open after re-run: Terminal-Bench 4.0 (no score published for this model), Claw-Eval, CursorBench 4.0 (only 3.1/3.2 exist).
+- **Coding: 67/100.** Terminal-Bench 82.7% and independent SWE-bench Verified 82.6% (3rd on Vals) are clearly strong, but SWE-Bench Pro 58.6% trails Claude (64.3-69.2%) and DeepSWE 64.3% is good-not-great.
+- **Cost efficiency: 52/100.** $5/$30 per 1M is a flat 2x over GPT-5.4 — the largest single-release price jump in the line; ~40% token-efficiency offsets some of it (net ~+20% per task), and batch/flex halves the rate, but long-context surcharges add up.
+- **Overall Score: 67/100.** Mean of the five quality dims (67+67+71+61+67)/5 = 66.6. A powerful, genuinely usable-1M agentic flagship whose 2x price hike, jagged mid-tier HLE, and sub-Claude resolution coding keep its composite score in the mid-60s.
 
 ---
 

@@ -13,6 +13,16 @@
 - [README.md](file://README.md)
 </cite>
 
+## Update Summary
+**Changes Made**   
+- Enhanced documentation for sync-data.mjs orchestrator phases with detailed implementation specifics
+- Expanded parse.mjs parsing rules with rater gate functionality and drift correction details
+- Added comprehensive coverage of average.mjs responsibilities including cohort scoring and queue building
+- Detailed validate.mjs validation checks including permanence verification and forbidden root detection
+- Enhanced naming.mjs conventions documentation with slug normalization specifics
+- Expanded codegen.mjs functions for registry management and RATER_GATE maintenance
+- Added detailed quarantine.mjs auto-quarantine logic for evidence-free or zero-scored reports
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -25,7 +35,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document explains the batch-processing utilities that power the model comparison project’s data pipeline. The system turns research markdown files into a deterministic, build-time dataset for a static site comparing AI coding models across six normalized dimensions: tool use, reasoning, context window, multimodal support, coding ability, and cost efficiency.
+This document explains the batch-processing utilities that power the model comparison project's data pipeline. The system turns research markdown files into a deterministic, build-time dataset for a static site comparing AI coding models across six normalized dimensions: tool use, reasoning, context window, multimodal support, coding ability, and cost efficiency.
 
 Two complementary batch tools exist:
 
@@ -337,8 +347,8 @@ Sync-->>CLI : Exit code based on failures
 - Canonical label order includes six scored dimensions plus Overall Score.
 - Short keys map long labels to compact field names used in generated TypeScript.
 - Quality dimensions exclude Cost efficiency from Overall computation.
-- Rater gate is `84.9`; only reports written by models whose own committed average Overall exceeds this value count toward another model’s average.
-- Overall drift tolerance is `0.51`; when the source file’s Overall differs from the half-up mean of the five quality dimensions, the script attempts to rewrite just the Overall number.
+- Rater gate is `84.9`; only reports written by models whose own committed average Overall exceeds this value count toward another model's average.
+- Overall drift tolerance is `0.51`; when the source file's Overall differs from the half-up mean of the five quality dimensions, the script attempts to rewrite just the Overall number.
 - Cohort ranking selects the ten highest-Overall sources, falling back to all sources when fewer than ten exist.
 - Eligibility partitioning separates qualifying raters from ignored below-gate raters.
 
@@ -360,9 +370,9 @@ Complexity considerations:
 `average.mjs` builds the textual and programmatic representation of averaged scores:
 
 - `buildMixNote` produces a human-readable explanation of whether the average uses fallback, trimmed top-N-of-M, or all qualifying sources.
-- `buildAverageEntry` creates the compact object stored in `scoreIndex` for the default “average” view.
+- `buildAverageEntry` creates the compact object stored in `scoreIndex` for the default "average" view.
 - `buildAverageLines` formats the seven normalized score lines.
-- `buildAverageBody` composes the “Averaged scores” and “Agreement notes” sections.
+- `buildAverageBody` composes the "Averaged scores" and "Agreement notes" sections.
 - `applyAverageToPrev` preserves existing headers while replacing the averaged section.
 - `buildQueueFile` generates `model-queue.md`, listing models by descending Overall and alphabetical slug for ties.
 
@@ -450,11 +460,11 @@ I --> J["Optional: write to disk"]
 ### Auto-Quarantine Logic: `scripts/lib/quarantine.mjs`
 `quarantine.mjs` decides whether a findings file should be renamed to `.md.excluded`:
 
-- Counts “no verified public score found” rows in the Raw benchmarks section.
+- Counts "no verified public score found" rows in the Raw benchmarks section.
 - Counts measured numeric values using a regex that respects bold spans on a single line.
 - Parses the five quality dimensions from the Normalized scores section.
 - Quarantines when:
-  - Evidence-free: eight or more “not found” rows and zero measured numbers.
+  - Evidence-free: eight or more "not found" rows and zero measured numbers.
   - Zero-scored: any quality dimension is exactly zero.
   - Flat: all five quality dimensions are identical and zero measured numbers.
 
@@ -511,7 +521,7 @@ Coupling observations:
 - `sync-data.mjs` has high cohesion around orchestration but depends on many pure modules.
 - Pure modules have minimal coupling: `validate.mjs` depends on `naming.mjs`; `average.mjs` depends on `parse.mjs`; `codegen.mjs` references `parse.mjs` indirectly through the maintained `RATER_GATE` value.
 - No circular imports are visible among the pure helpers.
-- External integration points include Node’s `fs`, `child_process`, and `path` modules, plus the `git` command for the permanence tripwire.
+- External integration points include Node's `fs`, `child_process`, and `path` modules, plus the `git` command for the permanence tripwire.
 
 **Section sources**
 - [sync-data.mjs:31-34](file://scripts/sync-data.mjs#L31-L34)

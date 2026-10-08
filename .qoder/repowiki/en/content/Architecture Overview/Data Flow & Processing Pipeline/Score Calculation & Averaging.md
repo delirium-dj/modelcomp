@@ -3,20 +3,11 @@
 <cite>
 **Referenced Files in This Document**
 - [sync-data.mjs](file://scripts/sync-data.mjs)
-- [parse.mjs](file://scripts/lib/parse.mjs)
 - [average.mjs](file://scripts/lib/average.mjs)
+- [parse.mjs](file://scripts/lib/parse.mjs)
 - [RULES.md](file://RULES.md)
 - [.agents/rules.md](file://.agents/rules.md)
-- [Methodology.tsx](file://src/components/Methodology.tsx)
 </cite>
-
-## Update Summary
-**Changes Made**
-- Updated the Project Structure and Core Components sections to reflect that `src/data/scores.generated.ts` is now the primary client-facing artifact, with scoring methodology fully implemented in `scripts/lib/parse.mjs`.
-- Revised the Architecture Overview to emphasize the complete refresh of model leaderboard averages and the deterministic generation of scores for the frontend.
-- Added a new section documenting how recalculated average scores are emitted into `scores.generated.ts`, including cohort composition, label ordering, and fallback behavior.
-- Updated examples to reflect current real-world averages from actual model folders (e.g., Claude Opus 5 and GPT-6 Astra).
-- Clarified the deterministic nature of calculations by referencing the generated TypeScript output rather than raw markdown prose.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -30,7 +21,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document explains the score calculation and averaging engine that powers every `model/<slug>/average.md` file and the pre-parsed numeric dataset consumed by the frontend through `src/data/scores.generated.ts`. It covers:
+This document explains the score calculation and averaging engine that powers `model/<slug>/average.md` files. It covers:
 
 - How source findings are parsed, validated, and corrected for Overall drift.
 - The rater gate mechanism that restricts which raters contribute to averages.
@@ -39,38 +30,33 @@ This document explains the score calculation and averaging engine that powers ev
 - Fallback behavior when no raters clear the quality gate.
 - Partitioning into eligible vs ignored sources.
 - Generation and deterministic update of `average.md`.
-- Emission of short-keyed scores into `src/data/scores.generated.ts` for the client bundle.
 - Examples of cohort ranking, label sorting, and the mathematical formulas used.
 - Why calculations remain consistent across environments.
 
-The engine is intentionally side-effect free at the library layer; only the sync script performs filesystem operations, logging, registry reconciliation, and failure accounting.
+The engine is intentionally side-effect free at the library layer; only the sync script performs filesystem operations, logging, and failure accounting.
 
 ## Project Structure
 The averaging pipeline spans three layers:
 
 | Layer | Responsibility | Key Files |
 |---|---|---|
-| Sync orchestration | Scans model folders, parses findings, applies gates, writes outputs, emits generated data | [sync-data.mjs](file://scripts/sync-data.mjs) |
+| Sync orchestration | Scans model folders, parses findings, applies gates, writes outputs | [sync-data.mjs](file://scripts/sync-data.mjs) |
 | Pure scoring helpers | Parsing, rounding, ranking, partitioning, constants | [parse.mjs](file://scripts/lib/parse.mjs) |
-| Average document builder | Builds average lines, agreement notes, merges into existing files, builds research queue | [average.mjs](file://scripts/lib/average.mjs) |
+| Average document builder | Builds average lines, agreement notes, and merges into existing files | [average.mjs](file://scripts/lib/average.mjs) |
 | Rules contract | Defines precedence, crown rule, gate threshold, and file permanence | [RULES.md](file://RULES.md), [.agents/rules.md](file://.agents/rules.md) |
-| Frontend consumption | Displays methodology and reads pre-parsed numbers | [Methodology.tsx](file://src/components/Methodology.tsx) |
 
 ```mermaid
 graph TB
 Sync["scripts/sync-data.mjs"] --> Parse["scripts/lib/parse.mjs"]
 Sync --> Avg["scripts/lib/average.mjs"]
-Sync --> Codegen["scripts/lib/codegen.mjs"]
 Sync --> Rules["RULES.md"]
 Avg --> Parse
 Rules --> Sync
 Rules --> Avg
-Codegen --> Parse
-Codegen --> Avg
 ```
 
 **Diagram sources**
-- [sync-data.mjs:36-75](file://scripts/sync-data.mjs#L36-L75)
+- [sync-data.mjs:36-58](file://scripts/sync-data.mjs#L36-L58)
 - [average.mjs:10](file://scripts/lib/average.mjs#L10)
 - [parse.mjs:8-45](file://scripts/lib/parse.mjs#L8-L45)
 - [RULES.md:46-63](file://RULES.md#L46-L63)
@@ -117,7 +103,6 @@ participant Sync as "sync-data.mjs"
 participant FS as "Filesystem"
 participant Parse as "parse.mjs"
 participant Avg as "average.mjs"
-participant Codegen as "codegen.mjs"
 User->>Sync : Run pnpm sync
 Sync->>FS : Scan model/<slug>/ folders
 Sync->>FS : Read findings files
@@ -138,9 +123,6 @@ Sync->>Avg : buildAverageEntry(cohort)
 Sync->>Avg : buildAverageBody(...)
 Sync->>Avg : applyAverageToPrev(prev, body)
 Sync->>FS : Write model/<slug>/average.md
-Sync->>Codegen : renderScoresFile(scoreIndex)
-Codegen-->>Sync : src/data/scores.generated.ts
-Sync->>FS : Write scores.generated.ts
 Sync-->>User : Summary log with updated averages
 ```
 
@@ -149,7 +131,6 @@ Sync-->>User : Summary log with updated averages
 - [sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 - [sync-data.mjs:372-398](file://scripts/sync-data.mjs#L372-L398)
 - [sync-data.mjs:405-435](file://scripts/sync-data.mjs#L405-L435)
-- [sync-data.mjs:602-622](file://scripts/sync-data.mjs#L602-L622)
 - [parse.mjs:52-97](file://scripts/lib/parse.mjs#L52-L97)
 - [average.mjs:33-100](file://scripts/lib/average.mjs#L33-L100)
 
@@ -395,45 +376,6 @@ Write --> |No| Skip["Keep existing file"]
 - [sync-data.mjs:405-435](file://scripts/sync-data.mjs#L405-L435)
 - [.agents/rules.md:31-36](file://.agents/rules.md#L31-L36)
 
-### Emission of Recalculated Scores into `src/data/scores.generated.ts`
-The complete refresh of the model leaderboard is driven by the sync script rebuilding `src/data/scores.generated.ts` with recalculated average scores across all model families. The process works as follows:
-
-- Every parseable findings file contributes a short-keyed score object to `scoreIndex[slug][filename]`.
-- The folder’s own recomputed average is stored under the key `"average.md"` inside the same slug map.
-- Keys are sorted deterministically before emission.
-- `renderScoresFile` serializes the entire index into TypeScript.
-- The generated file contains only numeric scores, keeping model report prose out of the client bundle.
-- The file is written only when there are zero sync failures, ensuring invalid data is never cemented.
-
-Frontend components such as `Methodology.tsx` describe the methodology but do not read raw markdown; they consume the pre-parsed numbers produced by this pipeline.
-
-```mermaid
-flowchart TD
-PerFile["Parsed findings"] --> Shorten["shortenScores()"]
-Shorten --> Index["scoreIndex[slug][file]"]
-Cohort["Cohort"] --> AvgEntry["buildAverageEntry()"]
-AvgEntry --> Index
-Index --> Render["renderScoresFile()"]
-Render --> TS["src/data/scores.generated.ts"]
-TS --> Frontend["Frontend components"]
-```
-
-**Diagram sources**
-- [sync-data.mjs:443-445](file://scripts/sync-data.mjs#L443-L445)
-- [sync-data.mjs:505](file://scripts/sync-data.mjs#L505)
-- [sync-data.mjs:602-622](file://scripts/sync-data.mjs#L602-L622)
-- [parse.mjs:62-67](file://scripts/lib/parse.mjs#L62-L67)
-- [average.mjs:33-44](file://scripts/lib/average.mjs#L33-L44)
-- [Methodology.tsx:14-26](file://src/components/Methodology.tsx#L14-L26)
-
-**Section sources**
-- [sync-data.mjs:443-445](file://scripts/sync-data.mjs#L443-L445)
-- [sync-data.mjs:505](file://scripts/sync-data.mjs#L505)
-- [sync-data.mjs:602-622](file://scripts/sync-data.mjs#L602-L622)
-- [parse.mjs:62-67](file://scripts/lib/parse.mjs#L62-L67)
-- [average.mjs:33-44](file://scripts/lib/average.mjs#L33-L44)
-- [Methodology.tsx:14-26](file://src/components/Methodology.tsx#L14-L26)
-
 ### Examples of Cohort Ranking, Label Sorting, and Aggregation
 
 #### Example Scenario
@@ -479,11 +421,6 @@ Fallback example:
 
 If no rater clears 84.9, all eight sources become eligible, but only the top ten are considered. Since there are only eight sources, all are included. The output is labeled as a below-gate fallback, and the Agreement notes explain that every report contributed because no rater qualified.
 
-Real-world reference:
-
-- `model/claude-opus-5/average.md` shows a normal gated average based on 17 qualifying reporting sources, with a top-10 cohort and seven excluded bottom sources.
-- `model/gpt-6-astra/average.md` similarly reflects 17 qualifying raters, a different top-10 cohort, and a distinct set of excluded and ignored sources.
-
 **Section sources**
 - [parse.mjs:94-97](file://scripts/lib/parse.mjs#L94-L97)
 - [parse.mjs:89-92](file://scripts/lib/parse.mjs#L89-L92)
@@ -491,8 +428,6 @@ Real-world reference:
 - [average.mjs:17-31](file://scripts/lib/average.mjs#L17-L31)
 - [average.mjs:58-81](file://scripts/lib/average.mjs#L58-L81)
 - [sync-data.mjs:372-435](file://scripts/sync-data.mjs#L372-L435)
-- [model/claude-opus-5/average.md:8-23](file://model/claude-opus-5/average.md#L8-L23)
-- [model/gpt-6-astra/average.md:8-23](file://model/gpt-6-astra/average.md#L8-L23)
 
 ### Deterministic Nature of Calculations
 The engine is designed to produce byte-identical results across environments:
@@ -610,5 +545,4 @@ The score calculation and averaging engine is a deterministic, rule-driven pipel
 - Arithmetic means are computed per label with half-up rounding to one decimal.
 - Fallback behavior guarantees every model folder receives an average when no raters qualify.
 - `average.md` is generated with transparent Agreement notes explaining eligible, top-cohort, excluded, and ignored sources.
-- Recalculated average scores are emitted into `src/data/scores.generated.ts`, providing a stable, numeric-only dataset for the frontend.
 - The system remains consistent across environments through pure functions, explicit sorting, centralized constants, and generated numeric outputs.

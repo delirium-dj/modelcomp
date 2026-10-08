@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 76/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 77/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 76.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 86/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 80.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 89/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 79.1/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 76.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 80.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 77.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 86.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 90/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 80.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GLM 5.3 Flash, Qwen 3.8 Flash.
-- Average from top 2 by Overall Score: GLM 5.3 Flash, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Big Pickle.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 5, GLM 5.3 Flash, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
+- Average from top 5 by Overall Score: Claude Opus 5, GLM 5.3 Flash, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

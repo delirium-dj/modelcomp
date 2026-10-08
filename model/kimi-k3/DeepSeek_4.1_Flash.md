@@ -1,7 +1,7 @@
 # Kimi K3 — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI (`kimi-k3`), also served as `moonshotai/kimi-k3` on OpenRouter
-- Date: 2026-10-06 (UTC)
+- Date: 2026-09-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,60 +21,54 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.3%** (vendor-reported; half a point behind GPT-5.6 Sol — HokAI / Benchgen); Terminal-Bench 2.1 via Vals **80.9%**; AA Terminal-Bench 4.0 **12.6%**
+- Terminal-Bench 2.1: **88.3%** (vendor-reported; half a point behind GPT-5.6 Sol and ahead of every other model in Moonshot's suite — HokAI / Benchgen)
 - BrowseComp: **91.2%** with context compaction triggered at 300K tokens, **90.4%** with the full uncompacted 1M window (Moonshot Kimi K3 tech blog)
-- MCP Atlas: **84.2%** (Moonshot Kimi K3 launch blog) — the earlier "500-task subset, no number" caveat is resolved by a published figure; Toolathlon-Verified **73.2%**
-- GDPval-AA: **51.8% / 1537 Elo** (Artificial Analysis, via BenchLM); AA Briefcase **1501**; AA Harvey LAB **94.6%**; AA Tau3 Banking **46.0%**; AA EnterpriseOps-Gym **45.3%**; AA AutomationBench **58.3%**
-- DeepSearchQA: **95.0%**; AutomationBench **30.8%**; JobBench **52.9%**; APEX-Agents **37.6%**; APEX-Agents-AA **41.3%**; SpreadsheetBench 2 **34.8%**; DECK-Bench **73.5%**; AA ITBench **47.7%**; AA AnalystAgent **38.8%**; ApprenticeBench **18%**
 - Aider Polyglot / Program Bench: **77.8%** each (vendor-reported — HokAI)
 - SWE Marathon: **42.0%** (vendor-reported — HokAI)
-- Tau2-Bench / Claw-Eval / ClawProBench / SWE Atlas Codebase QnA: no verified public score found
+- MCP Atlas: run on the 500-task public subset, 100-turn limit, Gemini 3.1 Pro judge — no numeric score published, so no verified public score found
+- AutomationBench: 600-task public subset — numeric value not published in the sources found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA / AA-Briefcase / APEX-Agents: Moonshot cites Artificial Analysis but publishes no figure in the pages found → no verified public number found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (highest published open-weight result found; ahead of Claude Opus 4.8 at 91.0% — HokAI / Benchgen / vendor); AA-GPQA Diamond **93.5%**, Vals **92.9%**
-- HLE: **56%** with tools / **43.5%** without (Moonshot Kimi K3 launch blog; AA-HLE **46.9%**)
-- AA-LCR: **88.7%** (Artificial Analysis long-context reasoning, via BenchLM) — this corrects the earlier IntuitionLabs 74.7 reading; CritPt **23.4%**; MLCR-AA **38.3%**
-- ARC-AGI-1: **94.5%**; ARC-AGI-2: **60.4%** (ARC Prize verified)
-- Artificial Analysis Intelligence Index: **43.6%** (Artificial Analysis, via BenchLM) — conflicts with the earlier HokAI-cited 57; both are listed, while the measured cost **$0.94/task** stands
+- GPQA Diamond: **93.5%** (highest published open-weight result found; ahead of Claude Opus 4.8 at 91.0% — HokAI / Benchgen / vendor)
+- HLE: **43.5%** (vendor-reported — HokAI)
+- AA-LCR: **74.7** (Artificial Analysis long-context reasoning; leads every comparison model selected by Moonshot — IntuitionLabs, 2026-09-05)
+- Artificial Analysis Intelligence Index: **57**, measured cost **$0.94/task** (cheaper than GPT-5.6 Sol at $1.04 and ≈half of Opus 4.8 at $1.80 — HokAI citing AA)
 - BenchLM composite: **74.4 / 100, #7 of 230** tracked models; strongest category "Multimodal & Grounded" #1 (data as of 2026-09-18)
-- LMArena: **#8** (vendor-reported); MMLU-Pro (Vals) **88.0%**
-- AA-Omniscience Index **19.7%** / Accuracy **47.6%** / Hallucination Rate **53.2%** (Artificial Analysis)
+- LMArena: **#8** (vendor-reported)
+- CritPt / MLCR / Omniscience accuracy / Hallucination rate: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **67.5%** (vendor-reported; ranks 23rd of 28 peers — HokAI, checked 2026-07-19); SWE-bench (Vals) **93.4%**
+- SWE-bench Verified: **67.5%** (vendor-reported; ranks 23rd of 28 peers publishing the same figure — HokAI, checked 2026-07-19)
 - DeepSWE: **67.5%** (KimiCode harness) / **67.3%** (mini-SWE-agent harness) — HokAI
-- LiveCodeBench (Vals): **87.2%**; AA-SciCode: **59.5%** (frontier 55%+); AA Coding Index: **76.2%** (frontier 70%+)
-- FrontierSWE: **81.2%**; ProgramBench: **77.8%**; Kimi Code Bench v2: **72.9%**; VulcanBench v3 **73.7%**; OpenHarmony Bench **57.3%**; CursorBench 3.2 **60.8%**; FrontierSWE v2 **25.9%**; PostTrainBench v1.1 **32.0%**
 - Autonomous engineering artefacts reported qualitatively: K3 built a complete Triton-like GPU compiler ("MiniTriton") with its own IR, optimization passes and PTX codegen, and reached near-parity with Claude Fable 5 and GPT-5.6 Sol on kernel optimization (vendor / Benchgen) — no harness score attached
-- Vibe Code Bench / SWE-Atlas: no verified public score found
-
-Multimodal:
-
-- MMMU-Pro: **81.6%** (with Python 83.4%; AA-MMMU-Pro 80.5%); CharXiv: **91.3%** (without tools 84.8%); MathVision: **94.3%** (with Python 97.8%)
-- OfficeQA Pro: **63.3%**; OmniDocBench **91.1%**; ZeroBench **23.0%** (with Python 41.0%); PerceptionBench **58.5%**; Design Arena **1343**. Image in, text out; no audio/video and no PDF text ingestion.
+- LiveCodeBench / SciCode / AA-SciCode / Vibe Code Bench / Coding Index: no verified public score found
 
 Long context:
 
 - No standardized needle-in-a-haystack, RULER or LongBench score has been published by Moonshot or any independent evaluator found — exact-fact retrieval at depth inside the 1M window is unverified (IntuitionLabs, 2026-09-05).
-- Retrieval-adjacent evidence: BrowseComp 90.4 at the full uncompacted 1M window vs 91.2 with compaction at 300K; AA-LCR 88.7.
+- Retrieval-adjacent evidence: BrowseComp 90.4 at the full uncompacted 1M window vs 91.2 with compaction at 300K; AA-LCR 74.7.
 - Architecture mitigations: KDA + AttnRes are explicitly designed to hold recall across the full window instead of degrading past ~100K; ≥90% cache-hit rates are typical in coding workloads.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** Terminal-Bench 2.1 88.3%, BrowseComp 91.2%, MCP Atlas 84.2% and 77.8% Aider/Program Bench put it in the frontier tool band; capped by an 88.3% TB rather than 90%+, by AA Tau3-Banking 46.0% and GDPval-AA 1537 still under the 50%+/1750+ frontier references, and by Terminal-Bench 2.1 via Vals at 80.9%.
-- **Reasoning: 93/100.** GPQA Diamond 93.5% (best open-weight result found), HLE 56% with tools (43.5% without), AA-LCR 88.7 and BenchLM #7 of 230; held just below the 95+ frontier tier by the AA Intelligence Index at 43.6 and by unverified exact-fact retrieval (no MRCR/RULER).
+- **Tool use: 91/100.** Terminal-Bench 2.1 88.3% plus BrowseComp 91.2% and 77.8% Aider/Program Bench put it in the frontier tool band; capped by an 88.3% TB rather than 90%+, by no published Tau3 or GDPval-AA figure, and by MCP-Atlas being reported only as a 500-task subset run without a number.
+- **Reasoning: 93/100.** GPQA Diamond 93.5% (best open-weight result found), HLE 43.5%, AA-LCR 74.7, AA Intelligence Index 57 and BenchLM #7 of 230; held just below the 95+ frontier tier by the 57 Index and by unverified exact-fact retrieval (no MRCR/RULER).
 - **Context window: 96/100.** 1,048,576-token input with 131K+ output sits squarely in the ≥1M band, but the ≥98% retrieval-at-512K+ condition for 100 is unmet — IntuitionLabs found no standardized retrieval evaluation at all.
 - **Multimodal: 70/100.** Native image input with text-only output (MMMU-Pro 81.6%, MathVision 97.8%, CharXiv 91.3% with Python tools, BenchLM multimodal category #1) is the top of the image-only band; capped by no audio/video input, no PDF text ingestion and no non-text output.
-- **Coding: 87/100.** SWE-bench (Vals) 93.4%, DeepSWE 67.5%, SWE-bench Verified 67.5%, Program Bench/Aider 77.8%, SWE Marathon 42.0%, AA-SciCode 59.5% (frontier 55%+) and AA Coding Index 76.2% (frontier 70%+), plus strong qualitative long-horizon engineering reports; the SWE-bench Verified 67.5% remains short of the 74%+ DeepSWE frontier reference that drives 90+.
+- **Coding: 86/100.** DeepSWE 67.5%, SWE-bench Verified 67.5%, Program Bench/Aider 77.8%, SWE Marathon 42.0%, plus strong qualitative long-horizon engineering reports; the SWE-bench Verified 67.5% is well short of the 74%+/85%+ frontier references that drive 90+, and LiveCodeBench/SciCode/Vibe are unpublished.
 - **Cost efficiency: 63/100.** Premium paid pricing ($3/$15 per 1M, $0.30 cached, no free tier) maps to the ~60 anchor; nudged up for a sub-$1 AA-measured cost per task and free automatic prefix caching, but no Zen Free ID exists.
-- **Overall Score: 87/100.** (91 + 93 + 96 + 70 + 87) / 5 = 87.4 → **87**. Best fit: teams that need near-frontier reasoning plus a genuine 1M window and will pay premium rates; the image-only modality and middling SWE-bench Verified argue for pairing it with a coding specialist.
+- **Overall Score: 87/100.** (91 + 93 + 96 + 70 + 86) / 5 = 87.2 → **87**. Best fit: teams that need near-frontier reasoning plus a genuine 1M window and will pay premium rates; the image-only modality and middling SWE-bench Verified argue for pairing it with a coding specialist.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: fresh public internet research re-verified 2026-10-06 — Moonshot AI Kimi K3 tech blog, BenchLM model record (data 2026-10-07) citing Moonshot, Artificial Analysis, Vals, Cursor and ARC Prize leaderboards, plus the earlier Benchgen/HokAI/IntuitionLabs sources; previously unpublished MCP Atlas, GDPval-AA, Tau3, LCR, SciCode and LiveCodeBench rows were filled. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Method: fresh public internet research on 2026-09-20 — Moonshot AI Kimi K3 tech blog, Benchgen model card (last updated 2026-07-28), HokAI review (checked 2026-07-19), BenchLM model record (data 2026-09-18) and IntuitionLabs long-context evaluation (2026-09-05); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -46,45 +46,28 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** TB2.1 74.5%, MCP Atlas 76.4% and τ²-bench 94.7% are solid; ResearchClawBench 18.7%, AA Agentic Index 23.9 and GDPval-AA 31.6% are the honest hard-cuts that anchor it mid-tier.
-- **Reasoning: 87/100.** GPQA 92.4% and HLE 41.4% clear the 40%+ patient-verification gate, MRCRv2 90.4% (128K) supports it, and MMMLU 90.3% / SuperGPQA 73.6% add breadth; AA II 29.5 (the 56.6 quoted originally was AA's native scale) reads modest relative to the headline.
-- **Context window: 90/100.** Documented 1M window with strong retrieval evidence (MRCRv2 90.4, AA-LCR 79.0); no verified ≥512K needle score keeps it below 95.
+- **Tool use: 78/100.** TB2.1 74.5% and MCP Atlas 76.4% are solid mid-tier; CoWork/Claw/BFCL cluster 65–75; no Toolathlon or OSWorld score caps it below the agentic best.
+- **Reasoning: 87/100.** GPQA 92.4% and HLE 41.4% clear the 40%+ patient-verification gate and land within the top reasoning band, just under Grok 4.5-class (HLE 42.7).
+- **Context window: 90/100.** Documented 1M window with strong 128K retrieval (MRCR 90.4); no verified ≥512K needle score keeps it below 95.
 - **Multimodal: 20/100.** Pure-text base interface; vision only on the later separate snapshot.
-- **Coding: 83/100.** SWE-bench Verified 80.4% and LCB v6 91.6% are strong; AA Coding Index 66.0, SWE-Pro 60.6%, NL2Repo 47.2% and a SWE-bench (Vals) 68.8 vs vendor 80.4 gap temper the 90+ claim; no DeepSWE row.
+- **Coding: 84/100.** SWE-bench Verified 80.4% and LCB v6 91.6% with SWE-Pro 60.6%; no DeepSWE score caps it below the 90+ tier.
 - **Cost efficiency: 84/100.** ~$1.25–$1.65 in / $3.75–$4.95 out is competitive premium-tier (below DeepSeek-V4's promo, above GPT-5.4's $2.50/$15).
-- **Overall Score: 71/100.** (75 + 87 + 90 + 20 + 83) / 5 = 71.0 → 71 (lowered from 72 on 2026-10-08, see Re-verification). A capable text-only flagship best for long-context agentic coding at mid-premium pricing; superseded by the Qwen3.8 line.
-
----
-
-## Re-verification — 2026-10-08 (15 days after original)
-
-Re-run adds 35+ primary rows (BenchLM profile 62.72, #42/887, 57/623, updated 2026-10-07) that sharpen the tool-use and coding corners.
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 78 | 75 | −3 |
-| Reasoning | 87 | 87 | — |
-| Context window | 90 | 90 | — |
-| Multimodal | 20 | 20 | — |
-| Coding | 84 | 83 | −1 |
-| Cost efficiency | 84 | 84 | — |
-| **Overall** | **72** | **71** | **−1** |
-
-New and corrected data:
-
-- **Agentic rows broadened:** τ²-bench **94.7%**, HLE-with-tools 53.5%, QwenWebBench 1568, QwenClawBench 64.3% join the confirmed TB2.0 69.7 / Claw-Eval 65.2 / BFCL-v4 75.0 / MCP Atlas 76.4 set; but new hard-cuts — **ResearchClawBench 18.7%**, AA Agentic Index **23.9**, GDPval-AA (normalized) 31.6%, VITA-Bench 47.9% — pull Tool 78 → 75.
-- **Coding made honest:** AA Coding Index 66.0% (the 83rd-pct "66.0" from pricepertoken is the same number), AA-SciCode 49.5%, NL2Repo 47.2%, OpenHarmony 53.4%; SWE-bench Pro 60.6%/Multilingual 78.3%/LCB 91.6 confirmed; **SWE-bench (Vals) only 68.8%** vs vendor's 80.4% — a 12-point independent-vendor gap worth flagging. Coding 84 → 83.
-- **Reasoning depth:** MRCRv2 (128K) 90.4%, AA-LCR 79.0%, CritPt 13.4 (vs the 11.4 cited originally), AA-GPQA 92.3, AA-HLE 40.5, GPQA (Vals) 90.2, MMLU-Pro 89.6; new breadth rows MMLU-Redux 95%, **MMMLU 90.3%**, SuperGPQA 73.6%, HMMT 97.1%, IMOAnswerBench 90.0%, Apex 44.5%.
-- **AA Intelligence Index normalization:** BenchLM's AA II row reads **29.5**; the "56.6 (top-tier)" in the original card is AA's native scale of the same index (cf. grok-4.6's 61↔44.3). Both are real — the card now records the AA/BaseLM-normalized figure.
-- **Instruction-following / multilingual new:** IFEval 94.3%, IFBench 79.1% (AA 80.5%), MMLU-ProX 87%, NOVA-63 59.0%, INCLUDE 86.2%, PolyMath 86.5%.
-- **Lineage:** superseded by Qwen3.8 Max (70.52, #12) / Qwen3.8-Flash-Next (64.04) / Qwen3.8-27B (58.27); Qwen3.7 Flash sits at 47.53. Pricing unchanged.
-
-Gaps still open after re-run: DeepSWE row for 3.7 Max, OSWorld-Verified/Toolathlon, ≥512K retrieval (MRCR 512K/1M), independent vision benchmark for the 06-08 snapshot.
+- **Overall Score: 72/100.** (78 + 87 + 90 + 20 + 84) / 5 = 71.8 → 72. A capable text-only flagship best for long-context agentic coding at mid-premium pricing; wait for the multimodal snapshot if vision is required.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Alibaba Cloud docs, Qwen blog, BenchLM, AA, Vals, llm-stats, pricepertoken, global newswire); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Alibaba Cloud docs, llm-stats, pricepertoken, global newswire); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.7_Flash.md`, using the same headings.
+
+---
+
+## Submission checklist (delete before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

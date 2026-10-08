@@ -1,0 +1,9 @@
+{
+  "id": "opencode/solar-open-2",
+  "name": "Solar Open 2",
+  "short": "Upstage's open-weights model designed for flexible enterprise fine-tuning and domain-specific knowledge integration.",
+  "contextWindow": "65,536 total (16,384 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "Open-weights / free self-host or standard API pricing",
+  "noFreeId": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/owl-alpha",
+  "name": "Owl Alpha",
+  "short": "Experimental stealth frontier model optimized for high-speed agentic execution and fast reasoning workflows.",
+  "contextWindow": "65,536 total (16,384 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "$0.50 / $2.00 per 1M tokens (Stealth provider)",
+  "noFreeId": true
+}

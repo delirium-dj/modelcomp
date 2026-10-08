@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by GLM 5.3 Flash
 
 - Source: Meta Superintelligence Labs (`muse-spark-1.2`; OpenCode Zen Contributor free tier)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,7 +41,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4 methodology in `RULES.md` — corrected 2026-10-08; the v1 /6 math in the original text was stale).
 
 - **Tool use: 92/100.** TB2.1 82.9 (2nd at launch) + MCP Atlas 90.3 + 1,000+-call sessions — a top-tier agent, a clear step below Muse Spark 1.3's 88.8 TB.
 - **Reasoning: 88/100.** GPQA 90.4 / HLE 45.5 / BenchLM 71.88 #11 — frontier-adjacent knowledge and reasoning.
@@ -49,12 +49,12 @@ Long context:
 - **Multimodal: 88/100.** Text + image + video + PDF in (audio per repo catalog); text-only output; no published vision benchmark.
 - **Coding: 89/100.** DeepSWE 59.3 + Meta ICB 70.6 + TB2.1 82.9 — strong coding package, short of 1.3's DeepSWE 75.4.
 - **Cost efficiency: 100/100.** Evaluated $0 Contributor free tier (training-data consent); paid $1.25/$4.25 with $0.15 cache noted.
-- **Overall Score: 91/100.** Mean: (92 + 88 + 100 + 88 + 89 + 100) / 6 = 557/6 = 92.8 → **93**. Best fit: near-frontier free fallback for long-horizon coding/agentic work when 1.3 Free is unavailable.
+- **Overall Score: 91/100.** v4 formula: mean of the five quality dims (92 + 88 + 100 + 88 + 89) / 5 = 91.4 → **91** (Cost excluded per `RULES.md`; the original /6 = 92.8→93 math was stale v1 history, corrected 2026-10-08). Best fit: near-frontier free fallback for long-horizon coding/agentic work when 1.3 Free is unavailable.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (ai-tldr.dev Muse Spark 1.2 page quoting Meta's launch table of 2026-08-05 (per-model agent harnesses), pricing page and lineage; BenchLM/Benchgen rows as catalogued in `../../model-comparison.md`); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -49,42 +49,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Toolathlon 73% and AutomationBench 48.2% (AA 62.2%) and TB2.1 88.2% (AA 83.9%) show a top-tier agentic stack; AA Agentic Index 53.4 confirmed independently; ALE 28.5% mid-pack, Vals TB2.1 71.5% (different harness).
-- **Reasoning: 86/100.** AA-GPQA Diamond 91.7% (Vals 88.1), MMLU-Pro (Vals) 86.8, HLE w/tools 62.5% (AA-HLE 42.3) — frontier-class on every knowledge row; CritPt 19.1%.
-- **Context window: 85/100.** Full 1M window with 128K output confirmed; AA-LCR 79.7% is a strong long-context-reasoning figure; MLCR-AA 48.3%.
-- **Multimodal: 68/100.** Text-only — no vision at all, the main structural gap versus GLM-5.3-Flash's native image/video input (Design Arena row is web-design/HTML, not parametric vision).
-- **Coding: 80/100.** SWE-bench (Vals) 95.4%, AA Coding Index 74.8, LCB (Vals) 80.5, AA-SciCode 59.0, DeepSWE 66.9%, TB3.0 28.3% (OSS SOTA), TB4.0 41.9% — a flagship-grade coder available for free on quota tiers.
+- **Tool use: 76/100.** Toolathlon 73% and AutomationBench 48.2% are solid agentic results backed by a 88.2% Terminal-Bench 2.1; ALE 28.5% is mid-pack.
+- **Reasoning: 81/100.** HLE w/tools 62.5% and AA Index 60 are strong; no verified GPQA reported for this line keeps it a notch below pure reasoning flagships.
+- **Context window: 82/100.** Full 1M window with 128K output; long-context retrieval on the free tier is unproven.
+- **Multimodal: 68/100.** Text-only — no vision at all, the main structural gap versus GLM-5.3-Flash's native image/video input.
+- **Coding: 73/100.** Terminal-Bench 3.0 28.3% (open-source SOTA) and DeepSWE 66.9% are strong; as a free tier it also carries quota and rate limits that bound effective throughput.
 - **Cost efficiency: 100/100.** The free tier reduces per-token cost to zero (rate-limited); even the metered API at $1.40/$4.40 is capped by the codable budget-tier rivals to contend with.
-- **Overall Score: 80/100.** Mean of the five quality dims (80+86+85+68+80)/5 = 79.8 → 80 (raised from 76 on 2026-10-08, see Re-verification). Same top-tier GLM-5.3 cortex at zero marginal token cost — the ideal entry point for testing frontier-class open-weights coding, with text-only and quota caveats.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-Re-run grounds every previously open dimension (GPQA, long-context, coding bars) on independent rows (BenchLM profile, updated 2026-10-07, 49/623 covered; AA; Vals; HF `zai-org/GLM-5.3` model card). Weights identical to paid `glm-5.3` — free-tier routing unchanged.
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 76 | 80 | +4 |
-| Reasoning | 81 | 86 | +5 |
-| Context window | 82 | 85 | +3 |
-| Multimodal | 68 | 68 | — |
-| Coding | 73 | 80 | +7 |
-| Cost efficiency | 100 | 100 | — |
-| **Overall** | **76** | **80** | **+4** |
-
-New and corrected data:
-
-- **GPQA gap filled:** AA-GPQA Diamond **91.7%** (Vals 88.1%), MMLU-Pro (Vals) 86.8 — the flagship was under-scored on knowledge; clearly frontier-class.
-- **Every original Z.ai figure independently confirmed** on its HF card via BenchLM: TB2.1 88.2%, TB3.0 28.3%, DeepSWE 66.9%, FrontierSWE 78.1/30.2 (v2), NL2Repo 58.0, SWE-Marathon 42.5, Toolathlon-Verified 73.0, AutomationBench 48.2, ALE 28.5, HLE w/tools 62.5, GDPval-AA 1769 (57.6% normalized).
-- **New coding bars (this was the big gap):** SWE-bench (Vals) **95.4%**, LiveCodeBench (Vals) 80.5%, AA Coding Index 74.8%, AA-SciCode 59.0%, TB4.0 41.9%, ProgramBench 19.0%.
-- **Agentic corroboration:** AA Agentic Index 53.4%, AA AutomationBench 62.2%, AA τ³-Banking 50.3%, AA EnterpriseOps-Gym 36.4%, AA Briefcase 1510 Elo, AA ITBench 46.1%.
-- **Long context now measured:** AA-LCR **79.7%**, MLCR-AA 48.3% — strong for a 1M open-weights MoE.
-- **Frontier corners:** CritPt 19.1% (healthy), AA-Omniscience Index 14.3 (accuracy 33.9, hallucination 29.6 — far cleaner than the 2.5-era Google models), Gray Swan IPI 31.5%, AA II 44.8% (BenchLM-normalized; the tokencost.app "60 / #9/186" figure reflects the same AA index on its native scale).
-- **Positioning:** BenchLM **68.71, #20/887** — above GLM-5.2 (61.56) and GLM-5.3-Flash (57.37), confirming the free tier delivers the family flagship, not the Flash.
-- **Free-tier status unchanged:** ZCode CLI / GLM Coding Plan quota / gateway credits still live; metered twinned price $1.40/$4.40 (cached $0.26) — no price change found.
-
-Gaps still open after re-run: free-tier-specific rate/quota ceilings (unevidenced, points-quota only), parameters discrepancy (743B vs 753B on various trackers), official Chinese-motor ARC-AGI-2 row, video-input absence recheck if a 5V-merge is announced.
+- **Overall Score: 76/100.** Mean of the five quality dims (76+81+82+68+73)/5 = 76.0 → 76. Same top-tier GLM-5.3 cortex at zero marginal token cost — the ideal entry point for testing frontier-class open-weights coding, with text-only and quota caveats.
 
 ---
 

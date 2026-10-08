@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4` (open weights `tencent/Hy4-preview`).
 - **Context window:** 1M total (960K in / 64K out per repo meta); native MTP decoder layer.
 - **Modalities:** text in/out only; tool calls; no vision/audio input.
-- **Pricing (as of 2026-10-08):** confirmed public API ~$0.834 in / $2.501 out / $0.042 cached in per 1M (GIGAZINE/Cline; cached ≈1/20th), plus Apache 2.0 open weights for self-hosting (1.5 TB VRAM BF16; Q4_K_M 435 GiB / STQ1_0 214 GiB quant variants). No Zen Free ID.
+- **Pricing (as of 2026-09-23):** Apache 2.0 open weights — self-hosted; no confirmed per-token public API rate; no Zen Free ID.
 - **Architecture:** 770B total / 49B active MoE (78 layers, 256 routed experts + 1 shared, top-8 active) with Gated DSA attention, IndexCache, iHC, plus one 10B native MTP layer for speculative decoding.
 
 ### Raw benchmarks found
@@ -50,45 +50,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** TB2.1 85.4%, MCP-Atlas 83.7%, Toolathlon 74.1%, GDPval 1678 and OneMillionBench +tools 65.4% place it near the agentic frontier; APEX-Agents 37.1% and CritPt weakness cap it below the 90s.
+- **Tool use: 80/100.** TB2.1 85.4%, Toolathlon 74.1%, GDPval 1678 place it near the agentic frontier; APEX-Agents 37.1% and no-tools CritPt weakness cap it below the 90s.
 - **Reasoning: 84/100.** GPQA 92.3%, HLE-with-tools 55.4%, GDPval 1678 are strong; CritPt 16.9 is the clearest ceiling.
-- **Context window: 95/100.** Full 1M window in the ≥1M band with a measured 1M-context agentic benchmark (OneMillionBench +tools 65.4%); no classic long-context retrieval value published yet.
+- **Context window: 95/100.** Full 1M window in the ≥1M band with a measured 1M-context agentic benchmark; no classic long-context retrieval value published yet.
 - **Multimodal: 15/100.** Text-only (per repo meta): no image/audio/video input.
-- **Coding: 82/100.** DeepSWE 64.3% (#5 overall, top open-weight per llm-stats), SWE-bench Pro 65.7% (leads Kimi K3), SWE Multilingual 82.9%, TB2.1 85.4%; ProgramBench 17.5% and SWE-Marathon 31.9% (top OSS) are the long-horizon rows.
-- **Cost efficiency: 86/100.** Apache 2.0 open weights free to self-host, plus a confirmed cheap API ($0.834/$2.501, $0.042 cached in) — effectively paid only in the substantial 770B-class hardware required (no Zen Free ID).
-- **Overall Score: 72/100.** (82 + 84 + 95 + 15 + 82) / 5 = 71.6 → **72** (raised from 71 on 2026-10-08, see Re-verification). Best-fit: self-hosted or API long-horizon coding/agentic workloads where open weights, MCP-Atlas strength and 1M context justify the cost.
-
----
-
-## Re-verification — 2026-10-08 (15 days after original)
-
-No BenchLM profile (slug 404), but leaderboards and Tencent's public benchmark dataset now corroborate the launch rows and add MCP-Atlas, while a public API rate has been confirmed.
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 80 | 82 | +2 |
-| Reasoning | 84 | 84 | — |
-| Context window | 95 | 95 | — |
-| Multimodal | 15 | 15 | — |
-| Coding | 82 | 82 | — |
-| Cost efficiency | 85 | 86 | +1 |
-| **Overall** | **71** | **72** | **+1** |
-
-New and corrected data:
-
-- **MCP-Atlas row found: 83.7%** (hy4ai dataset/launch card) — the strongest tool-use addition; joins confirmed TB2.1 85.4 / Toolathlon-V 74.1 / APEX-Agents 37.1 / GDPval-AA 1678 / OneMillionBench +tools 65.4.
-- **DeepSWE reconfirmed as top open-weight: 64.3%** (#5 overall on llm-stats, updated 2026-10-01; GPT-5.6 Sol 72.7 leads, Kimi K3 67.5, DeepSeek-V4-Pro-0813 62.7).
-- **SWE-Marathon now published: 31.9%** (#4 overall, #1 open-weight; Grok 4.7 46.0, GLM-5.3 42.5, Kimi K3 42.0) — an honest long-horizon cap that slots between ProgramBench 17.5 and the finishable SWE rows.
-- **SWE Atlas rowset confirmed:** Codebase Q&A 64.0, Test Writing 57.8, Refactoring 53.3; CyberGym 78.4; PostTrainBench V1.1 35.6.
-- **Public API pricing now confirmed:** ~$0.834 in / $2.501 out / $0.042 cached in per 1M (GIGAZINE/Cline ops) — the original "no confirmed rate" is superseded; weights alone got cheaper to run with the Q4_K_M (435 GiB) and STQ1_0 (214 GiB) quants.
-- **Positioning unchanged:** preview checkpoint; qarantized variants hold most of the score; still no vision/audio input; 78-layer MoE config re-confirmed.
-
-Gaps still open after re-run: MRCR/RULER retrieval at full 1M window, AA Intelligence Index row, independent (non-Tencent) APEX/Toolathlon/CritPt reruns, BenchLM profile.
+- **Coding: 82/100.** DeepSWE 64.3%, SWE-bench Pro 65.7% (leads Kimi K3), SWE Multilingual 82.9%, TB2.1 85.4%; ProgramBench 17.5% is the long-horizon weak row.
+- **Cost efficiency: 85/100.** Apache 2.0 open weights are free to self-host with no per-token fee; effectively paid only in the substantial 770B-class hardware required (no Zen Free ID).
+- **Overall Score: 71/100.** (80 + 84 + 95 + 15 + 82) / 5 = 71.2 → **71**. Best-fit: self-hosted long-horizon coding/agentic workloads where open weights and 1M context justify the GPU cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Tencent GitHub/HF model card, The Elec, DataLearner, LLMLearner, LLMBoard, hy4ai benchmark dataset, llm-stats, GIGAZINE); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Tencent GitHub/HF model card, The Elec, DataLearner, LLMLearner, LLMBoard, HF eval results); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

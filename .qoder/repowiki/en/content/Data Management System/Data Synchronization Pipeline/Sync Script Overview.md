@@ -7,18 +7,8 @@
 - [quarantine.mjs](file://scripts/lib/quarantine.mjs)
 - [validate.mjs](file://scripts/lib/validate.mjs)
 - [codegen.mjs](file://scripts/lib/codegen.mjs)
-- [average.mjs](file://scripts/lib/average.mjs)
 - [debug-sync.mjs](file://scripts/debug-sync.mjs)
-- [model-queue.md](file://model-queue.md)
 </cite>
-
-## Update Summary
-**Changes Made**
-- Added documentation for the new `model-queue.md` batch processing workflow
-- Updated architecture overview to include queue generation
-- Enhanced model queue organization section with latest benchmark scores
-- Added detailed explanation of sorted ordering and priority processing
-- Updated troubleshooting guide with queue-related issues
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,16 +31,14 @@ Key responsibilities:
 - Quarantine evidence-free reports before they can affect averages.
 - Recompute and rewrite `average.md` using a top-10 cohort and rater gate.
 - Maintain the source registry and emit compact score indexes.
-- Generate a pre-sorted research queue (`model-queue.md`) for AI agents.
 - Exit non-zero when human action is required.
 
 ## Project Structure
-The sync script lives at `scripts/sync-data.mjs` and delegates pure logic to helper modules under `scripts/lib/`. The repository's research data is organized as:
+The sync script lives at `scripts/sync-data.mjs` and delegates pure logic to helper modules under `scripts/lib/`. The repository’s research data is organized as:
 - `model/<slug>/`: one folder per model slug, containing findings `.md` files, an `average.md`, and a `meta.json`.
 - `models_voice/` and `models_finance/`: sanctioned mirror trees where research may be relocated without breaking the permanence tripwire.
 - `src/data/sources.generated.ts`: the source registry used by the app.
 - `src/data/scores.generated.ts`: compact numeric scores emitted by sync.
-- `model-queue.md`: pre-sorted research queue for AI agents with latest benchmark scores.
 
 ```mermaid
 graph TB
@@ -58,20 +46,17 @@ A["scripts/sync-data.mjs"] --> B["scripts/lib/parse.mjs"]
 A --> C["scripts/lib/quarantine.mjs"]
 A --> D["scripts/lib/validate.mjs"]
 A --> E["scripts/lib/codegen.mjs"]
-A --> F["scripts/lib/average.mjs"]
-A --> G["model/<slug>/*.md"]
-A --> H["model/<slug>/average.md"]
-A --> I["model/<slug>/meta.json"]
-A --> J["src/data/sources.generated.ts"]
-A --> K["src/data/scores.generated.ts"]
-A --> L["model-queue.md"]
+A --> F["model/<slug>/*.md"]
+A --> G["model/<slug>/average.md"]
+A --> H["model/<slug>/meta.json"]
+A --> I["src/data/sources.generated.ts"]
+A --> J["src/data/scores.generated.ts"]
 ```
 
 **Diagram sources**
 - [sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [sync-data.mjs:128-131](file://scripts/sync-data.mjs#L128-L131)
 - [sync-data.mjs:442-526](file://scripts/sync-data.mjs#L442-L526)
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
 
 **Section sources**
 - [sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
@@ -85,7 +70,7 @@ The sync script composes several focused helpers:
   - Parses seven score lines, computes Overall drift, applies auto-fixes, ranks top-10 cohorts, partitions eligible raters, and sorts labels deterministically.
 
 - Quarantine policy (`scripts/lib/quarantine.mjs`)
-  - Detects evidence-free reports by counting "no verified public score found" rows and measured numbers in the raw benchmarks section.
+  - Detects evidence-free reports by counting “no verified public score found” rows and measured numbers in the raw benchmarks section.
   - Also flags zero-scored or flat dimension profiles that indicate invented uniformity.
 
 - Validation and hygiene (`scripts/lib/validate.mjs`)
@@ -95,10 +80,6 @@ The sync script composes several focused helpers:
 - Code generation and registry surgery (`scripts/lib/codegen.mjs`)
   - Parses and rebuilds the SourceKey union and SOURCE_DEFS array.
   - Appends pending registrations, reconciles labels/slugs, prunes virtual-view entries, and renders deterministic `scores.generated.ts`.
-
-- Average computation and queue building (`scripts/lib/average.mjs`)
-  - Builds average entries, generates average body text, and creates the research queue file.
-  - Implements the `buildQueueFile` function that generates `model-queue.md` with models sorted by latest Overall scores.
 
 - Debugging helper (`scripts/debug-sync.mjs`)
   - Runs the sync script and prints FAIL lines for quick triage.
@@ -112,7 +93,6 @@ The sync script composes several focused helpers:
 - [validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
 - [codegen.mjs:14-83](file://scripts/lib/codegen.mjs#L14-L83)
 - [codegen.mjs:92-139](file://scripts/lib/codegen.mjs#L92-L139)
-- [average.mjs:102-121](file://scripts/lib/average.mjs#L102-L121)
 - [debug-sync.mjs:1-7](file://scripts/debug-sync.mjs#L1-L7)
 
 ## Architecture Overview
@@ -131,8 +111,7 @@ At runtime, the sync script performs these phases in order:
    - Partition eligible raters, rank top-10, compute averages, and rewrite `average.md` if needed.
 7. Reconcile the source registry and append missing sources.
 8. Emit deterministic `scores.generated.ts` only when there are no failures.
-9. Generate `model-queue.md` with pre-sorted models by latest Overall scores.
-10. Print summary and set exit code.
+9. Print summary and set exit code.
 
 ```mermaid
 flowchart TD
@@ -155,8 +134,7 @@ LoopModels --> |No| Registry["Reconcile registry and append missing sources"]
 Registry --> GenScores{"failures == 0?"}
 GenScores --> |Yes| Emit["Emit scores.generated.ts"]
 GenScores --> |No| SkipGen["Skip generated scores"]
-Emit --> Queue["Generate model-queue.md with latest scores"]
-Queue --> Summary["Print summary and set exit code"]
+Emit --> Summary["Print summary and set exit code"]
 SkipGen --> Summary
 Summary --> End(["End"])
 ```
@@ -167,7 +145,6 @@ Summary --> End(["End"])
 - [sync-data.mjs:190-226](file://scripts/sync-data.mjs#L190-L226)
 - [sync-data.mjs:259-436](file://scripts/sync-data.mjs#L259-L436)
 - [sync-data.mjs:442-526](file://scripts/sync-data.mjs#L442-L526)
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
 
 ## Detailed Component Analysis
 
@@ -202,7 +179,6 @@ Determinism is enforced through:
 - Half-up rounding to one decimal place for averages and corrected Overalls.
 - Deterministic serialization of `sources.generated.ts` and `scores.generated.ts`.
 - Avoiding client-side bundle bloat by emitting only numeric scores into generated TypeScript.
-- Pre-sorted research queue generation with consistent ordering.
 
 These guarantees ensure that repeated runs over the same inputs produce identical outputs and that builds remain reproducible.
 
@@ -313,36 +289,6 @@ Sync->>Avg : Write if changed
 - [parse.mjs:38-39](file://scripts/lib/parse.mjs#L38-L39)
 - [parse.mjs:94-117](file://scripts/lib/parse.mjs#L94-L117)
 
-### Batch Processing Workflow and Model Queue Organization
-**Updated** The sync script now generates a pre-sorted research queue (`model-queue.md`) that serves as the authoritative priority list for AI agents conducting batch research across models.
-
-The queue generation process:
-1. Extracts latest Overall scores from the score index (built during sync processing).
-2. Filters out models without parseable average entries.
-3. Sorts models by Overall Score (highest first) with alphabetical tie-breaking.
-4. Generates a clean format: `<Overall> <slug>` per line.
-5. Writes the queue file only when there are no failures (same freshness contract as other generated files).
-
-This eliminates the need for AI agents to scan every `average.md` file themselves, providing them with a ready-to-use priority queue for efficient batch processing.
-
-```mermaid
-flowchart TD
-ScoreIndex["Built score index from sync"] --> Filter["Filter models with parseable averages"]
-Filter --> Sort["Sort by Overall desc, then slug A-Z"]
-Sort --> Format["Format as '<Overall> <slug>' lines"]
-Format --> Write["Write model-queue.md"]
-Write --> Agents["AI agents consume queue for batch research"]
-```
-
-**Diagram sources**
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
-- [average.mjs:102-121](file://scripts/lib/average.mjs#L102-L121)
-
-**Section sources**
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
-- [average.mjs:102-121](file://scripts/lib/average.mjs#L102-L121)
-- [model-queue.md:1-147](file://model-queue.md#L1-L147)
-
 ### Registry and Generated Artifacts
 During sync:
 - New reporting-source stems are appended to `SourceKey` and `SOURCE_DEFS` in `src/data/sources.generated.ts`.
@@ -407,7 +353,7 @@ MirrorCheck --> |No| FailDelete["FAIL: forbidden deletion"]
 
 ### Quarantine Mechanism for Evidence-Free Reports
 Before parsing, sync inspects each active findings file and renames it to `.md.excluded` when it meets quarantine criteria:
-- Evidence-free: eight or more "no verified public score found" rows and zero measured numbers.
+- Evidence-free: eight or more “no verified public score found” rows and zero measured numbers.
 - Zero-scored: any quality dimension parsed as zero.
 - Flat profile: all five quality dimensions identical and zero measured numbers.
 
@@ -450,9 +396,7 @@ SD["scripts/sync-data.mjs"] --> P["scripts/lib/parse.mjs"]
 SD --> Q["scripts/lib/quarantine.mjs"]
 SD --> V["scripts/lib/validate.mjs"]
 SD --> C["scripts/lib/codegen.mjs"]
-SD --> A["scripts/lib/average.mjs"]
 Q --> P
-A --> P
 ```
 
 Coupling characteristics:
@@ -460,7 +404,6 @@ Coupling characteristics:
 - Helper modules are side-effect free and testable in isolation.
 - `quarantine.mjs` depends on `parse.mjs` for quality dimension definitions.
 - `validate.mjs` imports filename and metadata constants from `parse.mjs`.
-- `average.mjs` depends on `parse.mjs` for scoring constants and functions.
 - `codegen.mjs` is independent of other helpers and focuses on text surgery and serialization.
 
 Potential risks:
@@ -471,21 +414,19 @@ Potential risks:
 - [sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [quarantine.mjs:9](file://scripts/lib/quarantine.mjs#L9)
 - [validate.mjs:9](file://scripts/lib/validate.mjs#L9)
-- [average.mjs:10](file://scripts/lib/average.mjs#L10)
 
 **Section sources**
 - [sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [quarantine.mjs:9](file://scripts/lib/quarantine.mjs#L9)
 - [validate.mjs:9](file://scripts/lib/validate.mjs#L9)
-- [average.mjs:10](file://scripts/lib/average.mjs#L10)
 
 ## Performance Considerations
 - The script avoids bundling full markdown reports into the client by emitting only numeric scores.
 - Sorting and deterministic serialization reduce diff noise and improve reproducibility.
 - The rater gate and top-10 cohort limit the number of reports contributing to averages.
 - Quiet mode reduces console overhead during large runs without changing behavior.
-- Pre-sorted model queue eliminates redundant scanning of average.md files by AI agents.
-- Batch processing workflow enables efficient parallel research across multiple models.
+
+[No sources needed since this section provides general guidance]
 
 ## Troubleshooting Guide
 Common sync failures and resolutions:
@@ -514,10 +455,6 @@ Common sync failures and resolutions:
   - Symptom: Log indicates `scores.generated.ts` was not rewritten due to failures.
   - Resolution: Fix reported failures and rerun sync; generated output is withheld until the run succeeds.
 
-- Model queue generation issues
-  - Symptom: `model-queue.md` not updated or missing latest scores.
-  - Resolution: Check that all models have parseable average entries; ensure sync completes with zero failures; verify the queue file has proper formatting.
-
 - Git HEAD unreadable
   - Symptom: Warning that the tripwire was skipped because git HEAD is unreadable.
   - Resolution: Ensure the repository is initialized and accessible; treat the run as untrusted.
@@ -531,8 +468,9 @@ Debugging tip:
 - [sync-data.mjs:354-370](file://scripts/sync-data.mjs#L354-L370)
 - [sync-data.mjs:452-467](file://scripts/sync-data.mjs#L452-L467)
 - [sync-data.mjs:496-526](file://scripts/sync-data.mjs#L496-L526)
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
 - [debug-sync.mjs:1-7](file://scripts/debug-sync.mjs#L1-L7)
 
 ## Conclusion
-The sync script is the authoritative coordinator for modelcomp's data pipeline. It enforces deterministic processing, protects research evidence, quarantines unreliable reports, and generates stable TypeScript artifacts. The addition of the pre-sorted model queue system provides AI agents with an efficient batch processing workflow, eliminating redundant scanning and enabling systematic research across all models. By combining strict validation, clear failure messaging, controlled automation, and intelligent queue management, it keeps the generated application data aligned with human-authored research while minimizing manual maintenance and maximizing agent productivity.
+The sync script is the authoritative coordinator for modelcomp’s data pipeline. It enforces deterministic processing, protects research evidence, quarantines unreliable reports, and generates stable TypeScript artifacts. By combining strict validation, clear failure messaging, and controlled automation, it keeps the generated application data aligned with human-authored research while minimizing manual maintenance.
+
+[No sources needed since this section summarizes without analyzing specific files]

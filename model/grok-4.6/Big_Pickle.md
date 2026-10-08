@@ -55,38 +55,11 @@ Multimodal:
 
 - **Tool use: 87/100.** GDPval 1,753, APEX-Agents 57.5% and TB 2.1 88.4% are elite agentic numbers; TB 3.0's 26% shows the frontier hard-tail cut.
 - **Reasoning: 88/100.** Intelligence Index 61 (ties Sol Max), GPQA 94.9%, HLE 42.9%. HLE trails Fable-5-class (59%).
-- **Context window: 84/100.** 500K / 450K output; AA-LCR **80.3%** (corrected up from the 75.0 recorded via aicosts) — strong long-context reasoning, though still half the 1M-class window of the wide-window leaders.
+- **Context window: 82/100.** 500K / 450K output with LCR 75%; half the 1M-class wide-window leaders.
 - **Multimodal: 80/100.** Text+image only; vision-focused agentic/design work is a genuinely strong tier (Design Arena rows).
-- **Coding: 85/100.** Coding Index 76.8, SWE-bench (Vals) 95.6%, DeepSWE 65.9%, CursorBench 3.2 70.8% — near GPT-5.6 Sol but short of Fable 5; CursorBench 4.0 (41.4%) shows the harness-stricter hard cut.
+- **Coding: 85/100.** Coding Index 76.8, DeepSWE 65.9%, CursorBench 69.9% — near GPT-5.6 Sol but short of Fable 5.
 - **Cost efficiency: 82/100.** $2/$6 (50K-200K) with $0.50 cache and same-price reasoning levels — among the cheapest frontier reasoning APIs of Aug 2026; long-context doubles.
-- **Overall Score: 85/100.** Mean of the five quality dims (87+88+84+80+85)/5 = 84.8 → 85 (raised from 84 on 2026-10-08, see Re-verification). xAI's best-in-class cost-performance frontier agent model of the 4.x era — now with nearly every original figure independently confirmed.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-Re-run independently confirms almost every original figure and fills OSWorld/LCR and harder-harness rows (BenchLM profile, updated 2026-10-07, 37/623 covered; AA; Vals; Cursor; ARC Prize).
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 87 | 87 | — |
-| Reasoning | 88 | 88 | — |
-| Context window | 82 | 84 | +2 |
-| Multimodal | 80 | 80 | — |
-| Coding | 85 | 85 | — |
-| Cost efficiency | 82 | 82 | — |
-| **Overall** | **84** | **85** | **+1** |
-
-New and corrected data:
-
-- **GDPval discrepancy surfaced:** the xAI launch table's 1,753 is not reproduced by AA — current AA row is **1,643 (56.1%)**. Both are reported; treat the AA figure as the independent cross-check. All other launch rows confirmed: APEX-Agents 57.5%, τ³-Banking 50.7%, DeepSWE 65.9%, FrontierCode 1.1 Ext 61.3%, TB3.0 26.5%.
-- **Coding hardened:** AA Coding Index 76.8%, SWE-bench (Vals) **95.6%**, LiveCodeBench (Vals) 88.2%, AA-SciCode 56.5%, CursorBench 3.2 **70.8%**, VulcanBench v3 87.0%, FrontierSWE v2 25.3% — with a steep harness drop on **CursorBench 4.0 (41.4%)**, the strictest coding row to date.
-- **Reasoning fully confirmed at elite level:** AA-GPQA 94.9% (Vals 94.7), MMLU-Pro (Vals) 89.4%, AA-HLE 42.9%, AI II 44.3 (native-scale 61, ties Sol Max) — plus verified ARC-AGI-1 **87.0%**, ARC-AGI-2 **67.1%**, ARC-AGI-3 2.1%, CritPt 17.1%, AA-Omniscience Index 30.5 (accuracy 48.2, hallucination 34.3).
-- **AA-LCR corrected up: 80.3%** (7/10-2026 AA row; the original 75.0 came from aicosts) — this plus the 500K/450K spec upgrades Context 82 → 84.
-- **Agentic depth rows:** AA Agentic Index 53.4%, AA AutomationBench 66.7%, AA EnterpriseOps-Gym 48.3%, TB2.1 (Vals) 78.3%, CWE-bench v1 57.0% — but **ApprenticeBench GUI 13%** is a genuine weak corner for screen/agent work.
-- **Positioning:** BenchLM **67.99, #21/887** (up there with GLM-5.3's 68.71); **successor Grok 4.7** shipped 2026-09-21 (no BenchLM score yet); Grok 4.5 at 63.97. Pricing unchanged ($2/$6, cache $0.50, >200K doubles to $4/$12).
-
-Gaps still open after re-run: OSWorld-Verified row (never surfaced), GraphWalks/MRCR 1M retrieval, X-native ToolBattle/BugBounty rows, audio output confirmation, long-context-tier real-world cost math post 200K.
+- **Overall Score: 84/100.** Mean of the five quality dims (87+88+82+80+85)/5 = 84.4 → 84. xAI's best-in-class cost-performance frontier agent model of the 4.x era.
 
 ---
 

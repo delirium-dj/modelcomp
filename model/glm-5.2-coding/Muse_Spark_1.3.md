@@ -1,8 +1,7 @@
 # GLM 5.2 Coding — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.2 (coding preset), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-07 (UTC)
-- Re-research note (2026-10-07, user-approved second pass): HF-table corroboration + PostTrainBench row + editorial assessment added; scores unchanged at 74.
+- Date: 2026-09-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,8 +51,6 @@ Coding:
 - ProgramBench: **63.7%** (AI/TLDR summary of Z.ai table)
 - NL2Repo: **48.9%** (Z.ai blog)
 - FrontierSWE dominance: **74.4%** (Z.ai blog; Opus 4.8 75.1, GPT-5.5 72.6 on same card)
-- PostTrainBench: **34.3%** (HF table: 5.1 20.1, Opus 4.8 37.2, GPT-5.5 28.4 — new)
-- Third-party read (2026-10-07): orcarouter editorial assessment ~8.5/10 ("first open-weight model close enough to the frontier to be a default"; Coding 9/10, Agentic 8/10, Reasoning 8/10, Cost 10/10, Context 9/10, Speed 7/10) — qualitative corroboration, unscored
 - SWE-Marathon: **13.0%** (Z.ai blog; Opus 4.8 26.0 on same card)
 - SciCode: **51.2%** (OpenRouter AA `max`)
 - Vibe Code Bench: **no verified public score found**
@@ -79,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-07
-- Method: public internet research (Z.ai GLM-5.2 blog 2026-06-16 + HF `zai-org/GLM-5.2`, OpenRouter AA `max` panel, AI/TLDR + benchr/orcarouter summaries) + 2026-10-07 re-research pass (zai-org/GLM-5 GitHub table, orcarouter editorial review); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
+- Method: public internet research (Z.ai GLM-5.2 blog 2026-06-16 + HF `zai-org/GLM-5.2`, OpenRouter AA `max` panel, AI/TLDR + benchr/orcarouter summaries); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

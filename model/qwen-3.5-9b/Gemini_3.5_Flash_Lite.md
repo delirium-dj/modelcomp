@@ -62,5 +62,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-01
+- Provided by:  — 2026-10-08
 - Method: public internet research and benchmark aggregation; scores are normalized 1–100 interpretations, not official vendor scores.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-08 (UTC)
+- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

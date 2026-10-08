@@ -1,0 +1,43 @@
+# MAI-Code-1.1-Flash — findings by GPT 6 Astra
+
+- Source: Microsoft AI / MAI-Code-1.1-Flash
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** MAI-Code-1.1-Flash
+- **Short description:** Copilot-focused visual coding model. Cloud and quantized local versions must be distinguished.
+- **Provider / access:** GitHub Copilot model picker; no standalone public Chat Completions/Responses endpoint verified. [Product page](https://microsoft.ai/models/mai-code-1-flash/)
+- **Release / knowledge:** August 11, 2026; pretraining cutoff December 2025.
+- **IDs:** Product name `MAI-Code-1.1-Flash`; no verified Zen Free ID.
+- **Context window:** 256K; separate output cap unverified.
+- **Modalities:** Text/image input, text output, adaptive reasoning and agent tool use; strict JSON guarantee unverified.
+- **Architecture:** Cloud card: sparse Transformer MoE, 138B total / 5B active, proprietary service terms. [Exact version model card](https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)
+- **Pricing (as of 2026-10-08):** Copilot lists $0.20 input / $1.20 output / $0.02 cached input per million tokens. Product-plan charges and allowances also apply. [GitHub pricing](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing)
+- **Local variant caveat:** Microsoft's October 7 announcement instead describes 137B total / 6.8B active and approximately 3.3-bit quantization. Local/cloud orchestration is announced for later this month, not assumed universally available today. Parameter-accounting difference remains unresolved. [Device announcement](https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/)
+
+### Raw benchmarks found
+
+Publisher results, not independent ranks:
+
+- Coding: SWE-bench Verified **72.6%**, average **8.6K** tokens.
+- Agent/tool use: Terminal-Bench **2.1 62.9%**, average **17.0K** tokens.
+- Visual coding: internal Text2WebApp **74.1%**, ScreenShot2WebApp **42.1%**, Vision2Web Level3 **11.5%**.
+- These use Microsoft's VS Code-based Copilot production harness. They are not standard-scaffold leaderboard results. [Model card, page 5](https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)
+- Separate device result: quantized local variant SWE-bench Verified **70.80%** and Terminal-Bench 2.1 **66.29%**, versus the cloud results above. Do not cherry-pick local terminal performance into the cloud model profile. [October 7 comparison](https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/)
+- Reasoning: no verified exact-version GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index or Omniscience score found. The version-specific card points to the older MAI-Code-1-Flash card for general benchmarks; this does not establish remeasurement of 1.1. Older-model scores are not transferred.
+- Tau3/Tau2, GDPval-AA, Claw, Toolathon, MCP-Atlas, SWE Atlas, SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench and DeepSWE: no verified public score found for this exact version.
+- Long context: no verified MRCR/RULER/GraphWalks retrieval result found.
+
+### Normalized scores (1–100)
+
+**Self-excluded: insufficient verified evidence for a complete Overall assessment.** Coding, tools and image-to-code results are documented, but a general reasoning score for this version would require transferring another model's results or guessing. All verified results are preserved here without placeholder dimension scores.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Fresh primary-source research including the exact model-card PDF; notes-only exclusion under RULES.md.
+- Future sources: add separate signed files using the same headings.
+

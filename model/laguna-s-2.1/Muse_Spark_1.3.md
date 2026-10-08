@@ -1,8 +1,7 @@
 # Laguna S 2.1 — findings by Muse Spark 1.3
 
 - Source: Poolside/Laguna S 2.1 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-07 (UTC)
-- Re-research note (2026-10-07, user-approved second pass): Poolside leaderboard context + thinking-range + rankllms audit added; scores unchanged at 68.
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,8 +24,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **70.2%** (Poolside release table; Ollama library tagline confirms; vs Hy3 71.7%, Inkling 63.8%, Nemotron 3 Ultra 56.4%; vendor leaderboard context: #11, between Hy3 #10 and M3 #12); max-thinking lifts TB2.1 60.4%→70.2% and DeepSWE 16.5%→40.4% (no user effort control shipped — release-day setting only)
-- rankllms.com composite (SWE-V 33.1%, GPQA 41.5%, TB 33.1%) contradicts the vendor table by ~2x on every row — excluded as unreliable for this model (same aggregator mislabels other models' rows; see GPT-6 Astra file note)
+- Terminal-Bench 2.1: **70.2%** (Poolside release table; Ollama library tagline confirms; vs Hy3 71.7%, Inkling 63.8%, Nemotron 3 Ultra 56.4%)
 - Toolathlon Verified: **49.7%** (Poolside release table via ModelScope page)
 - SWE Atlas Codebase QnA: **46.2%** (same table)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
@@ -47,7 +45,7 @@ Coding:
 
 - SWE-bench Verified / SWE-Pro: **59.4% SWE-Bench Pro (public dataset)** (Poolside release table; vs Hy3 57.9%, MiniMax M3 59.0%, Qwen 3.7 Max 60.6%)
 - SWE-bench Multilingual: **78.5%** (same table; leading open disclosed-size model; vs Hy3 75.8%)
-- DeepSWE v1.1: **40.4%** (same table; max-thinking, up from 16.5% no-think; vs V4-Pro-Max 9.0%; vendor DeepSWE rank context #13; pool harness, not mini-swe-agent — comparability caveat per vendor)
+- DeepSWE v1.1: **40.4%** (same table; max-thinking, up from 16.5% no-think; vs V4-Pro-Max 9.0%)
 - LiveCodeBench: **no verified public score found**
 - SciCode / AA-SciCode: **no verified public score found**
 - Vibe Code Bench: **no verified public score found**
@@ -77,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Poolside launch blog + press release, ModelScope model page, Ollama library page, orcarouter pricing page, BenchLM model page, GIGAZINE coverage; vendor is Poolside) + 2026-10-07 re-research pass (HF/NVFP4 README tables, poolside.ai models page, rankllms audit with exclusion note); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Poolside launch blog + press release, ModelScope model page, Ollama library page, orcarouter pricing page, BenchLM model page, GIGAZINE coverage; vendor is Poolside); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -56,31 +56,7 @@ Multimodal:
 - **Multimodal: 70/100.** Real vision added at 384 tokens/image, but the 800×800 downscale loses dense small text (OCR-heavy use cases suffer) — a clear visual ceiling.
 - **Coding: 73/100.** DeepSWE 59.3% edges Opus 4.8 and LiveBench coding ~68%; NL2Repo 57.7% trails the frontier by a clear margin.
 - **Cost efficiency: 95/100.** $0.22/$0.66 with images at ~384 tokens each (≈$0.000085/image) makes bulk agentic-vision loops extraordinarily cheap.
-- **Overall Score: 77/100.** Mean of the five quality dims (76+81+84+70+73)/5 = 76.8 → 77 (unchanged). A genuinely useful cheap-vision agent model — but it is an unverified, experimental checkpoint with a soft 800×800 cap on everything it sees.
-
----
-
-## Re-verification — 2026-10-08 (18 days after original)
-
-| Dimension | 2026-09-20 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 76 | 76 | — |
-| Reasoning | 81 | 81 | — |
-| Context window | 84 | 84 | — |
-| Multimodal | 70 | 70 | — |
-| Coding | 73 | 73 | — |
-| Cost efficiency | 95 | 95 | — |
-| **Overall** | **77** | **77** | **—** |
-
-New and corrected data (all found 2026-10-08):
-
-- **Pricing ambiguity resolved: $0.22 in / $0.66 out, cached $0.007** — confirmed by cloudprice.net and lmmarketcap (2026-09-29 refresh); the old "$0.14/$0.28 launch" figure was a partner-gateway/tier variant. modelsatlas lists a $0.44/$1.32 route — gateway variance, official rate is $0.22/$0.66.
-- **No BenchLM entry exists** for this checkpoint (404) — still largely independent since it peaked in Aug 2026; lmmarketcap ranks it #40/100 coding composite (same 40-tier as V4 Pro 0813 and V4.1 Flash).
-- **Multimodal-agent 2-2 tie with Opus 4.8 independently corroborated** (gate.com via ChainCatcher): won ALE 27.3 vs 25.7 and ZeroBench 35.0 vs 34.0; lost ApexBench 36.5 vs 39.4 and Chartography 64.3 vs 65.0 — matches the original file's rows exactly.
-- Context/coding/retrieval figures (GPQA 90.8% legacy, MRCR, SWE-bench Verified) remain **unpublished for this checkpoint** — the base branch (V4 Flash 0731) shows MRCR 1M 78.7% / BrowseComp 73.2% / LCB 91.6% per BenchLM's V4-Flash-0731 profile, but these are NOT verified for the vision variant and are not being folded in.
-- **Successor note:** DeepSeek V4.1 Flash shipped 2026-09-10 ($0.035/$0.29, batch $0.112/$0.336) — cheaper and newer than this experimental vision checkpoint; Vision-Exp remains the cheapest open *vision* agent in the V4 line.
-
-Gaps still open after re-run: MHMU/OCRBench/DocVQA/ChartQA exact vision numbers (vendor promised, never published numerically), MRCR, SWE-bench Verified, GPQA/HLE on the vision checkpoint, BenchLM coverage.
+- **Overall Score: 77/100.** Mean of the five quality dims (76+81+84+70+73)/5 = 76.8 → 77. A genuinely useful cheap-vision agent model — but it is an unverified, experimental checkpoint with a soft 800×800 cap on everything it sees.
 
 ---
 

@@ -45,44 +45,28 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Toolathlon Verified 73.5% (beating DeepSeek-V4-Flash), AndroidWorld 84.5% and CoWorkBench 73.9% place it at the top of mid-tier, and Terminal-Bench 2.1 **84.3%** (datacamp, Flash-Next card) finally fills the previously open OSWorld/TB2.1 slot — still short of the closed frontier's agentic ceiling.
-- **Reasoning: 84/100.** Vendor-claimed GPQA 91.7% is near-frontier, corroborated by a strong LLM Stats reasoning index (48.9) and AA Knowledge row **57.4** (#10-class for the Flash-Next checkpoint); without independent HLE it sits below the 90+ gate.
+- **Tool use: 80/100.** Toolathlon Verified 73.5% (beating DeepSeek-V4-Flash), AndroidWorld 84.5% and CoWorkBench 73.9% place it at the top of mid-tier; no verified OSWorld/TB2.1 keeps it under the frontier.
+- **Reasoning: 84/100.** Vendor-claimed GPQA 91.7% is near-frontier, corroborated by a strong LLM Stats reasoning index (48.9); without independent HLE it sits below the 90+ gate.
 - **Context window: 88/100.** 1M window at the API with 131K output but 262K native + YaRN extension; no verified 512K+ retrieval score.
 - **Multimodal: 85/100.** Full image + video input with dense tool-calling interoperability; no verified vision benchmark caps it below 90.
 - **Coding: 80/100.** SWE-bench Pro 62.5% and Multilingual 81.0% beat Claude Opus 4.6 Max; DeepSWE 58.7% is strong for a ~6B-active model — a standout coding value.
 - **Cost efficiency: 96/100.** ~$0.15/$0.47 or free self-hosting; one-third of DeepSeek-V4-Flash pricing at comparable-or-better agentic benchmarks — near-floor cost for a multi-modal frontier-adjacent model.
-- **Overall Score: 84/100.** (82 + 84 + 88 + 85 + 80) / 5 = 83.8 → 84 (raised from 83 on 2026-10-08, see Re-verification). The runaway-value pick of the Qwen3.8 line: multimodal MoE, 1M context and Opus-beating agentic coding at pocket-change pricing, with open weights on a new-efficient Qwen4 blueprint.
-
----
-
-## Re-verification — 2026-10-08 (15 days after original)
-
-Re-run fills the previously open agentic gap and adds a current knowledge anchor (datacamp Flash-Next card/benchmarks, 2026-10; AA Knowledge row; pricepertoken).
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 80 | 82 | +2 |
-| Reasoning | 84 | 84 | — |
-| Context window | 88 | 88 | — |
-| Multimodal | 85 | 85 | — |
-| Coding | 80 | 80 | — |
-| Cost efficiency | 96 | 96 | — |
-| **Overall** | **83** | **84** | **+1** |
-
-New and corrected data:
-
-- **Terminal-Bench 2.1 finally verified: 84.3%** (datacamp's Qwen3.8-Flash-Next benchmark profile) — the model's best agentic row and the missing piece the original flagged; the OSWorld-slot claim ("no verified public score found") is now resolved for TB2.1 specifically. OSWorld itself still lacks a row.
-- **AA Knowledge corroboration:** the Flash-Next checkpoint carries a **57.4** Artificial Analysis Knowledge row (BenchLM KB index, excerpt "10/29 total" rowset) — consistent with the 84 reasoning score.
-- **Composite/positioning:** no dedicated BenchLM profile slug resolves for `qwen3.8-flash` or `flash-next` (404s) — scores must still lean on vendor/llm-stats/datacamp; llm-stats overall 49.2 (#19) unchanged. Flash-Next OSS weights remain the same model as the API "Qwen3.8 Flash" (Alibaba's own equivalence).
-- **Pricing unchanged and still exceptional:** $0.15/$0.47 (intl $0.113/$0.382); datacamp shows an even lower floor (~$0.075–$0.16 across hosts). Free self-host unchanged.
-- **No deprecation or reasoning-level change found**; 1M API window, 131K output, QSA speedup claims stand as original.
-
-Gaps still open after re-run: OSWorld scroll, HLE independent row, MRCR 1M retrieval, standalone BenchLM profile page, video-benchmark row.
+- **Overall Score: 83/100.** (80 + 84 + 88 + 85 + 80) / 5 = 83.4 → 83. The runaway-value pick of the Qwen3.8 line: multimodal MoE, 1M context and Opus-beating agentic coding at pocket-change pricing, with open weights on a new-efficient Qwen4 blueprint.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Pandaily, kie.ai spec sheet, Alibaba Cloud Model Studio docs, LLM Gateway, llm-stats, datacamp Qwen3.8-Flash-Next profile, pricepertoken); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Pandaily, kie.ai spec sheet, Alibaba Cloud Model Studio docs, LLM Gateway, llm-stats head-to-heads); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
+
+---
+
+## Submission checklist (delete before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`).
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No raw benchmark invented — "no verified public score found" used where missing.
+5. Zero verified benchmarks for this model → file saved as `<Source_Name>.md.excluded`, not `.md` (see SELF-EXCLUSION above).

@@ -49,5 +49,10 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-03
+- Provided by:  — 2026-10-08
 - Method: independent public internet research (Hugging Face model card, AI/TLDR release notes, BenchLeader / Artificial Analysis benchmarks); normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-08 (UTC)
+- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mai-thinking-1",
+  "name": "MAI-Thinking-1",
+  "short": "Microsoft AI's deep reasoning model designed for complex multi-step problem solving and advanced mathematical verification.",
+  "contextWindow": "131,072 total (32,768 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "$2.00/$10.00 per 1M in/out (Microsoft AI)",
+  "noFreeId": true
+}

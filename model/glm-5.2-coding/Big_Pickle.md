@@ -48,45 +48,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** TB2.1 81.0%, MCP-Atlas 76.8% (near Opus 4.8), FrontierSWE 74.4%, τ²-bench 99.1% — strong agent stack; Tool-Decathlon 48.2%, TB3.0 4.6%, APEX-Agents 33.7% and AA Agentic Index 39.4% are the caps.
-- **Reasoning: 83/100.** GPQA 91.2%, HLE 54.7% with tools, AIME 2026 99.2%, CritPt 20.9 (up from 4.6 across versions); still a solid-but-not-elite AA II 33.7.
-- **Context window: 57/100.** Scored on the evaluated Zen tier's 128K window (100K–200K band); the base 1M model (AA-LCR 78.3) would score far higher — flag as tier/cap discrepancy.
+- **Tool use: 80/100.** TB2.1 81.0%, MCP-Atlas 77.0% (near Opus 4.8), FrontierSWE 74.4%, Code Arena #2 — strong agent stack; Tool-Decathlon 48.2% is the main cap.
+- **Reasoning: 82/100.** GPQA 91.2%, HLE 54.7% with tools, AIME 2026 99.2%; CritPt 16.7 caps it from a higher value.
+- **Context window: 57/100.** Scored on the evaluated Zen tier's 128K window (100K–200K band); the base 1M model would score far higher — flag as tier/cap discrepancy.
 - **Multimodal: 15/100.** Text-only (no image/audio/video input).
-- **Coding: 79/100.** SWE-bench Pro 62.1% (#1 open at launch), SWE-bench (Vals) 82.8%, TB2.1 81.0%, ProgramBench 63.7%; AA Coding Index 68.8, CursorBench 3.2 55.0% and the DeepSWE/SWE-Marathon gap cap it.
+- **Coding: 80/100.** SWE-bench Pro 62.1% (#1 open at launch), TB2.1 81.0%, ProgramBench 63.7%; DeepSWE 46.2% and SWE-Marathon 13.0% are the frontier gaps that cap it.
 - **Cost efficiency: 88/100.** $1.40/$4.40 with $0.26 cached input plus MIT self-host option; roughly a 6–7× price advantage over closed frontier at launch (then-modern rate card).
-- **Overall Score: 62/100.** (78 + 83 + 57 + 15 + 79) / 5 = 62.4 → **62** (lowered from 63 on 2026-10-08, see Re-verification). Best-fit: budget long-horizon coding and Claude Code drop-ins; reach for the 1M base endpoint when context matters — the 128K Zen tier caps the window.
-
----
-
-## Re-verification — 2026-10-08 (15 days after original)
-
-Re-run widens the proxy base-GLM-5.2 profile (BenchLM 61.56, #47/887, 43/623, updated 2026-10-07) with AA/Vals/Cursor rows and refreshed AGPQA/HLE values.
-
-| Dimension | 2026-09-23 | 2026-10-08 | Δ |
-|---|---|---|---|
-| Tool use | 80 | 78 | −2 |
-| Reasoning | 82 | 83 | +1 |
-| Context window | 57 | 57 | — |
-| Multimodal | 15 | 15 | — |
-| Coding | 80 | 79 | −1 |
-| Cost efficiency | 88 | 88 | — |
-| **Overall** | **63** | **62** | **−1** |
-
-New and corrected data:
-
-- **Tool-use truth-telling:** TB3.0 **4.6%** (the biggest agentic gap), APEX-Agents-AA **33.7%**, AA Agentic Index **39.4%**, AA ITBench 42.7%, ResearchClawBench **20.7%**, GDPval-AA (norm) 43.7%; confirmed positives TB2.1 81.0%, MCP Atlas 76.8%, Toolathlon 48.2%, τ²-bench **99.1%**. Tool 80 → 78.
-- **Reasoning nuancing:** CritPt now **20.9** (better than the 16.7 originally recorded), AA-GPQA 89.5 (vs vendor 91.2), AA-HLE 41.1%, AA II 33.7, HLE 54.7 w/ tools / 40.5 no-tools re-confirmed; GPQA (Vals) 85.6 / MMLU-Pro (Vals) 86.7 added. Reason 82 → 83.
-- **Coding made honest:** AA Coding Index **68.8%**, AA-SciCode 51.2%, CursorBench 3.2 **55.0%**, OpenHarmony 58.4%, SWE-bench (Vals) **82.8%**, LCB (Vals) 69.5%; original launch rows hold (SWE-Pro 62.1, ProgramBench 63.7, NL2Repo 48.9, PostTrainBench 31.7 vs the "34.3" earlier read).
-- **Multimodal/collections:** Design Arena 1292; but the coding SKU remains text-only at the Zen tier — 15 stands.
-- **Lineage:** GLM-5.3 (68.71, #20) is the current flagship and takes over GLM-5.2 requests in Coding Plans; a dedicated 128K coding-SKU row remains unevaluated in BenchLM.
-- Pricing unchanged ($1.40/$4.40, cache $0.26; 1M-base endpoint 131K out).
-
-Gaps still open after re-run: DeepSWE row above 46.2%, SWE-Marathon, MRCR/RULER at full 1M window, an independent run of the 128K coding-SKU tier.
+- **Overall Score: 63/100.** (80 + 82 + 57 + 15 + 80) / 5 = 62.8 → **63**. Best-fit: budget long-horizon coding and Claude Code drop-ins; reach for the 1M base endpoint when context matters — the 128K Zen tier caps the window.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-08 (re-verified; original research 2026-09-23)
-- Method: public internet research (Z.ai blog + HF model card, BenchLM, AA, Vals, Cursor, OpenHarmony, Tarsk, CodingFleet, benchr, treerouter, Kilo Code, TestingCatalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-23
+- Method: public internet research (Z.ai blog + HF model card, Tarsk, CodingFleet, benchr, apidog, treerouter, Kilo Code, TestingCatalog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

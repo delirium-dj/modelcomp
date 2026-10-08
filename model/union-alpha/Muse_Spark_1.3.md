@@ -1,7 +1,7 @@
 # Union Alpha — findings by Muse Spark 1.3
 
 - Source: Unbiased/Pareto 26.9 (stealth `union-alpha`), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77); re-research pass 2026-10-07 adds features-page + third-party rows, scores unchanged at 77
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,7 +12,7 @@
 - **Provider / access:** OpenCode Zen `opencode/union-alpha` at `https://opencode.ai/zen/v1/chat/completions` (Chat Completions, OpenAI-compatible). Also OpenRouter `stealth/union-alpha` (preview, now `unbiased/pareto`).
 - **Release / knowledge:** 2026-09-16 stealth listing (OpenRouter/OpenCode Zen/Cloudflare); revealed 2026-09-17 23:24 UTC as Unbiased Pareto 26.9; knowledge cutoff undisclosed
 - **IDs:** `opencode/union-alpha` (Zen); `unbiased/pareto` (OpenRouter named); `stealth/union-alpha` (expired preview page)
-- **Context window:** 262,144 total in, 131,072 max out — verified via OpenRouter catalog API (quoted in Capital & Compute 2026-09-18 and CellCog 2026-09-16); union-alpha.org states 256K — both listed
+- **Context window:** 262,144 total in, 131,072 max out — verified via OpenRouter catalog API (quoted in Capital & Compute 2026-09-18 and CellCog 2026-09-16)
 - **Modalities:** text + image in; text out; reasoning control not exposed; tool calling yes (tool_choice supported); JSON mode via standard chat API
 - **Pricing (as of 2026-09-22):** Paid $2.50 in / $7.50 out / $0.25 cached per 1M (Unbiased card + OpenRouter listing agree). Free preview ($0) ran only ~33 hours 2026-09-16→17, against the announced week — scored on paid pricing. Privacy split: Zen documents zero-retention/no-training, OpenRouter preview listing allowed provider retention without training.
 - **Architecture:** proprietary blended composite (Unbiased, Circuit & Chisel) — several models run per request with a selection layer; params, MoE status, and weights undisclosed; no open weights
@@ -33,7 +33,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.9%** (tpsreport third-party page — provisional single-source, anonymous-provider caveat); **89.8% MMLU-Pro, 91.8% HumanEval+** (union-alpha.org official features page — new, vendor-site)
+- GPQA Diamond: **no verified public score found**
 - HLE (no tools): **49%** (Unbiased model card, vendor-run; Fable 5.1 55, Astra 54, DeepSeek 4.1 Flash 39 on same card)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-07
-- Method: public internet research (Unbiased Pareto 26.9 card via CellCog/Capital & Compute 2026-09-16→18, OpenRouter + OpenCode charts with times, buildfastwithai review, OpenCode data page) + 2026-10-07 re-research pass (union-alpha.org features page, tpsreport/HF/openrouter-compare listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
+- Method: public internet research (Unbiased Pareto 26.9 card via CellCog/Capital & Compute 2026-09-16→18, OpenRouter + OpenCode charts with times, buildfastwithai review, OpenCode data page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

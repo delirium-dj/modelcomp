@@ -1,0 +1,9 @@
+{
+  "id": "opencode/solar-mini-4",
+  "name": "Solar Mini 4",
+  "short": "Upstage's efficient lightweight model optimized for high-throughput enterprise tasks and fast inference.",
+  "contextWindow": "65,536 total (16,384 out)",
+  "modalities": "Text in/out",
+  "pricingNote": "$0.20 / $0.80 per 1M tokens (Upstage)",
+  "noFreeId": true
+}

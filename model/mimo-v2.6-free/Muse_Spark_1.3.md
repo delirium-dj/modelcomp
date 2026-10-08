@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Muse Spark 1.3
 
 - Source: Xiaomi/MiMo-V2.6-Flash (Free tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-07 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90); re-research pass 2026-10-07 adds waitwhichmodel Flash-table audit, scores unchanged at 90
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,6 @@ Coding:
 - MiMo Code Bench (in-house): **61.2%** (Xiaomi official card; Pro 63.2)
 - JobBench: **61.2%** (Xiaomi official card; Pro 62.0, Opus 5 65.7 on same card)
 - CyberGym: **95.1%** (Xiaomi official card; Pro 94.0 — sole row Flash wins outright)
-- ProgramBench: **26.0%** (waitwhichmodel Flash-table audit — new, weak row); **27.6% Agents' Last Exam** (same audit — new); **6.0% ExploitGym, 25.3% ExploitBench, 47.5% SEC Bench Pro** (same audit — new weak tails); **71.5% MiMo Visual Coding** (same audit — new)
-- Third-party absence audit (2026-10-07): GPQA, SWE-Verified/Pro, HLE, AIME, MMLU-Pro, ARC-AGI-2 unpublished for Flash; no AA Flash listing; no arena board presence (waitwhichmodel); rankllms prints SWE-V 67.2%/GPQA 54.8%/TB 64.5% — excluded as unreliable for this model (same aggregator mislabels other models' rows)
 
 Long context:
 
@@ -76,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-07
-- Method: public internet research (Xiaomi release page + HF README, VentureBeat 2026-09-22, orcarouter/cellcog comparisons of Xiaomi tables, AA Index pages for Pro proxy) + 2026-10-07 re-research pass (waitwhichmodel Flash-table audit, rankllms audit with exclusion note, OpenRouter Pro rows for family context); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
+- Method: public internet research (Xiaomi release page + HF README, VentureBeat 2026-09-22, orcarouter/cellcog comparisons of Xiaomi tables, AA Index pages for Pro proxy); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

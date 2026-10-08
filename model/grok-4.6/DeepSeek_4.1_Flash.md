@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (`grok-4.6`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-09-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,52 +21,48 @@
 
 Agent / tool use (vendor table, Grok 4.6 High, 2026-08-12):
 
-- AA Intelligence Index: **61** (vendor, Grok 4.5 High 56, GPT-5.6 Sol Max 61, Fable 5 Max 62) — BenchLM's independent AA Agentic Index reads **53.4%** and AA Intelligence Index **44.3%**
-- GDPval-AA v2: **1753 Elo** (vendor; Grok 4.5 1526, GPT-5.6 Sol Max 1728, Fable 5 Max 1741) — Artificial Analysis' independent GDPval-AA is **1643 Elo / 56.1%**
-- APEX-Agents: **57.5%** (4.5 47.1%, Sol 56.7%, Fable 59.2%); APEX-SWE: **56.4%** (4.5 53.6%, Fable 58.8%)
-- Terminal-Bench 3.0: **26.5%** (Terminal-Bench 3.0 leaderboard, via BenchLM; vendor table 26.0%, 4.5 15.7%, Sol 34.6%, Fable 34.1%); Terminal-Bench 2.1 via Vals **78.3%** — the earlier RankLLMs "Terminal-Bench 2.1 26.0%" label was actually the v3.0 row
-- AA Tau3-Banking: **50.7%** (Artificial Analysis) — previously unpublished; AA EnterpriseOps-Gym **48.3%**; AA AutomationBench **66.7%**; CWE-bench v1 **57.0%**
+- AA Intelligence Index: **61** (Grok 4.5 High 56, GPT-5.6 Sol Max 61, Fable 5 Max 62)
+- GDPval-AA v2: **1753 Elo** (Grok 4.5 1526, GPT-5.6 Sol Max 1728, Fable 5 Max 1741)
+- APEX-Agents: **57.5%** (4.5 47.1%, Sol 56.7%, Fable 59.2%)
+- APEX-SWE: **56.4%** (4.5 53.6%, Fable 58.8%)
+- Terminal-Bench v3.0: **26.0%** (4.5 15.7%, Sol 34.6%, Fable 34.1%) — RankLLMs lists this same 26.0% as "Terminal-Bench 2.1", conflicting with the vendor's TB v3.0 label
 - AA-Briefcase: **1577** (4.5 1313, Sol 1502, Fable 1574); Harvey LAB (Vals): **15.8%** (Sol 2.5%, Fable 11.3%)
 - BrowseComp **57.5%** and OSWorld computer-use **58.0%** (RankLLMs verified panel)
-- Tau2-Bench / MCP-Atlas / Claw-Eval / Toolathon / SWE Atlas: no verified public score found
+- Tau3-Banking / Tau2-Bench / MCP-Atlas / Claw-Eval / Toolathon / SWE Atlas: no verified public score found
 
 Reasoning / knowledge:
 
 - BenchLM composite: **69.7/100, #17 of 230** tracked models; strongest eligible category "Agentic" **#7** (data as of 2026-09-18)
 - RankLLMs composite: **55.6/100, #12 of 80** tracked models
-- GPQA Diamond: **94.9%** (AA-GPQA Diamond) / **94.7%** (Vals) — this corrects the earlier RankLLMs 63.2% reading, which was an unconfirmed outlier; MMLU-Pro (Vals) **89.4%**
-- AA-LCR: **80.3%** (Artificial Analysis long-context reasoning); CritPt: **17.1%**
-- ARC-AGI-1: **87.0%**; ARC-AGI-2: **67.1%**; ARC-AGI-3: **2.1%** (ARC Prize verified)
-- AA-HLE: **42.9%** (above the 40%+ frontier reference); AA-Omniscience Index **30.5%** / Accuracy **48.2%** / Hallucination Rate **34.3%**
-- MATH-500: **61.0%** (RankLLMs); MRCR / RULER / MLCR: no verified public score found
+- GPQA Diamond: **63.2%** and MATH-500: **61.0%** (RankLLMs independent panel — far below the ~88.9% peer median on GPQA and far below xAI's frontier positioning; no vendor GPQA number was published, so treat it as an unconfirmed outlier)
+- HLE / LCR / MLCR / CritPt / MRCR / RULER / Omniscience accuracy / Hallucination rate: no verified public score found
 
 Coding:
 
-- SWE-bench (Vals): **95.6%**; SWE-bench Verified pass@1: **78.5%** (RankLLMs, verified panel — at its 78.5% peer median)
+- SWE-bench Verified: **78.5%** pass@1 (RankLLMs, verified panel — at its 78.5% peer median)
 - DeepSWE v1.1: **65.9%** (vendor; GPT-5.6 Sol Max 73%, Fable 5 Max 70%, Grok 4.5 54%)
-- CursorBench v3.2: **70.8%** (Cursor evals; vendor table 69.9%); FrontierCode v1.1 (Extended): **61.3%** (Sol 60.6%, Fable 63.6%)
-- LiveCodeBench (Vals): **88.2%** — previously unpublished; AA-SciCode: **56.5%** (frontier 55%+); AA Coding Index: **76.8%** (frontier 70%+); VulcanBench v3 **87.0%**
-- CursorBench 4.0: **41.4%**; FrontierSWE v2: **25.3%**; Bug Hunt Bench: **27 fixes**; Vibe Code Bench / SWE-Atlas: no verified public score found
+- CursorBench v3.2: **69.9%** (Sol 67.2%, Fable 70.5%); FrontierCode v1.1 (Extended): **61.3%** (Sol 60.6%, Fable 63.6%)
+- LiveCodeBench / SciCode / AA-SciCode / Vibe Code Bench / SWE-Atlas: no verified public score found
 
 Long context:
 
-- No MRCR, RULER or GraphWalks retrieval score was published by xAI or any evaluator found; AA-LCR **80.3%** is the only retrieval-adjacent figure, so 500K-window retrieval at depth remains unverified.
+- No MRCR, RULER or GraphWalks retrieval score was published by xAI or any evaluator found; the 500K window is documented but retrieval at depth is unverified.
 - Cost-relevant long-context behaviour is documented instead: the 200K prompt cliff reprices the whole request to $4/$12, and multi-turn cache hits require sticky cache keys (`prompt_cache_key` on Responses, `x-grok-conv-id` on Chat Completions).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** GDPval-AA 1753 Elo (vendor) / 1643 Elo (AA) sits near the 1750+ frontier reference, AA Tau3-Banking 50.7% clears the 50%+ reference, and APEX-Agents 57.5% and AA AutomationBench 66.7% are strong; capped by Terminal-Bench 3.0 at only 26.5% (Sol 34.6%) and Terminal-Bench 2.1 via Vals at 78.3%.
-- **Reasoning: 88/100.** GPQA Diamond 94.9% (AA) / 94.7% (Vals) and AA-HLE 42.9% both clear the frontier references, with AA-LCR 80.3%, ARC-AGI-2 67.1% and ARC-AGI-1 87%; held below 90+ by the AA Intelligence Index at 44.3 (frontier 60+).
+- **Tool use: 84/100.** GDPval-AA 1753 beats Fable 5 Max and AA Intelligence Index 61 ties GPT-5.6 Sol Max, so it is genuinely frontier on knowledge-work agents; capped by Terminal-Bench v3.0 at only 26.0% (Sol 34.6%) and by the total absence of Tau3, MCP-Atlas and Claw-Eval evidence.
+- **Reasoning: 84/100.** AA Intelligence Index 61 plus the best Harvey LAB score in its own table (15.8%) and BenchLM Agentic #7; capped by the unconfirmed low GPQA (63.2% on the independent panel), no HLE and no LCR/MRCR-class evidence.
 - **Context window: 88/100.** 500K input sits in the 85–94 band with no published output cap and no retrieval measurement at depth — and the ≥200K tier doubles the whole request, a practical ceiling on using it.
-- **Multimodal: 65/100.** Text + image in, text out (Design Arena 1296) is the classic image-only band; no MMMU/VideoMME-class score was published to justify the top of it.
-- **Coding: 87/100.** DeepSWE v1.1 65.9%, LiveCodeBench 88.2%, AA-SciCode 56.5% (frontier 55%+), AA Coding Index 76.8% (frontier 70%+) and FrontierCode 61.3%; strong, but DeepSWE is ~7 points behind GPT-5.6 Sol Max and no Vibe Code Bench number exists.
+- **Multimodal: 65/100.** Text + image in, text out (xAI claims stronger visual/interactive first passes than 4.5) is the classic image-only band; no MMMU/VideoMME-class score was published to justify the top of it.
+- **Coding: 83/100.** DeepSWE v1.1 65.9%, SWE-bench Verified 78.5%, CursorBench 69.9%, FrontierCode 61.3%; strong, but DeepSWE is ~8 points behind GPT-5.6 Sol Max and no LiveCodeBench/SciCode/Vibe numbers exist.
 - **Cost efficiency: 78/100.** $2/$6 with $0.50 cached input sits between the ~88 anchor ($1.25/$4.25) and the ~60 anchor ($3/$15); docked for the whole-request 200K repricing to $4/$12, the 2× Priority lane and the absence of any free tier.
-- **Overall Score: 82/100.** (84 + 88 + 88 + 65 + 87) / 5 = 82.4 → **82**. Best fit: long-running knowledge-work and product-building agents where GDPval-AA-grade output matters more than peak SWE-bench coding.
+- **Overall Score: 81/100.** (84 + 84 + 88 + 65 + 83) / 5 = 80.8 → **81**. Best fit: long-running knowledge-work and product-building agents where GDPval-AA-grade output matters more than peak SWE-bench coding.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: fresh public internet research re-verified 2026-10-06 — xAI launch post (2026-08-12), BenchLM model record (data 2026-10-07) citing xAI, Artificial Analysis, Vals, Cursor and ARC Prize leaderboards, plus the earlier RankLLMs panel; previously unpublished Tau3, LCR, GPQA, SciCode and LiveCodeBench rows were filled and the earlier unconfirmed GPQA null corrected. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-20
+- Method: fresh public internet research on 2026-09-20 — xAI launch post (2026-08-12), LLM Stats release analysis, RankLLMs verified panel (updated 2026-09-18) and BenchLM model record (data 2026-09-18); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

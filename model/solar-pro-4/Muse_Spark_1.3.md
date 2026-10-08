@@ -1,8 +1,7 @@
 # Solar Pro 4 — findings by Muse Spark 1.3
 
 - Source: Upstage/Solar Pro 4 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-07 (UTC)
-- Re-research note (2026-10-07, user-approved second pass): AA-article GDPval-Elo + KO/JP rows + in-house-harness caveats added; scores unchanged at 69.
+- Date: 2026-09-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +14,7 @@
 - **IDs:** `upstageai/solar-pro-4` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 524,288 total / 131,072 max out — verified via provider catalog listings (524.288K/131.072K across 5 providers); vendor blog cites 512K baseline with 128K out
 - **Modalities:** text in/out; reasoning yes (configurable effort); tool calls yes; structured output yes; no vision/attachment input per catalog (Vision input No)
-- **Pricing (as of 2026-10-07):** $0.30 in / $1.20 out per 1M upstream ($0.06 cached); budget routes $0.03/$0.12 (OpenRouter/NanoGPT/LLMTR); the 90%-off launch promo expired 2026-09-10
+- **Pricing (as of 2026-09-21):** $0.30 in / $1.20 out per 1M upstream ($0.06 cached); budget routes $0.03/$0.12 (OpenRouter/NanoGPT/LLMTR)
 - **Architecture:** proprietary dense (parameter count undisclosed); EN/KO/JA input-output; dedicated/on-prem enterprise deploys available
 
 ### Raw benchmarks found
@@ -28,10 +27,8 @@ Agent / tool use:
 - Terminal-Bench v2.1: **57.0%** (Upstage official blog table, +13.8 over Solar Open 2 43.2)
 - Tau3-Banking: **23.0%** (same table, +4.9 over 18.1)
 - MCP-Atlas: **61.4%** (same table, +3.2 over 58.2)
-- GDPval-AA v2: **38.8%** (same table, +7.4 over 31.4); **1277 Elo** (AA article: Pro 3 scored 498, human baseline 1000 — different scale, both listed)
-- BrowseComp: **49.2%** (same table, +11.9 over 37.3; in-house harness — asterisked, see caveat)
-- Korean/Japanese work: **79.2% KMMLU-Pro, 77.5% KBL law, 93.2% KorMedMCQA, 87.3% Ko-GDPval, 81.9% Arena-Hard JP, 89.5% MMLU JP, 81.6% IFEval JP** (vendor table — new; KO professional strength)
-- Harness caveat (2026-10-07): asterisked rows (BrowseComp, SWE-Bench Verified OpenHands, MMLU-Pro, LiveCodeBench, AIME) run in Upstage's in-house harness — not independently verified (llm-stats verification pending at last check)
+- GDPval-AA v2: **38.8%** (same table, +7.4 over 31.4)
+- BrowseComp: **49.2%** (same table, +11.9 over 37.3)
 - APEX-Agents: **18.7%** (same table, +2.1 over 16.6)
 - Tool Execution: **90/100** (CrucibleMark benchmark modules, +9 vs model average, ties best); ToolUse Score 70.54 (+3.8); CLI Benchmark 89.9 (+3)
 - Claw-Eval / ClawProBench: **no verified public score found**
@@ -81,6 +78,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-07
-- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Upstage official blog table + PR, Seoul Economic Daily, PR Newswire, CrucibleMark report, ModelBench provider catalog) + 2026-10-07 re-research pass (AA Solar-Pro-4 article, Upstage console docs, llm-stats/modelpricewatch compilations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
+- Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Upstage official blog table + PR, Seoul Economic Daily, PR Newswire, CrucibleMark report, ModelBench provider catalog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
