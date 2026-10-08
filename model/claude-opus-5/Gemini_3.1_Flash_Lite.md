@@ -8,30 +8,28 @@
 ## Model card
 
 - **Name:** Claude Opus 5
-- **Short description:** Thoughtful, proactive reasoning model for coding and agentic work.
+- **Short description:** Legacy flagship model for complex coding and knowledge tasks.
 - **Provider / access:** Anthropic API (`claude-opus-5`)
 - **Release / knowledge:** 2026-07-24
 - **IDs:** `anthropic/claude-opus-5`
 - **Context window:** 1.0M tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** $5.00/M input, $25.00/M output.
+- **Modalities:** Text/Image in; Text out. Tool use, Vision.
+- **Pricing (as of 2026-10-08):** High-tier pricing.
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found
 
-- Frontier-Bench v0.1: **Highest** (as reported by Anthropic)
-- Zapier AutomationBench: **100%** (highest pass rate)
-- ARC-AGI 3: **Highest** (among tracked Anthropic models)
+- Performance: **Strong agentic performance** (legacy, superseded by 5.5).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 97/100.** Proactive agentic behavior and thorough tool orchestration.
-- **Reasoning: 96/100.** State-of-the-art reasoning for complex, multi-step tasks.
-- **Context window: 95/100.** Efficient 1.0M token handling.
-- **Multimodal: 94/100.** Strong vision and input capabilities.
-- **Coding: 97/100.** Premier model for coding and software engineering.
-- **Cost efficiency: 65/100.** Higher cost tier reflecting top-tier performance.
-- **Overall Score: 96/100.** Highly robust and reliable model for complex agentic workloads.
+- **Tool use: 92/100.** Capable agentic and tool-use performance.
+- **Reasoning: 91/100.** Strong reasoning capability.
+- **Context window: 95/100.** Reliable 1.0M token handling.
+- **Multimodal: 92/100.** Good vision and input processing.
+- **Coding: 93/100.** Very capable coding assistant.
+- **Cost efficiency: 65/100.** High performance with significant cost; lower efficiency than newer 5.5 models.
+- **Overall Score: 92/100.** A robust and capable model for complex professional tasks, now effectively succeeded by the more efficient Claude Opus 5.5.
 
 ---
 

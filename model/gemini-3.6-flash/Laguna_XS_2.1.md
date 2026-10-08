@@ -1,60 +1,65 @@
 # Gemini 3.6 Flash — findings by Laguna XS 2.1
 
-> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-01 (UTC)
-> Overview and scoring methodology: `../../model-comparison.md`
-> Cross-model signed log: `../../model-findings.md`
+- Source: Google (`gemini-3.6-flash`)
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.6 Flash
-- **Short description:** Google's Gemini 3.6 Flash model - a high-efficiency multimodal workhorse with 1M context and adjustable reasoning levels.
-- **Provider / access:** Google AI Studio & Vertex AI (`google/gemini-3.6-flash`); OpenCode Zen, OpenRouter; Chat Completions-compatible API.
-- **Release / knowledge:** 2026-09-02; knowledge cutoff mid-2026.
-- **IDs:** `google/gemini-3.6-flash` (no Free-tier ID verified on Zen).
-- **Context window:** 1,000,000 tokens (1M input / 65,536 max output); verified via Google docs.
-- **Modalities:** Text, image, audio, video in; text out; reasoning support with Low/Medium/High tiers; tool calling enabled; JSON mode available.
-- **Pricing (as of 2026-10-01):** Premium pricing; free tier available but limited.
-- **Architecture:** Proprietary Mixture of Experts (MoE) model; closed weights.
+- **Short description:** Google's mid-tier agentic workhorse (2026-07-21) — better coding, knowledge work and computer use than 3.5 Flash with ~17% fewer output tokens; now the "previous generation Flash" behind 3.7/3.8 Flash at the same promo rate.
+- **Provider / access:** Gemini API / AI Studio (`gemini-3.6-flash`, stable GA), Vertex AI, Gemini Enterprise Agent Platform, Google Antigravity, Gemini app, GitHub Copilot. Thinking levels MINIMAL/LOW/MEDIUM (default)/HIGH. Free tier in AI Studio.
+- **Release / knowledge:** 2026-07-21 (GA); knowledge cutoff March 2026 (per HokAI).
+- **IDs:** `gemini-3.6-flash` (Gemini API). No Zen Free ID found.
+- **Context window:** 1,048,576 in / 65,536 out.
+- **Modalities:** text, image, video, audio, PDF in; text out; computer use available as a built-in client-side tool; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-04):** promo $0.75 / $3.75 per 1M in/out through 2026-12-31 (list $1.50 / $7.50 from 2027-01-01); Batch/Flex 50% ($0.375/$1.875); Priority ~$1.35/$6.75; cached input $0.075 ($0.15 from 2027), storage $0.50/M tokens/hour.
+- **Architecture:** proprietary; parameter count/architecture not disclosed. ~198 output tok/s (Artificial Analysis).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.8%** (Google official technical release)
-- GDPval-AA, Tau3, Claw-Eval, Toolathon, MCP-Atlas: **no verified public scores found**
+- OSWorld-Verified: **83.0%** (Google model card; vs 3.5 Flash 78.4, Sonnet 5 81.2)
+- Terminal-Bench 2.1: **78.0%** (Terminus-2, Google model card)
+- GDPval-AA v2: **1421 Elo** (Google model card)
+- BU Bench: **68%**; CursorBench 3.2: **53.5%** (AI Release Tracker)
+- Gray Swan IPI k=1: **7.3%**; BullshitBench v2: **39%** (AI Release Tracker)
+- Tau3 / MCP-Atlas / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
 
-- HLE: **54.9%** (HLE-Verified benchmark)
-- GPQA Diamond: **no verified public score** (provisional ~86% based on Gemini 3 family)
-- AI Intelligence Index, LCR, CritPt, Omniscience: **no verified public scores found**
+- AA Intelligence Index: **34** (Artificial Analysis via HokAI)
+- CharXiv Reasoning: **85.2% no tools / 89.4% with tools** (Google model card)
+- Arena Elo: Text **1482** / Code **1539** (AI Release Tracker)
+- GPQA / HLE / CritPt: no verified public score found in sources checked
 
 Coding:
 
-- DeepSWE v1.1: **73.7%** (DeepSWE long-horizon software engineering)
-- LiveCodeBench, SWE-bench Verified, SciCode, Vibe: **no verified public scores found** (provisional estimates available)
+- SWE-bench Pro (Public): **58.7%** (Google model card; vs 3.5 Flash 55.1)
+- DeepSWE v1.1: **49%** (Google model card; up to 65% fewer output tokens observed)
+- MLE-Bench: **63.9%** (Google model card — best score tracked by AI Release Tracker at release)
+- SWE-bench Verified / LiveCodeBench / SciCode: no verified public score found in sources checked
 
 Long context:
 
-- 1,000,000 token context window verified with 100% retrieval accuracy; 65,536 max output tokens.
+- GDM-MRCR v2 (8-needle): **91.8%** at 128K average; **54.0%** at 1M pointwise (Google model card — 1M pointwise roughly 2x the 3.1 Pro/3.7 Flash generation's ~26%)
 
-### Normalized scores (1-100)
+### Normalized scores (1–100)
 
-Derived from benchmarks above using methodology in `model-comparison.md`:
-
-- **Tool use: 92/100.** Terminal-Bench 90.8% demonstrates state-of-the-art agentic tool execution at frontier level; capped by missing Tau3, GDPval, and Claw-Eval verification.
-- **Reasoning: 90/100.** HLE-Verified 54.9% strong; multi-tier reasoning support; capped by missing AI Index, LCR, CritPt, Omniscience numbers.
-- **Context window: 90/100.** Full 1M with verified 100% retrieval and 65K output; excellent for long-horizon tasks.
-- **Multimodal: 88/100.** Native text/image/audio/video input with text output; strong multimodal tier coverage; no audio/video output.
-- **Coding: 94/100.** DeepSWE 73.7% excellent for long-horizon coding; TB 90.8% strong; capped by missing SWE-Verified/LiveCodeBench confirmation.
-- **Cost efficiency: 91/100.** Aggressive $0.75/$3.75 intro pricing excellent value; free tier available (limited).
-- **Overall Score: 91/100.** Mean of (92 + 90 + 90 + 88 + 94) / 5 = 90.8 → 91. Leading multimodal workhorse for agentic software engineering.
+- **Tool use: 78/100.** OSWorld-Verified 83.0% (built-in computer-use tool), TB 2.1 78.0% and GDPval v2 1421 are strong for a Flash tier; capped by no Tau3/MCP-Atlas rows and mid-table GDPval Elo.
+- **Reasoning: 72/100.** CharXiv 85.2% (best in Google's comparison row) and Arena Text 1482 are decent; capped by AA Index 34 and no public GPQA/HLE rows.
+- **Context window: 95/100.** 1M window with MRCR v2 91.8% at 128K and 54.0% at 1M pointwise — the best 1M-pointwise retrieval of its Gemini generation, though still far from the ≥98% bar for 100.
+- **Multimodal: 95/100.** Text/image/video/audio/PDF in (audio-in tier 90–100); text-only output caps it.
+- **Coding: 78/100.** SWE-bench Pro 58.7%, MLE-Bench 63.9% (class-leading at release) and TB 2.1 78.0%; capped by DeepSWE 49% well below the 74% frontier ref.
+- **Cost efficiency: 90/100.** Promo $0.75/$3.75 (through 2026-12-31) between the methodology's ~92 and ~88 anchors, with Batch/Flex at half and a real free tier; docked for the January 2027 doubling.
+- **Overall Score: 83.6/100.** Mean of (78, 72, 95, 95, 78) = 83.6 — a capable, cheap agentic workhorse; new deployments should evaluate 3.7/3.8 Flash first at the identical promo rate.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-01
-- Method: public-internet research (Google documentation, benchmark aggregators); scores normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
+- Method: public internet research (Google launch post + model card + Gemini API docs/pricing, Cloud docs, HokAI, benchr, AI Release Tracker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

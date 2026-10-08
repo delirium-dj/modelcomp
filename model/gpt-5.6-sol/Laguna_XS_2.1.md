@@ -1,60 +1,76 @@
 # GPT-5.6 Sol — findings by Laguna XS 2.1
 
-> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-01 (UTC)
-> Overview and scoring methodology: `../../model-comparison.md`
-> Cross-model signed log: `../../model-findings.md`
+- Source: OpenAI (`gpt-5.6-sol`)
+- Date: 2026-10-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.6 Sol
-- **Short description:** OpenAI's highest-capability variant in the GPT-5.6 tier, optimized for advanced reasoning, coding, and multi-agent tool workflows.
-- **Provider / access:** OpenAI API via Responses API, ChatGPT Work, Codex; model ID `gpt-5.6-sol`.
-- **Release / knowledge:** Released 2026-07-09; knowledge cutoff undisclosed.
-- **IDs:** `openai/gpt-5.6-sol` (no Free-tier ID verified).
-- **Context window:** 1,048,576 tokens (1M) input; 128,000 max output per OpenAI docs.
-- **Modalities:** Text and image in; text out; programmatic tool calling; multi-agent orchestration via Responses API.
-- **Pricing (as of 2026-10-01):** $5 input / $30 output per 1M tokens (subject to temporary discount); cached $0.50 input.
-- **Architecture:** Proprietary reasoning model; parameter count undisclosed.
+- **Short description:** OpenAI's GPT-5.6 flagship tier (GA 2026-07-09; limited preview 2026-06-26) — SOTA at launch on Terminal-Bench 2.1 and DeepSWE, with `max` reasoning effort and an `ultra` multi-agent mode; now the value flagship below GPT-6 Astra. The `gpt-5.6` alias routes here.
+- **Provider / access:** OpenAI API (`gpt-5.6-sol`), ChatGPT, Codex, Azure, AWS Bedrock; Cerebras serving at up to 750 tok/s (select customers); Chat Completions + Responses + Batch APIs.
+- **Release / knowledge:** 2026-07-09 (GA); knowledge cutoff 2026-02-16.
+- **IDs:** `gpt-5.6-sol` (alias `gpt-5.6`); `openai/gpt-5.6-sol` (OpenRouter). No Zen Free ID found.
+- **Context window:** 1,050,000 tokens; 128K max output.
+- **Modalities:** text + image in; text out; reasoning yes (efforts none/low/medium default/high/xhigh/max; `ultra` multi-agent mode); tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-04):** promotional $4 / $20 per 1M in/out (≥20% cut, holds through at least 2026-11-21; launch list $5 / $30); cached input $0.40; cache writes 1.25x uncached input; Fast mode 2x price (up to 2.5x faster); Batch 50% off; web search tool $10/1K calls.
+- **Architecture:** proprietary; no parameter count published.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.8%** (OpenAI GPT-5.6 release table)
-- Agents' Last Exam: **52.7%** (OpenAI table)
+- Terminal-Bench 2.1: **88.8%** (OpenAI GA launch, SOTA); Terminal-Bench Hard **62.1%** (AA, high)
+- Terminal-Bench 4.0: **37.3%** (Anthropic/OpenAI tables)
+- DeepSWE 1.1: **72.7%** (OpenAI GA launch)
+- OSWorld 2.0: **62.6%** (OpenAI; surpasses Opus 4.8 using 85% fewer output tokens); 65.7% on OpenAI's later Astra table
+- BrowseComp: **90.4%** standard / **92.2%** Ultra multi-agent (OpenAI)
+- Agents' Last Exam: **52.7%** (OpenAI launch; 53.6% on Astra table)
+- τ²-Bench Telecom: **83.3% high / 85.1% max** (AA via OpenRouter)
+- AA Coding Agent Index v1.1: **80.0** (max)
+- Cyber: ExploitGym 3 **24.9% (2h) / 33.7% (6h)**; SEC-Bench **71.2%** (OpenAI)
+- Claw-Eval / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2: **1,747.8 Elo** (OpenAI table)
-- Artificial Analysis Intelligence Index: **58.9** (OpenAI table)
+- GPQA Diamond: **94.6%** (OpenAI max); **92.8% high / 94.1% max** (AA)
+- HLE: **46.0% high / ~47.5% max** (AA)
+- AA Intelligence Index: **58.9 max (v4.1, July)** / **42.3 high / 47.0 max** (current methodology)
+- CritPt: **25.7%** (AA high)
+- IFBench: **69.2%** (AA high)
+- AA-Omniscience: accuracy **58.4%** / non-hallucination **8.8%** (AA high — weak)
+- HealthBench: **57.0** / Professional **60.5** (OpenAI)
 
 Coding:
 
-- SWE-bench Pro: **64.6%** (OpenAI table)
-- DeepSWE v1.1: **72.7%** (OpenAI table)
-- AA Coding Agent Index: **80** (OpenAI table)
+- SWE-bench Pro: **64.6%** (OpenAI GA launch)
+- CursorBench 3.2: **67.2% max** (Cursor vendor-run, $5.69/task); CursorBench 4.0: **41.7% max** (Cursor)
+- SciCode: **57.8%** (AA high)
+- SWE-bench Verified / LiveCodeBench: no verified public score found in sources checked
 
 Long context:
 
-- 1M context documented; no public MRCR/RULER retrieval results found.
+- OpenAI MRCR v2 (8-needle): **91.5%** at 256K–512K; **73.8%** at 512K–1M (OpenAI)
+- GraphWalks BFS f1: **90.7%** at 256K; **77.1%** at 1M (OpenAI)
+- AA-LCR: **81.7%** (AA high)
 
-### Normalized scores (1-100)
+Multimodal (supporting): MMMU-Pro **83.0%** (OpenAI, max, no tools)
 
-Derived from benchmarks above using methodology in `model-comparison.md`:
+### Normalized scores (1–100)
 
-- **Tool use: 95/100.** Terminal-Bench 88.8% and Agents' Last Exam 52.7% are frontier agentic results; capped by missing Tau3, GDPval non-Elo, Claw-Eval, and OSWorld data.
-- **Reasoning: 93/100.** GDPval 1,747.8 Elo and AA Index 58.9 meet elite thresholds; capped by missing HLE, GPQA, LCR, Omniscience numbers.
-- **Context window: 95/100.** Full 1M verified; capped by no independent MRCR/RULER confirmation at scale.
-- **Multimodal: 88/100.** Text/image input with tool integration; no audio/video; text-out only; strong support for the text+image tier.
-- **Coding: 94/100.** SWE-Pro 64.6%, DeepSWE 72.7%, Coding Index 80 show exceptionally strong coding; comparable to GPT-5.6 Terra's 90.
-- **Cost efficiency: 62/100.** $5/$30 premium pricing; higher than 5.6 Terra's $2/$12; temporary discounts noted but not free tier.
-- **Overall Score: 93/100.** Mean of (95 + 93 + 95 + 88 + 94) / 5 = 93.0. Best fit: demanding agentic coding and professional reasoning workloads.
+- **Tool use: 91/100.** TB 2.1 88.8% (launch SOTA), BrowseComp 90.4–92.2%, τ²-Bench ~85% and OSWorld 62.6% are frontier-grade; capped by TB 4.0 37.3% and AA GDPval 49.0% well behind the newest flagships, plus weak Omniscience non-hallucination (8.8%).
+- **Reasoning: 89/100.** GPQA 94.6% and AA Index 58.9 (v4.1 max, #2 at launch behind Fable 5) are strong; capped by HLE ~46–47.5% and CritPt 25.7% trailing the 2026-09 generation.
+- **Context window: 95/100.** 1.05M window (95–100 tier) with MRCR 91.5% at 256–512K and GraphWalks 77.1% at 1M — real but not ≥98% retrieval, so the tier floor.
+- **Multimodal: 65/100.** Text + image in, text out (image-in band); MMMU-Pro 83.0% backs solid vision; no audio/video-in or non-text output.
+- **Coding: 91/100.** DeepSWE 72.7% (near the 74% ref), TB 2.1 88.8%, SWE-bench Pro 64.6% and Coding Agent Index 80.0 were launch SOTA; capped by CursorBench 4.0 41.7% max against the newest models.
+- **Cost efficiency: 60/100.** Current promo $4/$20 lands between the $3/$15 (~60) and $5/$25 bands; launch list $5/$30 maps to ~50, so score holds at 60 only while the promo (through ≥2026-11-21) lasts. $0.40 cache reads and 50% Batch help.
+- **Overall Score: 86.2/100.** Mean of (91, 89, 95, 65, 91) = 86.2 — still an excellent agentic-coding daily driver at promo pricing; Astra beats it on hard agentic tasks at 2.5x the price.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-01
-- Method: public-internet research (OpenAI GPT-5.6 release table, API docs, bench reports); scores normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
+- Method: public internet research (OpenAI GPT-5.6 launch + pricing posts + developer docs, OpenRouter, llmreference, Think Facility, Artificial Analysis via OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

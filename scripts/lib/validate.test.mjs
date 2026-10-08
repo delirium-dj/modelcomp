@@ -6,7 +6,9 @@ import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
+  MERGED_SOURCE_STEMS,
   mergedSlugMessage,
+  mergedStemMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -45,6 +47,15 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
 
   it("anything else is a forbidden deletion", () => {
     assert.equal(classifyMissingTracked({ twinRetired: false, mirror: undefined }), "deleted");
+  });
+
+  it("merged duplicate stem is INFO, never FAIL (2026-10-08 source merge)", () => {
+    assert.equal(classifyMissingTracked({ twinRetired: false, mirror: undefined, mergedSource: true }), "merged-source");
+  });
+
+  it("merged-source wins over twin retirement and mirror relocation", () => {
+    assert.equal(classifyMissingTracked({ twinRetired: true, mirror: undefined, mergedSource: true }), "merged-source");
+    assert.equal(classifyMissingTracked({ twinRetired: false, mirror: "models_voice", mergedSource: true }), "merged-source");
   });
 });
 
@@ -105,6 +116,19 @@ describe("merged duplicate slugs (never come back)", () => {
     const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
     assert.match(msg, /google-gemini-2\.5-flash-lite/);
     assert.match(msg, /gemini-2\.5-flash-lite/);
+    assert.match(msg, /never recreate/);
+  });
+});
+
+describe("merged duplicate stems (never come back)", () => {
+  it("maps Laguna_XS_2_1 to its canonical dotted stem", () => {
+    assert.equal(MERGED_SOURCE_STEMS.get("Laguna_XS_2_1"), "Laguna_XS_2.1");
+  });
+
+  it("message names both stems and the canonical write route", () => {
+    const msg = mergedStemMessage("Laguna_XS_2_1", "Laguna_XS_2.1");
+    assert.match(msg, /Laguna_XS_2_1\.md/);
+    assert.match(msg, /Laguna_XS_2\.1\.md/);
     assert.match(msg, /never recreate/);
   });
 });

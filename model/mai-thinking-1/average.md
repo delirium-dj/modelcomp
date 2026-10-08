@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 68/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 74/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 20/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 72/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 72/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 62/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 64.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 75/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 76/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 17.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 75.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 74/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 61.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5.
-- Average from top 1 by Overall Score: GPT-5.5.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.
+- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5, GPT-6 Astra.
+- Average from top 2 by Overall Score: GPT-5.5, GPT-6 Astra.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1.

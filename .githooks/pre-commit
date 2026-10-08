@@ -56,6 +56,34 @@ if [ -n "$merged_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Findings-stem version convention (RULES.md findings-stem identity):
+# version numbers in findings-file stems use "." not "_" between digits.
+# Block staged additions of underscore-versioned findings files — they FAIL
+# `pnpm sync` (stemVersionViolation in scripts/lib/naming.mjs), so catching
+# them here saves a failed sync pass. Write the dotted stem instead (e.g.
+# model/foo/Laguna_XS_2_1.md -> model/foo/Laguna_XS_2.1.md). Param-size
+# exceptions (NOT versions): Gemma_4_31B_IT, Qwen_3.8_27B.
+stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
+stem_blocked=""
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  stem="$(basename "$f" | sed -e 's|\.excluded$||' -e 's|\.md$||')"
+  case "$stem" in
+    Gemma_4_31B_IT|Qwen_3.8_27B) continue;;
+  esac
+  case "$stem" in
+    *[0-9]_[0-9]*) stem_blocked="${stem_blocked}${f}\n";;
+  esac
+done <<EOF
+$stem_added
+EOF
+if [ -n "$stem_blocked" ]; then
+  echo "BLOCKED by RULES.md findings-stem convention (version numbers use \".\" not \"_\" between digits):" >&2
+  printf '%b' "$stem_blocked" >&2
+  echo "Write the dotted stem instead (e.g. Laguna_XS_2_1.md -> Laguna_XS_2.1.md)," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 deleted="$(git diff --cached --name-only --diff-filter=D -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 # Scratch lifecycle grace (user-signed 2026-09-29, mirrors sync tripwire):
 # files added to git < 7 days ago may be agent scratch — warn, allow.

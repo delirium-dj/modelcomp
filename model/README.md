@@ -28,6 +28,24 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
   (version dots are fine: `DeepSeek_4.1_Flash.md`). Display label = stem with
   `_` → space, e.g. `Muse_Spark_1.3.md` = findings provided by Muse Spark 1.3.
+- **Findings-stem version convention: version numbers use `.` not `_`
+  between digits.** `Laguna_XS_2.1.md`, never `Laguna_XS_2_1.md`. Before
+  writing a findings file, normalize the stem: each digit-underscore-digit
+  join becomes a dot and you must check for the dotted twin first — an
+  underscore-versioned file is a duplicate spelling of the same source, not
+  a second source. (`pnpm sync` FAILs underscore-versioned stems with the
+  dotted destination and writes nothing for them.) Exception: digit pairs
+  that are NOT a version stay underscored — a parameter size
+  (`Gemma_4_31B_IT` = Gemma 4, 31B params; `Qwen_3.8_27B` = Qwen 3.8, 27B
+  params).
+- **Merged-and-deleted duplicate stems never come back.** A findings file
+  spelled with a retired variant stem (e.g. `Laguna_XS_2_1.md`, folded into
+  `Laguna_XS_2.1.md` 2026-10-08 after the same rater had filed under both
+  spellings) is a resurrected duplicate: it would silently double-count the
+  rater in averages. The merged stems are listed in
+  `../scripts/lib/validate.mjs` (`MERGED_SOURCE_STEMS`) and `pnpm sync`
+  FAILs loudly if one reappears. Do not recreate them and do not restore
+  them from git history — write the canonical dotted stem instead.
 - Each findings file is self-contained: model card, raw benchmarks, normalized
   1–100 scores, signature. Start from `../model-report-TEMPLATE.md` and research
   independently (do not read other agents' files first).

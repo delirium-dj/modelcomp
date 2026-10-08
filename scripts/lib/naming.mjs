@@ -70,6 +70,37 @@ export function hyphenVersionViolation(slug, exceptions = SLUG_VERSION_EXCEPTION
 }
 
 /**
+ * Stem exceptions: match digit-underscore-digit but are NOT underscore
+ * versions — param sizes inside rater names, mirroring SLUG_VERSION_EXCEPTION
+ * (`Gemma_4_31B_IT` = "4" + 31B params, `Qwen_3.8_27B` = version 3.8 + 27B
+ * params; the "8_2" hit is version-digit → param-digit).
+ */
+export const STEM_VERSION_EXCEPTION = new Set(["Gemma_4_31B_IT", "Qwen_3.8_27B"]);
+
+/**
+ * Canonical findings-stem normalizer (single source of truth — RULES.md
+ * findings-stem identity). Version numbers use "." not "_" between digits:
+ * every digit-underscore-digit join becomes a dot (`Laguna_XS_2_1` →
+ * `Laguna_XS_2.1`). Param-size exceptions pass through untouched. Always run
+ * a freshly derived STEM through this before writing a findings file or
+ * comparing against on-disk stems.
+ */
+export function normalizeStem(stem, exceptions = STEM_VERSION_EXCEPTION) {
+  if (exceptions.has(stem)) return stem;
+  return stem.replace(/(\d)_(?=\d)/g, "$1.");
+}
+
+/**
+ * Underscore-version gate (RULES.md findings-stem identity): version numbers
+ * in findings-file stems use "." not "_" between digits. Returns the dotted
+ * suggestion, or null when the stem is fine.
+ */
+export function stemVersionViolation(stem, exceptions = STEM_VERSION_EXCEPTION) {
+  const next = normalizeStem(stem, exceptions);
+  return next !== stem ? next : null;
+}
+
+/**
  * Vendor-prefix gate (see RULES.md vendor-prefix identity): a leading vendor
  * name is never part of the slug. Returns the canonical slug when `slug` is
  * `<vendor>-<rest>` and `rest` is a known folder, otherwise null.

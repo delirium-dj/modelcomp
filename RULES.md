@@ -105,6 +105,26 @@ override.
   no `average.md`, no registry/score input); the pre-commit hook blocks
   staging them.
 
+- **Findings-stem identity (absolute):** version numbers inside a
+  findings-file STEM use `.` between the digits, never `_` —
+  `Laguna_XS_2.1.md`, never `Laguna_XS_2_1.md` (2026-10-08 duplicate: one
+  rater filed under both spellings across 33 model folders and both
+  registered as separate sources, silently double-counting the rater in
+  averages). Normalize every freshly derived STEM before writing a findings
+  file: replace each digit-underscore-digit join with a dot (`2_1` → `2.1`) —
+  the only exceptions are param sizes, never versions (`Gemma_4_31B_IT`,
+  `Qwen_3.8_27B`). An underscore-versioned findings file is a forbidden
+  duplicate of its dotted twin, never a second source: merge the newer
+  content into the dotted file, then remove the variant (user sign-off;
+  pre-commit bypass `ALLOW_MODEL_DELETE=1`). It must never come back:
+  `pnpm sync` FAILs while the variant exists on disk and writes nothing for
+  it (never quarantined, parsed, averaged, or registered); the pre-commit
+  hook blocks staging it; `MERGED_SOURCE_STEMS` in
+  `scripts/lib/validate.mjs` is the permanent never-resurrect list
+  (`Laguna_XS_2_1` → `Laguna_XS_2.1`, merged 2026-10-08). A merged-stem
+  variant deleted from disk is a sanctioned permanence survival while its
+  canonical dotted sibling exists.
+
 ## Scoring rules
 
 - Source-file `Overall` = half-up mean of the five quality dims (Tool use,

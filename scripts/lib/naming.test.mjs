@@ -11,6 +11,9 @@ import {
   SLUG_VERSION_EXCEPTION,
   normalizeSlug,
   hyphenVersionViolation,
+  STEM_VERSION_EXCEPTION,
+  normalizeStem,
+  stemVersionViolation,
   VENDOR_PREFIXES,
   vendorPrefixViolation,
   formatSlugGuess,
@@ -125,6 +128,34 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("qwen-3.5-9b"), null);
     // Version 3.5 + 397B params (Qwen3.5-397B-A17B): the "5-397" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-397b"), null);
+  });
+});
+
+describe("stemVersionViolation (RULES.md findings-stem identity)", () => {
+  it("flags digit-underscore-digit with the dotted suggestion (2026-10-08 Laguna XS duplicate)", () => {
+    assert.equal(stemVersionViolation("Laguna_XS_2_1"), "Laguna_XS_2.1");
+  });
+
+  it("leaves dotted versions and word-separator underscores alone", () => {
+    assert.equal(stemVersionViolation("Laguna_XS_2.1"), null);
+    assert.equal(stemVersionViolation("DeepSeek_4.1_Flash"), null);
+    assert.equal(stemVersionViolation("GPT_5.6_Terra"), null);
+    assert.equal(stemVersionViolation("GPT_OSS_120B"), null);
+    assert.equal(stemVersionViolation("GPT_6_Astra"), null);
+    assert.equal(stemVersionViolation("Grok_4.20"), null);
+  });
+
+  it("normalizeStem is the canonical stem normalizer (gate delegates to it)", () => {
+    assert.equal(normalizeStem("Laguna_XS_2_1"), "Laguna_XS_2.1");
+    assert.equal(normalizeStem("Laguna_XS_2.1"), "Laguna_XS_2.1");
+  });
+
+  it("honors param-size exceptions (word separators, never versions)", () => {
+    assert.ok(STEM_VERSION_EXCEPTION.has("Gemma_4_31B_IT"));
+    assert.ok(STEM_VERSION_EXCEPTION.has("Qwen_3.8_27B"));
+    assert.equal(stemVersionViolation("Gemma_4_31B_IT"), null);
+    // Version 3.8 + 27B params: the "8_2" hit is not an underscore version.
+    assert.equal(stemVersionViolation("Qwen_3.8_27B"), null);
   });
 });
 

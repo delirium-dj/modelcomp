@@ -48,17 +48,13 @@ Long context:
 
 - AA-LCR 79.3% is the only long-context retrieval signal found; no 500K-retention (MRCR/RULER) score is published.
 
-Multimodal:
-
-- AA-MMMU-Pro **80.4%** (Artificial Analysis) — the first verified vision benchmark found for this ID.
-
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Terminal-Bench 2.1 83.3% is close to the 88%+ frontier band with APEX 56.2% and AA Agentic Index 42.1 backing it up; held despite the weaker independent Vals TB2.1 run (67.8%) and Terminal-Bench 3.0 (15.7%), and capped because Tau3-Banking/τ² and every Claw/MCP harness score is still missing and GDPval-AA 1430 Elo sits below the ~1750+ frontier reference.
-- **Reasoning: 88/100.** GPQA Diamond 92.9–93.4%, HLE 42.7%, MMLU-Pro 89.2% and AIME 97.8% are frontier-grade maths/science numbers; capped by AA Intelligence Index 38.8 (frontier ref 60+) and CritPt 15.4%.
+- **Tool use: 85/100.** Terminal-Bench 2.1 83.3% is close to the 88%+ frontier band with APEX 56.2% and AA Agentic Index 41.2 backing it up; capped because Tau3-Banking/τ² and every Claw/MCP harness score was missing, and GDPval-AA is published only as a 43.5% preference figure rather than Elo.
+- **Reasoning: 88/100.** GPQA Diamond 93.1–93.4%, HLE 42.7% and AIME 97.8% are frontier-grade maths/science numbers; capped by AA Intelligence Index 38.8 (frontier ref 60+) and CritPt 15.4%.
 - **Context window: 88/100.** 500K lands in the 500K–1M band (85–94) — just under the 1M tier that earns 95+ — and above-200K requests are surcharged.
-- **Multimodal: 68/100.** Text + image (plus file) input with text-only output → the "+image in = 60–70" band; the verified AA-MMMU-Pro 80.4% supports the top of that band, but there is still no audio/video input.
-- **Coding: 88/100.** SWE-bench Verified 86.6% and LiveCodeBench 87.4% (Vals) plus AA Coding Index 72.5 and SciCode 55.0% now fill the prior gaps and clear most frontier references; the top band is still blocked by DeepSWE 53% (below the 74% reference) and PostTrainBench 23.4%.
+- **Multimodal: 68/100.** Text + image (plus file) input with text-only output → bottom of the "+image in = 60–70" band; no audio/video input and no verified vision benchmark for this ID.
+- **Coding: 88/100.** AA Coding Index 72.4 clears the 70%+ frontier reference, SciCode 55.0% clears 55%, SWE-bench Pro 64.7% is verified and the Design/WebDev Arena scores are strong; capped by unpublished SWE-bench Verified and DeepSWE values, so the top band cannot be claimed.
 - **Cost efficiency: 78/100.** $2.00/$6.00 per 1M (cached $0.30) sits between the $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60 anchors.
 - **Overall Score: 83/100.** (85 + 88 + 88 + 68 + 88) / 5 = 83.4 → **83**. Best fit: frontier-grade STEM reasoning plus strong terminal/agentic coding, with a narrower (text+image) modality set than the Gemini/Qwen entries here.
 
@@ -66,6 +62,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (xAI/SpaceXAI official model docs, evals.report 6-row benchmark table, BenchLM `grok-4-5` page with Artificial Analysis, Vals AI and FrontierBench rows, Cursor launch post, OpenRouter benchmark summary, Model Beat / Epoch AI rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-09-23 (UTC)
+- Method: public internet research (xAI/SpaceXAI official model docs, evals.report 6-row benchmark table, OpenRouter benchmark summary with Artificial Analysis rows, Model Beat / Epoch AI rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

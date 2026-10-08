@@ -1,0 +1,43 @@
+# GPT-5.3-Codex-Spark — findings by GPT 6 Astra
+
+- Source: OpenAI / GPT-5.3-Codex-Spark
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** GPT-5.3-Codex-Spark (retired research preview).
+- **Short description:** Small, low-latency coding model served on Cerebras hardware; distinct from GPT-5.3-Codex.
+- **Provider / access:** Originally Codex app, CLI and IDE extension for ChatGPT Pro; limited API design partners were described at launch, not general API availability.
+- **Release / knowledge:** February 12, 2026; knowledge cutoff unverified.
+- **IDs:** `gpt-5.3-codex-spark`; no verified Free Zen ID.
+- **Context window:** 128k at launch; maximum output unverified.
+- **Modalities:** Text input/output, coding-agent tools; no native image/audio/video. Strict structured-output API contract unverified.
+- **Pricing (as of 2026-10-08):** No verified publicly available current input/output token tariff. Historical Pro access with separate quotas was not a free API.
+- **Architecture:** Proprietary, undisclosed parameter count; launch claims over 1,000 generated tokens/second on Cerebras WSE-3.
+
+[Official launch](https://openai.com/index/introducing-gpt-5-3-codex-spark/).
+**Lifecycle:** Retired September 14, 2026 from the desktop app, CLI and IDE extension. This does not establish the status of private design-partner endpoints. [Current model documentation](https://learn.chatgpt.com/docs/models), [retirement notice](https://learn.chatgpt.com/docs/changelog).
+
+### Raw benchmarks found
+
+- **Agentic coding, independent COSPA:** README reports **101/336 = 30.1%** at high effort, Pi vanilla, one attempt per task across six coding/navigation/terminal suites. Its linked detailed Spark report instead gives pooled **30.4%**; the mismatch is preserved rather than silently reconciled. Neither is SWE-bench Pro. [Evaluator repository](https://github.com/shisa-ai/cospa).
+- **Terminal:** Detailed report shows **22/80 = 27.5%** on Terminal-Bench Core **0.1.1**, not Terminal-Bench 2.0 or 2.1. Its recorded zero cost is not evidence of free inference. [Detailed run](https://github.com/shisa-ai/cospa/blob/main/reports/gpt53spark-vanilla-high-matrix.md).
+- **Small independent samples:** Herman reports GPQA Diamond **63.3% over 30 attempts** and HumanEval+ **88.0% over 50 attempts** through its Codex CLI route. These are partial samples, not full benchmark scores. [Exact-model page](https://models.hermanity.dev/models/codex-gpt-5.3-spark/).
+- **Sample limitations:** Herman uses five-shot CoT and deterministic answer parsing for GPQA; custom tasks are single-turn and do not test long-running tool execution. Exact Spark reasoning effort and sampled question selection were not established from inspected pages. Its model page and methodology also differ in how broadly they describe second-judge coverage; custom aggregate and estimated dollar costs are not used. [Methodology](https://models.hermanity.dev/methodology/).
+- **Vendor:** Launch discusses SWE-bench Pro and Terminal-Bench 2.0 graph results, but no exact numeric Spark values were verifiable from the retrieved text. Full Codex's numbers are not transferred.
+- **Missing:** Full GPQA, HLE, LCR, CritPt, Omniscience, Tau3/Tau2, GDPval-AA, Claw-Eval, Toolathlon, SciCode, Vibe Code Bench, DeepSWE and long-context retrieval: no verified public score found in inspected sources.
+
+### Normalized scores (1–100)
+
+**Self-excluded: insufficient evidence for a defensible complete Overall.** There is real coding evidence, so this is not a zero-benchmark finding. General reasoning rests on a small sample with unresolved run settings, while broader coding aggregates disagree. Context and text-only modalities are documented, but these do not fill the quality-evidence gaps. Current token pricing is also unverified; retirement alone is not the exclusion reason.
+
+No placeholder scores assigned. A future report would need reproducible reasoning evidence with exact model/settings and a reconciled coding run; reliable historical or current pricing would additionally support cost normalization.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Fresh official lifecycle/specification research and direct evaluator evidence; uncertainties retained, no peer reports used.
+- Future sources: Add a fresh scored sibling only after genuinely new verified evidence supports it.
+

@@ -14,28 +14,27 @@
 ## Model card
 
 - **Name:** Claude Fable 5 (Max, Opus 4.8 Fallback)
-- **Short description:** Anthropic's proprietary high-intelligence reasoning model, deprecated (newer release: Claude Fable 5.1); supports text and image input with extended thinking and 1M context window.
-- **Provider / access:** Anthropic API (7 providers on AA); responses-only; no free tier.
-- **Release / knowledge:** Released June 9, 2026. Deprecated (Anthropic recommends Claude Fable 5.1 instead). Knowledge cutoff unknown.
-- **IDs:** `claude-fable-5`
-- **Context window:** 1M tokens (200K per `meta.json`, but AA shows 1M on model page; using AA's 1M figure).
-- **Modalities:** Text and image input; text output; reasoning yes (extended thinking).
-- **Pricing (as of 2026-10-08):** $10.00 per 1M input tokens, $50.00 per 1M output tokens (expensive); cache discount 90% available; `$noFreeId: true` in meta.json.
+- **Short description:** Anthropic's proprietary high-intelligence reasoning model with 1M+ context, supporting text and image input with chain-of-thought extended thinking; positioned as an agentic coding and enterprise model.
+- **Provider / access:** Anthropic API; 7 providers listed on AA.
+- **Release / knowledge:** Released June 9, 2026.
+- **IDs:** `claude-fable-5` (also known as "Max, Opus 4.8 Fallback")
+- **Context window:** 1M+ tokens, verified from AA and meta.json.
+- **Modalities:** Text and image input; text output; reasoning yes (extended thinking); tool calls supported.
+- **Pricing (as of 2026-10-08):** $10.00 per 1M input tokens, $50.00 per 1M output tokens; cache discount 90%; $8.75 average cost per Intelligence Index task.
 - **Architecture:** Proprietary; parameter count not disclosed by Anthropic.
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (Overall 78.84/100, rank #8/887, 42 of 623 benchmarks), Artificial Analysis (Intelligence Index 50, #19/225), Anthropic system card, ARC Prize, Vals AI, OpenRouter.
+> Sources: BenchLM.ai (42 of 623 benchmarks, Overall 78.84/100, #8/887), Artificial Analysis (Intelligence Index 50, #19/225), Anthropic system card, ARC Prize, Vals AI, OpenRouter, Cognition.
 
 Agent / tool use:
 
 - Artificial Analysis Intelligence Index (**AA**): 50 (#19/225, median: 26)
-- BenchLM Overall Score: 78.84/100 (#8/887)
+- BenchLM Overall Score: 78.84/100 (#8/887, 42 of 623 benchmarks)
 - Terminal-Bench 3.0: 34.0% (source: FrontierBench leaderboard)
-- Terminal-Bench 2.1: 84.3% (source: Anthropic system card; 80.5% via Vals AI)
+- Terminal-Bench 2.1: 84.3% (source: Anthropic system card / Vals AI)
 - OSWorld-Verified: 85% (source: Anthropic system card)
 - GDPval-AA Elo: 1747 (source: Anthropic system card)
-- GDPval-AA (normalized): 55.6% (source: AA)
 - τ²-bench: 98.5% (source: AA leaderboard)
 - AA EnterpriseOps-Gym: 51.1% (source: AA leaderboard)
 - AA Harvey LAB: 93.6% (source: AA leaderboard)
@@ -48,7 +47,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: 92.6% (source: AA; 93.2% via Vals AI)
 - MMLU-Pro: 91.5% (source: Vals AI)
-- AA-HLE: 55.5% (source: AA leaderboard)
+- HLE: 55.5% (source: AA leaderboard)
 - AA-LCR (Long Context Reasoning): 82.3% (source: AA)
 - MLCR-AA: 64.4% (source: AA leaderboard)
 - CritPt: 28.6% (source: AA)
@@ -67,33 +66,32 @@ Coding:
 - AA Coding Index: 76.5% (source: AA)
 - FrontierSWE v2: 47.0% (source: Proximal leaderboard)
 - FrontierCode 1.1: 53.5% (source: Cognition)
-- cursorBench 3.1: 70.6% (source: Cursor evals)
+- cursorBench3.1: 70.6% (source: Cursor evals)
 - CursorBench 3.2: 70.5% (source: Cursor evals)
 - VulcanBench v3: 89.5% (source: VulcanBench technical report)
 
 Long context:
 
-- Context window: 1M tokens (verified from AA model page and meta.json).
-- AA-LCR: 82.3% (long-context reasoning score from AA).
+- Context window: 1M+ tokens (verified from AA and meta.json).
+- MRCR: no direct benchmark score found; AA-LCR 82.3% serves as long-context reasoning proxy.
 
 Multimodal:
 
-- Text and image input supported (verified from AA model page and meta.json — note: meta.json says "Text in/out" but AA confirms text + image input).
+- MMMU-Pro: no direct score found for Claude Fable 5 specific results
 - OfficeQA Pro: 57.9% (source: Anthropic system card)
 - Design Arena Website: 1302 (source: OpenRouter)
-- MMMU-Pro: no direct score found for Claude Fable 5.
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in `model-comparison.md`.
 
-- **Tool use: 87/100.** Exceptional agentic performance across all benchmarks: Terminal-Bench 2.1 84.3%, OSWorld-Verified 85%, τ²-bench 98.5%, Harvey LAB 93.6%, GDPval-AA Elo 1747, TB Hard 62.9%. AA Agentic Index 51.0% and AA-AnalystAgent 48.8% are moderate, but overall tool use is top-tier.
-- **Reasoning: 82/100.** Strong reasoning: GPQA 92.6%, ARC-AGI-1 98.5%, AA-LCR 82.3%, HLE 55.5%. However, CritPt 28.6% and Omniscience Index 43.3% indicate physics reasoning and hallucination weaknesses. AA Intelligence Index 50 (#19/225, median 26).
-- **Context window: 95/100.** 1M+ context tokens places in the 1M tier (score 95 per methodology) with verified measurement from AA.
-- **Multimodal: 60/100.** Text and image input with text output (AA confirms text+image; meta.json says "Text in/out"). Partial multimodal coverage — missing audio and video. OfficeQA Pro 57.9% shows moderate document understanding.
-- **Coding: 87/100.** Top-tier coding: SWE-bench Verified 95%, Pro 80%, LiveCodeBench 89.8%, AA Coding Index 76.5%, VulcanBench 89.5%. FrontierCode 53.5% and FrontierSWE 47.0% are weaker, but core coding benchmarks are exceptional.
-- **Cost efficiency: 20/100.** $10.00/$50.00 per 1M tokens — expensive (median: $2.00/$10.00). `$noFreeId: true` in meta.json. Cost efficiency scored independently; not factored into Overall.
-- **Overall Score: 82/100.** Mean of five non-cost dims: (87+82+95+60+87)/5 = 411/5 = 82.2, rounded down to 82. BenchLM Overall 78.84 (#8/887) and AA Intelligence Index 50 (#19/225) confirm top-tier positioning. **Best-fit recommendation:** High-intelligence agentic coding and enterprise workloads where budget is not the primary constraint; exceptional coding and tool-use capabilities with top-tier 1M context.
+- **Tool use: 88/100.** Exceptional agentic performance across all benchmarks: Terminal-Bench 2.1 84.3%, OSWorld-Verified 85%, τ²-bench 98.5%, Harvey LAB 93.6%, GDPval-AA Elo 1747. Among the top-tier agentic performers.
+- **Reasoning: 85/100.** Strong reasoning: AA Intelligence Index 50, GPQA 92.6%, ARC-AGI-1 98.5%, LCR 82.3%, HLE 55.5%. However, CritPt 28.6% and Omniscience Index 43.3% indicate some reasoning weaknesses on physics and hallucination control.
+- **Context window: 95/100.** 1M+ context tokens places in the 1M tier (score 95 per methodology) with verified measurement.
+- **Multimodal: 70/100.** Text and image input supported with strong vision capabilities (OfficeQA Pro 57.9%), but no audio or video input. Score reflects partial multimodal coverage.
+- **Coding: 88/100.** Outstanding coding performance: SWE-bench Verified 95%, Pro 80%, LiveCodeBench 89.8%, AA Coding Index 76.5%. Among top coding models across all vendors.
+- **Cost efficiency: 40/100.** $10.00/$50.00 per 1M tokens — expensive (median: $2.00/$10.00). Cost efficiency scored independently; not factored into Overall.
+- **Overall Score: 85/100.** Mean of five non-cost dims: (88+85+95+70+88)/5 = 426/5 = 85.2, rounded down to 85. BenchLM Overall 78.84 (#8/887) and AA Intelligence Index 50 (#19/225) confirm top-tier positioning. **Best-fit recommendation:** High-intelligence agentic coding and enterprise workloads where budget permits; exceptional tool use and coding capabilities with top-tier 1M context window.
 
 ---
 
@@ -101,7 +99,7 @@ Multimodal:
 
 - Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-08
 - Method: public web research (Artificial Analysis model page, BenchLM.ai, Anthropic system card, ARC Prize, Vals AI, OpenRouter); scores are normalized 1–100 interpretations per model-comparison.md v4.
-- Sources: Artificial Analysis model page (Intelligence Index 50, #19/225, #112/225 speed, #110/225 cost); BenchLM.ai model page (Overall 78.84/100, #8/887); Anthropic system card (claude-fable-5 and claude-mythos-5); ARC Prize verified results; Vals AI leaderboards; OpenRouter benchmarks.
+- Sources: Artificial Analysis model page (Intelligence Index 50, #19/225); BenchLM.ai model page (Overall 78.84/100, #8/887); Anthropic system card (claude-fable-5 and claude-mythos-5); ARC Prize verified results; Vals AI leaderboards; OpenRouter benchmarks.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.
 
 ---

@@ -50,7 +50,9 @@ import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
+  MERGED_SOURCE_STEMS,
   mergedSlugMessage,
+  mergedStemMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -79,6 +81,7 @@ import {
   labelOf,
   resolveSourceMeta as resolveSourceMetaPure,
   hyphenVersionViolation,
+  stemVersionViolation,
   vendorPrefixViolation,
   buildScaffoldMeta,
   isScaffoldStub,
@@ -181,6 +184,9 @@ log(`sync-data: ${slugs.length} model folders`);
 // deletion can never be cemented silently (a failing run also skips rewriting
 // scores.generated.ts and exits non-zero).
 // Sanctioned survivals (INFO, never FAIL):
+//   - merged source stem: a merged-and-deleted duplicate findings-file stem
+//     (validate.mjs MERGED_SOURCE_STEMS, user-ordered source merge
+//     2026-10-08) whose canonical dotted sibling exists on disk;
 //   - twin retirement: <.md.excluded> gone but its fresh <.md> sibling exists
 //     (tasks/research.md Step 3.3);
 //   - relocation: the same relative path exists under a sanctioned mirror tree
@@ -205,7 +211,19 @@ try {
       posix.includes(".md.excluded") && existsSync(diskPath.replace(/\.md\.excluded$/, ".md"));
     const parts = posix.split("/");
     const mirror = findMirror(parts, MIRROR_ROOTS, (m, rest) => existsSync(join(root, m, ...rest)));
-    const verdict = classifyMissingTracked({ twinRetired, mirror });
+    // Merged duplicate stem (user-ordered source merge, 2026-10-08): the
+    // variant was folded into its canonical dotted sibling and deleted — its
+    // removal from disk is sanctioned while the canonical file survives.
+    const stem = (parts[parts.length - 1] ?? "").replace(/\.md(\.excluded)?$/, "");
+    const canonicalStem = MERGED_SOURCE_STEMS.get(stem);
+    const mergedSource =
+      canonicalStem !== undefined &&
+      existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`));
+    const verdict = classifyMissingTracked({ twinRetired, mirror, mergedSource });
+    if (verdict === "merged-source") {
+      log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
+      continue;
+    }
     if (verdict === "twin-retired") {
       log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
       continue;
@@ -347,14 +365,50 @@ for (const slug of slugs) {
     continue;
   }
   const dir = join(modelDir, slug);
+  const entries = readdirSync(dir).sort();
+  // Forbidden duplicate stems, on-disk gate (RULES.md findings-stem identity):
+  // - a merged-and-deleted stem (validate.mjs MERGED_SOURCE_STEMS, e.g.
+  //   `Laguna_XS_2_1` folded into `Laguna_XS_2.1` 2026-10-08) that reappears
+  //   is a resurrected duplicate that would silently double-count the same
+  //   rater in averages;
+  // - an underscore-versioned stem (naming.mjs stemVersionViolation, e.g.
+  //   `Laguna_XS_2_1` for "Laguna XS 2.1") is a duplicate spelling of its
+  //   dotted twin, never a second source.
+  // Both FAIL loudly and sync cements nothing for them: no quarantine rename,
+  // no parsing, no averaging, no registry input. Merge the newer content into
+  // the dotted file, then remove the variant.
+  const forbiddenStemFiles = new Set();
+  for (const f of entries) {
+    if (!f.endsWith(".md") && !f.includes(".md.excluded")) continue;
+    if (f === "average.md" || f === "README.md") continue;
+    const stem = f.replace(/\.md(\.excluded)?$/, "");
+    const canonical = MERGED_SOURCE_STEMS.get(stem);
+    if (canonical !== undefined) {
+      forbiddenStemFiles.add(f);
+      fail(`${mergedStemMessage(stem, canonical)} (found at model/${slug}/${f})`);
+      continue;
+    }
+    const dotted = stemVersionViolation(stem);
+    if (dotted !== null) {
+      forbiddenStemFiles.add(f);
+      fail(
+        `model/${slug}/${f}: findings-file stems use "." not "_" between version digits — use "${dotted}.md" instead (e.g. Laguna_XS_2_1 -> Laguna_XS_2.1); merge into the dotted file, never create an underscore variant`,
+      );
+    }
+  }
   // Auto-quarantine (enforces the template's SELF-EXCLUSION rule even when the
   // reporting agent forgot it): a findings file whose "Raw benchmarks found"
   // section holds 8+ "no verified public score found" rows and zero measured
   // (bold numeric) values is evidence-free — rename to *.md.excluded on the
   // spot so it can never poison the average. Any single real number keeps the file.
-  for (const f of readdirSync(dir)
-    .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
-    .sort()) {
+  for (const f of entries.filter(
+    (f) =>
+      f.endsWith(".md") &&
+      !f.includes(".excluded") &&
+      f !== "average.md" &&
+      f !== "README.md" &&
+      !forbiddenStemFiles.has(f),
+  ).sort()) {
     const content = readFileSync(join(dir, f), "utf8");
     // Criteria live in scripts/lib/quarantine.mjs (tested); sync only renames.
     const reason = quarantineReason(content);
@@ -363,15 +417,21 @@ for (const slug of slugs) {
       log(`  QUAR  model/${slug}/${f} -> ${f}.excluded (${reason})`);
     }
   }
-  const entries = readdirSync(dir).sort();
   // Self-excluded findings (agent found no verified benchmarks — see
   // model-report-TEMPLATE.md): never parsed, never averaged, never registered.
   // Logged so exclusions stay visible instead of silently vanishing.
-  for (const f of entries.filter((f) => f.includes(".excluded"))) {
+  for (const f of entries.filter((f) => f.includes(".excluded") && !forbiddenStemFiles.has(f))) {
     log(`  SKIP  model/${slug}/${f} (self-excluded: no verified benchmarks)`);
   }
   const files = entries
-    .filter((f) => f.endsWith(".md") && !f.includes(".excluded") && f !== "average.md" && f !== "README.md")
+    .filter(
+      (f) =>
+        f.endsWith(".md") &&
+        !f.includes(".excluded") &&
+        f !== "average.md" &&
+        f !== "README.md" &&
+        !forbiddenStemFiles.has(f),
+    )
     .sort();
 
   for (const f of files) {

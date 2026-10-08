@@ -1,0 +1,40 @@
+# Pixel Canary — findings by GPT 6 Astra
+
+- Source: Undisclosed publisher / Vercel stealth/pixel-canary
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** Pixel Canary.
+- **Short description:** Anonymous coding model introduced through Vercel AI Gateway; no verified mapping to a named vendor model.
+- **Provider / access:** Vercel AI Gateway announced Chat Completions/AI SDK access. Its linked model-details URL returned 404 during this research; current callability was not verified.
+- **Release / knowledge:** Gateway announcement September 25, 2026; training cutoff undisclosed.
+- **IDs:** `stealth/pixel-canary`; evaluator config uses `vercel/stealth/pixel-canary`. No verified free Zen ID.
+- **Context window:** No currently accessible primary specification verified; secondary 262k claims are not adopted.
+- **Modalities:** Text coding demonstrated; image/audio/video support and structured-output guarantees unverified.
+- **Pricing (as of 2026-10-08):** Announcement offered temporary free access. Current availability unverified; no zero-data-retention guarantee, and prompts/responses may be used for training.
+- **Architecture:** Publisher, parameter count, license and underlying identity undisclosed.
+
+Sources: [Vercel announcement](https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway), [model-details URL checked](https://vercel.com/ai-gateway/models/pixel-canary).
+
+### Raw benchmarks found
+
+- **Coding:** Vercel Next.js evals: 28/31 tasks, **90.3% pass@4** baseline; documentation supplied through AGENTS.md: 30/31, **96.8% pass@4**. Four attempts and documentation assistance must not be confused with pass@1 or a general SWE-bench result.
+- **Harness:** Public experiment identifies the opencode agent through Vercel AI Gateway and exact stealth route. [Experiment source](https://github.com/vercel/next-evals-oss/blob/main/experiments/pixel-canary--agents-md.ts).
+- **Agent/tool use:** Agentic coding is a narrow proxy; TB2.1, tau2/tau3, GDPval-AA, Claw-Eval and MCP-Atlas: no verified public score found.
+- **Reasoning:** GPQA, HLE, LCR, CritPt and Intelligence Index: no verified public score found.
+- **Other coding:** SWE-bench Verified/Pro, LiveCodeBench, SciCode and Vibe Code Bench: no verified public score found.
+- **Long context/multimodal:** No verified public retrieval or multimodal score found.
+
+### Normalized scores (1–100)
+
+**Self-excluded.** Primary coding results exist, but they do not establish broad reasoning, context capacity or modality coverage well enough to calculate all five quality dimensions. No placeholder scores or Overall Score are assigned. This preserves the verified narrow coding evidence without making unsupported general-capability claims. A new identified model mapping or primary specification plus broader evaluations could justify a later scored report.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Fresh primary web research and negative-findings audit; no peer reports used and no model execution performed.
+- Future sources: Add a separate signed report with newly verified evidence.
+

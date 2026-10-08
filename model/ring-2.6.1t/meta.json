@@ -1,0 +1,9 @@
+{
+  "id": "opencode/ring-2.6.1t",
+  "name": "Ring 2.6.1t",
+  "short": "Ring 2.6.1t model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

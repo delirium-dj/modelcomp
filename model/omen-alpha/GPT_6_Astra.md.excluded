@@ -1,0 +1,39 @@
+# Omen Alpha — findings by GPT 6 Astra
+
+- Source: OpenCode Go / omen-alpha (underlying publisher unconfirmed)
+- Date: 2026-10-08 (UTC)
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
+
+## Model card
+
+- **Name:** Omen Alpha.
+- **Short description:** Stealth coding model historically accessed through OpenCode Go. A GLM identity is conjecture, not verified equivalence.
+- **Provider / access:** Evaluator used OpenAI-compatible Chat Completions at `https://opencode.ai/zen/go/v1`.
+- **Release / knowledge:** September 2026 public evidence; exact release and knowledge cutoff unverified.
+- **IDs:** `omen-alpha`; no verified Free Zen ID.
+- **Context window:** No primary specification verified; third-party 500k claims are not adopted.
+- **Modalities:** Text coding demonstrated; other input/output support unverified.
+- **Pricing (as of 2026-10-08):** No current primary tariff or live availability verified. Historical Go subscription access is not evidence of a free API.
+- **Architecture:** Undisclosed parameters, weights and license; no peer model's specifications transferred.
+
+[Provider documentation inspected](https://opencode.ai/docs/go/), [direct evaluator's endpoint and model notes](https://note.com/zephel01/n/nd2412f935144?hl=en).
+
+### Raw benchmarks found
+
+- **Coding, direct independent run:** zephel01 reports **95.0% Resolved** on a custom 60-question suite, and **13/16** on the harder L7 set. The evaluator used temperature **0.35**, five trials per task for the 60-question set and three for L7.
+- **Limitations:** The author identifies two L7 failures as likely benchmark defects and says the easier suite is saturated. These are custom coding results, not SWE-bench Verified or a general reasoning benchmark. They do not establish the model's lineage.
+- **Missing:** GPQA, HLE, LCR, CritPt, Omniscience, Terminal-Bench, Tau2/Tau3, GDPval-AA, Claw-Eval, Toolathlon, LiveCodeBench, SciCode and full-window retrieval: no verified public score found in inspected primary sources.
+
+[Run and methodology](https://note.com/zephel01/n/nd2412f935144?hl=en). Third-party pages repeating coding snapshots or identity guesses were not used as primary evidence.
+
+### Normalized scores (1–100)
+
+**Self-excluded:** Real narrow coding evidence exists, but general reasoning, context capacity and modality coverage are insufficiently verified to compute a complete Overall. No placeholder scores assigned. Future research needs an exact-model primary specification and broader reproducible evaluation.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08
+- Method: Fresh provider and direct evaluator research; no peer reports used.
+- Future sources: Add a scored sibling only after genuinely new verified evidence supports it.
+

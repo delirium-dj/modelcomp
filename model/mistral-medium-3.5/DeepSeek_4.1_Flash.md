@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **50.6%** task success; Terminal-Bench 2.0 **30.3%**; Terminal-Bench Hard **33.3%** (BenchmarkList, checked 2026-09-22)
-- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList) and τ³-Telecom **91.4%** (official Hugging Face model card) — the same model scores very differently across the three harness versions
+- Tau3-Banking: **15.1%** pass@1; Tau2-Bench Telecom **94.2%** (BenchmarkList — the same model scores very differently across the two harness versions)
 - GDPval-AA **936 Elo**; AA-Briefcase **517**; AutomationBench-AA **13.7%**; Gert Labs Rankings **37.3%** (BenchmarkList)
 - Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
 - Vendor claims (unquantified): parallel cloud coding agents, Work mode cross-tool workflows, synchronous tool calling in Vibe/Le Chat.

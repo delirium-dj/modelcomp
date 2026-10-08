@@ -48,7 +48,6 @@ export type SourceKey =
   | "GPT 5.6 Sol"
   | "Gemma 4 31B IT"
   | "Claude Opus 4.5"
-  | "Laguna XS 2 1"
   | "Claude Fable 5.1"
   | "Claude Opus 5.5"
   | "GPT 5"
@@ -132,7 +131,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 5.6 Sol", label: "GPT-5.6 Sol", file: "GPT_5.6_Sol.md", slug: "gpt-5.6-sol" },
   { key: "Gemma 4 31B IT", label: "Gemma 4 31B IT", file: "Gemma_4_31B_IT.md" },
   { key: "Claude Opus 4.5", label: "Claude Opus 4.5", file: "Claude_Opus_4.5.md", slug: "claude-opus-4.5" },
-  { key: "Laguna XS 2 1", label: "Laguna XS 2 1", file: "Laguna_XS_2_1.md", slug: "laguna-xs-2.1" },
   { key: "Claude Fable 5.1", label: "Claude Fable 5.1", file: "Claude_Fable_5.1.md", slug: "claude-fable-5.1" },
   { key: "Claude Opus 5.5", label: "Claude Opus 5.5", file: "Claude_Opus_5.5.md", slug: "claude-opus-5.5" },
   { key: "GPT 5", label: "GPT-5", file: "GPT_5.md", slug: "gpt-5" },
