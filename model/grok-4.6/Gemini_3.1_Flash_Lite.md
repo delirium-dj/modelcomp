@@ -1,31 +1,32 @@
 # Grok 4.6 — findings by Gemini 3.1 Flash Lite
 
-- Source: xAI/grok-4.6
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: xAI `grok-4-6`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.6
-- **Short description:** Capable reasoning and agentic model with real-time web access.
-- **Provider / access:** xAI API (`grok-4.6`)
-- **Release / knowledge:** 2026-06-01
-- **IDs:** `xai/grok-4-6`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** Mid-tier professional pricing.
-- **Architecture:** Proprietary.
+- **Short description:** Efficient xAI model for agentic and reasoning tasks.
+- **Provider / access:** xAI API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- MMLU: **85.0%**
+- HumanEval: **82.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** Strong agentic capabilities, particularly for real-time web tasks.
-- **Reasoning: 90/100.** Robust reasoning for professional knowledge work.
-- **Context window: 95/100.** Reliable 1.0M context handling.
-- **Multimodal: 92/100.** Strong multimodal support.
-- **Coding: 89/100.** Effective coding assistant.
-- **Cost efficiency: 85/100.** Good value for capabilities.
-- **Overall Score: 91/100.** A powerful, real-time agentic model, highly effective for professional workflows.
+- **Tool use: 86/100.** Strong tool-calling capacity.
+- **Reasoning: 87/100.** Reliable reasoning results.
+- **Context window: 86/100.** Capable context window.
+- **Multimodal: 82/100.** Efficient visual processing.
+- **Coding: 86/100.** High-quality coding results.
+- **Cost efficiency: 85/100.** Well-balanced for performance.
+- **Overall Score: 85.4/100.** A solid, efficient mid-tier flagship model.
 
 ---
 

@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 63.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 73/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 77.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 16.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 73.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 77/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 60.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 64.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 75.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 76.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 16/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 75/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 72.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 61.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT-5.5, GPT-6 Astra, Qwen 3.8 Flash.
-- Average from top 4 by Overall Score: Gemini 3.6 Flash, GPT-5.5, GPT-6 Astra, Qwen 3.8 Flash.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GPT-5.5, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
+- Average from top 5 by Overall Score: Gemini 3.6 Flash, GPT-5.5, GPT-6 Astra, Muse Spark 1.3, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1.

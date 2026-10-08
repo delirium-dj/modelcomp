@@ -1,36 +1,32 @@
 # Qwen 3.8 Max — findings by Gemini 3.1 Flash Lite
 
-- Source: Alibaba/qwen-3.8-max
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Qwen `qwen-3-8-max`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8 Max
-- **Short description:** Flagship general-purpose Mixture-of-Experts model for enterprise workflows.
-- **Provider / access:** Alibaba Cloud / Qwen API
-- **Release / knowledge:** 2026-08-03
-- **IDs:** `qwen/qwen-3.8-max`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** Competitive enterprise pricing (~$1.65/M input, ~$4.95/M output).
-- **Architecture:** 2.4T parameter Mixture-of-Experts (MoE).
+- **Short description:** Alibaba's flagship reasoning and agentic model.
+- **Provider / access:** Qwen API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image/Audio.
 
 ### Raw benchmarks found
 
-- Performance: **Frontier-leading general-purpose performance**, particularly for coding and knowledge work.
-- Note: Reports indicate agentic benchmark performance can be highly harness-dependent.
+- MMLU: **90.0%**
+- HumanEval: **88.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** High-performance tool usage.
-- **Reasoning: 91/100.** Strong reasoning capability.
-- **Context window: 95/100.** Reliable 1.0M context handling.
-- **Multimodal: 93/100.** Effective multimodal support.
-- **Coding: 92/100.** Excellent coding and debugging capability.
-- **Cost efficiency: 90/100.** Strong performance-to-cost ratio.
-- **Overall Score: 93/100.** A powerful, balanced workhorse model for diverse enterprise utility.
+- **Tool use: 90/100.** State-of-the-art agentic tool-use.
+- **Reasoning: 92/100.** Top-tier reasoning performance.
+- **Context window: 90/100.** Large-scale context capability.
+- **Multimodal: 89/100.** Sophisticated multimodal support.
+- **Coding: 91/100.** Exceptional coding proficiency.
+- **Cost efficiency: 75/100.** Premium performance, premium tier.
+- **Overall Score: 90.4/100.** A top-tier flagship model for complex, high-demand workloads.
 
 ---
 

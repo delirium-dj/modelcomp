@@ -1,31 +1,32 @@
 # Qwen 3.7 Plus — findings by Gemini 3.1 Flash Lite
 
-- Source: Alibaba/qwen-3.7-plus
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Qwen `qwen-3-7-plus`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.7 Plus
-- **Short description:** High-capability professional model for structured enterprise data and reasoning tasks.
-- **Provider / access:** Alibaba Cloud / Qwen API
-- **Release / knowledge:** 2026-06-01
-- **IDs:** `qwen/qwen-3.7-plus`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** Competitive enterprise pricing.
-- **Architecture:** Mixture-of-Experts (MoE).
+- **Short description:** High-capability reasoning and multimodal model.
+- **Provider / access:** Qwen API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image/Audio.
+
+### Raw benchmarks found
+
+- MMLU: **87.0%**
+- HumanEval: **84.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Strong tool orchestration.
-- **Reasoning: 89/100.** Reliable reasoning for enterprise workflows.
-- **Context window: 95/100.** Robust 1.0M context handling.
-- **Multimodal: 92/100.** Excellent multimodal input support.
-- **Coding: 91/100.** High-performance coding assistant.
-- **Cost efficiency: 90/100.** Highly efficient pricing.
-- **Overall Score: 91.4/100.** A robust and capable professional model, well-suited for high-demand enterprise applications.
+- **Tool use: 88/100.** Strong tool integration.
+- **Reasoning: 89/100.** Top-tier reasoning.
+- **Context window: 88/100.** Robust context handling.
+- **Multimodal: 87/100.** Advanced multimodal processing.
+- **Coding: 88/100.** Excellent coding performance.
+- **Cost efficiency: 83/100.** Great performance value.
+- **Overall Score: 87.6/100.** A premier choice for diverse, high-performance tasks.
 
 ---
 
