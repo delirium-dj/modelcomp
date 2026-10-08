@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,7 +30,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **93.6%** (LLMReference card)
 - HLE / MRCR / LCR: no verified public score found
-- Artificial Analysis Intelligence Index: **38** (xhigh), #42/200 (AA; median 24) — vs GPT-5.6 Sol's ~54-60 and GPT-6 Astra's 53
+- Artificial Analysis Intelligence Index: **38** (xhigh), #42/200 (AA; median 24) — vs GPT-5.6 Sol's ~54-60 and GPT-6 Astra's 53; an alternative AA reading of **55** (SiliconReport scorecard, Jul 2, 2026, found 2026-10-08 — previously missing from this report) sits 5 points behind Fable 5's 60 on that scorecard's scale — version discrepancy flagged, both listed; GPQA **93.5%** corroborated on the same scorecard
 - AA-Omniscience / AA-Briefcase: no itemized public rows surfaced for 5.5 this pass
 
 Coding:
@@ -58,7 +58,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: Artificial Analysis model page, LLMReference dossier, Kimi K3 AA cross-citations, MiniMax M3 cross-table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

@@ -23,8 +23,8 @@
 88.2 claude-opus-4.8
 88.2 gemini-3.5-flash
 88.2 glm-5.3-flash
-88 claude-fable-5
 87.8 gemini-3.6-flash
+87.7 claude-fable-5
 87.4 gpt-5.4-pro
 87.1 gpt-5.5
 86.9 gemini-3-flash
@@ -34,12 +34,11 @@
 86.5 claude-opus-4.6
 86.5 qwen-3.8
 86.4 mimo-v2.6-flash
-86.1 qwen-3.8-flash
+86.2 qwen-3.8-flash
 86 gpt-6-sol
 85.5 ember-1
-85.5 glm-5.3-flashx
 85.5 qwen-3.7-plus
-85 mistral-large-4
+85.3 glm-5.3-flashx
 84.8 inkling-small
 84.7 grok-4.6
 84.6 claude-sonnet-4.6
@@ -65,6 +64,7 @@
 82.8 grok-4.3
 82.7 gpt-5
 82.7 gpt-5.1
+82.7 mistral-large-4
 82.4 pareto-26.10-preview
 82.3 Inkling
 81.9 gpt-5.6-luna
@@ -131,6 +131,7 @@
 65.6 minimax-m2.7
 65.3 pixel_canary
 65.1 claude-haiku-3.5
+65 grok-5
 65 ling-3.1-flash
 64.3 diffusiongemma-26b-a4b
 64.2 laguna-s-2.1
@@ -153,6 +154,5 @@
 54.7 mimo-v2.6-distill-qwen-9b
 51.4 mercury-2.5
 50.6 gemma-4-e2b
-50 grok-5
 48 solar-mini-4
 37.4 jev-1.13

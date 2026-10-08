@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.6-flash`)
-- Date: 2026-09-18 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gemini-3.6-flash` (Google). Free tier available with usage limits.
 - **Context window:** 1,000,000-token input, 64,000-token max output (ai-tldr spec block).
 - **Modalities:** text, image, audio, video, PDF in; text out. Reasoning yes; built-in function calling, structured output, code execution, computer use, search grounding.
-- **Pricing (as of 2026-09-18):** $1.50 in / $7.50 out per 1M (paid tier), cached input $0.15/1M, context-cache storage $1.00/1M/hr; free tier with usage limits. Cheaper output than 3.5 Flash ($9.00) and fewer tokens per task.
+- **Pricing (as of 2026-10-08):** $0.75 in / $3.75 out per 1M (paid tier — halved from the July 21, 2026 launch rates of $1.50/$7.50 per felloai's October re-read), cached input $0.15/1M, context-cache storage $1.00/1M/hr; free tier with usage limits. Cheaper output than 3.5 Flash ($9.00) and fewer tokens per task.
 - **Architecture:** proprietary, parameters undisclosed; natively multimodal Flash-tier Gemini positioned for scaled agentic and knowledge work.
 
 ### Raw benchmarks found
@@ -51,13 +51,13 @@ Long context:
 - **Context window: 98/100.** 1M input with the deepest measured retrieval evidence in the Flash line (MRCR v2 54% at full 1M depth); 64K output cap.
 - **Multimodal: 88/100.** Full omni input incl. PDF and computer-use vision; text-only output; no published vision benchmark.
 - **Coding: 89/100.** SWE-Pro 58.7 + DeepSWE 49 (2.6× its predecessor) + MLE-Bench 63.9 + TB2.1 78 — the strongest coding package seen at Flash tier.
-- **Cost efficiency: 80/100.** Free tier plus $1.50/$7.50; the 17–65% output-token reduction and $0.15 cache take real edge off the bill, but paid list is still well above open-weights tiers.
-- **Overall Score: 89/100.** Mean: (93 + 76 + 98 + 88 + 89 + 80) / 6 = 524/6 = 87.3 → **87**. Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this is the value pick of the 3.x Flash line.
+- **Cost efficiency: 88/100.** Free tier plus the halved $0.75/$3.75 rates; the 17–65% output-token reduction and $0.15 cache take real edge off the bill — the post-launch cut moves it to the ~$1.25/$4.25 ≈ 88 anchor territory.
+- **Overall Score: 89/100.** v4 formula: mean of the five quality dims (93 + 76 + 98 + 88 + 89) / 5 = 88.8 → **89** (Cost excluded per `RULES.md`; the original /6 = 87.3→87 math was stale v1 history, corrected 2026-10-08). Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this is the value pick of the 3.x Flash line.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (ai-tldr.dev Gemini 3.6 Flash page quoting Google's model card PDF, launch comparison table of 2026-07-21, Gemini API pricing and the launch blog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

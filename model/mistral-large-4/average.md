@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 81/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 83.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 91.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 84/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 83/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 79.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 85/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 80/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 80.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 90.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 79.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 82/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 80.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 82.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5, GPT-5.6 Sol.
-- Average from top 2 by Overall Score: GPT-5.5, GPT-5.6 Sol.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, GPT-5.5, GPT-5.6 Sol.
+- Average from top 3 by Overall Score: Claude Opus 4.6, GPT-5.5, GPT-5.6 Sol.
 - Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

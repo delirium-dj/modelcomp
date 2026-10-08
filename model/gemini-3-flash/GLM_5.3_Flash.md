@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3-flash-preview`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,7 +31,7 @@ Reasoning / knowledge:
 - MMMU Pro: **81.2%** (Google launch blog; state-of-the-art claim, "comparable to Gemini 3 Pro")
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: **18 (estimated) / #24 of 60** non-reasoning-class models (Artificial Analysis model page, Sep 2026; independent evaluation forthcoming)
+- Artificial Analysis Intelligence Index: **18 (estimated) / #24 of 60** non-reasoning-class models (Artificial Analysis model page, Sep 2026; independent evaluation forthcoming); the Reasoning variant now has a measured reading of **26** — below average in intelligence but well priced (artificialanalysis.ai/models/gemini-3-flash-reasoning, found 2026-10-08, previously missing from this report)
 - LMArena: on the quality-vs-cost Pareto frontier alongside Gemini 3 Pro and 3 Flash Lite (Google launch blog; Elo value in image, not machine-readable)
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - Efficiency: uses 30% fewer tokens on average than Gemini 2.5 Pro on typical traffic (Google launch blog); 3x faster than 2.5 Pro per Artificial Analysis benchmarking
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (Google launch blog, Artificial Analysis model page, llm-stats model page, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.

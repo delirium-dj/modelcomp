@@ -398,4 +398,67 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 - Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
 
+------
+
+## a) Model name: Ling 3.0 Flash VL
+
+### b) Findings
+
+- InclusionAI (Ant Group) open-weight native multimodal MoE (124B total / 5.5B active, MIT license). 262K context, text+image+video in; text out, reasoning yes.
+- Scores: Tool 48 / Reasoning 55 / Context 72 / Multimodal 80 / Coding 48 → Overall **61**.
+- Agent: GDPval-AA 3.2% / Elo 713 (weak), TAU2-Bench 43.6% (moderate). No TB 2.1/4.0 published.
+- Reasoning: AA Intelligence Index 25 (rank #1/65 for 124B open-weight, median 8), GPQA 86.2%, AA-HLE 22.0%, AA-LCR 78.3%, Omniscience Index -4.5 (hallucination-prone).
+- Coding: AA-SciCode 44.2% (weak). No SWE-bench or LiveCodeBench.
+- Multimodal: AA-MMMU-Pro 79.0% (strong).
+- Sources: Artificial Analysis (Intelligence Index 25, .07/.22), BenchLM (Overall 47.41/100, #108/887, 11 of 623 benchmarks), HuggingFace.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** - 2026-10-08
+
 ---
+
+## a) Model name: Gemma 4 26B A4B
+
+### b) Findings
+
+- Google DeepMind open-weights MoE (25.2B total / 3.8B active, Apache 2.0). 256K context, text+image(+video) in; text out, reasoning yes.
+- Scores: Tool 38 / Reasoning 47 / Context 72 / Multimodal 70 / Coding 48 → Overall **55**.
+- Agent: GDPval-AA 3.4% / Elo 713 (weak), TAU2-Bench 43.6% (moderate). No TB published.
+- Reasoning: AA Intelligence Index 17 (rank #15/142, estimated), GPQA 79.2-82.3%, HLE 8.7-19.3% (weak), CritPt 0.0%, Omniscience Index -50.8 (very poor).
+- Coding: AA Coding Index 39.3% (weak), AA-SciCode 40.0% (weak), LiveCodeBench v6 77.1% (moderate), AIME 89.2% (strong but math).
+- Multimodal: MMMU-Pro 73.8%, MATH-Vision 82.4% (strong).
+- Sources: Artificial Analysis (Intelligence Index 17 estimated, .10/.37), BenchLM (Overall 46/100, #115/887, 19 of 623 benchmarks), HuggingFace model card.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** - 2026-10-08
+## a) Model name: Ling 3.0 Flash VL
+
+### b) Findings
+
+- InclusionAI (Ant Group) open-weight native multimodal MoE (124B total / 5.5B active, MIT license). 262K context, text+image+video in; text out, reasoning yes.
+- Scores: Tool 48 / Reasoning 55 / Context 72 / Multimodal 80 / Coding 48 → Overall **61**.
+- Agent: GDPval-AA 3.2% / Elo 713 (moderate), TAU2-Bench 43.6% (moderate). No TB 2.1/4.0 published.
+- Reasoning: AA Intelligence Index 25 (rank #1/65 for 124B open-weight, median 8), GPQA 86.2%, AA-HLE 22.0%, AA-LCR 78.3%, Omniscience Index -4.5 (hallucination-prone).
+- Coding: AA-SciCode 44.2% (weak). No SWE-bench or LiveCodeBench.
+- Multimodal: AA-MMMU-Pro 79.0% (strong).
+- Sources: Artificial Analysis (Intelligence Index 25, .07/.22), BenchLM (Overall 47.41/100, #108/887, 11 of 623 benchmarks), HuggingFace.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** - 2026-10-08
+
+---
+
+## a) Model name: Gemma 4 12B Unified
+
+### b) Findings
+
+- Google DeepMind open-weights dense model (11.95B params, Apache 2.0). 256K context, text+image+audio+video in; text out, reasoning yes. Encoder-free unified architecture.
+- Scores: Tool 36 / Reasoning 44 / Context 72 / Multimodal 90 / Coding 47 → Overall **58**.
+- Agent: GDPval-AA 0.0% / Elo 591 (weak), TAU2-Bench 43.6% (moderate). No TB published.
+- Reasoning: AA Intelligence Index 14 (estimated, rank #21/142, median 8), GPQA 78.8%, HLE 5.2% (extremely weak), Omniscience Index -52.7 (very poor).
+- Coding: AA Coding Index 31.0% (weak), LiveCodeBench v6 72.0% (moderate). No SWE-bench or DeepSWE.
+- Multimodal: MMMU-Pro 69.1-69.7%, MATH-Vision 79.7% (strong).
+- Sources: Artificial Analysis (Intelligence Index 14 estimated, .10/.30), BenchLM (Overall 31.9/100, #163/887, 26 of 623 benchmarks), HuggingFace model card.
