@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GLM 5.3
 
 - Source: Google (`gemini-3.7-flash`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ARC-AGI-1/2, LABBench2, BioMysteryBench, ApprenticeBench, Omniscience Index)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - Tau3-Banking: **no verified public score found** for this ID
 - GDPval-AA: **1525 Elo** (BenchLM; normalized 43.6%)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- OSWorld 2.0: **47.9%**; AA Agentic Index **36.4%**; AA-AnalystAgent **60.0%**; AA Harvey LAB **90.7%**; AutomationBench **30.4%**; Agents' Last Exam **26.3%** (BenchLM)
+- OSWorld 2.0: **47.9%**; AA Agentic Index **36.4%**; AA-AnalystAgent **60.0%**; AA Harvey LAB **90.7%**; AutomationBench **30.4%**; Agents' Last Exam **26.3%**; ApprenticeBench **16%** (new 2026-10-08 evidence) (BenchLM)
 - Toolathlon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
@@ -33,9 +33,10 @@ Reasoning / knowledge:
 - GPQA Diamond: **94.5%** (AA-GPQA via BenchLM; Vals 93.9%)
 - HLE: **47.9%** AA harness / **53.6%** HLE-Verified (BenchLM)
 - MRCR v2 64K–128K: **97%** (BenchLM — short-band only; no 512K–1M figure published)
-- AA-LCR: **81.7%**; CritPt **14.3%** (BenchLM)
-- Artificial Analysis Intelligence Index: **39** (high effort, AA #50/211)
-- Omniscience Accuracy / Hallucination Rate: **55.3% / 64.5%** (BenchLM — high hallucination rate)
+- AA-LCR: **81.7%**; CritPt **14.3%**; ARC-AGI-1 **95.50%** / ARC-AGI-2 **84.6%** (ARC Prize verified results — new 2026-10-08 evidence) (BenchLM)
+- Artificial Analysis Intelligence Index: **39.1** (high effort, AA #50/211)
+- Omniscience Index **26.5** (new); Accuracy **55.3%** / Hallucination Rate **64.5%** (BenchLM — high hallucination rate)
+- LABBench2 **82.1%**; BioMysteryBench human-solvable **87.1%** / human-difficult **43.5%** (new 2026-10-08 evidence) (BenchLM)
 - MMLU-Pro (Vals): **90.1%** (BenchLM)
 
 Coding:
@@ -69,6 +70,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
-- Method: public internet research (Artificial Analysis, BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
+- Method: public internet research (Artificial Analysis, BenchLM, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ARC/LABBench/BioMystery rows added — no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

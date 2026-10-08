@@ -1,7 +1,7 @@
 # Grok 4.5 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (SpaceXAI)/Grok 4.5 (`grok-4.5`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,29 +21,28 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **83.3%** task success (verified, evals.report)
+- Terminal-Bench 2.1: **83.3%** task success (xAI launch post, verified evals.report) versus **67.8%** on the independent Vals AI run; Terminal-Bench 3.0 **15.7%** (FrontierBench leaderboard)
 - Tau3-Banking: **no verified public score found**; τ²-bench/Tau2: **no verified public score found**
-- GDPval-AA: **43.5%** (Artificial Analysis via OpenRouter — competitive percentage form, not the Elo scale used elsewhere)
+- GDPval-AA: **44.5%** normalized (Artificial Analysis, revised up from 43.5%) and **1430 Elo** (the Elo-scale figure; methodology frontier ref ~1750+)
 - APEX (multi-step agentic): **56.2%** (Model Beat / Epoch AI, revised up from 34.2% on 2026-09-22); SWE-Marathon **29.0%** resolution (verified, evals.report)
 - Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: **no verified public score found**
-- AA Agentic Index **41.2**; Epoch AI Agentic percentile **83rd**
+- AA Agentic Index **42.1** (revised up from 41.2); Epoch AI Agentic percentile **83rd**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.1%** (Artificial Analysis via OpenRouter) / **93.4%** (Model Beat–Epoch AI row)
-- HLE: **42.7%** (AA and Model Beat agree)
+- GPQA Diamond: **93.1%** (Artificial Analysis via OpenRouter) / **93.4%** (Model Beat–Epoch AI row) / **92.9%** (Vals AI leaderboard)
+- HLE: **42.7%** (AA and Model Beat agree); MMLU-Pro **89.2%** (Vals AI leaderboard)
 - LCR / MLCR: **AA-LCR 79.3%** (AA); no MRCR/RULER row found
 - CritPt: **15.4%** (AA via OpenRouter)
 - Artificial Analysis Intelligence Index **38.8** (AA); Epoch AI Intelligence percentile **76th**
-- Omniscience / hallucination: AA-Omniscience accuracy **51.5%**, non-hallucination rate **45.9%**; SimpleQA Verified **48.3%** (Model Beat, revised down from 53.5%); SimpleBench **70.0%**; ARC-AGI-1 **85.67%**, ARC-AGI-2 **52.64%** (official, evals.report); AIME 2024/2025 **97.8%**
+- Omniscience / hallucination: AA-Omniscience accuracy **51.6%** (revised up from 51.5%), index **25.3%**, hallucination rate **54.1%**; SimpleQA Verified **48.3%** (Model Beat, revised down from 53.5%); SimpleBench **70.0%**; ARC-AGI-1 **85.67%**, ARC-AGI-2 **52.64%**, ARC-AGI-3 **0.3%** (official, evals.report); AIME 2024/2025 **97.8%**
 
 Coding:
 
-- SWE-bench Verified: **no verified public score found**
-- SWE-bench Pro: **64.7%** resolved (verified, evals.report)
-- DeepSWE: **no verified public score found**; FrontierCode **42.4%** weighted (official, evals.report)
-- LiveCodeBench: **no verified public score found**; SciCode **55.0%** (AA and Model Beat agree); WeirdML **46.4%**
-- AA Coding Index **72.4**; Epoch AI Coding percentile **80th**; WebDev Arena **1555**; Design Arena Elos 1208–1291 across app/UI/game categories (verified, OpenRouter)
+- SWE-bench Verified: **86.6%** (Vals AI leaderboard); SWE-bench Pro **64.7%** resolved (xAI launch post, verified evals.report); SWE Multilingual **78%** (Cursor launch post)
+- DeepSWE: **53%** (xAI launch post — below the 74% frontier reference); FrontierCode **42.4%** weighted (official, evals.report)
+- LiveCodeBench: **87.4%** (Vals AI leaderboard); SciCode **55.0%** (AA and Model Beat agree); WeirdML **46.4%**; CursorBench 3.2 **66.7%**; VulcanBench v3 **89.9%**; PostTrainBench v1.1 **23.4%**
+- AA Coding Index **72.5**; Epoch AI Coding percentile **80th**; WebDev Arena **1555**; Design Arena Elos 1208–1291 across app/UI/game categories (verified, OpenRouter)
 
 Long context:
 

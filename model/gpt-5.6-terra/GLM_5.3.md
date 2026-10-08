@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by GLM 5.3
 
 - Source: OpenAI (`gpt-5.6-terra`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ARC-AGI-1, CursorBench 4.0, LABBench2, HealthBench family, IFBench, Omniscience Index)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,23 +25,24 @@ Agent / tool use:
 - Tau2-Bench: **86.3%** (BenchLM); Tau3-Banking: **no verified public score found** for this ID
 - GDPval-AA: **1583 Elo** (BenchLM; normalized 46.6%)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathlon: **53.1%**; OSWorld 2.0 **50.2%**; BrowseComp **87.5%**; CyberGym **81.8%**; ExploitGym **23.2%**; AA ITBench **51.0%**; AA Agentic Index **43.7%**; APEX-Agents-AA **38.9%** (BenchLM)
+- Toolathlon: **53.1%**; OSWorld 2.0 **50.2%**; BrowseComp **87.5%**; CyberGym **81.8%**; ExploitGym **23.2%**; AA ITBench **51.0%**; AA Agentic Index **43.7%**; APEX-Agents-AA **38.9%**; ApprenticeBench **16%** (new 2026-10-08 evidence) (BenchLM)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **92.9%** (BenchLM; AA harness 92.5%; Vals 90.9%)
 - HLE: **42.9%** AA harness / **51.1%** HLE-Verified (BenchLM)
-- ARC-AGI-2: **83.9%** / ARC-AGI-3 **0.8%** (BenchLM)
+- ARC-AGI-1: **96.50%** (new) / ARC-AGI-2: **83.9%** / ARC-AGI-3 **0.8%** (BenchLM)
 - AA-LCR: **83.0%**; CritPt **30.0%** (BenchLM)
 - Artificial Analysis Intelligence Index: **42** (max effort, AA #38/211; BenchLM lists 55.0 from an earlier snapshot)
-- Omniscience Accuracy / Hallucination Rate: **46.8% / 87.9%** (BenchLM — very high hallucination rate)
+- Omniscience Index **0.1%** (new); Accuracy **46.8%** / Hallucination Rate **87.9%** (BenchLM — very high hallucination rate)
+- LABBench2 **81.2%** (new); HealthBench Professional **57.7%** (new) / Hard **32.7%** (new); AA-IFBench **71.2%** (new) (BenchLM)
 - FrontierMath v2: **84.9%** Tiers 1–3 / **68.3%** Tier 4; MMLU-Pro (Vals) **86.7%** (BenchLM)
 
 Coding:
 
 - SWE-bench Verified (Vals): **95.4%**
 - SWE-bench Pro: **63.4%**; DeepSWE **69.6%**; LiveCodeBench (Vals) **85.9%** (BenchLM)
-- SciCode / AA-SciCode: **55.0%**; AA Coding Index **76.7%**; CursorBench 3.2 **64.9%**; FrontierCode 1.1 Extended **55.8%**; VulcanBench v3 **87.0%** (BenchLM)
+- SciCode / AA-SciCode: **55.0%**; AA Coding Index **76.7%**; CursorBench 3.2 **64.9%** / 4.0 **41.3%** (new); FrontierCode 1.1 Extended **55.8%**; VulcanBench v3 **87.0%** (BenchLM)
 - Vibe Code Bench: **no verified public score found**
 
 Long context:
@@ -66,6 +67,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
-- Method: public internet research (Artificial Analysis, BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
+- Method: public internet research (Artificial Analysis, BenchLM, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ARC-AGI-1/HealthBench/IFBench/CursorBench-4.0 rows added — no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

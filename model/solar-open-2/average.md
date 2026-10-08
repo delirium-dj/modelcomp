@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 58.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 69.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 72.7/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 15/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 68.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 87.3/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 56.8/100.** Fallback mean of all 3 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 55/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 66/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 96/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 20/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 58/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 90/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 59/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 3 below-gate source(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT-5.6 Luna.
-- Average from top 3 by Overall Score: Gemini 3.5 Flash Lite, GLM 5.3, GPT-5.6 Luna.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): GPT-5.5.
+- Average from top 1 by Overall Score: GPT-5.5.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

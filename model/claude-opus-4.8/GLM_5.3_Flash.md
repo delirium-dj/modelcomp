@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-8`, proprietary, paid)
-- Date: 2026-09-17 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- SWE-bench Pro: **65.0%** (prompt20 code leaderboard, rank #1 of the tracked rows as of the 2026-07-26 data cut)
+- SWE-bench Pro: **65.0%** (prompt20, rank #1 on the July-2026 board) / **69.2%** (Anthropic launch claim via SiliconReport scorecard, Jul 2, 2026 — ahead of GPT-5.5's 58.6% and Gemini 3.1 Pro's 54.2%; conflicting harness readings, both listed; vendor-scaffold caveat applies to Pro-class numbers per prompt20 methodology notes)
 - Terminal-Bench 2.1: **69.2%** (prompt20, rank #10 — behind Fable 5 at 84.3% and Kimi K3 at 84%)
 - Arena (Frontend Code): **1580** Elo (prompt20, rank #3, behind Fable 5's 1932 and Kimi K3's 1679)
 - AA Coding Agent Index: below 57 — Kimi K3's 57 equals GPT-5.6 Terra & GPT-5.5 and is explicitly annotated "ahead of Opus 4.8" (prompt20 notes); exact 4.8 value not shown on fetched pages
@@ -29,8 +29,8 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **42** (v4.3, Adaptive Reasoning Max Effort; rank #28/199; median 25) — notably below the 57 of Kimi K3 / GPT-5.6 Terra / GPT-5.5 per prompt20's cross-reference
-- GPQA Diamond / HLE / LCR / MLCR / CritPt / Omniscience (4.8-specific): no verified public score found on fetched pages; AA Index v4.3 is composed of AA-Briefcase, GDPval-AA v2, AutomationBench-AA, Terminal-Bench 4.0, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR v1.1
+- Artificial Analysis Intelligence Index: **42** (v4.3, Adaptive Reasoning Max Effort; rank #28/199; median 25) — notably below the 57 of Kimi K3 / GPT-5.6 Terra / GPT-5.5 per prompt20's cross-reference; a newer AA reading of **56** (SiliconReport scorecard, Jul 2, 2026) reflects the re-based scale — version discrepancy flagged, both listed
+- GPQA Diamond: **93.6%** (Artificial Analysis via SiliconReport scorecard, Jul 2, 2026 — behind Gemini 3.1 Pro 94.3%, ahead of Fable 5's 92.6%; found 2026-10-08, previously missing from this report). HLE / LCR / MLCR / CritPt / Omniscience (4.8-specific): no verified public score found on fetched pages; AA Index v4.3 is composed of AA-Briefcase, GDPval-AA v2, AutomationBench-AA, Terminal-Bench 4.0, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR v1.1
 - Honesty/safety (system card 2026-05-29): **3.7%** code-summary dishonesty; **5× fewer** dishonest agentic reports vs Opus 4.7 (prompt20 notes)
 
 Coding:
@@ -48,17 +48,17 @@ Long context:
 > Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
 
 - **Tool use: 92/100.** SWE-bench Pro 65.0% ranked #1 on the July-2026 board, 1580 Arena Elo (#3), and a system card documenting 5× fewer dishonest agentic reports than 4.7 — but Terminal-Bench 2.1 69.2% sits only #10 (Fable 5: 84.3, Kimi K3: 84) and no τ²/OSWorld-class orchestration numbers were found for 4.8.
-- **Reasoning: 85/100.** AA Intelligence Index 42 (#28/199) is well above the median 25 yet clearly behind the 57 of Kimi K3 / GPT-5.6 Terra / GPT-5.5; no standalone GPQA/HLE/CritPt values surfaced. "Incremental capability gain" per Anthropic's own system card.
-- **Context window: 100/100.** 1M tokens (~1500 A4 pages) on a flagship API model — top tier.
+- **Reasoning: 88/100.** GPQA Diamond 93.6% (now verified, Jul 2026 AA reading) clears the 90%+ frontier reference and the newer AA Index reading of 56 corroborates; still no standalone HLE/CritPt values and the 42-vs-56 index discrepancy remain. "Incremental capability gain" per Anthropic's own system card.
+- **Context window: 100/100.** 1M tokens (~1500 A4 pages) on a flagship API model — top tier; up to 300K output on the Message Batches API with the `output-300k-2026-03-24` beta header (platform.claude.com, verified 2026-10-08).
 - **Multimodal: 85/100.** Text + image in, text out; no audio/video.
 - **Coding: 93/100.** SWE-bench Verified 88.1% (#2) + SWE-bench Pro 65.0% (#1) — elite but below Fable 5 (95.0 SWE-V, 84.3 TB) and Kimi K3 (TB 84, DeepSWE 64).
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing, ~2.5× the median output price AA cites ($10); 90% cache discount (≈$3.85–$4.08 blended) is the only relief; no free route. Same cost point as Opus 4.6 with the line now deprecated.
-- **Overall Score: 91/100.** Mean: (92 + 85 + 100 + 85 + 93 + 20) / 6 = 475/6 = 79.2 → **79**. Best fit: a proven enterprise-grade agentic coder with top-of-board SWE-Pro and 1M context — but AA deprecates it for Claude Opus 5 (max), so choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
+- **Overall Score: 91.6/100.** v4 formula: mean of the five quality dims (92 + 88 + 100 + 85 + 93) / 5 = 91.6 (Cost excluded per `RULES.md`; the original /6 = 79.2→79 math was stale v1 history, corrected 2026-10-08). Best fit: a proven enterprise-grade agentic coder with top-of-board SWE-Pro and 1M context — but AA deprecates it for Claude Opus 5 (max), so choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-17
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
 - Method: fresh public internet research from zero (prompt20 AI code leaderboard row for Opus 4.8 — data as of 2026-07-26, Artificial Analysis Opus 4.8 model page incl. AA Intelligence Index v4.3 composition, a targeted web search to corroborate); scores are normalized 1–100 interpretations, not official vendor scores. Discovery note: AA's deprecation banner pointed to the then-untracked Claude Opus 5 (max) — queued per the dynamic-discovery rule.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

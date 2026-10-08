@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-fable-5-1`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: GDPval-AA updated 1735→1758; added aaTB2.1, AA AutomationBench, GDP.pdf, ITBench, CWE-bench, GraphWalks, PostTrainBench rows; dimension scores unchanged)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,20 +23,20 @@ Agent / tool use:
 
 - Terminal-Bench 4.0: **55.8%** (BenchLM `claude-fable-5-1`; Mythos 5.1 twin scores 60.9% with reduced safeguards; official chart)
 - Terminal-Bench-Science 0.1: **52.6%** (Anthropic official; class-best)
-- Terminal-Bench 2.1 (Vals harness): **85.0%** (BenchLM)
+- Terminal-Bench 2.1: **85.0%** (Vals) / **91.4%** (AA harness — new 2026-10-08 evidence)
 - Tau3-Banking (AA harness): **47.2%** (BenchLM)
-- GDPval-AA: **1735 Elo** (BenchLM; normalized 61.7%; Anthropic's official GDPval-AA v2 chart lists **1853**)
+- GDPval-AA: **1758 Elo** (BenchLM AA harness, updated 2026-10-08 from 1735; normalized 62.9%; Anthropic's official GDPval-AA v2 chart lists **1853**) — clears the 1750+ frontier bar
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathlon-Verified: **77.8%** (Pass@3 81.5%); AA Agentic Index **58.0%** (best in BenchLM's table); AA Briefcase Elo **1678**; AA Harvey LAB **93.0%**; AA-AnalystAgent **57.5%**; ApprenticeBench **72%**; AutomationBench **31.4%**; OSWorld 2.0 **41.7% strict / 77.9% partial** (Anthropic official, Aug 2026 release) (BenchLM)
+- Toolathlon-Verified: **77.8%** (Pass@3 81.5%, Pass³ 73.1%, avg 23.7 turns); AA Agentic Index **58.0%** (best in BenchLM's table); AA Briefcase Elo **1675**; AA Harvey LAB **93.0%**; AA-AnalystAgent **57.5%**; AA ITBench **49.5%** (new); ApprenticeBench **72%**; AutomationBench **31.4%** (system card) / **59.4%** (AA harness — new); GDP.pdf **26.2%** (new); CWE-bench v1 **58.0%** (new); AA TB4.0 **52.0%** (new); OSWorld 2.0 **41.7% strict / 77.9% partial** (Anthropic official, Aug 2026 release) (BenchLM)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **93.7%** (AA harness; Vals 93.4%)
 - HLE: **60.9%** no tools / **65.0%** with tools (BenchLM — best public HLE tier)
 - ARC-AGI-1/2: **97.5% / 90%** (BenchLM)
-- AA-LCR: **85.3%**; CritPt **29.7%**; MLCR-AA **71.1%** (BenchLM)
-- Artificial Analysis Intelligence Index: **53** (max w/ fallback, AA #4/211)
-- Omniscience Accuracy / Hallucination Rate: **67.2% / 72.6%** (BenchLM — hallucination rate is the main weakness)
+- AA-LCR: **85.3%**; CritPt **29.7%**; MLCR-AA **71.1%**; GraphWalks BFS 256K–1M **65.0%** (new 2026-10-08 evidence) (BenchLM)
+- Artificial Analysis Intelligence Index: **53.4** (max w/ fallback, AA #4/211)
+- Omniscience Index **43.5** (new); Accuracy **67.2%** / Hallucination Rate **72.6%** (BenchLM — hallucination rate is the main weakness)
 - MMLU-Pro (Vals): **92.4%** (BenchLM)
 
 Coding:
@@ -44,7 +44,7 @@ Coding:
 - CursorBench 3.2: **73.4%** at max effort (BenchLM/official — best result; CursorBench 4.0 51.8%)
 - LiveCodeBench (Vals): **90.5%**
 - SWE-bench Pro: **81.2%**; SWE Multilingual **89.1%**; SWE Multimodal **54.7%** (BenchLM)
-- SciCode / AA-SciCode: **63.1%**; AA Coding Index **81.6%**; DeepSWE **67.4%**; FrontierSWE v2 **56.3%** (best-tier); ProgramBench **87.6%**; Bug Hunt Bench **43 fixes** (BenchLM)
+- SciCode / AA-SciCode: **63.1%**; AA Coding Index **81.6%**; DeepSWE **67.4%**; FrontierSWE v2 **56.3%** (best-tier); ProgramBench **87.6%**; Bug Hunt Bench **43 fixes**; PostTrainBench v1.1 **40.2%** (new 2026-10-08 evidence) (BenchLM)
 - SWE-bench Verified: **no verified public score found** for this exact ID
 - Vibe Code Bench: **no verified public score found**
 
@@ -54,11 +54,12 @@ Long context:
 
 Multimodal (grounding):
 
-- Design Arena Website **1320** (BenchLM); image input verified via AA specs.
+- Design Arena Website **1318** (BenchLM); image input verified via AA specs.
+- Gray Swan IPI (15 attempts): **1.0%** (Google Gemini 4 Argon launch chart via BenchLM — new 2026-10-08 evidence).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** AA Agentic Index 58.0% leads the field, TB4.0 55.8%/TB-Science 52.6% are class-best-tier, GDPval 1735–1853 at the frontier bar, Toolathlon 77.8% strong; Tau3 47.2% just misses 50 and Claw-Eval is unpublished.
+- **Tool use: 94/100.** AA Agentic Index 58.0% leads the field, TB2.1 85.0–91.4%/TB4.0 55.8%/TB-Science 52.6% are class-best-tier, GDPval 1758 (AA; 1853 official) now clears the frontier bar, Toolathlon 77.8% strong; Tau3 47.2%, GDP.pdf 26.2% and the missing Claw-Eval cap it.
 - **Reasoning: 93/100.** HLE 60.9–65.0% is the best public tier, GPQA 93.7%, ARC-AGI-2 90% and AA Index 53 all elite; a 72.6% hallucination rate and CritPt 29.7% cap it.
 - **Context window: 95/100.** 1M total context (top tier band); no verified retrieval-at-512K number for 100.
 - **Multimodal: 75/100.** Text+image (PDF) input per Claude platform; no video/audio input and no published vision benchmark numbers for this exact ID (bottom of the PDF band).
@@ -70,6 +71,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
-- Method: public internet research (Anthropic official announcement, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
+- Method: public internet research (Anthropic official announcement + system card, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified; GDPval-AA updated to 1758 and ~12 new rows added — no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

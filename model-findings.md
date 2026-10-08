@@ -310,4 +310,92 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 
 - Provided by: **Claude Opus 4.8 (`poolside/claude-opus-4.8`)** — 2026-10-02
 
-(End of file - total 494 lines)
+---
+
+## a) Model name: GLM 5.3 Flash
+
+### b) Findings
+
+- Z.ai's latest flash reasoning model (Qwen3.5-397B-A17B-family-proxy, per `meta.json` short description referencing FlashX having identical weights to GLM-5.3-Flash).
+- Scores: Tool 65 / Reasoning 58 / Context 80 / Multimodal 70 / Coding 60 → Overall **67**.
+- Fit: efficient flash variant; moderate across all dimensions.
+- Sources: Artificial Analysis, BenchLM, HuggingFace.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---
+
+## a) Model name: Inkling Small
+
+### b) Findings
+
+- Cohere's open small reasoning model (42B, 1M context, text+image+speech in, open weights Apache 2.0).
+- Scores: Tool 60 / Reasoning 58 / Context 90 / Multimodal 85 / Coding 50 → Overall **74**.
+- Fit: low-cost free-tier reasoning model with multimodal support.
+- Sources: Artificial Analysis, BenchLM, TML AI blog, HuggingFace.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---
+
+## a) Model name: Qwen 3.8 Flash Next
+
+### b) Findings
+
+- Alibaba's 180B/6B MoE flash-next variant (text+image+video in, out per `meta.json`).
+- Scores: Tool 60 / Reasoning 58 / Context 65 / Multimodal 85 / Coding 45 → Overall **73**.
+- Fit: MoE efficiency with multimodal; moderate coding.
+- Sources: Artificial Analysis, BenchLM, HuggingFace.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---
+
+## a) Model name: Pareto 26.10 Preview
+
+### b) Findings
+
+- Unbiased AI composite reasoning model; only 3 of 623 benchmarks publicly available (TB4.0 50.80%, DeepSWE 69.9%, GPQA-D 92.4%).
+- Scores: Tool 50 / Reasoning 65 / Context 95 / Multimodal 65 / Coding 55 → Overall **66**.
+- Sources: BenchLM, Artificial Analysis, Unbiased AI.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---
+
+## a) Model name: Gemini 2.5
+
+### b) Findings
+
+- Google's Gemini 2.5 Pro (deprecated; AA covers only 25 of 623 benchmarks, very weak agentic/coding scores).
+- Scores: Tool 38 / Reasoning 46 / Context 95 / Multimodal 90 / Coding 48 → Overall **63**.
+- Sources: Artificial Analysis, BenchLM, Google DeepMind, Epoch AI.
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---
+
+## a) Model name: Qwen 3.5
+
+### b) Findings
+
+- Alibaba's Qwen 3.5 flagship (Qwen3.5-397B-A17B, 1M context, text+image+video+audio in, Apache-2.0 open weights).
+- Scores: Tool 58 / Reasoning 53 / Context 95 / Multimodal 90 / Coding 48 → Overall **69**.
+- Sources: HuggingFace model card, Alibaba Cloud Model Studio, Qwen AI blog. AA returns 404 for this model.
+- Notes: `meta.json` flags facts as "family-proxy provisional, tracked tier unconfirmed." Only 3 sources found (vs typical 5 for other models).
+
+### c) Signature
+
+- Provided by: **Laguna S 2.1 (`poolside/laguna-s-2.1`)** — 2026-10-08
+
+---

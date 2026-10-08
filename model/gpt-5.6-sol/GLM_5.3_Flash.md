@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.6-sol`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,9 +14,9 @@
 - **Provider / access:** OpenAI API (`gpt-5.6-sol`, max reasoning tier tracked by AA); 7 API providers on AA. Not on OpenCode Zen (no Zen Free ID).
 - **Release / knowledge:** Released July 9, 2026 (AA release record; same day as sibling GPT-5.6 Luna GA). Knowledge cutoff not verified in reviewed sources (sibling Luna: Feb 16, 2026).
 - **IDs:** `gpt-5.6-sol` (siblings: `gpt-5.6-luna`, `gpt-5.6-terra`, successor `gpt-6-astra`).
-- **Context window:** 1M tokens (Artificial Analysis model page); max output not surfaced this pass. OpenAI's GPT-5.6 family bills >272K inputs at a surcharge (Astra docs pattern; Sol-specific terms not re-verified).
+- **Context window:** 1M tokens (Artificial Analysis model page); max output not surfaced this pass. Verified Sol-specific terms (developers.openai.com, 2026-10-08): prompts with >272K input tokens are priced at 2x input and 1.5x output for the full request.
 - **Modalities:** Text + image in; text out. Reasoning: yes (max effort tracked). Audio/video not supported per the family pattern (AA lists text/image only).
-- **Pricing (as of 2026-09-19):** $4.00 in / $20.00 out per 1M; 90% cache discount (AA). AA cost per task $1.99; blended $3.08/1M. No free tier.
+- **Pricing (as of 2026-10-08):** $4.00 in / $20.00 out per 1M — **promotional pricing, available at least through November 21, 2026** (cut from list $5/$30 on Aug 21, 2026, following the Terra/Luna reductions; developers.openai.com + AWS what's-new + Vercel changelog); 90% cache discount (AA). AA cost per task $1.99; blended $3.08/1M. No free tier.
 - **Architecture:** Proprietary, closed weights; parameters undisclosed.
 
 ### Raw benchmarks found
@@ -55,13 +55,13 @@ Coding:
 - **Context window: 89/100.** 1M window (95–100 tier) docked for the verified 73.8% retrieval in the 512K–1M band — the poorest deep-retrieval evidence among September 2026 flagships.
 - **Multimodal: 65/100.** Text+image in / text out — middle of the 60–70 image-in band.
 - **Coding: 84/100.** DeepSWE 72–73% is frontier-adjacent and FrontierCode/CursorBench rows are strong, but TB4.0 37–40% and SWE-Atlas-QnA 54% trail the Astra/K3/Fable band.
-- **Cost efficiency: 52/100.** $4/$20 interpolates between the $3/$15→60 and $10/$50→30 anchors; $1.99/task is mid-pack. No free tier.
+- **Cost efficiency: 52/100.** $4/$20 (promotional through Nov 21, 2026 — reverts to list $5/$30 after) interpolates between the $3/$15→60 and $10/$50→30 anchors; $1.99/task is mid-pack; the >272K surcharge (2x/1.5x) bites long-context work. No free tier.
 - **Overall Score: 79.2/100.** (80+78+89+65+84)/5 = 79.2. Best fit: still a capable on-sale flagship for agentic work at $4/$20 — but GPT-6 Astra supersedes it on every dimension reviewed; new work should default to Astra.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: Artificial Analysis model page, OpenAI GPT-6 Astra cross-table, xAI launch evals table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

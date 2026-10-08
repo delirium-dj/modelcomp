@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by GLM 5.3
 
 - Source: Anthropic (`anthropic/claude-sonnet-5.5`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-28 report (fresh search 2026-10-08: core scores unchanged; BenchLM composite now 83.89 #3/887; added MLCR, AA AutomationBench, AnalystAgent, HealthBench Professional raw and the protein/med-chem science family)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,17 +35,18 @@ Agent / tool use:
 - Terminal-Bench 2.1: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
+- New 2026-10-08 rows: AA AutomationBench **71.8%**; AA-AnalystAgent **57.5%** (AA via BenchLM)
 
 Reasoning / knowledge:
 
 - HLE: **55.0%** (AA via BenchLM) / **56.9% w/o tools, 64.5% w/ tools** (BenchLM)
-- LCR: **82.7%** (AA via BenchLM)
+- LCR: **82.7%** (AA via BenchLM); MLCR-AA **75.0%** (new 2026-10-08 evidence)
 - CritPt: **31.4%** (BenchLM)
 - Artificial Analysis Intelligence Index: **56** — #3/216 in its price class (median 26) (AA; BenchLM lists 56.0)
 - Omniscience Accuracy / Hallucination Rate: **54.0% / 47.0%** (Index 32.3) (AA via BenchLM)
 - GPQA Diamond: no verified public score found
 - ArXivMath Aug. 2026: **86.8% (no tools) / 95.2% (tools)**; GMMLU **92.1%** / MILU **91.6%** (BenchLM)
-- HealthBench **69.4%** / Professional **69.2%**; BioMysteryBench **89.2%** human-solvable (BenchLM)
+- HealthBench **69.4%** / Professional **69.2%** / Professional raw **77.1%** / length-adjusted **65.4%** (new); BioMysteryBench **89.2%** human-solvable / **44.7%** human-difficult (new); SpatialBench **72.5%**; SingleCellBench **59.1%**; Protein Design **51.0%** / library ranking **54.8%** / de novo binder design **82.3%**; Morphology-to-molecule **25.0%**; Medicinal chemistry **65.3%**; Protocols **67.3% / 66.6%** (new 2026-10-08 science family, system card via BenchLM)
 
 Coding:
 
@@ -56,7 +57,7 @@ Coding:
 - SciCode / AA-SciCode: **61.0%** (BenchLM)
 - FrontierCode 1.1: **46.2% main / 59.1% extended**; FrontierSWE v2: **61.9%**; CursorBench 4.0: **55.5%** (BenchLM)
 - SWE-bench Verified / LiveCodeBench: no verified public score found
-- BenchLM overall composite: **80.49/100, #5/512** (Opus 5.5 = 87.07, Opus 5 = 79.64, Sonnet 5 = 66.98)
+- BenchLM overall composite: **83.89/100, #3/887** (updated 2026-10-08 from 80.49 #5/512; Opus 5.5 = 86.37, Opus 5 = 79.28, Sonnet 5 = 65.89)
 
 Long context:
 
@@ -83,6 +84,6 @@ Multimodal (grounded):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
-- Method: public internet research (Artificial Analysis, BenchLM — both updated on release day); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-28 report, user-approved)
+- Method: public internet research (Artificial Analysis, BenchLM — both updated on release day); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified; MLCR/AA-agentic/science-family rows added and the BenchLM composite refreshed — no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

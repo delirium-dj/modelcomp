@@ -1,7 +1,7 @@
 # Qwen3.8-Max — findings by GLM 5.3 Flash
 
 - Source: Alibaba Cloud / Qwen Team (`qwen3.8-max`)
-- Date: 2026-09-19 (UTC)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 1,000,000 tokens configured (Artificial Analysis measures 984K on the 0902 endpoint); 65,536 max output per harness configs; text_window_percent 95. Meta carries "1M / 131K out" — the 65K output cap is what harness configs expose.
 - **Modalities:** Text + image (+ video understanding per VideoMME reporting) in; text out. Reasoning: yes (reasoning effort levels). Parallel tool calls and image-detail "original" supported.
 - **Pricing (as of 2026-09-19):** $2.00 in / $6.00 out per 1M; cached input $0.25 (88% discount). AA blended rate $1.18/1M (7:2:1); cost per Intelligence Index task $5.41 (verbosity-inflated).
-- **Architecture:** 2.4T total / ~95B activated sparse MoE on the Qwen 3.5 architectural foundation. Vendor announced open-weights plans at launch; parameter details per official blog. Proprietary served API; AA lists size as undisclosed.
+- **Architecture:** 2.4T total / ~95B activated sparse MoE on the Qwen 3.5 architectural foundation. Open weights shipped August 12, 2026 as **Qwen3.8-2.4T-A95B** (first Max-class Qwen you can download; weights text-only, thinking required-on, custom Qwen3.8-Max License) — the original Sept 19 text ("tracked as proprietary on aggregators") was wrong on this point, corrected 2026-10-08 (llm-stats research blog, shattered.io, codersera); smaller dense sibling Qwen3.8-27B open-sourced Aug 14 under Apache 2.0. Served API remains proprietary on the hosted endpoint.
 
 ### Raw benchmarks found
 
@@ -69,7 +69,7 @@ Multimodal (reported):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-09-19
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-08
 - Method: public internet research (fresh web search: Qwen official blog via Tabbit curation, Emergent benchmark breakdown, Artificial Analysis model page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

@@ -1,0 +1,49 @@
+# Owl Alpha — negative findings by GPT 5.5
+
+- Source: Unknown / OpenRouter-style route (`owl-alpha`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owl Alpha
+- **Short description:** Public traces describe Owl Alpha as an anonymous or stealth OpenRouter-style route, with speculation that it was later identified with another model. The exact `owl-alpha` ID does not have a stable public model card with benchmark rows.
+- **Provider / access:** OpenRouter-style route references; exact provider identity not verified.
+- **Release / knowledge:** Public traces appeared in 2026; cutoff not stated.
+- **IDs:** `owl-alpha`.
+- **Context window:** No verified exact public context ceiling found for the exact ID.
+- **Modalities:** No verified public modality matrix found for the exact ID.
+- **Pricing (as of 2026-10-08):** No stable exact token price found for the exact ID.
+- **Architecture:** Undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark number found for the exact `owl-alpha` ID.
+
+Reasoning / knowledge:
+
+- No verified public benchmark number found for the exact `owl-alpha` ID.
+
+Coding:
+
+- No verified public benchmark number found for the exact `owl-alpha` ID.
+
+Long context:
+
+- No verified public retrieval benchmark found for the exact `owl-alpha` ID.
+
+### Normalized scores (1–100)
+
+Excluded from scoring: every benchmark row would be evidence-free for the exact `owl-alpha` ID, so this file is saved as `.md.excluded` per the assignment rules.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-08
+- Method: Public internet research; no scored report saved because no verified public benchmark numbers were found for the exact model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings if benchmark evidence becomes public.
+
