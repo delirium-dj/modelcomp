@@ -56,6 +56,18 @@ Multimodal:
 - **Cost efficiency: 65/100.** Cache-read savings are substantial, but $10/$50 remains very expensive for uncached high-volume workloads.
 - **Overall Score: 95.6/100.** Best fit: demanding coding, research, and computer-use agents where maximum capability outweighs high token prices.
 
+### Deep-research addendum (2026-10-09)
+
+- Anthropic reports Fable 5.1 completed **82%** on its hardest browser-agent benchmark, versus **74%** for Opus 5 and **57%** for Fable 5, in about ten minutes per task.
+- Anthropic notes production safeguards can turn some OSWorld and AutomationBench interventions into zeroes, so the benchmark figures are configuration-sensitive.
+- Sources: https://www.anthropic.com/claude-fable-and-mythos-5-1 ; https://www.anthropic.com/claude/fable
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic says Fable 5.1 and Mythos 5.1 share the same model, with different safeguards, lower cache-read pricing, and lower cost per task. Independent tracking reports Terminal-Bench 2.1 around 91.4% (AA) versus 85.02% (Vals), or 79.03% when fallback refusals are counted.
+- Recalculation: **retained 95.6/100**. The spread confirms the existing coding confidence cap; no upward adjustment is justified without a fixed harness and refusal policy.
+- Sources: https://www.anthropic.com/claude-fable-and-mythos-5-1 ; https://platform.claude.com/docs/en/models/fable-5-1/overview ; https://themodelgap.com/models/claude-fable-5-1
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

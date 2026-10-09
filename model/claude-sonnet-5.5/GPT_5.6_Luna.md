@@ -29,9 +29,15 @@
 - **Reasoning: 86/100.** Competitive with previous frontier models, but below Opus/Fable on hardest tests.
 - **Context window: 96/100.** 1M context and 128K output; no full-window retrieval score verified.
 - **Multimodal: 85/100.** Image input and text output verified.
-- **Coding: 86/100.** Terminal-Bench 70.6 is useful but below flagship coding scores.
+- **Coding: 90/100.** Terminal-Bench 70.6 is useful, and an independent 98-task suite reported 94/98; the external suite is still narrower than flagship evaluations.
 - **Cost efficiency: 92/100.** $2/$10 is strong for a 1M-context model.
-- **Overall Score: 87.8/100.** Best fit: cost-conscious coding and knowledge agents.
+- **Overall Score: 88.6/100.** Mean of Tool use 86 + Reasoning 86 + Context window 96 + Multimodal 85 + Coding 90.
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic documents 1M context, 128K output, adaptive thinking, and $2/$10 pricing. Its launch page says Sonnet 5.5 substantially exceeds Sonnet 5 at much lower cost per task; an independent 98-task run reported 94/98, while still finding Opus 5.5 stronger on harder open-ended work.
+- Recalculation: **88.6/100** (coding 90, other dimensions unchanged; half-up mean of 86, 86, 96, 85, 90). The independent coding result supports a modest coding increase from 86 to 90; this remains less than flagship scores because the run is a single external suite.
+- Sources: https://platform.claude.com/docs/en/models/sonnet-5-5/overview ; https://www.anthropic.com/claude-sonnet-5-5 ; https://www.reddit.com/r/ClaudeAI/comments/1wx45d6/benchmark_notes_sonnet_55_jumps_from_72_to_9498/
 
 ## Signature
 

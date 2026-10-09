@@ -51,6 +51,21 @@ Multimodal:
 - **Cost efficiency: 82/100.** $4/$20 is materially cheaper than Fable 5.1 and Opus 5, with strong capability, but it remains expensive for high-volume workloads.
 - **Overall Score: 93.2/100.** Best fit: complex production coding and knowledge-work agents that need long context, reliable tool use, and high reasoning quality.
 
+### Deep-research addendum (2026-10-09)
+
+- Anthropic reports Opus 5.5 solves more public command-line tasks than Opus 5 while making about 40% fewer calls and using half the tokens.
+- The official page notes Terminal-Bench 4.0 evaluation at xhigh effort and documents production safeguards, so scores should be read as harness- and safety-configuration-specific.
+- Source: https://www.anthropic.com/claude/opus
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s official documentation states Opus 5.5 uses adaptive thinking at max effort for most published evaluations and reports a **1M-token** context option.
+- Anthropic’s command-line comparison says Opus 5.5 solves more real CLI tasks than Opus 5 with about **40% fewer calls** and **half the tokens**.
+- Independent discussion of Terminal-Bench 4.0 places Opus 5.5 around **60%**, close to GPT-6 Astra, while medium/high-effort runs show a cost/quality tradeoff rather than one fixed score.
+- A small independent everyday-task comparison favored Opus 5.5 on 4 of 5 prompts, but that is qualitative and not a substitute for standardized evaluation.
+- **Assessment:** retain the frontier coding/reasoning score; add a confidence caveat that effort setting, Claude Code harness, safeguards, and token budget materially affect comparisons.
+- Sources: https://platform.claude.com/docs/en/models/opus-5-5/overview ; https://www.anthropic.com/claude/opus ; https://www.reddit.com/r/Anthropic/comments/1wqscan/two_independent_opus_55_benchmarks_1_on/ ; https://www.tomsguide.com/ai/i-tested-chatgpt-6-vs-claude-opus-5-5-with-5-everyday-prompts-it-wasnt-even-close
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

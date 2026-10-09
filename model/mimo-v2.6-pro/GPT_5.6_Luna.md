@@ -32,6 +32,12 @@
 - **Cost efficiency: 80/100.** Subscription plans may improve value; exact token pricing was not verified.
 - **Overall Score: 82.8/100.** Best fit: Xiaomi ecosystem and long-context coding workflows.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent Model Gap tracking reports a 1M context, 128K output, text/image/video/audio input, $0.43/$0.87 pricing, AA Intelligence Index 46, and Vals Terminal-Bench 67.79; only some other benchmark rows are vendor claims. A separate benchmark directory confirms open-weight availability and multimodal support.
+- Recalculation: retained existing score; the low cost strengthens cost efficiency, but limited independent coding/tool coverage prevents a capability increase.
+- Sources: https://themodelgap.com/models/mimo-v2-6-pro ; https://modelcap.ai/model/xiaomi-mimo-v2-6-pro ; https://www.reddit.com/r/accelerate/comments/1wmw2ag/mimov26pro_debuts_as_the_top_open_weights_model/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

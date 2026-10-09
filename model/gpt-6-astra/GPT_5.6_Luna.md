@@ -61,6 +61,18 @@ Long context:
 
 ---
 
+### Deep-research addendum (2026-10-09)
+
+- OpenAI positions GPT-6 Astra as its highest-capability model for long-running computer use, professional work, coding, and alignment.
+- OpenAI’s launch material specifically warns that historical software vulnerabilities may affect benchmark results and adds novel evaluations to address that concern.
+- Sources: https://developers.openai.com/api/docs/models/gpt-6-astra ; https://openai.com/index/gpt-6-astra/
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s model page confirms $10/$50 pricing, limited initial availability, computer-use and SRE-Bench positioning. Independent coverage highlights the same cost cliff and reports a real task that consumed substantial spend; these validate the price penalty rather than the capability score.
+- Recalculation: **retained 86.0/100**. Public evidence remains vendor-heavy and the independent coding comparisons are harness-sensitive, so no dimension was increased.
+- Sources: https://platform.openai.com/docs/models/gpt-6-astra ; https://openai.com/index/gpt-6-astra/ ; https://www.theregister.com/2026/10/01/gpt_6_astra_review/
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-09-25

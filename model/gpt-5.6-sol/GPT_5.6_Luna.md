@@ -32,6 +32,12 @@
 - **Cost efficiency: 78/100.** $4/$20 is competitive for frontier capability but not low-cost.
 - **Overall Score: 91.8/100.** Best fit: serious coding and long-running agent workflows.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s current API documentation verifies 1.05M context and updated $4/$20 pricing. Independent clinical tracking reports a 64.1 length-adjusted result, while external reports show very high benchmark cost on long-running MineBench workloads; this confirms that raw capability and cost-per-task are separate dimensions.
+- Recalculation: retained existing score; the price reduction improves cost efficiency context, but cost is excluded from Overall under the project scoring rule.
+- Sources: https://developers.openai.com/api/docs/models/gpt-5.6-sol ; https://clinicalbenchmarks.ai/models/gpt-5.6-sol ; https://www.reddit.com/r/OpenAI/comments/1w8619g/differences_between_gpt56_sol_pro_and_gpt6_astra_pro_on_minebench/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

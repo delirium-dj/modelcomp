@@ -54,6 +54,12 @@ Agent / tool use:
 
 ---
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Kimi K3’s paper confirms a 2.8T-parameter MoE, 104B activated parameters, native vision, and 1M context. Independent reporting confirms $3/$15 API pricing and a Frontend Code Arena win; AP coverage reports K3 topped a major front-end coding ranking after launch.
+- Recalculation: **retained 88.2/100**. These sources strengthen the coding and value case, but do not resolve the lower Artificial Analysis/CritPt results that cap reasoning.
+- Sources: https://arxiv.org/abs/2607.24653 ; https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3 ; https://apnews.com/article/4c66a2e0f557ce79c3dd2d769c9a6226
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-01

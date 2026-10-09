@@ -28,8 +28,13 @@
 - **Cost efficiency: 60/100.** Frontier paid tier; price unavailable.
 - **Overall Score: 86.6/100.** Provisional frontier-agent result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s launch materials describe Fable 5 as the generally available safeguarded frontier model, with Mythos reserved for restricted sensitive-domain use. Independent biomedical and compliance studies find strong task performance, but also show that refusal handling and rubric choice materially affect measured accuracy.
+- Recalculation: **retained 86.6/100 provisional**. The evidence improves the qualitative profile but still does not verify an exact context limit or stable public price, so the provisional score remains.
+- Sources: https://www.anthropic.com/claude/fable ; https://arxiv.org/abs/2607.10849 ; https://arxiv.org/abs/2608.07776
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-08
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://www.anthropic.com/claude/fable
-

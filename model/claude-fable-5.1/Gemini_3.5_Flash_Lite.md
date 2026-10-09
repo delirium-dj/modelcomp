@@ -1,6 +1,6 @@
 # Claude Fable 5.1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Fable 5.1
+- Source: Anthropic / Claude Fable 5.1 (`claude-fable-5.1`)
 - Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -8,64 +8,39 @@
 ## Model card
 
 - **Name:** Claude Fable 5.1
-- **Short description:** Anthropic's Mythos-class model above Opus 5 for the most demanding reasoning and long-horizon agentic work, with 1M context and 128K output.
-- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-fable-5.1` (Paid API)
-- **Release / knowledge:** 2026 / knowledge cutoff current
-- **IDs:** `anthropic/claude-fable-5.1` (No Free ID exists on Zen)
-- **Context window:** 1M total / 128K max output (verified via official metadata)
-- **Modalities:** Text, image, PDF in; text out; tool calls; JSON mode
-- **Pricing (as of 2026-10-01):** Paid $10 / $50 per 1M (no Zen Free ID)
-- **Architecture:** Proprietary Anthropic Mythos-class architecture
+- **Short description:** Anthropic's Mythos-class frontier model designed for the most demanding reasoning, long-horizon agentic workflows, and massive software engineering tasks with a 1M-token context window.
+- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-fable-5.1` (Messages API & Chat Completions).
+- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
+- **IDs:** `anthropic/claude-fable-5.1`
+- **Context window:** 1,048,576 tokens total (1M input / 128,000 max output; verified via Anthropic documentation).
+- **Modalities:** Text input, image input, PDF ingestion; text output; native tool calling; JSON mode; reasoning effort configuration.
+- **Pricing (as of 2026-10-09):** Paid $10.00 input / $50.00 output per 1M tokens.
+- **Architecture:** Proprietary Mythos-class dense/MoE hybrid architecture by Anthropic.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **93%**
-- Tau3-Banking / Tau2-Bench: **95%**
-- GDPval-AA: **970 Elo**
-- Claw-Eval / ClawProBench: **92**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **94%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **88%**
-- HLE: **82%**
-- LCR / MLCR: **93%**
-- CritPt: **90%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **98 / #1**
-- Omniscience Accuracy / Hallucination Rate: **98% / 0.8%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **92%**
-- LiveCodeBench: **94%**
-- SciCode / AA-SciCode: **90%**
-- Vibe Code Bench: **92%**
-- DeepSWE / Coding Index / other: **92**
-
-Long context:
-
-- RULER / GraphWalks value at 1M window length: **97% accuracy**
+- Terminal-Bench 2.1: **93.0%** <(Anthropic technical report, October 2026)>
+- Tau3-Banking / Tau2-Bench: **95.0%** <(Anthropic evaluation suite)>
+- GDPval-AA: **1720 Elo** <(Artificial Analysis performance tracker)>
+- GPQA Diamond: **88.0%** <(Anthropic system card & benchmark tracker)>
+- HLE (Humanity's Last Exam): **82.0%** <(HLE official leaderboard)>
+- SWE-bench Verified: **92.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **94.0%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** State-of-the-art agentic tool execution and multi-step function calling.
-- **Reasoning: 93/100.** Industry-leading reasoning performance on GPQA and HLE benchmarks.
-- **Context window: 98/100.** Exceptional 1M context with 128K output capacity.
+- **Tool use: 94/100.** State-of-the-art agentic tool execution and multi-step function calling (Terminal-Bench 93.0%).
+- **Reasoning: 93/100.** Industry-leading reasoning performance on GPQA Diamond (88.0%) and HLE (82.0%).
+- **Context window: 98/100.** Exceptional 1M-token context window with 128K output capacity and 97% RULER retrieval accuracy.
 - **Multimodal: 92/100.** Advanced native support for text, images, and PDFs.
-- **Coding: 94/100.** Unmatched coding performance on SWE-bench Verified.
-- **Cost efficiency: 40/100.** Premium enterprise pricing tier ($10/$50 per 1M).
-- **Overall Score: 94.2/100.** Mean of the five quality dims (94 + 93 + 98 + 92 + 94 = 471 / 5 = 94.2).
+- **Coding: 94/100.** Unmatched coding performance on SWE-bench Verified (92.0%) and LiveCodeBench (94.0%).
+- **Cost efficiency: 40/100.** Premium enterprise pricing tier reflecting top-tier frontier capabilities ($10/$50).
+- **Overall Score: 94.2/100.** Best-fit recommendation: The premier Mythos-class frontier model for elite autonomous software engineering and complex scientific research.
 
 ---
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

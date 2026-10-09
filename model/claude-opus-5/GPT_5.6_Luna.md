@@ -34,6 +34,18 @@
 - **Cost efficiency: 76/100.** Capable but expensive at $5/$25.
 - **Overall Score: 91.0/100.** Best fit: high-quality agentic coding and research.
 
+### Deep-research addendum (2026-10-09)
+
+- Anthropic’s Opus page reports a reproduced public Terminal-Bench result of **52.3%** for Opus 5, close to the public leaderboard’s **51.8%**, within reported noise.
+- The same documentation reports Terminal-Bench-Science **29.0%** in its reproduction and emphasizes safeguard interventions as a source of benchmark variance.
+- Source: https://www.anthropic.com/claude/opus
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s release material positions Opus 5 as near-Fable capability at $5/$25 per million tokens, with an effort control; independent reporting confirms the price/capability tradeoff, while current terminal evidence is weaker than newer Opus releases.
+- Recalculation: **retained 91.0/100**. New evidence improves confidence in cost and effort behavior but does not add enough exact-model independent benchmark coverage to change the five scored dimensions.
+- Sources: https://www.anthropic.com/claude/opus ; https://www.axios.com/2026/07/24/anthropic-releases-new-model-opus-5 ; https://platform.claude.com/docs/en/models/overview
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

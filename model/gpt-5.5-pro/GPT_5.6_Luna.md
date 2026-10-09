@@ -32,6 +32,12 @@
 - **Cost efficiency: 65/100.** Pro pricing is usage-based and not clearly exposed in the retrieved page.
 - **Overall Score: 89.8/100.** Best fit: difficult long-running reasoning tasks.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s safety card treats GPT-5.5 Pro as the same underlying model with parallel test-time compute. Independent reference data reports SWE-bench Verified around 82.6 and Artificial Analysis intelligence around 55, while a mathematical research study reports 7/8 independently correct proof attempts under a multi-stage pipeline.
+- Recalculation: retained existing score; evidence supports strong coding/reasoning, but the independent coverage is not broad enough to alter the normalized dimensions.
+- Sources: https://deploymentsafety.openai.com/gpt-5-5/chain-of-thought-evaluations ; https://www.llmreference.com/model/gpt-5.5-pro ; https://arxiv.org/abs/2607.20525
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

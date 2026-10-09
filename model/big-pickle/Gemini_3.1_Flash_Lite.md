@@ -1,7 +1,7 @@
 # Big Pickle — findings by Gemini 3.1 Flash Lite
 
 - Source: Experimental `big-pickle`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,8 +15,8 @@
 
 ### Raw benchmarks found
 
-- MMLU: **55.0%**
-- HumanEval: **50.0%**
+- MMLU: **55.0%** (No new verified data as of Oct 2026)
+- HumanEval: **50.0%** (No new verified data as of Oct 2026)
 
 ### Normalized scores (1–100)
 
@@ -32,5 +32,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Method: Deep extensive search; no new data found to justify score update.

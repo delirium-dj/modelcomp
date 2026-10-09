@@ -32,6 +32,12 @@
 - **Cost efficiency: 88/100.** Lower-tier pricing is competitive, though long-context surcharges reduce value.
 - **Overall Score: 88/100.** Best fit: general API workloads needing long context at balanced cost.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI documents a 1.05M context window and positions Terra as the balanced intelligence/cost tier. OpenAI’s launch update and independent clinical benchmark tracking support the existing strong general and coding profile; reported pricing is $2/$12 per million tokens.
+- Recalculation: retained existing score; the new evidence confirms capability and cost assumptions without resolving remaining harness differences.
+- Sources: https://developers.openai.com/api/docs/models/gpt-5.6-terra ; https://openai.com/index/gpt-5-6/ ; https://clinicalbenchmarks.ai/models/gpt-5.6-terra
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

@@ -60,6 +60,18 @@ Multimodal:
 - **Cost efficiency: 83/100.** Reported $2/$12 pricing is competitive for a frontier multimodal model, but the exact current Google tier was not officially verified here.
 - **Overall Score: 93.6/100.** Best fit: multimodal research, coding, and tool-using workflows that benefit from broad input coverage; test long-context retrieval at the actual target length.
 
+### Deep-research addendum (2026-10-09)
+
+- Humanity’s Last Exam: **44.4%** without tools and **51.4%** with search/code; ARC-AGI-2 Verified: **77.1%**.
+- Google makes the model available through Gemini API, Vertex AI, Gemini, and NotebookLM.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-1-pro ; https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s model card and evaluation PDF support the strong GPQA, SWE-Bench, multimodal, and agent results already recorded; the independent Android benchmark archive places the preview at 72.4, reinforcing that results vary materially by harness.
+- Recalculation: **retained 93.6/100**. The evidence supports the existing dimension scores, but the 1M-context retrieval caveat and vendor-led benchmark mix do not justify an increase.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-1-pro/ ; https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro ; https://www.androidcentral.com/apps-software/android-os/android-bench-2-0
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

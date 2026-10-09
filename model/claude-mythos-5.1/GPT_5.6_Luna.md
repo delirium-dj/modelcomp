@@ -54,6 +54,18 @@ Agent / tool use:
 
 ---
 
+### Deep-research addendum (2026-10-09)
+
+- Anthropic’s launch coverage identifies Mythos 5.1 as a restricted model for trusted-access cybersecurity and life-science work rather than a general public endpoint.
+- The official announcement provides comparative benchmark material for the Fable 5.1/Mythos 5.1 release, but does not expose every Mythos 5.1 row as machine-readable text; no unsupported score is added here.
+- Source: https://www.anthropic.com/claude-fable-and-mythos-5-1
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s docs confirm 1M context, 128K output, $10/$50 pricing, and that Mythos 5.1 is the same underlying model as Fable 5.1 with different safeguards. The system-card lineage and launch announcement emphasize cybersecurity/biology specialization and restricted access.
+- Recalculation: **retained 75.0/100**. The new evidence clarifies model identity and safeguards but does not fill the missing exact-model tool, reasoning, or multimodal evaluations.
+- Sources: https://platform.claude.com/docs/en/models/mythos-5-1/overview ; https://www.anthropic.com/claude/mythos ; https://www.anthropic.com/claude-fable-and-mythos-5-1
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-01

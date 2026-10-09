@@ -54,6 +54,18 @@ Multimodal:
 - **Cost efficiency: 98/100.** Introductory $0.75/$3.75 pricing is excellent for production-scale agent traffic.
 - **Overall Score: 86.2/100.** Best fit: low-cost coding and tool workflows where high throughput matters more than absolute frontier reasoning.
 
+### Deep-research addendum (2026-10-09)
+
+- Google’s model-card family page publishes a dedicated Gemini 3.7 Flash comparison covering agentic, reasoning, multimodal, and long-context evaluations.
+- The model is available through Gemini API and Google AI Studio; exact benchmark rows were not added without extracting the official table directly.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-7-flash/ ; https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google documents 1M context, 64K output, tunable thinking, and introductory $0.75/$3.75 pricing through 2026-12-31. Independent measurements report Artificial Analysis intelligence around 56, coding-agent performance near 60%, and roughly $0.40–$1.27 per measured task depending on harness and thinking level.
+- Recalculation: **retained 86.2/100**. The new independent coding/task-cost evidence supports the existing workhorse characterization but does not warrant a higher coding score than the vendor-led benchmark set.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-7-flash/ ; https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.7 ; https://solvency.dev/models/gemini-3.7-flash/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

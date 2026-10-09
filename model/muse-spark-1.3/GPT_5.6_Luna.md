@@ -57,6 +57,21 @@ Long context:
 - **Cost efficiency: 96/100.** Contributor pricing is exceptionally low and Standard remains far below comparable frontier output pricing, with a privacy/data-use tradeoff on Contributor.
 - **Overall Score: 86.2/100.** Best fit: high-volume coding and long-context agents where low cost and retrieval reliability matter; validate performance on the target harness before relying on Meta's best-case coding figures.
 
+### Deep-research addendum (2026-10-09)
+
+- Meta’s launch material confirms Muse Spark 1.3 is an update focused on coding and agentic tasks and is available through Muse Code and Meta’s API.
+- The project’s tier rule applies: Contributor/Free/Max are access or effort tiers of the same model, not separate checkpoints.
+- Source: https://research.meta.ai/blog/introducing-muse-spark-1-3
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Meta’s official release identifies Muse Spark 1.3 as a coding/agent update available through Muse Code and Meta’s API.
+- Meta-reported scores, echoed by multiple secondary analyses, include DeepSWE v1.1 **75.4%**, Terminal-Bench 2.1 **88.8%** (tied with GPT-5.6 Sol), and AutomationBench **49.4%**. These are vendor-harness results and should not be conflated with independent harnesses.
+- Independent reporting is materially lower on some setups: Vals AI Terminal-Bench 2.1 is reported at **72.28%**, while Artificial Analysis tracks a result around **85.4%**. The spread is likely harness/effort dependent.
+- An independent ToneBench placement puts the thinking configuration at **#83/181**, a reminder that coding/agent strength does not imply writing-leaderboard leadership.
+- **Assessment:** retain the strong coding/tool profile but cap confidence in the overall score because the benchmark spread is large and most headline numbers originate from Meta’s own evaluation stack.
+- Sources: https://research.meta.ai/blog/introducing-muse-spark-1-3 ; https://www.datacamp.com/blog/muse-spark-1-3 ; https://awaited.dev/benchmarks/muse-spark-1-3-benchmarks/ ; https://benchmark.towardsai.com/models/muse-spark-1-3-thinking-or.html
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

@@ -34,6 +34,12 @@
 - **Cost efficiency: 94/100.** Contributor pricing is exceptionally low, with privacy/data-use tradeoffs.
 - **Overall Score: 81.0/100.** Best fit: inexpensive agentic workloads and coding at scale.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Meta confirms Spark 1.2’s multimodal text/image/video use and availability in Meta Model API and Muse Code. Independent tracking reports GPQA 90.4, SWE-bench Verified 86.6, Terminal-Bench 80.15, and Toolathlon 75.9, with meaningful evaluator disagreement on HLE.
+- Recalculation: retained existing score; the independent results reinforce coding/tool strength but do not justify increasing reasoning because the HLE sources conflict.
+- Sources: https://research.meta.ai/blog/multimodal-intelligence-of-muse-spark-1-2 ; https://themodelgap.com/models/muse-spark-1-2 ; https://shortlyai.com/models/muse-spark-1-2
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

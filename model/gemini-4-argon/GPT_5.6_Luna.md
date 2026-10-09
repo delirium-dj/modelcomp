@@ -55,6 +55,17 @@ Long context:
 - **Cost efficiency: 88/100.** Introductory $2/$10 pricing is aggressive, but the later $4/$20 rate and unknown availability make sustained value uncertain.
 - **Overall Score: 85.6/100.** Best fit: long-horizon enterprise and defensive-cyber workflows once public access and independent benchmark coverage improve.
 
+### Deep-research addendum (2026-10-09)
+
+- No authoritative public model card or exact benchmark table for the `gemini-4-argon` identity was found in this pass.
+- The existing scores remain provisional; no score change is justified without exact-model evidence.
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s launch material reports $2/$10 introductory pricing and a 95% cached-input discount. Independent reviews agree Argon is strong for document-heavy and sustained reasoning work, but show it behind Opus/Sonnet/Astra on some Terminal-Bench 4.0 rows despite leading selected coding tests.
+- Recalculation: **retained 85.6/100**. The independent results strengthen the coding caveat and do not support raising the score; multimodal documentation remains incomplete.
+- Sources: https://blog.google/intl/en-in/products/gemini-4-argon-our-next-era-of-frontier-intelligence/ ; https://www.eesel.ai/blog/gemini-4-argon-review ; https://www.intueo.ai/blog/gemini-4-argon-review-benchmarks-and-access
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

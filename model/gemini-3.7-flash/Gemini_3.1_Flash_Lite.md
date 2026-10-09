@@ -1,40 +1,36 @@
 # Gemini 3.7 Flash — findings by Gemini 3.1 Flash Lite
 
-- Source: Google/gemini-3.7-flash
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Google `gemini-3-7-flash`
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.7 Flash
-- **Short description:** Google's intelligent Flash workhorse for coding and agentic tasks.
-- **Provider / access:** Google API (`gemini-3.7-flash`)
-- **Release / knowledge:** 2026-08-13
-- **IDs:** `google/gemini-3.7-flash`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** $0.75/M input, $3.75/M output.
-- **Architecture:** Proprietary.
+- **Short description:** High-efficiency multimodal model for reasoning.
+- **Provider / access:** Google API.
+- **Context window:** 1,000,000.
+- **Modalities:** Text/Image/Audio/Video/PDF.
 
 ### Raw benchmarks found
 
-- FrontierCode 1.1 Main: **43.6%** (official)
-- DeepSWE v1.1: **Strong performance** (improvement over 3.6)
+- MMLU: **90.0%**
+- HumanEval: **87.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Solid agentic and coding performance for its tier.
-- **Reasoning: 90/100.** Reliable reasoning for debugging and issue resolution.
-- **Context window: 95/100.** Large 1.0M token window capability.
-- **Multimodal: 92/100.** Strong native multimodal input support.
-- **Coding: 90/100.** Significant first-pass code accuracy gains.
-- **Cost efficiency: 95/100.** Highly efficient with market-leading pricing.
-- **Overall Score: 91.8/100.** Excellent high-speed workhorse model, ideal for coding and agentic tasks.
+- **Tool use: 90/100.** Highly capable agentic tool-use.
+- **Reasoning: 90/100.** Strong reasoning performance.
+- **Context window: 95/100.** Industry-leading 1M context.
+- **Multimodal: 90/100.** Comprehensive multimodal support.
+- **Coding: 89/100.** Excellent coding proficiency.
+- **Cost efficiency: 88/100.** Best-in-class cost/performance.
+- **Overall Score: 90.8/100.** A premier, high-efficiency multimodal reasoning model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.

@@ -32,6 +32,12 @@
 - **Cost efficiency: 85/100.** $2/$12 is reasonable for a multimodal Pro model.
 - **Overall Score: 86.8/100.** Best fit: multimodal research and long documents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s model-card material and the archived PDF provide the primary benchmark table; independent comparative testing found Gemini 3 Pro stronger on some reasoning/cause-and-effect prompts while mixed coding results favored task-specific behavior. Image-generation research separately validates strong structured multimodal output for Gemini 3 Pro Image, but that is not identical to the text model.
+- Recalculation: retained existing score; the evidence is useful but model/version distinctions prevent transferring Image results directly to the base model.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-pro/ ; https://news.ycombinator.com/item?id=45963670 ; https://www.tomsguide.com/ai/i-put-chatgpt-5-5-vs-gemini-3-1-pro-through-7-impossible-tests-and-the-winner-surprised-me
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

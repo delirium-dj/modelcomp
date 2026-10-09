@@ -59,6 +59,21 @@ Multimodal:
 - **Cost efficiency: 98/100.** $0.75/$3.75 introductory pricing is unusually low for this benchmark tier, with a known 2027 price increase.
 - **Overall Score: 89.4/100.** Best fit: high-volume multimodal and coding agents where price, broad input coverage, and 1M context matter more than absolute frontier reasoning.
 
+### Deep-research addendum (2026-10-09)
+
+- DeepSWE v1.1: **73.7%**; GDPVal-AA v2: **1545 Elo**; Vals Finance Agent v2: **61.4%**; Harvey Legal Agent: **10.0%**.
+- Introductory pricing is documented at **$0.75 input / $3.75 output per 1M tokens**, with a later regular rate noted by Google.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-8-flash/ ; https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s official model card reports DeepSWE v1.1 **73.7%**, GDPVal-AA v2 **1545 Elo**, Vals Finance Agent v2 **61.4%**, and Harvey Legal Agent **10.0%**.
+- Google’s API documentation confirms a **1M-token context window**, **64K max output**, tunable thinking levels, and built-in tools.
+- Independent sources report meaningful harness variance: DeepSWE is about **74%** on the independent board; Artificial Analysis Terminal-Bench 2.1 is **87.6%**, while Vals AI reports **81.27% ±0.38** under a different Terminus 2 setup.
+- Android Bench 2.0 coverage reports only **8%**, demonstrating that the high DeepSWE score should not be generalized to all software-engineering tasks.
+- **Assessment:** retain high tool/coding scores but lower confidence in broad generalization; the model is particularly strong on long-horizon SWE under favorable agent scaffolding.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-8-flash/ ; https://ai.google.dev/gemini-api/docs/latest-model ; https://themodelgap.com/models/gemini-3-8-flash ; https://www.androidcentral.com/apps-software/android-os/android-bench-2-0
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04
