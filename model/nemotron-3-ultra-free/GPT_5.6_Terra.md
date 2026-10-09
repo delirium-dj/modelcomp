@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra Free — findings by GPT 5.6 Terra
 
 - Source: NVIDIA/Nemotron 3 Ultra 550B-A55B
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+NVIDIA's official Ultra technical report provides additional reproducible base-model results: MMLU 89.08, MMLU-Pro 79.07, GPQA 50.00, HumanEval 83.84 and RULER 64K/128K/256K/512K scores of 95.30/93.30/90.11/93.79. The report distinguishes these base-model evaluations from post-trained agent results; no current evidence supports conflating them, so the established normalized scores are retained. [Official technical report](https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Ultra-Technical-Report.pdf)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using NVIDIA’s technical report; scores are normalized interpretations.

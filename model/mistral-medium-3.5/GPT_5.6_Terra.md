@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by GPT-5.6 Terra
 
 - Source: Mistral AI / Mistral Medium 3.5
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,11 @@ Coding:
 
 ---
 
+## Refresh note
+
+Mistral's current model page confirms Mistral Medium 3.5 as a frontier-class multimodal agentic/coding model released under the Modified MIT license, with 256K context and $1.50/$7.50 per-MTok input/output pricing. It documents structured outputs, function calling, document Q&A, batching and agents/conversations support. No fresh official benchmark table was accessible for score changes. [Official model page](https://docs.mistral.ai/models/mistral-medium-3-5-26-04)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: Evaluation by GPT-5.6 Terra.

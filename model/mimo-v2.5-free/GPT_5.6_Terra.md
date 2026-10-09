@@ -1,7 +1,7 @@
 # MiMo-V2.5 Free — findings by GPT 5.6 Terra
 
 - Source: Xiaomi MiMo/MiMo-V2.5
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Xiaomi's current documentation describes `mimo-v2.5` as the native multimodal member of the series: text, image, video and audio input; text output; 1M context; 128K output; tool calls, web search, structured output and caching. The published USD list prices are $0.14/MTok input cache-miss, $0.0028 cached input and $0.28 output. A “Free” route is promotional/provider-specific, not a different base model. [Official model page](https://mimo.mi.com/models/en-US/mimo-v2.5)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using Xiaomi and the official Hugging Face model card; scores are normalized interpretations.

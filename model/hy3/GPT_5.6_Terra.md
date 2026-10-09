@@ -1,7 +1,7 @@
 # Hy3 — findings by GPT 5.6 Terra
 
 - Source: Tencent HY/Hy3
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Tencent's July 2026 production announcement confirms official Hy3 is a hybrid fast/slow-thinking MoE with 295B total and 21B active parameters, up to 256K context, and API availability through Tencent Cloud TokenHub. This strengthens the architecture and deployment evidence; no newer directly comparable benchmark table was found to recalibrate the existing normalized scores. [Official announcement](https://www.tencent.com/en-us/articles/2202386.html)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using Tencent's official Hugging Face card; scores are normalized interpretations.

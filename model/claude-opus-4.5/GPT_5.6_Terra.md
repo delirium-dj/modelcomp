@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by GPT 5.6 Terra
 
 - Source: Anthropic/Claude Opus 4.5
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 
 ## Model card
 
@@ -28,7 +28,11 @@ Source: [Anthropic Claude Opus 4.5 system card](https://www-cdn.anthropic.com/bf
 - **Cost efficiency: 48/100.** Opus is Anthropic’s premium tier; no exact price table was reviewed in this pass.
 - **Overall Score: 79.6/100.** Best suited to difficult, high-reliability software engineering.
 
+## Refresh note
+
+Anthropic currently lists `claude-opus-4-5-20251101` as active, with no retirement sooner than November 24, 2026. Its launch documentation confirms API ID and $5/$25 per-MTok input/output pricing; the system card reports a 37.6% Vending-Bench result at a 64K thinking budget. No score recalibration is made because that evaluation has a specialized protocol. [Status](https://docs.anthropic.com/en/docs/about-claude/model-deprecations) · [launch](https://www.anthropic.com/news/claude-opus-4-5)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-27
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public system-card research; scores are normalized interpretations, not official vendor scores.

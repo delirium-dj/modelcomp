@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash — findings by GPT-5.6 Terra
 
 - Source: Alibaba / Qwen 3.8 Flash
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,11 @@ Coding:
 
 ---
 
+## Refresh note
+
+Fresh primary-source recheck located Qwen's newer 3.8 Omni Flash announcement but no current official card or benchmark table for this exact Qwen 3.8 Flash route. The report deliberately does not inherit omnimodal results from a distinct endpoint; prior normalized scores remain pending version-specific evidence.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: Evaluation by GPT-5.6 Terra.

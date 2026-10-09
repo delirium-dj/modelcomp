@@ -1,7 +1,7 @@
 # MiMo-V2.5-Pro — findings by GPT 5.6 Terra
 
 - Source: Xiaomi MiMo/MiMo-V2.5-Pro
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Xiaomi's June 2026 open-source announcement confirms MiMo-V2.5-Pro and MiMo-V2.5 both support 1M-token context under the MIT license. It identifies Pro as the complex-task, agent and coding model and reports first place among open-source models on GDPVal-AA and ClawEval, without publishing the exact values in the announcement. Existing normalized scores are therefore retained. [Official announcement](https://mimo.mi.com/docs/en-US/news/latest/v2.5-open-sourced)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using Xiaomi's official Hugging Face model card; scores are normalized interpretations.

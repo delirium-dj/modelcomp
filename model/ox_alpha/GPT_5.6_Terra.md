@@ -1,7 +1,7 @@
 # Ox Alpha — findings by GPT-5.6 Terra
 
 - Source: Ox Alpha preview (`stealth/ox-alpha`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Current public Ox Alpha material documents a 1,048,576-token context, 131,072-token maximum output, text/image/video inputs, text output, tool calling and structured outputs. Its own documentation simultaneously cautions that provider routes are the source of truth and that model-origin claims need independent verification; accordingly, no anonymous-origin or marketing benchmark claim is used to change the scores. [Official capability page](https://www.oxalpha.com/about) · [evidence boundary](https://oxalpha.io/about.html)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public internet research, including Ox Alpha's benchmark disclosure and public access reporting; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

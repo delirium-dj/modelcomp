@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by GPT 5.6 Terra
 
 - Source: Anthropic (`claude-sonnet-4-5`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 
 ## Model card
 
@@ -30,7 +30,11 @@ Sources: [Anthropic announcement](https://www.anthropic.com/news/claude-sonnet-4
 - **Cost efficiency: 66/100.** $3/M input and $15/M output are balanced-tier pricing, not economy-tier pricing.
 - **Overall Score: 81.4/100.** Excellent long-horizon software engineering and computer-use performance.
 
+## Refresh note
+
+Anthropic continues to list `claude-sonnet-4-5-20250929` as active through at least September 29, 2026. The current model report confirms text (including voice dictation) and image understanding, plus access through Claude.ai, Anthropic API, AWS Bedrock and Google Vertex AI. The official system card identifies Sonnet 4.5 as hybrid reasoning; no new like-for-like benchmark warrants revising the normalized scores. [Model report](https://www.anthropic.com/transparency) · [system card](https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-27
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public documentation research; normalized scores are interpretations, not official vendor scores.

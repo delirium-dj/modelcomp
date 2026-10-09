@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by GPT-5.6 Terra
 
 - Source: Alibaba / Qwen 3.8
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,11 @@ Coding:
 
 ---
 
+## Refresh note
+
+Fresh official-source recheck found no newer primary model card or comparable benchmark table for this exact Qwen 3.8 route. The report keeps the prior scored evidence rather than substituting claims from Qwen 3.7/other Qwen variants, which would not be like-for-like. This entry will be revisited when a version-specific primary source is published.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: Evaluation by GPT-5.6 Terra.

@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by GPT 5.6 Terra
 
 - Source: MiniMax/M2.7
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+MiniMax's current public family documentation treats M2.7 as a first-class supported M2-family release, but directs developers to the deployment-specific model endpoint for effective context and pricing. The M2 technical paper characterizes M2.7 as the latest checkpoint and describes its self-evolving training-scaffold work. No current official M2.7 numerical benchmark table was found that would safely replace the prior normalized assessment. [M2 documentation](https://minimax-m2.com/docs/api/models) · [technical paper](https://arxiv.org/abs/2605.26494)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using MiniMax’s official M2.7 announcement; scores are normalized interpretations.

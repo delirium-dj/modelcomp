@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by GPT-5.6 Terra
 
 - Source: Alibaba / Qwen 3.7
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,11 @@ Coding:
 
 ---
 
+## Refresh note
+
+Qwen's current official configuration example lists `qwen3.7-max` with reasoning enabled, 1,000,000-token context and 65,536 maximum output. QwenCloud's current modality table additionally documents text/image/video input, text output, function calling and built-in tools for the versioned endpoint. No current official benchmark table was located for a score change. [Official Qwen post](https://qwen.ai/blog?id=qwen3.7&locale=en) · [QwenCloud model table](https://docs.qwencloud.com/developer-guides/getting-started/vision-models)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: Evaluation by GPT-5.6 Terra.

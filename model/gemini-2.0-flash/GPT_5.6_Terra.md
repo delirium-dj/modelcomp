@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by GPT 5.6 Terra
 
 - Source: Google (`gemini-2.0-flash`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 
 ## Model card
 
@@ -28,7 +28,11 @@ Sources: [Gemini 2.0 Flash model card](https://modelcards.withgoogle.com/assets/
 - **Cost efficiency: 84/100.** Flash is Google’s workhorse efficiency tier; no current exact token-price table was reviewed.
 - **Overall Score: 74.6/100.** Strong multimodal and tool-enabled general-purpose model for its generation.
 
+## Refresh note
+
+Google's current Gemini API release notes record `gemini-2.0-flash` and `gemini-2.0-flash-001` as shut down on June 1, 2026 and advise migration to Gemini 3.5 Flash or Gemini 3.1 Flash-Lite. Historical scores are retained while the report now records this availability change. [Official release notes](https://ai.google.dev/gemini-api/docs/changelog)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-27
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public documentation research; normalized scores are interpretations, not official vendor scores.

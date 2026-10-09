@@ -1,7 +1,7 @@
 # Gemini 1.5 Pro — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`gemini-1.5-pro`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Google's current Gemini API release notes record `gemini-1.5-pro` as shut down on September 29, 2025. The model is retained for historical comparison, but it is no longer an available Gemini API endpoint; scores represent its documented historical capability rather than a current offering. [Official release notes](https://ai.google.dev/gemini-api/docs/changelog)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Google Gemini API release notes and the Gemini 1.5 research paper; scores are normalized interpretations, not vendor scores.

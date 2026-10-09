@@ -1,7 +1,7 @@
 # Union Alpha — findings by GPT 5.6 Terra
 
 - Source: stealth/Pareto 26.9 (provider attribution unresolved)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,7 +52,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Current documentation identifies the former Union Alpha preview with Unbiased's paid Pareto 26.9 route: 262,144-token context, 131,072 maximum output, image input, tool calling, and $2.50/$7.50 per-MTok standard pricing. Published release values include DeepSWE 74, Terminal-Bench 4.0 51, MMMU-Pro 78, HLE no-tools 49 and ArXivMath 88. This identity change is material context, but route/version differences mean existing normalized scores are retained until the report's original snapshot can be reconciled. [Current route documentation](https://union-alpha.com/)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public internet research using the provider documentation and attributed release/leaderboard reporting; scores are normalized interpretations, not official vendor scores.

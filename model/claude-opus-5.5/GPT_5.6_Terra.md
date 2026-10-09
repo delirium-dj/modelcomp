@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by GPT-5.6 Terra
 
 - Source: Anthropic (`claude-opus-5-5`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,7 +53,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Anthropic's current launch documentation confirms Claude Opus 5.5 was released September 22, 2026 and is positioned at Claude Fable 5.1-level performance on most work, at an estimated 40% lower typical token cost than Opus 5. The current pricing page lists $4 input and $20 output per MTok, with $0.20 cached-input reads; no fresh public benchmark table was found for a defensible normalized-score change. [Official launch](https://www.anthropic.com/claude-opus-5-5) · [current Opus page](https://www.anthropic.com/claude/opus)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Anthropic's official release page; scores are normalized interpretations, not vendor scores.

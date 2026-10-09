@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash — findings by GPT 5.6 Terra
 
 - Source: DeepSeek (`deepseek-v4-flash`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 
 ## Model card
 
@@ -32,7 +32,11 @@ Source: [DeepSeek API change log](https://api-docs.deepseek.com/updates/).
 - **Cost efficiency: 88/100.** Flash is DeepSeek’s economical V4 tier; this is capped because an official token-price table was not reviewed.
 - **Overall Score: 71.0/100.** Strong agentic coding with million-token context, but text-only evidence limits multimodal coverage.
 
+## Refresh note
+
+DeepSeek retired the V4-Flash model and now temporarily routes legacy `deepseek-v4-flash` requests to V4.1-Flash. The successor is documented with 1M context, 384K maximum output, vision, tools, Responses API support, and current peak/off-peak pricing; it also reports Terminal-Bench 2.1 90.6, DeepSWE 74.2 and GPQA Diamond 90.9. These are successor—not original V4-Flash—results, so the original model's normalized scores are not overwritten. [Official change log](https://api-docs.deepseek.com/updates/) · [current pricing](https://api-docs.deepseek.com/quick_start/pricing/)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-27
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public documentation research; scores are normalized interpretations, not vendor scores.
