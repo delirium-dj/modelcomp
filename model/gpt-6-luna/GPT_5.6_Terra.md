@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-6-luna`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,7 +48,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+OpenAI's current launch announcement confirms GPT-6 Luna is available in ChatGPT Work, Codex and the API, at $0.10/$0.50 per-MTok input/output—50% below the GPT-5.6 Luna promotional price. GPT-6 Luna (max) exceeds GPT-5.6 Sol (medium) on the cited OSWorld 2.0 offline comparison at one-tenth cost; no standalone numeric table was supplied for broad score recalibration. [Official announcement](https://openai.com/index/introducing-gpt-6-sol-and-luna/)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using OpenAI API and deployment-safety documentation; scores are normalized interpretations, not vendor scores.

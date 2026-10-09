@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by GPT 5.6 Terra
 
 - Source: xAI/Grok 4.3
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -45,8 +45,12 @@ Long context:
 - **Cost efficiency: 85/100.** The disclosed $1.25/$2.50 per-million input/output price is competitive for a frontier 1M-context model.
 - **Overall Score: 85/100.** Half-up mean of the five quality dimensions; a strong value-oriented long-context enterprise-agent choice, with limited raw benchmark disclosure.
 
+## Refresh note
+
+Fresh xAI public-source recheck found no newer official documentation or directly comparable evaluation for Grok 4.3. The normalized assessment remains unchanged pending a version-specific primary source.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

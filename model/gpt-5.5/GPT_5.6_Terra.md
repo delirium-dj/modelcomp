@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Current OpenAI guidance confirms GPT-5.5 supports prompt caching, hosted tools, tool search, compaction and phase handling, with reasoning effort from low to xhigh. It remains positioned for coding, tool-heavy agents and long-context workflows. This capability refresh adds no new comparable public evaluation to alter the existing normalized scores. [Official guide](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.5)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research, primarily OpenAI's model announcement; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Grok 4 Fast — findings by GPT-5.6 Terra
 
 - Source: SpaceXAI / xAI (`grok-4-fast-reasoning`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Fresh xAI documentation recheck did not locate a current primary model page or benchmark table for this exact legacy Grok 4 Fast route. The report retains its prior scored evidence rather than substituting values from Grok 4.7 or a different endpoint.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using the official xAI release; scores are normalized interpretations.

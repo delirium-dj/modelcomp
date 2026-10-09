@@ -1,7 +1,7 @@
 # Inkling — findings by GPT 5.6 Terra
 
 - Source: Thinking Machines Lab/Inkling
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -50,8 +50,12 @@ Long context:
 - **Cost efficiency: 80/100.** Apache-2.0 weights are valuable, but the 975B-total model has a substantial serving footprint.
 - **Overall Score: 80/100.** Half-up mean of the five quality dimensions; a strong open multimodal option when its unknown context limit is acceptable.
 
+## Refresh note
+
+Fresh public-source recheck did not uncover a newer authoritative model card or comparable benchmark table for this exact Inkling route. Existing findings are retained rather than adding unverified provider or capability claims.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

@@ -1,7 +1,7 @@
 # Seed2.0 Pro — findings by GPT-5.6 Terra
 
 - Source: ByteDance Seed (`Seed2.0 Pro 0215`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+The current Seed 2.0 model-card reference confirms the Volcano Engine model ID `Doubao-Seed-2.0-pro`. No newer primary benchmark table was found in accessible documentation, so the report's existing scored evidence remains unchanged. [Model card reference](https://yfz.ai/Seed2.0_Model_Card.pdf)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using ByteDance Seed's official model and release pages; scores are normalized interpretations, not vendor scores.

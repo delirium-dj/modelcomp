@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by GPT-5.6 Terra
 
 - Source: Meta (`Llama-3.2-90B-Vision-Instruct`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Fresh public-source recheck found no newer primary model-card revision or directly comparable evaluation table for this Llama 3.2 Vision Instruct entry. The existing report is retained as a historical model assessment; no unverifiable current capability or pricing claim was introduced.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Meta's Llama 3.2 announcement and official model resources; scores are normalized interpretations, not vendor scores.

@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-5.6-luna`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Current OpenAI model documentation confirms GPT-5.6 Luna's 1.05M context, 128K output, February 16 2026 knowledge cutoff and $0.20/$1.20 per-MTok input/output pricing ($0.02 cached input). Reasoning effort includes none through max; prompts above 272K incur a long-context surcharge. [Official model page](https://developers.openai.com/api/docs/models/gpt-5.6-luna)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using OpenAI's GPT-5.6 evaluation and model documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

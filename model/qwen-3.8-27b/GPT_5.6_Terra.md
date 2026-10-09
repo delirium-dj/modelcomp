@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by GPT-5.6 Terra
 
 - Source: Qwen (`Qwen/Qwen3.8-27B`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Fresh Qwen primary-source recheck found no newly published version-specific model card or comparable evaluation table for Qwen 3.8 27B. The existing evidence is retained rather than conflating it with Qwen 3.8 larger or omni variants.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Qwen's official Hugging Face model card; scores are normalized interpretations.

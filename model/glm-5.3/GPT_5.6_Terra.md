@@ -1,6 +1,6 @@
 # GLM-5.3 — findings by GPT 5.6 Terra
 - Source: Z.ai/GLM-5.3
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -31,6 +31,10 @@ Long context:
 - **Coding: 92/100.** Very high TerminalBench/DeepSWE/FrontierSWE results, tempered by TB3.
 - **Cost efficiency: 82/100.** Open weights support self-hosting.
 - **Overall Score: 76/100.** Half-up quality mean; excellent open coding agent but text-only.
+## Refresh note
+
+Z.ai's current Hugging Face collection continues to publish GLM-5.3 as a 753B text-generation model, separately from the 321B multimodal GLM-5.3 Flash. The distinction confirms that Flash results should not be attributed to the base GLM-5.3 report. [Official collection](https://huggingface.co/collections/zai-org/glm-53)
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

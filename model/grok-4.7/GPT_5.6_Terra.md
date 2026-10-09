@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by GPT-5.6 Terra
 
 - Source: SpaceXAI / xAI (`grok-4.7`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+xAI's current developer guide identifies `grok-4.7` as a frontier model for coding, agentic tasks and knowledge work. Current xAI configuration documentation records a 500K context window and server-side search support for the route. No updated official benchmark table was found for score recalibration. [Developer guide](https://docs.x.ai/developers/grok-4-7) · [configuration documentation](https://docs.x.ai/build/settings)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using official SpaceXAI/xAI documentation; scores are normalized interpretations.

@@ -28,8 +28,8 @@
 87.8 gemini-3.6-flash
 87.4 gpt-5.4-pro
 87.2 gpt-5.5
-86.9 gemini-3-flash
 86.8 claude-sonnet-5
+86.8 gemini-3-flash
 86.6 deepseek-v4.1-flash
 86.6 glm-5.3-flashx
 86.6 gpt-6.1-sol

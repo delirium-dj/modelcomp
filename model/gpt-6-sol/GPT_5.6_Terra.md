@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-6-sol`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,7 +48,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+OpenAI confirms GPT-6 Sol is now in ChatGPT Work, Codex and the API at $2/$10 per-MTok input/output—50% below GPT-5.6 Sol's promotional price. On the cited OSWorld 2.0 offline evaluation, Sol at xhigh reaches 60.5%, close to Claude Opus 5 at medium (60.3%), at approximately 80% lower task cost. [Official announcement](https://openai.com/index/introducing-gpt-6-sol-and-luna/)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using OpenAI model documentation and deployment-safety material; scores are normalized interpretations, not vendor scores.

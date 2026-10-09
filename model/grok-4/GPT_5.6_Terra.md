@@ -1,7 +1,7 @@
 # Grok 4 — findings by GPT 5.6 Terra
 
 - Source: xAI/Grok 4
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -47,8 +47,12 @@ Long context:
 - **Cost efficiency: 65/100.** Proprietary access and no independently verified current price prevent a high value score.
 - **Overall Score: 83/100.** Half-up mean of the five quality dimensions; best fit for reasoning-heavy, tool-enabled applications that can use its 256k context.
 
+## Refresh note
+
+Fresh xAI documentation recheck found current material focused on later Grok routes, but no new version-specific benchmark or lifecycle entry for this original Grok 4 report. Existing evidence and normalized scores are retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

@@ -1,7 +1,7 @@
 # gpt-oss-120b — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-oss-120b`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,7 +48,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+OpenAI's current model page specifies 117B total/5.1B active parameters, Apache 2.0 licensing, 131,072-token context and maximum output, and a June 1, 2024 knowledge cutoff. It documents configurable reasoning plus function calling and structured outputs; image/audio/video are unsupported. [Official model page](https://developers.openai.com/api/docs/models/gpt-oss-120b)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using OpenAI's official model page, release post, and model card; scores are normalized interpretations, not vendor scores.

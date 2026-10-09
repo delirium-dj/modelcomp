@@ -1,6 +1,6 @@
 # Grok 4.1 — findings by GPT 5.6 Terra
 - Source: xAI/Grok 4.1
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -31,6 +31,10 @@ Long context:
 - **Coding: 70/100.** CyBench evidence, but no normal coding benchmark.
 - **Cost efficiency: 65/100.** Price unverified.
 - **Overall Score: 70/100.** Half-up quality mean; strongest validated case is dialogue preference.
+## Refresh note
+
+Current xAI public documentation emphasizes later Grok endpoints and did not yield a newer version-specific benchmark table for this Grok 4.1 route. The report remains a historical assessment; no scores are changed without like-for-like evidence.
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

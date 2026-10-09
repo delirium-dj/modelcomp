@@ -1,7 +1,7 @@
 # Qwen3.7-Plus — findings by GPT-5.6 Terra
 
 - Source: Qwen (`qwen3.7-plus`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Fresh Qwen primary-source recheck found no current official card or benchmark table for this exact Qwen 3.7 Plus route. Scores are retained rather than borrowing results from Qwen 3.7 Max or other Qwen endpoints.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using official Qwen API and model-card documentation; scores are normalized interpretations.

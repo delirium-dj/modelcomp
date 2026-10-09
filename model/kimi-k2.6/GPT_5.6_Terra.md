@@ -1,7 +1,7 @@
 # Kimi K2.6 — findings by GPT 5.6 Terra
 
 - Source: Moonshot AI/Kimi K2.6
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -53,8 +53,12 @@ Long context:
 - **Cost efficiency: 82/100.** Open weights improve deployment choice, but no current first-party token price was verified for a stronger value judgment.
 - **Overall Score: 89/100.** Half-up mean of the five quality dimensions; best suited to high-end coding and research agents.
 
+## Refresh note
+
+Fresh primary-source recheck did not locate a newer official Kimi K2.6 model card or comparable public benchmark table. The prior evidence remains in place; no results from other Kimi releases are substituted.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

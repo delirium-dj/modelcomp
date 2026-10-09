@@ -1,7 +1,7 @@
 # GPT-5 — findings by GPT-5.6 Terra
 
 - Source: OpenAI (`gpt-5`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,7 +51,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+OpenAI's current migration guide continues to document GPT-5 as a developer-oriented agentic model with Responses-API reasoning persistence, configurable reasoning effort, custom tools, function calling, hosted tools and remote MCP. No current official benchmark table for this earlier GPT-5 endpoint was found that would justify a score change. [Official migration guide](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using OpenAI's official launch and developer documentation; scores are normalized interpretations, not vendor scores.

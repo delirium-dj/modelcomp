@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`Gemini 3 Pro Thinking`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Google now marks `gemini-3-pro-preview` as shut down (March 9, 2026), recommending Gemini 3.1 Pro Preview. The historical model card records a 1,048,576-token input limit, 65,536-token output, multimodal inputs, caching, code execution, function calling and thinking. Scores remain historical. [Official model page](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-28
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Google DeepMind's official Gemini 3.1 Pro comparison model card; scores are normalized interpretations, not vendor scores.
