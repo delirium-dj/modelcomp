@@ -33,16 +33,22 @@
 - [model/step-5-preview/meta.json](file://model/step-5-preview/meta.json)
 - [model/mercury-2.5/meta.json](file://model/mercury-2.5/meta.json)
 - [model/mistral-large-4/meta.json](file://model/mistral-large-4/meta.json)
-- [model/ling-3.1-flash/meta.json](file://model/ling-3.1-flash/meta.json)
+- [model/grok-4.7/meta.json](file://model/grok-4.7/meta.json)
+- [model/grok-4.7/average.md](file://model/grok-4.7/average.md)
+- [model/grok-4.7/Claude_Opus_4.8.md](file://model/grok-4.7/Claude_Opus_4.8.md)
+- [model/mistral-large-4/average.md](file://model/mistral-large-4/average.md)
+- [model/mistral-large-4/Claude_Opus_4.6.md](file://model/mistral-large-4/Claude_Opus_4.6.md)
+- [model/ox_alpha/meta.json](file://model/ox_alpha/meta.json)
+- [model/ox_alpha/average.md](file://model/ox_alpha/average.md)
+- [model/ox_alpha/Claude_Opus_5.md](file://model/ox_alpha/Claude_Opus_5.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated major new model entries to reflect actual computed averages: Qwen 3.5 397B (76.4/100), Ring-2.6-1T (63.4/100), Solar Mini 4 (56.4/100), and Solar Open 2 (66.1/100)
-- Corrected Step 5 Preview documentation from speculative entry to scaffolded evaluation entry with standardized metadata
-- Updated scoring methodology examples to use verified average.md data instead of estimated scores
-- Enhanced evaluator ecosystem analysis with comprehensive coverage of GLM 5.3 Flash multi-provider evaluations, Qwen ecosystem updates, and systematic score recalibration across all model categories
-- Expanded model directory structure documentation to include new specialized model types including diffusion LLMs, enterprise-focused models, and experimental checkpoints
+- Added comprehensive documentation for three new major model entries: Grok 4.7 (84.4/100), Mistral Large 4 (81.8/100), and Ox Alpha (84.5/100) with detailed benchmark evaluations
+- Updated scoring methodology examples to include the latest frontier model assessments and specialized evaluation patterns
+- Enhanced evaluator ecosystem analysis with coverage of xAI's flagship coding model, Mistral AI's open-weight MoE architecture, and stealth model investigation methodologies
+- Expanded model directory structure documentation to include enterprise-focused models, stealth models, and specialized assessment approaches for experimental checkpoints
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -698,6 +704,63 @@ These additions demonstrate the system's ability to accommodate diverse model ar
 - [model/ling-3.1-flash/meta.json:1-14](file://model/ling-3.1-flash/meta.json#L1-L14)
 - [model/step-5-preview/meta.json:1-9](file://model/step-5-preview/meta.json#L1-L9)
 
+### Three New Major Model Entries: Grok 4.7, Mistral Large 4, and Ox Alpha
+The latest updates introduce three significant new model entries that represent diverse architectural approaches and evaluation methodologies:
+
+**Grok 4.7 (84.4/100)**: xAI's September-2026 flagship model (~210B parameters) positioned as the successor to Grok 4.6 for long-running coding and professional knowledge work. The model features 500K context window, text and image input with text output, and operates at Grok 4.6 pricing ($2.00/$6.00 per 1M tokens, doubling past 200K). The evaluation demonstrates sophisticated assessment of xAI's frontier coding model with strong performance across tool use (87/100), reasoning (86.7/100), context window (88.3/100), and coding (88.2/100). The model shows particular strength in agentic coding workflows and professional knowledge tasks, with 18 qualifying reporting sources contributing to the averaged scores.
+
+**Mistral Large 4 (81.8/100)**: Mistral AI's flagship frontier model featuring native multilingual fluency, advanced reasoning, and robust tool use. This 1-trillion-parameter granular Mixture-of-Experts (MoE) model with 1.05 trillion total parameters and ~52B active parameters per token represents a significant advancement in open-weight frontier models. The model offers 131,072 total context window (32,768 output), text in/out modalities, and pricing at $2.00/$6.00 per 1M tokens. The evaluation showcases specialized assessment techniques for large-scale enterprise deployments with strong performance in context window (90.4/100), coding (82.1/100), and tool use (80.4/100). The model is currently in public preview with open weights planned for late October 2026.
+
+**Ox Alpha (84.5/100)**: A stealth frontier reasoning model operating under OpenRouter's `stealth/ox-alpha` listing, described as the first natively omnimodal model in OpenRouter's Stealth anonymous series. The model features 1M context window with 131K maximum output, supporting text, image, video, and PDF input with text output. Operating under free Zen tier access, the model demonstrates sophisticated evaluation methodology for unpublished vendor identity with routing probes revealing potential connections to Zhipu's GLM family. The evaluation showcases specialized techniques for stealth models with evidence-absence scoring methodology, particularly notable for its exceptional cost efficiency (97.6/100) and strong context window performance (92.7/100).
+
+```mermaid
+graph TB
+Subgraph NewFrontierModels["Three New Frontier Models"]
+Grok47["Grok 4.7<br/>xAI Flagship (84.4/100)"]
+MistralL4["Mistral Large 4<br/>Open-Weight MoE (81.8/100)"]
+OxAlpha["Ox Alpha<br/>Stealth Omnimodal (84.5/100)"]
+end
+Subgraph EvaluationPatterns["Specialized Evaluation Approaches"]
+CodingFocus["Agentic Coding Focus"]
+EnterpriseScale["Enterprise Scale Assessment"]
+StealthInvestigation["Stealth Model Investigation"]
+end
+NewFrontierModels --> EvaluationPatterns
+```
+
+**Diagram sources**
+- [model/grok-4.7/meta.json:1-10](file://model/grok-4.7/meta.json#L1-L10)
+- [model/mistral-large-4/meta.json:1-10](file://model/mistral-large-4/meta.json#L1-L10)
+- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
+- [model/grok-4.7/average.md:1-24](file://model/grok-4.7/average.md#L1-L24)
+- [model/mistral-large-4/average.md:1-24](file://model/mistral-large-4/average.md#L1-L24)
+- [model/ox_alpha/average.md:1-24](file://model/ox_alpha/average.md#L1-L24)
+
+**Section sources**
+- [model/grok-4.7/meta.json:1-10](file://model/grok-4.7/meta.json#L1-L10)
+- [model/mistral-large-4/meta.json:1-10](file://model/mistral-large-4/meta.json#L1-L10)
+- [model/ox_alpha/meta.json:1-10](file://model/ox_alpha/meta.json#L1-L10)
+- [model/grok-4.7/average.md:1-24](file://model/grok-4.7/average.md#L1-L24)
+- [model/mistral-large-4/average.md:1-24](file://model/mistral-large-4/average.md#L1-L24)
+- [model/ox_alpha/average.md:1-24](file://model/ox_alpha/average.md#L1-L24)
+- [model/grok-4.7/Claude_Opus_4.8.md:1-56](file://model/grok-4.7/Claude_Opus_4.8.md#L1-L56)
+- [model/mistral-large-4/Claude_Opus_4.6.md:1-68](file://model/mistral-large-4/Claude_Opus_4.6.md#L1-L68)
+- [model/ox_alpha/Claude_Opus_5.md:1-55](file://model/ox_alpha/Claude_Opus_5.md#L1-L55)
+
+### Enhanced Scoring Methodology Examples
+The expanded evaluation dataset provides sophisticated examples of scoring methodology across different model categories:
+
+**Grok 4.7 Evaluation Methodology**: The xAI flagship model demonstrates sophisticated assessment of agentic coding capabilities with benchmark coverage including AA Briefcase (1657 Elo), GDPval-AA (1695 Elo), Terminal-Bench 4.0 (38.0%), and AutomationBench (65.6%). The evaluation showcases specialized handling of xAI's proprietary architecture with careful consideration of context window discrepancies (meta.json lists 128K but actual capacity appears to be 500K) and modality limitations (text+image input, text-only output).
+
+**Mistral Large 4 Evaluation Methodology**: The open-weight MoE model evaluation demonstrates comprehensive assessment of enterprise-scale deployment scenarios with benchmark coverage including Terminal-Bench 4.0 (28.3%), AutomationBench (59.9%), Artificial Analysis Intelligence Index (38), and DeepSWE v1.1 (62%). The evaluation showcases specialized techniques for assessing large-scale MoE architectures with 1.05 trillion parameters and 1.6B vision encoder, while accounting for the model's preview status and promotional pricing structure.
+
+**Ox Alpha Evaluation Methodology**: The stealth model evaluation represents the most sophisticated approach to evidence-absence scoring, with three of five dimensions explicitly marked as evidence-absence scores. The methodology demonstrates how to handle models with no verified benchmark data while still providing meaningful capability assessments. The evaluation includes sophisticated fingerprint analysis pointing to potential GLM family origins, careful handling of community claims versus verified facts, and comprehensive documentation of the model's structural capabilities despite absence of performance measurements.
+
+**Section sources**
+- [model/grok-4.7/Claude_Opus_4.8.md:20-47](file://model/grok-4.7/Claude_Opus_4.8.md#L20-L47)
+- [model/mistral-large-4/Claude_Opus_4.6.md:20-59](file://model/mistral-large-4/Claude_Opus_4.6.md#L20-L59)
+- [model/ox_alpha/Claude_Opus_5.md:21-46](file://model/ox_alpha/Claude_Opus_5.md#L21-L46)
+
 ## Dependency Analysis
 The evaluation system depends on several coordinated modules:
 
@@ -816,6 +879,12 @@ Common issues and resolutions:
 | Mistral Large 4 enterprise issues | Large-scale deployment assessment | Document enterprise-focused evaluation patterns |
 | Ling 3.1 Flash optimization issues | Flash model performance assessment | Apply specialized latency-performance optimization evaluation |
 | Step 5 Preview scaffold issues | Experimental model scaffolding | Use standardized metadata structure for experimental assessments |
+| Grok 4.7 integration issues | xAI flagship model assessment | Apply specialized assessment for agentic coding and professional knowledge work |
+| Mistral Large 4 evaluation problems | Open-weight MoE model complexity | Document specialized assessment for 1-trillion parameter granular MoE architecture |
+| Ox Alpha stealth model issues | Anonymous model investigation | Apply sophisticated evidence-absence scoring methodology and fingerprint analysis |
+| xAI model context window discrepancies | Meta.json vs actual capacity differences | Document verified context window specifications and flag metadata inconsistencies |
+| Mistral Large 4 preview status | Early access model with limited benchmarks | Apply provisional scoring with explicit acknowledgment of preview limitations |
+| Ox Alpha pricing discrepancies | Historical free tier vs current availability | Document pricing changes and verify live availability before relying on free access |
 
 **Section sources**
 - [tasks/sync-data.md:21-62](file://tasks/sync-data.md#L21-L62)
@@ -826,7 +895,7 @@ Common issues and resolutions:
 ## Conclusion
 ModelComp's evaluation system combines transparent methodology, strict file contracts, and deterministic automation. Agents produce independent findings, the sync pipeline validates and quarantines weak evidence, and averages reflect only qualified raters. Cost efficiency remains visible but is excluded from Overall, ensuring quality-focused comparisons.
 
-**Updated** The comprehensive expansion with extensive new model evaluation reports including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, Qwen 3.8 Flash Next experimental assessment (73/100), Pareto 26.10 Preview specialized evaluation (66/100), Gemini 2.5 legacy model assessment (63/100), Qwen 3.5 flagship generation evaluation (69/100), and Fledge Alpha stealth model investigation significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The addition of four major new model entries—Qwen 3.5 397B A17B (76.4/100), Ring-2.6-1T (63.4/100), Solar Mini 4 (56.4/100), and Solar Open 2 (66.1/100)—along with numerous smaller model additions like Mercury 2.5, Mistral Large 4, Ling 3.1 Flash, and Step 5 Preview further expands the evaluation diversity. The diverse assessment approaches—from specialized experimental checkpoint evaluation to preview model assessment, legacy model analysis, stealth model investigation, multi-provider coverage, and specialized assessment of massive MoE architectures—provide richer insights into model capabilities and limitations.
+**Updated** The comprehensive expansion with extensive new model evaluation reports including GLM 5.3 Flash (67/100) multi-provider coverage under claude-fable-5, gemini-2.5, qwen-3.5, and qwen-3.8-flash-next, Qwen 3.8 Flash Next experimental assessment (73/100), Pareto 26.10 Preview specialized evaluation (66/100), Gemini 2.5 legacy model assessment (63/100), Qwen 3.5 flagship generation evaluation (69/100), and Fledge Alpha stealth model investigation significantly enhances the system's evaluation coverage and scoring infrastructure. The sophisticated research queue system eliminates redundant queue-sorting scans across research runs, providing deterministic ordering and significant performance improvements. The addition of four major new model entries—Qwen 3.5 397B A17B (76.4/100), Ring-2.6-1T (63.4/100), Solar Mini 4 (56.4/100), and Solar Open 2 (66.1/100)—along with three new frontier models including Grok 4.7 (84.4/100), Mistral Large 4 (81.8/100), and Ox Alpha (84.5/100)—further expands the evaluation diversity. The diverse assessment approaches—from specialized experimental checkpoint evaluation to preview model assessment, legacy model analysis, stealth model investigation, multi-provider coverage, and specialized assessment of massive MoE architectures—provide richer insights into model capabilities and limitations.
 
 For reliable contributions:
 - Follow the template and methodology.
@@ -856,6 +925,11 @@ For reliable contributions:
 - Evaluate enterprise-focused models like Solar Mini 4 and Solar Open 2 with appropriate enterprise optimization and open-weight capability analysis.
 - Accommodate diverse model architectures including multimodal models, flash models, and specialized enterprise deployments.
 - Use standardized scaffolding for experimental model assessments like Step 5 Preview.
+- Apply sophisticated evidence-absence scoring methodology for stealth models like Ox Alpha with comprehensive documentation of unknown reliability factors.
+- Handle xAI flagship model assessments like Grok 4.7 with specialized attention to agentic coding capabilities and context window verification.
+- Assess open-weight frontier models like Mistral Large 4 with comprehensive analysis of MoE architecture implications and enterprise deployment considerations.
+- Document pricing discrepancies and availability changes for models with evolving commercial terms.
+- Maintain rigorous distinction between verified benchmarks and community claims in stealth model investigations.
 
 This approach keeps the comparison fair, auditable, and scalable as new models and new reporting agents join the system.
 

@@ -109,7 +109,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3.7 Flash", label: "Gemini 3.7 Flash", file: "Gemini_3.7_Flash.md", slug: "gemini-3.7-flash" },
   { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md", slug: "laguna-s-2.1" },
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md", slug: "glm-5.2-coding" },
-  { key: "Mimo v2.6 Flash", label: "MiMo v2.6 Flash", file: "Mimo_v2.6_Flash.md", slug: "mimo-v2.6-free" },
+  { key: "Mimo v2.6 Flash", label: "Mimo v2.6 Flash", file: "Mimo_v2.6_Flash.md", slug: "mimo-v2.6-flash" },
   { key: "Mimo v2.5 Free", label: "MiMo v2.5 Free", file: "Mimo_v2.5_Free.md", slug: "mimo-v2.5-free" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md", slug: "muse-spark-1.2" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md", slug: "claude-sonnet-4.5" },
@@ -155,7 +155,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "North Mini Code", label: "North Mini Code", file: "North_Mini_Code.md", slug: "north_mini_code" },
   { key: "Ling 3.1 Flash", label: "Ling 3.1 Flash", file: "Ling_3.1_Flash.md", slug: "ling-3.1-flash" },
   { key: "Claude Opus 4.8", label: "Claude Opus 4.8", file: "Claude_Opus_4.8.md", slug: "claude-opus-4.8" },
-  { key: "MiMo 2.6 Flash", label: "MiMo 2.6 Flash", file: "MiMo_2.6_Flash.md" },
+  { key: "MiMo 2.6 Flash", label: "MiMo 2.6 Flash", file: "MiMo_2.6_Flash.md", slug: "mimo-v2.6-free" },
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md", slug: "gemini-3.1-flash-lite" },
   { key: "Step 5 Preview", label: "Step 5 Preview", file: "Step_5_Preview.md", slug: "step-5-preview" },
 ];

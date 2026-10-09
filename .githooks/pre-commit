@@ -56,6 +56,19 @@ if [ -n "$merged_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged-and-deleted duplicate findings-file stems (RULES.md findings-stem
+# identity): Mimo_v2.6_Flash.md was folded into MiMo_2.6_Flash.md on user
+# order (same Xiaomi rater, 2026-10-09) — block any staged addition under the
+# variant spelling so the duplicate can never be re-cemented (sync also FAILs
+# it via MERGED_SOURCE_STEMS). Write MiMo_2.6_Flash.md instead.
+merged_stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model models_voice models_finance | tr '\0' '\n' | grep -E 'Mimo_v2\.6_Flash\.md(\.excluded)?$' || true)"
+if [ -n "$merged_stem_added" ]; then
+  echo "BLOCKED by RULES.md: Mimo_v2.6_Flash.md is a merged duplicate of MiMo_2.6_Flash.md — never recreate it:" >&2
+  printf '%s\n' "$merged_stem_added" >&2
+  echo "Write into MiMo_2.6_Flash.md instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Findings-stem version convention (RULES.md findings-stem identity):
 # version numbers in findings-file stems use "." not "_" between digits.
 # Block staged additions of underscore-versioned findings files — they FAIL

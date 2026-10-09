@@ -42,10 +42,10 @@
 85.5 qwen-3.7-plus
 84.8 inkling-small
 84.7 grok-4.6
+84.7 minimax-m3
 84.7 muse-spark-1.1
 84.6 claude-sonnet-4.6
 84.6 gpt-5.4
-84.5 minimax-m3
 84.5 ox_alpha
 84.4 grok-4.7
 84.4 kimi-k2.6

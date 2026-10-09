@@ -1,0 +1,38 @@
+# Exo Free — findings by Kimi K3 (SELF-EXCLUDED)
+
+- Source: OpenCode Zen (`exo-free`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified facts only)
+
+- **Name:** Exo Free
+- **Short description:** Unattributed free model endpoint on OpenCode Zen, offered for a limited time while its team collects feedback and improves the model. No vendor, architecture, or release announcement is publicly identified.
+- **Provider / access:** OpenCode Zen only — ID `exo-free` (OpenCode config form `opencode/exo-free`), Chat Completions API at `https://opencode.ai/zen/v1/chat/completions`. Verified present in the Zen docs model table and the live `https://opencode.ai/zen/v1/models` listing (fetched 2026-10-09).
+- **Release / knowledge:** no public release date or knowledge cutoff published.
+- **IDs:** `opencode/exo-free`; no Free ID distinction (the endpoint itself is the free tier).
+- **Context window:** no verified public value found.
+- **Modalities:** no verified public value found (endpoint is text chat completions; image/audio support undocumented).
+- **Pricing (as of 2026-10-09):** Free ($0 in/out/cached) per the Zen pricing table. Privacy caveat per Zen docs: "During its free period, collected data may be used to improve the model."
+- **Architecture:** no verified public information — parameter count, architecture, and license are all undisclosed.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found**.
+
+Research trail (2026-10-09):
+
+- OpenCode Zen docs (`opencode.ai/docs/zen/`) + `zen/v1/models` API: confirms existence of `exo-free` and the free/limited-time data-collection note; publishes no benchmark numbers.
+- OpenRouter (models search `?q=exo`): no Exo model listed.
+- Hugging Face (`huggingface.co/models?search=exo`): no relevant model — only unrelated fine-tunes and the K-pop-adjacent namespace noise.
+- GitHub `exo-explore` (Exo Labs): a distributed-inference framework ("Run frontier AI locally"), not a model vendor — no "Exo" LLM weights or model card.
+- OpenCode changelog (through v1.18.35, Oct 6 2026): no entry describing an Exo model launch or specs.
+- Bing web search (`"Exo Free" opencode zen model`; `"exo-free" AI model`): no third-party coverage or benchmarks.
+
+- **Overall Score: 0/100.** Excluded per template SELF-EXCLUSION rule: zero verified public benchmark numbers exist for this exact model/ID as of 2026-10-09. A scored file would be placeholder fabrication.
+
+## Signature
+
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-09
+- Method: public internet research across six independent sources (Zen docs, Zen API, OpenRouter, Hugging Face, GitHub, Bing). Re-research when the vendor behind `exo-free` is identified or publishes evaluation results.

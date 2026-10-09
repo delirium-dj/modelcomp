@@ -43,12 +43,15 @@ export function mergedSlugMessage(slug, canonical) {
  * Merged-and-deleted duplicate findings-file stems (user-ordered merges).
  * One rater filed under two filename spellings (`Laguna_XS_2_1` — version
  * separator written as `_` — vs `Laguna_XS_2.1`) was folded into the canonical
- * file and the variant removed (2026-10-08). Variants never come back: a
+ * file and the variant removed (2026-10-08). Same for the Xiaomi rater filed
+ * as `Mimo_v2.6_Flash` (`_v2.6` + lowercase) vs `MiMo_2.6_Flash` (canonical,
+ * merged 2026-10-09 across 141 + 6 excluded files). Variants never come back: a
  * resurrect would silently double-count the same rater, so sync FAILs the
  * stem and writes nothing for it (never registered, parsed, or averaged).
  */
 export const MERGED_SOURCE_STEMS = new Map([
   ["Laguna_XS_2_1", "Laguna_XS_2.1"],
+  ["Mimo_v2.6_Flash", "MiMo_2.6_Flash"],
 ]);
 
 /** Exact FAIL text for a resurrected merged findings-file stem. */

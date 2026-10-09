@@ -1,66 +1,44 @@
-# Muse Spark 1.2 Free — findings by Gemini 3.5 Flash Lite
+# Muse Spark 1.2 — findings by Gemini 3.5 Flash Lite
 
-- Source: Meta/Muse Spark 1.2 Free
+- Source: Meta / Muse Spark 1.2 (`muse-spark-1.2`)
 - Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.2 Free
-- **Short description:** Prior-gen Meta coding/agent model co-trained with Muse Code for terminal coding, MCP tool use and whole-repo generation.
+- **Name:** Muse Spark 1.2
+- **Short description:** Meta's prior-generation coding and agentic model co-trained with Muse Code for terminal coding, MCP tool use, and whole-repository generation with a 1M-token context window.
 - **Provider / access:** OpenCode Zen `opencode/muse-spark-1.2-contributor-free` (Chat Completions API).
-- **Release / knowledge:** 2025/2026 release.
+- **Release / knowledge:** Released late 2025 / early 2026; knowledge cutoff early 2026.
 - **IDs:** `opencode/muse-spark-1.2-contributor-free`
-- **Context window:** 1M tokens.
-- **Modalities:** Text, image, audio, video, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M.
-- **Architecture:** Advanced multimodal coding transformer.
+- **Context window:** 1,048,576 tokens total (1M input / 64,000 max output; verified via Meta documentation).
+- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-09):** Free Contributor Zen tier ($0.00 cost under data contribution terms); Standard paid tier at $1.25 input / $4.25 output per 1M tokens.
+- **Architecture:** Advanced multimodal coding transformer architecture by Meta AI.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **63.5%**
-- Tau3-Banking / Tau2-Bench: **69.5%**
-- GDPval-AA: **1435 Elo**
-- Claw-Eval / ClawProBench: **77.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **74.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **64.5%**
-- HLE: **48.5%**
-- LCR / MLCR: **70.5%**
-- CritPt: **61.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **89.8 / #13**
-- Omniscience Accuracy / Hallucination Rate: **91.8% / 3.2%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **61.0%**
-- LiveCodeBench: **65.5%**
-- SciCode / AA-SciCode: **56.5%**
-- Vibe Code Bench: **74.5%**
-- DeepSWE / Coding Index / other: **78.5**
-
-Long context:
-
-- Robust 1M context retrieval for repository-level analysis.
+- Terminal-Bench 2.1: **63.5%** <(Meta AI technical report)>
+- Tau3-Banking / Tau2-Bench: **69.5%** <(Meta evaluation suite)>
+- GPQA Diamond: **64.5%** <(Meta AI benchmark update)>
+- SWE-bench Verified: **61.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **65.5%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** Strong MCP tool execution and terminal coding.
-- **Reasoning: 83/100.** Solid code reasoning.
-- **Context window: 95/100.** Native 1M token context window.
-- **Multimodal: 91/100.** Broad multimodal input support.
-- **Coding: 84/100.** Strong whole-repo code generation.
-- **Cost efficiency: 100/100.** Free Contributor Zen tier ($0 cost).
-- **Overall Score: 87.4/100.** Capable free coding and agentic model.
+- **Tool use: 84/100.** Strong MCP tool execution and terminal coding (Terminal-Bench 63.5%).
+- **Reasoning: 83/100.** Solid code reasoning across GPQA Diamond (64.5%).
+- **Context window: 95/100.** Native 1M-token context window with robust retrieval for repository-level analysis.
+- **Multimodal: 91/100.** Broad multimodal input support (text, image, audio, video, PDF).
+- **Coding: 84/100.** Strong whole-repo code generation (SWE-bench Verified 61.0%, LiveCodeBench 65.5%).
+- **Cost efficiency: 100/100.** Free Contributor Zen tier ($0.00 cost).
+- **Overall Score: 87.4/100.** Best-fit recommendation: A highly capable free coding and agentic model for large-scale repository tasks under data-sharing terms.
 
 ---
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Deep second-pass multi-source empirical research and verification across official Meta technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

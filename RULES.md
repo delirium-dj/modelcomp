@@ -132,9 +132,11 @@ override.
   it (never quarantined, parsed, averaged, or registered); the pre-commit
   hook blocks staging it; `MERGED_SOURCE_STEMS` in
   `scripts/lib/validate.mjs` is the permanent never-resurrect list
-  (`Laguna_XS_2_1` → `Laguna_XS_2.1`, merged 2026-10-08). A merged-stem
-  variant deleted from disk is a sanctioned permanence survival while its
-  canonical dotted sibling exists.
+  (`Laguna_XS_2_1` → `Laguna_XS_2.1`, merged 2026-10-08;
+  `Mimo_v2.6_Flash` → `MiMo_2.6_Flash`, merged 2026-10-09 — same Xiaomi rater
+  filed as `_v2.6` + lowercase vs canonical `_2.6`, 141 + 6 excluded files).
+  A merged-stem variant deleted from disk is a sanctioned permanence survival
+  while its canonical sibling exists (either `.md` or `.md.excluded`).
 
 - **Qwen 3.5 397B identity (user-confirmed 2026-10-08):**
   `Qwen/Qwen3.5-397B-A17B` and the project's `opencode/qwen-3.5-397b`

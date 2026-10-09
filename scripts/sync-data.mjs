@@ -103,8 +103,8 @@ const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 // tracked model page.
 const SOURCE_OVERRIDES = {
   "DeepSeek 4.1 Flash": { label: "DeepSeek v4.1 Flash", slug: "deepseek-v4.1-flash" },
-  "Mimo v2.6 Flash": { label: "MiMo v2.6 Flash", slug: "mimo-v2.6-free" },
   "Mimo v2.5 Free": { label: "MiMo v2.5 Free", slug: "mimo-v2.5-free" },
+  "MiMo 2.6 Flash": { label: "MiMo 2.6 Flash", slug: "mimo-v2.6-free" },
   "big-pickle": { label: "Big Pickle", slug: "big-pickle" },
   "Ox Alpha": { slug: "ox_alpha" },
   // Muse Spark 1.2/1.3 each have ONE model page: Contributor/Free/Standard/Max
@@ -211,14 +211,17 @@ try {
       posix.includes(".md.excluded") && existsSync(diskPath.replace(/\.md\.excluded$/, ".md"));
     const parts = posix.split("/");
     const mirror = findMirror(parts, MIRROR_ROOTS, (m, rest) => existsSync(join(root, m, ...rest)));
-    // Merged duplicate stem (user-ordered source merge, 2026-10-08): the
-    // variant was folded into its canonical dotted sibling and deleted — its
-    // removal from disk is sanctioned while the canonical file survives.
+    // Merged duplicate stem (user-ordered source merge, 2026-10-08 Laguna,
+    // 2026-10-09 Mimo/MiMo): the variant was folded into its canonical sibling
+    // and deleted — its removal from disk is sanctioned while the canonical
+    // file survives (either .md or .md.excluded, so excluded-only folders stay
+    // sanctioned after a rename).
     const stem = (parts[parts.length - 1] ?? "").replace(/\.md(\.excluded)?$/, "");
     const canonicalStem = MERGED_SOURCE_STEMS.get(stem);
     const mergedSource =
       canonicalStem !== undefined &&
-      existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`));
+      (existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`)) ||
+        existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md.excluded`)));
     const verdict = classifyMissingTracked({ twinRetired, mirror, mergedSource });
     if (verdict === "merged-source") {
       log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
