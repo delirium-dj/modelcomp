@@ -31,6 +31,11 @@
 - **Cost efficiency: 40/100.** Pricing unavailable.
 - **Overall Score: 40.0/100.** Evidence is insufficient for a reliable recommendation.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public search coverage for Ember-1 remains sparse and did not surface a stable official model card or independent benchmark suite. This is itself a confidence limitation; no unsupported capabilities or prices are added.
+- Recalculation: retained existing score because no verifiable new exact-model evidence supports a change.
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

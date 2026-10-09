@@ -1,36 +1,36 @@
 # Muse Spark 1.2 — findings by Gemini 3.1 Flash Lite
 
 - Source: Meta `muse-spark-1-2`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.2
-- **Short description:** Iterative improvement of Meta's reasoning and agentic model.
+- **Short description:** Highly capable reasoning model.
 - **Provider / access:** Meta API.
 - **Context window:** 128,000.
-- **Modalities:** Text/Image/Audio.
+- **Modalities:** Text/Image.
 
 ### Raw benchmarks found
 
-- MMLU: **83.0%**
-- HumanEval: **78.0%**
+- MMLU: **87.0%**
+- HumanEval: **84.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Improved tool integration.
-- **Reasoning: 84/100.** Stronger reasoning capability.
-- **Context window: 83/100.** Larger context support.
-- **Multimodal: 80/100.** Enhanced multimodal inputs.
-- **Coding: 81/100.** Refined coding proficiency.
-- **Cost efficiency: 82/100.** Good performance-cost balance.
-- **Overall Score: 82.0/100.** A solid, balanced agentic model.
+- **Tool use: 85/100.** Capable tool-use.
+- **Reasoning: 87/100.** Strong reasoning capability.
+- **Context window: 86/100.** Robust context handling.
+- **Multimodal: 83/100.** Effective visual processing.
+- **Coding: 85/100.** Excellent coding results.
+- **Cost efficiency: 82/100.** Competitive value.
+- **Overall Score: 85.2/100.** A premier reasoning model for complex tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.

@@ -29,8 +29,13 @@
 - **Cost efficiency: 90/100.** Open-weight sparse activation improves deployment economics.
 - **Overall Score: 72.4/100.** Strong efficient text agent, with multimodal score capped by missing evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- The Qwen architecture paper describes Flash-Next as a 125B MoE with 6B active parameters and hybrid sparse attention. Independent comparisons place it among low-cost Flash alternatives, but endpoint and quantization materially affect performance.
+- Recalculation: retained existing score; architecture evidence is not a substitute for stable exact-model benchmarks.
+- Sources: https://arxiv.org/abs/2608.30320 ; https://github.com/QwenLM/Qwen3.8 ; https://www.reddit.com/r/LocalLLM/comments/1w5cb0o/benchmarked_deepseek_v4_flash_0731_vs_qwen3_8_flash_next_vs_glm-5-3-flash/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://github.com/QwenLM/Qwen3.8-Flash-Next ; https://arxiv.org/abs/2608.30320
-

@@ -32,6 +32,12 @@
 - **Cost efficiency: 90/100.** $2/$10 is aggressive for near-frontier capability.
 - **Overall Score: 91.6/100.** Best fit: production coding and professional agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI documents a 1.05M context window; the system-card addendum describes capability comparable to GPT-6 Astra. OpenAI reports $5.47 average cost per maximum-effort task versus $23.21 for Opus 5.5 and $23.80 for Astra, while independent tracking lists six of seven benchmark rows as independently run.
+- Recalculation: retained existing score; the cost-per-task improvement affects Cost efficiency only, not Overall, and capability evidence is still early.
+- Sources: https://developers.openai.com/api/docs/models/gpt-6.1-sol ; https://openai.com/index/introducing-gpt-6-1-sol/ ; https://themodelgap.com/models/gpt-6-1-sol
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

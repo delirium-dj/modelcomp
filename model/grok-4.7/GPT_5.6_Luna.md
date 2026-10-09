@@ -54,6 +54,12 @@ Agent / tool use:
 
 ---
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- xAI’s launch page presents Grok 4.7 as its most capable coding/knowledge-work model and publishes comparison/pricing material. Independent coverage notes that a full system card and confirmed context/benchmark details remain limited.
+- Recalculation: retained existing score; the official positioning is promising but insufficiently reproducible.
+- Sources: https://x.ai/news/grok-4-7 ; https://docs.x.ai/developers/models ; https://www.youtube.com/watch?v=4n8IJOVdlqc
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-09-25

@@ -30,8 +30,13 @@
 - **Cost efficiency: 90/100.** Independent partner results report 2.3–5.2× lower cost than leading alternatives.
 - **Overall Score: 76.4/100.** Excellent specialist cyber model; general-purpose score is capped by narrow public evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google documents Cyber as a post-trained Gemini 3.8 Flash variant for cybersecurity, with 1,048,576-token context and text/image/video/audio input. Launch materials report internal vulnerability discovery and patching results, but access is restricted and independent tests are limited.
+- Recalculation: retained existing score; specialized vendor evidence does not justify general-purpose dimension changes.
+- Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/ ; https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber ; https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/
-

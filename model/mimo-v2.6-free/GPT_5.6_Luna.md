@@ -29,8 +29,13 @@
 - **Cost efficiency: 100/100.** Free access tier; hosted paid Flash fallback remains inexpensive.
 - **Overall Score: 80.8/100.** High-value multimodal open-weight model when free access is available, with quota/route uncertainty.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Xiaomi documents MiMo-V2.6 Flash as a full-modality, 1M-context model and says it is free for a limited time. Independent task reports show reasoning-off and agent workflows can behave very differently.
+- Recalculation: retained existing score; no independent benchmark supports a capability change.
+- Sources: https://mimo.mi.com/docs/en-US/updates/model ; https://mimo.mi.com/docs/pricing ; https://www.reddit.com/r/opencode/comments/1wn27ra/mimo_26_flash_vs_pro_latency_mimo_token_plan/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://mimo.mi.com/docs/en-US/news/latest/v2-6 ; https://mimo.mi.com/docs/pricing
-

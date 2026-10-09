@@ -32,6 +32,12 @@
 - **Cost efficiency: 60/100.** Pro pricing and long-context multipliers are expensive.
 - **Overall Score: 90.4/100.** Best fit: difficult reasoning and coding tasks.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s GPT-5.5 system-card lineage and external comparisons provide the closest current evidence for the Pro reasoning/coding family. Independent MineBench reporting warns that web-agent/tool access changes comparability and should not be treated as a clean raw-model benchmark.
+- Recalculation: retained existing score; no new exact-model evidence justified changing the normalized dimensions.
+- Sources: https://openai.com/index/gpt-5-5-system-card/ ; https://www.reddit.com/r/singularity/comments/1rr0rpk/differences_between_gpt_54_and_gpt_54-pro_on_minebench/ ; https://www.llmreference.com/model/gpt-5.5-pro
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

@@ -54,6 +54,12 @@ Agent / tool use:
 
 ---
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- DeepSeek’s official release and API docs confirm the 1M context and Flash pricing/compatibility routing. The Hugging Face card reports 552B MoE architecture and direct code-agent evaluations; independent comparisons put Terminal-Bench 2.1 near 90.6, but harness differences remain material.
+- Recalculation: retained existing score; stronger coding evidence does not by itself justify changing the normalized composite.
+- Sources: https://deepseek.com/en/news/deepseek-v4-1-flash/ ; https://api-docs.deepseek.com/quick_start/pricing/ ; https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-09-30

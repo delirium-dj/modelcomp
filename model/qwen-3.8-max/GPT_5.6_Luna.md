@@ -33,6 +33,12 @@
 - **Cost efficiency: 88/100.** $2/$6 is competitive for a 1M multimodal flagship.
 - **Overall Score: 90.4/100.** Best fit: multimodal long-context agents needing lower cost than Western flagships.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent tracking reports eight of ten benchmark rows from independent evaluators, while Alibaba supplies two rows; results cover HLE, GPQA, SWE-bench, LiveCodeBench, Terminal-Bench, agent use, and LiveBench. A separate review notes incomplete public documentation and preview-only access.
+- Recalculation: retained existing score; the evidence is broad but the vendor/independent split and changing preview endpoint prevent a numeric increase.
+- Sources: https://themodelgap.com/models/qwen3-8-max ; https://whatllm.org/models/qwen3-8-max ; https://www.reddit.com/r/OpenAI/comments/1v2bwet/qwen38max_is_second_only_to_fable_5/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

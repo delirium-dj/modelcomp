@@ -31,6 +31,12 @@
 - **Cost efficiency: 88/100.** Flash tier is designed for low cost.
 - **Overall Score: 76.8/100.** Validate on the target harness.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public preview coverage reports roughly 984K context, 131K output, and xhigh default reasoning. Independent comparison tables show Qwen 3.8 Flash-Next competing with DeepSeek and GLM on cost/quality, but the model variant and endpoint naming remain unstable.
+- Recalculation: retained existing score; evidence is not stable enough for a numeric change.
+- Sources: https://www.reddit.com/r/coursivofficial/comments/1v2hjjl/qwen_38_preview_access_specs_pricing_benchmarks/ ; https://www.reddit.com/r/LocalLLaMA/comments/1w5cb0o/benchmarked_deepseek_v4_flash_0731_vs_qwen3_8_flash_next_vs_glm-5-3-flash/ ; https://themodelgap.com/models/qwen3-8-max
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

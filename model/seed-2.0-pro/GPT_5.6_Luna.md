@@ -32,6 +32,12 @@
 - **Cost efficiency: 97/100.** Very low reported price.
 - **Overall Score: 84.8/100.** Best fit: inexpensive multimodal reasoning.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- ByteDance confirms the Seed2.0 family, including Pro, Lite, and Mini agent models, with API availability through Volcano Engine. The official model card emphasizes long-context results on DUDE, MMLongBench, and MMLongBench-Doc; independent benchmark coverage remains sparse.
+- Recalculation: retained existing score; vendor evidence is useful but not broad enough for an increase.
+- Sources: https://seed.bytedance.com/en/seed2 ; https://seed.bytedance.com/en/blog/seed2-0-%25E6%AD%A3%25E5%BC%8F%25E5%8F%91%25E5%B8%83 ; https://arxiv.org/abs/2607.00248
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

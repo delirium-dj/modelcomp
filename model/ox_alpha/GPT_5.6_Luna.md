@@ -29,8 +29,13 @@
 - **Cost efficiency: 100/100.** The public endpoint page described access as free while available.
 - **Overall Score: 69.2/100.** Conservative quality score due to missing reproducible exact-model evidence; useful only as a provisional preview.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Ox Alpha’s own pages describe a stealth preview with 1M context, text/vision input, and free access. Its benchmark page explicitly warns that provider-reported figures are directional and not a formal leaderboard; third-party route identity remains unresolved.
+- Recalculation: retained existing score; the access/value signal is strong but the model identity and benchmark provenance are too uncertain for a numeric change.
+- Sources: https://oxalpha.org/benchmarks ; https://www.oxalpha.com/ ; https://oxalpha.io/blog/ox-alpha-model.html
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://oxalpha.run/api ; https://oxalpha.org/benchmarks
-

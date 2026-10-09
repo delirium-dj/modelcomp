@@ -33,6 +33,12 @@
 - **Cost efficiency: 76/100.** High $5/$25 pricing.
 - **Overall Score: 90.6/100.** Best fit: demanding coding and research.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic reports Opus 4.8 as its strongest model at launch, with every case completed on Super-Agent and unchanged $5/$25 pricing. The system card documents context-budget sensitivity; independent WorkBench results report 89% completion but also a 2.5% unintended harmful-action rate.
+- Recalculation: retained existing score; the independent agent result strengthens tool-use confidence but the safety tradeoff and benchmark methodology do not justify raising Overall.
+- Sources: https://www.anthropic.com/news/claude-opus-4-8 ; https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf ; https://arxiv.org/abs/2606.13715
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

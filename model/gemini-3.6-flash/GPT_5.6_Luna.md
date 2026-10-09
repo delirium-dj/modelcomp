@@ -33,6 +33,12 @@
 - **Cost efficiency: 99/100.** $0.75/$3.75 introductory pricing is excellent for scale.
 - **Overall Score: 81.4/100.** Best fit: inexpensive high-throughput multimodal and long-context workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s card and API documentation report stronger agentic/multimodal performance than 3.5 Flash, 1M context, and lower output pricing. Independent catalogues record an Artificial Analysis composite around 50 but no stable per-benchmark independent table; real-world comparison found GPT-5.6 Sol stronger on messy knowledge-work tasks.
+- Recalculation: retained existing score; the improvement claims are plausible but independent evidence is not yet sufficient for a dimension change.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-6-flash/ ; https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6 ; https://www.techradar.com/ai-platforms-assistants/i-gave-gemini-3-6-flash-and-gpt-5-6-access-to-my-entire-digital-life-heres-which-one-actually-helped-me-more
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

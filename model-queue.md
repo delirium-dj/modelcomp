@@ -69,8 +69,8 @@
 82.3 Inkling
 81.9 gpt-5.6-luna
 81.8 claude-haiku-5.5
+81.5 step-5-preview
 81.2 claude-opus-4.5
-81.1 step-5-preview
 80.9 qwen-3.7-max
 80.8 gpt-6-luna
 80.8 mistral-large-4

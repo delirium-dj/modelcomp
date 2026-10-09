@@ -31,6 +31,12 @@
 - **Cost efficiency: 85/100.** Exact pricing was not reverified.
 - **Overall Score: 78.8/100.** Best fit: lower-cost Chinese ecosystem coding agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- The model-card repository reports 1M context, 128K output, open MIT weights, AA Intelligence 57, and low measured cost. Independent Model Gap tracking reports GPQA 91.2, HLE 39.9, Terminal-Bench 84.3, and DeepSWE 63, while noting a serious metadata conflict with Artificial Analysis on context and modality.
+- Recalculation: retained existing score; the cost and coding evidence are strong, but unresolved model-spec identity conflicts cap confidence.
+- Sources: https://github.com/jroethel/glm-model-cards/blob/main/glm-5.3-flash/README.md ; https://themodelgap.com/models/glm-5-3-flash ; https://www.datacamp.com/blog/glm-5-3-flash
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

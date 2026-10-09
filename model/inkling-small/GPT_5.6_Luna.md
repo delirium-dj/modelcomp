@@ -31,8 +31,13 @@
 - **Cost efficiency: 93/100.** Open weights and much smaller active parameter count improve deployment economics.
 - **Overall Score: 85.2/100.** High-value open model for coding and multimodal agent workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Thinking Machines Lab confirms native audio/image reasoning, variable effort, 1M context, and benchmark cost curves for Inkling-Small. Independent catalog data reports strong value but a lower intelligence composite, so the model’s value proposition is cost/coverage rather than frontier raw capability.
+- Recalculation: retained existing score; no single independent benchmark supports a broader capability increase.
+- Sources: https://thinkingmachines.ai/news/inkling-small/ ; https://thinkingmachines.ai/news/introducing-inkling/ ; https://llmpodium.com/models/inkling-small
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://thinkingmachines.ai/news/inkling-small/ ; https://artificialanalysis.ai/models/inkling-small/
-

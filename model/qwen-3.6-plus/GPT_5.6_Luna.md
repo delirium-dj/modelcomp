@@ -31,6 +31,11 @@
 - **Cost efficiency: 82/100.** Pricing evidence incomplete.
 - **Overall Score: 77.8/100.** Evidence is limited; validate on target workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public search results did not surface a stable official Qwen 3.6 Plus model card or sufficiently independent exact-model benchmark set. Nearby Qwen 3.8 and Qwen technical-report evidence was excluded rather than transferred.
+- Recalculation: retained existing score because exact-model evidence remains insufficient.
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

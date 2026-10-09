@@ -32,6 +32,12 @@
 - **Cost efficiency: 92/100.** Low $0.95/$4 pricing.
 - **Overall Score: 87.0/100.** Best fit: economical multimodal coding agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Moonshot’s model card reports K2.6 experiments over 262K context with ten-run averages for coding tasks and open weights. Independent reporting describes a 1T MoE with about 32B active parameters, native multimodality, and roughly 256K–262K context.
+- Recalculation: retained existing score; the independent profile supports strong value and coding, but no new exact benchmark justified a numeric adjustment.
+- Sources: https://huggingface.co/moonshotai/Kimi-K2.6 ; https://www.techradar.com/pro/kimi-ai-review ; https://arxiv.org/abs/2507.20534
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

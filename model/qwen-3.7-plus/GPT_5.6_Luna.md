@@ -32,6 +32,11 @@
 - **Cost efficiency: 82/100.** Pricing evidence incomplete.
 - **Overall Score: 81.2/100.** Best fit: general QwenCloud reasoning and coding.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Current public searches did not surface a sufficiently authoritative Qwen 3.7 Plus model card or stable independent benchmark page. Nearby Qwen 3.8 preview and Qwen technical-report results were excluded rather than transferred across versions.
+- Recalculation: retained existing score; exact-model evidence remains insufficient.
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

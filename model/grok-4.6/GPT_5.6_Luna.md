@@ -32,6 +32,12 @@
 - **Cost efficiency: 87/100.** Competitive base pricing with long-context caveat.
 - **Overall Score: 87.8/100.** Best fit: tool-rich search and coding agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- xAI documentation confirms Grok 4.6 availability and regional pricing; independent coverage reports a 500K context positioning and lower cost, but much of the benchmark discussion remains review- or video-based rather than a reproducible public evaluation.
+- Recalculation: retained existing score; access/pricing evidence is stronger than exact-model benchmark evidence.
+- Sources: https://docs.x.ai/developers/models/grok-4.6 ; https://www.youtube.com/watch?v=s-lTTWPvQWY ; https://data.x.ai/2025-08-20-grok-4-model-card.pdf
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

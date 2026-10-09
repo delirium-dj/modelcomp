@@ -32,6 +32,12 @@
 - **Cost efficiency: 70/100.** Current API pricing was not verified.
 - **Overall Score: 90.2/100.** Best fit: general frontier coding and agent workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s system card describes GPT-5.5 for complex real-world work across coding, research, documents, spreadsheets, and tools; the launch page gives a 1M context and $5/$30 API rate. Independent reporting is mixed, with some coding suites showing strong results and others criticizing agentic-coding generalization.
+- Recalculation: retained existing score; benchmark disagreement does not support a numeric increase.
+- Sources: https://openai.com/index/gpt-5-5-system-card/ ; https://openai.com/index/introducing-gpt-5-5/ ; https://www.reddit.com/r/artificial/comments/1sv4l94/gpt55_strongest_agentic_coding_model_ever_failing/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

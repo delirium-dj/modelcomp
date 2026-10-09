@@ -32,6 +32,12 @@
 - **Cost efficiency: 85/100.** Subscription plans may improve value; exact rates were not verified.
 - **Overall Score: 86.8/100.** Best fit: affordable multimodal agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent Model Gap tracking reports no independent benchmark runners yet. Xiaomi’s card specifies 309B total/15B active parameters, 1M context, 128K output, multimodal input, and $0.14/$0.28 pricing. Comparative measurements place it below DeepSeek V4.1 Flash on intelligence while remaining substantially cheaper.
+- Recalculation: retained existing score; cost efficiency is compelling, but vendor-only capability evidence requires caution.
+- Sources: https://themodelgap.com/models/mimo-v2-6-flash ; https://arxiv.org/abs/2601.02780 ; https://agentbreaking.com/compare?m=deepseek--deepseek-v4-1-flash&m=xiaomi--mimo-v2.6-flash
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

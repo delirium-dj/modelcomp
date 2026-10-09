@@ -32,6 +32,12 @@
 - **Cost efficiency: 70/100.** Current price not verified.
 - **Overall Score: 86.6/100.** Best fit: established OpenAI professional workflows.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI identifies GPT-5.2 as a previous flagship for complex professional work with a 400K context window. Independent SWE-bench testing found strong high-effort coding performance but meaningful variation by effort and harness.
+- Recalculation: retained existing score; this confirms the mature predecessor profile without changing normalized dimensions.
+- Sources: https://developers.openai.com/api/docs/models/gpt-5.2 ; https://www.reddit.com/r/ChatGPTCoding/comments/1pk9eo5/independent_evaluation_of_gpt52_on_swebench_52/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

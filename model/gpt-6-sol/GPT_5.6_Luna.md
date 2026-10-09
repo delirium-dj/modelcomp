@@ -60,6 +60,12 @@ Long context:
 
 ---
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s current model documentation confirms the Sol family’s 1.05M context; independent tracking for the newer GPT-6.1 Sol provides a useful comparison, reporting near-Astra capability at much lower cost per task. This is evidence about the successor and is not transferred directly to GPT-6 Sol.
+- Recalculation: retained existing score; successor evidence is informative but not exact-model evidence.
+- Sources: https://developers.openai.com/api/docs/models/gpt-6.1-sol ; https://openai.com/index/introducing-gpt-6-1-sol/ ; https://themodelgap.com/models/gpt-6-1-sol
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-03

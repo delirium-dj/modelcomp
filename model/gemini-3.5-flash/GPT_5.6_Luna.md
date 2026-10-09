@@ -32,6 +32,12 @@
 - **Cost efficiency: 91/100.** Lower than frontier Pro pricing.
 - **Overall Score: 84.2/100.** Best fit: affordable multimodal and long-context production agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google reports Terminal-Bench 76.2%, GDPval-AA 1656 Elo, MCP Atlas 83.6%, and CharXiv Reasoning 84.2%, positioning 3.5 Flash as an agentic/coding workhorse. Independent Appwrite testing compares the model against Google’s card and Artificial Analysis rather than relying on a single vendor table.
+- Recalculation: retained existing score; the independent comparison supports the capability profile but does not resolve cross-harness differences.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-5-flash/ ; https://blog.google/innovation-and-ai/models-and-research/gemini-3-5/ ; https://appwrite.io/blog/post/gemini-3-5-flash-deep-dive
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

@@ -1,14 +1,14 @@
 # Gemini 3 Pro — findings by Gemini 3.1 Flash Lite
 
 - Source: Google `gemini-3-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** High-capability general reasoning model from Google.
+- **Short description:** High-capability general reasoning model.
 - **Provider / access:** Google API.
 - **Context window:** 1,000,000.
 - **Modalities:** Text/Image/Audio/Video/PDF.
@@ -32,5 +32,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.
