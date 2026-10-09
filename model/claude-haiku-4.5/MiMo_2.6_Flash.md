@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic/`claude-haiku-4-5`
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-01, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,7 +36,9 @@ Reasoning / knowledge:
 - MMLU-Pro: **80%** (AA via Opper); **78.7%** (Vals)
 - HLE (Humanity's Last Exam): **4%** (AA via Opper)
 - AIME 2025: **39%** (AA via Opper; Anthropic methodology: avg of 10 runs × 16 trials, 128K thinking budget)
-- Artificial Analysis Intelligence Index v4.1.1: **30** (AA "Claude 4.5 Haiku (Reasoning)" comparison page); non-reasoning baseline **17.4** (Opper/AA)
+- Artificial Analysis Intelligence Index v4.1.1: **30** (AA "Claude 4.5 Haiku (Reasoning)" comparison page); non-reasoning baseline **17.4** (Opper/AA); current non-reasoning reading **15.4** with Math Index **39.0** (AA via OpenRouter benchmark block, 2026-10-09)
+- CritPt: **0.0%** (AA via OpenRouter, 2026-10-09 — fills the first-pass gap; absolute floor on this probe)
+- IFBench: **42.0%**; Terminal-Bench Hard: **27.3%** (AA via OpenRouter, 2026-10-09)
 - Long-context reasoning (AA-LCR): **50%** (AA via Opper)
 - FrontierMath v2: **5.903%** (Tiers 1–3), **2.083%** (Tier 4) (BenchLM/Vals rows)
 - CritPt / AA-Omniscience / BenchLM overall: no verified public score found (BenchLM public rank #102/230, 52.89/100 — composite, display only)
@@ -56,7 +58,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 65/100.** τ²-Bench Retail 83.2% (Anthropic, 128K thinking) shows strong customer-facing tool discipline, but Terminal-Bench 2.1 at ~44% (Vals) / TB ~41–42% (Anthropic) sits just below the mid band and JobBench 16.0% caps the score well below frontier agents.
-- **Reasoning: 65/100.** GPQA 65–72% and MMLU-Pro ~79–80% land in the documented mid band (GPQA 60–80%), with AA Index 30 (reasoning mode) at the top of the 20–35 range; HLE 4% and FrontierMath ~6% are what cap it.
+- **Reasoning: 65/100.** GPQA 65–72% and MMLU-Pro ~79–80% land in the documented mid band (GPQA 60–80%), with AA Index 30 (reasoning mode) at the top of the 20–35 range (current non-reasoning 15.4, re-checked 2026-10-09); HLE 4%, CritPt 0.0% and FrontierMath ~6% are what cap it — held.
 - **Context window: 70/100.** Exactly the 200K anchor of the tier mapping (200K = 70); AA long-context reasoning at 50% confirms usable but unremarkable retrieval at that window.
 - **Multimodal: 68/100.** Text + image input with vision-driven computer use (Anthropic: Haiku 4.5 matches Sonnet 4 on computer-use tasks) puts it in the +image-in band (60–70); no video/audio/PDF input verified, no non-text output, and no captured MMMU score — that caps it at 68.
 - **Coding: 78/100.** SWE-bench Verified 73.3% (Anthropic) is within a point of the frontier reference (DeepSWE 74%+) and far above the mid band, but LiveCodeBench 41–51% and Terminal-Bench ~44% keep it out of the 90s.
@@ -67,6 +69,15 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
-- Method: public internet research (Anthropic announcement + model page + system-card methodology, Artificial Analysis model/comparison pages via Opper AI, BenchLM and Vals AI rows, LLMReference spec sheet, llm-stats shared-benchmark table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-10-01; user-approved second pass)
+- Method: public internet research (Anthropic announcement + model page + system-card methodology, Artificial Analysis model/comparison pages via Opper AI, BenchLM and Vals AI rows, LLMReference spec sheet, llm-stats shared-benchmark table); second pass 2026-10-09 re-checked the [OpenRouter anthropic/claude-haiku-4.5 benchmark block](https://openrouter.ai/anthropic/claude-haiku-4.5) (AA non-reasoning rows: Index 15.4, CritPt 0.0, IFBench 42.0, TB-Hard 27.3, Math Index 39.0) and [Grokipedia](https://grokipedia.com/page/Claude_Haiku_4.5) (release/pricing/context confirmations; notes the dotted `claude-haiku-4.5` alias vs Anthropic's hyphenated `claude-haiku-4-5`) — AA direct page 404 at the tried slug; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Gap closed:** CritPt **0.0%** (AA) — first-pass gap; reinforces the HLE-4% cap on Reasoning.
+- **New rows:** AA Index 15.4 (non-reasoning, current), Math Index 39.0, IFBench 42.0, TB Hard 27.3.
+- **Confirmed:** $1/$5, 200K, vision, extended thinking, SWE-V >73% (Anthropic), Oct-2025 release; still Anthropic's latest Haiku (Grokipedia).
+- **Scores:** no dimension changed; Overall held at 69.

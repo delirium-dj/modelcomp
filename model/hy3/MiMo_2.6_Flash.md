@@ -1,7 +1,7 @@
 # Hy3 — findings by Mimo v2.6 Flash
 
 - Source: Tencent Hy (Hunyuan)/`hy3`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,9 +12,9 @@
 - **Provider / access:** OpenCode Zen paid (`tencent/hy3` meta; **no Zen Free ID**, `noFreeId: true`); Tencent Cloud TokenHub API; OpenRouter (incl. `tencent/hy3:free` rate-limited free endpoint); HF `tencent/Hy3`; self-host via vLLM/SGLang (8× H20-3e recommended).
 - **Release / knowledge:** 2026-07-06 (preview was 2026-04-23); knowledge cutoff not restated in sources reviewed.
 - **IDs:** `tencent/hy3` (meta/OpenRouter); `tencent/Hy3` (HF).
-- **Context window:** **256K** native (262,144 on OpenRouter); meta: 256K in / **32K out**; 16K output on some hosts (Swfte).
+- **Context window:** **256K** native (262,144 on OpenRouter); meta: 256K in / **32K out**; 16K output on some hosts (Swfte); OpenRouter now advertises up to **128,000 completion tokens** (2026-10-09 re-check).
 - **Modalities:** **text + image in; text out** (meta); hybrid fast/slow thinking (no_think / low / high CoT); tool calling yes; structured outputs via API.
-- **Pricing (as of 2026-09-22):** TokenHub preview **~$0.18 in / $0.59 out per 1M** (meta); Model Beat list **$0.13 / $0.53**; OpenRouter free endpoint at $0 (rate-limited); Apache 2.0 self-host = infra only. **No OpenCode Zen Free ID.**
+- **Pricing (as of 2026-10-09):** TokenHub preview **~$0.18 in / $0.59 out per 1M** (meta); Model Beat list **$0.13 / $0.53**; OpenRouter realized average now **$0.0825 / $0.33** with cache read $0.02063 across 5 providers (Tencent Cloud, NovitaAI, GMICloud, Phala, AtlasCloud — re-checked 2026-10-09); the `tencent/hy3:free` rate-limited free endpoint noted in the first pass; Apache 2.0 self-host = infra only. **No OpenCode Zen Free ID.**
 - **Architecture:** MoE **295B total / 21B active** + 3.8B MTP layer; 192 experts top-8; 80 layers; hidden 4096; BF16; Apache 2.0.
 
 ### Raw benchmarks found
@@ -29,6 +29,7 @@ Agent / tool use:
 - APEX-Agents: **24.4** (Tencent/Hy4 table)
 - SWE Atlas Refactoring: **32.9%** (Tencent/Hy4 table)
 - BrowseComp / WideSearch: claimed strong vs peers (Tencent Cloud); exact % not extracted in this pass
+- Design Arena (Low Models arena, via OpenRouter 2026-10-09): Website Elo **1187**, 3D **1181**, Code Categories **1180**, UI Component **1167**, Game Development **1143**, Data Visualization **1128** — human-preference design rows, first capture for Hy3
 - GDPval-AA / MCP-Atlas / Tau3: no verified public score found for Hy3 in this pass
 
 Reasoning / knowledge:
@@ -70,6 +71,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (GitHub Tencent-Hunyuan/Hy3, HF tencent/Hy3, Tencent Cloud Techpedia, themodelbeat/Epoch, Swfte, OpenRouter hy3:free); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (GitHub Tencent-Hunyuan/Hy3, HF tencent/Hy3, Tencent Cloud Techpedia, themodelbeat/Epoch, Swfte, OpenRouter hy3:free); second pass 2026-10-09 re-checked the [OpenRouter tencent/hy3 page](https://openrouter.ai/tencent/hy3) (realized $0.0825/$0.33, 128K completions, 5 providers, Design Arena rows) and the [HF tencent/Hy3 card](https://huggingface.co/tencent/Hy3) (no new eval rows surfaced beyond the first pass); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **New:** Design Arena Low-Models rows (Website 1187 / Code 1180 / UI 1167 Elo via OpenRouter); realized OpenRouter price down to **$0.0825/$0.33** with 5 providers; completion cap advertised up to 128K.
+- **Confirmed:** 256K/262K context, Jul-2026 release, 295B/21B, Apache 2.0, hybrid thinking, tool calling + JSON schema outputs.
+- **Still missing:** cleanly extracted SWE-bench Verified %, HLE/AA-Index/CritPt, GDPval/MCP/Tau rows, MRCR/RULER.
+- **Scores:** no dimension changed (Cost already 97 with the cheaper realized pricing now documented); Overall held at 72.

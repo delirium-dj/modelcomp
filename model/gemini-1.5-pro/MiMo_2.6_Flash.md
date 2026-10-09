@@ -1,7 +1,7 @@
 # Gemini 1.5 Pro — findings by Mimo v2.6 Flash
 
 - Source: Google (`google/gemini-1.5-pro`, AI Studio / Vertex AI)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-24, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Gemini 1.5 Pro (legacy 1.5-generation Pro; superseded by Gemini 2.x/3.x lines — a **retired/legacy entry**, not a current flagship)
 - **Short description:** Google DeepMind's February-2024 multimodal MoE model that made million-token context mainstream — best known for near-perfect long-context retrieval across text, video and audio rather than for frontier reasoning. GA'd May 2024, updated Sep 2024, now legacy.
-- **Provider / access:** Google AI Studio (Gemini API) and Google Vertex AI — Chat Completions-style `generateContent` API (`gemini-1.5-pro`); OpenAI-compatible routing available via gateways. Third-party gateways show it **deactivated since 2025-09-20** (LLM Gateway). **No OpenCode Zen Free ID** (`noFreeId: true`); meta notes a free tier via AI Studio.
+- **Provider / access:** Google AI Studio (Gemini API) and Google Vertex AI — Chat Completions-style `generateContent` API (`gemini-1.5-pro`); OpenAI-compatible routing available via gateways. Third-party gateways show it **deactivated since 2025-09-20** (LLM Gateway). Second-pass note (2026-10-09): gemini-1.5-pro **no longer appears at all** on Google's current models page (updated 2026-10-06) — fully delisted from the API docs; treat as shut down. **No OpenCode Zen Free ID** (`noFreeId: true`); meta notes a free tier via AI Studio.
 - **Release / knowledge:** released 2024-02-15 (limited preview), GA 2024-05-23, price-cut update 2024-09-24/10-01; knowledge cutoff **August 2024** (Artificial Analysis).
 - **IDs:** `gemini-1.5-pro` (AI Studio) / `gemini-1.5-pro-002` (Sep-2024 revision); no Free ID on Zen.
 - **Context window:** **2,097,152 tokens (2M)** on Vertex/long-context tiers (Future AGI via litellm: 2,097,152); production default ran 1M in 2024 with 128K standard entry; **max output only 8,192 tokens** (Future AGI / AI Flash Report) — a hard practical cap.
@@ -39,7 +39,7 @@ Reasoning / knowledge:
 - MATH: **67.7%** (Google, May-2024) · MATH-500: **67.3%** (AI Flash Report) / 0.9 (#85, CloudPrice AA-sourced)
 - AIME 2025: **8.0%** (AI Flash Report) / 0.2 (#100, CloudPrice AA-sourced)
 - Big-Bench Hard: **89.2%** (Google, May-2024) · WMT23: **75.3%**
-- Artificial Analysis Intelligence Index: **10** (estimated, current index — Gemini 1.5 Pro Sep-'24 page); CloudPrice lists **9.9, rank #355**
+- Artificial Analysis Intelligence Index: **10** (estimated, current index — Gemini 1.5 Pro Sep-'24 page); CloudPrice lists **9.9, rank #355**. Second-pass note (2026-10-09): the live AA page now reads **8 (estimated)** (#124/300 non-reasoning class, median 7) with the model marked deprecated (AA still suggests the Feb-'25 Gemini 2.0 Flash — itself now shut down); no speed/cost rows remain on AA (historical-only benchmarking)
 - LCR / MLCR / CritPt: **no verified public score found**
 
 Coding:
@@ -71,6 +71,15 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-24
-- Method: public internet research (Google Gemini 1.5 tech report arXiv:2403.05530, Google Developers pricing blog 2024-09-24, AI Flash Report model page, Artificial Analysis model/comparison pages, CloudPrice AA-sourced benchmark API, Future AGI litellm spec, LLM Gateway provider table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-24; user-approved second pass)
+- Method: public internet research (Google Gemini 1.5 tech report arXiv:2403.05530, Google Developers pricing blog 2024-09-24, AI Flash Report model page, Artificial Analysis model/comparison pages, CloudPrice AA-sourced benchmark API, Future AGI litellm spec, LLM Gateway provider table); second pass 2026-10-09 re-checked [AA Gemini 1.5 Pro](https://artificialanalysis.ai/models/gemini-1-5-pro) (Index 8 estimated, deprecated, historical-only) and the official [Gemini API models page](https://ai.google.dev/gemini-api/docs/models) (model absent = fully delisted); Grokipedia 404; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status hardened:** fully delisted from Google's API models page — the entry is now a pure historical record (dataset permanence applies).
+- **Index updated:** AA direct page reads 8 (estimated) vs the first pass's 10/9.9 readings — same story (deep below frontier), all values kept.
+- **Confirmed:** 2M context, full multimodal input (text/image/audio/video/PDF), Aug-2024 cutoff, non-reasoning.
+- **Scores:** no dimension changed; Overall held at 67.

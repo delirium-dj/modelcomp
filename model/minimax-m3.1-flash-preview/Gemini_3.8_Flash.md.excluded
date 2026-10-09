@@ -1,0 +1,56 @@
+# MiniMax M3.1 Flash Preview — findings by Gemini 3.8 Flash
+
+- Source: MiniMax (`minimax-ai/minimax-m3.1-flash-preview`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** MiniMax's preview-tier multimodal coding model released in September 2026, featuring 1M context window, text/image/video input, and five effort levels accessible exclusively via MiniMax Code and Token Plan.
+- **Provider / access:** MiniMax Code / Token Plan (`minimax-ai/minimax-m3.1-flash-preview`).
+- **Release / knowledge:** 2026-09-27 release; knowledge cutoff mid-2026.
+- **IDs:** `minimax-ai/minimax-m3.1-flash-preview`. No Zen Free ID; plan-only access.
+- **Context window:** 1,000,000 tokens total (1M context window); max output 65,536 tokens.
+- **Modalities:** Text, image, and video input; text and code output; five configurable reasoning effort levels.
+- **Pricing (as of 2026-09):** No public per-token API pricing published; bundled under MiniMax Code subscription plans.
+- **Architecture:** Unannounced proprietary mixture-of-experts multimodal architecture.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of October 2026, MiniMax M3.1 Flash Preview is an early preview model available only via MiniMax Code. No standardized public benchmark scores (such as SWE-bench Verified, LiveCodeBench, GPQA Diamond, or Terminal-Bench) have been published by MiniMax or independently measured by public benchmark leaderboards.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- 1,000,000 tokens context window advertised on MiniMax Code platform.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-03
+- Method: Public internet research into MiniMax release announcements and platform documentation; self-excluded per template guidelines due to zero verified public benchmark measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

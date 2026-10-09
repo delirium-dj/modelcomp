@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by Mimo 2.6 Flash
 
 - Source: Google/Gemini 2.0 Flash (`gemini-2.0-flash-001`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-27, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Gemini 2.0 Flash (Google; historical model — **no "Free"-tier wording applies**; Google AI Studio's free preview tier was promotional and is gone with the model)
 - **Short description:** Google's first Gemini 2 model (preview 2024-12-11, GA 2025-02-05), a fast 1M-context multimodal workhorse that displaced Gemini 1.5 Pro as the Gemini flagship. **Deprecated and shut down 2026-06-01**, replaced by Gemini 3.6 Flash; kept here as a historical reference for the 2.0 generation.
 - **Provider / access:** Google Gemini API (`gemini-2.0-flash`, snapshot `gemini-2.0-flash-001`) and Google Cloud Vertex AI — `generateContent` / Google's OpenAI-compatibility layer, **not** a first-party OpenAI Chat Completions endpoint. Also indexed on OpenCode Zen as `google/gemini-2.0-flash`. **Service is off as of 2026-06-01.**
-- **Release / knowledge:** preview 2024-12-11; GA `gemini-2.0-flash-001` 2025-02-05; all variants (`-001`, `-exp`) shut down 2026-06-01 (Google AI for Developers model page). Knowledge cutoff **August 2024**.
+- **Release / knowledge:** preview 2024-12-11; GA `gemini-2.0-flash-001` 2025-02-05; all variants (`-001`, `-exp`) shut down 2026-06-01 (Google AI for Developers model page) — **re-confirmed 2026-10-09: the official models page now lists "Gemini 2.0 Flash (Shut down)"** under Previous models. Knowledge cutoff: **August 2024** (first pass) vs **June 2024** (AA catalog, 2026-10-09) — both kept, Google's original docs preferred.
 - **IDs:** `google/gemini-2.0-flash` (Gemini API `gemini-2.0-flash`, `gemini-2.0-flash-001`, `gemini-2.0-flash-exp`). **No Free ID exists on OpenCode Zen** (`noFreeId`); the model itself is retired.
 - **Context window:** **1,048,576 input tokens**; max output **8,192** on the Gemini API (Vertex AI documents up to 65,536 for the same model id) — verified on Google's own model pages.
 - **Modalities:** text, image, audio, video, code and PDF in; **text out on the GA id** — Google's docs explicitly mark `Image generation: Not supported` and `Audio generation: Not supported` for `gemini-2.0-flash`, while native image + audio output shipped on the separate `gemini-2.0-flash-exp` / Multimodal Live API endpoints. Reasoning: `Thinking` is experimental (unsupported on Vertex for this id). Tool calls yes (function calling, parallel calls); JSON/structured outputs yes; code execution, Google Search grounding, URL context, context caching yes. Live API not supported on the GA id.
@@ -32,6 +32,7 @@ Agent / tool use:
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas: **no verified public score found**
 - Verified platform capabilities (not scores): function calling, code execution, Google Search grounding, URL context, structured outputs, explicit context caching <(Google Gemini API + Vertex model pages)>
+- Second-pass note (2026-10-09): AA's historical page lists Index **9 (estimated)** (#104/300 non-reasoning, median 7) and — conflicting with Google's own GA-id docs — "text and image" output (likely reflecting the `-exp`/Live-variant family; Google's doc row "Image generation: Not supported" for the GA id remains primary). AA's deprecation banner recommends Gemini 2.5 Flash, itself now deprecated — stale successor chain.
 
 Reasoning / knowledge:
 
@@ -76,6 +77,15 @@ Long context (all measured independently by Stanford CRFM, HELM Long Context, 20
 
 ## Signature
 
-- Provided by: **Mimo 2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-27
-- Method: public internet research (Google Gemini API and Vertex model docs, Google Developers Blog, Stanford CRFM HELM Long Context, TechCrunch, deeplearning.ai, AI Flash Report, LangDB/Artificial Analysis data, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo 2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-09-27; user-approved second pass)
+- Method: public internet research (Google Gemini API and Vertex model docs, Google Developers Blog, Stanford CRFM HELM Long Context, TechCrunch, deeplearning.ai, AI Flash Report, LangDB/Artificial Analysis data, llm-stats); second pass 2026-10-09 re-checked the official [Gemini API models page](https://ai.google.dev/gemini-api/docs/models) ("Gemini 2.0 Flash (Shut down)" under Previous models) and [AA's historical page](https://artificialanalysis.ai/models/gemini-2-0-flash) (Index 9, stale deprecation chain, modality/cutoff conflicts) — Grokipedia 404; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.0_Flash.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Shutdown re-confirmed** from Google's own models page (listed "(Shut down)"); the entry remains a historical record (dataset permanence applies).
+- **Conflicts kept:** cutoff Aug-2024 (Google docs) vs Jun-2024 (AA catalog); GA-id text-only output (Google docs) vs AA's "text and image" row (likely `-exp` family).
+- **New:** AA Index 9 (estimated, #104/300); AA's recommended successor chain (2.5 Flash) is itself stale — the line now ends at 3.8 Flash.
+- **Scores:** no dimension changed; Overall held at 73.
