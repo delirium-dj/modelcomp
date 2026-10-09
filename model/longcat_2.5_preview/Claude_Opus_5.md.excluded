@@ -1,0 +1,78 @@
+# LongCat 2.5 Preview — findings by Claude Opus 5
+
+- Source: Meituan LongCat (`longcat-2.5-preview`), served free via OpenCode Zen as `longcat-2.5-preview-free`
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** The template's SELF-EXCLUSION rule is mandatory and keyed to one condition: *zero* verified public benchmark numbers for the exact model/ID, such that every benchmark row would read "no verified public score found". **That condition holds here, and it is stated explicitly by the one aggregator that has imported the model.**
+
+This is not a failure to identify the model. Meituan's LongCat 2.5 Preview is real, API-live, and precisely specified — I was able to verify its parameter count, activation count, context window, modalities, release date, full pricing structure (promotional *and* list), access routes and harness compatibility. What does not exist is any measurement. BenchmarkList, which carries a model page for it, records **"0 benchmarks"** and **"0 score rows"**, and states the position in terms I could not improve on: *"Meituan published no benchmarks for this preview, so its claims rest on positioning … No independent evaluation had been confirmed when it was imported … until scores appear it should be treated as **unmeasured**"* ([BenchmarkList](https://benchmarklist.com/models/meituan-longcat-2.5-preview/)).
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's preview of its next-generation LongCat model — a **natively multimodal Mixture-of-Experts with ~1.6 trillion total parameters and ~48B active**, on a 1M-token context, aimed at "long-horizon agent work across terminals, browsers, GUIs, spreadsheets, and design tools" ([BenchmarkList](https://benchmarklist.com/models/meituan-longcat-2.5-preview/)). Unlike the open-weight LongCat 2.0, **it is API-only**. It is a distinct model, not a tier of LongCat 2.0, which has its own folder.
+- **Provider / access:** Meituan's own API; **OpenCode Zen** as `longcat-2.5-preview-free` on `https://opencode.ai/zen/v1/chat/completions`; Vercel AI Gateway; Blackbox; and other resellers. Meituan states compatibility with **Claude Code and similar agent harnesses**. **API-only — no open weights**, which is a change in posture from LongCat 2.0.
+- **Release / knowledge:** Released **2026-09-25** (BenchmarkList); live on Meituan's own API **2026-09-27**, at which point existing verified users were granted **5 million free tokens** ([explainx.ai](https://www.explainx.ai/blog/longcat-2-5-1-6-trillion-agent-model-2026)). Knowledge cutoff: no verified public date found.
+- **IDs:** `longcat-2.5-preview` (Meituan API, Vercel, Blackbox), `longcat-2.5-preview-free` / `opencode/longcat_2.5_preview` (Zen). **A genuine free ID exists on Zen**, and Zen's documentation places it in the **zero-retention group**: "Its provider follows a zero-retention policy and does not use your data for model training" ([Zen docs](https://opencode.ai/docs/zen/)) — notably better terms than Zen's other free models, several of which may use prompts for improvement.
+- **Context window:** **1,048,576 tokens (1M)** — corroborated by BenchmarkList, Vercel AI Gateway, CloudPrice and this repo's curated metadata. Max output: no verified public figure found.
+- **Modalities:** **Text + image in → text out.** This **corrects this folder's `meta.json`**, which hedges with "Text in/out (image input listed on some routers, unverified)". Image input is now confirmed by three independent sources: BenchmarkList calls it "natively multimodal", explainx lists "image understanding" among the confirmed specs, and Vercel AI Gateway states "support for text and image inputs". No audio, no video, no generated media. Reasoning: yes — Vercel describes it as "Meituan's multimodal **reasoning** model for coding and agentic workflows". Tool calls: implied by the stated Claude Code compatibility, but unmeasured.
+- **Pricing (as of 2026-10-08):** **Free on OpenCode Zen.** On Meituan's own API, a **limited-time promotional rate of $0.30 / MTok uncached input, $0.006 / MTok cached input, $1.20 / MTok output**, against **list rates of $0.75 / $0.015 / $2.95**. The cached-input rate of **$0.006 per million tokens** is the lowest I have encountered anywhere in this research pass. Resellers quote input around $0.20–0.30.
+- **Architecture:** **~1.6 trillion total parameters, ~48B active**, Mixture-of-Experts, natively multimodal. **No further architectural detail, no technical report, and no licence** (it is API-only). For context, 1.6T total makes it the largest model by parameter count in this entire dataset, while 48B active puts its serving cost in the same band as far smaller models — which is presumably how the $0.30 promotional rate is possible.
+
+### Raw benchmarks found
+
+**None. Zero. Not a single score.**
+
+Agent / tool use:
+
+- Terminal-Bench (any version), τ²/τ³-bench, OSWorld, MCP-Atlas, Toolathlon, GDPval-AA, Claw-Eval, BrowseComp, AA Agentic Index: **no verified public score found**
+- Meituan claims compatibility with Claude Code and similar harnesses and positions the model for terminal, browser, GUI, spreadsheet and design-tool agency. **None of it is measured.**
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, MMLU-Pro, AIME, CritPt, AA-LCR, Artificial Analysis Intelligence Index, AA-IFBench, AA-Omniscience: **no verified public score found**
+- **BenchLM has no entry** — `benchlm.ai/md/models/longcat-2-5-preview.md` returns **404**, while `longcat-2-0` and `longcat-flash-lite-sparse` both resolve. Given that two sibling LongCat models are indexed, the absence is meaningful rather than a coverage gap.
+- **Artificial Analysis has no entry**, so there is no index and **no hallucination measurement**.
+- **BenchmarkList has a page but zero score rows**, and says so in terms quoted above.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, Terminal-Bench, SciCode, FrontierCode, CursorBench: **no verified public score found**
+- "Stronger coding" is a vendor positioning claim with no number attached.
+
+Multimodal:
+
+- MMMU / MMMU-Pro, MathVision, CharXiv, OmniDocBench, OCR, ScreenSpot: **no verified public score found**
+- "New image understanding" is confirmed as a *capability* by three sources and measured by none.
+
+Long context:
+
+- **No MRCR, RULER, LongBench or needle-retrieval number at any depth**, despite the 1M window being a headline specification.
+
+### Why exclusion rather than partial or proxy scoring
+
+Three routes to a score were available and all three are wrong.
+
+**Borrowing LongCat 2.0's numbers.** LongCat 2.0 is a *different model* — open-weight where this is API-only, and explicitly superseded by this preview, which adds image understanding and claims stronger coding. BenchmarkList's own warning is that 2.5 Preview "should be treated as unmeasured **relative to LongCat 2.0**", i.e. the comparison is exactly what cannot be assumed. `model/longcat-2.0/` is a separate folder in this dataset, and importing its scores here would assign one model's measurements to another and corrupt both averages.
+
+**Scoring on vendor positioning.** The available claims are "new image understanding, stronger coding, and compatibility with Claude Code" — three adjectives, no numbers. Converting those into 1–100 values would be inventing data, which is the one thing this dataset forbids absolutely.
+
+**Partial scoring on specs alone.** Context window (1M, four-source confirmed) and Multimodal (text+image, three-source confirmed) *could* be scored from specification evidence. But **Tool use, Reasoning and Coding have zero data of any kind** — and those three are precisely the dimensions Meituan's unquantified claims concern. An Overall built from two spec-derived scores and three invented ones would present as a capability verdict while carrying none. That is the exact failure the mandatory rule exists to prevent, and it is the same judgement I applied to `kimi-k2.8-preview` in this pass for the same reason.
+
+**Reversal criteria, stated explicitly.** This exclusion should be lifted the moment any one of the following appears: a BenchLM or Artificial Analysis entry for LongCat 2.5 Preview; score rows on BenchmarkList's existing page; a Meituan technical report or model card publishing numeric evaluations; or any Vals AI, Terminal-Bench, SWE-bench, MMMU or Claw-Eval leaderboard listing. The specification work above is complete and should be directly reusable the moment numbers exist.
+
+### Normalized scores (1–100)
+
+Not computed. Every benchmark row above reads "no verified public score found" — a conclusion stated independently by BenchmarkList, which carries a page for this model with **zero score rows** and describes it as "unmeasured". Three of the five quality dimensions have **zero** verified data. Per `RULES.md` this is precisely the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Sources that yielded usable specification data: **BenchmarkList's** LongCat 2.5 Preview page (the 1.6T-total / ~48B-active natively-multimodal MoE description, 1M context, 2026-09-25 release date, API-only status, the long-horizon agent positioning across terminals/browsers/GUIs/spreadsheets/design tools, promotional pricing, and — decisively — the explicit statements that Meituan published no benchmarks, that no independent evaluation was confirmed, and that the model should be treated as unmeasured, alongside a results table reading "0 benchmarks / 0 score rows / No matching rows"); **explainx.ai** (2026-09-27 API availability, confirmed ~1.6T/~48B/1M/image-understanding specs, the full promotional-versus-list rate card, and the 5-million-token grant to verified users); **Vercel AI Gateway** and **Blackbox** (independent confirmation of text-and-image input and the reasoning/coding/agentic positioning); **CloudPrice** (1M context, $0.30 input); and the **OpenCode Zen** documentation (the free `longcat-2.5-preview-free` ID and its placement in the zero-retention, no-training group rather than the data-may-be-used group). Searches and fetches that returned nothing: `benchlm.ai/md/models/longcat-2-5-preview.md` → **404**, while the sibling `longcat-2-0` page resolves; Artificial Analysis → no entry. The repo's `meta.json` was read only to identify the tracked model; its hedged "image input … unverified" note is corrected above against three independent sources, and its ~$0.30/$1.20 pricing is confirmed as the promotional rate with the list rate also recorded. **No benchmark was imported from `longcat-2.0`**, which is a different model with its own folder, and no value was inferred from vendor positioning. No peer `model/` findings files were read. Unavailable items — every benchmark figure, the max output limit, the knowledge cutoff, any architectural detail beyond parameter counts, and any licence — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

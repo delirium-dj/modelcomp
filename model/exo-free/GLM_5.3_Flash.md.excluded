@@ -1,0 +1,57 @@
+# Exo Free — findings by GLM 5.3 Flash
+
+> SELF-EXCLUDED — no verified public benchmark scores found for this exact
+> model/ID as of the research date. Notes only; any scores inside are ignored
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`). Re-research when standardized benchmarks appear.
+
+- Source: OpenCode/`exo-free` (stealth/unannounced free model)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** An anonymous, unannounced free reasoning model that appeared on OpenCode Zen (catalog id `opencode/exo-free`) around October 6, 2026. The publishing lab is undisclosed; a third-party fingerprint probe matched its generation patterns to Claude Opus 5.5 at 99.4% confidence, but that is closed-set community evidence, not vendor verification (candidate theories: confidential blind evaluation, routing misconfiguration, or a distilled clone — none confirmed).
+- **Provider / access:** OpenCode Zen `opencode/exo-free` — endpoint `https://opencode.ai/zen/v1/chat/completions` (Chat Completions API), also listed at `https://opencode.ai/zen/v1/models`. High traffic has caused frequent "Endpoint is unavailable" notices and 429s; a community poll (68% of 50 votes) said it still worked as of the discovery week.
+- **Release / knowledge:** appeared 2026-10-06 (models.dev first observed 2026-10-06 22:54 UTC); knowledge cutoff unknown (undisclosed model).
+- **IDs:** `opencode/exo-free` (Free ID on Zen — $0 during the limited free period; no end date announced; requests during the free period may be used to improve the model — no zero-data-retention guarantee).
+- **Context window:** ~1M tokens — 1,048,576 total per models.dev (artificialwatch radar), "about a million" per AI Promo Now; max output ~131K tokens (AI Promo Now). Verified via catalog trackers, not a model card.
+- **Modalities:** text out; image input accepted; tool calls supported; reasoning effort fixed at high (AI Promo Now briefing). 
+- **Pricing (as of 2026-10-09):** $0 / $0 per 1M tokens, cached input $0 (LLMRates.ai, AI Promo Now, artificialwatch) — limited-time free with data-training caveat.
+- **Architecture:** undisclosed (stealth). No parameter, license, or base-model evidence; the 99.4% Opus 5.5 fingerprint is a generation-pattern match, not a weights identity.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no Terminal-Bench/Tau3/GDPval entry; tool calls supported but unmeasured)
+
+Reasoning / knowledge:
+
+- no verified public score found (no GPQA/HLE/LCR/Intelligence-Index entry — Artificial Analysis does not list the model as of 2026-10-09)
+- lm.ikale.io Fingerprint Detector: 99.4% match to `claude-opus-5.5` (claude-fable-5.1 second at 0.4%) — closed-set generation-pattern probe (freeaiapi.org, 2026-10-07), cited as provisional identity evidence, NOT a quality benchmark
+
+Coding:
+
+- no verified public score found (no SWE-bench/LiveCodeBench entry)
+- Qualitative community stress tests (pass/fail, no measured numbers): "Pelican on a Bicycle" spatial-geometry render passed (feet on pedals, wings on handlebars, no clipping); full Blender convenience-store Python script executed cleanly on first attempt (freeaiapi.org, 2026-10-07)
+
+Long context:
+
+- no long-context retrieval reported (1M window is spec-verified, unmeasured)
+
+## Evidence notes
+
+- Zero verified public benchmark numbers for the exact model/ID: every measured row above is either absent or a pass/fail qualitative report; the only numeric result (99.4% fingerprint) measures stylistic similarity, not capability. Standardized scores (SWE-bench, GPQA, Terminal-Bench, AA Intelligence Index) do not exist for Exo Free as of 2026-10-09.
+- Scoring an undisclosed stealth model would require either inventing numbers (forbidden) or borrowing another model's scores (forbidden — the fingerprint match is not an identity). Self-exclusion per the template's mandatory SELF-EXCLUSION rule.
+- Practical caveats from the sources: extreme availability volatility (429s, dropouts), no zero-data-retention guarantee (prompts and screenshots may train future models — never send proprietary code), and do not rely on the endpoint for production work.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (DuckDuckGo search; freeaiapi.org, AI Promo Now, LLMRates.ai, artificialwatch cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. No scored file produced — self-exclusion per `model-report-TEMPLATE.md`.
+- Future sources: add a new file next to this one, e.g. `Exo_Free_Identified.md`, using the same headings.

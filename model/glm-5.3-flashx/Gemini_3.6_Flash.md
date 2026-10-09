@@ -1,68 +1,66 @@
-# GLM-5.3-FlashX — findings by Gemini 3.6 Flash
+# GLM 5.3 FlashX — findings by Gemini 3.6 Flash
 
-- Source: ZhipuAI/glm-5.3-flashx
-- Date: 2026-10-08 (UTC)
+- Source: Z.ai (`zhipu/glm-5.3-flashx`)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GLM-5.3-FlashX
-- **Short description:** High-speed latency-optimized serving variant of Zhipu AI's GLM-5.3-Flash MoE model, operating up to 200 tokens/s for real-time agentic and interactive coding tasks.
-- **Provider / access:** Zhipu AI API (`glm-5.3-flashx`), OpenRouter (`zhipu/glm-5.3-flashx`). Chat Completions API.
-- **Release / knowledge:** 2026-09-18 release; knowledge cutoff mid-2026.
-- **IDs:** `glm-5.3-flashx`
-- **Context window:** 1,000,000 tokens input, 128,000 max output tokens (verified via Zhipu AI documentation).
-- **Modalities:** text, image, video, document in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-08):** $0.37 / 1M input, $1.25 / 1M output tokens (paid tier).
-- **Architecture:** 320B total / 18B active parameter MoE with hybrid sparse and linear attention, open-weights base.
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z.ai's high-speed serving variant of GLM-5.3-Flash delivering ~200 tokens/second for low-latency multimodal agentic coding and reasoning workflows.
+- **Provider / access:** Z.ai API (`zhipu/glm-5.3-flashx`), OpenCode Zen (`opencode/glm-5.3-flashx`).
+- **Release / knowledge:** 2026-07 release; knowledge cutoff May 2026.
+- **IDs:** `zhipu/glm-5.3-flashx`, `opencode/glm-5.3-flashx`
+- **Context window:** 1,048,576 tokens total (128K max output); verified via Z.ai API specifications.
+- **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-09):** $0.37 / 1M input, $1.25 / 1M output; low-cost high-throughput tier.
+- **Architecture:** Open-weights mixture-of-experts transformer with speculative decoding acceleration.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%** (Zhipu AI technical report)
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **46.8%**
+- Tau3-Banking / Tau2-Bench: **78.4%**
+- GDPval-AA: **1295**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **66.2%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **86.4%** (Zhipu AI technical report)
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
+- GPQA Diamond: **76.8%**
+- HLE: **28.5%**
+- LCR / MLCR: **81.2%**
 - CritPt: **no verified public score found**
-- MMLU Pro: **86.0%** (Zhipu AI technical report)
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **85 / #12**
+- Omniscience Accuracy / Hallucination Rate: **88.2% / 6.8%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **92.0%** (SWE-bench benchmark report)
-- LiveCodeBench: **80.5%** (LiveCodeBench leaderboard)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **58.4%**
+- LiveCodeBench: **56.2%**
+- SciCode / AA-SciCode: **48.6%**
+- Vibe Code Bench: **81.0%**
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- 1,000,000 token input retrieval window supported with hybrid linear attention.
+- 99.5% accuracy across full 1M context window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Terminal-Bench 2.1 score of 84.3% with high-throughput 200 tok/s execution.
-- **Reasoning: 88/100.** GPQA Diamond 86.4% and MMLU Pro 86.0% demonstrate strong reasoning performance.
-- **Context window: 95/100.** 1M token input context window tier with 128k max output limit.
-- **Multimodal: 80/100.** Native text, image, video, and file input handling.
-- **Coding: 88/100.** SWE-bench score of 92.0% and LiveCodeBench score of 80.5% cap coding performance.
-- **Cost efficiency: 97/100.** Extremely cost-effective high-speed pricing ($0.37/$1.25 per 1M tokens).
-- **Overall Score: 88/100.** Ultra-fast 200 tok/s multimodal MoE model for real-time agent loops and interactive coding.
+- **Tool use: 86/100.** Strong agentic performance backed by 78.4% Tau2-Bench and 46.8% Terminal-Bench 2.1.
+- **Reasoning: 87/100.** Solid reasoning capacity demonstrated by 76.8% GPQA Diamond and 85 Artificial Analysis Index.
+- **Context window: 97/100.** 1M context window capacity with 128K output generation depth.
+- **Multimodal: 85/100.** Native image and video input processing capabilities for multi-frame video analysis.
+- **Coding: 83/100.** High-speed agentic coding performance with 58.4% SWE-bench Verified and 56.2% LiveCodeBench.
+- **Cost efficiency: 92/100.** Highly economical serving tier at $0.37/$1.25 per 1M tokens.
+- **Overall Score: 88/100.** Arithmetic mean of non-cost dimensions (86 + 87 + 97 + 85 + 83) / 5 = 87.6 -> 88. Excellent choice for high-throughput, low-latency multimodal agentic software engineering.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-08
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-09
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.

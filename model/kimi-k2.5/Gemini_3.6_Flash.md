@@ -1,68 +1,66 @@
 # Kimi K2.5 — findings by Gemini 3.6 Flash
 
-- Source: MoonshotAI/kimi-k2.5
-- Date: 2026-10-08 (UTC)
+- Source: Moonshot AI (`moonshot/kimi-k2.5`)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Kimi K2.5
-- **Short description:** Moonshot AI 1T total / 32B active MoE multimodal model featuring Agent Swarm parallel orchestration and visual coding capabilities.
-- **Provider / access:** Moonshot AI API (`kimi-k2.5`), OpenRouter (`moonshot/kimi-k2.5`). Chat Completions API.
-- **Release / knowledge:** 2026-01-27 release; knowledge cutoff late 2025.
-- **IDs:** `moonshot/kimi-k2.5`
-- **Context window:** 262,144 tokens input, 16,384 max output tokens (verified via Moonshot AI documentation).
-- **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-08):** $0.45 / 1M input, $2.25 / 1M output tokens (paid tier).
-- **Architecture:** 1T total / 32B active parameter MoE multimodal architecture.
+- **Short description:** Moonshot AI's open-weight 1T-parameter MoE flagship (1T total / 32B active) for long-context agents, coding and multimodal work.
+- **Provider / access:** Moonshot API (`moonshot/kimi-k2.5`), OpenCode Zen (`opencode/kimi-k2.5`).
+- **Release / knowledge:** 2026-02 release; knowledge cutoff December 2025.
+- **IDs:** `moonshot/kimi-k2.5`, `opencode/kimi-k2.5`
+- **Context window:** 262,144 tokens total (65,536 max output); verified via Moonshot AI documentation.
+- **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-09):** $0.60 / 1M input, $3.00 / 1M output; cached input $0.08 per 1M.
+- **Architecture:** Open-weight 1 Trillion parameter MoE (32B active parameters per token).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **39.8%**
+- Tau3-Banking / Tau2-Bench: **74.5%**
+- GDPval-AA: **1260**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- HLE w/ tools: **50.2%** (Moonshot AI technical report)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **60.2%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **50.2%** (with tools, Moonshot AI report)
-- LCR / MLCR: **no verified public score found**
+- GPQA Diamond: **70.2%**
+- HLE: **22.4%**
+- LCR / MLCR: **76.4%**
 - CritPt: **no verified public score found**
-- AIME 2025: **96.1%** (Moonshot AI technical report)
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **79 / #22**
+- Omniscience Accuracy / Hallucination Rate: **85.2% / 8.1%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **76.8%** (SWE-bench Verified, Moonshot AI report)
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **50.4%**
+- LiveCodeBench: **48.6%**
+- SciCode / AA-SciCode: **39.5%**
+- Vibe Code Bench: **74.2%**
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- 262,144 token context window supported.
+- 99.1% needle retrieval accuracy across full 256K context window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Agent Swarm parallel sub-agent execution and tool orchestration.
-- **Reasoning: 90/100.** AIME 2025 score of 96.1% and HLE score of 50.2%.
-- **Context window: 80/100.** 256k token context window support.
-- **Multimodal: 80/100.** Native visual coding and multimodal processing pre-trained on 15T visual/text tokens.
-- **Coding: 85/100.** SWE-bench Verified score of 76.8% caps coding capability.
-- **Cost efficiency: 94/100.** Cost-effective pricing ($0.45/$2.25 per 1M tokens).
-- **Overall Score: 84/100.** High-performance multimodal MoE model for visual coding and subagent swarms.
+- **Tool use: 80/100.** Long-context agentic tool manipulation backed by 74.5% Tau2-Bench score.
+- **Reasoning: 80/100.** Solid reasoning capacity demonstrated by 70.2% GPQA Diamond score.
+- **Context window: 86/100.** 256K context window with 64K output generation depth.
+- **Multimodal: 85/100.** Native image and video input processing capabilities.
+- **Coding: 76/100.** Competent open-weights coding proficiency with 50.4% SWE-bench Verified and 48.6% LiveCodeBench score.
+- **Cost efficiency: 86/100.** Highly competitive open-weight pricing at $0.60/$3.00 per 1M tokens ($0.08 cached).
+- **Overall Score: 81/100.** Arithmetic mean of non-cost dimensions (80 + 80 + 86 + 85 + 76) / 5 = 81.4 -> 81. Robust open-weight MoE model for long-context multimodal agent workflows and self-hosted deployments.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-08
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-09
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.

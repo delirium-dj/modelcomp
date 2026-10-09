@@ -1,0 +1,66 @@
+# Claude Fable 5 — findings by Gemini 3.6 Flash
+
+- Source: Anthropic (`anthropic/claude-fable-5`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Fable 5
+- **Short description:** Scaffolded placeholder evaluation entry for Anthropic's hypothetical or internal Claude Fable 5 model variant.
+- **Provider / access:** OpenCode Zen (`opencode/claude-fable-5`).
+- **Release / knowledge:** Unreleased / unknown.
+- **IDs:** `opencode/claude-fable-5`
+- **Context window:** 128,000 tokens total (unverified).
+- **Modalities:** text in, text out.
+- **Pricing (as of 2026-10-09):** Standard pricing (unspecified).
+- **Architecture:** Proprietary transformer.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No verified public score found; self-excluded.
+- **Reasoning: 15/100.** No verified public score found; self-excluded.
+- **Context window: 15/100.** No verified public score found; self-excluded.
+- **Multimodal: 15/100.** No verified public score found; self-excluded.
+- **Coding: 15/100.** No verified public score found; self-excluded.
+- **Cost efficiency: 15/100.** No verified public score found; self-excluded.
+- **Overall Score: 15/100.** Self-excluded entry due to zero verified public benchmark data available for this exact model entry.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-09
+- Method: Public web and benchmark repository search; self-excluded due to lack of verified public evaluation data.

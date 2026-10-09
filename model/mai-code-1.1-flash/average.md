@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 69.6/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 62.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 78.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 61.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 74.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 88.9/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 69.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 69.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 62.4/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 79.9/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 55.9/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 74.9/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 88/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 68.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
-- Average from top 7 by Overall Score: Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
+- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
+- Average from top 8 by Overall Score: Gemini 3.6 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, Kimi K3, Muse Spark 1.3, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Big Pickle, Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Laguna S 2.1, LongCat 2.5 Preview, Space Bunny, Step 5 Preview.

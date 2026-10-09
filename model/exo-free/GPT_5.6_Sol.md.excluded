@@ -1,0 +1,37 @@
+# Exo Free — negative findings by GPT 5.6 Sol
+
+- Source: OpenCode Zen/Exo Free
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** A short-lived anonymous free OpenCode Zen route, reportedly a router rather than a stable disclosed model.
+- **Provider / access:** Historical OpenCode Zen route; users reported the endpoint became unavailable or deprecated.
+- **Release / knowledge:** Appeared around 2026-10-07; model identity and cutoff undisclosed.
+- **IDs:** `opencode/exo-free`
+- **Context window:** Not verified.
+- **Modalities:** Not verified beyond text interaction.
+- **Pricing (as of 2026-10-09):** Free while available, subject to shared rate limits.
+- **Architecture:** Undisclosed; community header inspection suggested routing across upstream models.
+
+### Raw benchmarks found
+
+- No verified public benchmark number was found for the exact `exo-free` route.
+- Community posts contain anecdotes and identity speculation, not reproducible benchmark results.
+- Sources checked: [launch discussion](https://www.reddit.com/r/opencode/comments/1wziakl/new_afaik_free_model_called_exo/), [router investigation](https://www.reddit.com/r/opencode/comments/1wzvea6/investigation_on_exo_free_model_another_router/), [benchmark request](https://www.reddit.com/r/opencode/comments/1x0lvre/question_about_benchmark_for_some_free_models_in/).
+
+## Exclusion decision
+
+This exact route has zero verified public benchmark numbers, so the project rules require an `.md.excluded` research note rather than fabricated normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-09
+- Method: Fresh public-internet search for exact-route specifications and benchmarks; no scored report was produced.
+- Future sources: if reproducible exact-route benchmark evidence appears, re-research from scratch before replacing this twin.
+

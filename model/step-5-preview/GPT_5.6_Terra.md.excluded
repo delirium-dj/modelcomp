@@ -1,0 +1,19 @@
+# Step 5 Preview — negative findings by GPT 5.6 Terra
+
+- Source: fresh public web research for `step-5-preview`
+- Date: 2026-10-09 (UTC)
+
+## Model card
+
+- **Name:** Step 5 Preview
+- **Short description:** A published benchmark profile exists, but the retrieved material did not expose attributable raw benchmark values or enough exact-model specifications to normalize an Overall score.
+- **Provider / access:** StepFun; current API pricing was not published in the retrieved source.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for this exact model/ID in the retrieved evidence.
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
+- Method: fresh public internet research. This report is self-excluded because it contains zero verified benchmark numbers.
