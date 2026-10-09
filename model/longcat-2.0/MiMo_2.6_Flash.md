@@ -1,7 +1,7 @@
 # LongCat-2.0 — findings by Mimo v2.6 Flash
 
 - Source: Meituan/`meituan/longcat-2.0`
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-28, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meituan/longcat-2.0`; no Zen Free ID bound to this slug.
 - **Context window:** 1,048,576 tokens (1M; trained on hundreds of billions of 1M-context tokens with LongCat Sparse Attention); max output not published.
 - **Modalities:** text in; text out; reasoning **yes** (thinking toggle: `enable_thinking`); tool calls yes (JSON tool-arguments format with `reasoning_content`); **no image input** (AA).
-- **Pricing (as of 2026-09-28):** **$0.30 / 1M input, $0.006 cached (98% discount), $1.20 / 1M output** (LongCat API via AA); AA cost rank **#5/116** at **$0.06 per Intelligence-Index task**. No free tier found.
+- **Pricing (as of 2026-10-09):** LongCat direct API **$0.30 / 1M input, $0.006 cached (98% discount), $1.20 / 1M output**; AA's current median-across-providers view reads **$0.75 / $2.95** (only 1 API provider listed on AA) with $0.15 per Index-task — direct API remains the cheap route. No free tier found.
 - **Architecture:** sparse MoE **1.6T total / 48B active**; >35T-token pretraining entirely on AI-ASIC superpods; **MIT** weights (HF card).
 
 ### Raw benchmarks found
@@ -28,13 +28,14 @@ Agent / tool use:
 - GDPval-AA: **Elo 1,032** <(BenchmarkList — rank 96/340, 72nd pct, AA run dated 2026-09-02)>
 - BrowseComp: **79.9%** <(BenchmarkList — rank 22/44, 51st pct)>
 - Terminal-Bench 4.0 / Claw-Eval / Toolathon / MCP-Atlas / OSWorld: **no verified public score found**
+- HF chat template (re-checked 2026-10-09): tool-calling with named namespaces plus a built-in **`code_interpreter`** tool type (stateful Jupyter sandbox, network-isolated, python/java/go/js/ts/c/c++, 60s timeout) — capability confirmation, no measured score
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **88.9%** <(BenchmarkList — rank 45/464, 90th percentile)>
 - HLE: **33.7%** <(BenchmarkList — rank 50/466)>
 - AA-LCR v1.1: **62.7%** <(BenchmarkList — 68th pct)>
-- Artificial Analysis Intelligence Index: **19, #54 / 116** <(AA model page, v4.3.2) — note: BenchmarkList's "AA Index 34" row conflicts and appears to be a stale feed; the AA-native page value 19 is taken as current actual>
+- Artificial Analysis Intelligence Index: **19, #54 / 116** <(AA model page, v4.3.2) — note: BenchmarkList's "AA Index 34" row conflicts and appears to be a stale feed; the AA-native page value 19 is taken as current actual. **Re-confirmed 2026-10-09:** AA page still reads **19** (#55/117 open-weights class, median 18; 140M verbosity, $0.15 per Index task) — the 34 outlier stands rejected>
 - IMO-AnswerBench **81.8%** / WritingBench **83.8** / ObviousBench **95.8** / AIIQ Composite **98** <(BenchmarkList, secondary rows)>
 - LCR / MLCR (other harnesses) / CritPt / MMLU-Pro: **no verified public score found**
 
@@ -68,6 +69,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-28
-- Method: public internet research (Hugging Face `meituan-longcat/LongCat-2.0` model card, Artificial Analysis model page, BenchmarkList model page, Creative AI News coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-28; user-approved second pass)
+- Method: public internet research (Hugging Face `meituan-longcat/LongCat-2.0` model card, Artificial Analysis model page, BenchmarkList model page, Creative AI News coverage); second pass 2026-10-09 re-checked [AA LongCat 2.0](https://artificialanalysis.ai/models/longcat-2-0) (Index 19 re-confirmed, $0.75/$2.95 median pricing view) and the [HF card](https://huggingface.co/meituan-longcat/LongCat-2.0) (code_interpreter tool support in the template) — Grokipedia 404; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Conflict re-confirmed:** AA-native Index **19** (#55/117) stands; BenchmarkList's 34 remains rejected as a stale feed.
+- **Pricing nuance:** AA median-across-providers $0.75/$2.95 vs LongCat direct $0.30/$1.20 (98% cache discount) — direct API is the value route; $0.15/Index-task.
+- **New capability detail:** built-in `code_interpreter` (Jupyter sandbox) tool in the HF template — no measured score yet.
+- **Scores:** no dimension changed; Overall held at 64.

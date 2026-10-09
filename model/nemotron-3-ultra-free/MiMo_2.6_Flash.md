@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra Free — findings by Mimo v2.6 Flash
 
 - Source: NVIDIA/`nemotron-3-ultra-550b-a55b` (Free tier)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,13 +9,13 @@
 
 - **Name:** Nemotron 3 Ultra Free
 - **Short description:** NVIDIA's most capable open-weights hybrid Mamba-MoE (550B total / 55B active, 2026-06) for frontier reasoning and long-running agents — high throughput, low hallucination, 1M RULER; Free via OpenCode Zen + NVIDIA trial.
-- **Provider / access:** OpenCode Zen `opencode/nemotron-3-ultra-free` (Chat Completions; **Free Zen tier**); NVIDIA NIM/build.nvidia `nvidia/nemotron-3-ultra-550b-a55b` (BF16 + NVFP4); HF `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-*`; trial on build.nvidia.com.
+- **Provider / access:** OpenCode Zen `opencode/nemotron-3-ultra-free` (Chat Completions; **Free Zen tier**); NVIDIA NIM/build.nvidia `nvidia/nemotron-3-ultra-550b-a55b` (**Free Endpoint still Available** — re-confirmed on build.nvidia.com 2026-10-09; 52M API calls in the last 30 days; BF16 + NVFP4); HF `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-*` (card gated — HTTP 401 on re-check); trial on build.nvidia.com.
 - **Release / knowledge:** 2026-06-04 (NVIDIA research page); technical report same era. Knowledge cutoff not restated in sources reviewed.
 - **IDs:** `opencode/nemotron-3-ultra-free` (Zen Free); `nvidia/nemotron-3-ultra-550b-a55b`.
 - **Context window:** **1M** native (meta: 1M / 262K default serve); RULER evaluated 64K→1M.
 - **Modalities:** text in; text out (meta: beyond-text unverified — treat as **text-only** for scoring); tool calls yes; GenRM verifier variant available.
 - **Pricing (as of 2026-09-22):** **Free Zen / NVIDIA trial** ($0 evaluated tier → cost 100). OpenRouter free endpoint also lists AA scores. Self-host open weights (license per HF card).
-- **Architecture:** Sparse MoE hybrid **Mamba-Transformer, 550B total / 55B active**; BF16 + NVFP4 quantized checkpoints; open weights.
+- **Architecture:** Sparse MoE hybrid **Mamba-Transformer, 550B-class total / 55B active** (NVIDIA's build page now lists **561B** parameters, re-checked 2026-10-09 — precise-count update); BF16 + NVFP4 quantized checkpoints; open weights.
 
 ### Raw benchmarks found
 
@@ -80,6 +80,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (docs.api.nvidia.com NIM reference, HF NVIDIA-Nemotron-3-Ultra cards, research.nvidia.com Nemotron-3-Ultra page, NGC catalog card, OpenRouter free endpoint/AA scores, NVIDIA tech report PDF); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (docs.api.nvidia.com NIM reference, HF NVIDIA-Nemotron-3-Ultra cards, research.nvidia.com Nemotron-3-Ultra page, NGC catalog card, OpenRouter free endpoint/AA scores, NVIDIA tech report PDF); second pass 2026-10-09 re-checked [build.nvidia.com](https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b) (free endpoint still available, 561B listing, 52M calls/30d) — AA page 404, OpenRouter slug renders no data, HF card gated (401), Grokipedia 404, so the first-pass NIM-docs rows remain the best live benchmark record; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status confirmed:** NVIDIA Free Endpoint still available (52M API calls/30d — real adoption); Zen Free tier unchanged.
+- **Spec update:** NVIDIA listing now shows **561B** parameters (first pass: 550B marketing figure).
+- **Coverage degraded:** AA page 404, OpenRouter renders no data, HF gated (401), Grokipedia 404 — no new benchmark rows obtainable; first-pass NIM/AA-via-OpenRouter numbers stand as the record.
+- **Scores:** no dimension changed; Overall held at 67.

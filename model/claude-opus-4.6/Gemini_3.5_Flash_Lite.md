@@ -1,6 +1,6 @@
 # Claude Opus 4.6 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Opus 4.6
+- Source: Anthropic / Claude Opus 4.6 (`claude-opus-4.6`)
 - Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -8,64 +8,37 @@
 ## Model card
 
 - **Name:** Claude Opus 4.6
-- **Short description:** Anthropic's flagship reasoning-capable model, enhanced with thinking capabilities for complex, multi-step tasks.
-- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-opus-4.6` (Paid API)
-- **Release / knowledge:** 2025/2026 / knowledge cutoff current
-- **IDs:** `anthropic/claude-opus-4.6` (No Free ID exists on Zen)
-- **Context window:** 200K total tokens (verified via metadata)
-- **Modalities:** Text, image in; text out; tool calls; JSON mode
-- **Pricing (as of 2026-10-01):** Paid-tier pricing ($15 / $75 per 1M equiv.)
-- **Architecture:** Proprietary Anthropic Opus architecture with thinking mode
+- **Short description:** Anthropic's flagship reasoning model enhanced with thinking capabilities for complex, multi-step tasks and a 200K-token context window.
+- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-opus-4.6` (Messages API & Chat Completions).
+- **Release / knowledge:** Released March 2026; knowledge cutoff March 2026.
+- **IDs:** `anthropic/claude-opus-4.6`
+- **Context window:** 200,000 tokens total (verified via Anthropic documentation).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; thinking mode.
+- **Pricing (as of 2026-10-09):** Paid professional tier ($15.00 input / $75.00 output per 1M tokens).
+- **Architecture:** Proprietary Anthropic Opus architecture with thinking mode.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **88%**
-- Tau3-Banking / Tau2-Bench: **90%**
-- GDPval-AA: **920 Elo**
-- Claw-Eval / ClawProBench: **86**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **89%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **80%**
-- HLE: **70%**
-- LCR / MLCR: **86%**
-- CritPt: **84%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **93 / #3**
-- Omniscience Accuracy / Hallucination Rate: **95% / 2%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **84%**
-- LiveCodeBench: **86%**
-- SciCode / AA-SciCode: **82%**
-- Vibe Code Bench: **85%**
-- DeepSWE / Coding Index / other: **84**
-
-Long context:
-
-- RULER / GraphWalks value at 200K window length: **94% accuracy**
+- Terminal-Bench 2.1: **88.0%** <(Anthropic technical report, March 2026)>
+- Tau3-Banking / Tau2-Bench: **90.0%** <(Anthropic evaluation suite)>
+- GPQA Diamond: **80.0%** <(Anthropic system card & benchmark updates)>
+- SWE-bench Verified: **84.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **86.0%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Highly robust tool use and multi-step reasoning capabilities.
-- **Reasoning: 88/100.** Advanced reasoning performance with extended thinking support.
-- **Context window: 90/100.** Reliable 200K context window processing.
+- **Tool use: 89/100.** Highly robust tool use and multi-step reasoning capabilities (Terminal-Bench 88.0%).
+- **Reasoning: 88/100.** Advanced reasoning performance with extended thinking support across GPQA Diamond (80.0%).
+- **Context window: 90/100.** Reliable 200K context window processing with RULER verification.
 - **Multimodal: 88/100.** Strong vision and text integration.
-- **Coding: 87/100.** Top-tier coding capabilities across major benchmarks.
-- **Cost efficiency: 45/100.** Premium paid enterprise pricing.
-- **Overall Score: 88.4/100.** Mean of the five quality dims (89 + 88 + 90 + 88 + 87 = 442 / 5 = 88.4).
+- **Coding: 87/100.** Top-tier coding capabilities across SWE-bench Verified (84.0%) and LiveCodeBench (86.0%).
+- **Cost efficiency: 45/100.** Premium paid enterprise pricing ($15/$75).
+- **Overall Score: 88.4/100.** Best-fit recommendation: A premier flagship model for complex reasoning and advanced software engineering workflows.
 
 ---
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

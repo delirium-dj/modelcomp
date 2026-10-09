@@ -77,8 +77,8 @@
 80.6 qwen-3.5
 80.3 kimi-k2.5
 80 gemini-3.5-flash-lite
-79.9 claude-sonnet-4.5
 79.9 mimo-v2.5-free
+79.8 claude-sonnet-4.5
 79.3 kimi-k2.7-code
 79 grok-4
 78.9 grok-4.20
