@@ -49,8 +49,8 @@
 84.6 gpt-5.4
 84.4 grok-4.7
 84.4 kimi-k2.6
+84.3 qwen-3.6-plus
 84.3 qwen-3.8-27b
-84.1 qwen-3.6-plus
 84 seed-2.0-pro
 83.9 gpt-5.2
 83.8 mimo-v2.6-free
