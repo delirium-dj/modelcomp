@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by GPT 5.6 Terra
 
 - Source: Z.AI / GLM-5.2
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against the current official model card)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,8 +52,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+- The current official card documents DeepSWE under the official pier/mini-SWE-agent framework and ProgramBench with Claude Code at a 400K context configuration. No newly published raw result changed the normalized scores.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-22
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public-internet research using Z.AI's Hugging Face model card and launch-partner benchmark reporting; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

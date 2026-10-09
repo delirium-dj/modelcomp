@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by GPT-5.6 Terra
 
 - Source: DeepSeek / DeepSeek V4 Pro
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against current public evidence)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,11 @@ Coding:
 
 ---
 
+## Refresh note
+
+- Current public sources were rechecked; no new exact, verified benchmark result supported a normalized-score change.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: Evaluation by GPT-5.6 Terra.

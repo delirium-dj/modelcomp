@@ -1,7 +1,7 @@
 # GLM-5.3 Free — findings by GPT 5.6 Terra
 
 - Source: Z.ai/GLM-5.3
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+The current official GLM-5.3 card confirms that it shares GLM-5.2's base model and attributes its gains to post-training. Current registry information records a 1M-token context, 128K output, tools, caching, structured output and reasoning support for GLM-5.3; the “Free” route remains host-specific rather than an official model SKU. The report keeps its prior normalized scores pending a fresh official benchmark table. [Official model card](https://huggingface.co/zai-org/GLM-5.3)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public research using Z.ai/NVIDIA model-card material and corroborating coverage; scores are normalized interpretations.

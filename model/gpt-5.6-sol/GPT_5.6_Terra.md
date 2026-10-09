@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by GPT-5.6 Terra
 
 - Source: OpenAI / GPT-5.6 Sol
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against current OpenAI documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,8 +51,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+- OpenAI's current documentation confirms promotional GPT-5.6 Sol pricing remains available at least through 2026-11-21; its August update also states an API and credit-price reduction of more than 20% for a limited period. No new benchmark row required a score change.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-22
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public-internet research using OpenAI's GPT-5.6 release page, API model documentation and safety documentation; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

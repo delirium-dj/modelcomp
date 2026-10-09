@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`gemini-3.8-flash-cyber`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+The current public Gemini model roster lists general `gemini-3.8-flash`, but does not expose a public `gemini-3.8-flash-cyber` endpoint or a public capability/pricing matrix for this specialized access program. No new public, independently reproducible metric was found; the report deliberately retains its security-specific evidence and scores. [Official models roster](https://ai.google.dev/gemini-api/docs/models)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-23
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public internet research, centered on Google's disclosure and the independently indexed benchmark record; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

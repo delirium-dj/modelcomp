@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash-Lite — findings by GPT 5.6 Terra
 
 - Source: Google/Gemini 3.1 Flash-Lite
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Current Google documentation lists stable `gemini-3.1-flash-lite`: 1,048,576-token input, 65,536-token output, text/image/video/audio/PDF inputs, and caching, code execution, file search, function calling, grounding, structured outputs and thinking. This fills in the public capability matrix but supplies no new like-for-like benchmark that changes the normalized scores. [Official model page](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public internet research using Google DeepMind’s official model card; scores are normalized interpretations, not official vendor scores.

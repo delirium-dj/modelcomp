@@ -1,7 +1,7 @@
 # DeepSeek-V4-Flash-Vision-Exp — findings by GPT 5.6 Terra
 
 - Source: DeepSeek/DeepSeek-V4-Flash-Vision-Exp
-- Date: 2026-09-23 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against current public evidence)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,7 +51,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+- Current public sources were rechecked; no new exact, verified benchmark result supported a normalized-score change.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-23
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public internet research using DeepSeek’s official release, documentation and Hugging Face model card; scores are normalized interpretations, not official vendor scores.

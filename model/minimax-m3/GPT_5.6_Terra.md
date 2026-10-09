@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by GPT 5.6 Terra
 
 - Source: MiniMax / MiniMax M3
-- Date: 2026-09-21 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against current MiniMax primary materials)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,7 +52,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+- Current MiniMax documentation confirms the model's 1M context and native multimodal positioning. Its published benchmark methodology remains the primary evidence; no independently verified score warranted a normalized-score change.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-21
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Public internet research using MiniMax benchmark reporting and a detailed independent transcription of its vendor table; scores are normalized interpretations, not official vendor scores.

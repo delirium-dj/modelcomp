@@ -1,7 +1,7 @@
 # Gemma 4 31B — findings by GPT 5.6 Terra
 
 - Source: Google DeepMind / Gemma 4 31B IT
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against the current Google Gemma page)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,8 +50,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+- Google currently reports Arena AI text Elo **1452**, MMMLU **85.2%**, MMMU-Pro **76.9%**, AIME 2026 **89.2%**, LiveCodeBench v6 **80.0%**, GPQA Diamond **84.3%**, and τ²-Bench Retail **86.4%** for Gemma 4 31B IT Thinking.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-22
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public-internet research using Google DeepMind's Gemma 4 page and official model card; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

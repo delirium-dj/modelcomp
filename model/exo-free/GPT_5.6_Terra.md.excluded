@@ -1,0 +1,47 @@
+# Exo Free — findings by GPT-5.6 Terra
+
+- Source: OpenCode Zen/Exo Free
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** A new free OpenCode Zen route with undisclosed, disputed underlying model identity.
+- **Provider / access:** OpenCode Zen `exo-free`.
+- **Release / knowledge:** observed 2026-10-06; cutoff unknown.
+- **IDs:** `opencode/exo-free`.
+- **Context window:** no primary specification found.
+- **Modalities:** not verified.
+- **Pricing (as of 2026-10-09):** Free.
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found.
+
+Reasoning / knowledge:
+
+- no verified public score found.
+
+Coding:
+
+- no verified public score found.
+
+Long context:
+
+- no verified public score found.
+
+### Normalized scores (1–100)
+
+No scored report is saved because no verified public benchmark number for this exact undisclosed route was found. Community speculation and informal tests are not sufficient evidence.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
+- Method: public internet research; no score assigned because the exact model lacks verified benchmark evidence.
