@@ -1,0 +1,45 @@
+# Ling 3.0 Flash Santé — negative findings by GLM 5.3 Flash
+
+- Source: InclusionAI / Ant Group (`ling-3.0-flash-sante`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion note
+
+Saved as `.md.excluded` per the template's mandatory SELF-EXCLUSION rule: zero verified
+public benchmark numbers were found for this exact model/ID as of 2026-10-09, so no
+scored `.md` with placeholder values is written. Findings notes below are factual
+specs/access only; scores inside are ignored by `pnpm sync`.
+
+## Model card (facts only)
+
+- **Name:** Ling 3.0 Flash Santé (`Ling-3.0-flash-Santé`)
+- **Short description:** InclusionAI's health/medicine domain fine-tune of Ling-3.0-flash (124B total / 5.1B active MoE, 262K context). Proprietary API checkpoint — not MIT — with weights not released on Hugging Face.
+- **Provider / access:** OpenRouter `openrouter/inclusionai/ling-3.0-flash-sante` (Chat Completions API; reasoning, tools, structured outputs accepted) and Vercel AI Gateway — both serverless routes. ModelScope listing: `inclusionAI/Ling-3.0-Flash-Sante` (weights not released).
+- **Release / knowledge:** 2026-09-04 release (LLM Reference); knowledge cutoff not stated.
+- **IDs:** `openrouter/inclusionai/ling-3.0-flash-sante` (Free route), `vercel-ai-gateway/ling-3.0-flash-sante` (Free); no Free ID on OpenCode Zen verified.
+- **Context window:** 262K tokens (LLM Reference specs) — no first-party docs page verified.
+- **Modalities:** text in / text out presumed (no modality claims verified); reasoning yes; tool calls yes; JSON/structured outputs yes.
+- **Pricing (as of 2026-10-09):** Free ($0 in/out) on both OpenRouter and Vercel AI Gateway routes (LLM Reference provider price ladder).
+- **Architecture:** 124B total / 5.1B activated MoE (fine-tune of Ling-3.0-flash); proprietary, commercial use conditional.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found
+Reasoning / knowledge: no verified public score found (searched LLM Reference, BenchLM, Artificial Analysis, DuckDuckGo — no medical or general benchmark numbers published for this exact ID)
+Coding: no verified public score found
+Long context: no long-context retrieval reported
+
+## Notes
+
+- The parent model Ling-3.0-flash has its own scored entry in `model/ling-3.0-flash/`; the Santé checkpoint is a health-domain fine-tune with no published benchmarks of its own — never copy the parent's scores here.
+- A future source (e.g. a medical benchmark run on this exact ID) should be added as a new scored file `GLM_5.3_Flash.md` next to this one using the template headings.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (LLM Reference specs page, OpenRouter API docs, BenchLM/Artificial Analysis/DuckDuckGo searches with no results); no scores computed — zero verified public benchmarks.
+- Future sources: add a new scored file next to this one, e.g. `GPT_5.md`, using the same headings.

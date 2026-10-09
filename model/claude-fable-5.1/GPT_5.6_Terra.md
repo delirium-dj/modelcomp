@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: refreshed public-web research using [Anthropic’s Fable 5.1 release](https://www.anthropic.com/claude-fable-and-mythos-5-1); current primary sources confirm the prior core specifications, while clarifying the Fable/Mythos safeguard relationship. Scores are normalized interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

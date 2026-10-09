@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-22
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public-internet research using Anthropic's Mythos product page, announcement, transparency material, and benchmark table; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

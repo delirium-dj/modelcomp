@@ -1,55 +1,56 @@
-# Grok 5 — findings by GLM 5.3 Flash
+# Grok 5 — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified benchmarks)
 
-> SELF-EXCLUDED — no verified public benchmark scores found for this exact
-> model/ID as of the research date. Notes only; any scores inside are ignored
-> (`pnpm sync` auto-quarantines evidence-free files; criteria in
-> `tasks/sync-data.md`). Re-research when xAI ships the model.
-
-- Source: xAI/`grok-5` (unreleased, in training)
-- Date: 2026-10-09 (UTC)
+- Source: xAI (`grok-5`)
+- Date: 2026-10-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Model card
+## Model card (verified spec facts only)
 
 - **Name:** Grok 5
-- **Short description:** xAI's next-generation flagship language model, currently in training on the Colossus 2 supercluster and not yet released. Distinct from the shipped Grok 4.5/4.6/4.7 flagships (which grew out of the ~1.5T-parameter V9-Medium coding foundation) and from Grok 4.20's multi-agent beta build.
-- **Provider / access:** none available — no API endpoint, no consumer app listing. xAI's official model docs (`docs.x.ai/docs/models`) list grok-4.7 as the most capable text model and contain no `grok-5` entry (verified 2026-10-09).
-- **Release / knowledge:** not released as of 2026-10-09. Confirmed to exist and be training in xAI's January 2026 funding announcement ($20B Series E, ~$230B valuation). Musk's earlier targets (late 2025, Q1 2026, Q2 2026) all passed with no launch; his September 14, 2026 roadmap places Grok 4.8 and 4.9 ahead of Grok 5. Polymarket priced a 2026 launch near a coin flip in mid-September 2026.
-- **IDs:** no provider/model-id exists (no Free ID anywhere; model unreleased)
-- **Context window:** no official figure. The widely repeated ~1.5M-token estimate is unconfirmed; shipping xAI models list 500K (grok-4.5/4.6/4.7), 1M (grok-4.3/4.20), 256K (grok-build-0.1).
-- **Modalities:** expected native multimodal and live X data, but nothing is specified for Grok 5; no verified specification.
-- **Pricing (as of 2026-10-09):** unannounced. Only the current xAI ladder is known: grok-4.7 at $2/$6 per 1M tokens ($4/$12 at ≥200K prompt tokens), grok-4.3 at $1.25/$2.50.
-- **Architecture:** rumored 6T–10T total parameters, mixture-of-experts, trained on Colossus 2 (~550K NVIDIA GB200/GB300 GPUs; seven models training simultaneously at 1T/1.5T/6T/10T scales). No model card confirms any number. "AGI" claims are Musk self-stated predictions ("10% and rising", October 2025; "That will be Grok 5", September 14, 2026), not measurements.
+- **Short description:** xAI's next flagship model — the fifth major iteration in the Grok series. Confirmed in training but NOT released as of 2026-09-29; every spec in circulation (6T–10T parameters, 1.5M context, AGI) is rumor or a Musk X post, not a published spec.
+- **Provider / access:** None yet — no API endpoint, no model card, no `grok-5` entry in xAI's model docs as of writing. Expected to follow the Grok 4.7 pattern (xAI API, Cursor, Grok Build, third-party routers/clouds).
+- **Release / knowledge:** Not released. xAI's January 2026 Series E funding announcement confirms the model exists and is in training (the only official reference). Release targets late-2025, Q1 2026, and Q2 2026 all passed with no launch; Musk's 2026-09-14 roadmap puts Grok 4.8 (2.5T, new C++ software stack) and Grok 4.9 ("probably Astra/Fable class") between the shipped Grok 4.7 (2026-09-21, current flagship, $2/$6 per 1M, 500K ctx) and Grok 5. Knowledge cutoff: n/a (unshipped).
+- **IDs:** `grok-5` (expected; not yet listed in xAI docs — no Free ID)
+- **Context window:** no verified public data found — the widely repeated ~1.5M tokens is an estimate; shipping Grok 4.7 is 500K, Grok 4.3 was 1M, Grok Build is 256K
+- **Modalities:** no verified public data found — native multimodal and live X data are "expected" per Grok's direction but unspecified for Grok 5
+- **Pricing (as of 2026-10-02):** no verified public data found — xAI has not announced Grok 5 pricing; the current flagship Grok 4.7 is $2/$6 per 1M (doubled past 200K-token prompts)
+- **Architecture:** Confirmed: in training on the Colossus 2 supercluster (xAI, now SpaceXAI after the February 2026 SpaceX acquisition). Rumored: 6T–10T mixture-of-experts parameters — reporting disagrees on which figure belongs to Grok 5 versus sibling models training alongside it; no model card confirms any number.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- no verified public score found (model unreleased; no harness, leaderboard, or model-card entry)
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- no verified public score found (no GPQA/HLE/LCR/CritPt/leaderboard entry)
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
 
 Coding:
 
-- no verified public score found (no SWE-bench/LiveCodeBench entry)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported
+- no verified public score found
 
-## Evidence notes
+## Self-exclusion note
 
-- Zero verified public benchmark numbers for the exact model/ID. Everything specific in circulation (6T parameters, 1.5M context, "Reality Engine") is rumor or Musk commentary, per three independent cross-checked sources: geotoolbox.ai Grok 5 status guide (updated 2026-09-29), felloai.com Grok 5 guide (updated 2026-09-30), and xAI's own model docs/pricing (docs.x.ai, verified 2026-10-09, no grok-5 entry).
-- Disambiguation: spring-2026 headlines announcing "Grok 5 with 1.5T parameters" actually described Grok V9-Medium, the coding foundation that shipped as Grok 4.5 (July 8, 2026); Grok 4.6 (August 12) and Grok 4.7 (September 21, 2026) succeeded it. None is Grok 5.
-- Self-exclusion, not a scored report: scoring an unreleased model would require invented placeholder numbers, which is forbidden. This file stays `.excluded` until xAI ships Grok 5 with a model card and real benchmark results.
+Zero verified public benchmark numbers exist for Grok 5 as of 2026-10-02 because the model has not shipped: it is confirmed in training (xAI January 2026 funding announcement; Colossus 2) with no model card, no spec sheet, no API endpoint, and no leaderboard entry (geotoolbox.ai, updated 2026-09-29; Grokipedia; Polymarket prices a release by 2026-12-31 at roughly a coin flip, 40–55%, with 2026-11-30 at 23%). All circulating specs — 6T–10T MoE parameters, ~1.5M context, Musk's AGI claim ("That will be Grok 5", 2026-09-14, up from "10% and rising", October 2025), and the "Reality Engine" fact-checker — are Musk posts, leaks, or blog-coined labels, none published by xAI as a verified spec or benchmark. Spring 2026 headlines mislabeled the ~1.5T V9-Medium foundation (shipped as Grok 4.5/4.6) as "Grok 5" — a different model. Saved as `.md.excluded` per the mandatory self-exclusion rule (`RULES.md`, `model-report-TEMPLATE.md`): no scores computed, no placeholder numbers invented.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (DuckDuckGo search + geotoolbox.ai, felloai.com, docs.x.ai cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. No scored file produced — self-exclusion per `model-report-TEMPLATE.md`.
-- Future sources: add a new file next to this one, e.g. `Grok_5_Shipped.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-02
+- Method: public internet research (geotoolbox.ai status tracker, Grokipedia, xAI funding-announcement coverage, Polymarket); no scores are included — self-excluded for zero verified public benchmarks.

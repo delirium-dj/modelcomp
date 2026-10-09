@@ -58,6 +58,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed public-web research using [Anthropic’s Opus 5 release](https://www.anthropic.com/news/claude-opus-5) and [Opus 5.5 release notes](https://www.anthropic.com/claude-opus-5-5); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

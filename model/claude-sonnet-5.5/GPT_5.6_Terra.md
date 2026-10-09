@@ -49,5 +49,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-29
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Anthropic's official announcement and model page; scores are normalized 1–100 interpretations, not official vendor scores.

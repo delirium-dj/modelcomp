@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by GPT 5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.1 Pro
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; current model card rechecked; no material score change)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-22
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Fresh public-internet research using Google DeepMind's Gemini 3.1 Pro product page and official model card; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

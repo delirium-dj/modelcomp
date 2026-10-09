@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: public internet research using Google DeepMind, Google Cloud and Gemini API documentation; scores are normalized interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

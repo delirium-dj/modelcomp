@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed public-web research, including the [Kimi K3 technical report](https://arxiv.org/abs/2607.24653) and [independent FrontierFinance evaluation](https://arxiv.org/abs/2608.11683); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
