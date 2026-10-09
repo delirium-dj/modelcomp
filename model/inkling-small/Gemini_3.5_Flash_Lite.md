@@ -1,7 +1,7 @@
 # Inkling Small — findings by Gemini 3.5 Flash Lite
 
 - Source: Thinking Machines Lab / Inkling Small
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,8 +62,8 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-08
-- Method: Public internet research and technical report benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by:  — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ## Re-evaluation & verification

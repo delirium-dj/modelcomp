@@ -1,7 +1,7 @@
 # GLM 5.1 Coding — findings by GPT 5.6 Terra
 
 - Source: Z.ai/GLM-5.1
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -47,7 +47,11 @@ Long context:
 - **Cost efficiency: 82/100.** Open weights allow self-hosting, though a current hosted price was not verified.
 - **Overall Score: 71/100.** Half-up mean of the five quality dimensions; a strong open text-only engineering agent.
 
+## Refresh note
+
+Current Z.ai releases focus on later GLM 5.2 and 5.3 variants; no new like-for-like primary benchmark table was found for GLM-5.1 Coding. Existing evidence remains unchanged.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-30
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; scores are normalized interpretations, not official vendor scores.

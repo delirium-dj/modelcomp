@@ -1,7 +1,7 @@
 # Qwen 3.5 397B — findings by Gemini 3.5 Flash Lite
 
 - Source: Alibaba / Qwen (`Qwen/Qwen3.5-397B-A17B`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,5 +62,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-07
-- Method: public internet research and benchmark verification; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.

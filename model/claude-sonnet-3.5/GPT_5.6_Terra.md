@@ -1,7 +1,7 @@
 # Claude 3.5 Sonnet — findings by GPT 5.6 Terra
 
 - Source: Anthropic public announcements for `claude-3-5-sonnet`
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,8 +49,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Anthropic's current deprecation record lists Claude 3.5 Sonnet as retired; its historical scores are retained for comparison rather than treated as current availability.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; key sources: [launch announcement](https://www.anthropic.com/news/claude-3-5-sonnet), [updated model and computer use](https://www.anthropic.com/news/3-5-models-and-computer-use), and [GitHub Copilot announcement](https://www.anthropic.com/news/github-copilot). Scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

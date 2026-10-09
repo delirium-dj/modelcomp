@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash — findings by GPT 5.6 Terra
 
 - Source: DeepSeek / DeepSeek-V4.1-Flash
-- Date: 2026-10-01 (UTC; refreshed against current public evidence)
+- Date: 2026-10-09 (UTC; refreshed against current primary documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,7 +51,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+DeepSeek's current API change log confirms that V4.1 Flash is live as `deepseek-flash`, with native multimodal support; it also states that the retired `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` compatibility names are temporarily routed to V4.1 Flash. The primary release describes a 552B-parameter MoE with 8B input-side and 16B output-side active parameters, so the existing route and architectural characterization remain supported.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Public internet research using DeepSeek's official release, Hugging Face card, and clearly labelled independent testing; scores are normalized interpretations, not official vendor scores.

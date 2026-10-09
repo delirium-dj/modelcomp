@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by GPT-5.6 Terra
 
 - Source: poolside/Laguna XS 2.1
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -33,7 +33,11 @@ The first-party model card reports mean pass@1 under its `pool` agent harness: *
 
 ---
 
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route; existing evidence is retained.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-30
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh first-party model-card research. Scores are normalized interpretations, not vendor benchmark scores.

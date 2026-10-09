@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.3 Contributor
-- Date: 2026-10-01 (UTC; refreshed against current public evidence)
+- Date: 2026-10-09 (UTC; refreshed against current Meta documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,8 +51,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Meta's current model page confirms that `muse-spark-1.3-contributor` has a 1M-token context window and published rates of $0.10 input, $0.002 cached input, and $0.20 output per million tokens; it distinguishes this data-training-permitted tier from standard `muse-spark-1.3` at $1.25/$0.15/$4.25. Meta also documents 1.3 as the recommended latest agentic model, with max reasoning on Standard only, and notes that audio input is not yet fully supported. This clarifies the free/contributor route without altering normalized scores.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed public-web research using [Meta’s release](https://research.meta.ai/blog/introducing-muse-spark-1-3), [Meta Model API documentation](https://dev.meta.ai/models/muse-spark), and [Parallel’s independent search leaderboard](https://parallel.ai/leaderboard/muse-spark-1-3); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

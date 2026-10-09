@@ -1,6 +1,6 @@
 # Kimi K2.7 Code — findings by GPT 5.6 Terra
 - Source: Moonshot AI/Kimi K2.7 Code
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -31,6 +31,10 @@ Long context:
 - **Coding: 83/100.** Good agentic-code results, capped by MLS-Bench Lite 35.1.
 - **Cost efficiency: 80/100.** Open weights and INT4 help deployment; current API pricing is unverified.
 - **Overall Score: 81/100.** Half-up mean of five quality dimensions; well suited to MCP coding agents.
+## Refresh note
+
+Current Alibaba Cloud documentation identifies Kimi K2.7 Code as Kimi's most intelligent coding model, supporting text/image/video input, thinking, function calling, structured outputs, web search and context caching. [Official model documentation](https://www.alibabacloud.com/help/en/model-studio/kimi-k2-7-code)
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

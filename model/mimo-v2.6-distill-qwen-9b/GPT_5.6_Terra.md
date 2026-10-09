@@ -1,7 +1,7 @@
 # MiMo V2.6 Distill-Qwen-9B — findings by GPT-5.6 Terra
 
 - Source: Xiaomi MiMo/MiMo-V2.6-Distill-Qwen-9B
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -33,7 +33,11 @@ The exact SFT checkpoint's first-party table reports **61.1 SWE-bench Verified**
 
 ---
 
+## Refresh note
+
+Xiaomi's current release documentation distinguishes the V2.6 Pro and Flash base models; no primary model card for this exact Qwen-9B distill route was located, so no non-comparable evidence was added.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-30
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh first-party model-card research. Scores are normalized interpretations, not vendor benchmark scores.

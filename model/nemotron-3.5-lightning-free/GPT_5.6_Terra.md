@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by GPT-5.6 Terra
 
 - Source: NVIDIA Nemotron 3.5 Lightning
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -33,7 +33,11 @@ NVIDIA's exact-model card reports **81.94 MMLU-Pro** and **75.44 GPQA Diamond (n
 
 ---
 
+## Refresh note
+
+NVIDIA's current documentation confirms a 30B-total/3B-active hybrid Mamba-Transformer MoE, native speculative decoding and 1M-context extension. [Official recipe](https://docs.nvidia.com/nemotron/nightly/nemotron/lightning35/README.html)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-30
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh first-party model-card research. Scores are normalized interpretations, not vendor benchmark scores.

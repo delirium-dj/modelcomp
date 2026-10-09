@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by GPT 5.6 Terra
 
 - Source: Z.AI / GLM-5.3-Flash
-- Date: 2026-10-01 (UTC; refreshed against current primary model cards)
+- Date: 2026-10-09 (UTC; refreshed against current primary/provider documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,7 +50,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+The current hosted-provider documentation still identifies `ZHIPU/GLM-5.3-Flash` as served by Zhipu AI. No newer first-party specification or independently comparable evaluation table was found during this refresh that supersedes the existing open-weight, long-context, and agentic-use evidence; normalized scores are retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Public internet research using the Z.AI model-card reporting and independent hosting/benchmark reports; scores are normalized interpretations, not official vendor scores.

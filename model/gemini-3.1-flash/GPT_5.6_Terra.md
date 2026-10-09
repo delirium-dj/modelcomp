@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash — findings by GPT 5.6 Terra
 
 - Source: Google Gemini documentation and independently published evaluation material for `Gemini 3.1 Flash`
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against current Google API documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,8 +12,8 @@
 - **Provider / access:** Google Gemini API documents `gemini-3.1-flash-image`; a distinct general-text endpoint was not verified in this scan.
 - **Release / knowledge:** February 2026 for Gemini 3.1 Flash Image; its stated knowledge cutoff is January 2025.
 - **IDs:** `google/gemini-3.1-flash` repository entry; verified related API ID: `gemini-3.1-flash-image`.
-- **Context window:** up to 1M tokens for the documented Image variant.
-- **Modalities:** documented variant accepts text and images, and its model card describes comprehension of text, images, audio, and video; it emits text and images.
+- **Context window:** 131,072 input / 32,768 output tokens for the documented `gemini-3.1-flash-image` variant.
+- **Modalities:** documented stable variant accepts text, image, video, and PDF input; it emits image and text.
 - **Pricing (as of 2026-10-01):** no verified token-pricing schedule for this exact entry found.
 - **Architecture:** proprietary; the Image variant is based on Gemini 3 Flash.
 
@@ -50,8 +50,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Google's current API documentation identifies the stable `gemini-3.1-flash-image` (Nano Banana 2) endpoint, with 131,072 input and 32,768 output token limits. It supports image generation, Search grounding, and Thinking, but not code execution, function calling, structured outputs, file search, or URL context. Google’s current model index still does not list a distinct general `gemini-3.1-flash` endpoint, so this report continues to treat the entry as the documented image variant rather than extrapolating broader capabilities.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; key sources: [Google model card](https://deepmind.google/models/model-cards/gemini-3-1-flash-image/), [Gemini API documentation](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image), and [VLM Reality Check supplement](https://openaccess.thecvf.com/content/CVPR2026W/DataMFM/supplemental/Sar_VLM_Reality_Check_CVPRW_2026_supplemental.pdf). Scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

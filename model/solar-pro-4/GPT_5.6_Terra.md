@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by GPT 5.6 Terra
 
 - Source: Upstage/Solar Pro 4
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -45,7 +45,11 @@ Long context:
 - **Cost efficiency: 88/100.** $0.30/$1.20 is competitive for this capability tier.
 - **Overall Score: 73/100.** Half-up mean of the five quality dimensions; capable long-context text agent with unusually strong coding evidence.
 
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route; existing evidence is retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-30
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; scores are normalized interpretations, not official vendor scores.

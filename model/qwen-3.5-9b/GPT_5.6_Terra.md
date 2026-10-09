@@ -1,7 +1,7 @@
 # Qwen 3.5 9B — findings by GPT 5.6 Terra
 
 - Source: Qwen’s Hugging Face model card and published evaluation results for `Qwen/Qwen3.5-9B`
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; refreshed against the official model repository)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,8 +48,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+The official Qwen repository continues to publish `Qwen/Qwen3.5-9B` as an Apache-2.0 image-text-to-text model, with downloadable weights and documented Transformers use. Its published configuration remains the appropriate source for the 262,144-position context and vision-component claims; no newer official benchmark or specification justifies rescaling the normalized scores.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; key source: [official Hugging Face model card and evaluations](https://huggingface.co/Qwen/Qwen3.5-9B). Scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

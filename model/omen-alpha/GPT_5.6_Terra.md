@@ -1,6 +1,6 @@
 # Omen Alpha — findings by GPT 5.6 Terra
 - Source: Omen Alpha/omen-alpha
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -26,6 +26,10 @@ Long context:
 - **Coding: 70/100.** OpenCode 23.14/40 and #15 demonstrate competitive practical coding, but breadth is limited.
 - **Cost efficiency: 96/100.** $0.20/$0.66 per million is exceptionally inexpensive.
 - **Overall Score: 53/100.** Half-up quality mean; an economical coding trial model with opaque specs and narrow evaluation.
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route. Existing evidence is retained.
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

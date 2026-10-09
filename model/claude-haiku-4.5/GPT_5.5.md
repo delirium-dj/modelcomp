@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by GPT 5.5
 
 - Source: Anthropic (`claude-haiku-4.5`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-haiku-4-5-20251001`, `anthropic/claude-haiku-4.5`.
 - **Context window:** **200K** tokens; max output **64K**.
 - **Modalities:** Text and image input; text output; extended thinking, computer use, MCP, and general tool use.
-- **Pricing (as of 2026-10-05):** Anthropic docs list **$1/M input** and **$5/M output** for Claude Haiku 4.5.
+- **Pricing (as of 2026-10-09):** Anthropic docs list **$1/M input** and **$5/M output** for Claude Haiku 4.5.
 - **Architecture:** Proprietary Claude model.
 
 ### Raw benchmarks found
@@ -32,6 +32,7 @@ Reasoning / knowledge:
 Coding:
 
 - Public reports cite **SWE-bench Verified 73.3%** for Haiku 4.5; research papers evaluate it in algorithmic programming and code review setups.
+- A September 2026 empirical programming study evaluates Claude Haiku 4.5 on **992 algorithmic programming tasks**, reinforcing its role as a serious low-cost coding model.
 
 Long context:
 
@@ -40,7 +41,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 76/100.** Anthropic tool ecosystem and system-card tool evaluations are strong for a Haiku model.
-- **Reasoning: 70/100.** Overall benchmark trackers place it below Sonnet/Opus but strong for a fast model.
+- **Reasoning: 70/100.** Overall benchmark trackers place it below Sonnet/Opus but strong for a fast model; newer Haiku 5.5 now supersedes it.
 - **Context window: 76/100.** 200K context is solid.
 - **Multimodal: 68/100.** Image input is supported, with no audio/video output credit.
 - **Coding: 80/100.** SWE-bench Verified 73.3 and coding research use support a high score for the tier.
@@ -51,7 +52,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-09
+- Method: refreshed public internet research and comparison against the 2026-10-05 file; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

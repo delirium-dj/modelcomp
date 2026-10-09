@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash — findings by GPT-5.6 Terra
 
 - Source: Xiaomi MiMo (`mimo-v2.6-flash`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Refresh note
+
+Xiaomi confirms MiMo V2.6 Flash is one of two native fully multimodal V2.6 releases and documents the lowercase API route `mimo-v2.6-flash`. [Official release](https://mimo.mi.com/docs/en-US/news/latest/v2-6)
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-09-29
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: fresh public-internet research using Xiaomi MiMo official model and release pages; scores are normalized 1–100 interpretations, not official vendor scores.

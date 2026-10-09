@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.6 Flash
-- Date: 2026-10-01 (UTC; refreshed against current Google primary sources)
+- Date: 2026-10-09 (UTC; refreshed against current Google primary sources)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,8 +52,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Google's live model index continues to list `gemini-3.6-flash`, while the deprecation schedule records its 2026-07-21 release and no announced shutdown date. Google’s 3.6 Flash launch material still positions it alongside 3.5 Flash-Lite and 3.5 Flash Cyber; this check found no authoritative replacement or revised limits that warrant changing the prior evidence-based scoring.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed against current [Google DeepMind model cards](https://deepmind.google/models/model-cards/); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

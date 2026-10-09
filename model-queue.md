@@ -155,11 +155,11 @@
 58.4 mai-code-1-flash
 57.1 mimo-v2.6-distill-qwen-9b
 56.9 llama_3.2_vision_instruct
+56.4 exo-free
 56.4 solar-mini-4
 56.2 north_mini_code
 55.4 nemotron-3.5-lightning-free
 54.8 big-pickle
-54.8 exo-free
 52.6 ling-2.6-flash
 52.1 ling-3.0-tiny
 51 mercury-2.5

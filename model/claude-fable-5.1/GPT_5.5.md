@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GPT 5.5
 
 - Source: Anthropic/Claude Fable 5.1
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-fable-5-1`
 - **Context window:** 1M input / 128K output per Anthropic platform docs.
 - **Modalities:** Text and image input; text output; adaptive thinking always on; tool use supported.
-- **Pricing (as of 2026-10-05):** Anthropic platform docs list $10/M input and $50/M output, with cache reads at 0.025x base input price versus 0.1 on other Claude models.
+- **Pricing (as of 2026-10-09):** Anthropic platform docs list $10/M input and $50/M output, with cache reads at 0.025x base input price versus 0.1 on many other Claude models.
 - **Architecture:** Proprietary Anthropic model.
 
 ### Raw benchmarks found
@@ -22,6 +22,8 @@
 Agent / tool use:
 
 - Anthropic launch page (**official**): says Fable 5.1 improves agentic and research benchmark results and defaults to High effort in Claude Code (`https://www.anthropic.com/claude-fable-and-mythos-5-1`).
+- Anthropic/DataCamp launch coverage: Terminal-Bench-Science 0.1 **52.6%** for Fable 5.1 versus **24.7%** for Fable 5 (`https://www.datacamp.com/blog/claude-fable-5-1`).
+- BenchLM: **30 source-displayable benchmark rows**; strongest eligible category **Agentic at #2** (`https://benchlm.ai/models/claude-fable-5-1`).
 - The Model Gap: tracks seven independently run Fable 5.1 benchmark scores; reports Terminal-Bench 2.1 values ranging from **91.4%** (Artificial Analysis) to **85.02%** (vals.ai), with a possible fallback-adjusted **79.03%** (`https://themodelgap.com/models/claude-fable-5-1`).
 - Terminal-Bench 2.1: **91.4% / 85.02% / 79.03% adjusted** depending on source and fallback treatment.
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
@@ -52,9 +54,9 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Terminal-Bench 2.1 scores around the mid-80s to low-90s and Claude Code High effort defaults support a top tool score, capped by disagreement across harnesses.
-- **Reasoning: 92/100.** Official improvements in multidisciplinary reasoning and scientific research place it near frontier level, capped by missing public GPQA/HLE rows.
-- **Context window: 95/100.** 1M / 128K context-output capacity is excellent, capped by absent retrieval-depth metrics.
+- **Tool use: 94/100.** Terminal-Bench 2.1 scores around the mid-80s to low-90s, Terminal-Bench-Science 52.6, and BenchLM Agentic #2 support a top tool score, capped by disagreement across harnesses.
+- **Reasoning: 93/100.** Official improvements in multidisciplinary reasoning and scientific research place it near frontier level, capped by missing public GPQA/HLE rows.
+- **Context window: 96/100.** 1M / 128K context-output capacity is excellent, with cheaper cache reads improving practical long-context reuse.
 - **Multimodal: 70/100.** Text and image input are supported, but no broad audio/video input or multimodal output was found.
 - **Coding: 94/100.** Official and third-party coverage emphasize agentic coding and terminal-coding gains; capped by missing exact SWE/LCB numbers.
 - **Cost efficiency: 70/100.** $10/M input and $50/M output is expensive, but cheaper cache reads materially improve long-context reuse economics.
@@ -64,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-09
+- Method: refreshed public internet research and comparison against the 2026-10-05 file; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

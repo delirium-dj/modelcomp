@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.2 Free
-- Date: 2026-10-01 (UTC; refreshed against current public evidence)
+- Date: 2026-10-09 (UTC; refreshed against current Meta documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Meta's current model documentation lists both `muse-spark-1.2` and `muse-spark-1.2-contributor`, each with text, image, video, audio, and PDF input; text output; and a 1,048,576-token context window. It identifies 1.2 as the previous version and cautions that audio quality for 1.3 can be degraded, directing audio users to 1.2 or dedicated transcription. This confirms the route's continued availability and improves the modality evidence without changing normalized scores.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed public-web research using [Artificial Analysis’s Muse Spark 1.2 analysis](https://artificialanalysis.ai/articles/muse-spark-1-2) and public benchmark sources; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

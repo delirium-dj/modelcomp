@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Opus 4.6
-- Date: 2026-10-01 (UTC; refreshed against current Anthropic documentation)
+- Date: 2026-10-09 (UTC; refreshed against current Anthropic documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,7 +52,11 @@ Long context:
 
 ---
 
+## Refresh note — 2026-10-09
+
+Anthropic continues to list Opus 4.6 as active, with no retirement sooner than February 5, 2027. [Official status](https://docs.anthropic.com/en/docs/about-claude/model-deprecations)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Public internet research using Anthropic system-card/launch reporting and independent coverage; scores are normalized interpretations, not official vendor scores.

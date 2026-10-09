@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.5 Flash
-- Date: 2026-10-01 (UTC; refreshed from the 2026-09-18 report)
+- Date: 2026-10-09 (UTC; refreshed from current Google documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Google's current models index still lists `gemini-3.5-flash`, and its deprecation schedule records a 2026-05-19 release with no shutdown date announced. The current Google announcement continues to position the model for reasoning, tool use, and multimodal workloads; no source-backed change to the retained normalized scores was identified.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-01
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
 - Method: refreshed public-web research using [Google DeepMind’s model card](https://deepmind.google/models/model-cards/gemini-3-5-flash/), [Gemini API model documentation](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash), and [current pricing](https://ai.google.dev/gemini-api/docs/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

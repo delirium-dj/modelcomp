@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by GPT 5.6 Terra
 
 - Source: xAI / Grok 4.6
-- Date: 2026-10-01 (UTC; refreshed against current xAI documentation)
+- Date: 2026-10-09 (UTC; refreshed against current xAI documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,8 +68,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+xAI's current Grok 4.6 documentation and launch material continue to list the model and its developer integration surface. The current release note also lists the standard $2/$6 per-million input/output token pricing below the long-prompt threshold. No newer official revision that changes the retained context, modalities, or scoring evidence was located.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: refreshed public-web research using [xAI’s launch evaluation](https://x.ai/news/grok-4-6) and [current model documentation](https://docs.x.ai/developers/models/grok-4.6); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

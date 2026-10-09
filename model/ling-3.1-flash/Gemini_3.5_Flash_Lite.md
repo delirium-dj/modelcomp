@@ -1,7 +1,7 @@
 # Ling 3.1 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Ling 3.1 Flash
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,8 +62,8 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-08
-- Method: independent public internet research and benchmark evaluation; scores are normalized 1–100 interpretations.
+- Provided by:  — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 

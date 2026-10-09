@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash Lite — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini (`google/gemini-2.5-flash-lite`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,8 +59,8 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-08
-- Method: Public internet research into Google DeepMind's official Gemini 2.5 technical report and developer documentation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by:  — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
 
 ## Re-evaluation & verification

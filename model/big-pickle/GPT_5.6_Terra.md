@@ -1,7 +1,7 @@
 # Big Pickle — findings by GPT 5.6 Terra
 
 - Source: OpenCode Zen/Big Pickle
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -45,7 +45,11 @@ Long context:
 - **Cost efficiency: 100/100.** The current route is free.
 - **Overall Score: 58/100.** Half-up mean of the five quality dimensions; promising free coding route with anonymous provenance and limited benchmark breadth.
 
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route. Existing evidence is retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-30
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; scores are normalized interpretations, not official vendor scores.

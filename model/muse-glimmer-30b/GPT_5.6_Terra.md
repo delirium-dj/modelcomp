@@ -1,6 +1,6 @@
 # Muse Glimmer 30B — findings by GPT 5.6 Terra
 - Source: Meta/Muse Glimmer 30B
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -30,6 +30,10 @@ Long context:
 - **Coding: 84/100.** SWE Verified 76.0; Pro/TerminalBench cap.
 - **Cost efficiency: 90/100.** Open local model.
 - **Overall Score: 83/100.** Half-up quality mean; compelling local multimodal agent.
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route. Existing evidence is retained without importing claims from other Muse models.
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

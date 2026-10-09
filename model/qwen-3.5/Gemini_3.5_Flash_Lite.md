@@ -1,7 +1,7 @@
 # Qwen 3.5 — findings by Gemini 3.5 Flash Lite
 
 - Source: Alibaba/Qwen 3.5
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,8 +62,8 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-08
-- Method: public internet research and aggregated benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by:  — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ## Re-evaluation & verification

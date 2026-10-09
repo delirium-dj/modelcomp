@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by GPT 5.6 Terra
 
 - Source: MiniMax/M3.1 Flash Preview
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -37,7 +37,11 @@ Long context:
 - **Cost efficiency: 70/100.** Preview access exists, but no verified token price was found.
 - **Overall Score: 77/100.** Half-up mean of the five quality dimensions; an early, promising preview with thin independent evaluation coverage.
 
+## Refresh note
+
+Current MiniMax documentation confirms M3.1 Flash Preview's 1M context, text/image/video input, text output, caching and always-on configurable reasoning. [Current guide](https://agent.minimax.io/tools/m3-1-flash-preview)
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-30
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; scores are normalized interpretations, not official vendor scores.

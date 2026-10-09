@@ -1,6 +1,6 @@
 # Space Bunny Alpha — findings by GPT 5.6 Terra
 - Source: Space Bunny/Space Bunny Alpha
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 ## Model card
@@ -30,6 +30,10 @@ Long context:
 - **Coding: 70/100.** Coding claims lack a verified standardized score.
 - **Cost efficiency: 100/100.** Free preview, subject to change.
 - **Overall Score: 80/100.** Half-up quality mean; long-context exploration option with opaque provenance.
+## Refresh note
+
+Fresh public-source recheck found no newer authoritative model card or comparable benchmark table for this exact route. Existing evidence is retained.
+
 ## Signature
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-29
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: public internet research; normalized interpretations, not vendor scores.

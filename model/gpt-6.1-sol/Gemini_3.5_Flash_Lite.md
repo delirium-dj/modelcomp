@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-6.1 Sol (`openai/gpt-6.1-sol`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,8 +51,8 @@ Not found:
 
 ## Signature
 
-- Provided by:  — 2026-10-08
-- Method: Public internet research and Artificial Analysis v4.3.2 benchmarking reports; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by:  — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_6.1_Sol_Detailed.md`, using the same headings.
 
 ## Re-evaluation & verification

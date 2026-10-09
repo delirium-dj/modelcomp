@@ -1,7 +1,7 @@
 # Grok Build 0.1 — findings by GPT 5.6 Terra
 
 - Source: xAI/grok-build-0.1
-- Date: 2026-09-30 (UTC)
+- Date: 2026-10-09 (UTC; refreshed)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -45,7 +45,11 @@ Long context:
 - **Cost efficiency: 88/100.** $1/$2 per-million input/output is competitive for an agentic coding API.
 - **Overall Score: 77/100.** Half-up mean of the five quality dimensions; a cost-effective coding model with independently tracked LiveBench evidence.
 
+## Refresh note
+
+Fresh primary-source recheck found no newer version-specific xAI model card or benchmark table; existing evidence is retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-09-30
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: fresh public internet research; scores are normalized interpretations, not official vendor scores.

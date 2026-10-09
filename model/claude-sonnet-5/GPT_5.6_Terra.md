@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by GPT 5.6 Terra
 
 - Source: Anthropic / Claude Sonnet 5
-- Date: 2026-10-01 (UTC; refreshed against current Anthropic documentation)
+- Date: 2026-10-09 (UTC; refreshed against current Anthropic documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,12 @@ Long context:
 
 ---
 
+## Refresh note
+
+Anthropic's current Sonnet product page names Sonnet 5.5 rather than an exact `Claude Sonnet 5` API route. This refresh found no first-party current model card or API documentation that independently confirms the exact entry's availability, limits, or pricing; the existing historical claims therefore remain explicitly unverified rather than being silently treated as current.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-01
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
 - Method: Public internet research using Anthropic's Sonnet 5 announcement, linked documentation, and a secondary report of its published coding table; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
