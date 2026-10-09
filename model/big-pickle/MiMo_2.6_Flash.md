@@ -1,20 +1,20 @@
 # Big Pickle — findings by Mimo v2.6 Flash
 
-- Source: OpenCode Zen stealth/`opencode/big-pickle` (community consensus: Zhipu GLM-4.6)
-- Date: 2026-09-22 (UTC)
+- Source: OpenCode Zen stealth/`opencode/big-pickle` (originally GLM-4.6 per maintainer Nov 2025; backend now rotating / undisclosed as of 2026-10)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Big Pickle
-- **Short description:** Free **stealth** coding model on OpenCode Zen (debut ~2025-11); community consensus + maintainer hints point to **GLM-4.6** (200K context match, behavior, GH issue thread) — later issue comments also claim rotating backends (e.g. `deepseek-v4-flash`, Ox Alpha) at times; treat identity as **unconfirmed / possibly rotating**. Roughly Sonnet-class coding at zero token cost during free period; data may be used to improve the model.
+- **Short description:** Free **stealth** coding model on OpenCode Zen (debut ~2025-11). Identity has **moved on**: a maintainer confirmed GLM-4.6 in Nov 2025, but GH #4276 now documents a **rotating backend** — DeepSeek V4 Flash observed May–Jun 2026 (tokenizer + provider-error evidence), a guardrails leak where it self-identified as **Ox Alpha** (2026-08-24), and users describing it (2026-10-03) as "just a router to new stealth or test models". Treat current identity as **undisclosed / rotating**. Sonnet-class coding anecdotes date from the GLM-4.6 era; data may be used to improve the model.
 - **Provider / access:** OpenCode Zen only (`opencode/big-pickle`, `@ai-sdk/openai-compatible`); **Free** in/out/cache during limited-time (staff: "hoping to keep it free in perpetuity" — GH #4276). Paid equiv. cited as GLM-4.6 **~$0.60 / $2.20** on Zen list price for the named GLM model.
 - **Release / knowledge:** first seen **2025-11-12/13** (GH issue); still free as of mid-2026 Zen docs. Underlying model GLM-4.6 release: Zhipu, ~2025. Knowledge cutoff not published for stealth ID.
 - **IDs:** `opencode/big-pickle` (only public ID).
 - **Context window:** **200,000** total (**160K in / 32K out** per meta; staff "max output is 128k" in GH thread — conflict noted; some issues claim backend actually ~1M when swapped to DeepSeek V4 Flash while catalog still says 200K).
 - **Modalities:** **text only** in/out (whichllm/meta); chat completions / coding-agent focus; tool calls yes (agent-optimized if GLM-4.6).
-- **Pricing (as of 2026-09-22):** **Free / Free / Free** cached read (Zen docs table). Paid reference: GLM-4.6 **$0.60 / $2.20** per 1M (GH thread). During free period, interaction data may train the model (Zen privacy note).
+- **Pricing (as of 2026-10-09):** **Free / Free / Free** cached read — still free on Zen (docs page updated 2026-10-08; Grokipedia fact-check ~2026-09-27: "currently available for free… for a limited time"). Paid reference: GLM-4.6 **$0.60 / $2.20** per 1M (GH thread). During free period, interaction data may train the model (Zen privacy note).
 - **Architecture:** undisclosed publicly; if GLM-4.6 → Zhipu open-weight MoE (~355B class per GLM-4.6 lineage; **not confirmed by OpenCode**).
 
 ### Raw benchmarks found

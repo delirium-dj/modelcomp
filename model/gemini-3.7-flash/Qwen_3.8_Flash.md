@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 3.7 Flash (`google/gemini-3.7-flash`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,23 +9,26 @@
 
 - **Name:** Gemini 3.7 Flash
 - **Short description:** Google's high-capability 3.7 Flash model — a 1M-context omni-input mid-tier with elite visual/ARC reasoning but partial agentic coverage and a light hallucination flag.
-- **Provider / access:** Google AI Studio / Gemini API (`gemini-3.7-flash`); free tier on AI Studio and OpenCode Zen with standard rate limits. Reasoning + tool calls.
-- **Release / knowledge:** 2026 (Gemini 3.x line); knowledge cutoff not disclosed.
+- **Provider / access:** Google AI Studio / Gemini API (`gemini-3.7-flash`); free tier on AI Studio and OpenCode Zen with standard rate limits. Reasoning + tool calls. *(Second pass 2026-10-09: also shipped inside **Gemini Spark** for Google AI Pro/Ultra subscribers in 160+ countries, and on the **Gemini Enterprise Agent Platform**; consumed by Antigravity, Android Studio, Box, Browser Use, Cartwheel, Databricks, Emergent, Harvey, Hebbia, LangChain, Nunu.ai, OpenCode, Pydantic and the Stanford Biology department per Google's launch post.)* **Lifecycle is the headline caveat: Google's model-versions table lists `gemini-3.7-flash` in the "shorter availability periods" class with release 2026-08-13 and retirement January 28, 2027, replacement `gemini-3.8-flash`**, and Artificial Analysis flags the id as **"This model is deprecated … Google has launched a newer release, Gemini 3.8 Flash. We suggest considering it instead"** (AA keeps benchmarking only the default 10 K-input workload; other workload figures are historical).
+- **Release / knowledge:** released **August 13, 2026** (Google blog; Google Cloud lifecycle table; "Latest update: August 2026" on the API docs; AA: "Released August 2026"), "just three weeks after Gemini 3.6 Flash". *(Second pass 2026-10-09: the DeepMind model card gives a **knowledge cutoff of March 2026** — pass 1 recorded "not disclosed".)*
 - **IDs:** `google/gemini-3.7-flash`.
-- **Context window:** 1,048,576 (1M) (curated meta).
-- **Modalities:** text, image, audio, PDF in; text out; reasoning on; tool calls. No non-text output.
-- **Pricing (as of 2026-10-02):** Free tier available; paid-tier API pricing.
+- **Context window:** **1,048,576 input / 65,536 output tokens** (official Gemini API model page — the **65,536 output ceiling was missing from the first pass**, which logged only the 1M figure; AA and BenchLM both list a 1M window).
+- **Modalities:** text, image, audio, video and PDF in; text out (official capability table: "Inputs Text, Image, Video, Audio, and PDF / Output Text"; AA measures **text, image, speech and video** input). Reasoning on with **thinking levels `low`/`medium`/`high` — `minimal` is not supported and returns an error**. Tool calls (function calling, structured outputs, code execution, caching, URL context, search + Maps grounding, file search) and **computer use (Preview)** supported; **audio generation, image generation and the Live API are all "Not supported"** — so no non-text output on any surface. Batch, Flex and Priority inference all available.
+- **Pricing (verified 2026-10-09 against Google's official rate card):** **Free tier: yes** (input, output and caching "free of charge", with prompts used to improve products). Paid Standard **$0.75 in / $3.75 out per 1M through December 31, 2026, doubling to $1.50 / $7.50 on January 1, 2027**; context caching **$0.075 → $0.15** per 1M plus storage **$0.50 → $1.00 per 1M tokens-hour**; **Batch and Flex at 50% ($0.375 / $1.875 → $0.75 / $3.75)**; **Priority at 1.8× ($1.35 / $6.75 → $2.70 / $13.50)**; grounding 5,000 free search requests/month shared across Gemini 3+ then $14/1,000. Output price "includes thinking tokens". Google's blog confirms the intro rate is **half the launch cost-per-million of 3.6 Flash**; Artificial Analysis measures **$0.93 per Intelligence-Index task (#46 of 226)** with a **90% cache discount**, against a class median of $0.27/task.
 - **Architecture:** proprietary, hosted only.
 
 ### Raw benchmarks found
 
 > Independently verified against BenchLM (42 of 618 rows), citing the Google DeepMind Gemini 3.7 Flash model card, Artificial Analysis, Vals AI, ARC Prize and OpenRouter (fetched 2026-10-02).
+>
+> **Second pass 2026-10-09:** re-pulled BenchLM (now **42 of 625** tracks, page dated October 9, 2026), **Google's official API model page and rate card**, Google's **launch post** and **model-lifecycle table**, and Artificial Analysis' live page. **All 42 pass-1 rows reproduced** (TB 2.1 85.8 / TB 3.0 14.9 / AutomationBench 30.4 / OSWorld 47.9 / ALE 26.3 / GDPval-AA 1525 / Harvey LAB 90.7 / Vals TB 77.5 / AA Agentic 36.4 / AnalystAgent 60.0 / ApprenticeBench 16 / FrontierCode 43.6 / DeepSWE 65.3 / SciCode 57.2 / FrontierSWE v2 20.3 / LiveCodeBench 88.7 / SWE-bench 80.8 / AA Coding Index 76.1 / CharXiv 88.7 & 84.5 / LVBench 85.4 / MMMU-Pro 85.5 / MRCR 97 / AA-LCR 81.7 / CritPt 14.3 / ARC-AGI-1 95.50 / ARC-AGI-2 84.6 / HLE-Verified 53.6 / LABBench2 82.1 / BioMystery 87.1 & 43.5 / Index 39.1 / GPQA 94.5 & 93.9 / AA-HLE 47.9 / Omniscience 26.5, acc 55.3, halluc 64.5 / MMLU-Pro 90.1). Moved: **GDPval-AA normalized 43.6% → 44.6%**, **Design Arena Website 1312 → 1310**, Index **39.1 → 39** (AA page). What actually changed is the **structural and lifecycle evidence**: output ceiling, thinking-level matrix, verified two-stage price card, knowledge cutoff, and a fixed **January 28, 2027 retirement**.
 
 Agent / tool use:
 
 - Terminal-Bench 2.1: **85.8%** (model card; Vals 77.5%) — but TB 3.0 only 14.9%
 - GDPval-AA: **1525** (model card; AA normalized 43.6%); OSWorld 2.0 47.9%; AutomationBench 30.4%
 - AA Harvey LAB 90.7%; Agents' Last Exam 26.3%; AA Agentic Index 36.4%; AA-AnalystAgent 60.0%; ApprenticeBench 16%
+- *(2026-10-09)* **GDP.pdf 34.0%** (Google launch post, vs 3.6 Flash 22.0% — professional-document comprehension) · **AutomationBench 30.4% confirmed as "vs 17.0%" for 3.6 Flash** (Google) · BenchLM's AA-normalized **GDPval-AA 44.6%** (was 43.6%) — raw 1525 unchanged · AA puts this id **mid-pack on agentic reliability**, and the config is now flagged **deprecated** by AA, so future agentic rows will accrue to `gemini-3.8-flash` rather than here
 
 Reasoning / knowledge:
 
@@ -34,28 +37,31 @@ Reasoning / knowledge:
 - ARC-AGI-1: **95.50%**; ARC-AGI-2: **84.6%** (ARC Prize verified)
 - Artificial Analysis Intelligence Index **39.1**; CritPt 14.3%; Omniscience Accuracy / Hallucination: 55.3% / 64.5%
 - MMLU-Pro (Vals) 90.1%; LABBench2 82.1%; BioMysteryBench 87.1 (human-solvable) / 43.5 (difficult)
+- *(2026-10-09)* AA Intelligence Index **39 (#61 of 226**, class median 26 — "above average") · **AA-Omniscience Index 26.5** with **hallucination 64.5%** — the worst factuality profile among the top-10 models re-audited in this pass *(erratum: the pass-1 card called this "a light hallucination flag"; 64.5% is not light, and no score had been inflated on that reading)* · **knowledge cutoff March 2026** (DeepMind model card) vs a model retired Jan 28, 2027 — a short effective shelf life for time-sensitive knowledge · **Arena.ai WebDev Arena Elo 1588** (vs 1538 for 3.6 Flash; Google-reported)
 
 Coding:
 
 - Terminal-Bench 2.1 85.8%; LiveCodeBench (Vals) **88.7%**; SWE-bench (Vals) 80.8%
 - AA Coding Index 76.1%; DeepSWE 65.3%; AA-SciCode 57.2%; FrontierCode 1.1 43.6%; FrontierSWE v2 20.3%
+- *(2026-10-09)* Google's launch post verifies the two headline coding rows as vendor-measured: **FrontierCode 1.1 Main 43.6% (vs 34.4% for 3.6 Flash)** and **DeepSWE v1.1 65.3% (vs 49.0%)** — large generational gains, but 65.3% still sits under this registry's **74 frontier reference**, and **FrontierSWE v2 20.3%** is far behind the flagship tier
 
 Multimodal / long context:
 
 - CharXiv **88.7%** (w/o tools 84.5); LVBench (video) **85.4%**; AA-MMMU-Pro 85.5%; Design Arena Website 1312
 - MRCR v2 97% at 64K–128K; 1M window.
+- *(2026-10-09)* window re-verified as **1,048,576 in / 65,536 out** (official) — **the 65K output ceiling is a new constraint the first pass did not record**; **no MRCR row exists above 128K** for this id, and AA-LCR 81.7% / AA-MMMU-Pro 85.5% unchanged. Audio and video input are now **confirmed in Google's own capability table** (not inferred), while **Live API / audio generation are explicitly unsupported**, which is why the dimension stays at the audio-band floor.
 
 ### Normalized scores (1–100)
 
 > Derived from the raw numbers above using `model-comparison.md` v4 methodology. Overall = half-up mean of the five quality dims; Cost excluded.
 
-- **Tool use: 83/100.** Terminal-Bench 2.1 85.8% and AA Harvey LAB 90.7% are strong, but GDPval-AA 1525 sits under the 1750 frontier ref, TB 3.0 14.9%, AutomationBench 30.4% and AA Agentic Index 36.4% keep it below the 90 band.
-- **Reasoning: 87/100.** GPQA-Diamond 94.5%, ARC-AGI-1 95.5% / ARC-AGI-2 84.6% and MRCR 97% clear the high bars; the mid Intelligence Index (39.1), CritPt 14.3% and a 64.5% Omniscience hallucination rate cap it.
-- **Context window: 95/100.** 1M-token window meets the ≥1M tier; MRCR 97% is only reported at 64K–128K and AA-LCR 81.7% — no ≥98% retrieval demonstrated at 512K+, so short of 100.
-- **Multimodal: 90/100.** Text+image+audio+PDF in with strong grounded output (CharXiv 88.7, LVBench video 85.4, MMMU-Pro 85.5) — audio input present puts it in the 90–100 band; no non-text output holds it at the floor.
-- **Coding: 82/100.** LiveCodeBench 88.7% and SWE-bench 80.8% (Vals) with TB 85.8% are solid for a Flash tier; DeepSWE 65.3% (under the 74 ref), FrontierSWE v2 20.3% and partial coverage trim it.
-- **Cost efficiency: 92/100.** Free tier on AI Studio / OpenCode Zen plus low Flash-class paid pricing anchors it near the top; exact paid rates not published. Cost is excluded from Overall.
-- **Overall Score: 87/100.** Mean of Tool 83, Reasoning 87, Context 95, Multimodal 90, Coding 82 = 87.4 → 87. Best fit: high-volume multimodal agents (charts, video, audio, PDFs) at Flash latency where ARC-level puzzles matter; weaker on long-horizon pure-agency work (TB 3.0, AutomationBench) and BenchLM flags partial coverage, so treat the overall as conservative.
+- **Tool use: 83/100.** *(re-confirmed 2026-10-09.)* Terminal-Bench 2.1 85.8% and AA Harvey LAB 90.7% are strong, and the new **GDP.pdf 34.0%** plus Google's **AutomationBench 30.4% vs 17.0%** generational delta show real agency gains — but **GDPval-AA 1525 is still far under the 1750 frontier reference** (normalized crept 43.6% → 44.6%), **TB 3.0 14.9%**, AutomationBench 30.4% and **AA Agentic Index 36.4%** keep it below the 90 band.
+- **Reasoning: 87/100.** *(re-confirmed 2026-10-09.)* GPQA-Diamond 94.5%, ARC-AGI-1 95.5% / ARC-AGI-2 84.6% (ARC Prize verified) and MRCR 97% still clear the high bars, and AA's live page now pins the **Intelligence Index at 39 (#61 of 226)** — "above average", not frontier. The caps are unchanged and now sharper: **CritPt 14.3%**, **Omniscience hallucination 64.5%** (accuracy 55.3%, Index 26.5) and a **March 2026 cutoff** on a model retired in January 2027.
+- **Context window: 94/100.** *(re-scored 2026-10-09 from 95.)* 1M input is re-verified officially, and MRCR 97% is genuinely near the ≥98% retrieval bar — **but it is measured only at 64K–128K**, and no retrieval row exists above 128K for this id (AA-LCR 81.7%). The first pass also missed the **65,536 output ceiling**, which materially limits single-response generation (a quarter of Opus-tier 128K, and a fraction of Gemini 4 Argon's 1M-token generation). The combination of a demonstrated-but-shallow long-context record and a low output cap moves it one point down while staying in the 1M tier.
+- **Multimodal: 90/100.** *(re-confirmed 2026-10-09.)* The audio-band claim is now **vendor-verified rather than inferred** — Google's capability table lists **Text, Image, Video, Audio and PDF inputs** and AA independently measures text/image/speech/video — with strong grounded rows (CharXiv 88.7 / 84.5, LVBench 85.4, AA-MMMU-Pro 85.5). It stays at the **floor of the 90–100 audio band** because output is text-only and Google's table explicitly marks **audio generation, image generation and Live API "Not supported"**.
+- **Coding: 82/100.** *(re-confirmed 2026-10-09.)* LiveCodeBench 88.7% and SWE-bench 80.8% (Vals) with TB 2.1 85.8% and **AA Coding Index 76.1% (above the 70 reference)** remain solid for a Flash tier, and Google's own post confirms **DeepSWE v1.1 65.3%** — still under the 74 frontier bar — plus **FrontierSWE v2 20.3%** and **FrontierCode 43.6%**, which hold it at the lower end of the strong band.
+- **Cost efficiency: 90/100.** *(re-scored 2026-10-09 from 92, which guessed "low Flash-class paid pricing" without a rate card.)* Verified: **free tier on input/output/caching** (data used for improvement), Standard **$0.75 / $3.75 per 1M through Dec 31, 2026** — a genuinely top-tier rate, roughly halfway between this registry's ~$0.10/$0.20 (≈97–99) and $1.25/$4.25 (≈88) anchors, and **half the launch cost-per-million of 3.6 Flash** — plus **90% cache discount ($0.075)**, **Batch/Flex at 50% ($0.375 / $1.875)**, and AA's **$0.93 per Index task (#46 of 226)** at 287.1 tok/s (#4 of 226). Two documented deductions: the card **doubles to $1.50 / $7.50 on January 1, 2027** (Priority to $2.70/$13.50), which lands **four weeks before the January 28, 2027 retirement** in Google's own lifecycle table, so any pipeline built on the intro rate inherits both a 2× price step and a forced migration; and thinking tokens are billed inside the output price with **`minimal` thinking unsupported**, so the cheapest effort tier is `low`. Cost is excluded from Overall.
+- **Overall Score: 87/100.** *(re-derived 2026-10-09: Tool 83 + Reasoning 87 + **Context 94** + Multimodal 90 + Coding 82 = **436 / 5 = 87.2 → 87 — unchanged**; the −1 on Context was absorbed by rounding. Cost 90 excluded.)* Best fit: high-volume multimodal agents (charts, video, audio, PDFs) at Flash latency — AA ranks it the **4th-fastest model in its class at 287.1 tok/s** — where ARC-level puzzles matter; weaker on long-horizon pure agency (TB 3.0 14.9%, AutomationBench 30.4%, GDPval 1525) and on factuality (64.5% hallucination). **Planning caveat for any production use: intro pricing ends 2027-01-01 and the endpoint retires 2027-01-28**, with `gemini-3.8-flash` as the designated replacement.
 
 ---
 

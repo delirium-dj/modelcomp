@@ -9,7 +9,7 @@
 91.2 claude-opus-5
 91 claude-fable-5.1
 90.9 gpt-6-astra
-90.4 gemini-4-argon
+90.5 gemini-4-argon
 90.2 claude-mythos-5.1
 90.1 gemini-3.7-flash
 90 claude-fable-5
@@ -40,13 +40,13 @@
 86.2 qwen-3.8-flash
 85.5 ember-1
 85.5 qwen-3.7-plus
+85.4 ox_alpha
 84.8 inkling-small
 84.7 grok-4.6
 84.7 minimax-m3
 84.7 muse-spark-1.1
 84.6 claude-sonnet-4.6
 84.6 gpt-5.4
-84.5 ox_alpha
 84.4 grok-4.7
 84.4 kimi-k2.6
 84.3 qwen-3.8-27b
@@ -122,9 +122,9 @@
 70.1 nemotron-3-nano-omni
 69.6 gpt-5.4-nano
 69.4 fledge-alpha
+69.2 glm-5.1-coding
 69 claude-sonnet-3.5
 69 mai-experimental-test
-68.8 glm-5.1-coding
 68.6 minimax-m3.1-flash-preview
 68.5 mai-code-1.1-flash
 68.1 hy3-preview
