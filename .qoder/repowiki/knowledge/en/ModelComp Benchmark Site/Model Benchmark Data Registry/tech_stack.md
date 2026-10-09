@@ -1,1 +1,0 @@
-Plain Markdown + JSON data files; website integration is driven by a Node.js `pnpm sync` script that generates TypeScript data modules consumed by the frontend via `import.meta.glob`.

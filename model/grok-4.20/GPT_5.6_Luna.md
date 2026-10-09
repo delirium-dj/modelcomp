@@ -54,6 +54,12 @@ Agent / tool use:
 
 ---
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- xAI’s system card and Google Cloud documentation report Grok 4.20 as a reasoning/tool model with up to 2M context and agentic calling. Public evaluations include safety, HLE, and sabotage audits, but exact production route details differ by provider.
+- Recalculation: retained existing score; the context improvement is documented, but independent general benchmark coverage remains limited.
+- Sources: https://data.x.ai/2026-04-07-grok-4-20-model-card.pdf ; https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20 ; https://token.app/model/grok-4.20
+
 ## Signature
 
 - Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-09-25

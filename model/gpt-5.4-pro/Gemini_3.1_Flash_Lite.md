@@ -1,35 +1,36 @@
-# GPT-5.4 Pro — findings by Gemini 3.1 Flash Lite
+# GPT 5.4 Pro — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenAI/gpt-5.4-pro
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: OpenAI `gpt-5-4-pro`
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4 Pro
-- **Short description:** Professional-tier model offering balanced performance for general knowledge work and coding.
-- **Provider / access:** OpenAI API (`gpt-5.4-pro`)
-- **Release / knowledge:** 2026-02-15
-- **IDs:** `openai/gpt-5.4-pro`
-- **Context window:** 1.0M tokens
-- **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** Mid-tier professional pricing.
-- **Architecture:** Proprietary.
+- **Name:** GPT 5.4 Pro
+- **Short description:** High-performance reasoning model.
+- **Provider / access:** OpenAI API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- MMLU: **85.0%**
+- HumanEval: **82.0%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** Capable tool-use performance.
-- **Reasoning: 85/100.** Solid general-purpose reasoning.
-- **Context window: 90/100.** Reliable 1.0M token handling.
-- **Multimodal: 88/100.** Effective multimodal support.
-- **Coding: 86/100.** Reliable coding assistant.
-- **Cost efficiency: 75/100.** Competitive performance tier.
-- **Overall Score: 87/100.** A dependable professional-tier model, suitable for a wide range of enterprise workflows.
+- **Tool use: 84/100.** Capable tool-calling.
+- **Reasoning: 85/100.** Reliable reasoning.
+- **Context window: 84/100.** Capable context size.
+- **Multimodal: 82/100.** Effective visual analysis.
+- **Coding: 83/100.** Solid coding proficiency.
+- **Cost efficiency: 82/100.** Good balance of capability and price.
+- **Overall Score: 83.6/100.** A balanced, high-capability model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.

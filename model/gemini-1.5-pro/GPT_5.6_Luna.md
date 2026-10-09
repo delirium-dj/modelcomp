@@ -28,8 +28,13 @@
 - **Cost efficiency: 68/100.** Pro model pricing and current availability uncertain.
 - **Overall Score: 80.4/100.** Particularly strong for long-context multimodal analysis.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Gemini 1.5 Pro’s technical lineage established the 1M-context multimodal pattern that later Gemini generations expanded. Current API/model-card search results are largely archival, so no newer exact-model capability evidence was found.
+- Recalculation: retained existing score; archival context evidence does not justify changing the current normalized dimensions.
+- Sources: https://arxiv.org/abs/2403.05530 ; https://ai.google.dev/gemini-api/docs/models ; https://deepmind.google/models/model-cards/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://deepmind.google/technologies/gemini/ 
-

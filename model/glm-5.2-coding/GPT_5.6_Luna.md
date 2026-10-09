@@ -28,8 +28,13 @@
 - **Cost efficiency: 80/100.** Price unavailable.
 - **Overall Score: 64.2/100.** Conservative provisional result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- GLM-5.2’s technical materials describe long-horizon coding and 1M context; independent reporting highlights strong HTML/design and agentic coding at $1.40/$4.40 pricing. The benchmark evidence is largely vendor or task-specific.
+- Recalculation: retained existing score; evidence supports coding specialization but not broad dimension increases.
+- Sources: https://huggingface.co/Kza-Corp/GLM-5.2 ; https://www.techradar.com/pro/chinas-answer-to-claudes-fable-5-comes-top-of-the-html-web-design-contest-as-the-ceo-tells-elon-musk-glm-will-reach-mythos-class-before-q1-2027 ; https://www.atlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://z.ai/
-

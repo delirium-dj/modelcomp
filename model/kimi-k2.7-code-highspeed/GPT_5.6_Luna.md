@@ -28,8 +28,13 @@
 - **Cost efficiency: 82/100.** Highspeed positioning suggests favorable throughput, but price is unknown.
 - **Overall Score: 64.8/100.** Conservative provisional score pending exact model-card evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Kimi Code documentation confirms K2.7 Code HighSpeed as a separate selectable model ID and faster route. Independent reference material reports roughly doubled pricing for the high-speed tier, but no original independent quality benchmark isolates it from regular K2.7 Code.
+- Recalculation: retained existing score; speed/pricing changes do not establish a capability change.
+- Sources: https://www.kimi.com/code/docs/en/kimi-code/models ; https://openk3.org/kimi-k27 ; https://www.ithome.com/0/964/587.htm
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://www.moonshot.ai/
-

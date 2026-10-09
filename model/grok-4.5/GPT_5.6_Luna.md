@@ -32,6 +32,12 @@
 - **Cost efficiency: 91/100.** Aggressive short-context price.
 - **Overall Score: 86.0/100.** Best fit: search-heavy coding agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- xAI documentation confirms Grok 4.5 availability and pricing; launch reporting describes it as a coding/agentic model priced at $2/$6 per million tokens. Independent cost-per-success discussions emphasize that token verbosity and task completion matter more than rate-card price alone.
+- Recalculation: retained existing score; the value case is stronger than the exact-model independent benchmark case.
+- Sources: https://docs.x.ai/developers/models/grok-4.5 ; https://www.axios.com/2026/07/08/spacexai-grok-new-model ; https://www.reddit.com/r/opencode/comments/1uwwhgb/model_cost_vs_performance/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

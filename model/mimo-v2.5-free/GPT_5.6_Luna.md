@@ -29,8 +29,13 @@
 - **Cost efficiency: 100/100.** Free token program and MIT self-hosting license.
 - **Overall Score: 81.0/100.** Attractive free multimodal model, with base-versus-Pro evidence separation important.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Xiaomi confirms MiMo-V2.5 as an open-weight, full-modality model with 1M context and free commercial use. Independent inference research focuses on efficiency and deployment rather than a broad quality leaderboard.
+- Recalculation: retained existing score; free/open access improves value but does not provide new general capability evidence.
+- Sources: https://mimo.mi.com/docs/en-US/news/latest/v2.5-open-sourced ; https://arxiv.org/abs/2607.13095
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://mimo.mi.com/docs/en-US/news/latest/v2.5-open-sourced
-

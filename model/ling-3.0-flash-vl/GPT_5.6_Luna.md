@@ -28,8 +28,12 @@
 - **Cost efficiency: 60/100.** Pricing unavailable.
 - **Overall Score: 57.0/100.** Conservative provisional result pending identity resolution.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public search coverage did not surface a stable official Ling 3.0 Flash VL model card or a reproducible independent benchmark suite for this exact route. Nearby multimodal-model results were excluded rather than transferred.
+- Recalculation: retained existing score because exact-model evidence remains insufficient.
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: No verified public source found for the exact identity.
-

@@ -29,8 +29,13 @@
 - **Cost efficiency: 60/100.** Pricing was not verified.
 - **Overall Score: 62.0/100.** Provisional score capped by the absence of exact-tier public measurements.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Qwen’s official release identifies Qwen3.5-Plus as the hosted Model Studio model, with the open-weight 397B-A17B counterpart providing the architectural reference and competitive throughput. Independent exact-model benchmark coverage remains limited.
+- Recalculation: retained existing score; no new exact-model evidence supports a numeric change.
+- Sources: https://qwen.ai/blog?email_hash=23463b99b62a72f26ed677cc556c44e8&id=qwen3.5 ; https://arxiv.org/abs/2604.15804
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations, not official vendor scores.
 - Source: https://qwen.ai/blog?email_hash=23463b99b62a72f26ed677cc556c44e8&id=qwen3.5
-

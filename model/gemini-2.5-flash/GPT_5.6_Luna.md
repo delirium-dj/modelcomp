@@ -28,8 +28,13 @@
 - **Cost efficiency: 88/100.** Flash positioning favors high-volume economics.
 - **Overall Score: 79.6/100.** Capable economical multimodal general model.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s model card confirms text/image/audio/video input and a 1M context. Independent long-context and coding comparisons show strong throughput/value, while performance varies by thinking setting and endpoint.
+- Recalculation: retained existing score; no stable exact-model evidence supports a numeric change.
+- Sources: https://modelcards.withgoogle.com/assets/documents/gemini-2.5-flash.pdf ; https://deepmind.google/technologies/gemini/flash/ ; https://www.reddit.com/r/singularity/comments/1k4ozlz
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash
-

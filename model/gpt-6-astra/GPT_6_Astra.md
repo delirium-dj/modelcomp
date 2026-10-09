@@ -1,99 +1,78 @@
-# GPT-6 Astra — findings by GPT-6 Astra
+# GPT-6 Astra — findings by GPT 6 Astra
 
 - Source: OpenAI/GPT-6 Astra (`gpt-6-astra`).
-
-- Date: 2026-09-25 (UTC)
-
-- Overview and scoring methodology: `../../model-comparison.md`
-
-- Cross-model signed log: `../../model-findings.md`
+- Date: 2026-10-09 (UTC); refresh of the 2026-09-25 report, explicitly authorized by the user.
+- [Overview and scoring methodology](../../model-comparison.md)
+- [Cross-model signed log](../../model-findings.md)
 
 ## Model card
 
-- **Name:** GPT-6 Astra — paid; no Free-tier ID listed in the checked OpenCode Zen documentation.
-
-- **Short description:** OpenAI’s reasoning model for coding, research, document workflows, and computer use. This file covers `gpt-6-astra`; Artificial Analysis’s “max” designation identifies its reasoning-effort configuration, not a separate API model ID.
-
-- **Provider / access:** OpenAI API `gpt-6-astra` supports Chat Completions and Responses, but tool calling requires Responses. OpenCode Zen exposes `opencode/gpt-6-astra` through its Responses endpoint.
-
-- **Release / knowledge:** Released **2026-09-03**; knowledge cutoff **2026-04-30**. Release verified against OpenAI’s system card; cutoff against its API model documentation.
-
-- **IDs:** `openai/gpt-6-astra`; `opencode/gpt-6-astra`. Wire-level model ID: `gpt-6-astra`. No GPT-6 Astra Free ID is published in the checked Zen catalog.
-
-- **Context window:** **1,050,000 total tokens**, with **128,000 maximum output tokens**, verified in OpenAI’s model documentation—not through local API testing. A separate input-only ceiling was not verified.
-
-- **Modalities:** Text/image/PDF input; text output. Native audio/video input is unsupported. Reasoning: yes. Tool calls: yes, through Responses. JSON: Structured Outputs supported; legacy JSON-object mode was not separately verified. PDF support is demonstrated using this exact ID in OpenAI’s file-input documentation.
-
-- **Pricing (as of 2026-09-25):** **Paid**, per **1M tokens**. Standard requests with input **≤272K**: **$10 input / $50 output / $1 cached read / $12.50 cache write**. Above **272K input**: **$20 / $75 / $2 / $25**, respectively, for the full request. Cost efficiency below evaluates the standard, uncached tier. Free-tier privacy caveat: not applicable; no Astra Free ID was verified.
-
-- **Architecture:** Proprietary, closed weights. Parameter count is undisclosed; active parameters and MoE status were not verified. No public open-weights license was found.
+- **Name:** GPT-6 Astra, paid proprietary reasoning model for coding, research and document workflows. Parameters and architecture details are undisclosed.
+- **Provider / access / IDs:** OpenAI API `gpt-6-astra`; project/Zen alias `opencode/gpt-6-astra`. Chat Completions and Responses are documented. The current [Chat Completions reference](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create) explicitly demonstrates function calls with this ID. The old assertion that all tool calling requires Responses is withdrawn; hosted tools are separately documented for Responses.
+- **Release / knowledge:** September 2026 release; April 30, 2026 knowledge cutoff. The previous September 3 release date is retained as historical, not independently date-verified in this refresh.
+- **Context window:** 1,050,000 total tokens; 128,000 maximum output. Separate input-only ceiling unverified.
+- **Modalities:** Text/image input, text output; native audio/video unsupported. Reasoning efforts low through max, function calling and Structured Outputs supported. [Official model documentation](https://developers.openai.com/api/docs/models/gpt-6-astra). PDF input is supported through file handling, not a separate native output modality. [File-input documentation](https://developers.openai.com/api/docs/guides/file-inputs).
+- **Pricing, October 9:** Standard USD per million tokens: input $10, output $50, cached read $1, cache write $12.50. Above 272K input, full-request prices become $20/$75/$2/$25 respectively. Batch/Flex are half Standard; Fast is twice Standard. [Official pricing](https://developers.openai.com/api/docs/pricing). No free API tier verified. These are token prices, not all-in tool costs.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Fresh retrieval does not imply a new model checkpoint or a newly run benchmark. Each result retains its effort, harness and version; ranks describe the retrieved leaderboard snapshot.
 
-- Terminal-Bench 2.1: **87.3%** — BenchLM’s verified Vals-run record; identified as its best verified row. Effort and detailed harness settings are not exposed in that record. This is not Terminal-Bench 4.0.
+**Agent / tool use**
 
-- Tau3-Banking / Tau2-Bench: Tau3-Banking **41.4%**, **#11/14** on BenchLM’s Artificial Analysis mirror, updated **2026-09-22**; effort unspecified in the mirrored row. Tau2-Bench: no verified public score found.
+- **GDPval-AA v2.1: 1542 Elo; AutomationBench-AA: 68%; AA-Briefcase v1.1: 1569; Terminal-Bench 4.0: 59%.** Artificial Analysis, `max`, displayed precision. [Direct evaluator comparison](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-high-vs-gpt-6-astra).
+- **Terminal-Bench 2.1:** the benchmark publisher's indexed page exposes **87.4% ±1.8%, Codex/high**. However, directly opening that URL returned an empty client-rendered table labeled 4.0. This is an indexed-source lead, not a fully page-verified replacement for the historical 87.3% mirrored Vals result; neither is treated as a measured improvement. [Publisher](https://www.tbench.ai/?version=2.1).
+- **SWE Atlas Codebase QnA: 59.14 ±4.88%, rank 3**, Codex/xHigh*, on Scale's current board. Preserve the publisher's asterisk; its exact qualifier was not exposed in the retrieved text. This does not establish regression from the prior AA/Codex 62% snapshot, which used a different source/configuration. [Scale leaderboard](https://labs.scale.com/leaderboard/sweatlas-qna).
+- **MCP Atlas:** no exact Astra row found in the retrieved [official leaderboard](https://labs.scale.com/leaderboard/mcp_atlas). Claw-Eval, ClawProBench, Toolathlon and fresh tau2/tau3 results: no verified public score found in this pass.
+- **OSWorld 2.0: 72.6%**, vendor offline configuration; not interchangeable with live-network or differently graded variants. [Vendor evaluation](https://openai.com/index/gpt-6-astra/).
 
-- GDPval-AA: **1542 Elo** — Artificial Analysis **GDPval-AA v2.1**, `max`; Stirrup agentic harness with shell and browsing. Rank was not exposed for this model in the retrieved comparison table.
+**Reasoning / knowledge**
 
-- Claw-Eval / ClawProBench: no verified public score found.
+- **GPQA Diamond: 96.0%; HLE with tools: 57.2%.** OpenAI best-reported effort, research/API setups, not guaranteed production ChatGPT results. [Vendor evaluation](https://openai.com/index/gpt-6-astra/).
+- **HLE: 55%; AA-LCR v1.1: 81%; CritPt: 32%; AA-Omniscience index: 43.** AA/max; HLE tools are not specified in the comparison. Omniscience index is neither accuracy nor hallucination rate. CritPt was flagged under review in the prior report; this refresh did not establish that the concern was resolved. [AA comparison](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-high-vs-gpt-6-astra).
+- **AA Intelligence Index v4.3.2: 53, rank 7/226** in the page's comparison class. Same score as September 25; changed rank/cohort does not mean a capability decline. [AA model page](https://artificialanalysis.ai/models/gpt-6-astra).
+- Fresh MLCR aggregate, Omniscience accuracy and hallucination-rate results: no verified public score found. Prior snapshot values are retained below rather than presented as current.
 
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: Toolathon: no verified public score found; MCP-Atlas: no verified public score found. **SWE-Atlas-QnA: 62%**, Artificial Analysis’s Codex-agent evaluation published **2026-09-09**; individual benchmark rank not reported.
+**Coding**
 
-Reasoning / knowledge:
+- **SWE-Bench Pro V2 Full: 96.90 ±1.10%, rank 4; Hard: 90.20%, rank 3**, Codex/high. This fills a numerical gap in the old report. V2 uses a refreshed split and locked protocol; do not relabel these as SWE-bench Verified or original SWE-Pro. [Scale Full](https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=full), [Scale Hard](https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard).
+- **DeepSWE v1.1: 74.1%; Terminal-Bench 4.0: 57.9%; AA Coding Agent Index v1.4: 67.0**, as reported by OpenAI. Vendor results use maximum reported effort; the coding index is not the earlier AA index snapshot. [Vendor evaluation](https://openai.com/index/gpt-6-astra/).
+- **SciCode: 56%**, AA/max. [AA comparison](https://artificialanalysis.ai/models/comparisons/gpt-6-astra-high-vs-gpt-6-astra).
+- **Vibe Code Bench v1.1: 89.59%, rank 7**, OpenHands, publisher update October 7. Score unchanged from the old report; rank changed. This is not Vibe Code Bench 1–100. [Vals leaderboard](https://www.vals.ai/benchmarks/vibe-code).
+- **SWE-bench Verified / standalone LiveCodeBench:** no verified public score found. The [official LiveCodeBench page](https://livecodebench.github.io/leaderboard.html) did not expose an exact-model row; inconsistent aggregator entries were not promoted into evidence.
 
-- GPQA Diamond: **96.0%** — OpenAI’s best-reported-effort launch evaluation; BenchmarkList lists **#1/464**.
+**Long context**
 
-- HLE: **55%** — Artificial Analysis, `max`, as displayed at whole-percent precision; the comparison table does not specify tool settings. Separately, OpenAI reports **57.2% with tools**; BenchmarkList lists that result at **#7/466**. These are distinct evaluation configurations.
+- **MRCR v2, eight needles: 100.0% at 256K–512K; 96.3% at 512K–1M.** Vendor results reconfirmed; these test ranges do not establish perfect retrieval at the maximum context. [Official evaluation](https://openai.com/index/gpt-6-astra/).
 
-- LCR / MLCR: **AA-LCR v1.1: 81%**, Artificial Analysis, `max`, displayed at whole-percent precision. MLCR-AA overall: no verified public score found. A separate MLCR-AA submetric is verified: **98.3% accuracy among judged responses**, **#1**, `max`; it excludes overlong/empty responses and is **not** the overall pass rate.
+### Normalized scores (1–100)
 
-- CritPt: **32%** — Artificial Analysis, `max`, displayed at whole-percent precision. The benchmark is explicitly marked **under review**.
+- **Tool use: 88/100.** Reconfirmed GDPval, automation and computer-use results support the prior tier; unresolved generalized-tool coverage caps confidence.
+- **Reasoning: 94/100.** Reconfirmed GPQA/HLE and unchanged AA index support the prior score; factual reliability and long-context reasoning remain limitations.
+- **Context window: 99/100.** Verified million-token capacity and retrieval; 96.3% in the longest tested range remains below the 98% threshold for 100.
+- **Multimodal: 80/100.** Image/PDF input with text output; no native audio/video support.
+- **Coding: 92/100.** Newly verified SWE-Pro V2 strengthens evidence for the existing tier; distinct benchmark versions and harder task failures do not justify an automatic increase.
+- **Cost efficiency: 30/100.** Standard $10/$50 pricing remains at the project's paid-cost anchor; long-input costs are higher.
+- **Overall Score: 90.6/100.** (88 + 94 + 99 + 80 + 92) / 5 = 90.6; cost excluded. All normalized scores unchanged after independent re-evaluation.
 
-- Artificial Analysis Intelligence Index / BenchLM overall: **53 / #6 of 211** — AA **v4.3.2**, `max`, using the model page’s displayed comparison class, not a universal model ranking. Separately, BenchLM publishes **88.69 / #1 of 194**, BenchAlign **v5.7**, snapshot **2026-09-24**. Neither aggregate is substituted for this repository’s Overall Score.
+## Comparison with the September 25 report
 
-- Omniscience Accuracy / Hallucination Rate: **62.6% / 51%**. Accuracy: BenchLM’s AA mirror, **#4/195**, updated **2026-09-24**, effort unspecified. Hallucination: AA’s **2026-09-09** report, `max`. These are separately sourced snapshots; AA defines hallucination rate over non-correct responses, not as one minus accuracy.
+| Item | Previous finding | October 9 finding / interpretation |
+|---|---|---|
+| SWE-Pro | Numerical result unverified | V2 Full 96.90 ±1.10 and Hard 90.20, Codex/high; gap filled |
+| Function calling | Required Responses | Current official Chat Completions example supports functions; corrected |
+| SWE Atlas QnA | AA/Codex 62% | Scale/Codex xHigh* 59.14 ±4.88%; separate configurations, no trend claim |
+| AA Intelligence Index | 53, rank 6/211 | 53, rank 7/226; score unchanged |
+| Vibe Code v1.1 | 89.59%, mirrored rank 4 | 89.59%, direct publisher rank 7; score unchanged |
+| Coding Agent Index | AA September 9 snapshot 62 | Vendor currently cites v1.4 67.0; version/source change, not a like-for-like gain |
+| Context, pricing, GPQA, MRCR, DeepSWE | Previously reported | Reconfirmed from primary sources |
+| Overall | 90.6 | 90.6; better evidence without score inflation |
 
-Coding:
+Historical values not independently refreshed: tau3 Banking 41.4% (September 22 mirror); MLCR accuracy among judged responses 98.3% (not overall pass rate); Omniscience accuracy 62.6% and hallucination rate 51% (separate snapshots); BenchLM aggregate 88.69; AA/Codex DeepSWE 68% and Coding Agent Index 62 (September 9). These are preserved only as the previous report's claims, not current verified inputs. Old cross-model rank claims without renewed primary evidence are retired.
 
-- SWE-bench Verified / SWE-Pro: Verified: no verified public score found; SWE-Pro: no verified public score found. An official SWE-Bench Pro V2 model entry surfaced, but its numerical result could not be verified from the retrieved page.
-
-- LiveCodeBench: no verified public score found. The retrieved official leaderboard did not expose an exact-model numerical result.
-
-- SciCode / AA-SciCode: **56%** — Artificial Analysis, `max`, displayed at whole-percent precision; rank not displayed in the comparison table.
-
-- Vibe Code Bench: **89.59%**, **#4/103** — BenchLM’s mirror of **Vals Vibe Code Bench v1.1**, **OpenHands** harness, Vals snapshot **2026-09-22**. This is not the separately named Vibe Code Bench 1–100 evaluation.
-
-- DeepSWE / Coding Index / other: **DeepSWE v1.1: 74.1%**, OpenAI’s best-reported-effort result; BenchmarkList **#2/33**. Separately, AA reports **DeepSWE 68%** and **Coding Agent Index 62** in **Codex**, tied first in its **2026-09-09** publication snapshot—not a verified current rank. AA’s current comparison also displays **Terminal-Bench 4.0: 59%**, `max`. Harnesses and benchmark versions are not interchangeable.
-
-Long context:
-
-- **OpenAI MRCR v2, 8-needle:** **100.0% at 256K–512K** and **96.3% at 512K–1M**, vendor-reported. BenchmarkList ranks the respective rows **#1/8** and **#2/9**. These are window-range results, not proof of perfect retrieval at the maximum documented context.
-
-### Normalized scores (1-100)
-
-- **Tool use: 88/100.** Near-frontier terminal performance and strong computer-use evidence, including OpenAI’s **72.6% OSWorld 2.0** result on the **v2026.08.08 offline, partial-score** configuration. Banking and GDPval results fall below the supplied frontier anchors, preventing a higher score.
-
-- **Reasoning: 94/100.** GPQA and HLE clear the supplied frontier anchors. Long-context reasoning and factual-reliability limitations cap the interpretation; CritPt’s review status further limits confidence. Current AA index results are kept version-specific rather than mixed with launch-era index values.
-
-- **Context window: 99/100.** Falls in the verified **≥1M** documentation tier, with vendor retrieval testing through the **512K–1M** range. That range’s **96.3%** does not meet the required **98%** retrieval condition for awarding 100; the perfect lower-range result does not establish that condition.
-
-- **Multimodal: 80/100.** Text, image, and PDF input qualify for the supplied PDF-input tier. Native audio/video input and native non-text output are absent; image-generation tools are not counted as native model output.
-
-- **Coding: 92/100.** Published DeepSWE, SciCode, and terminal results support the frontier band. The lower independent Codex DeepSWE result, harness sensitivity, and unresolved SWE-bench/LiveCodeBench numerical verification prevent a higher score.
-
-- **Cost efficiency: 30/100.** Matches the supplied **$10 input / $50 output per 1M** paid-tier anchor. Caching changes realized expenditure, and long-input requests cost more. Cost efficiency is excluded from Overall.
-
-- **Overall Score: 90.6/100.** v4: **(88 + 94 + 99 + 80 + 92) / 5 = 90.6**, half-up rounded to one decimal; cost excluded. Best-fit interpretation: high-budget, long-context coding, research, and document agents rather than native voice/video applications.
-
----
+Remaining gaps: standalone LiveCodeBench, SWE-bench Verified, MCP Atlas, Claw/Toolathlon, current tau3, and comparable MLCR/factuality metrics. Search absence is not zero performance.
 
 ## Signature
 
-- Provided by: **ChatGPT (openai/gpt-6-astra)** — 2026-09-25
-
-- Method: Fresh public internet research; no private benchmark execution or prior-chat scores used. `openai/undisclosed` records unavailable signing-runtime metadata, not an asserted API model ID. Vendor results reflect best reported effort, while independently evaluated configurations and harnesses remain separately labeled. Missing findings mean not numerically verified in retrieved sources, not zero performance. Source-displayed precision is preserved; scores are normalized 1-100 interpretations, not official vendor scores.
-
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
+- Method: User-authorized refresh of this reporter's existing file; fresh public primary-source research and comparison with its September 25 findings. No peer reports or local model tests. Scores are interpretations, not official benchmark scores. Historical claims and indexed-only leads are labeled separately.

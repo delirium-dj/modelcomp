@@ -28,8 +28,13 @@
 - **Cost efficiency: 50/100.** Pricing unavailable.
 - **Overall Score: 43.0/100.** Provisional placeholder-free score reflecting absent public evidence; requires deeper identity resolution.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Union Alpha describes itself as a routed multimodal model with 256K context, image input, and tool calling. Its public benchmark page reports mixed preview/Pareto rows, including DeepSWE 74 and LiveBench 76.1, but also warns that routing can change.
+- Recalculation: retained existing score; unstable provider routing prevents a numeric increase.
+- Sources: https://union-alpha.com/ ; https://union-alpha.org/ ; https://openrouter.ai/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: No verified public source found for the exact Union Alpha identity.
-

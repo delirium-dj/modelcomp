@@ -28,8 +28,12 @@
 - **Cost efficiency: 92/100.** Open weights improve deployment economics.
 - **Overall Score: 57.6/100.** Conservative result pending an exact model card and benchmarks.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public search coverage did not surface a stable official Gemma 4 31B model card or independent benchmark suite specific to this exact variant. Nearby Gemini/Gemma evidence was excluded rather than transferred.
+- Recalculation: retained existing score because exact-model evidence remains insufficient.
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://ai.google.dev/gemma
-

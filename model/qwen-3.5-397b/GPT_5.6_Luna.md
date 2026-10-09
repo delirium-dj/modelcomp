@@ -28,8 +28,13 @@
 - **Cost efficiency: 91/100.** Open weights and sparse activation.
 - **Overall Score: 86.0/100.** Strong open multimodal frontier candidate.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Qwen officially describes the 397B-A17B open-weight model as native vision-language with strong reasoning, coding, agents, and multimodal results. Hugging Face/OpenRouter document 262K native context, with hosted variants extending context; local inference reports show serious hardware and throughput tradeoffs.
+- Recalculation: retained existing score; architecture and benchmark strength are clear, but deployment conditions materially affect practical results.
+- Sources: https://qwen.ai/blog?email_hash=23463b99b62a72f26ed677cc556c44e8&id=qwen3.5 ; https://huggingface.co/Qwen/Qwen3.5-397B-A17B ; https://openrouter.ai/qwen/qwen3.5-397b-a17b-20260216/pricing
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-08
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://qwen.ai/blog?email_hash=23463b99b62a72e8&id=qwen3.5
-

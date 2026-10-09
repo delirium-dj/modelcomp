@@ -28,8 +28,13 @@
 - **Cost efficiency: 80/100.** Pricing not verified.
 - **Overall Score: 67.6/100.** Conservative provisional score.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent Model Gap tracking reports 9 benchmark rows, 7 independently run, at $1.40/$4.40 pricing. Z.ai’s own Code Bench and CyberGym claims are stronger, but the model-card repository explicitly labels vendor numbers as unverified.
+- Recalculation: retained existing score; benchmark spread and vendor bias do not justify an increase.
+- Sources: https://themodelgap.com/models/glm-5-3 ; https://github.com/jroethel/glm-model-cards/blob/main/glm-5.3/README.md ; https://www.axios.com/2026/08/14/china-open-source-ai-glm-53
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://z.ai/
-

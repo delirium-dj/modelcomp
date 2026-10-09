@@ -28,8 +28,13 @@
 - **Cost efficiency: 50/100.** Pricing unavailable.
 - **Overall Score: 43.0/100.** Conservative provisional score pending identity resolution.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent catalogue coverage reports 1M context and roughly $0.80/$3.20 pricing, while another provider page reports $2.50/$7.50; the preview model card explicitly says benchmark results are preliminary and not independently validated.
+- Recalculation: retained existing score; pricing and routed model identity are too unstable for a numeric change.
+- Sources: https://ai-hippo.com/en/insights/unbiased-pareto-26-10-preview-review/ ; https://yfarmx.com/ai/llms/pareto-26-10/ ; https://www.orcarouter.ai/blog/unbiased-pareto-26-10-preview
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: No verified public source found for the exact identity.
-

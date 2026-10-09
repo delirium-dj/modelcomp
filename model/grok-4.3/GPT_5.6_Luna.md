@@ -31,6 +31,12 @@
 - **Cost efficiency: 82/100.** Pricing not reverified.
 - **Overall Score: 77.2/100.** Validate before production deployment.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- AWS and xAI documentation report a 1M context, configurable reasoning effort, tool calling, structured output, and streaming. Independent provider documentation corroborates deployment details, but public exact-model benchmark coverage is thinner than the newer Grok releases.
+- Recalculation: retained existing score; specifications are verified, while performance evidence remains limited.
+- Sources: https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-3.html ; https://docs.x.ai/developers/models/grok-4.3 ; https://developers.cloudflare.com/ai/models/xai/grok-4.3/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

@@ -28,8 +28,13 @@
 - **Cost efficiency: 80/100.** Pricing unavailable.
 - **Overall Score: 63.2/100.** Conservative provisional result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- GLM-5.2 materials report a 1M context and long-horizon autonomy; independent reporting places it at the top of a single-turn HTML design leaderboard and around $1.40/$4.40, while security coverage warns that open weights reduce deployment guardrails.
+- Recalculation: retained existing score; strong coding/value evidence does not justify a broader increase.
+- Sources: https://huggingface.co/Kza-Corp/GLM-5.2 ; https://www.techradar.com/pro/chinas-answer-to-claudes-fable-5-comes-top-of-the-html-web-design-contest-as-the-ceo-tells-elon-musk-glm-will-reach-mythos-class-before-q1-2027 ; https://www.axios.com/2026/06/25/china-glm-52-open-source-hackers
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://z.ai/
-

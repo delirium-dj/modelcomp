@@ -28,8 +28,13 @@
 - **Cost efficiency: 94/100.** Flash-Lite positioning is designed for low-cost volume.
 - **Overall Score: 74.6/100.** Strong economical multimodal API for routine workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s model card covers speed, reasoning, multimodal input, tools, coding, and long context; launch pricing is $0.25/$1.50 per million tokens. Independent reporting confirms it is aimed at high-volume developer workloads and compares favorably on several published benchmarks.
+- Recalculation: retained existing score; the value case is strong, but vendor-led comparisons remain dominant.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/ ; https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/ ; https://www.techradar.com/pro/google-reveals-dev-focused-gemini-3-1-flash-lite-promises-best-in-class-intelligence-for-your-highest-volume-workloads
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/
-

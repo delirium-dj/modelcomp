@@ -31,6 +31,12 @@
 - **Cost efficiency: 82/100.** Pricing is reasonable but not reverified.
 - **Overall Score: 85.8/100.** Best fit: multimodal long-document analysis.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s API documentation and model card confirm Gemini 2.5 Pro as a thinking model for code, math, STEM, documents, and long context, with a 1M-token context. The card explicitly records provider/scaffolding differences for SWE-bench, so raw rows should not be treated as directly comparable.
+- Recalculation: retained existing score; independent classroom and community evaluations reinforce broad reasoning utility but do not justify an increase.
+- Sources: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro ; https://modelcards.withgoogle.com/assets/documents/gemini-2.5-pro.pdf ; https://arxiv.org/abs/2505.24477
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

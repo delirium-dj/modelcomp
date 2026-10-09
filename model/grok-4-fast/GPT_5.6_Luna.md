@@ -28,8 +28,13 @@
 - **Cost efficiency: 88/100.** Token-efficiency positioning is favorable.
 - **Overall Score: 70.6/100.** Practical lower-latency Grok option pending detailed benchmark extraction.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- xAI documents Grok 4 Fast as a unified reasoning/non-reasoning model with 2M context, web/X search, and strong price-to-intelligence positioning independently verified by Artificial Analysis.
+- Recalculation: retained existing score; the value evidence is strong, but raw capability remains below the frontier tier represented by the queue’s higher-ranked models.
+- Sources: https://x.ai/news/grok-4-fast ; https://data.x.ai/2025-09-19-grok-4-fast-model-card.pdf ; https://www.reddit.com/r/openclaw/comments/1rt27b7/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://x.ai/news/grok-4-fast
-

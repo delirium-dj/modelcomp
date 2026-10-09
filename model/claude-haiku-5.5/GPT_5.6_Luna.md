@@ -28,8 +28,13 @@
 - **Cost efficiency: 88/100.** Haiku positioning favors efficiency.
 - **Overall Score: 71.8/100.** Conservative provisional result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s docs and launch page position Haiku 5.5 as the fastest small model for high-volume/cost-sensitive applications. Independent reporting gives $0.10/$0.50 pricing below 100K input and notes strong gains over Haiku 4.5; an external coding test remains early and effort-sensitive.
+- Recalculation: retained existing score; the value case is strong, but independent capability coverage is too new for a numeric change.
+- Sources: https://platform.claude.com/docs/en/models/haiku-5-5/overview ; https://www.anthropic.com/claude-haiku-5-5 ; https://www.datacamp.com/blog/claude-haiku-5-5
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-08
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://platform.claude.com/docs/en/models/overview
-

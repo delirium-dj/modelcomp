@@ -28,8 +28,13 @@
 - **Cost efficiency: 78/100.** Variant-dependent pricing.
 - **Overall Score: 87.2/100.** Family-level score, not a distinct checkpoint.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s Gemini 2.5 announcement and research paper describe a thinking family with native multimodality and long context. Independent education and power-flow evaluations confirm strong reasoning utility, while also showing task and prompt-format sensitivity.
+- Recalculation: retained existing score; independent results support the profile without a broad score change.
+- Sources: https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/ ; https://arxiv.org/abs/2507.06261 ; https://arxiv.org/abs/2605.18642
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-08
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/
-

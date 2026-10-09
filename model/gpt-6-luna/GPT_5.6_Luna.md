@@ -29,8 +29,13 @@
 - **Cost efficiency: 99/100.** Extremely low listed API pricing for a reasoning model.
 - **Overall Score: 77.8/100.** Best suited to high-volume reasoning and coding agents where cost dominates.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI verifies a 1.05M context window and positions GPT-6 Luna for focused, high-volume tasks. Independent Model Gap and Vals data show it trails GPT-6 Sol on HLE, LiveBench, Agents’ Last Exam, and Terminal-Bench while costing roughly one-twentieth as much.
+- Recalculation: retained existing score; the independent deltas validate the lower-tier placement rather than support an increase.
+- Sources: https://developers.openai.com/api/docs/models/gpt-6-luna ; https://themodelgap.com/models/gpt-6-luna ; https://www.vals-ai.com/models/openai_gpt-6-luna
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://developers.openai.com/api/docs/models/gpt-6-luna ; https://openai.com/index/introducing-gpt-6-sol-and-luna/
-

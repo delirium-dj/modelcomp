@@ -1,1 +1,0 @@
-After adding or editing any model folder, run `pnpm sync` to recompute `average.md` and regenerate `src/data/scores.generated.ts` / `sources.generated.ts`, then `pnpm build.types && pnpm build`. Adding a new model requires no code edits — only creating the folder and running sync.

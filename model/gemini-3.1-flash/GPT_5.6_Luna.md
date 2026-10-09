@@ -28,8 +28,13 @@
 - **Cost efficiency: 85/100.** Flash positioning implies favorable throughput economics; exact price unavailable.
 - **Overall Score: 79.6/100.** Provisional result pending the exact 3.1 Flash model card.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public searches surfaced Google’s closely related Gemini 3.1 Flash-Lite card rather than a stable separate 3.1 Flash card. The official Lite card covers speed, reasoning, multimodality, tools, coding, and long context; version identity remains important.
+- Recalculation: retained existing score; Lite evidence was not transferred to Flash.
+- Sources: https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/ ; https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/
-

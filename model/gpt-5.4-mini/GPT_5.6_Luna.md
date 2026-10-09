@@ -28,8 +28,13 @@
 - **Cost efficiency: 85/100.** Mini positioning implies favorable cost, exact price unavailable.
 - **Overall Score: 72.8/100.** Practical compact model for coding and computer-use workflows.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI documents a 400K context window and $0.75/$4.50 input/output pricing. Independent catalogue tracking places GPT-5.4 mini around rank 86/462 on its composite index; real-world tests report strong everyday performance with less depth than full GPT-5.4.
+- Recalculation: retained existing score; evidence confirms a capable mini tier without supporting an increase.
+- Sources: https://openai.com/index/introducing-gpt-5-4-mini-and-nano/ ; https://minirouter.sh/releases/gpt-5-4-mini ; https://www.techradar.com/ai-platforms-assistants/chatgpt/i-tested-chatgpt-5-4-mini-and-nano-and-i-didnt-expect-them-to-be-this-powerful
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/
-

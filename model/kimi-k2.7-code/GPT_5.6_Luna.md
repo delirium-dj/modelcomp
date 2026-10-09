@@ -28,8 +28,13 @@
 - **Cost efficiency: 70/100.** Pricing unavailable.
 - **Overall Score: 67.2/100.** Conservative score pending exact model-card evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Moonshot’s official page and Hugging Face card document Kimi K2.7 Code’s coding/agent benchmark comparisons, 262K evaluation context, always-on reasoning, and Kimi Code Bench V2. The comparison uses different harnesses for GPT and Claude, so rankings are directional.
+- Recalculation: retained existing score; coding evidence is strong but provider/harness differences prevent an increase.
+- Sources: https://www.kimi.ai/resources/kimi-k2-7-code ; https://huggingface.co/moonshotai/Kimi-K2.7-Code ; https://openk3.org/kimi-k27
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://www.moonshot.ai/
-

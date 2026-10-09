@@ -28,8 +28,13 @@
 - **Cost efficiency: 70/100.** Pricing unavailable.
 - **Overall Score: 65.6/100.** Conservative provisional result due to missing exact-checkpoint evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Kimi Code documentation confirms K2.8 Preview as a selectable model route. Current independent coverage reports approximately 1M context but no public parameter count, architecture, benchmark table, or per-token price; the preview still uses a shared coding model ID in some clients.
+- Recalculation: retained existing score; missing exact-model evidence prevents a numeric change.
+- Sources: https://www.kimi.com/code/docs/kimi-code/models ; https://kimi-k2.org/blog/58-kimi-k2-8-preview
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://www.moonshot.ai/
-

@@ -57,9 +57,14 @@ Multimodal:
 - **Cost efficiency: 98/100.** $0.20/$1.20 per 1M tokens is exceptionally low for a reasoning-capable, tool-using model, though it is not free.
 - **Overall Score: 79.4/100.** Half-up mean of the five quality dimensions; best fit for inexpensive high-volume agents where peak frontier quality is not required.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI verifies 1.05M context and positions Luna for cost-sensitive, high-volume workloads. Independent tracking reports eight independently run benchmark rows, including Terminal-Bench variation between AA and Vals, plus $0.20/$1.20 pricing.
+- Recalculation: retained existing score; independent results validate the cost/capability tradeoff but do not support increasing the composite.
+- Sources: https://developers.openai.com/api/docs/models/gpt-5.6-luna ; https://themodelgap.com/models/gpt-5-6-luna ; https://openai.com/index/gpt-5-6/
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research using OpenAI’s official model documentation and GPT-5.6 evaluation tables; scores are normalized 1–100 interpretations, not official vendor scores.
 - Sources: https://developers.openai.com/api/docs/models/gpt-5.6-luna ; https://openai.com/index/gpt-5-6/
-

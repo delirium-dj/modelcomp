@@ -28,8 +28,13 @@
 - **Cost efficiency: 70/100.** Pricing unavailable.
 - **Overall Score: 67.2/100.** Conservative provisional result pending exact model card.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Mistral documents Large 4 as an open-weight, general-purpose multimodal MoE; independent reporting describes a 1T/49B-active architecture and preliminary DeepSWE around 63%. Public API and card sources disagree on whether deployed context is 524K or 1M, so context scoring remains conservative.
+- Recalculation: retained existing score; preliminary vendor results and context discrepancy do not justify an increase.
+- Sources: https://docs.mistral.ai/models/mistral-large ; https://www.lemonde.fr/en/economy/article/2026/10/06/reflection-mistral-open-weight-ai-models-china_6758318_19.html ; https://huggingface.co/blog/apirouter/what-is-mistral-large-4
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-08
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://mistral.ai/
-

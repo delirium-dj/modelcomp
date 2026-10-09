@@ -31,6 +31,12 @@
 - **Cost efficiency: 70/100.** Current pricing not reverified.
 - **Overall Score: 85.0/100.** Best fit: software engineering agents.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI documents a 400K context window. The system card and independent technical coverage describe strong SWE-Bench Pro, Terminal-Bench, OSWorld, and GDPval performance, plus computer-using agent behavior, but the model is optimized for coding rather than general conversation.
+- Recalculation: retained existing score; the evidence confirms Coding strength without implying a general-purpose multimodal or knowledge increase.
+- Sources: https://developers.openai.com/api/docs/models/gpt-5.3-codex ; https://deploymentsafety.openai.com/gpt-5-3-codex/gpt-5-3-codex.pdf ; https://www.techradar.com/pro/openai-unveils-gpt-5-3-codex-which-can-tackle-more-advanced-and-complex-coding-tasks
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

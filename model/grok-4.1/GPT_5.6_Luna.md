@@ -28,8 +28,13 @@
 - **Cost efficiency: 70/100.** Price unavailable.
 - **Overall Score: 74.2/100.** Strong search-grounded model with variant caveat.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public comparison tables position Grok 4.1 as a reasoning/tool model with long context and strong value; current xAI documentation is more readily available for adjacent 4.x variants than for this exact release.
+- Recalculation: retained existing score; exact-model evidence remains insufficient for adjustment.
+- Sources: https://docs.x.ai/developers/models ; https://deepmind.google/technologies/gemini/flash/ ; https://www.reddit.com/r/openclaw/comments/1rt27b7/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://x.ai/news/grok-4-1
-

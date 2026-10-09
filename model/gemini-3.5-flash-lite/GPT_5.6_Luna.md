@@ -31,8 +31,13 @@
 - **Cost efficiency: 93/100.** Low input cost and high-throughput positioning.
 - **Overall Score: 74.6/100.** Good low-cost multimodal API for routine agent and document workloads.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s developer ecosystem positions Flash-Lite as the low-cost, high-throughput tier; independent multi-agent benchmark tooling reports strong task completion at introductory pricing, but tests used a specific API configuration and should not be generalized to every route.
+- Recalculation: retained existing score; no broad exact-model benchmark suite supports a change.
+- Sources: https://ai.google.dev/gemini-api/docs/models ; https://github.com/pipecat-ai/gb-benchmarks ; https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/ ; https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite
-

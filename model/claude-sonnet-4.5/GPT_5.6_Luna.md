@@ -29,8 +29,13 @@
 - **Cost efficiency: 72/100.** Exact current price was not verified and Sonnet is a paid tier.
 - **Overall Score: 78.6/100.** Strong balanced coding assistant with less evidence for current frontier performance.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic documents 200K context, 64K output, and $3/$15 pricing for Sonnet 4.5; its system card reports strong coding, cyber, and agent results, with context resets used in some evaluations. Independent theorem-proving work still finds substantial difficulty on hard formal tasks.
+- Recalculation: retained existing score; broad capability evidence is strong, but methodology and context-management differences limit a numeric increase.
+- Sources: https://platform.claude.com/docs/en/models/sonnet-4-5/overview ; https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf ; https://arxiv.org/abs/2604.23698
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/ ; https://www.anthropic.com/
-

@@ -31,8 +31,13 @@
 - **Cost efficiency: 75/100.** Price not verified.
 - **Overall Score: 78.8/100.** Excellent coding-agent and workflow automation model.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent catalogue data reports Qwen 3.7 Max at 90.9% GPQA Diamond and documents a 1M context; practical coverage describes long-horizon agent execution and strong math/coding. Independent cost comparisons still warn that token usage can erase its nominal price advantage.
+- Recalculation: retained existing score; the evidence reinforces capability but does not establish a stable cross-harness composite.
+- Sources: https://token.app/model/qwen3.7-max ; https://www.youtube.com/watch?v=DFoAaPsMVAo ; https://www.techradar.com/pro/chinas-up-to-100x-cost-advantage-is-reshaping-the-ai-race
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://qwen.ai/blog?id=qwen3.7&locale=en
-

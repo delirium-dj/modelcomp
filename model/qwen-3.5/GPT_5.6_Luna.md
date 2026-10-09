@@ -31,6 +31,12 @@
 - **Cost efficiency: 85/100.** Pricing evidence incomplete.
 - **Overall Score: 72.4/100.** Validate with a direct workload benchmark.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Qwen’s official announcement confirms Qwen3.5-397B-A17B as an open-weight model and Qwen3.5-Plus as the hosted variant, with throughput improvements over Qwen3-Max at relevant context lengths. Exact Plus benchmark coverage remains limited.
+- Recalculation: retained existing score; open-weight architecture evidence does not transfer directly to the hosted Plus endpoint.
+- Sources: https://qwen.ai/blog?email_hash=23463b99b62a72f26ed677cc556c44e8&id=qwen3.5 ; https://arxiv.org/abs/2604.15804
+
 ## Signature
 
 - Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04

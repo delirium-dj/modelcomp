@@ -29,8 +29,13 @@
 - **Cost efficiency: 92/100.** Open weights avoid hosted-token licensing, though hardware costs remain.
 - **Overall Score: 84.8/100.** A strong customizable multimodal agent model, especially where self-hosting is practical.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Thinking Machines confirms Inkling as an open-weight model; independent catalog data reports a 975B/41B-active MoE, native text/image/audio/video input, and 1M context. The company emphasizes customization and fine-tuning rather than claiming universal benchmark leadership.
+- Recalculation: retained existing score; customization and multimodality are strong, but independent capability evidence remains mixed.
+- Sources: https://thinkingmachines.ai/inkling/ ; https://modelmarkets.ai/models/thinkingmachines/inkling ; https://www.axios.com/2026/07/15/mira-murati-thinking-machines-open-weight-model-inkling
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://thinkingmachines.ai/news/inkling-small/
-

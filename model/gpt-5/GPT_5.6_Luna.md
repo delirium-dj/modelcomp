@@ -29,8 +29,13 @@
 - **Cost efficiency: 70/100.** Current price not verified.
 - **Overall Score: 84.2/100.** Provisional score for the family-level alias, pending an exact current model card.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- OpenAI’s GPT-5 system-card research describes improvements in coding, health, instruction following, hallucination reduction, and safety. Later independent comparisons place it below the newer GPT-5.5/5.6 tiers on frontier agentic work, so evidence supports its role as a mature predecessor.
+- Recalculation: retained existing score; no new exact-model benchmark supports a change.
+- Sources: https://cdn.openai.com/gpt-5-system-card.pdf ; https://arxiv.org/abs/2601.03267 ; https://www.tomsguide.com/ai/i-put-chatgpt-5-5-vs-gemini-3-1-pro-through-7-impossible-tests-and-the-winner-surprised-me
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Source: https://cdn.openai.com/gpt-5-system-card.pdf
-

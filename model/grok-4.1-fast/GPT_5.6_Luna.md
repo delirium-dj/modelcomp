@@ -29,8 +29,13 @@
 - **Cost efficiency: 88/100.** Fast positioning suggests efficient serving.
 - **Overall Score: 71.0/100.** Provisional fast model score pending exact benchmark separation.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public comparison material positions Grok 4.1 Fast as a low-cost, long-context model and compares it with Gemini Flash-Lite on speed and price. Exact current xAI documentation and independent benchmark coverage are limited.
+- Recalculation: retained existing score; no stable new exact-model evidence supports a change.
+- Sources: https://docs.x.ai/developers/models ; https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/ ; https://www.reddit.com/r/openclaw/comments/1rt27b7/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://x.ai/news/grok-4-1
-

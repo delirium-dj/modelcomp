@@ -28,8 +28,13 @@
 - **Cost efficiency: 100/100.** Free access.
 - **Overall Score: 63.4/100.** Conservative score because free-route limits and exact checkpoint are unverified.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public provider listings expose a free GLM-5.3 route, but the underlying model identity and rate limits are deployment-specific. The paid GLM-5.3 card and independent benchmark tracking were used only as capability context, not transferred as exact free-route evidence.
+- Recalculation: retained existing score; free access alone does not change model capability.
+- Sources: https://build.nvidia.com/z-ai/glm-5-3 ; https://themodelgap.com/models/glm-5-3 ; https://github.com/jroethel/glm-model-cards/blob/main/glm-5.3/README.md
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://z.ai/
-

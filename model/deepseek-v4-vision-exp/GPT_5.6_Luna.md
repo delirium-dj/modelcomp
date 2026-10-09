@@ -30,8 +30,13 @@
 - **Cost efficiency: 85/100.** Flash positioning suggests low cost, but exact current price was not verified.
 - **Overall Score: 80.0/100.** Strong multimodal agent model, best suited to visual workflows where experimental status is acceptable.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- DeepSeek’s API documentation confirms the experimental multimodal endpoint, while the Hugging Face card provides exact-model benchmark comparisons. Public reports identify it as image-understanding/API-first, with 1M-class context and low Flash pricing; a 98-task independent visual suite found results close to Sonnet 5 but with strong task dependence.
+- Recalculation: retained existing score; experimental status and limited independent coverage argue against adjustment.
+- Sources: https://api-docs.deepseek.com/news/news260821/ ; https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp ; https://www.reddit.com/r/DeepSeek/comments/1w4nzyq/benchmark_notes_deepseek_v4_flash_vision_exp/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp ; https://www.reddit.com/r/DeepSeek/comments/1w4nzyq/benchmark_notes_deepseek_v4_flash_vision_exp/
-

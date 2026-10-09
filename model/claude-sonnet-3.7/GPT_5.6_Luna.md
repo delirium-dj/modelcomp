@@ -28,8 +28,13 @@
 - **Cost efficiency: 72/100.** Paid tier, exact price unavailable.
 - **Overall Score: 74.0/100.** Provisional historical Sonnet result pending refreshed benchmark evidence.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic’s system card documents Sonnet 3.7’s extended-thinking behavior and context-management caveats. Independent evaluations show strong results in some classification and coding tasks, but later Sonnet generations outperform it on long-horizon work.
+- Recalculation: retained existing score; no new evidence supports changing the mature-model placement.
+- Sources: https://www-cdn.anthropic.com/9ff93dfa8f445c932415d335c88852ef47f1201e/claude-3-7-sonnet-system-card.pdf ; https://arxiv.org/abs/2604.01615 ; https://www.reddit.com/r/ClaudeAI/comments/1iz3umm
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://www.anthropic.com/
-

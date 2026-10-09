@@ -28,8 +28,13 @@
 - **Cost efficiency: 60/100.** Pricing unavailable.
 - **Overall Score: 47.0/100.** Conservative provisional result pending identity resolution.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- NVIDIA and Hugging Face document Muse Glimmer 30B as a multimodal model with roughly 131K combined context; independent catalogues report around $0.30/$1.10–$1.20 pricing and strong local tool-use interest. Community 512K/1M extensions are not native-card evidence.
+- Recalculation: retained existing score; local extensions and provider routes are not comparable enough for a change.
+- Sources: https://build.nvidia.com/meta/muse-glimmer-30b/modelcard ; https://huggingface.co/meta-models/Muse-Glimmer-30B ; https://modelcap.ai/model/meta-muse-glimmer-30b
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: No verified public source found for the exact model identity.
-

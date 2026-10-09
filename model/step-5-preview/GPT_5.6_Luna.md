@@ -28,8 +28,13 @@
 - **Cost efficiency: 82/100.** Sparse activation, price not verified.
 - **Overall Score: 86.0/100.** Strong multimodal frontier preview, pending fuller public evaluations.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Independent provider tracking describes Step 5 Preview as a sparse-MoE model for coding, research, and professional analysis with 1M context; its benchmark page reports an Intelligence Index rank around 11/462. Preview pricing and route behavior remain provider-dependent.
+- Recalculation: retained existing score; the benchmark is encouraging but not yet sufficiently reproducible for a dimension change.
+- Sources: https://minirouter.sh/releases/step-5-preview ; https://www.stepfun.com/ ; https://openrouter.ai/
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-09
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://sophon.at/models/step-5 ; https://llmlearner.com/models/step-5-preview
-

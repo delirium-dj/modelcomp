@@ -28,8 +28,13 @@
 - **Cost efficiency: 70/100.** Paid tier, exact price unavailable.
 - **Overall Score: 76.8/100.** Provisional balanced model result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Anthropic documents Sonnet 4 at $3/$15 and describes strong visual analysis, coding, and complex-data work; later documentation extends some API contexts to 1M, while the original model specification was smaller.
+- Recalculation: retained existing score; context-version differences prevent a numeric increase.
+- Sources: https://www.anthropic.com/claude/sonnet ; https://platform.claude.com/docs/en/resources/overview ; https://www.reddit.com/r/Anthropic/comments/1mocu53
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations.
 - Source: https://www.anthropic.com/
-

@@ -30,8 +30,13 @@
 - **Cost efficiency: 88/100.** Open-weight/open-access positioning is favorable, but current API pricing was not verified.
 - **Overall Score: 75.0/100.** Quality dimensions are strong, but text-only scope and incomplete public pricing evidence cap the normalized result.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- DeepSeek’s official preview documents 1M context and the Pro endpoint; current pricing docs show legacy routing changes, while independent coverage reports a 1.6T/49B-active MoE and roughly $1.74/$3.48 standard pricing. NIST/CAISI independently evaluated the model under controlled settings.
+- Recalculation: retained existing score; strong low-cost capability evidence does not remove version and pricing-route variability.
+- Sources: https://deepseek.com/en/news/v4-preview/ ; https://api-docs.deepseek.com/quick_start/pricing/ ; https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are normalized interpretations, not official vendor scores.
 - Sources: https://api-docs.deepseek.com/news/news260424/ ; https://deepseek.com/news/v4-preview/
-

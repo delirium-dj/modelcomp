@@ -29,8 +29,12 @@
 - **Cost efficiency: 70/100.** Current exact price not verified.
 - **Overall Score: 78.8/100.** Provisional family-derived result pending an exact GPT-5.1 model card.
 
+### Multi-source deep-research addendum (2026-10-09)
+
+- Public search coverage for GPT-5.1 surfaced mostly successor and system-card references rather than a stable current exact-model benchmark page. Existing evidence was therefore kept separate from GPT-5.2 and GPT-5.5 results.
+- Recalculation: retained existing score; no sufficiently direct new evidence supports a numeric adjustment.
+
 ## Signature
 - Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-05
 - Method: public web research; scores are provisional normalized interpretations, not official vendor scores.
 - Source: https://cdn.openai.com/gpt-5-system-card.pdf
-

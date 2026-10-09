@@ -12,15 +12,16 @@
 - [src/data/sources.generated.ts](file://src/data/sources.generated.ts)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [tasks/sync-data.md](file://tasks/sync-data.md)
+- [README.md](file://README.md)
+- [src/components/Footer.tsx](file://src/components/Footer.tsx)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Enhanced documentation for merged slug handling and canonical slug resolution system
-- Improved troubleshooting guidance for batch operation validation failures
-- Updated workflow descriptions to reflect enhanced duplicate detection mechanisms
-- Added comprehensive coverage of vendor-prefix violation handling and slug normalization
-- Expanded error handling documentation for merged model directories and forbidden duplicates
+- Updated infrastructure section to reflect removal of temporary verification utilities (_verify_tmp.ps1)
+- Enhanced documentation for donation infrastructure cleanup with placeholder-based approach
+- Improved troubleshooting guidance for infrastructure-related issues
+- Updated project structure documentation to reflect current state of verification and donation systems
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -30,8 +31,9 @@
 5. [Detailed Component Analysis](#detailed-component-analysis)
 6. [Dependency Analysis](#dependency-analysis)
 7. [Performance Considerations](#performance-considerations)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Conclusion](#conclusion)
+8. [Infrastructure Improvements](#infrastructure-improvements)
+9. [Troubleshooting Guide](#troubleshooting-guide)
+10. [Conclusion](#conclusion)
 
 ## Introduction
 This document explains the data synchronization pipeline that turns research findings stored as Markdown files into deterministic runtime TypeScript data. The pipeline is orchestrated by a single Node script and several pure helper modules. It scans model folders, parses normalized scores, validates structure, computes averages across multiple agents, registers new reporting sources, and emits two generated TypeScript artifacts consumed by the application:
@@ -50,6 +52,7 @@ At a high level, the pipeline consists of:
 - Pure helper modules that implement parsing, validation, average computation, code generation, naming conventions, and quarantine logic.
 - Generated TypeScript outputs consumed by the frontend build.
 - Task documentation describing the human workflow and invariants.
+- Infrastructure components including donation handling and verification utilities.
 
 ```mermaid
 graph TB
@@ -61,6 +64,7 @@ Sync --> Naming["scripts/lib/naming.mjs<br/>Key, label, slug helpers"]
 Sync --> Quarantine["scripts/lib/quarantine.mjs<br/>Auto-quarantine decision"]
 Sync --> SourcesTS["src/data/sources.generated.ts<br/>Agent registry"]
 Sync --> ScoresTS["src/data/scores.generated.ts<br/>Numeric score index"]
+Infrastructure["Infrastructure Layer<br/>Donation & Verification"] --> Sync
 ```
 
 **Diagram sources**
@@ -340,6 +344,27 @@ Codegen --> |uses| NamingResolve["resolveSourceMeta via naming.mjs"]
 
 **Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved performance characteristics for larger datasets, including optimized handling of widespread Laguna XS 2.1 model adoption and streamlined processing of updated naming conventions.
 
+## Infrastructure Improvements
+
+### Temporary Verification Utilities Removal
+The infrastructure layer has been streamlined by removing temporary verification utilities that were previously used for testing and validation purposes. Specifically:
+
+- **Removed `_verify_tmp.ps1`**: This temporary PowerShell verification script has been completely removed from the codebase, eliminating redundant verification logic that was duplicating functionality already provided by the main sync pipeline.
+- **Simplified verification flow**: The sync pipeline now relies solely on its built-in validation mechanisms rather than external verification scripts.
+- **Reduced maintenance overhead**: Removing temporary utilities reduces the cognitive load for developers and eliminates potential confusion about which verification methods to use.
+
+### Donation Infrastructure Cleanup
+The donation infrastructure has been cleaned up to use a more maintainable placeholder-based approach:
+
+- **Placeholder-based donation links**: The `EXTRA_DONATE_LINKS` array in `Footer.tsx` now uses empty `href` values for all platforms (Ko-fi, Patreon, Buy Me a Coffee, PayPal, Stripe), rendering them as "soon" placeholders rather than broken links.
+- **Consistent UI behavior**: Empty donation links render as disabled buttons with dashed borders and "· soon" text, providing clear feedback to users about upcoming features.
+- **Improved accessibility**: The placeholder system includes proper ARIA attributes and semantic HTML for better screen reader support.
+- **Maintainable configuration**: Adding new donation platforms is simplified to just adding an entry to the `EXTRA_DONATE_LINKS` array with the appropriate URL.
+
+**Section sources**
+- [src/components/Footer.tsx:42-53](file://src/components/Footer.tsx#L42-L53)
+- [README.md:78-94](file://README.md#L78-L94)
+
 ## Troubleshooting Guide
 Common issues and resolutions:
 
@@ -398,7 +423,12 @@ Common issues and resolutions:
   - Cause: Folder names like `gpt-5-5` instead of `gpt-5.5`.
   - Resolution: Rename the folder to use dotted version numbers; merge into the existing canonical folder.
 
-**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues.
+- **Infrastructure-related issues**:
+  - Symptom: Confusion about verification utilities or donation link configuration.
+  - Cause: Outdated references to temporary verification scripts or unclear donation platform setup.
+  - Resolution: Use the built-in sync validation (`pnpm sync`) instead of external verification scripts; configure donation links through the `EXTRA_DONATE_LINKS` array in `Footer.tsx`.
+
+**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues. Infrastructure improvements include streamlined verification processes and improved donation link management.
 
 **Section sources**
 - [scripts/sync-data.mjs:119-126](file://scripts/sync-data.mjs#L119-L126)
@@ -409,8 +439,9 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:145-178](file://scripts/sync-data.mjs#L145-L178)
 - [scripts/sync-data.mjs:452-467](file://scripts/sync-data.mjs#L452-L467)
 - [scripts/sync-data.mjs:496-523](file://scripts/sync-data.mjs#L496-L523)
+- [src/components/Footer.tsx:42-53](file://src/components/Footer.tsx#L42-L53)
 
 ## Conclusion
 The data synchronization pipeline transforms research Markdown into reliable runtime data through strict parsing, validation, and deterministic aggregation. It safeguards data integrity via quarantine, rater gating, top-10 cohort averaging, and permanence tripwires. New reporting agents are automatically discovered and registered, while generated TypeScript artifacts provide efficient, type-safe access to scores and source definitions. Following the troubleshooting guidance ensures quick resolution of common sync errors and maintains a healthy, auditable dataset.
 
-**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations.
+**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations. Infrastructure improvements include the removal of temporary verification utilities and a cleaner donation link management system that provides better user experience and maintainability.
