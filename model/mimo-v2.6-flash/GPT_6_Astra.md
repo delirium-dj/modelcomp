@@ -1,11 +1,31 @@
 # MiMo-V2.6-Flash — findings by GPT 6 Astra
 
 - Source: Xiaomi / MiMo-V2.6-Flash
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: [methodology](../../model-comparison.md)
 - Cross-model signed log: [findings](../../model-findings.md)
 
-## Model card
+## Research refresh — 2026-10-09
+
+Compared with the 2026-10-03 report. Sources accessed on 2026-10-09; access dates are not benchmark execution dates. This section supersedes conflicting or missing-data statements in the preserved snapshot below. No local model evaluation was performed.
+
+The [official model page](https://mimo.mi.com/models/en-US/mimo-v2.6-flash) reconfirms 1M context, **128K output**, text/image/video/audio input and text output; structured output, tools, caching and both OpenAI/Anthropic-compatible protocols. USD input/output/cache rates remain **$0.14/$0.28/$0.0028** per million. The [release log](https://mimo.mi.com/docs/en-US/updates/model) dates the hosted V2.6 series to **September 22, 2026**, refining the prior month-only date. Its example system prompt is not evidence of a training cutoff.
+
+[AA's Flash column](https://artificialanalysis.ai/models/comparisons/mimo-v2-6-flash-vs-mimo-v2-6-pro) supplies previously missing independent reasoning evidence: Index **38**, HLE **35%**, CritPt **12%**, Omniscience index **−13**, LCR v1.1 **74%**, SciCode **51%**. Agent results: Briefcase v1.1 **1493**, GDPval v2.1 **1605**, Automation **64%**, Terminal 4.0 **23%**. AA marks CritPt/SciCode under review. The negative knowledge-reliability index and harder terminal result limit confidence; vendor Terminal 4.0 28.8 remains a distinct run.
+
+Vibe Code Bench v1.1 / OpenHands: **78.96%**, **$0.56/test**. [Vals](https://www.vals.ai/benchmarks/vibe-code).
+
+Reasoning 80→82 replaces the old agent-only proxy with direct evidence; coding 86→88 gains independent corroboration. Other dimensions remain unchanged. Remaining gaps: cutoff, full-window retrieval, verified hosted-to-RL-checkpoint equivalence, exact-model SWE-bench/LiveCodeBench. Historical RL and published DeepSWE numbers remain separately labeled.
+
+### Score comparison
+
+Order: tool use, reasoning, context, multimodal, coding, cost. Previous: **88, 80, 95, 95, 86, 97**; revised: **88, 82, 95, 95, 88, 97**. Overall: **89 → 90**. Scores are normalized judgments, not raw benchmark percentages.
+
+## Prior research snapshot — 2026-10-03
+
+The following model card and raw findings preserve the earlier evidence and its gaps for comparison; read the refresh above for current corrections.
+
+### Model card
 
 - **Name:** MiMo-V2.6-Flash.
 - **Short description:** Low-cost multimodal reasoning model for coding and agents; released weights include a separately identified RL checkpoint.
@@ -38,20 +58,20 @@ Long context:
 
 - No verified full-window retrieval result found.
 
-### Normalized scores (1–100)
+## Current normalized scores (1–100)
 
-- **Tool use: 88/100.** Terminal 2.1, Toolathlon and OSWorld support strong agents; vendor-only evidence and weaker Terminal 4.0 cap confidence.
-- **Reasoning: 80/100.** Provisional estimate from complex agent/coding performance; independent scientific reasoning evidence is missing.
+- **Tool use: 88/100.** Vendor agent results are now supplemented by independent AA automation and terminal measurements; mixed harder-task performance caps confidence.
+- **Reasoning: 82/100.** Revised from 80; evidence and rationale are recorded in the dated refresh above.
 - **Context window: 95/100.** Million-token capacity meets the size tier, without verified near-perfect retrieval.
 - **Multimodal: 95/100.** Native image/video/audio input covers broad understanding; text-only output caps the score.
-- **Coding: 86/100.** DeepSWE and ProgramBench support strong coding, with checkpoint ambiguity and no independent corroboration.
+- **Coding: 88/100.** Revised from 86; evidence and rationale are recorded in the dated refresh above.
 - **Cost efficiency: 97/100.** $0.14/$0.28 and low cache pricing offer unusually inexpensive hosted inference.
-- **Overall Score: 89/100.** Half-up mean of 88, 80, 95, 95 and 86 is 89; attractive for high-volume multimodal agent workloads.
+- **Overall Score: 90/100.** Half-up mean (88 + 82 + 95 + 95 + 88) / 5 = 89.6; cost excluded. See the refresh for the comparison with 89.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-03
-- Method: Independent public web research; normalized scores are interpretations, not vendor scores. Reasoning is provisional and checkpoint distinctions are retained.
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
+- Method: Independent public web research; normalized scores are interpretations, not vendor scores. Reasoning now includes direct independent measurements; checkpoint distinctions are retained.
 - Future sources: Add a separate signed findings file alongside this report.

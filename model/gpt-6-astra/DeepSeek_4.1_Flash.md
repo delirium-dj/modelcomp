@@ -1,71 +1,65 @@
 # GPT-6 Astra — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-6 Astra (`gpt-6-astra`)
-- Date: 2026-10-05 (UTC) — refreshed second pass (previous Signature 2026-09-18)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-10-05)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Newly discovered model.** Not previously tracked in `model/` — added during this
-> research scan (discovered via OpenAI's staged GPT-6 launch and comparison tables in
-> other models' coverage).
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> Newly confirmed independent data: Vals AI ranks Astra **#1 on SRE Bench (56.87%)**, **CUA-bench (19.17%)** and **Terminal-Bench Science 0.1 (62.86%)**, with IOI 100.00%, Vibe Code Bench 89.59%, Terminal-Bench 4.0 59.60%, ProgramBench 5.50%, CyberBench 41.07%, Vals Index 63.13% (#6). Artificial Analysis Intelligence Index v4.3.2 **53 (#7/227)**, knowledge cutoff Apr 30 2026. LMArena `gpt-6-astra-max` 1475 (#35).
+> **Conflicts surfaced:** (1) AA Index **61.2 (OpenAI-cited v4.1.1)** vs **53 (AA live v4.3.2)** — version/effort. (2) Vendor saturation claims (ARC-AGI-3 99.9%, FrontierMath T4 97.6%, ExploitBench 100%) vs mid independent AA Index 53 and a third-party neutral ARC-AGI-3 run at 62.7%. (3) Architecture "recurrent depth" is anonymized press reporting only. (4) GW-cyber/agentic numbers measured without production safeguards.
+> Sources: https://openai.com/index/gpt-6-astra/ · https://artificialanalysis.ai/models/gpt-6-astra · https://www.vals.ai/models/openai_gpt-6-astra · https://en.wikipedia.org/wiki/GPT-6 · https://arena.ai/leaderboard/chat/text
 
 ## Model card
 
-- **Name:** GPT-6 Astra (staged rollout; a `gpt-6-astra-fast` variant is listed separately at $20/$100 per 1M)
-- **Short description:** OpenAI's flagship above GPT-5.6 Sol, rolling out from 2026-09-03 and trained on OpenAI's largest run to date at its Stargate site in Texas. It is the first OpenAI model to reach the Preparedness Framework's **Critical cybersecurity** threshold, so exploit-creation capability is gated behind invite-only Trusted Access/Daybreak programs. OpenAI skipped several standard flagship benchmarks (SWE-bench Verified, AIME 2025, MMLU-Pro, HumanEval) at launch, making external comparison incomplete.
-- **Provider / access:** OpenAI hosted API (Responses), ChatGPT subscription tiers, AWS Bedrock and Microsoft Azure; initial access restricted to Trusted Access/Daybreak organizations. Closed, proprietary; no weights and no fine-tuning support.
-- **Release / knowledge:** Staged rollout starting 2026-09-03. Knowledge cutoff not disclosed.
-- **IDs:** `gpt-6-astra` (OpenAI); Zen alias `gpt-6-astra` via `https://opencode.ai/zen/v1/responses`.
-- **Context window:** 1,050,000 tokens (more than 5× Sol's 200K); max output 128,000 tokens. Any request whose input exceeds 272,000 tokens bills the entire request at 2× the input/cache rate and 1.5× the output rate.
-- **Modalities:** text + image input, text output; reasoning yes; tool calls yes. No audio, video or PDF-specific claims surfaced.
-- **Pricing (as of 2026-10-05, unchanged since 2026-09-18):** $10 / 1M in and $50 / 1M out at standard reasoning effort; cached input $1 / 1M, cache writes $12.50 / 1M — roughly double Sol's launch rate, plus the 272K-token surcharge.
-- **Architecture:** undisclosed; OpenAI describes only training scale, not parameter count or architecture.
+- **Name:** GPT-6 Astra (a `gpt-6-astra-fast` variant is listed separately at $20/$100)
+- **Short description:** OpenAI's flagship above GPT-5.6 Sol (preview 2026-09-03, public 2026-09-04), trained on OpenAI's largest run at Stargate; the first OpenAI model to hit the Preparedness Framework **Critical cybersecurity** threshold, so exploit capability is gated behind Trusted Access/Daybreak. Superseded by GPT-6.1 Sol (2026-09-29).
+- **Provider / access:** OpenAI Responses API, ChatGPT tiers, AWS Bedrock, Azure; closed; no fine-tuning.
+- **Release / knowledge:** staged 2026-09-03, public 2026-09-04; knowledge cutoff Apr 30 2026 (AA).
+- **IDs:** `gpt-6-astra`; Zen `gpt-6-astra`.
+- **Context window:** ~1,050,000 (1M) tokens; 128,000 max output; requests >272K reprice the whole request.
+- **Modalities:** text + image in, text out; reasoning; tool calls. (No audio/video/PDF-specific claims.)
+- **Pricing (as of 2026-10-09):** $10 in / $50 out per 1M; cached input $1; cache writes $12.50; 272K surcharge.
+- **Architecture:** undisclosed (anonymized press reports of "recurrent depth" remain unconfirmed).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **57.7%** (vendor) — ahead of Claude Fable 5.1's 55.8% and Sol's 37.3%
-- ScreenSpot-Pro (computer use): **92.7%**; OSWorld v2: **72.6** (vendor)
-- BrowseComp: **91.5**; ExploitBench: **100** (vendor, gated capability); DeepSWE v1.1: **74.1%**
-- BenchCAD / Vision2Code: **95.9%** (vendor)
-- Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon / MCP-Atlas, SWE Atlas Codebase QnA: **no verified public score found**
+- Vals: **#1 SRE Bench 56.87%**, **#1 CUA-bench 19.17%**, **#1 Terminal-Bench Science 62.86%**, IOI 100.00%
+- Vendor: OSWorld 2.0 72.6%, AutomationBench 41.4%, ScreenSpot-Pro 92.7%, Terminal-Bench 4.0 57.9%
+- BrowseComp 91.5; ExploitBench 100 (gated); DeepSWE v1.1 74.1%
+- Tau3-Banking / GDPval-AA / Claw-Eval / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **96.0%** (vendor; ranked 2nd of 45 tracked models on HokAI against a median which itself sits at 88.9%)
-- FrontierMath Tier 4 v2: **97.6%**; HLE: **57.2%** (vendor)
-- ARC-AGI-2: **95%** (vendor)
-- ARC-AGI-3: **99.9%** vendor — but a third-party ARC Prize "neutral" run (second-pass addition, late Sep 2026) scored Astra **62.7%**, versus OpenAI's 99.9% adapter/persistent-memory configuration; the vendor figure holds only in that scaffolded persistent-memory setup across calls, not in ordinary single-shot API use (startupfortune.com).
-- Artificial Analysis Intelligence Index: **61** — tied with GPT-5.6 Sol, five points behind Claude Fable 5.1's 65.7–66
-- MMLU-Pro / AIME 2025: **not disclosed at launch**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Vendor: GPQA Diamond 96.0%, HLE 57.2%, FrontierMath T4 v2 97.6%, ARC-AGI-2 95%, ARC-AGI-3 99.9% (scaffolded; neutral run 62.7%)
+- Artificial Analysis Intelligence Index **53 (v4.3.2, #7/227)** vs OpenAI-cited 61.2 (v4.1.1)
+- OpenAI MRCR v2 512K–1M 96.3% (vendor)
 
 Coding:
 
-- SWE-bench Verified / SWE-bench Pro: **not disclosed at launch** — an unusual gap for a flagship release, so coding parity with Claude Fable 5.1 and Gemini 3.8 Flash is unverified
-- DeepSWE v1.1 74.1% and Terminal-Bench 4.0 57.7% are the published substitutes (vendor)
-- LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**
-- Cost context: Artificial Analysis rates its coding index roughly on par with Claude Opus 5 and Fable 5 at under half their per-task cost, with an AA blended price of **$7.70 / 1M**
+- Vals: Terminal-Bench 4.0 59.60%, Vibe Code Bench 89.59%, ProgramBench 5.50%
+- DeepSWE v1.1 74.1% (vendor); SWE-bench Verified/Pro **not disclosed at launch**
 
 Long context:
 
-- OpenAI reports strong recall deep into the 1.05M window on its own retrieval test, but no MRCR/RULER/GraphWalks value was reproduced; the 272K billing threshold is the practical planning constraint.
+- 1M window; vendor MRCR v2 512K–1M 96.3%, no independent MRCR/RULER reproduced.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** Terminal-Bench 4.0 57.7% (best in this scan), ScreenSpot-Pro 92.7%, OSWorld v2 72.6 and DeepSWE 74.1% make it a top computer-use and coding agent; capped by the gated ExploitBench capability and the absent Tau3/GDPval/Claw results.
-- **Reasoning: 91/100.** GPQA Diamond 96.0% (2nd of 45), FrontierMath Tier 4 v2 97.6% and HLE 57.2% are near-frontier, but the headline ARC-AGI-3 99.9% is a scaffolded persistent-memory result contradicted by an independent neutral run at 62.7%, and an AA Intelligence Index of 61 is flat versus Sol and five points behind Fable 5.1 — so 94 is no longer supportable.
-- **Context window: 95/100.** 1,050,000 tokens with 128K output is the biggest architectural jump over Sol; the 272K-token billing step-up and the missing recall-at-depth benchmark are real caveats.
-- **Multimodal: 82/100.** Text and image input with leading computer-use vision scores; no audio or video input and text-only output.
-- **Coding: 90/100.** Terminal-Bench 4.0 57.7% and DeepSWE 74.1% are elite, but the deliberate omission of SWE-bench Verified/Pro leaves the strongest standard coding comparison unverified.
-- **Cost efficiency: 45/100.** $10/$50 per 1M (2× Sol) with a 2× input surcharge past 272K tokens and only a 90%-off cache read for relief — among the pricier frontier options tracked here.
-- **Overall Score: 90/100.** (94 + 91 + 95 + 82 + 90) / 5 = 90.4 → **90**. Best fit: agentic coding, computer-use automation and authorized security work where Terminal-Bench-class performance matters more than general chat economics.
+- **Tool use: 92/100.** Independent Vals #1 on SRE Bench, CUA-bench and Terminal-Bench Science plus OSWorld 72.6% make it a top computer-use/coding agent; capped by the gated ExploitBench and absent Tau3/GDPval.
+- **Reasoning: 91/100.** GPQA 96.0%, FrontierMath T4 97.6% and HLE 57.2% are near-frontier, but ARC-AGI-3 99.9% is scaffolded (neutral 62.7%) and AA Index 53 is flat vs peers, so 94 is not supportable.
+- **Context window: 97/100.** ~1.05M input with 128K output and vendor MRCR 96.3% at 512K–1M; the 272K billing step-up is a caveat.
+- **Multimodal: 75/100.** Text + image in (image band, file per Vals), text out; no audio/video and no non-text output.
+- **Coding: 89/100.** DeepSWE 74.1%, TB4.0 59.6%, Vals TB-Science #1 and Vibe Code 89.59% are elite; SWE-bench Verified/Pro omission caps it.
+- **Cost efficiency: 32/100.** $10/$50 per 1M (the ~30 anchor) with a 2× input surcharge past 272K; 90%-off cache read is the only relief.
+- **Overall Score: 89/100.** (92 + 91 + 97 + 75 + 89) / 5 = 88.8 → 89. Best fit: agentic coding, computer-use automation and authorized security work where terminal-class performance matters more than chat economics.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-05
-- Method: public internet research; second-pass enrichment on 2026-10-05 added the third-party ARC Prize neutral ARC-AGI-3 run (62.7% vs vendor 99.9%) on top of the 2026-09-18 sources (OpenAI launch material via HokAI fact page, Anthropic/GPT comparison tables, Artificial Analysis figures, OpenCode Zen endpoint list); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (OpenAI launch page, Artificial Analysis model page, Vals AI model page, Wikipedia, LMArena). Independent Vals rows were promoted over vendor saturation claims; the ARC-AGI-3 scaffold gap and AA index-version conflict are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

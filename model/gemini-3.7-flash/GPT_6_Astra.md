@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GPT 6 Astra
 
 - Source: Google DeepMind / Gemini 3.7 Flash
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC); user-authorized refresh of October 3.
 - Overview and scoring methodology: [methodology](../../model-comparison.md)
 - Cross-model signed log: [log](../../model-findings.md)
 
@@ -17,7 +17,9 @@
 - **Pricing (as of 2026-10-03):** $0.75/$3.75 input/output per million through December; then $1.50/$7.50. Cache input discounted 90%.
 - **Architecture:** Proprietary, based on Gemini 3.6 Flash. [Google card](https://deepmind.google/models/model-cards/gemini-3-7-flash/), [AA pricing](https://artificialanalysis.ai/articles/gemini-3-7-time-frontier).
 
-### Raw benchmarks found
+### Original October 3 evidence
+
+Preserved for comparison. Original AA numeric snapshots are historical unless explicitly reverified below. Missing-data statements describe the original search and are superseded by the refresh.
 
 Agent / tool use:
 
@@ -39,6 +41,18 @@ Long context:
 
 Google measurements: [model card](https://deepmind.google/models/model-cards/gemini-3-7-flash/). Different suite versions and harnesses remain distinct.
 
+### October 9 refresh
+
+- Vibe Code Bench v1.1, OpenHands: **70.39%**, **$4.83/test**. [Vals leaderboard](https://www.vals.ai/benchmarks/vibe-code)
+
+The Google card adds Agent’s Last Exam 26.3%, GDP.pdf 34.0%, and LVBench 85.4%. These are launch measurements, not newly run October evaluations. MRCR 97.0% is at 128K only. [Google card](https://deepmind.google/models/model-cards/gemini-3-7-flash/)
+
+### Comparison and remaining gaps
+
+All ratings remain unchanged; independent app-building evidence corroborates useful coding while the new desktop-task result highlights limits. Overall: **91 → 91**. The original six ratings (Tool, Reasoning, Context, Multimodal, Coding, Cost) were 88, 87, 95, 95, 89, 91. New evidence coverage is not proof of improvement since October 3. Vals is app building, not Vibe1-100; Scale V2 is not original SWE-Pro or SWE-bench Verified. Harnesses, reasoning effort and benchmark versions remain separate.
+
+The Vals page is dated October 7; its recorded task costs need not use current promotional pricing. Original price claims remain October 3 snapshots unless stated otherwise above; no price-rating change is inferred. Exact-ID hallucination rates, unreported tool suites and full-window retrieval gaps remain unresolved.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Strong terminal and workflow evidence; newer general-agent tasks remain difficult.
@@ -47,12 +61,12 @@ Google measurements: [model card](https://deepmind.google/models/model-cards/gem
 - **Multimodal: 95/100.** Broad input modalities, limited to text output.
 - **Coding: 89/100.** Strong terminal coding; DeepSWE remains below the methodology frontier anchor.
 - **Cost efficiency: 91/100.** Attractive current token pricing; temporary discount limits long-term value.
-- **Overall Score: 91/100.** Half-up mean (88 + 87 + 95 + 95 + 89) / 5 = 90.8; fast multimodal agent workflows.
+- **Overall Score: 91/100.** Half-up mean of the five quality dimensions = 90.8, rounded to 91; cost excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-03
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent fresh public research; normalized interpretations, not vendor scores.
 - Future sources: add separate signed reports with these headings.

@@ -1,70 +1,67 @@
 # Muse Spark 1.3 — findings by DeepSeek 4.1 Flash
 
-- Source: Meta / Muse Spark 1.3 free tier (slug `muse-spark-1.3-free`; API IDs `muse-spark-1.3` and `muse-spark-1.3-contributor`)
-- Date: 2026-09-29 (UTC)
+- Source: Meta / Muse Spark 1.3 (API IDs `muse-spark-1.3` and `muse-spark-1.3-contributor`; Contributor/Free/Max are the same weights)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-09-29)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> Newly confirmed independent data: Artificial Analysis Terminal-Bench 2.1 **85% (xhigh) / 86% (max)**, Tau3-Banking **47% / 52% (max, #1)**, GDPval-AA v2 **1709 / 1754 Elo**, HLE **47% / 49%** — a real independent tool/reasoning picture where the prior file had mostly vendor or unverified rows. Vals Finance Agent v2 is **58.90% (1.3) / 59.96% (1.3 Max)**, *slightly below* Muse Spark 1.2's 60.60% (an independent regression Meta's "improvement" framing omits).
+> **Conflicts surfaced:** (1) AA Intelligence Index reads **62 (launch, xhigh/max on v4.1.1)** but **48 (max) on the current v4.3.2 page** — an index-basket rebase, not a model change; do not compare across versions. (2) **Audio input** is listed by Meta but flagged "not fully supported / degraded" and omitted by AA/LLM Stats — 1.3 is effectively not an audio model. (3) llm-stats GPQA 87% / HLE 41% vs the prior file's GPQA 93.5% / HLE 48.7% — measurement spread.
+> Sources: https://research.meta.ai/blog/introducing-muse-spark-1-3 · https://dev.meta.ai/models/muse-spark · https://artificialanalysis.ai/articles/muse-spark-1-3 · https://artificialanalysis.ai/models/muse-spark-1-3 · https://www.vals.ai/benchmarks/fabv2 · https://llm-stats.com/models/muse-spark-1.3
 
 ## Model card
 
 - **Name:** Muse Spark 1.3
-- **Short description:** Meta Superintelligence Labs' closed, API-only multimodal reasoning model for long-running agentic, multi-agent and coding workflows. Shipped without a blog post as a documentation/catalogue update, and defined less by its specs — byte-for-byte identical to 1.2 — than by a second SKU that is up to 21× cheaper because Meta trains on your prompts and completions.
-- **Provider / access:** Meta Model API (`https://api.meta.ai/v1`), IDs `muse-spark-1.3` and `muse-spark-1.3-contributor`. No downloadable weights, no Hugging Face repo (Muse Glimmer 30B is the self-hostable sibling).
-- **Release / knowledge:** listed 2026-09-02 (19:45 UTC standard, 20:38 UTC contributor). No knowledge cutoff published anywhere by Meta — treat recency claims as untested.
+- **Short description:** Meta Superintelligence Labs' closed, API-only multimodal reasoning model for long-running agentic, multi-agent and coding workflows. Defined less by its specs than by a second SKU up to ~21× cheaper because Meta trains on your prompts and completions.
+- **Provider / access:** Meta Model API (`https://api.meta.ai/v1`), IDs `muse-spark-1.3` and `muse-spark-1.3-contributor`. No downloadable weights.
+- **Release / knowledge:** 2026-09-02. No knowledge cutoff published.
 - **IDs:** as above; no Zen Free ID.
-- **Context window:** 1,048,576 input tokens; **max completion 943,718 tokens** (llm-stats shows the same ceiling as ≈943.7K output).
-- **Modalities:** text, image, video, audio*, PDF input; text output only. *Audio is explicitly degraded in 1.3 — Meta's docs warn audio understanding is "not fully supported" and recommend Muse Spark 1.2 or Muse Voice Transcribe instead. That is a regression from 1.2.
-- **Reasoning:** mandatory, effort levels minimal / low / medium / high / xhigh (default medium). Tool calling incl. `tool_choice: required` and forced functions; JSON-schema structured output; automatic prefix caching with no cache key required.
-- **Pricing (as of 2026-09-29):** standard **$1.25 / 1M in, $0.150 / 1M cached, $4.25 / 1M out**; **contributor tier $0.100 / 1M in, $0.0020 / 1M cached, $0.200 / 1M out** — 12.5× cheaper input and 21.25× cheaper output in exchange for Meta training on prompts and completions. Blended 20:1 in:out listing $1.39 / 1M.
-- **Speed / latency:** p95 TTFT **10.38 s** and ~3.6 char/s sustained output on Meta Model API over the trailing 7 days — slow, because reasoning is mandatory.
-- **Architecture:** proprietary and undisclosed; meta's evaluation-methodology report is the only technical source.
+- **Context window:** 1,048,576 input tokens; **max completion 943,718 tokens**.
+- **Modalities:** text, image, video, PDF, audio* input; text output. *Audio is explicitly degraded in 1.3 (Meta recommends 1.2 / Muse Voice Transcribe).
+- **Reasoning:** mandatory, effort minimal→xhigh (default medium); forced tool calls; JSON-schema output; automatic prefix caching.
+- **Pricing (as of 2026-10-09):** standard **$1.25 in / $0.15 cached / $4.25 out** per 1M; **contributor $0.10 in / $0.002 cached / $0.20 out** (Meta trains on prompts/completions; 100 vs 3,000 RPM).
+- **Architecture:** proprietary and undisclosed.
 
 ### Raw benchmarks found
 
-Scores below are the same set the previous file carried; **none could be re-verified in this run** (llm-stats gated the request behind a "Confirm you're human" check and its own quality tracker only shows intervals ≤4 points wide, so several of these values sit at the edge of measurement noise):
+Agent / tool use:
 
-- MMLU: **89%**
-- MMLU-Pro: **89%**
-- GPQA Diamond: **87%**
-- HLE: **41%**
-- AIME 2025: **67%**
-- SWE-Bench Verified: **79%**
-- LiveCodeBench: **76%**
-- SciCode: **52%**
-- Aider Polyglot: **73%**
-- MMMU: **85%**
-- MathVista: **80%**
-- ChartQA: **94%**
-- DocVQA: **92%**
-- Artificial Analysis Intelligence Index: **62** vs **57** for Muse Spark 1.2
-- LMArena: **no rating yet** ("Muse Spark 1.3 has no Arena rating yet")
-- Terminal-Bench, τ-bench, GDPval-AA, SWE-bench Pro, SWE-bench Multilingual, Vals Finance Agent: **no verified public score found**
+- Terminal-Bench 2.1: **85% (xhigh) / 86% (max)** — independent, Artificial Analysis
+- Tau3-Banking: **47% (xhigh) / 52% (max, #1)** — independent, AA
+- GDPval-AA v2: **1709 / 1754 Elo** — independent, AA; AutomationBench 32.0% (vendor)
+- OSWorld 2.0: 66.9% partial (vendor); Vals Finance Agent v2 **58.90% / 59.96%** (independent, below 1.2's 60.60%)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **94%** (Meta via AA) / 87% (llm-stats)
+- HLE: **47% (xhigh) / 49% (max)** (independent AA) / 41% (llm-stats); ARC-AGI-2 89.2% (self)
+- SciCode: **59%** (AA); MMLU-Pro ~89%; AIME 2025 ~67%
+- AA Intelligence Index: **62** (launch v4.1.1) vs **48** (current v4.3.2) — conflict/version
+
+Coding:
+
+- DeepSWE v1.1: **75.4** (self); Terminal-Bench 2.1 88.8, SWEAtlas CodeBase QA 59.4 (self)
+- SWE-Bench Verified 79%, LiveCodeBench 76%, Aider Polyglot 73%, SciCode 52–59% (mixed)
+
+Long context:
+
+- 1M window; no MRCR/RULER published — no verified public score found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** A reasoning model explicitly built for long-running agentic and multi-agent work with `tool_choice: required`, forced functions, JSON-schema output and a 1M window; capped only by the total absence of a published Terminal-Bench, Tau3, GDPval or Claw score.
-- **Reasoning: 92/100.** Artificial Analysis puts it at **62** on its Intelligence Index versus **57** for Muse Spark 1.2, but the tracker numbers now conflict in the other direction — llm-stats carries GPQA Diamond **87%** and HLE **41%** while the previous file cited GPQA **93.5%** and HLE **48.7%**; mandatory reasoning plus the wide spread cost this dimension 2 points versus the previous run.
-- **Context window: 95/100.** 1,048,576 tokens in with an unusually deep **943,718-token** max completion on Meta's own API (the previous file recorded a 131,072 cap from models.dev) — the largest output ceiling in this batch, with no recall-at-depth benchmark.
-- **Multimodal: 85/100.** Text, image, video, PDF and audio input with text out; dropped 3 points because Meta documents 1.3 audio understanding as "not fully supported" with degraded quality and recommends staying on 1.2 for audio — a documented regression from the previous run's clean "audio input" claim.
-- **Coding: 95/100.** SWE-Bench Verified 79%, LiveCodeBench 76%, Aider Polyglot 73% and SciCode 52% with SciCode also cited at 58.8% via Artificial Analysis; the absence of SWE-bench Pro/DeepSWE numbers is the only real gap.
-- **Cost efficiency: 100/100.** $0.100/$0.200 per 1M on the contributor tier (12.5×/21.25× cheaper than standard $1.25/$4.25, cache hits $0.0020) — the entire cost is granting Meta training rights to prompts and completions.
-- **Overall Score: 92/100.** (92 + 92 + 95 + 85 + 95) / 5 = 91.8 → **92**. Best fit: top-end free agentic coding and multi-agent workflows on the contributor SKU, accepting that prompts train Meta models and that audio work belongs on 1.2.
-
-## Re-run audit — 2026-09-29
-
-Previous DeepSeek 4.1 Flash file: 2026-09-18 (headline Overall 93). After re-verifying live sources:
-
-- **Confirmed:** release date 2026-09-02; 1,048,576-token input window; contributor-rate discounting (input $0.100, cached $0.0020, output $0.200) with Meta training on prompts/completions; text-only output; proprietary API-only delivery with no weights.
-- **Corrected:** max completion is **943,718 tokens**, not the 131,072 the previous file took from models.dev; the standard tier is $1.25/$0.150 cached/$4.25 (cached rate now explicit).
-- **New evidence:** mandatory reasoning at minimal/low/medium/high/xhigh (default medium); `tool_choice: required` and forced function calls; Automatic prefix caching with no cache key; **audio understanding is explicitly degraded in 1.3** (Meta points users to 1.2 or Muse Voice Transcribe) — this reverses the previous file's audio claim; Artificial Analysis **62** vs 1.2's **57**; still **no LMArena rating**.
-- **Conflicting evidence, flagged not hidden:** llm-stats reports GPQA 87% / HLE 41% / MMLU 89% / MMLU-Pro 89% / AIME 2025 67% / SWE-Bench Verified 79% / LiveCodeBench 76% / SciCode 52% / Aider 73% / MMMU 85% / MathVista 80% / ChartQA 94% / DocVQA 92%, while the previous file's Artificial-Analysis-derived set (GPQA 93.5%, HLE 48.7%, "95th-percentile" indices) could not be re-verified. Both sets are listed rather than averaged.
-- **Score deltas:** Reasoning 94 → 92 (evidence spread), Multimodal 88 → 85 (documented audio regression), Overall **93 → 92**. Tool use 92, Context window 95 and Coding 95 unchanged.
-- **Arithmetic fix:** the previous file divided by six dims (94.0) while printing 93 in the headline; RULES.md counts only the five quality dims, so the five-dim mean (91.8 → 92) is now the headline.
+- **Tool use: 92/100.** Independent AA TB2.1 85–86%, Tau3 47–52% (max #1) and GDPval-AA 1709–1754 confirm frontier-class tool use; capped by Vals Finance Agent slipping just below Muse 1.2.
+- **Reasoning: 91/100.** GPQA 94% and HLE 47–49% are frontier-level; the rebased AA Index (48 on v4.3.2 vs 62 at launch) and a low HLE reading on llm-stats (41%) hold it below 95.
+- **Context window: 96/100.** 1,048,576 input with a 943,718-token max completion (≥1M band) and no recall-at-depth benchmark.
+- **Multimodal: 83/100.** Text + image + video + PDF input (video band) with text out; audio is documented as degraded, so not credited.
+- **Coding: 93/100.** DeepSWE 75.4, TB2.1 88.8 and SciCode 59 clear the frontier refs; partly self-reported and no SWE-bench Pro/Verified from an independent harness.
+- **Cost efficiency: 98/100.** $0.10/$0.20 per 1M on the contributor tier (~97–99 band); the price is training-data consent.
+- **Overall Score: 91/100.** (92 + 91 + 96 + 83 + 93) / 5 = 91.0 → 91. Best fit: top-end agentic coding/multi-agent on the contributor SKU, accepting that prompts train Meta models.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-29
-- Method: public internet research re-run (Meta Model API catalogue and models documentation via Codersera's documented-terms guide, llm-stats model page for benchmarks/pricing/context, Artificial Analysis Intelligence Index via Codersera); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Meta dev model page and launch blog, Artificial Analysis launch article + current model page, Vals Finance Agent v2, LLM Stats, Codersera). Independent AA rows were promoted over vendor-only rows; the AA index rebase and the Muse 1.2→1.3 finance regression are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

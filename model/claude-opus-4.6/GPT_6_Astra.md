@@ -1,11 +1,33 @@
 # Claude Opus 4.6 — findings by GPT 6 Astra
 
 - Source: Anthropic / `claude-opus-4-6`
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-09 (UTC)
 - Methodology: [model comparison](../../model-comparison.md)
 - Cross-model log: [findings](../../model-findings.md)
 
-## Model card
+## Research refresh — 2026-10-09
+
+Compared with the 2026-10-04 report. Sources accessed on 2026-10-09; access dates are not benchmark execution dates. This section supersedes conflicting or missing-data statements in the preserved snapshot below. No local model evaluation was performed.
+
+[Current specifications](https://platform.claude.com/docs/en/models/opus-4-6/overview) reconfirm 1M context, 128K standard output and $5/$25 input/output per million. A separately documented **300K output Batch API beta** is newly recorded and must not replace the synchronous cap. Active legacy status and retirement **not sooner than February 5, 2027** are verified. Cache read is **$0.50/M**, cache writes **$6.25/M for five minutes / $10/M for one hour**; batch halves base input/output rates.
+
+[PDF support](https://platform.claude.com/docs/en/build-with-claude/pdf-support) adds visual document processing to the earlier image-only assessment. On Bedrock Converse, citations must be enabled for visual PDF analysis.
+
+[MCP Atlas](https://labs.scale.com/leaderboard/mcp_atlas), max: **76.8% all 1,000 / 79.0% public 500**. Its updated judge, retry handling and tool budget matter when comparing vendor launch tables.
+
+Vibe Code Bench v1.1 / OpenHands: nonthinking **57.57%, $8.69/test**; thinking **53.50%, $8.28/test**. [Vals](https://www.vals.ai/benchmarks/vibe-code).
+
+Those configurations must remain separate; this one result does not imply thinking generally reduces coding quality. Tool use 82→84 gains independent MCP evidence; multimodal 70→80 corrects omitted PDFs; coding 84→83 reflects the mixed end-to-end evidence. Other dimensions stay unchanged. Remaining gaps: exact-model current AA reasoning metrics, ClawProBench, full-window near-perfect retrieval and immutable run provenance. Historical launch/system-card comparisons remain snapshots, not newly reproduced tests.
+
+### Score comparison
+
+Order: tool use, reasoning, context, multimodal, coding, cost. Previous: **82, 89, 95, 70, 84, 50**; revised: **84, 89, 95, 80, 83, 50**. Overall: **84 → 86**. Scores are normalized judgments, not raw benchmark percentages.
+
+## Prior research snapshot — 2026-10-04
+
+The following model card and raw findings preserve the earlier evidence and its gaps for comparison; read the refresh above for current corrections.
+
+### Model card
 
 Claude Opus 4.6 is Anthropic's proprietary reasoning model released February 5, 2026, for coding, analysis, and computer-assisted work. Its API ID is `claude-opus-4-6`. Current documentation lists a 1M-token context, 128K output, adaptive thinking with high default effort, text/image input, and text output. The reliable knowledge cutoff is May 2025; the training-data cutoff is August 2025. These are different claims. Parameter counts and downloadable weights are not disclosed. [Official model documentation](https://platform.claude.com/docs/en/models/opus-4-6/overview).
 
@@ -35,17 +57,17 @@ Long context:
 
 - **MRCR v2, eight needles at 1M tokens: 76%**, according to the [launch report](https://www.anthropic.com/news/claude-opus-4-6). This supports useful long-context retrieval but falls well below a near-perfect retrieval claim. No exact-model RULER score was verified here.
 
-### Normalized scores (1–100)
+## Current normalized scores (1–100)
 
-- **Tool use: 82/100.** Strong computer use and browsing, with harness-dependent vendor evidence.
+- **Tool use: 84/100.** Revised from 82; evidence and rationale are recorded in the dated refresh above.
 - **Reasoning: 89/100.** Strong GPQA and unassisted HLE; tool-assisted gains are kept distinct.
 - **Context window: 95/100.** Verified 1M window, capped below 100 by imperfect measured retrieval.
-- **Multimodal: 70/100.** Image and text understanding, without native audio or visual output.
-- **Coding: 84/100.** Strong repository repair, with lower performance on harder Pro tasks.
+- **Multimodal: 80/100.** Revised from 70; evidence and rationale are recorded in the dated refresh above.
+- **Coding: 83/100.** Revised from 84; evidence and rationale are recorded in the dated refresh above.
 - **Cost efficiency: 50/100.** $5/$25 is costly relative to newer alternatives despite removal of the long-context premium.
-- **Overall Score: 84/100.** Half-up mean: (82 + 89 + 95 + 70 + 84)/5 = 84; cost excluded. Suited to complex coding and document analysis when its behavior fits the workflow.
+- **Overall Score: 86/100.** Half-up mean (84 + 89 + 95 + 80 + 83) / 5 = 86.2; cost excluded. See the refresh for the comparison with 84.
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
 - Method: Independent public-web research; normalized scores are interpretations, not official vendor scores.

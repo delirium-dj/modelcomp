@@ -1,0 +1,64 @@
+# Gemini 3.1 Flash — findings by Laguna S 2.1
+
+- Source: Google / Gemini 3.1 Flash (`google/gemini-3.1-flash`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash
+- **Short description:** Google's Gemini 3.1 Flash is the cost-efficient flash variant in the Gemini 3.1 model family. Per model-comparison methodology: **EXCLUDED** — zero verified public benchmark numbers were found for this exact model name. The closest available model is "Gemini 3.1 Flash-Lite" (a distinct, deprecated model), which was used for metadata only (context, pricing, modalities), not for scoring.
+- **Provider / access:** Not found on OpenRouter, Artificial Analysis, CloudPrice, or Hugging Face under the exact name "Gemini 3.1 Flash". The closest match is `google/gemini-3.1-flash-lite` on OpenRouter, but this is a different model (Lite variant, Overall 75.8 vs 78.4 on the queue).
+- **Release / knowledge:** Not determined. The Gemini 3.1 Flash-Lite variant was released August 26, 2026 (created timestamp 1778168828).
+- **IDs:** `google/gemini-3.1-flash` — not found on any platform. No OpenRouter, HuggingFace, or API listing.
+- **Context window:** Not determined for "Gemini 3.1 Flash". The closest model (Gemini 3.1 Flash-Lite) has 1,048,576 tokens (1M).
+- **Modalities:** Not determined for "Gemini 3.1 Flash". The closest model (Gemini 3.1 Flash-Lite) supports text+image+file+audio+video input → text output.
+- **Pricing:** Not determined for "Gemini 3.1 Flash". The closest model (Gemini 3.1 Flash-Lite) is priced at $0.125/1M input via CloudPrice (8 providers), $0.25/1M input via OpenRouter.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model name.
+
+Agent / tool use:
+
+- No verified public score found. The closest model (Gemini 3.1 Flash-Lite) has a CloudPrice intelligence index of 15.6, but this is for a DIFFERENT model and cannot be used for scoring.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- Context window: Not determined.
+
+### Normalized scores (1–100)
+
+> No normalized scores computed. This file is excluded due to zero verified public benchmark numbers.
+
+- **Tool use: /100.** EXCLUDED — no verified public score found.
+- **Reasoning: /100.** EXCLUDED — no verified public score found.
+- **Context window: /100.** EXCLUDED — no verified public score found.
+- **Multimodal: /100.** EXCLUDED — no verified public score found.
+- **Coding: /100.** EXCLUDED — no verified public score found.
+- **Cost efficiency: /100.** EXCLUDED — no verified public score found.
+- **Overall Score: EXCLUDED.** Zero verified public benchmark numbers found for this exact model name. See self-exclusion rule in model-comparison.md.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-09
+- Method: Public web research via OpenRouter API, Artificial Analysis model page, CloudPrice model page, and DuckDuckGo search. Searched for the exact model name "gemini-3.1-flash" and the slug "gemini-3-1-flash" across all platforms. The exact model was not found on any platform. The closest match is "gemini-3-1-flash-lite" (deprecated in favor of other Gemini 3.x models), but this is a different model with different capabilities (Queue Overall: 75.8 vs 78.4 for the target). No verified public benchmark numbers were found for the exact model name "gemini-3.1-flash". Scores are not computed.
+- Sources searched:
+  - OpenRouter API: Model list does not contain "gemini-3.1-flash". Only "gemini-3.1-flash-lite", "gemini-3.1-flash-image", and "gemini-3.1-pro-preview" exist.
+  - Artificial Analysis (artificialanalysis.ai): Model page at `/models/gemini-3-1-flash` returns the generic leaderboard page. The model list JSON contains `gemini-3-1-flash-lite` and `gemini-3-1-flash-lite-preview` but NOT `gemini-3-1-flash`.
+  - CloudPrice (cloudprice.net): Model page at `/models/google-gemini-3-1-flash` redirects to "Gemini 3.1 Flash Image" pricing & specs (an image generation model, not a text LLM). No text-LLM variant found.
+  - Hugging Face: No model card found for "gemini-3.1-flash".
+  - DuckDuckGo: Search results only mention "Gemini 3.1 Flash-Lite", not "Gemini 3.1 Flash" (non-Lite). A DeepMind PDF at `storage.googleapis.com/deepmind-media/gemini/gemini_3-1_flash-lite_model_evaluation.pdf` references "Flash-Lite" exclusively.
+  - models.dev: API returns empty response; no model found.
+- Future sources: If "gemini-3.1-flash" is published with benchmark data on OpenRouter, AA, or CloudPrice in the future, replace this excluded file with a scored report.

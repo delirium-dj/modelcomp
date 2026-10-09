@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by GPT 6 Astra
 
 - Source: OpenAI / GPT-5.5 Pro
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC); user-authorized refresh of October 3.
 - Overview and scoring methodology: [methodology](../../model-comparison.md)
 - Cross-model signed log: [findings](../../model-findings.md)
 
@@ -17,7 +17,9 @@
 - **Pricing (as of 2026-10-03):** $30 input / $180 output per million tokens; no cached-input rate listed.
 - **Architecture:** Proprietary; parameter counts undisclosed. Specifications: [official model documentation](https://developers.openai.com/api/docs/models/gpt-5.5-pro).
 
-### Raw benchmarks found
+### Original October 3 evidence
+
+Preserved for comparison. AA numeric snapshots remain historical unless explicitly reverified below. Original missing-data statements are superseded where the refresh provides new evidence.
 
 Agent / tool use:
 
@@ -37,20 +39,36 @@ Long context:
 
 - No verified Pro-specific retrieval result found; base GPT-5.5 MRCR/Graphwalks results are not Pro measurements.
 
+### October 9 refresh
+
+Current documentation says **streaming unsupported**, function calling and structured outputs supported; hosted shell and code interpreter are supported, but computer use, apply patch and tool search are unsupported. Background mode is recommended for long-running requests. [Model specification](https://developers.openai.com/api/docs/models/gpt-5.5-pro)
+
+The launch table still publishes BrowseComp 90.1% and GDPval 82.3% for this Pro variant, with blank coding cells. A targeted official-source search did not close exact-Pro coding gaps. [Launch evaluation](https://openai.com/index/introducing-gpt-5-5/)
+
+PDF input is supported through Responses: vision models receive extracted text and page images. [File-input documentation](https://developers.openai.com/api/docs/guides/file-inputs)
+
+The exact model's current API page reconfirms the original context/output limits and standard token prices. API features above follow the feature/tool matrix, not the site's generic endpoint navigation. [Official specification](https://developers.openai.com/api/docs/models/gpt-5.5-pro)
+
+### Comparison and remaining gaps
+
+Coding 80 remains explicitly provisional. Tool availability is not a measured tool-success score. Multimodal changes from 70 to 80 for verified PDF handling; this corrects omitted evidence rather than establishing a newly added capability. Other dimensions stay unchanged. Overall: **85 → 87**. Original ratings (Tool, Reasoning, Context, Multimodal, Coding, Cost): 88, 94, 95, 70, 80, 15.
+
+No measured improvement between October 3 and October 9 is inferred. Vals v1.1 measures app building, not Vibe1-100; its October 7 page date is not a run date. Scale V2 is not original SWE-Pro or SWE-bench Verified. Costs and scores depend on harness and effort. Remaining unverified exact-ID suites and full-window retrieval remain gaps; Pro/base models are never interchangeable.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Strong BrowseComp and GDPval support research workflows; missing terminal results and computer-use support cap breadth.
 - **Reasoning: 94/100.** HLE and FrontierMath establish high-end reasoning, with limited independent corroboration.
 - **Context window: 95/100.** Million-token capacity meets the top size tier; unverified retrieval prevents a perfect score.
-- **Multimodal: 70/100.** Image understanding is supported, but native audio/video and nontext output are absent.
+- **Multimodal: 80/100.** Image and PDF input meet the PDF-input tier; native audio/video and non-text output are not established.
 - **Coding: 80/100.** Provisional family-level estimate from GPT-5.5's coding specialization; no exact Pro coding measurement supports a frontier claim.
 - **Cost efficiency: 15/100.** $30/$180 pricing substantially limits routine deployment value despite research strength.
-- **Overall Score: 85/100.** Half-up mean of 88, 94, 95, 70 and 80 is 85; best suited to demanding research when latency and price are secondary.
+- **Overall Score: 87/100.** Half-up mean of the five quality dimensions = 87.4, rounded to 87; cost excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-03
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public web research; normalized scores are interpretations, not official vendor scores. Coding is provisional.
 - Future sources: Add a separate signed findings file alongside this report.

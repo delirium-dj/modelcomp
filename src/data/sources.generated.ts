@@ -73,7 +73,8 @@ export type SourceKey =
   | "Claude Opus 4.8"
   | "MiMo 2.6 Flash"
   | "Gemini 3.1 Flash Lite"
-  | "Step 5 Preview";
+  | "Step 5 Preview"
+  | "Claude Haiku 5.5";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -158,4 +159,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "MiMo 2.6 Flash", label: "MiMo 2.6 Flash", file: "MiMo_2.6_Flash.md", slug: "mimo-v2.6-free" },
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md", slug: "gemini-3.1-flash-lite" },
   { key: "Step 5 Preview", label: "Step 5 Preview", file: "Step_5_Preview.md", slug: "step-5-preview" },
+  { key: "Claude Haiku 5.5", label: "Claude Haiku 5.5", file: "Claude_Haiku_5.5.md", slug: "claude-haiku-5.5" },
 ];

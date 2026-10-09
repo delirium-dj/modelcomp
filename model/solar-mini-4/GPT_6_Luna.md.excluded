@@ -1,0 +1,204 @@
+# Solar Mini 4 — findings by ChatGPT 6
+
+- Source: Upstage (`solar-mini4`, snapshot `solar-mini4-260922`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- Name: Solar Mini 4 (paid API; limited-time free access on Hermes Agent; no verified OpenCode Zen Free variant).
+
+- Short description: Solar Mini 4 is a compact, proprietary mixture-of-experts language model developed by Upstage, optimized for affordable, high-volume agentic workloads. Its strongest use cases include long-document analysis, multilingual processing, structured extraction, tool calling, and repetitive business automation.
+
+- Provider / access: Upstage Console API (`solar-mini4`, `solar-mini4-260922`) supports OpenAI-compatible Chat Completions and Responses APIs at `https://api.upstage.ai/v1`. OpenRouter offers `upstage/solar-mini4` through Chat Completions and Responses endpoints. Also accessible through Solar Chat and, temporarily, Hermes Agent. No verified OpenCode Zen listing.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Build AI Conversations with LLM
+
+  +4
+
+- Release / knowledge: 2026-09-22 (official Upstage snapshot release); training cutoff February 2026. OpenRouter records availability from 2026-09-23.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Console
+
+  +1
+
+- IDs: `upstage/solar-mini4` (OpenRouter); `solar-mini4` and `solar-mini4-260922` (Upstage). No verified `opencode/solar-mini4` or `opencode/solar-mini4-free` ID exists in the published Zen model catalog.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Build AI Conversations with LLM
+
+  +2
+
+- Context window: 512K tokens per Upstage; 524,288 tokens as represented by OpenRouter. Maximum output: 128K tokens (131,072 on OpenRouter). Official context capacity is documented, but no independent retrieval-at-512K accuracy result was verified.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Console
+
+  +1
+
+- Modalities: Text input and text output only. No native image, audio, video, or PDF input verified. Supports optional reasoning (`low` through `max`; disabled by default), tool calling, parallel tool calls, JSON mode, and JSON Schema structured output. English, Korean, and Japanese supported.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Console
+
+  +3
+
+- Pricing (as of 2026-10-09): Upstage standard: $0.10 input / $0.40 output / $0.01 cached input per 1M tokens. OpenRouter currently advertises a 50% discount: $0.05 input / $0.20 output / $0.005 cached input. Upstage separately advertises a 70% launch discount through October 10 UTC; promotion terms are subject to change. Limited-time free usage through Hermes Agent began October 5, not a permanent free API tier. Upstage states that direct API inputs are not used for training and generally are not stored; third-party free-access privacy terms require separate verification.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+  +2
+
+- Architecture: Proprietary mixture-of-experts (MoE), 35B total parameters / 3B active parameters per token. Not publicly released as open weights; no open-weights license verified. Upstage supports managed API and on-premises deployment.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://console.upstage.ai\&sz=32)
+
+  Upstage Console
+
+  +2
+
+
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found. A different evaluation, Terminal-Bench 4.0, is reported at 1.0% by secondary reporting of Artificial Analysis results; not interchangeable with TB 2.1.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://traictory.com\&sz=32)
+
+  Traictory
+
+  +1
+
+- Tau3-Banking / Tau2-Bench: 47.2 (τ³-Banking; Upstage-reported, multi-turn policy application and tool use; score reported without a percentage unit).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+- GDPval-AA: no verified public score found for an independently confirmed Elo value. A 28.6% GDPval-AA result is reproduced in an Artificial Analysis-attributed benchmark summary, but this is not treated as an Elo score.&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://openrouter.aigan.me\&sz=32)
+
+  OpenRouter
+
+  +1
+
+- Claw-Eval / ClawProBench: no verified public score found
+
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+- Additional agent benchmark — AutomationBench-AA: 22.3% (Upstage-reported; real SaaS multi-step workflows).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+
+- HLE: 25.8% (Humanity's Last Exam; Artificial Analysis result reported by Upstage).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+- LCR / MLCR: 83.3% (AA-LCR, Artificial Analysis long-context reasoning evaluation; no separately verified MLCR score).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+- CritPt: 1.4% (Artificial Analysis-attributed research-level physics benchmark).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://openrouter.aigan.me\&sz=32)
+
+  OpenRouter
+
+- Artificial Analysis Intelligence Index / BenchLM overall: 24.1 / no verified public rank found (AA Intelligence Index v4.3.2; Upstage reports the highest score among evaluated 3B-active models; no stable exact overall rank verified).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+  +1
+
+- Omniscience Accuracy / Hallucination Rate: 18.4% accuracy / 35.8% hallucination rate (Artificial Analysis AA-Omniscience; reported non-hallucination rate 64.2%, so hallucination rate is its arithmetic complement, not a separately reported raw value).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://openrouter.aigan.me\&sz=32)
+
+  OpenRouter
+
+
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+
+- LiveCodeBench: no verified public score found
+
+- SciCode / AA-SciCode: 47.6% (Artificial Analysis SciCode; independently evaluated result reported by Upstage).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+  upstage.ai
+
+- Vibe Code Bench: no verified public score found
+
+- DeepSWE / Coding Index / other: no verified public score found for DeepSWE or an independently confirmed Coding Index. Terminal-Bench 4.0: 1.0% (secondary reporting of AA evaluation; different from Terminal-Bench 2.1).&#x20;
+
+  [image](https://www.google.com/s2/favicons?domain=https://traictory.com\&sz=32)
+
+  Traictory
+
+  +1
+
+
+
+Long context:
+
+\- AA-LCR: 83.3% (Artificial Analysis long-context reasoning benchmark). Upstage verifies a 512K-token supported context, but the published aggregate score does not establish retrieval accuracy specifically at 512K tokens. No verified MRCR or RULER retrieval score at 512K found.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.upstage.ai\&sz=32)
+
+upstage.ai
+
++1
+
+
+
+### Normalized scores (1-100)
+
+\- Tool use: 72/100. The reported τ³-Banking result of 47.2 supports strong policy-based tool use, approaching the specified frontier reference. AutomationBench-AA at 22.3% supports practical multi-step automation but suggests substantial room for improvement. The exceptionally low separately reported Terminal-Bench 4.0 result and missing TB 2.1 evidence cap the score. Normalized judgment rather than a published vendor score.
+
+\- Reasoning: 62/100. HLE 25.8%, AA-LCR 83.3%, and AA Intelligence Index 24.1 demonstrate useful reasoning, especially over long text. CritPt 1.4% and Omniscience accuracy 18.4% constrain confidence in scientific and factual reasoning. GPQA Diamond is unavailable, preventing a comprehensive frontier-level assessment.
+
+\- Context window: 88/100. Verified 512K context capacity places the model in the 500K–1M tier (85–94). The strong 83.3% AA-LCR result supports its long-context capabilities, but without verified retrieval accuracy at 512K+, it does not qualify for the highest tier or a perfect score.
+
+\- Multimodal: 15/100. Text-only model with text input and output. No verified native image, audio, video, or PDF modality support. Optional reasoning, JSON formatting, and function calling do not count as additional modalities.
+
+\- Coding: 56/100. SciCode 47.6% shows meaningful scientific-programming ability. However, the separately reported Terminal-Bench 4.0 result of 1.0% indicates weak performance on that terminal-agent evaluation. Missing SWE-bench Verified, LiveCodeBench, and DeepSWE results prevent a higher confidence rating.
+
+\- Cost efficiency: 98/100. Evaluated using the current discounted OpenRouter tier of $0.05/$0.20 per million input/output tokens, which is cheaper than the supplied \~$0.10/$0.20 reference point for 97–99. Upstage's standard $0.10/$0.40 tier remains inexpensive, but the present score applies to the discounted tier only. Temporary free usage is not used to assign 100.
+
+\- Overall Score: 58.6/100. Calculated as (72 + 62 + 88 + 15 + 56) / 5 = 58.6, rounded half-up to one decimal. Cost efficiency is excluded. Best fit: inexpensive, high-volume, text-only agents for long-document processing, multilingual classification, structured extraction, and relatively straightforward tool workflows. Less suitable for autonomous software engineering, terminal-intensive coding, advanced research reasoning, or multimodal tasks.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
+- Method: Fresh public internet research using official Upstage model documentation and launch announcement, Artificial Analysis, OpenRouter, OpenCode Zen documentation, and the Upstage Hugging Face publisher catalog. Raw benchmark results are distinguished from secondary reporting and from normalized interpretations. Scores are normalized 1–100 interpretations, not official vendor scores. Unverified measurements are explicitly identified rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

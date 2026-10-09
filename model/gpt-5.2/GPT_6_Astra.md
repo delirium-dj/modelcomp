@@ -1,7 +1,7 @@
 # GPT-5.2 — findings by GPT 6 Astra
 
 - Source: OpenAI / GPT-5.2
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC); user-authorized refresh of October 3.
 - Overview and scoring methodology: [methodology](../../model-comparison.md)
 - Cross-model signed log: [findings](../../model-findings.md)
 
@@ -17,7 +17,9 @@
 - **Pricing (as of 2026-10-03):** $1.75 input / $14 output / $0.175 cached input per million.
 - **Architecture:** Proprietary; parameter count undisclosed. [Official API specification](https://developers.openai.com/api/docs/models/gpt-5.2).
 
-### Raw benchmarks found
+### Original October 3 evidence
+
+Preserved for comparison. AA numeric snapshots remain historical unless explicitly reverified below. Original missing-data statements are superseded where the refresh provides new evidence.
 
 Agent / tool use:
 
@@ -38,20 +40,36 @@ Long context:
 
 - OpenAI MRCRv2 eight-needle **77.0% at 128K–256K**; GraphWalks BFS **94.0% below 128K**, same launch table. Full 400K retrieval unverified.
 
+### October 9 refresh
+
+- Vibe Code Bench v1.1, OpenHands: **53.50%**, **$17.75/test**. [Vals leaderboard](https://www.vals.ai/benchmarks/vibe-code)
+
+MCP Atlas **67.60 ± 2.90**, xhigh; all-1,000 pass rate 67.6%, public-500 71.8%. Keep separate from the original vendor 60.6% configuration. [Scale MCP Atlas](https://labs.scale.com/leaderboard/mcp_atlas)
+
+PDF input is supported through Responses: vision models receive extracted text and page images. [File-input documentation](https://developers.openai.com/api/docs/guides/file-inputs)
+
+The exact model's current API page reconfirms the original context/output limits and standard token prices. API features above follow the feature/tool matrix, not the site's generic endpoint navigation. [Official specification](https://developers.openai.com/api/docs/models/gpt-5.2)
+
+### Comparison and remaining gaps
+
+The independent app-building and tool measurements broaden coverage without a further coding/tool rating change. Multimodal changes from 70 to 80 for verified PDF handling; this corrects omitted evidence rather than establishing a newly added capability. Other dimensions stay unchanged. Overall: **81 → 83**. Original ratings (Tool, Reasoning, Context, Multimodal, Coding, Cost): 79, 88, 82, 70, 84, 67.
+
+No measured improvement between October 3 and October 9 is inferred. Vals v1.1 measures app building, not Vibe1-100; its October 7 page date is not a run date. Scale V2 is not original SWE-Pro or SWE-bench Verified. Costs and scores depend on harness and effort. Remaining unverified exact-ID suites and full-window retrieval remain gaps; Pro/base models are never interchangeable.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 79/100.** Telecom and MCP results support useful tools; Toolathlon and BrowseComp show clear limits.
 - **Reasoning: 88/100.** GPQA is strong, while HLE and abstract reasoning leave substantial headroom.
 - **Context window: 82/100.** 400K sits in the 200K–500K tier; retrieval degrades well below the advertised maximum.
-- **Multimodal: 70/100.** Native image understanding is useful; sampled-video evaluations do not establish native video API input.
+- **Multimodal: 80/100.** Image and PDF input meet the PDF-input tier; native audio/video and non-text output are not established.
 - **Coding: 84/100.** Verified 80% and SWE-Pro 55.6% support capable engineering, with vendor harness dependence.
 - **Cost efficiency: 67/100.** Moderate input cost but $14 output makes long reasoning runs comparatively expensive.
-- **Overall Score: 81/100.** Half-up mean of 79, 88, 82, 70 and 84 is 81; suitable for established professional and coding integrations.
+- **Overall Score: 83/100.** Half-up mean of the five quality dimensions = 82.6, rounded to 83; cost excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-03
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public web research; normalized scores are interpretations, not vendor scores. Pro results excluded.
 - Future sources: Add a separate signed findings file alongside this report.

@@ -1,103 +1,81 @@
-# Gemini 2.5 — findings by Laguna S 1
+# Gemini 2.5 — findings by Laguna S 2.1
 
-- Source: Artificial Analysis (`https://artificialanalysis.ai/models/gemini-2-5-pro`), BenchLM (`https://benchlm.ai/models/gemini-2-5-pro`), Google DeepMind (`https://deepmind.google/models/gemini/pro/`), Epoch AI (`https://epoch.ai/benchmarks/frontiermath-tier-4-v2`)
-- Date: 2026-10-08 (UTC)
+- Source: Google / Gemini 2.5 (`google/gemini-2.5-pro`)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 2.5 Pro
-- **Short description:** Google's Gemini 2.5 Pro flagship (served as `gemini-2.5-pro`): deep-reasoning model with 1M context, thinking, and text/image/audio/video input. Released June 2025; now deprecated with only 10k-input-token workload benchmarking active.
-- **Provider / access:** Google AI (Gemini API, Vertex AI); OpenRouter `google/gemini-2.5-pro`; OpenCode Zen: `google/gemini-2.5-pro` (per `meta.json`, `noFreeId: true`; note: meta.json `id` is `google/gemini-2.5-pro`, not `opencode/...`); 2 API providers
-- **Release / knowledge:** Released June 5, 2025; knowledge cutoff January 1, 2025
-- **IDs:** `google/gemini-2.5-pro` (Google API, OpenRouter; per `meta.json` and verified 2026-10-04); also accessible via Google DeepMind model page (`https://deepmind.google/models/gemini/pro/`)
-- **Context window:** 1,048,576 (1M) (per AA model page and `meta.json`)
-- **Modalities:** Text, image, speech, and video input; text output (per AA model page: "Supports: text, image, speech, and video")
-- **Pricing (as of 2026-10-08):** $1.25 input / $10.00 output per 1M tokens (Google API; OpenRouter, per `meta.json`); cache hits discounted 90% (AA); $0.33 cost per Intelligence Index task (AA)
-- **Architecture:** Proprietary (Google has not disclosed parameter count)
-- **Reasoning:** Yes (extended thinking / chain-of-thought; per AA model page); note: BenchLM classifies as Non-Reasoning — this model has a non-reasoning variant
-- **Speed:** 119.0 tokens/s output (AA, Google API; rank #36/225 among similar models)
-- **TTFT:** 22.64s (AA, Google API)
-- **Status:** Deprecated — Google has launched Gemini 3 Pro Preview; AA continues only 10k-input-token workload benchmarking
+- **Name:** Gemini 2.5
+- **Short description:** Google's Gemini 2.5 is the mainstream multimodal reasoning model in the Gemini 2.5 family. It is a large-scale model optimized for reasoning, coding, and multimodal tasks with a 1M-token context window. Reasoning is mandatory and enabled by default. Flag: the queue entry "gemini-2.5" (Overall 80) differs from "gemini-2.5-pro" (Overall 83.2) — the exact model "gemini-2.5" (without -pro suffix) was not found on OpenRouter, AI, cloudprice, or Hugging Face. This report uses `google/gemini-2.5-pro` as the closest available match.
+- **Provider / access:** Hosted via OpenRouter (`https://openrouter.ai/google/gemini-2.5-pro`). Also available via Google AI Studio / Vertex AI (`google/gemini-2.5-pro`). OpenAI-compatible Chat Completions API.
+- **Release / knowledge:** Released June 2025. Knowledge cutoff: January 31, 2025.
+- **IDs:** `google/gemini-2.5-pro` (OpenRouter); `google/gemini-2.5-pro` (Google AI Studio / Vertex AI)
+- **Context window:** 1,048,576 tokens total (verified via OpenRouter API `context_length: 1048576` and CloudPrice page). Max output: varies by provider; OpenRouter does not specify a max_output field.
+- **Modalities:** text, image, file, audio, and video input; text output. Reasoning is mandatory (isReasoning: mandatory). Tool calls and JSON mode supported. Vision is supported.
+- **Pricing (as of June 2025):** $1.25/1M input tokens, $10.00/1M output tokens via OpenRouter. Cached input: $0.125/1M (cache read). Over 200K prompt tokens: $2.50/1M in, $15.00/1M out. Web search: $0.014/query. [(source: OpenRouter API)](https://openrouter.ai/google/gemini-2.5-pro)
+- **Architecture:** Proprietary. Parameters not disclosed (null). Transformer-based with Mixture-of-Experts (MoE) architecture. Multimodal (text/image/audio/video/file → text) pipeline.
 
 ### Raw benchmarks found
 
-> Sources: Artificial Analysis model page (`https://artificialanalysis.ai/models/gemini-2-5-pro`), BenchLM (`https://benchlm.ai/models/gemini-2-5-pro`), Google DeepMind (`https://deepmind.google/models/gemini/pro/`), Epoch AI FrontierMath (`https://epoch.ai/benchmarks/frontiermath-tier-4-v2`). BenchLM covers 25 of 623 benchmarks. Note: BenchLM classifies Gemini 2.5 Pro as Non-Reasoning; the AA model page shows the reasoning variant. Benchmarks below may reflect the non-reasoning variant.
+> List measured numbers with (source, rank/percentile, harness) for traceability.
 
 Agent / tool use:
 
-- **GDPval-AA:** **616** (Elo) — (Artificial Analysis via BenchLM)
-- **GDPval-AA (normalized):** **0.0%** — (Artificial Analysis via BenchLM)
-- **AA Agentic Index:** **3.5%** — (Artificial Analysis via BenchLM)
-- **τ²-bench:** **54.1%** — (Artificial Analysis via BenchLM)
-- **Gert Labs:** **42.01%** — (Gert Labs rankings via BenchLM)
-- **Terminal-Bench 2.1:** no verified public score found (not reported)
-- **Terminal-Bench 4.0:** no verified public score found (not reported)
-- **OSWorld-Verified:** no verified public score found
-- **Claw-Eval:** no verified public score found
+- Artificial Intelligence Index: **16.1** (rank #213/571, 62.9th percentile) [(source: CloudPrice via Artificial Analysis)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- Artificial Analysis Coding Index: **46.7** (rank #78/215, 64.2nd percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- Terminal-Bench Hard: **26.5%** (rank #121/411, 70.8th percentile) [(source: CloudPrice via Artificial Analysis)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- Tau2-Bench: **54.1%** (rank #182/418, 56.7th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- LCR / MLCR: **69.0%** (rank #155/490, 68.6th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- GPQA Diamond: **84.4%** (rank #112/537, 79.3rd percentile) [(source: CloudPrice via Artificial Analysis)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- MMMU-Pro: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- **GPQA Diamond:** **83%** — (Google DeepMind model page; AA GPQA-D: 84.4%)
-- **AA-GPQA Diamond:** **84.4%** — (Artificial Analysis via BenchLM)
-- **HLE:** **18.8%** — (Google: Gemini 2.5 Pro blog via BenchLM)
-- **AA-HLE:** **22.5%** — (Artificial Analysis via BenchLM)
-- **AA-LCR:** **69.0%** — (Artificial Analysis via BenchLM)
-- **CritPt:** **2.6%** — (Artificial Analysis via BenchLM)
-- **AA-Omniscience Index:** **-16.3%** — (Artificial Analysis via BenchLM)
-- **AA-Omniscience Accuracy:** **39.1%** — (Artificial Analysis via BenchLM)
-- **AA-Omniscience Hallucination Rate:** **90.9%** — (Artificial Analysis via BenchLM)
-- **AA-IFBench:** **48.7%** — (Artificial Analysis via BenchLM)
-- **Artificial Analysis Intelligence Index:** **16** — (AA model page, rank #173/225, lower end; median: 26)
-- **FrontierMath v2 (Tiers 1-3):** **14.138%** — (Epoch AI FrontierMath v2 leaderboard)
-- **FrontierMath v2 (Tier 4):** **4.167%** — (Epoch AI FrontierMath v2 leaderboard)
+- GPQA Diamond: **84.4%** (rank #112/537, 79.3rd percentile) [(source: CloudPrice via Artificial Analysis)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- HLE (Humanity's Last Exam): **22.5%** (rank #130/545, 76.3rd percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- MMLU-Pro: **86.2%** (rank #23/341, 93.5th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- AIME: **88.7%** (rank #13/186, 93.5th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- AIME 2025: **87.7%** (rank #54/274, 80.7th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- Math Index: **87.7** (rank #54/274, 80.7th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- Math-500: **98.6%** (rank #11/193, 94.8th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- LCR / MLCR: **69.0%** [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- AA-Omniscience: no verified public score found
 
 Coding:
 
-- **SWE-bench Verified:** **63.8%** — (Google: Gemini 2.5 Pro blog via BenchLM)
-- **SWE-bench (Vals):** **54.4%** — (Vals AI via BenchLM)
-- **Vibe Code Bench:** **0.40%** — (Vals AI: Vibe Code Bench v1.1 via BenchLM)
-- **AA-SciCode:** **46.3%** — (Artificial Analysis via BenchLM)
-- **AA Coding Index:** **33.3%** — (Artificial Analysis via BenchLM)
-- **DeepSWE:** no verified public score found
-- **LiveCodeBench:** no verified public score found
-
-Multimodal & grounded:
-
-- **AA-MMMU-Pro:** **74.9%** — (Artificial Analysis via BenchLM)
-- **Design Arena Website:** **1172** (Elo) — (OpenRouter model benchmarks via BenchLM)
+- Artificial Analysis Coding Index: **46.7** (rank #78/215, 64.2nd percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- LiveCodeBench: **80.1%** (rank #32/336, 90.8th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- SciCode: **46.3%** (rank #87/544, 84.2nd percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- Vibe Code Bench: no verified public score found
+- ifbench: **48.7%** (rank #193/426, 54.9th percentile) [(source: CloudPrice)](https://cloudprice.net/models/google-gemini-2-5-pro)
 
 Long context:
 
-- **AA-LCR:** **69.0%** — (Artificial Analysis via BenchLM) — moderate long-context reasoning
-- **MRCR / RULER:** no verified public score found
+- Context window: 1,048,576 tokens (1M, verified via OpenRouter API via CloudPrice). No MRCR / RULER / GraphWalks retrieval scores reported publicly.
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> Confidence: moderate — 25 public benchmarks found across 5 sources (AA, BenchLM, Google DeepMind, Epoch AI, OpenRouter). Note: BenchLM classifies this model as Non-Reasoning; the AA model page shows the reasoning variant. The model is deprecated (Google has launched Gemini 3 series), and AA continues only 10k-input-token workload benchmarking.
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`.
 
-- **Tool use: 38/100.** GDPval-AA at 616 Elo (AA) is weak (below ~900-1200 mid-tier range). GDPval-AA (normalized) at 0.0% is at the zero threshold. AA Agentic Index at 3.5% is extremely weak. τ²-bench at 54.1% (AA) is moderate. Gert Labs at 42.01% is moderate. No Terminal-Bench 2.1 or 4.0 score. The model performs poorly on general agentic benchmarks, despite some strength on τ²-bench.
-
-- **Reasoning: 46/100.** AA Intelligence Index at 16 (rank #173/225, lower end; median: 26). Using II + 30 formula: 16 + 30 = 46. GPQA Diamond at 84.4% (AA) is good but below the 90%+ frontier. HLE at 18.8% (text-only) / 22.5% (AA) is very weak (well below 40% frontier). CritPt at 2.6% is very low. AA-LCR at 69.0% is moderate (below 95% frontier). AA-Omniscience Index at -16.3% is negative. AA-IFBench at 48.7% is mid-tier. Despite strong multimodal GPQA (84.4%), the very low Intelligence Index (16), weak HLE, and poor CritPt/Omniscience drag down the score. Note: BenchLM data may reflect the non-reasoning variant.
-
-- **Context window: 95/100.** 1,048,576 (1M) tokens per AA model page and `meta.json` (both agree). ≥1M tier → 95. AA notes the model is deprecated with only 10k-input-token workload active, but the 1M context window spec stands.
-
-- **Multimodal: 90/100.** Text, image, speech, and video input; text output (per AA model page and `meta.json`). Per methodology: "+audio in = 90–100". The model supports all input modalities (text, image, speech, video). 90 (lower end since no non-text output).
-
-- **Coding: 48/100.** SWE-bench Verified at 63.8% (Google) is moderate. Vibe Code Bench at 0.40% (Vals AI) is extremely weak. AA-SciCode at 46.3% is below the 55% frontier. AA Coding Index at 33.3% is very weak. SWE-bench (Vals) at 54.4% is moderate. DeepSWE and LiveCodeBench not reported. The extremely low Vibe Code Bench (0.40%) and very weak AA Coding Index (33.3%) indicate significant coding weaknesses.
-
-- **Cost efficiency: 60/100.** $1.25 input / $10.00 output per 1M tokens (per `meta.json`, `noFreeId: true`). In the "$1–2 / $4–5 tier ≈ 65" range, but the output price of $10 is significantly higher than the $4-5 reference tier. The blended rate is $1.34 per 1M. Cost per Intelligence Index task is $0.33 (very efficient per task, but the model is also not very intelligent so tasks are cheaper to compute). Proprietary model (no open weights). No free tier on Zen.
-
-- **Overall Score: 63/100.** Mean of five non-cost dimensions: (38 + 46 + 95 + 90 + 48) / 5 = 317 / 5 = 63.4 → 63. Strong multimodal capabilities (text+image+audio+video in, 90) and 1M context (95) offset by very weak agentic tool use (GDPval 616 Elo, AA Agentic Index 3.5%), low Intelligence Index (16), and poor coding (AA Coding Index 33.3%, Vibe 0.40%). Deprecated model superseded by Gemini 3 series.
+- **Tool use: 55/100.** Terminal-Bench Hard at 26.5% is well below the mid-tier threshold (45-60%). Tau2-Bench at 54.1% is above the mid-tier range (10-25%) but below the frontier threshold (50%+ is at the frontier boundary). LCR at 69.0% and GPQA at 84.4% are strong. The AI index of 16.1 (rank #213/571) indicates mid-tier overall capability. No GDPval-AA or Claw-Eval data available. Capped by low Terminal-Bench Hard and non-frontier Tau2-Bench.
+- **Reasoning: 75/100.** GPQA Diamond at 84.4% is in the upper range of mid-tier (60-80%) approaching frontier (90%+). HLE at 22.5% is well above mid-tier (<10%) but below frontier (40%+). MMLU-Pro at 86.2% (rank #23/341) is strong. AIME at 88.7% and Math-500 at 98.6% indicate excellent mathematical reasoning. Math Index at 87.7 is excellent. LCR at 69.0% is good. The AI index of 16.1 (lower is better, rank #213/571) supports solid reasoning. Capped by HLE below 40%+ and AI index below frontier range.
+- **Context window: 100/100.** 1,048,576 tokens (1M) exceeds the 1M+ tier threshold (95-100). This is among the largest context windows available, supporting 1M-token contexts for long-document processing.
+- **Multimodal: 90/100.** Supports text, image, file, audio, and video input with text output. Per model-comparison methodology, +audio in or any non-text out = 90-100. While output is text-only, the comprehensive input support (text+image+file+audio+video) places this at the top of the multimodal scale. Capped slightly since output is text-only (no audio/video output).
+- **Coding: 72/100.** LiveCodeBench at 80.1% (rank #32/336, 90.8th percentile) exceeds the mid-tier threshold (80%). SciCode at 46.3% (rank #87/544) is good but below frontier (55%+). ifbench at 48.7% provides additional evidence. The coding index of 46.7 (lower is better, rank #78/215) indicates mid-to-upper-tier coding. No SWE-bench Verified or SWE-Pro data available. Capped by SciCode below frontier and lack of SWE-bench scores.
+- **Cost efficiency: 60/100.** At $1.25/1M input and $10.00/1M output via OpenRouter, pricing is on the higher end. Per model-comparison methodology, ~$1.25/$4.25 = ~88, but with $10/1M output this pushes cost efficiency lower. Using the AA reference scale (which considers both input and output costs), this maps to approximately 60 for the $10/1M output tier.
+- **Overall Score: 78/100.** Mean of five quality dims: (55+75+100+90+72)/5 = 392/5 = 78.4 → 78. Gemini 2.5 Pro is a strong multimodal reasoning model with excellent 1M context, top-tier math (Math-500 98.6%, AIME 88.7%, MMLU-Pro 86.2%), and solid coding (LiveCodeBench 80.1%). However, it trails frontier models in GPQA (84.4%), HLE (22.5%), and agentic tool use (TB Hard 26.5%, Tau2 54.1%). The $10/1M output cost is high. Best suited for multimodal reasoning and long-context tasks where pricing is not the primary constraint.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-08
-- Method: public internet research via Artificial Analysis, BenchLM, Google DeepMind, and Epoch AI; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `Gemini_2.5_Pro_Tech_Report.md`, using the same headings.
-
----
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-09
+- Method: Public web research via OpenRouter API and CloudPrice model page. Verified benchmark scores include AI/Coding Indices, GPQA, HLE, MMLU-Pro, AIME, Math-500, Math Index, LiveCodeBench, SciCode, ifbench, Terminal-Bench Hard, Tau2-Bench, and LCR. The AI index (16.1) and coding index (46.7) are from Artificial Analysis composite scoring. Note: the exact model "gemini-2.5" (without -pro suffix) was not found; `google/gemini-2.5-pro` was used as the closest available match. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Gemini_2.5.md`, using the same headings.

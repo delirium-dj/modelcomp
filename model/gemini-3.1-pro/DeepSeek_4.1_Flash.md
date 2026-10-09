@@ -1,78 +1,66 @@
 # Gemini 3.1 Pro — findings by DeepSeek 4.1 Flash
 
-- Source: Google DeepMind (`gemini-3.1-pro-preview`)
-- Date: 2026-10-05 (UTC) — refreshed second pass (previous Signature 2026-09-20)
+- Source: Google DeepMind / Gemini 3.1 Pro (`gemini-3.1-pro-preview`)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-10-05)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> The DeepMind model card (independent confirmation of the vendor sheet) provides: GPQA Diamond 94.3%, HLE 44.4% no-tools / 51.4% with tools, ARC-AGI-2 77.1% (ARC Prize verified), Terminal-Bench 2.0 68.5%, SWE-bench Verified 80.6%, SWE-bench Pro 54.2%, SciCode 59%, GDPval-AA Elo 1317, τ2-bench retail 90.8 / telecom 99.3, MCP Atlas 69.2%, MMMU-Pro 80.5%, and **MRCR v2 128K 84.9% / 1M 26.3%**.
+> **Conflicts surfaced:** (1) **Artificial Analysis Intelligence Index v4.3.2 = 30 (#95/227)** — far below the frontier band implied by the vendor's GPQA/HLE/ARC rows; this is the single biggest reason the previous Reasoning=93 is no longer supportable. (2) Pricing $2/$12 (Google Cloud/AA) vs $1/$6 (LMArena snapshot). (3) LMArena 1487 (#17); not evaluated by Vals AI, so no third benchmark suite.
+> Sources: https://deepmind.google/models/gemini/pro/ · https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/ · https://cloud.google.com/vertex-ai/generative-ai/pricing · https://artificialanalysis.ai/models/gemini-3-1-pro-preview · https://arena.ai/leaderboard/chat/text
+
 ## Model card
 
-- **Name:** Gemini 3.1 Pro (API ID `gemini-3.1-pro-preview`) — the first Gemini to use a `.1` increment instead of the usual `.5` mid-cycle step. Not an alias of Gemini 3 Pro; it is the next generation above Gemini 3.1 Flash / Flash-Lite.
-- **Short description:** Google DeepMind's flagship reasoning model released 2026-02-19, built for agentic coding, full-codebase analysis and scientific problem-solving inside a 1M-token multimodal window; it moved from preview to official GA on 2026-10-02 with a full verified benchmark sheet.
-- **Provider / access:** Gemini API (`gemini-3.1-pro-preview`, Google GenAI SDK for Python/JS) and Vertex AI (IAM, Zero Data Retention); tool calls and thinking supported. There is **no free API tier** — free access exists only inside the Google AI Studio web UI. No OpenCode Zen ID found.
-- **Release / knowledge:** Released 2026-02-19 (preview); official GA 2026-10-02. Knowledge cutoff: no verified public value found.
-- **IDs:** `gemini-3.1-pro-preview` (Gemini API / Vertex AI). No Free ID exists, so cost is scored on paid pricing.
-- **Context window:** 1,048,576 (1M) tokens in; max output 65,536, but the API default `maxOutputTokens` is only 8,192 and must be raised explicitly. Vendor/host page quotes ~8.4 hours of audio or a 900-page PDF per call.
-- **Modalities:** text, image, audio, video and PDF in; text out; tool calls; native reasoning. PDFs are ingested as documents rather than images.
-- **Pricing (as of 2026-10-05, unchanged since 2026-09-20):** $2.00 in / $12.00 out per 1M for requests up to 200K input tokens; once a single request exceeds 200K the **whole request** reprices to $4.00 / $18.00 (no blended overflow rate). Context caching $0.20/1M; Batch API halves standard rates with 24h turnaround. Blended ≈$4.50/1M (HokAI). Paid only.
-- **Architecture:** proprietary sparse Mixture-of-Experts Transformer; parameter count undisclosed (Google standard practice).
+- **Name:** Gemini 3.1 Pro (API ID `gemini-3.1-pro-preview`)
+- **Short description:** Google DeepMind's flagship reasoning model (2026-02-19; GA 2026-10-02), built for agentic coding, full-codebase analysis and scientific problem-solving in a 1M-token multimodal window. Now older than the advertised "Gemini 3.5 Pro".
+- **Provider / access:** Gemini API (`gemini-3.1-pro-preview`) and Vertex AI; no free API tier (AI Studio web only). No OpenCode Zen ID.
+- **Release / knowledge:** 2026-02-19 (preview); GA 2026-10-02; knowledge cutoff not published.
+- **IDs:** `gemini-3.1-pro-preview`. No Free ID → paid scoring.
+- **Context window:** 1,048,576 (1M) in; max output 65,536 (API default 8,192).
+- **Modalities:** text, image, audio, video and PDF in; text out; tool calls; native reasoning.
+- **Pricing (as of 2026-10-09):** $2.00 in / $12.00 out per 1M (≤200K input); whole request reprices to $4.00/$18.00 above 200K; caching $0.20/1M; Batch 50% off.
+- **Architecture:** proprietary; parameter count undisclosed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 68.5% (RankLLMs verified panel — its table labels it "Terminal-Bench 2.1", its narrative "Terminal Bench 2.0"; flagged as a source-label conflict)
-- BrowseComp: **85.9%** (RankLLMs — web-research agents)
-- OSWorld computer use: **48.8%** (RankLLMs)
-- GDPval-AA v2: **1314 Elo** (RankLLMs blind human-eval code arena)
-- Toolathlon: listed by RankLLMs with no figure → no verified public number found
-- Tau3-Banking / Tau2-Bench / MCP-Atlas / Claw-Eval / Toolathon / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench 2.0 **68.5%**; τ2-bench retail **90.8%** / telecom **99.3%**; MCP Atlas 69.2%; APEX-Agents 33.5%
+- BrowseComp 85.9%; GDPval-AA **1317 Elo**; OSWorld computer use 48.8%
+- Tau3-Banking / Claw-Eval / Toolathon: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **94.3%** (official GA sheet 2026-10-02; rank #5 of 45 peers on RankLLMs, peer median 88.9%)
-- HLE with tools (pass@1): **51.6%** (RankLLMs); HLE (no tools): **44.4%** (official GA sheet 2026-10-02)
-- SimpleQA Verified: **75.6** (RankLLMs — top-ranked model on that benchmark)
-- MMLU-Pro: **90.99% / 91.0%** (highest reported figure at launch per HokAI; 91.0% on the RankLLMs panel)
-- ARC-AGI-2: **77.1%** (official GA sheet 2026-10-02; >2× Gemini 3 Pro three months earlier)
-- MATH-500: **58.6** (RankLLMs radar — mid-tier against the 70.6% frontier-top-10 average)
-- Artificial Analysis Intelligence Index / LCR / MLCR / CritPt / Omniscience accuracy / Hallucination rate: no verified public score found
+- GPQA Diamond **94.3%**; HLE 44.4% no-tools / 51.4% with tools; ARC-AGI-2 **77.1%** (ARC Prize verified)
+- MMLU-Pro ~90–91%; SimpleQA Verified 75.6
+- Artificial Analysis Intelligence Index **30 (#95/227)** — independent, conflicts sharply with vendor rows
+- LMArena Text 1487 (#17, ~124.7K votes)
 
 Coding:
 
-- SWE-bench Verified: **80.6%** (official GA sheet 2026-10-02; HokAI rank #10 of 29 peers, median 78.5%) — RankLLMs' radar table shows 74.2% for the same benchmark, so the two figures conflict and the 80.6% vendor-checked figure is preferred
-- LiveCodeBench: **91.7%** (RankLLMs); LiveCodeBench Pro Elo: **2887** (official GA sheet 2026-10-02)
-- HumanEval: **~92%** (HokAI — just behind GPT-5.4's 93.1%)
-- DeepSWE / SciCode / AA-SciCode / Vibe Code Bench / SWE-Atlas: no verified public score found
+- SWE-bench Verified **80.6%**; SWE-bench Pro (public) 54.2%; LiveCodeBench Pro Elo 2887; SciCode 59%
+- LiveCodeBench standard ~91.7% (RankLLMs); DeepSWE / Vibe Code Bench: **no verified public score found**
 
-Multimodal:
+Multimodal / long context:
 
-- VideoMME: **87.2%** (HokAI — an eight-point lead over Claude Opus 4.5 in the frontier tier)
-- MMMU / MMMU-Pro / image benchmarks: no verified public score found
-
-Long context:
-
-- MRCR at 1M: **76.3%** and CorpusQA at 1M: **53.8%** (RankLLMs) — the 1M window is documented and usable, but retrieval is far from lossless at full length, and Google acknowledges that instructions placed in the middle of a very long context are followed less reliably.
-
-Composite panels:
-
-- BenchLM: **70.1/100, #16 of 230** tracked models, 28 source-displayable rows, strongest category "Multimodal & Grounded" #12 (data as of 2026-09-18)
-- RankLLMs: **52.4/100, #25 of 80** tracked models; speed 151 tps vs 129 tok/s measured by Artificial Analysis (HokAI).
+- MMMU-Pro **80.5%**; VideoMME 87.2%
+- MRCR v2 128K **84.9%** / **1M 26.3%** — retrieval degrades sharply at full window
 
 ### Normalized scores (1–100)
 
-- **Tool use: 73/100.** Terminal-Bench 68.5% and BrowseComp 85.9% put it above the mid band, but GDPval-AA 1314 Elo and OSWorld 48.8% are well short of the frontier refs (1750+, 60%+); no Tau3, MCP-Atlas or Claw-Eval evidence exists at all.
-- **Reasoning: 93/100.** GPQA Diamond 94.3% (best verified result found anywhere in this scan), HLE-with-tools 51.6% and HLE no-tools 44.4% (both above the 40% frontier line), SimpleQA 75.6, MMLU-Pro ~91% and ARC-AGI-2 77.1% (official 2026-10-02 GA sheet); capped below 95 by a mid-tier MATH-500 (58.6) and the absence of any AA Intelligence Index or LCR figure.
-- **Context window: 95/100.** A verified 1M-token input with 65K output lands at the floor of the ≥1M band, but MRCR@1M 76.3% and CorpusQA@1M 53.8% are far from the ≥98% retrieval needed for 100, and the 8,192 default output cap plus the 200K repricing cliff are practical constraints.
-- **Multimodal: 90/100.** Text, image, audio, video and PDF input with text output reaches the "+audio in" band; VideoMME 87.2% is the only published multimodal score, so it sits at the band floor rather than higher.
-- **Coding: 89/100.** SWE-bench Verified 80.6%, LiveCodeBench 91.7% and LiveCodeBench Pro Elo 2887 (official GA sheet) are frontier-adjacent, but Terminal-Bench 68.5% and the complete absence of DeepSWE, SciCode and Vibe Code Bench numbers keep it out of the 90+ tier.
-- **Cost efficiency: 70/100.** $2/$12 sits between the ~88 anchor ($1.25/$4.25) and the ~60 anchor ($3/$15), improved by $0.20 cached input and a 50% Batch API discount but docked for whole-request repricing to $4/$18 above 200K and the absence of any free API tier.
-- **Overall Score: 88/100.** (73 + 93 + 95 + 90 + 89) / 5 = 88.0 → **88**. Best fit: scientific/financial reasoning plus full-codebase or long-document analysis where the multimodal 1M window matters more than agent-harness tooling depth.
+- **Tool use: 74/100.** Strong τ2 (90.8/99.3), TB2.0 68.5% and MCP Atlas 69.2% sit mid-band; GDPval-AA 1317 and APEX 33.5% cap it, with no independent terminal/tool index.
+- **Reasoning: 86/100.** GPQA 94.3%, HLE 44.4/51.4 and ARC-AGI-2 77.1 are frontier on the vendor suite, but the independent AA Index of **30 (#95/227)** pulls the aggregate well down.
+- **Context window: 94/100.** Native 1M input (≥1M band) with 65K output, but MRCR@1M 26.3% shows heavy degradation and the 200K repricing cliff is a practical limit.
+- **Multimodal: 90/100.** Text + image + audio + video + PDF input (audio band 90–100), MMMU-Pro 80.5%; text-only output.
+- **Coding: 84/100.** SWE-bench Verified 80.6%, LiveCodeBench Pro Elo 2887 and SciCode 59% are frontier-adjacent; TB2.0 68.5% and missing DeepSWE keep it out of the 90s.
+- **Cost efficiency: 72/100.** $2/$12 sits between the ~88 ($1.25/$4.25) and ~60 ($3/$15) anchors, softened by caching/batch but docked for whole-request repricing above 200K.
+- **Overall Score: 86/100.** (74 + 86 + 94 + 90 + 84) / 5 = 85.6 → 86. Best fit: scientific/financial reasoning and long-document/full-codebase analysis where the multimodal 1M window matters more than agent tooling depth.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-05
-- Method: public internet research; second-pass enrichment on 2026-10-05 added the official 2026-10-02 GA benchmark sheet (HLE no-tools 44.4%, LiveCodeBench Pro Elo 2887, GA status) on top of the 2026-09-20 sources (HokAI vendor-page-checked review, RankLLMs verified panel, BenchLM record); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Google DeepMind model page + launch blog, Google Cloud Vertex pricing, Artificial Analysis model page, LMArena). The large vendor-vs-independent gap (DeepMind card vs AA Index 30) is surfaced rather than averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

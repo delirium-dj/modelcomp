@@ -1,0 +1,51 @@
+# GPT-6.1 Sol — findings by Claude Fable 5.1
+
+- Source: OpenAI/GPT-6.1 Sol, e.g. OpenAI (`gpt-6.1-sol`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** GPT-6.1 Sol (paid; no Free-tier wording found on any host)
+- **Short description:** OpenAI's mid-tier GPT-6.1-family model, an upgrade to GPT-6 Sol positioned as "near-Astra intelligence" for agentic coding, computer use and professional/document work at one-fifth of GPT-6 Astra's token prices. Variant note: sibling of GPT-6 Astra (flagship) / GPT-6 Luna (small); a separate "Ultrafast" serving tier (~300 tok/s per VentureBeat) was reported — not verified as a distinct model ID.
+- **Provider / access:** OpenAI API (ID `gpt-6.1-sol`, per Azure AI Foundry catalog slug and OpenRouter `openai/gpt-6.1-sol`); Microsoft Azure AI Foundry (`gpt-6.1-sol`); OpenRouter (`openai/gpt-6.1-sol`); OpenCode Zen — availability confirmed by OpenCode's announcement (x.com/opencode, 2026-09-29) and a models.dev PR (#8401, "Fix Zen GPT-6.1 Sol cached-read pricing"); the exact Zen ID string was not verified (pi.dev slug is `opencode/gpt-6-1-sol`). Responses vs Chat Completions API support: no verified public statement found.
+- **Release / knowledge:** 2026-09-29 (OpenAI system-card addendum dated 2026-09-29; TechCrunch 2026-09-29); knowledge cutoff: no verified public value found.
+- **IDs:** `openai/gpt-6.1-sol` (OpenRouter); `gpt-6.1-sol` (Azure). No Free ID exists on Zen (none found); paid Zen listing exists but exact ID string not verified.
+- **Context window:** no verified public value found (not retrieved from official docs before tool limit).
+- **Modalities:** text in/out verified; reasoning: yes (official post references "low/medium/maximum reasoning effort" settings); PDF/document handling evidenced via GDP.pdf eval (official); image/audio/video input, tool-call and JSON-mode support: no verified public spec retrieved.
+- **Pricing (as of 2026-10-09):** Cached input **$0.10/1M** (official OpenAI post; stated as 95% below standard input and 50% below GPT-6 Sol's cached price). Standard input therefore implied ≈$2.00/1M, and official post states Sol is one-fifth of Astra's $10.00/$50.00 — but standard in/out figures for Sol itself were not directly displayed in retrieved text, so treat $2.00/$10.00 as derived, not verified. Paid only; no free-tier privacy caveat applies.
+- **Architecture:** proprietary, closed weights; parameter count/MoE not disclosed. System card: Preparedness Framework rating "Critical" for cybersecurity and "High" for biological/chemical; uses the same safeguards stack as GPT-6 Astra.
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found (official post cites only Terminal-Bench Science 0.1, relative: ">2× GPT-6 Sol at max effort, <½ cost/task"; no absolute number)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found (official GDP.pdf claim is relative only: above Opus 5.5, approaches GPT-6 Astra)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found (AutomationBench: official relative claim only — +2.2 pp vs Opus 5.5 and +4.8 pp vs GPT-6 Sol at medium effort; no absolute)
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found (official internal factuality eval only: responses containing a factual error 7.7% at low reasoning effort, down from 11.4% for GPT-6 Sol — not a public harness)
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+Long context:
+- no long-context retrieval reported (no MRCR / RULER / GraphWalks value retrieved)
+### Normalized scores (1-100)
+- **Tool use: not scored (excluded).** Only relative official claims (Terminal-Bench Science, AutomationBench, GDP.pdf) with no absolute values; no TB2.1/Tau3/GDPval-AA/OSWorld numbers retrieved.
+- **Reasoning: not scored (excluded).** No GPQA/HLE/LCR/CritPt/AA Index numbers retrieved.
+- **Context window: not scored (excluded).** Total window not verified from official docs.
+- **Multimodal: not scored (excluded).** Only text in/out and PDF-document capability evidenced; full modality spec not verified.
+- **Coding: not scored (excluded).** No SWE-bench/LiveCodeBench/SciCode/Terminal-Bench 2.1 numbers retrieved.
+- **Cost efficiency: not scored (excluded).** Only cached-input $0.10/1M verified; standard in/out ($2.00/$10.00) is derived, not directly verified — provisional mapping would be ≈ low-90s if confirmed.
+- **Overall Score: not scored (excluded).** Zero verified benchmark numbers retrieved for this model ID; re-run once vals.ai / Artificial Analysis / OpenAI benchmark tables can be fetched. Provisional best fit (unscored): cost-sensitive agentic coding and document/PDF workflows, per OpenAI's positioning.
+---
+## Signature
+- Provided by: **Claude Fable 5.1 (anthropic/claude-fable-5.1)** — 2026-10-09
+- Method: public internet research via web search (OpenAI launch post and system-card addendum, Azure AI Foundry catalog, OpenRouter, OpenCode/models.dev, TechCrunch/VentureBeat); search quota was exhausted before benchmark-score pages (vals.ai, Artificial Analysis, Vellum, OpenAI eval tables) could be fetched, so no scores were assigned; scores, when added, are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

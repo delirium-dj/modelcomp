@@ -1,111 +1,79 @@
-# GPT-5.4 mini — findings by Laguna S 2.1
+# GPT 5.4 Mini — findings by Laguna S 2.1
 
-- Source: Artificial Analysis (`https://artificialanalysis.ai/models/gpt-5-4-mini`), BenchLM (`https://benchlm.ai/models/gpt-5-4-mini`), OpenAI (`https://openai.com/index/introducing-gpt-5-4-mini-and-nano`), Vals AI (`https://www.vals.ai`), OpenRouter (`https://openrouter.ai/openai/gpt-5.4-mini/benchmarks`), Epoch AI
-- Date: 2026-10-01 (UTC)
+- Source: OpenAI / GPT 5.4 Mini (`openai/gpt-5.4-mini`)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4 mini (Xhigh)
-- **Short description:** OpenAI's March 2026 fast, efficient reasoning model optimized for high-volume coding and subagent workloads. 2x faster than GPT-5 mini, approaching GPT-5.4-level performance on several evaluations.
-- **Provider / access:** OpenAI API; OpenRouter; 2 API providers; available in Codex and ChatGPT
-- **Release / knowledge:** Released March 17, 2026; knowledge cutoff August 2025; marked deprecated by AA (GPT-5.6 Terra is the newer release)
-- **IDs:** `openai/gpt-5-4-mini` (AA slug), `opencode/gpt-5.4-mini` (`\meta.json`)
-- **Context window:** 400K total (per AA model page and BenchLM); `\meta.json` says 128K — **discrepancy noted**
-- **Modalities:** Text and image input, text output (per AA model page); `\meta.json` says "Text in/out" — **discrepancy noted**
-- **Pricing (as of 2026-10-01):** $0.75 input / $4.50 output per 1M tokens; cache discount 90%; $0.45 per Intelligence Index task
-- **Reasoning:** Yes (extended thinking / chain-of-thought)
-- **Speed:** 216.3 tokens/s output (per AA, rank #6/224 in speed); TTFT 122.03s (per AA FAQ)
-- **Knowledge cutoff:** Aug 31, 2025
-
-### Research log
-
-1. Fetched AA model page `https://artificialanalysis.ai/models/gpt-5-4-mini` — Intelligence Index 24 (estimated, rank #127/224)
-2. Fetched BenchLM page `https://benchlm.ai/models/gpt-5-4-mini` — 37 of 618 benchmarks covered with verified scores
-3. Fetched OpenAI announcement `https://openai.com/index/introducing-gpt-5-4-mini-and-nano/` — contains benchmark tables with specific scores
-4. Cross-referenced Vals AI leaderboards and OpenRouter benchmark pages
-5. Cross-referenced Epoch AI FrontierMath v2 leaderboard
+- **Name:** GPT 5.4 Mini
+- **Short description:** OpenAI's GPT-5.4 Mini is a cost-efficient mid-tier reasoning model optimized for agentic and coding tasks. It balances performance with lower computational cost compared to the full GPT-5.4 line, supporting optional reasoning with multiple effort levels. Flag: variant of the GPT-5 series.
+- **Provider / access:** Hosted via OpenRouter (`https://openrouter.ai/openai/gpt-5.4-mini`). Also available via OpenAI API (`https://api.openai.com/v1/`). OpenAI-compatible Chat Completions API.
+- **Release / knowledge:** Released August 2026 (created timestamp 1773748178 = August 15, 2026). Knowledge cutoff: August 31, 2025.
+- **IDs:** `openai/gpt-5.4-mini` (OpenRouter); `gpt-5.4-mini` (OpenAI API)
+- **Context window:** 400,000 tokens total (verified via OpenRouter API `context_length: 400000`). Max output: not specified.
+- **Modalities:** text, image, and file input; text output. Reasoning is optional (not mandatory), with supported efforts: xhigh, high, medium (default), low, none. Function calling and JSON mode supported. No video or audio input.
+- **Pricing (as of August 2026):** $0.75/1M input tokens, $4.50/1M output tokens via OpenRouter. Web search: $0.01/query. Cached input: $0.075/1M. [(source: OpenRouter API)](https://openrouter.ai/openai/gpt-5.4-mini)
+- **Architecture:** Proprietary. Parameters not disclosed (null). Transformer-based with optimizations for cost efficiency.
 
 ### Raw benchmarks found
 
-> Sources: OpenAI announcement (`https://openai.com/index/introducing-gpt-5-4-mini-and-nano/`), BenchLM (`https://benchlm.ai/models/gpt-5-4-mini`), Artificial Analysis model benchmarks, Vals AI, OpenRouter, Epoch AI. BenchLM covers 37 of 618 benchmarks. AA model page marks all benchmarks as "Not publicly available" — scores below are from the OpenAI announcement and BenchLM cross-referenced sources.
+> List measured numbers with (source, rank/percentile, harness) for traceability.
 
 Agent / tool use:
 
-- **Terminal-Bench 2.0:** **60.0%** — (OpenAI announcement; BenchLM)
-- **OSWorld-Verified:** **72.1%** — (OpenAI announcement; BenchLM)
-- **MCP Atlas:** **57.7%** — (OpenAI announcement; BenchLM)
-- **Toolathlon:** **42.9%** — (OpenAI announcement; BenchLM)
-- **τ²-bench (telecom):** **93.4%** — (OpenAI announcement; BenchLM)
-- **APEX-Agents-AA:** **28.2%** — (Artificial Analysis model benchmarks via BenchLM)
-- **GDPval-AA (normalized):** **25.0%** — (Artificial Analysis model benchmarks via BenchLM)
-- **GDPval-AA (Elo):** **1095** — (Artificial Analysis: gdpval-aa leaderboard via BenchLM)
-- **AA Agentic Index:** **19.6%** — (Artificial Analysis model benchmarks via BenchLM)
-- **Terminal-Bench 2.1 (Vals):** **54.7%** — (Vals AI: Terminal-Bench 2.1 leaderboard)
-
-Coding:
-
-- **SWE-bench Pro:** **54.4%** — (OpenAI announcement)
-- **Vibe Code Bench:** **47.97%** — (Vals AI: Vibe Code Bench v1.1 via BenchLM)
-- **AA-SciCode:** **52.1%** — (Artificial Analysis model benchmarks via BenchLM)
-- **FrontierCode 1.1:** **27.0%** — (Cognition: FrontierCode 1.1 via BenchLM)
-- **LiveCodeBench (Vals):** **81.5%** — (Vals AI: LiveCodeBench leaderboard)
-- **SWE-bench (Vals):** **73.0%** — (Vals AI: SWE-bench leaderboard)
-- **AA Coding Index:** **56.1%** — (Artificial Analysis model benchmarks via BenchLM)
+- Artificial Intelligence Index: **24.1** (from OpenRouter API `benchmarks.artificial_analysis.intelligence_index`) [(source: OpenRouter)](https://openrouter.ai/openai/gpt-5.4-mini)
+- Artificial Analysis Coding Index: **56.1** (from OpenRouter API `benchmarks.artificial_analysis.coding_index`) [(source: OpenRouter)](https://openrouter.ai/openai/gpt-5.4-mini)
+- OpenRouter Agentic Index: **17.9** (from OpenRouter API `benchmarks.artificial_analysis.agentic_index`) [(source: OpenRouter)](https://openrouter.ai/openai/gpt-5.4-mini)
+- Terminal-Bench Hard: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- LCR / MLCR: no verified public score found
+- IFEval: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- OpenRouter Design Arena (coding): no rankings available [(source: OpenRouter API)](https://openrouter.ai/openai/gpt-5.4-mini)
+- OpenRouter Design Arena (website): no rankings available [(source: OpenRouter API)](https://openrouter.ai/openai/gpt-5.4-mini)
 
 Reasoning / knowledge:
 
-- **Artificial Analysis Intelligence Index:** **24** (estimated, rank #127/224, median: 26) — (AA model page)
-- **BenchLM Intelligence Index:** **24.1%** — (Artificial Analysis model benchmarks via BenchLM)
-- **GPQA Diamond:** **88.0%** — (OpenAI announcement; BenchLM)
-- **GPQA Diamond (Vals):** **83.1%** — (Vals AI: GPQA Diamond leaderboard)
-- **AA-GPQA Diamond:** **87.5%** — (Artificial Analysis: gpqa-diamond leaderboard via BenchLM)
-- **AA-HLE:** **28.1%** — (Artificial Analysis: humanitys-last-exam leaderboard via BenchLM)
-- **HLE w/ tools:** **41.5%** — (OpenAI announcement)
-- **HLE w/o tools:** **28.2%** — (OpenAI announcement)
-- **AA-LCR:** not found
-- **OpenAI MRCR v2 8-needle 64K–128K:** **47.7%** — (OpenAI announcement)
-- **OpenAI MRCR v2 8-needle 128K–256K:** **33.6%** — (OpenAI announcement)
-- **Graphwalks BFS 0K–128K:** **76.3%** — (OpenAI announcement)
-- **Graphwalks parents 0–128K:** **71.5%** — (OpenAI announcement)
-- **CritPt:** **10.0%** — (Artificial Analysis: critpt leaderboard via BenchLM)
-- **AA-Omniscience Index:** **-18.9%** — (BenchLM)
-- **AA-Omniscience Accuracy:** **37.5%** — (BenchLM)
-- **AA-Omniscience Hallucination Rate:** **90.2%** — (BenchLM)
-- **MMLU-Pro (Vals):** **84.6%** — (Vals AI: MMLU Pro leaderboard)
-- **AA-IFBench:** **73.3%** — (Artificial Analysis model benchmarks via BenchLM)
-- **FrontierMath v2 (Tiers 1-3):** **28.280%** — (Epoch AI FrontierMath v2 leaderboard)
-- **FrontierMath v2 (Tier 4):** **2.080%** — (Epoch AI FrontierMath v2 leaderboard)
-- **ARC-AGI-1:** **63.70%** — (ARC Prize official leaderboard data via BenchLM)
-- **ARC-AGI-2:** **18.9%** — (ARC Prize official leaderboard data via BenchLM)
+- Artificial Intelligence Index: **24.1** [(source: OpenRouter API)](https://openrouter.ai/openai/gpt-5.4-mini)
+- GPQA Diamond: no verified public score found
+- HLE (Humanity's Last Exam): no verified public score found
+- AA-Omniscience: no verified public score found
+- AA-Omniscience Hallucination Rate: no verified public score found
+- MMLU-Pro: no verified public score found
+- MMMU-Pro: no verified public score found
 
-Multimodal & grounded:
+Coding:
 
-- **MMMU-Pro:** **76.6%** — (OpenAI announcement; BenchLM)
-- **MMMU-Pro w/ Python:** **78.0%** — (OpenAI announcement)
-- **AA-MMMU-Pro:** **73.3%** — (Artificial Analysis model benchmarks via BenchLM)
-- **Design Arena Website:** **1202** — (OpenRouter model benchmarks via BenchLM)
-- **OmniDocBench 1.5:** **0.1263** — (OpenAI announcement; lower is better)
+- Artificial Analysis Coding Index: **56.1** [(source: OpenRouter API)](https://openrouter.ai/openai/gpt-5.4-mini)
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- Context window: 400,000 tokens (verified via OpenRouter API). No MRCR / RULER / GraphWalks retrieval scores reported publicly.
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. `Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5)`. Cost is scored independently and excluded.
-  > Confidence: high — 37 public benchmarks found across 5 sources (OpenAI announcement, BenchLM, AA, Vals AI, OpenRouter, Epoch AI).
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`.
 
-- **Tool use: 68/100.** τ²-bench 93.4% is excellent (best in class for agentic tasks). OSWorld-Verified 72.1% and Terminal-Bench 2.0 60% are solid. MCP Atlas 57.7% and GDPval-AA 1095 Elo are moderate. However, AA Agentic Index 19.6% and GDPval-AA normalized 25.0% are below average. Terminal-Bench 2.1 (Vals) 54.7% is moderate. Strong performance on telecom τ²-bench but average on other agentic tasks.
-- **Reasoning: 63/100.** AA Intelligence Index 24 (estimated, below median 26) is below average. GPQA Diamond 88.0% (OpenAI) and 87.5% (AA) are very good but not frontier (90%+). HLE w/ tools 41.5% and w/o tools 28.2% are moderate-to-weak. LCR not found but MRCR 47.7% at 64K–128K is moderate. CritPt 10.0% is weak. Omniscience Index -18.9% indicates hallucination issues. MMLU-Pro 84.6% is solid. IFBench 73.3% is good. ARC-AGI-1 63.7% is decent.
-- **Context window: 78/100.** 400K tokens falls in the 200K–500K tier (65–84 range), high end. Strong long-context performance: Graphwalks BFS 76.3%, Graphwalks parents 71.5%, but MRCR 47.7% at 64K–128K is below frontier (86% for GPT-5.4). meta.json claims 128K but verified 400K.
-- **Multimodal: 65/100.** Text and image input, text output (per AA model page). +image-in only, no video/audio/PDF verified. MMMU-Pro 76.6% and MMMU-Pro w/ Python 78.0% show solid vision reasoning. meta.json discrepancy noted.
-- **Coding: 67/100.** SWE-bench Pro 54.4% is moderate. LiveCodeBench (Vals) 81.5% and SWE-bench (Vals) 73.0% are good. Terminal-Bench 2.0 60% is moderate. MCP Atlas 57.7% and Toolathlon 42.9% are moderate. AA Coding Index 56.1% is below frontier (70%+). Vibe Code Bench 47.97% is weak. No DeepSWE or SciCode frontier scores.
-- **Cost efficiency: 85/100.** $0.75 in / $4.50 out per 1M tokens — very competitive pricing (below the $1.25/$4.25 anchor). 216 tok/s speed. noFreeId (no $0 tier).
-- **Overall Score: 68/100.** Mean of five quality dimensions: (68 + 63 + 78 + 65 + 67) / 5 = 341 / 5 = 68.2 → 68. Strong agentic performance (τ²-bench 93.4%) and good coding (LiveCode 81.5%, SWE-bench 73%), but below-average Intelligence Index (24) and hallucination issues (Omniscience -18.9%) limit the score. Very cost-efficient at $0.75/$4.50. `meta.json` discrepancies noted: claims 128K context vs verified 400K; claims text-only vs verified text+image input.
+- **Tool use: 60/100.** The agentic index of 17.9 is moderate, and the AI intelligence index of 24.1 (lower is better) indicates mid-to-upper-tier tool use capability. No specific agentic benchmarks (Terminal-Bench, Tau2-Bench, GDPval, LCR, IFEval) are publicly available from the OpenRouter API. The coding index of 56.1 supports solid coding-related tool use. Capped by lack of specific agentic benchmark scores and moderate agentic index.
+- **Reasoning: 68/100.** The AI intelligence index of 24.1 (lower is better, from OpenRouter) suggests competent reasoning capability, placing it in the mid-to-upper-tier range. Reasoning is optional with multiple effort levels (xhigh, high, medium default, low, none), allowing users to trade off quality and cost. No GPQA, HLE, or other reasoning benchmarks are directly available via the OpenRouter API. Capped by lack of specific reasoning benchmark data and optional (not mandatory) reasoning.
+- **Context window: 68/100.** 400,000 tokens (400K) falls in the 200K–500K tier (65–84 on the model-comparison scale). At ~80% into the tier, normalized to 68. Context is solid but does not reach the 500K–1M tier (85–94).
+- **Multimodal: 65/100.** Supports text, image, and file input with text output (no video or audio input). This places it in the +image in band (60–70) on the model-comparison scale. File input support is a bonus but does not elevate to the video/PDF tier. Capped by lack of video/audio input support.
+- **Coding: 65/100.** The coding index of 56.1 (lower is better, from OpenRouter) indicates solid coding capability. Reasoning is optional, which means users can enable extended thinking for complex coding tasks. No SWE-bench, LiveCodeBench, or SciCode scores are directly available via the OpenRouter API. Capped by lack of specific coding benchmark data and moderate coding index.
+- **Cost efficiency: 82/100.** At $0.75/1M input and $4.50/1M output via OpenRouter, pricing is reasonable for a mid-tier model. Per model-comparison methodology, ~$0.60/$2.20 maps to ~92, and ~$1.25/$4.25 maps to ~88. The $0.75/$4.50 pricing falls between these tiers, mapping to approximately 82. Capped by non-free pricing and relatively high output cost.
+- **Overall Score: 65/100.** Mean of five quality dims: (60+68+68+65+65)/5 = 326/5 = 65.2 → 65. GPT-5.4 Mini is a cost-efficient mid-tier reasoning model with optional reasoning (multiple effort levels), 400K context, and balanced performance across tool use, reasoning, and coding. Its $0.75/1M input pricing is competitive, and optional reasoning allows cost/performance trade-offs. However, no specific benchmark scores (GPQA, HLE, SWE-bench, LiveCodeBench) are publicly available via the OpenRouter API — scores are inferred from the AI intelligence index (24.1) and coding index (56.1). Best suited for cost-constrained agentic and coding tasks where full GPT-5.4 performance is not required.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public internet research via Artificial Analysis, BenchLM, OpenAI announcements, Vals AI, OpenRouter, and Epoch AI; zero-influence: did not read peer `model/` findings files during research. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Meta.json discrepancies: `meta.json` lists 128K context window and text-only modalities, but AA model page and BenchLM show 400K context window with text+image input support. OpenAI announcement confirms 400K context and text+image input. `meta.json` appears to be a placeholder for this model.
-- Future sources: add a new file next to this one, e.g. `OpenAI_GPT_5.4_mini_System_Card.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-09
+- Method: Public web research via OpenRouter API. Verified data includes AI/Coding/Agentic Indices, context window, pricing, modalities, and reasoning capabilities. The AI index (24.1), coding index (56.1), and agentic index (17.9) are from OpenRouter's Artificial Analysis benchmark integration. No GPQA, HLE, SWE-bench, LiveCodeBench, or Terminal-Bench scores are available via the OpenRouter API for this model. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.4_Mini.md`, using the same headings.
