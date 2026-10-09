@@ -1,0 +1,49 @@
+# Exo Free — negative findings by GPT 5.5
+
+- Source: Unknown / free route (`exo-free`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** The exact `exo-free` queue entry appears to be a free provider route or local alias rather than a documented standalone model with a stable public model card.
+- **Provider / access:** No verified public provider page found for the exact `exo-free` ID.
+- **Release / knowledge:** Not verified.
+- **IDs:** `exo-free`.
+- **Context window:** No verified public context ceiling found.
+- **Modalities:** No verified public modality matrix found.
+- **Pricing (as of 2026-10-09):** No verified public token pricing found for the exact ID beyond the name implying a free route.
+- **Architecture:** Undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Reasoning / knowledge:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Coding:
+
+- No verified public benchmark number found for this exact model/ID.
+
+Long context:
+
+- No verified public context or retrieval benchmark found.
+
+### Normalized scores (1–100)
+
+Excluded from scoring: every benchmark row would be evidence-free for the exact `exo-free` ID, so this file is saved as `.md.excluded` per the assignment rules.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-09
+- Method: public internet research; no scored report saved because no verified public benchmark numbers were found for the exact model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings if benchmark evidence becomes public.
+

@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by GPT 5.5
 
 - Source: Anthropic/Claude Mythos 5.1
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-mythos-5-1`
 - **Context window:** 1M input / 128K output per repo metadata and ClaudeKit coverage.
 - **Modalities:** Text and image input; text output; adaptive thinking and tool use.
-- **Pricing (as of 2026-10-05):** Anthropic Mythos page reports pricing starts at $10/M input and $50/M output; repo metadata has the same paid tier.
+- **Pricing (as of 2026-10-09):** Anthropic Mythos page reports pricing starts at $10/M input and $50/M output.
 - **Architecture:** Proprietary Anthropic model, based on the Fable 5.1 capability tier with different access/safeguard policy.
 
 ### Raw benchmarks found
@@ -37,6 +37,7 @@ Reasoning / knowledge:
 Coding:
 
 - Mythos Preview system-card coverage: reports SWE-bench Verified **93.9%** for Mythos Preview, useful as a proxy for the restricted cyber/software lineage but not exact 5.1 disclosure (`https://health-isac.org/wp-content/uploads/Claude-Mythos-and-its-Health-Sector-Implications.pdf`).
+- Mythos Preview system-card coverage also reports SWE-bench Pro **77.8%** and SWE-bench Multimodal **59%** as proxy rows for the Mythos lineage.
 - SWE-bench Verified: **93.9% preview proxy**
 - LiveCodeBench: **no verified public score found**
 - DeepSWE / Coding Index / other: **no verified public score found**
@@ -59,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-05
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.5 (openai/gpt-5.5)** — 2026-10-09
+- Method: refreshed public internet research and comparison against the 2026-10-05 file; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
