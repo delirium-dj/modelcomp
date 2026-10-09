@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash Lite — findings by Mimo v2.6 Flash
 
 - Source: Google DeepMind/`gemini-3.1-flash-lite`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Gemini 3.1 Flash Lite
 - **Short description:** Google's most cost-efficient Gemini 3 model (preview 2026-03-03; GA Vertex 2026-05-07) — ~363 tok/s, GPQA 86.9% at $0.25/$1.50, built for high-volume translation/classification/light agentic work with full 1M multimodal context.
-- **Provider / access:** Google AI Studio / Gemini API `gemini-3.1-flash-lite` (stable); Vertex AI / Gemini Enterprise Agent Platform; free tier on AI Studio and OpenCode Zen with standard rate limits (Chat Completions). Not Live API.
+- **Provider / access:** Google AI Studio / Gemini API `gemini-3.1-flash-lite` (stable — confirmed active 2026-10-09 on the official models page and live on OpenRouter/AI Studio/Vertex); Vertex AI / Gemini Enterprise Agent Platform; free tier on AI Studio and OpenCode Zen with standard rate limits (Chat Completions). Not Live API. Second-pass note: the **preview** ID `gemini-3.1-flash-lite-preview` is marked **"(Shut down)"** on Google's models page (2026-10-06) — the stable entry here is unaffected.
 - **Release / knowledge:** 2026-03-03 preview (Google blog); Vertex GA **2026-05-07** (retirement May 7, 2027+). Knowledge cutoff **January 2025**.
 - **IDs:** `google/gemini-3.1-flash-lite`.
 - **Context window:** 1,048,576 input; 65,536 max output.
 - **Modalities:** text/image/video/audio/PDF in; text out; thinking levels minimal/low/medium/high; function calling yes; structured outputs; Search/Maps grounding; code execution; file search; **no** Live API, no image/audio generation, no computer use.
-- **Pricing (as of 2026-09-22):** **$0.25 in / $1.50 out per 1M** (text/image/video); audio in $0.50; cache read $0.025; batch $0.125/$0.75; free AI Studio tier (preview Tier-1 RPD caps until spend gates). Flat — no >200K cliff.
+- **Pricing (as of 2026-10-09):** **$0.25 in / $1.50 out per 1M** (text/image/video) — re-confirmed on OpenRouter (AI Studio route; cache read $0.025, audio cache $0.05); audio in $0.50; batch/Flex routes $0.125/$0.75; Vertex/AI Studio Priority $0.45/$2.70; free AI Studio tier. Flat — no >200K cliff.
 - **Architecture:** proprietary sparse MoE (undisclosed); based on Gemini 3 stack quality lift over 2.5 Flash-Lite.
 
 ### Raw benchmarks found
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - Humanity's Last Exam (full, no tools): **16.0%** (Google)
 - SimpleQA Verified: **43.3%**; FACTS: **40.6%** (Google)
 - MMMLU: **88.9%** (Google)
-- Artificial Analysis Intelligence Index: **34** (TopReviewed/AA, 2026-05-28)
+- Artificial Analysis Intelligence Index: **34** (TopReviewed/AA, 2026-05-28; second pass 2026-10-09: AA still has no direct model page — 404 — and OpenRouter carries no AA benchmark block for this ID, so 34 remains the best available reading)
 - LMArena Elo: **1432** (Google/AA)
 
 Coding:
@@ -69,6 +69,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (DeepMind 3.1 Flash-Lite model card, Google blog 2026-03-03, Gemini API models/pricing docs, Vertex Enterprise docs, TopReviewed, Google 3.5 Flash-Lite card cross-column); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (DeepMind 3.1 Flash-Lite model card, Google blog 2026-03-03, Gemini API models/pricing docs, Vertex Enterprise docs, TopReviewed, Google 3.5 Flash-Lite card cross-column); second pass 2026-10-09 re-checked the official [Gemini API models page](https://ai.google.dev/gemini-api/docs/models) (page updated 2026-10-06; stable active, preview shut down) and the [OpenRouter google/gemini-3.1-flash-lite page](https://openrouter.ai/google/gemini-3.1-flash-lite) (pricing/uptime re-confirmed; no AA benchmark block) — AA and Grokipedia direct pages 404; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status:** stable `gemini-3.1-flash-lite` active (AI Studio 100% / Vertex 78.5% / other routes 99.7–100% uptime over 3d on OpenRouter; 212 tok/s best, 0.47s P50 latency); the preview sibling is shut down.
+- **Confirmed:** $0.25/$1.50 + $0.025 cache (plus Flex $0.125/$0.75 and Priority $0.45/$2.70 tiers), 1M/64K context, full multimodal input — all re-verified.
+- **Coverage gap unchanged:** AA has no direct page; Index 34 (TopReviewed) remains the only composite reading; no new benchmark rows surfaced anywhere.
+- **Scores:** no dimension changed; Overall held at 72.

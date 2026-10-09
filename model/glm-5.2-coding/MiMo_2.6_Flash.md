@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Mimo v2.6 Flash
 
 - Source: Zhipu AI / Z.AI/`glm-5.2`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,18 +23,20 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 (Terminus-2): **81.0%** (Z.AI; vs Opus 4.8 85.0, GPT-5.5 84.0, GLM-5.1 63.5)
+- Terminal-Bench 2.1 (Terminus-2): **81.0%** (Z.AI) / **77.9%** (AA independent via OpenRouter, 2026-10-09 — harness spread 77.9–81.0); vs Opus 4.8 85.0, GPT-5.5 84.0, GLM-5.1 63.5
+- Terminal-Bench 4.0: **1.0%** (AA via OpenRouter, 2026-10-09 — near-zero on the newest harness, same pattern as other 2026-06-era models); Terminal-Bench Hard: 50.8% (AA)
+- τ²-Bench Telecom: **99.1%**; τ-Bench Banking: **34.6%**; GDPval-AA: **43.7%** (all AA via OpenRouter, 2026-10-09 — fills the first-pass GDPval/Tau3 gap)
 - MCP-Atlas (Public): **76.8%** (Z.AI; trails Opus 4.8 77.8, beats GPT-5.5 75.3)
 - Tool-Decathlon: **weaker than Opus 4.8 and GPT-5.5** (Emergent qualitative — exact % not extracted)
 - AutomationBench / GDPval-AA / Tau3: no verified public score found for GLM-5.2 in this pass (5.3 has GDPval 1769)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.2%** (Z.AI; trails Opus 4.8 93.6, GPT-5.5 93.6)
+- GPQA Diamond: **91.2%** (Z.AI) / **89.5%** (AA independent via OpenRouter, 2026-10-09 — both kept; trails Opus 4.8 93.6, GPT-5.5 93.6)
 - AIME 2026: **99.2%** (Z.AI; beats Opus 4.8 95.7, GPT-5.5 98.3)
-- HLE with tools: **54.7%** (Z.AI; trails Opus 4.8 57.9)
+- HLE with tools: **54.7%** (Z.AI; trails Opus 4.8 57.9); HLE (AA harness): **41.1%** (AA via OpenRouter, 2026-10-09 — different harness, both kept)
 - Humanity's Last Exam text-only: **40.5%** (Z.AI)
-- AA Intelligence Index for 5.2: no verified public score found in this pass (5.3: 60 at launch)
+- AA Intelligence Index for 5.2: **33.7** (AA Max-effort via OpenRouter benchmark block, 2026-10-09 — **#12/117** open-weights class, median 18; fills the first-pass gap). Agentic Index **38.4**; AA-Omniscience accuracy 24.3% / non-hallucination 73.7%; CritPt **20.9%**; AA-LCR **78.3%**; IFBench 73.3% (all AA via OpenRouter, 2026-10-09). AA marks GLM-5.2 deprecated in favor of GLM-5.3.
 
 Coding:
 
@@ -42,7 +44,7 @@ Coding:
 - FrontierSWE: **74.4** (Z.AI; trails Opus 4.8 75.1 by 0.7, beats GPT-5.5 72.6 — top open-weight claim at release)
 - PostTrainBench: **34.3** (Z.AI; beats GPT-5.5 28.4, trails Opus 4.8 37.2)
 - SWE-Marathon: **13.0%** (Z.AI; far behind Opus 4.8 26.0 — long-horizon weakness)
-- LiveCodeBench: **65%** (automatio); BenchLM shows LiveCodeBench (Vals) 69.5, AA Coding Index 68.8
+- LiveCodeBench: **65%** (automatio); BenchLM shows LiveCodeBench (Vals) 69.5, AA Coding Index **68.8** (independently confirmed by AA via OpenRouter, 2026-10-09); SciCode: **51.2%** (AA via OpenRouter — fills the first-pass gap; below the 55+ frontier ref)
 - NL2Repo: **48.9%** (BenchLM)
 
 Long context:
@@ -55,8 +57,8 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** TB2.1 81.0 and MCP-Atlas 76.8 are solid production agentic scores near GPT-5.5; Tool-Decathlon qualitative weakness and missing GDPval/AutomationBench rows cap below 5.3's 90-class tool stack.
-- **Reasoning: 86/100.** AIME 99.2, GPQA 91.2, HLE-tools 54.7 — excellent competition/science reasoning at open-weight prices; still a few points behind Opus 4.8/GPT-5.5 on GPQA/HLE.
+- **Tool use: 78/100.** TB2.1 81.0 (Z.AI) / 77.9 (AA) and MCP-Atlas 76.8 are solid production agentic scores near GPT-5.5, and the new AA rows add τ²-telecom 99.1 + GDPval 43.7; but TB4.0 1.0% and AA Agentic Index 38.4 (vs 5.3's 53.4) confirm the cap below 5.3's 90-class tool stack — held (2026-10-09).
+- **Reasoning: 86/100.** AIME 99.2, GPQA 91.2 (AA 89.5), HLE-tools 54.7 (AA harness 41.1) — excellent competition/science reasoning at open-weight prices; AA Index 33.7 (#12/117) independently supports the band; CritPt 20.9 and Omniscience 24.3% accuracy are the modest drags. Held at 86 (2026-10-09); see addendum for a cross-file ordering note vs `glm-5.3`.
 - **Context window: 96/100.** True 1M / 131K-out window with IndexShare efficiency claims; no public MRCR curve for 5.2 (sticker strong, needle accuracy unverified here).
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 84/100.** SWE-Pro 62.1, FrontierSWE 74.4 (near Opus 4.8), PostTrainBench 34.3 beat GPT-5.5; SWE-Marathon 13.0 vs Opus 26.0 and missing SWE-Verified row are the clear caps — elite open coding, not closed-frontier long-horizon.
@@ -67,6 +69,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (benchr GLM-5.2 review, Emergent benchmark explainer, automatio.ai, BenchLM, opper.ai, llm-stats, Z.AI docs citations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (benchr GLM-5.2 review, Emergent benchmark explainer, automatio.ai, BenchLM, opper.ai, llm-stats, Z.AI docs citations); second pass 2026-10-09 re-checked [AA GLM-5.2](https://artificialanalysis.ai/models/glm-5-2) (Index 33.7, MIT, deprecation) and the [OpenRouter z-ai/glm-5.2 page](https://openrouter.ai/z-ai/glm-5.2) whose AA/Vals benchmark block filled the Index/GDPval/Tau3/SciCode/CritPt/Omniscience gaps — Grokipedia page 404; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Gaps closed:** AA Intelligence Index **33.7** (#12/117), Agentic Index **38.4**, GDPval-AA **43.7%**, τ²-Telecom **99.1%** / τ-Banking **34.6%**, SciCode **51.2%**, CritPt **20.9%**, Omniscience 24.3%/73.7%, AA-LCR 78.3, IFBench 73.3, TB Hard 50.8, **TB4.0 1.0%**.
+- **Conflicts kept:** GPQA 91.2 (Z.AI) vs 89.5 (AA); TB2.1 81.0 (Z.AI) vs 77.9 (AA); HLE-tools 54.7 (Z.AI) vs 41.1 (AA harness). AA deprecation banner (→ GLM-5.3) noted; MIT license re-confirmed; OpenRouter realized input price as low as $0.057/M (provider mix).
+- **Cross-file note (no change here):** this entry rates Reasoning 86 while my `glm-5.3` re-research the same day rates Reasoning 84 on an Index 45 vs 33.7 ordering — flagged for a dedicated consistency pass; both files' evidence is intact.
+- **Scores:** no dimension changed; Overall held at 72.

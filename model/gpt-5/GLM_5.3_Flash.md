@@ -1,7 +1,7 @@
 # GPT-5 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,59 +12,68 @@
 - **Provider / access:** OpenAI API `openai/gpt-5` (Chat Completions and Responses API). Artificial Analysis lists 2 API providers, first-party OpenAI API benchmarked.
 - **Release / knowledge:** Released 2025-08-07; knowledge cutoff September 30, 2024 (verified via Artificial Analysis technical specifications).
 - **IDs:** `openai/gpt-5` — no Free ID on OpenCode Zen was verified during research (a non-reasoning variant may also exist per AA, but its exact ID was not verified).
-- **Context window:** 400K total tokens with 128K max output (verified via OpenAI API card and AA technical specifications — both agree).
+- **Context window:** 400K total tokens with 128K max output (verified via OpenAI API card, AA technical specifications and BenchLeader's 400k listing — all agree).
 - **Modalities:** Text and image input; text output; reasoning yes (extended thinking); tool calls supported (OpenAI developer page confirms long chains of tool calls and a `verbosity` API parameter); JSON mode not independently verified.
-- **Pricing (as of 2026-09-28):** $1.25 in / $10.00 out per 1M tokens (OpenAI API, confirmed by both AA and Vellum leaderboards); ~90% cache discount with blended ~$1.34 per 1M (AA, 7:2:1 cache/input/output ratio). Paid only — no free API tier.
+- **Pricing (as of 2026-10-09):** $1.25 in / $10.00 out per 1M tokens (blended $3.44/M per BenchLeader, ~90% cache discount, blended ~$1.34 per 1M AA 7:2:1). Paid only — no free API tier. Output speed 70 tok/s (AA-measured), first token 4.52s.
 - **Architecture:** Proprietary; parameter count undisclosed by OpenAI. Trained on Microsoft Azure AI supercomputers.
 
 ### Raw benchmarks found
 
+> BenchLeader full effort-sweep tables (data as of 2026-10-09) citing Epoch/AA/Vals/Scale boards; high effort unless noted. Previously-missing rows now measured.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified Elo found** — OpenAI reports an internal economically-valuable-tasks benchmark where reasoning GPT-5 is comparable to or better than experts in roughly half the cases across 40+ occupations, but no Elo published
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
-- Aider Polyglot: **88%** (OpenAI launch evaluations, high reasoning effort)
+- Terminal-Bench: **49.6%** #35 (tbench.ai, medium effort — fills the previously-missing TB row); Terminal-Bench Hard (AA): 32.6%; TB2.1 (AA): 35.2%; TB2.0 (Vals): 37.1%
+- Tau2-Bench Telecom (AA): **86.5%**; GDPval: **34.8%** #6 (OpenAI via Epoch, medium — fills the previously-missing GDPval row); GDPval-AA v2.1: 21.0% (AA)
+- BrowseComp-Plus: **57.6%** #1 (not-stated — fills the previously-missing agentic-search row); BrowseComp (Kaggle/OpenAI): **20.1%** #2; DeepSearchQA (Kaggle): **59.4%** #5
+- Remote Labor Index: 1.7%; Poker Agent (Vals): 1103.2 #2; METR Time Horizons: **69.4%** #11; Aider Polyglot: **88.0%** #1 (not-stated — corroborates the launch 88%)
+- Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
+- Artificial Analysis Intelligence Index: **23** (#130 of 216, default 10K workload, deprecated — corroborated; BenchLeader Index **58.1 ±2.7**, #150 of 760, high best — Instruction following 71, Reasoning 53)
 
 Reasoning / knowledge:
 
-- AIME 2025 (no tools): **94.6%** (OpenAI launch evaluations — state of the art at launch)
-- GPQA Diamond: **no verified public score found for base GPT-5 thinking** — the GPT-5 pro variant scores 88.4% without tools (OpenAI SOTA), but that is a separate scaled-compute variant, not this model
-- HLE: **no verified public score found** (OpenAI footnote notes launch-era numbers were run on a former HLE version and are not comparable)
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **23 (estimated) / #130 of 216** (AA v4.3.2, default 10K-input workload only, model deprecated; below the 26 median for reasoning models in its price tier; re-verified 2026-09-28 — same-day AA refresh moved the rank from #125 of 211 as newer models joined the class, index value unchanged)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found** — proxies: ~45% fewer factual errors than GPT-4o with web search enabled, ~80% fewer than o3 when thinking, ~6x fewer hallucinations than o3 on LongFact/FActScore-style factuality prompts; deception rate 2.1% vs o3's 4.8% on production-like conversations (all OpenAI system card/launch figures)
+- GPQA Diamond: **86.2%** #76 (Epoch, high — fills the previously-missing GPQA; AA 85.3%, Vals 85.6%, HELM 79.1% #2)
+- HLE: **25.3%** #13 (Scale AI / CAIS, high — fills the previously-missing HLE; AA 28.5% #151)
+- ARC-AGI-2 (verified): **9.9%** #142 (ARC Prize, high — very weak); ARC-AGI-1: 65.7% #133; CritPt: **5.7%** #136
+- FrontierMath Tiers 1–3: **55.4%** #42 (Epoch v2); Tier 4: 21.9% #45; OTIS Mock AIME: 91.4%; MATH Level 5: **98.1%** #1; IMO 2025: **38.1%** #1; AIME (Vals): 93.4%; MATH 500: 96.0% #3
+- AIME 2025 (no tools): **94.6%** (OpenAI launch evaluations — SOTA at launch)
+- SimpleQA Verified: **50.1%** #25 (Epoch); AA-Omniscience: accuracy 40.3%, non-hallucination **17.8%** #300 at high (severe hallucination); MultiChallenge: 63.2% #9
+- MMLU-Pro (Vals): **86.5%**; HELM MMLU-Pro: **86.3%** #2; MedQA (Vals): **96.3%** #4; LegalBench (Vals): 86.0%; CaseLaw v2: 66.5% #6
+- Hallucination proxies (OpenAI system card): ~45% fewer factual errors than GPT-4o with web search; ~6x fewer than o3 on LongFact-style prompts; deception rate 2.1% vs o3's 4.8%
+- LCR / MLCR: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **74.9%** (OpenAI launch evaluations, fixed n=477 verified-task subset, high reasoning effort)
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found** (SciCode is a component of AA II v4.3.2 but no per-model value was published for GPT-5)
-- Vibe Code Bench: **no verified public score found**
+- SWE-bench Verified: **73.5%** #19 (Epoch, high — fills the previously-missing independent SWE-V row); swebench.com bash-only: **65.0%** #19 (medium; any scaffold 65.0%); OpenAI launch: **74.9%** (fixed n=477 subset)
+- SWE-Bench Pro: **41.8%** #10 (Scale AI SEAL — fills the previously-missing row; weak)
+- LiveCodeBench: **85.9%** #27 (Vals — fills the previously-missing LCB)
+- SciCode: **42.9%** (SciCode via Epoch, not-stated — fills the previously-missing SciCode; below the 55%+ frontier mark)
+- Aider Polyglot: **88.0%** #1 (leaderboard-topping)
+- Vibe Code Bench v1.1: **20.1%** (Vals — weak); WeirdML: 60.7%; ALE-Bench: **1162.5**; LMArena Coding: 1471
+- DeepSWE / SWE-Atlas: no verified public score found
 
 Long context:
 
-- No long-context retrieval reported (AA-LCR is an AA II v4.3.2 component but no public per-model value for GPT-5 was found; 400K window with no retrieval measurement)
+- No long-context retrieval measurement verified for GPT-5 (AA-LCR value unpublished; BenchLeader Long context 64); 400K window
 
-Speed context (not scored): 95.0 output tokens/s (#61 of 216) and 64.04s TTFT including thinking (Artificial Analysis, OpenAI API, re-verified 2026-09-28 — refreshed same-day from 97.4 t/s and 66.46s TTFT).
+Multimodal / vision:
+
+- MMMU-Pro (Vals): **81.5%** #39 (fills the previously-missing independent vision row); AA MMMU-Pro: 74.2%; VISTA: **49.7%** #11 (Scale SEAL); GeoBench: **81.0%** #4; VTB: 18.7%; LMArena Vision: 1232
 
 ### Normalized scores (1–100)
 
-- **Tool use: 65/100.** 88% Aider Polyglot and OpenAI's reported agentic tool-call gains support solid mid-tier placement, but no verified Terminal-Bench 2.1, Tau3, or GDPval Elo exists for this exact model — that missing agentic-suite evidence caps it below the frontier band.
-- **Reasoning: 78/100.** 94.6% AIME 2025 without tools was SOTA at launch and hallucination/deception reductions are best-in-class improvements, but no verified GPQA Diamond or HLE for base GPT-5 thinking (only the pro variant's 88.4% GPQA) and a below-median AA Intelligence Index (23, unchanged on re-verification) cap it under the 90+ band.
-- **Context window: 80/100.** 400K total tokens maps to the upper end of the 200K–500K tier (200K = 70 reference), capped by the 128K max-output caveat and no published long-context retrieval measurement.
-- **Multimodal: 82/100.** Text and image input with 84.2% MMMU (SOTA at launch) and reported video/spatial reasoning gains; text-only output and no verified audio/PDF input keep it below audio-vision-tier models.
-- **Coding: 72/100.** 74.9% SWE-bench Verified and 88% Aider Polyglot were frontier-class at launch, but the 2026 frontier cohort now sits at 95%+ SWE-bench, and no verified LiveCodeBench/SciCode/Vibe Code Bench results cap it in the upper-mid band.
-- **Cost efficiency: 74/100.** $1.25/$10.00 per 1M (blended ~$1.34, ~90% cache discount) is moderately priced per AA and cheap for a former flagship, but the $10.00 output rate is well above mid-tier models and there is no free tier.
-- **Overall Score: 75.4/100.** Mean of the five non-cost dims (65 + 78 + 80 + 82 + 72) / 5 = 75.4 — best fit as a solid general-purpose fallback for everyday chat, writing, and health questions; newer OpenAI releases are preferable for frontier coding and agentic work.
+- **Tool use: 68/100.** Now measured: TB 49.6% (#35) and GDPval 34.8% are weak, but τ² Telecom 86.5%, BrowseComp-Plus 57.6% (#1), Aider Polyglot 88% (#1) and METR 69.4% hold mid-band; the missing Claw/Toolathon rows cap it.
+- **Reasoning: 72/100.** GPQA 86.2% (filled — just under the 90% reference), AIME 2025 94.6% (SOTA at launch) and MATH Level 5 98.1% (#1) are strong; HLE 25.3%/28.5% stays under the 40% bar, ARC-AGI-2 9.9% is very weak, and AA Index 23 (deprecated model) plus the 17.8% non-hallucination rate cap it.
+- **Context window: 80/100.** 400K total tokens (upper end of the 200K–500K tier; 200K = 70 reference), capped by the 128K max-output caveat and no published long-context retrieval measurement (AA-LCR unpublished).
+- **Multimodal: 82/100.** Text and image input with measured MMMU-Pro (Vals) 81.5%, VISTA 49.7% (#11) and GeoBench 81.0% (#4); text-only output and no verified audio/PDF input keep it below audio-vision-tier models.
+- **Coding: 75/100.** Now with filled rows: SWE-V 73.5% (#19 Epoch) / 65.0% (swebench.com), LCB 85.9% (#27), Aider 88% (#1); SWE-Pro 41.8% and SciCode 42.9% sit below frontier marks, and the 2026 cohort now sits at 95%+ SWE-bench.
+- **Cost efficiency: 74/100.** $1.25/$10.00 per 1M (blended $3.44/M, ~90% cache discount) is moderately priced per AA and cheap for a former flagship, but the $10.00 output rate is well above mid-tier models and there is no free tier.
+- **Overall Score: 75/100.** Mean of the five non-cost dims (68 + 72 + 80 + 82 + 75) / 5 = 75.4 → 75. Best fit as a solid general-purpose fallback for everyday chat, writing, and health questions; newer OpenAI releases are preferable for frontier coding and agentic work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-28
-- Method: public internet research (OpenAI GPT-5 launch post and "GPT-5 is here" product page, Artificial Analysis GPT-5 model page re-verified 2026-09-28, Vellum LLM leaderboard cross-check); re-verification update — AA refreshed its measured speed (97.4 → 95.0 t/s), TTFT (66.46 → 64.04s), and class rank (#125/211 → #130/216) same-day; index value (23), all other benchmarks, and all normalized scores are unchanged. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenAI launch post, Vellum cross-check); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.2% #76, HLE 25.3% #13, independent SWE-V 73.5% #19, LCB 85.9%, SWE-Pro 41.8%, SciCode 42.9%, TB 49.6%, GDPval 34.8%, BrowseComp-Plus 57.6% #1, MMMU-Pro 81.5% — Tool 65→68, Reasoning 78→72, Coding 72→75, Overall 75 (recalculated).
+- Future sources: add a new file next to this one, e.g. `GPT_5.1.md`, using the same headings.

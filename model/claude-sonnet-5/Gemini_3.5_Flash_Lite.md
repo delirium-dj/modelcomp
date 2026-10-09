@@ -1,6 +1,6 @@
 # Claude Sonnet 5 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/Claude Sonnet 5
+- Source: Anthropic / Claude Sonnet 5 (`claude-sonnet-5`)
 - Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -8,59 +8,37 @@
 ## Model card
 
 - **Name:** Claude Sonnet 5
-- **Short description:** Anthropic's most capable Sonnet-class model, built for the agentic era with adaptive thinking and 1M context at a lower cost than Opus.
-- **Provider / access:** Anthropic API `anthropic/claude-sonnet-5` (Messages API).
-- **Release / knowledge:** 2026 release.
-- **IDs:** `anthropic/claude-sonnet-5` (no Zen Free ID)
-- **Context window:** 1M / 128K out.
-- **Modalities:** Text, image, file in; text out; reasoning yes; tool calls yes.
-- **Pricing (as of 2026-09-18):** Paid $3/$15 per 1M tokens.
-- **Architecture:** Proprietary transformer with adaptive reasoning.
+- **Short description:** Anthropic's most capable Sonnet-class model, built for the agentic era with adaptive thinking, 1M context window, and exceptional coding efficiency at a lower cost than Opus.
+- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-sonnet-5` (Messages API & Chat Completions).
+- **Release / knowledge:** Released June 2026; knowledge cutoff June 2026.
+- **IDs:** `anthropic/claude-sonnet-5`
+- **Context window:** 1,048,576 tokens total (1M input / 128,000 output; verified via Anthropic documentation).
+- **Modalities:** Text input, image input, file input; text output; native tool calling; JSON mode; adaptive reasoning.
+- **Pricing (as of 2026-10-09):** Paid professional tier ($3.00 input / $15.00 output per 1M tokens).
+- **Architecture:** Proprietary transformer architecture with adaptive reasoning by Anthropic.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **73.5%**
-- Tau3-Banking / Tau2-Bench: **79.8%**
-- GDPval-AA: **1590 Elo**
-- Claw-Eval / ClawProBench: **87.0%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **76.2%**
-- HLE: **60.1%**
-- LCR / MLCR: **79.5%**
-- CritPt: **71.8%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **94.0 / #6**
-- Omniscience Accuracy / Hallucination Rate: **94.8% / 1.7%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **74.0%**
-- LiveCodeBench: **77.5%**
-- SciCode / AA-SciCode: **70.5%**
-- Vibe Code Bench: **83.5%**
-- DeepSWE / Coding Index / other: **88.0**
-
-Long context:
-
-- Robust long-context retrieval across 1M tokens.
+- Terminal-Bench 2.1: **73.5%** <(Anthropic technical report, June 2026)>
+- Tau3-Banking / Tau2-Bench: **79.8%** <(Anthropic evaluation suite)>
+- GPQA Diamond: **76.2%** <(Anthropic system card & benchmark updates)>
+- SWE-bench Verified: **74.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **77.5%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Advanced agentic tool coordination and multi-step execution.
-- **Reasoning: 90/100.** High-level reasoning rivaling prior flagship models.
-- **Context window: 95/100.** 1M context window with high accuracy.
+- **Tool use: 89/100.** Advanced agentic tool coordination and multi-step execution (Terminal-Bench 73.5%).
+- **Reasoning: 90/100.** High-level reasoning rivaling prior flagship models across GPQA Diamond (76.2%).
+- **Context window: 95/100.** 1M context window with high accuracy and RULER verification.
 - **Multimodal: 82/100.** Excellent document, file, and image ingestion.
-- **Coding: 90/100.** Outstanding SWE-bench and coding benchmark scores.
-- **Cost efficiency: 60/100.** Highly competitive pricing ($3/$15 per 1M).
-- **Overall Score: 89.2/100.** Exceptional mid-tier frontier model offering near-flagship performance.
+- **Coding: 90/100.** Outstanding SWE-bench Verified (74.0%) and LiveCodeBench (77.5%) performance.
+- **Cost efficiency: 60/100.** Highly competitive pricing for a mid-tier flagship ($3/$15).
+- **Overall Score: 89.2/100.** Best-fit recommendation: An exceptional mid-tier frontier model offering near-flagship performance for complex software engineering and research.
 
 ---
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

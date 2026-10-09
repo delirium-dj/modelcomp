@@ -1,14 +1,14 @@
 # Grok 4.1 — findings by Mimo v2.6 Flash
 
 - Source: xAI (SpaceXAI) / Grok 4.1
-- Date: 2026-09-26 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-26, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.1 (variants: Grok 4.1 Thinking, codename `quasarflux`; Grok 4.1 Non-Thinking, codename `tensor`)
-- **Short description:** xAI's Nov 2025 flagship chat model, tuned for style/personality and hallucination reduction (web-search hallucination cut 12.09% → 4.22% per xAI's model card); debuted #1 on LMArena Text. Deprecated/superseded within ~3 months by Grok 4.20, then 4.3/4.5 — a historical snapshot, not a current recommendation (HokAI). Not an alias of Grok 4.1 Fast (a separate, cheaper 2M-context model).
+- **Short description:** xAI's Nov 2025 flagship chat model, tuned for style/personality and hallucination reduction (web-search hallucination cut 12.09% → 4.22% per xAI's model card; independent Vectara leaderboard still shows ~20% for some Grok-4 variants — Grokipedia). Debuted #1 on LMArena Text. Deprecated/superseded within ~3 months by Grok 4.2 (public beta 2026-02-17, "rapid-learning" weekly-update architecture), then 4.20/4.3/4.5 — a historical snapshot, not a current recommendation (HokAI/Grokipedia). Context: xAI joined SpaceX via acquisition 2026-02-02 (hence "SpaceXAI"). Not an alias of Grok 4.1 Fast.
 - **Provider / access:** xAI API (Chat Completions; llm-stats provider table: `grok-4.1` at $3.00/$15.00, 256K/8K), grok.com / X / mobile apps; OpenCode Zen entry `grok-4.1` (per tracked Zen metadata). Dedicated xAI docs page retired after newer releases shipped (HokAI).
 - **Release / knowledge:** 2025-11-17 (x.ai announcement; BenchLeader/llm-stats track 17–19 Nov 2025). Knowledge cutoff not verified.
 - **IDs:** `grok-4.1` / dated snapshot `grok-4.1-2025-11-17` (llm-stats slug). No Free ID: HokAI confirms it never had a free tier; no Zen Free ID verified.
@@ -61,14 +61,23 @@ Other: MMMU-Pro 63.3% thinking (AA) / 72.7% (Vals); LMArena Vision 1199 (#77); L
 - **Context window: 72/100.** 256K lands in the 200K–500K tier (65–84); 8K max output is a noted caveat, not a separate deduction.
 - **Multimodal: 68/100.** Image input + text output only (60–70 band), with MMMU-Pro 63.3–72.7% and LMArena Vision 1199 (#77); no audio/video/PDF input or non-text output.
 - **Coding: 68/100.** LiveCodeBench 80.6% and strong LMArena Coding 1499 pull it up, but SWE-bench Verified 41.4%, Vibe v1.1 1.2% and TB2.0 24.7% hold it in the mid band; no SciCode row.
-- **Cost efficiency: 60/100.** $3.00/$15.00 per 1M matches the methodology's $3/$15 ≈ 60 reference; never had a free tier (HokAI) and is now deprecated.
+- **Cost efficiency: 60/100.** $3.00/$15.00 per 1M matches the methodology's $3/$15 ≈ 60 reference; no API/Zen free tier (HokAI) — with a second-pass correction: Grokipedia documents **free consumer access on grok.com/X/mobile with rate limits** (no API free tier), so "never had a free tier" applies to API only; still deprecated.
 - **Overall Score: 69/100.** Half-up mean of Tool 65, Reasoning 70, Context 72, Multimodal 68, Coding 68 = 68.6. Best fit: expressive high-preference chat with solid long-context reasoning; poor value for terminal/SWE agent work at flagship pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (Xiaomi/MiMo-V2.6-Flash)** — 2026-09-26
-- Method: fresh public web research (x.ai announcement/model card via HokAI, BenchLeader aggregating AA/Vals AI/MathArena/Epoch, BenchmarkList, llm-stats, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (Xiaomi/MiMo-V2.6-Flash)** — 2026-10-09 (original: 2026-09-26; user-approved second pass)
+- Method: fresh public web research (x.ai announcement/model card via HokAI, BenchLeader aggregating AA/Vals AI/MathArena/Epoch, BenchmarkList, llm-stats, OpenCode Zen docs); second pass 2026-10-09 re-checked [Grokipedia Grok 4.1](https://grokipedia.com/page/Grok_4.1) (consumer free-tier + Grok 4.2/SpaceX timeline, Eq-Bench 1586, Vectara counterpoint) — AA's direct page is gone (404, deprecated model) and the OpenRouter `x-ai/grok-4.1` URL renders no model data (delisted); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Correction:** the first pass's "never had a free tier" is API-only — Grokipedia documents free rate-limited consumer access on grok.com/X/mobile; Cost dim unchanged at 60 (API-price anchored).
+- **New context:** Grok 4.2 public beta 2026-02-17 (rapid-learning, weekly updates) as the direct successor; xAI→SpaceX acquisition 2026-02-02; Eq-Bench 1586; Vectara ~20% hallucination counterpoint to xAI's 4.22%; historical "Grok 4.1 Thinking removed w/o explanation" availability incidents.
+- **Coverage:** AA page retired (404) and OpenRouter delisted — BenchLeader/llm-stats aggregates from the first pass remain the best benchmark record; no new standard rows found.
+- **Scores:** no dimension changed; Overall held at 69.
 

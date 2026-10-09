@@ -1,0 +1,66 @@
+# Exo Free — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+> **SELF-EXCLUSION.** Exo Free is an anonymous OpenCode Zen free-tier model with
+> **zero verified public benchmark numbers**, no disclosed vendor, weights, or
+> model card, so no 1–100 scores are filed here — placeholder scores would drag
+> the mean for every reader. The notes below record what is verified and what is
+> missing; nothing in this file is scored.
+
+- Source: undisclosed provider (OpenCode Zen) — `opencode/exo-free`
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified facts only)
+
+- **Name:** Exo Free
+- **Short description:** A provenance-hidden foundation model offered free on OpenCode Zen for a limited feedback period. Not the open-source `exo-explore/exo` distributed-inference project; the name collision is the only link found.
+- **Provider / access:** OpenCode Zen (`opencode/exo-free`, `https://opencode.ai/zen/v1/chat/completions`, `@ai-sdk/openai-compatible`). No vendor attribution, no public endpoint outside Zen.
+- **Release / knowledge:** available on Zen now (limited time); exact release date and knowledge cutoff unknown.
+- **IDs:** `opencode/exo-free`.
+- **Context window:** not published (absent from Zen docs and models.dev).
+- **Modalities:** not documented (listed only as a chat-completions text model; reasoning/tool support unreported).
+- **Pricing (as of 2026-10-09):** Free — $0 input / $0 output / $0 cached (OpenCode Zen docs).
+- **Architecture:** not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Why the file is excluded (evidence trail)
+
+- Verified from OpenCode Zen docs: `Exo Free` is a real `opencode/exo-free` free-tier
+  ID ("available on OpenCode for a limited time. The team is using this time to
+  collect feedback and improve the model"), distinct from the clearly-labelled
+  stealth models (Big Pickle, Space Bunny).
+- Fresh public web search (2026-10-09) located no benchmark, leaderboard, model
+  card, parameter count, or independent evaluation for this ID; it is absent from
+  models.dev, Artificial Analysis, Vals AI, LLM Stats and BenchmarkList.
+- With zero measured numbers on any axis, every dimension row reads "no verified
+  public score found" — the self-exclusion condition in `model-report-TEMPLATE.md`
+  / `.agents/rules.md`. No number was invented.
+- Re-research trigger: if a vendor or an independent harness publishes dated
+  `exo-free` scores against a stable model ID, this file should be replaced by a
+  fully scored `DeepSeek_4.1_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: public internet research (OpenCode Zen docs and model list, models.dev, Artificial Analysis/Vals/LLM Stats index checks, GitHub project-disambiguation). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

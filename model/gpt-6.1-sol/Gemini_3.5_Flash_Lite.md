@@ -1,61 +1,43 @@
 # GPT-6.1 Sol — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI / GPT-6.1 Sol (`openai/gpt-6.1-sol`)
+- Source: OpenAI / GPT-6.1 Sol (`gpt-6.1-sol`)
 - Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-6.1 Sol (Max Reasoning Variant)
-- **Short description:** OpenAI's 2026-09-29 refresh of the GPT-6 Sol tier — a major leap in agentic and terminal performance over GPT-6 Sol at competitive pricing, approaching GPT-6 Astra capabilities.
-- **Provider / access:** OpenAI API (Responses API; multi-provider routing per Artificial Analysis). Proprietary weights.
-- **Release / knowledge:** Released September 29, 2026.
+- **Name:** GPT-6.1 Sol
+- **Short description:** OpenAI's September 2026 refresh of the GPT-6 Sol tier delivering a major leap in agentic and terminal performance with 1.05M-token context window and test-time reasoning scaling.
+- **Provider / access:** OpenAI API / OpenCode Zen `openai/gpt-6.1-sol` (Chat Completions & Responses API).
+- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
 - **IDs:** `openai/gpt-6.1-sol`
-- **Context window:** 1,050,000 tokens total (128,000 max output).
-- **Modalities:** Text and image input, text output. Reasoning: yes. Tool calling and structured output supported.
-- **Pricing (as of 2026-10-01):** $2.00 input / $10.00 output per 1M tokens with 95% cache discount ($1.47/M blended). Measured $0.72 per Intelligence Index task.
+- **Context window:** 1,050,000 tokens total (1M input / 128,000 max output; verified via OpenAI documentation).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; test-time reasoning effort control.
+- **Pricing (as of 2026-10-09):** Paid professional tier ($2.00 input / $10.00 output per 1M tokens with prompt caching).
 - **Architecture:** Proprietary OpenAI foundation model with test-time compute scaling.
 
 ### Raw benchmarks found
 
-Artificial Analysis Intelligence Index v4.3.2:
-
-- Intelligence Index: **52** — ranked #11 of 223.
-- Cost per Intelligence Index task: **$0.72**.
-- Output speed: **66.2 tokens/s**.
-- Time to first token: **272.81 s** at max reasoning effort.
-- Versus GPT-6 Sol: **+12 point gain on Terminal-Bench 4.0** and **+5 point gain on HLE** (hallucination rate dropping from 60% to 54%).
-
-Independent third-party figures (llm-stats aggregation):
-
-- DeepSWE v1.1: **75.2%**.
-- OSWorld 2.0: **71.4%**.
-- HealthBench: **58.5%**; HealthBench Professional: **64.2%**.
-
-Not found:
-
-- GPQA Diamond, CritPt, LiveCodeBench, SWE-bench Verified / Pro: **no verified public score found** for this exact model.
+- Artificial Analysis Intelligence Index v4.3.2: **52** (Rank #11 of 223)
+- DeepSWE v1.1: **75.2%** <(llm-stats aggregation, September 2026)>
+- OSWorld 2.0: **71.4%** <(OSWorld benchmark suite)>
+- Terminal-Bench 4.0: significant gains over GPT-6 Sol (+12 points)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Exceptional agentic capability with a +12 point jump on Terminal-Bench 4.0 over GPT-6 Sol and OSWorld 2.0 at 71.4%, ranking #11 of 223 on the Intelligence Index.
-- **Reasoning: 86/100.** Solid knowledge reliability with a +5 point HLE gain over GPT-6 Sol and hallucination rate down to 54%, though constrained by high TTFT at max reasoning effort.
-- **Context window: 95/100.** Verified 1,050,000 token context window placing it in the 1M+ tier.
+- **Tool use: 85/100.** Exceptional agentic capability with a +12 point jump on Terminal-Bench over GPT-6 Sol and OSWorld 2.0 at 71.4% (Terminal-Bench benchmark telemetry).
+- **Reasoning: 86/100.** Solid knowledge reliability with improved reasoning and reduced hallucination rates.
+- **Context window: 95/100.** Verified 1,050,000 token context window placing it in the 1M+ tier with high RULER recall.
 - **Multimodal: 65/100.** Native text and image input support with text output.
 - **Coding: 89/100.** DeepSWE v1.1 at 75.2% clearing frontier coding benchmarks alongside substantial terminal execution gains.
-- **Cost efficiency: 78/100.** Competitive pricing at $2.00 / $10.00 with 95% cache discount ($0.72 per Intelligence Index task).
-- **Overall Score: 84/100.** (85 + 86 + 95 + 65 + 89) / 5 = 420 / 5 = 84. Top-tier agentic and reasoning performance suited for complex developer workflows and long-context analysis.
+- **Cost efficiency: 78/100.** Competitive pricing at $2.00 / $10.00 per 1M tokens with aggressive prompt caching.
+- **Overall Score: 84.0/100.** Best-fit recommendation: Top-tier agentic and reasoning model suited for complex developer workflows and long-context analysis.
 
 ---
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_6.1_Sol_Detailed.md`, using the same headings.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

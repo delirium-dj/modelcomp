@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by Mimo v2.6 Flash
 
 - Source: Zhipu AI / Z.AI/`glm-5.2`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,8 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 (Terminus-2): **81.0%** (Z.AI; vs Opus 4.8 85.0, GPT-5.5 84.0)
+- Terminal-Bench 2.1 (Terminus-2): **81.0%** (Z.AI) / **77.9%** (AA independent, 2026-10-09 — spread 77.9–82.7 across all harnesses/sources)
+- Terminal-Bench 4.0: **1.0%** (AA via OpenRouter, 2026-10-09 — near-zero on the newest board, alongside the existing TB3.0 4.6 row); AA Terminal-Bench Hard **50.8%** (2026-10-09 — conflicts with the BenchLM 30.7 above; different runs, both kept)
 - Terminal-Bench 2.1 (Claude Code harness): **82.7%** (Z.AI best-reported)
 - MCP-Atlas (Public): **76.8%** (Z.AI/BenchLM)
 - τ²-bench: **99.1%** (Epoch/themodelbeat)
@@ -38,7 +39,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **91.2%** (Z.AI) / **91.9%** (Epoch/themodelbeat)
 - AIME 2026: **99.2%** (Z.AI)
 - Humanity's Last Exam: **40.5%** text-only / **54.7%** with tools (Z.AI)
-- CritPt / AA Intelligence Index: no verified public score found for GLM-5.2 in this pass
+- CritPt / AA Intelligence Index: AA Intelligence Index **33.7** (Max effort, #12/117 open-weights class, median 18; AA via model page/OpenRouter, 2026-10-09 — **fills the first-pass gap**); CritPt **20.9%**, AA-Omniscience accuracy 24.3% / non-hallucination 73.7%, AA-LCR 78.3%, IFBench 73.3% (all AA, 2026-10-09). AA marks GLM-5.2 deprecated in favor of GLM-5.3.
 
 Coding:
 
@@ -68,9 +69,9 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 79/100.** TB2.1 81.0/82.7, MCP-Atlas 76.8, τ² 99.1, GDPval 1418 are production-grade agentic scores; Toolathlon 48.2, APEX 33.7, TB3.0 4.6, and TB Hard 30.7 cap below the 85+ frontier.
-- **Reasoning: 87/100.** AIME 99.2, GPQA 91.2–91.9, HLE-tools 54.7 — elite open-weight science/math reasoning; missing AA-Index/CritPt keeps breadth from full frontier claim.
+- **Reasoning: 87/100.** AIME 99.2, GPQA 91.2–91.9 (HF leaderboard rank **#8**, re-checked 2026-10-09), HLE-tools 54.7 — elite open-weight science/math reasoning; the new AA Index 33.7 (#12/117) and CritPt 20.9 fill the breadth gap without changing the band (held 2026-10-09; cross-file ordering note vs `glm-5.3` stands as flagged in the coding sibling).
 - **Context window: 70/100.** Scored on **verified Zen 204K** window (methodology: 200K tier = 70); native Z.AI 1M would score ~96 if served full — note as upgrade path via Z.AI API, not this Zen ID.
-- **Multimodal: 15/100.** Text-only (template rule: 15).
+- **Multimodal: 15/100.** Text-only (template rule: 15) — hard-confirmed 2026-10-09 by the HF chat template, which inserts "You are unable to process this media" reminders for image/video/audio parts.
 - **Coding: 84/100.** SWE-Pro 62.1, FrontierSWE 74.4 (near Opus 4.8), SWE-Verified 78.7, AA Coding Index 68.8, Design Arena #1 — elite open coding; SWE-Marathon 13.0 and TB3.0 4.6 are the clear long-horizon/new-board caps.
 - **Cost efficiency: 100/100.** **Free Zen tier available** on this ID (eval tier = $0 → 100); paid Z.AI $1.40/$4.40 also excellent if free quota ends.
 - **Overall Score: 67/100.** Mean of five quality dims (79+87+70+15+84)/5 = 67.0. Best-fit: free-tier long-context text coding/agentic work on Zen where the 204K window suffices — step up to GLM-5.3 (same paid price, higher scores) or Z.AI's native 1M endpoint when window/peak quality matters more than the free tier.
@@ -79,6 +80,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (z.ai/blog/glm-5.2, benchr GLM-5.2 review, Layer3 Labs, BenchLM glm-5-2, Epoch/themodelbeat, automatio.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (z.ai/blog/glm-5.2, benchr GLM-5.2 review, Layer3 Labs, BenchLM glm-5-2, Epoch/themodelbeat, automatio.ai); second pass 2026-10-09 re-checked [AA GLM-5.2](https://artificialanalysis.ai/models/glm-5-2) and the [OpenRouter z-ai/glm-5.2 benchmark block](https://openrouter.ai/z-ai/glm-5.2) (Index/CritPt/Omniscience/TB4.0 fills) plus the [HF zai-org/GLM-5.2 card](https://huggingface.co/zai-org/GLM-5.2) (GPQA #8 rank, text-only template confirmation); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Gaps closed:** AA Intelligence Index **33.7** (#12/117), CritPt **20.9%**, Omniscience 24.3%/73.7%, AA-LCR 78.3, IFBench 73.3, **TB4.0 1.0%**.
+- **Conflicts kept:** TB Hard 30.7 (BenchLM) vs 50.8 (AA); TB2.1 81.0–82.7 (Z.AI) vs 77.9 (AA); GPQA 91.2 (Z.AI/HF, HF rank #8) vs 89.5 (AA).
+- **Confirmed:** MIT, 753B/40B, text-only (HF template hard-rejects media), deprecation banner (→ GLM-5.3); DeepInfra hosted route as cheap as $2.40/M output.
+- **Scores:** no dimension changed; Overall held at 67 (Zen-served 204K window still the scoring anchor).

@@ -1,7 +1,7 @@
 # Space Bunny Alpha — findings by Mimo v2.6 Flash
 
 - Source: Stealth (anonymous provider)/Space Bunny Alpha — OpenCode Zen `opencode/space-bunny-free`, OpenRouter `stealth/space-bunny-alpha`
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-25, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Space Bunny Alpha (anonymous stealth preview; free limited-time Zen tier as "Space Bunny Free")
 - **Short description:** Anonymous stealth reasoning model for coding, agentic tasks and multimodal input, surfaced on OpenRouter and OpenCode on 2026-09-23 with a free preview. Vendor undisclosed; independent tokenizer fingerprints point strongly to the MiniMax family (an M3.1 checkpoint is a hypothesis only, unconfirmed).
-- **Provider / access:** OpenCode Zen `opencode/space-bunny-free` (Chat Completions, `https://opencode.ai/zen/v1/chat/completions`; zero-retention, no training on data per Zen route terms) and OpenRouter `stealth/space-bunny-alpha` (Chat Completions; OpenRouter is the gateway only — the anonymous provider may retain prompts/completions).
+- **Provider / access:** OpenCode Zen `opencode/space-bunny-free` (Chat Completions, `https://opencode.ai/zen/v1/chat/completions`; zero-retention, no training on data per Zen route terms) and OpenRouter `stealth/space-bunny-alpha` (Chat Completions; OpenRouter is the gateway only). Second-pass note (2026-10-09): OpenRouter's stealth terms now state prompts/completions "may be retained by the provider **but are not used for training**" — a firmer no-training commitment than the first pass recorded; still a stealth preview, no identity reveal (contrast: sibling stealth `stealth/union-alpha` was revealed as Pareto).
 - **Release / knowledge:** 2026-09-23 (OpenRouter listing date; AI BENCHY research page dated 2026-09-24); knowledge cutoff not published.
 - **IDs:** `opencode/space-bunny-free` (Zen Free ID exists) / `stealth/space-bunny-alpha` (OpenRouter).
 - **Context window:** 1,000,000 tokens input, 524,288 max output tokens (OpenRouter model page, verified 2026-09-24).
 - **Modalities:** text/image/video in; text out; reasoning **mandatory** (efforts `low`/`medium`/`high`/`xhigh`/`max`, provider default `max`); tool calling, tool choice, structured output supported; JSON output yes, JSON Schema enforcement not listed (field guide via buildfastwithai review). No audio/PDF input reported.
-- **Pricing (as of 2026-09-25):** Free during the stealth preview — OpenRouter lists $0.00 input / $0.00 output, and the Zen route is a limited-time free tier ($0); third-party hosts differ (NanoGPT lists $0.050/$0.150 per 1M "Auto"). Post-preview pricing unknown. Privacy differs by route: Zen = zero-retention/no-training; OpenRouter stealth route = provider may retain prompts/completions.
+- **Pricing (as of 2026-10-09):** Free during the stealth preview — Zen route remains the limited-time free tier ($0; no delisting evidence found in this pass). Second-pass note: the OpenRouter page (re-fetched 2026-10-09) no longer displays the $0.00/$0.00 preview price row — preview-end status on OpenRouter is **ambiguous**; third-party hosts differ (NanoGPT previously listed $0.050/$0.150 per 1M "Auto"). Post-preview pricing still unknown. Privacy differs by route: Zen = zero-retention/no-training; OpenRouter stealth route = provider may retain (not train on) prompts/completions.
 - **Architecture:** undisclosed — no parameter count, model card, license or open weights published. Independent probes speculate a sparse MoE with ~20–35B active parameters (margrop.net, unverified); tokenizer matches MiniMax-family signatures 24/24 and 50/50 on test strings (YFarmX study, cited by buildfastwithai).
 
 ### Raw benchmarks found
@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - AI BENCHY **Puzzle Solving**: **7.9/10** (2/3; AI BENCHY, 2026-09-24)
 - AI BENCHY **General Intelligence**: **5.0/10** (0/1 — instruction miss)
 - AI BENCHY **Instructions following**: **5.6/10** (0/2); **Anti-AI Tricks**: **6.4/10** (2/4); **Combined**: **3.2/10** (0/2); **Trivia**: **3.0/10** (0/1)
-- GPQA Diamond / HLE / AIME / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (NanoGPT model page: "No benchmark data is available yet for this model")
+- GPQA Diamond / HLE / AIME / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (NanoGPT model page: "No benchmark data is available yet for this model"; AA still has no page for this ID as of 2026-10-09)
 
 Coding:
 
@@ -64,12 +64,22 @@ Speed (context only, not a scored dimension):
 - **Multimodal: 78/100.** Text/image/video input with verified image probing (8/8, 14/14) sits in the +video-in tier (75–90); no audio/PDF in, text-only out, and zero video benchmarks (Video-MME/MMMU missing) keep it out of the 90s.
 - **Coding: 62/100.** AI BENCHY Coding 6.6/10 with a 56.1% overall pass rate and composite 6.5 (#204/~364) is mid-pack evidence for a coding-branded model, reinforced by qualitative community sandbox-coding weakness reports; no SWE-bench/LiveCodeBench/SciCode score exists, so it cannot enter the methodology's 65–75 mid band which assumes standard coding suites.
 - **Cost efficiency: 100/100.** $0 input / $0 output on both the Zen free route and the OpenRouter stealth preview = the $0 = 100 rule; caveat: time-limited preview pricing (resellers already list $0.05/$0.15), and route-dependent data-retention terms.
-- **Overall Score: 70/100.** (60 + 55 + 95 + 78 + 62) / 5 = 70 — best-fit: a free 1M-context multimodal reasoning worker worth routing experiments and long-context jobs to while the preview lasts, not a proven frontier coder; anonymous provenance means sensitive code should stay off the OpenRouter route.
+- **Overall Score: 70/100.** (60 + 55 + 95 + 78 + 62) / 5 = 70 — best-fit: a free 1M-context multimodal reasoning worker worth routing experiments and long-context jobs to while the preview lasts, not a proven frontier coder; anonymous provenance means sensitive code should stay off the OpenRouter route. Held 2026-10-09 (second pass found no new standard benchmark rows and no identity reveal; only the OpenRouter free-price row went missing).
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-25
-- Method: public internet research (OpenRouter model page, AI BENCHY model page, buildfastwithai review with field-guide/TokenDyno citations, margrop.net probe analysis, AICrier release note, NanoGPT listing, Zen `meta.json`); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-25; user-approved second pass)
+- Method: public internet research (OpenRouter model page, AI BENCHY model page, buildfastwithai review with field-guide/TokenDyno citations, margrop.net probe analysis, AICrier release note, NanoGPT listing, Zen `meta.json`); second pass 2026-10-09 re-checked the [OpenRouter stealth page](https://openrouter.ai/models/stealth/space-bunny-alpha) (still stealth, no price row, updated retention terms) — AA has no page for this ID and the NanoGPT model URL returned a JS-only shell; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Unchanged identity:** still anonymous stealth (17 days after listing); MiniMax-family tokenizer hypothesis remains unconfirmed; no reveal analogous to Union Alpha→Pareto.
+- **Status drift:** OpenRouter's $0.00 preview price row is absent from the 2026-10-09 fetch (preview end ambiguous there); Zen free route shows no delisting evidence.
+- **Terms:** OpenRouter stealth terms now explicitly "not used for training" (retention still possible).
+- **Benchmarks:** no new standard rows anywhere (AA still absent; NanoGPT still "no benchmark data"); the AI BENCHY composite 6.5 (#204/~364) from the first pass remains the only measured evidence.
+- **Scores:** no dimension changed; Overall held at 70.
