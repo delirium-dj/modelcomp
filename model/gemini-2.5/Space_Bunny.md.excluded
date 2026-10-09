@@ -1,0 +1,61 @@
+# Gemini 2.5 — findings by Space Bunny
+
+- Source: Google (`gemini-2.5` — **no such API model ID exists**)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — `gemini-2.5` is a family name, not a model.**
+> Zero verified public benchmark numbers exist for a model literally named "Gemini 2.5",
+> because Google has never shipped one. Per the report template's mandatory
+> SELF-EXCLUSION rule this file is saved as `.md.excluded` with notes only and
+> carries **no scores** — placeholder numbers would drag the mean for every reader.
+> Evidence for the negative finding is below. See the Signature section for the
+> recommended user-directed resolution.
+
+## Model card
+
+- **Name:** Gemini 2.5 (**family umbrella label — not a shippable model**)
+- **Short description:** "Gemini 2.5" is Google's name for a **family** of hybrid reasoning models, not a single model. Google introduced it on 2025-03 (Pro preview) and made it a stable family on 2025-06-17. There is **no `gemini-2.5` API endpoint, no weights release, no pricing entry, and no benchmark row under that bare name anywhere in the ecosystem.** Any score attributed to this folder is a score for one of the members below, imported under the wrong name.
+- **Provider / access:** **None.** No provider serves a model called `gemini-2.5`. Google's alias convention hot-swapping endpoints uses an `-latest` suffix (e.g. `gemini-flash-latest`), never a bare version-only ID.
+- **Release / knowledge:** The family spans 2025-03-25 (Pro preview) through 2025-06-17 (Pro + Flash GA, Flash-Lite preview). Knowledge cutoffs vary per member (2025-01 for Flash/Flash-Lite per models.dev).
+- **IDs:** **No valid ID.** The real, verified member IDs are listed below.
+- **Context window:** Not applicable — no such model. (All 2.5 text members share a 1M-token context.)
+- **Modalities:** Not applicable — no such model. (Members differ: Pro/Flash/Flash-Lite are text+image in, text out; `gemini-2.5-flash-image` adds image out; `gemini-2.5-flash-preview-tts` and `-live-preview` are audio/voice and belong under `models_voice/`.)
+- **Pricing (as of 2026-10-09):** No pricing exists for `gemini-2.5`. Member pricing: Flash-Lite $0.10/$0.40; Flash $0.30/$2.50 (cached reads $0.03, cache writes $0.08 per OpenRouter); Pro $1.25/$10.00. Members **are Free-tier eligible on Google's own tier** with data used for product improvement — a privacy caveat, not a property of the nonexistent family entry.
+- **Architecture:** Not applicable — no such model. Pro and Flash are proprietary; Flash-Lite is proprietary. None of the 2.5 members are open-weights.
+
+### Negative findings: why no scores are given
+
+**Search 1 — Google's own documentation.** Google's Gemini API models page and its 2025-06-17 blog post state plainly: *"We designed Gemini 2.5 to be a **family** of hybrid reasoning models that provide amazing performance, while also being at the Pareto Frontier of cost and speed."* The models page enumerates the 2.5 endpoints as `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`, `gemini-2.5-flash-image`, `gemini-2.5-flash-preview-tts`, and the Live-API `gemini-2.5-flash-live-preview`. **No bare `gemini-2.5` entry appears.** Google's deprecations page lists `gemini-2.5-pro` and the Flash models by their full IDs — again, no bare family ID.
+
+**Search 2 — models.dev registry (the project's usual spec source).** The `providers/google/models` directory contains per-model TOML files for `gemini-2.5-flash-lite.toml`, `gemini-2.5-flash.toml`, `gemini-2.5-flash-preview-tts.toml`, `gemini-2.5-pro.toml` and `gemini-2.5-flash-image.toml`. **There is no `gemini-2.5.toml`** — the registry, which does track family aliases (it ships `gemini-flash-lite-latest.toml` and `gemini-omni-flash-preview.toml`), has no entry for a bare `gemini-2.5`.
+
+**Search 3 — OpenRouter / modelpedia.** OpenRouter serves `google/gemini-2.5-flash-lite`, `google/gemini-2.5-flash` and `google/gemini-2.5-flash-image`. modelpedia's records for those entries carry the field `Family: gemini-2.5` — i.e. providers treat `gemini-2.5` as a **family/grouping label attached to member models**, never as a routable endpoint. No OpenRouter slug `google/gemini-2.5` exists.
+
+**Search 4 — benchmark aggregators.** No leaderboard (benchlm.ai, Artificial Analysis, Vals AI, lmmarketcap, benchmarklist, LLM-Stats) publishes any row for "Gemini 2.5". Every 2.5-family row found is explicitly attributed to a named member (`Gemini 2.5 Pro`, `Gemini 2.5 Flash`, `Gemini 2.5 Flash-Lite`, `Gemini 2.5 Pro Preview 03-25`, etc.). Benchmarks retrieved for members during this research — e.g. Gemini 2.5 Pro HLE 18.8%, and Gemini 2.5 Flash-Lite / Flash / Pro pricing rows — are **member** numbers and are deliberately **not** transcribed here as family scores.
+
+**Search 5 — lifecycle.** All 2.5 models are access-restricted: Google limits 2.5 access to users who "have actively used them in the past" and directs new projects to Gemini 3.5 Flash-Lite or 3.8 Flash. The 2.5 preview IDs were shut down 2025-12-02. So even the members are a legacy tier with no ongoing benchmark coverage.
+
+**Conclusion:** there is no model behind the slug `gemini-2.5`. The correct action under `tasks/research.md` §3.9 is self-exclusion, not a placeholder score. Every number that could be written into this folder would belong to a *different* model, and importing it would double-count that member's capability across two dataset entries.
+
+### Where the real 2.5 models live
+
+The family members that legitimately deserve their own folders and reports:
+
+| Real model | Verified API ID | Status | Notes |
+| --- | --- | --- | --- |
+| Gemini 2.5 Pro | `gemini-2.5-pro` | Stable, released 2025-06-17; no shutdown date announced | The family flagship; access restricted |
+| Gemini 2.5 Flash | `gemini-2.5-flash` | Stable, released 2025-06-17 | $0.30/$2.50, cached reads $0.03 |
+| Gemini 2.5 Flash-Lite | `gemini-2.5-flash-lite` | Stable (was preview at launch) | $0.10/$0.40; thinking off by default |
+| Nano Banana (Gemini 2.5 Flash Image) | `gemini-2.5-flash-image` | Preview | **Image output** — multimodal output model |
+| Gemini 2.5 Flash TTS Preview | `gemini-2.5-flash-preview-tts` | Preview; **shut down 2026-01-15** | **Voice/TTS — belongs under `models_voice/`, never `model/`** |
+| Gemini 2.5 Flash Live Preview | `gemini-2.5-flash-live-preview` | Preview | **Realtime bidirectional voice/video agent — belongs under `models_voice/`** |
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-09
+- Method: public internet research across Google's Gemini API models page, Google's Gemini 2.5 family announcement (2025-06-17), Google's Gemini deprecations page and release-notes changelog, the models.dev Google-provider model directory, OpenRouter and modelpedia model records, and a sweep of major benchmark aggregators for any row published under the bare family name. No peer findings file was read.
+- **Recommendation for the orchestrator (requires explicit user sign-off — I have not and will not delete or relocate this folder, per `RULES.md` permanence):** `model/gemini-2.5/` is a **family-alias entry with no model behind it**, structurally analogous to the forbidden vendor-prefix and hyphen-version duplicates. Its three legitimate text members (`gemini-2.5-pro/`, `gemini-2.5-flash/`, `gemini-2.5-flash-lite/`) already have their own folders, so a family composite here would double-count them. Suggested resolutions, in order of preference: (1) leave the folder in place as a below-gate standing signal carrying only `.md.excluded` notes, as now; (2) add a `meta.json` marking it clearly as a family umbrella with `category` documentation and no scoring, so the site labels it rather than ranking it as a phantom model; or (3) with explicit per-instance user sign-off, merge any genuine content into the member folders and remove the family folder (`ALLOW_MODEL_DELETE=1`). I have taken **no** deletion or relocation action.
+- Also noted for the record: the two **voice** members of the 2.5 family (`gemini-2.5-flash-preview-tts`, `gemini-2.5-flash-live-preview`) are parked here per the `RULES.md` voice-routing rule and `tasks/research.md` Step 2.2 — production scope covers `model/` only, and neither may ever be placed under `model/`. The `gemini-2.5-flash-image` member has native **image output** and is a genuine multimodal-output model, not a voice model.
+- Future sources: a scored `Space_Bunny.md` for this folder is only appropriate if Google ever ships a model actually named `gemini-2.5`, or if the user directs that this entry be scored as an explicitly-defined family composite (in which case the member list and the composite rule must be stated in the Model card, and member numbers labeled as such).

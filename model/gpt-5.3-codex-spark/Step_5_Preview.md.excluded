@@ -1,0 +1,31 @@
+# GPT-5.3-Codex-Spark — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: OpenAI (`gpt-5.3-codex-spark`, research preview 2026-02-12)
+- Date: 2026-10-09 (UTC)
+- Reason for exclusion: **OpenAI published no benchmark scores for this model at any point**, and it has since been retired (2026-09-14). No scored findings file was written; the roster entry carries a placeholder Overall.
+
+## What is verified
+
+- A **smaller version of GPT-5.3-Codex** released as a research preview on **2026-02-12** — OpenAI's first model designed for real-time coding, and the first public milestone of the **OpenAI × Cerebras** partnership (announced January 2026).
+- Specs: **128K context window, text-only** at launch; reasoning default `high` (supported: low/medium/high/xhigh); API access limited to a small set of design partners (`supported_in_api: false` in Codex's model debug output).
+- Speed: **>1,000 tok/s at launch on Cerebras hardware**, improved ~30% to **>1,200 tok/s** on 2026-02-20 — the entire product thesis was latency, not leaderboard position.
+- Access: ChatGPT Pro users in the Codex app, CLI and VS Code extension, under separate rate limits; preview usage did not count toward standard limits.
+- Notable failure mode: a long-running bug where the Codex desktop app sent an unsupported `reasoning.summary` parameter, causing model-blocking 400 errors on desktop/subagent/shared-session paths (CLI paths were unaffected); a documented `model_supports_reasoning_summaries = false` workaround helped on macOS but not Windows.
+- **Retired 2026-09-14** — OpenAI's retirement note: "usage has been declining and we have significantly better models now. Time to make room for the future." No longer available in the ChatGPT desktop app, Codex CLI, or IDE extension.
+
+## What is missing (why exclusion)
+
+- **No benchmark scores of any kind** were published at launch or during the seven-month preview: no SWE-bench Verified/Pro, no Terminal-Bench, no GPQA, no AIME, no Artificial Analysis entry — the launch post and all coverage describe capability qualitatively ("highly capable for real-world coding tasks") without a single number.
+- No model card, parameter count, or independent evaluation exists.
+- The model is retired, so it cannot be benchmarked going forward.
+
+## Re-score trigger
+
+Not applicable — the model is retired and no benchmark data was ever published; the roster entry should remain a placeholder.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (OpenAI launch post, ChatGPT Learn retirement notice, OpenAI developer community threads, Help Net Security / The Decoder / CMO Tech coverage); no scores assigned because no benchmark data exists for this model.

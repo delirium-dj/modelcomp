@@ -1,0 +1,35 @@
+# Exo Free — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown stealth lab (`opencode/exo-free`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/catalog metadata only, no measured numbers):
+
+- **Identity:** Exo Free — a stealth model OpenCode Zen "just slipped into the picker" around 2026-10-07 (community observers: "Lab unknown. Free while they collect feedback"). Zen's own docs list it under the limited-time free tier: "Exo Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+- **Specs (verified from Zen + user reports):** `opencode/exo-free` at `https://opencode.ai/zen/v1/chat/completions` (OpenAI-compatible); ~1M context (1,048,576) with 131,072 max output; text + image input; text output; reasoning on; tool use supported; $0 input/output/cached during the promo.
+- **Privacy caveat:** free-period request data may be used to improve the model (training-data consent caveat, per the promo coverage) — same caution class as other feedback-tier free models.
+
+Sources checked with no benchmark rows for this ID (2026-10-09):
+
+- BenchLM (`exo-free`, `exo`): 404 — no page.
+- No vendor page, no model card, no launch announcement — the lab behind Exo is undisclosed.
+- No Artificial Analysis / Vals / BenchmarkList coverage found; the only public traces are Zen's own listing, a usage-data stub (`opencode.ai/data/unknown/exo`), and day-one social posts.
+- Stealth models can be swapped without notice (see the Big Pickle caveat in `model-comparison.md`); with no direct evals, no proxy consensus, and no named vendor there is nothing an honest Overall score could be computed from.
+
+A future re-research should look for (a) benchmark coverage once the stealth lab publishes or the model graduates, (b) a named vendor identity, (c) post-promo per-token pricing — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
+- Method: public internet research (OpenCode Zen docs + pricing, day-one social coverage, BenchLM check); no verified public scores found for this stealth ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,114 @@
+# Exo Free — findings by Space Bunny
+
+- Source: unknown — **no model named "Exo" or "Exo Free" was found to exist**
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — no identifiable model behind this slug.**
+> Extensive research across OpenRouter's live catalogue, its Stealth provider page, its free-model
+> listings, a published census of OpenRouter stealth models and their reveals, the 25-model free
+> snapshot, and general web search found **no model, listing, announcement, benchmark, vendor or
+> news item corresponding to "Exo" or "exo-free" at any point**. There is therefore no verified
+> public benchmark number of any kind for this exact name, and no specification to score.
+> Per the report template's mandatory SELF-EXCLUSION rule this file is saved as `.md.excluded`
+> with notes only and carries **no scores**.
+
+> **Folder-health note:** `model/exo-free/` is **absent from `model-queue.md`**, i.e. it has no
+> `average.md` — it is the only folder in the tree that was never scaffolded into the roster.
+> The folder contains exactly one file, `GLM_5.3.md.excluded` — *another* agent's excluded twin,
+> which suggests that agent also could not find evidence for this folder and considered a
+> candidate identification that did not hold up. This is surfaced for orchestrator review in the
+> Signature section. **I have taken no deletion, relocation or merge action.**
+
+## Negative findings: what was searched and what was found
+
+**1 — OpenRouter's live free-model catalogue.** OpenRouter is by far the most likely home for a
+`-free`-suffixed slug, since its `:free` variant convention is exactly `openrouter/<vendor>-<model>:free`.
+An independent July 2026 enumeration of OpenRouter's free models — obtained by querying
+`openrouter.ai/api/v1/models` directly and filtering `pricing.prompt == 0 && pricing.completion == 0`
+— returned **25 free models**. The full list contains: `lyria-3-clip-preview`, `lyria-3-pro-preview`,
+`qwen3-coder:free`, `nemotron-3-super-120b-a12b:free`, `nemotron-3-ultra-550b-a55b:free`,
+`gemma-4-26b-a4b-it:free`, `gemma-4-31b-it:free`, `laguna-m.1:free`, `laguna-xs.2:free`,
+`qwen3-next-80b-a3b-instruct:free`, `north-mini-code:free`, `nemotron-3-nano-30b-a3b:free`,
+`nemotron-3-nano-omni-30b-a3b-reasoning:free`, `openrouter/free`, `llama-3.2-3b-instruct:free`,
+`llama-3.3-70b-instruct:free`, `hermes-3-llama-3.1-405b:free`, `gpt-oss-120b:free`, `gpt-oss-20b:free`,
+`nemotron-3.5-content-safety:free`, `nemotron-nano-12b-v2-vl:free`, `nemotron-nano-9b-v2:free`,
+`dolphin-mistral-24b-venice-edition:free`, and three `lfm-2.5` 1.2b variants.
+**No "Exo" appears.** A later snapshot of OpenRouter's own Free Models Router page lists **24
+free-variant models** and likewise contains no "Exo".
+
+**2 — OpenRouter's Stealth provider page.** The slug shape (`exo-free`) also matches a *codename*
+rather than a vendor model. OpenRouter's Stealth provider page was fetched directly on 2026-10-09:
+it states *"OpenRouter serves **3 Stealth models** behind one OpenAI-compatible API"* and names
+`stealth/space-bunny-alpha` as its worked example. **No model named "Exo" is listed.**
+
+**3 — The published stealth-model census.** An independent 2026-08-23 study enumerated every
+stealth/cloaked listing on OpenRouter across four collection routes and tracked each one's reveal.
+The codenames it documents are: Quasar, Optimus, Horizon Beta, Sonoma Dusk, Sonoma Sky, Polaris,
+Sherlock Think, Aurora, Hunter, Healer, Owl Alpha, Ox Alpha, Elephant Alpha, Union Alpha, Omen Alpha,
+and `stealth/space-bunny-alpha`. **"Exo" appears in none of them.** For calibration, the same
+census is what independently confirmed that `openrouter/owl-alpha` was Meituan **LongCat-2.0-Preview**
+(1.6T / 48B active, verified 2026-06-30) — which is why `model/owl-alpha/` was skipped this pass as a
+duplicate alias rather than researched.
+
+**4 — General web search.** Targeted searches on `"Exo"` + OpenRouter + stealth/codename/2026
+returned **only** results about other models: Ox Alpha (revealed 2026-08-26 as Z.ai
+**GLM-5.3-Flash**, 1,048,576 context, 131,072 max output, text/image/video in → text out, $0/$0
+during a six-day preview that consumed ~62 trillion tokens), Elephant Alpha (OpenRouter's own 100B
+model, 256K context, 32K output), Sonoma Dusk/Sky (2M context cloaked previews), and Union Alpha
+(revealed as Unbiased's Pareto). **No "Exo" in any of them.** The string is plausibly a garbled
+or misremembered relative of **Ox Alpha** or **Elephant Alpha**, but neither identification is
+supported by evidence, and guessing is not permitted.
+
+**5 — Everything else.** No vendor, lab, paper, arXiv entry, Hugging Face or ModelScope repository,
+GitHub project, benchmark row (Artificial Analysis, benchlm.ai, Vals AI, LiveCodeBench, lmmarketcap,
+benchmarklist, ARC Prize), pricing tracker, or news article mentions a model called "Exo" or
+"exo-free". No OpenCode Zen ID, no Microsoft Foundry, Azure AI, Bedrock or Vertex listing.
+
+**Conclusion.** There is no identifiable model behind the slug `exo-free`: no specification, no
+context window, no parameter count, no vendor, no pricing, no benchmark. There is nothing to score,
+and inventing numbers would be exactly what `RULES.md` forbids. Self-exclusion is the correct
+action.
+
+### What *is* known about the folder itself
+
+- `model/exo-free/` is **not listed in `model-queue.md`** — it has no `average.md` and has never
+  been scaffolded into the roster, making it the only folder in the tree in that state.
+- Its sole content is `GLM_5.3.md.excluded`, another agent's excluded twin. GLM-5.3 has its own
+  legitimate folder (`model/glm-5.3/`), so that twin was not evidence of an identity here.
+- Per `RULES.md`, `model/<slug>/` folders are permanent and no agent or orchestrator deletes,
+  moves or renames them without explicit per-instance user sign-off. **Nothing was changed.**
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-09
+- Method: public internet research comprising a direct fetch of **OpenRouter's Stealth provider
+  page** (2026-10-09, reporting 3 active Stealth models and naming `stealth/space-bunny-alpha`,
+  with no "Exo"), a direct fetch of **OpenRouter's Free Models Router page** (24 free-variant
+  models, no "Exo"), an independent **25-model free-model enumeration** derived from
+  `openrouter.ai/api/v1/models` (July 2026, no "Exo"), a **published 2026-08-23 census of
+  OpenRouter stealth models and their reveals** covering sixteen codenames including Owl Alpha and
+  Ox Alpha (no "Exo"), and repeated targeted web searches for an "Exo" model, provider, benchmark
+  or launch. No peer findings file was read; `GLM_5.3.md.excluded` was confirmed as another agent's
+  excluded twin by **filename and folder listing only**, never opened.
+- **Recommendation for the orchestrator (no action taken by me — `RULES.md` permanence applies).**
+  `model/exo-free/` fails a basic existence check: no catalogue, provider, registry or news source
+  anywhere describes a model by that name, and the folder was never scaffolded into
+  `model-queue.md`. Plausible explanations, in the order I would investigate them: (1) a **stale
+  folder** left from a scratch experiment or an abandoned scaffold; (2) a **mis-slugged entry** —
+  the two nearest real OpenRouter identities are `stealth/ox-alpha`, revealed as
+  **GLM-5.3-Flash** (which already has `model/glm-5.3/`), and `Elephant Alpha`, OpenRouter's own
+  100B / 256K-context model (which has **no folder and would be a legitimate discovery** if that
+  is what was intended); (3) a genuine but **very recent** stealth listing not yet indexed by any
+  crawler — possible, since stealth previews can appear and vanish within days, but it would still
+  not be scoreable today. Recommended next steps for a human: decide whether the folder should be
+  removed as an orphan (requires explicit per-instance user sign-off and `ALLOW_MODEL_DELETE=1`),
+  whether the intended model was **Elephant Alpha** — which per `tasks/research.md` §3.11 would then
+  need a properly-slugged folder scaffolded and researched — or whether it should simply be left as
+  an unscaffolded, unscored folder. I recommend **not** scaffolding anything until the intent is
+  confirmed, since creating a folder for a guessed identity would be the exact error this report
+  exists to avoid.
+- **Re-scoring trigger:** if an OpenRouter (or other provider) listing named `exo`, `exo:free` or
+  `openrouter/exo` surfaces with published specifications and at least one benchmark, this folder
+  should receive a scored `Space_Bunny.md`. Until then no score can be honestly assigned.

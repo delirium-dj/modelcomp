@@ -1,0 +1,30 @@
+# omen-alpha — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: OpenCode usage catalog (`unknown/omen-alpha`)
+- Date: 2026-10-09 (UTC)
+- Reason for exclusion: **unmodeled stealth/test route** — the catalog record carries null for every spec field (no description, release date, context window, modalities, reasoning support, weights or pricing) and **zero published benchmarks**. No scored findings file was written; the roster entry carries a placeholder Overall.
+
+## What is verified
+
+- The slug exists only in **OpenCode's usage-data catalog under the `unknown` lab** (`opencode.ai/data/unknown/omen-alpha`), alongside other unmodeled routes (`jev-1.13`, `test`, `alpha-space-bunny-test`); stealthmodels.com and OpenRouter have no entry.
+- Machine-readable metadata (fetched 2026-10-09 from the data JSON endpoint): `description: null`, `releaseDate: null`, `knowledgeCutoff: null`, `contextTokens: null`, `outputTokens: null`, `inputModalities: []`, `outputModalities: []`, `reasoning: null`, `toolCall: null`, `openWeights: null`, `weights: []`, `priceUsdPer1M: null`, **`benchmarks: []`**.
+- Usage profile (2-month window ending 2026-10-09): **2.25T tokens**, 78,101 unique users, 551,467 completed sessions, **4.08M tokens per session**, average **$0.22 per session** ($122,076 total spend — so the route is metered, not free), 93.2% of input tokens served from cache, 63.5% weekly retention, rank #35 by tokens last week.
+- Traffic pattern: appeared 2026-09-04, peaked at 240–313B tokens/day (7–8K daily users) through 2026-09-10, decayed steadily to ~2B/day by 2026-09-28, went to **zero on 2026-09-29/30**, then returned 2026-10-01 at ~1–3B tokens/day — consistent with an anonymous preview route that was withdrawn and partially restored.
+- Geography: China 33.8%, US 15%, Japan 7.2%, Germany 4% — a globally routed endpoint.
+
+## What is missing (why exclusion)
+
+- No identity: no lab confirmation, no model ID, no weights, no announcement anywhere.
+- No specs: no context window, output limit, modalities, pricing or knowledge cutoff.
+- No benchmarks: no scores of any kind — GPQA, SWE-bench, Terminal-Bench, Artificial Analysis — nothing.
+
+## Re-score trigger
+
+If the operator (or a tracker such as Artificial Analysis) publishes a model card, benchmark table or catalog listing matching this endpoint, write a normal `Step_5_Preview.md` for this slug covering Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (OpenCode usage-data page + JSON metadata endpoint, models.dev full-catalog check); no scores assigned because no identity, specifications or benchmarks exist.

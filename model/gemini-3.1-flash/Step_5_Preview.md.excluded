@@ -1,0 +1,54 @@
+# Gemini 3.1 Flash — findings by Step 5 Preview
+
+- Source: Google (`gemini-3.1-flash`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash
+- **Short description:** Google's early-2026 Flash-tier model in the Gemini 3 series, listed on the Gemini API model roster (`gemini-3.1-flash`) alongside the Gemini 3.1 Flash Image ("Nano Banana 2") release of 2026-02-26. Positioned in the Flash line between Gemini 3 Flash (Dec 2025) and Gemini 3.5/3.6 Flash. It is NOT the Flash-Lite model (a separate, cheaper and smaller model with its own model card and full benchmark table).
+- **Provider / access:** Gemini API / Google AI Studio / Vertex AI (`gemini-3.1-flash`).
+- **Release / knowledge:** early 2026 (the 3.1 Flash Image sibling card is dated 2026-02-26 and refers to the Gemini 3 Flash model card for the base evaluation). Knowledge cutoff not separately disclosed for the text model.
+- **IDs:** `gemini-3.1-flash` (Gemini API).
+- **Context window:** 1M tokens; ~65.5K max output (third-party trackers citing the API listing).
+- **Modalities:** natively multimodal (text/image/audio/video in → text out), consistent with the Gemini 3 Flash line — not independently documented for this exact model.
+- **Pricing (as of 2026-10-09):** $0.50 / MTok input, $3.00 output (third-party pricing trackers).
+
+## Self-exclusion — negative findings
+
+This report is saved as `.md.excluded` because **zero verified public benchmark numbers** were found for this exact model ID across all sources consulted (Google DeepMind model cards, the Gemini API docs, Artificial Analysis, Vals AI, and third-party trackers). Every raw-benchmark row below reads "no verified public score found", so per the research rules no scored report is written and no placeholder numbers are invented.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** (a third-party pricing page shows truncated "51% GPQA" figures that could not be attributed to a benchmark, harness or source — deliberately NOT recorded as data)
+- HLE / MMLU-Pro / AIME / ARC-AGI / CritPt: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Terminal-Bench 2.1 / Terminal-Bench 4.0 / Vibe Code Bench: **no verified public score found**
+
+Agentic / tool use:
+
+- τ²-Bench / MCP-Atlas / BrowseComp / GDPval-AA / Toolathlon / Claw-Eval: **no verified public score found**
+
+Multimodal:
+
+- MMMU-Pro / CharXiv / Video-MME: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER / AA-LCR: **no verified public score found**
+
+Notes for future re-research:
+
+- Google publishes benchmark tables only in per-model cards and its Flash-line comparison tables; the Gemini 3.1 Flash Image card (2026-02-26) points to the Gemini 3 Flash model card for base evaluations, and no standalone Gemini 3.1 Flash card was found. Gemini 3 Flash's numbers (SWE-bench Verified 78%, GPQA 90.4%, HLE 33.7%, TB2.1 53.9%, Claw-Eval 49.2%) belong to the sibling `gemini-3-flash` folder and must NOT be copied here.
+- If Google or an independent evaluator publishes a Gemini 3.1 Flash benchmark row (e.g. an Artificial Analysis page), this file can be re-researched into a scored report with that evidence.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (Google DeepMind/Gemini API model pages, Artificial Analysis, Vals AI, third-party pricing/spec trackers); scores are normalized 1–100 interpretations, not official vendor scores.

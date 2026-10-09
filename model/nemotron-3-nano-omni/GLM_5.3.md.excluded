@@ -1,0 +1,36 @@
+# Nemotron 3 Nano Omni — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: NVIDIA (`opencode/nemotron-3-nano-omni`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (curated/catalog metadata only, no measured numbers):
+
+- **Identity:** Nemotron 3 Nano Omni — per the project's curated `meta.json`: NVIDIA's open 30B-A3B omni-modal reasoning model with native audio, vision, and text input; 262,144 total context (65,536 max output); served $0 via an NVIDIA Build free API endpoint with open checkpoints.
+- **Family context (verified for siblings, not this ID):** the Nemotron 3 line is real and tracked — Nemotron 3 Ultra (550B-A55B) and Nemotron 3.5 Lightning (30B-A3B) both have public benchmark coverage — but the "Nano Omni" variant itself has none.
+
+Sources checked with no benchmark rows for this ID (2026-10-08):
+
+- BenchLM (`nemotron-3-nano-omni`, `nemotron-3-nano-30b-a3b`): 404 both.
+- Artificial Analysis (`nemotron-3-nano-omni`): 404.
+- build.nvidia.com (`nemotron-3-nano-omni`, `nemotron-3-nano-30b-a3b-omni`): 404 both.
+- NVIDIA NIM docs / developer blog (slug guesses): 404.
+- Hugging Face (`nvidia/Nemotron-3-Nano-Omni`, `nvidia/Nemotron-3-Nano-30B-A3B-Omni`): gated (401) — model card not verifiable without auth.
+- Grokipedia: 404.
+
+Interpolation from verified siblings (Nemotron 3 Ultra GDPval 1448, Nemotron 3.5 Lightning SWE 51.56) was deliberately NOT used — different sizes and modalities. A future re-research should look for (a) a public NVIDIA model card or launch post with numbers for the Nano Omni variant, (b) the correct build.nvidia.com/HF slug once published, (c) aggregator coverage (BenchLM/AA) — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
+- Method: public internet research (BenchLM, Artificial Analysis, build.nvidia.com, NVIDIA docs, Hugging Face, Grokipedia); no verified public scores found for this variant ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

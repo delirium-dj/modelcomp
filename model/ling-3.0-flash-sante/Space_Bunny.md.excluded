@@ -1,0 +1,143 @@
+# Ling 3.0 Flash Sante — findings by Space Bunny
+
+- Source: InclusionAI / Ant Group (`inclusionai/ling-3.0-flash-sante`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — insufficient verified data.**
+> This model has **exactly one** published benchmark figure, it is **vendor-reported**, and no
+> independent evaluator has measured it at all. Weights were never released, and pricing is a
+> $0 launch promotion with no published list rate. Per the report template's mandatory
+> SELF-EXCLUSION rule this file is saved as `.md.excluded` with notes only and carries
+> **no scores**. Filling in the five quality dimensions would require importing the *base*
+> model's numbers, which would double-count a different model's benchmarks into this entry.
+
+> **Routing note (`RULES.md`):** this model **stays under `model/`**. It is a **health/medicine**
+> domain specialist — not a realtime voice or TTS/STT-first model (so not `models_voice/`), and
+> not a finance model (so not `models_finance/`; that rule is explicitly scoped to
+> finance-domain models such as `ling-3.0-flash-fin`). See the Signature section for the
+> orchestrator note about a possible health-domain tree.
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante (`ling-3.0-flash-sante`)
+- **Short description:** InclusionAI's (Ant Group) **health-and-medicine specialist**, announced
+  **2026-09-04** — "an MoE model enhanced for health and medicine, built on Ling-3.0-flash,"
+  aimed at medical reasoning, professional healthcare tasks, deep research and evidence-based
+  retrieval. The name comes from the French *santé* ("health"). It is the **second domain-tuned
+  member of the Ling 3.0 family** to ship in 2026, following the finance-focused Ling 3.0 Flash
+  Fin in late August. Ant states it **retains general capabilities in reasoning, coding and
+  agentic tasks** alongside the medical specialization.
+- **Provider / access:** **OpenRouter** — `inclusionai/ling-3.0-flash-sante`, served as the
+  **`:free` variant** `inclusionai/ling-3.0-flash-sante:free`. OpenAI-compatible Chat Completions.
+  **Weights were never published** — no Hugging Face or ModelScope repository exists for this
+  checkpoint, so third parties cannot verify anything about it. No OpenCode Zen ID found.
+- **Release / knowledge:** Announced **2026-09-04** on `@AntLingAGI` (2026-09-05 Beijing time),
+  having already surfaced in API catalogs. Reached commercial APIs 2026-09-04. Knowledge cutoff:
+  not disclosed.
+- **IDs:** `inclusionai/ling-3.0-flash-sante` (OpenRouter), `inclusionai/ling-3.0-flash-sante:free`
+- **Context window:** **262,144 tokens**, max output **32,768** — consistent across OpenRouter,
+  ModelBench and independent coverage.
+- **Modalities:** **Text in → text out.** OpenRouter lists `Text 262K context` with no image,
+  audio or video modality. Reasoning: **on by default and switchable**. Function calling:
+  supported. **Structured output: not enforced** ("no enforced JSON"). No image, audio, video or
+  PDF input path; no non-text output.
+- **Pricing (as of 2026-10-09):** **$0 / $0 — a launch promotion running "into October"** with
+  **no list price published**. The promotion is effectively at its end as of this report's date,
+  and with no weights released there is no self-hosting fallback. Pricing is therefore
+  **indeterminate**, not free.
+- **Architecture:** **124B total / ~5.1B active MoE** — identical scale and architecture to the
+  open-weight base `Ling-3.0-flash` (MIT), which uses a native hybrid-linear stack of 35 KDA
+  (Kimi Delta Attention) + 7 Gated MLA layers in a 5:1 ratio with 1/64 sparse MoE. Sante is a
+  **domain fine-tune of that base**, not a new architecture. The base is open-weight; Sante's
+  fine-tuned weights are **not**.
+
+### Negative findings: why no scores are given
+
+**Evidence inventory.** Ant's announcement names **five** evaluations — **DiagnosisArena-MCQ,
+MedXpertQA-Text, AFUMED-Drug, HealthBench Professional and BrowseComp** — and summarizes the
+result qualitatively as "leading performance among open-source models and results competitive
+with flagship models." **Only one numeric value from that set has been published anywhere.**
+
+1. **DiagnosisArena-MCQ: 83.8** — vendor-reported by Ant on the multiple-choice medical-diagnosis
+   benchmark. Ant's own comparison places it above GPT-5.6 Sol (81.9), Kimi K3 (78.4) and
+   Gemini 3.6 Flash (76.2). This is **the only benchmark figure available for this model**, and it
+   measures **medical multiple-choice diagnosis only** — it says nothing about agentic tool use,
+   coding, general reasoning, long-context retrieval or multimodality.
+2. **MedXpertQA-Text, AFUMED-Drug, HealthBench Professional, BrowseComp** — **named by Ant, no
+   numeric value published** by the vendor or by any third party.
+
+**Independent evaluation: none exists.** This is stated explicitly and repeatedly:
+- An independent analyst's scoreboard, dated **2026-09-06**, records **"independent score: none
+  yet"** and "Sante figures from Ant's announcement and model-card; no independent scores yet."
+- BenchGecko lists **"Benchmarks: 0 tested."**
+- ModelBench's catalog record lists **"Benchmarks: 0."**
+- Artificial Analysis, benchlm.ai, Vals AI, lmmarketcap's own benchmark tables, ARC Prize and the
+  major coding-agent leaderboards carry **no row** for this model.
+
+**Weights were never released.** There is no Hugging Face or ModelScope repository. Every
+independent evaluator that would normally verify a new open-weights model is structurally unable
+to do so, and self-hosting verification is impossible.
+
+**Pricing is indeterminate.** The only rate is a **$0 launch promotion "into October"** with **no
+published list price**. This report is dated 2026-10-09, i.e. at the very end of that window, so
+even the $0 figure may no longer hold — and with no weights there is no self-hosted alternative.
+
+**Why the base model's numbers cannot be substituted.** Ling 3.0 Flash Sante is a fine-tune of the
+open-weight `Ling-3.0-flash` base, whose independent figures are known and well documented
+(HF-leaderboard-confirmed AIME 2026 93.2, HMMT Feb 2026 87.0, SWE-bench Pro 56.6, SWE-bench
+Multilingual 72.4, HLE 22.7; plus AA-LCR 73%, an AA Intelligence Index of ~20 and a Terminal-Bench
+4.0 result of 0%). **Those numbers belong to `model/ling-3.0-flash/`, which has its own folder and
+its own reports.** Importing them here would count one model's measured capability twice across
+two dataset entries and two `average.md` files — precisely the failure mode `RULES.md` guards
+against. Ant's claim that Sante "retains general capabilities" is **unquantified**: there is no
+regression measurement showing how much of the base's general ability survives the medical
+fine-tune.
+
+**Conclusion:** one unverified vendor multiple-choice medical score, four named-but-unpublished
+benchmarks, no independent evaluation, no weights, and no list price. That is not enough verified
+evidence to compute a defensible `Overall`. Self-exclusion is the correct action.
+
+### What is verified (specification, not capability)
+
+- Parameters: **124B total / ~5.1B active** MoE
+- Context window: **262,144 tokens**; max output **32,768 tokens**
+- Modality: **text in → text out**
+- Reasoning: **on by default, switchable**
+- Function calling: supported; **structured output not enforced**
+- **Weights: not published** (no HF or ModelScope repo)
+- Price: **$0 / $0 launch promotion into October, no list price**
+- Independent benchmark coverage: **zero**
+- A derived composite exists on LM Market Cap — Coding rank **#232**, composite **40/100** — but
+  this is evidently computed from the base model's figures rather than measured on Sante, so it
+  is not treated as independent evidence here.
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-09
+- Method: public internet research across Ant Ling's official X announcement (2026-09-04), the
+  OpenRouter model page and `:free` variant (modality, context, max output, price), ModelBench's
+  catalog record, BenchGecko's model record ("Benchmarks: 0 tested"), benchable.ai and
+  metatext/AI Hippo listings, LM Market Cap's composite, and — most importantly — an independent
+  analyst's dated (2026-09-06) scoreboard separating Ant's claims from confirmed facts, which
+  explicitly records "independent score: none yet." No peer findings file was read, and no base-model
+  benchmark number was imported into this report.
+- **Recommendation for the orchestrator (I have taken no action — `RULES.md` permanence and the
+  read-only rule on task/rule files both forbid unilateral moves):** this folder is a legitimate
+  distinct model under the repo's established convention (the sibling Ling domain variants
+  `ling-3.0-flash-vl` and `ling-3.0-flash-fin` each have their own folders, and the Muse-only tier
+  identity rule in `RULES.md` explicitly does not extend to other vendors). It is therefore
+  **correctly a separate entry** and should stay. The question worth a user decision is narrower:
+  Sante is a **health/medicine domain specialist**, structurally analogous to the
+  `models_finance/` case. `RULES.md` defines a finance tree but **no** `models_health/` tree, and
+  the finance rule is explicitly scoped to finance. As written, this folder belongs under
+  `model/`. If the user wants domain-specialist routing to generalize, that is a `RULES.md`
+  amendment plus a new tree, not something a research agent should decide. Recommended near-term
+  action: leave as a below-gate standing signal carrying only `.md.excluded` notes, and re-evaluate
+  if Ant publishes weights, a list price, or independent scores on the four already-named
+  benchmarks.
+- **Re-scoring trigger:** the moment any independent evaluator measures Sante (Artificial
+  Analysis, benchlm.ai, Vals AI or the coding-agent leaderboards all publish rows for most Ling
+  members), or Ant publishes numeric values for MedXpertQA-Text / AFUMED-Drug / HealthBench
+  Professional / BrowseComp, this folder should receive a scored `Space_Bunny.md`.

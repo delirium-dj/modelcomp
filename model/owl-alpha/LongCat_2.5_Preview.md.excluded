@@ -1,0 +1,61 @@
+# Owl Alpha — findings by LongCat 2.5 Preview
+
+- Source: OpenRouter/Owl Alpha
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owl Alpha
+- **Short description:** Stealth/anonymous high-performance foundation model on OpenRouter designed for agentic workloads. Natively supports tool use and long-context tasks. Reportedly identified as Meituan LongCat-2.0-Preview (unconfirmed). Free on OpenRouter.
+- **Provider / access:** OpenRouter (`openrouter/owl-alpha`). Free tier.
+- **Release / knowledge:** 2026-04-28.
+- **IDs:** `openrouter/owl-alpha`
+- **Context window:** 1,048,576 tokens (verified via OpenRouter, AI Hippo); up to 262,144 output tokens.
+- **Modalities:** Text input; Text output. Reasoning: yes. Tool calling: yes (function calling, structured output).
+- **Pricing (as of 2026-10-09):** Free ($0/$0) on OpenRouter. Proprietary license.
+- **Architecture:** Unknown. Reportedly 1.6T parameter MoE with 48B active (unconfirmed, allegedly Meituan LongCat-2.0-Preview).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- Context window: 1,048,576 tokens (verified via OpenRouter)
+
+Multimodal:
+
+- Text input only (OpenRouter, ModelCompare)
+- No image, audio, or video support listed
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found.**
+- **Reasoning: no verified public score found.**
+- **Context window: no verified public score found.**
+- **Multimodal: no verified public score found.**
+- **Coding: no verified public score found.**
+- **Cost efficiency: no verified public score found.**
+- **Overall Score: no verified public score found.**
+
+SELF-EXCLUSION: Zero verified public benchmark numbers found for this exact model. All benchmark rows would read "no verified public score found." Saved as `.md.excluded` per RULES.md and tasks/research.md Step 3.3. The model is a very new stealth release (April 2026) with no published benchmarks, no verified specifications, and unknown architecture. Rapid adoption (1.37T tokens in 30 days, #1 on Hermes Agent, #2 on Claude Code) suggests capability, but without verified benchmarks, no scores can be assigned.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-09
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

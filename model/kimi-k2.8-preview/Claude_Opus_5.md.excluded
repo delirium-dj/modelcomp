@@ -1,0 +1,83 @@
+# Kimi K2.8 Preview — findings by Claude Opus 5
+
+- Source: Moonshot AI (`kimi-for-coding`, serving Kimi K2.8 Preview)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** The template's SELF-EXCLUSION rule is mandatory and keyed to one specific condition: *zero* verified public benchmark numbers for the exact model/ID, such that every benchmark row would read "no verified public score found". **That condition holds exactly here.**
+
+This is not a case of a model I could not identify. Unlike `mai-experimental-test` (no vendor, no specs, no tracker entry) or `gemini-3.1-flash` (existence unverifiable), Kimi K2.8 Preview is **real, vendor-documented, and precisely specified** — I was able to verify its release date, serving ID, context window, thinking controls, modalities and commercial model from Moonshot's own documentation. What does not exist, anywhere, is **a single published benchmark score**. Moonshot's release notes make only relative, unquantified claims, and no aggregator or independent lab has measured it. Scoring three of five quality dimensions off vendor adjectives would manufacture numbers, so the model card below is complete and the scores are not computed.
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding and agentic model, positioned **between `Kimi K2.7 Code` and the flagship `Kimi K3`**. Moonshot's own release note describes it as "Performance close to K3, with more efficient thinking — coding and agent capabilities are improved across the board, with significantly more efficient thinking than K2.7 Code" ([Kimi Code — What's New](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)). **Every one of those claims is relative and unquantified**; see the benchmarks section.
+- **Provider / access:** **Kimi Code** (CLI, Desktop, VS Code extension, Web) and **Kimi Work**. It is a product-embedded model, not a pay-as-you-go API model. One detail with real integration consequences: **the model ID did not change** — K2.8 Preview is served under the existing alias **`kimi-for-coding`**, so "clients and third-party tools work with no configuration changes", meaning integrations received a model swap without reconfiguration. A second notable routing rule: **"With thinking turned off, requests to the K3 series *and* K2.8 Preview are served by K2.8 Preview (no thinking)"** — K2.8 Preview is the non-thinking fallback for the whole K3 series.
+- **Release / knowledge:** **2026-09-11**, rolled out fully in Kimi Code (Moonshot's own changelog entry; corroborated by [LLM Stats](https://llm-stats.com/models/kimi-k2.8) and multiple same-week secondary reports dated 2026-09-11 to 2026-09-15). Knowledge cutoff: no verified public date found.
+- **IDs:** **`kimi-for-coding`** (unchanged alias). Related product IDs in the same family: `kimi-for-coding-highspeed` (the 5–6× output-speed tier, Allegretto plan or above). **No free ID** — and no per-token ID either; see pricing.
+- **Context window:** **1,048,576 tokens (1M)**, "available across all membership tiers" per Moonshot, corroborated by LLM Stats. Max output: no verified public figure found.
+- **Modalities:** **Text + image + video in → text out.** LLM Stats records input as Text / Image / Video and output as Text. Note this **corrects this folder's `meta.json`**, which lists "Text, image in; text out" and omits video. Moonshot's CLI changelog independently supports video: the `ReadMediaFile` tool "can send video to the model as multimodal content — availability follows the current model's `image_in` / `video_in` capabilities", and sessions accumulate images and videos against a 20 MB media budget. Reasoning: **yes — low / high / max thinking levels, default `max`**, the same ladder as K3; thinking can also be turned off, in which case the request is served by K2.8 Preview itself without thinking.
+- **Pricing (as of 2026-10-08):** **No per-token price exists.** Access is via **Kimi membership plans**, not the pay-as-you-go API: Moonshot's public [model-pricing page](https://platform.kimi.ai/docs/pricing/chat) lists only `kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed` and `kimi-k2.6` — **K2.8 Preview is absent**. LLM Stats likewise reports Cost as "—". An "Extra Usage" balance can be enabled to continue past monthly/weekly/hourly membership quotas. So the cost dimension has no price to score either.
+- **Architecture:** Proprietary (LLM Stats: "Proprietary license — usage restrictions apply"). **No parameter count, activation scheme, or architectural description has been published for K2.8 Preview.** For context only — and explicitly *not* transferred to this model — Moonshot documents its flagship K3 as 2.8 trillion parameters on KDA hybrid linear attention with Attention Residuals, and K2.7 Code as a 1T/32B-active MoE; K2.8's relationship to either stack is undisclosed.
+
+### Raw benchmarks found
+
+**None. Not one.**
+
+Agent / tool use:
+
+- Terminal-Bench (any version), τ²/τ³-bench, MCP-Atlas, MCPMark-Verified, Toolathlon, OSWorld, GDPval-AA, Claw-Eval, Kimi Claw 24/7: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, MMLU-Pro, AIME, CritPt, AA-LCR, Artificial Analysis Intelligence Index, AA-IFBench, AA-Omniscience: **no verified public score found**
+- **BenchLM has no entry for this model at all**, despite tracking 889 models across 625 benchmarks as of its 2026-10-08 snapshot and carrying Kimi K2, K2.5, K2.5 (Reasoning), K2.6, K2.7 Code, K3, Moonshot v1 and Kimi-Audio 7B. Given that eight sibling Moonshot models are indexed, the absence of K2.8 Preview is meaningful rather than a coverage gap.
+- **Artificial Analysis has no entry** either, so there is no independent hallucination-rate or index measurement.
+- LLM Stats, which does carry a model page for it, shows **Speed "—", Cost "—"** and publishes **no benchmark table whatsoever**.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, Kimi Code Bench v2, Program Bench, MLS-Bench Lite, SWE Marathon, CursorBench, SciCode, FrontierCode: **no verified public score found**
+
+Multimodal:
+
+- MMMU / MMMU-Pro, MathVision, CharXiv, Video-MME, OmniDocBench, OCR, GUI grounding: **no verified public score found**
+
+Long context:
+
+- **No MRCR, RULER, LongBench or needle-retrieval number at any depth**, despite the 1M window being a headline feature.
+
+What Moonshot published instead (all unquantified):
+
+- "Performance close to K3" — no number, no benchmark named
+- "Coding and agent capabilities are improved across the board" — no number
+- "Significantly more efficient thinking than K2.7 Code" — no number
+- For contrast, Moonshot **did** quantify the previous release in the very same changelog: Kimi K2.7 Code was announced with "+10.4% on Program-Bench, +11.4% on MCP Mark Verified, and +76.2% on SWE Marathon" versus K2.6, plus "30% lower reasoning-token usage". The decision not to publish comparable figures for K2.8 Preview is therefore a deliberate departure from the vendor's own precedent one release earlier, not an oversight I can route around.
+- Independent coverage states the gap plainly: "Moonshot describes Kimi K2.8 Preview's coding and agent performance as close to K3, with improved thinking efficiency over K2.7 Code. **Independent benchmarks have not yet confirmed that comparison, so it currently rests on the company's own description rather than third-party testing**" ([MagicShot, 2026-09-15](https://magicshot.ai/news/kimi-k28-preview-moonshots-new-mid-tier-ai-model)).
+
+### Why exclusion rather than proxy scoring
+
+Two tempting shortcuts were available and both are wrong.
+
+**Borrowing K2.7 Code's numbers.** I did exactly that — legitimately — for `kimi-k2.7-code-highspeed`, because Moonshot states in plain language that the highspeed tier is "the same model as Kimi K2.7 Code", differing only in serving throughput. **No such statement exists here.** K2.8 Preview is explicitly described as *better* than K2.7 Code and *near* K3, i.e. a different model with different weights, sitting between two checkpoints whose published scores differ enormously. Importing K2.7 Code's SWE-bench 78.2% or MCP-Atlas 76.0% into this file would assign another model's measurements to this one and corrupt both this folder's average and any downstream comparison.
+
+**Interpolating between K2.7 Code and K3.** "Close to K3, better than K2.7 Code" is a vendor adjective, not an interval. Without a single anchor point I would be choosing the number myself, and "no fabricated benchmarks" is the rule that matters most in this dataset.
+
+**Partial scoring was also considered and rejected.** Two dimensions — Context window and Multimodal — do have verified *specification* evidence (a documented 1M window across all tiers; text/image/video input confirmed by two sources plus the CLI's `video_in` capability gating). But **Tool use, Reasoning and Coding have zero data of any kind**, and those three are precisely the dimensions the vendor's unquantified claims concern. An Overall built from two spec-based scores and three invented ones would read as a capability verdict while carrying none, which is the exact failure mode the template's mandatory rule exists to prevent.
+
+**Reversal criteria, stated explicitly.** This exclusion should be lifted as soon as any one of the following appears: a BenchLM or Artificial Analysis entry for Kimi K2.8 Preview; a Moonshot model card or technical report publishing numeric evaluations (as was done for K2.7 Code and K3); a Vals AI, Terminal-Bench, Claw-Eval, SWE-bench or MCP-Atlas leaderboard listing; or any independent third-party measurement of `kimi-for-coding` identified as K2.8 Preview. The specification work in this file is complete and should be reusable as-is the moment numbers exist.
+
+### Normalized scores (1–100)
+
+Not computed. Every benchmark row above reads "no verified public score found", which is the exact condition under which `RULES.md` and the report template reserve the `.md.excluded` suffix. Three of the five quality dimensions — Tool use, Reasoning and Coding — have **zero** verified data, the cost dimension has **no published price**, and the model's own vendor declined to quantify any of its three capability claims. No parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Sources that returned usable specification data: Moonshot's **Kimi Code "What's New"** changelog (the 2026-09-11 K2.8 Preview release entry — unchanged `kimi-for-coding` model ID, the three unquantified capability claims, the low/high/max thinking ladder with `max` default, the non-thinking fallback routing for the K3 series, and 1M context across all membership tiers; plus the quantified K2.7 Code and K3 entries used only for contrast), the **Kimi API model-pricing page** (which lists K3, K2.7 Code, K2.7 Code Highspeed and K2.6 but **not** K2.8 Preview, establishing that no per-token rate exists), and **LLM Stats** (release date, proprietary licence, Text/Image/Video input → Text output, 1M context, and blank Speed/Cost fields). Searches that returned nothing: `"Kimi K2.8" SWE-bench OR Terminal-Bench OR "Kimi Code Bench" score benchmark result` → **"No results found"**; BenchLM's model directory → **no K2.8 entry** despite eight sibling Moonshot models being indexed; Artificial Analysis → no entry. The repo's own `meta.json` was read only to identify the tracked model; its omission of video input is corrected above, and its "no per-token billing" note is confirmed correct. No benchmark was imported from `kimi-k2.7-code`, `kimi-k2.7-code-highspeed` or `kimi-k3`, and no value was interpolated between them. No peer `model/` findings files were read. Unavailable items — every benchmark figure, the parameter count, the architecture, the max output limit, the knowledge cutoff and any price — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

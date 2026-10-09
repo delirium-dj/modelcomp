@@ -1,0 +1,54 @@
+# Kimi K2.8 Preview — findings by Step 5 Preview
+
+- Source: Moonshot AI (`kimi-k2.8-preview` / `kimi-for-coding`)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding/agentic model (fully rolled out 2026-09-11), positioned between the flagship Kimi K3 and Kimi K2.7 Code — which is why a "2.8" follows a "3". It was swapped in **in place of K2.7 Code behind the unchanged `kimi-for-coding` model ID**, so existing Kimi Code configurations picked it up with no client change. Moonshot describes its coding and agent performance as "close to K3" with more efficient thinking than K2.7 Code, and it gives every Kimi Code membership tier a 1M-token context (K3 caps 1M at Pro+/Allegretto+ tiers).
+- **Provider / access:** Kimi Code (CLI, VS Code, third-party tools) via the Kimi Code API; Kimi Work / Kimi app. Not listed on Moonshot's Open Platform pay-as-you-go price table, OpenRouter, or Artificial Analysis; two resellers (ZenMux, APIMaster) list unofficial `moonshotai/kimi-k2.8-preview` routes at ~$1/$4 per 1M tokens.
+- **Release / knowledge:** 2026-09-11. Knowledge cutoff not disclosed.
+- **IDs:** `kimi-for-coding` (Kimi Code, unchanged alias), `kimi-k2.8-preview` (unofficial gateway IDs).
+- **Context window:** 1,048,576 tokens on all Kimi Code plans.
+- **Modalities:** Text, image and video in → text out; `low` / `high` / `max` thinking (default `max`); non-thinking mode routes to a K2.8 non-thinking variant; Regular speed class.
+- **Pricing (as of 2026-10-09):** no official per-token price — membership quota inside Kimi Code; unofficial gateway routes list $1.00 / $4.00 per 1M tokens (unconfirmed by Moonshot).
+- **Architecture:** not disclosed (no parameter count, no model card at launch).
+
+## Self-exclusion — negative findings
+
+This report is saved as `.md.excluded` because **zero verified public benchmark numbers** exist for this model. Moonshot's release notes publish no benchmark table, no model card, no parameter count and no per-token price, and every tracker checked (Artificial Analysis, Vals AI, Arena, waitwhichmodel, allthemodels, LLM Stats, reviuws) explicitly reports "no scores" / "0 of 10 reported". The "close to K3" claim is a vendor assessment, not a measurement. Per the research rules no scored report is written and no placeholder numbers are invented.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AIME / ARC-AGI / CritPt: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / DeepSWE / Terminal-Bench / LiveCodeBench / Vibe Code Bench: **no verified public score found**
+
+Agentic / tool use:
+
+- MCP-Atlas / BrowseComp / GDPval-AA / Toolathlon / Claw-Eval: **no verified public score found**
+
+Multimodal:
+
+- MMMU-Pro / CharXiv / Video-MME: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER / AA-LCR: **no verified public score found** (1M window documented; retrieval unmeasured)
+
+Notes for future re-research:
+
+- Hands-on reports so far are anecdotal: one head-to-head had K3 one-shot a task in 120 min at $14 while K2.8 Preview finished a comparable job in 80 min at $10 but could not one-shot it; another called it "not at the same level of K3, but faster." ZenMux measured 41.1 tok/s output (vs K3's ~34 tok/s).
+- If Moonshot or an independent evaluator publishes K2.8 benchmark rows (or the model exits preview with an official model card/price), this file can be re-researched into a scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (Kimi Code changelog/model tables, APIMaster, kie.ai, k3-kimi.com, waitwhichmodel, allthemodels, LLM Stats, HasBeenReleased); scores are normalized 1–100 interpretations, not official vendor scores.

@@ -1,0 +1,54 @@
+# Gemini 2.5 — findings by Step 5 Preview
+
+- Source: Google (`gemini-2.5` — family entry, no distinct model ID)
+- Date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.5 (family entry)
+- **Short description:** The Gemini 2.5 series (announced March 2025, GA June 2025) shipped as three distinct API models — Gemini 2.5 Pro, Gemini 2.5 Flash and Gemini 2.5 Flash-Lite. **Google has never published a standalone "Gemini 2.5" base model ID** (checked: Gemini API model list, models.dev, OpenRouter catalog, the Gemini 2.5 technical report's model-ID table). Each sibling has its own folder in this dataset (`gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`), and their benchmark rows must not be copied onto this family entry.
+- **Provider / access:** n/a — no such model ID served on any catalog.
+- **Release / knowledge:** n/a (family: March–June 2025; knowledge cutoff January 2025).
+- **IDs:** none verified.
+- **Context window:** n/a.
+- **Modalities:** n/a.
+- **Pricing (as of 2026-10-09):** n/a.
+- **Architecture:** n/a.
+
+## Self-exclusion — negative findings
+
+This report is saved as `.md.excluded` because **zero verified public benchmark numbers** were found for a distinct "Gemini 2.5" model. Every raw-benchmark row below reads "no verified public score found", so per the research rules no scored report is written and no placeholder numbers are invented.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AIME / ARC-AGI / CritPt: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Terminal-Bench / Vibe Code Bench: **no verified public score found**
+
+Agentic / tool use:
+
+- τ²-Bench / MCP-Atlas / BrowseComp / GDPval-AA / Toolathlon / Claw-Eval: **no verified public score found**
+
+Multimodal:
+
+- MMMU-Pro / CharXiv / Video-MME: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER / AA-LCR: **no verified public score found**
+
+Notes for future re-research:
+
+- The closest verified siblings, which live in their own folders and are NOT this model: `gemini-2.5-pro` (GPQA 86.4%, SWE-bench Verified 59.6–63.8%, HLE 21.6%, MRCR 8-needle 58.0% @128K / 16.4% @1M), `gemini-2.5-flash` (LCB 59.3–74.2%, MMMU 79.6%), `gemini-2.5-flash-lite` (GPQA 66.7%, LCB 34.3%).
+- If Google or a catalog ever publishes a model literally identified as "Gemini 2.5" (a distinct ID with its own benchmark rows), this file can be re-researched into a scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (Gemini API model list, models.dev, OpenRouter, Gemini 2.5 technical report model-ID table); scores are normalized 1–100 interpretations, not official vendor scores.

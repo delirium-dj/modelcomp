@@ -1,0 +1,58 @@
+# Step 5 Preview — findings by Muse Spark 1.3
+
+- Source: Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Step 5 Preview
+- **Short description:** StepFun's flagship MoE (600B total / 27B active) for agentic software engineering and professional knowledge work (finance strength). 1M context with text/image/video input; weights coming soon.
+- **Provider / access:** StepFun Open Platform (`step-5-preview`) + OpenRouter + OpenCode Zen `opencode/step-5-preview` (Chat Completions + Messages APIs; streaming, tool calling, JSON mode/Schema, prompt caching, low/med/high reasoning effort).
+- **Release / knowledge:** 2026-09-20 release (LLM Reference; refreshed Oct 5 2026); knowledge cutoff not disclosed.
+- **IDs:** `opencode/step-5-preview`
+- **Context window:** 1,048,576 total (64,000 max output) — verified via LLM Reference (repo stub 128K outdated).
+- **Modalities:** Text, image, video in; text out; reasoning yes (low/med/high effort); tool calls + structured outputs yes.
+- **Pricing (as of 2026-10-08):** $1.00 input / $2.70 output per 1M (StepFun + OpenRouter; cache read $0.05). Paid only (repo stub Standard).
+- **Architecture:** Sparse MoE 600B total / 27B active; proprietary (weights coming soon).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers found — Sep 20 release too new; LLM Reference lists no benchmark rows ("no task-mapped benchmark peers"), BenchLM page carries no numeric scores in fetched content, StepFun news page Chinese-only shell. Per template rule this file is `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- No verified public score found (Terminal-Bench, Tau, GDPval-AA, Claw-Eval, Toolathon all unreported).
+
+Reasoning / knowledge:
+
+- No verified public score found (GPQA, HLE, LCR/MLCR, CritPt, Index, Omniscience all unreported).
+
+Coding:
+
+- No verified public score found (SWE-bench, LiveCodeBench, SciCode, Vibe, DeepSWE all unreported; SWE/finance strength claimed qualitatively only).
+
+Long context:
+
+- No MRCR / RULER / GraphWalks number published — no long-context retrieval reported; window fact 1,048,576 total.
+
+### Normalized scores (1–100)
+
+> Ignored — `.md.excluded` (evidence-free). Headings only.
+
+- **Tool use: 15/100.** Placeholder — no evidence.
+- **Reasoning: 15/100.** Placeholder — no evidence.
+- **Context window: 15/100.** Placeholder — no evidence.
+- **Multimodal: 15/100.** Placeholder — no evidence.
+- **Coding: 15/100.** Placeholder — no evidence.
+- **Cost efficiency: 15/100.** Placeholder — no evidence.
+- **Overall Score: 15/100.** Placeholder — no evidence.
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-10-08
+- Method: public internet research (LLM Reference page, BenchLM page, StepFun news shell); release too new for benchmarks so filed as self-exclusion.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

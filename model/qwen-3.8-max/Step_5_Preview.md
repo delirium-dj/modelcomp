@@ -56,20 +56,3 @@ Long context:
 - 1M input / 131K output at one flat rate. No explicit MRCR ≥98%-at-512K figure published.
 
 ### Normalized scores (1–100)
-
-
-- **Tool use: 82/100.** Terminal-Bench 2.1 88.76% (independent, the strongest still-ranked result) and IFBench 82.8% (well ahead of GPT-5.6 Sol) are strong. Capped by the vendor-only Toolathlon, AA-AnalystAgent trailing Opus 5.5/Fable 5.1, and no live OSWorld/Tau-bench exact row — agentic breadth is real but not uniformly frontier.
-- **Reasoning: 84/100.** GPQA 92.6–93.69% is near-ceiling and HLE 43.6% clears the 40% bar. Capped hard by the AA Intelligence Index of 40 (well below frontier 57–62), the saturated-board status of the headline GPQA/SWE/LiveCode numbers, and independent HLE trailing most frontier peers (including Opus 5.5 by −18.3) — vendor claims outrun the independent picture.
-- **Context window: 95/100.** 1M input / 131K output at one flat rate (no tiered step-up) — solidly in the ≥1M tier, and the 131K output is generous. Not a full 100 because no explicit MRCR ≥98%-at-512K retrieval figure was published.
-- **Multimodal: 88/100.** Text + image + video in with Arena.AI #2 globally on multimodal human-preference (behind only Claude Fable 5) — hits the 90–100 input band; held to 88 by text-only output and no live MMMU row.
-- **Coding: 82/100.** SWE-bench Verified 85.6% and LiveCodeBench 87.85% look frontier, but both sit on retired/saturated boards; the harder SWE-bench Pro is only 67.7% and independent DeepSWE trails Kimi K3/GLM-5.3 by −12. Terminal-Bench 2.1 88.76% is the one strong still-ranked coding result. Vendor coding claims outrun the independent evidence.
-- **Cost efficiency: 88/100.** $2/$6 per 1M (Singapore; cheaper elsewhere) at one flat rate across the full 1M window, plus a one-time 1M-token free quota. Under the rubric's ~$1.25/$4.25=88 anchor. No permanent free tier.
-- **Overall Score: 86.2/100.** Mean of the five non-cost dims (82+84+95+90+82)/5 = 86.6. Best fit as a cheap, flat-priced, 1M-context multimodal model for large-context agentic workloads at frontier-undercutting prices; note the gap between Alibaba's headline numbers (many on saturated boards) and the more sobering independent results.
-
----
-
-## Signature
-
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Alibaba + Artificial Analysis (via hokai.io) and themodelgap.com's independent noise-band analysis (10/12 independent runs).
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

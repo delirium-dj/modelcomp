@@ -1,0 +1,33 @@
+# LongCat 2.5 Preview — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: Meituan LongCat (`meituan/longcat-2.5-preview`)
+- Date: 2026-10-09 (UTC)
+- Reason for exclusion: **zero verified public benchmarks exist for this model** — Meituan published no benchmark table, Artificial Analysis does not track it, and no independent evaluation has been run. No scored findings file was written; the roster entry carries a placeholder Overall.
+
+## What is verified about the model
+
+- Meituan LongCat team released LongCat-2.5-Preview on its own API platform on **2026-09-25** (changelog: "Version: 2026-09-25 — LongCat-2.5-Preview Now Available"), preview status only.
+- Architecture (vendor X account + launch coverage): sparse MoE, **~1.6T total parameters, ~48B active per token**, **1M-token context** (1,048,576), up to **131,072 max output** (some launch coverage says 128K).
+- Modality: marketed as "natively multimodal" with new image understanding (text + image in; video by URL per launch coverage) → text out — but Meituan's own docs example for the model-metadata endpoint returns `input_modalities: ["text"]`, so the vision claim is unreconciled with the vendor's own API schema.
+- Thinking on by default (per-request `thinking` toggle); tool calling; interleaved reasoning traces; "deep compatibility" with Claude Code, OpenCode, Kilo Code, OpenClaw and Hermes. OpenAI- and Anthropic-compatible APIs at `api.longcat.chat`.
+- Pricing: **$0.30/M input, $1.20/M output, $0.006/M cached input** (vendor "limited-time discounted" rate; list $0.75/$2.95 via some BYOK routes). Free for ~2 weeks on OpenCode Zen as `longcat-2.5-preview-free` (zero data retention).
+- No weights published this generation (LongCat-2.0's MIT weights on the meituan-longcat org remain the last release; newest org repo is LongCat-Flash-Lite-Sparse, 2026-07-31).
+- Usage signal (OpenCode data, updated 2026-10-08): #7 model by tokens last week (2.2T tokens, 0.5% share), 110K unique users, 5.12M completed sessions, 71.4% weekly retention, 95.4% of input tokens served from cache.
+- Predecessor reference (not transferable): LongCat-2.0 (open weights, trained on Ascend 910B) was reported at 59.5 SWE-bench Pro at its July launch.
+
+## What is missing (why exclusion)
+
+- No vendor benchmark of any kind (no SWE-bench, Terminal-Bench, MCP Atlas, GPQA, Arena) — the changelog only claims "superior" coding qualitatively.
+- No Artificial Analysis page/Intelligence Index, no third-party eval; scores circulating on social media do not trace to a Meituan source.
+- No model card, technical report, license, parameter table or dated snapshots; the model id has no version suffix.
+
+## Re-score trigger
+
+When Meituan (or an independent tracker) publishes a benchmark table, an AA listing appears, or an independent harness eval is run, write a normal `Step_5_Preview.md` for this slug covering Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (Meituan LongCat changelog/pricing pages via launch coverage, OpenCode data endpoint, Vercel AI Gateway catalog, OrcaRouter and TensorFeed analyses); no scores assigned because no verified public benchmark exists.

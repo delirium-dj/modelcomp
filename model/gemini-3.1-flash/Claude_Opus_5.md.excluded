@@ -1,0 +1,77 @@
+# Gemini 3.1 Flash — findings by Claude Opus 5
+
+- Source: Google / Google DeepMind (claimed ID `google/gemini-3.1-flash`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** Per `RULES.md`, that suffix applies when an Overall Score cannot be computed because there is zero verified data for the exact model/ID. That is the case here, and for an unusual reason that is set out in full below so the decision is auditable and reversible: **I could not establish that a base model named "Gemini 3.1 Flash" exists at all.** Every artefact Google has published under a "Gemini 3.1 Flash" name carries a suffix and is a different model with its own folder or its own routing destination.
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash — **existence unverified**
+- **Short description:** No verified public data found. The repo's curated `meta.json` describes "Google's efficient 3.1 Flash model, balancing speed, capability, and cost", with a 1,048,576-token context window, "Text, image, audio, PDF in; text out", and a free tier "on Google AI Studio and OpenCode Zen". **None of that could be corroborated for a base `gemini-3.1-flash`**, and the OpenCode Zen claim is positively contradicted (see below).
+- **Provider / access:** No verified public data found. Negative evidence gathered:
+  - `deepmind.google/models/model-cards/gemini-3-1-flash/` → **404**, while the sibling card `deepmind.google/models/model-cards/gemini-3-1-flash-lite/` resolves and is indexed.
+  - `docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash` → **404**, while `.../gemini/3-1-flash-lite` and `.../gemini/3-1-pro` both resolve and are indexed (both last-updated 2026-10-07).
+  - `openrouter.ai/google/gemini-3.1-flash` → **404**.
+  - `artificialanalysis.ai/models/gemini-3-1-flash` → **404**, while `artificialanalysis.ai/models/gemini-3-1-flash-lite-preview` resolves.
+  - **OpenCode Zen does not list it.** Zen's published endpoint and pricing tables carry Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash, 3.5 Flash Lite, 3.1 **Pro**, and 3 Flash — and no `gemini-3.1-flash` ([Zen docs](https://opencode.ai/docs/zen/)). The `meta.json` free-tier-on-Zen claim is therefore not merely unverified but incorrect.
+- **Release / knowledge:** No verified release date found, because no release was found. The verifiable Gemini Flash lineage runs **Gemini 3 Flash (2025-12-17)** → Gemini 3.5 Flash → Gemini 3.6 Flash → **Gemini 3.7 Flash (2026-08-13)** → Gemini 3.8 Flash ([blog.google](https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/); [secondtalent roundup](https://www.secondtalent.com/resources/every-gemini-ai-model-explained-compared/)). The 3.1 point-release delivered **Gemini 3.1 Pro on 2026-02-19** ([aiwiki](https://aiwiki.ai/wiki/gemini_3_1_pro); [oreateai timeline](https://discover.oreateai.com/discover/google-gemini-3-release-timeline-and-advanced-reasoning-features-explained)) — the 3.1 generation skipped a base Flash entirely.
+- **IDs:** The only `gemini-3.1-flash*` IDs I could verify in public sources are **suffixed**, and each is a different model:
+  - `gemini-3.1-flash-lite-preview` — **Gemini 3.1 Flash-Lite**, released **2026-03-03**, 1M context, $0.25 / $1.50 per MTok, GPQA Diamond 86.9%, MMMU-Pro 76.8%, Arena.ai Elo 1432 ([blog.google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/); [DeepMind model card](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/)). **This repo already tracks it separately at `model/gemini-3.1-flash-lite/`, so its data belongs there, not here.**
+  - `gemini-3.1-flash-tts-preview` — **Gemini 3.1 Flash TTS**, a speech-generation model ([buildfastwithai](https://blog.buildfastwithai.com/gemini-3-1-flash-tts-google-ai-voice-model-2026)).
+  - **Gemini 3.1 Flash Live** — a realtime voice model announced **2026-03-26**, launched alongside Search Live ([gigazine](https://gigazine.net/gsc_news/en/20260327-google-gemini-3-1-flas-live); [creati.ai](https://creati.ai/ai-news/2026-03-27/google-deepmind-gemini-3-1-flash-live-voice-model-search-live-global-launch/)). **Per `RULES.md` voice routing this is a `models_voice/` model and must never be filed under `model/`** — I am parking it as a discovery, not creating or researching it here.
+- **Context window:** No verified public data found for a base `gemini-3.1-flash`. (Flash-Lite and 3.1 Pro are both documented at 1M; the repo's 1,048,576 figure is plausible *as a family value* but is not evidence about a model whose existence is unestablished.)
+- **Modalities:** No verified public data found.
+- **Pricing:** No verified public data found. The repo's "Free tier available; Paid-tier pricing" note cites a Zen free tier that does not exist for this ID.
+- **Architecture:** No verified public data found.
+
+### Raw benchmarks found
+
+**None.** Every row below would read "no verified public score found", which is precisely the condition the template reserves for self-exclusion.
+
+Agent / tool use:
+
+- Terminal-Bench (any version), τ²/τ³-bench, GDPval-AA, OSWorld, Claw-Eval, Toolathon, MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AA-LCR, MLCR, CritPt, Artificial Analysis Intelligence Index, AA-Omniscience: **no verified public score found**
+- BenchLM, which indexes 889 models across 625 benchmarks as of its 2026-10-08 snapshot and *does* carry Gemini 3.1 Flash-Lite, Gemini 3.1 Flash Live Preview, Gemini 3.1 Flash TTS Preview and Gemini 3.1 Pro, has **no entry for a base Gemini 3.1 Flash**. Given that the tracker lists three sibling 3.1-Flash-suffixed models and the 3.1 Pro, the absence of the base model is strong negative evidence rather than a coverage gap.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, FrontierCode, Vibe Code Bench: **no verified public score found**
+
+Multimodal:
+
+- MMMU / MMMU-Pro, MathVision, CharXiv, Video-MME, OCR, GUI grounding: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval or reasoning number found at any window length.**
+
+### Why exclusion rather than low evidence-absence scores
+
+I am drawing the same line here that I drew for `mai-experimental-test`, and for the same reason: the problem is not thin data about a real model, it is the absence of a referent. Elsewhere in this pass I have scored models with one or two empty dimensions by leaning on the dimensions that do have data — `grok-4` got a 60 on coding off a single harness, and `kimi-k2.7-code` got a 70 on multimodal off architecture plus one Elo. Both were defensible because the model demonstrably exists and its other dimensions were measured.
+
+Here, **nothing** is measured, and four independent canonical sources that *do* carry the sibling models return 404 or omit this one: DeepMind's model-card directory, Google Cloud's Gemini Enterprise model directory, OpenRouter, and Artificial Analysis. BenchLM lists three suffixed 3.1-Flash variants and 3.1 Pro but not this. And the documented Flash release cadence — 3 Flash, then 3.5, 3.6, 3.7, 3.8 — has no 3.1 Flash slot in it, while the 3.1 point-release is accounted for by 3.1 Pro and 3.1 Flash-Lite.
+
+Scoring this folder would mean assigning numbers to a name. The most likely explanations are that the folder was scaffolded from a plausible-looking ID pattern, or that it is a mis-slug of `gemini-3.1-flash-lite` (which already has its own folder and must not be duplicated here) or of the voice model Gemini 3.1 Flash Live (which `RULES.md` routes to `models_voice/` and which must never be filed under `model/`). I am not going to guess between those by importing Flash-Lite's benchmarks into this file — that would silently duplicate another folder's dataset and corrupt both averages.
+
+**Reversal criteria, stated explicitly:** this exclusion should be lifted the moment any one of the following appears — a Google or DeepMind model card for a base `gemini-3.1-flash`; a Gemini API / Vertex AI model ID of `gemini-3.1-flash` (unsuffixed) with published specs; an entry on BenchLM, Artificial Analysis, or OpenRouter for the base model; or an OpenCode Zen listing of `gemini-3.1-flash`. Until then the honest record is that the model could not be found.
+
+### Normalized scores (1–100)
+
+Not computed. All five quality dimensions and the cost dimension have **zero verified data**, and the subject model's existence is itself unverified. Assigning any number — including a deliberately low one — would manufacture a capability claim about a model I cannot show exists. Per `RULES.md`, this is the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Research steps attempted and their outcomes: targeted searches for `"Gemini 3.1 Flash"` with and without exclusion of the `-lite`, `TTS` and `Live` variants (returned only the suffixed models); direct fetches of `deepmind.google/models/model-cards/gemini-3-1-flash/`, `docs.cloud.google.com/.../gemini/3-1-flash`, `openrouter.ai/google/gemini-3.1-flash` and `artificialanalysis.ai/models/gemini-3-1-flash` (**all four 404**, while their `-lite` / `3-1-pro` counterparts resolve); inspection of the OpenCode Zen endpoint and pricing tables (**no such ID**); and inspection of BenchLM's model directory, which carries Gemini 3.1 Flash-Lite, Flash Live Preview, Flash TTS Preview and 3.1 Pro but **no base Gemini 3.1 Flash**. `ai.google.dev/gemini-api/docs/models` returned a transport error and could not be consulted. The repo's own `meta.json` was read only to identify what was being claimed; its OpenCode Zen free-tier claim is reported as contradicted by Zen's published docs. Benchmark data belonging to Gemini 3.1 Flash-Lite was deliberately **not** imported, since that model has its own folder in this dataset. Gemini 3.1 Flash **Live** is parked as a `models_voice/` discovery per `RULES.md` and was neither created nor researched. No peer `model/` findings files were read. Unavailable items — every benchmark figure, the release date, the context window, the modalities, the pricing, the architecture, and the model's existence — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
