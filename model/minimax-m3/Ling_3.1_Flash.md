@@ -59,15 +59,28 @@ Long context / multimodal:
 - **Tool use: 76/100.** τ²-Bench Telecom 88.9% (AA) sits at the frontier bar, BrowseComp 83.5% beats Opus 4.7, and MCP Atlas 74.2% and Banker ToolBench 76.1% are strong; OSWorld-Verified 70.0% is mid, AutomationBench 21% and the AA Agentic Index of 29.5 are weak, and TB4.0's 2% is an unanchored new benchmark.
 - **Reasoning: 78/100.** GPQA Diamond 92.9% (AA) clears the 90%+ frontier band and IFBench 82.9% supports, but HLE 39.0% sits just under the 40%+ bar, CritPt 3.7% and AA-Omniscience (16.7% accuracy) are very weak, and the AA Intelligence Index of 29.2 is dragged down by the new agentic evals.
 - **Context window: 95/100.** 1M-token window (MSA sparse attention at ~1/20 the per-token compute) with AA-LCR 83.0%; no ≥98%-at-512K+ retrieval figure, so 100 is not justified.
-- **Multimodal: 80/100.** text/image/video in with text out — the +video/PDF band (75–90), with SVG-Bench 63.7% (#1) and VIBE V2 50.1% supporting; no MMMU or video-suite figure captured.
-- **Coding: 70/100.** SWE-bench Pro 59.0% (edging GPT-5.5) and SVG-Bench 63.7% (#1) are solid, but Terminal-Bench 2.1 66.0% is under the 85% bar, SciCode 47.1% is under the 55% reference, the AA Coding Index of 58.6 is under the 70% bar, and Terminal-Bench Hard 42.4% is weak; DeepSWE and SWE-bench Verified are unpublished.
+- **Multimodal: 81/100.** text/image/video in with text out — the +video/PDF band (75–90), with SVG-Bench 63.7% (#1), VIBE V2 50.1%, MMMU-Pro ~80% (AA; level with GPT-5.5 xhigh 79.9%) and the Vals Multimodal Index of 59.97% (#6 of 48, top open-weights) supporting.
+- **Coding: 72/100.** SWE-bench Verified 75.0% (vals.ai, #17 of 82), SWE-bench Pro 59.0% (edging GPT-5.5), SVG-Bench 63.7% (#1) and LiveBench Coding 68.2 are solid, but Terminal-Bench 2.1 is under the 85% bar in every read (66.0% vendor / 53.56% vals.ai), SciCode 47.1% is under the 55% reference, the AA Coding Index of 58.6 is under the 70% bar, and Terminal-Bench Hard 42.4% is weak; DeepSWE is unpublished.
 - **Cost efficiency: 93/100.** $0.30/$1.20 per 1M list ($0.23/$0.96 OpenRouter, $0.28/$1.10 DeepInfra, AA blended $0.222/M) sits between the ~97–99 ($0.10/$0.20) and ~88 ($1.25/$4.25) anchors; the 512K–1M API tier ($1.20/$4.80) is the premium.
-- **Overall Score: 80/100.** (76+78+95+80+70)/5 = 79.8 → 80 — a cheap open-weight 1M multimodal model with frontier GPQA (92.9%), τ²-Bench 88.9% and BrowseComp 83.5%; the agentic-coding half (TB2.1 66.0%, SWE-bench Pro 59.0%, SciCode 47.1%, Coding Index 58.6) and the AA Intelligence Index of 29.2 are the gaps.
+- **Overall Score: 80/100.** (76+78+95+81+72)/5 = 80.4 → 80 — a cheap open-weight 1M multimodal model with frontier GPQA (92.9%), τ²-Bench 88.9% and BrowseComp 83.5%; the agentic-coding half (TB2.1 53.6–66.0%, SWE-bench Pro 59.0%, SciCode 47.1%, Coding Index 58.6) and the AA Intelligence Index of 29.2 are the gaps.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+**Score revisions: Coding 70→72, Multimodal 80→81, Overall unchanged at 80** — the vals.ai suite filled the missing SWE-bench Verified row and confirmed the launch-era figures; Tool use 76 / Reasoning 78 / Context 95 / Cost 93 unchanged:
+
+- **SWE-bench Verified: 75.00%** (vals.ai, #17 of 82) — a new fill (the vendor never reported it), strong enough to lift Coding; it joins SWE-bench Pro 59.0% (#18 of 60, Scale AI protocol) and LiveBench Coding 68.2.
+- **vals.ai full suite:** Vals Index **58.94% (#6 of 48)** and Vals Multimodal Index **59.97% (#6 of 48)** — top open-weights model on both; index accuracy 42.72% ± 1.20 at $2.496/test, 35m15s latency. Vibe Code Bench v1.1 **47.57%** (+35 pts over M2.7); Finance Agent v2 **48.27%** (+20 pts over M2.7, top open-weights); LegalBench and MedCode top open-weights.
+- **Launch-era provenance (AA article, 2026-06-08):** M3 scored **55** on the then-current Intelligence Index — "once the weights are released, it will be the leading open weights model," just ahead of Kimi K2.6 and MiMo-V2.5-Pro (54); the current v4.3.x read of 29.2 (#15 of 113) is a version-and-field change, not a regression. Launch deltas: HLE 28→37%, GPQA 87→93%, AA-LCR 69→74%, IFBench 76→83%, CritPt 1→4%, SciCode 47→45% (regression). GDPval-AA ~1670 (behind Opus 4.8 max 1890 and GPT-5.5 xhigh 1769, level with Sonnet 4.6 max 1676); MMMU-Pro ~80% (level with GPT-5.5 xhigh 79.9%, behind Gemini 3.1 Pro high 84.3%) — supports the Multimodal bump.
+- New rows: Harvey Lab-AA **88.4%** (#11 of 39), LiveBench suite (Math 77.0, Data Analysis 76.2, Language 76.8, Reasoning 74.5, Global 70.0, Deep 67.3), ECI 147 (#59 of 167), Context Arena 51.1, SimpleBench 45.8, GDP.pdf 9.8, τ³-Banking 15.3%, SuperCLUE 56.9, Text Arena Coding 1528, Video-MME 84.6 (512 frames); BenchGecko: 55.1 average across 35 benchmarks (#118), Chatbot Arena Elo Coding 1482 / Overall 1440.
+- Vendor methodology captured (MiniMax blog): SWE-bench Verified via Claude Code scaffolding (default system prompt overridden, 4 runs averaged); TB 2.1 via Terminus 2 (8C16G, 2h timeout, 128K max output); OSWorld-Verified improved 68.70%→70.06% when Max Steps went 100→200 (relative coordinates 0–1000, 1920×1080); PostTrainBench via Claude Code + Ralph-Loop 12h; KernelBench Hard via Claude Code on Blackwell sm_120; IMO 2025 / USAMO 2026 via MathArena dual-model grading.
+- Caveat: vals.ai's own TB 2.1 read is **53.56%** (#12 of 54) — 12.4 pts under the vendor's 66.0% launch figure; the TB 2.1 row keeps both reads and the gap is flagged.
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (MiniMax M3 model page, Artificial Analysis, OpenRouter, themodelbeat, Epoch AI, binaryverseai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

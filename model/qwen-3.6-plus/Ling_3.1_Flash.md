@@ -67,8 +67,20 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+BenchmarkList, Shawn Hack and AA's comparison pages filled the gaps; **no score changes** — the new rows corroborate the existing bands:
+
+- **AA-LCR 78.3%** (AA's own run) — fills the "no MRCR/RULER/LCR score" gap; good but not ≥98%, so Context 95 stands. CritPt 2.9% (AA) and IFBench 75.2% (AA) also fill.
+- New agentic rows (BenchmarkList): Agents' Last Exam **8.6%** (rank 38 of 41 — very weak, a new cap), OSWorld-Verified **62.5%** (rank 4 of 4, small field), AndroidWorld **67.2%** (rank 12 of 22), ScreenSpot-Pro **68.2%** (rank 22 of 59), MCPMark **48.2%** (rank 10 of 41), VitaBench **42.8%** (rank 5 of 25), STT-Arena **31.4%** (rank 6 of 24), ClawProBench **60.2** (rank 14 of 48), Claw-Eval-Live **50.5%** (rank 10 of 13), Workspace-Bench **55.6%** (rank 9 of 16), GDPval-AA **1137** (rank 86 of 352), τ³-Banking **20.8%** (rank 55 of 176), AutomationBench **4.3%** (rank 40 of 48 — very weak), PinchBench **63.9%** (rank 66 of 73), plus long-tail rows (Vending-Bench 2 5114.87, RankJudge 1671, Hack-Verifiable TextArena 22.7%, AutoBench 3.07, CalBench 0.53, SearchGEO 14.4%, ATRBench 20.3%, EgoBench 36.6%, InterLV-Search 37.5%, Long-Horizon Terminal-Bench 0.31, SGR-Bench 36.9%, TERMS-Bench 60.4%, ChildAgentEval 0.37, AgentWorldBench 50.81, SkillGenBench 13.8%, ClawEval-MM 49.1%, AutoLab 0.27).
+- Coding-side fills: SciCode **41.4%** (rank 5 of 12 — small field, under the 55% reference), SWE-bench Verified **78.8%** (rank 19 of 50) with a second read at **73.4%** (rank 38 of 72, different harness), LiveCodeBench **86.0%** (rank 18 of 123) / **87.1%** (rank 14 of 50), SWE-bench Pro **56.6%** (rank 40 of 58), SWE-bench Multilingual **73.8%** (rank 25 of 49), OpenHands Index **52.9%** (rank 12 of 26), Code Migration **11.1%** (rank 27 of 33), FrontierSWE v1 **13.82** (rank 14 of 15), Kernel Bench L3 **48.0%** (rank 7 of 7), CUDABeaver **23.0%** (rank 2 of 6), PBT-Bench **78.0%** (rank 2 of 8), EvoCode-Bench **29.4%**, PDEAgent-Bench **23.4%**, RoadmapBench **16.5%**, Cookie-Bench **75.2**.
+- Independent confirmation (Shawn Hack / Model Beat): SWE-bench 78.8% (#8 of 39), Terminal-Bench 61.6% (#13 of 58), Arena Elo 1470 (#17 of 51), LiveCodeBench 86% (#21 of 62), MMLU-Pro 87.7% (#24 of 61), MMMU 84.2% (#25 of 51), GPQA 88.2% (#50 of 95), HLE 27.8% (#68 of 97).
+- Score impact: none — ALE 8.6%, AutomationBench 4.3% and τ³-Banking 20.8% confirm the Tool-use caps; AA-LCR 78.3% confirms Context 95; SciCode 41.4% and the second SWE-bench Verified read (73.4%) confirm the Coding caps. Tool 71 / Reasoning 73 / Context 95 / Multimodal 82 / Coding 74 / Cost 92, Overall 79 all stand.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Alibaba Cloud Model Studio docs, Qwen launch blog + methodology, BenchLM, BenchmarkList, Sophon, Together, Vector Wire); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_6_Plus.md`, using the same headings.

@@ -60,8 +60,22 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+BenchmarkList and The Model Gap filled the missing rows; the Intelligence Index "low-confidence" flag is resolved. **No score changes** — the fills corroborate the existing bands:
+
+- **Intelligence Index 37.9 confirmed** (rank 67 of 427, 85th percentile, BenchmarkList) — a solidly mid-tier composite, no longer low-confidence; still far under the 59–61 frontier.
+- New fills: **HLE 35.1%** (rank 58 of 478, 88th pct — under the 40% bar; no GPQA Diamond yet), **AA-LCR 74.3%** (rank 92 of 408, 78th pct — first long-context-retrieval figure; good, not ≥98%), **SciCode 51.3%** (rank 46 of 296 — under the 55% reference), **AA-Briefcase v1.1 1,495** (rank 21 of 145, 86th pct, rubric pass rate 51.8%; field leader Opus 5.5 at 1822), **AIIQ Composite IQ 122** (rank 45 of 147; programmatic 138, math 131, academic 128, computer use 119, abstract 102, reliability 111), JobBench 61.2% (rank 8 of 48), OSWorld-Verified 80.8% (rank 17 of 70), Agents' Last Exam 27.6% (rank 17 of 41), DeepSWE 1.1 67.9% (rank 18 of 52), ProgramBench 26.0% (rank 31 of 37).
+- **Terminal-Bench 4.0: 24.24%** (vals.ai independent, mini-SWE-agent harness, pass@1 averaged over 3 full passes, raw 24.242, 2026-10-08) — 4.6 pts under the vendor card's 28.8% (rank 17 of 29); both sit far under the field leader (Opus 5.5, 66.4%).
+- The Model Gap confirms the vals.ai TB 2.1 ordering: Flash 76.40 vs Pro 67.79 on independent runs — Flash above Pro, though the 8.6-point gap sits inside the 10.6-point noise band.
+- WebDev Arena per-category Elos (Benchmark Atlas): Gaming 1706, Simulations 1664, React 1651, Reference-Based Design 1649, HTML 1643, Brand & Marketing 1629, Image-to-WebDev 1596, Consumer Product 1577, Content Creation Tools 1578, Data & Analytics 1551; LMArena Text 1458 (#30 of 218); BenchGecko: MMMU-Pro 73.1, Chatbot Arena Elo 1452.
+- Note: The Model Gap records that Flash had no Artificial Analysis page on 2026-09-22 (the URL returned 404); AA now tracks it (the 37.9 / rank 67 of 427 read above).
+- Score impact: none — HLE 35.1% and SciCode 51.3% confirm the Reasoning/Coding caps; AA-LCR 74.3% confirms Context 95 (not 100); AA-Briefcase 1,495 supports Tool 76. Tool 76 / Reasoning 62 / Context 95 / Multimodal 92 / Coding 78 / Cost 97, Overall 81 all stand.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Xiaomi model page, vals.ai independent Terminal-Bench run, The Model Gap provenance audit, LLMBoard, OpenRouter, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2_6_Flash.md`, using the same headings.

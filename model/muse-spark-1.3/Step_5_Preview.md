@@ -54,3 +54,22 @@ Coding:
 Long context:
 
 - MRCR v2 8-needle 512K–1M: **98.1%**; 256K–512K: **98.5%** (self-reported) — ≥98% retrieval at 512K+
+
+### Normalized scores (1–100)
+
+- **Tool use: 91/100.** GDPval-AA 1754 Elo and TB2.1 84–89% sit at the frontier threshold (rubric ≥1750 / ≥88% → 90–100), and Vals Index 53.2% is solid. Capped below the very top by the hardest long-horizon benches: Terminal-Bench 4.0 only ~24.75 (Vals AI) and AutomationBench independent run 20.7% — the newest agentic evals still expose gaps that TB2.1's earlier generation hid.
+- **Reasoning: 92/100.** HLE 48.7% clears the frontier 40% bar and GPQA Diamond 93.5% is near-ceiling (though saturated/trust-D), with MRCR 98%+ at long range. Capped by LiveBench 81.6 and Vals Index 53.2% (below the 60+ intelligence-index frontier ref), and the absence of a live AA Intelligence Index number.
+- **Context window: 100/100.** 1M input / 944K output with MRCR ≥98% retrieval at 512K+ — squarely in the rubric's "≥1M = 100 if ≥98% retrieval at 512K+" top tier.
+- **Multimodal: 90/100.** Text + image + audio + video + PDF in (text out), so it hits the 90–100 band; CharXiv 93.9% (independent) confirms strong multimodal reasoning. Not a full 100 because output is text-only (no native non-text generation).
+- **Coding: 93/100.** DeepSWE 75.4% (self-reported, >74 frontier ref), TB2.1 88.8%, Vibe Code 82.9% — all at the frontier coding band. Capped by the absence of an independent SWE-bench Verified / LiveCodeBench run and the harder TB4.0 (~24.75) and CursorBench (~33%) long-horizon results.
+- **Cost efficiency: 98/100.** Contributor tier $0.10/$0.20 (rubric ~$0.10/$0.20 = 97–99); Standard tier $1.25/$4.25 also competitive. Free tier carries a training-data-consent caveat (not confidential-safe).
+- **Overall Score: 93/100.** Mean of the five non-cost dims (91+92+100+90+93)/5 = 93.2. Best fit as the default long-horizon agentic/coding model when the free Contributor tier is acceptable; use the Standard tier for confidential work.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Meta's official page, benchmarkregistry.org, themodelgap.com, llm-stats.com, and benchlm.ai; independent runs preferred over vendor self-reports where both exist.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

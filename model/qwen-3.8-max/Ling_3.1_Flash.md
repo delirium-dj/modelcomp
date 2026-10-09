@@ -59,17 +59,29 @@ Long context / multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 86/100.** Terminal-Bench 2.1 at 86.6% (Qwen's own Claude Code run) clears the 85% frontier bar and OSWorld-Verified 86.1% leads the table, with WideSearch 81.9%, SkillsBench 70.2% and CoWorkBench 74.8% supporting; Toolathlon 72.5% pass@1, Agents' Last Exam 52.4 score and the vendor-run harnesses keep this under 88.
-- **Reasoning: 87/100.** GPQA Diamond 92.6% sits in the frontier's top band (level with Fable 5) and HLE 56.2% with tools clears the 40%+ bar, with IFBench 82.8 (#1), HealthBench 60.2 (#1) and $OneMillion-Bench 52.5 supporting; HLE 43.6% without tools and the missing AA Intelligence Index cap the score.
+- **Reasoning: 85/100.** GPQA Diamond 92.6% (vendor) / 92.8% (AA) sits in the frontier's top band (level with Fable 5) and HLE 56.2% with tools clears the 40%+ bar, with IFBench 82.8 (#1), HealthBench 60.2 (#1) and $OneMillion-Bench 52.5 supporting; HLE 43.1% without tools (AA), the AA Intelligence Index of 45 (v4.3.2, #32 of 226 — the previously missing composite) and CritPt 17.7% cap the score.
 - **Context window: 95/100.** 1M-token window, flat-priced across its whole length; MRCR v2 92.9% at 256K is strong but under the ≥98%-at-512K+ bar for 100 (no 512K–1M MRCR figure published).
 - **Multimodal: 85/100.** text/image/video in with text out — the +video/PDF band (75–90), corroborated by MMMU-Pro 82.3%, the strong video suite (VideoMME 90.4%, MLVU 90.8%), HLE-VL 52.2% (#1) and the #2 Arena.AI multimodal rank.
-- **Coding: 79/100.** Terminal-Bench 2.1 86.6% clears the 85% bar and FrontierSWE 73.5 and PaperBench 93.0 (#1) are strong, but DeepSWE 1.1 56.6% is well under the 74% bar and SWE-bench Pro 67.7% is mid-tier; SciCode and the AA Coding Index are unpublished.
+- **Coding: 82/100.** Terminal-Bench 2.1 at 86.6% (vendor) / 88.8% (AA) clears the 85% bar and SWE-bench Verified 85.6% (Vals AI, independent) is a strong new anchor, with FrontierSWE 73.5, PaperBench 93.0 (#1), the AA Coding Index of 76.2 and WebDev Arena 1672 (rank 9 of 100) supporting; DeepSWE 1.1 56.6% is well under the 74% bar, SWE-bench Pro 67.7% is mid-tier and SciCode 52.1% (AA) sits under the 55% reference.
 - **Cost efficiency: 85/100.** $1.65/$4.951 per 1M (Model Studio) to $2/$6 (QwenCloud) sits just above the ~88 ($1.25/$4.25) anchor; the AA blended $1.18/M, half-rate batch and implicit-cache $0.206–0.25/M are offsets; no free tier (`noFreeId`).
-- **Overall Score: 86/100.** (86+87+95+85+79)/5 = 86.4 → 86 — a strong-value flagship: frontier GPQA (92.6%), #1 PaperBench and IFBench, TB2.1 86.6% ahead of Opus 4.8/Fable 5, 1M multimodal context at ~$1.65–2/$4.95–6; the DeepSWE 56.6% gap and vendor-run harnesses are the caveats.
+- **Overall Score: 87/100.** (86+85+95+85+82)/5 = 86.6 → 87 — a strong-value flagship: frontier GPQA (92.6–92.8%), #1 PaperBench and IFBench, TB2.1 86.6–88.8%, SWE-bench Verified 85.6% (Vals), 1M multimodal context at ~$1.65–2/$4.95–6; the DeepSWE 56.6% gap, the Vals TB 2.1 read of 67.42% and the vendor-run harnesses are the caveats.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+**Score revisions: Reasoning 87→85, Coding 79→82, Overall 86→87** — AA now tracks the 0902 checkpoint (the current default), filling the missing Intelligence Index and several independent rows. Tool use 86 / Context 95 / Multimodal 85 / Cost 85 unchanged:
+
+- **AA Intelligence Index v4.3.2: 45** (AA's own page, #32 of 226; OpenRouter 45.4; AIEvals rank 14 of 42; Ridge "joint 13th of 29") — the previously missing composite. Components (AA): Coding Index **76.2**, Agentic Index **56.0**, GPQA Diamond **92.8%**, HLE **43.1%**, AA-LCR **80.3%**, τ-Bench Banking **47.8%**, GDPval-AA **58.6%**, CritPt **17.7%**, SciCode **52.1%**, Terminal-Bench 4.0 **38.9%**, Terminal-Bench 2.1 **88.8%**, AA-Omniscience accuracy **31.7%** / non-hallucination **71.2%**. AA also runs TB Science 0.1 at **11.90%** (rank 11 of 24) and APEX-Agents-AA at **42.40%** (rank 1 of 7); τ³-Banking **47.84%** (rank 5 of 30).
+- **Vals AI (verified, 2026-10-06/08): SWE-bench Verified 85.6%** (independent, bash-only harness — computed from the published difficulty buckets 93% <15min / 84% 15m–1h / 64% 1–4hr / 67% >4hr, matching Ridge's tracked 85.6%); Terminal-Bench 4.0 **34.34%** (mini-SWE-agent, #13 of 45, with 9 provider refusals scored as failures); Terminal-Bench 2.1 (archived) **67.42%** (Terminus 2, #35 of 76) — 21.4 points under AA's independent 88.8% and the vendor's 86.6%, a spread to flag; Arena Elo **1506**.
+- New arena/leaderboard rows: Vision Arena **1301** (rank 2 of 100), WebDev Arena **1672** (rank 9 of 100), Text Arena **1482** (rank 20 of 100), LiveBench Reasoning **78.5%** (rank 15 of 62), GPQA Diamond **92.7%** (rank 21 of 100, xhigh), Epoch ECI **156.4** (rank 22 of 100); AA-measured throughput 37–47 tok/s, TTFT ~1.7s; Kingbench 81.25% (non-standard community benchmark).
+- Provenance notes: the hosted 0902 checkpoint (snapshot `qwen3.8-max-0902`, 2026-09-02) is now the default most integrations serve — AA's 45 and the component reads are for the 0902 checkpoint; the open-weight sibling **Qwen3.8-2.4T-A95B** (~95B active) is a trimmed, text-only build, not the full multimodal API model.
+- Score impact: Reasoning 87→85 (the AA Index of 45 is a solid upper-mid composite, not the frontier band the previous score implied; GPQA 92.8% and HLE 56.2% w/tools keep it in the upper band); Coding 79→82 (SWE-bench Verified 85.6% (Vals) and the AA Coding Index of 76.2 are strong new anchors against DeepSWE 56.6% and SciCode 52.1%); Overall 86→87 ((86+85+95+85+82)/5 = 86.6).
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Alibaba Cloud Model Studio docs, Qwen launch blog, QwenCloud, HokAI, OpenLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_8_Max.md`, using the same headings.

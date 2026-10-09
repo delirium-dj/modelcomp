@@ -56,18 +56,30 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Toolathlon Verified 73.5%, CoWorkBench 73.9% (vs Opus 4.6 max's 68.2%) and JobBench 55.7% (vs Opus 4.6's 36.6%) lead, with Agents' Last Exam (score 51.2, pass@1 24.3%), ClawEval-MM 64.4/60.4 and AndroidWorld 84.5% supporting; OSWorld 2.0 at 19.4% binary (52.3% partial) is weak, and MCP Atlas/τ³/BrowseComp were not captured.
+- **Tool use: 79/100.** Toolathlon Verified 73.5%, CoWorkBench 73.9% (vs Opus 4.6 max's 68.2%) and JobBench 55.7% (vs Opus 4.6's 36.6%) lead, with Agents' Last Exam (score 51.2, pass@1 24.3%), ClawEval-MM 64.4/60.4 and AndroidWorld 84.5% supporting; the independent AA reads — Terminal-Bench 2.1 **86.1%** (clears the 85% frontier bar) and an Agentic Index ranked 2nd–5th — support, while OSWorld 2.0 at 19.4% binary (52.3% partial), Terminal-Bench 4.0 at 25.3% (AA) and the uncaptured MCP Atlas/τ³/BrowseComp cap the score.
 - **Reasoning: 78/100.** GPQA Diamond 91.7% reaches the 90%+ frontier band (above Opus 4.6 max's 91.3%), with IFBench 81.3% and MathVision 95.7% (with CI) supporting; HLE 35.9% (below Opus 4.6's 40.0%) and the absence of an AA Intelligence Index, FrontierMath or AIME figure cap the score.
 - **Context window: 92/100.** 1M-token context on the official API (262K native, YaRN-extensible, with a 7.6× speedup at 1M-token prefill); no ≥98%-at-depth retrieval figure captured, so 95+ is not justified.
 - **Multimodal: 88/100.** Native text/image/video/PDF input with text output — the video/PDF band (75–90), pushed to the top by MathVision 95.7% (with CI), CharXiv 90.6% (with CI), RealWorldQA 88.5%, LVBench 76.6% and AndroidWorld 84.5%.
-- **Coding: 78/100.** LiveCodeBench v6 91.9%, SWE-bench Multilingual 81.0% (vs Opus 4.6 max's 77.5%) and SWE-bench Pro 62.5% (vs 53.4%) lead, with DeepSWE 1.1 58.7%, NL2Repo-Bench 48.1% and the independent ExtractBench mean of 89.88 supporting; Terminal-Bench 2.1 and the AA Coding Index were not captured.
+- **Coding: 80/100.** LiveCodeBench v6 91.9%, SWE-bench Multilingual 81.0% (vs Opus 4.6 max's 77.5%) and SWE-bench Pro 62.5% (vs 53.4%) lead, with the independent Terminal-Bench 2.1 read of 86.1% (AA), DeepSWE 1.1 58.7%, NL2Repo-Bench 48.1%, the AA Coding Index of 73 and the independent ExtractBench mean of 89.88 supporting; SciCode 50.6% (AA, under the 55% reference) caps the score.
 - **Cost efficiency: 93/100.** Gateway rates of $0.14–0.20/$0.47–0.64 per 1M (Venice blended ~$0.23/M at 3:1, with $0.01/M cache reads) sit between the ~$0.10/$0.20≈97–99 and ~$1.25/$4.25≈88 anchors; Qwen Community License weights are free to self-host, and the official Qwen Cloud per-token price was not captured.
-- **Overall Score: 82/100.** (76+78+92+88+78)/5 = 82.4 → 82 — a strong, cheap, multimodal August-2026 MoE (LiveCodeBench 91.9%, GPQA 91.7%, SWE-bench Multilingual 81.0%, Toolathlon 73.5%, MathVision 95.7% at $0.14–0.20/$0.47–0.64), with self-reported benchmarks (Evidence C), a weak OSWorld 2.0 binary score (19.4%) and unpublished MCP Atlas/τ³/AA-Index figures as the caveats.
+- **Overall Score: 83/100.** (79+78+92+88+80)/5 = 83.4 → 83 — a strong, cheap, multimodal August-2026 MoE (LiveCodeBench 91.9%, TB 2.1 86.1% independent, GPQA 91.7%, SWE-bench Multilingual 81.0%, Toolathlon 73.5%, MathVision 95.7% at $0.14–0.20/$0.47–0.64), with self-reported benchmarks (Evidence C), a weak OSWorld 2.0 binary score (19.4%) and unpublished MCP Atlas/τ³ figures as the caveats.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+**Score revisions: Tool use 76→79, Coding 78→80, Overall 82→83** — Artificial Analysis' independent runs (the first non-vendor agentic evidence) fill the missing composite and confirm the coding strength. Reasoning 78 / Context 92 / Multimodal 88 / Cost 93 unchanged:
+
+- **AA Intelligence Index: 40 (v4.3.2)** (AA's own page, #6 of 117 open-weight models of similar size, median 18; 240M output tokens per Index — very verbose vs the 140M median; "amongst the leading models in intelligence and reasonably priced"). Version conflict flagged: eesel AI (2026-08-30) cites **56** (#5 of 111 in its class) and LYTH (2026-09-09) cites **42** ("explicitly flagged as an estimate by AA", rank 3 of 112 among open models >150B) — the current read is 40; the 56 is an older index version.
+- **Independent AA benchmark reads** (AI Atlas, observed 2026-09-15/16): Terminal-Bench 2.1 **86.1%** — clears the 85% frontier bar and corroborates the vendor's coding-agentic positioning; Terminal-Bench 4.0 **25.3%** (weak); GPQA Diamond **92.3%** (above the vendor's 91.7%); HLE **38.0%** (above the vendor's 35.9%); SciCode **50.6%** (under the 55% reference); MMMU-Pro **79.8%**.
+- AA component reads (apxml): Agentic Index **0.54–0.56** (rank 2–5), Coding Index **0.73** (rank 31), LiveBench Agentic Coding **0.62** (rank 8–10), WebDev Arena **1631–1637** (rank 9–15), LiveBench Reasoning 0.87 (rank 20–25), LiveBench Coding 0.73 (rank 38–46), LiveBench Mathematics 0.86 (rank 38–45), LiveBench Data Analysis 0.74 (rank 27–33), LiveBench Global 0.76 (rank 20–27), Agent Arena 0.81 (rank 30), GPQA 0.917 (rank 18).
+- HF model card methodology footnotes captured: DeepSWE 1.1 and SWE-bench Pro evaluated with Claude Code + mini-SWE-agent harnesses (temp 1.0, top_p 0.95, 256K context — highest across harnesses; best on mini-SWE-agent); SWE-bench Multilingual via mini-SWE-agent; NL2Repo via Claude Code with repo-download bash commands disabled to prevent reward hacking; HLE judged by GPT-4o; MathVision ground-truth annotations corrected after manual verification.
+- Score impact: Tool use 76→79 (the independent TB 2.1 86.1% clears the 85% bar and the Agentic Index ranks 2nd–5th; OSWorld 2.0 binary 19.4% and TB 4.0 25.3% cap); Coding 78→80 (TB 2.1 86.1% independent, AA Coding Index 73 and LiveBench Agentic Coding rank 8–10 join LiveCodeBench 91.9% as anchors; DeepSWE 58.7% and SciCode 50.6% cap); Overall 82→83 ((79+78+92+88+80)/5 = 83.4).
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Qwen3.8-Flash-Next HF model card + tech report, Qwen Cloud docs, Venice/Blackbox/Kyma listings, llmboard, ExtractBench); scores are normalized 1–100 interpretations of self-reported vendor benchmarks, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_8_Flash.md`, using the same headings.

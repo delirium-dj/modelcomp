@@ -64,8 +64,19 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+The Model Gap's provenance audit and llmboard's independent rows filled the remaining gaps; **no score changes** — the new reads corroborate the existing bands:
+
+- **All eight tracked scores are now independent** (The Model Gap, 2026-08-26): HLE no-tools **45.5%** (AA), GPQA Diamond **90.4%** (AA, saturated), Terminal-Bench 2.1 **80.15%** (AA), SWE-bench Verified **86.6%** (vals.ai, rank 13 of 86, ±1.52 CI, mini-SWE-agent scaffold), DeepSWE v1.1 **55.0%** (deepswe.datacurve.ai, rank 13, ±2% CI, $3.70 avg cost, 99K output tokens, 101 steps), Toolathlon-Verified **75.9%** pass@1 (toolathlon.xyz, rank 3 of 7 rows shown; Pass@3 87.0%, Pass^3 63.0%), LiveBench **78** (2026-06-25 round: Reasoning 90.0, Mathematics 91.2, Coding 77.5, Data Analysis 76.5, Language 78.6, Instruction Following 74.3, Agentic Coding 57.6), Terminal-Bench 4.0 **6.1%** (vals.ai, xhigh, 2026-10-08, ±12.4 noise — the file's 5.6% read is confirmed as a ~6% harness-mismatch row).
+- Vendor-vs-independent spreads, weighed: Terminal-Bench 2.1 spans a 13-point range (Meta 82.9% / AA 80.15% / vals.ai 69.66%) — the Meta-vs-AA 2.75-point gap sits inside the ±10.6 noise band, so it is not evidence of inflation; the vals.ai read is a cross-harness difference between two independent sources. DeepSWE v1.1 is the clearer case: Meta self-reports 59.3% vs the independent leaderboard's 55.0% — a +4.3-point gap that **exceeds the board's own ±2% CI**, so the independent 55.0% is the tracked figure (this file's "54.9% (Epoch AI)" is corroborated).
+- New fills: llmboard independently logs Terminal-Bench 2.1 **82.90%** (rank 19 of 43) and DeepSWE 1.1 **59.30%** (rank 27 of 43) — both Evidence-C (vendor-adjacent) reads from 2026-10-08; Meta's methodology writeup confirms the harness asymmetry (1.2 ran inside Muse Code while the 1.1 comparison rows ran mini-swe-agent, so the +6.7 TB / +6.3 DeepSWE generational jumps are partly harness, not purely model).
+- Score impact: none — Toolathlon 75.9% (rank 3 of 7) supports Tool 80; the independent DeepSWE 55.0% confirms the Coding 85 cap; HLE 45.5% and GPQA 90.4% confirm Reasoning 84. Tool 80 / Reasoning 84 / Context 95 / Multimodal 92 / Coding 85 / Cost 88, Overall 87 all stand.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Artificial Analysis, Meta launch methodology, AI/TLDR, BenchLeader, Capital & Compute); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1_2.md`, using the same headings.

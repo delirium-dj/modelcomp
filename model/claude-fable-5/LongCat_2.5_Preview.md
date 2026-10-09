@@ -24,8 +24,11 @@ Agent / tool use:
 - SWE-bench Verified: **96.0%** (llmreference.com, 2026)
 - SWE-Bench Pro: **80.3%** (Anthropic, claude5.ai — vs Opus 4.8 69.2%, GPT-5.5 58.6%, Gemini 3.1 Pro 54.2%)
 - FrontierCode (Cognition): **Highest among frontier models**, even at medium effort (Anthropic)
+- FrontierCode (Diamond): **29.3%** (xhigh — vs Opus 4.8 13.4% xhigh)
 - CursorBench: **72.9%** (llmreference.com — vs Sonnet 4.6 49.0%)
 - ViBench (Replit): **Highest-performing model** (Anthropic)
+- OSWorld-Verified: **85.0%** (emergent.sh — vs Opus 4.8 83.4%, GPT-5.5 78.7%, Gemini 3.1 Pro 76.2%)
+- Legal Agent Benchmark: **13.3%** (emergent.sh — vs Opus 4.8 10.4%, GPT-5.5 2.1%)
 - OSWorld 2.0: Score zero (safeguards intervened, routed to Opus 4.8) (Anthropic)
 - AutomationBench: Score zero (safeguards intervened) (Anthropic)
 
@@ -33,7 +36,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **92.6%** (pricepertoken.com, Artificial Analysis — 97th percentile)
 - Intelligence Index: **49.6 / #5** (Artificial Analysis)
-- HLE: **60%** (#3 rank, Artificial Analysis)
+- HLE: **59.0%** (emergent.sh — vs Opus 4.8 49.8%, GPT-5.5 41.4%, Gemini 3.1 Pro 44.4%; #3 rank, Artificial Analysis)
 - Terminal-Bench Hard: **60%** (#2 rank, Artificial Analysis)
 - SciCode: **60%** (#3 rank, Artificial Analysis)
 - Hebbia Finance Benchmark: **Highest score of any AI model tested** (Anthropic)
@@ -48,12 +51,6 @@ Coding:
 - FrontierCode (Cognition): **#1 among frontier models** (Anthropic)
 - Coding Index: **76.5 / #7** (Artificial Analysis)
 - CursorBench: **72.9%** (llmreference.com)
-
-Long context:
-
-- Context window: **1,000,000 tokens** (verified via Anthropic platform docs)
-- LCR (Long Context Retrieval): **80%** (#21 rank, Artificial Analysis)
-- Maintains focus across millions of tokens; 3× better than Opus 4.8 in Slay the Spire with file-based memory (Anthropic)
 
 ### Normalized scores (1–100)
 

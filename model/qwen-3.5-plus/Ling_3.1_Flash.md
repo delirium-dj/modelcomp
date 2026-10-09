@@ -60,8 +60,20 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Vals AI, BenchLeader and BenchmarkList filled the Plus-specific gaps; **no score changes** — the new rows corroborate the existing bands:
+
+- **Vals Index: #10 overall (57.1% accuracy), #3 among open-weight models** (Vals AI, 2026-02-16 entry) — a strong composite fill: #6 on Corp Fin (v2), #8 on Finance Agent, #17 on SWE-bench Verified subsets, #25 on Case Law (v2), #11 on Terminal-Bench 2.0; Vals accuracy 58.74%, latency 10m36s.
+- New Plus-specific rows (BenchLeader, best config = thinking, last measured 2026-09-29): GPQA Diamond (Vals) **87.4%** (#37), AIME (Vals) **86.0%** (#33), CL-bench **19.8%** (#9), CL-bench Life **12.4%** (#11), LMCA **36.4%** (#103), DTBench **80.5%** (#109), **Terminal-Bench 2.0 (Vals) 41.6%** (#29 — a weak Plus-specific read, below the family-level 52.5%), Vending-Bench 2 **0.5** (#62), MortgageTax **60.8%** (#63), SAGE **30.4%** (#77), Mystery Game Puzzles 17.0% (no reasoning) / 16.0% (not stated).
+- BenchmarkList snapshots: 2026-04-20 — MMLU Pro 87.2% (rank 27 of 116), GPQA Diamond 87.4% (rank 29 of 117), ObviousBench 91.7% (rank 111 of 254), MMMU Pro **22.8%** (rank 79 of 79 — last place; conflicts with the family-level 79.0%, likely a different Vals protocol — flagged, not reconciled); 2026-02-15 — **PinchBench 85.8%** best score (rank 26 of 73, 65th pct; average 79.1%, avg execution 1126.91s, avg cost $0.66, 11 submissions) — a genuine Plus-specific agentic anchor, **ObviousBench 98.6%** answer pass³ (rank 43 of 254, 83rd pct), Design Arena Elo **1208** (rank 140 of 343, 59th pct, 11008 battles), Intelligence eval median 83rd pct.
+- Other trackers: qwen35.com (official cards) — MMLU-Pro 87.8, GPQA Diamond 88.4, LiveCodeBench v6 83.6, SWE-bench Verified 76.4 (the hosted Plus references the 397B-A17B base model); BenchLM — overall 48.1/100 (#102 of 889, partial coverage, conservative), JobBench 18.5%, Vibe Code Bench 15.74% (corroborates the weak 15.7%).
+- Score impact: none — PinchBench 85.8% and the Vals Index #10 support Tool 72, while Terminal-Bench 2.0 (Vals) 41.6%, JobBench 18.5% and Vending-Bench 2 0.5 cap it; the MMMU-Pro conflict (22.8% Vals vs 79.0% family) is flagged without moving Multimodal 80. Tool 72 / Reasoning 78 / Context 95 / Multimodal 80 / Coding 72 / Cost 92, Overall 79 all stand.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Qwen Cloud, BenchLeader, Vals, Epoch AI via modelbenchmark.io, AnalyticsVidhya); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_5_Plus.md`, using the same headings.

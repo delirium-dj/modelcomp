@@ -68,8 +68,25 @@ Multimodal:
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Independent trackers have filled most vendor-only rows; 12 of 13 tracked scores are now independently confirmed. **No score changes** — the independent reads land within a point or two of the vendor figures, with two conflicts flagged below:
+
+- **HLE no-tools: 46.9%** (Artificial Analysis' own run, max effort, 2026-08-17, ±2 noise) — replaces Moonshot's self-reported 43.5%; the with-tools 56.0% remains the vendor's own number (nothing independently confirmed on that side).
+- **GPQA Diamond: 92.9%** (vals.ai, 2026-08-17) — 0.6 pts under the vendor's 93.5%; saturated benchmark.
+- **Terminal-Bench 2.1: 80.90%** (vals.ai Terminus 2, 2026-09-23, ±10.6 noise) — 7.4 pts under the vendor's Kimi-Code-harness 88.3%; already tracked as the independent score.
+- **DeepSWE v1.1: 69.0%** (deepswe.datacurve.ai, 2026-08-13, ±9.5 noise) — slightly above the vendor's 67.3–67.5%.
+- **SWE-bench Verified: 93.4%** (vals.ai, 2026-08-17, rank 6 of 83, bash-only harness, $0.76/test) — a new fill the vendor never reported, **but a blog read (dreaming.press) cites 76.8%**; the 16.6-point spread is unresolved (harness unidentified), so no score change.
+- **AA Intelligence Index v4.3.2: 44** (Max effort; K3 Low: 30), components: AA-Briefcase 1501, GDPval-AA v2.1 1533, AutomationBench-AA 58%, **Terminal-Bench 4.0 13%** (new — the vendor never reported TB 4.0), SciCode 59%, HLE 47%, GDP.pdf 22%, CritPt 23%, AA-Omniscience 20, **AA-LCR v1.1 89%** (vs the vendor's AA-LCR 74.7% — a v1.1 version difference). A third-party blog separately cites "4th of 189, score 57" — an older index version; do not mix versions.
+- New fills: **Frontend Code Arena #1 (1,679 Elo**, ahead of Fable 5's 1,631 and GPT-5.6 Sol's 1,618); Kimi Code Bench 2.0 **73.7% with the Claude Code harness** (vs 72.9% on Kimi Code's own harness — the more comparable figure); Toolathlon-Verified, Agents' Last Exam, AA-AnalystAgent, ARC-AGI-2, LiveBench and HMMT Feb 2026 rows all exist on their owner boards.
+- Provenance: the HF README's full table (GPQA 93.5, CritPt 23.4, AA-LCR 74.7, HLE 43.5/56.0, DeepSWE 67.5, ProgramBench 77.8, TB 2.1 88.3, FrontierSWE 81.2, SWE-Marathon 42.0, PostTrainBench 36.6, MLS-Bench-Lite 48.3, SciCode 58.7, Kimi Code Bench 2.0 72.9) is the vendor's own; on Agents' Last Exam, K3 ran paired with the Kimi Code harness while Fable 5 ran at xhigh with 40% of tasks annotated as downgraded — harness asymmetry to keep in mind.
+- **Architecture conflict:** The Model Gap lists **104B activated per token**; this file's launch-era read said ~50B active (16 of 896 experts). Unresolved — affects the efficiency narrative, not the scores.
+- Disclosure asymmetry (ALE protocol docs): Fable 5 hit 13 fallbacks + 1 refusal out of 80 tasks, GPT-5.6 Sol 10 refusals (cyber guard), GPT-5.5 3 — K3's harness-fallback counts were not published.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Moonshot AI launch blog and GitHub, vals.ai, Benchgen, NVIDIA NIM docs, AI Model Timeline); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

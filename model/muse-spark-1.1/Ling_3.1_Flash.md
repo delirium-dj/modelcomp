@@ -46,18 +46,32 @@ Safety (Meta Advanced AI Scaling Framework): pre-mitigation, the "high risk" thr
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** Terminal-Bench 2.1 80.0% and Cybench 92.9% pass@1 (near saturation) lead, with SWE-bench Pro 61.5%, CyberGym 59.0% and SeqQA 98.2% supporting; DeepSWE 1.1 53.3%, ExploitGym 0.8% (5/869 tasks), CyScenarioBench 0.5% and SHADE-Arena 6.8% cap the score, and MCP Atlas/Toolathlon/OSWorld-Verified values were not captured.
+- **Tool use: 77/100.** Terminal-Bench 2.1 80.0% (76.2% on the verified best-harness read), MCP Atlas 88.1%, OSWorld-Verified 80.8%, Toolathlon-Verified 75.6% and Cybench 92.9% pass@1 (near saturation) lead, with SWE-bench Pro 61.5%, CyberGym 59.0%, SeqQA 98.2% and JobBench 54.7% supporting; DeepSWE 1.1 53.3%, ProgramBench 47.0%, Harvey's Legal Agent 20%, ExploitGym 0.8% (5/869 tasks), CyScenarioBench 0.5% and SHADE-Arena 6.8% cap the score.
 - **Reasoning: 76/100.** HLE 45% (w/tools) sits within a point of Opus 4.8 (max)'s 46% and ahead of GPT-5.5 and Grok 4.5, with SciCode 58% (#3 across all AA-benchmarked models) and AIRS-Bench 77.0% supporting; the AA Intelligence Index of 51 (xhigh), AA-Omniscience 18 (abstention-driven; hallucination rate 38%) and GDM Situational Awareness 55.1% cap the score, and no GPQA Diamond figure was captured.
 - **Context window: 95/100.** 1,048,576-token window with active context management (retrieval, compaction); no ≥98%-at-depth retrieval figure captured, so 100 is not justified.
 - **Multimodal: 92/100.** Native text/image/video/audio/PDF input with text output — the audio-in band (90–100); Meta documents "ultra-descriptive image and video captioning" and "visual-to-code artifact generation"; no MMMU/Video-MMMU figure captured.
-- **Coding: 75/100.** Terminal-Bench 2.1 80.0%, the AA Coding Index of 71 and SciCode 58% (#3 across all AA-benchmarked models, behind only Fable 5 and Gemini 3.1 Pro Preview) lead, with SWE-bench Pro 61.5% and Cybench 92.9% supporting; DeepSWE 1.1 53.3% is mid-tier and LiveCodeBench was not captured.
+- **Coding: 78/100.** SWE-bench Verified 82.0% (#11 of 72), LiveCodeBench 85.9% (#21 of 123), Terminal-Bench 2.1 80.0%, the AA Coding Index of 71 and SciCode 58.8% (#13 of 296, 96th pct — at the time behind only Fable 5 and Gemini 3.1 Pro Preview) lead, with SWE-bench Pro 61.5%, Vibe Code Bench v1.1 72.2% and Cybench 92.9% supporting; DeepSWE 1.1 53.3% (rank 39 of 52), ProgramBench 47.0% and ReactBench 23.1% cap the score.
 - **Cost efficiency: 88/100.** $1.25/$4.25 per 1M (Standard tier) is the methodology's ~88 anchor exactly; the Contributor tier is heavily discounted, and ~$0.26 per Intelligence Index task is the second-cheapest among models at or above its intelligence (only GPT-5.6 Luna's $0.21 is lower).
-- **Overall Score: 82/100.** (74+76+95+92+75)/5 = 82.4 → 82 — a strong, cheap, token-efficient July-2026 agentic multimodal model (TB2.1 80%, HLE 45%, SciCode #3, Cybench 92.9%, 1M audio/video/PDF context at $1.25/$4.25) whose DeepSWE (53.3%), ExploitGym (0.8%) and GDPval-AA v2 (1376) lag the frontier.
+- **Overall Score: 84/100.** (77+76+95+92+78)/5 = 83.6 → 84 — a strong, cheap, token-efficient July-2026 agentic multimodal model (SWE-bench Verified 82.0%, LiveCodeBench 85.9%, TB2.1 80%, HLE 45%, SciCode #3, Cybench 92.9%, 1M audio/video/PDF context at $1.25/$4.25) whose DeepSWE (53.3%), ExploitGym (0.8%) and GDPval-AA v2 (1376) lag the frontier.
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+**Score revisions: Tool use 74→77, Coding 75→78, Overall 82→84** — the vendor-reported agentic rows that were "not captured" at launch are now in, plus two strong coding fills. Reasoning 76 / Context 95 / Multimodal 92 / Cost 88 unchanged:
+
+- **Previously-uncaptured vendor rows (Meta evaluation report, 2026-07-09):** MCP Atlas **88.1%**, OSWorld-Verified **80.8%**, Toolathlon-Verified **75.6%**, JobBench **54.7%**, Finance Agent v2 **57.2%**, Harvey's Legal Agent Benchmark **20%**, TaxEval v2 **79.72%**, MedScribe **88.89%**, CharXiv Reasoning **88.4%**, BabyVision **76.3%**, Arena Elo Text 1490 / Code 1540, HLE **62.1% with tools** (vs AA's no-tools 45% — different protocol, both kept). Meta claims best-in-class among its comparison set on MCP Atlas, JobBench, Toolathlon-Verified, Harvey's Legal, TaxEval v2 and MedScribe.
+- **SWE-bench Verified: 82.0%** (rank 11 of 72, 86th pct, ±1.72, x-high, $0.35/test; field leader Opus 5 at 97.0%) — a new fill that clears the 70% reference bar.
+- **LiveCodeBench: 85.9%** (rank 21 of 123, 84th pct) and **Vibe Code Bench v1.1: 72.2%** (rank 12 of 75, 85th pct) — new fills; SWE Atlas 42.2% (rank 3 of 14), ProgramBench 47.0% (rank 24 of 37), Code Migration 31.1% (rank 14 of 33), ReactBench 23.1% (rank 19 of 24), SciCode 58.8% (rank 13 of 296, 96th pct).
+- **Terminal-Bench 2.1 (Best Reported Harness): 76.2% ± 1.2%** (verified, 2026-08-28, rank 15 of 27; pass@2 82.9% → pass@5 91.0%; reward-hack rate 0.0%; field leader GPT-5.6 Sol 89.5%) — 3.8 pts under Meta's self-reported 80.0% (bash-tool-only agent, 5 attempts, xhigh, 6 CPU/8 GB).
+- DataCurve protocol details: DeepSWE 1.1 53.0% ± 3 (bash-only mini-swe-agent fork, 5 attempts, no internet, xhigh); SWE-bench Pro 61.5% ± 3.1 (731 public tasks, mini-swe-agent, xhigh).
+- Quirk: Meta's own model page lists DeepSWE 1.1 at **67.0 for Muse Spark 1.0 vs 53.3 for 1.1** — an apparent regression (or harness difference) worth flagging; the 1.1 figure used everywhere else is 53.3%.
+- Tool use re-anchors on TB 2.1 76.2–80.0%, MCP Atlas 88.1%, OSWorld 80.8%, Toolathlon 75.6% and SeqQA 98.2%, capped by DeepSWE 53.3%, ProgramBench 47.0%, Harvey Legal 20% and the cyber rows (ExploitGym 0.8%, CyScenarioBench 0.5%). Coding re-anchors on SWE-bench Verified 82.0%, LiveCodeBench 85.9%, the AA Coding Index of 71, SciCode 58.8% and Vibe Code 72.2%, capped by DeepSWE 53.3% (rank 39 of 52) and ReactBench 23.1%.
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Meta Muse Spark 1.1 evaluation report + launch posts, Meta Model API docs, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1_1.md`, using the same headings.

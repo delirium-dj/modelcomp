@@ -35,8 +35,20 @@
 
 ---
 
+## Update 2026-10-08 (6-day re-research)
+
+Re-checked: still no benchmark scores — the placeholder scores stand:
+
+- BenchmarkList (2026-10-08): **0 score rows** — "The evidence is thin. Moonshot's only performance claim is that it comes close to Kimi K3 while thinking more efficiently than K2.7 Code. Moonshot published no benchmark table, parameter count, or model card, and no independent evaluation had been confirmed when it was imported. Until results appear, treat it as Moonshot's everyday coding tier below K3, not as a measured K3 peer." LLM Stats and APIMaster likewise track 0 benchmarks for K2.8 Preview (vs 31 for K3).
+- Kimi Code docs confirm the rollout mechanics: model ID unchanged (`kimi-for-coding` — existing configs picked it up silently); thinking effort low/high/max (default max), the same levels as K3; **with thinking turned off, requests to the K3 series and K2.8 Preview are served by K2.8 Preview**; 1M ultra-long context on every membership tier; image and video input on all plans.
+- New telemetry/pricing context: zenmux lists 28.9 tok/s, 2.05s TTFT and a 1.05M context; APIMaster's live route prices at $1.00/$4.00 per 1M (~67% below K3's $3 input, ~73% below its $15 output); Bloomberg reports Moonshot's ARR passed **$1B in August 2026** with a $2B year-end target — K2.8 Preview is the mainstream-traffic workhorse of that commercialization.
+- The @notjazii side-by-side (2026-09-11, one task, max thinking; hosted on 4SAPI) remains the only public execution datapoint: 80 minutes / ~$10 vs K3's 120 minutes / ~$14 (~1/3 faster, ~30% cheaper) but a failed one-pass completion and repeated struggle to repair multi-turn feedback issues — a single-task sample, directional only.
+- Re-rating trigger: any independent Terminal-Bench 2.1 / SWE-bench / DeepSWE run. Until then 55/55/90/78/55 (Overall 67) remains the honest read — Moonshot's "close to K3" is marketing, not measurement.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Moonshot release notes via llm-stats, APIMaster, MagicShot, 4SAPI, ki-ai.chat, CCTest, one public developer test); scores are normalized 1–100 interpretations, not official vendor scores — capability scores are placeholders because no benchmarks were published.
 - Future sources: add a new file next to this one, e.g. `Kimi_K2_8_Preview.md`, using the same headings.

@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - HLE: **48.7%** (Artificial Analysis max, 2026-09-29; 47.5% xhigh; vendor 47%)
 - LCR: **83%** (BenchLM)
 - CritPt: **26.0%** (Extra-High, no tools, llmboard)
-- Artificial Analysis Intelligence Index v4.3: **61 (xhigh) / 62 (max)** — rank 6/643 per AA via HokAI; independent telemetry reads 48.0–48.1 (vibecoderjournal / llmlearner)
+- Artificial Analysis Intelligence Index: **48 (Max) / 45.1 (Xhigh) on v4.3.2** (AA's own page, #23 of 223; BenchmarkList confirms 48.1, rank 24 of 427, 95th pct, 2026-10-03) — the 61 (xhigh) / 62 (max) figures circulating (HokAI via AA; Dataconomy 62.1, updated 2026-09-03) are the launch-era v4.3 read; v4.3.2 adds AA-Briefcase, GDPval-AA v2.1, AutomationBench-AA, Terminal-Bench 4.0, GDP.pdf, CritPt, AA-Omniscience and AA-LCR, so the two revisions use different eval sets — neither number is "wrong" and they are not cross-comparable
 - SimpleBench: **81.8%** (Extra-High, no tools)
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
@@ -59,17 +59,29 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 93/100.** TB2.1 84.3–85.4% independent (AA) plus GDPval-AA 1754 Elo and the top Job Bench rank clear the frontier band; capped below 95 because Vals AI's Terminus 2 harness reads much lower (72.28/79.03) and Agents' Last Exam is only 32.2%.
-- **Reasoning: 91/100.** GPQA 93.5% and HLE 48.7% (AA max) both sit in the frontier band and the AA Index 61–62 ranks 6/643; CritPt 26.0% and the ~48 telemetry Index reading cap the score.
+- **Reasoning: 87/100.** GPQA 93.5% (AA max; 91.3% Mercor single-shot) and HLE 48.7% (AA max) sit in the frontier band, but AA's own page now reads the Intelligence Index at 48 (Max) / 45.1 (Xhigh) on v4.3.2 (BenchmarkList: 48.1, rank 24 of 427) — not the launch-era 61–62 (v4.3) the previous score leaned on; CritPt 24.9–26.0%, AA-Omniscience 25 and AutomationBench-AA 57.9% cap the score.
 - **Context window: 100/100.** 1M total / 131,072 out with MRCR v2 98.1% at 512K–1M (≥98% retrieval at 512K+); the retrieval figures are vendor-reported, the one caveat.
 - **Multimodal: 85/100.** text/image/video/PDF in with text-only out (audio input dropped in 1.3) — squarely the +video/PDF band.
 - **Coding: 91/100.** SciCode 57.3–59.7%, Coding Index 76.3 and AA Coding Agent Index 54.3 are solid; DeepSWE 75.4% and SWE-Atlas 59.4% are vendor self-reports not yet independently confirmed, and telemetry LiveCodeBench 45.0% / SWE-bench 49.0% cap the score.
 - **Cost efficiency: 100/100.** Free Contributor tier on OpenCode Zen is $0 (training-data-consent caveat); Standard/Max $1.25/$4.25 would score ~88.
-- **Overall Score: 92/100.** (93+91+100+85+91)/5 = 92.0 — top-tier pick for long-horizon agentic coding when the Free tier's data policy is acceptable; otherwise the $1.25/$4.25 Standard tier.
+- **Overall Score: 91/100.** (93+87+100+85+91)/5 = 91.2 → 91 — top-tier pick for long-horizon agentic coding when the Free tier's data policy is acceptable; otherwise the $1.25/$4.25 Standard tier (the current AA composite of 48 on v4.3.2 is the main correction from the 2026-10-02 read).
+
+---
+
+## Update 2026-10-08 (6-day re-research)
+
+**Score revisions: Reasoning 91→87, Overall 92→91** — AA's own page now reads the Intelligence Index at 48 (Max) on v4.3.2, not the launch-era 61–62 (v4.3) the Reasoning score leaned on. Tool use 93 / Context 100 / Multimodal 85 / Coding 91 / Cost 100 unchanged:
+
+- **AA Intelligence Index v4.3.2: 48 (Max) / 45.1 (Xhigh)** (AA's own page, #23 of 223; BenchmarkList confirms 48.1, rank 24 of 427, 95th pct, 2026-10-03; mintapis carries the same 48.1/45.1 split). The 61 (xhigh) / 62 (max) figures (HokAI via AA; Dataconomy 62.1, updated 2026-09-03) are the launch-era v4.3 read — v4.3.2 adds AA-Briefcase, GDPval-AA v2.1, AutomationBench-AA, Terminal-Bench 4.0, GDP.pdf, CritPt, AA-Omniscience and AA-LCR, so the two numbers are different measurements, not a regression. Components (Max): AA-Briefcase 1583 (rank 9 of 145, rubric pass 58.7%), GDPval-AA 1754 (rank 9 of 352), AutomationBench-AA 57.9% (rank 16 of 26), SciCode 59.7% (rank 8 of 296), HLE 48.7% (rank 16 of 478), CritPt 24.9% (rank 11 of 28), AA-Omniscience 25 (rank 12 of 30), AA-LCR 83.0% (rank 20 of 408).
+- New independent rows (BenchmarkRegistry, 2026-10-07): **Vibe Code Bench v1.1 82.9%** (vals.ai, OpenHands harness, xhigh) — a strong coding fill the launch scorecard didn't cover; **Finance Agent Benchmark 2 58.9%** (vals.ai, xhigh); **APEX-Agents Original 58.6% (xhigh) / 47.6% (max)** (Mercor); **GPQA Diamond 91.3%** (Mercor single-shot, max); **CharXiv 93.9%** and **MedXpertQA MM 76.3%** (Mercor single-shot, max); **CursorBench 4.0 29.3% / 32.6% / 33.4%** (low/medium/high, Cursor); **CWE-bench 1 55.0%** (Collinear, OpenCode harness, high); **AutomationBench 1.0.6 20.7%** (Zapier's own board, max — 28.7 points under Meta's 49.4%, flagged); **Chartography 27.6%** and **Riemann-bench 28.0%** (Surge, xhigh); **Vals Index 2.1 53.2%** (xhigh).
+- New #1 ranks (BenchmarkList, verified 2026-10-03): Harvey LAB-AA **30.8%** (rank 1 of 18, 100th pct), Professional Reasoning Bench – Legal **61.6%** (rank 1 of 43), PRBench Finance **59.5%** (rank 1 of 39), MRCR v2 8-needle 512K–1M **98.1%** (rank 1 of 9) — the MRCR rows remain vendor self-reported ("Self-reported" source tag), so the Context 100 caveat stands.
+- Other fills: ProgramBench **70.8%** raw pass rate (rank 10 of 37), KernelBench Mega **3.01×** (rank 8 of 15, 343 tok/s, 8302s), RuneBench **4.6** (rank 33 of 61 — field leader GPT-6 Astra 7.3), Gray Swan IPI **15.9%** (rank 12 of 19 — prompt-injection robustness), ArxivMath **73.3%** (rank 14 of 35), DeepSearchQA **89.4%** (rank 6 of 12), MazeBench **0**, Lech Mazur Writing **0.584** (rank 17 of 52), AIIQ Composite IQ **128** (rank 21 of 147), AA Coding Index **75.8 (Max) / 76.5 (Xhigh)**, Coding Agent Index v1.4 **68.0**.
+- Score impact: Reasoning 91→87 (the AA Index correction 61–62 → 48 is the driver; GPQA 93.5% and HLE 48.7% keep it in the upper band); Overall 92→91 ((93+87+100+85+91)/5 = 91.2). Coding 91 stands — the new Vibe Code Bench 82.9% (vals.ai) fill offsets the still-unconfirmed DeepSWE 75.4% (Datacurve's board was unreachable at launch and remains so) and the telemetry LiveCodeBench 45.0% / SWE-bench 49.0% caps.
 
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (Artificial Analysis, Vals AI, Snorkel, BenchLM, llmboard, vendor launch scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
