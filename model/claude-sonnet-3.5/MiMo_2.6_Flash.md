@@ -1,7 +1,7 @@
 # Claude Sonnet 3.5 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic (`claude-3-5-sonnet-20241022` / `claude-3-5-sonnet-20240620`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-01, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Claude Sonnet 3.5 (two builds: June 2024 and the upgraded October 2024 version — scores below use the upgraded build unless noted)
 - **Short description:** Anthropic's mid-2024 workhorse Sonnet generation — balanced text/image reasoning and coding for its era; the Oct 2024 build was the first model above 45% SWE-bench Verified. Legacy model in 2026, superseded by Sonnet 4.5/5 lines; standalone entry, not a variant of another tracked model.
-- **Provider / access:** Anthropic Claude API (Messages API, chat), Amazon Bedrock, Google Vertex AI, Microsoft Foundry, plus aggregators (OpenRouter, llm-stats listed routes). Proprietary — no open weights.
+- **Provider / access:** Anthropic Claude API (Messages API, chat), Amazon Bedrock, Google Vertex AI, Microsoft Foundry, plus aggregators (OpenRouter, llm-stats listed routes). **Status (re-checked 2026-10-09): RETIRED —** Anthropic's model-deprecations page lists both `claude-3-5-sonnet-20240620` and `claude-3-5-sonnet-20241022` under "2025-08-13: Claude Sonnet 3.5 models" with retirement date **October 28, 2025** and recommended replacement `claude-sonnet-5-5`; OpenRouter still carries a legacy `anthropic/claude-3.5-sonnet` route (no live price row).
 - **Release / knowledge:** 2024-06-20 (build `claude-3-5-sonnet-20240620`), upgraded 2024-10-22 (`claude-3-5-sonnet-20241022`); knowledge cutoff 2024-04-30 (TypingMind model record; June build April 2024).
 - **IDs:** `claude-3-5-sonnet-20241022` (current API id), alias `claude-3-5-sonnet`; Bedrock `anthropic.claude-3-5-sonnet-20241022-v2.0`. **No Zen Free ID exists** (proprietary paid model).
 - **Context window:** 200,000 tokens input; max output 8,192 tokens (TypingMind/Spice.ai model records — the 64K output figure some trackers attach belongs to Sonnet 4.5, not this model).
@@ -62,6 +62,13 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-10-01; user-approved second pass); second-pass sources: [Anthropic model-deprecations page](https://docs.anthropic.com/en/docs/about-claude/model-deprecations) (retirement 2025-10-28 → claude-sonnet-5-5), [OpenRouter legacy route](https://openrouter.ai/anthropic/claude-3.5-sonnet) — AA and Grokipedia pages 404
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status hardened:** **retired 2025-10-28** per Anthropic's official deprecations table (first pass didn't carry the date) — the entry is now a pure historical record (dataset permanence applies).
+- **Confirmed:** 200K context, Apr-2024 cutoff, $3/$15 list, text+image+PDF in; OpenRouter legacy route still listed.
+- **Scores:** no dimension changed; Overall held at 66.

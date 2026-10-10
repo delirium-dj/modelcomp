@@ -1,7 +1,7 @@
 # Inkling — findings by LongCat 2.5 Preview
 
 - Source: Thinking Machines Lab (`thinkingmachines/Inkling`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-09-27 (UTC) — re-researched 2026-10-10
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,8 +14,8 @@
 - **IDs:** `thinkingmachines/Inkling` (HF), `thinkingmachines/inkling` (OpenRouter). No Zen Free ID — paid API / Apache 2.0 open weights.
 - **Context window:** 1,048,576 tokens; max output ~1M.
 - **Modalities:** Text, image, audio in; text out; reasoning yes (controllable thinking effort 0.2–0.99); function calling, structured outputs, prompt caching.
-- **Pricing (as of 2026-09-27):** $0.95–1.87/M in, $4.05–4.68/M out (hosted providers); Apache 2.0 weights for self-hosting.
-- **Architecture:** 975B total params, 41B active; MoE with hybrid sparse + linear attention; Manifold-constrained hyper-connections; 30T-token multimodal pretraining corpus; Apache 2.0 license.
+- **Pricing (as of 2026-10-10):** $0.95–1.87/M in, $4.05–4.68/M out (hosted providers); Apache 2.0 weights for self-hosting.
+- **Architecture:** 975B total params, 41B active; MoE with hybrid sparse + linear attention; Manifold-constrained hyper-connections; 45T-token multimodal pretraining corpus; Apache 2.0 license.
 
 ### Raw benchmarks found
 
@@ -23,40 +23,90 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **63.8%** (best harness, effort 0.99); Terminal-Bench 2.0: **76.2%**
 - Terminal-Bench 3.0: **14.6%**; Terminal-Bench 4.0: **12.4%**
-- CoWorkBench: **70.7%**; Toolathlon Verified: **72.5%**
+- CoWorkBench: **70.7%**; Toolathlon Verified: **45.5%** (updated from 72.5%)
 - JobBench: **33.4%**; AutomationBench: **27.3%**; WideSearch: **81.9%**
+- MCP Atlas: **76.0%**; Tau 3 Banking: **23.7%**; BrowseComp w/ ctx: **77.1%**
+- GDPVal-AA v2: **1238** (Elo)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.5%**
-- HLE: **31.6%** no tools / **46.0%** with tools
-- Artificial Analysis Intelligence Index: **42.3** (#49)
+- GPQA Diamond: **87.2%** (corrected from 89.5%)
+- HLE: **29.7%** no tools / **46.0%** with tools (corrected from 31.6%)
+- AIME 2026: **97.1%** (new)
+- Artificial Analysis Intelligence Index: **41** (updated from 42.3)
 - Agents' Last Exam: **42.9%** (score)
+- SimpleQA Verified: **43.9%**; AA Omniscience: **2.1**
 
 Coding:
 
-- SWE-bench Verified: **80.2%**
+- SWE-bench Verified: **77.6%** (corrected from 80.2%; bash-only harness)
 - LiveCodeBench (Vals): **80.5%**
 - SWE-bench Pro Public: **54.3%**
 
 Long context:
 
-- No long-context retrieval (MRCR/RULER) score published for this exact model ID.
+- No long-context retrieval (MRCR/RULER) score published for this exact model ID. Confirmed via TML model card and independent sources — 1M is architectural ceiling, not verified recall.
+
+Multimodal:
+
+- MMMU Pro Standard 10: **73.5%**; Charxiv RQ: **78.1%** / **82.0%** with python
+- Audio MC: **56.6%**; MMAU: **77.2%**; VoiceBench: **91.4%**
+- Global-MMLU-Lite: **88.7%**; IFBench: **79.8%**
+
+Safety:
+
+- FORTRESS Adversarial: **78.0%**; FORTRESS Benign: **95.9%**; StrongREJECT: **98.6%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** TB2.1 63.8% and TB2.0 76.2% are solid; CoWorkBench 70.7% and Toolathlon 72.5% confirm mid-upper agentic performance; TB4.0 12.4% and JobBench 33.4% cap the dimension.
-- **Reasoning: 75/100.** GPQA 89.5% is a notch under the 90%+ frontier bar; HLE 31.6%/46.0% and AA Index 42.3 sit mid-upper band.
+- **Tool use: 72/100.** TB2.1 63.8% and TB2.0 76.2% are solid; CoWorkBench 70.7% and MCP Atlas 76.0% confirm mid-upper agentic performance; TB4.0 12.4% and JobBench 33.4% cap the dimension.
+- **Reasoning: 75/100.** GPQA 87.2% is a notch under the 90%+ frontier bar; HLE 29.7%/46.0% and AA Index 41 sit mid-upper band; AIME 97.1% shows strong math capability.
 - **Context window: 95/100.** 1M tokens with ~1M output earns the ≥1M tier; no published 512K+ retrieval result to confirm the top of the band.
-- **Multimodal: 85/100.** Text/image/audio input lands in the 75–90 band; text-only output caps it there.
-- **Coding: 72/100.** SWE-bench Verified 80.2% and LiveCodeBench 80.5% are strong; SWE-bench Pro 54.3% keeps the dimension mid-upper.
+- **Multimodal: 85/100.** Text/image/audio input lands in the 75–90 band; text-only output caps it there. MMMU Pro 73.5%, VoiceBench 91.4%, MMAU 77.2% confirm broad multimodal coverage.
+- **Coding: 72/100.** SWE-bench Verified 77.6% and LiveCodeBench 80.5% are strong; SWE-bench Pro 54.3% keeps the dimension mid-upper.
 - **Cost efficiency: 90/100.** $1.87/$4.68 hosted pricing is far below the ~$0.60/$2.20 ≈ 92 reference point; Apache 2.0 weights can self-host at infrastructure cost.
 - **Overall Score: 80/100.** Mean of the five quality dims (72+75+95+85+72)/5 = 79.8 → 80. Best-fit: self-hostable open-weight generalist for agentic, multimodal, and long-context workloads at exceptional economics.
 
 ---
 
+## Re-research update — 2026-10-10
+
+### Changes from previous findings
+
+| Metric | Previous (2026-09-27) | Updated (2026-10-10) | Source |
+|---|---|---|---|
+| GPQA Diamond | 89.5% | **87.2%** | TML official model card |
+| HLE text only | 31.6% | **29.7%** | TML official model card |
+| SWE-bench Verified | 80.2% | **77.6%** | TML official (bash-only harness) |
+| Toolathlon Verified | 72.5% | **45.5%** | TML official model card |
+| AA Intelligence Index | 42.3 | **41** | Artificial Analysis |
+
+### New benchmarks discovered
+
+- **AIME 2026: 97.1%** — strong mathematical reasoning
+- **MCP Atlas: 76.0%** — agentic tool use
+- **Tau 3 Banking: 23.7%** — domain-specific agentic
+- **BrowseComp w/ ctx: 77.1%** — browsing/research capability
+- **SimpleQA Verified: 43.9%** — factuality
+- **IFBench: 79.8%** — instruction following
+- **Global-MMLU-Lite: 88.7%** — multilingual
+- **MMMU Pro: 73.5%** — vision reasoning
+- **Charxiv RQ: 78.1%/82.0%** — chart reasoning
+- **Audio MC: 56.6%; MMAU: 77.2%; VoiceBench: 91.4%** — audio understanding
+- **FORTRESS: 78.0%/95.9%; StrongREJECT: 98.6%** — safety
+
+### Still missing
+
+- MRCR/RULER long-context retrieval benchmarks — confirmed not published by TML or any independent source. The 1M context window is an architectural claim, not a verified recall score.
+
+### New model in family
+
+- **Inkling-Small** (276B total / 12B active) released 2026-07-30. Matches or exceeds Inkling on reasoning (HLE 31.6% vs 29.7%) and coding (SWE-bench Verified 80.2% vs 77.6%) at lower cost. Output pricing $1.20/M vs Inkling's $4.05/M.
+
+---
+
 ## Signature
 
-- Provided by: **LongCat 2.5 Preview (Meituan/LongCat-2.5-Preview)** — 2026-09-27
-- Method: public internet research (TML launch post + model card, BenchLM, Vals.ai, CloudPrice, VernaOne); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **LongCat 2.5 Preview (Meituan/LongCat-2.5-Preview)** — 2026-09-27, re-researched 2026-10-10
+- Method: public internet research (TML launch post + model card, BenchLM, Vals.ai, CloudPrice, VernaOne, Artificial Analysis, Sebastian Raschka); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

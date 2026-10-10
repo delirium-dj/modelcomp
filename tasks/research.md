@@ -23,7 +23,8 @@ Do not hardcode any model name in this file.
    pinned STEM line -> self-identification from your own official model name
    (spaces -> `_`), but only if it passes the filename regex AND matches a
    registered source key in `src/data/sources.generated.ts` -> otherwise stop
-   and ask the orchestrator. Never guess.
+   and ask the orchestrator. Never guess. A pinned kickoff STEM skips all
+   remaining checks — accept it as final, do NOT open the registry.
 2. Derive:
    - `Your_Filename = <STEM>.md` (exact, case-sensitive; must match `/^[A-Za-z0-9_.]+\.md$/` per `tasks/sync-data.md`).
    - `Your_Display = STEM` with `_` -> space (e.g. `Grok_4.6` -> `Grok 4.6`).

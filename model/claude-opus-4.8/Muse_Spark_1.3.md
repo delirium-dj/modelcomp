@@ -35,20 +35,20 @@ Agent / tool use:
 - IFBench: **+3.6 points vs Opus 4.7** (AA article — NEW delta)
 - Online-Mind2Web: **84%** (Anthropic launch tester quote, strongest computer-use/browser-agent tested — NEW)
 - CursorBench: **exceeds prior Opus models at every effort level, fewer steps for same intelligence** (Anthropic launch tester quote, Cursor CEO — NEW, qualitative)
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- Tau3-Banking / Tau2-Bench absolute scores: **no verified public score found** (AA reports only the +5.9 Tau2-Bench Telecom delta, not an absolute)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **93.6%** (llm-stats #6; ApX 0.936 #4)
-- HLE: **57.9%** (BenchLM mirror)
+- HLE: **57.9%** (BenchLM mirror); **leads the frontier by ~1 point** vs OpenAI and Google (AA May 2026 article — NEW)
 - FrontierMath Tier 4: **31.25%** (BenchLM mirror)
 - LiveBench Reasoning: **0.89** (ApX); **Math 0.94 / Global 0.76** (ApX)
 - LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **0.57 / 57** (ApX max row)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- CritPt: **ranks above Gemini 3.1 Pro, behind GPT-5.4/GPT-5.5** (AA May 2026 article — NEW rank evidence; absolute score still unreported)
+- Artificial Analysis Intelligence Index: **61.4, #1** (AA May 2026 article: +4.1 vs Opus 4.7, +1.2 ahead of GPT-5.5 xhigh; supersedes stale ApX 0.57/57 row)
+- AA-Omniscience: **27.4 index, #2** behind Gemini 3.1 Pro (32.9); **accuracy 46.6% / hallucination rate 35.9%** (AA May 2026 article — NEW, closes prior gap)
 
 Coding:
 
@@ -64,18 +64,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** TB2.0 74.6% plus BrowseComp 84.3%, DeepSearchQA 93.1% and GDPval 1588 show strong orchestration; capped by the TB4.0 23.6% tail and no TB2.1/Tau3 numbers.
-- **Reasoning: 92/100.** GPQA 93.6% plus HLE 57.9%, AA 57 and LiveBench Reasoning 0.89 show strong flagship reasoning; capped by no LCR/CritPt numbers.
-- **Context window: 100/100.** 1M verified (corrects filed 200K); top tier.
-- **Multimodal: 60/100.** Text+image in, text out; mid coverage (unchanged).
-- **Coding: 91/100.** SWE-V 88.6% plus SWE-Pro 69.2%, StackUnseen 0.928 and Coding Index 0.74 show elite 4.8 engineering; capped by no SciCode/Vibe numbers.
-- **Cost efficiency: 45/100.** Paid $5/$25 premium; value only at flagship capability (unchanged).
-- **Overall Score: 86/100.** Mean of the five non-cost dims (89+92+100+60+91)/5 = 86.4; best-fit premium flagship 4.8-generation pick — catalog absolutes now confirm it.
+- **Tool use: 91/100.** TB2.0 74.6% plus BrowseComp 84.3%, DeepSearchQA 93.1%, Online-Mind2Web 84% and GDPval-AA 1890 (#1) show elite orchestration; capped by the TB4.0 23.6% tail and no absolute TB2.1/Tau2 numbers.
+- **Reasoning: 94/100.** GPQA 93.6% plus HLE 57.9% (frontier leader), AA Index 61.4 (#1) and CritPt above Gemini 3.1 Pro show strongest-in-class flagship reasoning; capped by no LCR numbers.
+- **Context window: 100/100.** 1M verified (confirmed on AA article, same as Opus 4.7); top tier.
+- **Multimodal: 60/100.** Text+image in, text out; mid coverage (unchanged — no new multimodal evidence).
+- **Coding: 91/100.** SWE-V 88.6% plus SWE-Pro 69.2%, StackUnseen 0.928, Coding Index 0.74 and CursorBench exceeding prior Opus at every effort level show elite 4.8 engineering; capped by no SciCode/Vibe numbers.
+- **Cost efficiency: 45/100.** Paid $5/$25 premium regular (fast mode $10/$50 is dearer); value only at flagship capability (unchanged).
+- **Overall Score: 87/100.** Mean of the five non-cost dims (91+94+100+60+91)/5 = 87.2; best-fit premium flagship 4.8-generation pick — the AA composite and GDPval absolute now confirm it.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research (Artificial Analysis 1.2 article, Anthropic announcements, OSWorld 2.0 paper context); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-09
+- Method: second-pass refresh of the 2026-09-18 report (amended 2026-09-27): fresh public internet research (Anthropic Opus 4.8 launch announcement incl. fast-mode pricing, effort control, dynamic workflows and tester quotes; Artificial Analysis May 2026 Opus 4.8 article for Index 61.4, GDPval-AA 1890, HLE leadership, Omniscience 27.4 and TB-Hard/Tau2/IFBench deltas); prior BenchLM/ApX absolutes retained; stale GDPval 1588 and AA 57 rows superseded; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

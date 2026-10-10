@@ -21,7 +21,7 @@
 89.2 gemini-3-pro
 89.2 muse-spark-1.2
 89.1 gpt-5.6-sol
-88.7 claude-opus-4.8
+88.8 claude-opus-4.8
 88.6 qwen-3.8-max
 88.2 gemini-3.5-flash
 88.2 glm-5.3-flash

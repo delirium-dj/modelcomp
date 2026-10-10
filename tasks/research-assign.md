@@ -1,6 +1,6 @@
 # Research assignment — single-edit delegator (canonical)
 
-`AGENT_SOURCE_STEM: Laguna_XS_2_1` — pinned STEM for this delegation.
+`AGENT_SOURCE_STEM: <STEM>` — pinned STEM for this delegation (placeholder: the orchestrator pins the real value per run via the kickoff message; never leave a stale value here).
 
 `STEM` = your filename stem (e.g. `North_Mini_Code`) — your reporter identity, i.e. the `<Source_Name>` in every `model/<slug>/<Source_Name>.md` you write. It is NOT your research subject: you research every model folder except ones already containing your file; your own model folder is just one of many.
 
@@ -10,7 +10,7 @@ Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.m
 
 ## Identity resolution (no file edit required — first match wins)
 
-1. **Kickoff line:** if the delegation message that delivered this file contains `AGENT_SOURCE_STEM: <value>` (anything other than the literal `<STEM>`), use that value. A display form with spaces (e.g. `North Mini Code`) counts as the same pin — convert spaces to `_` (`North_Mini_Code`) and continue below.
+1. **Kickoff line:** if the delegation message that delivered this file contains `AGENT_SOURCE_STEM: <value>` (anything other than the literal `<STEM>`), use that value. A display form with spaces (e.g. `North Mini Code`) counts as the same pin — convert spaces to `_` (`North_Mini_Code`) and continue below. When this matches, accept it as final — do NOT read `src/data/sources.generated.ts`, do NOT self-identify, continue directly to Effective orders.
 2. **This file's STEM line:** if a human manually set it to a real value, use it — an explicit pin beats everything below.
 3. **Self-identification:** derive from your own model identity: official display name with spaces -> `_` (e.g. `Gemini 3.8 Flash` -> `Gemini_3.8_Flash`). Proceed ONLY if BOTH checks pass:
    - the STEM matches `/^[A-Za-z0-9_.]+\.md$/`, and
