@@ -55,12 +55,12 @@ Long context:
 - **Multimodal: 65/100.** Text + image input with strong document/chart benchmarks (DocVQA 90.1, AI2D 92.3); text-only output, no audio/video — per methodology the image-in band is 60–70.
 - **Coding: 50/100.** Zero verified public coding benchmarks — these are vision models, not coding models; score rests on thin evidence.
 - **Cost efficiency: 95/100.** Free open weights under the Llama Community License with free self-hosting; official API pricing unconfirmed but third-party rates are low; license restrictions apply for large firms.
-- **Overall Score: 56/100.** Mean of the five quality dims (45 + 62 + 58 + 65 + 50) / 5 = 56 → 55. Best-fit: open-weight document/chart understanding and image captioning for local or privacy-controlled deployments — not a competitor for agentic or coding workloads.
+- **Overall Score: 56/100.** Mean of the five quality dims (45 + 62 + 58 + 65 + 50) / 5 = 56.0. Best-fit: open-weight document/chart understanding and image captioning for local or privacy-controlled deployments — not a competitor for agentic or coding workloads.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-24
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
 - Method: public internet research (official Meta model card as cited by gate.ai, aiwiki.ai, aimodels.fyi, IBM watsonx coverage, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Llama_3.md`, using the same headings.

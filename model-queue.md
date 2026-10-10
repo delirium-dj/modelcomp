@@ -16,10 +16,10 @@
 89.9 kimi-k3
 89.8 claude-sonnet-5.5
 89.6 gpt-5.5-pro
-89.6 muse-spark-1.2
-89.5 gpt-5.6-terra
 89.4 mimo-v2.6-pro
-89.3 gemini-3-pro
+89.3 gpt-5.6-terra
+89.2 gemini-3-pro
+89.2 muse-spark-1.2
 89.1 gpt-5.6-sol
 88.7 claude-opus-4.8
 88.6 qwen-3.8-max

@@ -1,60 +1,64 @@
 # MiMo V2.6 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-pro`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-09-29)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Provenance note:** re-written 2026-09-29 after a concurrent external process truncated this file back to a 2,443-byte partial state.
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> The prior file leaned on the composite only; the second pass adds direct independent rows. Artificial Analysis: Intelligence Index **46 (#1/117 open-weight; median 18)**, AA-HLE 49.4, AA-LCR 86.3, AA-SciCode 60.9, AutomationBench 58.6, AA-Briefcase 1516, TB4.0 34.8, 44.9 t/s. Vals AI: Vibe Code Bench 85.22% (#13/110), CyberBench **72.86% (#3)**, Finance Agent v2 57.34%, Public Benefits 68.94% (#5), Terminal-Bench 2.1 67.79%, **ProgramBench 0.50%**, IOI 39.33%, **Vals Index 55.20% (#12/45)**. HF leaderboards: DeepSWE 71.9, TB2.1 89.9. Self-reported: GDPval-AA v2.1 1673, Toolathlon-Verified 76.9, OSWorld-Verified 82.0, CyberGym 94.0.
+> **Conflicts surfaced:** (1) modalities — official card/AA/LLM Stats say **video+audio input**, Vals says video/file not supported; (2) TB2.1 89.9 (self/HF) vs **67.79% (Vals)** — harness gap; (3) Vals Index 55.20% (page) vs 59.47% (Sep-22 blog); (4) coding bimodal (Vibe 85.22% / DeepSWE 71.9 vs ProgramBench 0.50% / TB-Science 2.86%); (5) serving is slow (AA 44.9 t/s).
+> Sources: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL · https://artificialanalysis.ai/models/mimo-v2-6-pro · https://www.vals.ai/models/xiaomi_mimo-v2.6-pro · https://llm-stats.com/models/mimo-v2.6-pro · https://openrouter.ai/xiaomi/mimo-v2.6-pro
 
 ## Model card
 
 - **Name:** MiMo V2.6 Pro
-- **Short description:** Xiaomi's flagship MIT open-weights omnimodal sparse MoE from the September 2026 V2.6 series, aimed at long-horizon agentic and professional knowledge work. AA's summary: "amongst the leading models in intelligence and reasonably priced when comparing to other open weight models of similar size" — but "notably slow and somewhat verbose."
-- **Provider / access:** Xiaomi MiMo Open Platform (`mimo-v2.6-pro`, OpenAI-compatible Chat Completions); a single serving provider per AA. Weights public at `XiaomiMiMo/MiMo-V2.6-Pro-RL` (collection `XiaomiMiMo/mimo-v26`). An `mimo-v2.6-pro-ultraspeed` variant claims up to 20× inference speed.
-- **Release / knowledge:** Released 2026-09-21/22 (vendor Update Time 2026-09-22; llm-stats 2026-09-22) after 6 days of publicly documented live RL training. Knowledge cutoff undisclosed.
-- **IDs:** `xiaomi/mimo-v2.6-pro`, `mimo-v2.6-pro`, `mimo-v2.6-pro-ultraspeed`. **No OpenCode Zen Free ID** — Zen carries `mimo-v2.6-flash-free` but no Pro entry (live check 2026-09-29).
-- **Context window:** 1,048,576 tokens (1M), confirmed by AA and llm-stats. Max output not published.
-- **Modalities:** text, image, **speech** and video input; text output (AA technical specifications). Reasoning: yes.
-- **Pricing (as of 2026-09-29):** $0.435 / 1M in, $0.87 / 1M out, $0.0036 / 1M cached (99% cache discount); blended $0.18 at 7:2:1; **$0.13 per AA Index task**. Vendor states V2.6 inherits V2.5 pricing and runs 1/20–1/60 of comparable overseas models.
-- **Architecture:** sparse MoE, **1.0T (1.02T) total / 42B active**, MIT licence, FP8; technical report published on the HF repo.
+- **Short description:** Xiaomi's flagship MIT open-weights omnimodal sparse MoE (2026-09-21/22), aimed at long-horizon agentic and professional knowledge work; #1 open-weight on AA's Intelligence Index but slow and somewhat verbose.
+- **Provider / access:** Xiaomi MiMo Open Platform (`mimo-v2.6-pro`, OpenAI-compatible); weights at `XiaomiMiMo/MiMo-V2.6-Pro-RL`. No Zen Free ID.
+- **Release / knowledge:** 2026-09-21/22; knowledge cutoff undisclosed.
+- **IDs:** `xiaomi/mimo-v2.6-pro`; `mimo-v2.6-pro-ultraspeed`.
+- **Context window:** 1,048,576 (1M) tokens.
+- **Modalities:** text, image, video, audio input; text out; reasoning.
+- **Pricing (as of 2026-10-09):** **$0.435 in / $0.87 out per 1M**, $0.0036 cached (99% off); ~$0.13/AA Index task; MIT open weights.
+- **Architecture:** sparse MoE, **1.02T total / 42B active**, FP8, MIT; MiMo ViT + audio encoders; MTP speculative decoder.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Intelligence Index **46** — **#1 of 116** open-weights models, the vendor's headline claim ("surpassing Kimi K3 and Qwen3.8 Max"), still below Fable 5.1 and GPT-6 Astra. The v4.3.2 composite embeds GDPval-AA v2.1, AutomationBench-AA, TB4.0 and AA-Briefcase.
-- Vendor claims Pro "has achieved performance on most Agent Benchmarks", but the per-benchmark table is client-side rendered and **did not extract on fetch — no individual agentic row is verified in this pass** (AutomationBench, Toolathlon, OSWorld, TB2.1/TB4.0, GDPval Elo, JobBench all unverified here).
-- Ships official harness support plus an end-to-end RL framework (verl, uni-agent, mini-swe-agent) and 7k+ RL task environments.
+- Artificial Analysis Intelligence Index **46 (#1/117 open-weight)**; AA AutomationBench 58.6; AA-Briefcase 1516
+- Terminal-Bench 2.1: **89.9%** (self/HF) vs 67.79% (Vals); Terminal-Bench 4.0 34.8 (AA) / 31.31% (Vals) / 34.9 (self)
+- Vals: CyberBench 72.86% (#3), Finance Agent v2 57.34%, Public Benefits 68.94% (#5); GDPval-AA 1673 (self); OSWorld-Verified 82.0 (self)
 
 Reasoning / knowledge:
 
-- AA Intelligence Index **46** (#1/116; class median 18), extended thinking confirmed. **No separate GPQA/HLE/CritPt/LCR figure published — no verified score.**
+- AA-HLE **49.4**; AA-LCR **86.3**; CritPt 26.6; MLCR-AA 18.3
+- AA-SciCode 60.9; AA-Omniscience Index 8.4 / Accuracy 34.8 / Hallucination 40.6
+- AA Intelligence Index 46 (#1 open-weight class)
 
 Coding:
 
-- Visible only through the composite (SciCode, TB4.0). **No standalone SWE-bench/DeepSWE/LiveCodeBench row verified.**
-- Sibling only: the 9B Distill-Qwen run reports SWE-bench Verified 61.1 → 66.2, MiMo Cyber Bench 31.3 → 47.0, TB2.1 37.1 → 52.8, MiMo Visual Coding 64.0 → 72.4 — **a different checkpoint, not counted here.**
+- Vibe Code Bench **85.22% (#13/110)** (Vals); HF DeepSWE 71.9; self DeepSWE 71.9
+- AA-SciCode 60.9; Vals ProgramBench **0.50%**; IOI 39.33%; Terminal-Bench-Science 2.86%
 
-Long context / serving:
+Long context:
 
-- 1M window verified; **no MRCR/RULER/GraphWalks retrieval accuracy published.**
-- **41.1 tokens/s** (#52/116) and TTFT **3.93 s** — AA calls it "notably slow" (median 79 t/s); 140M output tokens on the Index ("somewhat verbose"); llm-stats p95 TTFT 9.05 s.
+- 1M window; AA-LCR 86.3; no MRCR/RULER/GraphWalks.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** #1-of-116 open-weights Index whose composite embeds the agentic evals, plus harness integrations; capped because no individual agentic row was re-verifiable and serving is slow.
-- **Reasoning: 86/100.** Index 46 is an open-weights record (median 18) but sits under the 60+ frontier reference with no separate GPQA/HLE number.
-- **Context window: 95/100.** 1,048,576 tokens at the floor of the ≥1M tier; no ≥98% retrieval proof and no published output cap.
-- **Multimodal: 95/100.** Text, image, speech and video in with text out clears the "+audio in" band (90–100).
-- **Coding: 86/100.** Visible only via the composite plus the vendor's RL-harness release — scored high on the Index, not on a coding number.
-- **Cost efficiency: 92/100.** $0.435/$0.87 with a 99% cache discount and $0.13/Index task is below the ~$0.60/$2.20 ≈ 92 anchor; no $0 route.
-- **Overall Score: 89.6/100.** (86 + 86 + 95 + 95 + 86) / 5 = 89.6. Best fit: the strongest open-weights pick for omnimodal agentic and knowledge-work pipelines needing self-hostable weights, accepting slow serving and high verbosity.
+- **Tool use: 88/100.** AA Intelligence Index #1-of-117 open-weight (whose composite embeds the agentic evals), CyberBench #3 and TB2.1 89.9% (self) / 67.8% (Vals); capped by slow serving and the harness gap.
+- **Reasoning: 85/100.** AA-HLE 49.4%, AA-LCR 86.3% and AA Index 46 lead open weights (median 18) but sit under the 60+ frontier reference; no standalone GPQA published.
+- **Context window: 96/100.** 1,048,576 tokens (≥1M band) with AA-LCR 86.3%; no ≥98%-at-512K retrieval.
+- **Multimodal: 93/100.** Text + image + video + **audio** input (audio band 90–100) with text out; Vals' "no video/file" is a documented conflict but the official card and AA support audio/video.
+- **Coding: 86/100.** Vibe Code 85.22% and DeepSWE 71.9 are strong; ProgramBench 0.50% and TB-Science 2.86% cap it.
+- **Cost efficiency: 94/100.** $0.435/$0.87 per 1M with a 99% cache discount and MIT open weights; no $0 route.
+- **Overall Score: 90/100.** (88 + 85 + 96 + 93 + 86) / 5 = 89.6 → 90. Best fit: the strongest open-weights omnimodal agentic pick, accepting slow serving and high verbosity.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-29
-- Method: public internet research (Artificial Analysis MiMo-V2.6-Pro page — Index 46 #1/116, 41.1 t/s, TTFT 3.93 s, $0.435/$0.87, 99% cache discount, $0.13/task, 1.0T/42B, MIT, 1M, text+image+speech+video in; llm-stats — 1,048,576 context, $0.0036 cached, 2026-09-22 release, single provider, technical-report link; Xiaomi MiMo V2.6 release page 2026-09-22 — 6-day live RL, price parity, UltraSpeed 20×, Distill-9B RL deltas; OpenCode Zen live catalogue — no Pro free ID). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Xiaomi HF model card, Artificial Analysis model page, Vals AI model page, LLM Stats, OpenRouter). Direct independent rows were promoted over the earlier composite-only basis; the modality and TB2.1 harness conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,73 +1,64 @@
-# Muse Spark 1.2 Free — findings by DeepSeek 4.1 Flash
+# Muse Spark 1.2 — findings by DeepSeek 4.1 Flash
 
-- Source: Meta / Muse Spark 1.2 Free (`opencode/muse-spark-1.2-contributor-free`)
-- Date: 2026-10-06 (UTC)
+- Source: Meta / Muse Spark 1.2 (`muse-spark-1.2`; Contributor/Free/Max are the same weights)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-10-06)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> Independent Vals AI: SWE-bench **86.60% (#14/88)**, Finance Agent v2 **60.60% (#3/76)**, Harvey Legal Agent Bench **25.42% (#1/76)**, MMMU-Pro 86.13%, MMLU-Pro 88.28%, Vibe Code Bench 79.10%, **Terminal-Bench 4.0 6.06%**, Code Migration 29.95%, **Vals Index 49.29% (#31/45)**. Artificial Analysis Intelligence Index **40 (#58/227)**, 325.2 t/s (#1), $0.97/index task. LMArena 1492 (#11); BenchLM 66.48 (#28).
+> **Conflicts surfaced:** (1) Meta's near-1.3 vendor framing vs independent composite indices (AA 40, Vals Index #31); (2) coding is bimodal — SWE-bench 86.6% (Vals) vs Terminal-Bench 4.0 6.06% / ProgramBench 0.5% (harness sensitivity); (3) modality: AA adds speech input while LLM Stats/Vals list text+image+video only; (4) AA now marks 1.2 deprecated in favour of 1.3.
+> Sources: https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2 · https://artificialanalysis.ai/models/muse-spark-1-2 · https://www.vals.ai/models/meta_muse_spark_1_2 · https://llm-stats.com/models/muse-spark-1.2 · https://arena.ai/leaderboard/chat/text
+
 ## Model card
 
-- **Name:** Muse Spark 1.2 Free (Meta "Contributor Free" tier of Muse Spark 1.2)
-- **Short description:** Meta's August 2026 reasoning model for complex agentic tasks, distributed through OpenCode Zen as a contributor tier. It is the direct predecessor of Muse Spark 1.3 and sits within a few points of it on most evaluations — the main difference is a weaker coding/reasoning profile and the contributor data terms.
-- **Provider / access:** OpenCode Zen contributor-free ID (OpenAI-compatible endpoint); the paid model is $1.25/$4.25 per 1M on Meta's own API. Zen's privacy page states the contributor tier trades "heavily discounted token pricing in exchange for permission to use your prompts and completions to train future Meta models" — that is the explicit price of the free tier.
-- **Release / knowledge:** Released 2026-08-05. Knowledge cutoff not published.
-- **IDs:** `opencode/muse-spark-1.2-contributor-free` (Zen); paid id `meta/muse-spark-1.2`.
-- **Context window:** 1,000,000 tokens (trackers list 1,048,576 with a 131,072-token output ceiling for the sibling 1.3 release; 1.2's output cap is not separately documented).
-- **Modalities:** text, image, video, file and audio input with text output; reasoning yes; tool calls yes.
-- **Pricing (as of 2026-09-18):** **Free** on the Zen contributor tier; paid list price is $1.25 / 1M in and $4.25 / 1M out. Third-party cost analysis (nerdbot, 2026-08-12) framed 1.2 as costing about 13× DeepSeek-V4-Flash per completed task for a five-point edge — a useful reminder that "free" here is paid for in training data, not dollars.
-- **Architecture:** proprietary (API access only); no open weights.
+- **Name:** Muse Spark 1.2
+- **Short description:** Meta's August 2026 reasoning model for complex agentic tasks, predecessor of Muse Spark 1.3. Contributor/Free/Standard/Max are the same weights — only billing/rate-limit/data-use terms differ.
+- **Provider / access:** Meta Model API (`muse-spark-1.2`); OpenCode Zen contributor tier. Proprietary.
+- **Release / knowledge:** 2026-08-05; knowledge cutoff not published.
+- **IDs:** `meta/muse-spark-1.2`; Zen contributor tier. Contributor rate $0.10/$0.20; standard $1.25/$4.25.
+- **Context window:** 1,048,576 (1M) tokens.
+- **Modalities:** text, image, video (+speech per AA) input; text out; reasoning; tool calls.
+- **Pricing (as of 2026-10-09):** standard **$1.25 / $0.15 cached / $4.25** per 1M; contributor **$0.10 / $0.20** (token-rate-limited; prompts may train Meta products).
+- **Architecture:** proprietary API-only; no open weights.
 
 ### Raw benchmarks found
 
-> BenchLM re-published the Meta model-page rows and Artificial Analysis/Vals AI rows on 2026-10-06; where vendor and independent figures differ, both are listed.
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **82.9%** (Meta model page via BenchLM) / **69.7%** (Vals AI) — the previously missing agentic-harness result
-- GDPval-AA: **1,631** (Meta model page via BenchLM) / **48.9%** normalized (Artificial Analysis)
-- AA Agentic Index: **44.0%** (Artificial Analysis via BenchLM)
-- Tau3-Banking / Tau2-Bench, Claw-Eval / ClawProBench, Toolathon / MCP-Atlas, SWE Atlas Codebase QnA: **no verified public score found**
-- Positioning evidence: Meta markets 1.2 for complex agentic tasks and Artificial Analysis lists it at an Intelligence Index of **57** (cited in a Gemini 3.7 Flash comparison).
+- Finance Agent v2 **60.60% (#3/76)** (Vals); Harvey Legal Agent Bench **25.42% (#1/76)** (Vals)
+- Terminal-Bench 2.1 82.9% (Meta via BenchLM) / 69.7% (Vals); **Terminal-Bench 4.0 6.06%** (Vals)
+- GDPval-AA 1631 (Meta) / 48.9% normalized (AA); AA Agentic Index 44.0%
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (Artificial Analysis via BenchLM)
-- HLE: **45.5%** (Artificial Analysis via BenchLM)
-- SimpleBench: **74.5%** — common-sense trick questions (Epoch AI via Model Beat)
-- SimpleQA Verified: **60.3%**; WeirdML: **60.3%** (Epoch AI via Model Beat)
-- MMLU-Pro: **88.3%** (Vals AI via BenchLM)
-- AA-LCR: **79.0%** (Artificial Analysis via BenchLM); CritPt: **17.7%**; MLCR: **no verified public score found**
-- Artificial Analysis Intelligence Index: **57** (95th percentile framing is not applied to 1.2; the tracker's Epoch-derived percentile is 80th overall)
-- AA-Omniscience: Accuracy **45.4%**, Index **27.2%**, Hallucination Rate **33.3%** (via BenchLM)
-- BenchLM overall: **66.51/100, rank #27 of 887**
+- GPQA Diamond 90.4% (AA); HLE 45.5% (AA); MMLU-Pro 88.28% (Vals); AA-LCR 79.0%
+- SimpleBench 74.5%; SimpleQA Verified 60.3%; AA-Omniscience Accuracy 45.4% / Hallucination 33.3%
+- Artificial Analysis Intelligence Index **40 (#58/227)** — independent
 
 Coding:
 
-- SciCode: **57.4%** (Artificial Analysis); WebDev Arena: **1534 Elo** (Epoch AI via Model Beat); AA Coding Index: **72.2%**
-- DeepSWE: **59.3%** (Meta model page via BenchLM) — the previously missing repo-level number
-- SWE-bench (Vals AI): **86.6%**; VulcanBench v3: **87.0%**; FrontierSWE v2: **12.0%**
-- Design Arena Website: **1319** (OpenRouter via BenchLM)
-- Coding index: **84th percentile** of tracked models (Epoch AI via Model Beat)
-- SWE-bench Pro / LiveCodeBench / Vibe Code Bench: **no verified public score found**
+- SWE-bench **86.60% (#14, Vals)**; DeepSWE 59.3% (Meta); Vibe Code Bench 79.10% (Vals)
+- SciCode 57.4% (AA); AA Coding Index 72.2%; FrontierSWE v2 12.0%; Code Migration 29.95% (Vals)
 
 Long context:
 
-- AA-LCR **79.0%** is the only published long-context reasoning value for the 1M window; no MRCR/RULER/GraphWalks recall-at-depth measurement was found.
+- 1M window; AA-LCR 79.0% is the only published long-context reasoning value; no MRCR/RULER.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Terminal-Bench 2.1 82.9% (69.7% independent), GDPval-AA 1631 and a 44.0% AA agentic index now exist and are strong; the absence of any Tau3 or Claw result keeps it just short of the frontier tier.
-- **Reasoning: 90/100.** GPQA Diamond 90.4%, HLE 45.5%, MMLU-Pro 88.3%, AA-LCR 79.0% and SimpleBench 74.5% form a consistently strong reasoning profile; CritPt 17.7% is modest and keeps it just short of the 1.3 tier.
-- **Context window: 95/100.** 1,000,000 tokens with multimodal ingestion and a large output allowance; no recall-at-depth evidence.
-- **Multimodal: 88/100.** Text, image, video, file and audio input with text output; no media generation and no published vision benchmark of its own.
-- **Coding: 90/100.** SWE-bench Verified 86.6% (Vals) and DeepSWE 59.3% now exist, alongside SciCode 57.4%, VulcanBench v3 87.0% and a 72.2% coding index; FrontierSWE v2 12.0% is the weak spot.
-- **Cost efficiency: 100/100.** $0 through the Zen contributor tier; the real cost is that prompts and completions train future Meta models.
-- **Overall Score: 90/100.** (89 + 90 + 95 + 88 + 90) / 5 = 90.4 → **90**. Best fit: free agentic/reasoning workloads that can tolerate contributor data terms and need a 1M multimodal window.
+- **Tool use: 83/100.** Finance Agent #3 and Harvey #1 (Vals) plus TB2.1 69.7–82.9% are strong; capped by TB4.0 6.06% and GDPval-AA below the 1750 ref.
+- **Reasoning: 83/100.** GPQA 90.4%, HLE 45.5%, MMLU-Pro 88.28% are strong; the independent AA Index of 40 (v4.3.2) and CritPt 17.7% hold it below the frontier.
+- **Context window: 95/100.** 1,000,000 tokens (≥1M band); no recall-at-depth evidence.
+- **Multimodal: 86/100.** Text, image, video (+speech per AA) in, text out (video band); no media generation, no own vision benchmark.
+- **Coding: 82/100.** Vals SWE-bench 86.6%, SciCode 57.4% and Vibe 79.1% are good; FrontierSWE v2 12.0% and TB4.0 6.06% are the weak spots.
+- **Cost efficiency: 100/100.** $0.10/$0.20 on the contributor tier (the $0 Zen free tier where available); the real cost is training-data terms.
+- **Overall Score: 86/100.** (83 + 83 + 95 + 86 + 82) / 5 = 85.8 → 86. Best fit: agentic/reasoning workloads that tolerate contributor data terms and need a 1M multimodal window; prefer 1.3 if available.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Meta model page, Vals AI and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI figures via Model Beat, OpenCode Zen privacy page, third-party cost analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Meta research/developer blogs, Vals AI model page, Artificial Analysis model page, LLM Stats, LMArena). Independent Vals/AA rows were separated from Meta's vendor charts; the bimodal coding split and index conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

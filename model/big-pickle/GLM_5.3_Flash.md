@@ -45,7 +45,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
+> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the five quality dims (Cost excluded, v4).
 
 - **Tool use: 58/100.** The one direct datapoint is genuinely strong — SWE-Atlas Codebase QnA 50.8% tops the Mini-SWE-Agent scaffold class — and the alias natively supports tool calls and structured output. Capped by weak identity-proxy orchestration (GLM-4.6 TB 2.1 49.4%, Tau3 10.5%) and zero alias-verified tool-suite scores.
 - **Reasoning: 58/100.** Proxy GPQA Diamond 63.2% is mid-pack; HLE 5.5% and LCR 28.3% are weak; no alias-verified reasoning numbers exist. The "reasoning model" positioning rests on the config description, not published results.
@@ -53,12 +53,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output (models.dev modalities); no attachments — methodology floor for text-only.
 - **Coding: 70/100.** SWE-Atlas QnA 50.8% (class-leading) plus proxy LiveCodeBench 81.0% and SWE-bench Verified 68.0% imply a solid mid-pack coder for its generation; capped below the frontier (Claude Fable 5 SWE-V 95.0, Opus 4.8 88.1 per the prompt20 code leaderboard) and by zero alias-verified classic-suite runs.
 - **Cost efficiency: 100/100.** $0 in / $0 out / $0 cache during the stealth period, no card required — the defining trait of the alias. Risks to the score: data may be used for training, commercial terms unclear, and the $0 (or the model itself) can end without notice because it is an alias.
-- **Overall Score: 54/100.** Mean: (58 + 58 + 70 + 15 + 70 + 100) / 6 = 371/6 = 61.8 → **62**. Best fit: zero-cost daily driver for coding agents and multi-step tool work; verify outputs and keep a paid, identity-confirmed fallback for production, since the alias can change or disappear without notice.
+- **Overall Score: 54/100.** Mean: (58 + 58 + 70 + 15 + 70) / 5 = 54.2 → **54**. Best fit: zero-cost daily driver for coding agents and multi-step tool work; verify outputs and keep a paid, identity-confirmed fallback for production, since the alias can change or disappear without notice.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-17
-- Method: fresh public internet research from zero (models.dev `big-pickle.toml` config, glonce.com SWE-Atlas write-up summary, Grokipedia, ayautomate free-model directory, prompt20 code leaderboard for frontier context; identity-proxy suite numbers cited to the sources catalogued in `../../model-comparison.md`); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: fresh public internet research from zero (models.dev `big-pickle.toml` config, glonce.com SWE-Atlas write-up summary, Grokipedia, ayautomate free-model directory, prompt20 code leaderboard for frontier context; identity-proxy suite numbers cited to the sources catalogued in `../../model-comparison.md`); re-check 2026-10-09: no new verified alias-specific evidence; GitHub issue #50202 reports degraded/corrupted output on the free alias (operational caveat, not a benchmark); v4 mean correction applied. scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

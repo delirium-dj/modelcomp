@@ -1,77 +1,65 @@
 # Gemini 3 Pro — findings by DeepSeek 4.1 Flash
 
-- Source: Google DeepMind/Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-10-06 (UTC)
+- Source: Google DeepMind / Gemini 3 Pro (`gemini-3-pro`)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-10-06)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-3-pro).
-> BenchLM overall **59.42/100** (#52), context **2M**, pricing **$2 input / $12 output**.
-> New/updated measurements that fill gaps in the rows above:
-> - Agentic (no category score): JobBench 11.4%; Gert Labs 63.23%
-> - Coding (BenchLM 43.3, #55/146): Vibe Code Bench 14.30%
-> - Reasoning (BenchLM 46.5): ARC-AGI-2 31.1%; ARC-AGI-1 75.00%
-> - Multimodal (BenchLM 75.2, #17/49): MMMU-Pro 81%; CharXiv 81.4%; MathVision 86.6%; VideoMMMU 87.6%; ScreenSpot Pro 72.7%; V* 88.0%
-> - Math (BenchLM 55.2): FrontierMath v2 (Tiers 1-3) 37.600%; FrontierMath v2 (Tier 4) 18.750%
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> Independent Vals AI: GPQA Diamond **91.67%**, MMLU-Pro 90.10%, SWE-bench Verified **76.40%**, Terminal-Bench 2.0 55.06%, LiveCodeBench 86.41%, MMMU-Pro 87.51%, LegalBench 87.03% (#6/149), τ²-bench 87.1%, **Vibe Code Bench v1.1 14.30% (#86/110)**. Artificial Analysis: Intelligence Index **28 (deprecated/estimated)**, GPQA 90.8%, HLE 39.7%, MMMU-Pro 80.2%, AA-LCR 76.0%, τ² 87.1%, Omniscience Accuracy 55.8% / Hallucination 91.5%. LMArena 1501.
+> **Conflicts surfaced:** (1) **AA Index 28 (deprecated/estimated) vs GPQA ~91–92 / HLE ~38–40** — internally inconsistent, and AA explicitly flags the index as deprecated; (2) coding is bimodal — SWE-bench 76.4% / LiveCodeBench 86.4% vs Vibe Code Bench 14.30% (Vals); (3) context 1M (Google/AA/Vals) vs 2M (BenchLM outlier); (4) **superseded** — Google/AA now redirect to Gemini 3.1 Pro; the original "3 Pro Preview" endpoint is shut down.
+> Sources: https://blog.google/products/gemini/gemini-3/ · https://www.vals.ai/models/google_gemini-3-pro-preview · https://artificialanalysis.ai/models/gemini-3-pro · https://llm-stats.com/models/gemini-3-pro-preview · https://deepmind.google/models/gemini/pro/
 
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** Google DeepMind's flagship announced 2025-11-18 — the model that introduced Deep Think reasoning and native agentic execution (Gemini Agent / Antigravity) alongside a 1M-token context. Ten months on it is one generation behind the 3.1 Pro tier, so its agentic-coding numbers date faster than its science/math ones. **Availability caveat:** Google's current model docs list "Gemini 3 Pro Preview (Shut down)" among deprecated endpoints — verify that the stable `gemini-3-pro` ID you are calling is still live before you standardise on it.
-- **Provider / access:** Google AI Studio (a free tier was offered at launch), Vertex AI and the Gemini App; Gemini API. Thinking mode and Deep Think reasoning; function calling; structured output.
-- **Release / knowledge:** 2025-11-18 (llm-stats launch guide / evals.report). Knowledge cutoff not published on the pages checked.
-- **IDs:** `gemini-3-pro` (aliases "gemini 3 pro"); Zen route `opencode/gemini-3-pro`. Whether a Free ID exists on the evaluated route is unverified here → cost scored on Google's list pricing.
-- **Context window:** 1,000,000 input tokens, 64,000 output tokens (launch guide).
-- **Modalities:** text, image, video, audio and PDF in → text out (natively multimodal — trained jointly rather than vision bolted on); Deep Think parallel reasoning; agentic execution.
-- **Pricing (as of 2026-09-23):** standard context **$2 in / $12 out** per 1M; extended context **$4 / $18**; Batch 50% discount; AI Studio free tier at launch.
-- **Architecture:** proprietary, no parameter disclosure.
+- **Short description:** Google DeepMind's flagship announced 2025-11-18 — the model that introduced Deep Think reasoning and native agentic execution alongside a 1M-token context. One generation behind the 3.1 Pro tier now; the "3 Pro Preview" endpoint is shut down.
+- **Provider / access:** Gemini API, AI Studio (launch free tier), Vertex AI, Gemini App. Proprietary.
+- **Release / knowledge:** 2025-11-18; knowledge cutoff Jan 2025.
+- **IDs:** `gemini-3-pro`; Zen `opencode/gemini-3-pro`.
+- **Context window:** 1,000,000 input / 64,000 output (ignore BenchLM's 2M outlier).
+- **Modalities:** text, image, video, audio, PDF in; text out; Deep Think; agentic execution.
+- **Pricing (as of 2026-10-09):** standard **$2 in / $12 out** per 1M; extended $4/$18; Batch 50% off.
+- **Architecture:** proprietary; no parameter disclosure.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.0: **54.2%** (launch summary — listed as #1 at launch); Terminal-Bench 2.1: **no verified public score found**
-- τ²-bench Telecom: **85.4%** pass^1 (unverified, evals.report); Tau3-Banking: **no verified public score found**
-- MCP Atlas **54.1%** pass rate; MCP-Universe **44.59%** overall success rate; Berkeley Function Calling Leaderboard **72.51%** (all evals.report)
-- GDPval **1184 Elo**; METR task-completion time horizon **224.3 min**; GAIA **38.5%** (unverified); Remote Labor Index **1.25%** automation rate; PostTrainBench **18.12%**
-- OSWorld: **no verified public score found**; Claw-Eval / Toolathon: **no verified public score found**
+- Terminal-Bench 2.0 **55.06%** (Vals) / 54.2% (self); τ²-bench Telecom 85.4% / 87.1% (Vals)
+- MCP Atlas 54.1%; BFCL 72.51%; GDPval 1195 Elo (self); METR 224.3 min
+- OSWorld / Tau3-Banking / Claw-Eval: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.6%** official (evals.report); the launch guide separately cites **91.9%** as "#1 at launch" — both recorded
-- HLE: **38.3%** (official, evals.report)
-- LCR / MLCR: OpenAI-MRCR v2 **77.0%** mean SequenceMatcher similarity (verified) — the strongest long-context retrieval figure in this batch; FACTS Grounding **69.0%**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index **48.4** (unverified, evals.report); Epoch Capabilities Index **153.4** (official)
-- AIME 2026 **91.67%**, AIME (OTIS mock) **91.4%** (the launch guide cites 95% for AIME 2025); FrontierMath **37.6%** (Tier 4 **18.8%**); ARC-AGI-1 **75%**, ARC-AGI-2 **31.11%**; MMLU-Pro **89.8%**; Global-MMLU **92.2%**; MultiChallenge **65.67%**; EnigmaEval **18.24%**
-- SimpleQA Verified **72.9%**; FACTS **69.0%**; Vectara Hallucination Rate **13.6%**; MASK honesty **42.60**
+- GPQA Diamond **91.67% (Vals)** / 90.8% (AA) / 91.9% (self); HLE 39.7% (AA) / 37.5% (self)
+- MMLU-Pro 90.10% (Vals); ARC-AGI-1 75% / ARC-AGI-2 31.1% (ARC Prize)
+- Artificial Analysis Intelligence Index **28 (deprecated/estimated)**; AA-LCR 76.0%; CritPt 9.1%
+- Omniscience Accuracy 55.8% / Hallucination 91.5%
 
 Coding:
 
-- SWE-bench Verified: **72.9%** (official, evals.report)
-- SWE-bench Pro: **43.30%**; SWE-rebench **56.5%**; SWE-bench Multilingual **68.7%** (official)
-- LiveCodeBench **91.7%** pass@1 (unverified); LiveCodeBench Pro **2439** Codeforces Elo
-- SciCode **56.1%** (unverified); WeirdML **69.9%**; Vibe Code Bench **14.30%** (verified); GSO **18.63%** Opt@1
-- WebDev Arena **1438**; LMArena **1479**; Design Arena **1295**; Search Arena **1208**
+- SWE-bench Verified **76.40%** (Vals); LiveCodeBench 86.41% (Vals); **Vibe Code Bench v1.1 14.30% (#86/110)** (Vals)
+- SWE-bench Pro 43.30% (self); SciCode 56% (self); LMArena 1501; WebDev Arena 1438
 
 Long context:
 
-- MRCR v2 **77.0%** at 1M-scale settings — real retention, not just a headline window, but short of the ≥98% needed for a 100.
+- MRCR v2 (8-needle, 128k) **77.0%**; no full-window (1M) figure.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** τ²-Bench Telecom 85.4%, MCP Atlas 54.1%, BFCL 72.51%, METR 224.3 min and Terminal-Bench 2.0 54.2% are upper-mid band (TB 45–60% → 50–70); capped by GDPval 1184 Elo (frontier ref 1750+), no OSWorld row and no Terminal-Bench 2.1 result.
-- **Reasoning: 88/100.** GPQA Diamond 92.6% clears the 90%+ frontier reference with AIME ~91–95%, MMLU-Pro 89.8% and Epoch 153.4; held below 90 by HLE 38.3% (just under the 40% marker) and an unverified AA Index of 48.4.
-- **Context window: 96/100.** 1M input / 64K output is the ≥1M tier with the best measured retrieval in this batch (MRCR v2 77.0%), which is why it sits a point above the plain-1M-with-no-evidence entries — but well short of the ≥98% needed for a 100.
-- **Multimodal: 90/100.** Text, image, video, audio and PDF in → text out puts it in the "+audio in = 90–100" band (MMMU-Pro 81.0%, Video-MMMU 87.6%, ScreenSpot-Pro 72.7%, CharXiv 81.4%); held at the floor because output is text-only.
-- **Coding: 80/100.** SWE-bench Verified 72.9% with LiveCodeBench 91.7% and SciCode 56.1% (clears 55%) is solid but generational — SWE-bench Pro 43.30% and Vibe Code Bench 14.30% are well behind current frontier values, which is what caps it.
-- **Cost efficiency: 68/100.** $2/$12 at standard context (extended-context $4/$18, Batch 50%) sits between the $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60 anchors; a launch-era free AI Studio tier exists for direct Google access but no Zen Free ID was verified for the evaluated route.
-- **Overall Score: 86/100.** (78 + 88 + 96 + 90 + 80) / 5 = 86.4 → **86**. Best fit: native omni-modal long-context science and reasoning work at reasonable list pricing — verify the stable endpoint still exists, and expect to pay more for the newer 3.1 Pro tier on agentic coding.
+- **Tool use: 74/100.** τ²-bench 87.1%, TB2.0 55.06%, MCP Atlas 54.1% and BFCL 72.51% are upper-mid; capped by GDPval 1195 (frontier ref 1750+), no OSWorld and no TB2.1.
+- **Reasoning: 85/100.** GPQA 91.67% clears the 90%+ frontier reference with MMLU-Pro 90.10%; held by HLE 39.7% (just under 40%) and the deprecated/estimated AA Index of 28.
+- **Context window: 96/100.** 1M input / 64K output (≥1M band) with the batch's best measured retrieval (MRCR v2 77.0%); short of the ≥98% needed for 100.
+- **Multimodal: 90/100.** Text, image, video, audio and PDF in → text out (audio band 90–100; MMMU-Pro 87.51%, Video-MMMU 87.6%); text-only output holds it at the floor.
+- **Coding: 78/100.** SWE-bench 76.4%, LiveCodeBench 86.4% and SciCode 56% are solid but generational; SWE-bench Pro 43.3% and Vibe Code Bench 14.30% cap it.
+- **Cost efficiency: 70/100.** $2/$12 standard ($4/$18 extended, Batch 50%) between the ~88 and ~60 anchors; no Zen Free ID verified.
+- **Overall Score: 85/100.** (74 + 85 + 96 + 90 + 78) / 5 = 84.6 → 85. Best fit: native omni-modal long-context science/reasoning work — verify the stable endpoint still exists and expect to pay more for 3.1 Pro on agentic coding.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (evals.report 52-row benchmark table for official/verified rows, llm-stats launch guide for context/output/pricing/modalities and launch-era benchmark summary, Google's current Gemini API model docs for the deprecated-preview availability note); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Google Gemini 3 blog, Vals AI model page, Artificial Analysis model page, Google DeepMind model page, LLM Stats). Independent Vals/AA rows were promoted over the mix of official and unverified rows; the deprecated-index and bimodal-coding conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

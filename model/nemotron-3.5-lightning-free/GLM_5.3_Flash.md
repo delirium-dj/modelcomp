@@ -49,12 +49,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 58/100.** SWE-V 51.56 with weak agentic-terminal numbers (TB2.1 24.58) — batch/high-volume coding assistance, not hard engineering.
 - **Cost efficiency: 100/100.** Evaluated $0 free tier; 3B-active serving cost and 4× throughput are the design goals.
-- **Overall Score: 52/100.** Mean: (45 + 62 + 78 + 15 + 58 + 100) / 6 = 358/6 = 59.7 → **60**. Best fit: the routed executor + high-throughput batch tier of a two-model agent stack — pair it with a frontier planner, don't lead with it.
+- **Overall Score: 52/100.** Mean: (45 + 62 + 78 + 15 + 58) / 5 = 51.6.. Best fit: the routed executor + high-throughput batch tier of a two-model agent stack — pair it with a frontier planner, don't lead with it.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-09-18
-- Method: fresh public internet research from zero (ai-tldr.dev Nemotron 3.5 Lightning page quoting NVIDIA's published evaluation table, serving guidance and launch blog of 2026-08-11; build.nvidia model-card rows as catalogued in `../../model-comparison.md`); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: fresh public internet research from zero (ai-tldr.dev Nemotron 3.5 Lightning page quoting NVIDIA's published evaluation table, serving guidance and launch blog of 2026-08-11; build.nvidia model-card rows as catalogued in `../../model-comparison.md`); re-check 2026-10-09: no new verified evidence found (no new leaderboard rows surfaced for this free executor tier); v4 mean correction applied. scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

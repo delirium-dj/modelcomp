@@ -1,82 +1,69 @@
 # Qwen3.8-Max — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Cloud (Qwen team) / Qwen3.8-Max (`qwen3.8-max-0902`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-09 (UTC) — deep second pass (previous Signature 2026-10-06)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Newly discovered model.** Not previously tracked in `model/` — added during this
-> research scan (discovered via Alibaba's Qwen3.8 launch and frontier comparison
-> tables).
+> **Second-pass re-verification — 2026-10-09** (≥3 independent sources).
+> Independent: Artificial Analysis Intelligence Index **45**, ~35.7 t/s, ~$5.41/index task; LMArena 1483 (#22). Vendor (QwenCloud / HF): Terminal-Bench 2.1 **86.6%** (Claude Code harness), SWE-bench Pro 67.7%, DeepSWE 1.1 56.6%, GPQA Diamond 92.6%, HLE 43.6% / 56.2% with tools, MMMU-Pro 82.3%, Toolathlon-Verified 72.5%, OSWorld-Verified 86.1%, MRCR v2 256K 8-needle 92.9%, VideoMME 90.4.
+> **Conflicts surfaced:** (1) **modalities** — the Max cloud API is **image+video in**, but the open-weights `Qwen3.8-2.4T-A95B` checkpoint is **text-only, thinking-only**; (2) context 262,144 native / extensible to 1,010,000 (HF card, AA 984K) vs 1M hosted; (3) pricing $2/$6 official vs $1.65/$4.95 cheapest third party; (4) release Aug 2 (LLM Stats) / Aug 3 (Qwen/Wikipedia) / "September 2026" (AA 0902 snapshot); (5) **coding signal is mixed** — TB2.1 86.6% is near-frontier but DeepSWE 56.6% is well below the 74% ref, and TB2.1 uses a different harness than its baselines.
+> Sources: https://qwen.ai/blog?id=qwen3.8 · https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B · https://www.qwencloud.com/models/qwen3.8-max · https://artificialanalysis.ai/models/qwen3-8-max · https://llm-stats.com/models/qwen3.8-max
 
 ## Model card
 
 - **Name:** Qwen3.8-Max (dated checkpoint `qwen3.8-max-0902`)
-- **Short description:** Alibaba Cloud's flagship 2.4T-parameter sparse MoE (roughly 95B active per token), previewed at the World AI Conference in Shanghai on 2026-07-19 and generally available from 2026-08-03. It is Alibaba's direct answer to OpenAI and Anthropic frontier models, competing on reasoning benchmarks and a 1M-token multimodal window while undercutting them on a single flat price — but it still ships without a published safety or training model card.
-- **Provider / access:** Alibaba Cloud Model Studio (hosted multimodal API). A separate open-weight checkpoint appeared on Hugging Face on 2026-08-13 under a restricted custom license — text-only with a smaller context than the hosted API, so it is not a drop-in replacement. BenchLM lists the tracked checkpoint (`Qwen/Qwen3.8-2.4T-A95B`) as Open Weight.
-- **Release / knowledge:** Preview 2026-07-19; GA 2026-08-03. Knowledge cutoff not published.
-- **IDs:** `qwen3.8-max-0902` (dated checkpoint; `qwen3.8-max` family id). Not tracked on OpenCode Zen.
-- **Context window:** 1,000,000 tokens — up to 991,800 input tokens in non-thinking mode and 983,610 in thinking mode — plus 131,072 output tokens. Verified from Alibaba's page as compiled by HokAI (checked 2026-09-14); BenchLM also prints 1M.
-- **Modalities:** text, image and video input with text output; reasoning yes (thinking/non-thinking modes); tool calls and structured output yes; no audio input.
-- **Pricing (as of 2026-09-18):** a single flat rate across the whole context — **$2.00 / 1M in and $6.00 / 1M out**, with no tiered step-up for long inputs (AA blended price lists $1.18 / 1M). New Model Studio activations get a one-time 1M-token free quota in the Singapore region; there is no permanent free tier.
-- **Architecture:** sparse Mixture-of-Experts, 2.4T total parameters with ~95B active per token, built on the Qwen3.5 architecture with hybrid attention. The hosted API remains closed; BenchLM lists the tracked `Qwen/Qwen3.8-2.4T-A95B` checkpoint as open weight, while the separate open-weight Hugging Face checkpoint has a different modality/context profile.
+- **Short description:** Alibaba Cloud's flagship 2.4T-parameter sparse MoE (~95B active), preview 2026-07-19, GA 2026-08-03; competes with OpenAI/Anthropic frontier models on reasoning and a 1M multimodal window at a flat $2/$6. No public safety/training model card.
+- **Provider / access:** Alibaba Cloud Model Studio (hosted multimodal API); separate text-only open-weight checkpoint `Qwen/Qwen3.8-2.4T-A95B` (restricted custom licence).
+- **Release / knowledge:** preview 2026-07-19; GA 2026-08-03; knowledge cutoff not published.
+- **IDs:** `qwen3.8-max-0902`; open weights `Qwen3.8-2.4T-A95B`.
+- **Context window:** 262,144 native, extensible to 1,010,000 (HF card); hosted Max ~1M (991,800 in / 131,072 out).
+- **Modalities:** text, image and video input (hosted Max); text out; thinking/non-thinking modes; tools/structured output; no audio.
+- **Pricing (as of 2026-10-09):** flat **$2.00 in / $6.00 out** per 1M; implicit cache $0.25; one-time 1M free quota (Singapore region).
+- **Architecture:** sparse MoE, **2.4T total / 95B active**, hybrid Gated DeltaNet/Gated Attention, 512 experts (10 routed + 1 shared), MTP.
 
 ### Raw benchmarks found
 
-> BenchLM's page (`benchlm.ai/models/qwen3-8-max`, checked 2026-10-07) computes a
-> conservative **70.52 / 100, rank #16 of 887** overall on 61 of 621 benchmarks;
-> most rows below are Qwen release benchmarks compiled by BenchLM, with Vals AI
-> and third-party leaderboards marked.
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **86.6%** (Qwen release, via BenchLM) — ahead of both Claude Opus 4.8 and Claude Fable 5 (84.6 each), behind GPT-5.6 Sol's 88.8%; Vals AI prints **67.4%**
-- IFBench (instruction following): **82.8%** — ahead of GPT-5.6 Sol's 72.7%
-- OSWorld-Verified **86.1%**; AndroidWorld **85.3%**; MobileWorld **77.8%**; WebArena-Verified **66.8%**; OSWorld 2.0 **19.4%** (Qwen release via BenchLM)
-- Toolathlon-Verified **72.5%**; CoWorkBench **74.8%**; skillsBench **70.2%**; WideResearch **81.9%**; Agents' Last Exam **52.4%**; JobBench **53.4%**; AutomationBench **27.3%**; HLE w/ tools **56.2%** (Qwen release via BenchLM)
-- LMArena multimodal rank: **#2 globally** on blind human-preference multimodal tasks, behind only Claude Fable 5
-- Claw-Eval / ClawProBench / Tau3-Banking / Tau2-Bench / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1 **86.6%** (Qwen, Claude Code harness); OSWorld-Verified **86.1%**; AndroidWorld 85.3%
+- Toolathlon-Verified 72.5%; IFBench 82.8%; WideResearch 81.9%; Agents' Last Exam 52.4%; JobBench 53.4%
+- LMArena multimodal: #2 globally (blind human preference)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.6%** (Qwen release; Vals AI **93.7%**) — ranked 11th of 44 tracked models
-- HLE: **43.6%** — behind Claude Fable 5's 53.3%
-- PaperBench: **93.0** — ahead of GPT-5.6 Sol (90.5), Claude Fable 5 (88.8) and Claude Opus 4.8 (80.3)
-- MMLU-Pro (Vals): **88.6%** (Vals AI via BenchLM); CritPt / MLCR: **no verified public score found**
-- MRCRv2 (long context): **92.9%**; LongBench v2: **66.3%** (Qwen release via BenchLM)
-- Artificial Analysis Intelligence Index: **40** — well below the frontier cohort (Claude Opus 5 61, GPT-5.6 Sol 61, Fable 5.1 66)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- GPQA Diamond **92.6%** (Qwen; HF eval 92.6); HLE **43.6%** / HLE with tools 56.2%
+- MMLU-Pro 88.6%; PaperBench 93.0; MRCRv2 **92.9%**; LongBench v2 66.3%
+- Artificial Analysis Intelligence Index **45** — independent; Omniscience: no verified public score found
 
 Coding:
 
-- SWE-bench Pro: **67.7%** (Qwen release) — behind Claude Fable 5's 80.0%; Vals AI SWE-bench **85.6%** and LiveCodeBench **87.9%** (via BenchLM)
-- Terminal-Bench 2.1: **86.6%** (above) — the strongest coding-adjacent result
-- DeepSWE **56.6%**; FrontierSWE **73.5%**; NL2Repo **55.9%**; MLS-Bench Lite **41.0%**; QwenReactBench **1724**; VulcanBench v3 **81.2%**; OpenHarmony Bench **60.8%**; FrontierSWE v2 **15.8%** (Qwen release / third-party leaderboards via BenchLM)
+- SWE-bench Pro **67.7%** (Qwen); DeepSWE 1.1 **56.6%** (below the 74% ref); FrontierSWE 73.5%
+- NL2Repo 55.9%; MLS-Bench Lite 41.0%; VulcanBench v3 81.2%; FrontierSWE v2 15.8%
 - SWE-bench Verified / SciCode / Vibe Code Bench: **no verified public score found**
-- Output speed: **41 tok/s** median (rank 33 of 36 tracked models) — a significant throughput weakness for agent loops
 
 Multimodal:
 
-- MMMU-Pro **82.3%**; MathVision **95.2%** (97.7% w/ Python); BabyVision **82.0%**; CharXiv **93.5%** (88.4% w/o tools); OmniDocBench 1.5 **92.1%**; OCRBench V2 **74.2%**; CC-OCR **79.6%**; RealWorldQA **88.0%**; ScreenSpot Pro **84.5%**; Video-MME (with subtitles) **90.4%**; VideoMMMU **88.7%**; MLVU (M-Avg) **90.8%**; LVBench **81.8%** (Qwen release via BenchLM)
+- MMMU-Pro 82.3%; MathVision 95.2%; CharXiv 93.5%; ScreenSpot-Pro 84.5%; VideoMME (subs) **90.4**; VideoMMMU 88.7%; LVBench 81.8%
 
 Long context:
 
-- Alibaba publishes the 991,800/983,610 input-token ceilings plus **MRCRv2 92.9%** and LongBench v2 66.3% (Qwen release via BenchLM); no RULER/GraphWalks recall value, so the ~1M window is still largely vendor-claimed.
+- MRCRv2 92.9% and LongBench v2 66.3% (Qwen); no RULER/GraphWalks.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** 86.6% on Terminal-Bench 2.1 (third in the field as measured here), 82.8% IFBench and a #2 multimodal arena rank make it a capable agent; capped by the absence of Tau3/GDPval/Claw results and 41 tok/s throughput.
-- **Reasoning: 84/100.** GPQA Diamond 92.6% and PaperBench 93.0 are strong, but HLE 43.6% and an AA Intelligence Index of 40 show a clear gap to the frontier on hard reasoning.
-- **Context window: 95/100.** A full 1M-token window with no tiered price step and 131K output is excellent value; no recall-at-depth benchmark keeps it below the maximum.
-- **Multimodal: 85/100.** Text, image and video input with a #2 global multimodal arena placement; no audio input and text-only output.
-- **Coding: 80/100.** SWE-bench Pro 67.7% trails the Fable/Opus tier, though Terminal-Bench 2.1 at 86.6% is near the top; the new Vals rows (SWE-bench 85.6%, LiveCodeBench 87.9%) fill the biggest gaps, but SWE-bench Verified, SciCode and DeepSWE-class depth stay unproven.
-- **Cost efficiency: 85/100.** A flat $2/$6 per 1M across a 1M window undercuts most frontier rivals, and a one-time 1M-token free quota helps evaluation; there is no permanent free tier, and 41 tok/s raises per-task wall-clock cost.
-- **Overall Score: 86/100.** (85 + 84 + 95 + 85 + 80) / 5 = 85.8 → **86**. Best fit: large-context multimodal agent and document workloads that need frontier-adjacent tool scores at roughly a fifth of frontier per-token prices.
+- **Tool use: 85/100.** TB2.1 86.6%, OSWorld-Verified 86.1%, IFBench 82.8% and a #2 multimodal arena rank make it a capable agent; capped by no Tau3/GDPval/Claw results and 36 t/s throughput.
+- **Reasoning: 85/100.** GPQA 92.6% and PaperBench 93.0 are strong; HLE 43.6% and the independent AA Index of 45 show a gap to the frontier.
+- **Context window: 96/100.** Full 1M hosted window with 131K output and MRCRv2 92.9%; native context is 262K and no full-window retrieval benchmark exists.
+- **Multimodal: 85/100.** Text + image + video input with a #2 global arena placement and MMMU-Pro 82.3%; no audio, text-only output, and the open-weights checkpoint is text-only.
+- **Coding: 81/100.** SWE-bench Pro 67.7% and TB2.1 86.6% pull in opposite directions; DeepSWE 56.6% and FrontierSWE v2 15.8% keep it mid-band.
+- **Cost efficiency: 84/100.** Flat $2/$6 per 1M across a 1M window undercuts frontier rivals; no permanent free tier and 36 t/s raises per-task wall-clock cost.
+- **Overall Score: 86/100.** (85 + 85 + 96 + 85 + 81) / 5 = 86.4 → 86. Best fit: large-context multimodal agent/document workloads needing frontier-adjacent tool scores at a fraction of frontier per-token prices.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Alibaba Cloud model page and independent/AA figures as compiled by HokAI, plus BenchLM's Qwen3.8 Max page — Qwen release benchmarks, Vals AI and third-party leaderboards, checked 2026-10-07); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Method: deep second-pass public internet research (Qwen blog, HF model card, QwenCloud model page, Artificial Analysis model page, LLM Stats, LMArena). The hosted-vs-open-weights modality split and the mixed coding signal are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

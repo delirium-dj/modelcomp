@@ -63,5 +63,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
-- Method: public internet research (official TypeSafe AI docs — Models, jaggedness, cookbooks; OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (official TypeSafe AI docs — Models, jaggedness, cookbooks; OpenCode Zen docs; re-check 2026-10-09: no new verified evidence found for this decision-class model); scores are normalized 1–100 interpretations, not official vendor scores.
