@@ -10,10 +10,10 @@
 - **Name:** GPT 5.6 Terra
 - **Short description:** OpenAI's lower-cost GPT-5.6 tier (launched 2026-07-09, price cut 2026-07-30) — balances intelligence and cost, roughly the "mini" tier of earlier GPT-5 families, with performance competitive with GPT-5.5; ~50% lower cost per task than Sol on the AA Intelligence Index.
 - **Provider / access:** OpenAI API (`gpt-5.6-terra`), Azure, AWS Bedrock; ChatGPT Plus/Pro/Business/Enterprise. Reasoning effort none/low/medium (default)/high/xhigh/max. Tools: web search ($10/1K calls), file search, computer use, code interpreter.
-- **Release / knowledge:** 2026-07-09; knowledge cutoff not stated in the launch materials reviewed.
+- **Release / knowledge:** 2026-07-09 (launch) / 2026-07-13 (GA, AWS Bedrock card); knowledge cutoff **February 16, 2026** (OpenAI API docs).
 - **IDs:** `openai/gpt-5.6-terra`. No Free ID on OpenCode Zen (`noFreeId`).
-- **Context window:** 1,048,576 (1M) tokens total; prompts above 272K input reprice the FULL request at 2x input and 1.5x output.
-- **Modalities:** text, image, audio, video, PDF in; text out; tool calls, structured outputs.
+- **Context window:** 1,050,000 tokens total (922,000 max input); prompts above 272K input reprice the FULL request at 2x input and 1.5x output.
+- **Modalities:** **text, image in; text out** (OpenAI API docs and AA concur — the audio/video/PDF inputs listed on 2026-10-02 are ChatGPT-side upload preprocessing, not API modalities); tool calls, structured outputs.
 - **Pricing (as of 2026-10-02):** $2.00/$12.00 per 1M input/output (after the 2026-07-30 20% cut from $2.50/$15); cached input $0.20/M (90% off); cache writes $2.50/M (1.25x uncached); Batch 50% off; extended-context (>272K) $4/$18 for the full request.
 - **Architecture:** proprietary MoE (OpenAI); parameter count undisclosed.
 

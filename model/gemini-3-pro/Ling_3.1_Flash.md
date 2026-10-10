@@ -10,7 +10,7 @@
 - **Name:** Gemini 3 Pro
 - **Short description:** Google DeepMind's Gemini 3 era flagship (Preview, launched 2025-11-18) — state-of-the-art reasoning and natively multimodal capability at launch, topped LMArena (1501 Elo) and WebDev Arena (1487 Elo); Gemini 3 Deep Think mode extends reasoning further (GPQA 93.8%, HLE 41.0%, ARC-AGI-2 45.1%).
 - **Provider / access:** Gemini API / Google AI Studio, Vertex AI, Gemini app; thinking_level and media_resolution controls tune cost/latency. No free API ID on OpenCode Zen (`noFreeId`); paid-tier pricing.
-- **Release / knowledge:** 2025-11-18 (Preview). Knowledge cutoff not stated in the launch materials reviewed; benchmarks span capabilities as of November 2025.
+- **Release / knowledge:** 2025-11-18 (Preview). Knowledge cutoff **January 2025** (DeepMind model card, updated May 2026) — nearly two years old at research time, a real limitation for factual/current-affairs work.
 - **IDs:** `google/gemini-3-pro` (API model-id `gemini-3-pro-preview`).
 - **Context window:** 1M tokens input / 65K output; prompts over 200K bill at the long-context rate.
 - **Modalities:** text, image, audio, video, PDF in; text out (natively multimodal sparse MoE).
@@ -76,8 +76,21 @@ SciCode figure and methodology confirmations found (DeepMind's Gemini 3.1 Pro co
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 68 / Reasoning 85 / Context 95 / Multimodal 92 / Coding 80 / Cost 72 / Overall 84.** New data and flags this pass:
+
+- **Deprecation flag (operational):** `gemini-3-pro-preview` was **shut down 2026-03-09** (Gemini API docs) — migrate to `gemini-3.1-pro-preview`. The model remains reachable via Vertex/Gemini Enterprise channels, but the original Preview API ID is dead; the 3.1 Pro comparison table is the live reference.
+- **AA Intelligence Index v4.3.2: 28 (estimated)** for Preview (High) — #103/227, 26th of 697 models; Preview (Low) 22. Marked "Estimate (independent evaluation forthcoming)" — AA has not yet run its own v4.3.2 evaluation, so treat as provisional. For scale: at launch (2025-11-18) Gemini 3 Pro **led the then-current Index**, debuting +3 points above GPT-5.1, first in 5 of 10 evals (GPQA Diamond, MMLU-Pro, HLE, LiveCodeBench, SciCode) and first in AA-Omniscience (both Index and Accuracy) — another large benchmark-revision effect (launch-era ~58 → current estimate 28), not a capability regression.
+- **Launch-era detail recovered:** premium pricing ($2/$12 ≤200K, $4/$18 ≥200K) made it among the most expensive models to run the Index (12% costlier than 2.5 Pro despite better token efficiency); HLE 37% at launch improved on the prior best by 10+ points; "factual recall correlates closely with model size… may point to Gemini 3 Pro being a much larger model than its competitors" (AA).
+- **SWE-bench Verified, independent read:** the SWE-bench team's own evaluation (mini-swe-agent, zero prompt tuning, 2025-11-19) put Gemini 3 Pro Preview at **74%** — top of the board at the time, ~4 points clear of the next model — vs the vendor's 76.2% (single-attempt bash+file scaffolding, 10-run mean). Harness gap explains the 2.2-point spread; both sit in the same band, so Coding 80 stands. Cost in that eval: 1.6× GPT-5 (still cheaper than Sonnet 4.5); Gemini iterates a lot — median ~50 steps, flattening only past 100, so resolution rate trades directly against step budget.
+- **Model card (May 2026 update) confirmations:** sparse MoE, natively multimodal (text/vision/audio inputs), TPU-trained (Pods), not a fine-tune of a prior model; family includes Gemini 3 Pro Image, 3 Flash, 3.1 Pro/Flash, 3.5 Flash; Deep Think mode safety profile consistent with default; known limitations include hallucinations and occasional slowness/timeouts. Scale SWE-Bench Pro leaderboard lists `gemini-3-pro-preview` (value not captured in the snippet reviewed; `gemini-3.1-pro (thinking)` reads 46.10±3.60 there).
+- **Score impact:** none — the new reads (Index 28 estimate, SWE-bench 74% independent, cutoff Jan 2025) all land inside existing bands or are flagged as estimate/operational notes.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind Gemini 3 launch, DeepMind evals methodology, Artificial Analysis, AI/TLDR, LLM Registry, Model Beats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind Gemini 3 launch, DeepMind model card and evals methodology, Gemini API docs, Artificial Analysis, SWE-bench team, Scale SWE-Bench Pro); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.
