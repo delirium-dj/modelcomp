@@ -75,8 +75,22 @@ The Model Gap's provenance audit and llmboard's independent rows filled the rema
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 80 / Reasoning 84 / Context 95 / Multimodal 92 / Coding 85 / Cost 88 / Overall 87.** New data and confirmations this pass:
+
+- **Modalities confirmed by Meta's own Model API docs:** `muse-spark-1.2` (Standard and Contributor) takes **text, image, video, audio, PDF in, text out** at 1,048,576 context. The docs' audio asterisk applies only to **1.3** ("audio understanding in Muse Spark 1.3 is currently not fully supported… For audio, use Muse Spark 1.2") — Meta still recommends **1.2 over 1.3 for audio input**. Multimodal 92 (the +audio-in band) stands on first-party documentation.
+- **AA Intelligence Index v4.3.2 (xhigh): 40** (#58/227) — vs the launch-era 54 (v4.1-era scale, +3 over 1.1's 51) — another large benchmark-revision effect, not a regression. Full current component table (vs Claude Opus 5 max): AA-Briefcase **1328** (vs 1660), GDPval-AA v2.1 **1474** (vs 1722; the launch read was 1631 on v2), AutomationBench-AA **41%** (vs 57%), Terminal-Bench 4.0 **7%** (vs 49%), SciCode **57%** (vs 56% — **Muse ahead**), HLE **45%** (vs 55%), GDP.pdf **17%** (vs 22%), CritPt **18%** (vs 29%), AA-Omniscience **27** (vs 37), AA-LCR **79%** (ties Opus 5).
+- **Efficiency story (current AA reads):** cost per Intelligence Index task **$0.97** vs Opus 5's **$5.86** (6× cheaper); $1,385 vs $7,275 to run the full Index; output speed **327 tok/s** vs Opus 5's 53 (6× faster), TTFT 14.2s, 147s per task; 48K output + 23K reasoning tokens per task; 130M tokens per Index run ("somewhat verbose"). The 10-02 "$0.40 per task" read is superseded by AA's current $0.97 measurement, but the Pareto position (near-frontier intelligence at a fraction of frontier cost) is stronger than ever in the current data.
+- **Launch-article recoveries (2026-08-05):** gains concentrated in agentic evals — GDPval-AA v2 +260 Elo (1371→1631, #5 at the time, ahead of Opus 4.8's 1588), TB 2.1 +2 (78→80%), τ³-Banking +2 (25→27%); minor regressions SciCode −2 and HLE −1; "Pareto frontier… for the second consecutive release."
+- **Tier structure confirmed (Meta dev portal + blog):** Standard $1.25/$4.25 (cached $0.15) with a **no-training-use guarantee**; Contributor $0.10/$0.20 (cached $0.002) rate-limited by tokens in a rolling 5-hour window (not request count) with prompts/completions used for training; zero-data-retention available via Meta sales; reasoning tokens billed as output with an `/effort` dial. Muse Code beta shipped the same day (event-log auditability: every subagent, tool call, steer and cancel replayable).
+- **Status flag:** superseded by Muse Spark 1.3 on **2026-09-02** but still sold at the same rate; API-only (no open weights); ModelPriceWatch: avg benchmark 70.2%, SWE-bench Verified 86.6% (#14/40), #45/98 overall, #76/193 performance-per-dollar.
+- **Score impact:** none — SciCode 57% (ahead of Opus 5), Toolathlon 75.9% (rank 3), independent DeepSWE 55.0% ($3.70/task, 101 steps) and HLE 45% all land inside the existing Tool/Reasoning/Coding bands; Meta's docs settle the audio-modality question in 1.2's favor.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Artificial Analysis, Meta launch methodology, AI/TLDR, BenchLeader, Capital & Compute); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Meta dev portal and Model API docs, Meta AI Developers blog, Artificial Analysis, ModelPriceWatch, The Model Gap, AnotherWrapper); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1_2.md`, using the same headings.

@@ -86,8 +86,23 @@ Fully independent scorecard (The Model Gap, 2026-08-26) plus a major METR caveat
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 91 / Reasoning 93 / Context 95 / Multimodal 65 / Coding 92 / Cost 56 / Overall 87.** New data and confirmations this pass:
+
+- **Knowledge cutoff: February 16, 2026** (OpenAI API docs) — previously "not stated". Context window detailed as 1,050,000 total / 922,000 max input / 128,000 max output.
+- **AA Intelligence Index v4.3.2 (max): 47** (#26/227; 26 of 697 models) — vs the launch-era 59 (AA article) / 61 (BenchmarkList) on the older scale: another large benchmark-revision effect, not a regression. Full effort-variant ladder: Non-reasoning **28**, Low **33**, Medium **39**, High **42**, Xhigh **44**, Max **47**. AA flags Sol as "amongst the leading models in intelligence, but particularly expensive when comparing to other models of similar price"; 90M tokens per Index run ("somewhat verbose").
+- **Release-page economics:** fastest variant is **Xhigh at 85 t/s**; Non-reasoning has the lowest TTFT (1.04s); **Low costs $0.26 per task**, with prices varying up to 7.6× across the six effort variants; blended list price $3.1 per 1M.
+- **Pricing confirmed (OpenAI API docs):** $4/$20 per 1M input/output is promotional ("available at least through November 21, 2026"; a 20% input / 33% output reduction from the $5/$30 list); cached input $0.40/M; >272K prompts reprice the full request at 2x input / 1.5x output; cache writes 1.25x uncached. ARMES still lists the stale pre-cut $5.50/$33 — ignore.
+- **Vals SWE-bench Verified chart reads ~97%** for Sol — consistent with BenchmarkList's 96.2% (std. err. 0.86, rank 2/72) and inside the board's noise; no change to the Coding evidence base.
+- **Availability structure (ChatGPT Help Center):** Sol powers Instant/Medium/High/Extra High on eligible paid plans; Free/Go users get Luna (Sol not available to them or logged-out users); **GPT-5.6 Sol Pro** is the Pro-model option for difficult/longer-running tasks; GPT-6 Astra is available as GPT-6 Pro on eligible plans. API offers Sol/Terra/Luna; Codex gives Terra to Free/Go and all three to Plus+.
+- **AA Index v4.3.2 leaderboard context:** Claude Opus 5.5 (Max, default fallback) leads at 58, then Sonnet 5.5 (Max, default fallback) and Opus 5.5 (Xhigh, default fallback) at 56 — Sol's 47 sits mid-frontier on the current scale.
+- **Score impact:** none — every new read lands inside the existing bands; the METR harness-exploitation caveat (10-08) remains the standing warning on the agentic boards, and GPQA/HLE are unaffected by it.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI GPT-5.6 launch page and API docs, Artificial Analysis, BenchmarkList, ARMES docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI GPT-5.6 launch page, API docs and Help Center, Artificial Analysis, Vals AI, ARMES docs, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

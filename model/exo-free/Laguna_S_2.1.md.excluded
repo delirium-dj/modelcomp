@@ -1,0 +1,67 @@
+# Exo Free — findings by Laguna S 2.1
+
+- Source: OpenCode Zen (`opencode/exo-free`)
+- Date: 2026-10-10
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** Limited-time free-tier model surfaced only through the OpenCode Zen gateway (openai-compatible Chat Completions API) as a $0 offering. OpenCode Zen does not attribute an underlying vendor or base model, so its benchmark identity is unverified; it is reasoning-capable with text+image input, tool use, and a 1M context window.
+- **Provider / access:** OpenCode Zen Chat Completions at `https://opencode.ai/zen/v1/chat/completions` (OpenAI-compatible); model id `opencode/exo-free` (confirmed by the Zen models registry `https://opencode.ai/zen/v1/models`, read 2026-10-10). Zen docs: `https://opencode.ai/docs/zen`.
+- **Release / knowledge:** 2026-10-06 (models.dev registry `release_date` / `last_updated`). Knowledge cutoff not disclosed.
+- **IDs:** `opencode/exo-free` (Zen). No Free ID other than this entry; no Hugging Face card or vendor model page located.
+- **Context window:** 1,048,576 (1M) total, max output 131,072 (128K) — verified (models.dev registry `models/dev/providers/opencode/models/exo-free.toml`).
+- **Modalities:** text + image in, text out — verified (models.dev toml); reasoning enabled (`reasoning = true`, `reasoning_options.effort = ["high"]`) and tool calls enabled (`tool_call = true`, models.dev toml). No video/audio input or non-text output reported.
+- **Pricing (as of 2026-10-10):** Free on Zen — 0 / 0 / 0 (input / output / cached), limited-time. Not zero-retention: "Exo Free: During its free period, collected data may be used to improve the model" (OpenCode Zen privacy section).
+- **Architecture:** reasoning model, closed weights (`open_weights = false`, models.dev toml); parameter count and underlying vendor/base model not disclosed by Zen or the models.dev registry.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model ID. Searched ArtificialAnalysis (`/models/exo-free` → 404) and BenchLM (`/models/exo-free` → 404); no Hugging Face card, vendor page, or Zen-published evaluation exists for `opencode/exo-free`. The models.dev registry for this id contains only a spec/config toml (no benchmarks). Per the SELF-EXCLUSION rule in `model-comparison.md`, this report self-excludes: no scored `.md` is emitted and this file must not influence `average.md`. Verified specs (1M context, image input, reasoning, tool use, free pricing) are documented in the model card and would support partial scores (Context ≥95, Multimodal ~68, Cost 100) if benchmarks for Tool/Reasoning/Coding became available; at that point replace this `.md.excluded` twin with a real `Laguna_S_2.1.md` per the own-twin rule (`tasks/research.md` Step 3.3).
+
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP Atlas / Toolathon / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index: no verified public score found
+
+Long context:
+- no verified public score found (no MRCR / RULER / GraphWalks figure; AA-LCR unreported)
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found.**
+- **Reasoning: no verified public score found.**
+- **Context window: — /100.** 1M total (verified spec); a spec-derived score would be ≥95, withheld to avoid emitting a partial/scored `.md` with no tools/reasoning/coding evidence.
+- **Multimodal: — /100.** Image input verified (spec); text-only output; no multimodal evals.
+- **Coding: no verified public score found.**
+- **Cost efficiency: — /100.** Free on Zen (Free/Free/Free) — spec-verified; scores are still ignored in this exclusion.
+- **Overall Score: EXCLUDED.** Zero verified public benchmark numbers found for this exact ID (`opencode/exo-free`). Self-excluded per `model-comparison.md` SELF-EXCLUSION rule; this file carries no scorable evidence and must not influence `average.md`.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: fresh public internet research (OpenCode Zen docs `https://opencode.ai/docs/zen`, Zen models registry `https://opencode.ai/zen/v1/models`, models.dev registry toml `providers/opencode/models/exo-free.toml`, ArtificialAnalysis.ai, BenchLM.ai); zero verified public benchmarks found for this exact model — report self-excluded, no scores emitted.
+- Future sources: if `opencode/exo-free` is attributed to a vendor/base model with public evals, or if direct benchmarks are published, replace this twin with a scored `Laguna_S_2.1.md` (own-twin rule, `tasks/research.md` Step 3.3).
+
+---

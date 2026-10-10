@@ -10,7 +10,7 @@
 - **Name:** Claude Opus 4.8
 - **Short description:** Anthropic's May-2026 flagship (launched 2026-05-28, same price as Opus 4.7) — launch-era leader across coding, agentic, reasoning and knowledge-work benchmarks (GDPval-AA v1 1890 Elo, SWE-bench Pro 69.2%, HLE-with-tools 57.9%); now the fallback target after Fable 5 and Opus 5, but still top-tier.
 - **Provider / access:** Anthropic API (`claude-opus-4-8`), Claude Code, Bedrock, Vertex AI; adaptive effort control, Dynamic Workflows parallel subagents, computer-use tools, prompt caching, Batch API; fast mode at 2.5x speed ($10/$50); US-only inference at 1.1x. No Zen Free ID (`noFreeId`).
-- **Release / knowledge:** 2026-05-28; knowledge cutoff not stated in the launch materials reviewed.
+- **Release / knowledge:** 2026-05-28; knowledge cutoff **January 2026** (platform docs; reliable and training-data cutoff both Jan 2026). **Status: Legacy (active)** — Anthropic's docs now say "consider migrating to Claude Opus 5.5"; retirement not sooner than 2027-05-28.
 - **IDs:** `anthropic/claude-opus-4-8`.
 - **Context window:** 1M tokens input / 128K output (Anthropic API/Bedrock/Vertex). NOTE: the repo `meta.json` stub says "200K" — stale; 1M is documented by LLM Reference and the system card.
 - **Modalities:** text, image in; text out.
