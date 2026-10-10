@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-5.5 Pro (`gpt-5.5-pro`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.5-pro`
 - **Context window:** 524,288 tokens total (512K input / 128,000 output; verified via OpenAI documentation).
 - **Modalities:** Text input, image input, audio input, video input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-09):** Paid professional enterprise tier ($20.00 input / $80.00 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Paid professional enterprise tier ($20.00 input / $80.00 output per 1M tokens).
 - **Architecture:** Frontier scale reasoning architecture by OpenAI.
 
 ### Raw benchmarks found
@@ -36,8 +36,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across OpenAI technical updates. SWE-bench Verified 87.5% and GPQA Diamond 86.0% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

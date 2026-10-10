@@ -74,7 +74,8 @@ export type SourceKey =
   | "MiMo 2.6 Flash"
   | "Gemini 3.1 Flash Lite"
   | "Step 5 Preview"
-  | "Claude Haiku 5.5";
+  | "Claude Haiku 5.5"
+  | "Qwen 3.8";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -160,4 +161,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3.1 Flash Lite", label: "Gemini 3.1 Flash Lite", file: "Gemini_3.1_Flash_Lite.md", slug: "gemini-3.1-flash-lite" },
   { key: "Step 5 Preview", label: "Step 5 Preview", file: "Step_5_Preview.md", slug: "step-5-preview" },
   { key: "Claude Haiku 5.5", label: "Claude Haiku 5.5", file: "Claude_Haiku_5.5.md", slug: "claude-haiku-5.5" },
+  { key: "Qwen 3.8", label: "Qwen 3.8", file: "Qwen_3.8.md", slug: "qwen-3.8" },
 ];

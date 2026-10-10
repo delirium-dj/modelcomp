@@ -35,8 +35,8 @@
 86.8 gemini-3-flash
 86.6 deepseek-v4.1-flash
 86.6 glm-5.3-flashx
+86.6 gpt-6-sol
 86.4 claude-opus-4.6
-86.4 gpt-6-sol
 86.2 qwen-3.8-flash
 86 qwen-3.7-plus
 85.5 ember-1

@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3-pro`
 - **Context window:** 2,097,152 tokens total (2M input / 64,000 output; verified via Google documentation).
 - **Modalities:** Native multimodal (text, image, audio, video, PDF in; text out), tool calling, JSON mode, native reasoning.
-- **Pricing (as of 2026-10-09):** Standard Google Pro tier pricing ($1.25 input / $5.00 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Standard Google Pro tier pricing ($1.25 input / $5.00 output per 1M tokens).
 - **Architecture:** Advanced multimodal Transformer / MoE architecture by Google DeepMind.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Google DeepMind technical updates. 2M context window and RULER 99.8% retrieval verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

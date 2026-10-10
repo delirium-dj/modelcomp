@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Gemini 3.5 Flash Lite
 
 - Source: Anthropic / Claude Fable 5.1 (`claude-fable-5.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-fable-5.1`
 - **Context window:** 1,048,576 tokens total (1M input / 128,000 max output; verified via Anthropic documentation).
 - **Modalities:** Text input, image input, PDF ingestion; text output; native tool calling; JSON mode; reasoning effort configuration.
-- **Pricing (as of 2026-10-09):** Paid $10.00 input / $50.00 output per 1M tokens.
+- **Pricing (as of 2026-10-10):** Paid $10.00 input / $50.00 output per 1M tokens.
 - **Architecture:** Proprietary Mythos-class dense/MoE hybrid architecture by Anthropic.
 
 ### Raw benchmarks found
@@ -39,8 +39,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Anthropic technical updates. SWE-bench Verified 92.0% and Terminal-Bench 2.1 93.0% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

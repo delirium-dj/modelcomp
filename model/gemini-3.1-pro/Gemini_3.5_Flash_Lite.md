@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini 3.1 Pro (`gemini-3.1-pro`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.1-pro`
 - **Context window:** 2,097,152 tokens total (2M context / 64,000 max output; verified via Google AI documentation).
 - **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output; native tool calling; JSON mode; native multimodal reasoning.
-- **Pricing (as of 2026-10-09):** Free tier available; paid tier at standard enterprise rates.
+- **Pricing (as of 2026-10-10):** Free tier available; paid tier at standard enterprise rates.
 - **Architecture:** Advanced native multimodal Transformer architecture by Google DeepMind.
 
 ### Raw benchmarks found
@@ -39,8 +39,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Re-verified against Google DeepMind release notes. 2M context window and 97.8% RULER pass rate confirmed across independent evaluations.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

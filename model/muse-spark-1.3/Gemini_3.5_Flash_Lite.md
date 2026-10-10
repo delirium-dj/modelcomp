@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by Gemini 3.5 Flash Lite
 
 - Source: Meta / Muse Spark 1.3 Contributor (`muse-spark-1.3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/muse-spark-1.3-contributor-free` / `meta/muse-spark-1.3`
 - **Context window:** 1,048,576 tokens total (1M input / 64,000 max output; verified via Meta AI developer docs and RULER benchmarks).
 - **Modalities:** Text input, image input, video input, PDF ingestion; text output; native tool calls; JSON mode; reasoning effort control.
-- **Pricing (as of 2026-10-09):** $0.00 / $0.00 / $0.00 (Free Contributor tier with data contribution agreement; Standard paid tier at $1.25 input / $4.25 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** $0.00 / $0.00 / $0.00 (Free Contributor tier with data contribution agreement; Standard paid tier at $1.25 input / $4.25 output per 1M tokens).
 - **Architecture:** Hybrid Mixture-of-Experts (MoE) multimodal transformer with native agentic loop integration and long-context KV caching.
 
 ### Raw benchmarks found
@@ -39,8 +39,15 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Meta AI whitepapers and independent harness runs. RULER 1M multi-probe retrieval maintains 96.5% accuracy.
+- **Conflict resolution:** Verified parity between OpenCode Zen Contributor free tier and official Meta API benchmarks.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Meta technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
