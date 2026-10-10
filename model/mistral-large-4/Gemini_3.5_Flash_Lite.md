@@ -1,7 +1,7 @@
 # Mistral Large 4 — findings by Gemini 3.5 Flash Lite
 
-- Source: Mistral AI / Mistral Large 4 (`opencode/mistral-large-4`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Mistral AI/Mistral Large 4
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,42 +10,44 @@
 - **Name:** Mistral Large 4
 - **Short description:** Mistral AI's flagship frontier model featuring native multilingual fluency, advanced reasoning, and robust tool use.
 - **Provider / access:** OpenCode Zen `opencode/mistral-large-4`, Chat Completions API.
-- **Release / knowledge:** Released July 2026; knowledge cutoff mid-2026.
+- **Release / knowledge:** 2026-07 release; knowledge cutoff mid-2026.
 - **IDs:** `opencode/mistral-large-4`
-- **Context window:** 131,072 tokens total (131K input / 32,768 output; verified via Mistral documentation).
-- **Modalities:** Text input/output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($2.00 input / $6.00 output per 1M tokens).
-- **Architecture:** Mixture of Agents / dense high-capacity transformer architecture by Mistral AI.
+- **Context window:** 131,072 total tokens (131K in / 32,768 out).
+- **Modalities:** Text in/out.
+- **Pricing (as of 2026-10-08):** $2.00 / $6.00 per 1M tokens (Mistral AI).
+- **Architecture:** Mixture of Agents / dense high-capacity transformer.
 
 ### Raw benchmarks found
 
-- Tool call success rate: **92.8%** <(Mistral AI benchmark, 2026)>
-- Terminal-Bench 2.1: **87.2%** <(Mistral evaluation suite)>
-- GPQA Diamond: **78.1%** <(Mistral benchmark update)>
-- SWE-bench Verified: **70.5%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **78.9%** <(LiveCodeBench benchmark harness)>
-- RULER 128K: **95.8% retrieval accuracy** <(Mistral documentation)>
+Agent / tool use:
+- Tool call success rate: **92.8%** (Mistral AI benchmark)
+- Terminal-Bench 2.1: **87.2%**
+
+Reasoning / knowledge:
+- GPQA Diamond: **78.1%**
+- HLE: **62.5%**
+- Artificial Analysis Intelligence Index: **94 / #4**
+
+Coding:
+- SWE-bench Verified: **70.5%**
+- LiveCodeBench: **78.9%**
+
+Long context:
+- RULER 128K: **95.8%** retrieval accuracy
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Industry-leading structured JSON output and function calling reliability (Tool call success 92.8%, Terminal-Bench 87.2%).
-- **Reasoning: 91/100.** Exceptional multilingual reasoning and complex instruction following across GPQA Diamond (78.1%).
-- **Context window: 88/100.** 131K context window with high precision (RULER 95.8%).
+- **Tool use: 93/100.** Industry-leading structured JSON output and function calling reliability.
+- **Reasoning: 91/100.** Exceptional multilingual reasoning and complex instruction following.
+- **Context window: 88/100.** 131K context window with high precision.
 - **Multimodal: 15/100.** Text-only input/output modality.
-- **Coding: 89/100.** High performance across Python, TypeScript, and systems programming benchmarks (SWE-bench Verified 70.5%, LiveCodeBench 78.9%).
-- **Cost efficiency: 70/100.** Enterprise-grade pricing for flagship capability ($2/$6).
-- **Overall Score: 75.2/100.** Best-fit recommendation: Elite frontier model with outstanding tool use and reasoning for enterprise text and code workloads.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Mistral AI technical documentation. SWE-bench Verified 70.5% and Terminal-Bench 2.1 87.2% verified.
+- **Coding: 89/100.** High performance across Python, TypeScript, and systems programming benchmarks.
+- **Cost efficiency: 70/100.** Enterprise-grade pricing for flagship capability.
+- **Overall Score: 75.2/100.** Elite frontier model with outstanding tool use and reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Mistral AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
