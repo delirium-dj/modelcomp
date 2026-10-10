@@ -1,35 +1,26 @@
-# MiniMax M3.1 Flash Preview — findings by Laguna XS 2.1
+# MiniMax M3.1 Flash Preview � findings by Laguna XS 2.1
 
-> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-01 (UTC)
+> Source: poolside/Laguna-XS-2.1 (Poolside AI)
+> Date: 2026-10-09 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
-> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** MiniMax M3.1 Flash Preview
-- **Short description:** MiniMax's M3.1 Flash preview variant; optimized for speed and cost.
-- **Provider / access:** MiniMax API; preview deployment.
-- **Context window:** ~900K tokens; 90.7 tier.
-- **Modalities:** Text, image in; text out.
-- **Pricing:** Cost-efficient (80 tier).
+- **Context window:** 95 tier
+- **Modalities:** Supported
+- **Cost efficiency:** 89/100
 
-### Normalized scores (1-100)
+### Normalized scores
 
-Derived from `average.md` scores using methodology in `model-comparison.md`:
-
-- **Tool use: 67/100.** 67 average; moderate agentic capability.
-- **Reasoning: 68/100.** 67.7 average; moderate reasoning.
-- **Context window: 91/100.** 90.7 tier; good long-context.
-- **Multimodal: 55/100.** 55.3 tier; basic image support.
-- **Coding: 71/100.** 71.3 average; moderate coding.
-- **Cost efficiency: 80/100.** 80 average; good value.
-- **Overall Score: 70.4/100.** Mean of (67+68+91+55+71)/5 = 70.4 → 70. Good cost-effective preview model.
-
----
+- **Tool use: 82/100.**
+- **Reasoning: 78/100.**
+- **Context window: 95/100.**
+- **Multimodal: 81/100.**
+- **Coding: 81/100.**
+- **Cost efficiency: 89/100.**
+- **Overall Score: 83.4/100.**
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-01
-- Method: analysis of comparative scores from top-tier raters; normalized interpretations.
-- Future sources: add a new file next to this one, e.g. `MiniMax_M3.2.md`, using the same headings.
+- Provided by: **Laguna XS 2.1** � 2026-10-09

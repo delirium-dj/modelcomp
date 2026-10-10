@@ -94,10 +94,10 @@ Long context:
 - **Tool use: 84/100.** TB-2.1 87.4%, BrowseComp 87.5%, CyberGym 81.8%, τ²-bench 86.3%, GDPval-AA 46.6% (Elo 1583), AA ITBench 51.0%, AA Agentic Index 43.7%. Strong agentic cluster but capped by TB-3.0 20.8%, ExploitGym 23.2%, ApprenticeBench 16%, and no OSWorld-Verified published.
 - **Reasoning: 82/100.** GPQA 92.9%, AA-GPQA-D 92.5%, AA-LCR 83.0%, HLE-Verified 51.1%, FrontierMath 84.9%, ARC-AGI-2 83.9%. Capped hard by AA Intelligence Index 55.0 (below ~60 frontier ref), AA Omniscience Index 0.1% (extreme hallucination), AA Omniscience Hallucination Rate 87.9%, and ARC-AGI-3 0.8%.
 - **Context window: 97/100.** Repo `meta.json` confirms **1,048,576 (1M)** tokens; BenchLM confirms 1.05M (≥1M tier = 95-100 per methodology). No MRCR/RULER retrieval curve published for this variant.
-- **Multimodal: 92/100.** Verified text+image+audio+video+PDF input, text output (repo `meta.json`). Per methodology "+audio in = 90-100". Benchmark: MMMU-Pro 80.7% (82% w/ Python).
+- **Multimodal: 70/100.** Text and image input only, text output (per AA model page: "Supports: text and image"). Per methodology "+image in = 60-70". Repo `meta.json` claims omni input (text+image+audio+video+PDF) — **discrepancy noted** (AA only verifies text+image). Strong vision benchmarks (MMMU-Pro 80.7%, 82% w/ Python) confirm image capability.
 - **Coding: 86/100.** SWE-bench (Vals) 95.4%, LiveCodeBench (Vals) 85.9%, VulcanBench 87%, AA Coding Index 76.7%, DeepSWE 69.6%. Capped by SWE-Pro 63.4% and no SWE-bench Verified published for this exact ID.
 - **Cost efficiency: 70/100.** Paid-tier per repo `meta.json` but no concrete pricing numbers published in verified sources; not a known Free ID on Zen. Provisional estimate: mid-to-poor value.
-- **Overall Score: 88/100.** (84 + 82 + 97 + 92 + 86) / 5 = 441 / 5 = 88.2 → 88. **Best-fit:** strong 1M-context agentic+reasoning model with elite coding (SWE-bench Vals 95.4%) and reasoning (GPQA 92.9%); cap: extreme AA Omniscience hallucination rate (87.9%) and low Intelligence Index (55.0); no Free ID on Zen.
+- **Overall Score: 84/100.** (84 + 82 + 97 + 70 + 86) / 5 = 419 / 5 = 83.8 → 84. **Best-fit:** strong 1M-context agentic+reasoning model with elite coding (SWE-bench Vals 95.4%) and reasoning (GPQA 92.9%); cap: extreme AA Omniscience hallucination rate (87.9%) and low Intelligence Index (55.0); no Free ID on Zen; AA verifies text+image only (meta.json omni not independently confirmed).
 
 ---
 

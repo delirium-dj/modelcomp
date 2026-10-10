@@ -93,7 +93,7 @@ Long context:
 
 - **Cost efficiency: 75/100.** $2/$10 per 1M tokens (no free tier on Zen); moderate pricing between $1.25/$4.25 (≈88) and $3/$15 (≈60); $7.62 per Intelligence Index task is reasonable for a frontier reasoning model.
 
-- **Overall Score: 87.4/100.** (91+90+95+70+91)/5 = 88.4 → 88. Strong frontier reasoning model with 1M context; best-in-class agentic (GDPval-AA, Harvey LAB, Toolathlon) and coding (SWE Multilingual, SWE-bench Pro) numbers; TB 4.0 and DeepSWE cap Tool use and Coding below absolute frontier tier; no verified GPQA or OSWorld scores.
+- **Overall Score: 87.4/100.** (91+90+95+70+91)/5 = 437/5 = 87.4 → 87. Strong frontier reasoning model with 1M context; best-in-class agentic (GDPval-AA, Harvey LAB, Toolathlon) and coding (SWE Multilingual, SWE-bench Pro) numbers; TB 4.0 and DeepSWE cap Tool use and Coding below absolute frontier tier; no verified GPQA or OSWorld scores.
 
 ---
 

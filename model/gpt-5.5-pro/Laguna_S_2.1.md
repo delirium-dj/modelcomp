@@ -79,13 +79,13 @@ Long context (from OpenAI announcement table):
 
 - **Context window: 93/100.** 920k tokens per AA model page (confirmed 922k). Just under 1M — in the 500K-1M tier → 85-94 range. At 922k (92% of 1M), scores 93. Meta.json claims 128K — **discrepancy noted**.
 
-- **Multimodal: 74/100.** Supports text and image input (per AA model page: "Supports: text and image" and announcement). MMMU Pro (no tools) at 81.2% and (with tools) at 83.2% show strong visual reasoning. Image input + strong vision benchmark performance justifies high multimodal score. Meta.json claims "Text in/out" — **discrepancy noted**.
+- **Multimodal: 70/100.** Text and image input only (per AA model page and announcement). Per methodology "+image in = 60-70"; strong vision benchmarks (MMMU-Pro 81.2% no tools, 83.2% with tools) confirm capability but do not elevate above the text+image range. Meta.json claims "Text in/out" — **discrepancy noted**.
 
-- **Coding: 93.5/100.** Terminal-Bench 2.0 at 82.7% is near-frontier (threshold 85%+). SWE-Bench Pro at 58.6% is good but below 74% frontier threshold. Expert-SWE at 73.1% is strong. MRCR 8-needle tests all above 80% up to 512K context. Graphwalks BFS 256k at 73.7% and parents 256k at 90.1% show strong long-context coding. Overall excellent coding performance across agentic coding, benchmark, and internal evals.
+- **Coding: 88/100.** Terminal-Bench 2.0 at 82.7% is near-frontier (threshold 85%+), Expert-SWE at 73.1% is strong (near 74% threshold), SWE-Bench Pro at 58.6% is good but below 74% frontier threshold, MRCR 8-needle tests all above 80% up to 512K context. Capped by SWE-Bench Pro below frontier threshold.
 
 - **Cost efficiency: 32.5/100.** $30.00 input / $180.00 output per 1M tokens (OpenAI API pricing). This places it in the >$10/$50 tier at the very high end. However, the model is also available free via ChatGPT Pro subscription and AA lists provider pricing as $0.00. Cost score reflects the API pricing tier — very expensive for API usage.
 
-- **Overall Score: 89.3/100.** Half-up mean of five quality dimensions: (92 + 94 + 93 + 74 + 93.5) / 5 = 446.5 / 5 = 89.3 → 89.3. GPT-5.5 Pro delivers frontier-level reasoning (ARC-AGI-1 95%, GPQA 94.4%), exceptional agentic tool use (Tau2 Telecom 98.0%, BrowseComp 90.1%, GDPval 84.9%), and near-frontier coding (Terminal-Bench 82.7%, Expert-SWE 73.1%) with a 922k context window and multimodal vision capabilities. Limited by very expensive API pricing ($30/$180).
+- **Overall Score: 87.4/100.** (92 + 94 + 93 + 70 + 88) / 5 = 437 / 5 = 87.4 → 87. GPT-5.5 Pro delivers frontier-level reasoning (ARC-AGI-1 95%, GPQA 94.4%), exceptional agentic tool use (Tau2 Telecom 98.0%, BrowseComp 90.1%, GDPval 84.9%), and strong coding (Terminal-Bench 82.7%, Expert-SWE 73.1%) with a 922k context window. Limited by very expensive API pricing ($30/$180).
 
 ---
 

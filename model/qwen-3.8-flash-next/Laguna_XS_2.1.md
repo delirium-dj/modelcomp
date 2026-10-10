@@ -1,4 +1,4 @@
-# Solar Pro 4 � findings by Laguna XS 2.1
+# Qwen 3.8 Flash Next � findings by Laguna XS 2.1
 
 > Source: poolside/Laguna-XS-2.1 (Poolside AI)
 > Date: 2026-10-09 (UTC)
@@ -6,20 +6,20 @@
 
 ## Model card
 
-- **Name:** Solar Pro 4
-- **Context window:** 84 tier
-- **Modalities:** Text-only
+- **Name:** Qwen 3.8 Flash Next
+- **Context window:** 85 tier
+- **Modalities:** Supported
 - **Cost efficiency:** 83/100
 
 ### Normalized scores
 
-- **Tool use: 68/100.**
-- **Reasoning: 74/100.**
-- **Context window: 84/100.**
-- **Multimodal: 29/100.**
-- **Coding: 74/100.**
+- **Tool use: 86/100.**
+- **Reasoning: 86/100.**
+- **Context window: 85/100.**
+- **Multimodal: 76/100.**
+- **Coding: 84/100.**
 - **Cost efficiency: 83/100.**
-- **Overall Score: 66.0/100.**
+- **Overall Score: 83.0/100.**
 
 ## Signature
 

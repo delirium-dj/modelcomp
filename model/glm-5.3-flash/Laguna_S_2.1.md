@@ -96,7 +96,7 @@ Multimodal & grounded:
 - **Multimodal: 65/100.** Text and image input, text output (per AA model page: "Supports: text and image"). +image-in only, no video/audio/PDF verified. `meta.json` says "Text in/out" — discrepancy noted.
 - **Coding: 83/100.** SWE-bench (Vals) 92.0% is excellent. LiveCodeBench (Vals) 80.5% is strong. Terminal-Bench 2.1 84.3% (also AA and Z.AI) is strong. DeepSWE 63.4%, NL2Repo 56.3%, VulcanBench 78.3%, and AA-SciCode 51.6% are solid. No SWE-bench Verified score found. Strong open-weights coding capability.
 - **Cost efficiency: 98/100.** $0.15 in / $0.50 out per 1M tokens — extremely low cost (~$0.10 blended). MIT license allows self-hosting. Open weights available.
-- **Overall Score: 82/100.** Mean of five quality dimensions: (82 + 85 + 95 + 65 + 83) / 5 = 410 / 5 = 82.0 → 84. Premier open-weights reasoning model with exceptional value. Strong across all dimensions except multimodal (text+image only, no video/audio/PDF). `meta.json` discrepancies noted: claims 204K context vs verified 1M; claims text-only vs verified text+image input.
+- **Overall Score: 82/100.** Mean of five quality dimensions: (82 + 85 + 95 + 65 + 83) / 5 = 410 / 5 = 82.0 → 82. Premier open-weights reasoning model with exceptional value. Strong across all dimensions except multimodal (text+image only, no video/audio/PDF). `meta.json` discrepancies noted: claims 204K context vs verified 1M; claims text-only vs verified text+image input.
 
 ---
 

@@ -1,0 +1,74 @@
+# Qwen3.8 Max — findings by Laguna S 2.1
+
+- Source: Alibaba (`alibaba/qwen3-8-max`)
+- Date: 2026-10-10
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8 Max
+- **Short description:** Qwen3.8 Max is Alibaba's flagship proprietary multimodal reasoning model, delivering top-tier intelligence with low time-to-first-token.
+- **Provider / access:** Alibaba Cloud API (`qwen3-8-max`).
+- **Release / knowledge:** 2026-09-02 release; 2026-07 knowledge cutoff
+- **IDs:** `alibaba/qwen3-8-max`
+- **Context window:** 984,000 tokens
+- **Modalities:** text, image in; text out; reasoning yes; tool calls yes; JSON mode yes
+- **Pricing (as of 2026-09-22):** $2.00 in / $6.00 out per 1M tokens ($1.18 blended)
+
+### Research log
+
+1. Searched BenchLM page `https://benchlm.ai/models/qwen-3-8-max` → **404 Not Found**
+2. Searched AA model page `https://artificialanalysis.ai/models/qwen3-8-max` → **404 Not Found**
+3. Searched qwen.ai homepage → only generic Qwen-3 landing page, no 3.8 Max specific content
+4. Searched OpenRouter `https://openrouter.ai/models/qwen-3-8-max` → **404 Not Found**
+5. Searched HuggingFace `https://huggingface.co/Qwen/Qwen3-8-max` → **401/404 Not Found** (no public card; gated access only)
+
+### Raw benchmarks found
+
+> **No verified public benchmark numbers were found for this exact model ID** (`alibaba/qwen3-8-max`). All 5 independent sources returned 404, homepage-only, or gated access. The model appears to be either a placeholder/gated model or a marketing designation without public evaluation coverage. Per the SELF-EXCLUSION rule in `model-comparison.md`, this report self-excludes.
+
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP Atlas / Toolathon / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- 984K context window (spec); no verified long-context retrieval benchmarks found.
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found.**
+- **Reasoning: no verified public score found.**
+- **Context window: — /100.** 984K total (spec); a spec-derived score would be ≥95, withheld to avoid emitting a partial/scored `.md` with no tools/reasoning/coding evidence.
+- **Multimodal: — /100.** Text and image input (spec); text-only output; no multimodal evals.
+- **Coding: no verified public score found.**
+- **Cost efficiency: — /100.** $2.00 in / $6.00 out per 1M tokens (spec); scores are ignored in this exclusion.
+- **Overall Score: EXCLUDED.** Zero verified public benchmark numbers found for this exact ID (`alibaba/qwen3-8-max`) across 5 independent sources. Self-excluded per `model-comparison.md` SELF-EXCLUSION rule; this file carries no scorable evidence and must not influence `average.md`.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: fresh public internet research (BenchLM.ai, ArtificialAnalysis.ai, qwen.ai, OpenRouter, HuggingFace); zero verified public benchmarks found for this exact model — report self-excluded, no scores emitted.
+- Future sources: if `alibaba/qwen3-8-max` is attributed to a specific release with public evals, or if direct benchmarks are published, replace this twin with a scored `Laguna_S_2.1.md` (own-twin rule, `tasks/research.md` Step 3.3).
+
+---
