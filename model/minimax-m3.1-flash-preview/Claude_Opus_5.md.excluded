@@ -1,0 +1,72 @@
+# MiniMax M3.1 Flash Preview — findings by Claude Opus 5
+
+- Source: MiniMax AI (`M3.1-Flash-Preview`, served in MiniMax Code)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** The template's SELF-EXCLUSION rule is mandatory and keyed to one condition: *zero* verified public benchmark numbers for the exact model/ID. **That condition holds here, and it is the strongest-evidenced exclusion in my queue** — because an independent tracker with a published data-collection methodology states the position explicitly, and for precisely the reason I would give.
+
+DataLearner's entry for this model records, verbatim: *"截至 2026 年 9 月 27 日，MiniMax 尚未公开 M3.1 Flash Preview 的参数规模、激活参数、独立上下文规格、最大输出、PAYG API 价格、开放权重、许可证或正式 benchmark 表。**因此本站不会从 MiniMax M3.1 或 MiniMax M3 复制这些字段**"* — as of 2026-09-27, MiniMax has published no parameter scale, no active-parameter count, no independent context specification, no max output, no pay-as-you-go API price, no open weights, no licence and **no formal benchmark table**; and therefore DataLearner **will not copy those fields from MiniMax M3.1 or MiniMax M3** ([DataLearner](https://www.datalearner.com/ai-models/pretrained-models/minimax-m3-1-flash-preview)). That is the same refusal-to-inherit decision this report makes below, reached independently.
+
+This folder's own `meta.json` already concedes the position: "no public benchmarks or price yet".
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** A **lightweight Preview model for everyday software development**, launched inside MiniMax Code. Its stated scope is specific and practical: bug fixing, feature development, edge-case handling, regression testing, and verifying the impact of changes on existing functionality. **It is a distinct model, not a tier of MiniMax M3.1** — DataLearner is explicit that "M3.1 Flash Preview 应作为独立模型记录，而不是覆盖现有 MiniMax M3.1" (should be recorded as an independent model rather than overwriting MiniMax M3.1), and classifies the relationship as *related*, not *predecessor*.
+- **Provider / access:** **MiniMax Code only** (`agent.minimax.io/code/welcome`), via the MiniMax Code / Token Plan. **Not open source** — no GitHub repository, no Hugging Face weights. **No OpenCode Zen ID** (Zen's MiniMax entries are M3, M2.7 and M2.5). This repo records `minimax-ai/minimax-m3.1-flash-preview`.
+- **Release / knowledge:** **2026-09-27**, announced as MiniMax's "latest text model" going live on MiniMax Code. Knowledge cutoff: **no verified public data found** (DataLearner: 暂无数据).
+- **IDs:** `M3.1-Flash-Preview` / `MiniMax M3.1-Flash-Preview`. **No free tier** — `noFreeId: true` is correct, and there is no public per-token route at all.
+- **Context window:** **No verified public data found.** DataLearner records context length and max output as 暂无数据 (no data) and explicitly declines to inherit MiniMax M3.1's figures. **This contradicts this folder's `meta.json`, which claims "1M total"** — a plausible family value, but not a verified specification for this checkpoint, and I am not restating it as fact.
+- **Modalities:** **Text in → text out, per the only independent source.** DataLearner records input/output modality as 文本 → 文本 (text → text) and categorises the model as a 编程大模型 (coding LLM). **This also contradicts this folder's `meta.json`, which claims "Text, image, video in; text out".** Given that DataLearner publishes a source-precedence methodology (official releases first, then benchmark-owner results, then third parties) and explicitly refuses to inherit sibling specs, I record text-only as the verified position and the image/video claim as uncorroborated. Reasoning: **yes, and this is the one capability well documented** — five effort levels, **low / medium / high (default) / xhigh / max**, inherited from the MiniMax Code M3.1 runtime. Tool calls: implied by MiniMax Code's agentic function, unmeasured.
+- **Pricing (as of 2026-10-08):** **No public per-token price exists.** Access is bundled into MiniMax Code / Token Plan subscriptions. DataLearner: "暂无公开的 API 定价信息" (no public API pricing information). So the cost dimension has no price to score either.
+- **Architecture:** **Undisclosed on every axis.** MoE architecture: 未公布 (not published). Total parameters: not published. Active parameters: not published. Model file size: no data. No technical report, no paper, no licence.
+
+### Raw benchmarks found
+
+**None.**
+
+Agent / tool use:
+
+- Terminal-Bench (any version), τ²/τ³-bench, OSWorld, MCP-Atlas, Toolathlon, GDPval-AA, Claw-Eval, BrowseComp: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, MMLU-Pro, AIME, CritPt, AA-LCR, Artificial Analysis Intelligence Index, AA-IFBench, AA-Omniscience: **no verified public score found**
+- **BenchLM has a page for this model recording 0 of 625 benchmarks**, with Overall Score, Overall Rank *and* Context Window all listed as "Coming soon" ([BenchLM](https://benchlm.ai/models/minimax-m3-1-flash-preview)) — while its MiniMax siblings M3 (54.33), M2.5 (50.16), M2.7 (47.65) and M1 80k (27.54) all carry computed scores. Four scored siblings and zero rows here makes the absence meaningful rather than a coverage gap.
+- **Artificial Analysis has no entry**, so there is no index and **no hallucination measurement**.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, Terminal-Bench, SciCode, FrontierCode, CursorBench: **no verified public score found** — notable because coding is the model's entire stated purpose.
+
+Multimodal:
+
+- MMMU / MMMU-Pro, MathVision, CharXiv, OmniDocBench, OCR: **no verified public score found**, and the only independent source records the model as text-only.
+
+Long context:
+
+- **No retrieval or long-context measurement at any depth**, and no verified context window to measure against.
+
+### Why exclusion rather than partial or proxy scoring
+
+**Inheriting MiniMax M3.1's or M3's numbers is the obvious shortcut and it is wrong** — a point on which an independent tracker and I agree without having coordinated. DataLearner states it will not copy parameter scale, context, output limits, pricing, licence or benchmarks from M3.1 or M3 to this checkpoint, and classifies Flash Preview as a *related* model rather than a variant. MiniMax M3 scores 54.33 on BenchLM and `model/minimax-m3/` is a separate folder in this dataset; importing its figures here would assign one model's measurements to another and corrupt both averages.
+
+**Partial scoring on specification evidence is also unavailable here**, which distinguishes this case from `kimi-k2.8-preview` and `longcat_2.5_preview`. For those two I at least had verified context windows and verified modalities and still excluded because three of five dimensions were empty. Here **the context window itself is unverified, the modality is disputed between the repo's metadata and the only independent source, the architecture is entirely unpublished, and there is no price**. There is no dimension on which a defensible number could be placed.
+
+**Reversal criteria.** Lift this exclusion as soon as any one of the following appears: benchmark rows on BenchLM's existing page (currently "coming soon"); an Artificial Analysis entry; a MiniMax model card, technical report or blog post publishing numeric evaluations; a published context-window and modality specification for the Flash Preview checkpoint specifically; or a public PAYG rate card. The verified facts above — release date, MiniMax Code availability, the five-level reasoning ladder, the stated development-task scope, and the closed-weights status — are complete and reusable.
+
+### Normalized scores (1–100)
+
+Not computed. Every benchmark row above reads "no verified public score found", a conclusion independently stated by DataLearner ("尚未公开 … 正式 benchmark 表") and corroborated by BenchLM's page showing 0 of 625 benchmarks. Beyond benchmarks, the **context window, modalities, architecture and price are all unverified or disputed**, so no quality dimension and no cost dimension has a defensible basis. Per `RULES.md` this is precisely the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. The decisive source is **DataLearner's** model entry, which publishes an explicit data-collection precedence (official releases → benchmark-owner results → third-party evaluators) and records for this checkpoint: the 2026-09-27 MiniMax Code launch, the stated development-task scope, closed-source status with no GitHub or Hugging Face presence, the five-level low/medium/high/xhigh/max reasoning ladder with `high` as default, text→text modality, 编程大模型 (coding LLM) classification, and 暂无数据 / 未公布 (no data / not published) for context length, max output, MoE architecture, parameter counts, model size, knowledge cutoff and API pricing — together with its explicit statements that no formal benchmark table has been published and that it refuses to copy specifications from MiniMax M3.1 or M3. **BenchLM** was checked and carries a page with 0 of 625 benchmarks and "Coming soon" for score, rank and context window, while four MiniMax siblings carry computed scores. **Artificial Analysis** has no entry. A targeted search for `"MiniMax M3.1 Flash" preview benchmarks SWE-bench OR Terminal-Bench score` surfaced no benchmark figures. The OpenCode Zen catalogue was checked and lists MiniMax M3, M2.7 and M2.5 but not this model. This folder's `meta.json` was read only to identify the tracked model; **its 1M context claim and its "Text, image, video in" modality claim are both reported as uncorroborated and contradicted by the only independent source**, and neither is restated as fact. **No benchmark, context figure or modality was imported from `minimax-m3`, `minimax-m2.7` or any other MiniMax model**, each of which has its own folder. No peer `model/` findings files were read. Unavailable items — every benchmark figure, the context window, the max output, the parameter counts, the architecture, the knowledge cutoff, the licence and any price — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

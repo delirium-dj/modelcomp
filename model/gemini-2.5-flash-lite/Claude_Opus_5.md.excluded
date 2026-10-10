@@ -1,0 +1,64 @@
+# Gemini 2.5 Flash-Lite — findings by Claude Opus 5
+
+- Source: Google / Google DeepMind (`gemini-2.5-flash-lite`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** The template's SELF-EXCLUSION rule is mandatory when *zero* verified public benchmark numbers exist for the exact model/ID. That is the case here: **I could not find a single published benchmark figure for Gemini 2.5 Flash-Lite in any source**, despite excellent specification data being available from Google's own model reference.
+
+The specification work below is complete and is the useful output of this research. What is missing is measurement.
+
+## Model card
+
+- **Name:** Gemini 2.5 Flash-Lite
+- **Short description:** Google's cost and latency floor for the Gemini 2.5 generation — described by Google as "our most balanced Gemini model, optimized for low latency use cases", retaining the generation's capabilities (thinking at configurable budgets, Grounding with Google Search, code execution, multimodal input, 1M context) at the lowest price in the family ([Google Cloud model reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)). Introduced as "a cost-effective upgrade from our previous 1.5 and 2.0 Flash models", aimed at "high throughput tasks like classification or summarization at scale" ([Google developers blog, 2025-06-17](https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/)). Distinct model; `gemini-2.5`, `gemini-2.5-flash` and `gemini-2.5-pro` are separate folders.
+- **Provider / access:** Gemini API / Google AI Studio and the Gemini Enterprise Agent Platform (Vertex AI) as `gemini-2.5-flash-lite`. **Correction to this folder's curated metadata:** `meta.json` claims a "Free tier available on Google AI Studio **and OpenCode Zen**"; Zen's published endpoint and pricing tables contain **no Gemini 2.5 entry of any kind** — its Flash-Lite line is Gemini 3.5 Flash Lite at $0.30/$2.50 ([Zen docs](https://opencode.ai/docs/zen/)). The AI Studio free tier is real; the Zen claim is not.
+- **Release / knowledge:** Introduced **in preview 2025-06-17** alongside the Gemini 2.5 Pro and Flash GA releases. **Lifecycle — this is the decisive fact: Google's model page carries the notice "Important: This model is being retired on October 20th, 2026."** That is **twelve days after this report.** Knowledge cutoff: no verified public date found.
+- **IDs:** `gemini-2.5-flash-lite`. A genuine free route exists via the Google AI Studio free tier; there is no Zen route.
+- **Context window:** **1,048,576 tokens**, with **65,536 maximum output tokens** — both stated directly in Google's model reference.
+- **Modalities:** **Text in and out; image, audio and video input only** (Google's per-modality capability matrix). No generated media. Reasoning: **yes, with a dynamically controllable thinking budget — but uniquely in the 2.5 family, "thinking" is OFF by default**, "because Flash-Lite is optimized for cost and speed". Tools: **Grounding with Google Search, Code Execution, URL Context, and function calling** — Google states it "supports all of our native tools". Also supported: system instructions, structured output, **implicit *and* explicit context caching**, RAG Engine, and tuning.
+- **Pricing (as of 2026-10-08):** **No rate found in a Google source I could read directly.** Google positioned it as "the lowest latency and cost in the 2.5 model family" and "an even lower cost option (with or without thinking)" than Gemini 2.5 Flash's $0.30 / $2.50. A free tier exists on AI Studio with standard rate limits. Given the retirement date, any rate is now moot.
+- **Architecture:** Proprietary, closed weights. Parameter count, activation scheme and sparsity undisclosed.
+
+### Raw benchmarks found
+
+**None.**
+
+- **Agent / tool use:** Terminal-Bench, τ²/τ³-bench, OSWorld, GDPval-AA, MCP-Atlas, Toolathlon, BrowseComp, AA Agentic Index — **no verified public score found**
+- **Reasoning / knowledge:** GPQA Diamond, HLE, MMLU-Pro, AIME, CritPt, AA-LCR, Artificial Analysis Intelligence Index, AA-IFBench, AA-Omniscience — **no verified public score found**, so there is **no hallucination measurement**
+- **Coding:** SWE-bench Verified / Pro, LiveCodeBench, SciCode, FrontierCode, Vibe Code Bench — **no verified public score found**
+- **Multimodal:** MMMU / MMMU-Pro, MathVista, CharXiv, OmniDocBench, OCR, Video-MME, audio understanding — **no verified public score found**, despite four-way input
+- **Long context:** MRCR, RULER, LongBench, needle retrieval — **no verified public score found** against a 1M window
+
+Negative evidence gathered, in full:
+
+- **BenchLM has no entry.** Its Google list carries Gemini 3.5 Flash-Lite (50.87) and Gemini 3.1 Flash-Lite (48.05) but **not** 2.5 Flash-Lite — while also carrying Gemini 2.5 Pro (49.4) and Gemini 2.5 Flash (42.16), so the generation itself is indexed and this tier specifically is not.
+- **evals.report returns 404** for `google-gemini-2-5-flash-lite`, while its pages for Gemini 1.5 Pro (14 scores) and Gemini 2.0 Flash (22 scores) both resolve.
+- **Artificial Analysis has no entry** (no AA rows reach any aggregator for this model).
+- A targeted search for `"Gemini 2.5 Flash-Lite" GPQA OR MMLU OR LiveCodeBench benchmark score %` returned DuckDuckGo's explicit **"No results found"**.
+- Google's own developer blog contains a figure captioned "**Benchmarks for Gemini 2.5 Flash-Lite**" — published as a **chart with no extractable values**. I have not estimated from it.
+
+### Why exclusion rather than partial or proxy scoring
+
+**Inheriting Gemini 2.5 Flash's or 2.5 Pro's numbers is wrong.** Both are different models at different price points with their own folders in this dataset (`gemini-2.5-flash` scores 42.16 on BenchLM, `gemini-2.5-pro` 49.4), and Google explicitly positioned Flash-Lite as a *lower-intelligence* tier — "an even lower cost option … for cost and latency sensitive use cases that require **less model intelligence**". Importing a sibling's figures would overstate it and corrupt two folders' averages.
+
+**Partial scoring on specification evidence alone is insufficient.** Context window (1,048,576 / 65,536, vendor-documented) and Multimodal (four-way input, vendor-documented) could be scored. But **Tool use, Reasoning and Coding have zero data**, and the cost dimension has **no published rate**. Four of six dimensions unscoreable makes an Overall meaningless.
+
+**The retirement date makes the question largely academic anyway.** Google is withdrawing this model on **2026-10-20**. Even a well-measured score would describe something uncallable within a fortnight.
+
+**Reversal criteria:** lift this exclusion if benchmark rows appear on BenchLM or evals.report for this exact ID, if Artificial Analysis adds an entry, or if Google publishes its Flash-Lite benchmark figures in extractable form before retirement.
+
+### Normalized scores (1–100)
+
+Not computed. Every benchmark row reads "no verified public score found", confirmed by four independent negative checks (BenchLM absence while siblings are indexed, an evals.report 404 while siblings resolve, no Artificial Analysis entry, and a search returning "No results found"). Three of five quality dimensions have **zero** data and the cost dimension has no published rate. Per `RULES.md` this is precisely the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only — Google Cloud's **Gemini Enterprise Agent Platform model reference** for `gemini-2.5-flash-lite`, which supplied the model ID, the **2026-10-20 retirement notice**, the positioning statement, the full per-modality input/output matrix (text in and out; image, audio and video input only), the 1,048,576-token context and 65,536-token output limits, and the capability matrix (thinking, system instructions, structured output, implicit and explicit context caching, RAG Engine, tuning); and Google's **developer blog of 2025-06-17** for the preview introduction, the "lowest latency and cost in the 2.5 model family" positioning, the thinking-off-by-default design, the native tool list (Grounding with Google Search, Code Execution, URL Context, function calling), the high-throughput classification/summarization use case, and the explicit "requires less model intelligence" framing. Negative checks performed and reported: **BenchLM** (no entry, while Gemini 2.5 Pro, 2.5 Flash, 3.1 Flash-Lite and 3.5 Flash-Lite are all indexed); **evals.report** (404, while Gemini 1.5 Pro and 2.0 Flash resolve with 14 and 22 scores); **Artificial Analysis** (no entry); and a targeted benchmark search returning "No results found". Google's chart-only benchmark figure was deliberately **not** estimated. This folder's `meta.json` was read only to identify the tracked model; its OpenCode Zen free-tier claim is reported as **incorrect** against Zen's published catalogue. **No benchmark was imported from `gemini-2.5`, `gemini-2.5-flash` or `gemini-2.5-pro`**, each of which has its own folder and all of which Google positions above this tier. No peer `model/` findings files were read. Unavailable items — every benchmark figure, the knowledge cutoff, the architecture and the per-token price — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Qwen 3.5 9B — findings by GLM 5.3 Flash
 
 - Source: Alibaba Cloud Qwen — Qwen/Qwen3.5-9B (`qwen-3.5-9b`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,80 +9,67 @@
 
 - **Name:** Qwen 3.5 9B (Qwen3.5-9B)
 - **Short description:** Compact unified multimodal foundation model from Alibaba's Qwen team — 9B-parameter causal LM with a vision encoder, early-fusion trained on text/image/video. Top use cases: multimodal reasoning, agentic tool calling, and long-document/OCR understanding on modest hardware.
-- **Provider / access:** Self-host via Hugging Face weights (Apache-2.0) with vLLM, SGLang, KTransformers, or Transformers; OpenAI-compatible Chat Completions API (`/v1/chat/completions`). Hosted through HF Inference Providers (e.g. Together AI). No verified Zen listing found in this research pass.
-- **Release / knowledge:** Released February 2026 (blog `qwen3.5`); HF weights updated 2026-03-02. Knowledge cutoff not stated on the card.
+- **Provider / access:** Self-host via Hugging Face weights (Apache-2.0) with vLLM, SGLang, KTransformers, or Transformers; OpenAI-compatible Chat Completions API. Hosted routes now verified: OpenRouter from $0.08 in / $0.13 out per 1M (Darkbloom fp4; Parasail bf16 $0.10/$0.25, Venice fp8 $0.10/$0.15, Together, SiliconFlow, DeepInfra), HF Inference Providers. No verified Zen listing found in this research pass.
+- **Release / knowledge:** Released February 2026 (blog `qwen3.5`; BenchLeader dates 2026-02-24); HF weights updated 2026-03-02. Knowledge cutoff not stated on the card.
 - **IDs:** `Qwen/Qwen3.5-9B` (state explicitly: no verified Free ID on OpenCode Zen found)
-- **Context window:** 262,144 tokens natively, extensible to 1,010,000 via YaRN (verified: official HF model card "Model Overview" and YaRN config `factor 4.0`, `original_max_position_embeddings 262144`)
+- **Context window:** 262,144 tokens natively (benchlm 262k), extensible to 1,010,000 via YaRN (verified: official HF model card "Model Overview" and YaRN config `factor 4.0`, `original_max_position_embeddings 262144`)
 - **Modalities:** Text, image, and video in (PDF not claimed); text out; reasoning yes (thinking mode default, `enable_thinking: false` switch available); tool calls yes (`qwen3_coder` tool-call parser); JSON mode via prompt standardization, not a hard JSON mode
-- **Pricing (as of 2026-10-01):** Open weights Apache-2.0 — $0 to self-host (BF16, ~10B params fits single-GPU/consumer setups); hosted per-token pricing not verified in this pass
+- **Pricing (as of 2026-10-09):** Open weights Apache-2.0 — $0 to self-host (BF16 fits single-GPU/consumer setups); hosted $0.08/$0.13 per 1M verified (OpenRouter price history, BenchLeader; blended $0.155/M — cheapest fifth of ranked models). Output speed 64 tok/s (AA-measured), first token 1.04s.
 - **Architecture:** Hybrid linear-attention stack — 32 layers laid out as 8 × (3 × (Gated DeltaNet → FFN) → 1 × (Gated Attention → FFN)); 9B LM parameters (10B safetensors total incl. vision encoder); hidden dim 4096; vocab 248320; MTP trained multi-step; sparse MoE cited in the family highlights; open weights Apache-2.0
 
 ### Raw benchmarks found
 
-All numbers below are vendor-reported on the official Hugging Face model card `Qwen/Qwen3.5-9B` (harness noted where stated). Cross-checked against the Qwen3.5 blog (https://qwen.ai/blog?id=qwen3.5).
+> Vendor HF model card + BenchLeader/AA effort sweep (updated 2026-10-09). Conflicts between vendor and independent readings listed.
 
 Agent / tool use:
 
-- BFCL-V4 (**vendor card**): **66.1** (Qwen/Qwen3.5-9B model card, Language table)
-- TAU2-Bench (**vendor card, official setup with Claude Opus 4.5 airline fixes**): **79.1** (Language table)
-- VITA-Bench (**vendor card**): **29.8** (Language table)
-- DeepPlanning (**vendor card**): **18.0** (Language table)
-- OSWorld-Verified (**vendor card**): **41.8%** (Vision Language table, Visual Agent)
-- AndroidWorld (**vendor card**): **57.8%** (Vision Language table, Visual Agent)
-- ScreenSpot Pro (**vendor card**): **65.2%** (Vision Language table, Visual Agent)
-- Terminal-Bench 2.1: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- TAU2-Bench (vendor card, official setup with Claude Opus 4.5 airline fixes): **79.1**; τ²-Bench Telecom (AA, independent): **86.8%** #83 (fills the independent corroboration — strong agentic tool use confirmed)
+- BFCL-V4 (vendor card): **66.1**; VITA-Bench (vendor card): **29.8**; DeepPlanning (vendor card): **18.0**
+- Terminal-Bench 2.1 (AA, independent): **29.2%** (fills — much weaker than the vendor agentic positioning); TB4.0 (AA): **0.5%**; Terminal-Bench (tbench.ai): **9.2%**; TB Hard (AA): 24.2%
+- GDPval-AA v2.1 (AA): **0.0%** (fills — very weak); Tau3-Banking (AA): 7.0%
+- OSWorld-Verified (vendor card): **41.8%**; AndroidWorld (vendor card): **57.8%**; ScreenSpot Pro: 65.2%
+- Terminal-Bench 2.1 / GDPval-AA / Claw-Eval / MCP-Atlas (vendor rows): no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond (**vendor card, also HF eval-results**): **81.7%**
-- MMLU-Pro (**vendor card, also HF eval-results**): **82.5%**
-- MMLU-Redux (**vendor card**): **91.1%**
-- SuperGPQA (**vendor card**): **58.2%**
-- HLE: no verified public score found
-- AA-LCR (**vendor card**): **63.0** (long-context reasoning)
-- LongBench v2 (**vendor card**): **55.2**
-- LCR / MLCR (MRCR): no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- HMMT Feb 25 (**vendor card**): **83.2**; HMMT Nov 25: **82.9** (competition math)
-- IFEval **91.5** / MultiChallenge **54.5** (instruction following)
+- GPQA Diamond: **79.0%** (Epoch, not-stated; AA 80.6%; Vals-equivalent vendor card 81.7% — consistent 79–82 band)
+- HLE: **14.9%** (AA — fills the previously-missing HLE; weak)
+- AIME 2026: **92.5%** #23 (MathArena, not-stated — fills); OTIS Mock AIME: 61.7%; MathArena Apex: 0.5%
+- AA-LCR: **70.0%** (AA, thinking — fills; above the vendor card's 63.0 reading); LongBench v2 (vendor): **55.2**
+- CritPt: **0.3%** (AA — fills; weak); LMCA: 24.5%; DTBench: 71.2%
+- Artificial Analysis Intelligence Index v4.3.2: **11.2** (AA, thinking — fills the previously-missing index; very low); Epoch ECI: **139.5** #111; BenchLeader Index: **49.0 ±7.3** #394 (thinking best; Instruction following 66, Knowledge 38)
+- AA-Omniscience: Index -53.5, accuracy **16.4%**, non-hallucination **16.4%** (benchlm.ai — poor)
+- HMMT Feb 25 (vendor): **83.2**; MMLU-Redux (vendor): **91.1**; SuperGPQA (vendor): **58.2%**; IFEval (vendor) **91.5** / IFBench (AA) **66.7%** #90 (different benchmarks, both listed); MultiChallenge (vendor) 54.5
 
 Coding:
 
-- LiveCodeBench v6 (**vendor card**): **65.6%**
-- OJBench (**vendor card**): **29.2**
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index / other: no verified public score found
+- SciCode: **27.6%** (Epoch, not-stated; AA 29.5% — fills the previously-missing SciCode; well below the 55%+ frontier mark)
+- Terminal-Bench 2.1 (coding harness, AA): **29.2%** (see above)
+- LiveCodeBench v6 (vendor card): **65.6%**; OJBench (vendor card): **29.2**
+- SWE-bench Verified / SWE-Pro / Vibe Code Bench / DeepSWE: no verified public score found
 
 Long context:
 
-- AA-LCR **63.0** and LongBench v2 **55.2** at long lengths (vendor card); no MRCR / RULER / GraphWalks value at 512K+ reported — native 262K, YaRN extension to 1.01M documented but retrieval at extension lengths not independently verified
+- AA-LCR **70.0%** (independent, above the vendor's 63.0) and LongBench v2 **55.2** measured; no MRCR/RULER at 512K+ of the YaRN 1.01M extension — the 1M claim stays provisional
 
-Multimodal (vendor card, Vision Language table):
+Multimodal (vision):
 
-- MMMU **78.4** / MMMU-Pro **70.1**; MathVision **78.9**; MathVista (mini) **85.7**; VideoMME (w sub.) **84.5**; MLVU **84.4**
-- OmniDocBench1.5 **87.7**; CharXiv (RQ) **73.0**; OCRBench **89.2**; CC-OCR **79.3**; AI2D_TEST **90.2**
-- TIR-Bench **45.6** (w CI); V\* **90.1** (w CI); OSWorld-Verified **41.8%**; AndroidWorld **57.8%**
+- MMMU (vendor): **78.4** / MMMU-Pro (vendor): **70.1** (AA-MMMU-Pro: **69.3%** — independent agreement); MathVision 78.9; VideoMME (w sub.) **84.5**; OCRBench **89.2**; OmniDocBench1.5 **87.7**; AI2D_TEST 90.2; V* 90.1 (w CI); Design-class BenchLeader Multimodal 52
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** TAU2-Bench 79.1 (with Opus 4.5 airline fixes) and BFCL-V4 66.1 are exceptionally strong for a 9B model — at or above the frontier Tau ~50%+ reference band; OSWorld-Verified 41.8% and AndroidWorld 57.8% show solid real-world computer/agent competence. Capped by zero verification on Terminal-Bench 2.1, GDPval-AA, and Claw-Eval (methodology: missing benchmark = N/A, slight penalty) and mid VITA-Bench 29.8.
-- **Reasoning: 72/100.** GPQA Diamond 81.7 just clears the mid band (60–80 → 55–65) into strong territory, backed by HMMT ~83 and MMLU-Pro 82.5; AA-LCR 63.0 and LongBench v2 55.2 show capable long-context reasoning. Capped below 90 by GPQA under the 90%+ frontier ref, no HLE, and no verified Artificial Analysis Intelligence Index.
-- **Context window: 78/100.** Native 262,144 lands in the 200K–500K tier (65–84; 200K = 70) at ~72–75, lifted to ~78 by the officially documented YaRN extension to 1,010,000 tokens (would reach the ≥1M = 95–100 band only with verified ≥98% retrieval at 512K+). AA-LCR 63.0 / LongBench v2 55.2 confirm good long-context retrieval, but no MRCR/RULER measurement at extension lengths was found — the 1M claim stays provisional.
-- **Multimodal: 85/100.** Image + video in with text out maps to the 75–90 band; vision quality is genuinely excellent for the size class — MMMU 78.4 and MathVision 78.9 beat GPT-5-Nano and Gemini-2.5-Flash-Lite, VideoMME 84.5, OCRBench 89.2, OmniDocBench1.5 87.7. Capped by no audio input and text-only output (90–100 requires audio in or non-text out).
-- **Coding: 60/100.** LiveCodeBench v6 65.6 and OJBench 29.2 are mid-tier — well under the mid-band anchor (LiveCode ~80% → 65–75) and far from frontier refs (DeepSWE 74%+, SciCode 55%+). Capped hardest by zero verified SWE-bench Verified, DeepSWE, SciCode, or Terminal-Bench numbers for this exact ID.
-- **Cost efficiency: 92/100.** Apache-2.0 open weights at 9B make self-hosting effectively $0 on a single consumer GPU — near the $0 = 100 reference; slight deduction because hosted per-token pricing was not verified in this pass and the evaluated tier is self-host rather than a Zen free tier.
-- **Overall Score: 74/100.** Mean of the five quality dims (75 + 72 + 78 + 85 + 60) / 5 = 72.0 → 72 (Cost excluded, v4 methodology). Best-fit recommendation: a strong small-model pick for multimodal understanding and light-to-medium agentic work at negligible hosting cost — escalate to a frontier model for heavy SWE/coding tasks.
+- **Tool use: 62/100.** The independent rows split: τ² Telecom 86.8% (#83, AA) confirms strong tool calling, but TB2.1 (AA) 29.2%, TB4.0 0.5%, GDPval-AA 0.0% and TB Hard 24.2% are far below the vendor-card agentic positioning — docked heavily from the old 75.
+- **Reasoning: 64/100.** GPQA 79–81.7% (independent/vendor agreement) and AIME 2026 92.5% (#23) are strong for the size class; the filled HLE 14.9%, AA Index 11.2 and CritPt 0.3% cap it — the "near-frontier" vendor framing does not survive independent measurement.
+- **Context window: 78/100.** Native 262,144 in the 200K–500K tier (65–84), lifted by the documented YaRN extension to 1,010,000; AA-LCR 70.0% (above the vendor's 63.0) confirms good retrieval — no MRCR at extension lengths keeps the 1M claim provisional.
+- **Multimodal: 78/100.** Image + video in with genuinely excellent small-model vision (MMMU 78.4, VideoMME 84.5, OCRBench 89.2, OmniDocBench 87.7; independent MMMU-Pro 69.3% corroborates); text-only output and no audio input cap it below 85.
+- **Coding: 55/100.** LiveCodeBench v6 65.6% (vendor) is mid-tier and the filled SciCode 27.6% / TB2.1 29.2% are weak; zero verified SWE-bench Verified/DeepSWE numbers — the mini tier trades coding depth for multimodality, confirmed.
+- **Cost efficiency: 96/100.** Apache-2.0 weights plus now-verified hosted routes at $0.08/$0.13 per 1M (blended $0.155/M — cheapest fifth per BenchLeader) — near the $0.10/$0.20 = 97–99 band.
+- **Overall Score: 67/100.** Mean of the five quality dims (62 + 64 + 78 + 78 + 55) / 5 = 67.4 → 67. Best-fit recommendation: a strong small-model pick for multimodal understanding and cheap agentic tool-calling at negligible hosting cost — the vendor's near-frontier framing held for vision and math but not for agentic/coding depth (the old draft's 74 also carried an internal mean-text error).
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-01
-- Method: public internet research (official Hugging Face model card + Qwen3.5 blog); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing AA/Epoch/MathArena boards + the official HF model card — vendor vs independent conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing AA Index 11.2, HLE 14.9%, TB2.1 29.2%, τ² Telecom 86.8%, SciCode 27.6%, MMMU-Pro (AA) 69.3%, AA-LCR 70.0%, AIME 2026 92.5%, verified $0.08/$0.13 routes — Tool 75→62, Reasoning 72→64, Multimodal 85→78, Coding 60→55, Cost 92→96, Overall 74→67.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.6.md`, using the same headings.

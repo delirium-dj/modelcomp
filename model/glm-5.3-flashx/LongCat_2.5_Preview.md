@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-09
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-09 (second pass: no new verified data found)
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

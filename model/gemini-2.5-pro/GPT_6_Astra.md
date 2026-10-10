@@ -1,11 +1,33 @@
 # Gemini 2.5 Pro — findings by GPT 6 Astra
 
 - Source: Google DeepMind / `gemini-2.5-pro`
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
 - Cross-model signed log: [model-findings.md](../../model-findings.md)
 
-## Model card
+## Research refresh — 2026-10-10
+
+Compared with 2026-10-04. Sources accessed today; access dates are not evaluation execution dates. This section supersedes conflicting statements or missing-data claims in the preserved snapshot. No local model benchmark was run.
+
+[Google's model reference](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro) still restricts access to previous active users and explicitly says not deprecated. It reconfirms 1,048,576 input / 65,536 output, January 2025 cutoff and broad multimodal inputs. File search, URL context and batch/flex/priority consumption options are documented; tool availability is not a measured success rate.
+
+[Current pricing](https://ai.google.dev/gemini-api/docs/pricing) retains standard $1.25/$10 through 200K input, $2.50/$15 above. Newly recorded batch/flex input/output: **$0.625/$5** and **$1.25/$7.50** respectively; standard cache storage remains $4.50/M tokens/hour. The cost score continues to use standard paid service, not quotas or discounted service classes.
+
+[AA comparison](https://artificialanalysis.ai/models/comparisons/minimax-m3-vs-gemini-2-5-pro) now lists Briefcase **298** versus 302 and GDPval v2.1 **459** versus 444. Index 16, Automation 2%, Terminal 4.0 0%, SciCode 46%, HLE 23%, CritPt 3%, Omniscience −16 and LCR 69% agree. GDP.pdf **10%** and **$0.33/task** add workload evidence. Elo changes do not establish weight changes.
+
+Vibe Code Bench v1.1 / OpenHands: **0.40%, $1.22/test**. [Vals](https://www.vals.ai/benchmarks/vibe-code).
+
+Coding 71→68 incorporates weak end-to-end application building without discarding narrower coding strengths. Other scores unchanged. Remaining gaps: exact model MCP Atlas, newer repository suites and independently reproduced full-window retrieval. Preview and stable checkpoint results stay explicitly separated in the historical snapshot.
+
+### Score comparison
+
+Order: tool use, reasoning, context, multimodal, coding, cost. Previous: **42, 76, 95, 95, 71, 77**; current: **42, 76, 95, 95, 68, 77**. Overall: **76 → 75**. Changes reflect revised evidence, not necessarily changed model weights.
+
+## Prior research snapshot — 2026-10-04
+
+Preserved for comparison; current corrections are above.
+
+### Model card
 
 - **Name:** Gemini 2.5 Pro, stable June 2025 model.
 - **Short description:** Multimodal reasoning model for code, documents and mixed-media analysis.
@@ -39,20 +61,20 @@ Long context:
 - MRCR v2 eight-needle: **58.0% cumulative 128K / 16.4% pointwise 1M**; MMMU **82.0%**, VideoMME with audio/subtitles **86.9%**. [Card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Pro-Model-Card.pdf).
 - AA-LCR v1.1 **69%**. [AA](https://artificialanalysis.ai/models/comparisons/minimax-m3-vs-gemini-2-5-pro).
 
-### Normalized scores (1–100)
+## Current normalized scores (1–100)
 
-- **Tool use: 42/100.** Current independent workflow and terminal results limit agent suitability despite supported tool interfaces.
-- **Reasoning: 76/100.** Strong GPQA, tempered by HLE and retrieval weaknesses.
-- **Context window: 95/100.** Million-token capacity meets the specified tier; weak full-window retrieval prevents an uplift.
-- **Multimodal: 95/100.** Audio, video, images and PDF input cover the audio-input tier; output remains text.
-- **Coding: 71/100.** Useful code editing and scientific coding; repository and modern terminal outcomes cap the score.
-- **Cost efficiency: 77/100.** Paid short-context pricing offers reasonable value, with output and long-context premiums.
-- **Overall Score: 76/100.** Half-up mean: (42 + 76 + 95 + 95 + 71) / 5 = 75.8; best suited to existing mixed-media workflows with supervision.
+- **Tool use: 42/100.** Modern automation/terminal results remain weak despite supported functions.
+- **Reasoning: 76/100.** Strong historical GPQA, moderated by HLE and factual reliability.
+- **Context window: 95/100.** 1M capacity; old full-window retrieval evidence does not justify 100.
+- **Multimodal: 95/100.** Audio/video/image/PDF input, text output.
+- **Coding: 68/100.** Useful supervised coding but new app-building evidence limits autonomous engineering.
+- **Cost efficiency: 77/100.** Paid standard rates unchanged; batch/flex reduce price with different service conditions.
+- **Overall Score: 75/100.** Half-up mean (42 + 76 + 95 + 95 + 68) / 5; cost excluded. Previous overall 76.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-04
+- Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-10
 - Method: Fresh official documentation, vendor card and independent evaluator research; scores are normalized interpretations.
 
