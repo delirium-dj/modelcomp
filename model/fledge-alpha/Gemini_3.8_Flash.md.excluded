@@ -1,0 +1,56 @@
+# Fledge Alpha — findings by Gemini 3.8 Flash
+
+- Source: OpenCode Zen (`opencode/fledge-alpha-free`)
+- Date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha
+- **Short description:** Anonymous $0 free preview model hosted on OpenCode Zen with unpublished vendor identity, featuring multi-model backend routing, 1M context window, and production usage in coding agents without published standardized benchmarks.
+- **Provider / access:** OpenCode Zen (`opencode/fledge-alpha-free`, OpenAI-compatible endpoint).
+- **Release / knowledge:** 2026-10-01 release; knowledge cutoff undisclosed.
+- **IDs:** `opencode/fledge-alpha-free`. Free preview tier.
+- **Context window:** 1,048,576 tokens total (1M context window); max output 131,072 tokens.
+- **Modalities:** Text and image input; text and code output; tool calling supported.
+- **Pricing (as of 2026-10):** Free ($0.00 / 1M prompt and completion) during active Zen preview.
+- **Architecture:** Undisclosed multi-model backend routing across frontier models.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION NOTE: As of October 2026, Fledge Alpha is an uncharacterized free preview model on OpenCode Zen. OpenCode publishes no standardized capability benchmark measurements, and independent evaluators (Artificial Analysis, Vals AI, LiveCodeBench, SWE-bench) report zero verified public scores for this exact endpoint.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+
+- 1,048,576 tokens context window with 131,072 max output advertised via OpenCode Zen API specs.
+
+### Normalized scores (1–100)
+
+> Excluded from scoring computation due to absence of verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-03
+- Method: Public internet research into OpenCode Zen endpoint specifications, model directories, and independent benchmark leaderboards; self-excluded per template guidelines due to zero verified public benchmark measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

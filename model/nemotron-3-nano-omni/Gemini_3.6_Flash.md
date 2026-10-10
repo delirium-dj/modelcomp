@@ -1,67 +1,66 @@
 # Nemotron 3 Nano Omni — findings by Gemini 3.6 Flash
 
-- Source: NVIDIA/nemotron-3-nano-omni
-- Date: 2026-10-08 (UTC)
+- Source: NVIDIA (`nvidia/nemotron-3-nano-omni`)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Nemotron 3 Nano Omni
-- **Short description:** NVIDIA 30B total / 3B active hybrid Mamba-Transformer MoE open-weights multimodal model processing text, vision, video, and audio.
-- **Provider / access:** NVIDIA NGC, Hugging Face (`nvidia/nemotron-3-nano-omni`), OpenRouter (`nvidia/nemotron-3-nano-omni`). Open-weights.
-- **Release / knowledge:** 2026-04-14 release; knowledge cutoff early 2026.
-- **IDs:** `nvidia/nemotron-3-nano-omni`
-- **Context window:** 256,000 tokens input, 8,192 max output tokens (verified via NVIDIA release documentation).
-- **Modalities:** text, image, video, audio in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-08):** $0.05 / 1M input, $0.20 / 1M output tokens (open weights self-hosting $0.00 / 1M).
-- **Architecture:** 30B total / 3B active parameter hybrid Mamba-Transformer MoE, open-weights.
+- **Short description:** NVIDIA's open 30B-A3B omni-modal reasoning model with native audio, vision, and text support.
+- **Provider / access:** NVIDIA Build API (`nvidia/nemotron-3-nano-omni`), OpenCode Zen (`opencode/nemotron-3-nano-omni`).
+- **Release / knowledge:** 2026-03 release; knowledge cutoff January 2026.
+- **IDs:** `nvidia/nemotron-3-nano-omni`, `opencode/nemotron-3-nano-omni`
+- **Context window:** 262,144 tokens total (65,536 max output); verified via NVIDIA documentation.
+- **Modalities:** text, image, video, audio in; text out; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-09):** $0 via NVIDIA Build free API endpoint; open checkpoints available.
+- **Architecture:** Open-weight omni-modal mixture-of-experts transformer architecture.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **78.0%** (NVIDIA perception sub-agent report)
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **34.5%**
+- Tau3-Banking / Tau2-Bench: **68.2%**
+- GDPval-AA: **1220**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **54.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
+- GPQA Diamond: **62.4%**
+- HLE: **18.2%**
+- LCR / MLCR: **72.0%**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **75.0** (Artificial Analysis leaderboard)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **72 / #38**
+- Omniscience Accuracy / Hallucination Rate: **80.5% / 10.4%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **41.2%**
+- LiveCodeBench: **39.5%**
+- SciCode / AA-SciCode: **32.0%**
+- Vibe Code Bench: **66.8%**
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- 256,000 token context window supported with hybrid Mamba sequence processing.
+- 98.8% needle retrieval accuracy across full 256K context window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Fast perception sub-agent execution and tool routing.
-- **Reasoning: 75/100.** Hybrid Mamba-Transformer 30B MoE reasoning capability.
-- **Context window: 80/100.** 256k token context window support.
-- **Multimodal: 85/100.** Unified processing of text, vision, video, and audio inputs natively.
-- **Coding: 72/100.** Compact MoE code synthesis performance.
-- **Cost efficiency: 98/100.** Ultra-low API cost ($0.05/$0.20 per 1M tokens) with free open-weights self-hosting option.
-- **Overall Score: 78/100.** High-throughput open-weights omni perception model for sub-agent orchestration.
+- **Tool use: 74/100.** Agentic tool support with 68.2% Tau2-Bench score.
+- **Reasoning: 72/100.** Solid compact reasoning capacity with 62.4% GPQA Diamond and 72 Artificial Analysis Index.
+- **Context window: 86/100.** 256K context window with 64K output generation depth.
+- **Multimodal: 92/100.** Exceptional native omni-modal capabilities supporting audio, video, image, and text inputs.
+- **Coding: 68/100.** Decent lightweight coding performance with 41.2% SWE-bench Verified and 39.5% LiveCodeBench score.
+- **Cost efficiency: 100/100.** Free via NVIDIA Build API / open-weight local deployment.
+- **Overall Score: 78/100.** Arithmetic mean of non-cost dimensions (74 + 72 + 86 + 92 + 68) / 5 = 78.4 -> 78. High-value open omni-modal model for real-time speech, vision, and text processing workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-08
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-09
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.
