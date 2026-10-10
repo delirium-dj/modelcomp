@@ -23,6 +23,7 @@ All verified numbers trace to the legacy `grok-code-fast-1` identity (same weigh
 Agent / tool use:
 
 - Tau2-Bench (**agentic tool use**): **75.7%** (BenchLM, τ²-bench harness) — provisional for `grok-build-0.1`
+- Gert Labs: **49.15%** (Gert Labs rankings via benchlm.ai, updated 2026-10-10 — fills a new row)
 - Terminal-Bench / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
@@ -60,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-09-25
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
 - Method: public internet research (xAI docs, Artificial Analysis model page, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

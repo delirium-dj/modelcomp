@@ -5,7 +5,7 @@
 
 ## Averaged scores
 
-- **Tool use: 77.3/100.** Mean of top 10 of 13 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 76.9/100.** Mean of top 10 of 13 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Reasoning: 75.3/100.** Mean of top 10 of 13 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Context window: 71.4/100.** Mean of top 10 of 13 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Multimodal: 26.7/100.** Mean of top 10 of 13 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).

@@ -204,3 +204,22 @@ override.
 - Every single-file restore requires prior user permission via a confirmation
   popup: name the exact file, state why it is needed, and proceed only after
   the user confirms. No confirmation → no restore.
+
+## Agent file-deletion approval rule (absolute — trial from 2026-10-10, review after a couple of days)
+
+- An agent never deletes, overwrites, renames, or moves any
+  `model/**/*.md(.excluded)`, `models_voice/**/*.md(.excluded)`,
+  `models_finance/**/*.md(.excluded)`, `models_health/**/*.md(.excluded)`,
+  or any `meta.json` / `average.md` — via `bash` (`rm`, `Remove-Item`,
+  `del`, `git rm`, `git clean`, `git restore`, `git checkout --`), via
+  `edit`/`write`, or any equivalent — without prior user permission via a
+  confirmation popup. No confirmation → no delete.
+- One file per popup: name the exact path, state why the deletion is needed
+  (own-twin retirement, user-directed relocation, merged stem per
+  `MERGED_SOURCE_STEMS`, forbidden duplicate with `ALLOW_MODEL_DELETE=1`),
+  and proceed only after the user confirms that exact file. Batch deletes
+  and whole-tree operations (`git clean -fd`, `Remove-Item -Recurse`,
+  `git reset --hard`) are strictly forbidden without explicit user
+  interaction.
+- A sanction (twin rule, relocation, merge list) only makes a `Yes`
+  possible, never automatic.

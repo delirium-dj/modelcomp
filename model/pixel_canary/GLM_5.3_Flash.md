@@ -64,6 +64,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
-- Method: public internet research (Vercel AI Gateway model page + changelog, Cline/StartupFortune coverage, fetched 2026-10-01); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (Vercel AI Gateway model page + changelog, Cline/StartupFortune coverage, fetched 2026-10-01; no new verified evidence found in the 2026-10-09 re-check - stealth still anonymous, Vercel-controlled eval remains the only measurement); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -228,7 +228,10 @@ For each queued slug, in order:
     any `model/<slug>/` folder. The sole deletable file is your own
     `.md.excluded` twin after re-research with new evidence (Step 3.3). The sole
     sanctioned overwrite is your own `<Your_Filename>` in an approved second pass
-    (ENRICH-PROPOSAL → explicit per-slug user approval).
+    (ENRICH-PROPOSAL → explicit per-slug user approval). **Every deletion
+    needs a per-file confirmation popup first** (`RULES.md` file-deletion
+    approval rule — name the exact path, state why, proceed only after the
+    user confirms; no confirmation → no delete).
 13. **Task and rule files are read-only:** never edit, pin, or otherwise
     modify `tasks/research-assign.md`, `tasks/research.md`,
     `tasks/sync-data.md`, `RULES.md`, anything under `.agents/`, or

@@ -1,0 +1,69 @@
+# GLM 5.3 FlashX — findings by Gemini 3.5 Flash (SELF-EXCLUDED)
+
+- Source: Z.ai / GLM 5.3 FlashX (`glm-5.3-flashx`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION NOTICE:** No verified public benchmark numbers specific to the `glm-5.3-flashx` serving SKU were found on BenchLM, Artificial Analysis, or official Z.ai release notes. Per `RULES.md` and `tasks/research.md`, this file is saved as `.md.excluded` to prevent unverified placeholder numbers from contaminating the dataset means.
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z.ai's high-speed serving variant of GLM-5.3-Flash with identical weights at ~200 tok/s for low-latency multimodal agentic coding.
+- **Provider / access:** Z.ai / Z.ai API Platform (No Zen Free ID)
+- **Release / knowledge:** September 2026; knowledge cutoff May 2026
+- **IDs:** `zai/glm-5.3-flashx`
+- **Context window:** 1,048,576 (1M) context window / 128,000 (128K) max output
+- **Modalities:** Text, image, video in; text out; reasoning yes; tool calls; JSON mode
+- **Pricing (as of 2026-10-08):** Paid $0.37 input / $1.25 output per 1M tokens (no Zen Free ID)
+- **Architecture:** Proprietary Mixture-of-Experts (MoE) architecture
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- RULER / GraphWalks retrieval accuracy: **no long-context retrieval reported**
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public benchmarks found.
+- **Reasoning: 0/100.** No verified public benchmarks found.
+- **Context window: 0/100.** No verified public benchmarks found.
+- **Multimodal: 0/100.** No verified public benchmarks found.
+- **Coding: 0/100.** No verified public benchmarks found.
+- **Cost efficiency: 0/100.** No verified public pricing found.
+- **Overall Score: 0/100.** Awaiting verified public benchmark releases.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.5 Flash (google/gemini-3.5-flash)** — 2026-10-08
+- Method: Public internet research; self-excluded due to lack of verified public benchmarks for this exact SKU.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -116,7 +116,8 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   mutation is the `QUAR` rename (content preserved); correcting a file is
   always edit-then-resync, never removal. Reporting-agent folders are dataset
   infrastructure (rule 11 in `tasks/research.md`) — never deleted or left
-  uncommitted.
+  uncommitted. Every deletion needs a per-file confirmation popup first
+  (`RULES.md` file-deletion approval rule; no confirmation → no delete).
 - `pnpm build` must stay green; `checkOverallScores()` dev tolerance is 0.51.
 - Slug versions use `.` not `-` (`RULES.md` slug identity; full convention in
   `model/README.md`; canonical normalizer `normalizeSlug()` in

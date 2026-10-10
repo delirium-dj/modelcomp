@@ -67,6 +67,6 @@ Speed / cost / other verified measurements (omenalpha.io benchmark snapshot, 202
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
-- Method: public internet research (omenalpha.io benchmarks/API/homepage, OpenCode data page, rankllms.com and StartupFortune coverage, fetched 2026-10-01); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
+- Method: public internet research (omenalpha.io benchmarks/API/homepage, OpenCode data page, rankllms.com and StartupFortune coverage, fetched 2026-10-01; no new verified evidence found in the 2026-10-09 re-check - stealth still anonymous, OpenCode snapshot remains the only measurement); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
