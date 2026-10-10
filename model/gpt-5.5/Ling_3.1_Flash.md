@@ -83,8 +83,22 @@ evals.report, LLM Boss, aimodelsnavi and FlowHunt rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 83 / Reasoning 85 / Context 95 / Multimodal 65 / Coding 82 / Cost 49 / Overall 82.** New data and confirmations this pass:
+
+- **AA Intelligence Index, full scale history:** **60 and #1 at launch** (2026-04-23, pre-rescale — "tops the Index by 3 points, breaking a three-way tie with Anthropic and Google"; OpenAI topped five headline evals: Terminal-Bench Hard, GDPval-AA and the newly hosted APEX-Agents-AA, trailed only other OpenAI models in CritPt and AA-LCR, and was second to Gemini 3.1 Pro Preview on three more; largest gains: AA-Omniscience +14 points and τ²-Bench Telecom +7) → **38 (xhigh) / 37 (high)** on the current v4.3.2 scale (#65/227; 88M tokens per run "somewhat verbose" at xhigh, 55M "fairly concise" at high; "particularly expensive when comparing to other models of similar price"). Another large benchmark-revision effect, not a regression.
+- **API snapshot and cutoff confirmed:** default snapshot `gpt-5.5-2026-04-23`; knowledge cutoff **December 1, 2025** (API docs; four months ahead of GPT-5.4's); 1,050,000 context / 128,000 max output; cached input $0.50/M (90% off); >272K full-session surcharge $10/$45; Batch/Flex $2.50/$15; Priority $12.50/$75 (2.5×); Fast mode 1.5× speed for 2.5× cost; no free ChatGPT tier; 15,000 RPM / 40M TPM at Tier 5.
+- **System card detail:** GPT-5.5 Pro is the **same underlying model** using a setting that adds parallel test-time compute (safety results treated as strong proxies, separately evaluated where the setting could matter); released with OpenAI's "strongest set of safeguards to date" after full Preparedness-Framework evals, targeted advanced-cyber and biology red-teaming and ~200 early-access partners; stricter cyber-risk classifiers deployed (some users may find them annoying initially).
+- **Launch-economics confirmations:** OpenAI reports GPT-5.5 **matches GPT-5.4 per-token latency** despite far higher intelligence (Codex rewrote OpenAI's own serving infrastructure before launch) and uses significantly fewer tokens for the same Codex tasks; the AA Coding Index lead came "at half the cost of competitive frontier coding models"; internal Expert-SWE (long-horizon coding, median human completion ~20 hours) outperforms GPT-5.4 (figure unpublished).
+- **Vals SWE-bench Verified leaderboard row (2026-08-08 update):** GPT-5.5 resolves 92% of <15-minute tasks, 81% of 15m–1h and 67% of 1–4hr tasks — consistent with the ~82.6% overall Vals read; the board's leader is Claude Opus 5 at 97.00%, with Kimi K3 the strongest open-weight model at 93.40%.
+- **Status context:** superseded as flagship by GPT-5.6 Sol (GA 2026-07-09) and GPT-6 Astra (GA 2026-09-03); GPT-5.5 remains GA with no deprecation announced.
+- **Score impact:** none — the new reads (Index scale history, snapshot/cutoff confirmations, system-card detail, Vals difficulty curve) all land inside the existing bands; the SWE-bench Pro memorization caveat (~30% of tasks estimated broken by a later audit) and AA-Omniscience hallucination rate remain the standing caveats.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI GPT-5.5 launch, LLM Reference, BenchLM, VectorWire, AnotherWrapper); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI GPT-5.5 launch post and system card, OpenAI API docs, Artificial Analysis, vals.ai SWE-bench leaderboard, TopReviewed, LLM Boss, FlowHunt); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_5.md`, using the same headings.

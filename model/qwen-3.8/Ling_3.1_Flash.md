@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-03
-- Method: public internet research (Exa web search); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-03 (updated 2026-10-10)
+- Method: public internet research (Qwen official launch table and HF model card/discussions, OrcaRouter, Codersera, 7minAI, Simon Willison, Ridge); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Qwen_3_8.md`, using the same headings.

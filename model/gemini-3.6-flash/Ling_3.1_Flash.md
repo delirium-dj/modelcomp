@@ -10,7 +10,7 @@
 - **Name:** Gemini 3.6 Flash
 - **Short description:** Google DeepMind's July-2026 "workhorse" Flash model (launched 2026-07-21 alongside 3.5 Flash-Lite and 3.5 Flash Cyber) — better coding, knowledge work and multimodal performance than 3.5 Flash at a lower price, using ~17% fewer output tokens on the AA Index (up to 65% fewer on DeepSWE).
 - **Provider / access:** Gemini API / Google AI Studio, Vertex AI, Gemini app; built-in function calling, structured output, code execution, computer use and search grounding; free tier with standard rate limits on Google AI Studio and OpenCode Zen.
-- **Release / knowledge:** 2026-07-21; knowledge cutoff not stated in the launch materials reviewed.
+- **Release / knowledge:** 2026-07-21; knowledge cutoff **March 2026** (model card) — with the caveat that "in some domains knowledge may be limited to January 2025 (in line with the Gemini 3 Model Family)".
 - **IDs:** `google/gemini-3.6-flash`.
 - **Context window:** 1,048,576 (1M) tokens input / 64K output.
 - **Modalities:** text, image, audio, video, PDF in; text out (per AI/TLDR; the repo `meta.json` omits video — noted).
@@ -76,8 +76,21 @@ vals.ai, Traictory and cross-source rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 80 / Reasoning 82 / Context 95 / Multimodal 92 / Coding 78 / Cost 95 / Overall 85.** New data and confirmations this pass:
+
+- **Knowledge cutoff: March 2026** (model card), with the Gemini-3-family caveat that some domains may still be limited to January 2025 — previously "not stated".
+- **AA Intelligence Index, full scale history:** **50 at launch** (v4.1-era, 2026-07-21 — "does not improve in intelligence over 3.5 Flash", matching it, just below Muse Spark 1.1 and GPT-5.6 Luna at 51; the gains are GDPval-AA v2 +72 to 1421 and token efficiency, with a slight HLE regression to 38%) → **34** on the current v4.3.2 scale (High; **ties Gemini 3.5 Flash Medium's 34** — AA's own comparison headline: "Both models score 34"). Components (vs 3.5 Flash Medium): AA-Briefcase **954 vs 877**, GDPval-AA v2.1 **1283**, AutomationBench-AA **53%**, Terminal-Bench 4.0 **7%**, SciCode **53%**, HLE **41% vs 41%**, GDP.pdf **17%**, CritPt **11% vs 11%**, AA-Omniscience **22 vs 21**, AA-LCR **80% vs 74%** — a wash on intelligence, a win on briefcase/LCR, exactly the "efficiency workhorse" positioning.
+- **Current AA economics:** $0.63 blended ($0.75 in / $3.75 out — the **promotional half-price tier runs until 2026-12-31**, reverting to $1.50/$7.50 on 2027-01-01 per the tier table); cache hit $0.15; **$1.60 per Index task** and $1,614 to run the full Index; 42K output + 20K reasoning tokens per task; 90M tokens per Index run; 197 t/s (vs 3.5 Flash Medium's 208), TTFT 13.65s, 202s per task — **time per task roughly halved vs the predecessor**, per AA's launch article.
+- **Launch-efficiency detail confirmed:** ~17% fewer output tokens than 3.5 Flash on the AA Index (28K→23K) and up to 65% fewer on DeepSWE (276K→97K output tokens per task, per Datacurve); computer use is now a built-in client-side tool via the Gemini API and Gemini Enterprise; the same launch event introduced Gemini 3.5 Flash-Lite ($0.30/$2.50, 350 tok/s) and Gemini 3.5 Flash Cyber.
+- **Model card confirmations:** based on Gemini 3.5 Flash; GDM-MRCR v2 (8-needle) at 128K average reads **91.8%** (vs 3.5 Flash 77.3%, 3.1 Pro 84.9%); enhanced Frontier Safety safeguards for CBRN and cyber-offense domains; slight tone regressions noted; Frontier Safety assessed via Gemini 3.1 Pro (no CCLs); API capabilities list includes computer use (Preview), file search, URL context and Maps grounding, but no audio/image generation and no Live API.
+- **Score impact:** none — the AA v4.3.2 component wash, the promotional pricing (which supports the existing Cost 95 through 2026-12-31) and the efficiency detail all land inside the existing bands; DeepSWE 49% and the mid-tier Index remain the caps.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind model card, AI/TLDR, Wait Which Model, BenchLM, Vals AI, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind model card and launch blog, Gemini API docs, Artificial Analysis, AI/TLDR, gotry.io tier table, Choosemodel); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_6_Flash.md`, using the same headings.

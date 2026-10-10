@@ -65,10 +65,21 @@ Large set of new rows found (Google's own July-2026 comparison tables plus vals.
 - Other: JobBench 11.4%, Gert Labs 56.63%
 - **Scores revised** (see Normalized scores): Tool 74→68, Coding 74→72, Overall 83→81 — Google's own Terminus-2 TB 2.1 run (31%), τ²-bench (43.3%) and DeepSWE (37%) sit well under the 2026 agentic frontier the launch-era 74s assumed
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 68 / Reasoning 80 / Context 95 / Multimodal 92 / Coding 72 / Cost 90 / Overall 81.** New rows and confirmations this pass:
+
+- **Artificial Analysis Intelligence Index — now published (was "unpublished" above):** **46** on the current index version (derived from AA's Gemini 3.5 Flash article: 3.5 Flash's 55 is "up 9 points from Gemini 3 Flash"); **71** on the December-2025 index version at launch (a 13-point jump over Gemini 2.5 Flash), when AA called it "the most intelligent model for its cost" with the top AA-Omniscience score and second in HLE; per-mode estimates on the current index: Reasoning **26** / Non-reasoning **18** (tier medians 26/15). Token usage more than doubled vs 2.5 Flash — one of the highest-token-use models AA has tested. AA Coding Index: **59**.
+- **Independent SWE-bench confirmation:** in the February-2026 full leaderboard re-run (not self-reported by labs), Gemini 3 Flash placed **#2 overall** — behind Claude Opus 4.5, ahead of MiniMax M2.5, GLM-5, Kimi K2.5 and DeepSeek V3.2 — corroborating the official 78%.
+- **Google launch rows (Dec 2025) not previously captured:** AIME 2025 **95.2%** no tools (edges Gemini 3 Pro's 95.0%) and **99.7%** with code execution; MATH **97.5%**; GSM8K **96.8%**; SimpleQA **68.7%**; SWE-bench Multilingual **72.7%**.
+- **Abstract reasoning / hallucination:** ARC-AGI-2 **33.6%** (above Gemini 3 Pro's 31.1%, far under Gemini 3.1 Pro's later 77.1% — the gap that defines the escalation axis); hallucination rate **91–92%** (worse than Pro's 88%; 3.1 Pro ~50%; Gemini 3.5 Flash later improved to 61%, a 31-point drop).
+- **Speed / positioning:** **214 t/s** output (vs Pro 138; Gemini 3.5 Flash later >280 t/s, ~70% faster); Google's official SWE-bench Verified 78% beats Gemini 3 Pro (76.2%) — "the tier inverted"; free consumer access (default in the Gemini app and AI Mode in Search); no deprecation date set; thinking levels minimal/low/medium/high confirmed.
+- **Score impact:** none — the published AA Index (46 current-version), AA Coding Index 59, the independent SWE-bench #2 placement and the new launch rows all land inside the existing bands; the 91–92% hallucination rate and ARC-AGI-2 33.6% are consistent with the Tool/Reasoning caps behind the 2026-10-08 revision.
+
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google Gemini 3 Flash launch + model card, AI/TLDR, llm-stats, Gemini API docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google Gemini 3 Flash launch + model card, Gemini API docs, Artificial Analysis, evals.report, Benchgen, SWE-bench leaderboard re-run); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_Flash.md`, using the same headings.

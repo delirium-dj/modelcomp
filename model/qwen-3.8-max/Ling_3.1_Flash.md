@@ -80,8 +80,21 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 86 / Reasoning 85 / Context 95 / Multimodal 85 / Coding 82 / Cost 85 / Overall 87.** New data and confirmations this pass:
+
+- **AA Intelligence Index, full scale history reconciled:** 53 (published then removed — intermittent endpoint issues) → 56 (press read, 2026-08-06, "level with Claude Opus 4.8 max, ahead of every model out of Google, Meta and xAI; only Anthropic, OpenAI top-tier and Kimi K3 above it") → **58** (published 2026-08-07, v4.1-era 9-eval scale, 9th of 185, +11 over Qwen3.7 Max's 47, −2 under Kimi K3's 60) → **45** on the current v4.3.2 scale (AA's own page, 0902 checkpoint, joint 13th of 29 per Ridge) — the file's Reasoning 85 already prices in the 45; the 58 is the older-scale launch read, not a regression.
+- **Cost-economics finding (Capital & Compute):** Alibaba cut list price 20% ($2.50/$7.50 → $2/$6) yet the **cost to run the full Intelligence Index rose 64%** ($1,063.86 on Qwen3.7 Max → **$1,741.41** on Qwen3.8 Max) because the model emits far more tokens per task — "cheaper tokens, more expensive work." AA measures **67.6 tok/s** (about a third of Qwen3.7 Max's 201.9, but ahead of Kimi K3's 38.5 and Opus 5's 53.3) with 2.60s TTFT; blended $1.18/M; cache hits $0.25/M (88% off). Per-token Cost 85 stands; per-task verbosity is the standing caveat.
+- **Launch table footnotes captured (methodology rigor):** TB 2.1 86.6% is Qwen's own **Claude Code avg@10** run (5h timeout, max_tokens 131,072) while comparator rows use Terminus 2 (Opus 4.8/Fable 5) or Codex (Sol) — harness asymmetry applies; SWE-bench Pro 67.7% uses Claude Code (temp 1.0, top_p 0.95, 256K) on a "refined" benchmark with "problematic tasks corrected"; DeepSWE 56.6% is the best of Claude Code + mini-SWE-agent ("notably, Qwen3.8-Max performs best on Claude Code"); FrontierSWE 73.5 is the official MEAN@5 as of 2026-08-03; in-house QwenSWEBench/QwenQoderBench/QwenReactBench/QwenSVGBench are Qwen-run with Claude Code as harness.
+- **Real-world contest datapoint:** Qwen3.8-Max entered the **WWW2025 Multimodal Dialogue Intent Recognition Challenge** (Alibaba Cloud Tianchi; 526 human teams) — reading customer-service chats (text + screenshots) under competition rules.
+- **Availability/price confirmations:** Cloudflare Workers AI serves `alibaba/qwen3.8-max` at $2/$6 (cached $0.25) via DashScope's OpenAI-compatible endpoint (Chat Completions + Responses formats); Choosemodel tracks the "Qwen3.8-Max License" for the open checkpoint and OpenRouter at $6/M output; the 0902 snapshot remains the default checkpoint most integrations serve (Ridge, 2026-10-10).
+- **Score impact:** none — every new read (Index scale history, Index-run economics, harness footnotes, Ridge/Vals confirmations) lands inside the existing bands; the DeepSWE 56.6% gap, the Vals TB 2.1 read of 67.42% and the vendor-run harnesses remain the caveats.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Alibaba Cloud Model Studio docs, Qwen launch blog, QwenCloud, HokAI, OpenLM); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Qwen launch blog and full benchmark table, Alibaba Cloud Model Studio, QwenCloud, Cloudflare AI, Artificial Analysis via Capital & Compute, Ridge, Vals AI, Choosemodel, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_8_Max.md`, using the same headings.

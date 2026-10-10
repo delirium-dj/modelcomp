@@ -10,7 +10,7 @@
 - **Name:** GPT 6.1 Sol
 - **Short description:** OpenAI's DevDay model (2026-09-29, one week after GPT-6 Sol) — the value tier of the GPT-6 line: AA Intelligence Index 52 (Max), DeepSWE v1.1 75.2% tying GPT-6 Astra at ~1/5 the task cost, OSWorld 2.0 71.4%, at $2/$10 per 1M (cached input halved to $0.10/M); trails Astra by 11.1 points on Terminal-Bench Science 0.1 (57.0% vs 68.1%).
 - **Provider / access:** OpenAI API, ChatGPT Work and Codex (paid/organizational plans; not in free ChatGPT Chat); reasoning effort low/medium/high/xhigh/max; Fast mode 2× Standard; Batch/Flex 50% lower; regional processing +10%; Ultrafast mode coming soon (unpriced).
-- **Release / knowledge:** 2026-09-29 (DevDay); knowledge cutoff not stated in the materials reviewed.
+- **Release / knowledge:** 2026-09-29 (DevDay); knowledge cutoff **April 30, 2026** (OpenAI API docs) — previously "not stated".
 - **IDs:** `openai/gpt-6.1-sol` / `gpt-6.1-sol`. NOTE: the repo `meta.json` is a stale stub ("128K total", "Text in/out") — AA lists a 1M context window, and its OSWorld 2.0 computer-use evaluation implies vision input.
 - **Context window:** 1,000,000 tokens (AA); prompts above 272K input reprice the WHOLE request to 2× input/cache and 1.5× output ($4/$0.20/$5/$15).
 - **Modalities:** text in; text out — vision input implied by the OSWorld 2.0 computer-use evaluation (not explicitly confirmed in the materials reviewed).
@@ -72,8 +72,21 @@ Full AA effort ladder, Epoch, Vals, fru.dev and BenchLeader rows found — sever
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 80 / Reasoning 81 / Context 95 / Multimodal 65 / Coding 82 / Cost 74 / Overall 81.** New data and confirmations this pass:
+
+- **Modalities now explicit (OpenAI API docs):** text and image in, text out; **audio and video explicitly unsupported** — the +image-in band (60–70) placement is confirmed first-party, not just implied by the OSWorld 2.0 eval. 1,050,000-token context / 922,000 max input / 128,000 max output.
+- **AA economics (current reads):** Index 52 (Max) with **67M tokens per run — "fairly concise"** vs the 82M median (unusual for a reasoning model at this level); **$0.72 per Index task** (Max); $1.50 blended; effort ladder Low 42 → Medium 48 → High 50 → Xhigh 51 → Max 52, with Max the fastest at 57 t/s and Low the cheapest at $0.13/task (prices vary up to 5.5× across the ladder).
+- **VulcanBench SWE-v4 economics (115 Codex-CLI runs, ChatGPT Pro subscription, 23 per effort level, judged by Muse Spark 1.3 and Grok 4.6 under the frozen Frontier v4 protocol):** cost/task **$0.31 (Low) → $0.46 (Max)**, $0.39 average; tokens/task 1.24M (Low) → 1.62M (Medium, the most) → 0.91M (High, the fewest — why High costs less than Medium); runtime 6.9–15.4 min; every run finished inside the 3-hour task bound (longest: Medium paddockcore, 80 min); full sweep $44.33 over 22.0 hours.
+- **AWS Bedrock card:** GA 2026-09-29, lifecycle Active, EOL not announced; `bedrock-mantle` (us-east-1 only, both Responses and Chat Completions under `/openai/v1`) and `bedrock-runtime` (US geographic cross-Region inference profile `us.openai.gpt-6.1-sol`; no in-Region or global inference); **output-token burndown is 10:1** (each output token consumes 10 quota tokens); **explicit prompt caching is NOT supported on Bedrock** despite cache pricing dimensions being listed.
+- **Pricing detail confirmed:** cached input $0.10/M = 5% of the uncached rate (95% discount — "50% less than GPT-6 Sol's cached input pricing"); cache writes $2.50/M (1.25×); >272K prompts reprice the full request at 2× input/cache and 1.5× output; Fast 2×, Batch/Flex 50% lower, Ultrafast 6× Standard (up to 8× faster token generation in Codex, coming soon), regional +10%.
+- **Score impact:** none — the new reads (AA $0.72/task and concise 67M tokens, VulcanBench economics, Bedrock quirks, Apr-30-2026 cutoff) all land inside the existing bands or are operational notes; the 10-08 Reasoning revision (GPQA 95.4%, HLE 52.9%, ARC-AGI-2 94.2%) remains the score basis.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI API docs, Artificial Analysis release page, The Daily Brief / beri.net, RohitAI, Layer3 Labs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI GPT-6.1 Sol launch post and API docs, Artificial Analysis, AWS Bedrock model card, VulcanBench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_1_Sol.md`, using the same headings.

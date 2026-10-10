@@ -10,7 +10,7 @@
 - **Name:** MiMo V2.6 Flash
 - **Short description:** Xiaomi's MIT-licensed omnimodal sparse-MoE model (released 2026-09-21/22) — 309B total / 15B active parameters, 1M context, tuned for long-horizon agentic coding at a very low $0.14/$0.28 per 1M; the value half of the MiMo V2.6 release (Pro: $0.43/$0.87, 1.02T/42B).
 - **Provider / access:** Xiaomi official API (flat rate, no length threshold; cached input $0.0028/M; Token Plan subscriptions in CN/EU/SG), OpenRouter, Deep Infra, Vultr ($0.10/$0.25), Kilo Gateway ($0.07/$0.28), Vercel AI Gateway ($0.04/$1.28); MIT weights for self-hosting. No Zen Free ID for this slug (the Zen free tier lives in `mimo-v2.6-free/`).
-- **Release / knowledge:** 2026-09-21/22; knowledge cutoff not disclosed.
+- **Release / knowledge:** 2026-09-21/22; knowledge cutoff **December 2024** (stated in the API's default system prompt) — previously "not disclosed".
 - **IDs:** `xiaomi/mimo-v2.6-flash`.
 - **Context window:** 1,048,576 (1M) tokens input / 128K output.
 - **Modalities:** text, image, video, audio in; text out.
@@ -74,8 +74,21 @@ BenchmarkList and The Model Gap filled the missing rows; the Intelligence Index 
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 76 / Reasoning 62 / Context 95 / Multimodal 92 / Coding 78 / Cost 97 / Overall 81.** New data and confirmations this pass:
+
+- **AA Intelligence Index v4.3.2, full component table (vs MiMo-V2.6-Pro):** Index **38 vs 46**; AA-Briefcase **1493 vs 1516**; GDPval-AA v2.1 **1605 vs 1685**; AutomationBench-AA **64% vs 59%** — **Flash ahead of Pro**; Terminal-Bench 4.0 **23% vs 35%**; SciCode **51% vs 61%**; HLE **35% vs 49%**; GDP.pdf **9% vs 19%**; CritPt **12% vs 27%**; AA-Omniscience **−13 vs 8** (Flash's weakest row); AA-LCR **74% vs 86%**. The 10-08 "Intelligence Index 37.9" read is now superseded by AA's own 38.
+- **AA cost/throughput reads:** $0.058 blended ($0.14 in / $0.28 out, cache hit $0.0028 — a 98% discount); **$0.06 per Index task** and **$110 to run the full Intelligence Index** (vs Pro's $0.13 / $207); 78K output + 58K reasoning tokens per task; 245M tokens per Index run; 61 t/s (faster than Pro's 45), TTFT 3.27s, 1183s per task. In AA's comparison against **Gemini 3.5 Flash-Lite**, Flash leads the Index 38 vs 22 and nearly every component (Lite ahead only on AA-LCR 76% vs 74% and GDP.pdf 14% vs 9%) at a third of the blended price ($0.058 vs $0.331) — but Lite is 7× faster (414 vs 61 t/s) and finishes tasks in 40s vs Flash's 1183s.
+- **Vendor positioning (Xiaomi's V2.6 release write-up):** Flash is the "full-modality, high-intelligence, low-cost" half of the series — "**MiMo-V2.6-Flash has comprehensively outperformed MiMo-V2.5-Pro**" after RL scaling; RL training ran <6 days, 30 steps, ~750K trajectories cumulative, at **~$850K (Flash) / $2.62M (Pro)** training cost, with average task pass rate +25% (Flash) / +12% (Pro) and **DeepSWE v1.1 up ~17 points (48.8→65.7)** for Flash / ~14 (58.4→72.6) for Pro — the out-of-sample generalization claim behind the DeepSWE 65.7 figure. API prices unchanged from the V2.5 series; weights, technical report, MiMo-V2.6-Distill-Qwen-9B and RL resources all open-sourced; model names are all-lowercase (`mimo-v2.6-flash`).
+- **Adoption (RankLLMs):** #29 globally (52.4 overall), **#4 on OpenCode with 9,486 daily active developers**; reference throughput ~185 t/s with sub-220ms TTFT; SWE-bench Verified 67.2% (third tracked read alongside the vendor figures); MIT-licensed self-hosting at zero per-token cost.
+- **Platform detail (Xiaomi model page):** 1M context / 128K max output / RPM 100 / TPM 10M; omni-modal understanding, deep thinking, tool call, streaming, web search, structured output and context caching; prepaid pay-per-token with monthly/annual plans; **compatible with both OpenAI and Anthropic protocols** (update base_url and model to migrate).
+- **Score impact:** none — the AA v4.3.2 components (AutomationBench-AA 64% ahead of Pro, AA-LCR 74%, HLE 35%, SciCode 51%), the RL-training economics and the adoption data all land inside the existing bands; the vendor-vs-vals Terminal-Bench 2.1 spread (87.6% card vs 76.4% independent) and the two conflicting official DeepSWE figures (65.7% vs 67.9%) remain the standing caveats.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Xiaomi model page, vals.ai independent Terminal-Bench run, The Model Gap provenance audit, LLMBoard, OpenRouter, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Xiaomi MiMo model page and V2.6 release docs, Artificial Analysis comparisons, The Model Gap provenance audit, RankLLMs, OpenTools, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2_6_Flash.md`, using the same headings.

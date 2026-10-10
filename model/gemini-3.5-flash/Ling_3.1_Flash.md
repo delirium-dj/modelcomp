@@ -77,8 +77,22 @@ Full release-benchmark set found (AI Release Tracker's 26 tracked scores + DeepM
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 83 / Reasoning 82 / Context 95 / Multimodal 92 / Coding 76 / Cost 85 / Overall 86.** New data and flags this pass:
+
+- **Deprecation flag (operational):** `gemini-3.5-flash` is **deprecated and auto-routed to `gemini-3.6-flash`** (Gemini API docs) — "update your model string to `gemini-3.6-flash` (or Gemini 3.8 Flash)". The model remains served (now via the 3.6 Flash backend), but the original ID is dead for new integrations; the 3.6 Flash comparison table is the live reference.
+- **AA Intelligence Index, full scale history:** **55 at launch** (v4.1-era, 2026-05-19; +9 over Gemini 3 Flash, ahead of Grok 4.3 high 53 and Sonnet 4.6 max 52; largest gains in agentic evals and AA-Omniscience, where the hallucination rate fell 31 points to 61%) → **52** on AA's own v4.1.1 page (#34/186; $1,042.43 to run the Index) → **33–34 (estimated)** on the current v4.3.2 scale (Medium 34 est. / High 33 / Minimal 24; "independent evaluation forthcoming"). Another large benchmark-revision effect, not a regression.
+- **Launch-economics detail recovered (AA):** **280+ output tokens/s** (~70% faster than Gemini 3 Flash, gpt-oss-120b and GPT-5.4 mini xhigh) — the speed-intelligence Pareto claim holds; but the Index costs **$1,552 to run, 5.5× Gemini 3 Flash and 75% more than Gemini 3.1 Pro** (3× the token price of 3. Flash at $1.50/$9.00 vs $0.50/$3.00, plus higher input usage from more agentic turns; output usage broadly unchanged at 73M vs 72M tokens). Current release-page reads: Medium fastest at 208 t/s, Minimal TTFT 0.94s, High $3.69 per task.
+- **SWE-bench Verified now has three reads, all in-band:** 78.0% (10-02), **78.8% (vals.ai, independent — rank #5 on the frontier board per DataLLM Lab)** and 79.3% (BenchGecko, 2026-10-05). The independent vals.ai read corroborates the vendor-side numbers; Coding 76 stands. (The 55.1% SWE-bench Pro figure is a different, harder benchmark — don't cross-compare, as some reviews do.)
+- **Model card (May 2026) confirmations:** based on the Gemini 3 Flash reasoning foundation with thinking levels; 1M context / 64K output; text, image, audio, video, PDF in; Frontier Safety assessed via Gemini 3.1 Pro (no CCLs reached); 3.5 Flash was the default model for the Gemini app and AI Mode in Search, and powers the Spark personal agent.
+- **Pricing fills:** non-global regions $1.65/$9.90 (cached $0.165); free tier with standard rate limits on Google AI Studio confirmed.
+- **Score impact:** none — every new read (Index scale history, independent SWE-bench 78.8%, 280 t/s speed, deprecation) lands inside the existing bands or is an operational note.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind model card + evaluation PDF, Google AI blog, LLM Reference, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind model card, Google AI blog, Gemini API docs, Artificial Analysis, vals.ai via DataLLM Lab, BenchGecko, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_5_Flash.md`, using the same headings.

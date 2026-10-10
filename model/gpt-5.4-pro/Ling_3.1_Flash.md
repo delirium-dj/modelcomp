@@ -76,8 +76,19 @@ Benchmark Atlas, BenchGecko and comparison-table rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 86 / Reasoning 90 / Context 95 / Multimodal 65 / Coding 82 / Cost 12 / Overall 84.** New data and confirmations this pass:
+
+- **AA has not re-run GPT-5.4 Pro on the current v4.3.2 scale** — its model page reads "Unknown" for the Pro's Index (the v4.3.2 component table only carries GPT-5.4 xhigh: Index 39 est., GDPval-AA v2.1 1246, HLE 44%, CritPt 23%, AA-Omniscience 6, AA-LCR 82%). The launch-era reads (Index 57 equal-first, Coding Index 57, Agentic Index 69, CritPt 30%) remain the Pro's best public composite evidence; DeepLearning.AI's launch writeup confirms the full-index run cost **~$2,950 vs Gemini 3.1 Pro Preview's $892** (57.0 vs 57.2 points — "nearly tied"), and notes that in **OpenAI's own tests GPT-5.4 Pro underperformed Gemini 3.1 Pro Preview in several tasks** while costing more to run the same tests.
+- **API detail confirmed:** Responses API **only** (to enable multi-turn model interactions before responding); some requests take several minutes — OpenAI recommends **background mode**; default snapshot `gpt-5.4-pro-2026-03-05`; reasoning effort medium (default)/high/xhigh; >272K input bills the full session at 2× input and 1.5× output across standard, batch and flex; regional processing +10%; no cached-input price is published for Pro (cache hit column blank) — unlike the non-Pro's $0.25/M.
+- **Microsoft Foundry catalog:** "OpenAI's most capable frontier model" with **native computer use (keyboard, mouse, screenshots)** and **Tool Search** for large tool ecosystems — the computer-use and tool-search surfaces are first-party features, not just eval results.
+- **Score impact:** none — every new read (AA's "Unknown" status, the $2,950 run cost, the Responses-only/background-mode detail, Foundry's feature list) lands inside the existing bands or is operational; the 10-08 fills (BrowseComp 89.3%, FrontierMath v2 82.5%/58.5%) remain the evidence base.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI GPT-5.4 launch, OpenAI API docs, Artificial Analysis, DeepLearning.AI, BenchmarkList, evals.report); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI GPT-5.4 launch and API docs, Artificial Analysis, DeepLearning.AI, Microsoft Foundry catalog, Benchmark Atlas, BenchGecko); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5_4_Pro.md`, using the same headings.

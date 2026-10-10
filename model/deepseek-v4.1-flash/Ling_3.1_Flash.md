@@ -76,10 +76,21 @@ Independent and board data found (fills the LiveBench, MMMU-Pro and harness-sens
 - MCP Atlas / BrowseComp / OSWorld / τ-Bench / Toolathlon: still no verified public score (BenchLM lists all as "Coming soon" as of 2026-10-08)
 - No score change: LiveBench's eight group-leadership rows and MMMU-Pro 77.0% corroborate the 84/87/94/72/84 profile; the AA TB 4.0 run (26.8%) and the harness spread are noted as caveats
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 84 / Reasoning 87 / Context 94 / Multimodal 72 / Coding 84 / Cost 95 / Overall 84.** New rows this pass (note: most fresh coverage is of the retired V4-Flash/0731 lineage that now routes to V4.1-Flash — labeled as such):
+
+- **AA provider page (current Index v4.3.2):** DeepSeek V4.1 Flash (max) = **39** — still the most intelligent model on DeepSeek's provider page (V4 Pro 0813 max 36, V4 Flash Vision max 35, then the V4 Flash 0731 / V4 Pro / V4 Pro 0813 variants); **$0.27 cost per task**, **217 t/s**, TTFT **1.16s** (the file's "AA 236 t/s" was an earlier read). The 0731's headline "50" was on the July index version — not comparable to today's 39 (same recalibration that moved Gemini 3 Flash from 71 to 46).
+- **Retired V4-Flash 0731 lineage (re-post-trained 284B/13B, routes here):** AA Intelligence Index **50** (article) / **52** (max-effort comparison, v4.1.1) — a 10-point jump over the April Flash (40), 6 ahead of V4 Pro, 1 behind GPT-5.6 Luna (51), level with GLM-5.2 (51) and Gemini 3.6 Flash (50), 7 behind Kimi K3 (57); **GDPval-AA v2 Elo 1559** — open-weights #2 behind Kimi K3 (1687), ahead of GLM-5.2 (1510); AA's own Terminal-Bench 2.1 run **79%** vs DeepSeek's 82.7% (a ~4-point vendor-to-third-party gap, echoing the V4.1 Flash harness caveat); Toolathlon verified **70.3%**, CyberGym **76.7%**, NL2Repo **54.2%**, Agents' Last Exam **25.2%** (0.5 behind Opus 4.8's 25.7), AutomationBench **25.1%**, DSBench-FullStack **68.7%**, DSBench-Hard **59.6%**; AA-Omniscience **−16** (hallucination 84%, accuracy 37%); CritPt 17%, SciCode 50%, HLE 37%, AA-LCR 66%, GPQA 91%; ~206M output tokens on the Index (−12% vs predecessor).
+- **Cost corroboration (Quartz/Reuters):** V4-Flash was found to be the **cheapest major AI model to run** — ~$0.03 per benchmark test vs $0.86 (Kimi K3), $1.86 (GPT-5.6 Sol) and $3.15 (Claude Fable 5); AA measured ~60% lower cost per task than GPT-5.6 Luna (max) even after OpenAI's 80% price cut, driven by DeepSeek's ~98% cache-hit discount (vs the industry-standard 90%).
+- **V4 paper long-context data (supports the recall-decay caution):** MRCR 8-needle accuracy stays above 0.82 through 256K tokens but falls to **0.59 at 1M** (V4-Pro-Max); at 1M, V4-Flash needs 10% of V3.2's single-token inference FLOPs and 7% of its KV cache; 32T-token pretraining, Muon optimizer, mHC, CSA+HCA hybrid attention.
+- **API detail:** V4-Flash natively supports the **Responses API format** and is adapted for **Codex**; legacy `deepseek-chat`/`deepseek-reasoner` aliases retired 2026-07-24 (they pointed to the non-thinking/thinking modes of `deepseek-v4-flash`). Third-party price reads: Vercel $0.06/$0.18, DataLLM $0.09/$0.18 (cache $0.02), ZenMux/UserRightAI $0.14/$0.28 — all at or under the first-party off-peak $0.15/$0.60.
+- **Score impact:** none — the current AA read (39 on v4.3.2, $0.27/task) matches the file's AA row, the 0731 lineage rows are predecessor data consistent with the effort-tier caveats, and the cheapest-major-model cost finding corroborates Cost 95.
+
 ---
 
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (DeepSeek V4.1-Flash launch, Artificial Analysis, DeepInfra, LLMLearner, ARMES Docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (DeepSeek V4.1-Flash launch, DeepSeek API changelog, Artificial Analysis, DeepInfra, LLMLearner, ARMES Docs, Quartz/Reuters, Hugging Face model card); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_1_Flash.md`, using the same headings.

@@ -17,6 +17,12 @@ import type { Plugin } from "@opencode-ai/plugin"
 // real reply. Same recovery (wait, then "continue"), so the same plugin
 // owns it. Thresholds MIN_LOCKS / LONG_LOCK_RUN live next to lockRun() below.
 //
+// What we catch, shape 2b: "at"-storm stalls. Kimi K3 also answers with
+// "@ @ @ @ ..." (space-separated "@"s, dozens in a row) instead of a real
+// reply. Same recovery (wait, then "continue"), so the same plugin owns it.
+// Thresholds MIN_ATS / LONG_AT_RUN live next to atRun() below. Whitespace
+// is stripped before scoring, so "@@@..." and "@ @ @ ..." score the same.
+//
 // What we catch, shape 3: "silent" drops. Sometimes the storm does NOT
 // arrive as a `session.error` at all — the provider stream just ends and
 // the degenerate text sits in the transcript as a NORMAL assistant message,
@@ -43,8 +49,16 @@ const LONG_RUN = 10
 const MIN_LOCKS = 3
 const LONG_LOCK_RUN = 10
 
+// "@"-storm thresholds (shape 2b, see header). Real prose never repeats
+// "@" back-to-back, so these tripwires are safe: an at-only message needs
+// >= MIN_ATS "@"s; an embedded run needs >= LONG_AT_RUN "@"s in a row.
+// Whitespace is stripped first, so "@@@..." and "@ @ @ ..." score the same.
+// A single "@" (email addresses, mentions) is far below either threshold.
+const MIN_ATS = 3
+const LONG_AT_RUN = 10
+
 // Which model to handle. Empty string = ANY model.
-// Kimi K3 drops these ways today (bang-storms and lock-storms), but any
+// Kimi K3 drops these ways today (bang-storms, lock-storms, at-storms), but any
 // model can send the same degenerate payload in the future — so we
 // deliberately leave this open.
 // To restrict to Kimi only later, set this to "kimi".
@@ -177,6 +191,36 @@ function lockRun(text: string): number {
   return best
 }
 
+// True when the text is ONLY "@" signs (plus harmless whitespace/newlines)
+// and carries at least MIN_ATS of them. Examples: "@@@", "@ @ @ ...32x".
+// Anything with a letter, digit or other punctuation returns false.
+function isAtOnly(text: string): boolean {
+  const compact = text.replace(/[\s]/g, "")
+  if (compact.length < MIN_ATS) return false
+  return /^[@]+$/.test(compact)
+}
+
+// Scores the three "@"-storm forms (whole string / single line / long
+// embedded run). Returns the longest "@" run found (0 = no match).
+// Whitespace is stripped first, so "@ @ @ ..." and "@@@..." score the same.
+function atRun(text: string): number {
+  const compactAll = text.replace(/[\s]/g, "")
+  if (isAtOnly(text)) return compactAll.length
+  let best = 0
+  for (const line of text.split(/\r?\n/)) {
+    if (isAtOnly(line)) {
+      const n = line.replace(/[\s]/g, "").length
+      if (n > best) best = n
+    }
+  }
+  const stripped = text.replace(/[\s]/g, "")
+  const m = stripped.match(new RegExp(`@{${LONG_AT_RUN},}`, "g"))
+  if (m) {
+    for (const run of m) if (run.length > best) best = run.length
+  }
+  return best
+}
+
 // Small helper: toasts must never break the retry. If the TUI client is
 // missing (headless run, odd version), we log and carry on with the timer.
 async function toast(client: any, message: string, variant: string): Promise<void> {
@@ -194,7 +238,7 @@ async function toast(client: any, message: string, variant: string): Promise<voi
 }
 
 // Transcript scanner (shapes 3+4, see header): read the session's last
-// assistant message and score its text with the same bang/lock matchers.
+// assistant message and score its text with the same bang/lock/at matchers.
 // Returns the longest runs plus the message ID (for dedupe), or null when
 // there is no storm (clean answer, no assistant message, or fetch failed).
 // The MODEL_FILTER guard (fail-open, same as the error path) also lives
@@ -202,7 +246,7 @@ async function toast(client: any, message: string, variant: string): Promise<voi
 async function lastAssistantStorm(
   client: any,
   sessionID: string,
-): Promise<{ bangLen: number; lockLen: number; messageID: string } | null> {
+): Promise<{ bangLen: number; lockLen: number; atLen: number; messageID: string } | null> {
   try {
     const msgs = await client.session.messages({ path: { id: sessionID } })
     const last = [...(msgs?.data ?? [])]
@@ -229,9 +273,10 @@ async function lastAssistantStorm(
 
     const bangLen = bangRun(text)
     const lockLen = lockRun(text)
-    if (!bangLen && !lockLen) return null
+    const atLen = atRun(text)
+    if (!bangLen && !lockLen && !atLen) return null
 
-    return { bangLen, lockLen, messageID: String(last.info?.id ?? "") }
+    return { bangLen, lockLen, atLen, messageID: String(last.info?.id ?? "") }
   } catch {
     // A failed fetch must never break the plugin: treat as clean.
     return null
@@ -239,7 +284,8 @@ async function lastAssistantStorm(
 }
 
 // Human-readable trigger label for the logs/toasts.
-function triggerLabel(bangLen: number, lockLen: number): string {
+function triggerLabel(bangLen: number, lockLen: number, atLen: number = 0): string {
+  if (atLen >= lockLen && atLen >= bangLen && atLen > 0) return `${atLen}x"@"`
   return lockLen > bangLen ? `${lockLen}x"lock"` : `${bangLen}x"!"`
 }
 
@@ -352,7 +398,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       }
 
       // Case 1: session went idle (turn finished, now waiting for user).
-      //   a) Silent bang/lock drop (shape 3): the storm arrived as a NORMAL
+      //   a) Silent bang/lock/at drop (shape 3): the storm arrived as a NORMAL
       //      assistant message; no session.error ever fired. Score the last
       //      assistant message with the same matchers and treat a hit as a
       //      failure — do NOT reset the streak, this idle IS the failure
@@ -393,7 +439,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
           // the streak/brake survive duplicate idles.
           if (handledMessage.get(id) !== hit.messageID) {
             handledMessage.set(id, hit.messageID)
-            const trigger = triggerLabel(hit.bangLen, hit.lockLen)
+            const trigger = triggerLabel(hit.bangLen, hit.lockLen, hit.atLen)
             try {
               await client.app.log({
                 body: {
@@ -430,36 +476,40 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
       const sessionID = readSessionID(event)
 
       // Gather every string inside the error payload and score each for
-      // bang-drop forms (whole / line / long run) and lock-storm forms
-      // (lock-only / long run). This stays correct whether the provider
-      // puts the "!!!!" or "locklock..." in `error`, `message`,
+      // bang-drop forms (whole / line / long run), lock-storm forms
+      // (lock-only / long run), and "@"-storm forms (at-only / long run).
+      // This stays correct whether the provider
+      // puts the "!!!!", "locklock..." or "@ @ @ ..." in `error`, `message`,
       // `error.message`, `detail`, or wraps it ("Upstream error: !!!!...").
       const props = (event.properties as any) ?? event
       const strings: string[] = []
       collectStrings(props, strings)
       let bangLen = 0
       let lockLen = 0
+      let atLen = 0
       for (const s of strings) {
         const b = bangRun(s)
         if (b > bangLen) bangLen = b
         const l = lockRun(s)
         if (l > lockLen) lockLen = l
+        const a = atRun(s)
+        if (a > atLen) atLen = a
       }
 
-      // No bang/lock shape in the ERROR PAYLOAD. The storm may still be
+      // No bang/lock/at shape in the ERROR PAYLOAD. The storm may still be
       // embedded mid-prose in the partial assistant MESSAGE while the error
       // itself is generic transport noise (shape 4, see header). So before
       // calling this "some other error", fall back to scoring the last
       // assistant message.
       // (Other plugins own quota, Invalid input, endpoint-down, pool-empty.)
-      if (!bangLen && !lockLen) {
+      if (!bangLen && !lockLen && !atLen) {
         if (sessionID) {
           // Let the final streamed chunk commit before judging.
           await new Promise((r) => setTimeout(r, SETTLE))
           const hit = await lastAssistantStorm(client, sessionID)
           if (hit && handledMessage.get(sessionID) !== hit.messageID) {
             handledMessage.set(sessionID, hit.messageID)
-            const trigger = triggerLabel(hit.bangLen, hit.lockLen)
+            const trigger = triggerLabel(hit.bangLen, hit.lockLen, hit.atLen)
             try {
               await client.app.log({
                 body: {
@@ -500,7 +550,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
             body: {
               service: "bang-drop-retry",
               level: "warn",
-              message: `matched ${triggerLabel(bangLen, lockLen)} but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
+              message: `matched ${triggerLabel(bangLen, lockLen, atLen)} but no sessionID in payload head=${JSON.stringify(event.properties ?? event).slice(0, 200)}`,
             },
           })
         } catch {
@@ -511,7 +561,7 @@ export const BangDropRetry: Plugin = async ({ client }: any) => {
 
       // Shared with the silent/embedded paths: pending/brake guards,
       // mark-first streak bump, breadcrumb log, toast, 8s "continue" timer.
-      await scheduleRetry(sessionID, triggerLabel(bangLen, lockLen))
+      await scheduleRetry(sessionID, triggerLabel(bangLen, lockLen, atLen))
     },
   }
 }

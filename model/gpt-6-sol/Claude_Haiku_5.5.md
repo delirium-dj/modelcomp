@@ -1,4 +1,4 @@
-I'll start by searching for public information on "GPT 6 Sol" to check whether it exists and has verifiable benchmarks.The first results give the model ID, context window, and pricing, but they conflict in places. I'll look for official benchmark numbers next.# GPT-6 Sol — findings by Claude Haiku 5.5
+# GPT-6 Sol — findings by Claude Haiku 5.5
 
 - Source: OpenAI/GPT-6 Sol (`gpt-6-sol`), with OpenRouter ID `openai/gpt-6-sol`
 - Date: 2026-10-10 (UTC)

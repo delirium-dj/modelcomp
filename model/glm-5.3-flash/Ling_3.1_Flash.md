@@ -83,8 +83,22 @@ ARC Prize, Cognition, Epoch AI and AA's current-page rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 82 / Reasoning 84 / Context 95 / Multimodal 85 / Coding 76 / Cost 95 / Overall 84.** New data and confirmations this pass:
+
+- **AA Intelligence Index v4.3.2, full component table (vs GLM-5.3 Max):** Index **42 vs 45**; AA-Briefcase **1454 vs 1509**; GDPval-AA v2.1 **1644 vs 1651**; AutomationBench-AA **60% vs 62%**; Terminal-Bench 4.0 **33% vs 42%**; SciCode **52% vs 59%**; HLE **40% vs 42%**; GDP.pdf **15% vs 11%** (Flash ahead); CritPt **15% vs 19%**; AA-Omniscience **7 vs 14**; AA-LCR **80% vs 80%** (tie). AA ranks Flash #4 of 117 among open-weight models of similar size (median 18).
+- **Cost-efficiency story (current AA reads):** $0.15/$0.50 list ($0.0982 blended) vs GLM-5.3's $1.40/$4.40 ($0.902 blended); cost per task **$0.25 vs $2.01**; **$280 vs $2,503 to run the full Intelligence Index (9× cheaper)**; 58 t/s vs 79, 856s vs 685s per task; 180M tokens per Index run ("very verbose" — the verbosity tax is real but the price floor holds).
+- **Friendli independent economics study (2026-09-08, max effort on SWE-bench Verified, TB 2.1, CyberGym-300):** GLM-5.3-Flash achieves the **highest CyberGym accuracy and the lowest mean cost on every benchmark** of the three GLMs tested — but once token prices are normalized, **GLM-5.3 (not Flash) has the lower cost per task**, using 12–45% fewer agent turns. Flash's cost advantage comes from cheaper tokens, not trajectory efficiency — a precise framing for the Cost 95 rationale.
+- **Provenance audit (The Model Gap, 2026-10-08):** 8 of 9 tracked scores are independent — DeepSWE v1.1 **63% ±4%** (Datacurve: $0.24/task, 73K output tokens, 123 steps — closely matching the vendor's 63.4%), TB 2.1 **84.3%** (AA's independent run matches the vendor's), GPQA 91.2%, HLE 39.9% no-tools, LiveBench 71.6%, ARC-AGI-2 65.8%, TB 4.0 32.83% (vals.ai). **Toolathlon 78.4% and Agents' Last Exam 26.3% remain vendor-only** (no independent board rows as of the check). The HLE w/tools 55.3% caveat is now precisely documented: it comes from a more permissive harness (tools enabled, GPT-5.6-luna judge, 300K context) than the standard no-tools HLE of 39.9% — the two are not comparable.
+- **Pricing history settled:** the 50% launch promo ($0.075/$0.25, cache $0.015) expired **2026-09-09 24:00 UTC+8**; list $0.15/$0.50 (cache $0.03) applies since (OpenRouter price feed reconfirmed 2026-09-22; AA displayed list even during the promo).
+- **Vendor confirmations (Z.ai blog/docs):** the "ox-alpha" preview codename is confirmed by Z.ai themselves (anonymous pre-release testing on OpenCode and OpenRouter — "the most popular model of the week", all traffic served on Chinese AI chips); DeepSWE methodology is mini-swe-agent at temperature 0.95, top_p 1.0, 6h timeout, 400K context; Z.ai Code Bench v1.0 at max: 29.0 vs Opus 4.8's 29.5.
+- **Score impact:** none — the AA v4.3.2 components, the Friendli efficiency study and the Datacurve DeepSWE detail all land inside the existing bands; the license question (README says MIT; SinoAIHub reads GitHub metadata as Apache-2.0) remains unverified against the HF card.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Z.ai GLM-5.3-Flash launch blog, HF model card via Benchgen, Artificial Analysis via OpenRouter, The Decoder via Traictory, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Z.ai GLM-5.3-Flash launch blog and docs, HF model card, Artificial Analysis, Friendli AI, The Model Gap, ARC Prize, Cognition, Epoch AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5_3_Flash.md`, using the same headings.
