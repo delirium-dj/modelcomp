@@ -72,24 +72,29 @@ export interface AiModel {
   };
 }
 
+/**
+ * Wire order of GeneratedScoreTuple positions in scores.generated.ts.
+ * Must match SCORE_FIELDS in scripts/lib/codegen.mjs (and SHORT in
+ * scripts/lib/parse.mjs) — keys are omitted from the emit to keep the
+ * client chunk small (wire format documented in .agents/rules.md
+ * § Website data flow). Never reorder.
+ */
+const SCORE_ORDER = ["tool", "reasoning", "context", "multimodal", "coding", "cost", "overall"] as const;
+
 function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
   // Scores arrive pre-parsed from scores.generated.ts (emitted by `pnpm sync`,
-  // which is the strict gate that validates every file). A model simply lacks
+  // which is the strict gate that validates every file) as positional tuples
+  // (SCORE_ORDER above) — mapped back to named ModelScores here, so every
+  // other consumer keeps working with names. A model simply lacks
   // sources it has no file for.
   const files = GENERATED_SCORES[slug] || {};
   const sources: Partial<Record<SourceKey, ModelScores>> = {};
   for (const s of SOURCE_DEFS) {
     const sc = files[s.file];
     if (sc === undefined) continue;
-    sources[s.key] = {
-      tool: sc.tool,
-      reasoning: sc.reasoning,
-      context: sc.context,
-      multimodal: sc.multimodal,
-      coding: sc.coding,
-      cost: sc.cost,
-      overall: sc.overall,
-    };
+    const entry = {} as ModelScores;
+    for (let i = 0; i < SCORE_ORDER.length; i++) entry[SCORE_ORDER[i]] = sc[i];
+    sources[s.key] = entry;
   }
   const avg = sources.average;
   if (!avg) {

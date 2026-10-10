@@ -75,8 +75,21 @@ Fills the DeepSWE and Vibe Code Bench gaps:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 82 / Reasoning 86 / Context 95 / Multimodal 65 / Coding 84 / Cost 51 / Overall 82.** New data and flags this pass:
+
+- **Legacy status (operational flag):** Anthropic's platform docs mark Opus 4.8 **"Legacy"** — "Although Claude Opus 4.8 is still available, you should consider migrating to Claude Opus 5.5" (Opus 5 replaced it as the headline Opus on 2026-07-24 at the same $5/$25). Retirement: not sooner than **2027-05-28**; still served on Claude API, Amazon Bedrock, Google Cloud, Microsoft Foundry and Claude Platform on AWS. Pinned integrations keep running; new work should target Opus 5.5.
+- **Knowledge cutoff: January 2026** (platform docs; both reliable-knowledge and training-data cutoffs) — previously "not stated".
+- **AA Intelligence Index, three scales reconciled:** launch-era (2026-05-28) **61.4 — the #1 model on the Index at the time** (+4.1 over Opus 4.7, +1.2 ahead of GPT-5.5 xhigh, with Anthropic retaking #1 on GDPval-AA); the v4.1 9-eval scale (Adaptive Reasoning, Max) reads **56** (28 of 580 models, 120M tokens vs 63M median); the current **v4.3.2 reads 42** (#49/227; 170M tokens per run — "very verbose", slower than average, "particularly expensive when comparing to other models of similar price"). The 61.4 → 42 gap is the benchmark-revision effect seen across the whole top-20, not a capability regression.
+- **Launch-table confirmations (benchr / Anthropic):** SWE-bench Pro **69.2%** (vs 4.7's 64.3%), SWE-bench Verified **88.6%** (vs 87.6%), HLE no-tools **49.8%** (vs 46.9%), GPQA Diamond **93.6%** (vs 94.2% — the one regression row), GDPval-AA **1890 Elo** (vs GPT-5.5's 1769). Honesty: ~**4× less likely than Opus 4.7 to let code flaws pass unremarked**; alignment assessment reached new highs on prosocial traits with misalignment rates substantially below 4.7 and similar to Claude Mythos Preview.
+- **Small fills:** Batch API beta supports **300K max output** (vs 128K standard); fast mode ($10/$50, ~2.5× output speed) is **3× cheaper than the previous Opus generation's fast mode** ($30/$150); Dynamic Workflows (hundreds of parallel subagents, codebase-scale migrations) and effort control (extra/xhigh/max) confirmed in the launch post.
+- **Score impact:** none — the new reads (Index 42 current / 56 v4.1 / 61.4 launch-era, legacy status, Jan-2026 cutoff) all land inside existing bands or are operational notes; DeepSWE 58% ±5 and Vibe Code Bench 82.7% (10-08) remain the coding evidence base.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic Opus 4.8 announcement/system card, LLM Reference, BenchLM, Howardism/The Register); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic Opus 4.8 announcement and platform docs, Artificial Analysis, benchr, AIEvals, The Vibe Father); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Opus_4_8.md`, using the same headings.

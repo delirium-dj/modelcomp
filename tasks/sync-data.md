@@ -68,7 +68,11 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
 6. Emits `src/data/scores.generated.ts` (deterministic, sorted keys): every
    parseable findings file plus each folder's recomputed average means, as
    numbers only — but only when this run has zero failures, so invalid data
-   is never cemented. After adding or editing any findings file, re-running
+   is never cemented. Scores emit as positional tuples
+   `[tool, reasoning, context, multimodal, coding, cost, overall]`
+   (order = `SCORE_FIELDS` in `scripts/lib/codegen.mjs`, mirrored by
+   `SCORE_ORDER` in `src/data/models.ts`) so repeated key names don't bloat
+   the client chunk past Vite's 500 kB warning limit. After adding or editing any findings file, re-running
    sync refreshes it; the file is committed (it is a build input, not build
    output).
 7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line

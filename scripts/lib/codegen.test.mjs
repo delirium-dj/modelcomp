@@ -127,20 +127,26 @@ describe("reconcileRegistry (labels/slugs + virtual prune)", () => {
   });
 });
 
-describe("renderScoresFile (deterministic emit)", () => {
-  it("sorts slugs + files, keeps numbers verbatim", () => {
+describe("renderScoresFile (deterministic tuple emit)", () => {
+  it("sorts slugs + files, emits positional tuples in SCORE_FIELDS order", () => {
     const text = renderScoresFile({
       b: { "B.md": { tool: 1, reasoning: 2, context: 3, multimodal: 4, coding: 5, cost: 6, overall: 7 } },
       a: {
         "Z.md": { tool: 1, reasoning: 1, context: 1, multimodal: 1, coding: 1, cost: 1, overall: 1 },
-        "A.md": { tool: 2, reasoning: 2, context: 2, multimodal: 2, coding: 2, cost: 2, overall: 2 },
+        "A.md": { tool: 8, reasoning: 7, context: 6, multimodal: 5, coding: 4, cost: 3, overall: 2 },
       },
     });
     const aIdx = text.indexOf('"a": {');
     const bIdx = text.indexOf('"b": {');
     assert.ok(aIdx !== -1 && bIdx !== -1 && aIdx < bIdx);
     assert.ok(text.indexOf('"A.md"') < text.indexOf('"Z.md"'));
-    assert.match(text, /"B\.md": \{ tool: 1, reasoning: 2, context: 3, multimodal: 4, coding: 5, cost: 6, overall: 7 \},/);
+    assert.match(text, /"B\.md": \[1, 2, 3, 4, 5, 6, 7\],/);
+    assert.match(text, /"A\.md": \[8, 7, 6, 5, 4, 3, 2\],/);
+    assert.doesNotMatch(text, /tool: 1/);
+    assert.match(
+      text,
+      /export type GeneratedScoreTuple = \[tool: number, reasoning: number, context: number, multimodal: number, coding: number, cost: number, overall: number\];/,
+    );
     assert.ok(text.endsWith("};\n"));
   });
 });

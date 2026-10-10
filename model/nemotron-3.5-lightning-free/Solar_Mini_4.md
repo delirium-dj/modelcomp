@@ -69,7 +69,7 @@ Conflicts flagged (do not average silently):
 - **Multimodal: 15/100.** Text-only input/output; no image/video/audio/attachments → floor assigned.
 - **Coding: 62/100.** SWE-bench Verified 51.56–52.80% and Terminal-Bench v2.1 24.58% are solid, but SciCode 32.1–32.6% and the conflicting agentic/terminal numbers keep autonomous coding reliability moderate.
 - **Cost efficiency: 100/100.** Official/free channel $0/$0 per 1M (Zen + NVIDIA free tier); 30B/3B MoE at near-zero cost is highly efficient; paid gateways start ~$0.025/$0.12.
-- **Overall Score: 56/100.** (68 + 62 + 75 + 15 + 62) / 5 = 56.4 → half-up 56. Best-fit: a genuinely strong 3B-active open-weights agentic workhorse (GPQA 75%, MMLU-Pro 82%, SWE-bench 52.8%) that is held back by low-knowledge accuracy (HLE, CritPt), conflicting public AA composite scores, and host-dependent context windows.
+- **Overall Score: 56.4/100.** (68 + 62 + 75 + 15 + 62) / 5 = 56.4. Best-fit: a genuinely strong 3B-active open-weights agentic workhorse (GPQA 75%, MMLU-Pro 82%, SWE-bench 52.8%) that is held back by low-knowledge accuracy (HLE, CritPt), conflicting public AA composite scores, and host-dependent context windows.
 
 ---
 
