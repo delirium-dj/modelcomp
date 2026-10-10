@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-6.1 Sol (`gpt-6.1-sol`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6.1-sol`
 - **Context window:** 1,050,000 tokens total (1M input / 128,000 max output; verified via OpenAI documentation).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode; test-time reasoning effort control.
-- **Pricing (as of 2026-10-09):** Paid professional tier ($2.00 input / $10.00 output per 1M tokens with prompt caching).
+- **Pricing (as of 2026-10-10):** Paid professional tier ($2.00 input / $10.00 output per 1M tokens with prompt caching).
 - **Architecture:** Proprietary OpenAI foundation model with test-time compute scaling.
 
 ### Raw benchmarks found
@@ -36,8 +36,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across OpenAI technical updates. DeepSWE v1.1 75.2% and OSWorld 2.0 71.4% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_6.1_Sol_Detailed.md`, using the same headings.

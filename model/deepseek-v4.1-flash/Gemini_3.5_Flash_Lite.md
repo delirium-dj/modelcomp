@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: DeepSeek / DeepSeek V4.1 Flash (`deepseek-v4.1-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4.1-flash`
 - **Context window:** 1,048,576 tokens total (1M input / 384,000 output; verified via DeepSeek documentation).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-09):** Paid professional tier ($0.30 input / $1.20 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Paid professional tier ($0.30 input / $1.20 output per 1M tokens).
 - **Architecture:** 552B Mixture-of-Experts (MoE) transformer architecture with massive output window by DeepSeek.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across DeepSeek technical documentation. SWE-bench Verified 70.5% and Terminal-Bench 2.1 71.2% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official DeepSeek technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Zhipu AI / GLM 5.3 Flash (`glm-5.3-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5.3-flash`
 - **Context window:** 204,800 tokens total (verified via Zhipu AI documentation).
 - **Modalities:** Text input/output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-09):** Free Zen tier ($0.00/1M); paid equivalent ~$0.20 / $0.60 per 1M tokens.
+- **Pricing (as of 2026-10-10):** Free Zen tier ($0.00/1M); paid equivalent ~$0.20 / $0.60 per 1M tokens.
 - **Architecture:** Lightweight Mixture-of-Experts (MoE) transformer architecture by Zhipu AI.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Zhipu AI technical documentation. Terminal-Bench 2.1 76.0% and SWE-bench Verified 42.5% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Zhipu AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

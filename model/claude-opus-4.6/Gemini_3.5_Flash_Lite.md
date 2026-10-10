@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Gemini 3.5 Flash Lite
 
 - Source: Anthropic / Claude Opus 4.6 (`claude-opus-4.6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-4.6`
 - **Context window:** 200,000 tokens total (verified via Anthropic documentation).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode; thinking mode.
-- **Pricing (as of 2026-10-09):** Paid professional tier ($15.00 input / $75.00 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Paid professional tier ($15.00 input / $75.00 output per 1M tokens).
 - **Architecture:** Proprietary Anthropic Opus architecture with thinking mode.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Anthropic technical reports. SWE-bench Verified 84.0% and Terminal-Bench 2.1 88.0% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

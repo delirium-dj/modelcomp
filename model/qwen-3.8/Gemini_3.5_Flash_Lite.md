@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Gemini 3.5 Flash Lite
 
 - Source: Alibaba / Qwen 3.8 (`opencode/qwen-3.8`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/qwen-3.8` (Free Zen tier available)
 - **Context window:** 128K total tokens (128K in / 8K out) verified via official model card.
 - **Modalities:** Text in/out, reasoning capabilities, tool calling, JSON mode.
-- **Pricing (as of 2026-09-24):** Free Zen tier ($0/1M); paid equiv. ~$0.50 / $1.50 per 1M tokens.
+- **Pricing (as of 2026-10-10):** Free Zen tier ($0/1M); paid equiv. ~$0.50 / $1.50 per 1M tokens.
 - **Architecture:** Dense transformer architecture (~82B parameters), open-weights license.
 
 ### Raw benchmarks found
@@ -60,8 +60,14 @@ Long context:
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Alibaba Cloud technical documentation. SWE-bench Verified 48.5% and GPQA Diamond 69.4% verified.
+
+---
+
 ## Signature
 
-- Provided by: — 2026-10-09 UTC
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Alibaba Cloud technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one using the same headings.

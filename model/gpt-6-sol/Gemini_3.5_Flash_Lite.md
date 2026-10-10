@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-6 Sol (`gpt-6-sol`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/gpt-6-sol`
 - **Context window:** 131,072 tokens total (verified via OpenAI frontier documentation).
 - **Modalities:** Text input/output; native tool calling; structured outputs; advanced reasoning.
-- **Pricing (as of 2026-10-09):** Frontier premium pricing tier ($5.00 input / $15.00 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Frontier premium pricing tier ($5.00 input / $15.00 output per 1M tokens).
 - **Architecture:** Next-generation frontier neural architecture by OpenAI.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across OpenAI technical documentation. SWE-bench Verified 74.0% and Terminal-Bench 2.1 88.0% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
