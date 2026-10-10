@@ -139,4 +139,20 @@ describe("buildQueueFile (research queue)", () => {
     assert.match(buildQueueFile({}), /#.*\n$/);
     assert.doesNotMatch(buildQueueFile({}), /\n\n$/);
   });
+
+  it("omits retired (parked) slugs even with the highest Overall", () => {
+    const out = buildQueueFile({ ...index, "glm-5.3-free": { "average.md": { overall: 99.9 } } });
+    const rows = out.split("\n").filter((l) => l && !l.startsWith("#"));
+    assert.deepEqual(rows, ["91.8 a-model", "80 b-model", "80 c-model"]);
+  });
+
+  it("documents the retired convention in the header", () => {
+    assert.match(buildQueueFile(index), /Retired \(parked\) slugs are omitted/);
+  });
+
+  it("accepts an explicit retired set override", () => {
+    const out = buildQueueFile(index, new Set(["a-model"]));
+    const rows = out.split("\n").filter((l) => l && !l.startsWith("#"));
+    assert.deepEqual(rows, ["80 b-model", "80 c-model"]);
+  });
 });

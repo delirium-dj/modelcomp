@@ -100,15 +100,28 @@ export function applyAverageToPrev(prev, modelName, body) {
 }
 
 /**
+ * Parked (retired) slugs — user-directed (2026-10-10): `glm-5.3-free`
+ * (fictional Zen route, live-verified absent from zen/v1/models). The folder
+ * stays on disk and in git (permanence, RULES.md) and sync keeps averaging
+ * it, but it is omitted from the research queue so agents never research it.
+ * Mirror list for the site: RETIRED_SLUGS in src/data/models.ts; convention
+ * documented in model/README.md ("Parking a model"). Never invent a third
+ * list — the two mirror each other.
+ */
+export const RETIRED_SLUGS = new Set(["glm-5.3-free"]);
+
+/**
  * Research queue file for AI agents (model-queue.md): one line per model,
  * `<overall> <slug>`, highest Overall first (ties A-Z). Agents process
  * missing folders top-down instead of scanning every average.md themselves.
  * Slugs without a parseable average entry are omitted (caller: unlisted
- * slugs go last, A-Z). Pure + deterministic, like everything else here.
+ * slugs go last, A-Z). Retired (parked) slugs are omitted too — never
+ * researched (model/README.md). Pure + deterministic, like everything else
+ * here.
  */
-export function buildQueueFile(scoreIndex) {
+export function buildQueueFile(scoreIndex, retired = RETIRED_SLUGS) {
   const rows = Object.entries(scoreIndex)
-    .filter(([, files]) => files && files["average.md"] && typeof files["average.md"].overall === "number")
+    .filter(([slug, files]) => !retired.has(slug) && files && files["average.md"] && typeof files["average.md"].overall === "number")
     .map(([slug, files]) => ({ slug, overall: files["average.md"].overall }));
   rows.sort((a, b) => b.overall - a.overall || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
   const lines = [
@@ -116,6 +129,7 @@ export function buildQueueFile(scoreIndex) {
     "# Single point of reference: model roster + Overall scores in one place.",
     "# One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).",
     "# Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.",
+    "# Retired (parked) slugs are omitted — never researched (model/README.md).",
   ];
   for (const r of rows) lines.push(`${r.overall} ${r.slug}`);
   return lines.join("\n") + "\n";

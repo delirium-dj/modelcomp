@@ -1,7 +1,7 @@
 # Qwen 3.8 Max — findings by Step 5 Preview
 
 - Source: Alibaba Cloud `qwen-3.8-max`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,10 +23,14 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.76%** (Artificial Analysis, independent, 0902 snapshot 2026-09-29 — the strongest still-ranked independent result; ahead of Opus 4.8/Fable 5 at 84.6%, behind GPT-5.6 Sol 88.8%)
+- Terminal-Bench 2.1: **88.76%** (Artificial Analysis, independent, 0902 snapshot 2026-09-29) / **67.4%** (Vals AI Terminus-2, independent — reported 2026-09-28) — a large harness split; the strongest AA result vs a much lower Vals run
+- Terminal-Bench 4.0: **34.3%** (Vals AI mini-swe-agent, independent — reported 2026-10-06)
+- DeepSWE 1.1: **57.0%** (Datacurve, independent) / **56.6%** (Alibaba) / **53.1%** (Mercor mini-swe-agent, independent) — mid-tier, well below the 74% frontier ref
+- APEX-Agents Original: **63.3%** (Mercor, independent — reported 2026-10-07)
+- BrowseComp 130-q: **67.9%** (Mercor web-research agent, independent — reported 2026-10-07)
+- Vibe Code Bench 1.1: **64.7%** (Vals AI, independent — reported 2026-10-06)
 - IFBench (instruction following): **82.8%** (vs GPT-5.6 Sol 72.7%)
-- Toolathlon-Verified: vendor-reported (Alibaba self-report, the one agentic number still not independently run)
-- AA-AnalystAgent (spreadsheet/document): trails Claude Opus 5.5 −11.3, Fable 5.1 −12.5 (independent)
+- CharXiv: **94.1%** (Mercor single-shot, independent)
 - PaperBench (research/agentic): **93.0** (Alibaba; ahead of GPT-5.6 Sol 90.5, Fable 5 88.8, Opus 4.8 80.3)
 
 Reasoning / knowledge:
@@ -62,14 +66,14 @@ Long context:
 - **Reasoning: 84/100.** GPQA 92.6–93.69% is near-ceiling and HLE 43.6% clears the 40% bar. Capped hard by the AA Intelligence Index of 40 (well below frontier 57–62), the saturated-board status of the headline GPQA/SWE/LiveCode numbers, and independent HLE trailing most frontier peers (including Opus 5.5 by −18.3) — vendor claims outrun the independent picture.
 - **Context window: 95/100.** 1M input / 131K output at one flat rate (no tiered step-up) — solidly in the ≥1M tier, and the 131K output is generous. Not a full 100 because no explicit MRCR ≥98%-at-512K retrieval figure was published.
 - **Multimodal: 88/100.** Text + image + video in with Arena.AI #2 globally on multimodal human-preference (behind only Claude Fable 5) — hits the 90–100 input band; held to 88 by text-only output and no live MMMU row.
-- **Coding: 82/100.** SWE-bench Verified 85.6% and LiveCodeBench 87.85% look frontier, but both sit on retired/saturated boards; the harder SWE-bench Pro is only 67.7% and independent DeepSWE trails Kimi K3/GLM-5.3 by −12. Terminal-Bench 2.1 88.76% is the one strong still-ranked coding result. Vendor coding claims outrun the independent evidence.
+- **Coding: 82/100.** SWE-bench Verified 85.6% and LiveCodeBench 87.85% look frontier, but both sit on retired/saturated boards; the harder SWE-bench Pro is only 67.7%, independent DeepSWE is 53.1–57.0% (well below the 74% frontier ref), Vibe Code 64.7%, and TB4.0 34.3%. Terminal-Bench 2.1 is harness-split (88.76% AA vs 67.4% Vals). Vendor coding claims outrun the independent evidence.
 - **Cost efficiency: 88/100.** $2/$6 per 1M (Singapore; cheaper elsewhere) at one flat rate across the full 1M window, plus a one-time 1M-token free quota. Under the rubric's ~$1.25/$4.25=88 anchor. No permanent free tier.
-- **Overall Score: 86.2/100.** Mean of the five non-cost dims (82+84+95+90+82)/5 = 86.6. Best fit as a cheap, flat-priced, 1M-context multimodal model for large-context agentic workloads at frontier-undercutting prices; note the gap between Alibaba's headline numbers (many on saturated boards) and the more sobering independent results.
+- **Overall Score: 86/100.** Mean of the five non-cost dims (82+84+95+88+82)/5 = 86.2. Best fit as a cheap, flat-priced, 1M-context multimodal model for large-context agentic workloads at frontier-undercutting prices; note the gap between Alibaba's headline numbers (many on saturated boards) and the more sobering independent results (TB2.1 67.4% Vals, DeepSWE ~55%, Vibe Code 64.7%).
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Alibaba + Artificial Analysis (via hokai.io) and themodelgap.com's independent noise-band analysis (10/12 independent runs).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (42 primary-source results, updated 2026-10-07 — independent TB2.1 67.4% Vals vs 88.76% AA, DeepSWE 53.1–57.0%, TB4.0 34.3%, Vibe Code 64.7%, APEX 63.3%, BrowseComp 67.9%), confirming the vendor-vs-independent gap; also corrected an Overall-arithmetic typo (Multimodal 88, mean 86.2). No score change warranted. Prior pass (2026-10-08) used Alibaba + Artificial Analysis (via hokai.io) and themodelgap.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

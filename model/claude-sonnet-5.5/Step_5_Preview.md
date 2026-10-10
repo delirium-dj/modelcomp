@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-sonnet-5-5`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,8 +67,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic's Sonnet 5.5 system card + Artificial Analysis (via hokai.io) and themodelgap.com's independent noise-band analysis (5/9 independent runs).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (50 primary-source results, updated 2026-10-07 — independent APEX-Agents 75.5%, BrowseComp 86.6%, Vibe Code 92.4%, TB4.0 Mercor mini-swe-agent 51.5%, CharXiv 96.1%) — no score change warranted. Prior pass (2026-10-08) used Anthropic's Sonnet 5.5 system card + Artificial Analysis (via hokai.io) and themodelgap.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

@@ -118,6 +118,26 @@ ranks their scores against generative Overall. Omit `category` (or use
 proprietary. A new paradigm later gets a new category value the same way —
 never a renamed folder.
 
+## Parking a model (retired slugs — hidden, never deleted)
+
+A slug that turns out fictional — no vendor route, phantom catalog entry
+(e.g. `glm-5.3-free`, parked 2026-10-10 after live Zen verification showed
+`opencode/glm-5.3-free` in no listing) — is parked, never deleted (`RULES.md`
+permanence: the folder stays on disk and in git). Parking means all three of:
+
+- the folder keeps every file; `pnpm sync` keeps scanning, averaging, and
+  tripwire-guarding it (averages stay fresh; unparking restores everything);
+- the site hides it: the slug is listed in `RETIRED_SLUGS` in
+  `../src/data/models.ts` — no cards, no A/B/C slots, no per-model page;
+- the research queue omits it: the slug is listed in `RETIRED_SLUGS` in
+  `../scripts/lib/average.mjs` (`buildQueueFile`) — agents never queue,
+  research, write into, or scaffold it (see `../tasks/research.md` Step 1).
+
+Only user direction parks or unparks a slug (remove it from both lists to
+restore). Never invent a third list — the two mirror each other. Do not use
+parking for live models you merely dislike: below-gate and out-of-top-10
+reports stay visible by design (`RULES.md` crown rule).
+
 ## Adding a new model
 
 1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then

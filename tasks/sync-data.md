@@ -79,7 +79,8 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    per model, highest Overall first (ties A-Z) — the pre-sorted research
    queue for `tasks/research-assign.md`, so agents stop scanning every
    `average.md` themselves. Same freshness contract as step 6 (zero failures
-   only, rewritten when drifted).
+   only, rewritten when drifted). Retired (parked) slugs (`RETIRED_SLUGS` in
+   `scripts/lib/average.mjs`) are omitted — never researched.
 
 Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines).
 

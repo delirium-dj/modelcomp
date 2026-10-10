@@ -61,6 +61,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
+4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
 ```
 
 ---
@@ -79,6 +80,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
   1. Read `model-queue.md` (repo root, one read) — process top-down.
   2. Slugs absent there (no `average.md` yet) go last, sorted A-Z by slug.
   3. Fallback only (queue missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
+- Retired (parked) slugs are dropped from the missing-set entirely — never queued, researched, written into, or scaffolded, even when the audit finds the folder on disk missing your file (parked list: `model/README.md` § Parking; the queue file already omits them, this rule covers the audit path).
 - Allowed carve-out: reading `model-queue.md` (or, in fallback, that single Overall line) for ordering is fine
   (see rate-limit Rule 2) — it is also the single point of reference for the
   roster and overall scores ("which models exist / what did X score" → that

@@ -2,6 +2,7 @@
 # Single point of reference: model roster + Overall scores in one place.
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
+# Retired (parked) slugs are omitted — never researched (model/README.md).
 93.7 muse-spark-1.3
 92.6 claude-opus-5.5
 92 gemini-3.8-flash
@@ -90,7 +91,6 @@
 78.2 glm-5.3
 78 gemini-2.5
 77.5 kimi-k2.7-code-highspeed
-77.4 glm-5.3-free
 77 gpt-5.4-mini
 76.9 union-alpha
 76.5 gemini-2.5-flash

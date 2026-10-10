@@ -1,7 +1,7 @@
 # Claude Fable 5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-fable-5`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,8 +64,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic (via hokai.io) and vectorwire.ai (155 results, 31 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (40 primary-source results, updated 2026-10-07 — Vibe Code 90.4%, τ³-bench Banking 39.7%, Vals Index 61.4%, BrowseComp 82.5%, APEX-Agents 63.6%, TB4.0 Claude Code 44.6%) — no score change warranted. Prior pass (2026-10-08) used Anthropic (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

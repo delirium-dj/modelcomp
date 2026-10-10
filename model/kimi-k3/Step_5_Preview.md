@@ -1,7 +1,7 @@
 # Kimi K3 — findings by Step 5 Preview
 
 - Source: Moonshot AI `kimi-k3`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced hokai.io (Moonshot/Artificial Analysis) and vectorwire.ai (131 results, 26 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (52 primary-source results, updated 2026-10-07 — independent BrowseComp 89.0%, Vibe Code 85.0%, APEX-Agents 50.6%, AutomationBench 22.7%, Vals Index 50.3%, Toolathlon Verified 76.5%) — no score change warranted. Prior pass (2026-10-08) used hokai.io (Moonshot/Artificial Analysis) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

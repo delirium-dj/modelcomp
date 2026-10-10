@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-5.6-terra`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,8 +65,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced OpenAI + Artificial Analysis (via hokai.io) and vectorwire.ai (176 results, 30 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (48 primary-source results, updated 2026-10-07 — independent APEX-Agents 58.2%, TB4.0 22.7–24.7%, Vibe Code 74.6%, AutomationBench up to 23.6%, BrowseComp 85.8%) — no score change warranted. Prior pass (2026-10-08) used OpenAI + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 - 200K input / 64K output. Vector Wire rates Long Context **"Frontier"** (leads 2/3) — efficient use of its window, but the absolute window is only 200K (rubric: 200K = 70).

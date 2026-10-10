@@ -235,11 +235,24 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
 }
 
 /**
+ * Parked (retired) slugs — user-directed (2026-10-10): `glm-5.3-free`
+ * (fictional Zen route, live-verified absent from zen/v1/models). The folder
+ * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
+ * scanning it, but it is hidden from the site: excluded from MODELS, so no
+ * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
+ * for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
+ * convention documented in model/README.md ("Parking a model"). Never invent
+ * a third list — the two mirror each other. Reversible: remove the slug here
+ * (and there) and it reappears on the next build.
+ */
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free"]);
+
+/**
  * Hydrated models, sorted by id for determinism. Scores/sources come from
  * scores.generated.ts (emitted by `pnpm sync`); metadata comes from
  * model/<slug>/meta.json. Adding a model = add a folder + re-run sync.
- * Folders without usable data are skipped with a warning (never a build break);
- * `pnpm sync` is the strict gate that flags them for completion.
+ *  Folders without usable data are skipped with a warning (never a build break);
+ *  `pnpm sync` is the strict gate that flags them for completion.
  */
 export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
@@ -251,6 +264,10 @@ export const MODELS: AiModel[] = (() => {
   }
   const models: AiModel[] = [];
   for (const e of metas) {
+    if (RETIRED_SLUGS.has(e.slug)) {
+      warnOnce(`[models] model/${e.slug}/: retired (parked) — hidden from site`);
+      continue;
+    }
     const m = hydrateModel(e.slug, e.meta);
     if (m) models.push(m);
   }
