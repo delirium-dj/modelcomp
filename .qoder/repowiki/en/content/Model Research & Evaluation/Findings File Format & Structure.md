@@ -27,11 +27,14 @@
 - [model/qwen-3.8-max/meta.json](file://model/qwen-3.8-max/meta.json)
 - [model/ring-2.6.1t/meta.json](file://model/ring-2.6.1t/meta.json)
 - [model/solar-open-2/meta.json](file://model/solar-open-2/meta.json)
+- [model/Inkling/MiMo_2.6_Flash.md](file://model/Inkling/MiMo_2.6_Flash.md)
+- [model/claude-opus-4.6/MiMo_2.6_Flash.md](file://model/claude-opus-4.6/MiMo_2.6_Flash.md)
+- [model/muse-spark-1.2/MiMo_2.6_Flash.md](file://model/muse-spark-1.2/MiMo_2.6_Flash.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated to reflect Applied Changes: Integration of new model findings for high-performance models including Qwen 3.8 27B, Gemini 3.1 Flash Lite, Qwen 3.8 Max, Ring-2.6-1T, and Solar Open 2 with detailed benchmarking data and scoring metrics
+- Updated to reflect Applied Changes: MiMo 2.6 Flash consolidation renamed from 'Mimo_v2.6_Flash.md' to 'MiMo_2.6_Flash.md' across 141+ model directories, requiring updated file path references and naming convention examples
 - Added comprehensive examples of meta.json schema implementations for newly integrated models demonstrating diverse pricing structures and modalities
 - Enhanced documentation with real-world examples from Alibaba Cloud, Google, and Upstage providers showing expanded ecosystem coverage
 - Updated model card format examples to include dense vs sparse MoE architectures, open-weights licensing, and specialized use cases
@@ -247,7 +250,7 @@ Exclude --> End
 ### Standardized Benchmark Categorization
 **Updated** New model documentation entries demonstrate consistent benchmark categorization with comprehensive coverage:
 
-- **Agent/tool use**: Terminal-Bench, Tau3-Banking, GDPval-AA, OSWorld/AutomationBench, Claw-Eval, Toolathon, MCP-Atlas
+- **Agent/tool use**: Terminal-Bench, Tau3-Banking, GDPval-AA, OSWorld/AutomationBench, Claw-Eval, Toolathlon, MCP-Atlas
 - **Reasoning/knowledge**: GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Intelligence Index
 - **Coding**: SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE
 - **Long context**: MRCR/RULER/GraphWalks measurements at various window lengths
@@ -400,6 +403,50 @@ Key aspects:
 - [model/ring-2.6.1t/meta.json:1-9](file://model/ring-2.6.1t/meta.json#L1-L9)
 - [model/solar-open-2/meta.json:1-10](file://model/solar-open-2/meta.json#L1-L10)
 
+### Naming Convention Updates: MiMo 2.6 Flash Consolidation
+**Updated** The MiMo 2.6 Flash rater underwent a significant naming convention consolidation where all instances of `Mimo_v2.6_Flash.md` were renamed to `MiMo_2.6_Flash.md` across 141+ model directories. This change standardizes the Xiaomi MiMo 2.6 Flash rater naming while preserving historical variants.
+
+**Key changes implemented:**
+- **Canonical filename**: `MiMo_2.6_Flash.md` (proper capitalization and underscore placement)
+- **Deprecated variant**: `Mimo_v2.6_Flash.md` (old spelling with lowercase 'mimo' and underscore before version)
+- **Historical preservation**: All deleted duplicate files are preserved within the canonical files as "Merged duplicate" sections
+- **Scope**: Applied across 141+ model directories including Claude, GPT, Gemini, and other model families
+
+**Naming convention rules:**
+- Use proper PascalCase for model names (MiMo instead of mimo)
+- Underscore separates model name from version (MiMo_2.6_Flash)
+- Version numbers use dots, not underscores (2.6 not _v2.6)
+- Consistent capitalization throughout the filename
+
+**Examples of properly formatted MiMo 2.6 Flash files:**
+
+[Inkling example:1-75](file://model/Inkling/MiMo_2.6_Flash.md#L1-L75):
+- Canonical file: `MiMo_2.6_Flash.md`
+- Contains merged duplicate section preserving original `Mimo_v2.6_Flash.md` content
+- Maintains all benchmark data and scoring consistency
+
+[Claude Opus 4.6 example:1-67](file://model/claude-opus-4.6/MiMo_2.6_Flash.md#L1-L67):
+- Canonical file: `MiMo_2.6_Flash.md` 
+- Preserves historical duplicate content in merged section
+- Demonstrates consistent formatting across different model families
+
+[Muse Spark 1.2 example:60-75](file://model/muse-spark-1.2/MiMo_2.6_Flash.md#L60-L75):
+- Canonical file: `MiMo_2.6_Flash.md`
+- Shows proper signature formatting with updated rater name
+- Includes merged duplicate preservation section
+
+**Enforcement mechanism:**
+- RULES.md permanently blocks re-creation of deprecated variants
+- Pre-commit hooks prevent staging of old naming conventions
+- Sync pipeline recognizes both forms but only processes canonical versions
+- MERGED_SOURCE_STEMS list in validation scripts prevents resurrection of deprecated variants
+
+**Section sources**
+- [RULES.md:130-140](file://RULES.md#L130-L140)
+- [model/Inkling/MiMo_2.6_Flash.md:72-75](file://model/Inkling/MiMo_2.6_Flash.md#L72-L75)
+- [model/claude-opus-4.6/MiMo_2.6_Flash.md:65-67](file://model/claude-opus-4.6/MiMo_2.6_Flash.md#L65-L67)
+- [model/muse-spark-1.2/MiMo_2.6_Flash.md:72-75](file://model/muse-spark-1.2/MiMo_2.6_Flash.md#L72-L75)
+
 ## Dependency Analysis
 The sync pipeline depends on pure modules for parsing, code generation, naming conventions, and quarantine logic.
 
@@ -441,20 +488,23 @@ Common issues and resolutions:
 - **Hyphen-versioned folders**: Version numbers should use dots; sync suggests corrections.
 - **Non-standardized model cards**: Ensure all required fields are present and follow the v4 template structure.
 - **Incorrect Overall Score calculation**: Verify that Overall = mean of five quality dimensions only (excluding Cost efficiency).
+- **Deprecated naming conventions**: Using old MiMo naming variants like `Mimo_v2.6_Flash.md` will fail validation; use canonical `MiMo_2.6_Flash.md`.
 
 Validation helpers:
 - Quarantine logic checks for missing benchmarks, zero scores, and flat distributions.
 - Naming utilities detect underscore violations and hyphen-version issues.
 - Overall score validation ensures consistency with v4 methodology across expanded model documentation.
+- Naming convention enforcement prevents deprecated variants from being staged or committed.
 
-**Updated** Additional validation for standardized model card format and v4 scoring methodology compliance demonstrated through new model documentation entries including dense vs sparse MoE architectures and diverse pricing structures.
+**Updated** Additional validation for standardized model card format, v4 scoring methodology compliance, and naming convention enforcement demonstrated through new model documentation entries including dense vs sparse MoE architectures, diverse pricing structures, and consolidated MiMo 2.6 Flash naming.
 
 **Section sources**
 - [scripts/lib/quarantine.mjs:33-56](file://scripts/lib/quarantine.mjs#L33-L56)
 - [scripts/lib/naming.mjs:64-72](file://scripts/lib/naming.mjs#L64-L72)
 - [src/data/models.ts:336-354](file://src/data/models.ts#L336-L354)
+- [RULES.md:130-140](file://RULES.md#L130-L140)
 
 ## Conclusion
 The ModelComp findings file format ensures consistent, auditable research documentation. By following the standardized v4 template, adhering to naming conventions, and maintaining accurate meta.json files, researchers contribute reliable data that powers the comparison site. The sync pipeline automates validation, quarantine, and TypeScript generation, minimizing manual overhead while preserving data integrity across expanded model documentation.
 
-**Updated** The comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics ensures that all model evaluations are comparable and maintain high quality standards across the entire dataset. The standardized methodology and consistent formatting guarantee reliable comparisons and transparent evaluation processes, as demonstrated by new model documentation entries from major AI providers including Alibaba Cloud, Google, and Upstage, covering diverse architectures from dense models to sparse MoE systems.
+**Updated** The comprehensive evaluation report format with detailed model specifications, benchmark scores, pricing information, and normalized quality metrics ensures that all model evaluations are comparable and maintain high quality standards across the entire dataset. The standardized methodology and consistent formatting guarantee reliable comparisons and transparent evaluation processes, as demonstrated by new model documentation entries from major AI providers including Alibaba Cloud, Google, and Upstage, covering diverse architectures from dense models to sparse MoE systems. The MiMo 2.6 Flash naming consolidation further strengthens data integrity by eliminating ambiguous file naming variants while preserving historical records for audit purposes.

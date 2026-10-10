@@ -1,1 +1,0 @@
-QwikCity SSR/SSG frontend for the ModelComp site, rendering model comparison tables, hexagon radar charts, methodology pages and per-model detail driven by generated benchmark scores.

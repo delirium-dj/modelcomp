@@ -16,11 +16,11 @@
 
 ## Update Summary
 **Changes Made**
-- Added three new comprehensive retry plugins for API connection failures, model turn errors, and provider header timeouts
-- Enhanced bang-drop-retry.ts with improved error handling and silent drop detection
-- Updated plugin ecosystem overview to include all eight active plugins
-- Expanded architecture diagrams to show new plugin interactions
-- Updated troubleshooting guide with new failure patterns and diagnostic information
+- Enhanced bang-drop-retry.ts with comprehensive @-storm detection alongside existing bang and lock storm handling
+- Added support for detecting repetitive '@' character patterns (both '@@@' and '@ @ @ ...') with sophisticated whitespace-stripping logic
+- Implemented MIN_ATS=3 threshold and LONG_AT_RUN=10 constants for automatic session recovery after 8-second delays
+- Updated all architectural diagrams and component descriptions to reflect the new @-storm detection capabilities
+- Enhanced troubleshooting guide with new @-storm failure patterns and diagnostic information
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -78,7 +78,7 @@ Plugins --> ProviderHeadersTimeout
 - [.opencode/plugins/deepseek-continue-retry.ts:1-183](file://.opencode/plugins/deepseek-continue-retry.ts#L1-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:1-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L1-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
-- [.opencode/plugins/bang-drop-retry.ts:1-425](file://.opencode/plugins/bang-drop-retry.ts#L1-L425)
+- [.opencode/plugins/bang-drop-retry.ts:1-568](file://.opencode/plugins/bang-drop-retry.ts#L1-L568)
 - [.opencode/plugins/api-connect-retry.ts:1-272](file://.opencode/plugins/api-connect-retry.ts#L1-L272)
 - [.opencode/plugins/model-turn-retry.ts:1-231](file://.opencode/plugins/model-turn-retry.ts#L1-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:1-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L1-L308)
@@ -107,7 +107,7 @@ Each plugin follows the same high-level pattern:
 | `deepseek-continue-retry.ts` | Provider rejects payload ("Invalid input") | Send "continue" | 7 seconds | Short "continue" text | 30 |
 | `fledge-endpoint-retry.ts` | Endpoint unavailable | Send "continue" | 10 seconds | Short "continue" text | 30 |
 | `gpt-sol-budget-retry.ts` | GPT Sol channel/pool empty | Resend last user message | 83.5 seconds | Last user message parts | 259 |
-| `bang-drop-retry.ts` | Bang-only or lock-only storm messages | Send "continue" | 8 seconds | Short "continue" text | 30 |
+| `bang-drop-retry.ts` | Bang-only, lock-only, or @-only storm messages | Send "continue" | 8 seconds | Short "continue" text | 30 |
 | `api-connect-retry.ts` | API connection/DNS/network failures | Send "please continue" | 10 seconds | Short "please continue" text | 30 |
 | `model-turn-retry.ts` | Model turn constraint violations | Send "please continue" | 7 seconds | Short "please continue" text | 30 |
 | `provider-headers-timeout-retry.ts` | Provider response header timeouts | Send "continue" | 10 seconds | Short "continue" text | 30 |
@@ -117,7 +117,7 @@ Each plugin follows the same high-level pattern:
 - [.opencode/plugins/deepseek-continue-retry.ts:1-183](file://.opencode/plugins/deepseek-continue-retry.ts#L1-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:1-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L1-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
-- [.opencode/plugins/bang-drop-retry.ts:1-425](file://.opencode/plugins/bang-drop-retry.ts#L1-L425)
+- [.opencode/plugins/bang-drop-retry.ts:1-568](file://.opencode/plugins/bang-drop-retry.ts#L1-L568)
 - [.opencode/plugins/api-connect-retry.ts:1-272](file://.opencode/plugins/api-connect-retry.ts#L1-L272)
 - [.opencode/plugins/model-turn-retry.ts:1-231](file://.opencode/plugins/model-turn-retry.ts#L1-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:1-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L1-L308)
@@ -189,7 +189,7 @@ end
 - [.opencode/plugins/deepseek-continue-retry.ts:49-183](file://.opencode/plugins/deepseek-continue-retry.ts#L49-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:51-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L51-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:46-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L46-L170)
-- [.opencode/plugins/bang-drop-retry.ts:186-425](file://.opencode/plugins/bang-drop-retry.ts#L186-L425)
+- [.opencode/plugins/bang-drop-retry.ts:294-568](file://.opencode/plugins/bang-drop-retry.ts#L294-L568)
 - [.opencode/plugins/api-connect-retry.ts:116-272](file://.opencode/plugins/api-connect-retry.ts#L116-L272)
 - [.opencode/plugins/model-turn-retry.ts:76-231](file://.opencode/plugins/model-turn-retry.ts#L76-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:135-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L135-L308)
@@ -240,7 +240,7 @@ Client --> AppLog : "uses"
 - [.opencode/plugins/deepseek-continue-retry.ts:1-183](file://.opencode/plugins/deepseek-continue-retry.ts#L1-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:1-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L1-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
-- [.opencode/plugins/bang-drop-retry.ts:1-425](file://.opencode/plugins/bang-drop-retry.ts#L1-L425)
+- [.opencode/plugins/bang-drop-retry.ts:1-568](file://.opencode/plugins/bang-drop-retry.ts#L1-L568)
 - [.opencode/plugins/api-connect-retry.ts:1-272](file://.opencode/plugins/api-connect-retry.ts#L1-L272)
 - [.opencode/plugins/model-turn-retry.ts:1-231](file://.opencode/plugins/model-turn-retry.ts#L1-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:1-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L1-L308)
@@ -251,7 +251,7 @@ Client --> AppLog : "uses"
 - [.opencode/plugins/deepseek-continue-retry.ts:1-183](file://.opencode/plugins/deepseek-continue-retry.ts#L1-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:1-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L1-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
-- [.opencode/plugins/bang-drop-retry.ts:1-425](file://.opencode/plugins/bang-drop-retry.ts#L1-L425)
+- [.opencode/plugins/bang-drop-retry.ts:1-568](file://.opencode/plugins/bang-drop-retry.ts#L1-L568)
 - [.opencode/plugins/api-connect-retry.ts:1-272](file://.opencode/plugins/api-connect-retry.ts#L1-L272)
 - [.opencode/plugins/model-turn-retry.ts:1-231](file://.opencode/plugins/model-turn-retry.ts#L1-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:1-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L1-L308)
@@ -416,13 +416,14 @@ Unlock --> End
 **Section sources**
 - [.opencode/plugins/gpt-sol-budget-retry.ts:1-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L1-L170)
 
-### Bang and Lock Storm Handler
-`bang-drop-retry.ts` is the most complex plugin. It detects two degenerate response shapes:
+### Enhanced Bang, Lock, and @-Storm Handler
+**Updated** `bang-drop-retry.ts` is now the most comprehensive storm detection plugin in the ecosystem. It detects three types of degenerate response shapes:
 
 1. **Bang storms:** strings made mostly or entirely of "!" characters.
 2. **Lock storms:** repeated "lock" tokens, either glued together or separated by whitespace.
+3. **@-storms:** repetitive "@" character patterns, both continuous ("@@@...") and space-separated ("@ @ @ ...").
 
-It recursively collects strings from nested error objects, scores bang runs and lock runs, and then decides whether to treat the event as a drop/storm.
+The plugin uses sophisticated whitespace-stripping logic to treat "@@@..." and "@ @ @ ..." identically, with MIN_ATS=3 threshold and LONG_AT_RUN=10 constants for automatic session recovery after 8-second delays.
 
 **Enhanced Features:**
 - Improved silent drop detection that reads the last assistant message on `session.idle` events
@@ -430,18 +431,20 @@ It recursively collects strings from nested error objects, scores bang runs and 
 - Enhanced error logging with detailed trigger information
 - Robust toast helper with fallback logging
 - Atomic state updates to prevent race conditions
+- **New**: Comprehensive @-storm detection with whitespace normalization
 
 Key behaviors:
 
 - Scans for bang-only lines, whole-bang strings, and long embedded bang runs.
 - Scans for lock-only strings and long embedded lock runs.
+- **New**: Scans for @-only strings and long embedded @-runs with whitespace stripping.
 - Supports optional model filtering.
 - Handles missing or unusual session IDs by trying several common locations.
 - Logs event types once per restart for debugging.
 - Uses a robust toast helper that falls back to logging if the TUI is unavailable.
 - Sends "continue" after 8 seconds.
 - Applies an emergency brake after 30 consecutive failures.
-- **New**: Silent drop detection via assistant message analysis.
+- Silent drop detection via assistant message analysis.
 
 ```mermaid
 flowchart TD
@@ -452,7 +455,8 @@ IsError --> |No| Exit["Ignore"]
 IsError --> Collect["Collect all strings from error payload"]
 Collect --> ScoreBang["Score bang runs"]
 ScoreBang --> ScoreLock["Score lock runs"]
-ScoreLock --> HasPattern{"Bang or lock pattern found?"}
+ScoreLock --> ScoreAt["Score @-runs with whitespace stripping"]
+ScoreAt --> HasPattern{"Bang, lock, or @-pattern found?"}
 HasPattern --> |No| SilentCheck["Check assistant message for silent drops"]
 SilentCheck --> |No| Exit
 SilentCheck --> |Yes| ProcessSilent["Process silent drop"]
@@ -473,13 +477,13 @@ ProcessSilent --> End
 ```
 
 **Diagram sources**
-- [.opencode/plugins/bang-drop-retry.ts:70-425](file://.opencode/plugins/bang-drop-retry.ts#L70-L425)
+- [.opencode/plugins/bang-drop-retry.ts:70-568](file://.opencode/plugins/bang-drop-retry.ts#L70-L568)
 
 **Section sources**
-- [.opencode/plugins/bang-drop-retry.ts:1-425](file://.opencode/plugins/bang-drop-retry.ts#L1-L425)
+- [.opencode/plugins/bang-drop-retry.ts:1-568](file://.opencode/plugins/bang-drop-retry.ts#L1-L568)
 
 ### API Connection Failure Handler
-**New** `api-connect-retry.ts` handles comprehensive network connectivity failures including DNS resolution errors, connection timeouts, socket disconnections, and various network-level errors. This plugin is designed to be universal across all providers since connection failures can occur anywhere in the request pipeline.
+`api-connect-retry.ts` handles comprehensive network connectivity failures including DNS resolution errors, connection timeouts, socket disconnections, and various network-level errors. This plugin is designed to be universal across all providers since connection failures can occur anywhere in the request pipeline.
 
 Key behaviors:
 
@@ -520,7 +524,7 @@ Unlock --> End
 - [.opencode/plugins/api-connect-retry.ts:1-272](file://.opencode/plugins/api-connect-retry.ts#L1-L272)
 
 ### Model Turn Constraint Handler
-**New** `model-turn-retry.ts` addresses structural/prompt errors where providers reject requests ending with a model turn (no user message after the last model response). This commonly occurs with Gemini models and other providers that require the conversation to end with a user turn.
+`model-turn-retry.ts` addresses structural/prompt errors where providers reject requests ending with a model turn (no user message after the last model response). This commonly occurs with Gemini models and other providers that require the conversation to end with a user turn.
 
 Key behaviors:
 
@@ -560,13 +564,7 @@ Unlock --> End
 - [.opencode/plugins/model-turn-retry.ts:1-231](file://.opencode/plugins/model-turn-retry.ts#L1-L231)
 
 ### Provider Header Timeout Handler
-**New** `provider-headers-timeout-retry.ts` handles provider gateway timeouts where endpoints never send response headers. This specifically targets cases like DeepSeek 4.1 Flash timeout errors with messages like "Provider response headers timed out after 300000ms".
-
-**Enhanced Features:**
-- Dual-trigger system handling both explicit error events and silent timeout drops
-- Assistant message analysis to detect when timeout text appears as normal messages
-- Sophisticated deduplication to handle duplicate idle events
-- Comprehensive string collection for flexible error pattern matching
+`provider-headers-timeout-retry.ts` handles provider gateway timeouts where endpoints never send response headers. This specifically targets cases like DeepSeek 4.1 Flash timeout errors with messages like "Provider response headers timed out after 300000ms".
 
 Key behaviors:
 
@@ -660,7 +658,7 @@ The plugins are lightweight but rely on asynchronous timers and external API cal
 - **Costly operations:** Reading session messages happens only for plugins that resend the last user message (`budget-retry.ts` and `gpt-sol-budget-retry.ts`) and for silent drop detection in enhanced plugins.
 - **Logging safety:** Logging and toast calls are wrapped in try/catch blocks so plugin failures cannot break the retry loop.
 - **Scalability:** Because plugins run per OpenCode session and only hold in-memory sets/maps keyed by session ID, memory usage grows with active sessions, not with the number of models or files in the repository.
-- **Enhanced error handling:** New plugins include more sophisticated error pattern matching and string collection, which may increase CPU usage slightly but provide better coverage of edge cases.
+- **Enhanced pattern matching:** The enhanced bang-drop-retry plugin now includes sophisticated whitespace-stripping logic for @-storm detection, which may increase CPU usage slightly but provides better coverage of edge cases.
 
 ## Troubleshooting Guide
 
@@ -672,7 +670,7 @@ The plugins are lightweight but rely on asynchronous timers and external API cal
 | DeepSeek repeatedly rejects the request payload | `deepseek-continue-retry.ts` | Look for "Invalid input," check the consecutive counter, and consider compacting or starting a new session after the brake trips. |
 | An endpoint reports it is unavailable | `fledge-endpoint-retry.ts` | Look for "Endpoint is unavailable," wait for recovery, and avoid spamming the session while the brake is active. |
 | GPT Sol shows a pool/channel-empty error | `gpt-sol-budget-retry.ts` | Look for the Chinese pool-empty fragment and the longer 83.5-second retry cycle. |
-| The model responds with "!!!" or "locklocklock…" | `bang-drop-retry.ts` | Look for bang-only or lock-only patterns and confirm the 8-second "continue" retry. |
+| The model responds with "!!!", "locklocklock…", or "@ @ @ …" | `bang-drop-retry.ts` | Look for bang-only, lock-only, or @-only patterns and confirm the 8-second "continue" retry. |
 | Network connectivity issues or DNS failures | `api-connect-retry.ts` | Look for connection error patterns like "getaddrinfo", "econnrefused", "fetch failed" and verify the 10-second retry cycle. |
 | Model turn constraint violations | `model-turn-retry.ts` | Look for "requests ending with a model turn" and check for structural prompt issues. |
 | Provider response header timeouts | `provider-headers-timeout-retry.ts` | Look for "provider response headers timed out" and check for both explicit errors and silent timeout drops. |
@@ -685,13 +683,14 @@ The plugins are lightweight but rely on asynchronous timers and external API cal
 4. **Check session state.** Pending retries are tracked per session ID. A successful `session.idle` should clear pending timers, consecutive counters, and stopped flags.
 5. **Avoid overlapping retries.** Do not manually resend the same prompt while a plugin timer is already scheduled; the `pending` set prevents duplicate timers, but manual activity can still interfere with expected recovery behavior.
 6. **Monitor silent drops.** Enhanced plugins now detect when problematic text appears as normal assistant messages rather than error events. Check logs for "silent timeout" or "embedded" patterns.
+7. **Check for @-storm patterns.** The enhanced bang-drop-retry plugin now detects repetitive "@" character patterns. Look for logs mentioning "@-runs" or "whitespace stripping" when diagnosing @-storm issues.
 
 **Section sources**
 - [.opencode/plugins/budget-retry.ts:49-83](file://.opencode/plugins/budget-retry.ts#L49-L83)
 - [.opencode/plugins/deepseek-continue-retry.ts:77-183](file://.opencode/plugins/deepseek-continue-retry.ts#L77-L183)
 - [.opencode/plugins/fledge-endpoint-retry.ts:122-171](file://.opencode/plugins/fledge-endpoint-retry.ts#L122-L171)
 - [.opencode/plugins/gpt-sol-budget-retry.ts:109-170](file://.opencode/plugins/gpt-sol-budget-retry.ts#L109-L170)
-- [.opencode/plugins/bang-drop-retry.ts:186-425](file://.opencode/plugins/bang-drop-retry.ts#L186-L425)
+- [.opencode/plugins/bang-drop-retry.ts:294-568](file://.opencode/plugins/bang-drop-retry.ts#L294-L568)
 - [.opencode/plugins/api-connect-retry.ts:116-272](file://.opencode/plugins/api-connect-retry.ts#L116-L272)
 - [.opencode/plugins/model-turn-retry.ts:76-231](file://.opencode/plugins/model-turn-retry.ts#L76-L231)
 - [.opencode/plugins/provider-headers-timeout-retry.ts:135-308](file://.opencode/plugins/provider-headers-timeout-retry.ts#L135-L308)
@@ -699,6 +698,6 @@ The plugins are lightweight but rely on asynchronous timers and external API cal
 ## Conclusion
 The OpenCode plugin ecosystem in this repository is a focused, runtime-only extension layer. It does not affect the ModelComp website build or its model comparison data. Instead, it improves the reliability of OpenCode Desktop sessions by automatically recovering from predictable provider failures.
 
-The design is intentionally modular: each plugin owns one failure pattern, one delay strategy, and one recovery action. They share a common event-driven contract, defensive error handling, and user feedback through toasts and logs. The recent additions of three comprehensive retry plugins (API connection failures, model turn constraints, and provider header timeouts) along with enhanced bang-drop detection make the ecosystem significantly more robust and capable of handling a wider range of provider-specific issues.
+The design is intentionally modular: each plugin owns one failure pattern, one delay strategy, and one recovery action. They share a common event-driven contract, defensive error handling, and user feedback through toasts and logs. The recent enhancements to the bang-drop-retry plugin with comprehensive @-storm detection, along with the addition of three new retry plugins (API connection failures, model turn constraints, and provider header timeouts), make the ecosystem significantly more robust and capable of handling a wider range of provider-specific issues.
 
-For future maintenance, the safest approach is to keep plugins narrow, testable in terms of their match strings and delays, and conservative in how they resume sessions. The enhanced error handling patterns and silent drop detection demonstrated in the newer plugins provide excellent templates for extending the ecosystem further.
+For future maintenance, the safest approach is to keep plugins narrow, testable in terms of their match strings and delays, and conservative in how they resume sessions. The enhanced error handling patterns, sophisticated whitespace-stripping logic, and silent drop detection demonstrated in the newer plugins provide excellent templates for extending the ecosystem further.

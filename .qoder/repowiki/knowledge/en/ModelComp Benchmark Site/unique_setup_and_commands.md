@@ -1,1 +1,0 @@
-pnpm dev / pnpm start launches the QwikCity SSR dev server; pnpm build produces the static site; pnpm sync (or --quiet) re-runs the data pipeline against model_data_* registries before building; pnpm test runs the script library unit tests under scripts/lib/.

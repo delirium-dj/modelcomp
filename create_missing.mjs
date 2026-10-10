@@ -1,0 +1,52 @@
+const fs = require('fs');
+const path = require('path');
+
+const modelsDir = path.join(__dirname, 'models');
+
+// Models that need Laguna_XS_2.1.md based on model-queue.md analysis
+const missingModels = [
+  'claude-haiku-5.5',
+  'deepseek-v3.2',
+  'diffusiongemma-26b-a4b',
+  'exo-free',
+  'fledge-alpha',
+  'gemma-4.12b-unified',
+  'gemma-4.26b-a4b',
+  'gemma-4-e2b',
+  'gemma-4-e4b',
+  'glm-5.3-flashx',
+  'gpt-oss-120b',
+  'grok-4.1-fast',
+  'grok-build-0.1',
+  'inkling-small',
+  'jev-1.13',
+  'kimi-k2.5',
+  'kimi-k2.7-code-highspeed',
+  'kimi-k2.8-preview',
+  'laguna-s-2.1',
+  'ling-2.6.1t',
+  'ling-2.6-flash',
+  'ling-3.0-flash',
+  'ling-3.0-flash-sante',
+  'ling-3.0-flash-vl',
+  'ling-3.0-tiny',
+  'ling-3.1-flash',
+  'longcat-2.0',
+  'mai-code-1.1-flash',
+  'mai-code-1-flash',
+  'mai-thinking-1',
+  'mimo-v2.6-distill-qwen-9b',
+  'minimax-m2.7',
+  'minimax-m3.1-flash-preview',
+  'nemotron-3-nano-omni',
+  'north_mini_code',
+  'pareto-26.10-preview',
+  'qwen-3.5-397b',
+  'qwen-3.8-flash-next',
+  'qwen3-max',
+  'ring-2.6.1t',
+  'solar-mini-4',
+  'solar-open-2',
+  'solar-pro-4',
+  'step-5-preview'
+];

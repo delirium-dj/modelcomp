@@ -1,1 +1,0 @@
-Qwik 1.20 + QwikCity + Vite 7 as the shared runtime across the frontend; pnpm 9.15.4 as the package manager; Tailwind CSS v3 + PostCSS for styling; Node.js ≥ 18.17 for the data-sync tooling.

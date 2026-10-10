@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-09T17:59:34Z"
+exported_at: "2026-10-10T20:50:51Z"
 modules:
     "":
-        dir_name: ModelComp Benchmark Site
-        title: ModelComp Benchmark Site
+        dir_name: ModelComp — Cross-Domain LLM Benchmark Registry & Site
+        title: ModelComp — Cross-Domain LLM Benchmark Registry & Site
         scope:
             - README.md
             - AGENTS.md
@@ -32,11 +32,21 @@ modules:
             - REPORT.md
         source_files: []
         children:
+            - excluded_findings
             - frontend_app
             - model_data_finance
             - model_data_text
             - model_data_voice
             - scripts_tooling
+        depends_on: []
+        related_to: []
+    excluded_findings:
+        dir_name: Exo Free — Self-Excluded Model Finding
+        title: Exo Free — Self-Excluded Model Finding
+        scope:
+            - model/exo-free/Kimi_K3.md.excluded
+        source_files: []
+        children: []
         depends_on: []
         related_to: []
     frontend_app:
@@ -49,7 +59,7 @@ modules:
         children: []
         depends_on: []
         related_to:
-            - path: scripts_tooling
+            - path: model_data_text
     model_data_finance:
         dir_name: Finance-Enhanced LLM Model Evaluation Data
         title: Finance-Enhanced LLM Model Evaluation Data
@@ -58,17 +68,17 @@ modules:
         source_files: []
         children: []
         depends_on: []
-        related_to:
-            - path: scripts_tooling
+        related_to: []
     model_data_text:
-        dir_name: Model Benchmark Findings Registry
-        title: Model Benchmark Findings Registry
+        dir_name: Model Benchmark Data Registry
+        title: Model Benchmark Data Registry
         scope:
             - model/
         source_files: []
         children: []
         depends_on: []
         related_to:
+            - path: frontend_app
             - path: scripts_tooling
     model_data_voice:
         dir_name: Voice Model Benchmark Findings
@@ -79,18 +89,14 @@ modules:
         source_files: []
         children: []
         depends_on: []
-        related_to:
-            - path: scripts_tooling
+        related_to: []
     scripts_tooling:
-        dir_name: Model Findings Sync & Registry Codegen
-        title: Model Findings Sync & Registry Codegen
+        dir_name: Model Findings Sync & Data-Generation Tooling
+        title: Model Findings Sync & Data-Generation Tooling
         scope:
             - scripts/
         source_files: []
         children: []
         depends_on: []
         related_to:
-            - path: frontend_app
-            - path: model_data_finance
             - path: model_data_text
-            - path: model_data_voice

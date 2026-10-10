@@ -14,14 +14,16 @@
 - [tasks/sync-data.md](file://tasks/sync-data.md)
 - [README.md](file://README.md)
 - [src/components/Footer.tsx](file://src/components/Footer.tsx)
+- [RULES.md](file://RULES.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated infrastructure section to reflect removal of temporary verification utilities (_verify_tmp.ps1)
-- Enhanced documentation for donation infrastructure cleanup with placeholder-based approach
-- Improved troubleshooting guidance for infrastructure-related issues
-- Updated project structure documentation to reflect current state of verification and donation systems
+- Updated validation system documentation to reflect enhanced merged source stems mapping support
+- Added detailed explanation of Mimo_v2.6_Flash to MiMo_2.6_Flash canonicalization
+- Enhanced file extension handling documentation for .md and .md.excluded files
+- Updated troubleshooting guidance with specific examples of merged stem conflicts
+- Improved duplicate detection mechanisms documentation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -43,7 +45,7 @@ This document explains the data synchronization pipeline that turns research fin
 
 The pipeline enforces strict validation rules, automatic quarantine for evidence-free reports, rater gating to avoid low-quality averages, and top-10 cohort averaging. It also protects research-file permanence through a git-based tripwire and auto-scaffolds missing metadata while failing loudly on invalid content.
 
-**Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories and updated naming conventions for Space Bunny model references.
+**Updated** Enhanced validation system now supports merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', providing robust duplicate detection and canonicalization for Xiaomi rater variants. The synchronization logic handles both .md and .md.excluded file extensions for merged duplicates, ensuring proper processing of legacy and current file naming conventions.
 
 ## Project Structure
 At a high level, the pipeline consists of:
@@ -84,7 +86,7 @@ Infrastructure["Infrastructure Layer<br/>Donation & Verification"] --> Sync
 The pipeline's core responsibilities are implemented by focused modules:
 
 - Parsing and scoring: defines canonical score labels, short keys, quality dimensions, drift tolerance, half-up rounding, and functions to parse, shorten, rank, and partition eligible sources.
-- Validation: enforces filename hygiene, meta.json required fields, and a permanence tripwire for tracked research files.
+- Validation: enforces filename hygiene, meta.json required fields, permanence tripwire, and merged source stems mapping for duplicate detection.
 - Averaging: builds average.md bodies, entries for the client index, and merges recomputed content with existing files.
 - Code generation: maintains the SourceKey union and SOURCE_DEFS array, appends new sources, reconciles labels/slugs, and renders the numeric scores artifact.
 - Naming: maps stems to display keys, resolves labels and slugs via overrides and catalog lookup, detects hyphen-version violations, and formats slug guesses.
@@ -151,6 +153,7 @@ Key behaviors:
 - Permanence tripwire: compares git HEAD with disk; allows twin retirement and sanctioned mirror relocation; otherwise fails loudly.
 - Slug version convention: rejects hyphenated versions between digits and suggests dotted form.
 - **Enhanced merged slug handling**: Detects resurrected merged slugs and vendor-prefixed duplicates, preventing them from being processed as new models. Merged slugs are mapped to their canonical destinations and fail loudly with clear instructions.
+- **Enhanced merged source stems handling**: Processes both .md and .md.excluded file extensions for merged duplicates, ensuring proper canonicalization of variant spellings like Mimo_v2.6_Flash to MiMo_2.6_Flash.
 - Rater gate: reads committed average Overall per model; only raters above threshold contribute to another model's average.
 - Fallback rule: if no raters qualify, average all available reports (top-10 cap still applies).
 - Registry reconciliation: prunes virtual-view entries and ensures labels/slugs are consistent.
@@ -202,18 +205,21 @@ Responsibilities:
 - Validates filenames against allowed characters.
 - Validates meta.json required fields and display-name constraints.
 - **Enhanced merged slug detection**: Maintains a comprehensive map of merged model slugs that must never be recreated, providing clear error messages directing users to canonical destinations.
+- **Enhanced merged source stems mapping**: Supports canonicalization of variant spellings like Mimo_v2.6_Flash → MiMo_2.6_Flash, ensuring duplicate detection and preventing silent double-counting of the same rater.
 
 Error handling:
 - Deletion failures include explicit restoration instructions.
 - Filename hygiene failures prevent cementing invalid structures.
 - Meta.json validation returns ordered FAIL messages for missing fields and underscores in names.
 - **Improved batch operation validation**: Enhanced error messages for merged slugs and vendor-prefix violations provide clear guidance for resolving duplicate model directories.
+- **Enhanced file extension handling**: Properly processes both .md and .md.excluded file extensions for merged duplicates, ensuring sanctioned permanence survivals.
 
 **Section sources**
 - [scripts/lib/validate.mjs:1-25](file://scripts/lib/validate.mjs#L1-L25)
 - [scripts/lib/validate.mjs:27-52](file://scripts/lib/validate.mjs#L27-L52)
 - [scripts/lib/validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
 - [scripts/lib/validate.mjs:30-40](file://scripts/lib/validate.mjs#L30-L40)
+- [scripts/lib/validate.mjs:42-63](file://scripts/lib/validate.mjs#L42-L63)
 
 ### Averaging Logic: scripts/lib/average.mjs
 Responsibilities:
@@ -341,6 +347,7 @@ Codegen --> |uses| NamingResolve["resolveSourceMeta via naming.mjs"]
 - Minimal I/O: pure helpers perform computations; orchestrator batches filesystem operations and avoids unnecessary writes.
 - Early exits: generated files are skipped when failures exist, preventing partial cementation.
 - **Enhanced duplicate detection**: Optimized slug validation and merged slug checking prevents unnecessary processing of forbidden duplicates.
+- **Optimized file extension handling**: Efficient processing of both .md and .md.excluded files reduces redundant operations during merged stem validation.
 
 **Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved performance characteristics for larger datasets, including optimized handling of widespread Laguna XS 2.1 model adoption and streamlined processing of updated naming conventions.
 
@@ -423,12 +430,22 @@ Common issues and resolutions:
   - Cause: Folder names like `gpt-5-5` instead of `gpt-5.5`.
   - Resolution: Rename the folder to use dotted version numbers; merge into the existing canonical folder.
 
+- **Enhanced merged source stems errors**:
+  - Symptom: FAIL indicating a duplicate spelling that was merged into another file.
+  - Cause: A resurrected merged source stem (e.g., `Mimo_v2.6_Flash.md`) exists on disk when the canonical variant (`MiMo_2.6_Flash.md`) is present.
+  - Resolution: Remove the variant file and use only the canonical spelling; the system automatically handles both .md and .md.excluded extensions for merged duplicates.
+
+- **File extension handling issues**:
+  - Symptom: Confusion about .md vs .md.excluded file processing.
+  - Cause: Understanding of how the system handles merged duplicates with different file extensions.
+  - Resolution: Both .md and .md.excluded files are properly processed for merged duplicates; the system recognizes sanctioned permanence survivals where either extension may be present.
+
 - **Infrastructure-related issues**:
   - Symptom: Confusion about verification utilities or donation link configuration.
   - Cause: Outdated references to temporary verification scripts or unclear donation platform setup.
   - Resolution: Use the built-in sync validation (`pnpm sync`) instead of external verification scripts; configure donation links through the `EXTRA_DONATE_LINKS` array in `Footer.tsx`.
 
-**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues. Infrastructure improvements include streamlined verification processes and improved donation link management.
+**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues. Infrastructure improvements include streamlined verification processes and improved donation link management. The enhanced validation system now properly handles merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring robust duplicate detection and canonicalization for Xiaomi rater variants.
 
 **Section sources**
 - [scripts/sync-data.mjs:119-126](file://scripts/sync-data.mjs#L119-L126)
@@ -439,9 +456,12 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:145-178](file://scripts/sync-data.mjs#L145-L178)
 - [scripts/sync-data.mjs:452-467](file://scripts/sync-data.mjs#L452-L467)
 - [scripts/sync-data.mjs:496-523](file://scripts/sync-data.mjs#L496-L523)
+- [scripts/lib/validate.mjs:42-63](file://scripts/lib/validate.mjs#L42-L63)
+- [scripts/lib/validate.mjs:74-80](file://scripts/lib/validate.mjs#L74-L80)
 - [src/components/Footer.tsx:42-53](file://src/components/Footer.tsx#L42-L53)
+- [RULES.md:130-140](file://RULES.md#L130-L140)
 
 ## Conclusion
 The data synchronization pipeline transforms research Markdown into reliable runtime data through strict parsing, validation, and deterministic aggregation. It safeguards data integrity via quarantine, rater gating, top-10 cohort averaging, and permanence tripwires. New reporting agents are automatically discovered and registered, while generated TypeScript artifacts provide efficient, type-safe access to scores and source definitions. Following the troubleshooting guidance ensures quick resolution of common sync errors and maintains a healthy, auditable dataset.
 
-**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations. Infrastructure improvements include the removal of temporary verification utilities and a cleaner donation link management system that provides better user experience and maintainability.
+**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations. The enhanced validation system now provides robust support for merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring proper canonicalization and duplicate prevention. Infrastructure improvements include the removal of temporary verification utilities and a cleaner donation link management system that provides better user experience and maintainability.

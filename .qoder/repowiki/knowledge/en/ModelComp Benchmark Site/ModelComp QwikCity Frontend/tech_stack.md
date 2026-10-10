@@ -1,1 +1,0 @@
-Qwik + QwikCity (SSR/SSG), Tailwind CSS with `dark:` mode, PWA manifest, inline SVG graphics, Qwik's `component$` / `useStore` / `useVisibleTask$` reactivity API.

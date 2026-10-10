@@ -1,65 +1,75 @@
-# Claude Sonnet 4.6 — findings by Space Bunny Alpha
+# Claude Sonnet 4.6 — findings by Space Bunny
 
-- Source: Anthropic (`claude-sonnet-4-6`; extended thinking configurations)
-- Date: 2026-09-29 (UTC)
+- Source: Anthropic (`claude-sonnet-4-6`; adaptive thinking, max effort for published benchmarks)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-29
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-- Re-validation note: re-checked on 2026-09-29. **MATERIAL change.** Artificial Analysis now carries an explicit **"This model is deprecated"** banner on the Claude Sonnet 4.6 page and names **Claude Sonnet 5** as the suggested replacement; AA also states it only keeps benchmarking the default 10k-input workload and that the remaining Index figure is an **estimate (independent evaluation forthcoming)** — no component rows exist. Because the only independent composite is now an unverified estimate on a retired model, **Tool use 87 → 85** and **Reasoning 82 → 80**, moving Overall **83.4 → 82.6**. The v4.3.2 re-base itself did **not** move the index value: it remains 25.
+- Re-validation note: re-checked 2026-10-10. **MATERIAL change in both directions.** The full Claude Sonnet 4.6 **System Card Table 2.1.A is now available** and supplies the absolute values the prior pass could not reach — SWE-bench Verified 79.6%, SWE-bench Multilingual 75.9%, Terminal-Bench 2.0 59.1%, OSWorld-Verified 72.5%, MCP-Atlas 61.3%, τ²-bench 91.7%, GPQA Diamond 89.9%, MMMLU 89.3%, GDPval-AA 1606, MMMU-Pro 74.5%, ARC-AGI-2 58.3%. Separately, **Anthropic's own deprecations table lists `claude-sonnet-4-6` as Active, retirement not sooner than 2027-02-17** — which directly contradicts the Artificial Analysis "deprecated" banner the prior pass recorded, and that correction is load-bearing. Net: **Tool use 85 → 87**, **Reasoning 80 → 84**, **Context 95 → 96**, **Multimodal 65 → 72**, **Coding 88 → 86**, **Cost 63 → 58**, Overall **82.6 → 85.0**.
 
 ## Model card
 
 - **Name:** Claude Sonnet 4.6
-- **Short description:** Anthropic's high-capability Sonnet model for coding, computer use, long-context reasoning, agent planning, knowledge work, and design. Now a retired generation in the Sonnet line.
-- **Provider / access:** Anthropic Claude API (`claude-sonnet-4-6`); Claude.ai and major cloud platforms. Artificial Analysis lists 4 providers. The evaluated AA page is the non-reasoning/high configuration; reasoning settings are separate configurations.
-- **Release / knowledge:** Announced 2026-02-17; no reliable knowledge cutoff was shown in the reviewed announcement.
-- **Lifecycle (new, 2026-09-29):** Artificial Analysis banner: **"This model is deprecated."** Suggested replacement: **Claude Sonnet 5**. AA also notes results outside the default 10k input workload are historical and no longer updated. **No hard discontinuation date was found** for the Sonnet 4.6 API ID in the sources checked.
-- **IDs:** `claude-sonnet-4-6`; effort and thinking settings are configurations.
-- **Context window:** 1M tokens in beta (Anthropic announcement and Artificial Analysis, re-verified 2026-09-29); exact standard output limit was not shown in the announcement.
-- **Modalities:** Text and image input; text output; computer use, tool use, vision, and agent planning supported. Audio/video are not listed.
-- **Pricing (verified 2026-09-29, unchanged):** **$3.00 per 1M input tokens and $15.00 per 1M output tokens**, 90% cache discount, blended **$2.31 per 1M** (7:2:1 cache hit/input/output). Artificial Analysis flags both legs as "somewhat expensive" against a $1.88 / $9.50 non-reasoning peer median.
-- **Architecture:** Proprietary; Anthropic has not disclosed parameter count.
+- **Short description:** Anthropic's high-capability Sonnet model (2026-02-17) for coding, computer use, long-context reasoning, agent planning, knowledge work, and design. At launch it "approached Opus-level intelligence at a price point that made it more practical for far more tasks" and became the default in claude.ai and Claude Cowork for Free and Pro plans. Now superseded twice in its own family (Sonnet 5, Sonnet 5.5).
+- **Provider / access:** Anthropic Claude API (`claude-sonnet-4-6`); Claude.ai; Amazon Bedrock (`anthropic.claude-sonnet-4-6`), Google Cloud, Microsoft Foundry. Artificial Analysis lists 4 providers.
+- **Lifecycle — corrected this pass:** **Active.** Anthropic's model-deprecations table lists `claude-sonnet-4-6` as **Active**, with tentative retirement **not sooner than 2027-02-17**. Artificial Analysis carries a "this model is deprecated" banner, but that refers to **evaluation status** — AA has frozen the benchmark set for the model and keeps only the default 10k-input workload, leaving the Intelligence Index as an estimate with no component rows. **The prior pass conflated those two; Anthropic's own table is authoritative.** For contrast, the genuinely deprecated model in this family is `claude-sonnet-4-5-20250929` (deprecated 2026-09-30, retires 2026-11-30, replacement `claude-sonnet-5-5`).
+- **Release / knowledge:** Announced **2026-02-17**. **Reliable knowledge cutoff August 2025; training-data cutoff January 2026.** No public parameter count.
+- **IDs:** `claude-sonnet-4-6`; Bedrock `anthropic.claude-sonnet-4-6`.
+- **Context window:** **1,000,000 tokens, generally available since 2026-03-13** — no beta header required and **no long-context premium**; a 900,000-token request bills at the same per-token rate as a 9,000-token one. **64,000 max output** on the synchronous Messages API, up to **300,000** via the Message Batches API with the `output-300k-2026-03-24` beta header. Accepts up to **600 images or PDFs** per request. Features adaptive context compaction for extended agentic sessions.
+- **Modalities:** Text and image input; text output. **No native audio I/O** — voice products need a separate transcription/synthesis layer. Computer use, tool use, vision, and agent planning supported.
+- **Pricing (verified 2026-10-10, unchanged):** **$3.00 per 1M input / $15.00 per 1M output**. Cache read **$0.30** (10% of input); 5-minute cache write **$3.75**; 1-hour cache write **$6.00**. Batch API **$1.50 / $7.50**. Regional endpoints add a ~10% premium. Blended 3:1 ≈ **$6.00 per 1M**.
+- **Architecture:** Proprietary; undisclosed. Alignment via Constitutional AI + RLHF. Deployed under **AI Safety Level 3 (ASL-3)**, the same standard as Opus 4.6 — automated safety evaluations placed it at or below Opus 4.6's capability, and it did **not** cross the ASL-4 threshold on biological-domain uplift.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Official — Claude Sonnet 4.6 System Card, Table 2.1.A** (adaptive thinking, max effort, default sampling; averaged over 10 trials unless noted; context windows evaluation-dependent but never exceeding 1M):
 
-- SWE-bench Verified: **80.2%** with prompt modification; Anthropic's standard result was averaged over 10 trials (Anthropic Sonnet 4.6 announcement)
-- Artificial Analysis Intelligence Index **v4.3.2**: **25/100 (estimate — "independent evaluation forthcoming")**, class rank **#5/60** for non-reasoning/high (Artificial Analysis, accessed 2026-09-29). **Value unchanged by the v4.3.2 re-base**; the asterisk is new and load-bearing — no component evals are published for this model.
-- BrowseComp: Anthropic documents a max-effort, tool-enabled setup but does not expose the absolute Sonnet 4.6 score in the fetched announcement text.
-- Terminal-Bench 2.0/4.0, Tau3-Banking, GDPval-AA, Claw-Eval, Toolathlon, MCP-Atlas, and AutomationBench-AA: **no verified public exact value found** (AA publishes no component rows for this model)
-- Performance: output speed **42.3 tokens/s**, ranked #40/60 in class and "notably slow" against a 79.9 t/s peer median; TTFT **1.41s** against a 1.15s median. AA shows cost per Index task and verbosity as **N/A** — the model is no longer being fully re-benchmarked.
+| Benchmark | Sonnet 4.6 |
+| --- | --- |
+| SWE-bench Verified | **79.6%** (10-trial avg); **80.2%** with prompt modification |
+| SWE-bench Multilingual | **75.9%** (300 problems, 9 languages) |
+| Terminal-Bench 2.0 (Terminus-2) | **59.1%** (no thinking budget, max effort, all 89 tasks × 5 runs) |
+| τ²-bench Retail/Telecom | **91.7%** |
+| MCP-Atlas | **61.3%** |
+| OSWorld-Verified | **72.5%** |
+| ARC-AGI-2 (Verified) | **58.3%** (68.8% at the best configuration; 60.4% at high effort with a 120K thinking budget) |
+| GPQA Diamond | **89.9%** (10 trials) |
+| MMMLU | **89.3%** |
+| GDPval-AA | **1606** Elo |
+| MMMU-Pro | **74.5%** no tools / **73.9%** with tools |
+| HLE | **33.2%** no tools / **30.8%** with tools |
+| MATH | **89%** |
+| CyberGym | **65.2%** — found security flaws in 65% of 1,500+ tasks (Opus 4.6: 67%; Mythos Preview: 83%) |
 
-Reasoning / knowledge:
+System Card sections confirm coverage that the prior pass could not see: OpenRCA (§2.4), Finance Agent and Real-World Finance (§2.12), Vending-Bench 2 (§2.13), **OpenAI MRCR v2 and GraphWalks long-context tests (§2.16)**, **LAB-Bench FigQA / MMMU-Pro / CharXiv Reasoning (§2.17)**, WebArena and WebArena-Verified (§2.18), GMMLU / MILU (§2.19), BrowseComp with test-time compute scaling and multi-agent variants (§2.20), DeepSearchQA (§2.20.3), and life-sciences/MedCalc-Bench (§2.21).
 
-- ARC-AGI-2: **60.4%** at high effort with a 120K thinking budget; Anthropic's max-effort score is referenced but not exposed in the fetched text.
-- Artificial Analysis Intelligence Index: **25 (estimated)** — same estimate caveat as above.
-- GPQA Diamond, HLE absolute score, CritPt, LCR/MLCR, AA-Omniscience, and hallucination metrics: **no verified public exact value found**
+**Independent:**
 
-Coding:
+- Artificial Analysis Intelligence Index: **24.7**–**25 (estimate; "independent evaluation forthcoming")**, no component rows published
+- **AA GPQA Diamond 79.9%** vs Anthropic's **89.9%** — a 10-point vendor-vs-independent gap
+- **AA HLE 13.3%** vs Anthropic's **33.2%** — a ~20-point gap, the largest such disagreement in this dataset
+- **AA-Omniscience: Index −3.5, Accuracy 38.6%, Hallucination Rate 68.5%** — the negative index and high hallucination rate are the model's clearest weakness, and contrast sharply with Claude Sonnet 5's 39.4% hallucination rate
+- Vals AI: GPQA Diamond **85.6%**, MMLU-Pro **87.3%**, SWE-bench **77.4%**, LiveCodeBench **82.1%**, **Terminal-Bench 2.1 52.8%→57.3%**, Vibe Code Bench **51.48%**
+- Other boards: SWE-Rebench **60.7%**, CursorBench 3.1 **48.8%**, Cognition FrontierCode 1.1 Main **24.3%**, Claw-Eval **67.8%**, JobBench **36.9%**, CyberGym **65.2%**
+- **OSWorld 2.0: 8.3%** and **ApprenticeBench GUI: 2%** — near-total failures on the current GUI-agent harnesses, against 72.5% on OSWorld-Verified
+- Epoch AI: WebDev Arena **1521**, WeirdML **66.1%**, SciCode **50.1%**
 
-- SWE-bench Verified: **80.2%** with prompt modification; the standard 10-trial result is referenced but not exposed in the fetched text.
-- LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified public exact value found**
-
-Long context:
-
-- No public retrieval-at-length result for this exact model was found (AA-LCR v1.1 is not published for it). Anthropic verifies a 1M-token context window in beta.
-
-Sources consulted: [Anthropic Sonnet 4.6 announcement](https://www.anthropic.com/news/claude-sonnet-4-6) and [Artificial Analysis Claude Sonnet 4.6](https://artificialanalysis.ai/models/claude-sonnet-4-6), accessed 2026-09-29. The AA page's non-reasoning configuration is kept separate from reasoning-mode benchmark claims, and its Index figure is labeled an estimate throughout.
+Sources consulted: [Claude Sonnet 4.6 System Card (PDF)](https://www-cdn.anthropic.com/bbd8ef16d70b7a1665f14f306ee88b53f686aa75/Claude%20Sonnet%204.6%20System%20Card.pdf), [Introducing Claude Sonnet 4.6 (Anthropic, 2026-02-17)](https://www.anthropic.com/news/claude-sonnet-4-6), [Claude Platform model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations), [BenchLM Claude Sonnet 4.6](https://benchlm.ai/models/claude-sonnet-4-6), [HokAI Claude Sonnet 4.6](https://hokai.io/hub/models/claude-4.6-sonnet), and [Themodelbeat Claude Sonnet 4.6](https://themodelbeat.com/models/claude-sonnet-4-6), accessed 2026-10-10.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** *(was 87)* Anthropic documents major computer-use gains and a strong SWE-bench Verified 80.2%, but the AA agentic signal for this model is now an **estimate with no component rows**, and exact Terminal-Bench, Tau, GDPval, and MCP values remain unavailable.
-- **Reasoning: 80/100.** *(was 82)* ARC-AGI-2 60.4% at high effort is a real vendor number, but the AA Index 25 is an **estimate pending independent evaluation** and the model is deprecated, so GPQA/HLE/hallucination evidence is entirely absent.
-- **Context window: 95/100.** *(unchanged)* A 1M-token context is verified by Anthropic and AA, though retrieval quality was not measured and AA-LCR is not published for it.
-- **Multimodal: 65/100.** *(unchanged)* Text and image input with text output are supported; audio/video are not listed.
-- **Coding: 88/100.** *(unchanged)* SWE-bench Verified 80.2% and Anthropic's explicit coding improvements support a high score; exact LiveCodeBench/SciCode/DeepSWE values are still missing.
-- **Cost efficiency: 63/100.** *(was 65)* $3/$15 with a 90% cache discount and $2.31 blended is still cheaper than Opus-class pricing, but AA rates it "somewhat expensive" against its price tier and the model is now deprecated.
-- **Overall Score: 82.6/100.** *(was 83.4)* (85 + 80 + 95 + 65 + 88) / 5 = 413 / 5 = 82.6. Best fit narrowed: existing coding and computer-use agents needing 1M context should be migrated to **Claude Sonnet 5** (56 on the v4.3.2 Index at max effort vs 25 here) rather than adopted fresh.
+- **Tool use: 87/100.** Raised from 85. The System Card supplies the agentic absolutes the prior pass lacked: **Terminal-Bench 2.0 59.1%**, **OSWorld-Verified 72.5%**, **τ²-bench 91.7%**, **MCP-Atlas 61.3%**, **GDPval-AA 1606 Elo**, plus independent **Claw-Eval 67.8%** and **CyberGym 65.2%**. Held below the low 90s by three hard facts: **OSWorld 2.0 at 8.3%** and **ApprenticeBench GUI at 2%** on current harnesses, **FrontierCode 1.1 Main at 24.3%** on real pull requests, and **JobBench at 36.9%**.
+- **Reasoning: 84/100.** Raised from 80. **GPQA Diamond 89.9%** (Anthropic, 10 trials), **MMMLU 89.3%**, **MATH 89%**, **ARC-AGI-2 up to 68.8%** at the best configuration, and Vals' independent **85.6%** all support a solid score. The cap is knowledge grounding: **AA-Omniscience Index −3.5 with a 68.5% hallucination rate** is the worst grounding profile of any model in this dataset, and **HLE is 33.2% (Anthropic) vs. 13.3% (AA)** — a ~20-point disagreement with no resolution. Neither the prior pass's "no GPQA/HLE evidence" statement nor a confident 89.9% is defensible on its own.
+- **Context window: 96/100.** Raised from 95. The 1M window went **generally available on 2026-03-13 with no beta header and no long-context premium** — the prior pass still described it as "in beta," which is out of date. 64K synchronous output, 300K via Batches, adaptive context compaction, and System Card coverage of **MRCR v2 and GraphWalks** (absolute scores not extracted here). Held below the ceiling only because the actual retrieval figures were not recoverable in this pass.
+- **Multimodal: 72/100.** Raised from 65. System Card §2.17 establishes real multimodal evaluation — **MMMU-Pro 74.5% no-tools / 73.9% with tools**, plus LAB-Bench FigQA and CharXiv Reasoning — and Anthropic documents **up to 600 images or PDFs per request**. Not raised further: the FigQA and CharXiv absolutes were not recoverable, there is no audio or video I/O, and the OSWorld 2.0 / ApprenticeBench GUI results show the visual *control* path is much weaker than the visual *understanding* path.
+- **Coding: 86/100.** Reduced from 88. **SWE-bench Verified 79.6%** (80.2% with prompt modification) and **SWE-bench Multilingual 75.9%** across 9 languages remain the anchors, and Vals' **LiveCodeBench 82.1%** and **SWE-bench 77.4%** are strong. The reduction is driven by the harder and newer harnesses now on record: **Terminal-Bench 2.1 at 57.3% (Vals)**, **FrontierCode 1.1 Main at 24.3%**, **Vibe Code Bench at 51.5%**, **CursorBench 3.1 at 48.8%**, and **SWE-Rebench at 60.7%**. This was never a frontier coding model, and the prior pass's 88 overstated it on the strength of one benchmark family.
+- **Cost efficiency: 58/100.** Reduced from 63. The $3/$15 rate is unchanged and the 1M context now carries no premium, which is genuinely good. But **both successors are $2/$10 — Claude Sonnet 5 and Claude Sonnet 5.5** — so carrying this model costs a **50% output premium and 33% input premium** for strictly less capability (Sonnet 5 scores 38.2 vs. 25 on the AA Index, and Sonnet 5.5's hallucination rate is 39.4% against this model's 68.5%). Artificial Analysis rates both legs "somewhat expensive" against its price tier, and evaluation is frozen so cost-per-task and verbosity are N/A.
+- **Overall Score: 85.0/100.** (87 + 84 + 96 + 72 + 86) / 5 = 425 / 5 = 85.0, up from 82.6. The prior pass both under-scored the capabilities (no System Card absolutes) and over-penalized the model (treating an AA evaluation banner as a vendor deprecation). **Best fit:** existing 1M-context coding and computer-use deployments that cannot yet migrate — the model is Active until at least 2027-02-17 and needs no urgent action. **Do not adopt fresh:** Claude Sonnet 5 at $2/$10 dominates it on every dimension except that Sonnet 4.6 has three more months of guaranteed API life. If you are staying, the two things to fix are the **68.5% hallucination rate** and **OSWorld 2.0 at 8.3%**.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-29
-- Method: Public web research of Anthropic's official Sonnet 4.6 announcement and Artificial Analysis (Index v4.3.2) metadata; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Public web research of Anthropic's full Sonnet 4.6 System Card (Table 2.1.A), the launch announcement, and the Claude Platform deprecations page, plus Artificial Analysis, Vals AI, Cognition, Cursor, Epoch AI, OSWorld 2.0, NeoCognition, and independent trackers; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+- Audit note: the prior pass recorded the model as deprecated based on an Artificial Analysis banner. **Corrected** — Anthropic's own deprecations table lists it Active (not sooner than 2027-02-17); AA's banner reflects frozen evaluation only. Two large vendor-vs-independent gaps are retained unresolved: **HLE 33.2% vs 13.3%** and **GPQA Diamond 89.9% vs 79.9%**. Third-party HLE figures of 46.8–49% circulating for this model were rejected as mis-parsed columns from a different model's row.
+- Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4_6_Recheck.md`, using the same headings.

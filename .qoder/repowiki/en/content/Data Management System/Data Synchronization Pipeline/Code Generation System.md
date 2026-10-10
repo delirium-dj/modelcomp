@@ -4,12 +4,22 @@
 **Referenced Files in This Document**
 - [codegen.mjs](file://scripts/lib/codegen.mjs)
 - [sync-data.mjs](file://scripts/sync-data.mjs)
+- [parse.mjs](file://scripts/lib/parse.mjs)
+- [models.ts](file://src/data/models.ts)
 - [sources.generated.ts](file://src/data/sources.generated.ts)
 - [scores.generated.ts](file://src/data/scores.generated.ts)
 - [project-map.md](file://.antigravity/history/project-map.md)
 - [README.md](file://README.md)
 - [REPORT.md](file://REPORT.md)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Updated Score Serialization section to reflect the major architectural transformation from object-based structures to positional tuples
+- Added new GeneratedScoreTuple type definition and SCORE_FIELDS constant documentation
+- Updated examples to show compact positional arrays instead of verbose object literals
+- Enhanced performance considerations with specific Vite 500 kB warning limit context
+- Updated troubleshooting guide with tuple-related issues
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -25,10 +35,12 @@
 ## Introduction
 This document explains the build-time code generation system that turns processed research data into TypeScript artifacts consumed by the client application. The system produces two key generated files:
 
-- `src/data/scores.generated.ts`: a compact, numbers-only registry of model scores for fast client-side consumption.
+- `src/data/scores.generated.ts`: a compact, numbers-only registry of model scores for fast client-side consumption using **positional tuples** instead of verbose object literals.
 - `src/data/sources.generated.ts`: a source registry containing the `SourceKey` union type and the `SOURCE_DEFS` array used to identify reporting agents and their metadata.
 
 The generator is deterministic, avoids including raw markdown prose in the client bundle, reconciles labels and slugs automatically, detects duplicate registrations, and appends new sources without rewriting existing handwritten content unnecessarily. It also documents the migration from the legacy `agent-slugs.generated.ts` file to inline slug fields inside `sources.generated.ts`.
+
+**Updated** Major architectural transformation from object-based score structures to positional tuples [tool, reasoning, context, multimodal, coding, cost, overall] to reduce client bundle size and avoid Vite's 500 kB warning limit.
 
 ## Project Structure
 At a high level, the repository organizes research findings under `model/<slug>/`, where each folder represents a model and contains per-source Markdown findings plus an `average.md` summary and a `meta.json` catalog entry. The sync script scans these folders, validates and parses scores, recomputes averages, registers new sources, and emits the two generated TypeScript files.
@@ -58,7 +70,7 @@ B --> F
 The code generation system has two primary responsibilities:
 
 1. **Registry management**: Maintain `SourceKey` and `SOURCE_DEFS` in `sources.generated.ts`, reconcile labels and slugs, prune virtual views, detect collisions, and append new sources deterministically.
-2. **Score serialization**: Build `scores.generated.ts` with compact numerical score objects keyed by model slug and source filename.
+2. **Score serialization**: Build `scores.generated.ts` with **compact positional tuples** `[tool, reasoning, context, multimodal, coding, cost, overall]` instead of verbose object literals, keyed by model slug and source filename.
 
 The core logic lives in `scripts/lib/codegen.mjs`, while `scripts/sync-data.mjs` orchestrates filesystem operations, validation, parsing, and writes.
 
@@ -82,7 +94,7 @@ Sync->>Codegen : "parseRegistryEntries / computePending / appendPendingSources /
 Codegen-->>Sync : "updated sources.ts text"
 Sync->>SourcesTS : "write if changed"
 Sync->>Codegen : "renderScoresFile(scoreIndex)"
-Codegen-->>Sync : "scores.ts text"
+Codegen-->>Sync : "scores.ts text (positional tuples)"
 Sync->>ScoresTS : "write if no failures"
 ```
 
@@ -101,7 +113,7 @@ Sync->>ScoresTS : "write if no failures"
 
 - `SourceKey`: a union of string literals representing registered reporting agents.
 - `ViewKey` and `ResultsView`: types for virtual sort views and selectable results sources.
-- `SourceDef`: an interface describing each source’s key, label, file stem, and optional slug.
+- `SourceDef`: an interface describing each source's key, label, file stem, and optional slug.
 - `SOURCE_DEFS`: an array of `SourceDef` entries.
 
 The sync process reads this file, parses its registry entries, computes which stems are missing, detects collisions, appends new entries, and reconciles labels and slugs.
@@ -212,15 +224,23 @@ When a new findings file stem exists on disk but is not registered:
 ### Score Serialization in `scores.generated.ts`
 `scores.generated.ts` exports:
 
-- `GeneratedScores`: an interface with short field names for tool, reasoning, context, multimodal, coding, cost, and overall scores.
-- `GENERATED_SCORES`: a nested record mapping model slug to source filename to `GeneratedScores`.
+- `GeneratedScoreTuple`: a **positional tuple type** `[tool: number, reasoning: number, context: number, multimodal: number, coding: number, cost: number, overall: number]` that defines the wire format.
+- `GENERATED_SCORES`: a nested record mapping model slug to source filename to `GeneratedScoreTuple`.
+
+The serializer uses a strict ordering defined by `SCORE_FIELDS` constant to ensure consistency across the entire pipeline:
+
+```javascript
+const SCORE_FIELDS = ["tool", "reasoning", "context", "multimodal", "coding", "cost", "overall"];
+```
+
+**Updated** The system now emits compact positional arrays instead of verbose object literals. Each score entry is represented as `[70, 75, 95, 92, 76, 89, 82]` instead of `{ tool: 70, reasoning: 75, context: 95, multimodal: 92, coding: 76, cost: 89, overall: 82 }`.
 
 The serializer:
 
 - Accepts a `scoreIndex` map of slug → file → short-keyed scores.
 - Iterates slugs and files in sorted order.
-- Emits only numeric values, excluding markdown prose.
-- Produces a stable, deterministic TypeScript module.
+- Emits only numeric values in the exact `SCORE_FIELDS` order.
+- Produces a stable, deterministic TypeScript module with minimal overhead.
 
 ```mermaid
 flowchart TD
@@ -228,8 +248,8 @@ Start(["Start score serialization"]) --> Index["Receive scoreIndex: slug -> file
 Index --> SortSlugs["Sort slugs"]
 SortSlugs --> ForSlug{"For each slug"}
 ForSlug --> SortFiles["Sort files within slug"]
-SortFiles --> EmitEntry["Emit GeneratedScores object"]
-EmitEntry --> NextFile{"More files?"}
+SortFiles --> EmitTuple["Emit GeneratedScoreTuple [tool, reasoning, context, multimodal, coding, cost, overall]"]
+EmitTuple --> NextFile{"More files?"}
 NextFile --> |Yes| SortFiles
 NextFile --> |No| NextSlug{"More slugs?"}
 NextSlug --> |Yes| SortSlugs
@@ -241,7 +261,7 @@ NextSlug --> |No| Finish(["Return deterministic text"])
 - [sync-data.mjs:490-510](file://scripts/sync-data.mjs#L490-L510)
 
 **Section sources**
-- [codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
+- [codegen.mjs:107-143](file://scripts/lib/codegen.mjs#L107-L143)
 - [sync-data.mjs:200-208](file://scripts/sync-data.mjs#L200-L208)
 - [sync-data.mjs:343-345](file://scripts/sync-data.mjs#L343-L345)
 - [sync-data.mjs:490-510](file://scripts/sync-data.mjs#L490-L510)
@@ -264,14 +284,18 @@ The code generation system has clear separation between orchestration and pure t
 
 - `sync-data.mjs` handles filesystem I/O, validation, parsing, logging, and writing.
 - `codegen.mjs` provides dependency-free, deterministic builders for registry surgery and score serialization.
+- `parse.mjs` provides the `SHORT` mapping and `shortenScores` function that converts long labels to short keys before tuple emission.
+- `models.ts` consumes the positional tuples and hydrates them back to named objects at runtime.
 - `sources.generated.ts` is both input (parsed for reconciliation) and output (written when changed).
 - `scores.generated.ts` is purely output and never read back by the generator.
 
 ```mermaid
 graph LR
 Sync["sync-data.mjs"] --> Codegen["codegen.mjs"]
+Sync --> Parse["parse.mjs"]
 Sync --> SourcesTS["sources.generated.ts"]
 Sync --> ScoresTS["scores.generated.ts"]
+Models["models.ts"] --> ScoresTS
 Codegen --> SourcesTS
 Codegen --> ScoresTS
 ```
@@ -280,24 +304,33 @@ Codegen --> ScoresTS
 - [sync-data.mjs:36-67](file://scripts/sync-data.mjs#L36-L67)
 - [sync-data.mjs:438-523](file://scripts/sync-data.mjs#L438-L523)
 - [codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
+- [parse.mjs:19-28](file://scripts/lib/parse.mjs#L19-L28)
+- [models.ts:75-120](file://src/data/models.ts#L75-L120)
 
 **Section sources**
 - [sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 - [codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
+- [parse.mjs:19-28](file://scripts/lib/parse.mjs#L19-L28)
+- [models.ts:75-120](file://src/data/models.ts#L75-L120)
 
 ## Performance Considerations
 The system is optimized for client bundle size and build determinism:
 
 - Raw markdown findings are pre-parsed into `scores.generated.ts`, keeping report prose out of the client bundle.
 - Only compact numeric scores are included in the generated artifact consumed at runtime.
+- **Positional tuples eliminate ~60% of repeated key names** that previously bloated the client chunk past Vite's 500 kB warning limit.
 - The old eager import pattern could inline approximately 1.7 MB of markdown into a single client chunk; the generated approach avoids that.
 - Deterministic sorting prevents unnecessary rebuild churn.
+- The `SCORE_FIELDS` constant ensures consistent ordering across parse, serialize, and hydrate phases.
+
+**Updated** The transformation from object literals to positional tuples provides significant bundle size reduction by eliminating repetitive property names like `"tool"`, `"reasoning"`, etc. Each score entry now uses just 7 numbers instead of 7 key-value pairs.
 
 **Section sources**
 - [README.md:33-33](file://README.md#L33-L33)
 - [README.md:38-40](file://README.md#L38-L40)
 - [sync-data.mjs:18-24](file://scripts/sync-data.mjs#L18-L24)
 - [sync-data.mjs:490-493](file://scripts/sync-data.mjs#L490-L493)
+- [codegen.mjs:107-122](file://scripts/lib/codegen.mjs#L107-L122)
 
 ## Troubleshooting Guide
 Common issues and how the system responds:
@@ -306,15 +339,24 @@ Common issues and how the system responds:
 |---|---|---|
 | Missing findings file stem not registered | Sync appends `SourceKey` union member and `SOURCE_DEFS` entry | Run `pnpm sync`; new sources are auto-appended |
 | Duplicate key under different filename | Sync fails with a collision message | Rename or consolidate the conflicting source manually |
-| Unlocatable registry anchors | Sync logs “register manually” and does not rewrite | Ensure `SourceKey` union and `SOURCE_DEFS` array exist in `sources.generated.ts` |
+| Unlocatable registry anchors | Sync logs "register manually" and does not rewrite | Ensure `SourceKey` union and `SOURCE_DEFS` array exist in `sources.generated.ts` |
 | Stale `agent-slugs.generated.ts` | Deleted by sync; stale imports fail loudly | Remove manual imports and use inline slug from `sources.generated.ts` |
 | Validation failures during sync | `scores.generated.ts` is not rewritten | Fix failing validations and rerun sync |
+| Tuple ordering mismatch | Client displays mislabeled scores | Ensure `SCORE_FIELDS` in codegen.mjs matches `SCORE_ORDER` in models.ts and `SHORT` in parse.mjs |
+| Positional tuple deserialization errors | Runtime hydration fails | Verify `GeneratedScoreTuple` type matches the emitted array structure |
+
+**Updated** Added tuple-specific troubleshooting items related to the new positional array format.
 
 **Section sources**
 - [codegen.mjs:60-63](file://scripts/lib/codegen.mjs#L60-L63)
 - [codegen.mjs:71-84](file://scripts/lib/codegen.mjs#L71-L84)
 - [sync-data.mjs:452-467](file://scripts/sync-data.mjs#L452-L467)
 - [sync-data.mjs:496-523](file://scripts/sync-data.mjs#L496-L523)
+- [codegen.mjs:107-143](file://scripts/lib/codegen.mjs#L107-L143)
 
 ## Conclusion
-The code generation system centralizes model research data into two small, deterministic TypeScript artifacts. `sources.generated.ts` maintains a typed registry of reporting agents with labels, filenames, and inline slugs, while `scores.generated.ts` provides compact numeric scores for efficient client-side rendering. The sync process enforces hygiene, reconciles inconsistencies, detects collisions, and automates source registration, while preventing raw markdown from entering the client bundle. The migration away from `agent-slugs.generated.ts` simplifies the architecture by embedding slug information directly in the source registry, improving maintainability and reducing indirection.
+The code generation system centralizes model research data into two small, deterministic TypeScript artifacts. `sources.generated.ts` maintains a typed registry of reporting agents with labels, filenames, and inline slugs, while `scores.generated.ts` provides **compact positional tuples** for efficient client-side rendering. 
+
+**Updated** The major architectural transformation to positional tuples [tool, reasoning, context, multimodal, coding, cost, overall] significantly reduces client bundle size by eliminating ~60% of repeated key names, helping avoid Vite's 500 kB warning limit. The sync process enforces hygiene, reconciles inconsistencies, detects collisions, and automates source registration, while preventing raw markdown from entering the client bundle. The migration away from `agent-slugs.generated.ts` simplifies the architecture by embedding slug information directly in the source registry, improving maintainability and reducing indirection.
+
+The strict ordering enforced by `SCORE_FIELDS`, `SCORE_ORDER`, and `SHORT` constants ensures that the wire format remains consistent across the entire pipeline, from parsing markdown scores to serializing positional tuples to hydrating them back to named objects at runtime.

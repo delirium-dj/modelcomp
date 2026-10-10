@@ -13,6 +13,13 @@
 - [scripts/lib/naming.mjs](file://scripts/lib/naming.mjs)
 </cite>
 
+## Update Summary
+**Changes Made**
+- Updated Merged Source Stem Mapping section to document the new 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash' consolidation
+- Enhanced Consolidation Process section to explain handling of both regular markdown and excluded files
+- Added detailed examples of merged duplicate preservation in findings files
+- Updated troubleshooting guide with specific guidance for merged stem scenarios
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
@@ -33,6 +40,7 @@ This document explains the multi-layered validation and quality-assurance system
 - The quarantine system that excludes evidence-free reports.
 - The rater gate mechanism that ensures only qualified models contribute to averages.
 - Model naming conventions, version numbering rules, and file structure requirements.
+- **Updated**: Merged source stem mapping and consolidation process for handling variant spellings and excluded files.
 - Examples of validation failures and step-by-step resolution.
 
 The system is deterministic: `pnpm sync` scans research files, validates them, quarantines bad evidence, recomputes averages, registers new sources, and generates compact score indexes consumed by the site build.
@@ -74,6 +82,7 @@ The validation pipeline has five core responsibilities:
 | Drift detection | Detects and auto-corrects drifted Overall values | `scripts/lib/parse.mjs`, `scripts/sync-data.mjs` | If Overall differs from the half-up mean of the five quality dimensions beyond tolerance, it is rewritten |
 | Quarantine | Excludes evidence-free or invalid reports automatically | `scripts/lib/quarantine.mjs`, `scripts/sync-data.mjs` | Renames offending files to `.md.excluded`; excluded files are skipped during averaging |
 | Rater gate | Limits which reports count toward an average | `scripts/lib/parse.mjs`, `scripts/sync-data.mjs` | Only raters whose own committed average Overall exceeds the gate threshold qualify |
+| **Merged stem mapping** | **Handles variant spellings and consolidates duplicate sources** | **`scripts/lib/validate.mjs`, `scripts/sync-data.mjs`** | **Maps deprecated stems to canonical versions and preserves content from both regular and excluded files** |
 
 **Section sources**
 - [scripts/sync-data.mjs:1-29](file://scripts/sync-data.mjs#L1-L29)
@@ -97,10 +106,12 @@ User->>Sync : Run `pnpm sync`
 Sync->>FS : Scan `model/<slug>/` folders
 Sync->>Validate : Check filename hygiene
 Validate-->>Sync : Hygiene result
+Sync->>Validate : Check merged stem mappings
+Validate-->>Sync : Canonical stem or error
 Sync->>Quarantine : Analyze Raw benchmarks section
 Quarantine-->>Sync : Quarantine reason or null
 Sync->>FS : Rename evidence-free files to `.md.excluded`
-Sync->>Parse : Parse normalized scores
+Sync->>Parse : Parse normalized scores (handles .md and .md.excluded)
 Parse-->>Sync : Scores or parse failure
 Sync->>Parse : Compute Overall drift
 Parse-->>Sync : Corrected Overall if needed
@@ -195,7 +206,7 @@ Each findings file must contain seven normalized score lines. The parser expects
 Key behaviors:
 - Seven labels are enforced: Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall Score.
 - Short keys are used in generated client data.
-- Unparsable files fail loudly and prevent rewriting the folder’s average.
+- Unparsable files fail loudly and prevent rewriting the folder's average.
 
 ```mermaid
 flowchart TD
@@ -250,7 +261,7 @@ Fixable --> |Yes| Update["Update in-file Overall and index"]
 The quarantine system protects averages from evidence-free or structurally invalid reports. It runs before scoring and averaging.
 
 Quarantine triggers:
-- Evidence-free: eight or more “no verified public score found” rows and zero measured numeric values.
+- Evidence-free: eight or more "no verified public score found" rows and zero measured numeric values.
 - Zero-scored: any quality dimension is exactly zero.
 - Flat: all five quality dimensions are identical and there are zero cited numbers.
 
@@ -286,7 +297,7 @@ Flat --> |No| Keep["Keep file"]
 - [scripts/lib/quarantine.test.mjs:1-103](file://scripts/lib/quarantine.test.mjs#L1-L103)
 
 ### Rater Gate Mechanism
-The rater gate ensures that only qualified models contribute to another model’s average.
+The rater gate ensures that only qualified models contribute to another model's average.
 
 Rules:
 - A rater qualifies only when its own committed `average.md` Overall is strictly greater than the gate threshold.
@@ -321,6 +332,60 @@ Crown --> |Yes| Average["Compute average from top-10 eligible cohort"]
 - [scripts/lib/parse.mjs:105-117](file://scripts/lib/parse.mjs#L105-L117)
 - [scripts/sync-data.mjs:211-226](file://scripts/sync-data.mjs#L211-L226)
 - [scripts/sync-data.mjs:372-398](file://scripts/sync-data.mjs#L372-L398)
+
+### Merged Source Stem Mapping and Consolidation Process
+**Updated** The validation framework now includes sophisticated merged source stem mapping to handle variant spellings and consolidate duplicate sources while preserving historical content.
+
+#### Merged Source Stems
+The system maintains a permanent mapping of deprecated stems to their canonical versions:
+
+- `Laguna_XS_2_1` → `Laguna_XS_2.1` (merged 2026-10-08)
+- `Mimo_v2.6_Flash` → `MiMo_2.6_Flash` (merged 2026-10-09)
+
+These mappings prevent resurrected duplicates from silently double-counting the same rater in averages.
+
+#### Consolidation Process
+When processing findings files, the system handles both regular markdown files and excluded files:
+
+1. **Detection**: The system identifies merged duplicate stems using `MERGED_SOURCE_STEMS` mapping
+2. **Preservation**: Content from deleted variants is preserved within the canonical file in a dedicated "Merged duplicate" section
+3. **Processing**: Both `.md` and `.md.excluded` files are processed during the consolidation phase
+4. **Exclusion**: Deprecated stems are flagged as forbidden and prevented from being parsed or averaged separately
+
+```mermaid
+flowchart TD
+Start(["Process findings files"]) --> CheckStem["Check against MERGED_SOURCE_STEMS"]
+CheckStem --> IsMerged{"Is stem merged?"}
+IsMerged --> |Yes| Forbidden["Mark as forbidden duplicate"]
+Forbidden --> PreserveContent["Preserve content in canonical file"]
+PreserveContent --> SkipParsing["Skip separate parsing/averaging"]
+IsMerged --> |No| RegularProcess["Process normally"]
+RegularProcess --> HandleExcluded["Handle .md and .md.excluded files"]
+HandleExcluded --> ParseScores["Parse scores from active files"]
+SkipParsing --> NextFile["Move to next file"]
+ParseScores --> NextFile
+```
+
+**Diagram sources**
+- [scripts/lib/validate.mjs:42-63](file://scripts/lib/validate.mjs#L42-L63)
+- [scripts/sync-data.mjs:214-229](file://scripts/sync-data.mjs#L214-L229)
+- [scripts/sync-data.mjs:383-401](file://scripts/sync-data.mjs#L383-L401)
+
+#### Example: MiMo 2.6 Flash Consolidation
+The MiMo 2.6 Flash consolidation demonstrates how the system handles both regular and excluded files:
+
+- **Canonical file**: `MiMo_2.6_Flash.md` (active, parsed for scores)
+- **Deprecated variant**: `Mimo_v2.6_Flash.md` (deleted, content preserved in canonical file)
+- **Excluded files**: Multiple `.md.excluded` files from the original variant are also consolidated
+- **Content preservation**: The canonical file includes a "Merged duplicate" section containing the full content of the deleted variant
+
+The parser reads only the first score block in the canonical file, ensuring no double-counting while preserving historical evidence.
+
+**Section sources**
+- [scripts/lib/validate.mjs:42-63](file://scripts/lib/validate.mjs#L42-L63)
+- [scripts/sync-data.mjs:214-229](file://scripts/sync-data.mjs#L214-L229)
+- [scripts/sync-data.mjs:383-401](file://scripts/sync-data.mjs#L383-L401)
+- [RULES.md:135-139](file://RULES.md#L135-L139)
 
 ### Model Naming Conventions, Version Numbering, and File Structure Requirements
 The repository enforces consistent model organization and naming.
@@ -409,6 +474,7 @@ External integration points:
 - Validation is deterministic and side-effect free in helper modules, enabling regression tests to lock behavior without filesystem noise.
 - Quota-like thresholds (evidence-free detection, rater gate, top-10 cohort) keep averages stable and computationally bounded.
 - Generated artifacts are only rewritten when there are no failures, preventing partial or inconsistent state from being cemented.
+- **Updated**: Merged stem mapping uses efficient Map lookups to prevent duplicate processing of consolidated sources.
 
 [No sources needed since this section provides general guidance]
 
@@ -423,11 +489,13 @@ External integration points:
 | `meta.json` name uses underscores | Display name contains slug artifacts | Replace underscores with spaces and use official vendor casing |
 | Unparsable score line | Missing or malformed normalized score line | Add the exact required label with a `/100` value |
 | Overall drift detected | Committed Overall differs from the five-dimension mean beyond tolerance | Let sync rewrite it automatically; if the line is not auto-fixable, edit the Overall line manually |
-| Evidence-free report quarantined | Eight or more “not found” rows and zero measured numbers | Provide verified benchmark evidence or leave the file quarantined |
+| Evidence-free report quarantined | Eight or more "not found" rows and zero measured numbers | Provide verified benchmark evidence or leave the file quarantined |
 | Zero-scored dimension | A quality dimension is exactly zero | Replace zero with a real score or remove the report if it truly has no data |
 | Flat identical dimensions with no citations | All five quality dimensions are equal and no cited numbers | Provide varied, cited evidence or accept quarantine |
-| Below-gate rater ignored | Rater’s own average Overall is not above the gate | Improve the rater model’s average or rely on the crown-rule fallback |
+| Below-gate rater ignored | Rater's own average Overall is not above the gate | Improve the rater model's average or rely on the crown-rule fallback |
 | Hyphen-versioned slug | Folder uses a hyphen between two digits where a dot is expected | Rename to the dotted version and merge into the existing folder |
+| **Merged stem variant detected** | **Using deprecated stem spelling (e.g., `Mimo_v2.6_Flash`)** | **Rename to canonical stem (`MiMo_2.6_Flash`) and merge content into the canonical file** |
+| **Duplicate content in merged file** | **Content from deleted variant appears multiple times** | **Ensure only one score block exists in the canonical file; preserve other content in "Merged duplicate" section** |
 
 **Section sources**
 - [scripts/lib/validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
@@ -438,6 +506,7 @@ External integration points:
 - [scripts/sync-data.mjs:180-197](file://scripts/sync-data.mjs#L180-L197)
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 - [scripts/sync-data.mjs:372-398](file://scripts/sync-data.mjs#L372-L398)
+- [scripts/lib/validate.mjs:42-63](file://scripts/lib/validate.mjs#L42-L63)
 
 ## Conclusion
 The validation and quality-assurance system combines strict input hygiene, schema validation, deterministic parsing, drift correction, automatic quarantine, and a qualified-rater gating mechanism. Together, these layers ensure that:
@@ -448,6 +517,7 @@ The validation and quality-assurance system combines strict input hygiene, schem
 - Evidence-free or invalid reports cannot poison averages.
 - Averages reflect contributions from qualified raters, with a guaranteed fallback when no raters qualify.
 - Model folders, filenames, and versions follow consistent, auditable conventions.
+- **Updated**: Variant spellings and duplicate sources are properly consolidated through merged stem mapping, preserving historical content while preventing double-counting.
 
 The recommended workflow remains simple: add or update research files, run `pnpm sync`, then run type checking and the full build. Any validation failure indicates a concrete action required before the data can be safely published.
 

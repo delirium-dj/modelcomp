@@ -1,1 +1,0 @@
-Before building or running, execute `pnpm sync` (from `scripts/sync-data.mjs`) to regenerate `src/data/{catalog,scores,sources}.generated.ts` from the `model/*/` markdown findings and `meta.json` files; builds without this step warn about missing average.md but do not fail.

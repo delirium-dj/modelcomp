@@ -11,16 +11,16 @@
 - [naming.mjs](file://scripts/lib/naming.mjs)
 - [debug-sync.mjs](file://scripts/debug-sync.mjs)
 - [model-queue.md](file://model-queue.md)
+- [RULES.md](file://RULES.md)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated architecture overview to reflect enhanced validation rules and merged source stem handling
-- Added detailed documentation for the new model queue generation system
-- Enhanced quarantine mechanism explanation with improved evidence-free detection
-- Updated file scanning process to include new validation rules for duplicate slugs and stems
-- Added comprehensive troubleshooting guidance for merged source conflicts and validation failures
-- Updated dependency analysis to include the new naming.mjs module
+- Enhanced documentation for MiMo 2.6 Flash consolidation pattern with explicit support for merged source stems
+- Updated validation rules section to include detailed explanation of the `Mimo_v2.6_Flash` → `MiMo_2.6_Flash` merge
+- Added comprehensive troubleshooting guidance for merged source stem conflicts and excluded file handling
+- Enhanced quarantine mechanism explanation with improved handling of consolidated evidence-free reports
+- Updated dependency analysis to reflect the new naming.mjs module's role in stem normalization
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,6 +45,7 @@ Key responsibilities:
 - Maintain the source registry and emit compact score indexes.
 - Generate a pre-sorted research queue (`model-queue.md`) for AI agents with latest benchmark scores.
 - Handle merged source stems and duplicate slug detection with sophisticated conflict resolution.
+- Process MiMo 2.6 Flash consolidation patterns with proper handling of excluded files during merge operations.
 - Exit non-zero when human action is required.
 
 ## Project Structure
@@ -95,6 +96,7 @@ The sync script composes several focused helpers:
   - Enforces filename hygiene, required `meta.json` fields, display-name rules, and git-tracked file permanence.
   - Classifies missing tracked files as twin-retired, relocated, or deleted.
   - Handles merged source stems and duplicate slug detection with sophisticated conflict resolution.
+  - Maintains the `MERGED_SOURCE_STEMS` map for tracking consolidated file stems like `Mimo_v2.6_Flash` → `MiMo_2.6_Flash`.
 
 - Code generation and registry surgery (`scripts/lib/codegen.mjs`)
   - Parses and rebuilds the SourceKey union and SOURCE_DEFS array.
@@ -107,6 +109,7 @@ The sync script composes several focused helpers:
 - Naming conventions (`scripts/lib/naming.mjs`)
   - Provides slug normalization, stem validation, vendor prefix detection, and display label formatting.
   - Handles hyphen-version violations, underscore-version violations, and vendor-prefix conflicts.
+  - Normalizes findings-file stems to ensure consistency (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`).
 
 - Debugging helper (`scripts/debug-sync.mjs`)
   - Runs the sync script and prints FAIL lines for quick triage.
@@ -118,6 +121,7 @@ The sync script composes several focused helpers:
 - [quarantine.mjs:11-55](file://scripts/lib/quarantine.mjs#L11-L55)
 - [validate.mjs:11-52](file://scripts/lib/validate.mjs#L11-L52)
 - [validate.mjs:54-80](file://scripts/lib/validate.mjs#L54-L80)
+- [validate.mjs:52-55](file://scripts/lib/validate.mjs#L52-L55)
 - [codegen.mjs:14-83](file://scripts/lib/codegen.mjs#L14-L83)
 - [codegen.mjs:92-139](file://scripts/lib/codegen.mjs#L92-L139)
 - [average.mjs:102-121](file://scripts/lib/average.mjs#L102-L121)
@@ -215,6 +219,7 @@ Determinism is enforced through:
 - Avoiding client-side bundle bloat by emitting only numeric scores into generated TypeScript.
 - Pre-sorted research queue generation with consistent ordering.
 - Enhanced validation rules that prevent duplicate slugs and merged source stems.
+- Consolidated handling of MiMo 2.6 Flash patterns ensuring consistent processing across variants.
 
 These guarantees ensure that repeated runs over the same inputs produce identical outputs and that builds remain reproducible.
 
@@ -233,8 +238,9 @@ Enhanced scanning process:
 - Treats any filename containing `.excluded` as self-excluded evidence-free reports.
 - Validates filenames against allowed characters.
 - Requires `meta.json` per model folder; missing files are scaffolded with placeholder metadata and warnings.
-- Detects and handles merged source stems (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`).
+- Detects and handles merged source stems (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`, `Mimo_v2.6_Flash` → `MiMo_2.6_Flash`).
 - Identifies duplicate slugs and vendor-prefixed variants that should be merged.
+- Properly handles excluded files during merge operations to prevent double-counting of consolidated sources.
 
 Directory structure requirements:
 - Each model folder should contain:
@@ -376,7 +382,7 @@ GenScores --> |No| Skip["Skip generated scores"]
 ```
 
 **Diagram sources**
-- [sync-data.mjs:598-660](file://scripts/sync-data.mjs#L598-L660)
+- [sync-data.mjs:598-660](file://scripts/sync-data.mjs#L598-660)
 - [sync-data.mjs:667-682](file://scripts/sync-data.mjs#L667-L682)
 - [codegen.mjs:14-83](file://scripts/lib/codegen.mjs#L14-L83)
 - [codegen.mjs:92-139](file://scripts/lib/codegen.mjs#L92-L139)
@@ -426,7 +432,7 @@ Before parsing, sync inspects each active findings file and renames it to `.md.e
 - Zero-scored: any quality dimension parsed as zero.
 - Flat profile: all five quality dimensions identical and zero measured numbers.
 
-The enhanced validation includes improved detection of invented uniformity patterns and better handling of edge cases in benchmark sections.
+The enhanced validation includes improved detection of invented uniformity patterns and better handling of edge cases in benchmark sections. During merge operations, excluded files are properly handled to prevent double-counting of consolidated sources.
 
 ```mermaid
 flowchart TD
@@ -457,21 +463,24 @@ Keep --> NextFile
 - [quarantine.mjs:11-55](file://scripts/lib/quarantine.mjs#L11-L55)
 
 ### Enhanced Validation Rules for Duplicate Detection
-**Updated** The sync script now includes sophisticated validation rules for detecting and handling duplicate model structures:
+**Updated** The sync script now includes sophisticated validation rules for detecting and handling duplicate model structures, with specific support for MiMo 2.6 Flash consolidation patterns:
 
-- **Merged Source Stems**: Detects when findings-file stems have been merged (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`) and prevents resurrection of deleted duplicates.
+- **Merged Source Stems**: Detects when findings-file stems have been merged (e.g., `Laguna_XS_2_1` → `Laguna_XS_2.1`, `Mimo_v2.6_Flash` → `MiMo_2.6_Flash`) and prevents resurrection of deleted duplicates. The MiMo 2.6 Flash consolidation involved merging 141 + 6 excluded files from the variant spelling `_v2.6` + lowercase to the canonical `_2.6` form.
 - **Duplicate Slugs**: Identifies slug variants that should be merged into canonical folders (e.g., `google-gemini-2.5-flash-lite` → `gemini-2.5-flash-lite`).
 - **Vendor Prefix Detection**: Prevents creation of vendor-prefixed duplicates (e.g., `openai-gpt-5` when `gpt-5` already exists).
 - **Hyphen-Version Validation**: Ensures slug versions use dots instead of hyphens between digits.
 - **Stem Version Validation**: Ensures findings-file stems use dots instead of underscores between version digits.
+- **Excluded File Handling**: Properly processes `.md.excluded` files during merge operations to prevent double-counting of consolidated sources.
 
-These rules prevent silent double-counting of raters and maintain data integrity across the research pipeline.
+These rules prevent silent double-counting of raters and maintain data integrity across the research pipeline, particularly for consolidated patterns like the MiMo 2.6 Flash consolidation.
 
 **Section sources**
 - [sync-data.mjs:259-293](file://scripts/sync-data.mjs#L259-L293)
 - [sync-data.mjs:370-398](file://scripts/sync-data.mjs#L370-L398)
 - [validate.mjs:23-60](file://scripts/lib/validate.mjs#L23-L60)
+- [validate.mjs:52-55](file://scripts/lib/validate.mjs#L52-L55)
 - [naming.mjs:42-101](file://scripts/lib/naming.mjs#L42-L101)
+- [RULES.md:136-137](file://RULES.md#L136-L137)
 
 ## Dependency Analysis
 The sync script depends on five pure helper modules:
@@ -524,6 +533,7 @@ Potential risks:
 - Batch processing workflow enables efficient parallel research across multiple models.
 - Enhanced validation rules add computational overhead but prevent data corruption and double-counting.
 - Merged source stem detection prevents expensive re-processing of duplicate files.
+- Consolidated handling of MiMo 2.6 Flash patterns ensures efficient processing of similar consolidation scenarios.
 
 ## Troubleshooting Guide
 Common sync failures and resolutions:
@@ -580,6 +590,14 @@ Common sync failures and resolutions:
   - Symptom: FAIL indicating findings-file stems should use "." not "_" between version digits.
   - Resolution: Rename the file to use dots (e.g., rename `Laguna_XS_2_1.md` to `Laguna_XS_2.1.md`).
 
+- **New: MiMo 2.6 Flash consolidation conflict**
+  - Symptom: FAIL indicating `Mimo_v2.6_Flash.md` is a duplicate spelling that was merged into `MiMo_2.6_Flash.md`.
+  - Resolution: Rename the variant file to the canonical form `MiMo_2.6_Flash.md` and remove the duplicate variant. This follows the consolidation pattern established on 2026-10-09 where the variant spelling `_v2.6` + lowercase was merged into the canonical `_2.6` form.
+
+- **New: Excluded file handling during merge**
+  - Symptom: Issues with `.md.excluded` files not being properly processed during merge operations.
+  - Resolution: Ensure excluded files are properly quarantined before merge operations; verify that consolidated sources are not double-counted in the processing pipeline.
+
 Debugging tip:
 - Use the debug helper to run sync and filter FAIL lines quickly.
 
@@ -592,7 +610,9 @@ Debugging tip:
 - [sync-data.mjs:598-660](file://scripts/sync-data.mjs#L598-L660)
 - [sync-data.mjs:667-682](file://scripts/sync-data.mjs#L667-L682)
 - [sync-data.mjs:683-699](file://scripts/sync-data.mjs#L683-L699)
+- [validate.mjs:52-55](file://scripts/lib/validate.mjs#L52-L55)
 - [debug-sync.mjs:1-7](file://scripts/debug-sync.mjs#L1-L7)
+- [RULES.md:136-137](file://RULES.md#L136-L137)
 
 ## Conclusion
-The sync script is the authoritative coordinator for modelcomp's data pipeline. It enforces deterministic processing, protects research evidence, quarantines unreliable reports, and generates stable TypeScript artifacts. The enhanced validation rules provide sophisticated detection of duplicate model structures, merged source stems, and naming convention violations, ensuring data integrity across the research pipeline. The addition of the pre-sorted model queue system provides AI agents with an efficient batch processing workflow, eliminating redundant scanning and enabling systematic research across all models. By combining strict validation, clear failure messaging, controlled automation, intelligent queue management, and enhanced duplicate detection, it keeps the generated application data aligned with human-authored research while minimizing manual maintenance and maximizing agent productivity.
+The sync script is the authoritative coordinator for modelcomp's data pipeline. It enforces deterministic processing, protects research evidence, quarantines unreliable reports, and generates stable TypeScript artifacts. The enhanced validation rules provide sophisticated detection of duplicate model structures, merged source stems, and naming convention violations, ensuring data integrity across the research pipeline. The addition of the pre-sorted model queue system provides AI agents with an efficient batch processing workflow, eliminating redundant scanning and enabling systematic research across all models. By combining strict validation, clear failure messaging, controlled automation, intelligent queue management, enhanced duplicate detection, and specialized handling for consolidation patterns like MiMo 2.6 Flash, it keeps the generated application data aligned with human-authored research while minimizing manual maintenance and maximizing agent productivity. The MiMo 2.6 Flash consolidation pattern demonstrates the system's ability to handle complex merge scenarios involving hundreds of files while maintaining data consistency and preventing double-counting of consolidated sources.

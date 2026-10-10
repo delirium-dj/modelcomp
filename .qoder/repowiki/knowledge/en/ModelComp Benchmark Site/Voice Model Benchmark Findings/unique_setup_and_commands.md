@@ -1,1 +1,0 @@
-New model entries are added by dropping a `<ModelName>.md` report into the appropriate `models_voice/<api-family>/` directory; files ending in `.excluded` or `.replaced-by-<target>.md` are filtered out by the aggregator. The `average.md` in each folder is regenerated from the individual reports rather than edited by hand.
