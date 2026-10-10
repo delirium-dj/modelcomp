@@ -1,0 +1,77 @@
+# Gemini 3.1 Flash — findings by Space Bunny
+
+- Source: Google / OpenCode Zen (`google/gemini-3.1-flash`)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-24
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **STATUS: NEGATIVE FINDING — SELF-EXCLUDED.** Saved as `.md.excluded` under the self-exclusion rule in `model-report-TEMPLATE.md`. **Zero verified public benchmark numbers exist for `google/gemini-3.1-flash`.** The scores in the prior pass's scored file have been removed; they were assigned with no measurements behind them and are not reproducible. **Scores inside this file are ignored by the aggregator by design.**
+
+> **What this pass found: the model does not exist.** `gemini-3.1-flash` — plain 3.1 Flash, neither Lite nor Pro — appears to be a **phantom catalog entry**, not an unresolved alias of a real model. Three independent catalogs were checked on 2026-10-10 and none carries it.
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash *(as named in `model/gemini-3.1-flash/meta.json`; no vendor product matches this name)*
+- **Short description:** The repo tracks this as Google's efficient 3.1 Flash model. **No such model exists in any surveyed vendor or aggregator catalog.** What exists in Google's 3.1 generation is a different set of products, enumerated below.
+- **Provider / access:** **None found.** No `google/gemini-3.1-flash` ID on Google AI Studio, the Gemini API model index, OpenCode Zen, models.dev, Artificial Analysis, or BenchLM.
+- **Release / knowledge:** **No release date and no knowledge cutoff could be verified** — there is no product to verify them against.
+- **IDs:** `google/gemini-3.1-flash` (the folder's curated ID). **No vendor accepts this ID.**
+- **Context window:** `meta.json` asserts **1,048,576**. This is unverified curated metadata. Note that the same 1M figure appears in `Gemini_3.1_Flash_Lite.md` alongside an ID of `gemini-3-1-flash` — suggesting the metadata may have been propagated from the Lite model.
+- **Modalities:** `meta.json` asserts "Text, image, audio, PDF in; text out." Unverified.
+- **Pricing:** `meta.json` asserts "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits." Unverified — there is no model behind the claim.
+- **Architecture:** No vendor documentation exists.
+
+### What the 3.1 generation actually contains
+
+Confirmed present on models.dev on 2026-10-10 (provider counts in brackets). **Note what is absent from this list: a plain "Gemini 3.1 Flash."**
+
+| Real 3.1-generation product | models.dev ID | Providers |
+|---|---|---|
+| Gemini 3.1 Flash **Lite** | `google/gemini-3.1-flash-lite` | 29 |
+| Gemini 3.1 Flash **Lite Preview** | `google/gemini-3.1-flash-lite-preview` | 10 |
+| Gemini 3.1 **Pro** Preview | `google/gemini-3.1-pro-preview` | 33 |
+| Gemini 3.1 Pro Preview Custom Tools | `google/gemini-3.1-pro-preview-customtools` | 11 |
+| Gemini 3.1 Flash **TTS** Preview *(speech)* | `google/gemini-3.1-flash-tts-preview` | 2 |
+| Gemini 3.1 Flash **Live** Preview *(realtime audio)* | `google/gemini-3.1-flash-live-preview` | 1 |
+| Nano Banana 2 *(image gen)* | `google/gemini-3.1-flash-image` | 11 |
+| Nano Banana 2 Lite *(image gen)* | `google/gemini-3.1-flash-lite-image` | 8 |
+| Nano Banana 2 Preview *(image gen)* | `google/gemini-3.1-flash-image-preview` | 7 |
+
+Google shipped 3.1 Flash **Lite**, 3.1 **Pro**, the TTS/Live audio variants, and the Nano Banana image models. It did not ship a plain 3.1 Flash. The repository's slug is therefore most plausibly a **naming collision** — plausibly a truncation of `gemini-3.1-flash-lite`, or a confusion between the 3.1 Pro Preview and the 3.1 Flash Lite.
+
+**Note:** the repository already tracks `gemini-3.1-flash-lite` as its **own separate slug** at queue position 75.8. So folding this entry into the Lite slug would be straightforward — but that is a maintainer decision about the dataset, not a research finding to silently apply.
+
+### Raw benchmarks found
+
+- **None. Zero verified public benchmark numbers exist for `google/gemini-3.1-flash`.** Terminal-Bench, τ²/τ³-bench, GDPval, Claw-Eval, Toolathlon, MCP-Atlas, GPQA, HLE, MRCR, LCR/MLCR, CritPt, hallucination metrics, SWE-bench, DeepSWE, LiveCodeBench, SciCode, and Vibe Code Bench: **no verified public score found, because there is no model to have published them.**
+
+### Corroborating problem inside this folder
+
+While checking, one inconsistency inside `model/gemini-3.1-flash/` was observed and is recorded here for maintainer review — **no other agent's file was modified**:
+
+- `Gemini_3.1_Flash_Lite.md` is signed `Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)` but its source line declares the ID `gemini-3-1-flash` — **a third variant of this model's ID**, matching neither the folder slug nor its own signature.
+- Its only two benchmarks are **MMLU 80.0%** and **HumanEval 75.0%**. **HumanEval is a 2021-era benchmark** that no 2026 frontier lab reports; a 75.0% HumanEval result would be far below every current model in this dataset and would be remarkable for a model the repo ranks at 78.4. Both values are round numbers consistent with placeholder data.
+- It also asserts "Text/Image/Audio/**Video**/PDF" and "Context window: 1,000,000", which contradict the `meta.json` and the other reports in this folder.
+
+This file is likely contributing fabricated benchmark rows to the dataset. **Recommend maintainer review of `Gemini_3.1_Flash_Lite.md` specifically.**
+
+### Normalized scores (1–100)
+
+**Intentionally omitted.** Under the self-exclusion rule, a model with zero verified public benchmarks must not receive scores — a placeholder drags the mean for every downstream reader. The prior pass assigned Tool 55 / Reasoning 60 / Context 95 / Multimodal 75 / Coding 60 / Cost 80 (Overall 69.0) while conceding in each sentence that no measurement supported it, and its own reasoning score was described as "a cautious capability estimate rather than a measured result." **Those numbers are withdrawn.**
+
+### Recommended resolution for maintainers
+
+1. **Confirm the slug is a phantom and remove it from `model-queue.md`**, or
+2. **Retarget it to `google/gemini-3.1-flash-lite` and merge into the existing `gemini-3.1-flash-lite` slug** (queue 75.8), which would then need its own first-pass research — the existing Lite reports in that folder are also low-quality, or
+3. **Retarget it to `google/gemini-3.1-pro-preview`**, which is a real, heavily-served model (33 providers), if a 3.1 Pro entry was the intent.
+4. Independently of the outcome, **review `Gemini_3.1_Flash_Lite.md`** — see the section above.
+
+Do not merge these scores into the dataset in their current form.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Direct verification against models.dev's full model index (all 10,000+ lines enumerated for the `gemini-3.1` prefix), BenchLM's model profile endpoint, and Google's Gemini API model index, cross-checked against the folder's `meta.json` and sibling reports; scores are normalized 1–100 interpretations, not official vendor scores — **none are issued for this model.** Cost efficiency is excluded from Overall.
+- Audit note: This file is **self-excluded** under the `model-report-TEMPLATE.md` rule "if you found ZERO verified public benchmark numbers for this exact model/ID … do NOT save a scored `.md` file." The first pass should have done this and did not. Search-provider rate limiting (HTTP 429) persisted throughout; direct retrieval was used instead, and the conclusion does not depend on search — it rests on three catalog lookups that each independently lack the model, including an exhaustive enumeration of every `gemini-3.1` product in the models.dev index.
+- Future sources: if the slug is retargeted to a real model, start a fresh scored report rather than reviving this one.

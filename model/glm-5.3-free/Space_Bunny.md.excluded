@@ -1,0 +1,68 @@
+# GLM 5.3 Free — findings by Space Bunny
+
+- Source: OpenCode Zen (`glm-5.3-free`; asserted free route)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-24
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **STATUS: NEGATIVE FINDING — SELF-EXCLUDED.** Saved as `.md.excluded` under the self-exclusion rule in `model-report-TEMPLATE.md`. **Zero verified public benchmark numbers exist for the `opencode/glm-5.3-free` route, because the route does not exist.** The provisional scores in the prior pass's scored file are withdrawn. **Scores inside this file are ignored by the aggregator by design.**
+
+> **What this pass found: `glm-5.3-free` is not an OpenCode Zen route.** It appears nowhere in any of Zen's four authoritative listings, checked live on 2026-10-10. The prior pass reached the same conclusion on 2026-09-24 and correctly refused to substitute proxy benchmark rows — but then assigned "provisional route estimate" scores anyway, which the self-exclusion rule does not permit. **This is the second time in this batch that a non-existent catalog entry was scored anyway** (see also `gemini-3.1-flash`, quarantined the same day).
+
+## Model card
+
+- **Name:** GLM 5.3 Free *(as named in `model/glm-5.3-free/meta.json`; no such Zen model exists)*
+- **Short description:** The repo tracks this as a free Zen route for Z.AI's GLM-5.3. **No such route exists.** Zen serves GLM-5.3 as a **paid** model, and serves a separate free tier for other model families entirely.
+- **Provider / access:** **None found.** Verified absent on 2026-10-10 from all four Zen sources (see the verification table below).
+- **Release / knowledge:** No route to date. The **underlying** GLM-5.3 family was released **2026-08-14**; **no knowledge cutoff is published** for it.
+- **IDs:** `opencode/glm-5.3-free` (repository `meta.json` and this report's asserted ID). **Zen does not accept this ID.**
+- **Context window:** `meta.json` asserts **204K**. This is **contradicted** by the underlying model's verified **1,000,000-token** context, and by the fact that **no other Zen free route applies an arbitrary context cap in its metadata** — 204K appears to be a stale or invented figure rather than a real route limit.
+- **Modalities:** `meta.json` asserts text in/out. Consistent with GLM-5.3, which is text-only. Unverifiable for a route that does not exist.
+- **Pricing:** `meta.json` asserts "Free Zen tier available." **False** — Zen's published pricing table has no `GLM 5.3 Free` line.
+- **Architecture:** The underlying weights are real: open-weight MoE, **753B total / 40B active**, under the GLM-5.3 licence with commercial-use restrictions. Only the free-route wrapper is fictional.
+
+### Verification table — `glm-5.3-free` checked against every Zen listing
+
+| Zen source | Endpoint / section | `glm-5.3-free` | GLM family entries actually present |
+|---|---|---|---|
+| Live model API | `https://opencode.ai/zen/v1/models` | **absent** | `glm-5.3-flash`, `glm-5.3`, `glm-5.2`, `glm-5.1`, `glm-5` |
+| Docs endpoint table | Zen → Endpoints | **absent** | GLM 5.3 Flash, GLM 5.3, GLM 5.2, GLM 5.1, GLM 5 — all `https://opencode.ai/zen/v1/chat/completions`, `@ai-sdk/openai-compatible` |
+| Pricing table | Zen → Pricing | **absent** — no free line | GLM 5.3 Flash **$0.15/$0.50**; GLM 5.3 **$1.40/$4.40** (cached read $0.26); GLM 5.2 / 5.1 $1.40/$4.40; GLM 5 $1.00/$3.20 |
+| Free-models list | Zen → Pricing → "The free models" | **absent** | Jev 1.13 Free, Big Pickle, Space Bunny Free, LongCat 2.5 Preview Free, Step 5 Preview Free, Exo Free, MiMo-V2.6-Flash Free, MiMo-V2.5 Free, Ling 3.1 Flash Free, Ling 3.0 Flash Fin Free, Nemotron 3 Ultra Free, Nemotron 3.5 Lightning Free, Muse Spark 1.3 Contributor Free |
+
+**The complete free tier as of 2026-10-10 is 13 models — and GLM is not among them.** Zen's free tier is a rotating set of promotional and stealth routes (with explicit "available for a limited time" framing and, for several, zero-retention / no-training data policies). **GLM-5.3 is served on Zen as a paid model at $1.40/$4.40.** Its cheap neighbour, **GLM-5.3-Flash, is $0.15/$0.50** — 9× cheaper on input and 9× on output — and is also not free.
+
+**Method note:** this conclusion does **not** depend on web search. It rests on a direct live API call plus three sections of OpenCode's own documentation, all four retrieved 2026-10-10, and it is independently corroborated by the prior pass's separate check on 2026-09-24 — two lookups, sixteen days apart, with the same result.
+
+### Raw benchmarks found
+
+- **None. Zero verified public benchmark numbers exist for `opencode/glm-5.3-free`.** No Terminal-Bench, τ²/τ³-bench, GDPval, Toolathlon, MCP-Atlas, GPQA, HLE, LCR, CritPt, SWE-bench, DeepSWE, LiveCodeBench, SciCode, or Vibe Code Bench figure can exist for a route with no endpoint.
+
+### What the underlying GLM-5.3 actually scores — for maintainer reference only
+
+> **These are `glm-5.3` figures, NOT `glm-5.3-free` figures.** They are recorded so a maintainer retargeting this slug knows what the real model is worth. They must not be treated as evidence about the route above, and the repo already tracks `glm-5.3` as its own slug at queue position 78.2, where a full report exists.
+
+- Tool use: Terminal-Bench 2.1 **88.2% (Z.ai) / 83.9% (AA) / 71.5% (Vals AI)**; Toolathlon Verified 73.0%; Agentic Index 53.4%; Tau3-Banking 50.3%; Terminal-Bench 3.0 28.3%; Terminal-Bench 4.0 41.9%
+- Reasoning: GPQA Diamond **91.7% (AA) / 88.1% (Vals)**; MMLU-Pro 86.8%; HLE 42.3%; Intelligence Index 44.8; AA-LCR 79.7%; MLCR-AA 48.3%; **Omniscience hallucination rate only 29.6%, Index +14.3%**
+- Coding: **SWE-bench 95.4% (Vals AI)**; LiveCodeBench 80.5%; Coding Index 74.8%; SciCode 59.0%; DeepSWE 66.9%; **FrontierSWE v1 78.1% but FrontierSWE v2 30.2%**
+- Context: 1,000,000 in / 131,072 out
+
+### Normalized scores (1–100)
+
+**Intentionally omitted.** Zero verified benchmarks for this route means no scores. **The prior pass's Tool 78 / Reasoning 82 / Context 65 / Multimodal 15 / Coding 80 / Cost 100 (Overall 64.0) are withdrawn** — every one was explicitly labelled a "provisional route estimate," and a provisional estimate of a model that does not exist is not evidence. In particular **Cost efficiency 100 is affirmatively false**: Zen charges **$1.40/$4.40** for GLM-5.3.
+
+### Recommended resolution for maintainers
+
+1. **Remove `glm-5.3-free` from `model-queue.md`** — the route is fictional, and
+2. **Confirm Zen pricing for GLM-5.3** is correctly reflected wherever the real `glm-5.3` slug is scored: **$1.40 input / $4.40 output / $0.26 cached read**, which is materially more expensive than GLM-5.3-Flash at $0.15/$0.50, or
+3. If a free GLM route was intended, **`glm-5.3-flash` at $0.15/$0.50** is the closest real option — but it is not free either, and it is already tracked as its own slug.
+
+**A related dataset issue worth flagging:** this batch found two scored-but-nonexistent entries (`gemini-3.1-flash` and `glm-5.3-free`), both in slugs whose `meta.json` asserts properties contradicted by live vendor data. Consider a validation step that checks every `opencode/*` slug against `https://opencode.ai/zen/v1/models` during sync.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Direct live retrieval of OpenCode Zen's model API (`https://opencode.ai/zen/v1/models`) and its documentation page (Endpoints, Pricing, and "The free models" sections), plus BenchLM, the Z.AI GLM-5.3 model card, Vals AI, and Artificial Analysis for the underlying-model reference figures; **scores are normalized 1–100 interpretations, not official vendor scores — none are issued for this route.** Cost efficiency is excluded from Overall.
+- Audit note: This file is **self-excluded** under the `model-report-TEMPLATE.md` rule — zero verified public benchmark numbers for this exact model/ID. The first pass correctly identified that the route was absent from Zen's catalog and correctly declined to substitute proxy benchmark rows, **but should have gone further and refused to score it at all**; the six "provisional" numbers it did assign are the kind of placeholder the rule exists to keep out of the dataset mean. **The same live Zen retrieval that condemns this route also confirms `mimo-v2.5-free` is real** — it appears in the docs endpoint table, the pricing table as Free/Free/Free, and the free-models list with a "limited time" notice — so that report stands. Search-provider rate limiting (HTTP 429) persisted; direct retrieval was used, and the conclusion does not depend on it.
+- Future sources: if the slug is retargeted to a real route, start a fresh scored report rather than reviving this one.
