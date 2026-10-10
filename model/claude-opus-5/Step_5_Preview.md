@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-5`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,7 +24,7 @@
 Agent / tool use:
 
 - SWE-bench Pro (harder agentic coding): **79.2%** (Anthropic; up 10 pts from Opus 4.8's 69.2%)
-- AA Intelligence Index: **61** (Artificial Analysis, max effort; well above the ~32 comparable-model median)
+- AA Intelligence Index: **51** (Artificial Analysis, max — see note; AA now flags the model **deprecated** and benchmarks only the default 10k workload, so this is a partial-workload number vs. the ~61 from the earlier full run cited in the first pass)
 - ARC-AGI-3 (high effort): **30.16%** (≈20× Opus 4.8, ≈4× GPT-5.6 Sol Max)
 - Vector Wire capability: **Agentic "Frontier"** (leads 7/7)
 - Toolathlon Verified: Pass@1 **80.6%** / Pass@3 **87.0%** (Anthropic system card, via vectorwire cross-ref)
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **94.1%** (Anthropic; rank #7/50 on hokai)
 - Vector Wire capability: **Reasoning "Frontier"** (−2.3% vs leader, 6/6); **Factuality "Strong"** (−8.7%)
-- AA Intelligence Index: **61** (max effort)
+- AA Intelligence Index: **61** on the earlier full run; the live AA page now shows **51** but flags the model **deprecated** and re-benchmarks only the default 10k-input workload, so 51 is a partial-workload artifact, not a capability drop
 - HLE / AIME 2025 exact Opus-5 rows: not surfaced live for Opus 5 — treated as provisional
 - Math: Vector Wire rates Math **"Capable"** (−12.3% vs leader)
 
@@ -61,8 +61,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic's Opus page, hokai.io (system card + Artificial Analysis), and vectorwire.ai (174 results, 22 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (81 primary-source results, updated 2026-10-07) and the Artificial Analysis model page (now flags Opus 5 deprecated; partial-workload Intelligence Index 51 vs. the earlier full-run 61). Prior pass (2026-10-08) used Anthropic's Opus page, hokai.io, and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

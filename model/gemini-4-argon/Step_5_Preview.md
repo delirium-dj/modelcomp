@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-4-argon`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,13 +23,16 @@
 
 Agent / tool use:
 
-- AutomationBench-AA: **78%** (Artificial Analysis variant) / **51.3%** (Google/Zapier own run)
+- AutomationBench-AA: **78%** (Artificial Analysis variant) / **51.3%** (Google/Zapier own run) / **50.1%** (Zapier independent, medium)
+- APEX-Agents Original: **82.4%** (Mercor, independent, high — reported 2026-10-07)
 - OSWorld 2.0 (offline subset): **69.2%** (Google)
 - Vals Index 2.1: **68.9%** (cross-industry composite)
-- Terminal-Bench 4.0: **57%** (behind Claude Sonnet 5.5 64%, Opus 5.5 60%, GPT-6 Astra 59%)
+- Terminal-Bench 4.0: **57.4%** (Google, max) / **57.6%** (Vals AI mini-swe-agent, independent — reported 2026-10-06) — behind Claude Sonnet 5.5 64%, Opus 5.5 60%, GPT-6 Astra 59%
 - Agents' Last Exam (pass rate): **39.5%** (Google)
 - PostTrainBench: **45.3%**
-- Vector Wire capability: **Agentic "Limited"** (−25.4% vs leader, 2/7) — its weakest area
+- Chartography (no tools): **71.6%** (Surge AI via Google, Sept 2026)
+- CWE-bench 1 (cyber): **68.0%** (Collinear AI via Google)
+- Vector Wire capability: **Agentic "Limited"** (−25.4% vs leader, 2/7) — now contradicted by stronger independent APEX/AutomationBench runs
 
 Reasoning / knowledge:
 
@@ -59,20 +62,20 @@ Long context:
 - LVBench (long video): **91.7%**
 - Vector Wire: Long Context **"Capable"** (−11.7% vs leader, 1/3)
 
-- **Tool use: 78/100.** AutomationBench-AA 78%, OSWorld 69.2%, and Vals Index 68.9% are capable, but Terminal-Bench 4.0 at 57% trails Claude Sonnet 5.5 (64%), Opus 5.5 (60%), and GPT-6 Astra (59%), and Vector Wire rates Agentic "Limited" (−25.4% vs leader) — its weakest area. Agentic breadth is the cap.
+- **Tool use: 82/100.** Independent agentic runs are stronger than the thin vendor set first suggested: APEX-Agents 82.4% (Mercor, independent — now field-leading, above Opus 5.5's 73.5% and Fable 5.1's 68.6% at max), AutomationBench 50.1% (Zapier, independent), OSWorld 69.2%, Vals Index 68.9%. Capped below frontier by Terminal-Bench 4.0 at ~57.5% (still behind Sonnet 5.5 64%, Opus 5.5 60%, GPT-6 Astra 59%) and Vector Wire's Agentic "Limited" rating, which the independent APEX run now contradicts. Raised from 78 on the 2026-10-07 independent APEX/AutomationBench evidence.
 - **Reasoning: 85/100.** AA Intelligence Index 53 (a 23-pt jump over Gemini 3.1 Pro, level with GPT-6 Astra) and exceptional calibration (AA-Omniscience 15% hallucination — it declines rather than guesses) are strong. Capped by Vector Wire's Reasoning "Capable" (−18.4%) and Factuality "Capable" (−13.0%) ratings, plus no verified GPQA/HLE row yet.
 - **Context window: 95/100.** A 1M input AND 1M output window (provisional — Google hasn't confirmed) with GraphWalks 84.2% at 256k–1M, LVBench 91.7%, and Long Context "Capable" (−11.7%) — solidly in the ≥1M tier. Not a full 100 because the 1M spec is vendor-unconfirmed and there is no explicit MRCR ≥98%-at-512K figure.
 - **Multimodal: 88/100.** Text + image + video in with LVBench 91.7% (long-video) hits the 90–100 input band; held to 88 because Vector Wire has not rated Multimodal (too few results) and output is text-only.
-- **Coding: 84/100.** DeepSWE v1.1 77.9% clears the 74% frontier ref and TB-Science 57.6% is solid, and Google reports a real 32K-line Rust code-migration win. Capped by Terminal-Bench 4.0 at 57% (behind the Claude/OpenAI leaders), no verified SWE-bench row yet, and Vector Wire not rating Coding at all (thin coverage).
+- **Coding: 84/100.** DeepSWE v1.1 77.9% clears the 74% frontier ref, TB-Science 57.6% and CWE-bench 68.0% are solid, Vibe Code Bench 1.1 91.9% (Google/Vals, Sept 2026) is strong, and Google reports a real 32K-line Rust code-migration win. Capped by Terminal-Bench 4.0 at ~57.5% (behind the Claude/OpenAI leaders), no verified SWE-bench row yet, and Vector Wire not rating Coding (thin coverage).
 - **Cost efficiency: 80/100.** Paid-only at $2/$10 per 1M (provisional, pre-GA); between the ~$1.25/$4.25=88 and ~$3/$15=60 anchors, weighted toward the cheaper end. No free tier and access is restricted.
-- **Overall Score: 86/100.** Mean of the five non-cost dims (78+85+95+88+84)/5 = 86.0. A strong long-context / low-hallucination reasoning model whose thin independent coverage and restricted access keep it provisional — best fit for long, document-heavy work once access widens; look elsewhere for terminal-driven coding agents today.
+- **Overall Score: 87/100.** Mean of the five non-cost dims (82+85+95+88+84)/5 = 86.8. A strong long-context / low-hallucination reasoning model whose thin independent coverage and restricted access keep it provisional — best fit for long, document-heavy work once access widens; independent agentic evals (APEX 82.4%) are stronger than the TB4.0 terminal result alone implied.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced hokai.io (Artificial Analysis + Google's own evals) and vectorwire.ai (27 results, 3 independently verified — most vendor-reported due to restricted access).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (22 primary-source results, updated 2026-10-07 — independent Mercor APEX-Agents 82.4%, Zapier AutomationBench 50.1%, Vals AI TB4.0 57.6%) and the Artificial Analysis live LLM leaderboard (Intelligence Index 53). Prior pass (2026-10-08) used hokai.io and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ### Normalized scores (1–100)

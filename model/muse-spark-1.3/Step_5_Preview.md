@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Step 5 Preview
 
 - Source: Meta (Meta Superintelligence Labs) `muse-spark-1.3`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,7 @@ Reasoning / knowledge:
 - MRCR 256K–512K: **98.5%** (Meta self-reported)
 - MRCR 512K–1M: **98.1%** (Meta self-reported)
 - CharXiv (descriptive + reasoning): **93.9%** (Mercor single-shot, max — independent)
-- Artificial Analysis Intelligence Index: no verified numeric row found live (score pending on trackers)
+- Artificial Analysis Intelligence Index: **48** (max, live on the AA leaderboard 2026-10-10 — previously "pending"; a broad composite well below the 60+ frontier ref, though it aggregates coding/agentic/long-context where 1.3 is not its strongest, vs. its near-ceiling GPQA/HLE/MRCR)
 
 Coding:
 
@@ -58,7 +58,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 91/100.** GDPval-AA 1754 Elo and TB2.1 84–89% sit at the frontier threshold (rubric ≥1750 / ≥88% → 90–100), and Vals Index 53.2% is solid. Capped below the very top by the hardest long-horizon benches: Terminal-Bench 4.0 only ~24.75 (Vals AI) and AutomationBench independent run 20.7% — the newest agentic evals still expose gaps that TB2.1's earlier generation hid.
-- **Reasoning: 92/100.** HLE 48.7% clears the frontier 40% bar and GPQA Diamond 93.5% is near-ceiling (though saturated/trust-D), with MRCR 98%+ at long range. Capped by LiveBench 81.6 and Vals Index 53.2% (below the 60+ intelligence-index frontier ref), and the absence of a live AA Intelligence Index number.
+- **Reasoning: 92/100.** HLE 48.7% clears the frontier 40% bar and GPQA Diamond 93.5% is near-ceiling (though saturated/trust-D), with MRCR 98%+ at long range. Capped by LiveBench 81.6, Vals Index 53.2%, and the now-live Artificial Analysis Intelligence Index of 48 — all broad composites below the 60+ frontier ref, even as the point benchmarks (GPQA/HLE/MRCR) stay frontier.
 - **Context window: 100/100.** 1M input / 944K output with MRCR ≥98% retrieval at 512K+ — squarely in the rubric's "≥1M = 100 if ≥98% retrieval at 512K+" top tier.
 - **Multimodal: 90/100.** Text + image + audio + video + PDF in (text out), so it hits the 90–100 band; CharXiv 93.9% (independent) confirms strong multimodal reasoning. Not a full 100 because output is text-only (no native non-text generation).
 - **Coding: 93/100.** DeepSWE 75.4% (self-reported, >74 frontier ref), TB2.1 88.8%, Vibe Code 82.9% — all at the frontier coding band. Capped by the absence of an independent SWE-bench Verified / LiveCodeBench run and the harder TB4.0 (~24.75) and CursorBench (~33%) long-horizon results.
@@ -69,7 +69,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Meta's official page, benchmarkregistry.org, themodelgap.com, llm-stats.com, and benchlm.ai; independent runs preferred over vendor self-reports where both exist.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (30 primary-source results, updated 2026-10-07) and the Artificial Analysis live LLM leaderboard (Intelligence Index 48, max — previously pending). Prior pass (2026-10-08) used Meta's official page, benchmarkregistry.org, themodelgap.com, llm-stats.com, and benchlm.ai; independent runs preferred over vendor self-reports where both exist.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
