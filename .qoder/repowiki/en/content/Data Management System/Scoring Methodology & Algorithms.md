@@ -37,12 +37,13 @@
 
 ## Update Summary
 **Changes Made**
-- Added comprehensive documentation for new model entries including gemma-4-e2b, gemma-4-e4b, ling-2.6-flash, mercury-2.5, and mistral-large-4
-- Updated scoring methodology examples with detailed breakdowns of the six evaluation dimensions for new models
-- Enhanced evidence-free report filtering documentation with improved detection criteria
-- Expanded quality gates validation with enhanced rater gate enforcement mechanisms
-- Added mathematical formulas section covering all calculation methods used in the scoring system
-- Updated examples showing how different models receive scores across tool use, reasoning, context window, multimodal, coding, and cost efficiency dimensions
+- Updated scoring methodology to reflect second-pass verification of benchmark data with corrected values across model families
+- Enhanced deprecation lifecycle notes for legacy model entries and tier consolidation (Muse Spark 1.2/1.3, Muse Spark tiers)
+- Refreshed scoring methodologies affecting model rankings with updated rater gate enforcement and top-10 cohort calculations
+- Corrected benchmark values for Gemma 4 E2b (50.6), Gemma 4 E4b (59.1), Ling 2.6 Flash (52.4), Mercury 2.5 (51.0), and Mistral Large 4 (81.8)
+- Updated Claude Haiku 4.5 (73.2), Claude Haiku 5.5 (82.1), and GPT-5.6 Luna (81.9) scores based on refined independent source weighting
+- Enhanced evidence-free report filtering with improved detection criteria for vendor-only claims and flat uniformity patterns
+- Expanded quality gates validation with stricter rater gate enforcement (84.9 threshold) and enhanced bottom-performer exclusion
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -233,7 +234,7 @@ Keep --> Output
 - Other averaged dimensions are arithmetic means over the same cohort.
 - If no rater clears the gate, a fallback average uses all available reports, still capped at top-10.
 - **Enhanced**: Improved tracking of which sources are below-gate and why they're ignored.
-- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including Claude Haiku 4.5 achieving 72.8, Claude Haiku 5.5 reaching 79.7, and GPT-5.6 Luna at 81.9.
+- **Recent Updates**: Extensive recalculations across model families with enhanced validation, including Claude Haiku 4.5 achieving 73.2, Claude Haiku 5.5 reaching 82.1, and GPT-5.6 Luna at 81.9.
 
 ```mermaid
 flowchart TD
@@ -349,11 +350,11 @@ The following formulas are implemented in the sync and parsing logic:
 |---|---:|---:|---|
 | Gemma 4 E2b | 50.6 | Lower tier | Fast deployment model with moderate capabilities |
 | Gemma 4 E4b | 59.1 | Mid-tier | Enhanced version with improved reasoning and multimodal support |
-| Ling 2.6 Flash | 53.7 | Lower mid-tier | Specialized flash model with strong context window |
+| Ling 2.6 Flash | 52.4 | Lower mid-tier | Specialized flash model with strong context window |
 | Mercury 2.5 | 51.0 | Lower tier | Balanced model with excellent cost efficiency |
-| Mistral Large 4 | 81.7 | Upper mid-tier | Strong general-purpose model with exceptional coding abilities |
-| Claude Haiku 4.5 | 72.8 | #89 | Fastest Anthropic model with extended thinking capabilities |
-| Claude Haiku 5.5 | 79.7 | #67 | Claude 5.5-family small model with adjustable reasoning effort |
+| Mistral Large 4 | 81.8 | Upper mid-tier | Strong general-purpose model with exceptional coding abilities |
+| Claude Haiku 4.5 | 73.2 | #89 | Fastest Anthropic model with extended thinking capabilities |
+| Claude Haiku 5.5 | 82.1 | #67 | Claude 5.5-family small model with adjustable reasoning effort |
 | GPT-5.6 Luna | 81.9 | #58 | Cost-sensitive high-volume OpenAI model with expanded dimensions |
 | MiMo 2.6 Flash | 86.4 | #37 | Strong multimodal and agent capabilities with excellent cost efficiency |
 | Big Pickle | 55.1 | #143 | Stable zero-cost model with conservative scoring across dimensions |
@@ -366,11 +367,11 @@ Current representative scores across model families:
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Gemma 4 E2b | 38.7 | 47.3 | 55.9 | 67.7 | 43.4 | 98.0 | 50.6 |
 | Gemma 4 E4b | 49.7 | 58.0 | 60.6 | 72.6 | 53.8 | 97.8 | 59.1 |
-| Ling 2.6 Flash | 63.0 | 57.0 | 73.7 | 15.0 | 60.0 | 86.0 | 53.7 |
+| Ling 2.6 Flash | 60.2 | 55.6 | 74.3 | 15.0 | 56.7 | 90.0 | 52.4 |
 | Mercury 2.5 | 55.2 | 55.5 | 73.6 | 14.7 | 56.1 | 95.8 | 51.0 |
-| Mistral Large 4 | 80.0 | 80.3 | 90.0 | 75.2 | 82.8 | 84.7 | 81.7 |
-| Claude Haiku 4.5 | 70.9 | 71.4 | 73.1 | 69.6 | 79.4 | 86.6 | 72.8 |
-| Claude Haiku 5.5 | 79.3 | 79.8 | 94.0 | 72.4 | 73.4 | 95.2 | 79.7 |
+| Mistral Large 4 | 80.4 | 79.3 | 90.4 | 76.5 | 82.1 | 77.8 | 81.8 |
+| Claude Haiku 4.5 | 72.4 | 72.7 | 73.3 | 70.1 | 78.1 | 86.2 | 73.2 |
+| Claude Haiku 5.5 | 80.7 | 81.6 | 95.0 | 76.0 | 76.9 | 94.3 | 82.1 |
 | GPT-5.6 Luna | 81.8 | 81.5 | 90.3 | 72.8 | 82.5 | 92.6 | 81.9 |
 | MiMo 2.6 Flash | 84.3 | 79.6 | 94.0 | 90.4 | 83.0 | 96.9 | 86.4 |
 | Big Pickle | 61.1 | 59.2 | 67.5 | 19.9 | 67.8 | 97.9 | 55.1 |
@@ -384,7 +385,7 @@ These scores demonstrate:
 - Long-context models score higher on Context window.
 - Coding-focused models score higher on Coding.
 - Overall excludes Cost efficiency, so high cost efficiency does not inflate Overall.
-- **Enhanced**: Recent recalculations show improved consistency across model families, with Claude Haiku 4.5 demonstrating exceptional value at 72.8, Claude Haiku 5.5 showing refined performance at 79.7, and GPT-5.6 Luna achieving sophisticated multimodal capabilities at 81.9.
+- **Enhanced**: Recent recalculations show improved consistency across model families, with Claude Haiku 4.5 demonstrating exceptional value at 73.2, Claude Haiku 5.5 showing refined performance at 82.1, and GPT-5.6 Luna achieving sophisticated multimodal capabilities at 81.9.
 - **Enhanced**: Scores reflect independent verification from Artificial Analysis and BenchLM where available, with vendor claims treated as provisional without corroboration.
 
 **Section sources**
@@ -450,20 +451,20 @@ These scores demonstrate:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 63.0 | Mid-range |
-| Reasoning | 57.0 | Below average |
-| Context window | 73.7 | Above average |
+| Tool use | 60.2 | Mid-range |
+| Reasoning | 55.6 | Below average |
+| Context window | 74.3 | Above average |
 | Multimodal | 15.0 | Low |
-| Coding | 60.0 | Mid-range |
-| Cost efficiency | 86.0 | Very good |
-| Overall Score | 53.7 | Lower mid-tier |
+| Coding | 56.7 | Mid-range |
+| Cost efficiency | 90.0 | Very good |
+| Overall Score | 52.4 | Lower mid-tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-3 of 3 Qualifying Sources**: Selects the best performing raters from a very focused pool of qualified sources.
+1. **Top-10 of 10 Qualifying Sources**: Selects the best performing raters from a very focused pool of qualified sources.
 2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
-3. **Limited Rater Gate**: Ignores 2 below-gate raters while maintaining validation standards.
-4. **Context Window Specialization**: Shows exceptional context window capabilities with 73.7 scoring.
+3. **Limited Rater Gate**: Ignores 10 below-gate raters while maintaining validation standards.
+4. **Context Window Specialization**: Shows exceptional context window capabilities with 74.3 scoring.
 5. **Text-Only Focus**: Demonstrates low multimodal capabilities typical of specialized text models.
 
 **Section sources**
@@ -498,24 +499,24 @@ These scores demonstrate:
 
 | Dimension | Score | Performance Level |
 |---|---:|---|
-| Tool use | 80.0 | Strong |
-| Reasoning | 80.3 | Strong |
-| Context window | 90.0 | Near-perfect |
-| Multimodal | 75.2 | Above average |
-| Coding | 82.8 | Strong |
-| Cost efficiency | 84.7 | Very good |
-| Overall Score | 81.7 | Upper mid-tier |
+| Tool use | 80.4 | Strong |
+| Reasoning | 79.3 | Strong |
+| Context window | 90.4 | Near-perfect |
+| Multimodal | 76.5 | Above average |
+| Coding | 82.1 | Strong |
+| Cost efficiency | 77.8 | Very good |
+| Overall Score | 81.8 | Upper mid-tier |
 
 **Key Algorithmic Features:**
 
-1. **Top-6 of 6 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
-2. **Minimal Bottom-Performer Exclusion**: No bottom performers excluded due to limited qualifying sources.
+1. **Top-10 of 12 Qualifying Sources**: Selects the best performing raters from a focused pool of qualified sources.
+2. **Bottom-Performer Exclusion**: Gemini 3.6 Flash and GLM 5.3 Flash excluded as bottom performers.
 3. **Limited Rater Gate**: Ignores 7 below-gate raters while maintaining validation standards.
 4. **Strong General-Purpose Performance**: Demonstrates exceptional capabilities across all major dimensions.
-5. **Coding Excellence**: Shows outstanding coding performance with 82.8 scoring, making it ideal for software development tasks.
+5. **Coding Excellence**: Shows outstanding coding performance with 82.1 scoring, making it ideal for software development tasks.
 
 **Section sources**
-- [model/mistral-large-4/average.md:8-23](file://model/mistral-large-4/average.md#L8-L23)
+- [model/mistral-large-4/average.md:8-24](file://model/mistral-large-4/average.md#L8-L24)
 
 ## Dependency Analysis
 The scoring system has clear dependencies between orchestration, parsing, quarantine, averaging, and presentation:
@@ -608,8 +609,8 @@ The system enforces quality through:
 - Deterministic sync that regenerates averages and compact scores
 - **Enhanced**: Preference for independent verification from Artificial Analysis and BenchLM over vendor claims
 - **Enhanced**: Better handling of source discrepancies and version sensitivity
-- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 achieving 72.8, Claude Haiku 5.5 reaching 79.7, and GPT-5.6 Luna at 81.9
+- **Recent Updates**: Extensive infrastructure improvements ensuring consistent recalculations across model families, demonstrated by Claude Haiku 4.5 achieving 73.2, Claude Haiku 5.5 reaching 82.1, and GPT-5.6 Luna at 81.9
 
-The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. The new model entries including Gemma 4 E2b (50.6), Gemma 4 E4b (59.1), Ling 2.6 Flash (53.7), Mercury 2.5 (51.0), and Mistral Large 4 (81.7) showcase the versatility of the enhanced scoring framework. Claude Haiku 4.5's fast frontier-class performance at 72.8, Claude Haiku 5.5's refined adjustable reasoning at 79.7, GPT-5.6 Luna's sophisticated multimodal capabilities at 81.9, MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the comprehensive coverage of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
+The enhanced methodology specifically demonstrates the benefits of the improved algorithm, showing how top-10-of-n source selection and explicit bottom-performer exclusion lead to more accurate and reliable scoring across all dimensions. The new model entries including Gemma 4 E2b (50.6), Gemma 4 E4b (59.1), Ling 2.6 Flash (52.4), Mercury 2.5 (51.0), and Mistral Large 4 (81.8) showcase the versatility of the enhanced scoring framework. Claude Haiku 4.5's fast frontier-class performance at 73.2, Claude Haiku 5.5's refined adjustable reasoning at 82.1, GPT-5.6 Luna's sophisticated multimodal capabilities at 81.9, MiMo 2.6 Flash's exceptional multimodal score of 90.4, Big Pickle's stable zero-cost profile, DeepSeek 4.1 Flash's high-throughput specialization, and Muse Spark 1.3's frontier-level performance demonstrate the comprehensive coverage of the enhanced scoring framework. This design ensures that published scores are interpretable, auditable, and resistant to fabricated or low-evidence inputs, while giving appropriate weight to independently verified performance metrics. The recent enhancements to the scoring infrastructure further strengthen the reliability and consistency of the evaluation framework.
 
 [No sources needed since this section summarizes without analyzing specific files]

@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-5-5`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -74,7 +74,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic's Opus 5.5 system card (via hokai.io), Vellum's Artificial Analysis analysis, and BenchmarkList's percentile-ranked 58-benchmark map.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (49 primary-source results, updated 2026-10-07 — TB4.0 Claude Code 64.9% / Mercor mini-swe-agent 58.3%, Vibe Code 90.3%, BrowseComp 88.5%, CharXiv 96.4%, SWE-bench Pro) and the Artificial Analysis live LLM leaderboard (Intelligence Index 58, #1 at max) — no score change warranted; TB4.0 harness variance (64.9 vs the 66.4 xhigh cited) noted. Prior pass (2026-10-08) used Anthropic's Opus 5.5 system card (via hokai.io), Vellum's Artificial Analysis analysis, and BenchmarkList.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

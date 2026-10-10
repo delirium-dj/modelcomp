@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3.1-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,9 +25,12 @@ Agent / tool use:
 
 - τ2-bench Retail: **90.8%** (Google; rank #1 on llmboard) / **99.3%** Telecom
 - MCP Atlas (multi-step MCP workflows): **69.2%** (Google)
-- BrowseComp (agentic search): **85.9%** (Google; rank #11/67)
+- BrowseComp (agentic search): **85.9%** (Google; rank #11/67) / **75.6%** (Mercor web-research agent, independent — reported 2026-10-07)
 - Terminal-Bench 2.0 (Terminus-2 harness): **68.5%** (Google; ahead of Opus 4.6 65.4%)
-- APEX-Agents (long-horizon professional): **33.5%** (Google; rank #6/11, only 50th pct) — the weak agentic signal
+- APEX-Agents (long-horizon professional): **33.5%** (Google; rank #6/11, only 50th pct) / **35.3%** (Mercor, independent — reported 2026-10-07) — the weak agentic signal
+- AutomationBench 1.0.6: **4.6–8.7%** (low→high, Zapier, independent — reported 2026-10-07) — very weak real-world automation
+- Chartography Oct 2026: **26.1%** (Surge AI, independent — reported 2026-10-07)
+- Vals Index 2.1: **33.4%** (Vals AI, independent — reported 2026-10-06)
 - Terminal-Bench 4.0: no verified public score found for 3.1 Pro
 
 Reasoning / knowledge:
@@ -48,7 +51,9 @@ Coding:
 - SWE-bench Pro (Public): **54.2%** (Google) — mid-tier on the harder diverse-agentic suite
 - SciCode: **59.0%** (rank #3/26)
 - GDPval-AA (Elo): **1317** (Google) — below the ~1750 frontier threshold; Vector Wire "Coding Capable" (−20.4%)
-- DeepSWE / Vibe Code Bench: no verified public 3.1-Pro row surfaced live
+- Vibe Code Bench 1.1 (OpenHands): **32.0%** (Vals AI, independent — reported 2026-10-06) — weak real-world app-building
+- Vals Index 2.1: **33.4%** (Vals AI, independent — see tool use) — weak cross-industry coding composite
+- DeepSWE: no verified public 3.1-Pro row surfaced live
 - Terminal-Bench 2.0 (agentic coding): **68.5%** (see tool use)
 
 Multimodal:
@@ -61,20 +66,20 @@ Long context:
 
 - MRCR v2 8-needle 128k average: **84.9%**; **1M pointwise: 26.3%** (Google) — retrieval collapses at the top of the window
 - Vector Wire: Long Context **"Capable"** (−13.5% vs leader, 2/3)
-- **Tool use: 88/100.** τ2-bench Retail 90.8% (#1) and Telecom 99.3%, MCP Atlas 69.2%, BrowseComp 85.9%, and TB2.0 68.5% are strong. Capped by APEX-Agents 33.5% (only 50th pct on long-horizon professional tasks) and Vector Wire's Agentic "Limited" (−28.4% vs leader) — agentic long-horizon is the soft spot despite strong retail/MCP tool scores.
+- **Tool use: 85/100.** Strong on structured/vendor tool evals — τ2-bench Retail 90.8% (#1), Telecom 99.3%, MCP Atlas 69.2%, TB2.0 68.5%, BrowseComp 85.9% (vendor) / 75.6% (independent). But independent real-world agentic runs are weak: AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, APEX-Agents 35.3% — the structured-tool strength does not carry to open-ended automation. Trimmed from 88 on the 2026-10-07 independent AutomationBench/Chartography/Vals evidence (previously unavailable).
 - **Reasoning: 92/100.** GPQA Diamond 94.3% (highest publicly verified) and ARC-AGI-2 77.1% are firmly frontier; HLE 44.4%/51.4% clears the 40% bar. Capped by Vector Wire's Math "Limited" (−40.0%) and no verified AIME row — math is a blind spot that keeps it below the very top.
 - **Context window: 88/100.** 1M input puts it in the ≥1M tier, but MRCR retrieval collapses from 84.9% at 128K to 26.3% at 1M, and Vector Wire rates Long Context only "Capable" (−13.5%); the 64K output cap is a further caveat. A nominal 1M window with weak 1M retrieval does not earn the top tier.
 - **Multimodal: 92/100.** Full input coverage (text/image/video/audio/PDF) with MMMU-Pro 80.5% and VideoMME 87.2% (8-pt lead over Opus 4.5); Vector Wire rates Multimodal "Strong" (−8.6%). Just under the ceiling because output is text-only.
-- **Coding: 82/100.** SWE-bench Verified 80.6% and LiveCodeBench Pro Elo 2887 (#1, best-in-class competitive coding) are strong, but SWE-bench Pro 54.2% and GDPval-AA 1317 Elo (below the 1750 frontier threshold) are mid-tier, and Vector Wire rates Coding "Capable" (−20.4%, rank 10/10). Competitive-coding strength does not carry to real-world agentic coding.
+- **Coding: 80/100.** SWE-bench Verified 80.6% and LiveCodeBench Pro Elo 2887 (#1, best-in-class competitive coding) are strong, but SWE-bench Pro 54.2%, GDPval-AA 1317 Elo (below the 1750 frontier threshold), and the now-measured independent real-world coding — Vibe Code Bench 32.0% and Vals Index 33.4% — confirm competitive-coding strength does not carry to real-world agentic coding. Trimmed from 82 on the 2026-10-06 independent Vibe Code / Vals Index evidence (previously "not surfaced live").
 - **Cost efficiency: 78/100.** Paid-only at $2/$12 per 1M (with a 2× repricing above 200K input); no free tier. Sits between the ~$1.25/$4.25=88 and ~$3/$15=60 anchors, weighted toward the cheaper end.
-- **Overall Score: 88/100.** Mean of the five non-cost dims (88+92+88+92+82)/5 = 88.4. Best fit for scientific reasoning, competitive coding, and multimodal long-context analysis; not the top pick for the hardest long-horizon agentic coding or math.
+- **Overall Score: 87/100.** Mean of the five non-cost dims (85+92+88+92+80)/5 = 87.4. Best fit for scientific reasoning, competitive coding, and multimodal long-context analysis; not the top pick for the hardest long-horizon agentic coding, math, or open-ended automation — independent real-world agentic/coding runs (AutomationBench ~8%, Vibe Code 32%, Vals Index 33%) are the soft spots.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Google's official DeepMind benchmark table, llmboard.ai (47 benchmarks), hokai.io, and vectorwire.ai (215 results, 30 independently verified).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (51 primary-source results, updated 2026-10-07 — independent Mercor/Vals AI/Zapier/Surge runs), which surfaced real-world agentic/coding numbers (AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, Vibe Code 32.0%) that were not available in the first pass and trimmed Tool use 88→85 and Coding 82→80. Prior pass (2026-10-08) used Google's official DeepMind benchmark table, llmboard.ai, hokai.io, and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

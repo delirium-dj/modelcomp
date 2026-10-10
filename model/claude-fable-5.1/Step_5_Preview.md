@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-fable-5-1`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic's Fable 5.1 system card (via hokai.io), Vals AI independent runs, and themodelgap.com's independent noise-band analysis (8/10 independent runs).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (80 primary-source results, updated 2026-10-07 — APEX-Agents 68.6%, AutomationBench 21.3%, BrowseComp 85.2%, MMMU-Pro 90.6%, MILU 93.0%) and the Artificial Analysis live LLM leaderboard (Intelligence Index 53, max) — no score change warranted. Prior pass (2026-10-08) used Anthropic's Fable 5.1 system card (via hokai.io), Vals AI independent runs, and themodelgap.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

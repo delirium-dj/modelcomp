@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-6-astra`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,12 @@ Agent / tool use:
 - Terminal-Bench-Science 0.1: **64.6%** (vectorwire cross-ref)
 - ScreenSpot-Pro (computer use): leads GPT-5.6 Sol
 - Vector Wire capability: **Agentic "Capable"** (−11.1% vs leader, 5/7); **Instruction Following "Limited"** (−30.4%)
-- Tau-bench / OSWorld exact rows: not surfaced live for Astra — treated as provisional
+- Terminal-Bench 2.1 (Vals AI Terminus-2): **87.3%** (max, independent — reported 2026-09-28) — strong agentic-terminal result
+- SWE Atlas Codebase QnA: **59.1%** (Scale AI Codex harness, independent) / **47.8%** (Mercor mini-swe-agent, independent) — real codebase navigation
+- SWE Atlas Refactoring: **59.1%** (Scale AI Codex, independent)
+- BenchCAD Vision2Code: **95.9%** (OpenAI, with tools)
+- AutomationBench 1.0.6: **41.4%** (max, OpenAI self-reported) / **25.3–30.3%** (independent Zapier lower-effort runs)
+- BrowseComp 130-q: **94.2%** (Mercor web-research agent, xHigh, independent)
 
 Reasoning / knowledge:
 
@@ -56,7 +61,7 @@ Long context:
 Multimodal:
 
 - Text + image in; text out. No audio/video, no image output.
-- **Tool use: 82/100.** AA Intelligence Index 53, ExploitBench/ScreenSpot-Pro leads over GPT-5.6 Sol, and Vals Index 63.1% are solid. Capped by Vector Wire's Agentic "Capable" (−11.1%) and Instruction Following "Limited" (−30.4%), plus missing live Tau-bench/OSWorld exact rows — agentic breadth is behind the reasoning leads.
+- **Tool use: 82/100.** AA Intelligence Index 53, independent Terminal-Bench 2.1 87.3% (Vals Terminus), BrowseComp 94.2% (Mercor), SWE Atlas 59.1% (Scale AI), and ExploitBench/ScreenSpot-Pro leads over GPT-5.6 Sol are solid. Capped by Vector Wire's Agentic "Capable" (−11.1%) and Instruction Following "Limited" (−30.4%), plus lower-effort independent AutomationBench (25–30%) — agentic breadth trails its reasoning lead.
 - **Reasoning: 93/100.** GPQA Diamond 96.0% (rank #2/50) and AA Intelligence Index 53 with Vector Wire rating Reasoning/Factuality/Math all "Frontier". Capped by an HLE that trails the leading rival, no verified AIME row, and the ARC-AGI headline that only holds in a persistent-memory config (not single-shot API).
 - **Context window: 90/100.** 1.05M input with strong long-context recall deep into the window and Vector Wire Long Context "Strong" (−10%). Held from the top tier by the 128K output cap and the absence of an explicit MRCR ≥98%-at-512K retrieval figure.
 - **Multimodal: 72/100.** Text + image in (text out), no audio/video input and no non-text output → just into the 60–70 "+image in" band, nudged up by computer-use strength; Vector Wire rates Multimodal "Capable" (−21.9%, 1/6).
@@ -68,8 +73,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced hokai.io (Artificial Analysis + OpenAI), vectorwire.ai (176 results, 43 independently verified, capability profile), and llm-stats.com.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (61 primary-source results, updated 2026-10-07 — independent TB2.1 87.3%, BrowseComp 94.2%, SWE Atlas 59.1%, AutomationBench up to 41.4%) and the Artificial Analysis live LLM leaderboard (Intelligence Index 53, max) — no score change warranted. Prior pass (2026-10-08) used hokai.io (Artificial Analysis + OpenAI), vectorwire.ai, and llm-stats.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 - Vector Wire: Multimodal **"Capable"** (−21.9% vs leader, 1/6)

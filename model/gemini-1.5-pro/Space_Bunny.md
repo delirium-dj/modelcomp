@@ -1,67 +1,58 @@
-# Gemini 1.5 Pro — findings by Space Bunny Alpha
+# Gemini 1.5 Pro — findings by Space Bunny
 
 - Source: Google (`gemini-1.5-pro`; September 2024 snapshot)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+- Re-validation note: re-checked 2026-10-10. **MATERIAL change — Overall 69.4 → 53.4.** The prior pass scored a **retired** model largely from **2024-era benchmark suites (MATH, Big-Bench Hard, HumanEval, Natural2Code)** that no longer discriminate, and recorded "no verified public score found" for every modern agentic and coding measure. Artificial Analysis has since run the model on current harnesses, and the results are poor: **AA-Intelligence Index 7.9**, **AA Coding Index 23.6%**, **AA-MMMU-Pro 55.0%**, **AA-HLE 4.6%**. **BenchLM ranks it #195 of 889.** One prior figure is confirmed almost exactly (**GPQA 58.9% vs the prior 59.1%**), one is upgraded (**context now listed as 2M, not 1M**), and the rest are corrected downward. Restated: **Tool 45 → 40**, **Reasoning 58 → 45**, **Context 96 → 88**, **Multimodal 90 → 62**, **Coding 58 → 32**, **Cost 70 → 55**.
 
 ## Model card
 
 - **Name:** Gemini 1.5 Pro (September 2024 snapshot)
-- **Short description:** Google's retired 1.5-generation flagship, remembered for its very large native context and broad multimodal input support; it is no longer suitable for new deployments.
-- **Provider / access:** Historical Google AI Studio / Gemini API and Vertex AI IDs; current Cloud documentation lists `gemini-1.5-pro-002` as retired on 2025-09-24. New requests should not be planned against this model.
-- **Release / knowledge:** `gemini-1.5-pro-002` released 2024-09-24. Artificial Analysis lists the September 2024 snapshot with an August 2024 knowledge cutoff; the API lifecycle page confirms the retirement date.
+- **Short description:** Google's retired 1.5-generation flagship, remembered for its very large native context and broad multimodal input. **Now measured on current harnesses and found to be weak on every one of them. It is retired and unsuitable for any new deployment.**
+- **Provider / access:** Historical Google AI Studio / Gemini API and Vertex AI IDs; Cloud documentation lists **`gemini-1.5-pro-002` as retired on 2025-09-24**. No live endpoint.
+- **Release / knowledge:** `gemini-1.5-pro-002` released **2024-09-24**; **knowledge cutoff August 2024** — now **26 months stale**, the oldest of any model in this research effort.
 - **IDs:** `gemini-1.5-pro-002`; historical alias `gemini-1.5-pro`; predecessor `gemini-1.5-pro-001`.
-- **Context window:** **1M** in the exact September 2024 BenchLM/Artificial Analysis record; the model family is also documented historically as supporting 2M-class input in some routes. Exact maximum output was not shown in the current lifecycle source.
-- **Modalities:** Text, image, speech/audio, and video input; text output; function calling was available historically. Audio/video output and current agentic tools are not claimed.
-- **Pricing (as of 2026-09-24):** Historical rates were $1.25/$5.00 per 1M input/output tokens for prompts up to 128K, with higher long-context rates above that threshold. The model is retired, so these are historical prices, not an available offer.
+- **Context window:** **2M tokens** per the current BenchLM record — *upgraded from the prior report's 1M.* The model family was historically documented as supporting 2M-class input in some routes. **No maximum output figure is published.**
+- **Modalities:** Text, image, speech/audio, and video input; text output; function calling available historically. **No audio/video output.**
+- **Pricing (historical):** **$1.25 / $5.00 per 1M** input/output for prompts up to 128K, with higher long-context rates above that. **The model is retired — these are historical prices, not an available offer.**
 - **Architecture:** Proprietary; parameter count not disclosed.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Independent — new this pass (Artificial Analysis, current harnesses):**
 
-- Function calling: **supported historically**; no modern harness score found.
-- Terminal-Bench, Tau3-Banking, GDPval-AA, Claw-Eval, Toolathon, MCP-Atlas, and exact agent benchmark scores: **no verified public score found** for the retired September 2024 model.
+- **AA-Intelligence Index: 7.9** — *confirms the prior pass's "8 estimated" almost exactly, on a verified rather than estimated basis*
+- **AA-GPQA Diamond: 58.9%** — *confirms the prior report's 59.1% historical figure to within 0.2 points, across a two-year gap and different harnesses; the most reassuring data point in this report*
+- **AA-HLE: 4.6%** — *prior report estimated "approximately 3.5–4.9%" from aggregated trackers; now verified*
+- **AA Coding Index: 23.6%** — *the first modern coding measurement for this model, and it is very low*
+- **AA-MMMU-Pro: 55.0%** — *the first modern visual-reasoning measurement, and it is mediocre*
 
-Reasoning / knowledge:
+**Carried from the prior pass (2024-era evidence, retained for history only):**
 
-- GPQA Diamond: **59.1%** (Gemini 1.5 Pro technical-report/model-card evidence, as recorded in the repository's independent research context; exact harness details vary by snapshot)
-- MATH: **67.7%** (Google Gemini 1.5 technical report, May 2024 revision)
-- Big-Bench Hard: **89.2%** (Google Gemini 1.5 technical report)
-- HLE: **approximately 3.5–4.9%** (aggregated historical trackers; not a current exact-model evaluation)
-- MRCR: **82.6** (llm-stats historical record; not treated as a current official result)
-- Artificial Analysis Intelligence Index: **8 estimated**, rank **#122/298** (Artificial Analysis, accessed 2026-09-24; deprecated page)
-- LCR/MLCR, CritPt, and hallucination metrics: **no verified public score found**
+- MATH **67.7%**; Big-Bench Hard **89.2%**; Natural2Code **82.6%**; HumanEval ~**84%**; SWE-bench Verified **34.2%** (Google's own historical baseline); MRCR **82.6** (llm-stats historical record, not a current official result); LiveCodeBench ~**41.7%** (provisional aggregator)
 
-Coding:
+**Still absent after two passes:** CritPt, LCR/MLCR, and **all hallucination metrics** — Artificial Analysis's Gemini 1.5 Pro page is deprecated and publishes no Omniscience block, so **no hallucination rate can be reported for this model.** Terminal-Bench 2.0/2.1, τ²/τ³-bench, GDPval-AA, Claw-Eval, Toolathlon, MCP-Atlas, SWE-bench Pro, SciCode, DeepSWE, and Vibe Code Bench are all absent.
 
-- SWE-bench Verified: **34.2%** (Google historical baseline reported in the Gemini 2.5 report; not a direct current run)
-- Natural2Code: **82.6%** (Google Gemini 1.5 technical report)
-- HumanEval: **approximately 84%** (Google technical report; trackers vary)
-- LiveCodeBench: **41.7%** (historical aggregator, provisional; not an official exact-model result)
-- SWE-Pro, SciCode, Vibe Code Bench, and DeepSWE: **no verified public score found**
+**BenchLM composite: 27.84/100, #195 of 889** (5 of 625 benchmarks — the thinnest coverage in this batch, and conservative).
 
-Long context:
-
-- Historical model documentation reports near-perfect long-context retrieval in research evaluations; the reviewed exact September 2024 record reports a 1M context. No current 2M retrieval result is claimed.
-
-Sources consulted: [Google Cloud model lifecycle documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions), [Artificial Analysis Gemini 1.5 Pro](https://artificialanalysis.ai/models/gemini-1-5-pro), and [BenchLM Gemini 1.5 Pro](https://benchlm.ai/models/gemini-1-5-pro), accessed 2026-09-24. Historical benchmark values are labeled where exact current evidence is unavailable.
+Sources consulted: [BenchLM Gemini 1.5 Pro (updated 2026-10-10)](https://benchlm.ai/models/gemini-1-5-pro), [Artificial Analysis Gemini 1.5 Pro (deprecated page)](https://artificialanalysis.ai/models/gemini-1-5-pro), [Google Cloud model lifecycle documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions), and historical Gemini 1.5 technical-report evidence, accessed 2026-10-10.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Function calling was supported, but the model is retired and no modern Terminal-Bench/Tau/GDPval/tool benchmark was verified.
-- **Reasoning: 58/100.** GPQA 59.1%, MATH 67.7%, and BBH 89.2% reflect its historical strengths, while HLE is very low by current standards.
-- **Context window: 96/100.** The reviewed September 2024 record reports 1M context and historical research results report strong long-context retrieval; retirement and no current 2M result cap confidence.
-- **Multimodal: 90/100.** Text, image, speech/audio, and video input with text output were supported; no multimodal output is claimed.
-- **Coding: 58/100.** Natural2Code is strong for its era, but SWE-bench Verified 34.2% is weak on current coding tasks and current LiveCodeBench evidence is only provisional.
-- **Cost efficiency: 70/100.** Historical $1.25/$5 pricing was mid-range, but retirement means no current paid route or reliable cost comparison.
-- **Overall Score: 69.4/100.** (45 + 58 + 96 + 90 + 58) / 5 = 69.4. Best fit: historical comparison and archived long-context experiments only; migrate new work to a current Gemini model.
+- **Tool use: 40/100.** Down from 45. **Function calling was supported historically, and that is the entirety of the evidence.** No modern agentic benchmark exists for this model — no Terminal-Bench, τ-bench, GDPval-AA, Claw-Eval, Toolathlon, or MCP-Atlas row on any leaderboard. The prior 45 was already near-floor; the small reduction reflects that **no new evidence has appeared in two passes** and the model is retired, so there is no prospect of any appearing.
+- **Reasoning: 45/100.** Down from 58. The prior 58 rested on **MATH 67.7% and Big-Bench Hard 89.2%** — 2024-era suites where a 2026 model would also score respectably and which therefore say almost nothing about current capability. The modern measurements are far worse: **AA-Intelligence Index 7.9**, which is the **lowest of any model in this batch by a wide margin** (Gemma 4 31B manages 14.7; GLM-5.2 manages 33.7), and **AA-HLE 4.6%**. **GPQA 58.9% is the one genuinely respectable figure** and it validates the prior report's 59.1% historical reading almost exactly — but GPQA near 59% with an overall index of 7.9 means the model does well on one structured multiple-choice science test and poorly on everything else. **A 26-month-old knowledge cutoff** compounds this.
+- **Context window: 88/100.** Down from 96. **Upgraded on the window, downgraded on confidence.** BenchLM now lists **2M tokens** rather than the 1M the prior report carried, which raises the tier. But the reduction dominates: **there is still no current retrieval-at-length benchmark for this model.** The MRCR 82.6 figure in the prior report was explicitly sourced to "llm-stats historical record; not treated as a current official result," and nothing has superseded it. **An advertised window with no measured retrieval behaviour is a specification, not a capability** — and every other Gemini in this dataset now ships 1M with a measured LCR or MRCR result to back it.
+- **Multimodal: 62/100.** **Down from 90 — the largest single correction in this report, and a direct correction of an evidence-free score.** The prior 90 was assigned purely from the modality list — "Text, image, speech/audio, and video input with text output were supported" — with no measurement of any kind. **AA-MMMU-Pro at 55.0%** now exists and it is mediocre: below Gemini 2.5 Flash's 65.5%, far below Muse Glimmer's 74.3% and Gemma 4 31B's 73.4%, and barely above the models that scored in the 40s. The intake surface is genuinely broad — one of the few genuinely omni-modal models here — and 62 credits that breadth; it does not credit unmeasured comprehension.
+- **Coding: 32/100.** **Down from 58.** The prior 58 was built on **Natural2Code 82.6% and HumanEval ~84%** — HumanEval is a 2021 benchmark that no 2026 lab publishes and that this model could not lead on even in 2024. **AA Coding Index at 23.6%** is the first modern coding measurement and it is the **second-lowest of any model in this batch**, below even Gemma 4 31B's 43.4%. Google's own historical **SWE-bench Verified 34.2%** is consistent with it. The prior report's own caveat — that "SWE-bench Verified 34.2% is weak on current coding tasks" — was correct and should have governed the score rather than sitting alongside it.
+- **Cost efficiency: 55/100.** Down from 70. **There is no cost to score.** The model has been retired since 2025-09-24 and no route exists. The prior 70 scored against historical **$1.25/$5.00** pricing, which is mid-range at best and would not be competitive today — Gemini 3.8 Flash is $1.50/$7.50 with a 1M window, and Gemini 3.5 Flash-Lite is $0.30/$2.50. Scoring a withdrawn model on its list price rewards the vendor and penalises nobody.
+- **Overall Score: 53.4/100.** (40 + 45 + 88 + 62 + 32) / 5 = 267 / 5 = 53.4, down from 69.4. **Best fit: none. This is a historical entry and should be treated as one.** It is retained in the dataset for longitudinal comparison — Gemini 1.5 Pro was the model that demonstrated million-token context to the industry — and for that reason alone the **2M window and broad omni-modal intake remain genuinely notable**. But on every measured modern axis it is at or near the bottom of this dataset: **BenchLM #195 of 889, Intelligence Index 7.9, Coding Index 23.6%, MMMU-Pro 55.0%, HLE 4.6%.** **Do not deploy.** For long-context archival work the model still has *some* value as a cheap reference baseline if a hosted route is found, but the **August 2024 knowledge cutoff alone disqualifies it** for anything touching events after mid-2024. Migrate to any current Gemini model.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
-- Method: Public web research of Google lifecycle documentation, Artificial Analysis, BenchLM, and historical Gemini technical-report evidence; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Public web research of BenchLM's Gemini 1.5 Pro profile, Artificial Analysis's deprecated Gemini 1.5 Pro page and current-harness rows, Google's Cloud model lifecycle documentation, and historical Gemini 1.5 technical-report evidence; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+- Audit note — **the prior pass scored a retired model using 2024-era benchmark suites**, and this report replaces that evidence base with current-harness measurement while retaining the history explicitly labelled. Three prior figures survive scrutiny and are credited: **GPQA 58.9% against the prior 59.1%** (a two-year gap and a harness change, matching to 0.2 points), **HLE 4.6% against the prior's "approximately 3.5–4.9%" estimate**, and **the AA Intelligence Index "8 estimated," now verified at 7.9.** **Multimodal 90 → 62 is the sharpest correction**: the prior score was assigned entirely from a modality list with no benchmark behind it, and **AA-MMMU-Pro 55.0%** now supplies the missing measurement. **Coding 58 → 32** replaces HumanEval and Natural2Code — HumanEval especially, a 2021 benchmark no 2026 lab publishes — with **AA Coding Index 23.6%**. **Context is split: the window is upgraded from 1M to BenchLM's 2M, but the score falls from 96 to 88 because no current retrieval benchmark exists**, and the prior report's own MRCR 82.6 figure was already flagged as a historical tracker record rather than a result. **One gap could not be closed and is stated plainly:** Artificial Analysis's Gemini 1.5 Pro page is deprecated and publishes **no Omniscience block**, so **no hallucination rate can be reported for this model** — unlike every comparable entry in this batch, where hallucination rates between 26.3% and 93.0% are now measured. Given a retired model with a 26-month-old cutoff, no agentic data, and a Coding Index of 23.6%, the absence is unlikely to be favourable. Search-provider rate limiting (HTTP 429) persisted, so evidence came from three direct primary retrievals plus cited documentation rather than three discrete searches.
+- Future sources: add a new file next to this one, e.g. `Gemini_1_5_Pro_Recheck.md`, using the same headings.

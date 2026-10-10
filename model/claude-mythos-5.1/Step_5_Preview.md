@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-mythos-5-1`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,8 @@ Coding:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic's Mythos 5.1 evals, the ARC Prize foundation's independent ARC-AGI runs, and BenchLM/CodingFleet third-party SWE-bench Pro (via hokai.io). Shares weights with Claude Fable 5.1.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no standalone Mythos 5.1 page (it shares Fable 5.1's weights, tracked there instead — 80 results confirmed APEX 68.6%, BrowseComp 85.2%, MMMU-Pro 90.6%); the key differentiator, the ARC Prize foundation's independent ARC-AGI-2 90% / ARC-AGI-1 97.5%, stands. No score change warranted. Prior pass (2026-10-08) used Anthropic's Mythos 5.1 evals, the ARC Prize foundation's independent runs, and BenchLM/CodingFleet third-party SWE-bench Pro (via hokai.io). Shares weights with Claude Fable 5.1.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

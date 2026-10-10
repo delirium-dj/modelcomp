@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3.8-flash`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -73,8 +73,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced hokai.io (DataCamp independent + Google model card + Artificial Analysis), benchmarkregistry.org (44 results), and vectorwire.ai (89 results, 28 independently verified).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (44 primary-source results, updated 2026-10-07), which confirmed CharXiv 95.4%, TB4.0 19.2%, Vibe Code 78.7%, APEX-Agents 64.3%, BrowseComp 83.1%, AutomationBench 29.7%, Vals Index 54.8% — no score change warranted. Prior pass (2026-10-08) used hokai.io, benchmarkregistry.org, and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

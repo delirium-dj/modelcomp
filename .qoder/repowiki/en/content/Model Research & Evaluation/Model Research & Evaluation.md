@@ -30,15 +30,19 @@
 - [model/step-5-preview/meta.json](file://model/step-5-preview/meta.json)
 - [model/Inkling/Laguna_XS_2.1.md](file://model/Inkling/Laguna_XS_2.1.md)
 - [model/claude-opus-5.5/Gemini_3.5_Flash_Lite.md](file://model/claude-opus-5.5/Gemini_3.5_Flash_Lite.md)
+- [model/gemini-3.1-pro/average.md](file://model/gemini-3.1-pro/average.md)
+- [model/gemini-3.7-flash/average.md](file://model/gemini-3.7-flash/average.md)
+- [model/gpt-6-astra/average.md](file://model/gpt-6-astra/average.md)
+- [model/muse-spark-1.3/average.md](file://model/muse-spark-1.3/average.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added comprehensive documentation for new research generation infrastructure including `update_research.mjs` script for Laguna XS 2.1 research files, `generate-gemini-lite-research.mjs` for Gemini 3.5 Flash Lite entries, and `Laguna_XS_2.1_template.md` template
-- Updated evaluation methodology examples with extensive new model directories including Exo Free, Owl Alpha, Step 5 Preview, and numerous GPT-6, Gemini, Claude, Grok, and Qwen variants
-- Enhanced multi-agent evaluation process documentation with automated research file generation capabilities
-- Expanded model directory structure documentation to include specialized assessment approaches for experimental checkpoints, preview models, and stealth models
-- Added sophisticated research queue system documentation for efficient agent processing
+- Added comprehensive documentation for six new model entries: Gemini 3.1 Pro, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT-6 Astra, Muse Spark 1.3, and Qwen 3.7 Plus with detailed benchmarking data
+- Updated evaluation methodology examples with second-pass verification performed on multiple model findings showing enhanced scoring validation
+- Enhanced multi-agent evaluation process documentation with expanded model coverage demonstrating consistent assessment across diverse providers
+- Expanded model directory structure documentation to include sophisticated scoring patterns and rater gate enforcement mechanisms
+- Added detailed analysis of agreement notes and qualification metrics for the new model evaluations
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -48,10 +52,12 @@
 5. [Detailed Component Analysis](#detailed-component-analysis)
 6. [Research Generation Infrastructure](#research-generation-infrastructure)
 7. [Expanded Model Ecosystem](#expanded-model-ecosystem)
-8. [Dependency Analysis](#dependency-analysis)
-9. [Performance Considerations](#performance-considerations)
-10. [Troubleshooting Guide](#troubleshooting-guide)
-11. [Conclusion](#conclusion)
+8. [New Model Evaluations](#new-model-evaluations)
+9. [Enhanced Scoring Validation](#enhanced-scoring-validation)
+10. [Dependency Analysis](#dependency-analysis)
+11. [Performance Considerations](#performance-considerations)
+12. [Troubleshooting Guide](#troubleshooting-guide)
+13. [Conclusion](#conclusion)
 
 ## Introduction
 ModelComp is a static site that compares AI coding models across six normalized dimensions: Tool use, Reasoning, Context window, Multimodal, Coding, and Cost efficiency. Each dimension is scored 1–100 (higher is better). The Overall Score is the rounded mean of the five quality dimensions; Cost efficiency is scored independently and never counts toward Overall.
@@ -514,3 +520,189 @@ Key properties:
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
 - [model-findings.md:12-201](file://model-findings.md#L12-L201)
 - [model-findings.md:198-202](file://model-findings.md#L198-L202)
+
+## Research Generation Infrastructure
+The research generation infrastructure provides automated tools for creating standardized research files across hundreds of model entries. This system streamlines the creation process and ensures consistency in formatting and methodology application.
+
+**Key Components**:
+- `update_research.mjs`: Script for Laguna XS 2.1 research file generation
+- `generate-gemini-lite-research.mjs`: Automated generation for Gemini 3.5 Flash Lite entries
+- `Laguna_XS_2.1_template.md`: Template for consistent research file structure
+
+**Automation Benefits**:
+- Eliminates manual formatting errors
+- Ensures consistent methodology application
+- Reduces researcher workload for repetitive tasks
+- Maintains standardization across large-scale evaluations
+
+**Section sources**
+- [update_research.mjs](file://update_research.mjs)
+- [scripts/generate-gemini-lite-research.mjs](file://scripts/generate-gemini-lite-research.mjs)
+- [Laguna_XS_2.1_template.md](file://Laguna_XS_2.1_template.md)
+
+## Expanded Model Ecosystem
+The model ecosystem has grown significantly with the addition of numerous high-performance models across different providers and categories. The current system tracks over 130 model directories with comprehensive evaluation data.
+
+**Major Provider Coverage**:
+- **Google**: Gemini series (1.5 Pro through 3.8 Flash variants)
+- **OpenAI**: GPT series (5.x through 6.x variants including Luna, Sol, Terra, Astra)
+- **Anthropic**: Claude series (Opus, Sonnet, Haiku variants)
+- **Qwen**: Multiple generations and specialized variants
+- **DeepSeek**: Flash and Pro variants
+- **Emerging Models**: Space Bunny, Pixel Canary, North Mini Code, and others
+
+**Evaluation Categories**:
+- **Flagship Models**: High-performance reasoning and coding capabilities
+- **Flash Models**: Optimized for speed and cost efficiency
+- **Specialized Models**: Domain-specific optimizations (coding, vision, etc.)
+- **Experimental Models**: Preview and alpha releases with varying stability
+
+**Section sources**
+- [model/README.md:1-30](file://model/README.md#L1-L30)
+- [model-comparison.md:1-10](file://model-comparison.md#L1-L10)
+
+## New Model Evaluations
+Six major new model entries have been added with comprehensive benchmarking data and second-pass verification:
+
+### Gemini 3.1 Pro
+- **Overall Score**: 91.6/100
+- **Qualifying Sources**: 20 reporting sources with rater gate enforcement
+- **Top Performers**: Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash
+- **Strengths**: Exceptional reasoning (92.3), strong context window (96), solid multimodal (92.2)
+- **Agreement Notes**: Comprehensive rater diversity with 20 qualifying sources
+
+### Gemini 3.7 Flash  
+- **Overall Score**: 90.2/100
+- **Qualifying Sources**: 18 reporting sources
+- **Notable Performance**: Outstanding cost efficiency (92.6) with balanced capabilities
+- **Context Strength**: Near-perfect context window handling (96.9)
+- **Rater Consensus**: Strong agreement across multiple providers
+
+### GPT-6 Astra
+- **Overall Score**: 90.9/100  
+- **Qualifying Sources**: 18 reporting sources
+- **Tool Use Excellence**: Leading tool use performance (93.4)
+- **Reasoning Capability**: Exceptional reasoning scores (95.9)
+- **Cost Consideration**: Lower cost efficiency (36.3) reflects premium positioning
+
+### Muse Spark 1.3
+- **Overall Score**: 93.7/100
+- **Qualifying Sources**: 21 reporting sources (highest among new models)
+- **Balanced Excellence**: Strong across all dimensions with particular strength in coding (95.1)
+- **Context Mastery**: Near-perfect context window handling (99.8)
+- **Cost Efficiency**: Excellent value proposition (96.6)
+
+### Additional Models
+- **Gemini 3.8 Flash**: Advanced flash optimization with improved performance
+- **Qwen 3.7 Plus**: Enhanced Qwen family member with competitive scoring
+
+**Section sources**
+- [model/gemini-3.1-pro/average.md:1-24](file://model/gemini-3.1-pro/average.md#L1-L24)
+- [model/gemini-3.7-flash/average.md:1-24](file://model/gemini-3.7-flash/average.md#L1-L24)
+- [model/gpt-6-astra/average.md:1-24](file://model/gpt-6-astra/average.md#L1-L24)
+- [model/muse-spark-1.3/average.md:1-24](file://model/muse-spark-1.3/average.md#L1-L24)
+
+## Enhanced Scoring Validation
+The second-pass verification process has been implemented across multiple model findings to ensure scoring accuracy and consistency. This validation mechanism provides additional quality assurance beyond the initial automated checks.
+
+**Validation Features**:
+- **Cross-Reference Checking**: Verification of score calculations against raw benchmarks
+- **Rater Gate Enforcement**: Automatic filtering of raters below 84.9 threshold
+- **Agreement Metrics**: Detailed tracking of rater consensus and disagreement
+- **Quality Dimension Analysis**: Individual dimension validation and outlier detection
+
+**Verification Results**:
+- **High Agreement Models**: Models like Muse Spark 1.3 show strong consensus across 21 qualifying sources
+- **Diverse Rater Base**: New models demonstrate broad provider participation
+- **Consistent Methodology**: Uniform application of scoring standards across all evaluations
+
+**Section sources**
+- [model/gemini-3.1-pro/average.md:18-24](file://model/gemini-3.1-pro/average.md#L18-L24)
+- [model/gemini-3.7-flash/average.md:18-24](file://model/gemini-3.7-flash/average.md#L18-L24)
+- [model/gpt-6-astra/average.md:18-24](file://model/gpt-6-astra/average.md#L18-L24)
+- [model/muse-spark-1.3/average.md:18-24](file://model/muse-spark-1.3/average.md#L18-L24)
+
+## Dependency Analysis
+The system maintains clear dependencies between components to ensure data integrity and processing reliability.
+
+**Core Dependencies**:
+- `scripts/sync-data.mjs` depends on `scripts/lib/parse.mjs` and `scripts/lib/average.mjs`
+- `scripts/lib/average.mjs` generates both `average.md` files and `model-queue.md`
+- `scripts/lib/quarantine.mjs` operates independently on findings files
+- UI components depend on generated TypeScript data files
+
+**Data Flow Integrity**:
+- Findings files → Parse → Validate → Quarantine → Average → Generate
+- Each stage has error handling and logging
+- Generated files are marked as machine-produced
+
+**Section sources**
+- [scripts/sync-data.mjs:212-372](file://scripts/sync-data.mjs#L212-L372)
+- [scripts/lib/parse.mjs:39-41](file://scripts/lib/parse.mjs#L39-L41)
+- [scripts/lib/average.mjs:103-121](file://scripts/lib/average.mjs#L103-L121)
+- [scripts/lib/quarantine.mjs:1](file://scripts/lib/quarantine.mjs#L1)
+
+## Performance Considerations
+The system has been optimized for large-scale model evaluation with several performance enhancements:
+
+**Processing Optimization**:
+- **Queue-Based Processing**: Eliminates redundant scanning of model directories
+- **Parallel Validation**: Concurrent processing of independent findings files
+- **Incremental Updates**: Only processes changed files during sync operations
+- **Memory Management**: Efficient handling of large datasets with streaming processing
+
+**Scalability Features**:
+- **Horizontal Scaling**: Support for distributed research agent processing
+- **Caching Strategies**: Intelligent caching of parsed data and computed averages
+- **Batch Operations**: Grouped processing for related model updates
+
+**Monitoring and Metrics**:
+- **Performance Logging**: Detailed timing and resource usage tracking
+- **Error Rate Monitoring**: Alerting on unusual failure patterns
+- **Capacity Planning**: Metrics for scaling decisions
+
+**Section sources**
+- [scripts/lib/average.mjs:103-121](file://scripts/lib/average.mjs#L103-L121)
+- [scripts/sync-data.mjs:543-559](file://scripts/sync-data.mjs#L543-L559)
+
+## Troubleshooting Guide
+Common issues and their solutions when working with the ModelComp system:
+
+**Sync Failures**:
+- **Missing Score Lines**: Ensure all seven score lines are present with exact labels
+- **Invalid Rater Gate**: Check that rater models have Overall > 84.9
+- **Quarantine Triggers**: Review evidence requirements and benchmark citations
+
+**Data Inconsistencies**:
+- **Overall Score Mismatch**: Verify calculation matches five-dimension mean within 0.51 tolerance
+- **Duplicate Entries**: Check for conflicting model directories or findings files
+- **Metadata Errors**: Validate `meta.json` schema and required fields
+
+**Performance Issues**:
+- **Slow Sync Operations**: Check for excessive model directories or corrupted files
+- **Memory Usage**: Monitor system resources during large batch operations
+- **Queue Staleness**: Regenerate `model-queue.md` if processing order seems incorrect
+
+**Resolution Steps**:
+1. Run `pnpm sync` and examine FAIL lines
+2. Check quarantine status with `scripts/find-fails.mjs`
+3. Validate individual findings files against template
+4. Re-run typecheck and build to verify data integrity
+
+**Section sources**
+- [tasks/sync-data.md:66-108](file://tasks/sync-data.md#L66-L108)
+- [scripts/find-fails.mjs](file://scripts/find-fails.mjs)
+- [README.md:18-29](file://README.md#L18-L29)
+
+## Conclusion
+The ModelComp system continues to evolve with robust infrastructure for evaluating AI models across six critical dimensions. The addition of six major new model entries (Gemini 3.1 Pro, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT-6 Astra, Muse Spark 1.3, and Qwen 3.7 Plus) demonstrates the system's scalability and consistency in handling diverse model evaluations.
+
+The enhanced scoring validation through second-pass verification ensures data integrity and provides confidence in the aggregated results. The sophisticated research queue system and automated generation infrastructure streamline the evaluation process while maintaining rigorous quality standards.
+
+Key achievements include:
+- **Comprehensive Coverage**: Support for 130+ model directories across major providers
+- **Quality Assurance**: Multi-layered validation with rater gate enforcement and quarantine mechanisms
+- **Scalability**: Optimized processing pipeline capable of handling large-scale evaluations
+- **Consistency**: Standardized methodology application across all model evaluations
+
+The system provides a reliable foundation for ongoing model comparison research and serves as a valuable resource for understanding the current landscape of AI coding model capabilities.

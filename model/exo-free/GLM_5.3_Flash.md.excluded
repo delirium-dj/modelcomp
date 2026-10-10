@@ -1,57 +1,85 @@
 # Exo Free — findings by GLM 5.3 Flash
 
-> SELF-EXCLUDED — no verified public benchmark scores found for this exact
-> model/ID as of the research date. Notes only; any scores inside are ignored
-> (`pnpm sync` auto-quarantines evidence-free files; criteria in
-> `tasks/sync-data.md`). Re-research when standardized benchmarks appear.
-
-- Source: OpenCode/`exo-free` (stealth/unannounced free model)
-- Date: 2026-10-09 (UTC)
+- Source: OpenCode Zen (`opencode/exo-free`, anonymous stealth route)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
+> zero verified public benchmark numbers (standardized harnesses: SWE-bench,
+> GPQA, LiveCodeBench, AA Index, …) exist for this exact model/ID. Community
+> evidence is informal pass/fail tests and fingerprint probes — not
+> benchmark scores. Saved as `.md.excluded` with notes only; no scores are
+> claimed.
 
 ## Model card
 
 - **Name:** Exo Free
-- **Short description:** An anonymous, unannounced free reasoning model that appeared on OpenCode Zen (catalog id `opencode/exo-free`) around October 6, 2026. The publishing lab is undisclosed; a third-party fingerprint probe matched its generation patterns to Claude Opus 5.5 at 99.4% confidence, but that is closed-set community evidence, not vendor verification (candidate theories: confidential blind evaluation, routing misconfiguration, or a distilled clone — none confirmed).
-- **Provider / access:** OpenCode Zen `opencode/exo-free` — endpoint `https://opencode.ai/zen/v1/chat/completions` (Chat Completions API), also listed at `https://opencode.ai/zen/v1/models`. High traffic has caused frequent "Endpoint is unavailable" notices and 429s; a community poll (68% of 50 votes) said it still worked as of the discovery week.
-- **Release / knowledge:** appeared 2026-10-06 (models.dev first observed 2026-10-06 22:54 UTC); knowledge cutoff unknown (undisclosed model).
-- **IDs:** `opencode/exo-free` (Free ID on Zen — $0 during the limited free period; no end date announced; requests during the free period may be used to improve the model — no zero-data-retention guarantee).
-- **Context window:** ~1M tokens — 1,048,576 total per models.dev (artificialwatch radar), "about a million" per AI Promo Now; max output ~131K tokens (AI Promo Now). Verified via catalog trackers, not a model card.
-- **Modalities:** text out; image input accepted; tool calls supported; reasoning effort fixed at high (AI Promo Now briefing). 
-- **Pricing (as of 2026-10-09):** $0 / $0 per 1M tokens, cached input $0 (LLMRates.ai, AI Promo Now, artificialwatch) — limited-time free with data-training caveat.
-- **Architecture:** undisclosed (stealth). No parameter, license, or base-model evidence; the 99.4% Opus 5.5 fingerprint is a generation-pattern match, not a weights identity.
+- **Short description:** An unannounced, anonymous free route on OpenCode Zen that appeared 2026-10-06 (~22:30 UTC) with frontier-flavored specs: ~1M-token context, vision input, reasoning, and tool use at $0. Community fingerprinting points to Anthropic's Claude Opus 5.5 underneath (or a router over Claude/GPT), but the true identity is unconfirmed. Effectively deprecated in practice since 2026-10-09 (server returns HTTP 410 while still listed).
+- **Provider / access:** OpenCode Zen `opencode/exo-free` via `https://opencode.ai/zen/v1/chat/completions` (Chat Completions; `@ai-sdk/openai-compatible`). Listed on the live `/zen/v1/models` roster and in the Zen docs pricing table as Free, but a reproduced GitHub issue shows keyless requests fail with `HTTP 410 ModelDeprecated` as of 2026-10-09 (an Oct 8 server routing change, PR #53967, is the suspected cause — see `anomalyco/opencode#54065`).
+- **Release / knowledge:** first observed 2026-10-06 22:54 UTC (models.dev sweep); no release date, no knowledge-cutoff statement, no vendor announcement.
+- **IDs:** `opencode/exo-free` (the only ID; anonymous — no upstream model card).
+- **Context window:** 1,048,576 total / 131,072 max output (models.dev catalog + Zen docs; consistent with `meta.json`).
+- **Modalities:** text + image in; text out; reasoning yes (community report: effort fixed at high); tool calling yes; JSON mode yes.
+- **Pricing (as of 2026-10-10):** $0.00 in / out (limited-time free route for feedback collection; Zen privacy notes say free-tier exceptions apply — prompts may be used to improve the model; no zero-data-retention guarantee).
+- **Architecture:** unknown/anonymous. No parameter count, no weights. Fingerprint probe (lm.ikale.io, ~300 numeric-generation + tokenizer probes) matched `claude-opus-5.5` at 99.4% confidence (runner-up `claude-fable-5.1` at 0.4%); a closed-set tool, so a distilled Opus imitator or a router ("not a model, but a router with Claude and GPT inside" — community claim) would also match. Leading theories: confidential blind evaluation, routing misconfiguration, or a high-quality distilled model. None confirmed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- no verified public score found (no Terminal-Bench/Tau3/GDPval entry; tool calls supported but unmeasured)
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- no verified public score found (no GPQA/HLE/LCR/Intelligence-Index entry — Artificial Analysis does not list the model as of 2026-10-09)
-- lm.ikale.io Fingerprint Detector: 99.4% match to `claude-opus-5.5` (claude-fable-5.1 second at 0.4%) — closed-set generation-pattern probe (freeaiapi.org, 2026-10-07), cited as provisional identity evidence, NOT a quality benchmark
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (not listed on Artificial Analysis)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
-- no verified public score found (no SWE-bench/LiveCodeBench entry)
-- Qualitative community stress tests (pass/fail, no measured numbers): "Pelican on a Bicycle" spatial-geometry render passed (feet on pedals, wings on handlebars, no clipping); full Blender convenience-store Python script executed cleanly on first attempt (freeaiapi.org, 2026-10-07)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported (1M window is spec-verified, unmeasured)
+- no long-context retrieval reported (no MRCR/RULER/GraphWalks runs published for this ID)
 
-## Evidence notes
+### Negative-findings notes (informal evidence that does NOT qualify as scores)
 
-- Zero verified public benchmark numbers for the exact model/ID: every measured row above is either absent or a pass/fail qualitative report; the only numeric result (99.4% fingerprint) measures stylistic similarity, not capability. Standardized scores (SWE-bench, GPQA, Terminal-Bench, AA Intelligence Index) do not exist for Exo Free as of 2026-10-09.
-- Scoring an undisclosed stealth model would require either inventing numbers (forbidden) or borrowing another model's scores (forbidden — the fingerprint match is not an identity). Self-exclusion per the template's mandatory SELF-EXCLUSION rule.
-- Practical caveats from the sources: extreme availability volatility (429s, dropouts), no zero-data-retention guarantee (prompts and screenshots may train future models — never send proprietary code), and do not rely on the endpoint for production work.
+- Community stress-tests (freeaiapi.org hands-on, 2026-10-07): passed the
+  "Pelican on a Bicycle" spatial-reasoning Blender render test and produced a
+  working first-shot Blender Python script for a full convenience-store scene
+  (aisles, fridges, counters, lighting); accurate diagram-based diagnostics
+  for microservice architecture images. Informal pass/fail demos — no harness,
+  no percentile, no comparable numbers.
+- Fingerprint result (99.4% Opus 5.5 match) measures statistical similarity,
+  not capability — explicitly closed-set and spoofable by distillation.
+- Volatility: high traffic caused frequent dropouts/429s; endpoint now 410s
+  (deprecated server-side) per reproduced issue #54065 — so even the informal
+  evidence cannot be re-run.
+- Anonymity + no ZDR means any scored row copied from the suspected underlying
+  model (Opus 5.5) would be fabrication; scores are therefore not issued.
+- When/if the route returns or the identity is confirmed with published
+  harness numbers, a new signed file should supersede these notes.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (DuckDuckGo search; freeaiapi.org, AI Promo Now, LLMRates.ai, artificialwatch cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. No scored file produced — self-exclusion per `model-report-TEMPLATE.md`.
-- Future sources: add a new file next to this one, e.g. `Exo_Free_Identified.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
+- Method: public internet research (OpenCode Zen live roster + docs, models.dev
+  catalog, GitHub issue #54065, dated community reviews and X threads); scores
+  are normalized 1–100 interpretations, not official vendor scores — none are
+  issued here because zero standardized public benchmarks exist for this ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

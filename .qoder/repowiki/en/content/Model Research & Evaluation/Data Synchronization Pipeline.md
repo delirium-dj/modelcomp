@@ -15,15 +15,17 @@
 - [README.md](file://README.md)
 - [src/components/Footer.tsx](file://src/components/Footer.tsx)
 - [RULES.md](file://RULES.md)
+- [create_missing.mjs](file://create_missing.mjs)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated validation system documentation to reflect enhanced merged source stems mapping support
-- Added detailed explanation of Mimo_v2.6_Flash to MiMo_2.6_Flash canonicalization
-- Enhanced file extension handling documentation for .md and .md.excluded files
-- Updated troubleshooting guidance with specific examples of merged stem conflicts
-- Improved duplicate detection mechanisms documentation
+- Updated scoring methodology documentation to reflect significant recalculations across multiple model families
+- Added new infrastructure script `create_missing.mjs` for automated generation and validation
+- Enhanced validation system documentation with merged source stems mapping support
+- Updated troubleshooting guidance with specific examples of cross-model comparison updates
+- Improved duplicate detection mechanisms documentation for enhanced data integrity
+- Added detailed explanation of widespread Laguna XS 2.1 model adoption patterns
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,7 +47,7 @@ This document explains the data synchronization pipeline that turns research fin
 
 The pipeline enforces strict validation rules, automatic quarantine for evidence-free reports, rater gating to avoid low-quality averages, and top-10 cohort averaging. It also protects research-file permanence through a git-based tripwire and auto-scaffolds missing metadata while failing loudly on invalid content.
 
-**Updated** Enhanced validation system now supports merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', providing robust duplicate detection and canonicalization for Xiaomi rater variants. The synchronization logic handles both .md and .md.excluded file extensions for merged duplicates, ensuring proper processing of legacy and current file naming conventions.
+**Updated** Enhanced validation system now supports merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', providing robust duplicate detection and canonicalization for Xiaomi rater variants. The synchronization logic handles both .md and .md.excluded file extensions for merged duplicates, ensuring proper processing of legacy and current file naming conventions. Significant score recalculations have been applied across multiple model families, with 42 additions and 27 modifications to existing score tuples, reflecting updated cross-model comparison methodologies and widespread adoption of Laguna XS 2.1 model across numerous model directories.
 
 ## Project Structure
 At a high level, the pipeline consists of:
@@ -55,6 +57,7 @@ At a high level, the pipeline consists of:
 - Generated TypeScript outputs consumed by the frontend build.
 - Task documentation describing the human workflow and invariants.
 - Infrastructure components including donation handling and verification utilities.
+- New automated generation scripts for missing model data.
 
 ```mermaid
 graph TB
@@ -66,6 +69,7 @@ Sync --> Naming["scripts/lib/naming.mjs<br/>Key, label, slug helpers"]
 Sync --> Quarantine["scripts/lib/quarantine.mjs<br/>Auto-quarantine decision"]
 Sync --> SourcesTS["src/data/sources.generated.ts<br/>Agent registry"]
 Sync --> ScoresTS["src/data/scores.generated.ts<br/>Numeric score index"]
+CreateMissing["create_missing.mjs<br/>Automated generation"] --> Sync
 Infrastructure["Infrastructure Layer<br/>Donation & Verification"] --> Sync
 ```
 
@@ -77,6 +81,7 @@ Infrastructure["Infrastructure Layer<br/>Donation & Verification"] --> Sync
 - [scripts/lib/codegen.mjs:1-12](file://scripts/lib/codegen.mjs#L1-L12)
 - [scripts/lib/naming.mjs:8-27](file://scripts/lib/naming.mjs#L8-L27)
 - [scripts/lib/quarantine.mjs:9-14](file://scripts/lib/quarantine.mjs#L9-L14)
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
 
 **Section sources**
 - [scripts/sync-data.mjs:1-30](file://scripts/sync-data.mjs#L1-L30)
@@ -91,6 +96,7 @@ The pipeline's core responsibilities are implemented by focused modules:
 - Code generation: maintains the SourceKey union and SOURCE_DEFS array, appends new sources, reconciles labels/slugs, and renders the numeric scores artifact.
 - Naming: maps stems to display keys, resolves labels and slugs via overrides and catalog lookup, detects hyphen-version violations, and formats slug guesses.
 - Quarantine: decides when a findings report should be renamed to `.excluded` based on evidence-free or zero-scored patterns.
+- Automated generation: provides infrastructure scripts for creating missing model data and validation utilities.
 
 **Section sources**
 - [scripts/lib/parse.mjs:8-45](file://scripts/lib/parse.mjs#L8-L45)
@@ -99,6 +105,7 @@ The pipeline's core responsibilities are implemented by focused modules:
 - [scripts/lib/codegen.mjs:14-35](file://scripts/lib/codegen.mjs#L14-L35)
 - [scripts/lib/naming.mjs:11-27](file://scripts/lib/naming.mjs#L11-L27)
 - [scripts/lib/quarantine.mjs:42-56](file://scripts/lib/quarantine.mjs#L42-L56)
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
 
 ## Architecture Overview
 The sync process follows a deterministic sequence:
@@ -159,7 +166,7 @@ Key behaviors:
 - Registry reconciliation: prunes virtual-view entries and ensures labels/slugs are consistent.
 - Score emission: writes `scores.generated.ts` deterministically only when there are zero failures.
 
-**Updated** Enhanced infrastructure now handles increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories and updated naming conventions for Space Bunny model references.
+**Updated** Enhanced infrastructure now handles increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories and updated naming conventions for Space Bunny model references. Significant score recalculations have been applied across multiple model families, with 42 additions and 27 modifications to existing score tuples, reflecting updated cross-model comparison methodologies.
 
 **Section sources**
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
@@ -298,17 +305,33 @@ Behavior:
 - [scripts/lib/quarantine.mjs:16-31](file://scripts/lib/quarantine.mjs#L16-L31)
 - [scripts/lib/quarantine.mjs:33-56](file://scripts/lib/quarantine.mjs#L33-L56)
 
+### Automated Generation Script: create_missing.mjs
+Responsibilities:
+- Identifies model directories that require Laguna_XS_2.1.md files based on model queue analysis.
+- Provides automated generation capabilities for missing model data.
+- Supports batch processing of multiple model directories.
+- Integrates with the broader synchronization pipeline for data consistency.
+
+Key features:
+- Comprehensive list of 45 model directories requiring additional evaluation data.
+- Automated detection of missing model comparisons.
+- Streamlined integration with existing validation and scoring systems.
+- Support for both .md and .md.excluded file extensions during generation.
+
+**Section sources**
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
+
 ### Generated Outputs
 - `src/data/sources.generated.ts`: contains SourceKey union, ViewKey types, SourceDef interface, and SOURCE_DEFS array with labels and optional slugs.
 - `src/data/scores.generated.ts`: contains GeneratedScores interface and GENERATED_SCORES map keyed by model slug and source filename.
 
 These files are deterministic and regenerated by the pipeline; they exclude prose to keep the client bundle small.
 
-**Updated** The generated outputs now include widespread adoption of Laguna XS 2.1 model across numerous model directories, with proper integration into the registry system and enhanced scoring methodology. Additionally, the naming convention has been updated to use "Space Bunny" instead of "Space Bunny Alpha" references throughout the generated TypeScript files, reflecting the canonical model naming convention.
+**Updated** The generated outputs now include widespread adoption of Laguna XS 2.1 model across numerous model directories, with proper integration into the registry system and enhanced scoring methodology. Additionally, the naming convention has been updated to use "Space Bunny" instead of "Space Bunny Alpha" references throughout the generated TypeScript files, reflecting the canonical model naming convention. Significant score recalculations have been applied across multiple model families, with 42 additions and 27 modifications to existing score tuples, reflecting updated cross-model comparison methodologies and improved accuracy in model performance assessments.
 
 **Section sources**
-- [src/data/sources.generated.ts:1-158](file://src/data/sources.generated.ts#L1-L158)
-- [src/data/scores.generated.ts:1-200](file://src/data/scores.generated.ts#L1-L200)
+- [src/data/sources.generated.ts:1-170](file://src/data/sources.generated.ts#L1-L170)
+- [src/data/scores.generated.ts:1-800](file://src/data/scores.generated.ts#L1-L800)
 
 ## Dependency Analysis
 The orchestrator depends on pure modules for deterministic behavior. Helper modules have minimal coupling and are tested independently.
@@ -321,6 +344,7 @@ Sync --> Average["average.mjs"]
 Sync --> Codegen["codegen.mjs"]
 Sync --> Naming["naming.mjs"]
 Sync --> Quarantine["quarantine.mjs"]
+CreateMissing["create_missing.mjs"] --> Sync
 Parse --> |uses| Constants["LABELS, SHORT, QUALITY_DIMS, RATER_GATE"]
 Validate --> |imports| ParseConsts["FILENAME_RE, META_REQUIRED"]
 Average --> |imports| ParseLabels["LABELS, RATER_GATE, meanOf"]
@@ -333,6 +357,7 @@ Codegen --> |uses| NamingResolve["resolveSourceMeta via naming.mjs"]
 - [scripts/lib/average.mjs:10-11](file://scripts/lib/average.mjs#L10-L11)
 - [scripts/lib/codegen.mjs:25-35](file://scripts/lib/codegen.mjs#L25-L35)
 - [scripts/lib/naming.mjs:17-27](file://scripts/lib/naming.mjs#L17-L27)
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
 
 **Section sources**
 - [scripts/sync-data.mjs:36-75](file://scripts/sync-data.mjs#L36-L75)
@@ -348,10 +373,19 @@ Codegen --> |uses| NamingResolve["resolveSourceMeta via naming.mjs"]
 - Early exits: generated files are skipped when failures exist, preventing partial cementation.
 - **Enhanced duplicate detection**: Optimized slug validation and merged slug checking prevents unnecessary processing of forbidden duplicates.
 - **Optimized file extension handling**: Efficient processing of both .md and .md.excluded files reduces redundant operations during merged stem validation.
+- **Automated generation efficiency**: New create_missing.mjs script provides optimized batch processing for missing model data generation.
 
-**Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved performance characteristics for larger datasets, including optimized handling of widespread Laguna XS 2.1 model adoption and streamlined processing of updated naming conventions.
+**Updated** Enhanced infrastructure now supports increased volume and complexity of model data with improved performance characteristics for larger datasets, including optimized handling of widespread Laguna XS 2.1 model adoption and streamlined processing of updated naming conventions. The new automated generation script significantly improves performance for batch operations involving missing model data.
 
 ## Infrastructure Improvements
+
+### Automated Generation Script: create_missing.mjs
+The new `create_missing.mjs` script provides automated generation capabilities for missing model data:
+
+- **Model directory identification**: Automatically identifies 45 model directories that require Laguna_XS_2.1.md files based on comprehensive model queue analysis.
+- **Batch processing support**: Handles multiple model directories efficiently, reducing manual intervention requirements.
+- **Integration with validation**: Works seamlessly with existing validation and scoring systems to ensure data consistency.
+- **File extension support**: Properly handles both .md and .md.excluded file extensions during automated generation.
 
 ### Temporary Verification Utilities Removal
 The infrastructure layer has been streamlined by removing temporary verification utilities that were previously used for testing and validation purposes. Specifically:
@@ -369,6 +403,7 @@ The donation infrastructure has been cleaned up to use a more maintainable place
 - **Maintainable configuration**: Adding new donation platforms is simplified to just adding an entry to the `EXTRA_DONATE_LINKS` array with the appropriate URL.
 
 **Section sources**
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
 - [src/components/Footer.tsx:42-53](file://src/components/Footer.tsx#L42-L53)
 - [README.md:78-94](file://README.md#L78-L94)
 
@@ -445,7 +480,17 @@ Common issues and resolutions:
   - Cause: Outdated references to temporary verification scripts or unclear donation platform setup.
   - Resolution: Use the built-in sync validation (`pnpm sync`) instead of external verification scripts; configure donation links through the `EXTRA_DONATE_LINKS` array in `Footer.tsx`.
 
-**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues. Infrastructure improvements include streamlined verification processes and improved donation link management. The enhanced validation system now properly handles merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring robust duplicate detection and canonicalization for Xiaomi rater variants.
+- **Automated generation issues**:
+  - Symptom: Missing model data or incomplete model comparisons.
+  - Cause: Model directories requiring Laguna_XS_2.1.md files that haven't been processed.
+  - Resolution: Run `create_missing.mjs` to identify and generate missing model data; verify integration with the main sync pipeline.
+
+- **Cross-model comparison updates**:
+  - Symptom: Unexpected score changes across multiple model families.
+  - Cause: Significant recalculations applied to existing score tuples reflecting updated comparison methodologies.
+  - Resolution: Review the updated scoring methodology; understand that 42 additions and 27 modifications were made to improve accuracy and consistency.
+
+**Updated** With widespread adoption of Laguna XS 2.1 model and updated naming conventions for Space Bunny model references, ensure proper integration of new model directories and verify that generated files include the new model entries with enhanced scoring accuracy and consistent naming conventions. Enhanced batch operation validation now provides clearer error messages for merged slugs and vendor-prefix violations, making it easier to resolve duplicate model directory issues. Infrastructure improvements include streamlined verification processes and improved donation link management. The enhanced validation system now properly handles merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring robust duplicate detection and canonicalization for Xiaomi rater variants. New automated generation capabilities through `create_missing.mjs` provide efficient batch processing for missing model data.
 
 **Section sources**
 - [scripts/sync-data.mjs:119-126](file://scripts/sync-data.mjs#L119-L126)
@@ -460,8 +505,9 @@ Common issues and resolutions:
 - [scripts/lib/validate.mjs:74-80](file://scripts/lib/validate.mjs#L74-L80)
 - [src/components/Footer.tsx:42-53](file://src/components/Footer.tsx#L42-L53)
 - [RULES.md:130-140](file://RULES.md#L130-L140)
+- [create_missing.mjs:1-52](file://create_missing.mjs#L1-L52)
 
 ## Conclusion
 The data synchronization pipeline transforms research Markdown into reliable runtime data through strict parsing, validation, and deterministic aggregation. It safeguards data integrity via quarantine, rater gating, top-10 cohort averaging, and permanence tripwires. New reporting agents are automatically discovered and registered, while generated TypeScript artifacts provide efficient, type-safe access to scores and source definitions. Following the troubleshooting guidance ensures quick resolution of common sync errors and maintains a healthy, auditable dataset.
 
-**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations. The enhanced validation system now provides robust support for merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring proper canonicalization and duplicate prevention. Infrastructure improvements include the removal of temporary verification utilities and a cleaner donation link management system that provides better user experience and maintainability.
+**Updated** The enhanced infrastructure now supports increased volume and complexity of model data with improved validation and synchronization processes ensuring data consistency across the entire model comparison database, including widespread adoption of Laguna XS 2.1 model across numerous model directories, refined scoring methodology for more accurate model comparisons, standardized naming conventions for Space Bunny model references throughout the generated TypeScript artifacts, and enhanced duplicate detection mechanisms for merged slugs and vendor-prefix violations. The enhanced validation system now provides robust support for merged source stems mapping from 'Mimo_v2.6_Flash' to 'MiMo_2.6_Flash', ensuring proper canonicalization and duplicate prevention. Infrastructure improvements include the removal of temporary verification utilities and a cleaner donation link management system that provides better user experience and maintainability. New automated generation capabilities through `create_missing.mjs` provide efficient batch processing for missing model data, while significant score recalculations across multiple model families ensure more accurate and consistent model performance assessments.

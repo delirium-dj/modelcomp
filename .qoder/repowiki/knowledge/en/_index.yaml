@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: master
 nodes_managed: true
-exported_at: "2026-10-10T20:50:51Z"
+exported_at: "2026-10-10T21:20:00Z"
 modules:
     "":
-        dir_name: ModelComp — Cross-Domain LLM Benchmark Registry & Site
-        title: ModelComp — Cross-Domain LLM Benchmark Registry & Site
+        dir_name: ModelComp Site Root
+        title: ModelComp Site Root
         scope:
             - README.md
             - AGENTS.md
@@ -37,6 +37,7 @@ modules:
             - model_data_finance
             - model_data_text
             - model_data_voice
+            - root_tooling
             - scripts_tooling
         depends_on: []
         related_to: []
@@ -48,7 +49,8 @@ modules:
         source_files: []
         children: []
         depends_on: []
-        related_to: []
+        related_to:
+            - path: scripts_tooling
     frontend_app:
         dir_name: ModelComp QwikCity Frontend
         title: ModelComp QwikCity Frontend
@@ -59,7 +61,7 @@ modules:
         children: []
         depends_on: []
         related_to:
-            - path: model_data_text
+            - path: scripts_tooling
     model_data_finance:
         dir_name: Finance-Enhanced LLM Model Evaluation Data
         title: Finance-Enhanced LLM Model Evaluation Data
@@ -68,7 +70,8 @@ modules:
         source_files: []
         children: []
         depends_on: []
-        related_to: []
+        related_to:
+            - path: scripts_tooling
     model_data_text:
         dir_name: Model Benchmark Data Registry
         title: Model Benchmark Data Registry
@@ -78,7 +81,6 @@ modules:
         children: []
         depends_on: []
         related_to:
-            - path: frontend_app
             - path: scripts_tooling
     model_data_voice:
         dir_name: Voice Model Benchmark Findings
@@ -86,6 +88,16 @@ modules:
         scope:
             - models_voice/
             - voicemodels/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: scripts_tooling
+    root_tooling:
+        dir_name: Missing Model Documentation Generator
+        title: Missing Model Documentation Generator
+        scope:
+            - create_missing.mjs
         source_files: []
         children: []
         depends_on: []
@@ -99,4 +111,8 @@ modules:
         children: []
         depends_on: []
         related_to:
+            - path: excluded_findings
+            - path: frontend_app
+            - path: model_data_finance
             - path: model_data_text
+            - path: model_data_voice
