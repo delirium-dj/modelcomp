@@ -77,8 +77,22 @@ Long context:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 92 / Reasoning 93 / Context 95 / Multimodal 65 / Coding 92 / Cost 30 / Overall 87.** New Mythos-specific rows and conflict checks this pass:
+
+- **Mythos 5.1-specific BenchmarkList rows (2026-09-01, system card):** Terminal-Bench 4.0 **60.9%** (rank 3/29, 93rd pct — the only Mythos-specific agentic row, +5.1 over Fable 5.1's 55.8%, the gap reflecting where Fable's earlier, less precise safeguards intervened); **ExploitBench v8-bench: AutoNudge mean 12.61 flags, 83.0% capability, 222/410 full ACE exploits across both arms** (rank 2/16 — field leader Opus 5.5 at 14.15 flags); **ArxivMath 93.9% with tools / 91.3% without** (rank 5/35 — a strong new math row); **BBQ 89.9% disambiguated / 100.0% ambiguous accuracy, −0.9%/0.0% bias** (rank 2/7).
+- **Cyber re-read (shared system card):** Fable 5.1 and Mythos 5.1 have "the strongest overall cyber capabilities of any model we have released," meeting or exceeding Mythos 5; **Mythos 5.1 substantially outperforms Claude Opus 5 on almost all cyber evaluations** (ExploitBench, OSS-Fuzz, Firefox 147, ExploitGym). Fable 5.1's safeguards now allow vulnerability discovery at all access levels (like Opus 5) with fewer false positives than Fable 5 at launch; no critical-severity jailbreak found for Fable 5.1.
+- **Life-sciences quantification (system card §8.19):** long-form virology end-to-end scores **0.81 (Task 1) and 0.87 (Task 2)** — exceeding the 0.80 notable-capability benchmark on both; multimodal virology (VCT) **0.58** (above Opus 5's 0.55, just below Mythos 5's 0.59); protein design — median design scores exceed Mythos 5 and Opus 5 with reduced variance, and **one trial scored higher than the top human participant** in best-sequence prediction; ProteinGym — highest score of all models in the no-corpus/no-PLM and Swiss-Prot conditions (minor regression vs Opus 5 in the ProteinGym-AAV and combined conditions, not interpreted as CB-2-relevant).
+- **Third-party launch quotes:** RedlineBench contract redlining **57.0** (from Fable 5's 47.9 — most of the gain on first-turn quality, edits more concise); FrontierFinance **55.9% rubric** (from 49.2% — went straight to the earnings-call transcript for exact figures); Cursor: "the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort."
+- **System-card cost claim:** Mythos/Fable 5.1 match or exceed Fable 5 "at roughly half the cost per task on agentic coding benchmarks" (driven by the 75%-cheaper cache reads).
+- **Access re-read (platform docs):** verification required; Cyber Verification Program (security teams — covers Opus 5.5, Sonnet 5.5, Mythos 5.1 and future models) and Life Sciences Verification Program (partnership with the US government, first participants enrolled); currently US organizations only, with expansion to broader domestic and international partners coordinated through the US government; retirement not sooner than 2027-09-01.
+- **Score impact:** none — the new Mythos-specific rows (TB 4.0 60.9%, ExploitBench rank 2/16, ArxivMath 93.9%) land inside the bands the existing scores assume; the same-weights reasoning evidence (GPQA 93.4–93.7%, HLE 59.1–60.9%/65.0%, ARC-AGI-2 90.0%) continues to apply directly to Reasoning 93.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic Fable 5.1 & Mythos 5.1 system card and launch page, platform.claude.com docs, Artificial Analysis, vals.ai, BenchmarkList, Gradually); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic Fable 5.1 & Mythos 5.1 system card, launch page, Mythos and platform docs, BenchmarkList, Artificial Analysis, vals.ai, Cursor/Redline/ FrontierFinance partner quotes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

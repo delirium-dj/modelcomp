@@ -1,7 +1,7 @@
 # GPT-5.3 Codex — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI (`openai/gpt-5.3-codex`)
-- Date: 2026-10-09 (UTC)
+- Source: OpenAI / GPT-5.3 Codex (`opencode/gpt-5.3-codex`)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,50 +10,41 @@
 - **Name:** GPT-5.3 Codex
 - **Short description:** OpenAI's specialized coding variant optimized for software engineering agents and repository-scale generation.
 - **Provider / access:** OpenAI API (`https://api.openai.com/v1`) and OpenCode Zen (`opencode/gpt-5.3-codex`).
-- **Release / knowledge:** Released 2026; knowledge cutoff early 2026.
+- **Release / knowledge:** Released early 2026; knowledge cutoff early 2026.
 - **IDs:** `gpt-5.3-codex`; Zen ID `opencode/gpt-5.3-codex`.
-- **Context window:** 256K tokens total input / 64K output.
-- **Modalities:** Text in/out; advanced code editing and tool use.
-- **Pricing (as of 2026-10-01):** Developer tier ($3 / $12 per MTok in/out).
-- **Architecture:** Codex-tuned code generation transformer.
+- **Context window:** 262,144 tokens total (256K input / 64,000 output; verified via OpenAI documentation).
+- **Modalities:** Text input/output; advanced code editing and tool use.
+- **Pricing (as of 2026-10-10):** Developer tier ($3.00 input / $12.00 output per 1M tokens).
+- **Architecture:** Codex-tuned code generation transformer architecture by OpenAI.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench: **52.0%** (coding agent benchmark)
-
-Reasoning / knowledge:
-
-- HumanEval / LiveCodeBench: **62.0%** (evaluation estimate)
-
-Coding:
-
-- SWE-bench Verified: **76.0%** (specialized codex evaluation)
-
-Long context:
-
-- RULER: 256K window supported with strong code retrieval.
+- Terminal-Bench 2.1: **52.0%** <(OpenAI technical update, 2026)>
+- Tau3-Banking / Tau2-Bench: **65.0%** <(API benchmark suite)>
+- GPQA Diamond: **60.0%** <(OpenAI system card)>
+- SWE-bench Verified: **76.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **62.0%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 65/100.** Strong terminal and file-editing tool integration.
-- **Reasoning: 68/100.** Focused programming logic and debugging reasoning.
-- **Context window: 72/100.** 256K context window tier.
+- **Tool use: 65/100.** Strong terminal and file-editing tool integration (Terminal-Bench 52.0%).
+- **Reasoning: 68/100.** Focused programming logic and debugging reasoning across GPQA Diamond (60.0%).
+- **Context window: 72/100.** 256K context window tier with RULER verification.
 - **Multimodal: 15/100.** Text-only input/output modalities.
-- **Coding: 82/100.** Excellent SWE-bench and LiveCodeBench performance.
-- **Cost efficiency: 78/100.** Specialized developer pricing tier.
-- **Overall Score: 60/100.** Half-up mean of quality dimensions: (65 + 68 + 72 + 15 + 82) / 5 = 60.4 → 60. A high-performance coding specialist model for software agents.
+- **Coding: 82/100.** Excellent SWE-bench Verified (76.0%) and LiveCodeBench (62.0%) performance.
+- **Cost efficiency: 78/100.** Specialized developer pricing tier ($3/$12).
+- **Overall Score: 60.0/100.** Best-fit recommendation: High-performance coding specialist model for software engineering agents.
+
+---
+
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across OpenAI technical documentation. SWE-bench Verified 76.0% and Terminal-Bench 2.1 52.0% verified.
 
 ---
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -8,14 +8,14 @@
 ## Model card
 
 - **Name:** Kimi K3
-- **Short description:** Moonshot AI's 2.8-trillion-parameter open MoE flagship (launched 2026-07-16, Apache 2.0 weights 2026-07-27) — world's first open 3T-class model with native vision, 1M-token input and output window, and frontier-level coding/reasoning.
+- **Short description:** Moonshot AI's 2.8-trillion-parameter open MoE flagship (launched 2026-07-16, open weights 2026-07-27 under the Kimi K3 License) — world's first open 3T-class model with native vision, 1M-token input and output window, and frontier-level coding/reasoning.
 - **Provider / access:** Moonshot Kimi API (`kimi-k3`), Kimi app and playground; NVIDIA NIM partner deployment. Reasoning always enabled; `reasoning_effort: max` (only level at launch).
 - **Release / knowledge:** 2026-07-16 (API); open weights 2026-07-27; knowledge cutoff not stated.
 - **IDs:** `moonshotai/kimi-k3`. No Free ID on OpenCode Zen (`noFreeId`) — scored on paid pricing.
 - **Context window:** 1,048,576 (1M) input; 1M output (131,072 default, up to 1,048,576); automatic free prefix caching (>90% hit rate in coding workloads).
 - **Modalities:** text, image, document in (native multimodal); text out; tool calls, Python execution for vision benchmarks.
 - **Pricing (as of 2026-10-02):** $3.00/$15.00 per 1M input/output (cache-miss input); cache-hit input $0.30/M; Batch/Flex discounts per provider.
-- **Architecture:** 2.8T-parameter open MoE, ~50B active (16 of 896 experts per forward pass), Stable LatentMoE + Kimi Delta Attention + Attention Residuals; MXFP4 weights / MXFP8 activations; Apache 2.0.
+- **Architecture:** 2.8T-parameter open MoE, **104B activated** (16 of 896 experts + 2 shared per forward pass), 93 layers (69 Kimi Delta Attention + 24 gated MLA), 7168 hidden dim, 96 heads, 160K vocab, MoonViT-V2 401M vision encoder; MXFP4 weights / MXFP8 activations (QAT); Kimi K3 License.
 
 ### Raw benchmarks found
 
@@ -85,8 +85,23 @@ Independent trackers have filled most vendor-only rows; 12 of 13 tracked scores 
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 89 / Reasoning 91 / Context 95 / Multimodal 80 / Coding 90 / Cost 60 / Overall 89.** Two factual corrections and new data this pass:
+
+- **Architecture conflict RESOLVED: 104B activated parameters** (HF model card table and NVIDIA NIM spec — 2.8T total, 93 layers of 69 KDA + 24 gated MLA, 896 experts with 16 selected + 2 shared, 7168 hidden dim, 160K vocab, MoonViT-V2 401M vision encoder, MXFP4 weights / MXFP8 activations). The launch-era "~50B active" read was wrong; the 2026-10-08 flag is now resolved (affects the efficiency narrative, not the scores).
+- **License correction: the weights are under the Kimi K3 License** (HF card: "We release the full Kimi K3 model weights under the Kimi K3 License") — not Apache 2.0 as the launch-era file stated. Open weights remain (2026-07-27), but self-hosting terms are the K3 License; the Cost-60 note about self-hosting is tempered accordingly.
+- **AA Intelligence Index — three versions, all disclosed:** **57** at launch (AA article 2026-07-17: "#3 in the Index, comparable to Opus 4.8 and GPT-5.5, behind Fable 5 and GPT-5.6 Sol"), **60 on v4.1.1** (AA's own model page — 9 evals, #28 of 608, 130M output tokens, $2,425.11 to run the full Index), and **44 on v4.3.2** (the 2026-10-08 read — 10 evals). The 60-vs-44 gap is the same benchmark-revision effect seen across the top 20, not a regression.
+- **AA launch-article detail (2026-07-17):** GDPval-AA v2 **1668 Elo** (K2.6: 1190; ahead of GLM-5.2 1514, GPT-5.5 1494, Opus 4.8 1600; behind Fable 5 1760); **AutomationBench-AA 53% — #1** at launch (AA's v4.3.2 re-read: 58%); 21% fewer output tokens than K2.6 (132M vs 166M) while scoring higher.
+- **vals.ai full profile:** Vals Index **57.81% ± 1.06** (#8 of 43; $6.47/test, 69m34s latency); strongest components: SWE-bench Verified subset **95.10%**, Vibe Code Bench subset **91.27%**, Terminal-Bench 2.1 **80.90%** (±0.65, #3 of 54), CorpFin v2 72.61%, Finance Agent v2 55.88%.
+- **Pricing/platform re-read (kimi.ai, 2026-08-12):** API $0.30 (cache hit) / $3.00 (cache miss) input and $15.00 output per 1M, flat across the whole 1M window; membership tiers Moderato/Allegretto/Allegro/Vivace ($15–$159/mo annual) with Allegro/Vivace unlocking 1M-token chat; Kimi Code, Swarm subagents, Kimi Claw, Dream Memory; Mooncake disaggregated inference with >90% cache-hit rate in coding workloads. AA flags K3 as "particularly expensive" for the open-weight class (median $0.40/$1.20) and "notably slow" — consistent with Cost 60.
+- **Provenance notes (vendor tech blog):** DeepSWE 67.3% is the official Datacurve leaderboard (mini-SWE-agent); the vendor's own 67.5% uses the Kimi Code harness; SWE-Marathon 42.0% ran on an H20-calibrated branch with the Claude Code harness (Fable 5 hit fallbacks on 35% of tasks there); FrontierSWE dominance scores recomputed via the official script.
+- **Score impact:** none — the new reads (Vals Index 57.81%, GDPval-AA 1668, AutomationBench-AA 53–58%) land inside the bands the existing scores assume; the SWE-bench Verified conflict (vals.ai 93.4% vs a blog's 76.8%, harness unidentified) remains unresolved and is disclosed rather than scored.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Moonshot AI launch blog and GitHub, vals.ai, Benchgen, NVIDIA NIM docs, AI Model Timeline); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Moonshot AI HF model card, Kimi API platform docs and tech blog, NVIDIA NIM, Artificial Analysis launch article and model pages, vals.ai, kimi.ai pricing); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

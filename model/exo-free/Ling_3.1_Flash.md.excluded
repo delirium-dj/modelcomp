@@ -1,0 +1,53 @@
+# Exo Free — findings by Ling 3.1 Flash
+
+- Source: OpenCode Zen free tier (`exo-free`)
+- Date: 2026-10-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Why this is an `.md.excluded` file (no scores)
+
+- **SELF-EXCLUSION — zero verified public benchmark numbers.** Every benchmark row below reads `no verified public score found`: OpenCode Zen's own docs list the model with no scores, the community free-models comparison (auto-generated 2026-10-06) reports Intelligence Index / SWE-bench Verified / Terminal-Bench all `N/A`, and modelbenchmark.io carries a specs page with no measured values. Per the report rules, a model with zero verified benchmark numbers is saved as `<STEM>.md.excluded`, not scored. The queue's cross-rater average for this slug therefore does not include this file.
+
+## Model card (specs only — verified)
+
+- **Name:** Exo Free
+- **Short description:** Free-tier preview reasoning model on OpenCode Zen — text and image input, tool use, 1M context — available for a limited time while the team collects feedback; during the free period, collected data may be used to improve the model (privacy note).
+- **Provider / access:** OpenCode Zen only (`exo-free`, endpoint `https://opencode.ai/zen/v1/chat/completions`, `@ai-sdk/openai-compatible`). Publisher/lab not stated in any source found; "exo" also names an unrelated local-inference project (exo-explore/exo by exo labs), which is not this model.
+- **Release / knowledge:** preview, release date and knowledge cutoff not stated.
+- **IDs:** `exo-free` (OpenCode Zen; no Free ID — it *is* the free variant; no paid tier found).
+- **Context window:** 1,000,000 tokens (community comparison table and modelbenchmark.io); max output 131,000 tokens (modelbenchmark.io).
+- **Modalities:** text in; image in; text out; tool use yes; reasoning model (per modelbenchmark.io).
+- **Pricing (as of 2026-10-10):** Free ($0.00 per 1M tokens, OpenCode Zen), limited time.
+- **Architecture:** not stated in any source found — no verified public score found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / GDPval / MCP-Atlas / τ-bench / AutomationBench: no verified public score found
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index / GPQA / HLE / AIME: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / DeepSWE / LiveCodeBench: no verified public score found
+
+Long context:
+
+- 1M window claimed; no MRCR / RULER / GraphWalks measurement — no verified public score found.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded (zero verified public benchmark numbers). Specs above are the only verified facts.
+- **Overall Score: n/a (excluded).**
+
+---
+
+## Signature
+
+- Provided by: **Ling 3.1 Flash (inclusionai/ling-3.1-flash)** — 2026-10-10
+- Method: public internet research (OpenCode Zen docs 2026-10-08, community free-models comparison 2026-10-06, modelbenchmark.io specs page 2026-10-07); negative findings only — no benchmark exists to cite.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings; promote to a scored `.md` once a verifiable benchmark table appears.

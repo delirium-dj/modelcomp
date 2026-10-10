@@ -81,8 +81,21 @@ Cybersecurity:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 82 / Reasoning 81 / Context 95 / Multimodal 92 / Coding 84 / Cost 94 / Overall 87.** New data and corrections this pass:
+
+- **AA head-to-head vs Kimi K3 (Max) — MiMo-V2.6-Pro leads 8 of 10 v4.3.2 components:** Index **46 vs 44**; AA-Briefcase **1516 vs 1501**, GDPval-AA v2.1 **1685 vs 1533**, AutomationBench-AA **59% vs 58%**, TB 4.0 **35% vs 13%**, SciCode **61% vs 59%**, HLE **49% vs 47%**, CritPt **27% vs 23%** — Kimi K3 leads only on GDP.pdf (22% vs 19%), AA-Omniscience (20 vs **8** — MiMo's weakest row, confirmed) and AA-LCR (89% vs 86%). Cost: $0.13 vs $2.00 per Index task; $207 vs $3,658 to run the full Index.
+- **Architecture fully detailed (HF checkpoint `MiMo-V2.6-Pro-RL`):** sparse MoE, 1.02T total / 42B activated; 70 layers (60 SWA + 10 GA), hidden 6144, 128 SWA/GA heads, QK/V head dims 192/128, sliding window 128; **384 routed experts (8 activated)**; 5-layer multi-token-prediction speculative decoder (window 1024); 681M-param MiMo ViT vision encoder (28 layers: 24 SWA + 4 Full); 308M AudioTokenizer + 127M audio patch encoder; 1M max context.
+- **Knowledge cutoff: December 2024** (stated in the API's default system prompt) — quite old for a September 2026 flagship; worth weighing for time-sensitive work. Previously "not stated".
+- **Vendor claims re-read (MiMo docs):** "the world's strongest open-source model" (46.32 on AA's composite), surpassing Kimi K3 and Qwen3.8 Max, "but there is still a gap compared with the strongest closed-source models Claude Fable 5.1 and GPT-6 Astra"; agent-benchmark performance "on par with Claude Opus 5 and GPT-5.6 Sol" on most benchmarks; pricing unchanged from V2.5 ("intelligence upgraded, price unchanged" — the Pareto push); **MIT-licensed weights** confirmed (BenchmarkList and Goldie Bench), with MiMo-V2.6-Distill-Qwen-9B and RL training resources also released; UltraSpeed mode up to 20× inference speed (UltraSpeed $4.35/$8.70); compatible with both OpenAI and Anthropic protocols.
+- **Throughput correction:** AA measures **45 t/s** output (3.45s TTFT, 48s end-to-end for a 500-token response, 79s per Index task, 64K output tokens per task) — the 10-08 file's "42 tok/s" is superseded; the drag narrative (under half of GPT-6 Sol's 98 t/s) stands.
+- **Score impact:** none — every new read (AA-Briefcase 1516, GDPval-AA 1685, AutomationBench-AA 59%, AA-LCR 86%, DeepSWE 71.9% rank 10/52) lands inside the bands the existing scores assume; the vendor-vals.ai Terminal-Bench 2.1 spread (89.9% vs 67.79%) remains the standing conflict behind Tool 82.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Xiaomi MiMo model card and technical report, Artificial Analysis, BenchLM, OpenLM, ComputingForGeeks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Xiaomi MiMo model page, MiMo docs v2.6 release notes, Hugging Face model card, Artificial Analysis model pages and comparison, BenchmarkList, Goldie Bench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

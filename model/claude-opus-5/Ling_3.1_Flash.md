@@ -77,8 +77,22 @@ Fills the LiveCodeBench, DeepSWE, SciCode and Vibe Code Bench gaps:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 90 / Reasoning 92 / Context 95 / Multimodal 78 / Coding 93 / Cost 51 / Overall 90.** New fills and conflict checks this pass:
+
+- **AA Intelligence Index v4.3.2: 51 (Max) / 48 (High)** (AA's own page) — fills the previous "unpublished AA Intelligence Index" gap. Full AA component table (Max effort): AA-Briefcase v1.1 **1660**, GDPval-AA v2.1 **1722**, AutomationBench-AA **57%**, Terminal-Bench 4.0 **49%**, SciCode **56%**, HLE **55%**, GDP.pdf **22%**, CritPt **29%**, AA-Omniscience **37**, AA-LCR v1.1 **79%**. AA cost/task $5.86 (Max) / $3.61 (High); 73K output tokens per task; 826s per task at max.
+- **Index revision effect (not a regression):** AA's launch article (2026-07-24) read the v4.3-era Index at **61 (Max)** — "narrowly the most intelligent model on the Intelligence Index, tied with Fable 5 (60), ahead of GPT-5.6 Sol (59), Kimi K3 (57), Opus 4.8 (56)" at $2.03/Index task (26% below Fable 5). The current 51 is the v4.3.2 revision (adds AA-Briefcase, GDPval-AA v2.1, AutomationBench-AA, TB 4.0, GDP.pdf, CritPt, AA-Omniscience, AA-LCR) — the two numbers measure different eval sets, exactly as with Gemini 3.1 Pro and Muse Spark 1.3.
+- **GDPval-AA three-way conflict, all reported:** 1861 Elo (AA launch article, GDPval-AA v2, 2026-07-24) vs 1722 (AA v4.3.2 table, GDPval-AA v2.1) vs 1708 (Anthropic's Opus 5.5 comparison table, GDPval-AA v2) — version and harness differences, not errors.
+- **AutomationBench conflict resolved by methodology:** Zapier public leaderboard **26.9%** (Zapier's own harness) vs AA AutomationBench-AA **57%** (AA's Stirrup harness, max effort) — a 30-point harness-dependent spread; the Anthropic launch claim of "~1.5× the next-best model's pass rate for the same cost" sits between them. Tool 90 stands: TB 2.1 89.1% (AA), Toolathlon 80.6% (#1), Frontier-Bench 43.3 (SOTA) support it; TB 4.0 49% and the AutomationBench spread cap it.
+- **System card re-read (revised edition b514064a, 194pp):** upgrade over Opus 4.8 with largest gains in agentic coding, computer use and long-horizon knowledge work; comparable to or ahead of Fable 5 and Mythos 5 on many evaluations; **AECI 162.1** (95% CI 158.0–167.3, n=40) — nominally the highest measured but statistically indistinguishable from Mythos 5 (161.3); most aligned model on Anthropic's behavioral audit; behind Mythos 5 on offensive cyber (ExploitBench: 9.62/10.14 capability flags, 99 full ACE exploits, 79.4% non-zero targets vs Mythos 5's 80%/13 complete exploits) — vulnerability discovery near-Mythos, exploit development behind. Cyber safeguards now permit source-code vulnerability discovery at all access levels while blocking compiled-binary discovery.
+- **Platform docs re-read:** knowledge cutoff **May 2026**; default effort high; cache read $0.50/M (10% of input — "up to 90% savings" confirmed); Batch 50% off; Fast mode 2.5× speed at 2× price.
+- **Score impact:** none — the new AA reads (TB 4.0 49%, AutomationBench-AA 57%, SciCode 56%, HLE 55%, AA-LCR 79%) all land inside the bands the existing scores already assumed; the Index-51 fill corroborates Reasoning 92 without clearing the 94+ bar set by Opus 5.5's 58.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic Opus 5 system card and launch page, Zapier AutomationBench leaderboard, Jesse Moraga's verified-numbers breakdown, OpenAI GPT-6 Astra comparison table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic Opus 5 system card (revised edition b514064a) and launch page, Artificial Analysis launch article and model pages, Zapier AutomationBench leaderboard, vals.ai, Datacurve, BenchLM, BenchmarkList, ai-model-timeline); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

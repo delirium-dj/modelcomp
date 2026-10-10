@@ -1,9 +1,9 @@
 {
   "id": "opencode/step-5-preview",
   "name": "Step 5 Preview",
-  "short": "Step 5 Preview model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "StepFun's flagship agentic model — 600B-total/27B-active sparse MoE with 1M context; near-frontier coding at $1.00/$2.70 per MTok.",
+  "contextWindow": "1M total (1,000,000 in / 64K out)",
+  "modalities": "Text, image, video in; text out (tool calling, JSON mode, reasoning effort control)",
+  "pricingNote": "$1.00/$2.70 per MTok ($0.05 cache hit); free V0 eval tier",
+  "pricingTiers": ["$1.00 in / $2.70 out per MTok ($0.05 cache hit)", "Free V0 eval tier (5 concurrency, 10 rpm)"]
 }

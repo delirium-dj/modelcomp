@@ -81,8 +81,20 @@ ARC Prize results, LVBench rows and DeepMind's evals methodology found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 90 / Reasoning 91 / Context 96 / Multimodal 92 / Coding 92 / Cost 100 / Overall 92.** New fills and conflict checks this pass:
+
+- **AA Intelligence Index v4.3.2: 41 (High) / 40 (Medium) / 33 (Low)** (AA's own page, #50 of 227; 170M output tokens per Index task — very verbose vs median 82M) — fills the previous "AA Intelligence Index unpublished" gap. "Well above average among comparable models (median: 26)"; consistent with the Flash-tier positioning, so Reasoning 91 stands.
+- **DeepSWE v1.1: 73.7%** (Google model card table, high effort; vs 3.7 Flash 65.3%, Claude Opus 5 74.0%, Sonnet 5 53.8%, GPT-5.6 Sol 72.7%, GPT-5.6 Terra 69.6%) — confirms the Datacurve 74% ±1 read within 0.3 pts; the earlier "tie for the top spot" uncertainty (Google's rounding correction) stands, and Coding 92 is unchanged.
+- **Pricing reconfirmed (ai.google.dev, 2026-09-02):** introductory $0.75/$3.75 per 1M in/out through 2026-12-31, standard $1.50/$7.50 from 2027-01-01; AA cost/task $0.60 (High) / $0.93 (Medium); 125 t/s output, 26.84s TTFT. Cost 100 stands (free tier on AI Studio / OpenCode Zen).
+- **Model card re-read:** based on Gemini 3.7 Flash (post-training improvement, not a new pretraining run); text/image/audio/video in, 1M context, 64K out; knowledge cutoff March 2026 (some domains January 2025); Frontier Safety: no Tracked/Critical Capability Levels (assessed via 3.7 Flash); safety similar to 3.7 Flash with a slight non-English regression. **Gemini 3.8 Flash Cyber** is a separate cybersecurity variant (vulnerability detection, automated patching) via the Fairwind Program — not scored here.
+- **Conflict comparison:** TB 2.1 spread unchanged (vendor 90.8% vs AA 87.6% vs vals.ai 81.27% — 9.5 pts harness-dependent); DeepSWE now has three consistent reads (73.7% card / 74% Datacurve / "outperforms most larger frontier models" per Google blog). No benchmark in this pass contradicts the existing scores.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind model card and eval methodology, Artificial Analysis, vals.ai, Datacurve DeepSWE board, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind model card and evals methodology, Artificial Analysis, vals.ai, Datacurve DeepSWE board, Google AI for Developers docs, Google blog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

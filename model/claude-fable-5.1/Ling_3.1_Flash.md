@@ -81,8 +81,22 @@ New verified data found — fills every previously-open gap:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 92 / Reasoning 93 / Context 95 / Multimodal 78 / Coding 91 / Cost 30 / Overall 90.** New fills and conflict checks this pass:
+
+- **AA Intelligence Index v4.3.2: 53 (Max, Default Fallback)** (AA's own page) — ties GPT-6 Astra (53) for the v4.3.2 leadership pair, 5 points behind Opus 5.5 (58). 190M output tokens per Index task (very verbose vs median 82M); $7.63/task — the most expensive per task in its tier per AA.
+- **Index revision effect (not a regression):** AA's launch article (2026-09-01) read the v4.3-era Index at **66 (max)** — "the highest score we have measured," ahead of Opus 5 (63), Fable 5 (62), GPT-5.6 Sol (61), Grok 4.6 (61). The current 53 is the v4.3.2 revision (adds AA-Briefcase, GDPval-AA v2.1, AutomationBench-AA, TB 4.0, GDP.pdf, CritPt, AA-Omniscience, AA-LCR). Effort ladder at launch: five settings span 11× output-token usage (13.1M at low → 143.7M at max), scoring 58→66; xhigh scores 65 at $2.72/task ($1.04 less than max).
+- **Fallback provenance quantified (AA):** the "Default Fallback" configuration routes safety-flagged requests to Opus 4.8/Opus 5 server-side — fallback served **~4% of output tokens** across the Intelligence Index. Anthropic's own caveats: on OSWorld 2.0 and AutomationBench, safeguard interventions scored Fable 5.1 (and Fable 5) zeros on affected tasks, with cyber tasks completed by Opus 4.8 and biology by Opus 5 — published scores likely understate the unsafeguarded model. This is the stated reason Reasoning stays at 93 rather than 94+.
+- **Launch-era component highlights (AA, 2026-09-01):** HLE **59.1%** (previous best 55.5%, Fable 5), Terminal-Bench v2.1 **91.4%** (narrowly the highest AA has seen), SciCode **62.0%** (highest), τ³-Banking +9 over Fable 5. Cost/task $3.76 (20% above Fable 5's $3.14, 1.6× Opus 5's $2.34) driven by ~1.7× output tokens; the cache-read cut to $0.25/M saves ~$1.40/task (without it, ~$5.16).
+- **System card re-read (Fable 5.1 & Mythos 5.1):** two configurations of **identical weights** — Fable 5.1 (general access, dual-use safeguards) and Mythos 5.1 (vetted orgs via Life Sciences / Cyber Verification Programs); **Claude Security** (codebase vulnerability scanning + patch suggestions for human review) is powered by Mythos 5.1 and available to all Claude Enterprise customers. Largest gains over Fable 5 in terminal-based scientific/engineering work, computer use, and long-horizon professional work.
+- **Platform docs re-read:** released 2026-09-01, retirement not sooner than 2027-09-01; knowledge cutoff June 2026; tokenizer same as Fable 5 (~30% more tokens than pre-Opus-4.7 models); Batch $5/$25; 1-hr cache write $20/M; latency "slower" than the Opus/Sonnet tiers.
+- **Score impact:** none — the new v4.3.2 reads (Index 53, TB 4.0 57.9% BenchmarkList, AutomationBench-AA 59.4%, MCP Atlas 87.2% #2) all land inside the bands the existing scores assume; the 66→53 Index drift is a benchmark-revision effect, disclosed rather than scored.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic Fable 5.1 launch page, platform docs and system card, Artificial Analysis, vals.ai, ARC Prize, LiveBench, BenchmarkList, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic Fable 5.1 / Mythos 5.1 system card, launch page and platform docs, Artificial Analysis launch article and model pages, vals.ai, ARC Prize, LiveBench, BenchmarkList, BenchLM, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

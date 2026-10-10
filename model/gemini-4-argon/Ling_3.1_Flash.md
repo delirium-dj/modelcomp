@@ -81,8 +81,23 @@ Full 19-row launch table (apidog/emergent audits), AskClash's cross-board and AA
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 88 / Reasoning 85 / Context 95 / Multimodal 85 / Coding 90 / Cost 75 / Overall 89.** New fills and conflict checks this pass:
+
+- **AA Intelligence Index v4.3.2: 53 (High)** (AA's own page, #8 of 227; 110M output tokens per task — somewhat verbose; **$1.99/task at intro pricing — 60% of GPT-6 Astra's $3.26 and a third of Opus 5.5's $5.98**; $3.98/task once standard $4/$20 pricing applies). AA's launch article: "Google returns as one of the top three labs on intelligence" — Argon equals GPT-6 Astra (max, 53), +1 over GPT-6.1 Sol (52), +23 over Gemini 3.1 Pro (30), +12 over Gemini 3.8 Flash; gains driven by lower hallucinations and stronger agentic capabilities.
+- **AA's independent AutomationBench-AA read: 77.5% — the top score in AA's own run** (the launch table's 78% is the rounded figure; 7 points ahead of the next model). Confirms the Tool-88 rationale's strongest row.
+- **AA-Omniscience profile quantified: 50.0% accuracy / 15.0% hallucination rate** (vs GPT-6 Astra's 63% / 51%) — an unusually asymmetric profile: Argon hallucinates a third as often as Astra but answers fewer questions correctly. Kept as a stated caveat in Reasoning 85.
+- **Token profile (AA):** 62K output tokens per Intelligence Index task — between Astra's 27K and Opus 5.5's 119K — so the $1.99/task advantage comes mainly from intro token prices, not lower consumption (AA's standard-price estimate: $3.98/task).
+- **Google launch blog re-read (2026-09-30):** frontier model rolling out first to trusted cyber defenders via the **Fairwind Program**; can autonomously find, validate and patch critical vulnerabilities; released **without cyber guardrails** for trusted defenders and Google internal teams; **1M-token max output** (industry-leading, 15.6× the previous 64K) for long-running agentic trajectories; intro $2/$10 with cached input 95% off ($0.10/M), standard $4/$20 after the introductory period (end date unconfirmed); broader availability to paid API customers and Google AI Ultra subscribers.
+- **CWE-bench v1: 68%** — ties GPT-6 Astra for first in vulnerability remediation (per Google's table and coverage).
+- **Source-quality map stands** (apidog's audit of all 19 rows): 9 public-leaderboard rows (Argon leads 7, ties 1), 5 Google-run rows (Argon leads 4); Argon trails on FrontierSWE v2 (55.0% vs Astra's 65.5%), TB 4.0 (57.4% vs Opus 5.5's 66.4%), PostTrainBench (45.3% vs 49.3%), TB-Science 0.1 (57.6% vs 68.1%) and OSWorld-2.0 (69.2% vs 72.6%) — the row-specific-leadership pattern behind the unchanged scores.
+- **Score impact:** none — every new read lands inside the bands the existing scores assume; the only material new fact is cost-side (intro $1.99/task confirmed by AA), already reflected in Cost 75.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind launch blog, Artificial Analysis, vals.ai, VentureBeat); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind launch blog and cyber page, Artificial Analysis launch article and model pages, vals.ai, apidog, ai-primer, seatofish); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,9 @@
 {
   "id": "opencode/exo-free",
   "name": "Exo Free",
-  "short": "Exo Free model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenCode Zen's anonymous free route — 1M-token context with reasoning, tool calling, and image input at $0.00 while feedback is collected.",
+  "contextWindow": "1M total (1,048,576 in / 131,072 out)",
+  "modalities": "Text + image in; text out (reasoning, tool calling, JSON mode)",
+  "pricingNote": "Free Zen tier (limited-time $0.00 in/out; prompts may train the model)",
+  "freeTierNote": "Limited-time free route for feedback collection; inputs may be used to improve the model"
 }

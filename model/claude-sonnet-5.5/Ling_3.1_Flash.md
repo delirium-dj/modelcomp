@@ -81,8 +81,22 @@ Long context:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 92 / Reasoning 90 / Context 95 / Multimodal 65 / Coding 91 / Cost 75 / Overall 87.** New data and conflict checks this pass:
+
+- **AA's own v4.3.2 component table (Max, Default Fallback):** Index **56** vs Opus 5.5's 58 — but Sonnet 5.5 **leads Opus 5.5 on three of the ten components**: AA-Briefcase v1.1 **1823 vs 1807**, AutomationBench-AA **72% vs 70%**, Terminal-Bench 4.0 **64% vs 60%**. It trails on SciCode (61% vs 67%), HLE (55% vs 61%), AA-Omniscience (32 vs 46), CritPt (31% vs 32%), AA-LCR (83% vs 85%); GDP.pdf ties (26%). This is the strongest independent confirmation of the Tool-92 rationale (the Zapier AutomationBench 44.7% vs AA's 72% is another harness spread, now documented).
+- **AA launch article (2026-09-28):** Sonnet 5.5 reaches **#2 on the Intelligence Index** (+18 over Sonnet 5's 38), "just 2 points behind Opus 5.5 (max)". **Verbosity record: ~193K output tokens per Intelligence Index task — the highest AA has ever measured**, ~60% more than Opus 5.5 (max) or Sonnet 5 (max), ~7× GPT-6 Astra (max); 420M tokens to run the full Index.
+- **Cost-per-task conflict, all reported:** AA's model page reads **$5.46/task** (default-fallback configuration; 197K output + 147K reasoning tokens per task, 142 t/s) while AA's launch article reads **$7.60/task at max effort** (~50% above Sonnet 5's cost per task). The 2026-10-08 file's "~$2.66 max-effort index task" is superseded by these reads — the cheap $2/$10 tokens are offset by record verbosity at max effort. Cost 75 stands on list pricing.
+- **System card re-read:** RSP evaluations — broadly less capable than Opus 5.5 across domains, **no new RSP thresholds crossed**; misalignment risk assessed low (difficulty controlling its CoT or evading monitors when reasoning is visible); cyber capabilities a significant step up from Sonnet 5 but short of Opus 5.5 and Mythos 5.1; **first Sonnet model with Opus-class cyber safeguards and fallbacks** (higher-risk cyber tasks visibly fall back to Sonnet 5) and the **first Sonnet with anti-distillation safety classifiers** (reasoning-extraction prevention) plus expanded preserved thinking (thinking cannot be decoupled from the creating account).
+- **Launch page re-read:** effort ladder on TB 4.0 — low 20.0% / medium 28.8% / high 43.0% / xhigh 61.5% / max 70.6%; FrontierCode Main 46.2% max vs 52.1% xhigh (max is lower — the subagent code-review skill produced out-of-scope edits that FrontierCode penalizes); CursorBench 4.0 55.5% max (39.2% medium → 53.1% xhigh); first Sonnet to beat Pokémon Red working only from screenshots; containment evaluations: close to Opus 5.5 in rarely escaping its sandbox, least likely of any Claude model to probe container limits.
+- **Platform docs re-read:** knowledge cutoff **June 2026**; retirement not sooner than 2027-09-28; Batch API max output 300K (beta); cache reads $0.10/M (5% of input — halved 2026-10-07); Batch 50% off ($1/$5); "fast" comparative latency; adaptive thinking always on, default effort `high`.
+- **Score impact:** none — AA's independent reads (TB 4.0 64%, AutomationBench-AA 72%, Briefcase 1823, SciCode 61%, HLE 55%) all land inside the bands the existing scores assume; the superseded $2.66/task figure and the Zapier-vs-AA AutomationBench spread are disclosed rather than scored.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic Sonnet 5.5 launch page and system card, Artificial Analysis, Zapier, Cognition, Cursor, apidog, ComputingForGeeks, HokAI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic Sonnet 5.5 launch page, system card and platform docs, Artificial Analysis launch article, model pages and comparison table, Zapier, BenchLeader, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

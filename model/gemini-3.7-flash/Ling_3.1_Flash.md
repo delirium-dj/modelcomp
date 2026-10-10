@@ -81,8 +81,22 @@ DeepMind's full August-2026 comparison table, the evals-methodology PDF and ARC 
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 86 / Reasoning 89 / Context 95 / Multimodal 92 / Coding 88 / Cost 100 / Overall 90.** Conflict resolution and new facts this pass:
+
+- **AA Intelligence Index conflict RESOLVED as a version mismatch:** AA's own page now reads **39 (High) / 40 (Medium, estimated) / 37 (Low)** on v4.3.2 (#61 of 227; 100M output tokens per task — somewhat verbose; $0.93/task at High — the lowest cost per task in its release; 302–317 t/s). Google's table cited **56** — AA's launch article (2026-08-13) confirms 56 was the **v4.3-era** read ("just behind GPT-5.6 Terra (max, 57) and Muse Spark 1.2 (xhigh, 57)"; +4 over 3.6 Flash's 52, driven by agentic gains: τ³-Banking +3, TB v2.1 +8, GDPval-AA v2 +103 Elo; Medium 53 matched DeepSeek V4 Pro 0813 and GLM-5.2; Low 51). Both numbers are real measurements of different Index revisions — the 10-08 "likely mismatch" hypothesis is now confirmed, and Reasoning stays 89 (the current v4.3.2 read of 39 is dragged by TB 4.0-class components where the Flash tier scores low).
+- **AA launch-article detail (2026-08-13):** ~340 output tokens/s — nearly 3× GPT-5.6 Terra and GLM-5.2 — giving an average **Time per Task of 1.7 minutes at high, 40% faster than GPT-5.6 Terra (max)**, putting Gemini 3.7 Flash on the Intelligence vs. Time per Task Pareto frontier.
+- **DEPRECATION FLAG (Google AI for Developers, verified 2026-10-10):** `gemini-3.7-flash` is **deprecated on the Gemini API and replaced by `gemini-3.8-flash` — all requests to `gemini-3.7-flash` are automatically routed to `gemini-3.8-flash`**. The model remains in this report for historical comparison, but new work should target 3.8 Flash (see `../gemini-3.8-flash/`).
+- **DeepSWE cross-check:** Datacurve board reads **65% ±3%** (medium thinking, avg cost $2.03/task, 94K output tokens, 117 steps) vs the vendor's 65.3% at high — consistent within noise; DeepMind's evals methodology confirms Datacurve's public leaderboard is the source of record for Gemini DeepSWE rows, with 3.7 Flash's own runs self-computed on a mini-swe-agent harness (LiteLLM 1.96).
+- **Model card re-read (2026-08-13):** based on Gemini 3.6 Flash — algorithmic improvements to the core reasoning foundation plus agentic video understanding; text/image/audio/video in, 1M context, 64K out; knowledge cutoff March 2026 (some domains January 2025); Frontier Safety: no Tracked/Critical Capability Levels; shipping with updated CBRN and cyber-offense safeguards.
+- **Methodology transparency (DeepMind evals page):** Terminal-Bench 3.0 results for 3.7 Flash are self-computed with minor modifications to the `-2ph-simplex` and `vpp-loss-divergence` tasks for containerized-environment compatibility; TB 2.1 is self-computed for Gemini models (Terminus 2 harness only) and taken from public leaderboards/AA for others.
+- **Score impact:** none — the resolved Index conflict and the deprecation flag are lifecycle/context facts, not capability changes; every benchmark read (TB 2.1 85.8%, DeepSWE 65.3%, LiveCodeBench 88.7%, GPQA 94.5%, HLE-Verified 53.6%) is unchanged from the 2026-10-08 pass.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Google DeepMind launch blog, Artificial Analysis, vals.ai, Datacurve DeepSWE board, ARC Prize, LiveBench, The Model Gap, Emergent, HokAI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Google DeepMind model card and evals methodology, Artificial Analysis launch article and model pages, Gemini API docs, vals.ai, Datacurve DeepSWE board, ARC Prize, LiveBench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

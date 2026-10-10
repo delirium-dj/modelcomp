@@ -82,8 +82,22 @@ BenchmarkList, tensor.news and ModelCadence rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 88 / Reasoning 91 / Context 95 / Multimodal 65 / Coding 92 / Cost 15 / Overall 86.** Factual corrections and new facts this pass (from OpenAI's API docs, launch page and Help Center):
+
+- **API surface correction:** GPT-5.5 Pro is available on the **Responses API and Batch API only — Chat Completions is NOT supported** (the launch-era file's "Responses and Chat Completions" was wrong). Supported features: structured_outputs, function_calling, file_search, image_input, image_generation, MCP, web_search; tools: code_interpreter, hosted_shell, MCP. Reasoning effort: medium / high (default) / xhigh; some requests take several minutes (background mode recommended). Default snapshot: `gpt-5.5-pro-2026-04-23`.
+- **Pricing correction: GPT-5.5 Pro offers NO cached-input discount** (API docs: "GPT-5.5 Pro does not offer a cached input discount") — the launch-era "~$3/M estimated cache" is withdrawn. Regional data-residency endpoints carry a **+10% uplift**. $30/$180 per 1M confirmed across OpenAI, llm-stats and LLM Reference (OpenAI is the lowest tracked provider). Batch $10/$45 and Flex $15/$90 stand from the launch announcement.
+- **Knowledge cutoff: December 1, 2025** (API docs) — now stated, replacing the launch-era "not stated".
+- **No AA Intelligence Index exists for GPT-5.5 Pro** — AA's own model page reads "N/A / Unknown" for the Pro configuration. The **55.0** circulating on aggregator pages is **GPT-5.5 (xhigh compute, standard weights), observed 2026-06-26** — not a Pro measurement. Do not cite it for Pro.
+- **ChatGPT availability (Help Center):** GPT-5.5 Pro is the highest-capability GPT-5.5 option in ChatGPT ("research-grade intelligence"), restricted to Pro/Business/Enterprise/Edu plans; the picker offers Instant (GPT-5.5 Instant), Thinking (GPT-5.5 Thinking) and Pro (GPT-5.5 Pro); GPT-5.5 Thinking context is 400K on Pro tier (272K input + 128K output) and 256K on other paid tiers; reasoning modes Standard/Extended, with Pro-only Light/Heavy.
+- **Launch-page re-read (2026-04-23):** GPT-5.5 Pro is "a significant step up in the difficulty and quality of work" vs GPT-5.4 Pro, "especially strong in business, legal, education, and data science"; Codex serves GPT-5.5 (not Pro) to Plus/Pro/Business/Enterprise/Edu/Go with a 400K window and a Fast mode at 1.5× speed for 2.5× cost.
+- **Score impact:** none — the corrections (no cache discount, Responses-only API, Dec 2025 cutoff) tighten the card's accuracy without moving any band; the absent AA Index for Pro is disclosed rather than filled with the standard-weights 55.0.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI launch page, LLM Reference, HokAI, OpenRouter, Artificial Analysis, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI API docs, GPT-5.5 launch page, ChatGPT Help Center, Artificial Analysis, LLM Reference, llm-stats, OpenRouter, vals.ai, Epoch AI, BenchmarkList); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

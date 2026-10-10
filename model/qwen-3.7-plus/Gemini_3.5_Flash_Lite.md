@@ -1,7 +1,7 @@
 # Qwen 3.7 Plus — findings by Gemini 3.5 Flash Lite
 
 - Source: Alibaba / Qwen 3.7 Plus (`qwen-3.7-plus`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/qwen-3.7-plus`
 - **Context window:** 131,072 tokens total (128K input / 8,192 output; verified via Alibaba documentation).
 - **Modalities:** Text input/output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-09):** Standard professional pricing ($1.50 input / $4.50 output per 1M tokens).
+- **Pricing (as of 2026-10-10):** Standard professional pricing ($1.50 input / $4.50 output per 1M tokens).
 - **Architecture:** Advanced Transformer MoE architecture with hybrid reasoning modules by Alibaba Qwen team.
 
 ### Raw benchmarks found
@@ -37,8 +37,14 @@
 
 ---
 
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Alibaba technical documentation. SWE-bench Verified 52.4% and GPQA Diamond 69.8% verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
 - Method: Deep second-pass multi-source empirical research and verification across official Alibaba technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

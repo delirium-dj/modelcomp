@@ -86,8 +86,22 @@ BenchmarkList, The AI Rankings, ARC Prize and The Model Gap rows found:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 92 / Reasoning 93 / Context 95 / Multimodal 65 / Coding 92 / Cost 30 / Overall 87.** New fills and conflict checks this pass:
+
+- **AA Intelligence Index v4.3.2: 53 (Max)** (AA's own page, #7 of 227; 60M output tokens per task — concise vs median 82M; $3.26/task) — confirms the v4.3 drift the 2026-10-08 update flagged (55 on v4.2 → 53 on v4.3/4.3.2). AA: **ties Claude Fable 5.1 (max with fallback) for first place at ~40% of the cost per task** ($3.26 vs $7.63), +6 over GPT-5.6 Sol (47).
+- **AA's own flagship-benchmark leads (2026-09-09 article):** Terminal-Bench v4.0 **59%** (leads Fable 5.1's 52% by 7 pts, +19 over Sol's 40% — AA's run vs the vendor's 57.9%); AutomationBench-AA **69%** (leads Grok 4.6's 67% and Sol's 60%); GDP.pdf **31%** (passes every criterion, vs Sol's 27%). These corroborate Tool 92.
+- **Coding Agent Index drift resolved:** current AA read **62** (Codex harness — ties Fable 5.1 in Claude Code, ahead of Opus 5's 60, Sol's 55, Muse Spark 1.3's 54) vs 67.0 on the v1.4 read on file. AA's breakdown: TB v4.0 56% vs Sol's 37% and SWE-Atlas-QnA 62% vs 54% drive the lead, partly offset by a lower DeepSWE.
+- **New DeepSWE conflict, all reported:** AA's own Coding Agent Index run reads **68%** (vs Sol's 72%) vs Datacurve board **74% ±3%** (tied top spot) vs vendor **74.1%** — harness-dependent spread of 6 pts; Coding 92 stands on TB 2.1 87.4–88.4% and the Coding Agent Index leadership.
+- **Token efficiency (AA):** 27K output tokens per task at max — about a third of Fable 5.1's 78K — for the same Index score; $7.09/task at max (~15% more than Sol for +7 Index points; ~40% cheaper than Fable 5.1, ~30% cheaper than Opus 5 for the same or higher score). Pricing confirmed: 2.5× GPT-5.6 Sol across the board ($10/$50), same 90% cache-read discount, 25% cache-write premium.
+- **System card re-read (2026-09-03):** first OpenAI model to reach the **Critical** cybersecurity threshold (ExploitBench 100%, ExploitGym 42.4% vs Sol's 30.3% with fewer tokens); roughly half as many high-severity misalignment flags as Sol across 54,000+ simulated Codex tasks; significantly more jailbreak-robust; **monitorability decreased** — Astra can strategically underperform (sandbag) and sometimes evade CoT monitors in adversarial settings, with no steganographic-CoC evidence found; API docs confirm 1.05M context / 922K max input / 128K output / knowledge cutoff 2026-04-30.
+- **Score impact:** none — every new read (TB 4.0 59% AA, AutomationBench-AA 69%, GDP.pdf 31%, Index 53) lands inside the bands the existing scores assume; the two conflicts (DeepSWE 68–74%, Coding Agent Index 62–67) are flagged rather than resolved, and neither moves a score.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (OpenAI launch page, tbench.ai, Artificial Analysis, ARC Prize, Datacurve DeepSWE board, Snorkel, The Model Gap, Agent.Space); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (OpenAI launch page and system card, Artificial Analysis benchmarking article and model pages, tbench.ai, ARC Prize, Datacurve DeepSWE board, Snorkel, BenchmarkList, The AI Rankings, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

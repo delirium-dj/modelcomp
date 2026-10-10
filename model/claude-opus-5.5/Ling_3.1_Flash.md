@@ -76,8 +76,21 @@ Long context:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Score revisions: Tool use 94→95, Coding 94→95, Overall 88→89.** Reasoning 92 / Context 97 / Multimodal 65 / Cost 56 unchanged.
+
+- **AutomationBench conflict resolved upward:** Anthropic's 40.0% (Zapier, early access, no-fallback — safeguard interventions counted as failures) was methodology-suppressed. Artificial Analysis' own AutomationBench-AA run reads **70%** at max effort (63% at high; #3 of 26), and BenchmarkList independently carries 69.5% (#3). This lifts the Tool-use cap that the 2026-10-08 file cited.
+- **AA Intelligence Index v4.3.2 full component table (AA's own runs):** 58 (Max) / 56 (Xhigh) / 54 (High) — #1 "by several points" per AA. Max-effort components: AA-Briefcase v1.1 **1807**, GDPval-AA v2.1 **1866**, AutomationBench-AA **70%**, Terminal-Bench 4.0 **60%** (AA's run vs 66.4% system card — vendor/independent spread stands), SciCode **67%** (#1), HLE **61.4%** (AA, no-tools protocol; vendor HLE-with-tools is 67.7% — different setups, both reported), GDP.pdf **26%**, CritPt **32%**, AA-Omniscience **46**, AA-LCR v1.1 **85%**. AA: leading on six of ten evaluations; behind on CritPt, AA-LCR, GDP.pdf.
+- **New BenchmarkList rows (2026-10-03 era):** Vibe Code Bench v1.1 **90.3%** (#4 — fills the previous gap), FrontierCode **65.3%** (#1), KernelBench Mega **35.46** (#1), SWE-Marathon **74/160 passing trials** (#5; avg uncalibrated partial 46.3%, 198.65M tokens/trial, $163.9/trial), Toolathlon **77.8 Pass@1 / 82.4 Pass@3 / 72.2 Pass^3** (#7), BrowseComp **88.5%** (#13), Agents' Last Exam **38.2%** (#10), DRACO **87.4%** at max, Vending-Bench 2 **9235.25** (#8), PostTrainBench **49.3%** (#1), RuneBench **6.7** (#3).
+- **Terminal-Bench 4.0 conflict:** vendor 66.4% (xhigh, ±2.6, safeguards enabled with fallbacks) vs AA 59.6–60% vs public Claude Code leaderboard protocol (reproduces Opus 5 at 51.8% vs 52.3% — within noise). TB-Science 0.1: 63.3% (#2; field leader GPT-6 Astra 68.1%).
+- **System card re-read (2026-09-22):** "matches or exceeds Claude Fable 5.1 and Claude Mythos 5.1 on many evaluations"; SOTA on TB 4.0, CursorBench, GDPval-AA, AA-Briefcase; CB-1 (not CB-2) bio classification; platform docs confirm text+image in → text out, 1M context, 128K max output (300K Batch), knowledge cutoff Jun 2026.
+- **Score impact:** Tool 94→95 (AA AutomationBench-AA 70% independent + Toolathlon/BrowseComp breadth; TB-4.0 vendor/AA spread and unpublished Claw-Eval/MCP-Atlas still cap below 96); Coding 94→95 (Vibe Code Bench 90.3% and SciCode 66.9% fills; SWE-bench Verified and LiveCodeBench still unpublished keep it below 96); Overall (95+92+97+65+95)/5 = 88.8 → **89**.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Anthropic system card, Artificial Analysis, Zapier AutomationBench leaderboard, VulcanBench, HokAI, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Anthropic system card and platform docs, Artificial Analysis, Zapier AutomationBench leaderboard, BenchmarkList, VulcanBench, BenchmarkRegistry); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

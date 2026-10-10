@@ -77,8 +77,21 @@ SciCode, DeepSWE and vals.ai rows found (DeepMind's comparison table, modelscale
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Score revisions: Tool use 74→70.** Reasoning 92 / Context 95 / Multimodal 92 / Coding 84 / Cost 100 unchanged; **Overall stays 87** ((70+92+95+92+84)/5 = 86.6 → 87).
+
+- **AA Intelligence Index v4.3.2: 30** (AA's own page, #95 of 227; 67M tokens per Index task — concise vs median 82M; $1.30/task; 118 t/s, 24.8s TTFT) — fills the previous "AA Intelligence Index unpublished" gap. The Index is dragged down by agentic components, not reasoning: full AA component table — AA-Briefcase v1.1 **456**, GDPval-AA v2.1 **791**, AutomationBench-AA **35%**, Terminal-Bench 4.0 **4%**, SciCode **59%**, HLE **47%**, GDP.pdf **18%**, CritPt **18%**, AA-Omniscience **32** (accuracy 53%, hallucination rate 50% — down from 88% on 3 Pro), AA-LCR v1.1 **82%**.
+- **Tool-use revision driver:** four independent AA agentic reads (AutomationBench-AA 35%, TB 4.0 4%, GDPval-AA 791, AA-Briefcase 456) sit in the weak-to-mid band against the two mid-strong reads the 74 leaned on (TB 2.1 65.8% across two harnesses, Toolathlon 61.1%). TB 4.0 (recalibrated 2026-09) postdates this Feb-2026 model — frontier leaders score 59–66% on it, and the model's 4% (vs Qwen3.6 27B's 0%) reflects the harder environment, not a like-for-like regression. Tool 74→70 (upper-mid, capped by the new agentic reads).
+- **Reasoning corroboration:** at launch (AA, 2026-02-19) Gemini 3.1 Pro Preview **led the Intelligence Index, 4 points ahead of Claude Opus 4.6 at less than half the run cost**, leading 6 of 10 evaluations — Terminal-Bench Hard, AA-Omniscience, HLE, GPQA Diamond, SciCode and CritPt (18%, +5 pts over the next-best model). That history is consistent with the current reasoning scores; the v4.3.2 Index drop to 30 is a benchmark-revision effect (v4.3.2 added TB 4.0, AutomationBench-AA, AA-Briefcase, GDP.pdf, GDPval-AA v2.1), not a capability change.
+- **New fills:** SWE-bench Verified **80.6%** (llmboard, rank 10 of 117, 92nd pct, evaluated 2026-10-09 — independent re-measurement matching the vendor card); AA-LCR v1.1 **82%** (independent long-context read; corroborates MRCR v2 84.9% at 128K but does not reach the ≥98%-at-512K+ bar, so Context stays 95); GDP.pdf **18%** (AA — a weak new multimodal row; vs Opus 5.5's 26% max, same order of magnitude, so Multimodal stays 92).
+- **Model card re-read (2026-02-19):** based on Gemini 3 Pro; text/image/audio/video in, 1M context, 64K out; Frontier Safety — below alert thresholds for CBRN, harmful manipulation, ML R&D and misalignment CCLs, and below the cyber CCL after additional testing with and without Deep Think.
+- **Pricing reconfirmed:** $2/$12 per 1M (≤200K), $4/$18 above 200K; Batch halves it; **Kilo Gateway offers $1/$6** (lowest tracked third-party). Cost 100 stands (free tier on AI Studio / OpenCode Zen).
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (DeepMind model card and eval methodology, vals.ai, Artificial Analysis, tbench.ai, Toolathlon, The Model Gap, MetricNexus); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (DeepMind model card and evals methodology, Artificial Analysis launch article and model pages, vals.ai, llmboard, tbench.ai, Toolathlon, Traictory, modelscale); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

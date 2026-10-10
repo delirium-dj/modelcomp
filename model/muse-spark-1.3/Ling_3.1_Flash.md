@@ -80,8 +80,19 @@ Long context:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 93 / Reasoning 87 / Context 100 / Multimodal 85 / Coding 91 / Cost 100 / Overall 91.** New independent reads this pass:
+
+- **Artificial Analysis in-Muse-Code runs (via Steal What Works, xhigh):** DeepSWE **67%** (1.3) vs 58% (1.2) — the first independent DeepSWE read, 8.4 pts under Meta's 75.4% vendor claim; Terminal-Bench 2.1 **82%** (flat vs 1.2); SWE-Atlas Codebase QnA **44%** (vs 45% on 1.2 — a 1-pt regression under 1.3, against the vendor's 46.2→59.4 claim); AA Coding Agent Index **62→64**.
+- **goml.io review (2026-09-11):** DeepSWE v1.1 75.4% leads Opus 5 (74.0%) and GPT-5.6 Sol (73.0%); SWE-Atlas leads by ~6 pts; TB 2.1 ties GPT-5.6 Sol at 88.8%; MRCR 256K–512K 98.5% vs GPT-5.6 Sol 91.5% (Opus 5 not published). Confirms the vendor launch scorecard's relative ordering.
+- **AA release page re-read:** Intelligence 48 (Max) / 45 (Xhigh) on v4.3.2, 1M context, ~$0.80/task, 122 t/s (Max) / 259 t/s (Xhigh) — reconfirms the v4.3.2 Index read behind the 2026-10-08 Reasoning correction; Terminal-Bench 4.0 is one of the 10 v4.3.2 components (board leaders: Sonnet 5.5 63.6%, Opus 5.5 59.6%).
+- **Conflict comparison:** TB 2.1 spans 72.3% (Vals Terminus 2, standard) → 79.0% (Vals, Max) → 82% (AA in Muse Code) → 84.3–85.4% (AA native) → 88.8% (vendor) — harness-dependent; the Tool 93 cap already reflects this. DeepSWE now spans 67% (AA in-Muse-Code, independent) → 75.4% (vendor); Coding 91 stands on SciCode 59.7% and Vibe Code Bench 82.9% (vals.ai), with DeepSWE carrying an independent lower read.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Artificial Analysis, Vals AI, Snorkel, BenchLM, llmboard, vendor launch scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Artificial Analysis, Vals AI, Snorkel, BenchLM, llmboard, goml.io, Steal What Works, vendor launch scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
