@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Kimi K3
 
 - Source: Z.ai (Zhipu, stealth preview) / Ox Alpha (`openrouter/stealth/ox-alpha`, formerly `opencode/ox-alpha` on OpenCode Zen)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Ox Alpha (stealth preview; confirmed 2026-08-26 as Z.ai's GLM-5.3-Flash)
 - **Short description:** Anonymous frontier reasoning model that appeared on OpenRouter on 2026-08-20 under provider "Stealth" for coding, sustained agentic work and production workloads; hit #1 on OpenRouter's usage leaderboard. Z.ai confirmed authorship on 2026-08-26 and open-sourced it as GLM-5.3-Flash (MIT weights). Variant of the `glm-5.3-flash` entry.
 - **Provider / access:** `openrouter/stealth/ox-alpha` (Chat Completions) during the free preview; also briefly on OpenCode Zen free tier. Preview ended ~2026-08-27; both listings are now gone. Successor access: GLM-5.3-Flash open weights (MIT).
-- **Release / knowledge:** 2026-08-20 (stealth appearance); identity confirmed 2026-08-26; weights released as GLM-5.3-Flash.
+- **Release / knowledge:** 2026-08-20 (stealth appearance); identity confirmed 2026-08-26 (matches the GLM-5.3-Flash release date on OpenCode Data); weights released as GLM-5.3-Flash (open weights confirmed — HF `zai-org/GLM-5.3-Flash`, now the #9 model by OpenCode weekly tokens with its own official benchmark table).
 - **IDs:** `stealth/ox-alpha` (OpenRouter, delisted), `opencode/ox-alpha` (Zen, delisted). No current live ID.
 - **Context window:** 1,048,576 tokens total / 131,072 max output (OpenRouter model catalog during preview; corroborated by buildfastwithai and local-ai-zone reviews).
 - **Modalities:** text/image/video in; text out; tool/function calls; JSON structured output. Audio input verified REJECTED (Ben Davis fingerprinting — matches GLM-5V behavior).
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-25
-- Method: public internet research (local-ai-zone comprehensive analysis citing Ben Davis fingerprinting + OpenRouter catalog; siliconangle / codersera / techbytes confirmation reports; buildfastwithai review). Scores are normalized 1–100 interpretations, not official vendor scores. Benchmark sample sizes are small and unaudited — treat as provisional.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (local-ai-zone comprehensive analysis citing Ben Davis fingerprinting + OpenRouter catalog; siliconangle / codersera / techbytes confirmation reports; buildfastwithai review; **second pass 2026-10-11**: OpenCode Data `zhipuai/glm-5-3-flash` — official reveal/weight confirmation, catalog pricing and the HF-card benchmark table for the revealed identity). Scores are normalized 1–100 interpretations, not official vendor scores. Benchmark sample sizes are small and unaudited — treat as provisional. No score change on the second pass: the post-reveal official numbers (TB 84.3, GDPval 1773, etc.) supersede-but-confirm the provisional stealth figures.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
