@@ -40,7 +40,7 @@
 86.4 claude-opus-4.6
 86.2 qwen-3.8-flash
 86 qwen-3.7-plus
-85.5 ember-1
+85.7 ember-1
 85.4 ox_alpha
 84.9 claude-sonnet-4.6
 84.8 inkling-small
@@ -145,9 +145,9 @@
 62.6 gpt-5.3-codex-spark
 61.1 ling-2.6.1t
 61 owl-alpha
+60.9 deepseek-v3.2
 60.9 ling-3.0-flash
 60.1 omen-alpha
-59.8 deepseek-v3.2
 59.5 gpt-oss-120b
 59.5 laguna-xs-2.1
 59.1 gemma-4-e4b
@@ -161,7 +161,7 @@
 55.4 nemotron-3.5-lightning-free
 54.8 big-pickle
 52.4 ling-2.6-flash
-51 mercury-2.5
+51.9 gemma-4-e2b
+51.7 mercury-2.5
 50.9 ling-3.0-tiny
-50.6 gemma-4-e2b
 37.4 jev-1.13

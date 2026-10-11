@@ -264,10 +264,7 @@ export const MODELS: AiModel[] = (() => {
   }
   const models: AiModel[] = [];
   for (const e of metas) {
-    if (RETIRED_SLUGS.has(e.slug)) {
-      warnOnce(`[models] model/${e.slug}/: retired (parked) — hidden from site`);
-      continue;
-    }
+    if (RETIRED_SLUGS.has(e.slug)) continue; // retired (parked) — hidden from site (model/README.md § Parking)
     const m = hydrateModel(e.slug, e.meta);
     if (m) models.push(m);
   }

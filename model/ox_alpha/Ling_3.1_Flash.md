@@ -54,7 +54,7 @@ No matched independent head-to-head exists: nobody has published GLM-5.3-Flash v
 - **Multimodal: 85/100.** Native text/image/video/PDF input with text output — the video/PDF band (75–90), pushed toward the top by CharXiv 89.4% (w/tools), MMVU 80.5% and MVBench 77.8%.
 - **Coding: 76/100.** Terminal-Bench 2.1 84.3% sits just under the 85% bar and the AA Coding Index of 71.5 clears the 70% reference, with DeepSWE 63.4% (best-in-table ahead of Opus 4.8's 58.0%) and NL2Repo 56.3% supporting; FrontierCode 1.1 Main 31.8% (Cognition, chisel harness) and the independent LiveCodeBench v6 read of 28.0% are well under the frontier, and SciCode 51.6–52% and DeepSWE 63.4% sit under their 55%/74% references.
 - **Cost efficiency: 95/100.** Z.ai list $0.15/$0.50 per 1M, limited-time promo $0.075/$0.25, blended ~$0.10/M and third-party hosts from $0.026/$0.93 — at or beyond the ~97–99 ($0.10/$0.20) anchor; the ~306 GiB FP8 self-hosting footprint and ~49 tok/s throughput are the practical offsets. (The repo meta.json's "Free OpenCode Zen tier" claim is not confirmed by the sibling entry's pricing research — paid routes only — so Cost matches the sibling's 95 rather than the 97 this file previously carried.)
-- **Overall Score: 84.4/100.** (84+86+95+85+78)/5 = 85.6 → 86 — identical to the repo's `glm-5.3-flash` entry because this is the same model under its stealth name: a MIT-licensed 320B/18B MoE with DeepSWE 63.4, TB2.1 84.3, HLE 55.3% (w/tools) and a 1M window at $0.075–0.15/$0.25–0.50 (or free on Zen routes).
+- **Overall Score: 84/100.** (82+84+95+85+76)/5 = 84.4 → 84 — identical to the repo's `glm-5.3-flash` entry because this is the same model under its stealth name: a MIT-licensed 320B/18B MoE with DeepSWE 63.4, TB2.1 84.3, HLE 55.3% (w/tools) and a 1M window at $0.075–0.15/$0.25–0.50 (or free on Zen routes).
 
 ---
 
@@ -72,8 +72,21 @@ No matched independent head-to-head exists: nobody has published GLM-5.3-Flash v
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: none.** Tool use 82 / Reasoning 84 / Context 95 / Multimodal 85 / Coding 76 / Cost 95 / Overall 84 all unchanged (the Overall line's label and parenthetical formula are corrected to the current scores — they still showed the pre-2026-10-08 revision numbers):
+
+- **OrcaRouter spec sheet (2026-09-28) — provenance split confirmed in full:** Z.ai's benchmark table is entirely vendor-reported (AA does not reproduce these rows), while AA independently corroborates only the envelope (320B total / 18B active, 1M context, MIT licence, open weights, 2026-08-26 release, $0.15/$0.50 list, $0.026 cache-hit). Cache-read pricing disagrees across all three sources — vendor list $0.03 vs AA record $0.026 vs OrcaRouter-served $0.0173 — so list, record and served figures are quoted separately. OrcaRouter serves the model at half the vendor list rate ($0.075/$0.25), cause undocumented; the endpoint surface is chat-completions only (no second protocol endpoint) with vision/tools/JSON/reasoning capability chips, and max output is 128K (131,072 — the same cap, different units).
+- **New vendor-eval conditions (OrcaRouter sheet footnotes):** HLE-with-tools at temp 1.0 / top_p 0.95, 163,840-token max generation, evaluated at up to 300K context with a context-management strategy, GPT-5.6 Luna at medium effort as judge; DeepSWE and NL2Repo via the mini-swe-agent harness (DeepSWE at temp 0.95, 400K context, 6h timeout; TB 2.1 in a coding-agent harness at temp 1.0, 6h timeout; AutomationBench on v1.0.6 including the upstream null-type fix). Documented conditions make the vendor rows checkable without changing any score.
+- **Community-estimate conflict noted:** oxalpha.org's benchmark table carries Intelligence Index 59* and Agentic coding 78* (asterisked community estimates; throughput 24* tps) — above AA's v4.1.1 read of 57 and far above the current v4.3.2 read of 41.8; treated as unverified community estimates, not used for scoring. One 2026-08-28 comparison table still lists "Open weights: No", contradicted by AA's independently corroborated MIT licence and the Hugging Face release — treated as a stale cell.
+- **deloughry.co.uk Agent Reference (tested 2026-08-25, free-preview era):** 88/100 overall — Code 96%, Math 95%, Writing 88%, Creative 70% — "elite debugging and exact arithmetic… strongest bug-fix performance in the field," with a Pong Correctness defect finding (credited 0 because the ball never moves) dragging the composite. Single-reviewer suite, directional only; consistent with the Coding 76 / Reasoning 84 placement.
+- **Access corroboration:** oxalpha.com runs a free, no-login chat interface (1M context, 131K max output, text/image/video in; chats not stored) — corroborates "free routes remain"; lmmarketcap and Command Code still carry stale $0 preview pricing and a 1.05M context error, and are not used.
+- Score impact: none — the new rows are provenance conditions, community estimates or single-reviewer suites; none moves a band against the existing AA-current-page reads (Index 41.8 on v4.3.2, TB 4.0 33%, AutomationBench-AA 60%, SciCode 52%) and the independent coding rows (LiveCodeBench v6 28%, OpenCode #26, FrontierCode 1.1 Main 31.8%).
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Z.ai reveal and docs, OrcaRouter spec sheet, OpenRouter/TokenRa listings, oxalpha.com, community DeepSWE runs, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Z.ai reveal and docs, OrcaRouter spec sheet, OpenRouter/TokenRa listings, oxalpha.com, oxalpha.run, community DeepSWE runs, Artificial Analysis, deloughry.co.uk Agent Reference); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Ox_Alpha.md`, using the same headings.

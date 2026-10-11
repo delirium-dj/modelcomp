@@ -1,0 +1,67 @@
+# Exo Free — findings by Gemini 3.6 Flash
+
+- Source: OpenCode (`opencode/exo-free`)
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** Anonymous, experimental free-tier routing endpoint on OpenCode Zen offering 1M-token context and reasoning, functioning as an unverified preview route rather than a distinct benchmarked foundation model.
+- **Provider / access:** OpenCode Zen (`opencode/exo-free`). OpenAI-compatible Chat Completions API.
+- **Release / knowledge:** 2026-10-06 appearance; knowledge cutoff unverified.
+- **IDs:** `opencode/exo-free`
+- **Context window:** 1,048,576 tokens input / 131,072 max output — platform advertised specs.
+- **Modalities:** text, image in; text out; reasoning unverified; tool calls unverified; JSON mode yes
+- **Pricing (as of 2026-10-11):** Free ($0.00 / 1M input and output tokens); user prompts subject to model training.
+- **Architecture:** Undisclosed; stealth routing gateway / anonymous model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no verified long-context retrieval benchmark reported.
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found; self-excluded.
+- **Reasoning: 0/100.** No verified public score found; self-excluded.
+- **Context window: 0/100.** No verified public score found; self-excluded.
+- **Multimodal: 0/100.** No verified public score found; self-excluded.
+- **Coding: 0/100.** No verified public score found; self-excluded.
+- **Cost efficiency: 100/100.** Free route ($0.00), but subject to training data usage caveats.
+- **Overall Score: 0/100.** Self-excluded due to lack of verified public benchmark scores for anonymous routing endpoint.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-11
+- Method: Public web research across OpenCode Zen platform notices, developer community packet analysis, and benchmark trackers; zero verified public benchmarks found, self-excluded per template rules.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
