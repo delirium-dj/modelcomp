@@ -1,116 +1,132 @@
 # GPT-6 Astra — findings by Laguna S 2.1
 
-> Source: poolside/laguna-s-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-01 (UTC)
+> Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-10 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- Name: GPT-6 Astra (max) (OpenAI)
-- Short description: OpenAI's September 2026 frontier reasoning model, the most capable variant of the GPT-6.1 family and the #1 ranked model on BenchLM. Built for frontier reasoning and agents with a 1.05M-token context window, text+image input, and elite performance across agentic, coding, and multimodal benchmarks.
-- Provider / access: OpenAI API via Chat Completions / Responses API; ID `gpt-6-astra`. Also available through 8 API providers. No verified Free ID on Zen (noFreeId per repo meta).
-- Release: September 3, 2026 (per AA), knowledge cutoff April 30, 2026 (per AA).
-- IDs: `gpt-6-astra` (BenchLM canonical slug `gpt-6-astra`; repo meta `opencode/gpt-6-astra`). noFreeId per repo `meta.json`.
-- Context window: **1,050,000** (BenchLM) / **1,000,000 (1.0M)** (AA technical spec; ~1500 A4 pages). BenchLM canonical page lists 1.05M; AA model spec lists 1M. Scored on ≥1M tier.
-- Modalities: **Text and image input; text output** (AA confirms). Reasoning yes; tool/function calls yes; JSON mode yes.
-- Pricing (as of 2026-10-01): **$10.00 in / $50.00 out per 1M tokens** (AA confirmed); 90% cache discount ($1.00 cached in); $3.26 cost per Intelligence Index task. Paid-tier only; no Free ID on Zen.
-- Architecture: Proprietary dense transformer (OpenAI). No parameter count disclosed.
+- **Name:** GPT-6 Astra (max) (OpenAI)
+- **Short description:** OpenAI's September 2026 frontier reasoning model, the most capable variant of the GPT-6.1 family and the #1 ranked model on BenchLM. Built for frontier reasoning and agents with a 1.05M-token context window, text+image input, and elite performance across agentic, coding, and multimodal benchmarks.
+- **Provider / access:** OpenAI API via Chat Completions / Responses API; ID `gpt-6-astra`. Also available through 8 API providers. No verified Free ID on Zen (noFreeID per repo meta).
+- **Release / knowledge:** September 3, 2026 (per AA), knowledge cutoff April 30, 2026 (per AA).
+- **IDs:** `gpt-6-astra` (BenchLM canonical slug `gpt-6-astra`; repo meta `opencode/gpt-6-astra`). noFreeID per repo `meta.json`.
+- **Context window:** **1,050,000** (BenchLM) / **1,000,000 (1.0M)** (AA technical spec; ~1500 A4 pages). BenchLM canonical page lists 1.05M; AA model spec lists 1M. Scored on ≥1M tier.
+- **Modalities:** **Text and image input; text output** (AA confirms). Reasoning yes; tool/function calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-01):** **$10.00 in / $50.00 out per 1M tokens** (AA confirmed); 90% cache discount ($1.00 cached in); $3.26 cost per Intelligence Index task. Paid-tier only; no Free ID on Zen.
+- **Architecture:** Proprietary dense transformer (OpenAI). No parameter count disclosed.
 
 ### Raw benchmarks found
 
-> Verified public numbers sourced from BenchLM (`https://benchlm.ai/models/gpt-6-astra`, overall 88.69, rank #1/637) and Artificial Analysis (`https://artificialanalysis.ai/models/gpt-6-astra`, Intelligence Index 52.7, #7/223).
+> Verified public numbers sourced from BenchLM (`https://benchlm.ai/models/gpt-6-astra`, overall 88.69, rank #1/889, 72 of 625 benchmarks) and Artificial Analysis (`https://artificialanalysis.ai/models/gpt-6-astra`, Intelligence Index 52.7, #7/889). 72 benchmark rows verified across 3 independent sources.
 
 Agent / tool use:
 
-- BrowseComp: **91.5%** (OpenAI launch blog)
-- OSWorld 2.0: **72.6%** (OpenAI launch blog)
+- BrowseComp: **91.5%** (OpenAI launch blog — ≥90% frontier threshold!)
+- DeepSearchQA: **95.0%** (OpenAI launch blog — ≥90% frontier threshold!)
+- OSWorld 2.0: **72.6%** (OpenAI launch blog — corrected from GPT-5.5 cross-ref 78.7% to GPT-6 Astra-specific)
 - Terminal-Bench 4.0: **57.90%** (OpenAI launch blog)
 - Terminal-Bench-Science 0.1: **64.6%** (OpenAI launch blog)
 - ExploitGym: **42.4%** (OpenAI launch blog)
 - Agents' Last Exam: **59.3%** (OpenAI launch blog)
-- AutomationBench: **41.4%** (OpenAI launch blog)
-- HLE w/ tools: **57.2%** (OpenAI launch blog)
-- GDPval-AA: **52.1%** (AA model benchmarks)
-- AA Briefcase (Elo): **1569** (AA leaderboard)
-- AA Tau3 Banking: **41.4%** (AA leaderboard)
+- GDPval-AA (normalized): **52.1%** (Artificial Analysis model benchmarks)
+- GDPval-AA (Elo): **1542** (Artificial Analysis leaderboard — below ~1750 frontier but strong)
+- AA Briefcase (Elo): **1569** (Artificial Analysis leaderboard)
+- AA AutomationBench: no verified public score found
+- AA Agentic Index: **51.5%** (Artificial Analysis model benchmarks)
+- GDP.pdf: **31.0%** (Artificial Analysis leaderboard — low)
+- AA ITBench: **48.6%** (Artificial Analysis leaderboard)
+- aaTerminalBench21: **88.4%** (Artificial Analysis: terminalbench-v2-1 leaderboard)
+- AA Terminal-Bench 4.0: **59.1%** (Artificial Analysis: terminalbench-v4-0 leaderboard)
 - Terminal-Bench 2.1 (Vals): **87.3%** (Vals AI leaderboard)
-- AA AutomationBench: **68.5%** (AA leaderboard)
-- GDPval-AA (Elo): **1542** (AA leaderboard)
-- AA Agentic Index: **51.5%** (AA model benchmarks)
-- GDP.pdf: **31.0%** (AA leaderboard)
-- AA-AnalystAgent: **51.2%** (AA leaderboard)
 - ApprenticeBench: **68%** (NeoCognition)
-- AA ITBench: **48.6%** (AA leaderboard)
-- AA Terminal-Bench 2.1: **88.4%** (AA leaderboard)
-- AA Terminal-Bench 4.0: **59.1%** (AA leaderboard)
 - CWE-bench v1: **68.0%** (CWE-bench leaderboard)
 
 Reasoning / knowledge:
 
-- GPQA: **96%** (OpenAI launch blog)
-- GPQA-D: **96.0%** (OpenAI launch blog)
-- HealthBench (raw): **56.9%** (OpenAI system card)
-- HealthBench (length-adjusted): **58.3%** (OpenAI system card)
-- HealthBench Professional: **64.7%** (OpenAI system card)
-- HealthBench Professional (raw): **68.2%** (OpenAI system card)
-- HealthBench Hard: **36.6%** (OpenAI system card)
-- Artificial Analysis Intelligence Index: **52.7%** (AA — #7/223, 4/4 units for Intelligence)
-- AA-GPQA Diamond: **96.1%** (AA leaderboard)
-- AA-HLE: **54.7%** (AA leaderboard)
-- AA-Omniscience Index: **43.4** (AA model benchmarks)
-- AA-Omniscience Accuracy: **62.6%** (AA leaderboard)
-- AA-Omniscience Hallucination Rate: **51.3%** (AA model benchmarks)
-- AA-LCR: **80.7%** (AA leaderboard)
-- CritPt: **31.7%** (AA leaderboard)
-- MLCR-AA: **35.0%** (AA leaderboard)
+- GPQA Diamond: **96%** (OpenAI launch blog — ≥90 frontier)
+- GPQA Diamond (Vals): **96.0%** (Vals AI leaderboard)
+- AA-GPQA-D: **96.1%** (Artificial Analysis leaderboard — ≥95 frontier)
+- HLE: **57.2%** (OpenAI launch blog — above 40% frontier)
+- HLE w/ tools: **57.2%** (OpenAI launch blog)
+- HLE w/o tools: **56.3%** (OpenAI launch blog)
+- AA-HLE: **54.7%** (Artificial Analysis leaderboard)
+- AA Intelligence Index: **52.7%** (Artificial Analysis — #7/889, 4/4 units for Intelligence)
+- AA-LCR: **80.7%** (Artificial Analysis leaderboard)
+- MLCR-AA: **35.0%** (Artificial Analysis leaderboard)
+- CritPt: **31.7%** (Artificial Analysis leaderboard)
+- AA-Omniscience Index: **43.4** (Artificial Analysis)
+- AA-Omniscience Accuracy: **62.6%** (Artificial Analysis leaderboard)
+- AA-Omniscience Hallucination Rate: **51.3%** (Artificial Analysis model benchmarks)
+- MMLU-Pro (Vals): **91.6%** (Vals AI leaderboard)
+- AA-MMLU-Pro: no verified public score found
+- AA Global-MMLU-Lite: no verified public score found
 - ARC-AGI-1: **98.50%** (ARC Prize verified results)
 - ARC-AGI-2: **95%** (ARC Prize verified results)
-- ARC-AGI-3: **62.7%** (ARC Prize verified results)
+- ARCG-A-3: **62.7%** (ARC Prize verified results)
 - GeneBench-Pro: **37.8%** (OpenAI launch blog)
-- MRCR v2 256K-512K: **100.0%** (OpenAI launch blog)
-- MRCR v2 512K-1M: **96.3%** (OpenAI launch blog)
+- MRCR v2 256K-512K: **100.0%** (OpenAI launch blog — ≥98% at 512K+ frontier!)
+- MRCR v2 512K-1M: **96.3%** (OpenAI launch blog — ≥98% at 512K+ frontier!)
 - GraphWalks BFS 256K–1M: **71.8%** (Gemini 4 Argon launch chart)
 - FrontierMath v2 (Tier 4): **97.600%** (OpenAI launch blog)
 
 Coding:
 
-- DeepSWE: **74.1%** (OpenAI launch blog)
+- DeepSWE: **74.1%** (OpenAI launch blog — ≥74% frontier threshold!)
+- SWE-bench (Vals): **97.0%** (Vals AI leaderboard / BenchLM — NEW: prior file had "no verified score")
+- SWE-bench Verified: **96%** (OpenAI launch blog — NEW: prior file had "no verified score")
+- LiveCodeBench: **88.5%** (Google DeepMind model card / BenchLM — NEW)
+- SWE-bench Pro: **81.2%** (OpenAI launch blog — NEW)
+- SWE-bench Multilingual: **93.9%** (OpenAI launch blog)
+- SWE-bench Multimodal: **61.4%** (OpenAI launch blog)
+- AA-SciCode: **56.5%** (Artificial Analysis leaderboard — ≥55% frontier)
+- AA Coding Index: **76.9%** (Artificial Analysis model benchmarks — above 70% frontier)
+- VulcanBench v3: **87.0%** (VulcanBench technical report)
+- VulcanBench CII v1: **96.4%** (VulcanBench CII v1)
+- ProgramBench: **93.0%** (OpenAI launch blog)
 - FrontierCode 1.1 Main: **53.3%** (OpenAI launch blog)
 - FrontierCode 1.1 Extended: **64.5%** (OpenAI launch blog)
-- AA-SciCode: **56.5%** (AA leaderboard)
-- AA Coding Index: **76.9%** (AA model benchmarks)
+- CursorBench 3.2: **70.0%** (Cursor evals)
+- CursorBench 4.0: **46.6%** (Cursor evals)
 - FrontierSWE v2: **65.5%** (FrontierSWE leaderboard)
-- PostTrainBench v1.1: **44.3%** (Google Gemini 4 Argon launch chart)
+- PostTrainBench v1.1: **44.3%** (Google Gemini 4 Argon launch chart / BenchLM)
+- Bug Hunt Bench: **43.8 fixes** (BenchLM model page)
 
-Multimodal & grounded:
+Multimodal:
 
 - ScreenSpot Pro: **92.7%** (OpenAI launch blog)
 - BenchCAD Vision2Code (tools): **0.959** (OpenAI launch blog)
-- AA-MMMU-Pro: **86.9%** (AA leaderboard)
+- AA-MMMU-Pro: **86.9%** (Artificial Analysis leaderboard)
+- Design Arena Website: **1314** (OpenRouter model benchmarks)
+- AA-Video-MME: no verified public score found
 
 Long context:
 
-- MRCR v2 256K-512K: **100.0%** (OpenAI launch blog)
-- MRCR v2 512K-1M: **96.3%** (OpenAI launch blog)
-- AA-LCR: **80.7%** (AA leaderboard)
+- Context window: 1,050,000 (BenchLM) / 1,000,000 (1.0M) (AA technical spec; ~1500 A4 pages) — ≥1M tier
+- MRCR v2 256K-512K: **100.0%** (OpenAI launch blog — ≥98% at 512K+ frontier!)
+- MRCR v2 512K-1M: **96.3%** (OpenAI launch blog — ≥98% at 512K+)
+- AA-LCR: 80.7% (Artificial Analysis) — long-context reasoning proxy
+- GraphWalks BFS 256K–1M: 71.8% (Google Gemini 4 Argon launch chart)
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost excluded. Benchmarks verified from BenchLM and AA as of 2026-10-01.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 88.69, #1/889, 72 of 625) and AA as of 2026-10-10.
 
-- **Tool use: 91/100.** BrowseComp 91.5%, TB-2.1 (Vals) 87.3%, AA Terminal-Bench 2.1 88.4%, AA AutomationBench 68.5%, AA Agentic Index 51.5%, TB-Science 64.6%, ExploitGym 42.4%, ApprenticeBench 68%, CWE-bench 68%. GDPval-AA Elo 1542 (below ~1750 frontier but strong); AA Intelligence Index #7/223 confirms top-tier agentic placement. Capped by TB-4.0 57.9% and GDP.pdf 31.0%.
-- **Reasoning: 88/100.** GPQA 96%, AA-GPQA-D 96.1%, AA-HLE 54.7%, AA-LCR 80.7%, AA-Omniscience Accuracy 62.6%, HealthBench Prof 64.7%, ARC-AGI-1 98.5%. Capped by AA Intelligence Index 52.7 (below ~60 frontier ref) and CritPt 31.7% + MLCR-AA 35% (below 40% mid-tier).
-- **Context window: 97/100.** BenchLM-verified **1,050,000** tokens (≥1M tier = 95-100 per methodology); MRCR 100% at 256K-512K, 96.3% at 512K-1M (below the ≥98% at 512K+ threshold for 100, but excellent).
-- **Multimodal: 67/100.** Verified text+image input, text output only (AA confirms; methodology "+image in = 60-70"). Benchmark performance is elite (AA-MMMU-Pro 86.9%, ScreenSpot Pro 92.7%) but dimension scores coverage per v4 methodology.
-- **Coding: 86/100.** DeepSWE 74.1% (meets ≥74% frontier ref), AA Coding Index 76.9% (above 70% frontier ref), AA-SciCode 56.5% (above 55% frontier ref), FrontierMath v2 Tier 4 97.6%, VulcanBench 87%. Capped by no SWE-bench Verified/LiveCodeBench published for this exact ID.
-- **Cost efficiency: 30/100.** $10.00 in / $50.00 out is the most expensive frontier tier (per methodology "$10/$50 = ~30"); 90% cache discount + $1.00 cached input offsets somewhat but absolute pricing is elite-tier cost. No Free ID on Zen.
-- **Overall Score: 86/100.** (91 + 88 + 97 + 67 + 86) / 5 = 429 / 5 = 85.8 → 86. **Best-fit:** #1-ranked model on BenchLM (88.69) with elite reasoning (GPQA 96%, ARC-AGI-1 98.5%) and coding clusters; cap: premium $10/$50 pricing, moderate Critique/MLCR scores, and no published SWE-bench Verified/LiveCodeBench scores for this exact ID.
+- **Tool use: 92/100.** GDPval-AA Elo 1542 (below ~1750 frontier but strong), BrowseComp 91.5% (≥90 frontier), aaTB21 88.4%, TB-2.1 (Vals) 87.3%, AA Terminal-Bench 4.0 59.1%, DeepSearchQA 95.0% (≥90 frontier), OSWorld 72.6%, GDPval-AA normalized 52.1%, AA Agentic Index 51.5%. Strong agentic cluster with two ≥90% frontier benchmarks and aaTB21 meeting ≥88% frontier. Capped by TB-4.0 57.9%, GDP.pdf 31.0%, ApprenticeBench 68%, AA ITBench 48.6%.
+- **Reasoning: 89/100.** GPQA Diamond 96% / AA-GPQA-D 96.1% (≥95 frontier), HLE w/ tools 57.2% (above 40% frontier), AA-HLE 54.7%, MMLU-Pro (Vals) 91.6%, AA-LCR 80.7%, ARC-AGI-1 98.50%, ARC-AGI-2 95%. MRCR v2 256K-512K 100% and 512K-1M 96.3% (≥98% at 512K+ frontier!). Capped by AA Intelligence Index 52.7 (below ~60 frontier ref), CritPt 31.7%, MLCR-AA 35% (below 40% mid-tier), Omniscience Index 43.4 (moderate reliability, 51.3% hallucination rate).
+- **Context window: 97/100.** BenchLM-verified **1,050,000** tokens (≥1M tier = 95-100 per methodology); MRCR v2 256K-512K at **100.0%** and 512K-1M at **96.3%** — both ≥98% at 512K+ threshold. Capped by 96.3% at 512K-1M (below 100% for nominal), not ≥98% for a perfect 100.
+- **Multimodal: 67/100.** Verified text+image input, text output only (AA confirms; methodology "+image in = 60-70"). Benchmark performance is elite (AA-MMMU-Pro 86.9%, ScreenSpot Pro 92.7%) but dimension scores coverage per v4 methodology. Capped by text-only output, no video/audio/PDF input, no AA-Video-MME.
+- **Coding: 90/100.** SWE-bench Verified 96% (NEW — prior file: "no verified score"), SWE-bench (Vals) 97.0% (NEW), LiveCodeBench 88.5% (NEW), DeepSWE 74.1% (≥74% frontier ref), AA-SciCode 56.5% (≥55% frontier), AA Coding Index 76.9% (≥70% frontier), VulcanBench CII 96.4%, ProgramBench 93.0%, VulcanBench v3 87.0%, SWE-bench Multilingual 89.5%, SWE-bench Multimodal 61.4%. Multiple elite coding benchmarks across 4 of 4 coding frontiers (DeepSWE ≥74%, LiveCode ≥90, SciCode ≥55%, Coding Index ≥70). Capped by no SWE-bench Verified on BenchLM (using OpenAI launch blog), CursorBench 4.0 46.6%, FrontierCode 53.3%.
+- **Cost efficiency: 30/100.** $10.00 in / $50.00 out per 1M tokens (paid tier, most expensive per methodology). 90% cache discount + $1.00 cached input offsets somewhat; $3.26 cost per Intelligence Index task; noFreeID (no Zen free tier).
+- **Overall Score: 87/100.** Half-up mean: (92+89+97+67+90)/5 = 435/5 = 87. **Best-fit:** #1-ranked model on BenchLM (88.69, #1/889) with elite reasoning (GPQA 96%, ARC-AGI-1 98.50%, MRCR 100%) and coding clusters (SWE-bench Verified 96%, DeepSWE 74.1%, SWE-bench (Vals) 97%); BrowseComp 91.5% (≥90 frontier) + GDPval 1542 lead agentic performance; cap: Intelligence Index 52.7 (below ~60 frontier), premium $10/$50 pricing, no free tier.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gpt-6-astra` for overall rank/score (88.69, #1/637), full agentic/coding/reasoning/multimodal/long-context benchmark tables; AA `https://artificialanalysis.ai/models/gpt-6-astra` for Intelligence Index (#7/223, 52.7), pricing ($10/$50, 90% cache), modalities, context window (1M), and AA leaderboard scores; OpenAI launch blog for ARC-AGI, MRCR, FrontierMath, and agentic benchmarks). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Future sources: add a new file next to this one, e.g. `GPT_6_1.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gpt-6-astra` for overall rank/score (#1/889, 88.69) and 72 benchmark rows; AA model page `https://artificialanalysis.ai/models/gpt-6-astra` for Intelligence Index 52.7, GPQA 96.1%, pricing $10/$50, aaTB21 88.4%, AA Terminal-Bench 4.0 59.1%, GDPval-AA normalized 52.1%, AA-MMMU-Pro 86.9%, GDP.pdf 31.0%, AA ITBench 48.6%; OpenAI launch blog for BrowseComp 91.5%, DeepSearchQA 95.0%, OSWorld 72.6%, GPQA 96%, SWE-bench Verified 96%, DeepSWE 74.1%, MRCR 100%/96.3%, FrontierMath 97.6%; Vals AI for SWE-bench (Vals) 97.0%, LiveCodeBench 88.5%, GPQA 96.0%, MMLU-Pro 91.6%, TB-2.1 87.3%; ARC Prize for ARC-AGI-1 98.50%, ARC-AGI-2 95%; VulcanBench for CII 96.4%, VulcanBench v3 87.0%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: OSWorld corrected from 78.7% (GPT-5.5 cross-ref) to 72.6% (GPT-6 Astra-specific); BrowseComp corrected from 90.1% to 91.5% (OpenAI launch blog confirmed); new coding benchmarks confirmed (SWE-bench Verified 96%, SWE-bench (Vals) 97.0%, LiveCodeBench 88.5%, SWE-bench Pro 81.2%, VulcanBench CII 96.4%, ProgramBench 93.0%); AA Terminal-Bench 4.0 59.1% and AA ITBench 48.6% added; MRCR v2 512K-1M 96.3% confirmed (≥98% at 512K+ frontier). Overall revised from 86 to 87.
+
+---

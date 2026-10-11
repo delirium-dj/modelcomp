@@ -1,63 +1,67 @@
 # Muse Spark 1.3 Max — findings by Kimi K3
 
 - Source: Meta (`muse-spark-1.3-max`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.3 Max
-- **Short description:** Meta's Max-tier variant of the Muse Spark 1.3 family (Sep 2026) — private-weights agentic model with 1M context and 131K max output, strongest on knowledge-work agent suites (legal research, tax, finance) rather than terminal-style coding.
-- **Provider / access:** Meta developer platform (`dev.meta.ai/docs/models`), reasoning effort `max` in Vals AI runs.
-- **Release / knowledge:** Released 2026-09-05 (Vals AI model registry listing).
-- **IDs:** `muse-spark-1.3-max` (Meta). No Free ID exists on OpenCode Zen (the Contributor Free tier covers the standard 1.3, not Max).
-- **Context window:** 1M tokens; max output 131,072 (Vals AI).
-- **Modalities:** Text + image + video + file in; text out (Vals AI modality listing). Reasoning effort `max` supported.
-- **Pricing (as of 2026-10-01):** $1.25 / $4.25 per MTok (Vals AI listing — same list price point as standard Muse Spark 1.3 Standard tier); measured $3.787 avg cost/test on Vals suite.
-- **Architecture:** Proprietary (private weights), Meta. Vals Index 58.16% (rank 9/41), fallback rate 0.00%, refusal rate 0.65%, avg latency 23m33s (long-horizon profile).
+- **Short description:** Meta's Max-reasoning configuration of the Muse Spark 1.3 family (Sep 2026) — proprietary agentic model with 1M context and 131K max output, tuned for long-horizon multi-workflow agent tasks and knowledge work. Per project tier identity, all 1.3 tier names (Contributor / Free / Standard / Max) are the same weights; only price and data policy differ.
+- **Provider / access:** Meta Model API + Muse Code (`dev.meta.ai`), reasoning effort `max`; OpenCode Zen route `opencode/muse-spark-1.3-contributor` (Contributor tier, $0.10/$0.20).
+- **Release / knowledge:** Released 2026-09-02 (official Meta AI Research blog "Introducing Muse Spark 1.3"); corrected from my 2026-10-01 report which listed 2026-09-05 from a third-party registry.
+- **IDs:** `muse-spark-1.3-max` (Meta); `muse-spark-1.3-contributor` (Zen route). No Free ID per `meta.json`.
+- **Context window:** 1M tokens; max output 131,072 (OpenCode Data model page, official blog).
+- **Modalities:** Text + image + video + PDF + audio in; text out (OpenCode Data modality listing — audio input added vs my previous report); reasoning yes; tool calling yes.
+- **Pricing (as of 2026-10-11):** Contributor tier $0.10 / $0.20 per MTok (cached in $0.002); Standard/Max list $1.25 / $4.25 per MTok (dev.meta.ai). Meta states ~20% fewer tool calls and ~25% fewer tokens than 1.2 on coding tasks.
+- **Architecture:** Proprietary (private weights), Meta. Open weights release announced as roadmap item, not yet shipped (official blog).
 
 ### Raw benchmarks found
 
-All numbers from Vals AI independent evaluations (model page, retrieved 2026-10-01).
+Official Meta numbers via the launch blog (research.meta.ai/blog/introducing-muse-spark-1-3, published 2026-09-02) as transcribed by OpenCode Data (independent aggregator, retrieved 2026-10-11); conflict with my 2026-10-01 Vals AI numbers is noted below.
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **24.75%** (±0.51, rank 15/42); Terminal-Bench Science: **10.00%** (11/34)
-- CUA-bench (computer use): **5.83%** (6/8)
-- Finance Agent v2: **59.96%** (±2.06, rank 4/73); Tax Agent Bench: **72.44%** (±2.88, rank 6/64); Harvey's Legal Agent Bench: **23.75%** (2/73); Legal Research Bench: **55.29%** (±3.46, rank **1/72**)
-- Vals RSI Index: **19.64%** (16/23)
-- Claw-Eval / Tau3 / GDPval-AA: **no verified public score found**
+- GDPval-AA: **1754 Elo** (Meta blog via OpenCode Data)
+- JobBench: **64.9** mean rubric score; Agentic IF Index: **57.8**
+- AutomationBench: **49.6%** pass@1
+- OSWorld: **66.9** mean partial / **32%** binary completion
+- DeepSearchQA: **90.3** F1
+- Terminal-Bench: **88.8%** pass@1 (official benchmark scorecard)
+- Tau3-Banking / Claw-Eval: **no verified public score found**
+- CONFLICT NOTE: my 2026-10-01 report cited Vals AI (Terminal-Bench 4.0 24.75%, Finance Agent 59.96%, Legal Research 55.29% rank #1). The Vals model page now returns 404 and the TB figure uses a different, harder harness version (4.0 vs official scorecard). Unverifiable now — superseded by official numbers on this pass.
 
 Reasoning / knowledge:
 
-- ProofBench v1.1: **58.00%** (±4.96, 20/44); MysteryMechanism: **36.04%** (9/21); IOI: **56.56%** (±2.52, 18/38); EMB: **67.43%** (±3.06, 15/69)
-- GPQA Diamond / HLE / MRCR: **no verified public score found** for this variant
+- No GPQA Diamond / HLE published. DeepSearchQA 90.3 F1 and Agentic IF 57.8 are the closest verified knowledge/agent-following proxies (Meta blog via OpenCode Data).
+- ProofBench / MysteryMechanism / IOI figures from my previous report were Vals-sourced and are no longer verifiable (page 404).
 
 Coding:
 
-- Vibe Code Bench v1.1: **85.86%** (±2.51, rank 11/106); VCB 1-100: **20.46%** (6/20)
-- Code Migration: **47.41%** (±4.26, 13/71)
-- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found** for this variant
+- DeepSWE: **75.4%** pass@1 (Meta blog via OpenCode Data)
+- SWE-Atlas Codebase QnA: **59.4%** pass@1
+- Terminal-Bench: **88.8%** pass@1 (coding-agentic crossover)
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 1M window documented; **no MRCR/RULER retrieval benchmark published**.
+- MRCR: **98.5 / 98.1** mean sequence-match ratio at long context (Meta blog via OpenCode Data) — quantified retrieval depth now exists.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Knowledge-work agent benches lead their fields (Legal Research #1, Finance Agent #4, Tax #6) but Terminal-Bench 4.0 24.75% and CUA-bench 5.83% show weak terminal/computer-use execution; net upper-mid.
-- **Reasoning: 65/100.** ProofBench 58%, IOI 56.6%, EMB 67.4% with no GPQA/HLE publication — solid mid-band reasoning, capped by missing frontier science figures.
-- **Context window: 88/100.** 1M window with 131K max output (larger output budget than most 1M peers); no quantified retrieval depth keeps it below the top of the tier.
-- **Multimodal: 82/100.** Text+image+video+file input coverage in one model (image+video-in band 75–90, plus file input); text-only output, no audio.
-- **Coding: 70/100.** Vibe Code Bench 85.86% strong for full-stack app building, but TB 4.0 24.75%/Code Migration 47.4% are weak for repository-scale agentic SWE; mixed profile nets mid-low.
-- **Cost efficiency: 88/100.** $1.25/$4.25 maps exactly to the reference point (~88); 0% fallback rate means low waste, though 23m33s average latency signals heavy token spend per task.
-- **Overall Score: 75/100.** Half-up mean of the five quality dims: (72 + 65 + 88 + 82 + 70) / 5 = 75.4 → 75. Best fit: agentic knowledge work (legal research, tax/finance document pipelines) with large multimodal inputs; not the pick for terminal-driven software engineering.
+- **Tool use: 90/100.** GDPval-AA 1754 Elo plus leading agentic rows (Agentic IF 57.8, AutomationBench 49.6, TB 88.8, OSWorld partial 66.9) put it at the frontier of knowledge-work tooling; capped by unverifiable older third-party agent-suite ranks and OSWorld binary (32%) showing real computer-use headroom.
+- **Reasoning: 68/100.** Strong verified proxies (DeepSearchQA 90.3 F1) but still no published GPQA/HLE-class frontier science scores — held below the flagship reasoning tier pending those numbers.
+- **Context window: 95/100.** 1M window, 131K max output, and now-measured MRCR 98.5/98.1 retrieval depth — top of the 1M tier.
+- **Multimodal: 90/100.** Text + image + video + PDF + audio input in one model; text-only output and no image/audio generation cap it at the input-rich band.
+- **Coding: 90/100.** DeepSWE 75.4, TB 88.8, SWE-Atlas Codebase QnA 59.4, plus vendor-measured ~20% fewer tool calls / ~25% fewer tokens than 1.2 — a major upward correction from my Vals-based 70.
+- **Cost efficiency: 88/100.** Unchanged: Standard/Max list $1.25/$4.25 maps to the ~88 reference point; Contributor tier ($0.10/$0.20) improves effective cost but is the same weights with training-data-use caveats.
+- **Overall Score: 87/100.** Half-up mean of the five quality dims: (90 + 68 + 95 + 90 + 90) / 5 = 86.6 → 87. Best fit: long-horizon agentic knowledge work and coding with heavy multimodal inputs; weakest verified area remains frontier science reasoning (no GPQA/HLE).
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
-- Method: public internet research (Vals AI model page + benchmark tables for `meta/muse_spark_1_3_max`; Meta dev docs listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (official Meta AI Research launch blog 2026-09-02; OpenCode Data model page `meta/muse-spark-1.3-contributor` incl. usage + benchmark transcription; web search). Second pass over my 2026-10-01 file: replaced unverifiable Vals AI numbers with official Meta numbers; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.md`, using the same headings.

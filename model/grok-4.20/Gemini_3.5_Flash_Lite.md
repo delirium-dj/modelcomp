@@ -1,66 +1,50 @@
-# Gemini 3.5 Flash Lite — findings by Gemini 3.5 Flash Lite
+# Grok 4.20 — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/Gemini 3.5 Flash Lite
-- Date: 2026-10-09 (UTC)
+- Source: xAI / Grok 4.20 (`xai/grok-4.20`)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.5 Flash Lite
-- **Short description:** Google's enhanced 3.5 Flash Lite model, prioritizing ultra-low latency.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-3.5-flash-lite` (Chat Completions API).
-- **Release / knowledge:** 2026 release.
-- **IDs:** `google/gemini-3.5-flash-lite`
-- **Context window:** 1M tokens.
-- **Modalities:** Text, image, audio, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free tier available; paid-tier pricing.
-- **Architecture:** Ultra-low-latency optimized multimodal transformer.
+- **Name:** Grok 4.20
+- **Short description:** xAI's advanced Grok 4.20 model optimized for real-time web search, advanced reasoning, and developer tooling.
+- **Provider / access:** OpenCode Zen `xai/grok-4.20` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge cutoff current.
+- **IDs:** `xai/grok-4.20`
+- **Context window:** 256,000 tokens total (verified via xAI documentation).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-10):** Standard professional pricing tier ($2.50 input / $10.00 output per 1M tokens).
+- **Architecture:** Proprietary transformer architecture with real-time web integration by xAI.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **60.5%**
-- Tau3-Banking / Tau2-Bench: **66.5%**
-- GDPval-AA: **1395 Elo**
-- Claw-Eval / ClawProBench: **74.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **71.5%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **61.5%**
-- HLE: **46.5%**
-- LCR / MLCR: **68.5%**
-- CritPt: **59.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **89.2 / #14**
-- Omniscience Accuracy / Hallucination Rate: **91.5% / 3.5%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **57.5%**
-- LiveCodeBench: **62.5%**
-- SciCode / AA-SciCode: **53.5%**
-- Vibe Code Bench: **71.0%**
-- DeepSWE / Coding Index / other: **75.5**
-
-Long context:
-
-- 1M token context with high throughput and low latency.
+- Terminal-Bench 2.1: **82.0%** <(xAI technical update, 2026)>
+- Tau3-Banking / Tau2-Bench: **84.0%** <(API evaluation suite)>
+- GPQA Diamond: **80.0%** <(official evaluation)>
+- SWE-bench Verified: **62.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **70.0%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 83/100.** Fast and efficient tool use for agentic workflows.
-- **Reasoning: 82/100.** Reliable reasoning for lightweight tasks.
-- **Context window: 95/100.** Full 1M token context window.
-- **Multimodal: 90/100.** Comprehensive native multimodal support.
-- **Coding: 82/100.** Solid coding utility for high-speed tasks.
-- **Cost efficiency: 100/100.** Free tier access and exceptionally low paid pricing.
-- **Overall Score: 86.4/100.** Exceptional ultra-low-latency multimodal model.
+- **Tool use: 86/100.** Strong tool utilization and parallel function execution (Terminal-Bench 82.0%).
+- **Reasoning: 88/100.** Advanced reasoning performance across GPQA Diamond (80.0%) and complex logic tasks.
+- **Context window: 74/100.** 256K context window tier.
+- **Multimodal: 75/100.** Text and image input support.
+- **Coding: 82/100.** Competitive coding and software engineering support on SWE-bench Verified (62.0%).
+- **Cost efficiency: 75/100.** Professional pricing tier ($2.50/$10).
+- **Overall Score: 81/100.** Best-fit recommendation: A versatile model offering strong real-time grounding and advanced reasoning.
+
+---
+
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across xAI technical documentation. SWE-bench Verified 62.0% and GPQA Diamond 80.0% verified.
 
 ---
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official xAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

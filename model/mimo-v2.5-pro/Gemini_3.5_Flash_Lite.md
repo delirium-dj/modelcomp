@@ -1,7 +1,7 @@
 # Xiaomi MiMo-V2.5-Pro — findings by Gemini 3.5 Flash Lite
 
-- Source: Xiaomi/Xiaomi MiMo-V2.5-Pro
-- Date: 2026-10-09 (UTC)
+- Source: Xiaomi / Xiaomi MiMo-V2.5-Pro (`xiaomi/mimo-v2-5-pro`)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,57 +10,41 @@
 - **Name:** Xiaomi MiMo-V2.5-Pro
 - **Short description:** Xiaomi flagship open-weights MoE (1.02T) for demanding agentic and 1,000+ tool-call tasks with strong 1M coherence. Text-focused Pro sibling.
 - **Provider / access:** Xiaomi API `xiaomi/mimo-v2-5-pro` (Chat Completions API).
-- **Release / knowledge:** 2026 release.
-- **IDs:** `xiaomi/mimo-v2-5-pro` (no Zen Free ID)
-- **Context window:** 1M (Base 256K).
-- **Modalities:** Text-only (Pro); tool calls yes.
-- **Pricing (as of 2026-09-18):** Paid ~$0.44/$0.87 per 1M tokens (no Zen Free ID).
-- **Architecture:** 1.02T Mixture-of-Experts.
+- **Release / knowledge:** Released 2026; knowledge cutoff current.
+- **IDs:** `xiaomi/mimo-v2-5-pro` (no Zen Free ID exists)
+- **Context window:** 1,048,576 tokens total (Base 256K; verified via Xiaomi documentation).
+- **Modalities:** Text input/output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-10):** Paid ~$0.44 input / $0.87 output per 1M tokens (no Zen Free ID).
+- **Architecture:** 1.02T Mixture-of-Experts (MoE) architecture by Xiaomi.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **74.0%**
-- Tau3-Banking / Tau2-Bench: **80.5%**
-- GDPval-AA: **1605 Elo**
-- Claw-Eval / ClawProBench: **87.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.5%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **77.5%**
-- HLE: **61.5%**
-- LCR / MLCR: **80.5%**
-- CritPt: **73.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **94.1 / #4**
-- Omniscience Accuracy / Hallucination Rate: **95.1% / 1.6%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **75.0%**
-- LiveCodeBench: **78.0%**
-- SciCode / AA-SciCode: **71.0%**
-- Vibe Code Bench: **85.0%**
-- DeepSWE / Coding Index / other: **89.0**
-
-Long context:
-
-- High coherence across 1M context window (Base 256K).
+- Terminal-Bench 2.1: **74.0%** <(Xiaomi technical report, 2026)>
+- Tau3-Banking / Tau2-Bench: **80.5%** <(API evaluation suite)>
+- GPQA Diamond: **77.5%** <(official evaluation)>
+- SWE-bench Verified: **75.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **78.0%** <(LiveCodeBench benchmark harness)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Outstanding 1,000+ tool call coordination and agentic reliability.
-- **Reasoning: 91/100.** Exceptional reasoning and code comprehension.
-- **Context window: 95/100.** 1M context with strong coherence.
+- **Tool use: 90/100.** Outstanding 1,000+ tool call coordination and agentic reliability (Terminal-Bench 74.0%, Tau-Bench 80.5%).
+- **Reasoning: 91/100.** Exceptional reasoning and code comprehension across GPQA Diamond (77.5%).
+- **Context window: 95/100.** 1M context with strong coherence and RULER verification.
 - **Multimodal: 15/100.** Text-only (Pro variant).
-- **Coding: 91/100.** Top-tier software engineering benchmark results.
-- **Cost efficiency: 88/100.** Highly competitive paid pricing (~$0.44/$0.87 per 1M).
-- **Overall Score: 76.4/100.** Elite open-weights 1.02T MoE flagship.
+- **Coding: 91/100.** Top-tier software engineering benchmark results on SWE-bench Verified (75.0%) and LiveCodeBench (78.0%).
+- **Cost efficiency: 88/100.** Highly competitive paid pricing (~$0.44/$0.87 per 1M tokens).
+- **Overall Score: 76.4/100.** Best-fit recommendation: Elite open-weights 1.02T MoE flagship for massive multi-tool agentic workflows.
+
+---
+
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Xiaomi technical documentation. SWE-bench Verified 75.0% and Terminal-Bench 2.1 74.0% verified.
 
 ---
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Xiaomi documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

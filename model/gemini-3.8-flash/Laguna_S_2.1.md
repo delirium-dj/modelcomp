@@ -1,11 +1,9 @@
 # Gemini 3.8 Flash — findings by Laguna S 2.1
 
-> Independent findings; scored against the model-comparison methodology. Overview + scoring methodology: `../../model-comparison.md` · Signed cross-model log: `../../model-findings.md`
->
-> - Source: Google DeepMind (`google/gemini-3.8-flash`)
-> - Date: 2026-09-20 (UTC)
-> - Overview and scoring methodology: `../../model-comparison.md`
-> - Cross-model signed log: `../../model-findings.md`
+> Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-10 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
@@ -16,56 +14,102 @@
 - **IDs:** `google/gemini-3.8-flash`
 - **Context window:** 1,048,576 (1M) in / 65,536 (64K) out
 - **Modalities:** text, image, video, audio, pdf in; text, tool-calls out
-- **Pricing (as of 2026-09-20):** Introductory $0.75 in / $3.75 out per 1M tokens through end-2026 (thinking/cached output billed as output); cached input $0.075/M (90% off); Batch and Flex APIs 50% off; free on Google AI Studio / unpaid API quota (content may improve Google products). Standard rates double to $1.50/$7.50 in January 2027.
-- **Architecture:** Sparse Mixture-of-Experts; parameters not disclosed; further-trained from Gemini 3.7 Flash (architecture details deferred to the 3.7 Flash card).
+- **Pricing (as of 2026-09-20):** Introductory $0.75 in / $3.75 out per 1M tokens through end-2026 (thinking/cached output billed as output); cached input $0.075/M (90% off); Batch and Flex APIs 50% off; free on Google AI Studio / unpaid API quota. Standard rates double to $1.50/$7.50 in January 2027.
+- **Architecture:** Sparse Mixture-of-Experts; parameters not disclosed; further-trained from Gemini 3.7 Flash.
 
 ### Raw benchmarks found
 
+> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3.8-flash`, overall 73.17, rank #12/889, 49 of 625 benchmarks); Google DeepMind model card; Artificial Analysis.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.8%** (HokAI, Sep 4 2026; ahead of GPT-5.6 Terra 87.4% and Claude Sonnet 5 80.4% in the same third-party comparison)
-- DeepSWE v1.1: **≥70%** (success rate on long-horizon coding tasks, Google-reported, Sep 2026)
-- SWE-bench Pro: **61.6%** (DataCamp independent test, Sep 2026; up from 60.4%)
-- SWE-Atlas: **51.9%** (DataCamp, Sep 2026; up from 48.0%)
-- tau3-bench Banking: **38.1%** (DataCamp, Sep 2026; up from 30.9%)
-- CharXiv (multimodal reasoning): **86.2%** (DataCamp, Sep 2026; up from 84.5%)
-- Val's Finance Agent v2: **61.4%** (Google-reported)
-- Terminal-Bench v4.0 / GDPval-AA / Tau2-Bench / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: no verified public score found
-
-Reasoning / knowledge:
-
-- HLE-Verified: **54.9%** (Google-reported, Sep 2026)
-- GPQA Diamond: no verified public score found
-- AA Intelligence Index: **59** (Artificial Analysis, cited HokAI, Sep 4 2026)
-- BenchLM overall: **75.9/100, rank #6 of 230** (BenchLM.ai, Sep 2026)
-- LCR / MLCR / CritPt / AA-Omniscience / AA-LCR: no verified public score found
+- Terminal-Bench 2.1: **89.4%** (Google DeepMind model card / BenchLM — meets ≥88% frontier threshold)
+- Terminal-Bench 2.1 (Vals): **81.3%** (Vals AI leaderboard / BenchLM)
+- aaTerminalBench21: **87.6%** (Artificial Analysis / BenchLM)
+- Terminal-Bench 4.0: **19.10%** (Google DeepMind model card / BenchLM — below benchmark threshold)
+- AA Terminal-Bench 4.0: **19.7%** (Artificial Analysis / BenchLM)
+- GDPval-AA (Elo): **1545** (Google DeepMind model card / BenchLM — below ≥1750 frontier)
+- GDPval-AA (normalized): **46.8%** (Artificial Analysis model benchmarks / BenchLM)
+- OSWorld 2.0: **59.0%** (Google DeepMind model card / BenchLM)
+- AA AutomationBench: **59.9%** (Artificial Analysis / BenchLM)
+- AA Agentic Index: **41.1%** (Artificial Analysis model benchmarks / BenchLM)
+- GDP.pdf: **21.0%** (Artificial Analysis / BenchLM)
+- ApprenticeBench: **24%** (NeoCognition / BenchLM)
+- AA ITBench: **52.5%** (Artificial Analysis / BenchLM)
+- AA Tau3 Banking: **44.9%** (Artificial Analysis / BenchLM)
+- AA Briefcase (Elo): **1203** (Artificial Analysis / BenchLM)
 
 Coding:
 
-- DeepSWE v1.1 (long-horizon coding): **≥70%** (Google-reported)
-- SWE-bench Verified: no verified public score found (HokAI lists -- / 28)
-- LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
+- DeepSWE: **73.8%** (DeepSWE v1.1 leaderboard / BenchLM — just below ≥74% frontier threshold)
+- Terminal-Bench 2.1: **89.4%** (Google DeepMind model card — coding category)
+- LiveCodeBench (Vals): **89.5%** (Vals AI leaderboard / BenchLM — near ≥90 frontier)
+- SWE-bench (Vals): **80.0%** (Vals AI leaderboard / BenchLM)
+- SWE-bench Verified: **88.9%** (BenchLM model page — verified, at frontier)
+- AA-SciCode: **56.6%** (Artificial Analysis / BenchLM — above 55% frontier)
+- AA Coding Index: **76.3%** (Artificial Analysis model benchmarks / BenchLM)
+- Vibe Code Bench: **14.30%** (Vals AI — very poor)
+- CursorBench 3.2: **69.2%** (Cursor evals / BenchLM)
+- CursorBench 4.0: **39.6%** (Cursor evals / BenchLM)
+- FrontierSWE v2: **19.6%** (Proximal / BenchLM)
+- Bug Hunt Bench: **18.0 fixes** (Bug Hunt Bench / BenchLM)
+
+Reasoning / knowledge:
+
+- AA-GPQA Diamond: **95.3%** (Artificial Analysis / BenchLM — ≥95% frontier threshold)
+- GPQA Diamond (Vals): **94.4%** (Vals AI leaderboard / BenchLM)
+- HLE-Verified: **54.9%** (Google DeepMind model card / BenchLM — above 40% frontier)
+- AA-HLE: **47.8%** (Artificial Analysis / BenchLM)
+- AA Intelligence Index: **40.9%** (Artificial Analysis — revised DOWN from 59 cited Sep 20; v4.3.2 methodology update)
+- AA-LCR: **81.3%** (Artificial Analysis / BenchLM)
+- CritPt: **18.3%** (Artificial Analysis / BenchLM — low)
+- MLCR-AA: **21.7%** (Artificial Analysis / BenchLM — low)
+- AA-Omniscience Index: **29.6%** (Artificial Analysis — low reliability)
+- AA-Omniscience Accuracy: **54.6%** (Artificial Analysis model benchmarks / BenchLM)
+- AA-Omniscience Hallucination Rate: **55.2%** (Artificial Analysis model benchmarks / BenchLM)
+- MMLU-Pro (Vals): **90.2%** (Vals AI leaderboard / BenchLM)
+- AA-MMLU-Pro: **89.8%** (Artificial Analysis / BenchLM)
+- AA Global-MMLU-Lite: **92.2%** (Artificial Analysis / BenchLM)
+- ARC-AGI-1: **98.50%** (ARC Prize verified results / BenchLM)
+- ARC-AGI-2: **89.2%** (ARC Prize verified results / BenchLM)
+- FrontierMath v2 (Tiers 1-3): **36.9%** (Epoch AI / BenchLM)
+- FrontierMath v2 (Tier 4): **18.75%** (Epoch AI / BenchLM)
+- BioMysteryBench (human-solvable): **88.8%** (Google DeepMind / BenchLM)
+- BioMysteryBench (human-difficult): **56.5%** (Google DeepMind / BenchLM)
+- Gray Swan IPI (15 attempts): **5.5%** (Google Gemini 4 Argon launch chart / BenchLM)
+
+Multimodal:
+
+- CharXiv w/o tools: **86.2%** (Google DeepMind / BenchLM)
+- CharXiv: **88.7%** (Google DeepMind / BenchLM)
+- LVBench: **85.4%** (Google DeepMind / BenchLM)
+- AA-MMMU-Pro: **85.6%** (Artificial Analysis / BenchLM)
+- Design Arena Website: **1307** (OpenRouter / BenchLM)
+- CharXiv: 86.2%/88.7% (Google DeepMind model card)
 
 Long context:
 
-- MRCR / RULER / GDM-MRCR: no verified public score found for 3.8 (2025-09)
+- MRCR v2 64K-128K: **97.0%** (Google DeepMind model card / BenchLM)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Terminal-Bench 2.1 90.8% leads GPT-5.6 Terra (87.4%) and Claude Sonnet 5 (80.4%), with DeepSWE ≥70%; capped by missing GDPval-AA/Tau3-Bench disclosures.
-- **Reasoning: 82/100.** AA Intelligence Index 59 and HLE-Verified 54.9% place it above median; GPQA Diamond not disclosed.
-- **Context window: 90/100.** 1M-token input window (top tier) but only a 64K-token output ceiling.
-- **Multimodal: 92/100.** Accepts text, image, video, audio and PDF input; the strongest modality mix of the Flash tier.
-- **Coding: 88/100.** DeepSWE ≥70%, Terminal-Bench 2.1 90.8%; capped by no disclosed SWE-bench Verified.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 73.17, #12/889, 49 of 625) and AA as of 2026-10-10.
+
+- **Tool use: 90/100.** Terminal-Bench 2.1 89.4% (≥88% frontier threshold), aaTB21 87.6%, TB-2.1 (Vals) 81.3%, GDPval-AA Elo 1545 (below 1750 frontier), OSWorld 59.0%, GDPval-AA normalized 46.8%. Strong agentic cluster with TB-2.1 meeting ≥88% frontier. Capped by TB-4.0 19.1%, GDP.pdf 21.0%, ApprenticeBench 24%, GDPval-AA Elo 1545 (below 1750).
+- **Reasoning: 80/100.** AA-GPQA-D 95.3% (≥95% frontier), GPQA (Vals) 94.4%, HLE-Verified 54.9% (above 40% frontier), AA-LCR 81.3%, ARC-AGI-1 98.50%, MMLU-Pro 90.2%, AA Global-MMLU-Lite 92.2%. Capped by AA Intelligence Index 40.9 (revised from 59 — well below ~60 frontier), CritPt 18.3%, MLCR-AA 21.7%, Omniscience Index 29.6 (low reliability, 55.2% hallucination rate).
+- **Context window: 96/100.** 1M-token input window (top tier) with GDM-MRCR v2 97.0% at 128K depth — usable, not nominal. 64K-token output ceiling. No ≥98% retrieval at 512K+ for perfect 100.
+- **Multimodal: 92/100.** Text, image, video, audio and PDF input; text, tool-calls out — full omni input. AA-MMMU-Pro 85.6%, LVBench 85.4%, CharXiv 88.7%, Design Arena 1307. Capped by text-only output and Gray Swan IPI 5.5%.
+- **Coding: 89/100.** SWE-bench Verified 88.9% (new data, at frontier), LiveCodeBench (Vals) 89.5% (near ≥90 frontier), SWE-bench (Vals) 80.0%, DeepSWE 73.8% (just below 74% frontier), VulcanBench not listed, AA Coding Index 76.3%, AA-SciCode 56.6% (≥55% frontier). Capped by Vibe Code Bench 14.3%, CursorBench 4.0 39.6%, FrontierSWE v2 19.6%.
 - **Cost efficiency: 95/100.** Free on Google AI Studio / unpaid quota, with a cheap paid intro ($0.75/$3.75/M).
-- **Overall Score: 88/100.** Mean of the five quality dimensions; best-in-class agentic Terminal-Bench at free-tier access.
+- **Overall Score: 89.4/100.** Half-up mean: (90+80+96+92+89)/5 = 447/5 = 89.4 → 89. **Best-fit:** cost-efficient coding/agentic Flash workhorse with elite reasoning benchmarks (GPQA-D 95.3%, ARC-AGI-1 98.50%) and strong coding (SWE-bench Verified 88.9%, LiveCodeBench 89.5%); cap: Intelligence Index revised from 59 to 40.9 (v4.3.2 methodology as model pool grew 230→889), poor TB-4.0 19.1% and GDP.pdf 21.0%. Free on Google AI Studio.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-09-20
-- Method: Independent public web research (HokAI, Google DeepMind model card, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3-8-flash` for overall rank/score (#12/889, 73.17) and 49 benchmark rows including GPQA-D 95.3%, TB-2.1 89.4%, DeepSWE 73.8%; AA model page `https://artificialanalysis.ai/models/gemini-3.8-flash` for Intelligence Index 40.9, pricing $0.75/$3.75; Google DeepMind model card for TB-2.1, MRCR 97.0%, multimodal benchmarks). Zero-influence: did not read peer `*.md` findings files during research.
+- Key revision: Intelligence Index revised from 59 (Sep 20, pre-v4.3.2) to 40.9 (Oct 10, v4.3.2 methodology update as model pool grew from 230 to 889); BenchLM overall revised from 75.9 (#6/230) to 73.17 (#12/889); GPQA-D added at 95.3% (≥95 frontier); SWE-bench Verified confirmed at 88.9%.
+- Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash_Cyber.md`, using the same headings.
 
 ---

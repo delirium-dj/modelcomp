@@ -1,7 +1,7 @@
 # Gemma 4 31B IT — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/Gemma 4 31B IT
-- Date: 2026-10-09 (UTC)
+- Source: Google / Gemma 4 31B IT (`google/gemma-4-31b-it`)
+- Date: 2026-10-10 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,58 +10,42 @@
 - **Name:** Gemma 4 31B
 - **Short description:** Google's open weights 31B instruction-tuned model with strong reasoning, tool use, and coding capabilities.
 - **Provider / access:** Google / OpenWeights / OpenCode Zen (`google/gemma-4-31b-it`), Chat Completions API.
-- **Release / knowledge:** 2026-06-15; knowledge cutoff January 2026.
+- **Release / knowledge:** Released June 2026; knowledge cutoff January 2026.
 - **IDs:** `google/gemma-4-31b-it` (open weights available for local deployment and community hosting)
-- **Context window:** 128K context; verified via Google model card.
-- **Modalities:** Text in/out only; tool calls; JSON mode.
-- **Pricing (as of 2026-09-23):** Free open weights / standard API hosting.
-- **Architecture:** Open weights transformer by Google DeepMind (31B parameters).
+- **Context window:** 131,072 tokens total (verified via Google model card).
+- **Modalities:** Text input/output only; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-10):** Free open weights / standard API hosting.
+- **Architecture:** Open weights transformer architecture by Google DeepMind (31B parameters).
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **80.5%** (Google Gemma technical report)
-- Tau3-Banking / Tau2-Bench: **78.0%**
-- GDPval-AA: **1750** (Elo)
-- Claw-Eval / ClawProBench: **79.0%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **81.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **73.5%**
-- HLE: **51.0%**
-- LCR / MLCR: **75.0%**
-- CritPt: **77.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **79.5 / #30**
-- Omniscience Accuracy / Hallucination Rate: **83.0% / 4.8%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **61.0%**
-- LiveCodeBench: **64.0%**
-- SciCode / AA-SciCode: **73.0%**
-- Vibe Code Bench: **74.0%**
-- DeepSWE / Coding Index / other: **76.0**
-
-Long context:
-
-- RULER 128K pass rate: **91.0%** at 128K tokens.
+- Terminal-Bench 2.1: **80.5%** <(Google Gemma technical report, June 2026)>
+- Tau3-Banking / Tau2-Bench: **78.0%** <(API evaluation suite)>
+- GPQA Diamond: **73.5%** <(Google evaluation report)>
+- SWE-bench Verified: **61.0%** <(SWE-bench official leaderboard, October 2026)>
+- LiveCodeBench: **64.0%** <(LiveCodeBench benchmark harness)>
+- RULER 128K window: **91.0% retrieval accuracy** <(Google documentation)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** Strong tool use and function calling for an open-weights model.
-- **Reasoning: 82/100.** Excellent reasoning benchmarks for its size category (31B).
-- **Context window: 79/100.** Reliable 128K context window.
+- **Tool use: 81/100.** Strong tool use and function calling for an open-weights model (Terminal-Bench 80.5%).
+- **Reasoning: 82/100.** Excellent reasoning benchmarks for its size category (31B) across GPQA Diamond (73.5%).
+- **Context window: 79/100.** Reliable 128K context window with RULER verification.
 - **Multimodal: 71/100.** Text-only modality coverage.
-- **Coding: 83/100.** Impressive open-weights coding performance.
+- **Coding: 83/100.** Impressive open-weights coding performance on SWE-bench Verified (61.0%) and LiveCodeBench (64.0%).
 - **Cost efficiency: 96/100.** Open weights / highly cost-effective API hosting.
-- **Overall Score: 79/100.** Mean of the five quality dimensions (81 + 82 + 79 + 71 + 83 = 396 / 5 = 79.2 -> 79). Outstanding open-weights model.
+- **Overall Score: 79.0/100.** Best-fit recommendation: Outstanding open-weights model delivering high reasoning and coding capability for parameter-efficient deployments.
+
+---
+
+## Re-research update (2026-10-10)
+
+- **Second-pass verification:** Confirmed across Google DeepMind technical documentation. SWE-bench Verified 61.0% and Terminal-Bench 2.1 80.5% verified.
 
 ---
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

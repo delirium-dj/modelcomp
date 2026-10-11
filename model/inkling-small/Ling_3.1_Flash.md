@@ -62,7 +62,7 @@ Long context:
 
 - **Tool use: 70/100.** MCP Atlas 79.6% and BrowseComp 77.4% are strong, but Toolathlon 54.4%, Terminal-Bench 2.1 ~55–65% and especially Tau3-Banking 15.5% (vs Inkling 23.7%) cap the score.
 - **Reasoning: 72/100.** GPQA Diamond 89.5%, AIME 95.5% and HMMT 90.2% are excellent, but HLE text-only 31.6%, ARC-AGI-2 40.1%, CritPt 8.3% and AA-Omniscience −9 (57% hallucination rate) drag it down.
-- **Context window: 80/100.** 1M-token advertised window with AA-LCR 75.7% measured long-context reasoning; some providers serve only 524K.
+- **Context window: 80/100.** 1M-token advertised window (the weights' maximum) with AA-LCR 75.7% measured long-context reasoning; served routes span 256K (Tinker's hosted beta inference) to 1M, with several providers at 524,288 and some at 262,144 — see the 2026-10-11 section.
 - **Multimodal: 78/100.** Native text/image/speech input with MMMU Pro 74.0%, CharXiv 77.4–81.3% and MedScribe 84.1%; Vals Multimodal Index 50.1 is only mid-field; text-only output.
 - **Coding: 75/100.** SWE-bench Verified 80.2% and LiveCodeBench 85.9% beat the larger Inkling, but SciCode 48.7%, Vibe Code Bench 19.1% and Terminal-Bench 4.0 ~0–1% are serious caps.
 - **Cost efficiency: 85/100.** $0.30/$1.20 per 1M (Tinker) with Apache 2.0 weights — one of the cheapest frontier-adjacent open-weights options; self-hosting needs ≥180GB VRAM (NVFP4).

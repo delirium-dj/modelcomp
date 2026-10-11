@@ -47,7 +47,7 @@ Coding:
 - SciCode: **47.1%** (AA) — under the 55% reference
 - AA Coding Index: **58.6** — under the 70% reference
 - Terminal-Bench Hard: **42.4%**; KernelBench Hard: **28.8%** (Opus 4.7 30.7, GPT-5.5 20.9); VIBE V2: **50.1%**; SVG-Bench: **63.7%** — #1 in its table; WebDev Arena: **1488** (Epoch)
-- DeepSWE / SWE-bench Verified / LiveCodeBench: no verified public score found
+- DeepSWE: **13.3%** pass@1 strict (15/113; 16.8% extended incl. 4 over-budget passes — independent entrpi run, unmodified mini-swe-agent, air-gapped; GPT-5.5 xhigh 70%, Opus 4.7 max 54%, Kimi K2.6 24%); SWE-bench Verified 75.0% (vals.ai, #17 of 82) and LiveBench Coding 68.2 — see the 2026-10-08 section; LiveCodeBench 82.2% vendor-published via a single blog (unconfirmed by vals.ai/AA — flagged, not adopted)
 
 Long context / multimodal:
 
@@ -60,9 +60,9 @@ Long context / multimodal:
 - **Reasoning: 78/100.** GPQA Diamond 92.9% (AA) clears the 90%+ frontier band and IFBench 82.9% supports, but HLE 39.0% sits just under the 40%+ bar, CritPt 3.7% and AA-Omniscience (16.7% accuracy) are very weak, and the AA Intelligence Index of 29.2 is dragged down by the new agentic evals.
 - **Context window: 95/100.** 1M-token window (MSA sparse attention at ~1/20 the per-token compute) with AA-LCR 83.0%; no ≥98%-at-512K+ retrieval figure, so 100 is not justified.
 - **Multimodal: 81/100.** text/image/video in with text out — the +video/PDF band (75–90), with SVG-Bench 63.7% (#1), VIBE V2 50.1%, MMMU-Pro ~80% (AA; level with GPT-5.5 xhigh 79.9%) and the Vals Multimodal Index of 59.97% (#6 of 48, top open-weights) supporting.
-- **Coding: 72/100.** SWE-bench Verified 75.0% (vals.ai, #17 of 82), SWE-bench Pro 59.0% (edging GPT-5.5), SVG-Bench 63.7% (#1) and LiveBench Coding 68.2 are solid, but Terminal-Bench 2.1 is under the 85% bar in every read (66.0% vendor / 53.56% vals.ai), SciCode 47.1% is under the 55% reference, the AA Coding Index of 58.6 is under the 70% bar, and Terminal-Bench Hard 42.4% is weak; DeepSWE is unpublished.
+- **Coding: 71/100.** SWE-bench Verified 75.0% (vals.ai, #17 of 82), SWE-bench Pro 59.0% (edging GPT-5.5), SVG-Bench 63.7% (#1) and LiveBench Coding 68.2 are solid, but Terminal-Bench 2.1 is under the 85% bar in every read (66.0% vendor / 65.2% AA / 53.56% vals.ai), SciCode 47.1% is under the 55% reference, the AA Coding Index of 58.6 is under the 70% bar, Terminal-Bench Hard 42.4% is weak, and the independent DeepSWE run of 13.3% pass@1 (mini-swe-agent; GPT-5.5 70%, Kimi K2.6 24%) plus FrontierCode 14.7% cap the long-horizon agentic half; a vendor-published LiveCodeBench 82.2% (single-blog sourcing, unconfirmed) is flagged but not adopted.
 - **Cost efficiency: 93/100.** $0.30/$1.20 per 1M list ($0.23/$0.96 OpenRouter, $0.28/$1.10 DeepInfra, AA blended $0.222/M) sits between the ~97–99 ($0.10/$0.20) and ~88 ($1.25/$4.25) anchors; the 512K–1M API tier ($1.20/$4.80) is the premium.
-- **Overall Score: 80/100.** (76+78+95+81+72)/5 = 80.4 → 80 — a cheap open-weight 1M multimodal model with frontier GPQA (92.9%), τ²-Bench 88.9% and BrowseComp 83.5%; the agentic-coding half (TB2.1 53.6–66.0%, SWE-bench Pro 59.0%, SciCode 47.1%, Coding Index 58.6) and the AA Intelligence Index of 29.2 are the gaps.
+- **Overall Score: 80/100.** (76+78+95+81+71)/5 = 80.2 → 80 — a cheap open-weight 1M multimodal model with frontier GPQA (92.9%), τ²-Bench 88.9% and BrowseComp 83.5%; the agentic-coding half (TB2.1 53.6–66.0%, SWE-bench Pro 59.0%, SciCode 47.1%, Coding Index 58.6, DeepSWE 13.3% independent) and the AA Intelligence Index of 29.2 are the gaps.
 
 ---
 
@@ -79,8 +79,25 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: Coding 72→71, Overall unchanged at 80** — the independent DeepSWE run fills the last unpublished coding row and it is the weakest long-horizon read in the file; Tool use 76 / Reasoning 78 / Context 95 / Multimodal 81 / Cost 93 unchanged:
+
+- **DeepSWE (independent, entrpi, 2026-06-02): 13.3% pass@1 strict** (15/113 tasks; 16.8% extended including 4 passes that only arrived past the 90-minute working budget) through the unmodified mini-swe-agent loop on MiniMax's own Anthropic-compatible API, air-gapped Modal sandboxes — M3 was absent from Datacurve's official rows, so this is an independent measurement, not an official entry. Context: GPT-5.5 xhigh 70%, GPT-5.4 xhigh 56%, Opus 4.7 max 54%, Sonnet 4.6 high 32%, Gemini 3.5 Flash medium 28%, Kimi K2.6 24%, MiMo-V2.5-Pro 19%, GLM-5.1 18%, M3 13.3%, Gemini 3.1 Pro 10%, DeepSeek V4 Pro 8%. By language: TypeScript 17.1%, Go 11.8%, Python 8.8%, Rust 0%, JavaScript 40%. Failure profile: M3 rarely goes silent (almost always submits a patch); most losses are precision misses on the new behavior; of 94 non-passes, 35 were near-misses (≥90% of new-behavior tests passed) and the median failed attempt still passed 79% of new tests. Resource profile: a median 80K output tokens and 325 agent steps per task — "strikingly token-hungry and iterative" — with a synthesized median cost of $7.48/task at list prices, so the cheap per-token rate does not translate into cheap long-horizon runs.
+- **FrontierCode: 14.7%** (weighted score, Main — official per evals.report) — a second weak long-horizon coding row.
+- **Terminal-Bench 2.1 now has three reads:** 66.0% (vendor, Terminus 2, 8C16G/2h/128K-out), **65.2%** (AA independent, as of 2026-08-03 per ThePlanetTools) and 53.56% (vals.ai, #12 of 54) — the AA read corroborates the vendor figure; the vals.ai outlier sits 12+ points below both.
+- **AA Intelligence Index version ladder:** 55 (launch-era, AA article 2026-06-08: "once the weights are released, it will be the leading open weights model", ahead of Kimi K2.6 and MiMo-V2.5-Pro at 54) → **45** on v4.1.1 (AA model page, 27 of 597 models) → **29** on v4.3.2 (current; #15 of 113 per the 2026-10-08 section). The three numbers are different index versions, not a regression.
+- **Full v4.3.2 component set reconciled** (AA comparison tables): AA-Briefcase v1.1 **1091** (the file carried 1090), GDPval-AA v2.1 **1242** (the file carried 1230 — the AA page was updated between snapshots; both noted), AutomationBench-AA 21%, TB 4.0 2%, SciCode 47%, HLE 39%, GDP.pdf 10%, CritPt 4%, AA-Omniscience **1** (composite; the accuracy/non-hallucination split is 16.7%/81.6%), AA-LCR v1.1 83%. Peer context: Kimi K3 Max 44, Gemini 3.1 Pro Preview 30, Gemini 3 Pro high 28* (est.), Hy3 42 (v4.1.1), Qwen3 Max 16* (est.).
+- **Serving profile (AA):** 96.6–97 tok/s (vs the vendor's 179 t/s claim — different routes/measurements), TTFT 1.47–1.73s, time-to-first-answer 22.17s, end-to-end 27.35s, reasoning time 21.80s, $0.51 per Index task, $538 to run the full Intelligence Index, 117M output tokens on the Index run (the AA model page elsewhere says 89M — an internal AA discrepancy, flagged). AA's provider page lists the context window as 512K (the guaranteed minimum) while the model page lists 1M — the serving nuance the 2026-10-08 section documented.
+- **New rows:** Design Arena Elo **1321** (verified); SWE-fficiency **34.8%** and PostTrainBench **0.37** (Opus 4.7 0.42, GPT-5.5 0.39) confirmed via the official recap (Tabbit); LMArena Elo **1436** across 29,879 votes (as of 2026-08-03); DataLLM Lab's executed 9-task coding harness: **9/9** at $0.90/1,000 tasks, 13.4s avg latency, ~623 reasoning tokens/task (second-most behind DeepSeek V4-Pro), plus a 4/4 first-party vision probe; OSWorld 70.1% (evals.report, unverified — vs the vendor's 70.06%).
+- **License conflict (flagged, unresolved):** AA's spec table says the MINIMAX COMMUNITY LICENSE "supports commercial use without restrictions: Yes"; AIFoss's self-hosting guide says the license "blocks commercial use without a separate agreement". The open-weights/commercial-use claim is therefore source-dependent — treat the "commercial use allowed" line in the model card as AA's classification, not settled fact.
+- **Source-quality note:** an Archyde "hands-on review" (2026-06-10) describes a "Neural Program Synthesis" architecture, 42B parameters, an Apache 2.0 license and a Berlin-based "MiniMax Labs" — all contradicted by the technical report and AA (428B/23B MSA MoE, MINIMAX COMMUNITY LICENSE, Chinese company). It reads as AI-generated filler and was excluded from scoring.
+- Score impact: Coding 72→71 (independent DeepSWE 13.3% + FrontierCode 14.7% cap the long-horizon agentic half; the vendor-published LiveCodeBench 82.2% is flagged but not adopted — single-blog sourcing, unconfirmed by vals.ai/AA); Overall stays 80 ((76+78+95+81+71)/5 = 80.2 → 80).
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (MiniMax M3 model page, Artificial Analysis, OpenRouter, themodelbeat, Epoch AI, binaryverseai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (MiniMax M3 model page + technical report, Artificial Analysis, OpenRouter, themodelbeat, Epoch AI, binaryverseai, DeepSWE/Datacurve, entrpi independent run, evals.report, ThePlanetTools, Tabbit, DataLLM Lab, AIFoss, thevibefather); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

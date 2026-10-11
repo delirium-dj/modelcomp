@@ -70,8 +70,22 @@ Safety (Meta Advanced AI Scaling Framework): pre-mitigation, the "high risk" thr
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: none.** Tool use 77 / Reasoning 76 / Context 95 / Multimodal 92 / Coding 78 / Cost 88 / Overall 84 all unchanged — the new reads are version-ladder documentation and third-party Terminal-Bench 2.1 reads that bracket the existing anchors:
+
+- **AA Intelligence Index version ladder:** 43 (Muse Spark 1.0, launch-era) → **51** (1.1 xhigh, AA's pre-release evaluation, 2026-07-10 — AA "supported Meta with pre-release evaluation") → **34** (xhigh, current v4.3.2; #36 of 143 per Tokens or Towers; 170M output tokens on the Index run — "very verbose" vs the 82M median). The drop from 51 to 34 is the index rebase (v4.3.2 added AA-Briefcase, AutomationBench, TB 4.0 and GDP.pdf, and dropped GPQA, τ³-Banking and TB 2.1), not a model change. Full v4.3.2 component set (xhigh): AA-Briefcase v1.1 **848–851**, GDPval-AA v2.1 **1210–1215**, AutomationBench-AA **39%**, Terminal-Bench 4.0 **6%** (new row — the file had none), SciCode **59%**, HLE **46%**, GDP.pdf **14%**, CritPt **15%**, AA-Omniscience **28** (up from 18 on the launch-era version), AA-LCR v1.1 **78%**. Peer context: Claude Fable 5 (Max) 50, Claude Opus 4.8 (Max) 42, Hy3-preview 23* (est.), Grok Build 0.1 27* (est.).
+- **Terminal-Bench 2.1 now has four reads:** 80.0% (Meta self-report, mini-swe-agent, xhigh) / **77.9%** (AA independent, xhigh, observed 2026-09-15) / **76.2% ±1.2%** (Terminal-Bench's own verified board, #8 of 27, $198.05 total cost, 445 scored trials, 687s avg duration, 0.0% reward-hack rate, **$0.58 per solved task** — second-cheapest in the verified top 10) / **69.29% ±0.99** (Vals AI independent rerun, #30 of 75). sdd.sh flags that a Hacker News commenter alleged Meta's self-report exceeded the benchmark's defined resource limits (Meta hasn't addressed it) and notes this is the fourth vendor self-report in the cycle to fail independent reproduction; kingy.ai: "the upper bound of the verified figure is 77.4%. Meta's published number sits 2.6 points above that." The file keeps the verified 76.2% as the Tool-use anchor.
+- **Vals Index: 54.75% ±1.15** — **#14 overall**, narrowly behind GPT 5.5 (57.41%); at $1.25/test it is the fourth-lowest-cost model in the top 20, and it averaged 827.8s on the index, roughly 2–4× faster than the top three models.
+- **New rows:** WebArena-Verified **69%**, DeepSearchQA **84.9%** (beats Gemini 3.1 Pro's 69.7%), OSWorld 2.0 **14.2%** (the newer OSWorld version — a weak row alongside OSWorld-Verified 80.8%), SWE Atlas sub-scores (Test Writing 41.5%, Codebase QnA 42.2%), WebDev Arena **1539.84** (rank 23 of 105), AA Agentic Index **27.5%**, GDPval-AA **35.7%** (AA's percentage read; the Meta report's Elo read is 1375), TB 2.1 verified pass@k curve (pass@2 82.9% → pass@5 91.0%).
+- **Cost corroboration:** $1.38 per AA Index task (vs Opus 4.8's $4.08), $1,737 to run the full Intelligence Index (vs Opus 4.8's $6,874), and $0.58 per solved Terminal-Bench task — the second-cheapest per-solve in the verified top 10 (only Grok 4.5's $0.38 is lower).
+- **Successor note:** Muse Spark 1.2 (August 2026) — Meta claims TB 2.1 82.9% and DeepSWE 1.1 59.3% (2nd behind Opus 5 in its own table); AA's independent read is ~80% and Vals' common-harness leaderboard ranks it 14th; the highest independently verified TB 2.1 score remains Claude Fable 5 in Claude Code at 83.8%. The verification-gap pattern continues across the family — treat Meta's self-reports as marketing claims until rerun.
+- Score impact: none. The four TB 2.1 reads bracket the file's 76.2% verified anchor; the v4.3.2 components (HLE 46%, SciCode 59%, AA-Omniscience 28, AA-LCR 78%) are consistent with the carried figures; TB 4.0 6% and AutomationBench 39% reinforce the existing agentic caps rather than moving a band.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Meta Muse Spark 1.1 evaluation report + launch posts, Meta Model API docs, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Meta Muse Spark 1.1 evaluation report + launch posts, Meta Model API docs, Artificial Analysis, Vals AI, Terminal-Bench verified board, sdd.sh, kingy.ai, BenchLM, AI Release Tracker, AI Atlas); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1_1.md`, using the same headings.

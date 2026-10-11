@@ -29,7 +29,7 @@ Agent / tool use (Qwen official table unless noted):
 - GDPval-AA: **1066 Elo** / **28.3%** (AA's own run) — mid-tier
 - Gert Labs: **50.60%**; ResearchClawBench: **18.0%**; SkillsBench: **45.7%** (#10 of 12); SaaSBench: **6.0%** (#8 of 8); SaaS-Bench: **29.9%** (#6 of 15)
 - Terminal-Bench 2.0: **61.6%** (Harbor/Terminus-2, 3h timeout, avg of 5 runs; #15 of 68); Terminal-Bench 2.1: **61.4%** (#51 of 182) / Vals: **53.2%**; Terminal-Bench Hard: **43.9%**
-- Agents' Last Exam / GDPval-AA v2: no verified public score found
+- Agents' Last Exam: **8.6%** (BenchmarkList, rank 38 of 41 — very weak; see the 2026-10-08 update); GDPval-AA v2: no verified public score found
 
 Reasoning / knowledge:
 
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - SuperGPQA: **71.6%**; MMLU-Pro: **88.5%** (Vals: 87.7%); MMLU-Redux: **94.5%**; C-Eval: **93.3%**
 - FrontierMath Tier 4: **41%** (AA)
 - AA Intelligence Index: **27.0** (new TB4.0/AutomationBench-heavy revision); AA-Omniscience: Index **0.9%**, Accuracy **26.4%**, Hallucination Rate **34.6%** — very weak
-- AIME 2026 (full I & II): reported by Qwen but figure not captured
+- AIME 2026 (full I & II, OTIS Mock): **90.6%** (official); SimpleQA Verified: **49.1%** (official); FrontierMath: **26.21%** (official overall split — vs AA's Tier 4 read of 41%; different splits, both kept)
 
 Coding:
 
@@ -48,7 +48,7 @@ Coding:
 - AA Coding Index: **54.5%**; AA-SciCode: **40.7–41.4%** (#5 of 12)
 - Vibe Code Bench: **25.56%** (#36 of 71); NL2Repo: **37.9%**; OpenHands Index: **52.9%** (#12 of 26)
 - PBT-Bench: **78.0%** (#2 of 8); CUDABeaver: **23.0%** (#2 of 6); PerfCodeBench: **56.5%**; WebDev Arena: **1460** (#46); ALE-Bench: **670**; Code Migration: **11.1%**; FrontierSWE: **13.82**; Kernel Bench L3: **48.0%**
-- DeepSWE: no verified public score found
+- DeepSWE: **2.65%** (evals.report, official-reported) / **3.0%** (rankedagi) — a hard cap, far below the file's other coding rows
 
 Long context / multimodal:
 
@@ -57,13 +57,13 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 71/100.** τ²-bench 97.7% (#7 of 321), MCP Atlas 74.1% and WideResearch 74.3% are strong, but Terminal-Bench 2.1 61.4% (just above the mid band, under the 88% frontier bar), GDPval-AA 1066 Elo (mid-tier), Toolathlon 39.8% and SaaSBench 6.0% cap the score.
-- **Reasoning: 73/100.** GPQA 90.4% (official) clears the 90%+ frontier bar and HLE-with-tools 50.6% clears the 40%+ bar, but HLE no-tools 28.8%, the AA Intelligence Index of 27.0, FrontierMath T4 41% and AA-Omniscience (0.9% index, 26.4% accuracy) cap the score; MMLU-Pro 88.5% supports.
+- **Tool use: 71/100.** τ²-bench 97.7% (#7 of 321), MCP Atlas 74.1% and WideResearch 74.3% are strong, but Terminal-Bench 2.1 61.4% (just above the mid band, under the 88% frontier bar), GDPval-AA 1066 Elo (mid-tier), Toolathlon 39.8%, SaaSBench 6.0%, AutomationBench 4.3% and Agents' Last Exam 8.6% cap the score.
+- **Reasoning: 73/100.** GPQA 90.4% (official) clears the 90%+ frontier bar, HLE-with-tools 50.6% clears the 40%+ bar, and AIME 2026 (OTIS Mock) 90.6% supports, but HLE no-tools 28.8%, the AA Intelligence Index of 27.0, FrontierMath T4 41% (26.21% on the official overall split) and AA-Omniscience (0.9% index, 26.4% accuracy) cap the score; MMLU-Pro 88.5% supports.
 - **Context window: 95/100.** 1M-token window with `preserve_thinking` for multi-turn agent sessions; no ≥98% retrieval-at-512K+ figure, so 100 is not justified.
 - **Multimodal: 82/100.** image/text/video in with text out — the +video/PDF band (75–90), with MMMU 86.0% and MMMU-Pro 78.8% near the top of the band.
-- **Coding: 74/100.** SWE-bench Verified 78.8% and LiveCodeBench v6 87.1% are strong, but Terminal-Bench 2.1 61.4% (under the 85% bar), AA-SciCode 40.7–41.4% (under the 55% reference), AA Coding Index 54.5% (under the 70% reference) and Vibe Code Bench 25.6% cap the score; SWE-bench Pro 56.6% is mid-tier and DeepSWE is unpublished.
+- **Coding: 74/100.** SWE-bench Verified 78.8% and LiveCodeBench v6 87.1% are strong, but Terminal-Bench 2.1 61.4% (under the 85% bar), AA-SciCode 40.7–41.4% (under the 55% reference), AA Coding Index 54.5% (under the 70% reference), Vibe Code Bench 25.6% and DeepSWE 2.65–3.0% (a near-zero read, far below every other coding row) cap the score; SWE-bench Pro 56.6% is mid-tier.
 - **Cost efficiency: 92/100.** $0.50/$3.00 per 1M (≤256K international list; $0.276/$1.651 in other regions, $0.325/$1.95 discounted) interpolates to ~92 between the ~97 ($0.10/$0.20) and ~88 ($1.25/$4.25) anchors; the 256K–1M tier ($2/$6) is the caveat.
-- **Overall Score: 79/100.** (71+73+95+82+74)/5 = 79.0 — a cheap multimodal agent with elite τ²-bench (97.7%) and strong SWE-bench Verified/LiveCodeBench, held down by mid-tier Terminal-Bench 2.x (~61%), weak GDPval-AA (1066) and a low composite intelligence index (27.0).
+- **Overall Score: 79/100.** (71+73+95+82+74)/5 = 79.0 — a cheap multimodal agent with elite τ²-bench (97.7%) and strong SWE-bench Verified/LiveCodeBench, held down by mid-tier Terminal-Bench 2.x (~61%), weak GDPval-AA (1066), a near-zero DeepSWE (2.65–3.0%) and a low composite intelligence index (27.0).
 
 ---
 
@@ -79,8 +79,25 @@ BenchmarkList, Shawn Hack and AA's comparison pages filled the gaps; **no score 
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**No score change: Tool use 71 / Reasoning 73 / Context 95 / Multimodal 82 / Coding 74 / Cost 92 / Overall 79** — the DeepSWE gap is filled at a near-zero 2.65–3.0% (a new hard cap that confirms, rather than changes, the Coding band), and the uncaptured AIME figure landed at 90.6%:
+
+- **DeepSWE: 2.65% (evals.report, official-reported, Apr 2) / 3.0% (rankedagi).** A near-zero read on the agentic-coding benchmark where the file's other rows are mid-tier (TB 2.1 61.4%, AA Coding Index 54.5%, SciCode 41.4%, Vibe Code 25.6%) — consistent with the weak agentic cluster (AutomationBench 4.3%, Agents' Last Exam 8.6%, SaaSBench 6.0%, Long-Horizon Terminal-Bench 0.31%). Treated as a hard cap on Coding; the SWE-bench Verified 78.8% / LiveCodeBench 87.1% pair keeps the score at 74.
+- **AIME 2026 (full I & II, OTIS Mock): 90.6% (official)** — fills the "reported but not captured" gap; a second 90%+ reasoning row alongside GPQA 90.4%.
+- **New official rows:** SimpleQA Verified **49.1%** (factuality — mid); FrontierMath **26.21%** (official overall split — vs AA's Tier 4 read of 41%; different splits, both kept, the official overall is the weaker read).
+- **Independent SWE-bench Verified spread:** 78.8% (Qwen's in-house scaffold: bash + file-edit tools, temp 1.0/top_p 0.95, 200K context) / 76.9% (genailist) / 73.4% (Vals) / **57.9% (evals.report — a 21-point outlier below the 73.4–78.8% consensus cluster; flagged, not adopted)**. Harness choice moves this benchmark by ~2–5 points.
+- **Evaluation protocols (Alibaba Cloud community blog):** SWE-bench Pro evaluated on a corrected/refined task set with all baselines re-run; Terminal-Bench 2.0 via Harbor/Terminus-2 (3h timeout, 32 CPU/48 GB RAM, temp 1.0/top_p 0.95/top_k 20, max_tokens 80K, 256K ctx, avg of 5 runs); Claw-Eval temp 0.6; SkillsBench = Claude Opus 4.5 from the official leaderboard (87 tasks) + OpenCode on a self-contained 78-task subset (avg of 5 runs); NL2Repo = Claude Opus 4.5 from the official leaderboard + Claude Code (max_turns 900); QwenClawBench = internal real-user-distribution Claw benchmark (open-sourcing soon); QwenWebBench = internal bilingual 7-category front-end benchmark (auto-render + multimodal judge, BT/Elo); τ³-Bench uses the official user model (gpt-5.2, low effort) + default BM25 retrieval; VITA-Bench judged with claude-4-sonnet (the official claude-3.7-sonnet judger is unavailable); MCPMark Playwright responses truncated at 32K tokens; MCP-Atlas public-set score with a gemini-2.5-pro judger; HLE w/ tool = 256K ctx + context-folding (prunes older tool responses on threshold breach); WideSearch prunes ≥49,152 tool tokens when >208,896 used; HLE-Verified (a verified, revised HLE with a component-wise verification protocol and error taxonomy) open-sourced at skylenage/HLE-Verified; MMLU-ProX = 29-language average; WMT24++ = harder 55-language subset via XCOMET-XXL; MAXIFE = EN + multilingual (23 settings).
+- **Rank drift:** Sophon now ranks τ²-bench #9 of 321 (was #7); SWE-bench Pro 55.7% (#17 of 24, genailist) vs 56.6% (#34 of 49) — snapshot drift, both noted.
+- **Weak-provenance rows (flagged, not adopted):** a Korean-source security read of 43.3% and a 26.5% code-reasoning hallucination rate (via Devlery) — single-source, methodology not captured.
+- **Still open:** AA's Terminal-Bench 4.0 component value (inside the Index 27.0) did not render on captured pages — BenchmarkList's "Long-Horizon Terminal-Bench 0.31%" (2026-10-08 update) is the only TB 4.0-adjacent read and is flagged as likely TB 4.0 but unconfirmed; the GDPval-AA v2 row, the MCP-Atlas/MCPMark/MCP-Tasks naming conflict and the knowledge cutoff remain unresolved.
+- **Availability note:** the preview was free through OpenRouter and Qwen Code at launch (Devlery).
+- Score impact: none — DeepSWE 2.65–3.0% confirms the Coding cap band; AIME 90.6% supports but doesn't clear the Reasoning caps (HLE no-tools 28.8%, Index 27.0). Overall stays 79.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Alibaba Cloud Model Studio docs, Qwen launch blog + methodology, BenchLM, BenchmarkList, Sophon, Together, Vector Wire); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Alibaba Cloud Model Studio docs, Qwen launch blog + methodology, Alibaba Cloud Community, evals.report, rankedagi, genailist, Devlery, BenchmarkList, Sophon, Shawn Hack, BenchLM, Together, Vector Wire); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_6_Plus.md`, using the same headings.
