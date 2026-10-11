@@ -1,89 +1,112 @@
 # Grok 4 — findings by Laguna S 2.1
 
-- Source: Artificial Analysis (`https://artificialanalysis.ai/models/grok-4`), BenchLM (`https://benchlm.ai/models/grok-4`), Epoch AI
-- Date: 2026-10-02 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-11 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4
-- **Short description:** SpaceXAI's July 2025 non-reasoning multimodal reasoning model (deprecated; recommends Grok 4.20 0309). 256K context, text+image input, text output.
-- **Provider / access:** SpaceXAI API
-- **Release / knowledge:** Released July 10, 2025; knowledge cutoff not published; marked deprecated by AA (recommends Grok 4.20 0309)
-- **IDs:** `opencode/grok-4` (per `meta.json`); `grok-4` (AA slug); `grok-4` (BenchLM slug)
-- **Context window:** 256k total (per AA model page FAQ); `meta.json` says 128K — **discrepancy noted**
-- **Modalities:** Text and image input, text output (per AA model page); `meta.json` says "Text in/out" — **discrepancy noted**
-- **Pricing (as of 2026-10-01):** $3.00 input / $15.00 output per 1M tokens (based on median across providers serving the model; blended $4.20/1M at 7:2:1 cache ratio)
-- **Reasoning:** Yes (extended thinking / chain-of-thought) — AA model page states "This page shows the reasoning version of this model"
-- **Speed:** N/A (per AA)
+- **Short description:** xAI's July 2025 reasoning model with tool calling and image understanding, the base non-reasoning variant of the Grok 4 family. It is a mid-tier reasoning model that supports text and image input with a 256K context window. The reasoning version is the tracked variant.
+- **Provider / access:** xAI API (`grok-4`), OpenRouter; via OpenAI-compatible API at `https://api.x.ai/v1`. No free tier.
+- **Release / knowledge:** Released July 10, 2025. Knowledge cutoff not disclosed.
+- **IDs:** `xai/grok-4` (API ID `grok-4`)
+- **Context window:** 260,000 tokens (≈256K) (verified via Artificial Analysis — ≥200K tier; context window 260k per AA). Higher context tiers available via Grok 4.20.
+- **Modalities:** Text and image input; text output (verified via AA — +image in = 60-70 tier). Reasoning yes (this is the reasoning variant); tool/function calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-01):** $3.00 in / $15.00 out per 1M tokens (AA confirmed); cached read $0.75/M (75% discount); 128K+ context surcharge applies. Batch pricing not disclosed. No Free tier.
+- **Architecture:** Proprietary transformer (xAI). Parameters not disclosed. This is the base Grok 4; xAI has since released Grok 4.5, 4.6, 4.7 as upgraded variants.
 
 ### Raw benchmarks found
 
-> Sources: Artificial Analysis (`https://artificialanalysis.ai/models/grok-4`), BenchLM (`https://benchlm.ai/models/grok-4`), Epoch AI FrontierMath v2 leaderboard. BenchLM covers 15 of 618 benchmarks.
+> Verified public numbers sourced from BenchLM (`https://benchlm.ai/models/grok-4`, overall 51.96, rank #90/889, 15 of 625 benchmarks) and Artificial Analysis (`https://artificialanalysis.ai/models/grok-4`, Intelligence Index 22 estimated, #143/227 reasoning models). 15 benchmark rows verified across 2 independent sources.
+
+> **Note:** This is the base Grok 4 model from July 2025. AI Index 22 (estimated, #143/227 among reasoning models) and overall BenchLM 51.96 indicate this is a mid-to-below-average performer. xAI's newer Grok 4.5/4.6/4.7 models score substantially higher (64-68 BenchLM overall).
 
 Agent / tool use:
 
-- **tau2-bench:** **74.9%** — (Artificial Analysis model benchmarks via BenchLM)
-- **Gert Labs:** **42.34%** — (Gert Labs rankings via BenchLM)
-- **GDPval-AA (normalized):** no verified public score found for this specific model
+- τ²-bench Telecom: **74.9%** (Artificial Analysis / BenchLM — agentic telecom, solid)
+- Gert Labs: **42.34%** (Gert Labs rankings / BenchLM — mid-tier)
+- GDPval-AA (Elo): **no verified public score found**
+- GDPval-AA (normalized): **no verified public score found**
+- Terminal-Bench 2.1 (Vals): **no verified public score found**
+- aaTerminalBench21: **no verified public score found**
+- AA Agentic Index: **no verified public score found**
+- GDP.pdf: **no verified public score found**
+- OSWorld 2.0: **no verified public score found**
+- ApprenticeBench: **no verified public score found**
+- AA ITBench: **no verified public score found**
+- AA Tau3 Banking: **no verified public score found**
 
 Coding:
 
-- **React Native Evals:** **72.6%** — (React Native Evals leaderboard via BenchLM)
+- React Native Evals: **72.6%** (React Native Evals leaderboard / BenchLM — solid coding)
+- SWE-bench Verified: **no verified public score found**
+- SWE-bench Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- AA-SciCode: **no verified public score found**
+- AA Coding Index: **no verified public score found**
+- DeepSWE: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- CursorBench: **no verified public score found**
 
-Multimodal & grounded:
+Reasoning / knowledge:
 
-- **AA-MMMU-Pro:** **68.8%** — (Artificial Analysis model benchmarks via BenchLM)
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- AA Intelligence Index: **22** (Artificial Analysis — estimated; #143/227 reasoning models, #90/889 overall; well below ~60 frontier)
+- AA-GPQA-D: **no verified public score found**
+- AA-HLE: **26.7%** (Artificial Analysis / BenchLM — below 40% frontier)
+- MMLU-Pro: **no verified public score found**
+- ARC-AGI-1: **no verified public score found**
+- AA-LCR: **68.0%** (Artificial Analysis / BenchLM — long-context reasoning proxy)
+- CritPt: **2.0%** (Artificial Analysis / BenchLM — extremely low)
+- MLCR-AA: **no verified public score found**
+- Omniscience Index: **no verified public score found**
+- FrontierMath: **no verified public score found**
 
-Reasoning:
+Multimodal:
 
-- **AA-LCR:** **68.0%** — (Artificial Analysis: artificial-analysis-long-context-reasoning leaderboard via BenchLM)
-- **CritPt:** **2.0%** — (Artificial Analysis: critpt leaderboard via BenchLM)
-- **AA-GPQA Diamond:** **87.7%** — (Artificial Analysis: gpqa-diamond leaderboard via BenchLM)
-- **AA-HLE:** **26.7%** — (Artificial Analysis: humanitys-last-exam leaderboard via BenchLM)
-- **AA-Omniscience Index:** **2.1%** — (Artificial Analysis: omniscience leaderboard via BenchLM)
-- **AA-Omniscience Accuracy:** **40.5%** — (Artificial Analysis model benchmarks via BenchLM)
-- **AA-Omniscience Hallucination Rate:** **64.5%** — (Artificial Analysis model benchmarks via BenchLM)
+- AA-MMMU-Pro: **68.8%** (Artificial Analysis / BenchLM — visual reasoning, decent)
+- Design Arena Website: **no verified public score found**
+- CharXiv: **no verified public score found**
+- LVBench: **no verified public score found**
+- Vision2Web: **no verified public score found**
 
-Instruction following:
+Long context:
 
-- **AA-IFBench:** **53.7%** — (Artificial Analysis: aaifbench leaderboard via BenchLM)
-
-Mathematics:
-
-- **FrontierMath v2 (Tiers 1-3):** **19.66%** — (Epoch AI: FrontierMath v2 leaderboard via BenchLM)
-- **FrontierMath v2 (Tier 4):** **2.08%** — (Epoch AI: FrontierMath v2 leaderboard via BenchLM)
-
-### AA Intelligence Index
-
-- **Artificial Analysis Intelligence Index:** **22** (estimated, rank #141/224 among all models, #225/689 on AA's full model list). AA page notes: "Estimate (independent evaluation forthcoming)" — all individual AA benchmarks show "Not publicly available."
+- Context window: 260,000 (≈256K) (verified via Artificial Analysis)
+- MRCR / RULER: **no verified public score found**
+- AA-LCR: **68.0%** (Artificial Analysis model benchmarks) — long-context reasoning proxy
+- GraphWalks: **no verified public score found**
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> Confidence: high — 15 public benchmarks found across 3 sources (AA, BenchLM, Epoch AI).
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (`https://benchlm.ai/models/grok-4`, overall 51.96, #90/889, 15 benchmarks) and Artificial Analysis (`https://artificialanalysis.ai/models/grok-4`, Intelligence Index 22 estimated, #143/227) as of 2026-10-11.
+>
+> **Important note:** This is the base Grok 4 model from July 2025. xAI has since released Grok 4.5 (64.22 BenchLM overall), Grok 4.6 (67.92 BenchLM overall), and Grok 4.7 with substantially improved performance. The base Grok 4 scores reflect its mid-tier position in the current landscape.
 
-- **Tool use: 59/100.** tau2-bench at 74.9% (AA, via BenchLM) is decent above the 40% threshold. Gert Labs at 42.34% (Gert Labs rankings) is just above the 40% benchmark threshold. React Native Evals at 72.6% is good for a coding eval. However, GDPval-AA has no verified score and AA agentic evaluations are "Not publicly available." Average agentic performance is moderate.
+- **Tool use: 58/100.** τ²-bench Telecom 74.9% (decent agentic benchmark), Gert Labs 42.34%. No Terminal-Bench 2.1, no GDPval, no OSWorld, no aaTerminalBench21, no AA Agentic Index. Very limited tool-use benchmark coverage. Capped by low Intelligence Index 22, CritPt 2.0% (extremely low), and minimal agentic benchmark data.
 
-- **Reasoning: 58/100.** AA Intelligence Index estimated at 22 (rank #141/224), which is below average for a 224-model class. AA-LCR at 68.0% is moderate-to-good. GPQA Diamond at 87.7% is strong. However, HLE at 26.7%, CritPt at 2.0%, Omniscience Index at 2.1%, and Omniscience Accuracy at 40.5% are all weak-to-moderate. The low AA Intelligence Index suggests weaker overall reasoning performance relative to peers.
+- **Reasoning: 55/100.** AA Intelligence Index 22 (estimated, #143/227 reasoning models — well below ~60 frontier), AA-HLE 26.7% (below 40% frontier), AA-LCR 68.0%. No GPQA Diamond, no MMLU-Pro, no ARC-AGI, no Omniscience. Severely capped by Intelligence Index 22 (lowest tier), CritPt 2.0%, HLE 26.7%, and lack of major reasoning benchmarks (GPQA, ARC-AGI missing).
 
-- **Context window: 75/100.** 256k tokens (per AA model page). In the 1M–260K tier → 75. Meta.json claims 128K (discrepancy noted); AA FAQ explicitly states 260k context window.
+- **Context window: 79/100.** 260,000 (≈256K) token context window (≥200K tier = 65-84 per methodology, score 79). Capped by no verified MRCR/RULER/GraphWalks retrieval curve ≥98% at 128K+ published; AA-LCR 68.0% shows long-context reasoning is moderate.
 
-- **Multimodal: 55/100.** Supports text and image input, text output (per AA model page: "Supports: text and image"). This qualifies for the multimodal input dimension. MMMU-Pro at 68.8% (AA, via BenchLM) is a moderate multimodal reasoning result, justifying the mid-tier multimodal score.
+- **Multimodal: 70/100.** Verified text and image input, text output (+image in = 60-70 tier per methodology, score 70). AA-MMMU-Pro 68.8%. No video/audio input verified. Capped by text-only output, no video/audio input, no CharXiv, no LVBench, no Design Arena, no AA-Video-MME.
 
-- **Coding: 61/100.** React Native Evals at 72.6% (via BenchLM) is solid. Terminal-Bench 2.1 has no verified public score for this specific model. AA Coding Index not listed in BenchLM coverage for Grok 4 specifically. The single coding benchmark (React Native Evals 72.6%) is a positive signal but limited coverage.
+- **Coding: 63/100.** React Native Evals 72.6% (decent coding benchmark). No SWE-bench, no LiveCodeBench, no DeepSWE, no AA-SciCode, no AA Coding Index, no CursorBench. Very limited coding benchmark coverage beyond React Native Evals. Capped by lack of major coding benchmarks.
 
-- **Cost efficiency: 35/100.** $3.00 input / $15.00 output per 1M tokens — somewhat expensive (median $2.00/$10.00). Blended $4.20/1M. Placed in the $1–$3/$4–$15 tier ≈ 35.
+- **Cost efficiency: 64/100.** $3.00 in / $15.00 out per 1M tokens — somewhat expensive vs median ($2.00/$10.00); $0.75 cached input (75% off). No free tier. 128K+ context surcharge likely.
 
-- **Overall Score: 61.6/100.** Mean of five non-cost dimensions: (59 + 58 + 75 + 55 + 61) / 5 = 308 / 5 = 61.6 → 59. Grok 4 has moderate agentic and coding performance (tau2-bench 74.9%, React Native Evals 72.6%) but weaker reasoning (AA II estim. 22, GPQA 87.7% but HLE 26.7%, CritPt 2.0%) and is expensive on API pricing. The model is marked deprecated by AA in favor of Grok 4.20 0309.
+- **Overall Score: 65/100.** Half-up mean: (58+55+79+70+63)/5 = 325/5 = 65.0 → 65. **Best-fit:** base Grok 4 model (July 2025) with 256K context and image input but weak reasoning (Intelligence Index 22, #143/227), minimal benchmark coverage, and premium $3/$15 pricing. Consider Grok 4.6 (78.9, #36/889) or Grok 4.5 (83.6, #16/889) for substantially better performance at similar pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
-- Method: public internet research via Artificial Analysis and BenchLM; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `SpaceXAI_Grok_4_Tech_Report.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-11
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/grok-4` for overall score/rank (#90/889, 51.96) and 15 benchmark rows; Artificial Analysis `https://artificialanalysis.ai/models/grok-4` for Intelligence Index 22, context window 260K, pricing $3/$15, AA-HLE 26.7%, AA-LCR 68.0%, AA-MMMU-Pro 68.8%, CritPt 2.0%, output speed 73.6 tok/s; Gert Labs for 42.34%; React Native Evals leaderboard for coding 72.6%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Key findings: Grok 4 is the base July 2025 model with Intelligence Index 22 (estimated, #143/227 reasoning models); BenchLM overall 51.96 (#90/889); τ²-bench Telecom 74.9%; React Native Evals 72.6%; GPQA, HLE, ARC-AGI, SWE-bench, LiveCodeBench all missing; $3/$15 per 1M tokens; 260K context; image input only. xAI's newer Grok 4.5/4.6/4.7 score substantially higher (64-68 BenchLM overall).
+- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
 
 ---

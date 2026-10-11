@@ -1,7 +1,7 @@
 # GPT-5.1 — findings by Kimi K3
 
 - Source: OpenAI (`gpt-5.1`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** GPT-5.1
 - **Short description:** OpenAI's efficient-reasoning refresh of the GPT-5 series — adaptive thinking time, a new `reasoning_effort='none'` mode, apply_patch and shell tools, and 24h extended prompt caching; balanced for agentic and coding workloads.
 - **Provider / access:** OpenAI API (Responses + Chat Completions), all paid tiers; `gpt-5.1-chat-latest` for ChatGPT-parity; alongside `gpt-5.1-codex` / `gpt-5.1-codex-mini` variants optimized for long-running agentic coding in Codex-like harnesses. Also on Azure AI Foundry.
-- **Release / knowledge:** Released 2025-11-13 (official developer announcement).
+- **Release / knowledge:** Released 2025-11-13 (official developer announcement; OpenCode Data confirms); knowledge cutoff 2024-09-30 per the current OpenCode Data catalog (GPT-5-series cutoff, newly visible this pass — first pass had none).
 - **IDs:** `openai/gpt-5.1` (Responses API and Chat Completions). No Free ID exists on OpenCode Zen.
 - **Context window:** GPT-5 series window: 272K input tokens, up to 128K reasoning+output tokens, 400K total (per the GPT-5 developer post; GPT-5.1 announcement keeps the series platform spec).
 - **Modalities:** Text + image in; text out. Adaptive reasoning with `reasoning_effort` none/low/medium/high (default `none`); `verbosity`; custom plaintext tools (CFG-constrained); new `apply_patch` and `shell` tool types; parallel tool calling; Structured Outputs; web search in no-reasoning mode.
@@ -63,6 +63,6 @@ Multimodal (raw): MMMU **85.4%**.
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
-- Method: public internet research (OpenAI "Introducing GPT-5.1 for developers", 2025-11-13; OpenAI GPT-5 developer post for series window/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (OpenAI "Introducing GPT-5.1 for developers", 2025-11-13; GPT-5 developer post; **second pass**: OpenCode Data `openai/gpt-5-1` — verified release date, 400K/128K window, $1.25/$10 + $0.13 cached pricing, cutoff 2024-09-30; no score-changing deltas). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.md`, using the same headings.

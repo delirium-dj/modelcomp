@@ -1,7 +1,7 @@
 # Inkling — findings by Kimi K3
 
 - Source: Thinking Machines Lab / Inkling (`thinkingmachines/inkling`; canonical 20260715)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,9 +10,9 @@
 - **Name:** Inkling
 - **Short description:** Thinking Machines Lab's open-weight multimodal MoE (41B active / 975B total) for general-purpose reasoning, coding, agentic and tool-use; 1M context with audio+image input. A smaller 12B/276B sibling, Inkling Small (2026-07-30), exists too.
 - **Provider / access:** OpenRouter (`thinkingmachines/inkling`, plus `:free` variant), HF `thinkingmachines/Inkling`, `thinkingmachines/Inkling-Small`.
-- **Release / knowledge:** Released ~2026-07-15 (OpenRouter canonical slug date); knowledge cutoff null per listing.
-- **IDs:** `thinkingmachines/inkling` (paid $1.00/$4.05 per 1M; free tier `inkling:free` $0); no Zen Free ID verified separately.
-- **Context window:** 1M tokens (OpenRouter listing; top provider 524K); max output up to ~472K by provider.
+- **Release / knowledge:** Released 2026-07-15 (OpenCode Data confirms the OpenRouter canonical-slug date); knowledge cutoff null per listing.
+- **IDs:** `thinkingmachines/inkling` (paid $1.00/$4.05 per 1M; free tier `inkling:free` $0); HF `thinkingmachines/Inkling` weights link confirmed live today (OpenCode Data).
+- **Context window:** 1M tokens in / **up to 1M max output** per the OpenCode Data catalog (first pass recorded "up to ~472K by provider" — current catalog lists the full window as output-eligible; provider parity still varies).
 - **Modalities:** text+image+audio in; text out; reasoning supported w/ effort levels (default high); tool calls supported.
 - **Pricing (as of 2026-09-24):** $1.00/M in, $4.05/M out, $0.17 cached (OpenRouter); free variant available.
 - **Architecture:** open-weight MoE, 41B active / 975B total (OpenRouter listing).
@@ -57,6 +57,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (OpenRouter model API listing incl. Design Arena + Artificial Analysis benchmark strips); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (OpenRouter listing; **second pass**: OpenCode Data `thinkingmachines/inkling` — verified release 2026-07-15, open weights (HF link live), $1.00/$4.05 pricing, audio+image input, and updated output-window note). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

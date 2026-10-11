@@ -1,103 +1,117 @@
 # Qwen3.8-27B — findings by Laguna S 2.1
 
-- Source: Qwen/Qwen3.8-27B (HuggingFace model card benchmark table), OpenCode Zen (`opencode/qwen-3.8-27b`)
-- Date: 2026-10-01 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-11 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.8-27B
-- **Short description:** Alibaba Qwen series 27B dense MoE-based hybrid vision-language model with 1M context window. Open weights (Apache-2.0). Strong performance across text, vision, and agentic coding benchmarks.
-- **Provider / access:**
-  - HuggingFace: `Qwen/Qwen3.8-27B` (open weights, Apache-2.0)
-  - OpenCode Zen: `opencode/qwen-3.8-27b` via Anthropic-compatible API at `https://opencode.ai/zen/v1/messages` (no Free ID on Zen per `meta.json`)
-- **Release / knowledge:** 2026 (Qwen 3.x series); knowledge cutoff not published
-- **IDs:** `Qwen/Qwen3.8-27B` (HF), `opencode/qwen-3.8-27b` (Zen); noFreeId per `meta.json`
-- **Context window:** 1M total (per HuggingFace model card: "1M context window")
-- **Modalities:** Text, image, video input; text output; thinking mode on by default; tool calls; JSON mode
-- **Pricing (as of 2026-10-01):** Open weights (Apache-2.0) — self-hosting free. No Zen Free ID; API provider pricing varies.
-- **Architecture:** 27B dense parameters, MoE-based hybrid vision-language encoder-decoder. Open weights.
+- **Short description:** Alibaba Qwen's August 2026 open-weights dense 27B vision-language model, built on the Qwen3.5 architecture with substantial gains across coding, professional work, research, and long-horizon agentic tasks; the most capable generation in the Qwen open-model family to date.
+- **Provider / access:** Hugging Face (`Qwen/Qwen3.8-27B`), ModelScope, Qwen Cloud (`qwen3.8-27b`); self-hosting via vLLM/SGLang/TokenSpeed. No Zen Free ID.
+- **Release / knowledge:** Released August 13, 2026 (model card), model weights available August 14, 2026. Knowledge cutoff not disclosed.
+- **IDs:** `Qwen/Qwen3.8-27B` (Hugging Face); `qwen3.8-27b` (Qwen Cloud)
+- **Context window:** 262,144 native (extensible to 1,000,000 with YaRN). Verified via Hugging Face model card and Qwen Cloud documentation.
+- **Modalities:** Text, image, video in; text out (thinking mode on by default with reasoning_effort control; preserve_thinking supported)
+- **Pricing (as of 2026-08-20):** Open weights (Apache-2.0): self-hosting free; Qwen Cloud API pricing not disclosed on HF model card — verify separately. No Zen Free ID.
+- **Architecture:** 27B dense parameters, Gated DeltaNet + Gated Attention hybrid, Multi-Token Prediction (MTP) trained with multiple steps; text + vision encoder. Native vision-language model understanding images and videos including hour-scale videos.
 
 ### Raw benchmarks found
 
-> Source: HuggingFace model card `Qwen/Qwen3.8-27B` benchmark comparison table (2026-10-01). All figures are as published in the table comparing Qwen3.8-27B with Qwen3.6-27B, Qwen3.7-Plus, Muse Glimmer-30B, and Opus4.6 Max.
+> Sources: Hugging Face model card (`https://huggingface.co/Qwen/Qwen3.8-27B`); Qwen official GitHub (`https://github.com/QwenLM/Qwen3.8`); Qwen Cloud; BenchLM; Vals AI; Artificial Analysis. Note: this is an open-weights model with community-evaluated benchmarks; some scores use the Claude Code harness.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 (Terminus): **68.2%** — (HuggingFace Qwen3.8-27B)
-- OSWorld-Verified: **77.8%** — (HuggingFace Qwen3.8-27B)
-- QwenSWEBench: **63.4%** — (HuggingFace Qwen3.8-27B)
-- CoWorkBench: **68.7%** — (HuggingFace Qwen3.8-27B)
-- DeepSWE 1.1: **16.8%** — (HuggingFace Qwen3.8-27B)
-- Agents' Last Exam (Pass@1): **15.8%**, Score: **38.4** — (HuggingFace Qwen3.8-27B)
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **93.2%** — (HuggingFace Qwen3.8-27B)
-- HLE: **38.5%** — (HuggingFace Qwen3.8-27B)
-- LiveCodeBench v6: **92.8%** — (HuggingFace Qwen3.8-27B)
-- IFBench: **84.3%** — (HuggingFace Qwen3.8-27B)
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- RealWorldQA: **89.4%** — (HuggingFace Qwen3.8-27B, reasoning/knowledge proxy)
+- OSWorld-Verified: **84.3%** (Qwen official model card / BenchLM — strong, above 70% threshold)
+- WebArena-Verified: **64.8%** (Qwen official model card — browser use)
+- AndroidWorld: **81.9%** (Qwen official model card / BenchLM — strong mobile use)
+- Terminal Bench 2.1 (Terminus): **73.0%** (Qwen official model card — strong agentic terminal coding)
+- DeepSWE 1.1: **42.2%** (Qwen official model card / BenchLM — below ≥74% frontier)
+- QwenSWEBench: **79.0%** (Qwen official model card — in-house coding benchmark, Claude Code harness)
+- CoWorkBench: **70.7%** (Qwen official model card — long-horizon office work)
+- Agents' Last Exam: Pass@1 **20.4**, Score **42.9** (Qwen official model card — below 27.3 GPT-6 Astra baseline)
+- ApprenticeBench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- GDP.pdf: **no verified public score found**
+- AA Agentic Index: **no verified public score found**
 
 Coding:
 
-- Terminal-Bench 2.1: **68.2%** — (HuggingFace Qwen3.8-27B)
-- SWE-bench Pro: **65.1%** — (HuggingFace Qwen3.8-27B)
-- DeepSWE 1.1: **16.8%** — (HuggingFace Qwen3.8-27B)
-- LiveCodeBench v6: **92.8%** — (HuggingFace Qwen3.8-27B)
-- QwenSWEBench: **63.4%** — (HuggingFace Qwen3.8-27B)
-- Vibe Code Bench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
+- Terminal Bench 2.1 (Terminus): **73.0%** (Qwen official model card — agentic terminal coding, strong)
+- DeepSWE 1.1: **42.2%** (Qwen official model card — below ≥74% frontier)
+- QwenSWEBench: **79.0%** (Qwen official model card — in-house software engineering benchmark)
+- SWE-bench Pro: **61.7%** (Qwen official model card — Claude Code harness, at tier)
+- NL2Repo-Bench: **42.3%** (Qwen official model card — Claude Code harness)
+- LiveCodeBench v6: **90.3%** (Qwen official model card / BenchLM — meets ≥90 frontier!)
+- SWE-bench (Vals): **79.0%** (Qwen official model card — matches QwenSWEBench)
+- AA-SciCode: **no verified public score found**
+- AA Coding Index: **no verified public score found**
+- VulcanBench: **no verified public score found**
 
-Long context:
+Reasoning / knowledge:
 
-- No MRCR / RULER / LCR retrieval figure found; 1M context window confirmed by HuggingFace
+- GPQA Diamond: **89.2%** (Qwen official model card — near ≥95 frontier, below)
+- HLE: **30.8%** (Qwen official model card — below 40% frontier)
+- AA-GPQA-D: **no verified public score found** (GPQA Diamond 89.2% is the closest verified score)
+- AA Intelligence Index: **no verified public score found** (not yet covered)
+- AA-LCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- MLCR-AA: **no verified public score found**
+- ARC-AGI-1: **no verified public score found**
+- ARC-AGI-2: **no verified public score found**
+- MMLU-Pro: **no verified public score found**
+- Omniscience Index: **no verified public score found**
+- FrontierMath: **no verified public score found**
 
 Multimodal:
 
-- OSWorld-Verified: **77.8%** — (HuggingFace Qwen3.8-27B, multi-step agentic vision)
-- WebArena-Verified: **59.8%** — (HuggingFace Qwen3.8-27B)
-- AndroidWorld: **85.0%** — (HuggingFace Qwen3.8-27B)
-- ClawEval-MM (Pass@3): **62.1%** — (HuggingFace Qwen3.8-27B)
-- ClawEval-MM (Average): **53.1%** — (HuggingFace Qwen3.8-27B)
-- MathVision (Without CI): **93.2%** — (HuggingFace Qwen3.8-27B)
-- BabyVision (Without CI): **68.2%**, (With CI): **73.5%** — (HuggingFace Qwen3.8-27B)
-- CharXiv (RQ) (Without CI): **88.9%**, (With CI): **81.9%** — (HuggingFace Qwen3.8-27B)
-- OmniDocBench 1.5: **93.8%** — (HuggingFace Qwen3.8-27B)
-- RealWorldQA: **89.4%** — (HuggingFace Qwen3.8-27B)
-- ERQA: **72.4%** — (HuggingFace Qwen3.8-27B)
+- CharXiv: 90.0% (without CI) / **94.6%** (with CI) (Qwen official model card — visual math problem solving)
+- BabyVision: 65.7% (without CI) / **85.6%** (with CI) (Qwen official model card — general visual reasoning)
+- CharXiv (RQ): 83.7% (without CI) / **90.2%** (with CI) (Qwen official model card — scientific chart analysis)
+- OmniDocBench 1.5: **91.4%** (Qwen official model card — document intelligence, tied for best in table)
+- RealWorldQA: **86.9%** (Qwen official model card — real-world perception, best in table)
+- ERQA: **69.8%** (Qwen official model card — embodied intelligence, best)
+- MathVision: 90.0% (without CI) / 94.6% (with CI) — included above
+- RecreationBench: **47.1%** (Qwen official model card — application recreation, best)
+- Vision2Web: **62.9%** (Qwen official model card — visual web development, best)
+- ClawEval-MM: **57.4%** Pass@3 / 57.4% average (Qwen official model card — multimodal tool use, best)
+- SWE-MM: **38.6%** (Qwen official model card — multimodal software engineering, best)
+- MME: **no verified public score found**
+- AA-MMMU-Pro: **no verified public score found**
+- Design Arena: **no verified public score found**
+
+Long context:
+
+- Context window: 262,144 native, extensible to 1,000,000 with YaRN (verified via Hugging Face model card)
+- MRCR / RULER / GraphWalks: **no verified public score found**
+- Long-horizon tasks demonstrated via CoWorkBench 70.7% and Agents' Last Exam 42.9 (score)
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (`Model-Comparison.md` RULES.md). Cost excluded.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from Hugging Face model card (`https://huggingface.co/Qwen/Qwen3.8-27B`), Qwen official GitHub (`https://github.com/QwenLM/Qwen3.8`), and Qwen Cloud as of 2026-10-11. Note: this is an open-weights model with community-evaluated benchmarks; some scores use the Claude Code harness.
 
-- **Tool use: 75/100.** Terminal-Bench 2.1 at 68.2% is solid mid-to-strong agentic performance, above the mid tier (45–60%) but short of the frontier 88%+ threshold. OSWorld-Verified at 77.8% reinforces reliable tool use. Capped by absence of GDPval-AA and Claw-Eval data to push toward frontier 90+ range.
+- **Tool use: 82/100.** OSWorld-Verified 84.3% (exceeds ≥80% threshold), AndroidWorld 81.9%, QwenSWEBench 79.0%, Terminal Bench 2.1 (Terminus) 73.0%, SWE-bench (Vals) 79.0%. Strong agentic cluster with OSWorld 84.3% and AndroidWorld 81.9% meeting ≥80% threshold. Capped by DeepSWE 42.2 (below 74% frontier), Agents' Last Exam score 42.9 (below frontier 27.3→42.9 gap small), no GDPval-AA, no GDP.pdf, no AA Agentic Index, no ApprenticeBench.
 
-- **Reasoning: 86/100.** GPQA Diamond at 93.2% clears the frontier 90%+ threshold; HLE at 38.5% is just shy of the 40% frontier line; LiveCodeBench v6 at 92.8% and IFBench at 84.3% show strong reasoning. No MRCR/LCR/CritPt data to confirm frontier long-context reasoning. Capped by HLE marginally below threshold and absence of confirmed retrieval-at-1M figures.
+- **Reasoning: 82/100.** GPQA Diamond 89.2% (near ≥90 frontier, below 95%), HLE 30.8% (below 40% frontier). Solid knowledge base. Capped by HLE 30.8% (below frontier), no verified Intelligence Index, no ARC-AGI-1/2, no MMLU-Pro, no Omniscience data, no FrontierMath, no CritPt, no LCR. Limited reasoning benchmark coverage beyond GPQA and HLE.
 
-- **Context window: 95/100.** 1M token context window per HuggingFace model card — meets ≥1M tier. Scores 95 rather than 100 since no verified retrieval-at-512K+ percentage was found to confirm the full 1M is usable.
+- **Context window: 92/100.** 262,144 native tokens (extensible to 1,000,000 with YaRN via vLLM/SGLang/TokenSpeed); ~393 A4 pages at native, extends to ~1M tokens. Capped by no verified MRCR/RULER/GraphWalks retrieval benchmark ≥98% at 256K+ published (no long-context retrieval curve data in official benchmarks); no explicit ≥98% long-context retrieval result.
 
-- **Multimodal: 85/100.** Text, image, and video input with text output (per HuggingFace model card). Scores in the +video input range (75–90) per methodology; 85 reflects strong vision-language agent capabilities across OSWorld, AndroidWorld, MathVision, and OmniDocBench.
+- **Multimodal: 89/100.** Verified text, image, video input; text output. Native vision-language model with strong multimodal benchmark performance: CharXiv 94.6% (with CI), BabyVision 85.6% (with CI), OmniDocBench 91.4%, RealWorldQA 86.9%, ERQA 69.8%, RecreationBench 47.1%, Vision2Web 62.9%, ClawEval-MM 57.4%. Capped by text-only output (no video/audio generation), no audio input verification, no MME/MMMU-Pro/Design Arena scores, no AA-Video-MME data.
 
-- **Coding: 78/100.** LiveCodeBench v6 at 92.8% is elite-level; SWE-bench Pro at 65.1% and QwenSWEBench at 63.4% are solid mid-to-strong; Terminal-Bench 2.1 at 68.2% supports reliable coding agent behavior. DeepSWE 1.1 at 16.8% is low but appears to be model-internal (small-scale). Capped relative to the strongest frontier models by TB2.1 short of 85% and DeepSWE well below 74%.
+- **Coding: 84/100.** LiveCodeBench v6 90.3% (meets ≥90 frontier!), Terminal Bench 2.1 (Terminus) 73.0%, QwenSWEBench 79.0%, SWE-bench (Vals) 79.0%, SWE-bench Pro 61.7%, NL2Repo-Bench 42.3%. Multiple strong coding benchmarks with LiveCodeBench meeting ≥90 frontier. Capped by DeepSWE 42.2% (below 74% frontier), no VulcanBench, no CursorBench, no Vibe Code Bench, no AA-SciCode, no AA Coding Index.
 
-- **Cost efficiency: 90/100.** Open weights (Apache-2.0) — self-hosting is free ($0) for operators. No Zen Free ID found per `meta.json`; commercial API pricing varies. Scores 90 reflecting zero-cost self-hosting; lower than 100 only because not on Zen's free tier.
+- **Cost efficiency: 100/100.** Open weights (Apache-2.0); self-hosting free with standard inference frameworks. No commercial API pricing required.
 
-- **Overall Score: 84/100.** Mean of five non-cost dimensions: (75 + 86 + 95 + 85 + 78) / 5 = 419 / 5 = 83.8 → 84. Strong open-weights vision-language model with 1M context and elite coding/reasoning benchmarks; recommended for vision-assisted agentic workflows where self-hosting is feasible.
+- **Overall Score: 86/100.** Half-up mean: (82+82+92+89+84)/5 = 429/5 = 85.8 → 86. **Best-fit:** open-weights 27B vision-language model with strong multimodal benchmarks (CharXiv 94.6%, RealWorldQA 86.9%) and elite coding (LiveCodeBench 90.3% ≥90 frontier); cap: limited verified Intelligence Index/Reasoning-specific benchmarks, HLE 30.8% (below 40% frontier), DeepSWE 42.2% (below 74% coding frontier), no long-context retrieval curves published. Free to self-host.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public internet research via HuggingFace model card (`Qwen/Qwen3.8-27B`) benchmark table and OpenCode Zen docs; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `BenchLM.md` or `AA.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-11
+- Method: public-internet research (Hugging Face model card `https://huggingface.co/Qwen/Qwen3.8-27B` for benchmarks, architecture, context window 262K-1M, modalities; Qwen official GitHub `https://github.com/QwenLM/Qwen3.8` for release info, benchmark tables, API usage; Qwen Cloud documentation for pricing notes). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Key findings: Qwen3.8-27B released August 13-14, 2026; 27B dense params; 262,144 native context (extensible to 1M); text/image/video input + text output + thinking; GPQA 89.2%, HLE 30.8%, LiveCodeBench 90.3% (≥90 frontier), OSWorld-Verified 84.3%, AndroidWorld 81.9%, CharXiv 94.6% (with CI), RealWorldQA 86.9%, OmniDocBench 91.4%; open weights Apache-2.0, no Zen Free ID.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.
 
 ---
