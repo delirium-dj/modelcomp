@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-4.8`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,10 @@ Agent / tool use:
 - τ³-Bench Banking: **27.6%**
 - Toolathlon Verified: **76.2%**
 - WideSearch: **72.9%**
+- APEX-Agents (long-horizon professional): **48.9%** (Mercor, independent — reported 2026-10-07)
+- AutomationBench 1.0.6: **13.6–16.9%** (low→xHigh, Zapier, independent — reported 2026-10-07) — weak real-world automation
+- BrowseComp 130-q: **73.7%** (Mercor web-research agent, independent — reported 2026-10-07)
+- Terminal-Bench 4.0: **23.6%** (Claude Code harness) / **23.2%** (Vals AI mini-swe-agent, independent — reported 2026-10-06)
 - Native computer-use automation (desktop tasks) — a 4.8 addition
 - Vector Wire capability: **Agentic "Capable"** (−10.3% vs leader, 7/7)
 
@@ -65,8 +69,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Anthropic (via hokai.io) and vectorwire.ai (199 results, 32 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (55 primary-source results, updated 2026-10-07 — independent APEX-Agents 48.9%, AutomationBench 13.6–16.9%, BrowseComp 73.7%, TB4.0 23.2–23.6%) — no score change warranted; the independent real-world automation numbers are consistent with the existing Tool use 88 cap. Prior pass (2026-10-08) used Anthropic (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

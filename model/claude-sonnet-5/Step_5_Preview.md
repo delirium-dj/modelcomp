@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-sonnet-5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic Sonnet 5 model page, pricing page, launch post and system-card-derived tables, Artificial Analysis via OpenRouter, Vals AI, BenchLM, Vellum/Tabbit analyses, ThePlanetTools); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (55 primary-source results, updated 2026-10-07 — independent APEX-Agents 54.5%, BrowseComp 68.7%, TB2.1 Vals 74.5%, SWE-bench Pro 63.2%, AutomationBench 3.7–10.7%), confirming the first pass — no score change warranted. Prior pass (2026-10-09) used Anthropic Sonnet 5 model page, pricing page, launch post and system-card-derived tables, Artificial Analysis via OpenRouter, Vals AI, BenchLM, Vellum/Tabbit analyses, ThePlanetTools.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

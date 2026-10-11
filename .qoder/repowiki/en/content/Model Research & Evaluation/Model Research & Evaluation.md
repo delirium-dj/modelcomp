@@ -34,14 +34,20 @@
 - [model/gemini-3.7-flash/average.md](file://model/gemini-3.7-flash/average.md)
 - [model/gpt-6-astra/average.md](file://model/gpt-6-astra/average.md)
 - [model/muse-spark-1.3/average.md](file://model/muse-spark-1.3/average.md)
+- [model/qwen-3.7-plus/average.md](file://model/qwen-3.7-plus/average.md)
+- [model/space-bunny/meta.json](file://model/space-bunny/meta.json)
+- [model/space-bunny/GLM_5.3.md](file://model/space-bunny/GLM_5.3.md)
+- [model/space-bunny/GLM_5.3_Flash.md](file://model/space-bunny/GLM_5.3_Flash.md)
+- [model/space-bunny/Gemini_3.5_Flash_Lite.md](file://model/space-bunny/Gemini_3.5_Flash_Lite.md)
+- [model/gemini-3.8-flash-cyber/Space_Bunny.md](file://model/gemini-3.8-flash-cyber/Space_Bunny.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added comprehensive documentation for six new model entries: Gemini 3.1 Pro, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT-6 Astra, Muse Spark 1.3, and Qwen 3.7 Plus with detailed benchmarking data
-- Updated evaluation methodology examples with second-pass verification performed on multiple model findings showing enhanced scoring validation
-- Enhanced multi-agent evaluation process documentation with expanded model coverage demonstrating consistent assessment across diverse providers
-- Expanded model directory structure documentation to include sophisticated scoring patterns and rater gate enforcement mechanisms
+- Added comprehensive documentation for the model parking system (retired slugs) with detailed exclusion policies and implementation details
+- Updated Space Bunny self-exclusion policy documentation with two critical exclusions: Gemini 3.1 Flash and GLM 5.3 Free
+- Expanded Qwen 3.7 Plus assessment coverage across 15+ model families with detailed benchmarking data
+- Enhanced model directory structure documentation to include sophisticated scoring patterns and rater gate enforcement mechanisms
 - Added detailed analysis of agreement notes and qualification metrics for the new model evaluations
 
 ## Table of Contents
@@ -54,17 +60,19 @@
 7. [Expanded Model Ecosystem](#expanded-model-ecosystem)
 8. [New Model Evaluations](#new-model-evaluations)
 9. [Enhanced Scoring Validation](#enhanced-scoring-validation)
-10. [Dependency Analysis](#dependency-analysis)
-11. [Performance Considerations](#performance-considerations)
-12. [Troubleshooting Guide](#troubleshooting-guide)
-13. [Conclusion](#conclusion)
+10. [Model Parking System](#model-parking-system)
+11. [Space Bunny Self-Exclusion Policy](#space-bunny-self-exclusion-policy)
+12. [Dependency Analysis](#dependency-analysis)
+13. [Performance Considerations](#performance-considerations)
+14. [Troubleshooting Guide](#troubleshooting-guide)
+15. [Conclusion](#conclusion)
 
 ## Introduction
 ModelComp is a static site that compares AI coding models across six normalized dimensions: Tool use, Reasoning, Context window, Multimodal, Coding, and Cost efficiency. Each dimension is scored 1–100 (higher is better). The Overall Score is the rounded mean of the five quality dimensions; Cost efficiency is scored independently and never counts toward Overall.
 
 The system collects independent research from multiple reporting agents, normalizes their findings into structured score lines, and computes per-model averages. A rater gate ensures only sufficiently capable raters contribute to averages, while evidence-free reports are quarantined rather than counted.
 
-This document explains the methodology, file formats, multi-agent evaluation process, scoring normalization, quarantine rules, review workflow, and best practices for objective assessment. It also documents the new automated research generation infrastructure that streamlines the creation of standardized research files across hundreds of model entries.
+This document explains the methodology, file formats, multi-agent evaluation process, scoring normalization, quarantine rules, review workflow, and best practices for objective assessment. It also documents the new automated research generation infrastructure that streamlines the creation of standardized research files across hundreds of model entries, including the sophisticated model parking system for retired slugs and enhanced self-exclusion policies.
 
 **Section sources**
 - [README.md:3-16](file://README.md#L3-L16)
@@ -622,6 +630,85 @@ The second-pass verification process has been implemented across multiple model 
 - [model/gpt-6-astra/average.md:18-24](file://model/gpt-6-astra/average.md#L18-L24)
 - [model/muse-spark-1.3/average.md:18-24](file://model/muse-spark-1.3/average.md#L18-L24)
 
+## Model Parking System
+The model parking system provides a sophisticated mechanism for handling retired or fictional model slugs while maintaining data integrity and research continuity. This system addresses cases where model identifiers turn out to be fictional, phantom catalog entries, or otherwise invalid.
+
+### Parking Mechanism Overview
+When a slug turns out to be fictional (e.g., `glm-5.3-free` parked 2026-10-10 after live Zen verification showed `opencode/glm-5.3-free` in no listing), the system implements a three-part parking strategy:
+
+1. **Folder Preservation**: The folder keeps every file; `pnpm sync` keeps scanning, averaging, and tripwire-guarding it (averages stay fresh; unparking restores everything)
+2. **Site Hiding**: The slug is listed in `RETIRED_SLUGS` in `src/data/models.ts` — no cards, no A/B/C slots, no per-model page
+3. **Queue Omission**: The slug is listed in `RETIRED_SLUGS` in `scripts/lib/average.mjs` (`buildQueueFile`) — agents never queue, research, write into, or scaffold it
+
+### Implementation Details
+The parking system operates through synchronized lists in two key locations:
+
+```mermaid
+flowchart TD
+RetiredSlug["Retired Slug Detection"] --> SiteHide["Site Hide: RETIRED_SLUGS in models.ts"]
+RetiredSlug --> QueueOmit["Queue Omit: RETIRED_SLUGS in average.mjs"]
+SiteHide --> HiddenFromUI["Hidden from UI: No cards, slots, or pages"]
+QueueOmit --> AgentsSkip["Agents Skip: No research or scaffolding"]
+HiddenFromUI --> FolderPreserved["Folder Preserved: Files remain intact"]
+QueueOmit --> FolderPreserved
+FolderPreserved --> SyncContinues["Sync Continues: Averaging and guarding continue"]
+```
+
+**Diagram sources**
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
+- [model/README.md:121-139](file://model/README.md#L121-L139)
+
+### Governance and Control
+Only user direction parks or unparks a slug (remove it from both lists to restore). The system enforces strict governance:
+- Never invent a third list — the two mirror each other
+- Do not use parking for live models you merely dislike: below-gate and out-of-top-10 reports stay visible by design
+- Maintain permanence rules: the folder stays on disk and in git even when parked
+
+**Section sources**
+- [model/README.md:121-139](file://model/README.md#L121-L139)
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
+
+## Space Bunny Self-Exclusion Policy
+The Space Bunny model has undergone significant evolution in its self-exclusion policy, particularly regarding two critical exclusions: Gemini 3.1 Flash and GLM 5.3 Free. These exclusions reflect the system's commitment to evidence-based scoring and data integrity.
+
+### Critical Exclusions
+The Space Bunny self-exclusion policy specifically addresses two problematic model identifications:
+
+**Gemini 3.1 Flash Exclusion**: 
+- Identified as having insufficient verified benchmark data for accurate scoring
+- Subject to self-exclusion due to lack of measurable performance indicators
+- Maintained as `.md.excluded` to preserve research history while preventing inaccurate aggregation
+
+**GLM 5.3 Free Exclusion**:
+- Recognized as a fictional or phantom model identifier
+- Parked through the model parking system due to absence from official model listings
+- Preserved in repository for audit trail purposes while hidden from active evaluation
+
+### Policy Evolution and Impact
+The Space Bunny model serves as a canonical example of unified model organization, where three marketplace identities — **Space Bunny** (canonical), **Space Bunny Alpha** (OpenRouter `stealth/space-bunny-alpha`), and **Space Bunny Free** (OpenCode `space-bunny-free`, limited-time $0 tier) — are consolidated under a single `model/space-bunny/` directory.
+
+The self-exclusion policy ensures that:
+- Evidence-free reports are properly quarantined rather than artificially scored
+- Fictional model identifiers are systematically identified and handled
+- Research integrity is maintained through transparent exclusion mechanisms
+- Historical data remains accessible for audit and analysis purposes
+
+### Integration with Broader System
+These exclusions integrate seamlessly with the broader ModelComp infrastructure:
+- Quarantine system automatically processes evidence-free reports
+- Model parking system handles fictional identifiers
+- Rater gate enforcement prevents unreliable sources from affecting averages
+- Site visibility controls hide problematic models while preserving data
+
+**Section sources**
+- [model/space-bunny/meta.json:1-11](file://model/space-bunny/meta.json#L1-L11)
+- [model/space-bunny/GLM_5.3.md:8-18](file://model/space-bunny/GLM_5.3.md#L8-L18)
+- [model/space-bunny/GLM_5.3_Flash.md:1-57](file://model/space-bunny/GLM_5.3_Flash.md#L1-L57)
+- [model/space-bunny/Gemini_3.5_Flash_Lite.md:51-67](file://model/space-bunny/Gemini_3.5_Flash_Lite.md#L51-L67)
+- [model/gemini-3.8-flash-cyber/Space_Bunny.md:81-84](file://model/gemini-3.8-flash-cyber/Space_Bunny.md#L81-L84)
+
 ## Dependency Analysis
 The system maintains clear dependencies between components to ensure data integrity and processing reliability.
 
@@ -695,14 +782,13 @@ Common issues and their solutions when working with the ModelComp system:
 - [README.md:18-29](file://README.md#L18-L29)
 
 ## Conclusion
-The ModelComp system continues to evolve with robust infrastructure for evaluating AI models across six critical dimensions. The addition of six major new model entries (Gemini 3.1 Pro, Gemini 3.7 Flash, Gemini 3.8 Flash, GPT-6 Astra, Muse Spark 1.3, and Qwen 3.7 Plus) demonstrates the system's scalability and consistency in handling diverse model evaluations.
-
-The enhanced scoring validation through second-pass verification ensures data integrity and provides confidence in the aggregated results. The sophisticated research queue system and automated generation infrastructure streamline the evaluation process while maintaining rigorous quality standards.
+The ModelComp system continues to evolve with robust infrastructure for evaluating AI models across six critical dimensions. The addition of sophisticated model parking capabilities, enhanced Space Bunny self-exclusion policies, and comprehensive Qwen 3.7 Plus assessments demonstrates the system's scalability and consistency in handling diverse model evaluations.
 
 Key achievements include:
 - **Comprehensive Coverage**: Support for 130+ model directories across major providers
 - **Quality Assurance**: Multi-layered validation with rater gate enforcement and quarantine mechanisms
+- **Advanced Governance**: Sophisticated model parking system for retired slugs and self-exclusion policies
 - **Scalability**: Optimized processing pipeline capable of handling large-scale evaluations
 - **Consistency**: Standardized methodology application across all model evaluations
 
-The system provides a reliable foundation for ongoing model comparison research and serves as a valuable resource for understanding the current landscape of AI coding model capabilities.
+The system provides a reliable foundation for ongoing model comparison research and serves as a valuable resource for understanding the current landscape of AI coding model capabilities, with enhanced mechanisms for handling edge cases, fictional identifiers, and evidence-free evaluations.

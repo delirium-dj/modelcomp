@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,15 +24,17 @@
 Agent / tool use:
 
 - τ²-Bench Retail: **85.3%** / Telecom: **98.0%** (Google; AA Telecom run 87.13% high / 68.13% low)
-- MCP Atlas (multi-step MCP workflows): **54.1%** (Google)
+- τ³-Bench (Sierra, independent — reported 2026-03-02): Telecom **91.0%**, Airline **80.5%**, Retail **75.9%**, Banking **18.0%** — strong retail/telecom tool use, weak banking
+- MCP Atlas (multi-step MCP workflows): **54.1%** (Google) / **70.3%** (Scale AI, independent)
 - BrowseComp (agentic search): **59.2%** (Google)
 - Terminal-Bench 2.0 (Terminus-2 harness): **56.9%** (Google)
+- Vibe Code Bench 1.1: **14.3%** (Vals AI, independent — reported 2026-10-06) — very weak real-world app-building
 - APEX-Agents (long-horizon professional): **18.4%** (Google) — weak
 - Vector Wire capability: **Agentic "Limited"** (−38.6% vs leader, 3/7) — its weakest area
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.9%** no tools (Google)
+- GPQA Diamond: **91.9%** no tools (Google) / **92.6%** (Epoch AI harness, independent) / **91.7%** (Vals AI harness, independent) — near-ceiling, well-corroborated
 - Humanity's Last Exam (no tools): **37.5%** (Google) — just below the 40% frontier bar
 - ARC-AGI-2: **31.1%** (ARC Prize verified) — low for a Pro-tier model
 - MMMLU (multilingual): **91.8%** (Google)
@@ -65,8 +67,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced vectorwire.ai (194 results, 41 independently verified, capability profile) and Google's official DeepMind benchmark table.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (26 primary-source results, updated 2026-10-07 — independent GPQA Epoch 92.6%/Vals 91.7%, τ³-bench Telecom 91.0%/Airline 80.5%/Retail 75.9%/Banking 18.0%, MCP Atlas 70.3%, Vibe Code 14.3%) — no score change warranted; the independent τ³-bench retail/telecom strength and weak Vibe Code/Banking are consistent with the existing Tool use 74. Prior pass (2026-10-08) used vectorwire.ai and Google's official DeepMind benchmark table.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

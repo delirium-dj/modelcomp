@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3.6-flash`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,8 +67,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Google + Artificial Analysis (via hokai.io) and vectorwire.ai (66 results, 26 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (37 primary-source results, updated 2026-10-07 — independent APEX-Agents 46.9%, TB2.1 74.5%/73.8%, Vibe Code 64.0%, AutomationBench 15.7–17.1%, BrowseComp 54.6%, CharXiv 95.1%) — no score change warranted. Prior pass (2026-10-08) used Google + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 - 1M input / 64K output. GDM-MRCR 128k average: **91.8%**; 1M pointwise: **54.0%** (Google) — recall drops sharply at the top of the window

@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Max — findings by GLM 5.3 Flash
 
 - Source: Meta (`meta/muse-spark-1-3-max`, Meta Model API `muse-spark-1.3` with `reasoning_effort: max`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Muse Spark 1.3 Max
 - **Short description:** The "max" reasoning-effort configuration of Muse Spark 1.3 (Meta Superintelligence Labs) — same checkpoint and per-token price as the shipping model, with the highest reasoning setting that was safety-gated for two days before general availability on 2026-09-04. Flag: this is a variant/configuration of `muse-spark-1.3`, not a separate architecture.
 - **Provider / access:** Meta Model API (model id `muse-spark-1.3`, effort parameter now accepts `max`) and Muse Code terminal coding agent; third-party gateways may still enumerate only up to `xhigh` — check the route before assuming `max` is reachable. Chat Completions-style API.
-- **Release / knowledge:** Max configuration GA 2026-09-04 (announced by chief AI officer Alexandr Wang; Vals AI lists the row as released Sep 5, 2026); base model released 2026-09-02; knowledge cutoff not disclosed.
+- **Release / knowledge:** Max configuration GA 2026-09-04 (announced by chief AI officer Alexandr Wang; Vals AI lists the row as released Sep 5, 2026); base model released 2026-09-02; knowledge cutoff not disclosed. Re-checked 2026-10-05/10: max reasoning is now GA on the Standard tier (launch-window partner-preview restrictions lifted — HokAI/AA), and Meta docs confirm audio understanding regressed in 1.3 (Meta routes audio to Muse Spark 1.2 / Muse Voice Transcribe).
 - **IDs:** `meta/muse-spark-1-3-max` (aggregator key; native id is `muse-spark-1.3` + `max` effort — no Free ID on OpenCode Zen found)
 - **Context window:** 1M tokens total; max output 131,072 (Vals AI model page hyperparameter table) — verified via vals.ai.
 - **Modalities:** text, image, video, file/PDF in; text out; reasoning always on (effort ladder minimal→low→medium→high→xhigh→max); tool calls (Muse Code, OSWorld-class agent use); JSON mode not separately documented.
@@ -34,14 +34,17 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- DeepSearchQA: **89.4** (tie max vs xhigh, vendor-reported)
+- DeepSearchQA: **90.3** (vendor model table, re-read 2026-10-10; earlier read 89.4)
 - IOI: **56.56% ±2.52** (Vals AI, rank 18/38)
 - ProofBench v1.1: **58.00% ±4.96** (Vals AI, rank 20/44)
 - MysteryMechanism: **36.04% ±3.23** (Vals AI, rank 9/21)
 - Vals Index: **58.16% ±1.19** (Vals AI, rank 9/41, cost/test $3.787, latency 23m33s, fallback 0.00%, refusal 0.65%)
 - Vals RSI Index: **19.64%** (Vals AI, rank 16/23)
-- Artificial Analysis Intelligence Index v4.2: **53** vs comparable-model median 29 (the launch-week "62" was measured on the previous index version — not comparable)
-- HLE / GPQA Diamond / MLCR / CritPt: no verified public score found
+- Artificial Analysis Intelligence Index v4.3.2: **48** at max (#23/227; AA page, 2026-10-10) vs 45 at xhigh (HokAI citing AA, 2026-10-05); earlier reads: 53 on v4.2, launch-week 62 on the pre-v4.2 index — rescored down twice by index recomposition (AA-LCR v1.1 / AA-Briefcase v1.1 revisions), not comparable across versions
+- GPQA Diamond: **94%** (AA via HokAI, rank 8/50, 2026-10-05)
+- HLE: **47%** (AA via HokAI, 2026-10-05)
+- MRCR v2 8-needle (vendor): **98.5** @256K–512K and **98.1** @512K–1M (Meta model table; independently unverified)
+- MLCR / CritPt: no verified public score found
 
 Coding:
 
@@ -52,28 +55,28 @@ Coding:
 
 Long context:
 
-- no long-context retrieval reported (1M window advertised; no MRCR/RULER/GraphWalks numbers found for the max configuration)
+- MRCR v2 8-needle @512K–1M: **98.1** (vendor-reported, Meta model table); no independent long-context reproduction found
 
 Cost / token efficiency:
 
-- AA instrumented run: ~130M tokens vs a 79M median, ~$1,335 total, ~$0.95/task at ~190 output tok/s (verbosity caveat, independent)
+- AA instrumented run: ~170M output tokens vs an 82M median (verbosity ≈2× median), ~$1.60/task at ~122.5 tok/s, TTFT 56.98s (AA page, 2026-10-10; launch-week read was ~130M tokens, ~$0.95/task — verbosity has grown)
 - Vals AI: $3.787/test, 23m33s latency (independent)
 - Contributor tier: $0.10/$0.20 per 1M with mandatory training-data consent
 
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Terminal-Bench 2.1 88.8% and GDPval-AA v2 1,754 hit the frontier refs (88%+ / 1750+), and AA's Coding Agent Index places it 2nd overall (68); Vals' Terminal-Bench 4.0 (24.75%) and CUA-bench (5.83%, N=8) show the TB2.1-era vendor numbers do not carry to harder independent harnesses, capping it below 90.
-- **Reasoning: 82/100.** DeepSearchQA 89.4, IOI 56.56% and Vals Index 58.16% (rank 9/41) indicate strong reasoning, but the max-vs-xhigh deltas concentrate on agentic loops (OSWorld +9.7, JobBench +3.7) rather than raw knowledge benchmarks, and HLE/GPQA remain unmeasured — capped at 82.
-- **Context window: 95/100.** 1M-token context window (Vals AI hyperparameter table) lands in the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ to justify 100. Max output 131K is generous, not a caveat.
+- **Reasoning: 84/100.** GPQA Diamond 94% (rank 8/50) and HLE 47% are now measured (AA via HokAI, 2026-10-05) and lift the raw-knowledge story; offset by the v4.3.2 AA Index rescore to 48 (#23/227) and Vals Index 58.16% (rank 9/41) — the max-vs-xhigh deltas still concentrate on agentic loops (OSWorld +9.7, JobBench +3.7) rather than raw knowledge benchmarks.
+- **Context window: 97/100.** 1M-token window (Vals AI hyperparameter table) with vendor-reported MRCR v2 8-needle retrieval of 98.1 at 512K–1M — meets the ≥98% bar but vendor-only, not independently reproduced, so short of 100. Max output 131K is generous, not a caveat.
 - **Multimodal: 85/100.** Text, image, video, and file/PDF input with text output (Vals AI modality list) — the +video/PDF-in band (75–90); no audio input or non-text output advertised.
 - **Coding: 89/100.** DeepSWE v1.1 75.4 (above the 74%+ frontier ref), Vibe Code v1.1 85.86% and TB2.1 88.8 are frontier-class, but Code Migration 47.41%, Vibe (1-100) 20.46% and the unverified status of the DeepSWE vendor number keep it at the bottom edge of 90–100.
-- **Cost efficiency: 82/100.** List price $1.25/$4.25 per 1M maps to ~88 on the inverse-pricing rubric, adjusted down for max's verbosity: AA measured ~130M tokens (~$0.95/task, ~1.6× the median) and Vals $3.79/test at 23m33s — the bill is in token volume, not the price list. The $0.10/$0.20 Contributor tier exists but carries mandatory training-data consent.
-- **Overall Score: 87.8/100.** Mean of the five quality dims (88+82+95+85+89)/5 = 87.8 → 89. Best fit: long-horizon agentic and knowledge-work loops (computer-use, briefs, multi-step tool work) where max's gains are largest; A/B against xhigh for high-volume or single-turn workloads where it mainly adds tokens.
+- **Cost efficiency: 80/100.** List price $1.25/$4.25 per 1M maps to ~88 on the inverse-pricing rubric, adjusted down for max's growing verbosity: AA now measures ~170M output tokens (≈2× the 82M median, ~$1.60/task, up from ~130M/$0.95 at launch) and Vals $3.79/test at 23m33s — the bill is in token volume, not the price list. The $0.10/$0.20 Contributor tier exists but carries mandatory training-data consent and no max effort.
+- **Overall Score: 89/100.** Mean of the five quality dims (88+84+97+85+89)/5 = 88.6 → 89. Best fit: long-horizon agentic and knowledge-work loops (computer-use, briefs, multi-step tool work) where max's gains are largest; A/B against xhigh for high-volume or single-turn workloads where it mainly adds tokens.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-02
-- Method: public internet research (Vals AI model page, OrcaRouter analysis, launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
+- Method: public internet research (second pass 2026-10-10: dev.meta.ai model page, Artificial Analysis, HokAI hub, TechTimes launch coverage; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

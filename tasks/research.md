@@ -8,6 +8,8 @@ delegator file (`tasks/research-assign.md`) via its Identity resolution chain
 (kickoff line -> pinned STEM line -> validated self-identification -> ask).
 Do not hardcode any model name in this file.
 
+> **Startup budget: 2 tool calls before your first report.** The kickoff pins your STEM (zero calls), `model-queue.md` gives you roster + scores + order in one read (1 call), and one wildcard listing for `model/*/<STEM>.md*` tells you which folders already hold your file (1 call). Anything beyond that before writing — directory walks, per-folder checks, opening `average.md` files, re-sorting — is wasted budget. Full recipe: Step 1.
+
 > **GEMINI AGENTS — read first (crash guard):** before any other step, read
 > `.agents/gemini-rate-limits.md` in full and apply it for the whole task
 > (tool call in EVERY turn; never stop until the queue is empty or the user
@@ -49,14 +51,13 @@ or pinned explicitly below: AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
 Your file is model/<slug>/<STEM>.md, display name is <STEM with _ -> space>.
 
 Follow tasks/research.md exactly (combined single pass: audit → queue → one-by-one):
-1. Audit EVERY directory under model/ only — production scope, models_voice/ deferred
-   (including empty folders or folders without average.md / meta.json / src/data/models.ts references).
-2. Your queue = folders missing model/<slug>/<STEM>.md, in `model-queue.md`
-   order (repo root, `<Overall> <slug>` lines, already highest-first; missing
-   average.md = unlisted = last, A-Z). If `model-queue.md` is missing or older
+1. Audit with TWO calls, not a directory walk — production scope, models_voice/ deferred.
+   (a) Read `model-queue.md` (repo root: roster + Overall scores + processing order, already highest-first — never re-sort, never verify against `average.md` files).
+   (b) ONE wildcard listing for `model/*/<STEM>.md*` (every folder already holding your file, `.md.excluded` twins included).
+2. Your queue = `model-queue.md` slugs minus folders holding model/<slug>/<STEM>.md, in file order (missing average.md = unlisted = last, A-Z; twin-only folders stay queued for the Step 3.3 twin procedure at write time; retired slugs per `model/README.md` § Parking are dropped entirely). If `model-queue.md` is missing or older
    than the latest findings, fall back to the "- **Overall Score:" line of each
    model/<slug>/average.md descending. Newly discovered slugs append at end
-   (voice/speech and finance discoveries are parked or placed under models_voice/ / models_finance/, never placed under model/ per RULES.md).
+   (voice/speech and finance discoveries are parked or placed under models_voice/ / models_finance/, never placed under model/ per RULES.md). When you reach a folder, check that one folder only — never pre-verify the whole queue.
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
@@ -68,18 +69,18 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 
 ## 2. Task execution steps
 
-### Step 1: Directory audit + ordering
+### Step 1: Directory audit + ordering (2 calls — never a directory walk)
 
-> Production scope (user-directed, 2026-09-30): scan `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. Full mode (when re-enabled) scans `model/` and `models_voice/`.
+> Production scope (user-directed, 2026-09-30): `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. Full mode (when re-enabled) covers `model/` and `models_voice/`.
 
-- Scan all subdirectories in scope (e.g. `model/big-pickle/`; full mode also `models_voice/gpt-realtime-2/`).
-- Do NOT skip empty directories or folders lacking reports, `average.md`, `meta.json`, or `src/data/models.ts` references.
-- For each `model/<slug>/`, check (case-sensitive) whether `<Your_Filename>` exists (full mode: check `<parent>/<slug>/` and write new voice findings under `models_voice/` per `RULES.md`; never re-route an existing folder).
-- Shell tip (this repo runs under Windows PowerShell): no `head`/`grep`/Unix pipes — use `Select-Object -First N`; a directory also lists via the Read tool. Tip only — whichever works in your harness is fine.
-- Missing list = queue base. Order it:
-  1. Read `model-queue.md` (repo root, one read) — process top-down.
-  2. Slugs absent there (no `average.md` yet) go last, sorted A-Z by slug.
-  3. Fallback only (queue missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
+With 160+ folders on disk, auditing folder-by-folder costs more requests than most runtimes allow per minute. Do this instead — exactly two calls, then start writing:
+
+1. Read `model-queue.md` (repo root, one read) — roster, Overall scores, and processing order in one file. File order IS the order: never re-sort, never verify it against `average.md` files.
+2. ONE wildcard listing for `model/*/<Your_Filename>*` (glob, or shell: `Get-ChildItem -Path "model/*/<Your_Filename>*"` on Windows PowerShell) — every folder already holding your file, `.md.excluded` twins included. No per-folder listings, no per-folder existence checks up front.
+3. Missing-set = queue-file slugs minus folders holding `<Your_Filename>`, in file order. Slugs absent from the queue file (no `average.md` yet) go last, A-Z. Twin-only folders stay queued (Step 3.3 twin procedure runs at write time). Retired slugs (`model/README.md` § Parking) are dropped entirely.
+4. Fallback only (queue file missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
+
+After that, check existence only for the folder you are currently writing (one cheap check at write time) — never pre-verify the whole queue.
 - Retired (parked) slugs are dropped from the missing-set entirely — never queued, researched, written into, or scaffolded, even when the audit finds the folder on disk missing your file (parked list: `model/README.md` § Parking; the queue file already omits them, this rule covers the audit path).
 - Allowed carve-out: reading `model-queue.md` (or, in fallback, that single Overall line) for ordering is fine
   (see rate-limit Rule 2) — it is also the single point of reference for the

@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3.5-flash`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,6 +27,13 @@ Agent / tool use:
 - τ²-Bench Telecom: **95.32%** (high) / **95.61%** (medium) (Artificial Analysis)
 - Output speed: **289 tok/s** (rank #7/49; ~4× faster than GPT-5.5 and Claude Opus 4.7)
 - Terminal-Bench 2.1: not surfaced live for 3.5 Flash — treated as provisional
+- APEX-Agents Original: **27.5%** (Mercor, independent — reported 2026-10-07) — weak long-horizon agentic
+- AutomationBench 1.0.6: **9.0–13.4%** (low→high, Zapier, independent — reported 2026-10-07) — weak real-world automation
+- BrowseComp 130-q: **43.3%** (Mercor web-research agent, independent — reported 2026-10-07)
+- Toolathlon Verified: **67.3%** (Toolathlon, independent — reported 2026-06-30)
+- Vals Index 2.1: **44.8%** (Vals AI, independent — reported 2026-10-06)
+- Vibe Code Bench 1.1: **48.7%** (Vals AI, independent — reported 2026-10-06)
+- CharXiv: **94.3%** (Mercor single-shot, independent — reported 2026-10-07)
 - Vector Wire capability: **Agentic "Capable"** (−18.5% vs leader, 6/7)
 
 Reasoning / knowledge:
@@ -64,8 +71,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Google + Artificial Analysis (via hokai.io) and vectorwire.ai (132 results, 29 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (43 primary-source results, updated 2026-10-07 — independent APEX-Agents 27.5%, AutomationBench 9.0–13.4%, BrowseComp 43.3%, Toolathlon 67.3%, Vibe Code 48.7%, Vals Index 44.8%, CharXiv 94.3%) — no score change warranted; the independent real-world agentic/coding numbers reinforce the existing Tool use 84 / Coding 76 mid-tier reads. Prior pass (2026-10-08) used Google + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 - 1M input / 64K output. Long-context recall above 100K has NOT yet been independently published for the 3.5 generation (Gemini 3.1 Pro is the lineage reference point).

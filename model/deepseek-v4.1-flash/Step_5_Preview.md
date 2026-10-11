@@ -1,7 +1,7 @@
 # DeepSeek-V4.1-Flash — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (DeepSeek HF model card + tech report/arXiv + API docs/changelog/pricing, Artificial Analysis, Vals AI via Ridge/AI-Model-Timeline, BenchmarkList, ModelCap, models.dev, ARMEDS); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (40 percentile-ranked results — Codeforces 3471 #1/8, TB2.1 90.6% #3/194, DeepSWE 74.2% #5/52, AA-LCR 84.0% #7/408, CyberGym 88.1% #6/43, HLE w/tools 63.9% #3/29, MMMU-Pro 77.0% #17/72, AA-Omniscience −5.3 17th pct), confirming the first pass — no score change warranted; the independent AA-LCR (99th pct) and TB2.1 percentile ranks support the existing Context 93 / Coding 87. Prior pass (2026-10-09) used DeepSeek HF model card + tech report/arXiv + API docs, Artificial Analysis, Vals AI, BenchmarkList, ModelCap, models.dev, ARMEDS.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

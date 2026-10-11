@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba Cloud Model Studio (DashScope) — Beijing, Singapore, US-Virginia endpoints; OpenAI-compatible chat-completions/responses APIs; resold via OpenRouter. Proprietary, API-only (no weights; an open-weight variant was floated for Q3 2026, unconfirmed). 35-hour autonomous-run ceiling.
 - **Release / knowledge:** 2026-06-02 (snapshot 2026-05-26); knowledge cutoff not disclosed.
 - **IDs:** `opencode/qwen-3.7-plus`.
-- **Context window:** 1M tokens (shared across text, image and video tokens); max output 32,768 tokens. NOTE: the repo `meta.json` stub says "128K total" — stale; Alibaba docs and all trackers report 1M.
+- **Context window:** 1M tokens (shared across text, image and video tokens); max output 131,072 tokens per the current QwenCloud model page (max input 991K) — supersedes the 32,768 figure carried earlier; NOTE: the repo `meta.json` stub says "128K total" — that now reads as the output cap (131,072 = 128K), not the context window; Alibaba docs and all trackers report 1M.
 - **Modalities:** text, image, video in; text out (no image generation). NOTE: `meta.json` says "Text in/out" — stale; image/video input is documented.
 - **Pricing (as of 2026-10-02):** $0.40/$1.60 per 1M input/output for ≤256K requests (international list; currently 20% off → $0.32/$1.28), $1.20/$4.80 for 256K–1M; cached input $0.08/M (implicit), explicit cache read $0.04/M; batch file $0.143/$0.574; China-region rate $0.276/$1.101 (≤256K).
 - **Architecture:** proprietary multimodal vision-language agent extending the Qwen 3.7 text backbone; parameters undisclosed.
@@ -45,14 +45,14 @@ Coding:
 
 Long context / multimodal:
 
-- 1M-token window (32,768-token output cap); no MRCR / RULER / LCR score published
+- 1M-token window (131K output cap per the current QwenCloud page; the earlier 32,768 figure is superseded); no MRCR / RULER / LCR score published
 - ScreenSpot Pro 79.0 and AndroidWorld 81% (above) are the vision-agent results; no MMMU/Video-MMMU figure captured
 
 ### Normalized scores (1–100)
 
 - **Tool use: 79/100.** τ²-bench 93.0% is frontier-tier and AndroidWorld 81% / ScreenSpot Pro 79.0 / MCP Atlas 76.4 are strong agentic results, but Terminal-Bench 2.1 reads 61.0% (AA) / 52.8% (vals.ai) — below Terminal-Bench 2.0's 70.3% — and Terminal-Bench 4.0 1.0%, AutomationBench-AA 17%, the Agentic Index of 17.5 and Harvey's Legal Agent 0.0% (vals.ai) cap the score.
 - **Reasoning: 71/100.** GPQA Diamond 87.9–90.3% is near the 90%+ frontier bar and MMLU-Pro 88.5% (rank 8 of 312, 98th pct) and AIME 93.3% are strong, but HLE 33.4–35.6% (under the 40% bar) and AA's current Intelligence Index of 25 (v4.3.2, Max — the 39 this file previously carried is an older index version; BenchmarkList's verified 38.98 read is likewise version-dependent) cap the score; CritPt 9.1% and AA-Omniscience 1 are very weak.
-- **Context window: 95/100.** 1M-token window shared across text/image/video; the 32,768-token output cap is a limitation, and no ≥98% retrieval-at-512K+ figure exists, so 100 is not justified.
+- **Context window: 95/100.** 1M-token window shared across text/image/video with a 131K output cap (per the current QwenCloud page); no ≥98% retrieval-at-512K+ figure exists, so 100 is not justified.
 - **Multimodal: 84/100.** text/image/video in with text out — the +video/PDF band (75–90), with frontier-tier GUI results (ScreenSpot Pro 79.0, AndroidWorld 81%) pushing it toward the top of the band.
 - **Coding: 70/100.** Terminal-Bench 2.0 70.3% and SWE-bench Pro ~60% are mid-tier, and SciCode 46.1% sits under the 55% frontier reference; DeepSWE/LiveCodeBench/SWE-bench Verified unpublished.
 - **Cost efficiency: 94/100.** $0.40/$1.60 per 1M (≤256K, list; $0.32/$1.28 with the 20% promo) interpolates to ~94 between the ~97 ($0.10/$0.20) and ~88 ($1.25/$4.25) anchors; the 256K–1M tier ($1.20/$4.80) and vision tokens sharing the 1M budget are the caveats.
@@ -72,8 +72,20 @@ Long context / multimodal:
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: none.** Tool use 79 / Reasoning 71 / Context 95 / Multimodal 84 / Coding 70 / Cost 94 / Overall 80 all unchanged — the new reads confirm specs and add runtime/economics context, but no new score rows move a band:
+
+- **Official QwenCloud model page re-read (2026-10-11):** max input 991K / max output 131K (both rows of the spec table: 991K/131K and 983K/131K) — the 131K output figure supersedes the 32,768-token cap this file carried; notably the repo `meta.json` "128K total" stub now reads as the output cap (131,072 = 128K), not the context window. Page also confirms Context Cache for long-context requests, cache read $0.04/M, snapshot `qwen3.7-plus-2026-05-26`, and positions the model as a "multi-modal interactive hybrid agent" (scene perception, screen/GUI reading, code from visual references, end-to-end mobile-app navigation).
+- **Artificial Analysis page re-read:** Intelligence Index **39 is the v4.1.1 read** (9 evals incl. τ³-Banking, Terminal-Bench v2.1) — an older index version; the current v4.3.2 read of 25 (2026-10-08 section) stands. New runtime/economics rows: $322.40 to run the Intelligence Index; 110M output tokens vs a 60M median ("somewhat verbose"); "notably slow"; input $0.40 vs $0.25 median ("expensive"), output $1.60 vs $0.90 median ("somewhat expensive") — relative-to-median judgments that do not move the absolute price-band Cost score of 94.
+- **Alibaba Cloud Community blog (2026-06-03) benchmark methodology:** Terminal-Bench 2.0 via Harbor/Terminus-2 (5h timeout, 12 CPU/24GB RAM, temp 1.0/top_p 0.95/top_k 20, 80K max tokens, 256K context, average of 5 runs); SWE-bench series via an internal scaffold (bash + file-edit tools, 200K context); SWE-bench Pro on corrected tasks; QwenClawBench (open-source, real-user-distribution Claw agent benchmark, github.com/SKYLENAGE-AI/QwenClawBench); CoWorkBench (internal long-horizon across CS/finance/law/medical); SkillsBench (OpenCode, 78 tasks excluding 9 external-API-dependent, average of 5 runs); MCP-Mark (GitHub MCP v0.30.3, Playwright responses truncated at 32K); MCP-Atlas (public set, gemini-2.5-pro judger); VITA-Bench (average subdomain scores, claude-4.5-sonnet judger); Kernel Bench L3 (isolated Docker on H100 80GB, 50 problems, 500 tool calls, early stop after 100 non-improving). Actual benchmark scores were not captured from this read — no new score rows.
+- **vals.ai comparison page** (Qwen 3.7 Plus vs Claude Opus 4.8) exists, but per-benchmark scores were not captured.
+- Score impact: none. The 131K output cap removes the "32,768-token output limitation" caveat from the Context rationale, but no ≥98% retrieval-at-512K+ figure exists to justify 100, so Context stays 95; AA's "expensive/slow/verbose" labels are relative-to-median observations and the $0.40/$1.60 list price (20% promo → $0.32/$1.28) is unchanged, so Cost stays 94.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Alibaba Cloud Model Studio docs, AI/TLDR, ApiDog, Model Beat, Epoch AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Alibaba Cloud Model Studio / QwenCloud docs, AI/TLDR, ApiDog, Model Beat, Epoch AI, Artificial Analysis, Alibaba Cloud Community blog, vals.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_7_Plus.md`, using the same headings.

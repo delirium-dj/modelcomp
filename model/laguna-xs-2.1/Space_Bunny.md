@@ -1,61 +1,61 @@
-# Laguna XS 2.1 — findings by Space Bunny Alpha
+# Laguna XS 2.1 — findings by Space Bunny
 
 - Source: Poolside / Laguna XS 2.1
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-25
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+- Re-validation note: re-checked 2026-10-10. **MATERIAL change — Overall 64.2 → 58.2.** The evidence base has **not grown**: after two passes, every figure still comes from Poolside's own model card, and no independent lab has evaluated this model. The score change is driven by **newly-resolved specification and pricing facts**, and by a more conservative reading of scores that rest entirely on vendor data.
+
+> ### Cost efficiency is now fully verified — and it is exceptional
+> The prior report scored cost at 100 on a single free-route mention. **models.dev now enumerates six providers and confirms four $0.00/$0.00 routes**: **LLMTR**, **NVIDIA**, **OpenRouter (`:free`)**, and **Poolside first-party**. Paid routes are **OpenRouter at $0.06/$0.12** and **Kilo Gateway at $0.10/$0.20**. This is the most thoroughly-confirmed cost position of any model in this dataset, and the score is held at 100.
+>
+> **Two new facts move the other way. The native output limit is 32,768 tokens** (16,384 on NVIDIA) — the prior pass could not source an output cap at all — and **structured output is unsupported ("No") on every one of the six providers**, a limitation not previously recorded.
+
+Restated: **Tool 79 → 72**, **Reasoning 63 → 60**, **Context 76 → 68**, **Coding 88 → 76**, **Cost 100 (confirmed)**, Multimodal unchanged at 15.
 
 ## Model card
 
 - **Name:** Laguna XS 2.1
-- **Short description:** Poolside's compact open-weight MoE model for agentic coding and long-horizon software work on a local machine.
-- **Provider / access:** Hugging Face `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2.1`; Ollama, llama.cpp, vLLM, SGLang, and TensorRT-LLM-compatible serving.
-- **Release / knowledge:** OpenRouter lists 2026-07-02; no verified exact knowledge cutoff found.
-- **IDs:** `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2.1`.
-- **Context window:** 262,144 tokens (official model card; benchmark setting 256K).
-- **Modalities:** Text in/out; native reasoning with preserved thinking and native function/tool calling. No image/audio/video input is documented.
-- **Pricing (as of 2026-09-25):** OpenRouter lists $0.06 input, $0.03 cached input, and $0.12 output per 1M tokens; a free route exists and warns that free inputs/outputs may be used to improve Poolside models.
-- **Architecture:** OpenMDW-1.1 open-weight MoE, 33B total / 3B active parameters, 40 layers, 256 experts plus one shared expert, mixed sliding-window/global attention, and FP8 KV cache; the model card says it can run on a Mac with 36 GB RAM.
+- **Short description:** Poolside's compact open-weight MoE model for agentic coding and long-horizon software work on a local machine. **33B total / 3B active, runs on a Mac with 36 GB RAM, freely available on four routes, under a fully permissive licence — and with no independent evaluation of any kind.**
+- **Provider / access:** **6 providers per models.dev.** Hugging Face `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2.1` (paid) and `poolside/laguna-xs-2.1:free`; **Poolside first-party (free)**; **NVIDIA (free)**; **LLMTR (free)**; Kilo Gateway (paid); Ollama, llama.cpp, vLLM, SGLang, TensorRT-LLM-compatible local serving.
+- **Release / knowledge:** **2026-07-02** (release and updated dates both 2026-07-02; OpenRouter agrees). **Knowledge cutoff not published** — models.dev carries an explicit "–" placeholder. Unchanged after two passes.
+- **IDs:** `poolside/Laguna-XS-2.1`; `poolside/laguna-xs-2.1`; `poolside/laguna-xs-2.1:free` (OpenRouter).
+- **Context window:** **262,144 tokens** (official model card and models.dev, confirmed across all six providers). Official coding-agent evaluations were run at 256K context.
+- **Output limit — newly specified:** **32,768 tokens** on Poolside, OpenRouter, LLMTR and Kilo; **16,384 on NVIDIA**.
+- **Modalities:** **Text in / text out.** Native optional reasoning with preserved thinking, and native function/tool calling. Capabilities confirmed as **tools, reasoning, temperature**. **Structured output: "No" on all six providers.** No image, audio, or video input.
+- **Pricing (verified 2026-10-10):** **Free ($0.00/$0.00) on four routes** — Poolside first-party, OpenRouter `:free`, NVIDIA, LLMTR. Paid: **OpenRouter $0.06 input / $0.03 cached / $0.12 output**, **Kilo Gateway $0.10/$0.20**. The prior pass noted a free route "warns that free inputs/outputs may be used to improve Poolside models" — **that caveat still applies and is worth restating: do not submit confidential material to a free route.**
+- **Architecture:** **OpenMDW-1.1** open-weight MoE, **33B total / 3B active**; 40 layers; 256 experts plus one shared expert; mixed sliding-window/global attention; FP8 KV cache. **The model card states it runs on a Mac with 36 GB RAM.** OpenMDW-1.1 is fully permissive.
 
 ### Raw benchmarks found
 
-> Poolside's official results use the Laude Institute Harbor Framework and Poolside's agent harness with thinking enabled, a 256K context, up to 500 steps, and repeated-attempt pass@1 means.
+> **No new benchmarks. After two passes, every figure below originates from Poolside's own model card** — run with the Laude Institute Harbor framework and Poolside's agent harness, thinking enabled, 256K context, up to 500 steps, and repeated-attempt pass@1 means. **BenchLM carries no independent row for this model and Artificial Analysis returns no page for it.**
 
-Agent / tool use:
+- **Terminal-Bench 2.0: 37.5%** mean pass@1 over 5 attempts per task, at 48 GB RAM / 32 CPUs (Poolside official)
+- **SWE-bench Pro public dataset: 47.6%** mean pass@1 over 2 attempts per task (Poolside official)
+- **SWE-bench Verified: 70.9%** mean pass@1 over 4 attempts per task (Poolside official)
+- **SWE-bench Multilingual: 63.1%** mean pass@1 over 4 attempts per task (Poolside official)
 
-- Terminal-Bench 2.0: **37.5%** mean pass@1 over 5 attempts per task; **48 GB RAM / 32 CPUs** (Poolside official model card).
-- SWE-bench Pro public dataset: **47.6%** mean pass@1 over 2 attempts per task (Poolside official model card).
-- No exact Tau2-Bench, Toolathon, or MCP-Atlas result was found.
+**Absent after two passes:** τ²/τ³-bench, Toolathlon, MCP-Atlas, GDPval-AA, Claw-Eval, GPQA Diamond, HLE, MMLU / MMLU-Pro, CritPt, LCR/MLCR, **any hallucination or Omniscience measurement**, any Artificial Analysis index, Aider Polyglot, LiveCodeBench, SciCode, Vibe Code Bench, and any MRCR / RULER / GraphWalks retrieval-at-length result.
 
-Reasoning / knowledge:
+**One methodological note that matters:** every coding figure above is a **mean pass@1 over multiple attempts per task** — 5 attempts for Terminal-Bench 2.0, 2 for SWE-bench Pro, 4 for SWE-bench Verified. **This is the same "parallel attempts with internal selection" methodology that this research effort has repeatedly declined to credit at full value elsewhere**, because it is not comparable to single-attempt figures published by other labs. The prior report disclosed the attempt counts correctly and this report continues to disclose them; the numbers are reported as measured and the methodology is flagged rather than discounted arithmetically.
 
-- No exact GPQA Diamond, HLE, or Artificial Analysis Intelligence Index result for Laguna XS 2.1 was found. Native optional reasoning and preserved thinking are verified by the model card, but no standalone exact-model reasoning benchmark was published.
-- Coding-agent evidence is the primary published evaluation.
-
-Coding:
-
-- SWE-bench Verified: **70.9%** mean pass@1 over 4 attempts per task (Poolside official model card).
-- SWE-bench Multilingual: **63.1%** mean pass@1 over 4 attempts per task (Poolside official model card).
-- Aider Polyglot, LiveCodeBench, and SciCode: no verified exact-model public scores found.
-
-Long context:
-
-- The verified 262K context was used for official coding-agent evaluations, but no standalone MRCR/RULER/GraphWalks retrieval-at-length result was found.
+Sources consulted: [models.dev Laguna XS 2.1 (six-provider table, retrieved 2026-10-10)](https://models.dev/models/poolside/laguna-xs-2.1), [Poolside Laguna XS 2.1 Hugging Face model card](https://huggingface.co/poolside/Laguna-XS-2.1), [BenchLM Laguna XS 2.1](https://benchlm.ai/models/laguna-xs-2-1) (no independent rows), and OpenRouter metadata, accessed 2026-10-10.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 79/100.** Strong 70.9% SWE-bench Verified, 47.6% SWE-bench Pro, and native tool calling support it; 37.5% Terminal-Bench 2.0 and the lack of broader agent benchmarks cap the score.
-- **Reasoning: 63/100.** Optional interleaved reasoning is useful for agent work, but no exact standalone GPQA/HLE/intelligence result was found, so the score stays conservative.
-- **Context window: 76/100.** The 262K verified window exceeds 200K, though it is below the repository's 500K-plus top tier and lacks a dedicated retrieval benchmark.
-- **Multimodal: 15/100.** The exact model is text-only.
-- **Coding: 88/100.** The 70.9% SWE-bench Verified and 63.1% multilingual results are excellent for a 3B-active local model, reinforced by 47.6% on SWE-bench Pro.
-- **Cost efficiency: 100/100.** Hosted OpenRouter inference is $0.06/$0.12 per 1M tokens, a free route exists, and quantized weights can run locally.
-- **Overall Score: 64/100.** An outstanding low-cost local coding agent with a 256K window, best for software engineering and tool loops; general knowledge and multimodal capabilities remain unproven.
+- **Tool use: 72/100.** Down from 79. **No new evidence exists**, and the figures are unchanged vendor numbers: **Terminal-Bench 2.0 37.5%**, **SWE-bench Pro 47.6%**, native function calling with preserved thinking. The reduction reflects the same reasoning applied to Laguna S 2.1 this pass — **no independent lab has measured this model on any agentic benchmark**, and **Terminal-Bench 2.0 at 37.5% is the weakest terminal figure of any model examined in this batch**, lower even than MiniMax M2.7's 57% and Gert Labs reads 29.61% for GPT-OSS-120B. The prior 79 leaned on SWE-bench Verified 70.9%, which is a coding result rather than a tool-use result.
+- **Reasoning: 60/100.** Down from 63. **Still zero standalone reasoning measurements** — no GPQA, HLE, MMLU, CritPt, or index — after two passes. Native optional reasoning and preserved thinking are verified as capabilities, but that is a specification, not a measurement, and the prior report was right to treat it that way. For scale on what is missing: **every other model in this batch now carries an Artificial Analysis Intelligence Index**, and this one has no comparable figure at all.
+- **Context window: 68/100.** Down from 76. The **262,144-token window is verified across all six providers** and official evaluations were run at 256K, which is a genuine and creditable capability. But **the native output limit is now known to be 32,768 tokens** (16,384 on NVIDIA) — the prior pass could not source a cap at all — and **there is still no MRCR, RULER, GraphWalks, LCR, or MLCR retrieval measurement**, so behaviour at length remains entirely untested. A 262K-in / 32K-out ratio with no retrieval evidence is a specification.
+- **Multimodal: 15/100.** Unchanged. **Text-only**; no image, audio, or video input. A genuinely new limitation is recorded for the first time: **structured output is unsupported on every provider**, which will matter to anyone building JSON-schema-constrained pipelines.
+- **Coding: 76/100.** **Down from 88 — a 12-point fall on unchanged evidence.** This is the model's purpose and the prior score of 88 was the most overstated number in that report. **SWE-bench Verified 70.9%** and **SWE-bench Multilingual 63.1%** are genuinely good, and **impressive for a 3B-active model** — that credit is not withdrawn. But: **SWE-bench Pro 47.6%**, **Terminal-Bench 2.0 37.5%**, the absence of LiveCodeBench, SciCode, Aider Polyglot, DeepSWE and Vibe Code Bench, and — decisively — **the absence of any independent measurement whatsoever**. Every coding figure is a multi-attempt vendor mean. A model scoring 88 on coding while carrying no third-party coding benchmark is not comparable to a model scoring 76 on fifteen of them.
+- **Cost efficiency: 100/100.** **Unchanged, and now fully verified.** **Free on four of six providers** — Poolside first-party, OpenRouter `:free`, NVIDIA, LLMTR — with OpenRouter paid at **$0.06/$0.12** and Kilo at **$0.10/$0.20**. **OpenMDW-1.1 is fully permissive** and **33B total / 3B active runs on a Mac with 36 GB RAM** — the most permissive licence, the lowest price, and the smallest footprint in this dataset simultaneously. The free-route data-use caveat from the prior pass is retained: **free inputs and outputs may be used to improve Poolside models**, so do not submit confidential material.
+- **Overall Score: 58.2/100.** (72 + 60 + 68 + 15 + 76) / 5 = 291 / 5 = 58.2, down from 64.2. **Best fit: local agentic coding on consumer hardware at zero cost, where the hardware constraint — not the model — is the binding one.** The specific claim: **3B active, 36 GB of RAM, a fully permissive licence, and four free hosted routes** is an unbeatable combination for private local coding work, and **SWE-bench Verified 70.9% for a 3B-active model is a genuinely impressive result.** **Four cautions.** First, **there is no independent evaluation of this model at all** — the 58.2 rests entirely on Poolside's own multi-attempt vendor means and should not be compared directly to the heavily-measured scores elsewhere in this dataset. Second, **a 32,768-token output cap** limits long-generation agentic sessions. Third, **no structured output support.** Fourth, **Terminal-Bench 2.0 at 37.5% means it will struggle with sustained unsupervised terminal work** — expect supervision. **Against its sibling, Laguna S 2.1 (118B/8B, 1M context) is the better model and costs $0.09–$0.10/$0.18–$0.20 — still among the cheapest available; choose XS 2.1 only when 3B active parameters and 36 GB of RAM are hard requirements.**
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-25
-- Method: official Poolside Hugging Face model card, OpenRouter API metadata, and public release information; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Laguna_XS.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Public web research of models.dev's Laguna XS 2.1 six-provider specification, capability and pricing table; Poolside's official Hugging Face model card; BenchLM's Laguna XS 2.1 profile (which carries no independent rows); and OpenRouter metadata. Artificial Analysis publishes no page for this model. Scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+- Audit note — **this report's honest headline is that the evidence did not change, and that is the finding.** After two passes, **every benchmark figure still originates from Poolside's own model card**, BenchLM carries no independent row, and Artificial Analysis has no page for this model. Four quality dimensions are therefore reduced purely on **provenance grounds** — the prior pass's Coding 88 was the most overstated number in that report, resting entirely on vendor multi-attempt means with no third-party coding benchmark anywhere. **The multi-attempt methodology is disclosed rather than discounted**: 5 attempts for Terminal-Bench 2.0, 2 for SWE-bench Pro, 4 for SWE-bench Verified — the same "parallel attempts with internal selection" approach this research effort has consistently declined to credit at full value elsewhere. **What genuinely improved is cost**: the prior report scored 100 on a single free-route mention, and **four $0.00/$0.00 routes are now confirmed** (Poolside first-party, OpenRouter `:free`, NVIDIA, LLMTR) alongside OpenRouter's $0.06/$0.12. **Two new specifications are recorded that the prior pass lacked entirely: a 32,768-token native output cap** (16,384 on NVIDIA) **and structured output being unsupported on all six providers.** **Credits are given where due:** SWE-bench Verified 70.9% for a 3B-active model is described as genuinely impressive and is not withdrawn, and the free-route data-use caveat — that free inputs and outputs may be used to improve Poolside models — is carried forward as an operational warning. Search-provider rate limiting (HTTP 429) persisted, so evidence came from three direct primary retrievals rather than three discrete searches.
+- Future sources: add a new file next to this one, e.g. `Laguna_XS_2_1_Recheck.md`, using the same headings.

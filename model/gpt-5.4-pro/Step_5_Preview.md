@@ -1,7 +1,7 @@
 # GPT-5.4 Pro — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-5.4-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,8 +65,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced vectorwire.ai (19 results, 11 independently verified). Coverage is thin — 7 of 8 capability baskets are unrated for the Pro setting; GPT-5.4 Pro shares standard GPT-5.4's weights (parallel test-time compute is the only difference).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no standalone GPT-5.4 Pro page (Pro shares standard GPT-5.4's weights; the base GPT-5.4 page — 56 results, updated 2026-10-07 — carries the shared independent runs: APEX-Agents 52.4%, BrowseComp 73.3%, SWE-bench Pro 57.7–59.1%). No score change warranted — coverage remains thin for the Pro setting specifically. Prior pass (2026-10-08) used vectorwire.ai (19 results, 11 independent). GPT-5.4 Pro shares standard GPT-5.4's weights (parallel test-time compute is the only difference).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ### Normalized scores (1–100)

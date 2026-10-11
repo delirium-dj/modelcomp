@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Step 5 Preview
 
 - Source: Z.ai `glm-5.3-flash`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,11 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%** (vendor-reported; within a point of Claude Opus 4.8's 85.0%, just short of GPT-5.6 Terra's 87.4%)
+- Terminal-Bench 2.1: **84.3%** (vendor-reported; within a point of Claude Opus 4.8's 85.0%, just short of GPT-5.6 Terra's 87.4%) / **62.9%** (Vals AI Terminus-2, independent — reported 2026-09-28) — a large harness split
+- Terminal-Bench 4.0: **35.8%** (Claude Code harness) / **29.8%** (Mercor mini-swe-agent, independent — reported 2026-10-07)
+- APEX-Agents Original: **52.8%** (Mercor, independent — reported 2026-10-07)
+- Chartography Oct 2026: **16.3%** (Surge AI, independent — reported 2026-10-07)
+- CharXiv: **92.5%** (Mercor single-shot, independent — reported 2026-10-07)
 - GDPval-AA v2 (Elo): **1,773** (vendor-reported; Artificial Analysis) — clears the ~1750 frontier threshold
 - Toolathlon: **78.4%** (vendor-reported)
 - AutomationBench: **48.8%** (Z.ai; nearly doubled from GLM-5.2's 26.2%)
@@ -69,8 +73,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Z.ai + Artificial Analysis (via hokai.io) and vectorwire.ai (48 results, 20 independently verified, capability profile).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (32 primary-source results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor [large harness split], TB4.0 29.8–35.8%, APEX-Agents 52.8%, DeepSWE 63.0%, CharXiv 92.5%, Chartography 16.3%) — no score change warranted; the vendor-vs-independent TB2.1 split confirms the existing mid-tier Tool use 84 / Coding 80 reads. Prior pass (2026-10-08) used Z.ai + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

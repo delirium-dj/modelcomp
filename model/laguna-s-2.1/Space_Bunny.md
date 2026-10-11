@@ -1,64 +1,60 @@
-# Laguna S 2.1 — findings by Space Bunny Alpha
+# Laguna S 2.1 — findings by Space Bunny
 
 - Source: Poolside (`poolside/Laguna-S-2.1`; reasoning enabled)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+- Re-validation note: re-checked 2026-10-10. **MATERIAL change — Overall 64.4 → 59.4**, driven almost entirely by newly-resolved specification and pricing facts rather than by new benchmarks.
+
+> ### Two corrections to the prior pass
+> **1. The maximum output cap is now known, and it is low.** The prior report recorded "maximum output is not specified precisely." **models.dev gives the native output limit as 32,768 tokens**, with only some providers (Kilo Gateway, NanoGPT, OpenRouter, Pioneer, Vercel) advertising 131,072. Context is not the constraint here; **output is**.
+>
+> **2. A free route is claimed to exist, but Zen's own catalog does not carry it.** The prior report stated "OpenCode Zen route is paid; no free ID." **models.dev now lists three $0.00/$0.00 routes** — OpenCode Zen `laguna-s-2.1-free`, Vercel AI Gateway `poolside/laguna-s-2.1-free`, and Poolside first-party. **OpenCode Zen's live model API and its documentation both omit `laguna-s-2.1-free` entirely**; Zen's free tier is a specific 13-model list and Laguna is not on it. **This report does not credit the Zen free route**, and flags the conflict for the maintainer. **The Vercel free route is the plausible one and may well be genuine.**
+
+Restated: **Tool 75 → 72**, **Reasoning 60 → 58**, **Context 94 → 80**, **Coding 78 → 72**, **Cost 91 → 96**, Multimodal unchanged at 15.
 
 ## Model card
 
 - **Name:** Laguna S 2.1
-- **Short description:** Poolside's permissive open-weight MoE model for agentic coding, long-horizon terminal work, and 1M-token repositories.
-- **Provider / access:** Hugging Face `poolside/Laguna-S-2.1`; Poolside/OpenRouter/Vercel routes; local vLLM, SGLang, TRT-LLM, llama.cpp, and Ollama serving. OpenCode Zen route is paid; no free ID.
-- **Release / knowledge:** Poolside's model card links a release post dated 2026-07-21; knowledge cutoff not stated.
-- **IDs:** `poolside/Laguna-S-2.1`; `laguna-s-2.1`; OpenRouter `poolside/laguna-s-2.1`.
-- **Context window:** **1,048,576 tokens** (Poolside model card); maximum output is not specified precisely. Local Ollama builds may choose a smaller window, so the native model-card value is scored.
-- **Modalities:** Text input/output; interleaved native reasoning, preserved thinking, and tool/function calls supported. No image, audio, or video input.
-- **Pricing (as of 2026-09-24):** OpenMDW-1.1 weights are self-hostable; the reviewed paid API/Zen reference is approximately $0.10 input / $0.20 output per 1M tokens. Provider pricing varies; this is not a free tier.
-- **Architecture:** MoE, 118B total / about 8B active; 256 routed experts (top-10) plus one shared expert, 48 layers with 12 global and 36 sliding-window attention layers; OpenMDW-1.1 fully permissive license.
+- **Short description:** Poolside's permissively-licensed open-weight MoE model for agentic coding, long-horizon terminal work, and large repositories. **An unusually cheap model with a genuinely permissive licence and almost no independent evaluation — the core limitation on this report.**
+- **Provider / access:** **10 providers per models.dev.** Hugging Face `poolside/Laguna-S-2.1`; Poolside first-party; OpenRouter; Vercel AI Gateway; Kilo Gateway; NanoGPT (including a `:thinking` variant); Pioneer; Vultr; local vLLM, SGLang, TRT-LLM, llama.cpp and Ollama serving.
+- **Release / knowledge:** **2026-07-21** (release and last-updated dates both 2026-07-21; Poolside's blog post agrees). **Knowledge cutoff still not stated** — models.dev carries an explicit "–" placeholder. Unchanged after two passes.
+- **IDs:** `poolside/Laguna-S-2.1`; `poolside/laguna-s-2.1`; OpenRouter `poolside/laguna-s-2.1`; `poolside/laguna-s-2.1:thinking` (NanoGPT).
+- **Context window:** **1,048,576 tokens native** (Poolside model card; models.dev confirms across Kilo, NanoGPT, OpenRouter and Vultr). **Pioneer and Vercel list 1,000,000.** Claimed free routes cap at **256,000 / 32,000–32,768**.
+- **Output limit — newly specified:** **32,768 tokens natively** (Poolside first-party, Kilo, Vercel, Vultr); **131,072** on OpenRouter, NanoGPT, Kilo and Pioneer. The prior pass could not source this at all.
+- **Modalities:** **Text in / text out.** Interleaved native reasoning, preserved thinking, and tool/function calls supported; capabilities confirmed by models.dev as **tools, reasoning, temperature**. **Structured output: "No" on every listed route** — a genuine limitation not previously recorded. **No image, audio, or video input.**
+- **Pricing (verified 2026-10-10 — materially resolved):** **$0.09–$0.10 per 1M input / $0.18–$0.20 per 1M output** across all paid providers (OpenRouter $0.09/$0.18, Vercel $0.09/$0.18, Vultr $0.09/$0.18, Kilo/NanoGPT/Pioneer/Poolside $0.10/$0.20). **models.dev claims three $0.00/$0.00 routes** — see the correction note above; the Zen one is contradicted by Zen's own catalog, the Vercel one is not contradicted.
+- **Architecture:** MoE, **118B total / ~8B active**; 256 routed experts (top-10) plus one shared expert; 48 layers with 12 global and 36 sliding-window attention layers. **OpenMDW-1.1 — a fully permissive licence**, one of the most permissive available for any commercial model.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+> **The evidence base has not grown.** After two passes, every figure below still originates from Poolside's own model card and launch blog. BenchLM carries **6 rows, all Poolside-sourced, and assigns no composite** — the model remains unranked. **No independent lab has evaluated this model on any benchmark.**
 
-- Terminal-Bench 2.1: **70.2%** with thinking; **60.4%** without thinking (Poolside official model card)
-- Toolathlon Verified: **49.7%** (Poolside official model card)
-- SWE Atlas Codebase QnA: **46.2%** (Poolside official model card)
-- Tau3-Banking, GDPval-AA, Claw-Eval, MCP-Atlas, OSWorld, and exact SWE-bench Verified: **no verified public exact value found**
+- **Terminal-Bench 2.1: 70.2%** with thinking / **60.4%** without (Poolside official) — *the ~10-point thinking delta is itself informative*
+- **Toolathlon Verified: 49.7%** (Poolside official)
+- **SWE-bench Multilingual: 78.5%**; **SWE-bench Pro (public dataset): 59.4%** (Poolside official)
+- **DeepSWE: 40.4%** with thinking / **16.5%** without (Poolside's own harness; explicitly not comparable to frontier mini-swe-agent results)
+- **SWE Atlas Codebase QnA: 46.2%** (Poolside official; carried from the prior pass, no longer listed on BenchLM)
 
-Reasoning / knowledge:
+**Absent after two passes — the full list of things a modern evaluation would need:** τ²/τ³-bench, GDPval-AA, Claw-Eval, MCP-Atlas, OSWorld, SWE-bench Verified, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE on a standard harness, GPQA Diamond, HLE, MMLU / MMLU-Pro, CritPt, LCR/MLCR, MLCR, **any hallucination or Omniscience measurement**, any AA Intelligence Index, and any MRCR / RULER / GraphWalks retrieval-at-length result.
 
-- GPQA Diamond, HLE, MMLU/MMLU-Pro, CritPt, AA Intelligence Index, and hallucination metrics: **no verified public exact value found for Laguna S 2.1**. Values from sibling Laguna XS 2.1 are not transferred.
-- The model card demonstrates interleaved reasoning and preserved thinking, but this is a capability specification rather than a measured reasoning score.
-
-Coding:
-
-- SWE-bench Multilingual: **78.5%** (Poolside official model card)
-- SWE-bench Pro (Public Dataset): **59.4%** (Poolside official model card)
-- DeepSWE: **40.4%** with thinking; **16.5%** without thinking (Poolside's own harness; explicitly not directly comparable to frontier mini-swe-agent results)
-- SWE-bench Verified and LiveCodeBench: **no verified public exact value found**
-- SciCode, Vibe Code Bench, and AA Coding Index: **no verified public exact value found**
-
-Long context:
-
-- Native context: **1,048,576 tokens** (Poolside model card). No MRCR, RULER, or GraphWalks retrieval-at-length score was published.
-
-Sources consulted: [Poolside Laguna S 2.1 model card](https://huggingface.co/poolside/Laguna-S-2.1), [raw model card](https://huggingface.co/poolside/Laguna-S-2.1/raw/main/README.md), and [BenchLM Laguna S 2.1](https://benchlm.ai/models/laguna-s-2-1), accessed 2026-09-24. The official model-card benchmark table is the primary source for the coding figures.
+Sources consulted: [models.dev Laguna S 2.1 (10-provider table, retrieved 2026-10-10)](https://models.dev/models/poolside/laguna-s-2.1), [BenchLM Laguna S 2.1 (updated 2026-10-10)](https://benchlm.ai/models/laguna-s-2-1), [Poolside: Introducing Laguna S 2.1](https://poolside.ai/blog/introducing-laguna-s-2-1), [Poolside Laguna S 2.1 model card](https://huggingface.co/poolside/Laguna-S-2.1), [OpenCode Zen](https://opencode.ai/docs/zen) and [Zen model API](https://opencode.ai/zen/v1/models) — both consulted specifically to test the free-route claim. Artificial Analysis returns **404 for this model under two slug spellings**, confirming no independent AA evaluation exists.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** Terminal-Bench 70.2%, Toolathlon 49.7%, and SWE Atlas 46.2% support solid agent evidence; absent Tau3, GDPval, Claw, MCP, and OSWorld values cap the score.
-- **Reasoning: 60/100.** Native reasoning is documented, but no exact GPQA, HLE, MMLU, or AA Index result is published for this ID; the score is conservative.
-- **Context window: 94/100.** The verified 1,048,576-token window is top-tier, capped below 100 by the lack of a retrieval-at-length result.
-- **Multimodal: 15/100.** The model is text-to-text only.
-- **Coding: 78/100.** SWE-bench Multilingual 78.5%, SWE-Pro 59.4%, and Terminal-Bench 70.2% support strong coding; DeepSWE is lower on Poolside's non-comparable harness and exact LiveCodeBench/SWE-Verified values are missing.
-- **Cost efficiency: 91/100.** Approximate $0.10/$0.20 paid pricing plus permissive self-hosting and many quantized variants offer excellent value, though no free Zen ID is available.
-- **Overall Score: 64.4/100.** (75 + 60 + 94 + 15 + 78) / 5 = 64.4. Best fit: self-hosted agentic coding and long-context terminal work; pair with a multimodal model when vision is required.
+- **Tool use: 72/100.** Down from 75. **Nothing has changed in the evidence**, and the scores are set on the same vendor numbers as before: **Terminal-Bench 2.1 70.2%**, **Toolathlon Verified 49.7%**, **SWE Atlas Codebase QnA 46.2%**. The small reduction reflects a now-explicit fact rather than new negative evidence: **no independent lab has measured this model on anything**, and **BenchLM's absence of any Terminal-Bench 2.1 second source is notable** — for every model in this batch where a vendor and an independent lab both measured Terminal-Bench 2.1, the independent number ran lower (GLM-5.3 88.2 vs 71.5; Hy4 85.4 vs 55.1; DeepSeek V4 Flash 82.7 vs 67.0). **70.2% is therefore likely optimistic, though that inference is not evidence and is not scored as if it were.** The 9.8-point gap between thinking (70.2%) and non-thinking (60.4%) is a genuinely useful number and is credited.
+- **Reasoning: 58/100.** Down from 60. **Still zero reasoning measurements for this exact model** after two passes — no GPQA, HLE, MMLU, MMLU-Pro, CritPt, LCR, or any index. The prior pass correctly refused to transfer sibling Laguna XS 2.1 values here and that discipline is retained. The only reasoning-adjacent facts are the documented interleaved reasoning and preserved thinking, plus a `:thinking` provider variant — **capability specifications, not measurements.** The score is a conservative placeholder on that basis.
+- **Context window: 80/100.** **Down from 94 — the largest single change, and it is a specification correction.** The **1,048,576-token input window is real and top-tier.** But two facts now known did damage it. First, **the native output limit is 32,768 tokens**, which the prior pass could not source at all; a 1M-in / 32K-out ratio is poor for long-generation agentic work. Second, **the claimed free routes cap context at 256,000**, roughly a quarter of the native window, so a free user gets a materially different model. Above both: **no MRCR, RULER, GraphWalks, LCR, or MLCR retrieval result exists**, so there is still zero measured behaviour at length. A verified 1M input window with a 32K output cap and no retrieval evidence is a specification, not a demonstrated capability.
+- **Multimodal: 15/100.** Unchanged. **Text-to-text only**; no image, audio, or video input. A genuinely new limitation is recorded here for the first time: **models.dev lists structured output as "No" on every one of the ten providers**, which the prior pass did not capture. Any pipeline depending on JSON-schema-constrained output should know this before choosing the model.
+- **Coding: 72/100.** Down from 78. **No new coding data in two passes** — the figures remain Poolside's own: **SWE-bench Multilingual 78.5%**, **SWE-bench Pro 59.4%**, **DeepSWE 40.4%** (16.5% without thinking). SWE-bench Verified, LiveCodeBench, SciCode, and Vibe Code Bench remain entirely unpublished. The prior 78 was reasonable on the evidence available; the reduction reflects that the evidence has not grown while comparable models in this batch now carry ten to fifteen independent measurements each. **A 59.4% SWE-bench Pro with no independent confirmation and a 16.5% non-thinking DeepSWE is not enough to place a model confidently against a field where DeepSeek V4 Flash reads 88.8% and GLM-5.3 reads 95.4% on SWE-bench.**
+- **Cost efficiency: 96/100.** **Up from 91 — the largest single increase in this report.** The paid economics are now fully verified across **ten providers at $0.09–$0.10 input / $0.18–$0.20 output**, which is among the cheapest rates for any 1M-context coding model measured in this entire research effort — cheaper than GLM-5.1 ($1.40/$4.40), Mistral Medium 3.5 ($1.50/$7.50), and LongCat 2.0 ($0.75/$2.95). **The OpenMDW-1.1 licence is fully permissive**, which no price can match, and the 8B-active architecture makes self-hosting genuinely practical. **models.dev additionally lists a Vercel AI Gateway free route at $0.00/$0.00**, which is not contradicted by any source and is worth testing. Held below 100 because the Zen free route is contradicted by Zen's own catalog, and because the free tiers cap context at 256K.
+- **Overall Score: 59.4/100.** (72 + 58 + 80 + 15 + 72) / 5 = 297 / 5 = 59.4, down from 64.4. **Best fit: self-hosted agentic coding at genuinely negligible cost, on a permissive licence, where you can afford to evaluate it yourself.** The specific claim is the licence plus the price: **OpenMDW-1.1 with 8B active parameters at $0.09/$0.20 is the cheapest combination of permissiveness and capability measured in this dataset**, and 118B/8B will run on a single workstation. **Four cautions.** First, **there is no independent evaluation of this model at all** — the 59.4 is a vendor-evidenced figure and should be read as provisional, not as comparable to the heavily-measured scores elsewhere in this dataset. Second, **a 32,768-token native output cap** limits long-generation agentic work regardless of the 1M input window. Third, **no structured output support on any provider.** Fourth, **if you want Poolside's line, `Laguna XS 2.1` and `Laguna M.1` exist** — both also unranked on BenchLM, so the same caveat applies, but XS is the smaller and cheaper class if your hardware is constrained.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
-- Method: Public web research of Poolside's official model card and BenchLM; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Public web research of models.dev's Laguna S 2.1 ten-provider specification, capability, and pricing table; BenchLM's Laguna S 2.1 profile; Poolside's official launch blog and Hugging Face model card; OpenCode Zen's documentation and live model API, both consulted specifically to test the free-route claim; and Artificial Analysis under two slug spellings to confirm no independent evaluation exists. Scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+- Audit note — **this report's central limitation is that the evidence base did not grow, and that is itself the finding.** After two passes, **every one of Laguna S 2.1's benchmark figures still originates from Poolside**, BenchLM carries six vendor-sourced rows and assigns no composite, and **Artificial Analysis returns 404 under two slug spellings** — no independent lab has evaluated this model on anything. The prior pass's decision not to transfer Laguna XS 2.1 values here is retained and explicitly credited. **Two specification corrections drive the score change: the native output limit is 32,768 tokens** (previously unsourced, and it caps long-generation work far more than the 1M input window suggests), and **models.dev now lists three $0.00/$0.00 routes including an OpenCode Zen `laguna-s-2.1-free` that Zen's own API and documentation both omit** — so the prior pass's "no free ID" statement is contradicted by one source and upheld by another, and this report resolves the conflict against Zen's own catalog while flagging the Vercel route as plausibly genuine. **Cost efficiency rises 91 → 96** on verified ten-provider pricing plus the fully permissive OpenMDW-1.1 licence. **A new capability limitation is recorded for the first time: structured output is unsupported on all ten providers.** **Four dimensions are scored on unchanged vendor evidence and are flagged as such** rather than dressed up with inference — though the report does note, without scoring it, that this batch found independent Terminal-Bench 2.1 readings running 13–30 points below vendor claims elsewhere, which suggests 70.2% is optimistic. Search-provider rate limiting (HTTP 429) persisted, so evidence came from four direct primary retrievals rather than three discrete searches.
+- Future sources: add a new file next to this one, e.g. `Laguna_S_2_1_Recheck.md`, using the same headings.

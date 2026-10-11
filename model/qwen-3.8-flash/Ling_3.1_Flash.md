@@ -78,8 +78,21 @@ Multimodal:
 
 ---
 
+## Update 2026-10-10 (deep second pass, 3 independent searches)
+
+**Scores unchanged: Tool 79 / Reasoning 78 / Context 92 / Multimodal 88 / Coding 80 / Cost 93 / Overall 83.** New rows and conflict resolutions:
+
+- **Official specs (Qwen Cloud + Alibaba Model Studio, read 2026-10-10):** 1M context; max input **991,808** tokens (983,616 in thinking mode), max output **131,072**, max thinking chain **262,144**; default reasoning level `xhigh` (low/medium/xhigh available); fully compatible with **both OpenAI and Anthropic API protocols** (drop-in for Claude Code, Codex, OpenCode); Alibaba Token Plan subscription available; `supports_image_detail_original` confirmed.
+- **Pricing:** official input price cut **$0.16→$0.15/M** (−6%, UseRightAI); output $0.47/M; cache hit **$0.016/M (≈10%)**; official CNY rates: Beijing/Frankfurt/Tokyo CNY 0.8/2.7 per 1M (Singapore 1.094/3.427); reseller floor Ofox **$0.11/$0.39** (llmboard lists 15+ providers at $0.15/$0.47). Cache economics: OpenRouter observed a **91.1% cache-hit rate** in live traffic, dragging the effective input price to **~$0.028/M** (eesel); at ≤32K prompts Qwen3.8-Flash is 4× the price of Qwen3.7-Flash, but 33%/44% cheaper in the 256K–1M tier.
+- **AA Intelligence Index version conflict resolved:** current v4.3.2 read is **40** (#6 of 117 open-weight models of similar size; 240M output tokens vs the 140M median — "very verbose"). The widely-cited **56** (eesel AI, Reddit r/opencode, 2026-08-30; #5 of 111, ~$0.10/task, 77 t/s, 200M tokens vs a 110M median) is an **older index version**, as are the 42 (LYTH/gradually.ai, 2026-09-08/09 estimates) and 39.9 (ai-atlas, obs. 2026-09-16, −13.5 vs Fable 5.1) reads. AA lists the native context as 256K — matching the 262,144-token native spec; OpenRouter briefly flipped its listing to 256K on 2026-09-11 and corrected back to 1M on 2026-09-12.
+- **Independent rows:** KingBench (MindStudio, 8 fixed tasks): **56/80 (70%)** vs GLM 5.3 Flash's **63/80 (78.75%)** — the two tied with perfect 10s on the math and agentic-pipeline tasks, but Flash-Next trailed on 3D rendering/front-end fidelity (folding-table animation 2/10 vs 7/10), an independent data point for the vision-polish caveat; llmboard grades SWE-bench Multilingual **#8 of 48 (85th percentile)** and SWE-bench Pro **#16 of 61 (75th percentile)** — both Evidence C (vendor-reported), LLMBoard composite 80.0; **no SWE-bench Verified score is published** (only Pro).
+- **Lineup context (Respan, 2026-09-24):** AA per-effort ladder for the 27B sibling (xhigh 34 at $1.01/task — the default beats every lower effort at lower cost), Qwen3.8-Max **45 at $5.41/task** (190M output tokens vs an 88M median), and AA's Opus 5.5 at 58; the Flash-Next base model took best-in-class on 8 of 14 base benchmarks (MMLU-Pro, SuperGPQA, BBH, GSM8K, EvalPlus, SWEBench-Pretrain, MGSM, MMMLU); Unsloth GGUFs run the 125B MoE on 75GB RAM by offloading the 51B n-gram table to system RAM.
+- **Score impact:** none — the AA 40 read, official $0.15 price cut, KingBench row and llmboard percentiles all land inside the existing bands; the AA-index version conflict (40 vs 56) is resolved in favor of the current v4.3.2 read.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Qwen3.8-Flash-Next HF model card + tech report, Qwen Cloud docs, Venice/Blackbox/Kyma listings, llmboard, ExtractBench); scores are normalized 1–100 interpretations of self-reported vendor benchmarks, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-10)
+- Method: public internet research (Qwen3.8-Flash-Next HF model card + tech report, Qwen Cloud + Alibaba Model Studio docs, Artificial Analysis, eesel AI, MindStudio KingBench, llmboard, Respan, The New Stack, UseRightAI); scores are normalized 1–100 interpretations of self-reported vendor benchmarks, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_8_Flash.md`, using the same headings.

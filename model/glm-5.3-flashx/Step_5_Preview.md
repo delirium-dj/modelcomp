@@ -1,7 +1,7 @@
 # GLM-5.3-FlashX — findings by Step 5 Preview
 
 - Source: Z.ai (`glm-5.3-flashx`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Z.ai docs + GLM-5.3-Flash blog/HF model card, Artificial Analysis via OpenRouter, Vals AI, APIMaster.AI, OrcaRouter, glm5.app analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): GLM-5.3-FlashX is a serving tier of the identical GLM-5.3-Flash weights (no separate benchmarks exist); Artificial Analysis has no standalone FlashX page (404), and the shared-weights figures were re-confirmed via benchmarkregistry.org's GLM-5.3-Flash page (32 results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor, TB4.0 29.8–35.8%, APEX 52.8%, DeepSWE 63.0%). No score change warranted. Prior pass (2026-10-09) used Z.ai docs + GLM-5.3-Flash blog/HF model card, Artificial Analysis via OpenRouter, Vals AI, APIMaster.AI, OrcaRouter, glm5.app.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

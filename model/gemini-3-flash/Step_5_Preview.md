@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Step 5 Preview
 
 - Source: Google (`gemini-3-flash-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,6 +22,8 @@
 Agent / tool use:
 
 - τ²-Bench Telecom: **80.4%** (Artificial Analysis, reasoning config); non-reasoning 43.3%
+- τ³-Bench (Sierra, independent — reported 2026-03-02): Telecom **91.2%**, Airline **82.5%**, Retail **76.8%**, Banking **27.3%** — strong retail/telecom/airline tool use, weak banking
+- Finance Agent Benchmark 2: **42.6%** (Vals AI, independent — reported 2026-10-06)
 - Claw-Eval: **49.2%** (Claw-Eval leaderboard via BenchLM)
 - Terminal-Bench 2.1: **53.9%** (Vals AI); Terminal-Bench Hard: **38.6%** (AA, reasoning); Terminal-Bench 4.0: ~25% (ShawnHack aggregate); Google's TB 2.0 Terminus-2 submission was pending at publication
 - GDPval-AA: **no verified public score found** (successor 3.5 Flash posts Elo 1349, 3.6 Flash 1421 — not comparable to this model)
@@ -30,7 +32,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (Google launch blog); AA 89.8% (reasoning); Vals 87.9%; official Dec-2025 table 83.2% (evals.report)
+- GPQA Diamond: **90.4%** (Google launch blog); AA 89.8% (reasoning); Vals 87.9%; **89.4%/83.2%** (Epoch AI harness, independent); official Dec-2025 table 83.2% (evals.report)
 - HLE: **33.7% without tools** (Google launch blog); AA 36.6% (reasoning); Benchgen aggregate 43.5%
 - AIME 2025: **97.0%** (AA, reasoning); 95.6% (Vals)
 - Math Index: **97.0%** (AA); MATH 94.6–97.5% (aggregators)
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Google DeepMind model card + evals PDF + launch blog, Gemini API docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter/Requesty provider pages, evals.report, Benchgen); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (28 primary-source results, updated 2026-10-07 — independent GPQA Epoch 89.4%/83.2%, τ³-bench Telecom 91.2%/Airline 82.5%/Retail 76.8%/Banking 27.3%, Finance Agent 42.6%), confirming the first pass — no score change warranted; the independent τ³-bench retail/telecom strength is consistent with the existing Tool use 62. Prior pass (2026-10-09) used Google DeepMind model card + evals PDF + launch blog, Gemini API docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter/Requesty, evals.report, Benchgen.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

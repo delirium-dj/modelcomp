@@ -1,7 +1,7 @@
 # MiMo V2.6 Pro — findings by Step 5 Preview
 
 - Source: Xiaomi `mimo-v2.6-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,7 +71,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced Xiaomi's own evals + Artificial Analysis (via hokai.io) and vectorwire.ai (24 results, 4 independently verified, capability profile). Most headline numbers are Xiaomi self-reported.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no MiMo V2.6 Pro page; the Artificial Analysis live LLM leaderboard (2026-10-10) still lists MiMo-V2.6-Pro at Intelligence Index **46** as the top open-weights model — consistent with the first pass. No score change warranted. Prior pass (2026-10-08) used Xiaomi's own evals + Artificial Analysis (via hokai.io) and vectorwire.ai. Most headline numbers remain Xiaomi self-reported.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

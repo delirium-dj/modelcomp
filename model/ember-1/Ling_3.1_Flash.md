@@ -13,7 +13,7 @@
 - **Release / knowledge:** 2026-09-23; knowledge cutoff not stated (inherits Kimi K3's).
 - **IDs:** `opencode/ember-1`.
 - **Context window:** 1,048,576 (1M) tokens (Fireworks lists ~1,040K; OpenRouter 1,048,576).
-- **Modalities:** not published by Fireworks. NOTE: the repo `meta.json` stub says "Text in/out" — a generic scaffold; Ember-1 is built on Kimi K3, whose card covers image/video/PDF input, and the same tower is inferred to be retained (unverified).
+- **Modalities:** text and image input, text output — documented by Vercel AI Gateway (which lists "text and image input, tool calling, and implicit prompt caching"); Fireworks itself has not published a modalities section, and video/PDF input remains inferred from the Kimi K3 base (unverified). NOTE: the repo `meta.json` stub says "Text in/out" — a generic scaffold.
 - **Pricing (as of 2026-10-02):** $3.00/$15.00 per 1M input/output; cached input $0.30/M (identical to Kimi K3's public list pricing).
 - **Architecture:** specialized fine-tune of Kimi K3 (2.78T-parameter class); parameter count of the Ember-1 variant undisclosed.
 
@@ -43,17 +43,17 @@ Coding:
 Long context / multimodal:
 
 - 1M-token window; no MRCR / RULER / LCR score published
-- No multimodal benchmark published for Ember-1 (K3-base inference above)
+- No multimodal benchmark published for Ember-1 (image input documented by Vercel AI Gateway; video/PDF inferred from the K3 base)
 
 ### Normalized scores (1–100)
 
 - **Tool use: 84/100.** Terminal-Bench 2.1 82.0% (Fireworks' run, ahead of K3-max's 80.9%) sits just under the 88% frontier bar, with τ²-Bench Airline 66% and the Bedside Bench cost/task Pareto frontier (ahead of GPT-5.6 Sol, GPT-6 Astra, Opus 5) corroborating; these are vendor-run public benchmarks, not independent reproductions.
 - **Reasoning: 85/100.** No direct GPQA/HLE score exists; the score rests on Fireworks' K3-max-parity result across seven benchmarks and two production A/B tests (K3 being a top-tier reasoning model) plus the Bedside Bench frontier. Verification awaits an independent GPQA/HLE run.
 - **Context window: 95/100.** 1M-token window inherited from the Kimi K3 base; no ≥98% retrieval-at-512K+ figure, so 100 is not justified.
-- **Multimodal: 75/100.** Not published by Fireworks; inferred from the Kimi K3 base (image/video/PDF input) — the +video/PDF band (75–90) midpoint, flagged as unverified.
+- **Multimodal: 70/100.** Text+image input documented (Vercel AI Gateway changelog; Fireworks itself has not published modalities) — the top of the +image-in band (60–70); video/PDF input remains inferred from the Kimi K3 base, and no vision suite (MMMU) or vision-agent row exists to exceed the band, so the previously carried 75 (unverified +video/PDF inference) is revised down.
 - **Coding: 88/100.** DeepSWE 1.1 75.2% clears the 74% frontier bar (and beats K3-max's 66.4%), SWE-bench Verified 92.2% is near the frontier (K3 max 93.2%), and Terminal-Bench 2.1 82.0% sits just under the 85% bar; SWE-Interact 20.0% caps the score.
 - **Cost efficiency: 72/100.** $3/$15 per 1M list equals the ~60 reference, but the documented 35–40% total-token reduction (71.3% on reasoning tokens) lowers effective cost to ~$1.80/$9 — near the ~72–75 band — and per-benchmark cost runs 15–52% below K3-max.
-- **Overall Score: 85/100.** (84+85+95+75+88)/5 = 85.4 → 85 — Kimi K3-class agentic coding (DeepSWE 75.2%, SWE-bench Verified 92.2%) at roughly half the token cost, with unverified modalities/reasoning provenance as the caveats.
+- **Overall Score: 84/100.** (84+85+95+70+88)/5 = 84.4 → 84 — Kimi K3-class agentic coding (DeepSWE 75.2%, SWE-bench Verified 92.2%) at roughly half the token cost, with unverified reasoning provenance and image-only (not video/PDF-documented) multimodality as the caveats.
 
 ---
 
@@ -69,8 +69,22 @@ Corroboration and gap check — no new capability benchmarks have been published
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: Multimodal 75→70, Overall 85→84.** Tool use 84 / Reasoning 85 / Context 95 / Coding 88 / Cost 72 unchanged:
+
+- **Modalities now partially documented:** Vercel AI Gateway's launch changelog states Ember-1 "supports a 1M-token context window, text and image input, tool calling, and implicit prompt caching" — the first third-party documentation of image input (Fireworks itself has never published a modalities section). Video/PDF input remains inferred from the Kimi K3 base, so the score moves from the unverified +video/PDF band (75) to the top of the documented +image-in band (70); no vision suite (MMMU) or vision-agent row exists to exceed 70.
+- **Terminal-Bench 4.0: 19.7** (TensorFeed; 66 tasks, all-or-nothing verifiers) — a new agentic row; the TB 4.0 frontier bar is not yet established, but 19.7 sits far above the Flash-tier norm (GLM-5.3 Flash 2%, Qwen 3.7 Plus 1%), so it neither caps nor raises Tool use 84.
+- **llmboard (evaluated 2026-10-10, Evidence C — vendor-reported):** LLMBoard Score 72.04 at 20% coverage (4 benchmark families); field ranks — SWE-bench Verified **#3 of 117** (98.28th pct), DeepSWE 1.1 **#4 of 43** (92.86th pct), τ²-Airline **#7 of 25** (75th pct), Terminal-Bench 2.1 **#22 of 43** (50th pct — the vendor's 82.0% is only median in llmboard's field, a new caveat against the Tool-use score).
+- **Independent-servicing rows:** modelscale.dev throughput **46.5 tok/s** (2026-10-08; TTFT unavailable); OpenRouter latency 0.76s / 65 tps / 100% uptime; pricing corroborated at $3/$15 with $0.30 cache read across Fireworks, OpenRouter and Vercel AI Gateway (llmprice, 2026-10-04) — the entire value proposition stays in the token count, not the sticker price.
+- **Unverified conflict noted:** one aggregator (ai-model-psi-bice) carries an "AA index 46" for Ember-1, but Artificial Analysis has no published Ember-1 page (its index listings do not include the model) and InferenceIndexer records "AA INDEX N/A — no AA score available" — treated as unverified, not used.
+- Still unpublished: GPQA/HLE/FrontierMath, MCP Atlas/Claw-Eval/GDPval-AA/Agents' Last Exam, LiveCodeBench/SciCode/Vibe Code Bench/AA Coding Index, MRCR/RULER/LCR, and any vision benchmark. TensorFeed's assessment stands: "no independent evaluator has published a score for Ember-1 yet" — every capability number remains vendor-reported (Evidence C).
+- Score impact: Multimodal 75→70 (documented image-only input replaces the unverified video/PDF inference); Overall 85→84 ((84+85+95+70+88)/5 = 84.4).
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Fireworks Ember-1 launch, Fireworks model page, OpenRouter, LavX News); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Fireworks Ember-1 launch blog, Fireworks model page, OpenRouter, LavX News, MarkTechPost, Vercel AI Gateway, llmboard, TensorFeed, modelscale.dev, llmprice); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Ember_1.md`, using the same headings.

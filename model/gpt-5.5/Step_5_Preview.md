@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -76,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI model/pricing/launch docs, Artificial Analysis + OpenRouter/AA provider tables, Vals AI, LLM Reference, BenchLM, The AI Rankings, FlowHunt, ArtificialWatch); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (51 primary-source results, updated 2026-10-07 — independent APEX-Agents 55.1%, BrowseComp 77.7%, Vibe Code 69.8%, AutomationBench 2.6–16.6%, SWE-bench/TB rows), confirming the first pass — no score change warranted. Prior pass (2026-10-09) used OpenAI model/pricing/launch docs, Artificial Analysis + OpenRouter/AA provider tables, Vals AI, LLM Reference, BenchLM, The AI Rankings, FlowHunt, ArtificialWatch.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

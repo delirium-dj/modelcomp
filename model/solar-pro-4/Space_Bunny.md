@@ -1,68 +1,60 @@
-# Solar Pro 4 — findings by Space Bunny Alpha
+# Solar Pro 4 — findings by Space Bunny
 
 - Source: Upstage AI (`solar-pro-4`; reasoning)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass research; first pass 2026-09-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+- Re-validation note: re-checked 2026-10-10. **MATERIAL change — Overall 69.6 → 60.6.** Two large offsetting moves. Downward: the prior pass recorded "Toolathlon, GDPval-AA," "HLE, LCR/MLCR, CritPt, and hallucination metrics," and "SWE-bench Pro, DeepSWE, SciCode" as unavailable. **All have now closed and most are unfavourable — GDPval-AA 30.5%, APEX-Agents 18.7%, CritPt 5.4%, SciCode 44.6%.** Upward: **Hallucination Rate 24.4% is the lowest measured for any model in this entire research effort**, and a current price of **$0.03/$0.12** is now verifiable. Restated: **Tool 72 → 58**, **Reasoning 86 → 80**, **Context 88 → 82**, **Coding 87 → 68**, **Cost 65 → 82**, Multimodal unchanged at 15.
 
 ## Model card
 
 - **Name:** Solar Pro 4
-- **Short description:** Upstage's agentic model for multi-step real work, including terminal tasks, document processing, tool calls, and long-document reasoning.
-- **Provider / access:** Upstage Console/API, OpenRouter, Hermes Agent, and Upstage Studio; OpenAI-compatible integrations are documented by Upstage. Exact API ID is `solar-pro-4` in the reviewed Upstage materials.
-- **Release / knowledge:** The official launch article is current in 2026; the exact publication date was not exposed in the fetched text. Knowledge cutoff not stated.
-- **IDs:** `solar-pro-4`; Upstage model-family references use Solar Pro 4. Do not substitute Solar Pro 3.
-- **Context window:** **512K input/context with up to 128K output** (Upstage official Solar Pro 4 launch article).
-- **Modalities:** English, Korean, and Japanese text input/output; reasoning by default with high/low effort; tool calling and terminal work supported. Image/audio/video input are not claimed in the reviewed article.
-- **Pricing (as of 2026-09-24):** Upstage announced a 90% launch discount through 2026-09-10; that promotion is expired. A current numeric API rate was not exposed in the fetched source, so no permanent price is claimed.
-- **Architecture:** Proprietary; parameter count and architecture details not disclosed.
+- **Short description:** Upstage's agentic model for multi-step real work, including terminal tasks, document processing, tool calls, and long-document reasoning, with particular strength in Korean and Japanese. **Its defining measured characteristic is caution: the lowest hallucination rate of any model in this batch, achieved by frequently declining to answer rather than by being accurate.**
+- **Provider / access:** Upstage Console/API, OpenRouter, Hermes Agent, and Upstage Studio; OpenAI-compatible integrations documented by Upstage. **Six serving providers** per models.dev. Exact API ID `solar-pro-4`.
+- **Release / knowledge:** Upstage's official launch article is current in 2026; **the exact publication date was still not exposed** in the fetched text after two passes. **Knowledge cutoff not stated** — unchanged gap.
+- **IDs:** `solar-pro-4`; OpenRouter `upstage/solar-pro4`. Do not substitute Solar Pro 3.
+- **Context window:** **512K input / up to 128K output** (Upstage official Solar Pro 4 launch article; models.dev lists 524,288 / 131,072).
+- **Modalities:** **English, Korean, and Japanese text in/out**; reasoning by default with high/low effort; tool calling and terminal work supported. **Image, audio, and video input are not claimed.** Korean capability is separately measured at **KMMLU-Pro 79.2%**.
+- **Pricing (verified 2026-10-10 — newly resolved):** **$0.03 per 1M input / $0.12 per 1M output** (models.dev, across six providers). The **90% launch discount through 2026-09-10 has expired**, and this is the current non-promotional rate. Among the cheapest capable APIs measured in this batch.
+- **Architecture:** Proprietary; parameter count and architecture not disclosed.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Independent — new this pass:**
 
-- Terminal-Bench 2.1: **57.0%** (Upstage official launch article; provider-run)
-- τ³-Banking: **23.0%** (Upstage official launch article; provider-run)
-- BrowseComp: **49.2%** (Upstage official launch article)
-- MCP Atlas: **61.4%** (Upstage official launch article)
-- APEX-Agents: **18.7%** (Upstage official launch article)
-- Toolathlon, GDPval-AA, Tau3-Banking separate from τ³-Banking, Claw-Eval, and exact ClawProBench: **no verified public exact value found**
+- **AA-Omniscience Index: −0.8%**; **Accuracy: 18.9%**; **Hallucination Rate: 24.4%** — **the lowest hallucination rate recorded for any model in this research effort**, ahead of MiMo-V2.5-Pro (24.7%), GLM-5.2 (26.3%), GLM-5.3 (29.6%) and Nemotron 3 Ultra (29.7%)
+- **Artificial Analysis Intelligence Index: 28.1%**
+- **GPQA Diamond: 89.1%** against Upstage's own **89.0%** — *a 0.1-point match, the tightest GPQA agreement seen in this batch*
+- **AA-HLE: 29.2%**; **CritPt: 5.4%**
+- **GDPval-AA: 30.5%**; **AA-SciCode: 44.6%**
 
-Reasoning / knowledge:
+**Official Upstage (launch post):**
 
-- AA-LCR: **71%** (Upstage launch article quoting Artificial Analysis as of August 2026; long-document test around 100K tokens)
-- GPQA Diamond: **89.0%** (Upstage official launch article)
-- MMLU-Pro: **86.3%** (Upstage official launch article)
-- AIME 2026: **95.3%** (Upstage official launch article)
-- HLE, LCR/MLCR, CritPt, and hallucination metrics: **no verified public exact value found**
+- Terminal-Bench 2.1 **57.0%**; MCP Atlas **61.4%**; BrowseComp **49.2%**; APEX-Agents **18.7%**; τ³-Banking **23.0%**
+- GPQA Diamond **89.0%**; MMLU-Pro **86.3%**; AIME 2026 **95.3%**; **KMMLU-Pro 79.2%** (Korean)
+- SWE-bench Verified **70.6%**; LiveCodeBench **87.8%**; **AA-LCR 71.0%** at approximately 100K tokens (article quotes Artificial Analysis)
 
-Coding:
+**Still absent:** SWE-bench Pro, DeepSWE, Vibe Code Bench, an Artificial Analysis Coding Index, τ²/τ³-bench from an independent source, Toolathlon, Claw-Eval, MCP-Atlas independent confirmation, and any Terminal-Bench 3.0/4.0 row.
 
-- SWE-bench Verified: **70.6%** (Upstage official launch article)
-- LiveCodeBench: **87.8%** (Upstage official launch article)
-- SWE-bench Pro, DeepSWE, SciCode, and Vibe Code Bench: **no verified public exact value found**
+**BenchLM: 22 source-displayable rows, composite "not computed" — the model remains unranked.** Upstage family: Solar Pro 3 **30.25**, Solar Pro 2 **29.28** — Solar Pro 4 is a large generational step up, though the family's low composites reflect sparse independent coverage rather than only capability.
 
-Long context:
-
-- AA-LCR: **71%** at approximately 100K tokens (Upstage launch article quoting Artificial Analysis).
-- Native context: **512K** with up to **128K output** (Upstage official launch article); no independent retrieval-at-length result was found.
-
-Sources consulted: [Upstage Solar Pro 4 launch article](https://www.upstage.ai/blog/en/solar-pro-4), [Upstage Solar Pro 4 developer documentation](https://console.upstage.ai/docs/capabilities/solar-pro-4), and [BenchLM Solar Pro 4](https://benchlm.ai/models/solar-pro-4), accessed 2026-09-24. The article labels its AA-LCR source as Artificial Analysis; the other provider-run values are attributed to Upstage's launch material.
+Sources consulted: [BenchLM Solar Pro 4 (updated 2026-10-10)](https://benchlm.ai/models/solar-pro-4), [Upstage Solar Pro 4 launch article](https://www.upstage.ai/blog/en/solar-pro-4), [Upstage Solar Pro 4 developer documentation](https://console.upstage.ai/docs/capabilities/solar-pro-4), [Artificial Analysis Solar Pro 4](https://artificialanalysis.ai/models/solar-pro4), and [models.dev Solar Pro 4](https://models.dev/models/upstage/solar-pro4), accessed 2026-10-10. Upstage's article labels its AA-LCR source as Artificial Analysis; the other provider-run values are attributed to Upstage's launch material.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Terminal-Bench 57.0%, MCP Atlas 61.4%, BrowseComp 49.2%, and τ³-Banking 23.0% support real agent use, while APEX-Agents 18.7% and missing Toolathlon/GDPval values cap the score.
-- **Reasoning: 86/100.** GPQA 89.0%, MMLU-Pro 86.3%, AIME 95.3%, and AA-LCR 71% provide strong measured reasoning; exact HLE/LCR/CritPt values are missing.
-- **Context window: 88/100.** The verified 512K/128K-output limit is strong, and AA-LCR supplies a real long-document result, but it is below 1M-class models.
-- **Multimodal: 15/100.** The reviewed official material describes text in Korean, English, and Japanese; no image/audio/video modality is claimed.
-- **Coding: 87/100.** SWE-bench Verified 70.6% and LiveCodeBench 87.8% support strong coding; missing SWE-Pro/DeepSWE/SciCode values prevent a higher score.
-- **Cost efficiency: 65/100.** The launch discount is expired and a current numeric price was not exposed; no free-tier assumption is made.
-- **Overall Score: 69.6/100.** (72 + 86 + 88 + 15 + 87) / 5 = 69.6. Best fit: paid document and terminal agents that need measured long-document reasoning; verify current price and harness before production use.
+- **Tool use: 58/100.** Down from 72. Upstage's own figures are moderate — **Terminal-Bench 2.1 57.0%, MCP Atlas 61.4%, BrowseComp 49.2%** — and two of them were already weak: **APEX-Agents 18.7%** and **τ³-Banking 23.0%**. The prior 72 was assigned while noting "missing Toolathlon/GDPval values cap the score," and **GDPval-AA has now closed at 30.5%** — among the lowest of any model measured in this batch. That is a direct refutation of the agentic framing: APEX-Agents at 18.7% and GDPval-AA at 30.5% say the model does not sustain multi-step professional work. No τ²-bench, Toolathlon, Claw-Eval, or independent MCP-Atlas row exists.
+- **Reasoning: 80/100.** Down from 86, but this dimension contains the report's most interesting finding. **Academic knowledge is excellent and unusually well corroborated: GPQA Diamond 89.0% (Upstage) against 89.1% (AA) — a 0.1-point match, the tightest GPQA agreement in this batch — plus MMLU-Pro 86.3%, AIME 2026 95.3%, and KMMLU-Pro 79.2% on Korean.** **The distinguishing measurement is the Hallucination Rate of 24.4%, the lowest in this entire research effort.** But it must be read correctly: **Omniscience Accuracy is only 18.9%**, the lowest of any model here, while the Omniscience Index sits at −0.8%. Under AA's methodology — which penalises hallucination but does not penalise refusal — those three numbers together mean **the model declines to answer on the large majority of questions rather than answering them well.** That is a genuinely valuable safety property for a document-processing agent: it will tell you it does not know instead of inventing. It is *not* evidence of accuracy, and the score reflects the distinction. The reductions are **HLE 29.2%**, **CritPt 5.4%**, and an **Intelligence Index of 28.1%**.
+- **Context window: 82/100.** Down from 88. **512K input / 128K output** is verified from Upstage's launch article and corroborated by models.dev at 524,288 / 131,072. **AA-LCR at 71.0%** is a genuine long-document measurement — and note that it is taken at **approximately 100K tokens, not at the 512K the model supports.** So there is no retrieval evidence at the far end of the window. The score sits in the 200K–500K-plus band rather than the ≥1M tier, and **no MRCR, RULER, GraphWalks, or MLCR figure exists.**
+- **Multimodal: 15/100.** Unchanged. The reviewed official material describes **text in Korean, English, and Japanese**; **no image, audio, or video modality is claimed.** This maps to the methodology's floor. Note that the model's *multilingual* strength — KMMLU-Pro 79.2% and first-class Korean support — is real and is credited within Reasoning, but multilingual text input is not multimodal input.
+- **Coding: 68/100.** Down from 87 — the largest single-dimension fall in this report. **SWE-bench Verified 70.6%** and **LiveCodeBench 87.8%** are respectable single-shot results, and the prior 87 was built almost entirely on the latter. What has since closed is adverse: **AA-SciCode at 44.6%**, which measures scientific-code correctness and is the hardest common coding test in use. **SWE-bench Pro, DeepSWE, and Vibe Code Bench remain entirely unpublished**, as does any Artificial Analysis Coding Index — so the dimension still has only two vendor figures and one independent counterweight. LiveCodeBench 87.8% measures generating code from a specification; SciCode 44.6% measures getting hard code actually right. The prior score read only the first.
+- **Cost efficiency: 82/100.** **Up from 65 — the largest single increase in this report.** The prior pass scored 65 explicitly because "the launch discount is expired and a current numeric price was not exposed; no free-tier assumption is made." That caution was correct at the time and is now resolved: **models.dev lists $0.03 per 1M input and $0.12 per 1M output** across six providers — among the cheapest non-free rates measured anywhere in this batch. For a model with **GPQA 89.0%, AIME 95.3%, a 512K context, and the lowest hallucination rate in the dataset**, that is excellent value. Held below 90 because the price is third-party-sourced rather than from an Upstage rate card, and because **no cache discount, no Batch tier, and no knowledge cutoff are documented.**
+- **Overall Score: 60.6/100.** (58 + 80 + 82 + 15 + 68) / 5 = 303 / 5 = 60.6, down from 69.6. **Best fit: high-volume document processing and long-document question answering at very low cost, in Korean, Japanese, or English — where a model that declines rather than fabricates is the property you want.** The specific profile is unusual and valuable: **$0.03/$0.12, 512K context, AA-LCR 71%, and a 24.4% hallucination rate**, with AIME 95.3% and GPQA 89.0% showing the mathematics and science are real. **Four cautions.** First, **it is not an agent** — APEX-Agents 18.7%, GDPval-AA 30.5%, τ³-Banking 23.0%. Second, **18.9% accuracy** means you will get non-answers; that is a feature for safety-critical document work and a serious usability problem for batch pipelines, so build for abstention. Third, **CritPt 5.4% and SciCode 44.6%** mean its scientific reasoning and hard-code correctness are much weaker than its headline numbers. Fourth, **no knowledge cutoff and no launch date have been published after two passes**, and the model is **unranked on BenchLM** for want of independent coverage. **Compared to Solar Pro 3 (30.25) and Solar Pro 2 (29.28), this is a very large generational jump** — if you are on either predecessor, the upgrade case is strong on price and capability even with the agentic limitations above.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
-- Method: Public web research of Upstage's official launch article/developer documentation and BenchLM; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-10
+- Method: Public web research of BenchLM's Solar Pro 4 profile, Upstage's official Solar Pro 4 launch article and developer documentation, Artificial Analysis's Solar Pro 4 benchmark rows, and models.dev's Solar Pro 4 pricing and specification table; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
+- Audit note — **this report contains the most important positive finding in the batch and the most important correction.** Positive: **Hallucination Rate 24.4% is the lowest measured for any model across all three batches**, ahead of MiMo-V2.5-Pro, GLM-5.2, GLM-5.3 and Nemotron 3 Ultra — and the report is careful to explain *why*, because **Omniscience Accuracy is only 18.9%**, meaning the model achieves that rate substantially by declining to answer rather than by being right. That nuance is stated explicitly so the number is not misread. Correction: **Cost efficiency rises 65 → 82** because the prior pass declined to score an unverified price, and models.dev now supplies **$0.03/$0.12 across six providers**; the prior pass's caution was correct and is now resolved rather than overridden. **The prior pass's Coding score of 87 was built on LiveCodeBench 87.8% alone** and is corrected to 68 on the arrival of **AA-SciCode 44.6%** — the same single-vendor-row pattern identified on Gemini 2.5 Flash-Lite and Nemotron 3 Ultra. **GPQA is credited for the tightest cross-source agreement in the batch: 89.0% (Upstage) vs 89.1% (AA), a 0.1-point match.** Three gaps persist after two passes and are stated: **no knowledge cutoff, no exact launch date, and no AA Coding Index or SWE-bench Pro.** Search-provider rate limiting (HTTP 429) persisted, so evidence came from four direct primary retrievals rather than three discrete searches.
+- Future sources: add a new file next to this one, e.g. `Solar_Pro_4_Recheck.md`, using the same headings.

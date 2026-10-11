@@ -10,7 +10,9 @@
 - [naming.mjs](file://scripts/lib/naming.mjs)
 - [average.mjs](file://scripts/lib/average.mjs)
 - [codegen.mjs](file://scripts/lib/codegen.mjs)
+- [models.ts](file://src/data/models.ts)
 - [model-queue.md](file://model-queue.md)
+- [README.md](file://model/README.md)
 - [sync-data.md](file://tasks/sync-data.md)
 - [research.md](file://tasks/research.md)
 - [research-assign.md](file://tasks/research-assign.md)
@@ -19,11 +21,11 @@
 
 ## Update Summary
 **Changes Made**
-- Added documentation for the new batch_write.cjs utility script for efficient batch operations
-- Enhanced sync-data.mjs documentation to reflect improved model queue reorganization capabilities
-- Updated model ranking system documentation with latest benchmark results integration
-- Expanded development workflow to include batch processing utilities and automated queue generation
-- Added new section covering batch operation utilities and their role in the pipeline
+- Enhanced buildQueueFile function with retired parameter support for flexible model retirement management
+- Updated parking system documentation with improved dual-list synchronization between site and research queue
+- Expanded research workflow documentation to include comprehensive guidance for handling parked models
+- Improved data synchronization procedures to accommodate the new parking system architecture
+- Added detailed documentation for the RETIRED_SLUGS convention and its mirror implementation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -38,11 +40,12 @@
 10. [Improved Validation Rules](#improved-validation-rules)
 11. [PowerShell Shell Tips and Windows Support](#powershell-shell-tips-and-windows-support)
 12. [Pre-sorted Research Queue Generation](#pre-sorted-research-queue-generation)
-13. [Dependency Analysis](#dependency-analysis)
-14. [Performance Considerations](#performance-considerations)
-15. [Troubleshooting Guide](#troubleshooting-guide)
-16. [Conclusion](#conclusion)
-17. [Appendices](#appendices)
+13. [Enhanced Parking System Architecture](#enhanced-parking-system-architecture)
+14. [Dependency Analysis](#dependency-analysis)
+15. [Performance Considerations](#performance-considerations)
+16. [Troubleshooting Guide](#troubleshooting-guide)
+17. [Conclusion](#conclusion)
+18. [Appendices](#appendices)
 
 ## Introduction
 This document explains the ModelComp build and development pipeline that turns research markdown files into deterministic TypeScript data structures consumed by the static site. The central process is a Node.js synchronization script that scans model folders, parses scoring reports, validates metadata with enhanced scaffolding support, recomputes averages, registers new sources, and emits compact generated TypeScript files. The pipeline is designed to be reproducible: it fails loudly on invalid input, auto-corrects derived values where safe, and only writes generated artifacts when no failures are present.
@@ -52,6 +55,7 @@ The high-level workflow is:
 - Use batch_write.cjs for efficient bulk operations across multiple models.
 - Run the sync script to parse, validate with scaffolded meta.json support, compute averages, register sources, and generate TypeScript.
 - Utilize the pre-sorted research queue (`model-queue.md`) for efficient agent task assignment with latest benchmark rankings.
+- Leverage the enhanced parking system for managing retired models with proper dual-list synchronization.
 - Use PowerShell shell tips for Windows-based development workflows.
 - Run type checking and the Vite build to verify the final static site.
 - Deploy according to the project's deployment configuration.
@@ -63,6 +67,7 @@ At a high level, the repository contains:
 - Batch operations utility `batch_write.cjs` for efficient bulk model processing.
 - Generated TypeScript data under `src/data/`.
 - Pre-sorted research queue file `model-queue.md` for efficient task assignment with latest rankings.
+- Enhanced parking system with synchronized RETIRED_SLUGS lists across site and research queue components.
 - A Qwik/Vite application under `src/` and root configuration files such as `package.json`, `tsconfig.json`, and `vite.config.ts`.
 
 ```mermaid
@@ -86,6 +91,10 @@ SGEN["src/data/sources.generated.ts"]
 DGEN["src/data/scores.generated.ts"]
 MQ["model-queue.md"]
 end
+subgraph "Parking System"
+RSITE["src/data/models.ts<br/>RETIRED_SLUGS"]
+RAVG["scripts/lib/average.mjs<br/>RETIRED_SLUGS"]
+end
 subgraph "Application"
 APP["Qwik + Vite app (src/)"]
 end
@@ -101,18 +110,21 @@ SYNC --> C
 SYNC --> SGEN
 SYNC --> DGEN
 SYNC --> MQ
-SGEN --> APP
+A --> RSITE
+A --> RAVG
+RSITE --> APP
 DGEN --> APP
 ```
 
 **Diagram sources**
-- [sync-data.mjs:1-664](file://scripts/sync-data.mjs#L1-L664)
+- [sync-data.mjs:1-732](file://scripts/sync-data.mjs#L1-L732)
 - [batch_write.cjs:1-65](file://batch_write.cjs#L1-L65)
 - [parse.mjs:1-124](file://scripts/lib/parse.mjs#L1-L124)
 - [validate.mjs:1-98](file://scripts/lib/validate.mjs#L1-L98)
 - [naming.mjs:1-102](file://scripts/lib/naming.mjs#L1-L102)
-- [average.mjs:1-122](file://scripts/lib/average.mjs#L1-L122)
+- [average.mjs:1-137](file://scripts/lib/average.mjs#L1-L137)
 - [codegen.mjs:1-140](file://scripts/lib/codegen.mjs#L1-L140)
+- [models.ts:240-275](file://src/data/models.ts#L240-L275)
 
 **Section sources**
 - [package.json:1-40](file://package.json#L1-L40)
@@ -132,6 +144,7 @@ The pipeline has one orchestrator, several pure helpers, batch operations utilit
   - Registers new reporting-agent filenames in the source registry.
   - Emits compact TypeScript score data for the client bundle.
   - Generates pre-sorted research queue for efficient task assignment with latest rankings.
+  - Integrates with the enhanced parking system for retired model management.
 
 - Batch Operations Utility: `batch_write.cjs`
   - Efficiently generates standardized research findings files for multiple models simultaneously.
@@ -143,20 +156,20 @@ The pipeline has one orchestrator, several pure helpers, batch operations utilit
   - `scripts/lib/parse.mjs`: score labels, short keys, parsing, drift detection, cohort ranking, rater gating, and label sorting.
   - `scripts/lib/validate.mjs`: research path classification, mirror relocation detection, filename hygiene, and enhanced meta.json validation.
   - `scripts/lib/naming.mjs`: slug conventions, key derivation, display label resolution, virtual view keys, slug-name guess formatting, and scaffolded meta.json support.
-  - `scripts/lib/average.mjs`: average.md body generation, entry serialization, merge logic, and research queue file generation with latest rankings.
+  - `scripts/lib/average.mjs`: average.md body generation, entry serialization, merge logic, research queue file generation with latest rankings, and enhanced parking system integration.
   - `scripts/lib/codegen.mjs`: registry text surgery, union member handling, pending registration computation, and deterministic scores file rendering.
 
 **Section sources**
-- [sync-data.mjs:1-664](file://scripts/sync-data.mjs#L1-L664)
+- [sync-data.mjs:1-732](file://scripts/sync-data.mjs#L1-L732)
 - [batch_write.cjs:1-65](file://batch_write.cjs#L1-L65)
 - [parse.mjs:1-124](file://scripts/lib/parse.mjs#L1-L124)
 - [validate.mjs:1-98](file://scripts/lib/validate.mjs#L1-L98)
 - [naming.mjs:1-102](file://scripts/lib/naming.mjs#L1-L102)
-- [average.mjs:1-122](file://scripts/lib/average.mjs#L1-L122)
+- [average.mjs:1-137](file://scripts/lib/average.mjs#L1-L137)
 - [codegen.mjs:1-140](file://scripts/lib/codegen.mjs#L1-L140)
 
 ## Architecture Overview
-The sync pipeline follows a strict sequence: scan, quarantine, parse, validate with scaffolded meta.json support, gate, average, register, and emit. It separates side-effectful orchestration from pure logic so behavior is testable and deterministic. The enhanced system now includes automatic scaffolding for missing meta.json files, batch operations support, and pre-sorted research queue generation with latest benchmark rankings.
+The sync pipeline follows a strict sequence: scan, quarantine, parse, validate with scaffolded meta.json support, gate, average, register, and emit. It separates side-effectful orchestration from pure logic so behavior is testable and deterministic. The enhanced system now includes automatic scaffolding for missing meta.json files, batch operations support, pre-sorted research queue generation with latest rankings, and sophisticated parking system integration with dual-list synchronization.
 
 ```mermaid
 flowchart TD
@@ -174,14 +187,15 @@ Gate --> Average["Recompute average.md and score index"]
 Average --> Register["Register new sources in sources.generated.ts"]
 Register --> Emit["Emit scores.generated.ts (only if no failures)"]
 Emit --> QueueGen["Generate model-queue.md<br/>(pre-sorted research queue with latest rankings)"]
-QueueGen --> Exit(["Exit code 0 or non-zero"])
+QueueGen --> ParkingCheck["Apply RETIRED_SLUGS filter<br/>(parked models excluded)"]
+ParkingCheck --> Exit(["Exit code 0 or non-zero"])
 ```
 
 **Diagram sources**
-- [sync-data.mjs:133-664](file://scripts/sync-data.mjs#L133-L664)
+- [sync-data.mjs:133-732](file://scripts/sync-data.mjs#L133-L732)
 - [parse.mjs:38-124](file://scripts/lib/parse.mjs#L38-L124)
 - [validate.mjs:11-98](file://scripts/lib/validate.mjs#L11-L98)
-- [average.mjs:10-122](file://scripts/lib/average.mjs#L10-L122)
+- [average.mjs:10-137](file://scripts/lib/average.mjs#L10-L137)
 - [codegen.mjs:9-140](file://scripts/lib/codegen.mjs#L9-L140)
 
 ## Detailed Component Analysis
@@ -198,7 +212,8 @@ The orchestrator coordinates all phases and owns filesystem operations, logging,
 - Updating the source registry and reconciling labels/slugs.
 - Generating a compact, deterministic TypeScript score map.
 - Managing scaffolded meta.json stubs with lifecycle tracking.
-- Generating pre-sorted research queue for efficient task assignment with latest benchmark rankings.
+- Generating pre-sorted research queue for efficient task assignment with latest rankings.
+- Integrating with the enhanced parking system for retired model management.
 
 ```mermaid
 sequenceDiagram
@@ -209,6 +224,7 @@ participant Git as "git ls-tree"
 participant FS as "Filesystem"
 participant Lib as "Pure helpers"
 participant Gen as "Generated TS"
+participant Park as "Parking System"
 Dev->>Batch : "Run batch operations"
 Batch->>FS : "Generate standardized research files"
 Dev->>Sync : "pnpm sync"
@@ -228,19 +244,21 @@ Sync->>Lib : "parseRegistryEntries() + computePending()"
 Lib-->>Sync : "Pending registrations"
 Sync->>Gen : "Write sources.generated.ts"
 Sync->>Gen : "Write scores.generated.ts (if no failures)"
+Sync->>Park : "Apply RETIRED_SLUGS filtering"
+Park-->>Sync : "Filtered model queue"
 Sync->>Gen : "Write model-queue.md (pre-sorted with latest rankings)"
 Sync-->>Dev : "Summary + exit code"
 ```
 
 **Diagram sources**
-- [sync-data.mjs:133-664](file://scripts/sync-data.mjs#L133-L664)
+- [sync-data.mjs:133-732](file://scripts/sync-data.mjs#L133-L732)
 - [batch_write.cjs:30-63](file://batch_write.cjs#L30-L63)
 - [parse.mjs:94-124](file://scripts/lib/parse.mjs#L94-L124)
-- [average.mjs:83-122](file://scripts/lib/average.mjs#L83-L122)
+- [average.mjs:83-137](file://scripts/lib/average.mjs#L83-L137)
 - [codegen.mjs:14-84](file://scripts/lib/codegen.mjs#L14-L84)
 
 **Section sources**
-- [sync-data.mjs:1-664](file://scripts/sync-data.mjs#L1-L664)
+- [sync-data.mjs:1-732](file://scripts/sync-data.mjs#L1-L732)
 
 ### Data Extraction and Validation: scripts/lib/parse.mjs and scripts/lib/validate.mjs
 Parsing and validation are intentionally pure:
@@ -360,6 +378,7 @@ Average computation ensures every folder has a deterministic average:
 - Generates the averaged score lines and agreement notes.
 - Merges computed bodies into existing average.md while preserving headers.
 - Generates pre-sorted research queue file for efficient task assignment with latest rankings.
+- Implements enhanced parking system with RETIRED_SLUGS filtering.
 
 ```mermaid
 flowchart TD
@@ -367,14 +386,14 @@ Cohort["Top-10 eligible cohort"] --> Lines["buildAverageLines(cohort, mixNote)"]
 Lines --> Body["buildAverageBody(...)"]
 Body --> Merge["applyAverageToPrev(prev, modelName, body)"]
 Merge --> Result["next content + created flag"]
-Result --> Queue["buildQueueFile(scoreIndex)<br/>(latest rankings)"]
+Result --> Queue["buildQueueFile(scoreIndex)<br/>(latest rankings + parking filter)"]
 ```
 
 **Diagram sources**
-- [average.mjs:10-122](file://scripts/lib/average.mjs#L10-L122)
+- [average.mjs:10-137](file://scripts/lib/average.mjs#L10-L137)
 
 **Section sources**
-- [average.mjs:1-122](file://scripts/lib/average.mjs#L1-L122)
+- [average.mjs:1-137](file://scripts/lib/average.mjs#L1-L137)
 
 ## Batch Operations Utility: batch_write.cjs
 
@@ -419,6 +438,7 @@ During sync execution:
 3. Models are sorted by Overall score (descending), then alphabetically (ascending) for ties.
 4. Only models with successful parsing contribute to the queue.
 5. The queue is only written when sync has zero failures.
+6. Retired (parked) models are automatically filtered out using the enhanced parking system.
 
 ### Latest Ranking Integration
 The system integrates with the latest benchmark results:
@@ -426,6 +446,7 @@ The system integrates with the latest benchmark results:
 - **Automatic reordering**: Models are repositioned based on updated scores.
 - **Consistent sorting**: Ties are resolved alphabetically for deterministic output.
 - **Comprehensive coverage**: All models with valid average data are included.
+- **Parking system integration**: Retired models are automatically excluded from the queue.
 
 ### Usage in Research Workflow
 Research agents use the queue as follows:
@@ -441,19 +462,19 @@ If `model-queue.md` is missing or stale:
 - This maintains functionality while encouraging queue usage.
 
 **Section sources**
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
-- [average.mjs:102-122](file://scripts/lib/average.mjs#L102-L122)
-- [model-queue.md:1-147](file://model-queue.md#L1-L147)
+- [sync-data.mjs:691-707](file://scripts/sync-data.mjs#L691-L707)
+- [average.mjs:102-137](file://scripts/lib/average.mjs#L102-L137)
+- [model-queue.md:1-168](file://model-queue.md#L1-L168)
 
 ## Latest Benchmark Results Integration
 
 ### Current Top-Ranked Models
 The latest benchmark results show the following top-performing models:
 - **muse-spark-1.3**: 93.7 Overall Score
-- **claude-opus-5.5**: 92.4 Overall Score  
+- **claude-opus-5.5**: 92.6 Overall Score  
 - **gemini-3.8-flash**: 92.0 Overall Score
-- **gemini-3.1-pro**: 91.8 Overall Score
-- **claude-opus-5**: 91.2 Overall Score
+- **gemini-3.1-pro**: 91.6 Overall Score
+- **claude-opus-5**: 91.3 Overall Score
 
 ### Ranking Methodology
 Model rankings are determined by:
@@ -471,7 +492,7 @@ Models are categorized by performance tiers:
 - **Specialized tier (<70)**: Decision models and specialized tools
 
 **Section sources**
-- [model-queue.md:4-34](file://model-queue.md#L4-L34)
+- [model-queue.md:6-168](file://model-queue.md#L6-L168)
 - [average.mjs:109-121](file://scripts/lib/average.mjs#L109-L121)
 
 ## Enhanced Meta.json Scaffolding System
@@ -499,7 +520,7 @@ Scaffolded meta.json files pass validation because:
 - Underscore detection works correctly with slug-guessed names.
 
 **Section sources**
-- [sync-data.mjs:318-358](file://scripts/sync-data.mjs#L318-L358)
+- [sync-data.mjs:454-494](file://scripts/sync-data.mjs#L454-L494)
 - [naming.mjs:49-91](file://scripts/lib/naming.mjs#L49-L91)
 - [validate.mjs:84-97](file://scripts/lib/validate.mjs#L84-L97)
 
@@ -580,6 +601,7 @@ During sync execution:
 3. Models are sorted by Overall score (descending), then alphabetically (ascending) for ties.
 4. Only models with successful parsing contribute to the queue.
 5. The queue is only written when sync has zero failures.
+6. Retired (parked) models are automatically filtered out.
 
 ### Usage in Research Workflow
 Research agents use the queue as follows:
@@ -595,12 +617,71 @@ If `model-queue.md` is missing or stale:
 - This maintains functionality while encouraging queue usage.
 
 **Section sources**
-- [sync-data.mjs:623-639](file://scripts/sync-data.mjs#L623-L639)
+- [sync-data.mjs:691-707](file://scripts/sync-data.mjs#L691-L707)
 - [research.md:52-57](file://tasks/research.md#L52-L57)
 - [research-assign.md:29](file://tasks/research-assign.md#L29)
 
+## Enhanced Parking System Architecture
+
+### Purpose and Benefits
+The enhanced parking system provides a robust mechanism for managing retired models that should remain in the repository for historical purposes but should not appear in the active site or research queue. This system ensures consistency between site visibility and research queue generation through synchronized RETIRED_SLUGS lists.
+
+### Dual-List Synchronization Architecture
+The parking system maintains two synchronized RETIRED_SLUGS lists:
+
+1. **Site Visibility Control** (`src/data/models.ts`):
+   - Controls which models are hidden from the website
+   - Prevents retired models from appearing in cards, A/B/C slots, and per-model pages
+   - Maintains historical data integrity while hiding inactive models
+
+2. **Research Queue Filtering** (`scripts/lib/average.mjs`):
+   - Controls which models are excluded from the research queue
+   - Prevents AI agents from researching parked models
+   - Ensures research resources are focused on active models
+
+### Enhanced buildQueueFile Function
+The `buildQueueFile` function now supports flexible retirement list management:
+
+```javascript
+export function buildQueueFile(scoreIndex, retired = RETIRED_SLUGS) {
+  const rows = Object.entries(scoreIndex)
+    .filter(([slug, files]) => !retired.has(slug) && files && files["average.md"] && typeof files["average.md"].overall === "number")
+    .map(([slug, files]) => ({ slug, overall: files["average.md"].overall }));
+  rows.sort((a, b) => b.overall - a.overall || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+  // ... rest of function
+}
+```
+
+Key features:
+- **Default parameter**: Uses `RETIRED_SLUGS` as default value
+- **Override capability**: Accepts custom retirement lists for testing or special cases
+- **Consistent filtering**: Applies retirement filtering consistently across all queue generation
+
+### Parking Process Documentation
+The parking process follows these steps:
+
+1. **Identify Fictional Models**: Models that turn out to be fictional (no vendor route, phantom catalog entry)
+2. **Update Site Configuration**: Add slug to `RETIRED_SLUGS` in `src/data/models.ts`
+3. **Update Research Queue**: Add slug to `RETIRED_SLUGS` in `scripts/lib/average.mjs`
+4. **Verify Synchronization**: Ensure both lists contain identical slugs
+5. **Run Sync**: Execute `pnpm sync` to regenerate artifacts with parking applied
+
+### Current Implementation
+The system currently parks `glm-5.3-free` as an example of a fictional Zen route that was live-verified absent from zen/v1/models. The folder remains on disk and in git (permanence, RULES.md) while being hidden from the site and research queue.
+
+### Unparking Process
+To unpark a model:
+1. Remove the slug from both `RETIRED_SLUGS` lists
+2. Run `pnpm sync` to regenerate all artifacts
+3. Verify the model appears in both site and research queue
+
+**Section sources**
+- [average.mjs:102-137](file://scripts/lib/average.mjs#L102-L137)
+- [models.ts:240-275](file://src/data/models.ts#L240-L275)
+- [README.md:121-139](file://model/README.md#L121-L139)
+
 ## Dependency Analysis
-The sync pipeline composes pure modules to keep orchestration focused on I/O and policy decisions. The enhanced system adds scaffolded meta.json support, batch operations capability, and research queue generation with latest rankings.
+The sync pipeline composes pure modules to keep orchestration focused on I/O and policy decisions. The enhanced system adds scaffolded meta.json support, batch operations capability, research queue generation with latest rankings, and sophisticated parking system integration with dual-list synchronization.
 
 ```mermaid
 graph LR
@@ -616,6 +697,8 @@ CODEGEN --> |"registry text"| SYNC
 NAMING --> |"scaffolded meta support"| SYNC
 VALIDATE --> |"enhanced validation"| SYNC
 BATCH --> SYNC
+AVERAGE --> PARKSITE["src/data/models.ts<br/>RETIRED_SLUGS"]
+AVERAGE --> PARKAVG["scripts/lib/average.mjs<br/>RETIRED_SLUGS"]
 ```
 
 **Diagram sources**
@@ -626,6 +709,7 @@ BATCH --> SYNC
 - [average.mjs:10-11](file://scripts/lib/average.mjs#L10-L11)
 - [codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
 - [naming.mjs:49-91](file://scripts/lib/naming.mjs#L49-L91)
+- [models.ts:240-275](file://src/data/models.ts#L240-L275)
 
 **Section sources**
 - [sync-data.mjs:30-80](file://scripts/sync-data.mjs#L30-L80)
@@ -644,6 +728,7 @@ BATCH --> SYNC
 - Pre-sorted research queue: eliminates token waste from dynamic queue computation by providing pre-sorted model-queue.md with latest rankings.
 - Scaffolded meta.json efficiency: auto-scaffolding prevents build failures while maintaining validation integrity.
 - Batch operations optimization: batch_write.cjs reduces overhead by processing multiple models in single operations.
+- Enhanced parking system efficiency: dual-list synchronization ensures consistent filtering without runtime overhead.
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -694,15 +779,26 @@ Common issues and resolutions:
   - Cause: Issues with batch_write.cjs file generation or model list processing.
   - Resolution: Check model slug validity, verify file permissions, and review console output for specific errors.
 
+- Parking system inconsistencies:
+  - Cause: RETIRED_SLUGS lists are not synchronized between site and research queue.
+  - Resolution: Ensure both `src/data/models.ts` and `scripts/lib/average.mjs` contain identical RETIRED_SLUGS entries.
+  - Check: Verify that parked models are hidden from both site and research queue.
+
+- buildQueueFile parameter issues:
+  - Cause: Custom retirement lists not working as expected.
+  - Resolution: Verify that the `retired` parameter is a Set containing slug strings.
+  - Test: Use the test suite to verify retirement filtering behavior.
+
 **Section sources**
-- [sync-data.mjs:133-664](file://scripts/sync-data.mjs#L133-L664)
+- [sync-data.mjs:133-732](file://scripts/sync-data.mjs#L133-L732)
 - [validate.mjs:46-97](file://scripts/lib/validate.mjs#L46-L97)
 - [parse.mjs:38-87](file://scripts/lib/parse.mjs#L38-L87)
 - [sync-data.md:19-64](file://tasks/sync-data.md#L19-L64)
 - [batch_write.cjs:30-63](file://batch_write.cjs#L30-L63)
+- [average.test.mjs:143-158](file://scripts/lib/average.test.mjs#L143-L158)
 
 ## Conclusion
-ModelComp's build and development pipeline centers on a deterministic sync process that transforms research markdown into typed, compact data structures. By separating orchestration from pure logic, enforcing strong invariants, and generating only what the application needs, the pipeline keeps the static site fast, reliable, and easy to maintain. The enhanced system now includes sophisticated scaffolded meta.json support with lifecycle tracking, batch operations utility for efficient bulk processing, improved validation rules, PowerShell shell tips for Windows compatibility, pre-sorted research queue generation with latest benchmark rankings for efficient agent task assignment, and comprehensive model ranking integration. Developers should follow the checklist in the task documentation, rely on the sync script's feedback, utilize the pre-sorted queue for research tasks, leverage batch operations for large-scale processing, and verify builds before deployment.
+ModelComp's build and development pipeline centers on a deterministic sync process that transforms research markdown into typed, compact data structures. By separating orchestration from pure logic, enforcing strong invariants, and generating only what the application needs, the pipeline keeps the static site fast, reliable, and easy to maintain. The enhanced system now includes sophisticated scaffolded meta.json support with lifecycle tracking, batch operations utility for efficient bulk processing, improved validation rules, PowerShell shell tips for Windows compatibility, pre-sorted research queue generation with latest benchmark rankings for efficient agent task assignment, sophisticated parking system architecture with dual-list synchronization, and comprehensive model ranking integration. Developers should follow the checklist in the task documentation, rely on the sync script's feedback, utilize the pre-sorted queue for research tasks, leverage batch operations for large-scale processing, understand the parking system for model retirement management, and verify builds before deployment.
 
 ## Appendices
 
@@ -714,9 +810,10 @@ Recommended steps after adding or editing model data:
 4. Run `pnpm sync` (or `pnpm sync:quiet` for large repos).
 5. Review any FAIL, QUAR, GATE, AUTO, WRITE, REG, INFO, or SCAF lines.
 6. Handle scaffolded meta.json stubs by setting official vendor names.
-7. Run `pnpm build.types` to verify TypeScript.
-8. Run `pnpm build` to produce the static site.
-9. Update `REPORT.md` as required by the team workflow.
+7. For model retirement, update both RETIRED_SLUGS lists and run sync.
+8. Run `pnpm build.types` to verify TypeScript.
+9. Run `pnpm build` to produce the static site.
+10. Update `REPORT.md` as required by the team workflow.
 
 **Section sources**
 - [sync-data.md:8-18](file://tasks/sync-data.md#L8-L18)
@@ -769,7 +866,28 @@ Test-Path 'model/<slug>/<STEM>.md'
 Get-Content 'model-queue.md' -Head 10
 ```
 
+### Parking System Management
+
+#### Adding a Model to Retirement
+1. Add slug to `RETIRED_SLUGS` in `src/data/models.ts`
+2. Add same slug to `RETIRED_SLUGS` in `scripts/lib/average.mjs`
+3. Run `pnpm sync` to regenerate artifacts
+4. Verify model is hidden from site and research queue
+
+#### Removing a Model from Retirement
+1. Remove slug from `RETIRED_SLUGS` in `src/data/models.ts`
+2. Remove same slug from `RETIRED_SLUGS` in `scripts/lib/average.mjs`
+3. Run `pnpm sync` to regenerate artifacts
+4. Verify model appears in both site and research queue
+
+#### Testing Retirement Filtering
+```javascript
+// Test with custom retirement list
+const result = buildQueueFile(scoreIndex, new Set(["custom-model"]));
+// Verify custom-model is excluded from output
+```
+
 **Section sources**
-- [sync-data.md:14-21](file://tasks/sync-data.md#L14-L21)
-- [research.md:75](file://tasks/research.md#L75)
-- [model-queue.md:1-10](file://model-queue.md#L1-L10)
+- [README.md:121-139](file://model/README.md#L121-L139)
+- [average.test.mjs:143-158](file://scripts/lib/average.test.mjs#L143-L158)
+- [models.ts:240-275](file://src/data/models.ts#L240-L275)

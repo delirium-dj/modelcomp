@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-5.5-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,8 +65,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-08
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Cross-referenced OpenAI (via hokai.io) and vectorwire.ai (16 results, 9 independently verified). GPT-5.5 Pro shares standard GPT-5.5's weights (parallel test-time compute is the only difference).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no standalone GPT-5.5 Pro page (Pro shares standard GPT-5.5's weights; the base GPT-5.5 page — 51 results, updated 2026-10-07 — carries the shared independent runs: APEX-Agents 55.1%, BrowseComp 77.7%, Vibe Code 69.8%, ARC/SWE-bench rows). No score change warranted. Prior pass (2026-10-08) used OpenAI (via hokai.io) and vectorwire.ai. GPT-5.5 Pro shares standard GPT-5.5's weights (parallel test-time compute is the only difference).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

@@ -14,12 +14,32 @@
 > Per the report template's mandatory SELF-EXCLUSION rule this file is saved as `.md.excluded`
 > with notes only and carries **no scores**.
 
-> **Folder-health note:** `model/exo-free/` is **absent from `model-queue.md`**, i.e. it has no
-> `average.md` — it is the only folder in the tree that was never scaffolded into the roster.
-> The folder contains exactly one file, `GLM_5.3.md.excluded` — *another* agent's excluded twin,
-> which suggests that agent also could not find evidence for this folder and considered a
-> candidate identification that did not hold up. This is surfaced for orchestrator review in the
-> Signature section. **I have taken no deletion, relocation or merge action.**
+> ### ⚠ CORRECTION (2026-10-10) — the route IS real; one of this file's negative findings was wrong
+> The 2026-10-09 pass above states "No OpenCode Zen ID" was confirmed and searched **OpenRouter**,
+> which is a different provider. **OpenCode Zen does list `exo-free`.** Verified live on 2026-10-10
+> against three Zen sources:
+>
+> | Zen source | Entry |
+> |---|---|
+> | Docs endpoint table | **Exo Free · `exo-free` · `https://opencode.ai/zen/v1/chat/completions` · `@ai-sdk/openai-compatible`** |
+> | Pricing table | **Exo Free — Free / Free / Free** |
+> | "The free models" list | **"Exo Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."** |
+>
+> The folder's own `meta.json` was in fact accurate: *"OpenCode Zen's anonymous free route — 1M-token
+> context with reasoning, tool calling, and image input at $0.00 while feedback is collected."*
+>
+> **The self-exclusion nonetheless still stands, on a different and stronger basis.** `exo-free` is a
+> real *route* serving an **anonymous, undisclosed model**. Zen does not name the underlying weights,
+> publishes no model card, no context figure, no modality table and no benchmarks for it — and Zen's
+> own free-models list confirms it is a feedback-collection placeholder rather than a product.
+> **Zero verified public benchmark numbers exist, which is the condition the template's rule tests.**
+> What has changed is the *reason*: not "this route does not exist" but "this route exists, is free,
+> and is deliberately undocumented."
+
+> **Folder-health note (2026-10-10):** `model/exo-free/` now **is** listed in `model-queue.md` — it has
+> an `average.md` and an active queue entry, so it was scaffolded into the roster after the 2026-10-09
+> pass. The folder also now contains `Space_Bunny.md.excluded` (this file). **No deletion, relocation
+> or merge action has been taken.**
 
 ## Negative findings: what was searched and what was found
 
@@ -109,6 +129,25 @@ action.
   an unscaffolded, unscored folder. I recommend **not** scaffolding anything until the intent is
   confirmed, since creating a folder for a guessed identity would be the exact error this report
   exists to avoid.
-- **Re-scoring trigger:** if an OpenRouter (or other provider) listing named `exo`, `exo:free` or
-  `openrouter/exo` surfaces with published specifications and at least one benchmark, this folder
-  should receive a scored `Space_Bunny.md`. Until then no score can be honestly assigned.
+- **Re-scoring trigger:** if a provider publishes a model card, context window, modality table or any
+  benchmark for the model behind Zen's `exo-free` route, this folder should receive a scored
+  `Space_Bunny.md`. **The trigger is now narrower and more specific than the 2026-10-09 pass stated**:
+  the route is confirmed to exist, so the condition to watch is not a listing but a **disclosure** —
+  Zen naming the underlying model, or any provider publishing specifications or a benchmark under
+  that identity. Until then no score can be honestly assigned.
+- **Addendum, 2026-10-10 — this file remains a negative-findings record and is unchanged in
+  conclusion.** A re-check was run specifically to test the claim above, and it produced one
+  correction and one confirmation. **Correction:** the route exists on OpenCode Zen and was missed
+  because the prior pass searched OpenRouter rather than Zen — see the corrected banner at the top.
+  **Confirmation:** Zen publishes no model card, no context figure, no modality table and no
+  benchmark for `exo-free`, and its free-models entry describes it as a limited-time feedback
+  collection route with **no underlying model named**. `models.dev` and BenchLM were also checked on
+  2026-10-10 and carry no entry for it. **Zero verified public benchmark numbers therefore still
+  holds, the self-exclusion remains correct, and the file stays `.md.excluded`.**
+- **Recommendation for the orchestrator, revised 2026-10-10:** because the route is real, free, and
+  now in the roster, the most useful action is **not** removal. It is to decide whether an
+  intentionally-undocumented Zen free route belongs in a scored comparison at all. If it does, the
+  honest treatment is to keep it quarantined until Zen or its provider discloses the model; if it
+  does not, the folder should be marked as a promotional/undocumented entry rather than queued
+  alongside benchmarked models. **The earlier recommendation to treat this as a possible orphan is
+  withdrawn** — it is not an orphan.

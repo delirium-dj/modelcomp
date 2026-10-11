@@ -11,6 +11,7 @@
 - [scripts/lib/validate.mjs](file://scripts/lib/validate.mjs)
 - [scripts/lib/naming.mjs](file://scripts/lib/naming.mjs)
 - [scripts/lib/average.mjs](file://scripts/lib/average.mjs)
+- [scripts/lib/average.test.mjs](file://scripts/lib/average.test.mjs)
 - [scripts/lib/codegen.mjs](file://scripts/lib/codegen.mjs)
 - [src/data/scores.generated.ts](file://src/data/scores.generated.ts)
 - [src/data/sources.generated.ts](file://src/data/sources.generated.ts)
@@ -23,11 +24,11 @@
 
 ## Update Summary
 **Changes Made**
-- Updated SourceKey union type to reflect 70 reporting agents with extensive new model evaluations including Gemini 3.1 Flash Lite, Laguna S 2.1, Solar Pro 4, Qwen 3.8 Flash Next, Claude Opus 4.8, and numerous other model variants
-- Enhanced scaffolded meta.json support with automatic stub generation for missing model metadata across hundreds of new evaluation files
-- Expanded generated data infrastructure with improved validation rules and naming conventions for the substantially larger evaluator-model combination space
-- Updated scoring algorithms to handle the increased complexity of multi-provider model evaluations while maintaining normalized 1-100 score consistency
-- Added comprehensive quarantine mechanisms for evidence-free reports and enhanced registry management for the expanded model ecosystem
+- Enhanced RETIRED_SLUGS constant implementation across src/data/models.ts and scripts/lib/average.mjs for consistent parked model handling
+- Updated data synchronization pipeline to properly handle parked models throughout the entire workflow
+- Improved average calculation logic with comprehensive test coverage in scripts/lib/average.test.mjs
+- Added enhanced quarantine mechanisms for evidence-free reports and improved registry management
+- Expanded SourceKey union type to reflect 70 reporting agents with extensive new model evaluations
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,14 +42,14 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-ModelComp is a static site that compares AI coding models across six normalized dimensions: Tool use, Reasoning, Context window, Multimodal, Coding, and Cost efficiency. Every score on the site is parsed at build time from research markdown files under `model/<slug>/`, so there are no hardcoded numbers in the UI. The system uses a multi-agent evaluation methodology where each reporting agent contributes a findings file with 1–100 scores per dimension. A deterministic sync pipeline recomputes averages, validates metadata, quarantines evidence-free reports, and generates TypeScript artifacts consumed by the application.
+ModelComp is a static site that compares AI coding models across six normalized dimensions: Tool use, Reasoning, Context window, Multimodal, Coding, and Cost efficiency. Every score on the site is parsed at build time from research markdown files under `model/<slug>/`, so there are no hardcoded numbers in the UI. The system uses a multi-agent evaluation methodology where each reporting agent contributes a findings file with 1–100 scores per dimension. A deterministic sync pipeline recomputes averages, validates metadata, quarantines evidence-free reports, handles parked models, and generates TypeScript artifacts consumed by the application.
 
 The data model centers around:
 - An implicit `AiModel` interface representing a model entry with short display metadata and normalized scores.
 - A `ModelScores` interface for compact numeric scores used by generated code.
 - A `SourceKey` union type identifying each reporting agent's findings file.
 
-This document explains the data structures, scoring methodology, synchronization pipeline, validation rules, and relationships between research markdown, generated TypeScript, and runtime data.
+This document explains the data structures, scoring methodology, synchronization pipeline, validation rules, parked model handling, and relationships between research markdown, generated TypeScript, and runtime data.
 
 **Section sources**
 - [README.md:1-16](file://README.md#L1-L16)
@@ -73,6 +74,7 @@ M["model/<slug>/"]
 F["Findings files<br/>*.md"]
 A["average.md<br/>(generated)"]
 J["meta.json<br/>(curated or scaffolded)"]
+P["Parked Models<br/>(RETIRED_SLUGS)"]
 end
 subgraph "Sync Pipeline"
 S["scripts/sync-data.mjs"]
@@ -81,6 +83,7 @@ V["scripts/lib/validate.mjs"]
 N["scripts/lib/naming.mjs"]
 AV["scripts/lib/average.mjs"]
 CG["scripts/lib/codegen.mjs"]
+AT["scripts/lib/average.test.mjs"]
 end
 subgraph "Generated Artifacts"
 SG["src/data/scores.generated.ts"]
@@ -89,6 +92,7 @@ MD["src/data/models.ts"]
 end
 F --> S
 J --> S
+P --> S
 S --> P
 S --> V
 S --> N
@@ -99,6 +103,7 @@ S --> SS
 SG --> MD
 SS --> MD
 A --> MD
+AT --> AV
 ```
 
 **Diagram sources**
@@ -109,6 +114,7 @@ A --> MD
 - [scripts/lib/naming.mjs:1-7](file://scripts/lib/naming.mjs#L1-L7)
 - [scripts/lib/average.mjs:1-8](file://scripts/lib/average.mjs#L1-L8)
 - [scripts/lib/codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
+- [scripts/lib/average.test.mjs:1-5](file://scripts/lib/average.test.mjs#L1-L5)
 
 **Section sources**
 - [README.md:61-82](file://README.md#L61-L82)
@@ -273,6 +279,39 @@ Log --> Next
 - [scripts/sync-data.mjs:259-276](file://scripts/sync-data.mjs#L259-L276)
 - [tasks/sync-data.md:19-30](file://tasks/sync-data.md#L19-L30)
 
+### Parked Models and RETIRED_SLUGS Management
+**Updated** The system now implements comprehensive parked model management through the RETIRED_SLUGS constant, which mirrors between `src/data/models.ts` and `scripts/lib/average.mjs`. Parked models remain on disk and in git for permanence but are hidden from the site and research queue.
+
+The RETIRED_SLUGS constant currently contains `glm-5.3-free` (a fictional Zen route that was live-verified absent from zen/v1/models). When a model is parked:
+- It remains in the filesystem and git history (per RULES.md permanence requirements)
+- It stays scanned by `pnpm sync` for data integrity
+- It is hidden from the site (excluded from MODELS, cards, A/B/C slots, per-model pages, prev/next links)
+- It is omitted from the research queue so agents never research it
+- The two mirror lists must stay synchronized (site vs. research queue)
+
+```mermaid
+flowchart TD
+Start(["Model Folder"]) --> CheckRetired{"Slug in RETIRED_SLUGS?"}
+CheckRetired --> |Yes| HideSite["Hide from site (MODELS)"]
+CheckRetired --> |Yes| OmitQueue["Omit from research queue"]
+CheckRetired --> |Yes| KeepScan["Keep scanning for data integrity"]
+CheckRetired --> |No| ProcessNormal["Process normally"]
+HideSite --> End(["Hidden but preserved"])
+OmitQueue --> End
+KeepScan --> End
+ProcessNormal --> End
+```
+
+**Diagram sources**
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
+- [scripts/sync-data.mjs:691-707](file://scripts/sync-data.mjs#L691-L707)
+
+**Section sources**
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
+- [scripts/sync-data.mjs:691-707](file://scripts/sync-data.mjs#L691-L707)
+
 ### Enhanced Meta.json Schema and Scaffolded Support
 **Updated** The `meta.json` schema now supports automatic scaffolding for missing model metadata across hundreds of new evaluation files. Required fields include id, name, short, contextWindow, modalities, and pricingNote. Optional fields include pricingTiers, freeTierNote, and noFreeId. The name must be the official vendor display name with spaces, not underscores.
 
@@ -342,7 +381,7 @@ Accept --> End
 - [scripts/sync-data.mjs:347-370](file://scripts/sync-data.mjs#L347-L370)
 
 ## Architecture Overview
-The data synchronization pipeline transforms research markdown into typed, compact artifacts consumed by the UI.
+The data synchronization pipeline transforms research markdown into typed, compact artifacts consumed by the UI, with enhanced support for parked models and improved average calculation logic.
 
 ```mermaid
 sequenceDiagram
@@ -360,6 +399,8 @@ Sync->>FS : Scan model/<slug>/*.md
 Sync->>Validate : checkFilename()
 Sync->>Naming : buildScaffoldMeta()
 Naming-->>Sync : Scaffolded meta.json
+Sync->>Average : buildQueueFile() (with RETIRED_SLUGS)
+Average-->>Sync : Research queue (parked models omitted)
 Sync->>Parse : parseScoresPure()
 Parse-->>Sync : Scores or missing label
 Sync->>Parse : overallDrift()
@@ -463,8 +504,8 @@ Curated --> |No| Continue["Continue monitoring"]
 - [scripts/lib/naming.mjs:53-91](file://scripts/lib/naming.mjs#L53-L91)
 - [scripts/sync-data.mjs:318-353](file://scripts/sync-data.mjs#L318-L353)
 
-### Averaging Mechanism
-Averages are computed over the top-10 cohort of eligible raters. The mix note documents whether fallback occurred, trimming happened, and which sources were ignored due to the rater gate.
+### Enhanced Averaging Mechanism with Test Coverage
+**Updated** Averages are computed over the top-10 cohort of eligible raters with comprehensive test coverage. The mix note documents whether fallback occurred, trimming happened, and which sources were ignored due to the rater gate. The system now includes robust testing for all averaging scenarios including fallback cases, trimmed cohorts, and parked model handling.
 
 ```mermaid
 flowchart TD
@@ -475,6 +516,8 @@ Means --> Entry["buildAverageEntry()"]
 Entry --> Body["buildAverageBody()"]
 Body --> Apply["applyAverageToPrev()"]
 Apply --> Output["Write average.md"]
+Output --> Test["Test coverage verification"]
+Test --> Queue["buildQueueFile() (omit parked)"]
 ```
 
 **Diagram sources**
@@ -483,11 +526,13 @@ Apply --> Output["Write average.md"]
 - [scripts/lib/average.mjs:12-31](file://scripts/lib/average.mjs#L12-L31)
 - [scripts/lib/average.mjs:33-44](file://scripts/lib/average.mjs#L33-L44)
 - [scripts/lib/average.mjs:54-100](file://scripts/lib/average.mjs#L54-L100)
+- [scripts/lib/average.test.mjs:1-159](file://scripts/lib/average.test.mjs#L1-L159)
 
 **Section sources**
 - [scripts/lib/average.mjs:12-31](file://scripts/lib/average.mjs#L12-L31)
 - [scripts/lib/average.mjs:33-44](file://scripts/lib/average.mjs#L33-L44)
 - [scripts/lib/average.mjs:54-100](file://scripts/lib/average.mjs#L54-L100)
+- [scripts/lib/average.test.mjs:1-159](file://scripts/lib/average.test.mjs#L1-L159)
 
 ### Registry and Code Generation
 **Updated** The registry maintains SourceKey union members and SOURCE_DEFS entries across 70 reporting agents. Pending registrations are appended, collisions fail loudly, and virtual views are pruned. The codegen layer emits deterministic TypeScript for scores and supports the expanded comparison interface with hundreds of new model evaluation files across multiple providers.
@@ -520,26 +565,33 @@ class Codegen {
 - [scripts/lib/codegen.mjs:107-139](file://scripts/lib/codegen.mjs#L107-L139)
 
 ### Relationship Between Data Sources
-**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers:
+**Updated** The data ecosystem now includes additional generated artifacts to support the enhanced comparison interface with expanded evaluator-model combinations across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers, plus comprehensive parked model handling:
 
 - Research markdown (`model/<slug>/<Source_Name>.md`) provides raw evidence and normalized scores across hundreds of new model evaluation files.
 - `meta.json` supplies display metadata and pricing context, with automatic scaffolding support for missing model directories.
 - `average.md` aggregates eligible raters' scores into a cohort mean.
 - `scores.generated.ts` and `sources.generated.ts` provide compact, typed data to the app.
 - `model-findings.md` serves as the audit trail linking findings to signatures and cross-model history.
+- RETIRED_SLUGS constants ensure consistent parked model handling across site and research queue.
 
 ```mermaid
 graph TB
 RF["Research Markdown<br/>model/<slug>/<Source_Name>.md"] --> Gen["Generated Scores<br/>scores.generated.ts"]
 MF["Meta JSON<br/>model/<slug>/meta.json<br/>(curated or scaffolded)"] --> App
 AM["Averaged Scores<br/>model/<slug>/average.md"] --> Gen
+RS["RETIRED_SLUGS<br/>(parked models)"] --> Site["Site Filtering"]
+RS --> Queue["Research Queue"]
 Gen --> App["App Runtime<br/>models.ts + components"]
 AF["Audit Trail<br/>model-findings.md"] --> App
+Site --> App
+Queue --> App
 ```
 
 **Diagram sources**
 - [README.md:31-44](file://README.md#L31-L44)
 - [model-findings.md:1-8](file://model-findings.md#L1-L8)
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
 
 **Section sources**
 - [README.md:31-44](file://README.md#L31-L44)
@@ -559,6 +611,7 @@ Parse --> Types["Label/Short/Quality Dims"]
 Validate --> Rules["Filename/Meta Rules"]
 Naming --> Conventions["Slug/Naming Conventions"]
 Average --> Metrics["Cohort Means"]
+Average --> Tests["Test Coverage"]
 Codegen --> TS["TypeScript Artifacts"]
 ```
 
@@ -569,17 +622,20 @@ Codegen --> TS["TypeScript Artifacts"]
 - [scripts/lib/naming.mjs:1-7](file://scripts/lib/naming.mjs#L1-L7)
 - [scripts/lib/average.mjs:1-8](file://scripts/lib/average.mjs#L1-L8)
 - [scripts/lib/codegen.mjs:1-7](file://scripts/lib/codegen.mjs#L1-L7)
+- [scripts/lib/average.test.mjs:1-5](file://scripts/lib/average.test.mjs#L1-L5)
 
 **Section sources**
 - [scripts/sync-data.mjs:30-75](file://scripts/sync-data.mjs#L30-L75)
 
 ## Performance Considerations
-**Updated** Performance optimizations now include enhanced data structures to handle the substantially expanded evaluator-model combination space:
+**Updated** Performance optimizations now include enhanced data structures to handle the substantially expanded evaluator-model combination space and improved parked model handling:
 
 - Pre-parsing findings into `scores.generated.ts` removes ~1.7 MB of markdown prose from the client bundle.
 - Deterministic sorting and stable registry updates avoid unnecessary churn across 70 reporting agents.
 - Rater gate and top-10 cohort reduce noise and stabilize averages.
 - Auto-quarantine prevents evidence-free reports from polluting metrics.
+- RETIRED_SLUGS filtering efficiently excludes parked models from both site rendering and research queue generation.
+- Comprehensive test coverage for average calculations ensures reliability without performance overhead.
 - Expanded evaluator-model combinations across multiple providers are efficiently handled through optimized data structures.
 - The 70 reporting agents are processed through streamlined code generation pipelines.
 - Automatic scaffolding of missing meta.json files prevents build failures while maintaining data integrity across hundreds of new model directories.
@@ -596,6 +652,8 @@ Common issues and resolutions:
 - Scaffolded stub warnings: review SCAF logs and curate scaffolded meta.json files with official vendor names.
 - Underscore in display names: replace underscores with spaces in meta.json name fields.
 - New model directory issues: ensure proper scaffolding for newly added model evaluation files.
+- Parked model issues: verify RETIRED_SLUGS constants are synchronized between src/data/models.ts and scripts/lib/average.mjs.
+- Research queue problems: check that parked models are properly omitted from the generated queue file.
 
 **Section sources**
 - [scripts/lib/parse.mjs:47-60](file://scripts/lib/parse.mjs#L47-L60)
@@ -603,6 +661,8 @@ Common issues and resolutions:
 - [scripts/sync-data.mjs:180-197](file://scripts/sync-data.mjs#L180-L197)
 - [scripts/sync-data.mjs:297-324](file://scripts/sync-data.mjs#L297-L324)
 - [scripts/sync-data.mjs:133-178](file://scripts/sync-data.mjs#L133-L178)
+- [src/data/models.ts:237-248](file://src/data/models.ts#L237-L248)
+- [scripts/lib/average.mjs:102-111](file://scripts/lib/average.mjs#L102-L111)
 
 ## Conclusion
-ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 70 reporting agents across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers provides comprehensive model evaluation capabilities. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards across hundreds of new model evaluation files. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.
+ModelComp's data management system combines rigorous research documentation with deterministic code generation. The multi-agent evaluation methodology normalizes scores across six dimensions, applies a rater gate and top-10 cohort for robust averages, and enforces quality gates to exclude evidence-free reports. The enhanced generated TypeScript artifacts keep the UI lightweight and type-safe, while the expanded comparison interface with 70 reporting agents across Claude, GPT, Gemini, Qwen, DeepSeek, Grok, Kimi, and Muse Spark providers provides comprehensive model evaluation capabilities. The audit trail preserves provenance and transparency. The new scaffolded meta.json support ensures build resilience while maintaining data quality standards across hundreds of new model evaluation files. The enhanced RETIRED_SLUGS implementation provides consistent parked model handling across both the site and research queue, ensuring data integrity while maintaining flexibility for model lifecycle management. Following the documented workflows ensures consistent, verifiable model comparisons across the substantially expanded evaluator-model combination space.

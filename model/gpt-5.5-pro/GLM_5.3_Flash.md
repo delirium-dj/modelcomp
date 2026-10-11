@@ -1,7 +1,7 @@
 # GPT 5.5 Pro — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.5-pro`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT 5.5 Pro
 - **Short description:** The maximum-accuracy variant of OpenAI's GPT-5.5 generation (Apr 2026) — a research-partner-class model for the hardest questions: BrowseComp state of the art (90.1%), HLE 43.1% without tools, GDPval 82.3% wins/ties. Available in ChatGPT Pro/Business/Enterprise and the API (since Apr 24, 2026).
 - **Provider / access:** OpenCode Zen `opencode/gpt-5.5-pro` via `https://opencode.ai/zen/v1/responses` (paid, $30/$180); OpenAI API `gpt-5.5-pro` (Responses + Chat Completions, batch/flex at half rate, priority processing at 2.5x). Base model is `gpt-5.5` — Pro is a distinct, slower, pricier variant.
-- **Release / knowledge:** Released 2026-04-23 (OpenAI "Introducing GPT-5.5"; API from Apr 24, 2026); knowledge cutoff: not stated for Pro.
+- **Release / knowledge:** Released 2026-04-23 (OpenAI "Introducing GPT-5.5"; API from Apr 24, 2026); knowledge cutoff: **December 1, 2025** (OpenAI model docs, fetched 2026-10-10). Responses API only (Chat Completions not supported) + Batch. Not on any OpenAI deprecation list as of 2026-10-10 — superseded-but-live alongside the GPT-6 family (Astra/Sol/Luna/Instant).
 - **IDs:** `opencode/gpt-5.5-pro` (Zen, paid); `gpt-5.5-pro` (OpenAI API)
-- **Context window:** 1M tokens (stated for the gpt-5.5 API model; the Pro variant's context is not separately verified — family announcement applies); max output: not stated for Pro
+- **Context window:** **1,050,000 total / 128,000 max output — verified for the Pro variant itself** on official docs (platform.openai.com/docs/models/gpt-5.5-pro, fetched 2026-10-10; the previous "not separately verified" caveat is resolved; AA lists 922k max input — minor unresolved conflict).
 - **Modalities:** Text and image in, text out; reasoning supported (xhigh-family evals); tool calling; structured outputs; computer use via Codex skills (family)
-- **Pricing (as of 2026-10-01):** Paid — $30 / 1M input, $180 / 1M output (OpenAI; identical on Zen, cache read $30.00).
+- **Pricing (as of 2026-10-10):** Paid — $30 / 1M input, $180 / 1M output (OpenAI; identical on Zen, cache read $30.00 — effectively no cached-input discount; data-residency +10% uplift; batch at half rate). Unchanged since April.
 - **Architecture:** Proprietary (OpenAI); parameter count not disclosed. High biological/chemical and cybersecurity capability under the Preparedness Framework v2 (GPT-5.5 family).
 
 ### Raw benchmarks found
@@ -38,8 +38,8 @@ Reasoning / knowledge:
 - GeneBench: **33.2%**
 - GPQA Diamond: no verified public score found for Pro (—)
 - ARC-AGI-1/2: no verified public score found for Pro (—)
+- Artificial Analysis Intelligence Index: an AA page exists (artificialanalysis.ai/models/gpt-5-5-pro, fetched 2026-10-10) but every score field reads "Not publicly available" — no AA numbers for this model; Vals runs no Pro variant either (only non-Pro GPT 5.5 appears on vals.ai leaderboards)
 - LCR / MLCR: no verified public score found
-- Artificial Analysis Intelligence Index: no verified public score found (no AA page for 5.5 Pro)
 
 Coding:
 
@@ -61,15 +61,15 @@ Computer use and vision:
 
 - **Tool use: 89/100.** BrowseComp 90.1% state of the art plus GDPval 82.3% wins/ties (near the methodology's GDPval ~1750+ → 90–100 frontier reference) and internal IB modeling 88.6%; capped by missing Terminal-Bench/Tau2 numbers for the Pro variant itself.
 - **Reasoning: 92/100.** HLE 43.1% (no tools) clears the methodology's frontier reference (HLE 40%+ → 90–100); FrontierMath Tier 1–3 52.4% / Tier 4 39.6% and GeneBench 33.2% corroborate frontier research-level reasoning; GPQA not run for Pro.
-- **Context window: 93/100.** 1M tokens enters the ≥1M = 95–100 band; the "100" requires ≥98% retrieval at 512K+, which no Pro retrieval run confirms (gpt-5.5 base posts MRCR 512K–1M 74.0% — below that bar), so the score lands just under the band ceiling.
+- **Context window: 95/100.** 1,050,000 total / 128,000 max output now verified on official docs (2026-10-10) — enters the ≥1M band at its floor; the "100" requires ≥98% retrieval at 512K+, which no Pro retrieval run confirms (gpt-5.5 base posts MRCR 512K–1M 74.0% — below that bar), so the score lands at the band floor rather than under it.
 - **Multimodal: 65/100.** Text + image input, text output only → 60–70 band; no Pro-specific vision evals were run.
 - **Coding: 68/100.** Zero verified coding benchmarks for the Pro variant (SWE-Bench Pro and Terminal-Bench 2.0 are "—" in the announcement table); the family base posts SWE-Bench Pro 58.6% / TB 2.0 82.7% state of the art, so a higher score would be unverified — capped by absence of same-variant evidence.
 - **Cost efficiency: 12/100.** $30/$180 per 1M tokens — the extreme end, well beyond the $10/$50 = ~30 methodology reference; only justified when maximum accuracy matters.
-- **Overall Score: 81/100.** Mean of the five quality dims (89+92+93+65+68)/5 = 81.4. Best fit: maximum-accuracy research, deep knowledge work, and hard agentic browsing where budget is secondary — overkill for routine coding or cost-sensitive work.
+- **Overall Score: 82/100.** Mean of the five quality dims (89+92+95+65+68)/5 = 409/5 = 81.8 → 82. Best fit: maximum-accuracy research, deep knowledge work, and hard agentic browsing where budget is secondary — overkill for routine coding or cost-sensitive work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-01
-- Method: public internet research (official OpenAI GPT-5.5 announcement with evaluation tables, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
+- Method: public internet research (second pass 2026-10-10: OpenAI model docs + launch post + deprecations page, Artificial Analysis, vals.ai, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.

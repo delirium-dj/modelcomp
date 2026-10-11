@@ -29,6 +29,17 @@ are not supported` on any text-only turn. Therefore, during an active task:
 - Skip re-listing directories you already know this turn; reason from memory.
 - Large-file costs: `model-comparison.md` ~4 500 tokens, `models.ts` ~3 000,
   findings file ~1 500, `average.md` ~200. Stagger big reads across turns.
+- Startup budget: 2 tool calls before your first file. Your STEM is pinned in
+  the kickoff (zero calls — never re-derive it, never open the registry to
+  validate it). Then: read `model-queue.md` (roster + scores + order, one small
+  file — never re-sort it, and never verify it against `average.md` files:
+  opening all 160+ averages burns ~30 000 input tokens for zero new
+  information), and run ONE wildcard listing for `model/*/<STEM>.md*` (every
+  folder already holding your file, `.md.excluded` twins included). Your queue
+  = queue-file slugs minus folders with `<STEM>.md`, in file order; twin-only
+  folders stay queued (twin procedure at write time, `tasks/research.md`
+  Step 3.3). After that, check existence only for the folder you are currently
+  writing — never pre-verify the whole queue.
 
 ## Rule 3 — Batch writes and shell calls (RPM)
 
