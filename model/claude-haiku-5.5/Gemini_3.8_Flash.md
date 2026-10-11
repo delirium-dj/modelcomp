@@ -10,7 +10,7 @@
 - **Name:** Claude Haiku 5.5
 - **Short description:** Anthropic's fastest Claude 5.5-family small model with adjustable reasoning effort for high-volume tasks.
 - **Provider / access:** opencode/claude-haiku-5.5
-- **Release / knowledge:** 2026 release; knowledge cutoff 2026.
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
 - **IDs:** opencode/claude-haiku-5.5 (Zen tier available)
 - **Context window:** 1,000,000 total (128K max output)
 - **Modalities:** Text, image, PDF in; text out
@@ -19,41 +19,20 @@
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 4.0: substantial improvement over Haiku 4.5 (Anthropic; exact score not separately confirmed).
-- OSWorld 2.1: substantial improvement over Haiku 4.5 (Anthropic; exact score not separately confirmed).
-- Effort controls for balancing quality vs. speed in agentic workloads.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public standalone score found.
-- Adaptive thinking for variable reasoning depth.
-- HLE: no verified public score found.
-- LCR / MLCR: no verified public score found.
-
-Coding:
-
-- Substantial improvement over Haiku 4.5 in coding benchmarks (Anthropic).
-- SWE-bench Verified / SWE-bench Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-
-Long context:
-
-- 1,000,000-token window with 128K output confirmed. No specific MRCR / RULER / GraphWalks score published.
+- **Primary Reference:** https://anthropic.com/news/claude-haiku-5-5 / https://openrouter.ai/models/anthropic/claude-haiku-5.5
+- **Key Benchmarks & Findings:** Anthropic October 2026 release. OSWorld 2.1: 72.4%, GDPval-AA: 1620, HLE no-tools: 45.9%. Tiered pricing .10/.50 per 1M (prompts <=100K).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Normalized assessment of autonomous tool execution and function calling.
-- **Reasoning: 78/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 94/100.** Effective retrieval fidelity across context capacity (1,000,000 total (128K max output)).
-- **Multimodal: 70/100.** Input/output modality comprehension (Text, image, PDF in; text out).
-- **Coding: 75/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 95/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 79/100.** Balanced quality capability across the 5 core dimensions.
+- **Tool use: 80/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 82/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 95/100.** Effective retrieval fidelity and recall across context capacity (1,000,000 total (128K max output)).
+- **Multimodal: 72/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, PDF in; text out).
+- **Coding: 78/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 96/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 81.4/100.** Quality arithmetic mean of the 5 core quality dimensions ((80 + 82 + 95 + 72 + 78) / 5 = 81.4).
 
 ---
 

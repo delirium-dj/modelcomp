@@ -53,7 +53,8 @@ Long context:
 
 Other:
 
-- Chatbot Arena: **1398 Elo**; 120.4 tok/s (AI Studio), 22.89s TTFT
+- Chatbot Arena: **1398 Elo** (Shawn Hack reads 1451, #20 of 51); 120.4 tok/s (AI Studio), 22.89s TTFT
+- BenchLM: **49.42/100** (#99 of 889, partial coverage — conservative); Gert Labs 42.01%; Design Arena Website 1172; OCRBench v2 59.3%; AA rows (via BenchLM/Shawn Hack/UnifyBench): AA-GPQA Diamond 84.4%, AA-HLE 22.5%, AA-SciCode 46.3%, AA-MMMU-Pro 74.9%, AA-LCR 69.0%, AA-IFBench 48.7%, AA-CritPt 2.6%, AA Coding Index 33.3, AA Agentic Index 3.5, AA-Omniscience −16.3 (accuracy 39.1%, hallucination rate 90.9%), AA TB 2.1 28.5%, AA TB 4.0 0%
 
 ### Normalized scores (1–100)
 
