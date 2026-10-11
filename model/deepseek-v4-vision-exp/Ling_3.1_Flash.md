@@ -68,7 +68,13 @@ Multimodal board rows found (BenchmarkList + aggregator cross-checks):
 
 ---
 
-## Signature
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**No score changes** — Tool 76 / Reasoning 68 / Context 95 / Multimodal 74 / Coding 74 / Cost 88, Overall stays 77. The pass found the first independent hands-on vision testing (charts, tables, handwriting, caption-validation) plus AA/ModelCap composite reads; all corroborate the existing bands:
+
+- **AA Intelligence Index (max): 35** (Artificial Analysis — the first independent composite read of this checkpoint; "amongst the leading models in intelligence, but somewhat expensive… notably fast, however somewhat verbose"; text+image in, text out, 1M context). ModelCap: Index **72.8** (#31 of 344, interval 55.2–90.4, modeled from 3 reported rows; $0.216/$0.647 across 3 providers; OpenRouter popularity #86; HF 30-day downloads 677,788).
+- **Hands-on vision testing (independent):** chart reading is the standout — exact figures off a three-series business chart (26-week peak, 8× drop, $620B figure, 18% decline) plus a correct leading-indicator relationship (MindStudio); a dense four-column financial table from a low-quality scan reconstructed at ~97–98% field-level accuracy (single test); a Dürer pen drawing correctly identified (German Renaissance, monogram detail). Weaknesses: every image is resized toward ~800×800 (~0.64 MP) and hard-capped at 384 tokens — `detail: low` downscales to 512×512 while `high`/`original`/`auto` are all identical (eesel).
+- (cont5)
 
 - Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
 - Method: public internet research (DeepSeek HF model card + API release notes, vLLM recipes, MindStudio analysis, OCRBench run); scores are normalized 1–100 interpretations, not official vendor scores.

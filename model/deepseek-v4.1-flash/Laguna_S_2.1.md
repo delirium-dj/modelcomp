@@ -16,7 +16,7 @@
 - **Modalities:** Text + image input → text output (multimodal; AA "text and image → text"; repo `meta.json` "Text, image in; text out") (+image-in only; no audio/video/PDF).
 - **Reasoning / tools:** Yes (reasoning model; "max effort" variant); tool/function calling + JSON structured outputs; native visual understanding.
 - **Knowledge cutoff:** not verified/stated on fetched pages.
-- **Cost efficiency:** $0.30 in / $1.20 out per 1M tokens (DeepSeek API off-peak is $0.15/$0.60, 2× peak = $0.30/$1.20, matching repo `meta.json`). Cache-hit input $0.003. AA shows 98% cache discount. Blended 7:2:1 ≈ $0.18/MTok. noFreeId — paid only, no $0 Zen tier.
+- **Pricing (as of 2026-09-22):** official DeepSeek $0.15 / $0.60 per 1M off-peak (cache-hit input $0.003; 2× peak = **$0.30/$1.20**, which matches repo `meta.json` exactly); cache-hit input $0.003 (AshnaAI). noFreeId — paid tier; no $0 Zen tier. Cache 98% discount (AA).
 - **Speed:** 214.1 tokens/s output (AA #5/117 among open weights); TTFT 1.08s.
 - **Intelligence Index:** 39 (AA model page, rank #7/117 among large open weights; median: 18; BenchLM shows 39.5%).
 

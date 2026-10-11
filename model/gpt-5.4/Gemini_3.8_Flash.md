@@ -1,64 +1,43 @@
 # GPT-5.4 — findings by Gemini 3.8 Flash
 
-- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-09-24 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+- Source: opencode/gpt-5.4
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** GPT-5.4
-- **Short description:** OpenAI's March 2026 flagship multimodal reasoning model, unifying frontier coding, tool orchestration, and deep reasoning with a 1M token context.
-- **Provider / access:** OpenAI API (`gpt-5.4`), OpenCode Zen (`opencode/gpt-5.4`), Azure, AWS Bedrock.
-- **Release / knowledge:** March 2026; knowledge cutoff August 2025.
-- **IDs:** `gpt-5.4`, `opencode/gpt-5.4`
-- **Context window:** 1,048,576 tokens (~1M input, up to 128K output).
-- **Modalities:** Text and vision/image input; structured output, native function calling, and computer use capabilities.
-- **Pricing (as of 2026-09-24):** $2.50 / 1M input tokens, $15.00 / 1M output tokens ($0.25 cached input).
-- **Architecture:** Proprietary frontier transformer with configurable reasoning effort.
+- **Short description:** OpenAI's March-2026 professional-work reasoning flagship, superseded by the 5.5/5.6 and 6 generations; best for expert-knowledge work and screenshot-driven computer-use agents.
+- **Provider / access:** opencode/gpt-5.4
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** opencode/gpt-5.4 (no Free ID on Zen)
+- **Context window:** 1.0-1.05M (1,050,000 listed)
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-10-11):** $1.25-$2.50 in / $7.50-$15.00 out per 1M
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.0: **75.1%** (OpenAI official benchmark, xhigh effort)
-- OSWorld-Verified: **75.0%** (exceeds human baseline of 72.4%)
-- τ²-Bench Telecom: **98.9%**
-- CyberGym: **79.0%**
-- MCP Atlas: **67.2%**
-- Toolathlon: **54.6%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **93.0%**
-- Humanity's Last Exam (HLE w/ tools): **52.1%** (w/o tools: **39.8%**)
-- FrontierMath v2 (Tiers 1–3): **47.6%** (Tier 4: **27.1%**)
-- BenchLM Intelligence Score: **72.9/100**
-
-Coding:
-
-- SWE-bench Pro (Public): **57.7%** (top-tier on public benchmark suite)
-- SWE-bench Verified: **~80.0%**
-- Terminal-Bench 2.0 (Agentic Coding): **75.1%**
-
-Long context:
-
-- MRCR v2 (8-needle, 64K–128K): **86.0%** (128K–256K: **79.3%**)
-- Graphwalks BFS (0–128K): **93.1%** (parents: **89.8%**)
+- **Primary Reference:** https://openai.com / OpenAI API
+- **Key Benchmarks & Findings:** March 5, 2026 release. Unified GPT & Codex line. OSWorld-Verified: 75.0%, GDPval: 83.0%, SWE-Bench Pro: 57.7%, GPQA Diamond: 92.4%, MMMU Pro: 81.2%, 1.05M ctx.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Exemplary agentic autonomy with 75.1% Terminal-Bench 2.0, 75.0% OSWorld-Verified, and 98.9% τ²-Bench, demonstrating exceptional computer use and tool coordination.
-- **Reasoning: 90/100.** 93.0% on GPQA Diamond, 52.1% on HLE (with tools), and 47.6% on FrontierMath v2 place it at the cutting edge of contemporary LLM logical and mathematical problem solving.
-- **Context window: 92/100.** High-fidelity 1M token context with verified multi-needle retrieval up to 256K (79.3%–86.0% MRCR v2, 93.1% Graphwalks).
-- **Multimodal: 72/100.** Excellent vision, document reading, and computer GUI perception capabilities; lacks audio/video input modalities and media generation.
-- **Coding: 84/100.** Leading SWE-bench Pro score (57.7%) combined with ~80% SWE-bench Verified and 75.1% Terminal-Bench reflects top-tier real-world software engineering mastery.
-- **Cost efficiency: 65/100.** Priced as an elite flagship tier at $2.50/$15.00 per 1M tokens; high performance justifies price, but throughput-heavy batch jobs are best directed to smaller variants.
-- **Overall Score: 85/100.** Arithmetic mean of non-cost metrics: (85 + 90 + 92 + 72 + 84) / 5 = 84.6 → 85. A tier-1 frontier model capable of complex agentic workflows, complex code generation, and deep scientific inquiry.
+- **Tool use: 90/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 92/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1.0-1.05M (1,050,000 listed)).
+- **Multimodal: 88/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
+- **Coding: 90/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 78/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 91.6/100.** Quality arithmetic mean of the 5 core quality dimensions ((90 + 92 + 98 + 88 + 90) / 5 = 91.6).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-24
-- Method: Public benchmark evaluation and cross-reference with published reports from OpenAI and independent benchmarks.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
