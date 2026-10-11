@@ -23,6 +23,7 @@ Agent / tool use:
 
 - BFCL v4: **72.9%**; BrowseComp: **78.6%**; Terminal-Bench 2: **52.5%** — family-level figures from Alibaba's released evaluations (attributed to the Qwen3.5 flagship; Plus-specific attribution unconfirmed)
 - BenchLeader Index (thinking, best config): **57.4 ±0.5** — #167 of 751 (Coding 62, Knowledge 61, Maths 61)
+- Context Arena Memory & Persistence (Thinking, no tools): **74.0** (LLMLearner, #27 of 49) — a long-context memory row
 - MCP Atlas / OSWorld / τ-Bench / Toolathlon: no verified public score found for the Plus variant
 
 Reasoning / knowledge (Plus-specific unless noted):
@@ -31,7 +32,8 @@ Reasoning / knowledge (Plus-specific unless noted):
 - OTIS Mock AIME 2024–25: **86.7% ±5.1** (Epoch); FrontierMath-v1: **35.5% ±2.4** (Epoch, 2 runs); FrontierMath Tier-4: **2.1%**
 - MMLU-Pro (Vals): **87.2%** (#34); SimpleQA Verified: **25.4%** (#66, Epoch)
 - MedQA (Vals): **95.2%** (#13); LegalBench (Vals): **85.1%** (#24); CorpFin (Vals): **65.3%** (#29); CaseLaw v2 (Vals): **59.7%** (#25)
-- Chess Puzzles: 22.0%; Mystery Game Puzzles: 16.0% (Epoch)
+- Chess Puzzles: 22.0%; Mystery Game Puzzles: 16.0% (Epoch); AIME 2026: **91.3%** (Segmind); FrontierMath v2 (Tiers 1–3): **21.0%** (LMSpeed, #28 of 47 — a newer, harder version than the FrontierMath-v1 35.5% above)
+- Epoch Capabilities Index: **147** (Epoch AI, #67 of 253; 15th of 184 at release); The Aggregate Unified ELO **1759 ± 5** (#119 of 1611, from 585 results)
 - AA Intelligence Index: no verified public score found
 
 Coding (Plus-specific, Vals unless noted):
@@ -41,11 +43,14 @@ Coding (Plus-specific, Vals unless noted):
 - Vibe Code Bench v1.1: **15.7%** (#76) — very weak
 - ALE-Bench: 621.9 (#86, Epoch); BenchLeader Coding pillar: 62
 - SWE-bench Verified 76.4% / Terminal-Bench 2 52.5%: family-level figures (attribution unconfirmed)
+- LiveCodeBench (Vals Public) difficulty splits: Easy **98.8%** / Medium **90.1%** / Hard **67.1%** (Benchmark Atlas) — the 85.3% headline sits on an easy-weighted mix
 - DeepSWE / SciCode / AA Coding Index: no verified public score found
 
 Long context / multimodal:
 
-- 1M-token window; no MRCR/RULER/AA-LCR score published
+- 1M-token window; no MRCR/RULER/AA-LCR score published (Context Arena Memory & Persistence 74.0 is the closest long-context row)
+- NC Bench profile: Creative Writing 77.1%, Tooling 99.8%, Language 95.1%, Utility 86.6%, Reasoning 81.8%, Text Editing 98.1%, Rule Following 64.2%, Hallucination 86.6%
+- Vending-Bench 2: **$1** final cash (Epoch — vs GLM-5's $15 and GPT-5.4 Nano's $4,432; a weak agentic-economics read)
 - MMMU-Pro: **79.0%**; OmniDocBench v1.5: **90.8%**; Video-MME: **87.5%**; VITA-Bench: **49.7%**; ERQA: 67.5% — family-level figures (attribution unconfirmed)
 
 ### Normalized scores (1–100)
@@ -72,8 +77,19 @@ Vals AI, BenchLeader and BenchmarkList filled the Plus-specific gaps; **no score
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**No score changes** — Tool 72 / Reasoning 78 / Context 95 / Multimodal 80 / Coding 72 / Cost 92, Overall stays 79. Third-pass rows corroborate the bands; the AA Intelligence Index remains unpublished for the hosted Plus (the Qwen 3.5 family comparison circulating covers the open-weight 397B/122B/27B variants, not the Plus API tier):
+
+- **New rows:** Context Arena Memory & Persistence 74.0 (Thinking, no tools; #27 of 49, LLMLearner); AIME 2026 91.3% (Segmind); FrontierMath v2 (Tiers 1–3) 21.0% (#28 of 47, LMSpeed — a newer, harder version than the FrontierMath-v1 35.5% on file, so the two don't conflict); Epoch Capabilities Index 147 (#67 of 253; 15th of 184 at release); The Aggregate Unified ELO 1759 ± 5 (#119 of 1611, from 585 results); LiveCodeBench (Vals Public) difficulty splits Easy 98.8% / Medium 90.1% / Hard 67.1% (Benchmark Atlas — the 85.3% headline sits on an easy-weighted mix); NC Bench profile (Creative Writing 77.1%, Tooling 99.8%, Language 95.1%, Utility 86.6%, Reasoning 81.8%, Text Editing 98.1%, Rule Following 64.2%, Hallucination 86.6%); LegalBench sub-splits (Conclusion 89.9%, Issue 91.2%, Interpretation 81.9%, Rule 81.3%, Rhetoric 81.2%); Vending-Bench 2 final cash of $1 (Epoch — vs GLM-5's $15 and GPT-5.4 Nano's $4,432).
+- **Conflicts flagged:** ALE-Bench reads 1071 (Benchmark Atlas) vs 621.9 (#86, Epoch) — different protocol/version, not reconciled; ULTRABENCH's "intelligence index 83.6" has no published methodology (likely its own composite, not AA) — not adopted; Xentir's FrontierMath 21.0% is the v2 Tiers 1–3 read, matching LMSpeed.
+- **Still unpublished:** AA Intelligence Index (Plus-specific), DeepSWE, SciCode, AA Coding Index, MCP Atlas, OSWorld, Terminal-Bench 2.1, MRCR/RULER/AA-LCR.
+- Score impact: none — AIME26 91.3% and the ECI 147 support Reasoning 78, while FrontierMath v2 21.0%, Vending-Bench 2 $1 and the LCB Hard 67.1% split cap it; Tool 72, Context 95, Multimodal 80, Coding 72 and Cost 92 all stand.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (Qwen Cloud, BenchLeader, Vals, Epoch AI via modelbenchmark.io, AnalyticsVidhya); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (Qwen Cloud, BenchLeader, Vals, Epoch AI, AnalyticsVidhya, LLMLearner, LMSpeed, Segmind, Benchmark Atlas, NC Bench, The Aggregate, Xentir, ULTRABENCH); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_5_Plus.md`, using the same headings.
