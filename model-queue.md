@@ -5,14 +5,14 @@
 # Retired (parked) slugs are omitted — never researched (model/README.md).
 93.7 muse-spark-1.3
 92.6 claude-opus-5.5
-92 gemini-3.8-flash
-91.3 claude-opus-5
-91.3 gemini-3.1-pro
-90.9 gpt-6-astra
-90.8 claude-fable-5.1
-90.5 gemini-4-argon
+92.1 gemini-3.8-flash
+91.4 claude-opus-5
+91.4 gemini-3.1-pro
+91 claude-fable-5.1
+91 gpt-6-astra
+90.6 gemini-4-argon
 90.3 claude-mythos-5.1
-90.2 gemini-3.7-flash
+90.3 gemini-3.7-flash
 90 claude-fable-5
 89.9 kimi-k3
 89.8 claude-sonnet-5.5
@@ -24,10 +24,10 @@
 89.1 gpt-5.6-sol
 88.8 claude-opus-4.8
 88.6 qwen-3.8-max
+88.5 gpt-6.1-sol
 88.2 gemini-3.5-flash
 88.2 glm-5.3-flash
-88.2 gpt-6.1-sol
-87.8 gemini-3.6-flash
+87.6 gemini-3.6-flash
 87.6 gpt-5.4-pro
 87.3 gpt-5.5
 87.2 qwen-3.8

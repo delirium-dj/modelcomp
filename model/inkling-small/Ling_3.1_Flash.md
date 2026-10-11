@@ -70,8 +70,22 @@ Long context:
 
 ---
 
+## Update 2026-10-11 (deep second pass, 3 independent searches)
+
+**Score revisions: none.** Tool use 70 / Reasoning 72 / Context 80 / Multimodal 78 / Coding 75 / Cost 85 / Overall 75 all unchanged — the new reads fill AA's current-page components and the serving reality, and add the audio benchmark rows:
+
+- **AA's current page (v4.3.2) components filled in** (model page + the Inkling Small vs Inkling comparison): AA-Briefcase v1.1 **912** (vs Inkling's 832 — Inkling-Small leads its own flagship, driven by presentation: near-identical rubric pass rates, 20% vs 19%, but fewer than half the turns, 34 vs 81 per task), GDPval-AA v2.1 **1123** (vs 1076), AutomationBench-AA **5%**, Terminal-Bench 4.0 **1%**, SciCode **50%**, HLE **33%**, GDP.pdf **11%**, CritPt **8%**, AA-Omniscience **−9** (accuracy 31–33%, hallucination 57–63%), AA-LCR v1.1 **76%**. AA Intelligence Index **26** on v4.3.2 (#25 of 117 open-weights; median 18 for similar-size open models) vs **40** on the launch-era v4.1 — the two revisions use different eval sets and are not cross-comparable.
+- **Context-serving reality:** the weights support 1M tokens (Tinker, Baseten, Pioneer and Vercel AI Gateway serve 1,048,576; DeepInfra/Hugging Face/Eden AI/Kilo Gateway/OpenRouter cap at 524,288; Arcee/LLMTR at 262,144), but Tinker's own hosted beta inference endpoint is 256K-context (its managed training variants expose 64K or 256K) — 1M is the model maximum, not what every route serves; AA's model page still lists 1M.
+- **Audio benchmark rows added** (Scale AI / internal, from the launch table): Audio MC **54.9%**, MMAU **77.0%**, VoiceBench **90.1%** (rule-based grading with a format-following system message) — native audio is a differentiator vs text/image-only contemporaries and supports Multimodal 78.
+- **Provider spread and a free route:** input $0.30 (Tinker beta, cached $0.06) to $0.58 (LLMTR) and output $1.20–1.44 per 1M across the listed providers (models.dev); OpenRouter and Kilo Gateway carry $0/$0 `:free` variants — promotional zero-price routes, not list prices, so Cost stays 85 on the official $0.30/$1.20 Tinker rate (if the free routes persist, Cost would move up). Tinker training rates: 64K promo $0.58 prefill / $1.44 sample / $1.73 train per 1M (standard double; cached prefill 80% off), 256K promo $1.16/$2.89/$3.47, checkpoint storage $0.10/GB/month.
+- **Serving profile:** 145.6 tok/s (AA — notably fast vs a 67.8 median; DeepInfra 197.0 t/s), TTFT 2.27s (somewhat above the 1.87s median), $0.09 per task to run the Intelligence Index, 140M output tokens on the Index run (at the similar-size median). AA's parameter record reads 266B total vs 276B in launch materials — a record discrepancy, not a different model.
+- **Aggregator composites:** BenchLM 54.87/100 (#69 of 889; partial 39/625 coverage — conservative); Opper Intelligence Index 25.7 / Coding Index 52.9, global rank #154 of 687; AA Agentic Index 24.9% (BenchLM — the 23.5 carried above is an Opper-era read).
+- Score impact: none. The new rows (AutomationBench-AA 5%, GDP.pdf 11%, TB 4.0 1% on AA's current page) reinforce existing caps; the audio rows and the 1M-vs-256K serving nuance are documented without moving a band.
+
+---
+
 ## Signature
 
-- Provided by: **Ling 3.1 Flash (inclusionai/ling-3.1-flash)** — 2026-10-08
-- Method: public internet research (Thinking Machines release, Artificial Analysis, OpenRouter, Opper/DeepInfra, Kingy, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Ling 3.1 Flash (inclusionai/ling-3.1-flash)** — 2026-10-08 (updated 2026-10-11)
+- Method: public internet research (Thinking Machines release + Hugging Face model card, Artificial Analysis, OpenRouter, DeepInfra, Opper, BenchLM, models.dev, The Rundown, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
