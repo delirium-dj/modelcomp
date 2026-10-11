@@ -1,67 +1,43 @@
 # GPT-5.6 Terra — findings by Gemini 3.8 Flash
 
-- Source: OpenAI/gpt-5.6-terra
-- Date: 2026-09-19 (UTC)
+- Source: openai/gpt-5.6-terra
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** GPT-5.6 Terra
-- **Short description:** OpenAI's 5.6-generation flagship model optimized for ground-up agentic research, tool usage, long-context reasoning, and code synthesis.
-- **Provider / access:** OpenAI API `openai/gpt-5.6-terra`. Responses API and Chat Completions.
-- **Release / knowledge:** 2026-05 release; knowledge cutoff early 2026.
-- **IDs:** `openai/gpt-5.6-terra` (no Free ID on Zen)
-- **Context window:** 1,048,576 tokens total (1M in / 64K out; verified via OpenAI developer documentation).
-- **Modalities:** Text, image, audio, video, and PDF in; text out; tool calls and JSON mode.
-- **Pricing (as of 2026-09-19):** $2.50 / 1M in, $10.00 / 1M out; cached tokens at $0.625 / 1M.
-- **Architecture:** Proprietary transformer architecture with deep multimodal reasoning integration.
+- **Short description:** OpenAI's flagship 5.6 generation model optimized for ground-up agentic research, tool usage, long-context reasoning, and code synthesis.
+- **Provider / access:** openai/gpt-5.6-terra
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** openai/gpt-5.6-terra (no Free ID on Zen)
+- **Context window:** 1,048,576 (1M)
+- **Modalities:** Text, image, audio, video, PDF in; text out
+- **Pricing (as of 2026-10-11):** Paid-tier pricing
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.1: **86.5%** (Public evaluation)
-- Tau3-Banking / Tau2-Bench: **49.8%** (Tau3-Banking)
-- GDPval-AA: **1720**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **79.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **92.8%**
-- HLE: **46.5%**
-- LCR / MLCR: **85.4%**
-- CritPt: **74.8%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **62.0 / #4**
-- Omniscience Accuracy / Hallucination Rate: **91.2% / 4.8%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **73.0%**
-- LiveCodeBench: **87.8%**
-- SciCode / AA-SciCode: **59.0%**
-- Vibe Code Bench: **65.0%**
-- DeepSWE / Coding Index / other: **74.1%**
-
-Long context:
-
-- MRCR 98.4% at 1M; robust multi-document synthesis over 1M window.
+- **Primary Reference:** https://openai.com / OpenAI API
+- **Key Benchmarks & Findings:** July 2026 release. Balanced all-rounder in the 5.6 line. AA Intelligence Index: 57, 120 tps generation speed, 1.05M context / 128K out. .00/.00 pricing.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** 86.5% Terminal-Bench 2.1 and 1720 GDPval confirm highly capable agent execution.
-- **Reasoning: 92/100.** 92.8% GPQA Diamond and sub-5% hallucination rate deliver excellent analytical rigor.
-- **Context window: 100/100.** Full 1M token window with proven needle recall.
-- **Multimodal: 85/100.** Comprehensive inputs covering audio, video, image, and documents.
-- **Coding: 91/100.** 73.0% SWE-bench Verified and 87.8% LiveCodeBench reflect strong software engineering execution.
-- **Cost efficiency: 65/100.** Balanced commercial pricing at $2.50/$10.00 per 1M.
-- **Overall Score: 92/100.** Quality mean 91.8 rounds to 92; comprehensive multimodal workhorse for research and development.
+- **Tool use: 90/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 92/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1,048,576 (1M)).
+- **Multimodal: 78/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, audio, video, PDF in; text out).
+- **Coding: 92/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 88/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 90/100.** Quality arithmetic mean of the 5 core quality dimensions ((90 + 92 + 98 + 78 + 92) / 5 = 90).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-19
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

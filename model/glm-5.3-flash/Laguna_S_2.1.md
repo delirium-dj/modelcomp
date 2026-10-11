@@ -1,7 +1,7 @@
 # GLM-5.3 Flash — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/glm-5-3-flash`), BenchLM (`https://benchlm.ai/models/glm-5-3-flash`), Z.AI launch post (`https://z.ai/blog/glm-5.3-flash`), HuggingFace (`https://huggingface.co/zai-org/GLM-5.3-Flash`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -102,7 +102,6 @@ Multimodal & grounded:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public internet research via Artificial Analysis, BenchLM, Z.AI launch post, Vals AI, and OpenRouter; zero-influence: did not read peer `model/` findings files during research. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Meta.json discrepancies: `meta.json` lists 204K context window and text-only modalities, but AA model page, BenchLM, and Z.AI launch post all show 1M context window with text+image input support. `meta.json` appears to be a placeholder for this model.
-- Future sources: add a new file next to this one, e.g. `ZAI_GLM_5.3_Flash_Tech_Report.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: public-internet research (Artificial Analysis model page `https://artificialanalysis.ai/models/glm-5-3-flash` for Intelligence Index 42 and pricing; BenchLM `https://benchlm.ai/models/glm-5-3-flash` for full benchmark tables; Z.AI launch post, Vals AI, and OpenRouter). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research. **Updated date to 2026-10-10; AA model page confirms Intelligence Index 42, pricing $0.15/$0.50, 1M context, text+image input, 320B/18B MoE, MIT license — all consistent with prior file.** Cost line preserved verbatim from prior signed file.
+- Sources: BenchLM.ai model page (37 of 618 benchmarks, 2026-10-10); AA model page (Intelligence Index 42, #4/117 open-weights, pricing $0.15/$0.50, cost $0.25/Index task); Z.AI launch post; Vals AI; OpenRouter.

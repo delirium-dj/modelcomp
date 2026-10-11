@@ -27,19 +27,24 @@ Reasoning / knowledge:
 - GPQA Diamond: **88.8%**; AIME 2026: **96.7%**
 - SimpleQA Verified: **57.0%**; AA-Omniscience: **-10.0** (weak)
 - IFBench: **76.5%**; Global-MMLU-Lite: **89.3%**
+- New rows (LLMLearNER, 0813 max unless noted): HMMT Feb 2026 **93.9%** (#6 of 11), IMO-AnswerBench **89.8%** (#5 of 18), MathArena Apex **65.3%** (#6 of 15), FrontierMath v2 **45.3%** (#49 of 75), ProofBench v1.1 (Lean 4) **50.0%** (#17 of 28), SciCode **50.8%** (#38 of 89), CritPt **12.9%** (#39 of 125), GDP.pdf **13.4%**, FrontierMath Tier-4 v2 **2.4%** (#56 of 63), Terminal-Bench-Science 0.1 **3.8%** (#27 of 29), ECI **155**
+- GPQA Diamond effort ladder (vendor): Normal (no tools) **72.9%** / High **89.1%** / Max **90.1%** — the LLMLearNER "GPQA Diamond Normal" read of 72.9% is the no-tools/Normal setting, not a conflict with the Max figures
 
 Agentic / tool use:
 
 - MCP Atlas: **73.2%**; Toolathlon Verified: **55.9%**; τ³-Banking: **25.8%**
 - BrowseComp (w/ context management): **83.4%**
 - GDPval-AA v2: **1307 Elo**
-- SWE-bench Verified: **80.6%** (self-reported); SWE-bench Pro Public: **55.4%**
+- SWE-bench Verified: **80.6%** (self-reported, 0423 HF card) — four reads now on file: vals.ai **96.4%** (0813, bash-only harness, independent), NIST CAISI **74.0%** (independent — a 6.6-point gap vs the vendor claim; NIST: V4 "lags behind the frontier by about 8 months" in aggregate), and 77.4% (Vals, April-preview build per deepseekv4.net) — the spread is harness- and checkpoint-dependent
+- SWE-bench Pro Public: **55.4%**; SWE-bench Multilingual: **76.2%** (#15 of 30); **Vibe Code Bench v1.1: 82.3%** (LLMLearNER, max with tools, #15 of 63) vs the 49.93 on file (source unlabeled) — unresolved conflict, both kept and flagged
 - Terminal-Bench 2.1: **64.0%**
-- AA Coding Index: **68.8** (Command Code, pinned latest); AA Intelligence Index: **53.2** (Command Code, pinned latest)
+- AA Coding Index: **68.8** (Command Code, pinned latest); AA Intelligence Index: **53.2** (Command Code, pinned latest) — AA's own page reads the 0813 (max) at **36** (median 18 for comparable open-weight models; 160M Index tokens, "somewhat verbose"; $0.67 per task) — the 53.2→36 spread is pinning/harness-dependent, not a regression
+- New caps (LLMLearNER, 0813 max unless noted): Terminal-Bench 4.0 **14.1%** (#32 of 60; AA's non-reasoning read: 1.5%), APEX-SWE **33.8%** (#46 of 61), τ³-Banking **30.1%** (LLMLearNER read; the vendor's 25.8% stands), LiveBench agentic coding **54.95** (computed from LiveBench's own table — last of seven frontier peers; Opus 5 leads at 65.20), Code Migration **41.5%** (#23 of 47), FrontierSWE v1 **24.6%** (#14 of 17), IOI (Vals v2) **51.6%** (#20 of 29), Terminal-Bench Hard **46.2%** (#18 of 150)
 
 Long context / multimodal:
 
-- 1M native context with sparse attention; no MRCR/RULER/AA-LCR figure captured
+- 1M native context with sparse attention; AA-LCR (independent): **80.3%** (0813 max, LLMLearNER) / **74.7%** (0424 max, AA via OpenRouter) / **70.3%** (0424 high) / **50.7%** (0813 non-reasoning); vendor MRCR **83.5%** / CorpusQA **62.0%** at 1M
+- Hands-on caveat (mejba, 2026-04-25, 340K-token codebase dump): accurate for the first ~150K tokens, confabulating by the end — "a reliable working ceiling of roughly 128K tokens in real codebase tests before confabulation starts"; the 1M window is real but depth-quality is the constraint
 - No vision/audio benchmarks — text-only model
 
 ### Normalized scores (1–100)

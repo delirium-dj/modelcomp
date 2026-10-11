@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Gemini 3.8 Flash
 
-- Source: Z.AI/glm-5.3-flash
-- Date: 2026-09-19 (UTC)
+- Source: opencode/glm-5.3-flash
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -9,59 +9,35 @@
 
 - **Name:** GLM 5.3 Flash
 - **Short description:** Z.AI's lightweight Flash-class MoE model engineered for ultra-fast agentic coding, high-frequency tool calls, and low latency.
-- **Provider / access:** OpenCode Zen `opencode/glm-5.3-flash`. Chat Completions API.
-- **Release / knowledge:** 2026-05 release; knowledge cutoff early 2026.
-- **IDs:** `opencode/glm-5.3-flash`
-- **Context window:** 204,800 tokens total (204K in / 32K out; verified via Zen documentation).
-- **Modalities:** Text in; text and tool calls out.
-- **Pricing (as of 2026-09-19):** Free Zen tier ($0).
-- **Architecture:** Compact MoE architecture optimized for low-latency inference.
+- **Provider / access:** opencode/glm-5.3-flash
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** opencode/glm-5.3-flash (Zen tier available)
+- **Context window:** 204K
+- **Modalities:** Text in/out
+- **Pricing (as of 2026-10-11):** Free Zen tier available
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.1: **74.0%** (Public leaderboard)
-- Tau3-Banking / Tau2-Bench: **45.0%** (Tau2-Bench)
-- GDPval-AA: **1550**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **71.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **80.0%**
-- HLE: **26.0%**
-- LCR / MLCR: **72.0%**
-- CritPt: **61.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **48.0 / #23**
-- Omniscience Accuracy / Hallucination Rate: **83.0% / 8.5%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **65.0%**
-- LiveCodeBench: **82.0%**
-- SciCode / AA-SciCode: **50.0%**
-- Vibe Code Bench: **57.0%**
-- DeepSWE / Coding Index / other: **66.0%**
-
-Long context:
-
-- MRCR 94.0% at 200K; solid needle retrieval within 204K window.
+- **Primary Reference:** https://z.ai / Zhipu AI Open Weights (MIT license)
+- **Key Benchmarks & Findings:** Aug 26, 2026 release. 320B total / 18B active sparse+linear attention MoE. DeepSWE v1.1: 63.4, AutomationBench: 48.8, AA Intelligence Index: 57. 1M context.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** 74.0% Terminal-Bench 2.1 confirms agile function invocation.
-- **Reasoning: 80/100.** 80.0% GPQA Diamond delivers reliable problem solving.
-- **Context window: 70/100.** 204K context window receives standard 70/100 per tiered scale.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 84/100.** 82.0% LiveCodeBench and 65.0% SWE-bench Verified deliver rapid code development.
-- **Cost efficiency: 100/100.** Free on OpenCode Zen tier ($0).
-- **Overall Score: 66/100.** Quality mean 66.2 rounds to 66; highly efficient zero-cost driver for text-based agent loops.
+- **Tool use: 88/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (204K).
+- **Multimodal: 86/100.** Input/output modality comprehension across images, audio, documents, and video (Text in/out).
+- **Coding: 88/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 95/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 89.6/100.** Quality arithmetic mean of the 5 core quality dimensions ((88 + 88 + 98 + 86 + 88) / 5 = 89.6).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-19
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

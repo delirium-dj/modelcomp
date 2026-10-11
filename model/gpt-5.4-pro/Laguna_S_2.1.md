@@ -1,7 +1,7 @@
 # GPT-5.4 Pro — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/gpt-5-4-pro`), BenchLM (`https://benchlm.ai/models/gpt-5-4-pro`), OpenAI (`https://openai.com/index/introducing-gpt-5-4`), Epoch AI, Meta AI
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -94,8 +94,8 @@ Long context (from OpenAI announcement table):
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
-- Method: public internet research via Artificial Analysis, BenchLM, OpenAI, Epoch AI, and Meta AI; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `OpenAI_GPT_5.4_Pro_System_Card.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: public-internet research via Artificial Analysis, BenchLM, OpenAI, Epoch AI, and Meta AI; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research. **Updated date to 2026-10-10; AA confirms deprecated status, Intelligence Index "Not publicly available", pricing $30/$180, 1.1M context, text+image input — all consistent with prior file.** Cost line preserved verbatim from prior signed file.
+- Sources: OpenAI launch blog (full benchmark suite); BenchLM.ai model page (Overall 68.93/100, #19/889, 11 of 625 benchmarks, 2026-10-10); AA model page (deprecated, Intelligence Index unknown, pricing $30/$180, 1.1M context); Epoch AI (FrontierMath v2); Meta AI (FrontierScience, IPhO 2025).
 
 ---
