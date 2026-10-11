@@ -1,7 +1,7 @@
 # GPT-5.2 — findings by Kimi K3
 
 - Source: OpenAI (`gpt-5.2`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,7 +40,8 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified: **80.0%** (SOTA); SWE-Bench Pro (public): **55.6%** (SOTA); SWE-Lancer IC Diamond: **74.6%** (40/237 problems omitted, infra)
+- SWE-bench Verified: **80.0%** (SOTA); SWE-Bench Pro (public): **55.6%** (SOTA, vendor); SWE-Lancer IC Diamond: **74.6%** (40/237 problems omitted, infra)
+- CONFLICT (new this pass): Scale's public SWE-Bench Pro leaderboard measures **29.94% resolve** (labs.scale.com via OpenCode Data) — far below OpenAI's 55.6% vendor figure; the independent figure bounds the vendor claim from below and is why Coding was nudged down.
 
 Long context:
 
@@ -55,14 +56,14 @@ Multimodal (raw): CharXiv reasoning **88.7%** (w/ Python; 82.1% no tools); MMMU 
 - **Reasoning: 93/100.** GPQA 92.4%, HLE 34.5% (45.5% tooled), ARC-AGI-2 52.9%, and FrontierMath T1–3 40.3% are all at or above the frontier reference lines (GPQA 90+, HLE 40% w/ tools, Index-class leadership).
 - **Context window: 82/100.** A 400K-total window sits in the 200K–500K tier (65–84), but near-100% 4-needle MRCRv2 @256K and 77% @8-needle/256K plus GraphWalks 94% put it at the very top of that tier, just short of the ≥1M band.
 - **Multimodal: 82/100.** Strong measured image/chart/GUI understanding (CharXiv 88.7, ScreenSpot Pro 86.3, MMMU-Pro 80.4) and video-frame evaluation (VideoMMMU 85.9) place it mid/upper image+video-in band; no audio input and text-only output cap it.
-- **Coding: 92/100.** SWE-bench Verified 80.0% and SWE-Bench Pro 55.6% (both SOTA at release) plus SWE-Lancer 74.6% meet the 90–100 frontier coding references; capped by the absence of published LiveCodeBench/SciCode numbers for this version.
+- **Coding: 90/100.** Lowered from 92 on conflicting new evidence: SWE-bench Verified 80.0% and SWE-Lancer 74.6% hold up, but Scale's independent SWE-Bench Pro measures 29.94% vs the 55.6% vendor claim — the gap caps confidence in the headline coding suite.
 - **Cost efficiency: 70/100.** $1.75/$14 per MTok sits between the ~$1.25/$4.25 → 88 and $3/$15 → 60 references; OpenAI's own agentic-eval cost-per-quality claim and 90% cached-input discount mitigate but don't erase the $14 output price.
-- **Overall Score: 88/100.** Half-up mean of the five quality dims: (92 + 93 + 82 + 82 + 92) / 5 = 88.2 → 88. Best fit: frontier professional/agentic work — knowledge-work artifacts (GDPval), long-document analysis, agentic coding — where quality-per-dollar beats cheaper tiers; only Pro-tier pricing competes above it.
+- **Overall Score: 88/100.** Half-up mean of the five quality dims: (92 + 93 + 82 + 82 + 90) / 5 = 87.8 → 88 (unchanged). Best fit: frontier professional/agentic work — knowledge-work artifacts (GDPval), long-document analysis, agentic coding — where quality-per-dollar beats cheaper tiers; only Pro-tier pricing competes above it.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
-- Method: public internet research (OpenAI "Introducing GPT-5.2", 2025-12-11, incl. appendix detailed benchmarks and pricing table; GPT-5 developer post for series context window); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: second-pass public internet research (first pass: OpenAI "Introducing GPT-5.2", 2025-12-11 appendix + GPT-5 developer post; this pass: OpenCode Data `openai/gpt-5-2` — verified release 2025-12-11, cutoff 2025-08-31, 400K/128K window, $1.75/$14 pricing — plus the Scale SWE-Bench-Pro independent measurement conflicting with the vendor claim). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.md`, using the same headings.

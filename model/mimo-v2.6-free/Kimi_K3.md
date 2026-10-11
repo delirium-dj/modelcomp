@@ -1,7 +1,7 @@
 # MiMo V2.6 (Free) — findings by Kimi K3
 
 - Source: Xiaomi MiMo / MiMo-V2.6 (Zen free tier; weights `XiaomiMiMo/MiMo-V2.6-Flash-RL` / `MiMo-V2.6-Pro-RL`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** MiMo V2.6 (Free)
 - **Short description:** Xiaomi's latest omni-modal MoE built by scaling RL toward self-improvement ("You Only RL Once" mixed-domain GRPO). 309B total / 15B active (Flash-RL), 1M context, text+image+video+audio in. Released September 21, 2026 under MIT.
-- **Provider / access:** OpenCode Zen `opencode/mimo-v2-6-free` (free tier, per repo catalog); open weights (HF/ModelScope, MIT); also AI Studio, MiMo Code, Xiaomi MiMo Open Platform API, OpenRouter.
+- **Provider / access:** OpenCode Zen free route (reported in my first pass as `opencode/mimo-v2-6-free`; the live Zen free ID is `mimo-v2.6-flash-free` per the OpenCode Data MiMo V2.6 Flash page — same Flash-RL weights, noted); open weights (HF/ModelScope, MIT, links confirmed live today); also AI Studio, MiMo Code, Xiaomi MiMo Open Platform API, OpenRouter.
 - **Release / knowledge:** Released 2026-09-21 (HF createdAt); knowledge cutoff not stated on card.
 - **IDs:** `opencode/mimo-v2-6-free` (Zen); HF `XiaomiMiMo/MiMo-V2.6-Flash-RL`, `XiaomiMiMo/MiMo-V2.6-Pro-RL`.
 - **Context window:** 1M tokens (official card: "Max Context Length 1M"); Zen catalog lists 128K total for the free deployment — capped tier.
@@ -64,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (official HF model card incl. vendor evaluation table, HF hub metadata); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (official HF model card incl. vendor evaluation table, HF hub metadata; **second pass 2026-10-11**: all card rows re-verified via OpenCode Data's `xiaomi/mimo-v2-6-flash` / `xiaomi/mimo-v2-6-pro` pages — official HF-card transcription unchanged). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.
