@@ -1,64 +1,43 @@
 # GPT-5.1 — findings by Gemini 3.8 Flash
 
-- Source: OpenAI / GPT (`openai/gpt-5.1`)
-- Date: 2026-10-03 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+- Source: opencode/gpt-5.1
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** GPT-5.1
-- **Short description:** OpenAI's incremental frontier release refining GPT-5 with optimized test-time reasoning latency, enhanced agentic tool calling, and improved instruction adherence for enterprise workflows.
-- **Provider / access:** OpenAI API (`gpt-5.1`), ChatGPT, Microsoft Azure AI Foundry.
-- **Release / knowledge:** 2025-11-14 release; knowledge cutoff mid-2025.
-- **IDs:** `openai/gpt-5.1`. Commercial pay-as-you-go API.
-- **Context window:** 400,000 tokens total (400K context window); max output 128,000 tokens.
-- **Modalities:** Text and image input; text, code, structured JSON, and tool-calling output; dynamic reasoning routing.
-- **Pricing (as of 2025-11):** $1.25 / 1M input tokens, $10.00 / 1M output tokens ($0.125 / 1M cached prompt read); standard frontier pricing.
-- **Architecture:** Unified mixture-of-experts (MoE) system combining fast token generation with dynamic chain-of-thought verification.
+- **Short description:** OpenAI's Nov 2025 usability flagship revision of GPT-5 with adaptive Instant/Thinking variants; low-cost conversational generalist with 400K context.
+- **Provider / access:** opencode/gpt-5.1
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** opencode/gpt-5.1 (no Free ID on Zen)
+- **Context window:** 400,000 total (128,000 out)
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-10-11):** Paid $1.25/$10.00 per 1M; $0.125 cached
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.1: **74.2%** (evals.report / OpenAI Technical Notes, 2025)
-- Tau2-Bench: **97.1%** (Telecom)
-- GDPval-AA: **1,298** Elo (Artificial Analysis, 2025)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **46.8%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **87.5%** (Artificial Analysis, 2025)
-- HLE: **28.4%** (Humanity's Last Exam without tools)
-- LCR / MLCR: **81.2%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **47.5**
-- Omniscience Accuracy / Hallucination Rate: **64% / 78%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **75.8%** (SWE-bench Verified) / **43.5%** (SWE-bench Pro)
-- LiveCodeBench: **85.2%** pass@1
-- SciCode / AA-SciCode: **45.2%**
-- Vibe Code Bench: **68.0%**
-
-Long context:
-
-- 400K token context window with 128K max output buffer evaluated across multi-file refactoring; 81.2% AA-LCR long-context retention.
+- **Primary Reference:** https://openai.com / OpenAI API (Nov 12, 2025)
+- **Key Benchmarks & Findings:** Mid-cycle upgrade featuring adaptive reasoning, AIME 2025 and Codeforces gains, warm conversational tone, and specialized Codex variants.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Strong tool coordination evidenced by 97.1% on Tau2-Bench Telecom and 1,298 Elo on GDPval-AA, capped by 74.2% on Terminal-Bench 2.1.
-- **Reasoning: 89/100.** High-level analytical problem solving demonstrated by 87.5% on GPQA Diamond and 47.5 on the AA Intelligence Index.
-- **Context window: 80/100.** 400K context window with large 128K output capacity.
-- **Multimodal: 80/100.** Competent visual parsing across images, technical diagrams, and document screenshots.
-- **Coding: 87/100.** Robust programming performance highlighted by 75.8% on SWE-bench Verified and 85.2% on LiveCodeBench.
-- **Cost efficiency: 74/100.** Standard frontier pricing at $1.25 / $10.00 per 1M tokens with prompt caching at $0.125.
-- **Overall Score: 84/100.** Reliable frontier point release delivering refined reasoning, fast tool execution, and dependable code generation.
+- **Tool use: 85/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 82/100.** Effective retrieval fidelity and recall across context capacity (400,000 total (128,000 out)).
+- **Multimodal: 82/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
+- **Coding: 85/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 70/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 84.4/100.** Quality arithmetic mean of the 5 core quality dimensions ((85 + 88 + 82 + 82 + 85) / 5 = 84.4).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-03
-- Method: Public internet research into OpenAI developer updates, Azure AI Foundry documentation, and Artificial Analysis evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

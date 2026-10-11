@@ -97,7 +97,7 @@ Long context:
 
 - **Coding: 92/100.** Terminal-Bench 2.1 at 90.6% (frontier), DeepSWE at 74.2% (frontier threshold), Codeforces 3471.0 (competitive rating), NL2Repo at 65.4%, OpenHarmony Bench at 60.3%, AA-SciCode at 51.9% (near 55% threshold), Bug Hunt Bench at 21.7 fixes. Strong coding cluster across terminal, agentic, and competitive programming benchmarks. Capped by no SWE-bench Verified/LiveCodeBench standalone on BenchLM and weak ProgramBench (20.3%) and Bug Hunt Bench.
 
-- **Cost efficiency: 85/100.** Official off-peak $0.15/$0.60 per 1M is elite cheap for a 552B open-weights MoE; peak $0.30/$1.20 (~$0.18/MTok blended) still well below the $0.60/$2.20 ≈ 92 tier; cache-hit input $0.003. Open weights (MIT license) for zero-marginal-cost self-hosting. noFreeId — paid API only, no $0 Zen tier.
+- **Cost efficiency: 95/100.** Official off-peak $0.15/$0.60 per 1M is elite cheap for a 552B open-weights MoE; peak $0.30/$1.20 (~$0.18/MTok blended) still well below the $0.60/$2.20 ≈ 92 tier; cache-hit input $0.003. Open weights (MIT license) for zero-marginal-cost self-hosting. noFreeId — paid API only, no $0 Zen tier.
 
 - **Overall Score: 86.2/100.** (89 + 85 + 95 + 70 + 92) / 5 = 431 / 5 = 86.2 → 87. Strong open-weights 552B MoE with 1M context, leading Terminal-Bench 2.1 (90.6%), DeepSWE (74.2%), and CyberGym (88.1%); Intelligence Index 39 (#7/117); elite cost efficiency ($0.30/$1.20, MIT open weights). Aligns with BenchLM Overall 67.9/100 rank #23/889 and AA Intelligence Index 39 (#7/117 among large open weights). Caps: weak ExploitGym (15.3%), GDP.pdf (12.8%), text+image-only modalities, and no MRCR/RULER reported.
 

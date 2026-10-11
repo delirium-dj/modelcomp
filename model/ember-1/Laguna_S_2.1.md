@@ -1,7 +1,7 @@
 # Ember 1 — findings by Laguna S 2.1
 
 - Source: BenchLM (`https://benchlm.ai/models/ember-1`), Fireworks model page (`https://fireworks.ai/models/fireworks/ember-1`), Fireworks launch blog (`https://fireworks.ai/blog/ember-1`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,42 +21,42 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM model page (`benchlm.ai/models/ember-1`), Fireworks Research: Ember-1 launch post (`fireworks.ai/blog/ember-1`). All benchmarks sourced from the official Fireworks launch post, cross-referenced on BenchLM. Firewore's own evaluation harness with 500-step max and sandboxed execution.
+> Sources: BenchLM model page (`benchlm.ai/models/ember-1`, 2026-10-10, 5 of 625 benchmarks — no new data since Oct 2), Fireworks Research: Ember-1 launch post (`fireworks.ai/blog/ember-1`). All benchmarks sourced from the official Fireworks launch post, cross-referenced on BenchLM. Firewore's own evaluation harness with 500-step max and sandboxed execution. No new benchmarks added on Oct 10; confirmed identical.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **82.0%** — (Fireworks launch post, via BenchLM; pass@1 averaged over 5 attempts)
-- τ²-bench Airline: **66.0%** — (Fireworks launch post, via BenchLM)
-- GDPval-AA: **no verified public score found** — (not listed on BenchLM or AA for ember-1)
-- OSWorld-Verified: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- AutomationBench-AA: **no verified public score found**
+- **Terminal-Bench 2.1:** **82.0%** — (Fireworks launch post, via BenchLM; pass@1 averaged over 5 attempts)
+- **τ²-bench Airline:** **66.0%** — (Fireworks launch post, via BenchLM)
+- **GDPval-AA:** **no verified public score found** — (not listed on BenchLM or AA for ember-1)
+- **OSWorld-Verified:** **no verified public score found**
+- **Claw-Eval / ClawProBench:** **no verified public score found**
+- **AutomationBench-AA:** **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found** — (model not listed on AA or BenchLM overall score)
-- HLE: **no verified public score found**
-- LCR / MLCR / CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **no verified public score found** — (model absent from AA leaderboards as of 2026-10-01; AA returns 404)
-- BenchLM overall: **no overall score assigned** — (BenchLM lists 5 of 645 benchmarks; "no public overall score is assigned"; model unranked)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
-- Humanity's Last Exam: **no verified public score found**
+- **GPQA Diamond:** **no verified public score found** — (model not listed on AA or BenchLM overall score)
+- **HLE:** **no verified public score found**
+- **LCR / MLCR / CritPt:** **no verified public score found**
+- **Artificial Analysis Intelligence Index:** **no verified public score found** — (model absent from AA leaderboards as of 2026-10-10; AA returns 404)
+- **BenchLM overall:** **no overall score assigned** — (BenchLM lists 5 of 625 benchmarks; "no public overall score is assigned"; model unranked)
+- **Omniscience Accuracy / Hallucination Rate:** **no verified public score found**
+- **Humanity's Last Exam:** **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified: **92.2%** — (Fireworks launch post, via BenchLM)
-- DeepSWE: **75.2%** — (Fireworks launch post, via BenchLM; exceeds GPT-6 Astra's reported 74.0%)
-- SWE-bench Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- AA Coding Index: **no verified public score found**
-- SWE-bench Multilingual: **no verified public score found**
+- **SWE-bench Verified:** **92.2%** — (Fireworks launch post, via BenchLM)
+- **DeepSWE:** **75.2%** — (Fireworks launch post, via BenchLM; exceeds GPT-6 Astra's reported 74.0%)
+- **SWE-bench Pro:** **no verified public score found**
+- **LiveCodeBench:** **no verified public score found**
+- **SciCode / AA-SciCode:** **no verified public score found**
+- **AA Coding Index:** **no verified public score found**
+- **SWE-bench Multilingual:** **no verified public score found**
 
 Multimodal:
 
 - Text + image input, text output per Fireworks model page — no independent multimodal benchmark found
-- MMMU / MMMU-Pro: **no verified public score found**
-- Design Arena / ImageBench: **no verified public score found**
+- **MMMU / MMMU-Pro:** **no verified public score found**
+- **Design Arena / ImageBench:** **no verified public score found**
 
 Long context:
 
@@ -78,14 +78,14 @@ Long context:
 
 - **Cost efficiency: 60/100.** $3.00 input / $15.00 output per 1M tokens (Fireworks serverless API) falls in the methodology's ~$3/$15 = ~60 band. Cached input at $0.30 per 1M offers some cost reduction on repeat requests.
 
-- **Overall Score: 66/100.** Mean of five quality dims: (72 + 42 + 98 + 30 + 90) / 5 = 342 / 5 = 68.4 → 68. Ember-1 is a strong specialized coding/agentic model from Fireworks, achieving 82.0% on Terminal-Bench 2.1 and 92.2% on SWE-bench Verified — exceptional results that place it among the top coding models. Its 1.04M context window and 40% token-efficiency gains over Kimi K3 add unique value. However, it lacks general reasoning benchmarks (no GPQA/HLE/LCR), is not on the AA Intelligence Index, and its $3/$15 pricing is premium-tier. Best fit: high-end agentic coding where token efficiency and strong SWE-bench performance justify the premium cost.
+- **Overall Score: 66/100.** Mean of five quality dims: (72 + 42 + 98 + 30 + 90) / 5 = 342 / 5 = 68.4 → 68. Ember-1 is a strong specialized coding/agentic model from Fireworks, achieving 82.0% on Terminal-Bench 2.1 and 92.2% on SWE-bench Verified — exceptional results that place it among the top coding models. Its 1.04M context window and 40% token-efficiency gains over Kimi K3 add unique value. However, it lacks general reasoning benchmarks (no GPQA/HLE/LCR), is not on the AA Intelligence Index, and its $3/$15 pricing is premium-tier. Best fit: high-end agentic coding where token efficiency and strong SWE-bench performance justify the premium cost. Updated Oct 10 — BenchLM confirms no new data since Sep 23; all benchmarks unchanged.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
-- Method: public internet research via BenchLM model page (benchmark scores, coverage notes, sources), Fireworks model page (specs, pricing, modalities), and Fireworks Research launch blog (benchmark methodology, comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Method: public internet research via BenchLM model page (Oct 10, confirms Sep 23 data unchanged), Fireworks model page (specs, pricing, modalities), and Fireworks Research launch blog (benchmark methodology, comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
 - Sources cited: `https://benchlm.ai/models/ember-1`, `https://fireworks.ai/models/fireworks/ember-1`, `https://fireworks.ai/blog/ember-1`
 - Zero-influence: did not read peer `model/` findings files during research.
 - Future sources: add a new file next to this one, e.g. `Ember_1.md`, using the same headings.

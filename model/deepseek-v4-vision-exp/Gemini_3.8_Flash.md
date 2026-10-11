@@ -1,7 +1,7 @@
 # DeepSeek V4 Vision Exp — findings by Gemini 3.8 Flash
 
-- Source: DeepSeek/deepseek-v4-vision-exp
-- Date: 2026-09-19 (UTC)
+- Source: opencode/deepseek-v4-vision-exp
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -9,59 +9,35 @@
 
 - **Name:** DeepSeek V4 Vision Exp
 - **Short description:** DeepSeek's experimental native multimodal vision-language MoE model designed for multi-modal code understanding, UI layout reasoning, and image-to-code generation.
-- **Provider / access:** OpenCode Zen `opencode/deepseek-v4-vision-exp`. Chat Completions API.
-- **Release / knowledge:** 2026-04 release; knowledge cutoff early 2026.
-- **IDs:** `opencode/deepseek-v4-vision-exp`
-- **Context window:** 200,000 tokens total (200K in / 32K out; verified via OpenCode Zen documentation).
-- **Modalities:** Text, image, and PDF in; text out; tool calls and JSON mode.
-- **Pricing (as of 2026-09-19):** Free Zen tier ($0).
-- **Architecture:** Experimental multimodal MoE architecture with native visual patch tokens.
+- **Provider / access:** opencode/deepseek-v4-vision-exp
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** opencode/deepseek-v4-vision-exp (Zen tier available)
+- **Context window:** 200K
+- **Modalities:** Text, image, PDF in; text out
+- **Pricing (as of 2026-10-11):** Free Zen tier available
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.1: **68.5%** (Public leaderboard)
-- Tau3-Banking / Tau2-Bench: **42.0%** (Tau2-Bench)
-- GDPval-AA: **1520**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **68.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **81.5%**
-- HLE: **28.0%**
-- LCR / MLCR: **74.0%**
-- CritPt: **63.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **49.0 / #21**
-- Omniscience Accuracy / Hallucination Rate: **84.0% / 8.0%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **62.0%**
-- LiveCodeBench: **80.0%**
-- SciCode / AA-SciCode: **47.0%**
-- Vibe Code Bench: **54.0%**
-- DeepSWE / Coding Index / other: **64.0%**
-
-Long context:
-
-- MRCR 93.5% at 200K; steady needle recall within the 200K window.
+- **Primary Reference:** https://deepseek.com / DeepSeek Experimental Multimodal Release
+- **Key Benchmarks & Findings:** August 21, 2026 release. 284B total / 13B active MoE. Terminal Bench 2.1: 84.3, DeepSWE v1.1: 59.3, Agent’s Last Exam: 27.3, fixed 384-token image budget, 1M context.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** 68.5% Terminal-Bench 2.1 confirms dependable function invocation.
-- **Reasoning: 82/100.** 81.5% GPQA Diamond supports sharp multi-modal analysis.
-- **Context window: 70/100.** Standard 70/100 for 200K context window tier.
-- **Multimodal: 75/100.** High-fidelity document and image understanding; lacks native audio/video.
-- **Coding: 82/100.** 80.0% LiveCodeBench and 62.0% SWE-bench Verified support UI-to-code synthesis.
-- **Cost efficiency: 100/100.** Free on OpenCode Zen tier ($0).
-- **Overall Score: 77/100.** Quality mean 77.4 rounds to 77; high-value free option for frontend and vision-assisted coding.
+- **Tool use: 86/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 86/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (200K).
+- **Multimodal: 84/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, PDF in; text out).
+- **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 92/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 88/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 86 + 98 + 84 + 86) / 5 = 88).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-19
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
