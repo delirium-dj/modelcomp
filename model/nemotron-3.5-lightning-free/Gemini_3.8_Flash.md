@@ -1,21 +1,21 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Nemotron 3.5 Lightning Free
-- **Short description:** NVIDIA's lightweight 30B open-weights Mixture-of-Experts model (3B active) engineered as a high-speed execution agent for tool calling, result verification, and subagent routing in always-on agent swarms.
-- **Provider / access:** OpenCode Zen free tier (`opencode/nemotron-3.5-lightning-free`), NVIDIA NIM, OpenRouter free.
-- **Release / knowledge:** August 2026.
-- **IDs:** `opencode/nemotron-3.5-lightning-free`, `nvidia/nemotron-3.5-lightning-30b-a3b`
-- **Context window:** 262,144 tokens (256K served).
-- **Modalities:** Text in / text out only. Tool calling and fast reasoning modes.
-- **Pricing (as of 2026-09-24):** Free tier available on OpenCode Zen and OpenRouter; commercial hosting ~$0.05 / $0.20 per 1M tokens.
-- **Architecture:** 30B total / 3B active hybrid LatentMoE (Mamba-2 + selective attention + MoE) with MTP drafters.
+- **Short description:** NVIDIA's lightweight 31.6B open-weights Mixture-of-Experts model (3.6B active) engineered as an ultra-high-speed execution agent (~670 tok/s) for tool calling, result verification, and subagent routing in always-on agent swarms under an OpenMDW-1.1 license.
+- **Provider / access:** OpenCode Zen free tier (`opencode/nemotron-3.5-lightning-free`), [OpenRouter](https://openrouter.ai/models/nvidia/nemotron-3.5-lightning) (`nvidia/nemotron-3.5-lightning:free`), [NVIDIA NIM](https://www.nvidia.com/en-us/ai-data-science/products/nim/), [Hugging Face](https://huggingface.co/nvidia) open weights.
+- **Release / knowledge:** August 11, 2026.
+- **IDs:** `opencode/nemotron-3.5-lightning-free`, `nvidia/nemotron-3.5-lightning:free`, `nvidia/nemotron-3.5-lightning`
+- **Context window:** 1,000,000 tokens (1M context window on free tier; 262,144 tokens served on standard NIM API).
+- **Modalities:** Text in / text out only. Tool calling, structured JSON, and fast reasoning modes.
+- **Pricing (as of 2026-10-11):** Free tier available on OpenRouter (`:free`) and OpenCode Zen; commercial NIM hosting ~$0.08 / $0.20 per 1M tokens.
+- **Architecture:** 31.6B total / 3.6B active hybrid LatentMoE (Mamba-2 + selective attention + MoE with 128 experts, 6 active + 1 shared) in BF16 and NVFP4.
 
 ### Raw benchmarks found
 
@@ -25,33 +25,35 @@ Agent / tool use:
 - Terminal-Bench 2.1: **24.58%**
 - BrowseComp: **36.97%**
 - GDPval-AA v2: **832–865 Elo**
+- Execution Throughput: **~670 tokens/sec**
 
 Reasoning / knowledge:
 
-- MMLU-Pro: **81.94%**
-- GPQA Diamond (no tools): **75.44%**
+- MMLU-Pro: **81.94%** (BF16) / **81.62%** (NVFP4)
+- GPQA Diamond (no tools): **75.44%** (BF16) / **75.57%** (NVFP4)
 - Humanity's Last Exam (HLE): **11.72%**
-- AA Intelligence Index: **14** (v4.3)
+- AA Intelligence Index: **14**
 
 Coding & Long Context:
 
-- SWE-bench Verified: **51.56%–52.80%**
-- SWE Multilingual: **39.33%**
-- AA-LCR: **52.0%** across 262K context window.
+- SWE-bench Verified: **51.56%** (BF16) / **52.80%** (NVFP4)
+- SWE-bench Multilingual: **39.33%**
+- SciCode: **32.60%**
+- AA-LCR: **52.0%** across context window.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Fast execution on simple tool calls (85% PinchBench), but limited autonomy on full agentic loops (TB 2.1 24.6%).
-- **Reasoning: 60/100.** Capable factual recall on MMLU-Pro (81.9%), though HLE (11.7%) and GPQA (75.4%) show its bounds as an execution subagent rather than a planner.
-- **Context window: 72/100.** 262K served context enables parsing multi-turn tool transcripts and modest documentation.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 52/100.** ~52% on SWE-bench Verified is respectable for a 3B active parameter model, though well behind frontier coders.
-- **Cost efficiency: 100/100.** Completely free access tier and extreme single-GPU inference efficiency.
-- **Overall Score: 49/100.** Arithmetic mean of non-cost metrics: (45 + 60 + 72 + 15 + 52) / 5 = 48.8 → 49. A swift, low-latency execution subagent designed to work in concert with a frontier planner.
+- **Tool use: 45/100.** Fast execution on simple tool calls (85% PinchBench) and subagent routing, but limited autonomy on complex terminal environments (TB 2.1 24.6%).
+- **Reasoning: 60/100.** Capable factual recall on MMLU-Pro (81.9%), though HLE (11.7%) and GPQA (75.4%) show its bounds as an execution subagent rather than an autonomous planner.
+- **Context window: 75/100.** 1M context on free endpoint (262K standard) enables parsing massive tool transcripts and codebases.
+- **Multimodal: 15/100.** Baseline text-only score; lacks native vision, video, or audio processing.
+- **Coding: 52/100.** ~52% on SWE-bench Verified and 32.6% on SciCode is solid for a 3B active parameter model, though behind frontier planners.
+- **Cost efficiency: 100/100.** Completely free access tier on OpenRouter and OpenCode Zen, combined with extreme single-GPU inference efficiency.
+- **Overall Score: 49/100.** Arithmetic mean of non-cost metrics: (45 + 60 + 75 + 15 + 52) / 5 = 49.4 → 49. A swift, low-latency execution subagent designed to work in concert with a frontier planner.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-24
-- Method: Public benchmark evaluation and analysis of NVIDIA Nemotron 3.5 technical documentation and performance reports.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: Public benchmark evaluation and analysis of NVIDIA technical reports, Hugging Face model cards, OpenRouter endpoints, and Artificial Analysis leaderboards.

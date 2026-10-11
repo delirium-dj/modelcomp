@@ -64,7 +64,7 @@
 83.6 grok-4.5
 83.6 pareto-26.10-preview
 83.5 deepseek-v4-pro
-83.4 gpt-5.3-codex
+83.5 gpt-5.3-codex
 83.2 gpt-5.6-luna
 83.1 grok-4.3
 82.8 gpt-5
@@ -117,8 +117,8 @@
 71.7 nemotron-3-nano-omni
 71.6 gpt-5.4-nano
 71.6 nemotron-3-ultra-free
-71.5 hy3
 70.9 qwen-3.5-9b
+70.8 hy3
 70.6 longcat_2.5_preview
 70.6 mai-code-1.1-flash
 70.4 longcat-2.0
@@ -126,9 +126,9 @@
 69.3 glm-5.1-coding
 69.2 minimax-m3.1-flash-preview
 68.7 fledge-alpha
-68.1 hy3-preview
+68.5 grok-build-0.1
 67.6 solar-pro-4
-67.5 grok-build-0.1
+67.4 hy3-preview
 67.2 diffusiongemma-26b-a4b
 66.6 ling-3.1-flash
 66.6 qwen3-max
@@ -141,7 +141,6 @@
 65.2 claude-haiku-3.5
 65.2 ring-2.6.1t
 65.1 mai-thinking-1
-65 grok-5
 62.6 gpt-5.3-codex-spark
 62.5 deepseek-v3.2
 62.2 ling-3.0-flash
@@ -151,10 +150,10 @@
 60.1 omen-alpha
 59.5 gpt-oss-120b
 59.5 laguna-xs-2.1
+59.5 mimo-v2.6-distill-qwen-9b
 59 exo-free
 58.8 mai-code-1-flash
 58.4 ling-3.0-flash-sante
-58.3 mimo-v2.6-distill-qwen-9b
 57.3 llama_3.2_vision_instruct
 57.3 north_mini_code
 56.2 big-pickle
@@ -164,4 +163,5 @@
 52.7 gemma-4-e2b
 52.2 mercury-2.5
 51.8 ling-3.0-tiny
+50 grok-5
 38.3 jev-1.13

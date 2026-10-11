@@ -1,0 +1,55 @@
+# Grok 5 — findings by Gemini 3.8 Flash
+
+- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5
+- **Short description:** Anticipated next-generation foundation model by xAI currently in training/development; not yet released or deployed on public APIs as of October 2026 (current shipping flagship is Grok 4.7).
+- **Provider / access:** xAI (unreleased; in training).
+- **Release / knowledge:** Unreleased as of October 2026.
+- **Lifecycle status:** In development / training. Pre-release placeholder entry pending public API availability and third-party benchmark evaluations.
+- **IDs:** `xai/grok-5` (provisional).
+- **Context window:** Unverified (vendor target estimated 500K+; not publicly served).
+- **Modalities:** Target multimodal in / text & code out; unverified on public endpoints.
+- **Pricing (as of 2026-10-11):** N/A (no public API endpoint or pricing table exists; current Grok 4.7 API serves at $2.00 / $6.00 per 1M tokens).
+- **Architecture:** Next-generation frontier architecture in training at xAI Colossus cluster.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public standardized benchmarks available.
+- Reference baseline: Grok 4.7 scores 56 on the Artificial Analysis Coding Agent Index and 1657 Elo on AA-Briefcase.
+
+Reasoning / knowledge:
+
+- No verified public standardized benchmarks available.
+
+Coding:
+
+- No verified public standardized benchmarks available.
+
+Long context:
+
+- No verified public standardized benchmarks available.
+
+### Normalized scores (1–100)
+
+- **Tool use: 50/100.** Provisional neutral score; model is unreleased and tool invocation cannot be verified on public endpoints.
+- **Reasoning: 50/100.** Provisional neutral score; lacking public reproducible benchmark results.
+- **Context window: 50/100.** Provisional neutral score; context architecture and retrieval accuracy are unverified.
+- **Multimodal: 50/100.** Provisional neutral score pending official modality release.
+- **Coding: 50/100.** Provisional neutral score; no verified code generation or SWE-bench submissions.
+- **Cost efficiency: 50/100.** Neutral baseline; pricing and token rates are unannounced.
+- **Overall Score: 50/100.** Arithmetic mean of non-cost metrics: (50 + 50 + 50 + 50 + 50) / 5 = 50.0. Provisional uncertainty-preserving entry for an unreleased model pending official launch by xAI.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: Verification against official xAI developer documentation, news announcements, and independent benchmark platforms (OpenRouter, Artificial Analysis).
