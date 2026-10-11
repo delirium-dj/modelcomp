@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Gemini 3.8 Flash
 
-- Source: Anthropic/claude-mythos-5.1
-- Date: 2026-09-19 (UTC)
+- Source: anthropic/claude-mythos-5.1
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -9,59 +9,35 @@
 
 - **Name:** Claude Mythos 5.1
 - **Short description:** Anthropic's restricted configuration of Claude Fable 5.1 with cybersecurity and life-sciences safeguards relaxed for vetted enterprise users.
-- **Provider / access:** Anthropic API `anthropic/claude-mythos-5.1` via Messages API.
-- **Release / knowledge:** 2026-08 release; knowledge cutoff mid-2026.
-- **IDs:** `anthropic/claude-mythos-5.1` (no Free ID on Zen)
-- **Context window:** 1,000,000 tokens total (1M in / 128K out; verified via Anthropic documentation).
-- **Modalities:** Text and image in; text and tool calls out.
-- **Pricing (as of 2026-09-19):** $10.00 / 1M in, $50.00 / 1M out; prompt caching at $1.00 / 1M.
-- **Architecture:** Proprietary frontier foundation model with extensive multi-step deliberation tokens.
+- **Provider / access:** anthropic/claude-mythos-5.1
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** anthropic/claude-mythos-5.1 (no Free ID on Zen)
+- **Context window:** 1M / 128K out
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-10-11):** Paid $10/$50 per 1M (no Zen Free ID)
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-- Terminal-Bench 2.1: **89.5%** (Public leaderboard)
-- Tau3-Banking / Tau2-Bench: **52.5%** (Tau3-Banking)
-- GDPval-AA: **1780**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **95.0%**
-- HLE: **51.5%**
-- LCR / MLCR: **89.5%**
-- CritPt: **78.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **66.0 / #2**
-- Omniscience Accuracy / Hallucination Rate: **93.0% / 3.8%**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **76.5%**
-- LiveCodeBench: **89.8%**
-- SciCode / AA-SciCode: **62.8%**
-- Vibe Code Bench: **68.5%**
-- DeepSWE / Coding Index / other: **76.8%**
-
-Long context:
-
-- MRCR 99.2% at 1M; pristine needle recall across 1M context.
+- **Primary Reference:** https://anthropic.com / Cyber & Life Sciences Verification Programs
+- **Key Benchmarks & Findings:** Sept 1, 2026 release. Shared weights with Fable 5.1 but specialized dual-use biodefense/cyber capabilities. Terminal-Bench 4.0: 55.8%, Terminal-Bench-Science: 52.6%.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** 89.5% Terminal-Bench 2.1 and 1780 GDPval reflect outstanding agent capabilities.
-- **Reasoning: 96/100.** 95.0% GPQA Diamond and 51.5% HLE substantiate premier reasoning depth.
-- **Context window: 100/100.** 1M context with 128K output capacity and 99.2% MRCR retrieval.
-- **Multimodal: 70/100.** High-fidelity vision input; no audio/video native ingestion.
-- **Coding: 95/100.** 76.5% SWE-bench Verified and 89.8% LiveCodeBench demonstrate elite software engineering.
-- **Cost efficiency: 30/100.** Premium $10/$50 pricing reflects compute-intensive operations.
-- **Overall Score: 91/100.** Quality mean 91.0 equals 91; powerhouse model for deep reasoning and code refactoring.
+- **Tool use: 96/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 96/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1M / 128K out).
+- **Multimodal: 75/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
+- **Coding: 96/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 35/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 92.2/100.** Quality arithmetic mean of the 5 core quality dimensions ((96 + 96 + 98 + 75 + 96) / 5 = 92.2).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-19
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

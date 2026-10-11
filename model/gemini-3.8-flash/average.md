@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 89.7/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Reasoning: 90.8/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Context window: 97/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Multimodal: 92.3/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Coding: 90.6/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Cost efficiency: 93.2/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 92.1/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 90.1/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 91.2/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 96.8/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 92.6/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 90.9/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 92.6/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 92.4/100.** Mean of top 10 of 21 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 

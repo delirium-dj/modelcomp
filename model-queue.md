@@ -3,16 +3,16 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
-93.7 muse-spark-1.3
-92.6 claude-opus-5.5
-92.1 gemini-3.8-flash
-91.4 claude-opus-5
-91.4 gemini-3.1-pro
-91 claude-fable-5.1
-91 gpt-6-astra
-90.6 gemini-4-argon
-90.5 claude-mythos-5.1
-90.3 gemini-3.7-flash
+93.8 muse-spark-1.3
+92.8 claude-opus-5.5
+92.4 gemini-3.8-flash
+91.6 gemini-3.1-pro
+91.4 gemini-4-argon
+91.3 claude-opus-5
+91.1 gpt-6-astra
+90.9 claude-fable-5.1
+90.7 claude-mythos-5.1
+90.7 gemini-3.7-flash
 90.2 claude-fable-5
 89.9 kimi-k3
 89.8 claude-sonnet-5.5
