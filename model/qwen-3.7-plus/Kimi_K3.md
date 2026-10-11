@@ -1,7 +1,7 @@
 # Qwen3.7 Plus — findings by Kimi K3
 
 - Source: Alibaba / Qwen3.7 Plus (`qwen-3.7-plus`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Qwen3.7 Plus
 - **Short description:** Alibaba's mid-tier Plus model of the Qwen3.7 era — exceptional multimodal video/document coverage (VideoMMMU 85.4%, OmniDocBench 91.4%) and strong math (HMMT 92.9%), but weak agentic depth (Agentic Index 19.7%).
-- **Provider / access:** Alibaba Model Studio / DashScope (`qwen3.7-plus`), OpenRouter.
-- **Release / knowledge:** 2026 (pre-3.8; exact date not verified in my sources); cutoff not verified.
-- **IDs:** `qwen/qwen3.7-plus` (no Zen Free ID verified).
-- **Context window:** 1M tokens (benchlm.ai); max output not verified.
-- **Modalities:** text/image/video in (VideoMMMU measured); text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** no verified public price found in my sources; Plus-tier below Max ($2.50/$7.50) — provisional.
+- **Provider / access:** Alibaba Model Studio / DashScope (`qwen3.7-plus`), OpenRouter; OpenCode Zen route `opencode/qwen3.7-plus` live (OpenCode Data, ~#26 weekly; 60% retention).
+- **Release / knowledge:** Released 2026-06-02 (OpenCode Data, newly verified — my 2026-09-24 pass had "date not verified"); knowledge cutoff 2025-04 (OpenCode Data, new).
+- **IDs:** `qwen/qwen3.7-plus`, `alibaba/qwen3.7-plus` (no Zen Free ID verified).
+- **Context window:** 1M tokens (OpenCode Data; benchlm.ai); max output **64K** (OpenCode Data — previously unverified).
+- **Modalities:** text/image/video in (OpenCode Data; VideoMMMU measured); text out; reasoning yes; tool calls; JSON mode.
+- **Pricing (as of 2026-10-11):** $0.40/M input, $1.60/M output, $0.08/M cached input, $0.50/M cache write (OpenCode Data catalog — verified now; Plus-tier pricing below Max's $2/$6 as expected).
 - **Architecture:** proprietary (Alibaba/Qwen); params undisclosed.
 
 ### Raw benchmarks found
@@ -54,18 +54,19 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** τ² 93%, AndroidWorld 81%, MCP Atlas 73.2% good; capped hard by GDPval-AA 886 and Agentic Index 19.7%.
-- **Reasoning: 77/100.** GPQA ~90%, HMMT 92.9%, MRCRv2 91.7%; capped by HLE ~35% and CritPt 9.1%.
-- **Context window: 88/100.** 1M window with MRCRv2 91.7% — verified strong retrieval.
-- **Multimodal: 88/100.** Comprehensive video/doc vision suite (VideoMMMU 85.4%, OmniDocBench 91.4%); text-only output caps it.
-- **Coding: 76/100.** LiveCodeBench 89.6%, SWE-bench Verified 77.7%; capped by Coding Index 55.9 and NL2Repo 41.1%.
-- **Cost efficiency: 80/100.** Plus tier should be meaningfully below Max pricing; unverified — provisional.
+- **Tool use: 72/100.** Unchanged: τ² 93%, AndroidWorld 81%, MCP Atlas 73.2% good; capped hard by GDPval-AA 886 and Agentic Index 19.7%.
+
+- **Reasoning: 77/100.** Unchanged: GPQA ~90%, HMMT 92.9%, MRCRv2 91.7%; capped by HLE ~35% and CritPt 9.1%.
+- **Context window: 88/100.** Unchanged: 1M window with MRCRv2 91.7%; 64K output now catalog-verified.
+- **Multimodal: 88/100.** Unchanged: comprehensive video/doc vision suite; text-only output caps it.
+- **Coding: 76/100.** Unchanged: LiveCodeBench 89.6%, SWE-bench Verified 77.7%; capped by Coding Index 55.9 and NL2Repo 41.1%.
+- **Cost efficiency: 80/100.** Verified ($0.40/$1.60) — sits between free-tier Flash models and Max; provisional flag removed.
 - **Overall Score: 80/100.** Mean of the five quality dims (72+77+88+88+76)/5 = 80.2 → 80. Best fit: video/document understanding at 1M context on Alibaba's stack at Plus-tier pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (OpenCode Data `alibaba/qwen3-7-plus` — Zen usage, catalog pricing, release/cutoff verification; benchlm.ai scorecard from first pass). Second pass over my 2026-09-24 file: verified release (2026-06-02), cutoff (2025-04), 64K max output, and $0.40/$1.60 pricing; no score-changing deltas. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

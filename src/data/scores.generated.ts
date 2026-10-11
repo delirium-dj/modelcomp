@@ -6,6 +6,7 @@ export type GeneratedScoreTuple = [tool: number, reasoning: number, context: num
 export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple>> = {
   "Inkling": {
     "Big_Pickle.md": [70, 75, 95, 92, 76, 89, 82],
+    "Claude_Opus_4.6.md": [80, 87, 90, 70, 82, 92, 82],
     "Claude_Opus_4.8.md": [68, 76, 90, 63, 77, 85, 74.8],
     "Claude_Opus_5.md": [68, 72, 90, 88, 76, 90, 78.8],
     "DeepSeek_4.1_Flash.md": [72, 80, 92, 74, 74, 80, 78.4],
@@ -35,7 +36,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [68, 62, 90, 75, 72, 95, 73],
     "Space_Bunny.md": [82, 85, 96, 87, 82, 72, 86.4],
     "Step_5_Preview.md": [74, 80, 88, 88, 72, 93, 80],
-    "average.md": [77.5, 83.2, 88.2, 86.6, 81.5, 86.7, 83.3],
+    "average.md": [78.7, 84.5, 88.4, 84.6, 82.1, 87, 83.6],
   },
   "big-pickle": {
     "Big_Pickle.md": [40, 55, 70, 15, 60, 100, 48],
@@ -351,7 +352,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.7_Flash.md": [79, 85, 86, 82, 80, 45, 82.4],
     "Gemini_3.8_Flash.md": [90, 92, 98, 72, 91, 45, 88.6],
     "Grok_4.6.md": [84, 86, 97, 70, 85, 50, 84.4],
-    "Kimi_K3.md": [82, 76, 80, 80, 81, 60, 80],
+    "Kimi_K3.md": [82, 76, 80, 80, 81, 58, 80],
     "Laguna_S_2.1.md": [82, 54, 95, 70, 84, 45, 77],
     "Laguna_XS_2.1.md": [73, 82, 93, 65, 82, 70, 79],
     "Ling_3.1_Flash.md": [86, 86, 95, 70, 83, 50, 84],
@@ -829,6 +830,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "deepseek-v4-pro": {
     "Big_Pickle.md": [90, 88, 90, 15, 86, 82, 74],
+    "Claude_Opus_4.6.md": [83, 88, 90, 15, 92, 92, 74],
     "Claude_Opus_4.8.md": [86, 85, 94, 62, 87, 88, 82.8],
     "Claude_Opus_5.md": [84, 91, 97, 15, 90, 94, 75.4],
     "DeepSeek_4.1_Flash.md": [90, 90, 94, 15, 89, 89, 76],
@@ -864,6 +866,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "deepseek-v4-vision-exp": {
     "Big_Pickle.md": [76, 81, 84, 70, 73, 95, 77],
+    "Claude_Opus_4.6.md": [86, 80, 90, 62, 82, 92, 80],
     "Claude_Opus_5.md": [86, 74, 76, 76, 88, 96, 80],
     "DeepSeek_4.1_Flash.md": [88, 82, 95, 85, 82, 90, 86],
     "DeepSeek_4_Flash.md": [80, 82, 70, 80, 82, 94, 79],
@@ -894,7 +897,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [40, 40, 50, 70, 40, 50, 48],
     "Space_Bunny.md": [68, 68, 85, 85, 65, 82, 74.2],
     "Step_5_Preview.md": [74, 78, 90, 82, 74, 96, 80],
-    "average.md": [84.1, 81, 89.1, 82.4, 83.2, 94.7, 84],
+    "average.md": [85.1, 81.2, 91.1, 80.1, 83.4, 93.9, 84.2],
   },
   "deepseek-v4.1-flash": {
     "Big_Pickle.md": [88, 85, 88, 74, 88, 92, 84.6],
@@ -925,7 +928,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.8_Flash.md": [90, 91, 98, 84, 92, 95, 91],
     "Grok_4.5.md": [92, 88, 95, 65, 93, 96, 86.6],
     "Grok_4.6.md": [90, 84, 96, 68, 90, 95, 85.6],
-    "Kimi_K3.md": [84, 76, 86, 62, 82, 85, 78],
+    "Kimi_K3.md": [84, 76, 88, 62, 82, 90, 78],
     "Laguna_S_2.1.md": [89, 85, 95, 70, 92, 95, 86.2],
     "Laguna_XS_2.1.md": [82, 81, 93, 71, 80, 91, 81],
     "Ling_3.1_Flash.md": [84, 87, 94, 72, 84, 95, 84],
@@ -2164,6 +2167,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.1": {
     "Big_Pickle.md": [70, 74, 82, 70, 72, 78, 73.6],
+    "Claude_Opus_4.6.md": [72, 84, 75, 55, 72, 78, 72],
     "Claude_Opus_4.8.md": [68, 70, 72, 63, 62, 62, 67],
     "Claude_Opus_5.md": [68, 72, 74, 64, 72, 68, 70],
     "DeepSeek_4.1_Flash.md": [78, 84, 80, 68, 76, 76, 77],
@@ -2231,6 +2235,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.3-codex": {
     "Big_Pickle.md": [84, 70, 76, 30, 86, 70, 69.2],
+    "Claude_Opus_4.6.md": [82, 78, 68, 55, 85, 68, 74],
     "Claude_Opus_4.8.md": [78, 78, 82, 64, 86, 62, 77.6],
     "Claude_Opus_5.md": [76, 76, 82, 67, 88, 62, 77.8],
     "DeepSeek_4.1_Flash.md": [86, 90, 80, 68, 88, 70, 82],
@@ -2446,7 +2451,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.6_Flash.md": [86, 91, 95, 70, 84, 55, 85],
     "Gemini_3.8_Flash.md": [91, 93, 98, 90, 92, 68, 92.8],
     "Grok_4.6.md": [89, 91, 96, 70, 86, 48, 86],
-    "Kimi_K3.md": [87, 83, 86, 78, 83, 60, 83],
+    "Kimi_K3.md": [87, 83, 86, 78, 83, 55, 83],
     "Laguna_S_2.1.md": [82, 84, 88, 70, 86, 50, 82],
     "Laguna_XS_2.1.md": [90, 88, 95, 65, 89, 50, 85.4],
     "Ling_3.1_Flash.md": [83, 85, 95, 65, 82, 49, 82],
@@ -2703,6 +2708,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Big_Pickle.md": [85, 82, 98, 68, 82, 82, 83],
     "Claude_Fable_5.1.md": [58, 70, 95, 65, 60, 75, 69.6],
     "Claude_Haiku_5.5.md": [72, 80, 95, 78, 84, 74, 81.8],
+    "Claude_Opus_4.6.md": [75, 85, 94, 58, 80, 85, 78],
     "Claude_Opus_4.8.md": [84, 85, 95, 68, 82, 55, 82.8],
     "Claude_Opus_5.md": [87, 88, 95, 69, 80, 82, 83.8],
     "Claude_Sonnet_4.5.md": [77, 86, 97, 65, 84, 62, 82],
@@ -2733,7 +2739,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3_Flash.md": [62, 97, 100, 65, 85, 78, 81.8],
     "Grok_4.5.md": [78, 82, 95, 65, 82, 88, 80.4],
     "Grok_4.6.md": [82, 86, 96, 65, 86, 72, 83],
-    "Kimi_K3.md": [83, 84, 88, 80, 76, 68, 82],
+    "Kimi_K3.md": [83, 84, 88, 80, 76, 72, 82],
     "Laguna_S_2.1.md": [80, 86, 90, 70, 78, 50, 81],
     "Laguna_XS_2.1.md": [84, 86, 92, 76, 84, 74, 84],
     "Ling_3.1_Flash.md": [80, 78, 95, 70, 79, 78, 80],
@@ -2753,6 +2759,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "gpt-6.1-sol": {
     "Big_Pickle.md": [82, 87, 98, 70, 87, 91, 85],
     "Claude_Haiku_5.5.md": [62, 80, 95, 65, 88, 74, 78],
+    "Claude_Opus_4.6.md": [82, 93, 94, 55, 88, 88, 82],
     "Claude_Opus_4.8.md": [85, 87, 95, 68, 84, 55, 83.8],
     "Claude_Opus_5.md": [86, 91, 95, 70, 82, 88, 84.8],
     "Claude_Sonnet_4.5.md": [86, 90, 95, 80, 88, 74, 88],
@@ -3023,6 +3030,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "grok-4.5": {
     "Big_Pickle.md": [87, 87, 88, 65, 84, 85, 82],
+    "Claude_Opus_4.6.md": [86, 82, 72, 55, 84, 87, 76],
     "Claude_Opus_4.8.md": [80, 82, 90, 63, 86, 70, 80.2],
     "Claude_Opus_5.md": [78, 87, 83, 66, 88, 88, 80.4],
     "DeepSeek_4.1_Flash.md": [85, 88, 88, 68, 88, 78, 83],
@@ -3269,6 +3277,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "inkling-small": {
     "Big_Pickle.md": [73, 74, 93, 92, 78, 94, 82],
+    "Claude_Opus_4.6.md": [82, 89, 90, 70, 85, 95, 83],
     "Claude_Opus_4.8.md": [72, 76, 90, 63, 78, 85, 75.8],
     "Claude_Opus_5.md": [66, 80, 95, 88, 76, 92, 81],
     "DeepSeek_4.1_Flash.md": [64, 80, 95, 90, 72, 93, 80],
@@ -3296,7 +3305,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [72, 84, 92, 88, 82, 96, 84],
     "Space_Bunny.md": [62, 74, 72, 82, 72, 88, 72],
     "Step_5_Preview.md": [68, 78, 88, 88, 79, 94, 80],
-    "average.md": [77.7, 84.6, 92.8, 88.4, 83.8, 94.1, 85.5],
+    "average.md": [79.3, 85.5, 92.3, 86.6, 84.7, 94.4, 85.7],
   },
   "jev-1.13": {
     "Big_Pickle.md": [32, 56, 40, 10, 14, 92, 30.4],
@@ -4044,7 +4053,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.6_Flash.md": [85, 84, 95, 85, 79, 96, 86],
     "Gemini_3.7_Flash.md": [81, 83, 92, 88, 79, 95, 85],
     "Gemini_3.8_Flash.md": [88, 88, 98, 90, 88, 95, 90.4],
-    "Kimi_K3.md": [82, 76, 90, 80, 78, 96, 81],
+    "Kimi_K3.md": [82, 76, 90, 80, 78, 94, 81],
     "Laguna_S_2.1.md": [82, 65, 97, 65, 75, 94, 76.8],
     "Laguna_XS_2.1.md": [84, 76, 94, 90, 84, 97, 85.6],
     "Ling_3.1_Flash.md": [76, 62, 95, 92, 78, 97, 81],
@@ -4604,6 +4613,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "ox_alpha": {
     "Big_Pickle.md": [68, 66, 82, 64, 71, 75, 70],
+    "Claude_Opus_4.6.md": [68, 78, 93, 70, 79, 100, 78],
     "Claude_Opus_5.md": [55, 55, 92, 80, 60, 70, 68.4],
     "Claude_Sonnet_4.6.md": [83, 80, 95, 80, 82, 98, 84],
     "DeepSeek_4.1_Flash.md": [89, 86, 95, 88, 86, 92, 89],
@@ -4639,6 +4649,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "pareto-26.10-preview": {
     "Big_Pickle.md": [58, 87, 92, 65, 76, 89, 76],
+    "Claude_Opus_4.6.md": [76, 90, 93, 55, 83, 90, 79],
     "Claude_Opus_5.md": [70, 78, 88, 60, 72, 84, 74],
     "DeepSeek_4.1_Flash.md": [62, 78, 94, 64, 80, 88, 76],
     "Fledge_Alpha.md": [80, 84, 62, 62, 84, 52, 74],
@@ -4917,6 +4928,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "qwen-3.8": {
     "Big_Pickle.md": [78, 74, 78, 85, 74, 90, 78],
+    "Claude_Opus_4.6.md": [85, 87, 80, 65, 90, 95, 81],
     "Claude_Opus_4.8.md": [83, 81, 94, 87, 83, 82, 85.6],
     "Claude_Opus_5.md": [83, 88, 96, 89, 86, 86, 88.4],
     "DeepSeek_4.1_Flash.md": [89, 90, 95, 85, 82, 78, 88],
@@ -4936,7 +4948,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.7_Flash.md": [82, 85, 84, 78, 80, 88, 82],
     "Gemini_3.8_Flash.md": [90, 92, 98, 86, 90, 86, 91.2],
     "Grok_4.6.md": [78, 84, 96, 15, 84, 78, 71],
-    "Kimi_K3.md": [85, 82, 88, 88, 82, 85, 85],
+    "Kimi_K3.md": [85, 82, 90, 88, 82, 85, 85],
     "Laguna_S_2.1.md": [65, 80, 80, 82, 72, 76, 76],
     "Laguna_XS_2.1.md": [86, 86, 85, 76, 84, 83, 83],
     "Ling_3.1_Flash.md": [74, 79, 95, 80, 76, 85, 80.8],
@@ -4950,7 +4962,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [88, 90, 80, 80, 86, 70, 85],
     "Space_Bunny.md": [88, 84, 91, 93, 88, 92, 88.8],
     "Step_5_Preview.md": [86, 87, 94, 85, 86, 66, 88],
-    "average.md": [86.1, 88.3, 92.4, 86, 85, 82.2, 87.5],
+    "average.md": [86.1, 88.3, 92.6, 86, 85, 82.2, 87.5],
   },
   "qwen-3.8-27b": {
     "Big_Pickle.md": [82, 75, 78, 88, 79, 90, 80],
@@ -5029,6 +5041,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "qwen-3.8-flash-next": {
     "Big_Pickle.md": [74, 88, 74, 84, 78, 95, 80],
+    "Claude_Opus_4.6.md": [89, 88, 80, 65, 88, 96, 82],
     "Claude_Opus_4.8.md": [80, 81, 88, 87, 84, 90, 84],
     "Claude_Opus_5.md": [78, 78, 80, 86, 80, 93, 80.4],
     "DeepSeek_4.1_Flash.md": [84, 78, 84, 82, 82, 90, 82],
@@ -5056,7 +5069,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [85, 85, 78, 82, 79, 97, 82],
     "Space_Bunny.md": [76, 78, 88, 89, 85, 94, 83],
     "Step_5_Preview.md": [76, 82, 78, 78, 82, 94, 79],
-    "average.md": [83.5, 85.3, 84.6, 83.9, 84.6, 93.6, 84.4],
+    "average.md": [84.4, 85.5, 84.8, 82.2, 84.9, 93.7, 84.4],
   },
   "qwen-3.8-max": {
     "Big_Pickle.md": [84, 85, 90, 86, 85, 80, 86],
@@ -5292,6 +5305,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [69.8, 73.5, 93.1, 78.7, 64.4, 99.1, 75.7],
   },
   "step-5-preview": {
+    "Claude_Opus_4.6.md": [78, 80, 90, 65, 78, 90, 78],
     "DeepSeek_4.1_Flash.md": [84, 83, 94, 76, 85, 90, 84],
     "GLM_5.3.md": [78, 80, 96, 80, 78, 90, 82],
     "GLM_5.3_Flash.md": [82, 82, 95, 80, 82, 91, 84],
@@ -5310,7 +5324,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [82, 80, 88, 74, 78, 86, 80],
     "Space_Bunny.md": [88, 80, 96, 82, 82, 88, 86],
     "Step_5_Preview.md": [78, 86, 94, 78, 84, 90, 84],
-    "average.md": [79.8, 80.7, 94.8, 74.3, 80.2, 88.9, 81.8],
+    "average.md": [79.6, 80.6, 94.3, 73.4, 80, 89, 81.4],
   },
   "union-alpha": {
     "Big_Pickle.md": [72, 78, 72, 68, 85, 72, 75],

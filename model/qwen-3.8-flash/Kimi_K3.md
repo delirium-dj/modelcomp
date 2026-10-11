@@ -1,21 +1,21 @@
 # Qwen3.8 Flash — findings by Kimi K3
 
 - Source: Alibaba/Qwen / Qwen3.8 Flash (`qwen3.8-flash`; open checkpoint `Qwen/Qwen3.8-Flash-Next`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.8 Flash
-- **Short description:** Qwen's fast/cheap production tier of the 3.8 family — the managed QwenCloud/OpenRouter API model based on the open-weight Qwen3.8-Flash-Next checkpoint (125B params). Released August 26, 2026; independently benchmarked by Artificial Analysis.
-- **Provider / access:** QwenCloud (docs.qwencloud.com), OpenRouter, Novita (`qwen3.8-flash`, OpenAI-compatible); open weights on Hugging Face (`Qwen/Qwen3.8-Flash-Next`).
-- **Release / knowledge:** Released 2026-08-26 (llm-stats.com, benchleader.com); knowledge cutoff not verified.
-- **IDs:** `qwen/qwen3.8-flash`; HF `Qwen/Qwen3.8-Flash-Next` (no Free ID on OpenCode Zen verified).
-- **Context window:** 1M tokens in / 131K out for the managed API (llm-stats.com); the open Flash-Next checkpoint is measured at 256K context (benchleader.com) — treat 1M as managed-service config.
-- **Modalities:** text/image/video in; text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** $0.15/M input, $0.016/M cached, $0.47/M output (Novita via llm-stats.com); blended $0.23/M (benchleader.com).
-- **Architecture:** 125B parameters (llm-stats.com); open weights for Flash-Next; managed API proprietary.
+- **Short description:** Qwen's fast/cheap production tier of the 3.8 family — the managed QwenCloud/OpenRouter API model based on the open-weight Qwen3.8-Flash-Next checkpoint (125B params). Released August 26, 2026; independently benchmarked by Artificial Analysis; live on OpenCode Zen (~#19 by weekly tokens, 59% weekly retention).
+- **Provider / access:** QwenCloud (docs.qwencloud.com), OpenRouter, Novita (`qwen3.8-flash`, OpenAI-compatible), OpenCode Zen `opencode/qwen3.8-flash` (catalog row confirmed); open weights on Hugging Face (`Qwen/Qwen3.8-Flash-Next`).
+- **Release / knowledge:** Released 2026-08-26 (OpenCode Data confirms; llm-stats.com, benchleader.com agree); knowledge cutoff not published.
+- **IDs:** `qwen/qwen3.8-flash`, `alibaba/qwen3.8-flash` (OpenCode Data); HF `Qwen/Qwen3.8-Flash-Next` (no Free ID on OpenCode Zen verified — note catalog lists "Open weights: No" for the managed route while the Flash-Next checkpoint is open).
+- **Context window:** 1M tokens in / **131K out** (OpenCode Data catalog — previously "presumed from 27B/Max sibling"); the open Flash-Next checkpoint is measured at 256K context (benchleader.com) — treat 1M as managed-service config.
+- **Modalities:** text/image/video in (OpenCode Data); text out; reasoning yes; tool calls; JSON mode.
+- **Pricing (as of 2026-10-11):** $0.15/M input, $0.47/M output, $0.02/M cached input, $0.20/M cache write (OpenCode Data catalog — verified now; matches my 2026-09-24 Novita/llm-stats figures within rounding).
+- **Architecture:** 125B parameters (llm-stats.com); Flash-Next checkpoint open; managed API proprietary.
 
 ### Raw benchmarks found
 
@@ -45,26 +45,26 @@ Coding:
 
 Long context:
 
-- AA-LCR: **79.7%** (#73) (benchleader.com); no MRCR/RULER public score found.
+- AA-LCR: **79.7%** (#73) (benchleader.com); 131K max output now catalog-verified; no MRCR/RULER public score found.
 
 Multimodal:
 
-- MMMU-Pro: **79.8%** (#48) (benchleader.com)
+- MMMU-Pro: **79.8%** (#48) (benchleader.com); video input catalog-listed (OpenCode Data)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** TB 2.1 86.1% and GDPval 55.6% are strong for the price, LiveBench Agentic #11; capped by TB 4.0 25.3% and LMArena Agent rank #25.
-- **Reasoning: 76/100.** LiveBench Reasoning 87.4%, GPQA 92.3%, AA Index 39.8; capped hard by Omniscience accuracy 24.5% and CritPt 11.1%.
-- **Context window: 78/100.** Managed 1M window (open checkpoint 256K) with AA-LCR 79.7%; capped by the open/managed context discrepancy.
-- **Multimodal: 72/100.** Image/video in with MMMU-Pro 79.8%; text-only output and single bench row cap it.
-- **Coding: 78/100.** LMArena WebDev #11 (1636), LiveBench Coding 72.5%; capped by SciCode 50.6%.
-- **Cost efficiency: 95/100.** $0.15/$0.47 per 1M with 90% cache discount and open weights — among the cheapest competent models available.
-- **Overall Score: 77/100.** Mean of the five quality dims (80+76+78+72+78)/5 = 76.8 → 77. Best fit: high-throughput cost-sensitive coding/agent workloads with open-weights fallback.
+- **Tool use: 80/100.** Unchanged: TB 2.1 86.1% and GDPval 55.6% strong for the price; capped by TB 4.0 25.3% and LMArena Agent rank #25.
+- **Reasoning: 76/100.** Unchanged: LiveBench Reasoning 87.4%, GPQA 92.3%, AA Index 39.8; capped hard by Omniscience accuracy 24.5% and CritPt 11.1%.
+- **Context window: 78/100.** Unchanged: managed 1M window (open checkpoint 256K) with AA-LCR 79.7%; capped by the open/managed context discrepancy.
+- **Multimodal: 72/100.** Unchanged: image+video+PDF input with MMMU-Pro 79.8%; text-only output and single bench row cap it.
+- **Coding: 78/100.** Unchanged: LMArena WebDev #11 (1636), LiveBench Coding 72.5%; capped by SciCode 50.6%.
+- **Cost efficiency: 95/100.** Verified: catalog $0.15/$0.47 with ~$0.02 cached input and open weights — among the cheapest competent models available.
+- **Overall Score: 77/100.** Mean of the five quality dims (80+76+78+72+78)/5 = 76.8 → 77 (unchanged). Best fit: high-throughput cost-sensitive coding/agent workloads with open-weights fallback.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchleader.com / Artificial Analysis measurements, llm-stats.com specs/pricing, Alibaba Cloud launch blog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (OpenCode Data `alibaba/qwen3-8-flash` — Zen usage, catalog pricing, release verification; benchleader.com / Artificial Analysis measurements + llm-stats.com specs from first pass). Second pass over my 2026-09-24 file: verified release (2026-08-26), 131K max output, paid pricing, video input, and live Zen availability; no score-changing deltas. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.
