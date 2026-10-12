@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Mimo v2.6 Flash
 
 - Source: MiniMax/`minimax-m2.7`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,8 +34,8 @@ Reasoning / knowledge:
 
 - GPQA-Diamond: **89.8%** (arXiv/MiniMax)
 - AIME 2026: **94.2%** (arXiv/MiniMax)
-- Artificial Analysis Intelligence Index: **~45** (AA via AI//COST comparison note — "MiniMax-M3 scores 45"; M2.7 close band; exact M2.7 Index not separately extracted — treat as ~40–45 provisional)
-- HLE / CritPt / Omniscience: no verified public score found for M2.7 specifically
+- Artificial Analysis Intelligence Index: **~45** (AA via AI//COST comparison note — "MiniMax-M3 scores 45"; M2.7 close band; exact M2.7 Index not separately extracted — treat as ~40–45 provisional). **Second-pass correction (2026-10-09):** the AA-direct page and OpenRouter AA block give M2.7 **22.8 / 23** (#38/117 open-weights, median 18) — the ~45 was **M3's** number, not M2.7's; 22.8 adopted (both kept). AA marks M2.7 **deprecated → MiniMax-M3**.
+- HLE / CritPt / Omniscience: no verified public score found for M2.7 specifically — **fills 2026-10-09 (AA block via OpenRouter minimax/minimax-m2.7):** HLE **29.6%**, **CritPt 0.6%**, GPQA **87.4%** (vs arXiv 89.8 — both kept), IFBench 75.7, Coding Index **52.6**, Agentic Index **15.3**, SciCode **50.1%**, τ²-Telecom **84.8%**, τ-Banking 9.9, GDPval-AA **25.7%** (percent format alongside the vendor 1495 Elo), AA-LCR 78.3, TB-Hard 39.4, **TB2.1 55.4%**, **TB4.0 0.0%** — speed 65.7 t/s, TTFT 1.52s; license flagged **NON-COMMERCIAL** on AA's card (verify before commercial self-host)
 
 Coding:
 
@@ -56,18 +56,26 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** GDPval 1495 and BrowseComp 77.8 are strong real-world agentic marks; TB2 ~55–57 and MM Claw 62.7 solid; Toolathlon 46.3 mid; no Tau3/MCP/Claw-Eval rows.
-- **Reasoning: 84/100.** GPQA 89.8 and AIME 94.2 are excellent open science/math; missing HLE/CritPt/AA-Index (provisional ~45) caps below full-frontier reasoning breadth.
+- **Tool use: 78/100.** GDPval 1495 (vendor Elo; AA percent format 25.7%) and BrowseComp 77.8 are strong real-world agentic marks; TB2 ~55–57 (AA TB2.1 55.4) solid; Toolathlon 46.3 mid; new AA rows temper it — Agentic Index 15.3, TB4.0 0.0, τ-bank 9.9 — held (2026-10-09).
+- **Reasoning: 82/100.** GPQA 89.8 (arXiv) / 87.4 (AA) and AIME 94.2 are excellent open science/math; the corrected AA Intelligence Index is **22.8** (not the ~45 provisional, which was M3's), with HLE 29.6 below the 40%+ frontier anchor and CritPt 0.6 — trimmed 84→82 on the correction (2026-10-09).
 - **Context window: 70/100.** ~200K served window (methodology: 200K = 70); 131K out is generous; no long-context retrieval curve.
 - **Multimodal: 15/100.** Text-only (template rule: 15).
 - **Coding: 80/100.** SWE-Pro 56.2, SWE-Verified 75.4, Multilingual 76.5, VIBE-Pro 55.6 — strong open agentic coding near closed mid-frontier; trails Opus/GLM-5.2 SWE-Pro and lacks DeepSWE/LiveCode rows here.
 - **Cost efficiency: 93/100.** $0.30/$1.20 with ~10B active params is excellent intelligence-per-dollar (OpenRouter often cheaper); **no Zen Free ID** keeps it just below free-tier 95+.
-- **Overall Score: 65/100.** Mean of five quality dims (78+84+70+15+80)/5 = 65.4 → 65. Best-fit: paid private text agents and multi-file SWE work where GDPval/BrowseComp strength and low active-params throughput matter; pair with a multimodal model when vision is required.
+- **Overall Score: 65/100.** Mean of five quality dims (78+82+70+15+80)/5 = 65.0 → 65 (was 65.4 — Reasoning −2 on the Index correction, Overall unchanged). Best-fit: paid private text agents and multi-file SWE work where GDPval/BrowseComp strength and low active-params throughput matter; pair with a multimodal model when vision is required; AA now recommends MiniMax-M3 for new work.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (minimax.io/models/text/m27, arXiv 2605.26494 MiniMax-M2 series, OpenRouter benchmarks, ModelBeats, WritingMate, model-comparison historical M2.7 row); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (minimax.io/models/text/m27, arXiv 2605.26494 MiniMax-M2 series, OpenRouter benchmarks, ModelBeats, WritingMate, model-comparison historical M2.7 row); second pass 2026-10-09 re-checked [AA MiniMax-M2.7](https://artificialanalysis.ai/models/minimax-m2-7) (Index 23, deprecation → M3, NON-COMMERCIAL license flag, 230B/10B) and the [OpenRouter minimax/minimax-m2.7 AA block](https://openrouter.ai/minimax/minimax-m2.7) (HLE 29.6, CritPt 0.6, SciCode 50.1, TB2.1 55.4, Agentic 15.3, Coding 52.6 fills; 30%-off promo $0.21/$0.84); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Major correction:** AA Index ~45 provisional was **M3's number** — M2.7's actual is **22.8/23**; Reasoning 84→82, Overall held at 65.
+- **Gaps closed:** HLE **29.6%**, CritPt **0.6%**, SciCode **50.1%**, TB2.1 **55.4%**, TB4.0 0.0, τ²-telecom 84.8, Agentic 15.3, Coding 52.6, GDPval 25.7%.
+- **Flags:** AA shows a **NON-COMMERCIAL license** (verify before commercial self-host); deprecation banner → MiniMax-M3; params listed 230B/10B (file: 229B); OpenRouter 30%-off promo $0.21/$0.84.

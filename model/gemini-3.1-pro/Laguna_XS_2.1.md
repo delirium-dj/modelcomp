@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Laguna XS 2.1
 
 - Source: Google DeepMind (`gemini-3.1-pro`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,5 @@ Multimodal (supporting): MMMU-Pro **80.5%**, CharXiv Reasoning **83.3%** (AI Rel
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
-- Method: public internet research (Google DeepMind model card, MetricNexus, AI Release Tracker, CodeWalkers, DataCamp, Serenities AI, idapt); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public internet research (Google model card, MetricNexus, AI Release Tracker, CodeWalkers, DataCamp, Serenities AI, idapt, BenchmarkList); scores normalized 1–100 interpretations, not official vendor scores. Updated with 2026-10 verification of GPQA 94.3%, SWE-bench Verified 80.6%.

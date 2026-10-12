@@ -55,13 +55,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100 (was 58).** The independent AA/Vals rows are floor-class: GDPval 616 (0.0% normalized), AA Agentic Index 3.5%, Vibe Code Bench 0.40% — the prior unverified airank.dev numbers (GDPval 23.3%, MCP-Atlas 8.8%) were optimistic; only τ²-bench 54.1% keeps it above 40.
-- **Reasoning: 66/100 (was 72).** GPQA settles at 83–84.4% (two sources, below the prior 86.4 read), HLE 18.8–22.5% and CritPt 2.6% are near-floor, FrontierMath is weak and AA-LCR 69.0% is mid — the June-2025 age adjustment the prior score resisted.
+- **Tool use: 45/100.** (Was 58 on the prior pass.) The independent AA/Vals rows are floor-class: GDPval 616 (0.0% normalized), AA Agentic Index 3.5%, Vibe Code Bench 0.40% — the prior unverified airank.dev numbers (GDPval 23.3%, MCP-Atlas 8.8%) were optimistic; only τ²-bench 54.1% keeps it above 40.
+- **Reasoning: 66/100.** (Was 72 on the prior pass.) GPQA settles at 83–84.4% (two sources, below the prior 86.4 read), HLE 18.8–22.5% and CritPt 2.6% are near-floor, FrontierMath is weak and AA-LCR 69.0% is mid — the June-2025 age adjustment the prior score resisted.
 - **Context window: 95/100.** 1M total tokens maps to the ≥1M tier (BenchLM concurs); AA-LCR 69.0% is the first measured evidence (weak-mid); the 200K surcharge is a pricing caveat only.
 - **Multimodal: 90/100.** Text, image, speech/audio and video input with MMMU 82% / MMMU-Pro 74.9%; audio input keeps it in the 90–100 band; text-only output.
-- **Coding: 62/100 (was 72).** AA Coding Index 33.3%, Vals SWE-bench 54.4% and Vibe Code Bench 0.40% document the age on 2026 harnesses; the dated SWE-V 63.8% and LiveCodeBench 74.2% reads hold mid-band only.
+- **Coding: 62/100.** (Was 72 on the prior pass.) AA Coding Index 33.3%, Vals SWE-bench 54.4% and Vibe Code Bench 0.40% document the age on 2026 harnesses; the dated SWE-V 63.8% and LiveCodeBench 74.2% reads hold mid-band only.
 - **Cost efficiency: 85/100.** $1.25/$10.00 per 1M with 90% cache discount and $0.23/task on the AA Intelligence Index; between the ~$1.25/$4.25 = ~88 methodology reference and the higher-output-price penalty, landed at 85.
-- **Overall Score: 71.6/100 (was 77.4).** Mean of the five quality dims per `RULES.md` (Cost excluded): (45 + 66 + 95 + 90 + 62) / 5 = 358/5 = 71.6 — lowered materially on the 2026-10-11 second pass: AA/Vals/Epoch boards document a model now three hardware generations behind on agentic and coding work, with only multimodal breadth and 1M context holding value. Best-fit: a cheap multimodal workhorse for long-context document/video analysis only; superseded by Gemini 3 Flash at similar cost and far better reasoning.
+- **Overall Score: 71.6/100.** (Was 77.4 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (45 + 66 + 95 + 90 + 62) / 5 = 358/5 = 71.6 — lowered materially on the 2026-10-11 second pass: AA/Vals/Epoch boards document a model now three hardware generations behind on agentic and coding work, with only multimodal breadth and 1M context holding value. Best-fit: a cheap multimodal workhorse for long-context document/video analysis only; superseded by Gemini 3 Flash at similar cost and far better reasoning.
 
 ---
 

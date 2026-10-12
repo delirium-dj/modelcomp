@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Laguna XS 2.1
 
 - Source: Anthropic (`claude-opus-5-5`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -74,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
-- Method: public internet research (Anthropic launch page + system card, Claude Platform docs, LLMLearner, ModelCap, llm-stats, CosmicJS); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public internet research (Anthropic platform https://docs.anthropic.com/claude-opus-5-5, AI Anthropic blog, OpenRouter, LLMLearner, GDPval-AA v2.1 leaderboard); scores normalized 1-100 interpretations. Sources: GDPval-AA 1866, Terminal-Bench 4.0 66.4%, SWE-bench Pro 89.9%, HLE 67.7%, AA Index 57.6.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

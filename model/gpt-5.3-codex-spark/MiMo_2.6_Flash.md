@@ -1,7 +1,7 @@
 # GPT-5.3-Codex-Spark — findings by Mimo v2.6 Flash
 
 - Source: OpenAI/`gpt-5.3-codex-spark`
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-01, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,12 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-10-01; user-approved second pass); second-pass sources all negative: [AA](https://artificialanalysis.ai/models/gpt-5-3-codex-spark) 404, [OpenRouter](https://openrouter.ai/openai/gpt-5.3-codex-spark) renders no model data (not listed — consistent with no public API), Grokipedia 404, [OpenAI platform models docs](https://platform.openai.com/docs/models) show no `gpt-5.3-codex-spark` entry
 - Method: public internet research (ApX model page, Turing College "Codex 5.3 vs. Codex Spark" hands-on comparison, BenchLM head-to-head snapshots); scores are normalized 1–100 interpretations, not official vendor scores. Evidence base is unusually thin — BenchLM carries zero sourced benchmark rows for this ID.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **No new data obtainable:** four sources re-checked (AA 404, OpenRouter not listed, Grokipedia 404, OpenAI docs no visible entry) — the model remains a ChatGPT-Pro research preview with **zero published benchmark rows** eight months after launch; no graduation to public API documented.
+- **Scores:** no dimension changed (all evidence-gap floors from 2026-10-01 stand); Overall held at 45.

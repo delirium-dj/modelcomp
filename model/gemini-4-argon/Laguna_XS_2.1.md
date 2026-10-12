@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Laguna XS 2.1
 
 - Source: Google DeepMind (`gemini-4-argon`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,5 @@ Multimodal (supporting): LVBench long video **91.7%** (SOTA); Chartography **71.
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
-- Method: public internet research (Google DeepMind launch post + model table, Vals.ai, emergent.sh benchmark analysis, Post-Cutoff, SiliconANGLE, gemini4argon.com, Artificial Analysis via emergent.sh); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public internet research (Google DeepMind launch, Vals.ai, AA, emergent.sh analysis); scores normalized 1–100 interpretations. Sources: GDPval-AA, Vals Index metrics, DeepSWE v1.1.

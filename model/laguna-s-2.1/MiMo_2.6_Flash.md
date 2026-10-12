@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Mimo v2.6 Flash
 
 - Source: Poolside/`poolside/laguna-s-2.1`
-- Date: 2026-09-22 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-22, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Laguna S 2.1
 - **Short description:** Poolside's 2026-07-21 open-weights agentic-coding MoE (118B total / 8B active) — Western "frontier-adjacent on one DGX Spark" story: TB2.1 70.2 at 8B active, full eval trajectories published at trajectories.poolside.ai; OpenMDW-1.1 permissive.
-- **Provider / access:** Hugging Face `poolside/Laguna-S-2.1` (BF16/FP8/INT4/NVFP4/GGUF/MLX + DFlash draft); Poolside API; OpenRouter; vLLM/SGLang/llama.cpp. **No OpenCode Zen Free ID** in this repo's meta (`noFreeId: true`) — note: OpenCode Zen docs also list a "Laguna S 2.1 Free" promo elsewhere; this board's meta treats it as paid ~$0.10/$0.20.
+- **Provider / access:** Hugging Face `poolside/Laguna-S-2.1` (BF16/FP8/INT4/NVFP4/GGUF/MLX + DFlash draft — 117.56B BF16 safetensors re-confirmed 2026-10-09; 22 finetunes / 96 quantizations / 46 Spaces in the ecosystem); Poolside API; OpenRouter — **⚠ banner: "Going away October 31, 2026" (delisting flagged 2026-10-09; 10%-off route $0.09/$0.18, uptime 99.8%)**; OpenRouter free routes carry a "may use your inputs/outputs to train" caveat; vLLM/SGLang/llama.cpp. **No OpenCode Zen Free ID** in this repo's meta (`noFreeId: true`) — note: OpenCode Zen docs also list a "Laguna S 2.1 Free" promo elsewhere; this board's meta treats it as paid ~$0.10/$0.20.
 - **Release / knowledge:** **2026-07-21**; train-to-launch under nine weeks (Poolside). Knowledge cutoff not published.
 - **IDs:** `poolside/laguna-s-2.1` (repo meta); `poolside/Laguna-S-2.1` (HF).
 - **Context window:** **1,048,576** in (Ollama/local builds often 256K per meta); thinking + no-thinking modes; out cap not prominently published (treat as standard mid-tier).
@@ -24,7 +24,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **70.2%** thinking (60.4% no-thinking) (Poolside; **rank #11** on compiled TB2.1 board — ahead of DeepSeek-V4-Pro-Max 64.0, Inkling 63.8, Nemotron 3 Ultra 56.4; behind Hy3 71.7, Qwen 3.7 Max 74.5, Muse 80, Fable 88)
-- Toolathlon Verified: **49.7%** (Poolside/official leaderboard)
+- Toolathlon Verified: **49.7%** (Poolside/official leaderboard; HF eval-results rank **#15** in the <128B class, re-checked 2026-10-09)
 - SWE Atlas (Codebase QnA): **46.2%** (Poolside/Scale AI leaderboard third-party where marked)
 - BrowseComp / GDPval / MCP-Atlas / Tau3: no verified public score found
 
@@ -61,6 +61,16 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
-- Method: public internet research (poolside.ai/blog/introducing-laguna-s-2-1, HF poolside/Laguna-S-2.1 README, digitalapplied.com launch analysis, NatLawReview press release, LM Studio listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-22; user-approved second pass)
+- Method: public internet research (poolside.ai/blog/introducing-laguna-s-2-1, HF poolside/Laguna-S-2.1 README, digitalapplied.com launch analysis, NatLawReview press release, LM Studio listing); second pass 2026-10-09 re-checked the [OpenRouter poolside/laguna-s-2.1 page](https://openrouter.ai/poolside/laguna-s-2.1) (⚠ delisting Oct 31 2026, 10%-off pricing, uptime) and the [HF card](https://huggingface.co/poolside/Laguna-S-2.1) (117.56B BF16, Toolathlon rank #15, ecosystem stats) — AA has no page (404); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **⚠ Availability:** OpenRouter shows **"Going away October 31, 2026"** — plan migrations or pin Poolside API/HF self-host routes before then.
+- **Pricing re-checked:** list $0.10/$0.20 with a live **10%-off** route ($0.09/$0.18, cache $0.009); OpenRouter free routes train on your data (Poolside notice).
+- **Confirmed:** 118B/8B (117.56B BF16), 1M context, OpenMDW-1.1, Jul-2026 release, Toolathlon 49.7 (HF rank #15 <128B), 96 quantizations / 46 Spaces ecosystem.
+- **Still missing:** GPQA/HLE/AA-Index, SWE-Verified, BrowseComp/GDPval rows — reasoning gap persists.
+- **Scores:** no dimension changed; Overall held at 64.

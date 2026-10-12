@@ -56,13 +56,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100 (was 85).** GDPval 1430 (44.5% normalized), the Vals TB2.1 gap (67.8 vs 83.3), AA Agentic Index 42.1% and TB3.0 15.7% document the mid-band reality behind the vendor's TB2.1 headline; token efficiency remains the genuine differentiator.
-- **Reasoning: 85/100 (was 87).** GPQA 93.1%/92.9% (three sources) and HLE 42.7% stay elite-class and AA-LCR 79.3% fills the gap — but ARC-AGI-2 52.6% (verified), AA Index 38.8 and CritPt 15.4% hold it under the 2026 frontier class.
+- **Tool use: 81/100.** (Was 85 on the prior pass.) GDPval 1430 (44.5% normalized), the Vals TB2.1 gap (67.8 vs 83.3), AA Agentic Index 42.1% and TB3.0 15.7% document the mid-band reality behind the vendor's TB2.1 headline; token efficiency remains the genuine differentiator.
+- **Reasoning: 85/100.** (Was 87 on the prior pass.) GPQA 93.1%/92.9% (three sources) and HLE 42.7% stay elite-class and AA-LCR 79.3% fills the gap — but ARC-AGI-2 52.6% (verified), AA Index 38.8 and CritPt 15.4% hold it under the 2026 frontier class.
 - **Context window: 88/100.** 500K tokens maps to the 500K–1M tier (85–94); AA-LCR 79.3% is the first measured retrieval-adjacent evidence (solid); the 200K cost cliff keeps it below the 1M models.
 - **Multimodal: 65/100.** Text + image input only (AA-MMMU-Pro 80.4% is strong measured vision for the band), text output, no video (dropped vs Grok 4.3) — the image-in band caps at 70.
 - **Coding: 84/100.** Vals SWE-bench 86.6% and LiveCodeBench 87.4% corroborate the vendor story, SWE-ML 78% and AA Coding Index 72.5% fill gaps; DeepSWE 1.1 53% and the undisclosed SWE-bench Verified prevent 90+.
 - **Cost efficiency: 90/100.** $2/$6 per 1M with 75% cache discount and ~4.2x fewer output tokens per resolved coding task than Opus 4.8 — above the $1.25/$4.25 = ~88 methodology reference on quality-per-dollar.
-- **Overall Score: 80.6/100 (was 81.8).** Mean of the five quality dims per `RULES.md` (Cost excluded): (81 + 85 + 88 + 65 + 84) / 5 = 403/5 = 80.6 — lowered slightly on the 2026-10-11 second pass as the independent AA/Vals/ARC rows correct the vendor-led agentic framing while corroborating the reasoning story. Best-fit: cheap, token-efficient high-volume agentic coding with verified frontier-tier science reasoning — where peak agentic capability is not the priority.
+- **Overall Score: 80.6/100.** (Was 81.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (81 + 85 + 88 + 65 + 84) / 5 = 403/5 = 80.6 — lowered slightly on the 2026-10-11 second pass as the independent AA/Vals/ARC rows correct the vendor-led agentic framing while corroborating the reasoning story. Best-fit: cheap, token-efficient high-volume agentic coding with verified frontier-tier science reasoning — where peak agentic capability is not the priority.
 
 ---
 

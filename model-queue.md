@@ -73,13 +73,13 @@
 82.4 claude-haiku-5.5
 82.2 qwen-3.7-max
 81.6 claude-opus-4.5
-81.5 gemini-3.5-flash-lite
-81.4 gpt-6-luna
-81.4 kimi-k2.5
+81.5 gpt-6-luna
 81.4 qwen-3.5-397b
 81.4 step-5-preview
-81.2 qwen-3.5
+81.2 gemini-3.5-flash-lite
 81.1 mimo-v2.5-free
+81 kimi-k2.5
+81 qwen-3.5
 80.8 gemini-3.1-flash
 80.8 kimi-k2.7-code
 80.1 claude-sonnet-4.5
@@ -114,8 +114,8 @@
 72.4 deepseek-v4-flash
 72.1 hy4
 71.9 gemini-2.5-flash-lite
+71.7 gpt-5.4-nano
 71.7 nemotron-3-nano-omni
-71.6 gpt-5.4-nano
 71.6 nemotron-3-ultra-free
 71.2 longcat_2.5_preview
 70.9 qwen-3.5-9b
@@ -130,8 +130,8 @@
 67.6 solar-pro-4
 67.4 hy3-preview
 67.2 diffusiongemma-26b-a4b
+66.9 ling-3.1-flash
 66.8 pixel_canary
-66.6 ling-3.1-flash
 66.6 qwen3-max
 66.3 solar-open-2
 66 minimax-m2.7

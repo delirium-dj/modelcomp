@@ -55,13 +55,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100 (was 72).** The 0813 GA build transforms the agentic story: TB2.1 87.9%, Toolathlon-Verified 74.1% (from 51.8%), τ²-bench 96.2% (AA), GDPval 1306 (54.5% normalized), CyberGym 83.3% and BrowseComp 83.4% — held under 85 by the Vals TB2.1 gap (54.7), AA Agentic 49.6% and APEX 24.3%.
-- **Reasoning: 88/100 (was 85).** GPQA corroborated at 90.1–92.8% (three sources), HLE-with-tools jumps to 60.0% (AA-HLE 41.0% clears the 40% bar), ARC-AGI-2 61.3% verified, AA Index 53.2% is solid and the math sweep stays elite — the strongest evidence-based reasoning score among open-weights models in this repo.
-- **Context window: 93/100 (was 92).** 1M tokens with now-measured retrieval: MRCR 1M 83.5%, CorpusQA 1M 62.0% and AA-LCR 80.3% — strong but short of the ≥98% maximum tier; the hybrid-attention retrieval caveat stands.
+- **Tool use: 82/100.** (Was 72 on the prior pass.) The 0813 GA build transforms the agentic story: TB2.1 87.9%, Toolathlon-Verified 74.1% (from 51.8%), τ²-bench 96.2% (AA), GDPval 1306 (54.5% normalized), CyberGym 83.3% and BrowseComp 83.4% — held under 85 by the Vals TB2.1 gap (54.7), AA Agentic 49.6% and APEX 24.3%.
+- **Reasoning: 88/100.** (Was 85 on the prior pass.) GPQA corroborated at 90.1–92.8% (three sources), HLE-with-tools jumps to 60.0% (AA-HLE 41.0% clears the 40% bar), ARC-AGI-2 61.3% verified, AA Index 53.2% is solid and the math sweep stays elite — the strongest evidence-based reasoning score among open-weights models in this repo.
+- **Context window: 93/100.** (Was 92 on the prior pass.) 1M tokens with now-measured retrieval: MRCR 1M 83.5%, CorpusQA 1M 62.0% and AA-LCR 80.3% — strong but short of the ≥98% maximum tier; the hybrid-attention retrieval caveat stands.
 - **Multimodal: 15/100.** Text-only in/out — no vision, audio or video input per DeepSeek's own limitations list.
-- **Coding: 89/100 (was 88).** Vals SWE-bench 96.4% and LiveCodeBench 87.5% add independent corroboration to the vendor's SWE-V 80.6%/LCB 93.5%, with DeepSWE 62.7% and NL2Repo 61.5% filling gaps; SWE-bench Pro 55.4% and Vibe 49.9% cap it below 90.
+- **Coding: 89/100.** (Was 88 on the prior pass.) Vals SWE-bench 96.4% and LiveCodeBench 87.5% add independent corroboration to the vendor's SWE-V 80.6%/LCB 93.5%, with DeepSWE 62.7% and NL2Repo 61.5% filling gaps; SWE-bench Pro 55.4% and Vibe 49.9% cap it below 90.
 - **Cost efficiency: 92/100.** Off-peak $0.66/$1.98 per 1M sits at the ~$0.60/$2.20 = ~92 methodology reference; peak rates ($1.32/$3.96) fall to ~88 and MIT open weights are an extra cost lever.
-- **Overall Score: 73.4/100 (was 70).** Mean of the five quality dims per `RULES.md` (Cost excluded): (82 + 88 + 93 + 15 + 89) / 5 = 367/5 = 73.4 — raised on the 2026-10-11 second pass because the 0813 GA tables and AA/ARC/Vals boards convert nearly every prior gap into elite measured evidence; the text-only multimodal score is what holds the Overall down. Best-fit: the strongest open-weights choice for coding, math and long-codebase work where multimodal input is not needed.
+- **Overall Score: 73.4/100.** (Was 70 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (82 + 88 + 93 + 15 + 89) / 5 = 367/5 = 73.4 — raised on the 2026-10-11 second pass because the 0813 GA tables and AA/ARC/Vals boards convert nearly every prior gap into elite measured evidence; the text-only multimodal score is what holds the Overall down. Best-fit: the strongest open-weights choice for coding, math and long-codebase work where multimodal input is not needed.
 
 ---
 

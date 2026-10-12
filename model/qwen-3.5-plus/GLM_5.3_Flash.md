@@ -53,12 +53,12 @@ Behavioral (production-relevant caveats):
 ### Normalized scores (1–100)
 
 - **Tool use: 50/100.** Terminal-Bench 2.0 41.57% (Vals) and the new JobBench 18.5% (JobBench paper) sit below the mid band ref, partially offset by Finance Agent v1.1 #1-among-open-weights; the strict output-format issues documented by Vals cap agentic reliability.
-- **Reasoning: 82/100 (was 85).** GPQA Diamond 87.37% (#6, best open-weight), MMLU Pro 87.18% and Vals Index #10 (57.1%) remain strong, but the newly measured FrontierMath v2 rows (21.0% T1-3 / 2.1% T4 — near-floor on hard math) and the missing HLE/LCR rows dock the score a band.
+- **Reasoning: 82/100.** (Was 85 on the prior pass.) GPQA Diamond 87.37% (#6, best open-weight), MMLU Pro 87.18% and Vals Index #10 (57.1%) remain strong, but the newly measured FrontierMath v2 rows (21.0% T1-3 / 2.1% T4 — near-floor on hard math) and the missing HLE/LCR rows dock the score a band.
 - **Context window: 95/100.** ~1M-token context window (Vals: 991K; BenchLM concurs 1M) lands in the ≥1M tier; no measured ≥98% retrieval at 512K+ to justify 100. Max output 65,536 is adequate, not a caveat.
 - **Multimodal: 65/100.** Image and video input supported (Vals), but MMMU Pro 22.77% (rank 93/93 — last place) shows weak vision quality and file input is unsupported; the +video-in coverage band (75–90) is pulled down by the measured vision underperformance.
 - **Coding: 75/100.** SWE-bench Verified 76.4 (Qubrid) / 71.2% (Vals) and LiveCodeBench 85.33% are mid-band, Vibe Code v1.1 15.74% (corroborated by BenchLM) is weak — the "LiveCode 80%+, Vibe low" profile maps to the 65–75 band top.
 - **Cost efficiency: 92/100.** OpenCode Zen paid pricing $0.20/$1.20 per 1M maps to ~94 on the inverse-pricing rubric, adjusted down for the overthinking profile (91% of tokens spent on reasoning in Qubrid's test inflates effective output cost).
-- **Overall Score: 73.4/100 (was 74).** Mean of the five quality dims per `RULES.md` (Cost excluded): (50 + 82 + 95 + 65 + 75) / 5 = 367/5 = 73.4 — lowered slightly on the 2026-10-11 second pass as the new Epoch AI FrontierMath rows document the hard-math weakness behind the strong knowledge scores. Best fit: knowledge- and finance-heavy workloads at near-open-weight-frontier reasoning; not the pick for vision-heavy, strict-format agent pipelines or frontier math (use Qwen 3.6 Plus for decisive agentic behavior).
+- **Overall Score: 73.4/100.** (Was 74 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (50 + 82 + 95 + 65 + 75) / 5 = 367/5 = 73.4 — lowered slightly on the 2026-10-11 second pass as the new Epoch AI FrontierMath rows document the hard-math weakness behind the strong knowledge scores. Best fit: knowledge- and finance-heavy workloads at near-open-weight-frontier reasoning; not the pick for vision-heavy, strict-format agent pipelines or frontier math (use Qwen 3.6 Plus for decisive agentic behavior).
 
 ---
 

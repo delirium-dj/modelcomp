@@ -1,70 +1,73 @@
 # GPT-6 Luna — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-6-luna`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Luna
-- **Short description:** OpenAI's budget volume tier of the GPT-6 family — "our most efficient model for focused, high-volume tasks" at $0.10/$0.50 per million tokens (roughly half its GPT-5.6 Luna predecessor's prices); the standout of the GPT-6 launch with near-frontier DeepSWE at a fraction of the cost. Trained "with similar methods as GPT-6 Astra."
+- **Short description:** OpenAI's budget volume tier of the GPT-6 family — "our most efficient model for focused, high-volume tasks" at $0.10/$0.50 per million tokens (roughly half its GPT-5.6 Luna predecessor's prices); the standout of the GPT-6 launch with near-frontier DeepSWE at a fraction of the cost. The 2026-10-11 second pass adds ARC-AGI-2 59.3% (verified), AA Index 38.1 and AA-LCR 83.3%. Trained "with similar methods as GPT-6 Astra."
 - **Provider / access:** OpenAI API (`gpt-6-luna`) via Responses and Chat Completions APIs with Batch, Flex, Fast and regional processing; ChatGPT Work and Codex (Plus/Pro/Business/Enterprise/Edu); free/Go users can use GPT-6 Luna in the desktop app. No Free ID on OpenCode Zen.
 - **Release / knowledge:** Released 2026-09-22 (same day as GPT-6 Sol); knowledge cutoff May 18, 2026 (verified via OpenAI API docs and Kingy AI launch analysis).
 - **IDs:** `gpt-6-luna` (OpenAI API). No Free ID on Zen.
-- **Context window:** 1,050,000 total tokens; 128,000 max output (verified via Kingy AI launch analysis; same specs as GPT-6 Sol). Long-context surcharge: requests over 272K input tokens billed at 2x input / 1.5x output rates.
+- **Context window:** 1,050,000 total tokens (BenchLM concurs 1.05M); 128,000 max output. Long-context surcharge: requests over 272K input tokens billed at 2x input / 1.5x output rates.
 - **Modalities:** text and image input; text output; reasoning yes with six effort settings (none, low, medium — default, high, xhigh, max); tool calls: function calling, web search, file search, computer use; model page also lists structured outputs, code interpreter, image generation, MCP and skills.
-- **Pricing (as of 2026-09-24):** $0.10 / $0.50 per 1M in/out; cached input reads $0.01 per 1M (90% discount); cache writes $0.125 per 1M; Batch/Flex 50%, Fast 2x. Paid API; a free desktop-app route exists for ChatGPT Free/Go users (not a developer API free tier).
+- **Pricing (as of 2026-10-11):** $0.10 / $0.50 per 1M in/out; cached input reads $0.01 per 1M (90% discount); cache writes $0.125 per 1M; Batch/Flex 50%, Fast 2x. Paid API; a free desktop-app route exists for ChatGPT Free/Go users (not a developer API free tier).
 - **Architecture:** Proprietary — parameter count not disclosed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- AutomationBench 1.0.6: **20.7%** max ($0.037/task; OpenAI vendor-reported chart data — beats GPT-5.6 Luna's 17.0%; unusable at low effort: 1.2%)
-- Agents' Last Exam V1: **50.9%** max ($0.15/task; roughly matches GPT-5.6 Luna's 50.4% at ~6% of the cost; within 5 points of Opus 5's best 55.9%)
-- OSWorld 2.0 offline: **52.7%** max ($0.27/task; flat vs predecessor at ~45% lower cost)
-- OSWorld 2.1: **48.9%** (Anthropic-reported in the Haiku 5.5 launch table, 2026-10-07 — found 2026-10-08, previously missing from this report; vs Haiku 5.5 72.4%, Sonnet 5.5 83.9%)
-- Terminal-Bench 4.0: **16.4%** (same Haiku 5.5 launch table; vs Haiku 5.5 39.2%, Sonnet 5.5 70.6% — weak on the newer terminal harness)
-- GDPval-AA v2.1: **1437 Elo** (same Haiku 5.5 launch table; vs Haiku 5.5 1620, Sonnet 5.5 1840)
-- Terminal-Bench 2.1, Tau3: no verified public score found (OpenAI didn't report Terminal-Bench for Luna)
+- GDPval-AA: **1437** (Anthropic Haiku 5.5 launch table, prior pass; AA now lists the same value — corroborated; normalized **46.9%**)
+- AA AutomationBench-AA: **53.2%** (AA, independent — far better than the vendor-chart AutomationBench 20.7% row the 2026-10-08 pass cited; different harness)
+- AA-Briefcase: **1336 Elo** (AA); AA GDP.pdf: **22.8%** (AA)
+- Agents' Last Exam V1: **50.9%** max ($0.15/task; OpenAI vendor chart); OSWorld 2.0 offline: **52.7%** max; OSWorld 2.1: **48.9%** (Anthropic-reported); AutomationBench 1.0.6: **20.7%** (vendor chart)
+- AA Terminal-Bench 4.0: **12.6%** (AA — very weak; consistent with the 16.4% Anthropic-reported row)
+- Terminal-Bench 2.1 / Tau3: no verified public score found (OpenAI didn't report Terminal-Bench for Luna)
+- ExploitGym: **11.6%** (GPT-6 Astra system card)
 
 Reasoning / knowledge:
 
-- Factual error rate (lower is better): **7.6%** max ($0.012/prompt; beats GPT-5.6 Sol's best 8.5% at ~1/70th of the cost)
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- LCR / MLCR, CritPt: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ARC-AGI-1: **86.7%**; ARC-AGI-2: **59.3%**; ARC-AGI-3: **0.1%** (ARC Prize verified results, arcprize.org/results/openai-gpt-6-luna — fills the ARC gap)
+- Artificial Analysis Intelligence Index: **38.1** (AA — fills the "no index" gap); AA-HLE: **38.5%** (AA — fills the HLE gap, just under the 40% bar)
+- AA-LCR v1.1: **83.3%** (AA — fills the long-context gap; excellent); CritPt: **19.4%**; MLCR-AA: **16.1%** (AA — fills the MLCR gap, weak)
+- Factual error rate (lower is better): **7.6%** max ($0.012/prompt; beats GPT-5.6 Sol's best 8.5% at ~1/70th of the cost — OpenAI chart)
+- GPQA Diamond: no verified public score found for Luna specifically
+- HealthBench: **50.0%** raw / **54.5%** length-adjusted / Professional **60.8%** / Hard **31.4%** (GPT-6 Astra system card)
+- AA-Omniscience: **43.8% accuracy / 76.7% non-hallucination row / 0.7 index** (AA)
 
 Coding:
 
-- DeepSWE v1.1: **66.6%** max ($0.22/task; OpenAI vendor-reported — close to Opus 5 at medium (68.9%, $3.29) and Fable 5 at medium (65.4%, $6.09); 93–96% cheaper per task)
-- FrontierCode 1.1 Main: **42.4%** max ($0.11/task; beats GPT-5.6 Luna's 39.8%)
-- Vibe Code Bench: no verified public score found
-- SWE-bench Verified: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
+- DeepSWE v1.1: **66.6%** max ($0.22/task; OpenAI — corroborated by benchlm; near Opus 5 at medium at 93–96% less cost)
+- AA-SciCode: **54.6%** (AA — fills the SciCode gap); Bug Hunt Bench: **18.3 fixes** (public data)
+- FrontierCode 1.1 Main: **42.4%** max ($0.11/task; OpenAI chart)
+- SWE-bench Verified / LiveCodeBench / Vibe Code Bench: no verified public score found for Luna specifically
 
 Long context:
 
-- No long-context retrieval reported (1.05M-token window claimed; >272K surcharge; no MRCR/RULER/GraphWalks value verified)
+- AA-LCR 83.3% is the first measured long-context number (excellent); 1.05M window with >272K surcharge; no MRCR/RULER value verified
+
+Multimodal:
+
+- AA-MMMU-Pro: **79.7%** (AA — first measured vision evidence, strong for the band)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 66/100.** Agents' Last Exam 50.9% at $0.15/task and OSWorld 2.0 52.7% are solid mid-band results at remarkable cost; but the newly surfaced Terminal-Bench 4.0 16.4% (very weak on the newer terminal harness), AutomationBench 20.7% and OSWorld 2.1 48.9% cap the score.
-- **Reasoning: 62/100.** No GPQA/HLE/index run exists — only a 7.6% factual error rate at max (better than GPT-5.6 Sol's best); "Sol and Luna have no published results" on hard reasoning per launch coverage, so the score rests on thin evidence.
-- **Context window: 95/100.** 1.05M tokens maps to the ≥1M tier (95–100) with 128K output; no measured ≥98% retrieval at 512K+ and the >272K surcharge keep it off the maximum.
-- **Multimodal: 65/100.** Text + image input only, text output, no audio/video/PDF input — per methodology the image-in band is 60–70.
-- **Coding: 82/100.** DeepSWE 66.6% at $0.22/task (near Opus 5 at medium) and FrontierCode 42.4% are strong cost-adjusted results; trailing the flagship peaks and missing SWE-bench Verified/LiveCodeBench prevent 85+.
+- **Tool use: 72/100.** (Was 66 on the prior pass.) AA AutomationBench 53.2% (independent) replaces the weak vendor-chart row as the operative evidence, with GDPval 1437 corroborated (46.9% normalized) and Briefcase 1336; TB4.0 12.6% and the missing TB2.1 row keep it below 75.
+- **Reasoning: 76/100.** (Was 62 on the prior pass.) The evidence vacuum is filled: ARC-AGI-2 59.3% (ARC Prize verified), AA Index 38.1, AA-HLE 38.5% and AA-LCR 83.3% document real mid-frontier reasoning at nano pricing — held under 80 by the missing GPQA, CritPt 19.4% and MLCR 16.1%.
+- **Context window: 95/100.** 1.05M tokens maps to the ≥1M tier (95–100) with 128K output; AA-LCR 83.3% is strong measured evidence; the >272K surcharge keeps it off the maximum.
+- **Multimodal: 65/100.** Text + image input only with measured MMMU-Pro 79.7% — top of the 60–70 image-in band; no audio/video/PDF input.
+- **Coding: 82/100.** DeepSWE 66.6% corroborated and AA-SciCode 54.6% fills the gap; FrontierCode 42.4% and Bug Hunt 18.3 are mid — the cost-adjusted story remains the differentiator; no SWE-bench Verified/LiveCodeBench rows.
 - **Cost efficiency: 99/100.** $0.10/$0.50 per 1M with a 90% cache discount ($0.01 cached) is the cheapest frontier-lab model tracked — at the top of the ~$0.10/$0.20 = 97–99 methodology band.
-- **Overall Score: 74/100.** Mean of the five quality dims (66 + 62 + 95 + 65 + 82) / 5 = 74. Best-fit: high-volume classification, extraction, routing and cheap coding sub-agents where cost per token matters more than frontier capability.
+- **Overall Score: 78.0/100.** (Was 74 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (72 + 76 + 95 + 65 + 82) / 5 = 390/5 = 78.0 — raised on the 2026-10-11 second pass as ARC Prize/AA verification converts the thin-evidence reasoning discount into measured mid-frontier performance. Best-fit: high-volume classification, extraction, routing and cheap coding sub-agents where cost per token matters more than frontier capability.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-08
-- Method: public internet research (OpenAI launch-chart analysis via Kingy AI with full per-effort tables, DuckDuckGo web search); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the OpenAI GPT-6 Astra system card + GPT-6 launch post, Artificial Analysis independent boards (LCR/ARC/SciCode/Omniscience/Briefcase) via benchlm.ai, ARC Prize verified results, plus the prior 2026-10-08 pass with per-effort vendor charts); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

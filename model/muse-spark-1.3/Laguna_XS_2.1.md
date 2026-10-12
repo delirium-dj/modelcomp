@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Laguna XS 2.1
 
 - Source: Meta (`muse-spark-1.3`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
-- Method: public internet research (Meta launch scorecard/methodology, Artificial Analysis, Vals AI, livebench.ai, Snorkel, Dataconomy, BenchLM, BenchmarkList, The Model Gap); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public internet research (BenchLM https://benchlm.ai/models/muse-spark-1-3, Artificial Analysis https://artificialanalysis.ai/models/muse-spark-1-3, Meta platform https://developer.meta.com/ai/models/muse-spark, Vals AI https://vals.ai/models/meta_muse_spark_1_3); scores are normalized 1–100 interpretations, not official vendor scores.
+- Sources verified 2026-10-11: BenchLM, AI Index, Terminal-Bench leaderboard, MRCR v2 table

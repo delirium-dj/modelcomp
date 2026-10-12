@@ -1,7 +1,7 @@
 # Pixel Canary — findings by Mimo 2.6 Flash
 
 - Source: undisclosed publisher (stealth listing `stealth/pixel-canary`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-27, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,13 @@ Independent but non-benchmark observations:
 
 ## Signature
 
-- Provided by: **Mimo 2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-27
+- Provided by: **Mimo 2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-09-27; user-approved second pass); second-pass sources all negative: [AA](https://artificialanalysis.ai/models/pixel-canary) 404, [Vercel AI Gateway model page](https://vercel.com/ai/gateway/models/stealth%2Fpixel-canary) 404, Vercel model-catalog docs 404, Bing news search returned no relevant results, models.dev OpenCode catalog + [Zen docs](https://opencode.ai/docs/zen/) extracts showed no pixel-canary row (page updated 2026-10-09/11)
 - Method: public internet research (Cline announcement, Vercel AI Gateway listings, X/Hacker News coverage, Lookonchain, Startup Fortune, Margrop, Eyestech, AICrier); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Pixel_Canary.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **No new data obtainable:** 14 days after listing, Pixel Canary still has zero presence on AA, BenchLM, OpenRouter and Grokipedia; the Vercel model URL and catalog docs 404; Bing news search surfaced nothing. No identity reveal, no new benchmarks, no independent reviews.
+- **Status:** unknown whether the stealth free preview is still active (the original Vercel spec card is unreachable); `opencode/pixel_canary` row not confirmed in this pass's Zen/models.dev extracts.
+- **Scores:** no dimension changed (all evidence from 2026-09-27 stands as-is); Overall held at 47.

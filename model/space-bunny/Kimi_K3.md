@@ -1,7 +1,7 @@
 # Space Bunny Alpha — findings by Kimi K3
 
 - Source: Anonymous (stealth) / Space Bunny Alpha (`stealth/space-bunny-alpha` on OpenRouter; `space-bunny-free` on OpenCode Zen)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-25
-- Method: public internet research (spacebunnyalpha.com independent field guide with published AI BENCHY run and subset evals; OpenRouter catalog snapshot; OpenCode Zen docs; stealthprint long-context probe). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (spacebunnyalpha.com independent field guide with published AI BENCHY run and subset evals; OpenRouter catalog snapshot; OpenCode Zen docs; stealthprint long-context probe; **second pass 2026-10-11**: OpenCode Data `unknown/space-bunny` — confirmed the free preview is still live at massive scale (#3 by tokens, 131T, 80% weekly retention, $0.0001 avg session cost); no new benchmark rows; identity hypotheses unchanged/unresolved). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
