@@ -122,7 +122,10 @@ never a renamed folder.
 
 A slug that turns out fictional — no vendor route, phantom catalog entry
 (e.g. `glm-5.3-free`, parked 2026-10-10 after live Zen verification showed
-`opencode/glm-5.3-free` in no listing) — is parked, never deleted (`RULES.md`
+`opencode/glm-5.3-free` in no listing) — or a duplicate alias for an already
+tracked model (e.g. `gemini-2.5`, parked 2026-10-12 — every cited ID resolves
+to `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists; RULES.md
+family-shorthand identity) — is parked, never deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
 - the folder keeps every file; `pnpm sync` keeps scanning, averaging, and
@@ -153,7 +156,12 @@ reports stay visible by design (`RULES.md` crown rule).
    vendor-prefixed folder whose remainder already exists (e.g.
    `google-gemini-2.5-flash-lite` when `gemini-2.5-flash-lite/` exists) is a
    duplicate, not a new model — never create it, write into the canonical
-   folder instead.
+   folder instead. Then check for a `-coding` label trap: a `Coding` suffix
+   reflecting positioning or a subscription plan is not a model — verify a
+   distinct vendor route exists before scaffolding a `-coding` folder
+   (`glm-5.1-coding` was a label for plain `glm-5.1`, renamed 2026-10-12;
+   `glm-5.2-coding` is a real SKU — decide per vendor IDs, never by analogy;
+   RULES.md coding-suffix identity).
 2. Create `model/<slug>/` with findings file(s) + `meta.json` (schema above).
 3. Run `pnpm sync` (creates `average.md`, validates everything; FAILs hyphen
    variants and writes nothing for them — merge into the dotted folder first).
@@ -179,7 +187,16 @@ One folder per tracked model, each self-described by its own `meta.json`
 (this list is intentionally not enumerated here — `meta.json` is the source
 of truth; examples: `big-pickle/`, `muse-spark-1.3/`,
 `glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
-also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it.
+also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it;
+`gemini-2.5-pro/` covers every bare `Gemini 2.5` name — do not scaffold or
+research `model/gemini-2.5/` (parked duplicate alias, RULES.md
+family-shorthand identity);
+`glm-5.1/` covers every `GLM 5.1 Coding` name — the `-coding` suffix was a
+dataset label, never a SKU (renamed from `model/glm-5.1-coding/` 2026-10-12;
+RULES.md GLM-5.1 coding-suffix identity — never recreate the old slug);
+`grok-build-0.1/` covers every `grok-code-fast-1` name — a retired vendor
+alias, never a folder (RULES.md retired-alias identity — never scaffold
+`model/grok-code-fast-1/`).
 
 **Domain routing — Voice & Finance models do NOT live in `model/`.**
 - Voice/speech models live strictly under `models_voice/<slug>/` (`RULES.md` routing rule).

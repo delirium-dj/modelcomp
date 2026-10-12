@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Laguna XS 2.1
 
 > Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-01 (UTC)
+> Date: 2026-10-11 (UTC) — second-pass verification
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -59,6 +59,5 @@ Derived from benchmarks above using methodology in `model-comparison.md`:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-01
-- Method: public-internet research (Anthropic docs, vellum.ai, kilo.ai, aireleasetracker.com, AI Release Tracker); scores normalized 1-100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public-internet research (Anthropic docs, AI Release Tracker, Terminal-Bench leaderboard); scores normalized 1-100 interpretations.

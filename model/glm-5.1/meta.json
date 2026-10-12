@@ -1,6 +1,6 @@
 {
   "id": "opencode/glm-5.1",
-  "name": "GLM 5.1 Coding",
+  "name": "GLM 5.1",
   "short": "Z.AI flagship open-weights MoE for agentic engineering and long-horizon autonomous coding (SWE-Pro SOTA). No Zen Free ID; priced paid.",
   "contextWindow": "200K–205K / 128K out",
   "modalities": "Text in/out",

@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Mimo v2.6 Flash
 
 - Source: Poolside/Laguna XS 2.1
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-25, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Laguna XS 2.1 (Poolside, open weights)
 - **Short description:** 33B-total / 3B-active MoE coding model for agentic, long-horizon work on a local machine — Poolside's upgraded Laguna XS.2 (best move: +5.4 pts SWE-bench Multilingual). Not a variant of `laguna-s-2.1` (the larger 118B/8B sibling) — a distinct model.
-- **Provider / access:** OpenCode Zen `opencode/laguna-xs-2.1` (OpenAI-compatible Chat Completions); Poolside's own API (free **and** paid endpoints, Chat Completions); OpenRouter `poolside/laguna-xs-2.1` ($0.06/$0.12 per this repo's `meta.json`); local: vLLM, SGLang, TensorRT-LLM, HF transformers, Ollama, llama.cpp (FP8/NVFP4/INT4 quants + open-weight DFlash speculators).
+- **Provider / access:** OpenCode Zen `opencode/laguna-xs-2.1` (OpenAI-compatible Chat Completions); Poolside's own API (free **and** paid endpoints, Chat Completions); OpenRouter `poolside/laguna-xs-2.1` — **⚠ banner: "Going away October 31, 2026" (delisting flagged 2026-10-09)**; live pricing **40%-off $0.06/$0.12** (list $0.10/$0.20, cache $0.03), 100% uptime, 174 tps (OpenRouter 2026-10-09); free routes carry a "may use your inputs/outputs to train" caveat; local: vLLM, SGLang, TensorRT-LLM, HF transformers, Ollama, llama.cpp (FP8/NVFP4/INT4 quants + open-weight DFlash speculators).
 - **Release / knowledge:** 2026-07-02 (Poolside blog "Introducing Laguna XS 2.1"); knowledge cutoff not published.
 - **IDs:** `opencode/laguna-xs-2.1` (Zen), `poolside/laguna-xs-2.1` (OpenRouter/poolside API), `poolside/Laguna-XS-2.1` (HF). Free endpoints verified on Poolside's API ("Free and paid endpoints are both available"); no Zen Free-ID row confirmable this session.
 - **Context window:** 262,144 tokens (HF model card); served at 256K on Poolside's API and OpenRouter, and all official benchmarking ran at 256K context.
@@ -66,7 +66,17 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-25
-- Method: public internet research (Poolside release blog 2026-07-02, Hugging Face model card `poolside/Laguna-XS-2.1`, OpenRouter listing, this repo's `meta.json` for the Zen ID/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-25; user-approved second pass)
+- Method: public internet research (Poolside release blog 2026-07-02, Hugging Face model card `poolside/Laguna-XS-2.1`, OpenRouter listing, this repo's `meta.json` for the Zen ID/pricing); second pass 2026-10-09 re-checked the [OpenRouter poolside/laguna-xs-2.1 page](https://openrouter.ai/poolside/laguna-xs-2.1) (⚠ delisting Oct 31 2026, 40%-off $0.06/$0.12, 174 tps, free-route training caveat) and the [HF card](https://huggingface.co/poolside/Laguna-XS-2.1) (OpenMDW-1.1, 8 experts/tok, thinking-default-off template) — no new benchmark rows (AA has no entry for this model); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **⚠ Availability:** OpenRouter shows **"Going away October 31, 2026"** (same banner as laguna-s-2.1) — migrate or pin Poolside API/self-host before then.
+- **Pricing:** live **40%-off** route $0.06/$0.12 (list $0.10/$0.20; cache $0.03); 100% uptime over 3d; free Poolside routes train on your data (notice re-confirmed).
+- **Confirmed:** 33B-A3B (8 experts/tok), 262K native / 256K served, OpenMDW-1.1, Jul-2026 release; HF chat template defaults `enable_thinking` to false (vs the S sibling's true).
+- **Still missing:** every reasoning row (GPQA/HLE/LCR/AA-Index), Tau3/GDPval/Toolathon rows, LiveCodeBench/SciCode — reasoning gap persists.
+- **Scores:** no dimension changed; Overall held at 53.
 

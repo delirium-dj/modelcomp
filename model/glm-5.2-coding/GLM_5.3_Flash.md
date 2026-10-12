@@ -1,68 +1,76 @@
 # GLM 5.2 Coding — findings by GLM 5.3 Flash
 
 - Source: Z.ai / Zhipu AI (`opencode/glm-5.2-coding`; upstream `zai-org/GLM-5.2`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM-5.2-Coding (GLM Coding Plan serving of GLM-5.2)
-- **Short description:** Z.ai's coding-first serving of GLM-5.2 — the June 2026 flagship open-weights MoE that led all open-weight coding models at release. Variant/alias note: GLM-5.2-Coding shares the GLM-5.2 weights (the "Coding" ID is the plan/agent-serving lane, not a separate checkpoint); benchmarks below are the shared GLM-5.2 record. The 2026-10-05 enrichment pass added an independent BenchLM composite.
+- **Short description:** Z.ai's coding-first serving of GLM-5.2 — the June 2026 flagship open-weights MoE that led all open-weight coding models at release. Variant/alias note: GLM-5.2-Coding shares the GLM-5.2 weights (the "Coding" ID is the plan/agent-serving lane, not a separate checkpoint); benchmarks below are the shared GLM-5.2 record. BenchLM ranks the shared weights #47 of 889 (61.55).
 - **Provider / access:** OpenCode Zen `opencode/glm-5.2-coding` (no Free ID on Zen); Z.ai API `https://api.z.ai/api/paas/v4/chat/completions` (OpenAI-compatible Chat Completions), plus OpenRouter, Fireworks, AWS Bedrock, Google Vertex AI, DeepInfra. Tool calls, structured JSON output, streaming; thinking effort High/Max.
 - **Release / knowledge:** Released 2026-06-13 via the GLM Coding Plan; MIT-licensed weights on Hugging Face 2026-06-16. Knowledge cutoff: not published in the sources reviewed.
 - **IDs:** `opencode/glm-5.2-coding` (Zen), `zai-org/GLM-5.2` (Hugging Face). No Zen Free ID — scored on paid pricing.
-- **Context window:** 1,000,000 tokens input; 131,072 max output (Hugging Face card / HokAI, checked 2026-08-31; DeepSeek Sparse Attention in layers 4–78). Zen-serving cap not separately verified; long-context recall past ~500K unverified by any published needle test.
+- **Context window:** 1,000,000 tokens input (BenchLM concurs); 131,072 max output (Hugging Face card / HokAI; DeepSeek Sparse Attention in layers 4–78). Zen-serving cap not separately verified; long-context recall past ~500K unverified by any published needle test.
 - **Modalities:** text in / text out only (function calling + JSON mode yes; vision is the separate GLM-5V-Turbo model — no image/audio/video input).
-- **Pricing (as of 2026-09-21):** $1.40 in / $4.40 out per 1M tokens (confirmed via OpenRouter listing, apidog 2026-08-30); cached input ~$0.26/1M (81% discount, VentureBeat-attributed); third-party from ~$0.95/1M (DeepInfra); GLM Coding Plan subscription tiers exist but secondary sources conflict on tier prices (apidog flags them) — no free API tier.
+- **Pricing (as of 2026-10-11):** $1.40 in / $4.40 out per 1M tokens (confirmed via OpenRouter listing, apidog 2026-08-30); cached input ~$0.26/1M (81% discount); third-party from ~$0.95/1M (DeepInfra); GLM Coding Plan subscription tiers exist but secondary sources conflict on tier prices — no free API tier.
 - **Architecture:** MoE Transformer, ~753B total / ~40B active (HokAI reports 744B/40B), trained on 28.5T tokens, DSA attention, MIT license (commercial use, modification, redistribution).
 
 ### Raw benchmarks found
 
-> Z.ai published no vendor benchmark sheet at launch — every score below is from independent evaluators (Emergent explainer, 2026-07-01; HokAI model hub, checked 2026-08-31; BenchLM, Oct 2026).
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **81.0%** (Emergent/HokAI; up from GLM-5.1's 62.0)
-- Tool-Decathlon: well behind Claude Opus 4.8 and GPT-5.5 (no exact value published — Emergent names tool-heavy agentic workflows the weakest area)
-- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / MCP Atlas / Toolathon: no verified public score found
+- τ²-bench: **99.1%** (AA, independent — elite; fills the Tau2 gap)
+- MCP Atlas: **76.8%** (Z.AI model card via benchlm.ai, updated 2026-10-10 — fills the gap the 2026-10-05 pass marked missing)
+- GDPval-AA: **1418** (AA — fills the gap; normalized **43.7%**)
+- Terminal-Bench 2.1: **81.0%** (model card — corroborated); Vals independent: **67.8%**
+- Toolathlon: **48.2%** (model card — weak); AA Agentic Index: **39.4%**; AA ITBench: **42.7%**; APEX-Agents-AA: **33.7%**; ResearchClawBench: **20.7%** (weak rows)
+- Terminal-Bench 3.0: **4.6%** (frontierbench.ai — very weak on the 2026 harness)
+- Tool-Decathlon: well behind Claude Opus 4.8 and GPT-5.5 (no exact value published — prior pass)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **80.3%** (HokAI — highest published result for an open-weights model as of mid-2026)
-- MMLU: **91.72%**; MMLU-Pro: **80.63%** (HokAI)
-- BenchLM composite: **63.16/100**, rank **#44 of 212**, evidence status "Supported" (BenchLM.ai GLM-5.2 leaderboard page, snapshot updated October 2026 — post-dates the 2026-09-21 pass; scale corroborated by gpt-oss-120b at 38.4/#138 on the same board) — fills the gap that pass marked "no verified public score found"
-- HLE / LCR / MLCR / CritPt: no verified public score found (AA operational stats: 113 tok/s, blended $2.15/1M at 3:1, price rank #33/61)
+- GPQA Diamond: **91.2%** (Z.AI model card via benchlm.ai — **well above the 80.3% HokAI reading the prior pass scored on**); AA independent: **89.5%**; Vals: **85.6%** — three-source elite-class agreement
+- HLE: **40.5%** (model card — fills the gap); AA-HLE: **41.1%** (AA — above the 40% bar)
+- Artificial Analysis Intelligence Index: **33.7** (AA — fills the index gap; BenchLM overall 61.55, #47 of 889, recomposed from the prior 63.16 #44/212)
+- AA-LCR v1.1: **78.3%** (AA — fills the long-context gap, solid); CritPt: **20.9%** (model card — fills the gap)
+- AIME26: **99.2%**; HMMT Nov 2025: **94.4%**; HMMT Feb 2026: **92.5%** (model card — elite math)
+- MMLU: **91.72%**; MMLU-Pro: **80.63%** (HokAI, prior pass) / **86.7%** (Vals) — conflict noted
+- AA-Omniscience: **24.3% accuracy / 26.3% non-hallucination row / 4.4 index** (AA — weak)
+- AA-IFBench: **73.3%** (AA)
+- HLE w/ tools: **54.7%** (model card)
 
 Coding:
 
-- SWE-bench Pro: **62.1%** (Emergent/HokAI — led all open-weight models at release; Opus 4.8 69.2; beats GPT-5.5)
-- FrontierSWE: **74.4%** (Emergent — under 1 point behind Opus 4.8)
-- SWE-bench Verified: no verified public score found (Pro/Multilingual rows reported instead; HokAI's card labels 62.1% "Verified" but its text and Emergent both place 62.1% on SWE-bench Pro — Pro is used here)
-- SWE-Marathon: trails Opus 4.8 by up to 13 points (exact value not published)
-- PostTrainBench: outperforms GPT-5.5 (value not published)
-- Design Arena human-preference coding leaderboard: **#1** (Emergent)
-- Terminal-Bench 2.1 (coding overlap): **81.0%**
-- LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
+- SWE-bench (Vals): **82.8%** (Vals, independent — fills the SWE-bench Verified gap)
+- LiveCodeBench (Vals): **69.5%** (Vals — fills the gap, below the vendor-era expectations)
+- AA Coding Index: **68.8%** (AA — new); AA-SciCode: **51.2%** (AA — fills the SciCode gap)
+- SWE-bench Pro: **62.1%** (model card — corroborated); FrontierSWE: **74.4%** (prior pass); NL2Repo: **48.9%**; ProgramBench: **63.7%**; CursorBench 3.2: **55.0%** (new); PostTrainBench: **31.7%** (weak)
+- Design Arena human-preference coding leaderboard: **#1** (prior pass); OpenHarmony: **58.4%**
 
 Long context:
 
-- no long-context retrieval reported (1M window is card-claimed; Z.ai has published no needle-in-haystack recall at depth — accuracy past ~500K unverified per HokAI)
+- AA-LCR 78.3% is the first measured long-context number (solid); 1M window card-claimed, accuracy past ~500K unverified per HokAI
+
+Multimodal:
+
+- Design Arena Website: **1292** (OpenRouter); text in/out only — vision requires the separate GLM-5V-Turbo model
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Terminal-Bench 2.1 at 81.0% sits between the mid (45–60) and frontier (88+) TB bands, but the tool-heavy picture is mixed — Tool-Decathlon clearly trails the closed frontier and Tau3/GDPval/MCP rows are unmeasured, capping it in the high 70s.
-- **Reasoning: 78/100.** GPQA 80.3% tops the open-weights field and the new independent BenchLM composite of 63.16 (#44/212, "Supported") resolves the 2026-09-21 "no Index data" dock; it lands in the upper-mid band rather than the 80s because the composite still trails the closed frontier and HLE remains unmeasured.
-- **Context window: 95/100.** 1M tokens puts it in the ≥1M = 95–100 tier; missing published recall verification (and an unverified Zen-serving cap) hold it at the tier floor rather than 100.
+- **Tool use: 84/100.** (Was 78 on the prior pass.) τ²-bench 99.1% (AA) and MCP Atlas 76.8% fill the two biggest gaps, with GDPval 1418 corroborating; the weak Toolathlon 48.2%, TB3.0 4.6% and Vals TB2.1 gap (67.8 vs 81.0) keep it under 88.
+- **Reasoning: 85/100.** (Was 78 on the prior pass.) The largest correction: GPQA resolves up to 91.2%/89.5%/85.6% (three sources, elite), HLE 40.5%/41.1% clears the 40% bar, AIME26 99.2% is near-perfect and CritPt 20.9%/AA-LCR 78.3% fill the rest — the prior score leaned on the low HokAI GPQA read.
+- **Context window: 95/100.** 1M tokens puts it in the ≥1M = 95–100 tier (BenchLM concurs); AA-LCR 78.3% is the first measured evidence; missing recall verification past ~500K holds it at the tier floor.
 - **Multimodal: 15/100.** Text in/out only — vision requires the separate GLM-5V-Turbo model.
-- **Coding: 86/100.** Open-weight leadership across SWE-Pro 62.1% / FrontierSWE 74.4% / TB2.1 81.0% plus Design Arena #1 is near-frontier, but it trails Opus 4.8 on SWE-Pro by 7 and SWE-Marathon by up to 13, and DeepSWE/LiveCodeBench/SciCode are unmeasured — high 80s ceiling, not 90+.
+- **Coding: 86/100.** Vals SWE-bench 82.8% and LiveCodeBench 69.5% add independent corroboration to the open-weight leadership story (SWE-Pro 62.1%, FrontierSWE 74.4%, TB2.1 81.0%, Design Arena #1); AA Coding Index 68.8% and PostTrainBench 31.7% keep it out of the 90+ band.
 - **Cost efficiency: 87/100.** $1.40/$4.40 per 1M maps to the ~88 band ($1.25/$4.25) with the ~$0.26 cached rate and MIT self-hosting as bonuses; no free tier on Zen.
-- **Overall Score: 70.4/100.** Five-dim mean per `RULES.md` (Cost excluded): (78 + 78 + 95 + 15 + 86) / 5 = 352/5 = 70.4. Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos — now with independent composite backing; pair with a vision model and verify long-context jobs >500K before committing.
+- **Overall Score: 73.0/100.** (Was 70.4 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (84 + 85 + 95 + 15 + 86) / 5 = 365/5 = 73.0 — raised on the 2026-10-11 second pass as the shared-weights boards convert the reasoning and tool gaps into elite measured evidence. Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos — pair with a vision model and verify long-context jobs >500K before committing.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-05
-- Method: public internet research (2026-09-21 pass: Emergent benchmark explainer, HokAI model hub, apidog pricing page, OpenRouter listing; 2026-10-05 approved enrichment pass: BenchLM GLM-5.2 leaderboard composite, October 2026 snapshot); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai GLM-5.2 page updated 2026-10-10 citing the Z.AI HF model card, Artificial Analysis independent boards (τ²/LCR/SciCode/Omniscience/GDPval) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-21/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores. GLM-5.2 numbers transfer to the Coding serving lane via the same-weights statement.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

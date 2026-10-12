@@ -154,6 +154,76 @@ override.
   (extensible to 1,010,000), and text/image/video input with text output.
   Actual hosted endpoint limits must be verified separately.
 
+- **Family-shorthand identity (absolute — `gemini-2.5` parked 2026-10-12):**
+  `model/gemini-2.5/` is a duplicate alias of `model/gemini-2.5-pro/`, never
+  a separate model. Evidence: its own `meta.json` resolves to
+  `google/gemini-2.5-pro` ("served as `gemini-2.5-pro`"); its findings cite
+  the same IDs, pricing ($1.25/$10.00), specs (1M context), and benchmarks
+  (SWE-bench 63.8%, GPQA ~84%) as `gemini-2.5-pro/`; Google ships no
+  standalone `gemini-2.5` model — the 2.5 family is Pro / Flash / Flash-Lite,
+  and the bare "2.5" is family shorthand for the Pro flagship. History: merged
+  into `gemini-2.5-pro/` on user order 2026-10-05, resurrected 2026-10-06 by a
+  sync pass while no guard existed in this file, regrown to 25 findings with
+  zero unique stems. Resolution is PARKING, not deletion: the folder stays on
+  disk and in git (permanence — parking also preserves the `Gemini 2.5`
+  rater's own `average.md` gate input, cf. the 2026-10-04 KEEP-BOTH rater
+  decision in REPORT.md); it is hidden from the site and the research queue
+  via `RETIRED_SLUGS` (`src/data/models.ts` + `scripts/lib/average.mjs`,
+  `model/README.md` § Parking). Research belongs in `model/gemini-2.5-pro/`.
+- **Family-shorthand identity (general rule):** a bare family or base name
+  with no distinct vendor ID is never scaffolded as a new folder. Before
+  creating a folder for a short/base name, verify a distinct vendor route
+  exists: when every cited ID, spec sheet, and price resolves to an already
+  tracked suffixed folder, write into that canonical folder instead. A new
+  suspected alias is parked (never deleted) only with per-instance user
+  sign-off citing the resolving IDs; the parked slug joins both
+  `RETIRED_SLUGS` lists so the queue omits it and the site hides it.
+  Research agents encountering a parked alias skip it entirely (never queued,
+  never written) exactly like any retired slug.
+
+- **GLM-5.1 coding-suffix identity (renamed 2026-10-12):** no separate
+  `GLM-5.1-Coding` SKU exists — the folder's own `meta.json` ID was already
+  plain `opencode/glm-5.1`; in-folder findings overwhelmingly cite
+  `opencode/glm-5.1` / `z-ai/glm-5.1` / weights `zai-org/GLM-5.1`; vendor docs
+  (docs.z.ai, HF `zai-org/GLM-5.1`, OpenRouter `z-ai/glm-5.1`) list exactly
+  one `glm-5.1` route; the "Coding" suffix was a dataset label reflecting
+  Z.AI's coding positioning (and the GLM Coding Plan subscription, which
+  routes `glm-5.1` requests to `glm-5.3` — a plan, never a model). The folder
+  was renamed `model/glm-5.1-coding/` → `model/glm-5.1/` (`git mv`, history
+  preserved, zero content touched) with `meta.json` `name` corrected to
+  `GLM 5.1`; research belongs in `model/glm-5.1/`. The old slug is in
+  `MERGED_MODEL_SLUGS` (`scripts/lib/validate.mjs`) plus a pre-commit block:
+  never recreate `model/glm-5.1-coding/`.
+- **Coding-suffix identity (general rule — per-vendor evidence, never analogy):**
+  whether a `-coding`-suffixed name is a separate model is decided by vendor
+  IDs alone. `glm-5.2-coding` IS distinct (`meta.json` ID
+  `opencode/glm-5.2-coding`); `glm-5.1-coding` was NOT. A `-coding` label
+  that reflects positioning or a subscription plan is not a model — before
+  scaffolding any `-coding` folder, verify a distinct vendor route exists
+  (vendor docs, gateway listing, weights repo); when every cited ID resolves
+  to the base folder, write into the base folder instead.
+- **Retired-alias identity (absolute — `grok-code-fast-1` → `grok-build-0.1`,
+  recorded 2026-10-12):** xAI publishes `grok-code-fast-1` (plus
+  `grok-code-fast`, `grok-code-fast-1-0825`) as aliases of `grok-build-0.1`
+  (docs.x.ai, verified live) — but the trackers measure them separately:
+  BenchLM keeps a `grok-code-fast-1` entry in its own family (Index 14.1,
+  12 benchmarks) beside unscored `grok-build-0-1`, i.e. a renamed, re-tuned
+  successor line, not byte-identical weights. Consequences, both absolute:
+  (a) the alias is never a folder — `model/grok-code-fast-1/` has never
+  existed and must never be scaffolded; research belongs in
+  `model/grok-build-0.1/` (enforced: `RETIRED_ALIAS_SLUGS` in
+  `scripts/lib/validate.mjs` — `pnpm sync` FAILs the slug and cements
+  nothing for it — plus a pre-commit block); (b) alias-measured figures are
+  lineage data, not current-model measurements — a report may cite them only
+  labelled with the ID actually measured, never silently merged into the
+  canonical model's scores.
+- **Retired-alias identity (general rule):** a slug the vendor lists as an
+  alias of a tracked model is recorded in `RETIRED_ALIAS_SLUGS` (canonical
+  folder as value) with the same never-scaffold enforcement; benchmark
+  figures measured under the retired slug stay labelled with their measured
+  ID. A genuinely new alias case needs per-instance user sign-off with the
+  vendor alias list cited before it joins the map.
+
 ## Scoring rules
 
 - Source-file `Overall` = half-up mean of the five quality dims (Tool use,

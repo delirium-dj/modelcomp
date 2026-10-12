@@ -24,26 +24,44 @@
 Google launch blog (blog.google, 2026-03-03) and model card:
 
 - GPQA Diamond: **86.9%** (vs 68.3% on Gemini 2.5 Flash) — vendor.
-- MMMU Pro: **76.8%** — vendor.
+- MMMU Pro: **76.8%** — vendor (AA's own read: **78%**, ahead of Claude Opus 4.6 (max) and Kimi K2.5 (reasoning) at launch).
 - LMArena (Arena.ai) Elo: **1432** — vendor; LMArena Coding Elo **1457** (LMArena, 2026-09-13).
 - Humanity's Last Exam: **16.0%** — vendor (per HokAI); third-party 17.2% (ARMES, BenchmarkList), HLE text-only 8.0% (BenchmarkList).
+- Full launch card (vs Gemini 2.5 Flash Dynamic / GPT-5 mini High / Claude 4.5 Haiku ET / Grok 4.1 Fast Reasoning): CharXiv Reasoning **73.2%** (63.7% / 75.5%+python / 61.7% / 31.6%); Video-MMMU **84.8%** (79.2% / 82.5% / — / 74.6%); SimpleQA Verified **43.3%** (28.1% / 9.5% / 5.5% / 19.5%) — the strongest parametric-knowledge read in the card; FACTS Benchmark Suite **40.6%** (50.4% / 33.7% / 18.6% / 42.1%) — behind 2.5 Flash and Grok 4.1 Fast; MMMLU **88.9%**; LiveCodeBench **72.0%** (62.6% / 80.4% / 53.2% / 76.5%); MRCR v2 (8-needle) 128K average **60.1%** (54.3% / 52.5% / 35.3% / 54.6%), 1M pointwise **12.3%** (21.0% / — / — / 6.1%); output speed **363 tok/s**; safety vs 2.5 Flash-Lite: Text-to-Text −1.18%, Image-to-Text −21.7%, Unjustified-refusals −14.x% (all improvements); Frontier Safety assessed via Gemini 3.1 Pro — no CCLs.
 
 Third-party / aggregator (not vendor):
 
 - MMMLU **88.9%**, LiveCodeBench **72%**, Video-MMMU **84.8%** (AI/TLDR).
-- MMLU-Pro **86.2%** (BenchmarkList); AA Intelligence Index **16** (May 2026, pre-rescale) / **25.6** (BenchmarkList).
-- Independently measured: GPQA Diamond **82.2%** (ARMES), **81.1%** (BenchmarkList, high thinking); HLE **17.2%** (ARMES).
-- No SWE-bench, AIME, MRCR, Terminal-Bench, MCP-Atlas, τ-bench or SWE-bench-style coding score has been published for this tier (Google has not disclosed them; TopReviewed notes the disclosure is "half-blank").
+- MMLU-Pro **86.2%** (BenchmarkList/Vals) / **83.0%** (LayerLens, 2,000 items, ±1.6pp, 1.38s latency); AA Intelligence Index **34** at launch (v4.1.1, 2026-03-03, up 12 from 2.5 Flash-Lite's 22) → **15.6** (BenchLeader) / **16** (AA page, deprecated, #72/180) on the current v4.3.2 rescored board — the ~18-point gap is the rebase, not a regression.
+- AA current reads (v4.3.2): AA-LCR v1.1 **74.3%**; AA-Omniscience **−16.4** (accuracy 36.3%, non-hallucination 17.3% — a high-hallucination profile); AutomationBench-AA **7%**; AA-Briefcase v1.1 **207**; GDPval-AA v2.1 **430**; GDP.pdf 8%; CritPt **1.1–3.4%**; SciCode **43%** (41.9% SciCode / 43.4% AA-SciCode / 45.7% benchgap est); TB 4.0 **0.5–1%**; τ²-Telecom **31.3%** (the launch read matched 2.5 Flash-Lite — "limited gains in tool use"); τ³-Banking **9.7%**; APEX-Agents **12.2%**; Analyst Agent **8.8%**.
+- Scale SEAL: **MCP Atlas 57.1%**; FORTRESS **51.0%**; MASK **48.4%**; MultiNRC **25.0%**.
+- Vals board: LiveCodeBench **80.1%** (vs vendor 72.0% — an 8-point harness gap); SWE-bench **62.8%**; AIME **83.3%** (high effort); LegalBench **83.8%**; CorpFin **59.4%**; TaxEval **71.8%**; CaseLaw v2 **55.0%**; Finance Agent v2 **30.0%**; MedCode **47.6%**; MedScribe **63.9%**; Excel Modeling **8.6%**; Code Migration **4.6%**; ProgramBench **0.0%**; Vibe Code Bench v1.1 **0.0%**; Vals Multimodal Index **41.4%**.
+- Epoch AI: GPQA Diamond **73.7%/74.2%/81.8%** (minimal/low/high); FrontierMath T1–3 **21.4%/22.5%/27.7%**; OTIS Mock AIME **37.8%/44.4%/80.0%**; ALE-Bench 797.7; Epoch Capabilities Index 144.5.
+- LayerLens (2026-03-05, independent, 12 benchmarks / 21,041 items): BigBench-Hard **87.7%**; MATH-500 **85.6%**; BFCL v3 **76.5%**; AGIEval **76.8%**; MMMU **73.7%**; GPQA Diamond **72.2%**; LiveCodeBench **69.9%**; AIME 2025 **16.7%**; HLE **8.5%**; Terminal-Bench **17.5%** (Terminus-1 and Terminus-2).
+- BenchLeader (2026-10-09): Index **53.9** ±4.0 (#251/760, best config); sub-scores — long context 62, instruction following 62, human preference 62, maths 62, multimodal 58, knowledge 53, reasoning 48, coding 47, composite 47, agents & tools 43; 323 tok/s, 5.5s first answer, $0.563/M blended; LMArena Hard Prompts 1445, LMArena WebDev 1256, LMArena Maths 1436; WeirdML **52.2%**; Kagi LLM Benchmark 67.2%; Terminal-Bench 2.1 **31.1%** (AA) / **34.1%** (Vals); Terminal-Bench Hard 24.2%; Terminal-Bench 2.0 (Vals) 24.7%; DeepResearch Bench 36.4%/37.3%; BrowseComp (OpenAI) **1.1%**; Tax Agent Bench 20.1%; Legal Research Bench 3.4%; Harvey's Legal Agent 0.0%.
+- HLE reads span: vendor 16.0%, AA 17.2%, Scale CAIS 8.6%, LayerLens 8.5%, benchgap estimates 23.4% (AA-HLE) / 40.4% (HLE, low confidence) — kept as a conflict cluster, not averaged.
+- benchgap (2026-10-10, mostly estimated, low/medium confidence): GPQA 85.5%, LiveCodeBench v6 85.6%, SWE-bench Verified 71.7%, SWE-bench Pro 57.0%, BrowseComp 60.0%, CyberGym 30.2%, AA Coding Index 43.1% — flagged estimated, not adopted into scores.
+- Google has still not published SWE-bench Verified, MCP-Atlas or τ-bench for this tier (TopReviewed notes the disclosure is "half-blank"); the MCP-Atlas 57.1% above is Scale SEAL's run, not Google's.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** Function calling, structured outputs, search grounding and file search are supported and reported to work cleanly, but no agentic benchmark (Terminal-Bench, MCP-Atlas, τ-bench) score has been published for this tier.
-- **Reasoning: 63/100.** GPQA Diamond 86.9% (vendor) is strong for the tier and beats Gemini 2.5 Flash by 18.6 points, but HLE 16.0–17.2% and third-party GPQA re-measurements (81.1–82.2%) sit well below the 2026 frontier.
-- **Context window: 85/100.** Full 1M-token window is rare at this price, but Google published no recall/retrieval figure — the reliable working range within 1M is undocumented.
-- **Multimodal: 78/100.** Natively multimodal (text/image/video/audio/PDF in); MMMU Pro 76.8% and Video-MMMU 84.8% are the verified vision scores.
-- **Coding: 61/100.** LiveCodeBench 72% (aggregator) and LMArena Coding Elo 1457 are the only coding evidence; no SWE-bench score published.
-- **Cost efficiency: 95/100.** $0.25/$1.50 per 1M (Batch $0.125/$0.75, cache read $0.025) with a free tier — Google's best price-to-intelligence ratio at launch, at roughly half the cost of Gemini 3 Flash.
-- **Overall Score: 68.4/100.** Mean of the five quality dimensions, scored on Flash-Lite evidence per the identity note. Google's thin disclosure (only GPQA and MMMU-Pro at launch) makes every dimension except Context and Cost uncertain; the folder's peer average (76.8) is higher.
+- **Tool use: 58/100.** Function calling, structured outputs, search grounding and file search are supported and reported to work cleanly; Scale SEAL's MCP Atlas 57.1% and FORTRESS 51.0% are the first agentic fills, with Terminal-Bench 2.1 31.1%/34.1% (AA/Vals) and τ²-Telecom 31.3% mid-tier; AutomationBench-AA 7%, APEX-Agents 12.2%, τ³-Banking 9.7%, Analyst Agent 8.8% and TB 4.0 0.5–1% cap the score. Revised 55→58 on the MCP-Atlas/FORTRESS fills.
+- **Reasoning: 65/100.** GPQA Diamond 86.9% (vendor) is strong for the tier and beats Gemini 2.5 Flash by 18.6 points, with MMLU-Pro 86.2% (Vals), AIME 83.3% (Vals, high effort), BigBench-Hard 87.7% and MATH-500 85.6% (LayerLens) supporting; HLE 16.0–17.2%, FrontierMath T1–3 27.7% (Epoch high), CritPt 1.1%, AA-Omniscience −16.4 (17.3% non-hallucination) and the v4.3.2 Intelligence Index of 15.6 hold it below the 2026 frontier. Revised 63→65 on the AIME/MMLU-Pro/BigBench-Hard fills.
+- **Context window: 83/100.** Full 1M-token window with the recall figures now published: MRCR v2 60.1% at 128K average but only 12.3% pointwise at 1M (behind 2.5 Flash's 21.0%), and AA-LCR v1.1 74.3% — mid-band retrieval, with the 1M pointwise read capping the score below the 85+ tier. Revised 85→83 on the MRCR/AA-LCR fills (previously scored 85 with no retrieval evidence).
+- **Multimodal: 78/100.** Natively multimodal (text/image/video/audio/PDF in); MMMU Pro 76.8% (vendor) / 78% (AA, ahead of Claude Opus 4.6 max and Kimi K2.5 reasoning at launch) and Video-MMMU 84.8% are the verified vision scores, with CharXiv 73.2% supporting and the Vals Multimodal Index of 41.4% capping — stands at 78.
+- **Coding: 64/100.** LiveCodeBench 72.0% (vendor) / 80.1% (Vals — an 8-point harness gap) and SWE-bench 62.8% (Vals) are the coding fills, with SciCode 41.9–43.4%, LMArena Coding Elo 1457 and LMArena WebDev 1256 mid-tier; Code Migration 4.6%, ProgramBench 0.0% and Vibe Code Bench 0.0% hold the score down. Revised 61→64 on the LiveCodeBench (Vals)/SWE-bench (Vals) fills.
+- **Cost efficiency: 95/100.** $0.25/$1.50 per 1M (Batch $0.125/$0.75, cache read $0.025, blended $0.22/M at 7:2:1) with a free tier — Google's best price-to-intelligence ratio at launch, at roughly half the cost of Gemini 3 Flash; AA measured $0.06/task and $156 to run the Intelligence Index (the launch price was a 3× increase over 2.5 Flash-Lite, whose Index run cost $38). Stands at 95.
+- **Overall Score: 69.6/100.** Mean of the five quality dimensions (58+65+83+78+64)/5 = 69.6, scored on Flash-Lite evidence per the identity note. Revised from 68.4 on the Tool (+3), Reasoning (+2) and Coding (+3) fills, partly offset by Context (−2) now that Google's MRCR/AA-LCR retrieval reads exist; the folder's peer average (76.8) is higher.
+
+---
+
+## Update 2026-10-12 (deep second pass, 3 independent searches)
+
+**Revised: Tool 55→58, Reasoning 63→65, Context 85→83, Coding 61→64; Overall 68.4→69.6** — Multimodal 78 / Cost 95 unchanged. This pass added the full launch card, AA's launch analysis, the current v4.3.2 AA board, Scale SEAL, the Vals board, Epoch AI, LayerLens and BenchLeader:
+
+- **Launch-card fills (vs 2.5 Flash / GPT-5 mini / Claude 4.5 Haiku / Grok 4.1 Fast):** CharXiv Reasoning **73.2%**; Video-MMMU **84.8%**; SimpleQA Verified **43.3%** (strongest parametric-knowledge read in the card — 2.8× 2.5 Flash's 28.1%); FACTS Benchmark Suite **40.6%** (behind 2.5 Flash's 50.4% and Grok 4.1 Fast's 42.1% — a factuality cap); MRCR v2 128K average **60.1%**, 1M pointwise **12.3%** (behind 2.5 Flash's 21.0%); output speed **363 tok/s**; safety vs 2.5 Flash-Lite all improved (Text-to-Text −1.18%, Image-to-Text −21.7%, Unjustified-refusals −14.x%).
+- **AA launch analysis (2026-03-03):** Intelligence Index **34** at launch (v4.1.1, +12 over 2.5 Flash-Lite's 22); τ²-Telecom **31%** (matching 2.5 Flash-Lite — "limited gains in tool use"); GDPval-AA **958** (12 points behind gpt-oss-120b high); MMMU-Pro **78%** (above Claude Opus 4.6 max and Kimi K2.5 reasoning); cost to run the Index **$94** (up from 2.5 Flash-Lite's $38 — a 3× price increase); 360+ tok/s, 5.1s average answer latency.
+- (g31f2)
 
 ---
 

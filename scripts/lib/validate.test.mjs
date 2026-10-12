@@ -7,8 +7,10 @@ import {
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
+  RETIRED_ALIAS_SLUGS,
   mergedSlugMessage,
   mergedStemMessage,
+  retiredAliasMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -112,11 +114,28 @@ describe("merged duplicate slugs (never come back)", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("google-gemini-2.5-flash-lite"), "gemini-2.5-flash-lite");
   });
 
+  it("maps glm-5.1-coding to its canonical folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("glm-5.1-coding"), "glm-5.1");
+  });
+
   it("message names both slugs and the canonical research route", () => {
     const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
     assert.match(msg, /google-gemini-2\.5-flash-lite/);
     assert.match(msg, /gemini-2\.5-flash-lite/);
     assert.match(msg, /never recreate/);
+  });
+});
+
+describe("retired vendor aliases (never scaffolded)", () => {
+  it("maps grok-code-fast-1 to its canonical folder", () => {
+    assert.equal(RETIRED_ALIAS_SLUGS.get("grok-code-fast-1"), "grok-build-0.1");
+  });
+
+  it("message names both slugs and the canonical research route", () => {
+    const msg = retiredAliasMessage("grok-code-fast-1", "grok-build-0.1");
+    assert.match(msg, /grok-code-fast-1/);
+    assert.match(msg, /grok-build-0\.1/);
+    assert.match(msg, /never scaffold/);
   });
 });
 

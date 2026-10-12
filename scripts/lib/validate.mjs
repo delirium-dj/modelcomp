@@ -29,6 +29,7 @@ export const FORBIDDEN_ROOTS = ["voicemodels"];
  */
 export const MERGED_MODEL_SLUGS = new Map([
   ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
+  ["glm-5.1-coding", "glm-5.1"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -36,6 +37,29 @@ export function mergedSlugMessage(slug, canonical) {
   return (
     `model/${slug}/: this slug is a duplicate that was merged into model/${canonical}/ and deleted on user order ` +
     `— never recreate it; research/report under model/${canonical}/ instead`
+  );
+}
+
+/**
+ * Retired vendor aliases (RULES.md retired-alias identity). Each key is a
+ * slug the vendor publishes as an alias of a tracked model
+ * (`grok-code-fast-1` → `grok-build-0.1` per docs.x.ai, 2026-10-12) that must
+ * never become a folder: the canonical folder already covers it, and the
+ * trackers may still list the alias separately (BenchLM keeps a
+ * `grok-code-fast-1` entry in its own family with its own numbers — lineage
+ * data, not a second model). Unlike MERGED_MODEL_SLUGS these were never
+ * folders, so resurrection means fresh scaffolding, not restore — sync FAILs
+ * the same way and cements nothing for them.
+ */
+export const RETIRED_ALIAS_SLUGS = new Map([
+  ["grok-code-fast-1", "grok-build-0.1"],
+]);
+
+/** Exact FAIL text for a scaffolded retired-alias slug present on disk. */
+export function retiredAliasMessage(slug, canonical) {
+  return (
+    `model/${slug}/: this slug is a retired vendor alias of model/${canonical}/ — never scaffold it as a folder; ` +
+    `research/report under model/${canonical}/ instead`
   );
 }
 

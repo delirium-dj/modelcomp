@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by Mimo v2.6 Flash
 
 - Source: Meta/`llama_3.2_vision_instruct` (Llama 3.2-Vision-Instruct, 11B and 90B)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-25, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,13 @@ Long context:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-25
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-25; user-approved second pass); second-pass sources: [HF meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct) (card live, no deprecation notice, benchmark tables intact), [Meta developer portal](https://www.llama.com/docs/overview/) (portal now centers on Muse models; Llama docs relegated to community links — legacy positioning, **no formal retirement date found**), AA 404, Grokipedia 404
 - Method: fresh public internet research (Meta Llama 3.2 Vision model card on GitHub/Hugging Face, NVIDIA NIM reference cards, Cloudflare Workers AI docs, Azure AI Foundry catalog, third-party pricing trackers); scores are normalized 1–100 interpretations, not official vendor scores. Coding and tool-use dims are explicitly provisional (no measured public data).
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status:** no formal deprecation/retirement found; HF card live with full eval tables; Meta's developer portal now leads with Muse (Spark/Glimmer/Image/Voice) and treats Llama as legacy community docs.
+- **Coverage:** AA has no page (404), Grokipedia 404 — no new benchmark rows exist anywhere; the first pass's Meta-card numbers remain the record.
+- **Scores:** no dimension changed (provisional Tool 40 / Coding 48 stand as evidence-gap floors); Overall held at 52.

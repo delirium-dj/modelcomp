@@ -56,6 +56,32 @@ if [ -n "$merged_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Renamed duplicate slug (RULES.md GLM-5.1 coding-suffix identity):
+# model/glm-5.1-coding/ was renamed to model/glm-5.1/ on user order
+# (no separate "-Coding" SKU exists; meta.json ID is opencode/glm-5.1) —
+# block any staged addition under the old slug so the duplicate can never be
+# re-cemented. Research/report under model/glm-5.1/ instead.
+renamed_added="$(git diff --cached --name-only --diff-filter=A -z -- model/glm-5.1-coding | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$renamed_added" ]; then
+  echo "BLOCKED by RULES.md: model/glm-5.1-coding/ was renamed to model/glm-5.1/ — never recreate it:" >&2
+  printf '%s\n' "$renamed_added" >&2
+  echo "Write into model/glm-5.1/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
+# Retired vendor alias (RULES.md retired-alias identity):
+# grok-code-fast-1 is a vendor-published alias of model/grok-build-0.1/
+# (docs.x.ai) and must never become a folder — block any staged addition
+# under it (sync also FAILs it via RETIRED_ALIAS_SLUGS).
+# Research/report under model/grok-build-0.1/ instead.
+alias_added="$(git diff --cached --name-only --diff-filter=A -z -- model/grok-code-fast-1 | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$alias_added" ]; then
+  echo "BLOCKED by RULES.md: model/grok-code-fast-1/ is a retired vendor alias of model/grok-build-0.1/ — never scaffold it:" >&2
+  printf '%s\n' "$alias_added" >&2
+  echo "Write into model/grok-build-0.1/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Merged-and-deleted duplicate findings-file stems (RULES.md findings-stem
 # identity): Mimo_v2.6_Flash.md was folded into MiMo_2.6_Flash.md on user
 # order (same Xiaomi rater, 2026-10-09) — block any staged addition under the

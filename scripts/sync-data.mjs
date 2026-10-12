@@ -51,8 +51,10 @@ import {
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
+  RETIRED_ALIAS_SLUGS,
   mergedSlugMessage,
   mergedStemMessage,
+  retiredAliasMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -295,6 +297,21 @@ for (const slug of slugs) {
   }
 }
 
+// Retired vendor aliases (RULES.md retired-alias identity,
+// RETIRED_ALIAS_SLUGS in scripts/lib/validate.mjs): a slug the vendor lists
+// as an alias of a tracked model is never a folder — fail loudly with the
+// canonical destination instead of cementing the duplicate. Same hardening
+// as merged slugs: no meta.json scaffold, no average.md rewrite, no
+// score-index / registry input.
+const retiredAliasSlugs = new Set();
+for (const slug of slugs) {
+  const canonical = RETIRED_ALIAS_SLUGS.get(slug);
+  if (canonical !== undefined) {
+    retiredAliasSlugs.add(slug);
+    fail(retiredAliasMessage(slug, canonical));
+  }
+}
+
 const updatedAverages = [];
 // meta.json stubs still carrying sync's `scaffolded: true` stamp (GLM53F_IMP #9).
 const scaffoldStubs = [];
@@ -316,6 +333,7 @@ const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   if (mergedSlugs.has(slug)) continue; // forbidden duplicate — never a rater
+  if (retiredAliasSlugs.has(slug)) continue; // retired alias — never a rater
   try {
     const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
@@ -332,6 +350,7 @@ for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_fin
   for (const d of readdirSync(rDir)) {
     if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry
     if (MERGED_MODEL_SLUGS.has(d)) continue; // forbidden duplicate — never the catalog entry
+    if (RETIRED_ALIAS_SLUGS.has(d)) continue; // retired alias — never the catalog entry
     if (vendorPrefixViolation(d, slugs) !== null) continue; // forbidden duplicate — never the catalog entry
     const mPath = join(rDir, d, "meta.json");
     if (!existsSync(mPath)) continue;

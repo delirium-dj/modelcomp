@@ -1,20 +1,20 @@
 # Hy3 Preview — findings by Kimi K3
 
 - Source: Tencent / Hy3 Preview (`hy3-preview`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Hy3 Preview
-- **Short description:** Tencent's preview of the Hunyuan 3 line — open weights, 256K context; SWE-bench Verified 74.4% was its calling card, with weak hallucination control (73%).
-- **Provider / access:** open weights; Tencent Cloud endpoints; succeeded by Hy3 (final) and Hy4 preview.
-- **Release / knowledge:** 2026, before Hy3 final; exact date not verified.
+- **Short description:** Tencent's preview of the Hunyuan 3 line — open weights, 256K context; SWE-bench Verified 74.4% was its calling card, with weak hallucination control (73%). Succeeded by Hy3 (final) and Hy4 preview.
+- **Provider / access:** open weights HF `tencent/Hy3-preview` (link confirmed live via OpenCode Data); Tencent Cloud endpoints; OpenCode Zen route listed (~$0.17/$0.57).
+- **Release / knowledge:** Released 2026-04-20 (OpenCode Data, newly verified — first pass had "not verified"); cutoff not published.
 - **IDs:** `tencent/hy3-preview` (no Zen Free ID verified).
-- **Context window:** 256K tokens (benchlm.ai).
-- **Modalities:** text in/out (no vision rows); reasoning yes; tool calls; JSON mode per serving.
-- **Pricing (as of 2026-09-24):** open weights; hosted preview pricing unverified in my sources.
+- **Context window:** 256K tokens (OpenCode Data confirms benchlm.ai); max output **64K** (OpenCode Data — new this pass).
+- **Modalities:** text in/out (catalog confirms no vision input); reasoning yes; tool calls; JSON mode.
+- **Pricing (as of 2026-10-11):** $0.17/M input, $0.57/M output, $0.06/M cached, $0 cache write (OpenCode Data catalog — verified now); open weights → self-host free.
 - **Architecture:** open-weight MoE (Hunyuan 3 preview); params not verified here.
 
 ### Raw benchmarks found
@@ -36,32 +36,32 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified: **74.4%** (benchlm.ai)
+- SWE-bench Verified: **74.4%** (benchlm.ai; re-confirmed via the OpenCode Data trajectory)
 - SciCode: **41.2%**; AA-SciCode: **48.6%**; AA Coding Index: **58.8** (benchlm.ai)
 - LiveCodeBench / DeepSWE: no verified public score found
 
 Long context:
 
-- AA-LCR 66.7% within 256K (benchlm.ai); no MRCR/RULER rows.
+- AA-LCR 66.7% within 256K (benchlm.ai); 64K output catalog-verified; no MRCR/RULER rows.
 
 Multimodal:
 
-- No public vision rows — text-only deployment (floor).
+- No public vision rows — text-only deployment (catalog-confirmed, floor).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 62/100.** GDPval 1136, TB 2.0 54.4%; capped by thin coverage and Agentic Index 25.6%.
-- **Reasoning: 70/100.** GPQA ~87–90%, AA Index 41.2; capped by HLE 25.5%, CritPt 4.9%, 73% hallucination.
-- **Context window: 66/100.** 256K window; LCR 66.7%.
-- **Multimodal: 15/100.** Text-only — floor.
-- **Coding: 72/100.** SWE-bench Verified 74.4% solid; capped by SciCode 41.2% and Coding Index 58.8.
-- **Cost efficiency: 84/100.** Open weights; preview pricing unverified.
-- **Overall Score: 57/100.** Mean of the five quality dims (62+70+66+15+72)/5 = 57.0 → 57. Best fit: historical evaluation baseline; use Hy3 final or Hy4 preview instead.
+- **Tool use: 62/100.** Unchanged: GDPval 1136, TB 2.0 54.4%; capped by thin coverage and Agentic Index 25.6%.
+- **Reasoning: 70/100.** Unchanged: GPQA ~87–90%, AA Index 41.2; capped by HLE 25.5%, CritPt 4.9%, 73% hallucination.
+- **Context window: 66/100.** Unchanged: 256K window; LCR 66.7%.
+- **Multimodal: 15/100.** Unchanged: text-only — floor.
+- **Coding: 72/100.** Unchanged: SWE-bench Verified 74.4% solid; capped by SciCode 41.2% and Coding Index 58.8.
+- **Cost efficiency: 84/100.** Verified now: $0.17/$0.57 hosted + open weights — provisional flag removed.
+- **Overall Score: 57/100.** Mean of the five quality dims (62+70+66+15+72)/5 = 57.0 → 57 (unchanged). Best fit: historical evaluation baseline; use Hy3 final or Hy4 preview instead.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (OpenCode Data `tencent/hy3-preview` — verified release 2026-04-20, 256K/64K, pricing, open weights; benchlm.ai scorecard from first pass). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

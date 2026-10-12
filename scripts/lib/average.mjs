@@ -100,15 +100,17 @@ export function applyAverageToPrev(prev, modelName, body) {
 }
 
 /**
- * Parked (retired) slugs — user-directed (2026-10-10): `glm-5.3-free`
- * (fictional Zen route, live-verified absent from zen/v1/models). The folder
+ * Parked (retired) slugs — user-directed: `glm-5.3-free` (2026-10-10,
+ * fictional Zen route, live-verified absent from zen/v1/models) and
+ * `gemini-2.5` (2026-10-12, duplicate alias of `gemini-2.5-pro` — RULES.md
+ * family-shorthand identity). The folder
  * stays on disk and in git (permanence, RULES.md) and sync keeps averaging
  * it, but it is omitted from the research queue so agents never research it.
  * Mirror list for the site: RETIRED_SLUGS in src/data/models.ts; convention
  * documented in model/README.md ("Parking a model"). Never invent a third
  * list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

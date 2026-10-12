@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Mimo v2.6 Flash
 
 - Source: undisclosed vendor (OpenCode stealth model) / Omen Alpha
-- Date: 2026-09-26 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-26, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,9 +12,9 @@
 - **Provider / access:** OpenCode Go (`$10/month` managed plan) through an OpenAI-compatible chat-completions endpoint as `omen-alpha`; Tokenra API (listed token pricing); OpenCode Zen entry `opencode/omen-alpha`.
 - **Release / knowledge:** 2026-09-04 (added to OpenCode Go; ModelBenchmark release date). Knowledge cutoff not published.
 - **IDs:** `omen-alpha` (host `opencode-go` / Tokenra). No standalone Free ID verified — access is bundled in the paid Go subscription.
-- **Context window:** 500,000 tokens input / 128,000 max output (Pi model metadata via BuildFastWithAI; ModelBenchmark).
+- **Context window:** 500,000 tokens input / 128,000 max output (Pi model metadata via BuildFastWithAI; ModelBenchmark). **Conflict (2026-10-09):** omenalpha.io's own FAQ now says "model parameters, including the context window, are not yet publicly disclosed" — the 500K figure remains the best metadata-derived estimate, publisher-unconfirmed.
 - **Modalities:** text, image in; text out; reasoning yes (effort levels incl. High — the benchmarked config); tool calls: used inside OpenCode's agentic coding product, but no independent tool-accuracy benchmark found; JSON mode: not verified.
-- **Pricing (as of 2026-09-26):** $0.20 / 1M input, $0.66 / 1M output, $0.04 / 1M cache read (Tokenra listing; ModelBenchmark host table); typical access via OpenCode Go at $10/month (~11,600 requests / 5h, ~29,000 / week, ~57,900 / month as service estimates). Privacy: Go privacy table lists no training use and 0-day retention.
+- **Pricing (as of 2026-10-09):** $0.20 / 1M input, $0.66 / 1M output, $0.04 / 1M cache read (Tokenra listing — re-confirmed on omenalpha.io 2026-10-09); **new: Tokenra promo $0.08 / $0.26 (60% off)**; typical access via OpenCode Go at $10/month (~11,600 requests / 5h, ~29,000 / week, ~57,900 / month as service estimates). Privacy: 0-day retention, **no training on your data** (re-confirmed on omenalpha.io).
 - **Architecture:** proprietary; weights not released; vendor undisclosed (GLM-family is a community hypothesis only).
 
 ### Raw benchmarks found
@@ -52,7 +52,17 @@ Other evidence: ~180–190 tok/s sustained (community reports via BuildFastWithA
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (Xiaomi/MiMo-V2.6-Flash)** — 2026-09-26
-- Method: fresh public web research (omenalpha.io OpenCode snapshot, ModelBenchmark specs/lifecycle, BuildFastWithAI review, OpenCode data pages); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (Xiaomi/MiMo-V2.6-Flash)** — 2026-10-09 (original: 2026-09-26; user-approved second pass)
+- Method: fresh public web research (omenalpha.io OpenCode snapshot, ModelBenchmark specs/lifecycle, BuildFastWithAI review, OpenCode data pages); second pass 2026-10-09 re-checked [omenalpha.io](https://omenalpha.io/) (fresh fetch: new "2.0 successor to Ox Alpha" community claim, Tokenra 60%-off promo $0.08/$0.26, zero-retention re-confirmed, no new benchmarks) — AA page 404, model not listed on OpenRouter, Bing news search returned no relevant results; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Identity (new claim, unconfirmed):** omenalpha.io now markets Omen Alpha as "widely reported as the **2.0 successor to Ox Alpha**" — alongside the first pass's `zhipu/omen-alpha` data-path/GLM hypothesis; both remain unofficial.
+- **New:** Tokenra **60%-off promo** ($0.08/$0.26); pricing/privacy (0-day, no training) re-confirmed at official rates.
+- **Conflict:** publisher FAQ now says context window "not disclosed" vs the 500K/128K metadata figure — both kept.
+- **Coverage:** no benchmark aggregator tracks the ID (AA 404, OpenRouter absent); the OpenCode 23.14/40 snapshot remains the only measured score.
+- **Scores:** no dimension changed; Overall held at 62.
 

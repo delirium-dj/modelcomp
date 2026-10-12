@@ -235,8 +235,11 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
 }
 
 /**
- * Parked (retired) slugs — user-directed (2026-10-10): `glm-5.3-free`
- * (fictional Zen route, live-verified absent from zen/v1/models). The folder
+ * Parked (retired) slugs — user-directed: `glm-5.3-free` (2026-10-10,
+ * fictional Zen route, live-verified absent from zen/v1/models) and
+ * `gemini-2.5` (2026-10-12, duplicate alias: every cited ID resolves to
+ * `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists — RULES.md
+ * family-shorthand identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -245,7 +248,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

@@ -1,7 +1,7 @@
 # MiMo-V2.6-Distill-Qwen-9B — findings by Mimo v2.6 Flash
 
 - Source: Xiaomi MiMo (`XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-29, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,7 @@ Multimodal:
 
 - MiMo Visual Coding (mini)†: **64.0%** avg@1 (internal set; base 61.7%) — visual coding is one of the four SFT domains
 - MMMU / CharXiv / Video-MME: no verified public score found
+- Second-pass detail (HF card re-checked 2026-10-09): the chat template also renders **`input_audio` parts** and the repo pipeline is `image-text-to-text` (`AutoModelForMultimodalLM`/`AutoProcessor`, BF16 9.41B) — audio input provisionally possible at template level, but no audio benchmark or docs support it (not credited); eval rows re-confirmed unchanged: SWE-V 61.1 (HF note: "Agent harness/scaffold not disclosed"), TB2.1 37.1, Toolathlon 35.2, SWE-Pro 44.6
 
 ### Normalized scores (1–100)
 
@@ -69,6 +70,13 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-09-29
-- Method: public internet research (official Hugging Face model card for the distill and its base, OpenRouter model registry for base-model context/modality, OpenCode Zen model list); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-09-29; user-approved second pass)
+- Method: public internet research (official Hugging Face model card for the distill and its base, OpenRouter model registry for base-model context/modality, OpenCode Zen model list); second pass 2026-10-09 re-checked the [HF XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B card](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B) (evals unchanged; audio-part template branch; 9.41B BF16; harness-not-disclosed note on SWE-V) — AA has no page (404) and OpenRouter still does not list the model; scores are normalized 1–100 interpretations, not official vendor scores.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Re-confirmed unchanged:** SWE-V 61.1, SWE-Pro 44.6, TB2.1 37.1, Toolathlon 35.2, MIT license, Qwen3.5-9B base, no hosted API id anywhere.
+- **New detail:** template accepts `audio` parts (provisional — uncredited); HF SWE-V row carries an "Agent harness/scaffold not disclosed" caveat (weakened comparability).
+- **Scores:** no dimension changed; Overall held at 61.

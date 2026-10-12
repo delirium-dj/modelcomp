@@ -1,7 +1,7 @@
 # gpt-oss-120b — findings by Mimo v2.6 Flash
 
 - Source: OpenAI (`opencode/gpt-oss-120b`; upstream `openai/gpt-oss-120b`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-09-24, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,8 +25,8 @@ Agent / tool use:
 
 - Tau-Bench Retail: **67.8%** (OpenAI model card, high; low 49.4 / medium 62.0)
 - Tau-Bench Airline: **49.2%** (OpenAI model card, high; low 42.6 / medium 48.6)
-- Terminal-Bench 2.0 / 2.1: **no verified public score found** (an Artificial Analysis TB2.1 leaderboard fragment mentions `gpt-oss-120b (high)`, but no value could be unambiguously tied to this model)
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.0 / 2.1: **no verified public score found** (an Artificial Analysis TB2.1 leaderboard fragment mentions `gpt-oss-120b (high)`, but no value could be unambiguously tied to this model). **Fill 2026-10-09 (AA via OpenRouter):** **TB2.1 26.2%** — weak; TB-Hard 23.5%; **TB4.0 0.0%**; τ²-Telecom 65.8%; τ-Banking 12.8%; GDPval-AA **5.6%**; Agentic Index 3.7
+- GDPval-AA: **no verified public score found** → superseded by the AA 5.6% fill above
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 - Function calling / JSON mode: supported (OpenMark, AA provider pages)
@@ -38,15 +38,15 @@ Reasoning / knowledge:
 - AIME 2024: **95.8%** no tools / **96.6%** with tools · AIME 2025: **92.5%** no tools / **97.9%** with tools
 - MMLU: **90.0%** (o3 93.4, o4-mini 93.0) · MMMLU (multilingual avg): **81.3%**
 - HealthBench: **57.6%** · HealthBench Hard: **30.0%** · HealthBench Consensus: **89.9%** (OpenAI: near-parity with o3)
-- Artificial Analysis Intelligence Index: **no verified public score found** for this model
-- LCR / MLCR / CritPt / MATH-500: **no verified public score found**
+- Artificial Analysis Intelligence Index: **11.6 / 12** (AA high-effort page + OpenRouter AA block, v4.3.2, re-checked 2026-10-09 — **#9/65 open-weights class**, median 8; **fills the first-pass gap**). Companion rows: Coding Index **30.4**, **Math Index 93.4**, Agentic Index **3.7**, MMLU-Pro 80.8, IFBench 69.0
+- LCR / MLCR / CritPt / MATH-500: **AA-LCR 52.0%** and **CritPt 1.1%** (AA via OpenRouter, 2026-10-09 — both fill first-pass gaps); MATH-500 still no verified public score found. **Knowledge-cutoff conflict:** AA says May-2024, OpenRouter says Jun-2024, ComputePrices said ~Jan-2025 — all kept
 
 Coding:
 
 - SWE-bench Verified: **62.4%** (OpenAI model card, high, with terminal tool; low 47.9 / medium 52.6)
 - Codeforces Elo: **2463** (no tools) / **2622** (with tools) at high — OpenAI model card (low 1595/…, medium 2205)
 - Aider Polyglot: **44.4%** (OpenAI model card, high)
-- LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found** (LiveCodeBench is named in NVIDIA's test-dataset description but no value published)
+- LiveCodeBench: **87.8%** (AA via OpenRouter, 2026-10-09 — **fills the gap**; frontier-class LCB reading); SciCode: **34.0%** (AA, same pass — weak); Vibe Code Bench / DeepSWE: no verified public score found (LiveCodeBench named in NVIDIA's test-dataset description but no value published — now superseded by the AA row)
 - AlphaXiv summary of the card: "SWE-bench Verified (62%) and Codeforces (2516 Elo)" — a rounded/alternate citation of the same run
 
 Long context:
@@ -55,18 +55,27 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Tau-Bench Retail **67.8%** and Airline **49.2%** at high reasoning are strong developer-tool-use results (above the mid band and near the `Tau3 ~50%+` frontier reference), and function calling/JSON mode are broadly supported — but Terminal-Bench, GDPval, Claw-Eval and MCP-Atlas are all `no verified public score found`, so coverage gaps cap it at 70.
+- **Tool use: 66/100.** Tau-Bench Retail **67.8%** and Airline **49.2%** at high reasoning remain strong (OpenAI card), but the 2026-10-09 fills land hard on the other side: **TB2.1 26.2%**, TB-Hard 23.5%, **GDPval-AA 5.6%**, Agentic Index **3.7**, τ-bank 12.8 — measured agent coverage now exists and is weak; trimmed 70→66.
 - **Reasoning: 74/100.** AIME 2024/2025 at 95.8–97.9% and MMLU 90.0% are excellent, GPQA Diamond 80.1–80.9% sits at the top of the 60–80 mid band, and HLE 14.9–19.0% clears the mid-band's `<10%` — but it misses the 90%+ GPQA / 40%+ HLE frontier references outright, and no Intelligence Index value exists, capping it in the mid-70s.
 - **Context window: 56/100.** 128K native (131,072 served) falls in the 100K–200K tier (50–64); no long-context retrieval measurement to justify more, though 65K+ max output is a mild plus.
 - **Multimodal: 15/100.** Text-only in and out (OpenAI/NVIDIA both state text-only training and modality) → the 10–20 text-only band.
-- **Coding: 66/100.** Codeforces **2463–2622 Elo** is genuinely competitive and Aider Polyglot 44.4% is solid, but SWE-bench Verified **62.4%** sits well under today's 90%+ frontier, and LiveCodeBench/SciCode/DeepSWE/Terminal-Bench are all unverified — mid-band, capped by SWE-bench and missing suites.
-- **Cost efficiency: 97/100.** OpenRouter $0.037/$0.17 and Groq/Together $0.15/$0.60 per 1M sit at or below the methodology's `~$0.10/$0.20 ≈ 97–99` anchor; not 100 because the evaluated Zen entry is paid (standard pricing), not a $0 free tier.
-- **Overall Score: 56/100.** (70 + 74 + 56 + 15 + 66) / 5 = 56.2 → **56** — best fit: a very cheap, self-hostable reasoning/coding workhorse for math, τ-bench-style tool use and competitive programming, held back by text-only input and a 128K window.
+- **Coding: 68/100.** The 2026-10-09 fill adds **LiveCodeBench 87.8%** (AA — frontier-class) alongside Codeforces **2463–2622 Elo** and Aider Polyglot 44.4%; SWE-bench Verified **62.4%** still trails today's 90%+ frontier and SciCode 34.0 / Coding Index 30.4 / TB2.1 26.2 are weak; +2 on the LCB fill (was 66).
+- **Cost efficiency: 97/100.** OpenRouter now **$0.03/$0.15** (re-checked 2026-10-09, down from $0.037/$0.17) and Groq/Together $0.15/$0.60 per 1M sit at or below the methodology's `~$0.10/$0.20 ≈ 97–99` anchor; not 100 because the evaluated Zen entry is paid (standard pricing), not a $0 free tier.
+- **Overall Score: 56/100.** (66 + 74 + 56 + 15 + 68) / 5 = 55.8 → **56** (was 56.2 — Tool −4 and Coding +2 on the fills, Overall unchanged) — best fit: a very cheap, self-hostable reasoning/coding workhorse for math (Math Index 93.4), τ-bench retail tool use and competitive programming, held back by weak terminal-agentic scores (TB2.1 26.2, Agentic 3.7), text-only input and a 128K window.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-24
-- Method: public internet research (OpenAI gpt-oss model card arXiv:2508.10925 / deploymentsafety.openai.com, NVIDIA NIM build card, OpenAI "Introducing gpt-oss" blog, OpenMark, Langbase, OpenRouter/Groq/ComputePrices/CostPerPrompt pricing, AI Pricing Hub); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-24; user-approved second pass)
+- Method: public internet research (OpenAI gpt-oss model card arXiv:2508.10925 / deploymentsafety.openai.com, NVIDIA NIM build card, OpenAI "Introducing gpt-oss" blog, OpenMark, Langbase, OpenRouter/Groq/ComputePrices/CostPerPrompt pricing, AI Pricing Hub); second pass 2026-10-09 re-checked [AA gpt-oss-120b](https://artificialanalysis.ai/models/gpt-oss-120b) (Index 12, #9/65, 241 t/s, May-2024 cutoff) and the [OpenRouter openai/gpt-oss-120b AA block](https://openrouter.ai/openai/gpt-oss-120b) (LCB 87.8, TB2.1 26.2, Agentic 3.7, Math 93.4, CritPt 1.1, $0.03/$0.15 fills); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Gaps closed:** AA Index **11.6/12** (#9/65), Coding 30.4, **Math 93.4**, Agentic 3.7, **LiveCodeBench 87.8%**, **TB2.1 26.2%**, TB-Hard 23.5, TB4.0 0.0, GDPval-AA 5.6%, τ²-telecom 65.8, CritPt 1.1, LCR 52.0, MMLU-Pro 80.8.
+- **Conflicts kept:** cutoff Jan-2025 (ComputePrices) vs May/Jun-2024 (AA/OpenRouter); GPQA 80.1 (card) vs 78.2 (AA); HLE 14.9–19.0 (card) vs 19.6 (AA).
+- **New:** OpenRouter price dropped to **$0.03/$0.15**; 19 API providers; 241 t/s (#4/65).
+- **Scores:** Tool 70→66, Coding 66→68; **Overall 56 held**.

@@ -62,7 +62,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
-4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
+4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
 ```
 
 ---
@@ -126,6 +126,28 @@ After that, check existence only for the folder you are currently writing (one c
        route* is fine to cite inside a report — it just never becomes a
         folder. A vendor-prefixed folder on disk is skipped entirely and
         surfaced, never queued or written (same as hyphen variants).
+       **Family-shorthand check:** a bare family/base name with no distinct
+       vendor ID is not a new model — when every cited ID, spec, and price
+       resolves to an existing suffixed folder, write into that canonical
+       folder (e.g. bare `Gemini 2.5`, IDs `google/gemini-2.5-pro` →
+       `model/gemini-2.5-pro/`, never a new `model/gemini-2.5/` folder;
+       `RULES.md` family-shorthand identity). A parked alias folder on disk
+       is skipped entirely and surfaced, never queued or written.
+       **Coding-suffix check:** a `Coding` label reflecting positioning or a
+       subscription plan is not a model — verify a distinct vendor route
+       exists (vendor docs, gateway listing, weights repo) before scaffolding
+       a `-coding` folder (`glm-5.1-coding` was a label for plain `glm-5.1`,
+       renamed 2026-10-12; `glm-5.2-coding` is a real SKU — decide per vendor
+       IDs, never by analogy; `RULES.md` coding-suffix identity). A
+       merged/renamed `-coding` slug on disk is skipped entirely and surfaced,
+       never queued or written.
+       **Retired-alias check:** a slug the vendor lists as an alias of a
+       tracked model is never a folder — check `RETIRED_ALIAS_SLUGS` in
+       `scripts/lib/validate.mjs` (e.g. `grok-code-fast-1` → write into
+       `model/grok-build-0.1/`, never scaffold `model/grok-code-fast-1/`;
+       `RULES.md` retired-alias identity). Figures measured under the retired
+       slug are lineage data: cite them only labelled with the ID actually
+       measured, never silently merged into the canonical model's scores.
       **Display-name check (GPT):** when the discovered model is an OpenAI GPT
       model, its `meta.json` `name` and your report's Model-card `Name:` use the
       hyphenated vendor style (`GPT-5.6 Terra`, `GPT-OSS 120B` — never

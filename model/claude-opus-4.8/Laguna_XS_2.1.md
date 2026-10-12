@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by Laguna XS 2.1
 
 - Source: Anthropic (`claude-opus-4-8`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
-- Method: public internet research (Anthropic launch post + platform docs + pricing + system card, benchr review, OpenAI GPT-5.6 launch table); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
+- Method: public internet research (Anthropic platform docs, GDPval-AA 1890 Elo, Terminal-Bench 78.9%, OSWorld 83.4%, OpenAI GPT-5.6 table); scores normalized 1–100 interpretations. Legacy since Opus 5.5 (2026-09-22).
