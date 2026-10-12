@@ -1,7 +1,7 @@
 # Ling 3.1 Flash — findings by Kimi K3
 
 - Source: InclusionAI / Ant Group (`inclusionai/ling-3.1-flash`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,9 +10,9 @@
 - **Name:** Ling 3.1 Flash (Free preview on OpenCode Zen)
 - **Short description:** InclusionAI/Ant Ling team's latest flash-tier reasoning model, successor to Ling 3.0 Flash (benchlm.ai places it in family "Ling 3.1"). Shipping as a $0 Zen Free tier for agentic/coding use.
 - **Provider / access:** OpenCode Zen, `opencode/ling-3.1-flash-free` (`https://opencode.ai/zen/v1/chat/completions`). Official model card per benchlm.ai: Vercel AI Gateway listing (`vercel.com/ai-gateway/models/ling-3.1-flash`). No Hugging Face release found (hf.co/inclusionAI/Ling-3.1-flash is gated/401).
-- **Release / knowledge:** launch screenshots published by Ant Ling (x.com/AntLingAGI) on 2026-09-30 (per benchlm.ai source attribution). Knowledge cutoff not disclosed.
+- **Release / knowledge:** Listed 2026-09-29 per the OpenCode Data catalog (first pass had launch screenshots dated 2026-09-30 — one-day listing discrepancy, catalog governs). Knowledge cutoff not disclosed.
 - **IDs:** `ling-3.1-flash-free` (Zen, $0); base `inclusionai/ling-3.1-flash` (models.dev `base_model` field). No paid Zen ID; no OpenRouter listing found.
-- **Context window:** 262K total (benchlm.ai model details); max output not published.
+- **Context window:** 262K total (benchlm.ai; OpenCode Data confirms); max output **33K** (OpenCode Data — previously unpublished).
 - **Modalities:** Text in/out only per Zen listing metadata; reasoning toggle on (`reasoning.enabled` true/false per models.dev toml); structured output not supported on the Zen route.
 - **Pricing (as of 2026-10-02):** $0 input / $0 output / $0 cached (Zen Free tier, models.dev + Zen models endpoint). Free tier caveat: "limited time, feedback collection" pattern standard for Zen free models.
 - **Architecture:** Proprietary (no weights released as of research date); params not disclosed.
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-02
-- Method: public internet research (opencode.ai/zen/v1/models, models.dev `ling-3.1-flash-free.toml`, benchlm.ai model page with its cited Ant Ling launch source, huggingface.co/inclusionAI, modelscope.cn); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (opencode.ai/zen/v1/models, models.dev toml, benchlm.ai model page with its cited Ant Ling launch source, huggingface.co/inclusionAI, modelscope.cn; **second pass**: OpenCode Data `inclusionai/ling-3-1-flash` — verified $0 pricing, 33K max output, text-only input, live usage at #22). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

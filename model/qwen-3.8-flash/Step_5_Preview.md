@@ -1,7 +1,7 @@
 # Qwen3.8-Flash — findings by Step 5 Preview
 
 - Source: Alibaba (`qwen3.8-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,18 +27,18 @@ Agent / tool use:
 - JobBench: **55.7%** (vendor — above GPT-5.6 Sol's 45.4 on the same table)
 - AndroidWorld: **84.5%** (vendor, mobile computer-use)
 - Agents' Last Exam: **24.3 pass@1 / 51.2 score** (vendor)
-- GDPval-AA: **Elo 1743** (AskClash aggregate)
+- **GDPval-AA: Elo 1743** (BenchmarkList index, #10/352, 97th pct — AskClash aggregate); **Tau3-Banking 45.4% (#10/176)**; AA-Briefcase Elo 1583 (#10/145)
 - Claw-Eval (multimodal): **64.4** (HF card eval-results link)
 - Tau3-Banking / OSWorld: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.3%** (Artificial Analysis independent; vendor card 91.7%)
-- HLE: **38.0% no tools** (Artificial Analysis independent, supersedes the vendor's 35.9% GPT-4o-judged run)
+- GPQA Diamond: **92.3%** (Artificial Analysis independent — #19/468, 96th pct; vendor card 91.7%)
+- HLE: **38.0% no tools** (Artificial Analysis independent — #48/478, 90th pct; supersedes the vendor's 35.9% GPT-4o-judged run)
 - LiveCodeBench v6: **91.9%** (vendor, #3/50)
 - IFBench: **81.3%** (vendor, #9/170 percentile)
 - LiveBench overall: **76.2** (independent, 2026-08-28)
-- Artificial Analysis Intelligence Index: **no published index value found** (AA's component evals are listed above); LLMBoard composite 80.6 (22 families, 40% coverage)
+- **Artificial Analysis Intelligence Index: 39.8** (#56/427, 87th pct — BenchmarkList 2026-10-07; previously no published value); ERQA 72.3% (#3/20, field lead)
 
 Coding:
 
@@ -54,13 +54,13 @@ Multimodal:
 
 Long context:
 
-- 1M-token production window; AA-LCR / MRCR / RULER: **no verified public score found**; LVBench 76.6% (long-video understanding) is the only long-input measure
+- 1M-token production window; **AA-LCR: 79.7%** (#49/408, 88th pct — independent, BenchmarkList 2026-10-07; K3 leads at 88.7%; previously no verified score); **no MRCR/RULER**; LVBench 76.6% (long-video understanding) is the only other long-input measure
 
 ### Normalized scores (1–100)
 
 - **Tool use: 82/100.** Independent AA Terminal-Bench 2.1 86.1%, AndroidWorld 84.5%, Toolathlon 73.5% and GDPval-AA Elo 1743 place it solidly mid-frontier; capped by Agents' Last Exam 24.3 pass@1, Claw-Eval-MM 64.4, and Toolathlon/CoWorkBench/JobBench all resting on Alibaba's own harnesses.
 - **Reasoning: 82/100.** GPQA 92.3% and HLE 38.0% are both independently measured by Artificial Analysis, with LiveCodeBench 91.9% and IFBench 81.3% backing breadth and LiveBench 76.2 overall; capped by HLE sitting ~15 points behind the Fable-5/GPT-6.1 tier and no CritPt/ARC-AGI numbers.
-- **Context window: 92/100.** 1M-token production window (262K native on the open checkpoint, YaRN to 1M) with 131K output is the ≥1M tier, and the QSA attention kernel's 7.6x prefill speedup at 1M is real engineering evidence; the 100 tier's ≥98%-retrieval bar is unverifiable — no MRCR/RULER/AA-LCR published.
+- **Context window: 92/100.** 1M-token production window (262K native on the open checkpoint, YaRN to 1M) with 131K output is the ≥1M tier, and the QSA attention kernel's 7.6x prefill speedup at 1M is real engineering evidence; independent AA-LCR 79.7% (#49/408) supports it, but the 100 tier's ≥98%-retrieval bar is unverifiable — no MRCR/RULER published.
 - **Multimodal: 84/100.** Native text + image + video in → text out is the 75–90 band, anchored by MathVision 95.7%, CharXiv 90.6% and MMMU-Pro 79.8%; no audio input or non-text output keeps it below 90.
 - **Coding: 84/100.** SWE-bench Pro 62.5%, DeepSWE 58.7%, SWE-bench Multilingual 81.0% and AA-verified Terminal-Bench 86.1% are frontier-adjacent at 6B active parameters — surpassing Opus 4.6 Max's 53.4% on SWE-Pro in Alibaba's table; capped by DeepSWE's 15-point gap to the Opus-5.5 lead, NL2Repo 48.1%, and no vendor SWE-bench Verified.
 - **Cost efficiency: 94/100.** $0.15/$0.47 per MTok with $0.016 cache reads sits just above the methodology's ~$0.10/$0.20 = 97–99 tier; the cheapest 1M-context omni-modal model here after MiMo-V2.6-Flash, with 50%-off batch and 8.6x prefill throughput at high cache-hit rates.
@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (QwenCloud docs + Qwen3.8-Flash-Next HF model card/blog + Alibaba Cloud Model Studio pricing, Artificial Analysis via The Model Gap, BenchmarkList, AskClash, llmboard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (31 primary-source results, updated 2026-10-07 — NEW independent AA Intelligence Index 39.8 #56/427 [was previously unpublished], NEW AA-LCR 79.7% #49/408 [was previously unverified], RealWorldQA 88.5% #1/31, ERQA 72.3% #3/20, GPQA 92.3% #19/468, HLE 38.0% #48/478, GDPval-AA Elo 1743 #10/352, TB2.1 86.1% #17/194, SWE-bench Pro 62.5% #20/58) — the two gap-fills (AA index 39.8, AA-LCR 79.7%) confirm the existing Reasoning 82 / Context 92 reads without moving them; no score change warranted. Prior pass (2026-10-09) used QwenCloud docs + Qwen3.8-Flash-Next HF model card/blog + Alibaba Cloud Model Studio pricing, Artificial Analysis via The Model Gap, BenchmarkList, AskClash, llmboard.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

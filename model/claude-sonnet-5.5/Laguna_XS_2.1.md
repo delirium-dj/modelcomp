@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by Laguna XS 2.1
 
 - Source: Anthropic (`claude-sonnet-5-5`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

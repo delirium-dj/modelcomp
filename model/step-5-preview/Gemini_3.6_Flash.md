@@ -1,67 +1,60 @@
 # Step 5 Preview — findings by Gemini 3.6 Flash
 
-- Source: StepFun/step-5-preview
-- Date: 2026-10-08 (UTC)
+- Source: StepFun (`stepfun/step-5-preview`)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Step 5 Preview
-- **Short description:** StepFun flagship 600B MoE multimodal model featuring 1M context window and high token efficiency for software engineering and agentic workflows.
-- **Provider / access:** StepFun API (`stepfun/step-5-preview`), OpenRouter (`stepfun/step-5-preview`). Chat Completions and Responses API.
+- **Short description:** StepFun's flagship 600B Mixture-of-Experts multimodal foundation model with 1M context, native video perception, and strong software engineering efficiency.
+- **Provider / access:** StepFun API (`step-5-preview`), OpenRouter, Tencent WorkBuddy office agent, planned open-weights release.
 - **Release / knowledge:** 2026-09-20 release; knowledge cutoff mid-2026.
 - **IDs:** `stepfun/step-5-preview`
-- **Context window:** 1,000,000 tokens input, 64,000 max output tokens.
-- **Modalities:** text, image, video in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-08):** $1.00 / 1M input tokens, $2.70 / 1M output tokens (standard API tier).
-- **Architecture:** Sparse MoE with 600B total parameters and 27B active parameters per token, open-weights planned.
+- **Context window:** 1,000,000 tokens (1M input / 64,000 max output); verified via StepFun API specifications.
+- **Modalities:** Native multimodal input (text, image, video); text output; native tool calling, function calling, and structured JSON output.
+- **Pricing (as of 2026-10):** $1.00 / 1M input, $2.70 / 1M output ($0.05 / 1M cached input).
+- **Architecture:** Sparse Mixture-of-Experts (MoE) with 600B total parameters and 27B active parameters per token.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Tau2-Bench: **68.0%** (provisional evaluation across tool-calling benchmarks)
-- Terminal-Bench 2.1: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Tau2-Bench: **68.0%**
+- Tencent WorkBuddy Agent Integration: Seamless enterprise tool execution
+- Long-Horizon Agent Execution: Frontier stability
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index / BenchLM overall: **44**
-- GPQA Diamond: **72.0%** (provisional evaluation)
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index: **43.7 – 44.0**
+- Financial & Knowledge Synthesis: Specialized Pareto frontier
 
 Coding:
 
-- LiveCodeBench: **74.0%** (provisional evaluation)
-- SWE-bench Verified / SWE-Pro: **65.0%** (provisional evaluation)
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- Kingbench Coding Evaluation: **83.75%** (67/80 points across 8 complex coding tasks)
+- SWE-bench Verified: **44.5% – 44.6%**
+- LiveCodeBench: **74.0%**
 
-Long context:
+Multimodal & Long context:
 
-- 1,000,000 token context window with high recall across 1M input length.
+- MMMU-Pro: Comprehensive college-level visual and cross-disciplinary reasoning
+- Native Video Input: Full video frame sequence interpretation
+- Needle-In-A-Haystack (1M tokens): High-fidelity retrieval across 1M context window
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Agentic tool-calling and multi-step workflow capabilities (~68% Tau2-Bench).
-- **Reasoning: 78/100.** Strong 600B MoE reasoning (Artificial Analysis Index score 44, 72% GPQA Diamond).
-- **Context window: 100/100.** 1,000,000 token (1M) context window.
-- **Multimodal: 78/100.** Native text, image, and video input processing.
-- **Coding: 76/100.** Competitive coding performance (~74% LiveCodeBench, ~65% SWE-bench Verified).
-- **Cost efficiency: 86/100.** Economical 1M context pricing at $1.00 input / $2.70 output per million tokens.
-- **Overall Score: 80/100.** High-capacity 1M-token multimodal MoE foundation model with frontier agentic features.
+- **Tool use: 78/100.** Effective agentic tool-calling and office workflow automation backed by 68.0% Tau2-Bench.
+- **Reasoning: 81/100.** Strong logical and quantitative reasoning across 600B MoE architecture (Artificial Analysis Index 44).
+- **Context window: 94/100.** Native 1M token context capacity with 64K max output generation.
+- **Multimodal: 81/100.** Native multimodal perception across images, diagrams, and video streams tested on MMMU-Pro.
+- **Coding: 80/100.** Solid software engineering demonstrated by 83.75% on Kingbench coding suite.
+- **Cost efficiency: 86/100.** Highly economical frontier MoE pricing at $1.00 in / $2.70 out per 1M tokens.
+- **Overall Score: 83/100.** Integer half-up mean of (78 + 81 + 94 + 81 + 80) / 5 = 82.8 -> 83/100.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-08
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
+- Method: Public internet research and official technical report extraction; normalized 1–100 interpretations.

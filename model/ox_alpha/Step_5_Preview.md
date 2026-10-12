@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Step 5 Preview
 
 - Source: Z.ai (`glm-5.3-flash` — stealth preview alias `ox-alpha`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,21 +23,21 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%** (Z.ai / AA; Opus 4.8 85.0, GPT-5.6 Terra 87.4); Vals Terminus-2: **62.9%** (large harness spread)
-- Terminal-Bench 4.0: **32.8%** (AA)
-- Toolathlon-Verified: **78.4%** (vendor)
-- AutomationBench v1.0.6: **48.8%** (vendor; GLM-5.2 26.2)
-- Agents' Last Exam: **26.3%** (vendor)
-- GDPval-AA v2: **Elo 1773** (vendor) / **57.3%** (AA) — above Opus 4.8's 1582 on the vendor table
-- OSWorld 2.0: **59.1%** (vendor, computer use)
+- Terminal-Bench 2.1: **84.3%** (Z.ai / AA — #24/194, 88th pct; Opus 4.8 85.0, GPT-5.6 Terra 87.4); Vals Terminus-2: **62.9%** (large harness spread)
+- Terminal-Bench 4.0: **32.8%** (AA — #15/29, 50th pct)
+- Toolathlon-Verified: **78.4%** (vendor — #4/41, 93rd pct)
+- AutomationBench v1.0.6: **48.8%** (vendor — #8/48, 85th pct; GLM-5.2 26.2); AutomationBench-AA: 60.4% (#11/26)
+- Agents' Last Exam: **26.3%** (vendor — #21/41, 50th pct)
+- GDPval-AA v2: **Elo 1773** (vendor — #5/352, 99th pct, BenchmarkList 2026-10-07) / **57.3%** (AA) — above Opus 4.8's 1582 on the vendor table; **Tau3-Banking 47.2% (#7/176)**
+- OSWorld 2.0: **59.1%** (vendor, computer use); OSWorld-Verified 62.3% (#35/70, 51st pct)
 - OfficeQA Pro: **62.4%** (vendor); Claw-Eval / ClawProBench: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.2%** (AA); 86.4% (Vals); 90.2% (aggregate)
-- HLE: **39.9%** (AA); **55.3% with tools** (vendor, GPT-5.6-Luna-judged)
-- Artificial Analysis Intelligence Index: **57** (v4.1.1 at launch, $0.045/task discounted); **41.8** on the current rebased v4.3.2
-- AA-LCR: **80.0%** (AA); CritPt: **15.4%** (AA); SciCode: **51.6%** (AA)
+- GPQA Diamond: **91.2%** (AA — #26/468, 95th pct); 86.4% (Vals); 90.2% (aggregate)
+- HLE: **39.9%** (AA — #39/478, 92nd pct); **55.3% with tools** (vendor, GPT-5.6-Luna-judged — #11/29)
+- Artificial Analysis Intelligence Index: **41.8** (current rebased v4.3.2 — #43/427, 90th pct); 57 on the v4.1.1 launch scale
+- AA-LCR: **80.0%** (AA — #42/408, 90th pct); CritPt: **15.4%** (AA); SciCode: **51.6%** (AA); Finance Agent v2 59.3% (#7/50)
 - MMLU-Pro: **86.1%** (Vals); base-model row: MMLU 88.1, LiveCodeBench-Base 37.6
 
 Coding:
@@ -50,11 +50,11 @@ Coding:
 
 Multimodal:
 
-- MMMU-Pro: **86.0%** (Vals); MVbench 77.8%; MMVU 80.5%; BabyVision 53.4%; CharXiv Reasoning w/ tools 89.4%; Chartography w/ tools 78.0%; Vision2Web 77.8%
+- MMMU-Pro: **86.0%** (Vals); MVbench 77.8%; **MMVU 80.5% (#2/46, 98th pct)**; BabyVision 53.4%; CharXiv Reasoning w/ tools **89.4% (#3/35, 94th pct)**; Chartography w/ tools 78.0%; Vision2Web 77.8%
 
 Long context:
 
-- 1M-token window; AA-LCR 80.0% (AA) is the only published long-context measure; **no MRCR/RULER**
+- 1M-token window; AA-LCR 80.0% (AA, #42/408) is the strongest published long-context measure; **no standalone MRCR/RULER**, but the independent GDM-MRCRv2 Context Arena (BenchmarkList 2026-10-07) shows AUC 128K ~69–75% dropping to AUC 1M **~36%** — top-of-window retrieval degrades sharply
 
 ### Normalized scores (1–100)
 
@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenRouter stealth listing + de-cloaking notice, Z.ai GLM-5.3-Flash launch blog/docs, Artificial Analysis, Vals AI, Zentor/AI Catchup reveal coverage, community fingerprinting write-ups); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (50 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1773 #5/352, Tau3-Banking 47.2% #7/176, Toolathlon 78.4% #4/41, HLE w/tools 55.3% #11/29, MMVU 80.5% #2/46, CharXiv-R 89.4% #3/35, AA Intelligence Index 41.8 #43/427, AA-LCR 80.0% #42/408, GDM-MRCRv2 Context Arena AUC 128K ~72% → 1M ~36%) — confirms the existing Tool use 80 / Reasoning 79 / Multimodal 82 reads; the GDM-MRCRv2 1M-retrieval drop (AUC ~36%) confirms Context stays at 93 (not 100). No score change warranted. Prior pass (2026-10-09) used OpenRouter stealth listing + de-cloaking notice, Z.ai GLM-5.3-Flash launch blog/docs, Artificial Analysis, Vals AI, Zentor/AI Catchup reveal coverage, community fingerprinting write-ups.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

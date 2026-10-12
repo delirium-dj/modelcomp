@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,7 @@ Agent / tool use:
 - OSWorld 2.0 offline set: **71.4%** (vendor, max — within 2.1 pts of Astra's 73.5% at ~1/7 the cost/task)
 - Terminal-Bench-Science 0.1: **57.0%** (vendor, max — #5/10; Astra leads at 68.1%)
 - Terminal-Bench leaderboard: **58.2%** (#17); APEX-Agents: **60.0%** (#12)
+- BrowseComp: **95.4% ±3.1%** (independent, #1 of 60, 100th pct — BenchmarkList/verified 2026-10-07); RuneBench 6.9 (#2/61)
 - DeepSWE v1.1: **75.2%** (vendor, high effort — beats GPT-6 Sol's best 68.8% at max, at ~76% lower cost/task)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Cost per task: **$0.72** (AA, max) down to **$0.13** (low); output speed 54–55 tok/s (faster than Astra's 45)
@@ -42,6 +43,7 @@ Reasoning / knowledge:
 - SimpleQA Verified: **73.9%** (#2, Epoch); ProofBench: **99.0%** (#4, Vals)
 - FrontierMath Tiers 1–3: **93.7%** (#1); Tier 4: **100.0%** (#1); OTIS Mock AIME: **100.0%** (#1) (Epoch, max)
 - LiveBench overall: **81.6%** (max, #6); reasoning 92.6% (#2); data analysis 82.7% (#2); mathematics 96.8% (#3)
+- AIIQ Composite IQ: **141** (independent, #3/147, 99th pct — BenchmarkList 2026-10-07); AA-LCR: **84.0%** (#10/408, 98th pct)
 - Factuality: vendor reports factual-error share on difficult chats falling 11.4% → 7.7% at low effort (~32% relative reduction)
 
 Coding:
@@ -75,6 +77,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI model/pricing docs + DevDay announcement + Deployment Safety Hub system card, Artificial Analysis releases/article, BenchLeader, BenchmarkList, BenchLM, Model Pareto, ArtificialWatch, developer-community analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (22 primary-source results, updated 2026-10-07 — independent BrowseComp 95.4% #1/60, RuneBench 6.9 #2/61, AA-LCR 84.0% #10/408, AIIQ IQ 141 #3/147, AutomationBench-AA 66.6% #7/26, DeepSWE 75.2% #3/52, MMMU-Pro 86.0% #4/72, HLE 52.9% #12/478, AA Intelligence Index 51.8 #18/427) — confirms the existing Tool use 88 / Reasoning 92 / Context 93 / Coding 90 reads; the independent BrowseComp field-lead and AA-LCR 84% reinforce rather than move the scores. Prior pass (2026-10-09) used OpenAI model/pricing docs + DevDay announcement + Deployment Safety Hub system card, Artificial Analysis releases/article, BenchLeader, BenchLM, Model Pareto, ArtificialWatch, developer-community analysis.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

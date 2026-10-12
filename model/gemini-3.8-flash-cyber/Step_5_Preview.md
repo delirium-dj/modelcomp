@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by Step 5 Preview
 
 - Source: Google (`gemini-3.8-flash-cyber` — Fairwind Program)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,8 +21,8 @@
 
 Cybersecurity (Google launch post + Kingy's harness analysis):
 
-- CyberGym (autonomous vulnerability discovery, final-submission): **86.2% pass@1** — vs GPT-5.5-Cyber 85.6%, Claude Mythos 5 83.8%, GPT-5.6 Sol 83.6%, Gemini 3.5 Flash Cyber 77.5% (cross-harness, owner-run comparisons)
-- CWE-Bench v0 (held-out audit-and-patch, 100 tasks / 54 CWEs / 6 languages): **47.2% pass@1 at $3.64 mean cost per rollout** — vs Claude Fable 5 47.8% at $10.27, GPT-5.6 Sol 44.2% at $2.29, Gemini 3.7 Flash 44.0% at $1.43, Claude Opus 4.8 42.0% at $2.43
+- CyberGym (autonomous vulnerability discovery, final-submission): **86.2% pass@1** (#8/43 on the aggregate CyberGym leaderboard — BenchmarkList 2026-10-07) — vs GPT-5.5-Cyber 85.6%, Claude Mythos 5 83.8%, GPT-5.6 Sol 83.6%, Gemini 3.5 Flash Cyber 77.5% (cross-harness, owner-run comparisons)
+- CWE-Bench v0 (held-out audit-and-patch, 100 tasks / 54 CWEs / 6 languages): **47.2% pass@1 at $3.64 mean cost per rollout** (#2/14 — BenchmarkList 2026-10-07) — vs Claude Fable 5 47.8% at $10.27, GPT-5.6 Sol 44.2% at $2.29, Gemini 3.7 Flash 44.0% at $1.43, Claude Opus 4.8 42.0% at $2.43
 - Google private 20-language vulnerability set (1,200+ confirmed historical vulns): **71.0% recall** — vs Gemini 3.7 Flash 58.9%, Gemini 3.5 Flash Cyber 46.6% (least reproducible headline)
 - Gray Swan indirect prompt injection: **6.0% ASR@15** (general 3.8 Flash 5.5%, Claude Opus 5 4.8% — lower is better)
 - Chrome Security team: **2.6x more correct patches** than the best much-larger commercial models (comparison models/counts undisclosed); Wiz: **+7.5–9.7% recall** at 2.3–5.2x lower cost on internal pentest; Google Cloud VR: critical foundational vulnerability found in **<2 hours**
@@ -55,6 +55,6 @@ Shared-core evidence (base Gemini 3.8 Flash model card, September 2026 — the C
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Google DeepMind Gemini 3.8 Flash model card + eval methodology + launch blog, Fairwind/cyber pages, Kingy and HokAI benchmark analyses, Ridge, Vector Wire); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (3 primary-source results, updated 2026-10-07 — CWE-Bench 47.2% #2/14, CyberGym 86.2% #8/43, Gray Swan IPI 6.0% #6/19). One nuance corrected: the launch-post CyberGym "field lead" is vs named competitor cross-harness runs; on the aggregate CyberGym leaderboard it ranks #8/43 — consistent with the existing Tool use 82 cap (CWE-Bench still 0.6 pts behind Fable 5). No score change warranted — the cyber fine-tune shares the base 3.8 Flash core, whose independent figures were verified in the gemini-3.8-flash report. Prior pass (2026-10-09) used Google DeepMind Gemini 3.8 Flash model card + eval methodology + launch blog, Fairwind/cyber pages, Kingy and HokAI benchmark analyses, Ridge, Vector Wire.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

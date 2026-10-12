@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-opus-4-6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,7 +26,7 @@ Agent / tool use:
 - MCP-Atlas: **59.5%** (system card)
 - OSWorld-Verified: **72.7%** (system card)
 - GDPval-AA: **Elo 1606** (system card — +144 over GPT-5.2's 1462, +190 over Opus 4.5's 1416)
-- BrowseComp: **84.0%** (system card; 86.8% with a multi-agent harness)
+- BrowseComp: **84.0%** (system card; 86.8% with a multi-agent harness); independent RankLLMs run 83.7%
 - Claw-Eval: **70.4%** (Claw-Eval leaderboard via BenchLM)
 - CyberGym: **66.6%** (leaderboard); DeepSearchQA **73.7%** (Meta comparison chart); ResearchClawBench 19.9%; JobBench 36.7%; ApprenticeBench 5%
 - Finance Agent: **60.7%**; OpenRCA 34.9%
@@ -44,13 +44,13 @@ Coding:
 - SWE-bench Verified: **80.8%** (80.84% avg over 25 trials, max effort; 81.42% with a prompt modification; Arcee's table lists 75.6%)
 - SWE-bench Multilingual: **77.8%**
 - SWE-bench Pro: **53.4%** (Meta Muse Spark comparison chart)
-- LiveCodeBench Pro: **70.7%**; SWE-Rebench 65.3%; React Native Evals 84.1%
+- LiveCodeBench Pro: **70.7%**; **LiveCodeBench 88.8%** (independent, RankLLMs); SWE-Rebench 65.3%; React Native Evals 84.1%
 - Vibe Code Bench v1.1: **57.57%** (Vals AI); FrontierCode 1.1 Main: **26.9%** (Cognition)
 - LMArena Arena Elo: text 1504, code 1543 (release-time)
 
 Long context:
 
-- MRCR v2 8-needle: **93.0% at 256K / 78.3% at 1M** (Anthropic; highest published frontier figure at 1M at the time — Sonnet 4.5 was 18.5%)
+- MRCR v2 8-needle: **93.0% at 256K / 78.3% at 1M** (Anthropic; highest published frontier figure at 1M at the time — Sonnet 4.5 was 18.5%); independent RankLLMs reports **MRCR 1M 92.9%** and CorpusQA 1M 71.7% (its #1 long-context standing)
 - GraphWalks BFS 1M (F1): **41.2** (64k) / 38.7 (max)
 
 Multimodal:
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic Opus 4.6 launch post, model page, pricing page, system card PDF, 1M-context GA blog, BenchLM, Traictory, AI Release Tracker, DataCamp, DigitalApplied); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent verified runs — SWE-bench Verified 80.8%, LiveCodeBench 88.8%, BrowseComp 83.7%, Terminal-Bench 2.1 65.4%, GDPVal-AA Elo 1619, MRCR 1M 92.9%/CorpusQA 1M 71.7% = its #1 long-context standing, HLE w/ tools 53.1%, GPQA Diamond 91.3%, composite 54.0) — confirms the existing Context 95 (best-in-class 1M retrieval), Coding 80 and Reasoning 87 reads; the independent figures align with the Anthropic system card. No score change warranted — it remains a February-generation model superseded by Opus 4.8/5 on the current agentic suites. Prior pass (2026-10-09) used Anthropic Opus 4.6 launch post, model page, pricing page, system card PDF, 1M-context GA blog, BenchLM, Traictory, AI Release Tracker, DataCamp, DigitalApplied.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

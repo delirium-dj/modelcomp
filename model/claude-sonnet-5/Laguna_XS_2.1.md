@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by Laguna XS 2.1
 
 - Source: Anthropic (`claude-sonnet-5`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-11 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-04
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
 - Method: public internet research (Anthropic launch post + Sonnet 5 system card + platform docs, Vellum, apidog, AI Catchup, Sonnet 5.5 launch table, Google 3.7 Flash model card); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

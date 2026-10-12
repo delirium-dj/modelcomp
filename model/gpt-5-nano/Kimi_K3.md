@@ -1,7 +1,7 @@
 # GPT-5 nano — findings by Kimi K3
 
 - Source: OpenAI (`gpt-5-nano`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-5 nano
 - **Short description:** OpenAI's smallest, cheapest GPT-5 API tier — a reasoning model for high-volume, latency-sensitive tasks. Released alongside `gpt-5` and `gpt-5-mini`; the API GPT-5 line is the reasoning model that powers maximum performance in ChatGPT.
 - **Provider / access:** OpenAI API (Responses API and Chat Completions API), default-sizing option in Codex CLI family; also via Microsoft Azure AI Foundry. Model slug `gpt-5-nano`.
-- **Release / knowledge:** Released 2025-08-07 (official developer announcement).
+- **Release / knowledge:** Released 2025-08-07 (official developer announcement; OpenCode Data confirms, catalog cutoff 2024-05-30 newly visible).
 - **IDs:** `openai/gpt-5-nano` (Responses + Chat Completions). No Free ID exists on OpenCode Zen.
 - **Context window:** 272K input tokens, up to 128K combined reasoning+output tokens, 400K total context (official developer post).
 - **Modalities:** Text + image in (video understanding benchmarked via VideoMMMU frame sampling); text out. Reasoning model with `reasoning_effort` (minimal/low/medium/high), `verbosity` parameter, custom plaintext tools (regex/CFG-constrained), parallel tool calling, Structured Outputs.
-- **Pricing (as of 2026-10-01):** $0.05 / $0.40 per MTok (input/output, official developer post); prompt caching and Batch API discounts apply. Paid — no free tier.
+- **Pricing (as of 2026-10-11):** $0.05 / $0.40 per MTok (input/output, official developer post; OpenCode Data verifies today incl. $0.005 cached input). Paid — no free tier; live in the catalog (~#46 weekly tokens).
 - **Architecture:** Proprietary; parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -67,6 +67,6 @@ Multimodal (raw): MMMU **75.6%**, MMMU-Pro **62.6%**, CharXiv reasoning (python)
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-01
-- Method: public internet research (OpenAI "Introducing GPT-5 for developers", 2025-08-07, incl. official detailed benchmark tables); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (OpenAI "Introducing GPT-5 for developers", 2025-08-07, incl. official detailed benchmark tables; **second pass**: OpenCode Data `openai/gpt-5-nano` — verified release 2025-08-07, cutoff 2024-05-30, 400K/128K window, $0.05/$0.40 + $0.005 cached pricing, live usage; no score-changing deltas); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.md`, using the same headings.

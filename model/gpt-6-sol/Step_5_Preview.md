@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-6-sol`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,7 +24,8 @@ Agent / tool use:
 - Terminal-Bench 2.1: **83.15% ±1.30** (Vals AI, Terminus-2, max — independent; #6); RankLLMs lists 85.5%
 - Terminal-Bench 4.0: **43.9%** (AA, max) / 44.4% (Vals mini-swe) / 49.39% (official board, Codex max, ±3.23) — #8–23 depending on harness
 - AutomationBench: **33.2%** at xhigh, $0.27/task (OpenAI launch; beats Claude Opus 5 max's 26.9% at 11.1x the cost); AA's guardrail-adjusted AutomationBench reads 61.6%
-- GDPval-AA v2.1: **50.5%** (AA, max — #45)
+- GDPval-AA v2.1: **50.5%** (AA, max — #45); BenchmarkList index reads **Elo 1487** (#39/352, 89th pct)
+- **BrowseComp: 89.4% ±4.5%** (independent, #10/60, 85th pct — BenchmarkList 2026-10-07); RuneBench 6.4 (#4/61); OSWorld2.0 offline: **64.4%** (BenchmarkList, #7/24, 74th pct)
 - Agents' Last Exam: **56.4%** (vendor, max — partial-credit basis; Snorkel's pass-rate row reads 32.2 at XHigh)
 - OSWorld 2.0 offline: **60.5%** at xhigh (partial reward; Opus 5 medium 60.3%)
 - FrontierCode 1.1 Main: **49.3%** (max; vs Fable 5.1 xhigh 53.4%, Opus 5.5 54.4%)
@@ -40,7 +41,7 @@ Reasoning / knowledge:
 - ARC-AGI-2: **89.6%** (ARC Prize, max)
 - LiveBench: **79.3%** overall (max); reasoning 88.7%
 - SciCode: **57.6%** (AA, max); CritPt: **30.9%** (AA, max)
-- AA-LCR: **83.7%** (AA, max)
+- AA-LCR: **83.7%** (AA, max — #12/408, 97th pct, independent — BenchmarkList 2026-10-07)
 - MMMU-Pro: **82.9%** (AA)
 - Factuality: internal eval mistakes roughly halved vs GPT-5.6 Sol; AA hallucination rate fell 92% → 60%
 
@@ -69,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI launch post + model/pricing docs, Artificial Analysis via The Model Gap/ShawnHack/BenchLeader, Vals AI, Snorkel, ARC Prize, The New Stack, HITL Systems, HokAI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (31 primary-source results, updated 2026-10-07 — independent BrowseComp 89.4% #10/60, AA-LCR 83.7% #12/408, OSWorld2.0 64.4% #7/24, GDPval-AA Elo 1487 #39/352, DeepSWE 68.8% #17/52, AA Intelligence Index 47.6 #25/427, HLE 47.9% #18/478, CritPt 30.9% #7/28, MMMU-Pro 82.9% #6/72) — confirms the existing Tool use 84 / Reasoning 88 / Context 94 / Coding 85 reads; the independent BrowseComp 89.4% and AA-LCR 83.7% reinforce rather than move the scores. No score change warranted. Prior pass (2026-10-09) used OpenAI launch post + model/pricing docs, Artificial Analysis via The Model Gap/ShawnHack/BenchLeader, Vals AI, Snorkel, ARC Prize, The New Stack, HITL Systems, HokAI.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

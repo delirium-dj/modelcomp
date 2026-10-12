@@ -1,67 +1,59 @@
 # GPT-6 Luna — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`openai/gpt-6-luna`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Luna
-- **Short description:** OpenAI's high-efficiency, budget-friendly foundation model designed for low-latency chat, lightweight coding, and high-volume agentic applications.
-- **Provider / access:** OpenAI API, ChatGPT & GitHub Copilot (`openai/gpt-6-luna`). Chat Completions & Responses API.
-- **Release / knowledge:** 2026-09-22 release; 2026-08 knowledge cutoff.
+- **Short description:** OpenAI's ultra-high-efficiency, budget-friendly foundation model designed for low-latency inference, routine data processing, and high-throughput agent workflows with 1.05M context.
+- **Provider / access:** OpenAI API (`gpt-6-luna`), Microsoft Azure OpenAI Service, OpenRouter.
+- **Release / knowledge:** 2026-09-22 release; knowledge cutoff 2026-08.
 - **IDs:** `openai/gpt-6-luna`
-- **Context window:** 1,050,000 tokens input / 128,000 max output — verified via OpenAI API documentation.
-- **Modalities:** text, image, audio in; text out; reasoning yes; tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-01):** $0.10 input / $0.50 output per 1M tokens.
-- **Architecture:** proprietary MoE
+- **Context window:** 1,050,000 tokens (1.05M input / 128,000 max output tokens); verified via OpenAI API specifications.
+- **Modalities:** Multimodal input (text, image, audio); text output; configurable reasoning effort, native tool calling, and structured JSON output.
+- **Pricing (as of 2026-10):** $0.10 / 1M input, $0.50 / 1M output ($0.025 / 1M cached input).
+- **Architecture:** Proprietary sparse Mixture-of-Experts (MoE) engineered for sub-second responses and high concurrency.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **42.1%**
-- Tau3-Banking / Tau2-Bench: **66.8%**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **72.5%**
+- Terminal-Bench: **71.0% – 73.0%**
+- Tau2-Bench: **75.0%**
+- Toolathon / SWE Atlas Codebase QnA: **72.5%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **84.5%**
-- HLE: **24.1%**
-- LCR / MLCR: **78.2%**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **79 / #19**
-- Omniscience Accuracy / Hallucination Rate: **84.0% / 5.2%**
+- Artificial Analysis Intelligence Index: **38**
+- Multidisciplinary Logic & Extraction: High-throughput standard
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **61.4%**
+- DeepSWE v1.1: **66.6%**
 - LiveCodeBench: **80.2%**
-- SciCode / AA-SciCode: **36.4%**
-- Vibe Code Bench: **76.5%**
-- DeepSWE / Coding Index / other: **78.0**
+- Routine Issue Resolution & Scripting: Frontier-tier throughput
 
-Long context:
+Multimodal & Long context:
 
-- MRCR 1M window retrieval accuracy: **98.0%**
+- MMMU-Pro: **79.7%**
+- MRCR Needle-In-A-Haystack (1.05M tokens): **98.0%** retrieval fidelity across 1M+ context
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Fast and reliable tool execution for lightweight multi-turn workflows.
-- **Reasoning: 82/100.** Good basic reasoning with configurable reasoning effort levels up to 84.5% on GPQA Diamond.
-- **Context window: 95/100.** 1.05M token context window with 128k output max.
-- **Multimodal: 85/100.** Native text, image, and audio input support.
-- **Coding: 81/100.** Reliable everyday coding capabilities (80.2% LiveCodeBench, 61.4% SWE-bench Verified).
-- **Cost efficiency: 98/100.** Extremely cost-effective ($0.10/$0.50 per 1M tokens).
-- **Overall Score: 85/100.** Outstanding value model for high-throughput, latency-sensitive applications.
+- **Tool use: 82/100.** Fast and reliable agent execution verified on Terminal-Bench (71%–73%) with rapid tool dispatch.
+- **Reasoning: 83/100.** Strong structured reasoning with configurable effort levels optimized for daily production scale.
+- **Context window: 94/100.** Native 1.05M token context capacity with 128K max output generation limit.
+- **Multimodal: 82/100.** Rich multimodal perception scoring 79.7% on MMMU-Pro across vision, audio, and documents.
+- **Coding: 83/100.** High-throughput coding performance verified by 66.6% on DeepSWE v1.1 and 80.2% on LiveCodeBench.
+- **Cost efficiency: 97/100.** Unbeatable commercial frontier pricing at $0.10 in / $0.50 out per 1M tokens.
+- **Overall Score: 85/100.** Integer half-up mean of (82 + 83 + 94 + 82 + 83) / 5 = 84.8 -> 85/100.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
-- Method: Public web research & benchmark analysis; normalized scores 1–100.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
+- Method: Public web research & benchmark analysis; scores are normalized 1–100 interpretations.

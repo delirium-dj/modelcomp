@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Step 5 Preview
 
 - Source: Alibaba (`qwen3.8-max`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,7 +22,8 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **88.8%** (Artificial Analysis, 0902 snapshot, max effort — independent; Alibaba's 86.6% on the 0803 build via Claude Code avg@10; AA read the 0803 build at 81.3%)
-- GDPval-AA: **Elo 1608** (AA); AA-Briefcase v1.1: Elo 1564-class (unifybench lists 1564 for the AA-Briefcase family)
+- GDPval-AA: **Elo 1608** (AA); revised to **Elo 1,721** on the current BenchmarkList index (#12/352, 97th pct — updated 2026-10-07); **Tau3-Banking 51.3% (#1/176, 100th pct — field lead)**; OSWorld-Verified 86.1% (#2/70); BrowseComp 67.9% (#49/60, only 19th pct)
+- AA-Briefcase v1.1: Elo 1564-class (unifybench lists 1564 for the AA-Briefcase family)
 - AutomationBench-AA: **56.2%** (AA); Automation-Bench pass@1: 27.3% (vendor 600-task subset)
 - OSWorld-Verified: **86.1%** (vendor — table lead vs Fable 5's 85.0); OSWorld 2.0: 19.4/46.7 partial
 - Toolathlon Verified: **72.5%** (vendor — still self-reported); JobBench 53.4%; SkillsBench 70.2%; WideSearch 81.9%
@@ -53,7 +54,7 @@ Multimodal:
 
 Long context:
 
-- 1M-token hosted window; MRCR v2 256K 8-needle: **92.9%** (vendor; vs Opus 4.8 83.2, GPT-5.6 Sol 93.8); **no public 1M-length MRCR**; LongBench v2 66.3%
+- 1M-token hosted window; MRCR v2 256K 8-needle: **92.9%** (vendor; vs Opus 4.8 83.2, GPT-5.6 Sol 93.8); **no public standalone 1M-length MRCR**, but the independent GDM-MRCRv2 Context Arena (BenchmarkList 2026-10-07) shows AUC 128K **91.0%** dropping to AUC 1M **~40%** (cumulative 1M avg ~70.7%) — long-horizon retrieval degrades at the window top; LongBench v2 66.3%
 
 ### Normalized scores (1–100)
 
@@ -69,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen official blog + full benchmark table, Alibaba Cloud Model Studio docs/pricing, Artificial Analysis, Vals AI via The Model Gap/BenchLeader, BenchmarkList, models.dev, OpenCode Zen docs, The AI Rankings, AIToolsReview); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (80 primary-source results, updated 2026-10-07 — independent Tau3-Banking 51.3% #1/176 field lead, OSWorld-Verified 86.1% #2/70, GDPval-AA revised Elo 1721 #12/352, SWE-bench Pro 67.7% #8/58, ERQA 77.8% #2/20, BrowseComp 67.9% #49/60, GDM-MRCRv2 Context Arena AUC 128K 91.0% → 1M ~40%) — confirms the existing Tool use 86 / Coding 86 / Context 94 reads; the Tau3-Banking field-lead and OSWorld #2 reinforce Tool use 86, and the 1M-retrieval drop (AUC ~40%) confirms Context stays at 94 (not 100). No score change warranted. Prior pass (2026-10-09) used Qwen official blog + full benchmark table, Alibaba Cloud Model Studio docs/pricing, Artificial Analysis, Vals AI via The Model Gap/BenchLeader, BenchmarkList, models.dev, OpenCode Zen docs, The AI Rankings, AIToolsReview.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

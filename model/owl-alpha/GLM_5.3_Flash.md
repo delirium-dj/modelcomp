@@ -1,7 +1,7 @@
 # Owl Alpha — findings by GLM 5.3 Flash
 
 - Source: Meituan / LongCat (`owl-alpha` — stealth OpenRouter alias, later attributed to the LongCat-2.0 preview)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,17 +14,19 @@
 - **IDs:** `openrouter/owl-alpha` (retired stealth route); post-reveal LongCat API IDs — no Free ID on OpenCode Zen verified.
 - **Context window:** 1,048,576 total, 262,144 max output tokens (RoboRhythms pricing table; longcatai.org confirms 1M context) — verified against both sources.
 - **Modalities:** text in, text out (no image/audio support mentioned in any source); reasoning yes (careful, long-horizon multi-step behavior reported); tool calls yes (0.39% structured-output / 4.73% tool-call error rates measured); JSON mode yes.
-- **Pricing (as of 2026-10-09):** evaluated preview tier was $0 in / $0 out (time-limited; prompts and completions logged for model improvement — a data-use caveat that breaks privacy-sensitive workflows); post-reveal LongCat-2.0 pricing $0.75/$2.95 standard, $0.30/$1.20 promo per 1M.
+- **Pricing (as of 2026-10-11):** evaluated preview tier was $0 in / $0 out (time-limited; prompts and completions logged for model improvement — a data-use caveat that breaks privacy-sensitive workflows); post-reveal LongCat-2.0 pricing $0.75/$2.95 standard, $0.30/$1.20 promo per 1M.
 - **Architecture:** 1.6T MoE (per the LongCat-2.0 reveal), trained end-to-end on domestic chips; stealth snapshot of the upcoming public release, weights since open-sourced under the LongCat-2.0 announcement.
 
 ### Raw benchmarks found
+
+> Second-pass verification (2026-10-11): BenchLM has no page for this retired stealth alias (404 on the canonical slug) — no new aggregator evidence has surfaced since the 2026-10-09 pass; the RoboRhythms review + LongCat reveal rows stand. Scores are carried, not moved.
 
 Agent / tool use:
 
 - Structured-output error rate: **0.39%** (RoboRhythms independent review, 100% uptime)
 - Tool-call error rate: **4.73%** (RoboRhythms independent review — compounds across multi-step chains, ~32% odds of ≥1 misfire in an 8-call chain)
 - SWE-bench Pro: **59.5%** (LongCat team, disclosed at identity reveal)
-- Hermes Agent routed volume: **#1** / Claude Code deployments: **#2** / International OpenClaw: **#3** (longcatai.org timeline, public reports and community analytics — usage rankings, not quality scores)
+- Hermes Agent routed volume: **#1** / Claude Code deployments: **#2** / International OpenClaw: **#3** (longcatai.org timeline — usage rankings, not quality scores)
 - Peak anonymous month: ~10.1 trillion tokens consumed, ~559B tokens/day, +242% MoM (longcatai.org timeline)
 - GDPval / Tau2/Tau3 / Claw-Eval: no verified public score found
 
@@ -45,18 +47,20 @@ Speed: ~12 tokens/s throughput, 4.91s latency (RoboRhythms) — the "speed tax" 
 
 ### Normalized scores (1–100)
 
+> Scores unchanged on the 2026-10-11 second pass: no aggregator page exists (BenchLM 404) and no new rows surfaced for the retired stealth alias.
+
 - **Tool use: 63/100.** SWE-bench Pro 59.5% (agent harness) is a solid mid-band anchor and a 0.39% structured-output error rate is genuinely strong, but a 4.73% tool-call error rate compounds across chained flows and the #1/#2/#3 platform rankings measure routed volume, not quality.
 - **Reasoning: 55/100.** No verified public reasoning benchmark (GPQA/HLE/Index) exists — scored provisionally on the careful long-horizon behavioral fingerprint and 1M-context claims; a frontier cloaked lineage is plausible but unproven by numbers.
 - **Context window: 93/100.** 1,048,576 total with 262,144 max output and real-world confirmation that full filings fit in one prompt (top-tier band); 93 rather than 95–100 because no vendor-independent ≥98%-retrieval-at-512K+ measurement is published.
 - **Multimodal: 15/100.** Text-only input and output — no image/audio/video support mentioned in any source.
 - **Coding: 62/100.** SWE-bench Pro 59.5% sits in the 50–70 mid-band (below the DeepSWE 74%+ frontier reference); missing SWE-bench Verified, LiveCodeBench, and Terminal-Bench numbers cap the score.
 - **Cost efficiency: 92/100.** The evaluated $0 preview tier would score 100 with a mandatory time-limited + prompt-logging caveat, but that window has closed (name retired); current LongCat-2.0 promo $0.30/$1.20 ≈ the ~$0.60/$2.20 ≈ 92 reference, standard $0.75/$2.95 ≈ 89. Paid baseline scored — not counted toward Overall.
-- **Overall Score: 57.6/100.** Mean of the five quality dims (63 + 55 + 93 + 15 + 62) / 5 = 57.6 → 57. Best-fit recommendation: a patient batch/long-context workhorse, never an interactive or privacy-sensitive pick — historically notable as the stealth drop that became LongCat-2.0.
+- **Overall Score: 57.6/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (63 + 55 + 93 + 15 + 62) / 5 = 288/5 = 57.6 — unchanged. Best-fit recommendation: a patient batch/long-context workhorse, never an interactive or privacy-sensitive pick — historically notable as the stealth drop that became LongCat-2.0.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (longcatai.org identity timeline, RoboRhythms independent hands-on review, OpenRouter listing via DuckDuckGo search); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the retired stealth alias; the prior 2026-10-09 pass on longcatai.org/RoboRhythms/OpenRouter remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

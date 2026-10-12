@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash — findings by Step 5 Preview
 
 - Source: Xiaomi (`mimo-v2.6-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,8 +37,9 @@ Reasoning / knowledge:
 - GPQA Diamond: **no vendor-published score**; third-party quant eval (EXL3, 8K budget): 56.2% full / 85.7% budget-completing subset — unofficial, budget-limited
 - MMLU-Pro: **no vendor-published score**; third-party quant eval: 76.4% (floor 76.4–78.8%)
 - Artificial Analysis Intelligence Index: **37.9** (independent, 2026-10-03, 85th pct — Fable 5.1 leads at 65.7)
-- HLE / AIME / ARC-AGI-2 / LiveCodeBench: **no verified public score found**
-- AA-LCR: **74.3%** (independent, 78th pct; K3 leads at 88.7%)
+- **HLE: 35.1%** (independent, #58/478, 88th pct — BenchmarkList/verified 2026-10-07; previously no HLE run existed); AIIQ Composite IQ **122** (#45/147, 70th pct)
+- HLE / AIME / ARC-AGI-2 / LiveCodeBench: **no additional verified public score found** beyond the independent HLE above
+- AA-LCR: **74.3%** (independent, 78th pct, #92/408; K3 leads at 88.7%)
 - SciCode: **51.3%** (85th pct); HumanEval+ 90.2%, MBPP+ 77.2%, GSM8K 96.4% (third-party quant evals, not vendor-published)
 
 Coding:
@@ -67,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Xiaomi mimo.mi.com model page + HF model card/tech report, OpenLM.ai, The Model Gap, Vals AI, BenchmarkList, OpenRouter, llm-stats, HokAI, WaitWhichModel, third-party EXL3 quant evals); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (13 primary-source results, updated 2026-10-07 — NEW independent HLE 35.1% #58/478, AIIQ IQ 122 #45/147, AA-LCR 74.3% #92/408, TB2.1 87.6% #15/194, TB4.0 28.8% #17/29, DeepSWE 67.9% #18/52, OSWorld-Verified 80.8% #17/70, JobBench 61.2% #8/48, Agents' Last Exam 27.6% #17/41, SciCode 51.3%) — the newly-surfaced independent HLE 35.1% (below the 40% frontier bar) CONFIRMS the existing Reasoning 72 read rather than moving it; no score change warranted. Prior pass (2026-10-09) used Xiaomi mimo.mi.com model page + HF model card/tech report, OpenLM.ai, The Model Gap, Vals AI, BenchmarkList, OpenRouter, llm-stats, HokAI, WaitWhichModel, third-party EXL3 quant evals.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Kimi K3
 
 - Source: Poolside / Laguna S 2.1 (`poolside/laguna-s-2.1`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Laguna S 2.1
 - **Short description:** Poolside's open-weights agentic-coding MoE — 118B total / 8B active (fast decode), 1M context (256K on local builds), OpenMDW-1.1 license. Sparse but real benchmark sheet aimed at terminal/SWE tasks.
 - **Provider / access:** Poolside API; open weights (OpenMDW-1.1 permissive); Ollama local builds (256K).
-- **Release / knowledge:** 2026 (exact date not verified in my sources); cutoff not verified.
+- **Release / knowledge:** Released 2026-07-21 (OpenCode Data catalog, newly verified); cutoff not stated.
 - **IDs:** `poolside/laguna-s-2.1` (no Zen Free ID).
-- **Context window:** 1M (catalog + benchlm.ai); 256K local builds.
-- **Modalities:** text in/out only (catalog); reasoning yes; tool calls; JSON mode per serving stack.
-- **Pricing (as of 2026-09-24):** ~$0.10/$0.20 per 1M API per catalog note; open weights self-hostable.
+- **Context window:** 1M (catalog + benchlm.ai; max output **33K** per catalog — new this pass); 256K local builds.
+- **Modalities:** text in/out only (catalog-confirmed); reasoning yes; tool calls; JSON mode per serving stack.
+- **Pricing (as of 2026-10-11):** $0.10/$0.20 per 1M API ($0.01 cached) — verified live; open weights self-hostable (OpenMDW-1.1).
 - **Architecture:** MoE 118B total / 8B active (catalog), OpenMDW-1.1.
 
 ### Raw benchmarks found
@@ -59,6 +59,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard, repo catalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (benchlm.ai scorecard, repo catalog; **second pass 2026-10-11**: OpenCode Data `poolside/laguna-s-2-1` — verified release 2026-07-21, 1M/33K window, $0.10/$0.20 + $0.01 cached pricing, open weights, live usage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

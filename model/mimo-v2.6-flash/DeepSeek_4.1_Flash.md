@@ -1,60 +1,68 @@
 # MiMo V2.6 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-flash`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-29)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Provenance note:** re-written 2026-09-29 after a concurrent external process removed this file from the working tree.
+> **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
+> The prior file reported **no Flash-specific agentic/coding rows**; this pass found them on the official model card and independent suites. Newly confirmed: official card **Terminal-Bench 2.1 87.6**, Toolathlon-Verified 73.6, OSWorld-Verified 80.8, CyberGym 95.1, AutomationBench v1.0.6 52.3, **DeepSWE v1.1 67.9**; Artificial Analysis **Intelligence Index 38**, GDPval-AA 55.5, AA-HLE 35.1, CritPt 12.0, AA-SciCode 51.3, AA-LCR 74.3, AA-MMMU-Pro 73.1; Vals AI **Index 53.23% (#18/45)**, **CyberBench v1.1 75.36 (#6/45)**, **Vibe Code Bench v1.1 78.96**, ProofBench 63.0; BenchLM overall **66.03 (#32/889)**.
+> **Conflicts surfaced:** (1) **Video input** — official card says text/image/**video/audio**, Vals says no video, AA lists text+image only. (2) **Parameters** — 309B (official/HF prose) vs 311B (HF safetensors). (3) **ProgramBench** — 26.0 (vendor) vs 0.50 (Vals). (4) **Terminal-Bench 4.0** — 28.8 (vendor) vs 24.24 (Vals). (5) **Release** — Sep 21 (AA/Vals) vs Sep 22 (official/LLM-Stats). (6) **Context window reduced**: the offered route is the `-free` Zen tier at the family's 1M window, but the max output is 128K and the vendor model page still prints a placeholder December-2024 cutoff in its sample prompt.
+> **Adjusted dimensions:** Tool 78→84, Reasoning 80→82, Multimodal 65→70, Coding 78→82 (all newly surfaced by direct evidence); Overall 79.2 → **83**.
+> Sources: https://mimo.mi.com/models/en-US/mimo-v2.6-flash · https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL · https://artificialanalysis.ai/models/mimo-v2-6-flash · https://www.vals.ai/models/xiaomi_mimo-v2.6-flash · https://benchlm.ai/models/mimo-v2-6-flash
 
 ## Model card
 
-- **Name:** MiMo V2.6 Flash
-- **Short description:** The small sibling in Xiaomi's MiMo V2.6 series — a 309B/15B sparse MoE that AA ranks **#8 of 116** on intelligence while sitting **#6 of 116** on cost. AA's summary: "amongst the leading models in intelligence and reasonably priced" — but "notably slow and very verbose."
-- **Provider / access:** Xiaomi MiMo Open Platform (`mimo-v2.6-flash`; one serving provider per AA). Weights open on Hugging Face (collection `XiaomiMiMo/mimo-v26`). **A free route exists:** OpenCode Zen carries `mimo-v2.6-flash-free` (live check 2026-09-29).
-- **Release / knowledge:** AA dates the model **2026-09-21**; the V2.6 series page is dated 2026-09-22. Knowledge cutoff undisclosed.
-- **IDs:** `xiaomi/mimo-v2.6-flash`, `mimo-v2.6-flash`, `mimo-v2.6-flash-free`. The Pro sibling has **no** Zen Free ID — do not conflate the two.
-- **Context window:** **1M tokens** (AA: 1.0M; llm-stats records 1,048,576 for the family). Max output not published.
-- **Modalities:** **text and image input; text output only** (AA technical specifications) — a real capability cut versus Pro, which also takes speech and video. Reasoning: yes.
-- **Pricing (as of 2026-09-29):** **$0.14 / 1M in, $0.28 / 1M out** (Xiaomi API), 98% cache discount, blended **$0.06 / 1M** at 7:2:1 and **$0.06 per AA Index task** — **#6/116 on cost**. Vendor states V2.6 inherits V2.5 pricing; the Zen `-free` tier is $0.
-- **Architecture:** sparse MoE, **309B total / 15B active**, **MIT licence**; shares the 6-day live-RL story and 7k+ RL-environment open-source release with Pro.
+- **Name:** MiMo V2.6 Flash (weights checkpoint `MiMo-V2.6-Flash-RL`)
+- **Short description:** The small sibling in Xiaomi's MiMo V2.6 series — a 309B/15B sparse MoE that AA ranks as a leading open-weights model on intelligence while sitting near the top on cost — but "notably slow and very verbose."
+- **Provider / access:** Xiaomi MiMo Open Platform (`mimo-v2.6-flash`; OpenRouter `xiaomi/mimo-v2.6-flash`). Weights open on Hugging Face (MIT). OpenCode Zen carries a `mimo-v2.6-flash-free` route.
+- **Release / knowledge:** AA/Vals date it **2026-09-21**; the official series page is dated 2026-09-22. Knowledge cutoff undisclosed (the sample system prompt's "December 2024" is generic example text).
+- **IDs:** `mimo-v2.6-flash`, `xiaomi/mimo-v2.6-flash`, `mimo-v2.6-flash-free`. The Pro sibling has **no** Zen Free ID — do not conflate.
+- **Context window:** **1M tokens (1,048,576)** input; **128K max output** (official card; Vals agrees).
+- **Modalities:** **text, image and (vendor-claimed) video/audio input; text output** — AA lists text+image only and Vals excludes video, so the broad-modality claim is partly unverified.
+- **Pricing (as of 2026-10-11):** **$0.14 / 1M in, $0.28 / 1M out** (Xiaomi API), cached **$0.0028**, 98% cache discount, ≈$0.06 per AA Index task; the Zen `-free` tier is $0.
+- **Architecture:** sparse MoE, **309B total / 15B active** (48 layers, 256 routed experts, 8 active), **MIT licence**; MiMo ViT 681M vision encoder, audio tokenizer + patch encoder; 5-layer MTP speculative decoder.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Intelligence Index **38** — **#8 of 116** open-weights, well above the class median of 18. The v4.3.2 composite embeds GDPval-AA v2.1, AutomationBench-AA, TB4.0 and AA-Briefcase, so agentic capability is captured only inside the composite here.
-- The vendor claims the series "has achieved performance on most Agent Benchmarks"; **no Flash-specific agentic row (TB2.1/TB4.0, OSWorld, Toolathlon, GDPval Elo, AutomationBench) was extractable — no verified score for Flash.**
-- No Claw-Eval, MCP-Atlas, SWE Atlas or JobBench number found.
+- Terminal-Bench 2.1: **87.6%** (vendor card); Terminal-Bench 4.0 28.8% (vendor) / **24.24%** (Vals)
+- Toolathlon-Verified **73.6%**; OSWorld-Verified **80.8%**; AutomationBench v1.0.6 52.3%; JobBench 61.2%; CyberGym **95.1%**
+- CyberBench v1.1 **75.36% (#6/45)** (Vals); GDPval-AA 55.5 (AA); Agents' Last Exam 27.6%
+- MCP-Atlas / SWE-Atlas / Claw-Eval: **no verified public score found**
 
 Reasoning / knowledge:
 
-- AA Intelligence Index **38** (#8/116; median 18), reasoning mode confirmed. **No separately published GPQA/HLE/CritPt/LCR value — no verified score outside the composite.**
+- Artificial Analysis Intelligence Index **38** (#leading open-weights band; BenchLM reads 37.9); AA-HLE **35.1%**; CritPt 12.0%; AA-Omniscience index −12.7 (hallucination 54.4%)
+- Benchable reliability rows: General Knowledge 99.5%, Mathematics 92.0%, Reasoning 92.0% (percentile-style, not absolute)
+- Vals: ProofBench v1.1 63.0%, BioMysteryBench 69.26%, EMB 65.46%, SAGE 43.53%
+- GPQA / HLE vendor absolute value: **not published separately**
 
 Coding:
 
-- Visible only through the composite (SciCode, TB4.0). **No Flash-specific SWE-bench, DeepSWE, LiveCodeBench, SciCode or Terminal-Bench row published or extracted — no verified score.**
-- The only published coding-adjacent deltas describe the **9B Distill-Qwen sibling** (SWE-bench Verified 61.1 → 66.2, MiMo Cyber Bench 31.3 → 47.0, TB2.1 37.1 → 52.8, MiMo Visual Coding 64.0 → 72.4) — a different checkpoint, **not counted here.**
+- DeepSWE v1.1: **67.9%** (vendor); Vibe Code Bench v1.1 **78.96%** (Vals); AA-SciCode 51.3% (AA); MiMo Code Bench 61.2%
+- ProgramBench 26.0% (vendor) / 0.50% (Vals); Code Migration 40.93% (Vals); IOI 47.67% (Vals)
+- SWE-bench Verified / LiveCodeBench: **no verified public score found**
 
-Long context / serving:
+Long context:
 
-- 1M window verified by AA; **no MRCR/RULER/GraphWalks retrieval accuracy published.**
-- **55.4 tokens/s** (#44/116) and TTFT **4.23 s**; verbosity is a hidden cost — **240M output tokens** on the Index versus a 140M class median ("very verbose"). Only one serving provider is tracked, plus the `-free` Zen tier.
+- AA-LCR **74.3%** (AA) is the only long-context figure; 1M window verified by AA; **no MRCR/RULER/GraphWalks** published. Speed 49.2 tok/s, TTFT 3.37s; verbosity 240M output tokens on the Index vs a 140M median.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** #8-of-116 open-weights intelligence with an agentic-heavy composite implies solid agent capability at 309B/15B, but **zero Flash-specific agentic rows exist** to calibrate against.
-- **Reasoning: 80/100.** Index 38 is strong for a 15B-active model and clears the class median widely; no GPQA/HLE number exists and 38 is short of the 60+ frontier reference.
-- **Context window: 95/100.** 1M tokens at the floor of the ≥1M tier (95–100); no retrieval proof at 512K+ and no published max output.
-- **Multimodal: 65/100.** Text and image in with text out only is exactly the "+image in = 60–70" band — and a deliberate cut versus Pro's speech/video input.
-- **Coding: 78/100.** Visible only through the composite plus sibling-distill deltas, with no Flash-specific coding row anywhere.
-- **Cost efficiency: 95/100.** $0.14/$0.28, 98% cache discount, $0.06 blended and **$0.06/Index task (#6/116)** sit between the ~$0.10/$0.20 ≈ 97–99 band and the ~$0.60/$2.20 ≈ 92 anchor; heavy verbosity is the only thing keeping this off the top.
-- **Overall Score: 79.2/100.** (78 + 80 + 95 + 65 + 78) / 5 = 79.2. Best fit: cheap high-volume long-context ingestion and drafting where a 1M window at $0.06/Index-task matters more than multimodal breadth or measured agentic depth.
+- **Tool use: 84/100.** Terminal-Bench 2.1 87.6%, OSWorld-Verified 80.8%, Toolathlon 73.6%, CyberGym 95.1% and CyberBench #6 confirm genuine agent capability (raised from 78, which predated any Flash-specific agentic row); capped by the Vals TB4.0 24.24% and vendor-only sourcing on the headline.
+- **Reasoning: 82/100.** AA Index 38 and independent proof/mystery-bench results are strong for a 15B-active model (raised from 80); no GPQA/HLE absolute value exists, and 38 is short of the 60+ frontier reference.
+- **Context window: 95/100.** 1M input / 128K output at the floor of the ≥1M tier; no retrieval proof at 512K+.
+- **Multimodal: 70/100.** Text and image input with text out is the `+image in = 60–70` band; the vendor's video/audio-input claim is not independently corroborated, so it is scored at the image band top (raised 65→70).
+- **Coding: 82/100.** DeepSWE 67.9% and independent Vibe Code Bench 78.96% are strong (raised from 78); capped by the Vals ProgramBench 0.50% and no independent SWE-bench.
+- **Cost efficiency: 95/100.** $0.14/$0.28, 98% cache discount and ≈$0.06/Index task sit near the ~$0.10/$0.20 ≈ 97–99 band; heavy verbosity is the only drag.
+- **Overall Score: 83/100.** (84 + 82 + 95 + 70 + 82) / 5 = 82.6 → **83**. Best fit: cheap high-volume long-context ingestion and agentic work where a 1M window at ~$0.06/Index-task matters more than measured multimodal breadth.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-29
-- Method: public internet research (Artificial Analysis MiMo-V2.6-Flash page — Index 38 #8/116, 55.4 t/s, TTFT 4.23 s, $0.14/$0.28, 98% cache discount, $0.06/task, 309B/15B, MIT, 1M context, text+image in only, 240M-token verbosity, single provider; Xiaomi MiMo V2.6 release page 2026-09-22 — series pricing parity, open-source release, Distill-Qwen-9B RL deltas; OpenCode Zen live catalogue 2026-09-29 — `mimo-v2.6-flash-free` exists, no Pro free ID). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Method: deep second-pass public internet research (Xiaomi MiMo model card + series page, Hugging Face MiMo-V2.6-Flash-RL card, Artificial Analysis, Vals AI, BenchLM, Benchable). Direct vendor rows were promoted over the prior composite-only reading; the video-modality, parameter and ProgramBench discrepancies are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
