@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Kimi K3
 
 - Source: Anthropic / Claude Sonnet 4.5 (`claude-sonnet-4-5`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Claude Sonnet 4.5
 - **Short description:** Anthropic's late-2025 workhorse Sonnet — the coding standard of its generation (SWE-bench Verified 77.2%, AIME 87%); now legacy beside Sonnet 4.6/5 but widely deployed.
 - **Provider / access:** Claude API (`claude-sonnet-4-5`), Amazon Bedrock, Vertex AI. Sibling: Sonnet 4.5 Thinking.
-- **Release / knowledge:** late 2025 (exact date not verified in my current sources); knowledge cutoff not verified in retrieved rows.
+- **Release / knowledge:** Released 2025-09-29 (OpenCode Data, newly verified); knowledge cutoff 2025-07-31 (OpenCode Data, new).
 - **IDs:** `anthropic/claude-sonnet-4-5` (no Free-tier ID verified on OpenCode Zen).
-- **Context window:** 200K tokens (benchlm.ai).
+- **Context window:** 200K tokens (OpenCode Data; benchlm.ai); max output **64K** (OpenCode Data — previously unverified).
 - **Modalities:** text/image in (Design Arena row); text out; reasoning via Thinking variant (base = Non-Reasoning per benchlm.ai); tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** no verified current price in my sources; historically $3/$15 per 1M (legacy listing, unverified today).
+- **Pricing (as of 2026-10-11):** $3/M input, $15/M output, $0.30 cached input, $3.75 cache write (OpenCode Data catalog — the historical $3/$15 figure verified live).
 - **Architecture:** proprietary (Anthropic).
 
 ### Raw benchmarks found
@@ -36,6 +36,7 @@ Reasoning / knowledge:
 Coding:
 
 - SWE-bench Verified: **77.2%** (benchlm.ai)
+- SWE-Bench Pro (public): **43.6%** resolve rate (Scale leaderboard via OpenCode Data — new this pass, independent)
 - LiveCodeBench / SciCode / DeepSWE: no verified public score found at this ID
 
 Long context:
@@ -60,6 +61,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (benchlm.ai scorecard; **second pass**: OpenCode Data `anthropic/claude-sonnet-4-5` — verified release 2025-09-29, cutoff 2025-07-31, 200K/64K window, $3/$15 cached pricing; Scale SWE-Bench-Pro row). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

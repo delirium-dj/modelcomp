@@ -1,67 +1,73 @@
 # MiniMax M3 — findings by Gemini 3.6 Flash
 
 - Source: MiniMax (`minimax-ai/minimax-m3`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** MiniMax M3
-- **Short description:** MiniMax's flagship open-weight Mixture-of-Experts model (~230B total / 9.8B active) featuring 1M context, ultra-long output capabilities, and video understanding.
-- **Provider / access:** MiniMax API (`minimax-ai/minimax-m3`) / Open-weight downloads.
-- **Release / knowledge:** 2026-07-20 release; knowledge cutoff March 2026.
-- **IDs:** `minimax-ai/minimax-m3` (no Free ID on Zen)
-- **Context window:** 1,048,576 tokens (1M) input / 512,000 (512K) output — verified via MiniMax specifications.
-- **Modalities:** Text, image, video in; text out; tool usage, structured output.
-- **Pricing (as of 2026-10-01):** Paid $0.30 / 1M input, $1.20 / 1M output tokens; highly affordable open-weights tier.
-- **Architecture:** Open-weight Sparse MoE (~230B total / 9.8B active parameters per token).
+- **Short description:** Frontier multimodal foundation model developed by MiniMax featuring MiniMax Sparse Attention (MSA), 1M token context, up to 512K output capacity, and native multimodal reasoning (text, image, video).
+- **Provider / access:** MiniMax API (`minimax-ai/minimax-m3`), OpenRouter, DeepInfra, and open-weights download under MiniMax Community License.
+- **Release / knowledge:** June 1, 2026 release; knowledge cutoff April 2026.
+- **IDs:** `minimax-ai/minimax-m3`, `openrouter/minimax/minimax-m3`
+- **Context window:** 1,048,576 tokens (1M tokens) input / up to 512,000 max output tokens — verified via MiniMax developer specifications.
+- **Modalities:** Native multimodal (text, image, video in; text out); adaptive thinking parameter; function calling and structured JSON output.
+- **Pricing (as of October 2026):** $0.30 / 1M input, $1.20 / 1M output (standard ≤ 512K tokens); $0.60 / $2.40 for ultra-long context (> 512K tokens); open-weight downloads available.
+- **Architecture:** ~428B parameter Mixture-of-Experts (MoE) with ~23B active parameters per token powered by MiniMax Sparse Attention (MSA).
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Agent / tool use & OS Automation:
 
+- OSWorld-Verified: **70.1%**
+- Tau2-Bench: **88.9%**
 - Terminal-Bench 2.1: **66.0%**
-- Tau3-Banking / Tau2-Bench: **72.1%**
-- GDPval-AA: **1710 Elo**
-- Claw-Eval / ClawProBench: **74.5%**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **73.0%**
+- MCP Atlas / Toolathon: **74.2%**
+- BrowseComp: **83.52**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **64.5%**
-- HLE: **18.2%**
-- LCR / MLCR: **76.0%**
-- CritPt: **69.5%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **128 / #12**
+- GPQA Diamond: **92.9%**
+- Humanity's Last Exam (HLE): **37.1%**
+- IFEval: **82.9%**
 - Omniscience Accuracy / Hallucination Rate: **82.0% / 5.2%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **59.0%**
+- SWE-bench Verified: **80.5%**
+- SWE-bench Pro: **59.0%**
 - LiveCodeBench: **66.8%**
 - SciCode / AA-SciCode: **62.5%**
 - Vibe Code Bench: **75.0%**
-- DeepSWE / Coding Index / other: **72.4**
 
-Long context:
+Long context & Multimodal:
 
-- MRCR / RULER / GraphWalks value at window length: **98.5% retrieval accuracy at 1M tokens**
+- MMMU-Pro: **78.1%**
+- Needle-in-a-Haystack (NIAH): **98.5%** retrieval fidelity across 1M context window via MSA.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Strong terminal execution and function calling relative to active parameter size.
-- **Reasoning: 76/100.** Solid general reasoning capability; capped on complex high-level frontier logic tasks.
-- **Context window: 85/100.** Excellent 1M context support with massive 512K output budget.
-- **Multimodal: 76/100.** Native video and image comprehension; lack of audio/video generation caps score.
-- **Coding: 80/100.** Impressive 59% SWE-Bench Pro score for an open-weight MoE model.
-- **Cost efficiency: 90/100.** Extremely cost-effective API rates ($0.30/$1.20 per 1M tokens).
-- **Overall Score: 79.0/100.** Mean of the five quality dimensions; exceptional value for budget-conscious high-throughput deployments.
+- **Tool use: 84/100.** Strong OS and desktop automation capabilities (70.1% OSWorld-Verified, 88.9% Tau2-Bench, 66.0% Terminal-Bench 2.1).
+- **Reasoning: 87/100.** Top-tier reasoning verified by 92.9% GPQA Diamond and 37.1% HLE, supported by configurable adaptive thinking depth.
+- **Context window: 94/100.** 1M context window with an unprecedented 512K token output budget and MSA efficient KV-selection.
+- **Multimodal: 84/100.** Native tri-modal comprehension across images, multi-page documents, and video streams (78.1% MMMU-Pro).
+- **Coding: 87/100.** Exceptional software engineering throughput (80.5% SWE-bench Verified, 59.0% SWE-bench Pro).
+- **Cost efficiency: 91/100.** High-throughput open-weight economics with standard API pricing of $0.30 / $1.20 per 1M tokens.
+- **Overall Score: 87/100.** Arithmetic mean of quality dimensions: (84 + 87 + 94 + 84 + 87) / 5 = 436 / 5 = 87.2 -> 87/100. Premier open-weight multimodal foundation model delivering frontier-class coding and long-context performance.
+
+---
+
+## Sources
+
+- MiniMax M3 Official Release Announcement & MSA Architecture Paper: https://minimax.io/news/minimax-m3-release
+- MiniMax Developer Documentation & API Pricing: https://minimax.io/docs/pricing
+- OpenRouter & Puter AI Independent Evaluation Synthesis: https://openrouter.ai/models/minimax/minimax-m3
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
-- Method: Public internet research & benchmark analysis; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.

@@ -26,6 +26,8 @@ Independent (Artificial Analysis launch, 2026-04-30; AA Intelligence Index v4.0,
 - τ²-Bench Telecom: **97.7–98%** (+5 over Grok 4.20; in line with GLM-5.1)
 - IFBench: **81.0%** (maintained from Grok 4.20)
 - AA-Omniscience: accuracy **+8pp** over Grok 4.20, but non-hallucination rate **-8pp** (Grok 4.20 still leads, then MiMo-V2.5-Pro, then Grok 4.3)
+- AA Intelligence Index conflict: **37.58** (BenchmarkList's verified 2026-07-21 composite row, matching Frontier's 37.6) vs **24.9** (AA's own page, high, v4.3.2, via OpenRouter) — unresolved cross-source conflict, both kept
+- Second-pass rows: CritPt **8.0%** (weak); AA-Omniscience Index **18.32**; MMMU **83.1%** (Shawn Hack, #30 of 51); MMMU-Pro **78.1%** (AA); Vals Multimodal Index **43.3**; MedScribe **74.4%**; AA-LCR reads **73%** (Shawn Hack) / **74.0–75.0%** (AA via OpenRouter) vs **64.3%** (Frontier/BenchmarkList — possibly an earlier AA-LCR version) — flagged, all kept
 - Cost to run the full AA Intelligence Index: **$395** (~20% less than Grok 4.20 0309 v2 despite ~44% more output tokens); input prices -37.5%, output -58.3% vs Grok 4.20
 
 ARMES (independent harness):
@@ -37,10 +39,13 @@ ARMES (independent harness):
 - Terminal-Bench Hard: **38.0%**
 - NYT Connections: **67.5%** (vs Grok 4.20's 93.4% — lateral/creative reasoning regressed)
 - Caveats: "computational narcolepsy" (idle pauses) and structural looping in long unattended agent runs; elevated jailbreak risk flagged on Azure red-teaming; strong sycophancy resistance (holds reasoning under misleading prompts)
+- Second-pass agentic rows (BenchmarkList unless noted): AgentCIBench **91.5%** (#5 of 17); ITBench-AA **32.7%** (#14 of 23); Gert Labs 43.86–52.2% (#19 of 62); Vals CyberBench **47.5%** (#17 of 20); AA-Briefcase **760** (#75 of 145); Vending-Bench 2 **35.26** (#55 of 60); Workspace-Bench **36.9%** (#16 of 16); FounderBench **52.59** (#10 of 10); LMArena Search Arena **1164.8** (#22 of 24); Arena Elo **1498** (#11 of 51, Shawn Hack); APEX-Agents-AA **17.0%** (#21 of 33); ResearchClawBench **12.4%**; SearchGEO **7.6%** (#9 of 13); RuneBench **3.7** (#48 of 61); Agents' Last Exam **7.2%** (#40 of 41); CHI-Bench **5.8%** pass^1 (#15 of 15; strict pass^3 0.0%); AA Agentic Index **17.2–24.1**; "AI Snitches Get Glitches" 0.0% (#9 of 9)
 
 Coding (beyond the above):
 
-- SWE-bench, LiveCodeBench, DeepSWE, Terminal-Bench 2.1, MCP Atlas, Toolathlon: no verified public score found
+- Second-pass fills: LiveCodeBench (Vals) **84.5%** (#31 of 123; field leader O-5 89.0%), SWE-bench Verified (Vals) **71.4%** (#43 of 72; leader O-5 97.0%), BLXBench **85.5%** (#1 of 25), LiveBench Coding **69.93** (verified livebench.ai, 2026-06-25), ALE-Bench **944.17** (#23 of 83), SciCode **48.3%** (#60 of 296) and AA-SciCode **48.3%**
+- Terminal-Bench 2.1 **41.9%** (Vals + BenchmarkList, #92 of 194; Frontier's AA-harness read is 39.7% — both kept), Terminal-Bench 2.0 **43.4%** (#30 of 68), Terminal-Bench 4.0 **0%** (#63 of 89, AA harness, high)
+- Second-pass coding caps: Code Migration **6.8%** (#30 of 33), Vibe Code Bench v1.1 **19.4%** (#49 of 75), IOI **15.3%** (#31 of 58), WebDev Arena 1356.77 (#77 of 105); DeepSWE, MCP Atlas and Toolathlon: no verified public score found
 
 Long context / multimodal:
 
@@ -48,11 +53,11 @@ Long context / multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 73/100.** τ²-Bench Telecom 97.7–98% (in line with GLM-5.1), GDPval-AA 1500 Elo (above Gemini 3.1 Pro Preview, Muse Spark and GPT-5.4 mini xhigh) and CaseLaw v2 79.3% (#1, +25pp over Grok 4.20) lead; Terminal-Bench 2.1 at 39.7% (high — 13th percentile), Terminal-Bench Hard 37.9–38.0%, τ³-Banking 12.2%, the AA Coding Index of 41–42.3% and ARMES's "computational narcolepsy"/structural-looping caveats in long unattended runs cap the score, and MCP Atlas/Toolathlon were not captured.
-- **Reasoning: 73/100.** GPQA Diamond 90.1% (AA) / 91.4% (Vals) reaches the 90%+ frontier band and MMLU-Pro 85.8% (Vals) supports; the AA Intelligence Index now reads 37.6 (high, v4.3.2 — vs 53 on the launch-era v4.0, a version-drift flag), and HLE 35.0% (AA) / 37.2% (AA text, no tools), SciCode 47.3%, AA-LCR 64.3%, AA-Omniscience (34.6% accuracy, 25.0% hallucination rate), the NYT Connections regression (67.5% vs Grok 4.20's 93.4%) and the 6-month knowledge-cutoff lag (2025-11) cap the score.
+- **Tool use: 73/100.** τ²-Bench Telecom 97.7–98% (in line with GLM-5.1), GDPval-AA 1500 Elo (above Gemini 3.1 Pro Preview, Muse Spark and GPT-5.4 mini xhigh) and CaseLaw v2 79.3% (#1, +25pp over Grok 4.20) lead; Terminal-Bench 2.1 at 39.7–41.9% (Frontier/AA-harness vs Vals — both ~40%), Terminal-Bench Hard 37.9–38.0%, Terminal-Bench 4.0 at 0% (AA harness), τ³-Banking 12.2–12.4%, the AA Agentic Index of 17.2–24.1, Agents' Last Exam 7.2%, CHI-Bench 5.8%, APEX-Agents-AA 17.0%, the AA Coding Index of 41–42.3% and ARMES's "computational narcolepsy"/structural-looping caveats in long unattended runs cap the score, and MCP Atlas/Toolathlon were not captured; AgentCIBench 91.5% (#5 of 17) and GDPval-AA 1500 Elo support.
+- **Reasoning: 73/100.** GPQA Diamond 90.1% (AA) / 91.4% (Vals) reaches the 90%+ frontier band and MMLU-Pro 85.8% (Vals) supports; the AA Intelligence Index reads 37.6 (Frontier/BenchmarkList, high, v4.3.2 — vs 53 on the launch-era v4.0, a version-drift flag) but 24.9 on AA's own page (v4.3.2, via OpenRouter — unresolved conflict), and HLE 35.0% (AA) / 37.2% (AA text, no tools), SciCode 47.3–48.3%, AA-LCR 64.3% (Frontier/BenchmarkList) vs 73–75.0% (Shawn Hack/AA via OpenRouter — flagged), AA-Omniscience (34.6% accuracy, 25.0% hallucination rate), the NYT Connections regression (67.5% vs Grok 4.20's 93.4%) and the 6-month knowledge-cutoff lag (2025-11) cap the score.
 - **Context window: 95/100.** 1M-token window (131K max output via console, up to 1M via API); no ≥98%-at-depth retrieval figure captured, so 100 is not justified.
 - **Multimodal: 68/100.** text/image/video-frame in with text out (plus native PDF/Excel/PowerPoint document generation) — the top of the +image-in band (60–70); no MMMU/Video-MMMU figure captured.
-- **Coding: 65/100.** LiveCodeBench (Vals) **84.5%** and SWE-bench (Vals) **71.4%** are strong independent fills, but the AA Coding Index of 41.0–42.3%, SciCode 47.3%, Terminal-Bench Hard 37.9–38.0% and Terminal-Bench 2.1 at 39.7% are all well under the frontier bands, and DeepSWE was not captured; CaseLaw v2 #1 and CorpFin #1 are domain strengths outside coding.
+- **Coding: 65/100.** LiveCodeBench (Vals) **84.5%**, SWE-bench (Vals) **71.4%**, BLXBench **85.5%** (#1 of 25) and LiveBench Coding **69.93** (verified) are strong independent fills, but the AA Coding Index of 41.0–42.6%, SciCode 47.3–48.3%, Terminal-Bench 2.x at 39.7–43.4%, Terminal-Bench 4.0 at 0% (AA harness), Code Migration 6.8%, Vibe Code Bench 19.4% and IOI 15.3% are all well under the frontier bands, and DeepSWE was not captured; CaseLaw v2 #1 and CorpFin #1 are domain strengths outside coding.
 - **Cost efficiency: 90/100.** $1.25/$2.50 per 1M below 200K (blended ~$1.56/M at 3:1) beats the ~$1.25/$4.25≈88 anchor on output price; ≥200K prompts bill the whole request at $2.50/$5.00, cache reads are 16% of input, and it costs ~$395 (~20% less than Grok 4.20) to run the AA Intelligence Index.
 - **Overall Score: 75/100.** (73+73+95+68+65)/5 = 74.8 → 75 — an April-2026 cost-efficiency play (GPQA 90.1%, GDPval-AA 1500, τ²-Telecom ~98%, CaseLaw #1 at $1.25/$2.50 with a 1M window) whose weak agentic coding (TB 2.1 39.7%, TB Hard 38.0%, Coding Index 41%), HLE 35–37% and long-run stability caveats keep it below the October-2026 frontier.
 
@@ -73,8 +78,18 @@ Frontier (loggel), Vals, BenchLM, llmboard and OpenRouter rows found:
 
 ---
 
-## Signature
+## Update 2026-10-11 (deep second pass, 3 independent searches)
 
-- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08)
-- Method: public internet research (SpaceXAI Grok 4.3 docs + pricing, Artificial Analysis launch article, ARMES docs, OfficeChai); scores are normalized 1–100 interpretations, not official vendor scores.
+**No score changes** — Tool 73 / Reasoning 73 / Context 95 / Multimodal 68 / Coding 65 / Cost 90, Overall stays 75. The pass filled the agentic, coding and long-context boards; the new rows corroborate the existing bands:
+
+- **AA Intelligence Index conflict:** BenchmarkList's verified 2026-07-21 composite row reads **37.58** (matching Frontier's 37.6; Coding Index 42.25, Agentic Index 24.1, CritPt 8.0%, AA-LCR 64.3%, cost per task $0.14, time per task 123.82s) while AA's own page reads **24.9** (high, v4.3.2, via OpenRouter; Coding 42.2, Agentic 15.5) — unresolved cross-source conflict, both kept.
+- **AA-LCR conflict:** reads of **73%** (Shawn Hack) / **74.0–75.0%** (AA via OpenRouter) vs **64.3%** (Frontier/BenchmarkList — possibly an earlier AA-LCR version) — flagged, all kept; no ≥98%-at-depth figure, so Context stays 95.
+- **Agentic (BenchmarkList):** AgentCIBench 91.5% (#5 of 17); ITBench-AA 32.7% (#14 of 23); Gert Labs 43.86–52.2%; Vals CyberBench 47.5%; AA-Briefcase 760; Vending-Bench 2 35.26; Workspace-Bench 36.9%; FounderBench 52.59; Arena Elo 1498 (#11 of 51); APEX-Agents-AA 17.0%; ResearchClawBench 12.4%; SearchGEO 7.6%; RuneBench 3.7; Agents' Last Exam 7.2% (#40 of 41); CHI-Bench 5.8% pass^1 (strict pass^3 0.0%); AA Agentic Index 17.2–24.1; LMArena Search Arena 1164.8.
+- **Coding:** LiveCodeBench 84.5% (#31 of 123; leader O-5 89.0%), SWE-bench Verified 71.4% (#43 of 72; leader O-5 97.0%), BLXBench 85.5% (#1 of 25), LiveBench Coding 69.93 (verified), ALE-Bench 944.17 (#23 of 83), SciCode 48.3% (#60 of 296); Terminal-Bench 2.1 41.9% (Vals/BenchmarkList) vs 39.7% (Frontier AA-harness) — both kept; Terminal-Bench 2.0 43.4%, Terminal-Bench 4.0 0% (AA harness), Code Migration 6.8%, Vibe Code Bench 19.4%, IOI 15.3%.
+- **Multimodal:** MMMU 83.1% (Shawn Hack, #30 of 51), MMMU-Pro 78.1% (AA), Vals Multimodal Index 43.3, MedScribe 74.4%. **Serving/comparisons:** BenchLM overall 53.59 (#81 of 889), modelscale 53.69 (rank 72), public-lane 28.2 (#97/146); Grok 4.6 leads the head-to-head (LiveCodeBench 88.2%, SWE-bench 95.6%, DeepSWE 65.9%).
+- Still open: MCP Atlas, Toolathlon, DeepSWE, SWE-bench Pro, and a resolution of the AA Intelligence Index / AA-LCR cross-source conflicts.
+- Score impact: none — AgentCIBench 91.5% and the Vals coding fills support Tool 73 / Coding 65, while the AA Agentic Index (17.2–24.1), Agents' Last Exam 7.2%, CHI-Bench 5.8%, TB 4.0 0% and the coding caps prevent any raise; Overall stays (73+73+95+68+65)/5 = 74.8 → 75.
+
+- Provided by: **Ling 3.1 Flash (opencode/ling-3.1-flash-free)** — 2026-10-02 (updated 2026-10-08, 2026-10-11)
+- Method: public internet research (SpaceXAI Grok 4.3 docs + pricing, Artificial Analysis launch article, ARMES docs, OfficeChai, OpenRouter (AA + Vals AI rows), BenchmarkList, BenchLM, Shawn Hack, Sophon, tokensortowers, Vector Wire, SWEN.AI, LMSpeed); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4_3.md`, using the same headings.

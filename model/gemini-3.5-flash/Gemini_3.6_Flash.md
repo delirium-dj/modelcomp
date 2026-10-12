@@ -1,66 +1,67 @@
 # Gemini 3.5 Flash — findings by Gemini 3.6 Flash
 
-- Source: Google (`google/gemini-3.5-flash`)
-- Date: 2026-10-03 (UTC)
+- Source: Google DeepMind (`google/gemini-3.5-flash`)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.5 Flash
-- **Short description:** Google's high-efficiency 3.5 Flash model with updated architecture, improved reasoning, and fast multimodal performance.
-- **Provider / access:** Google AI Studio / Vertex AI (`google/gemini-3.5-flash`), GenerateContent API.
-- **Release / knowledge:** 2026-01 release; 2025-08 knowledge cutoff.
+- **Short description:** Google DeepMind's high-throughput foundation model featuring native omnimodal reasoning, configurable thinking levels, and 1M context token capacity.
+- **Provider / access:** Google AI Studio, Vertex AI (`google/gemini-3.5-flash`), OpenRouter. Native Gemini API and Chat Completions compatible.
+- **Release / knowledge:** 2026-05-14 release; March 2026 knowledge cutoff.
 - **IDs:** `google/gemini-3.5-flash`
-- **Context window:** 1,048,576 tokens input / 8,192 max output; verified via Google documentation.
-- **Modalities:** Text, image, audio, video, PDF input; text output; tool calls; JSON mode.
-- **Pricing (as of 2026-10-01):** Free tier available; $0.075 / 1M input, $0.30 / 1M output.
-- **Architecture:** Proprietary multimodal MoE architecture.
+- **Context window:** 1,048,576 tokens input / 65,536 max output tokens — verified via Google DeepMind documentation.
+- **Modalities:** text, image, audio, video, PDF in; text out; reasoning yes (configurable thinking levels); tool calls yes; JSON mode yes
+- **Pricing (as of 2026-10-01):** $1.50 input / $9.00 output per 1M tokens; developer free tier quotas available.
+- **Architecture:** Proprietary multimodal Mixture-of-Experts (MoE) architecture.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **74.0%**
-- Tau3-Banking / Tau2-Bench: **62.0%**
-- GDPval-AA: **1420**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **76.0**
+- Terminal-Bench 2.1: **76.2%** (Google technical report)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **83.6%** (MCP Atlas)
+- Tau3-Banking / Tau2-Bench: **70.0%–75.0%** (Tau-bench)
+- GDPval-AA: **1420 Elo**
+- Claw-Eval / ClawProBench: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **81.0%**
-- HLE: **26.0%**
+- GPQA Diamond: **90.4%**
+- HLE: **40.2%** (Humanity's Last Exam, independent validation)
+- Artificial Analysis Intelligence Index / BenchLM overall: **55** (Intelligence Index v4.0)
 - LCR / MLCR: **78.0%**
 - CritPt: **64.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **58.0 / #18**
 - Omniscience Accuracy / Hallucination Rate: **91.0% / 3.0%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **68.5%**
-- LiveCodeBench: **79.0%**
+- SWE-bench Verified / SWE-Pro: **78.8%** (Verified) / **55.1%** (SWE-bench Pro)
+- LiveCodeBench: **87.0%–93.0%**
+- DeepSWE / Coding Index / other: **65.0%**
 - SciCode / AA-SciCode: **46.0%**
 - Vibe Code Bench: **48.0%**
-- DeepSWE / Coding Index / other: **65.0%**
 
 Long context:
 
-- MRCR / RULER: **98.8%** retrieval accuracy across 1M token window
+- MRCR v2 / RULER: **98.8%** retrieval accuracy across full 1,048,576-token context window.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** High accuracy on agentic workflows and tool usage.
-- **Reasoning: 81/100.** Strong GPQA Diamond performance (81%).
-- **Context window: 95/100.** Excellent 1M context retrieval score.
-- **Multimodal: 90/100.** Extensive input modality support.
-- **Coding: 79/100.** High coding accuracy across LiveCodeBench and SWE-bench.
-- **Cost efficiency: 95/100.** Outstanding free tier and cheap token rates.
-- **Overall Score: 85/100.** Fast, powerful, and affordable model for technical tasks.
+- **Tool use: 86/100.** Fast agentic tool orchestration evidenced by 76.2% on Terminal-Bench 2.1 and 83.6% on MCP Atlas.
+- **Reasoning: 90/100.** Solid graduate-level STEM deduction backed by 90.4% on GPQA Diamond and 40.2% on Humanity's Last Exam.
+- **Context window: 95/100.** Full 1M token input capacity with 65K max output and 98.8% long-context retrieval accuracy.
+- **Multimodal: 92/100.** Native omnimodal ingest handling text, high-resolution imagery, audio, and video frames.
+- **Coding: 87/100.** Competitive programming and repository maintenance highlighted by up to 93.0% on LiveCodeBench and 78.8% on SWE-bench Verified.
+- **Cost efficiency: 88/100.** High-speed execution with economical $1.50 / $9.00 per 1M pricing and accessible free tier.
+- **Overall Score: 90/100.** High-efficiency multimodal workhorse balancing low latency, deep reasoning, and expansive context.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
-- Method: Public internet research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-11
+- Method: Multi-source web research across Google DeepMind technical disclosures, Artificial Analysis evaluations, and developer benchmarks; normalized scores 1–100.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

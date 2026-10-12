@@ -1,64 +1,84 @@
 # Claude Opus 4.8 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-8`, proprietary, paid)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 4.8 (Anthropic)
-- **Short description:** Anthropic's May-2026 flagship reasoning model and the last Opus before the Opus 5 line — Anthropic itself called the 4.7→4.8 step an "incremental capability gain" in the 2026-05-29 system card, and Artificial Analysis now marks 4.8 deprecated in favor of Claude Opus 5 (max). Top use case at release: frontier agentic coding and long-horizon knowledge work; still competitive but no longer the frontier.
+- **Short description:** Anthropic's May-2026 flagship reasoning model and the last Opus before the Opus 5 line — Anthropic itself called the 4.7→4.8 step an "incremental capability gain" in the 2026-05-29 system card, and Artificial Analysis marks 4.8 deprecated in favor of Claude Opus 5 (max). The 2026-10-11 second pass fills the gaps with the Opus 4.8 system card and AA/Vals boards: HLE 57.9%, USAMO 2026 96.7%, τ²-bench 94.4% — but ARC-AGI-2 72.1% and FrontierMath T4 31.25% show the aging vs the 2026 class.
 - **Provider / access:** Anthropic API (`claude-opus-4-8`, Chat Completions/Anthropic Messages), plus 7 API providers per Artificial Analysis; enterprise compliance: SOC2, HIPAA eligible.
-- **Release / knowledge:** May 2026 (AA model page: "Released May 2026"; prompt20: 2026/5); system card dated 2026-05-29; knowledge cutoff not stated on fetched pages — not verified.
+- **Release / knowledge:** May 2026 (AA model page; system card dated 2026-05-29); knowledge cutoff not stated on fetched pages — not verified.
 - **IDs:** `claude-opus-4-8` (Anthropic API naming; AA slug `claude-opus-4-8`). **No Free ID** — paid-only on Anthropic and all listed providers.
-- **Context window:** 1,000,000 tokens (~1500 A4 pages per AA) — AA model page spec, cross-checked with the prompt20 leaderboard row (1M).
-- **Modalities:** text + image input, text output (AA spec + prompt20 modality flags 📝👁️); reasoning yes (Adaptive Reasoning; page shows the max-effort reasoning variant); no audio/video in or out.
-- **Pricing (as of 2026-09-17):** $5.00 / $25.00 per 1M in/out (Anthropic API via AA); 90% prompt-cache discount → AA blended $3.85/1M (7:2:1 cache/input/output) or $4.08 shown on the cost card. No free tier found.
+- **Context window:** 1,000,000 tokens (~1500 A4 pages per AA; BenchLM concurs) — up to 300K output on the Message Batches API with the `output-300k-2026-03-24` beta header (platform.claude.com models-overview table re-verified 2026-10-11).
+- **Modalities:** text + image input, text output (AA spec); reasoning yes (Adaptive Reasoning; max-effort variant); no audio/video in or out.
+- **Pricing (as of 2026-10-11):** $5.00 / $25.00 per 1M in/out (Anthropic API via AA); 90% prompt-cache discount → AA blended $3.85/1M. No free tier found.
 - **Architecture:** proprietary, closed weights; parameters undisclosed (AA FAQ: "Anthropic has not disclosed the model size").
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- SWE-bench Pro: **65.0%** (prompt20, rank #1 on the July-2026 board) / **69.2%** (Anthropic launch claim via SiliconReport scorecard, Jul 2, 2026 — ahead of GPT-5.5's 58.6% and Gemini 3.1 Pro's 54.2%; conflicting harness readings, both listed; vendor-scaffold caveat applies to Pro-class numbers per prompt20 methodology notes)
-- Terminal-Bench 2.1: **69.2%** (prompt20, rank #10 — behind Fable 5 at 84.3% and Kimi K3 at 84%)
+- τ²-bench: **94.4%** (AA, independent — strong orchestration evidence)
+- OSWorld-Verified: **83.4%** (Anthropic Opus 4.8 system card via benchlm.ai, updated 2026-10-10) — **conflicts with the OSWorld 2.0 paper reading of 20.6%** (arxiv 2606.29537; different harness version)
+- MCP Atlas: **82.2%** (system card — fills the gap the 2026-10-08 pass marked missing)
+- BrowseComp: **84.3%** (system card); DeepSearchQA: **93.1%** (system card)
+- Terminal-Bench 2.1: **74.6%** (system card; Vals independent: **71.9%**) — resolves upward from prompt20's 69.2%
+- GDPval-AA: **1593** (system card); AA-normalized: **47.8%** (AA)
+- Toolathlon: **59.9%** (system card — weak); AA Agentic Index: **42.6%** (AA)
+- Finance Agent v2: **53.9%** (system card); Gert Labs: **72.97%**; ResearchClawBench: **21.1%**; Terminal-Bench 3.0: **21.1%** (frontierbench.ai — weak on the newer board)
+- SWE-bench Pro: **69.2%** (Anthropic system card via benchlm.ai — **resolves the 2026-10-08 conflict between prompt20's 65.0% and the launch claim's 69.2% in favor of 69.2%**)
 - Arena (Frontend Code): **1580** Elo (prompt20, rank #3, behind Fable 5's 1932 and Kimi K3's 1679)
-- AA Coding Agent Index: below 57 — Kimi K3's 57 equals GPT-5.6 Terra & GPT-5.5 and is explicitly annotated "ahead of Opus 4.8" (prompt20 notes); exact 4.8 value not shown on fetched pages
-- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / OSWorld / BrowseComp: no verified public score found for 4.8 on fetched pages
+- Tau3-Banking / Claw-Eval / Toolathon: no verified public score found
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **42** (v4.3, Adaptive Reasoning Max Effort; rank #28/199; median 25) — notably below the 57 of Kimi K3 / GPT-5.6 Terra / GPT-5.5 per prompt20's cross-reference; a newer AA reading of **56** (SiliconReport scorecard, Jul 2, 2026) reflects the re-based scale — version discrepancy flagged, both listed
-- GPQA Diamond: **93.6%** (Artificial Analysis via SiliconReport scorecard, Jul 2, 2026 — behind Gemini 3.1 Pro 94.3%, ahead of Fable 5's 92.6%; found 2026-10-08, previously missing from this report). HLE / LCR / MLCR / CritPt / Omniscience (4.8-specific): no verified public score found on fetched pages; AA Index v4.3 is composed of AA-Briefcase, GDPval-AA v2, AutomationBench-AA, Terminal-Bench 4.0, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR v1.1
-- Honesty/safety (system card 2026-05-29): **3.7%** code-summary dishonesty; **5× fewer** dishonest agentic reports vs Opus 4.7 (prompt20 notes)
+- GPQA Diamond: **93.6%** (Anthropic system card via benchlm.ai — corroborates the Jul 2026 AA reading); AA independent: **92.0%**; Vals: **92.4%**
+- HLE: **57.9%** with tools / **49.8%** without (system card — fills the gap); AA-HLE: **48.7%** (AA)
+- USAMO 2026: **96.7%** (system card)
+- ARC-AGI-1: **92.5%** (ARC Prize verified, Opus 4.8 Max); ARC-AGI-2: **72.1%**; ARC-AGI-3: **1.5%** (ARC Prize leaderboard)
+- FrontierMath v2: **47.2%** Tiers 1–3 / **31.25%** Tier 4 (Epoch AI)
+- AA-LCR v1.1: **77.7%**; CritPt: **20.9%** (AA — fill the LCR/CritPt gaps)
+- Artificial Analysis Intelligence Index: **41.8** (AA, 2026-10-10 via benchlm.ai) — the 2026-10-08 "newer reading of 56 (SiliconReport)" is not confirmed on AA's current board; 41.8 stands
+- AA-Omniscience: **48.8% accuracy / 39.3% non-hallucination row / 28.8 index** (AA)
+- MMLU-Pro: **89.6%** (Vals); INCLUDE: **87.6%** (system card)
+- Honesty/safety (system card 2026-05-29): **3.7%** code-summary dishonesty; **5× fewer** dishonest agentic reports vs Opus 4.7
 
 Coding:
 
-- SWE-bench Verified: **88.1%** (prompt20, rank #2 — behind Claude Fable 5's 95.0%)
-- SWE-bench Pro: **65.0%** (rank #1 on the board; vendor-scaffold caveat applies to Pro-class numbers per prompt20 methodology notes)
-- LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE (4.8): no verified public score found on fetched pages
+- SWE-bench Verified: **88.6%** (system card; prompt20 had 88.1% — consistent)
+- LiveCodeBench: **87.8%** (Vals, independent — fills the gap)
+- SWE-bench (Vals): **88.6%**; SWE Multilingual: **84.4%**; SWE Multimodal: **38.4%** (system card)
+- AA Coding Index: **74.3%** (AA); AA-SciCode: **54.4%** (AA)
+- CursorBench 3.1: **58.4%**; CursorBench 3.2: **62.3%**; FrontierCode 1.1 Main: **46.5%** (Cognition)
+- PostTrainBench v1.1: **32.9%**
+- Vibe Code Bench / DeepSWE (4.8): no verified public score found
 
 Long context:
 
-- MRCR v2 / RULER / GraphWalks: no verified public score found for 4.8 on fetched pages (1M window confirmed; AA-LCR is an Index v4.3 component but the 4.8 component score was not exposed)
+- AA-LCR v1.1: **77.7%** (AA — first measured long-context number)
+- MRCR v2 / RULER / GraphWalks: no verified public score found for 4.8
+
+Multimodal:
+
+- ScreenSpot-Pro: **87.9%**; CharXiv: **89.9%** with tools / **80.5%** without; OfficeQA Pro: **66.2%** (system card); Design Arena Website: **1262** (OpenRouter)
 
 ### Normalized scores (1–100)
 
-> Independent derivation per the methodology in `../../model-comparison.md`; Overall = mean of the six.
-
-- **Tool use: 92/100.** SWE-bench Pro 65.0% ranked #1 on the July-2026 board, 1580 Arena Elo (#3), and a system card documenting 5× fewer dishonest agentic reports than 4.7 — but Terminal-Bench 2.1 69.2% sits only #10 (Fable 5: 84.3, Kimi K3: 84) and no τ²/OSWorld-class orchestration numbers were found for 4.8.
-- **Reasoning: 88/100.** GPQA Diamond 93.6% (now verified, Jul 2026 AA reading) clears the 90%+ frontier reference and the newer AA Index reading of 56 corroborates; still no standalone HLE/CritPt values and the 42-vs-56 index discrepancy remain. "Incremental capability gain" per Anthropic's own system card.
-- **Context window: 100/100.** 1M tokens (~1500 A4 pages) on a flagship API model — top tier; up to 300K output on the Message Batches API with the `output-300k-2026-03-24` beta header (platform.claude.com, verified 2026-10-08).
-- **Multimodal: 85/100.** Text + image in, text out; no audio/video.
-- **Coding: 93/100.** SWE-bench Verified 88.1% (#2) + SWE-bench Pro 65.0% (#1) — elite but below Fable 5 (95.0 SWE-V, 84.3 TB) and Kimi K3 (TB 84, DeepSWE 64).
-- **Cost efficiency: 20/100.** $5/$25 flagship pricing, ~2.5× the median output price AA cites ($10); 90% cache discount (≈$3.85–$4.08 blended) is the only relief; no free route. Same cost point as Opus 4.6 with the line now deprecated.
-- **Overall Score: 91.6/100.** v4 formula: mean of the five quality dims (92 + 88 + 100 + 85 + 93) / 5 = 91.6 (Cost excluded per `RULES.md`; the original /6 = 79.2→79 math was stale v1 history, corrected 2026-10-08). Best fit: a proven enterprise-grade agentic coder with top-of-board SWE-Pro and 1M context — but AA deprecates it for Claude Opus 5 (max), so choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
+- **Tool use: 92/100.** The second pass broadly corroborates the agentic story: τ²-bench 94.4%, OSWorld-Verified 83.4%, MCP Atlas 82.2%, BrowseComp 84.3%; TB2.1 74.6/71.9 and AA Agentic Index 42.6% sit a band below the Opus 5 class — held at 92 on the strength of the orchestration rows.
+- **Reasoning: 84/100.** (Was 88 on the prior pass.) GPQA 93.6% (three sources) and USAMO 96.7% remain elite and HLE 57.9% fills the gap, but AA's current Index of 41.8 (the "56" re-based reading did not hold), ARC-AGI-2 72.1%, FrontierMath T4 31.25% and CritPt 20.9% place it measurably below the Opus 5/5.5 class — the age adjustment the prior score resisted.
+- **Context window: 100/100.** 1M tokens with 300K batch output (docs table re-verified 2026-10-11) — the most generous output package; AA-LCR 77.7% is solid but retrieval-at-depth remains unpublished.
+- **Multimodal: 85/100.** Text + image in, text out; measured vision is strong (ScreenSpot-Pro 87.9%, CharXiv 89.9% with tools); no audio/video.
+- **Coding: 91/100.** (Was 93 on the prior pass.) SWE-bench Verified 88.6% and LiveCodeBench 87.8% stay elite, but SWE Pro settles at 69.2% — no longer board-leading (Opus 5 79.2%, 5.5 89.9%) — and FrontierCode 46.5%/SWE Multimodal 38.4% show the age; a one-band correction.
+- **Cost efficiency: 20/100.** $5/$25 flagship pricing, ~2.5× the median output price AA cites ($10); 90% cache discount (≈$3.85 blended) is the only relief; no free route. Same cost point as Opus 4.6 with the line now deprecated.
+- **Overall Score: 90.4/100.** (Was 91.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 84 + 100 + 85 + 91) / 5 = 452/5 = 90.4 — lowered on the 2026-10-11 second pass because the newly published system card/AA/Epoch rows (Index 41.8, ARC-AGI-2 72.1%, FrontierMath T4 31.25%) reposition the May-2026 flagship relative to the 2026 class, even as tool-use and coding evidence was largely corroborated. Best fit: a proven enterprise-grade agentic coder with 1M context — but AA deprecates it for Claude Opus 5 (max); choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-08
-- Method: fresh public internet research from zero (prompt20 AI code leaderboard row for Opus 4.8 — data as of 2026-07-26, Artificial Analysis Opus 4.8 model page incl. AA Intelligence Index v4.3 composition, a targeted web search to corroborate); scores are normalized 1–100 interpretations, not official vendor scores. Discovery note: AA's deprecation banner pointed to the then-untracked Claude Opus 5 (max) — queued per the dynamic-discovery rule.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.8 system card, Artificial Analysis model benchmarks, Vals AI / Cursor / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-10-08 prompt20/AA pass); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

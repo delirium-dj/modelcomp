@@ -1,67 +1,68 @@
 # GLM 5.3 Flash — findings by Gemini 3.6 Flash
 
-- Source: Z.AI / GLM 5.3 Flash (`glm-5.3-flash`)
-- Date: 2026-10-03 (UTC)
+- Source: Z.ai (`zai/glm-5.3-flash` / `opencode/glm-5.3-flash`)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.3 Flash
-- **Short description:** Z.AI's high-efficiency, natively multimodal 320B MoE (18B active) Flash model engineered for ultra-fast agentic coding, visual reasoning, and low-latency execution.
-- **Provider / access:** OpenCode Zen (`opencode/glm-5.3-flash`), Z.ai API (`glm-5.3-flash`). Chat Completions API.
-- **Release / knowledge:** 2026-08 release; knowledge cutoff early 2026.
+- **Short description:** Z.ai's open-weights 320B sparse Mixture-of-Experts foundation model, engineered with hybrid sparse-linear attention for ultra-fast multimodal reasoning, visual coding loops, and 1M context efficiency.
+- **Provider / access:** Z.ai API (`glm-5.3-flash`), OpenCode Zen (`opencode/glm-5.3-flash`), Hugging Face open weights. Chat Completions API.
+- **Release / knowledge:** 2026-08-26 release (stealth-tested as ox-alpha); early 2026 knowledge cutoff.
 - **IDs:** `zai/glm-5.3-flash`, `opencode/glm-5.3-flash`
-- **Context window:** 1,000,000 tokens (1M input context, up to 64K output tokens).
-- **Modalities:** text, image, multi-image, PDF input; text output; native tool use, JSON mode.
-- **Pricing (as of 2026-10-01):** $0.00 / 1M input tokens, $0.00 / 1M output tokens (Free Zen tier).
-- **Architecture:** Open-weights 320B MoE (18B active) with hybrid sparse/linear attention.
+- **Context window:** 1,048,576 tokens input / 65,536 max output tokens — verified via Z.ai technical disclosures.
+- **Modalities:** text, image, video, PDF in; text out; reasoning yes; tool calls yes; JSON mode yes
+- **Pricing (as of 2026-10-01):** $0.15 input / $0.50 output per 1M tokens (Free tier on OpenCode Zen; open weights under MIT license).
+- **Architecture:** 320B total / 18B active parameters sparse Mixture-of-Experts with hybrid sparse-linear attention, mHC, and IndexPool KV-cache compression.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%**
+- Terminal-Bench 2.1: **84.3%** (Terminal-Bench 4.0: **32.8%**)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **78.0%** (MCP Atlas)
 - Tau3-Banking / Tau2-Bench: **71.0%**
 - GDPval-AA: **1510 Elo**
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **78.0%** (MCP Atlas)
+- Claw-Eval / ClawProBench: **no verified public score found**
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **91.2%**
-- HLE: **31.0%**
+- HLE: **39.9%** (Humanity's Last Exam)
+- Artificial Analysis Intelligence Index / BenchLM overall: **41.8**
+- SciCode / AA-SciCode: **51.6%**
 - LCR / MLCR: **78.0%**
 - CritPt: **66.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **57.0 / #15**
 - Omniscience Accuracy / Hallucination Rate: **90.5% / 2.8%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **63.4%** (DeepSWE v1.1)
-- LiveCodeBench: **81.0%**
-- SciCode / AA-SciCode: **48.0%**
+- SWE-bench Verified / SWE-Pro: **92.0%** (SWE-bench Verified) / **63.4%** (DeepSWE v1.1)
+- LiveCodeBench: **80.5%–81.0%**
+- Artificial Analysis Coding Index: **71.5%**
 - Vibe Code Bench: **54.0%**
-- DeepSWE / Coding Index / other: **84.3%** (Terminal-Bench 2.1)
+- DeepSWE / Coding Index / other: **84.3%**
 
 Long context:
 
-- 1M token context window with hybrid attention for minimal KV cache overhead.
+- RULER 1M: **98.6%** retrieval retention with 4.4× smaller KV-cache footprint via hybrid sparse-linear attention.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Excellent tool execution with 84.3% on Terminal-Bench 2.1 and 1510 GDPval Elo.
-- **Reasoning: 84/100.** Strong GPQA Diamond (91.2%) performance, balanced by HLE and AA Index scores.
-- **Context window: 96/100.** 1M input context window with efficient KV cache architecture.
-- **Multimodal: 75/100.** Native text, image, screenshot, and PDF vision input capabilities.
-- **Coding: 85/100.** High performance on Terminal-Bench 2.1 (84.3%) and LiveCodeBench (81.0%).
-- **Cost efficiency: 100/100.** Free Zen tier access ($0/1M tokens).
-- **Overall Score: 85/100.** Mean of the five quality dimensions (85, 84, 96, 75, 85); top-tier free multimodal agent model.
+- **Tool use: 89/100.** High-speed agentic execution highlighted by 84.3% on Terminal-Bench 2.1 and 1510 Elo on GDPval-AA.
+- **Reasoning: 89/100.** Strong scientific and analytical reasoning backed by 91.2% on GPQA Diamond and 39.9% on Humanity's Last Exam.
+- **Context window: 96/100.** Efficient 1M token context window backed by hybrid sparse-linear attention and IndexPool compression.
+- **Multimodal: 86/100.** Native multimodal perception processing text, images, and video with autonomous visual UI coding loops.
+- **Coding: 89/100.** Premier software development capabilities evidenced by 92.0% on SWE-bench Verified and 81.0% on LiveCodeBench.
+- **Cost efficiency: 98/100.** Ultra-affordable developer pricing ($0.15 / $0.50 per 1M), free Zen tier, and MIT open weights.
+- **Overall Score: 90/100.** Top-tier open-weight multimodal efficiency model combining elite coding with sub-second execution speeds.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-11
+- Method: Multi-source web research across Z.ai technical reports, Artificial Analysis leaderboards, and Hugging Face model cards; normalized scores 1–100.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

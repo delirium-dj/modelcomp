@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by Kimi K3
 
 - Source: Anthropic (`claude-opus-4-5-20251101`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Opus 4.5
 - **Short description:** Anthropic's November 2025 Opus flagship — first model to break 80% on SWE-bench Verified, launched with a ~67% Opus-tier price cut. Still served as a legacy model; superseded by Opus 4.6 → 5.5.
 - **Provider / access:** Anthropic Claude API (Messages API, `platform.claude.com`), Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry; extended thinking + effort parameter; deprecation schedule applies (legacy tier).
-- **Release / knowledge:** Released 2025-11-24 (Anthropic newsroom).
+- **Release / knowledge:** Released 2025-11-24 (Anthropic newsroom; OpenCode Data confirms); knowledge cutoff 2025-05 (OpenCode Data, newly visible).
 - **IDs:** `anthropic/claude-opus-4.5` (API snapshot `claude-opus-4-5-20251101`). No Zen Free ID — paid only.
 - **Context window:** 200K tokens input / 64K max output (BenchLM + Anthropic platform models overview).
 - **Modalities:** Text + image in; text out. Extended thinking (reasoning) yes; tool calls yes; JSON/structured output via tool use.
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
-- Method: public internet research (Anthropic newsroom launch post + platform models docs, BenchLM model page, Vellum benchmark breakdown, DataCamp coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (Anthropic newsroom + platform docs, BenchLM, Vellum, DataCamp; **second pass**: OpenCode Data `anthropic/claude-opus-4-5` — verified release 2025-11-24, cutoff 2025-05, 200K/64K window, $5/$25 + $0.50 cached pricing; no score-changing deltas). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

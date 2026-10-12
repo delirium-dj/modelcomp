@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by Kimi K3
 
 - Source: xAI / Grok 4.20 (`grok-4.20`, incl. `grok-4.20-0309-reasoning` HF artifact)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Grok 4.20
 - **Short description:** xAI's mid-2026 flagship reasoning model — a four-agent parallel system where specialized agents debate in real time (per launch coverage). Beta 2026-02-17, full release with API access in March 2026; since superseded in xAI's lineup by the 4.5/4.6/4.7 line. Broad assistant positioning rather than a narrow coding checkpoint.
-- **Provider / access:** xAI API (Chat Completions-compatible); SuperGrok (~$30/mo) and X Premium+ subscriptions. BenchmarkList lists it API-only. **Not on OpenCode Zen** (Zen carries grok-4.5/4.6/4.7/grok-build-0.1, no 4.20 ID).
-- **Release / knowledge:** beta 2026-02-17 (nextbigfuture, aireleasetracker); model card 2026-04-07 (`data.x.ai/2026-04-07-grok-4-20-model-card.pdf`, cited by BenchmarkList).
-- **IDs:** `xai/grok-4.20` (xAI API); HF artifact `xai/grok-4.20-0309-reasoning` exists as an eval source. No Zen ID.
-- **Context window:** 2,000,000 tokens (Gert Labs ranking metadata; digitalapplied full-release coverage).
-- **Modalities:** text + image in (verified via MMMU-Pro 83.5%, Design Arena 1249, JMed48k vision-language eval); text out; tool calls; reasoning (multi-agent "Heavy"-style mode).
-- **Pricing (as of 2026-09-25):** $1.25/1M input, $2.50/1M output (BenchmarkList model page). Launch coverage noted ~60% price cuts vs the preceding tier.
+- **Provider / access:** xAI API (Chat Completions-compatible); SuperGrok (~$30/mo) and X Premium+ subscriptions. **Not on OpenCode Zen** (Zen carries grok-4.5/4.6/4.7/grok-build-0.1, no 4.20 ID).
+- **Release / knowledge:** beta 2026-02-17 (nextbigfuture, aireleasetracker); model card 2026-04-07 (`data.x.ai/2026-04-07-grok-4-20-model-card.pdf`, cited by BenchmarkList); the dated API variant `grok-4.20-0309-reasoning` is listed in xAI's official docs (docs.x.ai/docs/models).
+- **IDs:** `xai/grok-4.20` (xAI API); dated artifact `grok-4.20-0309-reasoning` (xAI docs). No Zen ID.
+- **Context window:** **CONFLICT, revised this pass:** tracker metadata claimed 2,000,000 tokens (Gert Labs / digitalapplied), but xAI's official docs table lists the dated `grok-4.20-0309-reasoning` endpoint at **1M** context — the official listing governs; the 2M claim is retained as unverified.
+- **Modalities:** text + image in (verified via MMMU-Pro 83.5%, Design Arena 1249, JMed48k vision-language eval); text out; tool calls; reasoning (multi-agent "Heavy"-style mode). Docs note logprobs/top_logprobs unsupported on grok-4.20+.
+- **Pricing (as of 2026-10-11):** $1.25/M input, $2.50/M output below 200K prompt; doubles to $2.50/$5.00 at ≥200K (whole-request rate) (docs.x.ai/docs/models official pricing table — matches the BenchmarkList figure).
 - **Architecture:** proprietary; four-agent parallel inference system (natural20/aimlapi launch coverage); parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -49,7 +49,7 @@ Coding:
 
 Long context:
 
-- AA-LCR: **62.3%** (67th pct); Context Arena: 28.8% / 14.5% (weak); 2M window verified by tracker metadata.
+- AA-LCR: **62.3%** (67th pct); Context Arena: 28.8% / 14.5% (weak); the official docs list the dated variant at 1M — corrected assumption.
 
 Multimodal:
 
@@ -59,18 +59,18 @@ Multimodal:
 
 > Methodology: `../../model-comparison.md`. Overall = half-up mean of the five quality dims; Cost excluded.
 
-- **Tool use: 68/100.** Tau2 Telecom 96.5% (97th pct) and GDPval 1171 are strong-to-mid; dragged down hard by sustained-agent benchmarks (APEX 14.2%, WildClaw 19.3%, LH-TB 0.1, ClawPro 9th pct) — short tool calls good, long agentic loops bad.
-- **Reasoning: 82/100.** GPQA ~88.6–91.1% and AIME 96.5% approach frontier; HLE 34.5% is below the 40%+ frontier reference and AA Index 38 is only upper-mid → high-mid, not 90s.
-- **Context window: 95/100.** Verified 2M-token tier (95–100 band); AA-LCR 62.3% is decent but far from the ≥98% retrieval bar needed for 100.
-- **Multimodal: 68/100.** Image input verified across three independent evals (60–70 band); no audio/video input, no non-text output; the 4th-percentile Vals Multimodal Index blocks a higher score.
-- **Coding: 75/100.** SWE-bench Verified 72.2% + LiveCodeBench 84.3% + SciCode 45.6% (88th pct) sit just under the frontier reference set; Vibe Code Bench 4.1% and TB2.1 44.2% cap it below 80.
-- **Cost efficiency: 91/100.** $1.25/$2.50 per 1M — between the $0.60/$2.20 (≈92) and $1.25/$4.25 (≈88) reference points, with unusually cheap output tokens.
-- **Overall Score: 77.6/100.** Mean of (68 + 82 + 95 + 68 + 75)/5 = 77.6. Best fit: cheap, reasoning-strong API workhorse with a huge 2M window for Q&A/batch analysis; avoid for long-horizon autonomous agent loops and multimodal-heavy work.
+- **Tool use: 68/100.** Unchanged: Tau2 Telecom 96.5% (97th pct) strong, dragged by sustained-agent weaknesses (APEX 14.2%, WildClaw 19.3%, LH-TB 0.1).
+- **Reasoning: 82/100.** Unchanged: GPQA ~88.6–91.1% and AIME 96.5% approach frontier; HLE 34.5% below the 40%+ frontier reference; AA Index 38 upper-mid.
+- **Context window: 80/100.** Lowered from 95: the verified 2M claim did not survive the second pass — xAI's own docs list the dated endpoint at 1M, and measured retrieval (AA-LCR 62.3%, weak Context Arena) is mid-band; scoring 1M-with-weak-retrieval band accordingly.
+- **Multimodal: 68/100.** Unchanged: image input verified across three independent evals; no audio/video; the 4th-percentile Vals Multimodal Index blocks higher.
+- **Coding: 75/100.** Unchanged: SWE-bench Verified 72.2% + LiveCodeBench 84.3% + SciCode 45.6% (88th pct); Vibe Code Bench 4.1% and TB2.1 44.2% cap it below 80.
+- **Cost efficiency: 91/100.** Unchanged, now official-confirmed: $1.25/$2.50 per docs.x.ai, with unusually cheap output tokens.
+- **Overall Score: 75/100.** Half-up mean of (68 + 82 + 80 + 68 + 75)/5 = 74.6 → 75 (from 77.6 first pass — driven by the corrected context-window evidence). Best fit: cheap, reasoning-strong API workhorse for Q&A/batch analysis; avoid for long-horizon autonomous agent loops and multimodal-heavy work.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-25
-- Method: public internet research (BenchmarkList model page aggregating vals.ai, Artificial Analysis, Epoch, ARC Prize, ClawBench, LMArena and other public eval sources; grokipedia / nextbigfuture / digitalapplied coverage for release facts). Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (BenchmarkList aggregation of vals.ai / Artificial Analysis / Epoch / ARC Prize / ClawBench / LMArena; official **docs.x.ai/docs/models** pricing-and-model table confirming $1.25/$2.50 and listing the dated endpoint at 1M context — driving the 2M→1M correction; grokipedia / nextbigfuture / digitalapplied for release facts). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.
