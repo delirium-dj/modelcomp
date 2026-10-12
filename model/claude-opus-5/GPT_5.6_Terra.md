@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by GPT-5.6 Terra
 
 - Source: Anthropic / Claude Opus 5
-- Date: 2026-10-01 (UTC; refreshed from the 2026-09-18 report)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Anthropic's [Opus page](https://www.anthropic.com/claude/opus) continues to identify Opus 5 as the July 2026 predecessor to Opus 5.5. Independent sources agree it remains high capability, but evaluate unlike tasks: [BitsMinds](https://www.bitsminds.com/reviews/claude-opus-5-review) reports an Artificial Analysis composite while a [SOC 2 study](https://arxiv.org/abs/2608.07776) measures narrow compliance tasks. Neither establishes a directly comparable component-score change, so scores are retained.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: refreshed public-web research using [Anthropic’s Opus 5 release](https://www.anthropic.com/news/claude-opus-5) and [Opus 5.5 release notes](https://www.anthropic.com/claude-opus-5-5); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

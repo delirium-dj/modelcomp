@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by Muse Spark 1.3 Contributor
 
 - Source: Anthropic/Claude Sonnet 5, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: catalog absolutes added, scores recomputed 83 → 84)
+- Date: 2026-10-12 (UTC) — second-pass refresh (prior Signature 2026-09-18, amended 2026-09-27: catalog absolutes added, 83 → 84; new: Anthropic launch page re-read — $2/$10 intro made permanent, corrected Sonnet 4.6 baselines, Cyber Verification note)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,12 @@
 - **IDs:** `anthropic/claude-sonnet-5` (state explicitly: no Free ID exists on Zen)
 - **Context window:** 1M / 128K out — verified via curated repo metadata + Anthropic announcement (tokenizer note: 1.0–1.35x token mapping vs 4.6)
 - **Modalities:** text, image, file in; text out; reasoning yes (adaptive thinking, effort levels); tool calls yes; computer use yes
-- **Pricing (as of 2026-09-18):** Paid $2 in / $10 out per 1M introductory made permanent (announcement; charts show $3/$15 standard-time pricing)
+- **Pricing (as of 2026-10-12):** Paid $2 in / $10 out per 1M — introductory pricing made permanent (Anthropic launch page; charts show $3/$15 standard-time pricing); default model on Free/Pro plans
 - **Architecture:** proprietary, updated tokenizer (undisclosed params)
 
 ### Raw benchmarks found
+
+> Compared against prior findings (2026-09-18/27, Overall 84): launch page re-read 2026-10-12 — no genuinely new Sonnet 5 absolutes found (announcement still states no exact BrowseComp/OSWorld/HLE figures; evaluation curves are effort-relative). New verified context: $2/$10 intro made permanent (was chart-priced at $3/$15), corrected Sonnet 4.6 baselines (HLE 34.6% no-tools / 46.8% with-tools under updated grader; OSWorld-Verified 78.5% under updated methodology), Cyber Verification Program availability, 1.0–1.35x tokenizer note. Scores held.
 
 Agent / tool use:
 
@@ -33,7 +35,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **91.1%** (Requesty/AA catalog row)
-- HLE: **no verified public score found** (Sonnet 4.6 baseline 34.6%/46.8%; Sonnet 5 delta not numerically stated)
+- HLE: **no verified public score found** (Sonnet 4.6 baseline corrected to 34.6% no-tools / 46.8% with-tools under updated grader — Sonnet 5 launch footnotes; Sonnet 5 delta still not numerically stated)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
 - Artificial Analysis Intelligence Index: **55.3%** (Requesty/AA catalog row)
@@ -65,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
-- Method: public internet research (Anthropic Sonnet 5 announcement + charts + system-card references); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-10-12
+- Method: second-pass refresh of the 2026-09-18 report (amended 2026-09-27): launch-page re-read (permanent $2/$10 pricing, corrected 4.6 baselines, Cyber Verification + tokenizer notes; no new Sonnet 5 absolutes found — scores held); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Contributor — findings by GPT-5.6 Terra
 
 - Source: Meta / Muse Spark 1.3 Contributor
-- Date: 2026-10-09 (UTC; refreshed against current Meta documentation)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,7 +12,7 @@
 - **Provider / access:** OpenCode Zen free tier; upstream model is available through Muse Code and Meta Model API. The exact free-tier API identifier was not verified in first-party documentation.
 - **Release / knowledge:** September 2026 release for Muse Spark 1.3; cutoff not publicly verified.
 - **IDs:** Free OpenCode Zen identifier not verified; upstream model ID reported as `muse-spark-1.3`.
-- **Context window:** 1M tokens in Max mode; provider documentation describes 300K regular context and 1M Max mode.
+- **Context window:** 1,048,576 tokens (1M) on both Standard and Contributor tiers, per Meta's current models documentation.
 - **Modalities:** Text, image, video, and document perception are described by Meta; text output.
 - **Pricing (as of 2026-09-18):** Free Zen tier; upstream listed price $1.25 input / $4.25 output per 1M tokens.
 - **Architecture:** Proprietary.
@@ -55,8 +55,12 @@ Long context:
 
 Meta's current model page confirms that `muse-spark-1.3-contributor` has a 1M-token context window and published rates of $0.10 input, $0.002 cached input, and $0.20 output per million tokens; it distinguishes this data-training-permitted tier from standard `muse-spark-1.3` at $1.25/$0.15/$4.25. Meta also documents 1.3 as the recommended latest agentic model, with max reasoning on Standard only, and notes that audio input is not yet fully supported. This clarifies the free/contributor route without altering normalized scores.
 
+## Deep second-pass note — 2026-10-12
+
+Meta's [current model catalogue](https://dev.meta.ai/docs/models) confirms 1,048,576-token context, text/image/video/audio/PDF input, text output, tool calling, structured output, and search grounding; it cautions that 1.3 audio quality may be degraded. Meta's [model page](https://dev.meta.ai/models/muse-spark) publishes benchmark and tier data. Independent coverage has materially different composite snapshots ([The Model Gap](https://themodelgap.com/models/muse-spark-1-3), [DataCamp](https://www.datacamp.com/blog/muse-spark-1-3)) because methodology and effort settings differ. The corrected context specification supports retaining the scores.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: refreshed public-web research using [Meta’s release](https://research.meta.ai/blog/introducing-muse-spark-1-3), [Meta Model API documentation](https://dev.meta.ai/models/muse-spark), and [Parallel’s independent search leaderboard](https://parallel.ai/leaderboard/muse-spark-1-3); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

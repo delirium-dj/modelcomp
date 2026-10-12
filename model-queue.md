@@ -90,7 +90,7 @@
 78.8 kimi-k2.7-code-highspeed
 78.4 grok-4.1-fast
 78.2 glm-5.3
-77.6 gemini-2.5-flash
+77.7 gemini-2.5-flash
 77.5 grok-4.1
 77.4 union-alpha
 77.3 gpt-5.4-mini
@@ -117,8 +117,8 @@
 72 gpt-5.4-nano
 71.9 minimax-m3.1-flash-preview
 71.7 nemotron-3-nano-omni
+71.6 nemotron-3-ultra-free
 71.5 hy3
-71.5 nemotron-3-ultra-free
 71.5 qwen-3.5-9b
 71.3 longcat_2.5_preview
 71.1 mai-code-1.1-flash
@@ -157,8 +157,8 @@
 58.1 llama_3.2_vision_instruct
 57.6 north_mini_code
 56.4 big-pickle
+56.4 nemotron-3.5-lightning-free
 56.2 solar-mini-4
-56 nemotron-3.5-lightning-free
 53.2 ling-2.6-flash
 52.7 gemma-4-e2b
 52.7 mercury-2.5

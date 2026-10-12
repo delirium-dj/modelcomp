@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.8 Flash
-- Date: 2026-10-09 (UTC; rechecked against the current Google model card; no material score change)
+- Date: 2026-10-12 (UTC; deep second-pass refresh; no material score change)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,8 +58,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Google's [model card](https://deepmind.google/models/model-cards/gemini-3-8-flash/) and [launch announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/) continue to support the 1M-context, multimodal, agentic-coding characterization and introductory $0.75/$3.75 pricing. Independent results use changing suites and effort settings ([Artificial Analysis](https://artificialanalysis.ai/articles/gemini-3-8-flash), [AIEvals](https://aievals.app/models/gemini-3-8-flash)); they reinforce the existing score caps rather than support a recalculation.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: Fresh public-web research using Google DeepMind's model card and Google Gemini API documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

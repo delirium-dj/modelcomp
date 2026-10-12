@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GPT-5.6 Terra
 
 - Source: Google DeepMind (`gemini-3.7-flash`)
-- Date: 2026-10-01 (UTC; refreshed against the current Google model card)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Google's [Gemini 3.7 Flash model card](https://deepmind.google/models/model-cards/gemini-3-7-flash/) continues to document capabilities, limits, and vendor comparisons. The independent [Artificial Analysis evaluation](https://artificialanalysis.ai/articles/gemini-3-7-time-frontier) reports an Intelligence Index of 56 at high effort and strong document-agent performance; [AIEvals](https://aievals.app/models/gemini-3-7-flash) records separate Vals results. The sources are directionally consistent with the existing high score but use unlike metrics, so component scores are retained.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: public internet research using Google DeepMind, Google Cloud and Gemini API documentation; scores are normalized interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

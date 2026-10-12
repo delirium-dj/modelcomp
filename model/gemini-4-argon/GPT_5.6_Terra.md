@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by GPT 5.6 Terra
 
 - Source: Google DeepMind (`Gemini 4 Argon`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,8 +49,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Google's current [Gemini overview](https://deepmind.google/models/gemini/) links Argon's evaluation methodology and describes prompt-injection resilience, but public API availability remains restricted. Independent coverage confirms a sparse external evidence base ([Axios](https://www.axios.com/2026/09/30/google-gemini-4), [MindStudio](https://www.mindstudio.ai/blog/gemini-4-argon-benchmark-analysis), [Jayant Solanki](https://thejayant.in/blog/gemini-4-argon-benchmarks)). The reported 53 Artificial Analysis composite and conflicting vendor/harness results do not justify changing the existing evidence-capped dimensions.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-02
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-12
 - Method: Fresh public internet research across launch reporting and benchmark coverage; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

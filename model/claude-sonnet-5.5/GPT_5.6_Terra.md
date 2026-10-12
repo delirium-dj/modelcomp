@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by GPT-5.6 Terra
 
 - Source: Anthropic (`claude-sonnet-5-5`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,11 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Anthropic's [Sonnet 5.5 release](https://www.anthropic.com/claude-sonnet-5-5) and [Sonnet page](https://www.anthropic.com/claude/sonnet) confirm current availability and family positioning. Independent review reports an Artificial Analysis composite of 56 while noting effort-dependent cost and performance ([BitsMinds](https://www.bitsminds.com/reviews/claude-sonnet-5-5-review), [SmartScope](https://cf-canary.smartscope.blog/en/blog/claude-sonnet-5-5-review-testing-smarter-than-2026/)); [Tom's Guide](https://www.tomsguide.com/ai/claude/claude-sonnet-5-5-just-launched-heres-why-its-about-to-become-your-daily-driver) provides a separate practical comparison. None replaces the report's task-level evidence on a common scale, so all quality scores remain unchanged.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: fresh public-internet research using Anthropic's official announcement and model page; scores are normalized 1–100 interpretations, not official vendor scores.

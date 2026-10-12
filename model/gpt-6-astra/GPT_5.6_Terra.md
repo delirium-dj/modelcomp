@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by GPT-5.6 Terra
 
 - Source: OpenAI / GPT-6 Astra
-- Date: 2026-10-01 (UTC; refreshed against current OpenAI documentation)
+- Date: 2026-10-12 (UTC; deep second-pass refresh)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,8 +59,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+OpenAI's [model documentation](https://developers.openai.com/api/docs/models/gpt-6-astra) confirms 1,050,000 context tokens, 128,000 output tokens, image-only non-text input, supported Responses tools, and current pricing; the [launch report](https://openai.com/index/gpt-6-astra/) provides vendor benchmarks. Independent analysis is more mixed on composite ranking and cost ([Live Science](https://www.livescience.com/technology/artificial-intelligence/openai-claims-weve-entered-the-agi-era-has-gpt-6-astra-really-demonstrated-general-intelligence), [Joween Flores](https://joween.dev/blog/gpt-6-astra-review-benchmarks-cost)). This corroborates the existing caveats, not a common score-changing replacement evaluation.
+
 ## Signature
 
-- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-09
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-10-12
 - Method: Fresh public-web research using OpenAI's model page and launch evaluation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

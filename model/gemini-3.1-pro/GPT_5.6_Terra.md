@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by GPT 5.6 Terra
 
 - Source: Google DeepMind / Gemini 3.1 Pro
-- Date: 2026-10-09 (UTC; current model card rechecked; no material score change)
+- Date: 2026-10-12 (UTC; deep second-pass refresh; no material score change)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,8 +52,12 @@ Long context:
 
 ---
 
+## Deep second-pass note — 2026-10-12
+
+Google's [model card](https://deepmind.google/models/model-cards/gemini-3-1-pro) continues to document native text/image/audio/video input, 1M input, 64K output, and the vendor evaluation table. Its [evaluation supplement](https://storage.googleapis.com/deepmind-media/gemini/gemini_3-1_pro_model_evaluation.pdf) separates Google's runs from public-leaderboard comparisons. Independent references ([PolicyBench](https://www.policybench.org/paper/policybench.pdf), [TechRadar](https://www.techradar.com/ai-platforms-assistants/gemini/gemini-3-1-pro-vs-gemini-3-pro-googles-new-ai-is-slower-on-purpose-and-smarter-for-it)) are consistent with high capability but not a common scoring scale. Scores are retained.
+
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-09
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-12
 - Method: Fresh public-internet research using Google DeepMind's Gemini 3.1 Pro product page and official model card; scores are normalized interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

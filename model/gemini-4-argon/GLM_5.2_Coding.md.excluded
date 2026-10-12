@@ -1,0 +1,49 @@
+# Gemini 4 Argon — findings by GLM 5.2 Coding
+
+- Source: Google / Gemini 4 Argon (`opencode/gemini-4-argon`)
+- Date: 2026-10-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Status: SELF-EXCLUDED — zero verified public benchmark numbers found for this exact model. Notes only; scores ignored.**
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google's Gemini 4-generation model, served on OpenCode Zen as `opencode/gemini-4-argon` per this folder's `meta.json` (positioned for long-horizon software engineering, enterprise knowledge work, and defensive cybersecurity). Not listed in any public Google model catalog I could reach.
+- **Provider / access:** OpenCode Zen `opencode/gemini-4-argon` (per `meta.json` in this folder). No OpenRouter listing (`openrouter.ai/google/gemini-4-argon` returns 404). No Google AI Studio / Gemini API / Vertex AI endpoint found.
+- **Release / knowledge:** no verified public release date found; not present in the Gemini API changelog through 2026-10-08.
+- **IDs:** `opencode/gemini-4-argon` (Zen only, per meta.json; `noFreeId: true` — no Free ID on Zen).
+- **Context window:** meta.json (curated, not vendor-verified): "1M total (262K output; 1M via continuation)". No official doc confirms this.
+- **Modalities:** meta.json: "Text, image, video in; text out". Not vendor-verified.
+- **Pricing (as of 2026-10-12):** meta.json tiers: "Intro $2.00/$10.00 per 1M in/out", "Standard $4.00/$20.00 per 1M in/out", "Cached input $0.10 per 1M". Not vendor-verified.
+- **Architecture:** proprietary; no parameter counts published.
+
+## Negative findings (why no scores)
+
+Research attempted 2026-10-12, minimum three independent source classes, all failing to yield a single verifiable benchmark number:
+
+1. **Official Google docs** — `ai.google.dev/gemini-api/docs/models` model index (fetched 2026-10-12): no Gemini 4 / Argon entry; latest Gemini family listed is 3.8 (3.8 Flash, 3.8 Live, 3.8 Flash TTS, 3.5/3.6 Flash, 3.1/2.5 tiers). Model page `ai.google.dev/gemini-api/docs/models/gemini-4-argon` → HTTP 404. Vertex AI model catalog (`cloud.google.com/vertex-ai/generative-ai/docs/models`, fetched 2026-10-12): no Gemini 4 / Argon; newest generative entries are Gemini 3.8 Flash / 3.8 Flash Cyber / 3.8 Live. Gemini API changelog (through 2026-10-08 entry, fetched 2026-10-12): no Gemini 4 or Argon mention in the visible October entries. Google blog product page: no model data extractable.
+2. **Independent benchmark trackers** — Artificial Analysis model page `artificialanalysis.ai/models/gemini-4-argon` EXISTS (title "Gemini 4 Argon (high)", fetched directly and via text-render proxy 2026-10-12) but every metric (Intelligence Index v4.3.2, AA-Briefcase Elo, GDPval-AA, Terminal-Bench 4.0, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR, pricing, context window) renders client-side only — zero numeric values extractable from static HTML. AA public data API: no accessible endpoint (404).
+3. **Aggregators / gateways** — OpenRouter `google/gemini-4-argon`: 404 (via text proxy, fetched 2026-10-12). LMArena leaderboard: empty response. Web search tool: backend 404 throughout the session (retried multiple times). DuckDuckGo HTML endpoint: bot-challenge wall.
+
+**Conclusion:** the only traceable public artifact is the Artificial Analysis page's existence (proving the model is tracked somewhere as "Gemini 4 Argon (high)") plus the Zen route in `meta.json`. No benchmark value, price, context limit, or modality spec could be independently verified from a fetchable source. Per the self-exclusion rule (template + `tasks/research.md`), a scored file would require inventing every number — forbidden. Saved as `.md.excluded` notes; `pnpm sync` ignores scores herein.
+
+## Raw benchmarks found
+
+- Agent / tool use: no verified public score found
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: tracked on Artificial Analysis page but value not extractable (client-rendered)
+- Reasoning (GPQA Diamond / HLE / CritPt / AA Intelligence Index): tracked on Artificial Analysis page but values not extractable (client-rendered)
+- Coding (SWE-bench Verified / LiveCodeBench / SciCode): no verified public score found
+- Long context: no long-context retrieval score found
+
+## Normalized scores (1–100)
+
+Not derived — zero verified raw benchmarks. Self-excluded file; scores inside are ignored by the pipeline.
+
+## Signature
+
+- Provided by: **GLM 5.2 Coding (`opencode/glm-5.2-coding`)** — 2026-10-12
+- Method: public internet research (official docs, benchmark trackers, gateway catalogs; search engine backend was down — all sources fetched directly). Negative findings; no scores fabricated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings. If a future session extracts the client-rendered Artificial Analysis values or Google publishes the model card, draft a fresh `GLM_5.2_Coding.md` (twin procedure per `tasks/research.md` Step 3.3).
