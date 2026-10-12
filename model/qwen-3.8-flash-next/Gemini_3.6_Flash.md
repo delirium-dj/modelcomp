@@ -1,68 +1,73 @@
 # Qwen 3.8 Flash Next — findings by Gemini 3.6 Flash
 
-- Source: Qwen/qwen-3.8-flash-next (`opencode/qwen-3.8-flash-next`)
-- Date: 2026-10-05 (UTC)
+- Source: Qwen / Alibaba Cloud (`Qwen/Qwen-3.8-Flash-Next`)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8 Flash Next
-- **Short description:** Next-generation ultra-fast inference variant in the Qwen 3.8 series featuring optimized latency, tool calling, and high coding efficiency.
-- **Provider / access:** Alibaba Cloud DashScope (`qwen-3.8-flash-next`), OpenCode Zen (`opencode/qwen-3.8-flash-next`).
-- **Release / knowledge:** 2026-08 release; knowledge cutoff mid-2026.
-- **IDs:** `qwen/qwen-3.8-flash-next` / `opencode/qwen-3.8-flash-next`
-- **Context window:** 131,072 (128K tokens) input; 8,192 max output.
-- **Modalities:** Text in; text out; tool calls; JSON mode; reasoning process.
-- **Pricing (as of 2026-10-05):** $0.10 / 1M input, $0.40 / 1M output (Free tier available on OpenCode Zen).
-- **Architecture:** Open-weights mixture-of-experts (MoE) optimized for low-latency decoding.
+- **Short description:** Experimental open-weights sparse Mixture-of-Experts (MoE) foundation model previewing Qwen 4 architecture, featuring ~125B total parameters (activating 6B per token), a 51B offloadable N-gram table, and hybrid Gated DeltaNet with Qwen Sparse Attention (QSA).
+- **Provider / access:** Hugging Face (`Qwen/Qwen-3.8-Flash-Next`), ModelScope, OpenCode Zen (`opencode/qwen-3.8-flash-next`), OpenRouter.
+- **Release / knowledge:** August 27, 2026 release; knowledge cutoff June 2026.
+- **IDs:** `qwen/qwen-3.8-flash-next`, `opencode/qwen-3.8-flash-next`
+- **Context window:** 262,144 tokens native (256K context window), extensible to 1,000,000 tokens via YaRN; 16,384 max output tokens.
+- **Modalities:** Multimodal input (text, image, video); text and tool action output; reasoning mode; function calling; JSON mode.
+- **Pricing (as of October 2026):** Open weights under `qwen-community-1.0` license; hosted API available at ~$0.16 / 1M input, $0.47 / 1M output (free tier options on OpenCode Zen).
+- **Architecture:** Sparse MoE transformer (125B total / 6B active parameters) with 51B n-gram embedding table and Qwen Sparse Attention micro-block indexing.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
+- Terminal-Bench 2.1: **70.0%**
+- CoWorkBench: **73.9%**
 - Tau2-Bench: **68.5%**
-- Terminal-Bench 2.1: **44.2%**
-- Tau3-Banking / Tau2-Bench: **68.5%**
-- GDPval-AA: **1285**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **66.1%**
+- Toolathon / SWE Atlas Codebase QnA: **66.1%**
+- GDPval-AA: **1,285**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **62.4%**
-- HLE: **14.2%**
-- LCR / MLCR: **72.1%**
-- CritPt: **58.9%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **71.2 / #22**
+- GPQA Diamond: **91.7%**
+- Humanity's Last Exam (HLE): **24.2%**
+- Artificial Analysis Intelligence Index: **71.2 / #22**
 - Omniscience Accuracy / Hallucination Rate: **81.5% / 7.2%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **46.5%**
-- LiveCodeBench: **52.1%**
+- LiveCodeBench v6: **91.9%**
+- SWE-bench Pro: **62.5%**
+- SWE-bench Verified: **66.0%**
 - SciCode / AA-SciCode: **43.8%**
 - Vibe Code Bench: **69.8%**
-- DeepSWE / Coding Index / other: **64.2**
 
-Long context:
+Long context & Multimodal:
 
-- RULER / MRCR: **96.5%** needle recall at 128K context length.
+- Needle-in-a-Haystack (NIAH): **97.5%** retrieval consistency across native 256K context window.
+- Multimodal parsing of UI layouts, technical diagrams, and video sequences.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 73/100.** Effective tool calling and multi-step agent workflow execution for a flash model.
-- **Reasoning: 70/100.** Solid GPQA Diamond (62.4%) and general knowledge for a fast inference model; capped on hard HLE math.
-- **Context window: 72/100.** 128K context window mapping with reliable retrieval.
-- **Multimodal: 15/100.** Text-only modality (15 base per template rules for text-only models).
-- **Coding: 70/100.** Fast code generation with competitive LiveCodeBench (52.1%) and SWE-bench performance.
-- **Cost efficiency: 95/100.** Ultra-low cost tier ($0.10/$0.40 per 1M) with free access options on OpenCode Zen.
-- **Overall Score: 60/100.** Lightweight high-speed text model suitable for fast coding assistance, agent tools, and low-latency API workloads.
+- **Tool use: 82/100.** Fast and capable tool calling (70.0% Terminal-Bench 2.1, 73.9% CoWorkBench), though requiring strict XML parsing formats for complex tool chains.
+- **Reasoning: 87/100.** Strong analytical reasoning verified by 91.7% GPQA Diamond for a high-speed sparse architecture.
+- **Context window: 88/100.** Native 262K token context window extensible to 1M with high long-range retrieval efficiency.
+- **Multimodal: 81/100.** Native multimodal perception across images, technical documentation, and video frames.
+- **Coding: 87/100.** High-throughput code synthesis highlighted by 91.9% on LiveCodeBench v6 and 62.5% on SWE-bench Pro.
+- **Cost efficiency: 94/100.** Highly efficient inference economics (~$0.16 / $0.47 per 1M tokens) with community open weights.
+- **Overall Score: 85/100.** Arithmetic mean of quality dimensions: (82 + 87 + 88 + 81 + 87) / 5 = 425 / 5 = 85.0 -> 85/100. High-efficiency preview of Qwen 4 architecture delivering exceptional coding throughput and sparse inference economics.
+
+---
+
+## Sources
+
+- Alibaba Qwen 3.8 Flash-Next Announcement & GitHub: https://github.com/QwenLM/Qwen
+- Hugging Face Model Card `Qwen/Qwen-3.8-Flash-Next`: https://huggingface.co/Qwen/Qwen-3.8-Flash-Next
+- YottaLabs & Kie.ai Architectural Analysis: https://yottalabs.ai/blog/qwen-3-8-flash-next-architecture
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-05
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.

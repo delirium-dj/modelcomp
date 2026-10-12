@@ -1,7 +1,7 @@
 # Claude Sonnet 3.7 — findings by Mimo v2.6 Flash
 
 - Source: Anthropic/Claude Sonnet 3.7 (`claude-3-7-sonnet-20250219`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-02, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Sonnet 3.7 (API: `claude-3-7-sonnet-20250219`)
 - **Short description:** Anthropic's first hybrid-reasoning Sonnet (released 2025-02-24) — one checkpoint serving both instant answers and budget-controlled extended thinking; launched alongside the Claude Code CLI research preview and held the SWE-bench Verified record at launch. Superseded/deprecated by the Claude 4.x line (API id deprecated late 2025).
 - **Provider / access:** Anthropic first-party API (platform.claude.com, Chat-style Messages API with `thinking` budget) and Anthropic apps (claude.ai, Claude Code). No $0 free API tier found in reviewed sources — Anthropic first-party is paid.
-- **Release / knowledge:** released 2025-02-24 (model id dated 2025-02-19); knowledge cutoff January 2025.
+- **Release / knowledge:** released 2025-02-24 (model id dated 2025-02-19); knowledge cutoff **January 2025** (Anthropic) — AA's catalog says **October 2024** for the non-reasoning variant (conflict kept, 2026-10-09). Status: **deprecation notice dated 2025-10-28** per Anthropic's official model-deprecations page (re-checked 2026-10-09); AA carries a deprecated banner (its suggested successor "Claude 4 Sonnet" is itself long superseded — stale chain).
 - **IDs:** `claude-3-7-sonnet-20250219` (deprecated); no Zen Free ID found.
 - **Context window:** 200,000 input; max output 64,000 (extended thinking) / 16,000 standard per benchgen, up to 128,000 including thinking tokens at launch beta (Anthropic docs).
 - **Modalities:** text + image in; text out; hybrid reasoning yes (on/off per request, thinking budget 1,024→up to 128K tokens, visible chain-of-thought); tool calls yes; prompt caching (90% cache-read discount).
@@ -63,6 +63,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-02
-- Method: public internet research (Anthropic release post and pricing docs, BenchmarkList/Artificial Analysis aggregates, evals.report, benchgen, Awesome Agents); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-10-02; user-approved second pass)
+- Method: public internet research (Anthropic release post and pricing docs, BenchmarkList/Artificial Analysis aggregates, evals.report, benchgen, Awesome Agents); second pass 2026-10-09 re-checked [Anthropic model-deprecations page](https://docs.anthropic.com/en/docs/about-claude/model-deprecations) (deprecation dated 2025-10-28) and [AA Claude 3.7 Sonnet](https://artificialanalysis.ai/models/claude-3-7-sonnet) (Index 15 estimated, $3/$15 + 90% cache, Oct-2024 cutoff note, stale successor banner); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Status hardened:** deprecation notice **2025-10-28** (Anthropic official page) — model fully legacy; AA banner (→ Claude 4 Sonnet) is stale but confirms deprecation.
+- **Conflicts kept:** cutoff Jan-2025 (Anthropic) vs Oct-2024 (AA non-reasoning); Index 27.06 (BenchmarkList reasoning-variant) vs 15 (AA non-reasoning estimated).
+- **Confirmed:** $3/$15 + 90% cache, 200K/64K, text+image; all first-pass benchmark rows unchanged.
+- **Scores:** no dimension changed; Overall held at 70.

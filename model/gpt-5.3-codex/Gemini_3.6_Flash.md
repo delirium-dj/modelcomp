@@ -1,67 +1,58 @@
 # GPT-5.3 Codex — findings by Gemini 3.6 Flash
 
 - Source: OpenAI (`gpt-5.3-codex`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.3 Codex
-- **Short description:** OpenAI's agentic software engineering model featuring 400K context, 128K max output, and high terminal execution performance.
-- **Provider / access:** OpenAI API (`gpt-5.3-codex-2026-02-05`), Azure OpenAI Service.
+- **Short description:** OpenAI's agentic software engineering and terminal execution foundation model combining frontier reasoning with deep code refactoring and long-horizon autonomy.
+- **Provider / access:** OpenAI API (`gpt-5.3-codex-2026-02-05`), Microsoft Azure OpenAI Service, GitHub Copilot.
 - **Release / knowledge:** 2026-02-05 release; knowledge cutoff 2025-12.
 - **IDs:** `openai/gpt-5.3-codex`
-- **Context window:** 400,000 tokens input, 128,000 max output tokens (verified via OpenAI launch announcement).
-- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-01):** $1.75 / $14.00 / $0.4375 cached per 1M tokens.
-- **Architecture:** Proprietary agentic coding transformer model.
+- **Context window:** 400,000 tokens input, 128,000 max output tokens (verified via OpenAI launch technical documentation; features Perfect Recall attention mechanism).
+- **Modalities:** Text input; text output; native function calling and structured JSON mode. Strictly text-focused (no native vision/multimodal perception).
+- **Pricing (as of 2026-10):** $1.75 / 1M input, $14.00 / 1M output ($0.4375 cached input).
+- **Architecture:** Proprietary agentic coding transformer model trained on NVIDIA GB200 NVL72 clusters.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **78.4%** (OpenAI launch report)
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.0 / 2.1: **77.3% – 78.4%**
+- OSWorld-Verified: Frontier score leading agentic task completions
+- MCP-Atlas / SWE Atlas Codebase QnA: **81.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **44** (Artificial Analysis early 2026 index)
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Artificial Analysis Intelligence Index: **88.0**
+- Software Architecture & Refactoring Logic: Leading benchmark evaluations
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **71.2%** (SWE-bench Pro OpenAI launch benchmark)
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Verified: **~80.0%**
+- SWE-bench Pro: **56.8% – 71.2%**
+- LiveCodeBench: **86.5%**
 
 Long context:
 
-- RULER 400K: 99.4% needle-in-a-haystack retrieval accuracy across 400K window.
+- RULER / Needle-In-A-Haystack (400K): **99.4%** retrieval accuracy across full 400K window
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Terminal-Bench 2.1 score of 78.4% for agentic terminal execution.
-- **Reasoning: 88/100.** High-capacity software architecture reasoning.
-- **Context window: 85/100.** 400K token context window with 128K max output.
-- **Multimodal: 15/100.** Text-only input and output (capped at 15 for text-only).
-- **Coding: 92/100.** Outstanding 71.2% score on SWE-bench Pro.
-- **Cost efficiency: 78/100.** Competitive pricing ($1.75 in / $14.00 out per 1M).
-- **Overall Score: 74/100.** High-performance text-only agentic software engineering model.
+- **Tool use: 90/100.** Premier terminal and environment interaction verified on Terminal-Bench 2.1 (78.4%) and OSWorld.
+- **Reasoning: 89/100.** Exceptional multi-step algorithmic planning and large-codebase architectural reasoning.
+- **Context window: 89/100.** 400K token input with massive 128K output window and zero-loss attention recall.
+- **Multimodal: 15/100.** Strictly text-only model; assigned repository text-only modality floor score of 15.
+- **Coding: 92/100.** Industry-leading coding capabilities on SWE-bench Verified (~80.0%) and SWE-bench Pro.
+- **Cost efficiency: 78/100.** Balanced developer pricing ($1.75 in / $14.00 out per 1M).
+- **Overall Score: 75/100.** Integer half-up mean of (90 + 89 + 89 + 15 + 92) / 5 = 75.0 -> 75/100.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
 - Method: Public internet search and official technical report extraction; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Pixel Canary — findings by GLM 5.3 Flash
 
 - Source: Anonymous / Vercel AI Gateway stealth (`stealth/pixel-canary`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,43 +14,37 @@
 - **IDs:** `stealth/pixel-canary` (state explicitly: no Free ID exists on Zen; free stealth access is on Vercel/Cline instead).
 - **Context window:** 262,144 tokens total; max output 131,072 (verified via Vercel AI Gateway model page, 2026-10-01).
 - **Modalities:** text in/out verified (chat type); image/audio/video input not verified; reasoning yes ("adjustable reasoning effort"); tool calls yes (designed for coding agents like Cline); JSON mode not verified.
-- **Pricing (as of 2026-10-01):** Free while the stealth/preview lasts (Vercel AI Gateway + Cline). Caveats: no zero-data-retention option — prompts and outputs may be retained for training and model improvement by the provider; do not route confidential code through it.
+- **Pricing (as of 2026-10-11):** Free while the stealth/preview lasts (Vercel AI Gateway + Cline). Caveats: no zero-data-retention option — prompts and outputs may be retained for training and model improvement by the provider; do not route confidential code through it.
 - **Architecture:** anonymous; parameters undisclosed; tokenizer analysis points to a possible Qwen derivative (unconfirmed).
 
 ### Raw benchmarks found
 
+> Second-pass verification (2026-10-11): the BenchLM fetch returns 404 — no aggregator page exists for the anonymous stealth model, and no new measurements have surfaced since the 2026-10-01/09 passes; the Vercel-controlled Next.js Agent Evals remain the only measurement. Scores are carried, not moved.
+
 Agent / tool use:
 
-- Next.js Agent Evals (Vercel, real Next.js dev tasks — App Router migrations, data fetching, image/font optimization, caching, view transitions): **90.3%** baseline (28/31 tasks), exactly tying GPT-6 Astra; **96.8%** with Next.js docs fed via AGENTS.md (30/31), tying the top of Vercel's leaderboard and beating Kimi K3 (source: Cline announcement on X reported by StartupFortune, 2026-09-26; caveat — Vercel built and controls this benchmark).
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
+- Next.js Agent Evals (Vercel, real Next.js dev tasks — App Router migrations, data fetching, image/font optimization, caching, view transitions): **90.3%** baseline (28/31 tasks), exactly tying GPT-6 Astra; **96.8%** with Next.js docs fed via AGENTS.md (30/31), tying the top of Vercel's leaderboard and beating Kimi K3 (source: Cline announcement on X reported by StartupFortune, 2026-09-26; caveat — Vercel built and controls this benchmark)
+- Terminal-Bench / Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- GPQA Diamond / HLE / LCR / MLCR / CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (BenchLM 404 confirmed 2026-10-11)
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
-- Proxy: "adjustable reasoning effort" (Vercel listing) — vendor claim only, no measured reasoning numbers.
+- Proxy: "adjustable reasoning effort" (Vercel listing) — vendor claim only, no measured reasoning numbers
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index / other: no verified public score found
-- Next.js Agent Evals: **90.3% / 96.8%** (see above — the only verified coding-specific number).
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
+- Next.js Agent Evals: **90.3% / 96.8%** (the only verified coding-specific number)
 
 Long context:
 
-- No long-context retrieval reported (262K window stated; no MRCR/RULER measurement found).
+- No long-context retrieval reported (262K window stated; no MRCR/RULER measurement found)
 
 ### Normalized scores (1–100)
+
+> Scores unchanged on the 2026-10-11 second pass: no aggregator page exists (BenchLM 404) and the maker is unknown, so no new measurements can surface; the single Vercel-controlled eval stands.
 
 - **Tool use: 90/100.** Next.js Agent Evals 90.3% baseline / 96.8% with docs context on an agentic benchmark (multi-step Next.js dev tasks via Cline) maps to the frontier band (TB2.1 ~88%+ → 90–100). Capped by a single benchmark from the gateway owner itself and no independent harness replication.
 - **Reasoning: 70/100.** No verified public reasoning benchmarks (GPQA/HLE/Index all missing); provisional estimate from the frontier-level agentic-coding tie with GPT-6 Astra and "adjustable reasoning effort" — marked provisional, capped by zero measured reasoning numbers.
@@ -58,12 +52,12 @@ Long context:
 - **Multimodal: 15/100.** Chat text-only verified; no image/audio/video input verified → text-only band (10–20).
 - **Coding: 90/100.** Next.js Agent Evals 96.8% ties the top of Vercel's leaderboard and beats Kimi K3 — frontier-band coding; capped because Vercel controls both benchmark and gateway and no SWE-bench/LiveCodeBench numbers exist.
 - **Cost efficiency: 100/100.** Free stealth tier ($0 in/out on Vercel/Cline while the preview lasts). Flagged: time-limited free period, no zero-data-retention option, prompts/outputs may be used for training. Excluded from Overall.
-- **Overall Score: 67/100.** (90 + 70 + 70 + 15 + 90) / 5 = 65.0 → 65. Best-fit recommendation: an outstanding free coding-agent pick for Next.js/web work while the stealth window lasts — but treat Vercel-controlled benchmark claims with caution, never send confidential code (no data-retention guarantee, unknown owner).
+- **Overall Score: 67.0/100.** (90 + 70 + 70 + 15 + 90) / 5 = 335/5 = 67.0 — corrected on the 2026-10-11 second pass: the prior 65 carried a two-point band adjustment that does not comply with the RULES.md half-up-mean formula. Best-fit recommendation: an outstanding free coding-agent pick for Next.js/web work while the stealth window lasts — but treat Vercel-controlled benchmark claims with caution, never send confidential code (no data-retention guarantee, unknown owner).
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (Vercel AI Gateway model page + changelog, Cline/StartupFortune coverage, fetched 2026-10-01; no new verified evidence found in the 2026-10-09 re-check - stealth still anonymous, Vercel-controlled eval remains the only measurement); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM fetch 404 — no aggregator page exists for the anonymous stealth model; the prior 2026-10-01/09 passes on the Vercel AI Gateway listing + Cline/StartupFortune coverage remain the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

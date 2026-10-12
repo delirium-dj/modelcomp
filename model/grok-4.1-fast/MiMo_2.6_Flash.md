@@ -1,7 +1,7 @@
 # Grok 4.1 Fast — findings by Mimo v2.6 Flash
 
 - Source: xAI (SpaceXAI)/grok-4-1-fast (alias `grok-4-1-fast-reasoning`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-03, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,7 +13,7 @@
 - **Release / knowledge:** 2025-11 (OpenRouter listing dated 2025-11-19); knowledge cutoff not published on the model page.
 - **IDs:** `grok-4-1-fast` (xAI API), `grok-4-1-fast-reasoning` (canonical docs name), OpenRouter `x-ai/grok-4.1-fast`.
 - **Context window:** 2,000,000 tokens (xAI docs "Context window 2,000,000"; CloudPrice 2.0M / 30K max output; BenchLM 2M). Higher-context pricing applies above 128K (xAI docs note).
-- **Modalities:** text + image in; text out; reasoning yes (thinking modes); function calling + structured outputs yes; live search add-on available.
+- **Modalities:** text + image in; text out — **second-pass update (2026-10-09): OpenRouter FAQ adds "files such as PDFs" as input** (PDF-in provisionally credited as part of the same image-tier band, no band change); reasoning yes (thinking modes); function calling + structured outputs yes; live search add-on available.
 - **Pricing (as of 2026-10-03):** $0.20 in / $0.50 out per 1M, cached input $0.05 (xAI official docs); live search $25/1K sources. Paid — no $0 tier verified today (an earlier free-window promo is not confirmed current).
 - **Architecture:** proprietary; no parameter count published.
 
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - MMLU-Pro: **87.0%** (Serenities AI)
 - ARC-AGI: **48.0%** (Serenities AI)
 - AA-LCR: **74.0%**; CritPt: **2.9%** (BenchLM)
-- Artificial Analysis Intelligence Index: **20.4** (BenchLM)
+- Artificial Analysis Intelligence Index: **20.4** (BenchLM — reasoning variant). **Second-pass (2026-10-09):** AA's direct page shows the **non-reasoning** variant at **11 (estimated, #75/300, median 7)** and carries a **deprecation banner → Grok 4.3**; both variants kept (file's 20.4 stands for the reasoning config)
 - Chatbot Arena ELO: **1482** (Serenities AI)
 
 Coding:
@@ -66,6 +66,15 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-03
-- Method: public internet research (xAI official docs, BenchLM model page 2026-09-28, Serenities AI comparison sets, CloudPrice/OpenRouter listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-09 (original: 2026-10-03; user-approved second pass)
+- Method: public internet research (xAI official docs, BenchLM model page 2026-09-28, Serenities AI comparison sets, CloudPrice/OpenRouter listings); second pass 2026-10-09 re-checked [AA Grok 4.1 Fast](https://artificialanalysis.ai/models/grok-4-1-fast) (deprecated → Grok 4.3; non-reasoning Index 11), [OpenRouter x-ai/grok-4.1-fast](https://openrouter.ai/x-ai/grok-4.1-fast) (2M ctx, PDF-input FAQ) and [Grokipedia](https://grokipedia.com/page/Grok_4.1_Fast) (release/pricing timeline, CoT criticisms); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+### Deep-research addendum (2026-10-09)
+
+- **Deprecation:** AA banner → **Grok 4.3** (model kept for dataset permanence); non-reasoning Index 11 (estimated) vs the file's reasoning-variant 20.4 — both kept.
+- **Modality detail:** OpenRouter confirms **PDF input** alongside text/images (band unchanged at image-tier).
+- **Confirmed:** 2M context, Nov-2025 release, $0.20/$0.50 pricing anchor, τ² 93.3 reasoning rows unchanged (no contradicting evidence found).
+- **Scores:** no dimension changed; Overall held at 72.

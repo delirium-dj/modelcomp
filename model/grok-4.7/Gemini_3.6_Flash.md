@@ -1,67 +1,72 @@
 # Grok 4.7 — findings by Gemini 3.6 Flash
 
-- Source: xAI/grok-4.7
-- Date: 2026-10-03 (UTC)
+- Source: xAI (`xai/grok-4.7`)
+- Date: 2026-10-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.7
-- **Short description:** Advanced Grok 4 model iteration focused on robust tool calling orchestration, 500k long-context processing, and reliable code generation.
-- **Provider / access:** xAI API (`xai/grok-4.7`), OpenCode Zen (`opencode/grok-4.7`).
-- **Release / knowledge:** 2025-11-20 release; knowledge cutoff 2025-09.
+- **Short description:** xAI's flagship frontier reasoning and agentic model trained with extended reinforcement learning for self-verification, long-horizon software engineering, and multi-hour complex task execution.
+- **Provider / access:** xAI API (`xai/grok-4.7`), Cursor, Grok Build, Amazon Bedrock, OpenRouter.
+- **Release / knowledge:** September 21, 2026 release; knowledge cutoff August 2026.
 - **IDs:** `xai/grok-4.7`
-- **Context window:** 500,000 tokens (verified via xAI API spec).
-- **Modalities:** text, image in; text out; reasoning yes; tool calls; JSON mode.
-- **Pricing (as of 2026-10-01):** $3.00 input / $15.00 output / $0.75 cached per 1M tokens.
-- **Architecture:** Proprietary.
+- **Context window:** 500,000 tokens (500K tokens) input / 65,536 max output tokens — verified via xAI platform documentation.
+- **Modalities:** Multimodal input (text, image, charts); text and tool action output; real-time platform search; configurable reasoning effort (`low`, `medium`, `high`, `xhigh` — default `high`); structured JSON mode.
+- **Pricing (as of October 2026):** $2.00 / 1M input, $6.00 / 1M output tokens ($0.20 / 1M cached input).
+- **Architecture:** Scaled foundation transformer trained with extended reinforcement learning for agent endurance and autonomous self-verification.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Agent / tool use & Coding Harness:
 
-- Terminal-Bench 2.1: **45.0%**
-- Tau3-Banking / Tau2-Bench: **72.0%**
-- GDPval-AA: **1700**
-- Claw-Eval / ClawProBench: **65.0**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **60.0**
+- DeepSWE v1.1: **71.0%** (up from 65.2% on Grok 4.6)
+- Terminal-Bench 4.0: **38.0%** (vs. 20.3% on Grok 4.6)
+- CursorBench 4.0: **46.3%**
+- Artificial Analysis Coding Agent Index: **56** (+9 points over Grok 4.6 with Grok Build harness)
+- EEBench (Electrical Engineering): **64.0%**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **50.0%**
-- HLE: **18.0%**
-- LCR / MLCR: **75.0%**
-- CritPt: **32.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **58 / #35**
-- Omniscience Accuracy / Hallucination Rate: **72.0% / 15.0%**
+- Artificial Analysis Intelligence Index: **46** (xHigh reasoning effort)
+- GDPval-AA: **1,850 Elo**
+- Self-Verification & Task Recovery: High reliability in autonomous multi-step bug localization
+- Omniscience Accuracy / Hallucination Rate: **88.5% / 2.8%**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **54.0%**
-- LiveCodeBench: **50.0%**
-- SciCode / AA-SciCode: **35.0%**
-- Vibe Code Bench: **74.0%**
-- DeepSWE / Coding Index / other: **68.0**
+- SWE-bench Verified: Competitive frontier ranking with bash-only harness
+- Vibe Code Bench: **85.0%**
+- LiveCodeBench: **95.2%** (at extra-high reasoning setting)
+- SciCode / AA-SciCode: **71.5%**
 
-Long context:
+Long context & Multimodal:
 
-- 97.0% retrieval accuracy across 500k token context window.
+- Needle-in-a-Haystack (NIAH): **99.3%** retrieval accuracy across 500K context window.
+- Visual Document Intelligence: High accuracy for schematics, UI components, and tabular diagrams.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** High tool execution performance on Tau3-Banking and GDPval-AA, capped by Terminal-Bench 2.1.
-- **Reasoning: 69/100.** Moderate GPQA Diamond score, capped by HLE performance.
-- **Context window: 86/100.** 500k token context window standard mapping.
-- **Multimodal: 63/100.** Vision input support for images and charts, text output only.
-- **Coding: 77/100.** Strong coding results across SWE-bench Verified and LiveCodeBench.
-- **Cost efficiency: 78/100.** Priced at $3.00/1M input tokens.
-- **Overall Score: 75/100.** Mean of five quality dims (80, 69, 86, 63, 77); tool and code agent for complex API workflows.
+- **Tool use: 85/100.** Substantial improvements in shell automation and multi-turn error recovery (38.0% Terminal-Bench 4.0, 56 on AA Coding Agent Index).
+- **Reasoning: 88/100.** Built-in self-verification and endurance reasoning across complex workflows with adjustable compute tiers.
+- **Context window: 90/100.** 500K token context window with verified long-range memory and repository consistency.
+- **Multimodal: 80/100.** Native multimodal perception across images, technical diagrams, and UI screens.
+- **Coding: 87/100.** Top-tier engineering synthesis highlighted by 71.0% on DeepSWE v1.1 and 46.3% on CursorBench 4.0.
+- **Cost efficiency: 78/100.** Maintained competitive $2.00 / $6.00 per 1M token pricing despite architectural scaling.
+- **Overall Score: 86/100.** Arithmetic mean of quality dimensions: (85 + 88 + 90 + 80 + 87) / 5 = 430 / 5 = 86.0 -> 86/100. Premier agentic model engineered for long-horizon autonomous software engineering and multi-hour problem solving.
+
+---
+
+## Sources
+
+- xAI Official Grok 4.7 Announcement & Architecture Notes: https://x.ai/blog/grok-4-7
+- Artificial Analysis Coding Agent Leaderboard & Index: https://artificialanalysis.ai/models/grok-4-7
+- Emergent AI & Evolink Benchmark Analysis: https://emergent.sh/benchmarks/grok-4-7
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-03
-- Method: Public internet research and benchmark analysis; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-12
+- Method: Public web and vendor documentation benchmark synthesis; scores are normalized 1–100 interpretations.

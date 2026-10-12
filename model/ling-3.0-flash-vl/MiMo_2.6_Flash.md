@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Mimo v2.6 Flash
 
 - Source: inclusionAI (Ant Group)/Ling-3.0-flash-VL
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-09 (UTC; original research 2026-10-03, re-researched 2026-10-09)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,15 +21,16 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found (VL card documents the AA Terminus-2 protocol but publishes no VL result; BenchLM has 0 covered rows for the VL)
-- Tau3-Banking / Toolathon / MCP-Atlas / GDPval-AA: no verified public score found
+- Terminal-Bench 2.1: no verified public score found (VL card documents the AA Terminus-2 protocol but publishes no VL result; BenchLM has 0 covered rows for the VL) — **fill 2026-10-09: AA TB2.1 64.4%** (via OpenRouter block)
+- Tau3-Banking / Toolathon / MCP-Atlas / GDPval-AA: no verified public score found — **fills 2026-10-09: τ-Bench Banking 34.4%, GDPval-AA 33.2%** (AA); Toolathlon/MCP-Atlas still absent
 - Tool calling: supported (OpenRouter capability list) — no measured tool-accuracy score
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **86.2%** (Epoch AI via Model Beat, updated 2026-09-25)
 - HLE: **22.0%** (Epoch AI via Model Beat)
-- Artificial Analysis Intelligence Index: **42** (AA v4.1.1 — vendor card "score of 42, +4 over Ling-3.0-flash's 38", corroborated by Model Beat 42.0, 42nd percentile)
+- Artificial Analysis Intelligence Index: **42** (AA v4.1.1 — vendor card "score of 42, +4 over Ling-3.0-flash's 38", corroborated by Model Beat 42.0, 42nd percentile). **Second-pass correction (2026-10-09, AA page + OpenRouter AA block):** current v4.3.2 reading is **24.6 / 25** — **#1/65** in its open-weights size class (median 8); the 42 was the older-scale value (both kept, 24.6 adopted for scoring)
+- **Fills 2026-10-09 (AA via OpenRouter):** **Terminal-Bench 2.1 64.4%**, TB4.0 0.0%, **τ-Bench Banking 34.4%**, **GDPval-AA 33.2%**, **AA-LCR 78.3%**, **CritPt 2.0%**, **Omniscience 14.3% acc / 78.0% non-hallucination**, **Agentic Index 28.7**, **Coding Index 57.0** (supersedes the Model Beat 43); speed 137.2 t/s (#12/65), TTFT 1.75s, MIT license confirmed
 - LCR / CritPt / Omniscience: no verified public score found for the VL row
 
 Coding:
@@ -49,13 +50,13 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 50/100.** Tool calling and agentic positioning are documented, but zero measured agent benchmarks (no TB2.1/tau/GDPval value for the VL) — neutral 50 pending data, no hallucinated score.
-- **Reasoning: 75/100.** GPQA Diamond 86.2% sits just under the 90% frontier ref while HLE 22.0% and AA Index 42 both beat the documented mid band (Index 20–35 → 55–65); HLE far below 40% frontier caps it at 75.
+- **Tool use: 62/100.** The zero-data neutral is gone: **TB2.1 64.4%** (AA, top of the mid band), τ-Bench Banking 34.4%, GDPval-AA 33.2% and Agentic Index 28.7 fill the agent picture; TB4.0 0.0 and no Toolathlon/MCP rows keep it out of the 70s — **+12 on the fills (was 50)**.
+- **Reasoning: 74/100.** GPQA Diamond 86.2% sits just under the 90% frontier ref while HLE 22.0% stays strong — but the corrected AA Index is **24.6** (mid band 20–35, not above it as the older-scale 42 implied); new LCR 78.3% is a plus, CritPt 2.0 a drag; −1 on the correction (was 75).
 - **Context window: 72/100.** 262,144 tokens lands in the 200K–500K tier (65–84, 200K = 70); no retrieval-at-window measurement to push higher.
 - **Multimodal: 80/100.** Native image + video input wired into reasoning/acting loops (HF card), text-only output — the +video-in band is 75–90; BenchLM's 77.5 multimodal lane corroborates the high-70s/low-80s placement.
-- **Coding: 72/100.** SciCode 44.2% clears the documented mid ceiling (SciCode <40 → 65–75) and AA Coding Index 43 is mid-pack, but every SWE/LiveCodeBench row is unpublished for the VL, capping it at 72.
-- **Cost efficiency: 99/100.** $0.06/$0.18 (even $0.021/$0.062 on Novita) sits at the ~$0.10/$0.20 ≈ 97–99 anchor's top end.
-- **Overall Score: 70/100.** (50 + 75 + 72 + 80 + 72) / 5 = 69.8 → 70 — best-fit as an ultra-cheap multimodal agentic worker for vision-in tasks where frontier tool-benchmark proof isn't required yet.
+- **Coding: 73/100.** SciCode 44.2% clears the documented mid ceiling and the AA Coding Index is now **57.0** (AA via OpenRouter, superseding the Model Beat 43); every SWE/LiveCodeBench row is still unpublished for the VL, capping it in the low-70s — **+1 on the Index upgrade (was 72)**.
+- **Cost efficiency: 99/100.** $0.06/$0.18 (even $0.021/$0.062 on Novita) sits at the ~$0.10/$0.20 ≈ 97–99 anchor's top end; OpenRouter now shows a live **72%-off promo: $0.021/$0.0616** (2026-10-09).
+- **Overall Score: 72/100.** (62 + 74 + 72 + 80 + 73) / 5 = 72.2 → 72 (was 69.8 → 70 — the new agent/reasoning/coding fills move it +2). Best-fit as an ultra-cheap multimodal agentic worker for vision-in tasks — now with measured mid-band terminal/tool proof (TB2.1 64.4, τ-bank 34.4) behind it.
 
 ---
 
