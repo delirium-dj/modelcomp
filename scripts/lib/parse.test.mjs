@@ -11,6 +11,7 @@ import {
   OVERALL_TOLERANCE,
   halfUp1,
   parseScoresPure,
+  nearMissLine,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -59,6 +60,24 @@ describe("parseScoresPure (format contract)", () => {
   it("ignores lookalike lines in Agreement notes", () => {
     const doc = makeDoc(GOOD) + "\n## Agreement notes\n\n- Based on 3 sources: A, B, C.\n";
     assert.equal(parseScoresPure(doc).ok, true);
+  });
+});
+
+describe("nearMissLine (FAIL diagnostic, read-only)", () => {
+  it("quotes the mistyped line for a denominator typo", () => {
+    const doc = makeDoc(GOOD).replace("- **Cost efficiency: 90/100.** note", "- **Cost efficiency: 90/00.** note");
+    assert.equal(parseScoresPure(doc).missingLabel, "Cost efficiency");
+    assert.equal(nearMissLine(doc, "Cost efficiency"), "- **Cost efficiency: 90/00.** note");
+  });
+
+  it("returns null when the label never appears", () => {
+    const doc = makeDoc(GOOD).replace("- **Coding: 79/100.** note\n", "");
+    assert.equal(nearMissLine(doc, "Coding"), null);
+  });
+
+  it("ignores model-card lookalikes without the bold-label prefix", () => {
+    const doc = "- **Name:** Cost efficiency model\n" + makeDoc(GOOD);
+    assert.ok(nearMissLine(doc, "Cost efficiency").includes("90/100"));
   });
 });
 

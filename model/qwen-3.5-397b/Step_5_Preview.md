@@ -1,7 +1,7 @@
 # Qwen3.5-397B-A17B — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (`Qwen3.5-397B-A17B`, weights `Qwen/Qwen3.5-397B-A17B`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,6 +37,7 @@ Third-party:
 - Epoch AI: GPQA Diamond 86.4%; FrontierMath T1-3 31.2%; OTIS Mock AIME 88.9%
 - LMArena: 1,464 hard-prompts Elo; 1,491 coding; 1,400 WebDev
 - BenchLeader Index 55.2 (#217 of 759): reasoning 44, agents & tools 56, knowledge 48, instruction following 76, multimodal 60, long context 64
+- benchmarklist.com (independent, 131 results, 2026-10-07): t2-bench **87.9% (#1/17 — field lead)**, Tau2-Bench Telecom **95.6% (#20/332)**, TAU3-Bench 71.0% (#5/13), Tau3-Banking 13.4% (#77/176), GDPval-AA **Elo 966 (#120/352)**, Terminal-Bench Hard 40.9% (#32/326), TB 2.1 51.3%, ScreenSpot-Pro #10/59, PinchBench 89.1% (#11/73), MCP Atlas, ClawProBench 64.18 (#4/48), Vals Financial Agent 61.3% (#1/7), BrowseComp 40.5% (#58/60 — weak)
 
 ### Normalized scores (1–100)
 
@@ -52,6 +53,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen Hugging Face model card + README, Artificial Analysis launch article and current index, BenchLeader, DeepInfra/Together provider benchmarks, Vector Wire, AI Atlas); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (131 primary-source results, updated 2026-10-07 — independent t2-bench 87.9% #1/17 field lead, Tau2-Telecom 95.6% #20/332, Terminal-Bench Hard 40.9% #32/326, GDPval-AA Elo 966 #120/352, tau3-Banking 13.4% #77/176, ClawProBench 64.18 #4/48, Vals Financial Agent 61.3% #1/7, BrowseComp 40.5% #58/60). Confirms the existing Tool use 66 / Reasoning 74 / Context 74 / Multimodal 84 / Coding 72 reads — the t2-bench field-lead and TAU3-Bench #5 reinforce Tool use 66 while the low GDPval (Elo 966) and tau3-Banking (13.4%) keep it mid-band. No score change warranted. Prior pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis launch article and current index, BenchLeader, DeepInfra/Together provider benchmarks, Vector Wire, AI Atlas.
 - Future sources: add a new file next to this one, e.g. `Qwen_4.md`, using the same headings.

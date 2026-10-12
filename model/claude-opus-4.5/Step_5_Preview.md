@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-opus-4-5-20251101`, released 2025-11-24)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,7 @@ Third-party:
 - Epoch AI: GPQA 86.0%; OTIS Mock AIME 86.1%; SimpleQA Verified 45.7%; FrontierMath v1 30.2%
 - METR: task time-horizon 4.9 h; The AI Rankings/llm-stats composites (LLM Stats 38.0, #78)
 - Design Arena: 1,180–1,253 Elo across code/3D/dataviz/SVG categories; Agents Arena ~1,152–1,191
+- benchmarklist.com (independent, 192 results, 2026-10-07): OSWorld-Verified **76.3% (#23/70 — notably higher than the 66.3% system card)**, Terminal-Bench Hard **47.0% (#13/326)**, ARC-AGI-2 **37.6% (#41/99)**, ARC-AGI-1 80.0% (#42/97), GDPval-AA **Elo 1453 (#42/352)**, MCP Atlas **69.8% (#31/48 — higher than the 62.3% launch figure)**, τ²-Telecom 89.5% (#54/332), Tau2 Airline 84.0% (#1/21), PinchBench 87.2% (#21/73), Terminal Bench 63.1% (#3/8), VibeCodingBench **#1 of 15 (89.15 avg, 100% pass rate)**, SciCode 49.5% (#58/296)
 
 ### Normalized scores (1–100)
 
@@ -51,6 +52,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic launch post + pricing docs, Artificial Analysis and Vals AI via OpenRouter, modelbenchmark.io, The AI Rankings, Amp cost analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (192 primary-source results, updated 2026-10-07 — independent OSWorld-Verified 76.3% #23/70 [notably above the 66.3% system card], Terminal-Bench Hard 47.0% #13/326, ARC-AGI-2 37.6% #41/99, GDPval-AA Elo 1453 #42/352, MCP Atlas 69.8% #31/48, VibeCodingBench #1/15, SciCode 49.5% #58/296). Confirms the existing Tool use 80 / Reasoning 84 / Context 76 / Coding 86 reads — the higher independent OSWorld (76.3%) and VibeCodingBench #1 reinforce Tool use 80 and Coding 86 while the 200K window and AA-LCR 77.3% keep Context at 76. No score change warranted — Opus 4.5 is a legacy Nov-2025 model (retires 2026-11-24). Prior pass (2026-10-09) used Anthropic launch post + pricing docs, Artificial Analysis and Vals AI via OpenRouter, modelbenchmark.io, The AI Rankings, Amp cost analysis.
 - Future sources: add a new file next to this one, e.g. `Opus_5.md`, using the same headings.

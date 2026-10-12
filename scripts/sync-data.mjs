@@ -38,6 +38,7 @@ import {
   META_REQUIRED,
   RATER_GATE,
   parseScoresPure,
+  nearMissLine,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -159,7 +160,16 @@ const fail = (msg) => {
 const parseScores = (md, where) => {
   const r = parseScoresPure(md);
   if (!r.ok) {
-    fail(`${where}: missing "- **${r.missingLabel}: <N>/100" score line`);
+    // Near-miss hint: quote the offending line when the label is present but
+    // mistyped (e.g. `50/00` for `50/100`) so the fix is a one-line hand
+    // edit, not a hunt. Sync never rewrites it — see nearMissLine().
+    const near = nearMissLine(md, r.missingLabel);
+    fail(
+      `${where}: missing "- **${r.missingLabel}: <N>/100" score line` +
+        (near !== null
+          ? ` (nearest line in file: ${near.slice(0, 160)})`
+          : " (no such label anywhere in file — the whole line is absent)"),
+    );
     return null;
   }
   return r.scores;

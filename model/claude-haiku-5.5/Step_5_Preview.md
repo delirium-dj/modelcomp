@@ -1,7 +1,7 @@
 # Claude Haiku 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-haiku-5-5`, released 2026-10-07)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,6 +50,6 @@ Customer evals (early testing):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic Haiku 5.5 launch post + model docs/pricing/deprecation pages); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Claude-Haiku-5.5 page yet (released 2026-10-07, newest model in this batch); re-checked the Anthropic launch post + model docs/pricing/deprecation pages and the customer-eval coverage — GDPval-AA Elo 1,620, AA-Briefcase 1,578, OSWorld 2.1 offline 72.4%, HLE 45.9% no-tools/57.4% with tools, TB 4.0 39.2%, FrontierCode 46.4% and the HubSpot CRM 92.8% customer eval all confirm the existing Tool use 72 / Reasoning 76 / Context 88 / Coding 62 reads. No score change warranted — Haiku 5.5 is a subagent tier, explicitly not an agentic-coding rival to Sonnet/Opus 5.5. Prior pass (2026-10-09) used Anthropic Haiku 5.5 launch post + model docs/pricing/deprecation pages.
 - Future sources: add a new file next to this one, e.g. `Haiku_6.md`, using the same headings.

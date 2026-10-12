@@ -59,6 +59,19 @@ export function parseScoresPure(md) {
   return { ok: true, scores: out };
 }
 
+/**
+ * Near-miss diagnostic for an unparsable score line: the trimmed file line
+ * containing `**<label>:` (usually a typo like `50/00` for `50/100`), or
+ * null when the label never appears. Read-only — sync quotes it in the FAIL
+ * message so the fix is a one-line hand edit; sync never rewrites it
+ * (RULES.md: only unparsable score lines fail — repairing them would edit
+ * judged numbers without author review, or invent a missing one).
+ */
+export function nearMissLine(md, label) {
+  const hit = md.split("\n").find((l) => l.includes(`**${label}:`));
+  return hit === undefined ? null : hit.trim();
+}
+
 /** Map long-labeled scores to the short keys emitted in scores.generated.ts. */
 export function shortenScores(scores) {
   const entry = {};

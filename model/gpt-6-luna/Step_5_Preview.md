@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-6-luna`, released 2026-09-22)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,6 +38,7 @@ Third-party:
 - BenchmarkList (max): AA-Briefcase **1,336 Elo** (77th pct); BrowseComp **83.3%** (49th pct); FrontierCode Main **42.4%**; SWE-Marathon 45/160 trials (28.1% pass, $0.84/trial); RuneBench 5.1
 - Vals AI: Vibe Code Bench v1.1 **81.6%**; ProofBench **64.0%**; MedScribe **83.7%**; SAGE 48.1%; MedCode 44.7%; Finance Agent v2 49.9%; Vals Index 51.2
 - GPQA Diamond 87.1–88.4% and TAU-Bench 65.3–68.6% (OpenRouter provider runs)
+- benchmarklist.com (independent, 24 results, 2026-10-07): Agents' Last Exam **50.9% (#5/41)**, AA-Briefcase Elo 1,336 (#34/145), BrowseComp 83.3% (#31/60), AutomationBench **20.7% (#26/48)**, AutomationBench-AA 53.2% (#19/26), OSWorld2.0 52.7% (#10/24), DeepSWE v1.1 **66.6% (#23/52)**, FrontierCode 42.4% (#18/36), SciCode 54.6% (#28/296), SWE-Marathon 45/160 (28.1% pass, $0.84/trial), HLE **38.5% (#46/478)**, AA Intelligence Index **38.1 (#65/427)**, AIIQ IQ 126 (#26/147), MMMU-Pro **79.7% (#13/72)**, AA-LCR **83.3% (#14/408)**, CritPt 19.4% (#14/28), HealthBench Professional 60.8 (#9/25)
 
 ### Normalized scores (1–100)
 
@@ -53,6 +54,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI GPT-6 Sol/Luna launch post + API docs, Artificial Analysis launch report via codersera/OfficeChai, BenchmarkList, Vals AI via Sophon, OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (24 primary-source results, updated 2026-10-07 — independent Agents' Last Exam 50.9% #5/41, AA Intelligence Index 38.1 #65/427, HLE 38.5% #46/478, AA-LCR 83.3% #14/408, MMMU-Pro 79.7% #13/72, DeepSWE 66.6% #23/52, AutomationBench 20.7% #26/48, SciCode 54.6% #28/296). Confirms the existing Tool use 76 / Reasoning 80 / Context 92 / Multimodal 70 / Coding 74 reads — the ALE #5 and AA-LCR #14 reinforce Tool use 76 and Context 92 while the AutomationBench (Zapier) 20.7% keeps Tool use below the top band. No score change warranted. Prior pass (2026-10-09) used OpenAI GPT-6 Sol/Luna launch post + API docs, Artificial Analysis launch report via codersera/OfficeChai, BenchmarkList, Vals AI via Sophon, OpenRouter.
 - Future sources: add a new file next to this one, e.g. `GPT_6_1_Luna.md`, using the same headings.
