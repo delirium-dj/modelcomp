@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.5 (`gpt-5.5`)
-- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills + breakpoint added, scores recomputed 85 → 87)
+- Date: 2026-10-13 (UTC) — second-pass refresh (prior Signature 2026-09-19, amended 2026-09-27: BenchLM gap-fills + breakpoint added, 85 → 87; new: AA 5.5 release page — Index lane table, 922K context, $4.4 blended, speed/latency per effort)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,12 +12,14 @@
 - **Provider / access:** OpenAI API + ChatGPT (Plus/Pro/Business/Enterprise) + Codex (`gpt-5.5` / `gpt-5.5-pro`); Chat Completions and Responses API.
 - **Release / knowledge:** 2026-04-23 release (Pro same day; API 2026-04-24); knowledge cutoff not officially published — say how verified: no verified cutoff found.
 - **IDs:** `openai/gpt-5.5` (state explicitly if no Free ID exists on Zen — paid only)
-- **Context window:** 1M tokens API (1.05M reported), 400K in Codex — verified via OpenAI launch post and release trackers (April 2026).
+- **Context window:** 922K tokens API (AA release page; filed 1M/1.05M was launch-marketing rounding), 400K in Codex — verified via AA page + OpenAI launch post (April 2026).
 - **Modalities:** text/image in; text out; reasoning yes (none/low/medium/high/xhigh effort dial); tool calls yes (function calling, browsing, code execution, computer use); JSON mode yes (structured outputs).
 - **Pricing (as of 2026-09-19, re-verified 2026-09-27):** $5/$10 in and $30/$45 out per 1M (272K breakpoint); cached input $0.50; Batch/Flex half rate; Pro $30/$180; paid tier only ($).
 - **Architecture:** proprietary (reported MoE, community estimate 100-200B active — unverified; vendor discloses natively omnimodal co-design with NVIDIA GB200/GB300, unconfirmed).
 
 ### Raw benchmarks found
+
+> Compared against prior findings (2026-09-19/27, Overall 87): new verified evidence below — AA 5.5 release page (Index by effort lane: Xhigh 38 / High 37 / Medium 34 / Low 31 / Non-reasoning 23; 922K context; $4.4 blended; 97 t/s Xhigh; 0.82s TTFT non-reasoning). Correction: filed "60 #1 at release" was the April-scale figure; current v4.3.2 lane table supersedes it. Prior launch absolutes retained.
 
 Agent / tool use:
 
@@ -37,7 +39,7 @@ Reasoning / knowledge:
 - LCR: **79.0% AA-LCR** (BenchLM mirror)
 - CritPt: **27.1** (BenchLM mirror)
 - ARC-AGI-1 Verified: **94.5% High** (mashable launch table; ARC-AGI-2 83.3% High lane vs filed 85.0% — harness variance noted)
-- Artificial Analysis Intelligence Index / BenchLM overall: **60 (AA Index, #1 at release, April 2026)** (Artificial Analysis); BenchLM coding sub-arena 1507 / overall 1474 #3 (BenchLM via aggregator)
+- Artificial Analysis Intelligence Index / BenchLM overall: **38 Xhigh / 37 High / 34 Medium / 31 Low / 23 Non-reasoning** (AA 5.5 release page, v4.3.2 — NEW, supersedes filed April-scale "60 #1"; #66/219 release lane); BenchLM coding sub-arena 1507 / overall 1474 #3 (retained)
 - Omniscience Accuracy / Hallucination Rate: **57% / 86%** (AA-Omniscience xhigh via Artificial Analysis April 2026; highest accuracy but high hallucination vs Opus 4.7 36%)
 - FrontierMath Tier 1-3: **51.7%** / Tier 4: **35.4%** (OpenAI launch post; leads Opus 4.7 43.8% / 22.9%); ARC-AGI-2 Verified: **85.0%** (OpenAI launch post; 84.6% tracker variant)
 
@@ -60,7 +62,7 @@ Long context:
 
 - **Tool use: 88/100.** TB 2.0 82.7% SOTA plus Tau2 98.0%, τ² 98%, FinanceAgent 60.0% and GDPval 84.9% show elite tool orchestration; capped by Toolathlon 55.6% mid-range.
 - **Reasoning: 88/100.** GPQA 93.6% plus LCR 79.0%, CritPt 27.1, ARC-AGI-1 94.5% and FrontierMath leads show strong math/reasoning; capped by HLE ~41%/52% trailing Opus 4.7 and AA hallucination 86%.
-- **Context window: 88/100.** 1M window with MRCR 94.8% at 128K and 74.0% at 1M plus Graphwalks 45-58% at 1M show strong retention; capped below perfect 1M recall.
+- **Context window: 88/100.** 922K window (AA page; corrects filed 1M) with MRCR 94.8% at 128K and 74.0% at 1M plus Graphwalks 45-58% at 1M show strong retention; capped below perfect 1M recall (unchanged — lane correction is lateral).
 - **Multimodal: 82/100.** MMMU-Pro 81.2-83.2% plus CharXiv 84.1% show solid vision-text; capped by Blueprint-Bench 36.2% spatial weakness and text-only output.
 - **Coding: 88/100.** Expert-SWE 73.1% plus LiveCode 85.3%, Vibe 69.85%, SciCode 56.1% and Coding Index 74.9% show strong full-spectrum coding; capped by SWE-Pro 58.6% loss to Opus 4.7 64.3%.
 - **Cost efficiency: 55/100.** $5/$30 is 2x GPT-5.4 and $5 above Opus 4.7 output; paid frontier premium with only token-efficiency offset, capped well below cheap Flash tiers.
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-19
-- Method: public internet research (OpenAI launch post 2026-04-23, system card, Artificial Analysis April 2026, release trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-13
+- Method: second-pass refresh of the 2026-09-19 report (amended 2026-09-27): fresh public internet research (AA 5.5 release page — effort-lane Index table, 922K context, $4.4 blended, speed/latency; prior launch absolutes retained; April-scale Index figure superseded); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

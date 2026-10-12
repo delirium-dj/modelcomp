@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.6 Luna (`gpt-5.6-luna`)
-- Date: 2026-09-19 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM gap-fills added, scores recomputed 77 → 78)
+- Date: 2026-10-13 (UTC) — second-pass refresh (prior Signature 2026-09-19, amended 2026-09-27: BenchLM gap-fills added, 77 → 78; new: AA Luna-max model page — Index 37, 120.3 tok/s, $0.17 blended; July 9 GA confirmed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,12 @@
 - **IDs:** `openai/gpt-5.6-luna` (state explicitly if no Free ID exists on Zen — paid only)
 - **Context window:** 1M tokens (1.1M reported by tracker), 128K max output — verified via API docs and LLM Stats (July-Sept 2026).
 - **Modalities:** text/image in; text out; reasoning yes (none through max); tool calls yes (multi-step workflows, browsing, code execution); JSON mode yes (structured outputs).
-- **Pricing (as of 2026-09-19):** $0.20 / $1.20 per 1M input/output tokens, cached input $0.02, cache writes 1.25x input; paid tier only ($). Was $1/$6 at launch, cut 80% on 2026-07-30.
+- **Pricing (as of 2026-10-13):** $0.20 / $1.20 per 1M input/output tokens, cached input $0.02, cache writes 1.25x input; AA blended 7:2:1 ≈ $0.17/1M, $0.18 per Index task (#39/175); paid tier only ($). Was $1/$6 at launch, cut 80% on 2026-07-30.
 - **Architecture:** proprietary (vendor discloses token-efficiency training with Sol-assisted kernels, no params/license published).
 
 ### Raw benchmarks found
+
+> Compared against prior findings (2026-09-19/27, Overall 78): new verified evidence below — AA Luna-max model page (Index 37 max lane, 120.3 tok/s, $0.17 blended, July 9 GA; note page flags deprecation in favor of GPT-6 Luna). Prior multi-scale Index rows retained as scale history; max-lane 37 now anchors scoring. Launch absolutes retained.
 
 Agent / tool use:
 
@@ -36,7 +38,8 @@ Reasoning / knowledge:
 - HLE: **no verified public score found** (closest proxy: Agents' Last Exam 50.3% above)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **51.2 v4.1 (vendor AA run) / 51 max (AA pre-release) / 38 v4.3 max** (OpenAI + AA July-Sept 2026; vs 5.5 54.8)
+- Artificial Analysis Intelligence Index / BenchLM overall: **37 max lane** (AA Luna-max model page, Oct 2026 — NEW anchor; #11/175, class median 13; prior multi-scale rows 51.2 v4.1 / 51 pre-release / 38 v4.3 retained as scale history; vs 5.5 54.8)
+- AA model-page speed/cost context (NEW): **120.3 output tok/s** (above class median 106.7); TTFT 124.87s (high); 150M output tokens per Index task (median 95M — verbose)
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 - FrontierMath Tier 1-3 v2: **78.6%** / Tier 4 v2: **58.5%** (OpenAI launch table); Big Finance Bench: **36%** (OpenAI launch table; vs 5.5 49%)
 - ARC-AGI-2: **59.5%** (BenchLM mirror)
@@ -57,7 +60,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 79/100.** TB 2.1 84.7% (79.0% Vals lane) plus BrowseComp 83.3%, CyberGym 77.9% and Agents' Exam 50.3% show capable volume agents; capped by TB3.0 14.3% and OSWorld 45.6% tails.
-- **Reasoning: 80/100.** GPQA 92.3% plus FrontierMath 78.6%/58.5%, ARC-AGI-2 59.5% and Agents' Exam 50.3% show solid reasoning at nano price; capped by Big Finance 36% well below 5.5 49%.
+- **Reasoning: 80/100.** GPQA 92.3% plus FrontierMath 78.6%/58.5%, ARC-AGI-2 59.5% and Agents' Exam 50.3% show solid reasoning at nano price, now anchored by AA Index 37 max lane (well above class median 13); capped by Big Finance 36% well below 5.5 49%.
 - **Context window: 72/100.** 1M window keeps the tier, but MRCR 41.3% at 256K+ is a marked drop from 5.5 81.5%/74%; capped by weak measured long recall despite GraphWalks 51.2% at 1M.
 - **Multimodal: 76/100.** Text+image in with tool-driven BrowseComp/BenchCAD-class workflows implies adequate vision-text; capped by text-only output and no verified MMMU/CharXiv figure for Luna.
 - **Coding: 83/100.** SWE-Pro 62.7% plus SWE Vals 93.0%, VulcanBench 85.5%, DeepSWE 67.2% and cursorBench 61.1% show strong volume coding; capped by no SWE-Verified/LiveCode/SciCode absolutes.
@@ -68,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-19
-- Method: public internet research (OpenAI GPT-5.6 launch + price update July 2026, API docs, Artificial Analysis July 2026, LLM Stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-13
+- Method: second-pass refresh of the 2026-09-19 report (amended 2026-09-27): fresh public internet research (AA Luna-max model page — Index 37 max-lane anchor, 120.3 tok/s, $0.17 blended, July 9 GA; prior launch absolutes retained); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 80/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 80.4/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Reasoning: 84.4/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Context window: 94.6/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Multimodal: 83/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Coding: 82.5/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Cost efficiency: 91.2/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 84.7/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 84.8/100.** Mean of top 10 of 18 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
