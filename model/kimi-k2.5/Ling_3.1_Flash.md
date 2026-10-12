@@ -85,5 +85,5 @@ Long context:
 ## Signature
 
 - Provided by: **Ling 3.1 Flash (inclusionai/ling-3.1-flash)** — 2026-10-08 (updated 2026-10-11)
-- Method: public internet research (Moonshot tech blog, HF/GitHub model card, arXiv paper, Artificial Analysis, Vals AI, OpenRouter, Epoch AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research (Moonshot tech blog, HF/GitHub model card, arXiv paper, Artificial Analysis, Vals AI, OpenRouter, Epoch AI, evals.report, AI Release Tracker, mlabonne, OpenAIToolsHub, Awesome Agents, Binaryverse, AfricanAI, VentureBeat); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
