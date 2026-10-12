@@ -104,7 +104,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [88, 84, 96, 70, 92, 28, 86],
     "Space_Bunny.md": [97, 97, 96, 68, 97, 30, 91],
     "Step_5_Preview.md": [90, 90, 92, 78, 93, 30, 89],
-    "average.md": [91.1, 92.6, 94.6, 79.8, 92.4, 39.4, 90.2],
+    "average.md": [91.7, 92.7, 94.6, 79.6, 92.7, 39.6, 90.3],
   },
   "claude-fable-5.1": {
     "Big_Pickle.md": [89, 90, 90, 78, 93, 66, 88],
@@ -151,7 +151,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [95, 95, 100, 75, 92, 45, 91],
     "Space_Bunny.md": [96, 96, 99, 78, 97, 30, 93.2],
     "Step_5_Preview.md": [88, 90, 92, 78, 88, 30, 87],
-    "average.md": [94, 94.3, 95.9, 77.7, 93.3, 36.1, 90.9],
+    "average.md": [94.1, 94.6, 96, 77.1, 93.7, 36.1, 91],
   },
   "claude-haiku-3.5": {
     "Big_Pickle.md": [32, 48, 70, 62, 48, 90, 52],
@@ -327,7 +327,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [70, 55, 64, 68, 78, 55, 67],
     "Space_Bunny.md": [76, 74, 72, 76, 85, 42, 76.6],
     "Step_5_Preview.md": [80, 84, 76, 70, 86, 60, 79],
-    "average.md": [86.6, 86.6, 76.6, 68.3, 89, 52.3, 81.5],
+    "average.md": [87.1, 86.8, 76.6, 68, 89.2, 52.3, 81.6],
   },
   "claude-opus-4.6": {
     "Big_Pickle.md": [84, 87, 84, 80, 85, 78, 84],
@@ -369,7 +369,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [70, 75, 100, 75, 70, 55, 78],
     "Space_Bunny.md": [92, 84, 98, 70, 92, 50, 87.2],
     "Step_5_Preview.md": [80, 87, 95, 70, 80, 45, 82],
-    "average.md": [88.1, 89.6, 93.7, 78.5, 87.5, 50.7, 87.5],
+    "average.md": [88.6, 89.7, 94.8, 77.3, 88, 51.2, 87.7],
   },
   "claude-opus-4.8": {
     "Big_Pickle.md": [80, 88, 88, 86, 88, 55, 86],
@@ -684,7 +684,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [70, 75, 100, 75, 70, 65, 78],
     "Space_Bunny.md": [87, 84, 96, 72, 86, 58, 85],
     "Step_5_Preview.md": [72, 76, 95, 70, 74, 60, 77],
-    "average.md": [85.7, 84.8, 92.4, 78.8, 86.3, 68.5, 85.6],
+    "average.md": [85.3, 84.8, 93.4, 78.6, 86.1, 68, 85.6],
   },
   "claude-sonnet-5": {
     "Big_Pickle.md": [84, 84, 85, 84, 84, 83, 84],
@@ -729,7 +729,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [88, 92, 100, 75, 88, 75, 89],
     "Space_Bunny.md": [92, 88, 97, 78, 91, 82, 89.2],
     "Step_5_Preview.md": [84, 87, 94, 70, 84, 62, 84],
-    "average.md": [86.8, 89.1, 94.2, 77.9, 89.1, 74.2, 87.5],
+    "average.md": [87, 89, 93.9, 78.7, 89.3, 76.2, 87.7],
   },
   "claude-sonnet-5.5": {
     "Big_Pickle.md": [93, 88, 96, 70, 92, 82, 88],
@@ -768,7 +768,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [96, 92, 96, 70, 90, 68, 89],
     "Space_Bunny.md": [94, 89, 92, 84, 93, 72, 90],
     "Step_5_Preview.md": [86, 88, 90, 78, 86, 78, 86],
-    "average.md": [93.4, 92.9, 94.9, 78.5, 92.9, 76.4, 90.5],
+    "average.md": [93.7, 92.8, 95.8, 78.5, 93.1, 76.4, 90.8],
   },
   "deepseek-v3.2": {
     "Big_Pickle.md": [80, 76, 58, 15, 78, 96, 61],
@@ -840,7 +840,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "DeepSeek_4_Flash.md": [89, 83, 94, 15, 88, 96, 74],
     "Fledge_Alpha.md": [78, 79, 92, 15, 80, 88, 69],
     "GLM_5.3.md": [84, 85, 93, 15, 82, 89, 71.8],
-    "GLM_5.3_Flash.md": [72, 85, 92, 15, 88, 92, 70],
+    "GLM_5.3_Flash.md": [82, 88, 93, 15, 89, 92, 73.4],
     "GPT_5.5.md": [88, 88, 94, 45, 91, 96, 81],
     "GPT_5.6_Luna.md": [90, 91, 91, 15, 88, 88, 75],
     "GPT_5.6_Sol.md": [92, 91, 96, 78, 93, 88, 90],
@@ -947,7 +947,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [88, 90, 100, 75, 88, 95, 88],
     "Space_Bunny.md": [96, 88, 97, 85, 92, 97, 91.6],
     "Step_5_Preview.md": [84, 83, 93, 72, 87, 97, 84],
-    "average.md": [90, 86.8, 95.5, 78.5, 90.1, 95.2, 88.2],
+    "average.md": [90.4, 87, 95.7, 77.5, 90.5, 95.9, 88.3],
   },
   "diffusiongemma-26b-a4b": {
     "Big_Pickle.md": [73, 64, 58, 72, 60, 98, 65],
@@ -1276,7 +1276,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [52, 48, 95, 66, 62, 88, 65],
     "Space_Bunny.md": [85, 84, 93, 95, 86, 86, 88.6],
     "Step_5_Preview.md": [62, 79, 92, 82, 75, 92, 78],
-    "average.md": [81.6, 86.7, 94.2, 90.7, 83, 92.8, 87.2],
+    "average.md": [82.4, 86.3, 94.3, 90.7, 83.4, 93, 87.4],
   },
   "gemini-3-pro": {
     "Big_Pickle.md": [87, 80, 93, 95, 75, 78, 86],
@@ -1313,7 +1313,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [75, 68, 95, 92, 72, 60, 80],
     "Space_Bunny.md": [85, 89, 86, 93, 87, 30, 88],
     "Step_5_Preview.md": [74, 84, 88, 92, 72, 78, 82],
-    "average.md": [83.9, 89.1, 94.9, 92.9, 85, 69, 89.2],
+    "average.md": [83.9, 89.3, 94.8, 93.2, 86, 68.4, 89.4],
   },
   "gemini-3.1-flash": {
     "Big_Pickle.md": [70, 73, 95, 84, 70, 88, 78],
@@ -1430,7 +1430,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [55, 82, 98, 85, 60, 70, 76],
     "Space_Bunny.md": [78, 93, 90, 93, 87, 78, 88],
     "Step_5_Preview.md": [85, 92, 88, 92, 80, 78, 87],
-    "average.md": [89, 92.9, 95.7, 91.9, 88, 76.4, 91.6],
+    "average.md": [88.8, 92.9, 95.9, 92.6, 87.3, 77.8, 91.6],
   },
   "gemini-3.5-flash": {
     "Big_Pickle.md": [80, 78, 88, 84, 80, 62, 82],
@@ -1553,7 +1553,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [78, 65, 100, 95, 75, 90, 83],
     "Space_Bunny.md": [82, 85, 97, 96, 84, 88, 88.8],
     "Step_5_Preview.md": [78, 80, 88, 88, 72, 88, 81],
-    "average.md": [83.8, 87.2, 94.2, 90.5, 85.4, 88.9, 88.1],
+    "average.md": [83.8, 87.2, 94.5, 91.2, 84.8, 87.9, 88.2],
   },
   "gemini-3.7-flash": {
     "Big_Pickle.md": [82, 84, 92, 88, 84, 76, 86],
@@ -1594,7 +1594,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [82, 80, 100, 95, 80, 90, 87],
     "Space_Bunny.md": [87, 91, 96, 94, 89, 82, 91],
     "Step_5_Preview.md": [80, 84, 96, 88, 80, 90, 86],
-    "average.md": [88.3, 88.8, 96.4, 91.1, 88.3, 91.6, 90.7],
+    "average.md": [88.4, 89.4, 96.2, 91.3, 88.4, 91.6, 90.9],
   },
   "gemini-3.8-flash": {
     "Big_Pickle.md": [87, 90, 93, 89, 87, 85, 89.2],
@@ -1643,7 +1643,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [90, 88, 100, 95, 85, 90, 92],
     "Space_Bunny.md": [85, 88, 97, 96, 85, 88, 90.2],
     "Step_5_Preview.md": [80, 83, 95, 88, 76, 90, 84],
-    "average.md": [89.9, 90.9, 96.6, 93.1, 90.7, 92.4, 92.3],
+    "average.md": [90.4, 91.4, 96.5, 93, 90.7, 92.8, 92.5],
   },
   "gemini-3.8-flash-cyber": {
     "Big_Pickle.md": [75, 79, 88, 82, 73, 75, 79],
@@ -1718,7 +1718,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [90, 90, 92, 85, 88, 65, 89],
     "Space_Bunny.md": [86, 85, 95, 90, 80, 55, 87],
     "Step_5_Preview.md": [82, 85, 95, 88, 84, 80, 87],
-    "average.md": [90.3, 90.8, 96.5, 88.4, 90.8, 71.2, 91.4],
+    "average.md": [89.8, 90.6, 97, 89.3, 91.2, 71.7, 91.6],
   },
   "gemma-4-31b": {
     "Big_Pickle.md": [85, 84, 80, 50, 83, 95, 76],
@@ -2046,7 +2046,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [88, 80, 100, 85, 85, 95, 88],
     "Space_Bunny.md": [92, 89, 94, 82, 88, 96, 89],
     "Step_5_Preview.md": [84, 78, 92, 82, 80, 96, 83],
-    "average.md": [89.4, 86.7, 96.2, 84.6, 88.8, 93.8, 89.2],
+    "average.md": [89.6, 87.1, 96.2, 84.8, 89, 94.5, 89.4],
   },
   "glm-5.3-flashx": {
     "Big_Pickle.md": [88, 85, 95, 85, 84, 94, 87.4],
@@ -2142,7 +2142,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [60, 55, 72, 65, 58, 80, 62],
     "Space_Bunny.md": [78, 80, 81, 70, 78, 50, 77.4],
     "Step_5_Preview.md": [70, 82, 78, 68, 82, 85, 76],
-    "average.md": [82.3, 87, 83.1, 76.8, 84.4, 74.1, 82.8],
+    "average.md": [82.7, 86.5, 83.7, 76.8, 84.8, 74.2, 83],
   },
   "gpt-5-nano": {
     "Big_Pickle.md": [60, 62, 64, 74, 66, 94, 65.2],
@@ -2437,7 +2437,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [78, 88, 90, 35, 55, 55, 69],
     "Space_Bunny.md": [65, 94, 95, 68, 74, 12, 79],
     "Step_5_Preview.md": [72, 84, 92, 78, 80, 25, 81],
-    "average.md": [90, 93, 94.1, 77.7, 86.3, 31.3, 88.4],
+    "average.md": [90, 93, 94.1, 77.7, 87.2, 31.3, 88.6],
   },
   "gpt-5.5": {
     "Big_Pickle.md": [67, 67, 71, 61, 67, 52, 67],
@@ -2474,7 +2474,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [84, 85, 94, 68, 80, 50, 82],
     "Space_Bunny.md": [91, 92, 96, 80, 91, 33, 90],
     "Step_5_Preview.md": [89, 91, 94, 70, 88, 45, 86],
-    "average.md": [87.9, 90.4, 93.4, 80.9, 86.8, 56.1, 87.8],
+    "average.md": [89, 90.8, 93.5, 79.9, 86.8, 56.4, 87.9],
   },
   "gpt-5.5-pro": {
     "Big_Pickle.md": [86, 84, 90, 76, 86, 30, 84.4],
@@ -2585,7 +2585,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [78, 85, 93, 70, 82, 45, 82],
     "Space_Bunny.md": [92, 94, 96, 74, 92, 62, 90],
     "Step_5_Preview.md": [90, 90, 70, 68, 86, 60, 81],
-    "average.md": [91.5, 91.8, 95.1, 77.9, 91.1, 62.4, 89.7],
+    "average.md": [91.6, 92.2, 95.2, 78.1, 91.2, 59.7, 89.8],
   },
   "gpt-5.6-terra": {
     "Big_Pickle.md": [82, 88, 87, 78, 83, 72, 84],
@@ -2805,7 +2805,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [76, 82, 92, 66, 72, 72, 78],
     "Space_Bunny.md": [85, 86, 95, 65, 89, 78, 84],
     "Step_5_Preview.md": [88, 92, 93, 72, 90, 62, 87],
-    "average.md": [89, 92.7, 95.5, 77.8, 90.8, 83, 89.3],
+    "average.md": [89.2, 92.2, 95.6, 77.3, 91.7, 81.4, 89.3],
   },
   "gpt-oss-120b": {
     "Big_Pickle.md": [72, 82, 56, 15, 72, 95, 59],
@@ -3117,7 +3117,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [72, 78, 75, 70, 62, 75, 71],
     "Space_Bunny.md": [96, 94, 92, 68, 93, 82, 88.6],
     "Step_5_Preview.md": [84, 90, 89, 68, 87, 66, 84],
-    "average.md": [87.1, 89.9, 88.4, 73.2, 88.8, 79.8, 85.3],
+    "average.md": [87.9, 90.6, 88.2, 73.4, 88.8, 80.6, 85.6],
   },
   "grok-4.7": {
     "Big_Pickle.md": [84, 78, 84, 70, 86, 86, 80.4],
@@ -3160,7 +3160,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [79, 82, 80, 62, 82, 75, 77],
     "Space_Bunny.md": [92, 88, 88, 68, 92, 70, 85.6],
     "Step_5_Preview.md": [78, 84, 88, 68, 83, 66, 80],
-    "average.md": [87, 87, 89.3, 71.9, 88.3, 76.5, 84.7],
+    "average.md": [86.8, 87.4, 89.3, 71.9, 88.2, 76.3, 84.7],
   },
   "grok-5": {
     "GPT_5.6_Luna.md": [65, 65, 60, 30, 65, 65, 57],
@@ -4158,7 +4158,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [91, 84, 95, 90, 83, 90, 89],
     "Space_Bunny.md": [82, 80, 95, 82, 80, 91, 83.8],
     "Step_5_Preview.md": [82, 80, 95, 88, 78, 96, 85],
-    "average.md": [88.3, 86.8, 95.8, 92.1, 87.2, 93, 90.1],
+    "average.md": [88.4, 87.4, 95.9, 92.3, 87.6, 93.1, 90.4],
   },
   "minimax-m2.7": {
     "Big_Pickle.md": [78, 78, 70, 15, 80, 88, 64],
@@ -4231,7 +4231,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [82, 82, 100, 85, 80, 85, 86],
     "Space_Bunny.md": [92, 87, 96, 95, 87, 88, 91.4],
     "Step_5_Preview.md": [70, 78, 94, 82, 74, 90, 80],
-    "average.md": [82.9, 82.4, 95.2, 84.8, 84.6, 89.3, 86.1],
+    "average.md": [83.6, 83, 95.3, 84.4, 84.4, 89.4, 86.2],
   },
   "minimax-m3.1-flash-preview": {
     "Big_Pickle.md": [60, 52, 80, 68, 66, 68, 65.2],
@@ -4470,7 +4470,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [85, 82, 93, 75, 88, 95, 85],
     "Space_Bunny.md": [92, 90, 100, 85, 91, 87, 92],
     "Step_5_Preview.md": [91, 92, 100, 90, 93, 98, 93],
-    "average.md": [95.1, 93.2, 99.8, 86.3, 95.1, 95, 93.9],
+    "average.md": [95.2, 93.2, 99.8, 86.3, 95.1, 95, 93.9],
   },
   "nemotron-3-nano-omni": {
     "Claude_Opus_5.md": [48, 54, 64, 88, 48, 94, 60.4],
@@ -5027,7 +5027,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [74, 72, 78, 85, 78, 92, 77],
     "Space_Bunny.md": [82, 84, 98, 91, 93, 86, 89.6],
     "Step_5_Preview.md": [74, 76, 78, 86, 76, 90, 78],
-    "average.md": [84.9, 84.7, 86.8, 85.7, 85.2, 92.1, 85.4],
+    "average.md": [85.3, 85.2, 88.4, 85.4, 85, 93.2, 85.8],
   },
   "qwen-3.8-flash": {
     "Big_Pickle.md": [80, 84, 88, 85, 80, 96, 83],
