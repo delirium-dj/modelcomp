@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.7`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI Grok 4.7 launch post + model card + docs, Artificial Analysis, Vals AI, BenchmarkList, The Model Gap, AIEvals, DigitalApplied, explainx, YFarmX); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Grok-4.7 page yet (released 2026-09-21, newest xAI flagship); re-checked the Vals AI and Artificial Analysis first-pass rows — Terminal-Bench 4.0 37.6% vendor / 25.8–28.8% independent, AA Intelligence Index 46.4 (xhigh), DeepSWE 71.0% (vendor), Vibe Code Bench 86.17% (Vals), CursorBench 46.3% and the class-low 29.3% hallucination rate all confirm the existing Tool use 78 / Reasoning 84 / Coding 83 reads; no published SWE-bench/AA-LCR and the 500K window keep Context at 88. No score change warranted. Prior pass (2026-10-09) used xAI Grok 4.7 launch post + model card + docs, Artificial Analysis, Vals AI, BenchmarkList, The Model Gap, AIEvals, DigitalApplied, explainx, YFarmX.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

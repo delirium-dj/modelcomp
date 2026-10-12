@@ -1,7 +1,7 @@
 # Qwen3.8-Flash-Next — findings by Step 5 Preview
 
 - Source: Alibaba (`Qwen3.8-Flash-Next`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,17 +40,17 @@ Reasoning / knowledge (independent + vendor):
 - GPQA Diamond: **92.3%** (AA — independent; vendor card 91.7%)
 - HLE: **38.0%** (AA, no tools — independent; supersedes the vendor's 35.9% GPT-4o-judged run)
 - LiveBench overall: **76.2** (independent board row)
-- Artificial Analysis Intelligence Index: no published index value found (component evals above); AIME / MMLU-Pro / ARC-AGI: **no verified public score found**
+- Artificial Analysis Intelligence Index: **39.8** (#56/427, 87th pct — BenchmarkList 2026-10-07; previously no published value); ERQA 72.3% (#3/20, field lead); RealWorldQA 88.5% (#1/31); AIME / MMLU-Pro / ARC-AGI: **no additional verified public score found**
 
 Long context:
 
-- 262K native / 1M YaRN window; **no AA-LCR / MRCR / RULER number published** for this checkpoint
+- 262K native / 1M YaRN window; **AA-LCR: 79.7% (#49/408, 88th pct — independent, BenchmarkList 2026-10-07; previously no verified score)**; **no MRCR/RULER number published** for this checkpoint
 
 ### Normalized scores (1–100)
 
 - **Tool use: 76/100.** AA-verified Terminal-Bench 2.1 86.1%, Toolathlon 73.5% and CoWorkBench 73.9% are genuinely mid-frontier, and JobBench 55.7% beats GPT-5.6 Sol on the vendor table; capped by Agents' Last Exam 24.3% pass@1, the 19.4% long-horizon computer-use score, and Toolathlon/CoWorkBench still resting on Alibaba's own harnesses.
-- **Reasoning: 82/100.** GPQA 92.3% and HLE 38.0% are both independently measured by Artificial Analysis, with IFBench 81.3% and LiveBench 76.2 backing breadth; capped by HLE ~15 points behind the Fable-5/GPT-6.1 tier and no AIME/ARC-AGI numbers.
-- **Context window: 78/100.** 262,144-token native window (1M on the production Flash via YaRN) sits in the 200K–500K band; the QSA hybrid attention's 7.6x prefill speedup at 1M is real engineering evidence, but the 100 tier needs verified 512K+ retrieval and no AA-LCR/MRCR exists for this checkpoint.
+- **Reasoning: 82/100.** GPQA 92.3% and HLE 38.0% are both independently measured by Artificial Analysis, with IFBench 81.3%, LiveBench 76.2 and the now-published AA Intelligence Index 39.8 (#56/427) backing breadth; capped by HLE ~15 points behind the Fable-5/GPT-6.1 tier and no AIME/ARC-AGI numbers.
+- **Context window: 78/100.** 262,144-token native window (1M on the production Flash via YaRN) sits in the 200K–500K band; independent AA-LCR 79.7% (#49/408) is decent, but the 100 tier needs verified 512K+ retrieval and no MRCR/RULER exists for this checkpoint — the QSA hybrid attention's 7.6x prefill speedup is engineering evidence rather than measured long-range retrieval.
 - **Multimodal: 78/100.** Multimodal MoE (the production Flash adds image and video understanding) is the image-input band, placed near its top by the Vision2Web 64.0% and WebDev Arena #9 results; no MMMU-Pro/CharXiv number is published for Flash-Next, so it cannot be scored higher.
 - **Coding: 82/100.** SWE-bench Pro 62.5%, SWE-bench Multilingual 81.0%, LiveCodeBench 91.9% (#3/50) and AA-verified Terminal-Bench 86.1% are frontier-adjacent at 6B active parameters; capped by DeepSWE 58.7% (a 15-point gap to the Opus-5.5 lead), NL2Repo 48.1% and SciCode 50.6%.
 - **Cost efficiency: 94/100.** $0.15/$0.47 per MTok with $0.016 cache reads (production Flash) sits just above the methodology's ~$0.10/$0.20 = 97–99 tier, with Apache-2.0 weights and an 8.6x prefill-throughput cache story; the 50%-off batch and self-hosting option strengthen it further.
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (QwenLM GitHub + HuggingFace model card/blog, Artificial Analysis via The Model Gap, BenchmarkList, QwenCloud docs, Alibaba Cloud Model Studio pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (31 primary-source results, updated 2026-10-07 — NEW AA Intelligence Index 39.8 #56/427 [was previously unpublished], NEW AA-LCR 79.7% #49/408 [was previously unverified], RealWorldQA 88.5% #1/31, ERQA 72.3% #3/20, GPQA 92.3% #19/468, HLE 38.0% #48/478, GDPval-AA Elo 1743 #10/352, TB2.1 86.1% #17/194, SWE-bench Pro 62.5% #20/58) — the two gap-fills (AA index 39.8, AA-LCR 79.7%) confirm the existing Reasoning 82 / Context 78 reads without moving them. No score change warranted. Prior pass (2026-10-09) used QwenLM GitHub + HuggingFace model card/blog, Artificial Analysis via The Model Gap, BenchmarkList, QwenCloud docs, Alibaba Cloud Model Studio pricing.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

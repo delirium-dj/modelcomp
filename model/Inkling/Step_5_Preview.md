@@ -1,7 +1,7 @@
 # Inkling — findings by Step 5 Preview
 
 - Source: Thinking Machines Lab (`thinkingmachines/Inkling`, weights `thinkingmachines/Inkling` on Hugging Face)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Thinking Machines launch posts + model card, Artificial Analysis launch analysis, Tinker pricing docs, Awesome Agents/Raschka/Model Trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Inkling page (it is tracked via Artificial Analysis and the Model Beat tracker, like Inkling-Small); re-checked the AA launch analysis, Model Beat rows and Tinker pricing — Intelligence Index 41 (v4.1) / 25 rebased, GPQA 88.3%, HLE 31.9%, SWE-bench Verified 77.6%, SWE-Pro 54.3%, TB 2.1 63.8%, GDPval-AA Elo 1,238, MCP Atlas 76.0% and the ForecastBench Brier 61.1 field-lead all confirm the existing Tool use 74 / Reasoning 80 / Context 88 / Multimodal 88 / Coding 72 reads. No score change warranted — Inkling is a U.S. open-weights foundation, not the raw-score leader (which is how Thinking Machines positions it). Prior pass (2026-10-09) used Thinking Machines launch posts + model card, Artificial Analysis launch analysis, Tinker pricing docs, Awesome Agents/Raschka/Model Trackers.
 - Future sources: add a new file next to this one, e.g. `Inkling_2.md`, using the same headings.

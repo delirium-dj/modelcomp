@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash Free — findings by Step 5 Preview
 
 - Source: Xiaomi / OpenCode Zen (`mimo-v2.6-flash-free`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,7 +30,7 @@
 - Artificial Analysis Intelligence Index: **37.9** (independent, 85th pct — Fable 5.1 leads at 65.7)
 - AA-LCR: **74.3%** (independent, 78th pct; K3 leads at 88.7%)
 - SciCode: **51.3%** (85th pct)
-- GPQA Diamond / HLE / MMLU-Pro / SWE-bench: **no vendor-published score** (Xiaomi publishes only agentic rows for Flash; third-party quant evals: MMLU-Pro 76.4%, GPQA-D ~56–86% budget-limited — unofficial)
+- **HLE: 35.1%** (independent, #58/478, 88th pct — BenchmarkList/verified 2026-10-07; surfaced in this second pass, previously no HLE run existed for Flash)
 - Sibling context: MiMo-V2.6-Pro scores 46 on the AA Intelligence Index — the strongest open-weights model per Xiaomi, behind only Claude Fable 5.1 and GPT-6 Astra
 
 ### Normalized scores (1–100)
@@ -47,6 +47,6 @@
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Xiaomi mimo.mi.com launch/pricing pages + HF model card, OpenCode Zen docs + pi.dev/models.dev catalogs, Vals AI, BenchmarkList, omidsaffari.com free-tier analysis, APISLAND); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): this free Zen route is the same MiMo-V2.6-Flash weights (capped at 200K context / 32K output on the route), so the evidence base is the paid Flash model's — re-verified via benchmarklist.com's MiMo-V2.6-Flash page (13 results, updated 2026-10-07 — NEW independent HLE 35.1% #58/478, AA Intelligence Index 37.9 #67/427, AA-LCR 74.3% #92/408, TB2.1 87.6% #15/194, TB4.0 28.8% #17/29, DeepSWE 67.9% #18/52, OSWorld-Verified 80.8% #17/70, JobBench 61.2% #8/48, Agents' Last Exam 27.6% #17/41, SciCode 51.3%). The newly-surfaced HLE 35.1% (below the 40% frontier bar) confirms the existing Reasoning 72; the 200K route cap keeps Context at 74 and $0 keeps Cost at 100. No score change warranted. Prior pass (2026-10-09) used Xiaomi mimo.mi.com launch/pricing pages + HF model card, OpenCode Zen docs + pi.dev/models.dev catalogs, Vals AI, BenchmarkList, omidsaffari.com free-tier analysis, APISLAND.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2.6_Pro.md`, using the same headings.

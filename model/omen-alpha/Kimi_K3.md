@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Kimi K3
 
 - Source: OpenCode (stealth model, `opencode/omen-alpha`; vendor unconfirmed)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-27
-- Method: public internet research (omenalpha.io independent benchmark snapshot, buildfastwithai review, startupfortune unmasking coverage, aicodingdaily model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: public internet research (omenalpha.io independent benchmark snapshot, buildfastwithai review, startupfortune unmasking coverage, aicodingdaily model page; **second pass**: OpenCode Data `unknown/omen-alpha` — stealth route still live at #34 with ~2.3T tokens over 2 months and 63.5% weekly retention; zero new measured rows → scores carried unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

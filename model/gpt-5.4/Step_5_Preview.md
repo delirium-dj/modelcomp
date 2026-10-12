@@ -1,7 +1,7 @@
 # GPT-5.4 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.4`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI GPT-5.4 launch page, Artificial Analysis, BenchmarkList, BenchLM, ARMES Docs, modelscale, LLM Registry, SWEN.AI, verdictpal); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com's GPT-5.4 page (56 primary-source results, updated 2026-10-07 — independent APEX-Agents 52.4%, BrowseComp 73.3%, AutomationBench 0.2–11.6%, SWE-bench Pro 59.1% ±3.56 #7/58, GDPval-AA rows) and rankllms.com. Confirms the existing Tool use 76 / Reasoning 81 / Context 88 / Coding 78 reads — the independent APEX-Agents 52.4% (#2/16) and BrowseComp 73.3% support Tool use 76 while MRCR v2 36.6% at 512K–1M keeps Context at 88. No score change warranted — GPT-5.4 is a March-2026 model superseded by GPT-5.5/5.6/GPT-6 Sol. Prior pass (2026-10-09) used OpenAI GPT-5.4 launch page, Artificial Analysis, BenchmarkList, BenchLM, ARMES Docs, modelscale, LLM Registry, SWEN.AI, verdictpal.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

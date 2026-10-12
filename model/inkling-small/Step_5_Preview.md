@@ -1,7 +1,7 @@
 # Inkling-Small — findings by Step 5 Preview
 
 - Source: Thinking Machines Lab (`thinkingmachines/inkling-small`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Thinking Machines Lab announcement + model card, HuggingFace weights page, Artificial Analysis article/OpenRouter/AA tables, Vals AI, VentureBeat, OrcaRouter, Kingy, Opper); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Inkling-Small page (it is a small open-weight MoE tracked primarily via Artificial Analysis and Vals AI); re-checked the AA article/OpenRouter tables and Vals AI — the AA Intelligence Index (40 v4.1 / 25.7 rebased), Terminal-Bench 2.1 55.1% (AA) / 64.7% (vendor), Vibe Code Bench 19.1% (Vals) and AA-Omniscience −9.0 all confirm the first-pass Tool use 68 / Reasoning 78 / Context 88 / Coding 79 reads; the documented context discrepancy (card 1M vs AA 256K vs hosted 524K) keeps Context at 88. No score change warranted. Prior pass (2026-10-09) used Thinking Machines Lab announcement + model card, HuggingFace weights page, Artificial Analysis article/OpenRouter/AA tables, Vals AI, VentureBeat, OrcaRouter, Kingy, Opper.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

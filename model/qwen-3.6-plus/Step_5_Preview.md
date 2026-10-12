@@ -1,7 +1,7 @@
 # Qwen3.6-Plus — findings by Step 5 Preview
 
 - Source: Alibaba (`qwen3.6-plus`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - MCP-Atlas: **74.1%** (vendor; ~tied with the previous flagship); MCPMark: 48.2%; Toolathlon: 39.8%
 - Terminal-Bench 2.0: **61.6%** (vendor); Terminal-Bench 2.1: **61.4%** (AA) / **53.2%** (Vals Terminus-2); Terminal-Bench Hard: 43.9% (AA)
 - Claw-Eval: **58.8%**; DeepPlanning: 41.5%; QwenWebBench: 1501.7
-- GDPval-AA: **24.7%** (AA) / 32% (Together table)
+- GDPval-AA: **24.7%** (AA) / 32% (Together table) / **Elo 1,137** (#86/352, 76th pct — BenchmarkList 2026-10-07); Tau3-Banking 20.8% (#55/176); Tau2-Bench Telecom 97.7% (#10/332)
 - OSWorld-Verified: **73.3%** (vendor); AndroidWorld: 81.0%; WebArena-Verified: 55.3%
 
 Reasoning / knowledge:
@@ -68,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen3.6-Plus blog + Alibaba Cloud Model Studio docs/pricing, Artificial Analysis, Vals AI, Together AI, evals.report, Neura, Design for Online, BenchLeader); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (181 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1137 #86/352, Tau3-Banking 20.8% #55/176, Tau2-Bench Telecom 97.7% #10/332, ScreenSpot-Pro 68.2% #22/59, Terminal-Bench Hard 43.9% #22/326, Agents' Last Exam 8.6% #38/41, ClawProBench 60.2 #14/48, DeepSWE rows). Confirms the existing Tool use 68 / Reasoning 78 / Coding 72 reads — the low independent GDPval (Elo 1137) and Agents' Last Exam 8.6% reinforce the mid-band caps while GPQA 88–90% and LiveCodeBench 86–87% keep Reasoning at 78. No score change warranted. Prior pass (2026-10-09) used Qwen3.6-Plus blog + Alibaba Cloud Model Studio docs/pricing, Artificial Analysis, Vals AI, Together AI, evals.report, Neura, Design for Online, BenchLeader.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Sonnet 4.6 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-sonnet-4-6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,17 +24,17 @@ Agent / tool use:
 - Terminal-Bench 2.0: **59.1%** (system card, no thinking budget); Terminal-Bench 2.1: **71.2%** (AA, max) / **57.3%** (Vals Terminus-2)
 - Terminal-Bench 4.0: **3%** (AA, max — the Feb-generation models fall off the new hard suite)
 - MCP-Atlas: **61.3%** (system card); one release tracker lists the MCP-Atlas leaderboard at 69.5%
-- OSWorld-Verified: **72.5%** (system card; leaderboard 72.1%) — within 0.2 pts of Opus 4.6; **OSWorld 2.0: 8.3%** (paper)
+- OSWorld-Verified: **72.5%** (system card; leaderboard 72.1%) — within 0.2 pts of Opus 4.6; **independent BenchmarkList run: 81.5% (#14/70, 81st pct — 2026-10-07, notably higher than the system card)**; **OSWorld 2.0: 8.3%** (paper)
 - GDPval-AA: **Elo 1633** (system card; another tracker lists 1676) — best-in-class office Elo at launch
 - τ²-bench: Retail **91.7%** / Telecom **97.9%** (system card)
-- Claw-Eval: **67.8%** (leaderboard); Finance Agent: **63.3%** (system card; Vals 51.0%); CyberGym 65.2%; JobBench 36.9%
+- Claw-Eval: **67.8%** (leaderboard); **ClawProBench 60.5 (#11/48, independent — BenchmarkList 2026-10-07)**; Finance Agent: **63.3%** (system card; Vals 51.0%); **Tau3-Banking 34.4% (#30/176, independent)**; CyberGym 65.2%; JobBench 36.9%
 - Vending-Bench Arena: **~$5,700** simulated profit (beats GPT-5.2; below Opus 4.6's ~$7,400)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **89.9%** (system card, 10 trials, max effort); Vals 85.6%; AA 79.9%
 - HLE: **33.2% no tools / 49.0% with tools** (system card); AA 33.6%
-- ARC-AGI-2: **58.3%** verified (60.4% at high effort — a 4.3x jump over Sonnet 4.5's 13.6%)
+- ARC-AGI-2: **58.3%** verified (60.4% at high effort — a 4.3x jump over Sonnet 4.5's 13.6%); independent BenchmarkList ARC-AGI-2 60.4% (#28/99)
 - MMMLU: **89.3%**; MMLU-Pro 87.3% (Vals); AIME 92.29% (Vals); MATH-500 97.8%
 - AA Intelligence Index: **24.7** (rebased scale); CritPt: **3.1%** (AA, max)
 - AA-Omniscience: index −3.5, accuracy 38.6%, hallucination rate 68.5%
@@ -69,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic Sonnet 4.6 model page/pricing/launch post + system card, Vals AI, Artificial Analysis, BenchLM, DigitalApplied, ZBuild, ShawnHack, publicai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (200 primary-source results, updated 2026-10-07 — independent OSWorld-Verified 81.5% #14/70 [notably above the 72.5% system card], ClawProBench 60.5 #11/48, Tau3-Banking 34.4% #30/176, ARC-AGI-2 60.4% #28/99, Terminal-Bench Hard 53.0% #7/326, EnterpriseOps-Gym 40.4% #2/25). Confirms the existing Tool use 72 / Reasoning 76 / Context 95 reads — the higher independent OSWorld (81.5%) and ClawProBench reinforce the computer-use strength while the AA-LCR 80.0% and GraphWalks 1M 73.8 keep Context at 95. No score change warranted — Sonnet 4.6 is a legacy Feb-2026 model superseded by Sonnet 5/5.5. Prior pass (2026-10-09) used Anthropic Sonnet 4.6 model page/pricing/launch post + system card, Vals AI, Artificial Analysis, BenchLM, DigitalApplied, ZBuild, ShawnHack, publicai.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

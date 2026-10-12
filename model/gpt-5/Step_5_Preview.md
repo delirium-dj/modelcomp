@@ -1,7 +1,7 @@
 # GPT-5 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5`, released 2025-08-07)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,6 @@ Benchmarks that did not exist at its launch (TB 2.x, τ³, MCP Atlas, GDPval, HL
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI GPT-5 launch materials and API pricing, modelbenchmark.io Epoch-AI score table, CloudPrice lifecycle data); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone GPT-5 page (a 2025 legacy model superseded by 5.1/5.2/5.3-Codex/5.4/5.6, retirement scheduled 2026-12-11); re-checked the OpenAI launch table, modelbenchmark.io Epoch-AI score table and CloudPrice lifecycle data — AIME 2025 94.6%, SWE-bench Verified 73.5–74.9%, GPQA Diamond 86.2–88.4%, Aider Polyglot 88%, MMMU 84.5% and the 94th-percentile coding composite all confirm the existing Tool use 70 / Reasoning 82 / Context 78 / Multimodal 68 / Coding 82 reads. No score change warranted — the agentic suites (TB 2.x, τ³, MCP Atlas, GDPval) still have no public GPT-5 run. Prior pass (2026-10-09) used OpenAI GPT-5 launch materials and API pricing, modelbenchmark.io Epoch-AI score table, CloudPrice lifecycle data.
 - Future sources: add a new file next to this one, e.g. `GPT_5_6_Sol.md`, using the same headings.

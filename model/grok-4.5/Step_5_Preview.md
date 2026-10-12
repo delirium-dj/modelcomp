@@ -1,7 +1,7 @@
 # Grok 4.5 — findings by Step 5 Preview
 
 - Source: xAI / SpaceXAI (`grok-4.5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,7 @@ Artificial Analysis (independent, high reasoning):
 - Intelligence Index: **54** (#4 of 168; Fable 5 60, Opus 4.8 56, GPT-5.5 55)
 - Coding Agent Index: **76** (Grok Build harness; on par with GPT-5.5/Codex, just below Fable 5/Claude Code)
 - τ³-Banking: **33%** (#1 of 28); GPQA Diamond: **93%** (#4); Terminal-Bench 2.1: **82–83.3%** (#5)
-- GDPval-AA v2: **1,543 Elo**; cost per Coding-Agent-Index task $2.49 (GPT-5.5 $5.07, Fable 5 $11.80)
+- GDPval-AA v2: **1,543 Elo** (AA); independent RankLLMs composite reads **Elo 1526**; cost per Coding-Agent-Index task $2.49 (GPT-5.5 $5.07, Fable 5 $11.80)
 
 xAI launch table (competitor figures from their system cards):
 
@@ -54,6 +54,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI launch post + docs, Artificial Analysis via ARMES/eesel/AgentRiot, Snorkel GDPval+ evaluation, TensorFeed and Awesome Agents trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 68.2%, GPQA 56.0%, OSWorld 47.1%, GDPVal-AA Elo 1526, AA Intelligence Index 56, composite 51.2 #35). Note the RankLLMs Terminal-Bench 2.1 15.7% is a low-confidence harness outlier vs the 82–83.3% AA/vendor consensus — the frontier-band GPQA 93%, τ³-Banking #1 and GDPval Elo 1526 confirm the existing Tool use 84 / Reasoning 86 / Coding 80 reads. No score change warranted — Grok 4.5 is a July-2026 model superseded by Grok 4.6/4.7. Prior pass (2026-10-09) used xAI launch post + docs, Artificial Analysis via ARMES/eesel/AgentRiot, Snorkel GDPval+ evaluation, TensorFeed and Awesome Agents trackers.
 - Future sources: add a new file next to this one, e.g. `Grok_4_6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Qwen3.7-Max — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (`qwen3.7-max`, snapshot `qwen3.7-max-2026-05-20`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -46,6 +46,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Alibaba Cloud Model Studio model/pricing docs, AI/TLDR launch summary, Epoch AI, Vals AI, Sophon and modelbenchmark.io aggregations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Qwen3.7-Max page (superseded by Qwen3.8-Max on 2026-08-03); re-checked the Alibaba launch materials, Epoch AI (OTIS AIME 95.6%, GPQA 90.9%, SWE-V 77.3%, SimpleQA 55.8%, FrontierMath T1-3 64.6%), Vals AI (Vals Index 57.29% #5, SWE-V 68.8%, TB 2.0 59.2%) and Sophon/AA aggregation (τ²-bench 94.7%, IFBench 80.5%, TB Hard 50.8%) — the launch AA index 56.6 (#5), SWE-bench Verified 80.4%, MCP-Atlas 76.4% and GPQA 92.4% all confirm the existing Tool use 78 / Reasoning 82 / Context 88 / Coding 82 reads; the shipped snapshot is text-only (Multimodal 12). No score change warranted. Prior pass (2026-10-09) used Alibaba Cloud Model Studio model/pricing docs, AI/TLDR launch summary, Epoch AI, Vals AI, Sophon and modelbenchmark.io aggregations.
 - Future sources: add a new file next to this one, e.g. `Qwen4_Max.md`, using the same headings.

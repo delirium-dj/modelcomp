@@ -1,7 +1,7 @@
 # GPT-5.1 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.1`, released 2025-11-13)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,6 +41,7 @@ Leaderboards (models.fru.dev):
 
 - MCP Atlas: **50.1%** (#32 of 34); ARC-AGI-1: **72.8%** (#11); ARC-AGI-2: 17.6% (#47); MultiChallenge: 63.4% (#7); HLE: 23.7% (#16); MMLU-Pro: 86.4%; Text Arena 1,456 Elo; WebDev Arena 1,395
 - Vals AI: SWE-bench 69.8%; TB 2.0 44.9%; Vibe Code Bench **24.6%**; IOI 21.5%; MMMU-Pro 83.2%; MedQA 96.4%; TaxEval 74.9%; Vals Index 53.6%
+- benchmarklist.com (independent, 153 results, 2026-10-07): ARC-AGI-1 72.8% (#48/97), ARC-AGI-2 17.6% (#49/99), MCP Atlas **50.1% (#46/48 — a weak spot)**, GDPval-AA **Elo 994 (#115/352)**, Terminal-Bench Hard 45.5% (#18/326), TB 2.1 52.4% (#74/194), TB 2.0 44.9% (#28/68), Tau2-Bench Telecom 81.9% (#83/332), Tau3-Banking 15.9% (#67/176), LiveCodeBench 86.5% (#15/123), ALE-Bench 1192 (#11/83), IOI 21.5% (#23/58)
 
 ### Normalized scores (1–100)
 
@@ -56,6 +57,6 @@ Leaderboards (models.fru.dev):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI GPT-5.1 announcement + API docs, Artificial Analysis and Vals AI via OpenRouter, modelbenchmark.io Epoch-AI table, models.fru.dev leaderboard aggregation); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (153 primary-source results, updated 2026-10-07 — independent ARC-AGI-2 17.6% #49/99, MCP Atlas 50.1% #46/48 [weak spot], GDPval-AA Elo 994 #115/352, Terminal-Bench Hard 45.5% #18/326, TB 2.1 52.4% #74/194, LiveCodeBench 86.5% #15/123). Confirms the existing Tool use 68 / Reasoning 82 / Context 80 / Coding 72 reads — the low independent MCP Atlas (50.1%) and GDPval (Elo 994) reinforce the Tool use 68 cap while GPQA 87.3–88.1% and AIME 94.0% keep Reasoning at 82. No score change warranted — GPT-5.1 is a legacy Nov-2025 model (retires 2027-04-01) not built for agentic coding. Prior pass (2026-10-09) used OpenAI GPT-5.1 announcement + API docs, Artificial Analysis and Vals AI via OpenRouter, modelbenchmark.io Epoch-AI table, models.fru.dev leaderboard aggregation.
 - Future sources: add a new file next to this one, e.g. `GPT_5_2.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.2 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.2`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI GPT-5.2 launch page + model/pricing docs, GPT-5.2-Codex post, Artificial Analysis, evals.report, The Known Good, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) re-checked the OpenAI launch table, Artificial Analysis (Intelligence Index 30 rebased), evals.report and BenchmarkList GPT-5.2 rows — GPQA 92.4%, HLE 34.5% no-tools, ARC-AGI-2 52.9%, SWE-bench Pro 55.6%, SWE-bench Verified 80.0% and the standout MRCR v2 profile (98.2% → 77.0% out to 256K) all confirm the existing Tool use 78 / Reasoning 88 / Context 84 / Coding 82 reads; the 400K window (not 1M) keeps Context at 84 and the rebased AA index of 30 keeps Reasoning at 88. No score change warranted — GPT-5.2 is a December-2025 model superseded by GPT-5.5/5.6/GPT-6 Sol on price-performance. Prior pass (2026-10-09) used OpenAI GPT-5.2 launch page + model/pricing docs, GPT-5.2-Codex post, Artificial Analysis, evals.report, The Known Good, DataCamp.
 - Future sources: add a new file next to this one, e.g. `GPT_5.2_Codex.md`, using the same headings.

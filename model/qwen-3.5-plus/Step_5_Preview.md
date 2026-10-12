@@ -1,7 +1,7 @@
 # Qwen3.5-Plus — findings by Step 5 Preview
 
 - Source: Alibaba (`qwen3.5-plus`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen3.5 launch blog, Alibaba Cloud Model Studio docs/pricing, QwenCloud model pages, OpenRouter, BenchmarkList, BenchLeader, modelbenchmark.io, mlabonne HF analysis, qwen35.com); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Qwen3.5-Plus page (superseded by 3.6/3.7/3.8); re-checked the Qwen launch materials, Epoch/Vals runs and modelbenchmark.io — IFBench 76.5–81.3% (class-leading), SWE-bench Verified 71.2% (Vals 04-20 snapshot), LiveCodeBench 85.3%, MMMU 85.0%, τ²-Bench 86.7% and the PinchBench 85.8% best all confirm the existing Tool use 68 / Reasoning 78 / Multimodal 84 / Coding 72 reads; no published AA-LCR/MRCR keeps Context at 92. No score change warranted. Prior pass (2026-10-09) used Qwen3.5 launch blog, Alibaba Cloud Model Studio docs/pricing, QwenCloud model pages, OpenRouter, BenchmarkList, BenchLeader, modelbenchmark.io, mlabonne HF analysis, qwen35.com.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_397B.md`, using the same headings.

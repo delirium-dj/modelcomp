@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-v4-pro`; GA build `DeepSeek-V4-Pro-0813`, weights `deepseek-ai/DeepSeek-V4-Pro-0813`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,8 +31,10 @@ Independent:
 
 - Artificial Analysis: Intelligence Index **53.2** (max effort — 3rd of ~106; preview 52); Coding Index **68.8**; Agentic Index **49.6**; GPQA Diamond 90.1–92.4; HLE 39.34% no-tools
 - Vals AI: **SWE-bench Verified 96.4%** (±0.83, max effort — era-1 saturated; preview 77.4 on the same harness); **Terminal-Bench 2.1 54.68%** (Terminus 2 reference harness); MMLU-Pro 86.97; ARC-AGI-1 **90.5%** / ARC-AGI-2 **61.3%** (ARC Prize-verified)
+- Vals AI: **SWE-bench Verified 96.4%** (±0.83, max effort — era-1 saturated; preview 77.4 on the same harness); **Terminal-Bench 2.1 54.68%** (Terminus 2 reference harness); MMLU-Pro 86.97; ARC-AGI-1 **90.5%** / ARC-AGI-2 **61.3%** (ARC Prize-verified); **benchmarklist.com ARC-AGI-2 0.8% (#81/99) and ARC-AGI-1 13.0% (#85/97)** — a large harness conflict vs the ARC Prize run (61.3%/90.5%), likely a different configuration
 - Epoch AI: OTIS Mock AIME 98.6%; FrontierMath T1-3 64.6% / T4 26.8%; SimpleQA Verified 52.9%; Chess Puzzles 47.0%; Mystery Game 43.0%
-- Preview-era AA note: GDPval-AA 1,554 Elo (leading open weights) with a **94% hallucination rate**
+- benchmarklist.com (2026-10-07): AutomationBench **43.2% (#12/48)**, HLE **42.7% (#28/478)**, GPQA Diamond **92.4% (#18/468)**, Codeforces 3348 (#2/8), Terminal-Bench 2.1 87.9% (#14/194), TB 4.0 12.4% (#25/29), DeepSWE 62.8% (#28/52), GDM-MRCRv2 Context Arena AUC 1M ~33%
+- GDPval-AA Elo 1554 (vendor); **independent BenchmarkList index reads Elo 1580 (#27/352, 93rd pct — 2026-10-07)** with a 94% hallucination rate
 
 ### Normalized scores (1–100)
 
@@ -48,6 +50,6 @@ Independent:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (DeepSeek HF model card + GA coverage, Artificial Analysis, Vals AI via AI Model Timeline, ARMES, OpenLLMStack pricing analysis, Tokenhot); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (43 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1580 #27/352, AutomationBench 43.2% #12/48, HLE 42.7% #28/478, GPQA 92.4% #18/468, Codeforces 3348 #2/8, TB 2.1 87.9% #14/194, TB 4.0 12.4% #25/29, DeepSWE 62.8% #28/52, GDM-MRCRv2 1M AUC ~33%). One conflict documented: benchmarklist's ARC-AGI-2 0.8% / ARC-AGI-1 13.0% vs the ARC Prize-verified 61.3%/90.5% — a harness/configuration divergence. Confirms the existing Tool use 72 / Reasoning 86 / Coding 82 reads; the low independent TB 4.0 (12.4%) and GDM-MRCRv2 1M AUC (~33%) keep the caps. No score change warranted. Prior pass (2026-10-09) used DeepSeek HF model card + GA coverage, Artificial Analysis, Vals AI via AI Model Timeline, ARMES, OpenLLMStack pricing analysis, Tokenhot.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V5.md`, using the same headings.

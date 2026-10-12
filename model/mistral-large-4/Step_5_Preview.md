@@ -1,7 +1,7 @@
 # Mistral Large 4 — findings by Step 5 Preview
 
 - Source: Mistral AI (`mistral-large-4` — "le Chonk", public preview 2026-10-06)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,6 +47,6 @@ Artificial Analysis (independent summary): Intelligence Index 38, 116.1 tok/s, T
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Mistral Large 4 launch post, Mistral docs model page, Artificial Analysis preview page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Mistral-Large-4 page (a 2026-10-06 public preview with weights still landing end-of-October); re-checked the Artificial Analysis preview page, Vals AI and the Surge blind human eval — Intelligence Index 38 (#64/226), Coding Agent Index 49.8, DeepSWE v1.1 61.7%, AutomationBench 59.9%, AA-Briefcase 1,393 Elo, Dense-200 grounding 42%, cyber patch-reproduce 82% and the Surge code-quality 3.74/5 (#2 of 5) all confirm the existing Tool use 72 / Reasoning 70 / Multimodal 86 / Coding 72 reads. No score change warranted — verbosity (200M tokens/run), TB 4.0 28.3% and unpublished GPQA/HLE keep the caps. Prior pass (2026-10-09) used Mistral Large 4 launch post, Mistral docs model page, Artificial Analysis preview page.
 - Future sources: add a new file next to this one, e.g. `Mistral_Large_5.md`, using the same headings.

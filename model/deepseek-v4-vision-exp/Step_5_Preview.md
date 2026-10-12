@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash Vision Exp — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (DeepSeek HF model card + API vision/pricing docs, Artificial Analysis via OpenRouter, Ofox and Rohit Raj image-cost measurements, SeaWhale/Traictory/llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone page (the `-exp` vision variant is a superseded experimental, now served by V4.1-Flash); re-checked the Artificial Analysis (via OpenRouter) and rankllms.com composites — AA Intelligence Index 34.8, Coding Index 65.0, Agentic Index 47.5%, GPQA 91.3%, HLE 34.5%, AA-LCR 81.3%, TB 2.1 74.2% and the independent RankLLMs composite of 51.8 all confirm the existing Tool use 74 / Reasoning 78 / Context 90 / Multimodal 82 / Coding 74 reads. No score change warranted — this is an experimental (`-exp`) image-only model retired in favor of V4.1-Flash. Prior pass (2026-10-09) used DeepSeek HF model card + API vision/pricing docs, Artificial Analysis via OpenRouter, Ofox and Rohit Raj image-cost measurements, SeaWhale/Traictory/llm-stats.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_1_Vision.md`, using the same headings.

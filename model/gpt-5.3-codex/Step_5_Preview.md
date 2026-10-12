@@ -1,7 +1,7 @@
 # GPT-5.3-Codex — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.3-codex`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,6 +49,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI launch post + system card + API docs, Artificial Analysis and Vals AI via OpenRouter/SWEN/llmreference, DataCamp analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) re-checked the OpenAI launch table + system card, Artificial Analysis (Intelligence Index 32.5–33, GPQA 91.5–92.0%, HLE 40.0–42.5%, AA-LCR 74.0–83.3%, TB Hard 53.0%) and Vals AI (SWE-bench 78.0%, LiveCodeBench 87.3%, Vibe Code Bench 61.8%) — SWE-Bench Pro 56.8%, Terminal-Bench 2.0 77.3% (industry high at launch), OSWorld-Verified 64.7% and GDPval 70.9% all confirm the existing Tool use 80 / Reasoning 84 / Context 80 / Coding 80 reads. No score change warranted — GPT-5.3-Codex is a February-2026 model superseded by the GPT-5.6 generation. Prior pass (2026-10-09) used OpenAI launch post + system card + API docs, Artificial Analysis and Vals AI via OpenRouter/SWEN/llmreference, DataCamp analysis.
 - Future sources: add a new file next to this one, e.g. `GPT_5_6_Sol.md`, using the same headings.

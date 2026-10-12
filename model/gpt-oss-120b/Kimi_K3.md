@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Kimi K3
 
 - Source: OpenAI / GPT-OSS 120B (`gpt-oss-120b`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-OSS 120B
 - **Short description:** OpenAI's open-weight 120B release — viable for simple assistant/coding tasks at self-host cost, but 2026 measurements show it well behind open peers on agentic, knowledge, and long-context dimensions.
 - **Provider / access:** open weights (Apache 2.0); hosted at many providers (OpenRouter etc.); OpenAI-compatible serving.
-- **Release / knowledge:** 2025-era; cutoff not verified in retrieved sources.
-- **IDs:** `openai/gpt-oss-120b` (no Zen Free ID verified).
-- **Context window:** 128K tokens (benchlm.ai).
-- **Modalities:** text in/out (a single Design Arena row); non-reasoning base (benchlm.ai classification); tool calls; JSON mode.
-- **Pricing (as of 2026-09-24):** open weights; hosted rates vary (no single verified rate in my sources).
+- **Release / knowledge:** Released 2025-08-05 (OpenCode Data, newly verified); cutoff not published in retrieved sources.
+- **IDs:** `openai/gpt-oss-120b` (no Zen Free ID verified). HF weights `openai/gpt-oss-120b` (link confirmed live).
+- **Context window:** ~131K tokens (OpenCode Data catalog; benchlm.ai listed 128K) / max output 33K (OpenCode Data — new).
+- **Modalities:** text in/out (catalog confirms text-only input; the single Design Arena row is a website-rendering eval, not API input); reasoning yes per catalog (benchlm.ai had classified the base non-reasoning — noted); tool calls; JSON mode.
+- **Pricing (as of 2026-10-11):** $0.04/M input, $0.40/M output, $0.02 cached input (OpenCode Data catalog — verified now; open weights → free self-host).
 - **Architecture:** open-weight 120B (MoE per family docs; active params not verified here).
 
 ### Raw benchmarks found
@@ -61,6 +61,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-24
-- Method: fresh public web research (benchlm.ai scorecard); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-11
+- Method: fresh public web research (benchlm.ai scorecard from first pass; **second pass**: OpenCode Data `openai/gpt-oss-120b` — verified release 2025-08-05, ~131K/33K window, $0.04/$0.40 pricing, open weights; flagged benchlm non-reasoning vs catalog reasoning conflict); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one using the same headings.

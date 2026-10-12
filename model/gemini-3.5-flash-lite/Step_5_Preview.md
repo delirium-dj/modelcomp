@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash-Lite — findings by Step 5 Preview
 
 - Source: Google DeepMind (`gemini-3.5-flash-lite`, GA 2026-07-21)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Google DeepMind model card, Gemini launch blog, Gemini API docs/cloud docs, Artificial Analysis, Epoch AI and Vals AI via modelbenchmark/BenchLeader, Vector Wire); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Gemini-3.5-Flash-Lite page (a high-throughput tier); re-checked the Google model card, Artificial Analysis (Intelligence Index 22, 359.1 tok/s, $0.19/task), Epoch AI (GPQA 83.3%, AIME 71.1%, FrontierMath T1-3 26.0%/T4 0.0%) and Vals AI (TB 2.1 50.2%, APEX 29.3%, LiveBench agentic coding 45.3%) — SWE-Bench Pro 54.2%, OSWorld-Verified 74.0%, MRCR 72.2% @128K / 21.3% @1M and the AA index of 22 all confirm the existing Tool use 62 / Reasoning 55 / Context 78 / Multimodal 88 / Coding 58 reads. No score change warranted — this is a volume subagent tier, not a reasoner. Prior pass (2026-10-09) used Google DeepMind model card, Gemini launch blog, Gemini API docs/cloud docs, Artificial Analysis, Epoch AI and Vals AI via modelbenchmark/BenchLeader, Vector Wire.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_8_Flash_Lite.md`, using the same headings.

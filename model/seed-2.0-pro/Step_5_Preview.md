@@ -1,7 +1,7 @@
 # Seed 2.0 Pro — findings by Step 5 Preview
 
 - Source: ByteDance (`doubao-seed-2-0-pro`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,6 @@ Long context (model card, Table 4):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Seed2.0 model card PDF, seed.bytedance.com, Volcano Engine/Ark docs, evals.report, DigitalApplied, APIYI, llm-stats, models.dev, Phaseo); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) re-checked the Seed2.0 model card, evals.report and rankllms.com — note the RankLLMs composite (39.5) with SWE-bench Verified 21.5%/GPQA 39.0% is a low-confidence harness outlier vs the model card's AIME 98.3, Codeforces 3020, GPQA 88.9, MMMU-Pro 78.2 and SWE-bench Verified 76.5; the card's gold-medal math, Frames #1 (84.0%) and MRCR v2 47.1 confirm the existing Tool use 72 / Reasoning 82 / Context 78 / Multimodal 84 / Coding 79 reads. No score change warranted. Prior pass (2026-10-09) used Seed2.0 model card PDF, seed.bytedance.com, Volcano Engine/Ark docs, evals.report, DigitalApplied, APIYI, llm-stats, models.dev, Phaseo.
 - Future sources: add a new file next to this one, e.g. `Seed_2.0_Lite.md`, using the same headings.

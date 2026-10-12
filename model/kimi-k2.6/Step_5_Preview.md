@@ -1,7 +1,7 @@
 # Kimi K2.6 — findings by Step 5 Preview
 
 - Source: Moonshot AI (`kimi-k2.6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,7 +26,7 @@ Agent / tool use (Moonshot's own table, thinking mode, 262K context, tools where
 - WideSearch (item-f1): **80.8%**
 - Claw-Eval v1.1: **62.3 pass^3 / 80.9 pass@3** (Opus 4.6 70.4/82.4)
 - OSWorld-Verified: **73.1%** (GPT-5.4 75.0, Opus 4.6 72.7)
-- Toolathlon: **50.0%**; MCPMark: **55.9%**; APEX-Agents: **27.9%** (452-task AA protocol)
+- Toolathlon: **50.0%**; MCPMark: **55.9%**; APEX-Agents: **27.9%** (452-task AA protocol); **TAU3-Bench 72.4% (#3/13, independent — BenchmarkList 2026-10-07)**; **TerminalWorld 57.5% (#2/8)**; AgentTrap 75 (#1/8); PinchBench 90.2 (#6/73); **Tau3-Banking 23.3% (#45/176, independent)**
 - Terminal-Bench 2.0 (Terminus-2): **66.7%** (GPT-5.4 65.4, Gemini 3.1 Pro 68.5); Terminal-Bench Hard: **43.9%** (AA)
 - GDPval-AA: **Elo 1520** (vs 1309 for K2.5); **27.0%** (AA)
 - Terminal-Bench 2.1: **65.9%** (AA) / 53.6% (Vals); **Terminal-Bench 4.0: 0.5%** (AA — the new hard suite is far from solved)
@@ -71,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Moonshot Kimi K2.6 tech blog + HF model card, Artificial Analysis, Vals AI, DeepInfra provider benchmarks, Lambda, DataLearner, OpenLM, opengodmode); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (199 primary-source results, updated 2026-10-07 — independent TAU3-Bench 72.4% #3/13, Tau3-Banking 23.3% #45/176, TerminalWorld 57.5% #2/8, AgentTrap 75 #1/8, PinchBench 90.2 #6/73, OSWorld 73.1% #6/72, Terminal-Bench Hard 43.9% #20/326, APEX-Agents-AA 28.5% #14/33, ClawProBench 59.31 #16/48, AA-Briefcase 818 #72/145, BrowseComp 83.2% #32/60). Confirms the existing Tool use 74 / Reasoning 84 / Coding 82 reads — the strong TAU3-Bench 72.4% and DeepSearchQA f1 92.5 reinforce the agentic profile while the low Tau3-Banking (23.3%) and Terminal-Bench 4.0 0.5% keep the caps. No score change warranted. Prior pass (2026-10-09) used Moonshot Kimi K2.6 tech blog + HF model card, Artificial Analysis, Vals AI, DeepInfra provider benchmarks, Lambda, DataLearner, OpenLM, opengodmode.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

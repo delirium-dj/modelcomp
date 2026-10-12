@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,7 +43,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified: **95.6% ±0.92** (Vals AI, mini-swe-agent bash-only — #3 of 30 on one coding board; 4th of 82 systems behind Claude Opus 5's 97.0%, DeepSeek V4 Pro 0813's 96.4% and GPT-5.6 Sol's 96.2%); xAI publishes no SWE-bench figure
+- SWE-bench Verified: **95.6% ±0.92** (Vals AI, mini-swe-agent bash-only — #3 of 30 on one coding board; 4th of 82 systems behind Claude Opus 5's 97.0%, DeepSeek V4 Pro 0813's 96.4% and GPT-5.6 Sol's 96.2%); independent RankLLMs composite reads 78.5%; xAI publishes no SWE-bench figure
 - DeepSWE v1.1: **65.9%** (vendor; behind GPT-5.6 Sol's 73% and Fable 5's 70%)
 - CursorBench 3.2: **69.9%** (vendor) / 70.8% (Cursor); CursorBench 4.0: **41.4%**
 - FrontierCode 1.1 Extended: **61.3%** (vendor; Fable 5 Max 63.6%)
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI launch post + model card + pricing docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter, Ridge, eesel AI, agentguides, genztech); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 78.5%, OSWorld 58.0%, Terminal-Bench 2.1 26.0% low-confidence, GDPVal-AA Elo 1753, APEX-Agents 57.5%, AA Intelligence Index 61, composite 55.6 #15) and re-checked the Vals/AA first-pass rows. Note the RankLLMs Terminal-Bench 2.1 26.0% is a low-confidence harness outlier vs the 88.4% (AA) / 78.28% (Vals) consensus — the frontier-band SWE-bench Verified and GDPval Elo 1753 confirm Coding 87 and Tool use 84; no score change warranted. Prior pass (2026-10-09) used xAI launch post + model card + pricing docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter, Ridge, eesel AI, agentguides, genztech.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

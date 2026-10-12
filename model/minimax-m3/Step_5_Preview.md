@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Step 5 Preview
 
 - Source: MiniMax (`MiniMax-M3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,7 @@ Agent / tool use:
 - Terminal-Bench 4.0: **2.0%** (AA); Terminal-Bench Hard: **42.4%** (AA)
 - Long-Horizon Terminal-Bench: **38.5 mean reward, 3/46 solved** (official Harbor harness)
 - τ²-bench: **88.9%** (AA); AA AutomationBench: **21.3%**; AA EnterpriseOps-Gym: **32.1%**
-- GDPval-AA: **37.3%** (AA) / Elo 1245 (AA); AA-Briefcase: Elo 1091; AA Agentic Index: 30.8%
+- GDPval-AA: **37.3%** (AA) / Elo 1245 (AA); independent RankLLMs composite reads GDPVal-AA Elo 1056; AA-Briefcase: Elo 1091; AA Agentic Index: 30.8%
 - AA Harvey LAB: **88.4%**; AA Tau3-Banking: 15.3%; ResearchClawBench 19.8%
 
 Reasoning / knowledge:
@@ -72,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (MiniMax M3 launch blog + model page, HuggingFace model card, NVIDIA developer blog, Artificial Analysis, Vals AI, BenchLM, DigitalApplied, felloai, madebyagents); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 34.4% low-confidence, OSWorld 27.8%, Terminal-Bench 2.1 34.4%, GDPVal-AA Elo 1056, composite 41.9) and benchmarklist.com (MiniMax-M3 page 404; AA/Vals rows carried from first pass). The independent GDPval Elo 1056 and low OSWorld confirm the existing Tool use 70 cap; AA-LCR 83% and GPQA 92.9% keep Context 94 / Reasoning 78. No score change warranted — every headline benchmark remains MiniMax's own run. Prior pass (2026-10-09) used MiniMax M3 launch blog + model page, HuggingFace model card, NVIDIA developer blog, Artificial Analysis, Vals AI, BenchLM, DigitalApplied, felloai, madebyagents.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

@@ -32,8 +32,8 @@
 88.3 gemini-3.6-flash
 88.1 deepseek-v4.1-flash
 87.7 claude-opus-4.6
-87.7 claude-sonnet-5
 87.7 mimo-v2.6-flash
+87.6 claude-sonnet-5
 87.5 qwen-3.8
 87.4 gemini-3-flash
 87.4 glm-5.3-flashx
@@ -50,7 +50,7 @@
 85.9 gpt-5.4
 85.9 grok-4.6
 85.9 mimo-v2.6-free
-85.6 claude-sonnet-4.6
+85.8 claude-sonnet-4.6
 85.5 grok-4.7
 85.4 gpt-5.2
 85.2 qwen-3.6-plus

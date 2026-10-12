@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Step 5 Preview
 
 - Source: xAI / SpaceXAI (`grok-4.3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,6 +49,6 @@ Flagged caveats (ARMES): "computational narcolepsy" (idle pauses) and structural
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI pricing docs, Artificial Analysis/ARMES/CloudPrice/aiapiindex trackers, Towards AI 18-task field test, AI/TLDR model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Grok-4.3 page (a April-2026 model superseded by Grok 4.5/4.6/4.7); re-checked the Artificial Analysis/ARMES/CloudPrice trackers and the Towards AI 18-task field test — Intelligence Index 53, GDPval-AA Elo 1,500, GPQA 90.1%, τ²-Telecom 97.7–98%, Coding Index 41–42.2, TB Hard 38.0% and the 9.1× task-cost advantage over Opus 4.7 all confirm the existing Tool use 78 / Reasoning 82 / Context 90 / Coding 66 reads. No score change warranted. Prior pass (2026-10-09) used xAI pricing docs, Artificial Analysis/ARMES/CloudPrice/aiapiindex trackers, Towards AI 18-task field test, AI/TLDR model page.
 - Future sources: add a new file next to this one, e.g. `Grok_4_6.md`, using the same headings.

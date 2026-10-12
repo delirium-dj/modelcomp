@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by Step 5 Preview
 
 - Source: Unbiased (`unbiased/pareto-26.10-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-10 (UTC) — second-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,6 +47,6 @@ Independent evaluations: **none exist** — Artificial Analysis has no page for 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Unbiased launch blog + model card + how-it-works page, OpenRouter model/endpoints API, models.dev catalog, OrcaRouter and benchlm analyses, Union Alpha/Pareto identity coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com still have no Pareto page, and no independent evaluation exists (Artificial Analysis, SWE-bench, and all third parties remain absent) — the only data are Unbiased's own preliminary vendor runs (GPQA-Diamond 92.4%, HLE 49.9%, DeepSWE v1.1 69.9%, Terminal-Bench 4.0 50.8%). The absence of any independent validation confirms the conservative vendor-only caps in the existing Tool use 72 / Reasoning 80 / Coding 72 reads; no score change warranted. Prior pass (2026-10-09) used Unbiased launch blog + model card + how-it-works page, OpenRouter model/endpoints API, models.dev catalog, OrcaRouter and benchlm analyses, Union Alpha/Pareto identity coverage.
 - Future sources: add a new file next to this one, e.g. `Pareto_26_11.md`, using the same headings.
