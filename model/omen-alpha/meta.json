@@ -1,9 +1,9 @@
 {
   "id": "opencode/omen-alpha",
   "name": "Omen Alpha",
-  "short": "Anonymous stealth coding model (live 2026-09-04 in OpenCode Go, vendor unconfirmed — the GLM attribution is explicitly not established). Cheap, privacy-first ($0.20/$0.66, 0-day retention, no training on your data); OpenCode coding score 23.14/40 is its only published benchmark.",
+  "short": "Anonymous stealth coding model (live 2026-09-04 in OpenCode Go, vendor unconfirmed). Cheap, privacy-first ($0.20/$0.66, 0-day retention); only benchmark is OpenCode coding 23.14/40. Image input unverified.",
   "contextWindow": "Not publicly disclosed (vendor states parameters and context are undisclosed)",
-  "modalities": "Text in/out (reasoning claimed by vendor; image input unverified)",
+  "modalities": "Text in/out",
   "pricingNote": "Paid $0.20/$0.66 per 1M ($0.04 cached; TokenRa promo $0.08/$0.26)",
   "pricingTiers": ["OpenCode Go $0.20/$0.66 per 1M ($0.04 cached)", "TokenRa promo $0.08/$0.26 per 1M"],
   "noFreeId": true

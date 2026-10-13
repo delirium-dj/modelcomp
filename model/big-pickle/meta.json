@@ -1,9 +1,9 @@
 {
   "id": "opencode/big-pickle",
   "name": "Big Pickle (GLM 4.6)",
-  "short": "Free stealth reasoning model on OpenCode Zen, vendor unknown (the GLM-4.6 attribution is community guesswork and is not corroborated by any vendor statement or fingerprinting study). 200K context, 32K output, text-only. SWE Atlas Codebase QnA 50.8% on the official harness is its only published benchmark; no data-retention policy found.",
+  "short": "Free stealth reasoning model on OpenCode Zen, vendor unknown (GLM-4.6 attribution uncorroborated). 200K context, 32K output, text-only; only published benchmark is SWE Atlas Codebase QnA 50.8%. No data-retention policy found.",
   "contextWindow": "200,000 total (32,000 max output)",
-  "modalities": "Text in/out only (reasoning yes)",
+  "modalities": "Text in/out only",
   "pricingNote": "Free Zen stealth tier ($0); no rate card and no published end date",
   "freeTierNote": "Free stealth promotional tier on OpenCode Zen offering zero-cost inference during active community trial",
   "pricingTiers": [

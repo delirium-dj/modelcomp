@@ -4,6 +4,6 @@
   "short": "InclusionAI's trillion-parameter instruct (non-thinking) flagship — 1T total / 63B active sparse MoE with hybrid MLA + linear attention and fast-thinking compressed CoT. MIT open weights.",
   "contextWindow": "262,144 total",
   "modalities": "Text in/out",
-  "pricingNote": "Route-dependent: $0.075/$0.625 per 1M (BenchmarkList) or ~$0.30/$2.50 (AA); MIT open weights but 1T total makes self-hosting impractical",
+  "pricingNote": "Route-dependent: $0.075/$0.625 (BenchmarkList) or ~$0.30/$2.50 (AA) per 1M; MIT weights",
   "freeTierNote": "Free OpenRouter endpoint (inclusionai/ling-2.6-1t:free); MIT weights free self-host"
 }

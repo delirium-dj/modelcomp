@@ -71,6 +71,20 @@ of text and are never comparable to generative Overall),
 each later run re-logs the stub until a human replaces the slug-guessed
 `name`, which clears the stamp automatically; deleting it by hand also works).
 
+Card uniformity (fields render verbatim in ModelCards cards + list rows —
+`pnpm sync` FAILs violations so rows stay comparable):
+- `short`: 1–2 sentences, max 240 chars, naming the maker + the use case.
+- `contextWindow`: one of three templates — `"<total> total; <out> max out"`
+  (e.g. `"1,048,576 (1M) total; 131,072 max output"`), `"<total> total"`,
+  or `"Unverified — <reason>"` / `"Not announced — <reason>"`. Max 100 chars.
+- `modalities`: `"<inputs> in ... out"` naming text (e.g. `"Text, image in;
+  text out"`), max 80 chars. Capability notes (`reasoning`, `thinking`,
+  `tool calls`, `JSON mode`, …) belong in `short`, never here. Unverified
+  specs use `"Not announced"` / `"No verified …"` / `"Unverified — …"`.
+- `pricingNote`: one-line summary, max 120 chars (e.g. `"$1.25/$10.00 per
+  1M"`); longer detail goes in `pricingTiers` (one line per tier, same cap),
+  which the list view stacks.
+
 Future (not yet implemented): curated editorial verdict. The per-model page
 currently shows a grouped auto-derived verdict sentence (strength cluster ≥ 90
 vs. weakness cluster < 75, cost included, each summarized into one

@@ -3,7 +3,7 @@
   "name": "Solar Pro 4",
   "short": "Upstage AI's flagship reasoning model with a 512K context — GPQA Diamond 89.0% (independently 89.1%), LiveCodeBench 87.8%, AIME 2026 95.3%, KMMLU-Pro 79.2% and a 24.4% hallucination rate. Strong Korean-language coverage.",
   "contextWindow": "512,000 (512K)",
-  "modalities": "Text in/out (no vendor modality statement published; no multimodal benchmark exists)",
+  "modalities": "Text in/out (modality statement unpublished)",
   "pricingNote": "No public rate card found (no Zen Free ID)",
   "noFreeId": true
 }

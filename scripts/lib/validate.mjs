@@ -157,6 +157,42 @@ export function checkFilename(slug, f) {
 }
 
 /**
+ * Card uniformity caps (model/README.md meta.json schema). Card/list fields
+ * render verbatim in ModelCards, so length discipline keeps rows comparable.
+ */
+export const META_SHORT_MAX = 240;
+export const META_MODALITIES_MAX = 80;
+export const META_PRICING_MAX = 120;
+export const META_CONTEXT_MAX = 100;
+
+/** Unknown-spec hatch: unannounced models skip the modalities shape check. */
+export const MODALITIES_UNKNOWN_RE = /^(not announced|unverified|not disclosed|unknown|no verified)\b/i;
+
+/** Capability notes belong in `short`, never in `modalities`. */
+export const MODALITIES_NOTE_RE =
+  /reasoning|thinking|tool[\s-]*calls?|tool[\s-]*calling|function[\s-]*calls?|function[\s-]*calling|json[\s-]*mode|structured|temperature|effort/i;
+
+/**
+ * Modalities diagnostics for one meta.json value. Pure + tested; empty =
+ * passes. Shape rule ("<inputs> in ... out" naming text) plus the
+ * capability-note ban plus the length cap.
+ */
+export function modalityProblems(modalities) {
+  const problems = [];
+  if (MODALITIES_UNKNOWN_RE.test(modalities)) return problems;
+  if (!/text/i.test(modalities)) problems.push('must name text input/output (e.g. "Text in/out")');
+  if (!/\bin\b/i.test(modalities) || !/\bout\b/i.test(modalities)) {
+    problems.push('must have "<inputs> in ... out" shape');
+  }
+  const note = modalities.match(MODALITIES_NOTE_RE);
+  if (note) problems.push(`capability note "${note[0]}" belongs in "short", not "modalities"`);
+  if (modalities.length > META_MODALITIES_MAX) {
+    problems.push(`is ${modalities.length} chars (max ${META_MODALITIES_MAX}) — inputs/outputs only`);
+  }
+  return problems;
+}
+
+/**
  * Full meta.json validation for one model folder. Returns FAIL messages in
  * sync order: missing/empty required fields first, then the display-name
  * gate (underscores are slug artifacts, never valid in a vendor name).
@@ -175,6 +211,35 @@ export function checkMetaFile(slug, meta, required = META_REQUIRED) {
     messages.push(
       `model/${slug}/meta.json: "name" must hyphenate the GPT prefix (official OpenAI style "GPT-5.6 Terra" / "GPT-OSS 120B", never with a space — got "${meta.name}")`,
     );
+  }
+  if (typeof meta.short === "string" && meta.short.length > META_SHORT_MAX) {
+    messages.push(
+      `model/${slug}/meta.json: "short" is ${meta.short.length} chars (max ${META_SHORT_MAX}) — trim to 1–2 sentences for card uniformity`,
+    );
+  }
+  if (typeof meta.modalities === "string" && meta.modalities.length > 0) {
+    for (const p of modalityProblems(meta.modalities)) {
+      messages.push(`model/${slug}/meta.json: "modalities" ${p}`);
+    }
+  }
+  if (typeof meta.contextWindow === "string" && meta.contextWindow.length > META_CONTEXT_MAX) {
+    messages.push(
+      `model/${slug}/meta.json: "contextWindow" is ${meta.contextWindow.length} chars (max ${META_CONTEXT_MAX}) — use "<total> total; <out> max out" (templates in model/README.md)`,
+    );
+  }
+  if (typeof meta.pricingNote === "string" && meta.pricingNote.length > META_PRICING_MAX) {
+    messages.push(
+      `model/${slug}/meta.json: "pricingNote" is ${meta.pricingNote.length} chars (max ${META_PRICING_MAX}) — one-line summary; move detail into "pricingTiers"`,
+    );
+  }
+  if (Array.isArray(meta.pricingTiers)) {
+    meta.pricingTiers.forEach((t, i) => {
+      if (typeof t === "string" && t.length > META_PRICING_MAX) {
+        messages.push(
+          `model/${slug}/meta.json: "pricingTiers[${i}]" is ${t.length} chars (max ${META_PRICING_MAX}) — one line per tier`,
+        );
+      }
+    });
   }
   return messages;
 }

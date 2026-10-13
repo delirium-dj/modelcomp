@@ -1,9 +1,14 @@
 {
   "id": "opencode/solar-mini-4",
   "name": "Solar Mini 4",
-  "short": "Upstage's compact proprietary reasoning MoE (35B total / 3B active, Sept 2026) — a new Pareto optimum for Intelligence Index per active parameter (AA 24), with AA-LCR 83% beating GPT-6 Astra. But Terminal-Bench 4.0 is 1% and poor cache hit rates make real per-task cost ~5x GPT-6 Luna's.",
+  "short": "Upstage's compact proprietary reasoning MoE (35B total / 3B active, Sept 2026), Pareto-optimal Intelligence Index per active parameter (AA 24), AA-LCR 83%. Terminal-Bench 4.0 is 1%; poor caching makes real per-task cost ~5x GPT-6 Luna's.",
   "contextWindow": "524,288 / 131,072 out on hosted endpoints (Artificial Analysis records 1M native / 262K out)",
-  "modalities": "Text in/out only; reasoning",
-  "pricingNote": "$0.10/$0.40 per 1M ($0.01 cache hit); 50% off through 2026-10-22. Note AA measured $0.36/task vs GPT-6 Luna's $0.07 due to 48% cache service",
+  "modalities": "Text in/out only",
+  "pricingNote": "$0.10/$0.40 per 1M ($0.01 cache hit); 50% off through 2026-10-22",
+  "pricingTiers": [
+    "$0.10/$0.40 per 1M ($0.01 cache hit)",
+    "50% off through 2026-10-22",
+    "AA measured $0.36/task (48% cache service)"
+  ],
   "noFreeId": true
 }

@@ -1,10 +1,10 @@
 {
   "id": "opencode/nemotron-3.5-lightning-free",
-  "name": "Nemotron 3.5 Lightning 30B-A3B",
-  "short": "NVIDIA's open 30B-A3B hybrid Mamba-2 + MoE + attention model (2026-08-11) for the execution layer of always-on agents (OpenClaw, Hermes Agent, NemoClaw stack). PinchBench 85.37, MMLU-Pro 81.94, GPQA Diamond 75.44, SWE-bench Verified 51.56. Commercial-use OpenMDW licence.",
+  "name": "Nemotron 3.5 Lightning 30B 3B",
+  "short": "NVIDIA's open 30B-A3B hybrid Mamba-2 MoE (2026-08-11) for the execution layer of always-on agents. PinchBench 85.37, MMLU-Pro 81.94, GPQA 75.44, SWE-bench Verified 51.56. OpenMDW licence.",
   "contextWindow": "262,144 native (Benchgen and others report 1M; conflict unresolved)",
-  "modalities": "Text in/out only; reasoning; tool calls",
-  "pricingNote": "$0.08/$0.20 per 1M ($0.04 cached); free Zen tier and NVIDIA trial; OpenMDW weights with NVFP4 quantization and DSpark speculative decoding",
+  "modalities": "Text in/out only",
+  "pricingNote": "$0.08/$0.20 per 1M ($0.04 cached); free Zen tier and NVIDIA trial; OpenMDW self-host weights",
   "freeTierNote": "Free OpenCode Zen and NVIDIA trial access; self-host free under OpenMDW (DGX Spark optimized)",
   "pricingTiers": [
     "Free Zen tier / NVIDIA trial",

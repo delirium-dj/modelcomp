@@ -3,7 +3,7 @@
   "name": "Exo Free",
   "short": "OpenCode Zen's anonymous free route, dropped unannounced 2026-10-06 — 1M-token context with reasoning (high only), tool calling and image input at $0.00 while feedback is collected. Lab unknown; no benchmark data published.",
   "contextWindow": "1M total (1,048,576 in / 131,072 out)",
-  "modalities": "Text + image in; text out (reasoning, tool calling, JSON mode)",
-  "pricingNote": "Free Zen tier (limited-time $0.00 in/out/cached; no zero-data-retention guarantee — prompts and images may train the model)",
+  "modalities": "Text + image in; text out",
+  "pricingNote": "Free Zen tier (limited-time $0 in/out/cached; inputs may train the model)",
   "freeTierNote": "Limited-time free route for feedback collection with no stated end date; inputs may be used to improve the model. Expect 429s and 'endpoint unavailable' under load."
 }

@@ -3,7 +3,7 @@
   "name": "Ling 3.1 Flash",
   "short": "InclusionAI (Ant Group) hybrid-reasoning MoE (560B total, ~25B active) launched Sep 2026 for coding and tool-using agents; all published numbers are vendor-reported.",
   "contextWindow": "262,144 (256K) served; 32,768 max output (1M behind post-trial paid tier)",
-  "modalities": "Text in/out; hybrid reasoning, tool calling",
+  "modalities": "Text in/out",
   "pricingNote": "Free during trial ($0/$0); paid pricing unannounced",
   "freeTierNote": "Free trial via opencode/ling-3.1-flash-free and OpenRouter/Vercel (through 2026-10-13)",
   "pricingTiers": [

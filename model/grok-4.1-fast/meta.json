@@ -3,7 +3,7 @@
   "name": "Grok 4.1 Fast",
   "short": "xAI's November 2025 speed tier (non-reasoning route): a 2M-context agentic model for high-volume tool calling at roughly a tenth of frontier pricing.",
   "contextWindow": "2,000,000 total; ~30,000 max output",
-  "modalities": "Text + image in; text out; tool calling + structured output",
+  "modalities": "Text + image in; text out",
   "pricingNote": "xAI native $0.20/$0.50 per 1M (cached $0.05)",
   "noFreeId": true
 }

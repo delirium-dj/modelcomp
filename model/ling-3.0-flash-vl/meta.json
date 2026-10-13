@@ -3,7 +3,7 @@
   "name": "Ling 3.0 Flash VL",
   "short": "InclusionAI (Ant Group) open-weight native multimodal build of Ling-3.0-flash (124B total MoE) with image and video perception for visual agent work.",
   "contextWindow": "262,144 (256K) served; 32,768 max output",
-  "modalities": "Text, image, video in; text out; tool calling",
+  "modalities": "Text, image, video in; text out",
   "pricingNote": "OpenRouter $0.021/$0.0616 per 1M (free windows expired)",
   "noFreeId": true
 }

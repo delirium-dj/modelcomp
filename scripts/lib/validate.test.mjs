@@ -8,6 +8,11 @@ import {
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
   RETIRED_ALIAS_SLUGS,
+  META_SHORT_MAX,
+  META_MODALITIES_MAX,
+  META_PRICING_MAX,
+  META_CONTEXT_MAX,
+  modalityProblems,
   mergedSlugMessage,
   mergedStemMessage,
   retiredAliasMessage,
@@ -179,19 +184,19 @@ describe("checkMetaFile (meta gates, sync order)", () => {
   });
 
   it("passes a complete, clean meta", () => {
-    const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p" };
+    const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "Text in/out", pricingNote: "p" };
     assert.deepEqual(checkMetaFile("s", meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
   });
 
   it("ignores extra fields (scaffolded stamp never fails validation)", () => {
-    const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p", scaffolded: true };
+    const meta = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "Text in/out", pricingNote: "p", scaffolded: true };
     assert.deepEqual(checkMetaFile("s", meta, ["id", "name", "short", "contextWindow", "modalities", "pricingNote"]), []);
   });
 });
 
 describe("checkMetaFile (GPT display-name gate)", () => {
   const REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"];
-  const good = { id: "a", name: "GPT-5.6 Terra", short: "s", contextWindow: "c", modalities: "m", pricingNote: "p" };
+  const good = { id: "a", name: "GPT-5.6 Terra", short: "s", contextWindow: "c", modalities: "Text in/out", pricingNote: "p" };
 
   it("passes hyphenated GPT names", () => {
     assert.deepEqual(checkMetaFile("s", good, REQUIRED), []);
@@ -206,5 +211,68 @@ describe("checkMetaFile (GPT display-name gate)", () => {
 
   it("leaves voice product names alone", () => {
     assert.deepEqual(checkMetaFile("s", { ...good, name: "GPT Realtime 2" }, REQUIRED), []);
+  });
+});
+
+describe("checkMetaFile (card uniformity gates)", () => {
+  const REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"];
+  const good = { id: "a", name: "Good Name", short: "s", contextWindow: "c", modalities: "Text in/out", pricingNote: "p" };
+
+  it(`fails short over ${META_SHORT_MAX} chars, passes at cap`, () => {
+    const over = checkMetaFile("s", { ...good, short: "x".repeat(META_SHORT_MAX + 1) }, REQUIRED);
+    assert.equal(over.length, 1);
+    assert.match(over[0], /"short" is 241 chars/);
+    assert.deepEqual(checkMetaFile("s", { ...good, short: "x".repeat(META_SHORT_MAX) }, REQUIRED), []);
+  });
+
+  it("fails modalities capability notes, passes clean combos", () => {
+    const msgs = checkMetaFile("s", { ...good, modalities: "Text in/out only; reasoning; tool calls" }, REQUIRED);
+    assert.equal(msgs.length, 1);
+    assert.match(msgs[0], /capability note "reasoning" belongs in "short"/);
+    assert.deepEqual(checkMetaFile("s", { ...good, modalities: "Text, image, video in; text out" }, REQUIRED), []);
+  });
+
+  it("fails modalities without text in/out shape, passes the unknown-spec hatch", () => {
+    const msgs = checkMetaFile("s", { ...good, modalities: "Not announced" }, REQUIRED);
+    assert.deepEqual(msgs, []);
+    assert.deepEqual(checkMetaFile("s", { ...good, modalities: "No verified public matrix" }, REQUIRED), []);
+    const bad = checkMetaFile("s", { ...good, modalities: "Multimodal support" }, REQUIRED);
+    assert.ok(bad.some((m) => /in \.\.\. out|must name text/.test(m)));
+  });
+
+  it(`fails modalities over ${META_MODALITIES_MAX} chars`, () => {
+    const msgs = checkMetaFile(
+      "s",
+      { ...good, modalities: "Text in/out (" + "x".repeat(META_MODALITIES_MAX) + ")" },
+      REQUIRED,
+    );
+    assert.ok(msgs.some((m) => /max 80/.test(m)));
+  });
+
+  it(`fails contextWindow over ${META_CONTEXT_MAX} and pricingNote over ${META_PRICING_MAX} chars`, () => {
+    const msgs = checkMetaFile(
+      "s",
+      { ...good, contextWindow: "x".repeat(META_CONTEXT_MAX + 1), pricingNote: "x".repeat(META_PRICING_MAX + 1) },
+      REQUIRED,
+    );
+    assert.equal(msgs.length, 2);
+    assert.match(msgs[0], /"contextWindow"/);
+    assert.match(msgs[1], /"pricingNote"/);
+  });
+
+  it("fails over-long pricingTiers entries with their index", () => {
+    const msgs = checkMetaFile(
+      "s",
+      { ...good, pricingTiers: ["$1/$2 per 1M", "x".repeat(META_PRICING_MAX + 1)] },
+      REQUIRED,
+    );
+    assert.equal(msgs.length, 1);
+    assert.match(msgs[0], /pricingTiers\[1\]/);
+  });
+
+  it("modalityProblems is empty for clean values", () => {
+    assert.deepEqual(modalityProblems("Text/image/audio/video in; text out"), []);
+    assert.deepEqual(modalityProblems("Text in → typed decision out"), []);
+    assert.deepEqual(modalityProblems("Not announced"), []);
   });
 });
