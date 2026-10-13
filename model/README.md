@@ -196,7 +196,19 @@ dataset label, never a SKU (renamed from `model/glm-5.1-coding/` 2026-10-12;
 RULES.md GLM-5.1 coding-suffix identity — never recreate the old slug);
 `grok-build-0.1/` covers every `grok-code-fast-1` name — a retired vendor
 alias, never a folder (RULES.md retired-alias identity — never scaffold
-`model/grok-code-fast-1/`).
+`model/grok-code-fast-1/`);
+`nemotron-3-ultra-free/` covers every `Nemotron 3 Ultra` name — `Free` is an
+access tier only (Zen free route, OpenRouter `:free` suffix, NVIDIA free
+endpoint); paid routes (NIM/OpenRouter `nvidia/nemotron-3-ultra-550b-a55b`)
+serve the same 550B-A55B weights — never scaffold `model/nemotron-3-ultra/`;
+`nemotron-3.5-lightning-free/` covers every `Nemotron 3.5 Lightning` name —
+`Free` is an access tier only (Zen free route, `:free` suffixed IDs, NVIDIA
+free endpoint); paid/NIM routes (`nvidia/nemotron-3.5-lightning-30b-a3b`)
+serve the same 30B-A3B weights — never scaffold
+`model/nemotron-3.5-lightning/`;
+`nemotron-3-nano-omni/` is the canonical folder for `Nemotron 3 Nano Omni`
+(single model — 30B-A3B-Reasoning weights; free serving on Zen/NVIDIA Build
+plus open checkpoints, never a `-free` split) — research under it.
 
 **Domain routing — Voice & Finance models do NOT live in `model/`.**
 - Voice/speech models live strictly under `models_voice/<slug>/` (`RULES.md` routing rule).

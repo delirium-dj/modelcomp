@@ -1,9 +1,9 @@
 {
   "id": "opencode/owl-alpha",
   "name": "Owl Alpha",
-  "short": "Experimental stealth frontier model optimized for high-speed agentic execution and fast reasoning workflows.",
-  "contextWindow": "65,536 total (16,384 out)",
+  "short": "Retired stealth alias, not a current model. Listed anonymously on OpenRouter from late April 2026; LongCat's X account confirmed it as theirs on 2026-06-29 and Meituan released it openly as LongCat-2.0 on 2026-06-30. The OpenRouter endpoint now 404s; benchmark data belongs to model/longcat-2.0/.",
+  "contextWindow": "~1,000,000 (1M) during the alias period",
   "modalities": "Text in/out",
-  "pricingNote": "$0.50 / $2.00 per 1M tokens (Stealth provider)",
-  "noFreeId": true
+  "pricingNote": "Was free on OpenRouter during the alias period; endpoint now retired (404)",
+  "freeTierNote": "Alias was a free OpenRouter endpoint; superseded by LongCat-2.0"
 }

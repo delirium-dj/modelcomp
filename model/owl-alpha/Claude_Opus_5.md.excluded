@@ -1,0 +1,66 @@
+# Owl Alpha — findings by Claude Opus 5
+
+- Source: Meituan / LongCat (retired stealth alias `owl-alpha` on OpenRouter)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** Per `RULES.md`, that suffix applies when an Overall Score cannot be computed because there is zero verified data for the exact model/ID. That is the case here, for a specific and now fully documented reason: **"Owl Alpha" was a two-month stealth alias that has been officially retired, and the model behind it is `LongCat-2.0` — which already has its own folder in this dataset at `model/longcat-2.0/`.** Every capability benchmark that exists belongs to that identity, not to this one. Scoring this folder would duplicate another folder's dataset and corrupt both averages.
+
+## Model card
+
+- **Name:** Owl Alpha — **a retired alias, not a current model**
+- **Short description:** During its anonymous period, OpenRouter described it as "a high-performance foundation model designed for agentic workloads. Natively supports tool use, and long-context tasks, with strong performance in code generation, automated workflows, and complex instruction execution. **Compatible with Claude Code, OpenClaw, and other mainstream productivity tools**" — a description preserved by Benchable, LLM API, Promptibus and Design For Online. It was **free on OpenRouter** with a context window of **approximately 1 million tokens**.
+- **The identity resolution, with dates.** This is the substance of the report:
+  - **Late April 2026** (aggregator records date the listing 2026-04-28): "a model named 'Owl Alpha' appeared on OpenRouter with no information about its developer."
+  - The stealth period ran "**almost two full months** — much longer than most similar cases" ([Dayverse](https://dayverse.id/en/articles/true-identity-of-owl-alpha-on-openrouter-revealed/)).
+  - **2026-06-29: "its anonymous status officially ended. LongCat's official X account posted a brief announcement confirming that Owl Alpha is theirs."**
+  - **2026-06-30: "Meituan released the model openly under the name LongCat-2.0 via GitHub, Hugging Face, and their own platform."**
+  - **"With that, the name 'Owl Alpha' practically retired from OpenRouter, replaced by its official identity as part of the LongCat family."**
+- **Provider / access:** **None current.** A direct fetch of `openrouter.ai/openrouter/owl-alpha` returns **404**, confirming the retirement rather than inferring it. `benchlm.ai/md/models/owl-alpha.md` also returns **404**.
+- **Release / knowledge:** The alias existed roughly **2026-04-28 to 2026-06-29**. Knowledge cutoff: never published under this name.
+- **IDs:** `openrouter/owl-alpha` — **dead (404)**. The live identity is LongCat-2.0, which belongs in `model/longcat-2.0/`.
+- **Context window:** Reported at **~1M tokens** during the alias period, and consistent with the resolved model. ⚠️ **This repo's `meta.json` recorded "65,536 total (16,384 out)", which is contradicted by every source I found** — OpenRouter-derived records, free-model.com ("a 1M context window — one of the largest of any model"), LLM API ("about 1 million tokens") and Promptibus ("1M+ token context") all agree on ~1M. I have corrected the metadata.
+- **Modalities:** Text in → text out during the alias period. (One aggregator, upend.ai, labels it "Multimodal Model", but that page offers no modality evidence and no other source supports it; I do not treat it as established.)
+- **Pricing:** ⚠️ **Also a metadata correction.** `meta.json` recorded "$0.50 / $2.00 per 1M tokens (Stealth provider)" with `noFreeId: true`. **Owl Alpha was free on OpenRouter** — free-model.com lists it under free models, Toastyst describes it as "offered **free** for data collection and real-world testing", and Roborhythms' review is titled "When Free Comes With a Speed Tax". The $0.50/$2.00 figure is corroborated nowhere, and the no-free-tier flag is wrong for the alias period.
+- **Architecture:** Never disclosed under this name. It is now known — 1.6T-total MoE with dynamically active parameters, LongCat Sparse Attention, MIT licence, trained without Nvidia hardware — but **those are facts about LongCat-2.0 and belong in that folder**, so I record them as the identity resolution rather than as scoring input.
+
+### Raw benchmarks found
+
+**None attributable to the `owl-alpha` identity.** This is the crux of the exclusion, and it needs stating precisely because the model was genuinely popular.
+
+What exists for Owl Alpha specifically is **usage telemetry and leaderboard placement, not capability measurement**:
+
+- During its anonymous period it "held the **number one position in the Hermes Agent category, number two in Claude Code, and number three in OpenClaw**"
+- Estimated throughput of "**around 10.1 trillion tokens per month**, with an average of **559 billion tokens per day**, and a monthly growth of **242 percent**"
+- Toastyst records that it "immediately became a **top-10 model on the world's largest open model router**"
+
+**I am not scoring any of that**, and the reason is a standard I applied earlier in this same research pass to `omen-alpha`: usage rank measures adoption, not quality. RankLLMs' formulation of the principle is the one I follow — platform telemetry "shows that people used a model under this identifier; it does not establish who built it, **how it performs**, or what weights it runs." A 10.1-trillion-token monthly volume is a remarkable commercial fact and tells us developers found it useful; it is not a benchmark.
+
+**Every actual benchmark figure belongs to LongCat-2.0.** For auditability I list what I found and deliberately declined to import — **SWE-bench Pro 59.5, SWE-bench Multilingual 77.3, IFEval 90.0, IMO-AnswerBench 81.8, GPQA-Diamond 88.9**, with the reported pattern that it "outperforms Gemini 3.1 Pro and GPT-5.5" on the two software-engineering tests while lagging "quite far behind" them on instruction-following and advanced science. **Those numbers are LongCat-2.0's, they were published under that name on 2026-06-30, and they belong in `model/longcat-2.0/`.** Reproducing them here as Owl Alpha's score would double-count a single model across two folders.
+
+Agent / tool use, reasoning, coding, multimodal and long context under the `owl-alpha` identity: **no verified public score found** in every category.
+
+### Why exclusion rather than low evidence-absence scores
+
+I have scored thin-evidence models elsewhere in this pass rather than excluding them. `omen-alpha` got a 34.8 off a single four-project coding score, because that number was measured against *that* identifier and no other folder claims it. `laguna-s-2.1` and `solar-open-2` were scored off vendor-only data. The test I am applying is consistent: **is there a measurement that belongs to this folder and nowhere else?**
+
+Here the answer is no, and the failure mode is specific. This is not a case of a real model with sparse data — it is a case of **two folders competing for one model's dataset**. `model/longcat-2.0/` exists, the resolved identity is documented by LongCat's own X announcement and a same-week open release, and OpenRouter has deleted the alias endpoint. If I score `owl-alpha` using LongCat-2.0's benchmarks, the site counts one model twice; if I score it using usage volume, I am converting popularity into a capability claim, which I explicitly refused to do for `omen-alpha` eight entries earlier in this queue. Neither is acceptable.
+
+The honest record is that **Owl Alpha was a codename, it was resolved on 2026-06-29, and its data has a home**.
+
+**Reversal criteria, stated explicitly:** this exclusion should be lifted only if one of the following turns out to be true — the identity resolution is contradicted by LongCat, Meituan or OpenRouter (i.e. Owl Alpha was *not* LongCat-2.0, or was a materially different checkpoint such as a distinct pre-release snapshot with its own published evaluations); or a benchmark result is published specifically against the `owl-alpha` endpoint and distinguished from LongCat-2.0's. Absent that, the correct maintenance action is not to research this folder further but to decide at the project level whether a retired-alias folder should exist at all, and if it should, to have it point at `model/longcat-2.0/` rather than carry its own scores.
+
+### Normalized scores (1–100)
+
+Not computed. All five quality dimensions and the cost dimension have **zero verified data attributable to this identifier**. The only numbers available are either usage telemetry — which measures adoption rather than capability — or benchmarks that were published under the name LongCat-2.0 and belong to that folder. Assigning any score here would either duplicate `model/longcat-2.0/` or manufacture a capability claim from token volume. Per `RULES.md`, this is the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Research steps attempted and their outcomes: direct fetches of `benchlm.ai/md/models/owl-alpha.md` and `openrouter.ai/openrouter/owl-alpha` (**both 404** — the latter being direct confirmation that the alias endpoint has been withdrawn rather than an inference); a targeted search for `"owl-alpha" OR "Owl Alpha" opencode stealth model benchmark` (**zero results**, which first indicated this was not an OpenCode-family stealth model like `omen-alpha`); and a broader search that surfaced the OpenRouter-derived description preserved by Benchable, LLM API, Promptibus, Design For Online and free-model.com (the "high-performance foundation model designed for agentic workloads" text, native tool use, Claude Code / OpenClaw compatibility, **free availability** and the **~1M context window**), Toastyst's account of the "stealth drop… offered free for data collection and real-world testing" that became "a top-10 model on the world's largest open model router", Roborhythms' "When Free Comes With a Speed Tax" review framing, and **Dayverse's 2026-07-01 identity report**, which supplied the decisive chronology: the late-April 2026 anonymous listing, the near-two-month stealth period, **LongCat's official X announcement on 2026-06-29 confirming Owl Alpha as theirs**, Meituan's **2026-06-30 open release of the same model as LongCat-2.0** across GitHub, Hugging Face and its own platform, the statement that the Owl Alpha name "practically retired from OpenRouter", and the alias-period usage figures (#1 Hermes Agent, #2 Claude Code, #3 OpenClaw; ~10.1T tokens/month, 559B/day, +242% monthly growth). **The usage telemetry is deliberately excluded from scoring**, applying the same standard I applied to `omen-alpha` earlier in this queue: adoption volume is not a capability measurement. **LongCat-2.0's benchmark figures were located and deliberately not imported** — they are listed in the benchmark section solely so the decision is auditable, and they belong to `model/longcat-2.0/`, which exists in this dataset; importing them would double-count one model across two folders and corrupt both averages. No data was read from or written to that folder, and **no peer `model/` findings files were read**. **Three repo-metadata claims are reported as contradicted and corrected:** the 65,536-token context window (every source gives ~1M), the "$0.50 / $2.00 per 1M tokens" pricing (the model was free on OpenRouter), and `noFreeId: true` (wrong for the alias period). One aggregator's "Multimodal Model" label is noted and **not** accepted, since it carries no supporting evidence and no other source corroborates it. Unavailable items — every capability benchmark, the architecture, the knowledge cutoff and any current endpoint — are recorded as "no verified public data found" under this identifier rather than estimated or borrowed.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

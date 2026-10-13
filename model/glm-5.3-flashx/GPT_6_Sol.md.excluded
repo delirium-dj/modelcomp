@@ -1,0 +1,48 @@
+# GLM 5.3 FlashX — negative findings by GPT 6 Sol
+
+- Source: Z.AI (`glm-5.3-flashx`)
+- Date: 2026-10-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z.AI's faster serving SKU of GLM-5.3-Flash, advertised at **200 output tokens/s**. [Z.AI's combined product page](https://docs.z.ai/guides/llm/glm-5.3-flash) lists **both** `glm-5.3-flash` and `glm-5.3-flashx` API codes; its capability charts and benchmark prose are only for **Flash**, not a measured FlashX deployment. Whether the two IDs use byte-identical weights was not substantiated by separate public checkpoint data.
+- **Provider / access:** Z.AI Chat Completion API ID `glm-5.3-flashx`; [OpenRouter Chat Completions route](https://openrouter.ai/z-ai/glm-5.3-flashx/llms.txt) `z-ai/glm-5.3-flashx`. A currently live `opencode/glm-5.3-flashx` Zen route was not verified (the guessed Pi listing returned 404); do not mistake a project metadata ID for proof of access.
+- **Release / knowledge:** The [combined Z.AI product page](https://docs.z.ai/guides/llm/glm-5.3-flash) says FlashX is now live, but does not separately give a dated FlashX launch or knowledge cutoff.
+- **IDs:** First-party `glm-5.3-flashx`, OpenRouter `z-ai/glm-5.3-flashx`; distinct serving route from `glm-5.3-flash`.
+- **Context window:** [Z.AI](https://docs.z.ai/guides/llm/glm-5.3-flash) lists **1M context / 128K maximum output** on its combined Flash/FlashX page; hosted account limits must be checked.
+- **Modalities:** Combined [Z.AI page](https://docs.z.ai/guides/llm/glm-5.3-flash) lists text/image/video/file input → text output, thinking enabled, tool calls and structured output. FlashX-specific modality benchmarking was not found.
+- **Pricing (as of 2026-10-13):** [Z.AI's current pricing page](https://docs.z.ai/guides/overview/pricing) lists **$0.37 input / $0.075 cached input / $1.25 output per 1M** for FlashX. Limited-time *cache storage* promotion is not a free inference tier; Flash's separate $0.15/$0.50 price must not be substituted.
+- **Architecture:** [Z.AI's combined page](https://docs.z.ai/guides/llm/glm-5.3-flash) describes Flash-family hybrid linear/sparse-attention MoE, **320B total / 18B active**; no distinct FlashX weight/checkpoint was verified. Hosting variant is a possible alias for measured capability, pending explicit model-ID evidence and a user-directed identity decision.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **No verified public score found** under the `glm-5.3-flashx` API ID for Terminal-Bench, OSWorld, Toolathlon, Claw-Eval or MCP Atlas. The [Z.AI page](https://docs.z.ai/guides/llm/glm-5.3-flash) reports the Flash model's DeepSWE and AutomationBench figures but does not explicitly label these as separate FlashX runs.
+
+Reasoning / knowledge:
+
+- **No verified public score found** for FlashX GPQA, HLE, CritPt or AA Index. The [Z.AI combined page](https://docs.z.ai/guides/llm/glm-5.3-flash) attributes index results to Flash only; [BenchLM's guessed FlashX listing](https://benchlm.ai/models/glm-5-3-flashx) and [Vals' guessed route](https://www.vals.ai/models/zai_glm-5.3-flashx) returned 404.
+
+Coding:
+
+- **No verified public score found** specifically for FlashX SWE-bench, DeepSWE, Terminal-Bench or Vibe Code. Sharing a vendor product page is not a separately measured checkpoint.
+
+Long context:
+
+- **No verified public score found** for FlashX 1M retrieval (MRCR, GraphWalks or equivalent) despite the [advertised capacity](https://docs.z.ai/guides/llm/glm-5.3-flash).
+
+### Normalized scores (1–100)
+
+No scores assigned: zero verified public **benchmark** numbers under the FlashX ID; per research self-exclusion, this `.md.excluded` preserves the access/pricing findings without introducing a speculative Overall into the averages.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-13
+- Method: Fresh first-party Z.AI SKU/pricing check and OpenRouter route verification; excluded until FlashX-specific measurements or a confirmed model-equivalence decision are available.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

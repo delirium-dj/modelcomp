@@ -1,6 +1,6 @@
 {
   "id": "opencode/nemotron-3.5-lightning-free",
-  "name": "Nemotron 3.5 Lightning Free",
+  "name": "Nemotron 3.5 Lightning 30B 3B",
   "short": "Compact open 30B MoE (3B active) for high-volume, low-latency execution in always-on agents. Pairs with a frontier planner.",
   "contextWindow": "262,144 native",
   "modalities": "Text-only",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/laguna-xs-2.1",
   "name": "Laguna XS 2.1",
-  "short": "Poolside's 33B/3B-active open-weights MoE for agentic coding and local deployment (OpenMDW-1.1 permissive).",
+  "short": "Poolside's 33B/3B-active open-weights MoE for agentic coding, compact enough to run on a 36GB Mac (OpenMDW-1.1, fully permissive). SWE-bench Verified 70.9%, SWE-bench Pro 47.6%, Terminal-Bench 2.0 37.5% — beating gpt-oss-120B on SWE-Pro by 31 points.",
   "contextWindow": "262K (HF); 256K in benchmarks",
   "modalities": "Text in/out only",
   "pricingNote": "$0.06/$0.12 per 1M (OpenRouter); free tier available",

@@ -1,0 +1,69 @@
+# Exo Free — findings by Claude Opus 5
+
+- Source: unattributed / anonymous lab (`exo-free`, OpenCode Zen route)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** Per `RULES.md`, that suffix applies when an Overall Score cannot be computed because there is zero verified data for the exact model/ID. That is the case here, and the reason is simply timing plus anonymity: **`exo-free` was dropped anonymously on OpenCode Zen on 2026-10-06, two days before this research date, by an unnamed lab, and no benchmark score of any kind has been published for it.** The model is real and usable — unlike `grok-5` — and it has a distinct identity of its own — unlike `owl-alpha` — but there is nothing quantitative to score.
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** An **anonymous free route on OpenCode Zen**, slipped into the model picker without announcement. The community summary is accurate: "OpenCode Zen just slipped another stealth model into the picker: Exo Free. ~1M context, reasoning on, $0. **Lab unknown.** Free while they collect feedback." Specs are unusually generous for a free route — **1M context, 131K output, reasoning, vision and tool calling at zero cost** — which is precisely why it attracted attention.
+- **Provider / access:** **OpenCode Zen**, confirmed registered under the OpenCode namespace. [Pi](https://pi.dev/models/opencode/exo-free) records: Model `exo-free`, Provider `opencode`, API `openai-completions`, Base URL `https://opencode.ai/zen/v1`. Querying Zen's public `https://opencode.ai/zen/v1/models` endpoint confirms it is "officially registered under the OpenCode namespace and actively deployed" ([Free AI API](https://freeaiapi.org/articles/opencode-exo-free-guide)).
+- **Release / knowledge:** **2026-10-06, approximately 22:30 UTC.** ArtificialWatch's automated sweep first observed it in models.dev at **2026-10-06 22:54 UTC**; it went viral on X the following afternoon. Knowledge cutoff: not disclosed. **This model is two days old as of this report** — the absence of benchmark coverage is a function of age as much as anonymity.
+- **IDs:** `exo-free` / `opencode/exo-free` (OpenCode Zen). **Free: $0.00 input, $0.00 output, $0.00 cached reads**, "available for a limited time, with no end date stated" ([Free AI Credits](https://freetokens.custats.info/offers/opencode-exo-free.html)).
+- **Context window:** **1,048,576 tokens (1M)** with **131,072 max output** — convergent across Pi, models.dev, TypingMind's pricing calculator and Free AI API.
+- **Modalities:** **Text + image in → text out.** Capabilities listed as "attachments, reasoning, tool calling, image input". Reasoning: **yes**, though one community report specifies "**reasoning only on high**" — i.e. effort may not be selectable on this route.
+- **Pricing:** **$0.00 across the board**, with an explicit and important trade: "During the free period, **collected data may be used to improve the model; avoid sending sensitive or confidential material**." Free AI API is blunter: "The endpoint offers **no zero-data-retention guarantees. Prompts and uploaded screenshots will be used for future model training. Never input proprietary source code, production keys, or sensitive customer records.**"
+- **Operational reality worth recording:** "Surging traffic has triggered frequent **`Endpoint is unavailable` notices and 429 rate limits**." This is not a stable route.
+- **Architecture:** **Undisclosed.** No vendor, no parameter count, no training details.
+
+### Raw benchmarks found
+
+**None.** Not sparse — zero. A direct fetch of `benchlm.ai/md/models/exo-free.md` returns **404**, and there is no BenchmarkList, Artificial Analysis or Vals AI page, which is expected for a two-day-old anonymous route.
+
+Every category reads the same: Agent / tool use, reasoning, coding, multimodal and long context — **no verified public score found.**
+
+**What does exist, and why none of it is scorable:**
+
+**1. An identity fingerprint, not a capability measurement.** Testing with the third-party tool `lm.ikale.io` "matched its generation patterns to Anthropic's flagship model **Claude Opus 5.5 with an overwhelming 99.4% confidence score**", with the runner-up claude-fable-5.1 at just 0.4%. The method is "prompting the model for approximately 300 pseudo-random numbers within a set interval, paired with tokenizer probes to inspect physical token boundaries."
+
+**I am not scoring this, and the publishing source explains better than I could why nobody should.** Free AI API's own critique: "The primary limitation is **closed-set matching**. As the tool notes, confidence reflects **relative** probability among known reference models. **If exo-free is an uncataloged model heavily trained on Opus 5.5 synthetic outputs, the algorithm will naturally assign maximum probability to the closest candidate in its bank.**" The same article lays out three mutually exclusive theories and endorses none: **(A)** a confidential blind evaluation by an upstream lab under NDA, **(B)** a routing misconfiguration temporarily directing `exo-free` traffic to a paid Opus pool, or **(C)** a distilled open-weights model fine-tuned on Opus 5.5 chain-of-thought traces. A separate X claim contradicts all three: "I cracked the Exo Free stealth model: underneath **it's not a model, but a router with Claude and GPT inside.**"
+
+Those claims cannot all be true, and 99.4% confidence on a closed-set numeric-bias probe is not evidence about coding ability, retrieval quality or agentic reliability regardless of which one is.
+
+**2. Qualitative community stress tests, reported as pass/fail with no scores:**
+
+- **"Pelican on a Bicycle" spatial test** — write Python to render the scene in Blender or Three.js. Reported outcome: "successfully accounted for mechanics like feet on pedals, wings on handlebars, and ground contact **without clipping or spatial distortion**."
+- **Convenience-store Blender modelling** — generate a complete Blender Python script for a store with aisles, stock, refrigerators, counters and lighting. Reported outcome: "**executed cleanly on the first attempt**, producing structured depth and shading."
+- **Multimodal diagnosis** — feeding "complex microservice architecture diagrams or mobile error screenshots yielded accurate diagnostic tracing and actionable refactoring advice."
+
+These are credible-sounding and genuinely useful signals that the model is capable. They are also **single-tester, single-attempt, unscored anecdotes with no published prompts, no pass rate, no comparison baseline and no reproduction**. There is no defensible way to convert "rendered a pelican without clipping" into a number on a 1–100 coding scale.
+
+**3. Circumstantial inference from the specs.** A 1M context with 131K output, vision and reasoning offered free suggests a substantial model behind the route. It does not measure one.
+
+### Why exclusion rather than low evidence-absence scores
+
+I have been deliberately inconsistent-looking across this queue, so the standard is worth stating. I **scored** `omen-alpha` at 34.8 despite near-total opacity, because one dated, methodology-described number existed that belonged to that identifier and nothing else — an OpenCode coding score of 23.14/40 across four projects. I **excluded** `owl-alpha` because its only numbers belonged to `longcat-2.0`, which has its own folder. I **excluded** `grok-5` because the model does not exist.
+
+`exo-free` fails on a fourth distinct ground: **the model exists, is usable, and has its own identity, but literally no capability number has been produced for it yet.** The only figure anywhere near it — 99.4% — measures *which other model it statistically resembles*, and its own publisher explains that the metric cannot distinguish "is Opus 5.5" from "was distilled from Opus 5.5" from "routes to Opus 5.5 sometimes".
+
+The tempting move is to treat the fingerprint as a licence to import Claude Opus 5.5's benchmark suite. That would be wrong three times over: the attribution is unverified by the source that produced it, a competing credible claim says the backend is a multi-model router, and a fourth possibility — Theory B, a transient routing misconfiguration — would mean today's behaviour is not even tomorrow's behaviour on the same endpoint. Attributing a frontier model's scores to an anonymous free route on that basis would put a fabricated frontier-tier Overall into this dataset.
+
+**Reversal criteria, stated explicitly:** this exclusion should be lifted as soon as **any** of the following appears — a benchmark result published against the `exo-free` endpoint by any evaluator (BenchLM, BenchmarkList, Artificial Analysis, Vals AI or a reproducible community harness); an OpenCode or upstream-lab announcement attributing the route to a named model; or the route's graduation to a named, priced model with a card. Given that the model is **two days old**, the first of these is likely within weeks, and this folder should then be re-researched from scratch with a fresh `.md` rather than this file being edited.
+
+### Normalized scores (1–100)
+
+Not computed. All five quality dimensions have **zero verified capability data**, and the cost dimension — while trivially excellent at $0.00 — cannot carry an Overall on its own, nor would a cost-only score be meaningful for a route with no zero-data-retention guarantee and documented 429 rate limiting. Assigning numbers here would mean either converting single-attempt Blender anecdotes into benchmark scores or importing Claude Opus 5.5's results on the strength of a closed-set fingerprint that its own publisher says cannot support that inference. Per `RULES.md`, this is the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Research steps attempted and their outcomes: a direct fetch of `benchlm.ai/md/models/exo-free.md` (**404**); two targeted searches, the first of which returned only two results and the second of which surfaced the full discovery trail; and reads of Pi's model-details page (the `exo-free` / `opencode` / `openai-completions` registration, the `https://opencode.ai/zen/v1` base URL, **text and image input, reasoning yes, context window 1,048,576, max tokens 131,072**), Free AI Credits' offer page (**$0 input, output and cached reads**, "available for a limited time, with no end date stated", and the data-collection warning), TypingMind's pricing calculator (the attachments / reasoning / tool-calling / image-input capability list and the $0.00 rates), ArtificialWatch's automated radar entry (catalog id `opencode/exo-free`, **first observed 2026-10-06 22:54 UTC** via models.dev), two X posts establishing the **2026-10-06 ~22:30 anonymous drop**, the "reasoning only on high" detail, the "Lab unknown. Free while they collect feedback" characterization and the **competing claim that the backend is "not a model, but a router with Claude and GPT inside"**, and Free AI API's 2026-10-07 hands-on review, which supplied the **lm.ikale.io 99.4% Claude Opus 5.5 fingerprint** (with claude-fable-5.1 at 0.4%), the fingerprinting methodology (~300 pseudo-random numbers plus tokenizer boundary probes), **its own critique of that evidence as closed-set matching that cannot distinguish a model from its distillate**, the three competing theories (NDA blind evaluation, routing misconfiguration, Opus-distilled open-weights model), the Zen `/v1/models` registration confirmation, the qualitative Pelican-on-a-Bicycle and convenience-store Blender test reports, the multimodal diagnosis report, the **absence of zero-data-retention guarantees with prompts and screenshots used for training**, and the documented **`Endpoint is unavailable` notices and 429 rate limits**. **No benchmark figure of any kind was found for this identifier**, and that is stated rather than implied. **The 99.4% fingerprint is explicitly refused as a basis for importing Claude Opus 5.5's benchmark suite**, on three stated grounds — the publishing source itself explains the metric is closed-set and cannot separate identity from distillation, a credible competing claim describes a multi-model router, and Theory B (transient routing misconfiguration) would mean the observed behaviour is not stable — applying the same standard used earlier in this queue for `omen-alpha` (behavioural impressions and self-identification are not attribution) and `owl-alpha` (another folder's benchmarks must not be imported). The qualitative Blender and Pelican results are described in full and deliberately **not** converted into scores, since they are single-tester, single-attempt, unscored anecdotes without published prompts, pass rates, baselines or reproduction. No data was imported from any other folder, and no peer `model/` findings files were read. The model's two-day age is named as the primary cause of the evidence gap, and reversal criteria are stated so the exclusion is auditable and short-lived.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
