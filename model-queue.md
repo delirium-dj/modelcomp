@@ -119,8 +119,8 @@
 71.7 nemotron-3-nano-omni
 71.6 nemotron-3-ultra-free
 71.5 hy3
+71.5 longcat_2.5_preview
 71.5 qwen-3.5-9b
-71.3 longcat_2.5_preview
 71.1 mai-code-1.1-flash
 71 claude-sonnet-3.5
 70.4 longcat-2.0
