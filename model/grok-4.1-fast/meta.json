@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-4.1-fast",
   "name": "Grok 4.1 Fast",
-  "short": "xAI's November 2025 speed tier (non-reasoning route): a 2M-context agentic model for high-volume tool calling at roughly a tenth of frontier pricing.",
+  "short": "xAI's 2M-context 4.1 Fast non-reasoning speed tier for high-volume tool calling at $0.20/$0.50 per 1M; deprecated for 4.3+.",
   "contextWindow": "2,000,000 total; ~30,000 max output",
   "modalities": "Text + image in; text out",
   "pricingNote": "xAI native $0.20/$0.50 per 1M (cached $0.05)",

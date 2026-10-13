@@ -1,7 +1,7 @@
 {
   "id": "opencode/gemma-4-e4b",
   "name": "Gemma 4 E4B",
-  "short": "Google DeepMind's April 2026 edge-optimized Gemma 4 variant (~4B effective params, on-device), natively multimodal with 30s audio input. MMLU-Pro 69.4%, MMMU-Pro 52.6%, low hallucination rate (30.9%).",
+  "short": "Google DeepMind's ~4.4B open-weight edge model (Apache 2.0, 128K) for Pi/Jetson/mobile agents; MMLU 69.4%, LiveCodeBench 52.0%, native image+audio input.",
   "contextWindow": "128,000 total (half the 256K of the larger Gemma 4 variants)",
   "modalities": "Text, image, audio in; video as frames; text out",
   "pricingNote": "Apache 2.0 open weights; hosted ~$0.02/$0.10 per 1M",

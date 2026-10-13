@@ -1,7 +1,7 @@
 {
   "id": "opencode/ling-2.6.1t",
   "name": "Ling-2.6-1T",
-  "short": "InclusionAI's trillion-parameter instruct (non-thinking) flagship — 1T total / 63B active sparse MoE with hybrid MLA + linear attention and fast-thinking compressed CoT. MIT open weights.",
+  "short": "InclusionAI's 1T/63B-active MIT open-weights instruct MoE (262K) for fast agents at scale; Tau2-Telecom 89.8% with 109.6 tok/s decode.",
   "contextWindow": "262,144 total",
   "modalities": "Text in/out",
   "pricingNote": "Route-dependent: $0.075/$0.625 (BenchmarkList) or ~$0.30/$2.50 (AA) per 1M; MIT weights",

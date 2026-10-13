@@ -1,7 +1,7 @@
 {
   "id": "opencode/ling-3.0-flash",
   "name": "Ling 3.0 Flash",
-  "short": "InclusionAI's open-weight reasoning MoE (124B total / 5.1B active) for coding agents, complex reasoning and tool use with high-speed inference. Successor to Ling 2.6 Flash.",
+  "short": "InclusionAI's 124B/5.1B-active MIT open-weights reasoning MoE for coding agents and tool use; successor to Ling 2.6 Flash.",
   "contextWindow": "262,144 total (per AA)",
   "modalities": "Text in/out",
   "pricingNote": "$0.075/$0.22 per 1M (80% cache discount); MIT open weights",

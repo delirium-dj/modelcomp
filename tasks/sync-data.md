@@ -88,6 +88,10 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
 
 - [ ] New model folders each have `meta.json` + findings + generated `average.md`;
       they appear in the Model A/B/C selectors (sorted A–Z automatically).
+- [ ] Every new or edited `meta.json` `short` meets the description standard
+      (`model/README.md` schema: maker + specs + use case + differentiator,
+      ≤240 chars, no generic filler) and every claim matches the folder's own
+      findings (IDs, specs, status).
 - [ ] New reporting-agent files appear in the Results-source dropdown and the
       hexagon shows their scores (no unexpected N/A).
 - [ ] `pnpm build` is green and `REPORT.md` notes what changed

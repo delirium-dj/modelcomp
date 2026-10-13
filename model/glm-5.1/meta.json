@@ -1,7 +1,7 @@
 {
   "id": "opencode/glm-5.1",
   "name": "GLM 5.1",
-  "short": "Z.AI flagship open-weights MoE for agentic engineering and long-horizon autonomous coding (SWE-Pro SOTA). No Zen Free ID; priced paid.",
+  "short": "Z.ai's 744B/40B-active MIT MoE (200K) for multi-hour agentic coding; SWE-bench Pro 58.4, renamed from glm-5.1-coding with no -coding SKU.",
   "contextWindow": "200K–205K / 128K out",
   "modalities": "Text in/out",
   "pricingNote": "Paid $1.40/$4.40 per 1M (no Free ID)",

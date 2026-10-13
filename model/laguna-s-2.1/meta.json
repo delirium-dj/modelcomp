@@ -1,7 +1,7 @@
 {
   "id": "poolside/laguna-s-2.1",
   "name": "Laguna S 2.1",
-  "short": "Poolside's 118B/8B-active open-weights MoE for agentic coding and long-horizon work (OpenMDW-1.1 permissive).",
+  "short": "Poolside's 118B/8B-active open-weights MoE (1M context) for agentic coding and long-horizon work; Terminal-Bench 2.1 70.2%, runs on a single DGX Spark.",
   "contextWindow": "1M (OpenRouter free endpoint capped at 256K)",
   "modalities": "Text in/out only (no vision)",
   "pricingNote": "$0.10/$0.20 per 1M ($0.01 cache read) on OpenRouter's 1M endpoint; open weights under OpenMDW-1.1 (no Zen Free ID)",

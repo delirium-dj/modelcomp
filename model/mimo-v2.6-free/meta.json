@@ -1,7 +1,7 @@
 {
   "id": "opencode/mimo-v2-6-free",
   "name": "MiMo V2.6 Free",
-  "short": "Xiaomi's open-weights omnimodal Flash MoE (309B/15B, MIT) served as the $0 Zen free tier; top pick for high-volume agentic coding at near-zero cost.",
+  "short": "Xiaomi's MIT 309B/15B-active Flash MoE via OpenCode Zen's $0 free tier (200K/32K cap) for agentic coding; SWE-bench Verified 92.0%.",
   "contextWindow": "1,048,576 (1M; 128K out)",
   "modalities": "Text, image, video, audio in; text out",
   "pricingNote": "Free Zen tier $0; paid fallback $0.14/$0.28 per 1M",

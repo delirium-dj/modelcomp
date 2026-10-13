@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-opus-5",
   "name": "Claude Opus 5",
-  "short": "Anthropic's flagship Opus 5-generation model for the deepest reasoning and longest autonomous coding and research runs, with 1M context.",
+  "short": "Anthropic's July 2026 Opus (1M/128K, $5/$25) for long autonomous coding; SWE-Pro 79.2%, succeeded by Opus 5.5.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image, PDF in; text out",
   "pricingNote": "Paid $5/$25 per 1M (no Zen Free ID)",

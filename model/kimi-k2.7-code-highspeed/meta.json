@@ -1,7 +1,7 @@
 {
   "id": "opencode/kimi-k2.7-code-highspeed",
   "name": "Kimi K2.7 Code Highspeed",
-  "short": "Moonshot AI's high-speed serving tier of Kimi K2.7 Code — identical open-weights coding model at ~180 tok/s (260 short-context) for 2x the base rate; built for interactive edit-run-fix agent loops.",
+  "short": "Moonshot AI's HighSpeed serving profile of K2.7 Code (same 262K weights, 2x price) for interactive coding loops; AA Coding Index 60.76, not a separate model.",
   "contextWindow": "262,144 (256K); 32,768 max out",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "$1.90/$8.00 per 1M in/out; $0.38 cached input",

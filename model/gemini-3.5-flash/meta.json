@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.5-flash",
   "name": "Gemini 3.5 Flash",
-  "short": "Google's next-gen 3.5 Flash model, offering enhanced speed and capabilities.",
+  "short": "Google's May 19 2026 fast multimodal reasoning model (1M/65K, $1.50/$9) for coding/agents; GPQA 92.2% and SWE-bench 78.8%.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

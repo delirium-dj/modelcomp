@@ -1,7 +1,7 @@
 {
   "id": "opencode/solar-open-2",
   "name": "Solar Open 2",
-  "short": "Upstage's 250B-A15B open-weight MoE for agents (Korea's sovereign model), 1M context. LiveCodeBench v6 92.4%, SWE-bench Verified 70.4%, Ko-GDPval 86.8. Runs on two H200s quantized.",
+  "short": "Upstage's Solar Open 2 open-weight MoE (250B total/15B active, 1M) for agents; LiveCodeBench 92.4%, SWE-bench 70.4%, runs on two quantized H200s.",
   "contextWindow": "1,000,000 (1M) — max output not published",
   "modalities": "Text in/out (Korean, English, Japanese officially supported)",
   "pricingNote": "Open weights (Upstage Solar License); self-host 4x H200 BF16 or 2x H200 quantized — no per-token price",

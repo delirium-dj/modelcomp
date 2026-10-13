@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.1-flash",
   "name": "Gemini 3.1 Flash",
-  "short": "Google's efficient 3.1 Flash model, balancing speed, capability, and cost.",
+  "short": "Google's early-2026 efficient 3.1 Flash (1M/65K) for balanced speed/cost coding; SWE-bench about 78%, free tier via AI Studio.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

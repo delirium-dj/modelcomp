@@ -73,7 +73,11 @@ each later run re-logs the stub until a human replaces the slug-guessed
 
 Card uniformity (fields render verbatim in ModelCards cards + list rows —
 `pnpm sync` FAILs violations so rows stay comparable):
-- `short`: 1–2 sentences, max 240 chars, naming the maker + the use case.
+- `short`: 1–2 sentences, max 240 chars, following the description standard:
+  `"<Maker>'s <what it is + key specs> for <use case>; <differentiator or status>."`
+  Good: `"Meta's frontier coding and long-horizon agentic model (Sep 2026), 1M context / 131K output. Contributor/Free and Max are the same weights — only price and training-data consent differ."`
+  Bad: `"Google's high-capability 3.7 Flash model."` (generic filler — no specs, no use case, no differentiator).
+  Banned filler without a tied number or fact: `high-capability`, `powerful`, `cutting-edge`, `versatile`, bare `flagship` (say what it leads at). Every claim must match the folder's own findings/meta (IDs, specs, status: retired alias, parked, renamed, stealth, deprecated).
 - `contextWindow`: one of three templates — `"<total> total; <out> max out"`
   (e.g. `"1,048,576 (1M) total; 131,072 max output"`), `"<total> total"`,
   or `"Unverified — <reason>"` / `"Not announced — <reason>"`. Max 100 chars.

@@ -1,7 +1,7 @@
 {
   "id": "opencode/ling-3.0-tiny",
   "name": "Ling 3.0 Tiny",
-  "short": "InclusionAI's open-weight reasoning MoE (7.9B total / 1.3B active) for efficient deployment — very small model with 262K context, free to use.",
+  "short": "InclusionAI's 7.9B/1.3B-active MIT open-weights reasoning MoE (262K) for efficient deployment; free $0 API and self-host.",
   "contextWindow": "262,144 total (per AA)",
   "modalities": "Text in/out",
   "pricingNote": "Free ($0/$0 per 1M); MIT open weights",

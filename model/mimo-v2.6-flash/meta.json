@@ -1,7 +1,7 @@
 {
   "id": "xiaomi/mimo-v2.6-flash",
   "name": "MiMo V2.6 Flash",
-  "short": "Xiaomi's MIT-licensed omnimodal sparse MoE (309B total / 15B active, Sept 2026) — 1M context, text/image/video/audio in, tuned for long-horizon agentic coding at mid-tier pricing.",
+  "short": "Xiaomi's Sep 2026 MIT 309B/15B-active omni-modal MoE (1M) for long-horizon agents; Terminal-Bench 2.1 87.6%, DeepSWE 67.9%.",
   "contextWindow": "1M total",
   "modalities": "Text, image, video, audio in; text out",
   "pricingNote": "Paid $0.14/$0.28 per 1M (Xiaomi API; cached $0.0028) — Zen free tier is the mimo-v2.6-free/ slug",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/north_mini_code",
   "name": "North Mini Code",
-  "short": "Cohere Labs' open-weight 30B-A3B MoE research release for code generation and agentic engineering (Apache 2.0). SWE-bench Verified 67.6%, GPQA 75.7%; free tier, sub-second latency.",
+  "short": "Cohere Labs' Apache-2.0 30B-A3B MoE research release for code generation; 256K/64K out, SWE-V 67.6%, GPQA 75.7%, free $0/$0.",
   "contextWindow": "256,000 total (64,000 max output)",
   "modalities": "Text in/out",
   "pricingNote": "Free tier ($0/$0)",

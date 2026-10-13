@@ -1,7 +1,7 @@
 {
   "id": "opencode/ox-alpha",
   "name": "Ox Alpha",
-  "short": "Stealth frontier reasoning model (OpenRouter stealth/ox-alpha) for long-horizon coding agents with 1M context, free during preview.",
+  "short": "Z.ai's GLM-5.3-Flash previewed anonymously as Ox Alpha for long-horizon coding; 1M/131K with video input, ARC-AGI-2 65.83%, MIT open weights.",
   "contextWindow": "1M / 131K out",
   "modalities": "Text, image, video, PDF in; text out",
   "pricingNote": "Free Zen tier",

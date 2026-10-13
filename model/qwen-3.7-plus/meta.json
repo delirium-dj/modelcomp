@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.7-plus",
   "name": "Qwen 3.7 Plus",
-  "short": "Alibaba's mid-tier Qwen3.7 closed model between Flash and Max, kept for cost-balanced agentic coding and tool-use productivity workflows.",
+  "short": "Alibaba's Qwen3.7 Plus GUI-agent tier on the Max backbone (1M native, 128K Zen text-only) for coding/agents; GPQA 90.0%, LiveCodeBench 89.6%.",
   "contextWindow": "1,000,000 (1M); 131K out",
   "modalities": "Text, image in; text out",
   "pricingNote": "$0.32-$0.40/$1.28-$1.60 per 1M (<=256K)",

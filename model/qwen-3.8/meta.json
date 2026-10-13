@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.8",
   "name": "Qwen 3.8",
-  "short": "Alibaba's Apache-2.0 open-weight Qwen3.8 27B dense model for self-hosted agentic work with near-flagship results on a single 24 GB GPU.",
+  "short": "Alibaba's Qwen3.8 27B dense open-weights model (Apache 2.0, 262K/1M YaRN) for self-hosted agents; SWE-bench Pro 61.7%, LiveCodeBench 90.3%.",
   "contextWindow": "262K native (1M via YaRN; 33K output)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "~$0.42/$3.00 per 1M; $0 self-host",

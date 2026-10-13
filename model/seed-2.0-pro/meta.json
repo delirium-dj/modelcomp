@@ -1,7 +1,7 @@
 {
   "id": "deepinfra/ByteDance/Seed-2.0-pro",
   "name": "ByteDance Seed 2.0 Pro",
-  "short": "ByteDance's frontier multimodal reasoning model with 256K context and strong math/visual-reasoning capabilities.",
+  "short": "ByteDance's Seed 2.0 Pro closed agent model (256K, image/video in) for reasoning and task execution; SWE-bench Verified 76.5% (vendor), succeeded by Seed 2.1.",
   "contextWindow": "256K / 65K out",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Paid-tier pricing",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.5-9b",
   "name": "Qwen 3.5 9B",
-  "short": "Alibaba's open-weights dense 9B vision-language reasoner (Apache 2.0) with strong math and OCR for its size; thinking on by default — best for cheap local math, OCR and short tool-calling tasks.",
+  "short": "Alibaba's Qwen3.5-9B dense open-weights reasoner (9.65B, 262K context) for cheap math, OCR and tool calls; tau2 Telecom 86.8%, thinking on by default.",
   "contextWindow": "262,144 native (hosts serve 128K–262K)",
   "modalities": "Text, image in; text out",
   "pricingNote": "~$0.10/$0.15 per 1M; self-host $0",

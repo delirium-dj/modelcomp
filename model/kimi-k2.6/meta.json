@@ -1,7 +1,7 @@
 {
   "id": "opencode/kimi-k2.6",
   "name": "Kimi K2.6",
-  "short": "Moonshot AI's open-weights trillion-parameter MoE flagship of spring 2026 for long-horizon coding and agent-swarm orchestration.",
+  "short": "Moonshot AI's Apr 2026 open-weight 1.06T/32B multimodal MoE with 262K context for long-horizon coding and 300-agent swarms; live, $0.95/$4.00.",
   "contextWindow": "262,144 (256K); ~236K out",
   "modalities": "Text, image in; text out",
   "pricingNote": "$0.95/$4.00 per 1M; $0.16 cached",

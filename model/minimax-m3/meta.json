@@ -1,7 +1,7 @@
 {
   "id": "minimax-ai/minimax-m3",
   "name": "MiniMax M3",
-  "short": "MiniMax flagship open-weight MoE (~230B total / 9.8B active) with 1M context and sparse attention; 59% SWE-Bench Pro, 66% Terminal-Bench 2.1.",
+  "short": "MiniMax's open-weight 428B/23B-active MoE with 1M context for frontier coding/agents; SWE-V 80.5%, SWE-Pro 59%, $0.30/$1.20 promo.",
   "contextWindow": "1,048,576 (1M) / 512K out",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Paid $0.30/$1.20 per 1M (no Zen Free ID)",

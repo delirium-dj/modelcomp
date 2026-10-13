@@ -1,7 +1,7 @@
 {
   "id": "opencode/jev-1.13",
   "name": "Jev 1.13",
-  "short": "TypeSafe AI's System-One decision model: returns typed judgments (Choice, Score, yes/no probability) with calibrated confidence instead of generated text. Built for routing, triage, and guardrails inside agent pipelines.",
+  "short": "TypeSafe AI's System-One typed-decision model (not generative text) with 64K budget for routing/triage; 136.5ms median, $0.042/M in, output free.",
   "contextWindow": "64K state budget (state + questions; 32K state + longest question)",
   "modalities": "Text in → typed decision out (Choice/Score/Noul); no image, audio, or video",
   "pricingNote": "$0.042/M input; output free (no autoregressive generation)",

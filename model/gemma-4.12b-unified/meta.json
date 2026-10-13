@@ -1,7 +1,7 @@
 {
   "id": "opencode/gemma-4.12b-unified",
   "name": "Gemma 4 12B Unified",
-  "short": "Google's mid-size open-weight dense model (11.95B, Apache 2.0), the encoder-free Gemma 4 variant with native text+image+audio input at 256K context — best for local multimodal agents.",
+  "short": "Google DeepMind's 11.95B open-weight unified model (Apache 2.0, 256K) for local multimodal agents; GPQA 78.8%, LiveCodeBench 72%, runs at 9GB VRAM.",
   "contextWindow": "256,000 (262,144; hosts serve 32K–256K)",
   "modalities": "Text, image, audio in; text out",
   "pricingNote": "~$0.10/$0.30 per 1M; self-host $0",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.3-codex-spark",
   "name": "GPT-5.3-Codex-Spark",
-  "short": "OpenAI's ultra-low-latency coding model (Feb 2026 research preview) on Cerebras WSE-3 at 1,000+ tok/s for real-time edits. Terminal-Bench 2.0 77.3% (matches full Codex), SWE-bench Pro 72.8%.",
+  "short": "OpenAI's Feb 2026 Cerebras-distilled preview (128K, 1000+ tok/s) for real-time edits; matches Codex with 77.3% TB 2.0, retired Sep 2026.",
   "contextWindow": "128K total (max output undisclosed)",
   "modalities": "Text in/out only (text-only preview)",
   "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)"

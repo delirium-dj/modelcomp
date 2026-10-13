@@ -1,7 +1,7 @@
 {
   "id": "google/gemma-4-31b-it",
   "name": "Gemma 4 31B",
-  "short": "Google's open weights 31B instruction-tuned model with strong reasoning, tool use, and coding capabilities.",
+  "short": "Google's 30.7B dense open-weight (Apache 2.0, 256K) model for local reasoning and coding; AIME 89.2% and Codeforces 2150 Elo, MMMU-Pro 76.9%.",
   "contextWindow": "128K context",
   "modalities": "Text in/out only",
   "pricingNote": "Free open weights / standard hosting",

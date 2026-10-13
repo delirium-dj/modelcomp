@@ -1,7 +1,7 @@
 {
   "id": "opencode/muse-spark-1.1",
   "name": "Muse Spark 1.1",
-  "short": "Meta Superintelligence Labs' July-2026 multimodal reasoning model for agentic tasks and multi-agent orchestration over a 1M window at entry-frontier pricing.",
+  "short": "Meta's July-2026 multimodal reasoning model for coding and agent workflows; 1M context, SWE 82.0%, GPQA 91.2%, $1.25/$4.25 paid only.",
   "contextWindow": "1,048,576 (1M); 131K out",
   "modalities": "Text, image, PDF/file in; text out",
   "pricingNote": "$1.25/$4.25 per 1M; $0.15 cached",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.5-plus",
   "name": "Qwen 3.5 Plus",
-  "short": "Alibaba's hosted accuracy-tuned value tier of the Qwen3.5 generation (397B/17B MoE) with 1M context; cheapest 1M multimodal agent backbone for high-volume coding and RAG.",
+  "short": "Alibaba's Qwen3.5 Plus hosted vision-language model (1M context) for agents and coding; superseded by Qwen3.6 Plus and later, measured JobBench 18.5%.",
   "contextWindow": "1,000,000 total (991,808 in / 65,536 out)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Paid ~$0.26–$0.40/$1.56–$2.40 per 1M; $0.04 cache",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/deepseek-v3.2",
   "name": "DeepSeek V3.2",
-  "short": "DeepSeek's December 2025 open-weight MoE flagship (685B total, 37B active) with DeepSeek Sparse Attention for long-context efficiency and Multi-Token Prediction. This ID is the non-thinking route; a separate Thinking variant exists.",
+  "short": "DeepSeek's open-weight MoE (671B total, 164K context) for agentic coding/reasoning; IMO/IOI gold-medalist with Sparse Attention, non-thinking route.",
   "contextWindow": "128,000 (128K) / 8,192 max output (some hosts advertise ~164K)",
   "modalities": "Text in/out only",
   "pricingNote": "DeepSeek API ~$0.21/$0.31 per 1M (cached input $0.022)",

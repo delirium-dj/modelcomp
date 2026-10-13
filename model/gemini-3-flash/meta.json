@@ -1,7 +1,7 @@
 {
   "id": "opencode/gemini-3-flash",
   "name": "Gemini 3 Flash",
-  "short": "Google's Flash-tier Gemini 3 model pairing Pro-grade reasoning with Flash latency for agentic coding and high-frequency interactive work.",
+  "short": "Google's Dec 2025 Flash preview (1M/65K, $0.50/$3) for interactive coding/analysis; GPQA 90.4% and SWE-bench 78%.",
   "contextWindow": "1,000,000 (1M) total",
   "modalities": "Text, image, audio in; text out",
   "pricingNote": "$0.50/$3.00 per 1M (audio $1)"

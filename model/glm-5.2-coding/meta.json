@@ -1,7 +1,7 @@
 {
   "id": "opencode/glm-5.2-coding",
   "name": "GLM 5.2 Coding",
-  "short": "Zhipu's June 2026 open-weights MoE flagship (744B/40B-active, MIT) as a coding-plane SKU; long-horizon agentic coding and Claude Code-compatible drop-in at ~1/6 closed-frontier cost.",
+  "short": "Z.ai's distinct 753B/40B coding SKU (MIT, 1M) for long-horizon coding agents; base SWE-Verified 78.7%, tau2-bench 99.1% #1 proxy, no separate public measurement.",
   "contextWindow": "128K Zen coding tier; 1M on base GLM-5.2",
   "modalities": "Text in/out",
   "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",

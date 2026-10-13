@@ -1,7 +1,7 @@
 {
   "id": "opencode/mai-thinking-1",
   "name": "MAI-Thinking-1",
-  "short": "Microsoft AI's first in-house reasoning model (~1T total / 35B active sparse MoE on MAI-Base-1). AIME 2025 97%, LiveCodeBench v6 87.7%, SWE-bench Verified 73.5%, GPQA Diamond 84.2%.",
+  "short": "Microsoft AI's ~1T/35B-active in-house reasoning MoE (256K) for hard reasoning and code; SWE-bench Verified 73.5%, GPQA Diamond 84.2%.",
   "contextWindow": "256,000 (256K) — max output not published",
   "modalities": "Text in/out",
   "pricingNote": "$2.00 in per 1M; output reported as $8.00 (AIHubMix) or $10.00 — Microsoft publishes no public rate card",

@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-opus-4.8",
   "name": "Claude Opus 4.8",
-  "short": "Anthropic's flagship 4.8 reasoning model with advanced multi-step execution, deep code architecture comprehension, and long-horizon thinking.",
+  "short": "Anthropic's May 2026 Opus (200K, $5/$25) for multi-step coding; SWE-Verified 88.6%.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",

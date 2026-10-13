@@ -1,7 +1,7 @@
 {
   "id": "opencode/mimo-v2.6-distill-qwen-9b",
   "name": "MiMo-V2.6-Distill-Qwen-9B",
-  "short": "Xiaomi MiMo's MIT-licensed ~9.4B dense agentic SFT of Qwen3.5-9B (Sept 2026), a research baseline not a product. SWE-bench Verified 61.1%, SWE-Pro 44.6%, Terminal-Bench 2.1 37.1%. Self-host only.",
+  "short": "Xiaomi's Sep 2026 MIT ~9.4B dense SFT of Qwen3.5-9B (256K) for agentic-RL research; SWE-bench Verified 61.1%, self-host-only baseline.",
   "contextWindow": "262,144 (256K) native per config.json / max output not disclosed",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "$0 — MIT open weights, self-hosted (18.8 GB BF16); no hosted route on Zen, OpenRouter or HF inference",

@@ -1,7 +1,7 @@
 {
   "id": "xai/grok-4",
   "name": "Grok 4",
-  "short": "xAI's reasoning model with tool calling and image understanding, predecessor of the 4.5/4.6 line.",
+  "short": "xAI's 256K reasoning model with native tool use and X/web search for research; AIME 91.7%, deprecated and superseded by 4.5-4.7 line.",
   "contextWindow": "256,000 (256K)",
   "modalities": "Text, image, PDF in; text out",
   "pricingNote": "Paid $3/$15 per 1M ($0.75 cached in); higher above 128K tokens",

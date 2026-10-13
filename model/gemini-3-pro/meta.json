@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3-pro",
   "name": "Gemini 3 Pro",
-  "short": "Google DeepMind's frontier Pro model with 1M context and Deep Think mode.",
+  "short": "Google DeepMind's Nov 18 2025 frontier Pro (1M, Deep Think) for agents/research; GPQA 91.9% and HLE 37.5% at $2/$12.",
   "contextWindow": "1M / 65K out",
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "Paid-tier pricing",

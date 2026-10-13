@@ -1,7 +1,7 @@
 {
   "id": "opencode/deepseek-v4-flash",
   "name": "DeepSeek V4 Flash",
-  "short": "DeepSeek's open-weights MoE reasoning model (284B total / 13B active, MIT) with 1M context; top agentic price-to-capability for coding agents — text-only on this ID.",
+  "short": "DeepSeek's 1M-context text-only Flash reasoning model for high-volume agentic coding; GPQA 90.8% and AIME 95.8% at $0.14/$0.28 per 1M.",
   "contextWindow": "1,000,000 total (384K max out)",
   "modalities": "Text in/out",
   "pricingNote": "Paid ~$0.14/$0.28 per 1M; $0 free tier (200K cap)",

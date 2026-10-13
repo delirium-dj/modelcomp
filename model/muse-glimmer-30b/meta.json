@@ -1,7 +1,7 @@
 {
   "id": "meta/muse-glimmer-30b",
   "name": "Muse Glimmer 30B",
-  "short": "Meta Superintelligence Labs' Apache-2.0 30B dense multimodal agent model distilled from Muse Spark, built for always-on local agent workflows on a single consumer GPU.",
+  "short": "Meta Superintelligence Labs' Apache-2.0 29.6B dense model for self-hosted agents on one consumer GPU; 131K context, $0.30/$1.20 hosted, AA-LCR 83.3%.",
   "contextWindow": "131,072 (128K default per Meta docs)",
   "modalities": "Text/image in; text out",
   "pricingNote": "Open weights (Apache-2.0, self-host free); hosted from $0.30/$1.10 per 1M (NVIDIA NIM $0)",

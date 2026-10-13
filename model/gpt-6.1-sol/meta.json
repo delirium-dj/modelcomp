@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-6.1-sol",
   "name": "GPT-6.1 Sol",
-  "short": "OpenAI's mid-tier GPT-6.1 upgrade replacing GPT-6 Sol, nearing Astra on agentic coding and computer use at ~one-fifth the token cost.",
+  "short": "OpenAI's 1.05M-context 6.1 Sol upgrade replacing Sol for agentic coding at ~1/5 Astra cost; DeepSWE 75.2% leads Astra, cached input $0.10/M.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$2/$10 per 1M; cached $0.10",

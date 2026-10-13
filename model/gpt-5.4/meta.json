@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.4",
   "name": "GPT-5.4",
-  "short": "OpenAI's March-2026 professional-work reasoning flagship, superseded by the 5.5/5.6 and 6 generations; best for expert-knowledge work and screenshot-driven computer-use agents.",
+  "short": "OpenAI's Mar 5 2026 1.05M model with native computer use for professional work; TB 81.8% #2, SWE-Pro 59.1% #2, GPQA 93.3%.",
   "contextWindow": "1.0-1.05M (1,050,000 listed)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.25-$2.50 in / $7.50-$15.00 out per 1M",

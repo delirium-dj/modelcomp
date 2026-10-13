@@ -1,7 +1,7 @@
 {
   "id": "opencode/deepseek-v4-vision-exp",
   "name": "DeepSeek V4 Vision Exp",
-  "short": "DeepSeek's experimental native multimodal vision-language MoE model designed for multi-modal code understanding, UI layout reasoning, and image-to-code generation.",
+  "short": "DeepSeek's experimental native multimodal MoE (200K context) for image-to-code/UI reasoning; ZeroBench 35.0% topping Opus 4.8, free Zen tier.",
   "contextWindow": "200K",
   "modalities": "Text, image, PDF in; text out",
   "pricingNote": "Free Zen tier available",

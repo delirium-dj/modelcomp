@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.4-pro",
   "name": "GPT-5.4 Pro",
-  "short": "OpenAI's top-performance Pro compute tier of the GPT-5.4 family for expert reasoning, math generalization, and deep research.",
+  "short": "OpenAI's Mar 5 2026 higher-compute tier (1.05M/128K, $30/$180, Responses-only) for hard research; GPQA 94.4%, ARC-AGI-2 83.3%, HLE 58.7% with tools.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$30/$180 per 1M; 2x/1.5x over 272K",

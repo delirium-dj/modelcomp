@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-2.5-flash-lite",
   "name": "Gemini 2.5 Flash Lite",
-  "short": "Google's ultra-low-latency model for cost-sensitive, high-frequency tasks. Being retired 2026-10-20 per Google Cloud's model reference.",
+  "short": "Google's cheapest 2.5-class 1M-context model ($0.10/$0.40, 169-323 tok/s) for high-frequency tasks; shutting down 2026-10-16.",
   "contextWindow": "1,048,576 (1M) / 65,536 max out",
   "modalities": "Text in/out; image, audio, video input only",
   "pricingNote": "Free tier available; Paid-tier pricing (retiring 2026-10-20)",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.8-flash",
   "name": "Qwen 3.8 Flash",
-  "short": "Alibaba's multimodal MoE technical preview (~6B active) with 1M context for cheap agentic coding at near-free pricing.",
+  "short": "Alibaba's Qwen3.8 Flash sparse MoE (6B active, 1M hosted) for cheap high-volume coding/agents; LiveCodeBench 91.9%, GPQA 91.7% at $0.15/$0.47 per 1M.",
   "contextWindow": "1M API (262K native; 131K output)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "~$0.15/$0.47 per 1M; $0 self-host",

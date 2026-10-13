@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.8-flash",
   "name": "Gemini 3.8 Flash",
-  "short": "Google's latest 3.8 Flash model, optimizing performance and efficiency.",
+  "short": "Google's Sep 2 2026 most-intelligent Flash (1M, $0.75/$3.75 intro) for agentic coding/enterprise; Terminal-Bench 90.8% and GPQA 95.3%.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

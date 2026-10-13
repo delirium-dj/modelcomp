@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-build-0.1",
   "name": "Grok Build 0.1",
-  "short": "xAI's fast coding model (public beta 2026-05-29) for agentic software engineering at 100+ tok/s; economical high-throughput fallback for coding loops and MCP tooling.",
+  "short": "xAI's May 2026 256K fast coding beta at 100+ tok/s for agentic loops and MCP tooling; renamed retrained successor of retired grok-code-fast-1.",
   "contextWindow": "256,000 (230,400 max out)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.00/$2.00 per 1M (cached $0.20; 2× past 200K)",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-4.5",
   "name": "Grok 4.5",
-  "short": "xAI's July 2026 flagship for token-efficient agentic coding and knowledge work, co-developed with Cursor; Opus-class capability at mid-range price.",
+  "short": "xAI's Jul 2026 500K-context (450K out) flagship co-developed with Cursor for token-efficient agentic coding; SWE-bench 86.6%, GPQA 93.1%.",
   "contextWindow": "500,000 (500K; up to 450K out)",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "Paid $2.00/$6.00 per 1M; $0.30 cached",

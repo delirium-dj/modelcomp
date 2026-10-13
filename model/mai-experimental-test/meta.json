@@ -1,7 +1,7 @@
 {
   "id": "opencode/mai-experimental-test",
   "name": "Mai Experimental Test",
-  "short": "Exploratory sandbox model on OpenCode Zen for testing integration pipelines and benchmarking frameworks.",
+  "short": "OpenCode Zen's experimental sandbox model (128K, text-only) for testing pipelines; exploratory status, no verified benchmarks.",
   "contextWindow": "128,000 total",
   "modalities": "Text in/out only",
   "pricingNote": "Experimental tier pricing"

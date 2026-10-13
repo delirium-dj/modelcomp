@@ -1,7 +1,7 @@
 {
   "id": "opencode/ling-2.6-flash",
   "name": "Ling 2.6 Flash",
-  "short": "InclusionAI's open-weight non-reasoning MoE (107B total / 7.4B active) with a 262K context window. Deprecated — succeeded by Ling 3.0 Flash.",
+  "short": "InclusionAI's 107B/7.4B-active MIT open-weights non-reasoning MoE (262K) for tool-calling agents; deprecated, succeeded by Ling 3.0 Flash.",
   "contextWindow": "262,144 total (per AA)",
   "modalities": "Text in/out",
   "pricingNote": "Open weights (MIT): free self-host"

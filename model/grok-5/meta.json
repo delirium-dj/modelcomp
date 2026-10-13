@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-5",
   "name": "Grok 5",
-  "short": "Unreleased as of 2026-10-11 — absent from SpaceXAI's API list, pricing and release notes. Q1/Q2 2026 windows passed (Grok 4.5–4.7 shipped instead); Musk placed Grok 4.8/4.9 ahead with no date. Specs unannounced.",
+  "short": "xAI's unreleased next-gen flagship still in training on Colossus 2 as of Oct 2026; no benchmarks or specs announced, current flagship is 4.7.",
   "contextWindow": "Not announced (speculation ranges 128K to 2M; no vendor figure exists)",
   "modalities": "Not announced",
   "pricingNote": "Not announced (no public API)",

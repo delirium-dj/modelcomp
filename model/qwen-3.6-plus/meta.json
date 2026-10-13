@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.6-plus",
   "name": "Qwen 3.6 Plus",
-  "short": "Alibaba's April-2026 hosted Qwen flagship with a tilt to real-world agents: repository-level coding and front-end/vibe coding at low cost.",
+  "short": "Alibaba's Qwen3.6 Plus MoE (397B-A17B, 1M context) for real-world agents and coding; SWE-bench Pro 56.6%, LiveCodeBench 87.1%, now superseded.",
   "contextWindow": "1,000,000 (1M); 65K out",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "$0.50/$3.00 per 1M (<=256K)",

@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.7-flash",
   "name": "Gemini 3.7 Flash",
-  "short": "Google's high-capability 3.7 Flash model.",
+  "short": "Google's Aug 13 2026 workhorse Flash (1M/64K, intro $0.75/$3.75) for coding/agents; Terminal-Bench 85.8% and HLE-Verified 53.6%.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

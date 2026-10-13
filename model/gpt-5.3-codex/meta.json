@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.3-codex",
   "name": "GPT-5.3 Codex",
-  "short": "OpenAI's Feb 2026 agentic coding model unifying GPT-5.2-Codex coding with GPT-5.2 reasoning; built for long-horizon tool-using engineering work.",
+  "short": "OpenAI's Feb 5 2026 agentic coder (400K/128K, $1.75/$14) merging 5.2-Codex with 5.2 reasoning; GPQA 91.52%, HLE 42.49%, Deprecated.",
   "contextWindow": "400,000 total (128,000 out)",
   "modalities": "Text in/out",
   "pricingNote": "Paid $1.75/$14.00 per 1M; $0.175 cached",

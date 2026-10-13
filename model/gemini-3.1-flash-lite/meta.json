@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.1-flash-lite",
   "name": "Gemini 3.1 Flash Lite",
-  "short": "Google's lightweight, ultra-low-latency model engineered for high-frequency lightweight tasks.",
+  "short": "Google's Mar 3 2026 Lite-tier 3.1 (1M, $0.25/$1.50, 361 tok/s) for bulk multimodal processing; SWE-bench 62.8%, no Zen ID.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.8-flash-next",
   "name": "Qwen 3.8 Flash Next",
-  "short": "Alibaba's open-weight experimental checkpoint (125B language params, 6B active), distinct from managed Qwen3.8-Flash; 262K native context with image and video understanding.",
+  "short": "Alibaba's Qwen3.8-Flash-Next open-weights checkpoint (125B params, 6B active, 262K) previewing Qwen4 for efficient coding; Terminal-Bench 2.1 86.1%, LiveCodeBench 91.9%.",
   "contextWindow": "262,144 native (extensible to 1M with YaRN)",
   "modalities": "Text, image, video in; text out; tool use",
   "pricingNote": "Vercel $0.12/$0.40 per 1M; open weights (Qwen Community license)",

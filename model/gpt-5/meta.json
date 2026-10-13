@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5",
   "name": "GPT-5",
-  "short": "OpenAI's August 2025 flagship: a router system pairing a fast model with a deeper reasoning model. Set launch records in math and coding, then was superseded by GPT-5.1 and later.",
+  "short": "OpenAI's Aug 2025 router flagship (400K/128K) for general work; AIME 94.6%, SWE-Verified 74.9%, deprecated Jun 2026, removal Dec 11 2026.",
   "contextWindow": "400K total (128K max output)",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "Paid: OpenAI $1.25/$10 per 1M (cached $0.125); OpenCode Zen $1.07/$8.50",

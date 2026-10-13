@@ -1,7 +1,7 @@
 {
   "id": "opencode/union-alpha",
   "name": "Union Alpha",
-  "short": "Unbiased's blended Pareto 26.9 model (revealed Sep 2026) that runs several frontier/open models per request and keeps the best answer; DeepSWE-class agentic coding and research at ~25% of frontier input pricing.",
+  "short": "Unbiased's Pareto 26.9 composite (revealed from stealth Union Alpha, 262K context) for frontier coding/research; runs several models per request, DeepSWE 74% at $2.50/$7.50.",
   "contextWindow": "262,144 total; 131,072 max out",
   "modalities": "Text, image in; text out",
   "pricingNote": "$2.50/$7.50 per 1M in/out; $0.25 cached input",

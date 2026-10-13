@@ -1,7 +1,7 @@
 {
   "id": "openai/gpt-6-luna",
   "name": "GPT-6 Luna",
-  "short": "OpenAI's low-cost Luna volume tier of the GPT-6 family delivering near-frontier DeepSWE at a fraction of the cost.",
+  "short": "OpenAI's $0.10/$0.50 low-cost Luna tier with 1.05M context for high-volume summarization and extraction; DeepSWE 66.6% at a fraction of frontier cost.",
   "contextWindow": "1M tokens",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",
