@@ -12,9 +12,11 @@
 
 import { GENERATED_SCORES } from "./scores.generated";
 import { VERIFIED } from "./verified.generated";
+import { EVIDENCE, type EvidenceItem } from "./evidence.generated";
 import { SOURCE_DEFS, type SourceKey, type ViewKey, type ResultsView } from "./sources.generated";
 
 export type { SourceKey, ResultsView };
+export type { EvidenceItem };
 
 /**
  * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
@@ -53,6 +55,8 @@ export interface AiModel {
   scores: ModelScores;
   /** Newest live findings-file date (`YYYY-MM-DD`) — the Last-verified signal. */
   verified?: string;
+  /** Benchmark figures cited by 2+ independent reports (empty when none agree). */
+  evidence: EvidenceItem[];
   /** Per-source score sets; the results selector swaps `scores` for one of these. */
   sources: Partial<Record<SourceKey, ModelScores>>;
   meta: {
@@ -111,6 +115,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
     slug,
     scores: avg,
     verified: VERIFIED[slug] ?? undefined,
+    evidence: EVIDENCE[slug] ?? [],
     sources,
     meta: {
       contextWindow: meta.contextWindow,

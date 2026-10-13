@@ -1,7 +1,36 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, slugForSource, virtualDimFor } from "../../../data/models";
-import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
+import type { SourceKey, ModelScores, DimensionKey, EvidenceItem } from "../../../data/models";
+
+/** One agreed-figure row: rater stems resolve to display labels via SOURCES,
+ * ranked by each rater's own Overall score (best first). */
+function EvidenceRow({ item }: { item: EvidenceItem }) {
+  const ranked = item.raters
+    .map((stem) => {
+      const def = SOURCES.find((s) => s.file === `${stem}.md`);
+      const slug = def?.slug;
+      return {
+        label: def?.label ?? stem.replace(/_/g, " "),
+        overall: slug ? MODELS.find((m) => m.slug === slug)?.scores.overall : undefined,
+      };
+    })
+    .sort((a, b) => (b.overall ?? -Infinity) - (a.overall ?? -Infinity));
+  const extra = ranked.length - 3;
+  return (
+    <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+      <td class="break-words px-3 py-2 text-slate-800 dark:text-slate-200">{item.benchmark}</td>
+      <td class="break-words px-3 py-2 font-semibold text-slate-800 dark:text-slate-200">{item.value}</td>
+      <td class="break-words px-3 py-2 text-slate-600 dark:text-slate-300">
+        {ranked
+          .slice(0, 3)
+          .map((r) => r.label)
+          .join(", ")}
+        {extra > 0 ? ` +${extra} more` : ""}
+      </td>
+    </tr>
+  );
+}
 import { HexRadar } from "../../../components/HexRadar";
 import { VendorIcon } from "../../../components/VendorIcon";
 import { withFreeZenLink } from "../../../components/freeZenLink";
@@ -161,6 +190,24 @@ export default component$(() => {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: model.name,
+          description: model.short,
+          applicationCategory: "AI model evaluation",
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: model.scores.overall,
+            reviewCount: ratings.length,
+            bestRating: 100,
+            worstRating: 0,
+          },
+          dateModified: model.verified,
+        }).replace(/</g, "\\u003c")}
+      />
       <section class="mx-auto max-w-6xl px-4 pb-4 pt-8">
         <p class="text-sm">
           <a href="/#models" class="font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
@@ -250,6 +297,77 @@ export default component$(() => {
           </p>
         </div>
       </section>
+
+      {model.evidence.length > 0 && (
+        <section aria-label="Verified benchmarks" class="mx-auto max-w-6xl px-4 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Verified benchmarks</h2>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+            Same figure cited by 2+ independent reports — key benchmarks first. Harnesses can differ
+            between reports — see each agent's report for harness detail.
+          </p>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full min-w-[560px] table-fixed border-collapse text-sm">
+              <colgroup>
+                <col class="w-[20%]" />
+                <col class="w-[20%]" />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                    Benchmark
+                  </th>
+                  <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                    Figure
+                  </th>
+                  <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                    Cited by
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {model.evidence.slice(0, 5).map((item) => (
+                  <EvidenceRow key={item.benchmark + item.value} item={item} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {model.evidence.length > 5 && (
+            <details class="mt-2 text-sm">
+              <summary class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
+                Show all {model.evidence.length} verified figures
+              </summary>
+              <div class="mt-4 overflow-x-auto">
+                <table class="w-full min-w-[560px] table-fixed border-collapse text-sm">
+                  <colgroup>
+                    <col class="w-[20%]" />
+                    <col class="w-[20%]" />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                        Benchmark
+                      </th>
+                      <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                        Figure
+                      </th>
+                      <th scope="col" class="border-b border-slate-200 px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
+                        Cited by
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {model.evidence.slice(5).map((item) => (
+                      <EvidenceRow key={item.benchmark + item.value} item={item} />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          )}
+        </section>
+      )}
 
       <section aria-label="Ratings by reporting agent" class="mx-auto max-w-6xl px-4 pb-12">
         <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">

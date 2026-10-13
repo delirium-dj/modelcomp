@@ -37,13 +37,16 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    quality dims with zero cited numbers. Varied dims with cited numbers are
    never touched, however low the scores.
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
-2. Parses the seven `1–100` scores from each file (fails loudly on any
+ 2. Parses the seven `1–100` scores from each file (fails loudly on any
    missing/invalid score line — never invent numbers). Each file's Overall
    must equal the half-up mean of its five non-cost dims (Cost efficiency
    never counts toward Overall since v4): drift `> 0.51` is auto-corrected
    (only the Overall number is rewritten, logged as an `AUTO` line) and the
    folder proceeds on the corrected value. Dims, benchmarks, and prose are
-   never touched.
+   never touched. Alongside scores it extracts benchmark figures
+   (`- <Benchmark>: **82.6%**` rows, curated vocabulary in
+   `scripts/lib/benchmarks.mjs`); figures cited by 2+ independent files feed
+   the model pages' Verified-benchmarks section.
 3. Recomputes `model/<slug>/average.md` as arithmetic means with standard
    half-up rounding to 1 decimal (`72.25` → `72.3`; only differences `> 0.051`
    count as drift). Overall = mean of source Overall scores, NOT re-derived
@@ -76,7 +79,10 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    sync refreshes it; the file is committed (it is a build input, not build
    output). Alongside it emits `src/data/verified.generated.ts`: newest live
    findings-file date per slug (signature `Provided by: … — YYYY-MM-DD`,
-   frontmatter `- Date:` fallback) for the site's Last-verified display.
+   frontmatter `- Date:` fallback) for the site's Last-verified display —
+   plus `src/data/evidence.generated.ts`: benchmark figures cited by 2+
+   independent files per slug for the model pages' Verified-benchmarks
+   section.
 7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line
    per model, highest Overall first (ties A-Z) — the pre-sorted research
    queue for `tasks/research-assign.md`, so agents stop scanning every

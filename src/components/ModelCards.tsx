@@ -79,13 +79,11 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
         </div>
       </div>
       <p class="mt-2 max-w-3xl text-sm text-slate-600 transition-colors dark:text-slate-300">
-        Every entry below comes from the same data file that powers the chart, showing the currently
-        selected results source. To list a new model everywhere, add a
-        <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">model/&lt;slug&gt;/</code> folder
-        with findings plus <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">meta.json</code> and
-        run <code class="rounded bg-slate-100 px-1 dark:bg-slate-800 dark:text-slate-200">pnpm sync</code>.
-        Decision models (typed-decision systems like Jev) are listed on a separate shelf below — their
-        scores are not comparable to generative Overall.
+        Compare AI models across six dimensions — tool use, reasoning, context, coding, multimodal,
+        and cost — ranked by Overall score. Switch the results source to see the average or any
+        individual reviewer's ratings, search to find a model, or open its page for the full
+        breakdown. Decision models (typed-judgment systems like Jev) live on a separate shelf
+        below — they answer with judgments instead of text, so their scores aren't comparable.
       </p>
       <div class="mt-4 flex max-w-md items-center gap-2">
         <label for="model-search" class="sr-only">

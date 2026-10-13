@@ -12,6 +12,7 @@ import {
   reconcileRegistry,
   renderScoresFile,
   renderVerifiedFile,
+  renderEvidenceFile,
   renderRobotsTxt,
   ensureRaterGateLine,
 } from "./codegen.mjs";
@@ -168,6 +169,20 @@ describe("renderVerifiedFile (deterministic date emit)", () => {
     assert.match(text, /"a-model": "2026-10-11",/);
     assert.match(text, /"b-model": "2026-09-23",/);
     assert.match(text, /export const VERIFIED: Record<string, string>/);
+    assert.ok(text.endsWith("};\n"));
+  });
+});
+
+describe("renderEvidenceFile (agreed figures emit)", () => {
+  it("skips empty models, emits items with rater stems, ends with newline", () => {
+    const text = renderEvidenceFile({
+      "b-model": [],
+      "a-model": [{ benchmark: "GPQA Diamond", value: "93.6%", raters: ["Big_Pickle", "Claude_Opus_5"] }],
+    });
+    assert.ok(!text.includes('"b-model"'));
+    assert.match(text, /"a-model": \[/);
+    assert.match(text, /\{ benchmark: "GPQA Diamond", value: "93\.6%", raters: \["Big_Pickle", "Claude_Opus_5"\] \},/);
+    assert.match(text, /export const EVIDENCE: Record<string, EvidenceItem\[\]>/);
     assert.ok(text.endsWith("};\n"));
   });
 });

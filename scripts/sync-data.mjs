@@ -48,6 +48,7 @@ import {
   sortLabelsAZ,
 } from "./lib/parse.mjs";
 import { quarantineReason } from "./lib/quarantine.mjs";
+import { parseBenchmarkRows, agreeEvidence } from "./lib/benchmarks.mjs";
 import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
@@ -77,6 +78,7 @@ import {
   reconcileRegistry,
   renderScoresFile,
   renderVerifiedFile,
+  renderEvidenceFile,
   renderRobotsTxt,
   ensureRaterGateLine,
 } from "./lib/codegen.mjs";
@@ -337,6 +339,11 @@ const scoreIndex = {};
 // src/data/verified.generated.ts (only on zero failures) for the site's
 // Last-verified display — never parsed from average.md files.
 const verifiedIndex = {};
+// Agreed benchmark figures per slug (same figure cited by 2+ independent
+// files — scripts/lib/benchmarks.mjs). Emitted as
+// src/data/evidence.generated.ts (only on zero failures) for the model
+// pages' Verified-benchmarks section.
+const evidenceIndex = {};
 // SHORT lives in scripts/lib/parse.mjs (imported above).
 
 // ---- rater gate: only reports written by models whose own committed average
@@ -531,12 +538,14 @@ for (const slug of slugs) {
 
   const perFile = [];
   let skipAverage = false;
+  const evidenceRows = [];
   for (const f of files) {
     const content = readFileSync(join(dir, f), "utf8");
     const reportDate = extractReportDate(content);
     if (reportDate !== null && (verifiedIndex[slug] === undefined || reportDate > verifiedIndex[slug])) {
       verifiedIndex[slug] = reportDate;
     }
+    evidenceRows.push({ stem: f.replace(/\.md$/, ""), rows: parseBenchmarkRows(content) });
     const scores = parseScores(content, `model/${slug}/${f}`);
     if (scores) {
       perFile.push({ file: f, scores });
@@ -551,6 +560,10 @@ for (const slug of slugs) {
   }
   for (const p of perFile) {
     (scoreIndex[slug] ||= {})[p.file] = shortenScores(p.scores);
+  }
+  const agreedEvidence = agreeEvidence(evidenceRows);
+  if (agreedEvidence.length > 0) {
+    evidenceIndex[slug] = agreedEvidence;
   }
 
   // Source-file Overall is DERIVED (half-up mean of the five quality dims,
@@ -743,6 +756,20 @@ if (failures === 0) {
   if (prevVerified !== verifiedNext) {
     writeFileSync(verifiedPath, verifiedNext);
     log(`  WRITE src/data/verified.generated.ts (${Object.keys(verifiedIndex).length} slugs)${prevVerified === null ? " (created)" : ""}`);
+  }
+  // Agreed benchmark figures for the model pages (same figure cited by 2+
+  // independent files). Same freshness contract — only on zero failures.
+  const evidencePath = join(root, "src", "data", "evidence.generated.ts");
+  const evidenceNext = renderEvidenceFile(evidenceIndex);
+  let prevEvidence = null;
+  try {
+    prevEvidence = readFileSync(evidencePath, "utf8");
+  } catch {
+    // created below
+  }
+  if (prevEvidence !== evidenceNext) {
+    writeFileSync(evidencePath, evidenceNext);
+    log(`  WRITE src/data/evidence.generated.ts (${Object.keys(evidenceIndex).length} slugs)${prevEvidence === null ? " (created)" : ""}`);
   }
   // Research queue for AI agents (model-queue.md): pre-sorted `<Overall> <slug>`
   // lines so agents stop scanning every average.md themselves. Same freshness

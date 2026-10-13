@@ -21,6 +21,7 @@ models_finance/<slug>/             Same conventions for finance models (.agents/
             ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle
 src/data/verified.generated.ts    Newest live findings-file date per slug (`YYYY-MM-DD`, Last-verified display)
+src/data/evidence.generated.ts    Benchmark figures cited by 2+ independent files per slug (Verified-benchmarks section)
 src/data/sources.generated.ts     Reporting-agent registry + SourceKey union (auto-registered)
                                    + managed RATER_GATE export (single source: scripts/lib/parse.mjs)
 model-queue.md                    Single point of reference for model roster + Overall scores (auto-sorted `<Overall> <slug>`; agents read this one file — never scan average.md/findings, RULES.md § Model roster & Overall scores)
