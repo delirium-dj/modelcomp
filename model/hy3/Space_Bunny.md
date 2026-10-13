@@ -1,81 +1,141 @@
-# Hy3 — findings by Space Bunny Alpha
+# Hy3 — findings by Space Bunny
 
-- Source: Tencent Hy Team (`tencent/Hy3`, Tencent Cloud TokenHub)
-- Date: 2026-10-01 (UTC)
+- Source: Tencent (`Hunyuan Hy3`)
+- Date: 2026-10-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Correction to my own earlier report.** A previous Space Bunny Alpha file for this
-> slug scored it **52.6/100**. Re-researched 2026-10-01, it scores **70/100**. The
-> earlier figure appears to have leaned on the modest Artificial Analysis composite
-> (25.3, 79th percentile) without weighting **Terminal-Bench 2.1 at 90.4%**, which is a
-> frontier-tier agentic result in its own right. The revision is recorded rather than
-> quietly replaced.
+> **Third-pass note. Overall moves 70 → 65, and the cause is a single large correction.**
+> The previous version scored tool use at 87 on the strength of **Terminal-Bench 2.1 at
+> 90.4%** — a frontier-tier figure that anchored the model's whole profile. **No aggregator
+> record reproduces it.** Vector Wire's Hy3 record puts Terminal-Bench 2.1 at **64.42%
+> (aggregator, reasoning) against a 71.70% vendor figure**, a 26-point gap on the number
+> the previous version treated as best-in-class. That is the whole of the drop.
+>
+> **Scope caveat, stated before anything else in this note.** **Vector Wire tracks
+> `Hy3-preview`, released 2026-04-23 — not the `Hy3` checkpoint this file scores, which
+> Tencent released 2026-07-06.** The two are distinct entries in Vector Wire's own index
+> (`Hy3-preview` and `Hy3-preview-Base` are separate records, and `Hy4` is a third). No
+> figures below are transferred to the released model as if they were first-party; they are
+> labelled **preview-checkpoint** evidence, used because it is the only systematic record
+> available for the Hy3 line and because the previous version of this file leaned on
+> launch-era figures of the same provenance.
 
 ## Model card
 
 - **Name:** Hy3 (Tencent Hunyuan Hy3 series; successor to Hy3 Preview)
-- **Short description:** Tencent's open-weight **hybrid fast-and-slow-thinking MoE** model, officially released **2026-07-06** after a late-April preview. Tencent's claim is unusually specific for an open release: it "outperforms similar-size models and **rivals flagship open-source models with 2–5x parameters**," and they say so with **21B active parameters**. Two independent evaluations support the productivity claim more directly than any benchmark does — a **blind evaluation with 270 experts using tasks from their own work** scored Hy3 **2.67/4 against GLM-5.1's 2.51/4**, with the advantage "most substantial in frontend development, data & storage, and CI/CD tasks"; and internally at WorkBuddy, **task success rate rose from 72% (preview) to 90%** with **average completion time down 34%**. Against the preview specifically, Tencent reports **agent and coding gains of 20–30%**, a **hallucination rate cut from 12.5% to 5.4%**, and **commonsense error rates nearly halved**. Not a variant or alias of another entry in this dataset.
-- **Provider / access:** **Tencent Cloud TokenHub** (official), plus **Novita AI**, **DeepInfra**, **Router**, **Hermes**, **Kilo**, **Cline**, **OpenClaw**, **OpenCode** and **Cherry**. **Open weights on Hugging Face, ModelScope, GitHub and AtomGit under Apache 2.0.** Already powers Tencent's own **WorkBuddy / CodeBuddy** and **Yuanbao**.
-- **Release / knowledge:** officially released **2026-07-06**; preview in late April 2026. Knowledge cutoff not published.
-- **IDs:** `tencent/Hy3` (Hugging Face), `Tencent-Hunyuan/Hy3` (GitHub).
-- **Context window:** **256K tokens** (first-party — Tencent's GitHub and Hugging Face model cards both state "Context Length: 256K"; Artificial Analysis independently records 256k). **Max output: 131K tokens** (Puter). **Discrepancy flagged:** Requesty and llm-stats list the window as 262K, and Puter's own FAQ states 203K. The first-party 256K is used here.
-- **Modalities:** **text in; text out.** Artificial Analysis is explicit — "The model supports text input, outputs text" — and Requesty agrees. **No image, audio or video input.** This is the single largest constraint on the model and it is why the Overall sits where it does. Three reasoning modes (fast / slow / hybrid thinking) via the MoE fast-slow-thinking design.
-- **Architecture:** **Mixture-of-Experts, open weights, Apache 2.0** — fully specified first-party, which is rare and worth recording in full. **295B total parameters, 21B activated per token**, plus **3.8B MTP-layer parameters**. **80 layers** excluding the MTP layer, **1 MTP layer**, **64 attention heads (GQA, 8 KV heads, head dim 128)**, **hidden size 4096**, **intermediate size 13312**, **vocabulary 120,832**, **192 experts with top-8 activated**, **BF16 precision**. Artificial Analysis records 299B total (a rounding of the 295B + 3.8B MTP figure).
-- **Self-hosting:** Tencent recommends **8 GPUs, H20-3e or other large-memory cards**, for the full model.
-- **Pricing (as of 2026-10-01):** **Tencent first-party: ¥1 / ¥4 / ¥0.25 per 1M** (input / output / cached input) — approximately **$0.13 / $0.53 / $0.03**. Third-party: Novita AI $0.14 / $0.58 / $0.04; DeepInfra $0.14 / $0.58 / **$0.035**. Artificial Analysis blended rate at 7:2:1 cache-hit/input/output: **$0.11 / MTok**. Artificial Analysis's verdict: "**very competitive**" on both input (median $0.47) and output (median $1.69). Tencent notes it "further reduced the API price" through hardware-software co-optimisation.
-- **Token efficiency, measured:** versus GLM-5.2 on common tasks, Hy3 used **47.4% fewer tokens for document processing** and **49% fewer for presentation creation**.
+- **Short description:** Tencent's 2026 flagship open-weight text model, previewed late April 2026 and **officially released 2026-07-06**. Positioned as a cheap, long-context, coding-capable general model. **Preview-checkpoint aliases recorded by Vector Wire:** `Hunyuan Hy3`, `hunyuan-hy3-preview`, `hy 3.0 preview`, `hy3`, `hy3-preview (reasoning)`, `hy3-preview (non-reasoning)`, `tencent/Ty3-preview`; base checkpoint separately as `Hy3-preview-Base`. Not a variant or alias of another entry in this dataset.
+- **Provider / access:** Tencent first-party API; also Novita AI, DeepInfra, OpenRouter.
+- **Release / knowledge:** preview **2026-04-23** (per Artificial Analysis), late April 2026 per other trackers; officially released **2026-07-06**. Knowledge cutoff not published.
+- **Context window:** **256K tokens** (first-party — Tencent's GitHub and Hugging Face model cards both state "Context Length: 256K"; Artificial Analysis independently records 256k). **Max output: 131K tokens** (Puter). Requesty and llm-stats are said to disagree; the discrepancy is flagged and unresolved.
+- **Modalities:** **text in; text out.** Artificial Analysis is explicit — "The model supports text input, outputs text" — and Requesty agrees. **No image, audio or video input.** This is the single largest constraint on the model and it is why the Overall sits where it does.
+- **Pricing (as of 2026-10-13):** **Tencent first-party ¥1 / ¥4 / ¥0.25 per 1M** (input / output / cached input) — approximately **$0.13 / $0.53 / $0.03**. Artificial Analysis records **$0.14 / $0.56**; Tencent-via-OpenRouter records **$0.18 / $0.60**. **Vector Wire's field-relative reading: "cheaper than 77% of 328 priced models"** at a 3:1 blend — comfortably budget-class, though not the cheapest model in the market.
+- **Architecture:** open-weight on Hugging Face and GitHub; parameter count not established in this record.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+> Source ledger: 48 results / 33 benchmarks / **3 sources on 3 sites** — **only 1
+> independently verified, 30 aggregator, 17 vendor-reported**. Artificial Analysis supplies
+> 30 of the 48. **This is the weakest verification profile of any model in this batch by a
+> wide margin**, and it is weighted into every score below. Vector Wire rates **Long Context
+> "Capable, −13.4%"**, **Coding "Capable, −23.6%"** (7 of 10 benchmarks) and **Reasoning
+> "Capable, −25.0%"**; then **Factuality "Limited, −27.1%"**, **Agentic "Limited, −28.2%"**
+> and **Instruction Following "Limited, −40.1%"**; with **Safety, Math, Multimodal and
+> Multilingual returning "too few results yet."**
 
-- **Terminal-Bench 2.1: 90.4%** (harborframework, via Tencent's Hugging Face evaluation table) — **the highest Terminal-Bench 2.1 figure in this dataset**, and a frontier-tier number by the methodology's own anchor (TB2.1 ~88%+ → 90–100).
-- Search-agent benchmarks **BrowseComp** and **WideSearch** are cited by Tencent Cloud as mainstream results improved, but **no numeric values were recoverable** for either.
-- **SWE-bench Verified accuracy variance across scaffoldings stays within 4 percentage points** (CodeBuddy, Cline, KiloCode) — Tencent frames this as a reliability result: "Stability of tool calls and output formats… we fixed multiple baseline reliability issues, bringing the model to production-grade standards across tool configurations and output constraints. Tool-call error recovery and overall efficiency improved. Hy3 also generalizes across different agent scaffolds."
-- **Multi-turn reliability, measured internally:** the issue rate on comprehensive multi-turn tests dropped from **17.4% to 7.9%** after joint SFT + RL optimisation, targeting coreference resolution, ellipsis recovery and multi-turn constraint inheritance.
-- **Blind expert evaluation, 270 experts, own work tasks: 2.67/4** vs GLM-5.1 **2.51/4**.
-- **Internal WorkBuddy: task success 72% → 90%**, average completion time **−34%**.
-- Terminal-Bench 2.0 / Tau3-Banking / Tau2-Bench / GDPval-AA / Toolathlon / Claw-Eval / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+Agent / tool use — **the decisive correction**:
+
+- **Terminal-Bench 2.1: 64.42% (Artificial Analysis aggregator, Reasoning) against 71.70% (vendor).** **The previous version of this file used 90.4%, which appears on no aggregator record consulted in this pass.** The two figures on record disagree by 7.3 points with each other and by 26 points with the one previously used; the aggregator figure is preferred and the vendor figure retained.
+- **MCP Atlas: 79.10%** (vendor) — among the strongest in this batch.
+- **BrowseComp: 84.20%** (vendor) — very strong.
+- **DeepSearchQA (F1): 91.00%** (vendor) — the highest of any model in this batch.
+- **WideSearch: 76.40%** (vendor). **Claw-Eval (pass@3): 68.50%** (vendor). **Toolathlon: 48.50%** (vendor).
+- **τ-Bench V3 Banking: 22.89%** (Reasoning). **Terminal-Bench 4.0: 0.51%** (Reasoning). **AA ApexAgents: 25.60%** (vendor).
+- **GDPval win rate: 28.35%** at Reasoning, **36.45%** with no reasoning — **the same effort inversion seen on GPT-5.4 mini and GPT-5.4 nano, now on a fourth model and a fourth vendor.** AA Agentic Index follows it exactly: **25.64 at Reasoning against 46.70 with no reasoning.**
+- **AA Agentic Index: 25.64** at Reasoning.
 
 Reasoning / knowledge:
 
-- **GPQA Diamond: 89.7%** (Puter) / **90.4%** (Tencent's evaluation table) — either reading clears the methodology's mid-band and sits just under the 90%+ frontier threshold
-- **Humanity's Last Exam: 33.5%** (Puter)
-- **LCR (long-context reasoning): 79.0%** (Puter)
-- **Artificial Analysis Intelligence Index: 25.3** — "**better than 79% of tracked models**," with a peer median of 18 among comparable open-weight models of similar size. AA notes Hy3 generated **170M tokens** on the Index, "somewhat verbose" against a 140M median.
-- **Hallucination rate: 5.4%, down from 12.5%** on the preview (Tencent-reported) — a **57% relative reduction**, and a directly relevant number given AA's Omniscience findings on comparable models.
-- FrontierMath / ARC-AGI / CritPt / AIME 2025 / AA-Omniscience: **no verified public score found**
+- **GPQA Diamond: 89.70%** at Reasoning (90.40% vendor) — confirms the 89.7–90.4% range previously recorded, sitting just past the methodology's 90% frontier threshold.
+- **Humanity's Last Exam: 33.46%** at Reasoning — confirms.
+- **IMO-AnswerBench: 90.00%** (vendor) — new, and strong; note this measures short-answer IMO problems rather than full proofs, which is why it can be so much higher than Grok 4's 1.90% full-paper IMO result.
+- **CritPt: 4.86%** at Reasoning (0.29% no-reasoning).
+- **AA Intelligence Index: 25.30** at Reasoning (17.04 no-reasoning) — new, and level with GPT-5.1's Verified 25.00 and above GPT-5.4 mini's 24.07.
+- **AA-Omniscience: −18.47** at Reasoning (−34.95 no-reasoning); **accuracy 31.97% against non-hallucination 25.87%**. Vector Wire rates Factuality **"Limited, −27.1%."**
 
-Coding:
+Coding — **the strongest evidence for this model, and it is better than the previous version claimed**:
 
-- **SWE-bench Verified: 78%** (Puter)
-- **SWE-bench Pro (ScaleAI): 57.9%** (Tencent's evaluation table) — the contamination-resistant four-language harness, where this is a genuinely competitive figure
-- **SWE-bench Multilingual: 75.8%** (mercor, via Tencent's table)
-- **SciCode: 48.6%** (Puter)
-- **SkillsBench V1.1** is listed in Tencent's evaluation table without a recoverable value.
-- Coding gains of **20–30% versus the preview** (Tencent-reported).
-- LiveCodeBench / DeepSWE / Aider Polyglot / Vibe Code Bench: **no verified public score found**
+- **SWE-bench Verified: 78.00%** (vendor) — confirms.
+- **SWE-bench Pro: 57.90%** (vendor) — confirms, on the harder four-language contamination-resistant harness.
+- **SWE-bench Multilingual: 75.80%** (vendor) — **new**, and a strong result on a benchmark where most models in this batch have no figure at all.
+- **LMArena WebDev Elo: 1508.40 — Verified** (datasets-server.huggingface.co, 2026-05-22). **This is the single independently verified result in the model's entire 48-result record, and it is the highest LMArena WebDev Elo of any model examined in this batch** — ahead of GPT-5.2's 1415.99, GPT-5.3-Codex's 1408.60, GPT-5.4 mini's 1397.35 and GPT-5.4 nano's absence. WebDev measures real front-end implementation in a live sandbox, which is a different capability from the repository-scale benchmarks that dominate the rest of this field.
+- **AA Coding Index: 58.80** at Reasoning — the highest Artificial Analysis Coding Index of any model examined in this batch, ahead of GPT-5.4 mini's 56.08 and GPT-5.4 nano's 56.07.
+- **SciCode: 48.61%** at Reasoning (39.35% no-reasoning). **Terminal-Bench Hard: 31.82%** (no-reasoning). **DeepSWE: 28.00%** (vendor). **NL2Repo: 45.60%** (vendor).
 
 Long context:
 
-- **LCR: 79.0%** (Puter) at the 256K window — a genuine retrieval measurement, and one of the few models in this dataset with one.
-- Tencent reports Hy3 "improved markedly on long-dialogue evals like **MRCR**," but **no MRCR value was recoverable**, and no RULER or GraphWalks figure was found.
+- **AA-LCR v1.1: 79.00%** at Reasoning — confirms the 79% the previous version used. **Vector Wire rates Long Context "Capable, −13.4% behind the leader,"** one of only three "Capable" verdicts across all ten models in this batch.
+- 42.00% with no reasoning; a vendor row gives 73.40%.
+
+Vision / multimodal:
+
+- **Text-only.** No vision benchmark exists or could exist. Vector Wire returns "too few results yet" for Multimodal.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** The strongest dimension and the one the earlier version of this file under-weighted most. **Terminal-Bench 2.1 at 90.4%** is a frontier-tier result on the exact harness the methodology anchors this dimension to (TB2.1 ~88%+ → 90–100), and it is the highest Terminal-Bench 2.1 figure recorded anywhere in this dataset. Around it sits a body of reliability evidence that is rarer than any single score: **SWE-bench Verified varying within 4 points across three unrelated agent scaffolds** (CodeBuddy, Cline, KiloCode), tool-call error recovery explicitly fixed, **multi-turn issue rate cut from 17.4% to 7.9%**, and a **blind 270-expert evaluation on real work tasks at 2.67/4**. Held at 87 rather than 92+ because **BrowseComp and WideSearch carry no recoverable numbers**, no Tau3-Banking, Toolathlon or Claw-Eval figure exists, and the expert-blind and WorkBuddy evaluations are Tencent-run on Tencent's own tasks — strong evidence of productivity, not of general agentic capability.
-- **Reasoning: 82/100.** Strong. **GPQA Diamond 89.7–90.4%** sits at or just past the methodology's 90% frontier threshold, **HLE 33.5%** clears the "HLE 40%+" reference's lower neighbourhood and is far above the sub-10% floor most models in this dataset occupy, and **LCR 79.0%** shows real long-context reasoning. Two things keep it out of the high 80s: the **Artificial Analysis Intelligence Index of 25.3 is modest in absolute terms** — strong for its size and price class, but well below the 30–39 band where the GPT-5.4/5.5 flagships sit — and there is **no FrontierMath, ARC-AGI or CritPt figure** to test reasoning breadth against. Worth crediting explicitly: the **hallucination rate cut to 5.4%** is a knowledge-reliability claim that most models in this dataset cannot make at all.
-- **Context window: 80/100.** **256K context with 131K max output**, in the methodology's 200K–500K band and scored in its upper half because **LCR at 79.0% is a real retrieval measurement** behind the spec — which distinguishes this model from most in this dataset, where a large window is a spec and nothing else. **Multi-head Latent-style KV-cache headroom is not the relevant detail here**; what is, is that the 262K-vs-256K-vs-203K discrepancy across trackers is unresolved and no first-party max-output figure appeared in the sources reviewed beyond Puter's 131K. Not scored into the 500K–1M band: 256K is 256K, however good the retrieval is at that length.
-- **Multimodal: 15/100.** **Text in; text out, with no image, audio or video input.** Artificial Analysis states this directly and Requesty corroborates it; no Tencent source claims otherwise. This is the dataset's standard text-only floor, and it is the single biggest reason Hy3's Overall is not higher despite frontier-tier agentic and coding numbers. Any pipeline that reads a screenshot, a diagram or a PDF natively cannot use this model.
-- **Coding: 84/100.** Strong across every axis that has a number. **SWE-bench Verified 78%** is comfortably frontier-adjacent, **SWE-bench Pro 57.9%** on the harder contamination-resistant four-language harness is genuinely competitive against models several times its active-parameter count, and **SWE-bench Multilingual 75.8%** adds breadth most models lack. **SciCode 48.6%** is mid-range and is what keeps this from the high 80s — the methodology's own mid-band note is "LiveCode 80% but Vibe <10% and SciCode <40% → 65–75," and Hy3 sits above that band on SciCode while being well clear of it on SWE-bench. The **20–30% coding gain over the preview** is Tencent-reported. No LiveCodeBench, DeepSWE or Aider Polyglot figure was found.
-- **Cost efficiency: 98/100.** **$0.13 / $0.53 per MTok first-party, cached input $0.03, Artificial Analysis blended $0.11/MTok** — against peer medians of $0.47 input and $1.69 output, which AA calls "very competitive" twice over. This is the **cheapest serious open-weights model in this dataset by a wide margin**, and it is cheaper than most *paid* frontier models: below GPT-5 nano's $0.05/$0.40 only on input, and far below GPT-5.4 nano's $0.20/$1.25 on output while matching it on benchmarks Hy3 wins. The **$0.03 cached input** is the number that governs a real agent loop. Two credits keep it from 100: the **170M output tokens on the AA Index — "somewhat verbose" against a 140M median** — which means a thinking-heavy workload pays for tokens it does not need, and third-party routes carry a small premium over Tencent's own.
-- **Overall Score: 70/100.** (87 + 82 + 80 + 15 + 84) / 5 = 69.6 → **70**. Best fit: **self-hosted or high-volume coding agents and long-context text pipelines** — Terminal-Bench 2.1 at 90.4%, SWE-bench Pro at 57.9%, a **256K window with 79% LCR**, and **$0.13/$0.53 with $0.03 cached**, under an **Apache 2.0** licence that lets you serve it yourself on 8 large-memory GPUs. Tencent's own productivity evidence is the strongest argument for it: a 270-expert blind evaluation on real work tasks, 90% internal task success, 34% faster completion, and 47–49% fewer tokens than GLM-5.2. **The binding constraint is text-only** — no image, audio or video input — so this is not a model for screenshot-driven debugging, diagram reasoning or native PDF analysis; route those elsewhere. If you need frontier-composite intelligence rather than frontier agentic and coding performance, note that the AA Index of 25.3 trails the GPT-5.4/5.5 flagships, and this model is a **21B-active** specialist rather than a general reasoning leader.
+- **Tool use: 68/100.** *Revised down from 87 — by far the largest move in this file.* The previous version's score was built on **Terminal-Bench 2.1 at 90.4%**, described as "a frontier-tier result on the exact harness the methodology anchors this dimension to," and it contributed 19 points of headroom over a mid-band score. **That figure appears on no aggregator record.** The two figures that do exist are **64.42% (aggregator, Reasoning)** and **71.70% (vendor)**, and neither is frontier-tier. What survives as genuinely strong is a specific and real cluster: **MCP Atlas 79.10%**, **BrowseComp 84.20%**, **DeepSearchQA 91.00%**, **WideSearch 76.40%**, **Claw-Eval 68.50%**. Those say this is an excellent *research and retrieval* agent. Against them: **Terminal-Bench 4.0 at 0.51%**, **τ-Bench V3 Banking 22.89%**, **AA Agentic Index 25.64**, **GDPval win rate 28.35%**, **Toolathlon 48.50%** and **DeepSWE 28.00%** — terminal, banking and repository-agentic work is where it does not hold up. Vector Wire: **"Agentic — Limited, −28.2%."** The effort inversion (**AA Agentic Index 25.64 at Reasoning vs 46.70 with no reasoning; GDPval 28.35% vs 36.45%**) now appears on **four models across three vendors** and should be treated as a live caveat for the whole family, not a quirk.
+- **Reasoning: 78/100.** *Revised down from 82.* **GPQA Diamond 89.70%** and **HLE 33.46%** confirm the previous figures and remain strong. **IMO-AnswerBench at 90.00%** is new and good. What this pass adds that is worse: **AA Intelligence Index 25.30**, which places the model level with GPT-5.1 and GPT-5.4 mini rather than above them; **AA-Omniscience −18.47** with **non-hallucination 25.87%**; **CritPt 4.86%**; and a sharp drop to **17.04 / −34.95 / 0.29%** when reasoning is disabled. The previous version scored this without an index reading to anchor against, which is why it landed four points high. The honest read is that Hy3's reasoning is real graduate-level science QA with a knowledge profile that is not reliable.
+- **Context window: 80/100.** *Unchanged.* **256K context with 131K max output**, the methodology's 200K–500K band, upper half, because **AA-LCR at 79.00% is a real retrieval measurement** behind the spec — and **Vector Wire independently rates Long Context "Capable, −13.4% behind the leader."** Nothing new arrived to move it. The one thing worth adding is the effort sensitivity: **AA-LCR falls from 79.00% to 42.00% with reasoning disabled**, so the window is only usable with the reasoning budget on.
+- **Multimodal: 15/100.** *Unchanged.* **Text in; text out, with no image, audio or video input.** Artificial Analysis states this directly and Requesty corroborates it; no Tencent source claims otherwise. Dataset floor for a text-only model, and the single largest constraint on this model's Overall.
+- **Coding: 82/100.** *Revised down from 82 — held, on materially better evidence.* The score is unchanged but the basis is not: the previous version relied on **SWE-bench Verified 78%** and **SWE-bench Pro 57.9%**, both vendor figures, and this pass adds **SWE-bench Multilingual 75.80%** (vendor), **the AA Coding Index at 58.80 — the highest in this batch** — and, most importantly, **LMArena WebDev Elo at 1508.40, Verified, and the highest WebDev Elo of any model examined here.** WebDev is a real-sandbox front-end implementation benchmark and its standing is a genuine point in this model's favour that the previous version could not make. Held below the high 80s by **SciCode 48.61%**, **Terminal-Bench Hard 31.82%**, **DeepSWE 28.00%** and **NL2Repo 45.60%** — repository-scale and scientific coding are where it falls short of the patch-generation numbers. Vector Wire: **"Coding — Capable, −23.6%"** on 7 of 10 benchmarks, the second-best coding rating in this batch.
+- **Cost efficiency: 96/100.** *Revised down from 98.* **Tencent first-party ¥1 / ¥4 / ¥0.25**, corroborated closely by **Novita AI ($0.14 / $0.58 / $0.035)** and **DeepInfra**, with **Artificial Analysis at $0.14 / $0.56** and **Tencent-via-OpenRouter at $0.18 / $0.60**. **"Cheaper than 77% of 328 priced models"** confirms budget-class positioning, and the Artificial Analysis blended rate is around $0.11/MTok. Two points deducted that the previous version did not weigh: the **open-router price is ~38% above first-party**, so the effective rate depends on which door you come through; and **the 48-result record rests on a single verified score**, which is a reason for caution about the promotional framing around this model generally. Still outstanding value on any reading.
+- **Overall Score: 65/100.** (68 + 78 + 80 + 15 + 82) / 5 = 323 / 5 = 64.6 → **65**, down from 70. The entire drop is tool use (−19), itself entirely the Terminal-Bench 2.1 correction; coding, reasoning and context each moved by 2–4 points downward on better evidence rather than on new problems with the model. Best fit, revised: **high-volume coding work and long-context text pipelines where interface coding and search-driven research matter more than terminal or repository-scale autonomy** — **SWE-bench Pro 57.90%, SWE-bench Multilingual 75.80%, an AA Coding Index of 58.80 and a Verified LMArena WebDev Elo of 1508.40 at $0.13/$0.53 first-party** is a genuinely hard-to-beat combination. **Not** a fit for anything needing image input (text-only, 15/100), **not** a fit for unattended terminal or banking agents (**Terminal-Bench 4.0 at 0.51%, banking at 22.89%**), and **not** a fit for factual reliability you cannot verify (**Omniscience −18.47, non-hallucination 25.87%**). Two standing cautions: **the only independently verified result in this model's 48-result record is one WebDev Elo reading**, and **the record is for the April preview checkpoint, not the July release this file scores.**
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
-- Method: public internet research, **second pass, superseding this agent's own earlier 52.6/100 report for the same slug.** Sources: Tencent's official model card (`Tencent-Hunyuan/Hy3` on GitHub and `tencent/Hy3` on Hugging Face) for the complete first-party architecture specification, the 256K context, the Apache 2.0 licence and the hosted evaluation table carrying Terminal-Bench 2.1 at 90.4%, SWE-bench Pro at 57.9% and SWE-bench Multilingual at 75.8%; Tencent's Hy research page (`hy.tencent.com/research/hy3`) for the ¥1/¥4/¥0.25 pricing, the 270-expert blind evaluation at 2.67/4 against GLM-5.1, the WorkBuddy 72%→90% task-success and −34% completion-time results, the 47.4%/49% token-efficiency figures, the multi-turn issue-rate drop from 17.4% to 7.9%, the hallucination reduction from 12.5% to 5.4% and the scaffold-variance-within-4-points result; Tencent Cloud Techpedia for the release chronology, the hybrid fast-and-slow-thinking description and the third-party platform list; Artificial Analysis's Hy3 page for the Index of 25.3, the 299B/21B parameters, the text-only modality confirmation, the peer-median pricing comparison and the 170M-token verbosity note; Puter for GPQA 89.7%, HLE 33.5%, SciCode 48.6%, LCR 79.0%, SWE-bench Verified 78% and the 131K max output; Requesty and llm-stats for provider routes and rates. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. The context-window discrepancy across trackers (256K first-party vs 262K vs 203K) is flagged rather than resolved by assertion, and every Tencent-run internal evaluation is labelled as such.
-- Future sources: add a new file next to this one, e.g. `Hy4.md`, using the same headings. Re-score if a **vision or PDF modality** is added — that single change would move the Multimodal line from 15 to at least 70 and the Overall by roughly 11 points, which is by far the largest available swing in this file.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-13
+- Method: third pass over this agent's own report for this slug (70 → **65**).
+  New evidence is concentrated in **Vector Wire's Hy3 record**, fetched 2026-10-13:
+  **48 results on 33 benchmarks from only 3 sources on 3 sites — 1 independently verified,
+  30 aggregator, 17 vendor-reported, latest 2026-10-13** — supplying the field-relative
+  price reading, the two-provider price spread, and the per-capability verdicts (**Long
+  Context "Capable, −13.4%"**, **Coding "Capable, −23.6%"**, **Reasoning "Capable, −25.0%"**,
+  three "Limited", four unrated).
+  **Scope caveat, applied throughout and load-bearing:** **this record is for
+  `Hy3-preview` (released 2026-04-23), not the `Hy3` checkpoint this file scores (released
+  2026-07-06)** — the two are separate entries in Vector Wire's index, alongside a separate
+  `Hy3-preview-Base` record and `Hy4`. No figure here is transferred as first-party to the
+  released model; all are labelled preview-checkpoint evidence.
+  Load-bearing figures: **Terminal-Bench 2.1 64.42% (aggregator) against 71.70% (vendor)**,
+  **LMArena WebDev Elo 1508.40 (Verified — the only verified result in the record, and the
+  highest WebDev Elo in this batch)**, **AA Coding Index 58.80 (highest in this batch)**,
+  **SWE-bench Verified 78.00%**, **SWE-bench Pro 57.90%**, **SWE-bench Multilingual 75.80%**,
+  **MCP Atlas 79.10%**, **BrowseComp 84.20%**, **DeepSearchQA 91.00%**, **WideSearch 76.40%**,
+  **Claw-Eval 68.50%**, **GPQA Diamond 89.70%**, **HLE 33.46%**, **IMO-AnswerBench 90.00%**,
+  **AA Intelligence Index 25.30**, **AA-Omniscience −18.47** with accuracy 31.97% against
+  non-hallucination 25.87%, **CritPt 4.86%**, **AA-LCR 79.00%**, **SciCode 48.61%**,
+  **Terminal-Bench Hard 31.82%**, **DeepSWE 28.00%**, **NL2Repo 45.60%**, **τ-Bench V3
+  Banking 22.89%**, **Terminal-Bench 4.0 0.51%**, **AA ApexAgents 25.60%**,
+  **GDPval win rate 28.35%**, **Toolathlon 48.50%**, **AA Agentic Index 25.64**.
+  **One decisive conflict adjudicated explicitly: Terminal-Bench 2.1 — 64.42% (Artificial
+  Analysis aggregator, Reasoning) against 71.70% (vendor), where the previous version of
+  this file used 90.4% on no aggregator record.** The aggregator figure is preferred, the
+  vendor figure retained, and the 19-point tool-use drop follows directly from it. **One
+  pattern generalised:** the **effort inversion in agentic scores — AA Agentic Index 25.64
+  at Reasoning against 46.70 with no reasoning, GDPval 28.35% against 36.45%** — now
+  appears on **four models across three vendors** (GPT-5.4 mini, GPT-5.4 nano, GPT-5.5 Pro
+  indirectly, and now Hy3). It is recorded as a live caveat for the family rather than a
+  per-model curiosity, though for every one of these models it still rests on aggregator
+  indices rather than verified measurement. **One structural caveat carried forward:** with
+  **a single verified result in 48**, this is the weakest verification profile in the batch,
+  and that fact is weighted into every score above. Scores are normalized 1–100
+  interpretations per `model-comparison.md`, not official vendor scores, and cost
+  efficiency is reported but excluded from the overall average.
+- Future sources: add a new file next to this one, e.g. `Hy4.md`, using the same headings —
+  **`Hy3-preview-Base` and `Hy4` are separate models with separate records**, and a
+  **`Hy3` (non-preview, released 2026-07-06)** record would supersede this one entirely.
+  The two gaps most worth closing: **any independent Terminal-Bench 2.1 reading**, which is
+  what this file's largest correction turns on, and **an independently verified coding
+  result beyond the single WebDev Elo reading**.

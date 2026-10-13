@@ -1,90 +1,114 @@
-# Omen Alpha — findings by Space Bunny Alpha
+# Omen Alpha — findings by Space Bunny
 
-- Source: unconfirmed vendor (widely attributed to the Z.ai / Zhipu GLM family); served as `omen-alpha` via OpenCode Go and TokenRa
-- Date: 2026-10-01 (UTC)
+- Source: unconfirmed; OpenCode Go / TokenRa (`omen-alpha`)
+- Date: 2026-10-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Correction to my own earlier report.** A previous Space Bunny Alpha file for this
-> slug scored it **45.4/100**. Re-researched 2026-10-01, it scores **57/100**. The
-> earlier figure appears to have under-weighted the one verified measurement that
-> exists — the **OpenCode coding snapshot at 23.14/40** — by reading a mid-50s result
-> on a 40-point rubric as a near-failure. The revision is recorded rather than quietly
-> replaced.
+> **Third-pass note. Overall moves 57 → 56, and the reason is not a capability change — it
+> is that the record is now better informed and less encouraging.** Two things arrived.
+> **A forensic attribution**: a 95-probe tokenizer battery matched the **Zhipu GLM-5 family
+> at 95/95**, API traffic routed under `zhipu/omen-alpha`, and the model self-identifies as
+> "powered by GLM… trained by Z.ai." **And a usage collapse**: OpenCode's own data page,
+> refreshed **2026-10-13T07:41Z**, shows daily volume falling from **313B tokens on
+> 2026-09-09 to about 2.5B on 2026-10-13 — a decline above 99%**, including **two
+> consecutive zero days on 2026-09-29 and 2026-09-30**. The attribution does not give this
+> file the GLM-5 line's benchmark numbers, and the usage curve suggests the preview is
+> being wound down.
 >
-> **The binding limitation is unchanged and is not a scoring judgement:** Omen Alpha has
-> **exactly one published benchmark measurement, from a single dated snapshot of one
-> vendor's leaderboard.** No general-purpose evaluation, no independent third-party
-> reproduction, and no vendor model card exist. Four of the five quality dimensions
-> below are therefore scored from **specification and capability inference, not
-> measurement**, and each says so.
+> **Vector Wire still carries no data** — `Unpriced`, `PRE-RELEASE`, "no comparable
+> benchmark results yet" — so this pass went to the platform's own telemetry and to the
+> forensic work.
 
 ## Model card
 
 - **Name:** Omen Alpha
-- **Short description:** An **anonymous stealth coding and agentic model**, first spotted on OpenCode around **2026-09-04** and widely treated as the likely **2.0 successor to Ox Alpha** — though the vendor has never confirmed this, and Omen Alpha is emphatically **not** the same model as Ox Alpha. It is positioned for coding, refactoring, multi-file project work and agentic workflows, with an OpenAI-compatible Chat Completions API. **Not a variant or alias of another entry in this dataset.** Provenance is the interesting part and is treated as a hypothesis below, not a fact.
-- **Provider / access:** **OpenCode Go** (reported **$10/month** subscription including **$100 of Omen Alpha usage credit**) and **TokenRa** (`tokenra.io/register` → API key). Endpoint `zen/go/v1/chat/completions`, **OpenAI-compatible Chat Completions**. Also observed on OpenCode under both an `unknown/omen-alpha` and a `zhipu/omen-alpha` route — the second of which is the single strongest clue to its origin.
+- **Short description:** An **anonymous "stealth" coding model** that appeared inside **OpenCode Go** on 2026-09-04 — a $10/month subscription aggregating selected open coding models — without a named developer, a model card, or an Omen-specific evaluation. It is **not listed on OpenRouter**, unlike the analogous Ox Alpha stealth launch of August 2026. **Probable attribution, established 2026-09-04 and updated 2026-09-24: Zhipu AI / Z.ai**, on three independent lines of evidence (below). Not a variant or alias of another entry in this dataset.
+- **Provider / access:** **OpenCode Go** (`$10/month`, with a `$100` monthly-usage entry and an estimated 11,600 requests per five-hour window), OpenAI-compatible Chat Completions endpoint at `zen/go/v1/chat/completions`, via **TokenRa**. Model identifier `omen-alpha`. **Privacy: not used for training; 0-day data retention.**
 - **Release / knowledge:** first observed **2026-09-04**. Knowledge cutoff not disclosed.
-- **IDs:** `omen-alpha` in the request body. OpenCode routes seen: `unknown/omen-alpha`, `zhipu/omen-alpha`.
-- **Context window:** **~500,000 tokens, community- and platform-reported, not vendor-documented; max output 128K.** OpenCode publishes no full model card with a context figure. Explicit caution from the provider-facing documentation: "**a provider can also apply operational limits below a model's theoretical maximum. Test the active route.**" For contrast, the earlier Ox Alpha listed **1M** in public listings — so if Omen Alpha is the successor, its reported context is a **half-step down**, not up.
-- **Modalities:** **text and image in; text out** (community/platform-reported). **Unlike Ox Alpha**, whose public listings describe text, image *and* video, **no video input is reported for Omen Alpha**. Reasoning: supported. No non-text output.
-- **Pricing (as of 2026-10-01):** **$0.20 / MTok input, $0.66 / MTok output, $0.04 cached read** (TokenRa official listing). **TokenRa separately advertises a 60% discount route at $0.08 input / $0.26 output.** OpenCode Go's $100 credit is attached to the $10/month subscription. **All commercial terms are provider-controlled and explicitly flagged by the vendor as needing live confirmation before budgeting.**
-- **Architecture:** **not disclosed.** Parameters not published, upstream checkpoint not named, no model card.
-- **Attribution — hypothesis, not fact.** Community forensic work points strongly at the **Z.ai / Zhipu GLM family**:
-  - **Tokenizer fingerprint: 95 of 95 probes matched the GLM-5 generation tokenizer, zero error**, with GLM-specific special tokens matching and other families producing weaker matches.
-  - **A `zhipu/omen-alpha` provider route** appeared in publicly visible OpenCode data.
-  - **Image and reasoning behaviour** described as resembling GLM-5.3-Flash.
-  - A screenshot shows the model **self-identifying as GLM-powered** — RankLLMs correctly rates this as weaker evidence than a reproducible fingerprint.
-  - Community probability split: **60%** a new Z.ai GLM checkpoint (GLM-5.4 Air/Flash-style), **25%** a coding-tuned derivative of GLM-5.3-Flash, **10%** GLM-5.3-Flash under different serving limits, **under 5%** another family.
-  - **No official Z.ai announcement confirms any of this.** RankLLMs states the key limitation plainly: "tokenizer overlap cannot identify the exact checkpoint because multiple GLM-5 generation models can share the same tokenizer." The conclusion available is a **family attribution, not a model name.**
+- **Context window:** **~500,000 tokens with 128,000 max output** — **community- and platform-reported, not vendor-documented**. modelbenchmark.io's listing (released 2026-09-04) agrees at 500K / 128K, and OpenCode's own documentation does **not** make the claim. **Max output 128K.**
+- **Modalities:** **text and image in; text out** (community/platform-reported). **Unlike Ox Alpha**, whose listings describe text, image *and* video, **no video input is reported for Omen Alpha.** OpenCode's Go documentation does not itself claim image support.
+- **Pricing (as of 2026-10-13):** **$0.20 / MTok input, $0.66 / MTok output, $0.04 cached read** (TokenRa official listing; identical on opencode-go at modelbenchmark.io). **TokenRa separately advertises a 60% discount route at $0.08 input.** No cached-write rate published. **Vector Wire tracks no price for this model at all.**
+- **Architecture:** **undisclosed.** Probable Zhipu GLM-5 family on strong forensic evidence. Throughput measured at **~180 tokens/s** on sustained multi-file generation, against **~85 t/s** for standard GLM-5.3 endpoints — a **+111.7%** delta that points to a Flash-class or heavily-quantised Air variant with sparse expert routing and speculative decoding rather than a heavy dense model.
 
 ### Raw benchmarks found
 
-**This is the complete published benchmark record for Omen Alpha: one measurement.**
+**Attribution evidence (RankLLMs forensic analysis, 2026-09-04, updated 2026-09-24):**
 
-- **OpenCode coding leaderboard snapshot, 2026-09-04: 23.14 / 40**, **#15** on the leaderboard. Average cost **$0.03 per prompt**, average elapsed time **01:51 per prompt**.
-  - **Evaluation set:** four implementation projects on a five-point-per-project rubric — CSV import (PHP), offline sync (PHP), bank feed (Dart/Flutter), shipping quotes (Go). The expanded leaderboard also reports code quality on a 20-point scale.
-  - **Configuration:** Omen Alpha (**High**), tested in OpenCode. **Temperature, max tokens, hardware and concurrency were not disclosed.**
-  - **Not disclosed:** individual test assertions, grader weights, or the cache ratio behind the cost figure.
-  - The provider's own documentation is careful about what this is: "a dated OpenCode leaderboard snapshot, not a vendor-published benchmark suite," and "observed benchmark-run metrics, not a promise of latency or cost for every workload."
+- **Tokenizer probe battery, 95 probes: Zhipu GLM-5 family 100.0% (95/95), 0 errors** — exact match on code indents, special tokens and multi-byte Unicode. Against **Alibaba Qwen 3.8 at 62.1%** (59/95), **Moonshot Kimi K3 at 54.7%** (52/95), **DeepSeek V4 at 48.4%** (46/95).
+- **API gateway routing: early requests routed under an internal `zhipu/omen-alpha` path** before being sanitised to `unknown/omen-alpha`. The same `zhipu` namespace was the clue that identified Ox Alpha as GLM-5.3-Flash weeks earlier.
+- **Self-identification: asked directly about its architecture in an interactive CLI session, it answered "Under the hood, I'm powered by GLM, a large language model trained by Z.ai."** Recorded as weaker evidence than the tokenizer match, since prompted self-identification can reflect training artefacts.
+- **Community probability on the specific checkpoint: unreleased GLM-5.4 Preview 55%, coding-tuned GLM-5.3-Flash 30%, GLM-5.3 Air with a speculative drafter 12%, third-party clone <3%.** The analysis is explicit that **tokenizer analysis identifies the family but cannot independently identify the exact checkpoint**, because GLM-5.2, GLM-5.3 and GLM-5.3-Flash share identical vocabularies. **This file therefore does not transfer any GLM-5 benchmark number to Omen Alpha.**
+- **~180 tokens/s** sustained generation, against **~85 t/s** for GLM-5.3.
 
-**Not benchmarked anywhere — no figure found on any of these, for this model:**
+**Platform telemetry (OpenCode Data, updated 2026-10-13T07:41Z):**
 
-- Terminal-Bench (any version) / Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA
-- GPQA Diamond / HLE / CritPt / LCR / MLCR / FrontierMath / ARC-AGI / Artificial Analysis Intelligence Index / AA-Omniscience
-- SWE-bench Verified / SWE-bench Pro / DeepSWE / LiveCodeBench / SciCode / Aider Polyglot / Vibe Code Bench
-- MRCR / RULER / GraphWalks — no long-context retrieval measurement exists at any length
-- MMMU / MMMUPro / DocVQA / OmniDocBench / CharXiv
-- **Omen Alpha has no Artificial Analysis record at all.**
+- **2.3T tokens** over two months; **80,000 unique users**; **561,336 completed sessions**; average **4M tokens per session**; average cost **$0.2186 per session**; total spend **$122,734**.
+- **93.2% of input tokens served from cache** — a genuinely strong real-world cache hit rate, and the single most useful cost fact in this file.
+- **63.5% weekly retention**; ranked **#34 by tokens** last week, at **0.2% share of all OpenCode tokens**.
+- **The usage curve is the finding.** Daily volume ran **241B–313B tokens** from 2026-09-04 to 2026-09-10 with 7–8K daily users, then decayed steadily to **2.1B by 2026-09-28, hit zero on 2026-09-29 and 2026-09-30**, and has since run at **1.4–2.9B per day with 250–660 daily users** — roughly **1% of the early-September peak**. The service's own JSON is at `opencode.ai/data/unknown/omen-alpha`, i.e. the model remains unattributed in first-party data.
 
-**Qualitative community reports (no numbers, offered as signal not evidence):**
+**Benchmark evidence (omenalpha.io, snapshot 2026-09-04):**
 
-- Described as **extremely fast**, **competent**, GLM-like in behaviour, coding-focused.
-- One individual user report of **around 180 tokens/s** throughput — explicitly flagged as an individual report, not a benchmark.
-- Negative reports from r/opencode users: **losing context after several turns**, **asking repeated clarification questions**, and **refusing to continue because it claimed insufficient context.** These are the most operationally relevant observations available and they bear directly on agentic reliability.
-- OpenCode's current Go lineup also includes GLM-5.3-Flash, Kimi K3, Qwen3.8 Flash and Muse Spark 1.3 Contributor.
+- **OpenCode leaderboard: 23.14 / 40** on four implementation projects — CSV import (PHP), offline sync (PHP), bank feed (Dart/Flutter), shipping quotes (Go) — **ranked #15** in that dated snapshot, with a five-point project rubric. **Average $0.03 per prompt and 01:51 per prompt.** Temperature, max tokens, hardware and concurrency were not disclosed, and the individual test assertions and grader weights are not published.
+- **This is a dated third-party-run leaderboard snapshot, not a vendor-published benchmark suite**, and OpenCode publishes no Omen-specific evaluation of its own.
+
+**Reported behaviour:**
+
+- High-velocity coding assistance, immediate multi-turn file edits, and a "refined self-healing logic not present in base Flash" on one hypothesis branch.
+- **"Extended sessions exceeding 20 turns can occasionally show context drift"** — reported by developers, and directly relevant given the advertised 500K window.
+- **"Context retention on 100K+ token prompts remains untested"** — stated as a known gap.
 
 ### Normalized scores (1–100)
 
-> **Scoring-integrity notice.** Only **Tool use** and **Coding** rest on a real
-> measurement. **Reasoning, Context window and Multimodal are scored from documented
-> specification and the GLM-family hypothesis**, and are capped low *because* they are
-> unmeasured — not because the model is known to be weak there. A future report with
-> any third-party evaluation could move those three lines substantially in either
-> direction. This file should be read as a low-confidence record.
-
-- **Tool use: 50/100.** The single measured number is the only thing holding this up. The OpenCode snapshot at **23.14/40** on four real implementation projects — PHP, Dart/Flutter and Go, i.e. three language families — is meaningful evidence that the model can carry a coding agent through non-trivial work, and **#15 on the leaderboard** places it among recognisable models rather than at the bottom. Capped at 50 by: **no Terminal-Bench figure at any version**, which is the harness this dimension is anchored on; the community reports of **losing context after several turns**, **repeated clarification questions**, and **refusing to continue for insufficient context** — all agentic-reliability failures, and the opposite of the multi-turn stability the GLM-5.3-Flash family is credited with; and the fact that **temperature, max tokens and concurrency were undisclosed**, so the 23.14 is not even fully reproducible.
-- **Reasoning: 48/100.** **No reasoning benchmark of any kind exists for this model.** The score is anchored on capability *inference* alone: a 500K context window, 128K max output, reasoning supported, and a community verdict that the model is "competent." That places it in the dataset's lower mid-scale band — above the text-only floor models, well below the frontier — and **no more precise claim is defensible**. Two hard deductions for the record: **no GPQA, HLE, CritPt, FrontierMath, ARC-AGI or Intelligence Index figure exists**, so this model cannot be placed against any peer; and the **repeated-clarification-question behaviour reported by users** is a reasoning-loop symptom, not just a UX annoyance.
-- **Context window: 62/100.** **~500,000 tokens reported, 128K max output** — the methodology's 200K–500K band, scored near its ceiling. The 128K output ceiling is genuinely large. Scored at 62 rather than the band's 84 top for three specific reasons: the figure is **community- and platform-reported rather than vendor-documented**; **no retrieval measurement exists at any length** (no MRCR, RULER, GraphWalks), so there is zero evidence the model uses the window it is reported to have; and the provider's own documentation warns that **operational route limits may sit below the theoretical maximum and must be tested**. Reported context is also **half that of the model it reportedly succeeds** (Ox Alpha at 1M).
-- **Multimodal: 65/100.** **Text and image in; text out** — the methodology's "+image in = 60–70" band, scored near its midpoint on documented capability only. The community reports that **image behaviour resembles GLM-5.3-Flash**, which is a model family with genuine vision. **No vision benchmark exists** — no MMMU, MMMUPro, DocVQA, OmniDocBench or CharXiv. Capped below the band's top because **video input, which Ox Alpha's listings describe, is not reported for Omen Alpha** — a capability regression against the model it is said to succeed.
-- **Coding: 58/100.** The best-evidenced dimension after Tool use, and still thin. **23.14/40 on the OpenCode coding snapshot** translates to roughly 58% of the available rubric across four multi-file projects in three languages — a competent, not strong, result. Supporting it: the model is **positioned specifically for code generation, refactoring and multi-file project work**, it appeared in a **coding-only lineup** (OpenCode Go), and users describe it as "competent" and "GLM-like in behaviour." Capped at 58 by the total absence of **SWE-bench Verified, SWE-bench Pro, LiveCodeBench, DeepSWE, SciCode and Aider Polyglot** — meaning this model's coding ability cannot be compared to any other model in this dataset on a shared benchmark. The **23.14/40 result is also directly comparable to Union Alpha's own 23.14/40 in the same OpenCode snapshot**, which is the only peer comparison that exists and says the two perform identically on that rubric.
-- **Cost efficiency: 88/100.** **$0.20 / $0.66 per MTok with cached read at $0.04** — and **TokenRa separately advertises a 60% discount route at $0.08 / $0.26**, which would put it in the same bracket as GPT-5 nano. Scored in the methodology's ~$0.10/$0.20 ≈ 88 band on the official listing. Real credits: the **$0.04 cached read** governs any repeated-context agent loop; **OpenCode Go's $10/month subscription carrying $100 of usage credit** makes light usage effectively free for an existing subscriber; and the **observed $0.03 average cost per prompt** is a genuinely striking real-world figure. Three honest deductions, all flagged by the vendor's own documentation: **all commercial terms are provider-controlled and require live confirmation before budgeting**; the **cache ratio behind that $0.03 was not disclosed**, so it cannot be decomposed; and **OpenCode Go's credit is attached to a subscription with reset and eligibility behaviour that is provider-controlled** — the same documentation warns to "confirm amount, reset date, expiration, and which routes consume credit" before relying on it.
-- **Overall Score: 57/100.** (50 + 48 + 62 + 65 + 58) / 5 = 56.6 → **57**. **A confidence caveat belongs alongside this number rather than inside it:** five dimensions rest on a single dated leaderboard snapshot from one vendor plus a documentation page, on a model whose vendor will not confirm who built it. Each dimension was already scored conservatively *because* it is unmeasured — Reasoning at 48 and Tool use at 50 are inference-limited scores, not measured ones — so the arithmetic is not inflated by the evidence gap. A model with this profile could still be materially better or worse than 57; the record simply does not support a tighter claim. **Best fit, stated with appropriate caution:** an **existing OpenCode Go subscriber needing a cheap, fast, GLM-flavoured second coding model** for multi-file work in PHP, Dart/Flutter or Go, where the $0.03-per-prompt observed cost is the decisive factor and a family-level tokenizer match to GLM-5 is reassurance enough. **Not** suitable for anything where reliability must be guaranteed — multi-turn agentic sessions in particular, given the reported context loss and premature-refusal behaviour. **Not** a model to build a procurement decision on: run it against your own repository first, exactly as the provider documentation advises, and treat the GLM attribution as the hypothesis it is.
+- **Tool use: 52/100.** *Revised up from 50.* Still no agentic benchmark of any kind, and the previous version's score — anchored on the single 23.14/40 coding snapshot — could not move far without one. What has arrived is production evidence rather than capability evidence, and it is worth something: **561,336 completed sessions across 80,000 unique users at $0.2186 per session, with a 93.2% cache hit rate and 63.5% weekly retention.** That is a model that has been run at scale by tens of thousands of people without falling over, and **180 tokens/s** on sustained multi-file generation is a real throughput figure. It says nothing about multi-step reliability, which is what this dimension actually measures.
+- **Reasoning: 45/100.** *Revised down from 48.* **No reasoning benchmark exists**, before or after. The previous version inferred a score from capability alone — a 500K window, 128K max output, and reasoning support. That inference is now **weaker, not stronger**, for a specific reason: **the forensic work establishes the GLM-5 *family* while explicitly declining to name the checkpoint**, and the leading hypothesis (55%) is an **unreleased GLM-5.4 Preview for which no benchmark numbers exist anywhere**. So the family match does not license importing GLM-5.2, GLM-5.3 or GLM-5.3-Flash scores — doing so would be exactly the vendor-figure transfer these files are written to avoid — and it leaves this dimension with slightly *less* to reason from than a pure spec inference did. Scored below the dataset's mid-scale band, conservatively.
+- **Context window: 60/100.** *Revised down from 62.* **~500,000 tokens with 128,000 max output**, the methodology's 200K–500K band — still **community- and platform-reported, with OpenCode's own documentation silent on it**. The score falls because of two new negative items rather than a change in the spec: **developer reports of context drift beyond 20 turns**, and the acknowledged fact that **context retention on 100K+ prompts remains untested**. A 500K window with drift at 20 turns and no retrieval measurement at any length is a spec, not a demonstrated capability.
+- **Multimodal: 65/100.** *Unchanged.* **Text and image in; text out** — the methodology's "+image in = 60–70" band, at its midpoint on documented capability only. Unchanged because nothing new arrived: **no vision benchmark exists**, and it is worth noting that **OpenCode's Go documentation does not itself claim image support** — that comes from third-party listings. **No video input is reported for this model**, unlike Ox Alpha.
+- **Coding: 60/100.** *Revised up from 58.* The **23.14 / 40 OpenCode snapshot confirms**, at **#15** in that dated leaderboard with **$0.03 average cost per prompt**. What adds a little is qualitative and consistent across the reporting: rapid multi-turn file edits, a self-healing behaviour the forensic analysis flags as *not* present in base GLM-5.3-Flash, and **180 tokens/s** on the kind of work where iteration speed is the bottleneck. What holds it down is unchanged — **no DeepSWE, SWE-bench, Terminal-Bench, LiveCodeBench, SciCode or Aider figure**, a leaderboard methodology whose grader weights are not published, and a leaderboard rank (#15) that has since decayed alongside the usage curve.
+- **Cost efficiency: 84/100.** *Revised down from 88.* Unchanged rate card at **$0.20 / $0.66** with **$0.04 cached read**, plus TokenRa's advertised 60% discount route at **$0.08 input**; **Vector Wire tracks no price for this model at all**, which is worth noting as a sourcing gap rather than a cost fact. Real-world economics are excellent and now measured: **$0.2186 average per session across 561,336 sessions, with 93.2% of input tokens served from cache** — a cache hit rate most models would envy, and the single clearest argument for this model. The deduction is for the usage trajectory rather than the rate card: **volume at roughly 1% of its early-September peak, with two zero days in late September**, is the signature of a preview being wound down rather than one you should build a pipeline on.
+- **Overall Score: 56/100.** (52 + 45 + 60 + 65 + 60) / 5 = 282 / 5 = 56.4 → **56**, down from 57. **A confidence caveat belongs alongside this number rather than inside it, and it is stronger this pass than last.** Five dimensions rest on **one dated third-party leaderboard snapshot, platform-reported specs, developer reports, and a forensic attribution that explicitly declines to name the checkpoint.** None of that is the model's fault; it is the condition of an unattributed stealth preview. What the record does support is narrow and real: **80,000 developers used this at scale, it cost $0.2186 per session, and 93.2% of its input came from cache.** Best fit: **cheap, fast, high-volume interactive coding inside OpenCode Go on low-risk code** — boilerplate, refactors, test scaffolding, the inner loop of a coding session — where the attribution question does not matter because you can check the output yourself. **Not** a fit for anything you cannot verify quickly, **not** a fit for sessions past ~20 turns, and **not** a fit for long-context work, where the advertised 500K is untested and drift is reported.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
-- Method: public internet research, **second pass, superseding this agent's own earlier 45.4/100 report for the same slug.** Sources: Omen Alpha's own documentation site (`omenalpha.io`) — the benchmarks page for the 23.14/40 OpenCode snapshot with its full methodology disclosure (four projects, five-point rubric, 20-point code-quality component, undisclosed temperature/max-tokens/hardware/concurrency, undisclosed cache ratio) and the three-provider price table; the "What is Omen Alpha?" page for the ~500K context, 128K output, text+image modalities, TokenRa's 60% discount route, OpenCode Go's $10/$100 arrangement and the explicit statement that the GLM lineage is unconfirmed; the "vs Ox Alpha" comparison page for the confirmed-vs-unconfirmed contrast, the 1M-versus-500K context step-down and the absent video input; RankLLMs' forensic write-up for the 95-of-95 GLM-5 tokenizer match, the `zhipu/omen-alpha` route clue, the community probability split and the correct caveat that a shared tokenizer cannot identify a checkpoint; modelbenchmark.io for the 500K/128K and $0.20/$0.66/$0.04 cross-check; and AI Coding Daily as a secondary reference. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. **The scoring-integrity notice at the head of this file governs how much weight each dimension can bear: Reasoning and Tool use are inference-limited rather than measured, and the remaining three are specification-limited.** The GLM attribution is treated throughout as a hypothesis; no GLM-family benchmark number is transferred to this model, and Omen Alpha has no Artificial Analysis record to be compared against.
-- Future sources: add a new file next to this one, e.g. `Omen_Alpha_Recheck.md`, using the same headings. Re-score immediately if **any** of the following appears: an official Z.ai model card confirming the checkpoint, an Artificial Analysis record, a Terminal-Bench or SWE-bench Verified row, or a vendor-published benchmark table. Three of the five quality dimensions here are currently inference rather than measurement, and a single third-party evaluation would make this file trustworthy in a way it is not now.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-13
+- Method: third pass over this agent's own report for this slug (57 → **56**).
+  **Vector Wire returns no usable record** — `Unpriced`, `PRE-RELEASE`, "no comparable
+  benchmark results yet" — so this pass used the platform's own telemetry and the forensic
+  literature.
+  Sources: **OpenCode Data (`opencode.ai/data/unknown/omen-alpha`, JSON refreshed
+  2026-10-13T07:41Z)** — 2.3T tokens, 80K unique users, 561,336 completed sessions, 4M
+  average tokens/session, $0.2186 average cost/session, $122,734 total spend, **93.2% of
+  input tokens served from cache**, 63.5% weekly retention, #34 by tokens last week, and
+  the **daily series showing 241–313B tokens on 09-04 to 09-10 decaying to 2.1B by 09-28,
+  zero on 09-29 and 09-30, and 1.4–2.9B/day since**;
+  **RankLLMs forensic analysis (2026-09-04, updated 2026-09-24)** — the 95-probe
+  tokenizer battery (**GLM-5 family 95/95 exact, Qwen 3.8 62.1%, Kimi K3 54.7%, DeepSeek V4
+  48.4%**), the `zhipu/omen-alpha` gateway path, the GLM self-identification, **~180 t/s
+  against GLM-5.3's ~85 t/s**, the explicit statement that **tokenizer analysis cannot
+  identify the checkpoint**, and the 55/30/12/<3% checkpoint-hypothesis split;
+  **omenalpha.io (snapshot 2026-09-04)** — **23.14/40 OpenCode coding score, #15, $0.03 per
+  prompt, 01:51 per prompt**, four named projects, with grader weights and test assertions
+  unpublished;
+  **modelbenchmark.io** — 500K context / 128K output / released 2026-09-04, opencode-go at
+  $0.20 / $0.66 / $0.04;
+  **Startup Fortune (2026-09-04)**, **Magica (2026-09-04)** and **RankLLMs** for the access
+  model, the absence of any OpenCode-published evaluation, the privacy terms (not used for
+  training, 0-day retention), and the reported **context drift beyond 20 turns**.
+  **Two things deliberately not done, and both matter.** First, **no GLM-5 benchmark figure
+  is transferred to this model**, despite the 95/95 tokenizer match — the analysis itself
+  says the family is identified but the checkpoint is not, and the leading hypothesis is an
+  unreleased checkpoint with no numbers at all. Second, **the #15 leaderboard rank and the
+  #34 usage rank are not conflated** — they measure different things (position on a dated
+  coding leaderboard versus share of platform tokens) and are reported separately.
+  Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor
+  scores, and cost efficiency is reported but excluded from the overall average.
+- Future sources: add a new file next to this one, e.g. `GLM_5_3_Flash.md` or
+  `GLM_5_4_Preview.md`, using the same headings — **if the GLM-5.4 hypothesis is
+  correct, the model will be renamed within weeks** (the Ox Alpha precedent was 2–3 weeks),
+  and `glm-5.3-flash` is a separate model in this dataset with its own record. The gaps
+  most worth closing: **any vendor statement of attribution**, and **a single vision or
+  long-context measurement** — both dimensions currently rest on documentation that the
+  platform itself does not publish.

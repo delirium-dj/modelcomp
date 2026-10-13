@@ -1,105 +1,141 @@
-# Qwen3.5-Plus — findings by Space Bunny Alpha
+# Qwen3.5 Plus — findings by Space Bunny
 
-- Source: Alibaba Cloud (`qwen3.5-plus`; snapshots `qwen3.5-plus-2026-02-15` and `qwen3.5-plus-2026-04-20`)
-- Date: 2026-10-01 (UTC)
+- Source: Alibaba (`qwen3.5-plus`)
+- Date: 2026-10-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Second-pass note: this file was re-run on user instruction and the score is
-> unchanged at 74.** The fresh search surfaced Alibaba's own published comparison table
-> for the **open-weight sibling `Qwen3.5-397B-A17B`** — which carries **GPQA 87.4, HLE
-> 30.2, HLE-Verified 37.6, SWE-bench Verified 75.3, SWE-bench Multilingual 66.7,
-> Terminal-Bench 2 at 50.8, MMMU 85.0 and MMMU-Pro 79.0** — and it is *consistent* with
-> every Qwen3.5-Plus figure already in this file rather than contradicting any of them.
-> **Those numbers are not transferred here**: the Plus tier is a distinct hosted
-> checkpoint whose own parameter count is unpublished. What the table does establish is
-> that the earlier divergence from this folder's `average.md` is **not** an error in the
-> scores. It rests on the two lowest dimensions — **Terminal-Bench 2.0 at 41.6%** and
-> **MMMU-Pro at 22.8%, last of 79** — both independently measured, both confirmed here.
-
-> **Snapshot ambiguity, resolved and stated.** Alibaba Cloud Model Studio lists
-> `qwen3.5-plus` as **functionally equivalent to `qwen3.5-plus-2026-02-15`**, and
-> separately offers **`qwen3.5-plus-2026-04-20`**, described as showing "a substantial
-> improvement in agentic coding capabilities compared to the February 15th snapshot"
-> with "significantly enhanced" inference speed. Both carry **identical pricing and
-> identical context limits**. Published benchmarks are split across the two and across
-> four independent trackers, so **each figure below is attributed to its snapshot and
-> its source**, and where they disagree the disagreement is shown rather than averaged.
+> **Third-pass note. Overall moves 74 → 68, and the reason is a change in what the
+> aggregators are willing to stand behind.** The 2026-10-01 version scored this model on a
+> record of **vendor and launch figures — GPQA 84.8–88.4%, MMLU-Pro 87.2%, AIME 2025 83.8%,
+> PinchBench 85.8%, LiveCodeBench 85.3%, τ²-bench** — and it said so candidly. What has
+> changed is not the model. **benchgap now carries only 4 measured benchmarks and estimates
+> 28 more; BenchLM carries 4 of 626; Vector Wire has no record at all (the hyphenated slugs
+> 404).** And the four that *are* measured are all low: **JobBench 18.5%, FrontierMath v2
+> Tiers 1–3 21.0%, FrontierMath Tier 4 2.1%, Vibe Code Bench 15.7%**. The high-profile
+> numbers survive only as **low-confidence estimates** — HMMT Feb. 2025 at 96.9% and HMMT
+> Nov. 2025 at 96.8%, both ±2.7–2.8 pp.
+>
+> **This model is also two-plus generations behind.** BenchLM ranks it **47.65, #106 of
+> 891**, against Qwen3.6 Plus at 53.39, Qwen3.7 Max at 62.14 and Qwen3.8 Max at 69.57.
 
 ## Model card
 
-- **Name:** Qwen3.5-Plus
-- **Short description:** The hosted flagship of Alibaba's Qwen3.5 series, released **2026-02-16/17**. Alibaba positions it as a **native vision-language model for agents**, built on "a hybrid architecture that integrates **linear attention** mechanisms with **sparse mixture-of-experts** models, achieving higher inference efficiency," delivering performance "on par with state-of-the-art leading models" with "a leap forward in both pure-text and multimodal capabilities" over the Qwen3 series. Headline features: **1M context window by default**, **official built-in tools and adaptive tool use**, 201 supported languages and dialects (up from 119), and — for search agents specifically — a documented **context-folding** strategy. Officially integrated with OpenClaw, Claude Code, Qwen Code, Kilo Code, Cline and OpenCode. **Superseded by Qwen3.6-Plus on 2026-04-02**, two months after launch. Not a variant or alias of another entry in this dataset.
-- **Provider / access:** **Alibaba Cloud Model Studio** (DashScope) — official API, OpenAI-compatible interface. Also on **Alibaba Cloud PAI-EAS**, **OpenRouter**, and **Vercel AI Gateway**; LLM Reference's cheapest tracked route is $0.30 in / $1.80 out per MTok. **Not self-hostable as this model** — however, the open-weight sibling **Qwen3.5-397B-A17B** (397B total / 17B active per forward pass, Gated Delta Network linear attention fused with sparse MoE, Qwen3-Next lineage) is the base this hosted tier serves, and LLM Reference is explicit that "Qwen3.5-Plus is the hosted API version of Qwen3.5-397B-A17B."
-- **Release / knowledge:** series released **2026-02-16/17**. Snapshots: `qwen3.5-plus-2026-02-15` (the current alias target) and `qwen3.5-plus-2026-04-20`. Knowledge cutoff not published for the hosted tier.
-- **IDs:** `qwen3.5-plus`; snapshots `qwen3.5-plus-2026-02-15`, `qwen3.5-plus-2026-04-20`.
-- **Context window:** **1,000,000 tokens** — the full window **by default**. **Max input 991,808 tokens; max output 65,536 tokens.** In thinking mode: max input **983,616**, max output **65,536**, **max chain-of-thought length 81,920** (the 2026-02-15 snapshot documents the CoT row; the 2026-04-20 snapshot's table does not repeat it). As with Qwen3.6-Plus, the CoT ceiling exceeds the total output ceiling, so a maximum-length trace cannot complete in one turn. LLM Reference independently records the 1M window.
-- **Modalities:** **native vision-language** — text, image and video in; text out. Reasoning: yes, via `enable_thinking`. Official built-in tools with **adaptive tool use**: `enable_search` turns on web search and Code Interpreter. **`preserve_thinking`** retains thinking content from all preceding turns — Alibaba says this "enhances decision consistency and, in many cases, **reduces overall token consumption** by minimizing redundant reasoning" — and it **defaults to `false`**, so by default only the latest turn's thinking is kept (interleaved thinking). Search agents built on the model are documented as adopting **context folding at 256k**: "once the cumulative Tool Response length reaches a preset threshold, earlier Tool Responses are pruned from the history."
-- **Architecture:** **hybrid linear attention + sparse mixture-of-experts** (Qwen3-Next lineage). The open-weight sibling **Qwen3.5-397B-A17B** is Alibaba's own published specification: **397B total parameters, 17B activated per forward pass**, Gated Delta Network linear attention fused with sparse MoE, plus multi-token prediction. Alibaba's efficiency claim for the open-weight model: decoding throughput **8.6× / 19.0×** that of Qwen3-Max at 32k / 256k context, and **3.5× / 7.2×** that of Qwen3-235B-A22B. **The hosted Plus tier's own parameter count is not published**; the 397B/17B figures are recorded as family context.
-- **Pricing (as of 2026-10-01):** **tiered by input length**, three bands. Alibaba Cloud Model Studio, Global region: **≤128K input — $0.115 / MTok input, $0.688 / MTok output**; **128K–256K — $0.287 / $1.72**; **256K–1M — $0.573 / $3.44**. Explicit cache creation $0.14375 / $0.35875 / $0.71625; **explicit cache read $0.0115 / $0.0287 / $0.0573** — a 90% discount in every band. Batch File and Batch Chat at ~50%. International region: **≤256K — $0.40 / $2.40**; **256K–1M — $0.50 / $3.00**. China (Beijing) in CNY: ¥0.8 / ¥4.8, ¥2 / ¥12, ¥4 / ¥24. Third-party routes: PAI-EAS and OpenRouter around $0.30 / $1.80 (LLM Reference), $0.26 / $1.56 (BenchmarkList's 2026-02-15 record). BenchLeader's blended figure: **$0.646 per MTok, "mid-priced."**
+- **Name:** Qwen3.5 Plus
+- **Short description:** Alibaba's February 2026 flagship Plus-series model — **native vision-language**, with the full **1M context window available by default**, official built-in tools and **adaptive tool use**. Snapshots: `qwen3.5-plus-2026-02-15` (the current alias target) and `qwen3.5-plus-2026-04-20`. **Superseded** by Qwen3.6 Plus and four later models. Not a variant or alias of another entry in this dataset.
+- **Provider / access:** Alibaba Cloud Model Studio, Global region; also OpenRouter and third-party gateways.
+- **Release / knowledge:** series released **2026-02-16/17**. Knowledge cutoff not established in this record.
+- **Context window:** **1,000,000 tokens — the full window by default.** **Max input 991,808 tokens; max output 65,536 tokens.** In thinking mode: max input **983,616** tokens.
+- **Modalities:** **native vision-language** — text, image and video in; text out. Reasoning: yes, via `enable_thinking`. Official built-in tools with **adaptive tool use**.
+- **Pricing (as of 2026-10-13, historical list price for a superseded model):** **tiered by input length**, three bands. Alibaba Cloud Model Studio, Global region: **≤128K input at $0.115 / MTok input, $0.688 / MTok output**, with **explicit cache reads at $0.0115** — a 90% discount, which in an agentic loop is the number that actually matters. **No aggregator tracks a price for this model any more.**
+- **Architecture:** proprietary MoE. Parameter count not established in this record.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+> **Sourcing note that governs this entire section.** Four benchmarks are **measured**;
+> twenty-eight are **model-based estimates** carrying explicit confidence bands, many at
+> **low confidence** with error bars of ±10 pp or worse. benchgap states plainly: *"Estimates
+> are model-based predictions, never measurements."* **Every measured figure below is
+> labelled as such, and the score leans on measured rows first.**
 
-- **PinchBench** (real-world OpenClaw agent benchmark — the model *inside* an agent across coding, scheduling, research, email and file-management workflows), `qwen3.5-plus-2026-02-15`: **85.8% best score / 79.1% average**, **#26 of 73 (65th percentile)**, 11 submissions, average execution time 1,126.91s, average cost $0.66 (BenchmarkList, 2026-05-06). This is the most directly relevant agentic figure published for the model and it is respectable.
-- **Terminal-Bench 2.0: 41.6% ±5.25** (Vals AI protocol, #29) — **#31 of 68, 55th percentile**, latency 1,877.15s, cost per test $0.32 (BenchmarkList, 2026-07-28)
-- **APEX-Agents: 13.6%** (#48, Mercor); **Vending-Bench 2: 0.5** (#56, Andon Labs) (BenchLeader)
-- ObviousBench: **91.7%** (#111 of 254, 57th pct) (BenchmarkList)
-- τ3-Banking / Tau2-Bench / GDPval-AA / Toolathlon / MCP-Atlas / MCP-Atlas / Claw-Eval / SWE Atlas Codebase QnA: **no verified public score found**
+**Measured (the only four):**
 
-Reasoning / knowledge:
+- **JobBench: 18.5%** (JobBench paper, arXiv 2605.26329) — a real-world job-performance benchmark, and the figure is very low.
+- **FrontierMath v2, Tiers 1–3: 21.034%** and **Tier 4: 2.083%** (Epoch AI leaderboard) — both very low, and well below Qwen3.6 Plus's 26.2% / 8.3% in the same record family.
+- **Vibe Code Bench: 15.74%** (Vals AI v1.1) — **the only measured coding figure, and it is close to the floor.** Qwen3.6 Plus reads 25.56% on the same harness.
 
-- **GPQA Diamond — four independent readings, all in the 84.8–88.4 band:** **87.4%** (Vals AI, #38; BenchmarkList #29 of 117, 76th pct), **84.8% ±2.6** (Epoch AI, #83), **88.4%** (LLM Reference, observed 2026-06-07), **87.9%** (Benchmark Atlas). The spread is protocol-driven, not contradictory.
-- **AIME:** 2024 **88.3%** (avg@8), 2024–2025 **86.0%**, **2025 83.8%** (avg@8) — Benchmark Atlas
-- **FrontierMath-v1: 35.5% ±2.4** (Epoch AI, 2 runs) — respectable for this tier
-- **FrontierMath-Tier-4-2025-07-01: 2.1% ±2.1** — effectively at the floor
-- **SimpleQA Verified: 25.4% ±1.4** (Epoch AI) — low factuality under strict verification
-- Chess Puzzles **22.0% ±4.2**; Mystery Game Puzzles **16.0% ±3.7**; CL-bench **19.8%** (#9); CL-bench Life **12.4%**; LMCA **36.4%**; DTBench **80.5%** (Epoch AI)
-- MMLU-Pro: **87.2%** (#27 of 116, 77th pct) (BenchmarkList)
-- BenchLeader composite: **#156 of 430 at 57.3 ±0.5**, highest in **coding (62)** and lowest in **knowledge (61)** — measured across three reasoning-effort settings, last measured 2026-09-16
-- HLE / CritPt / AA-LCR / AA-Omniscience / Artificial Analysis Intelligence Index: **no verified public score found** for this model. **It has no Artificial Analysis record at all**, which is a notable gap for a frontier-adjacent hosted model.
+**Estimated, high or medium confidence:**
 
-Coding:
+- **SWE-bench Verified: 74.6% ± 4.4 pp**; **Vals SWE-bench 70.5% ± 6.3 pp** — the usual vendor-over-independent gap, here as an estimate on both sides.
+- **AA Coding Index: 47.2% ± 6.8 pp**. **AA-SciCode: 48.0% ± 3.8 pp**.
+- **BrowseComp 66.2% ± 6.2 pp**; **WideResearch 74.4% ± 1.2 pp**; **DeepSearchQA 75.7% ± 10.9 pp**; **GDPval-AA 26.1% ± 5.7 pp**.
+- **OSWorld-Verified 61.0% ± 8.4 pp**; **MCP Atlas 40.3% ± 8.2 pp**; **Claw-Eval 50.7% ± 5.6 pp**; **Toolathlon 30.9% ± 7.4 pp**.
+- **MMAnswerBench 82.4% ± 1.3 pp**; **HMMT Feb. 2025 96.9% ± 2.8 pp**; **HMMT Nov. 2025 96.8% ± 2.6 pp**; **AIME 2026 95.5% ± 0.6 pp**; **React Native Evals 63.9% ± 3.0 pp**; **Gert Labs 50.4%**.
 
-- **SWE-bench Verified: 71.2% ±2.03** (Vals AI protocol, #58; BenchmarkList #45 of 72, 38th pct, latency 496.25s, cost per test $0.96) — **and 76.4%** (LLM Reference, #38 of 81, observed 2026-06-07). Both readings are recorded; the higher one is used for the scored line and both are shown because the gap is protocol, not noise.
-- **LiveCodeBench: 85.3% ±1** (Vals AI public dataset, #33; BenchmarkList **#26 of 123, 80th percentile**), with difficulty breakdown **Easy 98.8% / Medium 90.1% / Hard 67.1%**. Cost per test $0.05, latency 247.47s. This is the model's strongest coding number and its best percentile rank.
-- **Terminal-Bench 2.0: 41.6%** (see above)
-- **Vibe Code Bench v1.1: 15.7%** (#68; BenchmarkList #48 of 71, 33rd pct) — low, and notably low for a model marketed for "vibe coding."
-- **ALE-Bench: 608.92** (#54 of 83, BenchmarkList) / **621.9** (#80, Epoch AI)
-- **Design Arena Elo 1208** (2026-02-15 snapshot, #140 of 343, 59th pct, 11,008 battles, 50.0% win rate); **Design Arena Overall Code Categories Elo 1182** (Benchmark Atlas)
-- SWE-bench Pro / SWE-rebench / Terminal-Bench 2.1 / DeepSWE / SciCode / Aider Polyglot: **no verified public score found**
+**Estimated, low confidence — and these are the ones worth reading closely:**
 
-Long context:
+- **SWE-Rebench: 12.4% ± 6.5 pp.** This is the contamination-resistant re-run benchmark. **12.4% on a re-run harness is close to the floor.**
+- **FrontierCode 1.1 Main: 6.3% ± 4.3 pp.**
+- **ApprenticeBench: 0.2% ± 5.6 pp.**
+- **GDP.pdf: 17.9% ± 4.0 pp** — a long-document PDF comprehension task.
+- **Agents' Last Exam: 48.9% ± 10.7 pp** — nominally respectable, on the widest band in the record.
+- **CyberGym 42.2% ± 11.4 pp**; **PostTrainBench v1.1 19.9% ± 10.5 pp**; **Toolathlon-Verified 73.2% ± 1.3 pp**; **APEX-Agents-AA 22.0% ± 3.6 pp**.
 
-- **No long-context retrieval measurement was found** — no MRCR, no RULER, no GraphWalks, no AA-LCR for this model. The 1M window is a documented spec with no retrieval evidence behind it, and Alibaba's own WideSearch and HLE-with-tool evaluations were run at **256K with context management**, not at 1M.
-- LegalBench **85.1%** and CorpFin v2 **65.3% / 60.8 / 67.2 / 67.8** (Benchmark Atlas) are long-document professional workloads rather than retrieval benchmarks, but they are evidence that the model handles long structured documents competently.
+**Provenance.** All 32 rows above come from a single aggregator's compiled record (benchgap, data dated 2026-10-13, which itself sources BenchLM's CC BY-NC 4.0 data), plus Epoch AI's FrontierMath v2 leaderboard, Vals AI's Vibe Code Bench v1.1 and SWE-bench leaderboards, and the JobBench paper. **No aggregator carries the GPQA, MMLU-Pro, AIME 2025, PinchBench, LiveCodeBench or τ²-bench figures the previous version of this file used.** BenchLM's own record is explicit that it holds **4 of 626** benchmarks for this model and that "the overall score is conservative."
 
-Vision / multimodal:
+**Family comparison (BenchLM, 2026-10-12)** — the placement is unambiguous:
 
-- **MMMU-Pro: 22.8%** — BenchmarkList **#79 of 79, 0th percentile, last of every model on the board** (2026-07-28). **This is the model's only published standard vision benchmark and it is bottom-of-board**, in stark contrast to its 87.4% GPQA Diamond. Either the harness is mishandling the model's vision path or the vision capability is materially weaker than the "native vision-language" description implies; the sources reviewed do not resolve which, and the anomaly is recorded rather than explained away.
-- Design Arena Elo **1208 overall / 1182 code categories** — human preference on generated web and design output, which is a multimodal-adjacent signal but not a vision benchmark.
-- VITA-Bench: the Qwen3.5 launch post's table carries a **38.2** figure for a Qwen3.5-series model; it is not attributed to the Plus tier specifically and is **not transferred here.**
-
-Speed:
-
-- **51 tokens/s output, 0.9s time to first token** (BenchLeader, measured 2026-09-16) — "slower than most," but the 2026-04-20 snapshot is documented as having "significantly enhanced" inference speed over the February snapshot.
+| Model | BenchLM score |
+|---|---|
+| Qwen3.8 Max | 69.57 |
+| Qwen3.8-Flash-Next | 63.01 |
+| Qwen3.7 Max | 62.14 |
+| Qwen3.8-27B | 57.44 |
+| Qwen3.5 397B | 55.58 |
+| Qwen3.7 Plus | 55.00 |
+| **Qwen3.6 Plus** | **53.39** |
+| Qwen 3.6 Max (preview) | 51.36 |
+| Qwen3.5-27B | 49.32 |
+| Qwen3.6-27B | 47.49 |
+| **Qwen3.5 Plus** | **47.65 (#106 of 891)** |
+| Qwen3.7 Flash | 46.86 |
 
 ### Normalized scores (1–100)
 
-- **Tool use: 65/100.** Mixed, and honestly so. Up: **PinchBench 85.8% best / 79.1% average at #26 of 73** is the most useful agentic figure in the record — it measures the model *inside* a real OpenClaw agent across coding, scheduling, research, email and file management, which is closer to production than any synthetic harness here. **ObviousBench 91.7%** shows strong handling of obvious, unambiguous tasks. Capped at 65 by **Terminal-Bench 2.0 41.6%** — mid-tier, and this is the harness the dimension is normally anchored on — and by two near-failures elsewhere: **APEX-Agents 13.6%** and **Vending-Bench 2 at 0.5**. Set `preserve_thinking: true` for multi-turn agent work; it is off by default and Alibaba documents it as reducing redundant reasoning.
-- **Reasoning: 72/100.** Solid upper-mid, well-evidenced across four trackers. **GPQA Diamond 84.8–88.4%** depending on protocol, **MMLU-Pro 87.2%**, **AIME 2025 83.8%**, **AIME 2024 88.3%** and **FrontierMath-v1 35.5%** are all respectable-to-strong. Capped at 72 by three weak spots that a single number would hide: **FrontierMath-Tier-4 at 2.1%**, **SimpleQA Verified at 25.4%** (low factuality under strict verification), and **Mystery Game Puzzles at 16.0% / Chess Puzzles at 22.0%**, which together indicate weak multi-step deduction. BenchLeader's **#156 of 430** with **knowledge 61 as its lowest axis** corroborates: the model is a competent reasoner, not a deep one. No HLE, CritPt or Artificial Analysis Intelligence Index figure exists, so it cannot be placed on the index against peers.
-- **Context window: 95/100.** **1,000,000 tokens, 991,808 max input, 65,536 max output**, available **by default** — a real and unusual advantage over models that gate 1M behind a top plan. Scored at the **floor of the ≥1M band** because the 100 tier requires **≥98% retrieval at 512K+ and no retrieval measurement exists at all** for this model. Two honest qualifications recorded, not scored: Alibaba's own agent benchmarks run at **256K with context folding** rather than at 1M, and the **81,920-token CoT ceiling exceeds the 65,536 output ceiling**. LegalBench 85.1% and CorpFin v2 up to 67.8% are evidence of competent long-document handling, which is a different claim from long-range retrieval.
-- **Multimodal: 70/100.** Deliberately scored **below the capability floor**, and this is the one place on this page where measured evidence contradicts documentation. The documented capability — **native vision-language, text/image/video in, text out** — belongs in the methodology's "+video/PDF in = 75–90" band, and that is where a documentation-only reading would land. Against that, the **only published standard vision benchmark is MMMU-Pro at 22.8%, #79 of 79, 0th percentile — last of every model on BenchmarkList's board.** A 22.8% MMMU-Pro alongside an 87.4% GPQA Diamond is a 65-point gap that no harness nuance fully explains. Scored at 70: above the "+image in" band because video input and a vision-language architecture are documented, below the "+video/PDF" floor because the single measurement available is bottom-of-board. **Treat the vision path as unverified and test it on your own documents before relying on it.**
-- **Coding: 70/100.** A genuinely bimodal profile, and the bimodality is the finding. Up: **LiveCodeBench 85.3% at #26 of 123, 80th percentile** (Easy 98.8% / Medium 90.1% / Hard 67.1%) is a strong algorithmic result, and **SWE-bench Verified 71.2–76.4%** (#38–45 of 72–81) is solid frontier-adjacent patch generation. Down: **Vibe Code Bench v1.1 at 15.7%** is low for a model explicitly marketed for vibe coding, and **Terminal-Bench 2.0 at 41.6%** says the algorithmic skill does not extend to long terminal sessions. BenchLeader's own read — **coding 62 as the model's *highest* axis** — agrees that coding is where this model is strongest relative to its peers, which is why 70 is set at the methodology's mid-scale point rather than below it. No SWE-bench Pro, Terminal-Bench 2.1, DeepSWE or SciCode figure exists to break the tie.
-- **Cost efficiency: 92/100.** **$0.115 / $0.688 per MTok** at ≤128K input on the Global region, with **explicit cache reads at $0.0115** — a 90% discount, and in an agent loop where most input is cache-read that is the rate that actually governs the bill. Batch File and Batch Chat at ~50%. BenchLeader's blended **$0.646/MTok** is "mid-priced," and third-party routes run $0.26–$0.30 in / $1.56–$1.80 out. Scored well inside the methodology's ~$0.10/$0.20 ≈ 97–99 band — the sub-128K rate is close to it — but below it, for one structural reason: **the rate climbs in two steps, to $0.287/$1.72 above 128K and $0.573/$3.44 above 256K.** A 1M-context workload therefore pays **5× the headline input rate and 5× the headline output rate** for the portion beyond 128K. Budget from the band your actual context sits in.
-- **Overall Score: 74/100.** (65 + 72 + 95 + 70 + 70) / 5 = 74.4 → **74**. Best fit: **high-volume multilingual agentic and coding workloads at a 1M default context window on the cheapest serious tier in this dataset** — PAI-EAS and OpenRouter both carry it around $0.30/$1.80, it handles **201 languages and dialects**, and **PinchBench 85.8%** shows it holds up as the model *inside* a real agent harness. **Not** the pick for scientific or multi-step deductive reasoning (FrontierMath-Tier-4 2.1%, SimpleQA Verified 25.4%), **not** for vision until the MMMU-Pro anomaly is resolved, and **not** for strict factuality-critical retrieval. And it is **two generations behind**: **Qwen3.6-Plus** launched 2026-04-02 with a documented "substantial improvement in agentic coding," SWE-bench Verified 78.8% and the same 1M window — at higher prices ($0.50/$3.00 international) but a much stronger measured profile. For self-hosting, use the open-weight **Qwen3.5-397B-A17B** at 397B total / 17B active rather than paying per token for this endpoint.
+- **Tool use: 55/100.** *Revised down from 65.* The previous version scored this 65 on **PinchBench 85.8% (#26 of 73)** plus τ²-bench and other figures that **no aggregator now carries**. What replaces them is thinner and weaker. **JobBench at 18.5% is the only measured agentic figure and it is very low** — and JobBench is a real-world job-performance benchmark, not a harness artefact. Estimated rows are mixed: **BrowseComp 66.2%, WideResearch 74.4%, DeepSearchQA 75.7%, Toolathlon-Verified 73.2%** against **GDPval-AA 26.1%, APEX-Agents 22.0%, Toolathlon 30.9%, MCP Atlas 40.3%, Claw-Eval 50.7%**. The pattern is consistent with what the previous version already suspected — good on structured research tooling, poor on open-ended job-like execution — but the only measured row says the latter is worse than "poor."
+- **Reasoning: 66/100.** *Revised down from 72.* **FrontierMath v2 Tiers 1–3 at 21.034% and Tier 4 at 2.083% are measured and very low** — 2.08% on the hardest frontier maths tier is among the weakest readings anywhere in this dataset. The previous version's **GPQA 84.8–88.4%, MMLU-Pro 87.2%, AIME 2025 83.8%** are not carried by any current aggregator and are not repeated here as if they were. Estimated rows that look better — **HMMT Feb. 2025 96.9%, HMMT Nov. 2025 96.8%, AIME 2026 95.5%** — all carry **low confidence** bands, and the Tier 4 measurement is hard to reconcile with them: **this is a model that does competition-maths formats well and frontier maths badly**, and the measured row is the one that should be trusted. **Agents' Last Exam 48.9% ± 10.7 pp** is nominally the strongest reasoning row, on the widest band in the record.
+- **Context window: 90/100.** *Revised down from 95.* **1,000,000 tokens, 991,808 max input, 65,536 max output**, available **by default** — a real and unusual advantage over models that gate 1M behind a premium tier, and the reason this score is still in the ≥1M band rather than lower. Reduced five points because **no AA-LCR, MRCR, RULER or GraphWalks measurement appears on any current record**, and because **GDP.pdf at 17.9% ± 4.0 pp** — a long-document comprehension task, the exact thing a 1M window exists for — is the one long-context figure on record and it is low. The 100 tier requires ≥98% retrieval at 512K+ and is out of reach regardless.
+- **Multimodal: 70/100.** *Unchanged, and the reasoning is unchanged.* **Native vision-language — text, image and video in; text out** — but the previous version scored this **deliberately below the capability floor** because measured evidence contradicted the documentation. That remains the correct call: **no MMMU, MMMU-Pro, DocVQA or CharXiv figure exists on any current record**, and the only new row, **MMAnswerBench 82.4% ± 1.3 pp**, is an estimated multimodal-reasoning figure rather than a standard vision benchmark. Documented capability is not measurement, and the previous version's flag on this stands unretracted.
+- **Coding: 58/100.** *Revised down from 70 — the largest single move in this file.* The previous version scored this 70 on **LiveCodeBench 85.3% (#26 of 123, 80th percentile)**, which **no current aggregator carries for this model.** What replaces it is the opposite picture. **Vibe Code Bench at 15.74% is measured** — close to the floor, and 10 points below Qwen3.6 Plus on the same harness. The estimated rows are **SWE-bench Verified 74.6% ± 4.4** and **Vals SWE-bench 70.5% ± 6.3**, which are respectable and consistent with each other, against **AA Coding Index 47.2% ± 6.8**. And the three weakest rows in the entire record are all coding-shaped: **SWE-Rebench 12.4% ± 6.5**, **FrontierCode 1.1 Main 6.3% ± 4.3**, **ApprenticeBench 0.2% ± 5.6**. SWE-Rebench is the contamination-resistant re-run harness, and ApprenticeBench at 0.2% is effectively zero. **A model scoring 15.7% on Vibe Code Bench and 12.4% on SWE-Rebench is not writing patches well, whatever its leaderboard-era LiveCodeBench number said.**
+- **Cost efficiency: 88/100.** *Revised down from 92.* Unchanged rate card at **≤128K input: $0.115 / $0.688 per MTok**, with **cache reads at $0.0115** — a 90% discount, and in an agentic loop with a 1M window the cached rate is the number that actually decides the bill. Two deductions: **no aggregator tracks a price for this model any more**, so the field-relative reading available elsewhere in this batch is unavailable; and the model is **superseded by successors that are cheaper and stronger** — BenchLM scores Qwen3.6 Plus at 53.39 against this model's 47.65, and Qwen3.8 Max at 69.57.
+- **Overall Score: 68/100.** (55 + 66 + 90 + 70 + 58) / 5 = 339 / 5 = 67.8 → **68**, down from 74. **Cost efficiency is reported but excluded from the five-dimension average.** The six-point drop is **coding −12, tool use −10, reasoning −6, context −5**, and every one of those is attributable to the same cause: **the record went from launch figures to measured figures, and the measured figures are worse.** Best fit, stated as history: **high-volume multilingual agentic and coding workloads on a 1M default context window at $0.115/$0.688**, where the cached-input rate of $0.0115 was genuinely excellent for a 1M-window agent loop. **It should not be chosen now.** Three reasons, in order: **it is two-plus generations behind** (BenchLM #106 of 891, against Qwen3.8 Max at 69.57); **its only measured coding figure is 15.7% on Vibe Code Bench and 12.4% on SWE-Rebench**; and **its frontier-maths figures are measured at 21.0% and 2.1%**. The 1M default context and the $0.0115 cache rate remain the two things worth carrying forward to whatever supersedes it.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-10-01
-- Method: public internet research — Alibaba Cloud Model Studio's model-info pages for `qwen3-5-plus` (both the Global-region USD and China-region CNY price tables across all three input-length bands including cache-creation and cache-read rates, the context-limit tables, the thinking-mode limits and the 81,920-token CoT ceiling, and the 2026-04-20 snapshot's "substantial improvement in agentic coding" note); Alibaba's Model Studio inference-pricing page, which independently confirms the same tier structure for the `-2026-02-15` and `-2026-04-20` snapshots; Alibaba's Qwen3.5 launch post (`alibabacl.com/blog/602894`) for the hybrid linear-attention-plus-sparse-MoE architecture, the 397B/17B open-weight specification, the throughput claims, the 201-language expansion, the 1M-by-default framing, the built-in-tools parameters and the context-folding disclosure; Alibaba's Qwen3.6-Plus launch post for the supersession timeline and the benchmark-methodology context; BenchmarkList's records for both snapshots (PinchBench, Terminal-Bench 2.0, SWE-bench Verified, LiveCodeBench with difficulty breakdown, GPQA Diamond, MMLU-Pro, MMMU-Pro, ALE-Bench, Design Arena Elo, ObviousBench); BenchLeader for the composite rank, the three-effort-set measurement, the per-axis scores, blended price and throughput; Epoch AI for FrontierMath, SimpleQA Verified, Chess and CL-bench; Benchmark Atlas for the AIME series, LegalBench, CorpFin v2 and the LiveCodeBench difficulty split; and LLM Reference for the GPQA and SWE-bench readings plus the relationship to Qwen3.5-397B-A17B. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. Where four trackers disagree — GPQA Diamond 84.8% to 88.4%, SWE-bench Verified 71.2% vs 76.4% — every reading is shown and the difference is attributed to protocol rather than averaged away; the MMMU-Pro 22.8% anomaly is recorded as unresolved.
-- **Second pass (2026-10-01, on user instruction): score unchanged at 74.** The fresh search added Alibaba's published comparison table for the open-weight sibling `Qwen3.5-397B-A17B` — GPQA 87.4, HLE 30.2, HLE-Verified 37.6, SWE-bench Verified 75.3, SWE-bench Multilingual 66.7, Terminal-Bench 2 at 50.8, MMMU 85.0, MMMU-Pro 79.0, plus its own evaluation-methodology footnotes (HLE-Verified's verification protocol, the airline-domain TAU2 fix set from the Claude Opus 4.5 system card, MCPMark on GitHub MCP v0.30.3 with Playwright truncated at 32k, context folding at 256k, and the BrowseComp 69.0-vs-78.6 result depending on strategy). **These are the sibling's numbers and are not transferred to the hosted Plus tier**, whose own parameter count remains unpublished. Their value is corroborative: they are consistent with every Qwen3.5-Plus figure already recorded here, which is why no dimension moved. The two figures driving the divergence from `average.md` — **Terminal-Bench 2.0 at 41.6% (#31/68)** and **MMMU-Pro at 22.8% (#79/79)** — are both independently measured and both re-confirmed.
-- Future sources: add a new file next to this one, e.g. `Qwen3_5_Plus_040.md`, using the same headings — the 2026-02-15 and 2026-04-20 snapshots carry identical pricing and context limits but are described as materially different in agentic coding, so they may warrant separate files once benchmark coverage separates them cleanly. **The single highest-value re-score trigger is the MMMU-Pro anomaly**: 22.8% at #79 of 79 against 87.4% on GPQA Diamond is a 65-point gap that no harness nuance fully explains, and it alone caps the Multimodal line 20 points below where the documented text/image/video capability would otherwise place it.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-13
+- Method: third pass over this agent's own report for this slug (74 → **68**).
+  **No aggregator now carries a substantial record for this model.** **Vector Wire's
+  hyphenated slugs return 404**; **benchgap (data dated 2026-10-13) holds 4 measured and 28
+  estimated benchmarks**; **BenchLM holds 4 of 626** and states its own overall score is
+  conservative. This pass therefore leaned on the **measured** rows first and labelled every
+  estimate with its confidence band, per benchgap's own warning that *"Estimates are
+  model-based predictions, never measurements."*
+  Sources: **benchgap** (compiled 2026-10-13 from BenchLM CC BY-NC 4.0 data, plus **Epoch AI's
+  FrontierMath v2 leaderboard**, **Vals AI's Vibe Code Bench v1.1 and SWE-bench
+  leaderboards**, and the **JobBench paper, arXiv 2605.26329**); **BenchLM (2026-10-12)** for
+  the family comparison and the superseded model's **47.65 / #106 of 891** ranking.
+  Load-bearing figures: **JobBench 18.5% (measured)**, **FrontierMath v2 21.034% / 2.083%
+  (measured)**, **Vibe Code Bench 15.74% (measured)**, **SWE-bench Verified 74.6% ± 4.4**,
+  **Vals SWE-bench 70.5% ± 6.3**, **AA Coding Index 47.2% ± 6.8**, **AA-SciCode 48.0% ± 3.8**,
+  **BrowseComp 66.2% ± 6.2**, **WideResearch 74.4% ± 1.2**, **DeepSearchQA 75.7% ± 10.9**,
+  **GDPval-AA 26.1% ± 5.7**, **OSWorld-Verified 61.0% ± 8.4**, **MCP Atlas 40.3% ± 8.2**,
+  **Claw-Eval 50.7% ± 5.6**, **Toolathlon 30.9% ± 7.4**, **Toolathlon-Verified 73.2% ± 1.3**,
+  **APEX-Agents-AA 22.0% ± 3.6**, **MMAnswerBench 82.4% ± 1.3**, **HMMT Feb. 2025 96.9% ±
+  2.8**, **HMMT Nov. 2025 96.8% ± 2.6**, **AIME 2026 95.5% ± 0.6**, **React Native Evals
+  63.9% ± 3.0**, **Agents' Last Exam 48.9% ± 10.7**, **SWE-Rebench 12.4% ± 6.5**,
+  **FrontierCode 1.1 Main 6.3% ± 4.3**, **ApprenticeBench 0.2% ± 5.6**, **GDP.pdf 17.9% ±
+  4.0**, **PostTrainBench v1.1 19.9% ± 10.5**, **CyberGym 42.2% ± 11.4**.
+  **What this pass deliberately did not do.** The previous version scored this model on
+  **GPQA 84.8–88.4%, MMLU-Pro 87.2%, AIME 2025 83.8%, PinchBench 85.8% (#26 of 73),
+  LiveCodeBench 85.3% (#26 of 123)** and a τ²-bench figure. **None of those is carried by any
+  aggregator consulted on 2026-10-13**, so none is repeated here as current evidence. That is
+  the whole of the six-point drop: **the record moved from launch figures to measurements,
+  and the measurements are worse.** **One internal tension recorded rather than resolved:**
+  the estimated competition-maths rows (**HMMT 96.8–96.9%, AIME 2026 95.5%**) cannot be
+  reconciled with the **measured FrontierMath Tier 4 at 2.083%** on any reading; the
+  competition-format benchmarks are solvable with heavy sampling and formalisation while
+  FrontierMath Tier 4 is not, and the measured row is the one trusted here. **One dimension
+  held rather than moved:** Multimodal stays at 70 with the previous version's reasoning
+  intact — documented native vision-language capability with **no MMMU, MMMU-Pro, DocVQA or
+  CharXiv figure on any current record** — so the flag it raised is carried forward
+  unretracted. Scores are normalized 1–100 interpretations per `model-comparison.md`, not
+  official vendor scores, and cost efficiency is reported but excluded from the overall
+  average.
+- Future sources: add a new file next to this one, e.g. `qwen-3.8-max.md`, using the same
+  headings — **Qwen3.8 Max, Qwen3.8-Flash-Next, Qwen3.7 Max, Qwen3.8-27B, Qwen3.7 Plus and
+  Qwen3.6 Plus are all separate models in this dataset** and all postdate this one. The gaps
+  most worth closing: **an AA-LCR measurement**, which would put Context on evidence rather
+  than on spec, and **any MMAnswerBench or DocVQA figure** — the latter would settle whether Multimodal
+  deserves the floor the previous version scored it below.
