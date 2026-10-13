@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
 - Average from top 3 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GPT 5.6 Luna, Ling 3.1 Flash.
+- Ignored below-gate rater(s): Big Pickle, Gemini 3.5 Flash Lite, GPT 5.6 Luna, Ling 3.1 Flash.
