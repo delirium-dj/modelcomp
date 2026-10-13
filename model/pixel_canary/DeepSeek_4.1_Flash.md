@@ -1,65 +1,70 @@
 # Pixel_canary — findings by DeepSeek 4.1 Flash
 
-- Source: anonymous stealth vendor, served by Vercel AI Gateway (`stealth/pixel-canary`)
-- Date: 2026-09-27 (UTC)
+- Source: anonymous stealth vendor, served by Vercel AI Gateway (`stealth/pixel-canary`) — **revealed 2026-10-01 as Callstack Apex** (`callstack/apex`), a Qwen-foundation coding model for React Native / React / Next.js
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Evidence note.** Pixel Canary is an anonymous stealth model: the developer is not
-> disclosed, no model card exists and exactly one measured public eval (Vercel's Next.js
-> evals) has been published. Every number below is traceable to a dated gateway row or
-> that eval; dimensions with no evidence are labelled `no verified public score found`
-> instead of filled in, so this is the lowest-confidence entry in the pack.
+> **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). The 2026-09-27 pass read only the Vercel AI Gateway row and the Next.js eval. This pass re-checked the post-reveal record against the independent [Stealth Models Pixel Canary dossier](https://stealthmodels.com/pixel-canary) (identity, pricing and access checked 10 Oct 2026), the [Hugging Face community guide](https://huggingface.co/blog/liliruli/what-is-pixel-canary-free-stealth-model) (28 Sep 2026), the [margrop.net deep dive](https://blog.margrop.net/en/post/pixel-canary-stealth-coding-model-deep-dive/) (26 Sep 2026), the [Vercel launch changelog](https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway) (25 Sep 2026), [Next.js Agent Evals](https://nextjs.org/evals) and [Callstack's Apex reveal / model docs](https://apex.callstack.com/models). Two material changes: (1) the model is no longer anonymous — Callstack named it **Apex** on 1 Oct 2026, a Qwen-foundation model post-trained for React Native, React and Next.js; (2) the free stealth preview **ended 2026-10-01**, and Apex is now paid at **$0.50 in / $0.20 cached / $3.00 out per 1M**. No new reasoning, tool-use or long-context benchmark appeared, so the five quality dimensions hold; only Cost efficiency moves. Conflicts surfaced below.
 
 ## Model card
 
-- **Name:** Pixel Canary (stealth preview; the whole preview is free, so no "Free"-tier suffix is used)
-- **Short description:** An anonymous large model pitched at web and mobile app development, with adjustable reasoning effort. Vercel describes it as "strong at coding, including building applications and refactoring existing code" and suited to frontend work — responsive layouts, app screens, navigation and interactive components. Vendor, weights and architecture are undisclosed.
-- **Provider / access:** Vercel AI Gateway as `stealth/pixel-canary` (OpenAI Chat Completions, OpenAI Responses and Anthropic Messages formats plus the AI SDK; CLI integrations listed for Claude Code, Codex, OpenCode, OpenClaw, Hermes and fx), and resold by Command Code as `cmd --model stealth/pixel-canary`. Anonymous upstream provider.
-- **Release / knowledge:** Released 2026-09-25 (AI Gateway provider row and changelog). Knowledge cutoff not disclosed.
-- **IDs:** `stealth/pixel-canary`. No OpenCode Zen ID; free for a limited time via the AI Gateway stealth preview.
-- **Context window:** 262K tokens total with a 131K max output (AI Gateway provider row, checked 2026-09-27). Note: the repo's curated `meta.json` still records 128K / text-only / "standard pricing" — the live gateway row is newer and larger.
-- **Modalities:** text in / text out per the vendor listings; the AI Gateway model page additionally documents image message parts ("images count as input tokens"), so image input is plausible but confirmed by no model card. Reasoning yes (adjustable effort: none / minimal / low / medium / high / xhigh). Tool-calling and structured-output support are not documented on either listing.
-- **Pricing (as of 2026-09-27):** $0.00 / 1M input, $0.00 / 1M output, no cache price listed — free while in stealth. **Privacy caveat:** no zero-data-retention option and "prompts and responses … may be used for training and model improvement".
-- **Architecture:** undisclosed; closed API-only. Live serving numbers from the gateway row: **8.9 s p50 time-to-first-token** and **~9 tokens/s p50 throughput** on real gateway traffic (re-checked 2026-09-27 — my first pass recorded ~6.6 s and ~8 tps, so latency has drifted upward on live traffic).
+- **Name:** Pixel Canary — stealth preview codename of **Callstack Apex** (revealed 1 Oct 2026). The preview was entirely free, so no "Free"-tier suffix is used.
+- **Short description:** An anonymous large model pitched at web and mobile app development, with adjustable reasoning effort, that turned out to be Callstack's Apex — a Qwen-based coding model specialized for **React Native, React and Next.js**. Vercel describes it as "strong at coding, including building applications and refactoring existing code" and suited to frontend work (responsive layouts, app screens, navigation and interactive components). Developer is now disclosed (Callstack); exact weights and architecture remain undisclosed, and the Qwen base is inferred from behavioral/tokenizer studies plus Callstack's own "Qwen foundation" statement.
+- **Provider / access:** Vercel AI Gateway as `stealth/pixel-canary` (now `callstack/apex` on the same gateway; OpenAI Chat Completions, OpenAI Responses and Anthropic Messages formats plus the AI SDK). Direct first-party API at `apex` / dated `apex-20261001` (https://apex.callstack.com/models). Also surfaced in Cline and via Command Code during the stealth window.
+- **Release / knowledge:** stealth listing 2026-09-25 (Vercel AI Gateway changelog); identity revealed 2026-10-01. Knowledge cutoff not disclosed.
+- **IDs:** `stealth/pixel-canary` (stealth) → `callstack/apex` (current; dated `apex-20261001`). No OpenCode Zen ID. Free preview over — now a paid Callstack endpoint.
+- **Context window:** 262,144 tokens total with a 131,072 max output (Vercel AI Gateway row, re-confirmed by the Stealth Models dossier, checked 2026-10-10). Note: the repo's curated `meta.json` still records 128K / text-only / "standard pricing" — the live gateway row is newer and larger.
+- **Modalities:** **conflict — not resolved.** Vercel's Apex/Gateway listing documents **text + image → text** ("images count as input tokens"; Stealth Models echoes "Text + image → text"), while Callstack's **direct** API docs list **text input only**. No model card and no vision benchmark. Reasoning yes (Vercel lists `none` / `low` / `medium` / `xhigh`; the prior report's six-level `none → xhigh` list is not what Vercel currently prints). Tool-calling and structured-output support are still not documented on either listing, though Vercel's OpenCode eval enables tool use.
+- **Pricing (as of 2026-10-11):** the $0 stealth preview ended 2026-10-01. Callstack Apex now lists **$0.50 / 1M input, $0.20 / 1M cached input, $3.00 / 1M output** (https://stealthmodels.com/pixel-canary, access checked 10 Oct 2026; Apex model docs). **Privacy:** Callstack documents **zero data retention (ZDR) for its direct Apex service**; the earlier Vercel stealth terms ("prompts and responses … may be used for training", no ZDR) applied only while `stealth/pixel-canary` ran.
+- **Architecture:** undisclosed; closed API-only. Callstack states a **Qwen foundation**, post-trained for mobile/web coding; an independent reasoning-habits study puts **Qwen3.8 Flash closest (63.8/100 similarity)** and a separate tokenizer study reports **95/95 input-count matches** with Qwen3.5+ vocabulary (https://stealthmodels.com/pixel-canary). Serving speed is contested — the prior gateway-traffic read recorded **8.9 s p50 TTFT / ~9 tps**, while margrop.net claims **~410 ms TTFT / 95.4 tps**; the Stealth Models dossier reports a **16.9-minute average evaluation duration** on the Next.js suite, which is consistent with a slow model, not a 95-tps one.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / MCP-Universe / SWE Atlas Codebase QnA: **no verified public score found** — no function-calling, MCP or terminal-agent harness has published results for this model
-- Structural evidence only (not a benchmark): first-class wiring into four coding agents (Claude Code, Codex, OpenCode/OpenClaw) plus Command Code's own agent, running against a 262K window with 131K max output
+- Terminal-Bench 2.1 / Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / MCP-Universe / SWE Atlas Codebase QnA: **no verified public score found** — no function-calling, MCP or terminal-agent harness has published results under either `stealth/pixel-canary` or `callstack/apex`
+- Structural evidence only (not a benchmark): Vercel's OpenCode evaluation enables tool use in its model configuration (https://github.com/vercel/next-evals-oss/blob/main/experiments/pixel-canary.ts); the model was wired into Command Code and Cline during the stealth window
 
 Reasoning / knowledge:
 
 - GPQA Diamond / HLE / MMLU-Pro / LCR / CritPt / MMMU: **no verified public score found**
-- Artificial Analysis Intelligence Index: **not yet scored** per Command Code's Artificial Analysis-backed panel (checked 2026-09-27)
-- Documented but unmeasured: adjustable reasoning effort across six levels (none → xhigh) on the AI Gateway page; no accuracy figure accompanies any level
+- Artificial Analysis Intelligence Index: **not scored**
+- Behavioral fingerprint, not an accuracy benchmark: Qwen3.8 Flash is the closest of 27 models at **63.8/100 reasoning-similarity**, ahead of MiniMax M3 (59.4) and GLM 5.3 variants (~59.2–59.3) (https://stealthmodels.com/pixel-canary, study dated 29 Sep 2026)
+- Independent tokenizer study: **95/95 input-count matches** using Qwen3.5-and-later vocabulary vs 89/95 for the stock modern tokenizer (AI時短ラボ, 26 Sep 2026, cited in the same dossier)
+- Documented but unmeasured: adjustable reasoning effort (`none` / `low` / `medium` / `xhigh` on Vercel); no accuracy figure accompanies any level
 
 Coding:
 
-- Next.js evals (Vercel, 2026-09-25, pass@4 — a task passes if any of up to four attempts succeeds): **90.3% baseline success rate, 28 of 31 tasks**, tying GPT-6 Astra (high); **96.8%, 30 of 31 tasks**, with Next.js documentation supplied through `AGENTS.md`, which ties the leaderboard's top score in that setting
-- Task coverage in that run: App Router migrations, data fetching, image and font optimization, caching, view transitions
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench / Terminal-Bench: **no verified public score found**; Command Code lists "coding index: not yet scored"
+- Next.js evals (Vercel, 2026-09-25, pass@4): **90.3% baseline, 28 of 31 tasks**, tying GPT-6 Astra (high); **96.8%, 30 of 31 tasks**, with Next.js docs supplied via `AGENTS.md` — corroborated independently by the Stealth Models dossier, the Hugging Face guide and margrop.net (https://nextjs.org/evals)
+- Same-harness context: Claude Opus 5.5 (high) leads the baseline at 30/31 (96.8%), and Grok 4.7 (29/31) / Kimi K3 (26/31 → 30/31 with docs) bracket the Canary run (https://stealthmodels.com/pixel-canary)
+- Task coverage: App Router migrations, RSC, streaming SSR, data fetching, image/font optimization, caching, view transitions; average evaluation duration **16.9 min** across both conditions
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench / Terminal-Bench: **no verified public score found**
+- SVG/generative visual tasks (StealthMark gallery): qualitative only — no numeric score published (https://stealthmodels.com/pixel-canary)
 
 Long context:
 
-- No MRCR / RULER / GraphWalks recall value exists for the 262K window; the only long-context evidence is the window and output limits themselves plus the fact that an agentic coding harness is being run against it in production.
+- No MRCR / RULER / GraphWalks / AA-LCR recall value exists for the 262K window; the only long-context evidence is the window and output limits themselves plus the fact that a docs-in-context agentic harness reaches 30/31 on the nextjs evals.
+
+Multimodal:
+
+- No MMMU / vision benchmark exists. The only signal is the vendor-listing conflict itself: Vercel documents text + image input, Callstack's direct API documents text input only; output is text in both cases (https://stealthmodels.com/pixel-canary, https://apex.callstack.com/models).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 66/100.** No function-calling, MCP or terminal benchmark exists at all, so this is a conservative floor justified only by first-class integration into four coding agents and a 262K working window; the complete absence of harness evidence is what caps it.
-- **Reasoning: 62/100.** Nothing on GPQA/HLE-class suites; the provisional basis is real engineering task completion (28/31 = 90.3%, rising to 30/31 with docs), which demonstrates multi-step problem solving but says nothing about out-of-domain reasoning. Explicitly low confidence.
-- **Context window: 72/100.** 262K total with a generous 131K max output sits just inside the 200K–500K tier (200K = 70); the absent recall benchmark keeps it far below the 1M tier.
-- **Multimodal: 40/100.** Deliberately placed between the text-only floor band (10–20) and the image-input band (60–70): both vendor listings describe a coding-focused text model, while the AI Gateway page documents image message parts. No vision benchmark exists and output is text-only.
-- **Coding: 85/100.** 90.3% baseline and 96.8% docs-in-context on Vercel's Next.js evals ties GPT-6 Astra and the leaderboard top — frontier-class web engineering — but it is one framework-specific harness at pass@4 with no SWE-bench/DeepSWE confirmation, which is why it stops short of the 90s.
-- **Cost efficiency: 100/100.** $0.00 per 1M input and output with no hidden cache charge for the duration of the stealth preview. Flagged: the free window is explicitly time-limited, there is no ZDR, and prompts/outputs may be retained for training.
-- **Overall Score: 65/100.** (66 + 62 + 72 + 40 + 85) / 5 = 65.0. Best fit: free, high-volume Next.js/frontend scaffolding, refactors and UI implementation — not for confidential code, and not where verified reasoning depth or tool-calling breadth is required.
+- **Tool use: 66/100.** No function-calling, MCP or terminal benchmark exists under either ID, so this stays the prior conservative floor justified only by first-class integration into coding agents and a 262K working window; the complete absence of harness evidence is what caps it. Unchanged — no new tool-use number surfaced.
+- **Reasoning: 62/100.** Nothing on GPQA/HLE-class suites; the basis remains real engineering task completion (28/31 baseline, rising to 30/31 with docs), which demonstrates multi-step problem solving but says nothing about out-of-domain reasoning. The Qwen 63.8/100 behavioral-similarity figure is a fingerprint, not an accuracy score, so it does not justify a change. Unchanged, explicitly low confidence.
+- **Context window: 72/100.** 262K total with a generous 131K max output sits just inside the 200K–500K tier (200K = 70); the absent recall benchmark keeps it far below the 1M tier. Unchanged — window re-confirmed 2026-10-10.
+- **Multimodal: 40/100.** Deliberately between the text-only floor band (10–20) and the image-input band (60–70): Vercel/Gateway document image message parts while Callstack's direct model docs list text only, no vision benchmark exists and output is text-only. Unchanged — the conflict persists at post-reveal.
+- **Coding: 85/100.** 90.3% baseline and 96.8% docs-in-context on Vercel's Next.js evals — now independently written up by three sources — is frontier-class web engineering, and Callstack's reveal confirms the coding specialization. But it is still one framework-specific harness at pass@4 with no SWE-bench/DeepSWE/LiveCodeBench confirmation, which is why it stops short of the 90s. Unchanged.
+- **Cost efficiency: 91/100.** Lowered from 100: the $0 preview ended 2026-10-01 and Apex is now paid at $0.50 in / $0.20 cached / $3.00 out per 1M (https://stealthmodels.com/pixel-canary). The methodology maps ~$0.60/$2.20 to ~92 and $1.25/$4.25 to ~88, so $0.50/$3.00 sits at **91** — input cheap, output a touch dear. Offsetting plus: Callstack documents **ZDR** for the direct Apex service, removing the earlier training-data caveat.
+- **Overall Score: 65/100.** (66 + 62 + 72 + 40 + 85) / 5 = 65.0. Best fit: high-volume Next.js/React/frontend scaffolding, refactors and UI implementation through the Callstack API (now with ZDR), at a $0.50/$3.00 rate card — no longer a free pick, and still not where verified reasoning depth or tool-calling breadth is required.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-09-27
-- Method: public internet research (Vercel AI Gateway model page and 2026-09-25 changelog with the Next.js eval results, Command Code model page). **Re-verified 2026-09-27 against the AI Gateway page:** 262K context / 131K max output, Free pricing, provider "Stealth", release date 09/25/2026, the no-ZDR flag and the "prompts and outputs may be retained for training" warning all matched exactly, and the image-message-part example ("images count as input tokens") was confirmed again; **updated** — live p50 TTFT has risen to 8.9 s and throughput to ~9 tps. Scores are normalized 1–100 interpretations, not official vendor scores, and this is the least verified entry in the pack.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Method: public internet research (independent Stealth Models Pixel Canary dossier — identity, pricing and access checked 10 Oct 2026; Hugging Face community guide; margrop.net deep dive; Vercel AI Gateway launch changelog; Next.js Agent Evals; Callstack Apex model docs and reveal post). `stealth/pixel-canary` and `callstack/apex` are the same system, so this single folder covers both names. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass note: one dimension moved on new evidence — Cost efficiency 100 → 91, because the free stealth preview ended 2026-10-01 and verified Apex pricing is $0.50/$0.20/$3.00 per 1M. Tool use, Reasoning, Context window, Multimodal and Coding are unchanged for lack of any new verified benchmark number. The other material change is identity: Pixel Canary is now known to be Callstack Apex (Qwen foundation). Conflicts surfaced rather than reconciled: identity pre-reveal guesses (Google DeepMind "Pixel"/Gemini 4 vs a Vercel+OpenAI fine-tune) vs the confirmed Callstack Apex; modalities (image in per Vercel vs text-only per Callstack direct); reasoning-effort ladder six levels (prior pass) vs four (`none`/`low`/`medium`/`xhigh`); speed (~8.9 s TTFT / ~9 tps gateway read vs margrop's ~410 ms / 95.4 tps claim vs a 16.9-min average eval duration); and the nextjs leaderboard (Canary ties GPT-6 Astra at 28/31 baseline while Claude Opus 5.5 leads at 30/31). No number here is inferred from another model.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

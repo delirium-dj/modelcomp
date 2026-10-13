@@ -1,0 +1,90 @@
+# Grok 5 — findings by Claude Opus 5
+
+- Source: xAI / SpaceXAI (claimed ID `grok-5`)
+- Date: 2026-10-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## EXCLUDED — Overall Score cannot be computed
+
+**This file is deliberately suffixed `.md.excluded`.** Per `RULES.md`, that suffix applies when an Overall Score cannot be computed because there is zero verified data for the exact model/ID. That is the case here, and the reason is simple and well documented: **Grok 5 has not been released.** It is an announced-but-unshipped model that has slipped past two stated release windows, and its vendor has published **no architecture, no context window, no pricing and no benchmarks**.
+
+## Model card
+
+- **Name:** Grok 5 — **unreleased as of 2026-10-11**
+- **Short description:** No verified public data found. The repo's `meta.json` for this folder is a pure placeholder — short description "Grok 5 model evaluation entry.", context window "128K total", pricing "Standard pricing" — which is itself consistent with a scaffolded folder rather than a researched one. The substantive finding is negative and unusually well sourced: ZBuild's guide, **first published 2026-03-27 and re-verified source-by-source on 2026-10-11**, states "**Grok 5 has not been released as of October 11, 2026. It does not appear in SpaceXAI's API model list, pricing or release notes, and there is no launch post on x.ai (docs, release notes, news)**", and — decisively for this report — "**Architecture, context window, pricing, benchmarks, open-source status: not announced. Any numbers you see are guesses**" ([ZBuild](https://www.zbuild.io/resources/news/grok-5-release-date-6t-parameters-agi-xai-complete-guide-2026)).
+- **Provider / access:** **None.** Negative evidence gathered:
+  - `benchlm.ai/md/models/grok-5.md` → **404**, while sibling Grok entries resolve and are indexed.
+  - Not present in SpaceXAI's API model list, pricing page or release notes; no announcement on x.ai (verified by ZBuild on 2026-10-11).
+  - Independent corroboration across four separate trackers: [geotoolbox](https://geotoolbox.ai/blog/grok-5) (2026-09-29) — "Grok 5 isn't out yet"; [felloai](https://felloai.com/all-we-know-so-far-about-grok-5/) — "Grok 5 is **still training as of September 2026** after the Q2 window passed"; [computeunion](https://www.computeunion.net/blog/grok-5-api-pricing-release-date-specs-2026) (2026-06-23) — "currently in training and **has no public API** as of June 2026"; and overchat, which describes the specs below explicitly as "reportedly".
+- **Release / knowledge:** **No release date exists.** The documented slip is long and is worth recording precisely, because it is the substance of this report:
+
+| When | What was said or happened |
+|---|---|
+| 2025-10-18 | Musk: the probability of Grok 5 achieving AGI is "10% and rising" |
+| 2025-11-14 | Musk says Grok 5 is a **6 trillion parameter** model, coming "in Q1 sometime" (via press) |
+| 2026-01-06 | xAI: "**Grok 5 is currently in training**" |
+| 2026-01-17 | Musk: Colossus 2 operational, the "first Gigawatt training cluster in the world" |
+| 2026-02-02 | **SpaceX acquires xAI** |
+| 2026-03-31 | **Q1 passes without Grok 5** |
+| 2026-04-08 | Musk: Colossus 2 is training **7 models**, including a 6T and a **10T** model |
+| 2026-06-30 | **Q2 passes without Grok 5** |
+| 2026-07 to 09 | **Grok 4.5 (Jul 16), 4.6 (Aug 12) and 4.7 (Sep 21) ship instead** |
+| 2026-09-14 | Musk: "Grok 4.8 will be a noticeable improvement. Grok 4.9 is probably Astra/Fable class. **Grok 5 maybe better than anything. We shall see.**" |
+
+  Prediction markets priced the release on 2026-10-11 at roughly **2% by Oct 31, 15% by Nov 30 and 47.5% by Dec 31, 2026**; the June 30 and August 31 Polymarket contracts both **resolved No**. Markets are not official information, but they are a fair summary of how much confidence the public record supports.
+- **IDs:** None. There is no `grok-5` API model ID. The models actually callable on `api.x.ai` as of 2026-10-11 are **Grok 4.7, 4.6, 4.5, 4.3, 4.20 and grok-build-0.1**. **Separately and worth parking as a discovery for this repo: Grok 4, Grok 4 Fast, Grok Code Fast 1 and Grok 3 were retired on 2026-05-15** per SpaceXAI's migration notice — relevant because `model/grok-4/` and `model/grok-4-fast/` exist in this dataset and now describe withdrawn endpoints.
+- **Context window:** **No verified public data found.** The repo's placeholder says 128K; third-party speculation ranges from **1.5M** (overchat) to **2M** (computeunion), and both label it as leaked or predicted. ZBuild states flatly that the context window is "not announced" and that "any numbers you see are guesses." The spread between 128K, 1.5M and 2M across three sources is itself proof that nothing is known.
+- **Modalities:** **No verified public data found.** The repo's placeholder says text in/out; overchat reports "native multimodal support for text, images, audio, and video" as unconfirmed. Not scorable.
+- **Pricing:** **No verified public data found.** computeunion's "$2–$5 per million input tokens" is explicitly an extrapolation from xAI's historical pricing pattern, not a quote. For reference, the shipping flagship **Grok 4.7 costs $2 / $0.50 cached / $6 per MTok at 500K context, doubling above 200K-token prompts**.
+- **Architecture:** **Not announced.** Musk's **6T-parameter** figure (November 2025, via press) is the only number attached to the name, and ZBuild notes the obvious problem with it: in April 2026 Musk said Colossus 2 was training both a 6T and a **10T** model, so "it is not confirmed which training run will be released as 'Grok 5', or that 6T will be the largest model announced." For calibration, Musk puts Grok 4.6 at 1.5T, Grok 4.7 at 2.1T and the unshipped Grok 4.8 at 2.5T.
+- **Corporate context, since it affects the identity of the vendor:** SpaceX acquired xAI on 2026-02-02; Musk said on 2026-05-06 that xAI "will be dissolved as a separate company, so it will just be SpaceXAI"; the company's X account became @SpaceXAI on 2026-07-06; and on **2026-10-04 Musk agreed to rename SpaceXAI to SpaceXSI ("super intelligence")**. Colossus 1 (150,000 H100, 50,000 H200, 30,000 GB200) has been **leased to Anthropic** since 2026-05-06, with SpaceXAI training on Colossus 2 — reported by Musk on 2026-09-25 as 110,000 GB200 and 440,000 GB300 chips. Tom's Hardware's January satellite analysis suggested cooling capacity well below the claimed 1 GW. **None of this is evidence about a model.**
+
+### Raw benchmarks found
+
+**None.** Not "few" — zero. The vendor has published no benchmark of any kind for this model, and no third-party evaluator can measure a model that has no endpoint. Every row below would read "no verified public score found", which is precisely the condition the template reserves for self-exclusion.
+
+Agent / tool use:
+
+- Terminal-Bench (any version), CursorBench, τ²/τ³-bench, GDPval-AA, OSWorld, Toolathlon, MCP-Atlas, BFCL: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, MMLU-Pro, AIME, ARC-AGI, CritPt, AA-LCR, Artificial Analysis Intelligence Index, AA-Omniscience: **no verified public score found**
+- **BenchLM has no page for `grok-5`** (404 on the machine-readable endpoint). Given that BenchLM indexes hundreds of models including multiple Grok variants, this is strong negative evidence rather than a coverage gap.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, DeepSWE, SciCode, Vibe Code Bench: **no verified public score found**
+
+Multimodal:
+
+- MMMU / MMMU-Pro, MathVision, CharXiv, Video-MME, OCR, GUI grounding: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval or reasoning number found at any window length**, which follows from there being no window.
+
+### Why exclusion rather than low evidence-absence scores
+
+I am drawing the same line here that I drew for `gemini-3.1-flash`, `kimi-k2.8-preview`, `longcat_2.5_preview`, `minimax-m3.1-flash-preview` and `gemini-2.5-flash-lite`, and for the same reason: the problem is not thin data about a real model, it is **the absence of a measurable artefact**.
+
+Elsewhere in this pass I have scored models on genuinely sparse evidence — `laguna-s-2.1` and `solar-open-2` were both scored entirely off vendor-reported numbers, and `qwen3-max` was scored off a 12-benchmark third-party set with no vendor table at all. Those were defensible because in each case a model exists, has an endpoint or published weights, and somebody has run something against it.
+
+Here there is nothing to run. The strongest claim any source makes is that **a 6T-parameter training run was underway in January 2026 and may or may not become the model eventually named Grok 5** — Musk himself has since said a 10T model is also training and declined to say which one ships. Two announced release windows have passed, three intermediate models (4.5, 4.6, 4.7) shipped in their place, and the vendor's own most recent statement on the subject ranks Grok 4.8 and 4.9 ahead of it with no date attached. The vendor has been renamed twice in the interim.
+
+Scoring this folder would mean converting Musk's X posts into capability numbers. ZBuild's practical advice is the right summary of the evidentiary position: "**Don't wait for Grok 5. There is no date, no price and no benchmark.**" Importing Grok 4.7's measured figures (CursorBench 4.0 46.3%, Terminal-Bench 4.0 37.6%) into this file would be worse than leaving it empty — it would attribute a shipping model's results to an unshipped one and corrupt both records.
+
+**Reversal criteria, stated explicitly:** this exclusion should be lifted the moment any one of the following appears — a `grok-5` model ID in SpaceXAI/SpaceXSI's API model list or pricing page; a launch post or model card on x.ai; an entry on BenchLM, Artificial Analysis or OpenRouter for `grok-5`; or any published benchmark result attributed to the released model. Given the prediction-market pricing of ~47.5% by end of 2026, that may well happen within months — at which point this folder should be re-researched from scratch, and a fresh `.md` written with real data rather than this file being edited.
+
+### Normalized scores (1–100)
+
+Not computed. All five quality dimensions and the cost dimension have **zero verified data**, because the model has not been released and the vendor has explicitly announced none of its architecture, context window, pricing or benchmarks. Assigning any number — including a deliberately low one — would manufacture a capability claim about a model that does not yet exist. Per `RULES.md`, this is the condition under which the `.md.excluded` suffix applies, and no parseable score lines are written in this file.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 5 (anthropic/claude-opus-5)** — 2026-10-08
+- Method: fresh public internet research only. Research steps attempted and their outcomes: a direct fetch of `benchlm.ai/md/models/grok-5.md` (**404**, while sibling Grok entries resolve); a targeted search for `xAI "Grok 5" benchmark context window pricing release`, which returned **seven results, every one of which is a release-date-speculation article rather than a model page**; and a full read of ZBuild's guide, which was first published 2026-03-27, **rewritten because "most of the original predictions turned out wrong", and re-verified source-by-source on 2026-10-11** — it supplied the "has not been released as of October 11, 2026" determination, the explicit "architecture, context window, pricing, benchmarks, open-source status: not announced. Any numbers you see are guesses" statement, the full dated promise-versus-reality timeline from Musk's October 2025 AGI remark through his 2026-09-14 placement of Grok 4.8 and 4.9 ahead of Grok 5, the Polymarket pricing and the two contracts that resolved No, the 6T-versus-10T ambiguity, the Grok 4.6/4.7/4.8 parameter comparisons, the live API model list and prices, the Grok 4.7 specifications and CursorBench/Terminal-Bench figures, the 2026-05-15 retirement of Grok 4, Grok 4 Fast, Grok Code Fast 1 and Grok 3, the xAI → SpaceXAI → SpaceXSI corporate sequence, the Colossus 1 lease to Anthropic, and the Colossus 2 hardware and capacity claims including Tom's Hardware's contradicting satellite analysis. Corroborating negative evidence was taken from geotoolbox (2026-09-29, "isn't out yet"), felloai ("still training as of September 2026"), computeunion (2026-06-23, "no public API") and overchat (which labels the 6T / 1.5M-context / native-multimodal specs as "reportedly"). **The mutual contradiction among speculative context-window figures — 128K in this repo's placeholder, 1.5M at overchat, 2M at computeunion — is reported explicitly as evidence that nothing is known, rather than averaged into a number.** The repo's own `meta.json` was read only to identify what was being claimed and is reported as a placeholder. Grok 4.7's measured benchmarks are quoted **only** as context for what the shipping flagship does and were deliberately **not** imported as Grok 5 data; no data was imported from `grok-4`, `grok-4.1`, `grok-4.20`, `grok-4-fast` or `grok-build-0.1`, and no peer `model/` findings files were read. Unavailable items — every benchmark figure, the release date, the context window, the modalities, the pricing, the architecture and the model's existence as a released artefact — are recorded as "no verified public data found" rather than estimated.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

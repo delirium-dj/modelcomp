@@ -1,9 +1,9 @@
 {
   "id": "opencode/mai-thinking-1",
   "name": "MAI-Thinking-1",
-  "short": "Microsoft AI's deep reasoning model designed for complex multi-step problem solving and advanced mathematical verification.",
-  "contextWindow": "131,072 total (32,768 out)",
+  "short": "Microsoft AI's first in-house reasoning model — ~1T-total / 35B-active sparse MoE on MAI-Base-1, trained from scratch on commercially licensed data with no third-party distillation. AIME 2025 97%, LiveCodeBench v6 87.7%, SWE-bench Verified 73.5%, GPQA Diamond 84.2%.",
+  "contextWindow": "256,000 (256K) — max output not published",
   "modalities": "Text in/out",
-  "pricingNote": "$2.00/$10.00 per 1M in/out (Microsoft AI)",
+  "pricingNote": "$2.00 in per 1M; output reported as $8.00 (AIHubMix) or $10.00 — Microsoft publishes no public rate card",
   "noFreeId": true
 }

@@ -1,9 +1,9 @@
 {
   "id": "minimax-ai/minimax-m3.1-flash-preview",
   "name": "MiniMax M3.1 Flash Preview",
-  "short": "MiniMax's preview-tier multimodal coding model (2026-09-27) — 1M context, text/image/video in, five effort levels, MiniMax Code / Token Plan only; no public benchmarks or price yet.",
-  "contextWindow": "1M total",
-  "modalities": "Text, image, video in; text out",
+  "short": "MiniMax's preview-tier coding model (2026-09-27) for everyday development — bug fixing, feature work, edge cases, regression testing. Five reasoning-effort levels; MiniMax Code / Token Plan only. MiniMax has published no parameter counts, context spec, max output, licence, price or benchmark table.",
+  "contextWindow": "Unverified (MiniMax publishes no context spec for the Flash Preview checkpoint)",
+  "modalities": "Text in/out (image/video unverified for this checkpoint)",
   "pricingNote": "No public per-token price (MiniMax Code / Token Plan only) — no Zen Free ID",
   "pricingTiers": [
     "MiniMax Code / Token Plan only (no public price)"

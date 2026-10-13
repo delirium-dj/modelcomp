@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.3-codex-spark",
-  "name": "GPT-5.3 Codex Spark",
-  "short": "OpenAI's ultra-low-latency coding model (Feb 2026 research preview), a smaller GPT-5.3-Codex sibling on Cerebras WSE-3 at 1,000+ tok/s for real-time interactive edits and refactors.",
+  "name": "GPT-5.3-Codex-Spark",
+  "short": "OpenAI's ultra-low-latency coding model (Feb 2026 research preview), a smaller GPT-5.3-Codex sibling on Cerebras WSE-3 at 1,000+ tok/s for real-time interactive edits and refactors. Terminal-Bench 2.0 77.3% (matching the full Codex), SWE-bench Pro 72.8%.",
   "contextWindow": "128K total (max output undisclosed)",
   "modalities": "Text in/out only (text-only preview)",
   "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)"

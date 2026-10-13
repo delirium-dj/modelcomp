@@ -1,67 +1,68 @@
 # Qwen 3.5 Plus — findings by GLM 5.3
 
 - Source: Alibaba (`opencode/qwen-3.5-plus`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-12 (UTC) — second-pass re-research of the 2026-10-02 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.5 Plus (Qwen3.5-Plus)
-- **Short description:** Alibaba's "Plus" commercial API tier of the Qwen3.5 native vision-language series (released 2026-02-15), positioned between the Qwen3 and Qwen3.6 generations; cited benchmark source is the open-weights sibling Qwen3.5-397B-A17B.
-- **Provider / access:** OpenCode Zen `opencode/qwen-3.5-plus`; public routes via OpenRouter, Alibaba Cloud PAI-EAS, and Vercel AI Gateway (LLMReference provider ladder).
-- **Release / knowledge:** 2026-02-15 (LLMReference); knowledge cutoff not published.
-- **IDs:** `opencode/qwen-3.5-plus` (no separate Zen Free ID verified); OpenRouter route `qwen3.5-plus`.
-- **Context window:** 1,048,576 (1M) total — verified by both BenchLM model details and LLMReference specs; max output not published.
-- **Modalities:** text + image in (native vision-language series, LLMReference "Vision, Multimodal" capability tags); text out; reasoning yes (BenchLM "Reasoning" type); tool calls / JSON mode not explicitly documented in verified sources.
-- **Pricing (as of 2026-10-02):** $0.30 in / $1.80 out per 1M (OpenRouter, cheapest of 3 routes); Alibaba Cloud PAI-EAS and Vercel AI Gateway $0.40 / $2.40 per 1M (Vercel cached read $0.04).
-- **Architecture:** proprietary API tier; LLMReference lists the family Apache 2.0 with the open-weights sibling Qwen/Qwen3.5-397B-A17B on Hugging Face (Plus-tier weights themselves not published).
+- **Short description:** Alibaba's "Plus" commercial API tier of the Qwen3.5 native vision-language series (released 2026-02-15; an updated 2026-04-20 snapshot ships with tiered pricing above 256K). Second pass resolves the first pass's biggest uncertainty: **Qwen3.5-Plus is the open-sourced Qwen3.5-397B-A17B** ("also named Qwen3.5-Plus" — Alibaba Group press release), so the sibling-proxy caveat dissolves — the benchmark rows are the same model. Position: between the Qwen3 and 3.6 generations, now two Plus generations behind.
+- **Provider / access:** OpenCode Zen `opencode/qwen-3.5-plus`; OpenRouter `qwen/qwen3.5-plus-02-15` ($0.26/$1.56) and `qwen/qwen3.5-plus-20260420` (April snapshot); Alibaba Cloud Model Studio (functionally equivalent to snapshot `qwen3.5-plus-2026-02-15`).
+- **Release / knowledge:** 2026-02-15 (updated snapshot 2026-04-20); knowledge cutoff not published.
+- **IDs:** `opencode/qwen-3.5-plus`; OpenRouter `qwen/qwen3.5-plus-*`; Alibaba `qwen3.5-plus`.
+- **Context window:** 1M tokens (confirmed by BenchLeader, OpenRouter, gate.ai); **max output 65,536 tokens**; tiered pricing above 256K on the April snapshot.
+- **Modalities:** **text + image + video input, text output** (gate.ai/OpenRouter capability docs — stronger than the first pass's "image in, unverified"); reasoning with **toggleable thinking** (unlike Qwen3.6 Plus's forced CoT); tool calls / JSON mode per Alibaba docs.
+- **Pricing (as of 2026-10-12):** OpenRouter 02-15 snapshot **$0.26 in / $1.56 out** per 1M; Alibaba Cloud Int. $0.30/$1.80 (BenchLeader blended $0.90/M); Vercel cached read $0.04. Slow: 50 tok/s (slowest quarter).
+- **Architecture:** hybrid **linear attention + sparse MoE** (QwenCloud — the same architecture Qwen3.6 Plus later reused); 397B-A17B per the open-weights sibling identification.
 
 ### Raw benchmarks found
 
+> Second pass adds the BenchLeader profile (best = thinking **57.4 #168/760**, trend 56→57→59 stable, last measured 2026-09-29). Category scores: **Coding 62 (best)**, Maths 61, Knowledge 61 (and an inverted Knowledge 37 at the not-stated config).
+
 Agent / tool use:
 
-- JobBench: **18.5%** (BenchLM, sourced to the JobBench paper, arXiv 2605.26329)
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- **Terminal-Bench 2.0 (Vals): 41.6% #29** — gap filled; mid-weak
+- **Vending-Bench 2: 0.5 #62** — gap filled; dreadful office-work result
+- JobBench 18.5% (retained); Terminal-Bench 2.1 / τ³ / GDPval / Claw-Eval / MCP-Atlas: still no verified public score — the agentic dossier remains the thinnest of this batch
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **88.4%** (LLMReference, sourced to Hugging Face `Qwen/Qwen3.5-397B-A17B`, observed 2026-06-07)
-- FrontierMath v2 (Tiers 1-3): **21.034%**; (Tier 4): **2.083%** (Epoch AI leaderboard via BenchLM)
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- Artificial Analysis Intelligence Index: no verified public score found (no AA page for this ID)
-- BenchLM composite: **49.44/100, #97 of 783** (4 of 645 benchmarks covered — explicitly conservative)
+- GPQA Diamond: Epoch **84.8% #89** (not stated) / Vals **87.4% #37** (thinking) — below the 90% bar on direct reads (the first pass's 88.4% came via the sibling ID, now known to be the same model; the harness spread is real)
+- FrontierMath v2: T1-3 21.034% / **T4 2.083%** (terrible tier-4); OTIS 86.7% #81; **AIME (Vals): 86.0% #33** (decent)
+- CL-bench 19.8% #9 / CL-bench Life 12.4% #11 (good ranks); Chess 22.0% #75; Mystery Game 16-17% #72-80; LMCA 36.4% #103; DTBench 80.5% #109
+- Knowledge: **MedQA 95.2% #13** (elite); MMLU-Pro 87.2% #34; LegalBench 85.1% #24; CorpFin 65.3% #29; CaseLaw 59.7% #25; SimpleQA 25.4% #66 (weak short facts); HLE / CritPt / LCR / AA Index: still no verified rows for this ID
 
 Coding:
 
-- SWE-bench Verified: **76.4%** (LLMReference benchmark table, rank 38 of 81, sourced to Hugging Face `Qwen/Qwen3.5-397B-A17B`, observed 2026-06-07)
-- Vibe Code Bench v1.1: **15.74%** (Vals AI via BenchLM)
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
+- **LiveCodeBench (Vals): 85.3% #32** — gap filled, good; **SWE-bench (Vals): 71.2% #57** (vs the 76.4% #38-of-81 first-pass read — harness/normalization spread, both retained)
+- **Vibe Code v1.1: 15.7% #76** (confirms the first pass's 15.74% — weak); ALE-Bench 621.9 #88 (weak)
+- Coding is nonetheless its best BenchLeader category (62)
 
 Long context:
 
-- 1M window verified (BenchLM, LLMReference); no MRCR / RULER / GraphWalks retrieval score found — "no long-context retrieval reported".
+- 1M window confirmed; **no retrieval-quality score published at any length** (unchanged gap); 65,536 output cap; tiered pricing above 256K on the April snapshot.
+
+Multimodal:
+
+- **MMMU-Pro (Vals): 22.8% #90 — near-floor, a direct contradiction of the vision-language positioning** (image+video input is confirmed at the API level, yet measured vision quality collapses); SAGE 30.4% #77 (weak grounding); MortgageTax 60.8% #63; the open-weights card's multimodal claims (native vision-language, strong multimodal understanding) are not reproduced by the one independent vision battery.
+- Vendor positioning: "native vision-language series" (QwenCloud/LLMReference/qwen.ai blog); Qwen3.5-Omni tech report (arXiv 2604.15804) benchmarks against Qwen3.5-Plus-NoThinking and shows Omni variants beating it on video understanding.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Single weak agentic row (JobBench 18.5%) and no Terminal-Bench / Tau / GDPval data; LLMReference's "Best LLMs for Agents" listing is a pick, not a measured score — thin agentic evidence caps it.
-- **Reasoning: 80/100.** GPQA Diamond 88.4% is near the frontier reference (90%+), but FrontierMath v2 Tier 4 at 2.083% and the conservative BenchLM composite (49.44) cap it below the top band.
-- **Context window: 95/100.** 1M verified by two independent trackers (≥1M tier); no retrieval-quality score at 512K+ published, so not 100.
-- **Multimodal: 65/100.** Image in confirmed (native vision-language series, LLMReference capability tags); no video / audio / PDF input and text-only output verified.
-- **Coding: 70/100.** SWE-bench Verified 76.4% (rank 38 of 81) is a solid mid-high result, but Vibe Code Bench 15.74% and missing LiveCodeBench / SciCode rows cap it.
-- **Cost efficiency: 92/100.** $0.30 / $1.80 per 1M on the cheapest public route is cheaper than the ~$0.60/$2.20 ≈ 92 anchor; no $0 tier exists.
-- **Overall Score: 71/100.** Mean of the five quality dims (45 + 80 + 95 + 65 + 70) / 5 = 67. Budget-friendly 1M multimodal-adjacent Plus tier: strong GPQA and mid-high SWE-bench per dollar, but thin verified agentic evidence.
+- **Tool use: 48/100.** Raised from 45: TB 2.0 41.6% #29 is a real mid-weak data point rather than nothing — but Vending 0.5 #62 is dreadful and the τ/GDPval/Claw rows still don't exist. The thinnest agentic dossier in this batch.
+- **Reasoning: 72/100.** Lowered from 80: direct GPQA reads (84.8-87.4%) sit below the bar, FrontierMath T4 2.083% is a hard cap, and no HLE/CritPt/Index rows exist — offset by decent AIME 86.0% #33, OTIS 86.7% #81, and good CL-bench ranks.
+- **Context window: 92/100.** Lowered from 95: the 1M window is confirmed, but there is still zero measured retrieval data, the 65,536 output cap is modest, and 256K+ pricing tiers apply.
+- **Multimodal: 50/100.** Lowered from 65: image+video input is now confirmed at the API level — but the single independent vision battery reads near-floor (MMMU-Pro 22.8% #90, SAGE 30.4% #77). Capability confirmed, quality unproven-to-poor; scored on the measured signal.
+- **Coding: 72/100.** Raised from 70: LCB 85.3% #32 fills the biggest gap; SWE-bench 71.2% #57 and Coding-as-best-category back the mid-high band; Vibe 15.7% #76 and ALE #88 remain the caps.
+- **Cost efficiency: 92/100.** Held: $0.26/$1.56 (02-15 snapshot) is among the cheapest 1M-context tiers tracked; the catches are the slowest-quarter speed (50 tok/s) and tiered 256K+ pricing.
+- **Overall Score: 67/100.** (48 + 72 + 92 + 50 + 72) / 5 = 66.8 → 67, down from 71. Best-fit: a very cheap 1M-context text coder/reasoner — LCB 85.3% and decent math knowledge per dollar; but its measured vision (22.8% MMMU-Pro) contradicts the vision-language marketing, and the agentic evidence is nearly nonexistent. Prefer Qwen3.6/3.7 Plus for anything agentic or visual.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
-- Method: public internet research (BenchLM tracker rows with sources, LLMReference model page with provider pricing ladder); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-12
+- Method: public internet research, second pass over the 2026-10-02 report (BenchLeader profile as of 2026-09-29; Vals AI rows incl. the near-floor MMMU-Pro; Epoch AI Benchmarking Hub; OpenRouter provider/snapshot listings at $0.26/$1.56; DDG-lite searches surfacing the Alibaba Group press release identifying Qwen3.5-Plus with the open-sourced 397B-A17B, the Alibaba Cloud Model Studio docs, gate.ai capability confirmation (text+image+video in, toggleable thinking, 1M window, 65,536 output cap), QwenCloud architecture notes, and the Qwen3.5-Omni technical report arXiv 2604.15804); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

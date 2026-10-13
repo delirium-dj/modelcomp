@@ -1,84 +1,62 @@
 # Inkling — findings by GLM 5.3
 
 - Source: Thinking Machines Lab (`thinkingmachines/inkling`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-12 (UTC) — second-pass re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Inkling
-- **Short description:** Thinking Machines Lab's first open-weights model (released 2026-07-15): a 975B-total / 41B-active MoE generalist pretrained on 45T tokens of text, images, audio and video, built as a customization base with controllable thinking effort. Top use case: fine-tunable multimodal foundation for agentic and interaction-model workflows.
-- **Provider / access:** Open weights on Hugging Face `thinkingmachines/inkling` (plus NVFP4 checkpoint); fine-tuning/playground on Tinker (64K / 256K context options); hosted APIs on Together AI, Fireworks, Modal, Databricks, Baseten; SGLang/vLLM/TokenSpeed/llama.cpp inference support.
+- **Short description:** Thinking Machines Lab's first open-weights model (released 2026-07-15): a 975B-total / 41B-active MoE generalist pretrained on 45T tokens of text, images, audio and video, built as a customization base with controllable thinking effort. Second pass adds AA's full independent profile: **Intelligence Index 25 (#28/117 in class, median 18)**, **186.3 tok/s output (#6/117 in class)**, a now-live first-party API at **$1.00/$4.05**, and **Apache 2.0 license confirmed**. A smaller sibling, **Inkling Small**, shipped ~2026-07-30 (separate AA page). Top use case: fine-tunable multimodal foundation for agentic and interaction-model workflows.
+- **Provider / access:** open weights on Hugging Face `thinkingmachines/Inkling` (+ NVFP4 checkpoint, **Apache 2.0**); **Thinking Machines's own API is live** ($1.00/$4.05, cache discount 83%, TTFT 1.81 s) plus **7 API providers** (Together AI, Fireworks, Modal, Databricks, Baseten et al.); Tinker fine-tuning (64K/256K context options); SGLang/vLLM/TokenSpeed/llama.cpp support. Still absent from the OpenCode Zen endpoint list.
 - **Release / knowledge:** 2026-07-15; knowledge cutoff not stated publicly.
-- **IDs:** `thinkingmachines/inkling` (curated repo metadata references `opencode/Inkling`, but the model is absent from the current OpenCode Zen endpoint list — no Zen Free ID).
-- **Context window:** up to 1M tokens native (vendor announcement + BenchLM); Tinker serves 64K/256K options.
-- **Modalities:** text, image, and audio in / text out (encoder-free dMel audio + 40x40 image patches; "reasons natively over text, images, and audio"); reasoning yes (hybrid, controllable thinking effort 0.2–0.99); tool calls yes (harness-randomized tool training); JSON mode not separately verified.
-- **Pricing (as of 2026-09-25):** open weights (self-host license $0); Tinker fine-tuning offered at a limited-time 50% discount (full pricing in Tinker docs — per-token rates not verified in this research); hosted per-token API rates vary by partner — no single verified public price found.
-- **Architecture:** MoE transformer, 975B total / 41B active; DeepSeek-V3-style 256 routed experts + 2 shared (6 active), sigmoid router with aux-loss-free balancing; 5:1 sliding-window/global attention interleave; relative positional embeddings (no RoPE); short convolutions on K/V and residual branches; trained with Muon + Adam hybrid optimizer on NVIDIA GB300 NVL72.
+- **IDs:** `thinkingmachines/Inkling`; `opencode/Inkling` referenced in repo metadata but not in the current Zen endpoint list — no Zen Free ID.
+- **Context window:** **1M tokens native — AA-confirmed**; Tinker serves 64K/256K options.
+- **Modalities:** **text, image, and speech input, text out** (AA confirms the served modality set — no video input at serving time despite video in the pretraining mix); reasoning (controllable thinking effort 0.2-0.99; AA measures the xhigh variant); tool calls; JSON mode not separately verified.
+- **Pricing (as of 2026-10-12):** **$1.00 in / $4.05 out per 1M** (first-party API; blended ~$0.72/M; cache discount 83%) — AA calls it "particularly expensive when comparing to other open weight models of similar size" (class medians $0.43/$1.68); self-host license $0. Previously no canonical price existed — this resolves that gap.
+- **Architecture:** MoE transformer, 975B total / 41B active (AA-confirmed); DeepSeek-V3-style 256 routed experts + 2 shared (6 active), sigmoid aux-loss-free balancing; 5:1 sliding-window/global attention interleave; relative positional embeddings (no RoPE); short convolutions on K/V and residual branches; Muon + Adam hybrid optimizer on GB300 NVL72.
 
 ### Raw benchmarks found
 
+> Second-pass corrections: (1) **the 77.6% SWE-bench Verified is a vendor-run result, not AA's** — datallmlab documents that press coverage (and the research brief that fed the first pass) misattributed it to Artificial Analysis; the row stays but as vendor data with reduced confidence. (2) AA's independent profile landed: II 25, class rank #28/117, speed #6/117. Vendor figures remain effort-0.99 ceilings (theairankings caveat).
+
 Agent / tool use:
 
-- Terminal-Bench 2.1 (best harness): **63.8%** (vendor announcement, effort 0.99, contamination-zeroed; BenchLM lists same; Vals variant 47.6%)
-- MCP Atlas: **76.0%** (vendor) / **74.1%** (BenchLM)
-- GDPval-AA v2: **1238 Elo** (vendor at effort 0.99) / **1165 Elo** (BenchLM)
-- Toolathlon-Verified: **45.5%** (vendor)
-- Tau3-Banking: **23.7%** (vendor, AA-run) / **29.1%** (BenchLM)
-- BrowseComp (with context management): **77.1%** (vendor)
-- AA Agentic Index **24.3%**, AA EnterpriseOps-Gym **38.0%**, AA-AnalystAgent **23.8%** (BenchLM)
-- Claw-Eval / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1: **63.8%** (vendor, contamination-zeroed) / Vals variant 47.6% — unchanged
+- MCP Atlas 76.0% / 74.1%; Toolathlon-Verified 45.5%; τ³-Banking 23.7-29.1% (vendor/AA-run); BrowseComp w/ context management 77.1%; GDPval-AA 1238 Elo (vendor) / 1165 (BenchLM); AA Agentic Index 24.3%; EnterpriseOps-Gym 38.0%; AnalystAgent 23.8% — all unchanged; Claw-Eval / SWE Atlas still unmeasured
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **87.2%** (vendor, AA-run) / **87.9%** (BenchLM)
-- HLE: **29.7% text-only / 46.0% with tools** (vendor; BenchLM lists 46% / 30% w-o-tools)
-- AIME 2026: **97.1%** (vendor + BenchLM)
-- LCR / MLCR: AA-LCR **77.3%** (BenchLM); MLCR no verified public score found
-- CritPt: **5.4%** (BenchLM)
-- Artificial Analysis Intelligence Index: **25.0** (BenchLM)
-- Omniscience: Index **2.0–2.1**, Accuracy **41.6%**, hallucination-rate field **67.7%** (BenchLM/vendor; label ambiguous vs AA's "Non-Hallucination Rate" — flagged, not double-counted)
-- MMLU-Pro (Vals) **86.3%**, Global-MMLU-Lite **88.7%**, IFBench **79.8%** (BenchLM/vendor)
-- ForecastBench Brier 61.1 (no search) / 63.7 (search); Prophet Arena 0.1617 (vendor epistemics table — strong calibration)
+- GPQA Diamond 87.2-87.9%; HLE 29.7% text / 46.0% tools; AIME 2026 97.1%; AA-LCR 77.3%; CritPt 5.4%; **AA Intelligence Index 25 — independently confirmed by AA's own xhigh measurement** (first pass had it via BenchLM); Omniscience index 2.0-2.1, accuracy 41.6%; IFBench 79.8%; ForecastBench Brier 61.1/63.7 — unchanged
+- AA capability indexes (Finance, Strategy, Legal, Healthcare, Engineering, Economics) exist for Inkling but values sit behind interactive charts — not captured this pass; flagged for future re-research
 
 Coding:
 
-- SWE-bench Verified: **77.6%** (vendor, bash-only harness; BenchLM same)
-- SWE-bench Pro: **54.3%** (vendor + BenchLM)
-- LiveCodeBench (Vals): **85.5%** (BenchLM)
-- AA-SciCode **47.0%**, AA Coding Index **52.1%**, FrontierSWE v2 **4.1%** (BenchLM)
-- Design Arena Agentic Web Dev Elo: **1257** (Design Arena leaderboard via vendor — tops GLM 5.1 1233, Kimi K2.7 Code 1234; GLM 5.2 1275 is higher)
-- Vibe Code Bench: **no verified public score found**
+- **SWE-bench Verified 77.6% — vendor-run (bash-only), attribution corrected this pass**; SWE-bench Pro 54.3%; LiveCodeBench (Vals) 85.5%; AA-SciCode 47.0%; AA Coding Index 52.1%; FrontierSWE v2 4.1%; Design Arena Agentic Web Dev Elo 1257 (vendor-cited leaderboard — still the top open-weights webdev row) — unchanged; Vibe Code still unmeasured
 
 Long context:
 
-- 1M native window (vendor/BenchLM); AA-LCR 77.3% (BenchLM); no MRCR/RULER per-length data — no long-context retrieval score found.
+- **1M window AA-confirmed**; AA-LCR 77.3%; no MRCR/RULER per-length data — unchanged.
 
 Multimodal:
 
-- MMMU-Pro (Standard 10): **73.5%** (vendor + BenchLM)
-- CharXiv RQ **78.1%** (no tools) / **82.0%** (with Python) (vendor + BenchLM)
-- Audio MC **56.6%**, MMAU **77.2%**, VoiceBench **91.4%** (vendor — strongest open-weights audio tier)
-
-Safety (context):
-
-- FORTRESS Adversarial **78.0%** / Benign **95.9%**, StrongREJECT **98.6%** (vendor — strongest open-weights refusal balance in its comparison set)
+- Vendor suite retained: MMMU-Pro 73.5%, CharXiv RQ 78.1%/82.0% w/ Python, **Audio MC 56.6%, MMAU 77.2%, VoiceBench 91.4%** (strongest open-weights audio claim — still no independent audio verification); AA confirms the modality set (text+image+speech) but publishes no independent multimodal scores. Safety: FORTRESS 78.0%/95.9%, StrongREJECT 98.6%.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** MCP Atlas 76%, BrowseComp 77.1% and TB 2.1 63.8% are top-tier open-weights results, but GDPval-AA 1238–1165 is mid-band, Toolathlon 45.5% and Tau3 ~24–29% lag frontier agents (Toolathlon 76%+ class).
-- **Reasoning: 80/100.** HLE-with-tools 46.0% is near-frontier, GPQA 87.2% and AIME 97.1% strong, and calibration training is a differentiator (ForecastBench beats GPT-5.5 no-search); CritPt 5.4%, AA Index 25.0 and weak Omniscience cap it.
-- **Context window: 95/100.** 1M native window = ≥1M tier; AA-LCR 77.3% is solid but no ≥98%-retrieval evidence; Tinker serving tops out at 256K today.
-- **Multimodal: 91/100.** Text+image+audio input (audio = top tier) with the best open-weights audio suite found (VoiceBench 91.4%, MMAU 77.2%) and solid vision (MMMU-Pro 73.5%, CharXiv 82% with Python); text-only output and no verified video input keep it under 95.
-- **Coding: 73/100.** SWE-bench Verified 77.6% and LiveCodeBench 85.5% are competitive; SWE-bench Pro 54.3%, AA Coding Index 52.1% and FrontierSWE v2 4.1% sit well below frontier agentic coding.
-- **Cost efficiency: 88/100.** Open weights with $0 self-host license and broad partner APIs; only the lack of a verified canonical per-token price (and 975B-total hosting weight) keeps it under 90.
-- **Overall Score: 83/100.** Half-up mean of the five quality dims (74+80+95+91+73)/5 = 82.6 → 83 — the most balanced open-weights generalist found, and the best open base for audio-capable fine-tuning; frontier agents still beat it on agentic coding.
+- **Tool use: 74/100.** Held: no new independent agent rows landed; MCP Atlas 76%, BrowseComp 77.1%, TB 2.1 63.8% remain top-tier open-weights results, with GDPval mid-band and Toolathlon 45.5% / τ³ ~24-29% lagging frontier agents.
+- **Reasoning: 80/100.** Held: AA's independent II 25 confirms the BenchLM read; HLE-with-tools 46.0% near-frontier, GPQA 87.2% and AIME 97.1% strong, calibration a differentiator — CritPt 5.4% and weak Omniscience still cap it.
+- **Context window: 95/100.** Held: 1M now AA-confirmed; AA-LCR 77.3% solid; no ≥98% retrieval evidence; Tinker serving still tops at 256K.
+- **Multimodal: 91/100.** Held: text+image+speech in with the best open-weights audio suite (still vendor-run only) and solid vision; text-only output, no video input at serving.
+- **Coding: 73/100.** Held: the 77.6% SWE-bench stays but with the attribution corrected to vendor-run (confidence reduced, value unchanged); LCB 85.5% and Design Arena 1257 are the competitive rows; SWE-Pro 54.3% and FrontierSWE 4.1% sit well below frontier agentic coding.
+- **Cost efficiency: 83/100.** Lowered from 88: the first pass's "no canonical price" was resolved the wrong way — $1.00/$4.05 is 2.3-2.4× the open-weights class median (AA: "particularly expensive"), and 975B-total self-hosting is heavy; the offsets are Apache 2.0 ($0 license), the 83% cache discount, and elite speed (186 tok/s, #6/117) that lowers wall-clock cost.
+- **Overall Score: 83/100.** (74 + 80 + 95 + 91 + 73) / 5 = 82.6 → 83, unchanged. Best-fit: the most balanced open-weights generalist found and the best Apache-2.0 base for audio-capable fine-tuning, now with a fast first-party API; but it's priced like a premium API while measuring like a good-not-frontier model, and frontier agents still beat it on agentic coding.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (Thinking Machines Lab announcement and benchmark tables, BenchLM, Design Arena leaderboard via vendor); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-12
+- Method: public internet research, second pass over the 2026-09-25 report (Artificial Analysis Inkling page — independent II 25, speed 186.3 tok/s #6/117, $1.00/$4.05 first-party pricing, 1M window, Apache 2.0, 7 providers; datallmlab's attribution investigation of the 77.6% SWE-bench row; theairankings effort-0.99-ceiling caveat; orcarouter/eesel/buildfastwithai reviews; BenchLM page; no BenchLeader page exists — 404; vendor rows from the first pass retained with the attribution correction); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

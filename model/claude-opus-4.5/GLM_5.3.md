@@ -1,75 +1,75 @@
 # Claude Opus 4.5 — findings by GLM 5.3
 
 - Source: Anthropic/Claude Opus 4.5 (`claude-opus-4-5-20251101`)
-- Date: 2026-09-27 (UTC)
+- Date: 2026-10-12 (UTC) — second-pass re-research of the 2026-09-27 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 4.5
-- **Short description:** Anthropic's flagship "Opus" model released 2025-11-24, pitched as "the best model in the world for coding, agents, and computer use"; now a legacy tier (superseded by Opus 4.6 → 5.5).
-- **Provider / access:** Anthropic Claude API (Messages API), Amazon Bedrock (`anthropic.claude-opus-4-5-20251101-v1:0`), Google Cloud (`claude-opus-4-5@20251101`), Microsoft Foundry (`claude-opus-4-5`).
-- **Release / knowledge:** 2025-11-24; reliable knowledge cutoff May 2025, training data cutoff Aug 2025 (platform docs).
-- **IDs:** `claude-opus-4-5-20251101` (alias `claude-opus-4-5`). No Free ID exists on Zen; paid only.
-- **Context window:** 200K tokens total; 64K max output (Messages API) — verified on the official model page.
-- **Modalities:** text + image in; text out; extended thinking with effort parameter (default `high`); tool calls, JSON mode, prompt caching, batch API.
-- **Pricing (as of 2026-09-27):** $5 in / $25 out per 1M; 5m cache write $6.25, 1h cache write $10, cache read $0.50; batch 50% off (official pricing page). AA blended ≈ $3.9/1M.
+- **Short description:** Anthropic's flagship "Opus" model released 2025-11-24, pitched as "the best model in the world for coding, agents, and computer use" — now a legacy tier (superseded by 4.6 → 4.7 → 4.8 → 5 → 5.5; migration guides since March 2026). Second pass validates the launch story better than most: **SWE-bench Verified board #1 at high effort (76.8%), BFCL 77.5% #1, Cybench 82.0% #2, GDPval 45.5% #2 (original), METR 75.0% #5** — Agents & tools 75 is its best category — while its general reasoning has clearly aged (GPQA 85.9-86.6% below the bar; **IF 54 is its worst category**). Still served (last measured 2026-10-07).
+- **Provider / access:** Anthropic Claude API (Messages API), Amazon Bedrock (`anthropic.claude-opus-4-5-20251101-v1:0`), Google Cloud (`claude-opus-4-5@20251101`), Microsoft Foundry.
+- **Release / knowledge:** 2025-11-24 (confirmed); reliable knowledge cutoff May 2025, training data cutoff Aug 2025.
+- **IDs:** `claude-opus-4-5-20251101` (alias `claude-opus-4-5`). No Free ID on Zen; paid only.
+- **Context window:** 200K tokens / 64K max output (confirmed).
+- **Modalities:** text + image in; text out; extended thinking (thinking is its best config); tool calls, JSON mode, prompt caching, batch API.
+- **Pricing (as of 2026-10-12):** $5 in / $25 out per 1M (cache write $6.25 5m / $10 1h; cache read $0.50; batch 50% off); blended $10.00/M — "among the most expensive ranked models"; 53 tok/s (slower than most), 19 s first answer.
 - **Architecture:** proprietary; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-> Sources: Anthropic announcement (anthropic.com/news/claude-opus-4-5, 2025-11-24), Anthropic platform model page, Artificial Analysis (artificialanalysis.ai, 2026-09). Anthropic's own release charts are images, so several absolute numbers are not independently verifiable in text; relative deltas are quoted verbatim from the announcement.
+> Second pass replaces the announcement-only picture with the full BenchLeader ladder (best = thinking **60.0 #108/760**, trend 51→57→64 stable, last measured 2026-10-07). Category scores (thinking): **Agents & tools 75 (best)**, Maths 64, Composite 62, Knowledge 61, Coding 61, Long context 64, Multimodal 57, Reasoning 54, **Instruction following 54 (worst)**.
 
 Agent / tool use:
 
-- Terminal-Bench 2.x: **no verified public score found** for the exact number; Warp reported "a 15% improvement over Sonnet 4.5" on Terminal Bench (Anthropic announcement quote). Provisional estimate ≈ low-60s % given Sonnet 4.5-era baselines.
-- Tau3-Banking / Tau2-Bench: **no verified public score found** — Anthropic's announcement only describes Opus 4.5 finding a legitimate policy workaround in the τ² airline scenario that the harness scored as a failure.
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
-- BrowseComp-Plus (fetch-enabled, with context-management + memory tools): **85.30%** vs 70.48% without the platform techniques (Anthropic announcement footnote 4).
-- Vending-Bench: **29% more profit than Sonnet 4.5** (Anthropic announcement).
-- Prompt-injection robustness (Gray Swarm): **hardest to trick "than any other frontier model in the industry"** (Anthropic announcement).
+- **GDPval (original OpenAI board): 45.5% #2** — elite for its era; **Cybench: 82.0% #2** (elite security); **BFCL Overall: 77.5% #1** (elite function calling — the launch "best tool calling" claim independently confirmed)
+- **METR Time Horizons: 75.0% #5** (elite long-horizon autonomy); **DeepResearch Bench: 54.8% #3 (high) / 53.7% #5 (low)**; **MCP Atlas: 69.8% #21**
+- **Terminal-Bench public board: 63.1% #13** — the first pass's derived "low-60s" estimate was exact; TB 2.0 (Vals) 53.9% #16 / 58.4% #10; **TB Hard: 47.0% #27 (thinking)**
+- **τ²-Bench: 85.3% #2 (official board) / 89.5% #68 (AA, thinking)** — τ³: still no verified public score; **Remote Labor Index: 3.8% #9** (weak)
+- Vending-Bench 2: 4967.1 #32; BALROG 43.0% #11; Poker 1033.4% #10; LiveBench Agentic Coding 39.7% #62 (weak); DeepSearchQA 24.0% #10; BrowseComp-Plus 85.3% w/ tools (launch row retained); Claw-Eval / Toolathlon: still unmeasured
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found** (release chart is image-only).
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index v4.3.2: **29 (reasoning, estimated)** / 24 (non-reasoning) — vs current Anthropic frontier Opus 5.5 at 58, Fable 5.1 at 53, Sonnet 5 at 38 (artificialanalysis.ai, Sep 2026).
-- Anthropic internal performance-engineering take-home exam: scored higher than any human candidate within the 2-hour limit (with parallel test-time compute; announcement footnote 1).
+- GPQA Diamond: Epoch 86.0% #79 / AA 86.6% #106 (thinking) / Vals 85.9% #43 — below the 90% bar on every harness
+- HLE: Scale-CAIS 25.2% #15 / AA 30.1% #140 (thinking) — below the 40% reference; **CritPt 4.6% #152** (very weak); ARC-AGI-2 37.6% #110; ARC-AGI-1 80.0% #107
+- Math: **AIME (Vals) 95.4% #12; MGSM 95.2% #1**; OTIS 86.1% #89; LiveBench Math 90.4% #35 (high); FrontierMath T1-3 34.4% #63 / **T4 4.9% #61** (weak); ProofBench 36.0% #37; SimpleBench 62.0% #22; **Kagi 80.2% #8; SciPredict 23.1% #2**; ForecastBench 60.7% #22; CL-bench 21.1% #4
+- Honesty mediocre: **AA-Omniscience non-hallucination 39.0% #161 (thinking)** (accuracy 46.6% #78, index 14.0 #83); SimpleQA 45.7% #36; EBR 14.3% #16
+- Knowledge: MMLU-Pro 87.3% #31; **MedQA 95.9% #10**; LegalBench 84.6% #29; TaxEval 74.9% #25; MedScribe 85.3% #26; CaseLaw 62.6% #18; CorpFin 65.1% #34; MedCode 49.2% #22
 
 Coding:
 
-- SWE-bench Verified: **≈81.5% (derived)** — "state-of-the-art" at release; at highest effort exceeds Sonnet 4.5 (official 77.2%) by 4.3 pp using 48% fewer tokens; at medium effort matches Sonnet 4.5's best with 76% fewer output tokens (Anthropic announcement + Sonnet 4.5 announcement footnote).
-- SWE-bench Multilingual: leads across **7 of 8** programming languages (Anthropic announcement).
-- Aider Polyglot: **+10.6% jump over Sonnet 4.5** (Anthropic announcement).
-- LiveCodeBench: **no verified public score found**
-- SciCode / Vibe Code Bench: **no verified public score found**
-- OSWorld: **no verified public score found** for Opus 4.5 (baseline: Sonnet 4.5 = 61.4% official); announcement calls Opus 4.5 market-leading at computer/spreadsheet use.
+- **SWE-bench Verified: 76.8% #1 (high, bash-only board) / 74.4% #5 (medium) / Epoch 76.7% #9 / Vals 76.4% #35** — elite for its era (the first pass's derived 81.5% was a few points high; the 76-77% cluster is the verified reality); **SWE-Bench Pro: 45.9% #6** (Scale)
+- **LiveCodeBench (Vals): 83.7% #45** — gap filled; **LMArena Coding 1531 #20** (strong preference); LiveBench Coding 79.7% #23 (high); WeirdML 63.7% #41; Aider Polyglot +10.6 pp (launch row retained); SWE Multilingual 7-of-8 lead (launch row retained)
+- Caps: **Vibe Code v1.1: 20.6% #69** (weak — gap filled); GSO-Bench 26.5% #14; ALE-Bench 1025.4 #48; AlgoTune 1.8 #5; WebDev 1494 #56
 
 Long context:
 
-- No MRCR/RULER numbers published for Opus 4.5; 200K window verified via docs. "No long-context retrieval reported."
+- 200K / 64K out; **AA-LCR 77.3% #126 (thinking)** — decent; LMArena Document 1465 #21; no MRCR/RULER rows (unchanged).
+
+Multimodal:
+
+- **MMMU 80.7% #5**; MMMU-Pro: Vals 83.0% #36 / AA 74.0% #111 / official 73.9% #8; **SAGE 52.1% #8** (good grounding); GeoBench 75.0% #9; VISTA 46.4% #21; VPCT 40.0% #16. Text+image in, text out.
+
+Preference/IF:
+
+- Preference holds up: LMArena Text 1474 #41, **Creative 1469 #17**, Multi-turn 1486 #27, **Longer Queries 1495 #21**, Hard Prompts 1501 #30, IF 1484 #18
+- **IF is the weak spot: IFBench 58.0% #131, LiveBench IF 62.5% #54, MultiChallenge 59.0% #14 — the IF-54 category (its worst)**; TutorBench 51.2% #16
 
 ### Normalized scores (1–100)
 
-> Derived per `model-comparison.md` methodology from the raw numbers above. Overall = half-up mean of the five quality dims; Cost excluded.
-
-- **Tool use: 82/100.** Strongest evidence: best-in-industry prompt-injection robustness (Gray Swan), +15% Terminal-Bench over Sonnet 4.5 (Warp), Vending-Bench +29% (long-horizon agency), BrowseComp-Plus 85.3% with tools, "best frontier task planning and tool calling" early-access consensus. Capped below 90 by 2026 frontier Terminal-Bench levels (~88%+) and lack of verified τ³/GDPval numbers.
-- **Reasoning: 78/100.** AA Intelligence Index 29 (estimated, reasoning config) is above the non-reasoning median (15) but half of today's frontier (58); math/reasoning "better than predecessors" and record internal-exam result. Capped by aging measured index vs 2026 frontier.
-- **Context window: 70/100.** 200K total / 64K max output — the v1 tier mapping scores 200K = 70; no 1M option for this generation.
-- **Multimodal: 66/100.** Text + image input only (60–70 band); better vision than predecessors and market-leading computer use, but no audio/video input and text-only output.
-- **Coding: 88/100.** ≈81.5% SWE-bench Verified (derived, SOTA at release), SWE-bench Multilingual leader in 7/8 languages, Aider Polyglot +10.6 pp, with 48–76% token-efficiency gains. Capped below 90 by 2026 frontier coding agents (DeepSWE 75%+ class) and lack of LiveCodeBench/SciCode verification.
-- **Cost efficiency: 48/100.** $5/$25 per MTok sits between the $3/$15 (~60) and $10/$50 (~30) anchor points; partially offset by 48–76% lower token counts at equal quality, $0.50 cache reads, and 50% batch discount.
-- **Overall Score: 77/100.** (82+78+70+66+88)/5 = 76.8 → 77. Still an upper-mid coding/agent model in Sep 2026; best fit is long-horizon agentic coding where its token-efficiency and reliability shine, though Opus 4.6+ now beats it at lower cost.
+- **Tool use: 84/100.** Raised from 82: the year confirmed the launch claims — GDPval #2, BFCL #1, Cybench #2, METR #5, DeepResearch #3, τ² 85.3% #2, MCP Atlas #21, TB public 63.1% #13 — the best tool-calling legacy profile measured this cycle; capped by Remote Labor 3.8%, weak LiveBench Agentic 39.7%, and the still-missing τ³ row.
+- **Reasoning: 70/100.** Lowered from 78: GPQA 85.9-86.6% is below the bar on every harness, HLE ~25-30%, CritPt 4.6%, FrontierMath T4 4.9%, and mediocre honesty (39.0% #161) — offset by AIME 95.4% #12, MGSM #1, Kagi #8, SciPredict #2, and SimpleBench #22.
+- **Context window: 70/100.** Held: 200K/64K — the anchor tier; AA-LCR 77.3% #126 decent but no large-window option exists.
+- **Multimodal: 70/100.** Raised from 66: MMMU 80.7% #5, MMMU-Pro 83.0% #36, SAGE 52.1% #8 and GeoBench #9 measure stronger than the launch-era picture; still image-in/text-out only.
+- **Coding: 82/100.** Lowered from 88: the verified SWE-V cluster is 74.4-76.8% (elite ranks — board #1 at high — but not the derived 81.5%), SWE-Pro 45.9% #6 is mid, and Vibe 20.6% #69, GSO 26.5% and ALE #48 cap it; LCB 83.7% #45 and Coding #20 preference keep the upper band.
+- **Cost efficiency: 48/100.** Held: $5/$25 with $10/M blended ("among the most expensive"), 53 tok/s; the offsets remain the 48-76% token-efficiency gains, $0.50 cache reads, and 50% batch.
+- **Overall Score: 75/100.** (84 + 70 + 70 + 70 + 82) / 5 = 75.2 → 75, down from 77. Best-fit: the strongest legacy tool-caller measured — function calling (#1 BFCL), security (#2 Cybench), long-horizon autonomy (#5 METR) and SWE-V board-topping at high effort; its general reasoning, honesty, and instruction following have aged, and every Opus successor (4.6 → 5.5) beats it per dollar — keep it for tool-heavy legacy pipelines only.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-27
-- Method: public internet research (Anthropic announcement + platform docs, Artificial Analysis, Wikipedia) — no peer report files read; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-12
+- Method: public internet research, second pass over the 2026-09-27 report (BenchLeader full effort-ladder as of 2026-10-07 aggregating the SWE-bench official board, Terminal-Bench public board, METR, τ²-bench official, Epoch AI Benchmarking Hub, Artificial Analysis, Vals AI, Scale AI SEAL incl. MCP Atlas/SWE-Pro/SciPredict, LiveBench, LMArena, Cybench, BALROG, Andon Labs, Kaggle; DDG-lite searches surfacing the cometapi Opus 4/4.5 pricing retrospective and the zoer.ai Opus 4.5→4.6 migration guide; first-pass launch rows retained where not contradicted); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

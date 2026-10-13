@@ -2,8 +2,9 @@
   "id": "poolside/laguna-s-2.1",
   "name": "Laguna S 2.1",
   "short": "Poolside's 118B/8B-active open-weights MoE for agentic coding and long-horizon work (OpenMDW-1.1 permissive).",
-  "contextWindow": "1M (Ollama local builds 256K)",
-  "modalities": "Text in/out only",
-  "pricingNote": "~$0.10/$0.20 per 1M API; open weights (no Zen Free ID)",
+  "contextWindow": "1M (OpenRouter free endpoint capped at 256K)",
+  "modalities": "Text in/out only (no vision)",
+  "pricingNote": "$0.10/$0.20 per 1M ($0.01 cache read) on OpenRouter's 1M endpoint; open weights under OpenMDW-1.1 (no Zen Free ID)",
+  "freeTierNote": "Free OpenRouter endpoint at 256K context; self-host free under OpenMDW-1.1 (8B active, runs on a single NVIDIA DGX Spark)",
   "noFreeId": true
 }
