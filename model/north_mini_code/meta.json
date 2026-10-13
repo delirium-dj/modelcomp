@@ -1,8 +1,8 @@
 {
   "id": "opencode/north_mini_code",
   "name": "North Mini Code",
-  "short": "Cohere's open-weight MoE reasoning model for code (30B total, 3B active, Apache 2.0) with a free tier and sub-second latency.",
-  "contextWindow": "256,000 total",
+  "short": "Cohere Labs' open-weight 30B-A3B MoE research release for code generation, agentic software engineering and terminal tasks (Apache 2.0). SWE-bench Verified 67.6% and GPQA Diamond 75.7% from 3B active parameters; free tier, sub-second latency.",
+  "contextWindow": "256,000 total (64,000 max output)",
   "modalities": "Text in/out; reasoning",
   "pricingNote": "Free tier ($0/$0)",
   "freeTierNote": "Completely free tier ($0 input / $0 output)"

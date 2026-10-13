@@ -1,9 +1,9 @@
 {
   "id": "opencode/ling-3.0-flash-sante",
   "name": "Ling 3.0 Flash Sante",
-  "short": "Ant Group's health/medicine domain fine-tune of Ling 3.0 Flash ('santé' = health) for medical reasoning, healthcare tasks and evidence-based retrieval.",
+  "short": "Ant Group's health/medicine domain variant of Ling 3.0 Flash, 124B total / 5.1B active. API-only (no weights, no licence stated, no model card or safety evaluation); Novita is the sole provider. Not a medical device per its own host.",
   "contextWindow": "262,144 total; 32,768 max output (OpenRouter)",
-  "modalities": "Text in/out; reasoning (switchable); function calling; no vision",
-  "pricingNote": "Paid after $0 promo ended 2026-10-04; list price unpublished",
+  "modalities": "Text in/out; reasoning (on by default); function calling; no vision (medical images out of scope); no response_format",
+  "pricingNote": "$0.042/$0.123 per 1M (list); Vercel $0 promo ended 2026-10-04, OpenRouter retains a rate-limited free tier",
   "noFreeId": true
 }

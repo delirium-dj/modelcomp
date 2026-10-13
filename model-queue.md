@@ -151,11 +151,11 @@
 59.8 laguna-xs-2.1
 59.4 mai-code-1-flash
 59.4 mimo-v2.6-distill-qwen-9b
-58.4 ling-3.0-flash-sante
+58.5 ling-3.0-flash-sante
 58.1 llama_3.2_vision_instruct
 57.6 north_mini_code
+56.8 nemotron-3.5-lightning-free
 56.4 big-pickle
-56.4 nemotron-3.5-lightning-free
 56.2 solar-mini-4
 55.5 exo-free
 54 mercury-2.5
