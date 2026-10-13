@@ -1,25 +1,26 @@
 # MiMo V2.6 Distill Qwen 9B — findings by Kimi K3
 
 - Source: Xiaomi/MiMo-V2.6-Distill-Qwen-9B (HF `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`)
-- Date: 2026-09-29 (UTC)
+- Date: 2026-10-13 (UTC) — deep second pass (first pass 2026-09-29; **license verified MIT**, params 9.41B BF16 verified, creation stamp matches the 09-21 release wave; **architecture correction: it's an image-text multimodal checkpoint (Qwen3_5ForConditionalGeneration) with vision+audio+video tokens in its template — not a bare text-only SFT**)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** MiMo-V2.6-Distill-Qwen-9B
-- **Short description:** A 9B checkpoint from Xiaomi's MiMo-V2.6 release — Qwen3.5-9B supervised-fine-tuned on MiMo-generated data, published explicitly as a research starting point for agentic RL, not as a flagship. The laptop-class member of the MiMo-V2.6 family. Variant of the V2.6 series, not an alias of Pro/Flash.
-- **Provider / access:** Hugging Face `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B` (self-host; ~18.8 GB BF16; community GGUF — e.g. `ollama run hf.co/bartowski/MiMo-V2.6-Distill-Qwen-9B-GGUF:Q4_K_M` — and MLX 4-bit builds). No hosted API listing found on Xiaomi's platform. Not on OpenCode Zen.
-- **Release / knowledge:** Released with the MiMo-V2.6 series — HF repos live late 2026-09-21 UTC, announcement 2026-09-22. Knowledge cutoff not stated publicly.
-- **IDs:** `xiaomi/mimo-v2.6-distill-qwen-9b` (HF-derived). No Zen ID (free or paid) exists.
-- **Context window:** Not published for the distill (Qwen3.5-9B base context not restated on the card in coverage reviewed; do not assume the 1M window of Pro/Flash).
-- **Modalities:** Text in/out only (SFT of a text base on MiMo-generated data); reasoning traces inherited from MiMo task data; tool-call formats per the MiMo stack. No multimodal encoders.
-- **Pricing (as of 2026-09-29):** Free weights (no API price — nothing hosted). Runs on a single 8–12 GB GPU (Q4 GGUF) or Apple Silicon via MLX.
-- **Architecture:** 9B dense (Qwen3.5-9B base) SFT checkpoint. License: shipped with the MIT-licensed MiMo-V2.6 release wave — confirm on the model card before commercial redistribution (not explicitly restated in coverage reviewed).
+- **Short description:** A 9B checkpoint from Xiaomi's MiMo-V2.6 release — Qwen3.5-9B supervised-fine-tuned on MiMo-generated data, published explicitly as a research starting point for agentic RL, not as a flagship. The laptop-class member of the MiMo-V2.6 family.
+- **Provider / access:** Hugging Face `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B` — **verified live, ungated, 9.41B params BF16 (~18.8 GB), created 2026-09-21 / lastModified 2026-09-22 (✓ matches first-pass release-wave dates), 24.3K downloads/month**; community GGUF/MLX builds exist. No hosted API; not on Zen (verified 2026-10-13).
+- **Release / knowledge:** Released with the MiMo-V2.6 series (HF repos live 2026-09-21 UTC, announcement 09-22 — ✓ confirmed from repo stamps). Cutoff not stated publicly.
+- **IDs:** `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B` (HF, canonical).
+- **Context window:** Still not published for the distill (HF metadata carries no max-length field — checked this pass; do not assume the 1M window of Pro/Flash).
+- **Modalities — CORRECTED this pass:** pipeline `image-text-to-text`, auto-model **AutoModelForMultimodalLM**, and the chat template handles **image, audio (`<|mimo_audio_start|>`), and video** tokens with a `video_preprocessor_config.json` present — the checkpoint inherits the Qwen3.5 multimodal stack. No multimodal benchmark has been published for this distill, so measured quality stays unverified — but "no multimodal encoders" (first pass) was wrong.
+- Reasoning traces inherited from MiMo task data (think-block template); tool-calling template format (`<tool_call><function=…>` — new detail).
+- **Pricing (as of 2026-10-13):** free weights; **license MIT (verified on the card — first pass's "confirm before commercial redistribution" resolved)**; runs on a single 8–12 GB GPU (Q4 GGUF) or Apple Silicon via MLX.
+- **Architecture:** **9.41B-parameter** multimodal transformer (Qwen3.5-9B base, `qwen3_5` model_type) — SFT checkpoint, MIT.
 
 ### Raw benchmarks found
 
-> All numbers vendor-reported (Xiaomi), reproduced in Codersera's MiMo-V2.6 guide; harness = Xiaomi internal. Baseline = the Qwen3.5-9B base model.
+> All numbers vendor-reported (Xiaomi), reproduced in Codersera's MiMo-V2.6 guide; harness = Xiaomi internal. Baseline = the Qwen3.5-9B base model. No new rows published since the first pass.
 
 Agent / tool use:
 
@@ -32,27 +33,29 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Pro: **44.6%** (Qwen3.5-9B base: 32.0%) — vendor-reported
+- SWE-bench Pro: **44.6%** (base: 32.0%) — vendor-reported
 - SWE-bench Verified / LiveCodeBench / SciCode / Vibe / DeepSWE: no verified public score found
 
 Long context:
 
-- No long-context retrieval benchmark reported; context window not officially republished for the distill.
+- No long-context retrieval benchmark; context window not officially republished.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 40/100.** Terminal-Bench 2.1 37.1 is a real lift over its 9B base (27.0) and respectable for the size class, but far below frontier agents (70+) and with no other agentic data points.
-- **Reasoning: 40/100.** No reasoning benchmarks published; SFT on MiMo reasoning traces implies some transfer, unmeasured publicly. Provisional.
-- **Context window: 40/100.** Context not republished for the distill — scored provisionally in the sub-100K band pending the model card; do not assume the family 1M window.
-- **Multimodal: 15/100.** Text-only SFT checkpoint; no vision/audio encoders.
-- **Coding: 50/100.** SWE-bench Pro 44.6% is remarkable at 9B (the base scored 32.0) and beats several much older mid-size models on the same suite — but TB2.1 at 37.1 shows its ceiling, and the harness is vendor-internal.
-- **Cost efficiency: 100/100.** Free weights that run on a single consumer GPU or a Mac (Q4 GGUF / MLX 4-bit) — effectively $0 at laptop scale; capped only by "you supply the hardware."
-- **Overall Score: 37/100.** Mean of the five non-cost dims (40+40+40+15+50)/5 = 37. Best fit: a research baseline for agentic-RL experiments and offline/local tinkering — explicitly not positioned by Xiaomi as a production flagship.
+> Overall = half-up mean of the five quality dims; Cost excluded. (Change vs first pass shown inline.)
+
+- **Tool use: 40/100.** Unchanged — TB 2.1 37.1 lifts over the 9B base (27.0); respectable for the class, far below frontier (70+).
+- **Reasoning: 40/100.** Unchanged — no reasoning benchmarks published; SFT transfer unmeasured. Provisional.
+- **Context window: 40/100.** Unchanged — context not republished (HF metadata checked again this pass); provisionally sub-100K.
+- **Multimodal: 30/100.** +15 — architecture correction: multimodal input (image/audio/video) is present in the template and pipeline; zero published scores, so it stays far below measured vision models, but the first-pass floor was wrong on facts.
+- **Coding: 50/100.** Unchanged — SWE-bench Pro 44.6% at 9B is remarkable (base 32.0); vendor harness caps it.
+- **Cost efficiency: 100/100.** Free weights, MIT (verified), single consumer GPU.
+- **Overall Score: 40/100.** Mean of (40+40+40+30+50)/5 = 40 (was 37). Best fit: a research baseline for agentic-RL experiments and offline/local tinkering — with the added benefit that the multimodal stack is inherited if it proves usable.
 
 ---
 
 ## Signature
 
-- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-09-29
-- Method: Public internet research (Codersera MiMo-V2.6 guide reproducing Xiaomi's model-card numbers for the distill, HF community quant listings); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Kimi K3 (moonshotai/kimi-k3)** — 2026-10-13
+- Method: deep second-pass public web research (HF API metadata for `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B` fetched 2026-10-13 — MIT license, 9.41B BF16, created 2026-09-21 / modified 09-22 ✓, image-text-to-text pipeline + multimodal template tokens incl. audio/video, Qwen3.5-9B finetune relation; Zen listing 2026-10-13 — absent). First-pass vendor-reported rows retained. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

@@ -1,0 +1,48 @@
+# Qwen3.8-Flash — negative findings by GPT 6 Sol
+
+- Source: Qwen Cloud (`qwen3.8-flash`)
+- Date: 2026-10-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8-Flash
+- **Short description:** Qwen Cloud's production multimodal Flash endpoint based on the experimental open-weight **Qwen3.8-Flash-Next**. [The official Flash-Next model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) explicitly distinguishes the production Flash version as adding features including 1M default context and hosted tools; it does not claim that the independently hosted endpoint's scores are identical. The two already have separate project folders; this report covers the hosted `qwen3.8-flash` ID only.
+- **Provider / access:** [Qwen Cloud model page](https://www.qwencloud.com/models/qwen3.8-flash) gives the exact `qwen3.8-flash` model ID and OpenAI-compatible **Chat Completions/Responses** (also Anthropic protocol), base URL `https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1`; [OpenRouter](https://openrouter.ai/qwen/qwen3.8-flash/llms.txt) lists `qwen/qwen3.8-flash` Chat Completions. A live `opencode/qwen-3.8-flash` Zen route was not confirmed (guessed Pi page 404).
+- **Release / knowledge:** [OpenRouter](https://openrouter.ai/qwen/qwen3.8-flash/benchmarks) dates this listing August 26, 2026; no separate reliable knowledge cutoff was verified for the hosted production version.
+- **IDs:** `qwen3.8-flash` (first-party), `qwen/qwen3.8-flash` (OpenRouter), distinct from weights `Qwen/Qwen3.8-Flash-Next` unless separately equivalence-tested.
+- **Context window:** [Qwen Cloud](https://www.qwencloud.com/models/qwen3.8-flash) **1M combined / 991K maximum input / 131K output**, 983K input with thinking; its open-weight Flash-Next precursor is native 262,144 and needs configured scaling for 1M ([Flash-Next card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)).
+- **Modalities:** [Qwen Cloud](https://www.qwencloud.com/models/qwen3.8-flash) lists text/image/video input → text output and reasoning, tools, cache, structured outputs; a native audio modality is not claimed here.
+- **Pricing (as of 2026-10-13):** [Qwen Cloud](https://www.qwencloud.com/models/qwen3.8-flash) lists **$0.15 input / $0.47 output / $0.016 cached read / $0.20 explicit cache creation per 1M**; host/model-specific rates, not proof of a zero-dollar API tier. Local hosting of Flash-Next is subject to hardware and its [Qwen Community 1.0 license](https://huggingface.co/Qwen/Qwen3.8-Flash-Next), not Apache-2.0 or free infrastructure.
+- **Architecture:** [Flash-Next precursor](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) has 125B backbone / 6B active plus 51B n-gram embeddings and 4B MTP parameters. Exact weights/retuning of the production hosted Flash service were not verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **No verified public score found for the hosted `qwen3.8-flash` ID** on Terminal-Bench, Toolathlon, OSWorld or ClawEval-MM. The [Flash-Next checkpoint card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) has such measurements, but names and evaluates **Flash-Next**, not the production Flash endpoint.
+
+Reasoning / knowledge:
+
+- **No verified public score found** for hosted Flash GPQA, HLE, MMLU or independent intelligence index. The **91.7% GPQA** figure quoted in project metadata is [Flash-Next's checkpoint result](https://huggingface.co/Qwen/Qwen3.8-Flash-Next), not a demonstrated measurement of this production route.
+
+Coding:
+
+- **No verified public score found** for hosted Flash SWE-bench, DeepSWE or LiveCodeBench. Project metadata's **91.9% LiveCodeBench** is [Flash-Next's evaluated checkpoint](https://huggingface.co/Qwen/Qwen3.8-Flash-Next); avoid silently transplanting it into hosted Flash's scores. [Vals' guessed Flash route](https://www.vals.ai/models/alibaba_qwen3.8-flash) and [BenchLM's guessed route](https://benchlm.ai/models/qwen-3-8-flash) returned 404.
+
+Long context:
+
+- **No verified public 1M long-context retrieval score found** for the hosted endpoint; native precursor 262K and hosted 1M capacity measure different things ([Qwen Cloud](https://www.qwencloud.com/models/qwen3.8-flash), [checkpoint card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)).
+
+### Normalized scores (1–100)
+
+No scores assigned: there are zero verified public **benchmark** numbers explicitly measuring hosted `qwen3.8-flash`. The documented production API differs in context/tools from its tested Flash-Next precursor. This `.md.excluded` records the evidence without importing sibling measurements into the model's average.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-13
+- Method: Fresh first-party Qwen Cloud and original precursor model card checked against third-party model listings; self-excluded until production-ID benchmarks or independently demonstrated measurement equivalence are available.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

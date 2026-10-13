@@ -29,6 +29,17 @@
   (`pricingTiers` string array, `freeTierNote`, `noFreeId`, `category`) before
   malformed metadata reaches the UI.
 
+## Design
+
+- **Redesign site from the `design-6sol` study** (evaluation-only route at
+  `src/routes/design-6sol/`, not linked or wired into the project): adopt its
+  proven solutions for the real pages — measurement-style performance profile
+  with Bars/Hexagon switch (shared γ top-end emphasis), scoped light/dark
+  toggle, short table headers, pinned Overall + phone-only active-column
+  second + 47.5/22.5/22.5 phone widths with scroll-reset, rounded grades with
+  best/worst highlights (Overall tiebreak), project hexagon brand mark.
+  (`src/routes/design-muse/` removed 2026-10-13 — superseded by `design-6sol`.)
+
 ## Standing decisions (not TODOs — do not "fix")
 
 - **`vercel.json` stays** (prior standing verdict, re-affirmed): cache headers

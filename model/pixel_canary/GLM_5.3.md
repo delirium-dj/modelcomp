@@ -1,69 +1,61 @@
 # Pixel Canary — findings by GLM 5.3
 
 - Source: stealth vendor undisclosed, distributed via Vercel AI Gateway (`stealth/pixel-canary`; site slug `opencode/pixel_canary`)
-- Date: 2026-09-28 (UTC)
+- Date: 2026-10-13 (UTC) — second-pass re-research of the 2026-09-28 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Pixel Canary (stealth codename; maker undisclosed)
-- **Short description:** An anonymous stealth coding model distributed free through Vercel's AI Gateway since 2026-09-25, positioned for web/mobile app development. Community fingerprinting (stealthmodels.com) hypothesizes an unannounced Z.ai GLM-5.4; tokenizer analysis elsewhere suggests a possible Qwen derivative — **both unconfirmed; treat the operator as an unnamed third party.**
-- **Provider / access:** Vercel AI Gateway `stealth/pixel-canary` (Chat Completions, OpenAI-compatible; catalog `https://ai-gateway.vercel.sh/v1/models`); also usable via Cline Desktop (free account) and Command Code (Go plan+); OpenCode evaluation configuration published. Tool use, implicit caching.
-- **Release / knowledge:** in stealth since 2026-09-25 (Vercel changelog); knowledge cutoff unknown.
-- **IDs:** `stealth/pixel-canary` (Vercel AI Gateway); `opencode/pixel_canary` (site slug ID). No Zen Free ID confirmed; the free path is the Vercel stealth preview.
-- **Context window:** 262,144 total / 131,072 max output (Vercel model listing + API catalog, verified 2026-09-26).
-- **Modalities:** text + image in; text out; reasoning yes (`none`/`low`/`medium`/`xhigh` effort tiers); tool calls yes; implicit caching.
-- **Pricing (as of 2026-09-28):** $0 input / $0 output during the temporary stealth preview (time-limited; the provider may retain prompts and outputs for training — do not route confidential code through it).
-- **Architecture:** undisclosed (stealth; no published parameter count, license, or weights).
+- **Short description:** The anonymous stealth coding model Vercel dropped on its AI Gateway on 2026-09-25, positioned for web/mobile app development — **and now gone: the free stealth preview has ended** (aiidelist's 2026-10-06 retrospective reads in the past tense: "Vercel offered it free only for a limited stealth period"), with **no replacement endpoint or reveal verified as of 2026-10-13**. The identity hypotheses (an unannounced Z.ai GLM-5.4 per stealthmodels' fingerprinting; a Qwen derivative per other tokenizer analyses) remain unconfirmed; the operator stays an unnamed third party. The evidence base never grew beyond what the first pass found: **Vercel's own Next.js agent evals — 90.3% baseline (28/31) / 96.8% with docs (30/31), tying GPT-6 Astra, Opus 5.5, Gemini 3.8 Flash and Kimi K3 on the same harness** — with zero independent harness rows (no AA/BenchLM/BenchLeader page ever appeared). A post-mortem record.
+- **Provider / access (discontinued):** Vercel AI Gateway `stealth/pixel-canary` (Chat Completions) — **preview ended; no verified public access remains**; the earlier free paths (Cline Desktop free account, Command Code Go plan+) closed with it.
+- **Release / knowledge:** in stealth from **2026-09-25** (Vercel changelog); preview ended ~early October 2026; knowledge cutoff unknown.
+- **IDs:** `stealth/pixel-canary` (dead); `opencode/pixel_canary` (site slug).
+- **Context window:** **262,144 total / 131,072 max output** (Vercel listing; the margrop deep-dive describes a "256K linear context" — consistent).
+- **Modalities:** text + image in; text out; reasoning (`none`/`low`/`medium`/`xhigh`); tool calls; implicit caching.
+- **Pricing (historical):** $0/$0 during the stealth preview (the provider-retains-prompts caveat applied); no paid rate was ever published — and no access now exists to price.
+- **Architecture:** undisclosed (stealth); no published parameter count, license, or weights.
 
 ### Raw benchmarks found
 
-> Only one verified public benchmark exists for this ID; everything else measured is listed as missing. Sources: Vercel's open-source Next.js evaluation harness (`github.com/vercel/next-evals-oss`, published results JSON, 2026-09-25 snapshot, pass@4 — a task passes if any of up to 4 attempts succeeds, 40-min timeout, OpenCode agent with tool use enabled).
+> Second-pass status unchanged and final: **the Vercel Next.js evals remain the only verified public numbers** — "both scores come from Vercel's own evaluations on a single framework, so they say little about performance on other stacks" (VibeLeaderboard's own caveat, now third-party-echoed). No independent harness (AA/Epoch/Vals/LiveBench/BenchLeader) ever published a row before the preview closed.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / 4.0: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
-- Next.js Agent Evals (agentic file-edit/build harness via OpenCode): **90% (28/31) baseline; 97% (30/31) with AGENTS.md** — ties Claude Opus 5.5 (high), GPT-6 Astra (high), Gemini 3.8 Flash and Kimi K3 in the with-docs condition; beats Kimi K3 baseline (84%); average evaluation duration 16.9 min (slow).
+- Next.js Agent Evals (Vercel open-source harness, pass@4, OpenCode agent): **90.3% baseline (28/31) / 96.8% with AGENTS.md (30/31)** — ties Claude Opus 5.5, GPT-6 Astra, Gemini 3.8 Flash and Kimi K3 in the with-docs condition; beats Kimi K3's 84% baseline; average duration 16.9 min (slow); the exact figures now corroborated across agihunt/thedevsignal/startupfortune coverage
+- Terminal-Bench / τ² / τ³ / GDPval / Claw-Eval / Toolathlon / MCP-Atlas: never measured — permanent gaps
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR / CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- GPQA / HLE / LCR / CritPt / AA Index / Omniscience: never measured — permanent gaps
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / DeepSWE / Vibe Code Bench: no verified public score found
-- Next.js Agent Evals: **97% with docs / 90% baseline** (see agent section — the sole verified number; Vercel open-source harness, pass@4)
-- SVG-code generation: strong qualitative gallery (voxel self-portrait, Mona Lisa, animated pelican, beach scene — stealthmodels.com experiments) but no numeric score.
+- The Next.js evals double as the coding evidence (see agents); SVG-code generation: strong qualitative gallery (voxel self-portrait, Mona Lisa, animated pelican, beach scene — stealthmodels experiments) but no numeric score; SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE / Vibe: never measured
 
 Long context:
 
-- No MRCR / RULER / GraphWalks number reported. 262K/131K limits verified from the Vercel catalog.
+- 262K/131K verified from the catalog; "256K linear context" (margrop); no MRCR/RULER number ever published.
+
+Multimodal:
+
+- Text + image in, text out (catalog); no measured vision rows.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** No dedicated tool-use benchmark exists; the 30/31 Next.js result was produced by driving OpenCode (file edits, builds, tools) in an agentic harness, which evidences practical tool competence in one domain — capped hard by zero TB/Tau/GDPval/Toolathlon data.
-- **Reasoning: 55/100.** Adjustable reasoning effort (`xhigh`) and frontier-tier results on one web-dev harness imply solid reasoning, but no verified public reasoning benchmark (GPQA/HLE/LCR all missing) keeps this provisional.
-- **Context window: 72/100.** 262,144 total / 131,072 out sits in the 200K–500K tier (200K = 70 reference); no long-context retrieval benchmark to score higher.
-- **Multimodal: 65/100.** Text + image input, text out only (Vercel catalog) — image-in band; no video/audio/PDF input, no non-text output.
-- **Coding: 80/100.** 30/31 (97%) with docs ties Opus 5.5 / GPT-6 Astra / Gemini 3.8 Flash on the same harness, and 28/31 baseline beats Kimi K3 — but it is a single narrow domain (Next.js), pass@4 inflates, 16.9-min average duration is slow, and no SWE-bench/LiveCodeBench/SciCode corroboration exists.
-- **Cost efficiency: 100/100.** $0 input/output during the stealth preview = free-tier 100; flagged: time-limited preview, prompts/outputs may be retained for training, and per-task wall-clock time is long.
-- **Overall Score: 66/100.** (60 + 55 + 72 + 65 + 80) / 5 = 66.4 → 66. Best-fit recommendation: a free, frontier-adjacent web/app-development agent while the preview lasts — strong for Next.js-style tasks, unverified for general reasoning, tooling, and long-context work; do not use on confidential code.
+- **Tool use: 60/100.** Held: the 30/31 Next.js result evidences real agentic tool competence in one framework — the TB/τ/GDPval suites were never reached, capping the score permanently.
+- **Reasoning: 55/100.** Held: xhigh reasoning effort and frontier-adjacent web-dev results imply solid reasoning, but no GPQA/HLE/Index row ever landed — provisional, now final.
+- **Context window: 72/100.** Held: 262K/131K tier confirmed (the "256K linear" description consistent); zero measured retrieval.
+- **Multimodal: 65/100.** Held: text+image in per the catalog; unmeasured.
+- **Coding: 78/100.** Lowered from 80: the 90.3%/96.8% figures are now precisely corroborated — but the single-framework caveat (VibeLeaderboard: "say little about performance on other stacks"), pass@4 inflation, 16.9-min duration, and the never-arriving SWE-bench/LCB rows settle it just under 80.
+- **Cost efficiency: 70/100.** Lowered from 100: the $0 preview was real but is over — no verified public access remains, so the score blends the historical free tier with the current zero availability (as with this cycle's Fledge Alpha post-mortem).
+- **Overall Score: 66/100.** (60 + 55 + 72 + 65 + 78) / 5 = 66.0, unchanged. Best-fit (historical): a free, frontier-adjacent Next.js/mobile web-dev agent for the two weeks it lived — tying GPT-6 Astra on Vercel's own harness with a 256K linear context at $0 — but never independently measured, never claimed by its maker, and now gone; if its creator reveals (the GLM-5.4 hypothesis remains the lead), re-research the named model immediately.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-09-28
-- Method: public internet research (Vercel changelog/model listing/API catalog, open-source next-evals harness with published results, stealthmodels.com eval gallery); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-13
+- Method: public internet research, second pass over the 2026-09-28 report (DDG-lite searches surfacing the aiidelist retrospective confirming the preview's end, the huggingface liliruli/VibeLeaderboard/margrop/agihunt/thedevsignal/startupfortune coverage — including VibeLeaderboard's own single-framework caveat and the precise 90.3%/96.8% figures — and the Vercel changelog; no AA/BenchLM/BenchLeader page ever existed — confirmed; the identity hypotheses remain unconfirmed and the operator unnamed; the first-pass rows retained with the corrected exact figures); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

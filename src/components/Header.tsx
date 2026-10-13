@@ -1,12 +1,55 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 import { ThemeToggle } from "./theme-toggle/theme-toggle";
 
 export const Header = component$(() => {
   const isMenuOpen = useSignal(false);
+  const isVisible = useSignal(true);
+
+  // Mobile-only auto-hide: hide on scroll down, show instantly on scroll up.
+  // Desktop (md+) always stays visible via `md:translate-y-0` + the guard below.
+  useVisibleTask$(({ cleanup }) => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const mq = window.matchMedia("(max-width: 767px)");
+
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const dy = y - lastY;
+      if (y <= 8 || !mq.matches) {
+        isVisible.value = true;
+      } else if (dy > 4) {
+        isVisible.value = false;
+      } else if (dy < -2) {
+        isVisible.value = true;
+      }
+      lastY = y;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    cleanup(() => window.removeEventListener("scroll", onScroll));
+  });
+
+  // Never hide the bar (and its close button) while the mobile drawer is open.
+  useTask$(({ track }) => {
+    if (track(() => isMenuOpen.value)) {
+      isVisible.value = true;
+    }
+  });
 
   return (
     <>
-      <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition-colors dark:border-slate-800 dark:bg-slate-900/90">
+      <header
+        class={[
+          "sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition-colors transition-transform duration-300 will-change-transform dark:border-slate-800 dark:bg-slate-900/90",
+          isVisible.value ? "translate-y-0" : "-translate-y-full md:translate-y-0",
+        ]}
+      >
         <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           {/* Left: Theme Switcher */}
           <div class="flex w-24 items-center justify-start">
