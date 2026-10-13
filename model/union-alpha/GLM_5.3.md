@@ -1,79 +1,64 @@
 # Union Alpha — findings by GLM 5.3
 
-- Source: undisclosed stealth vendor (`stealth/union-alpha` on OpenRouter; `opencode-go/union-alpha` on OpenCode Go)
-- Date: 2026-09-25 (UTC)
+- Source: Unbiased.ai / Circuit & Chisel (`stealth/union-alpha` → `unbiased/pareto` on OpenRouter)
+- Date: 2026-10-13 (UTC) — second-pass re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Union Alpha (anonymous "Stealth" provider; no lab has claimed it)
-- **Short description:** A stealth multimodal model for agentic coding, research, and long-context work, surfaced unannounced on routing platforms on 2026-09-16 and free during a limited preview. Vendor unidentified; treat as a black-box preview endpoint, not an auditable model family.
-- **Provider / access:** OpenRouter `stealth/union-alpha` (OpenAI-compatible Chat Completions, `https://openrouter.ai/api/v1/chat/completions`); OpenCode Go `opencode-go/union-alpha` via `https://opencode.ai/zen/go/v1/messages` (Anthropic Messages API protocol); also reachable through Cloudflare AI Gateway proxying OpenRouter. OpenRouter states it is not the developer/owner and lists the upstream only as "Stealth".
-- **Release / knowledge:** 2026-09-16 (appeared on OpenCode/OpenRouter); knowledge cutoff not disclosed.
-- **IDs:** `stealth/union-alpha` (OpenRouter), `opencode-go/union-alpha` (OpenCode Go). No OpenCode Zen pay-as-you-go listing and no native Cloudflare `@cf` ID; Go route carries the free preview.
-- **Context window:** 262,144 tokens total; max output 131,072 tokens (OpenRouter model metadata, verified 2026-09-16 snapshot by kingy.ai). No measured long-context retrieval published.
-- **Modalities:** text + image in; text out; tool calls (`tools`, `tool_choice`) and structured output (`response_format`, no JSON-schema enforcement); streaming; no `reasoning_effort` control; no video/audio/PDF listed.
-- **Pricing (as of 2026-09-25):** $0 input / $0 output per 1M during the limited preview on both OpenRouter and the OpenCode Go table; OpenCode Go itself is a $10/month subscription; post-preview price unpublished. Privacy: Go route — "not used for training", 0-day retention; OpenRouter route — upstream provider may retain prompts/completions (no training use); Stealth EULA prohibits sensitive data.
-- **Architecture:** undisclosed — no parameter count, weights, license, tokenizer, or model card. Community theories (GLM, Kimi) unconfirmed; do not conflate with Ox Alpha (revealed as Z.ai GLM-5.3-Flash, a different documented profile).
+- **Name:** Union Alpha — **REVEALED: Unbiased.ai's Pareto 26.9** (built by Circuit & Chisel, a distributed US/Canada team)
+- **Short description:** Second pass resolves the mystery the first pass left open: **Union Alpha was revealed on 2026-09-18 (two days after the stealth listing) as Pareto 26.9 — a multimodal COMPOSITE model that runs several frontier and open models per request and keeps the best answer** (union-alpha.com/capitalandcompute/eneralabs). "The product is the orchestration layer, not a secret foundation model" (llmrumors) — which explains the anomalous community numbers (DeepSWE 74% beating GPT-5.6 Sol is best-of-N sampling, not one model's capability). **The free stealth preview ended early** (demand far beyond server capacity — yomimono/GIGAZINE reporting) and the endpoint moved to paid access; the formal launch was scheduled 2026-10-10. Positioning: "frontier AI at a quarter of GPT-6 Astra's price." Top use case: frontier-class coding/research answers at mid-tier prices, with the caveat that you're buying an ensemble router, not an auditable single model.
+- **Provider / access:** OpenRouter **`unbiased/pareto`** ($2.50/$7.50, OpenAI-compatible; formerly `stealth/union-alpha`); OpenCode Go `opencode-go/union-alpha` (the free preview route has ended); Cloudflare AI Gateway proxying. OpenRouter states it is not the developer.
+- **Release / knowledge:** stealth listing **2026-09-16**; reveal **2026-09-18**; free preview ended ~2026-09-17-23 (early); formal launch scheduled **2026-10-10**; knowledge cutoff not disclosed.
+- **IDs:** `unbiased/pareto` (current), `stealth/union-alpha` (historical), `opencode-go/union-alpha` (Go, preview-ended).
+- **Context window:** **262,144 tokens total / 131,072 max output** (confirmed on the paid OpenRouter listing).
+- **Modalities:** text + image in; text out; tool calls (`tools`, `tool_choice`); structured output (`response_format`); streaming; no video/audio/PDF; no `reasoning_effort` control (the composite routes internally).
+- **Pricing (as of 2026-10-13):** **$2.50 in / $7.50 out per 1M** — the free preview is over; the composite mechanism means each request internally consumes multiple member-model calls, so the margin math is Unbiased's problem and the buyer sees a single mid-tier rate; privacy: the OpenRouter route's upstream retention caveats remain.
+- **Architecture:** **composite/orchestration layer over several frontier and open models** (identity confirmed by the vendor and corroborated by yfarmx's tokenizer-signature analysis — "consistent with the Pareto multi-model blend" family); no parameter count, weights, or license — there is no single underlying model to disclose; community theories (GLM, Kimi) superseded by the official reveal; do not conflate with Ox Alpha (Z.ai GLM-5.3-Flash).
 
 ### Raw benchmarks found
 
-> All numbers below are third-party/community measurements of a stealth endpoint; none are vendor-published or independently reproduced under a published harness. Treat as signals, not standardized leaderboard rows.
+> Still no standardized harness rows exist for the endpoint (BenchLM's Pareto 26.9 page: 4 source-displayable rows, no overall score). The community measurements below are now *explained* by the best-of-N composite mechanism — treat them as the product's achieved scores, not a single model's.
 
 Agent / tool use:
 
-- Terminal-Bench v4.0 (Artificial Analysis 149-model context): **~51%** at ~$1.50/task (developer report circulated at launch; unionalpha.io chart reconstruction reads 50–60% at ~$4–5 anticipated cost/task, Pareto position between flash and Opus tiers). Note: one launch-day review attributed OpenCode's 23.14/40 stealth-model coding snapshot to Union Alpha, but that snapshot is dated 2026-09-04 — twelve days before Union Alpha existed — and belongs to the Omen Alpha stealth model; it is therefore excluded here.
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found (N/A)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench v4.0: **~51% at ~$1.50/task** (community/developer report, AA 149-model context) — a plausible best-of-frontier result; τ³ / GDPval / Claw-Eval / MCP-Atlas: still no verified public score
+- The launch-day OpenCode 23.14/40 coding snapshot misattribution (belongs to Omen Alpha) remains excluded
 
 Reasoning / knowledge:
 
-- Benchable Reasoning (internal suite): **98.0%** accuracy, 90th percentile
-- Benchable Hallucination / General Knowledge / Ethics: **100%** (perfect accuracy, 8/8 benchmarks completed, 100% success rate)
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- Vision-moral reasoning hands-on (MindStudio, 2026-09-17): structured numbered reasoning from visual cues, committed to a definite answer (qualitative, single run); scientific-reasoning test (titration-curve analysis) could not be completed due to preview throttling
+- **"Matches GPT-6 Astra benchmarks at 1/4 the price"** (eneralabs — vendor-adjacent positioning claim); "ties Astra on DeepSWE" (capitalandcompute)
+- Benchable internal suite (retained, suite-internal): Reasoning 98.0% (90th pct), Hallucination/General Knowledge/Ethics 100%, Coding 94.0%, Mathematics 94.9%, Email Classification 99.0%, IF 76.0%
+- GPQA / HLE / LCR / CritPt / AA Index: still no verified public score for the endpoint
 
 Coding:
 
-- Software-engineering benchmark, platform-tracked (MindStudio chart): **~73%** vs ~74% for GPT/Opus-class, at ~$0.65/task vs $6.50–$11.80 (not independently reproduced)
-- Benchable Coding: **94.0%** accuracy, 83rd percentile
-- Benchable Mathematics: **94.9%** accuracy, 79th percentile
-- Benchable Email Classification: **99.0%** accuracy, 92nd percentile
-- Benchable Instruction Following: **76.0%** accuracy, 75th percentile
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index: no verified public score found
-- Hands-on Docker-stack debugging (Postgres/Flask/Redis, MindStudio): correctly diagnosed and fixed a subtle data-averaging scoring bug; noted habit of reasoning/testing in Python on a JS-heavy stack (qualitative, single run)
+- **DeepSWE: 74% (community)** — edging GPT-5.6 Sol (explainx); the composite mechanism (best of several models per request) explains the super-single-model result
+- Software-engineering chart ~73% vs ~74% GPT/Opus-class at ~$0.65/task (MindStudio, retained); SWE-bench Verified / LiveCodeBench / SciCode / Vibe: still no verified public score
 
 Long context:
 
-- No long-context retrieval reported (no MRCR/RULER/GraphWalks data); the 262,144-token window is a capacity spec, not a measured retrieval score; community reports mention inconsistent context recall.
+- 262,144-token window confirmed on the paid listing; no MRCR/RULER data; community reports of inconsistent context recall retained (plausible for a router whose members have heterogeneous windows).
+
+Multimodal:
+
+- Text+image in, text out — confirmed; exercised in the MindStudio vision-reasoning hands-on (retained).
 
 ### Normalized scores (1–100)
 
-> Derived per `model-comparison.md` v4 methodology. The model is a stealth preview with community-only evidence, so scores are provisional and capped by the absence of standardized harness numbers.
-
-- **Tool use: 62/100.** Terminal-Bench v4 ~51% sits mid-band (TB 45–60% maps to 50–70); `tools`/`tool_choice` verified on the API plus one successful multi-container agentic debug; no Tau3/GDPval/Claw-Eval rows cap it.
-- **Reasoning: 60/100.** Strong internal-harness results (Benchable 98.0% reasoning, perfect hallucination/ethics) and an evidence-based vision-reasoning hands-on; zero standardized scores (GPQA/HLE/Index) keep it mid-band and provisional.
-- **Context window: 72/100.** 262,144 tokens = 200K–500K tier (200K baseline 70); no measured retrieval quality, and community reports of inconsistent recall temper the tier top.
-- **Multimodal: 65/100.** Text+image in, text out (60–70 band); image input exercised in a real vision-reasoning test; no video/PDF/audio.
-- **Coding: 72/100.** Platform-tracked SE chart ~73% near GPT/Opus-class and a successful real bug fix, corroborated by Benchable 94.0% coding; the community Terminal-Bench v4 ~51% report and the absence of SWE-bench/DeepSWE/LiveCodeBench numbers cap it well below frontier.
-- **Cost efficiency: 100/100.** $0 input/output during the preview on both routes (time-limited; post-preview price unknown; Go subscription $10/month; OpenRouter route may retain prompts/completions — flagged caveat).
-- **Overall Score: 66/100.** (62 + 60 + 72 + 65 + 72) / 5 = 66.2 → 66. Best-fit: a free-preview stealth agent/coder worth benchmarking now on disposable repos; not a production dependency until identity, pricing, and standardized benchmarks land.
+- **Tool use: 62/100.** Held: the composite mechanism supports the community TB4 ~51% row being real (best-of-frontier per request), and `tools`/`tool_choice` are verified — but no standardized τ³/GDPval/Claw rows exist, and an orchestration layer's tool behavior is only as good as its member routing, which is unaudited.
+- **Reasoning: 62/100.** Raised from 60: the reveal explains the strong internal-harness numbers (best-of-N picks the best member's answer), and the "matches Astra" positioning is at least mechanism-plausible — still no standardized GPQA/HLE rows for the endpoint itself, keeping it provisional.
+- **Context window: 72/100.** Held: 262,144/131,072 confirmed on the paid listing; no measured retrieval; member-window heterogeneity makes the effective window opaque.
+- **Multimodal: 65/100.** Held: text+image in, text out; one real vision-reasoning exercise; no video/PDF/audio.
+- **Coding: 74/100.** Raised from 72: the DeepSWE 74% community row (beating GPT-5.6 Sol) and SE ~73% near GPT/Opus-class are now mechanistically credible for a best-of-N composite — still capped by the absence of SWE-bench Verified/LiveCodeBench rows and the unaudited router.
+- **Cost efficiency: 70/100.** Lowered from 100: **the free preview is over** — $2.50/$7.50 is mid-tier pricing; the value pitch is "Astra-class at ~1/4 of Astra's $10/$50," which is genuine if the composite really matches Astra, but you now pay real money for an unaudited ensemble.
+- **Overall Score: 67/100.** (62 + 62 + 72 + 65 + 74) / 5 = 67.0, up from 66. Best-fit: a frontier-oracle router — best-of-several-models per request at $2.50/$7.50, credible DeepSWE-74-class coding answers, and no longer free; fine for benchmarking and cost-capped frontier work, but it is an orchestration product, not a model — identity, member list, and per-request routing remain unaudited, so don't make it a load-bearing production dependency.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (OpenRouter/OpenCode/Cloudflare docs, community benchmark reports, independent hands-on evals); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-13
+- Method: public internet research, second pass over the 2026-09-25 report (DDG-lite searches surfacing the official reveal ecosystem — union-alpha.com ("Now Pareto 26.9… the free stealth preview has ended. Paid API pricing: $2.50/$7.50"), cellcog's minute-by-minute 2026-09-16 listing timeline, eneralabs' "Astra at 1/4 price" positioning, capitalandcompute's mechanism explainer, llmrumors' "orchestration layer, not a foundation model" analysis, yfarmx's tokenizer-signature identity record, yomimono/GIGAZINE's early-preview-end reporting, opsmavix's access-change notice, the OpenRouter `unbiased/pareto` listing confirming 262,144/131,072 at $2.50/$7.50, explainx's DeepSWE 74% community row, and BenchLM's Pareto 26.9 page — 4 rows, no overall score; the first-pass community/hands-on rows retained where not contradicted); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

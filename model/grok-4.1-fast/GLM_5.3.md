@@ -1,66 +1,70 @@
 # Grok 4.1 Fast — findings by GLM 5.3
 
 - Source: xAI (`xai/grok-4-1-fast-reasoning`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-13 (UTC) — second-pass re-research of the 2026-10-03 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.1 Fast
-- **Short description:** xAI's high-speed agentic tool-calling model, launched 2025-11-19 alongside the Agent Tools API — positioned by xAI as "our best tool-calling model", built for real-world customer-support, finance, and deep-research agents. Now a legacy model: Oracle and Google Cloud partner docs mark it deprecated in favor of Grok 4.2/4.3, and it is absent from the current docs.x.ai lineup (current flagship Grok 4.7).
-- **Provider / access:** xAI API (Anthropic-style `docs.x.ai`; served via `https://api.x.ai`), OpenRouter `x-ai/grok-4.1-fast`, Microsoft Copilot Studio, Google Cloud (Gemini Enterprise Agent Platform), Oracle OCI. No OpenCode Zen listing.
-- **Release / knowledge:** released 2025-11-19 (xAI launch post; benchable.ai concurs); knowledge cutoff not published.
-- **IDs:** `grok-4-1-fast-reasoning` (maximal intelligence) and `grok-4-1-fast-non-reasoning` (instant responses) on the xAI API; `x-ai/grok-4.1-fast` on OpenRouter.
-- **Context window:** 2,000,000 tokens (xAI launch post + OpenRouter) — trained via long-horizon RL for consistent multi-turn performance across the full window.
-- **Modalities:** text in / text out only (no image input published for this ID); two variants with and without reasoning; native tool calls; Agent Tools API (web search, X search, remote code execution, document collections search, MCP).
-- **Pricing (at launch, per xAI):** $0.20 input / $0.05 cached input / $0.50 output per 1M tokens; tool calls from $5 per 1,000 successful invocations.
-- **Architecture:** undisclosed parameter count; RL-trained in simulated environments across dozens of tool domains; hallucination rate cut roughly in half vs Grok 4 Fast per xAI (Oracle docs summarize ~3x fewer than Grok 4 Fast lineage).
+- **Short description:** xAI's high-speed agentic tool-calling model, launched **2025-11-19** alongside the Agent Tools API — "our best tool-calling model". Second pass validates the launch claims and corrects two first-pass errors: (1) **τ² 93.3% #44 and BFCL 69.6% #5 (thinking) held up** on independent harnesses (the 100%/72% launch figures were directionally right); (2) **the model takes image input** — AA/Vals MMMU-Pro rows and an LMArena Vision 1201 #90 row exist, so the first pass's "text-only" claim was wrong. **Retired: the `grok-4-1-fast` slug auto-redirects to grok-4.3 since 2026-05-15** (promptfoo), deprecated on partner clouds in favor of 4.2/4.3.
+- **Provider / access:** xAI API (`https://api.x.ai` — retired, redirecting); OpenRouter `x-ai/grok-4.1-fast` (historical); Microsoft Copilot Studio, Google Cloud, Oracle OCI (deprecated listings). No OpenCode Zen listing.
+- **Release / knowledge:** **2025-11-19** (confirmed); knowledge cutoff not published.
+- **IDs:** `grok-4-1-fast-reasoning` / `grok-4-1-fast-non-reasoning` (retired; redirecting to grok-4.3).
+- **Context window:** 2,000,000 tokens (launch post + OpenRouter — retained; BenchLeader's retired header shows no live spec).
+- **Modalities:** **text + image in** (corrected — measured MMMU-Pro on AA and Vals plus an LMArena Vision row; the first pass's text-only read was wrong); text out; reasoning/non-reasoning variants (thinking measures best); native tool calls; Agent Tools API (web search, X search, remote code execution, document collections, MCP).
+- **Pricing (historical, at launch):** $0.20 input / $0.05 cached / $0.50 output per 1M; tool calls from $5 per 1,000 successful invocations; live requests now bill at Grok 4.3 rates via redirect.
+- **Architecture:** undisclosed; RL-trained in simulated tool environments; the "halved hallucination vs Grok 4 Fast" claim is directionally consistent (non-hall 26.6% #227 vs Grok 4 Fast's 31.7% #205, thinking configs).
 
 ### Raw benchmarks found
 
+> Second pass finds the measurements: BenchLeader's Grok 4.1 page tracks the AA `grok-4-1-fast` harness rows directly (best = not-stated **57.4 #168/760**; the thinking config carries most measured rows; last measured 2026-10-08). Category scores (thinking): **Human preference 66 / Agents & tools 70**; not-stated: Reasoning 64, Coding 63, Human preference 65, Maths 61, Agents 56.
+
 Agent / tool use:
 
-- Tau2-Bench Telecom: **100%** (xAI launch post; independent evaluation verified by Artificial Analysis)
-- Berkeley Function Calling v4: **72% overall accuracy** (xAI launch post; vs Gemini 3 Pro estimated)
-- Research-Eval Reka: **63.9** at $0.046 avg cost (vs GPT-5 45.5, Claude Sonnet 4.5 41.2, Gemini 3 Pro 55.9 — xAI launch post)
-- FRAMES: **87.6** (vs GPT-5 86.0, Sonnet 4.5 85.0, Gemini 3 Pro 90.9 — xAI launch post)
-- X Browse: **56.3** (internal multihop X-search benchmark; GPT-5 24.2, Sonnet 4.5 14.6, Gemini 3 Pro 26.5)
-- Terminal-Bench 2.1: **no verified public score found**
-- GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: **no verified public score found**
+- **τ²-Bench Telecom (AA): 93.3% #44 (thinking)** — the launch's 100% claim lands at elite-but-not-perfect; **BFCL Overall: 69.6% #5 (thinking)** — elite rank (the 72% launch figure held); **Cybench: 39.0% #6**; Poker Agent 1079.2% #5
+- **TB Hard: 24.2% #142 (thinking)**; TB 2.0 (Vals) 24.7% #51; ITBench SRE 17.9% #41; Vending-Bench 2 1106.6 #51 — the terminal/professional rows are weak despite the tool-calling pitch
+- Launch rows retained: Research-Eval 63.9 at $0.046/task, FRAMES 87.6, X Browse 56.3 (internal multihop X-search); TB 2.1 / τ³ / GDPval / Claw-Eval / MCP-Atlas: still unmeasured
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- FActScore: on par with Grok 4 (vendor claim, no number published)
-- Artificial Analysis Intelligence Index: **no verified public score found** (no dedicated AA page found for this ID)
-- Omniscience Accuracy / Hallucination Rate: no published number; vendor states the hallucination rate is halved vs Grok 4 Fast
+- GPQA Diamond: AA **85.3% #126 (thinking)** / Vals **84.3% #51** — near-bar, below it (gap filled)
+- **HLE (AA): 19.3% #211 (thinking)** — far below the 40% reference (gap filled); **CritPt 2.9% #172** (weak); SimpleBench 56.0% #37
+- Math: **AIME (Vals) 91.9% #21; AIME 2026 94.2% #20; HMMT Feb 2026 86.4% #20; MGSM 89.5% #42** — elite; ProofBench 4.0% #69 (dreadful); Apex 5.2% #25; **ForecastBench 61.0% #18**; DTBench 87.7% #81
+- Honesty weak: **non-hallucination 26.6% #227**; accuracy 25.1% #222; Omniscience −29.9 #270; **AA II 20.4 #222 (thinking)** / 11.3 #342 (no-reasoning)
+- Knowledge: MMLU-Pro 84.2% #64; MedQA 92.1% #34; **CorpFin 66.0% #24; CaseLaw 60.5% #24**; TaxEval 73.1% #50; LegalBench 82.5% #67; MedScribe 78.7% #59; MedCode 28.1% #94 (weak); FActScore parity (vendor, retained)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**
+- LiveCodeBench (Vals): **80.6% #64 (thinking)** — decent (gap filled); but **SWE-bench (Vals): 41.4% #82** — weak (gap filled); **Vibe Code v1.1: 1.2% #97** (dreadful — gap filled); ALE-Bench 394.9 #102; LMArena Coding 1500 #78 / WebDev 1242 #122; SWE-Pro: still unmeasured
 
 Long context:
 
-- No formal MRCR / RULER score exists; vendor charts (no numbers) claim consistent multi-turn accuracy across the 2M-token window; window itself verified at 2,000,000 tokens.
+- 2M window (launch/OpenRouter evidence); **AA-LCR: 74.0% #161 (thinking)** / 31.3% #377 (no-reasoning) — mid; the "consistent multi-turn across 2M" claim remains vendor-only.
+
+Multimodal:
+
+- **Image input confirmed**: MMMU-Pro Vals **72.7% #60** / AA 63.3% #187 (thinking); LMArena Vision 1201 #90; SAGE 31.3% #75 (weak grounding); MortgageTax 42.6% #85; text+image in, text out.
+
+Preference/IF:
+
+- **Human preference 65-66 — its best category**: LMArena Text 1465 #52, Multi-turn 1458-1461 #75-76, Hard Prompts 1477 #70, Creative 1426-1431 #71-76; IFBench 52.7% #157 (weak).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Tau2-Bench Telecom 100% (AA-verified) and BFCL-v4 72% are strong, and the agentic-search suite (Research-Eval 63.9, FRAMES 87.6, X Browse 56.3) leads its launch cohort; the absence of any GDPval, Terminal-Bench, or Claw-Eval row caps it below the 90–100 frontier band.
-- **Reasoning: 65/100.** No public GPQA/HLE/Index numbers exist for this speed-tuned variant; FRAMES 87.6 factuality-retrieval and FActScore parity with Grok 4 provisionally support mid-tier reasoning, explicitly capped by the missing formal rows.
-- **Context window: 95/100.** Verified 2,000,000-token window sits in the ≥1M tier (95–100); no measured ≥98% retrieval at 512K+ exists, so not 100 — long-horizon RL consistency is a vendor claim.
-- **Multimodal: 15/100.** Text-only input and output for this ID — no image, audio, or video input is published anywhere in the launch post, OpenRouter listing, or partner docs.
-- **Coding: 60/100.** No verified public coding benchmark exists for this exact ID (it targets tool-calling agents, not SWE); provisional mid score from its agentic task competence and Grok-family lineage, capped hard by zero coding rows.
-- **Cost efficiency: 95/100.** $0.20 / $0.50 per 1M with $0.05 cached reads is just above the ~$0.10/$0.20 near-free reference band.
-- **Overall Score: 63/100.** Half-up mean of the five quality dims (80+65+95+15+60)/5 = 63 — a very cheap 2M-context text-only tool-calling specialist; skip it for multimodal or benchmark-verified frontier work (it is deprecated on several clouds).
+- **Tool use: 70/100.** Lowered from 80: the tool-calling core held (τ² 93.3% #44, BFCL #5, Cybench #6, Poker #5 — the launch pitch validated) — but the terminal/professional rows measured weak (TB Hard 24.2% #142, TB 2.0 24.7% #51, ITBench 17.9% #41, Vending #51) and TB 2.1/τ³/GDPval remain unmeasured.
+- **Reasoning: 62/100.** Lowered from 65: the gaps filled split — elite competition math (AIME 91.9% #21, AIME 2026 #20, HMMT #20), ForecastBench #18, and near-bar GPQA against HLE 19.3% #211, CritPt 2.9%, ProofBench 4%, AA II 20.4 #222, and weak honesty (26.6% #227).
+- **Context window: 92/100.** Lowered from 95: the 2M capacity stands but measured retrieval is mid (AA-LCR 74.0% #161) and the long-horizon-RL consistency claim stays vendor-only.
+- **Multimodal: 62/100.** Raised from 15 — the first pass's text-only read was wrong: measured MMMU-Pro rows (Vals 72.7% #60) and a Vision arena row confirm image input; weak grounding (SAGE 31.3%) caps it.
+- **Coding: 58/100.** Lowered from 60: LCB 80.6% #64 is decent — but SWE-V 41.4% #82, Vibe 1.2% #97, and ALE #102 are floor reads; it was pitched as a tool-caller, not a coder, and the data agrees.
+- **Cost efficiency: 95/100.** Held as historical: $0.20/$0.50 with $0.05 cached was near-free for elite tool-calling — but the slug is retired and redirects to grok-4.3 at its rates.
+- **Overall Score: 69/100.** (70 + 62 + 92 + 62 + 58) / 5 = 68.8 → 69, up from 63. Best-fit (historical): the cheap 2M-context tool-calling specialist whose τ²/BFCL launch claims genuinely held — elite function calling, elite competition math, and unexpectedly good arena preference at $0.20/$0.50; retired 2026-05-15 (redirects to grok-4.3), so treat this entry as comparison-only.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-03
-- Method: public internet research (xAI launch post with AA-verified τ²-bench figure, OpenRouter listing, Oracle/Google Cloud partner docs); scores are normalized 1–100 interpretations, not official vendor scores. Reasoning/Coding dims are provisional — no verified public rows exist for them.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-13
+- Method: public internet research, second pass over the 2026-10-03 report (BenchLeader's Grok 4.1 page as of 2026-10-08 — whose Artificial Analysis rows track the `grok-4-1-fast` harness ID directly — aggregating AA, Vals AI, Epoch AI Benchmarking Hub incl. Cybench, BFCL, MathArena, ForecastBench, LMArena, Andon Labs; the retirement/redirect evidence from the promptfoo provider doc verified 2026-10-08; modality corrected via the measured MMMU-Pro/Vision rows; the first-pass launch-post rows retained where not contradicted); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,81 +1,69 @@
 # GLM 5.3 — findings by GLM 5.3
 
 - Source: Z.AI (`glm-5.3`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-13 (UTC) — second-pass re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.3
-- **Short description:** Z.AI's flagship open-weights model (753B, GLM-5 family; same base as GLM-5.2 with all gains from post-training) — the most capable open-weights coding/agent model per its vendor table, with emergent cyber capabilities. Top use case: long-horizon agentic software engineering and tool execution.
-- **Provider / access:** OpenCode Zen `opencode/glm-5.3` (OpenAI-compatible Chat Completions); Z.AI API; open weights `zai-org/GLM-5.3` on Hugging Face (license `glm-5.3`, BF16/FP8); SGLang/vLLM/TokenSpeed/KTransformers/Unsloth serving recipes; Ascend NPU support.
-- **Release / knowledge:** ~2026-08-27 (HF collection updated 29 days before 2026-09-25); technical report arXiv 2602.15763 "GLM-5: from Vibe Coding to Agentic Engineering". Knowledge cutoff not stated publicly.
-- **IDs:** `opencode/glm-5.3` (no Free ID on the current paid listing; a free promotional sibling folder exists at `glm-5.3-free`).
-- **Context window:** 1M tokens (BenchLM; vendor evals run NL2Repo and Agents' Last Exam at 1M context).
-- **Modalities:** text in / text out (text-only; vision lives on the separate GLM-5V-Turbo line); reasoning yes (`reasoning_effort` low/high/max, default max; `clear_thinking` option); tool calls yes; JSON mode not separately verified.
-- **Pricing (as of 2026-09-25):** $1.40 in / $4.40 out per 1M, cached read $0.26 (OpenCode Zen pricing table).
-- **Architecture:** 753B parameters, `glm_moe_dsa` (MoE with sparse attention); same base model as GLM-5.2 — all gains from post-training; ~115 tokens/s reference (AA-sourced TPS in vendor ExploitGym footnote).
+- **Short description:** Z.AI's flagship open-weights model (GLM-5 family) — announced **2026-08-14**, weights/API GA ~2026-08-18 (BenchLeader; both dates flagged), built by **reusing the 743-billion-parameter GLM-5.2 MoE base with zero new parameters and spending everything on post-training** (the-agent-report — correcting the first pass's 753B figure). Reviewer consensus: "the top open-weights coding model" on post-training alone. Second pass confirms most first-pass rows (they were AA-sourced and settled well) and adds: **MCP Atlas 84.2% #5, τ³-Banking 50.3% #4 of 201 (its "where it wins" row), Vibe Code 78.1% #24, TB 4.0 38.9-41.9% #10-28, SciCode 59% #14** — against a thin professional-agent tail (Harvey LAB 0.3% #19) and ProgramBench 1.5%. **A 30+-provider OpenRouter market has driven the input floor to $0.079-$0.14** (inference.net/Wafer/Makora fp4). Top use case: long-horizon agentic software engineering and tool execution.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.3` (OpenAI-compatible Chat Completions, $1.40/$4.40); Z.AI API; open weights `zai-org/GLM-5.3` on HF (license `glm-5.3`, BF16/FP8); **30+ OpenRouter providers** — cheapest: inference.net $0.08/$4.40 and Wafer $0.079/$4.80 (fp4), Makora $0.14/$4.40, Inceptron $0.60/$2.20, Decart $1.02/$3.22, plus Baseten/Fireworks/Together/Crusoe/Parasail/DeepInfra/SiliconFlow/Mistral (nvfp4) at $1.40/$4.40-class; SGLang/vLLM/TokenSpeed/KTransformers/Unsloth recipes; Ascend NPU support.
+- **Release / knowledge:** announced **2026-08-14**; GA/weights ~2026-08-18 (BenchLeader); technical report arXiv 2602.15763; knowledge cutoff not stated publicly.
+- **IDs:** `opencode/glm-5.3` (no Free ID on the paid listing; a free promotional sibling folder exists at `glm-5.3-free`).
+- **Context window:** **1M tokens** (confirmed by BenchLeader and all 30+ provider rows).
+- **Modalities:** text in / text out (vision lives on the separate GLM-5V-Turbo line; the lone AA-3D 782 #18 row is text-side); reasoning (`reasoning_effort` low/high/max — **max is the best-measured config and carries nearly every strong row**); tool calls; JSON mode not separately verified.
+- **Pricing (as of 2026-10-13):** Zen $1.40 in / $4.40 out per 1M (cached read $0.26); **OpenRouter floor $0.079-$0.14 input** across the 30+-provider open-weights market; blended $2.15/M at list ("pricier than most" — but the floor undercuts it); 66 tok/s at max, up to 165 tok/s on Baseten Fast fp8; $2.01 per full Intelligence Index run at max; effort economics: max costs 2.4× low for +7.9 index (6.4 pts/doubling — the steepest effort-value slope measured this cycle).
+- **Architecture:** **743B-parameter MoE with sparse attention (`glm_moe_dsa`)**, same base as GLM-5.2 with all gains from post-training (the 753B first-pass figure corrected per third-party reporting); ~30% fewer output tokens per task than GLM-5.2 at higher scores (docs.z.ai: 34.5% at ~75K tokens vs 5.2's 23.4% at 96K).
 
 ### Raw benchmarks found
 
+> Second pass adds the full BenchLeader ladder (best = max **63.7 #56/760**, trend 53→61→69 still rising, last measured 2026-10-08). Category scores (max): **Composite 80 (best)**, Reasoning 69, Human preference 67, Long context 65, Coding 62, Maths 61, Knowledge 59, **Agents & tools 58 (worst)**. "Where it wins": **τ³-Banking 50.3% #4 of 201**.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.2%** (BenchLM + HF vendor table + HF eval-results widget; at the 88%+ frontier reference; GPT-5.6 Sol 88.8 is the table best)
-- Terminal-Bench 3.0: **28.3%** (BenchLM + HF vendor table — open-source SOTA claim; GPT-5.6 Sol 34.6 table best)
-- GDPval-AA v2: **1769 Elo** (BenchLM; AA-run — table best over GPT-5.6 Sol 1730, Opus 4.8 1588, Fable 5 1743; normalized field 57.3%)
-- Tau3-Banking: **50.3%** (BenchLM, AA-run — at the 50%+ frontier reference)
-- Toolathlon-Verified: **73.0%** (BenchLM + HF eval-results; Kimi K3 76.5 table best)
-- AutomationBench v1.0.6: **48.2%** (BenchLM + HF vendor table — table best)
-- Agents' Last Exam (ALE-CLI): **28.5%** (BenchLM + HF vendor table; open-source SOTA claim; GPT-5.6 Sol 28.6)
-- AA Agentic Index **53.4%**, AA Briefcase Elo **1525**, AA AutomationBench **62.2%**, AA EnterpriseOps-Gym **36.4%** (BenchLM)
-- Claw-Eval / MCP-Atlas / SWE Atlas: **no verified public score found**
-
-Cyber (vendor, anti-cheat harnesses documented):
-
-- CyberGym: **84.5%** (HF vendor table — state-of-the-art claim; single-run Pass@1 over 1,507 tasks)
-- ExploitGym (2h/6h): **105/130** (HF vendor table; GPT-5.6 Sol 216/293 much higher); ExploitBench **54.4%** (Fable 5 78.0)
+- **τ³-Banking (AA): 50.3% #4 of 201** — top-5, clearing the ~50% frontier reference (confirmed); **MCP Atlas: 84.2% #5** — gap filled, elite; **GDPval-AA: 57.5% #17 (max)** (the 1769-Elo/57.3% vendor claim corroborated; the low-effort read is 41.1% #95)
+- **Tax Agent: 73.1% #5; Legal Research: 49.0% #7; ITBench SRE: 46.1% #12; CyberBench: 72.1% #14; APEX-Agents: 56.6% #17; Vending-Bench 2: 8163.6 #11; AutomationBench: 62.2% #20; EnterpriseOps-Gym: 36.4% #12; CWE-Bench: 55.8% #8; DeepSec-Bench: 24.3% #8**
+- Terminal: **TB 2.1: AA 83.9% #34 / Vals 71.5% #26** (the vendor's 88.2% not fully reproduced — spread retained); **TB 4.0: AA 41.9% #28 / Vals 38.9% #10 — strong on the newest suite**; TB public 41.8% #47; **TB Science 4.3-9.5% #17-19** (weak); Toolathlon 73.0% (retained); **Harvey LAB-AA: 0.3% #19 / HLAB 8.3% #19** — the professional-legal-agent floor; GDP.pdf 11.2% #47; Briefcase 1509 #27; LMArena Agent 2.1 #23; Claw-Eval / SWE Atlas: still unmeasured
+- Cyber: vendor CyberGym **84.5%** (leads GPT-5.6 Sol's 83.6% — corroborated by buildfastwithai; 2,400+ vulnerabilities found across 269 OSS projects) vs **CyberGym e2e (AA harness): 29.0% #8** — a different harness, both retained; AA Cyber Index #10
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.7%** (BenchLM, AA-GPQA — clears the 90% frontier reference; Vals variant 88.1%)
-- HLE with tools: **62.5%** (BenchLM + HF vendor table; AA-HLE 42.3%)
-- LCR / MLCR: AA-LCR **79.7%**, MLCR-AA **48.3%** (BenchLM)
-- CritPt: **19.1%** (BenchLM)
-- Artificial Analysis Intelligence Index: **44.8** (BenchLM)
-- Omniscience: Index **14.3**, Accuracy **33.9%**, hallucination-rate field **29.6%** (BenchLM; label ambiguous vs AA's "Non-Hallucination Rate" — flagged, not double-counted)
-- MMLU-Pro (Vals): **86.8%** (BenchLM)
+- GPQA Diamond: Epoch **90.9% #33 (max)** / AA **91.7% #45** / Vals 88.1% #34 — clears on Epoch+AA
+- **HLE (AA): 42.3% #68 (max)** — clears the 40% reference at max (36.6% #105 at low); the with-tools 62.5% vendor row retained
+- **CritPt: 19.1% #63 (max)** (mid-weak); **BTF-3: 14.9% #1**; MysteryMechanism 23.0% #15; Mystery Game 33.0% #25; LMCA 55.5% #31; DTBench 87.7% #83; Chess 21.0% #79
+- Math: FrontierMath T1-3 **68.8% #26** / T4 29.3% #36; OTIS 91.1% #65; **ProofBench 49.0% #31** (strong); LiveBench Math 87.9% #44; LMArena Maths 1492 #25
+- **Honesty good: AA-Omniscience non-hallucination 70.5% #39 (max)** (36.0% #179 at low — effort buys honesty here, unlike most 2026 models); accuracy 33.9% #155; Omniscience 14.3 #82; SimpleQA 41.0% #42
+- **AA Intelligence Index 44.8 #38 (max)**; **Vals Index 53.5 #16**; ECI 155.6 #27; AA Openness 33.3 #33; MMLU-Pro 86.8% #37; LegalBench 84.8% #27; **MedScribe 88.8% #9**; Public Benefits 68.5% #7; TaxEval 72.4% #64; EMB 56.3% #40; MedCode 42.9% #46
 
 Coding:
 
-- SWE-bench (Vals): **95.4%** (BenchLM); SWE-bench Verified official: **no verified public score found**
-- FrontierSWE: **78.1%** (BenchLM + HF vendor table, Proximal-run, 1M context; Fable 5 88.2 higher); FrontierSWE v2 **30.2%** (BenchLM)
-- DeepSWE v1.1: **66.9%** (BenchLM + HF eval-results; GPT-5.6 Sol 72.7 higher)
-- LiveCodeBench (Vals): **80.5%** (BenchLM)
-- AA Coding Index **74.8%**, AA-SciCode **59.0%**, NL2Repo **58%** (at 1M context), VulcanBench v3 **78.3%**, OpenHarmony **60.8%** (BenchLM / HF vendor table)
-- ProgramBench (almost solved) **19.0%**, SWE-Marathon v1.1 **42.5%**, PostTrainBench **39.8%** (BenchLM + HF vendor table — weak spots)
-- Z.ai Code Bench: +50% over GLM-5.2 (vendor claim, in-house)
-- Design Arena Website Elo: **1312** (BenchLM)
-- Vibe Code Bench: **no verified public score found**
+- **SWE-bench (Vals): 95.4% #5** — elite, confirmed; **SciCode: 59.0% #14-16 (max)** — above the 55% reference (the low-effort read is 42.0% #143: effort buys 17 points); **Vibe Code v1.1: 78.1% #24** — gap filled, strong (a 1-100 variant reads 20.0% #8 — variant spread flagged); **IOI: 68.4% #12**; WeirdML 75.4% #29; **LMArena WebDev: 1622 #21** (strong preference); LMArena Coding 1520 #34; LCB 80.5% #65; DeepSWE 69.0% #16; FrontierCode 40.1% #14-23; ALE-Bench 1317.4 #26; Code Migration 44.2% #20; CursorBench 42.6% #20
+- Weak spots: **ProgramBench 1.5% #9** (dreadful); FrontierSWE 30.2% #9; TB Science weak; **SWE-bench Verified (official): still no verified public score** (unchanged); Z.ai Code Bench +50% vs 5.2 (in-house, retained); Design Arena 1312 (retained)
 
 Long context:
 
-- AA-LCR 79.7% and MLCR-AA 48.3% (BenchLM) at the 1M window; vendor runs long-horizon suites (ALE, NL2Repo) at 1M context; no MRCR/RULER per-length table — no long-context retrieval score found.
+- 1M confirmed; **AA-LCR: 79.7% #85 (max)** — good; **MLCR: 48.3% #11** (medical long-context mid); vendor 1M-context long-horizon runs (ALE, NL2Repo) retained; no MRCR/RULER table.
+
+Preference/IF/safety:
+
+- **Human preference 67 — second-best category**: LMArena Text 1478 #27, **Hard Prompts 1504 #26**, Multi-turn 1481 #40, Longer 1485 #34, Creative 1454 #32, IF 1475 #24; LiveBench Language 79.9% #31, IF 69.3% #32; FORTRESS 28.2% #26 (weak safety balance — over-refusal profile)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** TB 2.1 88.2%, GDPval-AA 1769 (table best), Tau3-Banking 50.3% and AutomationBench 48.2% all sit at or above the methodology's frontier references, with AA Agentic Index 53.4% elite; weak TB 3.0 28.3% and modest Toolathlon 73% keep it from 95+.
-- **Reasoning: 88/100.** GPQA Diamond 91.7% and HLE-with-tools 62.5% clear the frontier lines with an AA Index of 44.8; CritPt 19.1%, MLCR 48.3% and a weak Omniscience Index (14.3) hold it just under 90.
-- **Context window: 96/100.** 1M verified = ≥1M tier, exercised in vendor long-horizon runs; AA-LCR 79.7% solid but not ≥98%-retrieval grade.
-- **Multimodal: 15/100.** Text in/out only (per template: 15 if text-only).
-- **Coding: 90/100.** SWE-bench (Vals) 95.4%, TB 2.1 88.2%, FrontierSWE 78.1%, DeepSWE 66.9%, LiveCodeBench 80.5% and CyberGym 84.5% SOTA make it the top open-weights coder found; ProgramBench 19%, SWE-Marathon 42.5% and TB 3.0 28.3% trail the closed frontier.
-- **Cost efficiency: 88/100.** $1.40/$4.40 per 1M with $0.26 cached reads sits at the ~$1.25/$4.25 (~88) anchor; open weights add a $0 self-host path.
-- **Overall Score: 76/100.** Half-up mean of the five quality dims (93+88+96+15+90)/5 = 76.4 — the leading open-weights agentic engineer at fair flagship pricing; the single biggest score drag is text-only I/O, with frontier ExploitGym/ProgramBench gaps second.
+- **Tool use: 84/100.** Lowered from 93: the frontier claims held — τ³ #4, GDPval 57.5% #17, MCP Atlas #5, Tax #5, TB 4.0 ~40% #10-28 — but the professional-agent tail is thin (Harvey LAB 0.3% #19, HLAB 8.3%, Skills 47.5% #24, GDP.pdf 11.2%, LMArena Agent 2.1 #23) and Agents & tools 58 is its worst BenchLeader category.
+- **Reasoning: 84/100.** Lowered from 88: GPQA 90.9-91.7% and HLE 42.3% (max) clear the bars, AA II 44.8 #38 and Vals Index #16 are strong, honesty is good (70.5% #39, effort-improving) — capped by CritPt 19.1% #63, accuracy 33.9% #155, MLCR 48.3% #11, and FrontierMath T4 29.3% #36.
+- **Context window: 93/100.** Lowered from 96: 1M confirmed across 30+ providers; measured retrieval good-not-elite (AA-LCR 79.7% #85); MLCR mid.
+- **Multimodal: 15/100.** Held: text-only by design (vision lives on GLM-5V-Turbo).
+- **Coding: 88/100.** Lowered from 90: SWE-V Vals 95.4% #5, SciCode 59% #14, Vibe 78.1% #24, IOI #12, WebDev 1622 #21 and DeepSWE 69% #16 are the top open-weights profile measured — against ProgramBench 1.5%, FrontierSWE 30.2% #9, the TB 2.1 spread (71.5-88.2%), weak TB Science, and the still-missing official SWE-V row.
+- **Cost efficiency: 92/100.** Raised from 88: the 30+-provider open-weights market has driven the input floor to **$0.079-$0.14** (fp4 tiers at 117-165 tok/s), with the $1.40/$4.40 list still standard on premium routes; ~30% fewer output tokens per task than GLM-5.2 compounds the value.
+- **Overall Score: 73/100.** (84 + 84 + 93 + 15 + 88) / 5 = 72.8 → 73, down from 76.4. Best-fit: the leading open-weights agentic engineer — top-5 τ³/MCP Atlas/Tax-agent tooling, elite SWE-V (Vals #5) and SciCode, bar-clearing GPQA/HLE at max, good effort-scaling honesty, strong arena preference, and a self-host license with a $0.08-input hosted floor — but text-only I/O remains the single biggest score drag, the professional-legal-agent floor (Harvey LAB 0.3%) and ProgramBench are real gaps, and closed frontier agents still lead on TB 2.1 and GDPval. Run it at max.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (BenchLM, official zai-org/GLM-5.3 Hugging Face model card and vendor benchmark table, OpenCode Zen pricing); scores are normalized 1–100 interpretations, not official vendor scores. Note: the researcher is itself the GLM-5.3 model; every number above is sourced from third-party or officially published vendor data, not self-assessment.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-13
+- Method: public internet research, second pass over the 2026-09-25 report (BenchLeader full effort-ladder as of 2026-10-08 aggregating Epoch AI Benchmarking Hub, Artificial Analysis incl. the Harvey LAB and Cyber Index harnesses, Vals AI, Scale AI SEAL incl. MCP Atlas, LiveBench, LMArena, Mercor APEX, Andon Labs, MathArena, ForecastBench; 30+ OpenRouter provider rows; DDG-lite searches surfacing the z.ai announcement, docs.z.ai token-efficiency figures, the-agent-report's 743B zero-new-parameters finding correcting the first pass's 753B, and buildfastwithai's CyberGym corroboration; the first-pass vendor-table rows retained where not contradicted). **Integrity note: the researcher is itself the GLM-5.3 model; every number above is sourced from third-party or officially published vendor data, not self-assessment, and the down-shifts (Tool −9, Reasoning −4, Context −3, Coding −2) are applied on the measured evidence the same as for every other model in this repo.**
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
