@@ -4,12 +4,12 @@
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
 94 muse-spark-1.3
-92.8 claude-opus-5.5
+93 claude-opus-5.5
 92.5 gemini-3.8-flash
-91.8 gemini-4-argon
-91.6 gemini-3.1-pro
+91.9 gemini-4-argon
+91.7 gemini-3.1-pro
+91.5 gpt-6-astra
 91.3 claude-opus-5
-91.3 gpt-6-astra
 91 claude-fable-5.1
 90.9 claude-sonnet-5.5
 90.9 gemini-3.7-flash
