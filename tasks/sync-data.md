@@ -65,7 +65,7 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    `scaffolded: true`; every later run re-logs it as `SCAF` (plus the run
    summary) until a human sets the official name, which clears the stamp
    (`CURATED`). Schema in `model/README.md`.
-6. Emits `src/data/scores.generated.ts` (deterministic, sorted keys): every
+ 6. Emits `src/data/scores.generated.ts` (deterministic, sorted keys): every
    parseable findings file plus each folder's recomputed average means, as
    numbers only — but only when this run has zero failures, so invalid data
    is never cemented. Scores emit as positional tuples
@@ -74,7 +74,9 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    `SCORE_ORDER` in `src/data/models.ts`) so repeated key names don't bloat
    the client chunk past Vite's 500 kB warning limit. After adding or editing any findings file, re-running
    sync refreshes it; the file is committed (it is a build input, not build
-   output).
+   output). Alongside it emits `src/data/verified.generated.ts`: newest live
+   findings-file date per slug (signature `Provided by: … — YYYY-MM-DD`,
+   frontmatter `- Date:` fallback) for the site's Last-verified display.
 7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line
    per model, highest Overall first (ties A-Z) — the pre-sorted research
    queue for `tasks/research-assign.md`, so agents stop scanning every

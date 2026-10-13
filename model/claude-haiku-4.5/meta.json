@@ -1,7 +1,7 @@
 {
   "id": "opencode/claude-haiku-4.5",
   "name": "Claude Haiku 4.5",
-  "short": "Anthropic's Oct 2025 small/fast model (200K/64K, $1/$5) for subagents; BFCL 68.7%, superseded by Haiku 5.5 on 2026-10-07.",
+  "short": "Anthropic's small/fast model (200K/64K, $1/$5) for subagents; BFCL 68.7%, superseded by Haiku 5.5.",
   "contextWindow": "200,000 (64K max out)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.00/$5.00 per 1M"

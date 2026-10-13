@@ -1,7 +1,7 @@
 {
   "id": "opencode/fledge-alpha",
   "name": "Fledge Alpha",
-  "short": "OpenCode Zen's unidentified-vendor free preview (1M context) for coding tests; discontinued Oct 9 2026 after GPQA 92.3%, no successor.",
+  "short": "OpenCode Zen's unidentified-vendor free preview (1M context) for coding tests; discontinued after GPQA 92.3%, no successor.",
   "contextWindow": "1,048,576 (1M) total; 131,072 max output",
   "modalities": "Text + image in; text out",
   "pricingNote": "Free OpenCode Zen preview ($0/$0)",

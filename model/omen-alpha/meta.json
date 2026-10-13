@@ -1,7 +1,7 @@
 {
   "id": "opencode/omen-alpha",
   "name": "Omen Alpha",
-  "short": "Anonymous stealth reasoning model live 2026-09-04 on OpenCode Go for coding/agents; $0.20/$0.66 with 0-day retention, OpenCode 23.14/40; vendor unknown.",
+  "short": "Anonymous stealth reasoning model live on OpenCode Go for coding/agents; $0.20/$0.66 with 0-day retention, OpenCode 23.14/40; vendor unknown.",
   "contextWindow": "Not publicly disclosed (vendor states parameters and context are undisclosed)",
   "modalities": "Text in/out",
   "pricingNote": "Paid $0.20/$0.66 per 1M ($0.04 cached; TokenRa promo $0.08/$0.26)",

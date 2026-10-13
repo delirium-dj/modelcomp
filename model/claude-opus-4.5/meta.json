@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-opus-4.5",
   "name": "Claude Opus 4.5",
-  "short": "Anthropic's Nov 2025 Opus (200K, $5/$25) for coding agents; SWE-bench Verified 76.8%, superseded by Opus 4.6-5.5.",
+  "short": "Anthropic's Opus (200K, $5/$25) for coding agents; SWE-bench Verified 76.8%, superseded by Opus 4.6-5.5.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing ($5 input / $25 output per 1M)",

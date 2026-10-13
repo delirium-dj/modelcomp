@@ -1,7 +1,7 @@
 {
   "id": "opencode/claude-haiku-3.5",
   "name": "Claude Haiku 3.5",
-  "short": "Anthropic's Oct 2024 small/fast model (200K/8K, $0.80/$4.00 final) for low-cost tasks; retired 2026-02-19, replaced by Haiku 4.5.",
+  "short": "Anthropic's small/fast model (200K/8K, $0.80/$4.00 final) for low-cost tasks; retired, replaced by Haiku 4.5.",
   "contextWindow": "200,000 total; 8,192 max output",
   "modalities": "Text in/out; image + PDF input (image added 2025-02-25); text-only output",
   "pricingNote": "Retired 2026-02-19; final rate $0.80/$4.00 per 1M",

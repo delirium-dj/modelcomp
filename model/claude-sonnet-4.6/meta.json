@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-sonnet-4.6",
   "name": "Claude Sonnet 4.6",
-  "short": "Anthropic's Feb 2026 Sonnet with adaptive thinking (1M GA, $3/$15) for cost-conscious coding; SWE-Verified 79.6%.",
+  "short": "Anthropic's Sonnet with adaptive thinking (1M GA, $3/$15) for cost-conscious coding; SWE-Verified 79.6%.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",

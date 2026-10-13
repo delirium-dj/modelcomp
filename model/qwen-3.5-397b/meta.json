@@ -1,7 +1,7 @@
 {
   "id": "opencode/qwen-3.5-397b",
   "name": "Qwen 3.5 397B",
-  "short": "Alibaba's Qwen3.5-397B-A17B open-weights MoE (397B total/17B active) for reasoning, coding and vision; SWE-bench 76.4%, AIME 2026 91.3%, Apache 2.0.",
+  "short": "Alibaba's Qwen3.5-397B-A17B open-weights MoE (397B total/17B active) for reasoning, coding and vision; SWE-bench 76.4%, AIME 91.3%, Apache 2.0.",
   "contextWindow": "262,144 native (extensible to ~1,010,000; 1M hosted)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "AA $0.60/$3.60 per 1M; Apache 2.0 open weights (free self-host)",

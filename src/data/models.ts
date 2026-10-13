@@ -11,6 +11,7 @@
 // stays curated in model/<slug>/meta.json files.
 
 import { GENERATED_SCORES } from "./scores.generated";
+import { VERIFIED } from "./verified.generated";
 import { SOURCE_DEFS, type SourceKey, type ViewKey, type ResultsView } from "./sources.generated";
 
 export type { SourceKey, ResultsView };
@@ -50,6 +51,8 @@ export interface AiModel {
   slug: string;
   /** Averaged scores (default view). */
   scores: ModelScores;
+  /** Newest live findings-file date (`YYYY-MM-DD`) — the Last-verified signal. */
+  verified?: string;
   /** Per-source score sets; the results selector swaps `scores` for one of these. */
   sources: Partial<Record<SourceKey, ModelScores>>;
   meta: {
@@ -107,6 +110,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
     short: meta.short,
     slug,
     scores: avg,
+    verified: VERIFIED[slug] ?? undefined,
     sources,
     meta: {
       contextWindow: meta.contextWindow,

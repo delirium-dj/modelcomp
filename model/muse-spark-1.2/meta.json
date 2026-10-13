@@ -1,7 +1,7 @@
 {
   "id": "opencode/muse-spark-1.2",
   "name": "Muse Spark 1.2",
-  "short": "Meta's Aug-2026 agent model co-trained with Muse Code for terminal coding; 1M/131K, SWE 86.6%, GPQA 90.4%, Standard $1.25/$4.25.",
+  "short": "Meta's agent model co-trained with Muse Code for terminal coding; 1M/131K, SWE 86.6%, GPQA 90.4%, Standard $1.25/$4.25.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",

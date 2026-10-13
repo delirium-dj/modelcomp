@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-opus-4.6",
   "name": "Claude Opus 4.6",
-  "short": "Anthropic's Feb 2026 Opus with adaptive thinking (1M/128K) for agentic coding; SWE-Verified 80.8%.",
+  "short": "Anthropic's Opus with adaptive thinking (1M/128K) for agentic coding; SWE-Verified 80.8%.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",

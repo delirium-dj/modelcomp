@@ -1,7 +1,7 @@
 {
   "id": "opencode/mai-code-1.1-flash",
   "name": "MAI-Code-1.1-Flash",
-  "short": "Microsoft AI's Aug 2026 Copilot coding model (256K, image+PDF in) for agentic coding; SWE-bench Verified 72.6%, Terminal-Bench 2.1 62.9%.",
+  "short": "Microsoft AI's Copilot coding model (256K, image+PDF in) for agentic coding; SWE-bench Verified 72.6%, Terminal-Bench 2.1 62.9%.",
   "contextWindow": "256,000 total (128,000 out)",
   "modalities": "Text, image, PDF in; text out",
   "pricingNote": "$0.20/$1.20 per 1M in/out (GitHub Copilot), cached input $0.02",

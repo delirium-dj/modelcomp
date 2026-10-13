@@ -12,6 +12,7 @@ import {
   halfUp1,
   parseScoresPure,
   nearMissLine,
+  extractReportDate,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -78,6 +79,29 @@ describe("nearMissLine (FAIL diagnostic, read-only)", () => {
   it("ignores model-card lookalikes without the bold-label prefix", () => {
     const doc = "- **Name:** Cost efficiency model\n" + makeDoc(GOOD);
     assert.ok(nearMissLine(doc, "Cost efficiency").includes("90/100"));
+  });
+});
+
+describe("extractReportDate (signature first, frontmatter fallback)", () => {
+  it("reads the signature run date", () => {
+    assert.equal(extractReportDate("Provided by: **Gemini 2.5 (google/gemini-2.5)** — 2026-09-30\n"), "2026-09-30");
+  });
+
+  it("prefers the later amended touch on the signature line", () => {
+    const doc = "Provided by: **X (y)** — 2026-09-23 (UTC), amended 2026-09-27\n- Date: 2026-09-23 (UTC)\n";
+    assert.equal(extractReportDate(doc), "2026-09-27");
+  });
+
+  it("falls back to the frontmatter Date line", () => {
+    assert.equal(extractReportDate("# T\n\n- Date: 2026-10-11 (UTC)\n"), "2026-10-11");
+  });
+
+  it("returns null when no date exists", () => {
+    assert.equal(extractReportDate("# T\n\nNo dates here.\n"), null);
+  });
+
+  it("rejects impossible months", () => {
+    assert.equal(extractReportDate("Provided by: **X** — 2026-13-01\n"), null);
   });
 });
 

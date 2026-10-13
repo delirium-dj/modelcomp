@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-4.7",
   "name": "Grok 4.7",
-  "short": "xAI's Sep 2026 larger-base 500K flagship for repo-scale coding and legal agents; Harvey LAB #1 and Vibe Code 86.2%, below-frontier price.",
+  "short": "xAI's larger-base 500K flagship for repo-scale coding and legal agents; Harvey LAB #1 and Vibe Code 86.2%, below-frontier price.",
   "contextWindow": "500,000 (500K)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$2.00/$6.00 per 1M; doubles past 200K",

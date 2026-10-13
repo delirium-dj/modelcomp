@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-4.3",
   "name": "Grok 4.3",
-  "short": "xAI's Apr 2026 1M-context reasoning model at $1.25/$2.50 for instruction-following; IFBench 83.3% #1 and honesty 83% non-hallucination.",
+  "short": "xAI's 1M-context reasoning model at $1.25/$2.50 for instruction-following; IFBench 83.3% #1 and honesty 83% non-hallucination.",
   "contextWindow": "1,000,000 total",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid $1.25/$2.50 per 1M (<200K); $2.50/$5.00 above",

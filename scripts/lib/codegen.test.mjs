@@ -11,6 +11,7 @@ import {
   appendPendingSources,
   reconcileRegistry,
   renderScoresFile,
+  renderVerifiedFile,
   renderRobotsTxt,
   ensureRaterGateLine,
 } from "./codegen.mjs";
@@ -155,6 +156,19 @@ describe("renderRobotsTxt (absolute Sitemap URL)", () => {
   it("allows all, points at the origin sitemap, ends with newline", () => {
     const text = renderRobotsTxt("https://example.com");
     assert.equal(text, "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n");
+  });
+});
+
+describe("renderVerifiedFile (deterministic date emit)", () => {
+  it("sorts slugs, emits quoted ISO dates, ends with newline", () => {
+    const text = renderVerifiedFile({ "b-model": "2026-09-23", "a-model": "2026-10-11" });
+    const aIdx = text.indexOf('"a-model"');
+    const bIdx = text.indexOf('"b-model"');
+    assert.ok(aIdx !== -1 && bIdx !== -1 && aIdx < bIdx);
+    assert.match(text, /"a-model": "2026-10-11",/);
+    assert.match(text, /"b-model": "2026-09-23",/);
+    assert.match(text, /export const VERIFIED: Record<string, string>/);
+    assert.ok(text.endsWith("};\n"));
   });
 });
 

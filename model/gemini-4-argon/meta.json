@@ -1,7 +1,7 @@
 {
   "id": "opencode/gemini-4-argon",
   "name": "Gemini 4 Argon",
-  "short": "Google DeepMind's 1M-output frontier model for long-horizon coding and enterprise research; DeepSWE 77.9% and Vals Index 68.9% both #1, gated launch Sep 30 2026.",
+  "short": "Google DeepMind's 1M-output frontier model for long-horizon coding and enterprise research; DeepSWE 77.9% and Vals Index 68.9% both #1, gated launch.",
   "contextWindow": "1M total (262K output; 1M via continuation)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Intro $2/$10 per 1M; then $4/$20",

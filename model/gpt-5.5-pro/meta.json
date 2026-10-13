@@ -1,7 +1,7 @@
 {
   "id": "opencode/gpt-5.5-pro",
   "name": "GPT-5.5 Pro",
-  "short": "OpenAI's Apr 23 2026 extra-compute tier (1.05M/128K, $30/$180) for high-stakes research; TB 2.0 82.7%, Expert-SWE 73.1%, BrowseComp 90.1%.",
+  "short": "OpenAI's extra-compute tier (1.05M/128K, $30/$180) for high-stakes research; TB 2.0 82.7%, Expert-SWE 73.1%, BrowseComp 90.1%.",
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "$30/$180 per 1M; batch $10/$45",

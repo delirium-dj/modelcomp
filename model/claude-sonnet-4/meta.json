@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-sonnet-4",
   "name": "Claude Sonnet 4",
-  "short": "Anthropic's May 2025 Sonnet (200K/64K, $3/$15) for balanced coding; SWE-bench 74.8%, retired, Bedrock ends 2026-10-14.",
+  "short": "Anthropic's Sonnet (200K/64K, $3/$15) for balanced coding; SWE-bench 74.8%, retired, Bedrock support ending.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing ($3 input / $15 output per 1M)",

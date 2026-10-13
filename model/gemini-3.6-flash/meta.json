@@ -1,7 +1,7 @@
 {
   "id": "google/gemini-3.6-flash",
   "name": "Gemini 3.6 Flash",
-  "short": "Google's July 21 2026 Flash (1M/65K, $1.50/$7.50) for coding/computer use; GPQA 93.4% and OSWorld-Verified 83%.",
+  "short": "Google's Flash (1M/65K, $1.50/$7.50) for coding/computer use; GPQA 93.4% and OSWorld-Verified 83%.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",

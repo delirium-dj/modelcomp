@@ -1,7 +1,7 @@
 {
   "id": "xiaomi/mimo-v2.6-pro",
   "name": "MiMo V2.6 Pro",
-  "short": "Xiaomi's Sep 2026 MIT 1.02T/42B-active omni-modal MoE (1M/128K out) for agents and code; Terminal-Bench 2.1 89.9%, AA Index 46.3.",
+  "short": "Xiaomi's MIT 1.02T/42B-active omni-modal MoE (1M/128K out) for agents and code; Terminal-Bench 2.1 89.9%, AA Index 46.3.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image, video, audio in; text out",
   "pricingNote": "Paid $0.435/$0.87 per 1M (Xiaomi API; cached $0.0036) — no Zen Free ID",

@@ -1,7 +1,7 @@
 {
   "id": "anthropic/claude-sonnet-5",
   "name": "Claude Sonnet 5",
-  "short": "Anthropic's June 2026 Sonnet (1M/128K, $2/$10) for agentic coding; SWE-Verified 85.2%, succeeded by Sonnet 5.5.",
+  "short": "Anthropic's Sonnet (1M/128K, $2/$10) for agentic coding; SWE-Verified 85.2%, succeeded by Sonnet 5.5.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "Paid $3/$15 per 1M (no Zen Free ID)",

@@ -3403,7 +3403,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.6_Flash.md": [86, 91, 96, 15, 86, 90, 75],
     "Gemini_3.7_Flash.md": [55, 58, 75, 50, 52, 75, 58],
     "Gemini_3.8_Flash.md": [80, 84, 95, 15, 83, 86, 71],
-    "Kimi_K3.md": [84, 80, 80, 15, 78, 88, 67],
+    "Kimi_K3.md": [85, 80, 82, 15, 78, 88, 68],
     "Laguna_S_2.1.md": [86, 92, 95, 15, 80, 100, 74],
     "Laguna_XS_2.1.md": [78, 78, 89, 21, 78, 86, 69],
     "Ling_3.1_Flash.md": [72, 73, 93, 15, 75, 91, 65.6],

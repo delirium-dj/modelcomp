@@ -1,7 +1,7 @@
 {
   "id": "opencode/claude-fable-5",
   "name": "Claude Fable 5",
-  "short": "Anthropic's first Mythos-class model above Opus (1M/128K, $10/$50) for long-horizon coding; superseded by Fable 5.1 on 2026-09-01.",
+  "short": "Anthropic's first Mythos-class model above Opus (1M/128K, $10/$50) for long-horizon coding; superseded by Fable 5.1.",
   "contextWindow": "1,000,000 total; 128,000 max output",
   "modalities": "Text, image in; text out",
   "pricingNote": "$10/$50 per 1M; cache read $1/MTok (90% off)",

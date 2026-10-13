@@ -1,7 +1,7 @@
 {
   "id": "opencode/grok-5",
   "name": "Grok 5",
-  "short": "xAI's unreleased next-gen flagship still in training on Colossus 2 as of Oct 2026; no benchmarks or specs announced, current flagship is 4.7.",
+  "short": "xAI's unreleased next-gen flagship still in training on Colossus 2; no benchmarks or specs announced, current flagship is 4.7.",
   "contextWindow": "Not announced (speculation ranges 128K to 2M; no vendor figure exists)",
   "modalities": "Not announced",
   "pricingNote": "Not announced (no public API)",

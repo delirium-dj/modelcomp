@@ -1,7 +1,7 @@
 {
   "id": "opencode/mistral-medium-3.5",
   "name": "Mistral Medium 3.5",
-  "short": "Mistral's dense 128B open-weight merged model (Apr-2026) for instruction-following and telecom agents; 262K context, SWE-V 66.4% measured, $1.50/$7.50.",
+  "short": "Mistral's dense 128B open-weight merged model for instruction-following and telecom agents; 262K context, SWE-V 66.4% measured, $1.50/$7.50.",
   "contextWindow": "256,000 (256K)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.50/$7.50 per 1M in/out",

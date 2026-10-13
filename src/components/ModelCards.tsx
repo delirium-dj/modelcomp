@@ -171,6 +171,10 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                 <dt class="font-semibold text-slate-700 dark:text-slate-200">Pricing:</dt>
                 <dd>{m.meta.pricingNote}</dd>
               </div>
+              <div class="flex gap-1">
+                <dt class="font-semibold text-slate-700 dark:text-slate-200">Verified:</dt>
+                <dd title="Newest report date across this model's findings files">{m.verified ?? "—"}</dd>
+              </div>
             </dl>
             <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
               Tool {m.scores.tool} · Reasoning {m.scores.reasoning} · Context {m.scores.context} ·
@@ -182,7 +186,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
       ) : (
       <>
         <div class="mt-6 hidden overflow-x-auto md:block">
-          <table class="w-full min-w-[880px] table-fixed border-collapse text-sm">
+          <table class="w-full min-w-[1000px] table-fixed border-collapse text-sm">
             <colgroup>
               <col class="w-[180px]" />
               {DIMENSIONS.map((d) => (
@@ -191,6 +195,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
               <col />
               <col class="w-[140px]" />
               <col class="w-[180px]" />
+              <col class="w-[110px]" />
             </colgroup>
             <caption class="mb-2 text-left font-semibold text-slate-800 dark:text-slate-200">
               Exact scores for all models
@@ -255,6 +260,13 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                 <th scope="col" class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300">
                   Pricing / 1M
                 </th>
+                <th
+                  scope="col"
+                  title="Newest report date across each model's findings files"
+                  class="border-b border-slate-200 break-words px-3 py-2 text-left font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-300"
+                >
+                  Verified
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -295,6 +307,12 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                         <li key={tier}>{tier}</li>
                       ))}
                     </ul>
+                  </td>
+                  <td
+                    title="Newest report date across this model's findings files"
+                    class="break-words px-3 py-2 text-slate-800 dark:text-slate-200"
+                  >
+                    {m.verified ?? "—"}
                   </td>
                 </tr>
               ))}
@@ -390,6 +408,15 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                         <li key={tier}>{tier}</li>
                       ))}
                     </ul>
+                  </dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3 rounded px-2 py-1.5 odd:bg-slate-50 even:bg-white dark:odd:bg-slate-900/50 dark:even:bg-slate-950">
+                  <dt class="font-medium text-slate-500 dark:text-slate-400">Verified</dt>
+                  <dd
+                    title="Newest report date across this model's findings files"
+                    class="text-right text-slate-800 dark:text-slate-200"
+                  >
+                    {m.verified ?? "—"}
                   </dd>
                 </div>
               </dl>

@@ -79,6 +79,42 @@ export function shortenScores(scores) {
   return entry;
 }
 
+/** Validated calendar date `YYYY-MM-DD` (zero-padded, sane month/day). */
+const DATE_PART = "(\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01]))";
+
+/** Newest date on one line (amended/second-pass touches count). */
+function maxDateOnLine(line) {
+  let best = null;
+  for (const m of line.matchAll(new RegExp(DATE_PART, "g"))) {
+    if (best === null || m[1] > best) best = m[1];
+  }
+  return best;
+}
+
+/**
+ * Newest verification date claimed by one findings file. Prefers the
+ * `Provided by: **...** — YYYY-MM-DD` signature (run day per
+ * model-report-TEMPLATE.md; an `amended YYYY-MM-DD` touch counts), falls
+ * back to the `- Date: YYYY-MM-DD` frontmatter line. Null when the file
+ * carries no date. Pure + tested; sync takes the per-folder max as that
+ * model's Last-verified signal.
+ */
+export function extractReportDate(md) {
+  for (const line of md.split("\n")) {
+    if (line.startsWith("Provided by:")) {
+      const d = maxDateOnLine(line);
+      if (d !== null) return d;
+    }
+  }
+  for (const line of md.split("\n")) {
+    if (/^-\s*Date:/.test(line)) {
+      const d = maxDateOnLine(line);
+      if (d !== null) return d;
+    }
+  }
+  return null;
+}
+
 /**
  * Overall auto-correct decision: source-file Overall is DERIVED (half-up mean
  * of the five quality dims). Returns the 5-dim mean, the corrected Overall,

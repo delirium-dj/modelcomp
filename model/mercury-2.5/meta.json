@@ -1,7 +1,7 @@
 {
   "id": "opencode/mercury-2.5",
   "name": "Mercury 2.5",
-  "short": "Inception Labs' Sep 2026 diffusion LLM (260K) for latency-sensitive coding subagents; 1,107 tok/s with sub-300ms TTFT via parallel decoding.",
+  "short": "Inception Labs' diffusion LLM (260K) for latency-sensitive coding subagents; 1,107 tok/s with sub-300ms TTFT via parallel decoding.",
   "contextWindow": "260K total (65K max output)",
   "modalities": "Text in/out only",
   "pricingNote": "Paid $0.20/$0.75 per 1M ($0.02 cached); launch 80% off $0.04/$0.15",

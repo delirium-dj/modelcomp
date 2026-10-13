@@ -1,7 +1,7 @@
 {
   "id": "meituan/longcat-2.0",
   "name": "LongCat 2.0",
-  "short": "Meituan's Jun 2026 MIT 1.6T/48B open-weights MoE (1M) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
+  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
   "contextWindow": "1M total",
   "modalities": "Text in/out",
   "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006) — no Zen Free ID",

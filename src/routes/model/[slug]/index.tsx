@@ -400,6 +400,13 @@ export default component$(() => {
             </tbody>
           </table>
         </div>
+        <p
+          title="Newest report date across this model's findings files"
+          class="mt-3 text-xs text-slate-500 dark:text-slate-400"
+        >
+          Last verified {model.verified ?? "—"} — newest of {ratings.length} agent{" "}
+          {ratings.length === 1 ? "report" : "reports"}.
+        </p>
         <nav
           aria-label="Previous and next models"
           class="mt-8 flex items-center justify-between gap-4 border-t border-slate-200 pt-6 dark:border-slate-800"

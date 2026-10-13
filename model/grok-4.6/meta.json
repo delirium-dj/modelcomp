@@ -1,7 +1,7 @@
 {
   "id": "xai/grok-4.6",
   "name": "Grok 4.6",
-  "short": "xAI's Aug 2026 500K flagship upgrade for long-running agents and knowledge work via Cursor/Build; TB 2.1 88.4%, GPQA 94.9% at $2/$6.",
+  "short": "xAI's 500K flagship upgrade for long-running agents and knowledge work via Cursor/Build; TB 2.1 88.4%, GPQA 94.9% at $2/$6.",
   "contextWindow": "500,000",
   "modalities": "Text and image in; text out",
   "pricingNote": "Paid $2/$6 per 1M (cached $0.50); doubles above 200K prompt",

@@ -39,6 +39,7 @@ import {
   RATER_GATE,
   parseScoresPure,
   nearMissLine,
+  extractReportDate,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -75,6 +76,7 @@ import {
   appendPendingSources,
   reconcileRegistry,
   renderScoresFile,
+  renderVerifiedFile,
   renderRobotsTxt,
   ensureRaterGateLine,
 } from "./lib/codegen.mjs";
@@ -330,6 +332,11 @@ const presentStems = new Set(); // findings filenames (without .md) seen anywher
 // Accumulated here, emitted as src/data/scores.generated.ts (only when this
 // run has zero failures, so invalid data is never cemented).
 const scoreIndex = {};
+// Newest live findings-file date per slug (`YYYY-MM-DD`, via
+// extractReportDate in scripts/lib/parse.mjs). Emitted as
+// src/data/verified.generated.ts (only on zero failures) for the site's
+// Last-verified display — never parsed from average.md files.
+const verifiedIndex = {};
 // SHORT lives in scripts/lib/parse.mjs (imported above).
 
 // ---- rater gate: only reports written by models whose own committed average
@@ -525,7 +532,12 @@ for (const slug of slugs) {
   const perFile = [];
   let skipAverage = false;
   for (const f of files) {
-    const scores = parseScores(readFileSync(join(dir, f), "utf8"), `model/${slug}/${f}`);
+    const content = readFileSync(join(dir, f), "utf8");
+    const reportDate = extractReportDate(content);
+    if (reportDate !== null && (verifiedIndex[slug] === undefined || reportDate > verifiedIndex[slug])) {
+      verifiedIndex[slug] = reportDate;
+    }
+    const scores = parseScores(content, `model/${slug}/${f}`);
     if (scores) {
       perFile.push({ file: f, scores });
     } else {
@@ -716,6 +728,21 @@ if (failures === 0) {
     log(
       `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
     );
+  }
+  // Last-verified dates for the site (ModelCards, per-model pages): newest
+  // live findings-file date per slug. Same freshness contract as scores —
+  // only on zero failures, committed.
+  const verifiedPath = join(root, "src", "data", "verified.generated.ts");
+  const verifiedNext = renderVerifiedFile(verifiedIndex);
+  let prevVerified = null;
+  try {
+    prevVerified = readFileSync(verifiedPath, "utf8");
+  } catch {
+    // created below
+  }
+  if (prevVerified !== verifiedNext) {
+    writeFileSync(verifiedPath, verifiedNext);
+    log(`  WRITE src/data/verified.generated.ts (${Object.keys(verifiedIndex).length} slugs)${prevVerified === null ? " (created)" : ""}`);
   }
   // Research queue for AI agents (model-queue.md): pre-sorted `<Overall> <slug>`
   // lines so agents stop scanning every average.md themselves. Same freshness

@@ -1,7 +1,7 @@
 {
   "id": "opencode/glm-5.2",
   "name": "GLM 5.2",
-  "short": "Z.ai's 753B MIT MoE (1M) for long-horizon coding agents; SWE-bench Pro 62.1%, TB 2.1 81.0%, superseded by GLM-5.3 on Aug 18 2026.",
+  "short": "Z.ai's 753B MIT MoE (1M) for long-horizon coding agents; SWE-bench Pro 62.1%, TB 2.1 81.0%, superseded by GLM-5.3.",
   "contextWindow": "204K",
   "modalities": "Text in/out",
   "pricingNote": "Free Zen tier available",
