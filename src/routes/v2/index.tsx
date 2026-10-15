@@ -516,22 +516,40 @@ export default component$(() => {
               Cost efficiency is scored separately and never counts toward Overall.
             </p>
           </div>
-          <div class="d6-more-grid" style={{ marginTop: "36px" }}>
-            <div>
-              <span>Independently researched — every benchmark number cites its source; missing data is never invented</span>
-            </div>
-            <div>
-              <span>Averaged, not single-opinion — mean across independent reporting agents; evidence-free reports are quarantined</span>
-            </div>
-            <div>
-              <span>Re-researched weekly — reports older than seven days are checked against fresh benchmarks</span>
-            </div>
+          <div class="d6-evidence-grid">
+            <article class="d6-evidence-item">
+              <h3>Independently researched</h3>
+              <strong>01</strong>
+              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+                Every benchmark number cites its source. Missing data is marked — never invented.
+              </p>
+            </article>
+            <article class="d6-evidence-item">
+              <h3>Averaged, not single-opinion</h3>
+              <strong>02</strong>
+              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+                Each model's scores are the mean across independent reporting agents.
+                Evidence-free reports are quarantined and never counted.
+              </p>
+            </article>
+            <article class="d6-evidence-item">
+              <h3>Re-researched weekly</h3>
+              <strong>03</strong>
+              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+                Every report older than seven days is checked against fresh benchmarks, and scores
+                refresh whenever new verified evidence would change them.
+              </p>
+            </article>
+          </div>
+          <h3 class="v2-subhead">What each dimension measures</h3>
+          <div class="d6-evidence-grid">
             {DIMENSIONS.map((d) => (
-              <div key={d.key}>
-                <span>
-                  <strong>{d.label}:</strong> {d.description}
-                </span>
-              </div>
+              <article class="d6-evidence-item" key={d.key}>
+                <h3>{d.label}</h3>
+                <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+                  {d.description}
+                </p>
+              </article>
             ))}
           </div>
         </section>

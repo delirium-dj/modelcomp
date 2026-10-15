@@ -399,3 +399,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Methodology subheading between the principle cards and dimension tiles. */
+.v2-subhead {
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 48px 0 0;
+}
