@@ -498,20 +498,6 @@ export default component$(() => {
                     </tr>
                   ))}
                   <tr>
-                    <th scope="row">Overall Score</th>
-                    {cmpModels.map((m) => (
-                      <td key={m.id} class="d6-rating-overall">
-                        {m.scores.overall}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <th scope="row">Context window</th>
-                    {cmpModels.map((m) => (
-                      <td key={m.id}>{m.meta.contextWindow}</td>
-                    ))}
-                  </tr>
-                  <tr>
                     <th scope="row">Pricing / 1M</th>
                     {cmpModels.map((m) => (
                       <td key={m.id}>{(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}</td>
