@@ -112,9 +112,9 @@ export const V2Footer = component$(() => {
         <p>Independent AI model comparisons, no sponsored rankings.</p>
       </div>
       <div class="d6-bottom">
-        <span>© 2026 ModelComp / v2 experiment</span>
+        <span>© 2026 ModelComp</span>
         <span>
-          <a href="/v2/">All v2 models</a> · <a href="/contact/">Contact</a>
+          <a href="/">All models</a> · <a href="/contact/">Contact</a>
         </span>
       </div>
     </footer>

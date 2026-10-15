@@ -124,7 +124,7 @@ export default component$(() => {
       <main class="d6 d6-missing">
         <p>Unknown model “{slug}”.</p>
         <p>
-          <a href="/v2/">← Back to all v2 models</a>
+          <a href="/">← Back to all models</a>
         </p>
       </main>
     );
@@ -196,7 +196,7 @@ export default component$(() => {
 
   return (
     <main class={`d6 v2 d6-${theme.value}`} data-theme={theme.value} id="top">
-      <V2Header theme={theme} navBase="/v2" />
+      <V2Header theme={theme} navBase="/" />
       <div class="d6-shell">
 
         <section class="d6-hero" aria-labelledby="d6-title">

@@ -13,7 +13,7 @@ import type { Signal } from "@builder.io/qwik";
 
 interface V2HeaderProps {
   theme: Signal<"light" | "dark">;
-  /** Anchor prefix: "" on the v2 homepage, "/v2" on profile pages. */
+  /** Anchor prefix: "" on the homepage, "/" on profile pages. */
   navBase: string;
 }
 
@@ -104,16 +104,16 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               />
               <circle cx="150" cy="148" r="45" fill="url(#v2-header-core)" />
             </svg>
-            <a href="/v2/" style={{ color: "inherit", textDecoration: "none" }}>
+            <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
               ModelComp <span class="d6-brand-slash">/</span> v2
             </a>
           </div>
 
           <div class="v2-site-right">
             <nav aria-label="Primary" class="v2-site-nav">
-              <a href={`${navBase}#v2-compare`}>Compare</a>
-              <a href={`${navBase}#v2-method`}>Scoring</a>
-              <a href={`${navBase}#v2-models`}>Models</a>
+              <a href={`${navBase}#compare`}>Compare</a>
+              <a href={`${navBase}#methodology`}>Scoring</a>
+              <a href={`${navBase}#models`}>Models</a>
             </nav>
             <button
               type="button"
@@ -158,7 +158,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
         <div class="v2-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
           <nav class="v2-drawer-nav" aria-label="Mobile">
             <a
-              href={`${navBase}#v2-compare`}
+              href={`${navBase}#compare`}
               onClick$={() => {
                 isMenuOpen.value = false;
               }}
@@ -166,7 +166,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Compare
             </a>
             <a
-              href={`${navBase}#v2-method`}
+              href={`${navBase}#methodology`}
               onClick$={() => {
                 isMenuOpen.value = false;
               }}
@@ -174,7 +174,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Scoring
             </a>
             <a
-              href={`${navBase}#v2-models`}
+              href={`${navBase}#models`}
               onClick$={() => {
                 isMenuOpen.value = false;
               }}
