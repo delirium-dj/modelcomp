@@ -7,6 +7,7 @@ import {
   virtualDimFor,
   isDecisionModel,
 } from "../../data/models";
+import { RATER_GATE } from "../../data/sources.generated";
 import type { DimensionKey, ResultsView, SourceKey } from "../../data/models";
 import "../design-6sol/study.css";
 import "./v2.css";
@@ -73,6 +74,26 @@ function tooltipFor(m: (typeof MODELS)[number], key: DimensionKey): string {
 }
 
 const PAGE_SIZE = 12;
+
+/** Top-3 generative model ids for a results source (mirrors the v1 homepage:
+ *  dimension top-3 for virtual views, the agent's own top-3 for reporting
+ *  agents, Overall top-3 otherwise). Used to re-seat the compare slots
+ *  whenever the results source changes. */
+function top3Ids(src: ResultsView): [string, string, string] {
+  const sd = virtualDimFor(src);
+  const mapped = MODELS.filter(
+    (m) => src === "average" || sd !== undefined || m.sources[src as SourceKey] !== undefined,
+  ).map((m) =>
+    src === "average" || sd !== undefined ? m : { ...m, scores: m.sources[src as SourceKey]! },
+  );
+  const gen = mapped.filter((m) => !isDecisionModel(m));
+  gen.sort((a, b) =>
+    sd !== undefined
+      ? b.scores[sd] - a.scores[sd] || b.scores.overall - a.scores.overall
+      : b.scores.overall - a.scores.overall,
+  );
+  return [gen[0]?.id ?? "", gen[1]?.id ?? "", gen[2]?.id ?? ""];
+}
 
 export default component$(() => {
   const sortKey = useSignal<SortKey>("overall");
@@ -191,6 +212,21 @@ export default component$(() => {
   const reportCount = (m: (typeof rankBase)[number]) =>
     Object.keys(m.sources).filter((k) => k !== "average").length;
   const activeSourceLabel = SOURCES.find((s) => s.key === source.value)?.label ?? source.value;
+  const activeSourceFile = SOURCES.find((s) => s.key === source.value)?.file ?? "";
+  const contributors = SOURCES.filter(
+    (s) => s.key !== "average" && virtualDimFor(s.key) === undefined,
+  );
+  // Shared source-change handler (compare sidebar + All-models toolbar):
+  // switch the source and re-seat the compare slots on that source's top 3,
+  // exactly like the v1 homepage. Slots stay user-overridable afterwards.
+  const handleSourceChange$ = (v: string) => {
+    source.value = v as ResultsView;
+    displayCount.value = PAGE_SIZE;
+    const [a, b, c] = top3Ids(v as ResultsView);
+    cmpA.value = a;
+    cmpB.value = b;
+    cmpC.value = c;
+  };
 
   if (!top) {
     return <main class="d6 d6-missing">No models in the current dataset.</main>;
@@ -435,6 +471,44 @@ export default component$(() => {
                 </svg>
               </div>
               <div>
+                <label class="v2-source">
+                  Results source{" "}
+                  <select
+                    aria-label="Results source"
+                    value={source.value}
+                    onChange$={(_, el) => {
+                      handleSourceChange$(el.value);
+                    }}
+                  >
+                    {SOURCES.map((s) => (
+                      <option key={s.key} value={s.key} selected={s.key === source.value}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <p class="d6-instrument-note" style={{ marginTop: "8px" }}>
+                  {source.value === "average" ? (
+                    <span
+                      title={
+                        "All reporting agents:\n" +
+                        contributors.map((s) => `- ${s.label}`).join("\n") +
+                        `\n\nOnly reports from models with own Overall above ${RATER_GATE} count toward the average.`
+                      }
+                    >
+                      Overall score — average of qualifying reports (raters above {RATER_GATE}{" "}
+                      Overall).
+                    </span>
+                  ) : virtualDimFor(source.value) !== undefined ? (
+                    <span title={`Same numbers as the Overall view, ranked by ${activeSourceLabel} score.`}>
+                      Overall scores, sorted by {activeSourceLabel}.
+                    </span>
+                  ) : (
+                    <span title={"Source file: " + activeSourceFile}>
+                      Showing only the {activeSourceLabel} report.
+                    </span>
+                  )}
+                </p>
                 <ul aria-label="Legend" class="v2-legend">
                   {cmpModels.map((m, si) => (
                     <li key={m.id}>
@@ -605,8 +679,7 @@ export default component$(() => {
                 aria-label="Results source"
                 value={source.value}
                 onChange$={(_, el) => {
-                  source.value = el.value as ResultsView;
-                  displayCount.value = PAGE_SIZE;
+                  handleSourceChange$(el.value);
                 }}
               >
                 {SOURCES.map((s) => (
