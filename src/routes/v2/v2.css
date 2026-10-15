@@ -147,7 +147,46 @@ p.v2-hero-sub {
 }
 
 @media (min-width: 1000px) {
-  .v2-hero-grid {
+/* v2 hero slab: the darkest navy as the homepage signature (mirrors d6-hero).
+   Full-bleed like the footer; dark theme drops to near-black navy. */
+.v2-hero-slab {
+  margin: 0 calc(-1 * var(--d6-gutter));
+  padding-left: var(--d6-gutter);
+  padding-right: var(--d6-gutter);
+  background: #173c53;
+  color: #f3f8fa;
+}
+.d6-dark .v2-hero-slab {
+  background: #0a1822;
+}
+.d6 .v2-hero-slab h1 {
+  color: #f3f8fa;
+}
+.d6 .v2-hero-slab h1 span {
+  color: #a9c7ef;
+}
+.d6 .v2-hero-slab .d6-family {
+  color: #a8c2d0;
+}
+.d6 .v2-hero-slab .v2-hero-sub {
+  color: #c6d9e3;
+}
+.d6 .v2-hero-slab .v2-btn {
+  background: #f3f8fa;
+  color: #173c53;
+}
+.d6-dark .v2-hero-slab .v2-btn {
+  color: #0a1822;
+}
+.d6 .v2-hero-slab .v2-btn-ghost {
+  color: #f3f8fa;
+  border-color: rgba(243, 248, 250, 0.4);
+}
+.d6 .v2-hero-slab .v2-btn-ghost:hover {
+  border-color: #f3f8fa;
+}
+
+.v2-hero-grid {
     grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
   }
   .v2-slots {

@@ -242,7 +242,7 @@ export default component$(() => {
       <V2Header theme={theme} navBase="" />
       <div class="d6-shell">
 
-        <section aria-labelledby="v2-title">
+        <section class="v2-hero-slab" aria-labelledby="v2-title">
           <div class="v2-hero-grid">
             <div>
               <p class="d6-family">
