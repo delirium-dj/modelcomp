@@ -338,8 +338,7 @@
   margin-top: 36px;
 }
 
-/* Compare table Overall row: larger type — the number that matters. */
-.v2-overall-row th,
+/* Compare table Overall row: larger type on the result only, not the label. */
 .v2-overall-row td {
   font-size: 18px;
   font-weight: 700;
