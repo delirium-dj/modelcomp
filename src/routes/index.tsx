@@ -489,7 +489,7 @@ export default component$(() => {
                           backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
                       />
-                      <a href={`/model/${m.slug}/`} class="font-semibold">
+                      <a href={`/model/${m.slug}/`} class="inline-flex items-center gap-2 font-semibold">
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
@@ -878,10 +878,12 @@ export default component$(() => {
                   {sorted.slice(0, displayCount.value).map((m) => (
                     <tr key={m.id} class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
                       <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-semibold text-[#496779] first:w-[22%] first:pl-4 max-[640px]:first:w-[23.17%] dark:border-b-[#274757] dark:text-[#a9c2d2]">
-                        <VendorIcon id={m.id} name={m.name} />{" "}
-                        <a href={`/model/${m.slug}/`}>
-                          {m.name}
-                        </a>
+                        <span class="inline-flex items-center gap-2">
+                          <VendorIcon id={m.id} name={m.name} />
+                          <a href={`/model/${m.slug}/`}>
+                            {m.name}
+                          </a>
+                        </span>
                       </th>
                       {orderedScoreCols.map((key) => {
                         const value = m.scores[key];
