@@ -9,14 +9,23 @@ live at `/v2/[slug]/`, and the last v1 homepage is frozen at `/v1/`.
 
 | Route | Content | Source file(s) |
 |---|---|---|
-| `/` | v2 homepage (primary) | `src/routes/index.tsx` (+ `src/routes/v2/v2.css`, `src/components/v2/*`) |
-| `/v2/[slug]/` | v2 model profiles | `src/routes/v2/[slug]/index.tsx` |
-| `/v1/` | v1 homepage, byte-identical snapshot, fallback only | `src/routes/v1/index.tsx` (uses v1 `src/components/*`) |
-| `/model/[slug]/` | v1 model pages, untouched | `src/routes/model/[slug]/index.tsx` |
-| `/design-6sol/` etc. | Original design studies, untouched | `src/routes/design-*/` |
+| `/` | v2 homepage (primary) | `src/routes/index.tsx` (+ `src/components/v2/*`) |
+| `/model/[slug]/` | v1 model pages, untouched, linked from the homepage | `src/routes/model/[slug]/index.tsx` |
+| `/design-6sol/` etc. | Original design studies, local-only (gitignored), untouched | `src/routes/design-*/` |
 
-Section anchors on `/` kept their v1 contracts: `#compare`, `#methodology`
-(`#models` = All-models section). Old bookmarks and deep links keep working.
+Section anchors on `/` kept their v1 contracts: `#compare`, `#methodology`,
+`#models` (All-models section). Old bookmarks and deep links keep working.
+
+Retired after promotion (deleted, recoverable from git history or tag
+`v1-final`): the `/v1` v1-homepage snapshot and the `/v2/[slug]/` experiment
+profiles. Profile links point at `/model/[slug]/` again.
+
+Bundle work (same promotion era, separate commits): benchmark evidence was
+split out of the shared data barrel — `src/data/evidence.ts` (`getEvidence`)
+is imported only by profile routes, so list pages never bundle the ~400 KB
+`evidence.generated.ts`. Meta prose (`model/*/meta.json`, 73 KB total) was
+deliberately left eager: cards need it at SSR for SEO, and lazy-loading it
+would trade first-paint content for negligible savings (see commit history).
 
 ## Safety nets (in order of preference)
 

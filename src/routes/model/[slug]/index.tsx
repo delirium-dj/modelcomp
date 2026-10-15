@@ -1,7 +1,8 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
 import { MODELS, SOURCES, MODEL_COLORS, DIMENSIONS, slugForSource, virtualDimFor } from "../../../data/models";
-import type { SourceKey, ModelScores, DimensionKey, EvidenceItem } from "../../../data/models";
+import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
+import { getEvidence, type EvidenceItem } from "../../../data/evidence";
 
 /** One agreed-figure row: rater stems resolve to display labels via SOURCES,
  * ranked by each rater's own Overall score (best first). */
@@ -43,6 +44,9 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
 export default component$(() => {
   const slug = useLocation().params.slug ?? "";
   const model = MODELS.find((m) => m.slug === slug);
+  // Benchmark evidence loads from its own module (NOT via models.ts) so list
+  // pages never bundle the ~400 KB evidence.generated.ts (see src/data/evidence.ts).
+  const evidence = getEvidence(slug);
 
   if (!model) {
     return (
@@ -298,7 +302,7 @@ export default component$(() => {
         </div>
       </section>
 
-      {model.evidence.length > 0 && (
+      {evidence.length > 0 && (
         <section aria-label="Verified benchmarks" class="mx-auto max-w-6xl px-4 pb-6">
           <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Verified benchmarks</h2>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
@@ -326,16 +330,16 @@ export default component$(() => {
                 </tr>
               </thead>
               <tbody>
-                {model.evidence.slice(0, 5).map((item) => (
+                {evidence.slice(0, 5).map((item) => (
                   <EvidenceRow key={item.benchmark + item.value} item={item} />
                 ))}
               </tbody>
             </table>
           </div>
-          {model.evidence.length > 5 && (
+          {evidence.length > 5 && (
             <details class="mt-2 text-sm">
               <summary class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
-                Show all {model.evidence.length} verified figures
+                Show all {evidence.length} verified figures
               </summary>
               <div class="mt-4 overflow-x-auto">
                 <table class="w-full min-w-[560px] table-fixed border-collapse text-sm">
@@ -358,7 +362,7 @@ export default component$(() => {
                     </tr>
                   </thead>
                   <tbody>
-                    {model.evidence.slice(5).map((item) => (
+                    {evidence.slice(5).map((item) => (
                       <EvidenceRow key={item.benchmark + item.value} item={item} />
                     ))}
                   </tbody>

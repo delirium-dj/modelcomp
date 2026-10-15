@@ -4,15 +4,15 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 export default component$(() => {
-  // The design studies + the whole v2 experiment tree are standalone canvases
-  // with their own header/footer inside each page — outside v1 chrome.
+  // The v2 homepage and the design studies are standalone canvases with
+  // their own header/footer inside each page — outside the v1 chrome
+  // (which still serves /contact, /model/*, etc.).
   const path = useLocation().url.pathname.replace(/^\/+/, "/").replace(/\/+$/, "");
   if (
+    path === "/" ||
     path === "/design-6sol" ||
     path === "/design-g38f5" ||
-    path === "/design-step52" ||
-    path === "/v2" ||
-    path.startsWith("/v2/")
+    path === "/design-step52"
   ) {
     return <Slot />;
   }

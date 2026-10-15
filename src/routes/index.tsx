@@ -10,7 +10,7 @@ import {
 import { RATER_GATE } from "../data/sources.generated";
 import type { DimensionKey, ResultsView, SourceKey } from "../data/models";
 import "./design-6sol/study.css";
-import "./v2/v2.css";
+import "../components/v2/v2.css";
 import { VendorIcon } from "../components/VendorIcon";
 import { V2Footer } from "../components/v2/V2Footer";
 import { V2Header } from "../components/v2/V2Header";
@@ -475,7 +475,7 @@ export default component$(() => {
                           backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
                       />
-                      <a href={`/v2/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
+                      <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
@@ -501,7 +501,7 @@ export default component$(() => {
                       <th scope="col" key={m.id}>
                         <span class="v2-model-cell">
                           <VendorIcon id={m.id} name={m.name} />
-                          <a href={`/v2/${m.slug}/`} style={{ color: "inherit" }}>
+                          <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
                             {m.name}
                           </a>
                         </span>
@@ -659,7 +659,7 @@ export default component$(() => {
                     <div class="v2-card-head">
                       <h3 class="v2-card-name">
                         <VendorIcon id={m.id} name={m.name} />
-                        <a href={`/v2/${m.slug}/`}>{m.name}</a>
+                        <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
                       <div
                         class="v2-card-score"
@@ -713,7 +713,7 @@ export default component$(() => {
                       Cost {m.scores.cost}
                     </p>
                     <p class="v2-profile">
-                      <a href={`/v2/${m.slug}/`}>Open full profile →</a>
+                      <a href={`/model/${m.slug}/`}>Open full profile →</a>
                     </p>
                   </article>
                 ))}
@@ -859,7 +859,7 @@ export default component$(() => {
                     <tr key={m.id}>
                       <th scope="row">
                         <VendorIcon id={m.id} name={m.name} />{" "}
-                        <a href={`/v2/${m.slug}/`} style={{ color: "inherit" }}>
+                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
                           {m.name}
                         </a>
                       </th>
@@ -943,7 +943,7 @@ export default component$(() => {
                   <div class="v2-card-head">
                     <h3 class="v2-card-name">
                       <VendorIcon id={m.id} name={m.name} />{" "}
-                      <a href={`/v2/${m.slug}/`}>{m.name}</a>
+                      <a href={`/model/${m.slug}/`}>{m.name}</a>
                     </h3>
                     <span class="d6-count">Decision</span>
                   </div>
@@ -963,7 +963,7 @@ export default component$(() => {
                     </div>
                   </dl>
                   <p class="v2-profile">
-                    <a href={`/v2/${m.slug}/`}>Open full profile →</a>
+                    <a href={`/model/${m.slug}/`}>Open full profile →</a>
                   </p>
                 </article>
               ))}
