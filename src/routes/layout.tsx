@@ -8,7 +8,9 @@ export default component$(() => {
   const path = useLocation().url.pathname.replace(/^\/+/, "/").replace(/\/+$/, "");
   if (
     path === "/design-6sol" ||
-    path === "/design-glm53f" 
+    path === "/design-g38f5" ||
+    path === "/design-step52" ||
+    path === "/v2"
   ) {
     return <Slot />;
   }
