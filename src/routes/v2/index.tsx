@@ -11,6 +11,7 @@ import type { DimensionKey, ResultsView, SourceKey } from "../../data/models";
 import "../design-6sol/study.css";
 import "./v2.css";
 import { VendorIcon } from "../../components/VendorIcon";
+import { V2Footer } from "../../components/v2/V2Footer";
 
 /**
  * /v2 — full-site redesign in the design-6sol language.
@@ -71,7 +72,6 @@ function tooltipFor(m: (typeof MODELS)[number], key: DimensionKey): string {
   return base;
 }
 
-const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
 const PAGE_SIZE = 12;
 
 export default component$(() => {
@@ -947,50 +947,7 @@ export default component$(() => {
           </section>
         )}
 
-        <footer class="d6-footer">
-          <div class="d6-support">
-            <div class="d6-support-copy">
-              <p class="d6-family">
-                ModelComp <span aria-hidden="true">/</span> v2 experiment
-              </p>
-              <h2>Full site, new clothes</h2>
-              <p>
-                <strong>Same data, same scores — only the presentation changed.</strong>
-              </p>
-              <p>
-                If this wins, its composition moves to <strong>/</strong>. If it loses, delete{" "}
-                <strong>src/routes/v2/</strong> and this page is gone without a trace.
-              </p>
-            </div>
-            <div class="d6-support-panel">
-              <div class="d6-tiers">
-                <a href="/" class="d6-tier d6-tier-primary">
-                  <span class="d6-tier-label">
-                    <span aria-hidden="true">♥</span> v1 homepage
-                  </span>
-                  <span class="d6-tier-detail">current production UI</span>
-                </a>
-                <a href={SPONSOR_URL} target="_blank" rel="noopener noreferrer" class="d6-tier">
-                  <span class="d6-tier-label">
-                    <span aria-hidden="true">♥</span> Fund independent research
-                  </span>
-                  <span class="d6-tier-detail">no paid placements, ever</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="d6-fine">
-            <p>
-              Data syncs from per-model research files on every build. Scores are normalized
-              interpretations, not official vendor scores.
-            </p>
-            <p>Independent AI model comparisons, no sponsored rankings.</p>
-          </div>
-          <div class="d6-bottom">
-            <span>© 2026 ModelComp / v2 experiment</span>
-            <a href="/contact/">Contact</a>
-          </div>
-        </footer>
+        <V2Footer />
       </div>
     </main>
   );

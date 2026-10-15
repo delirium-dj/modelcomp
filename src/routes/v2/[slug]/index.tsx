@@ -7,6 +7,8 @@ import {
 import { MODELS, SOURCES } from "../../../data/models";
 import type { DimensionKey, ModelScores, SourceKey } from "../../../data/models";
 import "../../design-6sol/study.css";
+import "../v2.css";
+import { V2Footer } from "../../../components/v2/V2Footer";
 
 /**
  * /v2/[slug]/ — v2 model profile pages in the design-6sol language.
@@ -36,23 +38,6 @@ const colNames: Record<DimensionKey, string> = {
   multimodal: "Multi",
   cost: "Cost",
 };
-
-// Same content as the project footer — restyled below in study clothes.
-const D6_SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
-const D6_TIERS = [
-  { label: "$5 Coffee", detail: "one-time thanks", primary: true },
-  { label: "$19/mo Supporter", detail: "name in README", primary: false },
-  { label: "$99/mo Research backer", detail: "logo in footer", primary: false },
-];
-const D6_BACKERS = [
-  {
-    name: "ExtraWebSite",
-    href: "https://extraweb.site",
-    imgSrc: "/backers/extrawebsite.png",
-    alt: "ExtraWebSite — website design & development",
-  },
-];
-const D6_EXTRA_LINKS = ["Ko-fi", "Patreon", "Buy Me a Coffee", "PayPal", "Stripe"];
 
 const hexKeys: DimensionKey[] = ["tool", "reasoning", "context", "cost", "coding", "multimodal"];
 const HEX_CX = 200;
@@ -475,67 +460,7 @@ export default component$(() => {
           <p class="d6-table-note">Last verified {formattedDate} from {ratings.length} agent reports.</p>
         </section>
 
-        <footer class="d6-footer">
-          <div class="d6-support">
-            <div class="d6-support-copy">
-              <p class="d6-family">ModelComp <span aria-hidden="true">/</span> funding</p>
-              <h2>Independent research, funded by readers</h2>
-              <p><strong>100% independent — no paid promotions, no vendor funding influences scores.</strong></p>
-              <p>
-                Every findings file is researched independently from public benchmarks. Donations keep it that
-                way — they fund compute and research time, never rankings.
-              </p>
-            </div>
-            <div class="d6-support-panel">
-              <div class="d6-tiers">
-                {D6_TIERS.map((tier) => (
-                  <a
-                    key={tier.label}
-                    href={D6_SPONSOR_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={`d6-tier${tier.primary ? " d6-tier-primary" : ""}`}
-                  >
-                    <span class="d6-tier-label"><span aria-hidden="true">♥</span> {tier.label}</span>
-                    <span class="d6-tier-detail">{tier.detail}</span>
-                  </a>
-                ))}
-              </div>
-              <p class="d6-also">Also via:</p>
-              <div class="d6-tiers d6-tiers-soon">
-                {D6_EXTRA_LINKS.map((label) => (
-                  <span key={label} title="Coming soon — link not configured yet" class="d6-soon">
-                    {label} · soon
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div class="d6-backer-row">
-            <span>Research backer</span>
-            {D6_BACKERS.map((backer) => (
-              <a
-                key={backer.name}
-                href={backer.href}
-                target="_blank"
-                rel="sponsored noopener noreferrer"
-                title={`${backer.name} — Research backer (logo placement thanks, never influences scores)`}
-                class="d6-backer"
-              >
-                <img src={backer.imgSrc} alt={backer.alt} width={32} height={32} loading="lazy" />
-                {backer.name}
-              </a>
-            ))}
-          </div>
-          <div class="d6-fine">
-            <p>Data syncs from per-model research files on every build. Scores are normalized interpretations, not official vendor scores.</p>
-            <p>Independent AI model comparisons, no sponsored rankings.</p>
-          </div>
-          <div class="d6-bottom">
-            <span>© 2026 ModelComp / v2 experiment</span>
-            <span><a href="/v2/">All v2 models</a> · <a href="/contact/">Contact</a></span>
-          </div>
-        </footer>
+        <V2Footer />
       </div>
     </main>
   );

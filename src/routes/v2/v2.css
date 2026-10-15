@@ -421,6 +421,22 @@ p.v2-profile {
   max-width: none;
 }
 
+/* Footer: configured donate links next to the "soon" placeholders. */
+.d6 .v2-donate-link {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--d6-line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: var(--d6-ink);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.d6 .v2-donate-link:hover {
+  border-color: var(--d6-ink);
+}
+
 /* Methodology subheading between the principle cards and dimension tiles. */
 /* Specificity note: the study zeroes all h3 margins (.d6 h3, 0,1,1), so this
    needs .d6 scope (0,2,0) to win regardless of stylesheet order. */
