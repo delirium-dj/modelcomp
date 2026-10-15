@@ -897,7 +897,9 @@ export default component$(() => {
           </p>
         </section>
 
-        {decisionFiltered.length > 0 && (
+        {/* Decision shelf stays hidden until the mix grows (3+ decision models);
+            a single non-comparable entry adds noise, not signal. */}
+        {decisionFiltered.length >= 3 && (
           <section class="d6-section" aria-labelledby="v2-decision-title">
           <div class="d6-section-intro d6-section-intro-row">
               <div>
