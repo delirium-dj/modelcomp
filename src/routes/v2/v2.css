@@ -144,3 +144,178 @@
     align-items: center;
   }
 }
+
+/* All-models toolbar: search + results source, mirrors v1 ModelCards row. */
+.v2-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 28px;
+}
+.v2-search {
+  font: inherit;
+  font-size: 13px;
+  min-width: 220px;
+  flex: 1 1 220px;
+  max-width: 380px;
+  color: var(--d6-ink);
+  background: transparent;
+  border: 1px solid var(--d6-line);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+.v2-search::placeholder {
+  color: var(--d6-muted);
+}
+.v2-source {
+  font-size: 13px;
+  color: var(--d6-muted);
+}
+.v2-source select {
+  font: inherit;
+  color: var(--d6-ink);
+  background: transparent;
+  border: 1px solid var(--d6-line);
+  border-radius: 8px;
+  padding: 6px 8px;
+  max-width: 260px;
+}
+
+/* Cards grid: 1 col → 2 col → 3 col, mirrors v1 md:/lg: breakpoints. */
+.v2-cards-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+}
+.v2-card {
+  display: flex;
+  flex-direction: column;
+  background: #f7fafb;
+  border: 1px solid var(--d6-line);
+  padding: 22px 24px;
+}
+.v2-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.v2-card-name {
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.v2-card-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.v2-card-name a:hover {
+  text-decoration: underline;
+}
+.v2-access {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.v2-free {
+  color: #1c7a4d;
+}
+.v2-paid {
+  color: #b26a1b;
+}
+.v2-card-short {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.v2-specs {
+  margin: 14px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.v2-specs > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  border-top: 1px solid var(--d6-line);
+  padding: 8px 0;
+}
+.v2-specs dt {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.v2-specs dd {
+  margin: 0;
+  color: var(--d6-muted);
+}
+.v2-dims {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--d6-line);
+  font-size: 12px;
+  color: var(--d6-muted);
+  line-height: 1.7;
+}
+.v2-profile {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.v2-profile a {
+  color: var(--d6-blue);
+  text-decoration: none;
+}
+.v2-profile a:hover {
+  text-decoration: underline;
+}
+.v2-card-decision {
+  border-top: 3px solid var(--d6-orange);
+}
+.v2-more-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+/* Mobile sort pills for the list view (v1 has them; the table scrolls). */
+.v2-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.d6-dark .v2-card {
+  background: #132a3b;
+}
+.d6-dark .v2-free {
+  color: #7fd6a4;
+}
+.d6-dark .v2-paid {
+  color: #e8b47e;
+}
+.d6-dark .v2-search {
+  background: transparent;
+}
+
+@media (min-width: 800px) {
+  .v2-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .v2-pills {
+    display: none;
+  }
+}
+@media (min-width: 1100px) {
+  .v2-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

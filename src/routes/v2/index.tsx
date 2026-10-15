@@ -610,10 +610,7 @@ export default component$(() => {
               </div>
             </div>
           </div>
-          <div
-            class="d6-header-right"
-            style={{ marginTop: "28px", justifyContent: "flex-start", flexWrap: "wrap" }}
-          >
+          <div class="v2-toolbar">
             <input
               type="search"
               role="searchbox"
@@ -624,10 +621,9 @@ export default component$(() => {
                 query.value = el.value;
                 displayCount.value = PAGE_SIZE;
               }}
-              class="d6-theme-toggle"
-              style={{ minWidth: "220px", cursor: "text" }}
+              class="v2-search"
             />
-            <label style={{ fontSize: "13px", color: "var(--d6-muted)" }}>
+            <label class="v2-source">
               Results source{" "}
               <select
                 aria-label="Results source"
@@ -636,7 +632,6 @@ export default component$(() => {
                   source.value = el.value as ResultsView;
                   displayCount.value = PAGE_SIZE;
                 }}
-                style={{ font: "inherit", maxWidth: "260px" }}
               >
                 {SOURCES.map((s) => (
                   <option key={s.key} value={s.key} selected={s.key === source.value}>
@@ -658,71 +653,81 @@ export default component$(() => {
             </p>
           ) : allModelsView.value === "cards" ? (
             <>
-              <div class="d6-evidence-grid">
+              <div class="v2-cards-grid">
                 {visibleModels.map((m, i) => (
-                  <article class="d6-evidence-item" key={m.id}>
-                    <h3>
-                      #{i + 1}{" "}
-                      <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
-                        {m.name}
-                      </a>
-                    </h3>
-                    <strong>
-                      {m.scores.overall}{" "}
-                      <span style={{ fontSize: "13px", fontWeight: 400 }}>
-                        {!m.meta.noFreeId ? (
-                          <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
-                        ) : (
-                          <span title="Cost is scored on paid pricing — no free tier ID">
-                            · Paid
-                          </span>
-                        )}
+                  <article class="v2-card" key={m.id}>
+                    <div class="v2-card-head">
+                      <h3 class="v2-card-name">
+                        #{i + 1}{" "}
+                        <a href={`/model/${m.slug}/`}>{m.name}</a>
+                      </h3>
+                      <span class="d6-count" title="Overall score out of 100">
+                        {m.scores.overall}
                       </span>
-                    </strong>
-                    <p style={{ marginTop: "8px", fontSize: "13px" }}>{m.short}</p>
-                    <div style={{ marginTop: "10px", fontSize: "12px", lineHeight: 1.7 }}>
+                    </div>
+                    <p class="v2-access">
+                      {!m.meta.noFreeId ? (
+                        <span
+                          class="v2-free"
+                          title={m.meta.freeTierNote ?? m.meta.pricingNote}
+                        >
+                          Free tier
+                        </span>
+                      ) : (
+                        <span
+                          class="v2-paid"
+                          title="Cost is scored on paid pricing — no free tier ID"
+                        >
+                          Paid · no free tier
+                        </span>
+                      )}
+                    </p>
+                    <p class="v2-card-short">{m.short}</p>
+                    <dl class="v2-specs">
                       <div>
-                        <strong>Context:</strong> {m.meta.contextWindow}
+                        <dt>Context</dt>
+                        <dd>{m.meta.contextWindow}</dd>
                       </div>
                       <div>
-                        <strong>Modalities:</strong> {m.meta.modalities}
+                        <dt>Modalities</dt>
+                        <dd>{m.meta.modalities}</dd>
                       </div>
                       <div>
-                        <strong>Pricing:</strong>{" "}
-                        {(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}
+                        <dt>Pricing</dt>
+                        <dd>{m.meta.pricingNote}</dd>
                       </div>
                       <div title="Newest report date across this model's findings files">
-                        <strong>Verified:</strong> {m.verified ?? "—"} ·{" "}
-                        <strong>{reportCount(m)}</strong> reports
+                        <dt>Verified</dt>
+                        <dd>
+                          {m.verified ?? "—"} · {reportCount(m)} reports
+                        </dd>
                       </div>
-                    </div>
-                    <p style={{ marginTop: "8px", fontSize: "12px" }}>
+                    </dl>
+                    <p class="v2-dims">
                       Tool {m.scores.tool} · Reason {m.scores.reasoning} · Context{" "}
                       {m.scores.context} · Code {m.scores.coding} · Multi {m.scores.multimodal} ·
                       Cost {m.scores.cost}
                     </p>
-                    <p class="d6-citations" style={{ marginTop: "8px" }}>
+                    <p class="v2-profile">
                       <a href={`/model/${m.slug}/`}>Open full profile →</a>
                     </p>
                   </article>
                 ))}
               </div>
               {displayCount.value < filtered.length && (
-                <div class="d6-more" style={{ textAlign: "center" }}>
+                <div class="v2-more-row">
                   <button
                     type="button"
-                    class="d6-view-btn d6-view-active"
-                    style={{ padding: "10px 28px", fontSize: "14px" }}
+                    class="v2-btn"
                     onClick$={() => {
                       displayCount.value += PAGE_SIZE;
                     }}
                   >
                     Show more
-                  </button>{" "}
+                  </button>
                   <button
                     type="button"
-                    class="d6-view-btn"
-                    style={{ padding: "10px 28px", fontSize: "14px" }}
+                    class="v2-btn-ghost"
                     onClick$={() => {
                       displayCount.value = filtered.length;
                     }}
@@ -733,12 +738,35 @@ export default component$(() => {
               )}
             </>
           ) : (
-            <div
-              ref={scrollerRef}
-              class="d6-table-scroll"
-              tabIndex={0}
-              aria-label="Scroll to see all score columns"
-            >
+            <>
+              <div class="v2-pills" role="group" aria-label="Sort all models">
+                {orderedScoreCols.map((key) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-pressed={sortKey.value === key}
+                    class={`d6-view-btn${sortKey.value === key ? " d6-view-active" : ""}`}
+                    onClick$={() => {
+                      if (sortKey.value === key)
+                        sortDirection.value = sortDirection.value === -1 ? 1 : -1;
+                      else {
+                        sortKey.value = key;
+                        sortDirection.value = -1;
+                      }
+                      scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
+                    }}
+                  >
+                    {key === "overall" ? "Overall" : colNames[key]}{" "}
+                    {sortKey.value === key ? (sortDirection.value === -1 ? "↓" : "↑") : ""}
+                  </button>
+                ))}
+              </div>
+              <div
+                ref={scrollerRef}
+                class="d6-table-scroll"
+                tabIndex={0}
+                aria-label="Scroll to see all score columns"
+              >
               <table class="d6-table">
                 <caption class="d6-visually-hidden">
                   Model leaderboard, average scores out of 100
@@ -846,25 +874,24 @@ export default component$(() => {
                 </tbody>
               </table>
             </div>
+            </>
           )}
           {!(filtered.length === 0) &&
             allModelsView.value === "list" &&
             displayCount.value < sorted.length && (
-              <div class="d6-more" style={{ textAlign: "center" }}>
+              <div class="v2-more-row">
                 <button
                   type="button"
-                  class="d6-view-btn d6-view-active"
-                  style={{ padding: "10px 28px", fontSize: "14px" }}
+                  class="v2-btn"
                   onClick$={() => {
                     displayCount.value += PAGE_SIZE;
                   }}
                 >
                   Show more
-                </button>{" "}
+                </button>
                 <button
                   type="button"
-                  class="d6-view-btn"
-                  style={{ padding: "10px 28px", fontSize: "14px" }}
+                  class="v2-btn-ghost"
                   onClick$={() => {
                     displayCount.value = sorted.length;
                   }}
@@ -893,27 +920,33 @@ export default component$(() => {
               </div>
               <span class="d6-count">{decisionFiltered.length} models</span>
             </div>
-            <div class="d6-evidence-grid">
+            <div class="v2-cards-grid">
               {decisionFiltered.map((m) => (
-                <article class="d6-evidence-item" key={m.id}>
-                  <h3>
-                    <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
-                      {m.name}
-                    </a>
-                  </h3>
-                  <strong style={{ fontSize: "20px" }}>Decision system</strong>
-                  <p style={{ marginTop: "8px", fontSize: "13px" }}>{m.short}</p>
-                  <div style={{ marginTop: "10px", fontSize: "12px", lineHeight: 1.7 }}>
-                    <div>
-                      <strong>State budget:</strong> {m.meta.contextWindow}
-                    </div>
-                    <div>
-                      <strong>I/O:</strong> {m.meta.modalities}
-                    </div>
-                    <div>
-                      <strong>Pricing:</strong> {m.meta.pricingNote}
-                    </div>
+                <article class="v2-card v2-card-decision" key={m.id}>
+                  <div class="v2-card-head">
+                    <h3 class="v2-card-name">
+                      <a href={`/model/${m.slug}/`}>{m.name}</a>
+                    </h3>
+                    <span class="d6-count">Decision</span>
                   </div>
+                  <p class="v2-card-short">{m.short}</p>
+                  <dl class="v2-specs">
+                    <div>
+                      <dt>State budget</dt>
+                      <dd>{m.meta.contextWindow}</dd>
+                    </div>
+                    <div>
+                      <dt>I/O</dt>
+                      <dd>{m.meta.modalities}</dd>
+                    </div>
+                    <div>
+                      <dt>Pricing</dt>
+                      <dd>{m.meta.pricingNote}</dd>
+                    </div>
+                  </dl>
+                  <p class="v2-profile">
+                    <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                  </p>
                 </article>
               ))}
             </div>
