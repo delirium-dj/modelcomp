@@ -67,7 +67,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
           <div class="justify-self-start">
             <button
               type="button"
-              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#ccdae2] bg-transparent py-1.5 pl-2.5 pr-3.5 text-xs font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+              class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-slate-300 dark:hover:bg-slate-800"
               aria-pressed={theme.value === "dark"}
               aria-label={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               title={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -80,11 +80,39 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
                 }
               }}
             >
-              <span
-                class="h-3.5 w-3.5 rounded-full bg-[#19384d] [box-shadow:inset_-4px_-2px_0_0_#ecf3f6] dark:bg-[#e8f1f6] dark:[box-shadow:inset_4px_2px_0_0_#0e1e2a]"
-                aria-hidden="true"
-              />
-              {theme.value === "dark" ? "Light" : "Dark"}
+              <span aria-hidden="true">
+                {theme.value === "dark" ? (
+                  /* Sun icon — shown when dark mode is active (same as v1 ThemeToggle) */
+                  <svg
+                    class="h-5 w-5 text-amber-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    />
+                  </svg>
+                ) : (
+                  /* Moon icon — shown when light mode is active (same as v1 ThemeToggle) */
+                  <svg
+                    class="h-5 w-5 text-slate-700 dark:text-slate-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                    />
+                  </svg>
+                )}
+              </span>
             </button>
           </div>
 
