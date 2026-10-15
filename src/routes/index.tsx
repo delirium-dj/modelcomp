@@ -194,8 +194,8 @@ export default component$(() => {
   const hlClass = (col: string, value: number): string => {
     const st = hlStats.get(col);
     if (!st || st.best === null || st.worst === null) return "";
-    if (value === st.best) return " d6-best";
-    if (value === st.worst) return " d6-worst";
+    if (value === st.best) return " bg-[#d3ead9] font-bold text-[#14532d] dark:bg-[#1d4a2f] dark:text-[#bbf7d0]";
+    if (value === st.worst) return " bg-[#f7d9d4] text-[#7f1d1d] dark:bg-[#5a2320] dark:text-[#fecaca]";
     return "";
   };
 
@@ -231,35 +231,38 @@ export default component$(() => {
   });
 
   if (!top) {
-    return <main class="d6 d6-missing">No models in the current dataset.</main>;
+    return <main class="px-6 py-20 text-center">No models in the current dataset.</main>;
   }
 
   const orderedScoreCols: ("overall" | DimensionKey)[] = ["overall", ...tableKeys];
 
   return (
-    <main class={`d6 v2 d6-${theme.value}`} data-theme={theme.value} id="top">
+    <main
+      class={`min-h-screen font-['DM_Sans','Segoe_UI',sans-serif] text-[15px] leading-[1.55] antialiased ${theme.value === "dark" ? "dark bg-[#0e1e2a] text-[#e8f1f6]" : "bg-[#ecf3f6] text-[#19384d]"}`}
+      id="top"
+    >
       <V2Header theme={theme} navBase="" />
-      <div class="d6-shell">
+      <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-[22px] max-[520px]:px-4">
 
-        <section class="v2-hero-slab" aria-labelledby="v2-title">
-          <div class="v2-hero-grid">
+        <section class="mx-[-40px] bg-[#e2edf2] px-10 text-[#19384d] max-[800px]:mx-[-22px] max-[800px]:px-[22px] max-[520px]:mx-[-16px] max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
+          <div class="grid grid-cols-1 items-center gap-8 pb-12 pt-16 min-[1000px]:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
             <div>
-              <p class="d6-family">
+              <p class="text-sm text-[#577184] dark:text-[#a8c2d0]">
                 Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
                 {SOURCES.length} results sources
               </p>
-              <h1 id="v2-title">
-                Compare AI coding models on <span>what actually matters</span>
+              <h1 id="v2-title" class="mt-[18px] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(40px,4.6vw,64px)] font-medium leading-[1.04] tracking-[-0.045em]">
+                Compare AI coding models on <span class="text-[#557ddd] dark:text-[#a9c7ef]">what actually matters</span>
               </h1>
-              <p class="v2-hero-sub">
+              <p class="mt-4 max-w-[560px] text-base leading-[1.65] text-[#577184] dark:text-[#c6d9e3]">
                 Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from
                 public benchmarks so current and future models can be compared side by side.
               </p>
-              <div class="v2-cta-row">
-                <a href="/#compare" class="v2-btn">
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a href="/#compare" class="inline-block rounded-[10px] bg-[#19384d] px-[22px] py-[11px] text-sm font-bold text-[#ecf3f6] hover:underline dark:bg-[#f3f8fa] dark:text-[#0a1822]">
                   Compare models
                 </a>
-                <a href="/#methodology" class="v2-btn-ghost">
+                <a href="/#methodology" class="inline-block rounded-[10px] border border-[#ccdae2] bg-transparent px-[22px] py-[11px] text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[rgba(243,248,250,0.4)] dark:text-[#f3f8fa] dark:hover:border-[#f3f8fa]">
                   How scoring works
                 </a>
               </div>
@@ -270,62 +273,63 @@ export default component$(() => {
                 alt="ModelComp logo: a hexagon with six dimension dots around a core"
                 width={400}
                 height={400}
-                class="v2-hero-logo"
+                class="mx-auto h-auto w-full max-w-[220px]"
               />
             </div>
           </div>
         </section>
 
-        <section class="d6-facts" aria-label="Dataset facts">
-          <div>
-            <span>Models tracked</span>
-            <strong>{generative.length} generative + {decisions.length} decision</strong>
+        <section class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-2 max-[520px]:block dark:border-b-[#274757]" aria-label="Dataset facts">
+          <div class="py-[30px] pr-[30px] text-right max-[800px]:text-center max-[520px]:border-b max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-[17px] max-[520px]:dark:border-b-[#274757]">
+            <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Models tracked</span>
+            <strong class="block break-words text-lg font-semibold leading-[1.55] max-[800px]:text-base max-[520px]:text-sm">{generative.length} generative + {decisions.length} decision</strong>
           </div>
-          <div>
-            <span>Leader overall ({activeSourceLabel})</span>
-            <strong>
+          <div class="border-l border-l-[#ccdae2] px-[30px] py-[30px] pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-[17px] max-[520px]:dark:border-b-[#274757]">
+            <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Leader overall ({activeSourceLabel})</span>
+            <strong class="block break-words text-lg font-semibold leading-[1.55] max-[800px]:text-base max-[520px]:text-sm">
               {top.name} — {top.scores.overall}
             </strong>
           </div>
-          <div>
-            <span>Scoring</span>
-            <strong>Overall = mean of 5 quality dims, cost excluded</strong>
+          <div class="border-l border-l-[#ccdae2] px-[30px] py-[30px] pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-[17px]">
+            <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Scoring</span>
+            <strong class="block break-words text-lg font-semibold leading-[1.55] max-[800px]:text-base max-[520px]:text-sm">Overall = mean of 5 quality dims, cost excluded</strong>
           </div>
         </section>
 
-        <section class="d6-section v2-flush-bottom" id="compare" aria-labelledby="v2-compare-title">
-          <div class="d6-section-intro v2-compare-intro">
-            <h2 id="v2-compare-title">Compare models</h2>
-            <p>
+        <section class="border-b-0 border-[#ccdae2] px-0 pb-12 pt-[86px] dark:border-[#274757]" id="compare" aria-labelledby="v2-compare-title">
+          <div class="flex items-start gap-[25px] max-[799px]:flex-col max-[799px]:gap-3">
+            <h2 id="v2-compare-title" class="min-w-0 flex-[2_1_0%] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-[1.1] tracking-[-0.045em] max-[520px]:text-[34px]">Compare models</h2>
+            <p class="mt-0 min-w-0 max-w-none flex-[3_1_0%] text-sm leading-[1.7] text-[#577184] dark:text-[#93adbe]">
               Pick up to three models. Exact scores side by side, in the current results source
               ({activeSourceLabel}). Decision models can't be picked here — their scores aren't
               comparable; see the decision shelf below.
             </p>
           </div>
-          <div class="v2-slots">
+          <div class="mt-8 grid grid-cols-1 gap-x-[35px] min-[1000px]:grid-cols-3">
             {[
               { label: "Model A", value: cmpA },
               { label: "Model B", value: cmpB },
               { label: "Model C", value: cmpC },
             ].map((slot, si) => (
-              <div key={slot.label}>
+              <div key={slot.label} class="flex flex-wrap items-baseline gap-[10px] border-b border-b-[#ccdae2] py-[11px] dark:border-b-[#274757]">
                 <span
                   aria-hidden="true"
-                  class="v2-legend-dot"
+                  class="h-3 w-3 flex-none self-center rounded-full"
                   title={`${slot.label} plots in this color`}
                   style={{ backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length] }}
                 />
-                <span>{slot.label}</span>
+                <span class="flex-1">{slot.label}</span>
                 <select
                   aria-label={slot.label}
                   value={slot.value.value}
                   onChange$={(_, el) => {
                     slot.value.value = el.value;
                   }}
+                  class="max-w-full rounded-lg border border-[#ccdae2] bg-[#ecf3f6] p-[6px_8px] text-[13px] text-[#19384d] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
                 >
-                  <option value="">— empty —</option>
+                  <option value="" class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">— empty —</option>
                   {cmpOptions.map((o) => (
-                    <option key={o.id} value={o.id} selected={o.id === slot.value.value}>
+                    <option key={o.id} value={o.id} selected={o.id === slot.value.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
                       {o.name}
                     </option>
                   ))}
@@ -334,12 +338,12 @@ export default component$(() => {
             ))}
           </div>
           {cmpModels.length > 0 && (
-            <div class="v2-compare-grid">
-              <div class="v2-radar-panel" aria-label="Comparison radar chart">
+            <div class="mt-8 grid grid-cols-1 items-start gap-8 min-[1000px]:grid-cols-[1fr_2fr_2fr_1fr] min-[1000px]:items-center min-[1000px]:[&>:first-child]:col-start-2 min-[1000px]:[&>:last-child]:col-start-3">
+              <div class="m-0 min-w-0 p-0" aria-label="Comparison radar chart">
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
-                  class="v2-radar"
+                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-[480px]"
                   aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
                 >
                 {[25, 50, 75, 100].map((ring) => (
@@ -347,7 +351,7 @@ export default component$(() => {
                     key={ring}
                     points={hexPolygon(ring)}
                     fill="none"
-                    class="d6-hex-ring"
+                    class="stroke-[#ccdae2] dark:stroke-[#274757]"
                     stroke-width={ring === 100 ? 2 : 1}
                   />
                 ))}
@@ -360,7 +364,7 @@ export default component$(() => {
                       y1={HEX_CY}
                       x2={end.x}
                       y2={end.y}
-                      class="d6-hex-axis"
+                      class="stroke-[#ccdae2] dark:stroke-[#274757]"
                       stroke-width="1"
                     />
                   );
@@ -390,10 +394,9 @@ export default component$(() => {
                         cx={p.x}
                         cy={p.y}
                         r={4.5}
+                        class="stroke-[#ecf3f6] [stroke-width:1.5] dark:stroke-[#0e1e2a]"
                         style={{
                           fill: SERIES_COLORS[si % SERIES_COLORS.length],
-                          stroke: "var(--d6-page)",
-                          strokeWidth: 1.5,
                         }}
                       >
                         <title>{tooltipFor(m, d.key)}</title>
@@ -404,14 +407,14 @@ export default component$(() => {
                 {DIMENSIONS.map((d, i) => {
                   const p = hexPoint(100, i, HEX_LABEL_R);
                   return (
-                    <text
-                      key={d.key}
-                      x={p.x}
-                      y={p.y}
-                      text-anchor="middle"
-                      dominant-baseline="middle"
-                      class="d6-hex-label"
-                    >
+                      <text
+                        key={d.key}
+                        x={p.x}
+                        y={p.y}
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                        class="fill-[#577184] font-[DM_Sans,'Segoe_UI',sans-serif] text-[11px] font-semibold dark:fill-[#93adbe]"
+                      >
                       <title>{d.description}</title>
                       {d.short}
                     </text>
@@ -419,9 +422,9 @@ export default component$(() => {
                 })}
                 </svg>
               </div>
-              <div>
-                <div class="v2-source-block">
-                  <label class="v2-source">
+              <div class="min-w-0">
+                <div class="mx-auto mb-10 w-full max-w-[20rem] text-center">
+                  <label class="block text-[13px] text-[#577184] dark:text-[#93adbe]">
                     Results source{" "}
                   <select
                     aria-label="Results source"
@@ -429,15 +432,16 @@ export default component$(() => {
                     onChange$={(_, el) => {
                       handleSourceChange$(el.value);
                     }}
+                    class="mx-auto mt-[10px] block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[#ecf3f6] p-[6px_8px] text-center text-[13px] text-[#19384d] [text-align-last:center] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
                   >
                     {SOURCES.map((s) => (
-                      <option key={s.key} value={s.key} selected={s.key === source.value}>
+                      <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
                         {s.label}
                       </option>
                     ))}
                   </select>
                 </label>
-                <p class="d6-instrument-note v2-source-note">
+                <p class="mt-[10px] text-xs leading-[1.5] text-[#577184] dark:text-[#93adbe]">
                   {source.value === "average" ? (
                     <span
                       title={
@@ -460,17 +464,17 @@ export default component$(() => {
                   )}
                 </p>
                 </div>
-                <ul aria-label="Legend" class="v2-legend">
+                <ul aria-label="Legend" class="mx-auto grid max-w-[20rem] list-none gap-3 p-0 text-center text-[13px]">
                   {cmpModels.map((m, si) => (
-                    <li key={m.id}>
+                    <li key={m.id} class="flex flex-wrap items-center justify-center gap-2">
                       <span
                         aria-hidden="true"
-                        class="v2-legend-dot"
+                        class="h-3 w-3 flex-none rounded-full"
                         style={{
                           backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
                       />
-                      <a href={`/model/${m.slug}/`}>
+                      <a href={`/model/${m.slug}/`} class="font-semibold">
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
@@ -486,15 +490,15 @@ export default component$(() => {
             </div>
           )}
           {cmpModels.length > 0 && (
-            <div class="d6-table-scroll" tabIndex={0} aria-label="Scroll to see compared models">
-              <table class="d6-table">
-                <caption class="d6-visually-hidden">Exact scores for the selected models</caption>
+            <div class="mt-[35px] w-full overflow-x-auto" tabIndex={0} aria-label="Scroll to see compared models">
+              <table class="w-full min-w-[800px] table-fixed border-collapse text-[13px] leading-[1.4] tabular-nums max-[640px]:w-[205vw] max-[640px]:min-w-0">
+                <caption class="sr-only">Exact scores for the selected models</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Dimension</th>
+                    <th scope="col" class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-[14px] text-center font-medium text-[#496779] first:w-[22%] first:pl-[17px] first:text-left max-[640px]:w-[10.98%] max-[640px]:first:w-[23.17%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">Dimension</th>
                     {cmpModels.map((m) => (
-                      <th scope="col" key={m.id}>
-                        <span class="v2-model-cell">
+                      <th scope="col" key={m.id} class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-[14px] text-center font-medium text-[#496779] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">
+                        <span class="inline-flex items-center gap-[10px]">
                           <VendorIcon id={m.id} name={m.name} />
                           <a href={`/model/${m.slug}/`}>
                             {m.name}
@@ -506,17 +510,17 @@ export default component$(() => {
                 </thead>
                 <tbody>
                   {tableKeys.map((k) => (
-                    <tr key={k}>
-                      <th scope="row">{names[k]}</th>
+                    <tr key={k} class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
+                      <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-medium text-[#496779] dark:border-b-[#274757] dark:text-[#a9c2d2]">{names[k]}</th>
                       {cmpModels.map((m) => (
-                        <td key={m.id}>{m.scores[k]}</td>
+                        <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-[14px] text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]">{m.scores[k]}</td>
                       ))}
                     </tr>
                   ))}
-                  <tr class="v2-overall-row">
-                    <th scope="row">Overall Score</th>
+                  <tr class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
+                    <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-medium text-[#496779] dark:border-b-[#274757] dark:text-[#a9c2d2]">Overall Score</th>
                     {cmpModels.map((m) => (
-                      <td key={m.id} class="d6-rating-overall">
+                      <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-[14px] text-center text-lg font-bold text-[#275bad] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#9dbdf5]">
                         {m.scores.overall}
                       </td>
                     ))}
@@ -527,43 +531,43 @@ export default component$(() => {
           )}
         </section>
 
-        <section class="d6-section v2-flush-bottom v2-flush-top" id="methodology" aria-labelledby="v2-method-title">
-          <div class="d6-section-intro d6-section-intro-row v2-method-intro">
-            <h2 id="v2-method-title">How scoring works</h2>
-            <p>
+        <section class="border-b-0 border-[#ccdae2] px-0 pb-12 pt-12 dark:border-[#274757]" id="methodology" aria-labelledby="v2-method-title">
+          <div class="flex items-start justify-between gap-[25px]">
+            <h2 id="v2-method-title" class="min-w-0 flex-[2_1_0%] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-[1.1] tracking-[-0.045em] max-[520px]:text-[34px]">How scoring works</h2>
+            <p class="mt-[14px] min-w-0 max-w-none flex-[3_1_0%] text-sm leading-[1.7] text-[#577184] dark:text-[#93adbe]">
               Scores are normalized interpretations from 1 to 100 (higher is better), based on
               public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
               Cost efficiency is scored separately and never counts toward Overall.
             </p>
           </div>
-          <div class="d6-evidence-grid v2-tiles">
-            <article class="d6-evidence-item">
-              <h3>Independently researched</h3>
-              <p>
+          <div class="mt-7 grid grid-cols-3 gap-5 max-[800px]:grid-cols-2">
+            <article class="flex min-h-0 flex-col border border-[#ccdae2] bg-[#f7fafb] px-5 py-[18px] dark:border-[#274757] dark:bg-[#132a3b]">
+              <h3 class="text-[15px] font-semibold leading-[1.4]">Independently researched</h3>
+              <p class="mt-3 text-sm leading-[1.7]">
                 Every benchmark number cites its source. Missing data is marked — never invented.
               </p>
             </article>
-            <article class="d6-evidence-item">
-              <h3>Averaged, not single-opinion</h3>
-              <p>
+            <article class="flex min-h-0 flex-col border border-[#ccdae2] bg-[#f7fafb] px-5 py-[18px] dark:border-[#274757] dark:bg-[#132a3b]">
+              <h3 class="text-[15px] font-semibold leading-[1.4]">Averaged, not single-opinion</h3>
+              <p class="mt-3 text-sm leading-[1.7]">
                 Each model's scores are the mean across independent reporting agents.
                 Evidence-free reports are quarantined and never counted.
               </p>
             </article>
-            <article class="d6-evidence-item">
-              <h3>Re-researched weekly</h3>
-              <p>
+            <article class="flex min-h-0 flex-col border border-[#ccdae2] bg-[#f7fafb] px-5 py-[18px] dark:border-[#274757] dark:bg-[#132a3b]">
+              <h3 class="text-[15px] font-semibold leading-[1.4]">Re-researched weekly</h3>
+              <p class="mt-3 text-sm leading-[1.7]">
                 Every report older than seven days is checked against fresh benchmarks, and scores
                 refresh whenever new verified evidence would change them.
               </p>
             </article>
           </div>
-          <h3 class="v2-subhead">What each dimension measures</h3>
-          <div class="d6-evidence-grid v2-tiles">
+          <h3 class="my-6 font-[Outfit,Trebuchet_MS,sans-serif] text-[21px] font-medium tracking-[-0.03em]">What each dimension measures</h3>
+          <div class="grid grid-cols-3 gap-5 max-[800px]:grid-cols-2">
             {DIMENSIONS.map((d) => (
-              <article class="d6-evidence-item" key={d.key}>
-                <h3>{d.label}</h3>
-                <p>
+              <article class="flex min-h-0 flex-col border border-[#ccdae2] bg-[#f7fafb] px-5 py-[18px] dark:border-[#274757] dark:bg-[#132a3b]" key={d.key}>
+                <h3 class="text-[15px] font-semibold leading-[1.4]">{d.label}</h3>
+                <p class="mt-3 text-sm leading-[1.7]">
                   {d.description}
                 </p>
               </article>
@@ -571,21 +575,21 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="d6-section d6-ratings v2-flush-top" id="models" aria-labelledby="v2-ratings-title">
-          <div class="d6-section-intro d6-section-intro-row">
+        <section class="px-0 pb-0 pt-12" id="models" aria-labelledby="v2-ratings-title">
+          <div class="flex items-start justify-between gap-[25px]">
             <div>
-              <h2 id="v2-ratings-title">All models</h2>
-              <p>
+              <h2 id="v2-ratings-title" class="font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-[1.1] tracking-[-0.045em] max-[520px]:text-[34px]">All models</h2>
+              <p class="mt-[14px] max-w-[390px] text-sm leading-[1.7] text-[#577184] dark:text-[#93adbe]">
                 Every tracked model in the current results source ({activeSourceLabel}). Search to
                 find a model, or open its page for the full breakdown.
               </p>
             </div>
-            <div class="d6-header-right">
-              <span class="d6-count">{filtered.length} models</span>
-              <div class="d6-view-switch" role="group" aria-label="All models display">
+            <div class="flex items-center gap-4">
+              <span class="flex-none rounded-[30px] border border-[#b7cad6] px-[14px] py-[6px] text-xs text-[#425f71] max-[520px]:px-[9px] max-[520px]:py-[5px] max-[520px]:text-[11px] dark:border-[#3a5a6e] dark:text-[#a9c2d2]">{filtered.length} models</span>
+              <div class="inline-flex gap-[2px] rounded-full border border-[#ccdae2] p-[3px] dark:border-[#274757]" role="group" aria-label="All models display">
                 <button
                   type="button"
-                  class={`d6-view-btn${allModelsView.value === "cards" ? " d6-view-active" : ""}`}
+                  class={allModelsView.value === "cards" ? "whitespace-nowrap rounded-full bg-[#19384d] px-[14px] py-[6px] text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-[14px] py-[6px] text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
                   aria-pressed={allModelsView.value === "cards"}
                   onClick$={() => {
                     allModelsView.value = "cards";
@@ -595,7 +599,7 @@ export default component$(() => {
                 </button>
                 <button
                   type="button"
-                  class={`d6-view-btn${allModelsView.value === "list" ? " d6-view-active" : ""}`}
+                  class={allModelsView.value === "list" ? "whitespace-nowrap rounded-full bg-[#19384d] px-[14px] py-[6px] text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-[14px] py-[6px] text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
                   aria-pressed={allModelsView.value === "list"}
                   onClick$={() => {
                     allModelsView.value = "list";
@@ -606,7 +610,7 @@ export default component$(() => {
               </div>
             </div>
           </div>
-          <div class="v2-toolbar">
+          <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
             <input
               type="search"
               role="searchbox"
@@ -617,9 +621,9 @@ export default component$(() => {
                 query.value = el.value;
                 displayCount.value = PAGE_SIZE;
               }}
-              class="v2-search"
+              class="min-w-[220px] max-w-[380px] flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-[13px] text-[#19384d] placeholder:text-[#577184] dark:border-[#274757] dark:text-[#e8f1f6] dark:placeholder:text-[#93adbe]"
             />
-            <label class="v2-source">
+            <label class="text-[13px] text-[#577184] dark:text-[#93adbe]">
               Results source{" "}
               <select
                 aria-label="Results source"
@@ -627,9 +631,10 @@ export default component$(() => {
                 onChange$={(_, el) => {
                   handleSourceChange$(el.value);
                 }}
+                class="max-w-[260px] rounded-lg border border-[#ccdae2] bg-[#ecf3f6] p-[6px_8px] text-center text-[13px] text-[#19384d] [text-align-last:center] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
               >
                 {SOURCES.map((s) => (
-                  <option key={s.key} value={s.key} selected={s.key === source.value}>
+                  <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
                     {s.label}
                   </option>
                 ))}
@@ -637,87 +642,87 @@ export default component$(() => {
             </label>
           </div>
           {q !== "" && (
-            <p class="v2-match">
+            <p class="mt-3 text-[13px] text-[#577184] dark:text-[#93adbe]">
               {filtered.length} of {generative.length} models
             </p>
           )}
           {filtered.length === 0 ? (
-            <p class="v2-empty">
+            <p class="mt-6">
               No models match your search for the current results source. Try a different search or
               source.
             </p>
           ) : allModelsView.value === "cards" ? (
             <>
-              <div class="v2-cards-grid">
+              <div class="mt-10 grid grid-cols-1 gap-5 min-[800px]:grid-cols-2 min-[1100px]:grid-cols-3">
                 {visibleModels.map((m) => (
-                  <article class="v2-card" key={m.id}>
-                    <div class="v2-card-head">
-                      <h3 class="v2-card-name">
+                  <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-[22px] dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
+                    <div class="flex items-start justify-between gap-3">
+                      <h3 class="m-0 flex items-center gap-[10px] font-[Outfit,Trebuchet_MS,sans-serif] text-[17px] font-semibold tracking-[-0.02em]">
                         <VendorIcon id={m.id} name={m.name} />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
                       <div
-                        class="v2-card-score"
+                        class="shrink-0 text-right leading-none"
                         title="Overall score out of 100 — mean of the five quality dimensions"
                       >
-                        <strong>{m.scores.overall}</strong>
-                        <span>Overall</span>
+                        <strong class="font-[Outfit,Trebuchet_MS,sans-serif] text-[34px] font-semibold tabular-nums tracking-[-0.04em]">{m.scores.overall}</strong>
+                        <span class="mt-1 block text-[11px] font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
                       </div>
                     </div>
-                    <p class="v2-access">
+                    <p class="mt-[10px] text-xs font-bold">
                       {!m.meta.noFreeId ? (
                         <span
-                          class="v2-free"
+                          class="text-[#1c7a4d] dark:text-[#7fd6a4]"
                           title={m.meta.freeTierNote ?? m.meta.pricingNote}
                         >
                           Free tier
                         </span>
                       ) : (
                         <span
-                          class="v2-paid"
+                          class="text-[#b26a1b] dark:text-[#e8b47e]"
                           title="Cost is scored on paid pricing — no free tier ID"
                         >
                           Paid · no free tier
                         </span>
                       )}
                     </p>
-                    <p class="v2-card-short">{m.short}</p>
-                    <dl class="v2-specs">
-                      <div>
-                        <dt>Context</dt>
-                        <dd>{m.meta.contextWindow}</dd>
+                    <p class="mt-[10px] text-sm leading-[1.65]">{m.short}</p>
+                    <dl class="m-0 mt-[14px] p-0 text-xs leading-[1.6]">
+                      <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                        <dt class="shrink-0 whitespace-nowrap font-bold">Context</dt>
+                        <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.contextWindow}</dd>
                       </div>
-                      <div>
-                        <dt>Modalities</dt>
-                        <dd>{m.meta.modalities}</dd>
+                      <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                        <dt class="shrink-0 whitespace-nowrap font-bold">Modalities</dt>
+                        <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.modalities}</dd>
                       </div>
-                      <div>
-                        <dt>Pricing</dt>
-                        <dd>{m.meta.pricingNote}</dd>
+                      <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                        <dt class="shrink-0 whitespace-nowrap font-bold">Pricing</dt>
+                        <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.pricingNote}</dd>
                       </div>
-                      <div title="Newest report date across this model's findings files">
-                        <dt>Verified</dt>
-                        <dd>
+                      <div title="Newest report date across this model's findings files" class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                        <dt class="shrink-0 whitespace-nowrap font-bold">Verified</dt>
+                        <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">
                           {m.verified ?? "—"} · {reportCount(m)} reports
                         </dd>
                       </div>
                     </dl>
-                    <p class="v2-dims">
+                    <p class="mt-3 border-t border-t-[#ccdae2] pt-[10px] text-xs leading-[1.7] text-[#577184] dark:border-t-[#274757] dark:text-[#93adbe]">
                       Tool {m.scores.tool} · Reason {m.scores.reasoning} · Context{" "}
                       {m.scores.context} · Code {m.scores.coding} · Multi {m.scores.multimodal} ·
                       Cost {m.scores.cost}
                     </p>
-                    <p class="v2-profile">
-                      <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                    <p class="mt-auto pt-3 text-[13px] font-semibold">
+                      <a href={`/model/${m.slug}/`} class="text-[#557ddd] hover:underline dark:text-[#7ba0ef]">Open full profile →</a>
                     </p>
                   </article>
                 ))}
               </div>
               {displayCount.value < filtered.length && (
-                <div class="v2-more-row">
+                <div class="mt-9 flex flex-wrap justify-center gap-3">
                   <button
                     type="button"
-                    class="v2-btn"
+                    class="inline-block rounded-[10px] bg-[#19384d] px-[22px] py-[11px] text-sm font-bold text-[#ecf3f6] hover:underline dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
                     onClick$={() => {
                       displayCount.value += PAGE_SIZE;
                     }}
@@ -726,7 +731,7 @@ export default component$(() => {
                   </button>
                   <button
                     type="button"
-                    class="v2-btn-ghost"
+                    class="inline-block rounded-[10px] border border-[#ccdae2] bg-transparent px-[22px] py-[11px] text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
                     onClick$={() => {
                       displayCount.value = filtered.length;
                     }}
@@ -738,13 +743,13 @@ export default component$(() => {
             </>
           ) : (
             <>
-              <div class="v2-pills" role="group" aria-label="Sort all models">
+              <div class="mt-6 flex flex-wrap gap-2 min-[800px]:hidden" role="group" aria-label="Sort all models">
                 {orderedScoreCols.map((key) => (
                   <button
                     key={key}
                     type="button"
                     aria-pressed={sortKey.value === key}
-                    class={`d6-view-btn${sortKey.value === key ? " d6-view-active" : ""}`}
+                    class={sortKey.value === key ? "whitespace-nowrap rounded-full bg-[#19384d] px-[14px] py-[6px] text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-[14px] py-[6px] text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
                     onClick$={() => {
                       if (sortKey.value === key)
                         sortDirection.value = sortDirection.value === -1 ? 1 : -1;
@@ -762,12 +767,12 @@ export default component$(() => {
               </div>
               <div
                 ref={scrollerRef}
-                class="d6-table-scroll"
+                class="mt-[35px] w-full overflow-x-auto"
                 tabIndex={0}
                 aria-label="Scroll to see all score columns"
               >
-              <table class="d6-table">
-                <caption class="d6-visually-hidden">
+              <table class="w-full min-w-[800px] table-fixed border-collapse text-[13px] leading-[1.4] tabular-nums max-[640px]:w-[205vw] max-[640px]:min-w-0">
+                <caption class="sr-only">
                   Model leaderboard, average scores out of 100
                 </caption>
                 <thead>
@@ -781,9 +786,11 @@ export default component$(() => {
                             : "ascending"
                           : "none"
                       }
+                      class="w-[10.5%] break-words border-b border-b-[#d4e0e6] border-t border-t-[#9eb5c3] bg-[#e2edf2] px-2 py-[14px] text-center font-medium text-[#496779] first:w-[22%] first:pl-[17px] first:text-left max-[640px]:w-[10.98%] max-[640px]:first:w-[23.17%] dark:border-b-[#274757] dark:border-t-[#3a5a6e] dark:bg-[#132a3b] dark:text-[#a9c2d2]"
                     >
                       <button
                         type="button"
+                        class={`group relative cursor-pointer whitespace-nowrap border-0 bg-transparent p-[3px_0] font-[inherit] text-inherit ${sortKey.value === "name" ? "text-[#1e58ad] dark:text-[#9dbdf5]" : ""}`}
                         onClick$={() => {
                           if (sortKey.value === "name")
                             sortDirection.value = sortDirection.value === -1 ? 1 : -1;
@@ -795,7 +802,7 @@ export default component$(() => {
                         }}
                       >
                         Model
-                        <span aria-hidden="true" class="d6-sort-icon">
+                        <span aria-hidden="true" class="ml-1 inline-block w-[13px] text-[#839aaa]">
                           {sortKey.value === "name" ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
                         </span>
                       </button>
@@ -811,6 +818,7 @@ export default component$(() => {
                               : "ascending"
                             : "none"
                         }
+                        class="w-[10.5%] break-words border-b border-b-[#d4e0e6] border-t border-t-[#9eb5c3] bg-[#e2edf2] px-2 py-[14px] text-center font-medium text-[#496779] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:border-t-[#3a5a6e] dark:bg-[#132a3b] dark:text-[#a9c2d2]"
                       >
                         <button
                           type="button"
@@ -821,6 +829,7 @@ export default component$(() => {
                                 ? "Context window — hover any value for the window size"
                                 : undefined
                           }
+                          class={`group relative cursor-pointer whitespace-nowrap border-0 bg-transparent p-[3px_0] font-[inherit] text-inherit ${sortKey.value === key ? "text-[#1e58ad] dark:text-[#9dbdf5]" : ""}`}
                           onClick$={() => {
                             if (sortKey.value === key)
                               sortDirection.value = sortDirection.value === -1 ? 1 : -1;
@@ -832,11 +841,12 @@ export default component$(() => {
                           }}
                         >
                           {key === "overall" ? "Overall" : colNames[key]}
-                          <span aria-hidden="true" class="d6-sort-icon">
+                          <span aria-hidden="true" class="ml-1 inline-block w-[13px] text-[#839aaa]">
                             {sortKey.value === key ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
                           </span>
                           {key === "overall" && (
-                            <span class="d6-overall-tip" role="tooltip">
+                            <span class="absolute left-0 top-[calc(100%+10px)] z-[5] hidden w-60 cursor-default whitespace-normal rounded-lg bg-[#19384d] p-[10px_13px] text-left text-xs font-normal leading-[1.55] text-[#ecf3f6] shadow-[0_8px_24px_rgba(0,0,0,0.18)] group-hover:block group-focus-visible:block dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" role="tooltip">
+                              <span aria-hidden="true" class="absolute left-[26px] top-[-5px] h-[10px] w-[10px] rotate-45 bg-inherit" />
                               Overall is the average of tool use, reasoning, context, coding and
                               multimodal scores. Cost efficiency is excluded.
                             </span>
@@ -844,15 +854,15 @@ export default component$(() => {
                         </button>
                       </th>
                     ))}
-                    <th scope="col" title="Newest report date across each model's findings files">
+                    <th scope="col" title="Newest report date across each model's findings files" class="w-[10.5%] break-words border-b border-b-[#d4e0e6] border-t border-t-[#9eb5c3] bg-[#e2edf2] px-2 py-[14px] text-center font-medium text-[#496779] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:border-t-[#3a5a6e] dark:bg-[#132a3b] dark:text-[#a9c2d2]">
                       Verified
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {sorted.slice(0, displayCount.value).map((m) => (
-                    <tr key={m.id}>
-                      <th scope="row">
+                    <tr key={m.id} class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
+                      <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-semibold text-[#496779] first:w-[22%] first:pl-[17px] max-[640px]:first:w-[23.17%] dark:border-b-[#274757] dark:text-[#a9c2d2]">
                         <VendorIcon id={m.id} name={m.name} />{" "}
                         <a href={`/model/${m.slug}/`}>
                           {m.name}
@@ -870,13 +880,13 @@ export default component$(() => {
                                   ? `Context window: ${m.meta.contextWindow}`
                                   : undefined
                             }
-                            class={`${key === "overall" ? "d6-rating-overall" : ""}${hlClass(key, value)}`}
+                            class={`break-words border-b border-b-[#d4e0e6] px-2 py-[14px] text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]${key === "overall" ? " font-bold text-[#275bad] dark:text-[#9dbdf5]" : ""}${hlClass(key, value)}`}
                           >
                             {value}
                           </td>
                         );
                       })}
-                      <td title="Newest report date across this model's findings files">
+                      <td title="Newest report date across this model's findings files" class="break-words border-b border-b-[#d4e0e6] px-2 py-[14px] text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]">
                         {m.verified ?? "—"}
                       </td>
                     </tr>
@@ -889,10 +899,10 @@ export default component$(() => {
           {!(filtered.length === 0) &&
             allModelsView.value === "list" &&
             displayCount.value < sorted.length && (
-              <div class="v2-more-row">
+              <div class="mt-9 flex flex-wrap justify-center gap-3">
                 <button
                   type="button"
-                  class="v2-btn"
+                  class="inline-block rounded-[10px] bg-[#19384d] px-[22px] py-[11px] text-sm font-bold text-[#ecf3f6] hover:underline dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
                   onClick$={() => {
                     displayCount.value += PAGE_SIZE;
                   }}
@@ -901,7 +911,7 @@ export default component$(() => {
                 </button>
                 <button
                   type="button"
-                  class="v2-btn-ghost"
+                  class="inline-block rounded-[10px] border border-[#ccdae2] bg-transparent px-[22px] py-[11px] text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
                   onClick$={() => {
                     displayCount.value = sorted.length;
                   }}
@@ -910,7 +920,7 @@ export default component$(() => {
                 </button>
               </div>
             )}
-          <p class="d6-table-note">
+          <p class="mt-[18px] text-right text-xs leading-[1.6] text-[#577184] dark:text-[#93adbe]">
             Averages recomputed by pnpm sync from per-model research files. Cost never counts toward
             Overall.
           </p>
@@ -919,46 +929,46 @@ export default component$(() => {
         {/* Decision shelf stays hidden until the mix grows (3+ decision models);
             a single non-comparable entry adds noise, not signal. */}
         {decisionFiltered.length >= 3 && (
-          <section class="d6-section" aria-labelledby="v2-decision-title">
-          <div class="d6-section-intro d6-section-intro-row">
+          <section class="border-b border-[#ccdae2] px-0 pb-[86px] pt-12 dark:border-[#274757]" aria-labelledby="v2-decision-title">
+          <div class="flex items-start justify-between gap-[25px]">
               <div>
-                <h2 id="v2-decision-title">Decision models</h2>
-                <p>
+                <h2 id="v2-decision-title" class="font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-[1.1] tracking-[-0.045em] max-[520px]:text-[34px]">Decision models</h2>
+                <p class="mt-[14px] max-w-[390px] text-sm leading-[1.7] text-[#577184] dark:text-[#93adbe]">
                   System-One models return typed judgments (choice, score, yes/no probability)
                   instead of generated text — for routing, triage, and guardrails inside agent
                   pipelines. They are scored on different axes and are{" "}
                   <strong>not comparable</strong> to generative Overall scores.
                 </p>
               </div>
-              <span class="d6-count">{decisionFiltered.length} models</span>
+              <span class="flex-none rounded-[30px] border border-[#b7cad6] px-[14px] py-[6px] text-xs text-[#425f71] max-[520px]:px-[9px] max-[520px]:py-[5px] max-[520px]:text-[11px] dark:border-[#3a5a6e] dark:text-[#a9c2d2]">{decisionFiltered.length} models</span>
             </div>
-            <div class="v2-cards-grid">
+            <div class="mt-10 grid grid-cols-1 gap-5 min-[800px]:grid-cols-2 min-[1100px]:grid-cols-3">
               {decisionFiltered.map((m) => (
-                <article class="v2-card v2-card-decision" key={m.id}>
-                  <div class="v2-card-head">
-                    <h3 class="v2-card-name">
+                <article class="flex flex-col border border-[#ccdae2] border-t-[3px] border-t-[#dfab77] bg-[#f7fafb] px-6 py-[22px] dark:border-[#274757] dark:border-t-[#e8b47e] dark:bg-[#132a3b]" key={m.id}>
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="m-0 flex items-center gap-[10px] font-[Outfit,Trebuchet_MS,sans-serif] text-[17px] font-semibold tracking-[-0.02em]">
                       <VendorIcon id={m.id} name={m.name} />{" "}
                       <a href={`/model/${m.slug}/`}>{m.name}</a>
                     </h3>
-                    <span class="d6-count">Decision</span>
+                    <span class="flex-none rounded-[30px] border border-[#b7cad6] px-[14px] py-[6px] text-xs text-[#425f71] dark:border-[#3a5a6e] dark:text-[#a9c2d2]">Decision</span>
                   </div>
-                  <p class="v2-card-short">{m.short}</p>
-                  <dl class="v2-specs">
-                    <div>
-                      <dt>State budget</dt>
-                      <dd>{m.meta.contextWindow}</dd>
+                  <p class="mt-[10px] text-sm leading-[1.65]">{m.short}</p>
+                  <dl class="m-0 mt-[14px] p-0 text-xs leading-[1.6]">
+                    <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                      <dt class="shrink-0 whitespace-nowrap font-bold">State budget</dt>
+                      <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.contextWindow}</dd>
                     </div>
-                    <div>
-                      <dt>I/O</dt>
-                      <dd>{m.meta.modalities}</dd>
+                    <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                      <dt class="shrink-0 whitespace-nowrap font-bold">I/O</dt>
+                      <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.modalities}</dd>
                     </div>
-                    <div>
-                      <dt>Pricing</dt>
-                      <dd>{m.meta.pricingNote}</dd>
+                    <div class="flex flex-nowrap gap-x-[10px] gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
+                      <dt class="shrink-0 whitespace-nowrap font-bold">Pricing</dt>
+                      <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.pricingNote}</dd>
                     </div>
                   </dl>
-                  <p class="v2-profile">
-                    <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                  <p class="mt-auto pt-3 text-[13px] font-semibold">
+                    <a href={`/model/${m.slug}/`} class="text-[#557ddd] hover:underline dark:text-[#7ba0ef]">Open full profile →</a>
                   </p>
                 </article>
               ))}

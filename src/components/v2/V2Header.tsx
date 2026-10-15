@@ -2,12 +2,12 @@ import { component$, useSignal, useTask$, useVisibleTask$ } from "@builder.io/qw
 import type { Signal } from "@builder.io/qwik";
 
 /**
- * V2Header — shared header for the whole /v2 tree.
+ * V2Header — shared header for the whole v2 tree, in the v1 Tailwind dialect.
  * Same functionality as the v1 Header (sticky bar, mobile-only auto-hide on
- * scroll, theme toggle, desktop anchor nav, hamburger/X + fullscreen drawer),
- * restyled in the design-6sol language. v1 Header.tsx is untouched.
+ * scroll, theme toggle, desktop anchor nav, hamburger/X + fullscreen drawer).
+ * v1 Header.tsx is untouched.
  *
- * Theme is owned by the page (it also drives the `d6-dark` root class) and
+ * Theme is owned by the page (it also drives the `dark` root class) and
  * passed in as a signal; the toggle persists to the shared `v2-theme` key.
  */
 
@@ -22,7 +22,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
   const isVisible = useSignal(true);
 
   // Mobile-only auto-hide: hide on scroll down, show instantly on scroll up.
-  // Desktop always stays visible (see .v2-site-header CSS guard).
+  // Desktop always stays visible (min-[800px] guard below).
   useVisibleTask$(({ cleanup }) => {
     let lastY = window.scrollY;
     let ticking = false;
@@ -60,12 +60,14 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
 
   return (
     <>
-      <header class={`v2-site-header${isVisible.value ? "" : " v2-hidden"}`}>
-        <div class="v2-site-bar">
-          <div class="v2-site-left">
+      <header
+        class={`sticky top-0 z-50 border-b border-[#ccdae2] bg-[#ecf3f6] transition-transform duration-300 will-change-transform dark:border-[#274757] dark:bg-[#0e1e2a]${isVisible.value ? "" : " -translate-y-full min-[800px]:translate-y-0"}`}
+      >
+        <div class="mx-auto grid min-h-[60px] max-w-[1480px] grid-cols-[1fr_auto_1fr] items-center gap-5 px-10 max-[800px]:px-[22px] max-[520px]:px-4">
+          <div class="justify-self-start">
             <button
               type="button"
-              class="d6-theme-toggle"
+              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#ccdae2] bg-transparent py-[7px] pl-[10px] pr-[14px] text-[13px] font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
               aria-pressed={theme.value === "dark"}
               aria-label={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               title={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -78,13 +80,16 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
                 }
               }}
             >
-              <span class="d6-theme-dot" aria-hidden="true" />
+              <span
+                class="h-[14px] w-[14px] rounded-full bg-[#19384d] [box-shadow:inset_-4px_-2px_0_0_#ecf3f6] dark:bg-[#e8f1f6] dark:[box-shadow:inset_4px_2px_0_0_#0e1e2a]"
+                aria-hidden="true"
+              />
               {theme.value === "dark" ? "Light" : "Dark"}
             </button>
           </div>
 
-          <div class="d6-brand">
-            <svg viewBox="0 0 300 300" class="d6-brand-logo" role="presentation" aria-hidden="true">
+          <div class="inline-flex items-center gap-[13px] font-[Outfit,Trebuchet_MS,sans-serif] text-[17px] font-semibold tracking-[-0.025em]">
+            <svg viewBox="0 0 300 300" class="h-[26px] w-[26px] shrink-0" role="presentation" aria-hidden="true">
               <defs>
                 <linearGradient id="v2-header-hex" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#6366f1" />
@@ -104,22 +109,22 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               />
               <circle cx="150" cy="148" r="45" fill="url(#v2-header-core)" />
             </svg>
-            <a href="/" class="v2-brand-link">
-              ModelComp <span class="d6-brand-slash">/</span> v2
+            <a href="/">
+              ModelComp <span class="px-[5px] font-normal text-[#8fa6b4] dark:text-[#5d7e90]">/</span> v2
             </a>
           </div>
 
-          <div class="v2-site-right">
-            <nav aria-label="Primary" class="v2-site-nav">
-              <a href={`${navBase}#compare`}>Compare</a>
-              <a href={`${navBase}#methodology`}>Scoring</a>
-              <a href={`${navBase}#models`}>Models</a>
+          <div class="flex items-center justify-self-end">
+            <nav aria-label="Primary" class="hidden items-center gap-5 text-sm font-semibold min-[800px]:inline-flex">
+              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#compare`}>Compare</a>
+              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#methodology`}>Scoring</a>
+              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#models`}>Models</a>
             </nav>
             <button
               type="button"
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen.value}
-              class="v2-burger"
+              class="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#ccdae2] bg-transparent px-[10px] py-[7px] text-[#19384d] hover:border-[#19384d] min-[800px]:hidden dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
               onClick$={() => {
                 isMenuOpen.value = !isMenuOpen.value;
               }}
@@ -127,8 +132,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               {!isMenuOpen.value ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -139,8 +143,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -155,9 +158,10 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
       </header>
 
       {isMenuOpen.value && (
-        <div class="v2-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-          <nav class="v2-drawer-nav" aria-label="Mobile">
+        <div class="fixed inset-0 z-40 flex min-[800px]:hidden flex-col items-center justify-center bg-[#ecf3f6] px-6 pb-6 pt-[76px] dark:bg-[#0e1e2a]" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+          <nav class="flex flex-col items-center gap-10 text-center font-[Outfit,Trebuchet_MS,sans-serif] text-[32px] font-semibold tracking-[-0.03em]" aria-label="Mobile">
             <a
+              class="px-6 py-3 text-[#19384d] hover:text-[#557ddd] dark:text-[#e8f1f6] dark:hover:text-[#7ba0ef]"
               href={`${navBase}#compare`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -166,6 +170,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Compare
             </a>
             <a
+              class="px-6 py-3 text-[#19384d] hover:text-[#557ddd] dark:text-[#e8f1f6] dark:hover:text-[#7ba0ef]"
               href={`${navBase}#methodology`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -174,6 +179,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Scoring
             </a>
             <a
+              class="px-6 py-3 text-[#19384d] hover:text-[#557ddd] dark:text-[#e8f1f6] dark:hover:text-[#7ba0ef]"
               href={`${navBase}#models`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -182,6 +188,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Models
             </a>
             <a
+              class="px-6 py-3 text-[#19384d] hover:text-[#557ddd] dark:text-[#e8f1f6] dark:hover:text-[#7ba0ef]"
               href="/contact/"
               onClick$={() => {
                 isMenuOpen.value = false;

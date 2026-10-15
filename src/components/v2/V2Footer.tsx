@@ -1,10 +1,9 @@
 import { component$ } from "@builder.io/qwik";
 
 /**
- * V2Footer — shared footer for the whole /v2 tree (homepage + model profiles).
+ * V2Footer — shared footer for the v2 homepage, in the v1 Tailwind dialect.
  * Same functionality as the v1 Footer (sponsor tiers, soon-links, research
- * backers, fine print, bottom bar), restyled in the design-6sol language.
- * v1 Footer.tsx is untouched.
+ * backers, fine print, bottom bar). v1 Footer.tsx is untouched.
  */
 
 const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
@@ -33,23 +32,25 @@ const EXTRA_DONATE_LINKS = [
 
 export const V2Footer = component$(() => {
   return (
-    <footer class="d6-footer">
-      <div class="d6-support">
-        <div class="d6-support-copy">
-          <p class="d6-family">
+    <footer class="mx-[-40px] bg-[#173c53] px-10 pb-[42px] pt-[clamp(56px,7vw,92px)] text-[#f3f8fa] max-[800px]:mx-[-22px] max-[800px]:px-[22px] max-[520px]:mx-[-16px] max-[520px]:px-4 dark:bg-[#0a1822]">
+      <div class="grid items-start gap-[5%] min-[800px]:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div>
+          <p class="text-sm text-[#a8c2d0]">
             ModelComp <span aria-hidden="true">/</span> funding
           </p>
-          <h2>Independent research, funded by readers</h2>
-          <p>
-            <strong>100% independent — no paid promotions, no vendor funding influences scores.</strong>
+          <h2 class="mt-[42px] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(34px,4vw,56px)] font-medium leading-[1.04] tracking-[-0.045em]">
+            Independent research, funded by readers
+          </h2>
+          <p class="mt-[18px] max-w-[470px] text-[15px] leading-[1.7] text-[#c6d9e3]">
+            <strong class="text-[#f3f8fa]">100% independent — no paid promotions, no vendor funding influences scores.</strong>
           </p>
-          <p>
+          <p class="mt-[18px] max-w-[470px] text-[15px] leading-[1.7] text-[#c6d9e3]">
             Every findings file is researched independently from public benchmarks. Donations keep it
             that way — they fund compute and research time, never rankings.
           </p>
         </div>
-        <div class="d6-support-panel">
-          <div class="d6-tiers">
+        <div class="bg-[#eff5f8] p-[clamp(22px,2.6vw,36px)] text-[#19384d] dark:bg-[#132a3b] dark:text-[#e8f1f6]">
+          <div class="grid gap-px border border-[#ccdae2] bg-[#ccdae2] dark:border-[#274757] dark:bg-[#274757]">
             {TIERS.map((tier) => (
               <a
                 key={tier.label}
@@ -57,17 +58,23 @@ export const V2Footer = component$(() => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={tier.detail}
-                class={`d6-tier${tier.primary ? " d6-tier-primary" : ""}`}
+                class={
+                  tier.primary
+                    ? "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#17384d] px-[18px] py-[15px] text-[#f3f8fa] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
+                    : "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#f7fafb] px-[18px] py-[15px] text-[#19384d] hover:bg-white dark:bg-[#173a52] dark:text-[#e8f1f6] dark:hover:bg-[#1d4761]"
+                }
               >
-                <span class="d6-tier-label">
-                  <span aria-hidden="true">♥</span> {tier.label}
+                <span class="font-semibold">
+                  <span aria-hidden="true" class="pr-2 text-[#dfab77] dark:text-[#e8b47e]">♥</span> {tier.label}
                 </span>
-                <span class="d6-tier-detail">{tier.detail}</span>
+                <span class={tier.primary ? "text-xs text-[rgba(243,248,250,0.78)] dark:text-[rgba(14,30,42,0.7)]" : "text-xs text-[#577184] dark:text-[#93adbe]"}>
+                  {tier.detail}
+                </span>
               </a>
             ))}
           </div>
-          <p class="d6-also">Also via:</p>
-          <div class="d6-tiers d6-tiers-soon">
+          <p class="mt-6 text-xs text-[#577184] dark:text-[#93adbe]">Also via:</p>
+          <div class="mt-3 flex flex-wrap gap-[10px]">
             {EXTRA_DONATE_LINKS.map((l) =>
               l.href ? (
                 <a
@@ -75,12 +82,12 @@ export const V2Footer = component$(() => {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="v2-donate-link"
+                  class="inline-flex items-center rounded-full border border-[#ccdae2] px-[14px] py-[6px] text-xs font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
                 >
                   {l.label}
                 </a>
               ) : (
-                <span key={l.label} title="Coming soon — link not configured yet" class="d6-soon">
+                <span key={l.label} title="Coming soon — link not configured yet" class="inline-flex cursor-not-allowed items-center rounded-full border border-dashed border-[#b7cad6] px-[14px] py-[6px] text-xs font-medium text-[#577184] dark:border-[#3a5a6e] dark:text-[#93adbe]">
                   {l.label} · soon
                 </span>
               ),
@@ -88,8 +95,8 @@ export const V2Footer = component$(() => {
           </div>
         </div>
       </div>
-      <div class="d6-backer-row">
-        <span>Research backer</span>
+      <div class="mt-[clamp(38px,4.6vw,58px)] flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-[26px]">
+        <span class="text-xs text-[#a8c2d0]">Research backer</span>
         {RESEARCH_BACKERS.map((backer) => (
           <a
             key={backer.name}
@@ -97,24 +104,24 @@ export const V2Footer = component$(() => {
             target="_blank"
             rel="sponsored noopener noreferrer"
             title={`${backer.name} — Research backer (logo placement thanks, never influences scores)`}
-            class="d6-backer"
+            class="inline-flex items-center gap-[10px] text-base font-semibold text-[#f3f8fa] hover:underline"
           >
-            <img src={backer.imgSrc} alt={backer.alt} width={32} height={32} loading="lazy" />
+            <img src={backer.imgSrc} alt={backer.alt} width={32} height={32} loading="lazy" class="h-8 w-8 object-contain" />
             {backer.name}
           </a>
         ))}
       </div>
-      <div class="d6-fine">
+      <div class="mt-8 grid gap-x-11 gap-y-[6px] text-xs leading-[1.6] text-[#a9c2d2] min-[800px]:grid-cols-2">
         <p>
           Data syncs from per-model research files on every build. Scores are normalized
           interpretations, not official vendor scores.
         </p>
         <p>Independent AI model comparisons, no sponsored rankings.</p>
       </div>
-      <div class="d6-bottom">
+      <div class="mt-[26px] flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-[22px] text-xs text-[#a8c2d0] max-[520px]:flex-col max-[520px]:items-start">
         <span>© 2026 ModelComp</span>
         <span>
-          <a href="/">All models</a> · <a href="/contact/">Contact</a>
+          <a href="/" class="font-semibold text-[#f3f8fa] hover:underline">All models</a> · <a href="/contact/" class="font-semibold text-[#f3f8fa] hover:underline">Contact</a>
         </span>
       </div>
     </footer>
