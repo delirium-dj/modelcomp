@@ -508,7 +508,7 @@ export default component$(() => {
         </section>
 
         <section class="d6-section" id="v2-method" aria-labelledby="v2-method-title">
-          <div class="d6-section-intro d6-section-intro-row">
+          <div class="d6-section-intro d6-section-intro-row v2-method-intro">
             <h2 id="v2-method-title">How scoring works</h2>
             <p>
               Scores are normalized interpretations from 1 to 100 (higher is better), based on
@@ -892,7 +892,7 @@ export default component$(() => {
 
         {decisionFiltered.length > 0 && (
           <section class="d6-section" aria-labelledby="v2-decision-title">
-            <div class="d6-section-intro d6-section-intro-row">
+          <div class="d6-section-intro d6-section-intro-row">
               <div>
                 <h2 id="v2-decision-title">Decision models</h2>
                 <p>
