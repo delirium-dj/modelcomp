@@ -556,8 +556,9 @@ p.v2-profile {
 }
 .v2-source-block .v2-source select {
   display: block;
-  width: 100%;
-  margin-top: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 6px auto 0;
 }
 .d6 .v2-source-note {
   margin-top: 6px;
