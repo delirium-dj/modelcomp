@@ -170,21 +170,21 @@ export default component$(() => {
   const visibleModels = filtered.slice(0, displayCount.value);
 
   // List-view sorting (column sort within the current source ranking).
+  // Exact values throughout — no rounding in display, highlights, or order.
   const sorted = [...filtered].sort((a, b) => {
     if (sortKey.value === "name") return sortDirection.value * a.name.localeCompare(b.name);
     const key = sortKey.value as keyof typeof a.scores;
-    const primary = sortDirection.value * (Math.round(a.scores[key]) - Math.round(b.scores[key]));
+    const primary = sortDirection.value * (a.scores[key] - b.scores[key]);
     if (primary !== 0) return primary;
     if (key !== "overall") {
-      const secondary =
-        sortDirection.value * (Math.round(a.scores.overall) - Math.round(b.scores.overall));
+      const secondary = sortDirection.value * (a.scores.overall - b.scores.overall);
       if (secondary !== 0) return secondary;
     }
     return a.name.localeCompare(b.name);
   });
   const colBestWorst = (get: (s: (typeof rankBase)[number]["scores"]) => number) => {
     if (filtered.length === 0) return { best: null as number | null, worst: null as number | null };
-    const vals = filtered.map((r) => Math.round(get(r.scores)));
+    const vals = filtered.map((r) => get(r.scores));
     return { best: Math.max(...vals), worst: Math.min(...vals) };
   };
   const hlStats = new Map<string, { best: number | null; worst: number | null }>([
@@ -912,7 +912,7 @@ export default component$(() => {
                         </a>
                       </th>
                       {orderedScoreCols.map((key) => {
-                        const value = Math.round(m.scores[key]);
+                        const value = m.scores[key];
                         return (
                           <td
                             key={key}
