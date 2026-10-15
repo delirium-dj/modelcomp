@@ -10,12 +10,26 @@
      "Raleway", "Nunito", "Work Sans", "Manrope", "Outfit", "DM Sans",
      "Oswald", "Playfair Display", "Noto Sans", "Roboto Condensed",
      "Ubuntu", "Merriweather", "Rubik", "Barlow", "Source Sans 3",
-     "Quicksand"
+     "Quicksand", "Fira Sans", "Mulish", "Titillium Web", "Nunito Sans",
+     "Josefin Sans", "Cabin", "Heebo", "Archivo", "Public Sans",
+     "Space Grotesk"
    Example: --font-body: "Poppins", "Segoe UI", sans-serif;
    Weights shipped: 400 + 700 for all families, plus 500 + 600 for
    "Outfit" and "DM Sans" (headings use semibold). Anything else falls
    back to the system stack after the comma — the site never breaks.
    ========================================================================== */
+
+   /* ── ONE-LINE SETTINGS (edit these four lines, nothing else) ─────────── */
+:root {
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-display: "Inter", "Segoe UI", sans-serif;
+  --color-primary: #557ddd;
+}
+/* Dark theme reads the same variables from .dark (v2 toggles .dark on the
+   page root; v1 toggles it on <html> — both are covered). */
+.dark {
+  --color-primary: #7ba0ef;
+}
 
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/inter/inter-400.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/inter/inter-700.woff2") format("woff2"); }
@@ -55,8 +69,26 @@
 @font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/barlow/barlow-700.woff2") format("woff2"); }
 @font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/source-sans-3/source-sans-3-400.woff2") format("woff2"); }
 @font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/source-sans-3/source-sans-3-700.woff2") format("woff2"); }
-@font-face { font-family: "Quicksand"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/quicksand/quicksand-400.woff2") format("woff2"); }
-@font-face { font-family: "Quicksand"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/quicksand/quicksand-700.woff2") format("woff2"); }
+@font-face { font-family: "Fira Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/fira-sans/fira-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Fira Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/fira-sans/fira-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Mulish"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/mulish/mulish-400.woff2") format("woff2"); }
+@font-face { font-family: "Mulish"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/mulish/mulish-700.woff2") format("woff2"); }
+@font-face { font-family: "Titillium Web"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/titillium-web/titillium-web-400.woff2") format("woff2"); }
+@font-face { font-family: "Titillium Web"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/titillium-web/titillium-web-700.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/nunito-sans/nunito-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/nunito-sans/nunito-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Josefin Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/josefin-sans/josefin-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Josefin Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/josefin-sans/josefin-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Cabin"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/cabin/cabin-400.woff2") format("woff2"); }
+@font-face { font-family: "Cabin"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/cabin/cabin-700.woff2") format("woff2"); }
+@font-face { font-family: "Heebo"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/heebo/heebo-400.woff2") format("woff2"); }
+@font-face { font-family: "Heebo"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/heebo/heebo-700.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/archivo/archivo-400.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/archivo/archivo-700.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/public-sans/public-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/public-sans/public-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/space-grotesk/space-grotesk-400.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/space-grotesk/space-grotesk-700.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/outfit/outfit-400.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/outfit/outfit-500.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/outfit/outfit-600.woff2") format("woff2"); }
@@ -66,14 +98,4 @@
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/dm-sans/dm-sans-600.woff2") format("woff2"); }
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/dm-sans/dm-sans-700.woff2") format("woff2"); }
 
-/* ── ONE-LINE SETTINGS (edit these four lines, nothing else) ─────────── */
-:root {
-  --font-body: "Ubuntu", "Segoe UI", sans-serif;
-  --font-display: "Ubuntu", "Segoe UI", sans-serif;
-  --color-primary: #557ddd;
-}
-/* Dark theme reads the same variables from .dark (v2 toggles .dark on the
-   page root; v1 toggles it on <html> — both are covered). */
-.dark {
-  --color-primary: #7ba0ef;
-}
+
