@@ -285,6 +285,29 @@
   margin-top: 36px;
 }
 
+/* Vendor icons sit inline beside names (v1 wraps them in flex rows). */
+.v2-card-name > span {
+  display: inline-flex;
+  vertical-align: -2px;
+}
+.v2-card-name > svg {
+  vertical-align: -4px;
+}
+.d6-table th > span {
+  display: inline-flex;
+  vertical-align: -2px;
+}
+.d6-table th > svg {
+  vertical-align: -4px;
+}
+.v2-legend a > span {
+  display: inline-flex;
+  vertical-align: -2px;
+}
+.v2-legend a > svg {
+  vertical-align: -4px;
+}
+
 /* Mobile sort pills for the list view (v1 has them; the table scrolls). */
 .v2-pills {
   display: flex;

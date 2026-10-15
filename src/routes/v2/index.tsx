@@ -10,6 +10,7 @@ import {
 import type { DimensionKey, ResultsView, SourceKey } from "../../data/models";
 import "../design-6sol/study.css";
 import "./v2.css";
+import { VendorIcon } from "../../components/VendorIcon";
 
 /**
  * /v2 — full-site redesign in the design-6sol language.
@@ -451,7 +452,7 @@ export default component$(() => {
                         }}
                       />
                       <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
-                        {m.name}
+                        <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
                       {!m.meta.noFreeId ? (
@@ -479,6 +480,7 @@ export default component$(() => {
                     <th scope="col">Dimension</th>
                     {cmpModels.map((m) => (
                       <th scope="col" key={m.id}>
+                        <VendorIcon id={m.id} name={m.name} />{" "}
                         <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
                           {m.name}
                         </a>{" "}
@@ -658,7 +660,7 @@ export default component$(() => {
                   <article class="v2-card" key={m.id}>
                     <div class="v2-card-head">
                       <h3 class="v2-card-name">
-                        #{i + 1}{" "}
+                        #{i + 1} <VendorIcon id={m.id} name={m.name} />{" "}
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
                       <span class="d6-count" title="Overall score out of 100">
@@ -849,6 +851,7 @@ export default component$(() => {
                   {sorted.slice(0, displayCount.value).map((m) => (
                     <tr key={m.id}>
                       <th scope="row">
+                        <VendorIcon id={m.id} name={m.name} />{" "}
                         <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
                           {m.name}
                         </a>
@@ -925,6 +928,7 @@ export default component$(() => {
                 <article class="v2-card v2-card-decision" key={m.id}>
                   <div class="v2-card-head">
                     <h3 class="v2-card-name">
+                      <VendorIcon id={m.id} name={m.name} />{" "}
                       <a href={`/model/${m.slug}/`}>{m.name}</a>
                     </h3>
                     <span class="d6-count">Decision</span>
