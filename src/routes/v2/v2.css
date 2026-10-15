@@ -191,8 +191,18 @@ p.v2-hero-sub {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .v2-compare-grid {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-columns: 1fr 2fr 2fr 1fr;
     align-items: center;
+  }
+  /* Radar in the 2nd sixth-pair, sidebar in the 3rd: empty gutters left and
+     right center the pair as a group. */
+  .v2-compare-grid > :first-child {
+    grid-column: 2;
+    min-width: 0;
+  }
+  .v2-compare-grid > :last-child {
+    grid-column: 3;
+    min-width: 0;
   }
 }
 
