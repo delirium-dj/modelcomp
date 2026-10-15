@@ -1,13 +1,19 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { MODELS } from "../../data/models";
-import type { DimensionKey } from "../../data/models";
+import {
+  MODELS,
+  SOURCES,
+  DIMENSIONS,
+  virtualDimFor,
+  isDecisionModel,
+} from "../../data/models";
+import type { DimensionKey, ResultsView, SourceKey } from "../../data/models";
 import "../design-6sol/study.css";
 
 /**
  * /v2 — full-site redesign in the design-6sol language.
  * Same infrastructure (MODELS from pnpm sync), new UI everywhere:
- * header, hero, leaderboard, methodology, footer.
+ * header, hero, compare, all-models, methodology, footer.
  * Homepage (/) is untouched; delete this folder to abandon.
  */
 
@@ -58,6 +64,7 @@ function hexPolygon(value: number): string {
 }
 
 const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
+const PAGE_SIZE = 12;
 
 export default component$(() => {
   const sortKey = useSignal<SortKey>("overall");
@@ -65,6 +72,9 @@ export default component$(() => {
   const allModelsView = useSignal<"cards" | "list">("cards");
   const theme = useSignal<"light" | "dark">("light");
   const profileView = useSignal<"bars" | "hex">("hex");
+  const query = useSignal("");
+  const displayCount = useSignal(PAGE_SIZE);
+  const source = useSignal<ResultsView>("average");
   const scrollerRef = useSignal<HTMLDivElement>();
 
   // eslint-disable-next-line qwik/no-use-visible-task
@@ -93,23 +103,60 @@ export default component$(() => {
     cleanup(() => sys.removeEventListener("change", follow));
   });
 
-  const ranked = [...MODELS].sort((a, b) => b.scores.overall - a.scores.overall);
-  const top = ranked[0];
-  const orderedScoreCols: ("overall" | DimensionKey)[] = ["overall", ...tableKeys];
-  const sorted = [...ranked].sort((a, b) => {
+  // Results-source mapping mirrors the v1 All-models logic: average numbers,
+  // virtual dimension views, or one reporting agent's own scores.
+  const sortDim = virtualDimFor(source.value);
+  const withSource = MODELS.filter(
+    (m) =>
+      source.value === "average" ||
+      sortDim !== undefined ||
+      m.sources[source.value as SourceKey] !== undefined,
+  ).map((m) =>
+    source.value === "average" || sortDim !== undefined
+      ? m
+      : { ...m, scores: m.sources[source.value as SourceKey]! },
+  );
+  const rankBase = [...withSource].sort((a, b) =>
+    sortDim !== undefined
+      ? b.scores[sortDim] - a.scores[sortDim] || b.scores.overall - a.scores.overall
+      : b.scores.overall - a.scores.overall,
+  );
+  const generative = rankBase.filter((m) => !isDecisionModel(m));
+  const decisions = rankBase.filter((m) => isDecisionModel(m));
+  const q = query.value.trim().toLowerCase();
+  const filtered = generative.filter(
+    (m) =>
+      q === "" ||
+      m.name.toLowerCase().includes(q) ||
+      m.id.toLowerCase().includes(q) ||
+      m.short.toLowerCase().includes(q),
+  );
+  const decisionFiltered = decisions.filter(
+    (m) =>
+      q === "" ||
+      m.name.toLowerCase().includes(q) ||
+      m.id.toLowerCase().includes(q) ||
+      m.short.toLowerCase().includes(q),
+  );
+  const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
+  const visibleModels = filtered.slice(0, displayCount.value);
+
+  // List-view sorting (column sort within the current source ranking).
+  const sorted = [...filtered].sort((a, b) => {
     if (sortKey.value === "name") return sortDirection.value * a.name.localeCompare(b.name);
     const key = sortKey.value as keyof typeof a.scores;
     const primary = sortDirection.value * (Math.round(a.scores[key]) - Math.round(b.scores[key]));
     if (primary !== 0) return primary;
     if (key !== "overall") {
-      const secondary = sortDirection.value * (Math.round(a.scores.overall) - Math.round(b.scores.overall));
+      const secondary =
+        sortDirection.value * (Math.round(a.scores.overall) - Math.round(b.scores.overall));
       if (secondary !== 0) return secondary;
     }
     return a.name.localeCompare(b.name);
   });
-  const colBestWorst = (get: (s: (typeof ranked)[number]["scores"]) => number) => {
-    if (ranked.length === 0) return { best: null as number | null, worst: null as number | null };
-    const vals = ranked.map((r) => Math.round(get(r.scores)));
+  const colBestWorst = (get: (s: (typeof rankBase)[number]["scores"]) => number) => {
+    if (filtered.length === 0) return { best: null as number | null, worst: null as number | null };
+    const vals = filtered.map((r) => Math.round(get(r.scores)));
     return { best: Math.max(...vals), worst: Math.min(...vals) };
   };
   const hlStats = new Map<string, { best: number | null; worst: number | null }>([
@@ -124,11 +171,28 @@ export default component$(() => {
     return "";
   };
 
+  // Compare slots default to the top 3 of the current source ranking.
+  const cmpOptions = generative
+    .map((m) => ({ id: m.id, name: m.name }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const cmpA = useSignal(generative[0]?.id ?? "");
+  const cmpB = useSignal(generative[1]?.id ?? "");
+  const cmpC = useSignal(generative[2]?.id ?? "");
+  const cmpModels = [cmpA.value, cmpB.value, cmpC.value]
+    .map((id) => generative.find((m) => m.id === id))
+    .filter((m): m is NonNullable<typeof m> => m !== undefined);
+  const reportCount = (m: (typeof rankBase)[number]) =>
+    Object.keys(m.sources).filter((k) => k !== "average").length;
+  const activeSourceLabel = SOURCES.find((s) => s.key === source.value)?.label ?? source.value;
+
   if (!top) {
     return <main class="d6 d6-missing">No models in the current dataset.</main>;
   }
 
-  const highest = qualityKeys.reduce((best, key) => (top.scores[key] > top.scores[best] ? key : best));
+  const highest = qualityKeys.reduce((best, key) =>
+    top.scores[key] > top.scores[best] ? key : best,
+  );
+  const orderedScoreCols: ("overall" | DimensionKey)[] = ["overall", ...tableKeys];
 
   return (
     <main class={`d6 d6-${theme.value}`} data-theme={theme.value} id="top">
@@ -187,7 +251,8 @@ export default component$(() => {
         <section class="d6-hero" aria-labelledby="v2-title">
           <div class="d6-hero-copy">
             <p class="d6-family">
-              Independent <span aria-hidden="true">/</span> {ranked.length} models tracked
+              Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
+              {SOURCES.length} results sources
             </p>
             <h1 id="v2-title">
               Every
@@ -346,10 +411,10 @@ export default component$(() => {
         <section class="d6-facts" aria-label="Dataset facts">
           <div>
             <span>Models tracked</span>
-            <strong>{ranked.length}</strong>
+            <strong>{generative.length} generative + {decisions.length} decision</strong>
           </div>
           <div>
-            <span>Leader overall</span>
+            <span>Leader overall ({activeSourceLabel})</span>
             <strong>
               {top.name} — {top.scores.overall}
             </strong>
@@ -358,6 +423,96 @@ export default component$(() => {
             <span>Scoring</span>
             <strong>Overall = mean of 5 quality dims, cost excluded</strong>
           </div>
+        </section>
+
+        <section class="d6-section" aria-labelledby="v2-compare-title">
+          <div class="d6-section-intro d6-section-intro-row">
+            <div>
+              <h2 id="v2-compare-title">Compare models</h2>
+              <p>
+                Pick up to three models. Exact scores side by side, in the current results source
+                ({activeSourceLabel}). Decision models can't be picked here — their scores aren't
+                comparable; see the decision shelf below.
+              </p>
+            </div>
+            <span class="d6-count">3 slots</span>
+          </div>
+          <div class="d6-more-grid" style={{ marginTop: "32px" }}>
+            {[
+              { label: "Model A", value: cmpA },
+              { label: "Model B", value: cmpB },
+              { label: "Model C", value: cmpC },
+            ].map((slot) => (
+              <div key={slot.label}>
+                <span>{slot.label}</span>
+                <select
+                  aria-label={slot.label}
+                  value={slot.value.value}
+                  onChange$={(_, el) => {
+                    slot.value.value = el.value;
+                  }}
+                  style={{ maxWidth: "100%" }}
+                >
+                  <option value="">— empty —</option>
+                  {cmpOptions.map((o) => (
+                    <option key={o.id} value={o.id} selected={o.id === slot.value.value}>
+                      {o.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+          </div>
+          {cmpModels.length > 0 && (
+            <div class="d6-table-scroll" tabIndex={0} aria-label="Scroll to see compared models">
+              <table class="d6-table">
+                <caption class="d6-visually-hidden">Exact scores for the selected models</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Dimension</th>
+                    {cmpModels.map((m) => (
+                      <th scope="col" key={m.id}>
+                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                          {m.name}
+                        </a>{" "}
+                        <span class="d6-rating-overall">{m.scores.overall}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableKeys.map((k) => (
+                    <tr key={k}>
+                      <th scope="row">{names[k]}</th>
+                      {cmpModels.map((m) => (
+                        <td key={m.id}>{m.scores[k]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                  <tr>
+                    <th scope="row">Overall Score</th>
+                    {cmpModels.map((m) => (
+                      <td key={m.id} class="d6-rating-overall">
+                        {m.scores.overall}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <th scope="row">Context window</th>
+                    {cmpModels.map((m) => (
+                      <td key={m.id}>{m.meta.contextWindow}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <th scope="row">Pricing / 1M</th>
+                    {cmpModels.map((m) => (
+                      <td key={m.id}>{(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
 
         <section class="d6-reading" aria-labelledby="v2-reading-title">
@@ -372,8 +527,8 @@ export default component$(() => {
                 <h3>Where {top.name} stands out</h3>
                 <p>
                   {names[highest]} is its highest-rated dimension at{" "}
-                  <strong>{top.scores[highest]}/100</strong>. Select any column below to re-rank
-                  every model by that dimension.
+                  <strong>{top.scores[highest]}/100</strong>. Switch the results source below to see
+                  the average or any individual reviewer's ratings.
                 </p>
               </div>
             </article>
@@ -395,10 +550,13 @@ export default component$(() => {
           <div class="d6-section-intro d6-section-intro-row">
             <div>
               <h2 id="v2-ratings-title">All models</h2>
-              <p>Every tracked model, averaged across qualifying reports. Select a column to sort.</p>
+              <p>
+                Every tracked model in the current results source ({activeSourceLabel}). Search to
+                find a model, or open its page for the full breakdown.
+              </p>
             </div>
             <div class="d6-header-right">
-              <span class="d6-count">{ranked.length} models</span>
+              <span class="d6-count">{filtered.length} models</span>
               <div class="d6-view-switch" role="group" aria-label="All models display">
                 <button
                   type="button"
@@ -423,84 +581,145 @@ export default component$(() => {
               </div>
             </div>
           </div>
-          {allModelsView.value === "cards" ? (
-            <div class="d6-evidence-grid">
-              {sorted.map((m, i) => (
-                <a
-                  key={m.id}
-                  href={`/model/${m.slug}/`}
-                  class="d6-evidence-item"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  aria-label={`${m.name}, overall ${Math.round(m.scores.overall)} out of 100`}
-                >
-                  <h3>
-                    #{i + 1} {m.name}
-                  </h3>
-                  <strong>{Math.round(m.scores.overall)}</strong>
-                  <p class="d6-citations" style={{ marginTop: "4px" }}>
-                    Tool {Math.round(m.scores.tool)} · Reason {Math.round(m.scores.reasoning)} ·
-                    Code {Math.round(m.scores.coding)}
-                  </p>
-                  <details
-                    class="d6-citations"
-                    onClick$={(e) => {
-                      e.preventDefault();
+          <div
+            class="d6-header-right"
+            style={{ marginTop: "28px", justifyContent: "flex-start", flexWrap: "wrap" }}
+          >
+            <input
+              type="search"
+              role="searchbox"
+              aria-label="Search models"
+              placeholder="Search models…"
+              value={query.value}
+              onInput$={(_, el) => {
+                query.value = el.value;
+                displayCount.value = PAGE_SIZE;
+              }}
+              class="d6-theme-toggle"
+              style={{ minWidth: "220px", cursor: "text" }}
+            />
+            <label style={{ fontSize: "13px", color: "var(--d6-muted)" }}>
+              Results source{" "}
+              <select
+                aria-label="Results source"
+                value={source.value}
+                onChange$={(_, el) => {
+                  source.value = el.value as ResultsView;
+                  displayCount.value = PAGE_SIZE;
+                }}
+                style={{ font: "inherit", maxWidth: "260px" }}
+              >
+                {SOURCES.map((s) => (
+                  <option key={s.key} value={s.key} selected={s.key === source.value}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          {q !== "" && (
+            <p style={{ marginTop: "12px", fontSize: "13px", color: "var(--d6-muted)" }}>
+              {filtered.length} of {generative.length} models
+            </p>
+          )}
+          {filtered.length === 0 ? (
+            <p style={{ marginTop: "24px" }}>
+              No models match your search for the current results source. Try a different search or
+              source.
+            </p>
+          ) : allModelsView.value === "cards" ? (
+            <>
+              <div class="d6-evidence-grid">
+                {visibleModels.map((m, i) => (
+                  <article class="d6-evidence-item" key={m.id}>
+                    <h3>
+                      #{i + 1}{" "}
+                      <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                        {m.name}
+                      </a>
+                    </h3>
+                    <strong>
+                      {m.scores.overall}{" "}
+                      <span style={{ fontSize: "13px", fontWeight: 400 }}>
+                        {!m.meta.noFreeId ? (
+                          <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
+                        ) : (
+                          <span title="Cost is scored on paid pricing — no free tier ID">
+                            · Paid
+                          </span>
+                        )}
+                      </span>
+                    </strong>
+                    <p style={{ marginTop: "8px", fontSize: "13px" }}>{m.short}</p>
+                    <div style={{ marginTop: "10px", fontSize: "12px", lineHeight: 1.7 }}>
+                      <div>
+                        <strong>Context:</strong> {m.meta.contextWindow}
+                      </div>
+                      <div>
+                        <strong>Modalities:</strong> {m.meta.modalities}
+                      </div>
+                      <div>
+                        <strong>Pricing:</strong>{" "}
+                        {(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}
+                      </div>
+                      <div title="Newest report date across this model's findings files">
+                        <strong>Verified:</strong> {m.verified ?? "—"} ·{" "}
+                        <strong>{reportCount(m)}</strong> reports
+                      </div>
+                    </div>
+                    <p style={{ marginTop: "8px", fontSize: "12px" }}>
+                      Tool {m.scores.tool} · Reason {m.scores.reasoning} · Context{" "}
+                      {m.scores.context} · Code {m.scores.coding} · Multi {m.scores.multimodal} ·
+                      Cost {m.scores.cost}
+                    </p>
+                    <p class="d6-citations" style={{ marginTop: "8px" }}>
+                      <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                    </p>
+                  </article>
+                ))}
+              </div>
+              {displayCount.value < filtered.length && (
+                <div class="d6-more" style={{ textAlign: "center" }}>
+                  <button
+                    type="button"
+                    class="d6-view-btn d6-view-active"
+                    style={{ padding: "10px 28px", fontSize: "14px" }}
+                    onClick$={() => {
+                      displayCount.value += PAGE_SIZE;
                     }}
                   >
-                    <summary>All six dimensions</summary>
-                    <p>
-                      {qualityKeys.map((k) => `${names[k]} ${Math.round(m.scores[k])}`).join(" · ")} ·
-                      Cost {Math.round(m.scores.cost)}
-                    </p>
-                  </details>
-                </a>
-              ))}
-            </div>
-          ) : (
-          <div
-            ref={scrollerRef}
-            class="d6-table-scroll"
-            tabIndex={0}
-            aria-label="Scroll to see all score columns"
-          >
-            <table class="d6-table">
-              <caption class="d6-visually-hidden">Model leaderboard, average scores out of 100</caption>
-              <thead>
-                <tr>
-                  <th
-                    scope="col"
-                    aria-sort={
-                      sortKey.value === "name"
-                        ? sortDirection.value === -1
-                          ? "descending"
-                          : "ascending"
-                        : "none"
-                    }
+                    Show more
+                  </button>{" "}
+                  <button
+                    type="button"
+                    class="d6-view-btn"
+                    style={{ padding: "10px 28px", fontSize: "14px" }}
+                    onClick$={() => {
+                      displayCount.value = filtered.length;
+                    }}
                   >
-                    <button
-                      type="button"
-                      onClick$={() => {
-                        if (sortKey.value === "name")
-                          sortDirection.value = sortDirection.value === -1 ? 1 : -1;
-                        else {
-                          sortKey.value = "name";
-                          sortDirection.value = 1;
-                        }
-                        scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Model
-                      <span aria-hidden="true" class="d6-sort-icon">
-                        {sortKey.value === "name" ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
-                      </span>
-                    </button>
-                  </th>
-                  {orderedScoreCols.map((key) => (
+                    Show all ({filtered.length})
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            <div
+              ref={scrollerRef}
+              class="d6-table-scroll"
+              tabIndex={0}
+              aria-label="Scroll to see all score columns"
+            >
+              <table class="d6-table">
+                <caption class="d6-visually-hidden">
+                  Model leaderboard, average scores out of 100
+                </caption>
+                <thead>
+                  <tr>
                     <th
                       scope="col"
-                      key={key}
                       aria-sort={
-                        sortKey.value === key
+                        sortKey.value === "name"
                           ? sortDirection.value === -1
                             ? "descending"
                             : "ascending"
@@ -510,57 +729,195 @@ export default component$(() => {
                       <button
                         type="button"
                         onClick$={() => {
-                          if (sortKey.value === key)
+                          if (sortKey.value === "name")
                             sortDirection.value = sortDirection.value === -1 ? 1 : -1;
                           else {
-                            sortKey.value = key;
-                            sortDirection.value = -1;
+                            sortKey.value = "name";
+                            sortDirection.value = 1;
                           }
                           scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
                         }}
                       >
-                        {key === "overall" ? "Overall" : colNames[key]}
+                        Model
                         <span aria-hidden="true" class="d6-sort-icon">
-                          {sortKey.value === key ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
+                          {sortKey.value === "name" ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
                         </span>
-                        {key === "overall" && (
-                          <span class="d6-overall-tip" role="tooltip">
-                            Overall is the average of tool use, reasoning, context, coding and
-                            multimodal scores. Cost efficiency is excluded.
-                          </span>
-                        )}
                       </button>
                     </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {sorted.map((m) => (
-                  <tr key={m.id}>
-                    <th scope="row">
-                      <a href={`/model/${m.slug}/`}>{m.name}</a>
-                    </th>
-                    {orderedScoreCols.map((key) => {
-                      const value = Math.round(m.scores[key]);
-                      return (
-                        <td
-                          key={key}
-                          class={`${key === "overall" ? "d6-rating-overall" : ""}${hlClass(key, value)}`}
+                    {orderedScoreCols.map((key) => (
+                      <th
+                        scope="col"
+                        key={key}
+                        aria-sort={
+                          sortKey.value === key
+                            ? sortDirection.value === -1
+                              ? "descending"
+                              : "ascending"
+                            : "none"
+                        }
+                      >
+                        <button
+                          type="button"
+                          onClick$={() => {
+                            if (sortKey.value === key)
+                              sortDirection.value = sortDirection.value === -1 ? 1 : -1;
+                            else {
+                              sortKey.value = key;
+                              sortDirection.value = -1;
+                            }
+                            scrollerRef.value?.scrollTo({ left: 0, behavior: "smooth" });
+                          }}
                         >
-                          {value}
-                        </td>
-                      );
-                    })}
+                          {key === "overall" ? "Overall" : colNames[key]}
+                          <span aria-hidden="true" class="d6-sort-icon">
+                            {sortKey.value === key ? (sortDirection.value === -1 ? "↓" : "↑") : "↕"}
+                          </span>
+                          {key === "overall" && (
+                            <span class="d6-overall-tip" role="tooltip">
+                              Overall is the average of tool use, reasoning, context, coding and
+                              multimodal scores. Cost efficiency is excluded.
+                            </span>
+                          )}
+                        </button>
+                      </th>
+                    ))}
+                    <th scope="col">Context</th>
+                    <th scope="col">Pricing / 1M</th>
+                    <th scope="col" title="Newest report date across each model's findings files">
+                      Verified
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {sorted.slice(0, displayCount.value).map((m) => (
+                    <tr key={m.id}>
+                      <th scope="row">
+                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                          {m.name}
+                        </a>
+                      </th>
+                      {orderedScoreCols.map((key) => {
+                        const value = Math.round(m.scores[key]);
+                        return (
+                          <td
+                            key={key}
+                            class={`${key === "overall" ? "d6-rating-overall" : ""}${hlClass(key, value)}`}
+                          >
+                            {value}
+                          </td>
+                        );
+                      })}
+                      <td>{m.meta.contextWindow}</td>
+                      <td>{(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}</td>
+                      <td title="Newest report date across this model's findings files">
+                        {m.verified ?? "—"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
+          {!(filtered.length === 0) &&
+            allModelsView.value === "list" &&
+            displayCount.value < sorted.length && (
+              <div class="d6-more" style={{ textAlign: "center" }}>
+                <button
+                  type="button"
+                  class="d6-view-btn d6-view-active"
+                  style={{ padding: "10px 28px", fontSize: "14px" }}
+                  onClick$={() => {
+                    displayCount.value += PAGE_SIZE;
+                  }}
+                >
+                  Show more
+                </button>{" "}
+                <button
+                  type="button"
+                  class="d6-view-btn"
+                  style={{ padding: "10px 28px", fontSize: "14px" }}
+                  onClick$={() => {
+                    displayCount.value = sorted.length;
+                  }}
+                >
+                  Show all ({sorted.length})
+                </button>
+              </div>
+            )}
           <p class="d6-table-note">
             Averages recomputed by pnpm sync from per-model research files. Cost never counts toward
             Overall.
           </p>
+        </section>
+
+        {decisionFiltered.length > 0 && (
+          <section class="d6-section" aria-labelledby="v2-decision-title">
+            <div class="d6-section-intro d6-section-intro-row">
+              <div>
+                <h2 id="v2-decision-title">Decision models</h2>
+                <p>
+                  System-One models return typed judgments (choice, score, yes/no probability)
+                  instead of generated text — for routing, triage, and guardrails inside agent
+                  pipelines. They are scored on different axes and are{" "}
+                  <strong>not comparable</strong> to generative Overall scores.
+                </p>
+              </div>
+              <span class="d6-count">{decisionFiltered.length} models</span>
+            </div>
+            <div class="d6-evidence-grid">
+              {decisionFiltered.map((m) => (
+                <article class="d6-evidence-item" key={m.id}>
+                  <h3>
+                    <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                      {m.name}
+                    </a>
+                  </h3>
+                  <strong style={{ fontSize: "20px" }}>Decision system</strong>
+                  <p style={{ marginTop: "8px", fontSize: "13px" }}>{m.short}</p>
+                  <div style={{ marginTop: "10px", fontSize: "12px", lineHeight: 1.7 }}>
+                    <div>
+                      <strong>State budget:</strong> {m.meta.contextWindow}
+                    </div>
+                    <div>
+                      <strong>I/O:</strong> {m.meta.modalities}
+                    </div>
+                    <div>
+                      <strong>Pricing:</strong> {m.meta.pricingNote}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section class="d6-section" aria-labelledby="v2-method-title">
+          <div class="d6-section-intro">
+            <h2 id="v2-method-title">How scoring works</h2>
+            <p>
+              Scores are normalized interpretations from 1 to 100 (higher is better), based on
+              public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
+              Cost efficiency is scored separately and never counts toward Overall.
+            </p>
+          </div>
+          <div class="d6-more-grid" style={{ marginTop: "32px" }}>
+            <div>
+              <span>Independently researched — every benchmark number cites its source; missing data is never invented</span>
+            </div>
+            <div>
+              <span>Averaged, not single-opinion — mean across independent reporting agents; evidence-free reports are quarantined</span>
+            </div>
+            <div>
+              <span>Re-researched weekly — reports older than seven days are checked against fresh benchmarks</span>
+            </div>
+            {DIMENSIONS.map((d) => (
+              <div key={d.key}>
+                <span>
+                  <strong>{d.label}:</strong> {d.description}
+                </span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <footer class="d6-footer">
@@ -586,12 +943,7 @@ export default component$(() => {
                   </span>
                   <span class="d6-tier-detail">current production UI</span>
                 </a>
-                <a
-                  href={SPONSOR_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="d6-tier"
-                >
+                <a href={SPONSOR_URL} target="_blank" rel="noopener noreferrer" class="d6-tier">
                   <span class="d6-tier-label">
                     <span aria-hidden="true">♥</span> Fund independent research
                   </span>
