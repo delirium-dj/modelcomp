@@ -247,11 +247,7 @@ export default component$(() => {
         <section class="-mx-10 bg-[#e2edf2] px-10 text-[#19384d] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
           <div class="grid grid-cols-1 items-center gap-8 pb-12 pt-16 min-[1000px]:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
             <div>
-              <p class="text-sm text-[#577184] dark:text-[#a8c2d0]">
-                Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
-                {SOURCES.length} results sources
-              </p>
-              <h1 id="v2-title" class="mt-4 font-[var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
+              <h1 id="v2-title" class="font-[var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
                 Compare AI coding models on <span class="text-[var(--color-primary)]">what actually matters</span>
               </h1>
               <p class="mt-4 max-w-xl text-base leading-relaxed text-[#577184] dark:text-[#c6d9e3]">
@@ -282,7 +278,7 @@ export default component$(() => {
         <section class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-2 max-[520px]:block dark:border-b-[#274757]" aria-label="Dataset facts">
           <div class="py-7 pr-7 text-right max-[800px]:text-center max-[520px]:border-b max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Models tracked</span>
-            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">{generative.length} generative + {decisions.length} decision</strong>
+            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">Independent — {generative.length} models · {SOURCES.length} results sources</strong>
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Leader overall ({activeSourceLabel})</span>

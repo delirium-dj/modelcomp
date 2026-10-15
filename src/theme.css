@@ -7,7 +7,10 @@
    Available family names (all self-hosted under public/fonts/, latin,
    normal + bold weights as listed):
      "Inter", "Roboto", "Open Sans", "Lato", "Montserrat", "Poppins",
-     "Raleway", "Nunito", "Work Sans", "Manrope", "Outfit", "DM Sans"
+     "Raleway", "Nunito", "Work Sans", "Manrope", "Outfit", "DM Sans",
+     "Oswald", "Playfair Display", "Noto Sans", "Roboto Condensed",
+     "Ubuntu", "Merriweather", "Rubik", "Barlow", "Source Sans 3",
+     "Quicksand"
    Example: --font-body: "Poppins", "Segoe UI", sans-serif;
    Weights shipped: 400 + 700 for all families, plus 500 + 600 for
    "Outfit" and "DM Sans" (headings use semibold). Anything else falls
@@ -34,7 +37,26 @@
 @font-face { font-family: "Work Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/work-sans/work-sans-700.woff2") format("woff2"); }
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/manrope/manrope-400.woff2") format("woff2"); }
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/manrope/manrope-700.woff2") format("woff2"); }
-@font-face { font-family: "Outfit"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/outfit/outfit-400.woff2") format("woff2"); }
+@font-face { font-family: "Oswald"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/oswald/oswald-400.woff2") format("woff2"); }
+@font-face { font-family: "Oswald"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/oswald/oswald-700.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/playfair-display/playfair-display-400.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/playfair-display/playfair-display-700.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/noto-sans/noto-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/noto-sans/noto-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto-condensed/roboto-condensed-400.woff2") format("woff2"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/roboto-condensed/roboto-condensed-700.woff2") format("woff2"); }
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ubuntu/ubuntu-400.woff2") format("woff2"); }
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/ubuntu/ubuntu-700.woff2") format("woff2"); }
+@font-face { font-family: "Merriweather"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/merriweather/merriweather-400.woff2") format("woff2"); }
+@font-face { font-family: "Merriweather"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/merriweather/merriweather-700.woff2") format("woff2"); }
+@font-face { font-family: "Rubik"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/rubik/rubik-400.woff2") format("woff2"); }
+@font-face { font-family: "Rubik"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/rubik/rubik-700.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/barlow/barlow-400.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/barlow/barlow-700.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/source-sans-3/source-sans-3-400.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/source-sans-3/source-sans-3-700.woff2") format("woff2"); }
+@font-face { font-family: "Quicksand"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/quicksand/quicksand-400.woff2") format("woff2"); }
+@font-face { font-family: "Quicksand"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/quicksand/quicksand-700.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/outfit/outfit-500.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/outfit/outfit-600.woff2") format("woff2"); }
 @font-face { font-family: "Outfit"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/outfit/outfit-700.woff2") format("woff2"); }
