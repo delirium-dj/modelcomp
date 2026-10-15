@@ -374,6 +374,8 @@ p.v2-hero-sub {
   border-radius: 8px;
   padding: 6px 8px;
   max-width: 260px;
+  text-align: center;
+  text-align-last: center;
 }
 
 /* Cards grid: 1 col → 2 col → 3 col, mirrors v1 md:/lg: breakpoints. */
