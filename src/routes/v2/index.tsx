@@ -445,7 +445,7 @@ export default component$(() => {
                           backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
                       />
-                      <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
+                      <a href={`/v2/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
@@ -476,7 +476,7 @@ export default component$(() => {
                       <th scope="col" key={m.id}>
                         <span class="v2-model-cell">
                           <VendorIcon id={m.id} name={m.name} />
-                          <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                          <a href={`/v2/${m.slug}/`} style={{ color: "inherit" }}>
                             {m.name}
                           </a>
                         </span>
@@ -638,7 +638,7 @@ export default component$(() => {
                     <div class="v2-card-head">
                       <h3 class="v2-card-name">
                         <VendorIcon id={m.id} name={m.name} />
-                        <a href={`/model/${m.slug}/`}>{m.name}</a>
+                        <a href={`/v2/${m.slug}/`}>{m.name}</a>
                       </h3>
                       <div
                         class="v2-card-score"
@@ -692,7 +692,7 @@ export default component$(() => {
                       Cost {m.scores.cost}
                     </p>
                     <p class="v2-profile">
-                      <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                      <a href={`/v2/${m.slug}/`}>Open full profile →</a>
                     </p>
                   </article>
                 ))}
@@ -833,7 +833,7 @@ export default component$(() => {
                     <tr key={m.id}>
                       <th scope="row">
                         <VendorIcon id={m.id} name={m.name} />{" "}
-                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                        <a href={`/v2/${m.slug}/`} style={{ color: "inherit" }}>
                           {m.name}
                         </a>
                       </th>
@@ -910,7 +910,7 @@ export default component$(() => {
                   <div class="v2-card-head">
                     <h3 class="v2-card-name">
                       <VendorIcon id={m.id} name={m.name} />{" "}
-                      <a href={`/model/${m.slug}/`}>{m.name}</a>
+                      <a href={`/v2/${m.slug}/`}>{m.name}</a>
                     </h3>
                     <span class="d6-count">Decision</span>
                   </div>
@@ -930,7 +930,7 @@ export default component$(() => {
                     </div>
                   </dl>
                   <p class="v2-profile">
-                    <a href={`/model/${m.slug}/`}>Open full profile →</a>
+                    <a href={`/v2/${m.slug}/`}>Open full profile →</a>
                   </p>
                 </article>
               ))}
