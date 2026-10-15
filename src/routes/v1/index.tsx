@@ -1,11 +1,11 @@
 import { $, component$, useStore, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead } from "@builder.io/qwik-city";
-import { Hero } from "../components/Hero";
-import { CompareSection } from "../components/CompareSection";
-import { Methodology } from "../components/Methodology";
-import { ModelCards } from "../components/ModelCards";
-import { MODELS, SOURCES, virtualDimFor, slugForSource } from "../data/models";
-import type { AiModel, DimensionKey, ResultsView, SourceKey } from "../data/models";
+import { Hero } from "../../components/Hero";
+import { CompareSection } from "../../components/CompareSection";
+import { Methodology } from "../../components/Methodology";
+import { ModelCards } from "../../components/ModelCards";
+import { MODELS, SOURCES, virtualDimFor, slugForSource } from "../../data/models";
+import type { AiModel, DimensionKey, ResultsView, SourceKey } from "../../data/models";
 
 /** Top-3 model ids under a comparator (missing slots are ""). */
 const top3 = (cmp: (a: AiModel, b: AiModel) => number): [string, string, string] => {
