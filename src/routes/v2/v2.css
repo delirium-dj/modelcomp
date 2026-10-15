@@ -400,9 +400,9 @@
   }
 }
 
-/* Methodology intro: title 1/4, paragraph 3/4 of the row. */
+/* Methodology intro: title 2/5, paragraph 3/5 of the row. */
 .v2-method-intro > h2 {
-  flex: 1 1 0;
+  flex: 2 1 0;
   min-width: 0;
 }
 .v2-method-intro > p {
