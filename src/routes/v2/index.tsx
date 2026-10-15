@@ -520,14 +520,14 @@ export default component$(() => {
             <article class="d6-evidence-item">
               <h3>Independently researched</h3>
               <strong>01</strong>
-              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
                 Every benchmark number cites its source. Missing data is marked — never invented.
               </p>
             </article>
             <article class="d6-evidence-item">
               <h3>Averaged, not single-opinion</h3>
               <strong>02</strong>
-              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
                 Each model's scores are the mean across independent reporting agents.
                 Evidence-free reports are quarantined and never counted.
               </p>
@@ -535,7 +535,7 @@ export default component$(() => {
             <article class="d6-evidence-item">
               <h3>Re-researched weekly</h3>
               <strong>03</strong>
-              <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
                 Every report older than seven days is checked against fresh benchmarks, and scores
                 refresh whenever new verified evidence would change them.
               </p>
@@ -546,7 +546,7 @@ export default component$(() => {
             {DIMENSIONS.map((d) => (
               <article class="d6-evidence-item" key={d.key}>
                 <h3>{d.label}</h3>
-                <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.7 }}>
+                <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
                   {d.description}
                 </p>
               </article>
