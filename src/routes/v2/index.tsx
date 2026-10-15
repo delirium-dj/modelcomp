@@ -348,7 +348,7 @@ export default component$(() => {
           </div>
           {cmpModels.length > 0 && (
             <div class="v2-compare-grid">
-              <div class="d6-instrument" aria-label="Comparison radar chart">
+              <div class="d6-instrument v2-radar-panel" aria-label="Comparison radar chart">
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
