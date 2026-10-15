@@ -265,7 +265,7 @@ export default component$(() => {
 
         <section class="-mx-10 bg-[#e2edf2] px-10 text-[color:var(--color-ink)] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
           <div class="grid grid-cols-1 items-center gap-8 pb-12 pt-16 min-[1000px]:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
-            <div>
+            <div class="v2-hero-copy">
               <h1 id="v2-title" class="font-[family-name:var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
                 Compare AI coding models on <span class="text-[color:var(--color-primary)]">what actually matters</span>
               </h1>
@@ -282,7 +282,7 @@ export default component$(() => {
                 </a>
               </div>
             </div>
-            <div>
+            <div class="v2-hero-media">
               <img
                 src="/favicon.svg"
                 alt="ModelComp logo: a hexagon with six dimension dots around a core"
@@ -592,7 +592,7 @@ export default component$(() => {
 
         <section class="px-0 pb-0 pt-12" id="models" aria-labelledby="v2-ratings-title">
           <div class="flex items-start justify-between gap-6">
-            <div>
+            <div class="v2-section-lead">
               <h2 id="v2-ratings-title" class="font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">All models</h2>
               <p class="mt-3.5 max-w-sm text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
                 Every tracked model in the current results source ({activeSourceLabel}). Search to
@@ -948,7 +948,7 @@ export default component$(() => {
         {decisionFiltered.length >= 3 && (
           <section class="border-b border-[#ccdae2] px-0 pb-20 pt-12 dark:border-[#274757]" aria-labelledby="v2-decision-title">
           <div class="flex items-start justify-between gap-6">
-              <div>
+              <div class="v2-section-lead">
                 <h2 id="v2-decision-title" class="font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">Decision models</h2>
                 <p class="mt-3.5 max-w-sm text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
                   System-One models return typed judgments (choice, score, yes/no probability)

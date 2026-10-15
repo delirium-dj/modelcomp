@@ -34,7 +34,7 @@ export const V2Footer = component$(() => {
   return (
     <footer class="-mx-10 bg-[#173c53] px-10 pb-10 pt-[clamp(56px,7vw,92px)] text-[#f3f8fa] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822]">
       <div class="grid items-start gap-[5%] min-[800px]:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-        <div>
+        <div class="v2-support-copy">
           <p class="text-sm text-[#a8c2d0]">
             ModelComp <span aria-hidden="true">/</span> funding
           </p>
