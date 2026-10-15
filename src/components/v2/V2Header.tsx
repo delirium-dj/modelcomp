@@ -72,9 +72,14 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               aria-label={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               title={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               onClick$={() => {
-                theme.value = theme.value === "dark" ? "light" : "dark";
+                const next = theme.value === "dark" ? "light" : "dark";
+                theme.value = next;
+                // Keep <html>.dark in sync (see init task in routes/index.tsx):
+                // a stale ancestor .dark would leak dark: utilities into light mode.
+                document.documentElement.classList.toggle("dark", next === "dark");
                 try {
-                  localStorage.setItem("v2-theme", theme.value);
+                  localStorage.setItem("v2-theme", next);
+                  localStorage.setItem("theme", next);
                 } catch {
                   /* private mode — theme just doesn't persist */
                 }

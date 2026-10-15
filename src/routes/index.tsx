@@ -107,6 +107,21 @@ export default component$(() => {
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
+    // Single writer: signal + <html>.dark + both storage keys always agree.
+    // v1's global toggle/anti-flash owns html.dark, and Tailwind's dark:
+    // utilities answer to ANY .dark ancestor — so a stale html.dark would
+    // leak dark styles into light mode. Syncing here kills that leak.
+    const root = document.documentElement;
+    const apply = (v: "light" | "dark") => {
+      theme.value = v;
+      root.classList.toggle("dark", v === "dark");
+      try {
+        localStorage.setItem("v2-theme", v);
+        localStorage.setItem("theme", v);
+      } catch {
+        /* storage unavailable — theme just doesn't persist */
+      }
+    };
     const sys = window.matchMedia("(prefers-color-scheme: dark)");
     let stored: string | null = null;
     try {
@@ -115,17 +130,21 @@ export default component$(() => {
       stored = null;
     }
     if (stored === "light" || stored === "dark") {
-      theme.value = stored;
+      apply(stored);
       return;
     }
-    theme.value = sys.matches ? "dark" : "light";
+    if (root.classList.contains("dark")) {
+      apply("dark");
+      return;
+    }
+    apply(sys.matches ? "dark" : "light");
     const follow = (e: MediaQueryListEvent) => {
       try {
         if (localStorage.getItem("v2-theme")) return;
       } catch {
         /* storage unavailable — keep following */
       }
-      theme.value = e.matches ? "dark" : "light";
+      apply(e.matches ? "dark" : "light");
     };
     sys.addEventListener("change", follow);
     cleanup(() => sys.removeEventListener("change", follow));
