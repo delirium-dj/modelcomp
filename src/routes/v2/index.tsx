@@ -516,7 +516,7 @@ export default component$(() => {
               Cost efficiency is scored separately and never counts toward Overall.
             </p>
           </div>
-          <div class="d6-evidence-grid">
+          <div class="d6-evidence-grid v2-tiles">
             <article class="d6-evidence-item">
               <h3>Independently researched</h3>
               <strong>01</strong>
@@ -542,7 +542,7 @@ export default component$(() => {
             </article>
           </div>
           <h3 class="v2-subhead">What each dimension measures</h3>
-          <div class="d6-evidence-grid">
+          <div class="d6-evidence-grid v2-tiles">
             {DIMENSIONS.map((d) => (
               <article class="d6-evidence-item" key={d.key}>
                 <h3>{d.label}</h3>

@@ -406,5 +406,23 @@
   font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.03em;
-  margin: 48px 0 0;
+  margin: 40px 0 0;
+}
+
+/* Compact tiles for methodology (the study's evidence tiles are roomier).
+   Scoped to v2 — study.css stays untouched. */
+.v2-tiles {
+  margin-top: 28px;
+}
+.v2-tiles .d6-evidence-item {
+  min-height: 0;
+  padding: 18px 20px;
+}
+.v2-tiles .d6-evidence-item strong {
+  font-size: 26px;
+  margin-top: 4px;
+}
+.v2-tiles .d6-evidence-item p {
+  font-size: 13px !important;
+  line-height: 1.65;
 }
