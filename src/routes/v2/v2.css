@@ -263,7 +263,7 @@
 }
 .v2-specs > div {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 4px 10px;
   border-top: 1px solid var(--d6-line);
   padding: 8px 0;
@@ -271,10 +271,14 @@
 .v2-specs dt {
   font-weight: 700;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 .v2-specs dd {
   margin: 0;
+  min-width: 0;
+  flex: 1;
   color: var(--d6-muted);
+  overflow-wrap: anywhere;
 }
 .v2-dims {
   margin-top: 12px;
