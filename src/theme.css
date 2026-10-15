@@ -1,0 +1,56 @@
+/* ==========================================================================
+   THEME SETTINGS — the only file you need to touch to reskin the site.
+   - BODY FONT:    change the ONE --font-body line below.
+   - DISPLAY FONT: change the ONE --font-display line below.
+   - PRIMARY (light): change the ONE --color-primary line in :root.
+   - PRIMARY (dark):  change the ONE --color-primary line in .dark.
+   Available family names (all self-hosted under public/fonts/, latin,
+   normal + bold weights as listed):
+     "Inter", "Roboto", "Open Sans", "Lato", "Montserrat", "Poppins",
+     "Raleway", "Nunito", "Work Sans", "Manrope", "Outfit", "DM Sans"
+   Example: --font-body: "Poppins", "Segoe UI", sans-serif;
+   Weights shipped: 400 + 700 for all families, plus 500 + 600 for
+   "Outfit" and "DM Sans" (headings use semibold). Anything else falls
+   back to the system stack after the comma — the site never breaks.
+   ========================================================================== */
+
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/inter/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/inter/inter-700.woff2") format("woff2"); }
+@font-face { font-family: "Roboto"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto/roboto-400.woff2") format("woff2"); }
+@font-face { font-family: "Roboto"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/roboto/roboto-700.woff2") format("woff2"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/open-sans/open-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/open-sans/open-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Lato"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/lato/lato-400.woff2") format("woff2"); }
+@font-face { font-family: "Lato"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/lato/lato-700.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/montserrat/montserrat-400.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/montserrat/montserrat-700.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/poppins/poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/poppins/poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Raleway"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/raleway/raleway-400.woff2") format("woff2"); }
+@font-face { font-family: "Raleway"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/raleway/raleway-700.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/nunito/nunito-400.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/nunito/nunito-700.woff2") format("woff2"); }
+@font-face { font-family: "Work Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/work-sans/work-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Work Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/work-sans/work-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/manrope/manrope-400.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/manrope/manrope-700.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/outfit/outfit-400.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/outfit/outfit-500.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/outfit/outfit-600.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/outfit/outfit-700.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/dm-sans/dm-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/dm-sans/dm-sans-500.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/dm-sans/dm-sans-600.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/dm-sans/dm-sans-700.woff2") format("woff2"); }
+
+/* ── ONE-LINE SETTINGS (edit these four lines, nothing else) ─────────── */
+:root {
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+  --font-display: "Outfit", "Trebuchet MS", sans-serif;
+  --color-primary: #557ddd;
+}
+/* Dark theme reads the same variables from .dark (v2 toggles .dark on the
+   page root; v1 toggles it on <html> — both are covered). */
+.dark {
+  --color-primary: #7ba0ef;
+}

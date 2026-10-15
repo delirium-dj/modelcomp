@@ -238,7 +238,7 @@ export default component$(() => {
 
   return (
     <main
-      class={`min-h-screen font-['DM_Sans','Segoe_UI',sans-serif] text-sm leading-normal antialiased ${theme.value === "dark" ? "dark bg-[#0e1e2a] text-[#e8f1f6]" : "bg-[#ecf3f6] text-[#19384d]"}`}
+      class={`min-h-screen font-[var(--font-body)] text-sm leading-normal antialiased ${theme.value === "dark" ? "dark bg-[#0e1e2a] text-[#e8f1f6]" : "bg-[#ecf3f6] text-[#19384d]"}`}
       id="top"
     >
       <V2Header theme={theme} navBase="" />
@@ -251,8 +251,8 @@ export default component$(() => {
                 Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
                 {SOURCES.length} results sources
               </p>
-              <h1 id="v2-title" class="mt-4 font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
-                Compare AI coding models on <span class="text-[#557ddd] dark:text-[#a9c7ef]">what actually matters</span>
+              <h1 id="v2-title" class="mt-4 font-[var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
+                Compare AI coding models on <span class="text-[var(--color-primary)]">what actually matters</span>
               </h1>
               <p class="mt-4 max-w-xl text-base leading-relaxed text-[#577184] dark:text-[#c6d9e3]">
                 Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from
@@ -298,7 +298,7 @@ export default component$(() => {
 
         <section class="border-b-0 border-[#ccdae2] px-0 pb-12 pt-20 dark:border-[#274757]" id="compare" aria-labelledby="v2-compare-title">
           <div class="flex items-start gap-6 max-[799px]:flex-col max-[799px]:gap-3">
-            <h2 id="v2-compare-title" class="min-w-0 flex-[2_1_0%] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">Compare models</h2>
+            <h2 id="v2-compare-title" class="min-w-0 flex-[2_1_0%] font-[var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">Compare models</h2>
             <p class="mt-0 min-w-0 max-w-none flex-[3_1_0%] text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
               Pick up to three models. Exact scores side by side, in the current results source
               ({activeSourceLabel}). Decision models can't be picked here — their scores aren't
@@ -413,7 +413,7 @@ export default component$(() => {
                         y={p.y}
                         text-anchor="middle"
                         dominant-baseline="middle"
-                        class="fill-[#577184] font-[DM_Sans,'Segoe_UI',sans-serif] text-xs font-semibold dark:fill-[#93adbe]"
+                        class="fill-[#577184] font-[var(--font-body)] text-xs font-semibold dark:fill-[#93adbe]"
                       >
                       <title>{d.description}</title>
                       {d.short}
@@ -533,7 +533,7 @@ export default component$(() => {
 
         <section class="border-b-0 border-[#ccdae2] px-0 pb-12 pt-12 dark:border-[#274757]" id="methodology" aria-labelledby="v2-method-title">
           <div class="flex items-start justify-between gap-6">
-            <h2 id="v2-method-title" class="min-w-0 flex-[2_1_0%] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">How scoring works</h2>
+            <h2 id="v2-method-title" class="min-w-0 flex-[2_1_0%] font-[var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">How scoring works</h2>
             <p class="mt-3.5 min-w-0 max-w-none flex-[3_1_0%] text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
               Scores are normalized interpretations from 1 to 100 (higher is better), based on
               public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
@@ -562,7 +562,7 @@ export default component$(() => {
               </p>
             </article>
           </div>
-          <h3 class="my-6 font-[Outfit,Trebuchet_MS,sans-serif] text-xl font-medium tracking-tight">What each dimension measures</h3>
+          <h3 class="my-6 font-[var(--font-display)] text-xl font-medium tracking-tight">What each dimension measures</h3>
           <div class="grid grid-cols-3 gap-5 max-[800px]:grid-cols-2">
             {DIMENSIONS.map((d) => (
               <article class="flex min-h-0 flex-col border border-[#ccdae2] bg-[#f7fafb] px-5 py-4 dark:border-[#274757] dark:bg-[#132a3b]" key={d.key}>
@@ -578,7 +578,7 @@ export default component$(() => {
         <section class="px-0 pb-0 pt-12" id="models" aria-labelledby="v2-ratings-title">
           <div class="flex items-start justify-between gap-6">
             <div>
-              <h2 id="v2-ratings-title" class="font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">All models</h2>
+              <h2 id="v2-ratings-title" class="font-[var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">All models</h2>
               <p class="mt-3.5 max-w-sm text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
                 Every tracked model in the current results source ({activeSourceLabel}). Search to
                 find a model, or open its page for the full breakdown.
@@ -657,7 +657,7 @@ export default component$(() => {
                 {visibleModels.map((m) => (
                   <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
                     <div class="flex items-start justify-between gap-3">
-                      <h3 class="m-0 flex items-center gap-2.5 font-[Outfit,Trebuchet_MS,sans-serif] text-base font-semibold tracking-tight">
+                      <h3 class="m-0 flex items-center gap-2.5 font-[var(--font-display)] text-base font-semibold tracking-tight">
                         <VendorIcon id={m.id} name={m.name} />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
@@ -665,7 +665,7 @@ export default component$(() => {
                         class="shrink-0 text-right leading-none"
                         title="Overall score out of 100 — mean of the five quality dimensions"
                       >
-                        <strong class="font-[Outfit,Trebuchet_MS,sans-serif] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
+                        <strong class="font-[var(--font-display)] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
                         <span class="mt-1 block text-xs font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
                       </div>
                     </div>
@@ -713,7 +713,7 @@ export default component$(() => {
                       Cost {m.scores.cost}
                     </p>
                     <p class="mt-auto pt-3 text-xs font-semibold">
-                      <a href={`/model/${m.slug}/`} class="text-[#557ddd] hover:underline dark:text-[#7ba0ef]">Open full profile →</a>
+                      <a href={`/model/${m.slug}/`} class="text-[var(--color-primary)] hover:underline">Open full profile →</a>
                     </p>
                   </article>
                 ))}
@@ -932,7 +932,7 @@ export default component$(() => {
           <section class="border-b border-[#ccdae2] px-0 pb-20 pt-12 dark:border-[#274757]" aria-labelledby="v2-decision-title">
           <div class="flex items-start justify-between gap-6">
               <div>
-                <h2 id="v2-decision-title" class="font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">Decision models</h2>
+                <h2 id="v2-decision-title" class="font-[var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">Decision models</h2>
                 <p class="mt-3.5 max-w-sm text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
                   System-One models return typed judgments (choice, score, yes/no probability)
                   instead of generated text — for routing, triage, and guardrails inside agent
@@ -946,7 +946,7 @@ export default component$(() => {
               {decisionFiltered.map((m) => (
                 <article class="flex flex-col border border-[#ccdae2] border-t-2 border-t-[#dfab77] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:border-t-[#e8b47e] dark:bg-[#132a3b]" key={m.id}>
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="m-0 flex items-center gap-2.5 font-[Outfit,Trebuchet_MS,sans-serif] text-base font-semibold tracking-tight">
+                    <h3 class="m-0 flex items-center gap-2.5 font-[var(--font-display)] text-base font-semibold tracking-tight">
                       <VendorIcon id={m.id} name={m.name} />{" "}
                       <a href={`/model/${m.slug}/`}>{m.name}</a>
                     </h3>
@@ -968,7 +968,7 @@ export default component$(() => {
                     </div>
                   </dl>
                   <p class="mt-auto pt-3 text-xs font-semibold">
-                    <a href={`/model/${m.slug}/`} class="text-[#557ddd] hover:underline dark:text-[#7ba0ef]">Open full profile →</a>
+                    <a href={`/model/${m.slug}/`} class="text-[var(--color-primary)] hover:underline">Open full profile →</a>
                   </p>
                 </article>
               ))}
@@ -989,12 +989,6 @@ export const head: DocumentHead = {
       name: "description",
       content:
         "Compare AI coding models on tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from public benchmarks.",
-    },
-  ],
-  links: [
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap",
     },
   ],
 };

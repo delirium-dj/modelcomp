@@ -38,7 +38,7 @@ export const V2Footer = component$(() => {
           <p class="text-sm text-[#a8c2d0]">
             ModelComp <span aria-hidden="true">/</span> funding
           </p>
-          <h2 class="mt-10 font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(34px,4vw,56px)] font-medium leading-none tracking-tighter">
+          <h2 class="mt-10 font-[var(--font-display)] text-[clamp(34px,4vw,56px)] font-medium leading-none tracking-tighter">
             Independent research, funded by readers
           </h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed text-[#c6d9e3]">
