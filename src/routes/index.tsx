@@ -481,7 +481,7 @@ export default component$(() => {
                 </div>
                 <ul aria-label="Legend" class="mx-auto grid max-w-xs list-none gap-3 p-0 text-center text-xs">
                   {cmpModels.map((m, si) => (
-                    <li key={m.id} class="flex flex-wrap items-center justify-center gap-2">
+                    <li key={m.id} class="flex flex-nowrap items-center justify-center gap-2 whitespace-nowrap">
                       <span
                         aria-hidden="true"
                         class="h-3 w-3 flex-none rounded-full"
