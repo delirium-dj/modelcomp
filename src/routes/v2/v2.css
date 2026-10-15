@@ -419,9 +419,9 @@ p.v2-profile {
   font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.03em;
-  margin: 48px 0;
+  margin: 24px 0;
 }
-/* The tiles after the subhead add no margin of their own — the 32px above
+/* The tiles after the subhead add no margin of their own — the 24px above
    and below the subhead are then exactly equal, no collapse math involved. */
 .v2-subhead + .v2-tiles {
   margin-top: 0;
