@@ -295,16 +295,13 @@ export default component$(() => {
         </section>
 
         <section class="d6-section v2-flush-bottom" id="compare" aria-labelledby="v2-compare-title">
-          <div class="d6-section-intro d6-section-intro-row">
-            <div>
-              <h2 id="v2-compare-title">Compare models</h2>
-              <p>
-                Pick up to three models. Exact scores side by side, in the current results source
-                ({activeSourceLabel}). Decision models can't be picked here — their scores aren't
-                comparable; see the decision shelf below.
-              </p>
-            </div>
-            <span class="d6-count">3 slots</span>
+          <div class="d6-section-intro v2-compare-intro">
+            <h2 id="v2-compare-title">Compare models</h2>
+            <p>
+              Pick up to three models. Exact scores side by side, in the current results source
+              ({activeSourceLabel}). Decision models can't be picked here — their scores aren't
+              comparable; see the decision shelf below.
+            </p>
           </div>
           <div class="v2-slots">
             {[
@@ -442,7 +439,7 @@ export default component$(() => {
                     ))}
                   </select>
                 </label>
-                <p class="d6-instrument-note" style={{ marginTop: "8px" }}>
+                <p class="d6-instrument-note v2-source-note">
                   {source.value === "average" ? (
                     <span
                       title={

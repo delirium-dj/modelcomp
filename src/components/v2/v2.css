@@ -524,6 +524,44 @@ p.v2-profile {
   max-width: 100%;
 }
 
+/* Compare header: title 2/5, intro text 3/5 on one line (no count pill). */
+.d6 .v2-compare-intro {
+  display: flex;
+  gap: 25px;
+  align-items: start;
+}
+.d6 .v2-compare-intro > h2 {
+  flex: 2 1 0;
+  min-width: 0;
+}
+.d6 .v2-compare-intro > p {
+  flex: 3 1 0;
+  min-width: 0;
+  margin-top: 0;
+}
+
+@media (max-width: 799px) {
+  .d6 .v2-compare-intro {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Compare sidebar source block: label above the select, note tucked right
+   under it — label + select + note read as a single whole. */
+.v2-source-block .v2-source {
+  display: block;
+}
+.v2-source-block .v2-source select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+}
+.d6 .v2-source-note {
+  margin-top: 6px;
+  padding-top: 0;
+}
+
 /* Compare + list table name cells: icon and name with a wide gap. */
 .v2-model-cell {
   display: inline-flex;
