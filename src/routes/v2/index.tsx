@@ -656,16 +656,20 @@ export default component$(() => {
           ) : allModelsView.value === "cards" ? (
             <>
               <div class="v2-cards-grid">
-                {visibleModels.map((m, i) => (
+                {visibleModels.map((m) => (
                   <article class="v2-card" key={m.id}>
                     <div class="v2-card-head">
                       <h3 class="v2-card-name">
-                        #{i + 1} <VendorIcon id={m.id} name={m.name} />{" "}
+                        <VendorIcon id={m.id} name={m.name} />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
-                      <span class="d6-count" title="Overall score out of 100">
-                        {m.scores.overall}
-                      </span>
+                      <div
+                        class="v2-card-score"
+                        title="Overall score out of 100 — mean of the five quality dimensions"
+                      >
+                        <strong>{m.scores.overall}</strong>
+                        <span>Overall</span>
+                      </div>
                     </div>
                     <p class="v2-access">
                       {!m.meta.noFreeId ? (

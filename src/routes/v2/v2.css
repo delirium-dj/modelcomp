@@ -203,6 +203,9 @@
   gap: 12px;
 }
 .v2-card-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: "Outfit", "Trebuchet MS", sans-serif;
   font-size: 17px;
   font-weight: 600;
@@ -215,6 +218,26 @@
 }
 .v2-card-name a:hover {
   text-decoration: underline;
+}
+.v2-card-score {
+  text-align: right;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.v2-card-score strong {
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.v2-card-score span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--d6-muted);
+  letter-spacing: 0;
 }
 .v2-access {
   margin-top: 10px;
@@ -288,13 +311,11 @@
 /* Vendor icons sit inline beside names (v1 always wraps them in flex rows;
    Tailwind preflight makes bare svg display:block, which drops them above
    the name here). */
-.v2-card-name > span,
 .d6-table th > span,
 .v2-legend a > span {
   display: inline-flex;
   vertical-align: middle;
 }
-.v2-card-name > svg,
 .d6-table th > svg,
 .v2-legend a > svg {
   display: inline-block;
