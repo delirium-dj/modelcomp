@@ -285,27 +285,20 @@
   margin-top: 36px;
 }
 
-/* Vendor icons sit inline beside names (v1 wraps them in flex rows). */
-.v2-card-name > span {
-  display: inline-flex;
-  vertical-align: -2px;
-}
-.v2-card-name > svg {
-  vertical-align: -4px;
-}
-.d6-table th > span {
-  display: inline-flex;
-  vertical-align: -2px;
-}
-.d6-table th > svg {
-  vertical-align: -4px;
-}
+/* Vendor icons sit inline beside names (v1 always wraps them in flex rows;
+   Tailwind preflight makes bare svg display:block, which drops them above
+   the name here). */
+.v2-card-name > span,
+.d6-table th > span,
 .v2-legend a > span {
   display: inline-flex;
-  vertical-align: -2px;
+  vertical-align: middle;
 }
+.v2-card-name > svg,
+.d6-table th > svg,
 .v2-legend a > svg {
-  vertical-align: -4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Mobile sort pills for the list view (v1 has them; the table scrolls). */
