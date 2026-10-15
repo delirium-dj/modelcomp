@@ -13,6 +13,7 @@ import "../design-6sol/study.css";
 import "./v2.css";
 import { VendorIcon } from "../../components/VendorIcon";
 import { V2Footer } from "../../components/v2/V2Footer";
+import { V2Header } from "../../components/v2/V2Header";
 
 /**
  * /v2 — full-site redesign in the design-6sol language.
@@ -238,57 +239,8 @@ export default component$(() => {
 
   return (
     <main class={`d6 v2 d6-${theme.value}`} data-theme={theme.value} id="top">
+      <V2Header theme={theme} navBase="" />
       <div class="d6-shell">
-        <header class="d6-header">
-          <div class="d6-brand">
-            <svg viewBox="0 0 300 300" class="d6-brand-logo" role="presentation" aria-hidden="true">
-              <defs>
-                <linearGradient id="v2-logo-hex" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#6366f1" />
-                  <stop offset="100%" stop-color="#10b981" />
-                </linearGradient>
-                <radialGradient id="v2-logo-core" cx="0.5" cy="0.5" r="0.5">
-                  <stop offset="0%" stop-color="#c7d2fe" />
-                  <stop offset="100%" stop-color="#4f46e5" />
-                </radialGradient>
-              </defs>
-              <polygon
-                points="150,28 254,88 254,208 150,268 46,208 46,88"
-                fill="none"
-                stroke="url(#v2-logo-hex)"
-                stroke-width="15"
-                stroke-linejoin="round"
-              />
-              <circle cx="150" cy="148" r="45" fill="url(#v2-logo-core)" />
-            </svg>
-            <span>
-              ModelComp <span class="d6-brand-slash">/</span> Compare
-            </span>
-          </div>
-          <div class="d6-header-right">
-            <a href="/" class="d6-header-date">
-              ← Back to v1
-            </a>
-            <button
-              type="button"
-              class="d6-theme-toggle"
-              aria-pressed={theme.value === "dark"}
-              aria-label={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              title={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              onClick$={() => {
-                theme.value = theme.value === "dark" ? "light" : "dark";
-                try {
-                  localStorage.setItem("v2-theme", theme.value);
-                } catch {
-                  /* private mode — theme just doesn't persist */
-                }
-              }}
-            >
-              <span class="d6-theme-dot" aria-hidden="true" />
-              {theme.value === "dark" ? "Light" : "Dark"}
-            </button>
-          </div>
-        </header>
 
         <section aria-labelledby="v2-title">
           <div class="v2-hero-grid">
@@ -624,7 +576,7 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="d6-section d6-ratings v2-flush-top" aria-labelledby="v2-ratings-title">
+        <section class="d6-section d6-ratings v2-flush-top" id="v2-models" aria-labelledby="v2-ratings-title">
           <div class="d6-section-intro d6-section-intro-row">
             <div>
               <h2 id="v2-ratings-title">All models</h2>
