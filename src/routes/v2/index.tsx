@@ -473,8 +473,9 @@ export default component$(() => {
                 </svg>
               </div>
               <div>
-                <label class="v2-source">
-                  Results source{" "}
+                <div class="v2-source-block">
+                  <label class="v2-source">
+                    Results source{" "}
                   <select
                     aria-label="Results source"
                     value={source.value}
@@ -511,6 +512,7 @@ export default component$(() => {
                     </span>
                   )}
                 </p>
+                </div>
                 <ul aria-label="Legend" class="v2-legend">
                   {cmpModels.map((m, si) => (
                     <li key={m.id}>
@@ -533,11 +535,6 @@ export default component$(() => {
                     </li>
                   ))}
                 </ul>
-                <p class="d6-instrument-note" style={{ marginTop: "16px" }}>
-                  Axes are Tool, Reason, Context, Cost, Coding, Multi — 0–100 with emphasis on the
-                  top end (the outer half of each axis covers 75–100). Exact values are in the
-                  table below. Hover any dot for the underlying spec.
-                </p>
               </div>
             </div>
           )}

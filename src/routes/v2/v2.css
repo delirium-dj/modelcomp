@@ -354,6 +354,18 @@ p.v2-profile {
   font-weight: 700;
 }
 
+/* Compare sidebar source block: label + select + note as one centered
+   whole, mirroring v1's `mx-auto w-full max-w-xs text-center` wrapper. */
+.v2-source-block {
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+.v2-source-block .v2-source select {
+  max-width: 100%;
+}
+
 /* Compare + list table name cells: icon and name with a wide gap. */
 .v2-model-cell {
   display: inline-flex;
