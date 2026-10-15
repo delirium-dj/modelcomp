@@ -338,6 +338,13 @@
   margin-top: 36px;
 }
 
+/* Compare + list table name cells: icon and name with a wide gap. */
+.v2-model-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* Vendor icons sit inline beside names (v1 always wraps them in flex rows;
    Tailwind preflight makes bare svg display:block, which drops them above
    the name here). */

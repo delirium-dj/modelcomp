@@ -478,11 +478,12 @@ export default component$(() => {
                     <th scope="col">Dimension</th>
                     {cmpModels.map((m) => (
                       <th scope="col" key={m.id}>
-                        <VendorIcon id={m.id} name={m.name} />{" "}
-                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
-                          {m.name}
-                        </a>{" "}
-                        <span class="d6-rating-overall">{m.scores.overall}</span>
+                        <span class="v2-model-cell">
+                          <VendorIcon id={m.id} name={m.name} />
+                          <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                            {m.name}
+                          </a>
+                        </span>
                       </th>
                     ))}
                   </tr>
