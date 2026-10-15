@@ -497,10 +497,12 @@ export default component$(() => {
                       ))}
                     </tr>
                   ))}
-                  <tr>
-                    <th scope="row">Pricing / 1M</th>
+                  <tr class="v2-overall-row">
+                    <th scope="row">Overall Score</th>
                     {cmpModels.map((m) => (
-                      <td key={m.id}>{(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}</td>
+                      <td key={m.id} class="d6-rating-overall">
+                        {m.scores.overall}
+                      </td>
                     ))}
                   </tr>
                 </tbody>

@@ -338,6 +338,13 @@
   margin-top: 36px;
 }
 
+/* Compare table Overall row: larger type — the number that matters. */
+.v2-overall-row th,
+.v2-overall-row td {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 /* Compare + list table name cells: icon and name with a wide gap. */
 .v2-model-cell {
   display: inline-flex;
