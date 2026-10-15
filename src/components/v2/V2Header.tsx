@@ -104,7 +104,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               />
               <circle cx="150" cy="148" r="45" fill="url(#v2-header-core)" />
             </svg>
-            <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
+            <a href="/" class="v2-brand-link">
               ModelComp <span class="d6-brand-slash">/</span> v2
             </a>
           </div>

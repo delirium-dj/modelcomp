@@ -9,7 +9,6 @@ import {
 } from "../data/models";
 import { RATER_GATE } from "../data/sources.generated";
 import type { DimensionKey, ResultsView, SourceKey } from "../data/models";
-import "./design-6sol/study.css";
 import "../components/v2/v2.css";
 import { VendorIcon } from "../components/VendorIcon";
 import { V2Footer } from "../components/v2/V2Footer";
@@ -323,7 +322,6 @@ export default component$(() => {
                   onChange$={(_, el) => {
                     slot.value.value = el.value;
                   }}
-                  style={{ maxWidth: "100%" }}
                 >
                   <option value="">— empty —</option>
                   {cmpOptions.map((o) => (
@@ -337,7 +335,7 @@ export default component$(() => {
           </div>
           {cmpModels.length > 0 && (
             <div class="v2-compare-grid">
-              <div class="d6-instrument v2-radar-panel" aria-label="Comparison radar chart">
+              <div class="v2-radar-panel" aria-label="Comparison radar chart">
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
@@ -472,7 +470,7 @@ export default component$(() => {
                           backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
                       />
-                      <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
+                      <a href={`/model/${m.slug}/`}>
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
@@ -498,7 +496,7 @@ export default component$(() => {
                       <th scope="col" key={m.id}>
                         <span class="v2-model-cell">
                           <VendorIcon id={m.id} name={m.name} />
-                          <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                          <a href={`/model/${m.slug}/`}>
                             {m.name}
                           </a>
                         </span>
@@ -541,20 +539,20 @@ export default component$(() => {
           <div class="d6-evidence-grid v2-tiles">
             <article class="d6-evidence-item">
               <h3>Independently researched</h3>
-              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
+              <p>
                 Every benchmark number cites its source. Missing data is marked — never invented.
               </p>
             </article>
             <article class="d6-evidence-item">
               <h3>Averaged, not single-opinion</h3>
-              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
+              <p>
                 Each model's scores are the mean across independent reporting agents.
                 Evidence-free reports are quarantined and never counted.
               </p>
             </article>
             <article class="d6-evidence-item">
               <h3>Re-researched weekly</h3>
-              <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
+              <p>
                 Every report older than seven days is checked against fresh benchmarks, and scores
                 refresh whenever new verified evidence would change them.
               </p>
@@ -565,7 +563,7 @@ export default component$(() => {
             {DIMENSIONS.map((d) => (
               <article class="d6-evidence-item" key={d.key}>
                 <h3>{d.label}</h3>
-                <p style={{ marginTop: "12px", fontSize: "14px", lineHeight: 1.7 }}>
+                <p>
                   {d.description}
                 </p>
               </article>
@@ -639,12 +637,12 @@ export default component$(() => {
             </label>
           </div>
           {q !== "" && (
-            <p style={{ marginTop: "12px", fontSize: "13px", color: "var(--d6-muted)" }}>
+            <p class="v2-match">
               {filtered.length} of {generative.length} models
             </p>
           )}
           {filtered.length === 0 ? (
-            <p style={{ marginTop: "24px" }}>
+            <p class="v2-empty">
               No models match your search for the current results source. Try a different search or
               source.
             </p>
@@ -856,7 +854,7 @@ export default component$(() => {
                     <tr key={m.id}>
                       <th scope="row">
                         <VendorIcon id={m.id} name={m.name} />{" "}
-                        <a href={`/model/${m.slug}/`} style={{ color: "inherit" }}>
+                        <a href={`/model/${m.slug}/`}>
                           {m.name}
                         </a>
                       </th>
