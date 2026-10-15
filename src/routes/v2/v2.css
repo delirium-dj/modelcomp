@@ -85,6 +85,10 @@
 .v2-slots span {
   flex: 1;
 }
+.v2-slots .v2-legend-dot {
+  flex: none;
+  align-self: center;
+}
 .v2-slots select {
   font: inherit;
   font-size: 13px;

@@ -325,8 +325,14 @@ export default component$(() => {
               { label: "Model A", value: cmpA },
               { label: "Model B", value: cmpB },
               { label: "Model C", value: cmpC },
-            ].map((slot) => (
+            ].map((slot, si) => (
               <div key={slot.label}>
+                <span
+                  aria-hidden="true"
+                  class="v2-legend-dot"
+                  title={`${slot.label} plots in this color`}
+                  style={{ backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length] }}
+                />
                 <span>{slot.label}</span>
                 <select
                   aria-label={slot.label}
