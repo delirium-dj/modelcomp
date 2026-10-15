@@ -21,7 +21,6 @@ import { VendorIcon } from "../../components/VendorIcon";
 
 type SortKey = DimensionKey | "overall" | "name";
 
-const qualityKeys: DimensionKey[] = ["context", "coding", "reasoning", "tool", "multimodal"];
 const tableKeys: DimensionKey[] = ["tool", "reasoning", "context", "coding", "multimodal", "cost"];
 const names: Record<DimensionKey, string> = {
   tool: "Tool use",
@@ -197,9 +196,6 @@ export default component$(() => {
     return <main class="d6 d6-missing">No models in the current dataset.</main>;
   }
 
-  const highest = qualityKeys.reduce((best, key) =>
-    top.scores[key] > top.scores[best] ? key : best,
-  );
   const orderedScoreCols: ("overall" | DimensionKey)[] = ["overall", ...tableKeys];
 
   return (
@@ -519,30 +515,6 @@ export default component$(() => {
               public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
               Cost efficiency is scored separately and never counts toward Overall.
             </p>
-          </div>
-          <div class="d6-reading-grid" style={{ marginTop: "36px" }}>
-            <article class="d6-reading-item">
-              <span class="d6-reading-marker d6-reading-marker-blue" aria-hidden="true" />
-              <div>
-                <h3>Where {top.name} stands out</h3>
-                <p>
-                  {names[highest]} is its highest-rated dimension at{" "}
-                  <strong>{top.scores[highest]}/100</strong>. Switch the results source below to see
-                  the average or any individual reviewer's ratings.
-                </p>
-              </div>
-            </article>
-            <article class="d6-reading-item">
-              <span class="d6-reading-marker d6-reading-marker-orange" aria-hidden="true" />
-              <div>
-                <h3>The trade-off</h3>
-                <p>
-                  Cost efficiency scores <strong>{top.scores.cost}/100</strong>. This is a separate
-                  measure: it does not lower the {top.scores.overall} overall quality score. Check
-                  pricing before choosing a model for high-volume work.
-                </p>
-              </div>
-            </article>
           </div>
           <div class="d6-more-grid" style={{ marginTop: "36px" }}>
             <div>
