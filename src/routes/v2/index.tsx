@@ -349,14 +349,6 @@ export default component$(() => {
           {cmpModels.length > 0 && (
             <div class="v2-compare-grid">
               <div class="d6-instrument" aria-label="Comparison radar chart">
-                <div class="d6-instrument-top">
-                  <span>
-                    Radar —{" "}
-                    {cmpModels.length > 0
-                      ? cmpModels.map((m) => m.name).join(", ")
-                      : "no models selected"}
-                  </span>
-                </div>
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
