@@ -257,13 +257,13 @@ export default component$(() => {
 
   return (
     <main
-      class={`min-h-screen font-[family-name:var(--font-body)] text-sm leading-normal antialiased ${theme.value === "dark" ? "dark bg-[#0e1e2a] text-[#e8f1f6]" : "bg-[#ecf3f6] text-[#19384d]"}`}
+      class={`min-h-screen font-[family-name:var(--font-body)] text-sm leading-normal antialiased bg-[color:var(--color-page)] text-[color:var(--color-ink)]${theme.value === "dark" ? " dark" : ""}`}
       id="top"
     >
       <V2Header theme={theme} navBase="" />
       <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4">
 
-        <section class="-mx-10 bg-[#e2edf2] px-10 text-[#19384d] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
+        <section class="-mx-10 bg-[#e2edf2] px-10 text-[color:var(--color-ink)] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
           <div class="grid grid-cols-1 items-center gap-8 pb-12 pt-16 min-[1000px]:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
             <div>
               <h1 id="v2-title" class="font-[family-name:var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
@@ -277,7 +277,7 @@ export default component$(() => {
                 <a href="/#compare" class="inline-block rounded-lg bg-[#19384d] px-5 py-3 text-sm font-bold text-[#ecf3f6] hover:underline dark:bg-[#f3f8fa] dark:text-[#0a1822]">
                   Compare models
                 </a>
-                <a href="/#methodology" class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[rgba(243,248,250,0.4)] dark:text-[#f3f8fa] dark:hover:border-[#f3f8fa]">
+                <a href="/#methodology" class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[color:var(--color-ink)] hover:border-[color:var(--color-ink)] dark:border-[rgba(243,248,250,0.4)] dark:text-[#f3f8fa] dark:hover:border-[#f3f8fa]">
                   How scoring works
                 </a>
               </div>
@@ -340,11 +340,11 @@ export default component$(() => {
                   onChange$={(_, el) => {
                     slot.value.value = el.value;
                   }}
-                  class="max-w-full rounded-lg border border-[#ccdae2] bg-[#ecf3f6] px-2 py-1.5 text-xs text-[#19384d] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
+                  class="max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-xs text-[color:var(--color-ink)] dark:border-[#274757]"
                 >
-                  <option value="" class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">— empty —</option>
+                  <option value="" class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">— empty —</option>
                   {cmpOptions.map((o) => (
-                    <option key={o.id} value={o.id} selected={o.id === slot.value.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
+                    <option key={o.id} value={o.id} selected={o.id === slot.value.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
                       {o.name}
                     </option>
                   ))}
@@ -409,7 +409,7 @@ export default component$(() => {
                         cx={p.x}
                         cy={p.y}
                         r={4.5}
-                        class="stroke-[#ecf3f6] [stroke-width:1.5] dark:stroke-[#0e1e2a]"
+                        class="stroke-[color:var(--color-page)] [stroke-width:1.5]"
                         style={{
                           fill: SERIES_COLORS[si % SERIES_COLORS.length],
                         }}
@@ -447,10 +447,10 @@ export default component$(() => {
                     onChange$={(_, el) => {
                       handleSourceChange$(el.value);
                     }}
-                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[#ecf3f6] px-2 py-1.5 text-center text-xs text-[#19384d] [text-align-last:center] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
+                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
                   >
                     {SOURCES.map((s) => (
-                      <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
+                      <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
                         {s.label}
                       </option>
                     ))}
@@ -528,7 +528,7 @@ export default component$(() => {
                     <tr key={k} class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
                       <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-medium text-[#496779] dark:border-b-[#274757] dark:text-[#a9c2d2]">{names[k]}</th>
                       {cmpModels.map((m) => (
-                        <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]">{m.scores[k]}</td>
+                        <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[color:var(--color-ink)] max-[640px]:w-[10.98%] dark:border-b-[#274757]">{m.scores[k]}</td>
                       ))}
                     </tr>
                   ))}
@@ -604,7 +604,7 @@ export default component$(() => {
               <div class="inline-flex gap-0.5 rounded-full border border-[#ccdae2] p-0.5 dark:border-[#274757]" role="group" aria-label="All models display">
                 <button
                   type="button"
-                  class={allModelsView.value === "cards" ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
+                  class={allModelsView.value === "cards" ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]"}
                   aria-pressed={allModelsView.value === "cards"}
                   onClick$={() => {
                     allModelsView.value = "cards";
@@ -614,7 +614,7 @@ export default component$(() => {
                 </button>
                 <button
                   type="button"
-                  class={allModelsView.value === "list" ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
+                  class={allModelsView.value === "list" ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]"}
                   aria-pressed={allModelsView.value === "list"}
                   onClick$={() => {
                     allModelsView.value = "list";
@@ -636,7 +636,7 @@ export default component$(() => {
                 query.value = el.value;
                 displayCount.value = PAGE_SIZE;
               }}
-              class="min-w-56 max-w-sm flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-xs text-[#19384d] placeholder:text-[#577184] dark:border-[#274757] dark:text-[#e8f1f6] dark:placeholder:text-[#93adbe]"
+              class="min-w-56 max-w-sm flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-xs text-[color:var(--color-ink)] placeholder:text-[#577184] dark:border-[#274757] dark:placeholder:text-[#93adbe]"
             />
             <label class="text-xs text-[#577184] dark:text-[#93adbe]">
               Results source{" "}
@@ -646,10 +646,10 @@ export default component$(() => {
                 onChange$={(_, el) => {
                   handleSourceChange$(el.value);
                 }}
-                class="max-w-64 rounded-lg border border-[#ccdae2] bg-[#ecf3f6] px-2 py-1.5 text-center text-xs text-[#19384d] [text-align-last:center] dark:border-[#274757] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]"
+                class="max-w-64 rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
               >
                 {SOURCES.map((s) => (
-                  <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[#ecf3f6] text-[#19384d] dark:bg-[#0e1e2a] dark:text-[#e8f1f6]">
+                  <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
                     {s.label}
                   </option>
                 ))}
@@ -746,7 +746,7 @@ export default component$(() => {
                   </button>
                   <button
                     type="button"
-                    class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+                    class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[color:var(--color-ink)] hover:border-[color:var(--color-ink)] dark:border-[#274757]"
                     onClick$={() => {
                       displayCount.value = filtered.length;
                     }}
@@ -764,7 +764,7 @@ export default component$(() => {
                     key={key}
                     type="button"
                     aria-pressed={sortKey.value === key}
-                    class={sortKey.value === key ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]"}
+                    class={sortKey.value === key ? "whitespace-nowrap rounded-full bg-[#19384d] px-3.5 py-1.5 text-xs font-semibold text-[#ecf3f6] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]" : "whitespace-nowrap rounded-full bg-transparent px-3.5 py-1.5 text-xs font-semibold text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]"}
                     onClick$={() => {
                       if (sortKey.value === key)
                         sortDirection.value = sortDirection.value === -1 ? 1 : -1;
@@ -895,13 +895,13 @@ export default component$(() => {
                                   ? `Context window: ${m.meta.contextWindow}`
                                   : undefined
                             }
-                            class={`break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]${key === "overall" ? " font-bold text-[#275bad] dark:text-[#9dbdf5]" : ""}${hlClass(key, value)}`}
+                            class={`break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[color:var(--color-ink)] max-[640px]:w-[10.98%] dark:border-b-[#274757]${key === "overall" ? " font-bold text-[#275bad] dark:text-[#9dbdf5]" : ""}${hlClass(key, value)}`}
                           >
                             {value}
                           </td>
                         );
                       })}
-                      <td title="Newest report date across this model's findings files" class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[#19384d] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#e8f1f6]">
+                      <td title="Newest report date across this model's findings files" class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[color:var(--color-ink)] max-[640px]:w-[10.98%] dark:border-b-[#274757]">
                         {m.verified ?? "—"}
                       </td>
                     </tr>
@@ -926,7 +926,7 @@ export default component$(() => {
                 </button>
                 <button
                   type="button"
-                  class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+                  class="inline-block rounded-lg border border-[#ccdae2] bg-transparent px-5 py-3 text-sm font-bold text-[color:var(--color-ink)] hover:border-[color:var(--color-ink)] dark:border-[#274757]"
                   onClick$={() => {
                     displayCount.value = sorted.length;
                   }}

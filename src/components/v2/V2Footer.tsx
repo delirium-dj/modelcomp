@@ -49,7 +49,7 @@ export const V2Footer = component$(() => {
             that way — they fund compute and research time, never rankings.
           </p>
         </div>
-        <div class="bg-[#eff5f8] p-[clamp(22px,2.6vw,36px)] text-[#19384d] dark:bg-[#132a3b] dark:text-[#e8f1f6]">
+        <div class="bg-[#eff5f8] p-[clamp(22px,2.6vw,36px)] text-[color:var(--color-ink)] dark:bg-[#132a3b]">
           <div class="grid gap-px border border-[#ccdae2] bg-[#ccdae2] dark:border-[#274757] dark:bg-[#274757]">
             {TIERS.map((tier) => (
               <a
@@ -61,7 +61,7 @@ export const V2Footer = component$(() => {
                 class={
                   tier.primary
                     ? "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#17384d] px-4 py-4 text-[#f3f8fa] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
-                    : "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#f7fafb] px-4 py-4 text-[#19384d] hover:bg-white dark:bg-[#173a52] dark:text-[#e8f1f6] dark:hover:bg-[#1d4761]"
+                    : "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#f7fafb] px-4 py-4 text-[color:var(--color-ink)] hover:bg-white dark:bg-[#173a52] dark:hover:bg-[#1d4761]"
                 }
               >
                 <span class="font-semibold">
@@ -82,7 +82,7 @@ export const V2Footer = component$(() => {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center rounded-full border border-[#ccdae2] px-3.5 py-1.5 text-xs font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+                  class="inline-flex items-center rounded-full border border-[#ccdae2] px-3.5 py-1.5 text-xs font-semibold text-[color:var(--color-ink)] hover:border-[color:var(--color-ink)] dark:border-[#274757]"
                 >
                   {l.label}
                 </a>

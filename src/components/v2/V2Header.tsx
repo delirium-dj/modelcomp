@@ -61,7 +61,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
   return (
     <>
       <header
-        class={`sticky top-0 z-50 border-b border-[#ccdae2] bg-[#ecf3f6] transition-transform duration-300 will-change-transform dark:border-[#274757] dark:bg-[#0e1e2a]${isVisible.value ? "" : " -translate-y-full min-[800px]:translate-y-0"}`}
+        class={`sticky top-0 z-50 border-b border-[#ccdae2] bg-[color:var(--color-page)] transition-transform duration-300 will-change-transform dark:border-[#274757]${isVisible.value ? "" : " -translate-y-full min-[800px]:translate-y-0"}`}
       >
         <div class="mx-auto grid min-h-14 max-w-[1480px] grid-cols-[1fr_auto_1fr] items-center gap-5 px-10 max-[800px]:px-5 max-[520px]:px-4">
           <div class="justify-self-start">
@@ -148,15 +148,15 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
 
           <div class="flex items-center justify-self-end">
             <nav aria-label="Primary" class="hidden items-center gap-5 text-sm font-semibold min-[800px]:inline-flex">
-              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#compare`}>Compare</a>
-              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#methodology`}>Scoring</a>
-              <a class="text-[#577184] hover:text-[#19384d] dark:text-[#93adbe] dark:hover:text-[#e8f1f6]" href={`${navBase}#models`}>Models</a>
+              <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#compare`}>Compare</a>
+              <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#methodology`}>Scoring</a>
+              <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#models`}>Models</a>
             </nav>
             <button
               type="button"
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen.value}
-              class="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#ccdae2] bg-transparent px-2.5 py-1.5 text-[#19384d] hover:border-[#19384d] min-[800px]:hidden dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+              class="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#ccdae2] bg-transparent px-2.5 py-1.5 text-[color:var(--color-ink)] hover:border-[color:var(--color-ink)] min-[800px]:hidden dark:border-[#274757]"
               onClick$={() => {
                 isMenuOpen.value = !isMenuOpen.value;
               }}
@@ -190,10 +190,10 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
       </header>
 
       {isMenuOpen.value && (
-        <div class="fixed inset-0 z-40 flex min-[800px]:hidden flex-col items-center justify-center bg-[#ecf3f6] px-6 pb-6 pt-20 dark:bg-[#0e1e2a]" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+        <div class="fixed inset-0 z-40 flex min-[800px]:hidden flex-col items-center justify-center bg-[color:var(--color-page)] px-6 pb-6 pt-20" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
           <nav class="flex flex-col items-center gap-10 text-center font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight" aria-label="Mobile">
             <a
-              class="px-6 py-3 text-[#19384d] hover:text-[color:var(--color-primary)] dark:text-[#e8f1f6]"
+              class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"
               href={`${navBase}#compare`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -202,7 +202,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Compare
             </a>
             <a
-              class="px-6 py-3 text-[#19384d] hover:text-[color:var(--color-primary)] dark:text-[#e8f1f6]"
+              class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"
               href={`${navBase}#methodology`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -211,7 +211,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Scoring
             </a>
             <a
-              class="px-6 py-3 text-[#19384d] hover:text-[color:var(--color-primary)] dark:text-[#e8f1f6]"
+              class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"
               href={`${navBase}#models`}
               onClick$={() => {
                 isMenuOpen.value = false;
@@ -220,7 +220,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               Models
             </a>
             <a
-              class="px-6 py-3 text-[#19384d] hover:text-[color:var(--color-primary)] dark:text-[#e8f1f6]"
+              class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"
               href="/contact/"
               onClick$={() => {
                 isMenuOpen.value = false;

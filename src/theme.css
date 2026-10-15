@@ -98,4 +98,20 @@
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/dm-sans/dm-sans-600.woff2") format("woff2"); }
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/dm-sans/dm-sans-700.woff2") format("woff2"); }
 
+/* ── ONE-LINE SETTINGS (edit these six lines, nothing else) ─────────── */
+:root {
+  --font-body: "Ubuntu", "Segoe UI", sans-serif;
+  --font-display: "Ubuntu", "Segoe UI", sans-serif;
+  --color-page: #ecf3f6;
+  --color-ink: #19384d;
+  --color-primary: #557ddd;
+}
+/* Dark theme reads the same variables from .dark (v2 toggles .dark on the
+   page root; v1 toggles it on <html> — both are covered). */
+.dark {
+  --color-page: #0e1e2a;
+  --color-ink: #e8f1f6;
+  --color-primary: #7ba0ef;
+}
+
 
