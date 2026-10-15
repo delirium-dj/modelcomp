@@ -21,8 +21,8 @@
 
    /* ── ONE-LINE SETTINGS (edit these four lines, nothing else) ─────────── */
 :root {
-  --font-body: "Inter", "Segoe UI", sans-serif;
-  --font-display: "Inter", "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --color-primary: #557ddd;
 }
 /* Dark theme reads the same variables from .dark (v2 toggles .dark on the

@@ -61,6 +61,7 @@
 84.6 Inkling
 84.5 grok-4.5
 84.4 seed-2.0-pro
+84.2 step-5-preview
 84.1 gpt-5.3-codex
 84 gemini-2.5-pro
 84 mistral-large-4
@@ -68,10 +69,9 @@
 83.9 deepseek-v4-pro
 83.9 gpt-5.6-luna
 83.8 grok-4.3
-83.6 step-5-preview
 83.3 gpt-5
 83.2 gpt-5.1
-82.5 gemini-3.5-flash-lite
+82.6 gemini-3.5-flash-lite
 82.5 qwen-3.7-max
 82.4 claude-haiku-5.5
 82.4 claude-opus-4.5
