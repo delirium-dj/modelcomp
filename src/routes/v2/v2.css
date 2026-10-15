@@ -110,12 +110,10 @@
   margin: 0 auto;
   display: block;
 }
-/* Compare radar panel: no vertical padding/margin — hexagon edge to edge. */
+/* Compare radar panel: zero padding/margin on all sides — hexagon edge to edge. */
 .v2-radar-panel {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 .v2-legend {
   display: grid;
