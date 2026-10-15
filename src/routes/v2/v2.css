@@ -122,10 +122,15 @@ p.v2-hero-sub {
 .v2-legend {
   display: grid;
   gap: 12px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  max-width: 20rem;
   list-style: none;
   font-size: 13px;
+  text-align: center;
+}
+.v2-legend li {
+  justify-content: center;
 }
 .v2-legend li {
   display: flex;
