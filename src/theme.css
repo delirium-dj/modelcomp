@@ -98,6 +98,20 @@
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/dm-sans/dm-sans-600.woff2") format("woff2"); }
 @font-face { font-family: "DM Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/dm-sans/dm-sans-700.woff2") format("woff2"); }
 
+/* ── Tailwind palette cheat-sheet (paste the HEX, not the name) ──────
+   A variable must hold a real CSS color — `--color-page: slate-900` is
+   invalid and silently falls back. Copy the hex of the step you want:
+   slate:  50 #f8fafc · 100 #f1f5f9 · 200 #e2e8f0 · 300 #cbd5e1 ·
+           400 #94a3b8 · 500 #64748b · 600 #475569 · 700 #334155 ·
+           800 #1e293b · 900 #0f172a · 950 #020617
+   gray:   500 #6b7280 · 800 #1f2937 · 900 #111827
+   red:    500 #ef4444 · 600 #dc2626 · 700 #b91c1c
+   amber:  400 #fbbf24 · 500 #f59e0b
+   emerald: 500 #10b981 · 600 #059669
+   blue:   500 #3b82f6 · 600 #2563eb · 700 #1d4ed8
+   indigo: 500 #6366f1 · 600 #4f46e5
+   Full scales: https://tailwindcss.com/docs/customizing-colors ───────── */
+
 /* ── ONE-LINE SETTINGS (edit these six lines, nothing else) ─────────── */
 :root {
   --font-body: "Ubuntu", "Segoe UI", sans-serif;
