@@ -150,7 +150,24 @@
   }
 }
 
-/* All-models toolbar: search + results source, mirrors v1 ModelCards row. */
+/* Native widgets (select popups, scrollbars) follow color-scheme, not page
+   colors — declare it per theme so the Model A/B/C popups match. */
+.v2 {
+  color-scheme: light;
+}
+.v2.d6-dark {
+  color-scheme: dark;
+}
+.v2-slots select,
+.v2-source select {
+  background-color: var(--d6-page);
+  color: var(--d6-ink);
+}
+.v2-slots option,
+.v2-source option {
+  background-color: var(--d6-page);
+  color: var(--d6-ink);
+}
 .v2-toolbar {
   display: flex;
   flex-wrap: wrap;

@@ -203,7 +203,7 @@ export default component$(() => {
   const orderedScoreCols: ("overall" | DimensionKey)[] = ["overall", ...tableKeys];
 
   return (
-    <main class={`d6 d6-${theme.value}`} data-theme={theme.value} id="top">
+    <main class={`d6 v2 d6-${theme.value}`} data-theme={theme.value} id="top">
       <div class="d6-shell">
         <header class="d6-header">
           <div class="d6-brand">
