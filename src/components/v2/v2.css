@@ -519,7 +519,7 @@ p.v2-profile {
 .v2-source-block {
   width: 100%;
   max-width: 20rem;
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
   text-align: center;
 }
 .v2-source-block .v2-source select {
