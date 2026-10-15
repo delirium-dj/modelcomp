@@ -27,7 +27,7 @@
 .v2-hero-grid h1 span {
   color: var(--d6-blue);
 }
-.v2-hero-sub {
+p.v2-hero-sub {
   margin-top: 16px;
   max-width: 560px;
   color: var(--d6-muted);
@@ -265,7 +265,7 @@
   color: var(--d6-muted);
   letter-spacing: 0;
 }
-.v2-access {
+p.v2-access {
   margin-top: 10px;
   font-size: 12px;
   font-weight: 700;
@@ -276,7 +276,7 @@
 .v2-paid {
   color: #b26a1b;
 }
-.v2-card-short {
+p.v2-card-short {
   margin-top: 10px;
   font-size: 14px;
   line-height: 1.65;
@@ -306,7 +306,7 @@
   color: var(--d6-muted);
   overflow-wrap: anywhere;
 }
-.v2-dims {
+p.v2-dims {
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px solid var(--d6-line);
@@ -314,7 +314,7 @@
   color: var(--d6-muted);
   line-height: 1.7;
 }
-.v2-profile {
+p.v2-profile {
   margin-top: auto;
   padding-top: 12px;
   font-size: 13px;
@@ -412,7 +412,9 @@
 }
 
 /* Methodology subheading between the principle cards and dimension tiles. */
-.v2-subhead {
+/* Specificity note: the study zeroes all h3 margins (.d6 h3, 0,1,1), so this
+   needs .d6 scope (0,2,0) to win regardless of stylesheet order. */
+.d6 .v2-subhead {
   font-family: "Outfit", "Trebuchet MS", sans-serif;
   font-size: 21px;
   font-weight: 500;
