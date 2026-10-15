@@ -111,7 +111,7 @@ p.v2-hero-sub {
   width: 100%;
   max-width: 480px;
   height: auto;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   display: block;
 }
 /* Compare radar panel: zero padding/margin on all sides — hexagon edge to edge. */
