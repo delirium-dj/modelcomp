@@ -542,6 +542,7 @@ p.v2-profile {
 .d6 .v2-compare-intro > p {
   flex: 3 1 0;
   min-width: 0;
+  max-width: none;
   margin-top: 0;
 }
 
