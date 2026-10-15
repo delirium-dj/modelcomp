@@ -154,6 +154,16 @@ p.v2-hero-sub {
   }
 }
 
+/* Seamless joint between Compare and Methodology: no divider line,
+   tighter gap on both sides. */
+.d6-section.v2-flush-bottom {
+  border-bottom: 0;
+  padding-bottom: 48px;
+}
+.d6-section.v2-flush-top {
+  padding-top: 48px;
+}
+
 /* Native widgets (select popups, scrollbars) follow color-scheme, not page
    colors — declare it per theme so the Model A/B/C popups match. */
 .v2 {

@@ -304,7 +304,7 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="d6-section" id="v2-compare" aria-labelledby="v2-compare-title">
+        <section class="d6-section v2-flush-bottom" id="v2-compare" aria-labelledby="v2-compare-title">
           <div class="d6-section-intro d6-section-intro-row">
             <div>
               <h2 id="v2-compare-title">Compare models</h2>
@@ -507,7 +507,7 @@ export default component$(() => {
           )}
         </section>
 
-        <section class="d6-section" id="v2-method" aria-labelledby="v2-method-title">
+        <section class="d6-section v2-flush-top" id="v2-method" aria-labelledby="v2-method-title">
           <div class="d6-section-intro d6-section-intro-row v2-method-intro">
             <h2 id="v2-method-title">How scoring works</h2>
             <p>
