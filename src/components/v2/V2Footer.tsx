@@ -32,19 +32,19 @@ const EXTRA_DONATE_LINKS = [
 
 export const V2Footer = component$(() => {
   return (
-    <footer class="mx-[-40px] bg-[#173c53] px-10 pb-[42px] pt-[clamp(56px,7vw,92px)] text-[#f3f8fa] max-[800px]:mx-[-22px] max-[800px]:px-[22px] max-[520px]:mx-[-16px] max-[520px]:px-4 dark:bg-[#0a1822]">
+    <footer class="-mx-10 bg-[#173c53] px-10 pb-10 pt-[clamp(56px,7vw,92px)] text-[#f3f8fa] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822]">
       <div class="grid items-start gap-[5%] min-[800px]:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         <div>
           <p class="text-sm text-[#a8c2d0]">
             ModelComp <span aria-hidden="true">/</span> funding
           </p>
-          <h2 class="mt-[42px] font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(34px,4vw,56px)] font-medium leading-[1.04] tracking-[-0.045em]">
+          <h2 class="mt-10 font-[Outfit,Trebuchet_MS,sans-serif] text-[clamp(34px,4vw,56px)] font-medium leading-none tracking-tighter">
             Independent research, funded by readers
           </h2>
-          <p class="mt-[18px] max-w-[470px] text-[15px] leading-[1.7] text-[#c6d9e3]">
+          <p class="mt-4 max-w-md text-sm leading-relaxed text-[#c6d9e3]">
             <strong class="text-[#f3f8fa]">100% independent — no paid promotions, no vendor funding influences scores.</strong>
           </p>
-          <p class="mt-[18px] max-w-[470px] text-[15px] leading-[1.7] text-[#c6d9e3]">
+          <p class="mt-4 max-w-md text-sm leading-relaxed text-[#c6d9e3]">
             Every findings file is researched independently from public benchmarks. Donations keep it
             that way — they fund compute and research time, never rankings.
           </p>
@@ -60,8 +60,8 @@ export const V2Footer = component$(() => {
                 title={tier.detail}
                 class={
                   tier.primary
-                    ? "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#17384d] px-[18px] py-[15px] text-[#f3f8fa] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
-                    : "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#f7fafb] px-[18px] py-[15px] text-[#19384d] hover:bg-white dark:bg-[#173a52] dark:text-[#e8f1f6] dark:hover:bg-[#1d4761]"
+                    ? "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#17384d] px-4 py-4 text-[#f3f8fa] dark:bg-[#e8f1f6] dark:text-[#0e1e2a]"
+                    : "flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1 bg-[#f7fafb] px-4 py-4 text-[#19384d] hover:bg-white dark:bg-[#173a52] dark:text-[#e8f1f6] dark:hover:bg-[#1d4761]"
                 }
               >
                 <span class="font-semibold">
@@ -74,7 +74,7 @@ export const V2Footer = component$(() => {
             ))}
           </div>
           <p class="mt-6 text-xs text-[#577184] dark:text-[#93adbe]">Also via:</p>
-          <div class="mt-3 flex flex-wrap gap-[10px]">
+          <div class="mt-3 flex flex-wrap gap-2.5">
             {EXTRA_DONATE_LINKS.map((l) =>
               l.href ? (
                 <a
@@ -82,12 +82,12 @@ export const V2Footer = component$(() => {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center rounded-full border border-[#ccdae2] px-[14px] py-[6px] text-xs font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
+                  class="inline-flex items-center rounded-full border border-[#ccdae2] px-3.5 py-1.5 text-xs font-semibold text-[#19384d] hover:border-[#19384d] dark:border-[#274757] dark:text-[#e8f1f6] dark:hover:border-[#e8f1f6]"
                 >
                   {l.label}
                 </a>
               ) : (
-                <span key={l.label} title="Coming soon — link not configured yet" class="inline-flex cursor-not-allowed items-center rounded-full border border-dashed border-[#b7cad6] px-[14px] py-[6px] text-xs font-medium text-[#577184] dark:border-[#3a5a6e] dark:text-[#93adbe]">
+                <span key={l.label} title="Coming soon — link not configured yet" class="inline-flex cursor-not-allowed items-center rounded-full border border-dashed border-[#b7cad6] px-3.5 py-1.5 text-xs font-medium text-[#577184] dark:border-[#3a5a6e] dark:text-[#93adbe]">
                   {l.label} · soon
                 </span>
               ),
@@ -95,7 +95,7 @@ export const V2Footer = component$(() => {
           </div>
         </div>
       </div>
-      <div class="mt-[clamp(38px,4.6vw,58px)] flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-[26px]">
+      <div class="mt-[clamp(38px,4.6vw,58px)] flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-6">
         <span class="text-xs text-[#a8c2d0]">Research backer</span>
         {RESEARCH_BACKERS.map((backer) => (
           <a
@@ -104,21 +104,21 @@ export const V2Footer = component$(() => {
             target="_blank"
             rel="sponsored noopener noreferrer"
             title={`${backer.name} — Research backer (logo placement thanks, never influences scores)`}
-            class="inline-flex items-center gap-[10px] text-base font-semibold text-[#f3f8fa] hover:underline"
+            class="inline-flex items-center gap-2.5 text-base font-semibold text-[#f3f8fa] hover:underline"
           >
             <img src={backer.imgSrc} alt={backer.alt} width={32} height={32} loading="lazy" class="h-8 w-8 object-contain" />
             {backer.name}
           </a>
         ))}
       </div>
-      <div class="mt-8 grid gap-x-11 gap-y-[6px] text-xs leading-[1.6] text-[#a9c2d2] min-[800px]:grid-cols-2">
+      <div class="mt-8 grid gap-x-11 gap-y-1.5 text-xs leading-relaxed text-[#a9c2d2] min-[800px]:grid-cols-2">
         <p>
           Data syncs from per-model research files on every build. Scores are normalized
           interpretations, not official vendor scores.
         </p>
         <p>Independent AI model comparisons, no sponsored rankings.</p>
       </div>
-      <div class="mt-[26px] flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-[22px] text-xs text-[#a8c2d0] max-[520px]:flex-col max-[520px]:items-start">
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-[rgba(243,248,250,0.16)] pt-5 text-xs text-[#a8c2d0] max-[520px]:flex-col max-[520px]:items-start">
         <span>© 2026 ModelComp</span>
         <span>
           <a href="/" class="font-semibold text-[#f3f8fa] hover:underline">All models</a> · <a href="/contact/" class="font-semibold text-[#f3f8fa] hover:underline">Contact</a>
