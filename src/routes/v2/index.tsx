@@ -38,16 +38,13 @@ const colNames: Record<DimensionKey, string> = {
   cost: "Cost",
 };
 
-const hexKeys: DimensionKey[] = ["tool", "reasoning", "context", "cost", "coding", "multimodal"];
 const HEX_CX = 200;
-const HEX_CY = 172;
-const HEX_MAX_R = 108;
-const HEX_LABEL_R = 148;
+const HEX_CY = 200;
+const HEX_MAX_R = 130;
+const HEX_LABEL_R = 168;
 const HEX_GAMMA = Math.LN2 / Math.log(100 / 75);
-function barWidth(value: number): string {
-  const clamped = Math.max(0, Math.min(100, value));
-  return `${(Math.pow(clamped / 100, HEX_GAMMA) * 100).toFixed(1)}%`;
-}
+// A/B/C series colors — same as the original compare page (models.ts MODEL_COLORS).
+const SERIES_COLORS = ["#4f46e5", "#059669", "#d97706"];
 function hexPoint(value: number, index: number, maxR = HEX_MAX_R): { x: number; y: number } {
   const angle = ((-90 + index * 60) * Math.PI) / 180;
   const clamped = Math.max(0, Math.min(100, value));
@@ -63,6 +60,16 @@ function hexPolygon(value: number): string {
   return pts.join(" ");
 }
 
+/** Rich per-dot tooltip, same logic as the original HexRadar. */
+function tooltipFor(m: (typeof MODELS)[number], key: DimensionKey): string {
+  let base = `${m.name} — ${names[key]}: ${m.scores[key]}`;
+  if (key === "cost") base = `${m.name} — Cost: ${m.meta.pricingNote}`;
+  else if (key === "context") base = `${m.name} — Context: ${m.meta.contextWindow}`;
+  else if (key === "multimodal") base = `${m.name} — Multimodal: ${m.meta.modalities}`;
+  if (m.meta.freeTierNote) base += ` (${m.meta.freeTierNote})`;
+  return base;
+}
+
 const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
 const PAGE_SIZE = 12;
 
@@ -71,7 +78,6 @@ export default component$(() => {
   const sortDirection = useSignal<1 | -1>(-1);
   const allModelsView = useSignal<"cards" | "list">("cards");
   const theme = useSignal<"light" | "dark">("light");
-  const profileView = useSignal<"bars" | "hex">("hex");
   const query = useSignal("");
   const displayCount = useSignal(PAGE_SIZE);
   const source = useSignal<ResultsView>("average");
@@ -272,139 +278,36 @@ export default component$(() => {
               </span>
             </div>
           </div>
-          <div class="d6-instrument" aria-label="Top model performance profile">
+          <div class="d6-instrument" aria-label="About ModelComp">
             <div class="d6-instrument-top">
-              <span>Leader profile — {top.name}</span>
-              <div class="d6-view-switch" role="group" aria-label="Performance profile display">
-                <button
-                  type="button"
-                  class={`d6-view-btn${profileView.value === "bars" ? " d6-view-active" : ""}`}
-                  aria-pressed={profileView.value === "bars"}
-                  onClick$={() => {
-                    profileView.value = "bars";
-                  }}
-                >
-                  Bars
-                </button>
-                <button
-                  type="button"
-                  class={`d6-view-btn${profileView.value === "hex" ? " d6-view-active" : ""}`}
-                  aria-pressed={profileView.value === "hex"}
-                  onClick$={() => {
-                    profileView.value = "hex";
-                  }}
-                >
-                  Hexagon
-                </button>
+              <span>The mark — six axes, one score</span>
+            </div>
+            <img
+              src="/favicon.svg"
+              alt="ModelComp logo: a hexagon with six dimension dots around a core"
+              width={400}
+              height={400}
+              style={{ width: "100%", maxWidth: "380px", height: "auto", margin: "8px auto 0" }}
+            />
+            <div class="d6-measures">
+              <div class="d6-measure" style={{ minHeight: "44px" }}>
+                <span class="d6-measure-name">Models tracked</span>
+                <strong class="d6-measure-value">{generative.length}</strong>
+              </div>
+              <div class="d6-measure" style={{ minHeight: "44px" }}>
+                <span class="d6-measure-name">Results sources</span>
+                <strong class="d6-measure-value">{SOURCES.length}</strong>
+              </div>
+              <div class="d6-measure" style={{ minHeight: "44px" }}>
+                <span class="d6-measure-name">Leader overall</span>
+                <strong class="d6-measure-value">{top.scores.overall}</strong>
               </div>
             </div>
-            {profileView.value === "bars" ? (
-              <>
-                <div class="d6-measures">
-                  {qualityKeys.map((key) => (
-                    <div class="d6-measure" key={key}>
-                      <span class="d6-measure-name">{names[key]}</span>
-                      <div
-                        class="d6-track"
-                        role="img"
-                        aria-label={`${names[key]}: ${top.scores[key]} out of 100`}
-                      >
-                        <span class="d6-fill" style={{ width: barWidth(top.scores[key]) }} />
-                      </div>
-                      <strong class="d6-measure-value">{top.scores[key]}</strong>
-                    </div>
-                  ))}
-                </div>
-                <div class="d6-measure d6-cost">
-                  <span class="d6-measure-name">Cost efficiency</span>
-                  <div
-                    class="d6-track"
-                    role="img"
-                    aria-label={`Cost efficiency: ${top.scores.cost} out of 100`}
-                  >
-                    <span class="d6-fill" style={{ width: barWidth(top.scores.cost) }} />
-                  </div>
-                  <strong class="d6-measure-value">{top.scores.cost}</strong>
-                </div>
-                <p class="d6-instrument-note">
-                  Bars use the same top-end emphasis as the hexagon (75 sits at half width). Overall
-                  averages the five quality dimensions. Cost is shown separately.
-                </p>
-              </>
-            ) : (
-              <>
-                <svg
-                  viewBox="0 0 400 344"
-                  role="img"
-                  class="d6-hex"
-                  aria-label={`Hexagon chart of average scores: ${hexKeys.map((k) => `${names[k]} ${top.scores[k]}`).join(", ")}`}
-                >
-                  {[25, 50, 75, 100].map((ring) => (
-                    <polygon
-                      key={ring}
-                      points={hexPolygon(ring)}
-                      fill="none"
-                      class="d6-hex-ring"
-                      stroke-width={ring === 100 ? 1.5 : 1}
-                    />
-                  ))}
-                  {hexKeys.map((key, i) => {
-                    const end = hexPoint(100, i);
-                    return (
-                      <line
-                        key={key}
-                        x1={HEX_CX}
-                        y1={HEX_CY}
-                        x2={end.x}
-                        y2={end.y}
-                        class="d6-hex-axis"
-                        stroke-width="1"
-                      />
-                    );
-                  })}
-                  <polygon
-                    points={hexKeys
-                      .map((key, i) => {
-                        const p = hexPoint(top.scores[key], i);
-                        return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-                      })
-                      .join(" ")}
-                    class="d6-hex-shape"
-                    stroke-linejoin="round"
-                  >
-                    <title>{`Overall ${top.scores.overall}`}</title>
-                  </polygon>
-                  {hexKeys.map((key, i) => {
-                    const p = hexPoint(top.scores[key], i);
-                    return (
-                      <circle key={key} cx={p.x} cy={p.y} r={5} class="d6-hex-dot">
-                        <title>{`${names[key]}: ${top.scores[key]}`}</title>
-                      </circle>
-                    );
-                  })}
-                  {hexKeys.map((key, i) => {
-                    const p = hexPoint(100, i, HEX_LABEL_R);
-                    return (
-                      <text
-                        key={key}
-                        x={p.x}
-                        y={p.y}
-                        text-anchor="middle"
-                        dominant-baseline="middle"
-                        class="d6-hex-label"
-                      >
-                        {names[key]} · {top.scores[key]}
-                      </text>
-                    );
-                  })}
-                </svg>
-                <p class="d6-instrument-note">
-                  Six axes, 0–100, with emphasis on the top end (the outer half of each axis covers
-                  75–100). Cost is plotted but never counts toward Overall.{" "}
-                  <a href={`/model/${top.slug}/`}>Open {top.name} profile →</a>
-                </p>
-              </>
-            )}
+            <p class="d6-instrument-note">
+              Each vertex is a scored dimension — tool use, reasoning, context, cost, coding,
+              multimodal. The hexagon in Compare plots them all; Overall averages the five quality
+              dimensions, cost excluded.
+            </p>
           </div>
         </section>
 
@@ -463,6 +366,136 @@ export default component$(() => {
               </div>
             ))}
           </div>
+          {cmpModels.length > 0 && (
+            <div class="d6-instrument" aria-label="Comparison radar chart">
+              <div class="d6-instrument-top">
+                <span>
+                  Radar —{" "}
+                  {cmpModels.length > 0
+                    ? cmpModels.map((m) => m.name).join(", ")
+                    : "no models selected"}
+                </span>
+              </div>
+              <svg
+                viewBox="0 0 400 400"
+                role="img"
+                class="d6-hex"
+                aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
+              >
+                {[25, 50, 75, 100].map((ring) => (
+                  <polygon
+                    key={ring}
+                    points={hexPolygon(ring)}
+                    fill="none"
+                    class="d6-hex-ring"
+                    stroke-width={ring === 100 ? 2 : 1}
+                  />
+                ))}
+                {DIMENSIONS.map((d, i) => {
+                  const end = hexPoint(100, i);
+                  return (
+                    <line
+                      key={d.key}
+                      x1={HEX_CX}
+                      y1={HEX_CY}
+                      x2={end.x}
+                      y2={end.y}
+                      class="d6-hex-axis"
+                      stroke-width="1"
+                    />
+                  );
+                })}
+                {cmpModels.map((m, si) => (
+                  <polygon
+                    key={m.id}
+                    points={DIMENSIONS.map((d, i) => {
+                      const p = hexPoint(m.scores[d.key], i);
+                      return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                    }).join(" ")}
+                    fill={SERIES_COLORS[si % SERIES_COLORS.length]}
+                    fill-opacity={0.35}
+                    stroke={SERIES_COLORS[si % SERIES_COLORS.length]}
+                    stroke-width={2}
+                    stroke-linejoin="round"
+                  >
+                    <title>{`${m.name} (Overall ${m.scores.overall})`}</title>
+                  </polygon>
+                ))}
+                {cmpModels.map((m, si) =>
+                  DIMENSIONS.map((d, i) => {
+                    const p = hexPoint(m.scores[d.key], i);
+                    return (
+                      <circle
+                        key={`${m.id}-${d.key}`}
+                        cx={p.x}
+                        cy={p.y}
+                        r={4.5}
+                        style={{
+                          fill: SERIES_COLORS[si % SERIES_COLORS.length],
+                          stroke: "var(--d6-page)",
+                          strokeWidth: 1.5,
+                        }}
+                      >
+                        <title>{tooltipFor(m, d.key)}</title>
+                      </circle>
+                    );
+                  }),
+                )}
+                {DIMENSIONS.map((d, i) => {
+                  const p = hexPoint(100, i, HEX_LABEL_R);
+                  return (
+                    <text
+                      key={d.key}
+                      x={p.x}
+                      y={p.y}
+                      text-anchor="middle"
+                      dominant-baseline="middle"
+                      class="d6-hex-label"
+                    >
+                      <title>{d.description}</title>
+                      {d.short}
+                    </text>
+                  );
+                })}
+              </svg>
+              <ul
+                aria-label="Legend"
+                style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px", padding: 0, listStyle: "none" }}
+              >
+                {cmpModels.map((m, si) => (
+                  <li
+                    key={m.id}
+                    style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px" }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        display: "inline-block",
+                        width: "12px",
+                        height: "12px",
+                        borderRadius: "50%",
+                        backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
+                      }}
+                    />
+                    <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
+                      {m.name}
+                    </a>
+                    <span>Overall {m.scores.overall}</span>
+                    {!m.meta.noFreeId ? (
+                      <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
+                    ) : (
+                      <span>· Paid</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <p class="d6-instrument-note">
+                Axes are Tool, Reason, Context, Cost, Coding, Multi — 0–100 with emphasis on the top
+                end (the outer half of each axis covers 75–100). Exact values are in the table
+                below. Hover any dot for the underlying spec.
+              </p>
+            </div>
+          )}
           {cmpModels.length > 0 && (
             <div class="d6-table-scroll" tabIndex={0} aria-label="Scroll to see compared models">
               <table class="d6-table">
