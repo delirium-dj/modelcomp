@@ -507,7 +507,7 @@ export default component$(() => {
           )}
         </section>
 
-        <section class="d6-section v2-flush-top" id="v2-method" aria-labelledby="v2-method-title">
+        <section class="d6-section v2-flush-bottom v2-flush-top" id="v2-method" aria-labelledby="v2-method-title">
           <div class="d6-section-intro d6-section-intro-row v2-method-intro">
             <h2 id="v2-method-title">How scoring works</h2>
             <p>
@@ -551,7 +551,7 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="d6-section d6-ratings" aria-labelledby="v2-ratings-title">
+        <section class="d6-section d6-ratings v2-flush-top" aria-labelledby="v2-ratings-title">
           <div class="d6-section-intro d6-section-intro-row">
             <div>
               <h2 id="v2-ratings-title">All models</h2>
