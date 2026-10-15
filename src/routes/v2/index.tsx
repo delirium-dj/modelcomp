@@ -1,4 +1,4 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import {
   MODELS,
@@ -219,14 +219,16 @@ export default component$(() => {
   // Shared source-change handler (compare sidebar + All-models toolbar):
   // switch the source and re-seat the compare slots on that source's top 3,
   // exactly like the v1 homepage. Slots stay user-overridable afterwards.
-  const handleSourceChange$ = (v: string) => {
+  // NOTE: must be a QRL ($(...)) — a plain closure cannot be serialized into
+  // the onChange$ handlers that reference it.
+  const handleSourceChange$ = $((v: string) => {
     source.value = v as ResultsView;
     displayCount.value = PAGE_SIZE;
     const [a, b, c] = top3Ids(v as ResultsView);
     cmpA.value = a;
     cmpB.value = b;
     cmpC.value = c;
-  };
+  });
 
   if (!top) {
     return <main class="d6 d6-missing">No models in the current dataset.</main>;
