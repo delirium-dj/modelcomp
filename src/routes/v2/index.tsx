@@ -798,7 +798,9 @@ export default component$(() => {
                           title={
                             key === "cost"
                               ? "Cost efficiency — hover any value for Pricing / 1M"
-                              : undefined
+                              : key === "context"
+                                ? "Context window — hover any value for the window size"
+                                : undefined
                           }
                           onClick$={() => {
                             if (sortKey.value === key)
@@ -823,7 +825,6 @@ export default component$(() => {
                         </button>
                       </th>
                     ))}
-                    <th scope="col">Context</th>
                     <th scope="col" title="Newest report date across each model's findings files">
                       Verified
                     </th>
@@ -846,7 +847,9 @@ export default component$(() => {
                             title={
                               key === "cost"
                                 ? `Pricing / 1M: ${(m.meta.pricingTiers ?? [m.meta.pricingNote]).join("; ")}`
-                                : undefined
+                                : key === "context"
+                                  ? `Context window: ${m.meta.contextWindow}`
+                                  : undefined
                             }
                             class={`${key === "overall" ? "d6-rating-overall" : ""}${hlClass(key, value)}`}
                           >
@@ -854,7 +857,6 @@ export default component$(() => {
                           </td>
                         );
                       })}
-                      <td>{m.meta.contextWindow}</td>
                       <td title="Newest report date across this model's findings files">
                         {m.verified ?? "—"}
                       </td>
