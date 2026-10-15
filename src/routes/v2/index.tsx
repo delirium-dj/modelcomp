@@ -62,6 +62,7 @@ const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
 export default component$(() => {
   const sortKey = useSignal<SortKey>("overall");
   const sortDirection = useSignal<1 | -1>(-1);
+  const allModelsView = useSignal<"cards" | "list">("cards");
   const theme = useSignal<"light" | "dark">("light");
   const profileView = useSignal<"bars" | "hex">("hex");
   const scrollerRef = useSignal<HTMLDivElement>();
@@ -361,7 +362,7 @@ export default component$(() => {
 
         <section class="d6-reading" aria-labelledby="v2-reading-title">
           <div class="d6-section-intro">
-            <h2 id="v2-reading-title">Reading the leaderboard</h2>
+            <h2 id="v2-reading-title">Reading the scores</h2>
             <p>How to interpret the scores before diving into individual model pages.</p>
           </div>
           <div class="d6-reading-grid">
@@ -393,11 +394,69 @@ export default component$(() => {
         <section class="d6-section d6-ratings" aria-labelledby="v2-ratings-title">
           <div class="d6-section-intro d6-section-intro-row">
             <div>
-              <h2 id="v2-ratings-title">The leaderboard</h2>
+              <h2 id="v2-ratings-title">All models</h2>
               <p>Every tracked model, averaged across qualifying reports. Select a column to sort.</p>
             </div>
-            <span class="d6-count">{ranked.length} models</span>
+            <div class="d6-header-right">
+              <span class="d6-count">{ranked.length} models</span>
+              <div class="d6-view-switch" role="group" aria-label="All models display">
+                <button
+                  type="button"
+                  class={`d6-view-btn${allModelsView.value === "cards" ? " d6-view-active" : ""}`}
+                  aria-pressed={allModelsView.value === "cards"}
+                  onClick$={() => {
+                    allModelsView.value = "cards";
+                  }}
+                >
+                  Cards
+                </button>
+                <button
+                  type="button"
+                  class={`d6-view-btn${allModelsView.value === "list" ? " d6-view-active" : ""}`}
+                  aria-pressed={allModelsView.value === "list"}
+                  onClick$={() => {
+                    allModelsView.value = "list";
+                  }}
+                >
+                  List
+                </button>
+              </div>
+            </div>
           </div>
+          {allModelsView.value === "cards" ? (
+            <div class="d6-evidence-grid">
+              {sorted.map((m, i) => (
+                <a
+                  key={m.id}
+                  href={`/model/${m.slug}/`}
+                  class="d6-evidence-item"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  aria-label={`${m.name}, overall ${Math.round(m.scores.overall)} out of 100`}
+                >
+                  <h3>
+                    #{i + 1} {m.name}
+                  </h3>
+                  <strong>{Math.round(m.scores.overall)}</strong>
+                  <p class="d6-citations" style={{ marginTop: "4px" }}>
+                    Tool {Math.round(m.scores.tool)} · Reason {Math.round(m.scores.reasoning)} ·
+                    Code {Math.round(m.scores.coding)}
+                  </p>
+                  <details
+                    class="d6-citations"
+                    onClick$={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
+                    <summary>All six dimensions</summary>
+                    <p>
+                      {qualityKeys.map((k) => `${names[k]} ${Math.round(m.scores[k])}`).join(" · ")} ·
+                      Cost {Math.round(m.scores.cost)}
+                    </p>
+                  </details>
+                </a>
+              ))}
+            </div>
+          ) : (
           <div
             ref={scrollerRef}
             class="d6-table-scroll"
@@ -497,6 +556,7 @@ export default component$(() => {
               </tbody>
             </table>
           </div>
+          )}
           <p class="d6-table-note">
             Averages recomputed by pnpm sync from per-model research files. Cost never counts toward
             Overall.
