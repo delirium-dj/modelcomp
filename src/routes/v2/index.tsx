@@ -9,6 +9,7 @@ import {
 } from "../../data/models";
 import type { DimensionKey, ResultsView, SourceKey } from "../../data/models";
 import "../design-6sol/study.css";
+import "./v2.css";
 
 /**
  * /v2 — full-site redesign in the design-6sol language.
@@ -254,60 +255,38 @@ export default component$(() => {
           </div>
         </header>
 
-        <section class="d6-hero" aria-labelledby="v2-title">
-          <div class="d6-hero-copy">
-            <p class="d6-family">
-              Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
-              {SOURCES.length} results sources
-            </p>
-            <h1 id="v2-title">
-              Every
-              <br />
-              <span>model. One score.</span>
-            </h1>
-            <p class="d6-description">
-              AI coding models compared on tool use, reasoning, context, multimodal and coding —
-              normalized to 1–100 from public benchmarks. This is the v2 redesign experiment.
-            </p>
-            <div class="d6-overall">
-              <span class="d6-overall-number">{top.scores.overall}</span>
-              <span class="d6-overall-caption">
-                Top overall score
-                <br />
-                <strong>{top.name}</strong>
-              </span>
-            </div>
-          </div>
-          <div class="d6-instrument" aria-label="About ModelComp">
-            <div class="d6-instrument-top">
-              <span>The mark — six axes, one score</span>
-            </div>
-            <img
-              src="/favicon.svg"
-              alt="ModelComp logo: a hexagon with six dimension dots around a core"
-              width={400}
-              height={400}
-              style={{ width: "100%", maxWidth: "380px", height: "auto", margin: "8px auto 0" }}
-            />
-            <div class="d6-measures">
-              <div class="d6-measure" style={{ minHeight: "44px" }}>
-                <span class="d6-measure-name">Models tracked</span>
-                <strong class="d6-measure-value">{generative.length}</strong>
-              </div>
-              <div class="d6-measure" style={{ minHeight: "44px" }}>
-                <span class="d6-measure-name">Results sources</span>
-                <strong class="d6-measure-value">{SOURCES.length}</strong>
-              </div>
-              <div class="d6-measure" style={{ minHeight: "44px" }}>
-                <span class="d6-measure-name">Leader overall</span>
-                <strong class="d6-measure-value">{top.scores.overall}</strong>
+        <section aria-labelledby="v2-title">
+          <div class="v2-hero-grid">
+            <div>
+              <p class="d6-family">
+                Independent <span aria-hidden="true">/</span> {generative.length} models ·{" "}
+                {SOURCES.length} results sources
+              </p>
+              <h1 id="v2-title">
+                Compare AI coding models on <span>what actually matters</span>
+              </h1>
+              <p class="v2-hero-sub">
+                Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from
+                public benchmarks so current and future models can be compared side by side.
+              </p>
+              <div class="v2-cta-row">
+                <a href="/v2/#v2-compare" class="v2-btn">
+                  Compare models
+                </a>
+                <a href="/v2/#v2-method" class="v2-btn-ghost">
+                  How scoring works
+                </a>
               </div>
             </div>
-            <p class="d6-instrument-note">
-              Each vertex is a scored dimension — tool use, reasoning, context, cost, coding,
-              multimodal. The hexagon in Compare plots them all; Overall averages the five quality
-              dimensions, cost excluded.
-            </p>
+            <div>
+              <img
+                src="/favicon.svg"
+                alt="ModelComp logo: a hexagon with six dimension dots around a core"
+                width={400}
+                height={400}
+                class="v2-hero-logo"
+              />
+            </div>
           </div>
         </section>
 
@@ -328,7 +307,7 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="d6-section" aria-labelledby="v2-compare-title">
+        <section class="d6-section" id="v2-compare" aria-labelledby="v2-compare-title">
           <div class="d6-section-intro d6-section-intro-row">
             <div>
               <h2 id="v2-compare-title">Compare models</h2>
@@ -340,7 +319,7 @@ export default component$(() => {
             </div>
             <span class="d6-count">3 slots</span>
           </div>
-          <div class="d6-more-grid" style={{ marginTop: "32px" }}>
+          <div class="v2-slots">
             {[
               { label: "Model A", value: cmpA },
               { label: "Model B", value: cmpB },
@@ -367,21 +346,22 @@ export default component$(() => {
             ))}
           </div>
           {cmpModels.length > 0 && (
-            <div class="d6-instrument" aria-label="Comparison radar chart">
-              <div class="d6-instrument-top">
-                <span>
-                  Radar —{" "}
-                  {cmpModels.length > 0
-                    ? cmpModels.map((m) => m.name).join(", ")
-                    : "no models selected"}
-                </span>
-              </div>
-              <svg
-                viewBox="0 0 400 400"
-                role="img"
-                class="d6-hex"
-                aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
-              >
+            <div class="v2-compare-grid">
+              <div class="d6-instrument" aria-label="Comparison radar chart">
+                <div class="d6-instrument-top">
+                  <span>
+                    Radar —{" "}
+                    {cmpModels.length > 0
+                      ? cmpModels.map((m) => m.name).join(", ")
+                      : "no models selected"}
+                  </span>
+                </div>
+                <svg
+                  viewBox="0 0 400 400"
+                  role="img"
+                  class="v2-radar"
+                  aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
+                >
                 {[25, 50, 75, 100].map((ring) => (
                   <polygon
                     key={ring}
@@ -457,43 +437,37 @@ export default component$(() => {
                     </text>
                   );
                 })}
-              </svg>
-              <ul
-                aria-label="Legend"
-                style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px", padding: 0, listStyle: "none" }}
-              >
-                {cmpModels.map((m, si) => (
-                  <li
-                    key={m.id}
-                    style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px" }}
-                  >
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        display: "inline-block",
-                        width: "12px",
-                        height: "12px",
-                        borderRadius: "50%",
-                        backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
-                      }}
-                    />
-                    <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
-                      {m.name}
-                    </a>
-                    <span>Overall {m.scores.overall}</span>
-                    {!m.meta.noFreeId ? (
-                      <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
-                    ) : (
-                      <span>· Paid</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-              <p class="d6-instrument-note">
-                Axes are Tool, Reason, Context, Cost, Coding, Multi — 0–100 with emphasis on the top
-                end (the outer half of each axis covers 75–100). Exact values are in the table
-                below. Hover any dot for the underlying spec.
-              </p>
+                </svg>
+              </div>
+              <div>
+                <ul aria-label="Legend" class="v2-legend">
+                  {cmpModels.map((m, si) => (
+                    <li key={m.id}>
+                      <span
+                        aria-hidden="true"
+                        class="v2-legend-dot"
+                        style={{
+                          backgroundColor: SERIES_COLORS[si % SERIES_COLORS.length],
+                        }}
+                      />
+                      <a href={`/model/${m.slug}/`} style={{ color: "inherit", fontWeight: 600 }}>
+                        {m.name}
+                      </a>
+                      <span>Overall {m.scores.overall}</span>
+                      {!m.meta.noFreeId ? (
+                        <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
+                      ) : (
+                        <span>· Paid</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <p class="d6-instrument-note" style={{ marginTop: "16px" }}>
+                  Axes are Tool, Reason, Context, Cost, Coding, Multi — 0–100 with emphasis on the
+                  top end (the outer half of each axis covers 75–100). Exact values are in the
+                  table below. Hover any dot for the underlying spec.
+                </p>
+              </div>
             </div>
           )}
           {cmpModels.length > 0 && (
@@ -548,12 +522,16 @@ export default component$(() => {
           )}
         </section>
 
-        <section class="d6-reading" aria-labelledby="v2-reading-title">
+        <section class="d6-section" id="v2-method" aria-labelledby="v2-method-title">
           <div class="d6-section-intro">
-            <h2 id="v2-reading-title">Reading the scores</h2>
-            <p>How to interpret the scores before diving into individual model pages.</p>
+            <h2 id="v2-method-title">How scoring works</h2>
+            <p>
+              Scores are normalized interpretations from 1 to 100 (higher is better), based on
+              public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
+              Cost efficiency is scored separately and never counts toward Overall.
+            </p>
           </div>
-          <div class="d6-reading-grid">
+          <div class="d6-reading-grid" style={{ marginTop: "36px" }}>
             <article class="d6-reading-item">
               <span class="d6-reading-marker d6-reading-marker-blue" aria-hidden="true" />
               <div>
@@ -576,6 +554,24 @@ export default component$(() => {
                 </p>
               </div>
             </article>
+          </div>
+          <div class="d6-more-grid" style={{ marginTop: "36px" }}>
+            <div>
+              <span>Independently researched — every benchmark number cites its source; missing data is never invented</span>
+            </div>
+            <div>
+              <span>Averaged, not single-opinion — mean across independent reporting agents; evidence-free reports are quarantined</span>
+            </div>
+            <div>
+              <span>Re-researched weekly — reports older than seven days are checked against fresh benchmarks</span>
+            </div>
+            {DIMENSIONS.map((d) => (
+              <div key={d.key}>
+                <span>
+                  <strong>{d.label}:</strong> {d.description}
+                </span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -923,35 +919,6 @@ export default component$(() => {
             </div>
           </section>
         )}
-
-        <section class="d6-section" aria-labelledby="v2-method-title">
-          <div class="d6-section-intro">
-            <h2 id="v2-method-title">How scoring works</h2>
-            <p>
-              Scores are normalized interpretations from 1 to 100 (higher is better), based on
-              public benchmarks. Overall Score is the rounded mean of the five quality dimensions —
-              Cost efficiency is scored separately and never counts toward Overall.
-            </p>
-          </div>
-          <div class="d6-more-grid" style={{ marginTop: "32px" }}>
-            <div>
-              <span>Independently researched — every benchmark number cites its source; missing data is never invented</span>
-            </div>
-            <div>
-              <span>Averaged, not single-opinion — mean across independent reporting agents; evidence-free reports are quarantined</span>
-            </div>
-            <div>
-              <span>Re-researched weekly — reports older than seven days are checked against fresh benchmarks</span>
-            </div>
-            {DIMENSIONS.map((d) => (
-              <div key={d.key}>
-                <span>
-                  <strong>{d.label}:</strong> {d.description}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <footer class="d6-footer">
           <div class="d6-support">

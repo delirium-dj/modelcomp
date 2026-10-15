@@ -1,0 +1,146 @@
+/* v2 skeleton — mirrors the v1 homepage proportions (Hero.tsx / CompareSection.tsx),
+   only the skin comes from the design-6sol language (study.css).
+   Structure: compact hero (copy + logo), compare radar 2/3 + sidebar 1/3,
+   methodology band, all-models. Breakpoint follows the study (800px). */
+
+.v2-hero-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 64px 0 48px;
+}
+.v2-hero-logo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+.v2-hero-grid h1 {
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 1.04;
+  margin: 18px 0 0;
+}
+.v2-hero-grid h1 span {
+  color: var(--d6-blue);
+}
+.v2-hero-sub {
+  margin-top: 16px;
+  max-width: 560px;
+  color: var(--d6-muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.v2-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.v2-btn {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--d6-ink);
+  color: var(--d6-page);
+}
+.v2-btn:hover {
+  text-decoration: underline;
+}
+.v2-btn-ghost {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--d6-ink);
+  border: 1px solid var(--d6-line);
+  background: transparent;
+}
+.v2-btn-ghost:hover {
+  border-color: var(--d6-ink);
+}
+
+.v2-slots {
+  display: grid;
+  gap: 0 35px;
+  margin-top: 32px;
+  grid-template-columns: 1fr;
+}
+.v2-slots > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid var(--d6-line);
+  padding: 11px 0;
+}
+.v2-slots span {
+  flex: 1;
+}
+.v2-slots select {
+  font: inherit;
+  font-size: 13px;
+  max-width: 100%;
+  background: transparent;
+  color: inherit;
+  border: 1px solid var(--d6-line);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.v2-compare-grid {
+  display: grid;
+  gap: 32px;
+  align-items: start;
+  grid-template-columns: 1fr;
+  margin-top: 32px;
+}
+.v2-radar {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.v2-legend {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+.v2-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.v2-legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1000px) {
+  .v2-hero-grid {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  }
+  .v2-slots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .v2-compare-grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: center;
+  }
+}
