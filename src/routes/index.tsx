@@ -394,21 +394,13 @@ export default component$(() => {
                   );
                 })}
               </svg>
-              <ul aria-label="Top 5 models" class="mx-auto mt-4 grid max-w-56 gap-1.5 text-[13px]">
-                {heroTop5.map((m, hi) => (
-                  <li
-                    key={m.id}
-                    class={`flex items-center gap-2 ${hi === heroActiveSafe ? "font-bold" : ""}`}
-                  >
-                    <a
-                      href={`/model/${m.slug}/`}
-                      class={`min-w-0 flex-1 truncate ${hi === heroActiveSafe ? "" : "text-[#577184] dark:text-[#93adbe]"}`}
-                    >
-                      {m.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {heroTop5.length > 0 && (
+                <p class="mx-auto mt-4 max-w-56 truncate text-center text-[13px] font-bold">
+                  <a href={`/model/${heroTop5[heroActiveSafe].slug}/`}>
+                    {heroTop5[heroActiveSafe].name}
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </section>
