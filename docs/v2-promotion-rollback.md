@@ -1,8 +1,9 @@
 # v2 promotion + rollback — read this before touching the homepage
 
 On 2026-10-15 the v2 redesign (`experiment/ui-redesign-experiment`, ~60 commits)
-was promoted to primary: `/` serves the study-language homepage, model profiles
-live at `/v2/[slug]/`, and the last v1 homepage is frozen at `/v1/`.
+was promoted to primary: `/` serves the study-language homepage and
+`/model/[slug]/` serves study-language model profiles. The v1 look survives
+only in git history (tag `v1-final`) — no v1 routes remain live.
 **Any human or AI agent can undo this.** Follow the recipes below exactly.
 
 ## Where things live now
@@ -10,15 +11,15 @@ live at `/v2/[slug]/`, and the last v1 homepage is frozen at `/v1/`.
 | Route | Content | Source file(s) |
 |---|---|---|
 | `/` | v2 homepage (primary) | `src/routes/index.tsx` (+ `src/components/v2/*`) |
-| `/model/[slug]/` | v1 model pages, untouched, linked from the homepage | `src/routes/model/[slug]/index.tsx` |
+| `/model/[slug]/` | v2 model profiles (primary), same design language | `src/routes/model/[slug]/index.tsx` |
 | `/design-6sol/` etc. | Original design studies, local-only (gitignored), untouched | `src/routes/design-*/` |
 
 Section anchors on `/` kept their v1 contracts: `#compare`, `#methodology`,
 `#models` (All-models section). Old bookmarks and deep links keep working.
 
 Retired after promotion (deleted, recoverable from git history or tag
-`v1-final`): the `/v1` v1-homepage snapshot and the `/v2/[slug]/` experiment
-profiles. Profile links point at `/model/[slug]/` again.
+`v1-final`): the `/v1` v1-homepage snapshot. Card "Open full profile" links
+were removed — model names link straight to the v2 `/model/[slug]/` pages.
 
 Bundle work (same promotion era, separate commits): benchmark evidence was
 split out of the shared data barrel — `src/data/evidence.ts` (`getEvidence`)
@@ -35,8 +36,8 @@ would trade first-paint content for negligible savings (see commit history).
    v2 promotion is ONE revertable commit. History was not rewritten.
 3. **Branch `experiment/ui-redesign-experiment`** — kept published, never
    deleted. All v2 work survives there even if `master` moves on.
-4. **Live `/v1` fallback** — the old homepage still renders; compare
-   `/` vs `/v1` side by side before deciding anything is broken.
+4. **No live v1 fallback anymore** — `/v1` and `/v2/*` were retired after
+   the full design switch. Recovery is via tag `v1-final` or git history.
 
 ## Recipe A — revert the whole promotion (v1 back as primary)
 

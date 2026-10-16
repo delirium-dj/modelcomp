@@ -728,13 +728,10 @@ export default component$(() => {
                         </dd>
                       </div>
                     </dl>
-                    <p class="mt-3 border-t border-t-[#ccdae2] pt-2.5 text-xs leading-relaxed text-[#577184] dark:border-t-[#274757] dark:text-[#93adbe]">
+                    <p class="mt-3 border-t border-t-[#ccdae2] pt-[10px] text-xs leading-relaxed text-[#577184] dark:border-t-[#274757] dark:text-[#93adbe]">
                       Tool {m.scores.tool} · Reason {m.scores.reasoning} · Context{" "}
                       {m.scores.context} · Code {m.scores.coding} · Multi {m.scores.multimodal} ·
                       Cost {m.scores.cost}
-                    </p>
-                    <p class="mt-auto pt-3 text-xs font-semibold">
-                      <a href={`/model/${m.slug}/`} class="text-[color:var(--color-primary)] hover:underline">Open full profile →</a>
                     </p>
                   </article>
                 ))}
@@ -990,9 +987,6 @@ export default component$(() => {
                       <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">{m.meta.pricingNote}</dd>
                     </div>
                   </dl>
-                  <p class="mt-auto pt-3 text-xs font-semibold">
-                    <a href={`/model/${m.slug}/`} class="text-[color:var(--color-primary)] hover:underline">Open full profile →</a>
-                  </p>
                 </article>
               ))}
             </div>
