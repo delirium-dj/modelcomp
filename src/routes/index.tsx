@@ -670,7 +670,7 @@ export default component$(() => {
             <>
               <div class="mt-10 grid grid-cols-1 gap-5 min-[800px]:grid-cols-2 min-[1100px]:grid-cols-3">
                 {visibleModels.map((m) => (
-                  <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
+                  <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 pb-5 pt-0 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
                     <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                       <h3 class="m-0 flex min-w-0 flex-1 items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
                         <VendorIcon id={m.id} name={m.name} />
@@ -961,7 +961,7 @@ export default component$(() => {
             </div>
             <div class="mt-10 grid grid-cols-1 gap-5 min-[800px]:grid-cols-2 min-[1100px]:grid-cols-3">
               {decisionFiltered.map((m) => (
-                <article class="flex flex-col border border-[#ccdae2] border-t-2 border-t-[#dfab77] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:border-t-[#e8b47e] dark:bg-[#132a3b]" key={m.id}>
+                <article class="flex flex-col border border-[#ccdae2] border-t-2 border-t-[#dfab77] bg-[#f7fafb] px-6 pb-5 pt-0 dark:border-[#274757] dark:border-t-[#e8b47e] dark:bg-[#132a3b]" key={m.id}>
                   <div class="flex items-start justify-between gap-3">
                     <h3 class="m-0 flex items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
                       <VendorIcon id={m.id} name={m.name} />{" "}
