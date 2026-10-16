@@ -683,7 +683,7 @@ export default component$(() => {
                         <strong class="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
                         <span class="mt-1 block text-[11px] font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
                       </div>
-                    <p class="mt-1 basis-full text-xs font-bold min-[800px]:mt-2.5">
+                    <p class="mt-0 basis-full text-xs font-bold min-[800px]:mt-2.5">
                       {!m.meta.noFreeId ? (
                         <span
                           class="text-[#1c7a4d] dark:text-[#7fd6a4]"
