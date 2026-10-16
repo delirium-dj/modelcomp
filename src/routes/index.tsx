@@ -437,9 +437,9 @@ export default component$(() => {
                 })}
                 </svg>
               </div>
-              <div class="min-w-0 text-md">
-                <div class="mx-auto mb-10 w-full text-center ">
-                  <label class="block text-[#577184] dark:text-[#93adbe]">
+              <div class="min-w-0">
+                <div class="mx-auto mb-10 w-full max-w-xs text-center">
+                  <label class="block text-xs text-[#577184] dark:text-[#93adbe]">
                     Results source{" "}
                   <select
                     aria-label="Results source"
@@ -447,7 +447,7 @@ export default component$(() => {
                     onChange$={(_, el) => {
                       handleSourceChange$(el.value);
                     }}
-                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
+                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
                   >
                     {SOURCES.map((s) => (
                       <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
