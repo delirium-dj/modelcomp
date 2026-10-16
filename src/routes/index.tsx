@@ -358,7 +358,7 @@ export default component$(() => {
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
-                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-md"
+                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-[540px]"
                   aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
                 >
                 {[25, 50, 75, 100].map((ring) => (
@@ -437,9 +437,9 @@ export default component$(() => {
                 })}
                 </svg>
               </div>
-              <div class="min-w-0">
-                <div class="mx-auto mb-10 w-full max-w-xs text-center">
-                  <label class="block text-xs text-[#577184] dark:text-[#93adbe]">
+              <div class="min-w-0 text-md">
+                <div class="mx-auto mb-10 w-full text-center ">
+                  <label class="block text-[#577184] dark:text-[#93adbe]">
                     Results source{" "}
                   <select
                     aria-label="Results source"
@@ -447,7 +447,7 @@ export default component$(() => {
                     onChange$={(_, el) => {
                       handleSourceChange$(el.value);
                     }}
-                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
+                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
                   >
                     {SOURCES.map((s) => (
                       <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
@@ -456,7 +456,7 @@ export default component$(() => {
                     ))}
                   </select>
                 </label>
-                <p class="mt-2.5 text-xs leading-normal text-[#577184] dark:text-[#93adbe]">
+                <p class="mt-2.5 leading-normal text-[#577184] dark:text-[#93adbe]">
                   {source.value === "average" ? (
                     <span
                       title={
@@ -479,7 +479,7 @@ export default component$(() => {
                   )}
                 </p>
                 </div>
-                <ul aria-label="Legend" class="mx-auto grid max-w-xs list-none gap-3 p-0 text-center text-xs">
+                <ul aria-label="Legend" class="mx-auto grid max-w-xs list-none gap-3 p-0 text-center pt-6">
                   {cmpModels.map((m, si) => (
                     <li key={m.id} class="flex flex-nowrap items-center justify-center gap-2 whitespace-nowrap">
                       <span
