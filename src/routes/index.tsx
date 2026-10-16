@@ -673,11 +673,13 @@ export default component$(() => {
                   <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
                     <div class="flex items-start justify-between gap-3">
                       <div class="min-w-0 flex-1">
-                      <h3 class="m-0 flex items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
-                        <VendorIcon id={m.id} name={m.name} size="lg" />
+                      <div class="flex items-center gap-2.5">
+                      <VendorIcon id={m.id} name={m.name} size="lg" />
+                      <div class="min-w-0">
+                      <h3 class="m-0 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
-                    <p class="mt-0 pl-[46px] text-xs font-bold">
+                    <p class="mt-0 text-xs font-bold">
                       {!m.meta.noFreeId ? (
                         <span
                           class="text-[#1c7a4d] dark:text-[#7fd6a4]"
@@ -694,6 +696,8 @@ export default component$(() => {
                         </span>
                       )}
                     </p>
+                      </div>
+                      </div>
                       </div>
                       <div
                         class="shrink-0 text-right leading-none"
