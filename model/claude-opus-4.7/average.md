@@ -19,3 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): GLM 5.3 Flash.
 - Average from top 1 by Overall Score: GLM 5.3 Flash.
+- Ignored below-gate rater(s): Cat Jam, GLM 5.3.

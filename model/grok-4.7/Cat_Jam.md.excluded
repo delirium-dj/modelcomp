@@ -1,0 +1,35 @@
+# Grok 4.7 — findings by Cat Jam (no verified public benchmark breakdown in sampled sources)
+
+- Source: SpaceXAI / Grok 4.7 (`opencode/grok-4-7`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.7
+- **Short description:** SpaceXAI/xAI flagship model for code and everything else, released 2026-09-21 (successor to 4.6 on a new, larger base; knowledge cutoff May 2026).
+- **Provider / access:** xAI API (`grok-4-7`), Grok in X, SuperGrok; us-east-1, us-west-2, us-central-1. Text/image in; text out. Reasoning low/medium/high/xhigh. Web/X search, tool calling.
+- **Release / knowledge:** Released 2026-09-21 (per docs site) (or Sept 22 per VentureBeat release of 4.6 tied with MiMo; 4.7 released Sept 21 per docs). Knowledge cutoff May 2026 (from xAI docs for Grok 4.7).
+- **IDs:** `grok-4.7` (xAI)
+- **Context window:** 500,000 tokens; long context rates at ≥200K.
+- **Modalities:** text, image → text (no audio/video).
+- **Pricing (as of 2026-10-16):** standard rate $2.00 input / $6.00 output per 1M (<200K); $4.00 / $12.00 (≥200K). Cached $0.50 / $1.00. Batch API not supported. Regional US data residency +10% for two regions.
+- **Architecture:** New, larger dense foundation than 4.6 (pretrained model size not public); prompted as flagship.
+
+### Raw benchmarks found (sampled sources)
+
+- Artificial Analysis Intelligence Index (v4.3.2, max effort): **46** (VentureBeat excerpt: Grok 4.7 tied with MiMo-V2.6-Pro at 46; earlier AA high/xhigh entries for Grok 4.6 were 44.2–44.3; 4.7 is at 46). This is the only benchmark number verified in the sampled sources.
+- GPQA, HLE, SWE-bench, TB, LCR, etc.: not individually located in sampled data.
+
+Agent / tool use, reasoning, coding rows: no verified public benchmark breakdown for this exact ID — every row not above: no verified public score found.
+
+Self-exclusion note: One coarse AA Index number (46) is published, but no full evaluation breakdown or reproducible harness scores are available in the sampled sources, so a full 7-score report under this slug would require inference. Saved as `.md.excluded` to avoid inventing normalized 1–100 scores.
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research (xAI docs + VentureBeat + OpenRouter); only the AA Index composite is available, so self-excluded.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings; re-research this slug when a complete benchmark table emerges.

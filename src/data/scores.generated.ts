@@ -6,6 +6,7 @@ export type GeneratedScoreTuple = [tool: number, reasoning: number, context: num
 export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple>> = {
   "Inkling": {
     "Big_Pickle.md": [70, 75, 95, 92, 76, 89, 82],
+    "Cat_Jam.md": [82, 84, 92, 86, 80, 90, 84.8],
     "Claude_Opus_4.6.md": [80, 87, 90, 70, 82, 92, 82],
     "Claude_Opus_4.8.md": [68, 76, 90, 63, 77, 85, 74.8],
     "Claude_Opus_5.md": [68, 72, 90, 88, 76, 90, 78.8],
@@ -393,6 +394,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [88.8, 90, 95.4, 77.2, 88.1, 51.2, 87.9],
   },
   "claude-opus-4.7": {
+    "Cat_Jam.md": [88, 90, 95, 80, 88, 60, 88],
+    "GLM_5.3.md": [90, 91, 95, 68, 93, 48, 87],
     "GLM_5.3_Flash.md": [90, 89, 90, 80, 92, 32, 88],
     "average.md": [90, 89, 90, 80, 92, 32, 88],
   },
@@ -1985,6 +1988,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Step_5_Preview.md": [58, 62, 72, 70, 66, 98, 66],
     "average.md": [69.7, 78.2, 78, 75.1, 76.1, 96.6, 75.4],
   },
+  "glm-5": {
+    "GLM_5.3_Flash.md": [80, 74, 65, 15, 82, 80, 63],
+    "average.md": [80, 74, 65, 15, 82, 80, 63],
+  },
   "glm-5.1": {
     "Big_Pickle.md": [80, 78, 70, 15, 86, 70, 66],
     "Claude_Opus_4.6.md": [84, 80, 75, 15, 84, 94, 68],
@@ -2340,6 +2347,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.2": {
     "Big_Pickle.md": [76, 78, 82, 80, 84, 72, 80],
+    "Cat_Jam.md": [84, 86, 84, 78, 84, 88, 83],
     "Claude_Opus_4.6.md": [78, 83, 72, 68, 80, 70, 76],
     "Claude_Opus_4.8.md": [72, 78, 80, 64, 79, 62, 74.6],
     "Claude_Opus_5.md": [68, 87, 82, 66, 85, 68, 77.6],
@@ -2439,6 +2447,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.4": {
     "Big_Pickle.md": [78, 86, 88, 82, 82, 75, 83.2],
+    "Cat_Jam.md": [88, 90, 90, 80, 88, 84, 87],
     "Claude_Opus_4.6.md": [84, 84, 85, 74, 80, 65, 81],
     "Claude_Opus_4.8.md": [80, 82, 93, 66, 82, 62, 80.6],
     "Claude_Opus_5.md": [86, 92, 95, 70, 78, 48, 84.2],
@@ -3476,6 +3485,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "inkling-small": {
     "Big_Pickle.md": [73, 74, 93, 92, 78, 94, 82],
+    "Cat_Jam.md": [78, 76, 88, 80, 86, 90, 82],
     "Claude_Opus_4.6.md": [82, 89, 90, 70, 85, 95, 83],
     "Claude_Opus_4.8.md": [72, 76, 90, 63, 78, 85, 75.8],
     "Claude_Opus_5.md": [66, 80, 95, 88, 76, 92, 81],
@@ -4417,7 +4427,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "minimax-m2.5": {
     "GLM_5.3_Flash.md": [85, 76, 85, 15, 84, 95, 69],
-    "average.md": [85, 76, 85, 15, 84, 95, 69],
+    "MiMo_2.6_Flash.md": [66, 65, 70, 15, 73, 95, 58],
+    "average.md": [75.5, 70.5, 77.5, 15, 78.5, 95, 63.5],
   },
   "minimax-m2.7": {
     "Big_Pickle.md": [78, 78, 70, 15, 80, 88, 64],
@@ -4813,6 +4824,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Step_5_Preview.md": [68, 80, 90, 12, 68, 98, 64],
     "average.md": [77.4, 78.6, 95.3, 24.7, 82.2, 99, 71.6],
   },
+  "nemotron-3.5-bolt-74b-a9b": {
+    "DeepSeek_4.1_Flash.md": [60, 54, 72, 68, 56, 85, 62],
+    "average.md": [60, 54, 72, 68, 56, 85, 62],
+  },
   "nemotron-3.5-lightning-free": {
     "Big_Pickle.md": [45, 60, 72, 15, 52, 100, 49],
     "Claude_Opus_4.8.md": [42, 50, 84, 15, 50, 100, 48.2],
@@ -4848,6 +4863,11 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Space_Bunny.md": [22, 42, 60, 15, 32, 100, 34.2],
     "Step_5_Preview.md": [42, 48, 74, 12, 42, 100, 44],
     "average.md": [57.3, 65.7, 80.1, 20, 61, 97.1, 56.8],
+  },
+  "nemotron-3.5-super-vl": {
+    "DeepSeek_4.1_Flash.md": [72, 70, 95, 85, 72, 94, 79],
+    "GLM_5.3_Flash.md": [84, 76, 85, 82, 75, 90, 80],
+    "average.md": [78, 73, 90, 83.5, 73.5, 92, 79.5],
   },
   "north_mini_code": {
     "Big_Pickle.md": [62, 58, 74, 15, 68, 100, 55.4],
@@ -5378,6 +5398,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "qwen-3.8-flash-next": {
     "Big_Pickle.md": [74, 88, 74, 84, 78, 95, 80],
+    "Cat_Jam.md": [78, 82, 84, 84, 86, 96, 83],
     "Claude_Opus_4.6.md": [89, 88, 80, 65, 88, 96, 82],
     "Claude_Opus_4.8.md": [80, 81, 88, 87, 84, 90, 84],
     "Claude_Opus_5.md": [78, 78, 80, 86, 80, 93, 80.4],

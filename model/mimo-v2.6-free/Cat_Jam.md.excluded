@@ -1,0 +1,36 @@
+# MiMo-V2.6-Free — findings by Cat Jam (no verified public benchmark under exact alias)
+
+- Source: (no canonical vendor alias; slug labelled `mimo-v2.6-free`, listed in model-queue) (`opencode/mimo-v2-6-free`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiMo-V2.6-Free
+- **Short description:** Unknown low-cost/free-tier derivative? The slug "mimo-v2.6-free" appeared in the model-queue, suggesting a free-tier wrapper. `mimo-v2.6-free` is not a documented public Xiaomi model name in sampled sources.
+- **Provider / access:** No vendor documentation found. Likely an OpenRouter/free variant / a promotion or a dataset nickname for MiMo-V2.6-Flash at promotional free pricing.
+- **Release / knowledge:** Not published.
+- **IDs:** `mimo-v2.6-free` (unknown)
+- **Context window / Modalities / Pricing:** unknown (likely 1M/131K? or same as Pro/Flash? not verified).
+- **Architecture:** unknown; may be MiMo V2.6 Flash at free-tier pricing.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers attributed to the exact slug `mimo-v2.6-free` were found. The average.md in the folder reflects reports filed by other raters treating it as a subject, but the only public MiMo V2.6 models are Pro and Flash. This slug may be a free-tier API route or the name of a promotion; normalizing scores for it would risk hallucination. Therefore self-excluded.
+
+All benchmark rows: no verified public score found for exact model ID.
+
+Self-exclusion note: Because every raw-benchmark line reads "no verified public score found" for this exact model, this report is saved as `.md.excluded`.
+
+### Normalized scores
+
+Not scored (no verified public benchmarks for exact slug).
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research sampled only Z.ai/Xiaomi docs (no exact ID on a vendor site). If a model with exact ID exists, future web research should locate it; current entry self-excluded to avoid hallucinated numbers.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings; reconcile if web research locates exact `mimo-v2.6-free`.

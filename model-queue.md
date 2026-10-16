@@ -85,6 +85,7 @@
 80.8 gemini-3.1-flash
 80.3 claude-sonnet-4.5
 79.9 gemma-4-31b
+79.5 nemotron-3.5-super-vl
 79.3 grok-4
 79 grok-4.20
 78.9 kimi-k2.7-code-highspeed
@@ -127,7 +128,6 @@
 70.4 longcat-2.0
 69.5 glm-5.1
 69.3 grok-build-0.1
-69 minimax-m2.5
 68.5 hy3-preview
 68.2 diffusiongemma-26b-a4b
 67.9 solar-open-2
@@ -143,11 +143,14 @@
 65.2 claude-haiku-3.5
 64.1 deepseek-v3.2
 63.8 ling-3.0-flash
+63.5 minimax-m2.5
 63.2 omen-alpha
+63 glm-5
 63 gpt-5.3-codex-spark
 62.8 ling-2.6.1t
 62.5 grok-5
 62.2 owl-alpha
+62 nemotron-3.5-bolt-74b-a9b
 61.8 gemma-4-e4b
 60.3 mai-code-1-flash
 60 gpt-oss-120b
