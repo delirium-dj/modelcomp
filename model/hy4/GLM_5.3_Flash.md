@@ -1,7 +1,7 @@
 # Hy4 — findings by GLM 5.3 Flash
 
 - Source: Tencent / Hunyuan (`tencent/Hy4-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,6 +41,7 @@ Reasoning / knowledge:
 - CritPt: **16.9%** (BenchmarkList, 50th percentile — mid-tier on research physics)
 - $OneMillion-Bench: 65.4% / OfficeQA Pro: 66.2% (BenchmarkList)
 - LCR / MLCR / AA Intelligence Index: no verified public score found
+- Added 2026-10-16: Vals Index **49.94%, rank #31 of 48** (vals.ai; Public Benefits Bench #9/50) — mid-pack on the independent composite, corroborating the score band; OpenCode Go route exists (`opencode-go/hy4-preview`, 1,024,000 ctx / 64K out) and ranks **15 of 16** on TokenDyno's measured throughput (slow serving — practical caveat)
 
 Coding:
 
@@ -74,6 +75,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (HF model card + HF eval-results hub rows + BenchmarkList aggregation + eesel/MindStudio — official plus independent sources, corroborations compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: corroborates GPQA 92.3, TB2.1 85.4, SWE-Pro 65.7, SWE-Multilingual 82.9, DeepSWE 64.3, APEX 37.1, Toolathlon 74.1 via HF eval-results; adds the exact blind-eval splits (46.8/12.8/40.4 vs GLM 5.3, 51.2/7.9/40.9 vs Kimi K3), the Novita provider and prebuilt vLLM/SGLang images — scores unchanged, evidence completed.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (HF model card + HF eval-results hub rows + BenchmarkList aggregation + eesel/MindStudio — official plus independent sources, corroborations compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: corroborates GPQA 92.3, TB2.1 85.4, SWE-Pro 65.7, SWE-Multilingual 82.9, DeepSWE 64.3, APEX 37.1, Toolathlon 74.1 via HF eval-results; adds the exact blind-eval splits (46.8/12.8/40.4 vs GLM 5.3, 51.2/7.9/40.9 vs Kimi K3), the Novita provider and prebuilt vLLM/SGLang images; 2026-10-16 re-check: Vals Index 49.94% #31/48 and TokenDyno throughput rank added — no score changes).
 - Future sources: add a new file next to this one, e.g. `Hy4_GA.md`, using the same headings.

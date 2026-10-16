@@ -1,14 +1,14 @@
 # Grok 4 Fast — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4-fast-reasoning` / `grok-4-fast-non-reasoning`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4 Fast
-- **Short description:** xAI's cost-efficient reasoning model delivering frontier-level performance at ~98% lower cost than Grok 4, with a 2M-token context window, unified reasoning/non-reasoning architecture, and native web/X search.
+- **Short description:** xAI's cost-efficient reasoning model delivering frontier-level performance at ~98% lower cost than Grok 4, with a 2M-token context window, unified reasoning/non-reasoning architecture, and native web/X search. **RETIRED: xAI delisted it on 2026-05-15** (LLMLearner status; consistent with the live docs.x.ai model table fetched 2026-10-16, which lists only 4.20/4.3/4.5/4.6/4.7/build-0.1) — a legacy model now.
 - **Provider / access:** xAI API (`grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`), also on OpenRouter and Vercel AI Gateway; free for all users on grok.com in Fast/Auto modes. Chat Completions API.
 - **Release / knowledge:** 2025-09-19 release (model card: 2025-09-19); knowledge cutoff not stated in fetched sources.
 - **IDs:** `xai/grok-4-fast-reasoning`, `xai/grok-4-fast-non-reasoning` (no Free ID exists on Zen)
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA and Vals boards + the xAI announcement — official plus independent sources, conflicts compared; earlier draft via xAI announcement + Vals AI); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 65.8%, AA-LCR 73.7%, AA Index 17.9, Vibe 0.00%, AA-MMMU-Pro 61.8%, AA-Omniscience 68.3% — Tool 82→80, Reasoning 84→78, Multimodal 45→50, Coding 78→74, Overall 76→75.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA and Vals boards + the xAI announcement — official plus independent sources, conflicts compared; earlier draft via xAI announcement + Vals AI; 2026-10-16 re-check: BenchLM 404s this model, llm-stats conflicts on launch date (Aug vs Sep 19, 2025) and multimodal input — retirement 2026-05-15 added to the card, no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 65.8%, AA-LCR 73.7%, AA Index 17.9, Vibe 0.00%, AA-MMMU-Pro 61.8%, AA-Omniscience 68.3% — Tool 82→80, Reasoning 84→78, Multimodal 45→50, Coding 78→74, Overall 76→75.
 - Future sources: add a new file next to this one, e.g. `Grok_4.1_Fast.md`, using the same headings.

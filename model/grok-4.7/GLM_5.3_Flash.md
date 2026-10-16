@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4.7`), researched from fresh public web sources; Artificial Analysis lists the publisher as "SpaceXAI" on its 2026 model pages, but the canonical publisher of the Grok line is xAI.
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,8 @@ Agent / tool use:
 - AA Harvey LAB (legal agentic): **19.6%** (BenchLM; xAI table: beats Sol 2.5% and Fable 5.1 6.7%)
 - GDP.pdf (professional document reasoning, all-pass): **20.0%** (BenchLM)
 - Tau3-Banking / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Added 2026-10-16 (BenchLM refresh): GDPval-AA **Elo 1711** / 60.6% normalized (AA board — vs the 1695/59.8% earlier reading, both cited); AA Terminal-Bench 4.0 **25.8%** — CONFLICT with xAI's own 38.0% (harness difference, both cited); AA ITBench **42.1%**; CWE-bench v1 **68.0%**; AA-AnalystAgent **52.5%**; Hermes Bench **74.4%** / Hermes Index **39.3%**; MazeBench ASCII **1%**; MLCR-AA **15.0%**; Bug Hunt Bench **28.8 fixes**
+- FrontierMath v2: Tiers 1–3 **53.0%**, Tier 4 **17.1%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured)
 
 Reasoning / knowledge:
 
@@ -76,6 +78,6 @@ Safety:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (xAI docs, Artificial Analysis model/release/article pages, BenchLM, officechai's xAI launch-table coverage, SWE-bench site cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds xAI's published launch-table comparisons (GDPval 1695 with Fable 5.1/Astra context, CursorBench vs Fable 5.1 51.8%, fast-variant pricing), new safety rows (LatchBio 62.4%, HackerBench 3.3%) and AA's confirmed Index 46 — scores unchanged, evidence completed.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (xAI docs, Artificial Analysis model/release/article pages, BenchLM, officechai's xAI launch-table coverage, SWE-bench site cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds xAI's published launch-table comparisons (GDPval 1695 with Fable 5.1/Astra context, CursorBench vs Fable 5.1 51.8%, fast-variant pricing), new safety rows (LatchBio 62.4%, HackerBench 3.3%) and AA's confirmed Index 46; 2026-10-16 re-check: GDPval 1711, AA-TB4.0 25.8% conflict, FrontierMath 53.0/17.1 and Hermes/CWE rows added — no score changes).
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

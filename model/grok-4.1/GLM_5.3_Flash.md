@@ -1,7 +1,7 @@
 # Grok 4.1 — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,6 +67,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai table updated 2026-10-09, xAI Nov 17 2025 announcement, Vals AI leaderboard — official plus independent sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills ResearchClawBench 13.5%; documents the 256K-vs-1M context-window conflict (benchlm 1M vs the docs-tier assumption; xAI's current docs list no grok-4.1 entry) — scores unchanged, conflict recorded.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai table updated 2026-10-09, xAI Nov 17 2025 announcement, Vals AI leaderboard — official plus independent sources; 2026-10-16 re-check: BenchLM still holds a single row (ResearchClawBench 13.5%), its 1M context reading matches the documented conflict — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills ResearchClawBench 13.5%; documents the 256K-vs-1M context-window conflict (benchlm 1M vs the docs-tier assumption; xAI's current docs list no grok-4.1 entry) — scores unchanged, conflict recorded.
 - Future sources: add a new file next to this one, e.g. `Grok_4.2.md`, using the same headings.

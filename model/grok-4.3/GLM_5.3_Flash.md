@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4.3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,7 +34,8 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.1%** (AA — corroborates; Vals: **91.4%**)
-- HLE: **35.0%** (AA — under the 40% bar)
+- HLE: **35.0%** (AA — under the 40% bar); AA-HLE **37.2%** (second AA reading, consistent — added 2026-10-16)
+- FrontierMath v2: Tiers 1–3 **42.8%**, Tier 4 **14.6%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; mid-band)
 - Artificial Analysis Intelligence Index: **37.6** (AA current reading via benchlm.ai — updates the 2026-09-07 re-based "25 (91st of 200)" and the launch-era 53.2 v4.0 readings)
 - AA-LCR: **64.3%** (OpenRouter via benchlm.ai — fills the previously-missing LCR); CritPt: **8.0%**
 - IFBench: **81.3%** (AA — new)
@@ -75,6 +76,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables citing AA/OpenRouter/Vals boards, updated 2026-10-09, theairankings.com); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 41.9% (Vals), GDPval-AA 1018, AA-LCR 64.3%, SciCode 47.3%, LCB 84.5%, SWE-bench (Vals) 71.4%, IFBench 81.3%, MMMU-Pro 78.1%; updates AA Index 25→37.6 — Tool 92→75, Reasoning 85→84, Coding 70→78, Overall 85→83.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing AA/OpenRouter/Vals boards, updated 2026-10-09, theairankings.com; 2026-10-16 re-check: FrontierMath v2 42.8/14.6 and AA-HLE 37.2 added — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 41.9% (Vals), GDPval-AA 1018, AA-LCR 64.3%, SciCode 47.3%, LCB 84.5%, SWE-bench (Vals) 71.4%, IFBench 81.3%, MMMU-Pro 78.1%; updates AA Index 25→37.6 — Tool 92→75, Reasoning 85→84, Coding 70→78, Overall 85→83.
 - Future sources: add a new file next to this one, e.g. `Grok_4.5.md`, using the same headings.

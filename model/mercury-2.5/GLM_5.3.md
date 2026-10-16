@@ -1,7 +1,7 @@
 # Mercury 2.5 — findings by GLM 5.3
 
 - Source: Inception (`inception/mercury-2.5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-02 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - τ³-bench: **96.0%** (official launch chart) — top-tier structured tool work
-- Terminal-Bench 2.1 (Vals): **34.1%** — weak long-horizon terminal agency
+- Terminal-Bench 2.1 (Vals): **34.5%** (Vals leaderboard via BenchLM, updated 2026-10-16; was 34.1% at first research) — weak long-horizon terminal agency
 - GDPval-AA: **0.0%** normalized (AA via BenchLM) — no professional knowledge-work capability
 - DeepSearchQA: **34.0%** (official launch chart)
 - Claw-Eval / MCP Atlas: no verified public score found
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 - CritPt: **0.0%** (AA via BenchLM)
 - Omniscience: accuracy **22.0%**, hallucination rate **67.0%**, index **-39.5%** (official launch chart + AA via BenchLM — poor honesty)
 - AA-LCR: **68.0%** (official launch chart); IFBench: **77%**
-- BenchLM composite: **35.18/100, #148 of 783** (15 of 645 benchmarks covered)
+- BenchLM composite: **33.77/100, #165 of 954** (15 of 638 benchmarks covered, updated 2026-10-16; was 35.18 #148 of 783 at first research — leaderboard grew, not the model regressing)
 
 Coding:
 
@@ -64,6 +64,6 @@ Speed / latency (official production evidence):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
-- Method: public internet research (Inception's official Mercury 2.5 launch post for pricing/specs/production evidence, BenchLM aggregator rows with sources — official launch chart, AA, Vals); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-10-02)
+- Method: public internet research (BenchLM aggregator re-checked 2026-10-16 — all rows stable; TB 2.1 Vals nudged 34.1→34.5%, composite re-ranked 35.18 #148/783 → 33.77 #165/954 on a larger board; official Inception launch post unchanged). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

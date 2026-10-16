@@ -57,13 +57,13 @@
 85.4 gpt-5.2
 85.4 kimi-k2.6
 85.1 qwen-3.8-flash-next
+85 deepseek-v4-vision-exp
 85 qwen-3.5-plus
-84.7 deepseek-v4-vision-exp
+84.7 seed-2.0-pro
 84.6 Inkling
 84.5 grok-4.5
-84.4 seed-2.0-pro
+84.5 step-5-preview
 84.2 gpt-5.3-codex
-84.2 step-5-preview
 84 gemini-2.5-pro
 84 mistral-large-4
 84 pareto-26.10-preview
@@ -153,6 +153,7 @@
 62.5 grok-5
 62.2 owl-alpha
 61.8 gemma-4-e4b
+61 nemotron-3.5-bolt-e4b
 60.9 gpt-oss-120b
 60.5 mimo-v2.6-distill-qwen-9b
 60.3 mai-code-1-flash
