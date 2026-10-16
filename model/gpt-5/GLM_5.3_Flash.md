@@ -37,10 +37,10 @@ Reasoning / knowledge:
 - ARC-AGI-2 (verified): **9.9%** #142 (ARC Prize, high — very weak); ARC-AGI-1: 65.7% #133; CritPt: **5.7%** #136
 - FrontierMath Tiers 1–3: **55.4%** #42 (Epoch v2); Tier 4: 21.9% #45; OTIS Mock AIME: 91.4%; MATH Level 5: **98.1%** #1; IMO 2025: **38.1%** #1; AIME (Vals): 93.4%; MATH 500: 96.0% #3
 - AIME 2025 (no tools): **94.6%** (OpenAI launch evaluations — SOTA at launch)
-- SimpleQA Verified: **50.1%** #25 (Epoch); AA-Omniscience: accuracy 40.3%, non-hallucination **17.8%** #300 at high (severe hallucination); MultiChallenge: 63.2% #9
+- SimpleQA Verified: **50.1%** #25 (Epoch); AA-Omniscience: accuracy 40.3%, non-hallucination **17.8%** #300 at high (severe hallucination; 2026-10-15 refresh reads 83.2% hallucination / 39.5% accuracy on the medium variant — consistent); MultiChallenge: 63.2% #9; AA-IFBench: **70.6%**; AA MATH-500: **99.1%** (both added 2026-10-16)
 - MMLU-Pro (Vals): **86.5%**; HELM MMLU-Pro: **86.3%** #2; MedQA (Vals): **96.3%** #4; LegalBench (Vals): 86.0%; CaseLaw v2: 66.5% #6
 - Hallucination proxies (OpenAI system card): ~45% fewer factual errors than GPT-4o with web search; ~6x fewer than o3 on LongFact-style prompts; deception rate 2.1% vs o3's 4.8%
-- LCR / MLCR: no verified public score found
+- LCR: **76.0%** (AA-LCR — filled 2026-10-16, previously unpublished; solid); MLCR: no verified public score found
 
 Coding:
 

@@ -17,10 +17,10 @@
 90.7 claude-fable-5
 90.7 kimi-k3
 90.6 mimo-v2.6-pro
+90.3 gpt-6.1-sol
 90.2 gemini-3-pro
+90.2 gpt-5.6-sol
 90.1 gpt-5.5-pro
-90 gpt-5.6-sol
-90 gpt-6.1-sol
 89.6 claude-opus-4.8
 89.5 muse-spark-1.2
 89.4 glm-5.3-flash
@@ -130,7 +130,7 @@
 69.5 glm-5.1
 69.3 grok-build-0.1
 68.5 hy3-preview
-68.2 diffusiongemma-26b-a4b
+68.3 diffusiongemma-26b-a4b
 67.9 solar-open-2
 67.6 solar-pro-4
 66.9 qwen3-max

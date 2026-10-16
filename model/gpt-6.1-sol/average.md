@@ -5,19 +5,19 @@
 
 ## Averaged scores
 
-- **Tool use: 90.3/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Reasoning: 93.3/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Context window: 95.7/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Multimodal: 78.4/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Coding: 91.8/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Cost efficiency: 83.2/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 90/100.** Mean of top 10 of 22 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 90.9/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 93.8/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 95.2/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 78.2/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 92.7/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 82.4/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 90.3/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
 ## Agreement notes
 
-- Based on 22 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6 Sol, Grok 4.6, Kimi K3, MiMo 2.6 Flash, MiniMax M3, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash.
-- Average from top 10 by Overall Score: Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6 Sol, MiniMax M3.
-- Excluded bottom 12: Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Grok 4.6, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash.
+- Based on 23 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6 Sol, GPT-6.1 Sol, Grok 4.6, Kimi K3, MiMo 2.6 Flash, MiniMax M3, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash.
+- Average from top 10 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6 Sol, GPT-6.1 Sol, MiniMax M3.
+- Excluded bottom 13: Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 5.5, DeepSeek 4.1 Flash, Gemini 3.5 Flash, Grok 4.6, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Big Pickle, Cat Jam, Claude Haiku 5.5, Claude Sonnet 4.5, DeepSeek 4 Flash, Fledge Alpha, Gemini 2.5 Flash, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5, GPT 5.6 Luna, Grok 4.5, Laguna S 2.1, Laguna XS 2.1, Ling 3.1 Flash, LongCat 2.5 Preview, Space Bunny, Step 5 Preview.
