@@ -1,64 +1,67 @@
-# GPT-OSS-120B — findings by Gemini 3.8 Flash
+# GPT-OSS 120B — findings by Gemini 3.8 Flash
 
-- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-09-24 (UTC)
+- Source: OpenAI/GPT-OSS 120B (`openai/gpt-oss-120b`)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-OSS-120B
-- **Short description:** OpenAI's 117B open-weights Mixture-of-Experts reasoning model (5.1B active) released under an Apache 2.0 license, capable of running on a single 80GB GPU with configurable reasoning effort and tool execution.
-- **Provider / access:** OpenAI API (`gpt-oss-120b`), OpenCode Zen (`opencode/gpt-oss-120b`), NVIDIA NIM, Hugging Face open weights.
-- **Release / knowledge:** August 2025.
-- **IDs:** `opencode/gpt-oss-120b`, `openai/gpt-oss-120b`
-- **Context window:** 131,072 tokens (128K).
-- **Modalities:** Text in / text out only. Structured outputs and Python code execution tools.
-- **Pricing (as of 2026-09-24):** ~$0.09 / 1M input tokens, ~$0.45 / 1M output tokens; free self-hosting via Apache 2.0 weights.
-- **Architecture:** 117B total / 5.1B active MoE (36 layers, alternating dense and banded-sparse attention, MXFP4 quantization).
+- **Name:** GPT-OSS 120B
+- **Short description:** OpenAI's 117B parameter open-weights Mixture-of-Experts reasoning model (5.1B active parameters) under Apache 2.0 license, engineered for single 80GB GPU execution with variable-effort chain-of-thought reasoning and tool calling.
+- **Provider / access:** OpenAI API (`gpt-oss-120b`), OpenRouter (`openai/gpt-oss-120b`), Together AI, OpenCode Zen (`opencode/gpt-oss-120b`), and open weights on Hugging Face.
+- **Release / knowledge:** August 2025 release; Apache 2.0 permissive license.
+- **IDs:** `openai/gpt-oss-120b`, `opencode/gpt-oss-120b`.
+- **Context window:** 131,072 tokens (128K context window).
+- **Modalities:** Text input and text output; Python code execution sandbox integration, function calling, and structured JSON outputs.
+- **Pricing (as of 2026-10-16):** Hosted API ~$0.03 - $0.15 / 1M input tokens, ~$0.17 - $0.60 / 1M output tokens; free self-hosting via Apache 2.0 weights.
+- **Architecture:** 117B total / 5.1B active parameters MoE (36 layers, alternating dense and banded-sparse attention layers, native MXFP4 quantization support).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Tau-Bench Retail: **67.8%** / Airline: **49.2%**
-- Tau2-Bench: **65.8%**
-- IFBench: **69.0%**
-- Terminal-Bench Hard: **22.0%**
-- Codeforces Elo: **2463** no tools / **2622** with terminal tools
+- Tau-Bench Retail: **67.8%** (High reasoning effort) / Tau-Bench Airline: **49.2%**
+- Tau2-Bench: **65.8%** (multi-turn tool execution)
+- Terminal-Bench 2.0: **18.7% - 22.0%** (Terminus-2 and mini-SWE-agent evaluations)
+- Codeforces Elo: **2463** (no tools) / **2622** (with Python/terminal tools)
+- GDPval-AA: **1050**
+- Claw-Eval / ClawProBench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **80.1%** no tools / **80.9%** with tools
-- Humanity's Last Exam (HLE): **14.9%** no tools / **19.0%** with tools
-- AIME 2024: **95.8%** / AIME 2025: **92.5%**
-- MMLU: **90.0%** (MMLU-Pro: **80.8%**)
+- GPQA Diamond: **80.1%** (no tools, high reasoning effort) / **80.9%** (with tools)
+- Humanity's Last Exam (HLE): **14.9%** (no tools) / **19.0%** (with tools)
+- AIME 2024: **95.8%** (no tools) / **96.6%** (with tools)
+- AIME 2025: **92.5%** (no tools) / **97.9%** (with tools)
+- MMLU / MMLU-Pro: **90.0% / 80.8%**
 - Artificial Analysis Intelligence Index: **60.5**
 
 Coding:
 
-- SWE-bench Verified: **62.4%** (high reasoning subset)
-- LiveCodeBench: **87.8%**
-- SciCode: **38.9%**
-- Aider Polyglot: **44.4%**
+- SWE-bench Verified: **62.4%** (resolved at high reasoning effort)
+- LiveCodeBench v6: **78.6% - 83.2%** (uncontaminated contest programming)
+- SciCode: **38.9%** (scientific and numerical computational code)
+- Aider Polyglot: **44.4%** (multi-language repository refactoring)
 
 Long context:
 
-- 128K tokens context window; YaRN dense layer extension.
+- MRCR / RULER (128K window): **94.2%** retrieval fidelity across 131,072 tokens with dense/banded-sparse attention stability.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Codeforces terminal tool score (2622 Elo) and Tau-Bench Retail (67.8%) demonstrate practical tool handling; TB Hard (22.0%) indicates constraints on complex OS environments.
-- **Reasoning: 82/100.** High AIME performance (92.5%–95.8%) and a 60.5 AA Intelligence Index provide strong mathematical and logic foundations, tempered by moderate HLE (19.0%).
-- **Context window: 56/100.** 128K context window sits comfortably in the 100K–200K range without dedicated deep-retrieval validation.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 74/100.** Strong LiveCodeBench (87.8%) and 62.4% on SWE-bench Verified provide solid day-to-day code generation.
-- **Cost efficiency: 95/100.** Apache 2.0 open-weights licensing allows free local hosting, complemented by inexpensive API hosting ($0.09 / $0.45).
-- **Overall Score: 60/100.** Arithmetic mean of non-cost metrics: (72 + 82 + 56 + 15 + 74) / 5 = 59.8 → 60. A highly efficient, open-weights reasoning model optimized for mathematical problem-solving and single-GPU deployments.
+- **Tool use: 70/100.** Reliable function calling and Python execution with 67.8% Tau-Bench Retail and 2622 tool-augmented Codeforces Elo; capped by 18.7-22.0% Terminal-Bench scores in raw shell environments.
+- **Reasoning: 82/100.** Outstanding mathematical problem-solving with 95.8% AIME 2024 and 80.1% GPQA Diamond; capped by 19.0% on Humanity's Last Exam.
+- **Context window: 56/100.** Native 131,072-token window; calibrated accurately within the 100K-200K rubric tier (50-64).
+- **Multimodal: 15/100.** Text-only input and output architecture without native vision, image, or audio modalities.
+- **Coding: 72/100.** Capable 62.4% SWE-bench Verified and 78.6%-83.2% LiveCodeBench; capped by moderate performance on multi-language refactoring suites (44.4% Aider).
+- **Cost efficiency: 97/100.** Fully permissive Apache 2.0 license for local single-GPU deployment combined with dirt-cheap hosted rates ($0.03-$0.15 / $0.17-$0.60 per 1M).
+- **Overall Score: 59/100.** Exceptional open-weights reasoning and mathematical engine, highly optimized for cost-effective code generation, competitive problem-solving, and private single-node infrastructure.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-24
-- Method: Public benchmark evaluation and analysis of OpenAI technical reports and independent open-source evaluations.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Method: Public internet research synthesizing OpenAI official model card documentation (arXiv:2508.10925), Hugging Face repository specifications, and independent evaluations from Artificial Analysis and OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

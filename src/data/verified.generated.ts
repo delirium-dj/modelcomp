@@ -53,7 +53,7 @@ export const VERIFIED: Record<string, string> = {
   "gemma-4-e2b": "2026-10-16",
   "gemma-4-e4b": "2026-10-16",
   "gemma-4.12b-unified": "2026-10-16",
-  "gemma-4.26b-a4b": "2026-10-13",
+  "gemma-4.26b-a4b": "2026-10-16",
   "glm-5": "2026-10-16",
   "glm-5.1": "2026-10-16",
   "glm-5.2": "2026-10-16",

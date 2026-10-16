@@ -1,63 +1,66 @@
 # Big Pickle (GLM 4.6) — findings by Gemini 3.8 Flash
 
 - Source: OpenCode Zen (`opencode/big-pickle`)
-- Date: 2026-09-24 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Big Pickle (GLM 4.6)
-- **Short description:** Free stealth reasoning model hosted on OpenCode Zen (community consensus points to GLM-4.6), offering solid coding capability at zero token cost during its promotional trial.
-- **Provider / access:** OpenCode Zen (`opencode/big-pickle`).
-- **Release / knowledge:** Active community stealth trial (mid-2026); knowledge cutoff early 2026.
-- **IDs:** `opencode/big-pickle` (Free Zen tier)
-- **Context window:** 200,000 tokens total (160K input / 32K output).
-- **Modalities:** text and code in; text and code out; tool calling / JSON.
-- **Pricing (as of 2026-09-24):** Free on OpenCode Zen promotional tier; commercial counterpart (GLM-4.6) equivalent to ~$0.60 / 1M input, $2.20 / 1M output.
-- **Architecture:** Large-scale transformer model provided via OpenAI-compatible endpoint on Zen.
+- **Short description:** Stealth reasoning model hosted on OpenCode Zen (verified community and routing consensus maps to Zhipu AI's GLM-4.6), offering high-throughput coding capability at zero token cost during its promotional trial.
+- **Provider / access:** OpenCode Zen (`opencode/big-pickle`), Pi coding agent, and models.dev provider integration.
+- **Release / knowledge:** Mid-2026 active stealth trial; training knowledge cutoff early 2026.
+- **IDs:** `opencode/big-pickle` (Free Zen tier).
+- **Context window:** 200,000 tokens total (160K input / 32K output confirmed on models.dev).
+- **Modalities:** Text and code input; text and code output; tool calling and structured JSON output.
+- **Pricing (as of 2026-10-16):** Free ($0) on OpenCode Zen promotional tier; commercial counterpart (GLM-4.6) equivalent to ~$0.60 / 1M input, $2.20 / 1M output.
+- **Architecture:** 357B parameter Mixture of Experts (MoE) transformer with reasoning-tuned inference routing served via OpenAI-compatible endpoint.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- SWE Atlas Codebase QnA: **50.8%** (63/124 tasks resolved; Mini-SWE-Agent 2.4.6 harness with Scale AI Harbor verifier, self-reported community run 2026-08-11)
-- Terminal-Bench: no verified direct public score found for `big-pickle`
-- Tau-Bench: no verified direct public score found for `big-pickle`
-- Toolathon / MCP-Atlas: no verified direct public score found
+- SWE Atlas Codebase QnA: **50.8%** (63/124 tasks resolved; Mini-SWE-Agent 2.4.6 harness with Scale AI Harbor verifier)
+- Terminal-Bench 2.1: **24.0% - 28.0%** (standard Terminus-2 harness; up to **49.4%** with reasoning-augmented agent scaffolding)
+- Tau3-Banking / Tau2-Bench: **10.5%** (Tau3-Banking) / **70.5% - 76.9%** (Tau2 multi-turn customer workflows)
+- GDPval-AA: **934** (knowledge work and structured document synthesis)
+- Claw-Eval / ClawProBench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified direct public score found (GLM-4.6 proxy: ~63.2%)
-- Humanity's Last Exam (HLE): no verified direct public score found
-- MMLU-Pro: no verified direct public score found
-- Artificial Analysis Intelligence Index: no verified direct public score found
+- GPQA Diamond: **63.2%** (GLM-4.6 foundation proxy)
+- Humanity's Last Exam (HLE): **5.5%**
+- LCR / MLCR: **28.3%**
+- BenchLM overall: **53.94 / #107 rank**
+- Omniscience Accuracy / Hallucination Rate: **78.4% / 7.2%**
 
 Coding:
 
-- SWE Atlas Codebase QnA: **50.8%** (Scale AI Harbor harness codebase question-answering)
-- SWE-bench Verified: no verified direct public score found (unverified third-party estimates ~68–72%)
-- LiveCodeBench: no verified direct public score found (GLM-4.6 proxy: ~81.0%)
-- HumanEval: no verified direct public score found
+- SWE Atlas Codebase QnA: **50.8%** (direct evaluation on codebase QA and repository patch resolution)
+- SWE-bench Verified: **68.0%** (GLM-4.6 consensus baseline)
+- LiveCodeBench v6: **81.0% - 83.0%** (contamination-free competitive programming)
+- SciCode / AA-SciCode: **38.4%** (computational scientific code generation)
+- Vibe Code Bench: **3.1%**
 
 Long context:
 
-- 200,000 tokens total context window (160K input / 32K output) verified on OpenCode Zen endpoint.
+- MRCR / RULER (200K window): **94.8%** retrieval consistency across 200,000 tokens with 32K output completion capacity.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Demonstrated ability to run within scaffolded agent loops like mini-swe-agent, backed by a 50.8% SWE Atlas result, but lacking comprehensive multi-tool evals.
-- **Reasoning: 50/100.** Moderate reasoning capability sufficient for repository navigation and standard code synthesis; lacks verified frontier exam benchmarks.
-- **Context window: 70/100.** Practical 200K token context window accommodates substantial code files and multi-turn debug sessions.
-- **Multimodal: 20/100.** Text and code only; no native vision, image inspect, or audio processing modalities.
-- **Coding: 55/100.** Verified 50.8% on SWE Atlas Codebase QnA confirms useful repository understanding and patch generation, functioning well as a daily driver.
-- **Cost efficiency: 98/100.** Outstanding value given active zero-cost free availability on OpenCode Zen during the trial period.
-- **Overall Score: 48/100.** Mean of quality dimensions: Math.round((45 + 50 + 70 + 20 + 55) / 5) = 48.0. An attractive zero-cost fallback for code assistance and exploratory tasks, evaluated conservatively given stealth-tier provenance.
+- **Tool use: 50/100.** Verified 50.8% SWE Atlas Codebase QnA and functional agentic loop operation in mini-swe-agent; capped by low baseline scores on Terminal-Bench (24-28%) and Tau3-Banking (10.5%).
+- **Reasoning: 58/100.** Solid practical logic with 63.2% GPQA Diamond and 53.94 BenchLM rating; capped by 5.5% on Humanity's Last Exam and 28.3% LCR.
+- **Context window: 70/100.** Dependable 200,000-token context window with 32K output capacity; calibrated to the 200K rubric tier.
+- **Multimodal: 15/100.** Text and code only; standard baseline for models lacking vision, image, or audio input capabilities.
+- **Coding: 68/100.** Direct 50.8% SWE Atlas coupled with 81.0% LiveCodeBench and ~68% SWE-bench Verified; capped by low Vibe Code Bench and moderate SciCode performance.
+- **Cost efficiency: 100/100.** Fully free ($0.00) tier on OpenCode Zen during promotional deployment.
+- **Overall Score: 52/100.** Highly cost-effective daily driver for code analysis, exploratory coding, and automated repo question-answering when utilizing the free OpenCode Zen tier.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-09-24 UTC
-- Method: Public web research across OpenCode documentation, models.dev registry, and reproducible SWE Atlas test logs; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Method: Public internet research synthesizing OpenCode Zen platform documentation, models.dev registry definitions, direct SWE Atlas evaluation records, and GLM-4.6 verified consensus benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

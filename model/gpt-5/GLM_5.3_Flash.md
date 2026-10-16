@@ -1,7 +1,7 @@
 # GPT-5 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,16 +64,16 @@ Multimodal / vision:
 
 - **Tool use: 68/100.** Now measured: TB 49.6% (#35) and GDPval 34.8% are weak, but τ² Telecom 86.5%, BrowseComp-Plus 57.6% (#1), Aider Polyglot 88% (#1) and METR 69.4% hold mid-band; the missing Claw/Toolathon rows cap it.
 - **Reasoning: 72/100.** GPQA 86.2% (filled — just under the 90% reference), AIME 2025 94.6% (SOTA at launch) and MATH Level 5 98.1% (#1) are strong; HLE 25.3%/28.5% stays under the 40% bar, ARC-AGI-2 9.9% is very weak, and AA Index 23 (deprecated model) plus the 17.8% non-hallucination rate cap it.
-- **Context window: 80/100.** 400K total tokens (upper end of the 200K–500K tier; 200K = 70 reference), capped by the 128K max-output caveat and no published long-context retrieval measurement (AA-LCR unpublished).
+- **Context window: 82/100.** CHANGED from 80 — 400K total tokens (upper end of the 200K–500K tier) with the previously-missing AA-LCR now measured at 76.0%; the 128K max-output caveat remains.
 - **Multimodal: 82/100.** Text and image input with measured MMMU-Pro (Vals) 81.5%, VISTA 49.7% (#11) and GeoBench 81.0% (#4); text-only output and no verified audio/PDF input keep it below audio-vision-tier models.
 - **Coding: 75/100.** Now with filled rows: SWE-V 73.5% (#19 Epoch) / 65.0% (swebench.com), LCB 85.9% (#27), Aider 88% (#1); SWE-Pro 41.8% and SciCode 42.9% sit below frontier marks, and the 2026 cohort now sits at 95%+ SWE-bench.
 - **Cost efficiency: 74/100.** $1.25/$10.00 per 1M (blended $3.44/M, ~90% cache discount) is moderately priced per AA and cheap for a former flagship, but the $10.00 output rate is well above mid-tier models and there is no free tier.
-- **Overall Score: 75/100.** Mean of the five non-cost dims (68 + 72 + 80 + 82 + 75) / 5 = 75.4 → 75. Best fit as a solid general-purpose fallback for everyday chat, writing, and health questions; newer OpenAI releases are preferable for frontier coding and agentic work.
+- **Overall Score: 76/100.** CHANGED from 75 — mean of the five non-cost dims (68 + 72 + 82 + 82 + 75) / 5 = 379/5 = 75.8 → 76. Best fit as a solid general-purpose fallback for everyday chat, writing, and health questions; newer OpenAI releases are preferable for frontier coding and agentic work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenAI launch post, Vellum cross-check); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.2% #76, HLE 25.3% #13, independent SWE-V 73.5% #19, LCB 85.9%, SWE-Pro 41.8%, SciCode 42.9%, TB 49.6%, GDPval 34.8%, BrowseComp-Plus 57.6% #1, MMMU-Pro 81.5% — Tool 65→68, Reasoning 78→72, Coding 72→75, Overall 75 (recalculated).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenAI launch post, Vellum cross-check; re-researched 2026-10-16: AA-LCR 76.0 filled, IFBench 70.6, MATH-500 99.1 added — Context 80→82, Overall 75→76); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.2% #76, HLE 25.3% #13, independent SWE-V 73.5% #19, LCB 85.9%, SWE-Pro 41.8%, SciCode 42.9%, TB 49.6%, GDPval 34.8%, BrowseComp-Plus 57.6% #1, MMMU-Pro 81.5% — Tool 65→68, Reasoning 78→72, Coding 72→75, Overall 75 (recalculated).
 - Future sources: add a new file next to this one, e.g. `GPT_5.1.md`, using the same headings.

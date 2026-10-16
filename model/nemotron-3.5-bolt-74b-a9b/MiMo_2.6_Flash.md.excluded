@@ -1,0 +1,62 @@
+# Nemotron 3.5 Bolt 74B A9B — findings by MiMo 2.6 Flash (SELF-EXCLUDED)
+
+- Source: NVIDIA (nominal — no verified model behind this ID)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — no verified public benchmark data.** This folder's nominal subject,
+> "Nemotron 3.5 Bolt 74B A9B" (a 74B-total / 9B-active NVIDIA Nemotron 3.5 model), could not be
+> verified to exist as of 2026-10-16. Per `tasks/research.md` and `model-report-TEMPLATE.md`, a
+> scored `.md` is written only when at least one verified public benchmark number exists for the
+> exact model/ID; otherwise the report is saved as `.md.excluded` (notes only) rather than a scored
+> file with placeholder numbers. No benchmark value is invented below.
+
+## Model card (negative findings)
+
+- **Name (nominal):** Nemotron 3.5 Bolt 74B A9B
+- **Short description:** The folder name implies an NVIDIA Nemotron 3.5 "Bolt" variant with 74B total / 9B active parameters. No such model could be verified. NVIDIA's real Nemotron 3.5 family, verified this pass, contains only **Nemotron 3.5 Lightning** (fast specialized execution) and **Nemotron 3.5 Super VL** (120B/12B multimodal, released 2026-10-15) — there is no "Bolt" member, and no 74B/9B Nemotron 3.5 checkpoint on NVIDIA's channels.
+- **Provider / access (nominal):** Would-be route OpenCode Zen `opencode/nemotron-3.5-bolt-74b-a9b` (per repo meta.json, scaffolded). The scaffolded meta.json carried only placeholder specs ("128K total", "Text in/out", "Standard pricing") with no verified model behind them.
+- **Release / knowledge:** No verified release. NVIDIA's Nemotron 3.5 technical report (Oct 15, 2026) documents Lightning and Super VL; no Bolt SKU appears in it, on build.nvidia.com, or on HuggingFace `nvidia/*`.
+- **IDs:** No verified NVIDIA model ID for a "Nemotron 3.5 Bolt" could be found.
+- **Context window:** Unverified (scaffold placeholder said 128K).
+- **Modalities:** Unverified (scaffold placeholder said text in/out).
+- **Pricing (as of 2026-10-16):** Unverified; no hosted endpoint or price sheet located for this ID.
+- **Architecture:** Unverified; the "74B A9B" suffix would imply a 74B-total / 9B-active MoE, but no weights, config, or model card was located.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau / GDPval-AA / OSWorld / MCP-Atlas: **no verified public score found** for this exact model/ID.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index: **no verified public score found** for this exact model/ID.
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: **no verified public score found** for this exact model/ID.
+
+Long context:
+
+- No long-context retrieval result reported (model itself unverified).
+
+### Verification performed (4 independent lookups)
+
+1. **NVIDIA build.nvidia.com model directory** — a search for "nemotron 3.5 bolt 74b a9b" and the Nemotron 3.5 listing returns only `nemotron-3.5-super-vl-120b-a12b` (and the 3.5 Lightning model); no "bolt" entry. The direct Bolt model-card URL returns no model content.
+2. **HuggingFace `nvidia/*` organization** — `NVIDIA-Nemotron-3.5-Bolt-74B-A9B` is gated/nonexistent (HTTP 401 on the direct model page); the Nemotron 3.5 family page lists Lightning and Super VL only. Community search surfaces no 74B/9B Nemotron 3.5 Bolt checkpoint.
+3. **NVIDIA developer blog / technical report (2026-10-15)** — the Nemotron 3.5 announcement and companion post cover Lightning and Super VL; no "Bolt" model is announced.
+4. **Independent aggregators** (OpenRouter `nvidia/*` listings, Artificial Analysis, LuminaBench journal) — no "Nemotron 3.5 Bolt" entry on any; LuminaBench's Nemotron 3.5 launch coverage (2026-10-15) references only Super VL and Lightning.
+
+### Verdict
+
+Zero verified public benchmark numbers exist for "Nemotron 3.5 Bolt 74B A9B"; every benchmark row above reads "no verified public score found." Under the self-exclusion rule this file is therefore saved as `.md.excluded` and must never be converted into a scored report with placeholder numbers. If NVIDIA (or the orchestrator) later confirms a real 74B/9B Nemotron SKU behind this slug, re-research with fresh evidence can promote a scored `<STEM>.md` and retire this twin per `tasks/research.md` Step 3.3.
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-16
+- Method: public internet research (4 independent verification lookups across NVIDIA NIM, HuggingFace, the Nemotron 3.5 technical report, and independent aggregators); no benchmark invented. Scores are omitted because no verified public score exists for this ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

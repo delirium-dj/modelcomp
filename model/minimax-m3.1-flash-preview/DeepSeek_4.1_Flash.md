@@ -1,20 +1,26 @@
 # MiniMax M3.1 Flash Preview — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax/MiniMax M3.1 Flash Preview (`MiniMax-M3.1-Flash-Preview`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Third-pass refresh — 2026-10-16** (≥3 independent sources: MiniMax's own M3 model page and M3 launch blog, the LLM Reference model page, and BenchLM).
+> **No new benchmark evidence appeared.** The one independent benchmark already on file (AICodeKing's KingBench 3, 53/80 = 66.25%) remains the only verified figure. BenchLM now has a tracking page for this ID but it is **empty — "0 of 638 benchmarks covered", "data coming soon", Overall Rank "Unranked"** (last updated 2026-10-15). Artificial Analysis has no page for the `MiniMax-M3.1-Flash-Preview` ID, and Vals AI has no matching route.
+> **Specs confirmed (unchanged):** released **2026-09-27**; **1M-token context**; decoder-only, proprietary (weights not released, license "proprietary, commercial use conditional"); text + image + video in, text out; thinking **always on** with effort `low|medium|high|xhigh|max` (default `max`, cannot disable — a `400` "requires adaptive thinking"); availability **Token Plan + MiniMax Code only**, no pay-as-you-go (paygo table lists M3/M2.x only; no M3.1 Flash $/MTok row). LLM Reference's "Last refreshed 2026-09-28 / researched 17d ago" confirms nothing has changed since launch.
+> **Correction to the surrounding record (not a conflict in this file):** MiniMax's own models page now lists **M3** (428B / 23B, open weights since 2026-06-01, MINIMAX Community License) but **does not list M3.1 Flash Preview** — corroborating that the Flash Preview is a plan-only preview SKU, not a published open model. Do **not** borrow M3's benchmark table or its 428B/23B figures for M3.1 Flash.
+> Sources: https://www.minimax.io/models/text/m3 · https://www.minimax.io/blog/minimax-m3 · https://www.llmreference.com/model/minimax-m3.1-flash-preview · https://benchlm.ai/models/minimax-m3-1-flash-preview
 
 ## Model card
 
 - **Name:** MiniMax M3.1 Flash Preview
 - **Short description:** Preview-tier multimodal coding model from MiniMax, released 2026-09-27 as the fast sibling of the MiniMax M3 flagship; positioned for agentic reasoning, tool use and long-context coding, with always-on adaptive thinking.
-- **Provider / access:** MiniMax (proprietary, closed weights). API id `MiniMax-M3.1-Flash-Preview`; available only through MiniMax Code (desktop/web) and the Token Plan — no standalone pay-as-you-go API and no third-party routers as of 2026-10-05. No OpenCode Zen ID.
-- **Release / knowledge:** Released 2026-09-27. Knowledge cutoff undocumented.
+- **Provider / access:** MiniMax (proprietary, closed weights). API id `MiniMax-M3.1-Flash-Preview`; available only through MiniMax Code (desktop/web) and the Token Plan — no standalone pay-as-you-go API and no third-party routers as of 2026-10-16. No OpenCode Zen ID.
+- **Release / knowledge:** Released 2026-09-27 (LLM Reference). Knowledge cutoff undocumented.
 - **IDs:** `MiniMax-M3.1-Flash-Preview`; no Zen Free ID (`noFreeId: true` correct).
-- **Context window:** 1,000,000 tokens total with 512,000 max output (models.dev catalogue / MiniMax API docs via ThreatFrontier).
-- **Modalities:** Text, image and video in; text out. Reasoning always on — disabling thinking or `effort: "none"` returns HTTP 400; five effort levels `low|medium|high|xhigh|max`, default `max`. Tool use / JSON output.
-- **Pricing (as of 2026-10-05):** No public per-token price. Plan-only: MiniMax Code / Token Plan subscription; MINIMAX offered unlimited M3.1 Flash in MiniMax Code from 2026-10-01 to 2026-10-07 to subscribers. Pay-as-you-go price table lists M3/M2.x only.
+- **Context window:** 1,000,000 tokens total with 512,000 max output (models.dev catalogue / MiniMax API docs via ThreatFrontier; 1M corroborated by LLM Reference).
+- **Modalities:** Text, image and video in; text out. Reasoning always on — disabling thinking or `effort: "none"` returns HTTP 400 "requires adaptive thinking"; five effort levels `low|medium|high|xhigh|max`, default `max`. Tool use / JSON output.
+- **Pricing (as of 2026-10-16):** No public per-token price. Plan-only: MiniMax Code / Token Plan subscription; MINIMAX offered unlimited M3.1 Flash in MiniMax Code from 2026-10-01 to 2026-10-07 to subscribers. Pay-as-you-go price table lists M3/M2.x only. LLM Reference shows one provider route (MiniMax), "serverless / partial", with no input/output $/MTok.
 - **Architecture:** Decoder-only, proprietary; parameter count for M3.1 undisclosed. Do not reuse M3's 428B/23B figures — MiniMax published no M3.1 model card.
 
 ### Raw benchmarks found
@@ -31,7 +37,7 @@ Reasoning / knowledge:
 - GPQA Diamond: no verified public score found
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (BenchLM has no source-displayable rows)
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (BenchLM track page exists with "0 of 638" coverage; AA has no page for this ID)
 
 Coding:
 
@@ -45,7 +51,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Low-confidence: only one independent benchmark (KingBench 3) exists for this ID. Non-coding dimensions are scored provisionally from documented specs and the coding signal, not from benchmark tables.
+> Low-confidence: only one independent benchmark (KingBench 3) exists for this ID. Non-coding dimensions are scored provisionally from documented specs and the coding signal, not from benchmark tables. **No change this pass** — no new evidence was found to move any dimension.
 
 - **Tool use: 60/100.** Positioned and shipped for agentic coding/tool use with native JSON output, but zero verified tool-use benchmarks exist; capped low rather than assumed strong.
 - **Reasoning: 62/100.** Always-on adaptive thinking across five effort levels signals a deliberate reasoning model, but GPQA/HLE/Index are all unreported, so it is held in the mid band pending evidence.
@@ -59,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-05
-- Method: public internet research (ThreatFrontier analysis of AICodeKing's independent KingBench 3, MiniMax API docs, models.dev, LLM Reference); scores are normalized 1–100 interpretations with one verified benchmark, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Method: public internet research; third-pass re-verification on 2026-10-16 against MiniMax's own M3 model page and M3 launch blog, LLM Reference and BenchLM (plus the previously recorded ThreatFrontier analysis of AICodeKing's KingBench 3), confirming there is still no new verified benchmark or price data for this plan-only preview ID, so scores are unchanged. Scores are normalized 1–100 interpretations with one verified benchmark, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -667,7 +667,7 @@ export default component$(() => {
         </section>
 
         <section class="border-b-0 border-[#ccdae2] px-0 pb-12 pt-12 dark:border-[#274757]" id="methodology" aria-labelledby="v2-method-title">
-          <div class="flex items-start justify-between gap-6">
+          <div class="flex items-start justify-between gap-6 max-[520px]:flex-col">
             <h2 id="v2-method-title" class="min-w-0 flex-[2_1_0%] font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">How scoring works</h2>
             <p class="mt-3.5 min-w-0 max-w-none flex-[3_1_0%] text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
               Scores are normalized interpretations from 1 to 100 (higher is better), based on

@@ -1,7 +1,7 @@
 # GPT 5 Nano — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5-nano`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader effort-sweep tables data as of 2026-10-10 citing Epoch/AA/Vals/HELM boards + the official OpenAI developer blog — official plus independent sources, conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 69.4% (independent), TB 11.5/21.8%, BFCL 51.5%, ARC-AGI-2 2.6%, AA Index 13.0, SWE-V (swebench) 34.8%, LCB 70.2%, MMMU-Pro (Vals) 70.9%, AA-LCR 45.0%, MRCR rows — Tool 55→52, Reasoning 62→60, Context 68→66, Coding 56→54, Overall 62→60.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader effort-sweep tables data as of 2026-10-10 citing Epoch/AA/Vals/HELM boards + the official OpenAI developer blog — official plus independent sources, conflicts compared; 2026-10-16 re-check: BenchLM still has zero sourced rows for nano — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 69.4% (independent), TB 11.5/21.8%, BFCL 51.5%, ARC-AGI-2 2.6%, AA Index 13.0, SWE-V (swebench) 34.8%, LCB 70.2%, MMMU-Pro (Vals) 70.9%, AA-LCR 45.0%, MRCR rows — Tool 55→52, Reasoning 62→60, Context 68→66, Coding 56→54, Overall 62→60.
 - Future sources: add a new file next to this one, e.g. `GPT_5.1.md`, using the same headings.

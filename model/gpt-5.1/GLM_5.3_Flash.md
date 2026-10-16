@@ -24,7 +24,7 @@
 Agent / tool use:
 
 - Terminal-Bench: **47.6%** #37 (tbench.ai, medium effort — fills the previously-missing TB row); Terminal-Bench Hard (AA): **45.5%** #34; TB2.1 (AA): **52.4%**; TB2.0 (Vals): 44.9%
-- Tau2-Bench Telecom (AA): **81.9%**; GDPval-AA v2.1: **16.5%** (AA — weak); Tau3-Banking (AA): 15.9%
+- Tau2-Bench Telecom (AA): **81.9%**; GDPval-AA v2.1: **16.5%** / **Elo 930** (AA — weak); Tau3-Banking (AA): 15.9%; Gert Labs: **41.24%** (added 2026-10-16)
 - MCP Atlas (Scale AI SEAL): **50.1%** #31 (fills the previously-missing row)
 - Poker Agent (Vals): 1038.6 #8; Vending-Bench 2: 1473.4; DeepResearch Bench: 42.8%
 - Artificial Analysis Intelligence Index v4.3.2: **24.7** #161 (AA — updates the earlier 25 estimate; BenchLeader Index **57.9 ±3.5**, #155 of 760, high best — Instruction following 71, Agents & tools 42)
@@ -46,7 +46,7 @@ Coding:
 - SWE-bench Verified: **68.0%** #26 (Epoch, high — fills the previously-missing SWE-V row); swebench.com bash-only: **66.0%** #17 (medium; any scaffold 66.0%)
 - LiveCodeBench: **86.5%** #21 (Vals — fills the previously-missing LCB)
 - SWE-bench (Vals): 69.8%; Vibe Code Bench v1.1: **24.6%** (weak); WeirdML: **60.8%** #47; ALE-Bench: **1192.2** #35; GSO-Bench: 13.7%
-- SciCode: **43.3%** (SciCode via Epoch, not-stated — fills the previously-missing SciCode; below the 55%+ frontier mark)
+- SciCode: **43.3%** (SciCode via Epoch, not-stated — fills the previously-missing SciCode; below the 55%+ frontier mark); AA Coding Index: **49.4%** (added 2026-10-16 — weak); AA-IFBench: **72.9%** (added 2026-10-16)
 - LMArena Coding: 1492; LMArena WebDev: 1395
 - Terminal-Bench 2.1 (coding harness, AA): 52.4%
 
