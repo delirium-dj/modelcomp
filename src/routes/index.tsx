@@ -304,7 +304,7 @@ export default component$(() => {
               <svg
                 viewBox="0 0 400 400"
                 role="img"
-                class="mx-auto h-auto w-full max-w-56"
+                class="mx-auto h-auto w-full max-w-[270px]"
                 aria-label={`Top 5 models by ${activeSourceLabel}: ${heroTop5.map((m) => `${m.name} ${m.scores.overall}`).join(", ")}`}
               >
                 {[25, 50, 75, 100].map((ring) => (
