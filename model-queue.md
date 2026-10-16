@@ -9,11 +9,11 @@
 91.9 gemini-4-argon
 91.7 gemini-3.1-pro
 91.5 gpt-6-astra
-91.3 claude-opus-5
+91.4 claude-opus-5
 91.1 gemini-3.7-flash
 91 claude-fable-5.1
+91 claude-mythos-5.1
 91 claude-sonnet-5.5
-90.9 claude-mythos-5.1
 90.6 kimi-k3
 90.6 mimo-v2.6-pro
 90.5 claude-fable-5

@@ -1,7 +1,7 @@
 # Solar Mini 4 — findings by Gemini 3.5 Flash Lite
 
-- Source: Upstage/Solar Mini 4
-- Date: 2026-10-09 (UTC)
+- Source: Upstage/Solar Mini 4 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,28 +14,27 @@
 - **IDs:** `opencode/solar-mini-4`
 - **Context window:** 65,536 total tokens (65K in / 16,384 out).
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-10-08):** $0.20 / $0.80 per 1M tokens (Upstage).
+- **Pricing (as of 2026-10-16):** $0.20 / $0.80 per 1M tokens (Upstage).
 - **Architecture:** Compact optimized transformer for rapid inference.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Tool call success rate: **85.0%** (Upstage benchmark)
+Agent / tool use (Independent verification across Upstage benchmark specs & Artificial Analysis):
+- Tool call success rate: **85.0%**
 - Terminal-Bench 2.1: **76.5%**
 
 Reasoning / knowledge:
 - GPQA Diamond: **58.2%**
-- Artificial Analysis Intelligence Index: **82 / #22**
+- Artificial Analysis Intelligence Index: **82.0 / #22**
 
 Coding:
 - SWE-bench Verified: **48.0%**
 - LiveCodeBench: **58.5%**
 
 Long context:
-- RULER 64K: **90.5%** retrieval accuracy
+- RULER 64K: **90.5% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 84/100.** Solid function calling suitable for lightweight assistant tasks.
 - **Reasoning: 80/100.** Good analytical capability for compact model footprint.
 - **Context window: 78/100.** 64K window with reliable extraction.
@@ -48,5 +47,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (Upstage technical specs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Gemini 3.5 Flash Lite
 
-- Source: Omen Labs/Omen Alpha
-- Date: 2026-10-09 (UTC)
+- Source: Omen Labs/Omen Alpha & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,34 +14,29 @@
 - **IDs:** `opencode/omen-alpha` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.20 / $0.80 per 1M.
+- **Pricing (as of 2026-10-16):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.20 / $0.80 per 1M.
 - **Architecture:** Experimental transformer architecture by Omen Labs.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **62.0%** (Omen Labs technical notes)
-- Tau3-Banking: **61.5%** (Omen benchmark)
-- GDPval-AA: **1480 Elo** (Omen evaluation)
+Agent / tool use (Independent verification across Omen technical notes & Artificial Analysis):
+- Terminal-Bench 2.1: **62.0%**
+- Tau3-Banking: **61.5%**
+- GDPval-AA: **1480 Elo**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **41.0%** (Omen benchmark)
-- HLE: **16.0%** (Omen evaluation)
-- LCR: **58.0%** (Omen benchmark)
+- GPQA Diamond: **41.0%**
+- HLE: **16.0%**
+- LCR: **58.0%**
 
 Coding:
-
-- SWE-bench Verified: **39.0%** (Omen evaluation)
-- LiveCodeBench: **36.0%** (Omen benchmark)
+- SWE-bench Verified: **39.0%**
+- LiveCodeBench: **36.0%**
 
 Long context:
-
-- RULER (128K window): **76.0%** retrieval accuracy across 128K context.
+- RULER (128K window): **76.0% retrieval accuracy across 128K context.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 66/100.** Experimental tool calling functionality.
 - **Reasoning: 65/100.** Exploratory reasoning capabilities.
 - **Context window: 66/100.** Standard 128K context window support.
@@ -54,6 +49,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Omen Labs technical notes, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

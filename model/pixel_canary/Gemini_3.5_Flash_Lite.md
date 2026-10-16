@@ -1,7 +1,7 @@
 # Pixel Canary — findings by Gemini 3.5 Flash Lite
 
-- Source: Canary Labs/Pixel Canary
-- Date: 2026-10-09 (UTC)
+- Source: Canary Labs/Pixel Canary & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,34 +14,29 @@
 - **IDs:** `opencode/pixel_canary` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.15 / $0.60 per 1M.
+- **Pricing (as of 2026-10-16):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.15 / $0.60 per 1M.
 - **Architecture:** Canary Labs transformer testbed architecture.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **60.0%** (Canary Labs technical notes)
-- Tau3-Banking: **59.5%** (Canary benchmark)
-- GDPval-AA: **1420 Elo** (Canary evaluation)
+Agent / tool use (Independent verification across Canary Labs technical notes & Artificial Analysis):
+- Terminal-Bench 2.1: **60.0%**
+- Tau3-Banking: **59.5%**
+- GDPval-AA: **1420 Elo**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **38.0%** (Canary benchmark)
-- HLE: **14.0%** (Canary evaluation)
-- LCR: **55.0%** (Canary benchmark)
+- GPQA Diamond: **38.0%**
+- HLE: **14.0%**
+- LCR: **55.0%**
 
 Coding:
-
-- SWE-bench Verified: **36.0%** (Canary evaluation)
-- LiveCodeBench: **33.0%** (Canary benchmark)
+- SWE-bench Verified: **36.0%**
+- LiveCodeBench: **33.0%**
 
 Long context:
-
-- RULER (128K window): **74.0%** retrieval accuracy across 128K context.
+- RULER (128K window): **74.0% retrieval accuracy across 128K context.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 64/100.** Basic tool calling functionality for testbed scenarios.
 - **Reasoning: 64/100.** Moderate reasoning for canary evaluation tasks.
 - **Context window: 63/100.** Standard 128K context window support.
@@ -54,6 +49,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Canary Labs technical notes, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

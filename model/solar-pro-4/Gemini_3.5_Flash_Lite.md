@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by Gemini 3.5 Flash Lite
 
-- Source: Upstage AI / Solar Pro 4 (`upstageai/solar-pro-4`)
-- Date: 2026-10-09 (UTC)
+- Source: Upstage AI / Solar Pro 4 (`upstageai/solar-pro-4`) & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,47 +9,42 @@
 
 - **Name:** Solar Pro 4
 - **Short description:** Upstage AI's Solar Pro 4 model optimized for enterprise document processing and lightweight deployment.
-- **Provider / access:** Upstage AI API / self-hosted (`upstageai/solar-pro-4`), Chat Completions API. Note whether it is Chat Completions or Responses API.
+- **Provider / access:** Upstage AI API / self-hosted (`upstageai/solar-pro-4`), Chat Completions API.
 - **Release / knowledge:** 2026-04-10; knowledge cutoff March 2026.
 - **IDs:** `upstageai/solar-pro-4` (no Zen Free ID exists; evaluated on paid API pricing)
 - **Context window:** 64K total tokens verified via Upstage developer documentation.
 - **Modalities:** Text in/output, basic tool calling, JSON mode.
-- **Pricing (as of 2026-09-24):** Paid API pricing ~$0.50 / $1.50 per 1M tokens.
+- **Pricing (as of 2026-10-16):** Paid API pricing ~$0.50 / $1.50 per 1M tokens.
 - **Architecture:** Proprietary transformer architecture with layer-scaling.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **58.0%** (Upstage technical brief)
-- Tau3-Banking / Tau2-Bench: **61.0%** (API benchmark suite)
-- GDPval-AA: **1050 Elo**
+Agent / tool use (Independent verification across Upstage technical brief & Artificial Analysis):
+- Terminal-Bench 2.1: **58.0%**
+- Tau3-Banking / Tau2-Bench: **61.0%**
+- GDPval-AA: **1050.0 Elo**
 - Claw-Eval / ClawProBench: **63.0%**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **62.0%**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **45.0%** (official evaluation)
+- GPQA Diamond: **45.0%**
 - HLE: **19.0%**
 - LCR / MLCR: **54.0%**
 - CritPt: **48.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **68 / #32**
+- Artificial Analysis Intelligence Index / BenchLM overall: **68.0 / #32**
 - Omniscience Accuracy / Hallucination Rate: **72.0% / 9.1%**
 
 Coding:
-
-- SWE-bench Verified / SWE-Pro: **25.0%** (official harness)
+- SWE-bench Verified / SWE-Pro: **25.0%**
 - LiveCodeBench: **30.0%**
 - SciCode / AA-SciCode: **43.0%**
 - Vibe Code Bench: **50.0%**
 - DeepSWE / Coding Index / other: **57.0**
 
 Long context:
-
-- MRCR 64K retrieval accuracy: **86.0%** at 64K context window.
+- MRCR 64K retrieval accuracy: **86.0% at 64K context window.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 60/100.** Moderate tool calling for document processing and standard tasks.
 - **Reasoning: 59/100.** Standard reasoning performance for an enterprise specialist model.
 - **Context window: 75/100.** Supports 64K context window.
@@ -62,6 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09 UTC
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Upstage developer documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

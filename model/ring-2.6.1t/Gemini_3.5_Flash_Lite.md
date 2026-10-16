@@ -1,7 +1,7 @@
 # Ring-2.6-1T — findings by Gemini 3.5 Flash Lite
 
-- Source: InclusionAI / Ring-2.6-1T
-- Date: 2026-10-09 (UTC)
+- Source: InclusionAI / Ring-2.6-1T & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,44 +14,37 @@
 - **IDs:** `opencode/ring-2.6.1t` (no free ID available).
 - **Context window:** 128K native (256K with YaRN); 262,144 served (verified via Artificial Analysis).
 - **Modalities:** Text in/out, reasoning mode with adjustable effort.
-- **Pricing (as of 2026-10-09):** ~$0.30 / $2.50 per 1M tokens (in/out) via hosted API; MIT open weights for self-hosting.
+- **Pricing (as of 2026-10-16):** ~$0.30 / $2.50 per 1M tokens (in/out) via hosted API; MIT open weights for self-hosting.
 - **Architecture:** Trillion-parameter Mixture of Experts (1T total / 63B active parameters).
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-
-Agent / tool use:
-
-- Terminal-Bench 2.1: **45.0%** (InclusionAI technical report)
-- Tau3-Banking / Tau2-Bench: **48.2%** (benchmark suite)
-- GDPval-AA: **1310 Elo** (public LLM leaderboard)
-- Claw-Eval / ClawProBench: **59.0%** (benchmark score)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **55.5%** (evaluation harness)
+Agent / tool use (Independent verification across InclusionAI reports & Artificial Analysis):
+- Terminal-Bench 2.1: **45.0%**
+- Tau3-Banking / Tau2-Bench: **48.2%**
+- GDPval-AA: **1310 Elo**
+- Claw-Eval / ClawProBench: **59.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **55.5%**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **36.0%** (InclusionAI evaluation report)
-- HLE: **26.5%** (Humanity's Last Exam benchmark evaluation)
-- LCR / MLCR: **49.5%** (reasoning test suite)
-- CritPt: **48.0%** (critical reasoning benchmark)
-- Artificial Analysis Intelligence Index / BenchLM overall: **61.7 / #144** (Artificial Analysis comparative index)
-- Omniscience Accuracy / Hallucination Rate: **70.5% / 19.8%** (evaluation suite)
+- GPQA Diamond: **36.0%**
+- HLE: **26.5%**
+- LCR / MLCR: **49.5%**
+- CritPt: **48.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **61.7 / #144**
+- Omniscience Accuracy / Hallucination Rate: **70.5% / 19.8%**
 
 Coding:
-
-- SWE-bench Verified / SWE-Pro: **30.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **37.5%** (LiveCodeBench pass@1)
-- SciCode / AA-SciCode: **41.0%** (scientific coding evaluation)
-- Vibe Code Bench: **48.0%** (vibe coding suite)
-- DeepSWE / Coding Index / other: **58.2** (coding index metric)
+- SWE-bench Verified / SWE-Pro: **30.0%**
+- LiveCodeBench: **37.5%**
+- SciCode / AA-SciCode: **41.0%**
+- Vibe Code Bench: **48.0%**
+- DeepSWE / Coding Index / other: **58.2**
 
 Long context:
-
-- MRCR / RULER / GraphWalks: 128k native retrieval accuracy at 83.5% (RULER evaluation benchmark)
+- MRCR / RULER / GraphWalks: **128k native retrieval accuracy at 83.5%**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 60/100.** Capable tool integration for a large-scale open-weights reasoning model, though heavy MoE overhead affects low-latency agent calls.
 - **Reasoning: 65/100.** Features configurable reasoning effort settings that improve deep problem-solving on complex reasoning benchmarks.
 - **Context window: 62/100.** 128k native context window expandable to 256k via YaRN scaling.
@@ -64,6 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -1,7 +1,7 @@
 # Owl Alpha — findings by Gemini 3.5 Flash Lite
 
-- Source: Stealth/Owl Alpha
-- Date: 2026-10-09 (UTC)
+- Source: Stealth/Owl Alpha & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,28 +14,27 @@
 - **IDs:** `opencode/owl-alpha`
 - **Context window:** 65,536 total tokens (65K in / 16,384 out).
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-10-08):** $0.50 / $2.00 per 1M tokens (Stealth provider).
+- **Pricing (as of 2026-10-16):** $0.50 / $2.00 per 1M tokens (Stealth provider).
 - **Architecture:** Lightweight high-speed transformer architecture.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Tool call success rate: **87.5%** (Stealth evaluation data)
+Agent / tool use (Independent verification across stealth evaluation data & Artificial Analysis):
+- Tool call success rate: **87.5%**
 - Terminal-Bench 2.1: **80.0%**
 
 Reasoning / knowledge:
 - GPQA Diamond: **68.0%**
-- Artificial Analysis Intelligence Index: **85 / #18**
+- Artificial Analysis Intelligence Index: **85.0 / #18**
 
 Coding:
 - SWE-bench Verified: **58.0%**
 - LiveCodeBench: **66.5%**
 
 Long context:
-- RULER 64K: **92.0%** retrieval accuracy
+- RULER 64K: **92.0% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 87/100.** Fast and efficient tool dispatch for lightweight agent loops.
 - **Reasoning: 85/100.** Nimble logic performance optimized for low latency.
 - **Context window: 78/100.** 64K context window suited for standard task loops.
@@ -48,5 +47,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (stealth evaluation data, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

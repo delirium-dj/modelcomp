@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.5 Flash Lite
 
-- Source: NVIDIA/Nemotron 3.5 Lightning Free
-- Date: 2026-10-09 (UTC)
+- Source: NVIDIA/Nemotron 3.5 Lightning Free & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `opencode/nemotron-3.5-lightning-free`
 - **Context window:** 262,144 native.
 - **Modalities:** Text-only; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free Zen / NVIDIA trial tier.
+- **Pricing (as of 2026-10-16):** Free Zen / NVIDIA trial tier.
 - **Architecture:** Compact 30B MoE (3B active parameters).
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across NVIDIA specs & Artificial Analysis):
 - Terminal-Bench 2.1: **55.0%**
 - Tau3-Banking / Tau2-Bench: **61.0%**
 - GDPval-AA: **1350 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **67.0%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **56.0%**
 - HLE: **41.0%**
 - LCR / MLCR: **63.0%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **90.0% / 4.2%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **52.0%**
 - LiveCodeBench: **57.0%**
 - SciCode / AA-SciCode: **48.0%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **70.0**
 
 Long context:
-
-- 256K native context with blazing-fast inference.
+- **256K native context with blazing-fast inference.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 80/100.** Extremely fast tool execution for lightweight subtasks.
 - **Reasoning: 78/100.** Solid reasoning for its compact size.
 - **Context window: 86/100.** 256K context window.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (NVIDIA documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

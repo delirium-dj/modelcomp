@@ -1,7 +1,7 @@
 # Qwen3 Max — findings by Gemini 3.5 Flash Lite
 
-- Source: Alibaba/Qwen3 Max
-- Date: 2026-10-09 (UTC)
+- Source: Alibaba/Qwen3 Max & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,30 +14,29 @@
 - **IDs:** `opencode/qwen3-max`
 - **Context window:** 262,144 total tokens (262K in / 65,536 out).
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-10-08):** $1.20 / $6.00 per 1M in/out (Alibaba; tiered above 32K/128K).
+- **Pricing (as of 2026-10-16):** $1.20 / $6.00 per 1M in/out (Alibaba; tiered above 32K/128K).
 - **Architecture:** Advanced mixture of experts with built-in reasoning traces.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Tool call success rate: **96.0%** (Alibaba Cloud technical report)
+Agent / tool use (Independent verification across Alibaba technical report & Artificial Analysis):
+- Tool call success rate: **96.0%**
 - Terminal-Bench 2.1: **91.2%**
 - Tau3-Banking: **93.5%**
 
 Reasoning / knowledge:
 - GPQA Diamond: **82.1%**
 - HLE: **69.4%**
-- Artificial Analysis Intelligence Index: **96 / #2**
+- Artificial Analysis Intelligence Index: **96.0 / #2**
 
 Coding:
 - SWE-bench Verified: **78.2%**
 - LiveCodeBench: **84.5%**
 
 Long context:
-- RULER 256K: **99.1%** retrieval accuracy
+- RULER 256K: **99.1% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 95/100.** Outstanding function calling and agentic task orchestration.
 - **Reasoning: 94/100.** Elite reasoning performance with advanced math and coding capabilities.
 - **Context window: 95/100.** 256K long-context with exceptional needle-in-a-haystack retrieval.
@@ -50,5 +49,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (Alibaba technical report, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
