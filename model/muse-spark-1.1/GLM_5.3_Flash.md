@@ -1,7 +1,7 @@
 # Muse Spark 1.1 — findings by GLM 5.3 Flash
 
 - Source: Meta (`muse-spark-1.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,7 @@ Agent / tool use:
 - OSWorld-Verified: **80.8%** (Meta evaluation report — new; distinct from OSWorld 2.0 below); OSWorld 2.0: **14.2%** (hard computer use unsolved, trails Opus 4.8)
 - WebArena-Verified: **69%** (Meta evaluation report — new)
 - GDPval-AA: **1375 Elo** (Meta evaluation report — fills the previously-missing GDPval row); AA-normalized: **35.7%** (Artificial Analysis)
-- Cybench: **92.9%**; CyberGym: **59.0%**; JobBench: **54.7%**; Finance Agent v2: **57.2%**; ExploitGym: **0.8%** (Meta evaluation report)
+- Cybench: **92.9%**; CyberGym: **59.0%**; JobBench: **54.7%**; Finance Agent v2: **57.2%**; ExploitGym: **0.8%** (Meta evaluation report); DeepSearchQA: **84.9%** (added 2026-10-16 — strong deep-search row)
 - AA Agentic Index: **27.5%** (Artificial Analysis via benchlm.ai)
 - Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathon: no verified public score found
 
@@ -78,6 +78,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables citing the Meta Muse Spark 1.1 evaluation report, Artificial Analysis, Vals AI, updated 2026-10-09; launch coverage via buildfastwithai, aiapiindex.com); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 80.0%, SWE-Pro 61.5%, LCB 85.9%, AA-SciCode 58.8%, GDPval-AA 1375, HLE 52.2/62.1%, AA-LCR 77.7%, OSWorld-Verified 80.8%, Toolathlon 75.6%; updates AA Index 53.2→33.7 — Tool 92→90, Reasoning 87→88, Context 90→92, Coding 80→85, Overall 89→90.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing the Meta Muse Spark 1.1 evaluation report, Artificial Analysis, Vals AI, updated 2026-10-09; launch coverage via buildfastwithai, aiapiindex.com); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 80.0%, SWE-Pro 61.5%, LCB 85.9%, AA-SciCode 58.8%, GDPval-AA 1375, HLE 52.2/62.1%, AA-LCR 77.7%, OSWorld-Verified 80.8%, Toolathlon 75.6%; updates AA Index 53.2→33.7 — Tool 92→90, Reasoning 87→88, Context 90→92, Coding 80→85, Overall 89→90; 2026-10-16 re-check: DeepSearchQA 84.9% added — no score changes).
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.2.md`, using the same headings.

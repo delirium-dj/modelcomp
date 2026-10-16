@@ -961,7 +961,7 @@ export default component$(() => {
               }}
               class="min-w-56 max-w-sm flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-xs text-[color:var(--color-ink)] placeholder:text-[#577184] dark:border-[#274757] dark:placeholder:text-[#93adbe]"
             />
-            <label class="flex items-center text-md text-[#577184] dark:text-[#93adbe] px-4 flex-1 min-w-0">
+            <label class="flex w-full items-center text-md text-[#577184] dark:text-[#93adbe] px-4 min-w-0">
               <span class="whitespace-nowrap mr-3">Results source</span>
               <select
                 aria-label="Results source"
@@ -1350,7 +1350,7 @@ export default component$(() => {
                 </button>
               </div>
             )}
-          <p class="mt-4 text-right text-xs leading-relaxed text-[#577184] dark:text-[#93adbe]">
+          <p class="py-4 text-right text-xs leading-relaxed text-[#577184] dark:text-[#93adbe]">
             Averages recomputed by pnpm sync from per-model research files. Cost
             never counts toward Overall.
           </p>

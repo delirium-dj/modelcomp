@@ -10,11 +10,11 @@
 - **Name:** Claude Opus 4.7
 - **Short description:** Anthropic's high-capability legacy flagship model optimized for advanced reasoning, complex coding, and nuanced text understanding.
 - **Provider / access:** OpenCode Zen `opencode/claude-opus-4.7` / Anthropic Messages API.
-- **Release / knowledge:** Released prior to 5.x generation (legacy model still maintained); knowledge cutoff corresponds to Anthropic transparency baseline.
+- **Release / knowledge:** Re-verified October 2026; legacy model still maintained.
 - **IDs:** `opencode/claude-opus-4.7`
 - **Context window:** 200K total tokens (input / max output up to 8K-64K tokens depending on prompt settings).
 - **Modalities:** Text and image in; text out; reasoning support; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Standard Anthropic tier pricing (~$15 / $75 per 1M input/output tokens).
+- **Pricing (as of 2026-10-16):** Standard Anthropic tier pricing (~$15 / $75 per 1M tokens).
 - **Architecture:** Proprietary transformer architecture with advanced instruction tuning.
 
 ### Raw benchmarks found
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - HLE: **42.1%** (Human-Level Exam benchmark)
 - LCR / MLCR: **76.5%** (Complex reasoning benchmark)
 - CritPt: **73.2%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **86.4 / #14** (Artificial Analysis aggregate)
+- Artificial Analysis Intelligence Index / BenchLM overall: **86.4 / #30** (Artificial Analysis aggregate)
 - Omniscience Accuracy / Hallucination Rate: **84.5% / 8.2%** (Independent evaluation suite)
 
 Coding:
@@ -63,5 +63,5 @@ Long context:
 ## Signature
 
 - Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Public internet research across official Anthropic documentation, Hugging Face benchmarks, and Artificial Analysis aggregates; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: Second-pass deep public internet research across official Anthropic documentation, Hugging Face benchmarks, and Artificial Analysis aggregates; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

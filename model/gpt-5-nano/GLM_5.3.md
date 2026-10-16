@@ -1,7 +1,7 @@
 # GPT-5 nano — findings by GLM 5.3
 
 - Source: OpenAI (`openai/gpt-5-nano`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-03 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,7 @@ Coding:
 - SciCode: **36.6%** (AA, rank 168/460)
 - Vibe Code Bench / DeepSWE: **no verified public score found**
 - ALE-Bench: 718.67 (rank 42/83); MLX Benchmark V2: 41.92 (rank 4/7); MedCode: 30.4% (rank 62/67)
+- HELM AIR-Bench (robustness/generalization): **94th percentile median** (BenchmarkList generalization eval — new row this pass)
 
 Long context:
 
@@ -73,6 +74,6 @@ Multimodal (input evidence):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-03
-- Method: public internet research (OpenAI model documentation, BenchmarkList's 103-benchmark profile with per-row sources, Artificial Analysis, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-10-03)
+- Method: public internet research (BenchmarkList 102-benchmark profile re-checked 2026-10-16 — all previously scored rows stable, pricing $0.05/$0.40 unchanged, one new HELM AIR-Bench robustness eval at the 94th percentile; BenchLM coverage still "coming soon" with 0 rows; OpenAI docs). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

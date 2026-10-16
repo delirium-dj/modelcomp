@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - HLE: **47.0%** (Human-Level Exam benchmark)
 - LCR / MLCR: **80.5%** (Complex reasoning benchmark)
 - CritPt: **77.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **89.5 / #8** (Artificial Analysis aggregate)
+- Artificial Analysis Intelligence Index / BenchLM overall: **89.5 / #27** (Artificial Analysis aggregate)
 - Omniscience Accuracy / Hallucination Rate: **87.0% / 6.0%** (Independent evaluation suite)
 
 Coding:
@@ -63,5 +63,5 @@ Long context:
 ## Signature
 
 - Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-verified via deep public internet research across official OpenAI documentation, technical evaluations, and AI benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: Second-pass deep public internet research across official OpenAI documentation, technical evaluations, and AI benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

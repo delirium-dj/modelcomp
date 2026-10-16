@@ -1,14 +1,14 @@
-# GPT-5 nano — findings by Nemotron 3.5 Super VL 120B A12B
+# GPT-OSS-120B — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: benchlm.ai/models/gpt-5-nano (OpenAI GPT-5 nano model page), Artificial Analysis (`artificialanalysis.ai/models/gpt-5-nano`)
+- Source: Hugging Face model card (openai/gpt-oss-120b); Artificial Analysis (`artificialanalysis.ai/models/gpt-5-nano`)
 - Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5 nano
-- **Short description:** OpenAI's proprietary reasoning model (released August 7, 2025 per AA); deprecated by GPT-5.4 nano; 400K context / text+image in → text out; $0.05/$0.40 per MTok; knowledge cutoff May 2024; 2 API providers per AA.
+- **Name:** GPT-OSS-120B
+- **Short description:** OpenAI's proprietary fast reasoning model (released August 7, 2025 per AA); deprecated by GPT-5.4 nano; 400K context / text+image in → text out; $0.05/$0.40 per MTok; knowledge cutoff May 2024; 2 API providers per AA.
 - **Provider / access:** OpenAI API (`gpt-5-nano`), 2 API providers per AA; proprietary (weights not public).
 - **Release / knowledge:** Released August 7, 2025 (AA); knowledge cutoff May 2024.
 - **IDs:** `gpt-5-nano` (OpenAI API / OpenRouter). No Free ID confirmed.
@@ -23,7 +23,7 @@ All benchmarks below come from Artificial Analysis only; benchlm.ai page shows 0
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **13** (#12 of 51 non-reasoning; estimated)
+- Artificial Analysis Intelligence Index: **13** (#12 of 51 non-reasoning models; estimated)
 - No GPQA, HLE, MMLU-Pro, ARC-AGI, FrontierMath, or other reasoning/knowledge benchmarks found beyond the Intelligence Index composite.
 
 Coding:
@@ -40,7 +40,7 @@ Multimodal & grounded:
 
 Long context:
 
-- No long context benchmarks found; declared 400K context.
+- Declared 400K context (benchlm.ai, AA); no public needle-recall score found.
 
 ### Normalized scores (1–100)
 
@@ -52,7 +52,7 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 
 - **Tool use: 25/100.** No agentic benchmarks found; scored conservatively due to zero data.
 - **Reasoning: 45/100.** Intelligence Index 13 (above median for its class); capped by zero reasoning benchmarks found beyond the Intelligence Index composite.
-- **Context window: 75/100.** Verified 400K tokens (benchlm.ai); capped because context below 1M frontier and no public needle-recall score found.
+- **Context window: 75/100.** Verified 400K tokens (benchlm.ai + AA); capped because context below 1M frontier and no public needle-recall score found.
 - **Multimodal: 55/100.** Text+image in, text out per AA; capped by zero multimodal benchmark data found.
 - **Coding: 25/100.** No coding benchmarks found; scored conservatively due to zero data.
 - **Cost efficiency: 75/100.** $0.05/$0.40 competitive pricing with 90% cache discount; not counted toward Overall.

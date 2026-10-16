@@ -1,7 +1,7 @@
 # Qwen 3.6 Plus — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`qwen3.6-plus`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - HLE: **28.8%** (Qwen blog — fills the previously-missing HLE; AA-HLE 27.8%)
 - AA-LCR: **78.3%** (AA long-context-reasoning board — fills the previously-missing LCR); LongBench v2: **62%**; AI-Needle: **68.3%** (Qwen blog)
 - CritPt: **2.9%** (AA — weak)
-- AIME26: **95.3%**; HMMT Feb 2026: **87.8%**; FrontierMath v2: T1–3 26.2%, T4 8.3% (benchlm.ai)
+- AIME26: **95.3%**; HMMT Feb 2026: **87.8%**; FrontierMath v2: T1–3 **38.2%** (Epoch 2026-10-15 refresh; was 26.2% on 2026-10-09 — re-scored upward), T4 8.3% (previous reading); HMMT Feb 2025 **96.7%** / HMMT Nov 2025 **94.6%** / MMAnswerBench **83.8%** (added 2026-10-16)
 - MMLU-Pro: **88.5%** (Qwen blog; Vals 87.7%); MMLU-Redux 94.5%; C-Eval 93.3%; SuperGPQA 71.6%; AA-Omniscience hallucination rate **34.6%**
 - IFEval: **94.3%**; IFBench: **75.8%**; AA-IFBench: **75.2%**
 
@@ -46,7 +46,7 @@ Coding:
 - SWE-bench Verified: **78.8%** (Qwen blog — fills the previously-missing SWE-V row); SWE-bench (Vals): 73.4%
 - LiveCodeBench v6: **87.1%** (Qwen blog — fills the previously-missing LCB); LiveCodeBench (Vals): **86.0%**
 - SWE-bench Pro: **56.6%** (Qwen blog — fills); SWE Multilingual: **73.8%**
-- Vibe Code Bench: **25.6%** (Vals v1.1 — weak); AA Coding Index: **54.5%** (AA)
+- Vibe Code Bench: **25.6%** (Vals v1.1 — weak); AA Coding Index: **54.5%** (AA); NL2Repo **37.9%** (GLM-5.1 comparison table — added 2026-10-16); MMLU-ProX **84.7%** / NOVA-63 **57.9%** (added 2026-10-16)
 - SciCode: no verified public score found
 
 Long context:
@@ -60,7 +60,7 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** Now measured: Tau2 97.7% (elite), TB2.0 61.6%, Claw-Eval 58.8%, WideResearch 74.3%, MCP-Tasks 74.1% and GDPval-AA 1066 clear mid-band anchors; MCP Atlas 48.2%, Toolathlon 39.8%, TB2.1 (Vals) 53.2% and AA Agentic 24.7% cap it.
-- **Reasoning: 78/100.** GPQA 90.4% (filled — clears the 90% reference), AIME26 95.3% and AA-LCR 78.3% are strong; HLE 28.8% stays under the 40% bar, CritPt 2.9% is weak, and AA Index 27.0 caps it.
+- **Reasoning: 79/100.** CHANGED from 78 — GPQA 90.4% (filled — clears the 90% reference), AIME26 95.3% and AA-LCR 78.3% are strong, and the re-scored FrontierMath v2 T1–3 now reads 38.2% (up from 26.2%); HLE 28.8% stays under the 40% bar, CritPt 2.9% is weak, and AA Index 27.0 caps it.
 - **Context window: 93/100.** 1M tokens (≥1M band = 95–100) with measured AA-LCR 78.3%, LongBench v2 62% and AI-Needle 68.3% — strong for the tier but no ≥98% retrieval at 512K+; lands just under the ceiling.
 - **Multimodal: 85/100.** Text + image + video (+PDF) input with measured vision (MMMU-Pro 78.8%, VideoMMMU 84.0%, MathVision 88.0%, V* 96.9%); text output only — mid 75–90 band.
 - **Coding: 82/100.** Now with filled rows: SWE-V 78.8%, LCB 87.1%/86.0% (two harnesses), SWE-Pro 56.6%; Vibe 25.6% and AA Coding Index 54.5% hold it below frontier.
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables citing the Qwen3.6-Plus blog and AA/Vals boards, updated 2026-10-09; Artificial Analysis, CloudPrice, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing SWE-V 78.8%, LCB 87.1%, TB2.0 61.6%, Claw-Eval 58.8%, Tau2 97.7%, Tau3 70.7%, GDPval-AA 1066, GPQA 90.4%, HLE 28.8%, AA-LCR 78.3%, MMMU-Pro 78.8% — Tool 52→72, Reasoning 60→78, Multimodal 80→85, Coding 58→82, Overall 69→82.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing the Qwen3.6-Plus blog and AA/Vals boards, updated 2026-10-09; Artificial Analysis, CloudPrice, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing SWE-V 78.8%, LCB 87.1%, TB2.0 61.6%, Claw-Eval 58.8%, Tau2 97.7%, Tau3 70.7%, GDPval-AA 1066, GPQA 90.4%, HLE 28.8%, AA-LCR 78.3%, MMMU-Pro 78.8% — Tool 52→72, Reasoning 60→78, Multimodal 80→85, Coding 58→82, Overall 69→82; 2026-10-16 re-check: FrontierMath re-scored 26.2→38.2, NL2Repo/MMLU-ProX/HMMT rows added — Reasoning 78→79, Overall 82 holds (72+79+93+85+82 = 411/5 = 82.2)).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.7.md`, using the same headings.

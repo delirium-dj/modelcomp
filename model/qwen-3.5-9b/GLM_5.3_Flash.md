@@ -1,7 +1,7 @@
 # Qwen 3.5 9B — findings by GLM 5.3 Flash
 
 - Source: Alibaba Cloud Qwen — Qwen/Qwen3.5-9B (`qwen-3.5-9b`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Multimodal (vision):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing AA/Epoch/MathArena boards + the official HF model card — vendor vs independent conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing AA Index 11.2, HLE 14.9%, TB2.1 29.2%, τ² Telecom 86.8%, SciCode 27.6%, MMMU-Pro (AA) 69.3%, AA-LCR 70.0%, AIME 2026 92.5%, verified $0.08/$0.13 routes — Tool 75→62, Reasoning 72→64, Multimodal 85→78, Coding 60→55, Cost 92→96, Overall 74→67.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing AA/Epoch/MathArena boards + the official HF model card — vendor vs independent conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing AA Index 11.2, HLE 14.9%, TB2.1 29.2%, τ² Telecom 86.8%, SciCode 27.6%, MMMU-Pro (AA) 69.3%, AA-LCR 70.0%, AIME 2026 92.5%, verified $0.08/$0.13 routes — Tool 75→62, Reasoning 72→64, Multimodal 85→78, Coding 60→55, Cost 92→96, Overall 74→67; 2026-10-16 re-check: BenchLM/benchgen have no page for this ID and search engines rate-limited the pass — the 2026-10-09 effort-sweep data stands as the most current evidence).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.6.md`, using the same headings.

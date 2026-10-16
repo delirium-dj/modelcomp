@@ -1,7 +1,7 @@
 # Claude 3.5 Haiku — findings by GLM 5.3
 
 - Source: Anthropic (`anthropic/claude-3-5-haiku`)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-03 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,16 +33,17 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **37.9%** (vals.ai, rank 111/117) / **40.8%** (Epoch, rank 373/468)
-- HLE: **3.6%** (rank 452/471)
-- MMLU-Pro: **63.4%** (rank 229/312)
-- Artificial Analysis Intelligence Index: **12.26** (rank 244/418; AA's page shows 9 estimated); AA-Omniscience: **-23.18** (negative — more incorrect than correct answers)
-- AIME: **3.3%** (rank 86/88); MATH 500: **64.2%** (rank 55/58)
-- CritPt: **0.0%** (AA Intelligence Index breakdown)
+- GPQA Diamond: **37.9%** (vals.ai, rank 111/117) / **40.8%** (Epoch, rank 373/468); official card: GPQA **41.6%** (October addendum via BenchLM)
+- HLE: **3.6%** (rank 452/471); AIME 2024: **5.3%** (official addendum via BenchLM)
+- BBH: **86.6%**; DROP: **83.1%**; MGSM: **85.6%**; MMLU: **80.3%**; MMLU-Pro: **65%** official / **63.4%** (vals.ai, rank 229/312) — all from the official October addendum via BenchLM (new rows this pass)
+- IFEval: **85.9%** (official addendum); AA-IFBench **42.8%** (AA)
+- Artificial Analysis Intelligence Index: **8.9** (AA, updated 2026-10-16); AA-Omniscience: Index **-22.5**, accuracy **13.2%**, hallucination rate **41.1%** (AA — negative index: more incorrect than correct)
+- MATH 500: **64.2%** (rank 55/58); CritPt: **0.0%** (AA)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- SWE-bench Verified: **40.6%** (official Anthropic Claude 3 model card October addendum via BenchLM — previously missing, new row this pass)
+- HumanEval: **88.1%** (official October addendum via BenchLM — strong basic codegen, new row this pass)
 - LiveCodeBench: **41.9%** (vals.ai, rank 108/123)
 - Terminal-Bench 2.1: **10.1%** (rank 153/194)
 - SciCode: **27.4%** (AA, rank 277/460)
@@ -55,22 +56,23 @@ Long context:
 
 Multimodal:
 
-- Verified text + image input (AA), but **no verified public vision-benchmark score found** (no MMMU/OpenVLM rows in its profile).
+- AA-MMMU-Pro: **45.6%** (Artificial Analysis via BenchLM — new measured vision row this pass, weak)
+- Verified text + image input (AA + official card).
 
 ### Normalized scores (1–100)
 
 - **Tool use: 40/100.** GDPval-AA 460 sits far below the 900–1200 mid band, Tau3-Banking 5.8% and Terminal-Bench Hard 2.3% are near the floor, and only basic function calling (BFCL-v3 53.7%, ComplexFuncBench 45.8%) holds it up — utility-grade agent glue, nothing more.
-- **Reasoning: 42/100.** GPQA Diamond 37.9–40.8% is below the 60–80% mid band, HLE 3.6% and AIME 3.3% are near the floor, AA Index 12.26 is below the 20–35 mid band, and AA-Omniscience is negative — capped hard on every axis.
-- **Context window: 70/100.** Verified 200K window equals the methodology's 200K = 70 anchor; AA-LCR 25.3% shows weak long-context reasoning inside that window.
-- **Multimodal: 62/100.** Image input is verified (AA), placing it in the 60–70 band, but no measured vision score exists to pull it higher.
-- **Coding: 45/100.** LiveCodeBench 41.9%, Terminal-Bench 2.1 10.1%, SciCode 27.4%, Aider Polyglot 28.0% — all well below the mid anchors, with no SWE-bench Verified row at all.
+- **Reasoning: 42/100.** Official BBH 86.6/DROP 83.1/MGSM 85.6/MMLU 80.3 are respectable 2024-utility scores, but GPQA Diamond ~40%, HLE 3.6%, AIME 5.3%, AA Index 8.9 and a negative Omniscience Index cap it hard on every frontier axis. (Unchanged at 42 — the new official rows fill in the same mid-utility picture.)
+- **Context window: 70/100.** Verified 200K window equals the methodology's 200K = 70 anchor; AA-LCR 25.3–27.3% shows weak long-context reasoning inside that window.
+- **Multimodal: 62/100.** Image input verified, now with a measured vision score — AA-MMMU-Pro 45.6% is weak, confirming the 60–70 image-in band without pulling it higher.
+- **Coding: 47/100.** Updated 45→47: the previously-missing official SWE-bench Verified 40.6% confirms weak-mid agentic coding, while HumanEval 88.1% shows strong basic codegen; LiveCodeBench 41.9%, TB 2.1 10.1%, SciCode 27.4%, Aider 28.0% keep it below the mid anchors.
 - **Cost efficiency: 89/100.** $0.80 / $4.00 per 1M sits between the ~$0.60/$2.20 (~92) and ~$1.25/$4.25 (~88) reference points.
-- **Overall Score: 52/100.** Half-up mean of the five quality dims (40+42+70+62+45)/5 = 51.8 → 52 — a deprecated 2024 utility model; use Claude Haiku 4.5 or GPT-5 nano instead at comparable or lower cost.
+- **Overall Score: 52/100.** Half-up mean of the five quality dims (40+42+70+62+47)/5 = 52.2 → 52 — unchanged by the new official rows. A deprecated 2024 utility model; use Claude Haiku 4.5 or GPT-5 nano instead at comparable or lower cost.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-03
-- Method: public internet research (BenchmarkList 71-benchmark profile with per-row sources, Artificial Analysis model page, OpenCode Zen deprecation list); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-10-03)
+- Method: public internet research (BenchLM 22-row profile re-checked 2026-10-16 — now sourcing the official Anthropic Claude 3 model card October addendum: SWE-bench Verified 40.6%, HumanEval 88.1%, BBH/DROP/MGSM/MMLU official rows, AIME 5.3%, plus the AA-MMMU-Pro 45.6% vision row; BenchmarkList profile and AA page). Coding 45→47 on the new evidence; Overall unchanged at 52. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
