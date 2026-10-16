@@ -401,8 +401,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [90, 90, 92, 68, 92, 68, 86],
     "GLM_5.3.md": [90, 91, 95, 68, 93, 48, 87],
     "GLM_5.3_Flash.md": [90, 89, 90, 80, 92, 32, 88],
+    "Gemini_3.8_Flash.md": [90, 94, 97, 88, 96, 58, 93],
     "Nemotron_3.5_Super_VL_120B_A12B.md": [65, 68, 88, 68, 73, 55, 72],
-    "average.md": [90, 89.5, 91, 74, 92, 50, 87],
+    "average.md": [90, 91, 93, 78.7, 93.3, 52.7, 89],
   },
   "claude-opus-4.8": {
     "Big_Pickle.md": [80, 88, 88, 86, 88, 55, 86],
@@ -1866,7 +1867,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "DeepSeek_4_Flash.md": [45, 45, 74, 70, 62, 95, 59],
     "Fledge_Alpha.md": [64, 72, 60, 80, 68, 96, 69],
     "GLM_5.3.md": [46, 56, 76, 74, 46, 94, 60],
-    "GLM_5.3_Flash.md": [86, 85, 85, 65, 84, 95, 81],
+    "GLM_5.3_Flash.md": [55, 63, 78, 72, 68, 97, 67],
     "GPT_5.5.md": [40, 72, 60, 35, 58, 86, 53],
     "GPT_5.6_Luna.md": [65, 70, 65, 20, 68, 92, 57.6],
     "GPT_5.6_Sol.md": [80, 82, 86, 88, 82, 96, 84],
@@ -1891,7 +1892,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [48, 50, 65, 45, 52, 90, 52],
     "Space_Bunny.md": [62, 66, 82, 88, 70, 88, 73.6],
     "Step_5_Preview.md": [55, 68, 72, 70, 68, 98, 67],
-    "average.md": [79.7, 82.7, 80.8, 75.4, 81.1, 96.7, 79.9],
+    "average.md": [78.7, 82, 79.7, 75.7, 80.6, 97, 79.3],
   },
   "gemma-4-e2b": {
     "Big_Pickle.md": [32, 30, 45, 86, 28, 99, 44],
@@ -2021,7 +2022,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "glm-5": {
     "Claude_Opus_4.6.md": [78, 78, 75, 15, 80, 94, 65],
     "GLM_5.3_Flash.md": [80, 74, 65, 15, 82, 80, 63],
-    "average.md": [79, 76, 70, 15, 81, 87, 64],
+    "Gemini_3.8_Flash.md": [80, 82, 70, 15, 86, 74, 67],
+    "average.md": [79.3, 78, 70, 15, 82.7, 82.7, 65],
   },
   "glm-5.1": {
     "Big_Pickle.md": [80, 78, 70, 15, 86, 70, 66],
@@ -2383,8 +2385,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.1-codex": {
     "Claude_Opus_4.6.md": [84, 78, 88, 15, 86, 72, 70],
+    "Gemini_3.8_Flash.md": [82, 84, 80, 68, 88, 72, 80],
     "Nemotron_3.5_Super_VL_120B_A12B.md": [62, 62, 70, 62, 64, 75, 64],
-    "average.md": [84, 78, 88, 15, 86, 72, 70],
+    "average.md": [83, 81, 84, 41.5, 87, 72, 75],
   },
   "gpt-5.2": {
     "Big_Pickle.md": [76, 78, 82, 80, 84, 72, 80],
@@ -3043,7 +3046,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "DeepSeek_4_Flash.md": [42, 38, 62, 15, 55, 98, 42],
     "Fledge_Alpha.md": [76, 78, 84, 15, 75, 95, 66],
     "GLM_5.3.md": [45, 48, 55, 15, 40, 88, 41],
-    "GLM_5.3_Flash.md": [50, 62, 55, 15, 65, 96, 49.4],
+    "GLM_5.3_Flash.md": [52, 64, 55, 15, 65, 96, 50],
     "GPT_5.5.md": [68, 74, 66, 15, 70, 92, 59],
     "GPT_5.6_Luna.md": [65, 70, 65, 15, 68, 94, 56.6],
     "GPT_5.6_Sol.md": [80, 82, 75, 15, 80, 99, 66],
@@ -4495,8 +4498,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [82, 80, 74, 15, 88, 92, 68],
     "GLM_5.3.md": [78, 72, 95, 65, 85, 95, 79],
     "GLM_5.3_Flash.md": [85, 76, 85, 15, 84, 95, 69],
+    "Gemini_3.8_Flash.md": [70, 78, 70, 15, 84, 94, 63],
     "MiMo_2.6_Flash.md": [66, 65, 70, 15, 73, 95, 58],
-    "average.md": [77.7, 73.7, 76.3, 15, 81.7, 94, 65],
+    "average.md": [75.8, 74.8, 74.8, 15, 82.3, 94, 64.5],
   },
   "minimax-m2.7": {
     "Big_Pickle.md": [78, 78, 70, 15, 80, 88, 64],
@@ -4942,8 +4946,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Cat_Jam.md": [78, 84, 95, 82, 76, 86, 83],
     "DeepSeek_4.1_Flash.md": [72, 70, 95, 85, 72, 94, 79],
     "GLM_5.3_Flash.md": [84, 76, 85, 82, 75, 90, 80],
+    "Gemini_3.8_Flash.md": [78, 82, 96, 92, 76, 97, 85],
     "Nemotron_3.5_Super_VL_120B_A12B.md": [72, 70, 90, 68, 72, 60, 74],
-    "average.md": [78, 73, 90, 83.5, 73.5, 92, 79.5],
+    "average.md": [78, 76, 92, 86.3, 74.3, 93.7, 81.3],
   },
   "north_mini_code": {
     "Big_Pickle.md": [62, 58, 74, 15, 68, 100, 55.4],
