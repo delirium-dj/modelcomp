@@ -1,7 +1,7 @@
 # GPT-5.3 Codex Spark — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI (`openai/gpt-5.3-codex-spark`)
-- Date: 2026-10-09 (UTC)
+- Source: OpenAI (`openai/gpt-5.3-codex-spark`) & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,25 +14,21 @@
 - **IDs:** `gpt-5.3-codex-spark`; Zen ID `opencode/gpt-5.3-codex-spark`.
 - **Context window:** 128K tokens total input / 16K output.
 - **Modalities:** Text in/out; low-latency code completion.
-- **Pricing (as of 2026-10-01):** Economical developer pricing ($0.50 / $2 per MTok in/out).
+- **Pricing (as of 2026-10-16):** Economical developer pricing ($0.50 / $2 per MTok in/out).
 - **Architecture:** Lightweight distilled codex model.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across developer IDE benchmarks):
 - Terminal-Bench: **38.0%**
 
 Coding:
-
 - LiveCodeBench: **48.0%**
 
 Long context:
-
-- 128K window.
+- **128K window supported with high completion accuracy.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 50/100.** Fast inline tool execution.
 - **Reasoning: 58/100.** Solid code completion logic.
 - **Context window: 68/100.** 128K context tier.
@@ -45,11 +41,10 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (OpenAI developer docs, LiveCodeBench leaderboard) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

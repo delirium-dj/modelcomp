@@ -77,7 +77,8 @@ export type SourceKey =
   | "Claude Haiku 5.5"
   | "Qwen 3.8"
   | "Solar Mini 4"
-  | "Qwen 3.7 Plus";
+  | "Qwen 3.7 Plus"
+  | "Cat Jam";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -166,4 +167,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Qwen 3.8", label: "Qwen 3.8", file: "Qwen_3.8.md", slug: "qwen-3.8" },
   { key: "Solar Mini 4", label: "Solar Mini 4", file: "Solar_Mini_4.md", slug: "solar-mini-4" },
   { key: "Qwen 3.7 Plus", label: "Qwen 3.7 Plus", file: "Qwen_3.7_Plus.md", slug: "qwen-3.7-plus" },
+  { key: "Cat Jam", label: "Cat Jam", file: "Cat_Jam.md" },
 ];

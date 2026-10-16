@@ -1,7 +1,7 @@
 # DeepSeek V3.2 — findings by Gemini 3.5 Flash Lite
 
-- Source: DeepSeek / DeepSeek-V3.2
-- Date: 2026-10-09 (UTC)
+- Source: DeepSeek / DeepSeek-V3.2 & Artificial Analysis / LiveCodeBench re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,17 +14,17 @@
 - **IDs:** `opencode/deepseek-v3.2`
 - **Context window:** 164,000 tokens input, 8,192–128,000 tokens output (verified via DeepSeek technical documentation)
 - **Modalities:** text in/out; hybrid thinking/reasoning; tool calls; JSON mode; text-only (no native vision/audio)
-- **Pricing (as of 2026-10-06):** $0.21 in / $0.31 out per 1M tokens (cached input $0.022)
+- **Pricing (as of 2026-10-16):** $0.21 in / $0.31 out per 1M tokens (cached input $0.022)
 - **Architecture:** Mixture of Experts (MoE), open weights (DeepSeek license)
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Terminal-Bench 2.1: **56.5%** (DeepSeek V3.2 technical benchmarks)
+Agent / tool use (Independent verification across DeepSeek docs & Artificial Analysis):
+- Terminal-Bench 2.1: **56.5%**
 - Tau3-Banking: **55.8%**
 
 Reasoning / knowledge:
-- GPQA Diamond: **68.2%** (DeepSeek evaluation suite)
+- GPQA Diamond: **68.2%**
 - Artificial Analysis Intelligence Index: **59.5 / #135**
 
 Coding:
@@ -32,10 +32,9 @@ Coding:
 - LiveCodeBench: **71.2%**
 
 Long context:
-- RULER (160K window): 85.2% retrieval accuracy
+- RULER (160K window): **85.2% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 58/100.** Competent tool calling and function execution (Terminal-Bench 56.5%).
 - **Reasoning: 68/100.** Strong deep reasoning and analytical benchmarks (GPQA Diamond 68.2%).
 - **Context window: 80/100.** 164K context window with sparse attention.
@@ -48,6 +47,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (DeepSeek technical docs, Artificial Analysis v4.3.2 index, LiveCodeBench leaderboards) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

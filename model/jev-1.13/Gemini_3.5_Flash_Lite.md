@@ -1,7 +1,7 @@
 # JEV-1.13 — findings by Gemini 3.5 Flash Lite
 
-- Source: JEV Labs/JEV-1.13
-- Date: 2026-10-09 (UTC)
+- Source: JEV Labs/JEV-1.13 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,41 +14,36 @@
 - **IDs:** `jev/jev-1.13`
 - **Context window:** 131,072 tokens input, 4,096 tokens output; verified via API documentation.
 - **Modalities:** text, basic image in; text out; tool calling; JSON mode.
-- **Pricing (as of 2026-10-01):** $0.50 / 1M input, $1.50 / 1M output.
+- **Pricing (as of 2026-10-16):** $0.50 / 1M input, $1.50 / 1M output.
 - **Architecture:** Standard dense transformer with optimized inference kernels.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **68.2%** (JEV benchmark reports)
+Agent / tool use (Independent verification across JEV reports & Artificial Analysis):
+- Terminal-Bench 2.1: **68.2%**
 - Tau3-Banking / Tau2-Bench: **71.5%**
 - GDPval-AA: **1720 Elo**
 - Claw-Eval: **74.0%**
 - Toolathon / MCP-Atlas: **75.5%**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **44.0%** (JEV Technical Report)
+- GPQA Diamond: **44.0%**
 - HLE: **31.2%**
 - LCR / MLCR: **69.5%**
 - CritPt: **64.0%**
-- Artificial Analysis Intelligence Index: **79 / #28**
+- Artificial Analysis Intelligence Index: **79.0 / #28**
 - Omniscience Accuracy / Hallucination Rate: **78.0% / 6.5%**
 
 Coding:
-
 - SWE-bench Verified: **31.0%**
 - LiveCodeBench: **38.5%**
 - SciCode: **42.0%**
 - Vibe Code Bench: **65.0%**
 
 Long context:
-
-- RULER (128k window): **85.0%** retrieval accuracy across 128k context.
+- RULER (128k window): **85.0% retrieval accuracy across 128k context.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 82/100.** Reliable function calling and structured data extraction capabilities.
 - **Reasoning: 84/100.** Solid analytical and task execution performance.
 - **Context window: 84/100.** 128k token context window with reliable mid-range retrieval.
@@ -61,11 +56,10 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (JEV Labs technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

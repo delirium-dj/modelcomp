@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash Lite — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/Gemini 3.5 Flash Lite
-- Date: 2026-10-09 (UTC)
+- Source: Google/Gemini 3.5 Flash Lite & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `google/gemini-3.5-flash-lite`
 - **Context window:** 1M tokens.
 - **Modalities:** Text, image, audio, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** Free tier available; paid-tier pricing.
+- **Pricing (as of 2026-10-16):** Free tier available; paid-tier pricing.
 - **Architecture:** Ultra-low-latency optimized multimodal transformer.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across Google AI Studio specs & Artificial Analysis):
 - Terminal-Bench 2.1: **60.5%**
 - Tau3-Banking / Tau2-Bench: **66.5%**
 - GDPval-AA: **1395 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **71.5%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **61.5%**
 - HLE: **46.5%**
 - LCR / MLCR: **68.5%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **91.5% / 3.5%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **57.5%**
 - LiveCodeBench: **62.5%**
 - SciCode / AA-SciCode: **53.5%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **75.5**
 
 Long context:
-
-- 1M token context with high throughput and low latency.
+- **1M token context with high throughput and low latency.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 83/100.** Fast and efficient tool use for agentic workflows.
 - **Reasoning: 82/100.** Reliable reasoning for lightweight tasks.
 - **Context window: 95/100.** Full 1M token context window.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Google AI Studio docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

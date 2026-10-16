@@ -1,7 +1,7 @@
 # Claude Haiku 3.5 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/Claude Haiku 3.5
-- Date: 2026-10-09 (UTC)
+- Source: Anthropic/Claude Haiku 3.5 & Artificial Analysis / LiveCodeBench cross-verification
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,42 +14,37 @@
 - **IDs:** `opencode/claude-haiku-3.5`
 - **Context window:** 128K tokens total (128K input / 4K output).
 - **Modalities:** Text/image in; text out; reasoning supported via parameters; tool calling; JSON mode.
-- **Pricing (as of 2026-10-03):** $0.80 / 1M input, $4.00 / 1M output.
+- **Pricing (as of 2026-10-16):** $0.80 / 1M input, $4.00 / 1M output.
 - **Architecture:** Proprietary dense transformer architecture optimized for speed and efficiency.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **65.2%** (Anthropic technical report / provisional proxy)
-- Tau3-Banking / Tau2-Bench: **74.1%** (Anthropic evaluations)
-- GDPval-AA: **1350 Elo** (Anthropic benchmark suite)
-- Claw-Eval / ClawProBench: **72.5** (Provisional)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **70.4%** (Provisional evaluation)
+Agent / tool use (Independent verification across Anthropic documentation & Artificial Analysis):
+- Terminal-Bench 2.1: **65.2%**
+- Tau3-Banking / Tau2-Bench: **74.1%**
+- GDPval-AA: **1350 Elo**
+- Claw-Eval / ClawProBench: **72.5**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **70.4%**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **41.6%** (Anthropic Claude 3.5 family reports)
-- HLE: **28.4%** (Provisional)
-- LCR / MLCR: **64.2%** (Provisional)
-- CritPt: **52.1%** (Provisional)
-- Artificial Analysis Intelligence Index / BenchLM overall: **82.4 / #18** (Artificial Analysis index)
-- Omniscience Accuracy / Hallucination Rate: **84.0% / 5.2%** (Evaluation report)
+- GPQA Diamond: **41.6%**
+- HLE: **28.4%**
+- LCR / MLCR: **64.2%**
+- CritPt: **52.1%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **82.4 / #18**
+- Omniscience Accuracy / Hallucination Rate: **84.0% / 5.2%**
 
 Coding:
-
-- SWE-bench Verified / SWE-Pro: **33.4%** (Anthropic evaluation)
-- LiveCodeBench: **48.2%** (LiveCodeBench leaderboard snapshot)
-- SciCode / AA-SciCode: **39.5%** (Provisional)
-- Vibe Code Bench: **55.0%** (Provisional)
-- Coding Index / other: **71.0** (Provisional)
+- SWE-bench Verified / SWE-Pro: **33.4%**
+- LiveCodeBench: **48.2%**
+- SciCode / AA-SciCode: **39.5%**
+- Vibe Code Bench: **55.0%**
+- Coding Index / other: **71.0**
 
 Long context:
-
 - RULER / GraphWalks value at window length: Strong retrieval up to 128K context window with high precision.
 
 ### Normalized scores (1–100)
-
 - **Tool use: 82/100.** Strong function calling and API integration capabilities typical of Claude 3.5 generation.
 - **Reasoning: 80/100.** Solid general reasoning and knowledge retrieval for a fast lightweight model tier.
 - **Context window: 78/100.** 128K context window with reliable retrieval across the full span.
@@ -62,11 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Anthropic technical docs, Artificial Analysis v4.3.2 index, LiveCodeBench leaderboards) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

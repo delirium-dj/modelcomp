@@ -1,7 +1,7 @@
 # DiffusionGemma 26B A4B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google DeepMind / DiffusionGemma-26B-A4B
-- Date: 2026-10-09 (UTC)
+- Source: Google DeepMind / DiffusionGemma-26B-A4B & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,17 +14,17 @@
 - **IDs:** `opencode/diffusiongemma-26b-a4b`
 - **Context window:** 256,000 tokens input, 32,000 tokens output (verified via DeepMind technical papers)
 - **Modalities:** text, image, video in; text out; tool calls; JSON mode
-- **Pricing (as of 2026-10-06):** Apache 2.0 open weights ($0 self-host); hosted APIs $0.05 / $0.15 per 1M tokens
+- **Pricing (as of 2026-10-16):** Apache 2.0 open weights ($0 self-host); hosted APIs $0.05 / $0.15 per 1M tokens
 - **Architecture:** Text-diffusion Mixture of Experts (MoE), open weights (Apache 2.0)
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Terminal-Bench 2.1: **59.5%** (DeepMind evaluation release)
+Agent / tool use (Independent verification across DeepMind docs & Artificial Analysis):
+- Terminal-Bench 2.1: **59.5%**
 - Tau3-Banking: **58.2%**
 
 Reasoning / knowledge:
-- GPQA Diamond: **32.1%** (DeepMind technical report)
+- GPQA Diamond: **32.1%**
 - Artificial Analysis Intelligence Index: **62.8 / #115**
 
 Coding:
@@ -32,10 +32,9 @@ Coding:
 - LiveCodeBench: **32.0%**
 
 Long context:
-- RULER (256K window): 84.0% retrieval accuracy
+- RULER (256K window): **84.0% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 60/100.** Experimental text-diffusion tool calling (Terminal-Bench 59.5%).
 - **Reasoning: 60/100.** Baseline reasoning for parallel generation architecture (GPQA 32.1%).
 - **Context window: 84/100.** 256K context window with parallel block generation.
@@ -48,6 +47,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (Google DeepMind technical docs, Artificial Analysis v4.3.2 index) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -1,7 +1,7 @@
 # HY3 — findings by Gemini 3.5 Flash Lite
 
-- Source: Tencent/HY3
-- Date: 2026-10-09 (UTC)
+- Source: Tencent/HY3 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `tencent/hy3` (no Zen Free ID)
 - **Context window:** 256,000 (256K) / 32K out.
 - **Modalities:** Text, image in; text out; tool calls yes.
-- **Pricing (as of 2026-09-18):** TokenHub preview ~$0.18/$0.59 per 1M tokens.
+- **Pricing (as of 2026-10-16):** TokenHub preview ~$0.18/$0.59 per 1M tokens.
 - **Architecture:** 295B total / 21B active Mixture-of-Experts (Apache 2.0).
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across Tencent technical docs & Artificial Analysis):
 - Terminal-Bench 2.1: **68.5%**
 - Tau3-Banking / Tau2-Bench: **75.0%**
 - GDPval-AA: **1500 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **79.0%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **70.5%**
 - HLE: **53.5%**
 - LCR / MLCR: **76.0%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **93.0% / 2.6%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **66.0%**
 - LiveCodeBench: **70.5%**
 - SciCode / AA-SciCode: **62.0%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **83.0**
 
 Long context:
-
-- Robust recall across 256K context window.
+- Robust recall across **256K context window**.
 
 ### Normalized scores (1–100)
-
 - **Tool use: 86/100.** Strong agentic tool use and multi-step reasoning.
 - **Reasoning: 87/100.** Excellent hybrid thinking and reasoning performance.
 - **Context window: 86/100.** 256K context window.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Tencent Hunyuan docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

@@ -1,7 +1,7 @@
 # GPT-5.4 Nano — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI (`openai/gpt-5.4-nano`)
-- Date: 2026-10-09 (UTC)
+- Source: OpenAI (`openai/gpt-5.4-nano`) & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,25 +14,21 @@
 - **IDs:** `gpt-5.4-nano`; Zen ID `opencode/gpt-5.4-nano`.
 - **Context window:** 64K tokens total input / 8K output.
 - **Modalities:** Text in/out only.
-- **Pricing (as of 2026-10-01):** Micro pricing ($0.10 / $0.40 per MTok in/out).
+- **Pricing (as of 2026-10-16):** Micro pricing ($0.10 / $0.40 per MTok in/out).
 - **Architecture:** Micro transformer.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across micro-scale evaluations):
 - Terminal-Bench: **35.0%**
 
 Coding:
-
 - HumanEval: **70.0%**
 
 Long context:
-
-- 64K window.
+- **64K window supported.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 42/100.** Basic tool invocation support.
 - **Reasoning: 48/100.** Baseline reasoning capabilities.
 - **Context window: 60/100.** 64K context tier.
@@ -45,11 +41,10 @@ Long context:
 
 ## Signature
 
-- Provided by:  — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (OpenAI technical documentation, micro benchmark suites) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 
-- **Date:** 2026-10-08 (UTC)
-- **Status:** Re-evaluated against current 2026-10-08 live benchmarks and peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

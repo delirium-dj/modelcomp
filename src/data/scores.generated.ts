@@ -479,6 +479,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-opus-5.5": {
     "Big_Pickle.md": [88, 90, 96, 66, 92, 88, 86.4],
+    "Cat_Jam.md": [95, 96, 95, 80, 94, 80, 92],
     "Claude_Fable_5.1.md": [93, 92, 95, 80, 94, 55, 90.8],
     "Claude_Opus_4.5.md": [87, 92, 95, 65, 95, 76, 86.8],
     "Claude_Opus_4.6.md": [90, 92, 88, 72, 93, 55, 87],
@@ -1670,6 +1671,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gemini-3.8-flash": {
     "Big_Pickle.md": [87, 90, 93, 89, 87, 85, 89.2],
+    "Cat_Jam.md": [88, 86, 90, 90, 86, 96, 88],
     "Claude_Opus_4.6.md": [93, 95, 97, 90, 90, 90, 93],
     "Claude_Opus_4.8.md": [82, 87, 95, 90, 88, 98, 88.4],
     "Claude_Opus_5.md": [85, 88, 96, 93, 90, 86, 90.4],
@@ -1760,6 +1762,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gemini-4-argon": {
     "Big_Pickle.md": [85, 89, 97, 88, 91, 70, 90],
+    "Cat_Jam.md": [90, 90, 95, 88, 92, 85, 91],
     "Claude_Opus_4.6.md": [85, 90, 92, 85, 88, 65, 88],
     "Claude_Opus_4.8.md": [87, 87, 95, 90, 89, 65, 89.6],
     "Claude_Opus_5.md": [90, 88, 96, 86, 88, 62, 89.6],
@@ -4652,6 +4655,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "muse-spark-1.3": {
     "Big_Pickle.md": [80, 76, 92, 84, 84, 74, 83.2],
+    "Cat_Jam.md": [93, 94, 100, 85, 93, 100, 93],
     "Claude_Fable_5.1.md": [88, 92, 98, 85, 90, 100, 90.6],
     "Claude_Opus_4.6.md": [93, 94, 100, 85, 93, 100, 93],
     "Claude_Opus_4.8.md": [93, 91, 98, 85, 95, 100, 92.4],
