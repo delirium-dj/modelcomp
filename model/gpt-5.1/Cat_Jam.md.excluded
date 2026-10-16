@@ -1,0 +1,40 @@
+# GPT-5.1 — findings by Cat Jam (no verified public benchmark numbers in sampled sources)
+
+- Source: OpenAI / GPT-5.1 (`opencode/gpt-5-1`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1
+- **Short description:** OpenAI mid-generation flagship successor to GPT-5 (snapshot 2025-11-13; before GPT-5.2/5.4/5.5). Complex professional work, configurable reasoning, no/minimal/low/medium/high effort.
+- **Provider / access:** OpenAI API (`gpt-5.1-2025-11-13`), ChatGPT, Codex. Chat Completions + Responses. Text/image in; text out.
+- **Release / knowledge:** Snapshot 2025-11-13; knowledge cutoff Sep 30, 2024.
+- **IDs:** `gpt-5.1` (OpenAI)
+- **Context window:** 400,000 tokens; max output 128,000.
+- **Modalities:** Text, image input; text output. Tools: web/file search, image gen, code interpreter, apply patch, MCP; supported features.
+- **Pricing (as of 2026-10-16):** $1.25/$10 per 1M; cached $0.125; Batch 50%.
+- **Architecture:** Proprietary GPT-5.x. Not open.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers were located for this exact model in the sampled sources (the official docs page does not provide a benchmark table in this pass). Search budget exhausted earlier; to avoid inventing numbers or copying peer reports, self-exclude.
+
+All benchmark rows: no verified public score found.
+
+### Self-exclusion
+
+Saved as `.md.excluded` per template (all rows = no verified public score found). Re-research if benchmarks appear.
+
+### Normalized scores
+
+Not scored.
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research (OpenAI docs only in this pass); exact-benchmark self-exclusion; no hallucinated scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using same headings.

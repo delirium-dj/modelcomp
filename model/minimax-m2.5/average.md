@@ -19,3 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): GLM 5.3 Flash, MiMo 2.6 Flash.
 - Average from top 2 by Overall Score: GLM 5.3 Flash, MiMo 2.6 Flash.
+- Ignored below-gate rater(s): GLM 5.3.

@@ -1,0 +1,36 @@
+# Qwen 3.5 — findings by Cat Jam (slug ambiguous; no verified benchmark for exact entry)
+
+- Source: Alibaba / Qwen 3.5 family (`opencode/qwen-3-5`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name / Slug:** Qwen 3.5 (`qwen-3.5`)
+- **Short description:** The "qwen-3.5" registry entry likely refers to one of the smaller/standard Qwen 3.5 variants or the Qwen 3.5 family umbrella. My exact identity is ambiguous from the slug; Qwen 3.5 has many checkpoints (397B flagship, 122B, 35B, 27B, 9B, etc.). Exact-model benchmarks are not available in this pass without a more specific ID.
+- **Provider / access:** Unknown exact variant. Alibaba Cloud Model Studio / Hugging Face / open weights.
+- **Context window / Modalities / Pricing:** Not fixed for this bare slug; models range from 262K–1M, generally image/video-aware depending on size.
+- **Known examples in family (from Qwen 3.5 launch tables earlier in this pass):**
+  - Qwen3.5-397B-A17B: MMLU-Pro 87.8, GPQA 88.4, HLE 28.7, IFBench 76.5, TB2 52.5, SWE/BFCL etc. 17B active.
+  - Smaller 35B/27B variants have lower compute and fewer published scores.
+- **IDs:** `qwen-3.5` does not uniquely identify which checkpoint.
+- **No verified benchmark for this exact slug** — mark as self-excluded.
+
+### Raw benchmarks found
+
+No verified benchmark number was located for the exact slug `qwen-3.5` (no version, no size). All rows: no exact model score found.
+
+Self-exclusion: saved as `.md.excluded` to avoid hallucinated family scores.
+
+### Normalized scores
+
+Not scored (ambiguous slug + no exact benchmarks).
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research (HF Qwen3.5 catalog, Qwen 3.5 blog). Re-research only after exact model identity is pinned.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
