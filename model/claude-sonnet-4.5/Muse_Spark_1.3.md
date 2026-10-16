@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Sonnet 4.5 (`claude-sonnet-4-5-20250929`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: ARC-AGI-2/BullshitBench/AIME/BenchLM rows + file-input modality added; scores hold 77)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: ARC-AGI-2/BullshitBench/AIME/BenchLM rows + file-input modality added; scores hold 77), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,3 +72,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Anthropic announcement, AI Release Tracker, pricing/benchmark aggregators); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Anthropic announcement (anthropic.com/news/claude-sonnet-4-5), (2) evals.report model page (46 reported scores), (3) Benchmark Atlas model page (atlas.kevinhu.io, 158 sources). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 85 | 85 | hold — TB 50.0 aggregator row vs no official TB absolute; OSWorld 61.4% official confirmed; new BFCL 73.24%, MCP Atlas 43.8%, GDPval 1317, GAIA 74.55% add depth but mixed direction |
+| Reasoning | 80 | 80 | hold — GPQA official now reads 82.3% (evals.report) vs filed 83.4% (aireleasetracker); HLE now 13.7% official vs filed 7.1% aggregator; new AA-LCR 65.7–72.3 adds the missing LCR absolute |
+| Context | 70 | 70 | hold — 200K standard / 1M Tier-gated beta unchanged; no new retrieval-accuracy curve published |
+| Multimodal | 65 | 65 | hold — MMMU-Pro 68.9% official confirms filed 68%; text+image in, text out unchanged |
+| Coding | 85 | 85 | hold — SWE-V official now 71.3% (evals.report) vs filed 77.2% (averaged-over-10-trials announcement); new SWE-Pro 43.60%, SWE-Multilingual 67.0%, Vibe 22.62%, SciCode 44.7% add same-harness depth |
+| Cost | 60 | 60 | hold — $3/$15 + $0.30 cached unchanged |
+| Overall | 77 | 77 | hold — (85+80+70+65+85)/5 = 77.0 |
+
+New verified rows added this pass (all official release-period figures via evals.report unless noted): BFCL 73.24%, MCP Atlas 43.8%, MCP-Universe 35.06%, GDPval 1317 Elo, GAIA 74.55%, BrowseComp 24.1%, SWE-Pro 43.60%, SWE-Multilingual 67.0%, Vibe Code Bench 22.62%, AA-LCR 65.7 (v1.1 72.3), FrontierMath 15.22%, ARC-AGI-1 63.67%, MMLU-Pro 87.5%, MMMU-Pro 68.9%, HLE 13.7%, GPQA 82.3%. Conflicts resolved: GPQA 82.3% official preferred over 83.4% aggregator (delta immaterial to band); HLE 13.7% official preferred over 7.1% aggregator (moves toward, not away from, filed reasoning); SWE-V 71.3% single-run vs 77.2% 10-trial average — both official, filed average retained as headline. No Tau3, no Claw-Eval, no MRCR/RULER absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://www.anthropic.com/news/claude-sonnet-4-5 · https://evals.report/models/anthropic-claude-sonnet-4-5 · https://atlas.kevinhu.io/models/claude-sonnet-4-5-20250929

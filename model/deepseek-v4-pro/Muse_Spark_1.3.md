@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by Muse Spark 1.3
 
 - Source: DeepSeek/DeepSeek V4 Pro, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: HLE/SWE-Pro/tool rows + lanes added, Reasoning 90 → 91, Overall holds 86)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: HLE/SWE-Pro/tool rows + lanes added, Reasoning 90 → 91, Overall holds 86), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 86)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,3 +68,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (DeepSeek technical-report figures via deepseekv4.tech and DeepInfra, Fireworks independent eval blog, Lightning AI comparison, CloudPrice specs, Requesty catalog); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official HF model card (huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813), (2) Fireworks independent eval blog (fireworks.ai/blog/DeepSeekV4Pro-Fable5), (3) Vals AI model page (vals.ai/models/deepseek_deepseek-v4-pro-0813) + OrcaRouter official-vs-independent scorecard. Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 88 | 88 | hold — TB2.1 87.9 official confirmed on card; Toolathlon now 74.1% verified (up from filed 51.8% HF row — harness differs); independent Fireworks TB2.1-89 subset 76.4% and Vals TB2.1 54.68%/TB4.0 14.14% pull down but same-harness vendor numbers retained as headline |
+| Reasoning | 91 | 91 | hold — GPQA 90.1% official; Vals independent GPQA 92.42% (#17/138) and MMLU-Pro 86.97% confirm band; HLE 37.7/60-tools stands, no new LCR/CritPt absolute |
+| Context | 93 | 93 | hold — 1M / 384–393K out confirmed on Vals + Fireworks; MRCR-1M 83.5 stands, no new RULER absolute |
+| Multimodal | 70 | 70 | hold — image/PDF in, text out confirmed on Vals (image input not supported flag refers to Vals harness only); no video/audio evidence |
+| Coding | 88 | 88 | hold — SWE-V 80.6% official; independent Fireworks 95.2% and Vals 96.40% (#2/82, top open-weight) both beat the vendor number on their harnesses — noted, headline unchanged; LiveCode 93.5% official vs Fireworks 92.0% / Vals 87.53% consistent band; Vibe v1.1 82.30% (#21/112) fills a prior gap |
+| Cost | 90 | 90 | hold — $1.32/$3.96 peak, off-peak $0.66/$1.98 stands; Fireworks $0.309/solved-task vs Fable 5 $0.808 confirms value |
+| Overall | 86 | 86 | hold — (88+91+93+70+88)/5 = 86.0 |
+
+New verified rows added this pass: Vals SWE-bench 96.40% (#2/82), Vibe v1.1 82.30% (#21/112), LiveCodeBench 87.53% (#13/143), GPQA 92.42% (#17/138), ProofBench 49.00% (up from 10.00% prior release), CyberBench 72.86% (#14/47), Fireworks cost/task $0.309 vs Fable 5 $0.808, Toolathlon-Verified 74.1% (HF eval-results). Conflicts resolved: TB2.1 vendor 87.9 (DeepSeek harness, minimal mode) vs Vals 54.68% (Vals harness) — harness differs, both recorded, vendor retained as headline per same-harness rule; SWE-V vendor 80.6 vs independents 95.2–96.4 — independents beat vendor, noted as upside not headline change. No Tau3, no Claw, no LCR/CritPt absolute found — prior gaps stand. Scores hold; evidence strengthens the filed position without crossing a band boundary.
+
+Sources: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813 · https://fireworks.ai/blog/DeepSeekV4Pro-Fable5 · https://www.vals.ai/models/deepseek_deepseek-v4-pro-0813 · https://www.orcarouter.ai/blog/deepseek-v4-pro-benchmark

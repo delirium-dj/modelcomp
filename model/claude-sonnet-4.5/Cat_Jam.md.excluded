@@ -1,0 +1,37 @@
+# Claude Sonnet 4.5 — findings by Cat Jam (no reliable per-model benchmark in this pass; specs only)
+
+- Source: Anthropic / Claude Sonnet 4.5 (`opencode/claude-sonnet-4-5`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 4.5 (legacy; released 2025-09-29, predecessor to Sonnet 5/5.5).
+- **Short description:** Fast reasoning+agentic model, coding and computer use at mid-tier pricing ($3/$15).
+- **Provider / access:** Claude API (`claude-sonnet-4-5`), AWS Bedrock, Google Cloud, Microsoft Foundry; text/image in, text out.
+- **Release / knowledge:** Released 2025-09-29; knowledge cutoff? Apr 2025? (Docs may say Apr 2025; not re-verified in this pass.)
+- **IDs:** `claude-sonnet-4-5`
+- **Context window:** 200,000 tokens; max output 64,000 (typical; not verified in this pass).
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of sampled docs):** $3 / $15 per 1M input/output; cache read $0.30; Batch 50% (general Claude pricing pattern; not verified in this pass).
+- **Architecture:** Proprietary extended/adaptive? Claude 4.5 supports thinking adaptive-ish? Not verified.
+- **Benchmarks found:** In this pass, no verified public benchmark numbers for this exact model were located in sampled docs/API specs without risking unsupported numbers. Therefore no scored `.md` is emitted now.
+
+### Raw benchmarks found
+
+All benchmark rows not sampled/verified: no verified public score found.
+
+Self-exclusion: saved as `.md.excluded` to avoid hallucinated numbers. Re-research in a future pass to populate scores.
+
+### Normalized scores
+
+Not scored.
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research; exact-benchmark pass found no attached numbers in sampled API overview. Self-excluded.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`.

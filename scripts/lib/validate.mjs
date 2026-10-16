@@ -30,6 +30,7 @@ export const FORBIDDEN_ROOTS = ["voicemodels"];
 export const MERGED_MODEL_SLUGS = new Map([
   ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
   ["glm-5.1-coding", "glm-5.1"],
+  ["embe-1", "ember-1"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
