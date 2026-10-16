@@ -671,19 +671,14 @@ export default component$(() => {
               <div class="mt-10 grid grid-cols-1 gap-5 min-[800px]:grid-cols-2 min-[1100px]:grid-cols-3">
                 {visibleModels.map((m) => (
                   <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
-                    <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                      <h3 class="m-0 flex min-w-0 flex-1 items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
+                    <div class="flex items-start justify-between gap-3">
+                      <div class="min-w-0 flex-1">
+                      <h3 class="m-0 flex items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
                         <VendorIcon id={m.id} name={m.name} />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
-                      <div
-                        class="shrink-0 text-right leading-none"
-                        title="Overall score out of 100 — mean of the five quality dimensions"
-                      >
-                        <strong class="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
-                        <span class="mt-1 block text-[11px] font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
-                      </div>
-                    <p class="mt-0 basis-full text-xs font-bold">
+                    <p class="mt-0 text-xs font-bold">
+                      {!m.meta.noFreeId ? (
                         <span
                           class="text-[#1c7a4d] dark:text-[#7fd6a4]"
                           title={m.meta.freeTierNote ?? m.meta.pricingNote}
@@ -699,6 +694,14 @@ export default component$(() => {
                         </span>
                       )}
                     </p>
+                      </div>
+                      <div
+                        class="shrink-0 text-right leading-none"
+                        title="Overall score out of 100 — mean of the five quality dimensions"
+                      >
+                        <strong class="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
+                        <span class="mt-1 block text-[11px] font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
+                      </div>
                     </div>
                     <p class="mt-2.5 text-sm leading-relaxed">{m.short}</p>
                     <dl class="m-0 mt-3.5 p-0 text-xs leading-relaxed">
