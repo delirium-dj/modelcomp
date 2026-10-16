@@ -48,6 +48,8 @@ const HEX_LABEL_R = 168;
 const HEX_GAMMA = Math.LN2 / Math.log(100 / 75);
 // A/B/C series colors — same as the original compare page (models.ts MODEL_COLORS).
 const SERIES_COLORS = ["#4f46e5", "#059669", "#d97706"];
+// Hero animation palette: series trio plus sky + violet for slots 4–5.
+const HERO_COLORS = ["#4f46e5", "#059669", "#d97706", "#0ea5e9", "#8b5cf6"];
 function hexPoint(value: number, index: number, maxR = HEX_MAX_R): { x: number; y: number } {
   const angle = ((-90 + index * 60) * Math.PI) / 180;
   const clamped = Math.max(0, Math.min(100, value));
@@ -104,6 +106,9 @@ export default component$(() => {
   const displayCount = useSignal(PAGE_SIZE);
   const source = useSignal<ResultsView>("average");
   const scrollerRef = useSignal<HTMLDivElement>();
+  // Hero animation spotlight: cycles through the top-5 models, one at a
+  // time. Skipped entirely under prefers-reduced-motion (static hexagon).
+  const heroActive = useSignal(0);
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
@@ -187,6 +192,19 @@ export default component$(() => {
   );
   const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
   const visibleModels = filtered.slice(0, displayCount.value);
+  // Hero animation cast: top 5 of the current source ranking, spotlighted
+  // one at a time (see interval task below).
+  const heroTop5 = generative.slice(0, 5);
+  const heroActiveSafe = heroTop5.length > 0 ? heroActive.value % heroTop5.length : 0;
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = window.setInterval(() => {
+      heroActive.value = heroActive.value + 1;
+    }, 2600);
+    cleanup(() => window.clearInterval(t));
+  });
 
   // List-view sorting (column sort within the current source ranking).
   // Exact values throughout — no rounding in display, highlights, or order.
@@ -283,13 +301,119 @@ export default component$(() => {
               </div>
             </div>
             <div class="v2-hero-media">
-              <img
-                src="/favicon.svg"
-                alt="ModelComp logo: a hexagon with six dimension dots around a core"
-                width={400}
-                height={400}
+              <svg
+                viewBox="0 0 400 400"
+                role="img"
                 class="mx-auto h-auto w-full max-w-56"
-              />
+                aria-label={`Top 5 models by ${activeSourceLabel}: ${heroTop5.map((m) => `${m.name} ${m.scores.overall}`).join(", ")}`}
+              >
+                {[25, 50, 75, 100].map((ring) => (
+                  <polygon
+                    key={ring}
+                    points={hexPolygon(ring)}
+                    fill="none"
+                    class="stroke-[#ccdae2] dark:stroke-[#274757]"
+                    stroke-width={ring === 100 ? 1.5 : 1}
+                  />
+                ))}
+                {DIMENSIONS.map((d, i) => {
+                  const end = hexPoint(100, i);
+                  return (
+                    <line
+                      key={d.key}
+                      x1={HEX_CX}
+                      y1={HEX_CY}
+                      x2={end.x}
+                      y2={end.y}
+                      class="stroke-[#ccdae2] dark:stroke-[#274757]"
+                      stroke-width="1"
+                    />
+                  );
+                })}
+                {/* Slow decorative orbit ring (frozen under reduced motion). */}
+                <polygon
+                  points={hexPolygon(100)}
+                  fill="none"
+                  stroke="#557ddd"
+                  stroke-width="1"
+                  stroke-dasharray="4 10"
+                  opacity={0.5}
+                  class="origin-center animate-[spin_60s_linear_infinite] motion-reduce:animate-none"
+                >
+                  <title>Top-5 performance hexagon</title>
+                </polygon>
+                {heroTop5.map((m, hi) => (
+                  <polygon
+                    key={m.id}
+                    points={DIMENSIONS.map((d, i) => {
+                      const p = hexPoint(m.scores[d.key], i);
+                      return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                    }).join(" ")}
+                    fill={HERO_COLORS[hi % HERO_COLORS.length]}
+                    fill-opacity={hi === heroActiveSafe ? 0.45 : 0.1}
+                    stroke={HERO_COLORS[hi % HERO_COLORS.length]}
+                    stroke-width={hi === heroActiveSafe ? 2.5 : 1.5}
+                    stroke-linejoin="round"
+                    style={{ transition: "fill-opacity 0.6s, stroke-width 0.6s" }}
+                  >
+                    <title>{`${m.name} (Overall ${m.scores.overall})`}</title>
+                  </polygon>
+                ))}
+                {heroTop5.length > 0 &&
+                  DIMENSIONS.map((d, i) => {
+                    const m = heroTop5[heroActiveSafe];
+                    const p = hexPoint(m.scores[d.key], i);
+                    return (
+                      <circle
+                        key={`${m.id}-${d.key}`}
+                        cx={p.x}
+                        cy={p.y}
+                        r={4.5}
+                        style={{ fill: HERO_COLORS[heroActiveSafe % HERO_COLORS.length] }}
+                      >
+                        <title>{tooltipFor(m, d.key)}</title>
+                      </circle>
+                    );
+                  })}
+                {DIMENSIONS.map((d, i) => {
+                  const p = hexPoint(100, i, HEX_LABEL_R);
+                  return (
+                    <text
+                      key={d.key}
+                      x={p.x}
+                      y={p.y}
+                      text-anchor="middle"
+                      dominant-baseline="middle"
+                      font-size="12"
+                      font-weight={600}
+                      class="fill-[#577184] dark:fill-[#93adbe]"
+                    >
+                      {d.short}
+                    </text>
+                  );
+                })}
+              </svg>
+              <ul aria-label="Top 5 models" class="mx-auto mt-4 grid max-w-56 gap-1.5 text-[13px]">
+                {heroTop5.map((m, hi) => (
+                  <li
+                    key={m.id}
+                    class={`flex items-center gap-2 ${hi === heroActiveSafe ? "font-bold" : ""}`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="h-2.5 w-2.5 flex-none rounded-full"
+                      style={{ backgroundColor: HERO_COLORS[hi % HERO_COLORS.length] }}
+                    />
+                    <a
+                      href={`/model/${m.slug}/`}
+                      class={`min-w-0 flex-1 truncate ${hi === heroActiveSafe ? "" : "text-[#577184] dark:text-[#93adbe]"}`}
+                    >
+                      {m.name}
+                    </a>
+                    <span class="shrink-0 tabular-nums">{m.scores.overall}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
