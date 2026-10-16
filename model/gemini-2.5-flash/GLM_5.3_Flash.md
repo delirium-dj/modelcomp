@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA boards + earlier BenchmarkList/allthemodels/llm-stats aggregates — conflicts compared and both readings listed); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 14.9%, AA-LCR 49.9%, AA-MMMU-Pro 65.5%, AA-GPQA 68.3%, AA-HLE 4.7%, FrontierMath 4.8%, hallucination 93.0% — Tool 65→62, Reasoning 68→62, Context 97→95, Multimodal 88→80, Overall 78→74 (old draft also showed a six-dim calc next to a five-dim Overall).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA boards + earlier BenchmarkList/allthemodels/llm-stats aggregates — conflicts compared and both readings listed; 2026-10-16 re-check: zero new rows on the BenchLM 2026-10-15 refresh); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 14.9%, AA-LCR 49.9%, AA-MMMU-Pro 65.5%, AA-GPQA 68.3%, AA-HLE 4.7%, FrontierMath 4.8%, hallucination 93.0% — Tool 65→62, Reasoning 68→62, Context 97→95, Multimodal 88→80, Overall 78→74 (old draft also showed a six-dim calc next to a five-dim Overall).
 - Future sources: add a new file next to this one, e.g. `Gemini_2.5_Flash_Sep.md`, using the same headings.

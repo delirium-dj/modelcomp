@@ -19,3 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, GLM 5.3 Flash.
 - Average from top 2 by Overall Score: DeepSeek 4.1 Flash, GLM 5.3 Flash.
+- Ignored below-gate rater(s): GLM 5.3.

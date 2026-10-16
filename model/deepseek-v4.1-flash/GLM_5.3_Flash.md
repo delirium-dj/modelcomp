@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,10 +37,12 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.9%** (HF model card at max effort; Opus 5 93.4, Sol 94.1, Kimi K3 92.9, GLM-5.3 88.1, V4-Pro 92.4)
-- HLE: **36.8%** (model card; Opus 5 56.3, Sol 44.5); AA-HLE: **39.2%** (AA board)
+- HLE: **36.8%** (model card; Opus 5 56.3, Sol 44.5); AA-HLE: **39.2%** (AA board); **HLE w/ tools 63.9%** (model card — added 2026-10-16, frontier-tier; above Claude Sonnet 5's 57.4)
+- FrontierMath v2: Tiers 1–3 **67.4%**, Tier 4 **26.8%** (Epoch AI leaderboard — added 2026-10-16; strong)
 - Artificial Analysis Intelligence Index: **39.5** (AA v4.3.2 board via benchlm.ai — fills the previously-missing Index; deepinfra cites 40)
 - AA-LCR: **84.0%** (AA long-context-reasoning board via benchlm.ai — fills the previously-missing LCR)
 - CritPt: **14.3%**; MLCR-AA: **22.8%** (AA boards via benchlm.ai)
+- Hermes Bench: **70.7%** / Hermes Index: **36.9%** (Nous Research); AA-AnalystAgent: **35.0%** (AA) — added 2026-10-16
 - AA-Omniscience: Index -5.3, accuracy **46.4%**, hallucination rate **96.5%** (benchlm.ai — severe hallucination)
 - MMLU-Pro (base): **74.1**; AGIEval 83.4; C-Eval 92.1; SimpleQA-Verified 42.3; MATH 61.1; GSM8K 93.0 (base model, internal framework)
 - LongBench-V2 (base): **45.2**
@@ -54,7 +56,7 @@ Coding:
 - NL2Repo: **65.4%**; OpenHarmony Bench: **60.3%** (official leaderboard via benchlm.ai); CWE-bench v1: **55.0%**
 - Apex (math): **65.6%** (model card)
 - Bug Hunt Bench: **21.7 fixes** (benchlm.ai); ProgramBench: **20.3%**
-- SWE-bench Verified / Pro / SciCode / LiveCodeBench / SWE-Atlas / Vibe: no verified public score found
+- SWE-bench Verified / Pro / LiveCodeBench / SWE-Atlas / Vibe: no verified public score found; AA-SciCode **51.9%** (AA board — added 2026-10-16, fills the old gap; just under the 55%+ mark); JevBench 1.4/1.5: 4.77/6.65 (niche third-party benchmark, weak)
 - Harness caveat: agentic rows are model+DeepSeek-Harness scores; a multi-scaffold table (Claude Code, Codex, OpenCode) exists in the card
 
 Long context:
@@ -68,17 +70,17 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 86/100.** TB2.1 90.6% (vendor; Vals 74.5%) is frontier-tier, and the filled GDPval-AA 1600 Elo (at Opus 4.8) plus AA AutomationBench 68.9% clear the mid-band anchors; CyberGym 88.1% leads — but the collapse to 30–31% on TB 3.0/4.0 (vs Opus 5's 43–52%) and ExploitGym 15.3% show strength concentrated in established agentic tasks.
-- **Reasoning: 80/100.** GPQA 90.9% clears the 90% frontier ref and the filled AA Intelligence Index 39.5 + AA-LCR 84.0% fill the old draft's missing independent rows; HLE 36.8%/39.2% sits under the 40% ref, CritPt 14.3% is weak, and the 96.5% hallucination rate is severe.
+- **Reasoning: 83/100.** CHANGED from 80 — GPQA 90.9% clears the 90% frontier ref; the newly measured HLE w/ tools 63.9% (frontier-tier) and FrontierMath v2 67.4%/26.8% (Epoch) add two strong pillars to the already-filled AA Intelligence Index 39.5 + AA-LCR 84.0%; AA-HLE 39.2% (no-tools) and CritPt 14.3% stay weak and the 96.5% hallucination rate is severe.
 - **Context window: 94/100.** 1M window (95–100 tier) with 384K output; measured AA-LCR 84.0% is strong; no MRCR/RULER ≥98% verification and a weak base LongBench-V2 (45.2) keep it just under 95.
 - **Multimodal: 75/100.** Native image input with measured vision (AA-MMMU-Pro 77.0%, Chartography 78.9%, BabyVision 89.6%); text-only output, no video/audio — into the 75–90 band's floor.
-- **Coding: 86/100.** DeepSWE 74.2% edges Opus 5 and Sol, TB2.1 90.6% and Codeforces 3471 are frontier, but TB 3.0/4.0 losses, ProgramBench 20.3% and CWE-bench 55.0% cap it below the 90s.
+- **Coding: 86/100.** DeepSWE 74.2% edges Opus 5 and Sol, TB2.1 90.6% and Codeforces 3471 are frontier, but TB 3.0/4.0 losses, ProgramBench 20.3% and CWE-bench 55.0% cap it below the 90s; the newly measured AA-SciCode 51.9% sits just under the frontier mark.
 - **Cost efficiency: 91/100.** $0.30/$1.20 peak (the M2.7/M3 anchor price) with off-peak at half and $0.003/1M cache hits — exceptional for cached agent loops; effort tuning matters (effort 25 keeps most accuracy at ~40% of tokens). No free tier.
-- **Overall Score: 84/100.** Mean of the five quality dims (86 + 80 + 94 + 75 + 86) / 5 = 84.2 → 84. Best fit: cache-heavy, input-heavy agentic coding at commodity prices — deploy with effort 60–80, not max, and verify on your own scaffold before trusting the leaderboard rows; the 96.5% hallucination rate argues against unsupervised knowledge work.
+- **Overall Score: 85/100.** CHANGED from 84 — mean of the five quality dims (86 + 83 + 94 + 75 + 86) / 5 = 424/5 = 84.8 → 85. Best fit: cache-heavy, input-heavy agentic coding at commodity prices — deploy with effort 60–80, not max, and verify on your own scaffold before trusting the leaderboard rows; the 96.5% hallucination rate argues against unsupervised knowledge work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the HF model card and AA boards, Vals AI, deepinfra, DuckDuckGo search cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GDPval-AA 1600, AA Intelligence Index 39.5, AA-LCR 84.0%, AA AutomationBench 68.9%, AA-MMMU-Pro 77.0%, Vals TB2.1 74.5% — Tool 82→86, Reasoning 78→80, Context 92→94, Multimodal 66→75, Overall 81→84.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the HF model card and AA boards, Vals AI, deepinfra, DuckDuckGo search cross-checked; re-researched 2026-10-16: HLE w/tools 63.9%, FrontierMath v2 67.4/26.8, AA-SciCode 51.9, Hermes rows added — Reasoning 80→83, Overall 84→85); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GDPval-AA 1600, AA Intelligence Index 39.5, AA-LCR 84.0%, AA AutomationBench 68.9%, AA-MMMU-Pro 77.0%, Vals TB2.1 74.5% — Tool 82→86, Reasoning 78→80, Context 92→94, Multimodal 66→75, Overall 81→84.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

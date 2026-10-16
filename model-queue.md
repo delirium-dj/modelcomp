@@ -7,8 +7,8 @@
 93 claude-opus-5.5
 92.5 gemini-3.8-flash
 92.3 gemini-4-argon
+91.8 gpt-6-astra
 91.7 gemini-3.1-pro
-91.5 gpt-6-astra
 91.4 claude-opus-5
 91.1 gemini-3.7-flash
 91 claude-fable-5.1
@@ -84,7 +84,7 @@
 81.4 kimi-k2.5
 81.3 nemotron-3.5-super-vl
 80.8 gemini-3.1-flash
-80.3 claude-sonnet-4.5
+80.4 claude-sonnet-4.5
 79.3 gemma-4-31b
 79.3 grok-4
 79 grok-4.20

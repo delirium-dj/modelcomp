@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-sonnet-4-5-20250929`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **83.4%** (system card — corroborates; trails Gemini 3 Pro 91.9% and GPT-5.1 ~87%)
 - AIME 2025: **87.0%** (100% with Python tools; Anthropic announcement via benchlm.ai — corroborated)
 - ARC-AGI-2: **13.6%** (system card via benchlm.ai — fills the previously-missing ARC row; weak)
-- FrontierMath v2: Tiers 1–3 **13.5%**, Tier 4 **4.2%** (Epoch AI via benchlm.ai — fills; weak)
+- FrontierMath v2: Tiers 1–3 **23.9%**, Tier 4 **2.4%** (Epoch AI leaderboard, 2026-10-15 refresh) — CONFLICT: the 2026-10-09 pass recorded 13.5%/4.2% from the same source; Epoch has since re-scored, current values used
 - MMLU: **89.1%** (theairankings table); MMMU: **77.8%** (theairankings table)
 - Artificial Analysis Intelligence Index: **61 (thinking mode, 4th overall at the time)** (Artificial Analysis testing; launch-era reading)
 - HLE: no verified public score found
@@ -60,17 +60,17 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 92/100.** TAU-bench Telecom 98.0% is near-perfect, Retail 86.2% and best-in-class OSWorld 61.4% clear the Tau3 ~50%+ frontier reference; the modest Terminal-Bench 50.0%, weak VITA-Bench 17.0%/JobBench 27.7% and missing GDPval/MCPAtlas numbers keep it under 95.
-- **Reasoning: 78/100.** AIME 2025 87% and an AA Index of 61 (4th overall at the time) are strong, but GPQA Diamond 83.4% sits in the high-mid band, the newly-filled ARC-AGI-2 13.6% and FrontierMath v2 13.5%/4.2% rows are weak, and no HLE number was found — the documented reasoning gap vs Gemini 3 Pro/GPT-5.1 caps it.
+- **Reasoning: 79/100.** CHANGED from 78 — AIME 2025 87% and an AA Index of 61 (4th overall at the time) are strong, GPQA Diamond 83.4% sits in the high-mid band, and the re-scored FrontierMath v2 Tiers 1–3 now read 23.9% (up from 13.5%); ARC-AGI-2 13.6% and Tier 4 2.4% remain weak, and no HLE number was found — the documented reasoning gap vs Gemini 3 Pro/GPT-5.1 caps it.
 - **Context window: 72/100.** 200K standard maps to the 200K=70 anchor; the 1M beta is access-gated (Tier 4+) and price-doubled, with no measured retrieval at 512K+.
 - **Multimodal: 65/100.** Text + image input, text output, computer use; no audio/video input — per methodology the image-in band is 60–70.
 - **Coding: 85/100.** SWE-bench Verified 77.2% (82.0% high compute) was state-of-the-art at launch with a 0% Replit code-editing error rate; missing LiveCodeBench/SWE-bench Pro numbers prevent 90+.
 - **Cost efficiency: 60/100.** $3/$15 per 1M sits at the $3/$15 = ~60 methodology reference; the 90% cache discount and 50% batch API are offsets, but the headline rate carries a 2.4x input premium over GPT-5.1.
-- **Overall Score: 78/100.** Mean of the five quality dims (92 + 78 + 72 + 65 + 85) / 5 = 78.4 → 78. Best-fit: the reliable daily driver for coding agents, computer use and high-volume production — with Opus for hard problems and cheaper rivals when cost dominates.
+- **Overall Score: 79/100.** CHANGED from 78 — mean of the five quality dims (92 + 79 + 72 + 65 + 85) / 5 = 393/5 = 78.6 → 79. Best-fit: the reliable daily driver for coding agents, computer use and high-volume production — with Opus for hard problems and cheaper rivals when cost dominates.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Anthropic Opus 4.5 system card and Anthropic announcement plus Epoch AI — official plus independent sources; earlier draft via theairankings/Anthropic launch coverage); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing ARC-AGI-2 13.6%, FrontierMath v2 13.5%/4.2%, VITA-Bench 17.0%, JobBench 27.7%; corroborates TB 50%, OSWorld 61.4%, SWE-V 77.2%, GPQA 83.4% — Reasoning 82→78, Overall 79→78.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing the Anthropic Opus 4.5 system card and Anthropic announcement plus Epoch AI — official plus independent sources; re-researched 2026-10-16 against the BenchLM 2026-10-15 refresh — FrontierMath re-scored 13.5/4.2 → 23.9/2.4, no other new rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_5.md`, using the same headings.

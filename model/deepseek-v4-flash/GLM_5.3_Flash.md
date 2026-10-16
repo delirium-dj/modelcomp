@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-v4-flash`, MIT open weights; 0731 production checkpoint)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,7 @@ Agent / tool use:
 - MCP Atlas: **69%** (DeepSeek-V4 technical report — fills the previously-missing MCP row)
 - GDPval-AA: **1189 Elo** / 46.9% (tech report + AA — fills the previously-missing GDPval row)
 - BrowseComp: **73.2%** (tech report — fills); CyberGym: **76.7%** (0731 update); Toolathlon-Verified: **70.3%** (corroborates); AA Agentic Index: **41.7%**
-- Agents' Last Exam: 25.2%; AutomationBench: 25.1% (0731 update — weak)
+- Agents' Last Exam: 25.2%; AutomationBench: 25.1% (0731 update — weak); MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
 - Toolathlon (plain): 47.8% (tech report)
 
 Reasoning / knowledge:
@@ -39,7 +39,7 @@ Reasoning / knowledge:
 - AA-LCR: **79.7%** (AA long-context-reasoning board — fills the previously-missing LCR); CritPt: **16.6%** (AA)
 - Artificial Analysis Intelligence Index: **34.3** (AA current reading — updates the earlier "50", which predates the index recalibration)
 - AA-Omniscience: Index -14.3, accuracy **40.4%**, hallucination rate **91.7%** (benchlm.ai — severe)
-- MMLU-Pro: **86.2%** (tech report; Vals 86.2% — agreement); SimpleQA 34.1%; HMMT Feb 2026: **94.8%**; IMOAnswerBench 88.4%; Apex 33.0%
+- MMLU-Pro: **86.2%** (tech report; Vals 86.2% — agreement); SimpleQA 34.1%; Chinese-SimpleQA **78.9%** (added 2026-10-16); HMMT Feb 2026: **94.8%**; IMOAnswerBench 88.4%; Apex 33.0% / Apex Shortlist **85.7%** (added 2026-10-16)
 
 Coding:
 
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the DeepSeek-V4 technical report, 0731 update notes, AA and Vals boards — official plus two independent harnesses, the SWE-V conflict resolved in favor of the Vals reading); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 82.7%, MCP Atlas 69%, GDPval-AA 1189, ARC-AGI-2 61.4% verified, MRCR 1M 78.7%, AA-LCR 79.7%, CritPt 16.6%, HLE w/tools 45.1%, AA Index 50→34.3 — Tool 70→82, Context 92→93, Coding 85→88, Overall 69→72.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the DeepSeek-V4 technical report, 0731 update notes, AA and Vals boards — official plus two independent harnesses; 2026-10-16 re-check: only Chinese-SimpleQA 78.9%, Apex Shortlist 85.7%, MazeBench 0% added, no score changes, the SWE-V conflict resolved in favor of the Vals reading); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 82.7%, MCP Atlas 69%, GDPval-AA 1189, ARC-AGI-2 61.4% verified, MRCR 1M 78.7%, AA-LCR 79.7%, CritPt 16.6%, HLE w/tools 45.1%, AA Index 50→34.3 — Tool 70→82, Context 92→93, Coding 85→88, Overall 69→72.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4.1.md`, using the same headings.

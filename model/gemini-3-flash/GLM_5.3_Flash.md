@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **17.9** (AA via benchlm.ai — now measured, corroborating the earlier 18 estimate)
 - AA-LCR: **55.3%** (AA long-context-reasoning board via benchlm.ai — new measured long-context evidence)
 - CritPt: **1.4%** (AA via benchlm.ai)
-- FrontierMath v2: Tiers 1–3 **35.64%**, Tier 4 **4.167%** (Epoch AI via benchlm.ai)
+- FrontierMath v2: Tiers 1–3 **51.2%**, Tier 4 **17.1%** (Epoch AI leaderboard, 2026-10-15 refresh) — CONFLICT: the 2026-10-09 pass recorded 35.64%/4.167% from the same source; Epoch has since re-scored, current values used
 - AA-Omniscience: Index -4.3, accuracy **45.8%**, hallucination rate **92.4%** (benchlm.ai — severe hallucination)
 - MMLU-Pro (Vals): **88.6%**; AA-IFBench: **55.1%**; AA Global-MMLU-Lite: **92.7%**
 - MMMU Pro: **81.2%** (Google launch blog, state-of-the-art claim); AA-MMMU-Pro: **78.6%** (AA via benchlm.ai)
@@ -55,12 +55,12 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 60/100.** Measured mid-band agentic results: TB2.1 (Vals) 53.9%, Tau2 43.3%, Claw-Eval 49.2% (TB ~45–60% → 50–70 band); JobBench 11.4% caps it; Google's qualitative "strong tool use" positioning no longer carries the score now that numbers exist.
-- **Reasoning: 72/100.** Independent harnesses undercut the launch claims: GPQA 81.2% (AA) / 87.9% (Vals) vs the claimed 90.4%, HLE 15.0% (AA) vs the claimed 33.7%; AA Intelligence Index 17.9, FrontierMath T1–3 35.6%, CritPt 1.4% and the severe 92.4% hallucination rate cap it mid-band.
+- **Reasoning: 74/100.** CHANGED from 72 — independent harnesses undercut the launch claims: GPQA 81.2% (AA) / 87.9% (Vals) vs the claimed 90.4%, HLE 15.0% (AA) vs the claimed 33.7%; but the re-scored FrontierMath T1–3 now reads 51.2% (up from 35.6%); AA Intelligence Index 17.9, CritPt 1.4% and the severe 92.4% hallucination rate cap it mid-band.
 - **Context window: 95/100.** 1M total tokens (≥1M tier = 95–100) with 65.5K max output; measured AA-LCR 55.3% is mid-pack — no ≥98% retrieval at 512K+ keeps it off the maximum.
 - **Multimodal: 88/100.** Text, image, speech/audio and video input with measured AA-MMMU-Pro 78.6% and text-only output; audio input pushes it to the top of the +video/PDF band (75–90).
 - **Coding: 82/100.** SWE-bench 75.0% (Vals) / 78% (Google claim) and LiveCodeBench 85.6% are solid mid-frontier results; Vibe Code Bench 20.2% and missing SciCode/DeepSWE numbers prevent a 90+ score.
 - **Cost efficiency: 93/100.** $0.50/$3.00 per 1M with a 90% cache discount (~$0.43 blended) sits near the ~$0.60/$2.20 = ~92 reference and improves on it; on the LMArena quality-vs-cost Pareto frontier.
-- **Overall Score: 79/100.** Mean of the five quality dims (60 + 72 + 95 + 88 + 82) / 5 = 79.4 → 79. Best-fit: the default workhorse for high-volume multimodal and interactive applications where frontier-adjacent reasoning at Flash speed and price matters more than peak agentic autonomy — the 92.4% hallucination rate argues for verification on knowledge-critical paths.
+- **Overall Score: 79.8/100.** Mean of the five quality dims (60 + 72 + 95 + 88 + 82) / 5 = 79.4 → 79. Best-fit: the default workhorse for high-volume multimodal and interactive applications where frontier-adjacent reasoning at Flash speed and price matters more than peak agentic autonomy — the 92.4% hallucination rate argues for verification on knowledge-critical paths.
 
 ---
 

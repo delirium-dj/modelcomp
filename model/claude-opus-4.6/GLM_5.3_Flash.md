@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-6`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,7 @@ Agent / tool use:
 - GDPval-AA: **1606 Elo** — beat GPT-5.2 (1462) by ~144 and Opus 4.5 (1416) by 190 (Anthropic + Vellum)
 - Finance Agent: **60.7%** — best (GPT-5.2 56.6, Opus 4.5 55.9) (Vellum)
 - CyberGym: **66.6%**; DeepSearchQA: **73.7%**; Gert Labs: **61.85%**; ResearchClawBench: **19.9%**; JobBench: **36.7%**; ApprenticeBench: **5%** (benchlm.ai)
+- AndroidWorld: **62.0%** (Qwen3.8-27B comparison table — added 2026-10-16)
 - SWE-Atlas Codebase QnA / Tau3-Banking / Toolathon: no verified public score found
 
 Reasoning / knowledge:
@@ -39,11 +40,12 @@ Reasoning / knowledge:
 - HLE: **53%** with tools (system card; corrected 2026-02-23 from 53.1% after an improved cheating-detection pipeline flagged 3 instances); **40.0%** without tools (Muse Spark comparison chart)
 - ARC-AGI-2: **68.8%** — nearly double Opus 4.5's 37.6% (Vellum; run at max effort, 120K thinking budget)
 - AA-LCR: **67.0%** (AA via benchlm.ai — updated snapshot; the 2026-09-17 draft cited 78.0%); CritPt: **2.8%** (AA — weak spot)
-- FrontierMath v2: Tiers 1–3 **40.7%**, Tier 4 **22.9%** (Epoch AI via benchlm.ai)
+- FrontierMath v2: Tiers 1–3 **66.0%**, Tier 4 **26.8%** (Epoch AI leaderboard, 2026-10-15 refresh) — CONFLICT: the 2026-10-09 pass recorded 40.7%/22.9% from the same Epoch source; Epoch has since re-scored, and the current values are used
 - MMMU Pro: **73.9%** without tools / **77.3%** with (system card); MMMLU 91.1%; AIME25: **99.8%** (Arcee table)
 - MedXpertQA: Text **52.1%** / MM **64.8%**; HealthBench Hard: **14.8%** (Muse Spark comparison chart)
 - Artificial Analysis Intelligence Index: **26.4** (#46-class; AA page deprecated/historical since Opus 4.7); AA-GPQA Diamond: **84.0%**; AA-HLE: **19.1%**; AA-Omniscience hallucination rate: **80.1%** (benchlm.ai)
 - MLCR / Omniscience itemized / BenchLM overall: no verified public score found
+- Added 2026-10-16: MMLU-Pro **82%** (Qwen table) / **89.1%** (Arcee table); AA-IFBench **44.6%**; AA-MMMU-Pro **72.5%**; ERQA **51.6%**; Design Arena Website **1293** (all via BenchLM 2026-10-15 refresh)
 
 Coding:
 
@@ -64,17 +66,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 94/100.** SOTA-or-best on τ² Retail 91.9/Telecom 99.3, OSWorld 72.7, BrowseComp 83.7–84.0, Finance Agent 60.7, plus release-best TB2.0 65.4 and GDPval-AA 1606; the now-measured Claw-Eval 70.4% fills the old draft's missing row; capped slightly by the MCP Atlas regression (59.5 max-effort) and weak ApprenticeBench 5%/ResearchClawBench 19.9%.
-- **Reasoning: 88/100.** GPQA 91.3% (system card) and HLE 53%/40%-tools now fill the previously-missing rows and clear the frontier references; ARC-AGI-2 68.8 (generational leap) — but AA-LCR 67.0% (updated down from 78.0), CritPt 2.8%, FrontierMath T1–3 40.7% and the 80.1% hallucination rate cap it below 90.
-- **Context window: 96/100.** 1M tokens GA with no premium, full rate limits, 600 media items, and AA-LCR 67.0% evidencing usable retrieval at depth — below the old draft's 100 now that the LCR snapshot reads 67.0 rather than 78.0.
-- **Multimodal: 85/100.** Text + image + PDF (600 pages) in, text out, MMMU Pro 73.9/77.3, ScreenSpot Pro 83.1%; no audio or video input/output keeps it off the omni tier.
+- **Reasoning: 89/100.** CHANGED from 88 — GPQA 91.3% (system card) and HLE 53%/40%-tools clear the frontier references; ARC-AGI-2 68.8 (generational leap); FrontierMath v2 now reads 66.0%/26.8% on the re-scored Epoch leaderboard (up from 40.7/22.9 recorded 2026-10-09) and MMLU-Pro 82–89.1% is corroborated by two tables; AA-LCR 67.0%, CritPt 2.8% and the 80.1% hallucination rate cap it below 90.
+- **Context window: 96/100.** 1M tokens GA with no premium, full rate limits, 600 media items, and AA-LCR 67.0% evidencing usable retrieval at depth.
+- **Multimodal: 85/100.** Text + image + PDF (600 pages) in, text out, MMMU Pro 73.9/77.3 (AA-MMMU-Pro 72.5 corroborates), ScreenSpot Pro 83.1%; no audio or video input/output keeps it off the omni tier.
 - **Coding: 87/100.** SWE-V 80.8 (elite, 25-trial) with the filled SWE-Pro 53.4% and LCB Pro 70.7% rows, Vibe 57.57%; capped by SWE-V parity with its predecessor, FrontierCode 26.9%, and successors (Fable 5 95.0, Opus 4.8 88.1) having since reset the bar.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing with no free route — roughly 10–25× the paid open-model tier in this repo ($0.30–$1.40 in); the 90% prompt-cache discount (≈$3.85 blended) is the only relief. Paid-only, so scored at price point.
-- **Overall Score: 90/100.** Mean of the five quality dims (94 + 88 + 96 + 85 + 87) / 5 = 90.0. Best fit: the no-compromise agent/knowledge-work pick *of its generation* — unmatched tool orchestration and 1M context, but as a paid legacy model (Opus 4.7/4.8, Fable 5.1 now exist) it only makes sense where a workflow is pinned to `claude-opus-4-6`.
+- **Overall Score: 90/100.** Mean of the five quality dims (94 + 89 + 96 + 85 + 87) / 5 = 451/5 = 90.2 → 90 (unchanged). Best fit: the no-compromise agent/knowledge-work pick *of its generation* — unmatched tool orchestration and 1M context, but as a paid legacy model (Opus 4.7/4.8, Fable 5.1 now exist) it only makes sense where a workflow is pinned to `claude-opus-4-6`.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables citing the Anthropic Opus 4.6 system card and Meta/Qwen/Arcee comparison charts, updated 2026-10-09; 2026-02-05 launch sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Claw-Eval 70.4%, SWE-Pro 53.4%, LCB Pro 70.7%, GPQA 91.3%, HLE 53%, Tau2 AA 84.8%, Vibe 57.57%; updates AA-LCR 78.0→67.0 and CritPt 12.6→2.8 — Tool 96→94, Reasoning 90→88, Context 100→96, Coding 88→87, Overall 92→90 (old draft also showed a six-dim calc next to a five-dim Overall).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing the Anthropic Opus 4.6 system card and Meta/Qwen/Arcee comparison charts; 2026-02-05 launch sources; re-researched 2026-10-16 against the BenchLM 2026-10-15 refresh — FrontierMath re-scored 40.7/22.9 → 66.0/26.8, new AndroidWorld/MMLU-Pro/IFBench/ERQA rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Opus_4.7.md`, using the same headings.

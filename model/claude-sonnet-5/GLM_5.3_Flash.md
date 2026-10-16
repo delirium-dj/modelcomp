@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-sonnet-5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,7 +28,7 @@ Agent / tool use:
 - OSWorld-Verified: **81.2%** (Anthropic system card — fills the previously-missing OSWorld row)
 - GDPval-AA: **1603 Elo** (Anthropic system card; near Opus 4.8's 1600, above GPT-5.5's 1494); AA-normalized: **48.3%** (Artificial Analysis)
 - AA Agentic Index: **44.3%** (Artificial Analysis via benchlm.ai)
-- ApprenticeBench (GUI): **16%** (NeoCognition via benchlm.ai — weak)
+- ApprenticeBench (GUI): **16%** (NeoCognition — weak); MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
 - Tau2/Tau3/Claw-Eval/Toolathon: no verified public score found for Sonnet 5 specifically
 
 Reasoning / knowledge:
@@ -36,7 +36,8 @@ Reasoning / knowledge:
 - HLE: **57.4% with tools** (Anthropic system card — fills the previously-missing HLE); HLE w/o tools: **43.2%**; HLE-Verified: **31.0%** (Google DeepMind comparison table)
 - AA-HLE: **41.3%** (Artificial Analysis)
 - AA-GPQA Diamond: **91.1%** (AA — clears the 90%+ frontier reference); GPQA Diamond (Vals): **88.9%**
-- AA-LCR: **82.0%** (AA long-context-reasoning board — fills the previously-missing LCR); CritPt: **16.9%** (AA)
+- AA-LCR: **82.0%** (AA long-context-reasoning board); CritPt: **16.9%** (AA)
+- FrontierMath v2: Tiers 1–3 **65.6%**, Tier 4 **29.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong)
 - LABBench2: **80.1%** (Google DeepMind Gemini 3.8 Flash model-card comparison table)
 - Artificial Analysis Intelligence Index: **38.2** (AA via benchlm.ai)
 - AA-Omniscience: Index 16.5, accuracy **40.1%**, hallucination rate **39.4%** (benchlm.ai — good honesty)
@@ -63,7 +64,7 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 87/100.** Measured agentic package: TB2.1 80.4% (Vals 74.5%), BrowseComp 84.7%, OSWorld-Verified 81.2%, GDPval-AA 1603 Elo (near Opus 4.8) — strong but below the ~1750+ / TB ~88%+ frontier marks; TB3.0 14.6% and ApprenticeBench 16% cap it.
-- **Reasoning: 88/100.** HLE 43.2% no-tools / 57.4% with-tools and GPQA 91.1% (AA) clear the frontier references (GPQA 90%+, HLE 40%+ → 90–100); AA-LCR 82.0% and honest 39.4% hallucination rate support it; AA Intelligence Index 38.2 and CritPt 16.9% cap it below 90.
+- **Reasoning: 89/100.** CHANGED from 88 — HLE 43.2% no-tools / 57.4% with-tools and GPQA 91.1% (AA) clear the frontier references; the newly measured FrontierMath v2 65.6%/29.3% (Epoch) adds a strong math pillar; AA-LCR 82.0% and honest 39.4% hallucination rate support it; AA Intelligence Index 38.2 and CritPt 16.9% cap it below 90.
 - **Context window: 95/100.** 1M input / 128K output (≥1M tier = 95–100); measured AA-LCR 82.0% is strong but no ≥98% MRCR/RULER retrieval at 512K+ keeps it off the old draft's over-awarded 100.
 - **Multimodal: 82/100.** Text + vision in; text-only output; measured CharXiv 88.3% and AA-MMMU-Pro 77.3% corroborate strong vision — top of the +image-in band, below omni-input models.
 - **Coding: 88/100.** SWE-bench Verified 85.2% (system card), SWE-Pro 63.2%, LiveCodeBench 82.4% (Vals), TB2.1 80.4%, AA Coding Index 71.5%; AA-SciCode 54.3% just under the 55%+ frontier mark and CursorBench 4.0 34.1% cap it below 90.
@@ -74,6 +75,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables citing the Anthropic Claude Sonnet 5 System Card, Artificial Analysis, Vals AI, updated 2026-10-09); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: replaces the provisional 2026-09-18 draft (no benchmark rows, six-dim-mean error) with measured SWE-V 85.2%, TB2.1 80.4%, BrowseComp 84.7%, OSWorld 81.2%, GDPval-AA 1603, HLE 43.2/57.4%, GPQA 91.1%, AA-LCR 82.0% — Context 100→95, Reasoning 84→88, Coding 86→88, Tool 90→87, Overall 83→88.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables citing the Anthropic Claude Sonnet 5 System Card, Artificial Analysis, Vals AI; re-researched 2026-10-16 against the BenchLM 2026-10-15 refresh — new FrontierMath v2 65.6/29.3 and MazeBench 0% rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Sonnet_5.6.md`, using the same headings.

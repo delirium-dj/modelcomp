@@ -1,0 +1,35 @@
+# Nemotron 3.5 Bolt E4B 4GB — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: NVIDIA (`nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers exist for this model — it is announced but not yet released.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (announcement metadata only, no measured numbers):
+
+- **Identity:** Nemotron 3.5 Bolt E4B 4GB — third-generation small model in NVIDIA's Bolt edge family, optimized for "intelligence per GB for fast conversational agents"; built for physical and conversational agents (voice assistants, interactive game characters via ACE, embedded interfaces) on GeForce RTX, Jetson, and RTX/DGX Spark.
+- **Status:** announced 2026-10-15 alongside Super VL and Bolt 74B-A9B; **ships 2026-10-23** (NVIDIA blog, BenchLM, unite.ai, Wccftech all agree). Sibling Bolt 74B-A9B 24GB is available now — E4B is not.
+- **Missing:** no parameter counts (the "E4B" name implies ~4B/edge class, unconfirmed), no context limit, no license, no model card, no benchmark table, no pricing/API ID.
+
+Sources checked with no benchmark rows (2026-10-16):
+
+- NVIDIA blog "Open From Data Center to Desktop" (2026-10-15): positioning only, no numbers.
+- BenchLM `nemotron-3-5-bolt-e4b`: "The announcement does not establish total or active parameter counts, a context limit, license, API identifier, token price, or benchmark table."
+- Artificial Analysis: page covers Bolt 74B-A9B only; no E4B model page.
+- gamegpu/Wccftech/robottoday coverage: announcement restatements, no evals.
+
+Interpolation from sibling Bolt 74B-A9B (AA Index 21.4) or Nemotron Nano lineage was deliberately NOT used. A future re-research after the 2026-10-23 release should look for (a) the HF model card with a benchmark table, (b) an AA/BenchLM page, (c) confirmed specs (params/context/license) — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16
+- Method: public internet research (NVIDIA official blog, BenchLM, Artificial Analysis, gaming/tech press, DuckDuckGo search); no verified public scores exist for this unreleased model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

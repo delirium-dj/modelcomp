@@ -1,7 +1,7 @@
 # Gemini 1.5 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-1.5-pro`, Sep '24 update; deprecated)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA boards + Artificial Analysis/llm-stats model pages + the Gemini 1.5 technical report via arXiv — official plus independent sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 58.9%, HLE 4.6%, AA Coding Index 23.6%, AA-MMMU-Pro 55.0% — Reasoning 40→38, Coding 55→52, Multimodal 90→85, Overall 68→66.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA boards + Artificial Analysis/llm-stats model pages + the Gemini 1.5 technical report via arXiv; 2026-10-16 re-check: zero new rows on the BenchLM 2026-10-15 refresh); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 58.9%, HLE 4.6%, AA Coding Index 23.6%, AA-MMMU-Pro 55.0% — Reasoning 40→38, Coding 55→52, Multimodal 90→85, Overall 68→66.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.md`, using the same headings.
