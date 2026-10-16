@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`mimo-v2.6-flash-free`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -73,6 +73,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Xiaomi MiMo-V2.6 technical report and AA boards, official HF model card, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GDPval-AA 55.5%, AA Index 37.9, AA-HLE 35.1%, AA-LCR 74.3%, AA-SciCode 51.3%, CritPt 12.0%, AA-MMMU-Pro 73.1% — Tool 82→84, Reasoning 58→76, Coding 75→76, Overall 80→84.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Xiaomi MiMo-V2.6 technical report and AA boards, official HF model card, OpenCode Zen docs cross-checked; 2026-10-16 re-check: all 24 BenchLM rows already captured — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GDPval-AA 55.5%, AA Index 37.9, AA-HLE 35.1%, AA-LCR 74.3%, AA-SciCode 51.3%, CritPt 12.0%, AA-MMMU-Pro 73.1% — Tool 82→84, Reasoning 58→76, Coding 75→76, Overall 80→84.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2.7.md`, using the same headings.

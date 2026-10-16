@@ -105,7 +105,7 @@
 75.6 muse-glimmer-30b
 75.4 claude-sonnet-3.7
 75.4 gemma-4.26b-a4b
-75.3 mistral-medium-3.5
+74.9 mistral-medium-3.5
 74.5 gemini-2.0-flash
 74.4 ling-3.0-flash-vl
 74.3 gemini-1.5-pro

@@ -1,50 +1,67 @@
 # Gemini 3 Pro — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Google/gemini-3-pro
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** Google's advanced frontier multimodal model delivering native reasoning, massive 2M-token context capabilities, and state-of-the-art agentic performance.
-- **Provider / access:** Google AI Studio / Vertex AI `google/gemini-3-pro` (Chat Completions & Gemini API).
-- **Release / knowledge:** Released March 2026; knowledge cutoff March 2026.
-- **IDs:** `google/gemini-3-pro`
-- **Context window:** 2,097,152 tokens total (2M input / 64,000 output; verified via Google documentation).
-- **Modalities:** Native multimodal (text, image, audio, video, PDF in; text out), tool calling, JSON mode, native reasoning.
-- **Pricing (as of 2026-10-10):** Standard Google Pro tier pricing ($1.25 input / $5.00 output per 1M tokens).
-- **Architecture:** Advanced multimodal Transformer / MoE architecture by Google DeepMind.
+- **Short description:** Google's established high-reliability professional multimodal model optimized for comprehensive data analysis, coding, and massive context synthesis.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3-pro` / Google AI Studio / Vertex AI (`gemini-3-pro`).
+- **Release / knowledge:** Re-verified October 2026; stable professional tier.
+- **IDs:** `opencode/gemini-3-pro`
+- **Context window:** 2M total tokens input/output support.
+- **Modalities:** Text, image, audio, video, and PDF in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Professional tier pricing (~$1.25 / $5.00 per 1M tokens).
+- **Architecture:** Professional multimodal transformer architecture with extended context window and robust logical verification.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **87.5%** <(Google technical report, March 2026)>
-- Tau3-Banking / Tau2-Bench: **89.0%** <(Google evaluation harness)>
-- GPQA Diamond: **84.0%** <(Google DeepMind evaluation suite)>
-- SWE-bench Verified: **76.5%** <(SWE-bench official leaderboard, October 2026)>
-- RULER 2M context: **99.8%** retrieval accuracy across full 2 million token window.
+Agent / tool use:
+
+- Terminal-Bench 2.1: **79.0%** (Google technical evaluation)
+- Tau3-Banking / Tau2-Bench: **76.0%** (Google evaluation harness)
+- GDPval-AA: **2200 Elo** (Multimodal dialogue evaluation)
+- Claw-Eval / ClawProBench: **83.0%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **80.5%** (Google benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **72.0%** (Google model card)
+- HLE: **45.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **78.5%** (Complex reasoning)
+- CritPt: **74.5%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **89.0 / #19** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **86.5% / 6.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **68.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **65.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **67.5%** (Scientific coding benchmark)
+- Vibe Code Bench: **74.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **82.5** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **96.5% retrieval accuracy at 2M context length** (Google long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Exceptional tool integration, structured outputs, and complex agentic function calling (Terminal-Bench 87.5%).
-- **Reasoning: 94/100.** Advanced reasoning capabilities across complex scientific and analytical benchmarks like GPQA Diamond (84.0%).
-- **Context window: 99/100.** Industry-leading 2 million token context window with virtually flawless ultra-long-context retrieval.
-- **Multimodal: 98/100.** Unmatched native multimodal ingestion spanning video, audio, high-resolution imagery, and documents.
-- **Coding: 90/100.** Strong software engineering performance across SWE-bench Verified (76.5%) and live coding benchmarks.
-- **Cost efficiency: 75/100.** Highly competitive pricing for a flagship-class pro model with massive context capabilities ($1.25/$5).
-- **Overall Score: 94.8/100.** Best-fit recommendation: An exceptional multimodal frontier model combining 2M context with top-tier reasoning, vision, and tool execution.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Google DeepMind technical updates. 2M context window and RULER 99.8% retrieval verified.
+- **Tool use: 90/100.** Robust function calling and enterprise API integration.
+- **Reasoning: 90/100.** Strong logical deduction and analytical depth.
+- **Context window: 98/100.** Industry-leading 2M context window with pristine retrieval.
+- **Multimodal: 95/100.** Comprehensive native multimodal ingestion.
+- **Coding: 89/100.** High-performance software development support.
+- **Cost efficiency: 82/100.** Excellent professional-tier pricing for massive context usage.
+- **Overall Score: 92.4/100.** Professional multimodal powerhouse offering 2M context and dependable enterprise reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Google documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

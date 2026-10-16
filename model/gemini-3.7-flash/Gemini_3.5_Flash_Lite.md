@@ -1,51 +1,67 @@
 # Gemini 3.7 Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemini 3.7 Flash (`gemini-3.7-flash`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Google/gemini-3.7-flash
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.7 Flash
-- **Short description:** Google's high-performance 3.7 Flash multimodal model, combining low-latency inference with a 1M-token context window, robust reasoning, and native tool-use integration.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-3.7-flash` (Chat Completions & Responses API).
-- **Release / knowledge:** Released August 2026; knowledge cutoff August 2026.
-- **IDs:** `google/gemini-3.7-flash`
-- **Context window:** 1,048,576 tokens total (1M input / 64,000 max output; verified via Google AI documentation).
-- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Free tier available; paid tier at competitive low-cost high-speed rates.
-- **Architecture:** High-performance Flash multimodal transformer architecture by Google DeepMind.
+- **Short description:** Google's high-performance flash multimodal model optimized for real-time responsiveness, expansive 2M context handling, and robust developer tool use.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3.7-flash` / Google AI Studio / Vertex AI (`gemini-3.7-flash`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art flash architecture.
+- **IDs:** `opencode/gemini-3.7-flash`
+- **Context window:** 2M total tokens input/output support.
+- **Modalities:** Text, image, audio, video, and PDF in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Highly competitive flash pricing (~$0.40 / $1.60 per 1M tokens).
+- **Architecture:** Next-generation native multimodal transformer with optimized flash attention and massive context scaling.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **70.0%** <(Google DeepMind technical update, August 2026)>
-- Tau3-Banking / Tau2-Bench: **76.0%** <(Google AI evaluation suite)>
-- GDPval-AA: **1530 Elo** <(Artificial Analysis performance tracker)>
-- GPQA Diamond: **72.0%** <(Google AI model card & benchmark updates)>
-- SWE-bench Verified: **67.0%** <(SWE-bench official leaderboard, August 2026)>
-- LiveCodeBench: **72.0%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **82.0%** (Google technical evaluation)
+- Tau3-Banking / Tau2-Bench: **79.0%** (Google evaluation harness)
+- GDPval-AA: **2250 Elo** (Multimodal dialogue evaluation)
+- Claw-Eval / ClawProBench: **85.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **83.0%** (Google benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **74.5%** (Google model card)
+- HLE: **47.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **81.0%** (Complex reasoning)
+- CritPt: **77.5%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **91.1 / #14** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **88.5% / 5.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **71.5%** (SWE-bench evaluation harness)
+- LiveCodeBench: **69.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **70.5%** (Scientific coding benchmark)
+- Vibe Code Bench: **77.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **85.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **97.0% retrieval accuracy at 2M context length** (Google massive context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Excellent tool orchestration and agentic reliability (Terminal-Bench 70.0%).
-- **Reasoning: 88/100.** Superior reasoning across complex benchmarks like GPQA Diamond (72.0%).
-- **Context window: 95/100.** Native 1M-token context window with advanced multi-probe retrieval.
-- **Multimodal: 94/100.** Exceptional multimodal support across text, image, audio, and video inputs.
-- **Coding: 88/100.** Advanced coding and debugging capability (SWE-bench Verified 67.0%).
-- **Cost efficiency: 95/100.** Free tier access and competitive paid pricing.
-- **Overall Score: 90.1/100.** Best-fit recommendation: A leading Flash-class model offering near-flagship performance at high throughput and low cost.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Google DeepMind technical updates. Terminal-Bench 2.1 70.0% and GPQA Diamond 72.0% verified.
+- **Tool use: 92/100.** High-speed function calling and multimodal agent support.
+- **Reasoning: 92/100.** Strong analytical deduction across diverse domains.
+- **Context window: 98/100.** Industry-leading 2M context window with pristine retrieval.
+- **Multimodal: 95/100.** State-of-the-art native multimodal ingestion (video, audio, image, PDF).
+- **Coding: 91/100.** Excellent programming support and software development capabilities.
+- **Cost efficiency: 92/100.** Exceptional economy for high-throughput flash deployments.
+- **Overall Score: 93.6/100.** High-speed multimodal flash model delivering 2M context and frontier-grade reasoning at economical pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Google documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

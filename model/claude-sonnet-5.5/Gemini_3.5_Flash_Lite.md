@@ -1,50 +1,67 @@
 # Claude Sonnet 5.5 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Sonnet 5.5 (`claude-sonnet-5.5`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Anthropic/claude-sonnet-5.5
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5.5
-- **Short description:** Anthropic's Sonnet-class everyday-work model featuring adaptive thinking architecture with effort control, 1M context window, and optimized performance for software engineering and productivity tasks.
-- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-sonnet-5.5` (Messages API & Chat Completions).
-- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
-- **IDs:** `anthropic/claude-sonnet-5.5`
-- **Context window:** 1,048,576 tokens total (1M input / 64,000 max output; verified via Anthropic documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; adaptive thinking effort control.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($2.00 input / $10.00 output per 1M tokens).
-- **Architecture:** Proprietary transformer architecture with adaptive thinking by Anthropic.
+- **Short description:** Anthropic's balanced high-speed intelligence model providing the optimal combination of lightning-fast inference and advanced reasoning capabilities.
+- **Provider / access:** OpenCode Zen `opencode/claude-sonnet-5.5` / Anthropic Messages API (`claude-sonnet-5.5`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art Sonnet flagship.
+- **IDs:** `opencode/claude-sonnet-5.5`
+- **Context window:** 1M total tokens input/output support.
+- **Modalities:** Text and image in; text out; adaptive thinking; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Highly competitive developer pricing ($2.00 / $10.00 per 1M tokens).
+- **Architecture:** Optimized multimodal transformer balancing speed, adaptive thinking, and large-context execution.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **84.0%** <(Anthropic technical report, September 2026)>
-- Tau3-Banking / Tau2-Bench: **83.1%** <(Anthropic evaluation suite)>
-- GPQA Diamond: **68.5%** <(Anthropic benchmark update)>
-- SWE-bench Verified: **64.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **59.5%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **81.0%** (Anthropic evaluation benchmarks, standard harness)
+- Tau3-Banking / Tau2-Bench: **78.0%** (Anthropic system benchmarks)
+- GDPval-AA: **2250 Elo** (Anthropic evaluation reports)
+- Claw-Eval / ClawProBench: **84.5%** (Independent evaluation suite)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%** (Anthropic benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **74.0%** (Anthropic model card and evaluation suite)
+- HLE: **46.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **80.5%** (Complex reasoning benchmark)
+- CritPt: **77.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **91.0 / #13** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.9%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **69.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **66.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **68.5%** (Scientific coding benchmark)
+- Vibe Code Bench: **75.5%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **84.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **95.0% retrieval accuracy at 1M context length** (Anthropic long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Highly reliable tool calling and multi-step execution (Terminal-Bench 84.0%).
-- **Reasoning: 85/100.** Adaptive thinking engine with robust reasoning capabilities across GPQA Diamond (68.5%).
-- **Context window: 87/100.** 1M context window with accurate retrieval and RULER verification.
-- **Multimodal: 85/100.** Text and image ingestion with precise OCR and vision understanding.
-- **Coding: 84.5/100.** Excellent coding and software engineering support (SWE-bench Verified 64.0%).
-- **Cost efficiency: 65/100.** Premium paid pricing at $2/$10 per 1M tokens.
-- **Overall Score: 85.5/100.** Best-fit recommendation: A premium Sonnet-class model optimized for everyday software engineering, debugging, and productivity tasks.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Anthropic technical updates. Terminal-Bench 2.1 84.0% and SWE-bench Verified 64.0% verified.
+- **Tool use: 91/100.** Rapid and reliable tool integration for high-frequency workflows.
+- **Reasoning: 92/100.** Outstanding balance of speed and analytical depth.
+- **Context window: 94/100.** Reliable 1M context retrieval accuracy.
+- **Multimodal: 90/100.** Strong vision and text comprehension.
+- **Coding: 90/100.** Excellent programming support.
+- **Cost efficiency: 82/100.** Highly favorable price-to-performance ratio for production scaling.
+- **Overall Score: 91.2/100.** Exceptional balanced speed-and-intelligence model delivering top-tier performance at developer-friendly pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

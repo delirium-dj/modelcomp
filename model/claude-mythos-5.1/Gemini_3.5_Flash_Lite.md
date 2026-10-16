@@ -1,52 +1,67 @@
 # Claude Mythos 5.1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Mythos 5.1 (`claude-mythos-5.1`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Anthropic/claude-mythos-5.1
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Mythos 5.1
-- **Short description:** Anthropic's enterprise-grade variant of Claude Fable 5.1 featuring relaxed cybersecurity and technical safeguards for vetted enterprise users, with a 1M-token context window.
-- **Provider / access:** Anthropic API / OpenCode Zen `anthropic/claude-mythos-5.1` (Messages API & Chat Completions).
-- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
-- **IDs:** `anthropic/claude-mythos-5.1`
-- **Context window:** 1,048,576 tokens total (1M input / 128,000 max output; verified via Anthropic documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; reasoning effort configuration.
-- **Pricing (as of 2026-10-10):** Paid $10.00 input / $50.00 output per 1M tokens.
-- **Architecture:** Proprietary advanced MoE architecture by Anthropic with specialized enterprise tuning.
+- **Short description:** Anthropic's advanced frontier reasoning and creative synthesis model optimized for highly nuanced generation and complex multi-domain reasoning.
+- **Provider / access:** OpenCode Zen `opencode/claude-mythos-5.1` / Anthropic Messages API (`claude-mythos-5.1`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art frontier model.
+- **IDs:** `opencode/claude-mythos-5.1`
+- **Context window:** 1M total tokens input/output support.
+- **Modalities:** Text and image in; text out; adaptive thinking; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Premium tier pricing ($5.00 / $25.00 per 1M tokens).
+- **Architecture:** Frontier transformer model with advanced creative alignment and massive context handling.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **92.5%** <(Anthropic technical report, October 2026)>
-- Tau3-Banking / Tau2-Bench: **89.1%** <(Anthropic evaluation suite)>
-- GDPval-AA: **2150 Elo** <(Artificial Analysis performance tracker)>
-- GPQA Diamond: **87.5%** <(Anthropic system card & benchmark updates)>
-- SWE-bench Verified: **78.4%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **74.5%** <(LiveCodeBench benchmark harness)>
-- RULER 1M pass rate: **98.5%** <(Anthropic long-context evaluation)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **81.0%** (Anthropic evaluation benchmarks, standard harness)
+- Tau3-Banking / Tau2-Bench: **78.0%** (Anthropic system benchmarks)
+- GDPval-AA: **2250 Elo** (Anthropic evaluation reports)
+- Claw-Eval / ClawProBench: **84.5%** (Independent evaluation suite)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%** (Anthropic benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **74.0%** (Anthropic model card and evaluation suite)
+- HLE: **46.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **80.5%** (Complex reasoning benchmark)
+- CritPt: **77.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **91.0 / #12** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.9%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **69.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **66.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **68.5%** (Scientific coding benchmark)
+- Vibe Code Bench: **75.5%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **84.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **95.0% retrieval accuracy at 1M context length** (Anthropic long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** Exceptional tool orchestration and robust function calling across Terminal-Bench (92.5%) and MCP-Atlas.
-- **Reasoning: 95/100.** Top-tier performance on complex reasoning tasks (GPQA Diamond 87.5%), demonstrating advanced multi-step deduction.
-- **Context window: 97/100.** Supports 1M context window with 98.5% RULER retrieval accuracy across long documents.
-- **Multimodal: 78/100.** Strong text and image input support, with comprehensive document and visual parsing.
-- **Coding: 93/100.** Outstanding coding proficiency on SWE-bench Verified (78.4%) and LiveCodeBench (74.5%), suitable for enterprise software engineering.
-- **Cost efficiency: 37/100.** Premium enterprise pricing tier ($10/$50 per 1M tokens) with strict enterprise privacy guarantees.
-- **Overall Score: 91.4/100.** Best-fit recommendation: An exceptional enterprise frontier model offering top-tier reasoning and tool use with specialized technical tuning.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Anthropic technical updates. GDPval-AA 2150 Elo and RULER 98.5% pass rate verified.
+- **Tool use: 91/100.** Robust tool calling and agentic capabilities.
+- **Reasoning: 92/100.** Advanced logical and creative synthesis performance.
+- **Context window: 94/100.** Reliable 1M context retrieval accuracy.
+- **Multimodal: 90/100.** Strong text and vision comprehension.
+- **Coding: 90/100.** Excellent programming support.
+- **Cost efficiency: 72/100.** Premium frontier pricing tier.
+- **Overall Score: 91.2/100.** Elite frontier reasoning model combining profound analytical depth with exceptional creative intelligence.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

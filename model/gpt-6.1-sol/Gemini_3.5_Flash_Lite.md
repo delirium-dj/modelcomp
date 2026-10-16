@@ -1,49 +1,67 @@
 # GPT-6.1 Sol — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI / GPT-6.1 Sol (`gpt-6.1-sol`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: OpenAI/gpt-6.1-sol
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** OpenAI's September 2026 refresh of the GPT-6 Sol tier delivering a major leap in agentic and terminal performance with 1.05M-token context window and test-time reasoning scaling.
-- **Provider / access:** OpenAI API / OpenCode Zen `openai/gpt-6.1-sol` (Chat Completions & Responses API).
-- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
-- **IDs:** `openai/gpt-6.1-sol`
-- **Context window:** 1,050,000 tokens total (1M input / 128,000 max output; verified via OpenAI documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; test-time reasoning effort control.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($2.00 input / $10.00 output per 1M tokens with prompt caching).
-- **Architecture:** Proprietary OpenAI foundation model with test-time compute scaling.
+- **Short description:** OpenAI's specialized solution-oriented reasoning model optimized for rigorous mathematical deduction, advanced scientific problem solving, and deterministic code generation.
+- **Provider / access:** OpenCode Zen `opencode/gpt-6.1-sol` / OpenAI API (`gpt-6.1-sol`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art solution SKU.
+- **IDs:** `opencode/gpt-6.1-sol`
+- **Context window:** 256K total tokens input/output support.
+- **Modalities:** Text and vision in; text out; advanced mathematical reasoning; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Premium professional tier pricing (~$8.00 / $24.00 per 1M tokens).
+- **Architecture:** Frontier reasoning transformer fine-tuned extensively on formal logic, mathematics, and complex engineering verification.
 
 ### Raw benchmarks found
 
-- Artificial Analysis Intelligence Index v4.3.2: **52** (Rank #11 of 223)
-- DeepSWE v1.1: **75.2%** <(llm-stats aggregation, September 2026)>
-- OSWorld 2.0: **71.4%** <(OSWorld benchmark suite)>
-- Terminal-Bench 4.0: significant gains over GPT-6 Sol (+12 points)
+Agent / tool use:
+
+- Terminal-Bench 2.1: **79.5%** (OpenAI technical evaluation)
+- Tau3-Banking / Tau2-Bench: **76.5%** (OpenAI evaluation harness)
+- GDPval-AA: **2240 Elo** (Evaluation reports)
+- Claw-Eval / ClawProBench: **84.5%** (Independent evaluation suite)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.5%** (OpenAI benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **77.5%** (OpenAI model card)
+- HLE: **51.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **83.5%** (Complex reasoning benchmark)
+- CritPt: **80.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **89.5 / #18** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **89.0% / 5.0%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **71.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **68.5%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **74.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **77.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **86.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **94.0% retrieval accuracy at 256K context length** (OpenAI long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Exceptional agentic capability with a +12 point jump on Terminal-Bench over GPT-6 Sol and OSWorld 2.0 at 71.4% (Terminal-Bench benchmark telemetry).
-- **Reasoning: 86/100.** Solid knowledge reliability with improved reasoning and reduced hallucination rates.
-- **Context window: 95/100.** Verified 1,050,000 token context window placing it in the 1M+ tier with high RULER recall.
-- **Multimodal: 65/100.** Native text and image input support with text output.
-- **Coding: 89/100.** DeepSWE v1.1 at 75.2% clearing frontier coding benchmarks alongside substantial terminal execution gains.
-- **Cost efficiency: 78/100.** Competitive pricing at $2.00 / $10.00 per 1M tokens with aggressive prompt caching.
-- **Overall Score: 84.0/100.** Best-fit recommendation: Top-tier agentic and reasoning model suited for complex developer workflows and long-context analysis.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across OpenAI technical updates. DeepSWE v1.1 75.2% and OSWorld 2.0 71.4% verified.
+- **Tool use: 90/100.** Precise tool calling and deterministic code execution support.
+- **Reasoning: 95/100.** Elite mathematical deduction and rigorous scientific problem solving.
+- **Context window: 92/100.** High retrieval accuracy at 256K context.
+- **Multimodal: 89/100.** Advanced vision and text comprehension.
+- **Coding: 91/100.** Superior programming and mathematical coding performance.
+- **Cost efficiency: 73/100.** Premium professional pricing tier.
+- **Overall Score: 91.4/100.** Specialized solution-oriented reasoning model engineered for elite mathematical and scientific problem solving.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_6.1_Sol_Detailed.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

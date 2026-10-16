@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by GLM 5.3 Flash
 
 - Source: MiniMax (`MiniMax-M3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,7 +53,7 @@ Coding:
 - SWE-bench Verified: **80.5%** (rank 8/49, LLM-Stats observation; MiniMax-reported)
 - SWE-bench Pro: **59.0%** (MiniMax-reported; rank 14/46 — Fable 5 at 80.3, Opus 5 79.2 on the same ladder)
 - LiveCodeBench: **82.2%** (Vals AI via benchlm.ai — fills the previously-missing LCB); SWE-bench (Vals): **75.0%**
-- AA-SciCode: **47.1%** (AA board — fills the previously-missing SciCode; below the 55%+ frontier mark)
+- AA-SciCode: **47.1%** (AA board — fills the previously-missing SciCode; below the 55%+ frontier mark); AA Coding Index **58.6%** and MazeBench ASCII **0%** (both added 2026-10-16)
 - Terminal-Bench 2.1 (coding harness): **66.0%** (MiniMax-reported)
 - VIBE V2: **50.1%** (HF card); SVG-Bench: **63.7%**; KernelBench Hard: **28.8%**; OpenHarmony Bench: **48.4%**; NL2Repo: **42.1%** (HF card/benchlm.ai)
 - DeepSWE / SWE-Atlas / Vibe Code Bench (Vals): no verified public score found
@@ -80,6 +80,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the MiniMax M3 blog/HF card, AA and Vals boards, LLM-Stats observations); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 88.9%, Claw-Eval 74.5%, GDPval-AA 1245, HLE 39.0%, AA-LCR 83.0%, AA Index 29.2, LCB 82.2%, SciCode 47.1%, VideoMMMU 84.6%, OmniDocBench 91.6% — Tool 74→80, Reasoning 80→82, Context 92→93, Multimodal 82→88, Overall 82→85.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the MiniMax M3 blog/HF card, AA and Vals boards, LLM-Stats observations); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 88.9%, Claw-Eval 74.5%, GDPval-AA 1245, HLE 39.0%, AA-LCR 83.0%, AA Index 29.2, LCB 82.2%, SciCode 47.1%, VideoMMMU 84.6%, OmniDocBench 91.6% — Tool 74→80, Reasoning 80→82, Context 92→93, Multimodal 82→88, Overall 82→85; 2026-10-16 re-check: AA Coding Index 58.6% and MazeBench 0% added — no score changes).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

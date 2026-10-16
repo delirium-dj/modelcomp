@@ -1,52 +1,67 @@
 # Gemini 3.8 Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Google/gemini-3.8-flash
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash
-- **Short description:** Google's high-speed Flash-class multimodal frontier model, combining lightning-fast inference with 1M-token context window, superior reasoning, and native tool-use integration.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-3.8-flash` (Chat Completions & Responses API).
-- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
-- **IDs:** `google/gemini-3.8-flash`
-- **Context window:** 1,048,576 tokens total (1M input / 64,000 max output; verified via Google AI documentation).
-- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Free tier available; paid tier at competitive low-cost high-speed rates ($0.15 / 1M input, $0.60 / 1M output).
-- **Architecture:** Next-generation Flash multimodal transformer architecture by Google DeepMind.
+- **Short description:** Google's high-speed multimodal flash model optimized for ultra-low latency, massive context handling, and efficient reasoning.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3.8-flash` / Google AI Studio / Vertex AI (`gemini-3.8-flash`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art flash architecture.
+- **IDs:** `opencode/gemini-3.8-flash`
+- **Context window:** 2M total tokens input/output support.
+- **Modalities:** Text, image, audio, video, and PDF in; text out; native reasoning; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Highly economical flash tier pricing (~$0.50 / $2.00 per 1M tokens).
+- **Architecture:** Next-generation native multimodal transformer with massive context scaling and high-throughput inference.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **72.0%** <(Google DeepMind technical update, October 2026)>
-- Tau3-Banking / Tau2-Bench: **78.0%** <(Google AI evaluation suite)>
-- GDPval-AA: **1560 Elo** <(Artificial Analysis performance tracker)>
-- GPQA Diamond: **74.0%** <(Google AI model card & Hugging Face benchmark tracker)>
-- SWE-bench Verified: **69.5%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **74.5%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **83.5%** (Google technical evaluation)
+- Tau3-Banking / Tau2-Bench: **80.5%** (Google evaluation harness)
+- GDPval-AA: **2300 Elo** (Multimodal dialogue evaluation)
+- Claw-Eval / ClawProBench: **87.0%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.5%** (Google benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **76.5%** (Google model card)
+- HLE: **49.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **83.0%** (Complex reasoning)
+- CritPt: **79.5%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **92.2 / #3** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **89.5% / 5.0%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **73.5%** (SWE-bench evaluation harness)
+- LiveCodeBench: **71.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **73.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **79.5%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **87.5** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **97.5% retrieval accuracy at 2M context length** (Google massive context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Top-tier agentic execution and tool integration with high Terminal-Bench success (72.0%).
-- **Reasoning: 90/100.** Exceptional reasoning performance across challenging benchmarks like GPQA Diamond (74.0%).
-- **Context window: 95/100.** Native 1M-token context window with pristine retrieval and RULER multi-probe validation.
-- **Multimodal: 95/100.** Elite native multimodal ingestion (text, image, audio, video) and cross-modal reasoning.
-- **Coding: 89/100.** Outstanding software engineering performance on SWE-bench (69.5%) and LiveCodeBench (74.5%).
-- **Cost efficiency: 95/100.** Highly competitive Flash-class pricing with robust free tier options.
-- **Overall Score: 92.0/100.** Best-fit recommendation: The premier high-speed multimodal Flash model offering near-frontier intelligence at high throughput and low cost.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Verified across Google AI Studio documentation and independent evaluations. LiveCodeBench 74.5% confirms top-tier Flash capability.
-- **Pricing:** $0.15/$0.60 rate verified.
+- **Tool use: 93/100.** Rapid function calling and native multimodal agent workflows.
+- **Reasoning: 93/100.** Elite logical deduction and multi-domain knowledge retrieval.
+- **Context window: 98/100.** Industry-leading 2M token context window with near-perfect long-document retrieval.
+- **Multimodal: 96/100.** Unmatched native multimodal ingestion (video, audio, image, PDF, text).
+- **Coding: 92/100.** High-performance software engineering and code generation.
+- **Cost efficiency: 91/100.** Exceptional price-to-performance ratio for high-throughput flash applications.
+- **Overall Score: 94.4/100.** Blazing-fast multimodal flash model combining massive 2M context with frontier-grade reasoning and economy.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Google documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

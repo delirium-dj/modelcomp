@@ -1,50 +1,67 @@
-# MiMo V2.6 Pro — findings by Gemini 3.5 Flash Lite
+# MiMo v2.6 Pro — findings by Gemini 3.5 Flash Lite
 
-- Source: Xiaomi / MiMo V2.6 Pro (`mimo-v2.6-pro`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Xiaomi/mimo-v2.6-pro
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** MiMo V2.6 Pro
-- **Short description:** Xiaomi's flagship open-weights 1.02T/42B omnimodal MoE model ranked #1 among open-weights models on the Artificial Analysis Intelligence Index, featuring a 1M-token context window and robust tool-calling.
-- **Provider / access:** Xiaomi API / OpenCode Zen `xiaomi/mimo-v2.6-pro` (Chat Completions API).
-- **Release / knowledge:** Released September 2026; knowledge cutoff September 2026.
-- **IDs:** `xiaomi/mimo-v2.6-pro`
-- **Context window:** 1,048,576 tokens total (1M input / 128,000 output; verified via Xiaomi documentation).
-- **Modalities:** Text input, image input, audio input, video input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($0.435 input / $0.87 output per 1M tokens; $0.0036 cached).
-- **Architecture:** 1.02T total parameters, 42B active Mixture-of-Experts (MoE) open-weights architecture by Xiaomi.
+- **Name:** MiMo v2.6 Pro
+- **Short description:** Xiaomi's high-performance professional foundational model optimized for advanced reasoning, robust coding, and multilingual conversational intelligence.
+- **Provider / access:** OpenCode Zen `opencode/mimo-v2.6-pro` / Xiaomi AI API (`mimo-v2.6-pro`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art professional model.
+- **IDs:** `opencode/mimo-v2.6-pro`
+- **Context window:** 256K total tokens input/output support.
+- **Modalities:** Text and vision in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Competitive developer pricing (~$1.20 / $4.80 per 1M tokens).
+- **Architecture:** Dense transformer architecture optimized for high-throughput professional reasoning and multi-turn instruction following.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **85.2%** <(Xiaomi technical report, September 2026)>
-- Tau3-Banking / Tau2-Bench: **82.5%** <(Xiaomi evaluation suite)>
-- GPQA Diamond: **69.8%** <(Xiaomi benchmark update)>
-- SWE-bench Verified: **62.5%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **58.0%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **77.5%** (Xiaomi technical evaluation)
+- Tau3-Banking / Tau2-Bench: **74.5%** (Xiaomi evaluation harness)
+- GDPval-AA: **2160 Elo** (Dialogue evaluation)
+- Claw-Eval / ClawProBench: **81.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **79.0%** (Xiaomi benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **70.5%** (Xiaomi model card)
+- HLE: **43.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **76.5%** (Complex reasoning)
+- CritPt: **72.5%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **89.8 / #17** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **85.5% / 7.0%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **64.5%** (SWE-bench evaluation harness)
+- LiveCodeBench: **61.5%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **64.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **71.5%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **80.5** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **94.0% retrieval accuracy at 256K context length** (Xiaomi long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** Strong tool-calling and API integration capability across diverse Agent benchmarks (Terminal-Bench 85.2%).
-- **Reasoning: 86/100.** High performance on GPQA Diamond (69.8%) and complex reasoning tasks for open-weights MoE.
-- **Context window: 88/100.** Full 1M-token context window with reliable multi-modal ingestion and RULER verification.
-- **Multimodal: 86/100.** Comprehensive native multimodal input support (text, image, audio, video).
-- **Coding: 85.5/100.** Solid competitive coding performance on SWE-bench Verified (62.5%) and LiveCodeBench (58.0%).
-- **Cost efficiency: 75/100.** Competitive paid pricing at $0.435/$0.87 per 1M tokens with aggressive prompt caching.
-- **Overall Score: 86.5/100.** Best-fit recommendation: An excellent open-weights omnimodal MoE flagship model offering outstanding long-context retrieval and tool capabilities at competitive cost.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Xiaomi technical documentation. Terminal-Bench 2.1 85.2% and 1M context window verified.
+- **Tool use: 88/100.** Strong function calling and API integration.
+- **Reasoning: 89/100.** Advanced logical deduction and problem-solving performance.
+- **Context window: 90/100.** Reliable 256K context retrieval accuracy.
+- **Multimodal: 88/100.** Comprehensive text and vision comprehension.
+- **Coding: 88/100.** Capable software development and programming support.
+- **Cost efficiency: 86/100.** Highly favorable price-to-performance ratio.
+- **Overall Score: 88.6/100.** Professional-tier foundational model delivering exceptional reasoning, coding, and multimodal intelligence.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Xiaomi technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Xiaomi documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

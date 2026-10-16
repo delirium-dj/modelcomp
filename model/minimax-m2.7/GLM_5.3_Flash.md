@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by GLM 5.3 Flash
 
 - Source: MiniMax (`minimax-m2.7`; no Zen Free ID — scored on paid pricing)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing MiniMax official, AA, Vals and the GLM-5.1 comparison table — official plus independent sources; earlier draft via opper.ai's AA feed); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Claw-Eval 48.7%, GDPval-AA 1087, Tau3 67.6%, SWE-V* 75.4%, SWE-bench (Vals) 73.8%, LCB 79.9%, AIME26 89.8% — Tool 80→76, Overall 65 (unchanged).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing MiniMax official, AA, Vals and the GLM-5.1 comparison table — official plus independent sources; earlier draft via opper.ai's AA feed; 2026-10-16 re-check: all 46 BenchLM rows already captured — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Claw-Eval 48.7%, GDPval-AA 1087, Tau3 67.6%, SWE-V* 75.4%, SWE-bench (Vals) 73.8%, LCB 79.9%, AIME26 89.8% — Tool 80→76, Overall 65 (unchanged).
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

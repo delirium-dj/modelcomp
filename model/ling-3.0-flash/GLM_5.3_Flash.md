@@ -1,7 +1,7 @@
 # Ling 3.0 Flash — findings by GLM 5.3 Flash
 
 - Source: InclusionAI / Ant Group (`ling-3.0-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,13 +52,13 @@ Speed: 332.1 output tokens/s (#1 of 65 in class, AA, InclusionAI API) — class-
 - **Context window: 72/100.** 262K total / 32K max output (256K YaRN training schedule) sits inside the 200K–500K band (200K ≈ 70); no MRCR/RULER/LCR retrieval benchmark is published to push it higher.
 - **Multimodal: 15/100.** Text-only input and output per the official HF card and AA — no image/audio/video support.
 - **Coding: 68/100.** SWE-bench Multilingual 72.4% and SWE-bench Pro 56.6% are solid mid-band results below the 90–100 frontier references (DeepSWE 74%+, SciCode 55%+ with stronger companions); missing SWE-bench Verified/LiveCodeBench numbers cap the score.
-- **Cost efficiency: 97/100.** $0.075/$0.22 per 1M sits at the ~$0.10/$0.20 ≈ 97–99 reference with an 80% cache discount and ~$0.05/1M blended rate — among the cheapest hosted models benchmarked by AA. Paid, not $0 — not counted toward Overall.
+- **Cost efficiency: 98/100.** CHANGED from 97 — $0.075/$0.22 per 1M sits at the ~$0.10/$0.20 ≈ 97–99 reference with an 80% cache discount and ~$0.05/1M blended rate, and the newly tracked DeepInfra route ($0.06/$0.18, $0.012 cached) undercuts it further; among the cheapest hosted models benchmarked by AA. Paid, not $0 — not counted toward Overall.
 - **Overall Score: 56/100.** Mean of the five quality dims (60 + 65 + 72 + 15 + 68) / 5 = 56.0 → 56. Best-fit recommendation: ultra-fast, ultra-cheap workhorse for high-volume agentic coding and text workflows; escalate to a frontier model for deep reasoning, multimodal, or terminal-heavy tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (official Hugging Face model card and eval results, Artificial Analysis model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (official Hugging Face model card and eval results, Artificial Analysis model page; 2026-10-16 re-check: DeepInfra route $0.06/$0.18 added (Cost 97→98), served-context conflict 131K documented); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
