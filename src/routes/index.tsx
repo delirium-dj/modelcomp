@@ -297,17 +297,17 @@ export default component$(() => {
         <section class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-2 max-[520px]:block dark:border-b-[#274757]" aria-label="Dataset facts">
           <div class="py-7 pr-7 text-right max-[800px]:text-center max-[520px]:border-b max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Models tracked</span>
-            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">Independent — {generative.length} models · {SOURCES.length} results sources</strong>
+            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">Independent — {generative.length} models · {SOURCES.length} results sources</strong>
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Leader overall ({activeSourceLabel})</span>
-            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">
+            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
               {top.name} — {top.scores.overall}
             </strong>
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Scoring</span>
-            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">Overall = mean of 5 quality dims, cost excluded</strong>
+            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">Overall = mean of 5 quality dims, cost excluded</strong>
           </div>
         </section>
 
@@ -340,7 +340,7 @@ export default component$(() => {
                   onChange$={(_, el) => {
                     slot.value.value = el.value;
                   }}
-                  class="max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-xs text-[color:var(--color-ink)] dark:border-[#274757]"
+                  class="max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-md text-[color:var(--color-ink)] dark:border-[#274757]"
                 >
                   <option value="" class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">— empty —</option>
                   {cmpOptions.map((o) => (
@@ -439,7 +439,7 @@ export default component$(() => {
               </div>
               <div class="min-w-0">
                 <div class="mx-auto mb-10 w-full max-w-xs text-center">
-                  <label class="block text-xs text-[#577184] dark:text-[#93adbe]">
+                  <label class="block text-md text-[#577184] dark:text-[#93adbe]">
                     Results source{" "}
                   <select
                     aria-label="Results source"
@@ -447,7 +447,7 @@ export default component$(() => {
                     onChange$={(_, el) => {
                       handleSourceChange$(el.value);
                     }}
-                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
+                    class="mx-auto mt-2.5 block w-fit max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-md text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
                   >
                     {SOURCES.map((s) => (
                       <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">
@@ -479,7 +479,7 @@ export default component$(() => {
                   )}
                 </p>
                 </div>
-                <ul aria-label="Legend" class="mx-auto grid max-w-xs list-none gap-3 p-0 text-center pt-6">
+                <ul aria-label="Legend" class="mx-auto grid max-w-xs list-none gap-3 p-0 text-center md:pt-6">
                   {cmpModels.map((m, si) => (
                     <li key={m.id} class="flex flex-nowrap items-center justify-center gap-2 whitespace-nowrap">
                       <span
@@ -506,13 +506,13 @@ export default component$(() => {
           )}
           {cmpModels.length > 0 && (
             <div class="mt-9 w-full overflow-x-auto" tabIndex={0} aria-label="Scroll to see compared models">
-              <table class="w-full min-w-[800px] table-fixed border-collapse text-xs leading-tight tabular-nums max-[640px]:w-[205vw] max-[640px]:min-w-0">
+              <table class="w-full min-w-[800px] table-fixed border-collapse text-xs leading-tight tabular-nums max-[640px]:w-[150vw] max-[640px]:min-w-0">
                 <caption class="sr-only">Exact scores for the selected models</caption>
                 <thead>
                   <tr>
-                    <th scope="col" class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-3.5 text-center font-medium text-[#496779] first:w-[22%] first:pl-4 first:text-left max-[640px]:w-[10.98%] max-[640px]:first:w-[23.17%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">Dimension</th>
+                    <th scope="col" class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-3.5 text-center font-medium text-[#496779] first:w-[22%] first:pl-4 first:text-left max-[640px]:w-[22%] max-[640px]:first:w-[34%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">Dimension</th>
                     {cmpModels.map((m) => (
-                      <th scope="col" key={m.id} class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-3.5 text-center font-medium text-[#496779] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">
+                      <th scope="col" key={m.id} class="w-[10.5%] break-words border-b border-b-[#d4e0e6] bg-[#e2edf2] px-2 py-3.5 text-center font-medium text-[#496779] max-[640px]:w-[22%] dark:border-b-[#274757] dark:bg-[#132a3b] dark:text-[#a9c2d2]">
                         <span class="inline-flex items-center gap-2.5">
                           <VendorIcon id={m.id} name={m.name} />
                           <a href={`/model/${m.slug}/`}>
@@ -528,14 +528,14 @@ export default component$(() => {
                     <tr key={k} class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
                       <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-medium text-[#496779] dark:border-b-[#274757] dark:text-[#a9c2d2]">{names[k]}</th>
                       {cmpModels.map((m) => (
-                        <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[color:var(--color-ink)] max-[640px]:w-[10.98%] dark:border-b-[#274757]">{m.scores[k]}</td>
+                        <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[color:var(--color-ink)] max-[640px]:w-[22%] dark:border-b-[#274757]">{m.scores[k]}</td>
                       ))}
                     </tr>
                   ))}
                   <tr class="even:bg-[#e5eff3] dark:even:bg-[#122636]">
                     <th scope="row" class="break-words border-b border-b-[#d4e0e6] px-3 py-2 text-left font-medium text-[#496779] dark:border-b-[#274757] dark:text-[#a9c2d2]">Overall Score</th>
                     {cmpModels.map((m) => (
-                      <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-lg font-bold text-[#275bad] max-[640px]:w-[10.98%] dark:border-b-[#274757] dark:text-[#9dbdf5]">
+                      <td key={m.id} class="break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-lg font-bold text-[#275bad] max-[640px]:w-[22%] dark:border-b-[#274757] dark:text-[#9dbdf5]">
                         {m.scores.overall}
                       </td>
                     ))}
