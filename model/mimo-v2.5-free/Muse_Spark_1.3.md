@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by Muse Spark 1.3 Contributor
 
 - Source: Xiaomi/MiMo V2.5, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Claw/LCR/SciCode/vision gap-fills added, Tool/Coding 78 → 79, Overall holds 79)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: Claw/LCR/SciCode/vision gap-fills added, Tool/Coding 78 → 79, Overall holds 79), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 79)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,3 +67,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
 - Method: public internet research (BenchmarkList, RankedAGI, Artificial Analysis comparison, Xiaomi family pages, models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (28 days after 2026-09-18)
+
+Original research date 2026-09-18, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Xiaomi MiMo-V2.5 family page (mimo.xiaomi.com/mimo-v2-5), (2) Artificial Analysis MiMo-V2.5 page, (3) Vals AI + BenchLM/BenchmarkList mirrors. Conflicting results compared below.
+
+| Dimension | 2026-09-18/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 79 | 79 | hold — official page confirms best-in-class agency + Claw-Eval 62.3 Pareto-frontier; filed TB/Tau2/Claw/PinchBench rows stand; no new Tau3/GDPval absolute |
+| Reasoning | 72 | 72 | hold — official page confirms 48T-token training + 1M progressive extension; no new GPQA/HLE/CritPt absolute published |
+| Context | 70 | 70 | hold — 200K Zen served cap scored (native 1M noted but not served on Zen); no new retrieval-accuracy curve |
+| Multimodal | 95 | 95 | hold — official page confirms native visual + audio understanding, video-competitive with Gemini 3 Pro, multimodal-agentic level with Sonnet 4.6; text-out cap stands |
+| Coding | 79 | 79 | hold — official MiMo Coding Bench "closing the gap with frontier, matching Pro at half cost" confirms filed band; no new SWE-Verified/LiveCode absolute |
+| Cost | 100 | 100 | hold — $0 Free Zen capped tier unchanged |
+| Overall | 79 | 79 | hold — (79+72+70+95+79)/5 = 79.0 |
+
+Vendor claims vs independent mirrors: official Xiaomi page (best-in-class agency, Claw 62.3, video-level-with-Gemini-3-Pro) is directionally consistent with filed third-party rows (Tau2 90.6%, Claw-Eval 62.3%, MMMU-Pro 77.9%, LCR 73.0%); no contradiction found. Weights/tokenizer/model card now fully open-sourced on Hugging Face (post-filed improvement in verifiability, not a score driver). No GPQA/HLE, no Tau3, no MRCR/RULER absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://mimo.xiaomi.com/mimo-v2-5/ · https://artificialanalysis.ai/models/xiaomi-mimo-v2-5 · https://www.vals.ai/models/xiaomi_mimo-v2-5

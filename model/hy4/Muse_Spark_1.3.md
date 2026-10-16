@@ -1,7 +1,7 @@
 # Hy4 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy4 preview (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 75)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -82,3 +82,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent research/launch pages, TokenHub FAQ, Benchgen model card transcribing the official appendix, llm-stats boards); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Tencent Hy4-preview model-card appendix via Benchgen (TB2.1 85.4%, MCP-Atlas 83.7%, Toolathlon 74.1%, GDPval-V2 1678, GPQA 92.3%, HLE 43.4%, SWE-Pro 65.7%, SWE-Multilingual 82.9%, DeepSWE 64.3%), (2) Tencent Cloud TokenHub model list + FAQ (1M context, 960K in / 64K out, hy4-preview API ID), (3) llm-stats boards (GPQA 0.923, Score 51.1 #14) + OpenRouter preview listing (Apache 2.0, no list price). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 89 | 89 | hold — TB2.1 85.4% + MCP-Atlas 83.7% + Toolathlon 74.1% + GDPval-V2 1678 stand; no Tau3/Claw absolute |
+| Reasoning | 87 | 87 | hold — GPQA 92.3% + HLE 43.4% + WideSearch 83.9% stand; CritPt 16.9 weak tail unchanged; no LCR absolute |
+| Context | 97 | 97 | hold — 1M (960K in / 64K out) stands; no retrieval-saturation proof |
+| Multimodal | 15 | 15 | hold — no verified image/audio input; text-only floor applies |
+| Coding | 87 | 87 | hold — SWE-Pro 65.7% + SWE-Multilingual 82.9% + DeepSWE 64.3 (2.3x Hy3) stand; ProgramBench 17.5% tail unchanged; no LiveCode absolute |
+| Cost | 90 | 90 | hold — Apache 2.0 self-host, no list price stands |
+| Overall | 75 | 75 | hold — (89+87+97+15+87)/5 = 75.0 |
+
+Preview (pre-training/post-training ongoing) status re-confirmed — numbers are the Aug 2026 appendix snapshot. No Tau3, no LiveCode, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://hunyuan.tencent.com/announcements/hy4-preview · https://huggingface.co/tencent/Hy4-preview · https://llm-stats.com/models/hy4-preview

@@ -1,7 +1,7 @@
 # DeepSeek V4 Vision Exp — findings by Muse Spark 1.3
 
 - Source: DeepSeek/DeepSeek V4 Flash Vision Exp (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: retirement routing added; scores hold 86), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 86)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -81,3 +81,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (DeepSeek model-card benchmark table via AILog, llm-stats provider comparison, chat-deep V4 spec/benchmark matrix, apxml benchmark panel, DeepSeek-V4 paper); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official DeepSeek V4-Flash-Vision-Exp HF model card (huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp — TB2.1 83.9%, Toolathlon 75.9%, DeepSWE 59.3), (2) DeepSeek news post on 2026-09-10 retirement (requests route to V4.1-Flash), (3) llm-stats provider comparison + chat-deep V4 spec matrix (1,048,576 in / 393,216 out, $0.22/$0.66 off-peak). Conflicting results compared below.
+
+| Dimension | 2026-09-21/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 84 | 84 | hold — TB2.1 83.9% + Toolathlon 75.9% + Agents-Last-Exam win over Opus 4.8 stand; no new Tau3/GDPval absolute |
+| Reasoning | 80 | 80 | hold — GPQA 88.1% text-parity proxy + DSBench-Hard 63.6 stand; no HLE/LCR/CritPt absolute |
+| Context | 96 | 96 | hold — 1,048,576 in / 393,216 out stands; MRCR-1M 78.7 proxy stands |
+| Multimodal | 85 | 85 | hold — native image-in continuation training with ZeroBench/Agents-Exam wins stands; text-out cap stands |
+| Coding | 84 | 84 | hold — DeepSWE 59.3 + SWE 79.0 proxy + LiveCode 91.6 proxy stand; no SWE-Pro/Vibe absolute |
+| Cost | 95 | 95 | hold — $0.22/$0.66 off-peak + Free Zen experimental tier stands |
+| Overall | 86 | 86 | hold — (84+80+96+85+84)/5 = 85.8 → 86 |
+
+Retirement routing re-confirmed (2026-09-10, requests to V4.1-Flash) — file retained per permanence; scores describe the retired checkpoint as measured. No Tau3, no Claw, no HLE absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp · https://news.deepseek.com/v4-1-flash-routing · https://llm-stats.com/models/deepseek-v4-flash-vision-exp

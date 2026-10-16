@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3-flash-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,12 +60,12 @@ Long context:
 - **Multimodal: 88/100.** Text, image, speech/audio and video input with measured AA-MMMU-Pro 78.6% and text-only output; audio input pushes it to the top of the +video/PDF band (75–90).
 - **Coding: 82/100.** SWE-bench 75.0% (Vals) / 78% (Google claim) and LiveCodeBench 85.6% are solid mid-frontier results; Vibe Code Bench 20.2% and missing SciCode/DeepSWE numbers prevent a 90+ score.
 - **Cost efficiency: 93/100.** $0.50/$3.00 per 1M with a 90% cache discount (~$0.43 blended) sits near the ~$0.60/$2.20 = ~92 reference and improves on it; on the LMArena quality-vs-cost Pareto frontier.
-- **Overall Score: 79.8/100.** Mean of the five quality dims (60 + 72 + 95 + 88 + 82) / 5 = 79.4 → 79. Best-fit: the default workhorse for high-volume multimodal and interactive applications where frontier-adjacent reasoning at Flash speed and price matters more than peak agentic autonomy — the 92.4% hallucination rate argues for verification on knowledge-critical paths.
+- **Overall Score: 80/100.** CHANGED from 79.8 (the old line also broke the integer contract) — mean of the five quality dims (60 + 74 + 95 + 88 + 82) / 5 = 399/5 = 79.8 → 80. Best-fit: the default workhorse for high-volume multimodal and interactive applications where frontier-adjacent reasoning at Flash speed and price matters more than peak agentic autonomy — the 92.4% hallucination rate argues for verification on knowledge-critical paths.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai full benchmark tables updated 2026-10-09, Google launch blog, Artificial Analysis, llm-stats, Vals AI cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured Claw-Eval 49.2%, Tau2 43.3%, TB2.1 53.9%, Vals SWE 75.0%, LCB 85.6%, Vibe 20.2%, AA-LCR 55.3%, AA-HLE 15.0%, AA Index 17.9 — Tool 68→60, Reasoning 86→72, Multimodal 90→88, Coding 83→82, Overall 84→79.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai full benchmark tables updated 2026-10-09, Google launch blog, Artificial Analysis, llm-stats, Vals AI cross-checked; re-researched 2026-10-16: FrontierMath re-scored 35.6/4.2 → 51.2/17.1 — Reasoning 72→74, Overall 79.8→80); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured Claw-Eval 49.2%, Tau2 43.3%, TB2.1 53.9%, Vals SWE 75.0%, LCB 85.6%, Vibe 20.2%, AA-LCR 55.3%, AA-HLE 15.0%, AA Index 17.9 — Tool 68→60, Reasoning 86→72, Multimodal 90→88, Coding 83→82, Overall 84→79.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.1.md`, using the same headings.

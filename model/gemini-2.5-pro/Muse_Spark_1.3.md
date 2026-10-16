@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by Muse Spark 1.3
 
 - Source: Google/Gemini 2.5 Pro, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MMMU citation fixed + Arena rows added; scores hold 81)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MMMU citation fixed + Arena rows added; scores hold 81), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 81)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,3 +72,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Google official figures via DataCamp roundup, Artificial Analysis model/comparison pages, BenchLM model page and comparisons, llm-stats, Neura Market); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) Artificial Analysis model page (Index 16 current v4.3.2, $1.25/$10.00, 1M context, deprecated — Gemini 3 Pro Preview suggested), (2) evals.report model page (50 reported scores: GPQA 85.3%, HLE 21.64%, SWE-V 57.6%, LiveCode 80.1%, MMMU 81.7%, Aider 83.1%, MCP Atlas 8.8%, GDPval 919, MRCR-v2 58.0%, SciCode 42.8%, Vibe 0.40%), (3) Vals AI model page (SWE-bench 54.40% #82/88, TB2.0 30.34% #44/67, Vibe v1.1 0.40% #108/112, MedCode 50.59% #17/107, 1M/66K, $1.25/$10.00). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 70 | 70 | hold — SWE-V 63.8% vendor vs 57.6% evals.report vs 54.40% Vals (harness/snapshot drift, both directions); MCP Atlas 8.8% official is a weak tail but same-harness headline retained; TB2.0 30.34% Vals fills the terminal gap adversely but single-harness; no Tau/GDPval-AA absolute |
+| Reasoning | 80 | 80 | hold — GPQA 84.0% vendor vs 85.3% official (confirms band); HLE 18.8% vs 21.64% official (confirms band); MMLU-Pro 86.2%, AIME-OTIS 84.2%, AIME 92.0/86.7 consistent; AA Index filed 26 vs live 16/34.6 — index-revision drift, direction mixed, band unchanged |
+| Context | 96 | 96 | hold — 1M/66K stands; MRCR 91.5%-at-128K vendor vs MRCR-v2 58.0% evals.report (different MRCR generations, both recorded); no 98%+ at 512K+ |
+| Multimodal | 85 | 85 | hold — MMMU 81.7% confirmed on evals.report; Video-MME 84.8%, Video-MMMU 83.6%, text/image/audio/video/PDF in stands |
+| Coding | 72 | 72 | hold — SWE-V band 54–64% across three sources (mid-pack confirmed); LiveCode 70–80% band confirmed; Aider 74.0% vs 83.1% official (upside); SciCode 42.8% fills gap consistently; Vibe 0.40% anomaly re-confirmed on two sources (harness mismatch, unscored) |
+| Cost | 75 | 75 | hold — $1.25/$10.00 stands on all three sources |
+| Overall | 81 | 81 | hold — (70+80+96+85+72)/5 = 80.6 → 81 |
+
+Conflicts resolved: SWE-V 63.8 (vendor DataCamp) vs 57.6 (evals.report official) vs 54.40 (Vals) — snapshot/harness drift spanning the mid-pack band, headline retained; GPQA/HLE/MMMU vendor-vs-official deltas are ±2 pts within band; AA Index 26 (filed) vs 16 (live v4.3.2) vs 34.6 (evals.report snapshot) — index-revision drift, unscored directly. No Tau3, no Claw, no LCR/CritPt absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://artificialanalysis.ai/models/gemini-2-5-pro · https://evals.report/models/google-gemini-2-5-pro · https://www.vals.ai/models/google_gemini-2.5-pro

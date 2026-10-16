@@ -1,7 +1,7 @@
 # Big Pickle — findings by Muse Spark 1.3
 
 - Source: OpenCode/Big Pickle (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 59)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -76,3 +76,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (PhillipChaffee SWE Atlas eval repo + press coverage, OpenCode Zen docs, community skill/config docs, GLM-4.6 benchmark compilations as labeled proxies); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) PhillipChaffee SWE Atlas eval repo (github.com/PhillipChaffee/big-pickle-swe-atlas — direct 50.8% run), (2) OpenCode Zen docs + community skill/config docs (opencode/big-pickle route, 200K/160K-in/32K-out, Chat Completions only), (3) GLM-4.6 benchmark compilations as labeled proxies (BenchmarkList, ApX, Medium review). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 72 | 72 | hold — direct SWE Atlas QnA 50.8% stands, uncontradicted; still zero TB/Tau/GDPval direct absolutes |
+| Reasoning | 68 | 68 | hold — proxy-supported, zero direct GPQA/HLE/LCR absolutes still |
+| Context | 70 | 70 | hold — 200K class stands |
+| Multimodal | 15 | 15 | hold — text-only stands; floor applies |
+| Coding | 72 | 72 | hold — direct 50.8% QnA + GLM-4.6 proxies (LiveCode ~82%, SWE ~68%) stand |
+| Cost | 100 | 100 | hold — $0 Free Zen promo tier stands |
+| Overall | 59 | 59 | hold — (72+68+70+15+72)/5 = 59.4 → 59 |
+
+Stealth-slot caveat re-confirmed: vendor has not disclosed weights and can swap the backing model without notice — proxy rows remain labeled proxies, not absolutes. No new direct big-pickle harness runs published since 2026-09-21. No Tau3, no Claw, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://github.com/PhillipChaffee/big-pickle-swe-atlas · https://opencode.ai/docs/zen · https://benchmarklist.com/models/z-ai-glm-4-6

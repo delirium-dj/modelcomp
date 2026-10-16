@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Muse Spark 1.3
 
 - Source: Google/Gemini 3 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch-lane variances + math/arena/MMMU rows added; scores hold 87)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: launch-lane variances + math/arena/MMMU rows added; scores hold 87), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 87)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,3 +71,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (official SWE-bench Feb 2026 leaderboard via Simon Willison, tbench.ai TB 2.0 leaderboard, CloudPrice specs, AnotherWrapper comparison table, DesignForOnline review of AA/HF data); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) Artificial Analysis model page ($0.50/$3.00, 1M context, text/image/speech/video in), (2) evals.report model page (38 reported scores: SWE-V 75.4%, SWE-Pro 34.63%, SWE-Multilingual 72.7%, SWE-rebench 57.6%, GPQA 83.2%, HLE 36.6%, AIME-2026 95.83%, ARC-AGI-1 84.67%, ARC-AGI-2 33.61%, FrontierMath 35.64%, GDPval 1204, MMLU-Pro 89.0%, LiveCode 79.7%, SciCode 50.6%, Vibe 20.20%, DeepSWE 5.16%, MRCR-v2 22.1%, GSO 9.8%, ProgramBench 0.0%), (3) tbench.ai TB2.0 leaderboard + AnotherWrapper/DesignForOnline reviews (TB2.0 64.3% Junie CLI, TB-Hard 38.6%, Tau2 80.4%, ToolAthlon 49.4%, MCP Atlas 57.4%). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 82 | 82 | hold — SWE-V 75.8% rerun vs 75.4% official (confirms); Tau2 80.4% + TB2.0 64.3% stand; GDPval 1204 official fills gap mid-pack; ToolAthlon 49.4%/MCP 57.4% unchanged; no Tau3/Claw absolute |
+| Reasoning | 90 | 90 | hold — GPQA filed 89.4–90.4% vs official 83.2% (adverse — lane variance acknowledged 09-27; HLE filed 34.7/43.5% vs official 36.6% consistent; AIME-2026 95.83% + ARC-AGI-1 84.67% + FrontierMath 35.64% corroborate frontier band; Index filed 35–38.7 vs live 35 official, consistent) |
+| Context | 92 | 92 | hold — 1M stands; LCR 66.3% vs MRCR-v2 22.1% official (different tests, both recorded — MRCR-v2 scale unclear per filed note); no ≥98%-at-512K+ proof |
+| Multimodal | 88 | 88 | hold — MMMU-Pro filed 81.2% (launch) vs CharXiv 80.3% + ScreenSpot-Pro 69.1% + Video-MMMU 86.9% official; text-out cap stands |
+| Coding | 85 | 85 | hold — SWE-V ~75.5% confirmed; LiveCode filed 90.8% vs official 79.7% (adverse lane delta, within-band); SciCode 50.6% confirmed; SWE-Pro 34.63% + SWE-rebench 57.6% + SWE-Multilingual 72.7% fill gaps consistently; DeepSWE 5.16% official weak tail noted (own-harness provisional, capped); Vibe 20.20% fills gap low-mid; GSO 9.8%/ProgramBench 0.0% tails noted |
+| Cost | 90 | 90 | hold — $0.50/$3.00 stands |
+| Overall | 87 | 87 | hold — (82+90+92+88+85)/5 = 87.4 → 87 |
+
+Conflicts resolved: GPQA 89.4–90.4 (aggregator/launch lanes) vs 83.2 official — adverse 6-pt delta exceeds noise; but HLE/AIME/ARC-AGI-1/FrontierMath/MMLU-Pro officials corroborate the 90 band, and lane variance was pre-flagged 09-27 — headline retained with variance noted, no band change; LiveCode 90.8 vs 79.7 same treatment. New adverse tails (DeepSWE 5.16%, ProgramBench 0.0%, GSO 9.8%) are single-harness officials without corroboration — noted as caps, consistent with existing sub-90 coding cap. No Tau3, no Claw, no CritPt absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://artificialanalysis.ai/models/gemini-3-flash · https://evals.report/models/google-gemini-3-flash · https://tbench.ai/leaderboards/terminal-bench-2-0

@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Muse Spark 1.3
 
 - Source: Mistral AI/Mistral Medium 3.5, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC)
+- Date: 2026-09-23 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 71)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,3 +71,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Mistral launch blog and docs, llm-stats model and compare pages, BenchLM 128B page, PricePerToken brand compare, AI Release Tracker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after 2026-09-23)
+
+Original research date 2026-09-23. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Mistral launch blog + docs (GA 2026-04-28/29, dense 128B, 256K, SWE-V 77.6%, Tau3-Telecom 91.4, $1.50/$7.50), (2) evals.report model page (8 reported scores: SWE-V 77.6% verified, Tau2-telecom 94.2% official, GDPval 1168 official, Index 39.2, IFBench 68.8%, Omniscience -37, FrontierCode 8.0%, Design Arena 1176), (3) llm-stats + PricePerToken + BenchLM mirrors (Tau3-Retail 76.1, GPQA 74.8 provisional, HLE 13.8 provisional, AIME 86.3%, COLLIE 95.8%, Agentic 45.9/Coding 45.1 rollups). Conflicting results compared below.
+
+| Dimension | 2026-09-23 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 72 | 72 | hold — Tau3-Telecom filed 91.4 vs 94.2% official (confirms, narrow-slice); Retail 76.1 stands; GDPval 1168 official fills gap low-mid (consistent with cap); no TB/Claw absolute |
+| Reasoning | 68 | 68 | hold — GPQA 74.8/HLE 13.8 provisional unchanged (still unconfirmed vendor-official); IFBench 68.8% official confirms filed row; Index 39.2 fills gap mid-band consistently; Omniscience -37 adverse single-index (unscored directly); AIME 86.3% stands; no LCR/CritPt absolute |
+| Context | 72 | 72 | hold — 256K stands; no retrieval proof |
+| Multimodal | 65 | 65 | hold — text+image in + text out stands |
+| Coding | 78 | 78 | hold — SWE-V 77.6% confirmed verified; FrontierCode 8.0% official weak tail noted (consistent with sub-80 cap); no LiveCode/SWE-Pro/DeepSWE absolute |
+| Cost | 80 | 80 | hold — $1.50/$7.50 + 4-GPU self-host stands |
+| Overall | 71 | 71 | hold — (72+68+72+65+78)/5 = 71.0 → 71 |
+
+New rows (GDPval 1168, Index 39.2, IFBench 68.8% official, FrontierCode 8.0%) all consistent with existing caps. No TB, no Claw, no GPQA-official, no LCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://mistral.ai/news/mistral-medium-3-5 · https://evals.report/models/mistral-medium-3-5 · https://llm-stats.com/models/mistral-medium-3-5

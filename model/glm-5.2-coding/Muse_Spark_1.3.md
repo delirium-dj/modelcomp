@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.2 (coding preset), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 74)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -79,3 +79,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
 - Method: public internet research (Z.ai GLM-5.2 blog 2026-06-16 + HF `zai-org/GLM-5.2`, OpenRouter AA `max` panel, AI/TLDR + benchr/orcarouter summaries); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (24 days after 2026-09-22)
+
+Original research date 2026-09-22. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Z.ai GLM-5.2 blog + HF zai-org/GLM-5.2 (MCP-Atlas 76.8%, Tool-Decathlon 48.2%, GPQA 91.2%, HLE 40.5/54.7-tools, CritPt 20.9, AIME 99.2, SWE-Pro 62.1%, TB2.1 81.0–82.7, DeepSWE 46.2%, FrontierSWE 74.4%, SWE-Marathon 13.0%), (2) OpenRouter AA max panel (GDPval-AA 42.9%, GPQA-max 89.5%, HLE-max 41.1%, CritPt 20.9%, Index v4.1 51 / v4.3 33.7, SciCode 51.2%, AA-LCR 78.3%, TB-Hard 50.8%), (3) AI/TLDR + benchr/orcarouter summaries + Zen pricing ($1.40/$4.40/$0.26 cached, 1M/131–164K out, MIT weights). Conflicting results compared below.
+
+| Dimension | 2026-09-22 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 84 | 84 | hold — MCP-Atlas 76.8 (~Opus 4.8) + GDPval-AA 42.9% stand; Tool-Decathlon 48.2 cap unchanged; no Tau/Claw absolute |
+| Reasoning | 88 | 88 | hold — GPQA 91.2 + AIME 99.2 + CritPt 20.9 (=Opus) + HLE 40.5/54.7 stand; HLE ~9 behind Opus cap unchanged |
+| Context | 96 | 96 | hold — solid 1M + AA-LCR 78.3% stands; no 98%+ retrieval at 512K+ |
+| Multimodal | 15 | 15 | hold — text-only stands; floor applies |
+| Coding | 87 | 87 | hold — SWE-Pro 62.1 + TB2.1 81.0–82.7 + FrontierSWE 74.4 stand; DeepSWE 46.2 + SWE-Marathon 13.0% caps unchanged; no Vibe absolute |
+| Cost | 80 | 80 | hold — $1.40/$4.40 paid, no Free ID stands |
+| Overall | 74 | 74 | hold — (84+88+96+15+87)/5 = 74.0 → 74 |
+
+AA-panel vs blog deltas (GPQA 89.5 vs 91.2, Index v4.1 51 vs v4.3 33.7) are harness/index-revision drift, both recorded, headline unchanged. No Tau, no Claw, no Vibe, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://z.ai/blog/glm-5-2 · https://huggingface.co/zai-org/GLM-5.2 · https://openrouter.ai/z-ai/glm-5.2

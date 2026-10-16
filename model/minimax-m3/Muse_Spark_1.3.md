@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Muse Spark 1.3 Contributor
 
 - Source: MiniMax/M3, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: vendor table added, scores recomputed 83 → 86)
+- Date: 2026-09-18 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: vendor table added, scores recomputed 83 → 86), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 86)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,3 +71,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 Contributor (meta/muse-spark-1.3)** — 2026-09-18
 - Method: public internet research (curated metadata: 59% SWE-Pro, 66% TB2.1, 230B/9.8B sparse attention); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (28 days after 2026-09-18)
+
+Original research date 2026-09-18, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official MiniMax M3 blog + HF model card (minimax.io, huggingface.co/MiniMaxAI/MiniMax-M3), (2) Artificial Analysis MiniMax-M3 page, (3) BenchLM/BenchmarkList/Vals mirrors (SWE-V 80.5%, SWE-Pro 59%, TB2.1 66%, OSWorld 70–75%, MMMU-Pro 78.1%). Conflicting results compared below.
+
+| Dimension | 2026-09-18/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 87 | 87 | hold — vendor TB2.1 66% + MCP Atlas 74.2% + Claw-Eval 74.5% + BrowseComp 83.5% stand; OSWorld 70.1–75.2% consistent band; no new Tau/GDPval absolute |
+| Reasoning | 78 | 78 | hold — MMMU-Pro 78.1% + LMArena 1443 stand; still zero GPQA/HLE/LCR/CritPt numbers |
+| Context | 100 | 100 | hold — 1M / 512K out verified tier stands |
+| Multimodal | 75 | 75 | hold — text/image/video in, text out stands |
+| Coding | 88 | 88 | hold — SWE-V 80.5% + SWE-Pro 59% + LiveCode 82.2% + SWE Vals 75.0% + SVG-Bench 63.7% stand; SWE-Lite 29.3% tail unchanged |
+| Cost | 85 | 85 | hold — $0.30/$1.20 paid stands |
+| Overall | 86 | 86 | hold — (87+78+100+75+88)/5 = 85.6 → 86 |
+
+Mirrors confirm the filed vendor-table numbers without contradiction; no new GPQA/HLE, no Tau, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://www.minimax.io/news/minimax-m3 · https://huggingface.co/MiniMaxAI/MiniMax-M3 · https://artificialanalysis.ai/models/minimax-m3

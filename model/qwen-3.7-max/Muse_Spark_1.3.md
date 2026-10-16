@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.7 (Qwen3.7-Max flagship), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MRCR/spreadsheet/output-cap variance rows added; scores hold 84)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: MRCR/spreadsheet/output-cap variance rows added; scores hold 84), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 84)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,3 +71,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Alibaba launch tables via FrankX and GIGAZINE, Vals Qwen 3.7 Plus eval, BenchLM MiniMax-M3-vs-Max and Qwen3.6 Plus pages, pricepertoken Max pricing, LM Market Cap Flash page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) Alibaba Qwen3.7-Max launch tables via FrankX/GIGAZINE (TB2.0 Max 69.7%, GPQA 92.4%, SWE-V 80.4%, SWE-Pro 60.6% peer-leading, MRCR-v2-128K 90.4%, SpreadsheetBench 87.0%, 22.9% hallucination rate, 35-hour/1,000+ tool-call demo), (2) Artificial Analysis Qwen3.7-Max page (Index 29 current v4.3.2, $2.50/$7.50, 1M context, text-only per AA panel, deprecated — Qwen3.8 Max suggested), (3) BenchLM/Vals/pricepertoken mirrors (Plus TB2.0 70.3%/TB2.1-Vals 52.81%, QwenClawBench 64.3%, MCP-Atlas 76.4%, MCP-Mark 60.8%, BFCL 75.0%, VITA 47.9%, Gert Labs 64.27%, HLE-tools 53.5%, Index v4.0 56.6, BenchLM overall Max 68.56/Plus 62.29, Plus SciCode 51.3%, Plus Vibe 46.39%, Kernel 1.98×). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 78 | 78 | hold — TB2.0 ~70% + MCP-Atlas 76.4% + BFCL 75% stand; Vals TB2.1 52.81% cap unchanged; no Tau3/GDPval absolute |
+| Reasoning | 90 | 90 | hold — GPQA 92.4% + HLE-tools 53.5% + Index v4.0 56.6 stand; live Index 29 (v4.3.2) adverse revision drift (unscored directly, band corroborated by GPQA/HLE); no LCR/CritPt absolute |
+| Context | 90 | 90 | hold — 1M + 35-hour runs stand; MRCR-v2-128K 90.4% recorded (128K only, no 512K+ proof, cap stands) |
+| Multimodal | 80 | 80 | hold — image (+video Plus) in + text out stands (AA panel text-only noted for Max lane — lane variance, headline retained); no Max MMMU number still |
+| Coding | 84 | 84 | hold — SWE-V 80.4% + peer-leading SWE-Pro 60.6% stand; Plus SciCode 51.3%/Vibe 46.39% consistent; no LiveCode/DeepSWE flagship absolute |
+| Cost | 85 | 85 | hold — Max-class ~$1.50/$4.50 filed vs $2.50/$7.50 AA live (upper-end variance, both recorded — band holds below $3+/$15+ frontier) |
+| Overall | 84 | 84 | hold — (78+90+90+80+84)/5 = 84.4 → 84 |
+
+Conflicts resolved: Index v4.0 56.6 (launch-era) vs 29 (live v4.3.2) — major revision drift, GPQA/HLE corroborate 90 band; pricing $1.48–2.50/$4.42–7.50 range spans both filed and live figures; AA text-only panel vs filed image-in — lane variance (Plus documented multimodal), headline retained. No Tau3, no LiveCode, no LCR, no 512K+ retrieval absolute found — prior gaps stand. Scores hold.
+
+Sources: https://qwen.ai/blog/qwen3-7-max · https://artificialanalysis.ai/models/qwen3-7-max · https://benchlm.ai/models/qwen-3-7-max

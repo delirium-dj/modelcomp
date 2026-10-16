@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Muse Spark 1.3
 
 - Source: Alibaba/Qwen 3.8 (Qwen3.8-Max flagship), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: checkpoint-vs-hosted lane notes added; scores hold 91)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: checkpoint-vs-hosted lane notes added; scores hold 91), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 91)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,3 +69,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Alibaba Group/Cloud launch releases, InfoWorld launch coverage, BenchLM Qwen3.8 Max ledger, llm-stats Qwen org page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) Alibaba Group/Cloud launch releases + HF Qwen/Qwen3.8-2.4T-A95B card (Aug 3, 2026 — 2.4T/95B MoE, 1M context, Text Arena #5, Vision Arena #2, 16-day autonomous project, $1.65/$4.95), (2) Artificial Analysis Qwen3.8-Max-0902 page (Index 45 #33/217, $2.00/$6.00, 984K context, text+image in), (3) BenchLM Max ledger + InfoWorld coverage (TB2.1 86.6%, Toolathlon-V 72.5%, CoWorkBench 74.8%, OSWorld-V 86.1%, AndroidWorld 85.3%, GPQA 92.6%, HLE 43.6/56.2-tools, SWE-Pro 67.7%, LiveCode 87.9%, DeepSWE 56.6%, FrontierSWE 73.5%, MRCR-v2 92.9%, VideoMMMU 88.7%, Video-MME 90.4%, PaperBench 93.0%). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 88 | 88 | hold — TB2.1 86.6% + OSWorld-V 86.1% + Toolathlon-V 72.5% stand; AutomationBench 27.3% weakest-row cap unchanged; no Tau3/GDPval absolute |
+| Reasoning | 93 | 93 | hold — GPQA ~93% + HLE 43.6–56.2% stand; Index 45 (0902 lane) corroborates near-frontier; no LCR/CritPt absolute |
+| Context | 97 | 97 | hold — 1M + MRCR-v2 92.9% stand (below 98% bar, cap stands) |
+| Multimodal | 90 | 90 | hold — native visual, Vision Arena #2, VideoMMMU 88.7%/Video-MME 90.4% stand; text-out cap stands |
+| Coding | 86 | 86 | hold — SWE-Pro 67.7% + LiveCode 87.9% + FrontierSWE 73.5% stand; DeepSWE 56.6% cap unchanged; no SWE-V-proper/Vibe absolute |
+| Cost | 85 | 85 | hold — filed $1.65/$4.95 vs AA-0902 $2.00/$6.00 (lane/checkpoint variance, both recorded — band holds below $3+/$15+ frontier) |
+| Overall | 91 | 91 | hold — (88+93+97+90+86)/5 = 90.8 → 91 |
+
+Checkpoint-vs-hosted lane variances re-confirmed (AA 0902 lane vs launch Max lane); no contradiction on headlines. No Tau3, no Claw, no CritPt, no Vibe absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://www.alibabacloud.com/press-room/qwen3-8-launch · https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B · https://artificialanalysis.ai/models/qwen3-8-max

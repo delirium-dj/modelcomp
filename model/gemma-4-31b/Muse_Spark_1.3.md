@@ -1,7 +1,7 @@
 # Gemma 4 31B — findings by Muse Spark 1.3
 
 - Source: Google/Gemma 4 31B (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price drop + video modality + uncited rows recorded; scores hold 75)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: price drop + video modality + uncited rows recorded; scores hold 75), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 75)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -83,3 +83,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: public internet research (NVIDIA build catalog page, Google AI for Developers model card, Hugging Face NVFP4 eval card, CodeSOTA registry, CloudPrice specs, llm-stats comparison); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Google AI for Developers Gemma 4 model card + NVIDIA 31B IT build page (Tau2 76.9%, GPQA 84.3%, HLE 19.5/26.5-search, AIME 89.2%, MMLU-Pro 85.2%, LiveCode v6 80.0%, Codeforces 2150), (2) HF NVIDIA NVFP4 eval card (GPQA 85.35–85.80, MMLU-Pro 84.94–85.25, LiveCode pass@1 82.27–82.49, SciCode 33.61, TB-Hard 27.08%), (3) CodeSOTA registry + BenchLM mirrors (GPQA 84.3% #23/74, HLE 26.5% #21/74, LiveCode 80.0% #11/24, MMMU-Pro 76.9%, SWE-Rebench 41.6%). Conflicting results compared below.
+
+| Dimension | 2026-09-21/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 76 | 76 | hold — Tau2 76.9% + native function calling stand; TB-Hard 27.08% unchanged; no TB2.1/GDPval absolute |
+| Reasoning | 78 | 78 | hold — GPQA 84.3% + AIME 89.2% + MMLU-Pro 85.2% stand; HLE 19.5–26.5% band unchanged |
+| Context | 74 | 74 | hold — 256K P-RoPE stands; no retrieval-saturation proof |
+| Multimodal | 68 | 68 | hold — text/image in + MMMU-Pro 76.9% + OmniDocBench 0.131 stand |
+| Coding | 79 | 79 | hold — LiveCode 80.0% + Codeforces 2150 + HumanEval 76.8% stand; SciCode ~33.6% unchanged; no SWE-bench absolute |
+| Cost | 98 | 98 | hold — free Apache 2.0 weights + ~$0.09/$0.34 hosting stands |
+| Overall | 75 | 75 | hold — (76+78+74+68+79)/5 = 75.0 |
+
+Mirrors confirm filed numbers without contradiction; NVFP4 eval deltas (GPQA +1, LiveCode +2) are harness noise within band. No SWE-bench, no Vibe, no LCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://ai.google.dev/gemma/docs/gemma-4 · https://build.nvidia.com/google/gemma-4-31b-it · https://huggingface.co/nvidia/gemma-4-31b-it-NVFP4

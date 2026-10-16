@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-5.6 Sol (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 91)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -82,3 +82,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: public internet research (BenchLM GPT-5.6 Sol model page, llm-stats leaderboard and GPQA board, LMSpeed model card); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) BenchLM GPT-5.6-Sol model page (Sep 18, 2026 refresh, 74 benchmarks, overall 80.46 #5/491 — TB2.1 85.8%, TB2.0 91.9%, Tau2 85.1%, GDPval 1735, GPQA 94.6%, HLE-Verified 54.5%, SWE Vals 96.2%, SWE-Pro 64.6%, DeepSWE 72.7%), (2) llm-stats leaderboard + GPQA board (1.05–1.1M context, GPQA 0.946 tied #2/247), (3) LMSpeed model card + OpenRouter spec panel ($5.00/$30.00/$0.50 cached, 1M/128K out). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 93 | 93 | hold — TB2.1 85.8% + TB2.0 91.9% + Tau2 85.1% + GDPval 1735 stand; Toolathlon 58% cap unchanged; no Claw absolute |
+| Reasoning | 94 | 94 | hold — GPQA 94.6% tied #2 + ARC-AGI-2 92.5% + AA-LCR 84.0% + Index 58.9% stand; CritPt 32.3 cap unchanged |
+| Context | 93 | 93 | hold — 1.05M+ stands; MLCR-AA 26.1% weak tail unchanged, no MRCR/RULER proof |
+| Multimodal | 80 | 80 | hold — text/image/file in + MMMU-Pro 83–84.6% stand; text-out cap stands |
+| Coding | 93 | 93 | hold — SWE Vals 96.2% + DeepSWE 72.7% + LiveCode 82.6% + Coding Index 77.4% stand; SWE-Pro 64.6% cap unchanged; no Vibe absolute |
+| Cost | 45 | 45 | hold — $5.00/$30.00 paid stands |
+| Overall | 91 | 91 | hold — (93+94+93+80+93)/5 = 90.6 → 91 |
+
+Mirrors confirm the filed BenchLM-page numbers without contradiction. No Claw-Eval, no Vibe, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://benchlm.ai/models/gpt-5-6-sol · https://llm-stats.com/models/gpt-5-6-sol · https://openrouter.ai/openai/gpt-5-6-sol

@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Muse Spark 1.3
 
 - Source: Poolside/Laguna S 2.1 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 68)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -78,3 +78,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Poolside launch blog + press release, ModelScope model page, Ollama library page, orcarouter pricing page, BenchLM model page, GIGAZINE coverage; vendor is Poolside); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Poolside launch blog + press release (Jul 21, 2026 — TB2.1 70.2%, Toolathlon 49.7%, Atlas QnA 46.2%, SWE-Pro 59.4%, Multilingual 78.5%, DeepSWE 40.4%, 1M context, 118B/8B MoE), (2) HF poolside/Laguna-S-2.1 + ModelScope + Ollama pages (spec, quantized variants, 256K local builds), (3) BenchLM model page + orcarouter pricing (~$0.10/$0.20, OpenMDW-1.1). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 78 | 78 | hold — TB2.1 70.2% + Toolathlon 49.7% + Atlas QnA 46.2% stand; no Tau3/GDPval/MCP absolute |
+| Reasoning | 70 | 70 | hold — provisional; still zero GPQA/HLE/LCR/CritPt absolutes |
+| Context | 95 | 95 | hold — vendor 1M (local 256K) stands; no retrieval-saturation proof |
+| Multimodal | 15 | 15 | hold — text-to-text only stands; floor applies |
+| Coding | 80 | 80 | hold — Multilingual 78.5% open lead + SWE-Pro 59.4% + DeepSWE 40.4% stand; no LiveCode/SciCode absolute |
+| Cost | 97 | 97 | hold — ~$0.10/$0.20 + permissive open weights stands |
+| Overall | 68 | 68 | hold — (78+70+95+15+80)/5 = 67.6 → 68 |
+
+Reasoning remains provisional (70 on zero absolutes) — flagged again; no new adverse evidence meets the bar for a downward change. No GPQA/HLE, no Tau, no LiveCode, no MRCR absolute found — prior gaps stand. Scores hold.
+
+Sources: https://poolside.ai/blog/laguna-s-2-1 · https://huggingface.co/poolside/Laguna-S-2.1 · https://ollama.com/library/laguna-s-2.1

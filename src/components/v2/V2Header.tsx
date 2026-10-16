@@ -121,7 +121,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
             </button>
           </div>
 
-          <div class="inline-flex items-center gap-3 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
+          <div class="inline-flex items-center gap-3 font-[family-name:var(--font-display)] text-xl tracking-tight">
             <svg viewBox="0 0 300 300" class="h-6 w-6 shrink-0" role="presentation" aria-hidden="true">
               <defs>
                 <linearGradient id="v2-header-hex" x1="0" y1="0" x2="1" y2="1">

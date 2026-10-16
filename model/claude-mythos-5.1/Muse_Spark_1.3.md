@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Muse Spark 1.3
 
 - Source: Anthropic/Claude Mythos 5.1 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: same-weights absolutes added, scores recomputed 92 → 93)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: same-weights absolutes added, scores recomputed 92 → 93), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 93)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -80,3 +80,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: public internet research (Anthropic launch announcement, system-card summaries, Artificial Analysis Index via DeepLearning.ai, BenchLM SWE-Pro leaderboard, llm-stats HLE leaderboard); Fable 5.1 numbers cited as same-weights proxies per Anthropic same-model statement; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Anthropic Fable/Mythos launch announcement + system card summaries, (2) Artificial Analysis Intelligence Index via DeepLearning.ai (GDPval-AA v2 1764, AA-Briefcase 1662, Index 53 tied #1), (3) BenchLM SWE-Pro leaderboard + llm-stats HLE board (SWE-Pro 81.2% #1/67, HLE 65.0% #1). Conflicting results compared below.
+
+| Dimension | 2026-09-21/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 95 | 95 | hold — GDPval-AA v2 1764 + TB4.0 60.9% Mythos-labeled + TB2.1 85.0% + ToolAthlon 77.8% stand; no new Tau3 absolute |
+| Reasoning | 96 | 96 | hold — GPQA 94.1% + HLE 65.0% #1 + Index 53 tied #1 + ARC-AGI-2 90.0% + ArXivMath 91.3% stand; no LCR/CritPt absolute |
+| Context | 100 | 100 | hold — 1M verified + file-memory behavior stands |
+| Multimodal | 75 | 75 | hold — SOTA vision, text/image in + text out stands |
+| Coding | 98 | 98 | hold — SWE-V 95.0% + SWE-Pro 81.2% #1 + LiveCode 90.5% + SciCode 63.1% + DeepSWE 67.4% stand; no Vibe absolute |
+| Cost | 30 | 30 | hold — $10/$50 paid stands |
+| Overall | 93 | 93 | hold — (95+96+100+75+98)/5 = 92.8 → 93 |
+
+Same-weights (Fable 5.1) proxy basis re-confirmed per Anthropic same-model statement; no Mythos-5.1-labeled runs beyond TB4.0 60.9% published. No Tau3, no Claw, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://www.anthropic.com/news/claude-fable-5-1 · https://artificialanalysis.ai/models/claude-fable-5-1 · https://benchlm.ai/leaderboards/swe-bench-pro

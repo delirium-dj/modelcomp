@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by GLM 5.3 Flash
 
 - Source: Z.AI (`glm-5.2`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,7 @@ Agent / tool use:
 - MCP Atlas: **76.8%** (HF model card — fills the previously-missing MCP row); Toolathlon: **48.2%**
 - GDPval-AA: **1418 Elo** / 43.7% (AA — fills the previously-missing GDPval row)
 - Tau2-bench: **99.1%** (AA — corroborates the earlier 99 reading)
-- APEX-Agents-AA: **33.7%**; AA ITBench: **42.7%**; ResearchClawBench: **20.7%**; AA Agentic Index: **39.4%** (benchlm.ai)
+- APEX-Agents-AA: **33.7%**; AA ITBench: **42.7%**; ResearchClawBench: **20.7%**; AA Agentic Index: **39.4%** (benchlm.ai); MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
 - SWE-bench Pro: **62.1%** (HF model card — corroborated; up from 58.4% for GLM-5.1)
 
 Reasoning / knowledge:
@@ -36,6 +36,7 @@ Reasoning / knowledge:
 - HLE: **54.7%** with tools / **40.5%** without (HF model card — fills the previously-missing HLE; AA-HLE 41.1%)
 - AIME26: **99.2%**; HMMT Nov 2025: **94.4%**; HMMT Feb 2026: **92.5%** (HF model card — new math rows)
 - CritPt: **20.9%** (HF model card — fills); AA-LCR: **78.3%** (AA — corroborates the earlier 78% long-context reading)
+- FrontierMath v2: Tiers 1–3 **59.2%**, Tier 4 **29.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong); MMAnswerBench: **91.0%** (HF model card — added 2026-10-16)
 - Artificial Analysis Intelligence Index: **33.7** (AA — corroborates the earlier 34.0)
 - AA-Omniscience: Index 4.4, accuracy **24.3%**, hallucination rate **26.3%** (benchlm.ai — good honesty)
 - MMLU-Pro (Vals): **86.7%**; AA-IFBench: **73.3%** (corroborates)
@@ -59,17 +60,17 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** Now measured: TB2.1 81.0% (Vals 67.8%), MCP Atlas 76.8%, GDPval-AA 1418, Tau2 99.1% with High/Max thinking — a step above GLM-5.1 on every agentic axis; weak TB3.0 4.6% and Toolathlon 48.2% cap it below 90.
-- **Reasoning: 86/100.** GPQA 91.2% (filled — clears the 90% reference), HLE 54.7%/40.5% (filled — clears the 40% bar), AIME26 99.2% and the strongest open-weights reasoning profile measured in this repo's GLM line; AA Index 33.7 caps it below 90.
+- **Reasoning: 87/100.** CHANGED from 86 — GPQA 91.2% (filled — clears the 90% reference), HLE 54.7%/40.5% (filled — clears the 40% bar), AIME26 99.2%, and the newly measured FrontierMath v2 59.2%/29.3% (Epoch) add a strong math pillar to the strongest open-weights reasoning profile measured in this repo's GLM line; AA Index 33.7 caps it below 90.
 - **Context window: 95/100.** Native 1M with IndexShare built to hold recall at full depth and AA-LCR 78.3% measured; 131K output; no measured ≥98% retrieval at 512K+ (the old draft's 100 was over-awarded) and the unverified Zen 204K serve cap gives pause.
 - **Multimodal: 15/100.** Text-only in and out.
 - **Coding: 87/100.** SWE-bench (Vals) 82.8% (filled), SWE-Pro 62.1% (open-weights frontier, corroborated), AA-SciCode 51.2% (below the 55%+ mark), LCB (Vals) 69.5% and AA Coding Index 68.8%.
 - **Cost efficiency: 100/100.** Free Zen tier (repo catalog) plus $1.40/$4.40 list with $0.70/$2.20 third-party routes and MIT self-hosting as floors.
-- **Overall Score: 74/100.** Mean of the five quality dims (88 + 86 + 95 + 15 + 87) / 5 = 74.2 → 74. Best fit: open-weights 1M-context flagship for repo-scale agents — text-only modality is the one real trade.
+- **Overall Score: 74/100.** Mean of the five quality dims (88 + 87 + 95 + 15 + 87) / 5 = 372/5 = 74.4 → 74. Best fit: open-weights 1M-context flagship for repo-scale agents — text-only modality is the one real trade.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Z.AI GLM-5.2 HF model card, AA and Vals boards — official plus two independent harnesses, conflicts compared; earlier draft via opper.ai's AA feed); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 81.0%, MCP Atlas 76.8%, GDPval-AA 1418, HLE 54.7%/40.5%, GPQA 91.2%, AIME26 99.2%, CritPt 20.9%, SWE-bench (Vals) 82.8%, LCB 69.5% — Tool 87→88, Reasoning 83→86, Context 100→95, Coding 90→87, Overall 79→74 (old draft also showed a six-dim calc).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Z.AI GLM-5.2 HF model card, AA and Vals boards — official plus two independent harnesses, conflicts compared; earlier draft via opper.ai's AA feed; re-researched 2026-10-16: FrontierMath v2 59.2/29.3, MMAnswerBench 91.0, MazeBench 0% added — Reasoning 86→87, Overall 74 holds (87+88+95+15+87 = 372/5 = 74.4)); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 81.0%, MCP Atlas 76.8%, GDPval-AA 1418, HLE 54.7%/40.5%, GPQA 91.2%, AIME26 99.2%, CritPt 20.9%, SWE-bench (Vals) 82.8%, LCB 69.5% — Tool 87→88, Reasoning 83→86, Context 100→95, Coding 90→87, Overall 79→74 (old draft also showed a six-dim calc).
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.

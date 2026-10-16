@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.3-Flash (ex `ox-alpha` stealth), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC)
+- Date: 2026-09-22 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 88)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -79,3 +79,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
 - Method: public internet research (Z.ai GLM-5.3-Flash blog 2026-08-26 + HF `zai-org/GLM-5.3-Flash`, AA model + comparison pages, BenchLM/BenchmarkList panels, datacamp/marktechpost summaries); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (24 days after 2026-09-22)
+
+Original research date 2026-09-22. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Z.ai GLM-5.3-Flash blog + HF zai-org/GLM-5.3-Flash (Toolathlon 78.4%, AutomationBench 48.8%, GDPval-AA v2 1773, TB2.1 84.3%, HLE-tools 55.3%, DeepSWE 63.4%, NL2Repo 56.3%, Z.ai Code Bench 29.0), (2) AA model + Flash-vs-max comparison pages (Automation-AA 60.4%, Tau3 47.2%, GDPval v4.3 1655, GPQA 91.2%, HLE-text 39.9–40%, CritPt 15%, Index v4.3 42 / v4.1 57, LCR 80%, SciCode 52%), (3) BenchLM/BenchmarkList panels + datacamp/marktechpost summaries (SWE-Marathon 62/160, SciCode-AA 46.1%, $0.15/$0.50/$0.03 pricing, 1M context, stealth ox-alpha week). Conflicting results compared below.
+
+| Dimension | 2026-09-22 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 88 | 88 | hold — Toolathlon 78.4 (beats Opus 4.8) + Automation 48.8 + Tau3 47.2 stand; AA Automation 60% trailing max cap unchanged; no Claw/MCP absolute |
+| Reasoning | 86 | 86 | hold — GPQA 91.2 + HLE-tools 55.3 + Index 42 (v4.3) stand; CritPt 15 + HLE-text 40 caps unchanged |
+| Context | 97 | 97 | hold — native 1M + AA-LCR 80% stands; no 98%+ retrieval at 512K+ |
+| Multimodal | 78 | 78 | hold — text+image verified (OfficeQA 62.4, CharXiv 89.4, Chartography 78.0, MMVU 80.5, OSWorld 2.0 59.1) stand; MVBench 77.8 cap unchanged |
+| Coding | 90 | 90 | hold — TB2.1 84.3 (~Opus) + DeepSWE 63.4 (+5 over Opus) + NL2Repo best-in-set stand; SWE-Marathon mid-pack cap unchanged; no SWE-Verified head-to-head |
+| Cost | 95 | 95 | hold — $0.15/$0.50 paid (~1/10th GLM-5.3) stands |
+| Overall | 88 | 88 | hold — (88+86+97+78+90)/5 = 87.8 → 88 |
+
+Index-revision drift (v4.1 57 → v4.3 42) and GDPval revisions (1773 → 1655) both recorded, headlines unchanged. No Claw, no MCP-Atlas, no Vibe, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://z.ai/blog/glm-5-3-flash · https://huggingface.co/zai-org/GLM-5.3-Flash · https://artificialanalysis.ai/models/z-ai-glm-5-3-flash

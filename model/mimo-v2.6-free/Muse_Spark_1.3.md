@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Muse Spark 1.3
 
 - Source: Xiaomi/MiMo-V2.6-Flash (Free tier), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: BenchLM mirror note added; scores hold 90), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 90)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -77,3 +77,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
 - Method: public internet research (Xiaomi release page + HF README, VentureBeat 2026-09-22, orcarouter/cellcog comparisons of Xiaomi tables, AA Index pages for Pro proxy); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (24 days after 2026-09-22)
+
+Original research date 2026-09-22, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Xiaomi V2.6 release page + HF XiaomiMiMo/MiMo-V2.6-Flash-RL README (AutomationBench 52.3%, Toolathlon 73.6%, OSWorld 80.8%, TB2.1 87.6%, TB4.0 28.8%, DeepSWE 67.9%, MiMo Code Bench 61.2%, JobBench 61.2%, CyberGym 95.1%, 1M/128K out, 309B/15B MoE, MIT), (2) VentureBeat 2026-09-22 (Sep 21 release, RL live-streamed, ~750k trajectories, $0.14/$0.28 paid fallback, Pro $0.435/$0.87), (3) AA Index Pro-proxy page + BenchLM Flash mirror (Pro 46/46.32 top open-weights; Flash mirror 14 rows, no public overall). Conflicting results compared below.
+
+| Dimension | 2026-09-22/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 86 | 86 | hold — AutomationBench 52.3 (beats Opus 5) + Toolathlon 73.6 + OSWorld 80.8 stand; TB4.0 28.8 cap unchanged; no Tau/GDPval-Flash absolute |
+| Reasoning | 84 | 84 | hold — Pro-proxy Index 46 + Flash within 1–4 pts on shared rows stand; zero Flash-direct GPQA/HLE still |
+| Context | 95 | 95 | hold — 1M (1,048,576 in, 128K out) stands; no 98%+ retrieval proof |
+| Multimodal | 95 | 95 | hold — native text/image/video/audio in + text out stands |
+| Coding | 88 | 88 | hold — TB2.1 87.6 (frontier bar) + DeepSWE 67.9 stand; no SWE-Verified/LiveCode direct run still |
+| Cost | 100 | 100 | hold — $0 Zen Free tier stands |
+| Overall | 90 | 90 | hold — (86+84+95+95+88)/5 = 89.6 → 90 |
+
+BenchLM Flash mirror still shows 14 source-displayable rows with no public overall — gap re-confirmed, not filled. No Flash-direct GPQA/HLE, no Tau, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://mimo.xiaomi.com/mimo-v2-6/ · https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL · https://venturebeat.com/ai/xiaomi-mimo-v2-6-release

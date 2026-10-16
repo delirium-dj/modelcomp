@@ -1,7 +1,7 @@
 # GLM 5.1 Coding — findings by GLM 5.3 Flash
 
 - Source: Z.AI (`glm-5.1`, proprietary/paid on Zen; open-weights elsewhere)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,10 +38,10 @@ Reasoning / knowledge:
 - GPQA Diamond: **86.2%** (Z.AI blog; AA 86.8%, Vals 84.5% — three-source agreement)
 - HLE: **31%** (HF model card — corroborates the earlier 30; under the 40% bar); AA-HLE 30.1%
 - AIME26: **95.3%**; HMMT Nov 2025: **94.0%**; HMMT Feb 2026: **82.6%** (Z.AI blog — new math rows)
-- AA-LCR: **73.7%** (AA — fills the previously-missing LCR; corroborates the earlier 74% long-context reading); CritPt: **4.6%** (AA — fills)
+- AA-LCR: **73.7%** (AA — fills the previously-missing LCR; corroborates the earlier 74% long-context reading); CritPt: **4.6%** (AA — fills); MMAnswerBench: **83.8%** (Z.AI blog — added 2026-10-16)
 - Artificial Analysis Intelligence Index: **26.1** (AA — corroborates the earlier 26.4)
 - AA-Omniscience: Index 0.9, accuracy **23.7%**, hallucination rate **29.9%** (benchlm.ai — good honesty)
-- MMLU-Pro (Vals): **86.9%**; AA-IFBench: **76.3%** (corroborates); FrontierMath v2: T1–3 33.4%, T4 12.5% (Epoch — new)
+- MMLU-Pro (Vals): **86.9%**; AA-IFBench: **76.3%** (corroborates); FrontierMath v2: T1–3 **36.8%** (Epoch 2026-10-15 refresh; was 33.4% on 2026-10-09 — re-scored upward), T4 12.5% (previous reading)
 
 Coding:
 
@@ -74,6 +74,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing the Z.AI GLM-5.1 blog, HF model card, AA and Vals boards — official plus two independent harnesses; earlier draft via opper.ai's AA feed); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 71.8%, Claw-Eval 62.3%, GDPval-AA 1181, HLE w/tools 52.3%, SWE-bench (Vals) 76.4%, LCB 81.4%, AA-LCR 73.7%, CritPt 4.6%, AIME26 95.3% — Tool 86→85, Reasoning 80→78, Coding 88→84, Overall 69→66 (old draft also showed a six-dim calc).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing the Z.AI GLM-5.1 blog, HF model card, AA and Vals boards — official plus two independent harnesses; earlier draft via opper.ai's AA feed; 2026-10-16 re-check: MMAnswerBench 83.8 added, FrontierMath re-scored 33.4→36.8 — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 71.8%, Claw-Eval 62.3%, GDPval-AA 1181, HLE w/tools 52.3%, SWE-bench (Vals) 76.4%, LCB 81.4%, AA-LCR 73.7%, CritPt 4.6%, AIME26 95.3% — Tool 86→85, Reasoning 80→78, Coding 88→84, Overall 69→66 (old draft also showed a six-dim calc).
 - Future sources: add a new file next to this one, e.g. `GLM_5.2.md`, using the same headings.

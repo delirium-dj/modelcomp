@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Muse Spark 1.3
 
 - Source: OpenAI/GPT-6 Sol (`gpt-6-sol`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: TB4.0 row + permanent-price confirmation added; scores hold 81)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: TB4.0 row + permanent-price confirmation added; scores hold 81), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 81)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,3 +72,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (OpenAI launch materials via API docs/aggregators, thenewstack.io, apidog.com, kingy.ai, docsbot.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official OpenAI GPT-6 Sol/Luna launch materials via API docs/aggregators (AutomationBench 33.2% xhigh, Agents-Last-Exam 56.4% max, OSWorld-2.0 64.4% max, DeepSWE 68.8% max, FrontierCode 49.3% max, 1.05M/128K out, $2.00/$10.00 permanent), (2) Artificial Analysis page (Index 48) + CodingFleet TB4.0 roundup (TB4.0 44% Codex lane), (3) apidog/kingy/docsbot/thenewstack/ai-tldr summaries + softreviewed Coding Index cross-reference (57.0 vs 54.0 GPT-5.6-Sol, 66.4 Opus 5.5; 4.5% factual error rate xhigh). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 84 | 84 | hold — AutomationBench 33.2% (frontier-lead at fraction of cost) + OSWorld-2.0 64.4% + Agents-Last-Exam 56.4% stand; TB4.0 44% cap unchanged; no TB2.1/Tau/GDPval absolute |
+| Reasoning | 78 | 78 | hold — Index 48 + Agents-Last-Exam 56.4% + 4.5% error rate stand; zero GPQA/HLE/LCR/CritPt still (24 days post-launch, no third-party reasoning runs published) |
+| Context | 96 | 96 | hold — 1.05M/128K stands; no ≥512K retrieval evidence |
+| Multimodal | 65 | 65 | hold — text+image in + text out stands |
+| Coding | 84 | 84 | hold — DeepSWE 68.8% (~Fable 5) + FrontierCode 49.3% + Coding Index 57.0 stand; no SWE-V/LiveCode/SciCode absolute still |
+| Cost | 75 | 75 | hold — $2.00/$10.00 permanent stands |
+| Overall | 81 | 81 | hold — (84+78+96+65+84)/5 = 81.4 → 81 |
+
+Reasoning and coding remain the weakest-evidenced (vendor-only, one-day-post-launch provenance at filing, now 24 days with still no third-party runs) — flagged again; no new adverse evidence meets the bar for a downward change either. No GPQA/HLE, no SWE-V, no Tau, no MRCR absolute found — prior gaps stand. Scores hold.
+
+Sources: https://openai.com/index/introducing-gpt-6 · https://artificialanalysis.ai/models/gpt-6-sol · https://apidog.com/blog/gpt-6-sol-luna-launch

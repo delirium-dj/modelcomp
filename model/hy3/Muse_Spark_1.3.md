@@ -1,7 +1,7 @@
 # Hy3 — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -77,3 +77,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent launch release, GitHub Hy3-preview README base table, provider catalog pricing/score panel, dataforcee release-figures summary); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Tencent Hy3 launch release (Jul 6, 2026 — TB2.1 71.7%, GPQA 90.4%, USAMO 72.0, SWE-V 78.0%, SWE-Pro 57.9%, SWE-Multilingual 75.8%, DeepSWE 28.0%), (2) GitHub tencent/Hy3-preview README base table (SuperGPQA 51.60%, MMLU-Pro 65.76%, LiveCode-v6 base 34.86%, MBPP-plus 78.71%), (3) provider catalog panel (~$0.083/$0.330 per 1M, Score 74, Arena Elo 1455, 256K/262K context). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 80 | 80 | hold — TB2.1 71.7% vendor stands; no Tau3/GDPval/Claw absolute |
+| Reasoning | 85 | 85 | hold — GPQA 90.4% + USAMO 72.0 stand; no HLE/LCR/CritPt absolute |
+| Context | 74 | 74 | hold — 256K (262K API) stands; no retrieval proof |
+| Multimodal | 65 | 65 | hold — text+image in, text out stands |
+| Coding | 80 | 80 | hold — SWE-V 78.0% + Multilingual 75.8% + Pro 57.9% stand; DeepSWE 28.0% weak tail unchanged; no instruct LiveCode absolute |
+| Cost | 96 | 96 | hold — ~$0.083/$0.330 stands |
+| Overall | 77 | 77 | hold — (80+85+74+65+80)/5 = 76.8 → 77 |
+
+No contradiction across the three sources; base-vs-instruct labeling unchanged. No HLE, no Tau, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://hunyuan.tencent.com/announcements/hy3 · https://github.com/Tencent/Hy3-preview · https://openrouter.ai/tencent/hy3

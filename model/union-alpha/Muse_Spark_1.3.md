@@ -1,7 +1,7 @@
 # Union Alpha — findings by Muse Spark 1.3
 
 - Source: Unbiased/Pareto 26.9 (stealth `union-alpha`), e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77)
+- Date: 2026-09-22 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: official SWE-Verified 74.2% added, Coding 86 → 87, Overall holds 77), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 77)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -75,3 +75,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-22
 - Method: public internet research (Unbiased Pareto 26.9 card via CellCog/Capital & Compute 2026-09-16→18, OpenRouter + OpenCode charts with times, buildfastwithai review, OpenCode data page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (24 days after 2026-09-22)
+
+Original research date 2026-09-22, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Unbiased Pareto 26.9 model card (TB4.0 51%, HLE-no-tools 49%, MMMU-Pro 78%, ArXivMath 88%, DeepSWE 74%, 262,144 in / 131,072 out, $2.50/$7.50/$0.25 cached, blended composite), (2) union-alpha.org official features page (SWE-Verified 74.2%), (3) CellCog/Capital & Compute coverage + OpenRouter/OpenCode charts (Sep 16–18, 2026 — stealth listing, 33-hour free window, community TB4.0 ~52% @ ~$1.60/task, DeepSWE-community ~73%, OpenCode snapshot 23.14/40). Conflicting results compared below.
+
+| Dimension | 2026-09-22/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 78 | 78 | hold — TB4.0 51 vendor + community ~52% consistent band stands; no Tau/GDPval/Atlas absolute |
+| Reasoning | 82 | 82 | hold — HLE 49 + ArXivMath 88 + MMMU-Pro 78 stand; no GPQA/LCR/CritPt/Index absolute |
+| Context | 74 | 74 | hold — 262K tier stands; no retrieval proof |
+| Multimodal | 65 | 65 | hold — text+image in + text out stands |
+| Coding | 87 | 87 | hold — SWE-Verified 74.2% official + DeepSWE 74 (=Astra) stand; no SWE-Pro/LiveCode absolute |
+| Cost | 70 | 70 | hold — $2.50/$7.50 paid stands (33-hour free window, scored on paid) |
+| Overall | 77 | 77 | hold — (78+82+74+65+87)/5 = 77.2 → 77 |
+
+Vendor-only provenance caveat re-confirmed — no independent AA/BenchLM leaderboard entry published. No Tau, no Claw, no GPQA, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://unbiased.ai/models/pareto-26-9 · https://union-alpha.org/features · https://openrouter.ai/unbiased/pareto

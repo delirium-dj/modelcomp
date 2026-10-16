@@ -1,7 +1,7 @@
 # Hy3 Preview — findings by Muse Spark 1.3
 
 - Source: Tencent/Hy3 Preview Hunyuan (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 69)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -82,3 +82,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Tencent GitHub Hy3-preview README spec + base benchmark tables, provider catalog pricing/score panel, Tencent launch releases); base-model rows labeled where applicable; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Tencent GitHub Hy3-preview README (Apr 23, 2026 — spec + base tables: SuperGPQA 51.60%, MMLU-Pro 65.76%, MMLU 87.42%, MATH 76.28%, LiveCode-v6 base 34.86%, MBPP-plus 78.71%; qualitative-only instruct claims), (2) Tencent launch releases (Jul 6, 2026 full release supersedes preview), (3) provider catalog panel (TokenHub preview ~$0.18/$0.60, Score 68, 256K/262K). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 68 | 68 | hold — qualitative-only preview claims stand; superseded by full Hy3 release |
+| Reasoning | 72 | 72 | hold — base SuperGPQA 51.60% + MMLU-Pro 65.76% + MATH 76.28% stand; zero instruct absolutes still |
+| Context | 72 | 72 | hold — 256K stands; no retrieval proof |
+| Multimodal | 65 | 65 | hold — text+image in, text out stands |
+| Coding | 70 | 70 | hold — base LiveCode 34.86% + MBPP 78.71% stand; capped below full release SWE-V 78.0% |
+| Cost | 94 | 94 | hold — ~$0.18/$0.60 preview stands |
+| Overall | 69 | 69 | hold — (68+72+72+65+70)/5 = 69.4 → 69 |
+
+Preview-superseded status re-confirmed — prefer the full Hy3 release; file retained per permanence. No new preview-direct absolutes published. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://github.com/Tencent/Hy3-preview · https://hunyuan.tencent.com/announcements/hy3 · https://openrouter.ai/tencent/hy3-preview

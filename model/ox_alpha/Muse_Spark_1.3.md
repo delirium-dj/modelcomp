@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Muse Spark 1.3
 
 - Source: Stealth/Ox Alpha via OpenRouter (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: independent TB3.0 + LiveBench category rows added, Tool 74 → 75, Overall holds 83)
+- Date: 2026-09-21 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: independent TB3.0 + LiveBench category rows added, Tool 74 → 75, Overall holds 83), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 83)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -79,3 +79,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (oxalpha.com product/benchmarks pages, ox-alpha.org comparison page, oxalpha.io LiveBench disclosure record, ox-alpha.net methodology reference, OpenCode usage data page); label-level numbers flagged where route attribution is unproven; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) oxalpha.com product + benchmarks pages ($0 free preview, community 10-task 80% coding run, 1,048,576 in / 131,072 out), (2) ox-alpha.org vendor comparison page (Intelligence Index 59, agentic coding 78 — small-sample provenance), (3) HF era-logic TB3.0 eval record (26.58% pass@1 / 25.00% strict, Harbor harness, Aug 21–22) + oxalpha.io LiveBench disclosure (label-level-only Reasoning 76.6 / Coding 75.8 / Overall 69.2, route attribution unproven). Conflicting results compared below.
+
+| Dimension | 2026-09-21/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 75 | 75 | hold — vendor agentic 78 + Index 59 + independent TB3.0 26.58% stand; zero TB2.1/Tau/GDPval absolutes still |
+| Reasoning | 78 | 78 | hold — label-level LiveBench Reasoning 76.6 stands with route-attribution caveat; no GPQA/HLE absolute |
+| Context | 97 | 97 | hold — 1,048,576 in / 131,072 out stands; no retrieval proof |
+| Multimodal | 85 | 85 | hold — text/image/video/PDF in + text out stands |
+| Coding | 82 | 82 | hold — community 10-task 80% + label-level Coding 75.8 stand; tiny-sample + attribution caveats unchanged; no SWE/LiveCode absolute |
+| Cost | 100 | 100 | hold — $0 free preview stands |
+| Overall | 83 | 83 | hold — (75+78+97+85+82)/5 = 83.4 → 83 |
+
+Stealth-route attribution caveats re-confirmed — no new route-verified absolutes published. No TB2.1, no Tau, no GPQA/HLE, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://oxalpha.com/product · https://ox-alpha.org/vs-glm-5 · https://huggingface.co/datasets/era-logic/ox-alpha-tb3-eval

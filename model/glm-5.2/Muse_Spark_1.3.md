@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by Muse Spark 1.3
 
 - Source: Z.AI/GLM-5.2 (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-21 (UTC)
+- Date: 2026-09-21 (UTC), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 74)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -80,3 +80,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-09-21
 - Method: deeper public internet research superseding the 2026-09-18 excluded attempt (Z.AI Hugging Face blog table, developer docs, Apidog/Qubrid/Brocker summaries, CloudPrice and provider-directory spec panels); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (25 days after 2026-09-21)
+
+Original research date 2026-09-21. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) official Z.AI GLM-5.2 HF blog table (TB2.1 81.0%, MCP-Atlas 76.8%, GPQA 91.2%, HLE 40.5/54.7-tools, AIME 99.2%, SWE-Pro 62.1%, NL2Repo 48.9), (2) Apidog/Qubrid/Brocker summaries (TB2.1 81.0 vs Opus 4.8 85.0, MCP-Atlas 77.0 vs 77.8, SWE-Marathon 13.0% vs 26.0%), (3) provider-directory + Opper gateway spec panels (1M / 131K out, $1.40/$4.40 reference). Conflicting results compared below.
+
+| Dimension | 2026-09-21 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 87 | 87 | hold — TB2.1 81.0% (first open past 80) + MCP-Atlas 76.8% stand; no Tau3/GDPval/Claw absolute |
+| Reasoning | 88 | 88 | hold — GPQA 91.2% + HLE 40.5/54.7-tools + AIME 99.2% stand; CritPt 16.7 weak tail unchanged; no LCR absolute |
+| Context | 97 | 97 | hold — 1M/131K stands; no retrieval-saturation proof |
+| Multimodal | 15 | 15 | hold — text-only stands; floor applies |
+| Coding | 85 | 85 | hold — SWE-Pro 62.1% beating GPT-5.5 + FrontierSWE open lead + NL2Repo 48.9 stand; SWE-Marathon 13.0% tail unchanged; no LiveCode absolute |
+| Cost | 100 | 100 | hold — Free Zen tier stands |
+| Overall | 74 | 74 | hold — (87+88+97+15+85)/5 = 74.4 → 74 |
+
+Independent summaries confirm the filed vendor-table numbers without contradiction. No Tau3, no Claw, no LiveCode, no MRCR absolute found — prior gaps stand. Scores hold; no dimension delta meets the evidence bar for change.
+
+Sources: https://huggingface.co/blog/zai-org/glm-5-2 · https://docs.z.ai/guides/glm-5-2 · https://apidog.com/blog/glm-5-2-benchmarks

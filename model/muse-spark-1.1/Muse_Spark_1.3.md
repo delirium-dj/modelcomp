@@ -1,7 +1,7 @@
 # Muse Spark 1.1 — findings by Muse Spark 1.3
 
 - Source: Meta/Muse Spark 1.1, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: 1.1-exact tool/HLE/DeepSWE rows added, scores recomputed 80 → 85)
+- Date: 2026-09-23 (UTC), amended 2026-09-27 (UTC, user-signed-off exception: 1.1-exact tool/HLE/DeepSWE rows added, scores recomputed 80 → 85), re-verified 2026-10-16 (UTC, see Re-verification section; scores hold 85)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,3 +70,25 @@ Long context:
 - Provided by: **Muse Spark 1.3 (muse-spark-1.3-contributor-free)** — 2026-09-23
 - Method: public internet research (Meta 1.1 launch posts, llm-stats 1.1 API page, llm-stats SWE-Pro leaderboard, BenchLM 1.1/base pages, Vals base-model eval, Computerworld launch coverage, ModelBench catalog); 1.1-exact numbers used where they exist, base-generation rows explicitly marked provisional. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-16 (23 days after amended 2026-09-27)
+
+Original research date 2026-09-23, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-16: (1) Meta 1.1 launch posts (Jul 9, 2026 — vendor-claimed BrowseComp/SpreadsheetBench/OSWorld competitiveness, Meta Internal Coding Bench gains, 1M active context management, $1.25/$4.25), (2) evals.report model page (6 verified scores: SWE-Pro 61.5% official, TB2.1 80.0% verified, OSWorld 80.8% verified, HLE 52.2% verified, MRCR-v2 54.1% verified, MCP Atlas 88.1% verified), (3) BenchLM 1.1/base pages + llm-stats + Vals + finance boards (Toolathlon 75.6%, JobBench 54.7%, Cybench 92.9%, DeepSWE 53.3%, BenchLM overall 71.78/77.14 #8, FinanceAgent 57.2%, TaxEval 79.7%, base proxies GPQA 88.4/LCR 77.0/SWE-V 77.4/LiveCode Pro 80.0). Conflicting results compared below.
+
+| Dimension | 2026-09-23/27 | 2026-10-16 | Change |
+|---|---|---|---|
+| Tool use | 84 | 84 | hold — TB2.0/2.1 80.0% + MCP Atlas 88.1% + OSWorld 80.8% + Toolathlon 75.6% + Cybench 92.9% confirmed verified; OSWorld-2.0 14.2% tail unchanged; no Tau/GDPval exact |
+| Reasoning | 90 | 90 | hold — HLE filed 62.1% (BenchLM mirror) vs 52.2% verified (adverse 10-pt lane delta — mirror-vs-verified provenance, both recorded, band holds at 90 floor); MRCR-v2 54.1% verified fills retrieval gap mid-pack (consistent with 90 context cap); no 1.1-exact GPQA/LCR/CritPt still |
+| Context | 90 | 90 | hold — 1M verified; MRCR-v2 54.1% verified (no 98%+ proof, cap stands) |
+| Multimodal | 85 | 85 | hold — natively multimodal + base proxies stand; text-out cap stands |
+| Coding | 77 | 77 | hold — SWE-Pro 61.5% confirmed official; DeepSWE 53.3% stands; no Verified-exact/LiveCode-exact still |
+| Cost | 88 | 88 | hold — $1.25/$4.25 stands |
+| Overall | 85 | 85 | hold — (84+90+90+85+77)/5 = 85.2 → 85 |
+
+Conflicts resolved: HLE 62.1 (BenchLM mirror) vs 52.2 (verified) — 10-pt adverse delta is the largest this batch; mirror provenance vs verified provenance, both recorded; 52.2% still clears the 90-reasoning floor with FinanceAgent/TaxEval corroboration — headline retained with variance noted, no band change. No GPQA-exact, no Tau, no Claw, no SWE-V-exact absolute found — prior gaps stand. Scores hold.
+
+Sources: https://ai.meta.com/blog/muse-spark · https://evals.report/models/meta-muse-spark-1-1 · https://benchlm.ai/models/muse-spark-1-1
