@@ -674,10 +674,10 @@ export default component$(() => {
                     <div class="flex items-start justify-between gap-3">
                       <div class="min-w-0 flex-1">
                       <h3 class="m-0 flex items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
-                        <VendorIcon id={m.id} name={m.name} />
+                        <VendorIcon id={m.id} name={m.name} size="lg" />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
-                    <p class="mt-0 text-xs font-bold">
+                    <p class="mt-0 pl-[46px] text-xs font-bold">
                       {!m.meta.noFreeId ? (
                         <span
                           class="text-[#1c7a4d] dark:text-[#7fd6a4]"
