@@ -353,12 +353,12 @@ export default component$(() => {
             ))}
           </div>
           {cmpModels.length > 0 && (
-            <div class="mt-8 grid grid-cols-1 items-start gap-8 min-[1000px]:grid-cols-[1fr_2fr_2fr_1fr] min-[1000px]:items-center min-[1000px]:[&>:first-child]:col-start-2 min-[1000px]:[&>:last-child]:col-start-3">
+            <div class="mt-8 grid grid-cols-1 items-start gap-8 min-[1000px]:grid-cols-[1fr_3fr_2fr_1fr] min-[1000px]:items-center min-[1000px]:[&>:first-child]:col-start-2 min-[1000px]:[&>:last-child]:col-start-3">
               <div class="m-0 min-w-0 p-0" aria-label="Comparison radar chart">
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
-                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-[540px]"
+                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-[640px]"
                   aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
                 >
                 {[25, 50, 75, 100].map((ring) => (
