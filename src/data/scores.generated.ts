@@ -78,6 +78,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-fable-5": {
     "Big_Pickle.md": [50, 50, 50, 50, 50, 50, 50],
+    "Cat_Jam.md": [88, 94, 95, 80, 92, 40, 90],
     "Claude_Opus_4.6.md": [90, 89, 92, 68, 93, 30, 86],
     "Claude_Opus_5.md": [91, 90, 93, 68, 93, 25, 87.4],
     "DeepSeek_4.1_Flash.md": [92, 92, 95, 75, 94, 38, 90],
@@ -113,6 +114,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-fable-5.1": {
     "Big_Pickle.md": [89, 90, 90, 78, 93, 66, 88],
+    "Cat_Jam.md": [92, 96, 95, 80, 94, 40, 91],
     "Claude_Opus_4.6.md": [90, 90, 95, 65, 88, 30, 86],
     "Claude_Opus_4.8.md": [90, 91, 96, 70, 91, 30, 87.6],
     "Claude_Opus_5.md": [86, 90, 93, 66, 89, 26, 84.8],
@@ -390,6 +392,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-opus-4.8": {
     "Big_Pickle.md": [80, 88, 88, 86, 88, 55, 86],
+    "Cat_Jam.md": [92, 92, 95, 82, 90, 60, 90],
     "Claude_Opus_4.6.md": [85, 85, 95, 65, 83, 70, 83],
     "Claude_Opus_4.8.md": [88, 88, 94, 68, 89, 40, 85.4],
     "Claude_Opus_5.md": [87, 93, 95, 70, 92, 42, 87.4],
@@ -433,6 +436,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-opus-5": {
     "Big_Pickle.md": [92, 94, 90, 80, 93, 74, 89.8],
+    "Cat_Jam.md": [94, 92, 95, 80, 90, 60, 90],
     "Claude_Opus_4.6.md": [88, 90, 95, 65, 92, 70, 86],
     "Claude_Opus_4.8.md": [93, 93, 95, 78, 93, 55, 90.4],
     "Claude_Opus_5.5.md": [92, 80, 95, 65, 90, 51, 84.4],
@@ -489,7 +493,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Sonnet_3.5.md": [95, 98, 95, 65, 92, 55, 89],
     "Claude_Sonnet_4.5.md": [93, 94, 95, 75, 94, 56, 90.2],
     "Claude_Sonnet_5.5.md": [89, 88, 95, 65, 92, 56, 85.8],
-    "DeepSeek_4.1_Flash.md": [91, 92, 96, 80, 94, 52, 91],
+    "DeepSeek_4.1_Flash.md": [92, 92, 96, 80, 95, 52, 91],
     "DeepSeek_4_Flash.md": [96, 97, 97, 85, 97, 55, 94],
     "Fledge_Alpha.md": [86, 88, 95, 65, 86, 72, 84],
     "GLM_5.2_Coding.md": [92, 91, 92, 86, 93, 84, 91],
@@ -764,6 +768,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "claude-sonnet-5.5": {
     "Big_Pickle.md": [93, 88, 96, 70, 92, 82, 88],
+    "Cat_Jam.md": [95, 94, 95, 82, 93, 88, 92],
     "Claude_Opus_4.6.md": [89, 89, 87, 70, 90, 72, 85],
     "Claude_Opus_4.8.md": [91, 89, 95, 67, 90, 68, 86.4],
     "Claude_Opus_5.md": [93, 92, 95, 70, 92, 62, 88.4],
@@ -1450,6 +1455,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gemini-3.1-pro": {
     "Big_Pickle.md": [78, 76, 95, 90, 82, 62, 84.2],
+    "Cat_Jam.md": [88, 89, 92, 88, 90, 85, 89],
     "Claude_Fable_5.1.md": [68, 86, 96, 92, 78, 74, 84],
     "Claude_Opus_4.5.md": [80, 90, 95, 90, 84, 63, 87.8],
     "Claude_Opus_4.6.md": [82, 93, 97, 80, 85, 55, 87],
@@ -1628,6 +1634,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gemini-3.7-flash": {
     "Big_Pickle.md": [82, 84, 92, 88, 84, 76, 86],
+    "Cat_Jam.md": [82, 82, 95, 88, 84, 96, 86],
     "Claude_Opus_4.6.md": [85, 85, 97, 90, 83, 90, 88],
     "Claude_Opus_4.8.md": [78, 85, 94, 89, 85, 98, 86.2],
     "Claude_Opus_5.md": [80, 87, 97, 91, 85, 85, 88],
@@ -1678,7 +1685,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Sonnet_4.5.md": [86, 85, 95, 92, 89, 90, 89.4],
     "Claude_Sonnet_4.6.md": [85, 87, 95, 85, 83, 95, 87],
     "Claude_Sonnet_5.md": [80, 90, 96, 90, 88, 90, 88.8],
-    "DeepSeek_4.1_Flash.md": [88, 88, 95, 90, 88, 90, 90],
+    "DeepSeek_4.1_Flash.md": [87, 90, 95, 90, 89, 88, 90],
     "DeepSeek_4_Flash.md": [90, 88, 96, 92, 91, 90, 91],
     "Fledge_Alpha.md": [82, 84, 92, 95, 80, 88, 87],
     "GLM_5.2_Coding.md": [90, 87, 95, 88, 88, 92, 90],
@@ -2518,6 +2525,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.4-pro": {
     "Big_Pickle.md": [84, 86, 88, 74, 76, 30, 81.6],
+    "Cat_Jam.md": [88, 90, 90, 78, 82, 25, 86],
     "Claude_Opus_4.6.md": [87, 91, 87, 76, 82, 20, 85],
     "Claude_Opus_4.8.md": [82, 87, 93, 65, 83, 45, 82],
     "Claude_Opus_5.md": [82, 92, 92, 68, 80, 10, 82.8],
@@ -2595,6 +2603,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.5-pro": {
     "Big_Pickle.md": [86, 84, 90, 76, 86, 30, 84.4],
+    "Cat_Jam.md": [90, 90, 90, 76, 84, 25, 86],
     "Claude_Opus_4.6.md": [90, 92, 88, 82, 85, 20, 87],
     "Claude_Opus_4.8.md": [86, 90, 88, 65, 86, 40, 83],
     "Claude_Opus_5.md": [89, 91, 95, 68, 84, 14, 85.4],
@@ -2669,6 +2678,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.6-sol": {
     "Big_Pickle.md": [88, 92, 90, 84, 86, 45, 88],
+    "Cat_Jam.md": [93, 90, 92, 78, 93, 84, 89],
     "Claude_Opus_4.6.md": [90, 90, 97, 65, 92, 45, 87],
     "Claude_Opus_4.8.md": [89, 91, 96, 66, 90, 72, 86.4],
     "Claude_Opus_5.md": [88, 88, 94, 70, 88, 56, 85.6],
@@ -2711,6 +2721,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.6-terra": {
     "Big_Pickle.md": [82, 88, 87, 78, 83, 72, 84],
+    "Cat_Jam.md": [82, 84, 92, 80, 86, 92, 85],
     "Claude_Opus_4.6.md": [88, 89, 88, 55, 84, 42, 81],
     "Claude_Opus_4.8.md": [85, 86, 95, 90, 88, 65, 88.8],
     "Claude_Opus_5.md": [84, 89, 95, 70, 86, 74, 84.8],
@@ -2754,6 +2765,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-6-astra": {
     "Big_Pickle.md": [92, 96, 94, 84, 88, 42, 90.8],
+    "Cat_Jam.md": [93, 94, 94, 78, 93, 35, 90],
     "Claude_Opus_4.6.md": [96, 97, 98, 70, 88, 30, 90],
     "Claude_Opus_4.8.md": [92, 94, 99, 68, 90, 30, 88.6],
     "Claude_Opus_5.md": [91, 93, 94, 70, 90, 38, 87.6],
@@ -2844,6 +2856,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-6-sol": {
     "Big_Pickle.md": [85, 82, 98, 68, 82, 82, 83],
+    "Cat_Jam.md": [85, 86, 90, 82, 86, 90, 86],
     "Claude_Fable_5.1.md": [58, 70, 95, 65, 60, 75, 69.6],
     "Claude_Haiku_5.5.md": [72, 80, 95, 78, 84, 74, 81.8],
     "Claude_Opus_4.6.md": [75, 85, 94, 58, 80, 85, 78],
@@ -3650,6 +3663,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "kimi-k3": {
     "Big_Pickle.md": [90, 91, 91, 90, 84, 62, 89.2],
+    "Cat_Jam.md": [91, 88, 95, 88, 88, 80, 90],
     "Claude_Opus_4.6.md": [90, 85, 95, 80, 85, 60, 87],
     "Claude_Opus_4.8.md": [86, 86, 97, 85, 89, 60, 88.6],
     "Claude_Opus_5.md": [89, 88, 95, 85, 92, 68, 89.8],
@@ -4338,6 +4352,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "mimo-v2.6-pro": {
     "Big_Pickle.md": [87, 84, 95, 93, 88, 88, 89.4],
+    "Cat_Jam.md": [88, 84, 94, 87, 86, 96, 88],
     "Claude_Opus_4.6.md": [78, 82, 85, 75, 86, 62, 81],
     "Claude_Opus_4.8.md": [86, 82, 96, 90, 84, 94, 87.6],
     "Claude_Opus_5.md": [89, 80, 95, 90, 86, 93, 88],
@@ -4612,6 +4627,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "muse-spark-1.2": {
     "Big_Pickle.md": [88, 86, 100, 85, 87, 100, 89.2],
+    "Cat_Jam.md": [88, 85, 92, 88, 85, 98, 88],
     "Claude_Opus_4.6.md": [87, 90, 97, 65, 80, 100, 84],
     "Claude_Opus_4.8.md": [80, 82, 94, 88, 84, 100, 85.6],
     "Claude_Opus_5.md": [88, 84, 95, 88, 82, 84, 87.4],
@@ -4663,7 +4679,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Sonnet_4.5.md": [90, 88, 100, 85, 92, 98, 91],
     "Claude_Sonnet_4.6.md": [92, 94, 100, 80, 93, 100, 92],
     "Claude_Sonnet_5.md": [82, 92, 100, 82, 78, 98, 86.8],
-    "DeepSeek_4.1_Flash.md": [92, 91, 96, 83, 93, 98, 91],
+    "DeepSeek_4.1_Flash.md": [92, 91, 97, 83, 93, 98, 91],
     "DeepSeek_4_Flash.md": [95, 92, 100, 90, 93, 100, 94],
     "Fledge_Alpha.md": [82, 85, 95, 82, 78, 82, 84],
     "GLM_5.2_Coding.md": [90, 92, 100, 85, 90, 100, 91.4],

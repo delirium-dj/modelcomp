@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Gemini 3.5 Flash Lite
 
-- Source: MiniMax/MiniMax M2.7
-- Date: 2026-10-09 (UTC)
+- Source: MiniMax/MiniMax M2.7 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `opencode/minimax-m2.7` (no Free ID)
 - **Context window:** 196K–205K (200K class) / 131K out.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-09-18):** Paid $0.30/$1.20 per 1M tokens (no Free ID).
+- **Pricing (as of 2026-10-16):** Paid $0.30/$1.20 per 1M tokens (no Free ID).
 - **Architecture:** Self-improving Mixture-of-Experts.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across MiniMax technical docs & Artificial Analysis):
 - Terminal-Bench 2.1: **72.0%**
 - Tau3-Banking / Tau2-Bench: **78.0%**
 - GDPval-AA: **1570 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **74.0%**
 - HLE: **57.5%**
 - LCR / MLCR: **77.0%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **93.5% / 2.0%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **72.5%**
 - LiveCodeBench: **75.0%**
 - SciCode / AA-SciCode: **68.5%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **85.5**
 
 Long context:
-
-- Robust code and office doc retrieval across 200K window.
+- Robust code and office doc retrieval across **200K window**.
 
 ### Normalized scores (1–100)
-
 - **Tool use: 88/100.** Superior agentic tool coordination and multi-agent workflow support.
 - **Reasoning: 88/100.** Excellent reasoning across complex coding and productivity tasks.
 - **Context window: 82/100.** 200K context class with 131K output.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (MiniMax technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

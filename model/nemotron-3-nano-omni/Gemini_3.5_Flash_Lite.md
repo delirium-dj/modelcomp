@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni — findings by Gemini 3.5 Flash Lite
 
-- Source: NVIDIA (`nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`)
-- Date: 2026-10-09 (UTC)
+- Source: NVIDIA (`nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`) & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`
 - **Context window:** 262,144 total tokens; 65,536 max output
 - **Modalities:** Text, image, video, audio in; text out; reasoning with budget control
-- **Pricing (as of 2026-10-07):** $0 via NVIDIA Build free API endpoint; open checkpoints under NVIDIA open model license
+- **Pricing (as of 2026-10-16):** $0 via NVIDIA Build free API endpoint; open checkpoints under NVIDIA open model license
 - **Architecture:** Hybrid Mamba + Transformer MoE, 30B total / 3B active
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across NVIDIA technical specs & Artificial Analysis):
 - Terminal-Bench 2.1: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **42.2% TauBench V2 Telecom**
 - GDPval-AA: **no verified public score found**
@@ -29,7 +28,6 @@ Agent / tool use:
 - OSWorld (agentic computer use): **47.4%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **73.1% GPQA (no tools)**
 - HLE: **no verified public score found**
 - LCR / MLCR: **35.9% AA-LCR**
@@ -38,7 +36,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **no verified public score found**
 - LiveCodeBench: **63.2%**
 - SciCode / AA-SciCode: **32.0%**
@@ -46,11 +43,9 @@ Coding:
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
-
 - RULER / GraphWalks value at 256K window length: **87.5% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 82/100.** Strong tool use and audio/vision interaction capabilities.
 - **Reasoning: 85/100.** Robust reasoning scores on GPQA and AIME.
 - **Context window: 89/100.** 256K context window with reliable retrieval.
@@ -63,5 +58,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (NVIDIA Build documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

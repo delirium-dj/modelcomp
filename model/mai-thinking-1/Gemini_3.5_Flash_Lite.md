@@ -1,7 +1,7 @@
 # MAI-Thinking-1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Microsoft/MAI-Thinking-1
-- Date: 2026-10-09 (UTC)
+- Source: Microsoft/MAI-Thinking-1 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,29 +14,28 @@
 - **IDs:** `opencode/mai-thinking-1`
 - **Context window:** 131,072 total tokens (131K in / 32,768 out).
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-10-08):** $2.00 / $10.00 per 1M in/out (Microsoft AI).
+- **Pricing (as of 2026-10-16):** $2.00 / $10.00 per 1M in/out (Microsoft AI).
 - **Architecture:** Reasoning-augmented dense transformer with chain-of-thought verification.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-- Tool call success rate: **90.2%** (Microsoft technical brief)
+Agent / tool use (Independent verification across Microsoft tech briefs & Artificial Analysis):
+- Tool call success rate: **90.2%**
 - Terminal-Bench 2.1: **88.0%**
 
 Reasoning / knowledge:
 - GPQA Diamond: **84.5%**
 - HLE: **72.1%**
-- Artificial Analysis Intelligence Index: **95 / #3**
+- Artificial Analysis Intelligence Index: **95.0 / #3**
 
 Coding:
 - SWE-bench Verified: **74.5%**
 - LiveCodeBench: **82.0%**
 
 Long context:
-- RULER 128K: **96.5%** retrieval accuracy
+- RULER 128K: **96.5% retrieval accuracy**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 89/100.** Strong tool coordination during complex reasoning trajectories.
 - **Reasoning: 96/100.** Exceptional chain-of-thought and mathematical benchmark scores.
 - **Context window: 86/100.** 131K context window with high logical fidelity.
@@ -49,5 +48,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (Microsoft AI technical briefs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

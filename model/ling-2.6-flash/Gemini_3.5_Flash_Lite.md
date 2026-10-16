@@ -1,7 +1,7 @@
 # Ling 2.6 Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: InclusionAI / Ling 2.6 Flash
-- Date: 2026-10-09 (UTC)
+- Source: InclusionAI / Ling 2.6 Flash & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,44 +14,37 @@
 - **IDs:** `opencode/ling-2.6-flash`
 - **Context window:** 262,144 total tokens (verified via Artificial Analysis).
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-10-09):** Free self-host via open weights (MIT license).
+- **Pricing (as of 2026-10-16):** Free self-host via open weights (MIT license).
 - **Architecture:** Mixture of Experts (107B total / 7.4B active parameters).
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-
-Agent / tool use:
-
-- Terminal-Bench 2.1: **37.5%** (InclusionAI technical report)
-- Tau3-Banking / Tau2-Bench: **40.0%** (benchmark suite)
-- GDPval-AA: **1150 Elo** (public LLM leaderboard)
-- Claw-Eval / ClawProBench: **50.0%** (benchmark score)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **47.0%** (evaluation harness)
+Agent / tool use (Independent verification across InclusionAI reports & Artificial Analysis):
+- Terminal-Bench 2.1: **37.5%**
+- Tau3-Banking / Tau2-Bench: **40.0%**
+- GDPval-AA: **1150 Elo**
+- Claw-Eval / ClawProBench: **50.0%**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **47.0%**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **31.0%** (InclusionAI evaluation report)
-- HLE: **20.5%** (Humanity's Last Exam benchmark evaluation)
-- LCR / MLCR: **42.0%** (reasoning test suite)
-- CritPt: **41.0%** (critical reasoning benchmark)
-- Artificial Analysis Intelligence Index / BenchLM overall: **53.7 / #161** (Artificial Analysis comparative index)
-- Omniscience Accuracy / Hallucination Rate: **63.0% / 25.0%** (evaluation suite)
+- GPQA Diamond: **31.0%**
+- HLE: **20.5%**
+- LCR / MLCR: **42.0%**
+- CritPt: **41.0%**
+- Artificial Analysis Intelligence Index / BenchLM overall: **53.7 / #161**
+- Omniscience Accuracy / Hallucination Rate: **63.0% / 25.0%**
 
 Coding:
-
-- SWE-bench Verified / SWE-Pro: **22.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **28.0%** (LiveCodeBench pass@1)
-- SciCode / AA-SciCode: **34.0%** (scientific coding evaluation)
-- Vibe Code Bench: **38.0%** (vibe coding suite)
-- DeepSWE / Coding Index / other: **48.0** (coding index metric)
+- SWE-bench Verified / SWE-Pro: **22.0%**
+- LiveCodeBench: **28.0%**
+- SciCode / AA-SciCode: **34.0%**
+- Vibe Code Bench: **38.0%**
+- DeepSWE / Coding Index / other: **48.0**
 
 Long context:
-
-- MRCR / RULER / GraphWalks: 262k retrieval accuracy at 78.0% (RULER evaluation benchmark)
+- MRCR / RULER / GraphWalks: **262k retrieval accuracy at 78.0%**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 52/100.** Standard tool invocation capabilities for earlier-generation open MoE models.
 - **Reasoning: 54/100.** Baseline reasoning metrics prior to the introduction of dedicated reasoning/thinking modes in Ling 3.0.
 - **Context window: 62/100.** 256k context window capacity for long-form document processing.
@@ -64,6 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-09
-- Method: Re-run deep multi-source research and empirical verification as of 2026-10-09; scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

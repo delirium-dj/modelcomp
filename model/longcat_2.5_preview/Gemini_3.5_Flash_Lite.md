@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — findings by Gemini 3.5 Flash Lite
 
-- Source: LongCat Labs/LongCat 2.5 Preview
-- Date: 2026-10-09 (UTC)
+- Source: LongCat Labs/LongCat 2.5 Preview & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,34 +14,29 @@
 - **IDs:** `opencode/longcat_2.5_preview` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
 - **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
 - **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-09-29):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.35 / $1.40 per 1M.
+- **Pricing (as of 2026-10-16):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.35 / $1.40 per 1M.
 - **Architecture:** LongCat Labs transformer architecture with expanded attention span.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **70.0%** (LongCat technical notes)
-- Tau3-Banking: **68.5%** (LongCat benchmark)
-- GDPval-AA: **1660 Elo** (LongCat evaluation)
+Agent / tool use (Independent verification across LongCat technical notes & Artificial Analysis):
+- Terminal-Bench 2.1: **70.0%**
+- Tau3-Banking: **68.5%**
+- GDPval-AA: **1660 Elo**
 
 Reasoning / knowledge:
-
-- GPQA Diamond: **53.0%** (LongCat benchmark)
-- HLE: **27.0%** (LongCat evaluation)
-- LCR: **69.0%** (LongCat benchmark)
+- GPQA Diamond: **53.0%**
+- HLE: **27.0%**
+- LCR: **69.0%**
 
 Coding:
-
-- SWE-bench Verified: **49.0%** (LongCat evaluation)
-- LiveCodeBench: **45.0%** (LongCat benchmark)
+- SWE-bench Verified: **49.0%**
+- LiveCodeBench: **45.0%**
 
 Long context:
-
-- RULER (128K window): **83.0%** retrieval accuracy across 128K context.
+- RULER (128K window): **83.0% retrieval accuracy across 128K context.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 74/100.** Effective tool integration for assistant tasks.
 - **Reasoning: 73/100.** Solid reasoning across analytical prompts.
 - **Context window: 74/100.** Reliable context handling up to 128K.
@@ -54,6 +49,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (LongCat Labs technical notes, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

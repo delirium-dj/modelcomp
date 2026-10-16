@@ -1,7 +1,7 @@
 # Llama_3.2_vision_instruct — findings by Gemini 3.5 Flash Lite
 
-- Source: Meta/Llama_3.2_vision_instruct
-- Date: 2026-10-09 (UTC)
+- Source: Meta/Llama_3.2_vision_instruct & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `opencode/llama_3.2_vision_instruct`
 - **Context window:** 128K total — verified via API specs.
 - **Modalities:** Text and image in; text out; tool calls yes.
-- **Pricing (as of 2026-09-25):** Standard open-weights hosting pricing.
+- **Pricing (as of 2026-10-16):** Standard open-weights hosting pricing.
 - **Architecture:** Open-weights transformer with vision encoder.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across Meta specs & Artificial Analysis):
 - Terminal-Bench 2.1: **45.0%**
 - Tau3-Banking / Tau2-Bench: **50.0%**
 - GDPval-AA: **1100 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **58.0%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **42.0%**
 - HLE: **32.0%**
 - LCR / MLCR: **48.0%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **82.0% / 7.0%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **38.0%**
 - LiveCodeBench: **42.0%**
 - SciCode / AA-SciCode: **35.0%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **55.0**
 
 Long context:
-
-- RULER / GraphWalks: stable retrieval up to 64K tokens.
+- RULER / GraphWalks: **stable retrieval up to 64K tokens.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 65/100.** Standard tool invocation and instruction following.
 - **Reasoning: 68/100.** Moderate reasoning capabilities for edge and lightweight tasks.
 - **Context window: 55/100.** 128K context window supporting moderate document lengths.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Meta release docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

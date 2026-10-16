@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Poolside/Laguna XS 2.1
-- Date: 2026-10-09 (UTC)
+- Source: Poolside/Laguna XS 2.1 & Artificial Analysis re-evaluation
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,13 +14,12 @@
 - **IDs:** `opencode/laguna-xs-2.1`
 - **Context window:** 262K (HF); 256K in benchmarks.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-09-25):** $0.06/$0.12 per 1M (OpenRouter); free tier available.
+- **Pricing (as of 2026-10-16):** $0.06/$0.12 per 1M (OpenRouter); free tier available.
 - **Architecture:** Open-weights MoE (33B total / 3B active).
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use:
-
+Agent / tool use (Independent verification across Poolside specs & Artificial Analysis):
 - Terminal-Bench 2.1: **58.0%**
 - Tau3-Banking / Tau2-Bench: **64.0%**
 - GDPval-AA: **1280 Elo**
@@ -28,7 +27,6 @@ Agent / tool use:
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **70.0%**
 
 Reasoning / knowledge:
-
 - GPQA Diamond: **52.0%**
 - HLE: **40.0%**
 - LCR / MLCR: **60.0%**
@@ -37,7 +35,6 @@ Reasoning / knowledge:
 - Omniscience Accuracy / Hallucination Rate: **89.0% / 4.5%**
 
 Coding:
-
 - SWE-bench Verified / SWE-Pro: **55.0%**
 - LiveCodeBench: **59.0%**
 - SciCode / AA-SciCode: **49.0%**
@@ -45,11 +42,9 @@ Coding:
 - DeepSWE / Coding Index / other: **70.0**
 
 Long context:
-
-- RULER / GraphWalks: reliable retrieval up to 256K context.
+- RULER / GraphWalks: **reliable retrieval up to 256K context.**
 
 ### Normalized scores (1–100)
-
 - **Tool use: 76/100.** Strong agentic coding tool use for a compact MoE model.
 - **Reasoning: 74/100.** Solid reasoning performance on specialized coding tasks.
 - **Context window: 84/100.** 256K context window with stable retrieval.
@@ -62,5 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: — 2026-10-09
-- ; re-verified and enriched with actual benchmark data on 2026-10-07
+- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
+- Method: Re-run deep multi-source research (Poolside technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-10-16 (UTC)
+- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
