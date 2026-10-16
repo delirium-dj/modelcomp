@@ -1,7 +1,7 @@
 # GPT 5.4 Mini — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.4-mini`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,13 +25,14 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **54.7%** (Vals — fills the previously-missing TB row; AA 59.2%); TB Hard (AA): **52.3%** #19; TB4.0 (AA): **2.0%** / Vals 2.5% (very weak)
 - Tau2-Bench Telecom (AA): **83.3%**; MCP Atlas (Scale AI SEAL): **56.7%** #30 (fills)
+- Added 2026-10-16 (OpenAI mini/nano launch tables via BenchLM): OSWorld-Verified **72.1%**; τ²-Bench **93.4%**; Toolathlon **42.9%**; MCP Atlas official **57.7%** (consistent with Scale's 56.7%); GDPval-AA **Elo 1095**; TB2.0 official **60%**; AA Agentic Index **19.6%**
 - GDPval-AA v2.1: **25.8%** (AA); APEX-Agents (AA): **28.2%** #14; ITBench SRE (AA): 35.2%; Harvey (Vals): **0.0%**; Finance Agent v2 (Vals): 45.4%
 - Artificial Analysis Intelligence Index v4.3.2: **24.1** (AA — corroborates the earlier 24; BenchLeader Index **54.9 ±5.0**, #223 of 760, xhigh best — Instruction following 72, Composite 41)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **86.9%** #71 (Epoch, xhigh — fills the previously-missing GPQA; AA 87.5%, Vals 83.1%)
-- HLE: **28.1%** #156 (AA — fills; under the 40% bar)
+- HLE: **28.1%** #156 (AA — fills; under the 40% bar); OpenAI official **41.5%** with tools / **28.2%** without (added 2026-10-16 — with-tools clears the 40% bar); GPQA official **88%** (consistent with Epoch 86.9%)
 - ARC-AGI-2 (verified): **18.9%** #127 (ARC Prize — fills; weak); ARC-AGI-1: 63.7% #136; CritPt: **10.0%** #111
 - FrontierMath Tiers 1–3: **51.2%** #46 (Epoch v2 — fills); Tier 4: 9.8%; OTIS Mock AIME: 88.9%; AIME (Vals): **95.6%** #8; ProofBench: 21.0%
 - AA-LCR: **77.0%** #130 (AA — fills the previously-missing LCR); LMCA: 40.8%; DTBench: 80.0%
@@ -57,18 +58,18 @@ Multimodal / vision:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** Now measured: TB2.1 54.7% (Vals), TB Hard 52.3% (#19), Tau2 83.3%, MCP Atlas 56.7% (#30) clear the low-mid band; TB4.0 2.0%, Harvey 0.0% and GDPval-AA 25.8% cap it.
-- **Reasoning: 62/100.** GPQA 86.9% (filled — under the 90% reference), AIME (Vals) 95.6% and FrontierMath 51.2% are respectable; HLE 28.1%, ARC-AGI-2 18.9%, AA Index 24.1 and the severe 9.8% non-hallucination rate cap it.
+- **Tool use: 61/100.** CHANGED from 58 — TB2.1 54.7% (Vals), TB Hard 52.3% (#19), the newly surfaced OSWorld 72.1%, τ² 93.4% and MCP Atlas 57.7% lift the band; TB4.0 2.0%, Harvey 0.0%, AA Agentic Index 19.6% and GDPval Elo 1095 cap it.
+- **Reasoning: 64/100.** CHANGED from 62 — GPQA 86.9–88% (three sources), AIME (Vals) 95.6%, FrontierMath 51.2% and the newly measured official HLE 41.5% with tools clear the 40% bar; ARC-AGI-2 18.9%, AA Index 24.1 and the severe 9.8% non-hallucination rate cap it.
 - **Context window: 76/100.** 400K tokens — near the top of the 200K–500K tier (65–84); measured AA-LCR 77.0% is solid for the tier.
 - **Multimodal: 72/100.** Text + image input, text output only, with measured MMMU-Pro (Vals) 79.3% and SAGE 50.8% — above the 60–70 image-in band on measured vision.
 - **Coding: 72/100.** Now with filled rows: SWE-bench (Vals) 73.0%, LCB 81.5%, SciCode 49.9% (below the 55%+ mark); Vibe 48.0%, ProgramBench 0.0% and missing SWE-V cap it.
 - **Cost efficiency: 90/100.** $0.75/$4.50 per 1M tokens (a $0.375/$2.25 route also seen) — cheaper input than the ~$1.25/$4.25 = ~88 reference, plus a $0.447/task AA cost that Pareto-leads the price band.
-- **Overall Score: 68/100.** Mean of the five quality dims (58 + 62 + 76 + 72 + 72) / 5 = 68.0. Best fit: high-volume, latency-sensitive workloads at a very low price — not for deep coding or agentic quality; step up to GPT-5.4/5.6-class.
+- **Overall Score: 69/100.** CHANGED from 68 — mean of the five quality dims (61 + 64 + 76 + 72 + 72) / 5 = 345/5 = 69.0. Best fit: high-volume, latency-sensitive workloads at a very low price — not for deep coding or agentic quality; step up to GPT-5.4/5.6-class.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals boards, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.9% #71, HLE 28.1%, ARC-AGI-2 18.9%, SWE-bench (Vals) 73.0%, LCB 81.5%, SciCode 49.9%, TB2.1 54.7%, MCP Atlas 56.7%, MMMU-Pro 79.3%, AA-LCR 77.0%, FrontierMath 51.2% — Tool 46→58, Reasoning 55→62, Context 75→76, Multimodal 65→72, Coding 52→72, Overall 59→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals boards, OpenCode Zen docs cross-checked; re-researched 2026-10-16: OSWorld 72.1%, τ² 93.4%, HLE w/tools 41.5% added — Tool 58→61, Reasoning 62→64, Overall 68→69); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.9% #71, HLE 28.1%, ARC-AGI-2 18.9%, SWE-bench (Vals) 73.0%, LCB 81.5%, SciCode 49.9%, TB2.1 54.7%, MCP Atlas 56.7%, MMMU-Pro 79.3%, AA-LCR 77.0%, FrontierMath 51.2% — Tool 46→58, Reasoning 55→62, Context 75→76, Multimodal 65→72, Coding 52→72, Overall 59→68.
 - Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.

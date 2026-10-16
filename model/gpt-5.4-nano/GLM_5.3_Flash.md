@@ -1,7 +1,7 @@
 # GPT 5.4 Nano — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.4-nano`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,12 +26,13 @@ Agent / tool use:
 - Terminal-Bench 2.1: **60.7%** (AA — fills the previously-missing TB row); TB2.1 (Vals): **41.6%**; Terminal-Bench Hard (AA): **42.4%** #46; Terminal-Bench 4.0 (AA): **0.5%** (very weak)
 - Tau2-Bench Telecom (AA): **76.0%**; GDPval-AA v2.1: **22.5%** (AA); APEX-Agents (AA): **24.9%** #18; ITBench SRE (AA): 24.4%
 - Harvey's Legal Agent (Vals): **0.0%**; Finance Agent v2 (Vals): 38.2%; Legal Research (Vals): 6.3%
+- Added 2026-10-16 (OpenAI mini/nano launch tables via BenchLM): τ²-Bench **92.5%**; TB2.0 official **46.3%**; OSWorld-Verified **39%**; MCP Atlas official **56.1%**; Toolathlon **35.5%**; GDPval-AA **Elo 1035**; AA Agentic Index **17.7%**
 - Artificial Analysis Intelligence Index v4.3.2: **20.7** (AA — corroborates the earlier 21; BenchLeader Index **53.5 ±6.7**, #266 of 759, xhigh best — Instruction following 74, Agents & tools 61, Composite 44)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **78.5%** #130 (Epoch, high — fills the previously-missing GPQA; AA 81.7%, Vals 77.5%)
-- HLE: **28.3%** #154 (AA — fills the previously-missing HLE; under the 40% bar)
+- HLE: **28.3%** #154 (AA — fills the previously-missing HLE; under the 40% bar); OpenAI official **37.7%** with tools / **24.3%** without (added 2026-10-16); GPQA official **82.8%** (consistent with Epoch 78.5/AA 81.7)
 - ARC-AGI-2 (verified): **5.7%** #153 (ARC Prize — fills; very weak); ARC-AGI-1: 51.5% #156; CritPt: **9.3%** #117
 - FrontierMath Tiers 1–3: **44.9%** #52 (Epoch v2 — fills); Tier 4: 12.2%; OTIS Mock AIME: 87.8%; AIME (Vals): **88.8%** #28; LiveBench Math: **91.0%** #32; ProofBench: 5.0%
 - AA-LCR: **76.7%** #132 (AA — fills the previously-missing LCR); LMCA: 36.9%; DTBench: 80.3%
@@ -69,6 +70,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-10 citing Epoch/AA/Vals boards, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 78.5–81.7%, HLE 28.3%, SWE-bench (Vals) 69.8%, LCB 84.0%, TB2.1 60.7%/41.6%, SciCode 46.9%, MMMU-Pro 73.6%, AA-LCR 76.7%, FrontierMath 44.9% — Tool 45→58, Reasoning 55→64, Context 75→76, Multimodal 65→72, Coding 50→72, Cost 95→96, Overall 58→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-10 citing Epoch/AA/Vals boards, OpenCode Zen docs cross-checked; 2026-10-16 re-check: official τ² 92.5%, OSWorld 39%, HLE 37.7% added — mixed evidence, no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 78.5–81.7%, HLE 28.3%, SWE-bench (Vals) 69.8%, LCB 84.0%, TB2.1 60.7%/41.6%, SciCode 46.9%, MMMU-Pro 73.6%, AA-LCR 76.7%, FrontierMath 44.9% — Tool 45→58, Reasoning 55→64, Context 75→76, Multimodal 65→72, Coding 50→72, Cost 95→96, Overall 58→68.
 - Future sources: add a new file next to this one, e.g. `GPT_5.6_Luna.md`, using the same headings.

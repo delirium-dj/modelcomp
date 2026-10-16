@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by GLM 5.3
 
 - Source: MiniMax (`minimax-m2.7`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,8 +21,8 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.0: **57.0%** (BenchLM + MiniMax model page); Terminal-Bench 2.1 (Vals): **48.7%** (BenchLM)
-- Tau2-Bench: **84.8%** (BenchLM); Tau3: **no verified public score found**
+- Terminal-Bench 2.0: **57.0%** (official MiniMax launch post + model page); Terminal-Bench 2.1 (Vals): **48.7%** (BenchLM)
+- Tau2-Bench: **84.8%** (BenchLM); Tau3: **67.6%** (GLM-5.1 model card comparison table via BenchLM — new row this pass)
 - GDPval-AA: **1087 Elo** (BenchLM; normalized field 24.9%) / **1495 Elo** (MiniMax model page — vendor-run, claimed highest among open-source models)
 - Toolathlon: **46.3%** (BenchLM + vendor page)
 - MM-ClawBench: **62.7%** (BenchLM + vendor page — approaching Sonnet 4.6 per vendor)
@@ -34,7 +34,8 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **87.0%** (BenchLM; AA-GPQA 87.4%, Vals 86.6%)
-- HLE: **AA-HLE 29.6%** (BenchLM — below the 40% frontier line; no plain-HLE row)
+- HLE: **AA-HLE 29.6%** (BenchLM); plain HLE **28%** (GLM-5.1 card table via BenchLM — new row this pass; below the 40% frontier line)
+- AIME26: **89.8%**, HMMT Nov-2025 **81.0%**, HMMT Feb-2026 **72.7%** (GLM-5.1 card table via BenchLM — new rows this pass)
 - LCR / MLCR: AA-LCR **78.3%** (BenchLM); MLCR no verified public score found
 - CritPt: **0.6%** (BenchLM)
 - Artificial Analysis Intelligence Index: **22.8** (BenchLM)
@@ -43,7 +44,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified (Arcee harness): **75.4%** (BenchLM)
+- SWE-bench Verified (Arcee harness): **75.4%** (BenchLM); SWE-bench (Vals): **73.8%** (Vals leaderboard via BenchLM — new row this pass)
 - SWE-bench Pro: **56.2%** (BenchLM + vendor page — "nearly matching Opus's best level" per vendor)
 - SWE Multilingual: **76.5%** (BenchLM); Multi-SWE Bench **52.7%**, SWE-Rebench **51.9%** (BenchLM)
 - LiveCodeBench (Vals): **79.9%** (BenchLM)
@@ -70,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (BenchLM, MiniMax model page, OpenCode Zen pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-09-25)
+- Method: public internet research (BenchLM with 46 covered rows, official MiniMax M2.7 model page + launch post, GLM-5.1 comparison-table lineage rows, DuckDuckGo search). Re-research added τ³ 67.6%, plain HLE 28%, AIME26 89.8%, HMMT 81.0/72.7% and Vals SWE-bench 73.8% — all inside the previously scored bands; no score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

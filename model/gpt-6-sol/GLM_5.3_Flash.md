@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-6-sol`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,7 @@ Agent / tool use:
 - Harvey's Legal Agent Benchmark: **1.7%** (Vals, #41 — outlier weakness); Legal Research: 28.9% (#41); Tax Agent: 53.0%; MedScribe: 82.0%; MedCode: 47.1%; SAGE: 44.8%
 - FACTS Search (Kaggle/Google): **86.2%** #4; GDP.pdf (AA): 25.2%; Harvey LAB (AA): 3.6%
 - Claw-Eval / MCP-Atlas: no verified public score found
+- Added 2026-10-16 (OpenAI GPT-6 Sol/Luna launch + Astra system card via BenchLM): Agents' Last Exam **56.4%**; OSWorld 2.0 **60.5%**; AutomationBench official **33.2%** — CONFLICT with AA's 61.6% (version/harness difference, both cited); ExploitGym **22.1%**; CWE-bench v1 **52.0%**; Hermes Bench **73.5%** / Hermes Index **44.1%**; MazeBench ASCII **7%**; HealthBench Professional **60.8%** (length-adjusted); Gray Swan IPI **10.1%**; ARC-AGI-3 **4.6%** (Max verified) — CONFLICT with the earlier 23.0% #15 reading (different run/effort, both cited)
 
 Reasoning / knowledge:
 
@@ -63,18 +64,18 @@ Multimodal / vision:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Terminal-Bench 2.1 83.2% (#6/73) and the filled GDPval-AA 50.4% #45 with CyberBench 78.0% #1 and AutomationBench 61.6% hold the upper band; weak TB4.0 (43.9%/44.4%), TB Science 30.0% and the near-zero 1.7% Harvey LAB cap it under 90.
+- **Tool use: 87/100.** CHANGED from 85 — Terminal-Bench 2.1 83.2% (#6/73), the newly surfaced Agents' Last Exam 56.4% and OSWorld 2.0 60.5% (vs GPT-5.5's 13.0%), CyberBench 78.0% #1 and ALE-Bench 2462 #2 hold the upper band; weak TB4.0 (43.9%/44.4%), TB Science 30.0% and the near-zero 1.7% Harvey LAB cap it under 90.
 - **Reasoning: 90/100.** Now fully verified instead of composite-only: GPQA 94.3% (#8), HLE 47.9%, ARC-AGI-2 89.6% (#16), FrontierMath T1–3 89.8% (#5) / Tier 4 90.0% (#8), OTIS Mock AIME 100% (#1), CritPt 30.9% (#11) — clear frontier-band placement (GPQA 90%+, HLE 40%+).
 - **Context window: 95/100.** 1.05M tokens (≥1M tier, 95–100) with 128K output; the filled AA-LCR 83.7% (#15) and LMCA 59.1% are strong but below the ≥98% bar; the >272K surcharge keeps it off the maximum.
 - **Multimodal: 80/100.** Text + image input only, text output — but the measured MMMU-Pro 83.0% (#28) lifts it above the 60–70 image-in band into the 75–90 range's lower half.
 - **Coding: 86/100.** ALE-Bench 2462 (#2), LMArena WebDev 1688 (#8), Vibe Code Bench 87.8%, SciCode 57.6% (#23) and DeepSWE 68.8% are strong; FrontierCode 49.3% trails Opus 5/Fable 5.1 and missing SWE-bench Verified prevents 90+.
 - **Cost efficiency: 85/100.** $2/$10 per 1M list (a $1/$5 route also visible) with a 90% cache discount ($0.20 cached) sits between the ~$1.25/$4.25 = ~88 and $3/$15 = ~60 references; large per-task advantages (11.1x cheaper than Opus 5 on AutomationBench) support the upper end of that band.
-- **Overall Score: 87/100.** Mean of the five quality dims (85 + 90 + 95 + 80 + 86) / 5 = 87.2 → 87. Best-fit: default model for agent pipelines and business automation where score-per-dollar matters more than peak coding/computer-use performance — now with verified frontier reasoning.
+- **Overall Score: 88/100.** CHANGED from 87 — mean of the five quality dims (87 + 90 + 95 + 80 + 86) / 5 = 438/5 = 87.6 → 88. Best-fit: default model for agent pipelines and business automation where score-per-dollar matters more than peak coding/computer-use performance — now with verified frontier reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, vals.ai, Artificial Analysis, OpenAI launch-chart analysis cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GPQA 94.3% #8, HLE 47.9%, ARC-AGI-2 89.6% #16, FrontierMath 89.8%/90.0%, OTIS 100% #1, CritPt 30.9% #11, GDPval-AA 50.4%, MMMU-Pro 83.0%, SciCode 57.6% #23, AA-LCR 83.7% #15, CyberBench 78% #1 — Reasoning 80→90, Multimodal 65→80, Coding 85→86, Overall 82→87.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, vals.ai, Artificial Analysis, OpenAI launch-chart analysis cross-checked; re-researched 2026-10-16: Agents Last Exam 56.4%, OSWorld-2.0 60.5%, AutomationBench 33.2-vs-61.6 and ARC-AGI-3 4.6-vs-23.0 conflicts cited — Tool 85→87, Overall 87→88); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GPQA 94.3% #8, HLE 47.9%, ARC-AGI-2 89.6% #16, FrontierMath 89.8%/90.0%, OTIS 100% #1, CritPt 30.9% #11, GDPval-AA 50.4%, MMMU-Pro 83.0%, SciCode 57.6% #23, AA-LCR 83.7% #15, CyberBench 78% #1 — Reasoning 80→90, Multimodal 65→80, Coding 85→86, Overall 82→87.
 - Future sources: add a new file next to this one, e.g. `GPT_6.1.md`, using the same headings.

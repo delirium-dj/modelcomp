@@ -1,7 +1,7 @@
 # Omen Alpha — findings by GLM 5.3
 
 - Source: undisclosed stealth vendor (`omen-alpha` on OpenCode Go; community evidence points to a Zhipu/GLM-family backend — unconfirmed)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,8 +14,8 @@
 - **IDs:** `omen-alpha` (OpenCode Go). Not on OpenRouter or OpenCode Zen pay-as-you-go lists.
 - **Context window:** 500,000 tokens; 128,000 maximum output (Pi model registry metadata).
 - **Modalities:** text and image input; text output; reasoning model with low and high thinking levels.
-- **Pricing (as of 2026-09-25):** included in OpenCode Go ($10/month, ~$100 usage quota; OpenCode estimates ~11,600 requests per 5 hours, 29,000/week, 57,900/month); equivalent listed token pricing $0.20 in / $0.66 out / $0.04 cached read per 1M. OpenCode Go privacy table: not used for training, 0-day retention.
-- **Architecture:** undisclosed; no parameter count, weights, or model card. A briefly exposed `zhipu/omen-alpha` OpenCode data path drove GLM-family speculation (echoing Ox Alpha's unmasking as GLM-5.3-Flash) — a clue, not an attribution. Community-reported throughput ~180–190 tokens/s (one measured 189 tok/s). Usage snapshot: ~39B recent tokens, ~2,900 unique users, 7,518 sessions, avg session cost ~$0.27; #7 by call volume five days post-launch.
+- **Pricing (as of 2026-10-16):** included in OpenCode Go ($10/month, ~$100 usage quota); equivalent listed token pricing $0.20 in / $0.66 out / $0.04 cached read per 1M. **Availability update (this pass):** omen-alpha no longer appears in OpenCode Go's published model list (docs fetched 2026-10-16 list only named models) and traffic went to zero on 2026-09-29/30 before resuming at ~10x lower volume from 2026-10-01 — consistent with a pull/rotation-and-relaunch of the stealth slot. It still serves traffic (#36 by tokens last week), so access persists for existing subscribers, but longevity is unguaranteed.
+- **Architecture:** undisclosed; no parameter count, weights, or model card. A briefly exposed `zhipu/omen-alpha` OpenCode data path drove GLM-family speculation (echoing Ox Alpha's unmasking as GLM-5.3-Flash) — a clue, not an attribution. Community-reported throughput ~180–190 tokens/s (one measured 189 tok/s). Usage (official OpenCode Data, updated 2026-10-16 — new this pass): **2.3T tokens over two months, 83K unique users, 568,525 sessions, $0.2167 avg session cost, 93.2% cache-hit, 63.5% weekly retention, $123K total spend**; launch-week peak ~300B tokens/day with 7-8K daily users, collapsing to ~2-3B/day with 500-700 users after the late-September gap — a steep decay consistent with stealth-slot churn.
 
 ### Raw benchmarks found
 
@@ -57,13 +57,13 @@ Long context:
 - **Context window: 86/100.** 500,000 tokens = 500K–1M tier (85–94); no measured retrieval quality and anecdotal cross-turn recall complaints keep it at the tier floor.
 - **Multimodal: 65/100.** Text+image in, text out (60–70 band); image understanding verified hands-on (periodical-page recognition, screenshot-driven development).
 - **Coding: 66/100.** Fast, genuinely usable builds (25-minute YouTube clone; 3D modeling ~2× faster than GLM-5.3-Flash/GPT-5.6-Luna on the same prompts) but 23.14/40 on the platform leaderboard, game-logic flaws, and zero standardized coding rows place it mid-band, below the named flash-tier models it is priced against.
-- **Cost efficiency: 95/100.** $0.20/$0.66 per 1M equivalent with $0.04 cached reads inside a $10/month plan carrying ~$100 of usage (~$0.03/prompt, $0.27/session observed) — near-free economics for subscribers; identity opacity and Go-lock-in are the caveats.
+- **Cost efficiency: 95/100.** $0.20/$0.66 per 1M equivalent with $0.04 cached reads inside a $10/month plan (~$0.22/session observed across 568K sessions) — near-free economics for subscribers; identity opacity, Go-lock-in, and the newly-observed rotation/relaunch volatility are the caveats.
 - **Overall Score: 67/100.** (62 + 55 + 86 + 65 + 66) / 5 = 66.8 → 67. Best-fit: the high-throughput coding worker for OpenCode Go subscribers — exceptional speed and session economics for routine implementation and front-end work; route deep reasoning and high-risk changes to a documented frontier model.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (OpenCode Go docs and leaderboard snapshot, Pi registry, Zhidx/36kr hands-on test, community reports); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-09-25)
+- Method: public internet research (OpenCode Go docs re-fetched 2026-10-16, official OpenCode Data usage page for omen-alpha updated 2026-10-16, Pi registry, prior Zhidx/36kr hands-on test). Re-research found: removal from the Go model list, the 2026-09-29/30 zero-traffic gap followed by a ~10x lower-volume relaunch, and full two-month usage stats (2.3T tokens, 83K users, 63.5% retention) — availability/volatility findings only; no new capability rows, so all scores unchanged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

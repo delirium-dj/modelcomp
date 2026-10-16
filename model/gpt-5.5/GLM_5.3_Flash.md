@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,8 @@ Agent / tool use:
 - MCP Atlas (Scale AI SEAL): **75.3%** #18 (fills the previously-missing MCP row)
 - APEX-Agents: **55.1%** #19 (Mercor); APEX-Agents-AA: **37.7%** #6
 - GDPval-AA v2.1: **42.7%** #84 (AA-normalized); old snapshot: Elo 1494 / 84.9% wins-ties (OpenAI-reported)
-- OSWorld-Verified 2.0: 13.0% #9 at xhigh (weak); Remote Labor Index: **6.3%** #5; HiL-Bench: **39.7%** #7
+- OSWorld-Verified 2.0: 13.0% #9 at xhigh (weak) — CONFLICT: OSWorld-Verified (v1) reads **78.7%** (OpenAI official, added 2026-10-16); Remote Labor Index: **6.3%** #5; HiL-Bench: **39.7%** #7
+- Added 2026-10-16 (OpenAI/BenchLM): CyberGym **81.8%**; BrowseComp **84.4%**; Toolathlon **55.6%**; τ²-Bench **98%**; Gert Labs **72.93%**; JobBench **42.7%**; GDPval-AA **Elo 1396**; ApprenticeBench **20%**; MazeBench ASCII **0%**; AA Coding Index **74.9%**; React Native Evals **84.7%**; AA Intelligence Index **38.4**
 - ITBench SRE (AA): **45.8%** #13; SkillsBench (Vals): **62.2%** #5; Finance Agent v2 (Vals): 51.8%; Tax Agent (Vals): **60.5%**; Legal Research (Vals): 40.4%; Harvey (Vals): 3.8%
 - ExploitBench: **47.4%** #2; GBAEval: **53.2%** #6; Vending-Bench 2: 7523.8 #13; Analyst Agent (AA): **50.0%** #7 at xhigh
 - Claw-Eval / ClawProBench: no verified public score found
@@ -37,7 +38,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **93.5%** #14 (AA, xhigh; sweep 77.3→93.5); Vals: 93.2% #10; earlier LLMReference card: 93.6%
-- HLE: **45.8%** #45 (AA, xhigh; sweep 13.7→42.4→45.8 — fills the previously-missing HLE)
+- HLE: **45.8%** #45 (AA, xhigh; sweep 13.7→42.4→45.8 — fills the previously-missing HLE); OpenAI official **52.2%** with tools / **41.4%** without (added 2026-10-16 — strongest reading)
 - ARC-AGI-2 (verified): **85.0%** #28 at xhigh (sweep 33.3→70.4→83.3→85.0; ARC Prize); ARC-AGI-1: **95.0%** #33; ARC-AGI-3: 0.4% #38 (high)
 - FrontierMath Tier 1–3: **85.3%** #12 (Epoch v2); Tier 4: **72.5%** #18 — big updates over the April-announcement-era numbers
 - AIME 2026: **100.0%** #1 (MathArena); HMMT February 2026: **98.5%** #1; MathArena Apex: **80.2%** #2; OTIS Mock AIME: 84.4% (low)
@@ -60,22 +61,27 @@ Coding:
 
 Long context:
 
-- 1.05M window with a long-context surcharge above 272K input; LMCA **54.3%** #33 (Epoch) — first measured long-context number found; no MRCR/RULER retrieval verified
+- 1.05M window with a long-context surcharge above 272K input; LMCA **54.3%** #33 (Epoch)
+- Added 2026-10-16 (OpenAI official): MRCR v2 **83.1%** (64K–128K) / **87.5%** (128K–256K) — first verified retrieval-at-depth rows; AA-LCR **84.3%** (AA current)
+
+Multimodal / vision:
+
+- OpenAI official MMMU-Pro **81.2%** / **83.2%** with Python; AA-MMMU-Pro **79.9%** (added 2026-10-16); OfficeQA Pro **54.1%**; BenchLeader Multimodal 63
 
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** Terminal-Bench 84.7% (#1 on tbench.ai), TB2.1 84.3% (AA) and TB2.0 73.2% #1 (Vals) clear the TB ~88%-band edge across three harnesses; Tau2 Telecom 93.9% (#39) and MCP Atlas 75.3% (#18) fill previously-missing rows; APEX 55.1%; the weak TB4.0 14.7% (recalibrated) and OSWorld-2.0 13.0% cap it at the band floor.
-- **Reasoning: 88/100.** GPQA 93.5% (#14), HLE 45.8% (#45, now verified), ARC-AGI-2 85.0% verified (#28), FrontierMath 85.3%/72.5% and AIME 2026 100% #1 are frontier-band; the severe AA-Omniscience non-hallucination 11.0% (#388 — ~89% hallucination rate at xhigh) and CritPt 27.1% cap it below 90.
-- **Context window: 92/100.** 1.05M window (95–100 tier) with 128K output; LMCA 54.3% (#33) is measured but mid-pack; docked for the >272K surcharge and no ≥98% retrieval verification.
-- **Multimodal: 65/100.** Text+image in / text out — middle of the 60–70 image-in band (BenchLeader Multimodal 63).
+- **Reasoning: 89/100.** CHANGED from 88 — GPQA 93.5% (#14; official 93.6%), the newly surfaced official HLE 52.2% with tools (up from AA's 45.8%), ARC-AGI-2 85.0% verified (#28), FrontierMath 85.3%/72.5% and AIME 2026 100% #1 are frontier-band; the severe AA-Omniscience non-hallucination 11.0% (#388 — ~89% hallucination rate at xhigh) and CritPt 27.1% cap it below 90.
+- **Context window: 95/100.** CHANGED from 92 — 1.05M window (95–100 tier) with 128K output; the newly verified MRCR v2 83.1%/87.5% retrieval-at-depth rows resolve the old "no retrieval verified" gap; AA-LCR 84.3%; the >272K surcharge remains the caveat.
+- **Multimodal: 68/100.** CHANGED from 65 — text+image in / text out, now with measured official MMMU-Pro 81.2%/83.2% (top of the 60–70 image-in band; BenchLeader Multimodal 63).
 - **Coding: 86/100.** SWE-bench Verified 82.6% (Vals #19), DeepSWE 67.0% #22 (fills the previously-missing row, below the 74%+ frontier threshold), SciCode 56.1% (clears the 55%+ mark), LiveCodeBench 85.3% and TB2.1 84.3% — strongly corroborated, mid-frontier.
 - **Cost efficiency: 45/100.** $5/$30 per 1M (blended $11.25/M) interpolates between the $3/$15→60 and $10/$50→30 anchors; $2.63 per Index run and Batch at 50% soften it slightly. No free tier.
-- **Overall Score: 84/100.** Mean of the five quality dims (90 + 88 + 92 + 65 + 86) / 5 = 84.2 → 84. Best fit: a deprecated-but-verified April 2026 flagship — strong terminal/telecom agent work and verified math/coding at premium prices, but GPT-5.6 Sol or GPT-6 Astra supersede it for new work.
+- **Overall Score: 86/100.** CHANGED from 84 — mean of the five quality dims (90 + 89 + 95 + 68 + 86) / 5 = 428/5 = 85.6 → 86. Best fit: a deprecated-but-verified April 2026 flagship — strong terminal/telecom agent work and verified math/coding at premium prices, but GPT-5.6 Sol or GPT-6 Astra supersede it for new work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Artificial Analysis AA rows, LLMReference, Vals AI cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured HLE 45.8%, ARC-AGI-2 85.0%, DeepSWE 67.0%, SciCode 56.1%, TB 84.7% #1, Tau2 93.9%, MCP Atlas 75.3%, FrontierMath Epoch v2, AIME 2026 100%, AA-Omniscience hallucination 11% — Tool 76→90, Reasoning 72→88, Coding 82→86, Overall 77→84.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Artificial Analysis AA rows, LLMReference, Vals AI cross-checked; re-researched 2026-10-16: official HLE 52.2%, MRCR v2 83.1/87.5%, OSWorld conflict 78.7-vs-13.0 cited — Context 92→95, Reasoning 88→89, Multimodal 65→68, Overall 84→86); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured HLE 45.8%, ARC-AGI-2 85.0%, DeepSWE 67.0%, SciCode 56.1%, TB 84.7% #1, Tau2 93.9%, MCP Atlas 75.3%, FrontierMath Epoch v2, AIME 2026 100%, AA-Omniscience hallucination 11% — Tool 76→90, Reasoning 72→88, Coding 82→86, Overall 77→84.
 - Future sources: add a new file next to this one, e.g. `GPT_5.6.md`, using the same headings.

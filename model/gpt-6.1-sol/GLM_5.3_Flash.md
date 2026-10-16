@@ -1,7 +1,7 @@
 # GPT-6.1 Sol (Max) — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-6.1-sol`, reasoning tier "max")
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,8 @@ Agent / tool use:
 
 - Terminal-Bench 4.0: **56.1%** #9 (AA, sweep 30.8→48.0→51.5→54.0→56.1); Terminal-Bench 4.0 (Vals): **55.0%** #6; Terminal-Bench (tbench.ai): **58.2%** #17
 - APEX-Agents: **60.0%** #12 (Mercor); LMArena Agent: **11.7** #5 (of 49)
-- GDPval-AA v2.1: **53.8%** #35 (AA, sweep 39.9→46.6→49.3→50.5→53.8)
+- GDPval-AA v2.1: **53.8%** #35 (AA, sweep 39.9→46.6→49.3→50.5→53.8) / **Elo 1594** (AA board, added 2026-10-16)
+- Added 2026-10-16 (OpenAI GPT-6.1 Sol launch + system-card addendum via BenchLM): TB-Science 0.1 **57.0%**; ExploitGym **35.1%**; MazeBench ASCII **17%**; HealthBench Professional **64.2%** (length-adjusted); AutomationBench official **36.1%** — CONFLICT with AA's 64.9% (version/harness, both cited)
 - AutomationBench (AA): **64.9%** #14; GDP.pdf: **31.0%** #4; AA-Briefcase v1.1: **Elo 1564** #15 (sweep 1471→1507→1564)
 - SREBench (Vals): **50.8%** #2; CyberBench (Vals): 39.3%; Harvey LAB (AA): **6.9%** #4
 - Finance Agent v2 (Vals): 52.0%; Tax Agent Bench (Vals): **62.3%**; Legal Research Bench (Vals): 38.5%
@@ -35,7 +36,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **95.4%** #3 of 285 (Epoch AI Benchmarking Hub via BenchLeader)
 - HLE: **52.9%** #17 (AA, sweep 47.4→49.9→51.4→52.6→52.9)
-- ARC-AGI-2 (verified): **94.2%** #2 of 228 at max (sweep 76.7→86.7→91.7→94.2; ARC Prize); ARC-AGI-1: **98.5%** #1 (high/xhigh); ARC-AGI-3: **96.4%** #7 (max)
+- ARC-AGI-2 (verified): **94.2%** #2 of 228 at max (sweep 76.7→86.7→91.7→94.2; ARC Prize); ARC-AGI-1: **98.5%** #1 (high/xhigh, earlier reading) / **96.5%** (Max verified, 2026-10-15 refresh — slight conflict, both cited); ARC-AGI-3: **96.4%** #7 (max, earlier reading) — CONFLICT: the Max verified row now reads **52.7%** (2026-10-15 refresh; different run/effort, both cited)
 - CritPt: **31.7%** #2 of 537 (AA, max)
 - FrontierMath Tiers 1–3: **93.7%** #1 of 111; FrontierMath Tier 4: **100.0%** #1 (Epoch v2); OTIS Mock AIME: **100.0%** #1
 - ProofBench: **99.0%** #4 (Vals); LiveBench Reasoning: **92.6%** #2; LiveBench Math: **96.8%** #3; LiveBench Data Analysis: **82.7%** #2
@@ -50,7 +51,7 @@ Coding:
 - Vibe Code Bench v1.1: **88.9%** #7 (Vals); FrontierCode: **50.2%** #7 (Cognition, medium effort)
 - SciCode: **54.2%** (max; AA 54.2% — modest, #59–61); LiveBench Coding: 80.4% #19; Code Migration (Vals): **65.1%** #5
 - Terminal-Bench 4.0 (coding/terminal): 56.1% #9 (above)
-- SWE-bench Verified / SWE-Pro / LiveCodeBench (Vals) / DeepSWE: no verified public score found
+- SWE-bench Verified / SWE-Pro / LiveCodeBench (Vals): no verified public score found; DeepSWE **71.9%** (OpenAI official — added 2026-10-16, fills the previously-missing row; just under the 74% frontier threshold); Bug Hunt Bench **44.3 fixes** (added 2026-10-16)
 
 Long context:
 
@@ -66,14 +67,14 @@ Multimodal / vision:
 - **Reasoning: 95/100.** GPQA 95.4% (#3), ARC-AGI-2 94.2% (#2), ARC-AGI-3 96.4% (#7), FrontierMath Tier 4 100% (#1) and Tiers 1–3 93.7% (#1), CritPt 31.7% (#2), HLE 52.9% (#17), ProofBench 99% (#4) — decisive frontier-band placement, now verified with individual scores (the old draft had only the AA composite).
 - **Context window: 95/100.** 1.1M context (≥1M tier = 95–100); measured AA-LCR 83.0% (#24) is strong but below the ≥98% bar for 100; MLCR 33.9% fills the medical long-context row.
 - **Multimodal: 85/100.** Text + image in with measured MMMU-Pro 86.0% (#6) — top of the +video/PDF-equivalent band (75–90); text-only output and no verified video/audio input cap it below 90.
-- **Coding: 88/100.** IOI 96.9% (#3), LMArena WebDev 1755 (#4), Vibe Code Bench 88.9% (#7), FrontierCode 50.2% (#7) — competitive-programming and webdev frontier; SciCode 54.2% is modest (#59) and no SWE-bench Verified/DeepSWE numbers cap it below 90.
+- **Coding: 89/100.** CHANGED from 88 — IOI 96.9% (#3), LMArena WebDev 1755 (#4), Vibe Code Bench 88.9% (#7), FrontierCode 50.2% (#7), and the newly filled DeepSWE 71.9% (official; just under the 74% threshold) with Bug Hunt 44.3 fixes; SciCode 54.2% is modest (#59) and no SWE-bench Verified numbers cap it below 90.
 - **Cost efficiency: 75/100.** $2.00/$10.00 per 1M (blended ~$4.00/M, cache $0.100) and $0.72 per Index task — between the methodology anchors (~$1.25/$4.25 ≈ 88 and $3/$15 ≈ 60); the low tier at $0.131/task is far better value. No free tier. Excluded from Overall.
-- **Overall Score: 88/100.** Mean of the five quality dims (75 + 95 + 95 + 85 + 88) / 5 = 87.6 → 88. Best-fit: frontier reasoning/math and competitive coding where 1M context and image input matter — budget for extreme max-effort latency (first answer ~327s); the high tier (67.9, #15) delivers most of the quality at a fraction of the latency.
+- **Overall Score: 88/100.** Mean of the five quality dims (75 + 95 + 95 + 85 + 89) / 5 = 439/5 = 87.8 → 88. Best-fit: frontier reasoning/math and competitive coding where 1M context and image input matter — budget for extreme max-effort latency (first answer ~327s); the high tier (67.9, #15) delivers most of the quality at a fraction of the latency.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Artificial Analysis model page cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds the full measured benchmark sweep (GPQA 95.4% #3, ARC-AGI-2 94.2% #2, FrontierMath 93.7%/100% #1, HLE 52.9%, CritPt 31.7% #2, IOI 96.9%, LMArena WebDev 1755 #4, MMMU-Pro 86.0% #6, TB4.0 56.1% #9) — Tool 80→75, Reasoning 83→95, Multimodal 65→85, Coding 78→88, Overall 80→88.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Artificial Analysis model page cross-checked; re-researched 2026-10-16: DeepSWE 71.9% filled, AutomationBench 36.1-vs-64.9 and ARC-AGI-3 52.7-vs-96.4 conflicts cited — Coding 88→89, Overall 88 holds); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds the full measured benchmark sweep (GPQA 95.4% #3, ARC-AGI-2 94.2% #2, FrontierMath 93.7%/100% #1, HLE 52.9%, CritPt 31.7% #2, IOI 96.9%, LMArena WebDev 1755 #4, MMMU-Pro 86.0% #6, TB4.0 56.1% #9) — Tool 80→75, Reasoning 83→95, Multimodal 65→85, Coding 78→88, Overall 80→88.
 - Future sources: add a new file next to this one, e.g. `GPT_6.2.md`, using the same headings.

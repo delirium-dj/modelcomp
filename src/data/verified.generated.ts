@@ -71,7 +71,7 @@ export const VERIFIED: Record<string, string> = {
   "gpt-5.3-codex": "2026-10-16",
   "gpt-5.3-codex-spark": "2026-10-16",
   "gpt-5.4": "2026-10-16",
-  "gpt-5.4-mini": "2026-10-13",
+  "gpt-5.4-mini": "2026-10-16",
   "gpt-5.4-nano": "2026-10-16",
   "gpt-5.4-pro": "2026-10-16",
   "gpt-5.5": "2026-10-16",

@@ -1,7 +1,7 @@
 # MiMo V2.6 Distill Qwen 9B — findings by GLM 5.3
 
 - Source: Xiaomi MiMo (`XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`)
-- Date: 2026-10-01 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-01 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,7 @@ Agent / tool use:
 - Toolathlon-Verified: **35.2%** avg@1 (vendor, HF card; base 25.9%)
 - AutomationBench v1.0.6: **30.3%** avg@1 (vendor, HF card; base 5.0%)
 - OfficeQA: **19.5%**; JobBench: **18.3%** avg@1 (vendor, HF card)
+- Internal (non-public) cyber set: MiMo Cyber (mini) **31.3** (base Qwen3.5-9B: 5.7) — vendor-internal, new row this pass; 26,119 HF downloads in the last month (adoption stat, HF page)
 
 Reasoning / knowledge:
 
@@ -69,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-01 UTC
-- Method: public internet research (Hugging Face model card / MiMo-V2.6 technical report, HokAI, local-LLM guides); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-10-01)
+- Method: public internet research (Hugging Face model card re-verified — all benchmark rows unchanged; added the internal MiMo Cyber (mini) 31.3 row and the 26K monthly downloads stat; HokAI, local-LLM guides). No score changes: no new public (independently verifiable) benchmark rows appeared. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

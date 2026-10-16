@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by GLM 5.3
 
 - Source: NVIDIA (`opencode/nemotron-3.5-lightning-free`, base `nvidia/nemotron-3.5-lightning`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,8 @@ Agent / tool use:
 - PinchBench: **83.43%** (vendor card; BF16 85.37%)
 - BrowseComp: **36.81%** (vendor card)
 - IFBench (loose): **72.88%** (vendor card)
-- Claw-Eval / Toolathlon / MCP-Atlas / SWE Atlas: **no verified public score found**
+- Claw-Eval / Toolathlon / SWE Atlas: **no verified public score found**
+- MCP-Atlas: **46.4%** (Nemotron 3.5 Bolt 74B-A9B model-card comparison table, Lightning column — new row this pass; weak-mid)
 
 Reasoning / knowledge:
 
@@ -53,7 +54,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** PinchBench 83.4% and IFBench 72.9% are good, but TB 2.1 23.5%, τ³-Banking 9.5% and GDPval 865 are near-floor — by design a routed executor, not a lead agent.
+- **Tool use: 45/100.** PinchBench 83.4% and IFBench 72.9% are good, but TB 2.1 23.5%, τ³-Banking 9.5%, GDPval 865 and the new MCP-Atlas 46.4% row are near-floor-to-weak — by design a routed executor, not a lead agent.
 - **Reasoning: 48/100.** GPQA 75.6% is mid-band and MMLU-Pro 81.6% solid, but HLE 10.5% and SciCode 31.4% are weak; AA-Omniscience 16.6 is modest.
 - **Context window: 88/100.** Up to 1M claimed on the official card (free-tier serving cap unverified) — large-window tier, but AA-LCR ~49–52% shows weak long-context retrieval, keeping it below the top of the band.
 - **Multimodal: 15/100.** Text in/out only (per template: 15 if text-only).
@@ -65,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-25
-- Method: public internet research (NVIDIA build.nvidia.com model card, models.dev Zen registry, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-09-25)
+- Method: public internet research (NVIDIA build.nvidia.com model card re-verified — all rows unchanged, reproducibility recipes published in NeMo Gym; new MCP-Atlas 46.4% row from the Nemotron 3.5 Bolt 74B model-card comparison table; models.dev Zen registry, OpenCode Zen docs). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -37,9 +37,9 @@
 87.6 claude-sonnet-5
 87.6 gemini-3-flash
 87.6 muse-spark-1.1
+87.5 gpt-6-sol
 87.5 qwen-3.8
 87.4 glm-5.3-flashx
-87.4 gpt-6-sol
 87 ox_alpha
 86.8 qwen-3.8-flash
 86.7 gemini-3.8-flash-cyber
@@ -47,10 +47,10 @@
 86.5 minimax-m3
 86.3 qwen-3.7-plus
 86.2 mimo-v2.6-free
+86.1 gpt-5.4
 86.1 qwen-3.8-27b
 86 grok-4.6
 86 inkling-small
-85.9 gpt-5.4
 85.8 claude-sonnet-4.6
 85.5 grok-4.7
 85.5 qwen-3.6-plus
@@ -122,9 +122,9 @@
 72.1 mai-code-1.1-flash
 72 qwen-3.5-9b
 71.9 minimax-m3.1-flash-preview
+71.6 longcat_2.5_preview
 71.6 nemotron-3-ultra-free
 71.5 hy3
-71.5 longcat_2.5_preview
 71.4 claude-sonnet-3.5
 70.4 longcat-2.0
 69.5 glm-5.1
@@ -133,14 +133,14 @@
 68.3 diffusiongemma-26b-a4b
 67.9 solar-open-2
 67.6 solar-pro-4
+67.2 ling-3.1-flash
 66.9 qwen3-max
-66.8 ling-3.1-flash
 66.8 pixel_canary
 66.6 minimax-m2.7
 66.4 mai-thinking-1
 66.2 laguna-s-2.1
 66.2 ring-2.6.1t
-66.1 gpt-5-nano
+65.9 gpt-5-nano
 65.2 claude-haiku-3.5
 64.5 glm-5
 64.5 minimax-m2.5
@@ -170,4 +170,4 @@
 53 cat-jam
 53 mai-experimental-test
 52.2 ling-3.0-tiny
-38.3 jev-1.13
+39.5 jev-1.13
