@@ -265,15 +265,15 @@ export default component$(() => {
 
         <section class="-mx-10 bg-[#e2edf2] px-10 text-[color:var(--color-ink)] max-[800px]:-mx-5 max-[800px]:px-5 max-[520px]:-mx-4 max-[520px]:px-4 dark:bg-[#0a1822] dark:text-[#f3f8fa]" aria-labelledby="v2-title">
           <div class="grid grid-cols-1 items-center gap-8 pb-12 pt-16 min-[1000px]:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
-            <div class="v2-hero-copy">
+            <div class="v2-hero-copy text-center min-[1000px]:text-left">
               <h1 id="v2-title" class="font-[family-name:var(--font-display)] text-[clamp(40px,4.6vw,64px)] font-medium leading-none tracking-tighter">
                 Compare AI coding models on <span class="text-[color:var(--color-primary)]">what actually matters</span>
               </h1>
-              <p class="mt-4 max-w-xl text-base leading-relaxed text-[#577184] dark:text-[#c6d9e3]">
+              <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#577184] min-[1000px]:mx-0 dark:text-[#c6d9e3]">
                 Tool use, reasoning, context, multimodal, coding and cost — normalized to 1–100 from
                 public benchmarks so current and future models can be compared side by side.
               </p>
-              <div class="mt-7 flex flex-wrap gap-3">
+              <div class="mt-7 flex flex-wrap justify-center gap-3 min-[1000px]:justify-start">
                 <a href="/#compare" class="inline-block rounded-lg bg-[#19384d] px-5 py-3 text-sm font-bold text-[#ecf3f6] hover:underline dark:bg-[#f3f8fa] dark:text-[#0a1822]">
                   Compare models
                 </a>
@@ -358,7 +358,7 @@ export default component$(() => {
                 <svg
                   viewBox="0 0 400 400"
                   role="img"
-                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-[640px]"
+                  class="mx-0 mb-0 ml-auto block h-auto w-full max-w-2xl"
                   aria-label={`Radar chart comparing ${cmpModels.map((m) => m.name).join(", ")}`}
                 >
                 {[25, 50, 75, 100].map((ring) => (
