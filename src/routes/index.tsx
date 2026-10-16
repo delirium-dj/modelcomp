@@ -350,11 +350,12 @@ export default component$(() => {
                       return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
                     }).join(" ")}
                     fill={HERO_COLORS[hi % HERO_COLORS.length]}
-                    fill-opacity={hi === heroActiveSafe ? 0.45 : 0.1}
+                    fill-opacity={hi === heroActiveSafe ? 0.45 : 0}
                     stroke={HERO_COLORS[hi % HERO_COLORS.length]}
-                    stroke-width={hi === heroActiveSafe ? 2.5 : 1.5}
+                    stroke-width={2.5}
                     stroke-linejoin="round"
-                    style={{ transition: "fill-opacity 0.6s, stroke-width 0.6s" }}
+                    opacity={hi === heroActiveSafe ? 1 : 0}
+                    style={{ transition: "opacity 0.6s" }}
                   >
                     <title>{`${m.name} (Overall ${m.scores.overall})`}</title>
                   </polygon>
@@ -399,18 +400,12 @@ export default component$(() => {
                     key={m.id}
                     class={`flex items-center gap-2 ${hi === heroActiveSafe ? "font-bold" : ""}`}
                   >
-                    <span
-                      aria-hidden="true"
-                      class="h-2.5 w-2.5 flex-none rounded-full"
-                      style={{ backgroundColor: HERO_COLORS[hi % HERO_COLORS.length] }}
-                    />
                     <a
                       href={`/model/${m.slug}/`}
                       class={`min-w-0 flex-1 truncate ${hi === heroActiveSafe ? "" : "text-[#577184] dark:text-[#93adbe]"}`}
                     >
                       {m.name}
                     </a>
-                    <span class="shrink-0 tabular-nums">{m.scores.overall}</span>
                   </li>
                 ))}
               </ul>
