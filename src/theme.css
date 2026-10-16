@@ -19,18 +19,6 @@
    back to the system stack after the comma — the site never breaks.
    ========================================================================== */
 
-   /* ── ONE-LINE SETTINGS (edit these four lines, nothing else) ─────────── */
-:root {
-  --font-body: "Space Grotesk", "Segoe UI", sans-serif;
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-  --color-primary: #557ddd;
-}
-/* Dark theme reads the same variables from .dark (v2 toggles .dark on the
-   page root; v1 toggles it on <html> — both are covered). */
-.dark {
-  --color-primary: #7ba0ef;
-}
-
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/inter/inter-400.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/inter/inter-700.woff2") format("woff2"); }
 @font-face { font-family: "Roboto"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto/roboto-400.woff2") format("woff2"); }

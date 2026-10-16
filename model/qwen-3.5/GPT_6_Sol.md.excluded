@@ -1,0 +1,48 @@
+# Qwen 3.5 — negative findings by GPT 6 Sol
+
+- Source: unverified `opencode/qwen-3.5` display ID
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 (unspecified tier)
+- **Short description:** A family shorthand without a demonstrated distinct hosted checkpoint. Do not conflate it with Qwen3.5 Plus or the open-weight Qwen3.5-397B-A17B checkpoint.
+- **Provider / access:** The project's curated ID `opencode/qwen-3.5` is not present in the [OpenCode Console model list](https://opencode.ai/docs/zen/), which explicitly lists `qwen3.5-plus`. No exact bare-ID API endpoint was verified.
+- **Release / knowledge:** No separately dated, identifiable bare model or knowledge cutoff verified.
+- **IDs:** `opencode/qwen-3.5` is unverified; `opencode/qwen3.5-plus` and `Qwen/Qwen3.5-397B-A17B` identify different, separately tracked presentations, neither proven equivalent to this bare ID.
+- **Context window:** Unknown for bare route; do not transfer limits from Plus or 397B.
+- **Modalities:** Unknown for bare route.
+- **Pricing (as of 2026-10-16):** No verified pricing for bare route; OpenCode lists a price for *Plus*, which is not evidence of a distinct bare tier.
+- **Architecture:** No separately identified bare-model weights found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **Exact `opencode/qwen-3.5`:** no verified public score found.
+
+Reasoning / knowledge:
+
+- **Exact bare model:** no verified public score found.
+
+Coding:
+
+- **Exact bare model:** no verified public score found.
+
+Long context:
+
+- **Exact bare model:** no verified public score found.
+
+### Normalized scores (1–100)
+
+No scores assigned: a family shorthand has no substantiated exact checkpoint, route, or benchmark. This existing folder stays untouched under the permanence rule; determining whether it should be parked as an alias requires per-instance user sign-off with resolving IDs, rather than borrowing Plus or 397B results.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-16
+- Method: Checked curated ID against provider catalog and exact-ID benchmark pages; self-excluded instead of guessing the tier.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -626,7 +626,7 @@ export default component$(() => {
           )}
           {cmpModels.length > 0 && (
             <div class="mt-9 w-full overflow-x-auto" tabIndex={0} aria-label="Scroll to see compared models">
-              <table class="w-full min-w-[800px] table-fixed border-collapse text-xs leading-tight tabular-nums max-[640px]:w-[150vw] max-[640px]:min-w-0">
+              <table class="w-full min-w-[800px] table-fixed border-collapse text-md leading-tight tabular-nums max-[640px]:w-[150vw] max-[640px]:min-w-0">
                 <caption class="sr-only">Exact scores for the selected models</caption>
                 <thead>
                   <tr>
@@ -758,7 +758,7 @@ export default component$(() => {
               }}
               class="min-w-56 max-w-sm flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-xs text-[color:var(--color-ink)] placeholder:text-[#577184] dark:border-[#274757] dark:placeholder:text-[#93adbe]"
             />
-            <label class="text-xs text-[#577184] dark:text-[#93adbe]">
+            <label class="text-md text-[#577184] dark:text-[#93adbe] px-4">
               Results source{" "}
               <select
                 aria-label="Results source"
@@ -766,7 +766,7 @@ export default component$(() => {
                 onChange$={(_, el) => {
                   handleSourceChange$(el.value);
                 }}
-                class="max-w-64 rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-2 py-1.5 text-center text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
+                class="max-w-64 rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] ml-4 py-1.5 text-center text-md text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
               >
                 {SOURCES.map((s) => (
                   <option key={s.key} value={s.key} selected={s.key === source.value} class="bg-[color:var(--color-page)] text-[color:var(--color-ink)]">

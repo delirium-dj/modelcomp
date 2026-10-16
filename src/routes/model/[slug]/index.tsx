@@ -560,10 +560,10 @@ export default component$(() => {
               </tbody>
             </table>
           </div>
-          <p class="mt-[18px] text-right text-xs leading-normal text-[#577184] dark:text-[#93adbe]">
+          <p class="mt-2 text-right text-xs leading-normal text-[#577184] dark:text-[#93adbe]">
             Last verified {formattedDate} from {ratings.length} agent reports.
           </p>
-          <nav aria-label="Previous and next models" class="mt-8 flex items-center justify-between gap-4 border-t border-t-[#ccdae2] pt-6 dark:border-t-[#274757]">
+          <nav aria-label="Previous and next models" class="flex items-center justify-between gap-4 border-b border-b-[#ccdae2] py-4 dark:border-b-[#274757]">
             {prevModel ? (
               <a
                 href={`/model/${prevModel.slug}/`}

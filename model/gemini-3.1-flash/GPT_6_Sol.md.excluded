@@ -1,0 +1,48 @@
+# Gemini 3.1 Flash — negative findings by GPT 6 Sol
+
+- Source: unverified Google (`google/gemini-3.1-flash`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash
+- **Short description:** Project-tracked label whose exact Google API model and benchmark evidence could not be verified; do not substitute Gemini 3 Flash, 3.1 Pro, or 3.8 Flash measurements.
+- **Provider / access:** `google/gemini-3.1-flash` is the curated project ID; [OpenCode Console model catalog](https://opencode.ai/docs/zen/) lists Gemini 3 Flash, 3.1 Pro, 3.5/3.6/3.7/3.8 Flash but does not list 3.1 Flash. No separately documented Google endpoint found.
+- **Release / knowledge:** Unknown for this exact label.
+- **IDs:** Distinct Google API ID and Free ID not verified.
+- **Context window:** Unknown for this exact label; 1M is asserted in project metadata but not independently established.
+- **Modalities:** Unknown for this exact label.
+- **Pricing (as of 2026-10-16):** Free availability and paid pricing unverified for this exact label.
+- **Architecture:** Not published for this exact label.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **Exact Gemini 3.1 Flash:** no verified public score found.
+
+Reasoning / knowledge:
+
+- **Exact Gemini 3.1 Flash:** no verified public score found.
+
+Coding:
+
+- **Exact Gemini 3.1 Flash:** no verified public score found; project's approximate SWE-bench claim has no independently confirmed exact-model citation.
+
+Long context:
+
+- **Exact Gemini 3.1 Flash:** no verified public score found. [Google's current Flash product page](https://deepmind.google/models/gemini/flash/) describes **Gemini 3.8 Flash**, not this 3.1 label.
+
+### Normalized scores (1–100)
+
+No scores assigned: no verified exact-model route or benchmark; sibling models' scores, context, and pricing must not be silently transferred. Preserve the existing folder pending identity evidence and a user-approved alias decision if warranted.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-16
+- Method: Compared the project label against Google/Console model references and exact-name benchmark pages; self-excluded due to absent exact-ID evidence.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,48 @@
+# MiMo-V2.5 Free — negative findings by GPT 6 Sol
+
+- Source: OpenCode Console (`opencode/mimo-v2.5-free`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiMo-V2.5 Free
+- **Short description:** OpenCode's limited-time free hosted route labelled for Xiaomi's MiMo-V2.5; endpoint configuration and scoring equivalence with Xiaomi's own inference have not been independently measured.
+- **Provider / access:** [OpenCode Console model list](https://opencode.ai/docs/zen/) explicitly lists `mimo-v2.5-free` at `https://opencode.ai/inference/openai/v1/chat/completions` and instructs use of `opencode/mimo-v2.5-free` in OpenCode.
+- **Release / knowledge:** Xiaomi announced the underlying MiMo-V2.5 on [April 22, 2026](https://mimo.xiaomi.com/mimo-v2-5); the free route's launch date and knowledge cutoff were not independently established.
+- **IDs:** `opencode/mimo-v2.5-free` (free hosted route); `XiaomiMiMo/MiMo-V2.5` (underlying open weights); `mimo-v2.5` (Xiaomi's paid base route). No evidence these hosted deployments use identical settings.
+- **Context window:** Xiaomi's [base model](https://mimo.xiaomi.com/mimo-v2-5) supports 1M tokens; the Console page does not publish this free endpoint's enforced context/output limits.
+- **Modalities:** Underlying Xiaomi release supports text, image, video, and audio input with text output; free gateway's per-modality support not verified.
+- **Pricing (as of 2026-10-16):** [OpenCode Console](https://opencode.ai/docs/zen/) lists input, output, and cached read as Free for a limited time and states data may be used to improve the model. This does not establish an indefinitely available free tier.
+- **Architecture:** Xiaomi's [base model](https://mimo.xiaomi.com/mimo-v2-5) is open-weight 310B total / 15B active MoE; gateway implementation not published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **Exact `opencode/mimo-v2.5-free` route:** no verified public score found. [Xiaomi](https://mimo.xiaomi.com/mimo-v2-5) reports Claw-Eval **62.3** and Terminal-Bench 2.0 **65.8%** for its *base* MiMo-V2.5; [Vals](https://www.vals.ai/models/xiaomi_mimo-v2.5) reports TB2.1 **60.67%** on Xiaomi default provider. These are labelled lineage proxies, not measurements of the free endpoint.
+
+Reasoning / knowledge:
+
+- **Exact free route:** no verified public score found. [Vals base model](https://www.vals.ai/models/xiaomi_mimo-v2.5) GPQA Diamond **81.57%** is not evidence for free-route scoring.
+
+Coding:
+
+- **Exact free route:** no verified public score found. [Vals base model](https://www.vals.ai/models/xiaomi_mimo-v2.5) SWE-bench **71%** and LiveCodeBench **81.51%** were run via Xiaomi, not OpenCode.
+
+Long context:
+
+- **Exact free route:** no verified public long-context retrieval score or enforced window found. Xiaomi's [open model](https://mimo.xiaomi.com/mimo-v2-5) specifies up to 1M context, not a demonstrated free-route limit.
+
+### Normalized scores (1–100)
+
+No scores assigned: zero verified public benchmark measurements on the exact free hosted route; transferring Xiaomi-provider results or assuming the free gateway has full base-model capabilities would create unsupported comparisons. Revisit when the Console route has attributable benchmark runs or published endpoint equivalence/configuration.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-16
+- Method: Cross-checked OpenCode's explicit free listing against Xiaomi's base release and Vals' Xiaomi-provider measurements; self-excluded due to missing free-route measurements.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
