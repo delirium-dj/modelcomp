@@ -711,16 +711,9 @@ export default component$(() => {
         </section>
 
         <section class="px-0 pb-0 pt-12" id="models" aria-labelledby="v2-ratings-title">
-          <div class="flex items-start justify-between gap-6">
-            <div class="v2-section-lead">
-              <h2 id="v2-ratings-title" class="font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">All models</h2>
-              <p class="mt-3.5 max-w-sm text-sm leading-relaxed text-[#577184] dark:text-[#93adbe]">
-                Every tracked model in the current results source ({activeSourceLabel}). Search to
-                find a model, or open its page for the full breakdown.
-              </p>
-            </div>
+          <div class="flex items-center justify-between gap-6">
+            <h2 id="v2-ratings-title" class="font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl">{filtered.length} models</h2>
             <div class="flex items-center gap-4">
-              <span class="flex-none rounded-full border border-[#b7cad6] px-3.5 py-1.5 text-xs text-[#425f71] max-[520px]:px-2 max-[520px]:py-1 max-[520px]:text-xs dark:border-[#3a5a6e] dark:text-[#a9c2d2]">{filtered.length} models</span>
               <div class="inline-flex gap-0.5 rounded-full border border-[#ccdae2] p-0.5 dark:border-[#274757]" role="group" aria-label="All models display">
                 <button
                   type="button"

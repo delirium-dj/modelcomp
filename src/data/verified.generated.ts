@@ -3,6 +3,7 @@
 export const VERIFIED: Record<string, string> = {
   "Inkling": "2026-10-16",
   "big-pickle": "2026-10-16",
+  "cat-jam": "2026-10-16",
   "claude-fable-5": "2026-10-16",
   "claude-fable-5.1": "2026-10-16",
   "claude-haiku-3.5": "2026-10-16",
@@ -152,8 +153,8 @@ export const VERIFIED: Record<string, string> = {
   "qwen-3.5": "2026-10-13",
   "qwen-3.5-397b": "2026-10-16",
   "qwen-3.5-9b": "2026-10-16",
-  "qwen-3.5-plus": "2026-10-13",
-  "qwen-3.6-plus": "2026-10-13",
+  "qwen-3.5-plus": "2026-10-16",
+  "qwen-3.6-plus": "2026-10-16",
   "qwen-3.7-max": "2026-10-16",
   "qwen-3.7-plus": "2026-10-16",
   "qwen-3.8": "2026-10-16",
