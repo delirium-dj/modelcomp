@@ -1,6 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
-import { MODELS, SOURCES, DIMENSIONS, slugForSource } from "../../../data/models";
+import { MODELS, SOURCES, slugForSource } from "../../../data/models";
 import type { SourceKey, ModelScores, DimensionKey } from "../../../data/models";
 import { getEvidence } from "../../../data/evidence";
 import { V2Header } from "../../../components/v2/V2Header";
