@@ -1,0 +1,9 @@
+{
+  "id": "opencode/claude-opus-4.7",
+  "name": "Claude Opus 4.7",
+  "short": "Claude Opus 4.7 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

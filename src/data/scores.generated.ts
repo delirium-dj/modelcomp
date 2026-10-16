@@ -392,6 +392,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Step_5_Preview.md": [80, 87, 95, 70, 80, 45, 82],
     "average.md": [88.8, 90, 95.4, 77.2, 88.1, 51.2, 87.9],
   },
+  "claude-opus-4.7": {
+    "GLM_5.3_Flash.md": [90, 89, 90, 80, 92, 32, 88],
+    "average.md": [90, 89, 90, 80, 92, 32, 88],
+  },
   "claude-opus-4.8": {
     "Big_Pickle.md": [80, 88, 88, 86, 88, 55, 86],
     "Cat_Jam.md": [92, 92, 95, 82, 90, 60, 90],
@@ -1481,6 +1485,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "GPT_5.6_Luna.md": [94, 95, 92, 96, 91, 83, 93.6],
     "GPT_5.6_Sol.md": [91, 95, 96, 94, 93, 76, 94],
     "GPT_5.6_Terra.md": [92, 92, 92, 96, 91, 79, 93],
+    "GPT_6.1_Sol.md": [75, 88, 95, 95, 86, 73, 88],
     "GPT_6_Astra.md": [86, 94, 95, 95, 86, 68, 91],
     "GPT_6_Sol.md": [78, 90, 96, 95, 83, 63, 88],
     "Gemini_1.5_Pro.md": [76, 95, 95, 95, 94, 70, 91],
@@ -1705,6 +1710,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "GPT_5.6_Luna.md": [86, 87, 90, 94, 90, 98, 89.4],
     "GPT_5.6_Sol.md": [91, 94, 96, 95, 94, 94, 94],
     "GPT_5.6_Terra.md": [89, 87, 98, 95, 93, 89, 92.4],
+    "GPT_6.1_Sol.md": [87, 90, 95, 95, 90, 90, 91],
     "GPT_6_Astra.md": [85, 88, 95, 95, 90, 91, 91],
     "GPT_6_Sol.md": [88, 91, 97, 94, 92, 100, 92.4],
     "Gemini_1.5_Pro.md": [86, 94, 95, 90, 91, 91, 91.2],
@@ -1735,7 +1741,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Solar_Pro_4.md": [90, 88, 100, 95, 85, 90, 92],
     "Space_Bunny.md": [85, 88, 97, 96, 85, 88, 90.2],
     "Step_5_Preview.md": [80, 83, 95, 88, 76, 90, 84],
-    "average.md": [90.4, 91.4, 96.5, 93, 90.7, 92.8, 92.5],
+    "average.md": [90, 91.4, 96, 93.5, 91.5, 91.8, 92.5],
   },
   "gemini-3.8-flash-cyber": {
     "Big_Pickle.md": [75, 79, 88, 82, 73, 75, 79],
@@ -1792,6 +1798,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "GPT_5.6_Luna.md": [86, 91, 95, 70, 86, 88, 85.6],
     "GPT_5.6_Sol.md": [94, 93, 94, 95, 96, 87, 94],
     "GPT_5.6_Terra.md": [88, 90, 100, 95, 91, 78, 93],
+    "GPT_6.1_Sol.md": [92, 94, 95, 95, 94, 78, 94],
     "GPT_6_Astra.md": [91, 94, 95, 88, 95, 74, 93],
     "GPT_6_Sol.md": [92, 94, 93, 82, 96, 64, 91],
     "Gemini_3.1_Flash_Lite.md": [91, 91, 95, 92, 89, 80, 91.6],
@@ -1815,7 +1822,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [90, 90, 92, 85, 88, 65, 89],
     "Space_Bunny.md": [88, 90, 96, 90, 84, 52, 90],
     "Step_5_Preview.md": [82, 85, 95, 88, 84, 80, 87],
-    "average.md": [90.2, 91.3, 96.7, 89.2, 92.4, 72.2, 91.9],
+    "average.md": [90.6, 91.7, 96.2, 90.5, 92.8, 74.5, 92.3],
   },
   "gemma-4-31b": {
     "Big_Pickle.md": [85, 84, 80, 50, 83, 95, 76],
@@ -2581,7 +2588,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [82, 88, 95, 90, 72, 45, 85],
     "Claude_Opus_4.8.md": [85, 86, 94, 65, 85, 65, 83],
     "Claude_Opus_5.md": [89, 90, 94, 68, 87, 48, 85.6],
-    "DeepSeek_4.1_Flash.md": [88, 80, 88, 60, 82, 55, 80],
+    "DeepSeek_4.1_Flash.md": [84, 86, 94, 78, 86, 55, 86],
     "DeepSeek_4_Flash.md": [84, 86, 94, 80, 87, 48, 86],
     "Fledge_Alpha.md": [84, 82, 93, 72, 82, 72, 83],
     "GLM_5.2_Coding.md": [76, 82, 100, 72, 80, 52, 82],
@@ -4407,6 +4414,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Space_Bunny.md": [82, 80, 95, 82, 80, 91, 83.8],
     "Step_5_Preview.md": [82, 80, 95, 88, 78, 96, 85],
     "average.md": [88.3, 87.7, 95.7, 92.5, 88.4, 94.7, 90.6],
+  },
+  "minimax-m2.5": {
+    "GLM_5.3_Flash.md": [85, 76, 85, 15, 84, 95, 69],
+    "average.md": [85, 76, 85, 15, 84, 95, 69],
   },
   "minimax-m2.7": {
     "Big_Pickle.md": [78, 78, 70, 15, 80, 88, 64],

@@ -1,35 +1,35 @@
 # DeepSeek-V4.1-Flash — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek / DeepSeek-V4.1-Flash (`deepseek-flash`; legacy `deepseek-v4-flash`, `deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 > **Reporting agent's own family model.** Vendor-reported figures are flagged throughout.
-> **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
-> Newly confirmed: official model card DeepSWE v1.1 **74.2**, Terminal-Bench 2.1 **90.6**, TB3.0 30.0, TB4.0 31.2, SEC-Bench Pro 62.8, CyberGym 88.1, HLE-with-tools 63.9, GPQA Diamond **90.9**, Codeforces **3471**, LongBench-v2 **45.2**, MMMU-Pro 56.5, DocVQA 95.6; Artificial Analysis Intelligence Index **39 (#7/117)**; release 2026-09-10, MIT weights, HF safetensors ≈763B total incl. a 196B Engram table.
-> **Conflicts surfaced:** (1) **Parameter count** — 552B backbone (official HF card) vs **763B total** (HF safetensors + LLM-Stats, incl. 196B Engram) vs AA's "552B total / 16B active". (2) **Cached input price** — $0.003 (official off-peak) / $0.006 (peak) / $0.007 (Fireworks) / $0.03 (LM Studio). (3) **Max output** — ~384K (vendor rec) vs 393.2K (Fireworks) vs 131.1K (DeepInfra). (4) **Release** — Sep 10 (official) vs Sep 9 (GA notes).
-> **Corrected dimension:** **Multimodal** had been scored 88, but the model card specifies **text + image input only** — the methodology's `+image in = 60–70` band — so it is lowered to 70 (DocVQA 95.6 credits document parsing at the top of that band).
-> Sources: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash · https://artificialanalysis.ai/models/deepseek-v4-1-flash · https://www.deepseek.com/en/news/deepseek-v4-1-flash/ · https://openlm.ai/deepseek-v4.1/
+> **Rewrite pass — 2026-10-16** (≥3 independent sources).
+> Official news + HF card + DeepInfra re-confirm: release **2026-09-10**, MIT weights, 1,048,576-token context / **384K max output**, text+image in / text out, Causal Encoder-Decoder (40 layers = 20 encoder + 20 decoder), **552B backbone / 763B with the vision encoder**, **8B active prefill / 16B active decode**, KV cache **890 bytes/token** (¼ of V4-Flash). Headline vendor rows: **Terminal-Bench 2.1 90.6**, TB3.0 30.0, TB4.0 31.2, DeepSWE v1.1 **74.2** (mini-SWE), SEC-Bench Pro 62.8, CyberGym 88.1, GPQA Diamond 90.9, Codeforces 3471, HLE 36.8 (39.1 text-only), NL2Repo 64.0, ProgramBench 20.3, MathArena Apex 65.6, base MMLU-Pro 74.1 / HumanEval 79.4 / DocVQA 95.6. Artificial Analysis Intelligence Index **39 (#7/117, v4.3.2)** / **40** (DeepInfra, max effort); speed 211–546 tok/s. V4-Pro reroutes here at Flash rates from 04:00 UTC 2026-09-14.
+> **Conflicts surfaced:** (1) **Extra-parameter attribution** — prior file read "196B Engram table"; Apidog now attributes the +211B (**763B**) to the **vision encoder**. (2) **AA Index** 39 (v4.3.2) vs 40 (DeepInfra "Max Effort"). (3) **Cached input** $0.003 off-peak / $0.006 peak (official) vs $0.004 (DeepInfra promo) vs $0.007 (Fireworks) vs $0.03 (LM Studio). (4) **Max output** 384K (vendor) vs 393.2K (Fireworks) vs 131.1K (DeepInfra). (5) **Terminal-Bench 2.1 is harness-dependent** — 90.6 (DSH Minimal) vs 90.3 (mini-SWE) vs 88.0 (Claude Code) vs 84.1 (Codex); DeepSWE v1.1 spans **65.5–74.2** by scaffold. (6) **No third-party SWE-bench Verified/Pro or LiveCodeBench number exists for the V4.1 ID** — figures circulating (SWE-bench 79.0, LiveCodeBench 91.6) describe the older **V4 Flash 0731**, not this model.
+> **Corrected dimension:** **Multimodal** scored 70 (not 88): the card specifies **text + image input only** — the methodology's `+image in = 60–70` band — with DocVQA 95.6 crediting document parsing at the top of that band.
+> Sources: https://www.deepseek.com/news/deepseek-v4-1-flash/ · https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash · https://deepinfra.com/blog/deepseek-v4-1-flash-model-overview-integration · https://artificialanalysis.ai/models/deepseek-v4-1-flash · https://apidog.com/blog/deepseek-v4-1-flash-vs-v4-pro-vs-v4-flash · https://qcode.cc/en/deepseek-v4-1-flash-pricing
 
 ## Model card
 
 - **Name:** DeepSeek-V4.1-Flash (smallest model in DeepSeek's V4.1 architecture family)
-- **Short description:** DeepSeek's follow-up to V4-Flash, released 2026-09-10: an MIT-licensed 552B-backbone multimodal MoE with an asymmetric 8B-active prefill / 16B-active decode split, built for input-heavy agentic workloads. It supersedes V4-Flash and replaces V4-Pro as DeepSeek's recommended default (`deepseek-v4-pro` traffic routes here at Flash prices).
-- **Provider / access:** DeepSeek API `model=deepseek-flash` (OpenAI-, Anthropic- and Responses-compatible); legacy names `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` resolve here. Open weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash`, MIT); vLLM/SGLang day-one support; also Fireworks, Novita, DeepInfra, Baseten, Featherless, LM Studio Cloud.
-- **Release / knowledge:** Released 2026-09-10; knowledge cutoff ≈2026-06 (not explicitly disclosed).
+- **Short description:** DeepSeek's follow-up to V4-Flash, released 2026-09-10: an MIT-licensed 552B-backbone multimodal MoE with an asymmetric 8B-active prefill / 16B-active decode split, built for input-heavy agentic workloads. It supersedes V4-Flash and replaces V4-Pro as DeepSeek's recommended default (`deepseek-v4-pro` traffic routes here at Flash rates from 2026-09-14 until V4.1-Pro launches).
+- **Provider / access:** DeepSeek API `model=deepseek-flash` (OpenAI-, Anthropic- and Responses-compatible); legacy names `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` resolve here. Open weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash`, MIT); vLLM/SGLang day-one support; also Fireworks, Novita, DeepInfra, Baseten, Together, Featherless, LM Studio, Ollama Cloud.
+- **Release / knowledge:** Released 2026-09-10 (pricing live 04:00 UTC that day); knowledge cutoff ≈2026-06 (not explicitly disclosed).
 - **IDs:** `deepseek-flash`; legacy `deepseek-v4-flash`, `deepseek-v4-flash-vision-exp`; HF `deepseek-ai/DeepSeek-V4.1-Flash`.
-- **Context window:** 1,048,576 tokens; **max output ≈384,000 tokens** (Fireworks/Fireworks-adjacent hosts list 393.2K; DeepInfra caps at 131.1K).
+- **Context window:** 1,048,576 tokens; **max output ≈384,000 tokens** (Fireworks lists 393.2K; DeepInfra caps at 131.1K).
 - **Modalities:** text + image in (native DeepSeek-ViT encoder), text out; reasoning yes (thinking default, 1–100 effort dial); tool calls, JSON output, Responses API, Anthropic API, FIM.
-- **Pricing (as of 2026-10-11):** off-peak $0.15 / 1M in, $0.003 cache hit, $0.60 / 1M out; peak (weekdays 01:00–04:00 & 06:00–10:00 UTC) doubles to $0.30/$1.20. Fireworks $0.22/$0.66. Blended ≈$0.262/M. Concurrency limit 2,500.
-- **Architecture:** MIT MoE, 552B backbone (+196B Engram conditional-memory table ≈763B safetensors total), 8B active prefill / 16B active decode; 384 routed + 1 shared expert per layer, 6 routed per token; Causal Encoder-Decoder (CED) with Compressed Sparse Attention 2 + FP4 main-KV cache; global KV cache ≈890 bytes/token (≈¼ of V4-Flash); trained on 45T tokens.
+- **Pricing (as of 2026-10-16):** off-peak $0.15 / 1M in, $0.003 cache hit, $0.60 / 1M out; peak (weekdays 01:00–04:00 & 06:00–10:00 UTC) doubles to $0.30/$1.20. DeepInfra promo $0.14/$0.42 (cached $0.004); Infron Flex $0.12/$0.48; Fireworks $0.22/$0.66. Blended ≈$0.262/M. Concurrency limit 2,500.
+- **Architecture:** MIT MoE, 552B backbone (**763B safetensors total incl. the native vision encoder**), 8B active prefill / 16B active decode; 384 routed + 1 shared expert per layer, 6 routed per token; Causal Encoder-Decoder (CED) with Compressed Sparse Attention 2 + FP4 main-KV cache; global KV cache ≈890 bytes/token (≈¼ of V4-Flash); trained on 45T tokens, context extended to 1M at 34T.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.6%** (vendor, 1M ctx; V4-Pro 87.9%, V4-Flash 82.7%); TB3.0 **30.0%**, TB4.0 **31.2%**
-- DeepSWE v1.1: **74.2%** (vendor mini-swe-agent; edges Claude Opus 5's 74.0%); SEC-Bench Pro **62.8%**; CyberGym **88.1%**; ExploitGym 15.3%
+- Terminal-Bench 2.1: **90.6%** (vendor DSH Minimal; V4-Pro 87.9%, V4-Flash 82.7%, GPT-5.6 Sol 88.8%, Opus-5.0 89.1%); TB3.0 **30.0%**, TB4.0 **31.2%**
+- DeepSWE v1.1: **74.2%** (mini-SWE; edges Claude Opus 5's 74.0; scaffold range 65.5 OpenCode → 74.2 mini-SWE); SEC-Bench Pro **62.8%**; CyberGym **88.1%**; ExploitGym 15.3%
 - HLE with tools **63.9%**; AutomationBench **54.8%**; Agents' Last Exam 31.8%; ProgramBench 20.3%; NL2Repo-Bench 64.0%
 - Visual agents (tools): Chartography 78.9%, BabyVision 89.6%, ZeroBench-main 49.0%
 - Tau3-Banking / GDPval-AA / Claw-Eval / MCP-Atlas: **no independently verified public score found**; AA Intelligence Index **39 (#7/117)** is the main independent composite
@@ -37,15 +37,15 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.9%** (vendor + HF community); HLE: **36.8%** Pass@1 (**39.1%** text-only subset) / **63.9%** with tools
-- Codeforces **3471**; MathArena Apex 65.6; base checkpoint: MMLU-Pro 74.1, C-Eval 92.1, AGIEval 83.4, SuperGPQA 53.1, SimpleQA-Verified 42.3
-- AA Intelligence Index: **39** (#7/117, v4.3.2) — prior file read 40; ≈2× the median for similarly sized open-weight models
+- Codeforces **3471**; MathArena Apex 65.6; base checkpoint: MMLU-Pro 74.1, MMLU 91 (instruct), C-Eval 92.1, AGIEval 83.4, SuperGPQA 53.1, SimpleQA-Verified 42.3 (base) / 49 (instruct), IFEval 89.5, AIME 2025 87.5
+- AA Intelligence Index: **39 (v4.3.2 #7/117)** / **40** (DeepInfra max effort) — ≈2× the median for similarly sized open-weight models; V4-Pro 0813 = 36.0, V4-Flash 0731 = 34.3
 - LCR / CritPt / PARSE-Bench: **no verified public score found** (PARSE document rows used below as document-quality proxy)
 
 Coding:
 
-- DeepSWE v1.1 74.2% and TB2.1 90.6% (above); base: BigCodeBench 60.6, HumanEval 79.4, GSM8K 93.0
-- SWE-bench Verified / Pro / LiveCodeBench / SciCode: **no verified public score found**
-- Output speed: **218.7 tok/s** median (Artificial Analysis)
+- DeepSWE v1.1 74.2% and TB2.1 90.6% (above); base: BigCodeBench 60.6, HumanEval 79.4, GSM8K 93.0, MATH 61.1
+- SWE-bench Verified / Pro / LiveCodeBench / SciCode: **no verified public score found** for the V4.1 ID
+- Output speed: **211–546 tok/s** (AA/DeepInfra) — median ≈213–218 tok/s; TTFT 1.19–5.28 s
 
 Long context:
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
-- Method: deep second-pass public internet research (DeepSeek official news/pricing, Hugging Face model card, Artificial Analysis, OpenLM.ai, LM Studio, LLM-Stats). Vendor-reported figures flagged (own family model); the parameter-count, cache-price and max-output discrepancies plus the multimodal band correction are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Method: rewrite-pass public internet research (DeepSeek official news/pricing, Hugging Face model card, DeepInfra blog/API, Artificial Analysis, Apidog, qcode, computeprices, Infron, codersera, Ollama, TechRepublic). Vendor-reported figures flagged (own family model); the extra-parameter attribution, AA-index, cache-price, max-output, harness-spread and the misattributed V4-Flash coding rows are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

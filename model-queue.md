@@ -6,7 +6,7 @@
 94 muse-spark-1.3
 93 claude-opus-5.5
 92.5 gemini-3.8-flash
-91.9 gemini-4-argon
+92.3 gemini-4-argon
 91.7 gemini-3.1-pro
 91.5 gpt-6-astra
 91.4 claude-opus-5
@@ -31,6 +31,7 @@
 88.6 gpt-5.6-terra
 88.4 gemini-3.6-flash
 88.1 deepseek-v4.1-flash
+88 claude-opus-4.7
 87.9 claude-opus-4.6
 87.8 mimo-v2.6-flash
 87.6 claude-sonnet-5
@@ -126,6 +127,7 @@
 70.4 longcat-2.0
 69.5 glm-5.1
 69.3 grok-build-0.1
+69 minimax-m2.5
 68.5 hy3-preview
 68.2 diffusiongemma-26b-a4b
 67.9 solar-open-2

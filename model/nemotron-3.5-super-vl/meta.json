@@ -1,0 +1,9 @@
+{
+  "id": "opencode/nemotron-3.5-super-vl",
+  "name": "Nemotron 3.5 Super Vl",
+  "short": "Nemotron 3.5 Super Vl model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}
