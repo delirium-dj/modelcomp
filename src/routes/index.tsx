@@ -49,7 +49,9 @@ const HEX_GAMMA = Math.LN2 / Math.log(100 / 75);
 // A/B/C series colors — same as the original compare page (models.ts MODEL_COLORS).
 const SERIES_COLORS = ["#4f46e5", "#059669", "#d97706"];
 // Hero animation palette: series trio plus distinct slots for the rest.
-const HERO_COLORS = ["#4f46e5", "#059669", "#d97706", "#0ea5e9", "#8b5cf6", "#ef4444", "#84cc16", "#06b6d4", "#d946ef", "#f97316"];
+const HERO_COLORS = ["#4f46e5", "#059669", "#d97706", "#0ea5e9", "#8b5cf6", "#ef4444", "#84cc16", "#06b6d4", "#d946ef", "#f97316", "#14b8a6", "#eab308"];
+// Hero animation cast size (top-N of the current source ranking).
+const HERO_CAST = 12;
 function hexPoint(value: number, index: number, maxR = HEX_MAX_R): { x: number; y: number } {
   const angle = ((-90 + index * 60) * Math.PI) / 180;
   const clamped = Math.max(0, Math.min(100, value));
@@ -192,16 +194,23 @@ export default component$(() => {
   );
   const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
   const visibleModels = filtered.slice(0, displayCount.value);
-  // Hero animation cast: top 10 of the current source ranking, spotlighted
-  // one at a time (see interval task below).
-  const heroTop10 = generative.slice(0, 10);
-  const heroActiveSafe = heroTop10.length > 0 ? heroActive.value % heroTop10.length : 0;
+  // Hero animation cast: top 12 of the current source ranking, spotlighted
+  // in random order (see interval task below).
+  const heroTop12 = generative.slice(0, HERO_CAST);
+  const heroActiveSafe = heroTop12.length > 0 ? heroActive.value % heroTop12.length : 0;
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = window.setInterval(() => {
-      heroActive.value = heroActive.value + 1;
+      // Random next model, never the same one twice in a row. The cast is
+      // HERO_CAST long (rendering modulos by the real length as a guard).
+      let n = heroActive.value;
+      let guard = 0;
+      while (n === heroActive.value && guard++ < 20) {
+        n = Math.floor(Math.random() * HERO_CAST);
+      }
+      heroActive.value = n;
     }, 2600);
     cleanup(() => window.clearInterval(t));
   });
@@ -305,7 +314,7 @@ export default component$(() => {
                 viewBox="0 0 400 400"
                 role="img"
                 class="mx-auto h-auto w-full max-w-[270px] min-[768px]:max-w-[324px]"
-                aria-label={`Top 10 models by ${activeSourceLabel}: ${heroTop10.map((m) => `${m.name} ${m.scores.overall}`).join(", ")}`}
+                aria-label={`Top 12 models by ${activeSourceLabel}: ${heroTop12.map((m) => `${m.name} ${m.scores.overall}`).join(", ")}`}
               >
                 {[25, 50, 75, 100].map((ring) => (
                   <polygon
@@ -342,7 +351,7 @@ export default component$(() => {
                 >
                   <title>Top-5 performance hexagon</title>
                 </polygon>
-                {heroTop10.map((m, hi) => (
+                {heroTop12.map((m, hi) => (
                   <polygon
                     key={m.id}
                     points={DIMENSIONS.map((d, i) => {
@@ -360,9 +369,9 @@ export default component$(() => {
                     <title>{`${m.name} (Overall ${m.scores.overall})`}</title>
                   </polygon>
                 ))}
-                {heroTop10.length > 0 &&
+                {heroTop12.length > 0 &&
                   DIMENSIONS.map((d, i) => {
-                    const m = heroTop10[heroActiveSafe];
+                    const m = heroTop12[heroActiveSafe];
                     const p = hexPoint(m.scores[d.key], i);
                     return (
                       <circle
@@ -394,10 +403,10 @@ export default component$(() => {
                   );
                 })}
               </svg>
-              {heroTop10.length > 0 && (
+              {heroTop12.length > 0 && (
                 <p class="mx-auto mt-4 max-w-56 truncate text-center text-[13px] font-bold">
-                  <a href={`/model/${heroTop10[heroActiveSafe].slug}/`}>
-                    {heroTop10[heroActiveSafe].name}
+                  <a href={`/model/${heroTop12[heroActiveSafe].slug}/`}>
+                    {heroTop12[heroActiveSafe].name}
                   </a>
                 </p>
               )}
