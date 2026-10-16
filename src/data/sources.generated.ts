@@ -78,7 +78,8 @@ export type SourceKey =
   | "Qwen 3.8"
   | "Solar Mini 4"
   | "Qwen 3.7 Plus"
-  | "Cat Jam";
+  | "Cat Jam"
+  | "GPT 6.1 Sol";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -168,4 +169,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Solar Mini 4", label: "Solar Mini 4", file: "Solar_Mini_4.md", slug: "solar-mini-4" },
   { key: "Qwen 3.7 Plus", label: "Qwen 3.7 Plus", file: "Qwen_3.7_Plus.md", slug: "qwen-3.7-plus" },
   { key: "Cat Jam", label: "Cat Jam", file: "Cat_Jam.md" },
+  { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
 ];

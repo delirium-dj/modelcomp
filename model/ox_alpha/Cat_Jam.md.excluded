@@ -1,0 +1,38 @@
+# Ox Alpha (a.k.a. `stealth/ox-alpha`) — no verified public benchmark (alias of GLM-5.3-Flash) — by Cat Jam
+
+- Source: Z.ai pinned "ox-alpha" alias of GLM-5.3-Flash (`opencode/ox_alpha`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Aliased model / findings
+
+`ox_alpha` (`stealth/ox-alpha`) is not a standalone model. Z.ai confirmed on 2026-08-26 that this alias resolved to GLM-5.3-Flash during the stealth preview (Aug 20–26, 2026). Full specs and benchmarks for the underlying model are already researched and filed under `model/glm-5.3-flash/Cat_Jam.md`.
+
+### Specs (inherited from GLM-5.3-Flash)
+
+- 320B total / 18B active, native multimodal (text/image/video), 1M context, 128K output
+- Z.ai pricing $0.15/$0.50, MIT weights
+- See `model/glm-5.3-flash/Cat_Jam.md` for numbers.
+
+### Raw benchmarks found for `ox_alpha` itself
+
+No verified independent benchmark score was published under the `ox_alpha` alias itself. Published benchmarks cite `GLM-5.3-Flash` (e.g., AA Intelligence Index 57 (v4.1.1) / 41.8 (v4.3.2), DeepSWE 63.4, etc.). The alias was retired (OpenRouter/stealth listing no longer serves). No separate verified public benchmark exists for `ox_alpha` as an exact ID.
+
+Self-exclusion: no verified public benchmarks under the `ox_alpha` slug ⇒ saved as `.md.excluded`.
+
+### Model card (alias)
+
+- Alias ID: `stealth/ox-alpha` → canonical `glm-5.3-flash`
+
+### Normalized scores
+
+Not scored under this slug (alias of GLM-5.3-Flash; see `model/glm-5.3-flash/Cat_Jam.md`).
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Web research into Ox Alpha mystery alias + Z.ai confirmation; self-exclusion under `ox_alpha` slug. See sister report for GLM-5.3-Flash evidence.
+- Future sources: do not create under `opencode/ox_alpha` again; reconcile with `glm-5.3-flash`.

@@ -14,7 +14,7 @@
 91 claude-fable-5.1
 91 claude-mythos-5.1
 91 claude-sonnet-5.5
-90.6 kimi-k3
+90.7 kimi-k3
 90.6 mimo-v2.6-pro
 90.5 claude-fable-5
 90.2 gemini-3-pro
@@ -96,6 +96,7 @@
 77.5 grok-4.1
 77.2 space-bunny
 76.9 gemini-3.1-flash-lite
+76.8 kimi-k2.8-preview
 75.7 claude-sonnet-4
 75.7 glm-5.2-coding
 75.6 gemma-4.12b-unified
@@ -106,7 +107,6 @@
 74.5 gemini-2.0-flash
 74.4 ling-3.0-flash-vl
 74.3 gemini-1.5-pro
-74.2 kimi-k2.8-preview
 74 glm-5.2
 73.7 claude-haiku-4.5
 73.4 deepseek-v4-flash

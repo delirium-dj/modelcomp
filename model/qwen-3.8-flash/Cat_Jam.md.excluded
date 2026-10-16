@@ -1,0 +1,52 @@
+# Qwen 3.8 Flash — (no verified public benchmark scores) — by Cat Jam
+
+- Source: Alibaba / Qwen 3.8 Flash (`opencode/qwen-3.8-flash`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Flash
+- **Short description:** Alibaba's fast-tier Qwen 3.8 model (released Aug 26, 2026). 1M context (991,808 input / 131,072 output), text/image/video input, text output; multi-tool calling, long context, low cost ($0.15/$0.47 or China $0.113/$0.382).
+- **Provider / access:** Alibaba Cloud Model Studio (`qwen3.8-flash`) / QwenCloud API. OpenAI/Anthropic compatible. Free tier possible via token quotas, not confirmed in sampled docs.
+- **Release / knowledge:** Released 2026-08-26 (GA); knowledge cutoff not published in sampled docs.
+- **IDs:** `qwen3.8-flash` (Alibaba)
+- **Context window:** 1,048,576 tokens (991,808 input / 131,072 output). Verified via Alibaba docs.
+- **Modalities:** Text, image, video in; text out. Function calling, structured output, partial mode, context cache, batch (China only?).
+- **Pricing (as of 2026-10-16):** China $0.113/$0.382 per 1M; International $0.15/$0.47. Cache reads cheaper.
+- **Architecture:** MoE (Qwen3.8 Flash; details not in sampled docs beyond model description). Open weights status? Qwen 3.8-27B and 2.4T are public; base Flash likely proprietary endpoint (not verified open).
+
+### Raw benchmarks found
+
+No verified public benchmark numbers were found for this exact model (`qwen3.8-flash`) in the sampled sources. The official Alibaba docs describe capabilities but do not list benchmark scores. The broader Qwen 3.8 family launch blog (Max tier) provides many self-reported numbers; none of them are labeled as `qwen3.8-flash` exact in the sampled material.
+
+Agent / tool use:
+
+- All benchmark rows: no verified public score found.
+
+Reasoning / knowledge:
+
+- All benchmark rows: no verified public score found (no GPQA/HLE/IFBench/Terminal-Bench number attributed to `qwen3.8-flash` exact).
+
+Coding:
+
+- All benchmark rows: no verified public score found.
+
+Long context:
+
+- 1M context window verified by Alibaba docs; no MRCR/RULER score found for this exact model ID.
+
+Self-exclusion note: Because every raw-benchmark line above reads "no verified public score found" for this exact model, this report is saved as `.md.excluded` rather than a scored finding, per the template's SELF-EXCLUSION rule.
+
+### Scores
+
+Not scored (zero verified public benchmarks for the exact model).
+
+---
+
+## Signature
+
+- Provided by: **Cat Jam (opencode/cat-jam-free)** — 2026-10-16
+- Method: Public web research (Alibaba docs, Meractus, Qwen blog posts for the 3.8 family; no exact-tier Flash benchmark table found); scores are not normalized because no verified evidence exists.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings; once independent benchmarks land, re-research this slug with the `.md.excluded` twin procedure.
