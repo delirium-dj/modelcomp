@@ -1,0 +1,67 @@
+# Cat Jam — findings by Claude Haiku 5.5
+
+- Source: Unknown / `cat-jam` (OpenCode Data lists the lab as "Unknown")
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** cat-jam (no Free-tier wording found; no official name or description found)
+- **Short description:** No verified description found. OpenCode Data lists a model with ID `cat-jam` and an unknown lab, with usage data only. No vendor, release notes, or model card was found.
+- **Provider / access:** OpenCode usage data at opencode.ai/data/unknown/cat-jam. No OpenCode Zen docs entry was found. Chat Completions or Responses API: no verified information.
+- **Release / knowledge:** no verified public release date or knowledge cutoff found.
+- **IDs:** `cat-jam` (OpenCode Data model ID). No verified Zen or provider ID found.
+- **Context window:** no verified public context window found. OpenCode Data shows "Unknown."
+- **Modalities:** no verified information on input/output modalities, reasoning, tool calls, or JSON mode. OpenCode Data shows "Unknown" for each.
+- **Pricing (as of 2026-10-16):** no verified list price found. OpenCode Data shows total spend of $0 and average cost per session of $0.0000 over the past two months, but this is observed session cost, not a published price. Privacy terms for any free tier: no verified information found.
+- **Architecture:** no verified information on parameters, MoE design, license, or whether weights are open.
+
+### Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+- No long-context retrieval reported.
+
+### Normalized scores (1-100)
+
+Per the self-exclusion rule, no scored dimensions are output for this model.
+
+- **Tool use: not scored.** No verified tool-use benchmark exists for this model ID.
+- **Reasoning: not scored.** No verified reasoning benchmark exists for this model ID.
+- **Context window: not scored.** No verified context length exists for this model ID.
+- **Multimodal: not scored.** No verified modality information exists for this model ID.
+- **Coding: not scored.** No verified coding benchmark exists for this model ID.
+- **Cost efficiency: not scored.** No verified list price exists for this model ID. The $0 observed spend is not a published price.
+- **Overall Score: not computed.** Excluded for lack of verified benchmarks.
+
+Negative findings: OpenCode Data shows usage only, not quality. Usage ranks differ across snapshots (#10 on the model page updated 2026-10-16, #21 on comparison pages updated 2026-10-14), and the token counts differ too (904B vs. 222B over two months). Usage volume is not a benchmark and was not used for scoring.
+
+---
+
+## Signature
+
+- Provided by: **Claude Haiku 5.5 (anthropic/claude-haiku-5-5)** — 2026-10-16
+- Method: public internet research via web search and fetch of OpenCode Data comparison and model pages, plus OpenCode Data localized pages; no vendor model card, Artificial Analysis, LiveCodeBench, SWE-bench, BenchLM, or HuggingFace entry was found for this model ID. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

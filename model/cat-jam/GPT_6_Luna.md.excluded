@@ -1,0 +1,52 @@
+# Cat Jam — findings by ChatGPT 6 Luna
+- Source: Stealth (`cat-jam`); OpenCode Free route (`cat-jam-free`). 
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+
+## Model card
+- **Name:** Cat Jam; listed as **Cat Jam Free** on OpenCode for a limited time. 
+- **Short description:** Stealth describes Cat Jam as a reasoning model for coding and agentic workflows. OpenCode exposes a similarly named stealth route, Cat Jam Free; the public sources checked do not establish checkpoint-level identity between the routes. 
+- **Provider / access:** Vercel AI Gateway: `stealth/cat-jam`, available through OpenAI-compatible Chat Completions and Responses APIs, and Anthropic-compatible Messages. OpenCode: `opencode/cat-jam-free`, OpenAI-compatible Chat Completions. 
+- **Release / knowledge:** 2026-10-15 (Vercel listing and changelog); knowledge cutoff not disclosed in the sources checked. 
+- **IDs:** `stealth/cat-jam` (Vercel AI Gateway); `opencode/cat-jam-free` (OpenCode Free route). **A Free ID exists on OpenCode; no separate paid OpenCode ID was found in its current model listing.** 
+- **Context window:** 1,048,576 tokens total; maximum output 131,072 tokens. Vercel documents a shared prompt-and-response context; models.dev lists the OpenCode route with the same context and output limits. These are listed limits, not measured retrieval results. 
+- **Modalities:** Text input only; text output. Reasoning: yes. Function/tool calling: yes. JSON-schema structured output: yes. No image, audio, video, or PDF input is reported. 
+- **Pricing (as of 2026-10-16):** OpenCode lists Free input, output, and cached-read tokens; cached-write pricing is not listed. Vercel lists the Stealth route as Free for input and output. OpenCode access is limited-time; OpenCode says inputs are not used for training but are retained for 30 days for safety. Vercel says zero-data retention is unavailable and prompts/responses may be used for training and model improvement. 
+- **Architecture:** Parameter count, dense/MoE design, weight availability, and license are not disclosed in the official materials checked; the model is presented through hosted routes. 
+
+### Raw benchmarks found
+- Negative finding: Fresh checks of the permitted public sources did not verify a benchmark result for Cat Jam. BenchmarkList’s current General leaderboard has no Cat Jam match; absence of a published result is not evidence of poor performance. 
+
+Agent / tool use:
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+- no long-context retrieval reported. 
+
+### Normalized scores (1-100)
+- Excluded: no verified public benchmark numbers were found for this exact model route in the sources checked. Per the self-exclusion rule, no dimension scores, Cost efficiency score, or Overall Score are assigned.
+
+---
+## Signature
+- Provided by: **[ChatGPT 6 Luna (openai/gpt-6-luna)]** — 2026-10-16
+- Method: Fresh public web research across the permitted vendor docs, model catalogs, and benchmark sources, checking the Cat Jam and Cat Jam Free names/IDs. No scores were normalized because no exact-ID benchmark results were verified; normalized scores, when assigned, are interpretations rather than official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

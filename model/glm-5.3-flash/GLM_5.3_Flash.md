@@ -1,9 +1,14 @@
 # GLM 5.3 Flash — findings by GLM 5.3 Flash
 
 - Source: Z.AI / Zhipu AI (`glm-5.3-flash`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-researched 2026-10-16 (original pass 2026-09-17→10-06): BenchLM's 2026-10-15
+> refresh added independent AA/Vals/Epoch rows, and the live Zen roster now lists a
+> `glm-5.3-flash-free` route that did not exist on 2026-09-17. Quality dims hold;
+> Cost efficiency 95→100 on the new $0 route.
 
 ## Model card
 
@@ -11,7 +16,7 @@
 - **Short description:** Z.ai's cost-efficient, first natively multimodal GLM-5 model — a 320B-total/18B-active open-weights MoE (MIT) aimed at coding agents, long-horizon tool work, and document/chart/video understanding. Revealed 2026-08-26 as the resolved identity of the anonymous stealth model "Ox Alpha"; treat the separate `ox_alpha` entry as the same weights behind the stealth/preview slots, not a distinct model. A same-weights high-speed serving sibling, GLM-5.3-FlashX (`glm-5.3-flashx`, ~200 tok/s), launched 2026-09-18 — tracked in its own entry.
 - **Provider / access:** OpenCode Zen `opencode/glm-5.3-flash` (Chat Completions, `https://opencode.ai/zen/v1/chat/completions`); Z.ai API platform (`https://docs.z.ai/guides/llm/glm-5.3-flash`); OpenRouter `z-ai/glm-5.3-flash`; ~18 API providers per Artificial Analysis. Self-host day-one via SGLang, vLLM, TokenSpeed, KTransformers, Transformers, Unsloth (datacenter-class — 320B MoE).
 - **Release / knowledge:** 2026-08-26 public release (Hugging Face repo created 2026-08-25; ran anonymously as "Ox Alpha" ~6 days; Z.ai confirmed the GLM lineage to Bloomberg at 09:00 UTC on 2026-08-26 and the OpenRouter entry landed 13:59 UTC the same day). Knowledge cutoff not stated in sources consulted. GLM-5 technical report: arXiv 2602.15763.
-- **IDs:** `opencode/glm-5.3-flash` (Zen, paid), `zhipuai/glm-5.3-flash` (models.dev canonical), `z-ai/glm-5.3-flash` (OpenRouter), `zai-org/GLM-5.3-Flash` (HF). **No `glm-5.3-flash-free` ID exists on Zen** — verified against the live catalog `https://opencode.ai/zen/v1/models` on 2026-09-17; the legacy stealth slot "Ox Alpha Free (Unlimited)" `x-preview-f-free` ($0, 1M ctx) is believed to serve these weights but is not a named GLM-5.3-Flash ID.
+- **IDs:** `opencode/glm-5.3-flash` (Zen, paid), **`opencode/glm-5.3-flash-free` (Zen free route — NEW, present on the live roster fetched 2026-10-16; did not exist on 2026-09-17)**, `zhipuai/glm-5.3-flash` (models.dev canonical), `z-ai/glm-5.3-flash` (OpenRouter), `zai-org/GLM-5.3-Flash` (HF). The legacy stealth slot "Ox Alpha Free (Unlimited)" `x-preview-f-free` ($0, 1M ctx) is believed to serve these weights but is not a named GLM-5.3-Flash ID.
 - **Context window:** 1,048,576 tokens total; 131,072 max output — verified via the models.dev OpenCode Zen entry and LLMReference (2026-09-17); Artificial Analysis also lists 1M. Stealth-window community needle tests held retrieval to ~934K tokens (CellCog), and Z.ai's own NL2Repo evaluations run under the full 1M context (HF footnotes), so the native window is credibly usable.
 - **Modalities:** text + image + video (+ document/file) input, text output (HF `pipeline_tag: image-text-to-text`; Z.ai describes it as the first natively multimodal GLM-5; AA lists text+image; no verified audio input; no image/audio/video generation). Reasoning: yes — hybrid thinking with `reasoning_effort` low/high/max (default `max`; benchmarks reproduced at `max`). Tool calls: yes; structured output and prompt caching: yes (Zen/models.dev capability flags).
 - **Pricing (as of 2026-10-06):** paid only — $0.15 in / $0.50 out / $0.03 cached per 1M tokens (Z.ai list, re-confirmed on the docs.z.ai pricing page 2026-10-06; Zen/models.dev route $0.15/$0.50; AA blended ≈$0.10/M at 7:2:1 cache/input/output). The 50% launch promo ($0.075/$0.25) ended 24:00 on 2026-09-09 SGT; cached-input storage still marked limited-time free; included in the GLM Coding Plan with 3× quota. Cost scored on paid pricing (no $0 Zen ID), like GLM 5.1 and MiniMax M2.7. Launch-era third-party listings showing ~$1/$3 predate the settled official price and are not used.
@@ -33,12 +38,13 @@ Agent / tool use:
 - Tau2-Bench / OSWorld: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found (Toolathlon Verified above is the closest measured proxy)
+- **Added 2026-10-16 (BenchLM refresh):** AA independently reproduced TB2.1 at **84.3%** (terminalbench-v2-1 leaderboard — matches the vendor figure); AA AutomationBench **60.4%** (higher than the vendor's 48.8 — version difference, both cited); AA EnterpriseOps-Gym **33.2%**; AA ITBench **51.2%**; AA-AnalystAgent **25.0%**; AA Briefcase **1454 Elo**; Hermes Bench **68.9%** / Hermes Index **35.0%** (Nous Research); MazeBench ASCII **0%** (independent, very weak); CONFLICT: Vals AI's independent TB2.1 run reads **62.9%** vs the official/AA 84.3% — heavy harness sensitivity, both cited
 
 Reasoning / knowledge:
 
 - GPQA Diamond (thinking, no tools): **91.2%** (LLMLearner, rank 35/254). Second source: **75.2%** (llm-stats aggregation, read 2026-10-06 — harness/config differs from the thinking-mode value; both listed, not averaged)
 - HLE (max effort, with tools; full set, ≤300K managed context, GPT-5.6-luna (medium) judge per HF footnote): **55.3%** (Z.ai via LLMReference/Benchgen/EdenAI; LLMLearner rank 17/218; vs Opus 4.8 57.9, DeepSeek V4 Vision-Exp 55.1, GLM-5.2 54.7)
-- LCR / MLCR: no verified public score found (AA-LCR v1.1 is an AA Index v4.3 component; the individual value was not published on the pages consulted)
+- LCR / MLCR: **filled 2026-10-16** — AA-LCR v1.1 **80.0%** and MLCR-AA **51.1%** (Artificial Analysis leaderboards; previously unpublished)
 - CritPt (thinking, no tools): **15.4%** (LLMLearner, rank 27/118)
 - FrontierMath v2 / FrontierMath Tier 4 v2: **55.8% / 17.1%** (LLMLearner, ranks 26/43 and 28/41)
 - SimpleBench (commonsense, no tools): **55.1%** (LLMLearner, rank 43/90)

@@ -2021,6 +2021,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "glm-5": {
     "Claude_Opus_4.6.md": [78, 78, 75, 15, 80, 94, 65],
+    "GLM_5.3.md": [78, 82, 70, 15, 82, 85, 65],
     "GLM_5.3_Flash.md": [80, 74, 65, 15, 82, 80, 63],
     "Gemini_3.8_Flash.md": [80, 82, 70, 15, 86, 74, 67],
     "average.md": [79.3, 78, 70, 15, 82.7, 82.7, 65],
@@ -2136,7 +2137,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [86, 80, 87, 40, 88, 72, 76],
     "Claude_Opus_4.8.md": [88, 87, 95, 15, 88, 82, 74.6],
     "Claude_Opus_5.md": [90, 86, 95, 18, 90, 88, 75.8],
-    "DeepSeek_4.1_Flash.md": [89, 90, 95, 15, 84, 87, 75],
+    "DeepSeek_4.1_Flash.md": [89, 90, 95, 15, 85, 87, 75],
     "DeepSeek_4_Flash.md": [92, 82, 95, 15, 89, 88, 75],
     "Fledge_Alpha.md": [82, 82, 94, 15, 86, 84, 71.8],
     "GLM_5.3.md": [84, 84, 93, 15, 88, 92, 73],
@@ -2165,7 +2166,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [88, 82, 92, 15, 86, 88, 73],
     "Space_Bunny.md": [90, 90, 97, 15, 94, 88, 77.2],
     "Step_5_Preview.md": [80, 84, 93, 15, 90, 88, 72],
-    "average.md": [88.5, 86.7, 92.9, 33.4, 88.4, 84.3, 78.2],
+    "average.md": [88.5, 86.7, 92.9, 33.4, 88.5, 84.3, 78.2],
   },
   "glm-5.3-flash": {
     "Big_Pickle.md": [76, 84, 86, 76, 76, 95, 80],
@@ -3711,6 +3712,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "kimi-k2.7-code-highspeed": {
     "Big_Pickle.md": [76, 62, 76, 72, 74, 70, 72],
+    "Cat_Jam.md": [84, 80, 86, 84, 82, 86, 83],
     "Claude_Opus_4.6.md": [82, 78, 76, 65, 87, 72, 78],
     "Claude_Opus_5.md": [80, 73, 74, 70, 79, 74, 75.2],
     "DeepSeek_4.1_Flash.md": [80, 78, 74, 68, 84, 74, 76.8],

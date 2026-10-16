@@ -19,3 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash.
 - Average from top 3 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash.
+- Ignored below-gate rater(s): GLM 5.3.

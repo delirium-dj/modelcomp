@@ -1,0 +1,61 @@
+# Cat Jam — findings by [ChatGPT 5]
+
+- Source: Stealth (via Vercel AI Gateway and OpenCode) (`stealth/cat-jam`, `cat-jam-free`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Cat Jam (Free-tier wording: `cat-jam-free` on OpenCode, `stealth/cat-jam` on Vercel AI Gateway).
+- **Short description:** Stealth reasoning model for coding and agentic tasks, emphasising low-latency inference. Alias `cat-jam-free` is the free tier on OpenCode; `stealth/cat-jam` is the model name on Vercel AI Gateway.
+- **Provider / access:** Vercel AI Gateway (`stealth/cat-jam`), OpenCode (`cat-jam-free`). Chat Completions API is supported; Responses API also available on Vercel AI Gateway.
+- **Release / knowledge:** Released 2026-10-15; knowledge cutoff not disclosed.
+- **IDs:** `stealth/cat-jam` (Vercel), `cat-jam-free` (OpenCode). No Free ID exists on OpenCode Zen; the OpenCode free tier ID is `cat-jam-free`.
+- **Context window:** 1,000,000 tokens total (verified via Vercel model page and Command Code); max output 131,072 tokens.
+- **Modalities:** Text in, text out; reasoning yes; tool calls yes; JSON mode yes (structured outputs).
+- **Pricing (as of 2026-10-16):** $0.00 input / $0.00 output / $0.00 cached per 1M tokens (Free during stealth period). Free-tier privacy caveat: prompts and responses may be used for training and model improvement (Vercel); OpenCode notes zero data retention for the free tier.
+- **Architecture:** Proprietary stealth model; parameter count, MoE configuration, and open-weights license not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+  Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+  Coding:
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+  Long context:
+- no long-context retrieval reported
+
+### Normalized scores (1-100)
+
+- **Tool use: no verified benchmarks.** No public scores found for any agent/tool-use harness.
+- **Reasoning: no verified benchmarks.** No public scores found for GPQA, HLE, LCR, CritPt, or AA Index.
+- **Context window: no verified benchmarks.** 1M total window is documented, but no retrieval quality metric (e.g., MRCR/RULER) is available to justify a score.
+- **Multimodal: no verified benchmarks.** Text-only input is documented, but no image/audio/video/PDF capabilities are verified.
+- **Coding: no verified benchmarks.** No public scores found for SWE-bench, LiveCodeBench, SciCode, or DeepSWE.
+- **Cost efficiency: no verified benchmarks.** Model is free during stealth, but without any scored dimensions a cost-efficiency score cannot be contextualised.
+- **Overall Score: N/A (excluded).** No verified benchmark numbers exist for this exact model ID.
+
+---
+
+## Signature
+
+- Provided by: **[ChatGPT 5 (openai/gpt-5)]** — 2026-10-16
+- Method: Public internet research (Vercel AI Gateway, Command Code, OpenCode GitHub PRs, independent articles); scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

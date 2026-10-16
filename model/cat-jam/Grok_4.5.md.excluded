@@ -1,0 +1,50 @@
+# Cat Jam — findings by Grok 4.5 (xAI/grok-4-5)
+- Source: Stealth (`stealth/cat-jam` / OpenCode `cat-jam-free`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+## Model card
+- **Name:** Cat Jam Free (stealth model)
+- **Short description:** Stealth reasoning model optimized for coding and agentic workflows, with low-latency inference, tool calling, and structured JSON outputs. Released under "Stealth" provider; exact vendor/identity unconfirmed (sometimes self-reports as LitterBox AI in probes). Alias: Cat Jam / cat-jam-free.
+- **Provider / access:** OpenCode Zen (`opencode/cat-jam-free` or similar free tier), Vercel AI Gateway (`stealth/cat-jam`), Command Code. Supports OpenAI Chat Completions / Responses API and Anthropic Messages API compatible endpoints.
+- **Release / knowledge:** 2026-10-12 (OpenCode free release; Vercel AI Gateway ~2026-10-15); knowledge cutoff not publicly disclosed.
+- **IDs:** `stealth/cat-jam` (Vercel); `cat-jam-free` (OpenCode / models.dev). Free-tier ID exists on OpenCode Zen.
+- **Context window:** 1,048,576 total (1M); max output 131,072. Verified via models.dev toml and Vercel AI Gateway provider table.
+- **Modalities:** text in; text out; reasoning yes (effort levels: low/medium/high/xhigh/max); tool calls yes; structured JSON mode yes. No image/video/audio/PDF input.
+- **Pricing (as of 2026-10-16):** Free (input/output/cached $0). Free-tier privacy caveat: prompts may be retained for safety (up to ~30 days on some hosts); Zero Data Retention not available; some hosts note possible use for training/model improvement.
+- **Architecture:** Proprietary (open_weights = false); params total/active and MoE status unknown.
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+Coding:
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+Long context:
+- no long-context retrieval reported (no MRCR / RULER / GraphWalks scores found)
+### Normalized scores (1-100)
+- **Tool use: no verified public score found.** No Terminal-Bench, Tau, GDPval or equivalent scores published.
+- **Reasoning: no verified public score found.** No GPQA, HLE, AA Index or equivalent scores published.
+- **Context window: no verified public score found.** (Verified total is 1M, but no scored retrieval numbers exist to apply the tier formula under the self-exclusion rule.)
+- **Multimodal: no verified public score found.** Text-only confirmed, but no scored dims permitted.
+- **Coding: no verified public score found.** No SWE-bench, LiveCodeBench, SciCode or equivalent scores published.
+- **Cost efficiency: no verified public score found.** Free ($0) but excluded from scored output.
+- **Overall Score: no verified public score found.** Zero verified benchmark numbers for this exact model ID; scored dimensions omitted per rules.
+---
+## Signature
+- Provided by: **Grok 4.5 (xAI/grok-4-5)** — 2026-10-16
+- Method: public internet research (web search + official provider pages models.dev, Vercel AI Gateway, OpenCode announcements); scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

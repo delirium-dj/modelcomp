@@ -1,0 +1,67 @@
+# Cat Jam — findings by Gemini (google/gemini-2.5-flash)
+
+* Source: Undisclosed / Stealth (`cat-jam-free`)
+* Date: 2026-10-16 (UTC)
+* Overview and scoring methodology: `../../model-comparison.md`
+* Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+* **Name:** Cat Jam Free
+* **Short description:** A fast stealth model built for agentic coding and reasoning from an undisclosed developer, available as a free-tier option on OpenCode. Alias / variants include `cat-jam-free` and `stealth/cat-jam:free`.
+* **Provider / access:** OpenCode / OpenCode Go (`opencode/cat-jam-free` or `opencode-go/cat-jam-free`) via OpenAI Chat Completions API endpoint (`[https://opencode.ai/inference/v1](https://opencode.ai/inference/v1)`).
+* **Release / knowledge:** 2026-10-13; knowledge cutoff unknown.
+* **IDs:** `opencode/cat-jam-free`, `opencode-go/cat-jam-free`, `stealth/cat-jam:free`
+* **Context window:** 262,144 tokens total (verified via Pi agent model spec and OpenCode registry; 131,072 max output tokens).
+* **Modalities:** Text input only; text output (supports reasoning traces / extended thinking; tool calling supported; JSON mode supported). Non-multimodal (no image/audio/video input).
+* **Pricing (as of 2026-10-16):** $0.00 / 1M input, $0.00 / 1M output, $0.00 cached input (Free-tier). Free-tier API calls are routed via OpenCode inference infrastructure and may be subject to platform logging/privacy terms.
+* **Architecture:** Proprietary / undisclosed stealth model (speculated by community to be an unreleased compact/distilled model variant, e.g., ~30B–40B parameters, given ~200 tok/s inference speed).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+* Terminal-Bench 2.1: no verified public score found
+* Tau3-Banking / Tau2-Bench: no verified public score found
+* GDPval-AA: no verified public score found
+* Claw-Eval / ClawProBench: no verified public score found
+* Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+* GPQA Diamond: no verified public score found
+* HLE: no verified public score found
+* LCR / MLCR: no verified public score found
+* CritPt: no verified public score found
+* Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+* Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+* SWE-bench Verified / SWE-Pro: no verified public score found
+* LiveCodeBench: no verified public score found
+* SciCode / AA-SciCode: no verified public score found
+* Vibe Code Bench: no verified public score found
+* DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+* no long-context retrieval reported
+
+### Normalized scores (1-100)
+
+* **Tool use: N/A.** Excluded: zero verified public scores found for standard evaluation harnesses.
+* **Reasoning: N/A.** Excluded: zero verified public scores found for standard evaluation harnesses.
+* **Context window: N/A.** Excluded: model excluded due to missing benchmark metrics. (Verified context limit is 262,144 tokens).
+* **Multimodal: N/A.** Excluded: model excluded due to missing benchmark metrics. (Text-only input/output).
+* **Coding: N/A.** Excluded: zero verified public scores found for standard evaluation harnesses.
+* **Cost efficiency: N/A.** Excluded: model excluded due to missing benchmark metrics. (Pricing is $0.00 / 1M tokens).
+* **Overall Score: N/A.** EXCLUDED — no verified benchmarks exist for this model across standardized public evaluation harnesses (e.g., Terminal-Bench, GPQA, SWE-bench, LiveCodeBench, or Artificial Analysis Index).
+
+---
+
+## Signature
+
+* Provided by: **Gemini (google/gemini-2.5-flash)** — 2026-10-16
+* Method: Public internet search across vendor registries (OpenCode, Command Code), community model indexers, and public benchmark leaderboards. No verified benchmark scores found on standardized evaluation harnesses.
+* Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

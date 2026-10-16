@@ -1,0 +1,9 @@
+{
+  "id": "opencode/cat-jam",
+  "name": "Cat Jam",
+  "short": "Cat Jam model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

@@ -1,0 +1,71 @@
+EXCLUDED — no verified benchmarks.
+
+# Cat Jam — findings by Claude (anthropic/claude-sonnet-4.5)
+- Source: OpenCode (anonymous stealth publisher) / `cat-jam-free`
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** Cat Jam Free ("Cat Jam (stealth)" in OpenCode's announcement; Command Code labels it "stealth/cat-jam:free"; Vercel AI Gateway exposes it as `stealth/cat-jam`). No vendor marketing name is published — the maker has deliberately stayed anonymous for the stealth preview.
+
+- **Short description:** A stealth reasoning model for coding and agentic work, released anonymously on OpenCode Zen and mirrored on Vercel AI Gateway and Command Code. Positioned as a fast, low-latency agentic-coding model with tool calling and structured outputs; the publisher has not been disclosed and no official vendor model card exists. Community testing reports the tokenizer exactly matches Xiaomi MiMo, suggesting a possible connection, but this is unconfirmed 【turn1search11】.
+
+- **Provider / access:** OpenCode Zen `opencode/cat-jam-free` (OpenAI-compatible Chat Completions API, base URL `https://opencode.ai/zen/v1`); also listed on OpenCode Go `cat-jam-free`, Vercel AI Gateway `stealth/cat-jam`, and Command Code `stealth/cat-jam:free` 【turn1search0】【turn0search12】【turn1search6】.
+
+- **Release / knowledge:** Released 2026-10-12 (auto-generated snapshot from OpenCode Go API + models.dev + OpenCode docs) 【turn0search8】; free on OpenCode since 2026-10-13 【turn1search2】. Knowledge cutoff: not published.
+
+- **IDs:** `opencode/cat-jam-free` (Zen lane) / `cat-jam-free` (OpenCode Go lane) / `stealth/cat-jam` (Vercel AI Gateway). A non-Free paid ID does not exist anywhere public — only the Free stealth variant is listed on Zen.
+
+- **Context window:** Conflicting metadata across mirrors — **262,144 total / 131,072 max output** in the most recent models.dev / OpenCode Go snapshot and freetokens.fyi 【turn1search9】【turn1search2】, but **1,048,576 total / 131,072 output** in the pi.dev model card and Command Code listing 【turn1search0】【turn1search6】. Verified via public provider registries (models.dev, pi.dev, Command Code), not by direct retrieval measurement. No MRCR/RULER retrieval score exists, so the ≥1M tier cannot be confirmed with ≥98% retrieval.
+
+- **Modalities:** Text in / text out. Reasoning: yes, with selectable effort levels (low / medium / high / xhigh / max) 【turn0search7】. Tool calls: yes. JSON / structured output: yes 【turn1search6】. Image input: only via agentic tool-use, reported unreliable — not native vision 【turn1search2】. No audio, video, or PDF input reported.
+
+- **Pricing (as of 2026-10-16):** $0.00 input / $0.00 output / $0.00 cache reads per 1M tokens on OpenCode Zen and Command Code during the stealth preview, with no announced end date. Requires ≥$1 account credit on Command Code to start a session. Privacy caveat: the provider does not use data for training but retains it 30 days for safety; the model is geo-blocked in Angola, Belarus, Cambodia, China (incl. HK/Macau), Cuba, DRC, Equatorial Guinea, Iran, Iraq, Laos, Libya, Nigeria, North Korea, Russia, Syria, Turkmenistan, Uzbekistan, Venezuela, and Crimea/Donetsk/Luhansk 【turn0search7】【turn0search6】.
+
+- **Architecture:** Proprietary stealth preview. Total/active parameters undisclosed; MoE status undisclosed; weights not released; no license published. The publisher is anonymous and no vendor model card exists.
+
+### Raw benchmarks found
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: not ranked / no verified public score found 【turn1search2】
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found (a "SWE-bench Verified: 75" string appears in a freetokens.fyi snippet but belongs to an adjacent row in the table, not to Cat Jam — the same snippet explicitly marks Cat Jam "not ranked") 【turn1search0】
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found (Command Code lists Cat Jam as "Intelligence index not yet scored" and "Coding index not yet scored") 【turn1search6】
+
+Long context:
+- No long-context retrieval reported (no MRCR, RULER, or GraphWalks score exists for any window length).
+
+The only third-party measurements that exist are informal anecdotal speed tests (~200–400 tokens/sec, tokenizer fingerprint matching Xiaomi MiMo) — these are not benchmark scores and are not counted 【turn1search11】.
+
+### Normalized scores (1-100)
+Per methodology rule 3, scored dimensions are **excluded** because zero verified benchmark numbers exist for the exact model ID `cat-jam-free` / `stealth/cat-jam`:
+
+- **Tool use:** EXCLUDED — no verified public score found.
+- **Reasoning:** EXCLUDED — no verified public score found.
+- **Context window:** EXCLUDED — verified total is disputed between 262,144 and 1,048,576 tokens across mirrors and no retrieval-accuracy score exists, so no tier can be mapped.
+- **Multimodal:** EXCLUDED — inputs are text-only per the model card (image via agentic tool-use is unreliable), but no verified public score exists.
+- **Coding:** EXCLUDED — no verified public score found.
+- **Cost efficiency:** EXCLUDED — pricing is verified at $0.00 / $0.00 / $0.00 (Free tier), which maps to 100/100 under the stated formula, but this is reported separately and not counted in Overall.
+- **Overall Score:** EXCLUDED — no verified public benchmarks.
+
+---
+## Signature
+- Provided by: **Claude (anthropic/claude-sonnet-4.5)** — 2026-10-16
+- Method: public internet research against OpenCode Zen docs, models.dev, pi.dev model catalog, Command Code, freetokens.fyi, Vercel AI Gateway listing, OpenCode's official X/Reddit announcements, and cross-checked third-party trackers (BenchLM, BenchmarkList, Artificial Analysis) — no verified benchmark score was found for this exact model ID on any of them; scores are normalized 1-100 interpretations, not official vendor scores (and are withheld here per methodology rule 3).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
