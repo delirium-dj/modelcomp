@@ -672,7 +672,7 @@ export default component$(() => {
                 {visibleModels.map((m) => (
                   <article class="flex flex-col border border-[#ccdae2] bg-[#f7fafb] px-6 py-5 dark:border-[#274757] dark:bg-[#132a3b]" key={m.id}>
                     <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                      <h3 class="m-0 flex min-w-0 flex-1 items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight max-[800px]:basis-full">
+                      <h3 class="m-0 flex min-w-0 flex-1 items-center gap-2.5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight">
                         <VendorIcon id={m.id} name={m.name} />
                         <a href={`/model/${m.slug}/`}>{m.name}</a>
                       </h3>
@@ -683,7 +683,7 @@ export default component$(() => {
                         <strong class="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums tracking-tighter">{m.scores.overall}</strong>
                         <span class="mt-1 block text-[11px] font-normal text-[#577184] dark:text-[#93adbe]">Overall</span>
                       </div>
-                    <p class="text-xs font-bold min-[800px]:mt-2.5 min-[800px]:basis-full">
+                    <p class="mt-1 basis-full text-xs font-bold min-[800px]:mt-2.5">
                       {!m.meta.noFreeId ? (
                         <span
                           class="text-[#1c7a4d] dark:text-[#7fd6a4]"
