@@ -961,7 +961,7 @@ export default component$(() => {
               }}
               class="min-w-56 max-w-sm flex-[1_1_220px] rounded-full border border-[#ccdae2] bg-transparent px-4 py-2 text-xs text-[color:var(--color-ink)] placeholder:text-[#577184] dark:border-[#274757] dark:placeholder:text-[#93adbe]"
             />
-            <label class="text-md text-[#577184] dark:text-[#93adbe] px-4 max-[520px]:mx-auto">
+            <label class="inline-flex items-center whitespace-nowrap text-md text-[#577184] dark:text-[#93adbe] px-4">
               Results source{" "}
               <select
                 aria-label="Results source"
@@ -969,7 +969,7 @@ export default component$(() => {
                 onChange$={(_, el) => {
                   handleSourceChange$(el.value);
                 }}
-                class="max-w-64 max-[520px]:max-w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] ml-4 max-[520px]:ml-2 py-1.5 max-[520px]:py-1 text-center text-md max-[520px]:text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
+                class="max-w-64 max-[520px]:max-w-[150px] rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] ml-4 max-[520px]:ml-2 py-1.5 max-[520px]:py-1 text-center text-md max-[520px]:text-xs text-[color:var(--color-ink)] [text-align-last:center] dark:border-[#274757]"
               >
                 {SOURCES.map((s) => (
                   <option

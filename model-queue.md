@@ -63,7 +63,7 @@
 84.6 Inkling
 84.5 grok-4.5
 84.5 step-5-preview
-84.2 gpt-5.3-codex
+84.4 gpt-5.3-codex
 84 gemini-2.5-pro
 84 mistral-large-4
 84 pareto-26.10-preview
