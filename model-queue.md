@@ -142,6 +142,7 @@
 66.1 gpt-5-nano
 65.2 claude-haiku-3.5
 64.1 deepseek-v3.2
+64 nemotron-3.5-bolt-74b-a9b
 63.8 ling-3.0-flash
 63.5 minimax-m2.5
 63.2 omen-alpha
@@ -150,7 +151,6 @@
 62.8 ling-2.6.1t
 62.5 grok-5
 62.2 owl-alpha
-62 nemotron-3.5-bolt-74b-a9b
 61.8 gemma-4-e4b
 60.3 mai-code-1-flash
 60 gpt-oss-120b

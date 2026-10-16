@@ -988,6 +988,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "AA Coding Index", value: "74.8%", raters: ["Claude_Opus_4.8", "DeepSeek_4_Flash", "GLM_5.3"] },
     { benchmark: "AA-HLE", value: "42.3%", raters: ["Claude_Opus_4.8", "DeepSeek_4_Flash", "GLM_5.3"] },
     { benchmark: "MMLU-Pro", value: "86.8%", raters: ["Claude_Opus_4.8", "DeepSeek_4_Flash", "GLM_5.3"] },
+    { benchmark: "LiveCodeBench", value: "80.5%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3"] },
     { benchmark: "SciCode", value: "51.6%", raters: ["DeepSeek_4.1_Flash", "Laguna_S_2.1"] },
     { benchmark: "Tau3-bench", value: "50.3%", raters: ["GLM_5.3", "MiMo_2.6_Flash"] },
   ],
@@ -2126,6 +2127,10 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Tau3-bench", value: "70.9%", raters: ["Claude_Opus_4.8", "Claude_Opus_5", "DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Kimi_K3", "Qwen_3.8_27B", "Qwen_3.8_Flash"] },
     { benchmark: "MMLU", value: "83%", raters: ["Claude_Opus_5", "DeepSeek_4.1_Flash", "Kimi_K3", "Qwen_3.8_Flash", "Space_Bunny"] },
   ],
+  "nemotron-3.5-bolt-74b-a9b": [
+    { benchmark: "HLE", value: "25%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash"] },
+    { benchmark: "AA-LCR", value: "70%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash"] },
+  ],
   "nemotron-3.5-lightning-free": [
     { benchmark: "Terminal-Bench", value: "24.58%", raters: ["GLM_5.3_Flash", "Gemini_3.6_Flash", "Gemini_3.8_Flash", "Qwen_3.8_27B", "Solar_Mini_4", "Solar_Pro_4", "Step_5_Preview"] },
     { benchmark: "HLE", value: "11.72%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_27B", "Solar_Mini_4", "Step_5_Preview"] },
@@ -2173,8 +2178,8 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "DeepSWE", value: "63.4%", raters: ["Claude_Opus_4.6", "DeepSeek_4.1_Flash", "Fledge_Alpha", "Gemini_3.6_Flash", "Qwen_3.7_Plus", "Solar_Pro_4", "Space_Bunny", "Step_5_Preview"] },
     { benchmark: "AA-LCR", value: "80%", raters: ["Qwen_3.7_Plus", "Space_Bunny", "Step_5_Preview"] },
     { benchmark: "LiveCodeBench", value: "28%", raters: ["Big_Pickle", "Claude_Opus_4.6", "Muse_Spark_1.2"] },
+    { benchmark: "MMLU-Pro", value: "86.1%", raters: ["DeepSeek_4.1_Flash", "Qwen_3.7_Plus", "Step_5_Preview"] },
     { benchmark: "CritPt", value: "15.4%", raters: ["Qwen_3.7_Plus", "Step_5_Preview"] },
-    { benchmark: "MMLU-Pro", value: "86.1%", raters: ["Qwen_3.7_Plus", "Step_5_Preview"] },
     { benchmark: "OSWorld", value: "59.1%", raters: ["Fledge_Alpha", "Step_5_Preview"] },
     { benchmark: "SciCode", value: "51.6%", raters: ["DeepSeek_4.1_Flash", "Step_5_Preview"] },
   ],
