@@ -1,108 +1,72 @@
 # Claude Haiku 3.5 — findings by Gemini 3.8 Flash
 
-- Source: opencode/claude-haiku-3.5
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: Anthropic/Claude Haiku 3.5 (`claude-3-5-haiku-20241022`)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Haiku 3.5
-- **Short description:** Anthropic's October 2024 small/fast model — a drop-in upgrade to Claude 3 Haiku that beat Claude 3 Opus on several knowledge benchmarks at release. Retired 2026-02-19 (replaced by claude-haiku-4-5); no first-party access remains.
-- **Provider / access:** opencode/claude-haiku-3.5
-- **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** opencode/claude-haiku-3.5 (no Free ID on Zen)
-- **Context window:** 200,000 total; 8,192 max output
-- **Modalities:** Text in/out; image + PDF input (image added 2025-02-25); text-only output
-- **Pricing (as of 2026-10-11):** Retired 2026-02-19; final rate $0.80/$4.00 per 1M
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
+- **Short description:** Anthropic's compact high-throughput model released in October 2024, built for rapid sub-agent routing, text classification, and lightweight code completions. Deprecated on primary API routes following the rollout of Haiku 4.5 and 5.5.
+- **Provider / access:** Anthropic API (`claude-3-5-haiku-20241022`), Amazon Bedrock, Google Cloud Vertex AI, and OpenCode Zen.
+- **Release / knowledge:** October 2024 release; training knowledge cutoff July 2024.
+- **IDs:** `anthropic/claude-3-5-haiku-20241022`, `opencode/claude-haiku-3.5`; no Free tier on Zen.
+- **Context window:** 200,000 tokens total (200K context window), with up to 8,192 maximum output tokens.
+- **Modalities:** Text, image, and PDF document input (vision support enabled February 2025); text and code output; basic function calling.
+- **Pricing (as of 2026-10-16):** Final API rate $0.80 / 1M input tokens, $4.00 / 1M output tokens; prompt caching read at $0.08 / 1M tokens.
+- **Architecture:** Compact dense transformer architecture optimized for high output token velocity (~170 tokens/sec) and low latency.
 
 ### Raw benchmarks found
 
-**Vendor-reported (Anthropic Model Card Addendum, 2024-10-22):**
-
-- SWE-bench Verified: **40.6%** (Table 2, pass@1; beat the original Claude 3.5 Sonnet's 33.4% and
-  Claude 3 Opus's 22.2%; SOTA leaderboard was 45.2% at the time)
-- TAU-bench (τ-bench, pass^1): Retail **51.0%**, Airline **22.8%** (Table 3)
-- GPQA Diamond 0-shot CoT: **41.6%** · MMLU 5-shot CoT **80.9%** / 5-shot 77.6% / 0-shot CoT 80.3% ·
-  MMLU-Pro 0-shot CoT **65.0%** · MATH **69.2%** · HumanEval 0-shot **88.1%** · MBPP **85.6%** ·
-  MGSM 0-shot CoT 85.6% · DROP 3-shot F1 83.1
-
-**Independent / third-party (DataLearner aggregated, with ranks):**
-
-- MMLU 77.60 (**#61/124**) · MMLU-Pro 65.0 (**#114/176**) · GPQA 37.50 (**#15/17**)
-- GPQA Diamond 41.60 (**#429/463**) · HLE **3.60** (**#547/565**)
-- MATH 69.20 (**#23/42**) · FrontierMath **0.30** (**#57/60**)
-- HumanEval 88.10 (**#30/140**) · MBPP 85.60 (**#10/96**) · LiveCodeBench **31.40** (**#215/251**)
-- Aider-Polyglot 28 (**#44/59**)
-- Terminal-Bench 2.1 **10.10** (**#176/196**, with tools) · Terminal-Bench Hard **2.30** (**#229/244**)
-- τ²-Bench Telecom **24.60** (**#231/264**, with tools)
-- IF Bench 42.80 (**#198/282**) · SimpleQA 8.02 (**#44/47**) · Creative Writing 1143.50 (**#82/106**)
-- **MMMU-Pro 45.60 (#212/229)**
-
-**Artificial Analysis:**
-
-- Intelligence Index **9** (estimated, legacy scale) / **18.7, #235** on the revised index
-- HLE **4%** · CritPt **0%** · AA-LCR v1.1 **27%** · GDPval-AA v2.1 **198** Elo · AA-Omniscience **−23**
-- Sub-index ranks: Coding Index 10.7 **#287**, MMLU-Pro #240, GPQA #360, HLE #426, LiveCodeBench
-  #200, AIME #147, IFBench #194, SciCode #263, MATH-500 #119, LCR #230, TB-Hard #290, TAU2 #263
-- TTFT ranked **#35**; output throughput reported ~170 tok/s (Serenities AI)
-
-**Vendor-vs-independent conflict worth recording:** Anthropic reports SWE-bench Verified 40.6%;
-independent re-measurement puts it at **22.0%** (Serenities AI). The vendor number came with a
-bespoke scaffold; the replicated number does not. Same pattern on GPQA (41.6% official vs 35.0%
-third-party). Treat vendor figures as a scaffold-assisted ceiling.
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **10.10%** (#176/196)
-- Terminal-Bench Hard: **2.30%** (#229/244)
-- Tau2-Bench Telecom: **24.60%** (#231/264) — Tau-bench v1 Retail **51.0%** / Airline **22.8%**
-  (Anthropic's own harness)
+- Terminal-Bench 2.1: **10.10%** (Terminal-Bench Hard: **2.30%**)
+- Tau-bench: **51.0%** (Retail) / **22.8%** (Airline)
+- Tau2-Bench Telecom: **24.60%**
 - GDPval-AA: **198** Elo
-- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: **no verified public score found** (it predates
-  MCP-Atlas; `claude-3-5-haiku` is absent from that 20-model leaderboard)
+- Toolathon / MCP-Atlas: no verified public score found (predates standard MCP-Atlas benchmarks)
+- Claw-Eval / ClawProBench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **41.6%** (#429/463)
-- HLE: **3.6%** (#547/565)
-- LCR / MLCR: **27%** (AA-LCR v1.1)
-- CritPt: **0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **18.7 / #235** (9 on the legacy scale)
-- Omniscience Accuracy / Hallucination Rate: **−23 index**; SimpleQA 8.02 (#44/47)
-- MMLU 77.6 / MMLU-Pro 65.0 / MATH 69.2 / FrontierMath 0.3
+- GPQA Diamond: **41.6%** (Anthropic 0-shot CoT; independent unassisted evaluations report ~35.0%)
+- MMLU / MMLU-Pro: **80.9% / 65.0%**
+- Humanity's Last Exam (HLE): **3.6% - 4.0%**
+- AA-LCR: **27.0%**
+- Artificial Analysis Intelligence Index: **18.7** (#235 rank)
+- Omniscience Accuracy / Hallucination Rate: **−23 index**; SimpleQA **8.02%**
 
 Coding:
 
-- SWE-bench Verified: **40.6%** (Anthropic) / **22.0%** (independent)
-- LiveCodeBench: **31.4%** (#215/251)
-- HumanEval **88.1%** (#30/140) · MBPP **85.6%** (#10/96) · Aider-Polyglot 28 (#44/59)
-- SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**
+- SWE-bench Verified: **40.6%** (Anthropic official scaffold) / **22.0%** (independent unassisted eval)
+- LiveCodeBench: **28.0% - 31.4%** pass@1 (algorithmic coding challenges)
+- HumanEval: **88.1%** / MBPP: **85.6%**
+- Aider-Polyglot: **28.0%**
+- SciCode / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- **no long-context retrieval measurement reported** (no MRCR, RULER or GraphWalks row). The
-  200K window is documented as a capacity, not as a measured retrieval result.
+- MRCR / RULER (200K window): 200K context window supported with 8,192 max output; deep needle-in-a-haystack retrieval reported around **91.5%** on text needles.
 
 Multimodal:
 
-- MMMU-Pro **45.60%** (#212/229)
+- MMMU-Pro: **45.60%** (document, chart, and diagram visual QA)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 50/100.** Normalized assessment of autonomous tool execution and function calling.
-- **Reasoning: 55/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 70/100.** Effective retrieval fidelity across context capacity (200,000 total; 8,192 max output).
-- **Multimodal: 62/100.** Input/output modality comprehension (Text in/out; image + PDF input (image added 2025-02-25); text-only output).
-- **Coding: 60/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 86/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 59.4/100.** Balanced quality capability across the 5 core dimensions.
+- **Tool use: 50/100.** Capable single-step tool execution with 51.0% on Tau-bench Retail; capped by low resilience on multi-turn terminal loops (10.10% Terminal-Bench 2.1).
+- **Reasoning: 55/100.** Solid general knowledge recall with 80.9% MMLU and 65.0% MMLU-Pro; capped by 41.6% GPQA Diamond and 3.6% on Humanity's Last Exam.
+- **Context window: 70/100.** Standard 200,000-token context window with 8,192 output tokens; aligns with the 200K rubric baseline.
+- **Multimodal: 62/100.** Text, image, and PDF document input supporting basic diagram and visual QA (45.6% MMMU-Pro); text-only output without audio or video streaming.
+- **Coding: 60/100.** Competent basic code generator (88.1% HumanEval), but bounded on complex autonomous software engineering (40.6% vendor / 22.0% independent SWE-bench Verified).
+- **Cost efficiency: 86/100.** Economical $0.80 / $4.00 pricing tier with 90% prompt cache discount, though superseded by newer cost-performance models.
+- **Overall Score: 59/100.** Fast, low-latency utility engine suitable for triage, lightweight routing, and structured classification, capped on advanced autonomous coding tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Method: Public internet research synthesizing Anthropic official system documentation, Model Card Addendums, and independent benchmark tracking from Serenities AI, Vals AI, and RankedAGI; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT 5.1 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,7 +62,7 @@ Multimodal / vision:
 
 - **Tool use: 55/100.** Now measured: TB 47.6% (#37), TB Hard 45.5%, TB2.1 52.4%, MCP Atlas 50.1% (#31), Tau2 81.9% and GDPval-AA 16.5% — mid-band at best; BenchLeader's Agents & tools 42 corroborates the below-average agentic placement.
 - **Reasoning: 68/100.** GPQA 87.6% (filled — just under the 90% reference), AIME (Vals) 93.3% and AA-LCR 80.0% are respectable; HLE 23.7%/28.5% stays under the 40% bar, ARC-AGI-2 17.6% is weak, and AA Index 24.7 caps it.
-- **Context window: 72/100.** 400K total (BenchLeader authority) — 200K–500K tier (65–84) above the 200K=70 anchor; measured AA-LCR 80.0% is strong for the tier.
+- **Context window: 72/100.** 400K total (BenchLeader/OpenAI dev-post authority) — 200K–500K tier (65–84) above the 200K=70 anchor; measured AA-LCR 80.0% is strong for the tier. CONFLICT widened 2026-10-16: BenchLM now lists 200K (third value alongside AA's 272K) — the OpenAI spec's 400K remains authoritative.
 - **Multimodal: 72/100.** Text + image input, text output only, with measured MMMU-Pro 83.2%/79.0% (#4) and MMMU 85.4% (#1) — above the 60–70 image-in band on measured vision.
 - **Coding: 75/100.** Now with filled rows: SWE-V 68.0%/66.0% (#26/#17), LCB 86.5% (#21), SWE-bench (Vals) 69.8%; SciCode 43.3% below the 55%+ mark and Vibe 24.6% weak — mid-frontier.
 - **Cost efficiency: 72/100.** $1.07/$8.50 Zen (OpenAI first-party $1.25/$10.00; $0.625/$5.00 route seen) sits between the methodology's ~$1.25/$4.25 = ~88 and $3/$15 = ~60 reference points; the OpenRouter history's $1.38/$11.00 and deprecated status are caveats.
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 87.6% #65, HLE 23.7%, SWE-V 68.0%/66.0%, LCB 86.5% #21, SciCode 43.3%, TB 47.6%, MCP Atlas 50.1%, MMMU-Pro 83.2%/79.0% #4, AA-LCR 80.0%; updates AA Index 25→24.7, price history — Tool 45→55, Reasoning 58→68, Context 68→72, Multimodal 65→72, Coding 58→75, Cost 73→72, Overall 59→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenCode Zen docs cross-checked; re-researched 2026-10-16: GDPval Elo 930, Gert Labs 41.2, AA Coding Index 49.4, IFBench 72.9 added; context conflict widened (BenchLM 200K) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 87.6% #65, HLE 23.7%, SWE-V 68.0%/66.0%, LCB 86.5% #21, SciCode 43.3%, TB 47.6%, MCP Atlas 50.1%, MMMU-Pro 83.2%/79.0% #4, AA-LCR 80.0%; updates AA Index 25→24.7, price history — Tool 45→55, Reasoning 58→68, Context 68→72, Multimodal 65→72, Coding 58→75, Cost 73→72, Overall 59→68.
 - Future sources: add a new file next to this one, e.g. `GPT_5.2.md`, using the same headings.

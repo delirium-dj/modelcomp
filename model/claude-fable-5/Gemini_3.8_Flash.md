@@ -54,7 +54,7 @@ Long context:
 - **Multimodal: 80/100.** Strong vision and multi-page PDF document comprehension for diagram and UI verification; capped by lack of native audio/video modalities.
 - **Coding: 96/100.** Frontier-defining coding engine with 95.0% on SWE-bench Verified, 80.3% on SWE-bench Pro, and 89.8% on LiveCodeBench.
 - **Cost efficiency: 32/100.** Premium enterprise tier pricing ($10.00/$50.00 per 1M tokens), though amortized effectively by prompt caching.
-- **Overall Score: 91/100.** State-of-the-art frontier model built for mission-critical software engineering, long-horizon autonomous agents, and deep technical problem solving.
+- **Overall Score: 91.8/100.** State-of-the-art frontier model built for mission-critical software engineering, long-horizon autonomous agents, and deep technical problem solving.
 
 ---
 

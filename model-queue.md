@@ -14,7 +14,7 @@
 91.2 claude-mythos-5.1
 91.2 claude-sonnet-5.5
 91.1 gemini-3.7-flash
-90.7 claude-fable-5
+91 claude-fable-5
 90.7 kimi-k3
 90.6 mimo-v2.6-pro
 90.3 gpt-6.1-sol
@@ -159,7 +159,7 @@
 59.9 laguna-xs-2.1
 59.3 ling-3.0-flash-sante
 58 llama_3.2_vision_instruct
-57.6 north_mini_code
+57.5 north_mini_code
 57.1 solar-mini-4
 57 exo-free
 56.8 nemotron-3.5-lightning-free

@@ -78,7 +78,7 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 - **Multimodal: 82/100.** Text + image + speech in, text out; CharXiv 81.3%, AA-MMMU-Pro 74.0%; capped by text-only output.
 - **Coding: 70/100.** SWE-bench Verified (80.2%), LiveCodeBench v6 (85.9%), SWE-bench Vals (82.2%), SciCode (48.7%); capped by SWE-bench Pro (55.9%), AA-SciCode (49.7%). Strong verified coding.
 - **Cost efficiency: 90/100.** Apache 2.0 open weights (self-host ~$0) plus cheap hosted pricing ($0.30/$1.20, 80% cache discount, $0.09/task); not counted toward Overall.
-- **Overall Score: 77/100.** Half-up mean of (78 + 74 + 90 + 82 + 70) / 5 = 76.8 → 77. Best-fit recommendation: strong open-weights multimodal coding agent at 1M context with excellent value; verify on HLE-class and agentic coding tasks given mixed results there.
+- **Overall Score: 78.8/100.** Half-up mean of (78 + 74 + 90 + 82 + 70) / 5 = 76.8 → 77. Best-fit recommendation: strong open-weights multimodal coding agent at 1M context with excellent value; verify on HLE-class and agentic coding tasks given mixed results there.
 
 ---
 

@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by GLM 5.3
 
 - Source: Poolside (`poolside/laguna-s-2.1`)
-- Date: 2026-09-25 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Laguna S 2.1
 - **Short description:** Poolside's 118B-total / 8B-active open-weights MoE for agentic coding and long-horizon work (OpenMDW-1.1 permissive license). Top use case: very cheap agentic coding with a 1M window.
 - **Provider / access:** open weights (Hugging Face/Poolside; OpenMDW-1.1); hosted API ~$0.10/$0.20 per 1M (curated pricing note); no OpenCode Zen listing (no Zen Free ID).
-- **Release / knowledge:** 2.1 generation (current as of 2026-09); exact release date not re-verified. Knowledge cutoff not stated publicly.
-- **IDs:** `poolside/laguna-s-2.1` (no Zen ID).
-- **Context window:** 1M via API (Ollama local builds cap at 256K) — curated metadata; BenchLM lists 1M.
+- **Release / knowledge:** released **2026-07-21** (official Poolside blog, verified this pass; pre-training began 2026-05-22, <9 weeks to launch). Knowledge cutoff **November 2025** (stated in the blog's Erdős case study).
+- **IDs:** `poolside/laguna-s-2.1` (no Zen ID); HF `poolside/laguna-s-2.1` (BF16, FP8, INT4, NVFP4, GGUF, MLX, DFlash draft models; OpenMDW-1.1).
+- **Context window:** 1M in thinking and no-thinking modes (official blog) — OpenRouter free endpoint caps at 256K; the dedicated 1M endpoint is paid. Runs on a single NVIDIA DGX Spark.
 - **Modalities:** text in / text out only (per template: text-only); reasoning yes; tool calls yes (Toolathlon/TB rows); JSON mode not separately verified.
-- **Pricing (as of 2026-09-25):** ~$0.10 in / $0.20 out per 1M hosted API (curated note); open weights = $0 license self-host.
+- **Pricing (as of 2026-10-16):** verified officially: **$0.10 in / $0.20 out / $0.01 cache-read per 1M** on the dedicated OpenRouter 1M endpoint (was a curated note); free OpenRouter endpoint at 256K; open weights = $0 license self-host; also on Baseten, Vercel AI Gateway, vLLM/SGLang/Ollama.
 - **Architecture:** open-weights MoE, 118B total / 8B active (curated metadata; BenchLM variant tag "118B-A8B").
 
 ### Raw benchmarks found

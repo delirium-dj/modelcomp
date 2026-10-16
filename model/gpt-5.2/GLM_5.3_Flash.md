@@ -34,9 +34,10 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.4%** #30 (Epoch, xhigh — fills the previously-missing GPQA; AA 90.3%, Vals 91.7%)
+- GPQA Diamond: **91.4%** #30 (Epoch, xhigh — fills the previously-missing GPQA; AA 90.3%, Vals 91.7%, Qwen table 92.4% — four-source agreement)
 - HLE: **27.8%** #12 (Scale AI / CAIS, not-stated — fills the previously-missing HLE; AA 37.7% xhigh)
-- ARC-AGI-2 (verified): **72.9%** #48 (ARC Prize, not-stated; sweep 9.7→26.7→43.3→52.9→72.9 — fills the previously-missing ARC row); ARC-AGI-1: **94.5%** #35
+- ARC-AGI-2 (verified): **72.9%** #48 (ARC Prize, not-stated; sweep 9.7→26.7→43.3→52.9→72.9); OpenAI's own launch figure reads **52.9%** — CONFLICT, both cited; ARC-AGI-1: **94.5%** #35 (Epoch) / **86.2%** (ARC Prize XHigh verified, added 2026-10-16)
+- AIME 2025: **100%** (OpenAI official — added 2026-10-16; AA 99.0%)
 - CritPt: **11.6%** #102 (AA, xhigh)
 - FrontierMath Tiers 1–3: **67.4%** #27 (Epoch v2, xhigh); Tier 4: 31.7% #34; OTIS Mock AIME: 96.1%; AIME (Vals): 96.9% #2; AIME 2026: **98.3%** #4 (high); HMMT February 2026: **97.0%** #3; MathArena Apex: 13.5%
 - AA-LCR: **82.7%** #33 (AA, xhigh — fills the previously-missing LCR); LMCA: 43.9% #78; DTBench: 90.9% #61
@@ -46,9 +47,9 @@ Reasoning / knowledge:
 
 Coding:
 
-- SWE-bench Verified: **73.8%** #17 (Epoch, high effort — fills the previously-missing SWE-V row); swebench.com bash-only: **72.8%** #7 (high; any scaffold 72.8%)
+- SWE-bench Verified: **80%** (OpenAI official launch figure — added 2026-10-16) / **73.8%** #17 (Epoch, high effort); swebench.com bash-only: **72.8%** #7 (high; any scaffold 72.8%)
 - LiveCodeBench: **85.4%** #31 (Vals — fills the previously-missing LCB)
-- SWE-Bench Pro: **29.9%** #16 (Scale AI SEAL, not-stated — weak)
+- SWE-Bench Pro: **55.6%** (OpenAI figure via the GPT-5.4 post — added 2026-10-16) / **29.9%** #16 (Scale AI SEAL) — CONFLICT: harness difference, both cited
 - WeirdML: **72.2%** #30 (xhigh); ALE-Bench: **1293.5** #30; AlgoTune: 2.0 #1 (medium)
 - Vibe Code Bench v1.1: 53.5%; SWE-bench (Vals): 75.8%; LMArena Coding: 1515 #44; LMArena WebDev: 1416
 - SciCode: no verified public score found for `gpt-5.2`
