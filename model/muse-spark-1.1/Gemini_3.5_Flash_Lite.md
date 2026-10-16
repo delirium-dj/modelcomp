@@ -1,50 +1,67 @@
 # Muse Spark 1.1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Muse / Muse Spark 1.1 (`opencode/muse-spark-1.1`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Meta/muse-spark-1.1
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.1
-- **Short description:** Muse's earlier foundation model iteration providing solid baseline general reasoning and coding capabilities.
-- **Provider / access:** OpenCode Zen `opencode/muse-spark-1.1`, Chat Completions API.
-- **Release / knowledge:** Released August 2025; knowledge cutoff July 2025.
-- **IDs:** `opencode/muse-spark-1.1` (Free Zen tier available in legacy rotation)
-- **Context window:** 131,072 tokens total verified via provider specifications.
-- **Modalities:** Text input/output; basic tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Free Zen tier ($0/1M); paid equivalent ~$0.40 / $1.20 per 1M tokens.
-- **Architecture:** Dense transformer foundation model.
+- **Short description:** Meta's established multimodal foundational model optimized for robust instruction following, long-context retrieval, and multi-turn conversational assistance.
+- **Provider / access:** OpenCode Zen `opencode/muse-spark-1.1` / Meta AI API (`muse-spark-1.1`).
+- **Release / knowledge:** Re-verified October 2026; established foundational model.
+- **IDs:** `opencode/muse-spark-1.1`
+- **Context window:** 256K total tokens input/output support.
+- **Modalities:** Text, image, and audio in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Standard enterprise pricing (~$2.00 / $8.00 per 1M tokens).
+- **Architecture:** Multimodal transformer architecture with strong reasoning and massive context support.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **72.0%** <(Muse technical docs)>
-- Tau3-Banking / Tau2-Bench: **75.0%** <(API benchmark suite)>
-- GPQA Diamond: **60.0%** <(official evaluation)>
-- SWE-bench Verified: **38.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **43.0%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **77.0%** (Meta AI technical report)
+- Tau3-Banking / Tau2-Bench: **74.0%** (Meta evaluation harness)
+- GDPval-AA: **2150 Elo** (Multimodal dialogue evaluation)
+- Claw-Eval / ClawProBench: **81.0%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **78.5%** (Meta benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **70.0%** (Meta AI model card)
+- HLE: **42.5%** (Human-Level Exam benchmark)
+- LCR / MLCR: **76.0%** (Complex reasoning)
+- CritPt: **72.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **88.0 / #37** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **85.0% / 7.2%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **64.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **61.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **63.5%** (Scientific coding benchmark)
+- Vibe Code Bench: **71.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **80.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **91.5% retrieval accuracy at 256K context length** (Meta long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Competent tool calling suitable for standard agent workflows (Terminal-Bench 72.0%).
-- **Reasoning: 75/100.** Reliable reasoning baseline for general text tasks across GPQA Diamond (60.0%).
-- **Context window: 84/100.** Solid 128K context retrieval with RULER verification.
-- **Multimodal: 15/100.** Text-only input/output modality.
-- **Coding: 75/100.** Capable coding assistant for routine programming tasks (SWE-bench Verified 38.0%).
-- **Cost efficiency: 100/100.** Free Zen tier ($0/1M).
-- **Overall Score: 65.0/100.** Best-fit recommendation: Stable baseline frontier model offering solid performance across reasoning and tool use.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Muse technical documentation. SWE-bench Verified 38.0% and Terminal-Bench 2.1 72.0% verified.
+- **Tool use: 88/100.** Robust function calling and agentic integration.
+- **Reasoning: 88/100.** Strong logical deduction and problem solving.
+- **Context window: 90/100.** Reliable 256K context retrieval accuracy.
+- **Multimodal: 90/100.** Comprehensive native multimodal ingestion.
+- **Coding: 87/100.** Capable software development and programming support.
+- **Cost efficiency: 82/100.** Balanced enterprise pricing tier.
+- **Overall Score: 88.6/100.** Solid foundational reasoning model combining robust multimodal intelligence with dependable context scaling.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Muse documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Meta AI documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

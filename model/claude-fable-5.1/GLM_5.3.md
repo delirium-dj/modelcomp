@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-fable-5-1`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: GDPval-AA updated 1735→1758; added aaTB2.1, AA AutomationBench, GDP.pdf, ITBench, CWE-bench, GraphWalks, PostTrainBench rows; dimension scores unchanged)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: GDPval-AA AA-harness updated 1758→1754; added FrontierMath v2 and MazeBench rows; dimension scores unchanged)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - Terminal-Bench-Science 0.1: **52.6%** (Anthropic official; class-best)
 - Terminal-Bench 2.1: **85.0%** (Vals) / **91.4%** (AA harness — new 2026-10-08 evidence)
 - Tau3-Banking (AA harness): **47.2%** (BenchLM)
-- GDPval-AA: **1758 Elo** (BenchLM AA harness, updated 2026-10-08 from 1735; normalized 62.9%; Anthropic's official GDPval-AA v2 chart lists **1853**) — clears the 1750+ frontier bar
+- GDPval-AA: **1754 Elo** (BenchLM AA harness, updated 2026-10-16 from 1758; normalized 62.7%; Anthropic's official GDPval-AA v2 chart lists **1853**) — clears the 1750+ frontier bar
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathlon-Verified: **77.8%** (Pass@3 81.5%, Pass³ 73.1%, avg 23.7 turns); AA Agentic Index **58.0%** (best in BenchLM's table); AA Briefcase Elo **1675**; AA Harvey LAB **93.0%**; AA-AnalystAgent **57.5%**; AA ITBench **49.5%** (new); ApprenticeBench **72%**; AutomationBench **31.4%** (system card) / **59.4%** (AA harness — new); GDP.pdf **26.2%** (new); CWE-bench v1 **58.0%** (new); AA TB4.0 **52.0%** (new); OSWorld 2.0 **41.7% strict / 77.9% partial** (Anthropic official, Aug 2026 release) (BenchLM)
 
@@ -38,6 +38,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **53.4** (max w/ fallback, AA #4/211)
 - Omniscience Index **43.5** (new); Accuracy **67.2%** / Hallucination Rate **72.6%** (BenchLM — hallucination rate is the main weakness)
 - MMLU-Pro (Vals): **92.4%** (BenchLM)
+- FrontierMath v2 (Tiers 1-3): **90.175%**; Tier 4: **87.805%** (Epoch AI via BenchLM — new rows this pass, elite math tier); MazeBench (ASCII, tools): **10%** (MazeBench leaderboard — new row this pass)
 
 Coding:
 
@@ -71,6 +72,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Anthropic official announcement + system card, Artificial Analysis, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified; GDPval-AA updated to 1758 and ~12 new rows added — no dimension scores changed.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (Anthropic official announcement + system card, Artificial Analysis, BenchLM 57-row profile re-checked 2026-10-16 — core rows stable; GDPval-AA AA-harness nudged 1758→1754; added FrontierMath v2 90.2%/87.8% (Epoch) and MazeBench 10% rows). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

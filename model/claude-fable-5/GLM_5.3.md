@@ -1,7 +1,7 @@
 # Claude Fable 5 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-fable-5`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,7 +30,7 @@ Agent / tool use:
 - AA Agentic Index: **51.0%** (AA via BenchLM)
 - AA EnterpriseOps-Gym: **51.1%** / AA-AnalystAgent: **48.8%** (AA via BenchLM)
 - Terminal-Bench 3.0: **34.0%** (FrontierBench leaderboard via BenchLM)
-- ApprenticeBench (GUI): **34%** (NeoCognition via BenchLM)
+- ApprenticeBench (GUI): **34%** (NeoCognition via BenchLM); MazeBench (ASCII, tools): **11%** (MazeBench leaderboard — new row this pass)
 
 Reasoning / knowledge:
 
@@ -42,6 +42,7 @@ Reasoning / knowledge:
 - CritPt: **28.6%** (AA via BenchLM)
 - Artificial Analysis Intelligence Index: **50** (AA model page; BenchLM 49.6)
 - AA-Omniscience Index: **+43.3** (accuracy 65.4%, hallucination rate 63.6%) (AA via BenchLM)
+- FrontierMath v2 (Tiers 1-3): **87.018%**; Tier 4: **90.200%** (Epoch AI via BenchLM — new rows this pass, elite math tier)
 
 Coding:
 
@@ -55,7 +56,7 @@ Coding:
 Multimodal:
 
 - Blueprint-Bench 2: **38.6%** / OfficeQA Pro: **57.9%** (system card via BenchLM) — modest image grounding
-- Design Arena Website: **1302** (OpenRouter via BenchLM)
+- Design Arena Website: **1297** (OpenRouter via BenchLM; 1302 at first research — minor drift)
 
 Long context:
 
@@ -79,6 +80,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Anthropic system card via BenchLM, Artificial Analysis, Vals, ARC Prize, Zen pricing table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 45-row profile re-checked 2026-10-16 — all core rows stable; added FrontierMath v2 87.0%/90.2% (Epoch) and MazeBench 11%; Design Arena drifted 1302→1297; Anthropic system card, AA, Vals, ARC Prize, Zen pricing). No score changes — the new elite math rows reinforce, not move, Reasoning 90. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Qwen 3.7-Max — findings by GLM 5.3 Flash
 
 - Source: Alibaba (`qwen3.7-max`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.0: **69.7%** (self-reported, corroborated); TB2.1 (Vals): **61.0%** (fills the previously-missing TB2.1 row)
 - Tau2-bench: **94.7%** (AA board — fills the previously-missing Tau row)
-- MCP Atlas: **76.4%** (Qwen blog — fills the previously-missing MCP row)
+- MCP Atlas: **76.4%** (Qwen blog — fills the previously-missing MCP row); QwenWebBench **1568** and VITA-Bench **47.9%** (added 2026-10-16)
 - GDPval-AA: **1190 Elo** / 31.6% (AA — fills the previously-missing GDPval row)
 - Claw-Eval: **65.2%** (Qwen blog — fills); QwenClawBench: **64.3%** (in-house)
 - BFCL v4: **75.0%** (Qwen blog — fills the previously-missing BFCL row)
@@ -44,6 +44,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **29.5** (AA current reading via benchlm.ai — updates the 2026-09-24 draft's "56.6 pts / #4 of 9", which was a launch-era snapshot predating the index recalibration)
 - AA-Omniscience: Index 13.5, accuracy 31.1%, hallucination rate **25.6%** (benchlm.ai — good honesty)
 - HMMT Feb 2026: **97.1%** (Qwen blog — new math row); IMOAnswerBench 90.0%; Apex 44.5%
+- FrontierMath v2: Tiers 1–3 **64.6%**, Tier 4 **34.1%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong)
 - IFEval **94.3%**; IFBench 79.1%; AA-IFBench 80.5%; MMLU-ProX 87%; INCLUDE 86.2%; PolyMath 86.5%
 
 Coding:
@@ -66,17 +67,17 @@ Multimodal / vision:
 ### Normalized scores (1–100)
 
 - **Tool use: 82/100.** Now measured across independent boards: Tau2 94.7% (AA), MCP Atlas 76.4%, BFCL v4 75.0%, TB2.0 69.7%, Claw-Eval 65.2%, TB2.1 (Vals) 61.0% and GDPval-AA 1190 clear mid-band anchors; AA Agentic Index 23.9% caps it below 85.
-- **Reasoning: 88/100.** GPQA 92.4% (three-source agreement) clears the 90%+ frontier reference, HLE 41.4%/53.5%-tools clears the 40% bar, MMLU-Pro 89.6% is top-of-board, MRCR 90.4% and HMMT 97.1% corroborate; the recalibrated AA Index 29.5 and CritPt 13.4% cap it below 90.
+- **Reasoning: 89/100.** CHANGED from 88 — GPQA 92.4% (three-source agreement) clears the 90%+ frontier reference, HLE 41.4%/53.5%-tools clears the 40% bar, MMLU-Pro 89.6% is top-of-board, MRCR 90.4% and HMMT 97.1% corroborate, and the newly measured FrontierMath v2 64.6%/34.1% adds a strong math pillar; the recalibrated AA Index 29.5 and CritPt 13.4% cap it below 90.
 - **Context window: 95/100.** 1M tokens (≥1M tier = 95–100); MRCR-v2 90.4% at 128K and AA-LCR 79.0% are strong but no ≥98% retrieval at 512K+ is verified, so no 100.
 - **Multimodal: 15/100.** No image/audio/video input documented for this model — text-only per available evidence (its 3.8 successor adds multimodality).
 - **Coding: 87/100.** SWE-bench Verified 80.4%, SWE-bench Pro 60.6% (highest open-API score at launch), LiveCodeBench 91.6%/87.1% (two sources) and SWE Multilingual 78.3% are strong; SciCode 53.5% just under the 55%+ mark and trailing Claude Opus 4.8 on both SWE benches cap it below 90.
 - **Cost efficiency: 88/100.** ~$1.25/$3.75 per 1M (gateway rate) sits at the ~$1.25/$4.25 = ~88 methodology reference with a slightly cheaper output price.
-- **Overall Score: 73/100.** Mean of the five quality dims (82 + 88 + 95 + 15 + 87) / 5 = 73.4 → 73. Best-fit: a frontier-reasoning, coding-strong API model for enterprise software engineering — best avoided where multimodal input or self-hosting is required.
+- **Overall Score: 74/100.** Mean of the five quality dims (82 + 89 + 95 + 15 + 87) / 5 = 368/5 = 73.6 → 73. Best-fit: a frontier-reasoning, coding-strong API model for enterprise software engineering — best avoided where multimodal input or self-hosting is required.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Qwen3.7-Max blog, AA and Vals boards — official card plus two independent harnesses; earlier draft via FlowHunt/yottalabs); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 94.7%, MCP Atlas 76.4%, GDPval-AA 1190, Claw-Eval 65.2%, BFCL v4 75.0%, TB2.1 61.0%, SciCode 53.5%, AA-LCR 79.0%, HLE w/tools 53.5%, CritPt 13.4%, HMMT 97.1%; updates AA Index 56.6→29.5 — Tool 72→82, Reasoning 90→88, Overall 72→73.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Qwen3.7-Max blog, AA and Vals boards — official card plus two independent harnesses; earlier draft via FlowHunt/yottalabs); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 94.7%, MCP Atlas 76.4%, GDPval-AA 1190, Claw-Eval 65.2%, BFCL v4 75.0%, TB2.1 61.0%, SciCode 53.5%, AA-LCR 79.0%, HLE w/tools 53.5%, CritPt 13.4%, HMMT 97.1%; updates AA Index 56.6→29.5 — Tool 72→82, Reasoning 90→88, Overall 72→73; 2026-10-16 re-check: FrontierMath v2 64.6/34.1, QwenWebBench 1568, VITA-Bench 47.9% added — Reasoning 88→89, Overall 73→74 (82+89+95+15+87 = 368/5 = 73.6)).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

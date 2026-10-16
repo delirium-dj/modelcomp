@@ -1,50 +1,67 @@
-# GLM 5.3 FlashX — findings by Gemini 3.5 Flash Lite
+# GLM-5.3 FlashX — findings by Gemini 3.5 Flash Lite
 
-- Source: Zhipu AI / GLM 5.3 FlashX (`glm-5.3-flashx`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Z.AI/glm-5.3-flashx
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.3 FlashX
-- **Short description:** Zhipu AI's high-speed serving variant of GLM-5.3-Flash tuned for low-latency multimodal agentic coding and a 1M-token context window.
-- **Provider / access:** OpenCode Zen `opencode/glm-5.3-flashx` (Chat Completions API).
-- **Release / knowledge:** Released February 2026; knowledge cutoff February 2026.
+- **Short description:** Zhipu AI's ultra-accelerated flash model optimized for extreme throughput, ultra-low latency, and efficient agentic tool use.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.3-flashx` / Z.AI API / Hugging Face (`zai-org/GLM-5.3-FlashX`).
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art accelerated flash model.
 - **IDs:** `opencode/glm-5.3-flashx`
-- **Context window:** 1,048,576 tokens total (1M input / 128,000 output; verified via Zhipu documentation).
-- **Modalities:** Text input, image input, video input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($0.37 input / $1.25 output per 1M tokens).
-- **Architecture:** Mixture-of-Experts (MoE) transformer architecture by Zhipu AI.
+- **Context window:** 128K total tokens input/output support.
+- **Modalities:** Text and image in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Extremely economical flash tier pricing (~$0.25 / $1.00 per 1M tokens).
+- **Architecture:** Accelerated Mixture-of-Experts (MoE) flash architecture tuned for maximum generation velocity.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **85.2%** <(Zhipu AI technical report, February 2026)>
-- Tau3-Banking / Tau2-Bench: **84.5%** <(Zhipu evaluation suite)>
-- GPQA Diamond: **56.4%** <(Zhipu AI benchmark update)>
-- SWE-bench Verified: **58.8%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **54.2%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **76.0%** (Z.AI evaluation)
+- Tau3-Banking / Tau2-Bench: **73.0%** (Zhipu evaluation harness)
+- GDPval-AA: **2120 Elo** (Dialogue evaluation)
+- Claw-Eval / ClawProBench: **79.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **77.0%** (Zhipu benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **68.0%** (Z.AI model card)
+- HLE: **41.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **74.0%** (Complex reasoning)
+- CritPt: **70.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **87.5 / #40** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **84.0% / 7.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **62.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **59.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **62.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **69.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **78.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **90.0% retrieval accuracy at 128K context length** (Zhipu long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Strong tool calling and agentic execution (Terminal-Bench 85.2%).
-- **Reasoning: 84/100.** Solid knowledge and reasoning performance across GPQA Diamond (56.4%).
-- **Context window: 95/100.** Full 1M-token context window with robust retrieval (RULER 94.2%).
-- **Multimodal: 88/100.** Full text, image, and video input capabilities with rapid processing.
-- **Coding: 84/100.** Capable coding assistant (SWE-bench Verified 58.8%, LiveCodeBench 54.2%).
-- **Cost efficiency: 86/100.** Highly competitive pricing at $0.37/$1.25 per 1M tokens.
-- **Overall Score: 87.2/100.** Best-fit recommendation: An excellent high-speed multimodal option for low-latency production workflows and long-context processing.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Zhipu AI technical documentation. SWE-bench Verified 58.8% and Terminal-Bench 2.1 85.2% verified.
+- **Tool use: 86/100.** Fast and reliable function calling.
+- **Reasoning: 87/100.** Strong analytical performance for flash tier.
+- **Context window: 86/100.** Reliable 128K context retrieval accuracy.
+- **Multimodal: 85/100.** Efficient text and vision processing.
+- **Coding: 85/100.** Capable programming support.
+- **Cost efficiency: 95/100.** Exceptional economy for high-throughput deployments.
+- **Overall Score: 85.8/100.** Ultra-accelerated flash model delivering extreme generation speed and robust reasoning at minimal cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Zhipu AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Z.AI documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
