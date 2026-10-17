@@ -17,7 +17,9 @@ What was checked (2026-10-02):
 - **LLMReference** (`mai-experimental-test`): 404.
 - **Artificial Analysis** (`mai-experimental-test`): 404.
 
-Even the stub's specs (128K, text in/out) are scaffold placeholders with no verified source behind them. With no identity, no specs, and no benchmarks there is nothing an honest Overall score could be computed from. A future re-research should look for (a) a live `mai-experimental-test` ID on Zen or any provider, (b) a Microsoft MAI announcement covering an experimental test SKU, or (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+Even the stub's specs (128K, text in/out) are scaffold placeholders with no verified source behind them. With no identity, no specs, and no benchmarks there is nothing an honest Overall score could be computed from.
+
+**Re-research update (2026-10-17, second deep pass — verdict unchanged, evidence hardened):** the official Microsoft AI model catalog (microsoft.ai/models, fetched 2026-10-17) lists the complete current MAI family — MAI-Code-1.1-Flash, MAI-Voice-2.1, MAI-Transcribe-2, MAI-Thinking-1, MAI-Image-2.6, MAI-Cyber-1-Flash, plus "Microsoft Frontier Tuning" — and contains NO experimental-test SKU of any kind. BenchLM still returns 404 for `mai-experimental-test`, and web search (Bing, 2026-10-17) finds zero occurrences of the ID outside this repo. The transient-test-alias interpretation is now corroborated by the vendor's own complete catalog: as of 2026-10-17 no such model exists publicly. A future re-research should look for (a) a live `mai-experimental-test` ID on Zen or any provider, (b) a Microsoft MAI announcement covering an experimental test SKU, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
 
 Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
 

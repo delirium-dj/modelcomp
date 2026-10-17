@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.5-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,7 +35,9 @@ Reasoning / knowledge:
 - GPQA Diamond: **92.2%** (AA, independent) / **92.7%** (Vals) — fills the gap the 2026-10-05 pass marked missing
 - HLE: **40.2%** (Google launch row); AA-HLE: **42.7%** (AA) — fills the gap
 - ARC-AGI-1: **92.5%** (ARC Prize verified, Gemini 3.5 Flash High); ARC-AGI-2: **72.1%** (Google launch row)
-- FrontierMath v2: **39.0%** Tiers 1–3 / **14.6%** Tier 4 (Epoch AI — weak)
+- FrontierMath v2: **62.8%** Tiers 1–3 / **26.8%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh) — CHANGED: the 2026-10-11 pass recorded 39.0%/14.6% from the same source; Epoch has since re-scored upward, current values used
+- MazeBench ASCII: **0%** (added 2026-10-16)
+- IFBench: **76.3%** (AA — corroborated)
 - Artificial Analysis Intelligence Index: **50.2** (AA current board, 2026-10-10 via benchlm.ai) — **conflicts with the "55 (high thinking), ~5th overall" reading the 2026-10-05 pass cited**; board recomposition accounts for the difference
 - AA-LCR v1.1: **69.3%**; CritPt: **13.1%** (AA — both mid/weak)
 - AA-Omniscience: **51.9% accuracy / 60.7% non-hallucination row / 21.2 index** (AA)
@@ -62,17 +64,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** The independent rows corroborate the elite-Flash story: τ²-bench 95.3%, MCP Atlas 83.6%, OSWorld-Verified 78.4%, TB2.1 76.2/74.2; GDPval 1345 and AA Agentic Index 27.3% keep it under 95.
-- **Reasoning: 85/100.** (Was 87 on the prior pass.) GPQA 92.2–92.7% and HLE 40.2–42.7% fill the gaps positively, but AA's current Index of 50.2 (down from the cited 55 on the recomposed board), CritPt 13.1%, FrontierMath T4 14.6% and AA-LCR 69.3% net the score down a couple of points.
+- **Reasoning: 87/100.** CHANGED from 85 — GPQA 92.2–92.7% and HLE 40.2–42.7% fill the gaps positively, the re-scored FrontierMath v2 62.8%/26.8% (Epoch) adds a mid-strong math pillar, and ARC-AGI-2 72.1% stands; AA Index 50.2 and AA-LCR 69.3% still cap it below the 90+ tier.
 - **Context window: 93/100.** (Was 97 on the prior pass.) 1M input stays top-tier, but measured retrieval now exists and it is weak at the full window: MRCR at 1M reads 26.6% (vs 77.3% at 128K) and AA-LCR 69.3% — the 1M claim no longer earns the 95+ dock-free tier.
 - **Multimodal: 88/100.** Full omni-input set (text/image/audio/video/PDF) now backed by measured vision (MMMU-Pro 83.6/84.3, CharXiv 84.2); text-only output.
 - **Coding: 86/100.** Vals LiveCodeBench 87.6% and SWE-bench 78.8% corroborate, SWE-Pro 55.1% stands as published, Vibe Code Bench 48.68% adds a mid independent row — the score holds.
 - **Cost efficiency: 78/100.** Free tier exists, but the paid rate ($1.50/$9.00 with thinking tokens billed as output) is well above open-weights paid tier pricing (e.g. GLM-5.1 $1.40/$4.40).
-- **Overall Score: 88.4/100.** (Was 89.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (90 + 85 + 93 + 88 + 86) / 5 = 442/5 = 88.4 — lowered on the 2026-10-11 second pass as the recomposed AA board and the weak at-1M MRCR reading correct the two scores that leaned on launch-week framing. Best fit: still a fast, well-corroborated agent/coding workhorse with a free tier — but check 3.6/3.7/3.8 first since this is now last-gen and its full-window retrieval is measurably weak.
+- **Overall Score: 89/100.** CHANGED from 88.4 — mean of the five quality dims per `RULES.md` (Cost excluded): (90 + 87 + 93 + 88 + 86) / 5 = 444/5 = 88.8 → 89 — the FrontierMath re-score lifts Reasoning back up. Best fit: still a fast, well-corroborated agent/coding workhorse with a free tier — but check 3.6/3.7/3.8 first since this is now last-gen and its full-window retrieval is measurably weak.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Google DeepMind launch screenshots, Vals AI leaderboards, Artificial Analysis model benchmarks + ARC Prize/Epoch AI rows via benchlm.ai, plus the prior 2026-09-18/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Google DeepMind launch screenshots, Vals AI leaderboards, Artificial Analysis model benchmarks + ARC Prize/Epoch AI rows via benchlm.ai, plus the prior 2026-09-18/10-05 passes; 2026-10-16 re-check: BenchLM 51-row refresh corroborates all rows (FrontierMath re-scored 39.0→62.8 / 14.6→26.8, MazeBench 0% added) — Reasoning 85→87, Overall 88.4→89); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
