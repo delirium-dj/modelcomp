@@ -45,14 +45,14 @@
 86.7 gemini-3.8-flash-cyber
 86.6 ember-1
 86.6 minimax-m3
+86.3 gpt-5.4
 86.3 qwen-3.7-plus
 86.2 mimo-v2.6-free
-86.1 gpt-5.4
 86.1 qwen-3.8-27b
+86 claude-sonnet-4.6
 86 grok-4.6
 86 inkling-small
-85.8 claude-sonnet-4.6
-85.5 grok-4.7
+85.6 grok-4.7
 85.5 qwen-3.6-plus
 85.4 gpt-5.2
 85.4 kimi-k2.6

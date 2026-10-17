@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-opus-5-5`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-09-25 report
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-09-25 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,8 @@ Agent / tool use:
 - APEX-Agents (Mercor): **73.5% #3** (max)
 - LiveBench Agentic Coding: **71.7% #2** (max)
 - Analyst Agent (AA): **56.3% #4**; GDP.pdf: **26.2-26.6%**; Harvey LAB (AA): **4.2% #7** (xhigh) — system card's held-out LAB reads **8.3% all-pass / 91.2% criterion-pass**, a different metric on the same family (flagged, not conflated)
-- CWE-bench v1: **67.0%** (Collinear — new this pass; tops Muse Spark 1.3's 55.0%)
+- CWE-bench v1: **67.0%** (Collinear — tops Muse Spark 1.3's 55.0%)
+- New this pass: Hermes Index **63.3%** / Hermes Bench **76.7%** (Nous Research — both top-tier), MazeBench (ASCII, tools) **13%**, Gray Swan IPI (15 attempts) **1.0%** (Gemini 4 Argon launch chart — strong injection resistance vs Sonnet 5.5's 1.0%/Opus 5's 4.6%), AA Briefcase updated **1805** (from 1807)
 - ITBench SRE (AA): **38.2% #23**; CUA-bench (Vals): **14.0% #2** — low absolute on both
 - Terminal-Bench-Science 0.1: **58.7%** (Anthropic announcement, ±3.5-5 pts) / Vals **47.1% #2**
 - Tau3-Banking / Tau2-Bench / Claw-Eval: **no verified public score found** (still unpublished for this model)
@@ -53,7 +54,7 @@ Reasoning / knowledge:
 - AA Intelligence Index v4.3.2: **57.6, #1 of 610** (max; previous report's "58, #1/211" is the same leader position on the smaller launch-era cohort)
 - AA-Omniscience: index **46.4 #1**, accuracy **66.2% #2** — but hallucination rate **58.6%** (AA; BenchLeader resolves the previous ambiguity: non-hallucination is 41.4% #146, so 58.6% is genuinely the hallucination rate — a notable honesty-calibration weakness, the one soft spot in an otherwise dominant knowledge profile)
 - SimpleQA Verified: **72.2% #4**; EBR-bench: **71.4% #2**; HealthBench: **68.1%** raw / **60.6%** length-adjusted / Professional **65.6%** (77.1% raw); BioMysteryBench: **89.3%** human-solvable / **50.0%** human-difficult (system card; Vals lists 79.3% #3)
-- GMMLU **94.3%**, MILU **93.1%** (system card); SpatialBench Verified **72.0%**; SingleCellBench **61.2%**; medicinal chemistry **63.5%**; protein design **60.2%** (binder design **82.6%**)
+- GMMLU **94.3%**, MILU **93.1%** (system card); SpatialBench Verified **72.0%**; SingleCellBench **61.2%**; medicinal chemistry **63.5%**; protein design **60.2%** (binder design **82.6%**, library ranking **56.0%** — new); Morphology-to-molecule **34.0%** (new); Protocols troubleshooting **73.7%** / understanding **69.0%** (new)
 - MRCR v2: no public MRCR run; AA-LCR **84.7% #5** (max); MLCR-AA **66.7% #3** — found this pass
 
 Coding:
@@ -68,7 +69,7 @@ Coding:
 - MirrorCode: **77.4% #1** (Epoch); ALE-Bench: **2147.4 #5** (high)
 - Vals (effort not stated): IOI **95.1% #4**, Code Migration **66.7% #4**, Vibe Code Bench v1.1 **90.3% #4**, VCB 1-100 **30.4% #1**, ProgramBench **18.5% #1**
 - SonarSource independent Java evaluation (544 HumanEval+MBPP tasks): pass rate **87.68%** (vs Opus 5's 88.6%), 27.5% less code, 40% fewer output tokens, total findings **-42%**, code-smell density **-21%**, vulnerability density **-9%**, BLOCKER findings down in all three categories (reliability -41%, security -53%, maintainability -20%) — but bug density **+12%** (644/mLOC) and concurrency findings **+44%**; comment density fell 10.5% → 3.1%
-- Bug Hunt Bench: **41.7 fixes**; Design Arena Website: **1339** (OpenRouter)
+- Bug Hunt Bench: **41.7 fixes**; Design Arena Website: **1336** (OpenRouter via BenchLM — drifted from 1339); PostTrainBench v1.1: **49.3%** (new this pass); STEMBench: **2.62** (Ulam snapshot audit — new this pass); FrontierMath v2 exact: T1-3 **91.228%**, T4 **95.000%** (Epoch)
 
 Long context:
 
@@ -88,6 +89,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-09-25 report (Anthropic announcement + Opus 5.5 system card references, BenchLeader data as of 2026-10-11, BenchLM updated 2026-10-10, Artificial Analysis leaderboards, ARC Prize verified results, LiveBench, LMArena, Vals AI, Epoch AI Benchmarking Hub, Kaggle/Google FACTS, Collinear, plus the independent SonarSource Java evaluation); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-09-25; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (Anthropic announcement + Opus 5.5 system card, BenchLM 80-row profile updated 2026-10-17 — composite 86.56 #1 of 954, refreshed from 86.54 #1/889; Artificial Analysis leaderboards, ARC Prize, LiveBench, LMArena, Vals AI, Epoch hub, Kaggle/Google FACTS, Collinear, Nous Research, SonarSource Java evaluation); scores are normalized 1-100 interpretations, not official vendor scores. This pass added Hermes 63.3/76.7, MazeBench 13%, Gray Swan IPI 1.0%, STEMBench 2.62, PostTrainBench 49.3% and the protein/protocol science rows — all reinforcing the #1 profile; no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

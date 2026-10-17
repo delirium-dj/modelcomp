@@ -81,7 +81,8 @@ export type SourceKey =
   | "Cat Jam"
   | "GPT 6.1 Sol"
   | "Cat Jam probe2"
-  | "Nemotron 3.5 Super VL 120B A12B";
+  | "Nemotron 3.5 Super VL 120B A12B"
+  | "Beam";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -174,4 +175,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
   { key: "Cat Jam probe2", label: "Cat Jam probe2", file: "Cat_Jam_probe2.md" },
   { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md" },
+  { key: "Beam", label: "Beam", file: "Beam.md" },
 ];

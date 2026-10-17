@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-mythos-5-1`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-09-24 report
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-09-24 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,7 +37,8 @@ Twin-weight rows (Fable 5.1, same weights with safeguards on — second-pass add
 - Tau3-Banking: **47.2%** (AA — resolves the previous "no verified Tau3" gap); AA Briefcase: **1675**; AA Agentic Index: **58.0%**; Analyst Agent: **57.5%**; ITBench: **49.5%**; GDP.pdf: **26.2%**; ApprenticeBench: **72%** (NeoCognition); Toolathlon-Verified: **77.8%** / Pass@3 **81.5%** (system card); CWE-bench v1: **58.0%** (Collinear); Terminal-Bench 2.1: **85.0%** (Vals) / **91.4%** (AA)
 - SWE-bench Pro: **81.2%**; SWE Multilingual: **89.1%**; SWE Multimodal: **54.7%**; DeepSWE: **67.4%**; FrontierSWE v2: **56.3%**; ProgramBench: **87.6%** (system card / Proximal); SciCode: **63.1%** (AA); LiveCodeBench: **90.5%** (Vals — resolves a previous gap); AA Coding Index: **81.6%**; CursorBench 4.0: **51.8%**; Bug Hunt Bench: **43.0 fixes**; PostTrainBench v1.1: **40.2%**
 - AA-LCR: **85.3%**; MLCR-AA: **71.1%**; GraphWalks BFS 256K-1M: **65.0%** (Gemini 4 Argon launch chart via BenchLM)
-- Design Arena Website: **1318** (OpenRouter); BenchLM composite for the twin: **82.09, #5 of 889** (54 of 625 rows covered)
+- New twin rows this pass (Fable 5.1 via Epoch/BenchLM): FrontierMath v2 Tiers 1-3 **90.175%** / Tier 4 **87.805%** — elite; MazeBench (ASCII, tools) **10%**; GDPval-AA AA-harness updated **1754** (from 1758)
+- Design Arena Website: **1314** (OpenRouter; drifted from 1318); BenchLM composite for the twin: **83.18, #4 of 954** (refreshed from 82.09 #5/889)
 
 Domain evidence (from the official announcement; qualitative):
 
@@ -59,6 +60,6 @@ Domain evidence (from the official announcement; qualitative):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-09-24 report (Anthropic launch announcement + Fable 5.1 & Mythos 5.1 system card, BenchLeader data as of 2026-10-11, BenchLM updated 2026-10-10 for both the Mythos and Fable pages, Artificial Analysis leaderboards, Vals AI, NeoCognition, Collinear, Cursor, plus independent reviews: Vellum's benchmark explainer and eesel's spec/access review; three searches — two successful, one blocked by a bot challenge — plus the official pages); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-09-24; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (Anthropic launch announcement + Fable/Mythos 5.1 system card, BenchLM Mythos page re-checked 2026-10-17 — still exactly 1 displayable row (TB4.0 60.9%), the Fable-twin page now 57 rows with composite 83.18 #4/954; new twin rows FrontierMath v2 90.2/87.8 (Epoch) and MazeBench 10%; Artificial Analysis, Vals, NeoCognition, Collinear, Cursor, Vellum, eesel); scores are normalized 1-100 interpretations, not official vendor scores. The elite twin FrontierMath rows reinforce Reasoning 91; no Mythos-specific independent rows have appeared — no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

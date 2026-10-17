@@ -1,7 +1,7 @@
 # Claude Fable 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,8 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index v4.3.2: **50, #19/227** (AA model page, 2026-10-11; BenchLM normalized 49.6%) — the v4.1-era "60 / #1" is historical and not comparable; index recompositions moved it down the board
 - MMLU-Pro: **91.5%** (Vals, independent)
 - AA-LCR v1.1: **82.3%**; MLCR-AA: **64.4%**; CritPt: **28.6%** (AA — fill the LCR/MLCR/CritPt gaps the 2026-10-08 pass marked missing)
+- FrontierMath v2: Tiers 1–3 **87.0%**, Tier 4 **90.2%** (Epoch AI leaderboard — added 2026-10-16 from the 2026-10-17 refresh, previously unmeasured; Tier 4 90.2% is elite)
+- MazeBench ASCII: **11%** (added 2026-10-16)
 - AA-Omniscience: **65.4% accuracy / 63.6% non-hallucination row / 43.3 index** (AA)
 - AA-IFBench: **63.5%** (instruction following)
 
@@ -64,17 +66,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 93/100.** The second pass replaces the single-benchmark story with a broad independent package: TB2.1 84.3/80.5, τ²-bench 98.5%, OSWorld-Verified 85%, AA Harvey 93.6% (best measured), terminalBenchHard 62.9% — but GDPval drops from the launch-day 1932 #1 to the system card's 1747 (AA-normalized 55.6%), and ApprenticeBench 34% keeps it under 95.
-- **Reasoning: 91/100.** (Was 94 on the prior pass.) The v4.1-era "#1 with HLE >7 pts clear" framing has aged: on the current board AA Index is 50 (#19/227), AA-HLE 55.5%, GPQA 92.6% (still trailing rivals), ARC-AGI-2 89.2% verified — elite but now measurably a step below Opus 5.5 (94) and level with Opus 5 (91), so the score moves to match the evidence.
+- **Reasoning: 92/100.** CHANGED from 91 — the v4.1-era "#1 with HLE >7 pts clear" framing has aged: on the current board AA Index is 50 (#19/227), AA-HLE 55.5%, GPQA 92.6% (still trailing rivals), ARC-AGI-2 89.2% verified — but the newly measured FrontierMath v2 87.0%/90.2% (Epoch, elite Tier 4) adds a decisive math pillar, lifting the band; still a step below Opus 5.5 (94).
 - **Context window: 95/100.** Documented 1M tokens (tier ≥1M = 95–100); AA-LCR 82.3% is the first measured long-context number (strong); no MRCR/RULER retrieval at length keeps it off the maximum.
 - **Multimodal: 65/100.** Text and image input with text output (docs + AA agree) maps to the +image-in 60–70 band; no video/PDF/audio input documented.
 - **Coding: 92/100.** SWE-bench Verified 95% is now system-card-verified (not aggregator-provisional) and Vals corroborates at 95.0, with LiveCodeBench 89.8% and SWE Pro 80%; FrontierSWE v2 47.0% and the Anthropic-harness caveat on SWE Pro keep it under 95.
 - **Cost efficiency: 30/100.** $10/$50 per 1M — methodology maps $10/$50 ≈ 30; AA re-confirms the worst value in the cohort: $8.75/task (priciest measured), 65.5 tok/s, 132s TTFT; the 10% cache-read rate ($1) is weaker than Fable 5.1's 2.5%.
-- **Overall Score: 87.2/100.** (Was 87.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (93 + 91 + 95 + 65 + 92) / 5 = 436/5 = 87.2 — lowered on the 2026-10-11 second pass because the v4.1-era reasoning-#1 claims aged out of the current independent boards (Reasoning 94→91), even as tool/coding evidence strengthened. Best fit: long-horizon agentic knowledge work (legal, research, multi-step engineering) where the Harvey/Tau2/OSWorld rows matter — at $10/$50 it is a premium tool, not a volume workhorse, and Fable 5.1 supersedes it at the same price.
+- **Overall Score: 87/100.** (Was 87.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (93 + 92 + 95 + 65 + 92) / 5 = 437/5 = 87.4 → 87 — the 2026-10-11 pass lowered Reasoning (94→91) as the v4.1-era claims aged out; the 2026-10-16 FrontierMath elite rows lift it back to 92. Best fit: long-horizon agentic knowledge work (legal, research, multi-step engineering) where the Harvey/Tau2/OSWorld rows matter — at $10/$50 it is a premium tool, not a volume workhorse, and Fable 5.1 supersedes it at the same price.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5 & Mythos 5 system card, ARC Prize verified results, Vals AI / Cursor / Proximal / Cognition / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5 & Mythos 5 system card, ARC Prize verified results, Vals AI / Cursor / Proximal / Cognition / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath v2 87.0/90.2 (elite Tier 4) and MazeBench 11% added — Reasoning 91→92, Overall 87 holds (87.4)); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Max — findings by GLM 5.3
 
 - Source: Meta (`meta/muse-spark-1.3-max`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-10-02 report
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-10-02 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,7 +63,7 @@ Coding:
 - IOI: **56.6%** #17 (Vals, max; 43.9% #27 xhigh); Code Migration: **47.4%** #12 (Vals, max)
 - SciCode: **58.8%** #16 (AA, max) / **59.7%** #11 (xhigh, SciCode board)
 - CursorBench 4.0: **41.6%** #22 (max; scales from 24.3% at minimal effort — effort-sensitive)
-- AA Coding Index: **75.8%**; Bug Hunt Bench: **32.2 fixes**; Design Arena Website: **1363** (OpenRouter via BenchLM — revised from 1365)
+- AA Coding Index: **75.8%**; Bug Hunt Bench: **32.2 fixes**; Design Arena Website: **1358** (OpenRouter via BenchLM — drifted from 1363/1365); FrontierSWE v2: **25.8%** (Proximal leaderboard — new this pass, a weak hard-SWE data point vs Opus 5.5's 62.3%); MazeBench (ASCII, no tools): **0%** (new this pass); AA-AnalystAgent: **37.5%** (AA — new this pass); FrontierMath v2 exact: T1-3 **74.035%**, T4 **46.341%** (Epoch)
 - SWE-bench Verified / LiveCodeBench: **no verified public score found** (Stack Futures confirms no independent SWE-bench Verified or tau-bench evaluation as of its 2026-10 writing)
 
 Long context:
@@ -76,14 +76,14 @@ Long context:
 - **Reasoning: 90/100.** GPQA 94.1% (xhigh) clears the 90% frontier bar, HLE 48.7% clears the 40% bar, LiveBench global 81.6% #7 / Reasoning 89.7% #14, LMArena Hard Prompts 1517 #11, FrontierMath T1-3 74%, MysteryMechanism #9, and 98%+ MRCR retrieval. Capped by CritPt 24.9% #42, HLE's mid-field rank (#29), and the current AA Intelligence Index 48.1 #23 — frontier-adjacent, not top-3.
 - **Context window: 100/100.** 1M input (1,048,576 documented) with official MRCR v2 at 98.5% (256K-512K) and 98.1% (512K-1M) — meets the methodology's "100 if ≥98% retrieval at 512K+" bar exactly; the newly documented 131K output split does not change the input-window tier.
 - **Multimodal: 85/100.** Native text, image, video, and document input with visual reasoning through a real execution environment (official); no audio input or non-text output verified for 1.3. LMArena Vision Elo 1309 #13 supports the top-of-band position; MMMU-Pro 82.0% #34 (xhigh, AA) is mid-field and caps any move higher.
-- **Coding: 90/100.** DeepSWE 75.4% (frontier reference 74%+, Meta-run and still unreplicated independently — Datacurve peers sit at 73-74%), TB2.1 88.8%, LiveBench Agentic Coding 64.1% #8, LMArena WebDev 1657 #12, Vibe Code Bench 85.9% #11, AA Coding Index 75.8%, SciCode 58.8%. New independent results cut both ways — Vals TB2.1 max improved to 79.0% #11 and WebDev/Vibe Code are top-12, but LiveBench Coding #16, IOI #17, CursorBench #22, and independent reviews (Vals sober read; mindstudio "scores don't match reality"; DeepSWE leadership unconfirmed) keep it a notch below the Opus 5.5 tier. No net change from the 2026-10-02 assessment is supported.
+- **Coding: 88/100.** Lowered from 90 this pass: the newly published FrontierSWE v2 **25.8%** (Proximal independent board) is materially below peer tier (Opus 5.5 62.3% #2, Sonnet 5.5 61.9%) and joins LiveBench Coding #16, IOI #17, CursorBench 4.0 #22 and MazeBench 0% as independent negatives; DeepSWE 75.4% (still unreplicated independently), TB2.1 88.8%, LiveBench Agentic Coding 64.1% #8, LMArena WebDev 1657 #12, Vibe Code 85.9% #11, SciCode 58.8% remain the strengths. Net: frontier-adjacent headline coding with a growing list of independent hard-bench misses.
 - **Cost efficiency: 90/100.** $1.25/$4.25 per MTok (cached $0.15) with the documented $0.55-0.69/task and ~$0.22/task LiveBench operating costs remains the value leader at this capability level; max effort burns more reasoning tokens (BenchLeader: $1.60 per full Intelligence Index run), and the $0.10/$0.20 Contributor tier trades a 15x discount for training consent (100 RPM/3M TPM limits, data-use caveat).
-- **Overall Score: 91/100.** Half-up mean of the five quality dims: (92 + 90 + 100 + 85 + 90) / 5 = 91.4 → 91 — unchanged from 2026-10-02; the second pass added ~40 new benchmark rows (LiveBench, LMArena, Vals professional agents, FrontierMath) and confirmed GA of max reasoning, but the new strengths and the new independent caveats offset. A frontier-adjacent default for long-horizon agentic and coding work at aggressive pricing; prefer lower effort or the Contributor tier when cost matters more than peak accuracy.
+- **Overall Score: 91/100.** Half-up mean of the five quality dims: (92 + 90 + 100 + 85 + 88) / 5 = 91.0 → 91 — numerically unchanged (Coding −2 offset inside the rounding). Best-fit stays the same: a frontier-adjacent default for long-horizon agentic and coding work at aggressive pricing; prefer lower effort or the Contributor tier when cost matters more than peak accuracy, and keep an independent check on hard-SWE tasks (FrontierSWE v2 miss).
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-10-02 report (Meta's current model page and launch scorecard, Meta API quickstart and price schedule, BenchLeader data as of 2026-10-11, BenchLM updated 2026-10-10, Artificial Analysis leaderboards, Vals AI, LiveBench, LMArena, Scale SEAL, Epoch hub, plus independent reviews: AI on Mac updated 2026-10-09, The AI Rankings, Stack Futures, mindstudio.ai, developer.tenten.co); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-10-02; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (Meta's current model page and launch scorecard, BenchLM 43-row profile updated 2026-10-17, Artificial Analysis leaderboards, Vals AI, LiveBench, LMArena, Epoch hub, Proximal FrontierSWE board, plus independent reviews); scores are normalized 1-100 interpretations, not official vendor scores. This pass added FrontierSWE v2 25.8% (new independent negative), MazeBench 0%, AA-AnalystAgent 37.5%, exact FrontierMath v2 values, Design Arena drift → Coding 90→88; Overall held at 91.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Big Pickle — findings by GLM 5.3 Flash
 
 - Source: OpenCode Zen (`opencode/big-pickle`, anonymous stealth alias)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Big Pickle (Free) — anonymous stealth alias on OpenCode Zen; no vendor has claimed it
 - **Short description:** OpenCode Zen's free experimental model, described in its config as a "Reasoning model for deliberate analysis, multi-step problem solving, and tool use", positioned for coding agents. Community consensus ties the alias to Zhipu AI's GLM-4.6 (OpenCode issue #4276, "Is zen/big-pickle glm 4.6?"), while a self-reported SWE-Atlas write-up notes leaked provider errors and API response signatures pointing toward DeepSeek infrastructure instead. Treat it as an alias, not a model: whatever answers to `big-pickle` can change without notice.
 - **Provider / access:** OpenCode Zen — Chat Completions at `https://opencode.ai/zen/v1/chat/completions`, ID `opencode/big-pickle`; integrates via the `@ai-sdk/openai-compatible` SDK; catalogued by models.dev as `providers/opencode/models/big-pickle.toml`.
-- **Release / knowledge:** models.dev lists release date 2025-10-17 and knowledge cutoff 2025-01; the alias was still served free on Zen as of the prior research (2026-09-17) with no announced end date for the free period.
+- **Release / knowledge:** models.dev lists release date 2025-10-17 and knowledge cutoff 2025-01; the alias was still served free on Zen as of the prior research (2026-09-17) with no announced end date for the free period. Re-verified 2026-10-16: `big-pickle` remains on the live Zen roster (`/zen/v1/models`, fetched 2026-10-16) — the free route persists.
 - **IDs:** `opencode/big-pickle` (models.dev / Zen). **This IS the Free ID** — served at $0 during the stealth period; no separate paid `big-pickle` route exists.
 - **Context window:** 200,000 tokens total; 160,000 input / 32,000 output — verified against the models.dev `big-pickle.toml` config, corroborated by a third-party directory (ayautomate: 200K, tier "S+", last verified June 2026).
 - **Modalities:** text in, text out (`modalities: text/text`); reasoning yes (`reasoning = true`, interleaved via a `reasoning_content` field); tool calls yes (`tool_call = true`); structured output yes; attachments no.
@@ -59,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the anonymous stealth alias; the prior 2026-09-17/10-09 passes on models.dev/glonce.com/ayautomate remain the evidence base; GitHub issue #50202 degraded-output caveat stands); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the anonymous stealth alias; the prior 2026-09-17/10-09 passes on models.dev/glonce.com/ayautomate remain the evidence base; GitHub issue #50202 degraded-output caveat stands); 2026-10-16 re-check: BenchLM still 404s the alias, the live Zen roster still lists it free, search engines rate-limited the identity-reveal check — no new evidence, scores unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

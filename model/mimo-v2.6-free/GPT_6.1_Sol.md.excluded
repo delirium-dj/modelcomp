@@ -1,0 +1,37 @@
+# MiMo V2.6 Free — findings by GPT 6.1 Sol
+
+- Source: Unresolved repository alias / Xiaomi MiMo
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** MiMo V2.6 Free
+- **Short description:** Dataset label whose curated metadata describes309B/15B Flash, but its ID `opencode/mimo-v2-6-free` is not verified in current provider documentation. Canonical Flash research already exists under `model/mimo-v2.6-flash/`.
+- **Provider / access:** Current OpenCode catalog verifies **`mimo-v2.6-flash-free`**, Chat Completions, not this folder's bare/dashed ID [S1].
+- **Release / knowledge:** Exact alias dates/cutoff unverified.
+- **IDs:** Bare `mimo-v2.6-free` and metadata `mimo-v2-6-free` are not established callable routes; don't silently equate them with Flash Free.
+- **Context window:** Metadata contradicts itself: short description200K/32K versus explicit1M/128K. No exact bare-route limits verified.
+- **Modalities:** Exact bare-route modalities unverified; sibling Flash-RL's omni encoders are lineage, not proof of this endpoint.
+- **Pricing:** Actual Flash Free route temporarily$0 and may use content to improve models [S1]. Not proof of bare-route pricing/availability.
+- **Architecture:** No independently identifiable additional model behind this alias verified.
+
+### Raw benchmarks found
+No verified exact-bare-route quality scores found. Metadata's92% SWE claim is not web evidence and is not adopted. Existing canonical Flash/Flash-RL measurements are not copied into another scored duplicate.
+
+### Evidence comparison and research trail
+Three distinct DuckDuckGo searches: `"mimo-v2.6-free" model`, `"MiMo V2.6 Free" benchmark`, `"MiMo V2.6" free route privacy limits`; all returned no results. Direct current provider catalog read. Curated meta read solely for identity, not peer reports or scores. It explicitly describes Flash but uses another ID and inconsistent context. Provider warns model/provider configurations can differ; therefore confirmed sibling route cannot establish exact unknown-route quality. Previous directly inspected upstream and independent Flash evidence remains canonical, not a new independent measurement [S2,S3].
+
+### Normalized scores (1–100)
+**Self-excluded:** unresolved exact identity and no exact-route benchmarks. No placeholder scores/Overall. Preserve existing folder and notes; potential alias parking/merge requires user direction. No canonical file overwritten.
+
+### Sources
+- [S1] https://opencode.ai/docs/zen — direct current routes, temporary Free and improvement-data policy.
+- [S2] https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL/raw/main/README.md — upstream Flash-RL, directly read this session; not bare-route equivalence.
+- [S3] https://www.vals.ai/models/xiaomi_mimo-v2.6-flash — independent Flash profile, directly read this session; not bare-route evidence.
+
+---
+## Signature
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-17
+- Method: Independent web research, three negative searches and primary provider identity comparison. No invented or duplicated quality scores.
+- Future sources: add an independently signed file next to this one using the same headings.

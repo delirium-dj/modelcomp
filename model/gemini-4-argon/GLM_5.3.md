@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by GLM 5.3
 
 - Source: Google DeepMind (`gemini-4-argon`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-10-01 report
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-10-01 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,7 +43,7 @@ Reasoning / knowledge:
 - AA Intelligence Index v4.3.2: **52.6 #8** (updated from the launch-era "53, #8 of 223 in class" — same rank, bigger cohort)
 - Vals Index: **68.9 #1** (Vals — GDP-weighted finance/coding/legal/tax composite; the launch page's headline claim, independently confirmed on Vals' board)
 - AA-Omniscience: accuracy **49.9% #61**, non-hallucination **84.9% #5**, index **42.4 #9** — excellent honesty (15.1% hallucination rate), mid knowledge breadth
-- GPQA Diamond / ARC-AGI / FrontierMath: **no verified public score found** (third search this pass still finds no rows for this ID — a genuine coverage gap in the reasoning dossier)
+- GPQA Diamond / ARC-AGI: **no verified public score found** (still unpublished for this ID — coverage gap remains); FrontierMath v2 (Epoch, NEW this pass — partially resolving the gap): Tiers 1-3 **85.965%**, Tier 4 **78.049%** — elite math tier; STEMBench **2.44** (Ulam snapshot — new this pass); MazeBench (ASCII, no tools) **12%** (new this pass); AA-AnalystAgent **48.8%** (new); Design Arena Website **1324** (OpenRouter — new); GDPval updated **1624** (from 1626)
 - Gray Swan IPI (15 attempts): **0.7%** (launch chart via BenchLM) — best-in-class prompt-injection robustness, corroborated by the launch page's "leading in prompt injection robustness" claim
 
 Coding:
@@ -67,17 +67,17 @@ Multimodal (grounded):
 ### Normalized scores (1–100)
 
 - **Tool use: 80/100.** Raised from 78: the new Vals professional-agent cluster is independently elite (Finance Agent #1, Tax #2, CyberBench #2, LegalBench #3, SREBench #3, Legal Research #4) plus APEX-Agents 82.2% #1, AutomationBench #1 on both harnesses, CWE-bench 68% tied #1, and OSWorld 69.2%. Capped by GDPval 56.3% #21 and AA-Briefcase #27 (mid-field professional aggregates), Agents' Last Exam 39.5%, CUA-bench 4.8%, GDP.pdf #21, and TB 4.0 at ~57% across three harnesses — short of the ~66% frontier band.
-- **Reasoning: 85/100.** Raised from 82: LMArena Hard Prompts 1551 #1 and a clean 8-category LMArena sweep, HLE 57.1% #5, ProofBench 99% #4, MysteryMechanism #6, Vals Index 68.9 #1, LABBench2 88.8%, and best-in-class honesty (non-hallucination 84.9% #5). Capped by CritPt 27.1% #31, mid omniscience accuracy 49.9% #61, AA II 52.6 #8, and the still-missing GPQA/ARC-AGI/FrontierMath rows — a deep but incomplete reasoning dossier.
+- **Reasoning: 87/100.** Raised from 85: the previously-missing FrontierMath rows are now published at elite level (T1-3 85.97%, T4 78.05% — Epoch), resolving the main evidence gap; LMArena Hard Prompts 1551 #1, HLE 57.1% #5, ProofBench 99% #4, Vals Index 68.9 #1, LABBench2 88.8%, and best-in-class honesty (non-hallucination 84.9% #5) stand. Still capped by CritPt 27.1% #31, mid omniscience accuracy 49.9% #61, AA II 52.6 #8, and GPQA/ARC-AGI remaining unpublished.
 - **Context window: 95/100.** 1M window verified (AA) plus the new industry-leading 1M output limit; GraphWalks 99.7% at 128K but 84.2% across 256K-1M and AA-LCR 79.7% #83 keep it at the bottom of the ≥1M tier — the ≥98%-at-512K+ bar for 100 is not met.
 - **Multimodal: 76/100.** Raised from 68: the launch page verifies video and document input with LVBench 91.7% state-of-the-art long-video understanding, professional chart analysis (Chartography 71.6%), SAGE 53.6% #5, and Blueprint-Bench 54.5% #1 — moving it into the video-in band. Capped below Muse Spark's 85 by the absence of audio input, text-only output, and the independent AA modality listing still reading text+image pending wider rollout.
 - **Coding: 91/100.** Raised from 90: IOI 100% #1, LMArena Coding 1562 #1, Code Migration 68.2% #2, Vibe Code Bench 91.9% #2, and DeepSWE 77.9% (official SOTA claim) join SciCode 61.8% #4. Capped by missing SWE-bench Verified/SWE-Pro/LiveCodeBench rows, FrontierSWE 55.0% #5, PostTrainBench 45.3%, WebDev #9, and the flagged ProgramBench 2.5% outlier.
 - **Cost efficiency: 62/100.** Lowered from 68: new verified evidence — the launch-page footnote reveals $2/$10 is INTRODUCTORY pricing; $4/$20 applies afterward, halving the value edge. During intro it matches the ~72 band, but the end-state price lands in Opus 5.5 cost territory, and Argon's verbosity (110M tokens per Intelligence-Index run vs 82M median; $1.99/task at intro prices) means the per-task bill roughly doubles at list price. The 95%-off cache reads are the remaining mitigant.
-- **Overall Score: 85/100.** (80 + 85 + 95 + 76 + 91) / 5 = 85.4 → 85, up from 83 on 2026-10-01: the LMArena sweep, Vals Index #1, APEX-Agents #1, IOI 100%, and verified video understanding outweigh the post-intro price hike. Best fit: long-horizon agentic coding, professional knowledge work, and defensive cybersecurity — budget per task carefully, and note the phased rollout before betting production workloads on it.
+- **Overall Score: 86/100.** (80 + 87 + 95 + 76 + 91) / 5 = 85.8 → 86, up from 85 on the second pass: the newly published elite FrontierMath rows resolve the last major reasoning-evidence gap. Best fit: long-horizon agentic coding, professional knowledge work, and defensive cybersecurity — budget per task carefully, and note the phased rollout before betting production workloads on it.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-10-01 report (official Google launch page and DeepMind evaluation-methodology page, BenchLeader data as of 2026-10-11, BenchLM updated 2026-10-10, Artificial Analysis leaderboards, Vals AI, LMArena, Mercor APEX, Epoch hub, Collinear, Andon Labs; three web searches — two successful, one blocked by a bot challenge — plus cross-checks against DataCamp and saascity.io reviews); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-10-01; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (official Google launch page and DeepMind evaluation-methodology page, BenchLM 37-row profile updated 2026-10-17 — composite 80.97 #7/954, Artificial Analysis leaderboards, Vals AI, LMArena, Epoch hub, Ulam STEMBench, Collinear); scores are normalized 1-100 interpretations, not official vendor scores. This pass added the elite FrontierMath v2 86.0/78.0 rows (Epoch) that resolve the reasoning-evidence gap → Reasoning 85→87, Overall 85→86; also added STEMBench 2.44, MazeBench 12%, AA-AnalystAgent 48.8%, Design Arena 1324.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

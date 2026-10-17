@@ -5,10 +5,17 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "AgentRouter",
       "options": {
-        "baseURL": "https://YOUR-AGENTROUTER-BASE-URL/v1"
+        "baseURL": "https://agentrouter.org/v1"
       },
       "models": {
-        "claude-opus-5-5": { "name": "Claude Opus 5.5" }
+        "claude-opus-5-5": {
+          "name": "Claude Opus 5.5",
+          "variants": {
+            "low": { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high": { "reasoningEffort": "high" }
+          }
+        }
       }
     }
   }
