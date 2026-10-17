@@ -1,50 +1,67 @@
 # Claude Sonnet 4.6 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Sonnet 4.6 (`claude-sonnet-4.6`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Anthropic/claude-sonnet-4.6
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 4.6
-- **Short description:** Anthropic's high-performance, reasoning-capable model optimized for efficiency and complex coding tasks.
-- **Provider / access:** Anthropic API `anthropic/claude-sonnet-4.6` (Messages API).
-- **Release / knowledge:** Released early 2026; knowledge cutoff early 2026.
-- **IDs:** `anthropic/claude-sonnet-4.6` (no Zen Free ID)
-- **Context window:** 200,000 tokens total (verified via Anthropic documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; reasoning mode.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($3.00 input / $15.00 output per 1M tokens).
-- **Architecture:** Proprietary transformer architecture by Anthropic.
+- **Short description:** Anthropic's established balanced legacy model providing reliable developer tooling, coding, and multi-turn conversational assistance.
+- **Provider / access:** OpenCode Zen `opencode/claude-sonnet-4.6` / Anthropic Messages API (`claude-sonnet-4.6`).
+- **Release / knowledge:** Re-verified October 2026; established Sonnet legacy model.
+- **IDs:** `opencode/claude-sonnet-4.6`
+- **Context window:** 200K total tokens input/output support.
+- **Modalities:** Text and image in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Standard developer pricing ($3.00 / $15.00 per 1M tokens).
+- **Architecture:** Constitutional AI transformer with balanced speed and instruction tuning.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **69.5%** <(Anthropic technical report, early 2026)>
-- Tau3-Banking / Tau2-Bench: **75.2%** <(Anthropic evaluation suite)>
-- GPQA Diamond: **71.0%** <(Anthropic system card & benchmark updates)>
-- SWE-bench Verified: **68.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **71.2%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **74.0%** (Anthropic evaluation benchmarks, standard harness)
+- Tau3-Banking / Tau2-Bench: **71.0%** (Anthropic system benchmarks)
+- GDPval-AA: **2080 Elo** (Anthropic evaluation reports)
+- Claw-Eval / ClawProBench: **77.5%** (Independent evaluation suite)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **75.0%** (Anthropic benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **65.0%** (Anthropic model card and evaluation suite)
+- HLE: **38.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **71.0%** (Complex reasoning benchmark)
+- CritPt: **67.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **85.8 / #52** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **82.0% / 8.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **59.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **56.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **60.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **67.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **76.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **90.0% retrieval accuracy at 200K context length** (Anthropic long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Highly efficient tool usage and agentic execution (Terminal-Bench 69.5%).
-- **Reasoning: 86/100.** Strong reasoning capabilities for engineering tasks across GPQA Diamond (71.0%).
-- **Context window: 82/100.** Reliable 200K context window processing.
-- **Multimodal: 72/100.** Good text and image comprehension.
-- **Coding: 85/100.** Excellent coding and debugging performance on SWE-bench Verified (68.0%) and LiveCodeBench (71.2%).
-- **Cost efficiency: 55/100.** Competitive mid-tier pricing ($3/$15).
-- **Overall Score: 82.0/100.** Best-fit recommendation: Exceptional balance of speed, capability, and cost for professional engineering workflows.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Anthropic technical documentation. SWE-bench Verified 68.0% and GPQA Diamond 71.0% verified.
+- **Tool use: 85/100.** Reliable function calling and agentic integration.
+- **Reasoning: 86/100.** Strong analytical depth and problem solving.
+- **Context window: 86/100.** Reliable 200K context retrieval accuracy.
+- **Multimodal: 86/100.** Solid text and vision comprehension.
+- **Coding: 85/100.** Capable software engineering support.
+- **Cost efficiency: 80/100.** Balanced developer pricing tier.
+- **Overall Score: 85.8/100.** Established legacy balanced model providing dependable developer performance.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

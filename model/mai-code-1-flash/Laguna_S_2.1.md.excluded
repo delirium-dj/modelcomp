@@ -1,11 +1,11 @@
 # MAI-Code-1-Flash — findings by Laguna S 2.1
 
 - Source: Microsoft AI / MAI-Code-1-Flash
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-08 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-SELF-EXCLUSION: This model has no verified public benchmark scores. All potential source pages return 404 or do not list this specific model variant.
+SECOND CHECK (2026-10-16): AA returns 403; BenchLM returns 404; Microsoft AI page still only lists MAI-Code-1.1-Flash, not base MAI-Code-1-Flash. Confirmed: zero verified public benchmarks for this exact model variant.
 
 ## Model card
 
@@ -21,10 +21,8 @@ SELF-EXCLUSION: This model has no verified public benchmark scores. All potentia
 
 ### Raw benchmarks found
 
-> No verified public benchmark scores found.
-
-Sources checked:
-- Artificial Analysis: 404 for both mai-code-1-flash and mai-code-1
+> No verified public benchmark scores found. Sources checked (2026-10-16):
+- Artificial Analysis: 403 (blocked)
 - BenchLM: 404
 - Microsoft AI: Page exists but only lists MAI-Code-1.1-Flash, not base MAI-Code-1-Flash
 
@@ -38,8 +36,8 @@ All scores zero — no verified benchmarks to derive from.
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
-- Method: public internet research; no verified benchmark data found for this model variant.
-- Future sources: add a new file next to this one when benchmark data becomes available.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research (AA, BenchLM, Microsoft AI); zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (AA 403; BenchLM 404; no HF model card; MS AI only lists MAI-Code-1.1-Flash, not base MAI-Code-1-Flash).
 
 ---

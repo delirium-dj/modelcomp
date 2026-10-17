@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by GLM 5.3
 
 - Source: Google (`gemini-3.8-flash`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ARC Prize, AA agentic rows and science-bench evidence)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added Hermes, FrontierMath v2, Bug Hunt, MazeBench, AnalystAgent rows)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,7 +28,7 @@ Agent / tool use:
 - AA-Briefcase Elo: **1203** (AA leaderboard via BenchLM — new 2026-10-08 evidence)
 - AA ITBench: **52.5%** (AA leaderboard via BenchLM — new 2026-10-08 evidence)
 - GDP.pdf: **21.0%** (AA leaderboard via BenchLM — new 2026-10-08 evidence)
-- AA AutomationBench: **59.9%**; OSWorld 2.0 **59.0%**; AA Agentic Index **41.1%**; ApprenticeBench **24%** (BenchLM)
+- AA AutomationBench: **59.9%**; OSWorld 2.0 **59.0%**; AA Agentic Index **41.1%**; ApprenticeBench **24%**; AA-AnalystAgent **46.3%** (new this pass); Hermes Index **38.1%** / Hermes Bench **62.2%** (Nous Research — new this pass); MazeBench **4%** (new this pass) (BenchLM)
 - Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
@@ -42,6 +42,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **40.9** (AA v4.3.2 via BenchLM; was reported 41 on 2026-09-24)
 - Omniscience Index **29.6**; Accuracy **54.6%** / Hallucination Rate **55.2%** (BenchLM AA-Omniscience)
 - MMLU-Pro (Vals): **90.2%** (BenchLM)
+- FrontierMath v2 (Tiers 1-3): **68.421%** / Tier 4: **21.951%** (Epoch AI via BenchLM — new rows this pass); MazeBench (ASCII, tools) **4%** (new this pass); BenchLM composite: **69.23/100, #22/954** (55 rows)
 
 Coding:
 
@@ -58,7 +59,7 @@ Long context:
 
 Multimodal (grounding):
 
-- MMMU-Pro **85.6%**, CharXiv w/o tools **86.2%**, LVBench **87.1%** (BenchLM); Finance Agent v2 **61.4%**; Design Arena Website **1307** (OpenRouter via BenchLM — new 2026-10-08 evidence).
+- MMMU-Pro **85.6%**, CharXiv w/o tools **86.2%**, LVBench **87.1%** (BenchLM); Finance Agent v2 **61.4%**; Bug Hunt Bench **18.0 fixes** (new this pass); Design Arena Website **1303** (OpenRouter via BenchLM; 1307 at first research — minor drift).
 
 Safety:
 
@@ -78,6 +79,6 @@ Safety:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. Core September numbers were re-verified unchanged; new ARC-AGI/science/agentic rows added.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 55-row profile re-checked 2026-10-16 — core rows stable; added Hermes Index/Bench, FrontierMath v2 68.4/22.0, Bug Hunt 18.0, MazeBench 4%, AA-AnalystAgent 46.3%; Design Arena drifted 1307→1303; Artificial Analysis, ARC Prize, Vals, OpenCode Zen docs). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,38 @@
+# ox_alpha — findings by GPT 6.1 Sol
+
+- Source: Historical ox-alpha / Z.AI GLM-5.3-Flash pre-release label
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** ox_alpha (historical vendor spelling ox-alpha)
+- **Short description:** Vendor-confirmed anonymous pre-release testing label for GLM-5.3-Flash, not evidence of an additional independently identifiable current model [S1].
+- **Provider / access:** Primary says tested anonymously on OpenCode and OpenRouter before Flash launch [S1]. Present ox-alpha endpoint not verified.
+- **Release / knowledge:** Exact stealth-test date and cutoff unverified; do not substitute Flash release date for stealth deployment.
+- **IDs:** Historical `ox-alpha`; repository folder spelling `ox_alpha`. Exact pinned weights/version not verified.
+- **Context window:** No independently verified stealth-route limit; Flash's1M is successor information, not retroactively verified ox-alpha capacity [S1].
+- **Modalities:** Exact stealth-route support unverified; do not transfer production Flash modalities.
+- **Pricing:** No exact historical/current ox-alpha rate verified. Production Flash rates are not an ox-alpha price.
+- **Architecture:** Vendor lineage confirmed, exact tested weight/quantization identity not verified.
+
+### Raw benchmarks found
+**No verified exact-ox-alpha public numeric quality benchmark found** in inspected sources. No exact TB2.1/TB4, Tau3, GDPval, Claw, HLE, GPQA, SWE, Vibe, SciCode or full-window retrieval result established.
+
+Primary states: “Before release, we tested GLM-5.3-Flash anonymously as ox-alpha on OpenCode and OpenRouter.” Popularity/traffic claims are not quality measurements. Production Flash benchmarks already belong to the canonical `glm-5.3-flash` assessment and cannot serve as an independent second rater measurement of this historical route.
+
+### Evidence comparison and research trail
+Three fresh Google queries: `"ox-alpha" official model identity`, `"ox-alpha" independent benchmark`, `"ox_alpha" pricing review limitations`; all interstitials. Exact guessed BenchLM/AA/OpenRouter profiles returned404. Direct vendor combined Flash/FlashX model documentation was read during this batch and supplies explicit identity disclosure [S1]. Current gateway catalog directly read in this session lists Flash/Flash Free but no ox-alpha [S2]; absence is not proof of every historical route's status. Neither failed search nor missing guessed route establishes a score. No peer findings used.
+
+### Normalized scores (1–100)
+**Self-excluded:** exact historical quality evidence insufficient to compute Overall. No placeholder scores or duplicated Flash scores supplied. This preserves the identity finding without adding a scored duplicate. Canonical current research belongs under `model/glm-5.3-flash/`. Existing alias folder is retained; any parking/merge decision requires user direction under repository permanence rules.
+
+### Sources
+- [S1] https://docs.z.ai/guides/llm/glm-5.3-flash — directly inspected primary identity disclosure, “Key Advancements”.
+- [S2] https://opencode.ai/docs/zen — directly inspected current provider catalog, not a historical benchmark.
+
+---
+## Signature
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
+- Method: Independent web research, three searches, direct vendor identity resolution and negative exact-route benchmark findings; no invented scores.
+- Future sources: add an independently signed file next to this one using the same headings.

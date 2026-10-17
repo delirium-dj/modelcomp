@@ -1,7 +1,7 @@
 # Inkling Small — findings by GLM 5.3
 
 - Source: Thinking Machines Lab (`inkling-small`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,6 +41,7 @@ Reasoning / knowledge:
 - CritPt: **8.3%** (vendor post via BenchLM)
 - Artificial Analysis Intelligence Index: **26** (AA model page; BenchLM 25.7)
 - AA-Omniscience Index: **-8.9** (accuracy 33.2%, hallucination rate 63.0%) (AA via BenchLM)
+- FrontierMath v2 (Tiers 1-3): **46.316%** / Tier 4: **17.073%** (Epoch AI via BenchLM — new rows this pass); BenchLM composite: **53.48/100, #81/954** (41 rows)
 
 Coding:
 
@@ -77,6 +78,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Artificial Analysis, BenchLM, Vals, ARC Prize, vendor launch post citations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 41-row profile re-checked 2026-10-16 — all previously cited rows stable; added FrontierMath v2 46.3/17.1 (Epoch) and the BenchLM composite 53.48 #81/954; Artificial Analysis, Vals, ARC Prize, vendor launch post citations). No score changes — the middling FrontierMath rows confirm the Reasoning 79 cap. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

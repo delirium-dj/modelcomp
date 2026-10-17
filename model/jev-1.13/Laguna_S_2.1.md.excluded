@@ -1,7 +1,7 @@
 # Jev 1.13 — findings by Laguna S 2.1
 
 - Source: TypeSafe AI docs (`https://docs.typesafe.ai`), TypeSafe AI blog (`https://typesafe.ai/blog/introducing-system-one-models-and-jev`), OpenCode Zen docs (`https://opencode.ai/docs/zen`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-02 exclusion (31 days post-release)
 - Status: **EXCLUDED** — zero verified public benchmarks found for this model ID
 
 ## Model card (partially verified)
@@ -18,27 +18,30 @@
 
 ### Raw benchmarks found
 
-Zero. Jev is a "System One Model" that makes structured decisions rather than generating text. It is evaluated on:
+Re-verification (2026-10-16): Artificial Analysis 403 (blocked), BenchLM 404, OpenRouter 404. No new benchmark data published since release (September 15, 2026, 31 days ago). Jev remains absent from all major benchmark platforms.
+
+Previous check (2026-10-02): All sources returned 404 or no listing.
+
+Jev is a "System One Model" that makes structured decisions rather than generating text. It is evaluated on:
 - Workflow evals (TypeSafe's own evaluation methodology using reference probabilities from Astra and Fable models)
 - Wikiracing task completion
 - Doom game performance (real-time agentic task)
 - SVG benchmark (creative generation)
 - Side-by-side comparisons against GPT-5.6 Terra (not a public benchmark)
 
-No standard LLM benchmarks (GPQA, HLE, SWE-bench, LiveCodeBench, Terminal-Bench, τ²-bench, GDPval-AA, AA Intelligence Index, BenchLM, etc.) have been published for Jev 1.13. The model is not listed on Artificial Analysis, BenchLM, or OpenRouter. OpenCode Zen lists it only in the System One API endpoint section, not the standard model catalog.
+No standard LLM benchmarks (GPQA, HLE, SWE-bench, LiveCodeBench, Terminal-Bench, τ²-bench, GDPval-AA, AA Intelligence Index, BenchLM, etc.) have been published for Jev 1.13.
 
 The TypeSafe blog post states: "Extraordinary claims require extraordinary evidence" and provides "receipts" — but these are TypeSafe's own workflow evaluations, not independently verified public benchmarks.
 
 ### Exclusion declaration
 
-Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**. Jev 1.13 is a System One model that does not participate in standard LLM benchmark suites. No GPQA, HLE, SWE-bench, Terminal-Bench, AA Intelligence Index, or BenchLM score exists or can be found through public internet research.
+Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for the exact model/ID → `.md.excluded`**. Jev 1.13 is a System One model that does not participate in standard LLM benchmark suites. No GPQA, HLE, SWE-bench, Terminal-Bench, AA Intelligence Index, or BenchLM score exists or can be found through public internet research (re-verified 2026-10-16). Released September 15, 2026 (31 days ago); remains unlisted on AA, BenchLM, and OpenRouter.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
-- Method: public internet research (TypeSafe AI docs, TypeSafe AI blog, OpenCode Zen docs, AA/BenchLM/OpenRouter checks — all returned 404 or no listing for Jev)
-- Zero-influence: no peer `model/` findings files read during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research (TypeSafe AI docs, TypeSafe AI blog, OpenCode Zen docs, AA/BenchLM/OpenRouter checks — all returned 403/404 or no listing for Jev); zero-influence: did not read peer `model/` findings files during research.
 
 ---

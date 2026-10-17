@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-opus-5`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; BenchLM coverage expanded from ~40 to 96 rows — DRACO, Legal Agent Bench, VulcanBench, HealthBench/science family, Toolathlon detail added)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added FrontierMath v2 and MazeBench rows)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - AA-LCR: **79.3%**; CritPt **29.1%**; MLCR-AA **55.6%** (BenchLM)
 - Artificial Analysis Intelligence Index: **50.8** (max effort, AA)
 - Omniscience Index **37.1**; Accuracy **60.9%** / Hallucination Rate **60.8%** (BenchLM — high hallucination rate is the main weakness)
-- IMO 2026: **42/42**; RiemannBench 60.0%/79.0%; ArXivMath Jun 2026 **90.8%/91.3%** (new); MMLU-Pro 91.6%; GMMLU 92.5%; MILU **92.1%**; INCLUDE **89.8%** (new)
+- IMO 2026: **42/42**; RiemannBench 60.0%/79.0%; ArXivMath Jun 2026 **90.8%/91.3%**; FrontierMath v2 (Tiers 1-3) **85.614%** / Tier 4 **73.171%** (Epoch — new rows this pass); MazeBench (ASCII, tools) **12%** (new row this pass); MMLU-Pro 91.6%; GMMLU 92.5%; MILU **92.1%**; INCLUDE **89.8%**
 - Science/health family (new 2026-10-08): LABBench2 **84.2%**; HealthBench raw **67.1%** / length-adjusted **57.8%** / Professional **59.8%** (raw 73.4%); BioMysteryBench **90.1%** (human-solvable) / **49.4%** (human-difficult); SpatialBench Verified **72.5%**; SingleCellBench **60.6%**; ProteinGym Hard **47.7%**; Protein Design **42.5%**; Organic chemistry V2 **61.6%**; Protocols **61.1%/78.4%**
 
 Coding:
@@ -56,7 +56,7 @@ Long context:
 
 Multimodal (grounding):
 
-- MMMU-Pro **84.7%**; Chartography (tools) **83.0%** / no tools **29.6%** (new); GDP.pdf **83.4% / 85.5%**; OfficeQA **78.1%** / OfficeQA Pro **66.9%** (new); BenchCAD Vision2Code **0.366 / 0.821** (new); Design Arena Website **1314** (BenchLM).
+- MMMU-Pro **84.7%**; Chartography (tools) **83.0%** / no tools **29.6%**; GDP.pdf **83.4% / 85.5%**; OfficeQA **78.1%** / OfficeQA Pro **66.9%**; BenchCAD Vision2Code **0.366 / 0.821**; Design Arena Website **1310** (BenchLM; 1314 at first research — minor drift); Gray Swan IPI (15 attempts) **4.6%** (Gemini 4 Argon launch chart — new row this pass).
 
 ### Normalized scores (1–100)
 
@@ -72,6 +72,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, Anthropic system card, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ~50 new BenchLM rows added — no dimension scores changed.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (Artificial Analysis, BenchLM 99-row profile re-checked 2026-10-16 — core rows stable; added FrontierMath v2 85.6%/73.2% (Epoch), MazeBench 12%, Gray Swan IPI 4.6%; Design Arena drifted 1314→1310; Anthropic system card, Vals, OpenCode Zen docs). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

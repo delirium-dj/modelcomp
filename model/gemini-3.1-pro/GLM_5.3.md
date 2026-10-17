@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by GLM 5.3
 
 - Source: Google (`gemini-3.1-pro`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ZeroBench, HealthBench Hard, MedXpertQA-Text, PostTrainBench, Omniscience Index)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: FrontierMath v2 rows substantially updated; added MazeBench; dimension scores unchanged)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - HealthBench Hard: **20.6%**; MedXpertQA (Text) **71.5%** (Muse Spark comparison chart via BenchLM — new 2026-10-08 evidence)
 - Artificial Analysis Intelligence Index: **29.7** (BenchLM listing)
 - Omniscience Index **31.9**; Accuracy **54.9%** / Hallucination Rate **50.9%** (BenchLM AA-Omniscience)
-- MMLU-Pro (Vals): **91.0%**; FrontierMath v2 Tiers 1–3 **36.9%** / Tier 4 **16.7%** (BenchLM)
+- MMLU-Pro (Vals): **91.0%**; FrontierMath v2 Tiers 1–3 **59.649%** / Tier 4 **26.829%** (Epoch via BenchLM — substantially updated 2026-10-16 from 36.9%/16.7%, a large upward revision on the Epoch board); MazeBench (ASCII, tools) **1%** (new this pass); BenchLM composite: **64.69/100, #37/954** (48 rows)
 
 Coding:
 
@@ -71,6 +71,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (BenchLM, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; new ZeroBench/HealthBench/PostTrainBench/MedXpert-Text rows added — no score changes.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 48-row profile re-checked 2026-10-16 — core rows stable except a large FrontierMath v2 upward revision (36.9→59.6 T1-3, 16.7→26.8 T4) on the Epoch board; added MazeBench 1%; Design Arena drifted 1259→1254; OpenCode Zen docs). The FrontierMath revision reinforces Reasoning 85 without moving it — CritPt 17.7%, ARC-AGI-3 0.4% and AA Index 29.7 still cap. No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by GLM 5.3 Flash
 
 - Source: Google / Google DeepMind (`gemini-3.1-pro`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,8 +27,9 @@ Agent / tool use:
 - MCP Atlas (vendor): **69.2%**
 - BrowseComp (vendor): **85.9%**
 - APEX-Agents (vendor): **33.5%**
-- GDPval-AA (vendor, Thinking High): Elo **1317** — behind Sonnet 4.6's 1633 in Google's own table
+- GDPval-AA (vendor, Thinking High): Elo **1317** — behind Sonnet 4.6's 1633 in Google's own table — CONFLICT: AA's independent board reads **Elo 904** / 14.6% (added 2026-10-16, harness difference, both cited)
 - OSWorld: **76.2%** (aimadetools, May 2026; Google's table omits OSWorld)
+- Added 2026-10-16 (BenchLM refresh): Claw-Eval **57.8%**; DeepSearchQA **69.7%**; τ²-Bench (AA aggregate) **95.6%** (vs the vendor's 99.3 Telecom-only — different metric, both cited); AA Agentic Index **10.3%** (weak); Gert Labs **56.87%**; ResearchClawBench **13.3%**; MazeBench ASCII **1%**
 
 Reasoning / knowledge:
 
@@ -37,7 +38,11 @@ Reasoning / knowledge:
 - ARC-AGI-2 (ARC Prize Verified, vendor): **77.1%**
 - MMMU-Pro (vendor): **80.5%**; MMMLU: **92.6%**
 - MRCR v2 8-needle (vendor): **84.9%** @128K, **26.3%** @1M
-- Artificial Analysis Intelligence Index v4.3.2: **30** (#95/227; median 26; $1.30/task; 118.2 tok/s) — AA page, 2026-10-10. Conflict: at launch AA scored it **57 on v4.0, #1 overall** (smartscope, 2026-02-20); the v4.0→v4.3.2 recomposition is not reconcilable from public pages — do not mix versions.
+- Artificial Analysis Intelligence Index v4.3.2: **30** (#95/227; median 26; $1.30/task; 118.2 tok/s) — AA page, 2026-10-10; reconfirmed at **29.7** on the 2026-10-15 refresh. Conflict: at launch AA scored it **57 on v4.0, #1 overall** (smartscope, 2026-02-20); the v4.0→v4.3.2 recomposition is not reconcilable from public pages — do not mix versions.
+- AA-LCR: **82.0%** (AA long-context-reasoning board — added 2026-10-16, fills the previously-missing LCR; strong)
+- CritPt: **17.7%** (AA — added 2026-10-16)
+- FrontierMath v2: Tiers 1–3 **59.6%**, Tier 4 **26.8%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured)
+- AA-HLE: **47.0%**; MMLU-Pro (Vals): **91.0%**; AA-IFBench: **77.1%** (all added 2026-10-16)
 
 Coding:
 
@@ -45,7 +50,8 @@ Coding:
 - SWE-bench Pro Public (vendor): **54.2%**
 - LiveCodeBench Pro (vendor): Elo **2887**
 - SciCode (vendor): **59%**
-- No new independent coding re-runs found in October 2026.
+- Added 2026-10-16 (independent): LiveCodeBench (Vals) **88.5%**; SWE-bench (Vals) **78.8%** (consistent with the vendor SWE-V); AA-SciCode **58.7%** (clears the 55%+ mark); React Native Evals **78.9%**; Vibe Code Bench **32.03%** (weak); AA Coding Index **68.8%**
+- No new independent coding re-runs beyond the above in October 2026.
 
 Long context:
 
@@ -54,17 +60,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 84/100.** Solid vendor agentic numbers (TB2.0 68.5%, Tau2 Telecom 99.3%, MCP Atlas 69.2%, BrowseComp 85.9%) but GDPval-AA Elo 1317 trails its own competitor table and the current AA Index rank (#95/227, agentic components included) places it mid-pack among October 2026 models.
-- **Reasoning: 87/100.** GPQA Diamond 94.3%, ARC-AGI-2 77.1% and HLE 51.4% (with tools) are genuinely frontier-adjacent, but the v4.3.2 AA Index read (30, #95/227) and MMLU-Pro-era successors (3.5 Flash beats it on 6/8 tracked benchmarks) cap it well below the 90+ tier.
-- **Context window: 90/100.** 1M-token window advertised, but measured 8-needle retrieval collapses to 26.3% at 1M (84.9% at 128K) — the window exists, the usable long-context does not; docked hard against the ≥1M tier norm of 95+.
-- **Multimodal: 88/100.** Text, image, video, audio, and PDF input with text output — the top of the +video/audio-in band; MMMU-Pro 80.5% supports real multimodal competence; no non-text output.
-- **Coding: 85/100.** SWE-bench Verified 80.6% and LiveCodeBench Pro Elo 2887 are strong-for-February but SWE-bench Pro 54.2% and SciCode 59% trail the 2026 frontier; no independent October re-runs to lift it.
+- **Reasoning: 88/100.** CHANGED from 87 — GPQA Diamond 94.3% (Vals 95.5%), ARC-AGI-2 77.1% and HLE 51.4%/47.0% (with tools) are genuinely frontier-adjacent, the newly measured AA-LCR 82.0% and FrontierMath v2 59.6%/26.8% add two solid pillars; the v4.3.2 AA Index read (29.7–30, #95/227) and mid-pack successors cap it below the 90+ tier.
+- **Context window: 90/100.** 1M-token window advertised, but measured 8-needle retrieval collapses to 26.3% at 1M (84.9% at 128K) while the new independent AA-LCR 82.0% is strong at its measured depth — the window exists, the usable long-context does not at the far end; docked hard against the ≥1M tier norm of 95+.
+- **Multimodal: 88/100.** Text, image, video, audio, and PDF input with text output — the top of the +video/audio-in band; MMMU-Pro 80.5% (83.9% on the Meta chart) supports real multimodal competence; no non-text output.
+- **Coding: 86/100.** CHANGED from 85 — SWE-bench Verified 80.6% (Vals 78.8% corroborates), LiveCodeBench 88.5% (Vals)/Elo 2887 (Pro), AA-SciCode 58.7% (clears the 55%+ mark); SWE-bench Pro 54.2% and Vibe 32.03% trail the 2026 frontier.
 - **Cost efficiency: 65/100.** $2/$12 (≤200K) with a 2× long-context surcharge maps to ~60 on the inverse-pricing rubric; nudged up by the $1.30/task AA Index cost and a cached-read discount (75–90% depending on source); no free-tier evidence found on the paid API (a consumer free tier exists in the Gemini app, not the API).
-- **Overall Score: 87/100.** (84+87+90+88+85)/5 = 434/5 = 86.8 → 87. Best fit: classical reasoning/knowledge work and multimodal understanding at ≤200K context; avoid for 512K+ retrieval tasks and for cutting-edge agentic coding, where Gemini 3.5/3.8 Flash and Gemini 4 Argon outclass it.
+- **Overall Score: 87/100.** (84+88+90+88+86)/5 = 436/5 = 87.2 → 87 (unchanged). Best fit: classical reasoning/knowledge work and multimodal understanding at ≤200K context; avoid for 512K+ retrieval tasks and for cutting-edge agentic coding, where Gemini 3.5/3.8 Flash and Gemini 4 Argon outclass it.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-10
-- Method: public internet research, second pass 2026-10-10 (≥3 independent sources: deepmind.google model card + models page, Artificial Analysis, llm-stats, verdent.ai/benchlm.ai pricing, aimadetools/smartscope analyses); scores are normalized 1–100 interpretations, not official vendor scores. This pass replaces a 2026-09-20 scaffold-grade version (corrected 2M→1M context claim, added the missing raw-benchmark evidence, recalculated all dims).
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-10 (≥3 independent sources: deepmind.google model card + models page, Artificial Analysis, llm-stats, verdent.ai/benchlm.ai pricing, aimadetools/smartscope analyses; 2026-10-16 re-check: BenchLM 48-row refresh added (AA-LCR 82.0, FrontierMath 59.6/26.8, GDPval 904-vs-1317 conflict) — Reasoning 87→88, Coding 85→86, Overall 87 holds); scores are normalized 1–100 interpretations, not official vendor scores. This pass replaces a 2026-09-20 scaffold-grade version (corrected 2M→1M context claim, added the missing raw-benchmark evidence, recalculated all dims).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

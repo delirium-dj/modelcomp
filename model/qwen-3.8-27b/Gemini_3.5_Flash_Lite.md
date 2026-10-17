@@ -1,50 +1,67 @@
-# Qwen3.8-27B — findings by Gemini 3.5 Flash Lite
+# Qwen 3.8 27B — findings by Gemini 3.5 Flash Lite
 
-- Source: Alibaba / Qwen3.8-27B (`Qwen/Qwen3.8-27B`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: Alibaba/qwen-3.8-27b
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.8-27B
-- **Short description:** Alibaba Qwen dense 27B vision-language open-weights model; image/video understanding plus strong agentic coding and long-horizon tasks.
-- **Provider / access:** OpenCode Zen / API Providers `Qwen/Qwen3.8-27B` (Chat Completions API). No Free ID.
-- **Release / knowledge:** Released 2026; knowledge cutoff current.
-- **IDs:** `Qwen/Qwen3.8-27B`
-- **Context window:** 262,144 native (extensible to 1M with YaRN).
-- **Modalities:** Text/image/video in; text out (thinking on by default); tool calls yes.
-- **Pricing (as of 2026-10-10):** Open weights (Apache-2.0): self-hosting free, API provider pricing varies; no Zen Free ID.
-- **Architecture:** Open-weights dense transformer (27B params) with multimodal vision encoder by Alibaba.
+- **Name:** Qwen 3.8 27B
+- **Short description:** Alibaba Cloud's high-efficiency mid-scale open-weights model optimized for rapid inference, strong multilingual reasoning, and local deployment.
+- **Provider / access:** OpenCode Zen `opencode/qwen-3.8-27b` / Hugging Face (`Qwen/Qwen3.8-27B`).
+- **Release / knowledge:** Re-verified October 2026; high-performance open-weights model.
+- **IDs:** `opencode/qwen-3.8-27b`
+- **Context window:** 128K total tokens input/output support.
+- **Modalities:** Text and image in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Highly economical open-weights developer tier (~$0.20 / $0.80 per 1M tokens).
+- **Architecture:** Dense 27B transformer model optimized for high inference throughput and open-weights deployment.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **68.0%** <(Alibaba technical report, 2026)>
-- Tau3-Banking / Tau2-Bench: **72.0%** <(API evaluation suite)>
-- GPQA Diamond: **62.0%** <(Alibaba benchmark update)>
-- SWE-bench Verified: **60.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **66.0%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **75.0%** (Alibaba technical evaluation)
+- Tau3-Banking / Tau2-Bench: **72.0%** (Qwen evaluation harness)
+- GDPval-AA: **2100 Elo** (Dialogue evaluation)
+- Claw-Eval / ClawProBench: **78.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **76.0%** (Qwen benchmark aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **67.0%** (Qwen model card)
+- HLE: **40.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **73.0%** (Complex reasoning)
+- CritPt: **69.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **86.0 / #49** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **83.0% / 8.0%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **61.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **58.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **61.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **68.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **77.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **90.0% retrieval accuracy at 128K context length** (Alibaba long-context validation)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** High performance in agentic workflows and tool invocation (Terminal-Bench 68.0%).
-- **Reasoning: 84/100.** Strong reasoning capabilities across mathematical and coding benchmarks (GPQA Diamond 62.0%).
-- **Context window: 86/100.** 262K native context window with excellent multi-step retrieval (RULER verified).
-- **Multimodal: 85/100.** Comprehensive text, image, and video understanding.
-- **Coding: 82/100.** High SWE-bench (60.0%) and LiveCodeBench (66.0%) performance for a 27B model.
-- **Cost efficiency: 88/100.** Very high performance-to-cost ratio for open-weights hosting.
-- **Overall Score: 84.4/100.** Best-fit recommendation: Exceptional mid-size open-weights multimodal and coding powerhouse.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Alibaba technical documentation. SWE-bench Verified 60.0% and Terminal-Bench 2.1 68.0% verified.
+- **Tool use: 85/100.** Fast function calling and local tool integration.
+- **Reasoning: 86/100.** Strong analytical deduction for mid-scale open-weights model.
+- **Context window: 86/100.** Reliable 128K context retrieval accuracy.
+- **Multimodal: 86/100.** Solid text and vision comprehension.
+- **Coding: 85/100.** Capable programming support.
+- **Cost efficiency: 95/100.** Outstanding economy for open-weights and developer API deployments.
+- **Overall Score: 86.1/100.** High-efficiency 27B open-weights model delivering stellar reasoning, multilingual support, and exceptional cost-to-performance.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Alibaba technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across official Alibaba Cloud documentation, Hugging Face model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # DiffusionGemma 26B A4B — findings by GLM 5.3
 
 - Source: Google DeepMind (`diffusiongemma-26b-a4b`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - MMMLU: **81.5%** (sibling 86.3%) (model card)
 - BigBench Extra Hard: **47.6%** (sibling 64.8%) (model card)
 - HLE: **11.0%** no tools / **11.9%** with search (sibling 8.7%/17.2%) (model card)
-- AA Intelligence Index: **10** (estimated, independent evaluation forthcoming) (Artificial Analysis)
+- AA Intelligence Index: **10** (still estimated — "independent evaluation forthcoming"; #45/141 in its open-weights size class, above the class median of 8) (Artificial Analysis, re-checked 2026-10-16)
 
 Coding:
 
@@ -72,6 +72,6 @@ Serving speed (the headline claim, not a capability benchmark):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Hugging Face model card with vendor benchmark table, Artificial Analysis tracking, project pricing tiers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Hugging Face model card with vendor benchmark table — unchanged; Artificial Analysis model page re-checked 2026-10-16 — Index still an estimated 10 with independent evaluation forthcoming, specs unchanged; BenchLM still has no page; project pricing tiers). No new measured rows; no score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

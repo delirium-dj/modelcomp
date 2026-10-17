@@ -1,7 +1,7 @@
 # Kimi K3 — findings by GLM 5.3
 
 - Source: Moonshot AI (`kimi-k3`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: GDPval updated 1524→1537; new TB4.0/ARC-AGI/VulcanBench/sweMarathon rows; Tool 90→86, Reasoning 89→87, Coding 90→88 on the new evidence)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added Hermes, MazeBench, Bug Hunt rows; GDPval nudged)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,9 +24,9 @@ Agent / tool use:
 - Terminal-Bench 2.1: **88.3%** (BenchLM `kimi-k3`; Vals harness 80.9%; AA harness **85%** — new)
 - AA Terminal-Bench 4.0: **12.6%** (new 2026-10-08 evidence — near-bottom of the tracked frontier field on the newest harness)
 - Tau3-Banking (AA harness): **46.0%** (BenchLM)
-- GDPval-AA: **1537 Elo** (BenchLM AA, updated 2026-10-08 from 1524; normalized 51.8%)
+- GDPval-AA: **1533 Elo** (BenchLM AA, nudged this pass from 1537; normalized 51.7%)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathlon-Verified: **73.2%**; MCP-Atlas **84.2%**; BrowseComp **91.2%**; DeepSearchQA **95.0%**; DECK-Bench **73.5%** (new); AA Agentic Index **50.6%**; AA Briefcase Elo **1501**; AA Harvey LAB **94.6%**; AA ITBench **47.7%**; AA AutomationBench **58.3%**; JobBench **52.9%**; APEX-Agents **37.6%** / APEX-Agents-AA **41.3%** (new); AA EnterpriseOps-Gym **45.3%** (new); AA-AnalystAgent **38.8%** (new); GDP.pdf **22.0%** (new); ApprenticeBench **18%** (new); SpreadsheetBench 2 **34.8%** (new); AutomationBench (system card) **30.8%** (new) (BenchLM)
+- Toolathlon-Verified: **73.2%**; MCP-Atlas **84.2%**; BrowseComp **91.2%**; DeepSearchQA **95.0%**; DECK-Bench **73.5%**; AA Agentic Index **50.6%**; AA Briefcase Elo **1501**; AA Harvey LAB **94.6%**; AA ITBench **47.7%**; AA AutomationBench **58.3%**; JobBench **52.9%**; APEX-Agents **37.6%** / APEX-Agents-AA **41.3%**; AA EnterpriseOps-Gym **45.3%**; AA-AnalystAgent **38.8%**; GDP.pdf **22.0%**; ApprenticeBench **18%**; SpreadsheetBench 2 **34.8%**; AutomationBench (system card) **30.8%**; Hermes Index **39.2%** / Hermes Bench **71.5%** (Nous — new this pass); MazeBench (ASCII, tools) **1%** (new this pass — near-floor) (BenchLM)
 
 Reasoning / knowledge:
 
@@ -45,7 +45,7 @@ Coding:
 - DeepSWE: **67.5%** (BenchLM)
 - LiveCodeBench (Vals): **87.2%**
 - SciCode / AA-SciCode: **59.5%** (BenchLM)
-- AA Coding Index: **76.2%**; FrontierSWE v1 **81.2%** / v2 **25.9%**; CursorBench 3.2 **60.8%**; ProgramBench **77.8%**; Kimi Code Bench v2 **72.9%**; VulcanBench v3 **73.7%** (new); sweMarathon **42%** (new); PostTrainBench v1.1 **32.0%** (new); MLS-Bench Lite **48.3%** (new); OpenHarmony Bench **57.3%** (new) (BenchLM)
+- AA Coding Index: **76.2%**; FrontierSWE v1 **81.2%** / v2 **25.9%**; CursorBench 3.2 **60.8%**; ProgramBench **77.8%**; Kimi Code Bench v2 **72.9%**; VulcanBench v3 **73.7%**; sweMarathon **42%**; PostTrainBench v1.1 **32.0%**; MLS-Bench Lite **48.3%**; OpenHarmony Bench **57.3%**; Bug Hunt Bench **21.0 fixes** (new this pass) (BenchLM)
 - Vibe Code Bench: **no verified public score found**
 
 Long context:
@@ -70,6 +70,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, Moonshot launch blog, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified; ~25 new rows added and Tool/Reasoning/Coding adjusted down on new-harness evidence (Overall 86.8 → 85.2).
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 83-row profile re-checked 2026-10-16 — core rows stable; GDPval nudged 1537→1533; added Hermes 39.2/71.5, MazeBench 1%, Bug Hunt 21.0; Design Arena 1343→1336; BenchLM composite 69.86 #18/954; Artificial Analysis, Moonshot launch blog, ARC Prize, Vals, OpenCode Zen docs). No dimension scores changed this pass. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

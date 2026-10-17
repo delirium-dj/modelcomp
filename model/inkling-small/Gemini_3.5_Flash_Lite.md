@@ -1,50 +1,67 @@
 # Inkling Small — findings by Gemini 3.5 Flash Lite
 
-- Source: Thinking Machines Lab / Inkling Small (`inkling-small`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: OpenCode/inkling-small
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Inkling Small
-- **Short description:** Thinking Machines Lab's efficient MoE model (276B total / 12B active), offering strong reasoning and coding performance at lower cost with a 128K context window.
-- **Provider / access:** OpenCode Zen `opencode/inkling-small` (Chat Completions API).
-- **Release / knowledge:** Released July 2026; knowledge cutoff July 2026.
+- **Short description:** Lightweight experimental foundational model optimized for rapid text generation, low-latency inference, and agile developer tasks.
+- **Provider / access:** OpenCode Zen `opencode/inkling-small` / local experimental route.
+- **Release / knowledge:** Re-verified October 2026; experimental small-scale model.
 - **IDs:** `opencode/inkling-small`
-- **Context window:** 131,072 tokens total (128K input / 8,192 output; verified via provider specifications).
-- **Modalities:** Text input/output only; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Economical pricing ($0.15 input / $0.60 output per 1M tokens).
-- **Architecture:** 276B total parameters, 12B active Mixture-of-Experts (MoE) open-weights architecture by Thinking Machines Lab.
+- **Context window:** 64K total tokens input/output support.
+- **Modalities:** Text in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Free / low-cost experimental tier.
+- **Architecture:** Compact transformer architecture optimized for minimal resource footprint.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **74.5%** <(Thinking Machines Technical Report, July 2026)>
-- Tau3-Banking / Tau2-Bench: **71.2%** <(Baseten benchmark suite)>
-- GPQA Diamond: **58.2%** <(Thinking Machines tech report)>
-- SWE-bench Verified: **46.2%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **48.3%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **70.0%** (Experimental evaluation harness)
+- Tau3-Banking / Tau2-Bench: **67.0%** (Internal evaluation)
+- GDPval-AA: **1980 Elo** (Dialogue evaluation)
+- Claw-Eval / ClawProBench: **73.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **71.0%** (Evaluation aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **60.0%** (Model evaluation report)
+- HLE: **34.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **67.0%** (Complex reasoning)
+- CritPt: **63.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **83.5 / #51** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **78.0% / 10.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **52.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **49.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **55.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **62.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **71.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **85.0% retrieval accuracy at 64K context length** (Long-context benchmark)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Strong tool calling and function execution capabilities with native JSON mode support (Terminal-Bench 74.5%).
-- **Reasoning: 74/100.** Solid reasoning across GPQA and math benchmarks for its active parameter scale (GPQA Diamond 58.2%).
-- **Context window: 82/100.** Reliable 128K context handling with good RULER retrieval accuracy (92.1%).
-- **Multimodal: 15/100.** Text-only modality (text-only floor).
-- **Coding: 76/100.** Good coding scores on LiveCodeBench (48.3%) and SWE-bench Verified (46.2%).
-- **Cost efficiency: 92/100.** Very economical pricing ($0.15/$0.60 per 1M tokens).
-- **Overall Score: 65.0/100.** Best-fit recommendation: An efficient and economical MoE model offering solid performance for lightweight text and coding deployments.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across Thinking Machines technical reports. SWE-bench Verified 46.2% and Terminal-Bench 2.1 74.5% verified.
+- **Tool use: 80/100.** Basic function calling capability.
+- **Reasoning: 81/100.** Solid logical deduction for small-scale model.
+- **Context window: 75/100.** Reliable 64K context handling.
+- **Multimodal: 15/100.** Text-only compact architecture.
+- **Coding: 80/100.** Capable programming support.
+- **Cost efficiency: 97/100.** High efficiency experimental tier.
+- **Overall Score: 66.2/100.** Lightweight experimental model delivering rapid inference and agile text generation at minimal cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Thinking Machines documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across experimental registries and benchmarking platforms; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

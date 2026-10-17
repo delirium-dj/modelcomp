@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Max — findings by GLM 5.3 Flash
 
 - Source: Meta (`meta/muse-spark-1-3-max`, Meta Model API `muse-spark-1.3` with `reasoning_effort: max`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,6 +45,7 @@ Reasoning / knowledge:
 - HLE: **47%** (AA via HokAI, 2026-10-05)
 - MRCR v2 8-needle (vendor): **98.5** @256K–512K and **98.1** @512K–1M (Meta model table; independently unverified)
 - MLCR / CritPt: no verified public score found
+- Added 2026-10-16 (BenchLM refresh): FrontierMath v2 **74.0%** Tiers 1–3 / **46.3%** Tier 4 (Epoch — fills the previously-missing math row, strong); CritPt **24.9%** (AA — fills the previously-missing CritPt); AA-LCR **83.0%**; MLCR-AA **43.3%**; AA-HLE **48.7%** (consistent with the 47% HokAI read); AA Agentic Index **55.7%**; AA Briefcase **Elo 1581**; AA Terminal-Bench 4.0 **33.3%** (vs Vals' 24.75% — both independent, both weak); AutomationBench (official table) **49.4%**; GDPval-AA normalized **59.0%** (AA); CWE-bench **55.0%**; ApprenticeBench **19%**; MazeBench ASCII **0%**; Gray Swan IPI **15.9%**; AA-Omniscience hallucination **32.9%**
 
 Coding:
 
@@ -52,6 +53,7 @@ Coding:
 - Vibe Code Bench v1.1: **85.86% ±2.51** (Vals AI, rank 11/106); Vibe Code Bench (1-100 scale): **20.46% ±3.85** (Vals AI, rank 6/20)
 - Code Migration: **47.41% ±4.26** (Vals AI, rank 13/71)
 - LiveCodeBench / SciCode / SWE-bench Verified: no verified public score found for the max configuration
+- Added 2026-10-16: AA-SciCode **58.8%** (fills the previously-missing SciCode; clears the 55%+ frontier mark); SWE-Atlas Codebase QnA **59.4%**; CursorBench 4.0 **41.6%**; FrontierSWE v2 **25.8%** (weak); Bug Hunt **32.2 fixes**
 
 Long context:
 
@@ -65,18 +67,18 @@ Cost / token efficiency:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Terminal-Bench 2.1 88.8% and GDPval-AA v2 1,754 hit the frontier refs (88%+ / 1750+), and AA's Coding Agent Index places it 2nd overall (68); Vals' Terminal-Bench 4.0 (24.75%) and CUA-bench (5.83%, N=8) show the TB2.1-era vendor numbers do not carry to harder independent harnesses, capping it below 90.
-- **Reasoning: 84/100.** GPQA Diamond 94% (rank 8/50) and HLE 47% are now measured (AA via HokAI, 2026-10-05) and lift the raw-knowledge story; offset by the v4.3.2 AA Index rescore to 48 (#23/227) and Vals Index 58.16% (rank 9/41) — the max-vs-xhigh deltas still concentrate on agentic loops (OSWorld +9.7, JobBench +3.7) rather than raw knowledge benchmarks.
-- **Context window: 97/100.** 1M-token window (Vals AI hyperparameter table) with vendor-reported MRCR v2 8-needle retrieval of 98.1 at 512K–1M — meets the ≥98% bar but vendor-only, not independently reproduced, so short of 100. Max output 131K is generous, not a caveat.
+- **Tool use: 88/100.** Terminal-Bench 2.1 88.8% and GDPval-AA v2 1,754 hit the frontier refs (88%+ / 1750+), AA's Coding Agent Index places it 2nd overall (68), and the newly measured AA Agentic Index 55.7% + AutomationBench 49.4% corroborate; Vals' Terminal-Bench 4.0 (24.75%) / AA's 33.3%, CUA-bench (5.83%, N=8) and MazeBench 0% show the TB2.1-era vendor numbers do not carry to harder independent harnesses, capping it below 90.
+- **Reasoning: 87/100.** CHANGED from 84 — GPQA Diamond 94% (rank 8/50) and HLE 47%/48.7% are measured, and the newly surfaced FrontierMath v2 74.0%/46.3% (Epoch), CritPt 24.9% and AA-LCR 83.0% add three solid pillars; offset by the v4.3.2 AA Index at 48 (#23/227) and Vals Index 58.16% (rank 9/41).
+- **Context window: 97/100.** 1M-token window (Vals AI hyperparameter table) with vendor-reported MRCR v2 8-needle retrieval of 98.1 at 512K–1M — meets the ≥98% bar but vendor-only; AA-LCR 83.0% adds independent depth evidence. Max output 131K is generous, not a caveat.
 - **Multimodal: 85/100.** Text, image, video, and file/PDF input with text output (Vals AI modality list) — the +video/PDF-in band (75–90); no audio input or non-text output advertised.
-- **Coding: 89/100.** DeepSWE v1.1 75.4 (above the 74%+ frontier ref), Vibe Code v1.1 85.86% and TB2.1 88.8 are frontier-class, but Code Migration 47.41%, Vibe (1-100) 20.46% and the unverified status of the DeepSWE vendor number keep it at the bottom edge of 90–100.
+- **Coding: 90/100.** CHANGED from 89 — DeepSWE v1.1 75.4 (above the 74%+ frontier ref), Vibe Code v1.1 85.86% and TB2.1 88.8 are frontier-class, and the newly filled AA-SciCode 58.8% clears the 55%+ mark; Code Migration 47.41%, Vibe (1-100) 20.46% and the unverified status of the DeepSWE vendor number keep it at the band floor.
 - **Cost efficiency: 80/100.** List price $1.25/$4.25 per 1M maps to ~88 on the inverse-pricing rubric, adjusted down for max's growing verbosity: AA now measures ~170M output tokens (≈2× the 82M median, ~$1.60/task, up from ~130M/$0.95 at launch) and Vals $3.79/test at 23m33s — the bill is in token volume, not the price list. The $0.10/$0.20 Contributor tier exists but carries mandatory training-data consent and no max effort.
-- **Overall Score: 89/100.** Mean of the five quality dims (88+84+97+85+89)/5 = 88.6 → 89. Best fit: long-horizon agentic and knowledge-work loops (computer-use, briefs, multi-step tool work) where max's gains are largest; A/B against xhigh for high-volume or single-turn workloads where it mainly adds tokens.
+- **Overall Score: 89/100.** Mean of the five quality dims (88+87+97+85+90)/5 = 447/5 = 89.4 → 89 (unchanged). Best fit: long-horizon agentic and knowledge-work loops (computer-use, briefs, multi-step tool work) where max's gains are largest; A/B against xhigh for high-volume or single-turn workloads where it mainly adds tokens.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
-- Method: public internet research (second pass 2026-10-10: dev.meta.ai model page, Artificial Analysis, HokAI hub, TechTimes launch coverage; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (second pass 2026-10-10: dev.meta.ai model page, Artificial Analysis, HokAI hub, TechTimes launch coverage; 2026-10-16 re-check: BenchLM 43-row refresh — FrontierMath 74.0/46.3, CritPt 24.9%, AA-LCR 83.0%, AA Agentic 55.7%, AA-SciCode 58.8% added — Reasoning 84→87, Coding 89→90, Overall 89 holds); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

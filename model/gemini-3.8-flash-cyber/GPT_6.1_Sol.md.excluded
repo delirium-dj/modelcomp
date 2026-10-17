@@ -1,0 +1,40 @@
+# Gemini 3.8 Flash Cyber — findings by GPT 6.1 Sol
+
+- Source: Google / Gemini3.8 Flash Cyber
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+- **Name:** Gemini 3.8 Flash Cyber
+- **Short description:** Cyber-specialized trusted-defender variant with more permissive mitigations than public3.8Flash; shared foundational intelligence is not proof of identical general-purpose performance [S1].
+- **Provider / access:** Restricted Fairwind Program. No general public API access or exact API ID verified [S1].
+- **Release / knowledge:** September2,2026 announcement; cutoff unverified [S1].
+- **IDs:** Display label verified; string `gemini-3.8-flash-cyber` is a tracked name, not an independently verified callable ID.
+- **Context window:** Exact Cyber context/output limit not verified. Public Flash's1M specification not transferred.
+- **Modalities:** Exact Cyber API modality coverage not verified; cyber demonstrations establish code/tool work, not full omni input support.
+- **Pricing:** Exact Cyber per-token/cache rates not verified. Public Flash introductory$0.75/$3.75 is explicitly public Flash pricing, not a published Cyber quote [S1].
+- **Architecture:** Proprietary, specialized deployment; exact weight/parameter relationship unverified beyond shared foundation.
+
+### Raw benchmarks found
+- **CWE-Bench patching 47.2% pass@1**, directly readable primary launch; external benchmark run by Collinear, compared with another frontier model47.8% [S1].
+- Internal vulnerability discovery **over70%** across20 programming languages, vendor broad threshold, not an exact independently rerun public suite [S1]. Chrome team reports2.6× more correct patches and Wiz+7.5–9.7% recall gains; these are internal/product-relative evidence, not standardized general quality scores.
+- **CyberGym86.2%**, secondary source-linked BenchLM; primary corresponding chart is image-only in fetched text, so exact percentage not independently extracted [S2].
+- GraySwan IPI15-attempt **6.0%**, secondary later-chart attribution only [S2]; metric is attack-related, not generic instruction-following accuracy.
+- GPQA/HLE/AA Index, TB2.1/TB4, GDPval/Tau3/Claw, conventional SWE/DeepSWE/Vibe, general multimodal and full-window retrieval: no verified exact-Cyber numeric result found.
+
+### Evidence comparison and research trail
+Three fresh Google queries: `"Gemini 3.8 Flash Cyber" official`, `"Gemini 3.8 Flash Cyber" benchmark`, `"Gemini 3.8 Flash Cyber" pricing limitations`; interstitials. Exact guessed model-card and Vals URLs404. BenchLM exposed source link; primary launch fetched and read directly. BenchLM explicitly unranked with only3 source-displayable rows and no public Overall [S2]. Public Flash HLE54.9% and broad general-model benchmarks in same article are excluded from Cyber evidence. Shared core cannot fill unknown exact context/modality/general-reasoning dimensions. Restricted distribution is a documented product fact, not inferred retirement or nonexistence.
+
+### Normalized scores (1–100)
+**Self-excluded:** real cyber benchmark evidence exists, but insufficient verified general-model/context/modality data to compute all five quality dimensions responsibly. No invented numeric dimensions or Overall. Suitable evidence for specialist vulnerability discovery/patching, not a defensible general-comparison score. Revisit on exact Cyber API specs and broad evaluations.
+
+### Sources
+- [S1] https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/ — direct primary launch, explicit variant distinctions and patching result.
+- [S2] https://benchlm.ai/models/gemini-3-8-flash-cyber — secondary unranked exact-variant profile, October16.
+
+---
+## Signature
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
+- Method: Independent public-web research, three searches and direct primary/secondary comparison; real niche measurements retained without fabricating broad Overall.
+- Future sources: add an independently signed file next to this one using the same headings.

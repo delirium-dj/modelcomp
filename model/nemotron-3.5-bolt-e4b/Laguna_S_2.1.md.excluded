@@ -1,0 +1,47 @@
+# Nemotron 3.5 Bolt E4B — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/nemotron-3-5-bolt-e4b`), HuggingFace (401), NGC (404)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** NVIDIA Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's 4-bit quantized variant of Nemotron 3.5 Bolt 74B-A9B, designed for even smaller memory footprint than the 24GB IQ2 variant. Open weights (OpenMDW-1.1).
+- **Provider / access:** Open weights on HuggingFace (`nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B` — gated/401); part of NVIDIA Nemotron 3.5 family.
+- **Release / knowledge:** Related to Nemotron 3.5 Bolt 74B-A9B (released 2026-10-15). E4B variant release date not published.
+- **IDs:** `opencode/nemotron-3.5-bolt-e4b` (project ID); `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B` (HF, gated)
+- **Context window:** 128K total (per `meta.json` — scaffolded; the 74B sibling supports 256K)
+- **Modalities:** Text in/out (per `meta.json` — scaffolded)
+- **Pricing (as of 2026-10-16):** Standard pricing (per `meta.json`); open weights available for self-hosting
+- **Architecture:** 4-bit quantized variant of the 74B-A9B Mamba2-Transformer hybrid MoE
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.io/models/nemotron-3.5-bolt-e4b`) — **403 (blocked)**. Artificial Analysis page inaccessible.
+2. Searched BenchLM (`https://benchlm.ai/models/nemotron-3-5-bolt-e4b`) — page exists but shows **0 of 639** benchmarks covered with "Sourced benchmark coverage is coming soon." Last updated: October 16, 2026. Overall Score: "Coming soon". Overall Rank: "Unranked". Context Window: "Coming soon".
+3. Searched HF model card (`https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B`) — **401 Unauthorized** (gated/private).
+4. Searched NGC (`https://catalog.ngc.nvidia.com/models/nvidia/nemotron-3.5-bolt-e4b`) — **404**.
+5. Searched NGC catalog API for "nemotron bolt e4b" — no results.
+6. Note: The sibling model `NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB` has 17 verified public benchmarks (Terminal-Bench 51%, PinchBench 87.8%, GPQA 86.4%, etc.), but the E4B variant itself has zero benchmark scores. These are distinct models with different parameter counts (74B vs 4B) and the 74B scores cannot be used for the E4B variant.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Nemotron 3.5 Bolt E4B / `opencode/nemotron-3.5-bolt-e4b`.
+
+The model does not have benchmark entries on BenchLM (0/639), has a gated/inaccessible HuggingFace page (401), and is absent from Artificial Analysis (403) and NGC (404). While the sibling 74B-A9B variant has published benchmarks, the E4B (4-bit) variant itself has no public benchmark data. Per the self-exclusion rule, scores from a different model variant cannot be used.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. When Nemotron 3.5 Bolt E4B publishes benchmark numbers on BenchLM, Artificial Analysis, or an official NVIDIA announcement, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research via BenchLM, HuggingFace, Artificial Analysis, and NGC; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (BenchLM 0/639; HF 401 gated; AA 403; NGC 404).
+
+---

@@ -1,7 +1,7 @@
 # Claude Haiku 5.5 — findings by GLM 5.3
 
 - Source: Anthropic (`claude-haiku-5-5`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,8 @@ Agent / tool use:
 - Terminal-Bench 4.0: **39.2%** vendor / **32.8%** AA harness (BenchLM)
 - AA AutomationBench: **35.4%** (AA leaderboard via BenchLM)
 - GDP.pdf: **20.8%** (AA leaderboard via BenchLM)
+- AA-AnalystAgent: **53.8%** (AA via BenchLM — new row this pass)
+- MazeBench (ASCII, tools): **1%** (MazeBench leaderboard — new row this pass, near-floor)
 - τ²-bench / Tau3 / Claw-Eval: **no verified public score found**
 
 Reasoning / knowledge:
@@ -36,13 +38,18 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **43** (AA model page, #2 of 182 in its price class; BenchLM 43.4)
 - AA-LCR: **82.7%** (AA leaderboard via BenchLM)
 - CritPt: **18.9%** (AA leaderboard via BenchLM)
-- AA-Omniscience Index: **+10.7** (AA via BenchLM)
+- AA-Omniscience Index: **+10.7** (accuracy 36.4%, hallucination rate 40.4% — AA via BenchLM, new detail this pass)
+- MLCR-AA: **63.3%** (AA via BenchLM — new row this pass)
+- FrontierMath v2 (Tiers 1-3): **75.088%**; Tier 4: **46.341%** (Epoch AI via BenchLM — new rows this pass)
 - GPQA Diamond: **no verified public score found**
 
 Coding:
 
 - AA-SciCode: **55.0%** (AA leaderboard via BenchLM) — at the 55% frontier reference
 - FrontierCode 1.1 Main: **46.4%** (Anthropic system card via BenchLM)
+- FrontierSWE v2: **43.8%** (Proximal via BenchLM — new row this pass)
+- Bug Hunt Bench: **21.5 fixes** (Bug Hunt Bench public data — new row this pass)
+- Design Arena Website: **1265** (OpenRouter via BenchLM — new row this pass)
 - SWE-bench / LiveCodeBench: **no verified public score found**
 
 Multimodal:
@@ -68,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Anthropic launch post + system card via BenchLM, Artificial Analysis, Zen pricing table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 28-row profile re-checked 2026-10-16 — core rows stable; added AA-AnalystAgent 53.8%, FrontierSWE v2 43.8%, Bug Hunt 21.5, MLCR-AA 63.3%, FrontierMath v2 75.1/46.3, MazeBench 1%, Design Arena 1265, Omniscience detail 36.4%/40.4%; Anthropic launch post + system card, AA, Zen pricing). No score changes — the new weak FrontierSWE/MazeBench rows confirm the existing caps. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

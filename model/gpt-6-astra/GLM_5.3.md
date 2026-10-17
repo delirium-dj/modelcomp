@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by GLM 5.3
 
 - Source: OpenAI (`gpt-6-astra`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added TB-Science, ExploitGym, CWE-bench, HealthBench family, GraphWalks, system-card AutomationBench)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added Hermes, MazeBench, Bug Hunt, FrontierMath T1-3, STEMBench rows)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,9 +25,9 @@ Agent / tool use:
 - Terminal-Bench 2.1: **87.3%** (Vals) / **88.4%** (AA harness) (BenchLM)
 - Terminal-Bench-Science 0.1: **64.6%** (OpenAI via BenchLM — new 2026-10-08 evidence)
 - Tau3-Banking (AA harness): **41.4%** (BenchLM)
-- GDPval-AA: **1542 Elo** (52.1% normalized) (BenchLM)
+- GDPval-AA: **1573 Elo** (53.6% normalized; updated this pass from 1542/52.1%) (BenchLM)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- OSWorld 2.0: **72.6%**; BrowseComp **91.5%**; HLE w/ tools **57.2%**; AA Agentic Index **51.5%**; AA Briefcase Elo **1569**; ApprenticeBench **68%**; AA AutomationBench **68.5%** (system-card AutomationBench **41.4%** — new); AA-AnalystAgent **51.2%**; AA ITBench **48.6%** (new); GDP.pdf **31.0%** (new); Agents' Last Exam **59.3%**; ExploitGym **42.4%** (new); CWE-bench v1 **68.0%** (new) (BenchLM)
+- OSWorld 2.0: **72.6%**; BrowseComp **91.5%**; HLE w/ tools **57.2%**; AA Agentic Index **51.5%**; AA Briefcase Elo **1570** (updated from 1569); ApprenticeBench **68%**; AA AutomationBench **68.5%** (system-card AutomationBench **41.4%**); AA-AnalystAgent **51.2%**; AA ITBench **48.6%**; GDP.pdf **31.0%**; Agents' Last Exam **59.3%**; ExploitGym **42.4%**; CWE-bench v1 **68.0%**; Hermes Index **56.3%** / Hermes Bench **73.7%** (Nous — new this pass); MazeBench (ASCII, tools) **23%** (new this pass — best MazeBench score seen in this batch) (BenchLM)
 - Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - MRCR v2: **100.0%** (256K–512K) / **96.3%** (512K–1M) (BenchLM); AA-LCR **80.7%**; CritPt **31.7%**; MLCR-AA **35.0%**; GraphWalks BFS 256K–1M **71.8%** (new)
 - Artificial Analysis Intelligence Index: **52.7** (max effort, AA)
 - Omniscience Index **43.4**; Accuracy **62.6%** / Hallucination Rate **51.3%** (BenchLM)
-- FrontierMath v2 Tier 4: **97.6%** (BenchLM)
+- FrontierMath v2 Tier 4: **97.6%**; Tiers 1-3: **93.684%** (Epoch — new row this pass); STEMBench: **2.81** (Ulam snapshot audit — new row this pass) (BenchLM)
 - HealthBench family (new 2026-10-08): raw **56.9%** / length-adjusted **58.3%** / Professional **64.7%** (raw 68.2%) / Hard **36.6%** (OpenAI system card via BenchLM)
 - GeneBench-Pro: **37.8%** (OpenAI via BenchLM — new)
 - Gray Swan IPI (15 attempts): **8.5%** (new)
@@ -48,7 +48,7 @@ Coding:
 - DeepSWE: **74.1%** (BenchLM)
 - SciCode / AA-SciCode: **56.5%** (BenchLM)
 - AA Coding Index: **76.9%** (BenchLM)
-- FrontierSWE v2: **65.5%**; FrontierCode 1.1 Main **53.3%** / Extended **64.5%**; PostTrainBench v1.1 **44.3%** (new); CWE-bench v1 **68.0%** (new, security coding) (BenchLM)
+- FrontierSWE v2: **65.5%**; FrontierCode 1.1 Main **53.3%** / Extended **64.5%**; PostTrainBench v1.1 **44.3%**; CWE-bench v1 **68.0%** (security coding); Bug Hunt Bench **45.0 fixes** (new this pass) (BenchLM)
 - SWE-bench Verified / LiveCodeBench / Vibe Code Bench: **no verified public score found** for this exact ID
 
 Long context:
@@ -73,6 +73,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, OpenAI launch post + system card, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ~15 new rows added — no dimension scores changed.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 74-row profile re-checked 2026-10-16 — core rows stable; GDPval updated 1542→1573; added Hermes 56.3/73.7, MazeBench 23%, Bug Hunt 45.0, FrontierMath T1-3 93.7%, STEMBench 2.81; BenchLM composite 83.87 #3/954; OpenAI launch post + system card, ARC Prize, Vals, OpenCode Zen docs). All new rows reinforce existing bands — no dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

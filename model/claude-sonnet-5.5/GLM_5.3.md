@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by GLM 5.3
 
 - Source: Anthropic (`anthropic/claude-sonnet-5.5`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-28 report (fresh search 2026-10-08: core scores unchanged; BenchLM composite now 83.89 #3/887; added MLCR, AA AutomationBench, AnalystAgent, HealthBench Professional raw and the protein/med-chem science family)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added Hermes, FrontierMath v2, Bug Hunt, MazeBench rows; BenchLM composite re-ranked)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,7 @@ Agent / tool use:
 - Tau3-Banking / Tau2-Bench: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - New 2026-10-08 rows: AA AutomationBench **71.8%**; AA-AnalystAgent **57.5%** (AA via BenchLM)
+- New 2026-10-16 rows: Hermes Index **53.1%** / Hermes Bench **73.5%** (Nous Research — new this pass); MazeBench (ASCII, tools) **8%** (new this pass)
 
 Reasoning / knowledge:
 
@@ -45,7 +46,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **56** — #3/216 in its price class (median 26) (AA; BenchLM lists 56.0)
 - Omniscience Accuracy / Hallucination Rate: **54.0% / 47.0%** (Index 32.3) (AA via BenchLM)
 - GPQA Diamond: no verified public score found
-- ArXivMath Aug. 2026: **86.8% (no tools) / 95.2% (tools)**; GMMLU **92.1%** / MILU **91.6%** (BenchLM)
+- ArXivMath Aug. 2026: **86.8% (no tools) / 95.2% (tools)**; FrontierMath v2 (Tiers 1-3) **88.772%** / Tier 4 **80.488%** (Epoch — new rows this pass); GMMLU **92.1%** / MILU **91.6%** (BenchLM)
 - HealthBench **69.4%** / Professional **69.2%** / Professional raw **77.1%** / length-adjusted **65.4%** (new); BioMysteryBench **89.2%** human-solvable / **44.7%** human-difficult (new); SpatialBench **72.5%**; SingleCellBench **59.1%**; Protein Design **51.0%** / library ranking **54.8%** / de novo binder design **82.3%**; Morphology-to-molecule **25.0%**; Medicinal chemistry **65.3%**; Protocols **67.3% / 66.6%** (new 2026-10-08 science family, system card via BenchLM)
 
 Coding:
@@ -55,9 +56,9 @@ Coding:
 - DeepSWE: **71.0%** (BenchLM)
 - ProgramBench: **79.7%** (BenchLM)
 - SciCode / AA-SciCode: **61.0%** (BenchLM)
-- FrontierCode 1.1: **46.2% main / 59.1% extended**; FrontierSWE v2: **61.9%**; CursorBench 4.0: **55.5%** (BenchLM)
+- FrontierCode 1.1: **46.2% main / 59.1% extended**; FrontierSWE v2: **61.9%**; CursorBench 4.0: **55.5%**; Bug Hunt Bench **51.3 fixes** (best in the Anthropic family — new this pass) (BenchLM)
 - SWE-bench Verified / LiveCodeBench: no verified public score found
-- BenchLM overall composite: **83.89/100, #3/887** (updated 2026-10-08 from 80.49 #5/512; Opus 5.5 = 86.37, Opus 5 = 79.28, Sonnet 5 = 65.89)
+- BenchLM overall composite: **82.17/100, #5/954** (updated 2026-10-16 from 83.89 #3/887 — board growth; Opus 5.5 = 86.54, Opus 5 = 79.61, Sonnet 5 = 64.83)
 
 Long context:
 
@@ -84,6 +85,6 @@ Multimodal (grounded):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-28 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM — both updated on release day); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified; MLCR/AA-agentic/science-family rows added and the BenchLM composite refreshed — no dimension scores changed.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16 (first researched 2026-09-28; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (Artificial Analysis, BenchLM 71-row profile re-checked 2026-10-16 — core rows stable; added Hermes Index/Bench, FrontierMath v2 88.8/80.5, Bug Hunt 51.3, MazeBench 8%; composite re-ranked 83.89 #3/887 → 82.17 #5/954 on board growth). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

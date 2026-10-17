@@ -1,7 +1,7 @@
 # Qwen 3.8 (2.4T-A95B flagship) — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`Qwen/Qwen3.8-2.4T-A95B`, open weights)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,31 +23,34 @@
 
 Agent / tool use:
 
-- Terminal Bench 2.1: **86.6** (Alibaba table; vs Opus 4.8 84.6, Fable 5 84.6, GPT-5.6 Sol 88.8 — beats both Claude flagships; generational jump from Qwen3.7-Max 74.5)
+- Terminal Bench 2.1: **86.6** (Alibaba table; vs Opus 4.8 84.6, Fable 5 84.6, GPT-5.6 Sol 88.8 — beats both Claude flagships; generational jump from Qwen3.7-Max 74.5) — CONFLICT: Vals independent reads **67.4%** (added 2026-10-16, harness difference, both cited)
 - OSWorld-Verified: **86.1** (Alibaba multimodal table)
 - Artificial Analysis Agentic Index: **#3 globally** (independent placement, per Alibaba's announcement citing AA)
 - PaperBench: **93.0** (Alibaba table; best row — GPT-5.6 Sol 90.5, Fable 5 88.8, Opus 4.8 80.3; +28.2 over Qwen3.7-Max's 64.8)
-- GDPval-AA / Tau2 / Tau3 / MCP-Atlas / Claw-Eval: no verified public score found
+- Added 2026-10-16 (Qwen3.8-Max release tables via BenchLM): Agents' Last Exam **52.4%**; WideResearch **81.9%**; CoWorkBench **74.8%**; Toolathlon-Verified **72.5%**; SkillsBench **70.2%**; WebArena-Verified **66.8%**; AndroidWorld **85.3%**; MobileWorld **77.8%**; JobBench **53.4%**; AutomationBench **27.3%**; OSWorld 2.0 **19.4%**; Hermes Bench **70.5%** / Hermes Index **36.2%**; MazeBench ASCII **0%**; GDPval/Tau2/Tau3/Claw-Eval: still no verified public score found
+- HLE w/ tools: **56.2%** (added 2026-10-16 — clears the 40% bar strongly)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **92.6** (Alibaba table; ties Fable 5 92.6, above Opus 4.8 92.0, below Sol 94.1)
 - HLE: **43.6** (Alibaba table — last among the four flagships; Fable 5 53.3, Sol 47.2, Opus 4.8 45.7)
 - IFBench: **82.8** (Alibaba table — widest margin; Sol 72.7, Fable 5 63.5, Opus 4.8 62.2; durable Qwen strength, 3.7-Max led at 79.1)
+- FrontierMath v2: Tiers 1–3 **74.7%**, Tier 4 **46.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong)
 - Artificial Analysis Intelligence Index: no verified public number found for the flagship (AA hadn't scored it at the table's publication; later AA page covers the Max config)
-- LCR / MLCR, CritPt, Omniscience Accuracy / Hallucination Rate: no verified public score found
+- MRCRv2: **92.9%** and LongBench v2: **66.3%** (added 2026-10-16 — fills the previously-missing long-context retrieval rows)
+- LCR / MLCR beyond the above, CritPt, Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
 - SWE-bench Pro: **67.7** (Alibaba table, Claude Code harness; just behind Opus 4.8 69.2, 12.3 behind Fable 5's 80.0, above Sol 64.6; +7.1 over Qwen3.7-Max)
+- Added 2026-10-16: SWE-bench (Vals) **85.6%** (independent — fills the missing SWE-V-class row); LiveCodeBench (Vals) **87.9%**; DeepSWE **56.6%** (fills the "trailing frontier" note with a number — well under the 74% threshold); FrontierSWE **73.5%**; VulcanBench v3 **81.2%**; NL2Repo **55.9%**; OpenHarmony **60.8%**; FrontierSWE v2 **15.8%** (weak); Bug Hunt **25.7 fixes**
 - CodeArena (webdev, independent): **#3 globally** (Arena AI leaderboard, per Alibaba's announcement)
 - PaperBench (research reproduction): **93.0** (see above)
-- DeepSWE: trails the frontier per Alibaba's own table (no verified public number surfaced)
-- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
+- SWE-bench Verified / LiveCodeBench (official) / SciCode / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- Window: **1M tokens**; no MRCR/RULER/GraphWalks retrieval value verified for this exact model
+- Window: **1M tokens**; MRCRv2 **92.9%** and LongBench v2 **66.3%** now measured (added 2026-10-16 — resolves the old "no retrieval verified" gap; 92.9% is frontier-grade at the measured depth, though not at 512K+ of the 1M window)
 
 Multimodal / vision:
 
@@ -55,18 +58,18 @@ Multimodal / vision:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** TB2.1 86.6 (beats both Claude flagships, just under the ~88%+ frontier mark), OSWorld-Verified 86.1, and the independent AA Agentic Index #3 placement clear the top of the mid band; vendor-run numbers and missing GDPval/Tau rows cap it.
-- **Reasoning: 92/100.** GPQA Diamond 92.6 (ties Fable 5) and HLE 43.6 both clear the frontier references (GPQA 90%+, HLE 40%+ → 90–100); PaperBench 93.0 and IFBench 82.8 corroborate; HLE is last among the four flagships, capping it below 95.
-- **Context window: 95/100.** 1M tokens (≥1M tier = 95–100); no measured ≥98% retrieval at 512K+ keeps it off the maximum.
-- **Multimodal: 92/100.** Text, image, video in with a near-sweep multimodal table (MathVision 95.2, LogicVista 91.9, OCR leadership); text-only output caps it at the band top.
-- **Coding: 85/100.** SWE-Pro 67.7 (mid-pack, 12.3 behind Fable 5), DeepSWE trailing frontier, and Claude-Code-harness caveat on most coding rows; CodeArena #3 (webdev) and PaperBench 93.0 are the elite signals.
+- **Tool use: 90/100.** CHANGED from 88 — TB2.1 86.6 (beats both Claude flagships on the vendor table), OSWorld-Verified 86.1, and the newly surfaced Agents' Last Exam 52.4%, WideResearch 81.9%, CoWorkBench 74.8% and Toolathlon 72.5% clear the top of the mid band; the Vals TB2.1 67.4% conflict and MazeBench 0% cap it.
+- **Reasoning: 93/100.** CHANGED from 92 — GPQA Diamond 92.6 (ties Fable 5; Vals 93.7%), HLE 43.6 / w-tools 56.2, and the newly measured FrontierMath v2 74.7%/46.3% all clear the frontier references; PaperBench 93.0 and IFBench 82.8 corroborate; HLE is last among the four flagships, capping it below 95.
+- **Context window: 96/100.** CHANGED from 95 — 1M tokens (≥1M tier = 95–100) with the previously-missing MRCRv2 92.9% now measured (frontier-grade retrieval at depth); LongBench v2 66.3% is the far-end caveat.
+- **Multimodal: 92/100.** Text, image, video in with a near-sweep multimodal table (MathVision 95.2, LogicVista 91.9, OCR leadership) — now massively expanded (CharXiv 93.5%, Video-MME 90.4%, MLVU 90.8%, OmniDocBench 92.1%, MMMU-Pro 82.3%); text-only output caps it at the band top.
+- **Coding: 87/100.** CHANGED from 85 — the independent SWE-bench (Vals) 85.6%, LCB (Vals) 87.9%, FrontierSWE 73.5% and VulcanBench 81.2% lift the band; SWE-Pro 67.7 and DeepSWE 56.6 (both official) keep it below 90.
 - **Cost efficiency: 92/100.** Open weights free to self-host; hosted $2.00/$6.00 per 1M sits between the ~$0.60/$2.20 = 92 and ~$1.25/$4.25 = 88 anchors; the open-weights release is the cost story.
-- **Overall Score: 90/100.** Mean of the five quality dims (88 + 92 + 95 + 92 + 85) / 5 = 90.4 → 90. Best fit: the most capable open-weights release of the summer — multimodal, 1M-context frontier-class work where self-hosting or the $2/$6 hosted price matters; Fable 5 stays ahead on deep software engineering and broad-knowledge exams.
+- **Overall Score: 92/100.** CHANGED from 90 — mean of the five quality dims (90 + 93 + 96 + 92 + 87) / 5 = 458/5 = 91.6 → 92. Best fit: the most capable open-weights release of the summer — multimodal, 1M-context frontier-class work where self-hosting or the $2/$6 hosted price matters; Fable 5 stays ahead on deep software engineering and broad-knowledge exams.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: public internet research (Alibaba Cloud announcement, Alibaba's vendor-run benchmark table via apidog.com, benchlm.ai, theairankings, DuckDuckGo search cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: corrects the model identity — the 2026-09-24 draft described `Qwen/Qwen3.8-27B` (a different model/folder); this report covers the actual Qwen3.8 flagship (2.4T-A95B open weights, released 2026-08-17) with its full vendor table.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (Alibaba Cloud announcement, Alibaba's vendor-run benchmark table via apidog.com, benchlm.ai, theairankings, DuckDuckGo search cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: corrects the model identity — the 2026-09-24 draft described `Qwen/Qwen3.8-27B` (a different model/folder); this report covers the actual Qwen3.8 flagship (2.4T-A95B open weights, released 2026-08-17) with its full vendor table; 2026-10-16 re-research: 67-row BenchLM profile added (SWE-Vals 85.6%, MRCRv2 92.9%, FrontierMath 74.7/46.3) — Tool 88→90, Reasoning 92→93, Context 95→96, Coding 85→87, Overall 90→92).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.9.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Mistral Large 4 — findings by GLM 5.3
 
 - Source: Mistral AI (`mistral-large-4`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - Cybench: **93.0%** (Mistral AI launch post via BenchLM) — elite cybersecurity-agent result
-- GDPval-AA: **1424** (46.2% normalized) (AA via BenchLM)
+- GDPval-AA: **1422** (46.1% normalized; nudged from 1424/46.2%) (AA via BenchLM)
 - AA-Briefcase Elo: **1393** (AA leaderboard via BenchLM)
 - AA AutomationBench: **59.9%** (AA via BenchLM)
 - Finance Agent v2: **54.7%** (Vals AI via BenchLM)
@@ -37,6 +37,7 @@ Reasoning / knowledge:
 - CritPt: **10.6%** (AA via BenchLM)
 - AA-Omniscience Index: **-5.3** (accuracy 25.8%, hallucination rate 41.9%) (AA via BenchLM)
 - GPQA Diamond: **no verified public score found**
+- STEMBench: **2.50** (Ulam snapshot audit — new row this pass); BenchLM composite: **61.5/100, #50/954** (20 rows); Design Arena Website **1259** (OpenRouter — new this pass)
 
 Coding:
 
@@ -66,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Artificial Analysis, BenchLM aggregating the Mistral launch post and Vals leaderboards, Zen pricing table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Artificial Analysis, BenchLM 20-row profile re-checked 2026-10-16 — core rows stable; GDPval nudged 1424→1422; added STEMBench 2.50 and Design Arena 1259; Mistral launch post, Vals leaderboards, Zen pricing). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

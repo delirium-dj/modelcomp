@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — self-exclusion by Laguna S 2.1
 
-- Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`), Artificial Analysis (`https://artificialanalysis.ai/models/longcat-2-5-preview`), BenchLM (`https://benchlm.ai/models/longcat-2-5-preview`)
-- Date: 2026-10-01 (UTC)
+- Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`), Artificial Analysis (403), BenchLM (404)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -16,20 +16,27 @@
 - **Reasoning:** Unknown
 - **Status:** Preview / free limited-time tier
 
-### Research log
+### Research log (2026-10-16 re-verification)
 
-1. Checked OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model listed as "LongCat 2.5 Preview Free" with no benchmark references. Pricing: Free/Free/Free. Described as "free on OpenCode for a limited time" with "zero-retention policy."
-2. Searched AA model page (`https://artificialanalysis.ai/models/longcat-2-5-preview`) — 404 (page not found).
-3. Searched BenchLM for `longcat-2.5-preview` — 404 (page not found).
+1. Checked OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model listed as "LongCat 2.5 Preview Free" with ID `longcat-2.5-preview-free`. Confirmed free pricing table entry (Free/Free/Free). Listed in the "Free models" section with zero-retention policy. No benchmark references found on docs page.
+2. Searched AA model page (`https://artificialanalysis.io/models/longcat-2-5-preview`) — **403 (blocked)** (previously 404 on 2026-10-01). Artificial Analysis has no public model page for this variant.
+3. Searched BenchLM (`https://benchlm.ai/models/longcat-2-5-preview`) — **404 (page not found)**. No BenchLM entry exists.
 4. Searched HuggingFace for "longcat" — no relevant model card found.
 5. Searched web for "LongCat 2.5 Preview" benchmarks — no verified public benchmark numbers found.
-6. `meta.json` is minimal: "LongCat 2.5 Preview model evaluation entry." No architecture, provider, or release information.
+6. Confirmed from OpenCode Zen docs that LongCat 2.5 Preview Free is a limited-time free preview model with zero-retention policy.
+
+Previous research log (2026-10-01, original exclusion):
+1. AA model page — 404 (page not found).
+2. BenchLM — 404 (page not found).
+3. HuggingFace — no relevant model card.
+4. Web search — no verified benchmarks.
+5. `meta.json` minimal with no benchmark info.
 
 ## Self-exclusion statement
 
 **Zero verified public benchmark numbers** found for LongCat 2.5 Preview.
 
-The model is only listed on the OpenCode Zen docs as a free preview tier ("LongCat 2.5 Preview Free"). No Artificial Analysis model page (404), no BenchLM entry (404), no HuggingFace model card, no official announcement with benchmark numbers, and no technical report could be found. The `meta.json` file is minimal ("LongCat 2.5 Preview model evaluation entry") with no provider, architecture, or benchmark information.
+The model is only listed on the OpenCode Zen docs as a free preview tier ("LongCat 2.5 Preview Free") with zero-retention policy. No Artificial Analysis model page (403 blocked; previously 404), no BenchLM entry (404), no HuggingFace model card, no official announcement with benchmark numbers, and no technical report could be found. The `meta.json` file is minimal ("LongCat 2.5 Preview model evaluation entry") with no provider, architecture, or benchmark information.
 
 Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
 
@@ -39,8 +46,8 @@ This model is therefore **self-excluded** from scoring. The model's `average.md`
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public internet research via OpenCode Zen docs, Artificial Analysis, and BenchLM; zero-influence: did not read peer `model/` findings files during research.
-- Status: **Self-excluded** — zero verified public benchmark numbers found.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research across OpenCode Zen docs, Artificial Analysis, BenchLM, HuggingFace, and web search; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found after re-verification (OpenCode docs confirms free preview model with no benchmarks; AA 403/blocked; BenchLM 404). Model released as limited-time free preview with zero-retention policy.
 
 ---

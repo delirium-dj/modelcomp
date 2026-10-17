@@ -1,7 +1,7 @@
 # Grok 5 — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/grok-5`), BenchLM (`https://benchlm.ai/models/grok-5`), OpenRouter (`https://openrouter.ai/models/grok-5`), xAI (`https://x.ai`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-02 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,15 +12,15 @@
 
 ## Research findings
 
-### Sources searched (all returned 404 or "not found"):
+### Sources searched (2026-10-16 re-verification)
 
-- **Artificial Analysis (`artificialanalysis.ai/models/grok-5`):** 404 Not Found — model not in the AA database
+- **Artificial Analysis (`artificialanalysis.ai/models/grok-5`):** 403 (blocked)
 - **BenchLM (`benchlm.ai/models/grok-5`):** 404 Not Found — model not listed on BenchLM
-- **OpenRouter (`openrouter.ai/models/grok-5`):** 404 Not Found — model not in the OpenRouter catalog
-- **xAI news / blog (`x.ai/news/grok-5`):** 404 Not Found — no launch post or model page
-- **xAI models page (`x.ai`):** the x.ai website (accessed via `x.com/i/grok`) returns the X app page with no model specifications or benchmarks
-- **Hugging Face:** no official xAI model repository; search for "grok-5" yields only community remixes and fine-tunes (e.g., `alexkstern/odysseus_grok_5hp_*`, `pleasurai/asian_Grokv5`) — none are the official xAI Grok 5 model
-- **Google:** no model card, no launch post, no academic paper referencing an official "Grok 5" LLM from xAI as of 2026-10-02
+- **OpenRouter (`openrouter.ai/models/grok-5`):** not listed
+- **xAI news / blog (`x.ai`):** no model page or launch post for "Grok 5"
+- **Hugging Face:** no official xAI model repository for "grok-5"
+
+Previous check (2026-10-02): AA 404, BenchLM 404, OpenRouter 404, xAI no model page.
 
 ### Note on existing Grok models:
 
@@ -36,8 +36,8 @@ Zero verified public benchmarks exist for the exact model ID "grok-5" on AA, Ben
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-02
-- Method: public internet research via Artificial Analysis (404), BenchLM (404), OpenRouter (404), xAI/X (no model page), and Hugging Face (no official model, only community remixes).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research via Artificial Analysis (403), BenchLM (404), OpenRouter, xAI/X, and Hugging Face; zero-influence: did not read peer `model/` findings files during research.
 - Sources cited: `https://artificialanalysis.ai/models/grok-5`, `https://benchlm.ai/models/grok-5`, `https://openrouter.ai/models/grok-5`, `https://x.ai`, `https://huggingface.co/models?search=grok-5`
 - Zero-influence: did not read peer `model/` findings files during research.
 - Future sources: add a new file next to this one, e.g. `Grok_5.md`, using the same headings.

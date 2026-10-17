@@ -1,7 +1,7 @@
 # Owl Alpha — findings by Laguna S 2.1
 
 - Source: Stealth provider / Owl Alpha
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-08 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,11 +21,15 @@ SELF-EXCLUSION: This model has no verified public benchmark scores. All potentia
 
 ### Raw benchmarks found
 
-> No verified public benchmark scores found.
+Zero. No verified public benchmark or independent evaluation exists for this model ID.
 
-Sources checked:
-- Artificial Analysis: 404
+Sources checked (2026-10-16 re-verification):
+- Artificial Analysis: 403 (blocked)
 - BenchLM: 404
+- No HuggingFace model card
+- No official announcement with benchmarks.
+
+Previous check (2026-10-08): AA 404, BenchLM 404.
 
 ### Normalized scores (1–100)
 
@@ -37,8 +41,8 @@ All scores zero — no verified benchmarks to derive from.
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
-- Method: public internet research; no verified benchmark data found for this model variant.
-- Future sources: add a new file next to this one when benchmark data becomes available.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found after re-verification (AA 403/blocked; BenchLM 404; no HF model card; no official announcement with benchmarks).
 
 ---

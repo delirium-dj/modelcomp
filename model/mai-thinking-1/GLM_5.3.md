@@ -1,7 +1,7 @@
 # MAI-Thinking-1 — findings by GLM 5.3
 
 - Source: Microsoft AI (`mai-thinking-1`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Human preference (not a score-bearing benchmark):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Microsoft AI technical report via BenchLM, microsoft.ai model page, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Microsoft AI technical report via BenchLM, microsoft.ai model page, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run. Re-research 2026-10-16: BenchLM now computes a composite 53.16 #84/954 (13 rows; SimpleQA 31% no longer displayed on the tracker page but was vendor-reported in the technical report); no new rows, no score changes.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

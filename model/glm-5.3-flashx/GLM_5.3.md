@@ -1,7 +1,7 @@
 # GLM 5.3 FlashX — findings by GLM 5.3
 
 - Source: Z.ai (`glm-5.3-flashx`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -75,6 +75,6 @@ FlashX-specific verified serving facts (not capability benchmarks):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Artificial Analysis, BenchLM, ApX, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. Capability numbers are same-weights GLM-5.3-Flash proxies — FlashX ships identical weights at higher serving speed.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Artificial Analysis, BenchLM, ApX, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. Capability numbers are same-weights GLM-5.3-Flash proxies — FlashX ships identical weights at higher serving speed. Re-research 2026-10-16: BenchLM still has no FlashX page (404) and no FlashX-specific benchmarks have appeared — all proxy values re-verified unchanged; no score changes.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

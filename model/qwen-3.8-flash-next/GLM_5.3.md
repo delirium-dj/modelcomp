@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash Next — findings by GLM 5.3
 
 - Source: Alibaba (`qwen-3.8-flash-next`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -80,6 +80,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (BenchLM aggregating the official model card and Artificial Analysis leaderboards, Vercel AI Gateway pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 37-row profile re-checked 2026-10-16 — all rows identical to first research (GDPval normalized 56.4%, was 56.6%); added the BenchLM composite 62.8 #43/954; official model card, Artificial Analysis, Vercel AI Gateway pricing). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

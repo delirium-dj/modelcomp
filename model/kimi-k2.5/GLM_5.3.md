@@ -1,7 +1,7 @@
 # Kimi K2.5 — findings by GLM 5.3
 
 - Source: Moonshot AI (`kimi-k2.5`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,6 +33,7 @@ Agent / tool use:
 - GDPval-AA: **936** (17.2% normalized) (AA via BenchLM)
 - Toolathlon: **27.8%** / MCP Atlas: **29.5%** / DeepPlanning: **14.4%** (model card / Qwen table via BenchLM)
 - APEX-Agents-AA: **11.5%** / ResearchClawBench: **14.0%** / JobBench: **8.7%** (AA / leaderboards via BenchLM)
+- New this pass: OSWorld-Verified **63.3%** (Kimi-K2.6 card via BenchLM — lineage cross-listing, flagged); BFCL v4 **68.3%** (Qwen3.5-397B card table via BenchLM); BenchLM composite **53.04/100, #86/954** (84 rows)
 
 Reasoning / knowledge:
 
@@ -61,7 +62,8 @@ Multimodal:
 - Video-MME: **87.4%** / MMVU: **80.4%** (Kimi blog via BenchLM)
 - VideoMMMU: **86.6%** (Qwen multimodal table via BenchLM)
 - MMMU-Pro: **78.5%** (model card) / **75.4%** (AA harness) (BenchLM)
-- Design Arena Website: **1255** (OpenRouter via BenchLM)
+- New this pass (Qwen3.5-397B card table via BenchLM — comparison-table lineage rows, flagged): MMMU **84.3%**, RealWorldQA **81.0%**, AI2D **90.8%**, CountBench **94.1%**, RefCOCO avg **87.8%**, MLVU M-Avg **85.0%**, We-Math **84.7%**, DynaMath **84.4%**, CC-OCR **79.7%**, MMLongBench-Doc **58.5%**; OmniDocBench 1.5 **88.8%** (model card); MMLU-Redux **94.5%**, C-Eval **94%** (text-knowledge extras)
+- Design Arena Website: **1250** (OpenRouter via BenchLM; 1255 at first research — minor drift)
 
 Instruction following / multilingual:
 
@@ -82,6 +84,6 @@ Instruction following / multilingual:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Moonshot model card + Kimi blog via BenchLM, Artificial Analysis, Epoch AI, Zen pricing table); scores are normalized 1–100 interpretations, not official vendor scores. Vendor-run numbers were discounted where AA-run equivalents disagreed.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 84-row profile re-checked 2026-10-16 — core rows stable; added OSWorld-Verified 63.3% (lineage-flagged), BFCL v4 68.3%, ~14 Qwen3.5-397B comparison-table vision rows, MMLU-Redux/C-Eval; Design Arena 1255→1250; Moonshot model card + Kimi blog, Artificial Analysis, Epoch AI, Zen pricing). No score changes — the new vision flood confirms Multimodal 82. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

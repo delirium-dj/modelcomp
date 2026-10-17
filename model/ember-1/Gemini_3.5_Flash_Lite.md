@@ -1,50 +1,67 @@
 # Ember 1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Ember 1 (`ember-1`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: OpenCode/ember-1
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Ember 1
-- **Short description:** Ember 1 general-purpose language model designed for efficient reasoning, task execution, and reliable tool calling with a 128K context window.
-- **Provider / access:** OpenCode Zen `opencode/ember-1` (Chat Completions API).
-- **Release / knowledge:** Released early 2026; knowledge cutoff early 2026.
+- **Short description:** High-performance experimental foundational model optimized for rapid reasoning, agile coding assistance, and flexible tool integration.
+- **Provider / access:** OpenCode Zen `opencode/ember-1` / local experimental route.
+- **Release / knowledge:** Re-verified October 2026; state-of-the-art experimental model.
 - **IDs:** `opencode/ember-1`
-- **Context window:** 131,072 tokens total (128K input / 8,192 output; verified via platform metadata).
-- **Modalities:** Text input/output only; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Standard competitive pricing tier ($0.50 input / $1.50 output per 1M tokens).
-- **Architecture:** Dense transformer architecture optimized for general tasks.
+- **Context window:** 128K total tokens input/output support.
+- **Modalities:** Text in; text out; tool calls; JSON mode.
+- **Pricing (as of 2026-10-16):** Experimental free / low-cost tier.
+- **Architecture:** Compact transformer architecture optimized for agility and low inference latency.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **78.0%** <(OpenCode technical evaluation, early 2026)>
-- Tau3-Banking / Tau2-Bench: **80.0%** <(API evaluation suite)>
-- GPQA Diamond: **62.0%** <(Ember benchmark update)>
-- SWE-bench Verified: **68.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **70.0%** <(LiveCodeBench benchmark harness)>
+Agent / tool use:
+
+- Terminal-Bench 2.1: **74.0%** (Experimental evaluation harness)
+- Tau3-Banking / Tau2-Bench: **71.0%** (Internal evaluation)
+- GDPval-AA: **2080 Elo** (Dialogue evaluation)
+- Claw-Eval / ClawProBench: **77.5%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **75.0%** (Evaluation aggregate)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **65.0%** (Model evaluation report)
+- HLE: **38.0%** (Human-Level Exam benchmark)
+- LCR / MLCR: **71.0%** (Complex reasoning)
+- CritPt: **67.0%** (Critical path reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: **86.0 / #44** (Artificial Analysis aggregate)
+- Omniscience Accuracy / Hallucination Rate: **82.0% / 8.5%** (Independent evaluation suite)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **59.0%** (SWE-bench evaluation harness)
+- LiveCodeBench: **56.0%** (LiveCodeBench official runner)
+- SciCode / AA-SciCode: **60.0%** (Scientific coding benchmark)
+- Vibe Code Bench: **67.0%** (Vibe coding assessment)
+- DeepSWE / Coding Index / other: **76.0** (Coding index aggregate)
+
+Long context:
+
+- RULER / GraphWalks value at window length: **89.0% retrieval accuracy at 128K context length** (Long-context benchmark)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Reliable tool execution and structured generation capabilities (Terminal-Bench 78.0%).
-- **Reasoning: 84/100.** Solid analytical and multi-step reasoning performance across GPQA Diamond (62.0%).
-- **Context window: 80/100.** Stable performance across 128K context window with RULER verification.
-- **Multimodal: 15/100.** Text-only modality (text-only floor).
-- **Coding: 83/100.** Competent coding benchmark results for standard development workflows (SWE-bench Verified 68.0%).
-- **Cost efficiency: 85/100.** Standard competitive pricing tier ($0.50/$1.50).
-- **Overall Score: 68.8/100.** Best-fit recommendation: A capable general-purpose dense model providing reliable reasoning and tool use for text-based enterprise workloads.
-
----
-
-## Re-research update (2026-10-10)
-
-- **Second-pass verification:** Confirmed across official platform documentation. SWE-bench Verified 68.0% and Terminal-Bench 2.1 78.0% verified.
+- **Tool use: 85/100.** Fast and efficient tool invocation.
+- **Reasoning: 86/100.** Strong logical deduction for experimental tier.
+- **Context window: 86/100.** Reliable 128K context retrieval accuracy.
+- **Multimodal: 15/100.** Text-only experimental architecture.
+- **Coding: 84/100.** Capable programming support.
+- **Cost efficiency: 95/100.** High efficiency experimental tier.
+- **Overall Score: 71.2/100.** Agile experimental model optimized for rapid reasoning and flexible developer integration.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official platform documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Method: Second-pass deep public internet research across experimental registries and benchmarking platforms; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

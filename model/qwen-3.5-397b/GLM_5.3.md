@@ -1,7 +1,7 @@
 # Qwen 3.5 397B — findings by GLM 5.3
 
 - Source: Alibaba (`qwen-3.5-397b`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - τ³-bench: **68.4%** (Qwen Qwen3.6-Plus comparison table via BenchLM)
 - MCP-Tasks: **74.2%** (Qwen comparison table via BenchLM)
 - WideResearch: **74.0%** (Qwen comparison table via BenchLM)
-- BrowseComp: **62%** (Qwen3.5-397B-A17B model card via BenchLM)
+- BrowseComp: **69%** (Qwen3.5-397B-A17B model card via BenchLM — updated this pass from the 62% comparison-table figure) — large vendor/agency disagreement noted; OSWorld-Verified **62.2%** (model card — new row this pass)
 - Claw-Eval: **56.8%** (Claw-Eval leaderboard via BenchLM)
 - QwenClawBench: **51.8%** (Qwen comparison table via BenchLM)
 - Terminal-Bench 2.0: **52.5%** (Qwen comparison table via BenchLM)
@@ -48,11 +48,13 @@ Coding:
 - LiveCodeBench v6: **83.6%** (Qwen comparison table via BenchLM)
 - SWE-bench Verified: **76.2%** (Qwen comparison table via BenchLM)
 - SWE-bench Pro: **50.9%** (Qwen comparison table via BenchLM)
+- New this pass: SWE Multilingual **69.3%** (model card), NL2Repo **32.2%** (Qwen3.6-27B card table — lineage-flagged), IFBench **76.5%** (model card); BenchLM composite **55.34/100, #65/954** (73 rows)
 
 Multimodal:
 
 - MMMU-Pro: **79%** (Qwen multimodal table) / **52.7%** (AA harness) — large vendor/agency disagreement (BenchLM)
 - MathVision: **88.6%**; CharXiv: **80.8%**; VideoMMMU: **84.7%**; V*: **95.8%**; ScreenSpot Pro: **65.6%** (Qwen multimodal table via BenchLM — video numbers are vendor-run; AA verifies only image input)
+- New this pass (model card via BenchLM — vendor-run): MMMU **85.0%**, RealWorldQA **83.9%**, OmniDocBench 1.5 **90.8%**, Video-MME **87.5% w/ sub / 83.7% w/o**, We-Math **87.9%**, DynaMath **86.3%**, AI2D **93.9%**, CountBench **97.2%**, RefCOCO avg **92.3%**, MLVU M-Avg **86.7%**, CC-OCR **82.0%**, ODINW13 **47.0%**, ERQA **67.5%**, MMLongBench-Doc **61.5%**, SimpleVQA **67.1%**; multilingual extras INCLUDE **85.6%**, PolyMath **73.3%**, MAXIFE **88.2%**; MMAnswerBench **80.9%**
 
 Long context:
 
@@ -82,6 +84,6 @@ Multilingual:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (BenchLM aggregating the official Qwen comparison tables, model card and Artificial Analysis leaderboards); scores are normalized 1–100 interpretations, not official vendor scores. Vendor-run numbers were discounted where AA-run equivalents disagreed.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 73-row profile re-checked 2026-10-16 — BrowseComp updated 62→69% (model card), OSWorld-Verified 62.2% added, ~25 new vendor-run multimodal/multilingual rows from the HF model card, SWE Multilingual 69.3%; official Qwen comparison tables and Artificial Analysis leaderboards). Vendor-run numbers were discounted where AA-run equivalents disagreed. No score changes — the additions reinforce the existing bands (Multimodal's vendor/AA disagreement stands). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by GLM 5.3
 
 - Source: OpenAI (`gpt-5.6-terra`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ARC-AGI-1, CursorBench 4.0, LABBench2, HealthBench family, IFBench, Omniscience Index)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added MazeBench row)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - Tau2-Bench: **86.3%** (BenchLM); Tau3-Banking: **no verified public score found** for this ID
 - GDPval-AA: **1583 Elo** (BenchLM; normalized 46.6%)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathlon: **53.1%**; OSWorld 2.0 **50.2%**; BrowseComp **87.5%**; CyberGym **81.8%**; ExploitGym **23.2%**; AA ITBench **51.0%**; AA Agentic Index **43.7%**; APEX-Agents-AA **38.9%**; ApprenticeBench **16%** (new 2026-10-08 evidence) (BenchLM)
+- Toolathlon: **53.1%**; OSWorld 2.0 **50.2%**; BrowseComp **87.5%**; CyberGym **81.8%**; ExploitGym **23.2%**; AA ITBench **51.0%**; AA Agentic Index **43.7%**; APEX-Agents-AA **38.9%**; ApprenticeBench **16%**; MazeBench (ASCII, tools) **6%** (new this pass); GDPval-AA normalized 47.6% (updated from 46.6%) (BenchLM)
 
 Reasoning / knowledge:
 
@@ -67,6 +67,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ARC-AGI-1/HealthBench/IFBench/CursorBench-4.0 rows added — no dimension scores changed.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 54-row profile re-checked 2026-10-16 — core rows stable; added MazeBench 6%; GDPval normalized nudged 46.6→47.6%; BenchLM composite 70.19 #15/954; Artificial Analysis, ARC Prize, Vals, OpenCode Zen docs). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

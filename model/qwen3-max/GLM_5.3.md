@@ -1,14 +1,14 @@
 # Qwen3 Max — findings by GLM 5.3
 
 - Source: Alibaba (`qwen3-max`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3 Max
-- **Short description:** Alibaba's proprietary Qwen3-generation flagship for coding agents, complex reasoning and tool use, with thinking mode — now a legacy tier: the Qwen3.5/3.6/3.7/3.8 Max successors dominate the current line (BenchLM composite 40.16 vs 70.52 for Qwen3.8 Max).
+- **Short description:** Alibaba's proprietary Qwen3-generation flagship for coding agents, complex reasoning and tool use, with thinking mode — now a legacy tier: the Qwen3.5/3.6/3.7/3.8 Max successors dominate the current line (BenchLM composite 39.57 vs 69.65 for Qwen3.8 Max, updated 2026-10-16).
 - **Provider / access:** Alibaba API ($1.20 in / $6.00 out per 1M, tiered above 32K/128K per project meta). Project meta lists Zen ID `opencode/qwen3-max` (absent from the live Zen models list when re-checked 2026-10-08 — the Zen catalog carries qwen3.8-max/qwen3.7-max instead; no Free ID).
 - **Release / knowledge:** 2025 (Qwen3 generation); knowledge cutoff not stated.
 - **IDs:** `opencode/qwen3-max` (project meta); also `qwen/qwen3-max` on OpenRouter.
@@ -66,6 +66,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (BenchLM aggregating Artificial Analysis leaderboards, Vals, OpenRouter, Gert Labs; project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. 2026-measured independent numbers were weighted over launch-era claims.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 12-row profile re-checked 2026-10-16 — all rows identical to first research; composite updated 40.16→39.57 #141/954 on board growth; Artificial Analysis leaderboards, Vals, OpenRouter, Gert Labs; project pricing meta). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores. 2026-measured independent numbers were weighted over launch-era claims.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5 nano — self-exclusion by Laguna S 2.1
 
-- Source: Artificial Analysis (`https://artificialanalysis.ai/models/gpt-5-nano`), BenchLM (`https://benchlm.ai/models/gpt-5-nano`), OpenAI
-- Date: 2026-10-01 (UTC)
+- Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/gpt-5-nano`), OpenAI
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,19 +18,26 @@
 - **Reasoning:** Yes (extended thinking / chain-of-thought)
 - **Speed:** 147.8 tokens/s output (per AA)
 
-### Research log
+### Research log (2026-10-16 re-verification)
 
-1. Searched AA model page (`https://artificialanalysis.ai/models/gpt-5-nano`) — page exists but Intelligence Index is 13 (estimated, rank #14/59, median: 8) with note "Estimate (independent evaluation forthcoming)." All individual benchmarks on the AA model page show "Not publicly available."
-2. Searched BenchLM for `gpt-5-nano` — page exists but shows "Sourced benchmark coverage is coming soon" and "0 of 618" benchmarks covered. No benchmark scores found.
-3. Searched OpenAI news for "gpt-5-nano" — no announcement with benchmark table found.
-4. Searched Vals AI leaderboards — no entry found for GPT-5 nano at `vals.ai/models/openai_gpt-5-nano`.
-5. All individual benchmarks on AA model page show "Not publicly available."
+1. Searched AA model page (`https://artificialanalysis.io/models/gpt-5-nano`) — **403 (blocked)**. Artificial Analysis page inaccessible.
+2. Searched BenchLM (`https://benchlm.ai/models/gpt-5-nano`) — page exists but shows "0 of 639" benchmarks covered with "Sourced benchmark coverage is coming soon." Last updated: October 16, 2026. No benchmark scores found. Context Window: 400K; Overall Score: "Coming soon"; Overall Rank: "Unranked".
+3. Searched OpenAI news for "gpt-5-nano" — no announcement with benchmark numbers found.
+4. Searched Vals AI leaderboards — no entry found.
+5. Note: BenchLM's sibling list includes GPT-5.4 nano (Score: 46.85) and GPT-5.3 Codex (Score: 60.47), but GPT-5 nano itself has no scores. The model was released August 7, 2025 (14 months prior) and still has zero public benchmark coverage.
+
+Previous research log (2026-10-01, original exclusion):
+1. AA model page — Intelligence Index 13 (estimated), all benchmarks "Not publicly available".
+2. BenchLM — 0 of 618 benchmarks.
+3. OpenAI news — no announcement with benchmarks.
+4. Vals AI — no entry.
+5. All AA individual benchmarks showed "Not publicly available".
 
 ## Self-exclusion statement
 
 **Zero verified public benchmark numbers** found for GPT-5 nano / `opencode/gpt-5-nano`.
 
-The AA model page exists but only provides an estimated Intelligence Index of 13 (marked "Estimate — independent evaluation forthcoming"). All individual benchmarks (AA-Briefcase, GDPval-AA, AutomationBench, Terminal-Bench, SciCode, HLE, GDP.pdf, CritPt, AA-Omniscience, AA-LCR) show "Not publicly available." BenchLM's page exists but shows "0 of 618" benchmarks covered with "Sourced benchmark coverage is coming soon." No official launch post or technical report with benchmark numbers could be found.
+The AA model page is inaccessible (403). BenchLM's page exists but shows "0 of 639" benchmarks covered (updated 2026-10-16, increased from 618 to 639 total) with "Sourced benchmark coverage is coming soon." No official launch post, technical report, or other verified public source with benchmark numbers could be found. Even 14 months after release (August 7, 2025), no public benchmark scores exist. The `meta.json` note about 128K context vs AA's 400K remains: BenchLM confirms 400K context window.
 
 Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
 
@@ -42,6 +49,6 @@ Note: `meta.json` discrepancies identified — meta.json lists 128K context wind
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-01
-- Method: public internet research via Artificial Analysis, BenchLM, and OpenAI; zero-influence: did not read peer `model/` findings files during research.
-- Status: **Self-excluded** — zero verified public benchmark numbers found (AA Intelligence Index 13 is estimated, all benchmarks "Not publicly available"; BenchLM shows 0 of 618 benchmarks).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research via Artificial Analysis, BenchLM, OpenAI, Vals AI, and BenchLM sibling comparison; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found after re-verification (AA 403/blocked; BenchLM shows 0 of 639 benchmarks, "Coming soon"; no official announcement with benchmarks; 14 months post-release with no scores).

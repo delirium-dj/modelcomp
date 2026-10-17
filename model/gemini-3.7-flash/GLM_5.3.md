@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by GLM 5.3
 
 - Source: Google (`gemini-3.7-flash`)
-- Date: 2026-10-08 (UTC) — enrichment pass over the 2026-09-24 report (fresh search 2026-10-08: core scores unchanged; added ARC-AGI-1/2, LABBench2, BioMysteryBench, ApprenticeBench, Omniscience Index)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 enrichment report (fresh search 2026-10-16: core scores unchanged; added FrontierMath v2 and MazeBench rows)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,6 +38,7 @@ Reasoning / knowledge:
 - Omniscience Index **26.5** (new); Accuracy **55.3%** / Hallucination Rate **64.5%** (BenchLM — high hallucination rate)
 - LABBench2 **82.1%**; BioMysteryBench human-solvable **87.1%** / human-difficult **43.5%** (new 2026-10-08 evidence) (BenchLM)
 - MMLU-Pro (Vals): **90.1%** (BenchLM)
+- FrontierMath v2 (Tiers 1-3): **71.579%** / Tier 4: **36.585%** (Epoch AI via BenchLM — new rows this pass); MazeBench (ASCII, tools) **1%** (new this pass); BenchLM composite: **66.82/100, #28/954** (45 rows)
 
 Coding:
 
@@ -54,7 +55,7 @@ Long context:
 
 Multimodal (grounding):
 
-- MMMU-Pro **85.5%**; CharXiv **88.7%** (w/o tools 84.5%); LVBench **85.4%**; Design Arena Website **1313** (BenchLM).
+- MMMU-Pro **85.5%**; CharXiv **88.7%** (w/o tools 84.5%); LVBench **85.4%**; Design Arena Website **1305** (BenchLM; 1313 at first research — minor drift).
 
 ### Normalized scores (1–100)
 
@@ -70,6 +71,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-08 (enrichment pass over 2026-09-24 report, user-approved)
-- Method: public internet research (Artificial Analysis, BenchLM, ARC Prize, Vals, OpenCode Zen docs); scores are normalized 1–100 interpretations, not official vendor scores. September core numbers re-verified unchanged; ARC/LABBench/BioMystery rows added — no dimension scores changed.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-16 (first researched 2026-09-24; enriched 2026-10-08; re-researched 2026-10-16)
+- Method: public internet research (BenchLM 45-row profile re-checked 2026-10-16 — core rows stable; added FrontierMath v2 71.6/36.6 (Epoch) and MazeBench 1%; Design Arena drifted 1313→1305; Artificial Analysis, ARC Prize, Vals, OpenCode Zen docs). No dimension scores changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

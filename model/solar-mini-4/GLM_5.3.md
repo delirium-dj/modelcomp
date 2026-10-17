@@ -1,7 +1,7 @@
 # Solar Mini 4 — findings by GLM 5.3
 
 - Source: Upstage (`solar-mini-4`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **24** (AA model page — #36 of 182 in its price class, above the median 13; composite includes GPQA/HLE/SciCode/Terminal-Bench 4.0 components, values unpublished)
+- Artificial Analysis Intelligence Index: **24** (AA model page as measured 2026-10-08 — #36 of 182 in its price class, above the median 13; composite includes GPQA/HLE/SciCode/Terminal-Bench 4.0 components, values unpublished). **Source-stability note (this pass):** the AA page for `solar-mini-4` now returns 404 (re-checked 2026-10-16) — the model appears delisted/renamed on AA; the Index 24 value remains as measured at first research, flagged for volatility.
 
 Coding:
 
@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Artificial Analysis composite index, ApX specs, Upstage product pages, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. Only one public benchmark value exists for this ID; all other dimensions are provisional.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Artificial Analysis composite index, ApX specs, Upstage product pages, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. Only one public benchmark value exists for this ID; all other dimensions are provisional. Re-research 2026-10-16: AA's solar-mini-4 page is now 404 (delisted/renamed) and no new benchmark rows appeared anywhere — no score changes; the single-source evidence base is now also volatile.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

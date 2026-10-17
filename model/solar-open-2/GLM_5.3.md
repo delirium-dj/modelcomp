@@ -1,7 +1,7 @@
 # Solar Open 2 — findings by GLM 5.3
 
 - Source: Upstage (`solar-open-2`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (official model card via BenchLM, project meta, Hugging Face repository); scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (official model card via BenchLM — all 15 rows re-checked 2026-10-16 and identical to first research; project meta, Hugging Face repository). No new evidence, no score changes. Scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

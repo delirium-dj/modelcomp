@@ -1,7 +1,7 @@
 # Ember-1 — findings by GLM 5.3 Flash
 
 - Source: Fireworks (`fireworks/ember-1`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,9 +10,9 @@
 - **Name:** Ember-1 (Research Preview)
 - **Short description:** Specialized reasoning model from Fireworks Research, fine-tuned from Kimi K3 to "think less": it cuts unnecessary reasoning traces (~40% fewer tokens) while matching K3 quality. Top use case: agentic coding and long-horizon tool workloads where reasoning tokens dominate cost. It is a fine-tune of Kimi K3, not a smaller or different architecture — flag as a K3 variant.
 - **Provider / access:** Fireworks Serverless (Research Preview, two-week serverless research release); OpenRouter hosts it as `fireworks/ember-1` (Chat Completions API).
-- **Release / knowledge:** Released 2026-09-24 (launch post published 2026-09-23; Fireworks model-page metadata says created 2026-09-22, OpenRouter epoch ≈ 09-24 — minor conflict). Knowledge cutoff not disclosed (OpenRouter field `null`). **Research-Preview status: still LIVE as of 2026-10-10** — the nominal two-week serverless window lapsed (~Oct 7–8) with no removal: Fireworks model page "State: Ready" with serverless pricing active, OpenRouter `expiration_date: null`, and no deprecation entry in the Fireworks changelog through 2026-10-07.
+- **Release / knowledge:** Released 2026-09-24 (launch post published 2026-09-23; Fireworks model-page metadata says created 2026-09-22, OpenRouter epoch ≈ 09-24 — minor conflict). Knowledge cutoff not disclosed (OpenRouter field `null`). **Research-Preview status: still LIVE as of 2026-10-16** — the nominal two-week serverless window lapsed ~Oct 7–8 with no removal: Fireworks model page "State: Ready" with serverless pricing active ($3.00/$0.30/$15.00 per 1M re-verified 2026-10-16), and the page now confirms the K3 lineage at **2.78T parameters, MoE**.
 - **IDs:** `fireworks/ember-1` (no Free ID on OpenCode Zen found — served via Fireworks/OpenRouter, paid)
-- **Context window:** 1,048,576 tokens total; max completion 943,718 — verified via the OpenRouter models API (2026-10-10); Fireworks model page lists "1040k"; Vals lists 1M.
+- **Context window:** 1,048,576 tokens total (1040k per the Fireworks page); max completion 943,718 — verified via the OpenRouter models API (2026-10-10); Vals lists 1M.
 - **Modalities:** text + image in; text out; reasoning yes; tool calls yes (tools, tool_choice, reasoning_effort advertised on OpenRouter); JSON mode via response_format.
 - **Pricing (as of 2026-10-02):** $3.00 / $15.00 per 1M (cached input $0.30/1M; blended 3:1 $6.00/1M) per RunFreeTools API pricing — same numbers as public Kimi K3 API pricing used in the launch post's cost analysis. Paid; proprietary research preview, no free tier.
 - **Architecture:** Fine-tune of Kimi K3 on Fireworks Serverless Training (50+ training experiments, 200+ evaluations, new algorithms for shorter reasoning); proprietary weights, base variant.
@@ -75,6 +75,6 @@ Token efficiency (the model's core claim):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
 - Method: public internet research (second pass 2026-10-10: Fireworks blog + model page + changelog, OpenRouter models API, Vals AI model page — first independent benchmark data, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash — findings by Laguna S 2.1
 
 - Source: Google / Gemini 3.1 Flash (`google/gemini-3.1-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-09 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,7 +52,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-09
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
 - Method: Public web research via OpenRouter API, Artificial Analysis model page, CloudPrice model page, and DuckDuckGo search. Searched for the exact model name "gemini-3.1-flash" and the slug "gemini-3-1-flash" across all platforms. The exact model was not found on any platform. The closest match is "gemini-3-1-flash-lite" (deprecated in favor of other Gemini 3.x models), but this is a different model with different capabilities (Queue Overall: 75.8 vs 78.4 for the target). No verified public benchmark numbers were found for the exact model name "gemini-3.1-flash". Scores are not computed.
 - Sources searched:
   - OpenRouter API: Model list does not contain "gemini-3.1-flash". Only "gemini-3.1-flash-lite", "gemini-3.1-flash-image", and "gemini-3.1-pro-preview" exist.

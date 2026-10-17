@@ -1,7 +1,7 @@
 # DeepSeek V3.2 — findings by GLM 5.3
 
 - Source: DeepSeek (`deepseek-v3.2`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,7 +41,7 @@ Coding:
 
 - SWE-Rebench: **60.9%** (SWE-Rebench leaderboard via BenchLM)
 - React Native Evals: **71.5%** (React Native Evals leaderboard via BenchLM)
-- Design Arena Website: **1181** (OpenRouter benchmarks via BenchLM)
+- Design Arena Website: **1176** (OpenRouter benchmarks via BenchLM; 1181 at first research — minor drift); BenchLM composite: **50.2/100, #95/954** (16 of 639 rows — conservative coverage)
 - SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found** on current harnesses
 
 Multimodal:
@@ -70,6 +70,6 @@ Instruction following:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Artificial Analysis, BenchLM, Epoch AI, SWE-Rebench/Claw-Eval/VitaBench leaderboards, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. 2026-measured independent numbers were weighted over the 2025 launch claims.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (BenchLM 16-row profile re-checked 2026-10-16 — all rows stable; Design Arena drifted 1181→1176; added the BenchLM composite 50.2 #95/954; Artificial Analysis, Epoch AI, SWE-Rebench/Claw-Eval/VitaBench leaderboards, project pricing meta). No score changes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

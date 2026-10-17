@@ -1,7 +1,7 @@
 # Ling 3.0 Flash Sante — findings by Laguna S 2.1
 
 - Source: InclusionAI / Ling 3.0 Flash Sante
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-verification of 2026-10-08 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,8 +37,8 @@ All scores zero — no verified benchmarks to derive from.
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-08
-- Method: public internet research; no verified benchmark data found for this model variant.
-- Future sources: add a new file next to this one when benchmark data becomes available.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research; zero-influence: did not read peer `model/` findings files during research. BenchLM 404 confirmed on 2026-10-16 re-verification (previously 404 on 2026-10-08). AA 403/blocked.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (BenchLM 404; AA 403; no HF model card).
 
 ---

@@ -1,7 +1,7 @@
 # MAI-Code-1-Flash — findings by GLM 5.3
 
 - Source: Microsoft AI (`mai-code-1-flash`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Microsoft launch blog with vendor-run benchmarks, microsoft.ai model page, BenchLM family tracking, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run; image-only benchmark tables were not scored.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Microsoft launch blog with vendor-run benchmarks, microsoft.ai model page, BenchLM family tracking, project pricing meta); scores are normalized 1–100 interpretations, not official vendor scores. All capability numbers are vendor-run; image-only benchmark tables were not scored. Re-research 2026-10-16: BenchLM still has no page for the 1.0 ID and no new independent measurements appeared — no score changes.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

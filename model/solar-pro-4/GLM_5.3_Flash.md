@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by GLM 5.3 Flash
 
 - Source: Upstage AI (`upstage/solar-pro4`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,6 +68,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-09
-- Method: Independent public web research (benchlm.ai tables updated 2026-10-10 citing the Upstage launch post and AA boards — official plus independent sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 61.4%, BrowseComp 49.2%, APEX 18.7%, LCB 87.8%, AA Index 42→28.1, AA-LCR 74.0→71.0%, KMMLU-Pro 79.2% — Tool 74→70, Reasoning 85→82, Coding 82→83, Overall 70→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: Independent public web research (benchlm.ai tables updated 2026-10-10 citing the Upstage launch post and AA boards — official plus independent sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 61.4%, BrowseComp 49.2%, APEX 18.7%, LCB 87.8%, AA Index 42→28.1, AA-LCR 74.0→71.0%, KMMLU-Pro 79.2% — Tool 74→70, Reasoning 85→82, Coding 82→83, Overall 70→68; 2026-10-16 re-check: all 22 BenchLM rows already captured — nothing new).
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by GLM 5.3
 
 - Source: Unbiased / Circuit & Chisel (`pareto`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-16 (UTC) — re-research of the 2026-10-08 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-08
-- Method: public internet research (Unbiased model card + homepage preliminary results, BenchLM tracking); scores are normalized 1–100 interpretations, not official vendor scores. All Pareto numbers are vendor-run preliminary benchmarks — treat as provisional pending final publication.
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-16 (first researched 2026-10-08)
+- Method: public internet research (Unbiased model card + homepage preliminary results, BenchLM tracking); scores are normalized 1–100 interpretations, not official vendor scores. All Pareto numbers are vendor-run preliminary benchmarks — treat as provisional pending final publication. Re-research 2026-10-16: BenchLM still lists only the same 3 rows (TB 4.0 50.8%, DeepSWE 69.9%, GPQA-D 92.4%) and no final (non-preview) results have published — no score changes.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

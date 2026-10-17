@@ -1,0 +1,50 @@
+# Cat Jam — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (403), BenchLM (404), OpenRouter (404), HuggingFace (no results)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (unverified)
+
+- **Name:** Cat Jam
+- **Short description:** Per repo `meta.json`: "Cat Jam model evaluation entry." No public model page or verified vendor identity found.
+- **Provider / access:** `opencode/cat-jam` (project ID only). Not found on OpenRouter, Artificial Analysis, BenchLM, or HuggingFace.
+- **Release / knowledge:** Undisclosed
+- **IDs:** `opencode/cat-jam` (project ID only)
+- **Context window:** 128K total (per `meta.json` — scaffolded, unverified)
+- **Modalities:** Text in/out (per `meta.json` — scaffolded, unverified)
+- **Pricing:** Standard pricing (per `meta.json` — scaffolded, unverified)
+- **Architecture:** Unknown (scaffolded entry)
+
+### Research log
+
+1. Searched AA model page (`https://artificialanalysis.io/models/cat-jam`) — **403 (blocked)**. Artificial Analysis page inaccessible.
+2. Searched BenchLM (`https://benchlm.ai/models/cat-jam`) — **404 (page not found)**. No BenchLM entry exists.
+3. Searched OpenRouter (`/models/cat-jam` → redirected to `/cat-jam`) — **404**. Model not found. OpenRouter API model list (467 models) does not contain "cat-jam".
+4. Searched HuggingFace (`huggingface.co/models?search=cat%20jam`) — no model results found.
+5. Searched OpenCode Zen docs (`https://opencode.ai/docs/zen`) — model not listed in the Zen model catalog.
+6. Searched web for "Cat Jam" model benchmarks — no verified public benchmark numbers found.
+7. The repo `meta.json` is a minimal scaffold: "Cat Jam model evaluation entry." No provider, architecture, or benchmark information.
+
+## Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Cat Jam / `opencode/cat-jam`.
+
+The model is not listed on Artificial Analysis (403 blocked), BenchLM (404), OpenRouter (404), or HuggingFace (no results). The OpenCode Zen docs do not list this model. The repository `meta.json` is a generic placeholder ("Cat Jam model evaluation entry") with no provider, architecture, or benchmark information. No official announcement, model card, or technical report could be found.
+
+Note: A different model, "LongCat 2.0" (`meituan/longcat-2.0`) exists on OpenRouter with benchmarks (Intelligence Index 19.1, Coding Index 45.3, Agentic Index 14), but this is a distinct model — Cat Jam is not LongCat 2.0, and the slug `cat-jam` does not map to any verified model on any platform.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. When Cat Jam publishes benchmark numbers on a public source, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+---
+
+## Signature
+
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research via Artificial Analysis, BenchLM, OpenRouter (API + web), HuggingFace, and OpenCode Zen docs; zero-influence: did not read peer `model/` findings files during research.
+- Status: **Self-excluded** — zero verified public benchmark numbers found (AA 403; BenchLM 404; OpenRouter 404; HF no results; Zen docs no listing).
+
+---

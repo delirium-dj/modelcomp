@@ -1,7 +1,7 @@
 # Gemini 3.6 Flash — findings by GLM 5.3 Flash
 
 - Source: Google / Google DeepMind (`gemini-3.6-flash`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,9 +32,9 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond (Vals): **93.43%** (#7/138) — first public measurement for this model
+- GPQA Diamond (Vals): **93.43%** (#7/138); AA-GPQA Diamond **92.8%** (added 2026-10-16 — two-source agreement)
 - MMLU Pro (Vals): **89.28%**; MMMU Pro (Vals): **88.38%**
-- HLE / ARC-AGI / AA-Omniscience: no verified public score found
+- Added 2026-10-16 (BenchLM refresh): ARC-AGI-2 **60.4%** / ARC-AGI-1 **91.2%** (ARC Prize verified — previously unmeasured); AA-HLE **40.8%** (clears the 40% bar); AA-LCR **80.0%**; CritPt **10.6%**; FrontierMath v2 **58.9%** / **22.0%** (Epoch); AA-Omniscience accuracy 50.0% / hallucination 55.6%
 - Artificial Analysis Intelligence Index v4.3.2: **34** (#77/227; median 26) — includes HLE/SciCode/CritPt components
 
 Coding:
@@ -54,18 +54,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** OSWorld-Verified 83% and vendor TB2.1 78% (Vals 73.78%) are strong-for-Flash with native computer use, but GDPval 1421 Elo is mid-frontier, AA II reads 34 (#77/227) on the current index, and the agentic advantage erodes on TB4.0-generation harnesses — docked from the earlier 93.
-- **Reasoning: 85/100.** GPQA Diamond 93.43% (#7/138, Vals) is now measured and genuinely strong, with MMLU-Pro 89.28%/MMMU-Pro 88.38% corroborating; AA II 34 and no published HLE keep it short of the 90+ tier. (Revised up from 76, which was capped by missing GPQA evidence.)
-- **Context window: 93/100.** 1M input with MRCR v2 54% at full 1M depth — the best Flash-line retrieval evidence but a minority retrieval rate at the extreme, so short of the 95+ ≥1M norm.
-- **Multimodal: 88/100.** Full omni input (text/image/audio/video/PDF) with text-only output; no published vision benchmark.
-- **Coding: 86/100.** SWE-bench Verified 79.60% (#26/88, Vals), LiveCodeBench 88.08% (#8/143) and MLE-Bench 63.9% are solid mid-frontier; SWE-Pro 58.7%, DeepSWE 49% and Vibe 64.00% lag the 2026 coding frontier — revised down from 89 now that independent per-benchmark numbers exist.
+- **Tool use: 84/100.** OSWorld-Verified 83% and vendor TB2.1 78% (Vals 73.78%) are strong-for-Flash with native computer use, the newly measured AA Agentic Index 30.1% corroborates, but GDPval ~1422 Elo is mid-frontier, AA II reads 34 (#77/227) on the current index, and the agentic advantage erodes on TB4.0-generation harnesses — docked from the earlier 93.
+- **Reasoning: 87/100.** CHANGED from 85 — GPQA Diamond 93.43% (#7/138, Vals; AA 92.8%), MMLU-Pro 89.28%/MMMU-Pro 88.38% corroborating, plus the newly measured ARC-AGI-2 60.4% (ARC Prize verified), AA-HLE 40.8% (clears the bar), AA-LCR 80.0% and FrontierMath 58.9%/22.0% — a full reasoning picture now exists and lands high-mid.
+- **Context window: 93/100.** 1M input with MRCR v2 54% at full 1M depth — the best Flash-line retrieval evidence but a minority retrieval rate at the extreme, so short of the 95+ ≥1M norm; AA-LCR 80.0% adds independent depth evidence.
+- **Multimodal: 88/100.** Full omni input (text/image/audio/video/PDF) with text-only output; the newly measured AA-MMMU-Pro 83.2% makes this the strongest measured vision in the 3.x Flash line.
+- **Coding: 86/100.** SWE-bench Verified 79.60% (#26/88, Vals), LiveCodeBench 88.08% (#8/143) and MLE-Bench 63.9% are solid mid-frontier; SWE-Pro 58.7%, DeepSWE 49%, the new CursorBench 3.2 53.5% and AA-SciCode 53.4% lag the 2026 coding frontier — revised down from 89 now that independent per-benchmark numbers exist.
 - **Cost efficiency: 85/100.** Promo pricing $0.75/$3.75 (cached $0.075) through 2026-12-31 halves the earlier bill basis, plus the 17–65% output-token reduction and free tier; the 2027-01-01 doubling to $1.50/$7.50 is scheduled and priced in.
-- **Overall Score: 87/100.** Five-dim mean per `RULES.md` (Cost excluded): (84 + 85 + 93 + 88 + 86) / 5 = 436/5 = 87.2 → **87**. (Correction 2026-10-10: the previous version averaged six dims including Cost — a v3-formula leftover — and reported 89.) Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this remains the value pick of the 3.x Flash line while promo pricing lasts.
+- **Overall Score: 88/100.** CHANGED from 87 — five-dim mean per `RULES.md` (Cost excluded): (84 + 87 + 93 + 88 + 86) / 5 = 438/5 = 87.6 → **88**. Best fit: current-generation default for scaled agents and coding — check 3.7/3.8 first, but this remains the value pick of the 3.x Flash line while promo pricing lasts.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-10
-- Method: public internet research, second pass 2026-10-10 (≥3 independent sources: deepmind.google model card + ai.google.dev pricing, Artificial Analysis v4.3.2 page, Vals AI model page, aimadetools launch comparison); scores are normalized 1–100 interpretations, not official vendor scores. This pass corrects the v3-era six-dim Overall formula to the v4 five-dim rule and adds the first independent GPQA/SWE-bench/LiveCodeBench measurements.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-10 (≥3 independent sources: deepmind.google model card + ai.google.dev pricing, Artificial Analysis v4.3.2 page, Vals AI model page, aimadetools launch comparison); scores are normalized 1–100 interpretations, not official vendor scores. This pass corrects the v3-era six-dim Overall formula to the v4 five-dim rule and adds the first independent GPQA/SWE-bench/LiveCodeBench measurements; 2026-10-16 re-check: ARC-AGI-2 60.4%, AA-HLE 40.8%, AA-LCR 80.0%, FrontierMath 58.9/22.0, AA-MMMU-Pro 83.2% added — Reasoning 85→87, Overall 87→88).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
