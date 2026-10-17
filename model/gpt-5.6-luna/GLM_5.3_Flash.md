@@ -25,7 +25,8 @@ Agent / tool use:
 - GDPval-AA: **1582** (OpenAI launch table — fills the gap); AA-normalized: **48.2%**
 - BrowseComp: **83.3%**; CyberGym: **77.9%**; OSWorld 2.0: **45.6%**; Toolathlon: **53.4%**; ExploitGym: **12.4%** (OpenAI)
 - AA Agentic Index: **42.7%**; APEX-Agents-AA: **35.8%** (AA); ApprenticeBench (GUI): **7%** (NeoCognition — weak); Terminal-Bench 3.0: **14.3%** (weak)
-- CursorBench 4.0 (max): **35.9** ($1.03/task); CursorBench 3.2: **61.1** (Cursor — the 2026-10-08 "47.7 medium" was a lower-effort run)
+- MazeBench ASCII: **0%** (added 2026-10-16); GDP.pdf: **21.0%** (AA)
+- AA GDP.pdf / MazeBench added 2026-10-16; all other rows corroborated by the 48-row BenchLM refresh
 - Tau / Claw-Eval: no individual public rows surfaced for Luna
 
 Reasoning / knowledge:

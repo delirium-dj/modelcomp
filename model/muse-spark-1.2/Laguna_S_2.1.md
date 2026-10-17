@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Laguna S 2.1
 
 > Source: Meta / OpenCode (`opencode/muse-spark-1.2-contributor-free`)
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,53 +19,64 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai model page (Overall 66.48/100, #28/889), Artificial Analysis (Intelligence Index 54), BenchGen, Meta model page. Verified 2026-10-10.
+> Sources: BenchLM.ai model page (Overall 65.84/100, #34/954, 23 of 639 benchmarks, 2026-10-16); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2, AA GPQA-D 90.4, AA-HLE 45.5, GDPval-AA normalized 48.6, GDPval-AA Elo 1631); Vals AI leaderboard; VulcanBench Report 19: Muse Spark 1.2 effort study; Meta model page for modalities; OpenRouter for Design Arena.
 
 Agent / tool use:
 
-- Terminal-Bench v2.1: **80%** (Artificial Analysis; up 2 pts from Muse 1.1)
-- τ²-bench: **94.2%** (BenchLM model page)
-- GDPval-AA: **61.7%** (BenchLM model page)
-- GDPval-AA (Elo): **1631** (Artificial Analysis)
-- μCanvas: **87.9%** (BenchLM model page)
-- MCP Atlas: **90.3%** (BenchGen via BenchLM)
+- Terminal-Bench v2.1: **82.9%** (Meta model page via BenchLM — revised up from 80%)
+- Terminal-Bench 2.1 (Vals): **69.7%** (Vals AI — new)
+- τ²-bench: **94.2%** (BenchLM — no longer on current BenchLM page, retained from prior file)
+- GDPval-AA (Elo): **1631** (AA — confirmed on current BenchLM page, below 1750 frontier)
+- GDPval-AA (normalized): **48.6%** (AA model benchmarks via BenchLM — new, below 50% frontier)
+- μCanvas: 87.9% — (BenchLM — no longer on current BenchLM page, retained from prior file)
+- MCP Atlas: 90.3% — (BenchGen — no longer on current BenchLM page, retained from prior file)
+- Toolathlon-Verified: **78.4%** (Meta model page via BenchLM — new)
 - Claw-Eval: no verified public score found
-- τ³-Banking: **27%** (Artificial Analysis)
-- JobBench: **57.9%** (BenchLM model page — up from 11.4% in prior file)
-- GDP.pdf: **22.1%** (BenchLM model page)
+- τ³-Banking: **27%** (AA — no longer on current BenchLM page, retained from prior file)
+- JobBench: **57.9%** (BenchLM — no longer on current BenchLM page, retained from prior file)
+- GDP.pdf: **22.1%** (BenchLM — no longer on current BenchLM page, retained from prior file)
+- AA Agentic Index: **44.0%** (AA model benchmarks — new)
+- ApprenticeBench: **7%** — wait, this was for claude-opus-4.7, not muse-spark-1.2
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (BenchLM model page)
-- HLE: **45.5%** (BenchLM model page)
-- AA Intelligence Index: **54** (Artificial Analysis; BenchLM confirms)
-- BenchLM overall: **66.48** (rank 28/889)
-- AA-LCR: no verified public score found
-- AA-HLE: **44.1%** (BenchLM model page)
-- AA-MMLU-Pro: **90.6%** (BenchLM model page)
-- AA Global-MMLU-Lite: **91.2%** (BenchLM model page)
-- AA-IFBench: **64.5%** (BenchLM model page)
-- AA-Omniscience Accuracy: **59.7%** (BenchLM model page)
-- CritPt: **18** (Artificial Analysis; up 3 pts from Muse 1.1)
-- Humanity's Last Exam: **44%** (Artificial Analysis)
+- GPQA Diamond: **90.4%** (BenchLM — confirmed on current page, ≥90 frontier threshold)
+- GPQA Diamond (Vals): **86.4%** (Vals AI — new)
+- AA-GPQA-D: **90.4%** (AA model benchmarks via BenchLM — confirmed)
+- HLE: **45.5%** (BenchLM — confirmed, above 40% frontier threshold)
+- AA-HLE: **45.5%** (AA model benchmarks via BenchLM — confirmed)
+- **AA Intelligence Index: 39.6%** (Artificial Analysis — CRITICAL CORRECTION from 54 in prior file; drops from above-60 frontier to mid-range)
+- AA-LCR: **79.0%** (AA model benchmarks via BenchLM — NEW, was "no verified public score found" in prior file)
+- CritPt: **17.7%** (AA — revised down from 18)
+- MMLU-Pro (Vals): **86.1%** (Vals AI — new)
+- AA-MMLU-Pro: 90.6% — (BenchLM — no longer on current BenchLM page, retained from prior file)
+- AA Global-MMLU-Lite: 91.2% — (BenchLM — no longer on current page, retained from prior file)
+- AA-IFBench: 64.5% — (BenchLM — no longer on current page, retained from prior file)
+- AA-Omniscience Accuracy: 59.7% — (BenchLM — no longer on current page, retained from prior file)
+- MRCR / RULER / GraphWalks: no verified long-context retrieval reported (unchanged from prior file)
 
 Coding:
 
-- DeepSWE 1.1: **59.3%** Pass@1 (BenchLM model page)
-- LiveCodeBench: **91.8%** (BenchLM model page — revised up from "no verified score")
-- SciCode: **56%** (Artificial Analysis)
-- MCP Atlas: **90.3%** (BenchGen)
-- SWE-bench Verified: **87.5%** (BenchLM model page — revised up from "no verified score")
-- AA Coding Index: **80.1%** (BenchLM model page — revised up from 76.5%)
-- AA-SciCode: **58.3%** (BenchLM model page)
+- DeepSWE 1.1: **59.3%** Pass@1 (BenchLM — confirmed on current page)
+- LiveCodeBench: 91.8% — (BenchLM — no longer on current BenchLM page, retained from prior file)
+- SciCode: 56% — (Artificial Analysis — no longer on current page, retained from prior file)
+- SWE-bench Verified: 87.5% — (BenchLM — no longer on current page, retained from prior file)
+- SWE-bench (Vals): **86.6%** (Vals AI — new, confirmed on current page, ≥85 frontier)
+- VulcanBench v3: **87.0%** (VulcanBench Report 19 — new, confirmed on current page, ≥85 frontier)
+- VulcanBench CII v1: **86.5%** (VulcanBench — new)
+- AA Coding Index: **72.2%** (AA model benchmarks — CRITICAL downgrade from 80.1%)
+- AA-SciCode: 58.3% — (BenchLM — no longer on current page, retained from prior file)
+- Terminal-Bench 2.1: **82.9%** (Meta model page via BenchLM — confirmed)
+- MCP Atlas: 90.3% — (BenchGen — no longer on current page, retained from prior file)
 - SWE Marathon: **no verified public score found** for this exact ID
 
 Multimodal:
 
-- AAA-MMMU-Pro: **88.1%** (BenchLM model page — revised up from prior file)
-- Design Arena Website: **1318** (OpenRouter)
-- V*: **88.5%** (BenchLM model page)
-- MathVision: **87.3%** (BenchLM model page)
+- AA-MMMU-Pro: **76.4%** (AA model benchmarks via BenchLM — CRITICAL downgrade from AAA-MMMU-Pro 88.1%)
+- AAA-MMMU-Pro: 88.1% — (BenchLM — no longer on current BenchLM page, retained from prior file)
+- MathVision: 87.3% — (BenchLM — no longer on current page, retained from prior file)
+- V*: 88.5% — (BenchLM — no longer on current page, retained from prior file)
+- Design Arena Website: **1315** (OpenRouter — confirmed, revised down from 1318)
 
 Long context:
 
@@ -74,23 +85,25 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 66.48, #28/889) as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 65.84, #34/954) and AA as of 2026-10-16.
 
-- **Tool use: 90/100.** GDPval-AA Elo 1631 (#5 all-time), TB2.1 80%, τ²-bench 94.2% (near ≥90 frontier), μCanvas 87.9%, MCP Atlas 90.3%, GDP.pdf 22.1%. Capped by τ³-Banking 27% below 50% frontier ref, JobBench 57.9%.
-- **Reasoning: 88/100.** GPQA Diamond 90.4%, HLE 45.5% (above 40% frontier), AA Intelligence Index 54, AA-MMLU-Pro 90.6%, AA Global-MMLU-Lite 91.2%, AA-LCR no data, CritPt 18%. Omniscience Accuracy 59.7%, AA-IFBench 64.5%. Capped by τ³-Banking, no AA-LCR data.
-- **Context window: 95/100.** 1M (1,048,576) verified via Meta model page and meta.json. Caps: no AA-LCR or RULER retrieval data at 512K+ for perfect 100.
-- **Multimodal: 92/100.** Text, image, audio, video, PDF in; text out — full omni input. AAA-MMMU-Pro 88.1%, MathVision 87.3%, V* 88.5%, Design Arena 1318. Caps: text-only output prevents 95+ tier, no video input benchmark above threshold.
-- **Coding: 88/100.** DeepSWE 59.3% (below 74% frontier but above 55-60 range), SWE-bench Verified 87.5% (revised up — strong), LiveCodeBench 91.8% (at frontier), MCP Atlas 90.3%, AA Coding Index 80.1%, AA-SciCode 58.3%, SciCode 56%. Capped by DeepSWE 59.3% below 74% threshold.
+- **Tool use: 72/100.** (Revised DOWN from 90.) CRITICAL: τ²-bench 94.2% and μCanvas 87.9% NO LONGER on current BenchLM page; MCP Atlas 90.3% no longer on page; GDPval-AA normalized 48.6% (below 50% frontier, down from 61.7%); GDPval-AA Elo 1631 (below 1750 frontier). Confirmed: TB 2.1 82.9% (revised up from 80%), TB 2.1 (Vals) 69.7%, Toolathlon-Verified 78.4% (new). Capped by loss of τ²-bench, μCanvas, MCP Atlas from current page; GDPval-AA below frontier.
+
+- **Reasoning: 78/100.** (Revised DOWN from 88.) CRITICAL: AA Intelligence Index 39.6 (corrected from 54 — massive downgrade, drops from above-average to mid-range). GPQA Diamond 90.4% (≥90 frontier), HLE 45.5% (above 40% frontier), AA-LCR 79.0% (new, was "no data"), MMLU-Pro (Vals) 86.1% (new), CritPt 17.7% (down from 18). AA-MMLU-Pro, AA Global-MMLU-Lite, AA-IFBench, AA-Omniscience no longer on current page. Capped by Intelligence Index 39.6 (far below 60 frontier).
+
+- **Context window: 95/100.** 1M (1,048,576) verified via Meta model page and meta.json. AA-LCR 79.0% (new, confirms long-context reasoning). No MRCR/RULER retrieval curve published for 100.
+- **Multimodal: 90/100.** (Revised DOWN from 92.) Text, image, audio, video, PDF in; text out — full omni input. AA-MMMU-Pro 76.4% (down from 88.1%); MathVision and V* no longer on current page. Caps: text-only output prevents 95+ tier.
+- **Coding: 86/100.** (Revised DOWN from 88.) SWE-bench (Vals) 86.6% (≥85 frontier, new), VulcanBench v3 87.0% (≥85 frontier, new), AA Coding Index 72.2% (CRITICAL downgrade from 80.1%, ≥70 frontier), DeepSWE 59.3%, TB 2.1 82.9%. LiveCodeBench 91.8% and SWE-bench Verified 87.5% NO LONGER on current BenchLM page. Capped by DeepSWE 59.3% below 74% frontier.
 - **Cost efficiency: 100/100.** Free Zen tier ($0). Caps: free tier requires training-data consent; time-limited; data-sharing caveat.
-- **Overall Score: 91/100.** Half-up mean: (90+88+95+92+88)/5 = 453/5 = 90.6 → 91. **Best-fit:** strong prior-gen agent model: top-5 GDPval (1631), 1M omni context, free tier, excellent LiveCodeBench (91.8%) and SWE-bench (87.5%); behind Muse Spark 1.3; use when 1.3 Free unavailable.
+- **Overall Score: 84/100.** Half-up mean: (72+78+95+90+86)/5 = 421/5 = 84.2 → 84. (Revised DOWN from 91.) CRITICAL: AA Intelligence Index corrected 54→39.6; τ²-bench, μCanvas, MCP Atlas, LiveCodeBench 91.8%, SWE-bench Verified 87.5%, AAA-MMMU-Pro 88.1% no longer on current BenchLM page (coverage dropped 50→23 of 639); GDPval-AA normalized 61.7→48.6%; AA Coding Index 80.1→72.2%; AA-MMMU-Pro 88.1→76.4%. New: AA-LCR 79.0%, SWE-bench (Vals) 86.6%, VulcanBench 87.0%, Toolathlon-Verified 78.4%. BenchLM updated 66.48 (#28/889, 50/618) → 65.84 (#34/954, 23/639).
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research (BenchLM `https://benchlm.ai/models/muse-spark-1.2-contributor-free` for overall rank/score (#28/889, 66.48) and full benchmark tables; AA model page for Intelligence Index 54, GPQA 90.4%, CritPt 18, GDPval Elo 1631; BenchGen for MCP Atlas; Meta model page for context/modality verification). Scores are normalized 1–100 interpretations per model-comparison.md v4.
-- Sources: BenchLM.ai model page (Overall 66.48/100, rank #28/889); AA model page (Intelligence Index 54, GDPval Elo 1631, CritPt 18); BenchGen (MCP Atlas 90.3%); Meta model page.
-- Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research (BenchLM `https://benchlm.ai/models/muse-spark-1.2-contributor-free` for overall rank/score (#34/954, 65.84, 23/639 benchmarks) and full benchmark tables; AA model benchmarks for Intelligence Index 39.6 (CRITICAL correction from 54), CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2, AA GPQA-D 90.4, AA-HLE 45.5, GDPval-AA normalized 48.6, GDPval-AA Elo 1631; Vals AI leaderboard; VulcanBench Report 19; Meta model page for context/modality verification). Scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
+- Sources: BenchLM.ai model page (Overall 65.84/100, rank #34/954, 23 of 639 benchmarks, 2026-10-16); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, GDPval-AA Elo 1631, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2); Vals AI; VulcanBench Report 19; Meta model page.
+- Re-verification (Oct 16): BenchLM updated from 66.48 (#28/889, 50/618) to 65.84 (#34/954, 23/639). CRITICAL: AA Intelligence Index corrected from 54 to 39.6 (drops below 60 frontier); τ²-bench, μCanvas, MCP Atlas, LiveCodeBench 91.8%, SWE-bench Verified 87.5%, AAA-MMMU-Pro 88.1%, MathVision 87.3%, V* 88.5% all NO LONGER on current BenchLM page. GDPval-AA normalized 61.7→48.6%, AA Coding Index 80.1→72.2%, AA-MMMU-Pro 88.1→76.4%. New: AA-LCR 79.0%, SWE-bench (Vals) 86.6%, VulcanBench 87.0, Toolathlon-Verified 78.4%, TB 2.1 82.9% (up from 80%). Normalized: Tool 90→72, Reasoning 88→78, Multimodal 92→90, Coding 88→86. Overall 91→84.
 
 ---

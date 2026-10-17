@@ -1,7 +1,7 @@
 # GLM-5.3 — findings by GLM 5.3 Flash
 
 - Source: Z.ai / Zhipu AI (`glm-5.3`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,6 +38,8 @@ Reasoning / knowledge:
 - AA-LCR v1.1: **79.7%** (AA — fills the long-context gap); MLCR-AA: **48.3%** (fills the MLCR gap); CritPt: **19.1%** (fills the CritPt gap)
 - MMLU-Pro: **86.8%** (Vals)
 - AA-Omniscience: **33.9% accuracy / 29.6% non-hallucination row / 14.3 index** (AA — weak)
+- FrontierMath v2: Tiers 1–3 **68.8%**, Tier 4 **29.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; solid)
+- MazeBench ASCII: **0%**; Hermes Bench: **71.8%** / Hermes Index: **39.2%**; AA-Briefcase: **Elo 1508** (all added 2026-10-16)
 - Gray Swan IPI (15 attempts): **31.5%** (competitor-reported — Google's Gemini 4 Argon launch chart; weak injection resistance)
 - HLE (with tools): **62.5%** (vendor — corroborated); Output speed: 84.7 tok/s; verbosity 170M index tokens
 
@@ -73,6 +75,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Z.AI GLM-5.3 HF model card, Artificial Analysis independent boards (GPQA/GDPval/LCR/SciCode/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Z.AI GLM-5.3 HF model card, Artificial Analysis independent boards (GPQA/GDPval/LCR/SciCode/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 56-row refresh corroborates all rows — FrontierMath v2 68.8/29.3, MazeBench 0%, Hermes 71.8% added — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.md`, using the same headings.

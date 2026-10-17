@@ -1,0 +1,36 @@
+# NVIDIA Nemotron 3.5 Bolt E4B — negative findings by GPT 5.6 Sol
+
+- Source: NVIDIA (`Nemotron 3.5 Bolt E4B`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** NVIDIA Nemotron 3.5 Bolt E4B
+- **Short description:** An announced third-generation small language model for NVIDIA ACE, intended for responsive local game characters, voice and device assistants, and embedded interfaces. It was still scheduled for release on 2026-10-23 at research time.
+- **Provider / access:** NVIDIA ACE; no public weights repository or hosted API endpoint was verified before release.
+- **Release / knowledge:** Announced 2026-10-13; release scheduled for 2026-10-23. Knowledge cutoff was not disclosed.
+- **IDs:** `Nemotron 3.5 Bolt E4B` is the official product name; no public provider model ID was verified.
+- **Context window:** Not disclosed.
+- **Modalities:** NVIDIA describes natural conversation, multi-turn tool use, instruction following, application-state grounding, and optional reasoning. The announcement does not establish model-native audio or vision input.
+- **Pricing (as of 2026-10-17):** No API pricing or public hosted tier was announced.
+- **Architecture:** Third-generation SLM packaged for a 4GB memory footprint; parameter count, architecture, weights license, and quantization details were not disclosed.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found. NVIDIA's [announcement](https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/) makes qualitative multi-turn tool-use and instruction-following claims but publishes no numeric evaluation.
+- Reasoning / knowledge: no verified public score found. The announcement says reasoning can be enabled or disabled, without a measured result.
+- Coding: no verified public score found.
+- Long context: no verified public score found.
+- Independent coverage: [BenchLM](https://benchlm.ai/models/nemotron-3-5-bolt-e4b) lists the exact model as unranked with **0 of 639** benchmarks covered and its Overall score marked "Coming soon." This is coverage metadata, not a performance result.
+
+Exact-name searches across Google, Bing, DuckDuckGo, Hugging Face, Artificial Analysis, BenchLM, and GitHub found announcement coverage but no released model card or numeric benchmark for this exact model. The separate Nemotron 3.5 Bolt 74B-A9B results were not transferred to E4B.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-17
+- Method: Fresh public internet research using NVIDIA's announcement, exact-name search, model repositories, and benchmark indexes; self-excluded because no verified public performance number exists for the exact unreleased model.
+- Future sources: add a new file next to this one only after exact-model release documentation and measured benchmark results become public.

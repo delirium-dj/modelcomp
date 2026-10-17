@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Laguna S 2.1
 
 - Source: openai/gpt-5.5 (OpenAI), e.g. OpenAI launch announcement, LLM Reference, Artificial Analysis, BenchLM
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Verified public numbers sourced from OpenAI launch announcement (`openai.com/index/introducing-gpt-5-5`), LLM Reference, BenchLM.ai, and Artificial Analysis.
+> Verified public numbers sourced from BenchLM.ai (`https://benchlm.ai/models/gpt-5-5`, Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-16), OpenAI launch announcement, Artificial Analysis model benchmarks (Intelligence Index 38.4%, CritPt 27.1%, AA-LCR 84.3%, GDPval-AA Elo 1395, GPQA-D 93.5%, HLE 52.2%), Vals AI (GPQA 93.6%, GPQA-D 93.2%, MMLU-Pro 88.1%, LiveCodeBench 85.3%, SWE-bench 82.6%), Epoch AI FrontierMath v2, React Native Evals.
 
 Agent / tool use / coding:
 
@@ -77,21 +77,22 @@ Multimodal:
 
 > Method: `model-comparison.md` (v4). Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded from Overall.
 
-- **Tool use: 82/100.** Terminal-Bench 2.0 82.0%, TB-2.1 (Vals) 76.4%, GDPval-AA 42.7% (Elo 1396), BrowseComp 84.4%, MCP Atlas 75.3%, OSWorld-Verified 78.7%; τ²-bench 98% (near ≥1750 Elo frontier). Capped by GDPval below 50% threshold and no TB-4.0 standalone score.
-- **Reasoning: 84/100.** GPQA Diamond 93.6% (all variants ≥93%), AA-GPQA 93.5%, ARC-AGI-1 95.0%, ARC-AGI-2 85%, AA-LCR 84.3%, MRCR v2 83.1%–87.5%; Intelligence Index 38 (#65/227). HLE 52.2% (above 40% threshold). CritPt 27.1% is moderate. No standalone HLE ceiling beyond 52.2%.
-- **Context window: 88/100.** AA-verified **922,000** tokens (in 500K–1M tier = 85–94 per methodology; below 1M so not ≥95-100). Long-context surcharge above 272K input tokens noted. MRCR v2 83.1% at 64K-128K, 87.5% at 128K-256K. (Prior file cited 1,050,000 from OpenAI; AA confirms 922K — downgraded from 95.)
-- **Multimodal: 70/100.** **Text and image input only** (verified via AA model page and BenchLM, correcting prior claim of audio+video+PDF input). AAA-MMMU-Pro 79.9% confirms vision reasoning within text+image scope.
-- **Coding: 86/100.** Terminal-Bench 2.0 82.0%, SWE-bench Verified 82.6%, DeepSWE 74.3% (at frontier ref), LiveCodeBench 85.3% (Vals, excellent), AAA-SciCode 55.0% (at frontier), AA Coding Index 74.9%; SWE-bench Pro 58.6%. Strong coding cluster. Capped by SWE-bench Pro 58.6% and no SWE-bench Verified ceiling of 90%+.
-- **Cost efficiency: 50/100.** $5.00/$30.00 per 1M in/out (paid API only) — mid tier, cheaper than GPT-5.6 Sol ($10/$50 → ~30) and Claude Fable 5.1 ($10/$50 → 30), aided by cache reads ($0.50) and batch discounts.
-- **Overall Score: 82/100.** (82 + 84 + 88 + 70 + 86) / 5 = 410 / 5 = 82.0 → 82. **Adjustments from prior 83:** Context downgraded from 95 to 88 (AA confirms 922K, not 1.05M); Intelligence Index confirmed 38 (not 45) per fresh AA v4.3.2 — Reasoning stays 84 on strong individual benchmarks. Aligns with BenchLM Overall 67.79/100 rank and AA Intelligence Index 38 (#65/227).
+- **Tool use: 82/100.** (Unchanged.) Terminal-Bench 2.0 82.0%, TB-2.1 (Vals) 76.4%, GDPval-AA 42.5% (normalized; Elo 1395, below 1750 frontier), BrowseComp 84.4%, MCP Atlas 75.3%, OSWorld-Verified 78.7%; τ²-bench 98% (≥90 frontier, confirmed on current page). Capped by GDPval below 50% threshold and no TB-4.0 standalone score.
+- **Reasoning: 86/100.** (Revised UP from 84.) GPQA Diamond 93.6% (all variants ≥93%, ≥90 frontier threshold), AA-GPQA-D 93.5%, ARC-AGI-1 95.00% (≥96 frontier, new), ARC-AGI-2 85%, AA-LCR 84.3%, MRCR v2 83.1%–87.5%, FrontierMath v2 T1-3 85.263% (≥85 frontier, new), HLE 52.2% (above 40% frontier). Intelligence Index 38.4% (below 60 frontier). Capped by Intelligence Index 38.4.
+- **Context window: 88/100.** (Unchanged.) AA-verified **922,000** tokens (in 500K–1M tier = 85–94 per methodology; below 1M so not ≥95-100). MRCR v2 83.1% at 64K-128K, 87.5% at 128K-256K.
+- **Multimodal: 70/100.** Text and image input only (verified via AA model page and BenchLM). MMMU-Pro 81.2%/83.2%, AA-MMMU-Pro 79.9% confirm vision within text+image scope.
+- **Coding: 86/100.** (Unchanged.) Terminal-Bench 2.0 82.0%, SWE-bench Verified 82.6%, DeepSWE 74.3% (≥74 frontier), LiveCodeBench 85.3% (Vals), AA-SciCode 55.0% (≥55 frontier), AA Coding Index 74.9%, SWE-bench Pro 58.6%, Vibe Code Bench 69.85% (new), React Native Evals 84.7% (new). Capped by SWE-bench Pro 58.6% and no SWE-bench Verified ceiling of 90%+.
+- **Cost efficiency: 50/100.** $5.00/$30.00 per 1M in/out (paid API only, cheaper than GPT-5.6 Sol and Claude Fable 5.1).
+- **Overall Score: 82.4/100.** (82 + 86 + 88 + 70 + 86) / 5 = 412 / 5 = 82.4 → 83. (Revised UP from 82.) New confirmed benchmarks: ARC-AGI-1 95.00% (≥96 frontier), FrontierMath v2 T1-3 85.263% (≥85 frontier), GPQA-D (Vals) 93.2%, MMLU-Pro (Vals) 88.1%, Intelligence Index 38→38.4% (negligible). Reasoning 84→86. BenchLM updated 67.79 (#24/889) → 69.29 (#21/954).
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (OpenAI launch announcement `openai.com/index/introducing-gpt-5-5/`; BenchLM.ai model page for full benchmark table + Intelligence Index 38; Artificial Analysis model page for Intelligence Index 38 and cost-per-task; LLM Reference for pricing and API specs). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research (Cost line preserved verbatim from prior signed file).
-- Sources: OpenAI launch blog (full benchmark suite); BenchLM.ai model page (Overall 67.79/100, #24/889, 64 of 625 benchmarks, Intelligence Index v4.3.2 = 38, #65/227); Artificial Analysis model page (Intelligence Index 38, GPQA 93.5, Omniscience, HLE 45.8); LLM Reference (pricing, API specs, modalities).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (OpenAI launch announcement, BenchLM.ai model page, AA model benchmarks, Vals AI, Epoch AI FrontierMath v2 leaderboard, React Native Evals); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Sources: BenchLM.ai model page (Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-16); OpenAI launch announcement (`openai.com/index/introducing-gpt-5-5`); AA model benchmarks (Intelligence Index 38.4%, CritPt 27.1%, AA-LCR 84.3%, GDPval-AA Elo 1395); Vals AI (GPQA 93.6%, GPQA-D 93.2%, MMLU-Pro 88.1%, LiveCodeBench 85.3%, SWE-bench 82.6%); Epoch AI FrontierMath v2.
+- Re-verification (Oct 16): BenchLM updated from 67.79 (#24/889, 64/625) to 69.29 (#21/954, 65/639). Minimal changes: Intelligence Index 38→38.4% (negligible), τ²-bench 98% (≥90 frontier, unchanged), BrowseComp 84.4% (unchanged), GDPval-AA Elo 1396→1395 (negligible), GDPval-AA normalized 42.7→42.5% (negligible). New: GPQA-D 93.2% (Vals), ARC-AGI-1 95.00%, ARC-AGI-2 85%, FrontierMath v2 T1-3 85.263% (≥85 frontier), Vibe Code Bench 69.85%, React Native Evals 84.7%, MMLU-Pro (Vals) 88.1%. Normalized: Reasoning 84→86, Overall 82→83.
 - Future sources: add a new file next to this one using the same headings.
 
 ---

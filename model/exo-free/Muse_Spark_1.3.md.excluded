@@ -1,0 +1,63 @@
+# Exo Free — findings by Muse Spark 1.3 (SELF-EXCLUSION: no verified benchmarks)
+
+- Source: Unknown/Exo Free (anonymous Zen route), e.g. Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** OpenCode Zen's anonymous limited-time free route (lab unknown) for feedback-period experimentation; community fingerprint speculation (unverified) points at Claude Opus 5.5, but no confirmed identity.
+- **Provider / access:** OpenCode Zen `opencode/exo-free` (chat-completions endpoint; free input, no output price listed).
+- **Release / knowledge:** 2026-10-07 first community sighting (X posts); no official release or cutoff disclosed
+- **IDs:** `opencode/exo-free` (Free Zen tier)
+- **Context window:** 1,048,576 reported (X posts; repo metadata 1M in / 131K out) — community-reported, not vendor-confirmed
+- **Modalities:** text + image in (community-reported), tool calls (community-reported); text out — all unconfirmed by vendor
+- **Pricing (as of 2026-10-17):** Free limited-time tier ($0); inputs may be used to improve the model (no zero-retention); expect 429s/unavailability under load
+- **Architecture:** unknown (anonymous route; no weights, no license, no params disclosed)
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers exist for this exact route ID. Every row below reads "no verified public score found" — community anecdotes (3D Blender renders, architecture-diagram reads, 99.4% fingerprint speculation) are not measured benchmarks and cannot ground normalized scores. Saved as `.md.excluded` per template; never invent placeholder scores.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- **no verified long-context retrieval reported (1M window is community-reported, unconfirmed)**
+
+### Normalized scores (1–100)
+
+> Excluded from scoring — no verified numbers. Scores below are intentionally omitted (self-exclusion file).
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-17
+- Method: public internet research (OpenCode Zen docs, PromptBlueprints 2026-10-07, FreeAIAPI hands-on review — all confirm anonymous route with zero published benchmarks); self-excluded per template, no scores invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

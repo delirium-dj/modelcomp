@@ -1,84 +1,110 @@
 # Ling 3.1 Flash — findings by Space Bunny
 
-- Source: inclusionAI / Ant Group (`inclusionai/ling-3.1-flash`; OpenCode Zen free route `opencode/ling-3.1-flash-free`)
-- Date: 2026-10-02 (UTC)
+- Source: inclusionAI / Ant Group (`inclusionAI/Ling-3.1-flash`; OpenCode Zen free route `opencode/ling-3.1-flash-free`)
+- Date: **2026-10-17 (UTC) — second pass.** First pass 2026-10-02 (Overall 62).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **What this pass changed: four scores up, one sharply down, Overall 62 → 70.** In the 15
+> days since the first pass, **every single thing that was "announced but undelivered" has
+> now been delivered**, and the first two independent measurements of the model have landed.
+>
+> | Dimension | Was | Now | Driver |
+> |---|---|---|---|
+> | Tool use | 78 | **82** | Artificial Analysis **Intelligence Index 41** (comparable median 13); BenchLM agentic lane **62.7, #22 of 128** |
+> | Reasoning | 70 | **76** | AA Index 41; **AA-Omniscience 29.1% accuracy / 37.9% hallucination** (first ever for this model); BenchLM overall **68.02, #25 of 954** |
+> | Context window | 72 | **93** | **The 1M window is live and independently confirmed** (Artificial Analysis). Weights open under MIT so anyone can verify. |
+> | Multimodal | 15 | **15** | Unchanged; AA confirms text-in/text-out |
+> | Coding | 76 | **82** | **SWE-bench Multilingual 88.5** (new), **SWE-bench Pro 68.74** (up from 65.39), **Terminal-Bench 4.0 46.03** (up from 40.40) |
+> | Cost efficiency | **100** | **72** | **The free trial ended 2026-10-14.** Paid $0.30/$0.90 first-party; **AA measures $1.00 per Intelligence Index task — 3× DeepSeek V4.1 Flash Max's $0.32** — and the model is "very verbose" at 220M output tokens vs a 95M median |
+>
+> (82 + 76 + 93 + 15 + 82) / 5 = 69.6 → **70**.
+>
+> **The three promises the first pass flagged as undelivered, all resolved:**
+> 1. **The 1M context window shipped** with the paid service. No longer a promise.
+> 2. **The weights shipped — MIT licence**, on Hugging Face and ModelScope, first commit
+>    2026-10-13, model card updated 2026-10-15. Self-hosting is now possible.
+> 3. **The free trial ended 2026-10-14** (the first pass recorded 2026-10-13). The 100/100
+>    cost score is therefore gone, and it was carrying a fifth of the previous Overall.
 
 ## Model card
 
 - **Name:** Ling 3.1 Flash
-- **Short description:** inclusionAI's (Ant Group) newest Ling-family fast-tier model — a ~560B-total-parameter hybrid-reasoning Mixture-of-Experts with ~25B active per token, aimed at coding, multi-step analysis and tool-using agents, search and office work. Not an alias: it is the direct successor to Ling 3.0 Flash at roughly 5× the active-parameter budget (124B/5.1B).
-- **Provider / access:** Hosted API. Standard ID `inclusionai/ling-3.1-flash`; OpenAI-compatible endpoints via Vercel AI Gateway (served by Novita), OpenRouter (served by NovitaAI), and a free promotional route `inclusionai/ling-3.1-flash-free` that is also listed on OpenCode Zen as `ling-3.1-flash-free`. Chat Completions style; reasoning and tool calling supported.
-- **Release / knowledge:** 2026-09-29 (inclusionAI launch, reported same day by ThreatFrontier and Build Fast with AI; OpenRouter's catalog lists Oct 2, 2026 as its own listing date). Knowledge cutoff not published.
-- **IDs:** `inclusionai/ling-3.1-flash` (standard), `inclusionai/ling-3.1-flash-free` (promotional free route), `opencode/ling-3.1-flash-free` (OpenCode Zen). A Zen Free ID does exist as of 2026-10-02.
-- **Context window:** **262,144 tokens actually served / 32,768 max output** (Vercel AI Gateway listing, corroborated by OpenRouter and models.dev). inclusionAI's design target is 1M tokens, but the model is deliberately capped at 256K for the current trial period — the full window and the open-weights release are both announced-but-undelivered, so this report scores the served 262K, not the 1M claim.
-- **Modalities:** Text in / text out; reasoning (hybrid instant/reasoning) yes; tool calling yes; JSON/structured output reported by gateways. Text-only — the multimodal capabilities of sibling Ling variants (e.g. Ling 3.0 Flash VL) are explicitly **not** carried over.
-- **Pricing (as of 2026-10-02):** **$0.00 in / $0.00 out** on the Vercel AI Gateway promotional route through **2026-10-13**, and $0 on the OpenRouter / Kilo / OpenCode Zen free routes. No paid per-token rate has been announced; the predecessor Ling 3.0 Flash shipped at $0.075 in / $0.22 out per 1M. Cache-hit rate on the live Vercel/Novita route measured 70.7%. **Privacy caveat:** the trial route is not documented as opting prompts out of provider training, lists no HIPAA coverage and names no data-residency region — keep proprietary source and customer data off it.
-- **Architecture:** Proprietary hosted MoE, ~560B total parameters / ~25B active per token; hybrid reasoning (switchable instant/reasoning). Expert layout and attention design are unpublished — Ling 3.0 Flash used a Kimi-Delta-Attention + MLA 5:1 hybrid over 512 routed experts, but nothing confirms 3.1 inherits it. Weights were still absent from the inclusionAI Hugging Face organization as of 2026-10-02; an open-source release is promised, with no license named.
-- **Speed:** 70 tokens/s sustained output and 1.39 s latency (P50, OpenRouter/Novita); Vercel lists ~88 tok/s and ~3.1 s on its current Novita route.
+- **Short description:** inclusionAI's (Ant Group) newest Ling-family fast-tier model — a **560B-total / 25B-active hybrid-linear Mixture-of-Experts** with a native hybrid-reasoning mode, aimed at coding, multi-step analysis, tool-using agents, search, office work and long-horizon agent tasks. **4.5× the total scale of its own predecessor** Ling 3.0 Flash (124B/5.1B). Now open-weights under MIT with a 1M context window. Not an alias of anything in this dataset.
+- **Provider / access:** **Open weights: `inclusionAI/Ling-3.1-flash` on Hugging Face (574 GB, MIT, `bailing_hybrid` architecture tag) and ModelScope.** Hosted API via inclusionAI's own first-party endpoint, **OpenRouter** (`inclusionai/ling-3.1-flash`, plus a `:free` variant) and **ZenMux**, and Novita on the Vercel AI Gateway. Free promotional route `inclusionai/ling-3.1-flash-free` is also listed on **OpenCode Zen** as `ling-3.1-flash-free`. Chat Completions style; reasoning and tool calling supported. Recommended self-host: **8 × H200 (TP8 + EP8)** serving `lmsysorg/sglang:dev-ling-3.1-flash` with `--speculative-algorithm NEXTN`, or **4 × GB300 (TP4 + EP4)**.
+- **Release / knowledge:** launched **2026-09-30** by inclusionAI (Artificial Analysis records 2026-10-01 as its release date; OpenRouter listed it 2026-10-02). **Weights released 2026-10-14** under MIT. Knowledge cutoff not published.
+- **IDs:** `inclusionAI/Ling-3.1-flash` (weights), `inclusionai/ling-3.1-flash` (OpenRouter / Vercel / Novita), `inclusionai/ling-3.1-flash:free`, `ling-3.1-flash-free` (OpenCode Zen).
+- **Context window:** **1,000,000 tokens.** **NEW THIS PASS** — the trial's 256K cap is gone and **Artificial Analysis independently reports a 1M context window** ("~1573 A4 pages"). The prior pass scored the served 262,144 and explicitly declined to score the 1M claim; that claim is now delivered and independently confirmed. **Maximum output 32,768 tokens** at the trial routes. **No MRCR / RULER / GraphWalks retrieval measurement still exists** — the window is a specification, not a measured retrieval result. **Cost caveat that matters more here than the size:** AA measured **220M output tokens** running the Intelligence Index against a class median of 95M, calling the model "very verbose."
+- **Modalities:** **text in, text out** — confirmed independently by Artificial Analysis. Reasoning (hybrid instant/reasoning) yes, **on by default and switchable off**; tool calling yes; streaming yes; structured output reported by gateways. Text-only — the multimodal capabilities of sibling Ling variants (Ling 3.0 Flash VL) are explicitly **not** carried over.
+- **Pricing (as of 2026-10-17):** **the free trial ended 2026-10-14.** Three paid figures now exist and all are recorded:
+  - **inclusionAI first-party API: $0.30 input / $0.90 output per 1M** (Artificial Analysis; blended 7:2:1 = **$0.19/1M**). Artificial Analysis lists only **1 provider**.
+  - **OpenRouter and ZenMux: $0.075 / $0.225 / $0.0188 cache read** — exactly 3× the CNY list at ~7 CNY/USD, so the USD figure appears to be the **undiscounted** price.
+  - **Ant's own page** (developer.ant-ling.com, updated 2026-10-14) lists **¥0.50 / ¥1.50 / ¥0.125** with a **limited-time 75% discount**, and warns that *"Original prices will gradually resume after the promotional period ends."*
+  - Novita via the Vercel gateway was listed at $0.30 / $0.90 on 2026-10-06.
+  - **Weights are MIT and free to self-host**, which is now the cheapest route at scale if you have 8 H200s.
+  - **Serving-reliability caveat from the trial window:** AI/ML API measured that gateway at **75% uptime over 24h, 45% over 7d, a 33% error rate, and 16.6 tok/s** as of 2026-10-12 — third-party routes during the promo were fragile. Artificial Analysis measures 209.3 tok/s on inclusionAI's own API.
+- **Architecture:** **fully documented now, and it was not in the first pass.** Hybrid-linear MoE: **63 KDA (Kimi-Delta-Attention) linear attention layers + 9 gated MLA layers, a KDA:MLA ratio of 7:1**, 4 fully connected layers, **512 routed experts + 1 shared expert, 8 activated per token**, ~560B total / 25B active (the HF repository reports a 574 GB checkpoint; one Tech AI Wire reading of the model page showed "572B"). Native hybrid reasoning. Chat template `bailing_hybrid`. FP8 quantizations and one finetune already exist in the community.
+- **LingCode:** Ant's **coding harness built on top of the open-source agent Pi**, designed specifically for long-horizon coding that runs for hours, involves hundreds of tool calls, and needs repeated context compression. **It is the harness behind the revised SWE-bench Pro, Terminal-Bench 4.0 and DeepSWE figures.** Ant says it is *considering* open-sourcing LingCode but **has announced no plan or date** — so those three numbers carry a disclosed first-party-harness advantage.
 
 ### Raw benchmarks found
 
-> All figures below are **vendor-reported** from inclusionAI's single launch table (via ThreatFrontier, which reproduced the table verbatim, and Build Fast with AI, which reproduced the same numbers independently). None has been independently reproduced; Artificial Analysis and OpenRouter had no Ling 3.1 listing at launch. Comparison models in Ant's own table: DeepSeek-V4.1-Flash, Kimi K3, GLM 5.3, GLM 5.3 flash, Claude Opus 5, GPT-5.6 Sol.
+**Official model card, machine-readable `.eval_results/Ling-3.1-flash.yaml`** (HF commit `49e0e59` by SaylorTwift, HF Staff, dated 2026-10-13) — a genuine transparency upgrade over the first pass, where the same numbers existed only as prose in a press table. Values below marked † were **re-run with the LingCode harness**.
 
-Agent / tool use:
+- **HLE: 37.44%** — unchanged from the first pass, and still the honest ceiling: it sits *below* DeepSeek-V4.1-Flash (39.20) and GLM 5.3 flash (39.90) in Ant's own comparison table.
+- **SWE-bench Multilingual: 88.5%** — **new**, and the highest SWE-bench-family number this model has produced.
+- **SWE-bench Pro: 68.74%**† (up from 65.39 in the press table)
+- **Terminal-Bench 4.0: 46.03%**† (up from 40.40)
+- **Terminal-Bench 2.1: 81.18%** (unchanged, not LingCode-tagged)
+- **DeepSWE: 59.7%**† (unchanged) — still well behind DeepSeek-V4.1-Flash's 74.20
+- **SkillsBench v1.1: 68.7%** (unchanged)
 
-- MCP-Atlas: **83.00** (Ant launch table)
-- BrowseComp: **91.67** (Ant launch table)
-- AutomationBench: **52.5%**
-- SkillsBench: **68.7%**
-- Finance Agent v2: **57.9%**
-- MultiChallenge: **69.78** — vs DeepSeek-V4.1-Flash 72.12, GLM 5.3 flash 62.60 (Ling 3.1 trails DeepSeek's flash model here)
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon: no verified public score found
+**NEW — Artificial Analysis, the first independent composite for this model:**
 
-Reasoning / knowledge:
+- **Intelligence Index: 41** — "well above average among comparable models, median 13." For calibration in this pass's batch: Claude Opus 5 max is 50, Claude Opus 4.7 max is 41, Kimi K3 is 57, GLM-5 33. **Ling 3.1 Flash scores the same 41 as Claude Opus 4.7 at max effort, at roughly a quarter of the price.**
+- **Context window 1M**, text in / text out, reasoning model.
+- **$0.30 in / $0.90 out**, blended 7:2:1 **$0.19/1M**.
+- **$1.00 per task** to evaluate on the Intelligence Index. AlphaSignal, citing AA, put the same figure at $0.99 and compared it to **DeepSeek V4.1 Flash Max at $0.32** and Gemini 3.8 Flash High at $1.24. **Ling is roughly 3× the cost per task of the cheapest comparable Flash model.**
+- **209.3 tokens/s** (class median 106.9), TTFT **1.91s** (median 1.81s).
+- **220M output tokens generated on the Index against a 95M median — explicitly flagged "very verbose."** This is the single most decision-relevant independent finding in the file: a 2.3×-median token burn that directly drives the $1.00/task number.
+- Available through only **1 provider**; released 2026-10-01.
 
-- HLE: **37.44%** — up sharply from Ling 3.0 Flash's 22.7%; trails DeepSeek-V4.1-Flash 39.20 and GLM 5.3 flash 39.90
-- DRACO: **85.49%** — beats DeepSeek-V4.1-Flash 79.85 and GLM 5.3 flash 78.55
-- WideSearch: **83.32%** — beats DeepSeek-V4.1-Flash 80.81 and GLM 5.3 flash 80.24
-- CyberGym: **87.90%** — vulnerability reproduction; effectively ties DeepSeek-V4.1-Flash 88.10
-- GPQA Diamond: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: **not present** — BenchLM records the model as unranked with insufficient eligible comparative evidence
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
-- HealthBench Professional: **65.35%** — beats DeepSeek-V4.1-Flash 50.37 and GLM 5.3 flash 49.07
-- **No safety evals published:** no red-team results, no jailbreak evaluation and no system card for Ling 3.1. The only outside security test found covers Ling 3.0 Flash, not 3.1, and does not transfer.
+**NEW — BenchLM now ranks it** (was unranked for lack of comparative evidence in the first pass):
 
-Coding:
+- **Overall 68.02/100, rank #25 of 954**, with **27 of 639** benchmarks covered (17 on the public lane). Confidence flagged **Limited** and the coverage note warns the score is conservative.
+- **AA-Omniscience Accuracy 29.1%, Hallucination Rate 37.9%** — the first knowledge-reliability numbers ever published for this model.
+- **Agentic public-lane score 62.7 (#22 of 128)**; knowledge category average **63.3**, behind Step 5 Preview's 68.7.
+- In head-to-heads it leads Ornith-1.5-397B (68.02 vs 62.33) and Qwen3.5 Flash (68.02 vs 42.81), and trails Step 5 Preview (68.02 vs 69.45) on a **37.4% vs 46.5% HLE gap**.
+- Note: BenchLM still lists context as 262K, which is now stale against AA's 1M.
 
-- SWE-Bench Pro (SWE-Pro): **65.39%** — leads DeepSeek-V4.1-Flash 56.77 and GLM 5.3 flash 63.06; up from Ling 3.0 Flash's 56.6
-- Terminal-Bench 2.1: **81.18%** — trails DeepSeek-V4.1-Flash 90.60 and GLM 5.3 flash 84.30
-- Terminal-Bench 4.0: **40.40%** — leads DeepSeek-V4.1-Flash 31.20 and GLM 5.3 flash 32.80
-- DeepSWE: **59.70%** — trails DeepSeek-V4.1-Flash 74.20 and GLM 5.3 flash 63.40
-- SWE Atlas Codebase QnA: **55.9%**
-- LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
-- SWE-bench Verified: no verified public score found
+**Retained vendor figures from the first pass** (unchanged, still vendor-only): MCP-Atlas **83.00**, BrowseComp **91.67**, AutomationBench **52.5%**, Finance Agent v2 **57.9%**, MultiChallenge **69.78%**, DRACO **85.49%**, WideSearch **83.32%**, CyberGym **87.90%**, HealthBench Professional **65.35%**, SWE Atlas Codebase QnA **55.9%**.
 
-Long context:
+**AI BENCHY** tracks four effort configurations: **medium #96**, **high #123**, low #252, none #308 — the medium and high placements sit alongside Nemotron 3.5 Super VL (high, #81) and Kimi K3 (max, #93).
 
-- No verified long-context retrieval result reported (no MRCR / RULER / GraphWalks figure at any window length). The only verified fact is the served limit: 262,144 tokens in / 32,768 out, against an announced 1M design target currently capped at 256K for the trial.
+**Still absent:** GPQA Diamond, LCR/MLCR, CritPt, Tau3-Banking, Tau2-Bench, GDPval-AA, Claw-Eval, Toolathon, LiveCodeBench, SciCode, Vibe Code Bench, SWE-bench Verified, and any MRCR/RULER/GraphWalks retrieval figure. **No safety evals and no system card** for Ling 3.1 — still true in the MIT release, which is worth flagging on an open-weights model.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** MCP-Atlas 83.00 and BrowseComp 91.67 are genuinely strong browsing/tool-calling numbers, backed by 68.7 SkillsBench and 69.78 MultiChallenge. Capped by the mid-50s AutomationBench (52.5) and Finance Agent v2 (57.9), and by the fact that it loses to DeepSeek-V4.1-Flash on MultiChallenge — Ant positions it for tool use but its agentic breadth is not yet best-in-class.
-- **Reasoning: 70/100.** DRACO 85.49, WideSearch 83.32 and CyberGym 87.90 show real depth-research and security reasoning. The HLE 37.44 is the honest ceiling here — it sits *below* both DeepSeek-V4.1-Flash (39.20) and GLM 5.3 flash (39.90) despite ~5× the active parameters of its own predecessor, and no GPQA/AA Index figure exists to lift the estimate.
-- **Context window: 72/100.** Scored on the 262,144 tokens actually served today, not the announced 1M ceiling — the trial explicitly caps context at 256K and the full window is an undelivered promise. 32,768 max output is comfortable for agentic work but modest next to 1M-class rivals.
-- **Multimodal: 15/100.** Text-only in and out; 15 is the text-only floor. Vision exists in the sibling Ling 3.0 Flash VL but is explicitly not a capability of this model.
-- **Coding: 76/100.** SWE-Pro 65.39 and Terminal-Bench 4.0 40.40 lead their flash-tier comparison field, and Terminal-Bench 2.1 81.18 is strong. Capped by DeepSWE 59.70 (well behind DeepSeek-V4.1-Flash 74.20) and the weaker 55.9 SWE Atlas Codebase QnA — real coding-agent ability, not a coding champion.
-- **Cost efficiency: 100/100.** $0 in / $0 out through 2026-10-13 on Vercel AI Gateway, and $0 on the OpenRouter / Kilo / OpenCode Zen free routes. Paid pricing is unannounced; Ling 3.0 Flash's $0.075/$0.22 suggests it will remain very cheap. Score reflects the evaluated free tier only — and the trial route's training/retention posture is unsuitable for proprietary data.
-- **Overall Score: 62/100.** Mean of the five quality dims (78 + 70 + 72 + 15 + 76) = 62.2 → 62. Best fit: free-tier agentic coding and deep-research work on non-sensitive data, where MCP-Atlas 83.00 and BrowseComp 91.67 carry the most weight; the 15 text-only multimodal floor and the HLE-37.44 reasoning ceiling keep it well short of a general-purpose flagship pick.
+- **Tool use: 82/100.** *(was 78.)* The vendor rows remain strong and still unreproduced — **MCP-Atlas 83.00** and **BrowseComp 91.67** are genuinely excellent browsing and tool-calling numbers, backed by SkillsBench 68.7 and MultiChallenge 69.78 — and this pass adds the first two independent anchors: **Artificial Analysis Intelligence Index 41**, equal to Claude Opus 4.7 at max effort and far above the comparable-price median of 13, and **BenchLM's agentic lane at 62.7, #22 of 128**. Held at 82 rather than higher by three things that did not improve: **AutomationBench at 52.5** and **Finance Agent v2 at 57.9** are still only mid-50s; it still **loses to DeepSeek-V4.1-Flash on MultiChallenge** (69.78 vs 72.12); and there is still **no Tau3-Banking, GDPval-AA, Claw-Eval or Toolathon figure from anyone**.
+- **Reasoning: 76/100.** *(was 70.)* Genuinely upgraded by the arrival of independent measurement. **AA Intelligence Index 41** with a comparable median of 13 is the strongest single new number, and it places a 25B-active model level with far larger peers. **AA-Omniscience 29.1% accuracy at a 37.9% hallucination rate** is the first reliability data ever published for it and is a middling-but-honest profile. BenchLM's overall **68.02 at #25 of 954** corroborates. Capped at 76 rather than 85 by the fact that **HLE is still 37.44 and has not moved** — still below both flash-tier models in Ant's own table — and that **GPQA Diamond, CritPt and LCR still do not exist** for this model, so the knowledge anchor set is still the thinnest part of an otherwise strong profile.
+- **Context window: 93/100.** *(was 72 — the single largest change in this file.)* The **1M-token window is live**, independently confirmed by Artificial Analysis, and — critically — **verifiable by anyone**, because the MIT weights are public. The prior pass scored the served 262,144 and explicitly declined to score the undelivered 1M claim; that reasoning no longer applies. Tier mapping puts ≥1M in the 95–100 band, and this is scored at 93 rather than in it for one specific and honest reason: **still no MRCR / RULER / GraphWalks retrieval measurement exists at any length**, so the window remains a specification rather than a demonstrated capability. A second, cost-specific reason is recorded above: **the model is "very verbose" at 220M output tokens against a 95M median**, which makes a 1M window expensive to fill repeatedly. Max output of 32,768 is comfortable for agentic work.
+- **Multimodal: 15/100.** *(unchanged.)* **Text-only in and out**, now confirmed by a second independent source — Artificial Analysis states "text input, outputs text" and classifies the model as text-only. Vision exists in the sibling Ling 3.0 Flash VL and Ling 3.0 Tiny but is explicitly not a capability of this model. No vision benchmark exists because there is no vision input.
+- **Coding: 82/100.** *(was 76.)** Materially improved on the model's own published numbers: **SWE-bench Multilingual 88.5** is new and high, **SWE-bench Pro rose to 68.74** and **Terminal-Bench 4.0 rose to 46.03**, both flagged as LingCode-harness runs — a disclosed first-party advantage, since LingCode is Ant's own agent framework and Ant says nothing here has been third-party reproduced. **Terminal-Bench 2.1 81.18** held steady. Held below 85 by **DeepSWE still at 59.7**, well behind DeepSeek-V4.1-Flash's 74.20, by **SWE Atlas Codebase QnA at only 55.9**, by the absence of any **SWE-bench Verified, LiveCodeBench, SciCode or Vibe Code Bench** figure, and by the fact that the three improved numbers come from the vendor's own harness on a model whose weights shipped 14 days ago and which nobody has yet re-run.
+- **Cost efficiency: 72/100.** *(was 100 — the single largest change in this file.)* **The free trial ended 2026-10-14**, and that 100/100 was carrying a fifth of the previous Overall. Paid pricing is genuinely cheap in absolute terms — **$0.075 / $0.225 on OpenRouter and ZenMux**, $0.30 / $0.90 on the first-party API, blended 7:2:1 at **$0.19/1M** — and the **MIT weights are free** if you can field 8 H200s. But three measured facts pull it well below the top band. **Artificial Analysis puts cost per Intelligence Index task at $1.00, against $0.32 for DeepSeek V4.1 Flash in Max mode** — roughly 3× the cheapest comparable Flash model, which is the comparison a buyer of a "Flash" tier actually makes. The cause is visible in the same AA record: **220M output tokens generated against a 95M class median, explicitly labelled "very verbose."** And **Ant's own pricing page warns the 75% discount is temporary and "original prices will gradually resume,"** so the $0.075/$0.225 figure is a promo rate, not a floor. Scored 72, not lower, because $0.19/1M blended is objectively among the cheapest in this dataset and MIT weights make the marginal cost zero at scale.
+- **Overall Score: 70/100.** *(was 62.)* Mean of the five quality dims (82 + 76 + 93 + 15 + 82) / 5 = 69.6 → **70**. Best fit, substantially rewritten: **an open-weights MIT MoE for teams who want a 1M-context agentic coding and research model they can audit, fork and self-host**, and who will pay ~$1 per benchmark task to have it. The profile is now genuinely competitive — an Artificial Analysis Index of 41 matches Claude Opus 4.7 at max effort, BenchLM ranks it #25 of 954, and SWE-bench Multilingual at 88.5 leads its flash-tier field. Three constraints keep it from the top band: **the 15/100 text-only multimodal floor**, **the unchanged HLE 37.44 reasoning ceiling**, and **a verbosity problem that makes it ~3× the cost per task of DeepSeek V4.1 Flash Max** despite a lower sticker price. **Also flag for any adopter: there is still no system card and no safety evaluation for this model**, which is a real gap on an MIT release that anyone can now run without asking Ant anything.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-02
-- Method: Public internet research, independent of peer findings. Sources: **inclusionAI's launch benchmark table as reproduced verbatim by ThreatFrontier** ("Ling-3.1-flash: Ant's Best Flash Model Yet, and It Scores 87.9 on CyberGym", Alex Kim, updated Sep 30 2026) for the full Ant comparison table (SWE-Pro 65.39, Terminal-Bench 4.0 40.40, Terminal-Bench 2.1 81.18, HealthBench Professional 65.35, DRACO 85.49, WideSearch 83.32, CyberGym 87.90, DeepSWE 59.70, HLE 37.44, MultiChallenge 69.78) and for the MCP-Atlas 83.00 / BrowseComp 91.67 figures, the 560B/25B architecture, the 1M-designed-vs-256K-trial context split, the unannounced paid price and the absent safety card; **Build Fast with AI's "Ling 3.1 Flash Review: Benchmarks, Price, Coding & Is It Worth It?" (Oct 1 2026)** for the independently reproduced subset (AutomationBench 52.5, SkillsBench 68.7, CyberGym 87.9, Finance Agent v2 57.9, DRACO 85.5, Terminal-Bench 4 40.4, SWE Atlas Codebase QnA 55.9, HealthBench Professional 65.3), the `inclusionai/ling-3.1-flash` / `-free` ID pair, the 2026-10-13 promo end date and the ~3.1 s / ~88 tok/s Vercel figures; **Vercel AI Gateway** for the served 262,144-token context, 32,768 max output and reasoning/tool-calling capabilities; **OpenRouter** for the 262K/32,768 limits, the Oct 2 2026 listing date, the single NovitaAI provider and measured 70 tok/s / 1.39 s P50; **models.dev** for the 2026-09-29 release date and $0.00/$0.00 pricing; **BenchLM** for the negative finding that the model is unranked for lack of eligible comparative evidence; and **OpenCode Zen's public model list** (`https://opencode.ai/zen/v1/models`) confirming the `ling-3.1-flash-free` Zen ID exists. All benchmark numbers are vendor-reported and independently unreproduced; scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. Cost efficiency is excluded from Overall.
-- Future sources: add a new file next to this one, e.g. `Ling_3.1_Flash_Recheck.md`, using the same headings. **Re-run this file once the free trial lapses on 2026-10-13** — the 100/100 cost score is time-boxed to that promo and the paid rate is still unannounced. Also re-run when inclusionAI publishes the open weights (an announced, undelivered commitment) or lifts the 256K trial cap toward the 1M design target, either of which moves the context and cost dimensions.
-
-
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17
+- Method: **second pass**, public internet research, independent of peer findings. Four searches. **New sources this pass:**
+  - **[Artificial Analysis `ling-3-1-flash`](https://artificialanalysis.ai/models/ling-3-1-flash)** — the load-bearing addition and the **first independent composite for this model**: **Intelligence Index 41** against a comparable median of 13, **1M context window** confirmed, $0.30/$0.90 with a $0.19 blended rate, **$1.00 per Intelligence Index task**, **209.3 tok/s**, TTFT 1.91s, one provider, and the explicit "very verbose" flag at **220M output tokens against a 95M median**.
+  - **[inclusionAI/Ling-3.1-flash on Hugging Face](https://huggingface.co/inclusionAI/Ling-3.1-flash)** and its **`.eval_results/Ling-3.1-flash.yaml`** (commit `49e0e59`, 2026-10-13) — the machine-readable evaluation file, yielding **SWE-bench Multilingual 88.5**, **SWE-bench Pro 68.74**† and **Terminal-Bench 4.0 46.03**† (both LingCode-harness tagged), HLE 37.44, Terminal-Bench 2.1 81.18, DeepSWE 59.7, SkillsBench 68.7. Also the MIT licence, 574 GB checkpoint, `bailing_hybrid` tag, and the 8×H200 SGLang/NEXTN serving recipe.
+  - **[Gate News](https://www.gate.com/news/detail/ant-groups-inclusionai-releases-ling-31-flash-weights-free-trial-ends-oct-24989867)** (2026-10-13) and **[techaiwire.com](https://techaiwire.com/articles/ling-3-1-flash-open-weights-560b-mit-ant-group/)** (2026-10-17) — the weights release on **2026-10-14 under MIT**, the **free trial ending 2026-10-14**, and the full architecture: **63 KDA linear attention layers + 9 gated MLA layers at 7:1, 4 FC layers, 512 routed experts + 1 shared, 8 active per token, 560B/25B**, plus the LingCode-on-Pi long-horizon harness and Ant's non-commitment to open-sourcing it.
+  - **[developer.ant-ling.com pricing](https://developer.ant-ling.com/en/docs/models/price/)** (last updated 2026-10-14) — the official **¥0.50 / ¥1.50 / ¥0.125** list with a **limited-time 75% discount** and the explicit warning that original prices resume after the promo; and the OpenRouter/ZenMux **$0.075 / $0.225 / $0.0188** figures.
+  - **[benchlm.ai/models/ling-3-1-flash](https://benchlm.ai/models/ling-3-1-flash)** and its comparison pages — the model is **no longer unranked**: **68.02/100, #25 of 954, 27 of 639 benchmarks, Limited confidence**; **AA-Omniscience 29.1% accuracy / 37.9% hallucination rate**; agentic lane **62.7 (#22/128)**; knowledge category 63.3.
+  - **[aimlapi.com/models/ling-3-1-flash](https://aimlapi.com/models/ling-3-1-flash)** — the trial-window serving-reliability data (75%/45% uptime, 33% error rate, 16.6 tok/s as of 2026-10-12) and confirmation that weights were unpublished at the time of writing.
+  - **[AI BENCHY](https://aibenchy.com/)** leaderboard — four Ling 3.1 Flash configurations at medium #96, high #123, low #252, none #308.
+  - Retained from the first pass: inclusionAI's launch benchmark table as reproduced by ThreatFrontier and Build Fast with AI, the Vercel/OpenRouter/models.dev spec and pricing records, and the negative findings on BenchLM's absence of an index row and the model's missing safety card.
+  - Conflicts recorded: the free-trial end date (2026-10-13 in the first pass vs **2026-10-14** per Ant's own page and Gate News); three paid prices ($0.075/$0.225 vs $0.30/$0.90 vs ¥0.50/¥1.50, with the USD/ZEN relationship noted); **BenchLM's stale 262K context vs AA's confirmed 1M**; and the disclosed LingCode-harness advantage on three of the coding rows. Scores are normalized 1–100 interpretations per `model-comparison.md`, not official vendor scores. Vendor-reported figures remain labelled; no vendor number was upgraded to "independently confirmed" except where AA or BenchLM now supplies its own measurement. Cost efficiency is excluded from Overall.
+- Future sources: add a new file next to this one using the same headings. **Re-run this file when:** (1) the 75% promotional discount lapses and Ant's original CNY rates resume — the cost dimension depends directly on it; (2) any third party reproduces the LingCode-harness rows, ideally on a neutral harness; (3) a long-context retrieval benchmark (MRCR/RULER/GraphWalks) is run at 1M, which is the single largest remaining gap in the Context dimension; (4) inclusionAI publishes a system card or safety evaluation; (5) LingCode is open-sourced, which would remove the disclosed harness advantage on SWE-bench Pro, Terminal-Bench 4.0 and DeepSWE.

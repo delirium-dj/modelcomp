@@ -1,7 +1,7 @@
 # GLM-5.3-FlashX — findings by GLM 5.3 Flash
 
 - Source: Z.ai (`glm-5.3-flashx`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -78,6 +78,6 @@ Speed / other:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai shared-weights GLM-5.3-Flash page updated 2026-10-10 citing the Z.AI launch post, Vals AI leaderboards, Artificial Analysis independent boards via benchlm.ai, OpenRouter benchmarks, plus the prior 2026-10-06 pass); scores are normalized 1–100 interpretations, not official vendor scores. Benchmark numbers transfer from GLM-5.3-Flash via the vendor's same-weights statement — no independent FlashX-labeled evals exist.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai shared-weights GLM-5.3-Flash page updated 2026-10-10 citing the Z.AI launch post, Vals AI leaderboards, Artificial Analysis independent boards via benchlm.ai, OpenRouter benchmarks, plus the prior 2026-10-06 pass; 2026-10-16 re-check: no FlashX-specific page exists (BenchLM 404s the alias; the shared-weights GLM-5.3-Flash page gained FrontierMath 59.2/29.3, AA-LCR 80.0 confirmed) — no FlashX-labeled evals, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores. Benchmark numbers transfer from GLM-5.3-Flash via the vendor's same-weights statement — no independent FlashX-labeled evals exist.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

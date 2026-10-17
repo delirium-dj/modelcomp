@@ -23,6 +23,7 @@
 
 Agent / tool use:
 
+- MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
 - Terminal-Bench / Tau2-Bench / GDPval-AA / Claw-Eval: no verified public score found
 - Artificial Analysis Intelligence Index: no verified public score found (no AA model page; BenchLM explicitly "coming soon")
 - Tool-call reliability: multiple X threads flagged **unreliable structured output formatting** — JSON schemas missing fields, function signatures with phantom parameters (Turing College compilation); Turing College sequential-chain tests: **drops critical constraints after 6–8 steps**

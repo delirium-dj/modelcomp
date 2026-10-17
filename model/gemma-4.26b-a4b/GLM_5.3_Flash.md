@@ -65,5 +65,5 @@ Multimodal:
 ## Signature
 
 - Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemma 4 26B A4B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on AA-OpenRouter/ai-muninn/grigio/dev.to; 2026-10-16 re-check: BenchLM 22-row refresh corroborates all rows (AA-IFBench 72.4%, AA-HLE 19.3% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemma 4 26B A4B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on AA-OpenRouter/ai-muninn/grigio/dev.to); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

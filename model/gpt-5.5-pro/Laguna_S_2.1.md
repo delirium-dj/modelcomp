@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -21,72 +21,73 @@
 
 ### Raw benchmarks found
 
-> Sources: OpenAI announcement, BenchLM (`https://benchlm.ai/models/gpt-5-5-pro`), Artificial Analysis (`https://artificialanalysis.ai/models/gpt-5-5-pro`). BenchLM covers 9 of 618 benchmarks as of 2026-10-10.
+> Sources: BenchLM.ai model page `https://benchlm.ai/models/gpt-5-5-pro` (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-16); OpenAI: Introducing GPT-5.5 announcement (BrowseComp 90.1%, GPQA 94.6%, HLE 57.2%, HLE w/o tools 43.1%, FrontierMath v2 87.719%/78.049%); Epoch AI FrontierMath v2 leaderboard.
 
 Agent / tool use:
 
-- **BrowseComp:** **90.1%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **GDPval (wins or ties):** **84.9%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **MCP Atlas:** **75.3%** — (OpenAI: Introducing GPT-5.5 announcement; Scale AI post-April 2026 update)
-- **OSWorld-Verified:** **78.7%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **CyberGym:** **81.8%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **Tau2-bench Telecom:** **98.0%** — (OpenAI: Introducing GPT-5.5 announcement; original prompts, no prompt adjustment)
-- **Toolathlon:** **55.6%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **FinanceAgent v1.1:** **60.0%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **Investment Banking Modeling Tasks:** **88.5%** — (OpenAI: Introducing GPT-5.5 announcement)
+- **BrowseComp:** **90.1%** — (OpenAI: Introducing GPT-5.5 announcement — confirmed on current BenchLM page, ≥90 frontier ref)
+- **τ²-bench Telecom:** **98.0%** — (OpenAI: Introducing GPT-5.5 announcement; original prompts, no prompt adjustment — NOT on current BenchLM page, retained from prior file)
+- GDPval (wins or ties): 84.9% — (OpenAI: Introducing GPT-5.5 announcement — NOT on current BenchLM page)
+- MCP Atlas: 75.3% — (OpenAI — NOT on current BenchLM page)
+- OSWorld-Verified: 78.7% — (OpenAI — NOT on current BenchLM page)
+- CyberGym: 81.8% — (OpenAI — NOT on current BenchLM page)
+- FinanceAgent v1.1: 60.0% — (OpenAI — NOT on current BenchLM page)
+- Investment Banking: 88.5% — (OpenAI — NOT on current BenchLM page)
+- Toolathlon: 55.6% — (OpenAI — NOT on current BenchLM page)
 
 Coding:
 
-- **SWE-Bench Pro (Public):** **58.6%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **Terminal-Bench 2.0:** **82.7%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **DeepSWE 1.1:** **69.6%** — (BenchLM)
-- **LiveCodeBench:** **88.5%** — (BenchLM)
-- **AA Coding Index:** **82.0%** — (BenchLM model page)
-- **AA-SciCode:** **64.5%** — (BenchLM model page)
-- **VulcanBench v3:** **86.0%** — (BenchLM model page)
+- All coding benchmarks (DeepSWE 69.6%, LiveCodeBench 88.5%, AA Coding Index 82.0%, AA-SciCode 64.5%, VulcanBench 86.0%, SWE-bench Pro 58.6%, Terminal-Bench 2.0 82.7%) — NOT on current BenchLM page (9 of 639 benchmarks, none are coding). Retained from prior file for reference.
 
 Reasoning / knowledge:
 
-- **ARC-AGI-1 (Verified):** **95.0%** — (ARC Prize official leaderboard via BenchLM)
-- **ARC-AGI-2 (Verified):** **84.2%** — (ARC Prize official leaderboard via BenchLM)
-- **GPQA Diamond (Pro):** **95.1%** — (BenchLM model page)
-- **HLE (with tools):** **60.4%** — (BenchLM model page)
-- **FrontierMath v2 (Tiers 1-3):** **51.0%** — (Epoch AI: FrontierMath v2 leaderboard via BenchLM)
-- **FrontierMath v2 (Tier 4):** **39.6%** — (Epoch AI: FrontierMath v2 leaderboard via BenchLM)
-- **BixBench:** **80.5%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **CritPt:** **30.6%** — (Artificial Analysis: CritPt benchmark leaderboard via BenchLM)
+- ARC-AGI-1: **95.00%** — (ARC Prize official leaderboard via BenchLM — confirmed on current page, ≥96 frontier threshold)
+- ARC-AGI-2: **84.2%** — (ARC Prize official leaderboard via BenchLM — confirmed)
+- GPQA: **94.6%** — (OpenAI: Introducing GPT-5.5 announcement — confirmed on current page, ≥90 frontier threshold)
+- GPQA-D: **94.6%** — (OpenAI: Introducing GPT-5.5 announcement — confirmed, ≥90 frontier)
+- HLE: **57.2%** — (OpenAI: Introducing GPT-5.5 announcement — confirmed, revised down from 60.4%)
+- HLE w/o tools: **43.1%** — (OpenAI: Introducing GPT-5.5 announcement — new, above 40% frontier threshold)
+- CritPt: **30.6%** — (Artificial Analysis: CritPt benchmark leaderboard via BenchLM — confirmed)
+- FrontierMath (legacy): **52.4%** — (OpenAI: Introducing GPT-5.5 announcement — confirmed)
+- **FrontierMath v2 (Tiers 1-3): 87.719%** — (Epoch AI FrontierMath v2 leaderboard — CRITICAL CORRECTION from 51.0% in prior file; now ≥85 frontier threshold)
+- FrontierMath v2 (Tier 4): **78.049%** — (Epoch AI — CRITICAL correction from 39.6% in prior file)
 
-Multimodal & grounded:
+Multimodal:
 
-- **MMMU Pro (no tools):** **81.2%** — (OpenAI: Introducing GPT-5.5 announcement)
-- **MMMU Pro (with tools):** **83.2%** — (OpenAI: Introducing GPT-5.5 announcement)
+- MMMU-Pro (no tools): 81.2% — (OpenAI — NOT on current BenchLM page)
+- MMMU-Pro (with tools): 83.2% — (OpenAI — NOT on current BenchLM page)
 
 Long context (from OpenAI announcement table):
 
-- **OpenAI MRCR v2 8-needle (various ranges):** 98.1% at 4K-8K, 93.0% at 8K-16K, 96.5% at 16K-32K, 90.0% at 32K-64K, 83.1% at 64K-128K, 87.5% at 128K-256K, 81.5% at 256K-512K, 74.0% at 512K-1M
-- **Graphwalks BFS 256k:** 73.7%
-- **Graphwalks parents 256k:** 90.1%
+- OpenAI MRCR v2 8-needle (various ranges): 98.1% at 4K-8K, 93.0% at 8K-16K, 96.5% at 16K-32K, 90.0% at 32K-64K, 83.1% at 64K-128K, 87.5% at 128K-256K, 81.5% at 256K-512K, 74.0% at 512K-1M — (NOT on current BenchLM page, retained from prior file)
+- Graphwalks BFS 256k: 73.7% — (OpenAI — NOT on current BenchLM page)
+- Graphwalks parents 256k: 90.1% — (OpenAI — NOT on current BenchLM page)
+- Intelligence Index: 50.0 (AA model page, Oct 10) — NOT confirmed on current BenchLM page (9 of 639 benchmarks include no Intelligence Index entry)
 
 ### Normalized scores (1–100)
 
 > Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> > Confidence: high — 9 public benchmarks found across 4 sources (BenchLM, OpenAI, AA, Epoch AI).
+> > Confidence: medium — only 9 of 639 benchmarks confirmed on current BenchLM page (2026-10-16). Benchmarks from Oct 10 OpenAI announcement (GDPval, MCP Atlas, OSWorld, CyberGym, Tau2 Telecom, FinanceAgent, Investment Banking, Toolathlon, DeepSWE, LiveCodeBench, AA Coding Index, VulcanBench, AA-SciCode, Terminal-Bench 2.0, MMMU-Pro, MRCR curve, Intelligence Index) are NOT on current BenchLM page — retained for reference but excluded from normalized scores. CRITICAL: FrontierMath v2 T1-3 corrected from 51.0% to 87.719% (≥85 frontier).
 
-- **Tool use: 96/100.** BrowseComp 90.1% (near ≥90% frontier ref), GDPval 84.9% (wins or ties), MCP Atlas 75.3%, OSWorld-Verified 78.7%, CyberGym 81.8%, Tau2 Telecom 98.0% (≥90% frontier ref), FinanceAgent 60.0%, Investment Banking 88.5%, Toolathlon 55.6%. Exceptional agentic cluster with two ≥90% frontier benchmarks.
-- **Reasoning: 95/100.** GPQA 95.1% (revised up from 94.4% — BenchLM confirms), AA-HLE 60.4% (with tools, above 40% frontier), AA-LCR 86.0% strong, MMLU-Pro 89.2%, AA-MMLU-Pro 91.0%, BixBench 80.5%, CritPt 30.6%. Capped by no GPQA ≥96% threshold.
-- **Context window: 93/100.** 920k tokens per AA model page (confirmed 922k). Just under 1M — in the 500K-1M tier → 85-94 range. At 922k (92% of 1M), scores 93. MRCR 8-needle curve: 98.1% at 4K-8K, declining to 74.0% at 512K-1M (no ≥98% at 512K+ for 100). Meta.json claims 128K — discrepancy noted.
-- **Multimodal: 70/100.** Text and image input only (per AA model page and announcement). Per methodology "+image in = 60-70"; strong vision (MMMU-Pro 81.2% no tools, 83.2% with tools) confirm capability. Meta.json claims "Text in/out" — discrepancy noted.
-- **Coding: 88/100.** DeepSWE 69.6%, LiveCodeBench 88.5%, AA Coding Index 82.0%, SWE-Bench Pro 58.6%, Terminal-Bench 2.0 82.7%, VulcanBench 86.0%, AA-SciCode 64.5%. Capped by SWE-Bench Pro below 74% frontier threshold.
+- **Tool use: 84/100.** (Revised DOWN from 96.) BrowseComp 90.1% (≥90 frontier ref, confirmed on current page). CRITICAL: GDPval, MCP Atlas, OSWorld-Verified, CyberGym, Tau2 Telecom 98.0%, FinanceAgent, Investment Banking, Toolathlon NO LONGER on current BenchLM page. τ²-bench (Tau2 Telecom) not confirmed on current page. Capped by loss of 8 agentic benchmarks.
+
+- **Reasoning: 89/100.** (Revised DOWN from 95.) GPQA 94.6% (≥90 frontier), GPQA-D 94.6% (≥90 frontier), ARC-AGI-1 95.00% (≥96 frontier), ARC-AGI-2 84.2%, HLE 57.2% (above 40% frontier), HLE w/o tools 43.1% (above 40% frontier), CritPt 30.6%, FrontierMath v2 T1-3 87.719% (≥85 frontier — CRITICAL correction from 51.0%), FrontierMath v2 T4 78.049%. Intelligence Index 50.0 NOT confirmed on current page (was from AA model page). Capped by no ≥96 GPQA-D (94.6%).
+
+- **Context window: 93/100.** 920k tokens per AA model page (confirmed 922k). Just under 1M — in the 500K-1M tier → 85-94 range. MRCR curve (98.1% at 4K-8K declining to 74.0% at 512K-1M) — NOT on current BenchLM page but retained from Oct 10 OpenAI announcement. Meta.json claims 128K — discrepancy noted.
+
+- **Multimodal: 70/100.** Text and image input only (per AA model page and announcement). Per methodology "+image in = 60-70"; MMMU-Pro 81.2%/83.2% (NOT on current BenchLM page, retained). Meta.json claims "Text in/out" — discrepancy noted.
+
+- **Coding: 58/100.** (Revised DOWN from 88.) CRITICAL: No coding benchmarks confirmed on current BenchLM page (9 of 639 — all from Oct 10 OpenAI/AA sources: DeepSWE 69.6%, LiveCodeBench 88.5%, AA Coding Index 82.0%, SWE-bench Pro 58.6%, Terminal-Bench 2.0 82.7%, VulcanBench 86.0%, AA-SciCode 64.5% — all NOT on current page).
 - **Cost efficiency: 28/100.** $30.00 input / $180.00 output per 1M tokens (OpenAI API pricing) — extremely expensive. Also available free via ChatGPT Pro subscription; AA lists provider median as $0.00.
-- **Overall Score: 88.4/100.** Half-up mean: (96+95+93+70+88)/5 = 442/5 = 88.4 → 88. GPT-5.5 Pro delivers frontier reasoning (GPQA 95.1%, HLE 60.4%), exceptional agentic tool use (Tau2 Telecom 98.0%, GDPval 84.9%, BrowseComp 90.1%), and strong coding (LiveCodeBench 88.5%, Terminal-Bench 82.7%). Limited by very expensive API pricing ($30/$180).
+- **Overall Score: 79/100.** Half-up mean: (84+89+93+70+58)/5 = 394/5 = 78.8 → 79. (Revised DOWN from 88.) CRITICAL: BenchLM coverage remains at 9 of 639 but most previously-cited benchmarks (GDPval, MCP Atlas, OSWorld, CyberGym, Tau2 Telecom, DeepSWE, LiveCodeBench, AA Coding Index, VulcanBench, Intelligence Index) are NO LONGER on the current BenchLM page — normalized scores revised accordingly. Confirmed on current page: BrowseComp 90.1% (≥90 frontier), GPQA 94.6% (≥90 frontier), ARC-AGI-1 95.00% (≥96 frontier), HLE 57.2% (>40% frontier), FrontierMath v2 T1-3 87.719% (≥85 frontier — CORRECTED from erroneous 51.0%).
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via Artificial Analysis, BenchLM, OpenAI announcement; scores are normalized 1–100 interpretations per model-comparison.md v4.
-- Sources: BenchLM.ai model page `https://benchlm.ai/models/gpt-5-5-pro` (Overall 76.45/100, rank #14/887, GPQA 95.1%, AA-HLE 60.4%, MRCR 8-needle curve); OpenAI announcement (BrowseComp 90.1%, GDPval 84.9%, MCP Atlas 75.3%, OSWorld-Verified 78.7%, CyberGym 81.8%, Tau2 98.0%, SWE-Pro 58.6%, Terminal-Bench 82.7%, MMMU-Pro 81.2%); AA model page (Intelligence Index, modalities, 920k context); Epoch AI FrontierMath leaderboard.
-- Future sources: add a new file next to this one, e.g. `OpenAI_GPT_5.5_Pro_System_Card.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public internet research via BenchLM, OpenAI announcement, and Epoch AI; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
+- Sources: BenchLM.ai model page (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-16); OpenAI: Introducing GPT-5.5 announcement (BrowseComp 90.1%, GPQA 94.6%, HLE 57.2%, HLE w/o tools 43.1%); Epoch AI FrontierMath v2 leaderboard.
+- Re-verification (Oct 16): BenchLM updated from 76.45 (#14/887, 9/618) to 73.37 (#13/954, 9/639). CRITICAL: most Oct 10 benchmarks no longer displayed on current BenchLM page — only BrowseComp, ARC-AGI-1, ARC-AGI-2, HLE, HLE w/o tools, CritPt, FrontierMath (legacy/v2) confirmed. FrontierMath v2 T1-3 CORRECTED 51.0→87.719% (≥85 frontier). GPQA 95.1→94.6%. HLE 60.4→57.2%. Normalized: Tool 96→84, Reasoning 95→89, Coding 88→58. Overall 88→79.
 
 ---

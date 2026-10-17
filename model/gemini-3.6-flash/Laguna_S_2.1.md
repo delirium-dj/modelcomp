@@ -68,7 +68,7 @@ Multimodal:
 - AA-MMMU-Pro: **83.2%** (Artificial Analysis / BenchLM)
 - CharXiv: **no verified public score found**
 - LVBench: **no verified public score found**
-- Design Arena Website: **1304** (OpenRouter / BenchLM)
+- Design Arena Website: **1302** (OpenRouter / BenchLM — revised down from 1304)
 - AA-Video-MME: **no verified public score found**
 
 Long context:
@@ -78,29 +78,29 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (`https://benchlm.ai/models/gemini-3.6-flash`, overall 73.17, #12/889, 49 benchmarks) and AA as of 2026-10-11.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (`https://benchlm.ai/models/gemini-3.6-flash`, overall 62.78, #44/954, 28 of 639 benchmarks) and AA/Vals/Google as of 2026-10-17.
 
-- **Tool use: 83/100.** OSWorld 83%, aaTB21 87.6% (near ≥88% frontier), Terminal-Bench 2.1 (Vals) 73.8%, GDPval-AA Elo 1423 (below 1750 frontier). Strong agentic cluster with OSWorld 83% and aaTB21 near frontier. Capped by GDPval-AA normalized 39.3% (below 50% threshold), AA Agentic Index 30.1% (low), GDP.pdf no verified score, ApprenticeBench no verified score, AA ITBench no verified score, AA Tau3 Banking no verified score.
+- **Tool use: 82/100.** (Revised DOWN from 83.) OSWorld-Verified 83%, Terminal-Bench 2.1 (Vals) 73.8%, GDPval-AA Elo 1423 (below 1750 frontier), GDPval-AA normalized 39.2% (below 50% threshold), AA Agentic Index 30.1% (low). CRITICAL: aaTB21 87.6% was a near-frontier benchmark on Oct 11 page but REMOVED from current Oct 17 page. Fewer agentic benchmarks on current page (28 vs 49 benches). Capped by GDPval-AA normalized 39.2% (below 50%), AA Agentic Index 30.1% (low), no aaTB21 ≥88%.
 
 - **Reasoning: 78/100.** GPQA Diamond (Vals) 93.4% (near ≥95 frontier), AA-GPQA-D 92.8%, AA-HLE 40.8% (at ≥40% frontier), MMLU-Pro (Vals) 89.3%, AA-LCR 80.0%, ARC-AGI-1 91.20%. Good reasoning benchmark cluster. Capped by AA Intelligence Index 34.0 (well below ~60 frontier ref), CritPt 10.6% (very low), AA Omniscience Index 22.1 (low reliability, 55.6% hallucination rate).
 
-- **Context window: 96/100.** 1,048,576 (1M) token input window (top tier per methodology) with 97.0% MRCR v2 at 128K+ depth (inherited from Gemini 3.8 Flash family). 64K output ceiling. Capped by no ≥98% retrieval at 512K+ published for perfect 100, Text-Only output ceiling.
+- **Context window: 96/100.** 1,048,576 (1M) token input window (top tier per methodology). 64K output ceiling. No ≥98% retrieval at 512K+ published for perfect 100.
 
-- **Multimodal: 92/100.** Verified text, image, video, audio, PDF input; text output with tool calls. Full omni input. AA-MMMU-Pro 83.2%, Design Arena 1304. Capped by text-only output, no verified video-specific benchmarks (CharXiv, LVBench, AA-Video-MME all missing), no explicit audio benchmark performance.
+- **Multimodal: 92/100.** Verified text, image, video, audio, PDF input; text output with tool calls. Full omni input. AA-MMMU-Pro 83.2%, Design Arena 1302. Capped by text-only output, no verified video-specific benchmarks (CharXiv, LVBench, AA-Video-MME all missing), no explicit audio benchmark performance.
 
-- **Coding: 84/100.** DeepSWE 49.0% (below ≥74% frontier), LiveCodeBench (Vals) 88.1% (near ≥90 frontier), SWE-bench (Vals) 79.6%, AA Coding Index 69.2% (below 70% frontier), AA-SciCode 53.4% (below 55% frontier), CursorBench 3.2 53.5%. Capped by DeepSWE 49.0 (below frontier), CursorBench 53.5% (mid-tier), no Vibe Code Bench data, no CursorBench 4.0 data.
+- **Coding: 84/100.** DeepSWE 49.0% (below ≥74% frontier), LiveCodeBench (Vals) 88.1% (near ≥90 frontier), SWE-bench (Vals) 79.6%, AA Coding Index 69.2% (below 70% frontier), AA-SciCode 53.4% (below 55% frontier), CursorBench 3.2 53.5%. Capped by DeepSWE 49.0 (below frontier), CursorBench 53.5% (mid-tier).
 
 - **Cost efficiency: 92/100.** Free on Google AI Studio / unpaid quota with cheap paid intro ($0.75/$3.75/M, 90% cache discount). Introductory pricing ends Dec 2026.
 
-- **Overall Score: 87/100.** Half-up mean: (83+78+96+92+84)/5 = 433/5 = 86.6 → 87. **Best-fit:** cost-efficient Flash-tier workhorse with strong context (1M tokens), multimodal omni input, good agentic benchmarks (OSWorld 83%, aaTB21 87.6%); cap: Intelligence Index 34.0 (below ~60 frontier), DeepSWE 49.0% (below 74% coding frontier), limited verified tool/agent benchmarks, no ≥90 coding frontier benchmarks.
+- **Overall Score: 86/100.** (Revised DOWN from 87.) Half-up mean: (82+78+96+92+84)/5 = 432/5 = 86.4 → 86. BenchLM overall dropped 73.17→62.78 (#12→#44/954) due to expanding pool and fewer benchmarks on page (49→28). Tool use 83→82 (aaTB21 removed). **Best-fit:** cost-efficient Flash-tier workhorse with strong context (1M tokens), multimodal omni input, good agentic benchmarks (OSWorld 83%); cap: Intelligence Index 34.0 (below ~60 frontier), DeepSWE 49.0% (below 74% coding frontier), limited agentic benchmark coverage.
 
 ---
-
+ 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-11
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3.6-flash` for overall rank/score (#12/889, 73.17) and 49 benchmark rows; AA model page for Intelligence Index 34.0, GDPval-AA normalized 39.3%, AA-HLE 40.8%, AA-MMMU-Pro 83.2%, Design Arena 1304, GDPval-AA Elo 1423; Google DeepMind model card for OSWorld 83%, DeepSWE 49.0%, pricing $0.75/$3.75; Vals AI for Terminal-Bench 2.1 73.8%, GPQA Diamond 93.4%, MMLU-Pro 89.3%, LiveCodeBench 88.1%, SWE-bench 79.6%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Key findings: BenchLM overall 73.17 (#12/889, 49 of 625 benchmarks); Intelligence Index 34.0 (below ~60 frontier, v4.3.2 methodology); GPQA 92.8-93.4%, ARC-AGI-1 91.20%; OSWorld 83%, aaTB21 87.6%; LiveCodeBench 88.1%, SWE-bench Vals 79.6%; DeepSWE 49.0% (below frontier); CritPt 10.6% (very low); free on Google AI Studio.
-- Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3.6-flash` for overall rank/score (#44/954, 62.78, 28 of 639 benchmarks) and benchmark tables; Google DeepMind model card for OSWorld 2.0 83%, DeepSWE 49.0%, pricing $0.75/$3.75; Vals AI for Terminal-Bench 2.1 73.8%, GPQA Diamond 93.4%, MMLU-Pro 89.3%, LiveCodeBench 88.1%, SWE-bench 79.6%; AA model page for Intelligence Index 34.0, GDPval-AA normalized 39.2%, AA-HLE 40.8%, AA-MMMU-Pro 83.2%, Design Arena 1302, GDPval-AA Elo 1423, AA Agentic Index 30.1%, AA-GPQA-D 92.8%, AA-LCR 80.0%, CritPt 10.6%, AA Coding Index 69.2%, AA-SciCode 53.4%; Epoch AI for FrontierMath v2 (T1-3 66.478%, T4 21.712%). aaTB21 87.6% was on Oct 11 page but REMOVED from current Oct 17 page.
+- Key findings: BenchLM overall 62.78 (#44/954, 28 of 639 benchmarks); Intelligence Index 34.0 (below ~60 frontier); GPQA 92.8-93.4%, ARC-AGI-1 91.20%; OSWorld 83%, aaTB21 REMOVED from current page; LiveCodeBench 88.1%, SWE-bench Vals 79.6%; DeepSWE 49.0% (below frontier); CritPt 10.6% (very low); free on Google AI Studio.
+- Re-verification (Oct 17): BenchLM overall 73.17→62.78 (#12/889→#44/954, 49→28 benches). aaTB21 87.6% REMOVED from current page. GDPval-AA normalized 39.3→39.2% (negligible). Design Arena 1304→1302. Intelligence Index 34.0 (unchanged). Tool use 83→82 (aaTB21 removal reduces cap). Overall 87→86.
 
 ---

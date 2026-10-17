@@ -1,0 +1,163 @@
+# Cat Jam — findings by Space Bunny
+
+- Source: OpenCode Zen / Command Code (`cat-jam-free` / `stealth/cat-jam:free`; **stealth preview, identity undisclosed**)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **STATUS: SELF-EXCLUDED — zero verified public benchmark numbers.** Cat Jam is a real,
+> actively served **stealth-preview model** with substantial production traffic
+> (842B tokens in the last 7 days, #10 on OpenCode), but **no vendor, card, spec sheet,
+> benchmark, architecture disclosure or price card exists** for it anywhere. Every quality
+> dimension would therefore be an invention, so per the `model-report-TEMPLATE.md`
+> SELF-EXCLUSION rule no scores are asserted and nothing here counts toward any average.
+> `pnpm sync` ignores `.md.excluded` files by design. **Re-run this folder when the stealth
+> preview ends and the model is revealed or a benchmark is published.**
+
+## Model card
+
+- **Name:** Cat Jam
+- **Short description:** An unnamed-vendor **stealth-preview reasoning model** for coding and
+  agentic work, served free on OpenCode Zen and on Command Code since **2026-10-15**. It is a
+  real, heavily-used route rather than a placeholder — but "stealth" is the operative word:
+  OpenCode's own telemetry lists its lab as **"-"** and Command Code lists both its
+  Intelligence and Coding indexes as **"not yet scored."** It is not an alias of any named
+  model in this dataset; nothing in the public record links it to one.
+- **Provider / access:** three route spellings for what is evidently one model:
+  - `opencode/cat-jam-free` — OpenCode Zen, `https://opencode.ai/zen/v1`, `openai-completions`
+    protocol, `@ai-sdk/openai-compatible`
+  - `cat-jam` — the identifier under which it appears in OpenCode's usage telemetry
+  - `stealth/cat-jam:free` — Command Code, `cmd --model stealth/cat-jam:free`, available on
+    the Go plan and above
+
+  The `stealth/` string is a **route prefix**, not a vendor name, and is correctly not part
+  of this folder's slug.
+- **Release / knowledge:** **stealth preview opened 2026-10-15.** Command Code states the
+  offer is free "**while the stealth preview lasts**" and OpenCode's Zen docs warn that
+  "free-model offers can expire and may have different data terms." **No end date is
+  published.** Knowledge cutoff unknowable pre-release.
+- **IDs:** `cat-jam-free` (OpenCode Zen), `cat-jam` (OpenCode telemetry), `stealth/cat-jam:free`
+  (Command Code). **No vendor ID exists — none is disclosed and none may be constructed.**
+- **Context window:** **conflicting, and unresolved.** Command Code lists **1.05M tokens**;
+  the Pi model library and the models.dev-derived metadata for the OpenCode Zen route list
+  **262,144** with a 131,072 max output. Both are recorded; **neither is treated as verified
+  here.** The gap is material — 262K versus 1M is a four-fold difference — and it is plausible
+  that one route is a shorter-context deployment of the same weights, but that is a guess and
+  is not asserted.
+- **Modalities:** **text in, text out.** Pi's spec lists text input with reasoning enabled;
+  no image, audio or video modality is claimed anywhere. Command Code's modality row is
+  empty and its announcement copy advertises "Reasoning with structured output." Not a
+  voice/speech model, so `model/` is the correct parent (`RULES.md` voice routing does not
+  apply).
+- **Pricing (as of 2026-10-17):** **$0.00 input / $0.00 output / $0.00 cache read per 1M**
+  — verified on both Command Code and the Bifrost model-library mirror of Zen's catalogue.
+  **Data caveat:** this is a promotional free window, not a permanent price. OpenCode's own
+  Zen documentation warns that free-model offers expire and "may have different data terms,"
+  and Muse Spark's free tier is the documented precedent in this catalogue for prompts being
+  used to train. **Treat any production traffic on this route as potentially training data.**
+- **Architecture:** **entirely undisclosed.** No vendor, no parameter count, no dense-vs-MoE
+  statement, no quantisation, no licence, no weights repository. The command-line invocation
+  `stealth/cat-jam:free` confirms the stealth-provider framing but reveals nothing about the
+  model itself.
+
+### Raw benchmarks found
+
+> Every row reads "no verified public score found". That is the finding, and for an
+> unrevealed stealth model with no independent evaluation it is the only defensible one.
+
+- **Command Code's Cat Jam model page (fetched 2026-10-17)** — the most detailed public
+  spec sheet that exists. It explicitly renders **"Intelligence index: not yet scored"** and
+  **"Coding index: not yet scored."** The page footer notes "Benchmarks from Artificial
+  Analysis (v4.3)," but **no Artificial Analysis score exists for this model** — the
+  footnote describes the intended source, not a populated result.
+- **Artificial Analysis:** no entry for Cat Jam. **BenchLM:** no entry. **Vals AI:** no entry.
+  **llm-stats:** no entry. **models.dev:** no benchmark data.
+- Agent / tool use: Terminal-Bench, Tau2/Tau3, GDPval-AA, PinchBench, Claw-Eval,
+  Toolathlon, MCP-Atlas — **no verified public score found.**
+- Reasoning / knowledge: GPQA Diamond, HLE, AIME, MMLU-Pro, CritPt, AA-Omniscience,
+  hallucination rate — **no verified public score found.**
+- Coding: SWE-bench Verified/Pro/Multilingual, LiveCodeBench, SciCode, Vibe Code Bench,
+  DeepSWE — **no verified public score found.**
+- Long context: MRCR / RULER / AA-LCR / GraphWalks — **no verified public score found**, and
+  the window length is itself disputed (1.05M vs 262,144).
+- Multimodal: MMMU-Pro / MMMU / DocVQA — **no verified public score found**, and no
+  documented modality to test.
+
+### What *is* documented (operational facts, not capability measurements)
+
+- **OpenCode usage telemetry (as of 2026-10-16):** **842B tokens in the past 7 days,
+  ranked #10 of all OpenCode models and marked "New"**; 38B tokens in the past day; a
+  **95.2% input-token cache ratio** (797B cached / 40B uncached), which places it behind only
+  `space-bunny` (96.8%), `deepseek-v4.1-flash` (96.2%) and `step-5-preview` (95.4%). It is
+  **not** in the token-price table on that page, consistent with $0 metering.
+- **OpenCode Data lists its lab as "-"** — an explicit unknown-lab marker, the same one used
+  for `space-bunny` and for `qwen3.8-flash` in that table.
+- **Qualitative community reports (r/MachineLearningNews, 2026-10):** users describe it as
+  having "that small model feeling," performing **UI tasks "weirdly compared to
+  medium-sized models,"** with reasoning described as otherwise good. **These are
+  impressions, not measurements**, and are recorded as such.
+- **Command Code's positioning copy:** "stealth reasoning model for coding and agentic
+  work," "Super fast for agentic code," "Reasoning with structured output," "1M context
+  token window," "Available all plans, all subs" — all marketing claims with no attached
+  figure.
+- **An adjacent community harness exists and does not cover this model:**
+  `nashingofteeth/opencode-free-models-benchmark` auto-detects OpenCode's free routes from
+  `opencode models | grep -free` and scores five coding tasks. Its README contains **no
+  Cat Jam row** in the retrieved content, so it provides neither a number nor a clean
+  negative.
+
+### Normalized scores (1–100)
+
+**Intentionally omitted.** Under the self-exclusion rule, a model with zero verified public
+benchmarks must not receive scores. Cat Jam has no published evaluation of any kind, and its
+identity is undisclosed — scoring it would convert "we could not measure it" into a quality
+claim, and a fabricated row here would drag the mean for every downstream reader. The seven
+facts that *are* documented — stealth preview from 2026-10-15, $0/$0/$0 while it lasts,
+842B tokens of weekly traffic, a 95.2% cache ratio, reasoning and structured output
+enabled, a disputed 1.05M-vs-262K context window, and an explicitly unscored pair of
+indexes — are deployment and traffic facts. **None of them measures tool use, reasoning,
+coding, context retrieval or multimodality.**
+
+### Recommended resolution for maintainers
+
+1. **Keep it quarantined** until the stealth preview resolves. If the model is revealed
+   with a model card and benchmarks, write a scored `Space_Bunny.md` and retire this file.
+2. **If it is revealed as an alias** of a model that already has a folder, merge into that
+   folder rather than scoring both — the same treatment applied to
+   `openrouter/owl-alpha` → `model/longcat-2.0/` and to `stealth/ox-alpha` → GLM-5.3-Flash.
+3. **Flag the context-window conflict for the `meta.json`.** Whichever figure
+   `model/cat-jam/meta.json` currently asserts, at least one of the two published values
+   (1,048,576 and 262,144) disagrees with it, and neither is vendor-confirmed. Correcting
+   `meta.json` is the orchestrator's job per `tasks/sync-data.md`, so nothing was changed.
+4. **Note the training-data exposure** when the route is used for anything sensitive. The
+   $0 price is promotional and Zen's documentation explicitly warns that free routes carry
+   different data terms.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17
+- Method: public internet research comprising three independent web searches plus direct
+  retrieval of **Command Code's Cat Jam model page** (the most detailed public spec sheet —
+  it reports both indexes as "not yet scored," $0/$0/$0 pricing, a 1.05M context window, an
+  October 15 2026 release date and an explicitly temporary "while the stealth preview lasts"
+  free window), **Pi's model library entry** for `opencode/cat-jam-free` (262,144 context /
+  131,072 max output, text input, reasoning on, OpenAI-completions protocol), **OpenCode's own
+  usage-telemetry dashboard** (842B tokens over 7 days, #10 and marked "New", 38B over one
+  day, 95.2% cache ratio, lab listed as "-", absent from the token-price table), the
+  **Bifrost/Maxim model-library mirror** of Zen's catalogue ($0.00/$0.00), **Command Code's
+  announcement post and the r/MachineLearningNews thread** (qualitative impressions only), and
+  the **`nashingofteeth/opencode-free-models-benchmark`** harness README (no Cat Jam row).
+  Negative confirmations: no entry on Artificial Analysis, BenchLM, Vals AI, llm-stats or
+  models.dev benchmarks. No peer findings file was read and no neighbouring model's numbers
+  were substituted. Scores would be normalized 1–100 interpretations — **none are asserted
+  in this file.**
+- **Re-scoring trigger, in priority order:** (1) the stealth preview ending and the model
+  being revealed with an identity; (2) an Artificial Analysis Intelligence Index or Coding
+  Index row appearing (Command Code's page is already wired to display both); (3) any
+  SWE-bench, Terminal-Bench or Tau row under any of its three route spellings; (4) a
+  published non-promotional price. When (1) and (2) land, this folder should receive a scored
+  `Space_Bunny.md`.
+- Future sources: if Cat Jam is revealed, add a scored file next to this one using the same
+  headings rather than reviving this one by renumbering it.

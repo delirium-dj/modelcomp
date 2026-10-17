@@ -1,7 +1,7 @@
 # Qwen 3.5 — findings by Space Bunny
 
 - Source: Alibaba / Qwen (`qwen/qwen3.5-397b-a17b`; open weights on Hugging Face under Apache 2.0)
-- Date: 2026-10-03 (UTC)
+- Date: **2026-10-17 (UTC) — second pass.** First pass 2026-10-03 (Overall 72.4).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,62 +12,72 @@
 > **family flagship, Qwen3.5 397B-A17B** — the model the bare "Qwen 3.5" name denotes in
 > every vendor announcement and the only variant with a full independent benchmark suite.
 > All numbers below belong to that model only; no sibling's figures are transferred to it.
+>
+> **Standing caveat (unchanged):** `RULES.md` records this as a user-confirmed alias of
+> `Qwen/Qwen3.5-397B-A17B` with 262,144 native context (extensible to 1,010,000) and
+> text/image/video input. The official card confirms every one of those specs.
 
 ## Model card
 
 - **Name:** Qwen 3.5 (flagship: **Qwen3.5 397B-A17B**)
-- **Short description:** Alibaba's February 2026 flagship open-weight multimodal MoE — a native vision-language model pairing a linear-attention hybrid backbone with a sparse mixture-of-experts design, aimed squarely at agentic work: code generation, tool use, image/video understanding and GUI interaction. Apache 2.0 weights at 397B total / 17B active make it self-hostable, and it is notably fast for its size (82.8 tok/s measured) and concise (95M output tokens on the AA Index run, well under the 140M class median). Distinct tiers inside the family are covered by their own folders.
-- **Provider / access:** Open weights on Hugging Face (Apache 2.0); Alibaba's DashScope API; OpenRouter as `qwen/qwen3.5-397b-a17b` (Chat Completions, OpenAI-compatible); additionally DeepInfra, Venice AI and DigitalOcean.
-- **Release / knowledge:** **2026-02-16** (OpenRouter listing date; Artificial Analysis records "Released February 2026"). Knowledge cutoff not published.
-- **IDs:** `qwen/qwen3.5-397b-a17b` (OpenRouter), `Qwen/Qwen3.5-397B-A17B` (DeepInfra), `qwen3-5-397b-a17b` (Venice AI). No Zen Free ID — cost is scored on verified paid pricing.
-- **Context window:** **262,144 tokens** (Artificial Analysis "262k"; OpenRouter 262,144) with **235,929 max output**.
-- **Modalities:** text, **image** and **video** in; text out; **reasoning supported** (thinking variant, plus a non-reasoning variant); tool calling supported; reasoning and non-reasoning variants are separately benchmarked below.
-- **Pricing (as of 2026-10-03):** **$0.60 in / $3.60 out per 1M** on Alibaba's own API (Artificial Analysis); OpenRouter routes it at **$0.39 / $2.34** per 1M after provider competition. DeepInfra lists $0.55/$3.50. Paid only.
-- **Architecture:** Open-weight sparse MoE, **397B total / 17B active** parameters per token, Apache 2.0. Hybrid architecture combining a linear-attention mechanism with sparse MoE for inference efficiency.
+- **Short description:** Alibaba's February 2026 flagship open-weight multimodal MoE — a native vision-language model pairing a hybrid Gated-DeltaNet / gated-attention backbone with a sparse mixture-of-experts design, aimed squarely at agentic work: code generation, tool use, image/video understanding and GUI interaction. Apache 2.0 weights at 397B total / 17B active make it self-hostable, and it is notably fast for its size (82.8 tok/s measured) and concise (95M output tokens on the AA Index run, well under the 140M class median). **Two generations behind on the closed/API line** — Qwen3.7 Max and Qwen3.8 Max/2.4T-A95B now sit above it, and Qwen3.8-27B reaches 1M context — but it remains the 3.5 line's flagship open weights.
+- **Provider / access:** Open weights on Hugging Face (Apache 2.0) and ModelScope; Alibaba Cloud Model Studio / DashScope; OpenRouter as `qwen/qwen3.5-397b-a17b` (Chat Completions, OpenAI-compatible) across **10 providers**; additionally DeepInfra, Venice AI, DigitalOcean, Parasail, Phala, AtlasCloud, StreamLake, GMICloud, NovitaAI, NanoGPT, Nebius, SiliconFlow, Scaleway and others.
+- **Release / knowledge:** **2026-02-16** (OpenRouter listing date and the QwenLM release log; the first HF eval_results are dated 2026-02-03). Knowledge cutoff not published.
+- **IDs:** `qwen/qwen3.5-397b-a17b` (OpenRouter), `Qwen/Qwen3.5-397B-A17B` (HF), `qwen3.5-397b-a17b` (Venice AI), `qwen3.5-397b-a17b` (Alibaba Model Studio). No Zen Free ID.
+- **Context window:** **262,144 natively, extensible to 1,010,000** per the official card (confirmed); OpenRouter serves 262,144. **Correction to the first pass:** max output is **65,536**, not the 235,929 the first pass recorded — Alibaba's own Model Studio table, AIgateway and OpenRouter all state 65,536. (llm-stats.com claims max output equals the 262,144 context; that is not supported by Alibaba's docs and is rejected.) Alibaba prices this model only up to a **256K input tier** — there is no published tier above that.
+- **Modalities:** text, **image** and **video** in; text out; **reasoning supported** (thinking and non-thinking variants are separately benchmarked below); tool calling supported; **MTP (multi-token prediction) trained with multiple steps**; HF evaluation rows are published directly in the repo (MMLU-Pro 87.8, SWE-bench Verified 76.4, GPQA Diamond 88.4, ScreenSpot-Pro 65.6, APEX-Agents 13.6, Video-MME-v2 55.9/48.9).
+- **Pricing (as of 2026-10-17):** **$0.60 in / $3.60 out per 1M** on Alibaba's International (Singapore) endpoint, tiered `0 < token ≤ 256K`, thinking and non-thinking priced identically. **New this pass:** (a) **regional Global-scope rows are far cheaper — $0.172 in / $1.032 out for requests ≤ 128K tokens, $0.43 / $2.58 for 128K–256K** — in China (Beijing), Germany (Frankfurt) and US (Virginia); (b) a **1-million-token free quota, valid 90 days** from activation, Singapore only; (c) **cache hits bill at 10% of the input rate**, explicit cache creation at 125%; (d) **batch calls bill at 50%** of real-time price, non-stacking with cache; (e) OpenRouter routes it from **$0.39 / $2.34** (Alibaba Cloud Int.) with ten providers spanning $0.39–$0.75 in and $2.34–$4.50 out; the cheapest tracked gateway anywhere is AIHubMix at **$0.1644 / $0.9864**.
+- **Architecture:** Open-weight sparse MoE, **397B total / 17B active** parameters per token, Apache 2.0. 60 layers laid out as 15 × (3 × (Gated DeltaNet → MoE) + 1 × (Gated Attention → MoE)); 64 linear-attention heads for V, 16 for Q/K, head dim 128; gated attention with 32 Q heads / 2 KV heads, head dim 256; 512 experts with 10 routed + 1 shared activated; hidden size 4096; expert intermediate 1024; vocab 248,320 (padded); 248,320-dim token embeddings. This is a *finer-grained* architecture than the first pass described: it is not simply "linear attention + sparse MoE" but a 3:1 KDA-to-gated-attention hybrid with a full 512-expert bank.
 
 ### Raw benchmarks found
 
-> The full Artificial Analysis suite is published per variant. Both columns are given; the
-> **Reasoning** variant is used for the normalized scores.
+> **Vendor vs independent is now the central question for this model.** The first pass recorded
+> "SWE-bench Verified / SWE-Pro / LiveCodeBench / DeepSWE: no verified public score found". They all
+> exist — as **vendor-reported** numbers on the official HF card, most of them also present in
+> machine-readable `.eval_results/*.yaml`. Separately, Artificial Analysis has been running its own
+> suite all along, and on a hard 4.0-generation benchmark it now scores this model at zero.
 
-Agent / tool use:
+Vendor-reported (Qwen's official HF card, Alibaba Cloud blog; `.eval_results` where present):
 
-- τ²-Bench Telecom (tool use): **95.6%** (Reasoning) / **83.9%** (Non-reasoning)
-- Terminal-Bench Hard: **40.9%** (Reasoning) / **35.6%** (Non-reasoning)
-- Artificial Analysis Agentic Index: **8.3** (Reasoning)
-- GDPval-AA: **14.0%** (Reasoning)
-- Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
+- SWE-bench Verified: **76.4%** — in `.eval_results/swe_bench_verified.yaml`, and ranked **#32 / 117** independently
+- SWE-bench Multilingual: **69.3%** — **revised down from 72.0%** in a README commit; #26 / 32
+- SWE-bench Pro (Public): **50.9%** — #48 / 65
+- Terminal Bench 2: **52.5%** — in `.eval_results/terminalbench_2.yaml`; #33 / 51
+- LiveCodeBench v6: **83.6%** (79.3% appears on one card revision — both recorded)
+- τ²-bench (TAU2-Bench): **86.7%** (Qwen's card; airline domain uses the Claude Opus 4.5 system-card fixes)
+- BFCL-V4: **72.9%**
+- GPQA (Diamond) 88.4% · MMLU-Pro 87.8% · MMLU-Redux 94.9% · HLE 28.7% · **HLE-Verified 37.6%** · HLE w/ tool 48.3% · IFBench 76.5% · IFEval 92.6% · MultiChallenge 67.6% · SuperGPQA 70.4% · AIME26 91.3% · HMMT Feb-25 94.8% · HMMT Nov-25 92.7% · MMMLU 88.5% · NOVA-63 59.1% · MathVision 88.6% · MMMU 85.0% · ScreenSpot-Pro 65.6% · VITA-Bench 49.7% · Tool Decathlon 38.3% · MCP-Mark 46.1% · BrowseComp 69.0 (context-folding) / 78.6 (discard-all) · WideSearch 74.0 · BrowseComp-zh 70.3
+- Long context, vendor: **AA-LCR 68.7%**, **LongBench v2 63.2%** (both at a 256K window)
+- APEX-Agents 13.6% (HF eval row); APEX-SWE 25.1% (#68 / 73) or 27.9% (Mercor) — conflict recorded
+- **Qwen's own context caveats are unusually candid and are quoted here rather than dropped:** "WideSearch: we use a 256k context window without any context management"; "most search agents built on our model adopt a simple context-folding strategy (256k): once the cumulative Tool Response length reaches a preset threshold, earlier Tool Responses are pruned from the history to keep the context within limits."
 
-Reasoning / knowledge:
+Independent (Artificial Analysis, current v4.3.2; **note the vendor/independent gaps**):
 
-- Artificial Analysis Intelligence Index: **18.4** (Reasoning), ranked **#60 / 118** among open-weight reasoning models of comparable size — *below* the class median of 19 (Artificial Analysis)
-- GPQA Diamond: **89.3%** (Reasoning) / **86.1%** (Non-reasoning)
-- HLE: **29.0%** (Reasoning) / **19.8%** (Non-reasoning)
-- AA-LCR (long-context reasoning): **77.3%** (Reasoning) / **64.3%** (Non-reasoning)
-- CritPt: **1.7%** (Reasoning) / **0.9%** (Non-reasoning) — near-floor on both
-- AA-Omniscience Accuracy: **30.8%** (Reasoning) / **24.5%** (Non-reasoning)
-- AA-Omniscience Non-Hallucination Rate: **11.1%** (Reasoning) / **17.3%** (Non-reasoning) — very low on both
-- IFBench (instruction following): **78.8%** (Reasoning) / **51.6%** (Non-reasoning)
-
-Coding:
-
-- Artificial Analysis Coding Index: **48.2** (Reasoning)
-- SciCode: **44.8%** (Reasoning)
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: no verified public score found
+- **AA Intelligence Index: 21.4 (reasoning) / 21.0 (non-reasoning)** — #104 and #105 of 224 on BenchLM's 2026-10-17 mirror. **Index-version conflict, recorded:** AA's launch article (2026-02-17) scored this model **45** ("#3 open weights model… behind GLM-5 at 50 and Kimi K2.5 at 47"), an intermediate restatement gives 40.1, the first pass recorded 18.4. The fall 45 → 21.4 is an **index redefinition**, not a capability loss: AA's own 2026-09-07 changelog documents v4.3 moving Terminal-Bench 2.1 → 4.0 (a harder 66-task set) and replacing τ³-Banking with AutomationBench-AA. Only the current-version number is comparable and only it is scored.
+- **Terminal-Bench 4.0 (AA run): 0.0%** — the flagship new datapoint, and it is a floor. (The same 0.0% appears on AA for Ling 3.0 Flash VL, so it is at least partly a harness-side effect; either way AA could not get this model to complete a single TB 4.0 task.)
+- AutomationBench-AA: **1.2%** (estimated, ±6.1 pp); APEX-Agents-AA 16.0%
+- τ²-Bench Telecom (AA run): **95.61% (reasoning) / 83.92% (non-reasoning)** — the **vendor reports 86.7%**. Three numbers, all plausible: AA's own harness scores higher on the reasoning variant, Qwen's 86.7% applies the Claude Opus 4.5 airline-domain fixes. Recorded, not averaged.
+- Terminal-Bench Hard (AA run): **40.91% (thinking) / 35.61% (non-reasoning)**; independently ranked **#50 / 244 and #70 / 244**
+- SciCode: **44.79% (thinking) / 41.09% (non-reasoning)**; estimated AA Coding Index 45.8 (first pass recorded 48.2)
+- AA-LCR v1.1: **64.3% (non-reasoning)**; the first pass's **77.3%** for the reasoning variant is consistent, not contradicted
+- GPQA Diamond **86.1%** (non-reasoning) / 88.4% (thinking); HLE **19.8%** (non-reasoning); IFBench **51.6%** (non-reasoning) vs 76.5% (thinking); CritPt **0.9%**
+- **AA-Omniscience Index −37.9** (non-reasoning); Accuracy 24.5% vs 30.8%; **hallucination rate ~88%**. AA's launch article is explicit: "driven primarily by higher accuracy (30% vs 22%) rather than by a reduction in hallucination rate (**88% vs 90%**)" — versus Kimi K2.5 at −11 and GLM-5 at −1.
+- τ³-bench 68.4% · Claw-Eval **56.8%** · Toolathlon 36.3% / Toolathlon-Verified 57.0% · MCP Atlas 46.1% · BFCL v4 67.6% (est) · GDPval-AA est. 27.4% ±7.8
+- OSWorld-Verified **62.2%** · MMMU-Pro **79.0%** · MMMU 85.0% · Video-MME 83.7% / 87.5% (with subtitles) · VideoMMMU 84.7% · MLVU 86.7% · MMVU 80.7% · CharXiv 80.8% · OmniDocBench 1.5 90.8% · AI2D_TEST 93.9% · RefCOCO 92.3% · CC-OCR 82.0% · V* 95.8% · CountBench 97.2% · ScreenSpot Pro 65.6%
+- Arena / preference (verified): **LMArena Elo 1442** (2026-07-23) · **EQ-Bench Creative Writing v3 Elo 1469** · **Design Arena Elo 1233** · **WebDev Arena Elo 1393–1400**
+- Terminal-Bench 2.0 independently **52.5%** (matches the vendor exactly — the one vendor number with clean independent agreement)
+- FrontierSWE v2 **0.0%** (est.) · Vibe Code Bench **7.7%** (est.) · DeepSWE **27.6%** (est.) · SWE-Rebench 58.0% (est.)
+- Epoch Capabilities Index **146.1** (Epoch AI, labelled Official — a genuinely third-party methodology)
 
 Long context:
 
-- AA-LCR **77.3%** (Reasoning) at the model's 262K window; no MRCR / RULER / GraphWalks figure at full window published.
+- AA-LCR **77.3% (reasoning) / 64.3% (non-reasoning)**; LongBench v2 **63.2%**; MRCRv2 **41.4%** (estimated, ±11.3 pp); MLVU 86.7%. Measured at **262K, not at the card's claimed 1,010,000 extension** — the 1M figure has no retrieval measurement attached to it.
 
 Throughput / efficiency (measured):
 
-- **82.8 output tokens/s**, ranked **#27 / 118** in its class (Artificial Analysis)
-- Verbosity: **95M** output tokens on the Intelligence Index run vs a 140M class median (Artificial Analysis) — #12 / 118 for conciseness
-- End-to-end response time slightly above the 2.22s class median; TTFT not separately published
-
-Visual / arena (Design Arena Elo, Qwen3.5 397B A17B):
-
-- 3D **1176** (#55) · Code Categories **1186** (#58) · Data Visualization **1184** (#60) · Game Dev **1153** (#67) · SVG **1139** (#49) · UI Component **1170** (#68) · Website **1197** (#59)
+- **82.8 output tokens/s**, #27 / 118 in its class (Artificial Analysis)
+- Verbosity: **95M** output tokens on the Index run vs a 140M class median — #12 / 118 for conciseness
+- OpenRouter provider spread is wide and worth knowing: Alibaba Cloud Int. 29 tps at 39.05 s latency, DigitalOcean 11 tps at 76.73% uptime, StreamLake 100 tps, GMICloud 58 tps, NovitaAI 22 tps at 48.89 s latency, DeepInfra 36 tps
 
 ### Normalized scores (1–100)
 
@@ -76,18 +86,38 @@ Visual / arena (Design Arena Elo, Qwen3.5 397B A17B):
 >
 > Scores describe the **397B-A17B Reasoning variant**, the flagship this folder documents.
 
-- **Tool use: 72/100.** Two independent tool-facing numbers land in the methodology's mid band: **τ²-Bench Telecom 95.6%** and **Terminal-Bench Hard 40.9%**, with an AA Agentic Index of 8.3. That combination — excellent on the tool-call conversation benchmark, mid-range on long-horizon terminal work — is the signature of a capable tool user that is not yet an agentic powerhouse. Held below the 90–100 frontier band (TB2.1 ~88%+, Tau3 ~50%+): Terminal-Bench Hard at 40.9% is well short, GDPval-AA is only 14.0%, and Claw-Eval/Toolathon/MCP-Atlas are absent.
-- **Reasoning: 63/100.** **GPQA Diamond 89.3%** sits just under the methodology's 90% frontier marker, and **HLE 29.0%** plus **AA-LCR 77.3%** are solid mid-to-upper-mid readings — comfortably inside the 55–65 mid band on the strength of GPQA and LCR, but three drags keep it out of the 90–100 band: **CritPt 1.7%** is effectively at floor, the AA Intelligence Index of **18.4** is *below* its own class median of 19, and **Omniscience Non-Hallucination 11.1%** is the worst honesty signal in this dataset — the model confidently asserts on questions it does not know.
-- **Context window: 80/100.** Verified **262,144** total maps to the 200K–500K = 65–84 band with 200K = 70 as the anchor; the 262K figure and a large **235,929 max output** justify the upper half, and AA-LCR **77.3%** at that window is real measured evidence rather than a capacity claim. Not higher: 262K is below the 500K–1M tier that Qwen's own Plus/Max siblings reach, and no MRCR/RULER/GraphWalks figure exists at full window.
-- **Multimodal: 85/100.** **Video and image input** with text-only output places this in the 75–90 band at the top of it — OpenRouter, Artificial Analysis and LLM Directory all agree on `text,image,video->text`. Not 90+: output is text-only, there is no audio path, and the Design Arena Elo cluster (1,139–1,197) reads as solid-but-unexceptional visual output quality rather than best-in-class.
-- **Coding: 62/100.** AA **Coding Index 48.2** and **SciCode 44.8%** sit in the methodology's mid range (SciCode <40% would cap lower; 44.8% clears it, frontier is 55%+). Capped there by the absence of SWE-bench, LiveCodeBench and DeepSWE figures entirely — a 397B flagship with no public repo-level repair score is a real evidence gap, and the weak **Omniscience** profile suggests generated code should be reviewed rather than merged unreviewed.
-- **Cost efficiency: 88/100.** **$0.60 in / $3.60 out per 1M** on Alibaba's own API lands almost exactly on the methodology's **~$1.25/$4.25 ≈ 88** anchor, and OpenRouter routes it cheaper at $0.39/$2.34. Self-hostable Apache 2.0 weights at 17B active genuinely justify a near-top-tier cost score. Not higher because this is a real paid rate card with a large output price, and the 11.1% non-hallucination rate means retries are a genuine cost multiplier here.
-- **Overall Score: 72.4/100.** Mean of (72 + 63 + 80 + 85 + 62) / 5 = 72.4. Best fit as a self-hostable, Apache-2.0 multimodal workhorse for teams that need video/image understanding plus solid tool use and instruction following at open-weight licensing — a strong default for private multimodal agent pipelines. Its two real weaknesses are the low overall Intelligence Index relative to its size class and its hallucination profile, so it should not be trusted for unsupervised knowledge work without grounding.
+- **Tool use: 72/100.** Unchanged, and the balance of evidence has genuinely not moved. The strong side is corroborated: **τ²-Bench Telecom 95.61%** independently and **GDPval-AA Elo 1221** (AA's launch measurement, +361 over Qwen3 235B) put it at or above the methodology's frontier marker on tool-use conversation, with **τ³-bench 68.4%**, **BFCL v4 72.9%**, **Claw-Eval 56.8%** and **Toolathlon 36.3%** behind them. The weak side is equally corroborated and is new: **Terminal-Bench 4.0 = 0.0%** on AA's own run, **AutomationBench-AA 1.2%**, **APEX-Agents 16.0%**, plus Terminal-Bench Hard 40.91% (#50 of 244) against the ~88% frontier marker. A model that is excellent at multi-turn tool conversation and scores zero on the harder, longer-budget terminal benchmark is a capable tool user that is not yet an agentic powerhouse — exactly where the first pass put it, and no new evidence justifies moving it in either direction.
+- **Reasoning: 63/100.** Unchanged, deliberately. The core numbers are stable: GPQA 88.4% (vendor, independently mirrored at 86.1% on the non-reasoning variant), MMLU-Pro 87.8%, MMLU-Redux 94.9%, IFEval 92.6%, AIME26 91.3%, MATH-500 97.4%, HLE 28.7% / HLE-Verified 37.6%, and Epoch Capabilities Index 146.1. Still inside the 55–65 mid band, still not the 90–100 one, by the same three drags: **AA Intelligence Index 21.4** (current version; the 45-at-launch figure is not comparable), **CritPt 0.9%** at floor, and **Omniscience Index −37.9 with an ~88% hallucination rate** — AA states plainly that the improvement over the previous Qwen came from accuracy, not from any reduction in hallucination. Qwen's own card supplies the fourth: FrontierMath Tier 4 **2.1%**.
+- **Context window: 80/100.** Unchanged. Verified **262,144** native maps to the 200K–500K = 65–84 band with 200K = 70 as the anchor. The card's "extensible up to 1,010,000" is explicitly *not* what is served or measured: AA's long-context runs are at 262K, LongBench v2 63.2% and MRCRv2 41.4% are 262K figures, and Alibaba's own pricing table tops out at a **256K input tier**. Max output is correctly **65,536** (first pass's 235,929 was wrong). Real retrieval evidence exists at this window — AA-LCR 77.3% on the reasoning variant — which is what keeps it in the upper half of the band; no MRCR/RULER figure at 512K+ exists, which is what keeps it out of the 500K–1M tier that Qwen3.8-27B and Qwen3.8 Max now reach.
+- **Multimodal: 88/100** (was 85). Raised 3 points. The first pass rested on "text, image and video in, confirmed by three catalogs" plus a Design Arena Elo cluster. There is now a large independent measured set: **MMMU-Pro 79.0%**, MMMU 85.0%, **Video-MME 83.7% / 87.5%**, **VideoMMMU 84.7%**, MLVU 86.7%, MMVU 80.7%, **CharXiv 80.8%**, OmniDocBench 1.5 90.8%, **AI2D_TEST 93.9%**, RefCOCO 92.3%, **CC-OCR 82.0%**, V* 95.8%, CountBench 97.2% — real chart/OCR/knowledge/document understanding, plus verified GUI grounding (**ScreenSpot-Pro 65.6%**, **OSWorld-Verified 62.2%**) and **LMArena Elo 1442**. Video + image in with text-only output is the 75–90 band and the measurements put it firmly in the upper part. Not 90+: output is text-only, there is no audio path, and Video-MME-v2 at 512 frames is a much weaker 55.9% (48.9% at 64 frames).
+- **Coding: 68/100** (was 62). Raised 6 points, filling the gap the first pass named explicitly. The first pass recorded "SWE-bench Verified / SWE-Pro / LiveCodeBench / Vibe Code Bench / DeepSWE: no verified public score found" and treated that absence as a cap. They exist now: **SWE-bench Verified 76.4%** (#32 / 117), **SWE-bench Multilingual 69.3%** (#26 / 32), **SWE-bench Pro 50.9%** (#48 / 65), **LiveCodeBench v6 83.6%**, **Terminal-Bench 2.0 52.5%** (independently identical). That is precisely the methodology's mid signature — "LiveCodeBench 80% … → 65–75". Scored at 68, inside that band but below its top, because of the counter-signals that arrived in the same pass: **Vibe Code Bench 7.7%** (the band requires Vibe to be *low*, and it is), but also **DeepSWE 27.6%** against the 74% frontier reference, **FrontierSWE v2 0.0%**, **APEX-SWE 25.1% (#68 / 73)**, and the ~88% hallucination rate, which is a real cost multiplier on generated code. Most of these are vendor-reported and flagged as such above; Terminal-Bench 2.0 and SciCode are independently confirmed.
+- **Cost efficiency: 90/100** (was 88). Raised 2 points on newly-documented pricing structure rather than a headline rate change — the $0.60/$3.60 International list is unchanged. What changed is how much cheaper the same model is on other documented paths: **Global-scope regional rows at $0.172 in / $1.032 out below 128K** (essentially the methodology's ~$0.10/$0.20 ≈ 97–99 band), a **1M-token free quota valid 90 days**, **cache hits at 10% of input**, **batch at 50%**, and a lowest-tracked gateway of **$0.1644 / $0.9864** against an official $3.60 output. Apache-2.0 weights at 17B active continue to justify a near-top-tier score. Still not higher: the International list is a real paid rate card with a $3.60 output price, and the 88% hallucination rate means retries are a genuine cost multiplier here.
+- **Overall Score: 74.2/100.** Mean of (72 + 63 + 80 + 88 + 68) / 5 = 371 / 5 = 74.2 (half-up). Up from 72.4, driven almost entirely by the coding evidence gap closing and the multimodal measurements firming up. Best fit unchanged and now better evidenced: a self-hostable, Apache-2.0 multimodal workhorse for teams that need video/image/OCR understanding plus solid tool use and instruction following at open-weight licensing. Its three real weaknesses are unchanged and all independently measured — a 21.4 Intelligence Index for its size class, an **~88% hallucination rate** (AA: it asserts on questions it should refuse), and a **0.0% on Terminal-Bench 4.0**. So: strong default for grounded multimodal agent pipelines, wrong choice for unsupervised knowledge work or unattended long-horizon terminal execution. Note the ladder has moved — Qwen3.8-27B reaches 1M context and Qwen3.8 Max exists, so buy 3.5-397B for open-weight licensing and price, not for frontier quality.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-03
-- Method: public internet research (Artificial Analysis model page for the Intelligence Index, speed, verbosity, pricing, parameter counts and licence; OpenRouter's model page and API for the per-variant benchmark summary table, context window, max output, release date and routed pricing); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17
+- Method: public internet research; **3 web searches** this pass (one deep on the official HF card and AA's model page, one on Alibaba's own pricing documentation and family supersession, one on the official benchmark table). Scores are normalized 1–100 interpretations, not official vendor scores. First pass: 2026-10-03.
+- New sources used this pass (all live-checked 2026-10-17):
+  - https://huggingface.co/Qwen/Qwen3.5-397B-A17B — **the single most important new source**: the official benchmark table (SWE-bench Verified 76.4, Multilingual 69.3, TB2 52.5, LiveCodeBench v6 83.6, τ²-bench 86.7, BFCL v4 72.9, MMMU 85.0, ScreenSpot-Pro 65.6), the full 60-layer architecture spec, "262,144 natively and extensible up to 1,010,000", Qwen3.5-Plus as the hosted 1M-context sibling, and Qwen's own candid context-management caveats. **Vendor-reported.**
+  - https://huggingface.co/Qwen/Qwen3.5-397B-A17B/discussions/9/files — the `.eval_results/*.yaml` files (SWE-bench Verified 76.4, Terminal-Bench 2.0 52.5, MMLU-Pro 87.8, HLE 28.7, HLE-with-tools 48.3, GPQA Diamond 88.4), which make the vendor's headline coding numbers machine-readable rather than chart-image claims
+  - https://github.com/QwenLM/Qwen3.5 — the official release log: Qwen3.5 on 2026-02-16, then 3.6 (Apr), **Qwen3.8-2.4T-A95B on 2026-08-12 and Qwen3.8-27B on 2026-08-14** — the supersession evidence
+  - https://www.alibabacloud.com/help/en/model-studio/model-pricing — **Alibaba's own pricing page (last updated 2026-10-15)**: `qwen3.5-397b-a17b` International $0.60/$3.60 at the 0–256K tier; China/Germany/US Global rows at **$0.172/$1.032 (≤128K) and $0.43/$2.58 (128K–256K)**; **1-million-token free quota valid 90 days**; cache creation 125% / hits 10%; batch 50%, non-stacking; night discounts up to 60% off list on flagged models
+  - https://www.cloudzero.com/blog/qwen-api-pricing/ (2026-10-13) — independent confirmation of the regional pricing split, cache rules, batch rule and the 22:00–08:00 UTC+8 night discount
+  - https://artificialanalysis.ai/articles/qwen3-5-397b-a17b-everything-you-need-to-know — AA's launch article: **Index 45 at launch**, **GDPval-AA Elo 1,221 (+361)**, "+27 p.p. on TerminalBench Hard", "+12 p.p. on HLE", "+28 p.p. on IFBench", and the honesty note that hallucination stayed at **88%** while accuracy rose 22% → 30% (Kimi K2.5 −11, GLM-5 −1)
+  - https://artificialanalysis.ai/changelog — the 2026-09-07 v4.3 entry (Terminal-Bench 2.1 → 4.0 with a harder 66-task set; τ³-Banking → AutomationBench-AA), which explains the 45 → 21.4 index fall as a redefinition rather than a capability loss
+  - https://benchlm.ai/benchmarks/artificialanalysis — live 2026-10-17 AA index mirror: Qwen3.5 397B **21.4 (#104)** and **(Reasoning) 21.4 (#105)**, against GPT-6.1 Sol at 51.8 and Muse Spark 1.3 at 48.1 — the honest size-class context
+  - https://benchgap.net/model/qwen3-5-397b — the widest independent table (~67 measured, ~76 estimated), supplying **Terminal-Bench 4.0-adjacent floors (FrontierSWE v2 0.0%, Vibe Code Bench 7.7%, DeepSWE 27.6%, APEX-Agents 16.0%, AutomationBench 1.2%, APEX-Agents 6.7%)**, **Claw-Eval 56.8%**, **MRCRv2 41.4%**, **LongBench v2 63.2%**, **OSWorld-Verified 62.2%**, **Epoch-free MMMU 85.0 / MMMU-Pro 79.0 / VideoMMMU 84.7 / CC-OCR 82.0 / RefCOCO 92.3 / OmniDocBench 1.5 90.8**, plus IFBench 76.5 and MMMLU 86.3
+  - https://vectorwire.ai/models/qwen3-5-397b-a17b — an evidence-provenance ledger: "11 independently verified, 37 aggregator, **65 vendor-reported**, 53 cross-referenced" across 17 sources; also the **LMArena Elo 1442 (verified)** and the APEX-SWE 27.9% (Mercor) figure that conflicts with 25.1%
+  - https://evals.report/models/alibaba-qwen3-5-397b — vendor-vs-verified labelling per row, and **EQ-Bench Creative Writing v3 Elo 1469 (Verified)**, **Design Arena Elo 1233**, **Epoch Capabilities Index 146.1 (Official)**
+  - https://inferencex.semianalysis.com/model/qwen-3-5 — a second independent transcription of the official vendor table, explicitly labelling every row "Qwen-reported… not a head-to-head evaluation"
+  - https://openrouter.ai/qwen/qwen3.5-397b-a17b — live: **$0.39/$2.34 headline, 262K context, 65,536 max output**, ten providers with their real latency/throughput/uptime spread (Alibaba Int. 39.05 s; DigitalOcean 76.73% uptime)
+  - https://llmprice.gitlab.io/models/qwen3-5-397b-a17b/ — 28 providers, cheapest AIHubMix **$0.1644 / $0.9864**, one free-tier offer, and the ctx tier surcharges
+  - https://llmprice.org/providers/alibaba and https://sfsi.exchange/developers/qwen — two independent live price snapshots (2026-10-03 / 2026-10-17) showing Qwen3.5 397B A17B at $0.39/$2.34 among 29–36 live Alibaba offers, with Qwen3.7 Flash at $0.03/$0.13 and Qwen3.8 Flash at $0.15/$0.47 as the cheaper successors
+  - https://badinfluence.news/leaderboard/models/qwen3-5-397b (updated 2026-10-16) — #53 overall on its own board; APEX-SWE 27.9%; API price $0.50/$3.60 with $0.30 cached
+  - https://aigateway.sh/compare/alibaba_qwen3.8-max-vs-alibaba_qwen3.5-397b-a17b — the **65,536 max output** figure from a provider-documentation comparison, plus Qwen3.8 Max at 1M context / 131,072 max output / $2.00/$6.00
+  - https://models.litellm.ai/providers/dashscope — independent LiteLLM transcription of the Model Studio card, confirming Qwen3.8 Max / Flash at 992K context as the current generation
+- Conflicts recorded, not smoothed: (1) **AA Intelligence Index 45 (launch, preferred for historical context) vs 40.1 vs 21.4 (current v4.3.2, scored) vs the first pass's 18.4** — index redefinition documented in AA's own changelog; (2) **τ²-bench Telecom 95.61% (AA, reasoning) / 86.7% (Qwen card, with the Opus 4.5 airline fixes) / 83.92% (AA, non-reasoning)** — three legitimate values, all kept; (3) **AA-LCR 77.3% (reasoning) vs 64.3% (non-reasoning) vs 68.7% (vendor card)** — variant and methodology differences, not a contradiction; (4) **max output 65,536 (Alibaba / AIgateway / OpenRouter, preferred) vs the first pass's 235,929 vs llm-stats' 262,144**; (5) **APEX-SWE 25.1% (HF eval row) vs 27.9% (Mercor)**; (6) **SWE-bench Multilingual revised 72.0 → 69.3** by a README commit after launch.
+- **Re-run when:** Artificial Analysis completes its own Terminal-Bench 4.0 evaluation properly (the 0.0% is half harness artifact and needs a clean re-run); the Qwen3.8 open-weight 2.4T-A95B or a Qwen3.9 397B-class checkpoint ships (which would supersede this model inside its own family); Alibaba's Model Studio adds a priced tier above 256K for `qwen3.5-397b-a17b`; or the ~88% hallucination rate moves on a fresh AA-Omniscience run.

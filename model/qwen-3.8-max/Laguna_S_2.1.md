@@ -1,7 +1,7 @@
 # Qwen3.8 Max — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,51 +19,99 @@
 
 ### Raw benchmarks found
 
-> Verified public numbers from BenchLM (`https://benchlm.ai/models/qwen3-8-max`, overall 73.18, rank #14/889) and Artificial Analysis. Prior file stated "no verified public score found" for GPQA, TB-2.1, and SWE-bench — fresh BenchLM fetch confirms these benchmarks exist with strong scores.
+> Verified public numbers from BenchLM (`https://benchlm.ai/models/qwen3-8-max`, overall 69.66, rank #19/954, 67 of 639 benchmarks) and Qwen official blog (`https://qwen.ai/blog?id=qwen3.8`). AA model page returned 404. Prior file stated "no verified public score found" for GPQA, TB-2.1, and SWE-bench — confirmed by fresh BenchLM + Qwen blog fetch.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.8%** (BenchLM model page — revised up from "no verified score")
-- τ²-bench: **95.3%** (BenchLM model page — revised up from "no verified score")
-- GDPval-AA: **61.8%** (BenchLM model page — revised up from "no verified score")
-- OSWorld-Verified: **46.7%** (BenchLM model page — revised up from "no verified score")
-- GDP.pdf: **21.6%** (BenchLM model page)
-- TB-4.0: **39.9%** (BenchLM model page)
-- GDPval-AA (Elo): no verified public score found
-- JobBench: **56.0%** (BenchLM model page)
+- Terminal-Bench 2.1: **86.6%** (Qwen official blog / BenchLM — revised up from 84.8%)
+- OSWorld-Verified: **86.1%** (Qwen official blog / BenchLM — CRITICAL: revised up from 46.7%)
+- WideResearch: **81.9%** (Qwen official blog — NEW)
+- AndroidWorld: **85.3%** (Qwen official blog — NEW)
+- CoWorkBench: **74.8%** (Qwen official blog — NEW)
+- skillsBench: **70.2%** (Qwen official blog — NEW)
+- Toolathlon-Verified: **72.5%** (Qwen official blog — NEW)
+- WebArena-Verified: **66.8%** (Qwen official blog — NEW)
+- Agents' Last Exam: **52.4%** (Qwen official blog — NEW)
+- OSWorld 2.0: **19.4%** (Qwen official blog — NEW)
+- AutomationBench: **27.3%** (Qwen official blog — NEW)
+- JobBench: **53.4%** (Qwen official blog — revised down from 56.0%)
+- MazeBench: **0%** (MazeBench AI leaderboard — NEW)
+- AA-AnalystAgent: **37.5%** (AA leaderboard — NEW)
+- Hermes Index: **36.2%** (Nous Research — NEW)
+- Hermes Bench: **70.5%** (Nous Research — NEW)
+- AA Briefcase: **1642** (Qwen: Qwen3.8-Max release benchmarks)
+- AA AutomationBench: **no verified public score found** (not on current page — was 58.6% in prior file)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (BenchLM model page — revised up from "no verified public score found")
-- HLE: **43.9%** (BenchLM model page — revised up from "no verified public score found")
-- AA Intelligence Index: **50.0** (BenchLM model page — revised up from 45 (#19) in prior file)
-- AA-HLE: **43.9%** (BenchLM model page)
-- AA-MMLU-Pro: **92.1%** (BenchLM model page — revised up from "no verified score")
-- AA Global-MMLU-Lite: **92.1%** (BenchLM model page)
-- AA-IFBench: **73.4%** (BenchLM model page)
-- AA-Omniscience Accuracy: **no verified public score found**
-- CritPt: **21.6%** (BenchLM model page)
-- AA-LCR: **87.0%** (BenchLM model page — revised up from "no verified score found")
-- MMLU-Pro: **92.1%** (BenchLM model page)
-- ARC-AGI-2: **80.5%** (BenchLM model page)
+- GPQA: **92.6%** (Qwen official blog / BenchLM — revised down from 93.5%)
+- GPQA-D: **92.6%** (Qwen official blog / BenchLM)
+- GPQA Diamond (Vals): **93.7%** (Vals AI leaderboard)
+- HLE: **43.6%** (Qwen official blog / BenchLM — revised down from 43.9%)
+- HLE w/o tools: **43.6%** (Qwen official blog / BenchLM — NEW)
+- HLE w/ tools: **56.2%** (Qwen official blog / BenchLM — NEW)
+- AA Intelligence Index: **50.0** (BenchLM Oct 10 model page — NOT on current Oct 17 page, AA page 404)
+- AA-HLE: **43.9%** (BenchLM Oct 10 — NOT on current page)
+- AA-LCR: **87.0%** (BenchLM Oct 10 — NOT on current page)
+- CritPt: **21.6%** (BenchLM Oct 10 — NOT on current page)
+- AA-MMLU-Pro: **92.1%** (BenchLM Oct 10 — NOT on current page)
+- AA Global-MMLU-Lite: **92.1%** (BenchLM Oct 10 — NOT on current page)
+- AA-IFBench: **73.4%** (BenchLM Oct 10 — NOT on current page)
+- MRLU-Pro: **92.1%** (BenchLM Oct 10)
+- MMLU-Pro (Vals): **88.6%** (Vals AI leaderboard — revised down from 92.1%)
+- ARC-AGI-2: **80.5%** (BenchLM Oct 10 — NOT on current page)
+- MRCRv2: **92.9%** (Qwen official blog / BenchLM — NEW)
+- LongBench v2: **66.3%** (Qwen official blog / BenchLM — NEW)
+- IFBench: **82.8%** (Qwen official blog / BenchLM — NEW)
+- FrontierMath v2 (Tiers 1-3): **74.737%** (Epoch AI — NEW)
+- FrontierMath v2 (Tier 4): **46.341%** (Epoch AI — NEW)
 
 Coding:
 
-- LiveCodeBench: **93.2%** (BenchLM model page — revised up from "no verified public score found")
-- SWE-bench Verified: **90.5%** (BenchLM model page — revised up from "no verified score found")
-- DeepSWE: **65.4%** (BenchLM model page — revised up from "no verified score")
-- AA Coding Index: **76.5%** (BenchLM model page — revised up from "no verified score")
-- AA-SciCode: **61.5%** (BenchLM model page — revised up from "no verified score found")
-- VulcanBench v3: **84.8%** (BenchLM model page)
+- Terminal-Bench 2.1: **86.6%** (Qwen official blog / BenchLM — coding category, revised up from 84.8%)
+- LiveCodeBench (Vals): **87.9%** (Vals AI leaderboard — revised down from 93.2%)
+- SWE-bench (Vals): **85.6%** (Vals AI leaderboard — replaces SWE-bench Verified)
+- DeepSWE: **56.6%** (Qwen official blog — revised down from 65.4%)
+- SWE-bench Pro: **67.7%** (Qwen official blog — NEW)
+- NL2Repo: **55.9%** (Qwen official blog — NEW)
+- FrontierSWE: **73.5%** (Qwen official blog — NEW)
+- PaperBench: **93.0%** (Qwen official blog — NEW)
+- QwenReactBench: **1724** (Qwen official blog — NEW)
+- VulcanBench v3: **81.2%** (VulcanBench leaderboard — revised down from 84.8%)
+- OpenHarmony Bench: **60.8%** (OpenHarmony Bench — NEW)
+- FrontierSWE v2: **15.8%** (Proximal — NEW)
+- Bug Hunt Bench: **25.7 fixes** (Bug Hunt Bench public data — NEW)
+- SWE-bench Verified: **90.5%** (BenchLM Oct 10 — NOT on current page)
+- AA Coding Index: **76.5%** (BenchLM Oct 10 — NOT on current page)
+- AA-SciCode: **61.5%** (BenchLM Oct 10 — NOT on current page)
 
 Multimodal:
 
-- AAA-MMMU-Pro: **83.2%** (BenchLM model page — revised up from "no verified score")
-- MathVision: **86.6%** (BenchLM model page — revised up from "no verified score")
-- VideoMMMU: **87.6%** (BenchLM model page — revised up from "no verified score")
-- RealWorldQA: **83.3%** (BenchLM model page)
-- V*: **87.0%** (BenchLM model page)
-- CharXiv: **79.8%** (BenchLM model page)
+- MMMU-Pro: **82.3%** (Artificial Analysis / BenchLM — revised down from 83.2%)
+- MathVision: **95.2%** (Qwen official blog / BenchLM — revised up from 86.6%)
+- MathVision w/ Python: **97.7%** (Qwen official blog / BenchLM — NEW)
+- VideoMMMU: **88.7%** (Qwen official blog / BenchLM — revised up from 87.6%)
+- RealWorldQA: **88.0%** (Qwen official blog / BenchLM — revised up from 83.3%)
+- CharXiv: **93.5%** (Qwen official blog / BenchLM — revised up from 79.8%)
+- CharXiv w/o tools: **88.4%** (Qwen official blog / BenchLM — NEW)
+- BabyVision: **82.0%** (Qwen official blog / BenchLM — NEW)
+- BabyVision w/ Python: **91.3%** (Qwen official blog / BenchLM — NEW)
+- Video-MME (with subtitle): **90.4%** (Qwen official blog / BenchLM — NEW)
+- MLVU (M-Avg): **90.8%** (Qwen official blog / BenchLM — NEW)
+- MMVU: **82.4%** (Qwen official blog / BenchLM — NEW)
+- OmniDocBench 1.5: **92.1%** (Qwen official blog / BenchLM — NEW)
+- ZeroBench: **24.0%** (Qwen official blog / BenchLM — NEW)
+- ZeroBench w/ Python: **49.0%** (Qwen official blog / BenchLM — NEW)
+- MedXpertQA (MM): **80.4%** (Qwen official blog / BenchLM — NEW)
+- ScreenSpot Pro: **84.5%** (Qwen official blog / BenchLM — NEW)
+- Vision2Web: **69.0%** (Qwen official blog / BenchLM — NEW)
+- OCRBench V2: **74.2%** (Qwen official blog / BenchLM — NEW)
+- CC-OCR: **79.6%** (Qwen official blog / BenchLM — NEW)
+- ERQA: **77.8%** (Qwen official blog / BenchLM — NEW)
+- SimpleVQA: **75.0%** (Qwen official blog / BenchLM — NEW)
+- PerceptionBench: **63.5%** (Qwen official blog / BenchLM — NEW)
+- LVBench: **81.8%** (Qwen official blog / BenchLM — NEW)
+- V*: **87.0%** (BenchLM Oct 10 — NOT on current page)
 
 Long context:
 

@@ -1,7 +1,7 @@
 # GLM-5.3 Flash — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/glm-5-3-flash`), BenchLM (`https://benchlm.ai/models/glm-5-3-flash`), Z.AI launch post (`https://z.ai/blog/glm-5.3-flash`), HuggingFace (`https://huggingface.co/zai-org/GLM-5.3-Flash`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -94,14 +94,16 @@ Multimodal & grounded:
 - **Reasoning: 85/100.** AA Intelligence Index 42 (rank #4/117 open-weights, well above median 18) is excellent. GPQA Diamond 91.2% (AA) and 86.4% (Vals) are exceptional. HLE 39.9% is just below 40% threshold. LCR 80.0% is strong. CritPt 15.4% is weak. MLCR-AA 51.1% is moderate. Omniscience Index 7.5% is positive but low. MMLU-Pro 86.1% (Vals) is excellent.
 - **Context window: 95/100.** 1M tokens (verified by AA, BenchLM, and Z.AI launch post) — top tier. `meta.json` claims 204K, which is incorrect. LCR 80.0% at 1M context shows good long-context reasoning. No retrieval-percentage figure found.
 - **Multimodal: 65/100.** Text and image input, text output (per AA model page: "Supports: text and image"). +image-in only, no video/audio/PDF verified. `meta.json` says "Text in/out" — discrepancy noted.
-- **Coding: 83/100.** SWE-bench (Vals) 92.0% is excellent. LiveCodeBench (Vals) 80.5% is strong. Terminal-Bench 2.1 84.3% (also AA and Z.AI) is strong. DeepSWE 63.4%, NL2Repo 56.3%, VulcanBench 78.3%, and AA-SciCode 51.6% are solid. No SWE-bench Verified score found. Strong open-weights coding capability.
+- **Coding: 82/100.** (Revised DOWN from 83.) SWE-bench (Vals) 92.0% (≥85 frontier), Terminal-Bench 2.1 84.3%, DeepSWE 63.4%, LiveCodeBench (Vals) 80.5%, AA-SciCode 51.6%, NL2Repo 56.3%, VulcanBench 78.3% (no longer on current BenchLM page, retained from prior file). AA Coding Index 74.8% (no longer on current BenchLM page, retained from prior file). Capped by DeepSWE 63.4% below 74% frontier.
 - **Cost efficiency: 98/100.** $0.15 in / $0.50 out per 1M tokens — extremely low cost (~$0.10 blended). MIT license allows self-hosting. Open weights available.
-- **Overall Score: 82/100.** Mean of five quality dimensions: (82 + 85 + 95 + 65 + 83) / 5 = 410 / 5 = 82.0 → 82. Premier open-weights reasoning model with exceptional value. Strong across all dimensions except multimodal (text+image only, no video/audio/PDF). `meta.json` discrepancies noted: claims 204K context vs verified 1M; claims text-only vs verified text+image input.
+- **Overall Score: 82/100.** (82 + 85 + 95 + 65 + 82) / 5 = 409 / 5 = 81.8 → 82. (Revised DOWN from 82.1 → 82.) AA Coding Index (74.8%) no longer on current BenchLM page (23/639 coverage dropped from 50/625 on Oct 10). Intelligence Index 41.8% (vs 42 Oct 10 — negligible). GDPval-AA Elo 1773 unchanged (≥1750 frontier). BenchLM updated: 45 of 639 benchmarks (#58/954).
 
----
-
+   
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (Artificial Analysis model page `https://artificialanalysis.ai/models/glm-5-3-flash` for Intelligence Index 42 and pricing; BenchLM `https://benchlm.ai/models/glm-5-3-flash` for full benchmark tables; Z.AI launch post, Vals AI, and OpenRouter). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research. **Updated date to 2026-10-10; AA model page confirms Intelligence Index 42, pricing $0.15/$0.50, 1M context, text+image input, 320B/18B MoE, MIT license — all consistent with prior file.** Cost line preserved verbatim from prior signed file.
-- Sources: BenchLM.ai model page (37 of 618 benchmarks, 2026-10-10); AA model page (Intelligence Index 42, #4/117 open-weights, pricing $0.15/$0.50, cost $0.25/Index task); Z.AI launch post; Vals AI; OpenRouter.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (Artificial Analysis model page `https://artificialanalysis.ai/models/glm-5-3-flash` for Intelligence Index; BenchLM `https://benchlm.ai/models/glm-5-3-flash` for full benchmark tables; Z.AI launch post, Vals AI, and OpenRouter). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: BenchLM.ai model page (Overall 58.52/100, #58/954, 45 of 639 benchmarks, 2026-10-16); AA model page (Intelligence Index 41.8≈42, #4/117 open-weights, pricing $0.15/$0.50, 1M context, text+image input, 320B/18B MoE, MIT license — all consistent); Z.AI launch post; Vals AI; OpenRouter; Epoch AI FrontierMath v2; Nous Research (Hermes Index/Bench).
+- Re-verification (Oct 16): BenchLM coverage grew from 37/618 (#28/889 estimated) to 45/639 (#58/954). Intelligence Index 42→41.8% (negligible), GDPval-AA Elo 1773 unchanged (≥1750 frontier). New: OSWorld 2.0 13.0%, Hermes Index 35.0%, Hermes Bench 68.9%, AA Tau3 Banking 47.2%, AA ITBench 51.2%, AA Terminal-Bench 4.0 32.8%, AA EnterpriseOps-Gym 33.2%, AA-AnalystAgent 25.0%, GPQA-D (Vals) 86.4%, MMLU-Pro (Vals) 86.1%, VulcanBench removed from current BenchLM page (was 78.3%). Normalized scores essentially unchanged: Tool 82, Reasoning 85, Context 95, Multimodal 65, Coding 82 (AA Coding Index removed from page). Overall 82.
+
+

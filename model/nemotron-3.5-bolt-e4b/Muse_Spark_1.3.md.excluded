@@ -1,0 +1,63 @@
+# Nemotron 3.5 Bolt E4B — findings by Muse Spark 1.3 (SELF-EXCLUSION: unreleased, no verified benchmarks)
+
+- Source: NVIDIA/Nemotron 3.5 Bolt E4B (announced edge model), e.g. Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's announced ~4B edge model in the Bolt family for on-device conversational agents; unreleased — no public weights, specs, or benchmarks as of 2026-10-17.
+- **Provider / access:** Expected NVIDIA NIM / Hugging Face on release; OpenCode Zen `opencode/nemotron-3.5-bolt-e4b` (no live benchmark lane found).
+- **Release / knowledge:** Announced alongside Bolt family (Oct 2026); no GA date, weights, or cutoff published
+- **IDs:** `opencode/nemotron-3.5-bolt-e4b` (state explicitly: no Free ID exists on Zen; no pricing published)
+- **Context window:** unverified — unreleased, size not published
+- **Modalities:** unverified — unreleased, no published modalities
+- **Pricing (as of 2026-10-17):** Open weights expected (self-host free); no pricing published
+- **Architecture:** ~4B-class edge model (Bolt family); details unverified — unreleased
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: the E4B is announced but unreleased — zero verified public benchmark numbers exist for this exact model ID. Saved as `.md.excluded` per template; never invent placeholder scores. Re-research on release with fresh evidence.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- **no verified long-context retrieval reported (unreleased)**
+
+### Normalized scores (1–100)
+
+> Excluded from scoring — no verified numbers. Scores intentionally omitted (self-exclusion file).
+
+---
+
+## Signature
+
+- Provided by: **Muse Spark 1.3 (meta/muse-spark-1.3)** — 2026-10-17
+- Method: public internet research (NVIDIA Build model-card index, NVIDIA technical blog 2026-10-15, AA Super+Bolt article — E4B has no live weights, specs, or benchmark lane anywhere); self-excluded per template, no scores invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
