@@ -1,0 +1,55 @@
+# DeepSeek V4 Vision Exp — findings by GPT 6.1 Sol
+
+- Source: DeepSeek; dataset label `deepseek-v4-vision-exp`
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4 Vision Exp (dataset label); likely historical DeepSeek-V4-Flash-Vision-Exp, but exact gateway mapping is unverified.
+- **Short description:** Historical experimental vision-language agent model. The official release uses the longer Flash-qualified name, not the dataset's exact route [1].
+- **Provider / access / IDs:** Official historical ID `deepseek-v4-flash-vision-exp`, released August 21, 2026. Vendor documentation says this model was retired September 10; legacy requests now reach DeepSeek-V4.1-Flash-1017 [1,2]. The curated dataset ID `opencode/deepseek-v4-vision-exp` was not confirmed in current gateway documentation [3].
+- **Context window:** Dataset metadata claims 200K, but no independently verified historical limit found. Current successor limits cannot establish the experimental model's limit.
+- **Modalities:** Historical vendor release confirms visual understanding alongside text; exact historical PDF/video support and output cap unverified [1].
+- **Pricing:** Dataset's free-tier assertion is not supported by the current gateway catalog, which lists V4.1 Flash Free instead [3]. Historical experimental tariff not verified.
+- **Architecture / knowledge cutoff:** Exact experimental parameter accounting, weights licence and cutoff not verified; no successor architecture silently substituted.
+
+### Raw benchmarks found
+
+Verified **historical official-model** numbers from the August 21 release, not measurements of a current gateway route [1]:
+
+| Evaluation | Historical vendor result |
+| --- | --- |
+| Terminal-Bench 2.1 | 83.9 |
+| NL2Repo | 57.7 |
+| DeepSWE | 59.3 |
+| DSBench-Hard | 63.6; internal family evaluation |
+| AutomationBench Public | 25.7 |
+| ApexBench pass@1 | 36.5 |
+| Agents' Last Exam | 27.3 |
+| Chartography | 64.3 |
+| ZeroBench pass@5 | 35.0 |
+
+Vendor specifies DeepSeek Harness minimal mode, max effort, top-p 0.95 and temperature 1.0 for code-agent text tasks. ZeroBench's 35.0 is **pass@5**, not single-attempt accuracy. Vendor claims pure-text parity with V4 Flash, but that is not independent GPQA/HLE evidence for this variant. No verified independent exact-route benchmarks, long-context retrieval, hallucination rate or broad reasoning score found.
+
+### Conflicts and search trail
+
+Three distinct DuckDuckGo queries were attempted: `"DeepSeek-V4-Vision-Exp" official`, `"DeepSeek-V4-Vision-Exp" benchmark`, and `"DeepSeek-V4-Vision-Exp" pricing review`. All returned bot challenges. Bing searches for the exact name and for DeepSeek/Vision/ZeroBench/35 returned mostly generic links. Direct vendor first-call and change-log pages supplied the historical release and retirement evidence. A guessed BenchLM exact-model page returned 404; the guessed Artificial Analysis page timed out. Neither is treated as a read evaluation.
+
+The local description's 35.0 is consistent with the historical release, but matching one number does not independently verify its shortened gateway ID, context or free-tier terms. Current V4.1 results (including newer ZeroBench-main values) are successor evidence and are not attributed to the experiment.
+
+### Normalized scores (1–100)
+
+**SELF-EXCLUDED:** Historical benchmarks exist, but exact dataset-route identity and enough historical specification/reasoning/pricing evidence to support all required dimensions remain unresolved. No numerical scores or Overall are assigned. This is an insufficient-evidence decision, not a claim that the historical model has zero benchmarks. Recovery requires a verifiable mapping of the dataset route to the retired experiment plus historical context/pricing and broader quality evidence.
+
+### Sources
+
+1. https://api-docs.deepseek.com/updates — August 21 release, September 10 retirement and October 17 successor update.
+2. https://api-docs.deepseek.com/ — current route replacement notice.
+3. https://opencode.ai/docs/zen/ — current gateway IDs and free-model catalog.
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-17
+- Method: Independent public internet research; historical and current identities kept separate; insufficient evidence for scoring.
