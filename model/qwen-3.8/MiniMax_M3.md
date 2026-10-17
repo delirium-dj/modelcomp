@@ -54,10 +54,11 @@ Multimodal:
 - **Multimodal: 72/100.** Native vision + video in; 91.1 on OmniDocBench. Image + video in only (text out), so not full generative multimodal. Solid for a 27B.
 - **Coding: 78/100.** Qwen claims 61.7 SWE-bench Pro and 90.3 LiveCodeBench v6, beating Opus 4.6 Max on the vendor-run card. Discounted because (a) all numbers vendor-run, (b) Simon Willison's hands-on testing of xhigh defaults produced heavy over-thinking that hurts throughput, (c) the headline 21-minute SVG-of-a-pelican run shows the default reasoning mode is not how you should ship this.
 - **Cost efficiency: 95/100.** Apache 2.0 self-host = $0 marginal cost; managed route ~$0.42/$3.00 (mid-pack API price). For self-hosted teams the cost story is unmatched in the frontier-near tier.
-- **Overall Score: 77/100.** Mean of the 5 non-cost quality dims (75+70+88+72+78)/5 = 76.6 → 77.
+- **Overall Score: 77/100** Mean of the 5 non-cost quality dims (75+70+88+72+78)/5 = 76.6 → 77.
 
 ## Signature
 
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: independent MiniMax M3 evaluation. Sources: Hugging Face model card, kie.ai Qwen 3.8 27B release writeup, Alibaba Cloud announcement, Simon Willison hands-on, Unsloth deployment notes, Qwen3.8-Max vendor table (Qwen ai emergent.sh summary) for cross-reference. All coding/agentic scores are vendor-reported (Qwen's own benchmark card) and discounted accordingly. Cost reflects Apache 2.0 self-host availability.
 - Future sources: add a new file next to this one, e.g. `Qwen_M3.md`, using the same headings; the Qwen3.8-Max (2.4T API) sibling has separate evidence and should be a separate row in `model-queue.md`.
+

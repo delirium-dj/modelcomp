@@ -77,7 +77,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 93/100.** Full 5-modality input (text/image/video/audio/PDF) with CharXiv 88.4%, MMMU-Pro 86.6%, BabyVision 76.3%; **text-only output** keeps the cap on the output half-modality axis.
 - **Coding: 88/100.** Dual SWE-Pro leadership — **61.5% public + 51.5% commercial** — is the strongest single-harness signal in the field; supplemented by SWE-Verified 82.0%, LiveCodeBench 85.9%, DeepSWE 53.3%, SciCode 58.8%. Vals ProgramBench 0% prevents full autonomy claim.
 - **Cost efficiency: 82/100.** $1.25/$4.25 with 88% cached-discount into $0.15 — **8× under** Opus 4.6 and 73–83% under GPT-5.5; paid-only and the 9 c/s output penalty hurts tight feedback loops. Caches fully if your harness retains context; loses economics if it rebuilds.
-- **Overall Score: 89/100.** Half-up mean of the five non-cost dims: (86 + 88 + 92 + 93 + 88) / 5 = 89.4 → **89**. Best fit: cost-sensitive, **agent-native** coding and multi-modal workflows where SWE-Pro lead + 1M-context active management covers most offline, with paid-only economics optimized by retaining cache state.
+- **Overall Score: 89/100** Half-up mean of the five non-cost dims: (86 + 88 + 92 + 93 + 88) / 5 = 89.4 → **89**. Best fit: cost-sensitive, **agent-native** coding and multi-modal workflows where SWE-Pro lead + 1M-context active management covers most offline, with paid-only economics optimized by retaining cache state.
 
 ---
 
@@ -86,3 +86,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Seven-source triangulation (Meta blog + evaluation report, Scale SWE-bench Pro leaderboard recap, contracollective.com, agentriot.com, Artificial Analysis, Vals public aggregates, llm-stats live tracker); conflicting band values retained with provenance where harnesses differ (notably HLE 46.2 / 52.2 / 62.1 and SWE-bench 82% Verified vs 61.5% Pro-public). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

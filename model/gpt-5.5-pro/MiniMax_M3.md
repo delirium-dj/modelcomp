@@ -63,7 +63,7 @@ Long context:
 - **Multimodal: 80/100.** Text+image+file in, native (no video/audio per meta). OSWorld 78.7% (spatial UI). Solid but not class-leading. Capped at 80 because no published MMMU-Pro score.
 - **Coding: 89/100.** Terminal-Bench 82.7% LEADS, Expert-SWE 73.1% LEADS, AA Coding 58.7. SWE-Bench Pro 58.6 trails Opus 4.7 by 5.7 — meaningful gap on real-world bug fixing. Capped because LiveCodeBench / SciCode not published.
 - **Cost efficiency: 30/100.** $30/$180 is 6× GPT-5.5 standard ($5/$30), 6× Opus 4.7 ($5/$25), 6× Sonnet 4.6 ($3/$15). Batch 50% helps but Pro tier is a premium math/research tool, not a daily driver. Capped at 30 because the premium is 6× the standard tier.
-- **Overall Score: 90/100.** Half-up mean of Tool 92, Reasoning 94, Context 95, Multimodal 80, Coding 89 = 450/5 = 90.0. GPT-5.5 Pro is the agentic-coding leader on Terminal-Bench 2.0, OSWorld, and GDPval, but the 86% SimpleQA hallucination rate and the SWE-Bench Pro gap to Opus 4.7 keep it from being a clean sweep.
+- **Overall Score: 90/100** Half-up mean of Tool 92, Reasoning 94, Context 95, Multimodal 80, Coding 89 = 450/5 = 90.0. GPT-5.5 Pro is the agentic-coding leader on Terminal-Bench 2.0, OSWorld, and GDPval, but the 86% SimpleQA hallucination rate and the SWE-Bench Pro gap to Opus 4.7 keep it from being a clean sweep.
 
 ---
 
@@ -72,3 +72,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (OpenAI launch, Kilo blog, JQ AI Systems, AI Catch Up, Verdent.ai, OrcaRouter, CodingFleet, ROO3). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.5_Pro_OpenAI.md`, using the same headings.
+

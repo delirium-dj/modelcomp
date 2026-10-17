@@ -61,7 +61,7 @@ Long context:
 - **Multimodal: 78/100.** State-of-the-art vision at launch: rebuild apps from screenshots, SOTA on vision benchmarks. Compressed ceiling because input is text+image only (no audio/video).
 - **Coding: 93/100.** Leads on FrontierCode medium effort and SWE-bench. 3× Opus 4.8 on sustained long-horizon autonomy. Capped because SWE-bench Verified / SWE-Pro head-to-head numbers were not published.
 - **Cost efficiency: 38/100.** $10/$50 per 1M is 2× Opus 4.8 ($5/$25), 2× Sonnet 5 ($5/$25). Cache reads cut input 90%. Cost-effective for long-horizon but pricey for high-volume.
-- **Overall Score: 90/100.** Half-up mean of Tool 92, Reasoning 93, Context 95, Multimodal 78, Coding 93 = 451/5 = 90.2 → half-up 90. Fable 5 = Mythos 5 with safety classifiers lifted; for high-stakes long-horizon agentic work, this is the cohort's strongest available model at launch, but premium-priced.
+- **Overall Score: 90/100** Half-up mean of Tool 92, Reasoning 93, Context 95, Multimodal 78, Coding 93 = 451/5 = 90.2 → half-up 90. Fable 5 = Mythos 5 with safety classifiers lifted; for high-stakes long-horizon agentic work, this is the cohort's strongest available model at launch, but premium-priced.
 
 ---
 
@@ -70,3 +70,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Anthropic launch, OpenRouter, Vals.ai, Cosmic JS developer guide, peer findings cross-check). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Fable_5_Anthropic.md`, using the same headings.
+

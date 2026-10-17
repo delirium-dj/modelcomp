@@ -62,7 +62,7 @@ Independent verification:
 - **Multimodal: 88/100.** Text + image + video in. RealWorldQA 88.0 (LEADS the comparison set). Qwen-MM-Plugins bundled for visual tool use. Capped at 88 because no native audio/PDF; MMMU-Pro independent score not published for this exact model/ID.
 - **Coding: 84/100.** Terminal-Bench 2.1 86.6 + SWE-bench Pro 67.7 + DeepSWE 56.6 + FrontierSWE 73.5 — beats Opus 4.8 on several, trails on DeepSWE. OSWorld-Verified 86.1 (LEADS comparison). Capped at 84 because the LiveCodeBench / SciCode independent re-runs for this exact model/ID are not published.
 - **Cost efficiency: 78/100.** $2 in / $6 out; implicit cache $0.25 (8× discount). One-time 1M-token free quota. Capped at 78 because list price is 60% above Qwen 3.7 Max ($1.25/$3.75) and 14× DeepSeek V4 Flash on input.
-- **Overall Score: 89/100.** Half-up mean of Tool 88, Reasoning 88, Context 98, Multimodal 88, Coding 84 = 446/5 = 89.2 → half-up 89. Qwen 3.8 Max is a strong open-weights frontier contender: best-in-class PaperBench (93.0) and 1M multimodal context with bundled Qwen-MM-Plugins for video/dynamic resolution, but Coding trails the closed frontier on the independent LiveCodeBench / SciCode axis.
+- **Overall Score: 89/100** Half-up mean of Tool 88, Reasoning 88, Context 98, Multimodal 88, Coding 84 = 446/5 = 89.2 → half-up 89. Qwen 3.8 Max is a strong open-weights frontier contender: best-in-class PaperBench (93.0) and 1M multimodal context with bundled Qwen-MM-Plugins for video/dynamic resolution, but Coding trails the closed frontier on the independent LiveCodeBench / SciCode axis.
 
 ---
 

@@ -64,7 +64,7 @@ Independent verification:
 - **Multimodal: 92/100.** Text + image + audio + video + PDF in. CharXiv Reasoning 84.2% (LEADS comparison). MMMU-Pro 83.6% (LEADS comparison). Blueprint-Bench 2 33.6% (LEADS comparison). Capped at 92 because no native video/audio out and 1M multimodal retrieval is weak.
 - **Coding: 78/100.** Terminal-Bench 2.1 76.2%, SWE-Bench Pro 55.1%, OSWorld 78.4%. Appwrite Arena freeform 91.9% with Skills (96.20 overall). Capped at 78 because LiveCodeBench / SciCode / Vibe Code Bench are not published for this exact model/ID and SWE-bench Pro sits at 55.1%.
 - **Cost efficiency: 78/100.** $1.50 in / $9.00 out. Cached input $0.15 (90% discount). AA cost per Intelligence Index task: $1,552 — 5.5× Gemini 3 Flash ($282), 75% more than Gemini 3.1 Pro ($892) due to higher token volume (73M vs 36M median). Capped at 78 because output is expensive ($9/MTok) and total eval cost is high.
-- **Overall Score: 87/100.** Half-up mean of Tool 84, Reasoning 84, Context 96, Multimodal 92, Coding 78 = 434/5 = 86.8 → half-up 87. Gemini 3.5 Flash is the Pareto leader on intelligence-vs-speed: 278 tok/s and AA Index 55.3 is unmatched in its price bracket, with a 1M context window and full-omni multimodal coverage, but Coding and long-window retrieval cap the upside.
+- **Overall Score: 87/100** Half-up mean of Tool 84, Reasoning 84, Context 96, Multimodal 92, Coding 78 = 434/5 = 86.8 → half-up 87. Gemini 3.5 Flash is the Pareto leader on intelligence-vs-speed: 278 tok/s and AA Index 55.3 is unmatched in its price bracket, with a 1M context window and full-omni multimodal coverage, but Coding and long-window retrieval cap the upside.
 
 ---
 

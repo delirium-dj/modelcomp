@@ -85,7 +85,7 @@ Long context:
 - **Multimodal: 78/100.** Image + text in; text out. Chartography 89.0% with tools, 64.4% w/o. BenchCAD Vision2Code tools 0.962 / no-tools 0.730 (BenchLM). OfficeQA Pro 67.7%, Biomedical image 71.4%. No video/audio/PDF modalities published (matches Anthropic Opus 5.5 spec). Per methodology (+image in only, no non-text out) → 75–80 band; 78 reflects verified vision strength but capped by modality coverage and OSWorld 2.0 drop (48.7% vs Opus 5's 70.6%).
 - **Coding: 95/100.** SWE-bench Pro 89.9% (#1 among tracked), SWE Multilingual 93.9%, DeepSWE 74.2%, FrontierCode 54.4%, FrontierSWE v2 62.3%, Bug Hunt Bench 41.7 fixes. Cap = **no published SWE-bench Verified number for Opus 5.5 itself** (Anthropic skipped it on launch — Vals leaderboard still has Opus 5 at 97%); OSWorld 2.0 below Opus 5; ProgramBench behind Opus 5 by 1.8 pts.
 - **Cost efficiency: 45/100.** Base $4/$20 per 1M (60–80% above the cheapest models on the index — Opus 5.5 ≈ $6 per max-effort task vs MiMo-V2.6-Pro ≈ $0.13 at index). Cache reads $0.20 = 95% discount (best-in-class among frontier-tier). 40% cheaper than Opus 5 on typical workloads (Anthropic + AA). Capped by absolute input/output price; not "free tier" eligible.
-- **Overall Score: 93/100.** Mean of `(95 + 95 + 100 + 78 + 95) / 5 = 92.6` → half-up **93**. Best fit: default Anthropic frontier for long-horizon agentic coding (multi-hour sessions, code migrations) and high-leverage professional knowledge work (finance, legal, consulting) when 1M context and tool-use reliability matter more than input token cost. Pair with cache reads to amortise the long-context premium.
+- **Overall Score: 93/100** Mean of `(95 + 95 + 100 + 78 + 95) / 5 = 92.6` → half-up **93**. Best fit: default Anthropic frontier for long-horizon agentic coding (multi-hour sessions, code migrations) and high-leverage professional knowledge work (finance, legal, consulting) when 1M context and tool-use reliability matter more than input token cost. Pair with cache reads to amortise the long-context premium.
 
 ---
 
@@ -94,3 +94,4 @@ Long context:
 - Provided by: **MiniMax M3 (anthropic/claude-opus-5-5)** — 2026-10-13
 - Method: independent MiniMax M3 evaluation drawn from public benchmark datasets (Anthropic launch blog & system card, Artificial Analysis Intelligence Index v4.3 article, BenchLM comparison page, llm-stats provider telemetry, Morphllm context-window guide); cross-checked against Anthropic's per-benchmark footnotes (harness, effort level, ±2.6 / ±3.5 SE). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

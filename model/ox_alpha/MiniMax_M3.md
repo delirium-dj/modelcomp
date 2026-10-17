@@ -68,7 +68,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 76/100.** Text/image/video/PDF input + strong **document-vision** numbers (CharXiv 89.4, MMVU 80.5, Chartography 78.0) with mid-pack general-vision rows (MVBench 77.8, BabyVision 53.4, OfficeQA Pro 62.4); text-only output caps one full modality.
 - **Coding: 86/100.** Vals SWE-bench **92.0%** (top-tier, same band as Muse Spark 1.3 SWE-Pro dual-leader) plus AA LiveCodeBench 80.5 and TB2.1 84.3 — clears the ~74 bar emphatically; DeepSWE 63.4, NL2Repo 56.3, SciCode 51.6, OpenHarmony 57.3 temper the hardest long-horizon set.
 - **Cost efficiency: 92/100.** **Open weights (MIT)** make self-host effectively free; $0.15/$0.50 hosted + $0.03 cached + ARC-AGI-2 at $0.09/task beats the Frontier tier on dollar grounds across every known benchmark; **the cheapest model on the OpenCode Zen corridor** post-preview. Note: prior free Ox Alpha window has ended.
-- **Overall Score: 83/100.** Half-up mean of the five non-cost dims: (84 + 82 + 85 + 76 + 86) / 5 = 82.6 → **83**. Best fit: cost-efficient frontier agentic coding with strong document vision and a 1M-context-with-active-management profile — the open-weights SWE-bench 92% at MIT-license economics is the standout.
+- **Overall Score: 83/100** Half-up mean of the five non-cost dims: (84 + 82 + 85 + 76 + 86) / 5 = 82.6 → **83**. Best fit: cost-efficient frontier agentic coding with strong document vision and a 1M-context-with-active-management profile — the open-weights SWE-bench 92% at MIT-license economics is the standout.
 
 ---
 
@@ -77,3 +77,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Six-source triangulation (Z.ai launch, Together AI model card, ARC Prize independent rerun, Vals public aggregates, Artificial Analysis independent harness, OpenRouter stealth listing). Identity resolved: `stealth/ox-alpha` ≡ `zai-org/GLM-5.3-Flash` (confirmed by Z.ai/Bloomberg on 2026-08-26); BenchLM rows read under the revealed GLM-5.3-Flash product as the same model, not a sibling variant. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

@@ -63,7 +63,7 @@ Long context:
 - **Multimodal: 95/100.** #1 MMMU-Pro 81.0%. #1 Video-MMMU 87.6%. Native (not bolted on) text+image+video+audio+PDF in unified context. 100+ language real-time translation. Capped at 95 (not 100) because Video-MMMU is the only published native video benchmark.
 - **Coding: 86/100.** SWE-bench 76.2% trails Opus 4.5 (80.9). But #1 WebDev Arena 1,487 Elo and #1 Terminal-Bench 2.0 54.2%. Strong on vibe coding, weaker on deep repo bug hunting. Capped because LiveCodeBench / SciCode not published.
 - **Cost efficiency: 78/100.** $2/$12 standard is ~87% cheaper than GPT-5.1 / Opus 4.5. Batch 50% off, cache $0.20-0.40. Deep Think requires $250/mo sub (gated). Capped because the 272K-equivalent surcharge on extended context is a real cost cliff.
-- **Overall Score: 91/100.** Half-up mean of Tool 88, Reasoning 93, Context 95, Multimodal 95, Coding 86 = 457/5 = 91.4 → half-up 91. Gemini 3 Pro is the most well-rounded multimodal+reasoning model in the cohort; the SWE-bench gap to Opus 4.5 is the only meaningful cap.
+- **Overall Score: 91/100** Half-up mean of Tool 88, Reasoning 93, Context 95, Multimodal 95, Coding 86 = 457/5 = 91.4 → half-up 91. Gemini 3 Pro is the most well-rounded multimodal+reasoning model in the cohort; the SWE-bench gap to Opus 4.5 is the only meaningful cap.
 
 ---
 
@@ -72,3 +72,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Google blog, LLM Stats, Medium, Roboflow, MangoMindBD, Evolink). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_Pro_Google.md`, using the same headings.
+

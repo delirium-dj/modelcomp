@@ -77,7 +77,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 82/100.** Text + image in, text out; native computer use is the *new* multimodal capability (visual desktop control). Image fidelity at 10.24 megapixels for click accuracy. No native audio/video.
 - **Coding: 78/100.** SWE-bench Pro 57.7% leads on the harder benchmark; SWE-bench Vals 77.2% trails Claude Opus 4.6 (79.2) and Gemini 3.1 Pro (80.6); Terminal-Bench 2.0 regressed from 77.3 to 75.1; Arena Coding Elo ~1481 trails Opus 4.6's 1561. **Code-fixing and targeted repairs** are subjective strengths per practitioner reviews.
 - **Cost efficiency: 82/100.** ≤272K $1.25/$7.50 is *competitive* with Gemini 3.1 Pro and beats Claude Opus 4.6 by 4× on input; >272K surcharge erodes that; tool search 47% MCP token reduction is a real efficiency multiplier; not free (no Zen ID), but a clear step down from Opus 4.6 / 4.7.
-- **Overall Score: 82/100.** Half-up mean of the five non-cost dims: (86 + 84 + 80 + 82 + 78) / 5 = 410 / 5 = 82.0 → **82**. Best fit: **desktop automation / computer-use agents** (75% OSWorld is *the* capability unlock), MCP-heavy agentic workflows (47% token reduction via tool search), and knowledge-work / GDPval 83% tasks. Watch for: Terminal-Bench regression vs GPT-5.3 Codex, the 2× input surcharge past 272K, and Claude Opus 4.6 still leads on SWE-bench Verified (79.2 vs 77.2) and Tau2-Bench Telecom (99.3 vs 98.9) — task-based routing remains the right strategy.
+- **Overall Score: 82/100** Half-up mean of the five non-cost dims: (86 + 84 + 80 + 82 + 78) / 5 = 410 / 5 = 82.0 → **82**. Best fit: **desktop automation / computer-use agents** (75% OSWorld is *the* capability unlock), MCP-heavy agentic workflows (47% token reduction via tool search), and knowledge-work / GDPval 83% tasks. Watch for: Terminal-Bench regression vs GPT-5.3 Codex, the 2× input surcharge past 272K, and Claude Opus 4.6 still leads on SWE-bench Verified (79.2 vs 77.2) and Tau2-Bench Telecom (99.3 vs 98.9) — task-based routing remains the right strategy.
 
 ---
 
@@ -86,3 +86,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Five-source triangulation (OpenAI launch post + Artificial Analysis independent composite + Vals AI independent Vals Index + Scale Labs MCP Atlas + Alex Lavaee independent third-party review). Identity resolved: this is **OpenAI GPT-5.4** (2026-03-05), the **base variant** (not GPT-5.4 Thinking, not GPT-5.4 Pro, not GPT-5.4 mini, not GPT-5.5 successor or GPT-5.3 Codex predecessor). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

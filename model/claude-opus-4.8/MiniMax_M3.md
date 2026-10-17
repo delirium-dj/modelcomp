@@ -59,7 +59,7 @@ Long context:
 - **Multimodal: 78/100.** Text+image in, no native video/audio. Databricks Genie: 61% cheaper token cost than Opus 4.7 for multimodal PDF/diagram reasoning. Capped because MMMU-Pro not published.
 - **Coding: 92/100.** SWE-bench Verified 88.6% (LEADS the Anthropic cohort). SWE-Bench Pro 69.2% (up from 64.3%). OSWorld 82.8%. Capped because LiveCodeBench / SciCode not published.
 - **Cost efficiency: 50/100.** $5/$25 is parity with prior Opus. Fast Mode 3× cheaper than previous generation. 61% cheaper than 4.7 for some workloads (Databricks Genie). Capped at 50 because raw input/output is 2.5× GPT-6.1 Sol ($2/$10).
-- **Overall Score: 89/100.** Half-up mean of Tool 90, Reasoning 91, Context 92, Multimodal 78, Coding 92 = 443/5 = 88.6 → half-up 89. Claude Opus 4.8 is the most honest and reliable Opus to date — strong coding (SWE-bench 88.6%) and agentic execution (Super-Agent full pass), with a 200K context that lags the 1M cohort ceiling.
+- **Overall Score: 89/100** Half-up mean of Tool 90, Reasoning 91, Context 92, Multimodal 78, Coding 92 = 443/5 = 88.6 → half-up 89. Claude Opus 4.8 is the most honest and reliable Opus to date — strong coding (SWE-bench 88.6%) and agentic execution (Super-Agent full pass), with a 200K context that lags the 1M cohort ceiling.
 
 ---
 
@@ -68,3 +68,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Anthropic launch, morphllm benchmarks table, CodingFleet, Codersera, unifically, myclaw.ai). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.8_Anthropic.md`, using the same headings.
+

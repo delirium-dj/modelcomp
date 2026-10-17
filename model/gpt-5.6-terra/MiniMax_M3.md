@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 72/100.** Text + image in (per OpenAI confirmed spec). Capped at 72 because MMMU-Pro / Blueprint-Bench 2 are not published for Terra specifically.
 - **Coding: 78/100.** "GPT-5.5-competitive" coding quality at half of Sol on input. Capped at 78 because SWE-Bench Pro / LiveCodeBench / SciCode figures are not published for Terra at any harness.
 - **Cost efficiency: 78/100.** $2 in / $12 out; cached $0.20 (90% off). Half of Sol on input. Capped at 78 because output at $12 is still 4× GPT-5.5 base, and the >272K multiplier still applies.
-- **Overall Score: 79/100.** Half-up mean of Tool 78, Reasoning 80, Context 88, Multimodal 72, Coding 78 = 396/5 = 79.2 → half-up 79. GPT-5.6 Terra is OpenAI's mid-tier segmentation play: GPT-5.5-class capability at $2/$12 (half of Sol), retaining most of Sol's health-benchmark gain. Strong when the workload is moderate-cost agentic work, but the absence of published Terminal-Bench / SWE-Bench Pro / MRCR numbers for Terra at the standard harness means this is more a positioning call than a verified benchmark lead.
+- **Overall Score: 79/100** Half-up mean of Tool 78, Reasoning 80, Context 88, Multimodal 72, Coding 78 = 396/5 = 79.2 → half-up 79. GPT-5.6 Terra is OpenAI's mid-tier segmentation play: GPT-5.5-class capability at $2/$12 (half of Sol), retaining most of Sol's health-benchmark gain. Strong when the workload is moderate-cost agentic work, but the absence of published Terminal-Bench / SWE-Bench Pro / MRCR numbers for Terra at the standard harness means this is more a positioning call than a verified benchmark lead.
 
 ---
 

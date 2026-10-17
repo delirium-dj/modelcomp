@@ -75,7 +75,7 @@ Pricing per token (same as K3):
 - **Multimodal: 82/100.** Native vision inherited from K3 (1M+ multimodal in the base); text-only output and no Qwen-3.8-Max family reruns keep it in the upper-mid multimodal band.
 - **Coding: 90/100.** **SWE-V 92.2%** + **DeepSWE 1.1 75.2%** (above K3-Max on DeepSWE by +8.8 pts) + TB2.1 82.0% + SWE-Interact 20.0%; SWE-bench Pro same-harness rerun absent. The DeepSWE improvement over the parent is the surprise — and the Efficient Reasoning Index Bedside Bench Pareto frontier covers a wider set of real coding tasks.
 - **Cost efficiency: 82/100.** Same list price as K3 ($3/$15/$0.30 cached); **~39% lower per-task cost** in customer A/B (35–50% reasoning-token range); not "cheap" by Flash-tier standards but a Pareto-best token efficiency at this quality band.
-- **Overall Score: 86/100.** Half-up mean of the five non-cost dims: (82 + 84 + 90 + 82 + 90) / 5 = 85.6 → **86**. Best fit: agentic-coding deployments where K3's reasoning verbosity has been a cost concern and the SWE-V −1 pt is acceptable. The DeepSWE *improvement* over K3 by +8.8 pts is the strongest single argument: cutting useless reasoning helped *not just cost but agentic throughput*.
+- **Overall Score: 86/100** Half-up mean of the five non-cost dims: (82 + 84 + 90 + 82 + 90) / 5 = 85.6 → **86**. Best fit: agentic-coding deployments where K3's reasoning verbosity has been a cost concern and the SWE-V −1 pt is acceptable. The DeepSWE *improvement* over K3 by +8.8 pts is the strongest single argument: cutting useless reasoning helped *not just cost but agentic throughput*.
 
 ---
 
@@ -84,3 +84,4 @@ Pricing per token (same as K3):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Five-source triangulation (Fireworks launch post with full K3 head-to-head, Vals independent public aggregates, AI IQ third-party aggregator, dev.to detailed comparison review, OpenRouter/BenchLM aggregated sheets). Identity resolved: Ember-1 ≡ K3 fine-tune, *not* a separate model — benchmark scores reflect the SFT'd variant at Kimi K3 list pricing. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

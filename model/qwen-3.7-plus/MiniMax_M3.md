@@ -84,7 +84,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 88/100.** Full text+image+video pipeline with strong rows (MMMU-Pro 79%, CharXiv 85.9%, RealWorldQA 86.9%, OmniDocBench 91.4%, Video-MME 88.0%, MLVU 87.4%); text-only output caps the half-modality dimension.
 - **Coding: 82/100.** LiveCodeBench v6 89.6 (strong), SWE-V 77.7, SWE-Pro 57.6 mid-tier; NL2Repo 41.1, SciCode 51.3, AA-SciCode 46.1, AA Coding Index 55.9 keep coding out of the 90 band.
 - **Cost efficiency: 80/100.** $0.40/$1.60 at ≤256K is competitive; **256K-1M tier pricing jumps 3×** ($1.20/$4.80) which is materially worse than peers at long-context operations; OpenRouter at $0.32/$1.28 partially closes the gap; not the cheapest in its class.
-- **Overall Score: 85/100.** Half-up mean of the five non-cost dims: (78 + 84 + 92 + 88 + 82) / 5 = 84.8 → **85**. Best fit: multimodal long-context agentic work, GUI/web tasks with screen/visual input, where MRCR-v2 91.7% and the CharXiv/OmniDocBench cluster lift the context + multimodal axes, while SWE-V 77.7% and SWE-Pro 57.6% place it *below* the dual-SWE-Pro-leader tier (Muse Spark 1.1 / GPT-5.6 Sol) on coding.
+- **Overall Score: 85/100** Half-up mean of the five non-cost dims: (78 + 84 + 92 + 88 + 82) / 5 = 84.8 → **85**. Best fit: multimodal long-context agentic work, GUI/web tasks with screen/visual input, where MRCR-v2 91.7% and the CharXiv/OmniDocBench cluster lift the context + multimodal axes, while SWE-V 77.7% and SWE-Pro 57.6% place it *below* the dual-SWE-Pro-leader tier (Muse Spark 1.1 / GPT-5.6 Sol) on coding.
 
 ---
 
@@ -93,3 +93,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Four-source triangulation (Alibaba Cloud launch, BenchLM 71-row coverage, Artificial Analysis independent suite, OpenRouter benchmarks). Identity resolved: this is the Qwen 3.7 Plus production ID, not 3.8 Max (which sits +5 ranks above this at 90.2 in the queue). Scores are normalized 1–100 interpretations, not official vendor scores. Two `.excluded` twin files exist in this folder (`Gemini_3.1_Flash_Lite.md.excluded`, `Laguna_S_2.1.md.excluded`) — drafted under the zero-influence procedure per `RULES.md` § Twin File; retirement requires explicit user confirmation, surfaced here for the next pass.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

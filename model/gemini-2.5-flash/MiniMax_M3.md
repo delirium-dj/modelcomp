@@ -44,7 +44,7 @@ Coding:
 - **Multimodal: 95/100.** Full omni.
 - **Coding: 75/100.** Inferred.
 - **Cost efficiency: 88/100.** ~$0.30/$2.50 → ~88.
-- **Overall Score: 84/100.** Mean (75+78+95+95+75+88)/6 = 84.3 → 84.
+- **Overall Score: 84/100** Mean (75+78+95+95+75+88)/6 = 84.3 → 84.
 
 ---
 

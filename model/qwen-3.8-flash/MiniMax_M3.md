@@ -73,7 +73,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 82/100.** Native image + video input + Qwen Sparse Attention multimodality; no Qwen-3.8-Flash-exact MMMU-Pro / CharXiv cap it below the 90+ gate; family rows (Qwen 3.7 Plus, Qwen 3.8 Max) reach 88+ with same architecture.
 - **Coding: 84/100.** **LiveCodeBench v6 91.9** + SWE-bench Pro 62.5 (above Opus 4.6 Max 53.4) + SWE-Multilingual 81.0 + DeepSWE 58.7 — a top-tier coding value at 6B-active parameters; missing SWE-bench Verified same-harness rerun keeps it below 90.
 - **Cost efficiency: 96/100.** $0.15/$0.47 hosted + $0.016 cached + open weights make this the **deepest cost-efficiency MoE in the Flash tier** at frontier-coding parity; near-floor cost across the surveyed model set.
-- **Overall Score: 84/100.** Half-up mean of the five non-cost dims: (82 + 84 + 88 + 82 + 84) / 5 = 84.0 → **84**. Best fit: high-volume multimodal agentic coding where cost-per-token dominates, with the open-weight preview adding a self-host path for $0 marginal cost on Flash-Next quantizations ≥75 GB RAM.
+- **Overall Score: 84/100** Half-up mean of the five non-cost dims: (82 + 84 + 88 + 82 + 84) / 5 = 84.0 → **84**. Best fit: high-volume multimodal agentic coding where cost-per-token dominates, with the open-weight preview adding a self-host path for $0 marginal cost on Flash-Next quantizations ≥75 GB RAM.
 
 ---
 
@@ -82,3 +82,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Six-source triangulation (Alibaba official, kie.ai architecture analysis, llm-stats HLE leaderboard, Vals AI public aggregates, Artificial Analysis Intelligence Index, a2aprotocol/DataCamp/third-party writeups). Conflicting AA Index values (40 vs 56) recorded as a preview-vs-production band — the production ID has limited verified independent reruns. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

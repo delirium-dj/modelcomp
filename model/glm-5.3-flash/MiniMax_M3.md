@@ -61,7 +61,7 @@ Cost / efficiency:
 - **Multimodal: 70/100.** Text + image in (per AA spec sheet). No native video or audio. MMMU-Pro listed in AA's evaluation menu but not separately surfaced for this model. Capped at 70 because the only multimodal capability is image-in; no audio/video/PDF in.
 - **Coding: 86/100.** Terminal-Bench 2.1 84.3%. DeepSWE 63.4-66.9 (vendor). AA Coding Index 71.5. CyberGym 84.5% (defensive). Capped at 86 because independent SWE-bench Verified / Pro / LiveCodeBench re-runs for this exact model/ID are not published.
 - **Cost efficiency: 92/100.** $0.15 in / $0.50 out (rank #20 of 36 — competitively priced). $0.03 cached input (80% discount). $0.28 per AA Intelligence Index task. Free Zen tier available. Capped at 92 because output speed is below average (64 vs 67 tok/s) and verbosity is high (180M tokens).
-- **Overall Score: 83/100.** Half-up mean of Tool 86, Reasoning 80, Context 92, Multimodal 70, Coding 86 = 414/5 = 82.8 → half-up 83. GLM 5.3 Flash is Z.AI's value play: top-decile intelligence for its cost class with an unusually permissive 1M context window, but multimodal is image-only and the live API still trails on throughput.
+- **Overall Score: 83/100** Half-up mean of Tool 86, Reasoning 80, Context 92, Multimodal 70, Coding 86 = 414/5 = 82.8 → half-up 83. GLM 5.3 Flash is Z.AI's value play: top-decile intelligence for its cost class with an unusually permissive 1M context window, but multimodal is image-only and the live API still trails on throughput.
 
 ---
 

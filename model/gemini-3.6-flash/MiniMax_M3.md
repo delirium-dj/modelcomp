@@ -50,7 +50,7 @@ Long context:
 - **Multimodal: 90/100.** Text + image + audio + PDF in (full coverage). Strong on token-efficient multimodal pipelines per Google. Capped at 90 because CharXiv / MMMU-Pro specific numbers for this exact model/ID are not published.
 - **Coding: 86/100.** Beats Gemini 3.1 Pro on coding benchmarks per Google's published comparison. Capped at 86 because LiveCodeBench / SciCode / DeepSWE specific percentages for this exact model/ID are not separately published.
 - **Cost efficiency: 88/100.** Free tier on Google AI Studio and OpenCode Zen with rate limits. Paid tier ~$0.75/MTok input (OpenRouter). Capped at 88 because exact paid output price for this model/ID needs verification (likely $3-4 range per Gemini Flash pricing pattern).
-- **Overall Score: 88/100.** Half-up mean of Tool 88, Reasoning 82, Context 95, Multimodal 90, Coding 86 = 441/5 = 88.2 → half-up 88. Gemini 3.6 Flash is Google's mid-2026 workhorse Flash: token-efficiency improvements over 3.5 Flash, beats 3.1 Pro on coding/agentic axes per Google, full multimodal coverage, 1M context, with a free tier available — but no independent-verified Terminal-Bench / MCP Atlas / SWE-Bench Pro specific percentages for this exact model/ID cap the upside.
+- **Overall Score: 88/100** Half-up mean of Tool 88, Reasoning 82, Context 95, Multimodal 90, Coding 86 = 441/5 = 88.2 → half-up 88. Gemini 3.6 Flash is Google's mid-2026 workhorse Flash: token-efficiency improvements over 3.5 Flash, beats 3.1 Pro on coding/agentic axes per Google, full multimodal coverage, 1M context, with a free tier available — but no independent-verified Terminal-Bench / MCP Atlas / SWE-Bench Pro specific percentages for this exact model/ID cap the upside.
 
 ---
 

@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 78/100.** Text+image in, no native video/audio. Capped because MMMU-Pro / Video-MMMU not published.
 - **Coding: 91/100.** AA Coding Agent Index 80 (SOTA). Token efficiency 54% better than previous generation. SWE-bench Pro 64.6 trails Opus 5 by 14.6 — meaningful gap on real-world bug fixing. Capped because LiveCodeBench / SciCode not published.
 - **Cost efficiency: 60/100.** $5/$30 standard is parity with GPT-5.5, ~5× cheaper than Opus 4.5 ($15/$75). Batch 50% off; cache 90% off. Capped because the 272K surcharge doubles effective price for long-context workloads.
-- **Overall Score: 90/100.** Half-up mean of Tool 92, Reasoning 93, Context 95, Multimodal 78, Coding 91 = 449/5 = 89.8 → half-up 90. GPT-5.6 Sol is the agentic-coding SOTA with near-frontier intelligence at GPT-5.5 prices; the SWE-bench Pro gap to Claude Opus 5 and the multimodal cap are the only meaningful ceilings.
+- **Overall Score: 90/100** Half-up mean of Tool 92, Reasoning 93, Context 95, Multimodal 78, Coding 91 = 449/5 = 89.8 → half-up 90. GPT-5.6 Sol is the agentic-coding SOTA with near-frontier intelligence at GPT-5.5 prices; the SWE-bench Pro gap to Claude Opus 5 and the multimodal cap are the only meaningful ceilings.
 
 ---
 
@@ -66,3 +66,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Progressive Robot 438-line review, LLM Stats, OpenAI blog). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.6_Sol_OpenAI.md`, using the same headings.
+

@@ -55,7 +55,7 @@ Long context:
 - **Multimodal: 78/100.** Text+image in, no native video/audio. Capped because MMMU-Pro / Video-MMMU not published.
 - **Coding: 92/100.** DeepSWE 75.2% LEADS Astra. OSWorld 71.4% near-Astra. Token efficiency strong. Capped because LiveCodeBench / SciCode / SWE-bench Pro not published.
 - **Cost efficiency: 82/100.** $2/$10 is 5× cheaper than GPT-6 Astra ($10/$50), 2.5× cheaper than Opus 5.5 ($5/$25). Cached $0.10 is the standout. Batch 50% off. Capped at 82 (not higher) because raw input is still 2× Claude Sonnet 5.5 ($1/M).
-- **Overall Score: 90/100.** Half-up mean of Tool 91, Reasoning 92, Context 96, Multimodal 78, Coding 92 = 449/5 = 89.8 → half-up 90. GPT-6.1 Sol is the cost-efficiency champion of the cohort: near-Astra agentic coding at 1/5 the price, with the cached-input $0.10/MTok pricing redefining the economics of multi-turn agent loops.
+- **Overall Score: 90/100** Half-up mean of Tool 91, Reasoning 92, Context 96, Multimodal 78, Coding 92 = 449/5 = 89.8 → half-up 90. GPT-6.1 Sol is the cost-efficiency champion of the cohort: near-Astra agentic coding at 1/5 the price, with the cached-input $0.10/MTok pricing redefining the economics of multi-turn agent loops.
 
 ---
 
@@ -64,3 +64,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (OpenAI blog, Vellum 155-line benchmarks explainer, OpenRouter, OpenAI community forum). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6.1_Sol_OpenAI.md`, using the same headings.
+

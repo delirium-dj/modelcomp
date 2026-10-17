@@ -1,0 +1,53 @@
+# Nemotron 3.5 Bolt E4B — findings by Qwen 3.8 Flash
+
+- Source: NVIDIA (`nvidia/Nemotron-3.5-Bolt-E4B`; curated id `opencode/nemotron-3.5-bolt-e4b`), cross-checked against Artificial Analysis and launch coverage
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because **NVIDIA has not yet released Nemotron 3.5 Bolt E4B** — the model was announced on 2026-10-15 alongside Super VL and Bolt 74B-A9B, but is scheduled to ship on **October 23, 2026**, i.e. six days after this report's date. As of 2026-10-17 there are **zero published benchmark numbers** for this exact ID: Artificial Analysis exposes model pages only for **Bolt 74B-A9B (Index 21)** and **Super VL (Index 26)**, with **no `bolt-e4b` row**; the NVIDIA blog and every secondary outlet (VentureBeat, Kie.ai, Technology.org, Medium/greekofai) describe E4B only as "coming Oct. 23" / "due to be released on October 23". Per `RULES.md`, a findings file is self-excluded (never fabricated) when there are zero verified benchmarks. Reattributing the 74B-A9B sibling's numbers to this slug would double-count a different model, so no scores are asserted. The panel's prior raters in this folder have reached the same verdict (see `DeepSeek_4.1_Flash.md.excluded`, `GLM_5.3.md.excluded`, `GLM_5.3_Flash.md.excluded`, `GPT_5.6_Luna.md.excluded`, `Laguna_S_2.1.md.excluded`, `MiMo_2.6_Flash.md.excluded`).
+
+## Model card (verified facts only)
+
+- **Name:** Nemotron 3.5 Bolt E4B (4GB)
+- **Status:** **ANNOUNCED, NOT YET RELEASED.** Unveiled 2026-10-15 as the third member of the Nemotron 3.5 Bolt family (after Super VL and Bolt 74B-A9B 24GB); NVIDIA states it is "coming Oct. 23" (2026-10-23). No weights, no model card, no API/OpenRouter listing, and no Artificial Analysis benchmark row exist for this exact ID as of 2026-10-17.
+- **Intended role (vendor description, not a benchmark):** "optimized for intelligence per GB for fast conversational agents"; "built for physical and conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark … natural conversation with multi-turn agentic capabilities to power fast local voice assistants, interactive characters and embedded interfaces." Positioning only — no capability numbers attached.
+- **Provider / access:** planned as open weights (Hugging Face / ModelScope / NIM), local via llama.cpp/Ollama/LM Studio/Unsloth/vLLM — but the E4B checkpoint itself is not yet published.
+- **Release / knowledge:** announced 2026-10-15; general availability scheduled 2026-10-23; no knowledge cutoff disclosed.
+- **Context window:** curated `meta.json` says "128K total" — `scaffolded: true` placeholder, not a verified spec.
+- **Modalities:** curated `meta.json` says "Text in/out" — placeholder; NVIDIA's own copy implies conversational/voice-agent framing but no modality spec sheet has shipped.
+- **Pricing:** curated `meta.json` "Standard pricing" — placeholder; no first-party rate exists (open-weight, self-hosted class).
+- **Architecture:** "E4B" naming implies an effective ~4B-active MoE in a 4 GB memory footprint; NVIDIA has not published a spec sheet for this exact checkpoint.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — the model has not shipped; NVIDIA has published no E4B benchmark, and no aggregator (Artificial Analysis, BenchLM) exposes a `bolt-e4b` row. The released Bolt 74B-A9B sibling is scored separately in its own folder.
+
+Agent / tool use:
+
+- PinchBench / BrowseComp / AutomationBench-AA / AA-Briefcase / τ² / OSWorld: **no verified public score found for this exact model**
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index / GPQA Diamond / HLE / MMLU-Pro: **no verified public score found** (only Bolt 74B-A9B = 21 and Super VL = 26 have AA rows)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / AA-LCR: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self-excluded for zero verified benchmarks; scoring it would require fabricating data or reattributing the Bolt 74B-A9B sibling's numbers, both prohibited by `RULES.md`. When NVIDIA ships the Bolt E4B 4GB checkpoint on/after 2026-10-23 with a first-party model card and published AA/PinchBench/SWE-bench numbers, replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
+- Method: public internet research cross-referenced with the panel's prior self-exclusion coverage in this folder. Sources checked: NVIDIA official blog "Open From Data Center to Desktop" (2026-10-15), Artificial Analysis model/article pages (Bolt 74B-A9B + Super VL only, no E4B row), VentureBeat, Kie.ai, Technology.org, Medium/greekofai. No benchmark values inferred from peers or borrowed from the 74B-A9B sibling. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate).
+- Revisit trigger: NVIDIA publishes the Nemotron 3.5 Bolt E4B 4GB weights with a first-party model card, and Artificial Analysis (or BenchLM/OpenRouter) exposes a distinct `bolt-e4b` benchmark row (Intelligence Index, PinchBench/BrowseComp, SWE-bench).
+- Expected data window: general availability 2026-10-23 — re-check on or after that date.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

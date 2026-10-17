@@ -1,0 +1,51 @@
+# Cat Jam — findings by Qwen 3.8 Flash
+
+- Source: OpenCode Zen / Command Code (`stealth/cat-jam`, `opencode/cat-jam`), cross-checked against OpenCode Data, Artificial Analysis, and community tests
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because **Cat Jam is an anonymous, time-limited *stealth* model with zero published first‑party benchmarks** for this exact ID. Per `RULES.md`, a findings file is self-excluded (never fabricated) when there are no verified benchmarks. Every structured catalog either leaves it unscored or provider‑unknown: Command Code lists **"Cat Jam — Free — 1M — not yet scored"**; OpenCode Data files it under provider **`unknown/cat-jam`** (usage/token ranking only, no capability row); Artificial Analysis exposes no `cat-jam` model page. What exists is anecdotal social commentary ("very fast", "built for agentic coding", "small-model feeling"), not a reproducible benchmark — so no scores can be asserted without fabricating them. The panel's prior raters in this folder overwhelmingly reached the same verdict (see `Claude_Haiku_5.5.md.excluded`, `Claude_Sonnet_4.5.md.excluded`, `GPT_5.md.excluded`, `GPT_6_Luna.md.excluded`, `GPT_5.6_Luna.md.excluded`, `Gemini_2.5_Flash.md.excluded`, `Grok_4.5.md.excluded`, `Laguna_S_2.1.md.excluded`).
+
+## Model card (verified facts only)
+
+- **Name:** Cat Jam (`cat-jam`)
+- **Status:** **ANONYMOUS STEALTH MODEL — UNREVEALED.** Launched as a free, limited-time stealth route on OpenCode Zen (announced on OpenCode's own feed: "Cat Jam (stealth model) is now free in OpenCode — very fast — built for agentic coding — zero data retention"). Unlike the earlier `ox-alpha` stealth listing (later de-anonymized as Z.ai GLM-5.3-Flash), **Cat Jam's underlying lab/model has not been revealed** as of 2026-10-17, so there is no base model to attribute benchmarks to.
+- **Provider / access:** OpenCode Zen keyless free tier (`stealth/cat-jam` / `opencode/cat-jam`); $0 in/out; 1M-token advertised window; zero data retention. No vendor model card, no HuggingFace checkpoint, no canonical OpenRouter listing.
+- **Release / knowledge:** anonymous preview drop (Oct 2026); no knowledge cutoff disclosed — none can be, absent an identified base model.
+- **Context window:** curated `meta.json` "128K total" is a `scaffolded: true` placeholder; third-party catalogs advertise 1M. Neither is a first-party verified spec.
+- **Modalities:** curated `meta.json` "Text in/out" — placeholder; positioning implies a text reasoning/coding model. No verified modality sheet.
+- **Pricing:** free limited-time stealth tier; no first-party paid rate exists.
+- **Architecture:** none disclosed. Community tests describe it as fast and "small-model feeling" but this is subjective, not an architecture disclosure.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — no lab claims authorship, no catalog publishes a capability score for `cat-jam` (Command Code: "not yet scored"; OpenCode Data: provider `unknown`, usage rank only), and Artificial Analysis has no `cat-jam` row. Only informal, unreproducible social reviews exist.
+
+Agent / tool use:
+
+- Terminal-Bench / τ² / τ³ / GDPval / OSWorld / MCP-Atlas / FrontierCode / BrowseComp: **no verified public score found for this exact ID**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index: **no verified public score found** (no AA page for `cat-jam`)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / AA-LCR: **no verified public score found** (only anecdotal "built a to-do app, absurdly fast" demos)
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found** (the advertised 1M window is route marketing, not a measured spec)
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self-excluded for zero verified benchmarks and for being an unrevealed anonymous stealth model. Assigning capability scores would require fabricating data or guessing an undisclosed base model, both prohibited by `RULES.md`. If the stealth listing is de-anonymized into a named model **with** a first-party model card and published GPQA / SWE-bench / AA-Index numbers (as `ox-alpha → GLM-5.3-Flash` was), replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
+- Method: public internet research — OpenCode stealth-launch announcement, Command Code catalog ("Cat Jam … not yet scored"), OpenCode Data `unknown/cat-jam` (usage-rank only), community threads/YouTube (subjective speed tests), and a check that Artificial Analysis exposes no `cat-jam` benchmark row. No benchmark values inferred from peers or from an unconfirmed base model. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate).
+- Revisit trigger: the stealth model is de-anonymized into a named, generally-available model with a first-party model card and published benchmark numbers, or an independent evaluator (AA / Vals / BenchLM) exposes a distinct, reproducible `cat-jam` capability row.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

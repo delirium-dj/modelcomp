@@ -65,7 +65,7 @@ Multimodal / long context:
 - **Multimodal: 78/100.** Native omnimodal (text + image + video + audio in). AA-MMMU-Pro 73.1%. Capped at 78 because no CharXiv / Blueprint-Bench specific number for this exact model/ID is published.
 - **Coding: 72/100.** DeepSWE v1.1 67.9%. ProgramBench 26.0% weak. AA-SciCode 51.3%. Capped at 72 because SWE-bench Verified / Pro / LiveCodeBench specific numbers for this exact model/ID at standard harness are not published (Xiaomi uses DeepSWE v1.1 in catalog substitutions).
 - **Cost efficiency: 95/100.** $0.14 in / $0.28 out (Xiaomi API). Cached input $0.0028 (50× discount). MIT-licensed weights. Capped at 95 because output is still $0.28/MTok (not free).
-- **Overall Score: 77/100.** Half-up mean of Tool 84, Reasoning 60, Context 90, Multimodal 78, Coding 72 = 384/5 = 76.8 → half-up 77. MiMo V2.6 Flash is Xiaomi's cost-efficient omnimodal Flash: 1M context, MIT-licensed 309B/15B MoE, Terminal-Bench 2.1 87.6% (frontier-adjacent), CyberGym 95.1% (LEAD), and Toolathlon-Verified 73.6% at $0.14/$0.28. Trails on Terminal-Bench 4.0 (28.8%), ProgramBench (26%), and Reasoning (AA Intelligence Index 37.9%, AA-Omniscience negative).
+- **Overall Score: 77/100** Half-up mean of Tool 84, Reasoning 60, Context 90, Multimodal 78, Coding 72 = 384/5 = 76.8 → half-up 77. MiMo V2.6 Flash is Xiaomi's cost-efficient omnimodal Flash: 1M context, MIT-licensed 309B/15B MoE, Terminal-Bench 2.1 87.6% (frontier-adjacent), CyberGym 95.1% (LEAD), and Toolathlon-Verified 73.6% at $0.14/$0.28. Trails on Terminal-Bench 4.0 (28.8%), ProgramBench (26%), and Reasoning (AA Intelligence Index 37.9%, AA-Omniscience negative).
 
 ---
 

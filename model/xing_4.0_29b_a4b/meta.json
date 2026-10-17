@@ -1,0 +1,9 @@
+{
+  "id": "opencode/xing_4.0_29b_a4b",
+  "name": "Xing 4.0 29b A4b",
+  "short": "Xing 4.0 29b A4b model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

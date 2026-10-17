@@ -52,10 +52,11 @@ Multimodal:
 - **Multimodal: 88/100.** Native text + image + audio in; MMMU Pro 81.2% SOTA; real-time video understanding and audio analysis in the Gemini app. Image/audio in only (text out) keeps it from 92+.
 - **Coding: 80/100.** SWE-bench Verified 78% vendor-disclosed, exceeds Gemini 3 Pro on the same metric. Below Fable 5 / Opus 4.6 hard-coding ceiling.
 - **Cost efficiency: 90/100.** $0.50/$3.00 is a strong frontier-tier price; Audio input at $1/1M is reasonable. Pushed as Pareto-optimal by Google; 3× faster than 2.5 Pro.
-- **Overall Score: 87/100.** Mean of 5 non-cost quality dims (86+84+95+88+80)/5 = 86.6 → 87.
+- **Overall Score: 87/100** Mean of 5 non-cost quality dims (86+84+95+88+80)/5 = 86.6 → 87.
 
 ## Signature
 
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: independent MiniMax M3 evaluation. Sources: Google "Gemini 3 Flash: frontier intelligence built for speed" launch blog (2025-12-17), OpenCode Zen `meta.json`, S5 Labs insight, Artificial Analysis benchmark reference. All numbers vendor-disclosed; treat as a strong launch claim, not an independent measurement.
 - Future sources: add a new file next to this one, e.g. `Gemini_M3.md`, using the same headings. If independent (non-Google) SWE-bench Verified / GPQA Diamond numbers appear, fold them in.
+

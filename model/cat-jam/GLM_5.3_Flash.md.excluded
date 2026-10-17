@@ -1,0 +1,55 @@
+# Cat Jam — findings by GLM 5.3 Flash
+
+- Source: OpenCode Zen (`opencode/cat-jam-free`, anonymous stealth alias)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
+> zero verified public benchmark numbers exist for this exact model/ID — "Cat
+> Jam" is an anonymous stealth alias with no vendor claim, no model card and
+> no aggregator page. This file is saved as `.md.excluded` with notes only;
+> no scores are claimed.
+
+## Model card
+
+- **Name:** Cat Jam (Free) — anonymous stealth alias on OpenCode Zen; no vendor has claimed it
+- **Short description:** OpenCode Zen's anonymous free stealth route (`cat-jam-free` on the live roster), sibling pattern to `exo-free` and `big-pickle`: an unattributed model served at $0 with no announced identity, end date or terms. Whatever answers to `cat-jam` can change or disappear without notice — treat it as an alias, not a model.
+- **Provider / access:** OpenCode Zen — free route `cat-jam-free` verified on the live roster (`https://opencode.ai/zen/v1/models`, fetched 2026-10-16); Chat Completions API; catalogued by models.dev. The paid/base `cat-jam` ID (this folder) was not observed on the live roster — the free route is the only observed form.
+- **Release / knowledge:** first observed on the Zen roster during the 2026-10-16 research pass; no release date, no knowledge-cutoff statement, no vendor announcement found.
+- **IDs:** `cat-jam-free` (Zen free route, observed); `cat-jam` (registry base ID — this folder). No vendor ID exists.
+- **Context window:** not published for the alias; the registry scaffold's 128K is a generic default, not provider-verified.
+- **Modalities:** not published. Free stealth routes in this class have been text-in/text-out with reasoning and tool calling, but nothing is verified for Cat Jam specifically.
+- **Pricing (as of 2026-10-16):** $0 on the observed free route (standard Zen free-tier caveats: prompts may be used to improve the model; limited-time by precedent — cf. exo-free's HTTP 410 removal).
+- **Architecture:** unknown/anonymous — no parameter count, no weights, no vendor. Community identity speculation found zero corroboration in this pass (DuckDuckGo rate-limited; Bing returned no relevant results; BenchLM has no page).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / Tau2 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found under the Cat Jam alias
+- BenchLM: no page (404 confirmed 2026-10-16)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / MLCR / CritPt / Artificial Analysis Intelligence Index: no verified public score found — trackers do not carry anonymous stealth aliases
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported — window spec unpublished under the alias
+
+### Normalized scores (1–100)
+
+- Excluded — no scores. Zero verified public benchmarks under this alias (Rule 9); the folder's existing aggregate comes from other sources. Re-research if a vendor claims the alias or an independent harness publishes under this ID.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (live Zen roster verification 2026-10-16 — `cat-jam-free` present, `cat-jam` base absent; BenchLM 404 confirmed; DuckDuckGo rate-limited and Bing returned no relevant results for the alias identity — three independent checks, zero evidence of a claimed identity or public benchmark); scores are omitted per self-exclusion rules, not normalized interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

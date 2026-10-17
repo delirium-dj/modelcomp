@@ -1,0 +1,53 @@
+# Exo Free — findings by Qwen 3.8 Flash
+
+- Source: OpenCode Zen (`opencode/exo-free`), cross-checked against the community router investigation, the OpenCode deprecation issue, and Artificial Analysis
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because **Exo Free is not a distinct benchmarked model — it is an anonymous, time-limited stealth *router*** on OpenCode Zen, and there are **zero published first‑party benchmarks** for it as its own identity. Per `RULES.md`, a findings file is self-excluded (never fabricated) when there are no verified benchmarks for the exact ID. The curated `meta.json` states this outright: *"OpenCode Zen's anonymous free route … lab unknown, no benchmarks published."* Scoring it would require either inventing numbers or attributing the routed-to labs' (Claude / GPT) benchmarks to a router that has no capability identity of its own — both prohibited. The panel is split in this folder precisely because raters treated it differently (see the `.excluded` siblings `Claude_Opus_5.md.excluded`, `DeepSeek_4.1_Flash.md.excluded`, `GPT_5.5.md.excluded`, `Kimi_K3.md.excluded`, `Laguna_S_2.1.md.excluded`, `Space_Bunny.md.excluded`, etc.); this report follows the no-data verdict.
+
+## Model card (verified facts only)
+
+- **Name:** Exo Free (`exo-free`)
+- **Status:** **ANONYMOUS STEALTH ROUTER — DEPRECATED.** Dropped without attribution on OpenCode Zen on 2026-10-06 as a free, feedback-period experiment. As of 2026-10-08→10-14 the Zen server rejects it with **HTTP 410 `ModelDeprecated`** ("Model exo-free has been deprecated"); an OpenCode collaborator confirmed "free models run for a limited time," and the `models.dev` catalog status was subsequently corrected to deprecated. It is not a shippable, first-party model.
+- **What it actually is:** a community router investigation (r/opencode, 2026-10) concluded *"it's not a model at all. It's a router: four out of five requests go to Claude, every fifth — to GPT from OpenAI."* The underlying lab is unknown/unannounced; OpenCode's own docs describe it as a route that may "downgrade … or rout[e]" for capacity, not a stable single model.
+- **Provider / access:** OpenCode Zen keyless free tier (`opencode/exo-free`); listed `released` timestamp ~2026-10, cost $0/$0. No vendor model card, no HuggingFace checkpoint, no OpenRouter canonical listing under an "Exo" model family.
+- **Release / knowledge:** anonymous launch 2026-10-06; deprecated ~2026-10-08; no knowledge cutoff disclosed (none can be — no identified base model).
+- **Context window:** curated `meta.json` "1M total (1,048,576 in / 131,072 out)" — the *route's* advertised window, not a verified spec of any single underlying model.
+- **Modalities:** curated `meta.json` "Text + image in; text out"; reasoning reported "high" variant only. Route-level advertisement, not a first-party capability sheet.
+- **Pricing:** free limited-time Zen tier ($0 in/out/cached); inputs may be used to train — consistent with an experimental feedback route, not a production model.
+- **Architecture:** none disclosed. The routing behavior (Claude + GPT mix) means there is no single architecture to characterize.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — no lab claims authorship, OpenCode publishes no capability numbers for the route, and **Artificial Analysis has no `exo-free` row**. A router that forwards to different underlying models per request has no stable, reproducible benchmark identity, so any single score would be meaningless.
+
+Agent / tool use:
+
+- Terminal-Bench / τ² / τ³ / GDPval / OSWorld / MCP-Atlas / BrowseComp: **no verified public score found for this exact ID**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index: **no verified public score found** (no AA page exists for `exo-free`)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / AA-LCR: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found** (the advertised "1M / text+image" is route marketing, not a measured spec)
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self-excluded for zero verified benchmarks and for being a transient, now-deprecated anonymous router rather than a distinct model. Assigning capability scores would require fabricating data or importing the routed-to labs' (Anthropic / OpenAI) numbers onto a non-model, both prohibited by `RULES.md`. If OpenCode (or the undisclosed lab) ever reveals Exo Free as a specific shipped model **with** a first-party model card and published GPQA / SWE-bench / AA-Index numbers, replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
+- Method: public internet research — r/opencode community router investigation ("it's not a model at all … 4/5 Claude, 1/5 GPT"), OpenCode GitHub issue #54065 documenting the HTTP 410 deprecation (reproduced 2026-10-09→10-14, collaborator-confirmed), OpenCode Zen model docs, and a check that Artificial Analysis exposes no `exo-free` benchmark row. No benchmark values inferred from peers or borrowed from the routed-to labs. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate).
+- Revisit trigger: the route is de-anonymized into a named, generally-available model with a first-party model card and published benchmark numbers (AA Index / GPQA / SWE-bench), or an independent evaluator exposes a distinct, reproducible `exo-free` capability row.
+- Note on current state: as of this report the model is deprecated/unusable on Zen, which further removes any basis for live re-benchmarking.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

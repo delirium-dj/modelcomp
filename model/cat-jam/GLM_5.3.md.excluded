@@ -1,0 +1,36 @@
+# Cat Jam — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: undisclosed stealth vendor (`opencode/cat-jam`, Free tier `cat-jam-free`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (registry/catalog metadata only, no measured numbers):
+
+- **Identity:** Cat Jam (Free tier `cat-jam-free`) — a text-only reasoning model for coding and agentic workflows with tool calling and structured JSON outputs; **released 2026-10-12 and already marked `status = "deprecated"`** in the models.dev registry snapshot (re-checked 2026-10-17).
+- **Specs (registry, models.dev `cat-jam-free.toml`):** 1,048,576 context / 131,072 max output; text in / text out; reasoning on (effort low/medium/high/xhigh/max); tool calls; structured output; $0 in/out/cache during the free period; closed weights.
+- **Availability:** ABSENT from the live Zen models endpoint and pricing table (`opencode.ai/inference/v1/models` fetched 2026-10-17 lists no cat-jam) — the deprecated free tier appears already rotated out. No OpenCode Data page (404), no pi.dev page (404).
+
+Sources checked with no benchmark rows (2026-10-17):
+
+- BenchLM (`cat-jam`): 404 — no page.
+- Artificial Analysis: no model page (404).
+- OpenCode Data: 404 under `unknown/cat-jam`, `unknown/cat-jam-free`.
+- models.dev registry: metadata only — no benchmark fields.
+- Web search (Bing): no third-party benchmark coverage of this ID.
+
+A future re-research should look for (a) any archival benchmark snapshot from the model's brief live window (2026-10-12 onward), (b) a named vendor identity behind the codename, (c) aggregator coverage if the model ever returns from deprecation — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-17
+- Method: public internet research (models.dev registry TOML, live Zen models endpoint + docs + pricing table, BenchLM, Artificial Analysis, OpenCode Data, Bing search); no verified public scores exist for this already-deprecated stealth ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

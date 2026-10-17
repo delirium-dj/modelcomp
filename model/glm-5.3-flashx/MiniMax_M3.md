@@ -50,10 +50,11 @@ Multimodal:
 - **Multimodal: 85/100.** First native multimodal in GLM-5 family; video + image + file in; visual coding loop; SOTA-style Office + Blender 3D demos. Image/video in only (text out) caps it at 90 max.
 - **Coding: 82/100.** Z.ai Code Bench "on par with Claude Opus 4.8"; DeepSWE 63.4 is a real, vendor-disclosed gain over GLM-5.2. The 28.3% Terminal-Bench 3.0 is for GLM-5.3 (full), not FlashX — Flash inherits the same model. Below Fable 5 / Opus 5 hard-coding ceiling.
 - **Cost efficiency: 96/100.** $0.37/$1.25 (cache $0.09) is **1/40 of Opus 4.8** at parity intelligence. 200 tok/s FlashX serving. 1M context served efficiently thanks to the hybrid architecture. Outstanding cost/quality position.
-- **Overall Score: 83/100.** Mean of 5 non-cost quality dims (80+78+92+85+82)/5 = 83.4 → 83.
+- **Overall Score: 83/100** Mean of 5 non-cost quality dims (80+78+92+85+82)/5 = 83.4 → 83.
 
 ## Signature
 
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: independent MiniMax M3 evaluation. Sources: Z.ai docs (GLM-5.3-Flash/FlashX page), Z.ai launch blog, Aliyun Model Studio GLM-5.3-FlashX listing (2026-09-21), Yicai Global coverage, Artificial Analysis Intelligence Index (cited by Z.ai). All numbers vendor-disclosed; treat as a strong launch claim, not an independent measurement. Cost reflects 1/40 Opus 4.8 framing per Z.ai.
 - Future sources: add a new file next to this one, e.g. `GLM_M3.md`, using the same headings. If independent (non-Z.ai) AA Index / DeepSWE / Terminal-Bench 3.0 numbers appear, fold them in. The full GLM-5.3 (not Flash / FlashX) is a separate row in the queue and should be a separate report.
+

@@ -58,7 +58,7 @@ Multimodal / safety:
 - **Multimodal: 75/100.** Text + image in. Capped at 75 because no specific MMMU-Pro / CharXiv figure for Opus 4.6 is published, and 500+ zero-days are proof of capability but not a multimodal benchmark.
 - **Coding: 86/100.** SWE-bench Verified 80.8% (LEADS Anthropic cohort at launch). Terminal-Bench 2.0 65.4%. Capped at 86 because LiveCodeBench / SciCode / DeepSWE specific numbers are not published for this exact model/ID.
 - **Cost efficiency: 60/100.** $5/$25 standard tier (parity with Opus 4.5); $10/$37.50 long-context tier (>200K). Capped at 60 because output is $25/MTok (premium tier) and long-context tier doubles again.
-- **Overall Score: 86/100.** Half-up mean of Tool 88, Reasoning 90, Context 92, Multimodal 75, Coding 86 = 431/5 = 86.2 → half-up 86. Claude Opus 4.6 was Anthropic's February 2026 flagship: ARC-AGI-2 lead at launch (68.8%, +83% over Opus 4.5), 1M context with MRCR v2 76% (LEAD), Agent Teams parallel orchestration, Microsoft 365 integration. Trails GPT-5.5 on Terminal-Bench 2.0 by 17 points (which became the operative gap by the time Opus 4.7 arrived in April).
+- **Overall Score: 86/100** Half-up mean of Tool 88, Reasoning 90, Context 92, Multimodal 75, Coding 86 = 431/5 = 86.2 → half-up 86. Claude Opus 4.6 was Anthropic's February 2026 flagship: ARC-AGI-2 lead at launch (68.8%, +83% over Opus 4.5), 1M context with MRCR v2 76% (LEAD), Agent Teams parallel orchestration, Microsoft 365 integration. Trails GPT-5.5 on Terminal-Bench 2.0 by 17 points (which became the operative gap by the time Opus 4.7 arrived in April).
 
 ---
 

@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Verified public numbers from BenchLM (`https://benchlm.ai/models/claude-opus-5`, overall 79.44, rank #7/889, 96 of 625 benchmarks) and Artificial Analysis. 96 benchmark rows verified across 3 independent sources.
+> Verified public numbers from BenchLM (`https://benchlm.ai/models/claude-opus-5`, overall 79.63, rank #8/954, 99 of 639 benchmarks) and Artificial Analysis. 99 benchmark rows verified across 3 independent sources.
 
 Agent / tool use:
 

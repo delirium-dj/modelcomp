@@ -69,7 +69,7 @@ Long context:
 - **Multimodal: 88/100.** Tops OmniDocBench 91.1 by a wide margin. MMMU-Pro 81.6 second to GPT-5.6. CharXiv 91.3, MathVision 97.8 — strongest document understanding in cohort. Capped at 88 (vs Gemini 3 Pro's 95) because no native video/audio.
 - **Coding: 92/100.** #1 on Frontend Code Arena (1,679 Elo). Leads Program Bench 77.8 and SWE Marathon 42.0. AA Coding Index 76.24. Loses DeepSWE by 5.5 to GPT-5.6. Capped because LiveCodeBench / SciCode not published.
 - **Cost efficiency: 62/100.** $3/$15 is competitive with Sonnet series but 5-6× Kimi K2.6. Cache $0.30 makes heavy-cache workloads cheap. 70-80% below Opus 4.8. Capped because the 5-6× K2.6 price hike removes the budget-frontier positioning.
-- **Overall Score: 91/100.** Half-up mean of Tool 90, Reasoning 90, Context 96, Multimodal 88, Coding 92 = 456/5 = 91.2 → half-up 91. K3 is a strong endurance / agentic / document-understanding model with a clear 10-point reasoning gap to Fable 5 on HLE-Full; for sustained multi-step coding it is the best 2.8T open-weight option at launch.
+- **Overall Score: 91/100** Half-up mean of Tool 90, Reasoning 90, Context 96, Multimodal 88, Coding 92 = 456/5 = 91.2 → half-up 91. K3 is a strong endurance / agentic / document-understanding model with a clear 10-point reasoning gap to Fable 5 on HLE-Full; for sustained multi-step coding it is the best 2.8T open-weight option at launch.
 
 ---
 
@@ -78,3 +78,4 @@ Long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Simon Willison, Wan 2.7, AI Release Tracker, Artificial Analysis, LLM Rumors, LinkedIn). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3_Moonshot.md`, using the same headings.
+

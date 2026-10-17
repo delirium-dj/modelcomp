@@ -62,7 +62,7 @@ Multimodal / long context:
 - **Multimodal: 90/100.** Natively omnimodal (text + image + audio + video in single architecture). First OpenAI base with full omnimodal coverage. Capped at 90 because MMMU-Pro / CharXiv / Blueprint-Bench specific numbers for GPT-5.5 are not separately published.
 - **Coding: 88/100.** Terminal-Bench 2.0 82.7% (LEAD). SWE-bench Verified 88.7%. SWE-Bench Pro 58.6% (trails Opus 4.7 64.3). LiveCodeBench 78%. Expert-SWE 73.1%. Capped at 88 because SWE-Bench Pro trails the Anthropic cohort.
 - **Cost efficiency: 65/100.** $5 in / $30 out (2× GPT-5.4 base, parity with Opus 4.7's $5/$25). OpenAI claims 40% fewer output tokens for Codex tasks, netting ~20% effective cost increase. Capped at 65 because output is $30/MTok (premium tier).
-- **Overall Score: 90/100.** Half-up mean of Tool 88, Reasoning 88, Context 95, Multimodal 90, Coding 88 = 449/5 = 89.8 → half-up 90. GPT-5.5 is OpenAI's first fully retrained omnimodal base since GPT-4.5: Terminal-Bench 2.0 leader (+13 over Opus 4.7), ARC-AGI-2 leader (85.0), MRCR v2 at 1M = 74.0 (37-point lead over Opus 4.7), and native audio/video input. The 2× per-token increase over GPT-5.4 is partially offset by 40% token efficiency; SWE-Bench Pro at 58.6% is the soft spot.
+- **Overall Score: 90/100** Half-up mean of Tool 88, Reasoning 88, Context 95, Multimodal 90, Coding 88 = 449/5 = 89.8 → half-up 90. GPT-5.5 is OpenAI's first fully retrained omnimodal base since GPT-4.5: Terminal-Bench 2.0 leader (+13 over Opus 4.7), ARC-AGI-2 leader (85.0), MRCR v2 at 1M = 74.0 (37-point lead over Opus 4.7), and native audio/video input. The 2× per-token increase over GPT-5.4 is partially offset by 40% token efficiency; SWE-Bench Pro at 58.6% is the soft spot.
 
 ---
 

@@ -20,4 +20,4 @@
 - Based on 11 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Sol, GPT-5.6 Terra, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 Flash.
 - Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Sol, GPT-5.6 Terra, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus.
 - Excluded bottom 1: Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Big Pickle, Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Ling 3.1 Flash, Space Bunny, Step 5 Preview.
+- Ignored below-gate rater(s): Beam, Big Pickle, Fledge Alpha, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna, Ling 3.1 Flash, Space Bunny, Step 5 Preview.

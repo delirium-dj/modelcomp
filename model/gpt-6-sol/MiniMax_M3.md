@@ -64,7 +64,7 @@ Pricing compared to peers (current as of 2026-10-16):
 - **Multimodal: 70/100.** Strong image+text evidence (AA-MMMU-Pro 82.9%, HealthBench-Pro 60.8%) but the **only** modality pair is image-in/text-out — no native audio or video in/out — and language coverage is text-only output.
 - **Coding: 88/100.** DeepSWE 68.8% near the Fable 5 frontier and FrontierCode 49.3% plus AA Coding Index 57 are solid; coding-deception rate dropped to 1.3% (best in the Sol family). Lack of SWE-bench Verified / Pro / LiveCodeBench same-harness reruns from independent labs holds the score below 90.
 - **Cost efficiency: 76/100.** $2.00 / $10.00 with $0.20 cache read and $0.27 AutomationBench task cost sits between the cheap opencode/Muse-Spark corridor and the heavy GPT-6 Astra corridor; cheaper than GPT-5.6 Sol and 5× under Astra, but more expensive than GPT-6.1 Sol and **twice** the GPT-6 Luna price band. No free Zen tier.
-- **Overall Score: 86/100.** Half-up mean of the five non-cost dims: (86 + 92 + 94 + 70 + 88) / 5 = 86.0. Best fit: complex coding and multi-app agentic workflows where calibrated reasoning effort controls total task cost, while Sol keeps enough headroom for frontier-class math reasoning.
+- **Overall Score: 86/100** Half-up mean of the five non-cost dims: (86 + 92 + 94 + 70 + 88) / 5 = 86.0. Best fit: complex coding and multi-app agentic workflows where calibrated reasoning effort controls total task cost, while Sol keeps enough headroom for frontier-class math reasoning.
 
 ---
 
@@ -73,3 +73,4 @@ Pricing compared to peers (current as of 2026-10-16):
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-16
 - Method: Six-source triangulation (OpenAI launch + API docs, Artificial Analysis, ARC Prize independent rerun, BenchLM aggregated sheet, Vals public aggregates, llm-stats tracker); 1.1-exact numbers used where they exist, conflicting values retained with provenance. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
