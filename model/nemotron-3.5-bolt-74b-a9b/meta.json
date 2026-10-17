@@ -1,9 +1,12 @@
 {
   "id": "opencode/nemotron-3.5-bolt-74b-a9b",
-  "name": "Nemotron 3.5 Bolt 74b A9b",
-  "short": "Nemotron 3.5 Bolt 74b A9b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Nemotron 3.5 Bolt 74B-A9B",
+  "short": "NVIDIA's open-weight 74B/9B-active Mamba-2 vision-language MoE (256K, fits 24GB) for local coding and agentic work; Terminal-Bench 2.1 50.98%, OpenMDW-1.1.",
+  "contextWindow": "262,144 (256K) total",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Open weights (OpenMDW-1.1); runs locally in 24GB, no per-token list price",
+  "pricingTiers": [
+    "Open weights (OpenMDW-1.1) — self-host / NVIDIA NIM"
+  ],
+  "noFreeId": true
 }

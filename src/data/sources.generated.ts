@@ -175,7 +175,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Cat Jam", label: "Cat Jam", file: "Cat_Jam.md", slug: "cat-jam" },
   { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
   { key: "Cat Jam probe2", label: "Cat Jam probe2", file: "Cat_Jam_probe2.md" },
-  { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md" },
+  { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md", slug: "nemotron-3.5-super-vl" },
   { key: "Beam", label: "Beam", file: "Beam.md", slug: "beam" },
   { key: "Xing 4.0.29B A4B", label: "Xing 4.0.29B A4B", file: "Xing_4.0.29B_A4B.md", slug: "xing_4.0_29b_a4b" },
 ];

@@ -1,9 +1,9 @@
 {
   "id": "opencode/nemotron-3.5-bolt-e4b",
-  "name": "Nemotron 3.5 Bolt E4b",
-  "short": "Nemotron 3.5 Bolt E4b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Nemotron 3.5 Bolt E4B",
+  "short": "NVIDIA's announced ~4B edge model in the Bolt family for on-device conversational agents and tool calls; unreleased, specs and benchmarks unverified.",
+  "contextWindow": "Unverified — unreleased, size not published",
+  "modalities": "Unverified — unreleased, no published modalities",
+  "pricingNote": "Open weights expected (self-host free); no pricing published",
+  "noFreeId": true
 }

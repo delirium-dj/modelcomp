@@ -1,9 +1,13 @@
 {
   "id": "opencode/minimax-m2.5",
-  "name": "Minimax M2.5",
-  "short": "Minimax M2.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "MiniMax M2.5",
+  "short": "MiniMax's open-weight 230B/10B-active MoE (~205K context) for agentic coding and tool use; SWE-bench Verified 80.2%, Modified-MIT.",
+  "contextWindow": "~205,000 total (192K–205K class)",
+  "modalities": "Text in/out only",
+  "pricingNote": "Paid $0.15–$0.30 in / $0.60–$1.20 out per 1M by tier; Modified-MIT open weights",
+  "pricingTiers": [
+    "M2.5 $0.15 in / $0.60 out per 1M",
+    "M2.5-Lightning $0.30 in / $2.40 out per 1M"
+  ],
+  "noFreeId": true
 }

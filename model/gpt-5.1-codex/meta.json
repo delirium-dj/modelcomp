@@ -1,9 +1,9 @@
 {
   "id": "opencode/gpt-5.1-codex",
   "name": "GPT-5.1 Codex",
-  "short": "GPT-5.1 Codex model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenAI's agentic coding variant between Codex Mini and Max (400K/128K, $1.25/$10) for repo-scale software engineering; Responses API only.",
+  "contextWindow": "400,000 total (128,000 out)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $1.25/$10.00 per 1M; $0.125 cached input",
+  "noFreeId": true
 }

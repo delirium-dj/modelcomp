@@ -1,9 +1,13 @@
 {
   "id": "opencode/glm-5",
-  "name": "Glm 5",
-  "short": "Glm 5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "GLM 5",
+  "short": "Z.ai's 744B/40B-active MIT open-weight MoE (200K) for text-only agentic coding; SWE-bench Verified 77.8%, the base of the GLM-5.x line.",
+  "contextWindow": "200,000 total (128,000 out)",
+  "modalities": "Text in/out only",
+  "pricingNote": "$1.00/$3.20 per 1M cross-provider median; MIT open weights (self-host free)",
+  "pricingTiers": [
+    "AA median $1.00 in / $3.20 out per 1M",
+    "MIT open weights (self-host free)"
+  ],
+  "noFreeId": true
 }

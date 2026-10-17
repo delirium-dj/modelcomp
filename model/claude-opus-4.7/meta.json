@@ -1,9 +1,13 @@
 {
   "id": "opencode/claude-opus-4.7",
   "name": "Claude Opus 4.7",
-  "short": "Claude Opus 4.7 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's Opus 4.7 (1M context flat-rate, $5/$25) for autonomous coding and long-horizon agents; SWE-bench Verified 87.6%, SWE-bench Pro 64.3%, 3.75MP vision.",
+  "contextWindow": "1,000,000 total (128,000 out)",
+  "modalities": "Text, image, PDF in; text out",
+  "pricingNote": "Paid $5.00/$25.00 per 1M; $0.50 cached; batch $2.50/$12.50",
+  "pricingTiers": [
+    "Standard $5.00 in / $25.00 out per 1M",
+    "Cached input $0.50; batch $2.50/$12.50"
+  ],
+  "noFreeId": true
 }

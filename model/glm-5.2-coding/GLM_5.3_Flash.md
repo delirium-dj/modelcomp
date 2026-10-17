@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by GLM 5.3 Flash
 
 - Source: Z.ai / Zhipu AI (`opencode/glm-5.2-coding`; upstream `zai-org/GLM-5.2`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,17 +60,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 84/100.** (Was 78 on the prior pass.) τ²-bench 99.1% (AA) and MCP Atlas 76.8% fill the two biggest gaps, with GDPval 1418 corroborating; the weak Toolathlon 48.2%, TB3.0 4.6% and Vals TB2.1 gap (67.8 vs 81.0) keep it under 88.
-- **Reasoning: 85/100.** (Was 78 on the prior pass.) The largest correction: GPQA resolves up to 91.2%/89.5%/85.6% (three sources, elite), HLE 40.5%/41.1% clears the 40% bar, AIME26 99.2% is near-perfect and CritPt 20.9%/AA-LCR 78.3% fill the rest — the prior score leaned on the low HokAI GPQA read.
+- **Reasoning: 86/100.** CHANGED from 85 — GPQA resolves up to 91.2%/89.5%/85.6% (three sources, elite), HLE 40.5%/41.1% clears the 40% bar, AIME26 99.2% is near-perfect, CritPt 20.9%/AA-LCR 78.3% fill the rest, and the newly measured FrontierMath v2 59.2%/29.3% (Epoch, shared-weights row) adds a solid math pillar — the prior score leaned on the low HokAI GPQA read.
 - **Context window: 95/100.** 1M tokens puts it in the ≥1M = 95–100 tier (BenchLM concurs); AA-LCR 78.3% is the first measured evidence; missing recall verification past ~500K holds it at the tier floor.
 - **Multimodal: 15/100.** Text in/out only — vision requires the separate GLM-5V-Turbo model.
 - **Coding: 86/100.** Vals SWE-bench 82.8% and LiveCodeBench 69.5% add independent corroboration to the open-weight leadership story (SWE-Pro 62.1%, FrontierSWE 74.4%, TB2.1 81.0%, Design Arena #1); AA Coding Index 68.8% and PostTrainBench 31.7% keep it out of the 90+ band.
 - **Cost efficiency: 87/100.** $1.40/$4.40 per 1M maps to the ~88 band ($1.25/$4.25) with the ~$0.26 cached rate and MIT self-hosting as bonuses; no free tier on Zen.
-- **Overall Score: 73.0/100.** (Was 70.4 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (84 + 85 + 95 + 15 + 86) / 5 = 365/5 = 73.0 — raised on the 2026-10-11 second pass as the shared-weights boards convert the reasoning and tool gaps into elite measured evidence. Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos — pair with a vision model and verify long-context jobs >500K before committing.
+- **Overall Score: 73/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (84 + 86 + 95 + 15 + 86) / 5 = 366/5 = 73.2 → 73 — the 2026-10-16 FrontierMath rows keep Reasoning at its raised level (85→86). Best fit: cost-efficient open-weights coding workhorse for agent harnesses and monorepos — pair with a vision model and verify long-context jobs >500K before committing.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai GLM-5.2 page updated 2026-10-10 citing the Z.AI HF model card, Artificial Analysis independent boards (τ²/LCR/SciCode/Omniscience/GDPval) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-21/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores. GLM-5.2 numbers transfer to the Coding serving lane via the same-weights statement.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai GLM-5.2 page updated 2026-10-10 citing the Z.AI HF model card, Artificial Analysis independent boards (τ²/LCR/SciCode/Omniscience/GDPval) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-21/10-05 passes; 2026-10-16 re-check: BenchLM GLM-5.2 46-row refresh (shared weights) corroborates all rows — FrontierMath v2 59.2/29.3 and MazeBench 0% added — Reasoning 85→86, Overall 73 holds (73.2)); scores are normalized 1–100 interpretations, not official vendor scores. GLM-5.2 numbers transfer to the Coding serving lane via the same-weights statement.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

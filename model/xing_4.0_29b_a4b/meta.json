@@ -1,9 +1,13 @@
 {
   "id": "opencode/xing_4.0_29b_a4b",
-  "name": "Xing 4.0 29b A4b",
-  "short": "Xing 4.0 29b A4b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Xing 4.0 29B-A4B",
+  "short": "China Telecom's open-weight 29B/4B-active text-only MoE (256K, Ascend-trained) for coding and terminal agents; SWE-bench Verified 75%, Apache 2.0.",
+  "contextWindow": "256,000 native (extensible to 512,000 via YaRN)",
+  "modalities": "Text in/out only",
+  "pricingNote": "Apache 2.0 open weights (self-host free); free Zen promo tier",
+  "freeTierNote": "Free promotional OpenCode Zen tier; Apache 2.0 weights self-host free",
+  "pricingTiers": [
+    "Free promotional Zen tier",
+    "Apache 2.0 open weights (self-host free)"
+  ]
 }

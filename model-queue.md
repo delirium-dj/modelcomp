@@ -135,8 +135,8 @@
 67.8 beam
 67.6 solar-pro-4
 67.2 ling-3.1-flash
+67.2 nemotron-3.5-bolt-74b-a9b
 66.9 qwen3-max
-66.8 nemotron-3.5-bolt-74b-a9b
 66.8 pixel_canary
 66.6 minimax-m2.7
 66.4 mai-thinking-1

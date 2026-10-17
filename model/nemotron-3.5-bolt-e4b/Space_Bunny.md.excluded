@@ -1,0 +1,108 @@
+# Nemotron 3.5 Bolt E4B 4GB — findings by Space Bunny
+
+- Source: NVIDIA (`Nemotron 3.5 Bolt E4B 4GB`; announced, **not yet released**)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **STATUS: SELF-EXCLUDED — zero verified public benchmark numbers.** This is a
+> *forward-looking* exclusion, not a permanent one. **Nemotron 3.5 Bolt E4B 4GB has
+> not shipped yet:** NVIDIA announced it on 2026-10-15 alongside Nemotron 3.5 Super VL and
+> Bolt 74B-A9B 24GB, but only those two are live — **Bolt E4B is scheduled for
+> 2026-10-23**, six days after this report. Per the `model-report-TEMPLATE.md`
+> SELF-EXCLUSION rule, no scores are asserted and nothing here is counted toward any
+> average. `pnpm sync` ignores `.md.excluded` files by design. **Re-run this folder after
+> 2026-10-23.**
+
+- Date of research: 2026-10-17 (UTC), three independent search passes plus direct reads
+  of the NVIDIA announcement and the BenchLM tracking entry.
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B 4GB
+- **Short description:** The smallest and lowest-footprint member of NVIDIA's new Nemotron 3.5 Bolt edge line — a ~4 GB-footprint model optimised for **intelligence per GB** on consumer and embedded hardware, aimed at latency-sensitive always-on conversational agents: local voice assistants, interactive characters, robotics controllers and embedded interfaces. It is the sibling of Bolt 74B-A9B 24GB (same family, same 2-bit/edge philosophy, opposite end of the size range), not an alias of it. It is **announced but unreleased**, so nothing about it beyond the announcement can be verified.
+- **Provider / access:** **None — not yet available.** No Hugging Face repository, no ModelScope entry, no NVIDIA NIM endpoint, no Ollama/LM Studio/llama.cpp package, no OpenRouter route. NVIDIA's own words: "Super VL and Bolt 74B-A9B are available now, with **Bolt E4B coming Oct. 23**." When it ships it is expected to land on Hugging Face with the same framework support as its sibling (llama.cpp, Ollama, LM Studio, Unsloth, vLLM), on **OpenMDW-1.1** weights consistent with the rest of the Nemotron 3.5 line.
+- **Release / knowledge:** **announced 2026-10-15; scheduled release 2026-10-23.** Knowledge cutoff not published and unknowable pre-release.
+- **IDs:** **none exist yet.** The only string in circulation is the announcement's own "Nemotron 3.5 Bolt E4B 4GB". Do not construct a Hugging Face or API ID for it — no route accepts one today.
+- **Context window:** **not published.** BenchLM's tracking entry lists Context Window as "Coming soon" and context as `null` across every one of its comparison pages. **No figure is inferred here.** For scale only, its released sibling Bolt 74B-A9B runs 256K and its parent Nemotron 3.5 Super VL runs 1M — but neither is this model's spec.
+- **Modalities:** **not documented.** NVIDIA describes the *deployment targets* (voice assistants, interactive characters, robotics controllers, embedded interfaces) but **does not state a modality table** for E4B. **Routing note recorded for maintainers:** "conversational agents" and "local voice assistants" describe an application, not a speech pipeline. Its released sibling with the identical framing (Bolt 74B-A9B) is a vision-language text model correctly filed under `model/`, so E4B stays here. **If the 2026-10-23 release ships a native speech/audio path (realtime voice API, TTS/STT I/O), this folder must be re-evaluated for `models_voice/` routing under `RULES.md`.**
+- **Pricing (as of 2026-10-17):** **none.** No hosted route exists. Expected to follow the Bolt line's pattern — free OpenMDW-1.1 weights, self-hosted, with third-party hosts (OpenRouter, Together, Fireworks, Baseten) later setting per-token rates. BenchLM lists pricing as unavailable.
+- **Architecture:** **essentially undocumented.** The `E4B` name follows NVIDIA's Bolt convention of naming the *active/expert* parameter count, which would imply roughly 4B active parameters, but **NVIDIA explicitly gives no parameter breakdown for E4B beyond its name and memory footprint** — no total parameters, no expert count, no top-k, no attention scheme, no quantisation detail, no license line. The sibling Bolt 74B-A9B is a Mamba-2–Transformer hybrid LatentMoE VLM compressed via Star Elastic and quantized to 2.0625-bit IQ2_XXS; whether E4B shares that recipe is unknown and is **not** assumed here.
+
+### Raw benchmarks found
+
+> Every row reads "no verified public score found". That is the finding, and for a model
+> that has not shipped it is the only defensible finding.
+
+- **BenchLM tracking entry (checked 2026-10-16): "Sourced benchmark coverage is coming soon."** Benchmarks covered: **0 of 639**. Source Type: **Pending**. Reasoning Type: **Pending**. Context Window: **Coming soon**. Overall Score / Rank: **Coming soon / Unranked**.
+- Across every BenchLM comparison page for this model — vs Grok 4, GPT-4.1, Nemotron 3 Ultra, Nemotron 3.5 Lightning 30B-A3B NVFP4 — the shared-benchmark count is **0** and every E4B cell renders "Coming soon". (The comparison pages do carry full numbers for the *other* model in each pair; none of them is E4B's, and none is transferred here.)
+- **No Hugging Face model card exists**, so there is no per-precision evaluation table of the kind published for Super VL (30 rows across BF16/NVFP4) or Bolt 74B-A9B (Table 7 of its technical report).
+- **No Artificial Analysis entry**, no Vals AI entry, no llm-stats entry, no models.dev entry, no ModelScope entry.
+- Agent / tool use: Terminal-Bench, Tau2/Tau3, GDPval-AA, PinchBench, Claw-Eval, Toolathlon, MCP-Atlas — **no verified public score found.**
+- Reasoning / knowledge: GPQA Diamond, HLE, AIME, MMLU-Pro, CritPt, AA-Omniscience, Artificial Analysis Intelligence Index — **no verified public score found.**
+- Coding: SWE-bench Verified/Pro/Multilingual, LiveCodeBench, SciCode, Vibe Code Bench — **no verified public score found.**
+- Long context: MRCR / RULER / AA-LCR / GraphWalks — **no verified public score found, and no window length to retrieve against.**
+- Multimodal: MMMU-Pro / MMMU / DocVQA / OCR — **no verified public score found, and no documented modality to test.**
+
+### Negative-findings notes (what was checked, and what each source actually says)
+
+- **NVIDIA's own announcement (blogs.nvidia.com, 2026-10-15)** — the primary and
+  load-bearing source. It states three things about E4B and no more: it is "optimized for
+  intelligence per GB for fast conversational agents"; it "is built for physical and
+  conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark"; and it is "coming
+  Oct. 23." **No benchmark, no parameter count, no context window, no price, no licence
+  line, no modality table.** By contrast the same post gives Bolt 74B-A9B a precise memory
+  figure and PinchBench/BrowseComp rankings — the asymmetry is the finding.
+- **NVIDIA technical blog coverage (2026-10-15/16)** — Yahoo Finance, Unite.AI,
+  Technobezz, Pandromeda, Windows Report, Tech Insider and the r/MachineLearningNews thread
+  all independently repeat "available now / Oct. 23" and all describe E4B only by name,
+  4 GB footprint and target device class. Pandromeda states it explicitly: *"NVIDIA's
+  post doesn't give a more detailed parameter breakdown for the E4B model beyond its name
+  and memory footprint."*
+- **BenchLM model page + six comparison pages** — the only tracker that has created a
+  placeholder entry. Every field is Pending/Coming soon and every benchmark cell is empty.
+- **No repository exists.** No `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B*` model, no Ollama tag,
+  no NIM card. Contrast the sibling, which has four published HF repos plus a LiLiCorr
+  drafter and a full technical report.
+- **Adjacent Nemotron numbers must not be substituted.** Bolt 74B-A9B (74B/9B, 2-bit,
+  256K, Terminal-Bench 2.1 50.98%, PinchBench 87.82%, GPQA-D 86.43%) and Nemotron 3.5
+  Super VL (120B/12B, 1M, AA Intelligence Index 26) are real, published, separately
+  benchmarked models. Their figures are lineage context for the Bolt family, **not
+  E4B measurements**, and importing them would corrupt `model/nemotron-3.5-bolt-74b-a9b/`
+  and this folder simultaneously.
+
+### Normalized scores (1–100)
+
+**Intentionally omitted.** Under the self-exclusion rule, a model with zero verified public
+benchmarks must not receive scores. Bolt E4B has not shipped; assigning it a 1–100 profile
+today would convert a four-day-old press mention into invented quality evidence and drag the
+mean for every downstream reader. The six facts that *are* verified — announced 2026-10-15,
+shipping 2026-10-23, a ~4 GB memory footprint, edge/conversational-agent positioning, GeForce
+RTX / Jetson / RTX-DGX Spark targets, and no published spec or benchmark of any kind — are
+deployment facts, not capability measurements.
+
+**Re-scoring trigger, in priority order:** (1) the 2026-10-23 release landing on Hugging
+Face with a model card; (2) a parameter breakdown, context window and modality table;
+(3) any benchmark row on BenchLM, Artificial Analysis, Vals AI or llm-stats; (4) a hosted
+price. When (1) and (3) land, this folder should receive a scored `Space_Bunny.md` and this
+file should be retired. **Note for that pass:** a 4 GB footprint implies very low capability
+by construction — expect the report to be dominated by the Multimodal and Context dimensions
+rather than by Coding.
+
+---
+
+## Signature
+
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17
+- Method: public internet research across NVIDIA's official Nemotron 3.5 announcement blog
+  (the primary source and the one that carries the 2026-10-23 date), the NVIDIA Nemotron
+  project pages, BenchLM's `Nemotron 3.5 Bolt E4B` tracking entry and its six comparison
+  pages (all Pending/Coming soon, 0 of 639 benchmarks covered), and seven independent news
+  and community sources (Yahoo Finance, Unite.AI, Technobezz, Pandromeda, Windows Report,
+  Tech Insider, r/MachineLearningNews) that all corroborate the unreleased status and
+  contain no benchmark figure. No peer findings file was read, and no sibling Nemotron
+  model's numbers were substituted. Scores would be normalized 1–100 interpretations —
+  **none are asserted in this file.**
+- Future sources: if Bolt E4B ships on 2026-10-23 with published specifications and
+  benchmarks, add a scored file next to this one using the same headings; do not revive this
+  one by renumbering it.
