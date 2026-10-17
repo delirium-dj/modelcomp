@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4.20-0309-reasoning`), researched from fresh public web sources; Artificial Analysis lists the publisher as "SpaceXAI" on its 2026 model pages, but the canonical publisher of the Grok line is xAI.
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,6 +25,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.0: **47.1%** (corroborated); Terminal-Bench 2.1 (Vals): **44.2%** (corroborated); Gert Labs: **38.36%** (corroborated); DeepSearchQA: **62.8%** (corroborated)
 - Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
+- MazeBench ASCII: **0%** (added 2026-10-16, tools-off run)
 
 Reasoning / knowledge:
 
@@ -44,7 +45,7 @@ Long context:
 
 Multimodal:
 
-- MMMU-Pro: **75.2%**; CharXiv: **60.9%** (corroborated); ERQA: **54.1%**; SimpleVQA: **57.4%** (new rows); Design Arena Website: **1236** (OpenRouter)
+- MMMU-Pro: **75.2%**; CharXiv: **60.9%** (corroborated); ERQA: **54.1%**; SimpleVQA: **57.4%** (new rows); Design Arena Website: **1236** (OpenRouter; BenchLM's 2026-10-17 refresh reads **1231** — minor drift, flagged)
 
 ### Normalized scores (1–100)
 
@@ -62,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Meta's Muse Spark comparison chart + Vals AI + ARC Prize, the prior 2026-10-08 pass on xAI docs/AA/BenchLM, felloai deep-dive from the prior pass; full row-by-row corroboration confirmed); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Meta's Muse Spark comparison chart + Vals AI + ARC Prize, the prior 2026-10-08 pass on xAI docs/AA/BenchLM, felloai deep-dive from the prior pass; full row-by-row corroboration confirmed; 2026-10-16 re-check: BenchLM 25-row refresh corroborates (MazeBench 0% added; Design Arena 1236 → 1231 flagged; rank #56/889 → #60/954 57.43) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

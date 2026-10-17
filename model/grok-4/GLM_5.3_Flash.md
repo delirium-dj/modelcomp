@@ -1,7 +1,7 @@
 # Grok 4 — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Epoch AI citations, the prior 2026-09-24 pass on llm-stats/binaryverseai/nextbigfuture, xAI-reported rows via benchlm.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Epoch AI citations, the prior 2026-09-24 pass on llm-stats/binaryverseai/nextbigfuture, xAI-reported rows via benchlm.ai; 2026-10-16 re-check: BenchLM 13-row refresh corroborates every row, no new data (rank drift only: #90/889 51.96 → #92/954 51.77) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.md`, using the same headings.

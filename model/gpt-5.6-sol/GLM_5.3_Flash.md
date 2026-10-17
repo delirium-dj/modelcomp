@@ -31,6 +31,8 @@ Agent / tool use:
 - AutomationBench-AA: **60%** (AA; Astra 69%); AutomationBench (OpenAI harness): **18.1%**
 - Terminal-Bench v4.0: **40%** (AA) / **37%** (AA Coding Agent Index harness; Astra 56–59%); Terminal-Bench v3.0: **34.6%** (xAI table)
 - Toolathlon: **58%** (OpenAI — weak); CyberGym: **84.5%**; ExploitGym: **33.7%**; ExploitBench: **78.5%**; SWE-Atlas-QnA: **54%**; ScreenSpot-Pro: **76.9%**; Agents' Last Exam: **53.6%**; BenchCAD: **83.3%**; APEX-Agents: **56.7%** (OpenAI/xAI tables)
+- MazeBench ASCII: **13%** (added 2026-10-16); Gray Swan IPI: **27.0%** (added 2026-10-16 — notably high injection rate for a frontier model)
+- AA-IFBench: **72.7%** (added 2026-10-16)
 - ApprenticeBench (GUI): **26%** (NeoCognition, independent)
 - Claw-Eval / Tau3 / MCP-Atlas: no verified public score found
 

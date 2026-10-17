@@ -70,3 +70,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24 UTC
 - Method: public internet research (OpenAI model card arXiv:2508.10925, Hugging Face, NVIDIA NIM/NGC, DeepInfra blog, BenchLM, Artificial Analysis via aggregators); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-17 (23 days after 2026-09-24)
+
+Original research date 2026-09-24. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-17: (1) Artificial Analysis gpt-oss-120b page (high lane: Index 12, 117B/5.1B, 131K, Apache 2.0, cutoff May 2024, 214 tok/s), (2) benchgap lane (21 measured as of 2026-10-16), (3) Hugging Face openai/gpt-oss-120b. Conflicting results compared below.
+
+| Dimension | 2026-09-24 | 2026-10-17 | Change |
+|---|---|---|---|
+| Tool use | 68 | 68 | hold — Tau Retail 67.8% + Tau2 65.8% stand; new GDPval 5.4% measured + Agentic Index 6.2% are weak lanes consistent with the cap, no crossing |
+| Reasoning | 72 | 72 | hold — GPQA 80.1% + AIME 92.5-97.9% + MMLU 90.0% stand; new AA Index 12 (high lane) anchors the filed 24.1% Index row (harness versions differ — v4.3.2 vs filed v4.0 lane); HLE 14.9% measured confirms filed row |
+| Context | 55 | 55 | hold — 128K/131K reconfirmed on AA; RULER collapse beyond window stands |
+| Multimodal | 15 | 15 | hold — text-only reconfirmed on AA; floor applies |
+| Coding | 70 | 70 | hold — SWE-Ver 62.4% measured confirms filed row; new SWE-Pro 37.5% est. + DeepSWE 46.1% est. + LiveCode v6 ~78% est. deepen without crossing; filed LiveCode 87.8% (Sep 2026 lane) vs benchgap v6 ~78% est. — harness versions differ, both listed |
+| Cost | 98 | 98 | hold — Apache 2.0 self-host $0 stands; AA median $0.13/$0.59 consistent with filed hosted band |
+| Overall | 56 | 56 | hold — (68+72+55+15+70)/5 = 56.0 |
+
+New verified rows this pass: AA Index 12 (high lane, v4.3.2); AA-HLE 19.6% / HLE-tools ~27% est.; AA-LCR 52.0% measured (confirms filed 51.0%); AA-SciCode 34.0% measured; Coding Index 30.4% measured; Omni-acc 21.8% measured; IFBench ~69% est.; knowledge cutoff May 2024 (AA — fills filed gap); 214 tok/s + 0.86s TTFT (AA — new speed anchor). Conflicts resolved: filed Index 24.1% vs AA live 12 — harness-version drift (v4.0 vs v4.3.2), filed row retained as version-labeled; filed LiveCode 87.8% vs v6 ~78% est. — harness versions differ, both listed. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/gpt-oss-120b · https://benchgap.net/model/gpt-oss-120b · https://huggingface.co/openai/gpt-oss-120b
+

@@ -1,7 +1,7 @@
 # Gemini 3 Flash — findings by Laguna S 2.1
 
 - Source: opencode/gemini-3-flash (Google DeepMind), e.g. Google, Artificial Analysis, BenchLM, Vals AI
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,7 +24,7 @@ AI Rankings summary lists Overall 87.0 (avg of per-model raters). The authoritat
 
 ### Raw benchmarks found
 
-> Verified public numbers sourced from BenchLM (`https://benchlm.ai/models/gemini-3-flash`, Overall 54.46/100, #71/889, 24 of 625 benchmarks, 2026-10-10) and Artificial Analysis (`https://artificialanalysis.ai/models/gemini-3-flash`).
+> Verified public numbers sourced from BenchLM (`https://benchlm.ai/models/gemini-3-flash`, Overall 54.28/100, #70/954, 24 of 639 benchmarks, 2026-10-17) and Artificial Analysis (`https://artificialanalysis.ai/models/gemini-3-flash`).
 
 Agent / tool use:
 
@@ -35,7 +35,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- AA Intelligence Index: **18** (estimated, non-reasoning) (#25/61, AA v4.3.2)
+- AA Intelligence Index: **17.9%** (non-reasoning) (#25/61, AA v4.3.2 — revised from 18)
 - GPQA Diamond: 81.2% (Artificial Analysis — AA-GPQA Diamond)
 - GPQA Diamond (Vals): 87.9% (Vals AI)
 - MMLU-Pro (Vals): 88.6% (Vals AI)

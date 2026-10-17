@@ -1,0 +1,67 @@
+# Nemotron 3.5 Bolt E4B — findings by Gemini 3.6 Flash
+
+- Source: NVIDIA (`nvidia/nemotron-3.5-bolt-e4b`)
+- Date: 2026-10-18 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's announced ~4B effective edge model in the Bolt family engineered for on-device physical and conversational agents, functioning as an unreleased model without verified public benchmark scores.
+- **Provider / access:** NVIDIA (`nvidia/nemotron-3.5-bolt-e4b`), Hugging Face / Ollama (pending release).
+- **Release / knowledge:** Announced October 2026; unreleased.
+- **IDs:** `nvidia/nemotron-3.5-bolt-e4b`
+- **Context window:** Unverified context window.
+- **Modalities:** text, image, audio, video in; text out; reasoning unverified; tool calls unverified
+- **Pricing (as of 2026-10-18):** Open weights expected (self-host free); no pricing published.
+- **Architecture:** ~4B effective edge model optimized for 4GB memory footprints.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no verified long-context retrieval benchmark reported.
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found; self-excluded.
+- **Reasoning: 0/100.** No verified public score found; self-excluded.
+- **Context window: 0/100.** No verified public score found; self-excluded.
+- **Multimodal: 0/100.** No verified public score found; self-excluded.
+- **Coding: 0/100.** No verified public score found; self-excluded.
+- **Cost efficiency: 100/100.** Free open-weights model expected upon release.
+- **Overall Score: 0/100.** Self-excluded due to lack of verified public benchmark scores for unreleased edge model.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-18
+- Method: Public web research across NVIDIA announcements and benchmark registries; zero verified public benchmarks found, self-excluded per template rules.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

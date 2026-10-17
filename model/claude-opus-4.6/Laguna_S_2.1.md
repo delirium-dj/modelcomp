@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Laguna S 2.1
 
 - Source: Anthropic (`anthropic/claude-opus-4-6`) system card (`https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf`), Artificial Analysis (`https://artificialanalysis.ai/models/claude-opus-4-6`), BenchLM (`https://benchlm.ai/models/claude-opus-4-6`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM model page (`benchlm.ai/models/claude-opus-4-6`, 2026-10-10, 48 of 625 benchmarks), Artificial Analysis model page (`artificialanalysis.ai/models/claude-opus-4-6`, 2026-10-10), Anthropic system card (`14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf`). Benchmarks not located are NOT fabricated.
+> Sources: BenchLM model page (`benchlm.ai/models/claude-opus-4-6`, 2026-10-17, 48 of 639 benchmarks), Artificial Analysis model page (`artificialanalysis.ai/models/claude-opus-4-6`, 2026-10-17), Anthropic system card (`14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf`). Benchmarks not located are NOT fabricated.
 
 Agent / tool use:
 
@@ -56,7 +56,7 @@ Multimodal:
 - **ERQA:** 51.6% — (Meta AI: Muse Spark comparison chart via BenchLM)
 - **ScreenSpot Pro:** 83.1% — (Meta AI: Muse Spark comparison chart via BenchLM)
 - **MedXpertQA (MM):** 64.8% — (Meta AI: Muse Spark comparison chart via BenchLM)
-- **Design Arena Website:** 1296 — (OpenRouter model benchmarks via BenchLM)
+- **Design Arena Website:** 1293 — (OpenRouter model benchmarks via BenchLM — revised down from 1296)
 
 Reasoning / knowledge:
 
@@ -78,9 +78,9 @@ Reasoning / knowledge:
 - **CritPt:** 2.8% — (AA model benchmarks via BenchLM)
 - **AA-IFBench:** 44.6% — (AA model benchmarks via BenchLM)
 - **AIME25 (Arcee):** 99.8% — (Arcee Trinity-Large-Thinking comparison table via BenchLM)
-- **FrontierMath v2 (Tiers 1-3):** 40.7% — (Epoch AI FrontierMath v2 leaderboard via BenchLM)
-- **FrontierMath v2 (Tier 4):** 22.9% — (Epoch AI FrontierMath v2 leaderboard via BenchLM)
-- **Artificial Analysis Intelligence Index:** 26* (estimated) — (AA model page; rank #4/61 among non-reasoning models; median: 15; BenchLM shows 26.4%)
+- **FrontierMath v2 (Tiers 1-3):** 65.965% — (Epoch AI FrontierMath v2 leaderboard via BenchLM — CRITICAL: revised up from 40.7%)
+- **FrontierMath v2 (Tier 4):** 26.829% — (Epoch AI FrontierMath v2 leaderboard via BenchLM — revised up from 22.9%)
+- **Artificial Analysis Intelligence Index:** 26.4% — (AA: artificial-analysis-intelligence-index leaderboard via BenchLM; rank #4/61 among non-reasoning models; median: 15; revised from 26* estimated to 26.4% specific value)
 
 Long context:
 
@@ -88,12 +88,12 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
 > Confidence: high — 48 public benchmarks found across 3 sources (BenchLM, AA, Anthropic system card).
+> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
 
-- **Tool use: 82/100.** Terminal-Bench 2.0 at 65.4% (above ~55% frontier reference), τ²-bench at 84.8% (above ~50% frontier threshold), BrowseComp at 83.7%, OSWorld-Verified at 72.7%, and τ²-bench at 84.8% are strong agentic signals. DeepSearchQA at 73.7% and CyberGym at 66.6% reinforce reliability. Capped by OSWorld 2.0 at 8.3% (weak), ApprenticeBench at 5% (weak), Agents' Last Exam not found, and no GDPval-AA/Tau3 Banking standalone.
+- **Tool use: 82/100.** (Unchanged.) Terminal-Bench 2.0 at 65.4% (above ~55% frontier), τ²-bench at 84.8% (above ~50% frontier), BrowseComp at 83.7%, OSWorld-Verified at 72.7%, DeepSearchQA at 73.7%. Capped by ApprenticeBench at 5%, ResearchClawBench at 19.9%, no GDPval-AA ≥1750 Elo, no TB-4.0 score.
 
-- **Reasoning: 54/100.** Intelligence Index at 26 (rank #4/61 among non-reasoning, estimated; well above median 15). Using II + 30 formula: 26 + 30 = 56. GPQA Diamond at 91.3% (frontier ≥90% bar) and HLE at 53% are excellent. AA-GPQA Diamond at 84.0% is good. However, AA-HLE at 19.1% (far below 40%), CritPt at 2.8% (very weak), and SuperGPQA at 95% (strong but single eval). Capped by non-reasoning architecture and low AA-HLE.
+- **Reasoning: 55/100.** (Revised UP from 54.) Intelligence Index 26.4 (rank #4/61 non-reasoning; revised from 26* estimated). Using II + 30 formula: 26.4 + 30 = 56.4 → 56 base. GPQA Diamond at 91.3% (≥90 frontier), HLE at 53% (above 40%). CRITICAL: FrontierMath v2 T1-3 at 65.965% (revised up from 40.7% — now well above 50% threshold). However, AA-HLE at 19.1% (far below 40%), CritPt at 2.8% (very weak), AA-GPQA at 84.0%, AA-Omniscience Index at 2.4% (80.1% hallucination). Capped by non-reasoning architecture, low AA-HLE, weak CritPt.
 
 - **Context window: 95/100.** 1,000,000 tokens per BenchLM and AA model page (both confirm ≥1M tier → 95). AA-LCR at 67.0% confirms long-context reasoning. No verified ≥98% retrieval at 512K+ to reach 100.
 
@@ -103,14 +103,15 @@ Long context:
 
 - **Cost efficiency: 45/100.** Premium tier pricing ($5.00 in / $25.00 out per 1M tokens; $3.85 blended with cache). noFreeId — paid only.
 
-- **Overall Score: 77/100.** (82 + 54 + 95 + 70 + 84) / 5 = 385 / 5 = 77.0 → 77. **Up from prior 82:** prior file had "no verified public score found" for nearly all benchmarks, resulting in inflated scores based solely on Intelligence Index 26. Fresh Oct 10 BenchLM + AA + Anthropic system card data reveals strong actual benchmarks: GPQA Diamond 91.3%, SWE-bench Verified 80.8%, HLE 53%, τ²-bench 84.8%, BrowseComp 83.7%. Reasoning downgraded 78→54 (Intelligence Index 26 with no GPQA/HLE component data in prior file), Coding upgraded 80→84 (with SWE-bench Verified 80.8%, React Native Evals 84.1%). Tool use upgraded 82→82 (with new agentic data). Aligns with BenchLM Overall 62.12/100 rank #45/889 and AA Intelligence Index 26 (#4/61 non-reasoning). Deprecated in favor of Claude Opus 4.7.
+- **Overall Score: 77/100.** (82 + 55 + 95 + 70 + 84) / 5 = 386 / 5 = 77.2 → 77. (Unchanged.) BenchLM overall 62.12→62.39 (#45→#47/954, 48/625→48/639 benches). FrontierMath v2 T1-3 40.7%→65.965% (major upgrade). Reasoning 54→55. Aligns with BenchLM Overall 62.39/100 rank #47/954 and AA Intelligence Index 26.4 (#4/61 non-reasoning). Deprecated in favor of Claude Opus 4.7.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via BenchLM model page (`benchlm.ai/models/claude-opus-4-6`, Oct 10), Artificial Analysis model page (`artificialanalysis.ai/models/claude-opus-4-6`, Oct 10), and Anthropic Claude Opus 4.6 system card (`14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf`); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research via BenchLM model page (`benchlm.ai/models/claude-opus-4-6`, Oct 17 version), Artificial Analysis model page (`artificialanalysis.ai/models/claude-opus-4-6`, Oct 17), Anthropic Claude Opus 4.6 system card, Epoch AI FrontierMath v2; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: BenchLM.ai model page (Overall 62.39/100, rank #47/954, 48 of 639 benchmarks); AA model page (Intelligence Index 26.4%, #4/61 non-reasoning, pricing $5/$25, 1M context); Anthropic system card (Terminal-Bench 2.0 65.4%, OSWorld-Verified 72.7%, GPQA 91.3%, HLE 53%, SWE-bench Verified 80.8%, MMMU-Pro 77.3%, BrowseComp 83.7%); Epoch AI (FrontierMath v2 T1-3 65.965%, T4 26.829%); Arcee (GPQA-D 89.2%, MMLU-Pro 89.1%, AIME25 99.8%); Qwen3.6-Plus (SuperGPQA 95%, MMLU-Pro 82%); Meta AI (DeepSearchQA 73.7%, ERQA 51.6%, ScreenSpot Pro 83.1%, MedXpertQA 64.8%, HLE w/o tools 40%, HealthBench Hard 14.8%, MedXpertQA Text 52.1%); OpenRouter (Design Arena 1293); Vals AI (Vibe Code Bench 57.57%); Cognition (FrontierCode 26.9%).
+- Re-verification (Oct 17): BenchLM overall 62.12→62.39 (#45→#47/954, 48/625→48/639 benches). CRITICAL: FrontierMath v2 T1-3 40.7%→65.965% (major, now above 50% threshold). T4 22.9%→26.829%. Intelligence Index 26* (estimated)→26.4% (specific value from AA). Design Arena 1296→1293. Reasoning 54→55. Overall 77→77.
 
 ---

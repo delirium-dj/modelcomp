@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by Mimo v2.6 Flash
 
 - Source: MiniMax/`MiniMax-M3.1-Flash-Preview`
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-17 (UTC; original research 2026-10-02, re-researched 2026-10-17)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** MiniMax M3.1 Flash Preview (`MiniMax-M3.1-Flash-Preview`)
 - **Short description:** MiniMax's preview-tier multimodal coding model launched quietly 2026-09-27 inside MiniMax Code and the Token/M Plan subscription — positioned as a fast everyday coding model (bug fix → full feature) with always-on tunable thinking; sits beside (does not replace) the MiniMax-M3 flagship.
-- **Provider / access:** MiniMax Code CLI/IDE and M Plan / Token Plan **subscription only** (official docs blue-banner restriction); no public pay-as-you-go API route (APIMaster live check 2026-09-27: 0 routes). OpenAI-compatible API docs list the model ID for subscription-key use (`reasoning_effort` parameter); MiniMax's pay-as-you-go price list does not include it.
+- **Provider / access:** MiniMax Code CLI/IDE and M Plan / Token Plan **subscription only** (official docs blue-banner restriction; re-confirmed by MindStudio hands-on 2026-10-12: "in preview and only accessible through MiniMax's own coding plan... not yet available as open weights"). A 2026-09-28 AI×AI report claims platform.minimax.io PAYG endpoints at $0.10/$0.40 — **unverified and contradicted** by two later independent checks (ThreatFrontier 2026-10-02: no standalone PAYG API, no third-party routers; MindStudio 2026-10-12). MiniMax has indicated a planned Hugging Face open-weights release with no confirmed date (MindStudio).
 - **Release / knowledge:** 2026-09-27 (@MiniMaxAgent launch post; MiniMax Code repo fixtures `MiniMax-M3.1` with 512K/1M context + 128K output). Knowledge cutoff not published.
 - **IDs:** `MiniMax-M3.1-Flash-Preview` (official model ID); no public PAYG id; **no Zen Free ID**.
 - **Context window:** 1,000,000 tokens (official docs) / 512K catalog default in code fixtures; max output 128,000 (official MiniMax Code test fixture, ai-on-mac 2026-09-27). No long-context retrieval measurement published.
@@ -19,28 +19,29 @@
 
 ### Raw benchmarks found
 
-> Measured numbers with (source / rank / harness). MiniMax has published **no official benchmark table** for M3.1; M3's numbers (SWE-bench Verified 80.5%, TB2.1 66.0%, MCP Atlas 74.2%) are a different checkpoint and are not transferred.
+> Measured numbers with (source / rank / harness). MiniMax has published **no official benchmark table** for M3.1 (re-confirmed 2026-10-17: minimax.io/news shows no M3.1 entry; model absent from Artificial Analysis and BenchLM leaderboards). M3's numbers (SWE-bench Verified 80.5%, TB2.1 66.0%, MCP Atlas 74.2%) are a different checkpoint and are not transferred.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / OSWorld: **no verified public score found** for M3.1
+- Terminal-Bench 2.1 / 4.0 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / OSWorld: **no verified public score found** for M3.1. An AI×AI (2026-09-28) table claims Terminal-Bench 4.0 76.5% and CursorBench 4.0 81.2% — **unverified**: ThreatFrontier (2026-10-02) states "MiniMax has not published any of these, and we could not trace them to a primary source"; not used for scoring.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / BenchLM (listed unranked): **no verified public score found**
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / BenchLM (compare page exists but 0 shared public rows): **no verified public score found**
 
 Coding:
 
-- **KingBench 3 (AICodeKing test): 53 / 80 points = 66.25%** across 8 project tasks (Volanea review 2026-09-28, aicodingking video test) — **+35 points over MiniMax M3's 31.25% in the same comparison**; one-pass project builds polished but can fail the critical user interaction (per-review)
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench: **no verified public score found**
+- **KingBench 3 (AICodeKing test): 53 / 80 points = 66.25%** across 8 project tasks (Volanea review 2026-09-28; ThreatFrontier 2026-10-02 corroborates the figure and task detail — 9/10 on 3D geometry, 3/10 elevator sim, 4/10 archery game) — **+35 points over MiniMax M3's 31.25% in the same comparison**; Claude Opus 5.5 led that run at 93.75%
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench: **no verified public score found** (AI×AI's circulating 73.8% SWE-V / 92.4% HumanEval Pro / 88.6% MultiPL-E figures remain untraceable to a primary source per ThreatFrontier — excluded)
+- Qualitative hands-on (MindStudio 2026-10-12, M-Code agent): found a boundary-date bug in a six-join legacy DB2 query "almost immediately"; drone-decision JSON task correct except missing a thin power line; full autonomous 3D-game build (Blender + Godot) produced a playable game with working movement/jump/lava but a broken camera angle — strong on precision/debugging, weaker on holistic creative polish
 
 Long context:
 
-- 1,000,000-token window documented (official docs); MRCR / RULER / Long-Context Recall: **no verified public score found**
+- 1,000,000-token window documented (official docs; ThreatFrontier 2026-10-02; MindStudio 2026-10-12 both re-confirm 1M); MRCR / RULER / Long-Context Recall: **no verified public score found**
 
 Multimodal:
 
-- Text + image + video input supported (official docs via SaaSCity / minimax-ai.chat model table); MMMU / MathVision / CharXiv / Video-MME: **no verified public score found**
+- Text + image + video input supported (official docs; ThreatFrontier re-confirms screenshots/diagrams/screen-recordings in-prompt); MMMU / MathVision / CharXiv / Video-MME: **no verified public score found**
 
 ### Normalized scores (1–100)
 

@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by GLM 5.3 Flash
 
 - Source: xAI / SpaceXAI (`grok-4.6`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,8 @@ Agent / tool use:
 - Terminal-Bench 3.0: **26.5%** (frontierbench.ai — weak on the harder TB variants); ApprenticeBench (GUI): **13%** (NeoCognition — weak)
 - Gray Swan IPI (15 attempts): **51.8%** (competitor-reported — Google's Gemini 4 Argon launch chart; by far the worst prompt-injection resistance measured in this repo — Claude models sit at 1–5%)
 - Claw-Eval / MCP-Atlas: no verified public score found
+- MazeBench ASCII: **1%** (added 2026-10-16); Bug Hunt Bench: **27.0 fixes** (added 2026-10-16)
+- FrontierMath v2 (Epoch AI re-score): **66.0%** Tiers 1–3 / **31.7%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 
 Reasoning / knowledge:
 
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the xAI Grok 4.6 launch post + docs, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results, Cursor/Proximal/Collinear/NeoCognition via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the xAI Grok 4.6 launch post + docs, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results, Cursor/Proximal/Collinear/NeoCognition via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 40-row refresh corroborates all rows (MazeBench 1%, Bug Hunt 27.0, Epoch FrontierMath v2 66.0/31.7% added; GDPval normalized 56.1 → 55.9%) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

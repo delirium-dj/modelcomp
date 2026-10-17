@@ -66,3 +66,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24 UTC
 - Method: public internet research (xAI/Bedrock/OCI launch docs, Artificial Analysis Apr 2026 release article, BenchLM compare pages, llmbase.ai, llmreference.com, ApX/BenchGecko); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-17 (23 days after 2026-09-24)
+
+Original research date 2026-09-24, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-17: (1) Artificial Analysis grok-4-3 page (high lane: Index 25, 1M, text+image, $1.25/$2.50, deprecated, successor 4.6), (2) benchgap lane (28 measured as of 2026-10-16), (3) xAI docs (4.7 succession context). Conflicting results compared below.
+
+| Dimension | 2026-09-24/27 | 2026-10-17 | Change |
+|---|---|---|---|
+| Tool use | 84 | 84 | hold — Tau2 97.7-98% #1 stands; new Tau3 24.0% est. + Agentic Index 17.2% measured fill gaps consistent with cap; GDPval lanes (1500 Elo Apr vs 29.2% Jul) differ by harness, both listed |
+| Reasoning | 86 | 86 | hold — GPQA 90.1% measured confirms filed row; new HLE 37.2% measured (vs filed 35.0%) + Vals GPQA 91.4% deepen; CritPt 8.0% measured fills filed gap; Index lanes (53 v4.0 vs 25/37.6 v4.3.2) differ by harness version, both listed |
+| Context | 95 | 95 | hold — 1M reconfirmed on AA; MRCRv2 41.4% est. only, no measured curve |
+| Multimodal | 65 | 65 | hold — text+image reconfirmed; new MMMU-Pro 78.1% measured + Video-MME ~85% est. support band without moving it |
+| Coding | 80 | 80 | hold — SWE Vals 71.4% + LiveCode 84.5% stand; new SWE-Ver ~76% est. + SWE-Pro 57.0% est. + SciCode 48.3% measured + Coding Index 42.3% deepen without crossing |
+| Cost | 90 | 90 | hold — $1.25/$2.50 reconfirmed on AA; 2x step-up above 200K stands |
+| Overall | 82 | 82 | hold — (84+86+95+65+80)/5 = 82.0 → 82 |
+
+New verified rows this pass: AA-HLE 37.2% / HLE 35.0% measured (confirm filed 35.0%); AA-SciCode 48.3% measured; Coding Index 42.3% measured; LCR 64.3% measured (confirms filed row); CritPt 8.0% measured (fills filed gap); Omni-acc 34.6% measured; IFBench 81.3% measured; MMMU-Pro 78.1% measured; FrontierMath T4 14.6% measured. Conflicts resolved: filed Index 53 (v4.0) vs live 25 high-lane/37.6 (v4.3.2) — harness-version drift, both version-labeled; filed GDPval 1500 Elo vs 29.2% lane — harness differs, both listed. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/grok-4-3 · https://benchgap.net/model/grok-4-3 · https://docs.x.ai/docs/models/grok-4
+

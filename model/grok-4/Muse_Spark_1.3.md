@@ -67,3 +67,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
 - Method: public internet research (xAI Grok 4 launch post, xAI docs/pricing, ModelBeats, Benchgen, Awesome Agents, AI/TLDR aggregates); Heavy-variant numbers cited only to exclude them; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-17 (23 days after 2026-09-24)
+
+Original research date 2026-09-24, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-17: (1) Artificial Analysis grok-4 page (deprecated banner, Index 22 est., 256K, $3/$15, successor Grok 4.20), (2) benchgap lane (11 measured as of 2026-10-16), (3) xAI docs models/pricing page (Grok 4.7 flagship 500K $2/$6; Chat Completions legacy migration). Conflicting results compared below.
+
+| Dimension | 2026-09-24/27 | 2026-10-17 | Change |
+|---|---|---|---|
+| Tool use | 82 | 82 | hold — native tool calling + Vending-Bench stand; new Tau2 74.9% measured fills the filed Tau gap (stronger than the filed 0.7 CloudPrice tail — different harness, both listed); GDPval est ~18% consistent with cap, no crossing |
+| Reasoning | 87 | 87 | hold — GPQA 87.5% + HLE 25-27% stand; new AA-GPQA 87.7% measured confirms filed row; new LCR 68.0% measured + Omni-acc 40.5% fill filed gaps; Index 22 est. consistent with band, no crossing |
+| Context | 74 | 74 | hold — 256K/260K reconfirmed on AA; MRCRv2 64.2% est. only, no measured curve |
+| Multimodal | 65 | 65 | hold — text+image in reconfirmed on AA; new MMMU-Pro 68.8% measured supports band without moving it |
+| Coding | 80 | 80 | hold — SWE-Ver 57.8% + LiveCode 79.0% stand; new Vals SWE ~75% est. + LiveCode ~82% est. deepen without crossing; SciCode still weak tail |
+| Cost | 60 | 60 | hold — $3/$15 reconfirmed on AA; deprecated but priced |
+| Overall | 78 | 78 | hold — (82+87+74+65+80)/5 = 77.6 → 78 |
+
+New verified rows this pass: AA Index 22 est. (deprecated — first anchor for the filed Index gap); AA-LCR 68.0% measured; Omni-acc 40.5% measured; Tau2 74.9% measured (BenchLM harness — vs filed 0.7 CloudPrice tail, harness differs); MMMU-Pro 68.8% measured; xAI docs confirm 4.7-line succession (500K, $2/$6) and Chat Completions legacy path — filed 2026-05-15 deprecation stands. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/grok-4 · https://benchgap.net/model/grok-4 · https://docs.x.ai/docs/models/grok-4
+

@@ -1,7 +1,7 @@
 # MiMo V2.6 Flash — findings by Laguna S 2.1
 
 - Source: poolside/laguna-s-2.1 (particleside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Verified public numbers from BenchLM (`https://benchlm.ai/models/mimo-v2-6-flash`, overall 66.03, rank #32/637, open weights) and Artificial Analysis (`https://artificialanalysis.ai/models/mimo-v2-6-flash`, Intelligence Index 38, #8/117 open-weights).
+> Verified public numbers from BenchLM (`https://benchlm.ai/models/mimo-v2-6-flash`, overall 64.51, rank #38/954, 24 of 639 benchmarks, 2026-10-17) and Artificial Analysis (`https://artificialanalysis.ai/models/mimo-v2-6-flash`, Intelligence Index 38, #8/117 open-weights).
 
 Agent / tool use:
 
@@ -32,8 +32,7 @@ Agent / tool use:
 - JobBench: 61.2% (Xiaomi technical report)
 - CyberGym: 95.1% (Xiaomi technical report)
 - ExploitGym: 6.0% (Xiaomi technical report)
-- GDPval-AA (normalized): 55.5% (Artificial Analysis)
-- GDPval-AA (Elo): not separately listed on fresh BenchLM/AA
+- GDPval-AA (normalized): 55.4% (Artificial Analysis — revised down from 55.5%)
 
 Reasoning / knowledge:
 
@@ -64,7 +63,7 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost excluded. Benchmarks verified from BenchLM and Artificial Analysis as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
 
 - **Tool use: 82/100.** TB-2.1 87.6% (near ≥88% frontier ref), OSWorld-Verified 80.8%, CyberGym 95.1%, GDPval-AA 55.5% (normalized). Solid agentic cluster but capped by ExploitGym 6.0%, TB-4.0 only 28.8%, and no GDPval-AA Elo published for direct comparison.
 - **Reasoning: 65/100.** AA-LCR 74.3% (above mid threshold), AA-HLE 35.1% (near 40% frontier), but AA Intelligence Index 38 (well below ~60 frontier), AA Omniscience Index -12.7% (more incorrect than correct — severe reliability issues), CritPt 12.0% (poor), no GPQA Diamond published.
@@ -78,9 +77,10 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/mimo-v2-6-flash` for overall rank/score (#32/637, 66.03) and full benchmark tables; AA model page `https://artificialanalysis.ai/models/mimo-v2-6-flash` for Intelligence Index 38, modalities (text+image confirmed), cost-per-task; repo `meta.json` for pricing $0.14/$0.28). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research (Cost line preserved verbatim from prior signed file).
-- Sources: BenchLM.ai model page (Overall 66.03/100, #32/637, open weights, 2026-10-10); AA model page (Intelligence Index 38, #8/117 open-weights, modalities text+image, cost $0.06/task); repo `meta.json` (modalities, context 1M, pricing $0.14/$0.28, 309B/15B MoE); Xiaomi HF technical report (full benchmark scores).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM model page `https://benchlm.ai/models/mimo-v2-6-flash` for overall rank/score (#38/954, 64.51) and full benchmark tables; AA model page `https://artificialanalysis.ai/models/mimo-v2-6-flash` for Intelligence Index 38, modalities (text+image confirmed), cost-per-task; repo `meta.json` for pricing $0.14/$0.28; Xiaomi HF technical report for full benchmark scores). Scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
+- Sources: BenchLM.ai model page (Overall 64.51/100, #38/954, 24 of 639 benchmarks, 2026-10-17); AA model page (Intelligence Index 38, #8/117 open-weights, modalities text+image, cost $0.06/task); repo `meta.json` (modalities, context 1M, pricing $0.14/$0.28, 309B/15B MoE); Xiaomi HF technical report (full benchmark scores).
+- Re-verification (Oct 17): BenchLM overall 66.03→64.51 (#32→#38/954, 48→24/639 benches). GDPval-AA 55.5%→55.4% (negligible). All other benchmarks unchanged. Overall 77→77.
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash_Tech_Report.md`, using the same headings.
 
 ---

@@ -1,7 +1,7 @@
 # Grok 4.1 Fast — findings by GLM 5.3 Flash
 
 - Source: xAI (`grok-4.1-fast`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai non-reasoning base page + Reasoning sibling reference updated 2026-10-10 with AA citations, the prior 2026-10-03 pass on the xAI launch post via AI/TLDR + HostZealot, OpenRouter/Oracle OCI listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai non-reasoning base page + Reasoning sibling reference updated 2026-10-10 with AA citations, the prior 2026-10-03 pass on the xAI launch post via AI/TLDR + HostZealot, OpenRouter/Oracle OCI listings; 2026-10-16 re-check: BenchLM 12-row refresh corroborates every row, no new data (rank drift: base #150/889 36.37 → #154/954 36.45; Reasoning sibling 46.31 → 45.83) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

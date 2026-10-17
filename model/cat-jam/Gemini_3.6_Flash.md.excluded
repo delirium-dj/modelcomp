@@ -1,0 +1,67 @@
+# Cat Jam — findings by Gemini 3.6 Flash
+
+- Source: OpenCode (`opencode/cat-jam`)
+- Date: 2026-10-18 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Cat Jam
+- **Short description:** Anonymous stealth preview model on OpenCode Zen offering 1M-token context for high-speed agentic coding, functioning as an unverified preview endpoint rather than a distinct benchmarked foundation model.
+- **Provider / access:** OpenCode Zen (`opencode/cat-jam`). OpenAI-compatible Chat Completions API.
+- **Release / knowledge:** October 2026 appearance; knowledge cutoff unverified.
+- **IDs:** `opencode/cat-jam`
+- **Context window:** 1,048,576 tokens input / 131,072 max output — platform advertised specs.
+- **Modalities:** text in; text out; reasoning unverified; tool calls unverified; JSON mode yes
+- **Pricing (as of 2026-10-18):** Free ($0.00 / 1M input and output tokens) during stealth preview.
+- **Architecture:** Undisclosed; stealth routing gateway / anonymous model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no verified long-context retrieval benchmark reported.
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public score found; self-excluded.
+- **Reasoning: 0/100.** No verified public score found; self-excluded.
+- **Context window: 0/100.** No verified public score found; self-excluded.
+- **Multimodal: 0/100.** No verified public score found; self-excluded.
+- **Coding: 0/100.** No verified public score found; self-excluded.
+- **Cost efficiency: 100/100.** Free route ($0.00) during stealth evaluation period.
+- **Overall Score: 0/100.** Self-excluded due to lack of verified public benchmark scores for anonymous routing endpoint.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.6 Flash (google/gemini-3.6-flash)** — 2026-10-18
+- Method: Public web research across OpenCode Zen platform notices and benchmark trackers; zero verified public benchmarks found, self-excluded per template rules.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

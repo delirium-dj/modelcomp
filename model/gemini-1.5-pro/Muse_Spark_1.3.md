@@ -65,3 +65,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
 - Method: public internet research (Google Developers Blog, Gemini 1.5 technical report arXiv 2403.05530, Artificial Analysis, Vals AI, Epoch AI, BenchmarkList/TechBriefly aggregates); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-17 (23 days after 2026-09-24)
+
+Original research date 2026-09-24. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-17: (1) Artificial Analysis gemini-1-5-pro page (deprecated banner, Index 8 est., 2M confirmed, cutoff Aug 2024), (2) BenchLM gemini-1-5-pro page, (3) benchgap lane (AA-GPQA 58.9% measured, AA-HLE 4.6% measured, Index 7.9% measured, Coding Index 23.6%, MMMU-Pro 55.0% measured). Conflicting results compared below.
+
+| Dimension | 2026-09-24 | 2026-10-17 | Change |
+|---|---|---|---|
+| Tool use | 45 | 45 | hold — still zero verified agentic scores; retired generation, no new TB/Tau/GDPval lane |
+| Reasoning | 62 | 62 | hold — GPQA 58.9% + HLE 4.6% confirmed on measured lane; new AA Index 8 est. anchor consistent with band, no crossing |
+| Context | 98 | 98 | hold — 2M window reconfirmed; no new retrieval curve |
+| Multimodal | 88 | 88 | hold — 4-modality input confirmed; new MMMU-Pro 55.0% measured supports band without moving it |
+| Coding | 55 | 55 | hold — LiveCode 41.7% + SciCode 29.5% stand; Coding Index 23.6% measured + SWE est ~49/31% consistent with cap |
+| Cost | 85 | 85 | hold — historical paid pricing stands; retired |
+| Overall | 70 | 70 | hold — (45+62+98+88+55)/5 = 69.6 → 70 |
+
+New verified rows this pass: AA Index 8 est. (first anchor for the filed Index gap); benchgap measured AA-GPQA 58.9% / AA-HLE 4.6% (confirm filed aggregates); Coding Index 23.6% measured; MMMU-Pro 55.0% measured. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/gemini-1-5-pro · https://benchlm.ai/models/gemini-1-5-pro · https://benchgap.net/model/gemini-1-5-pro
+

@@ -115,27 +115,36 @@ Multimodal:
 
 Long context:
 
-- AA-LCR: **87.0%** (BenchLM model page — strong long-context reasoning)
+- MRCRv2: **92.9%** (Qwen official blog / BenchLM — excellent long-context reasoning at 1M)
+- AA-LCR: **87.0%** (BenchLM Oct 10 — NOT on current page but retained from prior file)
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 73.18, #14/889) as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 69.66, #19/954, 67 of 639 benchmarks) and Qwen official blog as of 2026-10-17.
 
-- **Tool use: 92/100.** τ²-bench 95.3% (exceeds ≥90 frontier ref), TB-2.1 84.8% (at frontier), GDPval-AA 61.8%, OSWorld-Verified 46.7%, GDP.pdf 21.6%, JobBench 56.0%. Strong agentic cluster; capped by TB-4.0 39.9%, GDP.pdf 21.6%, OSWorld-Verified 46.7%, no GDPval-AA Elo ≥1750.
-- **Reasoning: 89/100.** GPQA Diamond 93.5% (at frontier 90%+), AA Intelligence Index 50.0 (revised up from 45 in prior file), HLE 43.9% (at 40% frontier), AA-LCR 87.0% (excellent long-context), MMLU-Pro 92.1%, AA Global-MMLU-Lite 92.1%, CritPt 21.6%. Capped by no MRCR data and CritPt 21.6% moderate.
-- **Context window: 95/100.** BenchLM confirms ≥984K tokens (≥1M tier threshold per methodology). AA-LCR 87.0% confirms strong long-context reasoning at 1M. No ≥98% retrieval at 512K+ curve published for perfect 100.
-- **Multimodal: 95/100.** Text+image in, text out (per AA/BenchLM). AAA-MMMU-Pro 83.2%, MathVision 86.6%, VideoMMMU 87.6%, V* 87.0%, RealWorldQA 83.3%, CharXiv 79.8%. Per methodology "+image in = 60-70" but additional benchmarks and multimodal reasoning at frontier level support higher score. Capped by text-only output.
-- **Coding: 88/100.** SWE-bench Verified 90.5% (revised up — exceeds ≥85 frontier), LiveCodeBench 93.2% (at ≥90 frontier), DeepSWE 65.4%, AA Coding Index 76.5%, AA-SciCode 61.5%, VulcanBench 84.8%. Strong coding cluster; capped by DeepSWE 65.4% below 74% frontier threshold.
-- **Cost efficiency: 75/100.** $2.00 in / $6.00 out per 1M tokens (BenchLM model page / prior file).
-- **Overall Score: 92/100.** Half-up mean: (92+89+95+95+88)/5 = 459/5 = 91.8 → 92. **Best-fit:** elite multimodal reasoning model with exceptional coding (SWE-bench 90.5%, LiveCodeBench 93.2%) and agentic tool use (τ²-bench 95.3%, TB-2.1 84.8%); cap: text-only output, moderate CritPt (21.6%), premium pricing ($2/$6).
+- **Tool use: 92/100.** (Unchanged.) TB-2.1 86.6% (at frontier, revised up from 84.8%), OSWorld-Verified 86.1% (CRITICAL: revised up from 46.7% — near ≥88% frontier), WideResearch 81.9%, AndroidWorld 85.3%, CoWorkBench 74.8%, Toolathlon-Verified 72.5%, WebArena-Verified 66.8%, JobBench 53.4%. CRITICAL: τ²-bench 95.3% REMOVED from current BenchLM page (was key ≥90 frontier). No GDPval-AA ≥1750 Elo. Capped by OSWorld 2.0 19.4%, AutomationBench 27.3%, no τ²-bench ≥90%.
+
+- **Reasoning: 88/100.** (Revised DOWN from 89.) GPQA 92.6%/GPQA-D 92.6% (Vals 93.7%, at frontier 90%+), HLE 43.6% (at 40% frontier), MRCRv2 92.9% (NEW — excellent long-context reasoning, replaces AA-LCR), IFBench 82.8%, FrontierMath v2 T1-3 74.737%. Intelligence Index 50.0 NOT on current page (AA 404, retained from Oct 10 file). CRITICAL: AA-LCR 87.0%, CritPt 21.6%, AA-MMLU-Pro 92.1% all REMOVED from current page. MMLU-Pro (Vals) 88.6% (down from 92.1%). Capped by Intelligence Index 50.0 (below ~60 frontier), no CritPt on page, MMLU-Pro (Vals) down.
+
+- **Context window: 95/100.** Verified 984K–1,000,000 tokens (≥1M tier). MRCRv2 92.9% (Qwen blog) confirms exceptional long-context reasoning at 1M. No ≥98% retrieval at 512K+ curve published for perfect 100.
+
+- **Multimodal: 96/100.** (Revised UP from 95.) Text+image in, text out (per BenchLM/meta). MathVision 95.2%, CharXiv 93.5%, MathVision w/ Python 97.7%, BabyVision w/ Python 91.3%, Video-MME 90.4%, MLVU 90.8%, V* 87.0% (Oct 10, not on current page), RealWorldQA 88.0%, VideoMMMU 88.7%. Massive multimodal benchmark expansion on current page. Capped by text-only output.
+
+- **Coding: 88/100.** (Unchanged.) TB-2.1 86.6% (at frontier), SWE-bench (Vals) 85.6% (≥85 frontier, replaces SWE-bench Verified 90.5% removed), LiveCodeBench (Vals) 87.9% (≥90 frontier, revised down from 93.2%), PaperBench 93.0% (NEW), FrontierSWE 73.5% (near frontier), DeepSWE 56.6% (revised down from 65.4%, below 74% frontier), VulcanBench v3 81.2% (down from 84.8%). CRITICAL: SWE-bench Verified 90.5%, AA Coding Index 76.5%, AA-SciCode 61.5% all REMOVED from current page. Capped by DeepSWE 56.6% below 74% frontier, VulcanBench 81.2% below 85% frontier.
+
+- **Cost efficiency: 75/100.** $2.00 in / $6.00 out per 1M tokens (BenchLM model page / Qwen blog).
+
+- **Overall Score: 92/100.** Half-up mean: (92+88+95+96+88)/5 = 459/5 = 91.8 → 92. (Unchanged.) BenchLM overall dropped 73.18→69.66 (#14→#19/954) due to expanding pool; normalized score retained. **Best-fit:** elite multimodal reasoning model with exceptional tool performance (OSWorld-Verified 86.1%, TB-2.1 86.6%) and strong multimodal cluster (MathVision 95.2%, CharXiv 93.5%, PaperBench 93.0%); CRITICAL: τ²-bench removed, Intelligence Index unverifiable (AA 404), SWE-bench Verified removed, premium pricing ($2/$6).
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/qwen3-8-max` for overall rank/score (#14/889, 73.18) and full benchmark tables; AA model page for Intelligence Index, modalities, pricing). Scores are normalized 1–100 interpretations per model-comparison.md v4.
-- Sources: BenchLM.ai model page (Overall 73.18/100, rank #14/889, τ²-bench 95.3%, TB-2.1 84.8%, GPQA 93.5%, HLE 43.9%, Intelligence Index 50.0, SWE-bench 90.5%, LiveCodeBench 93.2%, AAA-MMMU-Pro 83.2%); AA model page (modalities, $2/$6 pricing, 984K context); Vals AI leaderboards. Prior file stated "no verified public score found" for GPQA/TB-2.1/SWE-bench — fresh BenchLM fetch confirms all three benchmarks exist with strong scores (93.5%, 84.8%, 90.5% respectively); Intelligence Index revised from 45 to 50.0.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/qwen3-8-max` for overall rank/score (#19/954, 69.66, 67 of 639 benchmarks) and full benchmark tables; Qwen official blog `https://qwen.ai/blog?id=qwen3.8` for agentic/coding/multimodal/reasoning scores; Vals AI leaderboards for GPQA Diamond 93.7%, MMLU-Pro 88.6%, Terminal-Batch 2.1 73.8%, LiveCodeBench 87.9%, SWE-bench 85.6%; Epoch AI for FrontierMath v2; AA leaderboards referenced via BenchLM; AA model page returned 404). Scores are normalized 1–100 interpretations per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 69.66/100, rank #19/954, 67 of 639 benchmarks); Qwen official blog (all benchmark scores); Vals AI leaderboards; Epoch AI FrontierMath v2.
+- Re-verification (Oct 17): BenchLM overall 73.18→69.66 (#14→#19/954, 52→67 benchmarks). CRITICAL: τ²-bench 95.3%, GDPval-AA 61.8%, GDP.pdf 21.6%, TB-4.0 39.9% REMOVED from current BenchLM page. OSWorld-Verified 46.7%→86.1% (major). GPQA 93.5%→92.6% (Qwen blog). Intelligence Index 50.0 NOT on current page (AA 404, retained from Oct 10). SWE-bench Verified 90.5%→SWE-bench (Vals) 85.6%. DeepSWE 65.4%→56.6%. Multimodal expanded (MathVision 86.6%→95.2%, CharXiv 79.8%→93.5%, +15 new benchmarks). New: MRCRv2 92.9%, IFBench 82.8%, FrontierMath v2 74.737%, PaperBench 93.0%, Hermes Index 36.2%, WideResearch 81.9%, AndroidWorld 85.3%. Normalized: Reasoning 89→88, Multimodal 95→96. Overall 92→92.
+
 - Future sources: add a new file next to this one, e.g. `Qwen3_8_1.md`, using the same headings.
 
 ---

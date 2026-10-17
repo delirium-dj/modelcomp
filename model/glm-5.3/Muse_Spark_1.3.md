@@ -55,13 +55,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** TB 2.1 88.2% plus TB 3.0 28.3% open-source SOTA and AutomationBench 48.2% show elite terminal agency; capped by trailing closed frontier on TB 3.0 (GPT-5.6 Sol 34.6%).
-- **Reasoning: 86/100.** GPQA 88.1% plus HLE-with-tools 62.5% and MMLU-Pro 86.8% show strong graduate science reasoning; capped by provisional vendor-only provenance and no AA Index anchor.
+- **Tool use: 90/100.** TB 2.1 88.2% now independently measured plus TB 3.0 28.3%, Tau3 50.3% measured, Toolathlon-Verified 73.0%, MCP Atlas ~88% and AutomationBench 48.2%; capped by trailing closed frontier on TB 3.0/4.0.
+- **Reasoning: 88/100.** AA-GPQA 91.7% measured plus HLE-tools 62.5% measured, AA Index 45 anchor, LCR 79.7% and MMLU-Pro ~86%; capped by HLE-no-tools ~42% and CritPt 19.1%.
 - **Context window: 90/100.** 1M total with 128K max output and 1M-context evals (FrontierSWE, SWE-Marathon) show top-tier window; capped by no verified MRCR/RULER retention curve.
 - **Multimodal: 15/100.** Text in / text out only per vendor docs; text-only floor, capped with no image/audio/video input.
-- **Coding: 89/100.** DeepSWE 66.9% plus FrontierSWE 78.1 and independent SWE-Verified 95.4 show frontier open-weights coding; capped by DeepSWE gap to GPT-5.6 Sol 72.7%.
+- **Coding: 90/100.** Vals SWE-Verified 95.4 measured plus Coding Index 74.8% measured, DeepSWE 66.9%, FrontierSWE 78.1 and LiveCode ~80-94%; capped by DeepSWE gap to closed frontier.
 - **Cost efficiency: 65/100.** $1.40/$4.40 is well below closed frontier coding rates with open-weights option; paid-only with no free tier, capped below free Flash tiers.
-- **Overall Score: 74/100.** Mean of the five non-cost dims (88+86+90+15+89)/5 = 73.6 → 74; best-fit open-weights agentic coding workhorse where terminal agency outweighs text-only limits.
+- **Overall Score: 75/100.** Mean of the five non-cost dims (90+88+90+15+90)/5 = 74.6 → 75; best-fit open-weights agentic coding workhorse where terminal agency outweighs text-only limits. (Re-verified 2026-10-17: Tool 88→90, Reasoning 86→88, Coding 89→90 on AA-measured + benchgap + HF evidence.)
 
 ---
 
@@ -70,3 +70,28 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
 - Method: public internet research (Z.ai GLM-5.3 launch blog 2026-08-14, Z.ai docs, VentureBeat 2026-08-14, TensorFeed.ai aggregator); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-17 (23 days after 2026-09-24)
+
+Original research date 2026-09-24. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; score changes below are evidence-driven per the re-run orders.
+
+Three independent searches performed 2026-10-17: (1) benchgap GLM-5.3 lane (44 measured benchmarks as of 2026-10-16), (2) Artificial Analysis glm-5-3 model page (Index 45 max, 1M, 753B/40B, $1.40/$4.40, 2026-08-18), (3) Hugging Face zai-org/GLM-5.3 (model-card eval-results: HLE-tools 62.5, TB3.0 28.3, Toolathlon-Verified 73). Conflicting results compared below.
+
+| Dimension | 2026-09-24 | 2026-10-17 | Change |
+|---|---|---|---|
+| Tool use | 88 | 90 | UP +2 — filed vendor-only TB2.1 88.2% now independently measured on benchgap; new Tau3 50.3% measured + Toolathlon-Verified 73.0% measured + MCP Atlas 88.0% est. fill the filed gaps; TB3.0 28.3% confirmed on HF card |
+| Reasoning | 86 | 88 | UP +2 — filed provisional GPQA 88.1% now AA-GPQA 91.7% measured; HLE-tools 62.5% now measured (HF card + benchgap); new AA Index 45 anchor + LCR 79.7% measured + Omni-acc 33.9% fill the filed Index gap |
+| Context | 90 | 90 | hold — 1M/128K reconfirmed on AA + HF (753.3B safetensors); MRCRv2 85.7% est. only, no measured curve to cross the band |
+| Multimodal | 15 | 15 | hold — text-only confirmed on AA (no image input) + HF chat template ("unable to process media" reminder); floor applies |
+| Coding | 89 | 90 | UP +1 — filed provisional SWE-Ver 95.4 now Vals 95.4 measured + est 81.7%; new Coding Index 74.8% measured + LiveCode v6 ~94% est. + Vals LiveCode 80.5% deepen; DeepSWE 66.9% measured confirms filed row |
+| Cost | 65 | 65 | hold — $1.40/$4.40 reconfirmed on AA; paid-only, no free tier |
+| Overall | 74 | 75 | UP +1 — (90+88+90+15+90)/5 = 74.6 → 75 |
+
+New verified rows this pass: AA Index 45 (max); AA-GPQA 91.7% / HLE 42.3% / SciCode 59.0% measured; LCR 79.7%; CritPt 19.1%; Tau3 50.3%; AutomationBench 48.2%/62.2% lanes; Toolathlon-Verified 73.0%; Coding Index 74.8%; CyberGym 84.5%; ExploitBench 54.4%; GDPval 57.5%; BrowseComp ~91% est.; TB4.0 ~42-46% lanes; SWE-Marathon 42.5%; NL2Repo 58.0%; FrontierMath T4 29.3%. Conflicts resolved: filed TB2.1 vendor-only → measured confirmed; filed SWE-Ver 95.4 provisional → Vals-measured confirmed; filed GPQA/HLE provisional → AA-measured above filed values. Remaining gaps: MRCR/RULER measured curve, Claw-Eval absolute, Vibe measured.
+
+Scores updated: Tool 88→90, Reasoning 86→88, Coding 89→90, Overall 74→75. Normalized-scores section above now reads Tool 90, Reasoning 88, Coding 90, Overall 75 (edit applied this pass with the same evidence).
+
+Sources: https://benchgap.net/model/glm-5-3 · https://artificialanalysis.ai/models/glm-5-3 · https://huggingface.co/zai-org/GLM-5.3
+

@@ -36,6 +36,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **38.8** (AA current board — corroborates the 39 re-based reading; the launch-era "~54, ranked 5th" is historical)
 - MMLU-Pro: **89.2%** (Vals)
 - AA-Omniscience: **51.6% accuracy / 54.1% non-hallucination row / 25.3 index** (AA)
+- FrontierMath v2 (Epoch AI re-score): **57.2%** Tiers 1–3 / **24.4%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 
 Coding:
 
