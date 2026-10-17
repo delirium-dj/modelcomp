@@ -1,7 +1,7 @@
 # Ling 3.0 Flash — findings by GLM 5.3
 
 - Source: inclusionAI / Ant Group (`inclusionAI/Ling-3.0-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,6 +30,7 @@ Agent / tool use:
 - BrowseComp: **72.2%** (official HF model card via BenchLM)
 - WideResearch: **73.6%**; DRACO: **70.4%** (official HF model card via BenchLM)
 - AA Agentic Index: **21.0%** (Artificial Analysis)
+- New this pass: Hermes Index **21.6%** / Hermes Bench **53.8%** (Nous Research); IFBench **74.5%** (official card); **BenchLM composite now computed: 45.11, #123 of 954** (40 rows)
 - Claw-Eval / ClawProBench: no verified public score found
 
 Reasoning / knowledge:
@@ -74,6 +75,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (BenchLM official-snapshot of the HF model card, Artificial Analysis, Vals AI cross-checks, OpenRouter/kilo listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (BenchLM 40-row profile updated 2026-10-17 — composite now computed at 45.11 #123/954; added Hermes Index/Bench and IFBench 74.5% rows; all previously cited rows stable; official HF model card snapshot, Artificial Analysis, Vals AI cross-checks, OpenRouter/kilo listings); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-8`, proprietary, paid)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,7 +39,8 @@ Reasoning / knowledge:
 - HLE: **57.9%** with tools / **49.8%** without (system card — fills the gap); AA-HLE: **48.7%** (AA)
 - USAMO 2026: **96.7%** (system card)
 - ARC-AGI-1: **92.5%** (ARC Prize verified, Opus 4.8 Max); ARC-AGI-2: **72.1%**; ARC-AGI-3: **1.5%** (ARC Prize leaderboard)
-- FrontierMath v2: **47.2%** Tiers 1–3 / **31.25%** Tier 4 (Epoch AI)
+- FrontierMath v2: **80.0%** Tiers 1–3 / **56.1%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh) — CHANGED: the 2026-10-11 pass recorded 47.2%/31.25% from the same source; Epoch has since re-scored upward and the "aging vs the 2026 class" math framing no longer holds
+- MazeBench ASCII: **0%** (added 2026-10-16)
 - AA-LCR v1.1: **77.7%**; CritPt: **20.9%** (AA — fill the LCR/CritPt gaps)
 - Artificial Analysis Intelligence Index: **41.8** (AA, 2026-10-10 via benchlm.ai) — the 2026-10-08 "newer reading of 56 (SiliconReport)" is not confirmed on AA's current board; 41.8 stands
 - AA-Omniscience: **48.8% accuracy / 39.3% non-hallucination row / 28.8 index** (AA)
@@ -68,17 +69,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 92/100.** The second pass broadly corroborates the agentic story: τ²-bench 94.4%, OSWorld-Verified 83.4%, MCP Atlas 82.2%, BrowseComp 84.3%; TB2.1 74.6/71.9 and AA Agentic Index 42.6% sit a band below the Opus 5 class — held at 92 on the strength of the orchestration rows.
-- **Reasoning: 84/100.** (Was 88 on the prior pass.) GPQA 93.6% (three sources) and USAMO 96.7% remain elite and HLE 57.9% fills the gap, but AA's current Index of 41.8 (the "56" re-based reading did not hold), ARC-AGI-2 72.1%, FrontierMath T4 31.25% and CritPt 20.9% place it measurably below the Opus 5/5.5 class — the age adjustment the prior score resisted.
+- **Reasoning: 87/100.** CHANGED from 84 — GPQA 93.6% (three sources) and USAMO 96.7% remain elite, HLE 57.9% fills the gap, and the re-scored FrontierMath v2 80.0%/56.1% (Epoch) removes the math-aging cap; AA's current Index of 41.8, ARC-AGI-2 72.1% and CritPt 20.9% still place it below the Opus 5/5.5 class.
 - **Context window: 100/100.** 1M tokens with 300K batch output (docs table re-verified 2026-10-11) — the most generous output package; AA-LCR 77.7% is solid but retrieval-at-depth remains unpublished.
 - **Multimodal: 85/100.** Text + image in, text out; measured vision is strong (ScreenSpot-Pro 87.9%, CharXiv 89.9% with tools); no audio/video.
 - **Coding: 91/100.** (Was 93 on the prior pass.) SWE-bench Verified 88.6% and LiveCodeBench 87.8% stay elite, but SWE Pro settles at 69.2% — no longer board-leading (Opus 5 79.2%, 5.5 89.9%) — and FrontierCode 46.5%/SWE Multimodal 38.4% show the age; a one-band correction.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing, ~2.5× the median output price AA cites ($10); 90% cache discount (≈$3.85 blended) is the only relief; no free route. Same cost point as Opus 4.6 with the line now deprecated.
-- **Overall Score: 90.4/100.** (Was 91.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 84 + 100 + 85 + 91) / 5 = 452/5 = 90.4 — lowered on the 2026-10-11 second pass because the newly published system card/AA/Epoch rows (Index 41.8, ARC-AGI-2 72.1%, FrontierMath T4 31.25%) reposition the May-2026 flagship relative to the 2026 class, even as tool-use and coding evidence was largely corroborated. Best fit: a proven enterprise-grade agentic coder with 1M context — but AA deprecates it for Claude Opus 5 (max); choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
+- **Overall Score: 91/100.** CHANGED from 90 — mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 87 + 100 + 85 + 91) / 5 = 455/5 = 91.0 — the 2026-10-11 pass lowered it on the then-current FrontierMath reading; the 2026-10-17 Epoch re-score lifts Reasoning back (84→87). Best fit: a proven enterprise-grade agentic coder with 1M context — but AA deprecates it for Claude Opus 5 (max); choose it only for existing 4.8-pinned workflows or SOC2/HIPAA-gated stacks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.8 system card, Artificial Analysis model benchmarks, Vals AI / Cursor / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-10-08 prompt20/AA pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.8 system card, Artificial Analysis model benchmarks, Vals AI / Cursor / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-10-08 prompt20/AA pass; 2026-10-16 re-check: Epoch re-scores FrontierMath 47.2/31.25 → 80.0/56.1 — Reasoning 84→87, Overall 90→91); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

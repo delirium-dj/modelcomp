@@ -1,7 +1,7 @@
 # Step 5 Preview — findings by GLM 5.3
 
 - Source: StepFun (`step-5-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Step 5 Preview
 - **Short description:** StepFun's flagship preview model for agentic work — frontier-level software engineering and professional knowledge work with particular strength in finance, built on a sparse Mixture-of-Experts architecture (600B total / 27B active parameters).
 - **Provider / access:** StepFun Open Platform (`platform.stepfun.ai`, Chat Completions API + Messages API; `reasoning_effort` low/medium/high). Also tracked as `stepfun/step-5-preview` on Vals AI.
-- **Release / knowledge:** API preview opened 2026-09-18 (Artificial Analysis lists release September 18, 2026; llmlineage lists first public release 2026-09-20; Vals AI lists September 28, 2026). Open weights announced — BrainDetox (2026-09-21) reported weights arriving October 15, 2026; Vals AI already lists "Weights: Open" (knowledge cutoff not published).
+- **Release / knowledge:** API preview opened 2026-09-18 (Artificial Analysis; llmlineage 2026-09-20; Vals AI 2026-09-28). **Open weights CONFIRMED this pass**: BenchLM now lists the model as Open Weight with the Hugging Face model card `stepfun-ai/Step-5-Preview` — the weights-date disagreement (BrainDetox predicted 2026-10-15) is resolved in favor of the release having happened. Knowledge cutoff not published.
 - **IDs:** `step-5-preview` (StepFun platform); no OpenCode Zen Free ID found.
 - **Context window:** 1M tokens total, maximum input 1M, maximum output 64k per official StepFun docs (verified on platform.stepfun.ai model guide, 2026-10-09); Vals AI test runs used a 1,024,000 max-output cap — the official 64k output figure is used here.
 - **Modalities:** text, image (up to 60/request, JPG/PNG/WebP/GIF), and video input (MP4/QuickTime/Matroska, <128 MB/file); text output; reasoning yes (extended thinking, configurable effort); tool calls yes; JSON Mode + JSON Schema yes; streaming + prompt caching yes.
@@ -35,6 +35,7 @@ Agent / tool use:
 - AA Briefcase: **1424 Elo** (Artificial Analysis)
 - AA EnterpriseOps-Gym: **47.2%**; AA Harvey LAB v1.0: **93.4%**; AA ITBench: **55.6%**; AA-AnalystAgent: **35.0%**; GDP.pdf: **14.8%** (Artificial Analysis)
 - Agents' Last Exam: **29.5%** (StepFun launch table via BenchLM)
+- New this pass: Hermes Index **32.8%** / Hermes Bench **69.2%** (Nous Research); AA Briefcase updated **1425** (from 1424); **BenchLM composite now computed: 69.44, #20 of 954** (44 rows)
 - Claw-Eval / ClawProBench: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
 
@@ -85,6 +86,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (StepFun official platform docs, BenchLM, Artificial Analysis, Vals AI, plus search-indexed launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (StepFun official platform docs and launch table, BenchLM 44-row profile updated 2026-10-17 — composite now computed at 69.44 #20/954, open-weights status confirmed on HF; added Hermes Index/Bench rows; Artificial Analysis, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

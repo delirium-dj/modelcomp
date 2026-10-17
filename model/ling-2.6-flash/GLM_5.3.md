@@ -1,7 +1,7 @@
 # Ling 2.6 Flash — findings by GLM 5.3
 
 - Source: inclusionAI / Ant Group (`inclusionAI/Ling-2.6-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (BenchLM's AA-sourced 16-benchmark profile, OpenRouter/Opper/metatext listings, Hugging Face model-card lineage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (BenchLM 16-row AA-sourced profile re-checked 2026-10-17 — every row identical; added the BenchLM composite 32.43 #172/954 for context; OpenRouter/Opper/metatext listings, HF model-card lineage); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

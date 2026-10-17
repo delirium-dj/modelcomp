@@ -1,7 +1,7 @@
 # Ling 3.0 Flash Sante — findings by GLM 5.3
 
 - Source: inclusionAI / Ant Group (`inclusionai/ling-3.0-flash-sante`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (AI Wiki's fact-checked transcription of the Ant launch chart with per-number verification, OpenRouter/Vercel/Novita listings, base-model context via BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (BenchLM re-checked 2026-10-17 — still no page for this variant (404); Artificial Analysis re-checked — still no model page (404); the sole evidence base remains AI Wiki's fact-checked transcription of the single Ant launch chart plus OpenRouter/Vercel/Novita listings; no independent reproduction of any Sante number has appeared, and weights remain unreleased); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

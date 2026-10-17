@@ -1,7 +1,7 @@
 # Claude Sonnet 3.7 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-3-7-sonnet-20250219`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,43 +21,54 @@
 
 > Second-pass note (2026-10-11): the freshly fetched Artificial Analysis page for Claude 3.7 Sonnet (non-reasoning variant) now publishes an estimated Intelligence Index — the first independent composite for this model. BenchLM has no page (404 on both slug variants).
 
+> CORRECTION 2026-10-16: the 2026-10-11 pass recorded "BenchLM 404 on both slug
+> variants"; the BenchLM 2026-10-17 refresh now carries 18 sourced rows that fill
+> the GPQA/MMMU/Tau2 gaps the prior passes marked chart-only.
+
 Agent / tool use:
 
-- TAU-bench: state-of-the-art claim at release with a planning-tool prompt addendum and 100-step budget (Anthropic appendix) — chart value not readable, no verified text number
+- Tau2-Bench: **50%** (AA — added 2026-10-16, fills the chart-only gap; mid)
+- TAU-bench (original): state-of-the-art claim at release with a planning-tool prompt addendum and 100-step budget (Anthropic appendix) — chart value not readable, no verified text number
 - Terminal-Bench / GDPval-AA / Claw-Eval: no verified public score found
 - Vendor/partner evaluations: Cursor "best-in-class for real-world coding tasks... advanced tool use"; Vercel "exceptional precision for complex agent workflows" (qualitative, Anthropic announcement)
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **15 (estimated), #32 of 61 non-reasoning models — exactly at the class median (15)** (AA model page, 2026-10-11; "independent evaluation forthcoming") — fills the "no verified index" gap
-- GPQA Diamond: reported in announcement benchmark chart only — value not readable, no verified text number
-- AIME: reported in announcement benchmark chart only — no verified text number
-- HLE / LCR / MLCR: no verified public score found
-- Instruction-following, general reasoning, multimodal: chart-only values (announcement table)
+- GPQA Diamond: **68%** (Anthropic announcement, now BenchLM-corroborated) / **65.6%** (AA-GPQA Diamond — added 2026-10-16, fills the chart-only gap; above the assumed level)
+- HLE: **4.2%** (AA-HLE — added 2026-10-16, very weak); AA-LCR: **51.7%**; CritPt: **0.0%**
+- Artificial Analysis Intelligence Index: **15.3** (AA current board — corroborates the 15 estimate, #32 of 61 non-reasoning models, exactly at the class median)
+- MATH-500: **82.2%**; AIME 2024: **23.3%**; MMMLU: **83.2%**; IFEval: **90.8%** / AA-IFBench: **44.0%** (all added 2026-10-16)
+- AA-Omniscience: accuracy **28.2%**, hallucination rate **52.8%**
 
 Coding:
 
-- SWE-bench Verified: **62.3%** vanilla scaffold (chart value, widely reported; official-leaderboard parity, n=500) / **63.7%** no-scaffold on the n=489 solvable subset (Anthropic appendix text) / **70.3%** high-compute scaffold with parallel attempts + rejection sampling + scoring-model ranking on n=489 (Anthropic appendix text) — state-of-the-art at release
+- SWE-bench Verified: **62.3%** vanilla scaffold (chart value, widely reported; now BenchLM-corroborated) / **63.7%** no-scaffold on the n=489 solvable subset (Anthropic appendix text) / **70.3%** high-compute scaffold with parallel attempts + rejection sampling + scoring-model ranking on n=489 (Anthropic appendix text) — state-of-the-art at release
 - LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- No long-context retrieval reported (200K window; no MRCR/RULER numbers published at release)
+- AA-LCR **51.7%** measured (added 2026-10-16 — mid-weak); 200K window; no MRCR/RULER numbers published at release
+
+Multimodal:
+
+- MMMU: **71.8%** (announcement, now corroborated); AA-MMMU-Pro: **60.1%** (AA — added 2026-10-16, fills the chart-only gap)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** TAU-bench state-of-the-art at release (Feb 2025) with a documented planning-tool scaffold and 100-step budget; partner evaluations confirm strong agentic tool use — but the TAU-bench value is chart-only and no Terminal-Bench 2.1/GDPval numbers exist, so the score stays in the upper-mid band.
-- **Reasoning: 52/100.** (Was 55 on the prior pass.) The AA Index of 15 (estimated, at the non-reasoning class median) is now a measured composite — it replaces the pure positioning-based score with a below-average independent reading, docked a band for the Oct/Nov 2024 cutoff and the estimate's own caveat.
-- **Context window: 70/100.** 200K tokens maps directly to the methodology tier (200K–500K = 65–84, 200K = 70); AA concurs.
-- **Multimodal: 65/100.** Text + image input, text output only → 60–70 band; no video/PDF/audio input.
-- **Coding: 65/100.** SWE-bench Verified 70.3% (high-compute, n=489) / 62.3% vanilla — state-of-the-art at release and still strong; no LiveCodeBench/SciCode/Vibe numbers and an older harness keep it out of the 90–100 frontier band.
+> Recalibrated 2026-10-16 on the newly surfaced 18-row BenchLM profile.
+
+- **Tool use: 56/100.** CHANGED from 58 — the newly measured Tau2 50.0% is mid-weak; the release-era TAU-bench SOTA claim remains chart-only; Terminal-Bench/GDPval still missing.
+- **Reasoning: 54/100.** CHANGED from 52 — the newly measured GPQA 65.6–68% (two sources) is above the assumed level, but HLE 4.2%, CritPt 0.0%, AA Index 15.3 (at the non-reasoning median) and the Oct/Nov 2024 cutoff keep it low-mid.
+- **Context window: 70/100.** 200K tokens maps directly to the methodology tier (200K–500K = 65–84, 200K = 70); AA-LCR 51.7% measured (mid-weak); AA concurs.
+- **Multimodal: 65/100.** Text + image input, text output only; the newly measured MMMU 71.8% / AA-MMMU-Pro 60.1% corroborate the +image-in band (60–70).
+- **Coding: 65/100.** SWE-bench Verified 70.3% (high-compute, n=489) / 62.3% vanilla (now BenchLM-corroborated) — state-of-the-art at release and still strong; no LiveCodeBench/SciCode/Vibe numbers and an older harness keep it out of the 90–100 frontier band.
 - **Cost efficiency: 60/100.** $3.00/$15.00 per 1M tokens matches the methodology reference ($3/$15 = ~60); AA's blended $2.31 confirms the pricing.
-- **Overall Score: 62.0/100.** (Was 63 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (58 + 52 + 70 + 65 + 65) / 5 = 310/5 = 62.0 — lowered a point on the 2026-10-11 second pass as the first independent AA composite replaces the positioning-based reasoning score. Best fit: a strong 2025-generation hybrid reasoner/coder, now deprecated — use for legacy reproducibility; for frontier work step up to Sonnet 4.6/5.x-class models.
+- **Overall Score: 62/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (56 + 54 + 70 + 65 + 65) / 5 = 310/5 = 62.0 — unchanged overall: the GPQA lift and Tau2 dock net out. Best fit: a strong 2025-generation hybrid reasoner/coder, now deprecated — use for legacy reproducibility; for frontier work step up to Sonnet 4.6/5.x-class models.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 sources: freshly fetched artificialanalysis.ai Claude 3.7 Sonnet page (non-reasoning variant), BenchLM 404 confirmations on both slug variants, the prior 2026-10-01 pass on the official Anthropic announcement + appendix); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 sources: freshly fetched artificialanalysis.ai Claude 3.7 Sonnet page (non-reasoning variant), BenchLM 404 confirmations on both slug variants, the prior 2026-10-01 pass on the official Anthropic announcement + appendix; 2026-10-16 CORRECTION: the BenchLM 2026-10-17 refresh now carries 18 rows (prior pass said 404) — GPQA 65.6-68%, Tau2 50%, MMMU 71.8% filled — Reasoning 52→54, Tool 58→56, Overall 62 holds); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_3.md`, using the same headings.

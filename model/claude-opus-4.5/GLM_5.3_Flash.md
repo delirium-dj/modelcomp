@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-5-20251101`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **87.0%** (system card via benchlm.ai — corroborates the 87.1% announcement read); AA independent: **81.0%**
 - HLE: **30.8%** (Qwen3.6-Plus comparison table — consistent with the 32.0% third-party comparative the prior pass cited); AA-HLE: **13.2%** (AA non-reasoning base)
 - AIME26: **95.1%**; HMMT Feb 2025: **92.9%** / Nov 2025: **93.3%** / Feb 2026: **85.3%** (Qwen tables — strong math)
-- FrontierMath v2: **20.7%** Tiers 1–3 / **4.2%** Tier 4 (Epoch AI — weak); CritPt: **0.3%** (AA — near-zero)
+- FrontierMath v2: **34.4%** Tiers 1–3 / **4.9%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh) — CHANGED: the 2026-10-11 pass recorded 20.7%/4.2% from the same source; Epoch has since re-scored upward, current values used; CritPt: **0.3%** (AA — near-zero)
 - AA-LCR v1.1: **70.7%** (AA — fills the long-context gap, mid); LongBench v2: **64.4%**; AI-Needle: **74%** (Qwen tables)
 - MMLU-Pro: **89.5%** (Qwen table) / **88.9%** (AA) — corroborated; MMLU-Redux: **96.6%**; SuperGPQA: **70.6%**; C-Eval: **92.2%**
 - Artificial Analysis Intelligence Index: **23.7** (AA current board — corroborates the 24 estimate)
@@ -59,17 +59,17 @@ Multimodal (richly measured via the Qwen comparison tables):
 ### Normalized scores (1–100)
 
 - **Tool use: 82/100.** (Was 90 on the prior pass.) The Qwen-table rows document much weaker MCP/tool performance than the launch framing (MCP Atlas 42.3%, Toolathlon 43.5%, VITA 23.3%); τ² 86.3%, τ³ 70.2% and the BrowseComp-Plus 85.3% orchestrated result keep it a strong agent, but the age correction is due.
-- **Reasoning: 78/100.** (Was 84 on the prior pass.) GPQA 87% corroborated, AIME26 95.1% and the HMMT sweep stay elite — but HLE 30.8–32%, CritPt 0.3%, FrontierMath T4 4.2% and AA Index 23.7% place the Nov-2025 generation measurably below its successors.
+- **Reasoning: 79/100.** CHANGED from 78 — GPQA 87% corroborated, AIME26 95.1% and the HMMT sweep stay elite — but HLE 30.8–32%, CritPt 0.3%, the re-scored FrontierMath T4 4.9% and AA Index 23.7% place the Nov-2025 generation measurably below its successors.
 - **Context window: 70/100.** 200K tokens in the standard tier; AA-LCR 70.7%, LongBench v2 64.4% and AI-Needle 74% provide first measured evidence (mid) — unchanged.
 - **Multimodal: 75/100.** (Was 55 on the prior pass.) Video understanding is now measured (Video-MME 77.6–81.4%, VideoMMMU 84.4%, MLVU 81.7%) alongside strong document/vision rows (OmniDocBench 87.7%, MMMU 80.7%) — the +video-in band (75–90); no audio input, text-only output.
 - **Coding: 86/100.** (Was 90 on the prior pass.) SWE-bench Verified 80.9% corroborated and LiveCodeBench 84.8%/SWE-ML 77.5% fill gaps, but SWE Pro 57.1% and NL2Repo 43.2% trail the 2026 class — a one-band correction.
 - **Cost efficiency: 40/100.** $5/$25 per 1M tokens — premium pricing, though a large drop from prior Opus tiers ($15/$75) and 90% cache discount; expensive vs the ~$1.88/$9.50 medians.
-- **Overall Score: 78.2/100.** (Was 78 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (82 + 78 + 70 + 75 + 86) / 5 = 391/5 = 78.2 — net unchanged on the 2026-10-11 second pass: the multimodal raise (+20, video now measured) offsets the tool-use/reasoning/coding age corrections. Best fit: hard agentic coding and long-horizon computer-use work where quality beats latency — but the 2026 Opus line (4.8/5/5.5) supersedes it at every tier.
+- **Overall Score: 78/100.** (Was 78 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (82 + 79 + 70 + 75 + 86) / 5 = 392/5 = 78.4 — net unchanged on the 2026-10-11 second pass: the multimodal raise (+20, video now measured) offsets the tool-use/reasoning/coding age corrections. Best fit: hard agentic coding and long-horizon computer-use work where quality beats latency — but the 2026 Opus line (4.8/5/5.5) supersedes it at every tier.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.5 system card + Qwen3.5-397B/Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, Epoch AI + AA rows via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.5 system card + Qwen3.5-397B/Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, Epoch AI + AA rows via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath re-scored 20.7→34.4 / 4.2→4.9 — Reasoning 78→79, Overall 78 holds); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

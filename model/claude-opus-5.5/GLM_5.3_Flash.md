@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-5-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,8 @@ Reasoning / knowledge:
 - AA-Omniscience: **66.2% accuracy / 58.6% hallucination rate / 46.4 index** (AA — accuracy strong, hallucination rate high)
 - GPQA Diamond: no verified public score found (Anthropic's table doesn't headline it; OpenAI reports GPT-6 Astra at 96.0%)
 - ArXivMath Aug 2026: **91.2%** no tools / **96.9%** with tools (system card via benchlm.ai)
+- FrontierMath v2: Tiers 1–3 **91.2%**, Tier 4 **95.0%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; Tier 4 95% is the highest math evidence in this repo)
+- MazeBench ASCII: **13%**; Hermes Bench **76.7%** / Hermes Index **63.3%** (both added 2026-10-16)
 - GMMLU: **94.3%**; MILU: **93.1%** (system card, multilingual knowledge)
 
 Coding:
@@ -71,17 +73,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 92/100.** GDPval-AA 1846 Elo sits above the ~1750 frontier ref, TB4.0 66.4% (vendor; 59.6% independent) is near-leading, FrontierCode 54.4%/Extended 63.6% and OSWorld 81.8% (partial) are elite; new Toolathlon-Verified 77.8% and AA Harvey LAB 91.2% reinforce the agentic story; the AutomationBench loss to Astra, ITBench 38.2% and missing Tau3 keep it under 95.
-- **Reasoning: 94/100.** HLE 67.7% (vendor) / 61.4% (AA, new independent high), ARC-AGI-2 91.7% (ARC Prize verified — exceptional abstract reasoning), SciCode 66.9% (new high) and the #1 AA Index of 58 all exceed the frontier refs; MLCR 66.7% and AA-LCR 84.7% fill prior gaps. Docked for the vendor-vs-independent gaps (−6.3 to −6.8 pts), CritPt 31.7%, the 58.6% hallucination rate on AA-Omniscience and the still-missing GPQA number.
+- **Reasoning: 96/100.** CHANGED from 94 — HLE 67.7% (vendor) / 61.4% (AA, new independent high), ARC-AGI-2 91.7% (ARC Prize verified — exceptional abstract reasoning), SciCode 66.9% (new high), the #1 AA Index of 58, and the newly measured FrontierMath v2 91.2%/95.0% (Epoch, Tier 4 95% — the strongest math evidence in this repo) all exceed the frontier refs; MLCR 66.7% and AA-LCR 84.7% fill prior gaps. Docked for the vendor-vs-independent gaps (−6.3 to −6.8 pts), CritPt 31.7%, the 58.6% hallucination rate on AA-Omniscience and the still-missing GPQA number.
 - **Context window: 95/100.** 1M tokens with no long-context surcharge maps to the ≥1M tier (95–100); first measured retrieval-adjacent numbers now exist (AA-LCR 84.7% strong; GraphWalks 66.8% @256K–1M competitor-reported) but no measured ≥98% retrieval at 512K+ keeps it off the maximum.
 - **Multimodal: 80/100.** Text + image + PDF input with strong vision (Chartography 89.0% with tools / 64.4% without, AA-MMMU-Pro 87.7%, SWE Multimodal 61.4%, BenchCAD Vision2Code 0.962 with tools); no audio/video input — the +video/PDF band is 75–90.
 - **Coding: 90/100.** The system card's SWE-bench Pro 89.9% — a clear field lead over Sonnet 5.5's 81.3% and Fable 5.1's 81.2% — plus SWE Multilingual 93.9%, DeepSWE 74.2%, ProgramBench 91.2% and FrontierSWE v2 62.3%; SWE-bench Verified remains unpublished, capping it below 92+.
 - **Cost efficiency: 55/100.** $4/$20 per 1M sits just above the $3/$15 = ~60 methodology reference, landed at 55; AA's updated instrumentation confirms the erosion at max effort — $5.98/task and 260M output tokens for the full Intelligence Index run (vs an 82M median, ~3× verbosity) — though 97 tok/s output speed and 5% cache reads are offsets.
-- **Overall Score: 90.2/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 94 + 95 + 80 + 90) / 5 = 451/5 = 90.2 — unchanged on the 2026-10-11 second pass: new evidence (ARC-AGI-2 91.7%, AA-LCR 84.7%, Toolathlon 77.8%, SWE-Pro corroboration) reinforces the existing scores rather than moving them. Best-fit: the top pick for agentic coding, professional knowledge-work deliverables and long-horizon agents — the SWE-bench Pro field lead and ARC-AGI-2 result confirm the coding+reasoning story; with GPT-6 Astra for agentic science and token-efficient max-effort runs.
+- **Overall Score: 91/100.** CHANGED from 90 — mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 96 + 95 + 80 + 90) / 5 = 453/5 = 90.6 → 91 — the 2026-10-16 FrontierMath elite rows lift Reasoning (94→96). Best-fit: the top pick for agentic coding, professional knowledge-work deliverables and long-horizon agents — the SWE-bench Pro field lead and ARC-AGI-2 result confirm the coding+reasoning story; with GPT-6 Astra for agentic science and token-efficient max-effort runs.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥4 independent sources: platform.claude.com models overview + opus-5-5 model page, artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 with system-card/ARC Prize/Proximal citations); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥4 independent sources: platform.claude.com models overview + opus-5-5 model page, artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 with system-card/ARC Prize/Proximal citations; 2026-10-16 re-check: FrontierMath v2 91.2/95.0 (elite Tier 4), MazeBench 13%, Hermes rows added — Reasoning 94→96, Overall 90→91); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.md`, using the same headings.

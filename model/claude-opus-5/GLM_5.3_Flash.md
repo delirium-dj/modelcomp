@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,6 +37,8 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - IMO 2026: **42/42** (system card via benchlm.ai — perfect score)
+- FrontierMath v2: Tiers 1–3 **85.6%**, Tier 4 **73.2%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; elite)
+- MazeBench ASCII: **12%**; AA Briefcase: **Elo 1720** (both added 2026-10-16)
 - ARC-AGI-1: **97.5%**; ARC-AGI-2: **90.4%**; ARC-AGI-3: **30.2%** (system card — ARC-AGI-2 above most of the field, just under Opus 5.5's 91.7%)
 - HLE: **64.7%** with tools / **56.3%** without (system card); AA independent HLE: **54.9%**
 - GPQA Diamond: **93.2%** (AA independent; Vals 93.4%) — fills the gap the 2026-10-05 pass marked missing
@@ -71,17 +73,17 @@ Multimodal:
 ### Normalized scores (1–100)
 
 - **Tool use: 96/100.** The second pass strongly corroborates the top agentic package: GDPval-AA 1862 (still the repo's best), Toolathlon 80.6% (> Opus 5.5's 77.8%), AA Harvey LAB 93.5%, MCP Atlas 85.8%, BrowseComp 90.8%, OSWorld 70.6%; AutomationBench 26.0% and ApprenticeBench 36% are the blemishes that keep it off 98.
-- **Reasoning: 91/100.** Was 88 on 2026-10-05, capped by absent evidence; the system card + AA now supply IMO 2026 42/42, ARC-AGI-2 90.4%, GPQA 93.2%, HLE 64.7% (tools) and AA Index 51 (#16/227) — elite but a step below Opus 5.5 (94: Index 58, HLE 67.7, ARC 91.7) and GPT-6 Astra (GPQA 96), so it lands just under 92.
+- **Reasoning: 93/100.** CHANGED from 91 — the system card + AA supply IMO 2026 42/42, ARC-AGI-2 90.4%, GPQA 93.2%, HLE 64.7% (tools) and AA Index 51 (#16/227), and the newly measured FrontierMath v2 85.6%/73.2% (Epoch, elite) adds a decisive math pillar — still a step below Opus 5.5 (94: Index 58, HLE 67.7, ARC 91.7) and GPT-6 Astra (GPQA 96).
 - **Context window: 100/100.** 1M input with a 128K standard output and 300K batch output — the most generous output package measured here (re-verified against the current Anthropic docs table); AA-LCR 79.3% is solid but retrieval-at-window remains unpublished.
 - **Multimodal: 82/100.** Text + vision in, text out; measured vision now backs it (MMMU-Pro 84.7%, Chartography 83.0% with tools, SWE Multimodal 59.4%); no audio/video input keeps it out of the 85+ band.
 - **Coding: 96/100.** SWE-bench Verified 96–97% (system card + Vals #1 of 86) sits on top of SWE-bench Pro 79.2%, FrontierSWE v2 52.0%, FrontierCode 53.4/63.6, LiveCodeBench 89.0% and ProgramBench 93.0%; only CursorBench 4.0 46.6% and the missing 98+-class rows keep it from 98.
 - **Cost efficiency: 20/100.** $5/$25 flagship pricing with no free API route — same expensive tier as Opus 4.6/4.8; Fast mode doubles it; AA adds $5.86/task and a notably slow 53.1 tok/s with 66s TTFT, deepening the poor value.
-- **Overall Score: 93.0/100.** Was 92.4 on 2026-10-05. Mean of the five quality dims per `RULES.md` (Cost excluded): (96 + 91 + 100 + 82 + 96) / 5 = 465/5 = 93.0 — raised on the 2026-10-11 second pass because the newly published system card/AA evidence (IMO 42/42, ARC-AGI-2 90.4%, GPQA 93.2%, Toolathlon 80.6%) converts the reasoning score from positioning-based to measurement-based. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows — with the strongest independent SWE-bench Verified and GDPval readings in this repo; Fable 5.1 remains the capability ceiling at 2× the price, and Opus 5.5 now supersedes it at 20% less.
+- **Overall Score: 93/100.** Was 92.4 on 2026-10-05. Mean of the five quality dims per `RULES.md` (Cost excluded): (96 + 93 + 100 + 82 + 96) / 5 = 467/5 = 93.4 — raised on the 2026-10-11 second pass because the newly published system card/AA evidence (IMO 42/42, ARC-AGI-2 90.4%, GPQA 93.2%, Toolathlon 80.6%) converts the reasoning score from positioning-based to measurement-based. Best fit: the no-compromise agentic-coding Opus for pinned Anthropic workflows — with the strongest independent SWE-bench Verified and GDPval readings in this repo; Fable 5.1 remains the capability ceiling at 2× the price, and Opus 5.5 now supersedes it at 20% less.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥4 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Anthropic Opus 5 system card, Vals AI leaderboards, Cursor/Proximal/frontierbench leaderboards via benchlm.ai, plus the prior 2026-09-18/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥4 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Anthropic Opus 5 system card, Vals AI leaderboards, Cursor/Proximal/frontierbench leaderboards via benchlm.ai, plus the prior 2026-09-18/10-05 passes; 2026-10-16 re-check: FrontierMath v2 85.6/73.2 (elite), MazeBench 12%, AA Briefcase 1720 added — Reasoning 91→93, Overall 93 holds (93.4)); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4_8.md`, using the same headings.

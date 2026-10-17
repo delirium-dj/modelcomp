@@ -1,7 +1,7 @@
 # GPT-5.3 Codex Spark — findings by GLM 5.3
 
 - Source: OpenAI (`openai/gpt-5.3-codex-spark`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,6 +24,7 @@ Agent / tool use:
 - Terminal-Bench 2.0: "strong performance at a fraction of GPT-5.3-Codex's duration" (official announcement — the accuracy value itself is chart-only, no verified number in text)
 - Tau3 / GDPval-AA / MCP Atlas: no verified public score found
 - Tool-call formatting reliability: flagged unreliable in developer reports (JSON schemas missing fields, phantom function parameters — Turing College synthesis of X threads, Feb 2026)
+- New this pass: MazeBench (ASCII, no tools) **0%** (MazeBench leaderboard via BenchLM — the tracker's only displayable row for this ID, consistent with the weak independent agent profile); BenchLM context listing stands at 256K, still unconfirmed against the 128K launch spec
 
 Reasoning / knowledge:
 
@@ -59,6 +60,6 @@ Speed:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (OpenAI launch announcement, Turing College hands-on analysis transcribing the launch charts, Cerebras blog, OpenCode Zen docs, OrcaRouter retirement note); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (OpenAI launch announcement, Turing College hands-on analysis, Cerebras blog, OpenCode Zen docs, OrcaRouter retirement note; BenchLM re-checked 2026-10-17 — still 1 displayable row (MazeBench 0%, new) and unranked, consistent with the model's retired status); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

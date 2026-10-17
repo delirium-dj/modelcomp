@@ -141,7 +141,7 @@
 66.2 laguna-s-2.1
 66.2 ring-2.6.1t
 65.9 gpt-5-nano
-65.2 claude-haiku-3.5
+64.8 claude-haiku-3.5
 64.5 glm-5
 64.5 minimax-m2.5
 64.1 deepseek-v3.2

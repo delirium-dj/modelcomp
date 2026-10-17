@@ -1,7 +1,7 @@
 # DeepSeek V3.2 — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-v3.2`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - AA-HLE: **11.2%** (AA — fills the gap; floor-class); Artificial Analysis Intelligence Index: **16.0** (AA — fills the index gap; low)
 - AA-LCR v1.1: **45.7%** (AA — fills the long-context gap; weak); CritPt: **0.9%** (AA — floor)
 - FrontierMath v2: **22.1%** Tiers 1–3 / **2.1%** Tier 4 (Epoch AI — weak)
-- AA-Omniscience: **24.0% accuracy / 93.3% non-hallucination row / −46.9 index** (AA — repo-worst tier)
+- AA-Omniscience: **24.0% accuracy / 93.3% non-hallucination row / −46.9 index** (AA — repo-worst tier); AA-IFBench: **49.0%** (added 2026-10-16)
 - GPQA Diamond (thinking mode): **~84–85%**; AIME 2025: **93.1%** (prior pass)
 - BenchLM overall: **49.36, #100 of 889** (recomposed from the prior ~50.94 #91/212)
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai DeepSeek V3.2 page with AA/Claw-Eval/SWE-Rebench/Epoch citations, the prior 2026-10-05 pass on the arXiv report/OpenRouter/llm-stats/ThursdAI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai DeepSeek V3.2 page with AA/Claw-Eval/SWE-Rebench/Epoch citations, the prior 2026-10-05 pass on the arXiv report/OpenRouter/llm-stats/ThursdAI; 2026-10-16 re-check: BenchLM 16-row refresh corroborates every recorded row (AA-IFBench 49.0 added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

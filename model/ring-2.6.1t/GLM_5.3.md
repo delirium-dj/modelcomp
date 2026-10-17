@@ -1,7 +1,7 @@
 # Ring 2.6 1T — findings by GLM 5.3
 
 - Source: inclusionAI / Ant Group (`inclusionAI/Ring-2.6-1T`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (BenchmarkList 16-benchmark profile with AA-verified rows, OpenRouter, vendor claims via opper/aiflashreport, AA II breakdown); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (BenchmarkList 16-benchmark profile re-checked 2026-10-17 — all rows identical; one minor internal variance surfaced: the AA-II breakdown lists GDPval-AA 918.78 Elo and Tau3-Banking 14.2% vs the ranked rows' 925/17.9% — breakdown-vs-ranked-harness difference, flagged, not score-moving; BenchLM still has no page for this ID; OpenRouter, vendor claims via opper/aiflashreport, AA II breakdown); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

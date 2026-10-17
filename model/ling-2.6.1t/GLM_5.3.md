@@ -1,7 +1,7 @@
 # Ling 2.6 1T — findings by GLM 5.3
 
 - Source: inclusionAI / Ant Group (`inclusionAI/Ling-2.6-1T`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,8 +24,8 @@ Agent / tool use:
 - Tau2-Bench Telecom: **89.8%** (AA harness via BenchmarkList; rank 53/332 — 2.6pp behind Ring-2.6-1T)
 - Terminal-Bench Hard: **31.1%** (AA harness; rank 70/326)
 - GDPval-AA: **1045 Elo** (Artificial Analysis; rank 104/352 — 71st percentile)
-- ClawProBench: **57.4 final** (rank 23/48; Tool Use 62.4%, Planning 70.5%, Efficiency 91.3%, Error Recovery 65.7%, Pass³ 36.5%)
-- Gert Labs Rankings (agentic gaming/one-shot coding): **25.0% GScore** (rank 61/62 — bottom of the field)
+- ClawProBench: **57.4 final** (rank 23/48; Tool Use 62.4%, Planning 70.5%, Efficiency 91.3%, Error Recovery 65.7%, Pass³ 36.5%; expanded sub-scores visible this pass: Pass@3 58.8%, Safety 57.1%, Constraints 57.0%, Synthesis 47.5%)
+- Gert Labs Rankings (agentic gaming/one-shot coding): **25.0% GScore** (rank 61/62 — bottom of the field; detail this pass: 50% gameplay success across 43 games, avg percentile 34.7%)
 
 Reasoning / knowledge:
 
@@ -64,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (BenchmarkList 14-benchmark profile with AA-verified rows, OpenRouter/Opper/kilo listings, llmdb architecture notes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (BenchmarkList 14-benchmark profile re-checked 2026-10-17 — every row identical to first research, with expanded ClawProBench sub-scores (Pass@3 58.8%, Safety 57.1%, Synthesis 47.5%) and Gert Labs detail (gameplay success 50%, 43 games) now visible — all consistent with the existing bands; BenchLM still has no page; OpenRouter/Opper/kilo listings, llmdb architecture notes); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

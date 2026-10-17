@@ -1,7 +1,7 @@
 # Claude Haiku 5.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-haiku-5-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,6 +34,8 @@ Reasoning / knowledge:
 - AA-LCR v1.1: **82.7%** (AA — fills the long-context gap; excellent for the class, matching Sonnet 5.5's 82.7%)
 - Artificial Analysis Intelligence Index: **43.4** (AA current board — corroborates the 43)
 - CritPt: **18.9%** (AA); AA-Omniscience: index **10.7** (AA — weak)
+- FrontierMath v2: Tiers 1–3 **75.1%**, Tier 4 **46.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong for the class)
+- MLCR-AA: **63.3%** (AA — added 2026-10-16)
 - GPQA Diamond: no verified public score found
 - Chartography (no tools): **46.4%** (Anthropic; vs Haiku 4.5 6.4%)
 
@@ -41,6 +43,7 @@ Coding:
 
 - AA-SciCode: **55.0%** (AA, independent — fills the SciCode gap; decent)
 - FrontierCode 1.1 (Main): **46.4%** (system card via benchlm.ai — corroborated; Sonnet 5.5 52.1%)
+- FrontierSWE v2: **43.8%** (Proximal — added 2026-10-16, the first SWE-family row for this model)
 - Bug Hunt Bench: **21.5 fixes** (public data)
 - SWE-bench Verified / SWE-Pro / LiveCodeBench / Vibe Code Bench: no verified public score found
 
@@ -51,17 +54,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** AA Harvey LAB 89.9% is a strong independent addition alongside GDPval 1620 and AA-Briefcase 1578 (both corroborated), with OSWorld 2.1 72.4% making desktop automation usable; AA AutomationBench 35.4% and TB4.0 32.8% (AA) cap it.
-- **Reasoning: 78/100.** (Was 74 on the prior pass.) AA-HLE 44.4% and AA-LCR 82.7% fill the two biggest gaps positively and the AA Index 43.4 stands corroborated; CritPt 18.9% and the weak Omniscience index keep it under 80.
+- **Reasoning: 80/100.** CHANGED from 78 — AA-HLE 44.4%, AA-LCR 82.7% and the AA Index 43.4 stand corroborated, and the newly measured FrontierMath v2 75.1%/46.3% (Epoch) plus MLCR-AA 63.3% add two solid pillars; CritPt 18.9% and the weak Omniscience index keep it under 85.
 - **Context window: 95/100.** Documented 1M tokens (BenchLM concurs; tier ≥1M = 95–100); AA-LCR 82.7% is the first measured long-context evidence (strong) — no ≥98%-retrieval at length to reach 100.
 - **Multimodal: 78/100.** Text, image and PDF input with text output maps to the +PDF-in 75–90 band; Chartography 46.4% shows real chart-reading; no audio/video input documented.
-- **Coding: 66/100.** (Was 62 on the prior pass.) AA-SciCode 55.0% and Bug Hunt 21.5 add independent evidence to FrontierCode 46.4%; still no SWE-bench Verified/SWE-Pro rows, so the score rests on mid-tier agent results.
+- **Coding: 68/100.** CHANGED from 66 — AA-SciCode 55.0%, Bug Hunt 21.5 and the newly surfaced FrontierSWE v2 43.8% (first SWE-family row) add independent evidence to FrontierCode 46.4%; still no SWE-bench Verified/SWE-Pro rows, so the score rests on mid-tier agent results.
 - **Cost efficiency: 96/100.** $0.10/$0.50 per MTok (≤100K prompts) maps to the ~$0.10/$0.20 ≈ 97–99 band, shaved slightly for the $0.50 output rate and the tiered >100K rate ($0.50/$2.50); a ~25× cost cut over Haiku 4.5 was measured in independent hands-on testing.
-- **Overall Score: 79.0/100.** (Was 77.4 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (78 + 78 + 95 + 78 + 66) / 5 = 395/5 = 79.0 — raised on the 2026-10-11 second pass as AA-LCR/AA-HLE/SciCode rows convert reasoning and coding gaps into measured evidence. Best fit: high-volume classification/extraction, routing, and cheap subagent work under a Sonnet 5.5 or Opus 5.5 orchestrator — not the hardest coding or reasoning tasks.
+- **Overall Score: 80/100.** CHANGED from 79 — mean of the five quality dims per `RULES.md` (Cost excluded): (78 + 80 + 95 + 78 + 68) / 5 = 399/5 = 79.8 → 80. Best fit: high-volume classification/extraction, routing, and cheap subagent work under a Sonnet 5.5 or Opus 5.5 orchestrator — not the hardest coding or reasoning tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Haiku 5.5 system card + launch post, Artificial Analysis independent boards (LCR/HLE/SciCode/Harvey/Omniscience) via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Haiku 5.5 system card + launch post, Artificial Analysis independent boards (LCR/HLE/SciCode/Harvey/Omniscience) via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath v2 75.1/46.3, MLCR 63.3%, FrontierSWE v2 43.8% added — Reasoning 78→80, Coding 66→68, Overall 79→80); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

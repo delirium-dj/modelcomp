@@ -1,7 +1,7 @@
 # Claude Sonnet 3.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-3-5-sonnet`, legacy generation)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai claude-3-5-sonnet page corroborates all rows identically with the overall recomposed to 28.27; the prior 2026-10-01 pass remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai claude-3-5-sonnet page corroborates all rows identically with the overall recomposed to 28.27; the prior 2026-10-01 pass remains the evidence base; 2026-10-16 re-check: BenchLM still 2 rows (both corroborated), the FrontierMath rows dropped from BenchLM display but stand as recorded from Epoch — nothing new); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

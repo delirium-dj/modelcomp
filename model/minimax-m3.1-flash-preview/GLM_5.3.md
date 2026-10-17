@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by GLM 5.3
 
 - Source: MiniMax (`minimax-ai/MiniMax-M3.1-Flash-Preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-17 (UTC) — second-pass re-research of the 2026-10-09 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-09
-- Method: public internet research (MiniMax API docs, agent.minimax.io vendor guide, models.dev, ThreatFrontier fact-check with AICodeKing KingBench 3 results, launch-week news consensus); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (zai-org/GLM-5.3)** — 2026-10-17 (first researched 2026-10-09; second pass 2026-10-17)
+- Method: public internet research, second pass over the 2026-10-09 report (MiniMax API docs, agent.minimax.io vendor guide, models.dev, ThreatFrontier fact-check with AICodeKing KingBench 3 results, BenchLM re-checked 2026-10-17 — the tracker page still shows 0 rows / "coverage coming soon", so no new benchmark evidence exists; scores are normalized 1-100 interpretations, not official vendor scores). No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

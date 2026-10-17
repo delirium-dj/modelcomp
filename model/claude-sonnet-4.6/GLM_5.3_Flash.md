@@ -1,7 +1,7 @@
 # Claude Sonnet 4.6 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-sonnet-4-6`, proprietary, paid — free on claude.ai Free/Pro plans as chat default, not as an API free tier)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - Claw-Eval: **67.8%** (Claw-Eval leaderboard via benchlm.ai — fills the gap); CyberGym: **65.2%** (CyberGym leaderboard)
 - OSWorld-Verified: **72.1%** (OSWorld-Verified leaderboard; system card read 72.5% — consistent) — **conflicts with the OSWorld 2.0 paper reading of 8.3%** (arxiv 2606.29537; different harness version)
 - Terminal-Bench 2.0: **59.1%** (system card, max effort; Vals TB2.1: **57.3%** — consistent)
-- JobBench: **36.9%** (JobBench paper); ApprenticeBench (GUI): **2%** (NeoCognition — very weak); Gert Labs: **62.92%**
+- JobBench: **36.9%** (JobBench paper); ApprenticeBench (GUI): **2%** (NeoCognition — very weak); MazeBench ASCII: **0%** (added 2026-10-16); Gert Labs: **62.92%**
 - GDPval-AA / MCP-Atlas: no verified public score found for 4.6
 - AA Intelligence Index: **24.7** (AA current board, 2026-10-10 — the 2026-10-05 "25, #5/62 non-reasoning, estimate pending independent eval" is now a measured reading at the same level)
 
@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Sonnet 4.6 system card, Vals AI / Claw-Eval / CyberGym / OSWorld / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-09-17/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Sonnet 4.6 system card, Vals AI / Claw-Eval / CyberGym / OSWorld / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-09-17/10-05 passes; 2026-10-16 re-check: only MazeBench 0% added; the FrontierMath row dropped from BenchLM display (stands as recorded from Epoch) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

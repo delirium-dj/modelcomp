@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-sonnet-5-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -42,6 +42,8 @@ Reasoning / knowledge:
 - AA-Omniscience: **54.0% accuracy / 47.0% non-hallucination row / 32.3 index** (AA)
 - ArXivMath Aug 2026: **86.8%** no tools / **95.2%** with tools (system card); GMMLU: **92.1%**; MILU: **91.6%**
 - HealthBench raw: **69.4%**; BioMysteryBench: **89.2%** human-solvable / **44.7%** human-difficult (system card)
+- FrontierMath v2: Tiers 1–3 **88.8%**, Tier 4 **80.5%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; elite — second only to Opus 5.5's 95% Tier 4)
+- MazeBench ASCII: **8%**; Hermes Bench **73.5%** / Hermes Index **53.1%** (both added 2026-10-16)
 - GPQA Diamond / ARC-AGI: no verified public score found
 
 Coding:
@@ -67,17 +69,17 @@ Visual (supplementary):
 ### Normalized scores (1–100)
 
 - **Tool use: 92/100.** (Was 91 on the prior pass.) The second pass adds independent corroboration across the board: AA AutomationBench 71.8% and AA Harvey 93.1% both beat Opus 5.5's rows, GDPval normalized 67.0% is the best measured, and TB4.0 63.6% independent leads the family; the missing Tau3/Claw rows and CursorBench's second place keep it level with Opus 5.5 rather than above.
-- **Reasoning: 92/100.** (Was 90 on the prior pass.) The missing AA Index now exists at 56.0 — second in the family and ahead of Fable 5.1 (53) and Opus 5 (51) — with MLCR 75.0% (best measured), AA-LCR 82.7% and HLE 64.5% (tools); still no GPQA/ARC rows cap it below Opus 5.5's 94.
+- **Reasoning: 94/100.** CHANGED from 92 — the AA Index at 56.0 (second in the family, ahead of Fable 5.1's 53 and Opus 5's 51), MLCR 75.0% (best measured), AA-LCR 82.7%, HLE 64.5% (tools), and the newly measured FrontierMath v2 88.8%/80.5% (Epoch, elite) now exceed the frontier refs; still no GPQA/ARC rows cap it below Opus 5.5's 96.
 - **Context window: 95/100.** 1M total tokens maps to the ≥1M tier (95–100); AA-LCR 82.7% is the first measured long-context evidence; no ≥98%-retrieval measurement at 512K+ keeps it at the band floor (128K max output noted as caveat).
 - **Multimodal: 85/100.** Image input with best-measured vision rows (Chartography 90.2% with tools, BenchCAD 0.963); text-only output and no audio/PDF-in evidence keep it below omni-input models.
 - **Coding: 90/100.** (Was 88 on the prior pass.) SWE-bench Pro 81.3%, SWE Multilingual 90.3%, FrontierSWE v2 61.9% (ahead of Opus 5's 52.0%) and the family-best TB4.0 70.6%/63.6% fill the evidence gap; SWE-bench Verified and LiveCodeBench remain unpublished, capping it below Opus 5.5's 92+ tier.
 - **Cost efficiency: 76/100.** $2/$10 per 1M with cache reads halved to $0.10 and up to 30% lower cost per task than Sonnet 5 (Balyasny: best quality-to-cost tradeoff of seven models tested) is strong mid-tier pricing for near-Opus quality, but well above budget Flash/Lite tiers and there is no free tier.
-- **Overall Score: 90.8/100.** (Was 89.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 92 + 95 + 85 + 90) / 5 = 454/5 = 90.8 — raised on the 2026-10-11 second pass because the newly published system card/AA rows (Index 56, SWE-Pro 81.3, FrontierSWE 61.9, best-measured agentic/vision cells) convert prior gaps into measured evidence. Best fit: the default high-volume workhorse that nearly matches Opus 5.5 at half the price; switch to Opus 5.5 or Fable 5.1 for complex, open-ended judgment work.
+- **Overall Score: 91/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 94 + 95 + 85 + 90) / 5 = 456/5 = 91.2 → 91 — the 2026-10-16 FrontierMath elite rows lift Reasoning (92→94). Best fit: the default high-volume workhorse that nearly matches Opus 5.5 at half the price; switch to Opus 5.5 or Fable 5.1 for complex, open-ended judgment work.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: Anthropic Models overview docs re-checked 2026-10-11, benchlm.ai updated 2026-10-10 citing the Claude Sonnet 5.5 system card + AA/Vals/Cursor/Proximal leaderboards, plus the prior 2026-10-08 pass on the official announcement page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: Anthropic Models overview docs re-checked 2026-10-11, benchlm.ai updated 2026-10-10 citing the Claude Sonnet 5.5 system card + AA/Vals/Cursor/Proximal leaderboards, plus the prior 2026-10-08 pass on the official announcement page; 2026-10-16 re-check: FrontierMath v2 88.8/80.5 (elite), MazeBench 8%, Hermes rows added — Reasoning 92→94, Overall 91 holds (91.2)); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

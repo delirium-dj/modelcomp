@@ -1,7 +1,7 @@
 # Muse Spark 1.2 — findings by GLM 5.3
 
 - Source: Meta (`meta/muse-spark-1.2`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-09-24 report (which was framed on the Zen Contributor Free tier)
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-09-24 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,7 @@ Agent / tool use:
 - AA Agentic Index: **44.0%**; APEX-Agents: **36.4% #43** (Mercor); τ³-Banking: **34.9% #48** (AA — versus 1.3's 50.5% #3); GDP.pdf: **12.0-16.0% #34**
 - MCP-Atlas: **90.3%** (vendor/Benchgen at launch)
 - Vals professional agents (the elite cluster): Harvey HLAB **25.4% #1**, Finance Agent v2 **60.6% #3**, CorpFin **70.9% #5**, MedScribe **90.1% #5**, Public Benefits **68.5% #8**, SkillsBench 53.0% #17, Legal Research 43.8% #17, Tax Agent 56.9% #36, CyberBench 69.5% #20
-- LiveBench Agentic Coding: **57.6% #19**; LMArena Agent: **-3.7 #38**
+- LiveBench Agentic Coding: **57.6% #19**; LMArena Agent: **-3.7 #38**; MazeBench (ASCII, no tools) **0%** (new this pass — near-floor); GDPval normalized updated **48.6%** (from 48.9%)
 - Claw-Eval / ClawProBench / Toolathlon: no verified public score found for this ID (unchanged)
 
 Reasoning / knowledge:
@@ -63,7 +63,7 @@ Long context:
 
 Multimodal (grounding):
 
-- Vals Multimodal Index: **69.8% #6** (new this pass — elite, corroborates the omni-input band); MMMU-Pro (Vals) **86.1% #22**; LMArena Vision **1305 #17**; SAGE 47.7% #30; MortgageTax 65.4% #42; Design Arena Website **1319** (OpenRouter via BenchLM)
+- Vals Multimodal Index: **69.8% #6** (elite, corroborates the omni-input band); MMMU-Pro (Vals) **86.1% #22**; LMArena Vision **1305 #17**; SAGE 47.7% #30; MortgageTax 65.4% #42; Design Arena Website **1315** (OpenRouter via BenchLM — drifted from 1319)
 
 ### Normalized scores (1–100)
 
@@ -79,6 +79,6 @@ Multimodal (grounding):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-09-24 report (Meta's 1.2 launch scorecard and the 1.2 column of the current 1.3 model page, Artificial Analysis model benchmarks and its 2026-08-05 launch article, BenchLeader data as of 2026-10-12, BenchLM updated 2026-10-10, Vals AI, LiveBench, LMArena, Mercor APEX, Epoch hub, Proximal, OpenCode Zen docs and OpenCode Meta usage data, pi.dev endpoint listing; three successful web searches; independent reviews: llm-releases, goldiebench hands-on 7.55/10, aireiter, glbgpt, designforonline); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-09-24; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (Meta's 1.2 launch scorecard and the 1.2 column of the 1.3 model page, BenchLM 23-row profile updated 2026-10-17 — composite 65.84 #34/954 (from 66.48 #28/889, cohort growth), added MazeBench 0%, Design Arena drifted 1319→1315; Artificial Analysis, BenchLeader, Vals, LiveBench, LMArena, Epoch hub, OpenCode Zen docs); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
