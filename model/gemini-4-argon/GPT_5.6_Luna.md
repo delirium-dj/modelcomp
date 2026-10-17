@@ -1,68 +1,73 @@
 # Gemini 4 Argon — findings by GPT 5.6 Luna
 
-- Source: Google / Gemini 4 Argon
-- Date: 2026-10-17 (UTC)
+- Source: Google DeepMind/Gemini 4 Argon
+- Date: 2026-10-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 4 Argon
-- **Short description:** A reported Google API model with a public third-party RedlineBench results card. Google’s official pages did not expose a matching model card or specification during this research pass.
-- **Provider / access:** Exact API endpoint and API ID not publicly verified; the independent results card describes it as an API model.
-- **Release / knowledge:** No verified release date or knowledge cutoff found.
-- **IDs:** `Google/Gemini 4 Argon` (display identity only; exact provider ID not verified). No verified Free ID.
-- **Context window:** No verified public context-window specification found.
-- **Modalities:** No verified public modality specification found.
-- **Pricing (as of 2026-10-17):** No verified public pricing found.
-- **Architecture:** Proprietary; no verified parameter or MoE disclosure found.
+- **Short description:** Google's announced frontier model for long-horizon software engineering, enterprise knowledge work, and cyber defense.
+- **Provider / access:** Currently restricted to trusted cyber defenders through Google's Fairwind Program and internal teams; no public API model ID or general release date was verified.
+- **Release / knowledge:** Announced 2026-09-30; knowledge cutoff not disclosed.
+- **IDs:** No public API ID yet.
+- **Context window:** No vendor-stated input context window; Artificial Analysis records approximately 1M tokens. Google does document a 1M-token output ceiling.
+- **Modalities:** Public evidence indicates text and tool/agent workflows; broad image/audio/video support was not verified.
+- **Pricing (as of 2026-10-04):** Introductory $2 input / $10 output per 1M tokens, cached input 95% off; later $4/$20. Google has not published the introductory-period end date.
+- **Architecture:** Proprietary; parameters and architecture undisclosed.
 
-### Raw benchmarks found
-
-Independent searches performed on 2026-10-17 UTC:
-
-- [Google search: Gemini 4 Argon model benchmark](https://www.google.com/search?q=%22Gemini+4+Argon%22+model+benchmark) — no official model card or benchmark result surfaced.
-- [Bing search: Gemini 4 Argon Google AI](https://www.bing.com/search?q=%22Gemini+4+Argon%22+Google+AI) — Google general pages appeared, but no matching official specification; the search did surface no independent score directly.
-- [Hugging Face results card](https://huggingface.co/crosbylegal/gemini-4-argon) and its [publisher report](https://intelligence.crosby.ai/benchmark/) — RedlineBench `redline_overall`: **59.5**; community/source result, not HF-verified.
+## Raw benchmarks found
 
 Agent / tool use:
 
-- RedlineBench `redline_overall` (**crosbylegal/RedlineBench**): **59.5** (publisher report; API-model result card; no rank supplied)
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Vals Index: **68.9%** (Vals AI run, reported by DataCamp; not yet independently reproduced by the reviewed tracker).
+- AutomationBench: **51.3%** (Google-reported comparison).
+- Vals Finance Agent v2: **65.4%** (Google-reported comparison).
+- Harvey's Legal Agent Benchmark: **19.6%** (Google-reported comparison).
+- Agent's Last Exam: **39.5%** (Google-reported comparison).
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Humanity's Last Exam: **57.1%** (Artificial Analysis independent high-tier run).
+- Artificial Analysis Intelligence Index: **53** (Artificial Analysis page, high tier).
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
+- DeepSWE v1.1: **77.9%** (Google-reported; official DeepSWE board had not listed Argon).
+- FrontierSWE v2: **55.0%** (Google-reported comparison).
+- Vibe Code Bench: **91.9%** (Google-reported comparison).
+- Terminal-Bench 4.0: **57.4%** (DataCamp comparison; Vals AI independently reported 57.58%).
+- Terminal-Bench Science 0.1: **57.6%** (Google-reported comparison).
+- CWE-bench v1: **68%** (Google-reported, tied with GPT-6 Astra).
 
 Long context:
 
-- no long-context retrieval reported
+- GraphWalks up to 128K: **99.7%**; 256K–1M: **84.2%** (Google-reported comparison).
 
-### Normalized scores (1–100)
+## Normalized scores (1–100)
 
-- **Tool use: 60/100.** RedlineBench 59.5 is the only verified task score and is treated as a provisional proxy; no tool-specific suite or API tool documentation was found.
-- **Reasoning: 60/100.** The 59.5 RedlineBench result provides limited general evidence; no reasoning benchmark was located, so the score is capped by missing direct evidence.
-- **Context window: 50/100.** No verified context length or retrieval measurement was found; neutral provisional score only.
-- **Multimodal: 50/100.** No verified modality specification or multimodal benchmark was found; neutral provisional score only.
-- **Coding: 55/100.** No coding benchmark was found; slightly conservative provisional score based only on the general RedlineBench result.
-- **Cost efficiency: 50/100.** Pricing was not publicly verified, so no price advantage is claimed.
-- **Overall Score: 55/100.** Half-up mean of the five quality dimensions; suitable only as a low-confidence provisional entry pending official specifications and direct benchmark coverage.
+- **Tool use: 86/100.** Strong finance, legal, Vals Index, and agent-task claims are promising, but most results are vendor-reported and access remains restricted.
+- **Reasoning: 91/100.** Independent HLE 57.1 is a substantial lead over Gemini 3.8 Flash, though only one independently tracked reasoning score exists.
+- **Context window: 95/100.** GraphWalks 84.2% at 256K–1M and the 1M output ceiling support exceptional long-horizon capacity; the actual input window is not vendor-confirmed.
+- **Multimodal: 70/100.** No broad multimodal input/output specification was verified publicly; score is capped pending documentation.
+- **Coding: 86/100.** Vibe Code Bench and DeepSWE claims are excellent, but the independent evidence is limited and Argon trails Astra/Opus on several terminal benchmarks.
+- **Cost efficiency: 88/100.** Introductory $2/$10 pricing is aggressive, but the later $4/$20 rate and unknown availability make sustained value uncertain.
+- **Overall Score: 85.6/100.** Best fit: long-horizon enterprise and defensive-cyber workflows once public access and independent benchmark coverage improve.
 
----
+### Deep-research addendum (2026-10-09)
+
+- No authoritative public model card or exact benchmark table for the `gemini-4-argon` identity was found in this pass.
+- The existing scores remain provisional; no score change is justified without exact-model evidence.
+
+### Multi-source deep-research addendum (2026-10-09)
+
+- Google’s launch material reports $2/$10 introductory pricing and a 95% cached-input discount. Independent reviews agree Argon is strong for document-heavy and sustained reasoning work, but show it behind Opus/Sonnet/Astra on some Terminal-Bench 4.0 rows despite leading selected coding tests.
+- Recalculation: **retained 85.6/100**. The independent results strengthen the coding caveat and do not support raising the score; multimodal documentation remains incomplete.
+- Sources: https://blog.google/intl/en-in/products/gemini-4-argon-our-next-era-of-frontier-intelligence/ ; https://www.eesel.ai/blog/gemini-4-argon-review ; https://www.intueo.ai/blog/gemini-4-argon-review-benchmarks-and-access
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-17
-- Method: Three independent web searches plus source-page verification; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04
+- Method: fresh public web research using Google announcement coverage and independent benchmark tracking; scores are normalized interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

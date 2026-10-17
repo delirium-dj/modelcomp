@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 

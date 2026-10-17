@@ -10,9 +10,9 @@
 91.8 gpt-6-astra
 91.7 gemini-3.1-pro
 91.4 claude-opus-5
-91.2 claude-fable-5.1
 91.2 claude-mythos-5.1
 91.2 claude-sonnet-5.5
+91.1 claude-fable-5.1
 91.1 gemini-3.7-flash
 91 claude-fable-5
 90.7 kimi-k3

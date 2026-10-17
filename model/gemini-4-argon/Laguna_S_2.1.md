@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -115,7 +115,7 @@ Speed / Cost:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 81.19, #10/889, 68 of 625) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 80.97, #7/954, 37 of 639) and AA as of 2026-10-16.
 
 - **Tool use: 89/100.** TB-2.1 84.3% (near ≥88 frontier), aaTB21 84.3%, AA Terminal-Bench 4.0 59.1%, GDPval-AA Elo 1611 (below ~1750 frontier), GDPval-AA normalized 55.6%, AA AutomationBench 77.5%, OSWorld 69.2%, AA Agentic Index 56.2%, AA ITBench 48.6% (NEW), AA Briefcase 1494 Elo, Finance Agent 65.4%, TB-4.0 57.4%. Strong agentic cluster with aaTB21 near frontier. Capped by TB-4.0 57.4% (below 88%+ frontier), GDPval-AA 1611 (below 1750), GDP.pdf 21.8%, ApprenticeBench 36%, AA ITBench 48.6%.
 - **Reasoning: 87/100.** GPQA Diamond 93.5% (≥90 frontier), GPQA (Vals) 94.4%, HLE 54.9%/55.0% (above 40% frontier), AA-LCR 79.7%, AA-MMLU-Pro 89.8%, MMLU-Pro (Vals) 90.2%, AA Global-MMLU-Lite 92.2%, ARC-AGI-1 98.50%, CritPt 27.1%, GraphWalks BFS 128K 99.7% / 256K–1M 84.2%. Capped by AA Intelligence Index 53 (below ~60 frontier ref), CritPt 27.1% (notable weakness), MLCR-AA not listed, Low Omniscience Index 42.4 (moderate reliability).
@@ -129,8 +129,9 @@ Speed / Cost:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-4-argon` for overall rank/score (#10/889, 81.19) and 68 benchmark rows including GPQA 93.5%, τ²-bench 95.6%, TB-2.1 84.3%, aaTB21 84.3%, AA Terminal-Bench 4.0 59.1%, AA ITBench 48.6%, DeepSWE 77.9%, Vibe Code Bench 91.90%, AA-SciCode 61.8%, AA Coding Index 88.0%, SWE-bench Verified 88.9%, LiveCodeBench 89.5%, AA-MMMU-Pro 85.5%, LVBench 85.4%, CharXiv 88.7%, MMLU-Pro 90.2%; AA model page `https://artificialanalysis.ai/models/gemini-4-argon` for Intelligence Index 53, GDPval-AA 1611, GDPval-AA normalized 55.6%, pricing $2/$10 intro; Google DeepMind evaluation methodology page for TB-4.0 57.4%, DeepSWE 77.9%, Vibe Code Bench 91.90%, GraphWalks 99.7%/84.2%, OA-Omniscience 15.1% hallucination rate). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-4-argon` for overall rank/score (#7/954, 80.97, 37 of 639) and 68 benchmark rows; AA model page `https://artificialanalysis.ai/models/gemini-4-argon` for Intelligence Index 53, GPQA 93.5%, pricing $2/$10 intro; Google DeepMind evaluation methodology page for TB-4.0 57.4%, DeepSWE 77.9%, Vibe Code Bench 91.90%, GraphWalks 99.7%/84.2%, OA-Omniscience 15.1% hallucination rate). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Re-verification (2026-10-16): BenchLM overall revised from 81.19 (#10/889, 68/625 on Oct 10) to 80.97 (#7/954, 37/639 on Oct 16) — v4.3.2 model pool grew 889→954; rank improved #10→#7; individual benchmark scores unchanged; dimension scores and Overall retained at 89.
 - Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: τ²-bench 95.6% confirmed (elite); Vibe Code Bench 91.90% confirmed (≥90 frontier); AA-SciCode 61.8% confirmed (≥55% frontier); AA ITBench 48.6% and AA Terminal-Bench 4.0 59.1% added; AA-MMMU-Pro 85.5% (≥80 frontier) and LVBench 85.4% and CharXiv 88.7% added for multimodal; Overall revised from 85 to 89.
 
 ---

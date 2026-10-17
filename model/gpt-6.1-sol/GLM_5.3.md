@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by GLM 5.3
 
 - Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-10-01 report (written 2 days post-release)
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-10-01 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,11 +25,11 @@ Agent / tool use:
 - Terminal-Bench 2.1: no public-board entry for this ID yet (BenchLM's TB2.1 top three: SWE-2 92.8%, GPT-5.6 Sol 91.9%, DeepSeek V4.1 Flash 90.6%); closest provisional: **83.15% at max** (third-party "Ridge" ledger, 2026-09-23, via buildfastwithai — flagged provisional, no public-board confirmation)
 - Terminal-Bench (public tbench.ai): **58.2% #17**; Terminal-Bench-Science 0.1: **57.0%** (OpenAI; Astra leads at 68.1%; **$5.47/task at max vs Opus 5.5's $23.21 and Astra's $23.80**); Terminal-Bench Hard: no row found for this ID
 - APEX-Agents: **60.0% #12** (Mercor); LMArena Agent: **11.7 #5**; LiveBench Agentic Coding: 54.5% #31 (max; 56.8% #24 xhigh)
-- GDPval-AA: **1575 Elo** raw / **53.8% #35 normalized** (AA, max; ladder 39.9%→53.8%) — mid-field professional-work rank
+- GDPval-AA: **1594 Elo** raw (updated this pass from 1575) / **54.7% #35 normalized** (AA, max; updated from 53.8%) — mid-field professional-work rank
 - AA-Briefcase v1.1: **1557-1564 #16** (AA, high→max); Analyst Agent (AA): **50.0% #7**; SREBench (Vals): **50.8% #2**; Tax Agent 62.3% #26; Finance Agent 52.0% #30; Legal Research 38.5% #27; CyberBench **39.3% #39** (weak); Harvey HLAB 5.4% #28; Harvey LAB (AA) 6.9% #4
 - AutomationBench: **36.1%** plain (OpenAI; +2.2pp over Opus 5.5 at medium effort per the announcement) / **64.9% #10-14** (AA harness); GDP.pdf: **31.0% #2-4** (AA — higher than Opus 5.5 with fallbacks per OpenAI, at <half the cost)
 - OSWorld 2.0 (offline set, v2026.08.08, partial reward): no absolute number published — vendor deltas only (+7pp over GPT-6 Sol at max, within 2.1pp of Astra at ~1/7 cost per task)
-- ExploitGym: **35.1%** (system card addendum); Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathlon / MCP-Atlas: no verified public score found (unchanged)
+- ExploitGym: **35.1%** (system card addendum); MazeBench (ASCII, tools) **17%** (new this pass — second-best in this report set behind Astra's 23%); STEMBench **2.76** (Ulam snapshot — new); Design Arena Website **1323** (OpenRouter — new); Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathlon / MCP-Atlas: no verified public score found (unchanged)
 
 Reasoning / knowledge:
 
@@ -75,6 +75,6 @@ Multimodal (grounded):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-10-01 report (OpenAI's GPT-6.1 Sol announcement and system-card addendum, OpenAI model docs and AWS Bedrock model card, Artificial Analysis model benchmarks and its GPT-6.1 Sol release page, BenchLeader data as of 2026-10-12 with the full effort ladder, BenchLM updated 2026-10-10, ARC Prize verified results page (resolving the ARC-AGI-3 harness split), Epoch AI Benchmarking Hub, Vals AI, LiveBench, LMArena, Scale SEAL, Mercor, Harvey; three successful web searches; independent reviews: buildfastwithai, codersera, emergent.sh, theairankings, aitoolsreview, computingforgeeks, benchmarklist); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-10-01; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (OpenAI GPT-6.1 Sol announcement + system-card addendum, BenchLM 37-row profile updated 2026-10-17 — composite 84.07, now **#2 of 954** behind Opus 5.5; GDPval raw updated 1575→1594; added MazeBench 17%, STEMBench 2.76, Design Arena 1323; Artificial Analysis, ARC Prize, Epoch hub, Vals, LiveBench, LMArena, Mercor); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed — the new rows reinforce every band.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

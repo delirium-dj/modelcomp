@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5-1`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,17 +68,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 92/100.** Independent AA rows strengthen the case (TB2.1 91.4% best-measured, AutomationBench-AA 59.4% vs the weak Zapier 31.4%, ApprenticeBench 72% best-measured, Harvey 93.0%); the GDPval conflict (1853 BenchmarkList vs 1758 AA) and AA-normalized 62.9% keep it under 95.
-- **Reasoning: 94/100.** GPQA 93.7%, HLE 65.0%/60.9%, ARC-AGI-2 90.0%, MMLU-Pro 92.4%, MLCR 71.1% (all best-measured or near) and AA Index 53 (#5/227) — the frontier refs are met; docked for the AA-HLE 59.1% vendor gap, CritPt 29.7% and the unresolved FrontierMath discrepancy.
+- **Reasoning: 95/100.** CHANGED from 94 — GPQA 93.7%, HLE 65.0%/60.9%, ARC-AGI-2 90.0%, MMLU-Pro 92.4%, MLCR 71.1% (all best-measured or near) and AA Index 53 (#5/227) meet the frontier refs; the previously unresolved FrontierMath discrepancy is now resolved in the model's favor by the Epoch v2 leaderboard (90.2%/87.8%, elite), lifting the cap.
 - **Context window: 95/100.** Full 1M window at standard pricing; AA-LCR updated to 85.3% — the strongest long-context reasoning measured in this repo — but GraphWalks 65.0% (competitor-reported) and no MRCR-at-512K+ keep it off the maximum.
 - **Multimodal: 82/100.** Text/image/PDF in with strong grounded-vision rows (SWE Multimodal 54.7%, Design Arena 1318, BenchCAD Vision 0.843 #1 from the prior pass); no audio/video in, text-only out.
 - **Coding: 93/100.** AA Coding Index 81.6% is now the best measured in this repo, with LiveCodeBench 90.5%, SWE Pro 81.2% (now #2 behind Opus 5.5's 89.9%) and FrontierSWE 56.3%; no SWE-bench Verified row for 5.1 caps it below 95.
 - **Cost efficiency: 30/100.** $10/$50 per 1M matches the rubric's ~30 anchor; AA re-confirms $7.63/task (priciest measured), 190M-token verbosity and 66.8 tok/s slowness; 2.5% cache reads ($0.25) remain the long-agent offset. No free tier; 30-day retention required.
-- **Overall Score: 91.2/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 94 + 95 + 82 + 93) / 5 = 456/5 = 91.2 — unchanged on the 2026-10-11 second pass: the new independent rows (AA Coding Index 81.6, AA-LCR 85.3, ApprenticeBench 72) reinforce rather than move the scores, and the GDPval 1853-vs-1758 conflict nets out inside the existing tolerance. Best fit: the ceiling for reasoning-heavy, long-horizon agentic/coding work when budget permits — pair with cheap cache-read-heavy harness patterns to blunt the $7.63/task cost.
+- **Overall Score: 91/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (92 + 95 + 95 + 82 + 93) / 5 = 457/5 = 91.4 → 91 — the 2026-10-16 pass resolves the FrontierMath conflict upward (Reasoning 94→95) while the rest holds. Best fit: the ceiling for reasoning-heavy, long-horizon agentic/coding work when budget permits — pair with cheap cache-read-heavy harness patterns to blunt the $7.63/task cost.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5.1 & Mythos 5.1 system card, Vals AI / Cursor / Proximal / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5.1 & Mythos 5.1 system card, Vals AI / Cursor / Proximal / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: the FrontierMath conflict resolves upward via Epoch v2 (90.2/87.8 elite) and MazeBench/Bug-Hunt rows added — Reasoning 94→95, Overall 91 holds (91.4)); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

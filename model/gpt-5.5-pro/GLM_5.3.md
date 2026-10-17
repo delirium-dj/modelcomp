@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by GLM 5.3
 
 - Source: OpenAI (`openai/gpt-5.5-pro`)
-- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-10-01 report
+- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-10-01 report (second pass 2026-10-11)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 
 - HLE no tools: **43.1% (Pro)**; HLE with tools: **57.2% (Pro)** (official) — second-pass flag: GPT-5.4 Pro edges 5.5 Pro on the with-tools variant (58.7% vs 57.2%); Opus 4.7 54.7%
 - SimpleBench: **76.9% #4** (high/not-stated effort, new this pass via BenchLeader/Epoch hub)
-- FrontierMath: **52.4% (Pro) Tiers 1-3 / 39.6% (Pro) Tier 4** (official launch table; BenchLM's Epoch-v2 citations read 51.0/39.6) — **CONFLICT**: BenchLeader's FrontierMath-v2 rows from the Epoch AI Benchmarking Hub show **87.7% #8 (Tiers 1-3)** and **78.0% #15 (Tier 4)** at xhigh, drastically higher than the announcement numbers; either a later independent re-run or a source-join error — both sets retained and flagged, not averaged
+- FrontierMath: **52.4% (Pro) Tiers 1-3 / 39.6% (Pro) Tier 4** (official launch table) — **CONFLICT RESOLVED this pass**: BenchLM now labels the 52.4 figure as **FrontierMath (legacy)** and separately lists Epoch v2 rows **87.719% (Tiers 1-3) / 78.049% (Tier 4)** at xhigh — the two sets are different benchmark versions, not a source error; both retained, the v2 rows are the current-protocol values
 - Epoch Capabilities Index: **162.1 #8** (new this pass; context: Opus 5.5 167.3 #1, Muse Spark 1.3 156.8 #19)
 - ARC-AGI-1 (Verified): **96.5% #21** (high) / **95.0% #33** (xhigh); ARC-AGI-2 (Verified): **84.6% #29** / **84.2% #32** (ARC Prize official leaderboard via BenchLeader/BenchLM — the AGI-2 board is now saturated above it by Opus 5.5's 91-93%)
 - CritPt: **30.6% — rank #13** (AA, xhigh; new this pass: BenchLeader's rank reveals it is a top-15 score of ~537 configurations, NOT the soft spot the 2026-10-01 report assumed — same lesson as Opus 5.5's 31.7% #2)
@@ -43,7 +43,7 @@ Reasoning / knowledge:
 - GPQA Diamond: no Pro-specific score published (family base: 93.6%, official; second search this pass re-confirms no Pro row on AA/llm-stats/modelgrep boards)
 - AA Intelligence Index: no Pro row (family base 5.5 (high) measured **59, #2/141 at launch**, per AA via agentbreaking; current AA leaderboard leaders are GPT-5.6 Sol 58.9 and Opus 5.5 57.6 — the 5.5 base has been passed)
 - Family knowledge-reliability caveat (same weights, xhigh): AA-Omniscience **86% hallucination rate** — the worst of any flagship (Opus 4.7: 36%, Gemini 3.1 Pro: 50%); SimpleQA 47% hallucination without search, **9.6% with web search** — flagged as family context for Pro's grounding-dependence
-- Composites: BenchLM **72.27, #14 of 889** (9 of 625 rows — conservative; was 74.62 #12/645 at first pass, bigger cohort); BenchLeader **65.5 ±8.6, #38 of 760** (xhigh; thin coverage, index trend 57→76 still settling 19 Sept-10 Oct; Reasoning 78 and Maths 72 the only populated categories)
+- Composites: BenchLM **73.37, #13 of 954** (9 rows — updated 2026-10-17 from 72.27 #14/889; still conservative coverage); BenchLeader **65.5 ±8.6, #38 of 760** (xhigh; thin coverage; Reasoning 78 and Maths 72 the only populated categories)
 
 Coding:
 
@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
-- Method: public internet research, second pass over the 2026-10-01 report (OpenAI official GPT-5.5 announcement + evals tables re-checked including the 2026-04-24 update note, BenchLeader data as of 2026-10-12, BenchLM updated 2026-10-10, ARC Prize verified leaderboard, Epoch AI Benchmarking Hub, Artificial Analysis leaderboard references, OpenRouter model docs; two successful web searches plus the agentbreaking.com independent deep-dive covering the AA-Omniscience hallucination data and Mollick's hands-on test); scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-10-01; second pass 2026-10-11; third pass 2026-10-17)
+- Method: public internet research, third pass over the prior reports (OpenAI GPT-5.5 announcement + evals tables, BenchLM 9-row profile updated 2026-10-17 — composite 73.37 #13/954, with the FrontierMath conflict resolved as a legacy-vs-v2 benchmark-version split, ARC Prize leaderboard, Epoch hub, BenchLeader, OpenRouter docs; agentbreaking deep-dive); scores are normalized 1-100 interpretations, not official vendor scores. The v2 math rows (87.7/78.0) reinforce Reasoning 90; no dimension scores changed.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

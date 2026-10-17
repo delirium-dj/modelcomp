@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by GLM 5.3
 
 - Source: Google (`google/gemini-3-pro`)
-- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-09-25 report (second pass 2026-10-11)
+- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-09-25 report
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,7 +41,7 @@ Reasoning / knowledge:
 - MMLU-Pro: **90.1% #7** Vals / **89.8%** AA / **90.3% #1** HELM; MMLU **91.8%**; Global-MMLU-Lite **92.2%**; LegalBench **87.0% #6**; MedQA **96.0% #8**; MultiNRC **59.0% #6**; PRBench Finance 39.2% #26 / Legal 40.6% #28
 - AA Intelligence Index v4.3.2: **28.0 #131** (high) / 22.3 #193 (low) — confirmed as a measured value (the 2026-09-25 report's "#90/211 estimate" is now #131 on the larger cohort)
 - **Omniscience (resolved this pass): the previous "91.5% hallucination field = unverified quirk" is VERIFIED as real.** AA's own launch announcement had Gemini 3 Pro topping the new AA-Omniscience Index at 13 points on the strength of record accuracy — while hallucinating **88% of the time when wrong**; current AA fields read accuracy **55.8% #35**, non-hallucination **8.6% #442** (~91.4% hallucination rate — the worst in this report set), index 15.3 #76 (high). Independent corroboration: the-decoder, craftium, sparkco, and Zvi Mowshowitz's "vast intelligence with no spine" verdict — "it'll be damned before it answers 'I don't know'"
-- Composites: BenchLM **61.18 #52 of 954** (updated 2026-10-17 from 59.42 #52/889 — cohort growth, same rank tier); BenchLeader **60.6 ±3.4, #100 of 760** (best = not-stated 60.6 #100; high 60.1 #106; low 53.9 #256); Epoch Capabilities Index **152.9 #42**; HELM Capabilities mean **79.9% #5**; LMArena Elo 1501 (#1 at launch — first past 1500). New this pass: the AA-Omniscience **91.5% hallucination rate** is now displayed as a BenchLM knowledge row — independent corroboration of the second pass's verified resolution; extra Qwen-table lineage vision rows (ODINW13 46.3%, ERQA 70.5%, MMLongBench-Doc 60.5%) — flagged, not double-counted.
+- Composites: BenchLM **59.42 #52 of 889** (43 of 625 rows; was 61.01 #40/507); BenchLeader **60.6 ±3.4, #100 of 760** (best = not-stated 60.6 #100; high 60.1 #106; low 53.9 #256); Epoch Capabilities Index **152.9 #42**; HELM Capabilities mean **79.9% #5**; LMArena Elo 1501 (#1 at launch — first past 1500)
 
 Coding:
 
@@ -73,6 +73,6 @@ Multimodal (grounded):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-09-25; second pass 2026-10-11; third pass 2026-10-17)
-- Method: public internet research, third pass over the prior reports (Google/DeepMind launch materials carried over, BenchLM 41-row profile updated 2026-10-17 — composite 61.18 #52/954, with the 91.5% hallucination rate now an independent BenchLM-displayed row; Artificial Analysis, ARC Prize, Epoch hub, Vals AI, LiveBench, LMArena, Scale SEAL, HELM, Berkeley BFCL, METR); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed — all new rows confirm the existing profile.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-11
+- Method: public internet research, second pass over the 2026-09-25 report (Google's Gemini 3 launch materials and DeepMind Pro page carried over, Artificial Analysis model benchmarks and AA's launch Omniscience announcement, BenchLeader data as of 2026-10-12, BenchLM updated 2026-10-10, ARC Prize leaderboard, Epoch AI Benchmarking Hub, Vals AI, LiveBench, LMArena, Scale SEAL, HELM Capabilities, Berkeley BFCL, METR, taubench; three successful web searches; independent reviews: The AI Rankings' complete guide, ucstrategies, the-decoder, craftium, sparkco, layer3labs, ai-tldr); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

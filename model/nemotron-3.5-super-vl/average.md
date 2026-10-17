@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash.
 - Average from top 4 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash.
-- Ignored below-gate rater(s): Cat Jam, Gemini 3.5 Flash Lite, GLM 5.3, Laguna S 2.1, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Beam, Cat Jam, Gemini 3.5 Flash Lite, GLM 5.3, Laguna S 2.1, Nemotron 3.5 Super VL 120B A12B.

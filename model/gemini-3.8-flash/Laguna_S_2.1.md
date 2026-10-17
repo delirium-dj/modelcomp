@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -93,7 +93,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 73.17, #12/889, 49 of 625) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 69.25, #22/954, 55 of 639) and AA as of 2026-10-16.
 
 - **Tool use: 90/100.** Terminal-Bench 2.1 89.4% (≥88% frontier threshold), aaTB21 87.6%, TB-2.1 (Vals) 81.3%, GDPval-AA Elo 1545 (below 1750 frontier), OSWorld 59.0%, GDPval-AA normalized 46.8%. Strong agentic cluster with TB-2.1 meeting ≥88% frontier. Capped by TB-4.0 19.1%, GDP.pdf 21.0%, ApprenticeBench 24%, GDPval-AA Elo 1545 (below 1750).
 - **Reasoning: 80/100.** AA-GPQA-D 95.3% (≥95% frontier), GPQA (Vals) 94.4%, HLE-Verified 54.9% (above 40% frontier), AA-LCR 81.3%, ARC-AGI-1 98.50%, MMLU-Pro 90.2%, AA Global-MMLU-Lite 92.2%. Capped by AA Intelligence Index 40.9 (revised from 59 — well below ~60 frontier), CritPt 18.3%, MLCR-AA 21.7%, Omniscience Index 29.6 (low reliability, 55.2% hallucination rate).
@@ -107,8 +107,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3-8-flash` for overall rank/score (#12/889, 73.17) and 49 benchmark rows including GPQA-D 95.3%, TB-2.1 89.4%, DeepSWE 73.8%; AA model page `https://artificialanalysis.ai/models/gemini-3.8-flash` for Intelligence Index 40.9, pricing $0.75/$3.75; Google DeepMind model card for TB-2.1, MRCR 97.0%, multimodal benchmarks). Zero-influence: did not read peer `*.md` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3-8-flash` for overall rank/score (#22/954, 69.25, 55 of 639) and 55 benchmark rows; AA model page `https://artificialanalysis.ai/models/gemini-3.8-flash` for Intelligence Index 40.9, pricing $0.75/$3.75; Google DeepMind model card for TB-2.1, MRCR 97.0%, multimodal benchmarks). Zero-influence: did not read peer `*.md` findings files during research.
+- Re-verification (2026-10-16): BenchLM overall revised from 73.17 (#12/889, 49/625 on Oct 10) to 69.25 (#22/954, 55/639 on Oct 16) — v4.3.2 model pool grew 889→954; individual benchmark scores unchanged (all match Oct 10 file to date); dimension scores and Overall retained at 89.4.
 - Key revision: Intelligence Index revised from 59 (Sep 20, pre-v4.3.2) to 40.9 (Oct 10, v4.3.2 methodology update as model pool grew from 230 to 889); BenchLM overall revised from 75.9 (#6/230) to 73.17 (#12/889); GPQA-D added at 95.3% (≥95 frontier); SWE-bench Verified confirmed at 88.9%.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash_Cyber.md`, using the same headings.
 

@@ -1,7 +1,7 @@
 # MiMo V2.6 Pro — findings by GLM 5.3
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-pro`)
-- Date: 2026-10-17 (UTC) — third-pass re-research of the 2026-09-28 report (second pass 2026-10-11)
+- Date: 2026-10-11 (UTC) — second-pass re-research of the 2026-09-28 report (plus its 2026-09-29 re-verification addendum, now folded in)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,7 +37,6 @@ Agent / tool use:
 - CyberGym: **94.0%** / ExploitGym: **17.8%** / ExploitBench: **47.9%** / SEC Bench Pro: **66.3%** (vendor, cybersecurity harnesses)
 - Tau3-Banking / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found (unchanged)
 - BenchLeader category read: Agents & tools **57 — the model's LOWEST category** (0.5 SD above the 50-average model), corroborating the independent tempering
-- New this pass: STEMBench **2.17** (Ulam snapshot); AA-AnalystAgent **37.5%** (AA); Design Arena **1309** (drifted from 1314); **BenchLM composite now computed: 73.57, #12 of 954** (33 rows — up from the unranked state the second pass noted)
 
 Reasoning / knowledge:
 
@@ -86,6 +85,6 @@ Multimodal (grounded):
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-17 (first researched 2026-09-28; second pass 2026-10-11; third pass 2026-10-17)
-- Method: public internet research, third pass over the prior reports (Xiaomi HF technical report, Artificial Analysis model page, BenchLM 33-row profile updated 2026-10-17 — composite now computed at 73.57 #12/954; added STEMBench 2.17, AA-AnalystAgent 37.5%; Design Arena drifted 1314→1309); scores are normalized 1-100 interpretations, not official vendor scores. No dimension scores changed — the new rows sit inside the existing bands.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-11
+- Method: public internet research, second pass over the 2026-09-28 report and its 2026-09-29 addendum (Xiaomi official HF technical report carried over, Artificial Analysis model page fetched direct 2026-10-11, BenchLeader data as of 2026-10-11, BenchLM updated 2026-10-10, plus Vals AI, LMArena, Mercor APEX and Epoch-hub rows surfaced through them; three search-engine queries were attempted for this model — DuckDuckGo blocked two with a bot challenge and Bing returned irrelevant results — so the independent-source requirement was met via three direct source fetches instead); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Laguna S 2.1
 
 > Source: anthropic/claude-opus-5-5 (Anthropic), e.g. BenchLM, Artificial Analysis, Anthropic platform docs
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -105,7 +105,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 86.43, #1/889, 74 of 625) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 86.56, #1/954, 80 of 639) and AA as of 2026-10-16.
 
 - **Tool use: 90/100.** GDPval-AA Elo 1862 (exceeds ≥1750 frontier), DRACO 88.6%, aaTB21 84.3%, TB-2.1 (Vals) 84.6%, Toolathlon-Verified 77.8%, Toolathlon Pass@3 82.4%, GDPval-AA normalized 68.3%, AA Agentic Index 55.7%. Strong agentic cluster with GDPval ≥1750 and multiple high benchmarks. Capped by TB-4.0 66.40%, GDP.pdf 26.2%, OSWorld 48.7%, AA ITBench 38.2%, ApprenticeBench 36%.
 - **Reasoning: 87/100.** ARC-AGI-1 97.50%, ARC-AGI-2 91.7%, HLE w/ tools 64.7% (above 40% frontier), AA-HLE 54.9%, MMLU-Pro 91.6%, GMMLU 92.5%, ArXivMath tools 96.9%. Capped by AA Intelligence Index 50.8 (revised down from 57.6 — v4.3.2 methodology update), AA-GPQA-D 92.6% (below ≥93 frontier), CritPt 29.1%, MLCR-AA 55.6%, Omniscience Index 37.1 (low reliability). No GPQA Diamond published for this exact ID.
@@ -119,8 +119,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5-5` for overall rank/score (#1/889, 86.43) and 74 benchmark rows; AA model page `https://artificialanalysis.ai/models/claude-opus-5-5` for Intelligence Index 50.8, GPQA 92.6%, pricing $4/$20; Anthropic system card PDF for SWE-bench Verified 96%, DeepSWE 74.2%, DRACO 88.6%). Zero-influence: did not read peer `*.md` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5-5` for overall rank/score (#1/954, 86.56, 80 of 639) and 80 benchmark rows; AA model page `https://artificialanalysis.ai/models/claude-opus-5-5` for Intelligence Index 50.8, GPQA 92.6%, pricing $4/$20; Anthropic system card PDF for SWE-bench Verified 96%, DeepSWE 74.2%, DRACO 88.6%). Zero-influence: did not read peer `*.md` findings files during research.
+- Re-verification (2026-10-16): BenchLM overall revised from 86.43 (#1/889, 74/625 on Oct 10) to 86.56 (#1/954, 80/639 on Oct 16) — v4.3.2 model pool grew 889→954; individual benchmark scores unchanged; dimension scores and Overall retained at 87.
 - Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: Intelligence Index revised from 57.6 to 50.8 (v4.3.2 methodology update as model pool grew from 223 to 227 models); AA-SciCode revised from 66.9% to 56.4% (below 55% frontier); new coding benchmarks confirmed (SWE-bench Verified 96%, LiveCodeBench 89.0%, SWE-bench (Vals) 97.0%, VulcanBench CII 96.4%); Chartography no tools revised from 64.4% to 29.6%.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
 

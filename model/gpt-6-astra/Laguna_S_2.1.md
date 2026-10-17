@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -111,7 +111,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 88.69, #1/889, 72 of 625) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 83.88, #3/954, 74 of 639) and AA as of 2026-10-16.
 
 - **Tool use: 92/100.** GDPval-AA Elo 1542 (below ~1750 frontier but strong), BrowseComp 91.5% (≥90 frontier), aaTB21 88.4%, TB-2.1 (Vals) 87.3%, AA Terminal-Bench 4.0 59.1%, DeepSearchQA 95.0% (≥90 frontier), OSWorld 72.6%, GDPval-AA normalized 52.1%, AA Agentic Index 51.5%. Strong agentic cluster with two ≥90% frontier benchmarks and aaTB21 meeting ≥88% frontier. Capped by TB-4.0 57.9%, GDP.pdf 31.0%, ApprenticeBench 68%, AA ITBench 48.6%.
 - **Reasoning: 89/100.** GPQA Diamond 96% / AA-GPQA-D 96.1% (≥95 frontier), HLE w/ tools 57.2% (above 40% frontier), AA-HLE 54.7%, MMLU-Pro (Vals) 91.6%, AA-LCR 80.7%, ARC-AGI-1 98.50%, ARC-AGI-2 95%. MRCR v2 256K-512K 100% and 512K-1M 96.3% (≥98% at 512K+ frontier!). Capped by AA Intelligence Index 52.7 (below ~60 frontier ref), CritPt 31.7%, MLCR-AA 35% (below 40% mid-tier), Omniscience Index 43.4 (moderate reliability, 51.3% hallucination rate).
@@ -125,8 +125,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gpt-6-astra` for overall rank/score (#1/889, 88.69) and 72 benchmark rows; AA model page `https://artificialanalysis.ai/models/gpt-6-astra` for Intelligence Index 52.7, GPQA 96.1%, pricing $10/$50, aaTB21 88.4%, AA Terminal-Bench 4.0 59.1%, GDPval-AA normalized 52.1%, AA-MMMU-Pro 86.9%, GDP.pdf 31.0%, AA ITBench 48.6%; OpenAI launch blog for BrowseComp 91.5%, DeepSearchQA 95.0%, OSWorld 72.6%, GPQA 96%, SWE-bench Verified 96%, DeepSWE 74.1%, MRCR 100%/96.3%, FrontierMath 97.6%; Vals AI for SWE-bench (Vals) 97.0%, LiveCodeBench 88.5%, GPQA 96.0%, MMLU-Pro 91.6%, TB-2.1 87.3%; ARC Prize for ARC-AGI-1 98.50%, ARC-AGI-2 95%; VulcanBench for CII 96.4%, VulcanBench v3 87.0%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gpt-6-astra` for overall rank/score (#3/954, 83.88, 74 of 639) and 72 benchmark rows; AA model page `https://artificialanalysis.ai/models/gpt-6-astra` for Intelligence Index 52.7, GPQA 96.1%, pricing $10/$50, aaTB21 88.4%, AA Terminal-Bench 4.0 59.1%, GDPval-AA normalized 52.1%, AA-MMMU-Pro 86.9%, GDP.pdf 31.0%, AA ITBench 48.6%; OpenAI launch blog for BrowseComp 91.5%, DeepSearchQA 95.0%, OSWorld 72.6%, GPQA 96%, SWE-bench Verified 96%, DeepSWE 74.1%, MRCR 100%/96.3%, FrontierMath 97.6%; Vals AI for SWE-bench (Vals) 97.0%, LiveCodeBench 88.5%, GPQA 96.0%, MMLU-Pro 91.6%, TB-2.1 87.3%; ARC Prize for ARC-AGI-1 98.50%, ARC-AGI-2 95%; VulcanBench for CII 96.4%, VulcanBench v3 87.0%). Zero-influence: did not read peer `*.md` findings files during research.
+- Re-verification (2026-10-16): BenchLM overall revised from 88.69 (#1/889, 72/625 on Oct 10) to 83.88 (#3/954, 74/639 on Oct 16) — v4.3.2 model pool grew 889→954; GPT-6 Astra overtaken by GPT-6 Sol (78.48) and GPT-5.6 Sol (75.32) in overall ranking; individual benchmark scores unchanged; dimension scores and Overall retained at 87.
 - Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: OSWorld corrected from 78.7% (GPT-5.5 cross-ref) to 72.6% (GPT-6 Astra-specific); BrowseComp corrected from 90.1% to 91.5% (OpenAI launch blog confirmed); new coding benchmarks confirmed (SWE-bench Verified 96%, SWE-bench (Vals) 97.0%, LiveCodeBench 88.5%, SWE-bench Pro 81.2%, VulcanBench CII 96.4%, ProgramBench 93.0%); AA Terminal-Bench 4.0 59.1% and AA ITBench 48.6% added; MRCR v2 512K-1M 96.3% confirmed (≥98% at 512K+ frontier). Overall revised from 86 to 87.
 
 ---

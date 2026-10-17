@@ -1,0 +1,35 @@
+# GPT-5.1 Codex — findings by GPT 5.6 Luna
+
+- Source: GPT-5.1 Codex
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1 Codex
+- **Short description:** OpenAI's agentic-coding variant of GPT-5.1.
+- **Provider / access:** OpenAI Responses API; model ID `gpt-5.1-codex`.
+- **Release / knowledge:** Knowledge cutoff 2024-09-30; release date not stated on the documentation page.
+- **IDs:** `gpt-5.1-codex`.
+- **Context window:** 400,000 tokens; maximum output 128,000 tokens.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-10-17):** $1.25 per million input tokens, $0.125 cached input, $10 per million output tokens.
+- **Architecture:** Not disclosed.
+
+## Raw benchmarks found
+
+- No verified public benchmark score found for the exact GPT-5.1 Codex model after fresh independent searches.
+- Official documentation: [OpenAI GPT-5.1-Codex model page](https://platform.openai.com/docs/models/gpt-5.1-codex) verifies identity and specifications but publishes no benchmark score.
+- Independent check: [Bing exact-name benchmark search](https://www.bing.com/search?q=%22gpt-5.1-codex%22+benchmark) produced no verifiable benchmark result for the exact model.
+- Independent catalog check: [Artificial Analysis model search](https://artificialanalysis.ai/models/gpt-5.1-codex) returned no matching page.
+- Google exact-name search was also attempted; surfaced unrelated or non-specific results rather than a verifiable score. No conflict supplied benchmark evidence for this exact ID.
+
+## Normalized scores (1–100)
+
+- Not scored: zero verified benchmark evidence. This file is intentionally excluded from averages.
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-17
+- Method: fresh public web research using official documentation plus independent benchmark/catalog searches; self-excluded because no verified benchmark evidence was found.

@@ -1,0 +1,35 @@
+# Cat Jam — findings by GPT 5.6 Luna
+
+- Source: Cat Jam
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Cat Jam
+- **Short description:** Exact model identity and provider could not be verified.
+- **Provider / access:** No verified public provider or API ID found.
+- **Release / knowledge:** Not verified.
+- **IDs:** Not verified.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-17):** Not verified.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found
+
+- No verified public benchmark score found for the exact Cat Jam model/ID after fresh independent searches.
+- [Google exact-name benchmark search](https://www.google.com/search?q=%22cat-jam%22+AI+model+benchmark) returned unrelated cat results.
+- [Bing exact-name benchmark search](https://www.bing.com/search?q=%22cat-jam%22+AI+model+benchmark) returned no verifiable AI-model result.
+- [Hugging Face model search](https://huggingface.co/models?search=cat-jam) returned unrelated models and no exact Cat Jam model.
+- No source conflict established a verified benchmark result for this exact name.
+
+## Normalized scores (1–100)
+
+- Not scored: zero verified benchmark evidence. This file is intentionally excluded from averages.
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-17
+- Method: fresh public web research using independent search and model-index checks; self-excluded because no verified benchmark evidence was found.
