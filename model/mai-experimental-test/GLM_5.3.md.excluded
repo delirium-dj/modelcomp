@@ -27,6 +27,6 @@ Scores inside this file are intentionally omitted/ignored: the sync skips `.excl
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-02
-- Method: public internet research (Zen docs, BenchLM, LLMReference, Artificial Analysis); no verified public data found for this ID.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-10-02; re-verified 2026-10-16 and 2026-10-17)
+- Method: public internet research (Zen docs, BenchLM, LLMReference, Artificial Analysis, official microsoft.ai model catalog, Bing search); no verified public data found for this ID.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

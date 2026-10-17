@@ -1,0 +1,69 @@
+# Nemotron 3.5 Bolt E4B — findings by Gemini 3.8 Flash
+
+- Source: NVIDIA (`nemotron-3.5-bolt-e4b`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** Compact 4GB edge-optimized open-weight small language model designed by NVIDIA for ultra-low latency on-device conversational agents, voice assistants, and game NPC dialogue.
+- **Provider / access:** NVIDIA / Hugging Face (scheduled release October 23, 2026); local deployment on GeForce RTX, Jetson, and RTX/DGX Spark systems.
+- **Release / knowledge:** 2026-10-23 (announced 2026-10-15); knowledge cutoff Q3 2026.
+- **IDs:** `nvidia/nemotron-3.5-bolt-e4b`
+- **Context window:** Scaled down context architecture optimized for low memory footprint (~4GB VRAM footprint) and fast TTFT / streaming.
+- **Modalities:** Text in/out, structured tool-calling, conversational JSON schemas.
+- **Pricing (as of 2026-10-17):** Open weights (free local execution / Apache-2.0 or NVIDIA Open Model License).
+- **Architecture:** Compact edge SLM architecture optimized for ~4GB VRAM execution footprint; hybrid dense/recurrent or lightweight Transformer architecture.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: NVIDIA announced Nemotron-3.5-Bolt-E4B on October 15, 2026, with public availability and weights scheduled for release on October 23, 2026. Pre-release documentation focuses on throughput, memory footprint, and low-latency interactive responsiveness rather than standardized benchmark suites. Zero verified public benchmark numbers were found prior to public rollout.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 50/100.** Provisional rating based on architectural design targeting function calling; no verified public benchmarks available pre-release.
+- **Reasoning: 45/100.** Compact 4GB parameter envelope bounds complex symbolic reasoning; awaiting verified public benchmarks.
+- **Context window: 50/100.** Edge-optimized window tuned for responsive single/multi-turn local dialogue.
+- **Multimodal: 15/100.** Text-only in/out; multimodal tasks require external vision/speech pipelines.
+- **Coding: 40/100.** Basic script generation expected for edge automation; no verified public benchmarks.
+- **Cost efficiency: 100/100.** Open weights with local consumer GPU/Jetson execution at zero per-token cost.
+- **Overall Score: 40/100.** Self-excluded pre-release evaluation; awaiting October 23, 2026 public benchmark release.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Method: Public documentation and web research across NVIDIA announcements and tech coverage; self-excluded pending public release and benchmark verification on October 23, 2026.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

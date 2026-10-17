@@ -1,7 +1,7 @@
 # Gemma 4 E2B — findings by GLM 5.3 Flash
 
 - Source: Google DeepMind (`gemma-4-e2b`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Gemma 4 E2B page citing the HF model card + Gemma 4 blog + AA boards, the prior 2026-10-05 pass on LLMLearner/apxml/anotherwrapper); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Gemma 4 E2B page citing the HF model card + Gemma 4 blog + AA boards, the prior 2026-10-05 pass on LLMLearner/apxml/anotherwrapper; 2026-10-16 re-check: BenchLM 19-row refresh reproduces all rows identically — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

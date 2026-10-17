@@ -49,7 +49,13 @@ reports, and the website stay consistent.
   incl. gateway "response headers timed out" — match is on error text only,
   `MODEL_FILTER` empty = ANY model),
   `model-turn-retry` (2026-10-05, "requests ending with a model turn"
-  rejects, any model).
+  rejects, any model), plus the `provider-*` family (any model) built on the
+  full 3-shape pattern (payload error / silent `session.idle` / embedded in a
+  generic error): `provider-content-filter-retry`,
+  `provider-headers-timeout-retry`, `provider-high-demand-retry`, and
+  `provider-invalid-request-retry` (2026-10-17, "[Vendor] The request was
+  rejected as invalid", e.g. "[Phala] ..."; match is the stable tail only so
+  the vendor prefix varies freely).
 - Hardening conventions (established by the 2026-10-05 `bang-drop-retry`
   pass; apply to every plugin in the suite):
   - **Mark before await.** Check `pending`/`stopped`, then mark

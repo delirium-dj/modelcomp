@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by GLM 5.3 Flash
 
 - Source: Google DeepMind (`gemma-4.12b-unified`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,7 +30,8 @@ Reasoning / knowledge:
 - GPQA Diamond: **78.8%** (HF model card via benchlm.ai — corroborates the third-party ~78.8% read); AA independent: **75.3%**
 - HLE (w/o tools): **5.2%** (HF model card — fills the gap; floor); AA-HLE: **15.7%** (AA)
 - Artificial Analysis Intelligence Index: **14.2** (AA — fills the index gap; low)
-- MMLU-Pro: **77.2%**; MMMLU: **83.4%**; AIME26: **77.5%** (HF card)
+- AA-IFBench: **73.5%** (AA — added 2026-10-16, solid)
+- AIME26: **77.5%** (HF card); MMMLU: **83.4%**; MMLU-Pro: **77.2%**
 - MRCR v2: **43.4%** (HF card — first measured long-context retrieval, weak); AA-LCR v1.1: **63.7%** (AA — fills the gap); CritPt: **0.0%** (AA — floor)
 - AA-Omniscience: **15.6% accuracy / 81.0% non-hallucination row / −52.7 index** (AA — worst index measured in this repo)
 
@@ -62,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Google Gemma 4 12B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on orcarouter/technofuzn/AAA); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Google Gemma 4 12B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on orcarouter/technofuzn/AAA; 2026-10-16 re-check: BenchLM 25-row refresh reproduces all rows identically (AA-IFBench 73.5% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

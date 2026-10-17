@@ -1,7 +1,7 @@
 # Gemma 4 26B A4B — findings by GLM 5.3 Flash
 
 - Source: Google DeepMind (`gemma-4.26b-a4b`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,8 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **16.7** (AA — fills the index gap; low)
 - MMLU-Pro: **82.6%** (model card); AIME: class-leading claims (prior pass; family 31B cites 89.2% AIME 2026)
 - MRCR v2: **44.1%** (HF card — first measured long-context retrieval, weak); AA-LCR v1.1: **65.7%** (AA — fills the gap); CritPt: **0.0%** (AA — floor)
-- AA-Omniscience: **19.1% accuracy / 86.4% non-hallucination row / −50.8 index** (AA — near-worst in this repo)
+- AA-IFBench: **72.4%** (AA — added 2026-10-16, solid)
+- AA-HLE (independent): **19.3%** (added 2026-10-16 — second reading, above the vendor's 8.7%-without-tools / 17.2%-with-tools band)
 
 Coding:
 
@@ -63,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemma 4 26B A4B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on AA-OpenRouter/ai-muninn/grigio/dev.to); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemma 4 26B A4B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on AA-OpenRouter/ai-muninn/grigio/dev.to; 2026-10-16 re-check: BenchLM 22-row refresh corroborates all rows (AA-IFBench 72.4%, AA-HLE 19.3% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

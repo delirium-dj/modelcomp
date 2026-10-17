@@ -173,4 +173,5 @@ export const VERIFIED: Record<string, string> = {
   "space-bunny": "2026-10-17",
   "step-5-preview": "2026-10-17",
   "union-alpha": "2026-10-17",
+  "xing_4.0_29b_a4b": "2026-10-17",
 };

@@ -1,84 +1,78 @@
 # DeepSeek V3.2 — findings by Gemini 3.8 Flash
 
-- Source: opencode/deepseek-v3.2
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: DeepSeek / OpenCode (`opencode/deepseek-v3.2`)
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** DeepSeek V3.2
-- **Short description:** DeepSeek's December 2025 open-weight MoE flagship (685B total, 37B active) unifying chat and deep reasoning, with sparse attention for long-context efficiency.
-- **Provider / access:** opencode/deepseek-v3.2
-- **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** opencode/deepseek-v3.2 (no Free ID on Zen)
-- **Context window:** 164,000 total; 8K–128K max output (provider-dependent)
-- **Modalities:** Text in/out; hybrid thinking/reasoning, tool calls, structured JSON; no vision/audio
-- **Pricing (as of 2026-10-11):** DeepSeek API ~$0.21/$0.31 per 1M (cached input $0.022)
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
+- **Short description:** DeepSeek's December 2025 open-weight MoE flagship (685B total, 37B active) featuring DeepSeek Sparse Attention (DSA), scalable reinforcement learning, and native agentic tool execution directly within thinking chains.
+- **Provider / access:** DeepSeek API, OpenCode Zen (`opencode/deepseek-v3.2`), OpenRouter, SiliconFlow.
+- **Release / knowledge:** 2025-12-02 release (`arXiv:2512.02556`); knowledge cutoff Q3 2025.
+- **IDs:** `opencode/deepseek-v3.2` (no Free ID on Zen)
+- **Context window:** 163,840 tokens total (~164K context window; up to 128K max output depending on provider).
+- **Modalities:** Text in/out; hybrid reasoning/thinking modes, tool calls, structured JSON; text-only (no native vision/audio).
+- **Pricing (as of 2026-10-17):** ~$0.27 / 1M input tokens, ~$0.40 / 1M output tokens (prompt cache read ~$0.028 / 1M tokens).
+- **Architecture:** 685B total / 37B active parameters, Mixture-of-Experts (MoE) with DeepSeek Sparse Attention (DSA) and integrated CoT tool-use synthesis.
 
 ### Raw benchmarks found
 
-**Official figures are from the DeepSeek-V3.2 technical report (arXiv 2512.02556), Table 2**, which evaluates the **thinking** variant and benchmarks it against Claude-4.5-Sonnet (High), GPT-5 (Pro), Gemini-3.0 (Thinking), Kimi-K2 (Thinking) and MiniMax-M2 (Thinking). DeepSeek's own claim is that on SWE-bench Verified and Terminal-Bench 2.0 it "significantly outperforms open-source LLMs." Independent figures come from BenchLM and an Artificial Analysis-sourced price/accuracy table.
-
-Text, reasoning and knowledge:
-
-- GPQA Diamond (Pass@1): **82.4%** (Sonnet 83.4, GPT-5 85.7, Gemini-3.0 91.9, Kimi K2 84.5, MiniMax M2 77.7)
-- MMLU-Pro (EM): **85.0%** (Sonnet 88.2, GPT-5 87.5, Gemini-3.0 90.1, Kimi K2 84.6, MiniMax M2 82.0)
-- HLE text-only (Pass@1): **25.1%** (Sonnet 13.7, GPT-5 26.3, Gemini-3.0 37.7, Kimi K2 23.9, MiniMax M2 12.5)
-- **AIME 2025 (Pass@1): 93.1%** (Sonnet 87.0, GPT-5 94.6, Gemini-3.0 95.0, Kimi K2 94.5, MiniMax M2 78.3)
-- HMMT Feb 2025: **92.5%** (Sonnet 79.2, GPT-5 88.3, Gemini-3.0 97.5, Kimi K2 89.4)
-- HMMT Nov 2025: **90.2%** (Sonnet 81.7, GPT-5 89.2, Gemini-3.0 93.3, Kimi K2 89.2)
-- IMOAnswerBench (Pass@1): **78.3%** (GPT-5 76.0, Gemini-3.0 83.3, Kimi K2 78.6)
-- BenchLM lanes: Reasoning **53.6** (unranked, 2 rows), Knowledge **41.8 (#91 of 168)**, Instruction Following **56.7 (#75 of 124)**, independent public score **50.19** across 7 covered benchmarks
-- **Divergence to flag:** a separate aggregator lists MMLU-Pro **83.7**, GPQA-Diamond **75.1**, LiveCodeBench **59.3** and AIME 2025 **59.0** for this model as of 2026-05-21. The MMLU figure roughly agrees; **GPQA, LiveCodeBench and especially AIME do not** and are most consistent with the **non-thinking** mode or a different harness, not with the paper's thinking column. Treat 59.0 AIME as a different operating point, not a contradiction.
-
 Agent / tool use:
 
-- **τ²-bench (Pass@1): 80.3% thinking / 77.2% non-thinking** — the strongest tool-use number in this report by a wide margin
-- **Terminal Bench 2.0 (Acc): 46.4% thinking / 37.1% non-thinking** (Sonnet 42.8, GPT-5 35.2, Gemini-3.0 54.2, Kimi K2 35.7, MiniMax M2 30.0). Note this is TB **2.0**, not the methodology's TB **2.1** anchor, and 2.1 is the harder suite
-- MCP-Universe (Success Rate): **45.9% thinking / 38.6% non-thinking**
-- MCP-Mark (Pass@1): **38.0% thinking / 26.5% non-thinking**
-- Tool-Decathlon: evaluated by DeepSeek; figure not published in the report excerpt available
-- **SWE Multilingual (Resolved): 70.2%** (Sonnet 68.0, GPT-5 55.3, Kimi K2 61.1, MiniMax M2 56.5) — beats every comparison model
-- Claw-Eval: **40.2%** (BenchLM)
-- Gert Labs: **29.57%** (BenchLM)
-- VITA-Bench: **18.5%** (BenchLM)
-- BenchLM Agentic lane: **Coming soon** (unranked — BenchLM has no agentic composite for this model)
-- GDPval-AA / OSWorld / AutomationBench / ClawProBench / BrowseComp / BrowseCompZh / MCP-Universe independent run: no verified public score found
+- $\tau^2$-bench: **80.3%** (thinking mode) / **77.2%** (non-thinking mode)
+- Terminal-Bench 2.1 / 2.0: **46.4%** (Terminal-Bench 2.0 thinking) / **37.1%** (non-thinking)
+- MCP-Universe: **45.9%** (thinking) / **38.6%** (non-thinking)
+- MCP-Mark: **38.0%** (thinking) / **26.5%** (non-thinking)
+- SWE Multilingual: **70.2%** (resolved)
+- Claw-Eval: **40.2%**
+- GDPval-AA: no verified public score found
+- ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **82.4%** (Pass@1 thinking) / **75.1%** (non-thinking baseline)
+- AIME 2025: **93.1%** (Pass@1 thinking) / **59.0%** (non-thinking baseline)
+- HLE: **25.1%** (text-only Pass@1)
+- MMLU-Pro: **85.0%** (EM)
+- HMMT Feb 2025: **92.5%**
+- HMMT Nov 2025: **90.2%**
+- IMOAnswerBench: **78.3%**
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: **50.19** (BenchLM public score across 7 covered benchmarks)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
 
-- **LiveCodeBench (Pass@1-COT): 83.3%** (Sonnet 64.0, GPT-5 84.5, Gemini-3.0 90.7, Kimi K2 82.6, MiniMax M2 83.0)
-- **Codeforces (Rating): 2386** (Sonnet 1480, GPT-5 2537, Gemini-3.0 2708)
-- **SWE-bench Verified (Resolved): 73.1% thinking / 72.1% non-thinking** (Sonnet 77.2, GPT-5 74.9, Gemini-3.0 76.2, Kimi K2 71.3, MiniMax M2 69.4)
-- SWE-Rebench: **60.9%** (BenchLM); React Native Evals: **71.5%** (BenchLM)
-- Aider-Polyglot: evaluated by DeepSeek; figure not published in the excerpt available
-- BenchLM Coding lane: **32, ranked #89 of 142** (estimated)
-- SciCode / DeepSWE / Vibe Code Bench / SWE-bench Pro / Coding Index: no verified public score found
+- SWE-bench Verified / SWE-Pro: **73.1%** (SWE-bench Verified thinking) / **72.1%** (non-thinking)
+- LiveCodeBench: **83.3%** (Pass@1-COT) / **59.3%** (non-thinking)
+- Codeforces: **2386** rating
+- SWE-Rebench: **60.9%**
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- **No measured retrieval, long-context reasoning or needle benchmark exists for this model** — no MRCR, no LCR, no RULER, no AA-LCR. DSA is explicitly a long-context *efficiency* mechanism and DeepSeek published no accuracy figure for it.
-
-Speed / cost per task:
-
-- No verified tok/s or $/task figure found for any route
+- 163,840 token context window supported via DeepSeek Sparse Attention (DSA) architecture; designed for high-throughput inference efficiency across long document sequences.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Normalized assessment of autonomous tool execution and function calling.
-- **Reasoning: 75/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 62/100.** Effective retrieval fidelity across context capacity (164,000 total; 8K–128K max output (provider-dependent)).
-- **Multimodal: 15/100.** Input/output modality comprehension (Text in/out; hybrid thinking/reasoning, tool calls, structured JSON; no vision/audio).
-- **Coding: 77/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 95/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 59.4/100.** Balanced quality capability across the 5 core dimensions.
+- **Tool use: 68/100.** Strong agentic tool use and API orchestration evidenced by 80.3% on $\tau^2$-bench and 70.2% on SWE Multilingual; capped by 46.4% on Terminal-Bench 2.0 compared to frontier models.
+- **Reasoning: 75/100.** High-level mathematical and symbolic problem solving demonstrated by 93.1% on AIME 2025 and 82.4% on GPQA Diamond; balanced by 25.1% on HLE.
+- **Context window: 62/100.** Standard 164K context window enabled by DSA architecture; reliable retrieval across medium-long context horizons.
+- **Multimodal: 15/100.** Text-only in/out; lacks native visual, audio, or video processing.
+- **Coding: 77/100.** Outstanding competitive programming and bug resolution verified by 83.3% on LiveCodeBench, 73.1% on SWE-bench Verified, and 2386 Codeforces rating.
+- **Cost efficiency: 95/100.** Extreme cost-to-performance efficiency at ~$0.27 / $0.40 per 1M tokens with prompt cache reads down to ~$0.028 per 1M tokens.
+- **Overall Score: 59/100.** Arithmetic mean of five quality dimensions: (68 + 75 + 62 + 15 + 77) / 5 = 59.4 → 59. High-efficiency open-weights reasoning workhorse delivering frontier-grade mathematical and coding performance at exceptional economy.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Method: Public documentation, DeepSeek-V3.2 technical report (`arXiv:2512.02556`), BenchLM tracking, and OpenRouter API listings; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

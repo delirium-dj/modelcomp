@@ -24,12 +24,14 @@ Sources checked with no benchmark rows (2026-10-16):
 
 Interpolation from sibling Bolt 74B-A9B (AA Index 21.4) or Nemotron Nano lineage was deliberately NOT used. A future re-research after the 2026-10-23 release should look for (a) the HF model card with a benchmark table, (b) an AA/BenchLM page, (c) confirmed specs (params/context/license) — then write a fresh `GLM_5.3.md`.
 
+**Re-research update (2026-10-17, second deep pass — verdict unchanged, pre-release signals noted):** the Hugging Face repository `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB` now exists in a **restricted/gated state (HTTP 401, not 404)** — a pre-release placeholder consistent with the announced 2026-10-23 ship date; BenchLM has likewise created a tracker page for `nemotron-3-5-bolt-e4b` but with **0 displayable rows and all metadata fields "Pending/Coming soon"** (updated 2026-10-17). NVIDIA's launch blog still lists E4B as "coming Oct. 23." No benchmark numbers, specs, or license have been published yet — the model remains announced-but-unreleased as of this pass, six days before the scheduled date.
+
 Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-16
-- Method: public internet research (NVIDIA official blog, BenchLM, Artificial Analysis, gaming/tech press, DuckDuckGo search); no verified public scores exist for this unreleased model.
+- Provided by: **GLM 5.3 (zai-org/glm-5.3)** — 2026-10-17 (first researched 2026-10-16; deep re-research 2026-10-17)
+- Method: public internet research (NVIDIA official blog, BenchLM tracker page re-checked 2026-10-17, gated HF repository, Artificial Analysis, gaming/tech press); no verified public scores exist for this unreleased model — HF and BenchLM pre-release placeholders confirm the 2026-10-23 ship date is still ahead.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
