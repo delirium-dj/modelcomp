@@ -31,19 +31,26 @@ Agent / tool use:
 - MCP-Atlas claim coverage: **89.1%** (Anthropic: Claude Opus 5 system card / BenchLM)
 - TB-2.1 (Vals): **84.6%** (Vals AI leaderboard / BenchLM)
 - GDPval-AA (Elo): **1862** (Anthropic: Claude Opus 5 system card / BenchLM — exceeds ≥1750 frontier!)
-- GDPval-AA (normalized): **61.2%** (Artificial Analysis model benchmarks / BenchLM)
+- GDPval-AA (normalized): **61.1%** (Artificial Analysis model benchmarks / BenchLM)
 - AA Briefcase (Elo): **1720** (Anthropic: Claude Opus 5 system card / BenchLM)
-- AA Harvey LAB v1.0: **91.2%** (Anthropic: Claude Opus 5 system card / BenchLM)
+- AA Harvey LAB v1.0: **93.5%** (Artificial Analysis / BenchLM — improved from 91.2%)
 - OSWorld 2.0: **70.6%** (Anthropic: Claude Opus 5 system card / BenchLM)
 - Toolathlon-Verified: **80.6%** (Anthropic: Claude Opus 5 system card / BenchLM)
 - Toolathlon Pass@3: **87.0%** (Anthropic: Claude Opus 5 system card / BenchLM)
 - Toolathlon Pass³: **73.1%** (Anthropic: Claude Opus 5 system card / BenchLM)
 - AA ITBench: not listed
 - AA AutomationBench: **77.5%** (Artificial Analysis / BenchLM)
-- GDP.pdf: 21.8% (Artificial Analysis — low)
-- AA Terminal-Bench 4.0: **59.6%** (Artificial Analysis / BenchLM)
+- AutomationBench: **26.0%** (Anthropic: Claude Opus 5 system card / BenchLM)
+- AA Terminal-Bench 4.0: **56.1%** (Artificial Analysis / BenchLM)
+- GDP.pdf (no tools): **83.4%** (Anthropic: Claude Opus 5 system card / BenchLM — improved from 21.8%)
+- GDP.pdf (tools): **85.5%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
 - ApprenticeBench: **36%** (NeoCognition / BenchLM)
 - AA Agentic Index: **56.2%** (Artificial Analysis model benchmarks / BenchLM)
+- AA AnalystAgent: **53.8%** (Artificial Analysis / BenchLM — NEW)
+- LAB (all-pass, Anthropic): **23.58%** (Anthropic / BenchLM — NEW)
+- LAB (criterion-pass, Anthropic): **93.74%** (Anthropic / BenchLM — NEW)
+- LAB (all-pass, Harvey held-out): **11.7%** (Anthropic / BenchLM — NEW)
+- LAB (criterion-pass, Harvey held-out): **94.1%** (Anthropic / BenchLM — NEW)
 
 Reasoning / knowledge:
 
@@ -65,6 +72,31 @@ Reasoning / knowledge:
 - ARC-AGI-1: **97.50%** (ARC Prize verified results / BenchLM)
 - ARC-AGI-2: **90.4%** (ARC Prize verified results / BenchLM)
 - GraphWalks BFS 256K–1M: **65.0%** (Google: Gemini 4 Argon launch chart / BenchLM)
+- HealthBench (raw): **67.1%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- HealthBench (length-adjusted): **57.8%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- HealthBench Professional: **59.8%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- HealthBench Professional (raw): **73.4%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- HealthBench Hard: **36.2%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- BioMysteryBench (human-solvable): **90.1%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- BioMysteryBench (human-difficult): **49.4%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- SpatialBench Verified: **72.5%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- SingleCellBench: **60.6%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- ProteinGym Hard: **47.7%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- Protein Design: **42.5%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- Organic chemistry V2: **61.6%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- Protocols (troubleshooting): **61.1%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- Protocols (understanding): **78.4%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- GMMLU: **92.5%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- MILU: **92.1%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- INCLUDE: **89.8%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- ArXivMath (no tools): **90.8%** (Anthropic / BenchLM — NEW)
+- ArXivMath (tools): **91.3%** (Anthropic / BenchLM — NEW)
+- FrontierMath v2 (Tiers 1-3): **85.614%** (Epoch AI FrontierMath v2 leaderboard / BenchLM — NEW)
+- FrontierMath v2 (Tier 4): **73.171%** (Epoch AI FrontierMath v2 leaderboard / BenchLM — NEW)
+- Gray Swan IPI (15 attempts): **4.6%** (Google: Gemini 4 Argon launch chart / BenchLM — NEW)
+- IMO 2026: **42/42** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- HLE-Verified: **54.4%** (Anthropic: Claude Opus 5 system card / BenchLM — NEW)
+- LABBench2: **84.2%** (Google DeepMind: Gemini 3.8 Flash model card / BenchLM — NEW)
 
 Coding:
 
@@ -102,23 +134,22 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 79.44, #7/889, 96 of 625) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 79.63, #8/954, 99 of 639) and AA as of 2026-10-16.
 
-- **Tool use: 92/100.** GDPval-AA Elo 1862 (exceeds ≥1750 frontier), BrowseComp 90.8% (≥90 frontier), DeepSearchQA 95.0% (≥90 frontier), DRACO 88.6%, MCP Atlas 85.8% / 89.1% claim coverage, aaTB21 84.3%, TB-2.1 (Vals) 84.6%, Toolathlon Pass@3 87.0%, GDPval-AA normalized 61.2%, AA Agentic Index 56.2%. Exceptional agentic cluster with GDPval ≥1750 and three ≥90% frontier benchmarks. Capped by TB-3.0 42.7%, GDP.pdf 21.0%, OSWorld 48.7%, ApprenticeBench 36%, AA ITBench 38.2%.
-- **Reasoning: 87/100.** GPQA 93.2-94.1% (≥90% frontier), HLE w/ tools 64.7% (above 40% frontier), AA-LCR 79.3%, ARC-AGI-1 97.50%, ARC-AGI-2 90.4%, MMLU-Pro (Vals) 91.6%, AA Global-MMLU-Lite 93.1%. Capped by AA Intelligence Index 50.8 (revised from 61 — v4.3.2 methodology update, confirmed by AA model page), CritPt 29.1%, MLCR-AA 55.6%, Omniscience Index 37.1. No GPQA Diamond published for this exact ID on BenchLM (AA-GPQA-D 93.2% used).
+- **Tool use: 92/100.** GDPval-AA Elo 1862 (≥1750 frontier), BrowseComp 90.8% (≥90 frontier), DeepSearchQA 95.0% (≥90 frontier), DRACO 88.6%, MCP Atlas 85.8%/89.1% claim coverage, TB-2.1 (Vals) 84.6%, GDPval-AA normalized 61.1%, AA Agentic Index 56.2%. Exceptional agentic cluster with three ≥90 frontier benchmarks. Capped by TB-3.0 42.7%, AA AnalystAgent 53.8%, ApprenticeBench 36%, AA Terminal-Bench 4.0 56.1%.
+- **Reasoning: 88/100.** (Revised up from 87.) GPQA 93.2–93.4% (≥90 frontier), HLE 64.7% (above 40% frontier), ARC-AGI-1 97.50%, ARC-AGI-2 90.4%, MMLU-Pro (Vals) 91.6%, AA Global-MMLU-Lite 93.1%, GMMLU 92.5%, MILU 92.1%, INCLUDE 89.8%, ArXivMath (no tools) 90.8%, ArXivMath (tools) 91.3%, FrontierMath v2 (Tiers 1-3) 85.614%, HealthBench suite 56.7–73.4%, BioMysteryBench 90.1%, SpatialBench 72.5%. Capped by AA Intelligence Index 50.8 (below ~60 frontier), CritPt 29.1%, AA-Omniscience Index 37.1 (poor), MLCR-AA 55.6%.
 - **Context window: 95/100.** 1M-token input window (≥1M tier). GraphWalks BFS 256K–1M: 65.0%, AA-LCR 79.3%. No ≥98% retrieval at 512K+ for 100.
 - **Multimodal: 80/100.** Text, image and PDF in / text out (+image/+PDF in = 60-70 tier); lifted by Chartography tools 89.0%, AA-MMMU-Pro 84.7%, OfficeQA 78.1%, Design Arena 1314. No audio/video.
-- **Coding: 97/100.** SWE-bench Verified 96%, SWE-bench (Vals) 97.0%, SWE Multilingual 89.5%, ProgramBench 93.0%, DeepSWE 68.8%, VulcanBench CII 96.4%, VulcanBench 87.0%, LiveCodeBench 89.0%, AA Coding Index 78.0%. Exceptional coding cluster with SWE-bench 96/97% and VulcanBench CII 96.4%. Capped by DeepSWE 68.8% (below 74% frontier), CursorBench 4.0 46.6%, AA-SciCode 56.4% (below 55% frontier), FrontierSWE v2 not listed.
+- **Coding: 97/100.** SWE-bench Verified 96%, SWE-bench (Vals) 97.0%, SWE Multilingual 89.5%, ProgramBench 93.0%, DeepSWE 68.8%, VulcanBench CII 96.4%, VulcanBench 87.0%, LiveCodeBench (Vals) 89.0%, AA Coding Index 78.0%. Exceptional coding cluster with SWE-bench 96/97% and VulcanBench CII 96.4%. Capped by DeepSWE 68.8% (below 74% frontier), CursorBench 4.0 46.6%, AA-SciCode 56.4% (below 58% threshold), FrontierSWE v2 52.0%.
 - **Cost efficiency: 40/100.** Premium paid tier ($5.00 in / $25.00 out per 1M tokens).
-- **Overall Score: 90/100.** Half-up mean: (92+87+95+80+97)/5 = 451/5 = 90.2 → 90. **Best-fit:** elite reasoning + coding agent for the deepest reasoning and longest autonomous coding/research runs; GDPval 1862 + BrowseComp 90.8% + DeepSearchQA 95.0% lead agentic performance, SWE-bench Verified 96% + LiveCodeBench 89% lead coding; cap: Intelligence Index revised 61→50.8 (v4.3.2 methodology), DeepSWE 68.8% below 74% frontier, premium $5/$25 pricing.
+- **Overall Score: 90/100.** Half-up mean: (92+88+95+80+97)/5 = 452/5 = 90.4 → 90. **Best-fit:** elite reasoning + coding agent for the deepest reasoning and longest autonomous coding/research runs; GDPval AA Elo 1862 + BrowseComp 90.8% + DeepSearchQA 95.0% lead agentic performance, SWE-bench Verified 96% + VulcanBench CII 96.4% lead coding; cap: Intelligence Index 50.8 (v4.3.2, below ~60 frontier), DeepSWE 68.8% below 74% frontier, premium $5/$25 pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5` for overall rank/score (#7/889, 79.44) and 96 benchmark rows including BrowseComp 90.8%, DeepSearchQA 95.0%, GDPval 1862, SWE-bench Verified 96%, LiveCodeBench 89.0%; AA model page `https://artificialanalysis.ai/models/claude-opus-5` for Intelligence Index 50.8, aaTB21 84.3%, GPQA 93.2%; Anthropic Claude Opus 5 system card PDF). Zero-influence: did not read peer `*.md` findings files during research.
-- Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: Intelligence Index revised from 61 to 50.8 (v4.3.2 methodology update as model pool grew from 223 to 227 reasoning models); AA-LCR revised from 84.7% to 79.3%; new benchmarks confirmed (SWE-bench Verified 96%, LiveCodeBench 89.0%, SWE-bench (Vals) 97.0%, VulcanBench CII 96.4%); AA-GPQA-D 93.2% and MMLU-Pro (Vals) 91.6% added.
-- Future sources: add a new file next to this one, e.g. `Claude_Opus_5_1.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5` for overall rank/score (#8/954, 79.63) and 99 benchmark rows including BrowseComp 90.8%, DeepSearchQA 95.0%, GDPval AA Elo 1862, GDPval-AA normalized 61.1%, SWE-bench Verified 96%, LiveCodeBench 89.0%; AA model page `https://artificialanalysis.ai/models/claude-opus-5` for Intelligence Index 50.8, GPQA 93.2%; Anthropic Claude Opus 5 system card PDF). Zero-influence: did not read peer `*.md` findings files during research.
+- Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall increased 79.44→79.63 (#7/889→#8/954 as pool grew 889→954, 96→99 benchmarks); GDPval-AA normalized 61.2→61.1% (negligible); AA Harvey LAB improved 91.2→93.5%; AA Terminal-Bench 4.0 revised 59.6→56.1%; GDP.pdf (no tools) improved 21.8→83.4% (major, from 21.8% low to 83.4% strong); new benchmarks added: HealthBench suite (56.7-73.4%), BioMysteryBench (90.1%/49.4%), SpatialBench 72.5%, GMMLU 92.5%, MILU 92.1%, INCLUDE 89.8%, ArXivMath 90.8%/91.3%, FrontierMath v2 85.614%/73.171%, IMO 2026 42/42, LABBench2 84.2%, AA AnalystAgent 53.8%, LAB criterion-pass benchmarks 93.74%/94.1%, ExploitGym 35.1%; normalized scores: Tool 92→92 (GDP.pdf cap lifted but other caps remain), Reasoning 87→88 (new math benchmarks), Coding 97→97, Overall 90→90 (unchanged).
 
 ---

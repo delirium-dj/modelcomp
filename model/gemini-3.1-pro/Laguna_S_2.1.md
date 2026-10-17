@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-10 (UTC)
+> Date: 2026-10-16 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,63 +19,80 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3.1-pro`, overall 72.87, rank #25/889, 42 of 625 benchmarks); Artificial Analysis model page (Intelligence Index 29.7); Google DeepMind model card; Vals AI leaderboards. 42 benchmarks verified across 3 independent sources.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3-1-pro`, overall 64.7, rank #37/954, 48 of 639 benchmarks); Artificial Analysis model page (Intelligence Index 29.7); Google DeepMind model card; Vals AI leaderboards. 48 benchmarks verified across 3 independent sources.
 
 Agent / tool use:
 
-- τ²-bench: **95.6%** (Google DeepMind model card / BenchLM — elite)
-- Terminal-Bench 2.1: **83.8%** (BenchLM model page)
+- τ²-bench: **87.1%** (Artificial Analysis model benchmarks / BenchLM — revised down from 95.6%, below 90% frontier threshold)
+- Terminal-Bench 2.1 (Vals): **70.8%** (Vals AI leaderboard / BenchLM)
 - Terminal-Bench Hard: **54%** (Artificial Analysis, 2026-02-19 — leads its harness)
-- GDPval-AA (Elo): **904** (Artificial Analysis model page — below ~900-1200 mid-tier frontier ref, revised down from 1316 cited Sep 2026)
-- GDPval-AA (normalized): **31.0%** (Artificial Analysis model benchmarks / BenchLM)
+- Claw-Eval: **57.8%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
+- DeepSearchQA: **69.7%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
+- APEX-Agents-AA: **32.0%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- ResearchClawBench: **13.3%** (ResearchClawBench leaderboard / BenchLM — NEW)
+- GDPval-AA (Elo): **904** (Artificial Analysis model page — below mid-tier frontier ~900-1200, revised down from 1316 cited Sep 2026)
+- GDPval-AA (normalized): **14.6%** (Artificial Analysis model benchmarks / BenchLM — CRITICAL drop from 31.0%)
+- AA Agentic Index: **10.3%** (Artificial Analysis model benchmarks / BenchLM — NEW, very low)
 - AA Briefcase (Elo): no verified public score found
-- AA Agentic Index: no verified public score found
 - AA AutomationBench: no verified public score found
-- OSWorld 2.0: no verified public score found
+- OSWorld: no verified public score found
 - GDP.pdf: no verified public score found
 - ApprenticeBench: no verified public score found
 - AA ITBench: no verified public score found
+- Gert Labs: **56.87%** (Gert Labs rankings / BenchLM — NEW)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **95.5%** (BenchLM model page / Artificial Analysis — ≥95% frontier threshold!)
+- GPQA Diamond: **94.3%** (Meta AI: Muse Spark comparison chart / BenchLM — revised down from 95.5%)
 - GPQA Diamond (Vals): **95.5%** (Vals AI leaderboard / BenchLM)
-- HLE: **54.8%** (Artificial Analysis: humanitys-last-exam leaderboard / BenchLM — above 40% frontier)
-- AA-HLE: **54.8%** (Artificial Analysis / BenchLM)
-- AA Intelligence Index: **29.7%** (Artificial Analysis — revised down from 30 cited Sep 23 2026; AI-ranking methodology evolution v4.3.2 as model pool grew)
-- AA-LCR: no verified public score found for this exact ID
-- MMLU-Pro: **91.0%** (Artificial Analysis / BenchLM)
+- AA-GPQA Diamond: **94.1%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- HLE (w/o tools): **45.4%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
+- AA-HLE: **47.0%** (Artificial Analysis / BenchLM — revised down from 52.9%)
+- AA Intelligence Index: **29.7%** (Artificial Analysis — v4.3.2 methodology update as model pool grew)
+- AA-LCR: **82.0%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- MMLU-Pro (Vals): **91.0%** (Vals AI leaderboard / BenchLM — NEW)
 - AA-MMLU-Pro: **89.8%** (Artificial Analysis / BenchLM — ≥90 frontier)
-- AA Global-MMLU-Lite: **92.2%** (Artificial Analysis / BenchLM)
+- AA Global-MMLU-Lite: **93.2%** (Artificial Analysis: global-mmlu-lite leaderboard / BenchLM — revised up from 92.2%)
 - AA-MMMU-Pro: **82.4%** (Artificial Analysis / BenchLM — ≥80 frontier)
-- CritPt: no verified public score found
+- AA-IFBench: **77.1%** (Artificial Analysis model benchmarks / BenchLM — NEW, improved from 70.4%)
+- CritPt: **17.7%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- AA-Omniscience Index: **31.9%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- AA-Omniscience Accuracy: **54.9%** (Artificial Analysis model benchmarks / BenchLM — revised down from 55.8%)
+- AA-Omniscience Hallucination Rate: **50.9%** (Artificial Analysis model benchmarks / BenchLM — NEW)
+- AA-SciCode not applicable for reasoning
 - MLCR-AA: no verified public score found
-- AA-Omniscience Index: no verified public score found
-- ARC-AGI-1: **98.50%** (ARC Prize verified results / BenchLM)
-- ARC-AGI-2: no verified public score found
+- ARC-AGI-2: **77.1%** (Google DeepMind: Gemini 3.1 Pro / BenchLM — NEW)
+- HealthBench Hard: **20.6%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
+- MedXpertQA (Text): **71.5%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
+- FrontierMath v2 (Tiers 1-3): **59.649%** (Epoch AI FrontierMath v2 leaderboard / BenchLM — NEW)
+- FrontierMath v2 (Tier 4): **26.829%** (Epoch AI FrontierMath v2 leaderboard / BenchLM — NEW)
 
 Coding:
 
 - LiveCodeBench: **88.5%** (Google DeepMind model card / BenchLM)
 - LiveCodeBench (Vals): **88.5%** (Vals AI leaderboard / BenchLM)
-- SWE-bench: **78.8%** (BenchLM model page)
-- SWE-bench Verified: no verified public score found
-- SWE-bench Pro: no verified public score found
-- DeepSWE: no verified public score found
+- SWE-bench (Vals): **78.8%** (Vals AI leaderboard / BenchLM — revised, source updated)
 - AA-SciCode: **58.7%** (Artificial Analysis / BenchLM — ≥55% frontier threshold)
-- AA Coding Index: **76.9%** (Artificial Analysis / BenchLM)
-- VulcanBench: no verified public score found
-- CursorBench: no verified public score found
-- Bug Hunt Bench: no verified public score found
+- AA Coding Index: **68.8%** (Artificial Analysis model benchmarks / BenchLM — CRITICAL drop from 76.9%)
+- Vibe Code Bench: **32.03%** (Vals AI: Vibe Code Bench v1.1 / BenchLM — NEW)
+- LiveCodeBench Pro: **82.9%** (Meta AI: Muse Spark comparison chart / BenchLM — NEW)
 
 Multimodal:
 
-- LVBench: **85.4%** (Google DeepMind / BenchLM)
-- CharXiv (tools): **88.7%** (Google DeepMind / BenchLM)
+- MMMU: **87.2%** (Qwen3.5-397B-A17B model card comparison / BenchLM — NEW)
+- MMMU-Pro: **81%** (Google: Gemini 3 / BenchLM — NEW)
+- CharXiv (tools): **89.0%** (Google DeepMind / BenchLM)
 - CharXiv (no tools): **86.2%** (Google DeepMind / BenchLM)
-- AA-MMMU-Pro: **82.4%** (Artificial Analysis / BenchLM)
-- Design Arena Website: **1307** (OpenRouter / BenchLM)
-- AA-Video-MME: no verified public score found
+- AA-MMMU-Pro: **82.4%** (Artificial Analysis / BenchLM — ≥80 frontier)
+- Design Arena Website: **1254** (OpenRouter / BenchLM — revised down from 1307)
+- RealWorldQA: **83.3%** (Qwen3.5-397B-A17B comparison / BenchLM — NEW)
+- Video-MME (with subtitle): **88.4%** (Qwen3.5-397B-A17B comparison / BenchLM — NEW)
+- Video-MME (w/o subtitle): **87.7%** (Qwen3.5-397B-A17B comparison / BenchLM — NEW)
+- MathVision: **86.6%** (Qwen3.6-Plus comparison / BenchLM — NEW)
+- V*: **88.0%** (Qwen3.6-Plus comparison / BenchLM — NEW)
+- ScreenSpot Pro: **84.4%** (Meta AI: Muse Spark comparison / BenchLM — NEW)
+- VideoMMMU: **87.6%** (Qwen3.6 comparison / BenchLM — NEW)
+- LVBench: **85.4%** (Google DeepMind / BenchLM)
 
 Long context:
 

@@ -1,7 +1,7 @@
 # Fledge Alpha — findings by GLM 5.3 Flash
 
 - Source: Publisher unknown — stealth model on OpenCode Zen (`fledge-alpha`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM fetch 404 — no aggregator page exists for the anonymous stealth model; the prior 2026-10-05 pass on the Stealth Models measured eval + models.dev catalog remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM fetch 404 — no aggregator page exists for the anonymous stealth model; the prior 2026-10-05 pass on the Stealth Models measured eval + models.dev catalog remains the evidence base; 2026-10-16 re-check: BenchLM still 404s, Bing identity search returned zero relevant results (identity still unclaimed) — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3-pro-preview`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,7 +34,9 @@ Reasoning / knowledge:
 - AA-HLE: **39.7%** (AA, independent; the 37.5%/40%+ Deep Think launch reading stands)
 - ARC-AGI-1: **75.0%** (ARC Prize verified results, arcprize.org/leaderboard); ARC-AGI-2: **31.1%** standard / **45.1%** Deep Think at launch (Google DeepMind page; a later Feb 2026 verified Deep Think result of 84.6% per aiwiki.ai remains unconfirmed on the ARC leaderboard)
 - Artificial Analysis Intelligence Index: **28** (AA, 2026-10-10 — corroborates the launch-week reading on the current normalized board)
-- FrontierMath v2: **37.6%** Tiers 1–3 / **18.75%** Tier 4 (Epoch AI leaderboard)
+- FrontierMath v2: **37.6%** Tiers 1–3 / **18.75%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh — re-scored upward from 14.1%-class earlier Epoch readings; still weak)
+- AA-IFBench: **70.4%** (AA — added 2026-10-16)
+- AA Global-MMLU-Lite: **92.2%** (added 2026-10-16)
 - AA-LCR v1.1: **76.0%** (AA — fills the LCR gap); CritPt: **9.1%** (AA — very weak)
 - AA-Omniscience: **55.8% accuracy / 91.5% non-hallucination row (best measured in this repo) / 15.3 index** (AA)
 - MMLU-Pro: **89.8%** (AA); Global-MMLU-Lite: **92.2%** (AA); MMMLU: **91.8%** #1, Global PIQA: **93.4%** (vellum)
@@ -72,6 +74,6 @@ Multimodal (richly corroborated via the Qwen 3.5-397B/3.6-Plus comparison tables
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Epoch/ARC Prize/Qwen-comparison-table citations, the prior 2026-10-08 vellum.ai/airank/aiwiki/llm-stats/Kingy pass, Google DeepMind and blog.google pages via benchlm.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Epoch/ARC Prize/Qwen-comparison-table citations, the prior 2026-10-08 vellum.ai/airank/aiwiki/llm-stats/Kingy pass, Google DeepMind and blog.google pages via benchlm.ai; 2026-10-16 re-check: BenchLM 41-row refresh corroborates all rows (AA-IFBench 70.4%, Global-MMLU-Lite 92.2% added; FrontierMath 37.6/18.75 confirmed on the current Epoch board; BenchLM still lists 2M ctx — the 1M-vs-2M conflict stands) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.md`, using the same headings.

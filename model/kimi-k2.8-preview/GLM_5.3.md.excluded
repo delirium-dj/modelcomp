@@ -24,12 +24,22 @@ Sources checked with no benchmark rows for this ID (2026-09-24):
 - Hugging Face `moonshotai/Kimi-K2.8-Preview`: gated (401) — no public model card/benchmarks.
 - OpenCode Zen docs (2026-09-24): Kimi K3, K2.7 Code, K2.6 listed; K2.8 Preview absent.
 
-Interpolation between verified siblings (K2.7 Code ≈ 50.4 BenchLM, K3 ≈ 72.5) was deliberately NOT used to fabricate dimension scores. A future re-research should look for (a) a public K2.8 model card or Moonshot blog with official numbers, (b) aggregation-site coverage once the preview graduates, or (c) per-token API pricing — then write a fresh `GLM_5.3.md`.
+Interpolation between verified siblings (K2.7 Code ≈ 50.4 BenchLM, K3 ≈ 72.5) was deliberately NOT used to fabricate dimension scores.
+
+**Re-research update (2026-10-17, second deep pass — still excluded, but materially richer negative findings):**
+
+- Official Kimi Code What's New page (fetched 2026-10-17) confirms the 2026-09-11 rollout facts: model ID unchanged (`kimi-for-coding`), performance "close to K3" with more efficient thinking, effort low/high/max (default max), 1M context across tiers, and a routing rule: no-thinking requests to the K3 series and K2.8 are served by K2.8 Preview (no thinking). Still NO benchmark table anywhere in the changelog.
+- Independent guide (ki-ai.chat, revised 2026-09-30) — the first substantive third-party evidence, but hands-on rather than standardized benchmarks: a JavaScript slugify-repair session in Kimi Code CLI 0.43.0 passed 4/4 original + 12/12 held-out tests, editing only the permitted source file (one successful repair, not an autonomous-run benchmark); Chat-side observations (K2.8 High, tools enabled): an order-card/table/chart image exercise returned **25/26 fields literally correct** with no invented values; a 20-answer documentation search run had 17 confirmed / 1 partial / 2 unresolved (neither response flagged conflicting official sources); a Memory workflow matched 12/12 values across probes.
+- Access/pricing verified by the same guide: Code API endpoints `https://api.kimi.ai/coding/v1` (overseas, OpenAI- and Anthropic-compatible) and `https://api.kimi.com/coding/v1` (China); membership-bundled (Plus $19 / Pro $39 / Max $99 / Ultra $199 per month), **not** per-token; current Plus gets K2.8's 1M window while K3 needs Pro+ for 1M — an access distinction, not a quality ranking (guide's own caveat).
+- Hugging Face `moonshotai/Kimi-K2.8-Preview`: still gated (401, re-checked 2026-10-17) — no public weights, model card, or parameter count; the guide explicitly finds no weight release and no standalone Global-API K2.8 ID (catalog rechecked 2026-09-30).
+- BenchLM (`kimi-k2-8-preview` and slug variants): still 404.
+
+Verdict unchanged: hands-on review evidence exists now, but every standardized row (SWE-bench, GPQA, HLE, Terminal-Bench, etc.) still reads "no verified public score found" — a single repair test plus image/search/memory observations cannot honestly populate dimension scores. A future re-research should look for (a) a public K2.8 model card or Moonshot blog with official numbers, (b) aggregation-site coverage once the preview graduates, (c) a weight release or standalone Global-API ID with per-token pricing — then write a fresh `GLM_5.3.md`.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-09-24
-- Method: public internet research (all major benchmark aggregators + HF + platform docs); no verified public scores found for this preview ID.
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-17 (first researched 2026-09-24; deep re-research passes 2026-10-16 and 2026-10-17)
+- Method: public internet research (all major benchmark aggregators + HF + official Kimi Code What's New + the independent ki-ai.chat guide with hands-on Code/Chat tests and access verification); no verified public standardized scores exist for this preview ID.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

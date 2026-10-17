@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash-Lite — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.1-flash-lite`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,6 +33,7 @@ Reasoning / knowledge:
 - HLE: **16%** (vendor launch set, prior pass — the honest cap)
 - JevBench v1.4: **14.26** / v1.5: **19.58** (typed-decision benchmark rows, outside general rankings — noted for the repo's Jev decision-model context)
 - MMMU-Pro: **76.8%**; Video-MMMU: **84.8%** (vendor, prior pass); LMArena: **Elo 1432** (prior pass)
+- FrontierMath v2 (Tiers 1–3): **27.7%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; weak)
 - ARC-AGI / CritPt / AA Intelligence Index: no verified public score found
 
 Coding:
@@ -64,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemini 3.1 Flash-Lite model card + Vals AI leaderboards, the prior 2026-09-18/10-05 passes on ai-tldr/Vals/Google launch post); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemini 3.1 Flash-Lite model card + Vals AI leaderboards, the prior 2026-09-18/10-05 passes on ai-tldr/Vals/Google launch post; 2026-10-16 re-check: BenchLM 11-row refresh corroborates all rows (FrontierMath v2 27.7% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

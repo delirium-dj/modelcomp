@@ -2,13 +2,23 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// What we catch: provider overload rejections. Some Gemini models drop this
-// way sometimes with
-//   "This model is currently experiencing high demand. Spikes in demand are
-//    usually temporary. Please try again later."
-// We only match the stable fragment before "Spikes" (the advice tail may
-// vary). Any model/provider can send the same error, so the plugin is
-// deliberately global (no model filter).
+// What we catch: transient provider-side congestion. Two error families,
+// same recovery (wait, then "continue"):
+//   1. provider overload rejections. Some Gemini models drop this way
+//      sometimes with
+//        "This model is currently experiencing high demand. Spikes in demand
+//         are usually temporary. Please try again later."
+//      We only match the stable fragment before "Spikes" (the advice tail may
+//      vary).
+//   2. OpenRouter upstream rate limits on free models. Drops look like
+//        "[Poolside] poolside/laguna-s-2.1:free is temporarily rate-limited
+//         upstream. Please retry shortly, or add your own key to accumulate
+//         your rate limits: https://openrouter.ai/settings/integrations"
+//      We match only the stable "temporarily rate-limited upstream" fragment
+//      (the "[Vendor] model" prefix, "Please retry shortly" tail, and the
+//      settings URL all vary).
+// Any model/provider can send either error, so the plugin is deliberately
+// global (no model filter).
 //
 // Arrival shapes (same lessons as bang-drop-retry.ts):
 //   1. as a `session.error` event (the common case),
@@ -21,8 +31,17 @@ import type { Plugin } from "@opencode-ai/plugin"
 
 // Stable, lowercase fragments of the error text. Matching is
 // case-insensitive on the FULL text; any fragment here trips the plugin.
-// Add more fragments here if a sibling overload error shows up.
-const PATTERNS = ["currently experiencing high demand"]
+// Add more fragments here if a sibling congestion error shows up.
+//
+// Why "temporarily rate-limited upstream" and not bare "rate limit": the
+// silent/embedded paths below scan the last ASSISTANT message, and a real
+// answer legitimately discussing rate limits would trip a bare-words match.
+// The quoted OpenRouter sentence ("... is temporarily rate-limited upstream")
+// never appears in normal prose, so it is safe.
+const PATTERNS = [
+  "currently experiencing high demand",
+  "temporarily rate-limited upstream",
+]
 
 // How long to wait before nudging: 20 seconds = 20_000 milliseconds.
 // "Spikes in demand are usually temporary" — after 20 s a fresh request

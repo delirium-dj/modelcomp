@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash Lite — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-flash-lite`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM has no Lite-specific page — the fetch resolves to the parent Gemini 2.5 Flash board used as family context only; the prior 2026-09-18/10-05 passes on llm-stats/BenchmarkList/Requesty/anotherwrapper remain the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM has no Lite-specific page — the fetch resolves to the parent Gemini 2.5 Flash board used as family context only; the prior 2026-09-18/10-05 passes on llm-stats/BenchmarkList/Requesty/anotherwrapper remain the evidence base; 2026-10-16 re-check: BenchLM still resolves to the parent 2.5 Flash board (12 rows, all consistent with the family-context readings already cited) — no Lite-specific page, no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

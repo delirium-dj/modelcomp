@@ -1,7 +1,7 @@
 # DiffusionGemma 26B A4B — findings by GLM 5.3 Flash
 
 - Source: Google DeepMind (`diffusiongemma-26b-a4b`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched artificialanalysis.ai DiffusionGemma 26B A4B page (Index/specs/param verification), BenchLM 404 confirmation, the prior 2026-10-05 pass on ai.google.dev/NVIDIA/arXiv/TechJack); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched artificialanalysis.ai DiffusionGemma 26B A4B page (Index/specs/param verification), BenchLM 404 confirmation, the prior 2026-10-05 pass on ai.google.dev/NVIDIA/arXiv/TechJack; 2026-10-16 re-check: AA page re-fetched live — Index still 10 (estimated, #45/141), 256K ctx confirmed, BenchLM still 404s — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

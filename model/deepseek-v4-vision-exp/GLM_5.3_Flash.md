@@ -1,7 +1,7 @@
 # DeepSeek-V4-Flash-Vision-Exp — findings by GLM 5.3 Flash
 
 - Source: DeepSeek (`deepseek-v4-vision-exp` — official HF checkpoint `deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Multimodal agent (the headline section):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: freshly fetched Hugging Face model card + eval-results hub (datacurve/harborframework/HKUST leaderboard links), OpenRouter provider-hosted GPQA/τ² evals from the prior pass, the prior 2026-10-08 pass on the official comparison table; confirmed no AA/BenchLM page exists); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: freshly fetched Hugging Face model card + eval-results hub (datacurve/harborframework/HKUST leaderboard links), OpenRouter provider-hosted GPQA/τ² evals from the prior pass, the prior 2026-10-08 pass on the official comparison table; confirmed no AA/BenchLM page exists; 2026-10-16 re-check: BenchLM still 404s, the live HF card reproduces the comparison table identically and the eval-results hub links confirm DeepSWE 59.3/TB2.1 83.9/Toolathlon 75.9 — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

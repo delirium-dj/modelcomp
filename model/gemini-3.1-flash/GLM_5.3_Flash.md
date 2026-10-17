@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-3.1-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM/Artificial Analysis/Vals AI fetches all 404 — no aggregator page exists; the evidence base remains the three independent trackers — llmdb, UseRightAI, BenchmarkList — from the 2026-10-08 pass, with conflicts quoted side-by-side); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM/Artificial Analysis/Vals AI fetches all 404 — no aggregator page exists; the evidence base remains the three independent trackers — llmdb, UseRightAI, BenchmarkList — from the 2026-10-08 pass, with conflicts quoted side-by-side; 2026-10-16 re-check: BenchLM/AA/Vals still 404 — no aggregator page exists, no new rows surfaced, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

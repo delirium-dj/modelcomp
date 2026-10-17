@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-pro`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - HLE: **18.8%** (Google announcement via benchlm.ai); AA-HLE: **22.5%** (AA)
 - Artificial Analysis Intelligence Index: **16.1** (AA current board — corroborates the 16)
 - AA-LCR v1.1: **69.0%** (AA — fills the long-context gap); CritPt: **2.6%** (AA — near-zero)
-- FrontierMath v2: **14.1%** Tiers 1–3 / **4.2%** Tier 4 (Epoch AI — weak)
+- FrontierMath v2: **24.6%** Tiers 1–3 / **0.0%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh) — CHANGED: the 2026-10-11 pass recorded 14.1%/4.2% from the same source; Epoch has since re-scored Tiers 1–3 upward (Tier 4 to floor)
 - AIME 2024: **92%** (Phi-4-reasoning-plus comparison table); AIME 2025: **88%** (prior pass)
 - AA-Omniscience: **39.1% accuracy / 90.9% non-hallucination row / −16.3 index** (AA — very weak index)
 - AA-IFBench: **48.7%** (AA)
@@ -67,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Vals/Epoch AI/Google-blog citations, the prior 2026-10-08 pass (AA page, datatunnel, futureagi), Google DeepMind pages via benchlm.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Vals/Epoch AI/Google-blog citations, the prior 2026-10-08 pass (AA page, datatunnel, futureagi), Google DeepMind pages via benchlm.ai; 2026-10-16 re-check: BenchLM 26-row refresh corroborates all rows (AA-IFBench 48.7% already cited, FrontierMath re-scored 14.1→24.6 T1-3 / 4.2→0.0 T4) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.md`, using the same headings.
