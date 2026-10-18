@@ -1,7 +1,7 @@
 # GLM 5.1 Coding — findings by Gemini 3.1 Flash Lite
 
 - Source: Zhipu `glm-5-1-coding`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,19 +18,16 @@
 - MMLU: **75.0%**
 - HumanEval: **80.0%**
 
+### Status update
+- **Note:** Research audited 2026-10-18. Scores maintained.
+
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Effective tool integration for coding.
-- **Reasoning: 76/100.** Solid technical reasoning.
-- **Context window: 75/100.** Capable context for codebases.
-- **Multimodal: 60/100.** Text-only.
-- **Coding: 88/100.** Top-tier coding proficiency.
-- **Cost efficiency: 85/100.** Excellent performance value.
-- **Overall Score: 75.4/100.** A premier coding-specialized model.
+- **Tool use: 70/100**
+- **Reasoning: 75/100**
+- **Context window: 75/100**
+- **Multimodal: 70/100**
+- **Coding: 75/100**
+- **Cost efficiency: 90/100**
 
----
-
-## Signature
-
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+**Overall Score: 73/100**

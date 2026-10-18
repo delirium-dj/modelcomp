@@ -1,5 +1,11 @@
 # Task Execution Report — modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-18 - GPT 5.6 Terra research completion
+
+1. **Mercury 2.5:** Added `model/mercury-2.5/GPT_5.6_Terra.md` from Inception documentation plus Artificial Analysis, BenchLM, and Vals AI. The supported report scores the exact model `48/100`; its older self-exclusion remains because deleting any finding requires explicit per-file user approval.
+2. **Opaque routes:** Retained `model/mai-experimental-test/GPT_5.6_Terra.md.excluded` after fresh research found no attributable model or benchmark evidence. Added `model/cat-jam/GPT_5.6_Terra.md.excluded`; Vercel documents `stealth/cat-jam` but publishes no benchmark figures.
+3. **Validation:** `pnpm sync && pnpm build.types:direct && pnpm build:direct` completed with zero sync failures. `pnpm test` passed all 165 tests. Sync refreshed generated data and recomputed `model/mercury-2.5/average.md` from 18 qualifying sources.
+
 ## 2026-10-03 — Research backer footer: ExtraWebSite logo + support tiers documented
 
 1. **Footer support block (`src/components/Footer.tsx`):** tier buttons (`$5 Coffee` one-time thanks · `$19/mo Supporter` name in README · `$99/mo Research backer` logo in footer) all link to `https://github.com/sponsors/delirium-dj`; `EXTRA_DONATE_LINKS` (Ko-fi / Patreon / Buy Me a Coffee / PayPal / Stripe) render as links only when `href` is set, otherwise as dashed "soon" placeholders.

@@ -1,0 +1,43 @@
+# Cat Jam - negative findings by GPT 5.6 Terra
+
+- Source: Vercel AI Gateway (`stealth/cat-jam`)
+- Date: 2026-10-18 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Cat Jam
+- **Short description:** An undisclosed stealth model positioned for coding and agentic workflows. Its maker, weights, and measured quality remain unpublished.
+- **Provider / access:** [Vercel AI Gateway](https://vercel.com/ai-gateway/models/cat-jam) lists exact ID `stealth/cat-jam`; the project's `opencode/cat-jam` route is not present in OpenCode's current public inference catalog.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** `stealth/cat-jam`; `opencode/cat-jam` is the project route label.
+- **Context window:** 1,048,576 total and 131,072 maximum output according to [Vercel AI Gateway](https://vercel.com/ai-gateway/models/cat-jam).
+- **Modalities:** Vercel identifies it as a chat model but reports no detailed capability metadata.
+- **Pricing (as of 2026-10-18):** Vercel directs users to provider details and publishes no price on the model page.
+- **Architecture:** Undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found. The Vercel model page provides no benchmark figures, and exact-model pages were absent from BenchLM, Artificial Analysis, Vals AI, BenchmarkList, and RankedAGI during this research pass.
+
+Reasoning / knowledge:
+
+- no verified public score found.
+
+Coding:
+
+- no verified public score found.
+
+Long context:
+
+- no verified public retrieval score found; the published context limit is a specification, not a retrieval evaluation.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** - 2026-10-18
+- Method: public internet research. This report is self-excluded because no verified public benchmark numbers exist for the exact model ID.

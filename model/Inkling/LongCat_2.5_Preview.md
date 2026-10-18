@@ -1,112 +1,79 @@
 # Inkling — findings by LongCat 2.5 Preview
 
-- Source: Thinking Machines Lab (`thinkingmachines/Inkling`)
-- Date: 2026-09-27 (UTC) — re-researched 2026-10-10
+- Source: Thinking Machines Lab/inkling
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Inkling
-- **Short description:** Thinking Machines Lab's first open-weights model — a 975B-total/41B-active multimodal MoE with hybrid sparse+linear attention, built for customizable agents, document/image/audio understanding, and long-context work.
-- **Provider / access:** Open weights — `thinkingmachines/Inkling` (HuggingFace; vLLM/SGLang/TokenSpeed/Transformers). Hosted API on Eden AI, OpenRouter, Together, Venice, Vercel AI Gateway. Released 2026-07-15.
-- **Release / knowledge:** Released 2026-07-15; knowledge cutoff December 2025.
-- **IDs:** `thinkingmachines/Inkling` (HF), `thinkingmachines/inkling` (OpenRouter). No Zen Free ID — paid API / Apache 2.0 open weights.
-- **Context window:** 1,048,576 tokens; max output ~1M.
-- **Modalities:** Text, image, audio in; text out; reasoning yes (controllable thinking effort 0.2–0.99); function calling, structured outputs, prompt caching.
-- **Pricing (as of 2026-10-10):** $0.95–1.87/M in, $4.05–4.68/M out (hosted providers); Apache 2.0 weights for self-hosting.
-- **Architecture:** 975B total params, 41B active; MoE with hybrid sparse + linear attention; Manifold-constrained hyper-connections; 45T-token multimodal pretraining corpus; Apache 2.0 license.
+- **Short description:** A 975B total / 41B active parameter open-weights multimodal MoE model from Thinking Machines Lab (Mira Murati), natively accepting text, image, and audio input. Released July 2026 under Apache 2.0 license.
+- **Provider / access:** Open weights on Hugging Face (`thinkingmachines/Inkling`, `thinkingmachines/Inkling-NVFP4`); API via DeepInfra `deepinfra/thinkingmachines/Inkling`, Together AI, Baseten, Fireworks AI, OpenRouter `thinkingmachines/inkling`, Tinker (fine-tuning platform). No Zen Free ID.
+- **Release / knowledge:** Released 2026-07-15; pretrained on 45T tokens of text, images, audio, and video.
+- **IDs:** `thinkingmachines/inking` (no Free ID on Zen; paid + free tier on some gateways)
+- **Context window:** 1M tokens (model card spec); 524,288 tokens (most API providers); 64K/256K on Tinker platform. Provider-dependent.
+- **Modalities:** Text + image + audio input → text output; tool calls; reasoning (controllable effort); structured output (provider-dependent).
+- **Pricing (as of 2026-10-18):** $0.95/MTok input, $4.05/MTok output (DeepInfra, lowest); $1.00/$4.05 (Together, Baseten, Fireworks); $3.74/$9.36 (official list); free tier on OpenRouter/NVIDIA (rate-limited). Open weights can be self-hosted at cost.
+- **Architecture:** 66-layer decoder-only MoE transformer; 975B total / 41B active; 256 experts, 6 active per token + 2 shared; hybrid local/global attention; native multimodal (hierarchical patch encoder for images, discrete token encoding for audio). Apache 2.0 license.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **63.8%** (best harness, effort 0.99); Terminal-Bench 2.0: **76.2%**
-- Terminal-Bench 3.0: **14.6%**; Terminal-Bench 4.0: **12.4%**
-- CoWorkBench: **70.7%**; Toolathlon Verified: **45.5%** (updated from 72.5%)
-- JobBench: **33.4%**; AutomationBench: **27.3%**; WideSearch: **81.9%**
-- MCP Atlas: **76.0%**; Tau 3 Banking: **23.7%**; BrowseComp w/ ctx: **77.1%**
-- GDPVal-AA v2: **1238** (Elo)
+- MCP Atlas: **76.0%** (official model card) / **74.1%** (HF model card) / rank 6 of 7 in publisher table
+- Toolathlon Verified: **45.5%** (official)
+- BrowseComp (w/ ctx management): **77.1%** (official)
+- GDPVal-AA v2: **1,238** (official) / **1,233** (HF) / **1,063.67** (AA v2.1)
+- AA-AnalystAgent: **23.75%** (Artificial Analysis)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **87.2%** (corrected from 89.5%)
-- HLE: **29.7%** no tools / **46.0%** with tools (corrected from 31.6%)
-- AIME 2026: **97.1%** (new)
-- Artificial Analysis Intelligence Index: **41** (updated from 42.3)
-- Agents' Last Exam: **42.9%** (score)
-- SimpleQA Verified: **43.9%**; AA Omniscience: **2.1**
+- GPQA Diamond: **87.2%** (official) / **87.12%** (Vals AI) / **87.17%** (AA)
+- AIME 2026: **97.1%** (official)
+- HLE text only: **29.7%** (official) / **31.88%** (AA)
+- HLE with tools: **46.0%** (official)
+- Artificial Analysis Intelligence Index: **25** (AA / rank 41 of 42)
+- IFBench: **79.8%** (official / ahead of all models in comparison table)
+- Global-MMLU-Lite: **88.7%** (official)
+- SimpleQA Verified: **43.9%** (official)
+- AA Omniscience: **2.1** (official) / **2** (AA)
 
 Coding:
 
-- SWE-bench Verified: **77.6%** (corrected from 80.2%; bash-only harness)
-- LiveCodeBench (Vals): **80.5%**
-- SWE-bench Pro Public: **54.3%**
+- SWE-bench Verified: **77.6%** (official) / **77.60%** (Vals AI / rank 34 of 88)
+- SWE-bench Pro Public: **54.3%** (official)
+- Terminal Bench 2.1: **63.8%** (official, internal harness) / **47.57%** (Vals AI) / **55.06%** (AA) — large discrepancy across harnesses
+- LiveCodeBench: **85.52%** (Vals AI / rank 32 of 143)
+- SciCode: **46.99%** (AA)
+
+Vision / audio:
+
+- MMMU Pro: **73.5%** (official) / **78.50%** (Vals AI) / **73.47%** (AA)
+- CharXiv RQ: **78.1%** (official) / **82.0%** with python
+- Audio MC: **56.6%** (official)
+- MMAU: **77.2%** (official)
+- VoiceBench: **91.4%** (official)
 
 Long context:
 
-- No long-context retrieval (MRCR/RULER) score published for this exact model ID. Confirmed via TML model card and independent sources — 1M is architectural ceiling, not verified recall.
-
-Multimodal:
-
-- MMMU Pro Standard 10: **73.5%**; Charxiv RQ: **78.1%** / **82.0%** with python
-- Audio MC: **56.6%**; MMAU: **77.2%**; VoiceBench: **91.4%**
-- Global-MMLU-Lite: **88.7%**; IFBench: **79.8%**
-
-Safety:
-
-- FORTRESS Adversarial: **78.0%**; FORTRESS Benign: **95.9%**; StrongREJECT: **98.6%**
+- AA-LCR v1.1: **77.33%** (Artificial Analysis)
+- 1M token context window (model card spec)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** TB2.1 63.8% and TB2.0 76.2% are solid; CoWorkBench 70.7% and MCP Atlas 76.0% confirm mid-upper agentic performance; TB4.0 12.4% and JobBench 33.4% cap the dimension.
-- **Reasoning: 75/100.** GPQA 87.2% is a notch under the 90%+ frontier bar; HLE 29.7%/46.0% and AA Index 41 sit mid-upper band; AIME 97.1% shows strong math capability.
-- **Context window: 95/100.** 1M tokens with ~1M output earns the ≥1M tier; no published 512K+ retrieval result to confirm the top of the band.
-- **Multimodal: 85/100.** Text/image/audio input lands in the 75–90 band; text-only output caps it there. MMMU Pro 73.5%, VoiceBench 91.4%, MMAU 77.2% confirm broad multimodal coverage.
-- **Coding: 72/100.** SWE-bench Verified 77.6% and LiveCodeBench 80.5% are strong; SWE-bench Pro 54.3% keeps the dimension mid-upper.
-- **Cost efficiency: 90/100.** $1.87/$4.68 hosted pricing is far below the ~$0.60/$2.20 ≈ 92 reference point; Apache 2.0 weights can self-host at infrastructure cost.
-- **Overall Score: 80/100.** Mean of the five quality dims (72+75+95+85+72)/5 = 79.8 → 80. Best-fit: self-hostable open-weight generalist for agentic, multimodal, and long-context workloads at exceptional economics.
-
----
-
-## Re-research update — 2026-10-10
-
-### Changes from previous findings
-
-| Metric | Previous (2026-09-27) | Updated (2026-10-10) | Source |
-|---|---|---|---|
-| GPQA Diamond | 89.5% | **87.2%** | TML official model card |
-| HLE text only | 31.6% | **29.7%** | TML official model card |
-| SWE-bench Verified | 80.2% | **77.6%** | TML official (bash-only harness) |
-| Toolathlon Verified | 72.5% | **45.5%** | TML official model card |
-| AA Intelligence Index | 42.3 | **41** | Artificial Analysis |
-
-### New benchmarks discovered
-
-- **AIME 2026: 97.1%** — strong mathematical reasoning
-- **MCP Atlas: 76.0%** — agentic tool use
-- **Tau 3 Banking: 23.7%** — domain-specific agentic
-- **BrowseComp w/ ctx: 77.1%** — browsing/research capability
-- **SimpleQA Verified: 43.9%** — factuality
-- **IFBench: 79.8%** — instruction following
-- **Global-MMLU-Lite: 88.7%** — multilingual
-- **MMMU Pro: 73.5%** — vision reasoning
-- **Charxiv RQ: 78.1%/82.0%** — chart reasoning
-- **Audio MC: 56.6%; MMAU: 77.2%; VoiceBench: 91.4%** — audio understanding
-- **FORTRESS: 78.0%/95.9%; StrongREJECT: 98.6%** — safety
-
-### Still missing
-
-- MRCR/RULER long-context retrieval benchmarks — confirmed not published by TML or any independent source. The 1M context window is an architectural claim, not a verified recall score.
-
-### New model in family
-
-- **Inkling-Small** (276B total / 12B active) released 2026-07-30. Matches or exceeds Inkling on reasoning (HLE 31.6% vs 29.7%) and coding (SWE-bench Verified 80.2% vs 77.6%) at lower cost. Output pricing $1.20/M vs Inkling's $4.05/M.
+- **Tool use: 74/100.** MCP Atlas 76.0% is competitive with frontier models; Toolathlon 45.5% is moderate. Capped by AgentBench-style evals showing mid-tier agentic performance.
+- **Reasoning: 82/100.** GPQA Diamond 87.2% and AIME 97.1% are strong; IFBench 79.8% leads its comparison table. Capped by HLE 29.7% (below frontier) and AA Intelligence Index 25 (rank 41/42).
+- **Context window: 90/100.** 1M tokens per model card (524K on most API providers). Needle-in-a-haystack passes to ~880K tokens (SGLang). Provider-dependent limits apply.
+- **Multimodal: 86/100.** Native text+image+audio input (rare among open models); MMMU Pro 73.5%, VoiceBench 91.4%, MMAU 77.2%, Audio MC 56.6%. Capped by vision scores below frontier closed models (Gemini 3.1 Pro 82.0% MMMU Pro).
+- **Coding: 74/100.** SWE-bench Verified 77.6% is solid for open weights; SWE-bench Pro 54.3% trails GLM 5.2 (62.1%). Capped by Terminal Bench discrepancy (63.8% official vs 47.57% Vals AI) and SciCode 46.99%.
+- **Cost efficiency: 88/100.** $0.95/$4.05 per MTok is exceptionally low for a 975B model; free tier available; Apache 2.0 open weights enable self-hosting. Outstanding value.
+- **Overall Score: 81.2/100.** Mean of (74+82+90+86+74)/5 = 81.2 → 82. A strong open-weights multimodal model with excellent cost efficiency. Best suited for fine-tuning on Tinker, multimodal applications, and budget-conscious deployments. Not the strongest out-of-the-box coding or reasoning model — frontier closed models (Claude Fable 5, GPT-5.6 Sol) outperform it on hard tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **LongCat 2.5 Preview (Meituan/LongCat-2.5-Preview)** — 2026-09-27, re-researched 2026-10-10
-- Method: public internet research (TML launch post + model card, BenchLM, Vals.ai, CloudPrice, VernaOne, Artificial Analysis, Sebastian Raschka); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-18
+- Method: Public internet research (Thinking Machines official model card + blog, Hugging Face model card, Artificial Analysis, AIEvals, Vals AI, Sebastian Raschka, Decrypt, Pondero, OpenRouter, DeepInfra, LiteLLM, Vercel AI Gateway); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

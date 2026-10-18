@@ -1,0 +1,48 @@
+# Nemotron 3.5 Bolt E4B - findings by GPT 5.6 Terra
+
+- Source: NVIDIA/Nemotron 3.5 Bolt E4B (unverified route)
+- Date: 2026-10-18 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** A named NVIDIA Bolt-family entry in the dataset, but no public NVIDIA model card, weights repository, release announcement, or verified API route was found for this exact E4B model.
+- **Provider / access:** Curated target ID is `opencode/nemotron-3.5-bolt-e4b`; the current OpenCode `/inference/v1/models` response does not list that ID.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** `opencode/nemotron-3.5-bolt-e4b` is unverified; no upstream NVIDIA model ID was found.
+- **Context window:** No verified public value found.
+- **Modalities:** No verified public value found.
+- **Pricing (as of 2026-10-18):** No verified public value found.
+- **Architecture:** No verified public value found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found for this exact model. BenchLM tracks the name but reports 0 of 639 benchmark rows: https://benchlm.ai/models/nemotron-3-5-bolt-e4b.
+
+Reasoning / knowledge:
+
+- No verified public score found for this exact model. A Hugging Face API search returned no exact-model weights or card.
+
+Coding:
+
+- No verified public score found for this exact model. NVIDIA Build returned no exact model page.
+
+Long context:
+
+- No verified public score found for this exact model.
+
+### Normalized scores (1-100)
+
+No scores assigned. The available evidence does not identify a released exact model or provide a verified benchmark number; scores from Nemotron 3.5 Bolt 74B-A9B or other Nemotron variants would be proxy data.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-18
+- Method: Public NVIDIA, Hugging Face, BenchLM, and OpenCode catalog research. This self-exclusion contains no normalized score because the exact model lacks verified public data.
+- Future sources: add a new file next to this one when an independently identifiable release and benchmark data exist.

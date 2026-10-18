@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3.7-flash`, overall 66.84, rank #28/954, 45 of 639 benchmarks); Google DeepMind model card; Artificial Analysis; Vals AI leaderboards; ARC Prize; Epoch AI. Re-verified 2026-10-16. Model pool grew from 889 to 954.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3.7-flash`, overall 66.84, rank #28/954, 45 of 639 benchmarks); Google DeepMind model card; Artificial Analysis; Vals AI leaderboards; ARC Prize; Epoch AI. Re-verified 2026-10-17. Model pool grew from 889 to 954.
 
 Agent / tool use:
 
@@ -115,7 +115,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 66.84, #28/954, 45 of 639) and AA as of 2026-10-16.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 66.84, #28/954, 45 of 639) and AA as of 2026-10-17.
 
 - **Tool use: 75/100.** τ²-bench 95.6% (from Google model card, exceeds ≥88 frontier), TB-2.1 85.8% (≥85 frontier), TB-2.1 (Vals) 77.5%, aaTB21 85.8%, GDPval-AA Elo 1525 (below ~1750 frontier), AA Harvey LAB 90.7%, OSWorld 2.0 47.9%, AA-AnalystAgent 60.0%, AA Agentic Index 36.4% (decreased from 51.5%), GDPval-AA normalized 44.6% (decreased from 51.6%). Capped by GDPval-AA normalized 44.6% (below ~47 mid-tier), AA Agentic Index 36.4% (below ~47 mid-tier), Terminal-Bench 3.0 14.9% (new low), ApprenticeBench 16% (new low), OSWorld 2.0 47.9% (decent but below ≥60 frontier).
   - Note: BenchLM removed aaTB21, AA Terminal-Bench 4.0, GDP.pdf, and AA AutomationBench from the displayed table for this model between Oct 10 and Oct 16. τ²-bench 95.6% is verified from the Google model card (not BenchLM's displayed table). New low benchmarks (TB-3.0 14.9%, ApprenticeBench 16%) drag down the composite.
@@ -134,12 +134,25 @@ Long context:
 
 - **Overall Score: 86.4/100.** (75+83+96+92+86)/5 = 432/5 = 86.4 → 86. **Revised down from 87 to 86.** Cost-efficient coding/agentic Flash workhouse with elite reasoning benchmarks (GPQA-D 94.5%, ARC-AGI-1 95.50%) and strong coding (LiveCodeBench 88.7%, SWE-bench 80.8%, AA-SciCode 57.2%); cap: Intelligence Index 39.1 (below ~60 frontier, revised from 56 via v4.3.2), DeepSWE 65.3% (below 74% frontier), GDPval-AA normalized 44.6% (below ~47 mid-tier), AA Agentic Index 36.4% (below ~47 mid-tier), new low benchmarks (TB-3.0 14.9%, ApprenticeBench 16%, FrontierSWE v2 20.3%). Note: BenchLM overall decreased from 71.35 to 66.84 (#30→#28 of 954) due to new low-score benchmarks added to pool; my Tool use score revised from 78 to 75, Coding from 85 to 86, Reasoning from 82 to 83 (AA-LCR 81.7% + ARC-AGI additions).
 
+### Re-verification (2026-10-17)
+
+Confirmed via Oct 17 BenchLM page: Overall 66.84/100, #28/954, 45 of 639 benchmarks (last updated 2026-10-17). All benchmark values confirmed unchanged. Context Window 1M, Reasoning Type "Reasoning" — both consistent with file. No discrepancies found.
+
 ---
+
+- Re-verification (Oct 17): BenchLM page (last updated 2026-10-17) confirms Overall 66.84/100, #28/954, 45 of 639 benchmarks. All benchmark values confirmed unchanged. Normalized scores unchanged (86).
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3.7-flash` for overall rank/score (#28/954, 66.84) and 45 benchmark rows; AA model page `https://artificialanalysis.ai/models/gemini-3.7-flash` for Intelligence Index 39.1, GDPval-AA normalized 44.6%, AA Agentic Index 36.4%, AA-LCR 81.7%, AA-HLE 47.9%, AA-MMMU-Pro 85.5%, LVBench 85.4, AA Coding Index 76.1, AA-SciCode 57.2%, AA-AnalystAgent 60.0%, AA-Harvey LAB 90.7%, AA-Tau3 Banking; AA leaderboards for aaTB21 85.8%, AA AutomationBench 59.4%, GDP.pdf 34.0%; Google DeepMind model card for τ²-bench 95.6%, WebDev Arena 1588 Elo, TB-2.1 85.8%, TB-3.0 14.9%, ApprenticeBench 16%, OSWorld 2.0 47.9%, Agents' Last Exam 26.3%, AutomationBench 30.4%, DeepSWE 65.3%, HLE-Verified 53.6%, LABBench2 82.1%, CharXiv 88.7%/84.5%, MRCR v2 97%, BioMysteryBench 87.1%/43.5%; Vals AI for GPQA 93.9%, MMLU-Pro 90.1%, TB-2.1 (Vals) 77.5%, SWE-bench 80.8%, LiveCodeBench 88.7%; ARC Prize for ARC-AGI-1 95.50%, ARC-AGI-2 84.6%; Epoch AI for FrontierMath v2 71.579%/36.585%; Cursor evals for CursorBench 4.0 data; Bug Hunt Bench for fixes data; PostTrainBench for PostTrainBench v1.1 data; OpenRouter for Design Arena 1305; Nous Research for Hermes Index/Bench). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall decreased 71.35→66.84 (#30→#28 of 954, benchmarks 36→45 as model pool grew from 889 to 954). GDPval-AA (normalized) decreased 51.6%→44.6%; AA Agentic Index decreased 51.5%→36.4%; AA AutomationBench decreased 73.7%→59.4%. New low-score benchmarks added: Terminal-Bench 3.0 14.9%, ApprenticeBench 16%, Agents' Last Exam 26.3%, FrontierSWE v2 20.3%, MazeBench 1%. Benchmarks removed from BenchLM displayed table: aaTerminalBench21 (was 85.8%), AA Terminal-Bench 4.0 (was 57.3%), GDP.pdf (was 34.0%). New benchmarks added: AA-LCR 81.7% (was "not found"), CritPt 14.3% (was "not found"), ARC-AGI-1 95.50%, ARC-AGI-2 84.6%, AA-Omniscience Index 26.5%, MRCR v2 97% at 64K-128K, HLE-Verified 53.6%, LABBench2 82.1%, BioMysteryBench, AA-AnalystAgent 60.0%, AA Harvey LAB 90.7%, Terminal-Bench 2.1 (Vals) 77.5%. AA-SciCode increased 55.4%→57.2%; AA Coding Index increased 75.8%→76.1%; GPQA (Vals) 94.4%→93.9%; MMLU-Pro (Vals) 90.2%→90.1%. τ²-bench 95.6% confirmed from Google model card (removed from BenchLM displayed table but source valid). Normalized scores: Tool use 78→75, Reasoning 82→83, Coding 85→86, Overall 87→86.
+- Key revisions from Oct 10 to Oct 17 re-verification: BenchLM overall decreased 71.35→66.84 (#30→#28 of 954, benchmarks 36→45 as model pool grew from 889 to 954). GDPval-AA (normalized) decreased 51.6%→44.6%; AA Agentic Index decreased 51.5%→36.4%; AA AutomationBench decreased 73.7%→59.4%. New low-score benchmarks added: Terminal-Bench 3.0 14.9%, ApprenticeBench 16%, Agents' Last Exam 26.3%, FrontierSWE v2 20.3%, MazeBench 1%. Benchmarks removed from BenchLM displayed table: aaTerminalBench21 (was 85.8%), AA Terminal-Bench 4.0 (was 57.3%), GDP.pdf (was 34.0%). New benchmarks added: AA-LCR 81.7% (was "not found"), CritPt 14.3% (was "not found"), ARC-AGI-1 95.50%, ARC-AGI-2 84.6%, AA-Omniscience Index 26.5%, MRCR v2 97% at 64K-128K, HLE-Verified 53.6%, LABBench2 82.1%, BioMysteryBench, AA-AnalystAgent 60.0%, AA Harvey LAB 90.7%, Terminal-Bench 2.1 (Vals) 77.5%. AA-SciCode increased 55.4%→57.2%; AA Coding Index increased 75.8%→76.1%; GPQA (Vals) 94.4%→93.9%; MMLU-Pro (Vals) 90.2%→90.1%. τ²-bench 95.6% confirmed from Google model card (removed from BenchLM displayed table but source valid). Normalized scores: Tool use 78→75, Reasoning 82→83, Coding 85→86, Overall 87→86.
 
 ---
+
+
+
+
+- Re-verification (Oct 17): BenchLM page (last updated 2026-10-17) confirms Overall 66.84/100, #28/954, 45 of 639 benchmarks. All benchmark values confirmed unchanged. Normalized scores unchanged (86).
+
+

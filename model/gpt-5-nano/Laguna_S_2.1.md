@@ -1,7 +1,7 @@
 # GPT-5 Nano — findings by Laguna S 2.1
 
 - Source: BenchLM (`https://benchlm.ai/models/gpt-5-nano`), OpenAI pricing page, Artificial Analysis
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,8 @@ Inference: GPT-5 nano (Overall 37.37) is lower than its sibling GPT-5.4 nano (46
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research (BenchLM HTML page + `__NEXT_DATA__` JSON for 4 verified benchmark scores: GPQA 71.2%, AIME 85.2%, FrontierMath v2 20%/2.439%; AA 403 blocked; OpenAI pricing page for $0.05/$0.40; meta.json for 400K context, text+image in/text out). Zero-influence: did not read peer `model/` findings files during research.
-- Key finding: Previously self-excluded on 2026-10-02 based on stale BenchLM markdown ("0 of 618" benchmarks). BenchLM HTML page (2026-10-16) shows 4 source-displayable benchmark rows with overallScore 37.37, rank #151/224. Converted from `.md.excluded` to scored `.md`.
+- Key finding: Previously self-excluded on 2026-10-02 based on stale BenchLM markdown ("0 of 618" benchmarks). On 2026-10-16, the BenchLM HTML page's `__NEXT_DATA__` JSON showed 4 source-displayable benchmark rows (GPQA 71.2%, AIME 85.2%, FrontierMath v2 T1-3 20%, T4 2.439%) with overallScore 37.37, rank #151/224. On 2026-10-17, the rendered BenchLM page shows regression: "0 of 639 benchmarks", "Sourced benchmark coverage is coming soon", "Overall Score: Coming soon", "Overall Rank: Unranked". The `__NEXT_DATA__` JSON was not re-verified via webfetch (which renders markdown only). The 4 verified benchmarks from Oct 16 are retained; note the rendered-page regression.
 
 ---

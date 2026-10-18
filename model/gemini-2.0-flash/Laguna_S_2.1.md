@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by Laguna S 2.1
 
 - Source: Google (`google/gemini-2.0-flash`, API id `gemini-2.0-flash-001`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,14 +14,14 @@
 - **IDs:** `google/gemini-2.0-flash` (per `meta.json`); `gemini-2.0-flash-001` (AI Studio API id per Gemini 2.5 technical report, Table 2).
 - **Context window:** 1,000,000 tokens total (confirmed by Artificial Analysis model page and Google Gemini 2.5 technical report, Table 1).
 - **Modalities:** Text, image, speech (audio), and video input; text and image output. Non-reasoning (no thinking). Native tool use supported. JSON output available.
-- **Pricing (as of 2026-10-16):** Shut down / deprecated as of June 1, 2026. Historical Google AI Studio: $0.10 input / $0.40 output per 1M tokens (audio input $0.70/M); historical Vertex AI: $0.15 / $0.60. No free/$0 tier.
+- **Pricing (as of 2026-10-17):** Shut down / deprecated as of June 1, 2026. Historical Google AI Studio: $0.10 input / $0.40 output per 1M tokens (audio input $0.70/M); historical Vertex AI: $0.15 / $0.60. No free/$0 tier.
 - **Architecture:** Proprietary; parameter count not disclosed by Google.
 
 ### Raw benchmarks found
 
-> Sources: (1) Google DeepMind "Gemini 2.5: Pushing the Frontier" technical report (arXiv:2507.06261, Table 3) — includes Gemini 2.0 Flash as a baseline; (2) Artificial Analysis model page `https://artificialanalysis.ai/models/gemini-2-0-flash` (specs, Intelligence Index, AA-run benchmarks); (3) BenchLM.ai `https://benchlm.ai/models/gemini-2-0-flash` (per-benchmark table citing AA and the Google tech report; updated 2026-10-16).
+> Sources: (1) Google DeepMind technical report (arXiv:2507.06261, Table 3) (arXiv:2507.06261, Table 3) — includes Gemini 2.0 Flash as a baseline; (2) Artificial Analysis model page `https://artificialanalysis.ai/models/gemini-2-0-flash` (specs, Intelligence Index, AA-run benchmarks); (3) BenchLM.ai `https://benchlm.ai/models/gemini-2-0-flash` (per-benchmark table citing AA and the Google tech report; last updated 2026-10-17, unranked — citing AA and the Google tech report).
 >
-> **Note on the queue score (74.5):** The model-queue.md peer-rating average of 74.5 is derived from peer model ratings (Big_Pickle.md, Claude_Opus_*.md, Gemini_3.8_Flash.md, GLM_5.3.md, MiMo_2.6_Flash.md, Muse_Spark_1.3.md, Nemotron_3.5_Super_VL_*.md, Space_Bunny.md, Step_5_Preview.md — 9 rating sources) — not from verified public benchmark scores against this exact model. The verified public benchmarks below indicate a significantly lower capability profile for this February 2025 non-reasoning model. This file overrides the peer-rating average with verified public benchmark evidence.
+> **Note (re-verification, Oct 17):** The model-queue.md peer-rating average of 74.5 is derived from peer model ratings (Big_Pickle.md, Claude_Opus_*.md, Gemini_3.8_Flash.md, GLM_5.3.md, MiMo_2.6_Flash.md, Muse_Spark_1.3.md, Nemotron_3.5_Super_VL_*.md, Space_Bunny.md, Step_5_Preview.md — 9 rating sources) — not from verified public benchmark scores against this exact model. The verified public benchmarks below indicate a significantly lower capability profile for this February 2025 non-reasoning model. This file overrides the peer-rating average with verified public benchmark evidence.
 
 **Agent / tool use:**
 
@@ -83,6 +83,10 @@
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16
-- Method: public internet research (Google DeepMind Gemini 2.5 technical report arXiv:2507.06261 Table 3; Artificial Analysis model page; BenchLM.ai per-benchmark table); scores are normalized 1–100 interpretations. *Filing over a prior self-exclusion: the excluded file (dated 2026-10-01) stated "zero verified public benchmark numbers" because BenchLM had not yet published data; on 2026-10-16 BenchLM and the Google tech report Table 3 now provide 15 verified public benchmarks. The model-queue.md peer-rating average of 74.5 is based on peer model ratings, not verified public benchmarks — this file overrides that with verified benchmark evidence.*
-- Future sources: add a new file next to this one (e.g. `Gemini_2_0_Flash_additional.md`) using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research (Google DeepMind Gemini 2.5 technical report arXiv:2507.06261 Table 3; Artificial Analysis model page; BenchLM.ai per-benchmark table); scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research. *Filing over a prior self-exclusion: the excluded file (dated 2026-10-01) stated "zero verified public benchmark numbers" because BenchLM had not yet published data; on 2026-10-16 BenchLM and the Google tech report Table 3 now provide 15 verified public benchmarks.*
+
+Re-verification (Oct 17): BenchLM page (last updated 2026-10-17) confirms 15 of 639 benchmarks, model unranked, no public overall score. All benchmark values confirmed unchanged. Scoring unchanged (52).
+
+
+

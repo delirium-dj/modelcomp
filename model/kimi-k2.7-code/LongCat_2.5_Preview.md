@@ -1,59 +1,79 @@
 # Kimi K2.7 Code — findings by LongCat 2.5 Preview
 
-- Source: Moonshot AI/Kimi K2.7 Code (`kimi-k2.7-code`)
-- Date: 2026-09-29 (UTC)
+- Source: Moonshot AI/kimi-k2.7-code
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Kimi K2.7 Code
-- **Short description:** Moonshot AI's open-source, coding-focused agentic model built for long-horizon software engineering. Reduces thinking-token usage by ~30% vs K2.6 while improving end-to-end task completion.
-- **Provider / access:** Moonshot AI API `kimi-k2.7-code`; open-weight on HuggingFace (`moonshotai/Kimi-K2.7-Code`). Chat Completions API (OpenAI-compatible).
-- **Release / knowledge:** 2026-06-12; knowledge cutoff not publicly specified.
-- **IDs:** `moonshotai/kimi-k2.7-code`
-- **Context window:** 262,144 tokens (262K) (verified via HuggingFace).
-- **Modalities:** Text, image in; text out; reasoning yes (forced thinking mode); tool calls yes.
-- **Pricing (as of 2026-09-29):** $0.660/$3.00 per 1M in/out (cached $0.142); open-weight available for self-hosting.
-- **Architecture:** MoE, ~1T params, ~32B active, 384 experts (8 active + 1 shared); open-weight (Modified MIT).
+- **Short description:** A coding-focused open-weights MoE model from Moonshot AI (June 2026), built on K2.6 with improved long-horizon coding, ~30% fewer thinking tokens, and native multimodal input (text, image, video). Modified MIT license.
+- **Provider / access:** Moonshot AI API `moonshot/kimi-k2.7-code`, OpenRouter `moonshot/kimi-k2.7-code`, DeepInfra, Together AI, Baseten, Cloudflare Workers AI, Azure AI Foundry, Alibaba Cloud Model Studio, Fireworks AI. Open weights on Hugging Face `moonshotai/Kimi-K2.7-Code`. No Zen Free ID.
+- **Release / knowledge:** Released 2026-06-12; knowledge cutoff January 2025.
+- **IDs:** `kimi-k2.7-code`, `kimi-k2.7-code-highspeed` (no Free ID on Zen; paid only)
+- **Context window:** 262,144 tokens (256K); max output 262,144 tokens (default 32K on Kimi platform).
+- **Modalities:** Text + image + video input → text output; tool calls; structured output; web search; thinking mode (mandatory, cannot disable).
+- **Pricing (as of 2026-10-18):** $0.95/MTok input, $4.00/MTok output (official); $0.67/$3.35 (OpenRouter); $0.68/$3.40 (DeepInfra); cache read $0.19. Open weights can be self-hosted.
+- **Architecture:** 1T total / 32B active MoE; 384 experts (8 selected + 1 shared per token); 61 layers (1 dense); MLA attention; SwiGLU; MoonViT vision encoder (400M params); native INT4 quantization. Modified MIT license.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Kimi Claw 24/7 Bench: **46.9%** (vs K2.6's 42.9%, GPT-5.5's 52.8%, Opus 4.8's 50.4%) (HuggingFace)
+- MCP Atlas: **76.0%** (official) / rank 6 of 7 in publisher table
+- MCP Mark Verified: **81.1%** (official)
+- Toolathlon Verified: **58.0%** (Armes)
+- GDPval-AA v2.1: **1,115 Elo** (Armes)
+- TAU-3 Banking: **20.2%** (Armes)
+- TAU-2 Telecom: **90.1%** (Armes)
+- TAU-2 Airline: **71.8%** (Armes)
 
 Reasoning / knowledge:
 
-- GPQA: **89.6%** (PricePerToken)
-- AA Intelligence Index: **43.0** (PricePerToken)
+- GPQA Diamond: **89.6%** (Armes)
+- HLE (no tools): **35.0%** (Armes)
+- AA Intelligence Index: **42** (DataLLM Lab / rank 6 of 97) / **26** (AA page) / **41.9** (docsbot) — significant discrepancy across sources
+- IFBench: **63.1%** (Armes)
+- AA-LCR v1.1: **79.3%** (Armes)
+- SimpleQA Verified: **36.5%** (Armes)
+- AA-Omniscience: **-10.2** (Armes)
+- LiveBench: **68.4** (Armes)
+- FrontierMath Tier 4: **54.0%** (Armes)
 
 Coding:
 
-- Kimi Code Bench v2: **62.0%** (vs K2.6's 50.9%, GPT-5.5's 69.0%, Opus 4.8's 67.4%) (HuggingFace)
-- Program Bench: **53.6%** (vs K2.6's 48.3%, GPT-5.5's 69.1%, Opus 4.8's 63.8%) (HuggingFace)
-- MLS Bench Lite: **35.1%** (vs K2.6's 26.7%, GPT-5.5's 35.5%, Opus 4.8's 42.8%) (HuggingFace)
-- SWE-bench Verified: **89%** (Vals AI)
-- AA Coding Index: **60.8** (PricePerToken)
+- SWE-bench Verified: **78.20%** (Vals AI / rank 32 of 88 / #1 open-weight)
+- Terminal-Bench 2.1: **67.04%** (Vals AI / rank 37 of 75) / **67.4%** (Armes)
+- Terminal-Bench 4.0: **44.7%** (Armes)
+- LiveCodeBench: **82.05%** (Vals AI / rank 58 of 143)
+- Vibe Code Bench: **47.21%** (Vals AI)
+- DeepSWE: **31%** (rank 13 of 15)
+- FrontierCode Extended: **39.5%** (Devin team)
+- CursorBench 3.2: **49.7** (Cursor)
+- Kimi Code Bench v2: **62.0** (official, in-house)
+- Program Bench: **53.6** (official)
+- MLS Bench Lite: **35.1** (official)
 
 Long context:
 
-- 262K token context window; no specific long-context retrieval benchmark found.
+- AA-LCR v1.1: **79.3%** (Armes)
+- 262K token context window
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** Kimi Claw 24/7 Bench at 46.9% is moderate. Capped by limited agentic benchmark coverage.
-- **Reasoning: 72/100.** GPQA at 89.6% is strong; AA Intelligence Index at 43.0% is moderate. Capped by limited reasoning benchmark diversity.
-- **Context window: 70/100.** 262K token context window is decent but below the 1M+ frontier standard.
-- **Multimodal: 70/100.** Text and image input with text output. Capped by no video/audio input.
-- **Coding: 75/100.** Kimi Code Bench v2 at 62.0% and SWE-bench Verified at 89% are strong. Capped by MLS Bench Lite at 35.1%.
-- **Cost efficiency: 85/100.** $0.660/$3.00 per 1M is cheap for a frontier-tier model; excellent value.
-- **Overall Score: 68/100.** Mean of (55+72+70+70+75)/5 = 68.4 → 68. Best-fit recommendation: excellent value open-weight coding-focused model with strong coding and reasoning; held back by moderate agentic tool use and smaller context window.
+- **Tool use: 78/100.** MCP Atlas 76.0% and MCP Mark 81.1% are strong; Toolathlon 58.0% is moderate. Capped by mid-tier agentic benchmark performance.
+- **Reasoning: 78/100.** GPQA Diamond 89.6% is good; HLE 35.0% is moderate. Capped by AA Intelligence Index discrepancy (26-42 depending on source) and AA-Omniscience -10.2 (poor factuality).
+- **Context window: 80/100.** 262K tokens is solid but below the 1M+ frontier. No long-context surcharge.
+- **Multimodal: 78/100.** Text + image + video input with MoonViT encoder; native multimodal. Capped by limited independent vision benchmark data.
+- **Coding: 75/100.** SWE-bench Verified 78.2% (#1 open-weight, Vals AI), Terminal-Bench 67.0%, LiveCodeBench 82.05%. Capped by DeepSWE 31% (13/15) and vendor benchmarks being mostly in-house.
+- **Cost efficiency: 82/100.** $0.95/$4.00 is very competitive for a 1T model; ~30% fewer thinking tokens than K2.6; open weights enable self-hosting. Capped by mandatory thinking mode (always-on cost).
+- **Overall Score: 78/100.** Mean of (78+78+80+78+75)/5 = 77.8 → 78. A cost-efficient open-weights coding specialist with strong SWE-bench performance. Best for long-horizon coding tasks and budget-conscious deployments. Not a frontier generalist — trails closed models on reasoning and factuality.
 
 ---
 
 ## Signature
 
-- Provided by: **LongCat 2.5 Preview (longcat-2.5-preview)** — 2026-09-29
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-18
+- Method: Public internet research (Moonshot AI official blog + HF model card, Artificial Analysis, Vals AI, DataLLM Lab, VentureBeat, Botmonster, Devin/FrontierCode, Armes, OpenRouter, LiteLLM, Cloudflare AI docs, QwenCloud, MarktechPost); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

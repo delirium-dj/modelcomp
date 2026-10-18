@@ -14,12 +14,12 @@
 - **IDs:** `nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8` (HF); `opencode/nemotron-3-nano-omni` (free API via NVIDIA Build)
 - **Context window:** 256,000 total tokens
 - **Modalities:** Text, Image, Video, Audio (in); Text (out)
-- **Pricing (as of 2026-10-16):** $0 via NVIDIA Build free API; open checkpoints available for self-hosting
+- **Pricing (as of 2026-10-17):** $0 via NVIDIA Build free API; open checkpoints available for self-hosting
 - **Architecture:** Mamba2-Transformer hybrid Mixture of Experts (MoE); 3.1×10¹⁰ parameters (31B), ~3B active per token
 
 ### Raw benchmarks found
 
-All benchmarks are verified public scores from the official Hugging Face model card (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8`), with release date 2026-04-28.
+All benchmarks are verified public scores from the official Hugging Face model card (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8`), with release date 2026-04-28. 11 benchmarks from HF model card; 18 additional benchmarks from Oct 17 BenchLM page (Overall 32.22/100, #173/954, 29 of 639 total).
 
 | Task | Benchmark | Score |
 |---|---|---|
@@ -39,7 +39,7 @@ All benchmarks are verified public scores from the official Hugging Face model c
 
 Sources checked:
 - Hugging Face model card: `https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8` (11 verified benchmarks published 2026-04-28)
-- Artificial Analysis: 404 (model page not indexed as of 2026-10-16)
+- Artificial Analysis: 404 (model page not indexed as of 2026-10-17)
 - BenchLM: `https://benchlm.ai/models/nemotron-3-nano-omni-30b-a3b` (29 of 639 benchmarks, Overall 32.22/100, #173/954, 2026-10-17)
 - ArXiv paper: arXiv:2604.24954 (references multimodal evaluation benchmarks only)
 - NVIDIA technical report: `https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Omni-report.pdf`
@@ -47,7 +47,7 @@ Sources checked:
 ## Re-verification (Oct 17 BenchLM additions)
 
 CRITICAL discrepancies revealed by Oct 17 BenchLM page:
-- τ²-bench: **45.3%** (file said "no verified public score found")
+- tau²-bench: **45.3%** (file said "no verified public score found")
 - GDPval-AA normalized: **0.0%**, GDPval-AA Elo: **416** (file said "no verified public score found")
 - AA-LCR: **39.7%** (file said "no verified public score found")
 - CritPt: **0.0%** (new)
@@ -65,11 +65,11 @@ CRITICAL discrepancies revealed by Oct 17 BenchLM page:
 - IFBench: **74.2%** (new)
 - VoiceBench: Overall 89.39, IF-Eval 88.66, AdvBench 100.00 (new, speech/voice benchmarks)
 
-No text-only reasoning benchmarks (HLE, GPQA, SWE-bench, LiveCodeBench) were published for this model in the original HF model card release (2026-04-28). However, Oct 17 BenchLM page now provides these. No coding benchmarks are published.
+No text-only reasoning benchmarks (HLE, GPQA, SWE-bench, LiveCodeBench) were published for this model in the original HF model card release (2026-04-28). However, Oct 17 BenchLM page now provides 18 additional benchmarks including text-only reasoning evals (Intelligence Index 10.3, CritPt 0.0%, AA-HLE 4.8%, tau²-bench 45.3%, GDPval-AA 0.0%). New coding benchmarks from Oct 17: LiveCodeBench v5 63.2%, SciCode 32%, AA Coding Index 13.8%.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 56/100** — OSWorld 47.4% (confirmed, strong for 30B-A3B), τ²-Bench 45.3% (NEW from Oct 17 BenchLM); GDPval-AA 0.0% normalized / 416 Elo (NEW, very poor). No MCP-Atlas published.
+- **Tool use: 56/100** — OSWorld 47.4% (confirmed, strong for 30B-A3B), tau²-bench 45.3% (NEW from Oct 17 BenchLM); GDPval-AA 0.0% normalized / 416 Elo (NEW, very poor). No MCP-Atlas published.
 - **Reasoning: 50/100** — CRITICAL revision from 78. No text-only reasoning benchmarks in original HF model card. Oct 17 BenchLM revealed: AA Intelligence Index 10.3 (very low), CritPt 0.0%, AA-LCR 39.7%, AA-HLE 4.8%, AA-Omniscience Index -57.4%, Accuracy 15.2%, Hallucination Rate 85.7%. Multimodal reasoning (CharXiv 76.3%, MathVista 82.8%) solid but text-only agentic reasoning weak.
 - **Context window: 100/100** — 256,000 tokens (confirmed).
 - **Multimodal: 92/100** — Text+Image+Video+Audio input, text output. 11 HF benchmarks + new Oct 17 additions (MMMU 70.8%, Video-MME 72.2%, V* 85.6%, MathVision 78.2%, CharXiv 80.8%, VoiceBench 89.39).
@@ -80,9 +80,9 @@ No text-only reasoning benchmarks (HLE, GPQA, SWE-bench, LiveCodeBench) were pub
 
 ### Conflict handling
 
-The `.md.excluded` file (dated 2026-10-08) self-excluded citing "no verified public benchmark scores." This was resolved by fresh research on 2026-10-17: the official Hugging Face model card (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8`) published 11 verified multimodal benchmarks on 2026-04-28 alongside the model release. Artificial Analysis, BenchLM, and NGC catalog pages remain 404, but the HF model card is an authoritative primary source.
+The `.md.excluded` file (dated 2026-10-08) self-excluded citing "no verified public benchmark scores." This was resolved by fresh research on 2026-10-17: the official Hugging Face model card (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8`) published 11 verified multimodal benchmarks on 2026-04-28 alongside the model release. Artificial Analysis and NGC catalog pages remain 404, but the HF model card and BenchLM (32.22/100, #173/954, 29/639 benchmarks) are authoritative primary sources.
 
-The `.md.excluded` file's model card attributes (30B-A3B, 256k context, $0 API) are confirmed accurate by the HF model card.
+The `.md.excluded` file's model card attributes (30B-A3B, 256k context, $0 API) are confirmed accurate by the HF model card and Oct 17 BenchLM page.
 
 ---
 
@@ -91,3 +91,7 @@ The `.md.excluded` file's model card attributes (30B-A3B, 256k context, $0 API) 
 - Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research; 11 verified public multimodal benchmark scores from official Hugging Face model card (2026-04-28) plus 29 benchmarks from Oct 17 BenchLM page. Zero-influence: did not read peer `model/` findings files during research.
 - Sources: Hugging Face model card (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8`); arXiv:2604.24954; BenchLM.ai model page (`https://benchlm.ai/models/nemotron-3-nano-omni-30b-a3b`, Overall 32.22/100, #173/954, 29 of 639 benchmarks, 2026-10-17); NVIDIA technical report (`https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Omni-report.pdf`).
+
+
+
+
