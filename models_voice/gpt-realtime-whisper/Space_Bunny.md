@@ -1,4 +1,4 @@
-# GPT-Realtime-Whisper — findings by Space Bunny Alpha
+# GPT-Realtime-Whisper — findings by Space Bunny
 
 - Source: OpenAI / `gpt-realtime-whisper`
 - Date: 2026-09-30 (UTC)
@@ -163,7 +163,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-30
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-30
 - Method: public internet research (OpenAI API model documentation for
   `gpt-realtime-whisper`, the "Advancing voice intelligence with new models"
   release post, AlphaSignal's coverage of the `gpt-transcribe` /

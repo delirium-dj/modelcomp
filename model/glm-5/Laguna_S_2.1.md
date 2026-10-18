@@ -1,7 +1,7 @@
 # GLM-5 — findings by Laguna S 2.1
 
 - Source: Z AI (glm-5)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `zhipuai/glm-5`
 - **Context window:** 200,000 tokens (Artificial Analysis model page). No input/output split is published; treated as a single 200k total window.
 - **Modalities:** text in, text out. Reasoning/thinking enabled (AA marks "Reasoning: Yes"). Tool use supported (Chat Completions tool calling, JSON mode available). No image, audio, or video input — text output only.
-- **Pricing (as of 2026-10-16):** $1.00 per 1M input tokens and $3.20 per 1M output tokens (Artificial Analysis, median across serving providers; 80% cache discount). No free/$0 tier.
+- **Pricing (as of 2026-10-17):** $1.00 per 1M input tokens and $3.20 per 1M output tokens (Artificial Analysis, median across serving providers; 80% cache discount). No free/$0 tier.
 - **Architecture:** 744 billion total parameters, 40 billion active per token, Mixture of Experts (MoE); DeepSeek Sparse Attention (DSA). License: MIT (open weights). Source: HF `zai-org/GLM-5` README + GitHub repo.
 
 ### Raw benchmarks found
@@ -79,6 +79,14 @@
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16
-- Method: public internet research (Z AI technical report benchmark table via Hugging Face `zai-org/GLM-5` README + GitHub repo, Artificial Analysis model page & leaderboard, and Hugging Face `evaleval` community cross-check); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one (e.g. `Glm_5_zai.md`) using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research (Z AI technical report benchmark table via Hugging Face `zai-org/GLM-5` README + GitHub repo; Artificial Analysis model page & leaderboard; Hugging Face `evaleval` community cross-check). Scores normalized 1–100 per model-comparison.md v4.
+- Sources: Z AI technical report (via HuggingFace `zai-org/GLM-5`, arXiv:2602.15763); Artificial Analysis model page (`/models/glm-5`, Intelligence Index 27.9%, 200K context); BenchLM.ai model page (Overall 54.84/100, #69/954, 50 of 639 benchmarks, 2026-10-17); Vals AI; Qwen3.6-Plus & Arcee comparison tables.
+- Discrepancy note: Intelligence Index 28 (file estimate) confirmed as 27.9% on Oct 17 page. MCP Atlas 67.8% (Z AI report) vs 31.1% (Qwen3.6 comparison table) — file uses Z AI report as primary.
+- Re-verification (Oct 17): BenchLM confirms 54.84/100, #69/954, 50 of 639 benchmarks. Core Z AI report benchmarks unchanged. New Oct 17 benchmarks from Qwen3.6/Arcee tables: DeepPlanning 14.6%, WideResearch 69.8%, LongBench v2 60.8%, IFEval 92.6%, AA-IFBench 72.3%.
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed via Oct 17 BenchLM page: Overall 54.84/100, rank #69/954, 50 of 639 benchmarks. Core Z AI report benchmarks unchanged. Intelligence Index 28→27.9% confirmed. Normalized scores unchanged (64).

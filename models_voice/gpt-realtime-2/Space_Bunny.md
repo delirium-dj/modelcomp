@@ -1,4 +1,4 @@
-# GPT-Realtime-2 — findings by Space Bunny Alpha
+# GPT-Realtime-2 — findings by Space Bunny
 
 - Source: OpenAI (`gpt-realtime-2`)
 - Date: 2026-09-27 (UTC)
@@ -193,7 +193,7 @@ Latency (voice-specific, and the axis that decides real-time viability):
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-27
 - Method: public internet research (OpenAI launch post and Realtime API model
   documentation, Artificial Analysis Speech-to-Speech Index announcement and speech-to-
   speech methodology, Scale AI Audio MultiChallenge leaderboard coverage via DeepLearning.AI,

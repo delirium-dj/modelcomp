@@ -1,4 +1,4 @@
-# Grok Voice Think Fast 2.0 — findings by Space Bunny Alpha
+# Grok Voice Think Fast 2.0 — findings by Space Bunny
 
 - Source: xAI / SpaceXAI (`grok-voice-think-fast-2.0`)
 - Date: 2026-09-27 (UTC)
@@ -194,7 +194,7 @@ Long context / latency / cost (voice-specific axes):
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-27
 - Method: public internet research (x.ai launch post for Grok Voice Think Fast 2.0,
   Artificial Analysis Speech-to-Speech leaderboard and index/methodology pages, xAI
   speech-to-speech documentation, and independent coverage from AlphaSignal,

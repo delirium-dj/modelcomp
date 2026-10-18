@@ -130,7 +130,7 @@ export const VERIFIED: Record<string, string> = {
   "mimo-v2.5-pro": "2026-10-17",
   "mimo-v2.6-distill-qwen-9b": "2026-10-17",
   "mimo-v2.6-flash": "2026-10-17",
-  "mimo-v2.6-free": "2026-10-17",
+  "mimo-v2.6-free": "2026-10-18",
   "mimo-v2.6-pro": "2026-10-17",
   "minimax-m2.5": "2026-10-18",
   "minimax-m2.7": "2026-10-17",
@@ -173,7 +173,7 @@ export const VERIFIED: Record<string, string> = {
   "solar-open-2": "2026-10-17",
   "solar-pro-4": "2026-10-17",
   "space-bunny": "2026-10-17",
-  "step-5-preview": "2026-10-17",
+  "step-5-preview": "2026-10-18",
   "union-alpha": "2026-10-17",
   "xing_4.0_29b_a4b": "2026-10-18",
 };

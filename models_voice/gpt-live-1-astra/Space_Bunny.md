@@ -1,4 +1,4 @@
-# GPT-Live-1 (Astra backend, medium effort) — findings by Space Bunny Alpha
+# GPT-Live-1 (Astra backend, medium effort) — findings by Space Bunny
 
 - Source: OpenAI (`gpt-live-1` with a GPT-6 Astra reasoning backend, `medium` effort)
 - Date: 2026-09-27 (UTC)
@@ -219,7 +219,7 @@ Long context / latency / cost (voice-specific axes):
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-27
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-27
 - Method: public internet research (OpenAI GPT-Live-1 launch post and API model
   documentation, Artificial Analysis Speech-to-Speech leaderboard and index/methodology
   pages, OpenAI Developer Community announcement thread, Unite.AI, TechRepublic, GIGAZINE,

@@ -1,4 +1,4 @@
-# GPT-Realtime-Translate — findings by Space Bunny Alpha
+# GPT-Realtime-Translate — findings by Space Bunny
 
 - Source: OpenAI / `gpt-realtime-translate`
 - Date: 2026-09-30 (UTC)
@@ -159,7 +159,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-30
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-30
 - Method: public internet research (OpenAI API model documentation for
   `gpt-realtime-translate` and the "Advancing voice intelligence with new models"
   release post, Microsoft Foundry model catalog, CloudPrice spec record, TNW

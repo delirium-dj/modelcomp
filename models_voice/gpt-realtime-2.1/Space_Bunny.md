@@ -1,4 +1,4 @@
-# GPT-Realtime-2.1 — findings by Space Bunny Alpha
+# GPT-Realtime-2.1 — findings by Space Bunny
 
 - Source: OpenAI / `gpt-realtime-2.1`
 - Date: 2026-09-30 (UTC)
@@ -168,7 +168,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (opencode/space-bunny-free)** — 2026-09-30
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-30
 - Method: public internet research (Artificial Analysis Speech-to-Speech
   leaderboard, OpenAI API model documentation for `gpt-realtime-2.1`, the τ-Voice
   paper, Microsoft Azure Foundry model catalog, AlphaSignal's Speech-to-Speech

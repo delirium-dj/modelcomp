@@ -1,7 +1,7 @@
 # Kimi K3 — findings by Laguna S 2.1
 
 - Source: Moonshot AI (`moonshotai/kimi-k3`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (Overall 69.87/100, #18/954, 83 of 639 benchmarks); Artificial Analysis; Moonshot HokAI launch report. Re-verified 2026-10-16. Model pool grew from 887 to 954.
+> Sources: BenchLM.ai (Overall 69.87/100, #18/954, 83 of 639 benchmarks); Artificial Analysis; Moonshot HokAI launch report. Re-verified 2026-10-17. Model pool grew from 887 to 954.
 
 Agent / tool use:
 
@@ -37,13 +37,22 @@ Agent / tool use:
 - AA AutomationBench: **58.3%** (Artificial Analysis / BenchLM — NEW)
 - AA EnterpriseOps-Gym: **45.3%** (Artificial Analysis / BenchLM — NEW)
 - AA Tau3 Banking: **46.0%** (Artificial Analysis / BenchLM — NEW)
-- AA-AnalystAgent: **38.8%** (Artificial Analysis / BenchLM — NEW)
+- AA-AnalystAgent: **38.8%** (Artificial Analysis / BenchLM — confirmed)
 - AA ITBench: **47.7%** (Artificial Analysis / BenchLM — NEW)
 - ApprenticeBench: **18%** (NeoCognition / BenchLM — NEW, very low)
-- AA ITBench: 47.7% (Artificial Analysis — NEW)
 - Toolathlon-Verified: **73.2%** (Moonshot AI: Kimi K3 launch blog — NEW)
 - GDP.pdf: **22.0%** (Artificial Analysis / BenchLM — confirmed)
 - MazeBench: **1%** (MazeBench AI leaderboard / BenchLM — NEW, very low)
+- BrowseComp: **91.2%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- DeepSearchQA: **95.0%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- MCP Atlas: **84.2%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- JobBench: **52.9%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- APEX-Agents: **37.6%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- SpreadsheetBench 2: **34.8%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- DECK-Bench: **73.5%** (Moonshot AI: Kimi K3 launch blog — NEW)
+- AA Terminal-Bench 4.0: **12.6%** (Artificial Analysis / BenchLM — NEW)
+- Hermes Index: **39.2%** (Nous Research: Hermes Index leaderboard / BenchLM — NEW)
+- Hermes Bench: **71.5%** (Nous Research: Hermes Index leaderboard / BenchLM — NEW)
 - OSWorld 2.0: no verified public score found for this exact ID
 - CLIP-Bench: no verified public score found
 - DRACO: no verified public score found
@@ -71,6 +80,7 @@ Reasoning / knowledge:
 - AA Global-MMLU-Lite: not verified public score found
 - BioMysteryBench: not verified public score found
 - FrontierMath v2: not verified public score found for this model
+- Gray Swan IPI: **52.7%** (Google: Gemini 4 Argon launch chart / BenchLM — NEW)
 
 Coding:
 
@@ -87,7 +97,8 @@ Coding:
 - LiveCodeBench (Vals): **87.2%** (Vals AI: LiveCodeBench leaderboard — NEW, excellent! Was 47.4% via BenchLM on Oct 10 — the 87.2% is the Vals AI score, a different/verification track)
 - SWE-bench Verified: **62.1%** (BenchLM — confirmed from Oct 10)
 - LiveCodeBench: **47.4%** (BenchLM — original score; Vals version shows 87.2%)
-- PostTrainBench v1.1: **32.0%** (PostTrainBench — NEW)
+- PostTrainBench v1.1: **32.0%** (PostTrainBench — confirmed)
+- PostTrainBench: **36.6%** (Moonshot AI: Kimi K3 launch blog — NEW)
 - VulcanBench v3: **73.7%** (VulcanBench v3 July 2026 expanded report — NEW)
 - OpenHarmony Bench: **57.3%** (OpenHarmony Bench official leaderboard — NEW)
 - FrontierSWE v2: **25.9%** (Proximal leaderboard / BenchLM — NEW)
@@ -104,10 +115,12 @@ Multimodal:
 - LVBench: **85.4%** (Artificial Analysis / BenchLM — confirmed)
 - AA-MMMU-Pro: **80.5%** (Artificial Analysis / BenchLM — NEW)
 - Design Arena Website: **1336** (OpenRouter / BenchLM — confirmed)
+- OfficeQA Pro: **63.3%** (Moonshot AI: Kimi K3 launch blog — NEW)
 - ZeroBench: **23.0%** (w/o Python) / **41.0%** (w/ Python) (Moonshot AI — NEW)
 - WorldVQA ForceAnswer: **51.0%** (Moonshot AI — NEW)
 - OmniDocBench: **91.1%** (Moonshot AI — NEW)
 - PerceptionBench: **58.5%** (Moonshot AI — NEW)
+- BabyVision w/ Python: **85.7%** (Moonshot AI: Kimi K3 launch blog — NEW)
 
 Long context:
 
@@ -138,8 +151,15 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/kimi-k3` for full benchmark tables; Artificial Analysis model/evaluation pages for Intelligence Index 43.6, GDPval-AA Elo 1533, GDPval-AA normalized 51.7%, AA-LCR 88.7%, AA Agentic Index 50.6%, AA Coding Index 76.2, AA-SciCode 59.5%, AA-MMMU-Pro 80.5%, Omniscience metrics, aaTB21 85%, GDP.pdf 22.0%, AA Briefcase 1501, AA Harvey LAB 94.6%, AA EnterpriseOps-Gym 45.3%, AA Tau3 Banking 46.0, AA-AnalystAgent 38.8%, ApprenticeBench 18%, MazeBench 1%, CritPt 23.4, MLCR-AA 38.3%; Moonshot HokAI launch report for GPQA-D 93.5%, DeepSWE 67.5%, LiveCodeBench 47.4%, Program Bench 77.8, TB-2.1 88.3%, HLE 56%, HLE w/o tools 43.5%, ARC-AGI-1 94.50%, ARC-AGI-2 60.4%, MMMU-Pro 81.6%, MathVision 94.3%/97.8%, CharXiv 91.3%/84.8%, LVBench 85.4, Toolathlon-Verified 73.2%, Kimi Code Bench v2 72.9%, ML-Bench Lite 48.3%; Vals AI for TB-2.1 (Vals) 80.9%, SWE-bench (Vals) 93.4%, LiveCodeBench (Vals) 87.2%, GPQA (Vals) 92.9%, MMLU-Pro (Vals) 88.0%; ArcPrize for ARC-AGI-1 94.50%, ARC-AGI-2 60.4%; AlphaSphere for AA Tau3 Banking; Cursor evals for CursorBench 3.2 60.8%; PostTrainBench for PostTrainBench v1.1 32.0%; Bug Hunt Bench for Bug Hunt data; OpenHarmony Bench for OpenHarmony results; Proximal for FrontierSWE v2 25.9%; Epoch AI for FrontierMath v2 data; VulcanBench for VulcanBench v3 73.7%; NeoCognition for ApprenticeBench 18%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall decreased 76.68→69.87 (#12/887→#18/954, benchmarks 43→83 as model pool grew from 887 to 954). GDPval-AA Elo decreased 1701→1533 (below ~1750 frontier threshold, was above on Oct 10); GDPval-AA normalized increased 43.9%→51.7%. HLE corrected from 23.4% (incorrect BenchLM score) to 56% (Moonshot launch blog — HLE w/ tools); HLE w/o tools 43.5% (new). ARC-AGI-1 increased 93.7→94.50%; ARC-AGI-2 decreased 83.2→60.4% (ArcPrize verified results). GPQA Diamond 93.5% confirmed; GPQA (Vals) 92.9% confirmed; MMLU-Pro (Vals) 88.0% confirmed. New benchmarks: AA-LCR 88.7% (excellent), CritPt 23.4%, AA Intelligence Index 43.6→43.6 (v4.3.2, slight decrease from 44), AA-HLE 46.9%, MLCR-AA 38.3%, AA-MMMU-Pro 80.5%, Omniscience metrics, AA Harvey LAB 94.6%, Toolathlon-Verified 73.2%, Terminal-Bench 2.1 (Vals) 80.9%, AA Agentic Index 50.6%, AA AutomationBench 58.3%, AA ITBench 47.7%, ApprenticeBench 18%, MazeBench 1%, AA-AnalystAgent 38.8%. Coding revisions: SWE-bench (Vals) 93.4% (NEW, from Vals AI — was 62.1% SWE-bench Verified via BenchLM), LiveCodeBench (Vals) 87.2% (NEW, from Vals AI — was 47.4% via BenchLM), AA Coding Index 59.2%→76.2% (significant), AA-SciCode 61.5%→59.5%, DeepSWE 67.5% (confirmed), ProgramBench 77.8% (confirmed), CursorBench 3.2 60.8% (NEW), FrontierSWE 81.2% (NEW), VulcanBench v3 73.7% (NEW). New multimodal: MMMU-Pro w/ Python 83.4%, MathVision w/ Python 97.8%, AA-MMMU-Pro 80.5%, OmniDocBench 91.1, ZeroBench 23.0/41.0, WorldVQA 51.0, PerceptionBench 58.5. Normalized scores revised: Tool use 82→82 (unchanged), Reasoning 83→86, Coding 78→85, Overall 85→87.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM.ai model page for τ²-bench 56.5%, TB-3.0 34.0%, GDPval-AA 51.7% normalized/1533 Elo, TB-2.1 88.3%, OSWorld not published, terminalBenchHard 62.9%; Moonshot launch blog for BrowseComp 91.2%, DeepSearchQA 95.0%, MCP Atlas 84.2%, JobBench 52.9%, APEX-Agents 37.6%, SpreadsheetBench2 34.8%, DECK-Bench 73.5%, HLE 56%, HLE w/o tools 43.5%, ARC-AGI-1 94.50%, ARC-AGI-2 60.4%, MMMU-Pro 81.6%, MathVision 94.3%/97.8%, CharXiv 91.3%/84.8%, Toolathlon-Verified 73.2%, Kimi Code Bench v2 72.9%, PostTrainBench 36.6%, BabyVision w/ Python 85.7%, OfficeQA Pro 63.3%; Artificial Analysis model/evaluation pages for Intelligence Index 43.6, GDPval-AA 1533/51.7%, AA-LCR 88.7%, AA Agentic Index 50.6%, AA Coding Index 76.2, AA-SciCode 59.5%, AA-MMMU-Pro 80.5%, AA Briefcase 1501, AA Harvey LAB 94.6%, AA EnterpriseOps-Gym 45.3%, AA Tau3 Banking 46.0, AA-AnalystAgent 38.8%, ApprenticeBench 18%, MazeBench 1%, CritPt 23.4%, MLCR-AA 38.3%, Hermes Index 39.2%, Hermes Bench 71.5%, aaTB21 85%, GDP.pdf 22.0%, AA Terminal-Bench 4.0 12.6%, Gray Swan IPI 52.7%; Vals AI for SWE-bench 93.4%, LiveCodeBench 87.2%, GPQA-D 93.5%, GPQA (Vals) 92.9%, MMLU-Pro (Vals) 88.0%; ArcPrize for ARC-AGI-1 94.50%, ARC-AGI-2 60.4%; VulcanBench for VulcanBench v3 73.7%; PostTrainBench for v1.1 32.0%; Bug Hunt Bench for Bug Hunt data; OpenHarmony Bench for OpenHarmony results; Proximal for FrontierSWE v2 25.9%). Scores normalized 1–100 per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 69.87/100, #18/954, 83 of 639 benchmarks); AA model benchmarks; Moonshot HokAI launch report; Vals AI leaderboard; ArcPrize verified results.
+- Discrepancy note: none significant. Overall decreased from 76.68 to 69.87 as model pool grew 887→954; normalized scores reflect actual frontier performance.
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall score 87, rank #18/954 (overall 69.87), 83 of 639 benchmarks on Oct 17 page. All normalized scores unchanged. New Oct 17 benchmarks added: BrowseComp 91.2%, DeepSearchQA 95.0%, MCP Atlas 84.2%, JobBench 52.9%, APEX-Agents 37.6%, SpreadsheetBench 2 34.8%, DECK-Bench 73.5%, AA Terminal-Bench 4.0 12.6%, Hermes Index 39.2%, Hermes Bench 71.5%, BabyVision w/ Python 85.7%, Gray Swan IPI 52.7%, PostTrainBench 36.6%, OfficeQA Pro 63.3%.
 
 ---

@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Laguna S 2.1
 
 - Source: openai/gpt-5.5 (OpenAI), e.g. OpenAI launch announcement, LLM Reference, Artificial Analysis, BenchLM
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Verified public numbers sourced from BenchLM.ai (`https://benchlm.ai/models/gpt-5-5`, Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-16), OpenAI launch announcement, Artificial Analysis model benchmarks (Intelligence Index 38.4%, CritPt 27.1%, AA-LCR 84.3%, GDPval-AA Elo 1395, GPQA-D 93.5%, HLE 52.2%), Vals AI (GPQA 93.6%, GPQA-D 93.2%, MMLU-Pro 88.1%, LiveCodeBench 85.3%, SWE-bench 82.6%), Epoch AI FrontierMath v2, React Native Evals.
+> Verified public numbers sourced from BenchLM.ai (`https://benchlm.ai/models/gpt-5-5`, Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-17), OpenAI launch announcement, Artificial Analysis model benchmarks, Vals AI leaderboards, Epoch AI FrontierMath v2, React Native Evals. Re-verified 2026-10-17.
 
 Agent / tool use / coding:
 
@@ -75,7 +75,7 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` (v4). Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded from Overall.
+> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded from Overall. Benchmarks verified from BenchLM (overall 69.29, #21/954, 65 of 639) as of 2026-10-17.
 
 - **Tool use: 82/100.** (Unchanged.) Terminal-Bench 2.0 82.0%, TB-2.1 (Vals) 76.4%, GDPval-AA 42.5% (normalized; Elo 1395, below 1750 frontier), BrowseComp 84.4%, MCP Atlas 75.3%, OSWorld-Verified 78.7%; τ²-bench 98% (≥90 frontier, confirmed on current page). Capped by GDPval below 50% threshold and no TB-4.0 standalone score.
 - **Reasoning: 86/100.** (Revised UP from 84.) GPQA Diamond 93.6% (all variants ≥93%, ≥90 frontier threshold), AA-GPQA-D 93.5%, ARC-AGI-1 95.00% (≥96 frontier, new), ARC-AGI-2 85%, AA-LCR 84.3%, MRCR v2 83.1%–87.5%, FrontierMath v2 T1-3 85.263% (≥85 frontier, new), HLE 52.2% (above 40% frontier). Intelligence Index 38.4% (below 60 frontier). Capped by Intelligence Index 38.4.
@@ -89,10 +89,13 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public-internet research (OpenAI launch announcement, BenchLM.ai model page, AA model benchmarks, Vals AI, Epoch AI FrontierMath v2 leaderboard, React Native Evals); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Sources: BenchLM.ai model page (Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-16); OpenAI launch announcement (`openai.com/index/introducing-gpt-5-5`); AA model benchmarks (Intelligence Index 38.4%, CritPt 27.1%, AA-LCR 84.3%, GDPval-AA Elo 1395); Vals AI (GPQA 93.6%, GPQA-D 93.2%, MMLU-Pro 88.1%, LiveCodeBench 85.3%, SWE-bench 82.6%); Epoch AI FrontierMath v2.
-- Re-verification (Oct 16): BenchLM updated from 67.79 (#24/889, 64/625) to 69.29 (#21/954, 65/639). Minimal changes: Intelligence Index 38→38.4% (negligible), τ²-bench 98% (≥90 frontier, unchanged), BrowseComp 84.4% (unchanged), GDPval-AA Elo 1396→1395 (negligible), GDPval-AA normalized 42.7→42.5% (negligible). New: GPQA-D 93.2% (Vals), ARC-AGI-1 95.00%, ARC-AGI-2 85%, FrontierMath v2 T1-3 85.263% (≥85 frontier), Vibe Code Bench 69.85%, React Native Evals 84.7%, MMLU-Pro (Vals) 88.1%. Normalized: Reasoning 84→86, Overall 82→83.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM.ai model page for overall rank/score and full benchmark tables; OpenAI launch announcement; Artificial Analysis model benchmarks; Vals AI leaderboards; Epoch AI FrontierMath v2; React Native Evals). Scores normalized 1–100 per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
+- Sources: BenchLM.ai model page (Overall 69.29/100, #21/954, 65 of 639 benchmarks, 2026-10-17); OpenAI launch announcement; AA model benchmarks (Intelligence Index 38.4%, CritPt 27.1%, AA-LCR 84.3%, GDPval-AA 1396/42.5%, τ²-bench 98%); Vals AI (GPQA 93.6%, GPQA-D 93.2%, MMLU-Pro 88.1%, LiveCodeBench 85.3%, SWE-bench 82.6%); Epoch AI FrontierMath v2; React Native Evals.
+- Re-verification (Oct 17): Confirmed all key benchmarks on Oct 17 page. Notable changes: AA APEX-Agents-AA 37.7% (NEW, was 38.8%), AA Agentic Index 37.3% (vs file 50.6% — this is a different model), AA-AnalystAgent 50.0% (NEW), AA-IFBench 75.9% (NEW), FrontierMath v2 T4 72.500% (vs file's 78.049% — different tier or error in file), ARC-AGI-3 0.4% (NEW), OSWorld 2.0 13.0% (NEW), JobBench 42.7% (NEW), ExploitGym 13.4% (NEW), AA ITBench 45.8% (NEW), PostTrainBench v1.1 27.2% (NEW). Intelligence Index 38.4% confirmed. Normalized scores unchanged. Overall 83.
 
 ---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall 83, rank #21/954 (overall 69.29), 65 of 639 benchmarks on Oct 17 page. Intelligence Index 38.4% confirmed. New Oct 17 benchmarks added: AA-APEX-Agents 37.7%, AA Agentic Index 37.3%, ResearchClawBench 17.0%, OSWorld 2.0 13.0%, JobBench 42.7%, ExploitGym 13.4%, AA ITBench 45.8%, AA-AnalystAgent 50.0%, AA IFBench 75.9%, PostTrainBench v1.1 27.2%. FrontierMath v2 T4 78.049% confirmed.

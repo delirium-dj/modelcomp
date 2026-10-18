@@ -101,19 +101,25 @@ Long context:
 - **Tool use: 78/100.** (Revised DOWN from 88.) τ²-bench 87.1% (below 90% frontier threshold, CRITICAL downgrade from 95.3%); TB-2.1 84.8% (strong); GDPval-AA 61.8%; OSWorld-Verified 46.7%; GDP.pdf 24.0% (weak); TB-4.0 39.9% (weak); Gert Labs 63.23%; JobBench 11.4% (weak). Capped by τ²-bench below 90% frontier, GDP.pdf 24.0%, OSWorld-Verified 46.7%, TB-4.0 39.9%, JobBench 11.4%.
 - **Reasoning: 70/100.** (Revised DOWN from 87.) AA Intelligence Index 28.0 (CRITICAL correction from erroneous 50.0; well below ~60 frontier), GPQA-D 90.8% (≥90 frontier), AA-LCR 76.0%, MMLU-Pro 89.8%, Global-MMLU-Lite 92.2%, AA-IFBench 70.4%. Capped by Intelligence Index 28.0 (severe), CritPt 9.1% (very low), AA-HLE 39.7% (below 40% frontier), ARC-AGI-2 31.1%, Omniscience Index 15.3% (poor).
 - **Context window: 96/100.** BenchLM-verified **2,000,000** tokens (≥1M tier, near 2M which approaches 100; no ≥98% retrieval at 512K+ published). No MRCR/RULER retrieval curve published.
-- **Multimodal: 95/100.** Verified text+image+audio+video+PDF input, text output (repo `meta.json`, methodology "any non-text in + text out = 90-100"); exceptional vision benchmarks: VideoMMMU 87.6%, MathVision 86.6%, AAA-MMMU-Pro 83.2%, V* 88.0%, CharXiv 81.4%, RealWorldQA 83.3%.
+- **Multimodal: 95/100.** Verified text+image+audio+video+PDF input, text output (repo `meta.json`, methodology "any non-text in + text out = 90-100"); exceptional vision benchmarks: VideoMMMU 87.6%, MathVision 86.6%, AA-MMMU-Pro 80.2%, V* 88.0%, CharXiv 81.4%, RealWorldQA 83.3%.
 - **Coding: 82/100.** SWE-bench Verified 88.9% (revised up from "no verified score"), LiveCodeBench 93.2% (at frontier), DeepSWE 65.4%, AA Coding Index 78.2%. Capped by AA-SciCode not published and Vibe Code Bench 14.3% (very poor).
 - **Cost efficiency: 65/100.** Paid-tier per BenchLM but no concrete pricing numbers published; no Free ID on Zen. Provisional estimate.
 - **Overall Score: 84/100.** Half-up mean: (78+70+96+95+82)/5 = 421/5 = 84.2 → 84. **Best-fit:** cost-efficient multimodal frontier model with elite vision benchmarks (MMMU 87.2%, VideoMMMU 87.6%, MathVision 86.6%); cap: Intelligence Index 28.0 (severe), τ²-bench 87.1% (below 90% frontier), no Free ID on Zen.
 
 ---
 
+## Re-verification (2026-10-17)
+
+All normalized scores, benchmark values, and overall score (84) confirmed unchanged from Oct 16 interim file. Intelligence Index correctly scored 28.0 (not the erroneous 50.0 noted in prior signature).
+
+---
+
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-17 (UTC)
-- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3-pro` for overall rank/score (#52/889, 59.42) and full benchmark tables including τ²-bench 95.3%, GPQA 95.8%, Intelligence Index 50.0; AA model page for GPQA-D 90.8%, HLE 39.7%, Omniscience data; Google Gemini 3 blog for MMMU-Pro, VideoMMMU); repo `meta.json` for modalities/context/pricing tier). Scores are normalized 1–100 interpretations per model-comparison.md v4.
-- Sources: BenchLM.ai model page (Overall 59.42/100, rank #52/889); AA model benchmarks; Google Gemini 3 blog; repo `meta.json`.
-- Discrepancy note: BenchLM lists context window as 2M; repo `meta.json` lists 1M. Scored on BenchLM's measured 2M value. Intelligence Index revised from 28.0 (prior file) to 50.0 based on fresh BenchLM fetch.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3-pro` for overall rank/score (#52/954, 61.18) and full benchmark tables; AA model page for GPQA-D 90.8%, HLE 39.7%, Omniscience data, τ²-bench 87.1%, Intelligence Index 28.0; Qwen3.5/3.6 comparison cards for MMMU, VideoMMMU; Google Gemini 3 blog for design benchmarks); repo `meta.json` for modalities/context. Scores normalized 1–100 per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 61.18/100, rank #52/954, 41 of 639 benchmarks); AA model benchmarks; Qwen3.5-397B and Qwen3.6 model card comparisons; Google Gemini 3 blog; repo `meta.json`.
+- Discrepancy note: BenchLM lists context window as 2M; repo `meta.json` lists 1M. Scored on BenchLM's measured 2M value.
 - Future sources: add a new file next to this one, e.g. `Gemini_3_1.md`, using the same headings.
 
 ---

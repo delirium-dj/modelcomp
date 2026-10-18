@@ -1,7 +1,7 @@
 # GLM-5.3 Flash — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/glm-5-3-flash`), BenchLM (`https://benchlm.ai/models/glm-5-3-flash`), Z.AI launch post (`https://z.ai/blog/glm-5.3-flash`), HuggingFace (`https://huggingface.co/zai-org/GLM-5.3-Flash`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,7 +31,7 @@
 
 ### Raw benchmarks found
 
-> Sources: Z.AI GLM-5.3-Flash launch post (`https://z.ai/blog/glm-5.3-flash`), BenchLM (`https://benchlm.ai/models/glm-5-3-flash`), Artificial Analysis model benchmarks, Vals AI, OpenRouter. BenchLM covers 37 of 618 benchmarks.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/glm-5-3-flash`, Overall 58.52, #58/954, 45 of 639 benchmarks); Z.AI launch post; Artificial Analysis; Vals AI; OpenRouter. Re-verified 2026-10-17.
 
 Agent / tool use:
 
@@ -40,7 +40,7 @@ Agent / tool use:
 - **Terminal-Bench 2.1 (Vals):** **62.9%** — (Vals AI: Terminal-Bench 2.1 leaderboard)
 - **τ²-bench:** no verified public score found
 - **GDPval-AA (Elo):** **1773** — (Z.AI launch post; AA: gdpval-aa leaderboard via BenchLM)
-- **AA Briefcase Elo:** **1452** — (Artificial Analysis: aa-briefcase leaderboard via BenchLM)
+- **AA Briefcase Elo:** **1454** — (Artificial Analysis: aa-briefcase leaderboard via BenchLM — corrected from 1452)
 - **AA AutomationBench:** **60.4%** — (Artificial Analysis: automationbench-aa leaderboard via BenchLM)
 - **AutomationBench:** **48.8%** — (Z.AI launch post)
 - **AA ITBench:** **51.2%** — (Artificial Analysis: itbench-aa leaderboard via BenchLM)
@@ -101,9 +101,15 @@ Multimodal & grounded:
    
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public-internet research (Artificial Analysis model page `https://artificialanalysis.ai/models/glm-5-3-flash` for Intelligence Index; BenchLM `https://benchlm.ai/models/glm-5-3-flash` for full benchmark tables; Z.AI launch post, Vals AI, and OpenRouter). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Sources: BenchLM.ai model page (Overall 58.52/100, #58/954, 45 of 639 benchmarks, 2026-10-16); AA model page (Intelligence Index 41.8≈42, #4/117 open-weights, pricing $0.15/$0.50, 1M context, text+image input, 320B/18B MoE, MIT license — all consistent); Z.AI launch post; Vals AI; OpenRouter; Epoch AI FrontierMath v2; Nous Research (Hermes Index/Bench).
-- Re-verification (Oct 16): BenchLM coverage grew from 37/618 (#28/889 estimated) to 45/639 (#58/954). Intelligence Index 42→41.8% (negligible), GDPval-AA Elo 1773 unchanged (≥1750 frontier). New: OSWorld 2.0 13.0%, Hermes Index 35.0%, Hermes Bench 68.9%, AA Tau3 Banking 47.2%, AA ITBench 51.2%, AA Terminal-Bench 4.0 32.8%, AA EnterpriseOps-Gym 33.2%, AA-AnalystAgent 25.0%, GPQA-D (Vals) 86.4%, MMLU-Pro (Vals) 86.1%, VulcanBench removed from current BenchLM page (was 78.3%). Normalized scores essentially unchanged: Tool 82, Reasoning 85, Context 95, Multimodal 65, Coding 82 (AA Coding Index removed from page). Overall 82.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (Artificial Analysis model page `https://artificialanalysis.ai/models/glm-5-3-flash` for Intelligence Index; BenchLM `https://benchlm.ai/models/glm-5-3-flash` for full benchmark tables; Z.AI launch post, Vals AI, and OpenRouter). Scores normalized 1–100 per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 58.52/100, #58/954, 45 of 639 benchmarks, 2026-10-17); AA model page (Intelligence Index 41.8%, #4/117 open-weights, pricing $0.15/$0.50, 1M context, text+image input, 320B/18B MoE, MIT license); Z.AI launch post; Vals AI; OpenRouter; Epoch AI FrontierMath v2; Nous Research (Hermes Index/Bench).
+- Re-verification (Oct 16→Oct 17): AA Briefcase Elo corrected 1452→1454. BenchLM page confirms 58.52/100, #58/954, 45 of 639 benchmarks. No changes to normalized scores. Overall 82.
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall 82, rank #58/954 (overall 58.52), 45 of 639 benchmarks. All benchmarks and normalized scores unchanged. AA Briefcase Elo corrected 1452→1454.
 
 

@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai model page `https://benchlm.ai/models/gpt-5-5-pro` (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-16); OpenAI: Introducing GPT-5.5 announcement (BrowseComp 90.1%, GPQA 94.6%, HLE 57.2%, HLE w/o tools 43.1%, FrontierMath v2 87.719%/78.049%); Epoch AI FrontierMath v2 leaderboard.
+> Sources: BenchLM.ai model page `https://benchlm.ai/models/gpt-5-5-pro` (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-17); OpenAI announcement; Epoch AI.
 
 Agent / tool use:
 
@@ -85,9 +85,13 @@ Long context (from OpenAI announcement table):
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public internet research via BenchLM, OpenAI announcement, and Epoch AI; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
-- Sources: BenchLM.ai model page (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-16); OpenAI: Introducing GPT-5.5 announcement (BrowseComp 90.1%, GPQA 94.6%, HLE 57.2%, HLE w/o tools 43.1%); Epoch AI FrontierMath v2 leaderboard.
-- Re-verification (Oct 16): BenchLM updated from 76.45 (#14/887, 9/618) to 73.37 (#13/954, 9/639). CRITICAL: most Oct 10 benchmarks no longer displayed on current BenchLM page — only BrowseComp, ARC-AGI-1, ARC-AGI-2, HLE, HLE w/o tools, CritPt, FrontierMath (legacy/v2) confirmed. FrontierMath v2 T1-3 CORRECTED 51.0→87.719% (≥85 frontier). GPQA 95.1→94.6%. HLE 60.4→57.2%. Normalized: Tool 96→84, Reasoning 95→89, Coding 88→58. Overall 88→79.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via BenchLM, OpenAI announcement, and Epoch AI; scores normalized 1–100 per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 73.37/100, rank #13/954, 9 of 639 benchmarks, 2026-10-17); OpenAI: Introducing GPT-5.5 announcement (BrowseComp 90.1%, GPQA 94.6%, HLE 57.2%, HLE w/o tools 43.1%); Epoch AI FrontierMath v2 leaderboard.
+- Re-verification (Oct 17): Confirmed all 9 benchmarks on Oct 17 page unchanged: BrowseComp 90.1%, CritPt 30.6%, ARC-AGI-1 95.00%, ARC-AGI-2 84.2%, HLE 57.2%, HLE w/o tools 43.1%, FrontierMath legacy 52.4%, FrontierMath v2 T1-3 87.719%, T4 78.049%. No changes to normalized scores. Overall 79.
 
 ---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall 79, rank #13/954 (overall 73.37), 9 of 639 benchmarks. All benchmarks and normalized scores unchanged from Oct 16.

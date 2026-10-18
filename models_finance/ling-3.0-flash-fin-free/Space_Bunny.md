@@ -1,4 +1,4 @@
-# Ling 3.0 Flash Fin — findings by Space Bunny Alpha
+# Ling 3.0 Flash Fin — findings by Space Bunny
 
 - Source: InclusionAI / Ant Group (`inclusionAI/Ling-3.0-flash-Fin`; OpenCode Zen free route)
 - Date: 2026-09-24 (UTC)
@@ -57,6 +57,6 @@ Sources consulted: [official Ling-3.0-flash-Fin model card](https://huggingface.
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-24
 - Method: Public web research of the official InclusionAI model card, Artificial Analysis, BenchLM, and OpenCode documentation; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

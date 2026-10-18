@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by Laguna S 2.1
 
 - Source: poolside/laguna-s-2.1 (Poolside AI), e.g. Google DeepMind model card, Artificial Analysis, BenchLM
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,7 +18,7 @@
 
 ## Raw benchmarks found
 
-> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3-5-flash`, Overall 61.88/100, #49/954, 51 of 639 benchmarks, 2026-10-16); Artificial Analysis model benchmarks (Intelligence Index 50.2% CRITICAL upgrade from 33, CritPt 13.1%, AA-LCR 69.3%, τ²-bench 95.3%, GDPval-AA normalized 42.2%, GDPval-AA Elo 1345); Google DeepMind Gemini 3.5 Flash launch (modalities, pricing, MRCR v2, BrowseComp 90.1%, GPQA 92.2%, HLE 40.2%); Vals AI (GPQA-D 92.7%, MMLU-Pro 89.5%, LiveCodeBench 87.6%, SWE-bench 78.8%); Epoch AI FrontierMath v2 leaderboard.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-3-5-flash`, Overall 61.88/100, #49/954, 51 of 639 benchmarks, 2026-10-17); Artificial Analysis model benchmarks (Intelligence Index 50.2%, CritPt 13.1%, AA-LCR 69.3%, τ²-bench 95.3%, GDPval-AA normalized 42.2%, GDPval-AA Elo 1345); Google DeepMind Gemini 3.5 Flash launch (modalities, pricing, MRCR v2, BrowseComp 90.1%, GPQA 92.2%, HLE 40.2%); Vals AI (GPQA-D 92.7%, MMLU-Pro 89.5%, LiveCodeBench 87.6%, SWE-bench 78.8%); Epoch AI FrontierMath v2 leaderboard.
 
 Agent / tool use:
 
@@ -30,9 +30,13 @@ Agent / tool use:
 - MCP Atlas: 83.6% (Google launch)
 - OSWorld-Verified: 78.4% (Google launch)
 - Toolathlon: 56.5% (Google launch)
-- AAA-MMMU-Pro: not verified for this exact ID on BenchLM
-- AA Agentic Index: 27.3% (Artifical Analysis)
-- Intelligence Index: 33 (#85/227 reasoning, median 26)
+- Gert Labs: **61.85%** (Gert Labs rankings / BenchLM — NEW)
+- AA EnterpriseOps-Gym: **50.1%** (Artificial Analysis / BenchLM — NEW)
+- Finance Agent v2: **57.9%** (Vals AI / BenchLM — NEW)
+- AA APEX-Agents: **47.1%** (Artificial Analysis / BenchLM — NEW)
+- ResearchClawBench: **18.0%** (ResearchClawBench leaderboard / BenchLM — NEW)
+- MazeBench: **0%** (MazeBench AI leaderboard / BenchLM — NEW, very low)
+- AA Agentic Index: 27.3% (Artificial Analysis / BenchLM)
 
 Reasoning / knowledge:
 
@@ -40,11 +44,15 @@ Reasoning / knowledge:
 - HLE: 40.2% (Google launch) / AA-HLE: 42.7% (Artificial Analysis)
 - GPQA: 92.2% (Artificial Analysis)
 - MMLU-Pro (Vals): 89.5% (Vals AI)
-- AA Intelligence Index: 33 (AA v4.3.2)
+- AA Intelligence Index: **50.2%** (Artificial Analysis — CRITICAL correction from 33, v4.3.2)
 - AA-LCR: 69.3% (Artificial Analysis)
 - AA-Omniscience Accuracy: 51.9% (Artificial Analysis)
 - AA-Omniscience Index: 21.2% (Artificial Analysis)
 - CritPt: 13.1% (Artificial Analysis)
+- MRCRv2: **77.3%** (Google DeepMind: Gemini 3.5 Flash launch screenshots — NEW, aggregate)
+- MRCR 1M: **26.6%** (Google DeepMind: Gemini 3.5 Flash launch screenshots — NEW)
+- FrontierMath v2 (Tiers 1-3): **62.807%** (Epoch AI FrontierMath v2 leaderboard — NEW)
+- FrontierMath v2 (Tier 4): **26.829%** (Epoch AI FrontierMath v2 leaderboard — NEW)
 
 Coding:
 
@@ -62,7 +70,8 @@ Multimodal:
 - AA-MMMU-Pro: 84.3% (Artificial Analysis)
 - CharXiv: 84.2% (Google launch)
 - OfficeQA Pro: 54.1% (Google launch)
-- Design Arena Website: 1271 (OpenRouter)
+- Design Arena Website: **1269** (OpenRouter / BenchLM — revised down from 1271)
+- IFBench: **76.3%** (Artificial Analysis: Gemini 3.5 Flash — NEW)
 
 Long context:
 
@@ -72,7 +81,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost excluded. Benchmarks verified from BenchLM and AA as of 2026-10-16.
+> Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost excluded. Benchmarks verified from BenchLM (overall 61.88, #49/954, 51 of 639) and AA as of 2026-10-17.
 
 - **Tool use: 82/100.** (Unchanged.) Terminal-Bench 2.1 76.2% (below ~88% frontier ref), GDPval-AA 42.2% (normalized; Elo 1345, below 1750 frontier), MCP Atlas 83.6%, OSWorld-Verified 78.4%; Intelligence Index 50.2% (CRITICAL upgrade from 33, now approaching 60 frontier but still below). Strong τ²-bench 95.3% offsets weak GDPval. Capped by GDPval-AA 42.2% and no TB-4.0.
 
@@ -92,10 +101,13 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public-internet research (BenchLM.ai model page for full benchmark tables and overall rank/score; Artificial Analysis model benchmarks for Intelligence Index, τ²-bench, GDPval-AA, CritPt, AA-LCR; Google DeepMind launch for modalities/specs/pricing/MRCR; Vals AI for GPQA/HLE/LiveCodeBench/SWE-bench); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Sources: BenchLM.ai model page (Overall 61.88/100, rank #49/954, 51 of 639 benchmarks, 2026-10-16); AA model benchmarks (Intelligence Index 50.2% CRITICAL upgrade from 33, τ²-bench 95.3%, GDPval-AA normalized 42.2%, GDPval-AA Elo 1345, CritPt 13.1%, AA-LCR 69.3%); Google DeepMind Gemini 3.5 Flash launch (modalities, pricing, MRCR v2); Vals AI (GPQA-D 92.7%, MMLU-Pro 89.5%, LiveCodeBench 87.6%, SWE-bench 78.8%); Epoch AI FrontierMath v2 leaderboard.
-- Re-verification (Oct 16): BenchLM updated from 62.52 (#44/887, 50/625) to 61.88 (#49/954, 51/639). CRITICAL: AA Intelligence Index corrected from 33 to 50.2% (drops below 60 frontier but well above mid 20-35 range) — enables Reasoning upgrade 83→87. τ²-bench 95.3% (≥90 frontier), BrowseComp not on page, GDPval-AA normalized 42.2% (unchanged), GDPval-AA Elo 1345 (unchanged). HLE 40.2% (at 40% frontier), GPQA 92.2% (AA, ≥90 frontier), GPQA-D (Vals) 92.7% (unchanged). New: MRCR v2 83.1%/26.6%, IFBench 76.3% (AA), Vibe Code Bench 48.68%, React Native Evals 84.7%. Normalized: Reasoning 83→87, Overall 86→87.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public-internet research (BenchLM.ai model page for full benchmark tables and overall rank/score; Artificial Analysis model benchmarks for Intelligence Index 50.2%, τ²-bench 95.3%, GDPval-AA normalized 42.2%/Elo 1345, CritPt 13.1%, AA-LCR 69.3%, AA Agentic Index 27.3%, IFBench 76.3%, Gert Labs 61.85%, AA EnterpriseOps-Gym 50.1%, AA APEX-Agents 47.1%; Google DeepMind launch for modalities/specs/pricing/MRCR v2 77.3%/26.6%; Vals AI for GPQA/HLE/LiveCodeBench/SWE-bench/Finance Agent v2 57.9%); scores normalized 1–100 per model-comparison.md v4.
+- Sources: BenchLM.ai model page (Overall 61.88/100, rank #49/954, 51 of 639 benchmarks, 2026-10-17); AA model benchmarks (Intelligence Index 50.2%, τ²-bench 95.3%, GDPval-AA normalized 42.2%/Elo 1345, CritPt 13.1%, AA-LCR 69.3%, IFBench 76.3%, Gert Labs 61.85%); Google DeepMind Gemini 3.5 Flash launch (modalities, pricing, MRCR v2); Vals AI (GPQA-D 92.7%, MMLU-Pro 89.5%, LiveCodeBench 87.6%, SWE-bench 78.8%); Epoch AI FrontierMath v2 (62.807%/26.829%).
+- Re-verification (Oct 16→Oct 17): Intelligence Index CRITICAL correction 33→50.2% (confirmed on Oct 17 page, enables Reasoning 83→87). Design Arena 1271→1269. New Oct 17 benchmarks: Gert Labs 61.85%, AA EnterpriseOps-Gym 50.1%, Finance Agent v2 57.9%, AA APEX-Agents 47.1%, IFBench 76.3%, MRCRv2 77.3%, MRCR 1M 26.6%, ResearchClawBench 18.0%, MazeBench 0%, FrontierMath v2 (62.807%/26.829%). Normalized scores unchanged. Overall 87.
 
 ---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall 87, rank #49/954, 51 of 639 benchmarks on Oct 17 page. Intelligence Index 50.2% matches Oct 16 correction. All normalized scores unchanged. New Oct 17 benchmarks added to raw sections; FrontierMath v2 added to Reasoning/knowledge.

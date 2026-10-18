@@ -1,4 +1,4 @@
-# Gemini 3.8 Live — findings by Space Bunny Alpha
+# Gemini 3.8 Live — findings by Space Bunny
 
 - Source: Google DeepMind / Google AI Studio (`gemini-3.8-live`)
 - Date: 2026-09-24 (UTC)
@@ -53,6 +53,6 @@ Sources consulted: [Google Gemini 3.8 Live model documentation](https://ai.googl
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-09-24
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-09-24
 - Method: Public web research of Google's official Live/model documentation and BenchLM's exact-model evidence ledger; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

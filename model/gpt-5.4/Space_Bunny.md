@@ -1,84 +1,106 @@
-# GPT-5.4 — findings by Space Bunny Alpha
+# GPT-5.4 — findings by Space Bunny
 
 - Source: OpenAI (`gpt-5.4`; xhigh reasoning)
-- Date: 2026-10-05 (UTC)
+- Date: **2026-10-17 (UTC) — second pass.** First pass 2026-10-05 (Overall 87.8).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.4 (xhigh)
-- **Short description:** OpenAI's March 2026 frontier model for professional work, coding, computer use, tool search, and agentic workflows.
-- **Provider / access:** OpenAI API (`gpt-5.4`); ChatGPT, API, and Codex. The reviewed official model URL was unavailable, so access details rely on the official announcement and Artificial Analysis.
-- **Release / knowledge:** OpenAI announced GPT-5.4 on 2026-03-05. Artificial Analysis reports an August 31, 2025 knowledge cutoff.
-- **IDs:** `gpt-5.4`; xhigh is a reasoning-effort configuration.
-- **Context window:** Artificial Analysis reports 1M tokens (its FAQ renders this as 1.1M); exact official output limit was not found in the reviewed pages.
-- **Modalities:** Text and image input; text output; reasoning and computer use supported. Audio/video are not shown.
-- **Pricing (as of 2026-09-24):** Artificial Analysis reports $2.50 per 1M input and $15.00 per 1M output tokens, with a 90% cache discount.
+- **Short description:** OpenAI's frontier model for complex professional work, coding, computer use, tool search, and agentic workflows. The official model page is now live, closing the first pass's biggest documentation gap.
+- **Provider / access:** OpenAI API (`gpt-5.4`, default snapshot `gpt-5.4-2026-03-05`); ChatGPT, API, and Codex. `reasoning.effort` supports **none (default), low, medium, high and xhigh** — this is a first-party detail the first pass did not have. Supported tools on the Responses API: function_calling, web_search, file_search, tool_search, image_generation, code_interpreter, hosted_shell, apply_patch, skills, computer_use, mcp.
+- **Release / knowledge:** Announced 2026-03-05; default snapshot `gpt-5.4-2026-03-05`. **Knowledge cutoff 2025-08-31 — now first-party confirmed**, not an Artificial Analysis figure as the first pass recorded it.
+- **IDs:** `gpt-5.4`, `gpt-5.4-2026-03-05`. Related: `gpt-5.4-pro` ($30 in / $180 out), `gpt-5.4-mini` ($0.75 / $4.50), `gpt-5.4-nano` ($0.75-ish tier, **deprecated 2026-10-01**).
+- **Context window:** **1,050,000 tokens; 128,000 max output tokens — FIRST-PARTY VERIFIED** on developers.openai.com/api/docs/models/gpt-5.4 and platform.openai.com/docs/models/gpt-5.4 (verified 2026-10-17). This is the sole reason Context rose on the first pass; the figure is now confirmed by OpenAI rather than by an aggregator. GPT-5.4 Pro shares the same 1,050,000 / 128,000 limits. ⚠️ Note the long-context **rate-limit** tier is keyed to **272K input tokens**, and so is the long-context pricing threshold.
+- **Modalities:** Text and image input; **text output only** (first-party). No audio or video input — this remains the binding cap on the Multimodal dimension. Endpoint support: Batch ✓, Assistants ✗, Realtime ✗, Embeddings ✗, Fine-tuning ✗, Image generation ✓, Video ✗, Speech ✗.
+- **Pricing (as of 2026-10-17, all first-party):** **$2.50 input / $0.25 cached input / $15.00 output per 1M** — the 90% cache discount is now confirmed by OpenAI's own page ($0.25 vs $2.50), not inferred. **No promotional pricing and therefore no discount expiry to track** — this lead is confirmed and it matters, because the Gemini 3.8 Flash comparison model has a documented 2027-01-01 step-up and this one does not.
+  - **NEW and previously unrecorded:** prompts with **>272K input tokens are priced at 2× input and 1.5× output for the full session**, across standard, batch and flex — i.e. **$5.00 in / $0.50 cached / $22.50 out**. Batch is $1.25 / $7.50.
+  - **NEW:** regional-processing (data residency) endpoints carry a **10% uplift**.
+  - Third-party routing: Azure US/EU $2.75 / $16.50 · Amazon Bedrock $2.75 / $16.50 (global cross-region $2.50/$15.00) · Bedrock Mantle us-gov $3.30–$3.375 / $19.80–$20.25. Databricks, Perplexity and Azure global match OpenAI at $2.50/$15.00.
 - **Architecture:** Proprietary; OpenAI has not disclosed parameter count.
 
 ### Raw benchmarks found
 
+**Vendor rows** are from OpenAI's own announcements or model cards. **Independent rows** are from Artificial Analysis, Vals AI, ARC Prize, Epoch AI or third-party leaderboards.
+
 Agent / tool use:
 
-- GDPval: **83.0% wins or ties** across 44 occupations (OpenAI GPT-5.4 announcement)
-- SWE-Bench Pro (Public): **57.7%** (OpenAI GPT-5.4 announcement)
-- OSWorld-Verified: **75.0%** (OpenAI GPT-5.4 announcement)
-- Toolathlon: **54.6%** (OpenAI GPT-5.4 announcement)
-- BrowseComp: **82.7%** (OpenAI GPT-5.4 announcement)
-- Computer-use portal evaluation: **95% first-attempt success** and **100% within three attempts** on about 30K HOA/property-tax portal sessions (Mainstay partner evaluation quoted by OpenAI)
-- Artificial Analysis Intelligence Index: **39 estimated**, rank **#51/210** (Artificial Analysis, accessed 2026-09-24)
-- Terminal-Bench 2.0: **75.1%** (OpenAI GPT-5.4 announcement, accessed 2026-10-05)
-- MCP Atlas: **70.6%** (OpenAI GPT-5.5 comparison table, accessed 2026-10-05)
-- Claw-Eval: **60.3%** (Claw-Eval leaderboard, accessed 2026-10-05)
-- τ²-bench: **98.9%** (OpenAI, accessed 2026-10-05)
-- CyberGym: **79.0%**; APEX-Agents-AA: **33.3%**; ResearchClawBench: **15.3%**; JobBench: **38.9%**; ExploitGym: **6.0%**; ApprenticeBench: **11%**; DeepSearchQA: **73.6%**; Gert Labs: **64.89%** (accessed 2026-10-05)
-- GDPval-AA: **1307 Elo / 36.6% normalized** (Artificial Analysis, accessed 2026-10-05)
-- Terminal-Bench 4.0 and Tau3-Banking: **no verified public exact value found**
+- GDPval: **83.0% wins or ties** across 44 occupations (OpenAI GPT-5.4 announcement) [vendor]
+- SWE-Bench Pro (Public): **57.7%** [vendor]
+- OSWorld-Verified: **75.0%** [vendor]
+- Toolathlon: **54.6%** [vendor]
+- BrowseComp: **82.7%** [vendor]
+- Computer-use portal evaluation: **95% first-attempt / 100% within three attempts** on ~30K HOA/property-tax sessions (Mainstay partner evaluation quoted by OpenAI) [vendor]
+- **MCP Atlas: 70.6% — VENDOR-REPORTED, and this provenance is now settled.** BenchLM attributes it to "OpenAI: Introducing GPT-5.5 comparison table", i.e. OpenAI's own table for a *later* model, not an independent harness. Confirmed as vendor on this pass.
+- Claw-Eval: **60.3%** (Claw-Eval leaderboard) [indep]
+- **τ²-bench: 98.9%** — ⚠️ **Vendor-reported, and the attribution is questionable.** BenchLM sources this row to "OpenAI: Introducing GPT-5.4 mini and nano", i.e. a table published for *different* models. There is also a genuinely independent **τ²-bench** board (BenchLM) where GPT-5.4 does not appear at all. Recorded as vendor-sourced and **not** treated as an independent confirmation.
+- Artificial Analysis Intelligence Index: **39.0%**, rank #51/217-class tier at the 2026-09-24 reading [indep]. Held across three readings.
+- Terminal-Bench 2.0: **75.1%** [vendor]. ⚠️ An **independent Epoch AI Terminal-Bench run at 81.8%** was claimed in the prior pass; **this could not be verified and appears to be a misattribution** — the figure 81.8% appears in the current record as **GPT-5.5's CyberGym score**, not as any Terminal-Bench measurement of GPT-5.4. No independent Terminal-Bench run of any version for GPT-5.4 was found. **Not used.**
+- CyberGym **79.0%** [vendor, sourced to OpenAI's GPT-5.5 announcement]; APEX-Agents-AA **33.3%** [indep]; ResearchClawBench **15.3%** [indep]; JobBench **38.9%** [indep]; ExploitGym **6.0%** [indep]; ApprenticeBench **11%** [indep]; DeepSearchQA **73.6%**; Gert Labs **64.89%**; MazeBench **0%** (ties GPT-5.5 at 0%) [indep]
+- **GDPval-AA: 1307 Elo / 37.3% normalized** (BenchLM's 2026-10-16 snapshot of AA) [indep]. ⚠️ A prior-pass claim of a move to **1246 Elo on the v2.1 board could not be verified** — no reachable AA page carried 1246, and BenchLM's current snapshot still reads 1307 / 37.3%. Conflict recorded; the higher figure stands as the only sourced one.
+- Terminal-Bench 4.0 and Tau3-Banking: **no verified public score found** (unchanged).
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **39 estimated** at the 2026-09-24 reading; AA now lists **39.0%** (accessed 2026-10-05) — confirmed, essentially unchanged.
-- GPQA Diamond: **92.8%**; HLE **52.1%**, HLE without tools **39.8%** (OpenAI, accessed 2026-10-05); AA-GPQA Diamond 92.0%, AA-HLE 43.7%
-- CritPt: **23.4%**; AA-LCR: **82.0%** (Artificial Analysis, accessed 2026-10-05)
-- AA-Omniscience Index: **5.8%**; Accuracy: **50.8%**; Hallucination Rate: **91.7%** (Artificial Analysis, accessed 2026-10-05) — a very high hallucination rate.
-- ARC-AGI-1: **93.67%** (xhigh, ARC Prize verified); ARC-AGI-2: **74.0%**; ARC-AGI-3: **0.2%** (ARC Prize official leaderboard, accessed 2026-10-05)
-- FrontierMath v2 Tiers 1–3: **47.6%**; Tier 4: **27.1%** (Epoch AI, accessed 2026-10-05) — weak hard-math performance.
-- HealthBench Professional: **48.1%**; HealthBench Hard: **40.1%**; MedXpertQA (Text) **59.6%** (accessed 2026-10-05)
-- AA-IFBench: **73.9%** (Artificial Analysis, accessed 2026-10-05)
-- MLCR: **no verified public exact value found**
+- **FrontierMath v2 — CORRECTED BY EPOCH, AND BOTH FIGURES MOVED UP.** The first pass recorded Tiers 1–3 **47.6%** and Tier 4 **27.1%** from Epoch AI. Epoch AI performed a **June 2026 correction to FrontierMath v2** (the Tiers 1–3 set was rebuilt to 295 problems, with scores published on the 285 private ones). On the corrected board GPT-5.4 now stands at **Tiers 1–3 = 78.596%** (rank **#18 of 64**) and **Tier 4 = 49.000%**. [indep, via Epoch AI's corrected v2 board as relayed by BenchLM; Epoch's own leaderboard pages are JS-rendered and did not yield the numbers on direct fetch.] The first pass's Tier 4 figure of 27.1% is therefore **superseded and should not be cited again**. Context on the corrected board: Claude Sonnet 5.5 80.488%, GPT-5.5 Pro 78.049%, Kimi K3 (best open) 39.0%, GPT-4o 0.351%.
+- GPQA Diamond **92.8%** [vendor]; **92.0%** (AA) [indep] — vendor and independent agree. HLE **52.1%** / **39.8% without tools** [vendor]; **AA-HLE 43.7%** [indep].
+- CritPt **23.4%**; AA-LCR **82.0%**; AA-IFBench **73.9%** (Artificial Analysis) [indep]
+- **AA-Omniscience Index: 5.8%; Accuracy 50.8%; Hallucination Rate 91.7%** (Artificial Analysis) [indep] — reconfirmed, and still the worst hallucination profile in this comparison. This is a real reliability problem, not a rounding artifact.
+- ARC-AGI-1 **93.67%** (xhigh, ARC Prize verified); ARC-AGI-2 **74.0%**; **ARC-AGI-3 0.2%** (ARC Prize official leaderboard) [indep]
+- HealthBench Professional **48.1%**; HealthBench Hard **40.1%**; MedXpertQA (Text) **59.6%** [vendor]
+- MLCR: **no verified public exact value found.**
 
 Coding:
 
-- SWE-Bench Pro (Public): **57.7%** (OpenAI)
-- Vibe Code Bench: **67.42%** (Vals AI Vibe Code Bench v1.1, accessed 2026-10-05)
-- LiveCodeBench Pro: **87.5%** (Meta Muse Spark comparison chart, accessed 2026-10-05)
-- AA Coding Index: **71.0%** (Artificial Analysis, accessed 2026-10-05)
-- React Native Evals: **85.3%** (leaderboard, accessed 2026-10-05)
-- PostTrainBench v1.1: **19.0%** (public leaderboard, accessed 2026-10-05) — a measured weakness.
-- SWE-bench Verified, SciCode, and DeepSWE: **no verified public exact value found**
+- SWE-Bench Pro (Public) **57.7%** [vendor]
+- Vibe Code Bench **67.42%** (Vals AI v1.1) [indep]
+- LiveCodeBench Pro **87.5%** (Meta Muse Spark comparison chart) [indep]
+- AA Coding Index **71.0%** [indep]
+- React Native Evals **85.3%** [indep]
+- **PostTrainBench v1.1: 19.0%** [indep] — reconfirmed, still a measured weakness. For scale, GPT-5.5 scores 27.2% and Gemini 4 Argon 45.3%.
+- SWE-bench Verified, SciCode, DeepSWE: **no verified public exact value found** (unchanged).
 
-Long context:
+Long context — **the MRCR v2 36.6% lead is now VERIFIED and it is FIRST-PARTY:**
 
-- Artificial Analysis verifies a 1M-token context-window claim.
-- AA-LCR: **82.0%** (Artificial Analysis Long-Context Reasoning leaderboard, accessed 2026-10-05) — an independent retrieval result, newly available and strong.
+- ⚠️ **Correction to the prior pass:** the figure was previously excluded as appearing on "no reachable first-party page". It is in fact **published by OpenAI itself**, in the MRCR v2 8-needle table of the GPT-5.4 launch post, and independently mirrored by BenchmarkList with source "Launch post, 2026-04-23". The full first-party curve:
 
-Sources consulted: [OpenAI GPT-5.4 announcement](https://openai.com/index/introducing-gpt-5-4/), [OpenAI GPT-5.5 comparison table](https://openai.com/index/introducing-gpt-5-5/), [OpenAI GPT-5.4 mini/nano announcement](https://openai.com/index/introducing-gpt-5-4-mini-and-nano/), [Artificial Analysis GPT-5.4](https://artificialanalysis.ai/models/gpt-5-4), [BenchLM GPT-5.4](https://benchlm.ai/models/gpt-5-4) (page dated 2026-10-05, carrying the component rows quoted above), [ARC Prize](https://arcprize.org/leaderboard), [Epoch AI FrontierMath](https://epoch.ai/benchmarks/frontiermath-tier-4-v2?view=graph&tab=leaderboard), [Vals AI Vibe Code Bench](https://www.vals.ai/benchmarks/vibe-code), and [Claw-Eval](https://claw-eval.github.io/), accessed 2026-10-05. The official model documentation URL was unavailable.
+| MRCR v2 8-needle | 4–8K | 8–16K | 16–32K | 32–64K | 64–128K | 128–256K | 256–512K | 512K–1M |
+|---|---|---|---|---|---|---|---|---|
+| GPT-5.4 | 97.3% | 91.4% | 97.2% | 90.5% | 86.0% | 79.3% | 57.5% | **36.6%** |
+
+  [vendor — OpenAI]. This is the best long-context evidence now held for any model in this file set, and it is a genuinely double-edged result: retrieval holds above 79% all the way to 256K, then **collapses to 36.6% at 512K–1M**. For comparison on the same OpenAI table: GPT-5.5 74.0% at 512K–1M, Claude Opus 4.7 32.2%, Gemini 3.1 Pro 26.3%.
+- AA-LCR **82.0%** (Artificial Analysis Long-Context Reasoning) [indep]
+- 1,050,000-token context and 128,000-token output cap now **first-party verified**.
+
+Deprecation status — **checked against OpenAI's own deprecations page, as required:**
+
+- **`gpt-5.4` is ABSENT from OpenAI's deprecations table.** No shutdown date. It is not in the 2026-10-01 batch (GPT-5.3-Codex, GPT-5.1, GPT-5.4-Nano, shutdown 2027-04-01), not in the GPT-4o/4.1 batch (2027-01-14), and not in past deprecations.
+- Adjacent models *are* deprecated: `gpt-5.4-cyber` (announced 2026-09-11, removed 2026-10-01) and `gpt-5.4-nano` (2026-10-01). The base model is not.
+- ⚠️ **The widely-repeated "Azure catalog 2027-09-02 sunset" for gpt-5.4 appears in NO OpenAI source** — not the deprecations page, not the model page, not any announcement found. Recorded as noise. Note the real Azure fact, which is different: Azure's *pricing* page, not a deprecation entry, splits GPT-5.4 at the 272K input threshold ($2.50/$15.00 under, $5.00/$22.50 over).
+
+Sources consulted (2026-10-17): [OpenAI GPT-5.4 model page (developers.openai.com)](https://developers.openai.com/api/docs/models/gpt-5.4), [OpenAI platform model page](https://platform.openai.com/docs/models/gpt-5.4), [OpenAI GPT-5.4 Pro model page](https://developers.openai.com/api/docs/models/gpt-5.4-pro), [OpenAI API deprecations](https://developers.openai.com/api/docs/deprecations), [OpenAI Introducing GPT-5.4](https://openai.com/index/introducing-gpt-5-4/), [OpenAI Introducing GPT-5.5](https://openai.com/index/introducing-gpt-5-5/), [OpenAI GDPval-AA v2 leaderboard](https://artificialanalysis.ai/evaluations/gdpval-aa), [BenchLM GPT-5.4](https://benchlm.ai/models/gpt-5-4) plus its GPT-5.5 / GPT-5.6-Luna comparison pages, [BenchLM FrontierMath v2 Tiers 1-3 and Tier 4 boards](https://benchlm.ai/benchmarks/frontiermathv2tiers13), [Epoch AI FrontierMath Tier 4 (v2)](https://epoch.ai/benchmarks/frontiermath-tier-4-v2) and [FrontierMath Tiers 1-4 methodology](https://epoch.ai/frontiermath/tiers-1-4/about), [BenchmarkList OpenAI MRCR v2 8-needle 512K-1M](https://benchmarklist.com/benchmarks/openai_mrcr_v2_8_needle_512k_1m), [LiteLLM GPT-5.4 pricing](https://models.litellm.ai/models/gpt-5.4), [Vercel AI Gateway GPT-5.4](https://vercel.com/ai-gateway/models/gpt-5.4).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Cut from 94 on newly measured evidence. Strong: Terminal-Bench 2.0 **75.1%**, OSWorld-Verified 75.0%, MCP Atlas 70.6%, BrowseComp 82.7%, Toolathlon 54.6%, CyberGym 79.0%, τ²-bench 98.9%, and the 95%/100% portal-completion result. Capped by ExploitGym **6.0%**, ApprenticeBench 11%, ResearchClawBench 15.3%, APEX-Agents-AA 33.3%, and GDPval-AA at only 1307 Elo / 36.6% normalized — the professional-work composite is much weaker than the vendor's 83% wins-or-ties framing suggests.
-- **Reasoning: 83/100.** Cut from 86. GPQA Diamond 92.8%, ARC-AGI-1 93.67%, ARC-AGI-2 74.0%, HLE 52.1% (39.8% without tools), HealthBench Hard 40.1% are respectable. But **FrontierMath v2 Tier 4 at 27.1%** (Tiers 1–3 47.6%) is weak for a frontier reasoning model, **ARC-AGI-3 is 0.2%**, CritPt 23.4%, and the **AA-Omniscience Hallucination Rate of 91.7%** with a near-zero Index of 5.8% is a serious reliability problem.
-- **Context window: 97/100.** Raised from 95: the 1M context claim is now backed by an independent AA-LCR **82.0%** retrieval result.
-- **Multimodal: 78/100.** Raised from 65 on measured evidence: MMMU-Pro **81.2%** (82.1% with Python), ScreenSpot Pro 85.4%, CharXiv 82.8%, MedXpertQA MM 77.1%, SimpleVQA 61.1%, ZeroBench 41.0%, ERQA 65.4%, OfficeQA Pro 53.2%, Design Arena Website 1226 Elo. Still capped — no audio or video input.
-- **Coding: 88/100.** Raised from 87: SWE-bench Pro 57.7%, Vibe Code Bench 67.42%, LiveCodeBench Pro 87.5%, AA Coding Index 71.0%, React Native Evals 85.3%. Capped by PostTrainBench v1.1 at **19.0%** and the absence of SWE-bench Verified, SciCode and DeepSWE figures.
-- **Cost efficiency: 60/100.** $2.50/$15 pricing is materially cheaper than Opus 5 but still paid and above Flash-tier models.
-- **Overall Score: 87.8/100.** (93 + 83 + 97 + 78 + 88) / 5 = 87.8, cost excluded. Best fit: professional computer-use agents and coding workflows where broad tool support matters more than low price.
+- **Tool use: 93/100. HELD.** No move in either direction, and the reason is that the two leads that would have moved it **both failed verification**. On the upside, the claimed independent Epoch AI Terminal-Bench **81.8%** — which would have beaten OpenAI's own 75.1% — **does not exist in any source**; 81.8% is GPT-5.5's CyberGym figure, so the claim appears to be a cross-model misattribution. On the downside, the claimed GDPval-AA fall to **1246 Elo could not be found**; BenchLM's current AA snapshot still reads 1307 / 37.3%. Provenance cleanup also matters here rather than numerically: **MCP Atlas 70.6% is confirmed vendor-reported** (it comes from OpenAI's own GPT-5.5 table), and **τ²-bench 98.9% is also vendor-sourced** — from OpenAI's GPT-5.4 *mini/nano* table, for different models, and the model does not appear on the independent τ²-bench board at all. Treating 98.9% as an independent confirmation would have inflated this score. The score stays at 93 because the underlying vendor evidence is genuinely strong (τ²-bench 98.9%, OSWorld-Verified 75.0%, the 95%/100% portal result), not because the provenance got better. Still capped by ExploitGym **6.0%**, ApprenticeBench 11%, ResearchClawBench 15.3%, MazeBench **0%**, APEX-Agents-AA 33.3%, and GDPval-AA at 1307 Elo / 37.3% normalized — the professional-work composite is far weaker than the vendor's 83%-wins-or-ties framing suggests.
+- **Reasoning: 86/100. RAISED from 83.** The raise is driven by a correction, not by new measurement: the first pass cut this score partly on **FrontierMath v2 Tier 4 at 27.1%**, but Epoch AI **corrected FrontierMath v2 in June 2026** and the model's Tier 4 figure is now **49.000%** with Tiers 1–3 at **78.596%** (rank #18/64). The premise of the original cut no longer holds, so it is removed. GPQA Diamond 92.8%/92.0%, ARC-AGI-1 93.67%, ARC-AGI-2 74.0%, HLE 52.1%, HealthBench Hard 40.1% all reconfirmed. Still capped hard by **ARC-AGI-3 at 0.2%**, **CritPt 23.4%**, and above all by the **AA-Omniscience Hallucination Rate of 91.7%** with a near-zero Index of 5.8% — a 91.7% confabulation rate on unanswerable questions is the reason this score is 86 and not low-90s, and it is the single biggest reliability caveat on this model.
+- **Context window: 97/100. HELD at the first pass's level, but the basis is now much stronger.** The first pass's +1 rested on an AA-reported 1M claim with "exact official output limit not found." Both are now **first-party verified on OpenAI's own model page: 1,050,000 context and 128,000 max output.** That verification does not earn another point because the score was already 97 and the window size did not change — but the *evidence* is now unimpeachable, and the full first-party MRCR v2 curve fills the gap the first pass had here. Not raised to 98–99 because the same first-party table shows retrieval **collapsing to 36.6% at 512K–1M** — a 1.05M window is not a usable 1M window, and GPT-5.5's 74.0% on the identical slice proves the gap is model-specific, not structural. AA-LCR 82.0% independently confirms strong retrieval at moderate lengths.
+- **Multimodal: 78/100. HELD.** Unchanged for want of new evidence. MMMU-Pro **81.2%** (82.1% with Python), ScreenSpot Pro 85.4%, CharXiv 82.8%, MedXpertQA MM 77.1%, SimpleVQA 61.1%, ZeroBench 41.0%, ERQA 65.4%, OfficeQA Pro 53.2%, Design Arena Website 1226 Elo. The first-party model page **confirms** the binding constraint: text and image in, **text out only** — no audio, no video — which is why this dimension has stayed where it is despite strong vision scores.
+- **Coding: 88/100. HELD.** SWE-bench Pro 57.7%, Vibe Code Bench 67.42%, LiveCodeBench Pro 87.5%, AA Coding Index 71.0%, React Native Evals 85.3% — all reconfirmed. Capped by **PostTrainBench v1.1 at 19.0%** (GPT-5.5 27.2%, Gemini 4 Argon 45.3% on the same board) and by the continued absence of any SWE-bench Verified, SciCode or DeepSWE figure.
+- **Cost efficiency: 56/100. CUT from 60.** Not because the sticker price changed — it did not ($2.50/$15.00, first-party confirmed) — but because **two price facts the first pass did not have are now first-party documented.** (1) Prompts over **272K input tokens are billed at 2× input and 1.5× output for the entire session** ($5.00 in / $0.50 cached / $22.50 out), which materially raises the real cost of using the 1.05M window this model is scored highly for on. (2) Regional-processing endpoints carry a **10% uplift**. Held well above the frontier-tier floor because the 90% cache discount is now confirmed by OpenAI itself ($0.25 vs $2.50) and batch pricing is $1.25/$7.50; held below the mid-tier because $15/1M output is roughly 4× Gemini 3.8 Flash's *promotional* rate and ~2× its post-2027 rate. **No promotional pricing and therefore no discount expiry to track** — confirmed, and this is the one cost dimension where the model is structurally safer than the Google comparison.
+- **Overall Score: 88.4/100. UP from 87.8.** (93 + 86 + 97 + 78 + 88) / 5 = 442 / 5 = **88.4**, cost excluded. Net: **+3 on Reasoning** (Epoch's FrontierMath v2 correction invalidating the old Tier 4 premise) and **−4 on Cost efficiency** (the >272K price multiplier and regional uplift). Best fit: professional computer-use agents and coding workflows where broad tool support and a verified 1M window matter more than unit price — provided you either stay under 272K input or budget for the 2×/1.5× long-context rate, and provided you do not let it answer questions it cannot know: the 91.7% hallucination rate is the dominant operational risk on this model.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny Alpha (space-bunny/alpha)** — 2026-10-05
-- Method: Public web research of OpenAI's official GPT-5.4, GPT-5.5 and GPT-5.4 mini/nano announcements, Artificial Analysis and BenchLM component leaderboards, ARC Prize, Epoch AI FrontierMath, Vals AI Vibe Code Bench, Claw-Eval and CyberGym; scores are normalized 1–100 interpretations, not official vendor scores. Cost efficiency is excluded from Overall. Refreshed 2026-10-05 to replace the first pass's missing GPQA/HLE/LCR/CritPt/Omniscience/LiveCodeBench/SciCode/Vibe-Code-Bench rows with measured values, including FrontierMath Tier 4 27.1%, ARC-AGI-3 0.2% and Omniscience Hallucination 91.7% as newly visible weaknesses.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17 (second pass)
+- Method: Public web research of OpenAI's official GPT-5.4, GPT-5.4 Pro and deprecations documentation, the GPT-5.4 / GPT-5.5 / GPT-5.4 mini-and-nano announcements, Artificial Analysis (Intelligence Index, GDPval-AA v2), Epoch AI FrontierMath v2 (including the June 2026 correction), BenchmarkList's OpenAI MRCR v2 slices, BenchLM, Vercel AI Gateway, LiteLLM, Vals AI, ARC Prize and Claw-Eval. Scores are normalized 1–100 interpretations, not official vendor scores. Vendor rows are labelled [vendor], independent rows [indep]. Cost efficiency is excluded from Overall.
+- What this pass changed vs. the first pass: (a) **the official model page is live** — 1,050,000 context and 128,000 max output are now **first-party verified**, and the 2025-08-31 knowledge cutoff is OpenAI's own statement rather than an AA figure; (b) Reasoning 83 → **86** because **Epoch AI corrected FrontierMath v2 in June 2026** and the model's Tier 4 figure moved 27.1% → **49.000%**, Tiers 1–3 → **78.596%** — the first pass's cut is superseded and the old numbers must not be cited again; (c) Cost efficiency 60 → **56** on two newly documented first-party charges: **>272K input tokens priced at 2× input / 1.5× output for the full session ($5.00 / $22.50)**, and a **10% regional-processing uplift**; (d) **MRCR v2 36.6% at 512K–1M is confirmed FIRST-PARTY** (OpenAI's own launch-post table) after the first pass wrongly excluded it, and the full eight-slice curve is now recorded — 97.3 / 91.4 / 97.2 / 90.5 / 86.0 / 79.3 / 57.5 / **36.6**; (e) provenance cleanup — **MCP Atlas 70.6% confirmed vendor-reported** and **τ²-bench 98.9% also vendor-reported** (from OpenAI's mini/nano table, for different models).
+- Leads that did **not** verify: **an independent Epoch AI Terminal-Bench run of 81.8%** — no such run exists in any source; 81.8% is GPT-5.5's **CyberGym** score, so this appears to be a cross-model misattribution from the lost pass, and it was **not** used to raise Tool use. **GDPval-AA moving 1307 → 1246 Elo** — 1246 appears on no reachable AA page, and BenchLM's 2026-10-16 snapshot still reads 1307 Elo / 37.3%; recorded as an unresolved conflict. **The Azure-catalog 2027-09-02 sunset** appears in no OpenAI source and is recorded as noise.
+- Deprecation status, checked against OpenAI's own table: **`gpt-5.4` has no shutdown date.** It is absent from the 2026-10-01 deprecation batch (GPT-5.3-Codex, GPT-5.1, GPT-5.4-Nano → 2027-04-01), from the 2027-01-14 batch, and from past deprecations. Adjacent models are deprecated — `gpt-5.4-cyber` (removed 2026-10-01) and `gpt-5.4-nano`.
+- Scores deliberately held: **Tool use at 93** — no verified evidence justified moving it in either direction, and relabelling vendor rows as independent would have inflated it. **Multimodal at 78** — no new evidence, and OpenAI's own page confirms text+image in / text out only. **Context window at 97, not higher** — the window is now first-party verified but the same first-party table shows retrieval collapsing to 36.6% at 512K–1M.
+- Conflicts recorded, not averaged: FrontierMath v2 pre- vs post-June-2026-correction Epoch figures; GDPval-AA 1307 Elo (sourced) vs 1246 (claimed, unfound); Terminal-Bench 2.0 75.1% vendor with no independent run; τ²-bench 98.9% vendor vs the model's absence from the independent τ²-bench board; MCP Atlas 70.6% vendor; HLE 52.1%/39.8% vendor vs 43.7% AA.
+- **Re-run when:** (1) when Artificial Analysis publishes a confirmed GDPval-AA Elo for GPT-5.4, to settle 1307 vs the unfound 1246; (2) when an independent harness runs Terminal-Bench 4.0 or any Terminal-Bench version for this model — the vendor's 75.1% on TB 2.0 currently has no independent counterpart and the model's absence from the Terminal-Bench 4.0 board is conspicuous; (3) when OpenAI adds gpt-5.4 to the deprecations table, which would put a hard date on this file's 2027 planning; (4) when a confirmed independent MRCR v2 figure at 512K–1M appears, since 36.6% is the load-bearing weakness under an otherwise strong Context score; (5) when Epoch AI runs FrontierMath v2 again, to confirm the corrected Tier 4 figure is stable rather than mid-correction.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

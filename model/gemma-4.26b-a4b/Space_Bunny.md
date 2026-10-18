@@ -1,7 +1,7 @@
 # Gemma 4 26B A4B — findings by Space Bunny
 
 - Source: Google (`gemma-4-26B-A4B` / `gemma-4-26B-A4B-it`; hosted as `opencode/gemma-4.26b-a4b`)
-- Date: 2026-10-05 (UTC)
+- Date: **2026-10-17 (UTC) — second pass.** First pass 2026-10-05 (Overall 79.2).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,64 +9,93 @@
 
 - **Name:** Gemma 4 26B A4B (instruction-tuned variant: Gemma 4 26B A4B IT)
 - **Short description:** Google's Gemma 4 mixture-of-experts workhorse — 25.2B total parameters but only 3.8B active per token, so it runs roughly as fast as a 4B dense model while scoring close to the 31B dense flagship. Built for high-throughput reasoning, coding and vision on modest hardware. Not an alias of another entry here: E2B/E4B/12B Unified/31B are separate Gemma 4 members. "A4B" = active parameters, not a version.
-- **Provider / access:** open weights on Hugging Face (`google/gemma-4-26B-A4B`, `google/gemma-4-26B-A4B-it`) under Apache 2.0, with BF16, SFP8, Q4_0/GGUF and `-w4a16-ct` builds plus a 430M-param MTP drafter; also served by Amazon Bedrock (`google.gemma-4-26b-a4b`, `bedrock-mantle` endpoint, OpenAI Responses path), by OpenRouter (`google/gemma-4-26B-A4B-it`), via a free Gemini API tier variant, and hosted at `opencode/gemma-4.26b-a4b`.
-- **Release / knowledge:** Gemma 4 family released April 2026; HF repo created 2026-03-11, Bedrock launch date listed 2026-06-10. Knowledge cutoff not stated in the reviewed sources.
+- **Provider / access:** open weights on Hugging Face (`google/gemma-4-26B-A4B`, `google/gemma-4-26B-A4B-it`) under Apache 2.0, with BF16, SFP8, Q4_0/GGUF and `-w4a16-ct` builds plus a 430M-param MTP drafter; also served by Amazon Bedrock, by OpenRouter, via a free Gemini API tier variant, and hosted at `opencode/gemma-4.26b-a4b`. Artificial Analysis counts **10 API providers** for the reasoning variant (17 tracked routes across aggregators).
+- **Release / knowledge:** Gemma 4 family released April 2026 (Artificial Analysis: 2026-04-02; 26B A4B IT repos 2026-04-03). Knowledge cutoff not stated in any reviewed source.
 - **IDs:** `google/gemma-4-26B-A4B`, `google/gemma-4-26B-A4B-it`, Bedrock `google.gemma-4-26b-a4b`, hosted `opencode/gemma-4.26b-a4b`.
-- **Context window:** 256K tokens (262,144) — official Gemma 4 model card lists 256K for the 26B A4B MoE; OpenRouter lists 262,144 in / 16,384 max completion. 30 layers, 1,024-token sliding window, 262K vocabulary.
-- **Modalities:** text + image in; text out; thinking mode; native function calling; **no audio input** (audio is E2B/E4B/12B only). Vision encoder ~550M params; object detection, document/PDF parsing, screen and UI understanding, chart comprehension, OCR, handwriting and pointing supported.
-- **Pricing (as of 2026-10-05):** Apache 2.0 open weights (self-host: BF16 ≈ 57.7 GB, SFP8 ≈ 28.8 GB, Q4_0 ≈ 14.4 GB). Hosted rates: OpenRouter **$0.07 in / $0.34 out per 1M**; a `google/gemma-4-26b-a4b-it:free` tier is listed on OpenRouter and the Gemini API at $0. The `opencode/gemma-4.26b-a4b` listing is described only as "Standard pricing" — no public per-token rate found for it.
-- **Architecture:** MoE, 25.2B total / 3.8B active, 8 of 128 experts active per token plus 1 shared, 30 layers, 262K vocab, Apache 2.0 open weights with QAT and a 430M MTP drafter.
+- **Context window:** **256K tokens (262,144)** — first-party confirmed on the Google Gemma 4 model card's MoE table ("Context Length: 256K tokens"), OpenRouter lists 262,144 in / 32,768 max completion. 30 layers, 1,024-token sliding window, 262K vocabulary. ⚠️ gemma4.wiki lists this model as **128k** — wrong; disregard.
+- **Modalities:** **Text, Image** in; text out — first-party confirmed on the model card's MoE modality table. **No audio input** (audio is E2B/E4B/12B/31B only). Thinking mode; native function calling. Vision encoder ~550M params; object detection, document/PDF parsing, screen and UI understanding, chart comprehension, OCR, handwriting and pointing supported.
+- **Pricing (as of 2026-10-17): VERIFIED PRICE CUT.** OpenRouter's own model page and three independent trackers now list **$0.042 in / $0.220 out per 1M**, cached input **$0.021** — down from the $0.07 / $0.34 recorded on the first pass (a ~30–40% cut; pricepertoken states the cheapest input price "has fallen 30%, from $0.060 to $0.042" over ~90 days). A `google/gemma-4-26b-a4b-it:free` $0 tier still exists on OpenRouter. ⚠️ **Routing caveat:** the $0.042 route is Darkbloom via OpenRouter, not OpenRouter's own lane — OpenRouter's own route is listed at **$0.090 / $0.300** on the same provider tables. Full spread across 16–17 tracked providers runs $0.042 (Darkbloom) to $0.900 (Fireworks).
+  - ⚠️ **The prior pass's "Bedrock Flex $0.065/$0.20" could not be verified and is contradicted.** Amazon Bedrock is listed at **$0.130 / $0.400** by two independent trackers. The live prices are: Darkbloom $0.042/$0.220 · FlexAI $0.042/$0.220 · DekaLLM $0.060/$0.330 · DeepInfra $0.070/$0.340 · NextBit $0.090/$0.300 · OpenRouter $0.090/$0.300 · Cloudflare $0.100/$0.300 · CoreWeave $0.100/$0.300 · Parasail / Venice / Bedrock / Novita $0.130/$0.400 · SiliconFlow $0.140/$0.400 · Google direct $0.150/$0.600 · Fireworks $0.900/$0.900.
+  - Artificial Analysis's *median* input price is **$0.10 / $0.37 out** (reasoning) and $0.13 / $0.40 (non-reasoning), blended $0.099 — higher than the headline cheapest route because AA medians across providers. Both are recorded.
+- **Architecture:** MoE, 25.2B total / 3.8B active, 8 of 128 experts active per token plus 1 shared, 30 layers, 262K vocab, Apache 2.0 with QAT and a 430M MTP drafter. Third-party DGX Spark BF16 measurements: ~9.7 t/s single-stream, ~12.5 t/s batched — ~4× the 31B dense but ~20% *slower* than the E4B dense at 4.5B active.
 
 ### Raw benchmarks found
 
-All figures are vendor-published instruction-tuned, thinking-mode results from the official Gemma 4 model card / Gemma 4 Technical Report (arXiv 2607.02770) unless stated.
+**Vendor rows** are the official Gemma 4 model card / Technical Report (arXiv 2607.02770), instruction-tuned, thinking mode. **Independent rows** are Artificial Analysis runs.
 
 Arena (human preference, 2026-06-19 technical-report snapshot):
 
-- Arena Text Elo: **1438 ±8** (Google model page gives 1441 as of 2026-04-02). Same table: Gemma 4 31B 1451 ±8, DeepSeek V4 Pro Thinking 1458, GLM 5 1457, Gemma 4 26B-A4B 1438, Gemma 3 27B 1366. Note the 12B and the E-tier models have **no published Arena row**.
+- Arena Text Elo **1438 ±8**, rank **#61** (Google Technical Report Table 4). Same table: Gemma 4 31B 1451 ±8 (#43), DeepSeek V4 Pro Thinking 1458 (#36), GLM 5 1457 (#37), Gemma 3 27B 1366 (#157). Google's April-2026 launch post quoted 1441 / "#6 open model" — a launch-day figure, superseded. The 12B and the E-tier models have **no published Arena row**.
 
-Agent / tool use:
+Agent / tool use — **this is where vendor and independent diverge most:**
 
-- Tau2-bench (avg over airline / retail / telecom): **68.2%** — airline **76.0%**, retail **85.5%**, telecom **43.0%** (technical report Table 5). Gemma 4 31B: 76.9% avg (75.0 / 86.4 / 69.3).
-- Terminal-Bench Hard: **14.0%** (31B 36.0, 12B 18.0, Gemma 3 27B 4.0).
-- IFEval: **98.5%**; IFBench: **72.0%** (31B 98.9 / 76.0).
-- Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**.
+- **Tau2-bench (avg over airline / retail / telecom): 68.2% [vendor]** — airline 76.0, retail 85.5, telecom 43.0 (Technical Report Table 5). Gemma 4 31B 76.9% avg.
+- **τ²-bench: 43.6% [indep]** — BenchLM's τ²-bench leaderboard, rank **#98 of 99+**. A **~25-point gap against the vendor on the same benchmark family**. This is the single largest vendor/independent disagreement in the Gemma 4 line.
+- **AutomationBench-AA: 1.9% [indep]** (shown as 2% on AA's comparison page against Mistral Small 4) — near-floor.
+- **Terminal-Bench 4.0: not run.** AA shows "--" for this model on its comparison tables (it *does* show 0.0% for Gemma 4 31B). No verified value.
+- **GDP.pdf: not run** by AA. **GDPval-AA v2.1: 553 / 565 / 566 Elo** across three AA pages (GT-5.2 comparison, Mistral Small 4 comparison, release comparison respectively) — AA's own pages vary by ~13 Elo for the same model on the same board.
+- **AA-Briefcase v1.1: 315 Elo** (vs 31B's 368) [indep]
+- Terminal-Bench Hard **14.0% [vendor]** (31B 36.0, 12B 18.0, Gemma 3 27B 4.0)
+- IFEval **98.5%**; IFBench **72.0%** (31B 98.9 / 76.0) [vendor]
+- Tau3-Banking / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found.**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **82.3%** (no tools). 31B 84.3, 12B 78.8, Gemma 3 27B 42.4.
-- AIME 2026 (no tools): **88.3%** — near the 31B's 89.2. 12B 77.5.
-- MMLU Pro: **82.6%**; MMMLU (multilingual): **86.3%** (31B 88.4).
-- BigBench Extra Hard (micro avg): **64.8%** (31B 74.4, 12B 53.0).
-- HLE: **8.7%** no tools, **17.2%** with search (31B 19.5 / 26.5).
-- LCR / MLCR / CritPt / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**.
+- GPQA Diamond **82.3% [vendor]** (no tools). ⚠️ An independent **79.2%** was asserted in the prior pass but could not be located on any reachable AA page or leaderboard; BenchLM's GPQA-D board lists the 12B at 78.8% and does **not** list this model. pricepertoken carries a third figure, "GPQA 71.4". Recorded as a three-way unresolved conflict; the vendor number is used and the 79.2% is not credited.
+- **AA-GPQA Diamond was not found** for this model.
+- **AA-HLE: 19.3% [indep]** (shown as 19% elsewhere) versus vendor **8.7% no-tools / 17.2% with-search**. The independent figure is **higher** than the vendor's no-tools number and close to its with-search number — broad agreement, and a point in the model's favour.
+- GPQA-D 82.3%, AIME 2026 88.3% (near the 31B's 89.2), MMLU Pro 82.6%, MMMLU 86.3%, BigBench Extra Hard 64.8% [vendor]
+- **CritPt: 0.0% [indep]** — near-floor.
+- **AA-Omniscience Index: −51 [indep]** (vs 31B −48, 12B −52). The companion **hallucination rate of 86.4%** is the figure carried in the prior pass; it is **BenchLM-relayed and was not re-verified directly on an AA page this pass** — the −51 index *is* directly confirmed and is itself severe (worse than the 31B's −48 and roughly tied with the 12B's −52, and far worse than E4B's −19.7). **86.4% hallucination is the worst in the Gemma 4 family.**
+- **AA Intelligence Index: 17 [indep, ESTIMATED]** — AA labels this "Estimate (independent evaluation forthcoming)", rank #15/142 among open-weight models. Not a measured score.
 
 Coding:
 
-- LiveCodeBench v6: **77.1%** (31B 80.0, 12B 72.0, Gemma 3 27B 29.1).
-- Codeforces ELO: **1718** (31B 2150, 12B 1659).
-- SciCode: **40.0%** (31B 43.0, 12B 38.0).
-- SWE-bench Verified / SWE-Pro / Vibe Code Bench: **no verified public score found**.
+- **SWE-bench Lite: 38.67%, 116/300, ranked #16 globally [indep]** — Gemma 4 26B-A4B at FP8, from a third-party evaluation write-up dated **2026-04-17**. This is the model's **first ever real repository-scale coding datapoint**, and it is the key new row this pass. ⚠️ Caveat: it is a self-reported third-party run on one quantization (FP8), not an official leaderboard entry.
+- **AA-SciCode: 40.0% [indep]** — **matches the vendor's 40.0% exactly.** The strongest provenance result in the whole family.
+- LiveCodeBench v6 **77.1% [vendor]** (31B 80.0, 12B 72.0, Gemma 3 27B 29.1); Codeforces ELO **1718** [vendor] (31B 2150, 12B 1659)
+- SWE-bench Verified / SWE-Pro / Vibe Code Bench / PostTrainBench: **no verified public score found.**
 
-Long context:
+Long context — **meaningfully improved evidence this pass:**
 
-- MRCR v2 8-needle @128k (average): **44.1%** (31B 66.4, 12B 43.4).
-- RULER accuracy @32k: **97.3%** — the best in the Gemma 4 line (31B 96.8, 12B 96.4). No RULER figure published above 32k, so the 256K ceiling is unmeasured.
+- **RULER @128k: 89.8%** (Technical Report Table 9) — **this figure exists and the first pass recorded it as unpublished.** The same table gives 97.3% @32k (best in the Gemma 4 line). The 256K nominal ceiling was, correctly, still unmeasured at 32k-only; it is now measured to 128k.
+- **MTOB chrF @~256k (full book): 42.7%** (kgv→eng) and **45.0% @~128k (half book)** — this is the **only measurement anywhere near the 256K limit for this model**, and it is a real degradation (roughly 2 points from half-book to full-book).
+- **AA-LCR v1.1: 65.7% [indep]** — **substantially above the vendor's own MRCR v2 8-needle @128k of 44.1%**, on the same pattern seen in E4B. The independent harness measures this model's long-context reasoning *better* than the vendor does.
+- MRCR v2 8-needle @128k (average) **44.1% [vendor]** (31B 66.4, 12B 43.4)
+
+Multimodal:
+
+- MMMU Pro **73.8%**, MATH-Vision **82.4%**, InfographicVQA 89.3, OmniDocBench 1.5 edit distance 0.149, MedXpertQA MM **58.1%** [vendor]. ⚠️ **Vendor-table conflict:** the Technical Report HTML vision table gives MMMU Pro **73.2%** for this model (and 12B 67.7 / E4B 51.4) where the model card and Hugging Face card give **73.8%** (12B 69.1 / E4B 52.6). Recorded, not reconciled.
+- **No audio input** (unlike E2B/E4B/12B/31B) and no video-path benchmark — text + image only. No independent AA MMMU-Pro row found for this model.
+
+Aggregator-relabeling warnings found this pass:
+
+- **gemma4home.pro** is badly garbled and should not be used: it lists τ²-bench "86.4%" for the 31B (that is the 31B's *retail* sub-score), "86.4%" as Gemma 3 27B's τ² baseline (that is also the 31B retail figure), and Arena ELO 1452 for the 26B A4B (that is the 31B's). Multiple vendor numbers are silently shifted between models.
+- **cloudprice.net** lists the 26B A4B with a 0/5 input-modality, 0/13-capability table, contradicting Google's model card (which says Text + Image in). Same broken capability block it shows for E4B.
+- **BenchLM** correctly reproduces Google's vision numbers and the AA rows; it is the most reliable of the three, but note it still carries an unreliable price display ("$0.00 / $0.00") on its model pages.
+
+Sources consulted (2026-10-17): [Google AI for Developers Gemma 4 model card](https://ai.google.dev/gemma/docs/core/model_card_4), [Gemma 4 Technical Report arXiv 2607.02770](https://arxiv.org/html/2607.02770v1), [Hugging Face google/gemma-4-26B-A4B-it](https://huggingface.co/google/gemma-4-26B-A4B-it), [Artificial Analysis Gemma 4 26B A4B](https://artificialanalysis.ai/models/gemma-4-26b-a4b) plus its GPT-5.2 / Mistral-Small-4 / Qwen3.5-35B-A3B comparison pages and the 26B-vs-31B release comparison, [BenchLM τ²-bench leaderboard](https://benchlm.ai/benchmarks/tau2-bench), [BenchLM GPQA-D leaderboard](https://benchlm.ai/benchmarks/gpqa-diamond), [OpenRouter Gemma 4 26B A4B](https://openrouter.ai/google/gemma-4-26b-a4b-it), [computeprices OpenRouter rates](https://computeprices.com/providers/openrouter/models/gemma-4-26b-a4b-it), [pricepertoken Gemma 4 26B A4B IT](https://pricepertoken.com/pricing-page/model/google-gemma-4-26b-a4b-it), [TKX 17-provider comparison](https://tkx.org/m/gemma-4-26b-a4b-it), [ai-muninn SWE-bench Lite write-up](https://ai-muninn.com/en/blog/swe-bench-lite-gemma4-26b-38-percent), [DeepInfra Gemma 4 overview](https://deepinfra.com/blog/gemma-4-model-overview), [lmassaron gemma-4-benchmarks](https://github.com/lmassaron/gemma-4-benchmarks).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Tau2 average 68.2% with retail 85.5% shows real multi-step tool competence, and 98.5 IFEval / 72.0 IFBench confirm instruction and format discipline. Capped hard by Terminal-Bench Hard at 14.0% — the weakest score of any mid-size Gemma 4 and less than half the 31B's 36.0 — meaning autonomous terminal work is not its strength; no Tau3/MCP-Atlas/Claw-Eval evidence exists either.
-- **Reasoning: 84/100.** GPQA Diamond 82.3% and AIME 2026 88.3% put it within ~1–2 points of the 31B flagship, MMMLU 86.3% shows real multilingual depth, and BBEH 64.8% is solid. Held below the low 90s by HLE at only 8.7% no-tools (17.2% with search) and by Arena Elo 1438 trailing the closed frontier (DeepSeek V4 Pro Thinking 1458, GLM 5 1457).
-- **Context window: 85/100.** 256K tokens with RULER 97.3% @32k is a genuine medium-tier window, but it is a quarter of the 1M class and MRCR @128k at 44.1% shows needle retrieval degrades to near-chance well before the nominal limit — roughly half the 31B's 66.4%.
-- **Multimodal: 76/100.** Vision is solid for an MoE this small (MMMU Pro 73.8, MATH-Vision 82.4, InfographicVQA 89.3, OmniDocBench 1.5 edit distance 0.149, MedXPertQA MM 58.1) and it sits close to the 31B on all of them. Capped because **audio input is absent** (unlike the E2B/E4B/12B) and there is no video path benchmarked — text + image only.
-- **Coding: 79/100.** LiveCodeBench v6 77.1% and Codeforces 1718 land within a hair of the 31B (80.0 / 2150) and clearly ahead of the 12B, and SciCode 40.0% shows real scientific coding. No SWE-bench Verified, SWE-Pro or Vibe Code Bench figure is published, and Terminal-Bench Hard 14.0% caps end-to-end agentic coding.
-- **Cost efficiency: 94/100.** Apache 2.0 weights plus a genuinely cheap hosted rate ($0.07 / $0.34 per 1M on OpenRouter) and an available $0 free tier make this one of the cheapest capable models in the comparison; only 3.8B active parameters per token keeps self-hosted inference cheap too. Not 100 because the best-supported routes are metered.
-- **Overall Score: 79.2/100.** Near-31B quality at 4B-active inference cost — the efficiency champion of the Gemma 4 line and a strong default for high-volume reasoning/coding with vision; best fit for batch and agentic workloads where throughput per dollar matters more than frontier Elo.
+- **Tool use: 60/100. CUT from 72 — the biggest single move on this model.** The cut is driven by a direct vendor/independent contradiction on the same benchmark family: **Google publishes τ²-bench 68.2% (airline 76.0 / retail 85.5 / telecom 43.0); Artificial Analysis measures 43.6%.** A ~25-point gap. The stated method here is that the independent harness wins where the vendor's harness config is unpublished and therefore unauditable — and Google's τ² harness configuration genuinely is not published, while AA's is. Two more independent rows agree: **AutomationBench-AA 1.9%** and **GDPval-AA ~553–566 Elo with AA-Briefcase only 315** (vs the 31B's 620/368), both of which are far below what a 68.2% τ² score would predict. Terminal-Bench Hard 14.0% [vendor] remains the weakest single row in the family below the 31B. Held well above the floor because instruction discipline is genuinely excellent and independently unchallenged (IFEval 98.5%, IFBench 72.0%) and because τ²-bench at 43.6% is not zero. **Not counted:** Terminal-Bench 4.0 and GDP.pdf, which AA has not run for this model.
+- **Reasoning: 84/100. HELD.** The independent runs broadly *agree* with the vendor here, which is exactly why no cut was applied: **AA-HLE 19.3%** sits close to the vendor's 17.2% with-search figure and well above its 8.7% no-tools figure; MMLU Pro 82.6%, MMMLU 86.3%, BBEH 64.8% and GPQA-D 82.3% are all within ~1–2 points of the 31B. Set against that: **CritPt 0.0%** and an **AA-Omniscience index of −51 with a relayed 86.4% hallucination rate** are severe and directly undercut the "high-throughput reasoning" positioning — a model that confabulates 86% of the time on unanswerable questions is a poor default for autonomous pipelines even when its knowledge exams are strong. Recorded as a standing caveat rather than a score cut, because every *knowledge* measurement AA has run agrees with Google. Still capped by Arena Elo 1438 trailing the closed frontier.
+- **Context window: 87/100. RAISED from 85.** Two first-party facts the first pass recorded as unavailable now exist in the Technical Report: **RULER 89.8% @128k** (the first pass said no figure was published above 32k) and **MTOB chrF 42.7% @~256k** — the only measurement anywhere near the 256K nominal limit for this model. Independently, **AA-LCR 65.7%** sits well above the vendor's own MRCR @128k of 44.1%. Held below the leaders because MRCR @128k is still only 44.1% (roughly two-thirds of the 31B's 66.4%) and the MTOB full-book figure shows real degradation at the top of the window.
+- **Multimodal: 76/100. HELD.** Unchanged for want of new evidence. Vision is solid for an MoE this small (MMMU Pro 73.8, MATH-Vision 82.4, InfographicVQA 89.3, MedXpertQA MM 58.1) and close to the 31B on all of them. Capped because **audio input is absent** and there is no video-path benchmark — text + image only. No independent AA MMMU-Pro row was found for this model to confirm or contradict the vendor.
+- **Coding: 76/100. CUT from 79.** The new evidence is **SWE-bench Lite 38.67% (116/300, FP8)** — the first real repository-scale coding number ever published for this model, and it is modest for a model marketed as a coding alternative to the 31B. Against that, **AA-SciCode 40.0% matches the vendor's 40.0% exactly**, which is the cleanest provenance agreement in the family and says the vendor is not inflating this dimension. LiveCodeBench 77.1% and Codeforces 1718 remain within a hair of the 31B (80.0 / 2150). The cut reflects the *first* repository-scale datapoint being lower than the completion-benchmark story implied, not any regression.
+- **Cost efficiency: 96/100. RAISED from 94.** On a verified price cut: the cheapest tracked route is now **$0.042 in / $0.220 out, cached $0.021** (down from $0.07/$0.34), with an independent tracker stating a ~30% input-price fall over 90 days; a $0 free tier remains. Apache 2.0 weights, 3.8B active parameters and ~2.8B self-hosted quantized footprint keep inference cheap. Held below 100 for two reasons: the best-supported routes are still metered, and the headline cheapest route is a specific provider lane (Darkbloom) rather than a stable list price — OpenRouter's own lane is $0.090/$0.300, and the provider spread runs to $0.900 on Fireworks.
+- **Overall Score: 76.6/100. DOWN from 79.2.** (60 + 84 + 87 + 76 + 76) / 5 = 383 / 5 = **76.6**, cost excluded. The net movement is a **−12 Tool use cut outweighed by +2 Context and +2 Cost**. The honest summary: Google's own table and the technical report still describe a near-31B model at 4B-active inference cost, and on knowledge exams that holds — but the first serious independent agentic audit of the family puts this model's tool use far below its own marketing, and puts an 86% hallucination rate next to the "high-throughput reasoning" claim. Best fit for batch vision+reasoning workloads where throughput per dollar dominates; do not default it to unattended agentic or tool-calling pipelines without your own τ²/tau-bench harness.
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-05
-- Method: public internet research (Google AI for Developers Gemma 4 model card, Hugging Face `google/gemma-4-26B-A4B` model card, Gemma 4 Technical Report arXiv 2607.02770, Google DeepMind model page, Amazon Bedrock model card, OpenRouter listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17 (second pass)
+- Method: Public internet research of the Google AI for Developers Gemma 4 model card, the `google/gemma-4-26B-A4B-it` Hugging Face model card, Gemma 4 Technical Report arXiv 2607.02770 (Tables 4, 5, 9), Artificial Analysis (model page plus four comparison/release-comparison tables), BenchLM (τ²-bench and GPQA-D leaderboards), OpenRouter, computeprices, pricepertoken, TKX, DeepInfra, Amazon Bedrock listings and a third-party SWE-bench Lite write-up. Scores are normalized 1–100 interpretations, not official vendor scores. Vendor rows are labelled [vendor], independent rows [indep].
+- What this pass changed vs. the first pass: (a) Tool use 72 → **60** on **τ²-bench 43.6% independent vs 68.2% vendor** — a ~25-point gap on the same benchmark family, resolved in favour of the independent harness because Google's harness config is unpublished; plus **AutomationBench-AA 1.9%** and GDPval-AA 553/565/566 Elo; (b) Context window 85 → **87** on two figures the first pass recorded as unavailable — **RULER 89.8% @128k** and **MTOB chrF 42.7% @~256k** — plus **AA-LCR 65.7% above the vendor's own MRCR 44.1%**; (c) Coding 79 → **76** on the first-ever repository-scale datapoint, **independent SWE-bench Lite 38.67% (116/300)**; (d) Cost efficiency 94 → **96** on a verified OpenRouter price cut to **$0.042/$0.220, cached $0.021**; (e) Reasoning held at **84** and Multimodal held at **76**.
+- Leads from the prior pass that did **not** verify, corrected: **"Bedrock Flex $0.065/$0.20" is contradicted** — Bedrock is listed at **$0.130/$0.400** by two independent trackers; no $0.065 figure exists on any reachable page. **"Independent AA GPQA-D 79.2 vs vendor 82.3" could not be located** on any AA page or leaderboard, and BenchLM's GPQA-D board omits this model entirely; a third figure of 71.4% circulates on pricepertoken. The vendor's 82.3% is used and the 79.2% is not credited. **The 86.4% hallucination rate is BenchLM-relayed and was not re-verified on an AA page** — however the **AA-Omniscience index of −51 IS directly confirmed** and is independently sufficient to establish the same problem (worse than the 31B's −48, vs E4B's −19.7). Also corrected: **Terminal-Bench 4.0 has NOT been run by AA for this model** (shown as "--", not a score).
+- Leads from the prior pass that **did** verify: τ²-bench 43.6% ✓ (rank #98, BenchLM leaderboard); AutomationBench-AA 1.9% ✓; GDPval-AA Elo ✓ but varying (553/565/566, not 553/565/569); CritPt 0.0% ✓; SciCode 40.0% matching the vendor exactly ✓; SWE-bench Lite 38.67% / 116-of-300 ✓; the OpenRouter price cut ✓ (with the Darkbloom-vs-OpenRouter routing caveat).
+- Provenance caveat: Artificial Analysis marks this model's Intelligence Index **17 as "Estimate (independent evaluation forthcoming)"**. Individual component rows quoted above were read off AA comparison tables; the index itself is not a measured score.
+- Conflicts recorded, not averaged: τ²-bench 68.2% [vendor] vs 43.6% [indep]; GDPval-AA 553 / 565 / 566 Elo across AA's own pages; GPQA-D 82.3% [vendor] / 79.2% [claimed] / 71.4% [aggregator]; HLE 8.7/17.2 [vendor] vs 19.3% [indep]; MMMU Pro 73.8 (model card) vs 73.2 (Technical Report HTML); hosted price $0.042 (Darkbloom) vs $0.090 (OpenRouter's own lane) vs AA median $0.10.
+- **Re-run when:** (1) when Artificial Analysis publishes a measured (non-estimated) Intelligence Index for this model — specifically **Terminal-Bench 4.0** and **GDP.pdf**, the two index components AA has not yet run; (2) when Google publishes its τ²-bench harness configuration, so the 68.2% vs 43.6% gap can be adjudicated rather than resolved by precedence; (3) when an independent SWE-bench Verified / SWE-Pro run lands, to test whether the single FP8 SWE-bench Lite 38.67% run generalizes; (4) when an AA MMMU-Pro row appears, to confirm the vision numbers independently; (5) when any 256K+ long-context measurement beyond MTOB appears, since the 262,144-token ceiling rests on one full-book chrF figure.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
