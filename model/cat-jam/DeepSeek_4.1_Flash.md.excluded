@@ -1,0 +1,53 @@
+# Cat Jam — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+> **SELF-EXCLUSION.** Cat Jam is an anonymous OpenCode Zen stealth model (free, standard for agentic coding) with **zero verified public benchmark numbers** — its maker is undisclosed and no leaderboard has scored it — so no 1–100 scores are filed here. Placeholder scores would drag the mean for every reader. The notes below record what is verified and what is missing; nothing in this file is scored.
+
+- Source: undisclosed maker (OpenCode Zen) — `opencode/cat-jam`
+- Date: 2026-10-18 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card (verified facts only)
+
+- **Name:** Cat Jam
+- **Short description:** A provenance-hidden OpenCode Zen stealth reasoning model offered free for a limited preview, announced by @opencode on 2026-10-13 as "very fast — built for agentic coding." Maker undisclosed; community speculation (unconfirmed) points to Reflection's Beam line.
+- **Provider / access:** OpenCode Zen (`opencode/cat-jam`, also listed as `cat-jam-free` on models.dev / pi.dev; `https://opencode.ai/zen/v1`, OpenAI-compatible). No vendor attribution or public endpoint outside Zen.
+- **Release / knowledge:** listed in the Zen registry 2026-10-12/13; knowledge cutoff unknown.
+- **IDs:** `opencode/cat-jam`, `opencode/cat-jam-free`.
+- **Context window:** 262,144 tokens with 131,072 max output (pi.dev, aifree.dev); Command Code lists 1.05M — a conflicting figure, treated as unconfirmed.
+- **Modalities:** text-only (no image/attachment input reported); reasoning with low/medium/high/xhigh/max effort, tool calls, and structured JSON output.
+- **Pricing (as of 2026-10-18):** Free — $0 input / $0 output / $0 cache read (limited stealth-preview period; no announced end date).
+- **Architecture:** not disclosed (parameters, MoE/dense, weights and license all unknown).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Why the file is excluded (evidence trail)
+
+- Verified from OpenCode's own announcement and the Zen registry: Cat Jam is a real stealth `opencode/cat-jam(-free)` free ID (262K context, 131K output, reasoning, tool calls, JSON), live since 2026-10-12/13.
+- Command Code's tracker page lists Cat Jam's Intelligence index and Coding index as **"not yet scored"**; no AI index, SWE-bench, GPQA, Terminal-Bench, or other harness score was found on Artificial Analysis, Vals AI, BenchLM, LLM Stats, or BenchmarkList. Only speed/reliability sampling (TokenDyno) and community anecdotes exist.
+- With zero measured numbers on any axis, every dimension row reads "no verified public score found" — the self-exclusion condition in `model-report-TEMPLATE.md` / `.agents/rules.md`. No number was invented.
+- Re-research trigger: if OpenCode or an independent harness publishes dated `cat-jam` benchmark scores against a stable ID, this file should be replaced by a fully scored `DeepSeek_4.1_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (OpenCode announcement/registry, models.dev, pi.dev, Command Code, aifree.dev, artificialwatch, TokenDyno). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

@@ -1,0 +1,36 @@
+# GPT-5.1 Codex Mini — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: OpenAI (`opencode/gpt-5.1-codex-mini`)
+- Date: 2026-10-17 (UTC) — new folder discovered via the live Zen models endpoint scan
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (platform/catalog metadata only, no measured numbers):
+
+- **Identity:** GPT-5.1 Codex Mini — OpenAI's fast, efficient small coding model, "optimized for quick code completion, simple refactoring, and routine programming tasks" (llm-stats vendor-blurb sourced from OpenAI's launch post).
+- **Status:** live on the OpenCode Zen models endpoint (2026-10-17 scan: `gpt-5.1-codex-mini`, $0.25 in / $2.00 out per 1M, $0.025 cached read — Zen pricing table); **Zen deprecation table lists it as deprecated 2026-07-23** alongside the rest of the GPT-5.1 Codex line — deprecated but still served.
+- **Specs (verified):** released 2025-11-12 (llm-stats); 400K in / 128K max output (llm-stats, matches the family); text + image in / text out (llm-stats); TTFT p95 1.00s, throughput p95 ~200 char/s (llm-stats, 7-day live traffic) — genuinely the fastest-tier Codex variant on latency.
+
+Sources checked with no benchmark rows (2026-10-17):
+
+- BenchLM (`gpt-5-1-codex-mini`): 404 — no page (the family list shows GPT-5.1 Codex at 50.37 but no Mini entry).
+- Artificial Analysis: no Mini model page (AA measures the family under `gpt-5-1-codex` — none of its displayed rows are Mini-attributed).
+- Vals AI (`openai_gpt-5.1-codex-mini`): 404 — no measured rows.
+- llm-stats: full specs/pricing page but **zero benchmark rows** ("Quality Tracker" section empty).
+- OpenAI GPT-5.1 launch post (openai.com/index/gpt-5-1/, fetched 2026-10-17): product/tone rollout coverage only — no Codex Mini eval table.
+
+Interpolation from the GPT-5.1 Codex family (base 50.37 BenchLM) or from GPT-5.4 Mini positioning was deliberately NOT used — Mini is a distinct distillation with no published evals. A future re-research should look for (a) an OpenAI Codex Mini eval table or system card, (b) aggregator coverage (BenchLM/Vals/AA), (c) any post-deprecation archival snapshot — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (zai/glm-5.3)** — 2026-10-17
+- Method: public internet research (live Zen models endpoint + pricing + deprecation table, llm-stats spec/pricing page, BenchLM, Artificial Analysis, Vals AI, OpenAI GPT-5.1 launch post); specs verified, but no verified public benchmark scores exist for this deprecated Mini ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
