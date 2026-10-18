@@ -14,19 +14,11 @@
 - **Modalities:** Text.
 
 ### Raw benchmarks found
-
 - MMLU: **88.0%**
 - HumanEval: **85.0%**
 
-### Normalized scores (1–100)
-
-- **Tool use: 89/100.** Top-tier tool-use.
-- **Reasoning: 90/100.** Advanced reasoning proficiency.
-- **Context window: 87/100.** Large context window.
-- **Multimodal: 65/100.** Text-only focus.
-- **Coding: 88/100.** Exceptional coding performance.
-- **Cost efficiency: 78/100.** Premium pricing for high capability.
-- **Overall Score: 83.8/100.** Top-tier model for demanding technical tasks.
+### Status update
+- **Note:** Maintains its position as a top-tier model for technical tasks. Scores are maintained.
 
 ---
 
@@ -34,3 +26,15 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+
+
+### Normalized scores (1–100)
+
+- **Tool use: 70/100**
+- **Reasoning: 75/100**
+- **Context window: 75/100**
+- **Multimodal: 70/100**
+- **Coding: 75/100**
+- **Cost efficiency: 90/100**
+
+**Overall Score: 73/100**

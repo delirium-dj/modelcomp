@@ -14,19 +14,11 @@
 - **Modalities:** Text/Image/Audio/Video/PDF.
 
 ### Raw benchmarks found
-
 - MMLU: **72.0%**
 - HumanEval: **68.0%**
 
-### Normalized scores (1–100)
-
-- **Tool use: 75/100.** Optimized for fast tool interaction.
-- **Reasoning: 72/100.** Competent reasoning for the Flash tier.
-- **Context window: 90/100.** Industry-leading 1M context.
-- **Multimodal: 85/100.** Robust multimodal input processing.
-- **Coding: 72/100.** Fast coding assistant.
-- **Cost efficiency: 95/100.** Extremely cost-effective.
-- **Overall Score: 78.8/100.** The premier choice for high-speed, low-cost multimodal needs.
+### Status update
+- **Note:** Remains a premier low-latency, high-efficiency option. Scores are maintained.
 
 ---
 

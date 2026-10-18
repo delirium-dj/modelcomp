@@ -1,7 +1,7 @@
 # Nemotron 3.5 Bolt 74B-A9B — findings by Laguna S 2.1
 
 - Source: HuggingFace model card (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`), BenchLM (`https://benchlm.ai/models/nemotron-3-5-bolt-74b-a9b`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,7 +44,7 @@
 
 Sources:
 - NVIDIA HuggingFace model card: `https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB` (13 benchmarks with official scores, published 2026-10-15)
-- BenchLM: `https://benchlm.ai/models/nemotron-3-5-bolt-74b-a9b` (17/639 benchmarks covered, last updated 2026-10-16, BenchLM-aggregated score 45.21/100, rank #122/954)
+- BenchLM: `https://benchlm.ai/models/nemotron-3-5-bolt-74b-a9b` (17/639 benchmarks covered, last updated 2026-10-17, BenchLM-aggregated score 45.21/100, rank #122/954)
 - Artificial Analysis: data cited via BenchLM (Intelligence Index 21.4, rank #45/59)
 
 ### Normalized scores (1–100)
@@ -72,6 +72,12 @@ The queue's pre-computed 62.2 appears derived from a different methodology (poss
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public internet research from official HuggingFace model card and BenchLM; zero-influence: did not read peer `model/` findings files during research.
-- Sources: HuggingFace model card (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`), BenchLM model page (citing HF model card + Artificial Analysis).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research from official HuggingFace model card and BenchLM; zero-influence: did not read peer `model/` findings files during research. Benchmarks verified via Oct 17 BenchLM page (Overall 45.21/100, #122/954, 17 of 639 benchmarks; last updated 2026-10-17).
+- Sources: HuggingFace model card (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`), BenchLM model page (17/639 benchmarks covered, last updated 2026-10-17, BenchLM-aggregated score 45.21/100, rank #122/954, citing HF model card + Artificial Analysis).
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed via Oct 17 BenchLM page: Overall 45.21/100, #122/954, 17 of 639 benchmarks (last updated 2026-10-17). All 17 benchmarks match the file's values exactly. Context window 256K, Reasoning Type "Reasoning" — both consistent with file. Note: BenchLM's aggregated score (45.21) is lower than the file's dimension-based Overall (76) due to BenchLM including negative/scaled metrics (AA-Omniscience Index -19.2%, hallucination rate 43.7%). All normalized scores unchanged (76).

@@ -1,7 +1,7 @@
 # GPT-5.1 Codex — findings by Laguna S 2.1
 
 - Source: OpenAI (gpt-5.1-codex)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-5.1-codex` (API id `gpt-5.1-codex`); note Anthropic-style: GPT models use the hyphenated vendor display style "GPT-5.1 Codex".
 - **Context window:** 400,000 tokens input / 128,000 tokens output (llm-stats, Artificial Analysis). No long-context premium noted.
 - **Modalities:** text + image input, text output. Tool use supported (Responses API). No audio/video input; text-only output.
-- **Pricing (as of 2026-10-16):** $1.25 / 1M input tokens and $10.00 / 1M output tokens via OpenAI (llm-stats, Artificial Analysis). Cheap input, expensive output; no $0/free tier.
+- **Pricing (as of 2026-10-17):** $1.25 / 1M input tokens and $10.00 / 1M output tokens via OpenAI (llm-stats, Artificial Analysis). Cheap input, expensive output; no $0/free tier.
 - **Architecture:** proprietary; parameter count not disclosed by OpenAI.
 
 ### Raw benchmarks found
@@ -73,6 +73,13 @@
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16
-- Method: public internet research (OpenAI launch post + Appendix eval table, llm-stats, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one (e.g. `Glm_5.md`) using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research (OpenAI launch post + Appendix eval table, llm-stats, Artificial Analysis, BenchLM, Vals AI); scores normalized 1–100 per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: BenchLM.ai model page (Overall 50.37/100, #93/954, 16 of 639 benchmarks, 2026-10-17 — BenchLM coverage adds new benchmarks from AA and Vals); OpenAI launch post; llm-stats; AA model benchmarks (Intelligence Index 23.7%, CritPt 5.7%, AA-LCR 69.3%, τ²-bench 83%, AA-MMMU-Pro 72.5%); Vals AI (LiveCodeBench 85.6%, Vibe Code Bench 13.12%); Gert Labs (49.68%); JobBench paper (26.2%); OpenRouter (Design Arena 1163).
+- Discrepancy note: file's primary scores (SWE-bench Verified 73.7%, TB2.0 52.8%) are from OpenAI launch post, not on BenchLM page. BenchLM Intelligence Index 23.7% (vs file's estimated 24) confirms low score. AA-LCR 69.3% (confirmed).
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed via Oct 17 BenchLM page: Overall 50.37/100, #93/954, 16 of 639 benchmarks. New benchmarks from BenchLM/AA sources: τ²-bench 83%, Gert Labs 49.68%, JobBench 26.2%, LiveCodeBench (Vals) 85.6%, Vibe Code Bench 13.12%, Intelligence Index 23.7%, CritPt 5.7%, AA-LCR 69.3%, AA-MMMU-Pro 72.5%, Design Arena 1163. File's OpenAI launch-post scores unchanged. Normalized scores unchanged (69).

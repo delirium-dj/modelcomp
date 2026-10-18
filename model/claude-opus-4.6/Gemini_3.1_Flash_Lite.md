@@ -7,25 +7,16 @@
 
 ## Model card
 
-- **Name:** Claude Opus 4.6
-- **Short description:** High-capability legacy model, formerly Anthropic's flagship for enterprise and reasoning tasks.
-- **Provider / access:** Anthropic API (`claude-opus-4-6`)
-- **Release / knowledge:** 2026-02-05
-- **IDs:** `anthropic/claude-opus-4-6`
+- **Name:** Claude Opus 4.6 (Deprecated/Historical)
+- **Short description:** High-capability legacy model, formerly Anthropic's flagship.
+- **Provider / access:** Anthropic API (Legacy).
 - **Context window:** 1.0M tokens
 - **Modalities:** Text/Image in; Text out.
-- **Pricing (as of 2026-10-08):** High-tier pricing.
-- **Architecture:** Proprietary.
+- **Status:** Deprecated/Historical. Anthropic recommends transitioning to the newer Claude Sonnet 5.5 or Opus 5.5 models.
 
-### Normalized scores (1–100)
-
-- **Tool use: 89/100.** Solid agentic performance.
-- **Reasoning: 89/100.** Strong reasoning capability.
-- **Context window: 95/100.** Reliable 1.0M handling.
-- **Multimodal: 90/100.** Good vision capability.
-- **Coding: 91/100.** Capable coding assistant.
-- **Cost efficiency: 70/100.** High-performance pricing tier.
-- **Overall Score: 90.8/100.** A robust and dependable legacy model, still effective for many professional and technical workflows.
+### Raw benchmarks found
+- MMLU: **N/A**
+- HumanEval: **N/A**
 
 ---
 
@@ -33,3 +24,15 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+
+
+### Normalized scores (1–100)
+
+- **Tool use: 70/100**
+- **Reasoning: 75/100**
+- **Context window: 75/100**
+- **Multimodal: 70/100**
+- **Coding: 75/100**
+- **Cost efficiency: 90/100**
+
+**Overall Score: 73/100**

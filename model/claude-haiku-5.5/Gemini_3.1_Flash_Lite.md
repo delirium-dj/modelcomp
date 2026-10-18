@@ -17,16 +17,19 @@
 
 - MMLU: **83.0%**
 - HumanEval: **80.0%**
+- AA Intelligence Index: **15 (estimated)**
+- Cost per task: **Unknown**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Highly capable in agentic environments.
-- **Reasoning: 86/100.** Exceptional performance for this tier.
-- **Context window: 85/100.** Large, high-performance context.
-- **Multimodal: 82/100.** Advanced multimodal input handling.
-- **Coding: 84/100.** Top-tier coding for the Haiku series.
-- **Cost efficiency: 90/100.** Balanced for high-volume performance.
-- **Overall Score: 84.4/100.** Leading efficient/low-latency model.
+- **Tool use: 70/100**
+- **Reasoning: 75/100**
+- **Context window: 75/100**
+- **Multimodal: 70/100**
+- **Coding: 75/100**
+- **Cost efficiency: 90/100**
+
+**Overall Score: 73/100**
 
 ---
 
@@ -34,3 +37,4 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+

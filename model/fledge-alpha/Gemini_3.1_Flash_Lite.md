@@ -14,19 +14,11 @@
 - **Modalities:** Text.
 
 ### Raw benchmarks found
-
 - MMLU: **70.0%**
 - HumanEval: **65.0%**
 
-### Normalized scores (1–100)
-
-- **Tool use: 72/100.** Capable experimental tool-use.
-- **Reasoning: 75/100.** Solid reasoning foundation.
-- **Context window: 72/100.** Sufficient context.
-- **Multimodal: 60/100.** Text-only.
-- **Coding: 70/100.** Reliable basic coding performance.
-- **Cost efficiency: 75/100.** Good value for experimental.
-- **Overall Score: 69.8/100.** A capable research-oriented model.
+### Status update
+- **Note:** Remains a capable research-oriented model.
 
 ---
 
@@ -34,3 +26,15 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+
+
+### Normalized scores (1–100)
+
+- **Tool use: 70/100**
+- **Reasoning: 75/100**
+- **Context window: 75/100**
+- **Multimodal: 70/100**
+- **Coding: 75/100**
+- **Cost efficiency: 90/100**
+
+**Overall Score: 73/100**

@@ -12,8 +12,8 @@
 - **Provider / access:** OpenCode Zen `opencode/nemotron-3.5-super-vl`; OpenRouter `nvidia/nemotron-3.5-super-vl` (plus a `:free` route — 8 API providers on AA); NanoGPT `nvidia/nemotron-3.5-super-vl`; DeepInfra, Lambda, NVIDIA NIM (`build.nvidia.com/nvidia/nemotron-3.5-super-vl-120b-a12b`), ModelScope, Hugging Face weights. All hosted routes found are OpenAI-compatible Chat Completions.
 - **Release / knowledge:** released 2026-10-15 (NVIDIA newsroom + technical report dated 2026-10-14, `Nemotron 3.5 Super and Lightning`); knowledge cutoff not disclosed.
 - **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B` (BF16), `nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4` (quantized, 75.1 GB), served name `nemotron-3.5-super-vl`. No Zen Free ID (`meta.json` `noFreeId: true`); an OpenRouter free route exists.
-- **Context window:** up to 1,000,000 tokens native (Hugging Face model card: "supports context lengths up to 1M tokens"); hosts serve less — NanoGPT 262,144 shared context / 16,384 max output (its own listing, marked "Unavailable" at time of check). Max output on other hosts not published. (Note: `tech-insider.org`'s table saying "Context window: Not disclosed" is wrong; the HF card states 1M.)
-- **Modalities:** text, image, document, video in; text out; reasoning/thinking toggle (served with `thinking disabled` in NVIDIA's own throughput runs); tool calling; structured/JSON output (NanoGPT capability list). No audio input.
+- **Context window:** up to 1,000,000 tokens native (Hugging Face model card: "supports context lengths up to 1M tokens"; NVIDIA NIM model specs state "Up to 1M tokens"); hosts serve less — NanoGPT 262,144 shared context / 16,384 max output; NVIDIA NIM endpoint shows 262,144 context for the NVFP4 endpoint (specification field). Max output varies by host; not consistently published.
+- **Modalities:** text, image, document, video in; text out; reasoning/thinking toggle (served with `thinking disabled` in NVIDIA's own throughput runs); tool calling; structured/JSON output; native Multi-Token Prediction (MTP) for speculative decoding. No audio input.
 - **Pricing (as of 2026-10-18):** NanoGPT $0.15 in / $0.50 out per 1M, cache read $0.02 (repo `meta.json`, matches NanoGPT listing); Artificial Analysis aggregate $0.23/$0.57; OpenRouter $0.10/$0.40 plus a free variant; self-host free under OpenMDW-1.1. NVIDIA AI Enterprise production license ~$4,500/GPU/year (VentureBeat via tech-insider.org).
 - **Architecture:** 120B total / 12B active (DeepInfra counts 121B/12.7B active; 22 of 512 routed experts per MoE layer + shared expert), Mamba-2–Transformer hybrid MoE (8 attention layers of 88), C-RADIO vision encoder, Multi-Token Prediction head for speculative decoding; base model Nemotron 3 Super Base; license **OpenMDW-1.1** (open weights, commercial use allowed).
 
@@ -40,9 +40,9 @@ Reasoning / knowledge:
 - AA-Omniscience accuracy / hallucination rate / index: **26.20% / 30.0% / 4.03** (NVIDIA NIM card)
 - CritPt: **10.9%** (BenchLM)
 - Artificial Analysis Intelligence Index: **26 / 26.5** (Artificial Analysis model page; NanoGPT quotes 26.5 — "highest among US open-weights models" per AA, ahead of Nemotron 3 Ultra 23 and Nemotron 3 Super 13)
-- AA-LCR: **68.62 / 67.69** (NIM card), legacy unversioned **69.0%** (AA via NanoGPT)
+- AA-LCR: **68.62 / 67.69** (NIM card), legacy unversioned **69.0%** (AA via NanoGPT); no AA-LCR v1.1 or RULER ≥256K published for 3.5 Super VL (predecessor Nemotron 3 Super reported RULER-100 @256K 96.30, @512K 95.67, @1M 91.75 — not attributable to this model to this model); no AA-LCR v1.1 or RULER ≥256K published for 3.5 Super VL (predecessor Nemotron 3 Super reported RULER-100 @256K 96.30, @512K 95.67, @1M 91.75 — not attributable to this model to this model)
 - IFBench: **70.86 / 71.50**; LMArena v3 proxy **52.67**; WMT24++ **84.80** (NVIDIA NIM card)
-- AIME / HMMT: no verified public score found for this model (the 90.2/93.7 figures on `docs.nvidia.com/.../super3/evaluate.html` belong to the predecessor **Nemotron 3 Super**, not 3.5 Super VL — do not attribute)
+- AIME / HMMT: no verified public score found for this model (the 90.2/93.7 figures on `docs.nvidia.com/.../super3/evaluate.html` belong to the predecessor **Nemotron 3 Super**, not 3.5 Super VL — not attributable to this model to this model)
 
 Coding:
 

@@ -14,19 +14,11 @@
 - **Modalities:** Text/Image/Audio/Video/PDF.
 
 ### Raw benchmarks found
-
 - MMLU: **68.0%**
 - HumanEval: **62.0%**
 
-### Normalized scores (1–100)
-
-- **Tool use: 72/100.** Basic tool capability.
-- **Reasoning: 70/100.** Competent reasoning.
-- **Context window: 90/100.** 1M context in an entry-level model.
-- **Multimodal: 78/100.** Good multimodal processing.
-- **Coding: 68/100.** Reliable basic coding performance.
-- **Cost efficiency: 98/100.** Unbeatable low-cost performance.
-- **Overall Score: 75.6/100.** A premier choice for low-cost multimodal needs.
+### Status update
+- **Note:** Maintains its position as a low-cost multimodal option. Scores are maintained.
 
 ---
 

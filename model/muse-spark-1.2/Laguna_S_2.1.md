@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Laguna S 2.1
 
 > Source: Meta / OpenCode (`opencode/muse-spark-1.2-contributor-free`)
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai model page (Overall 65.84/100, #34/954, 23 of 639 benchmarks, 2026-10-16); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2, AA GPQA-D 90.4, AA-HLE 45.5, GDPval-AA normalized 48.6, GDPval-AA Elo 1631); Vals AI leaderboard; VulcanBench Report 19: Muse Spark 1.2 effort study; Meta model page for modalities; OpenRouter for Design Arena.
+> Sources: BenchLM.ai model page (Overall 65.84/100, #34/954, 23 of 639 benchmarks, 2026-10-17); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2, AA GPQA-D 90.4, AA-HLE 45.5, GDPval-AA normalized 48.6, GDPval-AA Elo 1631); Vals AI; VulcanBench Report 19; Meta model page; OpenRouter. Re-verified 2026-10-17.
 
 Agent / tool use:
 
@@ -36,7 +36,7 @@ Agent / tool use:
 - JobBench: **57.9%** (BenchLM — no longer on current BenchLM page, retained from prior file)
 - GDP.pdf: **22.1%** (BenchLM — no longer on current BenchLM page, retained from prior file)
 - AA Agentic Index: **44.0%** (AA model benchmarks — new)
-- ApprenticeBench: **7%** — wait, this was for claude-opus-4.7, not muse-spark-1.2
+- MazeBench: **0%** (MazeBench AI leaderboard / BenchLM — NEW)
 
 Reasoning / knowledge:
 
@@ -53,6 +53,10 @@ Reasoning / knowledge:
 - AA Global-MMLU-Lite: 91.2% — (BenchLM — no longer on current page, retained from prior file)
 - AA-IFBench: 64.5% — (BenchLM — no longer on current page, retained from prior file)
 - AA-Omniscience Accuracy: 59.7% — (BenchLM — no longer on current page, retained from prior file)
+- AA-Omniscience Index: **27.2%** (Artificial Analysis / BenchLM — NEW, was not listed)
+- AA-Omniscience Accuracy: **45.4%** (Artificial Analysis / BenchLM — NEW, was 59.7%)
+- AA-Omniscience Hallucination Rate: **33.3%** (Artificial Analysis / BenchLM — NEW)
+- MMLU-Pro (Vals): **88.3%** (Vals AI / BenchLM — NEW)
 - MRCR / RULER / GraphWalks: no verified long-context retrieval reported (unchanged from prior file)
 
 Coding:
@@ -65,10 +69,12 @@ Coding:
 - VulcanBench v3: **87.0%** (VulcanBench Report 19 — new, confirmed on current page, ≥85 frontier)
 - VulcanBench CII v1: **86.5%** (VulcanBench — new)
 - AA Coding Index: **72.2%** (AA model benchmarks — CRITICAL downgrade from 80.1%)
-- AA-SciCode: 58.3% — (BenchLM — no longer on current page, retained from prior file)
+- AA-SciCode: **57.4%** (AA model benchmarks — revised down from 58.3%)
 - Terminal-Bench 2.1: **82.9%** (Meta model page via BenchLM — confirmed)
 - MCP Atlas: 90.3% — (BenchGen — no longer on current page, retained from prior file)
 - SWE Marathon: **no verified public score found** for this exact ID
+- FrontierSWE v2: **12.0%** (Proximal / BenchLM — NEW, very low)
+- Vibe Code Bench: 71.0% — (BenchLM — no longer on current page, retained from prior file)
 
 Multimodal:
 
@@ -85,7 +91,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 65.84, #34/954) and AA as of 2026-10-16.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 65.84, #34/954, 23 of 639) and AA as of 2026-10-17.
 
 - **Tool use: 72/100.** (Revised DOWN from 90.) CRITICAL: τ²-bench 94.2% and μCanvas 87.9% NO LONGER on current BenchLM page; MCP Atlas 90.3% no longer on page; GDPval-AA normalized 48.6% (below 50% frontier, down from 61.7%); GDPval-AA Elo 1631 (below 1750 frontier). Confirmed: TB 2.1 82.9% (revised up from 80%), TB 2.1 (Vals) 69.7%, Toolathlon-Verified 78.4% (new). Capped by loss of τ²-bench, μCanvas, MCP Atlas from current page; GDPval-AA below frontier.
 
@@ -101,9 +107,13 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public internet research (BenchLM `https://benchlm.ai/models/muse-spark-1.2-contributor-free` for overall rank/score (#34/954, 65.84, 23/639 benchmarks) and full benchmark tables; AA model benchmarks for Intelligence Index 39.6 (CRITICAL correction from 54), CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2, AA GPQA-D 90.4, AA-HLE 45.5, GDPval-AA normalized 48.6, GDPval-AA Elo 1631; Vals AI leaderboard; VulcanBench Report 19; Meta model page for context/modality verification). Scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
-- Sources: BenchLM.ai model page (Overall 65.84/100, rank #34/954, 23 of 639 benchmarks, 2026-10-16); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, GDPval-AA Elo 1631, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2); Vals AI; VulcanBench Report 19; Meta model page.
-- Re-verification (Oct 16): BenchLM updated from 66.48 (#28/889, 50/618) to 65.84 (#34/954, 23/639). CRITICAL: AA Intelligence Index corrected from 54 to 39.6 (drops below 60 frontier); τ²-bench, μCanvas, MCP Atlas, LiveCodeBench 91.8%, SWE-bench Verified 87.5%, AAA-MMMU-Pro 88.1%, MathVision 87.3%, V* 88.5% all NO LONGER on current BenchLM page. GDPval-AA normalized 61.7→48.6%, AA Coding Index 80.1→72.2%, AA-MMMU-Pro 88.1→76.4%. New: AA-LCR 79.0%, SWE-bench (Vals) 86.6%, VulcanBench 87.0, Toolathlon-Verified 78.4%, TB 2.1 82.9% (up from 80%). Normalized: Tool 90→72, Reasoning 88→78, Multimodal 92→90, Coding 88→86. Overall 91→84.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research (BenchLM `https://benchlm.ai/models/muse-spark-1-2` for overall rank/score (#34/954, 65.84, 23/639 benchmarks) and benchmark tables; AA model benchmarks for Intelligence Index 39.6, AA-LCR 79.0, AA Coding Index 72.2, GDPval-AA normalized 48.6, GDPval-AA Elo 1631, CritPt 17.7; Vals AI leaderboard; VulcanBench Report 19; Meta model page; OpenRouter). Scores normalized 1–100 per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: BenchLM.ai model page (Overall 65.84/100, rank #34/954, 23 of 639 benchmarks, 2026-10-17); AA model benchmarks (Intelligence Index 39.6 CRITICAL correction from 54, GDPval-AA Elo 1631, CritPt 17.7, AA-LCR 79.0, AA Coding Index 72.2); Vals AI; VulcanBench Report 19; Meta model page; OpenRouter.
+- Re-verification (Oct 16→Oct 17): BenchLM confirms 65.84 (#34/954, 23/639 benchmarks). New Oct 17 benchmarks: MazeBench 0% (different run), FrontierSWE v2 12.0%, AA-SciCode revised 58.3%→57.4%, MMLU-Pro (Vals) 88.3%, AA-Omniscience Index 27.2%, AA-Omniscience Accuracy 45.4%, AA-Omniscience Hallucination Rate 33.3%. Vibe Code Bench 71.0% no longer on current BenchLM page (retained). Normalized scores unchanged (84).
 
 ---
+
+## Re-verification (2026-10-17)
+
+Confirmed: Overall 84, rank #34/954 (overall 65.84), 23 of 639 benchmarks on Oct 17 page. Intelligence Index 39.6% confirmed (critical correction from 54). New Oct 17 benchmarks added: MazeBench 0%, FrontierSWE v2 12.0%, AA-SciCode 57.4% (revised from 58.3%), MMLU-Pro (Vals) 88.3%, AA-Omniscience metrics. All normalized scores unchanged.

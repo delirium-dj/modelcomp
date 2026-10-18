@@ -1,7 +1,7 @@
 # MiniMax-M2.5 — findings by Laguna S 2.1
 
 - Source: MiniMax (minimax-m2.5)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,12 +14,12 @@
 - **IDs:** `minimax/minimax-m2.5`
 - **Context window:** ~200,000 tokens (Artificial Analysis technical spec lists 205k; official docs/platform FAQ list 200k — 200k used).
 - **Modalities:** text in, text out. Reasoning/thinking enabled (AA marks "Reasoning: Yes"). Tool use supported (Chat Completions tool calling). No image/audio/video input — text output only.
-- **Pricing (as of 2026-10-16):** ~$0.30 per 1M input tokens and $1.20 per 1M output tokens (Artificial Analysis, median across serving providers). MiniMax's own docs describe a M2.5-Lightning (100 t/s) tier at $0.30/$2.40 and a 50 t/s "M2.5" tier described as costing roughly half, with the $1.20 output figure consistent across both; cache discount 90%. No $0/free tier. (Conflict on the exact input price — $0.15 vs $0.30 — is noted but does not change the cost-efficiency band; output $1.20 is firm.)
+- **Pricing (as of 2026-10-17):** ~$0.30 per 1M input tokens and $1.20 per 1M output tokens (Artificial Analysis, median across serving providers). MiniMax's own docs describe a M2.5-Lightning (100 t/s) tier at $0.30/$2.40 and a 50 t/s "M2.5" tier described as costing roughly half, with the $1.20 output figure consistent across both; cache discount 90%. No $0/free tier. (Conflict on the exact input price — $0.15 vs $0.30 — is noted but does not change the cost-efficiency band; output $1.20 is firm.) Note: BenchLM (2026-10-17) lists context window as 128K and marks Reasoning Type as "Non-Reasoning", which conflicts with the MiniMax HF report and AA model page (200K, reasoning: Yes); the file's source basis (MiniMax HF technical report + AA) is retained, but this discrepancy is flagged.
 - **Architecture:** 230 billion total parameters, 10 billion active per token, Mixture of Experts (MoE); license: modified-MIT (open weights). Source: HF `MiniMaxAI/MiniMax-M2.5`.
 
 ### Raw benchmarks found
 
-> Sources: (1) MiniMax technical report / model card on Hugging Face `MiniMaxAI/MiniMax-M2.5` (benchmark table vs M2.1, Claude Opus 4.5/4.6, Gemini 3 Pro, GPT-5.2-thinking; collection arXiv:2605.26494); (2) Artificial Analysis model page `/models/minimax-m2-5` (composite Intelligence Index, specs, pricing, speed); (3) MiniMax official API docs at `platform.minimax.io` (features, retirement schedule, model lineage); plus (4) Hugging Face `evaleval` community-measured cross-check. Note: MiniMax reports many agentic/coding numbers run in-house with its own agent scaffold (Claude Code 2.0.64, 4-run averaging); conflicts vs community runs are flagged per the methodology.
+> Sources: (1) MiniMax technical report / model card on Hugging Face `MiniMaxAI/MiniMax-M2.5` (benchmark table vs M2.1, Claude Opus 4.5/4.6, Gemini 3 Pro, GPT-5.2-thinking; collection arXiv:2605.26494); (2) Artificial Analysis model page `/models/minimax-m2-5` (composite Intelligence Index, specs, pricing, speed, **200K context window, reasoning: Yes**); (3) MiniMax official API docs at `platform.minimax.io` (features, retirement schedule, model lineage); plus (4) Hugging Face `evaleval` community-measured cross-check. BenchLM.ai model page (2026-10-17) shows conflicting data: Overall 49.95/100, #97/954, 1 of 639 benchmarks, Vibe Code Bench 14.85%, context window 128K, reasoning Type "Non-Reasoning" — this conflict is noted but the file's source basis (MiniMax HF technical report + AA) is retained as primary. Note: MiniMax reports many agentic/coding numbers run in-house with its own agent scaffold (Claude Code 2.0.64, 4-run averaging); conflicts vs community runs are flagged per the methodology.
 
 **Agent / tool use:**
 
@@ -76,6 +76,12 @@
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16
-- Method: public internet research (MiniMax Hugging Face model card + technical report, Artificial Analysis model page & leaderboard, MiniMax official platform docs, and Hugging Face community eval cross-check); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one (e.g. `MiniMax_M2_5_report.md`) using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research (MiniMax Hugging Face model card + technical report, Artificial Analysis model page & leaderboard, MiniMax official platform docs, and Hugging Face community eval cross-check); scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Re-verification (Oct 16→Oct 17): BenchLM.ai model page (2026-10-17) shows conflicting data: Overall 49.95/100, #97/954, 1 of 639 benchmarks, Vibe Code Bench 14.85%, context window 128K, reasoning Type "Non-Reasoning". This conflicts with the file's primary sources (MiniMax HF technical report + AA: 200K context, reasoning: Yes). File source basis retained; conflict flagged. Normalized scores unchanged (60).
+
+---
+
+## Re-verification (2026-10-17)
+
+BenchLM.ai shows conflicting data: Overall 49.95/100, #97/954, 1 of 639 benchmarks, Vibe Code Bench 14.85%, context window 128K, reasoning Type "Non-Reasoning". This conflicts with the file's primary sources (MiniMax HF technical report + AA: 200K context, reasoning: Yes). File source basis retained as primary; normalized scores unchanged (60).

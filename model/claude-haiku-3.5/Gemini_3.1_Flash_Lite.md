@@ -7,11 +7,14 @@
 
 ## Model card
 
-- **Name:** Claude Haiku 3.5
-- **Short description:** High-speed, efficient model optimized for fast, cost-effective reasoning.
-- **Provider / access:** Anthropic API.
+- **Name:** Claude Haiku 3.5 (Deprecated)
+- **Short description:** Legacy high-speed model; Anthropic recommends using Claude Haiku 4.5 or newer.
+- **Provider / access:** Anthropic API (Legacy).
 - **Context window:** 64,000.
 - **Modalities:** Text/Image.
+
+### Status update
+- **Note:** This model is deprecated. Anthropic recommends transitioning to the newer Claude Haiku 4.5 release. Data presented here is for historical comparison.
 
 ### Raw benchmarks found
 

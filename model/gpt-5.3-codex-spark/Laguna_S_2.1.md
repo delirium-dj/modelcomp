@@ -1,7 +1,7 @@
 # GPT-5.3-Codex-Spark Findings — scored by Laguna S 2.1
 
 - Source: BenchLM (`https://benchlm.ai/models/gpt-5-3-codex-spark`), OpenCode Zen docs (`https://opencode.ai/docs/zen`)
-- Date: 2026-10-16 (UTC) — re-scored from 2026-10-02 self-exclusion (BenchLM now lists 1 benchmark)
+- Date: 2026-10-17 (UTC) — re-scored from 2026-10-02 self-exclusion (BenchLM now lists 1 benchmark)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,8 +59,14 @@ Adjustment: "Spark" variant is a lighter/distilled model. MazeBench 0% indicates
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public internet research via BenchLM model pages (markdown), OpenCode Zen docs, Artificial Analysis, HuggingFace; sibling reference (GPT-5.3-Codex 60.48). Zero-influence: no peer `model/` findings files read during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via BenchLM model pages (markdown), OpenCode Zen docs, Artificial Analysis, HuggingFace; sibling reference (GPT-5.3-Codex 60.48). Zero-influence: did not read peer `model/` findings files during research.
 - Status: **Scored** — 1 verified public benchmark found (MazeBench 0% per BenchLM Oct 17, 2026). Previously self-excluded on Oct 2 due to stale "0/618" data; re-scored on Oct 16 after BenchLM updated to show 1 benchmark.
+
+---
+
+## Re-verification (2026-10-17)
+
+Confirmed via Oct 17 BenchLM page: MazeBench 0% (unchanged), 1 of 639 benchmarks, unranked, no overall score. No changes to raw benchmarks, normalized scores, or Overall (29). MazeBench 0% remains the only published benchmark.
 
 ---

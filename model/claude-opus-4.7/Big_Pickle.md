@@ -19,9 +19,9 @@
 
 ### Raw benchmarks found
 
-> All vendor-reported figures below come from Anthropic's 2026-04-16 launch chart as reproduced by llm-stats.com and ComputingForGeeks; independent numbers (Vals AI, Artificial Analysis via BenchLM) are marked as such.
+> All vendor-reported figures below come from Anthropic's 2026-04-16 launch chart and the 232-page system card (ASL-3 Deployment and Security Standard); independent numbers (Vals AI, Artificial Analysis via BenchLM, Princeton HAL) are marked as such. Anthropic applied memorization screens to SWE-bench Verified/Pro/Multilingual and states Opus 4.7's margin over 4.6 holds when flagged problems are excluded. Terminal-Bench 2.0 used Terminus-2, thinking disabled, 1× guaranteed / 3× ceiling resource allocation, averaged over five attempts. For GAIA, Princeton HAL reports accuracy 73.3%, consistency 0.81, predictability 0.73, robustness 0.99, safety 1.00, reliability 0.84. For τ-bench (airline, clean): accuracy 84.6%, consistency 0.88, predictability 0.87, robustness 0.91, safety 0.94, reliability 0.89.
 
-Agent / tool use:
+Agent / tool use: (Princeton reliability: GAIA 0.84, τ-bench (airline, clean) 0.89)
 
 - Terminal-Bench 2.0: **69.4%** (Anthropic launch chart, vs Opus 4.6 65.4%); Terminal-Bench 2.1 (Vals harness): **68.54% ±1.30**, rank 31/75 (Vals AI)
 - τ²-bench: **88.6%** (Artificial Analysis run, cited by BenchLM for the adaptive variant); AA also carries **74%** for the base variant — harness/effort-level discrepancy, both listed
@@ -61,13 +61,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** τ²-bench 88.6% (AA), MCP-Atlas 77.3, OSWorld-Verified 78.0, TB2.0 69.4% and TB2.1 68.5% (Vals) are solidly frontier-adjacent; capped below 90 by Terminal-Bench sitting ~20 points under the 88%+ frontier reference, BrowseComp regressing vs 4.6, and no public Tau3/Claw-Eval number.
-- **Reasoning: 85/100.** GPQA-D 94.2/91.4/90.15 across three sources, HLE-with-tools 54.7% and AA-LCR 78.7% are frontier-class; capped by AA Intelligence Index 40.7 (mid-tier vs 60+ frontier ref), CritPt 12.0%, and a 42.3% hallucination rate on AA-Omniscience.
-- **Context window: 95/100.** 1M total / 128K output verified on Bedrock and Vals — top tier mapping; not 100 because MRCR v2 retrieval is only 59.2% at 128K–256K and no ≥512K retrieval measurement exists for this model.
-- **Multimodal: 85/100.** Text + image (2,576 px long edge, ~3.75 MP, 3.3× prior Claude) + PDF in, text out only, no audio/video — upper end of the 75–90 band on CharXiv-R 91.0 (w/ tools), MMMU-Pro 78.8 (AA) / 85.55 (Vals); non-text output absence keeps it under 90.
-- **Coding: 87/100.** SWE-bench Verified 87.6% (vendor) / 82.0% (Vals), SWE-bench Pro 64.3%, LiveCodeBench 85.1%, Vibe 71.0%, AA Coding Index 73.6% — clearly top-tier; capped by SWE-Pro still ~15 points behind the current frontier (Opus 4.8 69.2%, Opus 5 79.2%) and the vendor-vs-independent 5.6-point SWE-V gap.
-- **Cost efficiency: 45/100.** $5/$25 per 1M is premium-tier pricing ($3/$15 ≈ 60, $10/$50 ≈ 30 per methodology) with no free tier; cached input $0.50 and batch 50% discount soften it slightly.
-- **Overall Score: 86/100.** Mean of the five quality dims (78+85+95+85+87)/5 = 86.0 — best-fit recommendation: the default high-reliability pick for unattended long-running coding/agent work when budget allows, but Opus 4.8 supersedes it at the same price.
+- **Tool use: 78/100.** τ²-bench 88.6% (AA), MCP-Atlas 77.3, OSWorld-Verified 78.0, CursorBench 70%, Finance Agent v2 51.5% (Vals, differing harness), TB2.0 69.4% and TB2.1 68.5% (Vals); capped by Terminal-Bench, BrowseComp regression to 79.3% (down from 84.0%), and no public Tau3/Claw-Eval number. Reliability: Princeton HAL reports τ-bench (airline, clean) accuracy 84.6%, consistency 0.88, predictability 0.87, robustness 0.91, safety 0.94, overall reliability 0.89 — strong but not class-leading.
+- **Reasoning: 85/100.** GPQA-D 94.2/91.4/90.15 across three sources; HLE with tools 54.7%, without 46.9%; AA-LCR 78.7%; ARC-AGI-1 93.5% (High), ARC-AGI-2 75.8% (Max); AA Intelligence Index 40.7; CritPt 12.0%; AA-Omniscience Accuracy 48.9%, Hallucination Rate 42.3% (notably high); MMLU Pro 89.87%; capped by the hallucination rate and CritPt.
+- **Context window: 95/100.** 1M total / 128K output verified on Bedrock and Vals — top tier; MRCR v2 128K–256K 59.2% (OpenAI table via BenchLM), no ≥512K retrieval measurement for this model; ATLAS long-context decay covered Opus 4.6 (8.5%, best in class) but not 4.7.
+- **Multimodal: 85/100.** Text + image (2,576 px long edge, ~3.75 MP, 3.3× prior Claude) + PDF in, text out only, no audio/video; CharXiv-R 91.0 (w/ tools); MMMU-Pro 78.8 (AA) / 85.55 (Vals); LAB-Bench FigQA, ScreenSpot-Pro, OSWorld-Verified all reported — non-text output absence keeps under 90.
+- **Coding: 87/100.** SWE-bench Verified 87.6% (vendor) / 82.00% ±1.72 (Vals, 5.6-point gap); SWE-bench Pro 64.3%; SWE-bench Multilingual 80.5%; SWE-bench Multimodal 34.5% (internal harness); LiveCodeBench 85.07% (Vals); Vibe Code Bench v1.1 71.00%; AA Coding Index 73.6%; FrontierCode 1.1 Main 38.5%; MedCode 54.86%, SAGE 56.10% (Vals) — vendor-independent runs solid; capped by SWE-Pro and multimodal coding gap.
+- **Cost efficiency: 45/100.** $5/$25 per 1M unchanged from 4.6; cached input $0.50, batch $2.50/$12.50; ~35% more tokens at higher effort than 4.6; no $0 tier.
+- **Overall Score: 86/100.** Mean of the five quality dims (78+85+95+85+87)/5 = 86.0 — high-reliability pick for unattended long-running coding/agent work when budget allows; superseded by Claude Opus 4.8 (2026-05-28) at the same price.
 
 ---
 
