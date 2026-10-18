@@ -1,7 +1,7 @@
 # Inkling Small — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/inkling-small`), BenchLM (`https://benchlm.ai/models/inkling-small`), Vals AI (`https://www.vals.ai/models/thinkingmachines_inkling-small`), Thinking Machines Lab blog (`https://thinkingmachines.ai/news/inkling-small/`), HuggingFace (`https://huggingface.co/thinkingmachines/Inkling-Small`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,7 +24,7 @@
 
 ### Raw benchmarks found
 
-> Sources: Artificial Analysis model page (`https://artificialanalysis.ai/models/inkling-small`, Oct 10), BenchLM (`https://benchlm.ai/models/inkling-small`, Oct 10, 39 of 625 benchmarks), Vals AI leaderboards (`https://www.vals.ai/models/thinkingmachines_inkling-small`), Thinking Machines Lab blog (`https://thinkingmachines.ai/news/inkling-small/`), HuggingFace model card (`https://huggingface.co/thinkingmachines/Inkling-Small`). BenchLM covers 39 of 625 benchmarks; TML blog adds comparison-table data across 33 evaluations. Where TML and AA report different numbers for the same benchmark, both are cited.
+> Sources: Artificial Analysis model page (`https://artificialanalysis.ai/models/inkling-small`, Oct 10), BenchLM (`https://benchlm.ai/models/inkling-small`, Oct 17, 41 of 639 benchmarks), Vals AI leaderboards (`https://www.vals.ai/models/thinkingmachines_inkling-small`), Thinking Machines Lab blog (`https://thinkingmachines.ai/news/inkling-small/`), HuggingFace model card (`https://huggingface.co/thinkingmachines/Inkling-Small`). BenchLM covers 41 of 639 benchmarks; TML blog adds comparison-table data across 33 evaluations. Where TML and AA report different numbers for the same benchmark, both are cited.
 
 Agent / tool use:
 
@@ -58,6 +58,8 @@ Reasoning / knowledge:
 - **ARC-AGI-1:** 84.0% — (ARC Prize via TML blog)
 - **ARC-AGI-2:** 40.1% — (TML blog)
 - **CriticalPt:** 8.3% — (TML blog)
+- **FrontierMath v2 (Tiers 1-3):** 46.316% — (Epoch AI FrontierMath v2 leaderboard via BenchLM, Oct 17)
+- **FrontierMath v2 (Tier 4):** 17.073% — (Epoch AI FrontierMath v2 leaderboard via BenchLM, Oct 17)
 - **AA-LCR:** 75.7% — (Artificial Analysis via BenchLM)
 - **MLCR-AA:** no verified public score found
 - **AA-Omniscience Index:** -8.9% — (Artificial Analysis via BenchLM; TML blog reports -9.0)
@@ -89,7 +91,7 @@ Long context:
 ### Normalized scores (1–100)
 
 > Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> Confidence: high — 39 public benchmarks found across 5 sources (AA, BenchLM, Vals AI, TML blog, HuggingFace).
+> Confidence: high — 41 public benchmarks found across 5 sources (AA, BenchLM Oct 17, Vals AI, TML blog, HuggingFace).
 
 - **Tool use: 55/100.** Terminal-Bench 2.1 at 64.7% (TML) / 55.1% (Vals) is moderate (frontier ~88%+). GDPval-AA at 1191 Elo (TML reports 1269) is moderate (frontier ~1750+). AA Agentic Index at 24.9% is very weak (below 40% threshold). MCP Atlas at 79.6% and BrowseComp at 77.4% are good signals. AA Tau3 Banking at 47.2% (AA) / 15.5% (TML) is weak. Toolathlon-Verified at 54.4% and AutomationBench at 48.8% are moderate. The model handles web-browsing agentic tasks reasonably but struggles on banking/domain-specific agentic benchmarks.
 
@@ -109,8 +111,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via Artificial Analysis, BenchLM, Vals AI, Thinking Machines Lab blog, and HuggingFace; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `Inkling_Small_Tech_Report.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via Artificial Analysis, BenchLM (Oct 17, 41 of 639 benchmarks), Vals AI, Thinking Machines Lab blog, and HuggingFace; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Re-verification (2026-10-17): BenchLM covers 41 of 639 benchmarks (was 39 of 625 on Oct 10); new: FrontierMath v2 (Tiers 1-3) 46.316%, FrontierMath v2 (Tier 4) 17.073%. All existing benchmarks confirmed unchanged. Dimension scores and Overall retained at 74.
 
 ---

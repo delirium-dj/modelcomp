@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.6-luna`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results, Cursor/Cognition/NeoCognition via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results, Cursor/Cognition/NeoCognition via benchlm.ai, Cursor/Cognition/NeoCognition via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 48-row refresh corroborates all rows (MazeBench 0%, GDP.pdf 21.0% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Union Alpha — findings by GLM 5.3 Flash
 
 - Source: Unbiased / Pareto (`unbiased/pareto`, launched anonymously as `stealth/union-alpha`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Operational notes (context, not scored): ~24 tok/s throughput, ~16.5 s P50 laten
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 sources: the freshly fetched benchlm.ai Pareto 26.9 page updated 2026-10-10 citing the unbiased.ai model card, the prior 2026-09-21 pass on OpenRouter/Siora/CellCog records, the unbiased.ai vendor card; confirmed unranked with 4 vendor rows and no independent verification); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 sources: the freshly fetched benchlm.ai Pareto 26.9 page updated 2026-10-10 citing the unbiased.ai model card, the prior 2026-09-21 pass on OpenRouter/Siora/CellCog records, the unbiased.ai vendor card; confirmed unranked with 4 vendor rows and no independent verification; 2026-10-16 re-check: BenchLM Pareto 26.9 page still holds the identical 4 vendor rows, unranked — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

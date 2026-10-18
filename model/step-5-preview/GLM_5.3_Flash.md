@@ -1,7 +1,7 @@
 # Step 5 Preview — findings by GLM 5.3 Flash
 
 - Source: StepFun (`step-5-preview`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,10 +25,10 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **85.0%** (StepFun via BenchLM, corroborated); Terminal-Bench 4.0: **33.3%** (StepFun / AA — corroborated)
 - MCP Atlas: **85.6%**; Toolathlon-Verified: **74.1%**; CyberGym: **84.7%**; DRACO: **83.3%**; BrowseComp: **88.7%** (StepFun — all corroborated)
-- GDPval-AA: **1566 Elo** (StepFun; AA-normalized **54.3%**); AA-Briefcase: **1,424 Elo** (AA — corroborated)
+- GDPval-AA: **1566 Elo** (StepFun; AA-normalized **54.3%**); AA-Briefcase: **1,424 Elo** (AA; 2026-10-17 refresh reads 1,425 — minor drift, flagged — corroborated)
 - AutomationBench: **44.0%** (StepFun) / **51.0%** (AA AutomationBench-AA); AA EnterpriseOps-Gym: **47.2%**; AA GDP.pdf: **14.8%**
 - JobBench: **59.0%**; APEX-Agents: **37.8%** (StepFun) / **38.0%** (AA); Agents' Last Exam: **29.5%**
-- AA-Harvey LAB v1.0: **93.4%** (AA — legal agentic work, elite); AA-ITBench: **55.6%**; AA-AnalystAgent: **35.0%**
+- AA-Harvey LAB v1.0: **93.4%** (AA — legal agentic work, elite); AA-ITBench: **55.6%**; AA-AnalystAgent: **35.0%**; Hermes Index: **32.8%** / Hermes Bench: **69.2%** (Nous Research — added 2026-10-16)
 
 Reasoning / knowledge:
 
@@ -65,6 +65,6 @@ Speed: 86.8 output tokens/s, 2.85s TTFT (AA). Very verbose: 160M output tokens a
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the StepFun model page, Artificial Analysis independent boards (GDPval/Briefcase/Harvey/ITBench/LCR/Omniscience) via benchlm.ai, plus the prior 2026-10-09 pass; full row-by-row corroboration confirmed); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the StepFun model page, Artificial Analysis independent boards (GDPval/Briefcase/Harvey/ITBench/LCR/Omniscience) via benchlm.ai, plus the prior 2026-10-09 pass; full row-by-row corroboration confirmed; 2026-10-16 re-check: BenchLM 44-row refresh corroborates all rows (Hermes 32.8/69.2% added; Briefcase 1424 → 1425 drift; rank #17/889 70.25 → #20/954 69.44) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,14 +1,14 @@
 # Ling 3.0 Flash VL — findings by GLM 5.3 Flash
 
 - Source: InclusionAI (`ling-3.0-flash-vl`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Ling 3.0 Flash VL
-- **Short description:** InclusionAI's next-generation native multimodal model, built on Ling 3.0 Flash (124B total / 5.5B active MoE), adding native image and video perception plus visual agent capabilities for real-world task solving through vision. Not a tier variant — it is the VL (vision-language) sibling of `ling-3.0-flash`. BenchLM ranks it #110 of 889 (47.43); sibling Ling 3.1 Flash scores 62.06.
+- **Short description:** InclusionAI's next-generation native multimodal model, built on Ling 3.0 Flash (124B total / 5.5B active MoE), adding native image and video perception plus visual agent capabilities for real-world task solving through vision. Not a tier variant — it is the VL (vision-language) sibling of `ling-3.0-flash`. BenchLM ranks it #110 of 889 (47.43); 2026-10-17 refresh: #114/954 (46.72); sibling Ling 3.1 Flash scores 62.06 (2026-10-17: 68.03).
 - **Provider / access:** OpenRouter `inclusionai/ling-3.0-flash-vl` (Chat Completions API, `https://openrouter.ai/api/v1/chat/completions`); DeepInfra `inclusionai/ling-3.0-flash-vl-20260910` (131K context); Novita `inclusionai/ling-3.0-flash-vl-20260910` (262K context); kilo.ai lists a `ling-3.0-flash-vl-free` variant at $0. Not listed on OpenCode Zen (no Zen Free ID exists).
 - **Release / knowledge:** Released 2026-09-10 (Benchable model page dated 2026-09-10; HF release image tagged `ling-3.0-flash-vl-0910`). Knowledge cutoff not published.
 - **IDs:** `inclusionai/ling-3.0-flash-vl` (OpenRouter); no Free ID on Zen — explicitly stated.
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: normalized **33.2%** (AA, independent — fills the gap the prior pass marked missing; weak)
+- GDPval-AA: normalized **33.2%** (AA, independent; BenchLM 2026-10-17 refresh reads 33.1% — minor drift, flagged — fills the gap the prior pass marked missing; weak)
 - Terminal-Bench 2.1: evaluated under the AA protocol per the HF card but published only as a chart image — **still no verified extractable score**
 - Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
 - Benchable reliability: 100% response success (in-house harness, prior pass)
@@ -65,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with Artificial Analysis board citations, the prior 2026-10-03 pass on the HF vendor card + Benchable evals, OpenRouter/DeepInfra/Novita listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with Artificial Analysis board citations, the prior 2026-10-03 pass on the HF vendor card + Benchable evals, OpenRouter/DeepInfra/Novita listings; 2026-10-16 re-check: BenchLM 11-row refresh corroborates every row, no new data (GDPval 33.2% → 33.1%; rank → #114/954 46.72) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

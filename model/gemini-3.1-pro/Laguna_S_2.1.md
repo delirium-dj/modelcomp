@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -102,7 +102,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 64.7, #37/954, 48 of 639) and AA as of 2026-10-16.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 64.7, #37/954, 48 of 639) and AA as of 2026-10-17.
 
 - **Tool use: 58/100.** (Revised DOWN from 80.) τ²-bench 87.1% (revised down from 95.6%, below 90% frontier), Terminal-Bench 2.1 (Vals) 70.8% (revised down from 83.8%), GDPval-AA Elo 904 (below mid-tier frontier ~900-1200), GDPval-AA normalized 14.6% (CRITICAL drop from 31.0%), AA Agentic Index 10.3% (NEW, very low). Capped by τ²-bench below 90 frontier, GDPval-AA normalized 14.6% (severe), AA Agentic Index 10.3% (severe), no GDP.pdf, no TB-4.0, no OSWorld, no SWE-bench, no ApprenticeBench.
 
@@ -121,8 +121,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-3.1-pro` for overall rank/score (#37/954, 64.7) and 48 benchmark rows including GPQA 95.5% (Vals), τ²-bench 87.1%, GDPval-AA Elo 904, GDPval-AA normalized 14.6%, AA Agentic Index 10.3%, LiveCodeBench 88.5%, SWE-bench 78.8%, AA-SciCode 58.7%, AA Coding Index 68.8%; AA model page `https://artificialanalysis.ai/models/gemini-3-1-pro-preview` for Intelligence Index 29.7, pricing $2/$12; Google DeepMind model card for vision benchmarks). Scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
 - Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall dropped 72.87→64.7 (rank #25→#37/954 as pool grew 889→954, 42→48 benchmarks); τ²-bench 95.6→87.1% (below 90% frontier, source updated to Meta AI Muse Spark comparison chart); GDPval-AA normalized CRITICAL drop 31.0→14.6%; AA Agentic Index new at 10.3% (very low); AA Coding Index 76.9→68.8% (below 70% frontier); AA-HLE 52.9→47.0%; GPQA-D 95.5→94.3% (Meta comparison); new benchmarks: AA-GPQA-D 94.1%, AA-LCR 82.0%, CritPt 17.7%, AA-IFBench 77.1%, AA-Omniscience 31.9%/54.9%/50.9%, DeepSearchQA 69.7%, Claw-Eval 57.8%, HealthBench Hard 20.6%, FrontierMath v2 59.649%/26.829%, MedXpertQA 71.5%, LiveCodeBench Pro 82.9%, Vibe Code Bench 32.03%, Video-MME 88.4/87.7%, ScreenSpot Pro 84.4%, MMMU 87.2%, MMMU-Pro 81%; Intelligence Index confirmed at 29.7% (my prior summary notes incorrectly stated 50.0→28.0; the Oct 10 file already had 29.7%). Normalized scores revised: Tool 80→58 (τ²-bench + GDPval-AA norm + AA Agentic Index all weakened), Reasoning 85→82 (HLE/AA-HLE dropped, ARC-AGI-1 removed), Coding 80→75 (AA Coding Index below frontier). Overall 85→79 (aligns with BenchLM 64.7).
+- Re-verification (2026-10-17): Oct 16→17 re-verification confirmed BenchLM overall 64.7 (#37/954, 48/639) unchanged; all 48 benchmark scores and dimension scores unchanged; Overall retained at 79.
 
 ---

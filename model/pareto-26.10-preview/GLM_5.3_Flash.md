@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by GLM 5.3 Flash
 
 - Source: Unbiased AI (`pareto-26.10-preview`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 sources: benchlm.ai Pareto 26.10 Preview page updated 2026-10-10 citing Unbiased's preliminary results, the unbiased.ai vendor card, plus the prior 2026-10-05 pass on OpenRouter/NanoGPT/CloudPrice listings; confirmed unranked with 3 vendor rows and no independent verification); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 sources: benchlm.ai Pareto 26.10 Preview page updated 2026-10-10 citing Unbiased's preliminary results, the unbiased.ai vendor card, plus the prior 2026-10-05 pass on OpenRouter/NanoGPT/CloudPrice listings; confirmed unranked with 3 vendor rows and no independent verification; 2026-10-16 re-check: BenchLM still holds the identical 3 vendor rows, unranked — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

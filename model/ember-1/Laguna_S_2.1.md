@@ -1,7 +1,7 @@
 # Ember 1 — findings by Laguna S 2.1
 
 - Source: BenchLM (`https://benchlm.ai/models/ember-1`), Fireworks model page (`https://fireworks.ai/models/fireworks/ember-1`), Fireworks launch blog (`https://fireworks.ai/blog/ember-1`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -84,10 +84,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via BenchLM model page (Oct 10, confirms Sep 23 data unchanged), Fireworks model page (specs, pricing, modalities), and Fireworks Research launch blog (benchmark methodology, comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
-- Sources cited: `https://benchlm.ai/models/ember-1`, `https://fireworks.ai/models/fireworks/ember-1`, `https://fireworks.ai/blog/ember-1`
-- Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `Ember_1.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+  - Method: public internet research via BenchLM model page (Oct 17, confirms Sep 23 data — 5 of 639 benchmarks, still "Not computed (unranked)"), Fireworks model page (specs, pricing, modalities), and Fireworks Research launch blog (benchmark methodology, comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
+  - Re-verification (2026-10-17): BenchLM still shows "Not computed (unranked)" with 5 of 639 benchmarks (was 5 of 625 on Oct 10); v4.3.2 model pool grew 889→954; all individual benchmark scores unchanged; dimension scores and Overall retained at 66.
 
 ---

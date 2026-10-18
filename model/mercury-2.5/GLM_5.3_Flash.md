@@ -1,7 +1,7 @@
 # Mercury 2.5 — findings by GLM 5.3 Flash
 
 - Source: Inception (`inception/mercury-2.5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Speed / cost in production:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai Mercury 2.5 page corroborates all rows identically (now computing 36.35 #151); the prior 2026-10-02 pass on the Inception launch post/AA/Vals remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai Mercury 2.5 page corroborates all rows identically (now computing 36.35 #151); the prior 2026-10-02 pass on the Inception launch post/AA/Vals remains the evidence base; 2026-10-16 re-check: BenchLM 15-row refresh corroborates every row, no new data (rank #151/889 36.35 → #165/954 33.77) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

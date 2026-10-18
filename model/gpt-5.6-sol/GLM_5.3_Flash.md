@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.6-sol`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -82,6 +82,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, ARC Prize verified results, Vals AI / AA / Cursor / Proximal / Cognition leaderboards via benchlm.ai, plus the prior 2026-10-08 AA/xAI pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, ARC Prize verified results, Vals AI / AA / Cursor / Proximal / Cognition leaderboards via benchlm.ai, plus the prior 2026-10-08 AA/xAI pass; 2026-10-16 re-check: BenchLM 70-row refresh corroborates all rows (MazeBench 13%, Gray Swan 27.0%, AA-IFBench 72.7% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

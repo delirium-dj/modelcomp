@@ -1,7 +1,7 @@
 # Step 5 Preview — findings by Laguna S 2.1
 
 - Source: StepFun (`opencode/step-5-preview`)
-- Date: 2026-10-10
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Measured public numbers with source. BenchLM model page `https://benchlm.ai/models/step-5-preview` (read 2026-10-10) cites each score to StepFun's own evals (`https://www.stepfun.com/step-5-preview`) or to Artificial Analysis (`https://artificialanalysis.ai/models/step-5`). BenchLM's composite (70.25/100, #17/889) is conservative (42/625 benches covered).
+> Measured public numbers with source. BenchLM model page `https://benchlm.ai/models/step-5-preview` (read 2026-10-17, 44 of 639 benchmarks) cites each score to StepFun's own evals (`https://www.stepfun.com/step-5-preview`) or to Artificial Analysis (`https://artificialanalysis.ai/models/step-5`). BenchLM's composite (69.44/100, #20/954) is conservative (44/639 benches covered).
 
 Agent / tool use:
 
@@ -34,11 +34,13 @@ Agent / tool use:
 - AA-AutomationBench: **51.0%** (Artificial Analysis)
 - AA-Harvey LAB v1.0: **93.4%** (Artificial Analysis)
 - AA-ITBench: **55.6%** (Artificial Analysis)
-- AA Briefcase: **1424** Elo (Artificial Analysis)
+- AA Briefcase: **1425** Elo (Artificial Analysis — Oct 17: was 1424 on Oct 10)
 - Terminal-Bench 4.0: **33.30%** (StepFun + AA; weaker on the v4.0 harness — note harness/version disagreement)
 - AA-AnalystAgent: **35.0%** (Artificial Analysis)
 - AA EnterpriseOps-Gym: **47.2%** (Artificial Analysis)
 - AA GDP.pdf: **14.8%** (Artificial Analysis)
+- Hermes Index: **32.8%** (Nous Research: Hermes Index leaderboard via BenchLM, Oct 17)
+- Hermes Bench: **69.2%** (Nous Research: Hermes Index leaderboard via BenchLM, Oct 17)
 - APEX-Agents / APEX-Agents-AA: **37.8%** / **38.0%** (StepFun / Artificial Analysis)
 - Agents' Last Exam: **29.5%** (StepFun; BenchLM)
 - Tau3-Banking / Tau2-Bench: no verified public score found
@@ -52,8 +54,7 @@ Reasoning / knowledge:
 - AA-LCR: **88.3%** (StepFun; BenchLM)
 - CritPt: **20.9%** (StepFun; BenchLM — weak)
 - MLCR-AA: **16.7%** (Artificial Analysis — weak; note harness disagreement with AA-LCR 88.3%)
-- Artificial Analysis Intelligence Index / BenchLM overall: **44 / #40 of 22744** (Artificial Analysis; BenchLM reports 43.7)
-- BenchLM overall: **70.25 / #17 of 889** (composite, 42/625 coverage — conservative)
+- Artificial Analysis Intelligence Index / BenchLM overall: **43.7%** / **69.44 / #20 of 954** (Artificial Analysis Oct 17; BenchLM Oct 17, 44/639 coverage — conservative)
 - AA-Omniscience Accuracy / Hallucination Rate: **41.5% / 43.0%** (Artificial Analysis)
 
 Coding:
@@ -83,7 +84,7 @@ Long context:
 > Derived per `model-comparison.md` methodology (v4: Overall = half-up mean of the five quality dims; Cost excluded). Sources cited above; scores are normalized interpretations, not official vendor scores.
 
 - **Tool use: 88/100.** Terminal-Bench 2.1 85.0%, MCP Atlas 85.6%, CyberGym 84.7%, BrowseComp 88.7%, AA-Harvey LAB 93.4%, GDPval-AA 1566 — near-frontier (Muse Spark 1.3: TB2.1 88.8%, GDPval 1754). Capped by TB2.1 85.0% (< 88% frontier) and GDPval 1566 (< 1750), plus weak agentic rows (AA-AnalystAgent 35.0, GDP.pdf 14.8).
-- **Reasoning: 84/100.** GPQA Diamond 93.5% and HLE 46.5% meet frontier knowledge thresholds; AA-LCR 88.3% strong. Capped below frontier by Intelligence Index 44 (< 60), CritPt 20.9%, and MLCR-AA 16.7%.
+- **Reasoning: 84/100.** GPQA Diamond 93.5% and HLE 46.5% meet frontier knowledge thresholds; AA-LCR 88.3% strong. Capped below frontier by Intelligence Index 43.7% (< 60), CritPt 20.9%, and MLCR-AA 16.7%.
 - **Context window: 95/100.** 1M total, verified by the StepFun model card, Artificial Analysis, and BenchLM (≥1M tier). No ≥98% retrieval-at-512K figure published, so below the 100 cap.
 - **Multimodal: 77/100.** Text + image + video input (image verified via MMMU-Pro 76%/AA 76.4% and OfficeQA Pro 60.3%; video input documented by the StepFun model card but not independently benchmarked — AA lists text+image only) and text output. No audio input or non-text output.
 - **Coding: 85/100.** Terminal-Bench 2.1 85.0% (frontier+), SciCode 58.9% (55%+ frontier), ProgramBench 80.5%, sweMarathon 72.7%; capped by DeepSWE 67.7% (< 74% frontier) and MLS-Bench Lite 40.5%.
@@ -94,8 +95,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: fresh public internet research (BenchLM `https://benchlm.ai/models/step-5-preview`, StepFun model card `https://platform.stepfun.ai/docs/en/guides/models/step-5-preview`, Artificial Analysis `https://artificialanalysis.ai/models/step-5`, and OpenCode Zen docs `https://opencode.ai/docs/zen`); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via BenchLM model page (Oct 17, 44 of 639 benchmarks), StepFun model card, Artificial Analysis, OpenCode Zen docs; scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification (2026-10-17): BenchLM overall 69.44 (#20/954, 44/639) — down from 70.25 (#17/889, 42/625 on Oct 10); AA Intelligence Index 44→43.7%; GDP.pdf 15.3→14.8%; AA Terminal-Bench 4.0 25.8→33.3%; new benchmarks: Hermes Index 32.8%, Hermes Bench 69.2%. Dimension scores and Overall retained at 86.
 
 ---

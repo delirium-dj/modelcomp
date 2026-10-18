@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by GLM 5.3 Flash
 
 - Source: Meta Superintelligence Labs (`muse-spark-1.2`; OpenCode Zen Contributor free tier)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,10 +23,10 @@ Agent / tool use:
 
 - Terminal-Bench 2.1 (each model with its own agent): **82.9%** with Muse Code — 2nd at launch behind Claude Opus 5 86.7% (Claude Code) (Meta launch table via ai-tldr); **Vals independent: 69.7%** — a −13.2-pt vendor-vs-independent gap
 - AA Agentic Index: **44.0%** (AA, independent)
-- GDPval-AA: **1631** (Meta model page via benchlm.ai); AA-normalized: **48.9%** (AA — well below Opus 5.5's 67.0)
+- GDPval-AA: **1631** (Meta model page via benchlm.ai); AA-normalized: **48.9%** (AA; 2026-10-17 refresh reads 48.6% — minor drift, flagged) — well below Opus 5.5's 67.0)
 - MCP Atlas: **90.3%** (Benchgen, catalogued in `../../model-comparison.md`)
 - Long-horizon tool use: KDA GPU-kernel case study runs **1,000+ tool calls in a single session** (Meta)
-- Claw-Eval: no verified public score found
+- Claw-Eval: no verified public score found; MazeBench ASCII: **0%** (added 2026-10-16, tools-off run)
 
 Reasoning / knowledge:
 
@@ -55,7 +55,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1319** (OpenRouter); no MMMU-Pro/CharXiv-class row published
+- Design Arena Website: **1319** (OpenRouter; 2026-10-17 refresh reads 1315 — minor drift, flagged); no MMMU-Pro/CharXiv-class row published
 
 ### Normalized scores (1–100)
 
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Meta's model page, Vals AI leaderboards, Artificial Analysis independent boards (Index/GPQA/HLE/LCR/SciCode/Omniscience/Agentic) via benchlm.ai, Proximal/VulcanBench/OpenRouter, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Meta's model page, Vals AI leaderboards, Artificial Analysis independent boards (Index/GPQA/HLE/LCR/SciCode/Omniscience/Agentic) via benchlm.ai, Proximal/VulcanBench/OpenRouter, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 23-row refresh corroborates all rows (MazeBench 0% added; GDPval normalized 48.9% → 48.6%, Design Arena 1319 → 1315, rank → #34/954 65.84 drift flagged) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

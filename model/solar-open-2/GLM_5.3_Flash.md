@@ -1,7 +1,7 @@
 # Solar Open 2 — findings by GLM 5.3 Flash
 
 - Source: Upstage (`solar-open-2` — Solar Open 2 250B-A15B)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai Solar Open 2 page corroborates all rows identically and remains unranked with 15 rows; the prior 2026-10-09 pass on the Upstage HF card + AA model pages remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai Solar Open 2 page corroborates all rows identically and remains unranked with 15 rows; the prior 2026-10-09 pass on the Upstage HF card + AA model pages remains the evidence base; 2026-10-16 re-check: BenchLM 15-row refresh corroborates every row, still unranked, no new data — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

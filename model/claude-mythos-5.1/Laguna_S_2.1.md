@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **55.80%** (Anthropic: Claude Fable 5.1 and Claude Mythos 5.1 system card / BenchLM)
+- Terminal-Bench 4.0: **60.90%** (Anthropic: Claude Fable 5.1 and Claude Mythos 5.1 system card / BenchLM — Oct 17: was 55.80%)
 - Terminal-Bench-Science 0.1: **52.6%** (Anthropic system card / BenchLM)
 - AA Terminal-Bench 4.0: **52.0%** (Artificial Analysis / BenchLM — decreased from 59.6%)
 - aaTerminalBench21: **91.4%** (Artificial Analysis / BenchLM — increased from 84.3%)
@@ -111,7 +111,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 83.18, #4/954, 57 of 639) and AA as of 2026-10-16. Mythos 5.1 shares Fable 5.1's underlying weights — all disclosed Fable 5.1 benchmarks apply to the Mythos-class configuration on general (non-safeguard-limited) benchmarks.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 83.18, #4/954, 57 of 639) and AA as of 2026-10-17. Mythos 5.1 shares Fable 5.1's underlying weights — all disclosed Fable 5.1 benchmarks apply to the Mythos-class configuration on general (non-safeguard-limited) benchmarks.
 
 - **Tool use: 90/100.** GDPval-AA Elo 1754 (still exceeds ≥1750 frontier!), aaTB21 91.4%, AA Agentic Index 58.0%, AA Harvey LAB 93.0%, Toolathlon-Verified 77.8%, Terminal-Bench 2.1 (Vals) 85.0%, AA-AnalystAgent 57.5%, AA ITBench 49.5%, SWE-bench Pro 81.2%, SWE Multilingual 89.1%, CWE-bench v1 58.0%. GDPval ≥1750 frontier bonus. Capped by OSWorld 41.7% (significant decrease from 66.9%), TB-4.0 55.8%, GDPval-AA normalized 62.7% (down from 66.8%), no MCP-Atlas score.
 
@@ -131,9 +131,10 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-fable-5-1` for overall rank/score (#3/889, 89.45) and 86 benchmark rows including GPQA-D 93.7%, HLE 65%, SWE-bench Verified 95.0%, LiveCodeBench 90.5%, DeepSWE 67.4%, GDPval-AA Elo 1758, TB-4.0 55.8%; AA model page `https://artificialanalysis.ai/models/claude-fable-5-1` for Intelligence Index 53, pricing $10/$50, aaTB21 84.3%, AA Agentic Index 56.2%, AA Terminal-Bench 4.0 59.6%, GDP.pdf 21.8%, AA-MMMU-Pro 84.7%; Anthropic/Fable 5.1 system card PDF for SWE-bench Verified 95.0%, SWE-bench Pro 81.2%, LiveCodeBench 90.5%, DeepSWE 67.4%, HLE 65%, GPQA 93.7%, GDPval Elo 1758). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research. Mythos 5.1 shares Fable 5.1's underlying weights (Anthropic, explainx.ai) — all general (non-safeguard-limited) benchmarks are identical.
 - Key revisions from Sep 23 to Oct 10 fresh BenchLM fetch: GDPval-AA Elo 1758 confirmed (≥1750 frontier); new benchmarks confirmed (GPQA-D 93.7%, HLE 65%, SWE-bench Verified 95.0%, LiveCodeBench 90.5%, DeepSWE 67.4%, SWE-bench Pro 81.2%, SWE-bench (Vals) 97.0%); aaTB21 84.3% and AA Terminal-Bench 4.0 59.6% added from AA. Overall revised from 87 to 88.
 - Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall decreased from 89.45 to 83.18 (#3/889→#4/954, benchmarks 86→57 as model pool grew from 889 to 954 and new benchmarks added). OSWorld 2.0 decreased 66.9%→41.7%; GDPval-AA normalized 66.8%→62.7%, Elo 1758→1754 (still ≥1750 frontier); AA Terminal-Bench 4.0 59.6%→52.0%; aaTB21 increased 84.3%→91.4%; ApprenticeBench increased 36%→72%; AA-LCR increased 79.3%→85.3%; MLCR-AA increased 55.6%→71.1%; HLE w/o tools 56.3%→60.9%; AA-HLE 54.9%→59.1%; ProgramBench 79.7%→87.6%; AA-SciCode 56.4%→63.1%; AA Coding Index 78.0%→81.6%; Intelligence Index 53→53.4; new benchmarks: FrontierMath v2 (90.175%/87.805%), Toolathlon-Verified 77.8%, AA Harvey LAB 93.0%, Terminal-Bench 2.1 (Vals) 85.0%, AA ITBench 49.5%, AA-AnalystAgent 57.5%, Toolathlon Pass³ 73.1%, CursorBench 3.2 73.4%, CursorBench 4.0 51.8%, CWE-bench v1 58.0%, Bug Hunt Bench 43.0 fixes, PostTrainBench v1.1 40.2%, GraphWalks 65.0%. My normalized Overall revised from 88 to 89 (Reasoning increased due to FrontierMath v2 90.175% + AA-LCR 85.3% + MLCR-AA 71.1%; Tool use maintained at 90 despite OSWorld decrease due to GDPval ≥1750 frontier bonus + aaTB21 91.4% increase).
+- Re-verification (2026-10-17): Oct 16→17 re-verification; Terminal-Bench 4.0 increased 55.80→60.90% (from updated Anthropic system card); all other benchmarks unchanged; Overall retained at 88.
 
 ---

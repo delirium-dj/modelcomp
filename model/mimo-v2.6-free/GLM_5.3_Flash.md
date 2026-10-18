@@ -1,7 +1,7 @@
 # MiMo V2.6 Flash Free — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`XiaomiMiMo/MiMo-V2.6-Flash-RL`, MIT open weights; free route `mimo-v2.6-flash:free`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: normalized **55.5%** (AA, independent — fills the gap the prior passes marked missing; solid for the class)
+- GDPval-AA: normalized **55.5%** (AA, independent; 2026-10-17 refresh reads 55.4% — minor drift, flagged — fills the gap the prior passes marked missing; solid for the class)
 - Terminal-Bench 2.1: **87.6%** (Xiaomi technical report via benchlm.ai, updated 2026-10-10; vs V2.6 Pro 89.9, V2.5 Pro 65.2)
 - Toolathlon-Verified: **73.6%** (technical report; vs Pro 76.9)
 - AutomationBench v1.0.6: **52.3%**; OSWorld-Verified: **80.8%**; JobBench: **61.2%**; Agents' Last Exam: **27.6%** (technical report)
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 
 - AA-HLE: **35.1%** (AA, independent — fills the HLE gap; under the 40% bar)
 - Artificial Analysis Intelligence Index: **37.9** (AA current board — corroborates the 38 cited 2026-10-05)
-- BenchLM composite: **66.03, #32 of 889** (updated 2026-10-10, recomposed from the 65.33 #33/212 prior reading)
+- BenchLM composite: **66.03, #32 of 889** (updated 2026-10-10, recomposed from the 65.33 #33/212 prior reading; 2026-10-17: #38/954, 64.51)
 - AA-LCR v1.1: **74.3%** (AA — fills the long-context gap); CritPt: **12.0%** (weak)
 - AA-Omniscience: **27.0% accuracy / 54.4% non-hallucination row / −12.7 index** (AA — weak)
 - GPQA Diamond: no verified public score found for Flash
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Xiaomi MiMo-V2.6 technical report, Artificial Analysis independent boards (GDPval/HLE/SciCode/LCR/MMMU-Pro/Omniscience) via benchlm.ai, plus the prior 2026-09-24/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Xiaomi MiMo-V2.6 technical report, Artificial Analysis independent boards (GDPval/HLE/SciCode/LCR/MMMU-Pro/Omniscience) via benchlm.ai, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 24-row refresh corroborates every row, no new data (GDPval 55.5% → 55.4%; composite → #38/954 64.51) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Mimo_v2.md`, using the same headings.

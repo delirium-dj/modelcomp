@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
+> Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (`https://benchlm.ai/models/muse-spark-1-3`, overall 82.02, rank #5/889, 38 of 625 benchmarks); Artificial Analysis model page; Meta AI Research launch scorecard. 38 benchmarks verified across 4 independent sources.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/muse-spark-1-3`, overall Not computed (unranked), 43 of 639 benchmarks, 2026-10-17); Artificial Analysis model page; Meta AI Research launch scorecard. 38 benchmarks verified across 4 independent sources.
 
 Agent / tool use:
 
@@ -83,7 +83,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall Not computed (unranked), 43 of 639) and AA as of 2026-10-10.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall Not computed (unranked), 43 of 639, 2026-10-17) and AA as of 2026-10-17.
 
 - **Tool use: 92/100.** Terminal-Bench 2.1 88.8% (≥88% frontier threshold), GDPval-AA Elo 1754 (exceeds ≥1750 frontier), aaTB21 84.3%, TB-2.1 (Vals) 72.3%, DeepSearchQA 89.4%, GDPval-AA normalized 59.2%, AA Briefcase 1583 Elo, OSWorld 66.9%. Exceptional agentic cluster with two ≥frontier benchmarks (TB-2.1 ≥88%, GDPval ≥1750). Capped by TB-4.0 33.3%, GDP.pdf 26.6%, ApprenticeBench 19%, AA ITBench 33.2%.
 - **Reasoning: 85/100.** GPQA Diamond 93.5% (≥90 frontier), HLE 48.7% (above 40% frontier), MRCR v2 256K-512K 98.5%, MRCR v2 512K-1M 98.1%, AA-LCR 83.0%, MMLU-Pro (Vals) 91.6%, AA-MMLU-Pro 89.8%, AA Global-MMLU-Lite 92.2%, ARC-AGI-1 97.50%. Capped by AA Intelligence Index 48.1 (revised from 61 — significant drop reflecting v4.3.2 methodology update as model pool grew from 230 to 889, median increased), CritPt 24.9%, MLCR-AA 43.3%, AA-Omniscience Index 25.0% (low reliability, 32.9% hallucination rate).
@@ -97,9 +97,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/muse-spark-1-3` for overall rank/score (Not computed/unranked, 43 of 639) and individual benchmark rows; AA model page `https://artificialanalysis.ai/models/muse-spark-1-3` for Intelligence Index 48.1 (v4.3.2, revised from 61), GPQA 93.5%, aaTB21 84.3%, GDPval-AA normalized 59.2%, GDP.pdf 26.6%, AA Agentic Index 55.7%, AA ITBench 33.2%; Meta AI Research launch scorecard for TB-2.1 88.8%, GDPval Elo 1754, DeepSWE 75.4%, MRCR 98.5%/98.1%, GDPval-AA normalized 59.2%, OSWorld 66.9%; Vals AI for TB-2.1 (Vals) 72.3%, MMLU-Pro 91.6%, GPQA 93.5%; ARC Prize for ARC-AGI-1 97.50%; Collinear for CWE-bench 55.0%). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Re-verification (2026-10-16): BenchLM overall changed from 82.02 (#5/889, 38/625 on Oct 10) to "Not computed (unranked)" with 43/639 benchmarks on Oct 16 — v4.3.2 model pool grew 889→954; individual benchmark scores unchanged; dimension scores and Overall retained at 90.
+- Re-verification (2026-10-17): BenchLM overall remains "Not computed (unranked)" with 43 of 639 benchmarks (unchanged from Oct 16). v4.3.2 model pool grew to 954; individual benchmark scores unchanged; dimension scores and Overall retained at 90.
 - Key revisions from Sep 20 to Oct 10 fresh BenchLM fetch: Intelligence Index revised from 61 to 48.1% (v4.3.2 methodology update as model pool grew from 230 to 889 — 12.9-point drop, median increased significantly); new benchmarks confirmed (TB-2.1 88.8%, GDPval-AA Elo 1754 ≥1750 frontier, DeepSWE 75.4% ≥74% frontier, MRCR 98.5%/98.1% ≥98% at 512K+ → Context 100, AA Terminal-Bench 4.0 33.3%, AA ITBench 33.2%, GDPval-AA normalized 59.2%, AA Briefcase 1583, AA-MMMU-Pro 85.5%, AA-LCR 83.0%, MMLU-Pro 91.6%, AA-MMLU-Pro 89.8%, AA Global-MMLU-Lite 92.2%, ARC-AGI-1 97.50%, AA-Omniscience data); BenchLM overall revised to 82.02 (#5/889). Overall revised from 85 to 90.
 
 ---

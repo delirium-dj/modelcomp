@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by GLM 5.3 Flash
 
 - Source: Moonshot AI (`kimi-for-coding` — K2.8 Preview inside Kimi Code)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM and Artificial Analysis fetches both 404 — no aggregator page exists; llm-stats page gated with no extractable rows; the prior 2026-09-19 pass on Kimi Code documentation via the 4SAPI dev guide remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM and Artificial Analysis fetches both 404 — no aggregator page exists; llm-stats page gated with no extractable rows; the prior 2026-09-19 pass on Kimi Code documentation via the 4SAPI dev guide remains the evidence base; 2026-10-16 re-check: BenchLM still 404s the model slug, no new evidence — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

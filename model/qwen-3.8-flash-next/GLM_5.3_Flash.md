@@ -1,14 +1,14 @@
 # Qwen3.8-Flash-Next — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`qwen3.8-flash-next`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.8-Flash-Next (API-sold sibling is branded Qwen3.8 Flash)
-- **Short description:** Alibaba/Qwen's open-weight experimental preview of the upcoming Qwen4 architecture — a 125B-parameter MoE with only ~6B active parameters, sold cheaply via API under the Qwen3.8 Flash name. Top use cases: high-throughput agentic coding and reasoning at minimal cost, plus self-hosting. BenchLM ranks it #37 of 889 (64.23).
+- **Short description:** Alibaba/Qwen's open-weight experimental preview of the upcoming Qwen4 architecture — a 125B-parameter MoE with only ~6B active parameters, sold cheaply via API under the Qwen3.8 Flash name. Top use cases: high-throughput agentic coding and reasoning at minimal cost, plus self-hosting. BenchLM ranks it #37 of 889 (64.23); 2026-10-17: #43/954, 62.8.
 - **Provider / access:** Hugging Face `Qwen/Qwen3.8-Flash-Next` (open weights, FP8 build ~173 GiB VRAM); API access via Alibaba/Qwen endpoints as Qwen3.8 Flash; listed on Artificial Analysis, llm-stats, Ollama. Chat Completions-style API.
 - **Release / knowledge:** Released 2026-08-26 (Hugging Face + qwen.ai blog); knowledge cutoff not published.
 - **IDs:** `Qwen/Qwen3.8-Flash-Next` (weights); API ID under the Qwen3.8 Flash branding. A dedicated OpenCode Zen Free ID was not verified in the listings reviewed.
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **1648** (AA, independent — fills the gap the 2026-10-05 pass marked missing; normalized **56.6%**)
+- GDPval-AA: **1648** (AA, independent; 2026-10-17 refresh reads normalized 56.4% — minor drift, flagged — fills the gap the 2026-10-05 pass marked missing; normalized **56.6%**)
 - Toolathlon-Verified: **73.5%** (HF model card via benchlm.ai, updated 2026-10-10); CoWorkBench: **73.9%**; JobBench: **55.7%**; AndroidWorld: **84.5%** (model card)
 - Agents' Last Exam: **51.2%** (model card); OSWorld 2.0: **19.4%** (weak)
 - Terminal-Bench 2.1: the 2026-10-05 conflict (62.9% llm-stats vs "84.3%" hosting-site listing) remains unresolved on BenchLM — no TB2.1 row published for this checkpoint; the "84.3%" listing likely bled in from GLM-5.3-Flash's identically-valued row
@@ -68,6 +68,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.8-Flash-Next page updated 2026-10-10 citing the HF model card, Artificial Analysis independent boards (GDPval/GPQA/HLE/LCR/SciCode/Omniscience/Coding Index/MMMU-Pro) via benchlm.ai, plus the prior 2026-10-05 pass on qwen.ai/HF/llm-stats/DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.8-Flash-Next page updated 2026-10-10 citing the HF model card, Artificial Analysis independent boards (GDPval/GPQA/HLE/LCR/SciCode/Omniscience/Coding Index/MMMU-Pro) via benchlm.ai, plus the prior 2026-10-05 pass on qwen.ai/HF/llm-stats/DataCamp; 2026-10-16 re-check: BenchLM 37-row refresh corroborates every row, no new data (GDPval normalized 56.6% → 56.4%; rank → #43/954 62.8) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

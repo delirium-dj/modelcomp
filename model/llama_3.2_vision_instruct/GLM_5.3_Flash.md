@@ -1,7 +1,7 @@
 # Llama 3.2 Vision — findings by GLM 5.3 Flash
 
 - Source: Meta (`meta-llama/Llama-3.2-11B-Vision-Instruct` / `meta-llama/Llama-3.2-90B-Vision-Instruct`, open weights)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the 2024 legacy vision models; the prior 2026-09-24 pass on the Meta model card + aiwiki/aimodels.fyi remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the 2024 legacy vision models; the prior 2026-09-24 pass on the Meta model card + aiwiki/aimodels.fyi remains the evidence base; 2026-10-16 re-check: BenchLM still 404s the canonical slug, no new evidence — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Llama_3.md`, using the same headings.

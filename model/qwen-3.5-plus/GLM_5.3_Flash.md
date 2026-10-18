@@ -1,7 +1,7 @@
 # Qwen 3.5 Plus — findings by GLM 5.3 Flash
 
 - Source: Alibaba (`Qwen/Qwen3.5-Plus`, snapshot `Qwen3.5 Plus 2026-02-15`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,6 @@ Behavioral (production-relevant caveats):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with Epoch AI FrontierMath + JobBench-paper rows, Vals AI model page, Qubrid AI technical comparison, plus the prior 2026-10-02 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with Epoch AI FrontierMath + JobBench-paper rows, Vals AI model page, Qubrid AI technical comparison, plus the prior 2026-10-02 pass; 2026-10-16 re-check: BenchLM 2-row refresh corroborates both rows, no new data (rank 48.24 #104/889 → 48.85 #104/954) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

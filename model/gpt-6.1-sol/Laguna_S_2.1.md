@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Laguna S 2.1
 
 - Source: OpenAI (`opencode/gpt-6.1-sol`) model docs (`https://developers.openai.com/api/docs/models/gpt-6.1-sol`), Artificial Analysis (`https://artificialanalysis.ai/models/gpt-6-1-sol`), BenchLM (`https://benchlm.ai/models/gpt-6.1-sol`), OpenAI launch blog (`https://openai.com/index/introducing-gpt-6-1-sol/`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -121,7 +121,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
-- Method: public internet research via BenchLM model page (`benchlm.ai/models/gpt-6.1-sol`, Oct 16: Overall 84.07/100, rank #2/954, 37 of 639 benchmarks), Artificial Analysis model page (`artificialanalysis.ai/models/gpt-6-1-sol`, Oct 16), OpenAI launch blog (`openai.com/index/introducing-gpt-6.1-sol/`), ARC Prize verified results, and OpenAI system card addendum (PDF). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via BenchLM model page (`benchlm.ai/models/gpt-6.1-sol`, Oct 16: Overall 84.07/100, rank #2/954, 37 of 639 benchmarks), Artificial Analysis model page (`artificialanalysis.ai/models/gpt-6-1-sol`, Oct 16), OpenAI launch blog (`openai.com/index/introducing-gpt-6.1-sol/`), ARC Prize verified results, and OpenAI system card addendum (PDF)
+- Re-verification (2026-10-17): confirmed all 37 benchmark scores unchanged; Overall retained at 87.. Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
 
 ---

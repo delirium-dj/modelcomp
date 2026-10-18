@@ -1,7 +1,7 @@
 # MiMo-V2.6-Distill-Qwen-9B — findings by GLM 5.3 Flash
 
 - Source: Xiaomi MiMo (`XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`, open-weights SFT checkpoint)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Speed / cost / other verified measurements:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists; the prior 2026-10-01 pass on the HF model card/MiMo-V2.6 tech report remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists; the prior 2026-10-01 pass on the HF model card/MiMo-V2.6 tech report remains the evidence base; 2026-10-16 re-check: BenchLM still 404s the canonical slug, no new evidence — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

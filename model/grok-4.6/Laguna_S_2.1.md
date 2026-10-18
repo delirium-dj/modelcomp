@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by Laguna S 2.1
 
 - Source: xAI launch blog (`https://x.ai/news/grok-4-6`, August 12, 2026), BenchLM model page (`https://benchlm.ai/models/grok-4-6` Oct 10), Artificial Analysis model page (`https://artificialanalysis.ai/models/grok-4-6` Oct 10), OpenCode Zen pricing page (Oct 10)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -47,7 +47,7 @@ Agent / tool use:
 Coding:
 
 - **DeepSWE v1.1:** 65.9% — (xAI launch blog, from xAI)
-- **CursorBench v3.2:** 69.9% — (xAI launch blog; Cursor evals: CursorBench 3.2)
+  - **CursorBench v3.2:** 70.8% — (Cursor evals: CursorBench 3.2)
 - **FrontierCode 1.1 (Extended):** 61.3% — (xAI launch blog)
 - **AA Coding Index:** 76.8% — (Artificial Analysis model benchmarks via BenchLM)
 - **AA-SciCode:** 56.5% — (AA: scicode leaderboard via BenchLM)
@@ -77,7 +77,7 @@ Reasoning / knowledge:
 
 Multimodal:
 
-- **Design Arena Website:** 1296 Elo — (OpenRouter model benchmarks)
+  - **Design Arena Website:** 1290 Elo — (OpenRouter model benchmarks)
 - **MMMU-Pro:** not reported for Grok 4.6
 - **Image understanding:** text + image in, text out (AA confirms)
 - No video/audio/PDF input support
@@ -104,15 +104,15 @@ Long context:
 
 - **Cost efficiency: 79/100.** $2.00 input / $6.00 output per 1M tokens (≤200K tier) falls in the methodology's ~$2-$6 = ~79 tier. Cached input $0.50 (75% discount). Fast variant 2x price. noFreeId. $0.50 input tier with 80% cache discount provides some cost reduction.
 
-- **Overall Score: 84/100.** Mean of five non-cost dimensions: (87 + 89 + 88 + 65 + 89) / 5 = 418 / 5 = 83.6 → 84. Grok 4.6 is xAI's August-2026 flagship reasoning model, released as "Grok 4.6 (High)" on AA and Zen. It matches GPT-5.6 Sol on Intelligence Index (44), leads on DeepSWE (65.9%), and achieves 95.6% on SWE-bench (Vals). Caps: weak Terminal-Bench 3.0 (26.5%), weak CritPt (17.1%), text+image-only modalities, and $2/$6 pricing with no free tier. Updated Oct 10 — xAI blog and BenchLM/AA data confirmed.
+- **Overall Score: 84/100.** Mean of five non-cost dimensions: (87 + 89 + 88 + 65 + 89) / 5 = 418 / 5 = 83.6 → 84. Grok 4.6 is xAI's August-2026 flagship reasoning model, released as "Grok 4.6 (High)" on AA and Zen. It matches GPT-5.6 Sol on Intelligence Index (44), leads on DeepSWE (65.9%), and achieves 95.6% on SWE-bench (Vals). Caps: weak Terminal-Bench 3.0 (26.5%), weak CritPt (17.1%), text+image-only modalities, and $2/$6 pricing with no free tier. Aligns with BenchLM Overall 67.02 (#27/954, 40/639 on Oct 17). Updated Oct 17 — xAI blog and BenchLM/AA data confirmed.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via xAI launch blog (`x.ai/news/grok-4-6`, August 12 — re-verified Oct 10), BenchLM model page (Oct 10), Artificial Analysis model page (Oct 10), OpenCode Zen pricing page (Oct 10); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Note: AA notes Grok 4.6 is deprecated; only default 10k input token workload continues to be benchmarked. GPT-5.5 is the newer recommended release.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via xAI launch blog (`x.ai/news/grok-4-6`, August 12), BenchLM model page (Oct 17, 40 of 639 benchmarks), Artificial Analysis model page (Oct 10), OpenCode Zen pricing page (Oct 10); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Re-verification (2026-10-17): BenchLM overall 67.02 (#27/954, 40/639) — up from v4.3.2 initial estimate; Design Arena 1296→1290 (negligible), CursorBench 3.2 69.9→70.8% (minor upgrade). All other benchmarks verified unchanged. Dimension scores and Overall retained at 84.
 - Future sources: add a new file next to this one using the same headings.
 
 ---

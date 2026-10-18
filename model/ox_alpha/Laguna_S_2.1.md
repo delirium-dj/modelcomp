@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Laguna S 2.1
 
 - Source: OpenRouter (`stealth/ox-alpha`) (`https://openrouter.ai/stealth/ox-alpha`), Artificial Analysis (GLM-5.3-Flash base) (`https://artificialanalysis.ai/models/glm-5-3-flash`), BenchLM (GLM-5.3-Flash) (`https://benchlm.ai/models/glm-5.3-flash`), Z.AI blog (`https://z.ai/blog/glm-5.3-flash`), Vals AI (`https://www.vals.ai/models/zai_glm-5.3-flash`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -20,7 +20,7 @@
 
 ### Raw benchmarks found
 
-> Sources: OpenRouter model page (`openrouter.ai/stealth/ox-alpha`, Oct 10 — confirms Ox Alpha = ZAI GLM-5.3-Flash), Artificial Analysis model page (`artificialanalysis.ai/models/glm-5-3-flash`, Oct 10), BenchLM (`benchlm.ai/models/glm-5.3-flash`, Oct 10), Z.AI blog (`z.ai/blog/glm-5.3-flash`), Vals AI leaderboards (`vals.ai/models/zai_glm-5.3-flash`). Ox Alpha is confirmed by OpenRouter to be a stealth deployment of GLM-5.3-Flash, so all benchmarks are inherited from the GLM-5.3-Flash base. BenchLM covers 39 of 625 benchmarks for GLM-5.3-Flash.
+> Sources: OpenRouter model page (`openrouter.ai/stealth/ox-alpha`, Oct 10 — confirms Ox Alpha = ZAI GLM-5.3-Flash), Artificial Analysis model page (`artificialanalysis.ai/models/glm-5-3-flash`, Oct 17), BenchLM (`benchlm.ai/models/glm-5.3-flash`, Oct 17, 45 of 639 benchmarks — confirms all prior data), Z.AI blog (`z.ai/blog/glm-5.3-flash`), Vals AI leaderboards (`vals.ai/models/zai_glm-5.3-flash`). Ox Alpha is confirmed by OpenRouter to be a stealth deployment of GLM-5.3-Flash, so all benchmarks are inherited from the GLM-5.3-Flash base. BenchLM Oct 17 confirms all scores; new: Hermes Index 35.0%, Hermes Bench 68.9%, AA AnalystAgent 25.0%, MazeBench 0%.
 
 Agent / tool use:
 
@@ -35,6 +35,10 @@ Agent / tool use:
 - **AA EnterpriseOps-Gym:** 33.2% — (AA: enterprise-ops-gym-aa leaderboard via BenchLM)
 - **AA ITBench:** 51.2% — (AA: itbench-aa leaderboard via BenchLM)
 - **AA Tau3 Banking:** 47.2% — (AA: tau3-banking leaderboard via BenchLM)
+- **Hermes Index:** 35.0% — (Nous Research: Hermes Index leaderboard via Oct 17 BenchLM — NEW)
+- **Hermes Bench:** 68.9% — (Nous Research: Hermes Index leaderboard via Oct 17 BenchLM — NEW)
+- **AA AnalystAgent:** 25.0% — (AA: aa-analyst-agent leaderboard via Oct 17 BenchLM — NEW)
+- **MazeBench:** 0% — (MazeBench AI leaderboard via Oct 17 BenchLM — NEW)
 - **AA Terminal-Bench 4.0:** 32.8% — (AA: terminalbench-v4-0 leaderboard via BenchLM)
 - **GDP.pdf:** 15.4% — (AA: gdp-pdf leaderboard via BenchLM)
 - **τ²-bench:** no verified public score found
@@ -71,9 +75,9 @@ Long context:
 ### Normalized scores (1–100)
 
 > Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> Confidence: high — 39 public benchmarks found across 5 sources (OpenRouter confirms Ox Alpha = GLM-5.3-Flash; BenchLM, AA, Z.AI blog, Vals AI for GLM-5.3-Flash). FlashX uses identical weights to GLM-5.3-Flash per `meta.json`, so all benchmarks are inherited.
+> Confidence: high — All benchmarks inherited from GLM-5.3-Flash (confirmed identical by OpenRouter + Oct 17 BenchLM). 45 benchmarks covered.
 
-- **Tool use: 70/100.** Terminal-Bench 2.1 at 84.3% (near frontier 88%+) and GDPval-AA at 1773 Elo (near frontier threshold) are strong. Toolathlon-Verified at 78.4%, AA AutomationBench at 60.4%, and AA ITBench at 51.2% are moderate. However, GDP.pdf at 15.4%, Agents' Last Exam at 26.3%, and AA Terminal-Bench 4.0 at 32.8% are weak. AA EnterpriseOps-Gym at 33.2% is below the 40% threshold. Solid terminal/agentic benchmark performance offset by weak professional-document and exam benchmarks.
+- **Tool use: 70/100.** (Unchanged.) Terminal-Bench 2.1 at 84.3% (near frontier 88%+) and GDPval-AA at 1773 Elo (near frontier threshold) are strong. New: Hermes Bench 68.9%, AA Agentic Index 46.5%. However, GDP.pdf at 15.4%, Agents' Last Exam at 26.3%, AA Terminal-Bench 4.0 at 32.8%, and MazeBench 0% are weak.
 
 - **Reasoning: 72/100.** AI Intelligence Index at 41.8% (rank #4/117 among large open-weights, above median of 18). Using II + 30 formula: 41.8 + 30 = 71.8 → 72. AA-GPQA Diamond at 91.2% and GPQA Diamond (Vals) at 86.4% are exceptional. AA-LCR at 80.0% is excellent. HLE w/ tools at 55.3% is moderate (above 40% threshold). MLCR-AA at 51.1% is moderate. MMLU-Pro (Vals) at 86.1% is very good. CritPt at 15.4% is low (physics reasoning). AA-Omniscience Index at 7.5% is positive but low.
 
@@ -85,14 +89,15 @@ Long context:
 
 - **Cost efficiency: 97/100.** $0.075 in / $0.90 out per 1M tokens is within striking distance of the $0 value band; free Zen tier confirmed via `meta.json`.
 
-- **Overall Score: 77.4/100.** Mean of five non-cost dimensions: (70 + 72 + 95 + 75 + 75) / 5 = 387 / 5 = 77.4 → 77. **Up from prior 85:** prior file had no verified benchmark data (all "no verified public score found" except Intelligence Index 42). Fresh Oct 10 data from OpenRouter confirms Ox Alpha is ZAI GLM-5.3-Flash, inheriting all GLM-5.3-Flash benchmarks (TB 2.1 84.3%, SWE-bench 92.0%, GPQA 91.2%, HLE 55.3 w/tools, GDPval-AA 1773 Elo). Tool use upgraded 55→70, Coding upgraded 68→75, Cost efficiency upgraded 50→97 (free Zen tier confirmed), Context upgraded 82→95 (1M confirmed). Aligns with BenchLM Overall 57.36/100 rank #55/889 for GLM-5.3-Flash and AA Intelligence Index 42 (#4/117 among large open weights).
+- **Overall Score: 77/100.** Mean of five non-cost dimensions: (70 + 72 + 95 + 75 + 75) / 5 = 387 / 5 = 77.4 → 77. (Unchanged.) Ox Alpha inherits all GLM-5.3-Flash benchmarks (TB 2.1 84.3%, SWE-bench 92.0%, GPQA 91.2%, HLE 55.3%, GDPval-AA 1773 Elo). Free Zen tier confirmed via `meta.json`. Aligns with BenchLM Overall 58.52/100 rank #58/954 for GLM-5.3-Flash and AA Intelligence Index 41.8% (#4/117 large open-weights).
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via OpenRouter model page (`openrouter.ai/stealth/ox-alpha`, Oct 10), Artificial Analysis model page (`artificialanalysis.ai/models/glm-5-3-flash`, Oct 10), BenchLM (`benchlm.ai/models/glm-5.3-flash`, Oct 10), Z.AI blog (`z.ai/blog/glm-5.3-flash`), and Vals AI leaderboards; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via OpenRouter model page (`openrouter.ai/stealth/ox-alpha`, Oct 10), Artificial Analysis model page (`artificialanalysis.ai/models/glm-5-3-flash`, Oct 17), BenchLM (`benchlm.ai/models/glm-5.3-flash`, Oct 17), Z.AI blog (`z.ai/blog/glm-5.3-flash`), and Vals AI leaderboards; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: OpenRouter model page (confirms Ox Alpha = GLM-5.3-Flash); BenchLM.ai model page (Overall 58.52/100, #58/954, 45/639 benchmarks, 2026-10-17); AA model page (Intelligence Index 41.8%, #4/117 large open-weights); Z.AI blog (full benchmark scores); Vals AI (SWE-bench 92.0%, LiveCodeBench 80.5%).
+- Re-verification (Oct 17): Inherited from GLM-5.3-Flash re-verification (Oct 16). BenchLM Oct 17 confirms all scores for GLM-5.3-Flash (Overall 58.52/#58/954, 45/639). New: Hermes Index 35.0%, Hermes Bench 68.9%, AA AnalystAgent 25.0%, MazeBench 0%. Overall 77→77 (unchanged).
 
 ---

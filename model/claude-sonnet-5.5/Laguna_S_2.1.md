@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by Laguna S 2.1
 
 - Source: Anthropic (`claude-sonnet-5-5`) / `poolside/laguna-s-2.1`
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -103,6 +103,7 @@ Coding:
 - CursorBench 4.0: **55.5%** (Cursor evals — confirmed unchanged)
 - ProgramBench: **79.7%** (Anthropic system card — confirmed unchanged)
 - FrontierSWE v2: **61.9%** (Anthropic system card — confirmed unchanged)
+- Bug Hunt Bench: **51.3 fixes** (Bug Hunt Bench public data — new on Oct 17)
 - Vibe Code Bench: no verified public score found
 - LiveCodeBench: no verified public score found
 
@@ -142,12 +143,13 @@ Long context:
 - **Cost efficiency: 75/100.** $2/$10 per 1M tokens (no free tier on Zen); moderate pricing; $7.62 per Intelligence Index task is reasonable for a frontier reasoning model.
 
 - **Overall Score: 87.4/100.** (91+90+95+70+91)/5 = 437/5 = 87.4 → 87. Strong frontier reasoning model with 1M context; best-in-class agentic (GDPval-AA Elo 1844, Harvey LAB 93.1%, Toolathlon 85.2%) and coding (SWE Multilingual 90.3%, SWE-bench Pro 81.3%) numbers; TB 4.0 70.6% and DeepSWE 71.0% cap Tool use and Coding below absolute frontier tier; no verified GPQA or OSWorld scores. Note: BenchLM overall decreased from ~87.4 to 82.18 (#3 of 637→#5 of 954) due to new low-score benchmarks added to the model pool (ApprenticeBench 0%, Terminal-Bench 3.0 14.9%); my normalized scores reflect the model's actual frontier performance and are unchanged.
+- Re-verification (2026-10-17): confirmed all 71 benchmark scores and overall 82.18 unchanged; Overall retained at 87.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-sonnet-5-5` for full benchmark tables; AA model/evaluation pages for Intelligence Index 56.0, pricing $2/$10, GDPval-AA Elo 1844, aaTB21 85.8%, AA Agentic Index 56.0%, AA AutomationBench 71.8%, AA-HLE 55.0%, AA-SciCode 61.0, AA Coding Index 75.8%, AA-LCR 82.7%, AA-MMMU-Pro via model page, Omniscience metrics; Anthropic system card PDF for HLE 64.5%/56.9%, SWE Multilingual 90.3%, SWE-bench Pro 81.3%, DeepSWE 71.0%, ArXivMath 95.2%, GMMLU 92.1%, MILU 91.6%, HealthBench, SpatialBench, Protein Design benchmarks, GDP.pdf 25.8%, DRACO 87%, AutomationBench 44.7%, GDPval Elo 1811, ApprenticeBench 0%; Vals AI for Terminal-Bench 2.1 (Vals) 80.9%; Cursor evals for CursorBench 4.0 55.5%; Google for ApprenticeBench results, Terminal-Bench 3.0 14.9%, Agents' Last Exam 26.3%, OSWorld 2.0 47.9%; Nous Research for Hermes Index/Bench; Bug Hunt Bench for Bug Hunt data; PostTrainBench for PostTrainBench v1.1). Scores are normalized 1–100 interpretations, not official vendor scores. Raw benchmark numbers are listed with sources above. Re-verified 2026-10-16: BenchLM overall decreased to 82.18 (#5/954) as model pool grew from 637→954; new low benchmarks added (ApprenticeBench 0%, TB-3.0 14.9%, Agents' Last Exam 26.3%); AA Agentic Index 51.5→56.0; GDPval-AA normalized 67.2→66.9; Design Arena 1314→1331. Normalized scores unchanged (87.4) as core frontier performance stable.
 - Key revisions from Oct 1 to Oct 16 re-verification: BenchLM overall decreased 89.45→82.18 as model pool grew 637→954 and new benchmarks added; new low-score benchmarks (ApprenticeBench 0%, Terminal-Bench 3.0 14.9%, Agents' Last Exam 26.3%) added to model pool; AA Agentic Index revised from 51.5 to 56.0; GDPval-AA normalized slightly decreased 67.2→66.9; new benchmarks confirmed (Toolathlon-Verified 77.8%, Toolathlon Pass³ 68.5%, Terminal-Bench 2.1 (Vals) 80.9%, aaTerminalBench21 85.8%, AA AutomationBench 71.8%, AA-AnalystAgent 57.5%, AA ITBench 47.7%, ApprenticeBench 0%, Terminal-Bench 3.0 14.9%, OSWorld 2.0 47.9%, Agents' Last Exam 26.3%, AA Tau3 Banking 47.1%, AA EnterpriseOps-Gym 44.8%, Hermes Index 53.1, Hermes Bench 73.5, MazeBench 8%, Chartography no tools 61.6%, BenchCAD Vision2Code 0.747/0.963, Biomedical image analysis 72.2%, HealthBench raw 69.4%/length-adjusted 65.4%, HealthBench Professional raw 77.1%/adjusted 69.2%, BioMysteryBench 89.2%/44.7%, SpatialBench 72.5%, SingleCellBench 59.1%, Protein Design suite, Curie benchmarks); Design Arena 1314→1331. My normalized Overall unchanged at 87.4 (core frontier benchmarks stable despite BenchLM methodology expansion).
 

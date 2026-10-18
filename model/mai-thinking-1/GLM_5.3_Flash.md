@@ -1,7 +1,7 @@
 # MAI-Thinking-1 — findings by GLM 5.3 Flash
 
 - Source: Microsoft AI (`mai-thinking-1`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai MAI-Thinking-1 page citing the Microsoft technical paper (now computing 53.3 #83), the prior 2026-10-09 pass on the Microsoft AI model page + LLM Reference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai MAI-Thinking-1 page citing the Microsoft technical paper (now computing 53.3 #83), the prior 2026-10-09 pass on the Microsoft AI model page + LLM Reference; 2026-10-16 re-check: BenchLM 13-row refresh corroborates every row, no new data (rank → #84/954 53.17) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Mistral Large 4 — findings by GLM 5.3 Flash
 
 - Source: Mistral (`mistral-large-4`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **1424** (AA, independent — fills the gap the 2026-10-09 pass marked missing; normalized **46.2%**); AA-Briefcase: **1393 Elo** (AA — corroborates the vendor read)
+- GDPval-AA: **1424** (AA, independent; 2026-10-17 refresh reads 1422, normalized 46.1% — minor drift, flagged) — fills the gap the 2026-10-09 pass marked missing; normalized **46.2%**); AA-Briefcase: **1393 Elo** (AA — corroborates the vendor read)
 - AA AutomationBench-AA: **59.9%** (AA — corroborates the vendor's AutomationBench row); Finance Agent v2: **54.7%** (Vals, independent — fills the gap)
 - AA Terminal-Bench 4.0: **26.8%** (AA — corroborates the vendor's weak 28.3%); AA GDP.pdf: **18.6%** (AA — weak)
 - SWE-Atlas QnA: **59.4%** (Mistral blog); Combined Coding Agent Index: **49.8%** (Mistral blog)
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **38.4** (AA current board — corroborates the 38 / #64 of 226)
 - CritPt: **10.6%** (AA — weak); AA-Omniscience: **25.8% accuracy / 41.9% non-hallucination row / −5.3 index** (AA — weak)
 - GPQA Diamond: no verified public score found
-- Surge AI blind human coding eval: **3.74/5, 2nd of 5** (Mistral blog; behind Claude Opus 5 at 4.22)
+- STEMBench: **2.50** (ulam.ai); Design Arena Website: **1259** (OpenRouter — both added 2026-10-16)`n- Surge AI blind human coding eval: **3.74/5, 2nd of 5** (Mistral blog; behind Claude Opus 5 at 4.22)
 
 Coding:
 
@@ -68,6 +68,6 @@ Speed: 116.1 output tokens/s, 1.46s TTFT (AA). Very verbose: 200M output tokens 
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Mistral Large 4 announcement, Artificial Analysis model benchmarks, Vals AI leaderboards (Finance Agent v2, Vibe Code Bench), plus the prior 2026-10-09 pass on the Mistral blog/docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Mistral Large 4 announcement, Artificial Analysis model benchmarks, Vals AI leaderboards (Finance Agent v2, Vibe Code Bench), plus the prior 2026-10-09 pass on the Mistral blog/docs; 2026-10-16 re-check: BenchLM 20-row refresh corroborates all rows (STEMBench 2.50, Design Arena 1259 added; GDPval 1424 → 1422 drift; rank → #50/954 61.51) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

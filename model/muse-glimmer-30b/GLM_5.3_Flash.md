@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by GLM 5.3 Flash
 
 - Source: Meta (`meta-models/Muse-Glimmer-30B`, Apache 2.0 open weights)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,9 +21,9 @@
 
 Agent / tool use:
 
-- GDPval-AA: **790** (AA, independent — normalized **14.5%**) — **conflicts with the 953 BenchmarkList reading the prior pass cited**; the AA board is lower
+- GDPval-AA: **790** (AA, independent; 2026-10-17 refresh reads 787, normalized 14.3% — minor drift, flagged) — normalized **14.5%**) — **conflicts with the 953 BenchmarkList reading the prior pass cited**; the AA board is lower
 - AA Agentic Index: **10.5%**; AA AutomationBench-AA: **6.8%**; AA Terminal-Bench 4.0: **0.5%** (floor); AA-Briefcase: **477 Elo**; AA EnterpriseOps-Gym: **34.7%**; AA GDP.pdf: **10.0%** (AA — the independent agentic board is weak across the board)
-- AA Tau3-Banking: **23.5%** (AA — corroborated); AA Terminal-Bench 2.1: **51.7%** (corroborated)
+- AA Tau3-Banking: **23.5%** (AA — corroborated); AA Terminal-Bench 2.1: **51.7%** (corroborated); AA-AnalystAgent: **20.0%** (added 2026-10-16)
 - MCP Atlas: **75.5%**; DeepSearchQA: **74.6%**; skillsBench: **44.3%**; OSWorld-Verified: **65.9%**; WildClawBench: **47.6%**; GAIA2: **43.3%** (Meta launch post — corroborated by benchlm)
 - Claw-Eval / Toolathon: no verified public score found
 
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Meta Muse Glimmer launch post, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-09-24/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Meta Muse Glimmer launch post, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 37-row refresh corroborates all rows (AA-AnalystAgent 20.0% added; GDPval 790 → 787 drift; rank → #132/954 41.19) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Glimmer.md`, using the same headings.

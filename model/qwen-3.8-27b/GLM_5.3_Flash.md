@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`Qwen/Qwen3.8-27B`, Apache 2.0 open weights)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,13 +21,13 @@
 
 Agent / tool use:
 
-- GDPval-AA: **1423** (AA, independent — fills the gap the 2026-10-08 pass marked missing; normalized **46.2%**); AA-Briefcase: **1397 Elo** (AA)
+- GDPval-AA: **1423** (AA, independent; 2026-10-17 refresh reads 1420, normalized 46.0% — minor drift, flagged) — fills the gap the 2026-10-08 pass marked missing; normalized **46.2%**); AA-Briefcase: **1397 Elo** (AA)
 - AA Terminal-Bench 2.1: **79.8%** (AA, independent — above the vendor's 73.0); vendor row: **73.0%**; Vals independent: **58.4%** (wide spread)
 - AA Tau3-Banking: **48.0%** (AA — fills the Tau3 gap); AA AutomationBench-AA: **48.2%**; AA EnterpriseOps-Gym: **44.2%**; AA Agentic Index: **46.5%** (AA)
 - OSWorld-Verified: **84.3%** (model card); AndroidWorld: **81.9%**; WebArena-Verified: **64.8%**; CoWorkBench: **70.7%**; JobBench: **33.4%**; Agents' Last Exam: **42.9** (model card)
-- AA Terminal-Bench 4.0: **5.6%** (AA — very weak on the 2026 harness); AA GDP.pdf: **16.6%**
+Bug Hunt Bench: **15.0 fixes**; BabyVision w/ Python: **85.6%**; MathVision w/ Python: **94.6%** (all added 2026-10-16); AA Terminal-Bench 4.0: **5.6%** (AA — very weak on the 2026 harness); AA GDP.pdf: **16.6%** (2026-10-17 refresh reads 16.4% — minor drift)
 - Harvey legal-agent adapted run: **67%** on 250 legal tasks (Harvey/Engram study, Alibaba-stated; model trained on the test corpus first — provisional for stock weights)
-- Claw-Eval: no verified public score found
+- Claw-Eval: no verified public score found; a Perplexity decision-panel (12 typed-decision rows, mean 74.76%) now maps the pplx-decider-v1-27b fine-tune — outside general rankings
 
 Reasoning / knowledge:
 
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.8-27B HF model card, Artificial Analysis independent boards (GDPval/Briefcase/Tau3/LCR/SciCode/Omniscience/MMMU-Pro) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-08 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.8-27B HF model card, Artificial Analysis independent boards (GDPval/Briefcase/Tau3/LCR/SciCode/Omniscience/MMMU-Pro) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-08 passes; 2026-10-16 re-check: BenchLM 68-row refresh corroborates all rows (Bug Hunt 15.0, BabyVision-Py 85.6%, Perplexity decision panel added; GDPval 1423 → 1420, GDP.pdf 16.6% → 16.4% drift; rank → #57/954 59.61) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

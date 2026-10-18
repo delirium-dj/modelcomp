@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by GLM 5.3 Flash
 
 - Source: MiniMax (`MiniMax-M3.1-Flash-Preview`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai page shows 0 of 625 rows "coming soon"; the prior 2026-10-02 pass on SaaSCity/AICodeKing/MiniMax docs remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai page shows 0 of 625 rows "coming soon"; the prior 2026-10-02 pass on SaaSCity/AICodeKing/MiniMax docs remains the evidence base; 2026-10-16 re-check: BenchLM page still shows 0 of 639 rows, coming soon — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

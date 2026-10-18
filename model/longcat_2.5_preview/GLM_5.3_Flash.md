@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — findings by GLM 5.3 Flash
 
 - Source: Meituan (`meituan/longcat-2.5-preview`; Zen free entry `opencode/longcat-2.5-preview-free`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM (two slug variants) and Artificial Analysis fetches all 404 — no aggregator page exists; the prior 2026-10-02 pass on OrcaRouter/AI Coding Daily/explainx remains the evidence base); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (verification pass: fresh BenchLM (two slug variants) and Artificial Analysis fetches all 404 — no aggregator page exists; the prior 2026-10-02 pass on OrcaRouter/AI Coding Daily/explainx remains the evidence base; 2026-10-16 re-check: BenchLM still 404s the model slug, no new evidence — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

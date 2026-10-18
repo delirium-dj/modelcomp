@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash — findings by Laguna S 2.1
 
 - Source: Qwen official (model card + Qwen3.8-27B comparison table, `https://huggingface.co/Qwen/Qwen3.8-27B`, `https://qwen.ai/blog?id=qwen3.8`), QwenCloud (`https://www.qwencloud.com/models/qwen3.8-27b`), OpenCode Zen (`https://opencode.ai/zen/v1/models`), Vals AI (`https://www.vals.ai/models/qwen_qwen-3.8-flash`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,7 +54,7 @@ Multimodal (proxy): MathVision 90.6–95.7, CharXiv 90.6, RealWorldQA 88.5 (Benc
 ### Normalized scores (1–100)
 
 > Method: `model-comparison.md` v4. Overall = round((Tool + Reasoning + Context + Multimodal + Coding) / 5); Cost scored independently, excluded. Independent re-normalization of the shared BenchLM/official ledger per methodology bands.
-> Note: Not listed on BenchLM or AA as of Oct 10 (404 for both). Data from modelscale/MarkTechPost/Vals AI ledgers + Qwen3.8-27B comparison table (Oct 2026 update).
+> Note: Not listed on BenchLM or AA as of Oct 17 (404 for both, re-confirmed — same as Oct 10). Data from modelscale/MarkTechPost/Vals AI ledgers + Qwen3.8-27B comparison table (Oct 2026 update).
 
 - **Tool use: 78/100.** TB 2.1 proxies ~73–74 (mid-to-high) + GDPval-AA 1743 (near-frontier) + Toolathlon/JobBench proxy rows; capped by OSWorld 2.0 19.4% and zero Flash-exact tool numbers.
 
@@ -74,9 +74,8 @@ Multimodal (proxy): MathVision 90.6–95.7, CharXiv 90.6, RealWorldQA 88.5 (Benc
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research of primary benchmark ledgers (BenchLM, modelscale, MarkTechPost, Artificial Analysis) and the official Qwen org pricing/specs pages; re-normalized via model-comparison.md v4. Flash-Next rows used as explicitly-marked provisional proxies (same tier). Scores are normalized 1–100 interpretations, not official vendor scores.
-- Note: Not listed on BenchLM or AA as of Oct 10 (404 for both URLs). Data sourced from modelscale/MarkTechPost/Vals AI ledgers + Qwen3.8-27B comparison table (HuggingFace, Oct 2026 update).
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research of primary benchmark ledgers (BenchLM, modelscale, MarkTechPost, Artificial Analysis) and the official Qwen org pricing/specs pages; re-verified Oct 17 — BenchLM still returns 404 for this exact ID (unchanged from Oct 10); re-normalized via model-comparison.md v4. Flash-Next rows used as explicitly-marked provisional proxies (same tier). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification (2026-10-17): BenchLM and AA confirmed still 404 for qwen-3.8-flash exact ID (unchanged from Oct 10). All benchmark values from Qwen3.8-27B HF comparison table, modelscale, and Vals AI ledgers confirmed unchanged. Dimension scores and Overall retained at 86.
 - Future sources: add a new file next to this one using the same headings.
-
 ---

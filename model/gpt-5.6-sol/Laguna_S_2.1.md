@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -112,11 +112,10 @@ Long context:
 
 - **Overall Score: 88/100.** Half-up mean: (88+93+97+70+92)/5 = 440/5 = 88.0 → 88. Strong frontier reasoning model with excellent coding (SWE-bench Vals 96.2%, VulcanBench 87.0%) and reasoning (GPQA 94.6%, ARC-AGI-1 96.5%, HLE 54.5%); Tool use downgraded: τ²-bench 93.1→85.1% (below ≥90 frontier), GDPval-AA Elo 1735 (below 1750 frontier), GDPval-AA normalized 55.4%; cap: premium pricing ($4/$20), no Free ID on Zen, TB 3.0 34.6%.
 
----
-
+- Re-verification (2026-10-17): confirmed all benchmark scores unchanged; Overall retained at 88.
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research via BenchLM, Artificial Analysis, OpenAI announcement, Vals AI, Epoch AI, and VulcanBench; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `*.md` findings files during research.
 - Sources: BenchLM.ai model page `https://benchlm.ai/models/gpt-5-6-sol` (Overall 75.32/100, rank #10/954, 70 of 639 benchmarks, 2026-10-16); AA model benchmarks (τ²-bench 85.1%, GDPval-AA normalized 55.4%, GDPval-AA Elo 1735, AA-LCR 84.0%, CritPt 32.3%); OpenAI GPT-5.6 announcement (BrowseComp 92.2%, CyberGym 84.5%, GPQA 94.6%, FrontierMath v2 89.0%/83.0%, DeepSWE 72.7%); Vals AI leaderboard (SWE-bench 96.2%, TB 2.1 91.9%, GPQA-D 95.2%, MMLU-Pro 89.1%); Epoch AI FrontierMath leaderboard; VulcanBench Technical Report No. 4.
 - Re-verification (Oct 16): BenchLM updated from 77.81 (#9/889, 4 of 618) to 75.32 (#10/954, 70 of 639). CRITICAL: τ²-bench 93.1→85.1% (below ≥90 frontier), GDPval-AA Elo 1735 (below 1750 frontier). GPQA 92.9→94.6%, GPQA-D Vals 95.2% (≥96 frontier), BrowseComp 87.5→92.2% (≥90 frontier), TB 2.1 84.3→91.9% (≥90 frontier), SWE-bench Vals 92.0→96.2%, DeepSWE 69.6→72.7% (≥74 frontier), VulcanBench 85.0→87.0% (≥85 frontier), AA-LCR 86.0→84.0%, AA-HLE 54.5→49.5%, AA Coding Index 78.3→77.4%, AA-SciCode 62.8→57.1%. New: HealthBench, USAMO 2026 96.7%, GMMLU, MILU, INCLUDE, ARC-AGI-1 96.50%, FrontierMath v2 T4 83.0%, aaTB21 91.0%, TB-Science 59.9%. Normalized: Tool 96→88, Reasoning 95→93, Coding 93→92. Overall 90→88.

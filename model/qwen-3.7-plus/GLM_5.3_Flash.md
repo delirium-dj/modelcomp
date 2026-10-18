@@ -1,7 +1,7 @@
 # Qwen 3.7 Plus — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`qwen3.7-plus`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,10 +25,10 @@ Agent / tool use:
 - MCP Atlas: **73.2%** (Alibaba Cloud launch benchmarks via benchlm.ai, updated 2026-10-10 — fills the gap the 2026-10-05 pass marked missing)
 - OSWorld-Verified: **73.3%** (launch table) — **conflicts with the OSWorld 2.0 paper reading of 2.8%** (arxiv 2606.29537; different harness version)
 - AndroidWorld: **81.0%**; BFCL v4: **72.9%**; Claw-Eval: **62.7%**; QwenClawBench: **61.8%**; DeepPlanning: **62.3%**; Terminal-Bench 2.0: **70.3%** (launch table)
-- GDPval-AA: **886** (AA, independent; normalized **13.5%** — very weak on the current board)
+- GDPval-AA: **886** (AA, independent; normalized **13.5%**; 2026-10-17 refresh reads 13.4% — minor drift, flagged — very weak on the current board)
 - AA Agentic Index: **19.7%**; APEX-Agents-AA: **22.4%** (AA); Vals TB2.1: **52.8%** (Vals, independent — wide gaps vs the launch-table rows)
 - CoWorkBench: **65.1** / JobBench: **27.6** (vendor comparison table, prior pass)
-- VITA-Bench: **45.6%** (launch table)
+- VITA-Bench: **45.6%** (launch table); QwenWebBench: **1536**; MAXIFE: **88.8%**; NOVA-63: **58.8%** (launch table, added 2026-10-16)
 
 Reasoning / knowledge:
 
@@ -58,7 +58,7 @@ Multimodal (video understanding now measured):
 
 - Video-MME: **88.0%** with subs; VideoMMMU: **85.4%**; MLVU M-Avg: **87.4%** (launch table — video input verified by measurement)
 - MMMU-Pro: **79.0%** (launch) / **80.5%** (AA); CharXiv: **85.9%**; OmniDocBench 1.5: **91.4%**; OCRBench V2: **70.7%**; RealWorldQA: **86.9%**; ScreenSpot-Pro: **79.0%**; MedXpertQA (MM): **71.0%**; SimpleVQA: **81.7%**; ERQA: **69.8%**; MathVision: **90.3%**; ODINW13: **51.1%**; MMSearch-Plus: **41.4%**
-- Design Arena Website: **1276** (OpenRouter)
+- Design Arena Website: **1276** (OpenRouter; 2026-10-17 refresh reads 1271 — minor drift, flagged)
 
 ### Normalized scores (1–100)
 
@@ -74,6 +74,6 @@ Multimodal (video understanding now measured):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Alibaba Cloud Qwen3.7-Plus launch blog, Artificial Analysis model benchmarks, Vals AI leaderboards, OpenRouter benchmarks, plus the prior 2026-09-24/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Alibaba Cloud Qwen3.7-Plus launch blog, Artificial Analysis model benchmarks, Vals AI leaderboards, OpenRouter benchmarks, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 71-row refresh corroborates all rows (QwenWebBench 1536, MAXIFE 88.8%, NOVA-63 58.8% added; GDPval 13.5% → 13.4%, Design Arena 1276 → 1271 drift; rank → #80/954 53.76) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

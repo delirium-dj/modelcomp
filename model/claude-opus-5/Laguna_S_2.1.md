@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC)
+> Date: 2026-10-17 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -134,7 +134,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 79.63, #8/954, 99 of 639) and AA as of 2026-10-16.
+> Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 79.63, #8/954, 99 of 639) and AA as of 2026-10-17.
 
 - **Tool use: 92/100.** GDPval-AA Elo 1862 (≥1750 frontier), BrowseComp 90.8% (≥90 frontier), DeepSearchQA 95.0% (≥90 frontier), DRACO 88.6%, MCP Atlas 85.8%/89.1% claim coverage, TB-2.1 (Vals) 84.6%, GDPval-AA normalized 61.1%, AA Agentic Index 56.2%. Exceptional agentic cluster with three ≥90 frontier benchmarks. Capped by TB-3.0 42.7%, AA AnalystAgent 53.8%, ApprenticeBench 36%, AA Terminal-Bench 4.0 56.1%.
 - **Reasoning: 88/100.** (Revised up from 87.) GPQA 93.2–93.4% (≥90 frontier), HLE 64.7% (above 40% frontier), ARC-AGI-1 97.50%, ARC-AGI-2 90.4%, MMLU-Pro (Vals) 91.6%, AA Global-MMLU-Lite 93.1%, GMMLU 92.5%, MILU 92.1%, INCLUDE 89.8%, ArXivMath (no tools) 90.8%, ArXivMath (tools) 91.3%, FrontierMath v2 (Tiers 1-3) 85.614%, HealthBench suite 56.7–73.4%, BioMysteryBench 90.1%, SpatialBench 72.5%. Capped by AA Intelligence Index 50.8 (below ~60 frontier), CritPt 29.1%, AA-Omniscience Index 37.1 (poor), MLCR-AA 55.6%.
@@ -148,8 +148,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5` for overall rank/score (#8/954, 79.63) and 99 benchmark rows including BrowseComp 90.8%, DeepSearchQA 95.0%, GDPval AA Elo 1862, GDPval-AA normalized 61.1%, SWE-bench Verified 96%, LiveCodeBench 89.0%; AA model page `https://artificialanalysis.ai/models/claude-opus-5` for Intelligence Index 50.8, GPQA 93.2%; Anthropic Claude Opus 5 system card PDF). Zero-influence: did not read peer `*.md` findings files during research.
 - Key revisions from Oct 10 to Oct 16 re-verification: BenchLM overall increased 79.44→79.63 (#7/889→#8/954 as pool grew 889→954, 96→99 benchmarks); GDPval-AA normalized 61.2→61.1% (negligible); AA Harvey LAB improved 91.2→93.5%; AA Terminal-Bench 4.0 revised 59.6→56.1%; GDP.pdf (no tools) improved 21.8→83.4% (major, from 21.8% low to 83.4% strong); new benchmarks added: HealthBench suite (56.7-73.4%), BioMysteryBench (90.1%/49.4%), SpatialBench 72.5%, GMMLU 92.5%, MILU 92.1%, INCLUDE 89.8%, ArXivMath 90.8%/91.3%, FrontierMath v2 85.614%/73.171%, IMO 2026 42/42, LABBench2 84.2%, AA AnalystAgent 53.8%, LAB criterion-pass benchmarks 93.74%/94.1%, ExploitGym 35.1%; normalized scores: Tool 92→92 (GDP.pdf cap lifted but other caps remain), Reasoning 87→88 (new math benchmarks), Coding 97→97, Overall 90→90 (unchanged).
+- Re-verification (2026-10-17): Oct 16→17 re-verification confirmed BenchLM overall 79.63 (#8/954, 99/639) unchanged; all 99 benchmark scores and dimension scores unchanged; Overall retained at 90.
 
 ---

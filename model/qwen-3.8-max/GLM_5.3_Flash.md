@@ -1,7 +1,7 @@
 # Qwen3.8-Max — findings by GLM 5.3 Flash
 
 - Source: Alibaba Cloud / Qwen Team (`qwen3.8-max`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,7 +28,7 @@ Agent / tool use:
 - JobBench: **53.4%**; skillsBench: **70.2%**; Agents' Last Exam: **52.4%**; AutomationBench: **27.3%** (weak)
 - CoWorkBench: **74.8%** / WideResearch: **81.9%** / WorkSpaceBench: **67.7%** (Qwen internal benches)
 - Long-horizon case: ~16 days autonomous operation (265 commits, 127 PRs, 151 issues); ~125 continuous hours reproducing a paper (Qwen official cases)
-- GDPval-AA / MCP Atlas / Claw-Eval: no verified public score found
+- GDPval-AA / MCP Atlas / Claw-Eval: no verified public score found; Hermes Index: **36.2%** / Hermes Bench: **70.5%** (Nous Research); MazeBench ASCII: **0%** (tools-on run) — all added 2026-10-16
 
 Reasoning / knowledge:
 
@@ -46,7 +46,7 @@ Coding:
 - SWE-bench (Vals): **85.6%**; LiveCodeBench (Vals): **87.9%** (Vals, independent — fill the gaps)
 - FrontierSWE: **73.5%** (Qwen blog) — **FrontierSWE v2: 15.8%** (Proximal, independent — very weak on the 2026 harness)
 - DeepSWE: **56.6%**; NL2Repo: **55.9%**; MLS-Bench Lite: **41.0%**; QwenReactBench: **1724**; VulcanBench v3: **81.2%**; OpenHarmony Bench: **60.8%**
-- SWE-bench Verified / SciCode / Vibe Code Bench: no verified public score found
+- SWE-bench Verified / SciCode / Vibe Code Bench: no verified public score found; Bug Hunt Bench: **25.7 fixes** (added 2026-10-16)
 - Caveat: most coding rows are vendor-run under mixed harnesses; the Vals rows are the independent check
 
 Long context:
@@ -57,7 +57,7 @@ Long context:
 Multimodal (richly corroborated via the Qwen blog's vision suite):
 
 - MMMU-Pro: **82.3%**; MathVision: **95.2%** / **97.7%** w/ Python; CharXiv: **93.5%** with tools / **88.4%** without; OmniDocBench 1.5: **92.1%**; CC-OCR: **79.6%**; OCRBench V2: **74.2%**; RealWorldQA: **88.0%**; ScreenSpot-Pro: **84.5%**; MedXpertQA (MM): **80.4%**; SimpleVQA: **75.0%**; ERQA: **77.8%**; PerceptionBench: **63.5%**; BabyVision: **82.0%**; Vision2Web: **69.0%**; ZeroBench: **24.0%**
-- Video: Video-MME: **90.4%** with subs; VideoMMMU: **88.7%**; MMVU: **82.4%**; MLVU M-Avg: **90.8%**; LVBench: **81.8%**
+- Video: Video-MME: **90.4%** with subs; VideoMMMU: **88.7%**; MMVU: **82.4%**; MLVU M-Avg: **90.8%**; LVBench: **81.8%**; ZeroBench w/ Python: **49.0%**; BabyVision w/ Python: **91.3%** (added 2026-10-16)`n- FrontierMath v2 (Epoch AI re-score): **74.7%** Tiers 1–3 / **46.3%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 
 ### Normalized scores (1–100)
 
@@ -73,6 +73,6 @@ Multimodal (richly corroborated via the Qwen blog's vision suite):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.8-Max release blog (qwen.ai/blog?id=qwen3.8) and the Qwen3.8-2.4T-A95B HF model card, Vals AI leaderboards, Artificial Analysis 0902 readings, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.8-Max release blog (qwen.ai/blog?id=qwen3.8) and the Qwen3.8-2.4T-A95B HF model card, Vals AI leaderboards, Artificial Analysis 0902 readings, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 67-row refresh corroborates all rows (Hermes 36.2/70.5%, MazeBench 0%, Bug Hunt 25.7, Epoch FrontierMath v2 74.7/46.3% added; rank #16/889 70.66 → #19/954 69.66) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

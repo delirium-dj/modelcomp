@@ -1,14 +1,14 @@
 # Qwen3.8 Flash — findings by GLM 5.3 Flash
 
 - Source: Alibaba Qwen (`qwen/qwen3.8-flash`, production version of the open-weight Qwen3.8-Flash-Next)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.8 Flash (Flash is the official managed production version based on the open-weight Qwen3.8-Flash-Next checkpoint)
-- **Short description:** Alibaba's speed- and cost-optimized multimodal MoE in the Qwen3.8 family and an early preview of the Qwen4 architecture; aimed at high-volume tool-driven workflows, coding/co-working assistants, and long-video understanding. Beats Claude Opus 4.6 Max on most practical coding and agent benchmarks at ~1/12th the input price. BenchLM ranks the underlying Flash-Next checkpoint #37 of 889 (64.23).
+- **Short description:** Alibaba's speed- and cost-optimized multimodal MoE in the Qwen3.8 family and an early preview of the Qwen4 architecture; aimed at high-volume tool-driven workflows, coding/co-working assistants, and long-video understanding. Beats Claude Opus 4.6 Max on most practical coding and agent benchmarks at ~1/12th the input price. BenchLM ranks the underlying Flash-Next checkpoint #37 of 889 (64.23); 2026-10-17: #43/954, 62.8.
 - **Provider / access:** QwenCloud / Alibaba Model Studio (`qwen3.8-flash`), OpenAI-compatible Chat Completions and Responses APIs plus Anthropic-compatible interface; hosted via gateways (Novita, OrcaRouter `qwen/qwen3.8-flash`); open weights `Qwen/Qwen3.8-Flash-Next` on Hugging Face/ModelScope. No Free ID on OpenCode Zen.
 - **Release / knowledge:** Released 2026-08-26 (weights + production API); knowledge cutoff not disclosed.
 - **IDs:** `qwen3.8-flash` (QwenCloud/Model Studio, OpenRouter); `Qwen/Qwen3.8-Flash-Next` (open weights). Not the open-weight 27B sibling (`Qwen3.8-27B`) and not the Qwen3.8-Max flagship.
@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **1648** (AA, independent — fills the GDPval gap the 2026-10-08 pass marked missing; normalized **56.6%**)
+- GDPval-AA: **1648** (AA, independent; 2026-10-17 refresh reads normalized 56.4% — minor drift, flagged — fills the GDPval gap the 2026-10-08 pass marked missing; normalized **56.6%**)
 - Toolathlon-Verified: **73.5%** (model card; vs DeepSeek-V4-Flash's 70.3)
 - CoWorkBench: **73.9%** (model card; vs Opus 4.6 Max 68.2); JobBench: **55.7%**; AndroidWorld: **84.5%** (model card)
 - Agents' Last Exam: **51.2%** (model card; the 2026-10-08 pass read Pass@1 24.3 from the release table — different metric)
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.8-Flash-Next page updated 2026-10-10 citing the HF model card, Artificial Analysis independent boards (GDPval/GPQA/HLE/LCR/SciCode/Omniscience/Coding Index) via benchlm.ai, plus the prior 2026-09-24/10-08 passes on the Alibaba launch blog/llm-stats/OrcaRouter); scores are normalized 1–100 interpretations, not official vendor scores. Flash-Next checkpoint numbers transfer to production Flash per Alibaba's production-version statement.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.8-Flash-Next page updated 2026-10-10 citing the HF model card, Artificial Analysis independent boards (GDPval/GPQA/HLE/LCR/SciCode/Omniscience/Coding Index) via benchlm.ai, plus the prior 2026-09-24/10-08 passes on the Alibaba launch blog/llm-stats/OrcaRouter; 2026-10-16 re-check: BenchLM 37-row refresh corroborates every row, no new data (GDPval normalized 56.6% → 56.4%; Flash-Next rank → #43/954 62.8) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Flash-Next checkpoint numbers transfer to production Flash per Alibaba's production-version statement.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

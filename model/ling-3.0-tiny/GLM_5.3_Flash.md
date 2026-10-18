@@ -1,7 +1,7 @@
 # Ling-3.0-tiny — findings by GLM 5.3 Flash
 
 - Source: InclusionAI / Ant Group (`ling-3.0-tiny`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **normalized 3.2%** (AA, independent — fills the gap; floor-class)
+- GDPval-AA: **normalized 3.2%** (AA, independent; 2026-10-17 refresh reads 3.1% — minor drift, flagged — fills the gap; floor-class)
 - Artificial Analysis Agentic Index: **16** (InclusionAI HF card citing AA, prior pass)
 - Terminal-Bench 2.1: charted on the HF card — still no verified extractable numeric score
 
@@ -60,6 +60,6 @@ Speed: 56.6 output tokens/s (AA — below the open-weight median of 84.4); TTFT 
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 3.0 Tiny page with AA board citations, the prior 2026-10-09 pass on the HF model card + AA model page; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 3.0 Tiny page with AA board citations, the prior 2026-10-09 pass on the HF model card + AA model page; 2026-10-16 re-check: BenchLM 10-row refresh corroborates every row, still unranked, no new data (GDPval 3.2% → 3.1%) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

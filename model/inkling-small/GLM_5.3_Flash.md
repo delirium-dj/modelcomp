@@ -1,7 +1,7 @@
 # Inkling-Small — findings by GLM 5.3 Flash
 
 - Source: Thinking Machines Lab (`inkling-small`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,6 +34,7 @@ Reasoning / knowledge:
 - HLE: **47.8%** with tools / **31.6%** without (launch post — the with-tools row fills the gap); AA-HLE: **33.3%**
 - ARC-AGI-2: **40.1%** (launch post); ARC-AGI-1: **84.0%** (ARC Prize verified, Inkling Small XHigh)
 - AIME26: **95.5%**; HMMT Feb 2026: **90.2%** (launch post — strong math)
+- FrontierMath v2 (Epoch AI re-score): **46.3%** Tiers 1–3 / **17.1%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 - SimpleQA Verified: **20.6%** (notably weak factual recall vs 43.9% for Inkling); AA-Omniscience: **33.2% accuracy / 63.0% non-hallucination row / −8.9 index** (AA — weak)
 - Artificial Analysis Intelligence Index: **25.7** (AA current board) — **conflicts with the 2026-10-05 "within one point of Inkling (41)" framing**; the AA-direct board supersedes it
 - AA-LCR v1.1: **75.7%** (AA — fills the long-context gap); CritPt: **8.3%** (weak)
@@ -70,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Thinking Machines Lab launch post, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results via benchlm.ai, plus the prior 2026-10-05 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Thinking Machines Lab launch post, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results via benchlm.ai, plus the prior 2026-10-05 pass; 2026-10-16 re-check: BenchLM 41-row refresh corroborates all rows (Epoch FrontierMath v2 46.3/17.1% added; rank #81/954 53.5) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

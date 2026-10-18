@@ -1,94 +1,99 @@
 # Step 5 Preview — findings by Space Bunny
 
 - Source: StepFun (`step-5-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: **2026-10-17 (UTC) — second pass.** First pass 2026-10-09 (Overall 86).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Step 5 Preview
-- **Short description:** StepFun's (阶跃星辰) next-generation frontier model, previewed **2026-09-20/21** as a **600B-total / 27B-active sparse Mixture-of-Experts** with 1M context and native vision — pitched by StepFun as "advancing the Pareto frontier" for software engineering at $1.00/$2.70 per million tokens. It matches Kimi K3's Artificial Analysis Intelligence Index (44) at roughly a quarter of Kimi K3's 2.8T size. Weights are planned for **2026-10-15** under Apache 2.0, which would make it one of the largest openly licensed models from a Chinese lab.
-- **Provider / access:** StepFun Open Platform API (`https://api.stepfun.ai/v1`, model ID `step-5-preview`); also served through Kilo, Lemonade, Nous Research, Modal, DeepInfra, Fireworks AI and OpenRouter. OpenAI-compatible Chat Completions API. No OpenCode Zen ID found.
-- **Release / knowledge:** Previewed 2026-09-20 (StepFun launch post and platform listing); Vals AI lists 2026-09-28, Model Beat lists 2026-09-18 — the exact preview date varies by source. **Knowledge cutoff: not disclosed.** Weights ETA 2026-10-15.
-- **IDs:** `step-5-preview` (StepFun), `stepfun/step-5-preview` (OpenRouter, models.dev)
-- **Context window:** **1,024,000 tokens**, max output **65,536 (64K)** — verified on models.dev's StepFun provider table. Note: the docs listed 1M at launch and were **edited within two days**, so this figure has already moved once.
-- **Modalities:** Text, images and video in → text out (StepFun's own spec). Reasoning: yes (effort-steerable; most self-reported figures are at "High effort"). Tool calls: yes. Structured output: yes (models.dev marks Structured = Yes). Temperature: not exposed as a configurable knob on this model per models.dev.
-- **Pricing (as of 2026-10-09):** **$1.00 in / $2.70 out** per 1M tokens, standard billing. No cached-input or cache-write rate is published. Paid only — no Free tier. (For reference, StepFun's own Step 3.7 Flash is $0.16/$0.92.)
-- **Architecture:** sparse Mixture-of-Experts, **600B total / 27B active per token**. License: proprietary during preview; **Apache 2.0 planned for the 2026-10-15 weight release** (not yet verifiable).
+- **Short description:** StepFun's (阶跃星辰) frontier agent model, previewed **2026-09-20** as a **600B-total / 27B-active sparse Mixture-of-Experts** with 1M context and native vision — pitched by StepFun as "advancing the Pareto frontier" for software engineering, professional knowledge work and finance at $1.00/$2.70 per million tokens. **Weights shipped on 2026-10-15 as promised, but the model has NOT left preview: it is still called "Step 5 Preview" on the API, on Hugging Face and on the model card, and no stable non-preview successor has been announced.** It scores 44 on the Artificial Analysis Intelligence Index, matching Kimi K3 at roughly a quarter of Kimi K3's 2.8T size. It was **#2 on OpenRouter's weekly leaderboard** in the week to 2026-10-15 (18.8–19.5T tokens), driven by a free week in coding agents that ended the same day the weights shipped.
+- **Provider / access:** StepFun Open Platform API (`https://api.stepfun.ai/v1`, model ID `step-5-preview`), OpenAI-compatible Chat Completions; also OpenRouter (`stepfun/step-5-preview`, listed 2026-10-08), Vercel, DeepInfra (added 2026-10-15 as the first independent host, at list price), Kilo, Lemonade, Nous Research, Modal, Fireworks AI. Plus **self-hosted open weights** via vLLM or SGLang. No OpenCode Zen ID found.
+- **Release / knowledge:** API previewed 2026-09-20 (StepFun launch post and platform listing); AA dates the model 2026-09-18, Vals AI 2026-09-28. **Open weights released 2026-10-15** (HF repos timestamped 01:26–01:31 UTC for NVFP4/FP8/BF16; MarkTechPost says the weights "followed on October 14"). **Knowledge cutoff: not disclosed. No technical report has been published** in either pass — StepFun published a technical *blog* instead.
+- **IDs:** `step-5-preview` (StepFun), `stepfun-ai/Step-5-Preview` (Hugging Face), `stepfun/step-5-preview` (OpenRouter, models.dev), ModelScope mirror, `github.com/stepfun-ai/Step-5-Preview`
+- **Context window:** **1,000,000 tokens** (AA lists 1,000k; the HF card and StepFun's docs say 1M). **Max output is a recorded conflict:** the StepFun platform documentation and models.dev both say **64k tokens**, while the **Hugging Face model card's specification table says "Maximum Output: Up to 1M tokens"**. **The 64K API figure is preferred here**, because the platform docs are the endpoint's operative contract and the HF card row is internally inconsistent with its own context row; the card claim is retained, labelled, as unresolved.
+- **Modalities:** **Conflict recorded.** StepFun's docs, launch page and HF card introduction all say **text, image and video in → text out**. **Artificial Analysis lists input modality as "Supports: text and image" only, with no video**, and MarkTechPost's comparison table records "Text, image (API adds video)". Preferred here: StepFun's own claim for the API, with AA's narrower listing flagged — but no *measured* video benchmark exists, so the video claim is untested. Reasoning: yes, with low/medium/high effort levels exposed. Tool calls: yes. Structured output: yes (JSON Schema). Recommended sampling: `temperature=1.0`, `top_p=0.95`, `top_k=0`.
+- **Pricing (as of 2026-10-17):** **$1.00 in / $2.70 out** per 1M tokens, standard billing; **output pricing includes reasoning tokens**. **Cached input is now published — and it doubled on 2026-10-14**, from CNY0.35 (~$0.05) to CNY0.70 (~$0.10) per 1M. The first pass recorded "no cached-input rate is published"; that is now corrected. **Conflict recorded:** a 2026-09-20 writeup lists the cache-hit rate as $0.05/M, which was the pre-14-October rate; AA's current rate card and post-14-October coverage both give **$0.10/M**, which is preferred. A free week through 2026-10-15 in OpenCode, Cline, Kilo Code, Nous Research and Tencent WorkBuddy has ended. No Free tier going forward. (Reference: StepFun's Step 3.7 Flash is $0.16/$0.92.)
+- **Architecture:** sparse Mixture-of-Experts, **600B total / 27B active per token (4.5%)**. **"Narrow but deep": 92 transformer blocks**, as deep as Qwen3.8-Max and Kimi K3 while being under 1/4 their total and 1/3 their active parameters. Attention interleaves **Gated Sliding Window Attention with sparse full-attention layers 3:1**; the full-attention path uses **Sparse GQA** (DSA-inspired sparse indexing with block-wise token merging), picking **4,096 history tokens per query scored in blocks of 8**. An **MTP-3 speculative-decoding head** gives roughly a 30% end-to-end speedup. Trained in **FP8 mixed precision** with RL on million-level verifiable agentic environments; deep training surfaced numerical-precision and gradient-handling instability. License: **StepFun Model License 1.0 — NOT Apache 2.0** (see below). Weights: **FP8 650.32 GB, BF16 1,214.9 GB, NVFP4 394.2 GB**; self-host floor is **4× B300 (FP8) or 8× H200**; BF16 needs **8× B300 or 16× H200** (two nodes).
 
 ### Raw benchmarks found
 
-> **Evidence-quality warning, load-bearing for this report:** of six tracked Step 5 Preview scores, only **one is independently run** (HLE without tools, by Artificial Analysis). The rest are StepFun's own launch-table figures with the agent harness unstated. Both lists are given below and are never averaged.
+> **Evidence-quality warning, updated this pass.** StepFun has now published its **full 39-row benchmark table** and its model card. That table is **StepFun's own**, run at **"High" reasoning effort while every rival is shown at "Max"** — StepFun's own footnote concedes the comparison is not like-for-like, and another of its footnotes concedes that on the hardest long-running tasks "a meaningful gap to the frontier remains." Six rows are marked † as **benchmarks StepFun developed internally** (StepCodeBench and its Daily/General splits, and the three FinStepBench suites). Independently measured rows are listed separately below and are never averaged with StepFun's.
+>
+> **Critical warning about `benchgap.net`:** that site lists 37 "measured" and ~89 "estimated" results for this model. Its **estimated** rows are model-derived extrapolations with confidence bands, **not measurements** — including `SWE-bench Verified 89.0% (±4.6)`, `SWE-bench Pro 73.0%`, `Claw-Eval 66.2%`, `LongBench v2 64.1%`, `MRCRv2 86.0%`, `Terminal-Bench 2.1 (Vals) 76.6%`, `AA Terminal-Bench 2.1 86.6%`, `Vals SWE-bench 77.8%`, `Vals GPQA Diamond 92.8%`, `OSWorld-Verified 80.0%`, `AA-GPQA Diamond 89.5%`, `AA Coding Index 75.5%`, `AA Agentic Index 50.0%`, `Video-MME 83.4/85.4%`. **None of these are measurements and none are credited in this report.** They are listed here so a reader who encounters them elsewhere knows what they are. This matters most for SWE-bench Verified, which the first pass correctly recorded as having no verified public score — **that remains true, and the "89.0%" figure floating around is an extrapolation, not a result.**
 
-Agent / tool use:
+Independently measured (Artificial Analysis, unless noted):
 
-- Terminal-Bench 2.1: **85.0%** (StepFun launch table, High effort — self-reported; tbench.ai's 2.1 board, last updated 2026-09-03, does not list the model)
-- MCP Atlas: **85.6%** (benchlm.ai, independent aggregator sourcing)
-- BrowseComp: **88.7%** (benchlm.ai)
-- DRACO (deep research, LLM-judged rubrics): **83.3%** (benchlm.ai)
-- Toolathlon-Verified: **74.1%** (StepFun launch table — self-reported; slightly ahead of GLM-5.3's 73.0%)
-- JobBench: **59.0%** (benchlm.ai)
-- APEX-Agents: **37.8%** (benchlm.ai)
-- Agents' Last Exam: **29.5%** (benchlm.ai — slightly ahead of GLM-5.3's 28.5%)
-- CyberGym: **84.7%** (benchlm.ai — effectively tied with GLM-5.3's 84.5%)
-- Terminal-Bench 4.0: **33.3%** (Artificial Analysis — the one place AA has re-run this model on a terminal benchmark)
-- AutomationBench, GDPval-AA, OSWorld, Tau3-Banking/Tau2-Bench: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / SWE Atlas Codebase QnA: Toolathlon-Verified 74.1% (above); SWE Atlas Codebase QnA — no verified public score found
+- **Intelligence Index: 44** (43.7 on the version published 2026-10-08), **#32 of 134**, against a median of 26 for comparable reasoning models. Level with Kimi K3 (Max).
+- **AA-LCR v1.1: 88.3% (88%)** — **new and important this pass.** The first pass recorded "no verified public score found" for long-context retrieval. There is now real, independent evidence that the 1M window actually retrieves. AA's best result for this model.
+- **Humanity's Last Exam: 46.5%** (#32 of 267). Matches StepFun's own HLE row.
+- **CritPt: 20.9%** (21%) — tied with GLM-5.2, ahead of GLM-5.3 at 19.1, behind Kimi K3 at 23.4.
+- **AA-Omniscience: 16**, with **accuracy 41.5%** — a markedly better knowledge profile than most peers at this index level.
+- **SciCode: 58.9%** (59%)
+- **Terminal-Bench 4.0: 33.3%** — AA's own 66-task mini-swe-agent harness, pass@1 averaged over three repeats. Weak: GLM-5.3 scores 41.9%, Claude Sonnet 5.5 63.6%.
+- **AutomationBench-AA: 51.0%** (51%)
+- **GDPval-AA v2.1: 1,587 Elo** — **three-way conflict recorded:** StepFun's own table says **1,566** (one transcription of that table says 1,571), and AA measures **1,587**. AA's own figure is preferred as the only one with a stated harness; StepFun's chart shows Kimi K3 (Max) at 1,645 and Claude Opus 5 (Max) at 1,708 on the same axis, i.e. **Step 5 Preview is behind both, not level with them.**
+- **AA-Briefcase v1.1: 1,424** (1,433 in StepFun's table; Kimi K3 1,511, Claude Opus 5 1,673)
+- **GDP.pdf: 14.8%** (15%) — weak: Kimi K3 22.0%, Claude Opus 5 21.6%, GPT-6 Astra 31.0%.
+- **APEX-Agents-AA: 38.0%**; **AA-AnalystAgent 35.0%**; **AA EnterpriseOps-Gym 47.2%**; **AA ITBench 55.6%**; **AA Harvey LAB v1.0 93.4%**
+- **MMMU-Pro: 76.0% / 76.4%**; **OfficeQA Pro: 60.3%**
+- **Nous Research Hermes Index: 32.8**, **Hermes Bench: 69.2%** — independent agentic evaluation not present in the first pass.
+- **LMArena (2026-10-08 board): text overall 1,447 ±9, model rank #83–84 of 416, 14th of 28 labs; coding 1,508 (#63 of 411); math 1,470 ±36 (#46); Agent leaderboard −1.4% (CI −3.0 to 0.2), #34 of 52, from ~2.0M observations over 14K sessions.** Arena still labels the model **Proprietary** on that board — the board predates the weight release by a week, so it is stale on licensing but valid on preference.
+- **Vals AI: SRE Bench 0.4%, Harvey Legal Agent Benchmark 9.2%** — new independent weak spots. **Do not conflate Vals' Harvey Legal 9.2% with AA's Harvey LAB 93.4%**: AA's is a hallucination-gated all-pass rate, Vals' is not, and the two are not the same measurement.
+- Speed and economics (AA, current): **91 tok/s output, TTFT 2.19 s, time to first answer token 24.13 s, end-to-end 29.62 s, 596 s per task; 64k output tokens and 43k reasoning tokens per task; 156M output tokens to run the index; cost per task $1.03; cost to run the Intelligence Index $1,190.**
+- **Cost per task has risen**: $0.72 in a 2026-10-04 reading → **$1.03** now. AA notes 156M output tokens against an 81M median — "very verbose".
+- **GPQA Diamond: no independent measurement exists.** StepFun's 93.5% is self-reported at High effort with harness unstated; benchgap's "AA-GPQA 89.5%" is an estimate. Vals has retired new models from its GPQA page. This remains unresolved in both passes.
 
-Reasoning / knowledge:
+Vendor-reported (StepFun's own table, High effort, harness stated only for DeepSWE):
 
-- HLE without tools: **46.5%** (Artificial Analysis, 2026-09-22 — **the only independently measured score for this model**; ±2 is noise)
-- HLE with tools: **59.4%** (StepFun launch table — self-reported)
-- GPQA Diamond: **93.5%** (StepFun launch table, High effort, harness not stated — self-reported). Independently graded as *saturated*: vals.ai no longer runs new models on its GPQA page and AA had no Step 5 Preview entry there when checked 2026-09-21.
-- Artificial Analysis Intelligence Index: **44** — identical to Kimi K3, at roughly 1/4 of its parameter count
-- CritPt: **20.9%** (benchlm.ai)
-- AA-LCR / MLCR / Omniscience: no verified public score found
-- MMLU-Pro: no verified public score found
+- DeepSWE v1.1: **67.7%** (SWE-agent harness, `temperature=1.0`, `top_p=0.95`) — marginally ahead of Kimi K3 67.5 and GLM-5.3 66.9, well behind GPT-6 Astra 74.1 and Claude Opus 5 74.0
+- Terminal-Bench v2.1: **85.0%** — a tie with Kimi K3 at 85.0 and a hair ahead of GLM-5.3 at 83.9, but behind Claude Fable 5.1 (91.4) and Claude Opus 5 (89.1). **Note the sharp disagreement with AA's Terminal-Bench 4.0 at 33.3%** — the two harnesses differ by version, not by noise, and the 4.0 figure is the one AA runs itself.
+- ProgramBench: **80.5%**; sweMarathon v1.1: **72.7%**; SciCode: 58.9%; MLS-Bench-Lite: **40.5%**; RoadmapBench: 54.3%
+- SWE-Atlas Codebase QnA: **63.6%**; SWE-Atlas Test-writing: **50.8%** (both newly published this pass — the first pass recorded SWE Atlas Codebase QnA as "no verified public score found"; it now exists as a **vendor** number)
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench: **still no verified public score of any kind**
+- Agentic: **τ³-Banking 42.5%**, AutomationBench (public) **44.0%**, Toolathlon-Verified **74.1%**, MCP-Atlas **85.6%**, BrowseComp **88.7%**, DRACO **83.3%**, PresentBench 76.8%, JobBench **59.0%**, APEX-Agents **37.8%**, Agents' Last Exam (ALE-CLI) **29.5%**, SpeadSheet v2 29.4%
+- Finance (StepFun's emphasis): FrontierFinance **66.4%** (ahead of Kimi K3 62.6 and GLM-5.3 64.1, behind Claude Opus 5 69.7), FinStepBench-LiveSearch 74.5%, FinStepBench-CorporateValuation 60.6%, FinStepBench-FinanceDR 55.8% — all † in-house or otherwise not independently verified
+- Multimodal: MMMU-Pro **76.0%**, OfficeQA Pro **60.3%**, GDP.pdf 14.8%. CharXiv: **no verified public score found** (benchgap's 78.2% is an estimate)
 
-Coding:
+Licence (new this pass, and it contradicts the first pass):
 
-- DeepSWE: **67.7%** (StepFun launch table, High effort, SWE-agent harness at temperature 1.0 / top_p 0.95 — self-reported; slightly ahead of GLM-5.3's 66.9%)
-- Terminal-Bench 2.1: **85.0%** (see above; GLM-5.3 scores 88.2%)
-- ProgramBench: **80.5%** (benchlm.ai — a 4× gap over GLM-5.3's 19.0%)
-- sweMarathon: **72.7%** (benchlm.ai; GLM-5.3 42.5%)
-- SciCode: **58.9%** (benchlm.ai — ahead of Sakana Fugu-Ultra 58.7% and Fugu 60.1% is above it)
-- MLS-Bench Lite: **40.5%** (benchlm.ai)
-- Terminal-Bench 4.0: **33.3%** (Artificial Analysis)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench: no verified public score found for this model
-- Category composites (Model Beat, 0–100 percentile vs. the last year of models): **Coding 94th**, **Reasoning & Knowledge 91st** (vs Kimi K3 at 97th coding / 71st reasoning)
-
-Long context:
-
-- 1M-token context (1,024,000) verified on models.dev. **No MRCR / RULER / GraphWalks retrieval numbers published** for this model — and the max-output figure was already revised downward within two days of launch, so the window claims are less settled than they look.
-
-Multimodal / grounded:
-
-- MMMU-Pro: **76%** (benchlm.ai)
-- OfficeQA Pro: **60.3%** (benchlm.ai)
-- CharXiv: no verified public score found
-- BenchLM multimodal & grounded public-lane score: **61.2 (#29 of 50)** — bottom-half of the field it covers
-
-Independent aggregate context:
-
-- BenchLM overall score: **68.53**, #18 of 168 on the Knowledge lane, #17 of 142 on Coding, #14 of 117 Agentic, #29 of 50 Multimodal — but most of those rows are the same StepFun self-reports
-- **Every one of Step 5 Preview's coding comparisons and agentic comparisons is independently unconfirmed on both sides**, per an independent benchmark-verification audit (checked 2026-09-22)
+- **StepFun Model License 1.0**, recorded on Hugging Face as licence field **"other"**. StepFun describes it as "an Apache-2.0-Style license, with additional attribution and commercial-license conditions." **It is not Apache 2.0.** The first pass recorded "Apache 2.0 planned for the 2026-10-15 weight release" — that is now **wrong**, and the correction is material: a perpetual, worldwide, royalty-free grant sits underneath, but (1) a commercial product crossing **100 million MAU or US$20M in a calendar month must display "Powered by StepFun AI"**; (2) **device makers** shipping the capability as a product feature need a **separate commercial licence** from StepFun; (3) any **model-as-a-service business with group revenue above US$20M over any 12 months** needs a separate commercial licence; and (4) **distillation from its outputs and fine-tunes both count as derivatives**. StepFun's own earlier Step 3.5 Flash did ship under Apache 2.0, so this is a deliberate step backward in permissiveness.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Terminal-Bench 2.1 at 85.0%, MCP Atlas 85.6%, BrowseComp 88.7% and DRACO 83.3% are all frontier-band, and Toolathlon-Verified 74.1% beats GLM-5.3. Capped by APEX-Agents at only 37.8%, Agents' Last Exam at 29.5%, and the fact that most of these are self-reported with unstated harnesses.
-- **Reasoning: 80/100.** GPQA Diamond 93.5% and HLE 46.5% closed-book (independently measured) / 59.4% with tools are strong. Held down by an AA Intelligence Index of 44, CritPt at 20.9%, no MMLU-Pro, and no long-context retrieval data at all.
-- **Context window: 96/100.** 1,024,000 tokens verified on models.dev — top tier. Not 100 because there is zero measured long-context *retrieval* evidence, and StepFun already edited the documented window within two days of launch.
-- **Multimodal: 82/100.** Native text + image + **video** input with text output puts it in the 75–90 band, independently supported by MMMU-Pro 76% and OfficeQA Pro 60.3%. No audio input and no non-text output keep it below the top.
-- **Coding: 82/100.** DeepSWE 67.7% (edges GLM-5.3), ProgramBench 80.5%, sweMarathon 72.7%, Terminal-Bench 2.1 85.0%, SciCode 58.9%. Held out of the frontier band by Terminal-Bench 4.0 at just 33.3%, MLS-Bench Lite at 40.5%, and the complete absence of an independent SWE-bench or LiveCodeBench number.
-- **Cost efficiency: 88/100.** $1.00 in / $2.70 out sits at the ~$1.25/$4.25 reference point (~88), is ~3× cheaper than Kimi K3 ($1.99/$10.95) for comparable AA Index intelligence, and the planned Apache 2.0 weight release would push real-world economics further. No Free tier and no published cache rate keep it out of the 90s.
-- **Overall Score: 86/100.** Best fit: cost-sensitive long-context multimodal agent and coding work where you want frontier-tier tool use at roughly a third of Kimi K3's price — with the caveat that this is still a preview whose benchmark set is almost entirely vendor-reported, and whose Apache 2.0 weights have not shipped yet.
+- **Tool use: 89/100** (was 88). Frontier-band on the independently measured rows: **AutomationBench-AA 51%, AA-Briefcase 1,424, GDPval-AA 1,587, AA-Omniscience 16 with 41.5% accuracy**, plus **Nous Research's Hermes Index 32.8 / Hermes Bench 69.2%** and **LMArena's Agent board at −1.4%, #34 of 52** — all new this pass. Tool calling, JSON Schema output and parallel-friendly structured output are confirmed, and StepFun's own Toolathlon-Verified 74.1% still leads GLM-5.3. Raised one point. Capped by **APEX-Agents at 37.8% and Agents' Last Exam at 29.5%**, by the fact that the strongest of these agentic numbers are still vendor-run at High effort against rivals' Max, and because `solar`-class terminal weakness shows up here too: **Terminal-Bench 4.0 at 33.3% is AA's own measurement and it is 8+ points behind GLM-5.3**.
+- **Reasoning: 83/100** (was 80). **HLE 46.5% is independently measured and confirmed**, **AA-LCR 88.3%** is a genuine frontier-band long-context reasoning result, **CritPt 20.9%** and **AA-Omniscience 16 / 41.5% accuracy** are respectable for the class, and **LMArena math at 1,470 (#46)** plus an overall Arena text score of 1,447 (#84) show a model that is genuinely strong in open-ended human-judged reasoning, not just on vendor charts. Raised three points. Held below the mid-80s+ by **GPQA Diamond 93.5% remaining entirely vendor-reported** with no independent run in either pass, by **GDP.pdf at 14.8%** (document reasoning is this model's real weak spot), by the Intelligence Index being only 44 against a fast-moving frontier, and by the absence of any MMLU-Pro measurement.
+- **Context window: 98/100** (was 96). **This is the biggest single change in either pass, and it is evidence-driven: AA-LCR v1.1 at 88.3%, independently measured, is direct proof that the 1M window actually retrieves.** The first pass scored 96 while explicitly noting "zero measured long-context retrieval evidence" — that gap has now been closed by a third party. Upgraded to 98. Not 100 because the window is listed as 1,000k by AA and 1M by StepFun with no published measurement at exactly 1M, the max-output figure is still in unresolved conflict (64K API vs the HF card's "up to 1M"), and benchgap's LongBench v2 and MRCRv2 rows are estimates rather than measurements.
+- **Multimodal: 82/100** (unchanged). Native text + image + **claimed** video input with text output keeps it in the 75–90 band, with MMMU-Pro 76.0% and OfficeQA Pro 60.3% independently supporting the vision side. Held rather than raised because **AA lists the input modality as text and image only**, contradicting StepFun's video claim; because **GDP.pdf at 14.8%** shows weak professional-document reasoning for a model sold on long-horizon professional knowledge work; and because the only video figures in circulation (Video-MME 83.4/85.4%) are benchgap estimates, not measurements.
+- **Coding: 82/100** (unchanged). DeepSWE 67.7%, ProgramBench 80.5%, sweMarathon 72.7%, Terminal-Bench 2.1 85.0%, SWE-Atlas QnA 63.6% and SciCode 58.9% form a credible frontier-adjacent set, and the open weights finally let a third party verify them. Deliberately **not** raised: **there is still no independent SWE-bench Verified, SWE-bench Pro or LiveCodeBench number**, the widely-circulated "SWE-bench Verified 89.0%" is an extrapolation, **Terminal-Bench 4.0 at 33.3% is independently measured and weak**, MLS-Bench-Lite 40.5% is weak, and **Vals AI's SRE Bench 0.4%** is a new independent red flag on software-engineering-agent reliability.
+- **Cost efficiency: 86/100** (was 88). The $1.00/$2.70 list price is unchanged and still cheap for a 44-index model, but four new facts cut it down. **First, the cached-input rate doubled on 2026-10-14** from ~$0.05 to $0.10/M — for an agent loop that resends large prefixes every turn, this is the rate that matters most, and the first pass's "no published cache rate" turned out to be wrong in the pessimistic direction. **Second, per-task cost rose from $0.72 to $1.03**, with 156M output tokens burned per index run against an 81M median; AA's own framing is "cheap per token and chatty per task." **Third, self-hosting is data-centre only** — 4× B300 minimum for FP8, 8× B300 or 16×H200 for BF16, 650 GB to 1.2 TB of weights — so self-hosting is not a cost lever for almost anyone, only for large operators. **Fourth, the licence is not Apache 2.0**: device makers and MaaS businesses above $20M/12-month revenue must buy a separate commercial licence, and distillation and fine-tunes are captured as derivatives. There is still no free tier going forward now that the free week has ended.
+- **Overall Score: 87/100** (was 86). Arithmetic: **(Tool 89 + Reasoning 83 + Context 98 + Multimodal 82 + Coding 82) / 5 = 434 / 5 = 86.8 → 87** (half-up, cost efficiency excluded per `RULES.md`). Best fit: **cost-sensitive long-horizon agent and coding work on a 1M context where you want frontier-band tool use and long-context retrieval at roughly a third of Kimi K3's output price — with the caveat that the weights are now downloadable under a StepFun-specific licence, not Apache, that the model is still branded "Preview" with no technical report, and that its most-cited coding and agentic numbers remain StepFun's own.**
 
 ---
 
 ## Signature
 
-- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-09
-- Method: public internet research cross-checked across StepFun's own platform and launch materials, Artificial Analysis (Intelligence Index, HLE, Terminal-Bench 4.0), models.dev's StepFun provider table (context/output/pricing/capabilities), benchlm.ai comparison tables against GLM-5.3, Sakana Fugu and Sakana Fugu-Ultra, an independent benchmark-verification audit that separates independently-run scores from vendor claims, and Model Beat percentile composites. Every vendor-reported figure is labeled as such and no vendor and independent number is averaged together. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Step_5.md`, using the same headings — particularly worth re-checking once the Apache 2.0 weights ship and independent SWE-bench / LiveCodeBench numbers appear.
+- Provided by: **Space Bunny (opencode/space-bunny-free)** — 2026-10-17 (second pass; first pass 2026-10-09, Overall 86)
+- Searches run this pass: **3** (one `deep` on the weight release and licence, one on independent post-release measurements, one on successor/leaderboard status after a rate-limit wait).
+- Method: public internet research. **New sources used this pass, all with working URLs:**
+  - Hugging Face `stepfun-ai/Step-5-Preview` — weights, **StepFun Model License 1.0**, full spec table ("Maximum Output: Up to 1M tokens"), and vLLM/SGLang/Transformers deployment matrix — https://huggingface.co/stepfun-ai/Step-5-Preview
+  - StepFun Open Platform, "Inside Step 5 Preview: Architecture and Training for Agentic Work" (2026-10-15) — **92 transformer blocks, narrow-but-deep, gated sliding-window attention interleaved with sparse full attention, Sparse GQA, training stability** — https://platform.stepfun.ai/blog/inside-step-5-preview
+  - StepFun, Step 5 Preview launch page — the **full 39-row benchmark table** with all caveats, † in-house markers and the HLE-with-tools subset footnote — https://www.stepfun.com/step-5-preview
+  - StepFun platform docs — API contract: **max output 64k**, max input 1M, text/image/video in — https://platform.stepfun.ai/docs/en/guides/models/step-5-preview
+  - Artificial Analysis, Step 5 Preview vs MiniMax-M3 comparison — **the independent rows: GDPval-AA v2.1 1,587, AA-Briefcase 1,424, AutomationBench-AA 51%, Terminal-Bench 4.0 33%, SciCode 59%, HLE 46%, GDP.pdf 15%, CritPt 21%, AA-Omniscience 16, AA-LCR 88%, cost per task $1.03, 64k/43k tokens per task, 91 tok/s, 156M tokens per index run, cache hit $0.10, licence "StepFun Model License 1.0", input modality text+image only** — https://artificialanalysis.ai/models/comparisons/step-5-vs-minimax-m3
+  - Artificial Analysis, Terminal-Bench 4.0 leaderboard and methodology (66 tasks, mini-swe-agent, pass@1 over 3 repeats) — https://artificialanalysis.ai/evaluations/terminalbench-4-0
+  - **LMArena / arena.ai text leaderboard (2026-10-08)** — **1,447 ±9, model rank #83, 14th of 28 labs** — https://arena.ai/leaderboard/text/overall?rankBy=labs and the math board — https://arena.ai/leaderboard/text/math-no-style-control?rankBy=labs
+  - ModelCap (figures as of 2026-10-17) — **Arena coding 1,508 (#63/411), Arena Agent −1.4% (#34/52), AA Index 43.7 (#32/134), AA HLE 46.5% (#32/267), Arena text #84 of 416 published 15 Oct** — https://modelcap.ai/model/stepfun-step-5-preview
+  - TSN Media, "StepFun Releases Step 5 Preview Open Weights, Not Apache" (2026-10-15) — the licence tripwires and the point that only the GDPval-AA row ties to AA — https://tsnmedia.org/stepfun-step-5-preview-open-weights/
+  - The Hardware Desk / Temperature2 (2026-10-15) — checkpoint sizes, exact HF repo timestamps, DeepInfra as first independent host — https://temperature2.com/p/2026-10-15-stepfun-step-5-preview-open-weights/
+  - AI Magazine (2026-10-15) — **cached input doubled from $0.05 to $0.10 on 2026-10-14**; **18.8T tokens and #2 on OpenRouter's weekly leaderboard**; free week ended 15 Oct; Tencent's WorkBuddy two-week free access from 12 Oct — https://aimagazine.com/news/what-is-stepfun-number-two-on-openrouters-llm-leaderboard
+  - ByteWoops (2026-10-16) — **#2 on OpenRouter weekly, 19.5T tokens, #2 daily since 10 Oct** — https://www.bytewoops.com/en/stories/stepfun-one-week-since-launch-step-5-preview-is-already-2-on-openrouter-s-w
+  - MarkTechPost (2026-10-16) — Sparse GQA detail (4,096 tokens/query, blocks of 8), MTP-3 ~30% speedup, **Vals SRE Bench 0.4% and Harvey Legal 9.2%**, modality conflict, self-host matrix — https://www.marktechpost.com/2026/10/16/stepfun-releases-step-5-preview-open-weights-600b-moe-27b-active-1m-context/
+  - CellCog — the price breakdown and the three independent gaps (weights, technical report, DeepInfra hosting) — https://cellcog.ai/blog/step-5-preview/
+  - benchlm.ai — now separates StepFun-sourced rows from AA-sourced rows, which is how the vendor/independent split was verified — https://benchlm.ai/models/step-5-preview
+  - **benchgap.net — read specifically to identify and reject its ~89 "estimated" rows** — https://benchgap.net/model/step-5-preview
+  - AICoder (2026-10-15) and MarkTechPost — the model's own card benchmarks StepCodeBench 49.0% and FrontierFinance 66.4% — https://aicoder.com/news/news-20261015-stepfun-step-5-preview-open-weights-hf
+  - itdoeswhatnow (2026-10-15) — licence downgrade relative to Step 3.5 Flash's Apache 2.0 — https://itdoeswhatnow.com/m/2026-10-15-stepfun-releases-open-weights-for-step-5-preview/
+- **Preview-status finding (specifically requested):** the model has **not** left preview. The API ID, the Hugging Face repo and the model card all still read `step-5-preview` / "Step 5 Preview" as of 2026-10-17, six days after the weight release. **No stable successor has been announced**, StepFun has published **no technical report**, and LMArena's 2026-10-08 board still labels the model "Proprietary" (stale, pre-dating the weights). The only thing that changed is that the weights are now downloadable — under a **StepFun-specific licence, not the Apache 2.0 the first pass recorded as planned**.
+- Re-run when: **StepFun announces a non-preview "Step 5"** — the folder slug, licence and scores would all need re-basing; **a technical report is published**, which would finally state harness and effort for the vendor rows; **the first independent SWE-bench Verified, SWE-bench Pro or LiveCodeBench run appears** now that the weights are public (highest-value re-run trigger, since coding is currently evidenced almost entirely by StepFun's own harness); **an independent video benchmark appears** to settle the modality conflict; **LMArena's board refreshes past 2026-10-08** and re-labels the licence; **the cached-input rate moves again** or the $1.00/$2.70 list price changes; and **if a real third party runs Terminal-Bench 4.0 or AA-LCR against the open weights**, which would validate or refute the two numbers currently doing the most work in this report.

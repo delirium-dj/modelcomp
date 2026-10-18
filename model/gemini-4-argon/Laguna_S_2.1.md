@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Laguna S 2.1
 
 > Source: poolside/laguna-s-2.1 (poolside/laguna-s-2.1), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
+> Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -20,17 +20,17 @@
 
 ### Raw benchmarks found
 
-> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-4-argon`, overall 81.19, rank #10/889, 68 of 625 benchmarks); Google DeepMind evaluation methodology; Artificial Analysis. 68 benchmark rows verified across 3 independent sources.
+> Sources: BenchLM.ai (`https://benchlm.ai/models/gemini-4-argon`, overall 80.97, rank #7/954, 37 of 639 benchmarks, 2026-10-17); Google DeepMind evaluation methodology; Artificial Analysis.
 
 Agent / tool use:
 
 - Terminal-Bench 4.0: **57.40%** (Google: Gemini 4 Argon evaluation methodology / BenchLM)
-- AA Terminal-Bench 4.0: **59.1%** (Artificial Analysis: terminalbench-v4-0 leaderboard / BenchLM — revised from 57.1% to 59.1%)
+- AA Terminal-Bench 4.0: **57.1%** (Artificial Analysis: terminalbench-v4-0 leaderboard / BenchLM)
 - Terminal-Bench 2.1: **84.3%** (Artificial Analysis / BenchLM — near ≥88 frontier)
 - aaTerminalBench21: **84.3%** (Artificial Analysis / BenchLM)
-- GDPval-AA (Elo): **1611** (Artificial Analysis: GDPval-AA leaderboard / BenchLM — below ~1750 frontier)
-- GDPval-AA (normalized): **55.6%** (Artificial Analysis model benchmarks / BenchLM)
-- AA-Briefcase (Elo): **1494** (Artificial Analysis: aa-briefcase leaderboard / BenchLM)
+- GDPval-AA (Elo): **1624** (Artificial Analysis: GDPval-AA leaderboard / BenchLM — below ~1750 frontier)
+- GDPval-AA (normalized): **56.2%** (Artificial Analysis model benchmarks / BenchLM)
+- AA-Briefcase (Elo): **1488** (Artificial Analysis: aa-briefcase leaderboard / BenchLM)
 - OSWorld 2.0: **69.2%** (Google: Gemini 4 Argon evaluation methodology / BenchLM)
 - AA AutomationBench: **77.5%** (Artificial Analysis / BenchLM)
 - AutomationBench: **51.3%** (Google evals methodology / BenchLM)
@@ -41,7 +41,7 @@ Agent / tool use:
 - Terminal-Bench-Science 0.1: **57.6%** (Google evals methodology / BenchLM)
 - GDP.pdf: **21.8%** (Artificial Analysis / BenchLM)
 - ApprenticeBench: **36%** (NeoCognition / BenchLM)
-- AA Tau3 Banking: **44.9%** (Artificial Analysis / BenchLM)
+- AA Tau3 Banking: **41.4%** (Artificial Analysis / BenchLM)
 - Toolathlon / MCP-Atlas: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 
@@ -51,7 +51,7 @@ Reasoning / knowledge:
 - GPQA Diamond (Vals): **94.4%** (Vals AI leaderboard / BenchLM)
 - AA-GPQA-D: **93.5%** (Artificial Analysis / BenchLM)
 - HLE-Verified: **54.9%** (Google DeepMind / BenchLM — above 40% frontier)
-- AA-HLE: **55.0%** (Artificial Analysis / BenchLM)
+- AA-HLE: **57.1%** (Artificial Analysis / BenchLM)
 - AA Intelligence Index: **53** (Artificial Analysis — rank #8/889; confirmed stable from Oct 1)
 - AA-LCR: **79.7%** (Artificial Analysis / BenchLM)
 - MLCR-AA: no verified public score found for Gemini 4 Argon
@@ -95,7 +95,7 @@ Multimodal:
 - CharXiv (tools): **88.7%** (Google DeepMind / BenchLM)
 - CharXiv (no tools): **86.2%** (Google DeepMind / BenchLM)
 - AA-MMMU-Pro: **85.5%** (Artificial Analysis / BenchLM)
-- Design Arena Website: **1307** (OpenRouter / BenchLM)
+- Design Arena Website: **1324** (OpenRouter / BenchLM)
 - AA-Video-MME: no verified public score found
 - Gray Swan IPI (15 attempts): 0.7% (Google: Gemini 4 Argon launch chart)
 
@@ -117,21 +117,21 @@ Speed / Cost:
 
 > Method: `model-comparison.md` v4. Overall = half-up mean of 5 quality dims (cost excluded), tolerance 0.51. Benchmarks verified from BenchLM (overall 80.97, #7/954, 37 of 639) and AA as of 2026-10-16.
 
-- **Tool use: 89/100.** TB-2.1 84.3% (near ≥88 frontier), aaTB21 84.3%, AA Terminal-Bench 4.0 59.1%, GDPval-AA Elo 1611 (below ~1750 frontier), GDPval-AA normalized 55.6%, AA AutomationBench 77.5%, OSWorld 69.2%, AA Agentic Index 56.2%, AA ITBench 48.6% (NEW), AA Briefcase 1494 Elo, Finance Agent 65.4%, TB-4.0 57.4%. Strong agentic cluster with aaTB21 near frontier. Capped by TB-4.0 57.4% (below 88%+ frontier), GDPval-AA 1611 (below 1750), GDP.pdf 21.8%, ApprenticeBench 36%, AA ITBench 48.6%.
-- **Reasoning: 87/100.** GPQA Diamond 93.5% (≥90 frontier), GPQA (Vals) 94.4%, HLE 54.9%/55.0% (above 40% frontier), AA-LCR 79.7%, AA-MMLU-Pro 89.8%, MMLU-Pro (Vals) 90.2%, AA Global-MMLU-Lite 92.2%, ARC-AGI-1 98.50%, CritPt 27.1%, GraphWalks BFS 128K 99.7% / 256K–1M 84.2%. Capped by AA Intelligence Index 53 (below ~60 frontier ref), CritPt 27.1% (notable weakness), MLCR-AA not listed, Low Omniscience Index 42.4 (moderate reliability).
+- **Tool use: 89/100.** TB-2.1 84.3% (near ≥88 frontier), aaTB21 84.3%, AA Terminal-Bench 4.0 57.1%, GDPval-AA Elo 1624 (below ~1750 frontier), GDPval-AA normalized 56.2%, AA AutomationBench 77.5%, OSWorld 69.2%, AA Tau3 Banking 41.4%, AA Agentic Index 56.2%, AA ITBench 48.6% (NEW), AA Briefcase 1488 Elo, Finance Agent 65.4%, TB-4.0 57.4%. Strong agentic cluster with aaTB21 near frontier. Capped by TB-4.0 57.4% (below 88%+ frontier), GDPval-AA 1624 (below 1750), GDP.pdf 21.8%, ApprenticeBench 36%, AA ITBench 48.6%.
+- **Reasoning: 87/100.** GPQA Diamond 93.5% (≥90 frontier), GPQA (Vals) 94.4%, HLE 54.9%/AA-HLE 57.1% (above 40% frontier), AA-LCR 79.7%, AA-MMLU-Pro 89.8%, MMLU-Pro (Vals) 90.2%, AA Global-MMLU-Lite 92.2%, ARC-AGI-1 98.50%, CritPt 27.1%, GraphWalks BFS 128K 99.7% / 256K–1M 84.2%. Capped by AA Intelligence Index 52.6 (below ~60 frontier ref), CritPt 27.1% (notable weakness), MLCR-AA not listed, Low Omniscience Index 42.4 (moderate reliability).
 - **Context window: 95/100.** 1M context qualifies for ≥1M tier (95-100 range); GraphWalks BFS 1M 84.2% demonstrates long-context at 1M; no specific ≥98% retrieval at 512K+ for perfect 100; AA-LCR 79.7% at 1M.
-- **Multimodal: 87/100.** Text, image and video input; text output (+image/+video in = 75-90 tier); LVBench 85.4%, CharXiv 88.7%, AA-MMMU-Pro 85.5%, Design Arena 1307, AA-Video-MME not available. Capped by text-only output, no audio input, no video output, Gray Swan IPI 0.7%.
+- **Multimodal: 87/100.** Text, image and video input; text output (+image/+video in = 75-90 tier); LVBench 85.4%, CharXiv 88.7%, AA-MMMU-Pro 85.5%, Design Arena 1324, AA-Video-MME not available. Capped by text-only output, no audio input, no video output, Gray Swan IPI 0.7%.
 - **Coding: 88/100.** DeepSWE 77.9% (≥74% frontier), Vibe Code Bench 91.90% (≥90 frontier), AA-SciCode 61.8% (≥55% frontier), SWE-bench Verified 88.9% (at frontier), LiveCodeBench 89.5% (near ≥90 frontier), AA Coding Index 88.0% (≥70 frontier), SWE-bench (Vals) 80.0%. Strong coding cluster across 4 of 4 coding frontiers (DeepSWE ≥74%, LiveCode near 90%, SciCode ≥55%, Coding Index ≥70%). Capped by SWE-bench Pro not listed, Vibe Code Bench 91.90% not at 95%+ elite, CursorBench 4.0 39.6%, FrontierSWE v2 55.1%.
 - **Cost efficiency: 72/100.** Intro $2.00/$10.00 per 1M in/out (through end-2026); 90% cache discount; $1.99 per Intelligence Index task is efficient. noFreeID — no free tier on OpenCode Zen; standard rates $4.00/$20.00 begin January 2027. Interpolated between $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60.
-- **Overall Score: 89/100.** Half-up mean: (89+87+95+87+88)/5 = 446/5 = 89.2 → 89. **Best-fit:** strong mid-tier frontier reasoning model with exceptional GraphWalks long-context scores (99.7% at 128K, 84.2% at 1M) and strong coding (DeepSWE 77.9%, Vibe Code Bench 91.90%, SWE-bench Verified 88.9%); cap: Intelligence Index 53 (below ~60 frontier), TB 4.0 57.4% (below 88%), GDPval-AA 1611 (below 1750); free on Google AI Studio, paid $2/$10.
+  - **Overall Score: 89/100.** Half-up mean: (89+87+95+87+88)/5 = 446/5 = 89.2 → 89. **Best-fit:** strong mid-tier frontier reasoning model with exceptional GraphWalks long-context scores (99.7% at 128K, 84.2% at 1M) and strong coding (DeepSWE 77.9%, Vibe Code Bench 91.90%, SWE-bench Verified 88.9%); cap: Intelligence Index 52.6 (below ~60 frontier), TB 4.0 57.4% (below 88%), GDPval-AA 1624 (below 1750); free on Google AI Studio, paid $2/$10.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/gemini-4-argon` for overall rank/score (#7/954, 80.97, 37 of 639) and 68 benchmark rows; AA model page `https://artificialanalysis.ai/models/gemini-4-argon` for Intelligence Index 53, GPQA 93.5%, pricing $2/$10 intro; Google DeepMind evaluation methodology page for TB-4.0 57.4%, DeepSWE 77.9%, Vibe Code Bench 91.90%, GraphWalks 99.7%/84.2%, OA-Omniscience 15.1% hallucination rate). Scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `*.md` findings files during research.
-- Re-verification (2026-10-16): BenchLM overall revised from 81.19 (#10/889, 68/625 on Oct 10) to 80.97 (#7/954, 37/639 on Oct 16) — v4.3.2 model pool grew 889→954; rank improved #10→#7; individual benchmark scores unchanged; dimension scores and Overall retained at 89.
+- Re-verification (2026-10-17): BenchLM overall 80.97 (#7/954, 37/639) unchanged from Oct 16. GDPval-AA Elo 1611→1624, normalized 55.6→56.2%; AA Briefcase 1494→1488; AA Terminal-Bench 4.0 59.1→57.1% (reverted to original Oct 10 value); AA-HLE 55.0→57.1%; AA Tau3 Banking 44.9→41.4%; Design Arena 1307→1324; Intelligence Index 53→52.6 (negligible). Dimension scores and Overall retained at 89.
 - Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: τ²-bench 95.6% confirmed (elite); Vibe Code Bench 91.90% confirmed (≥90 frontier); AA-SciCode 61.8% confirmed (≥55% frontier); AA ITBench 48.6% and AA Terminal-Bench 4.0 59.1% added; AA-MMMU-Pro 85.5% (≥80 frontier) and LVBench 85.4% and CharXiv 88.7% added for multimodal; Overall revised from 85 to 89.
 
 ---

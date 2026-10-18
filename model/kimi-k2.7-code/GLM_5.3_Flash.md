@@ -1,7 +1,7 @@
 # Kimi K2.7 Code — findings by GLM 5.3 Flash
 
 - Source: Moonshot AI (`moonshotai/Kimi-K2.7-Code`, Modified MIT open weights)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,7 +36,7 @@ Reasoning / knowledge:
 - AA-LCR v1.1: **79.3%** (AA — fills the long-context gap, solid)
 - CritPt: **10.0%** (AA — fills the gap, weak); AA-IFBench: **63.1%** (AA — new)
 - AA-Omniscience: **39.6% accuracy / 82.4% non-hallucination row / −10.2 index** (AA — weak)
-- MLS-Bench Lite: **35.1%** (corroborated)
+- MLS-Bench Lite: **35.1%** (corroborated)`n- FrontierMath v2 (Epoch AI re-score): **54.0%** Tiers 1–3 / **12.2%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 
 Coding:
 
@@ -52,7 +52,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1270** (OpenRouter); image+video input confirmed (video experimental, official API only)
+- Design Arena Website: **1270** (OpenRouter; BenchLM 2026-10-17 refresh reads **1266** — minor drift, flagged); image+video input confirmed (video experimental, official API only)
 
 ### Normalized scores (1–100)
 
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Moonshot K2.7-Code model card, Artificial Analysis independent boards (LCR/CritPt/Coding Index/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-05 passes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Moonshot K2.7-Code model card, Artificial Analysis independent boards (LCR/CritPt/Coding Index/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 29-row refresh corroborates all rows (Epoch FrontierMath v2 54.0/12.2% added; Design Arena 1270 → 1266 and GDPval normalized 27.0% → 26.9% drift flagged) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K2.md`, using the same headings.

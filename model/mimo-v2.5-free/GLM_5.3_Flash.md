@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`opencode/mimo-v2.5-free` — also covers the "Xiaomi MiMo-V2.5 Free" alias; native model MiMo-V2.5)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,6 +68,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai MiMo-V2.5 page updated 2026-10-10 citing the Xiaomi launch page + Vals AI + Claw-Eval leaderboard, the prior 2026-10-08 pass on BenchmarkList/Xiaomi launch page, repo catalog's models.dev Zen serve config); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai MiMo-V2.5 page updated 2026-10-10 citing the Xiaomi launch page + Vals AI + Claw-Eval leaderboard, the prior 2026-10-08 pass on BenchmarkList/Xiaomi launch page, repo catalog's models.dev Zen serve config; 2026-10-16 re-check: BenchLM 16-row refresh corroborates every row, still unranked, no new data (Design Arena 1267, inside the 1271–1288 band) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

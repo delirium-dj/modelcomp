@@ -1,7 +1,7 @@
 # Ling-2.6-flash — findings by GLM 5.3 Flash
 
 - Source: InclusionAI / Ant Group (`ling-2.6-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,6 @@ Speed: up to 340 tokens/s on 4× H20; ~4× prefill/decode throughput vs size-cla
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 2.6 Flash page with AA board citations (now computing 32.73 #167), the prior 2026-10-09 pass on the HF model card + AA; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 2.6 Flash page with AA board citations (now computing 32.73 #167), the prior 2026-10-09 pass on the HF model card + AA; 2026-10-16 re-check: BenchLM 16-row refresh corroborates every row, no new data (rank #167/889 32.73 → #172/954 32.43; Ling 3.1 Flash 62.06 → 68.03) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

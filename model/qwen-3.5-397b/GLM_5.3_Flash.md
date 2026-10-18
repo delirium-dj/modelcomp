@@ -1,7 +1,7 @@
 # Qwen 3.5 397b — findings by GLM 5.3 Flash
 
 - Source: Alibaba / Qwen (`qwen-3.5-397b`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,6 +68,6 @@ Multimodal (richly measured; note the AA-vs-vendor MMMU-Pro conflict):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.5-397B-A17B HF model card + Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, the prior 2026-10-08 pass on apxml/OpenRouter/llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.5-397B-A17B HF model card + Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, the prior 2026-10-08 pass on apxml/OpenRouter/llm-stats; 2026-10-16 re-check: BenchLM Reasoning-sibling page (11 rows) corroborates all rows, still unranked; base variant rank → #65/954 55.34 — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

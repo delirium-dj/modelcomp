@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Laguna S 2.1
 
 - Source: MiniMax AI blog (`https://www.minimax.io/blog/minimax-m3`), MiniMaxAI/MiniMax-M3 HuggingFace model card (`https://huggingface.co/MiniMaxAI/MiniMax-M3`), BenchLM model page (`https://benchlm.ai/models/minimax-m3` Oct 10), Artificial Analysis model page (`https://artificialanalysis.ai/models/minimax-m3` Oct 10), OpenCode Zen pricing page (Oct 10)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,7 +33,7 @@ Agent / tool use:
 - **MCP Atlas:** 74.2% — (MiniMax blog)
 - **Claw-Eval:** 74.5% — (MiniMax blog, via Claw-Eval leaderboard)
 - **τ²-bench Airline:** 88.9% — (AA: tau2-bench leaderboard via BenchLM)
-- **GDPval-AA:** 37.3% (normalized) — (Artificial Analysis model benchmarks via BenchLM); 1245 Elo — (AA: gdpval-aa leaderboard)
+- **GDPval-AA:** 37.1% (normalized) — (Artificial Analysis model benchmarks via BenchLM); 1242 Elo — (AA: gdpval-aa leaderboard)
 - **GDPval rubrics:** 74.7% — (MiniMaxAI/MiniMax-M3 model card via BenchLM)
 - **BankerToolBench:** 76.1% — (MiniMaxAI/MiniMax-M3 model card via BenchLM)
 - **ResearchClawBench:** 19.8% — (ResearchClawBench leaderboard via BenchLM)
@@ -107,9 +107,9 @@ Long context:
 ### Normalized scores (1–100)
 
 > Method: `model-comparison.md` v4. Overall = half-up mean of the five quality dims (see `RULES.md`). Cost excluded.
-> Confidence: high — 56 public benchmarks found across 5 sources (MiniMax AI blog, HF model card, BenchLM Oct 10, AA Oct 10, OpenCode Zen pricing). Benchmarks verified from vendor and aggregator sources.
+> Confidence: high — 57 public benchmarks found across 5 sources (MiniMax AI blog, HF model card, BenchLM Oct 17, AA Oct 17, OpenCode Zen pricing). Benchmarks verified from vendor and aggregator sources.
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 at 66.0% is strong mid-tier (above ~45-60% mid bracket, below ~88%+ frontier). GDPval-AA at 1245 Elo is below the ~1750+ frontier threshold, and GDPval-AA normalized at 37.3% reflects this. However, BrowseComp at 83.5%, MCP Atlas at 74.2%, Claw-Eval at 74.5%, GDPval rubrics at 74.7%, BankerToolBench at 76.1%, and OSWorld-Verified at 70.1% are all above the ~50% frontier reference. AA Agentic Index at 30.8% and AA AutomationBench at 21.3% are weak, capped by Terminal-Bench 3.0 at 26.5% and AA Terminal-Bench 4.0 at 2.0%. Upper-mid to lower-frontier band.
+- **Tool use: 82/100.** Terminal-Bench 2.1 at 66.0% is strong mid-tier (above ~45-60% mid bracket, below ~88%+ frontier). GDPval-AA at 1242 Elo is below the ~1750+ frontier threshold, and GDPval-AA normalized at 37.1% reflects this. However, BrowseComp at 83.5%, MCP Atlas at 74.2%, Claw-Eval at 74.5%, GDPval rubrics at 74.7%, BankerToolBench at 76.1%, and OSWorld-Verified at 70.1% are all above the ~50% frontier reference. AA Agentic Index at 30.8% and AA AutomationBench at 21.3% are weak, capped by Terminal-Bench 3.0 at 26.5% and AA Terminal-Bench 4.0 at 2.0%. Upper-mid to lower-frontier band.
 
 - **Reasoning: 82/100.** GPQA Diamond at 92.9% meets the ≥90% frontier threshold. AA-GPQA Diamond also at 92.9% via AA. Intelligence Index at 29 (#7/117 among large open weights, well above median 18) but below the 60 frontier threshold. HLE at ~39% (AA-HLE 39.0%) is just below the 40% threshold. LCR at 83.0% is strong. CritPt at 3.7% is weak (physics reasoning gap). IFBench at 82.9% and USAMO 2026 at 85.7% provide strong supporting evidence. GPQA excellence capped by HLE below 40% and weak CritPt. Upper-mid band.
 
@@ -121,15 +121,15 @@ Long context:
 
 - **Cost efficiency: 90/100.** $0.30 input / $1.20 output per 1M tokens (below the $0.60/$2.20 ≈ 92 tier; near the $0.30/$1.20 ≈ 90 tier). 80% cache discount, $0.06 cached read. Open weights (commercial-use-restricted MIT-style license). noFreeId — paid API only, no $0 Zen tier.
 
-- **Overall Score: 86/100.** Mean of five non-cost dimensions: (82 + 82 + 95 + 85 + 84) / 5 = 428 / 5 = 85.6 → 86. Aligns with BenchLM Overall 54.65 (#70/889 conservative) and AA Intelligence Index 29 (#7/117 among large open weights, well above median 18). Updated Oct 10 — all benchmarks confirmed from MiniMax blog, HF model card, BenchLM, and AA on Oct 10.
+- **Overall Score: 86/100.** Mean of five non-cost dimensions: (82 + 82 + 95 + 85 + 84) / 5 = 428 / 5 = 85.6 → 86. Aligns with BenchLM Overall 54.9 (#68/954 conservative, was 54.65 #70/889 on Oct 10). Updated Oct 17 — GDPval-AA Elo 1245→1242, normalized 37.3→37.1% (minor); all other benchmarks confirmed unchanged.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via MiniMax AI blog (`minimax.io/blog/minimax-m3`, June 1 — re-verified Oct 10), MiniMaxAI/MiniMax-M3 HuggingFace model card (Oct 10), BenchLM model page (Oct 10), Artificial Analysis model page (Oct 10), OpenCode Zen pricing page (Oct 10); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via MiniMax AI blog (`minimax.io/blog/minimax-m3`, June 1 — re-verified Oct 17), MiniMaxAI/MiniMax-M3 HuggingFace model card (Oct 17), BenchLM model page (Oct 17, 57 of 639 benchmarks), Artificial Analysis model page (Oct 17), OpenCode Zen pricing page (Oct 17); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
 - Note: Not evaluated on LiveCodeBench v6 by MiniMax or BenchLM (only Vals LiveCodeBench at 82.2%); no GPQA Diamond reported on BenchLM for M3 (used AA leaderboard 92.9%).
-- Future sources: add a new file next to this one using the same headings.
+- Re-verification (2026-10-17): BenchLM overall 54.9 (#68/954, 57/639) — up from 54.65 (#70/889, 56/625 on Oct 10); GDPval-AA Elo 1245→1242, normalized 37.3→37.1% (minor); Design Arena 1263→1263 (unchanged); all other benchmarks confirmed unchanged. Dimension scores and Overall retained at 86.
 
 ---

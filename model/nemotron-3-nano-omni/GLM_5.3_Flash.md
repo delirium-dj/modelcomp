@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni — findings by GLM 5.3 Flash
 
 - Source: NVIDIA (`nemotron-3-nano-omni-30b-a3b-reasoning`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the NVIDIA Nemotron 3 Nano Omni technical report + AA boards + VoiceBench snapshot, the prior 2026-10-08 pass on the NVIDIA HF launch blog/build.nvidia.com); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the NVIDIA Nemotron 3 Nano Omni technical report + AA boards + VoiceBench snapshot, the prior 2026-10-08 pass on the NVIDIA HF launch blog/build.nvidia.com; 2026-10-16 re-check: BenchLM 29-row refresh corroborates every row, no new data (rank #168/889 32.15 → #173/954 32.22; VoiceBench snapshot now 2026-10-15) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

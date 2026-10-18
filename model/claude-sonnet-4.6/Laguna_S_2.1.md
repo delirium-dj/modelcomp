@@ -1,7 +1,7 @@
 # Claude Sonnet 4.6 — findings by Laguna S 2.1
 
 - Source: Anthropic (`anthropic/claude-sonnet-4-6`) system card (`https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf`), Artificial Analysis (`https://artificialanalysis.ai/models/claude-sonnet-4-6`), BenchLM (`https://benchlm.ai/models/claude-sonnet-4-6`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,7 +59,7 @@ Multimodal:
 
 - **CharXiv:** 77.4% — (Anthropic system card via BenchLM)
 - **AA-MMMU-Pro:** 70.6% — (AA model benchmarks via BenchLM)
-- **Design Arena Website:** 1291 — (OpenRouter model benchmarks via BenchLM)
+  - **Design Arena Website:** 1290 — (OpenRouter model benchmarks via BenchLM)
 - **ERQA:** no verified public score found
 - **ScreenSpot Pro:** no verified public score found
 
@@ -112,14 +112,15 @@ Long context:
 
 - **Cost efficiency: 55/100.** $3.00 in / $15.00 out per 1M tokens ($2.31 blended with cache). Moderately priced. noFreeId — paid only.
 
-- **Overall Score: 72/100.** (78 + 53 + 80 + 70 + 79) / 5 = 360 / 5 = 72.0 → 72. **Up from prior 81:** prior file had "no verified public score found" for nearly all benchmarks, resulting in inflated scores based solely on Intelligence Index 25. Fresh Oct 10 BenchLM + AA + Anthropic system card data reveals comprehensive benchmarks: GPQA 89.9%, HLE 49%, SWE-bench Verified 79.6%, τ²-bench 79.5%, Terminal-Bench 2.0 59.1%. Tool use upgraded 80→78 (same), Reasoning downgraded 76→53 (II+30=55 with II=25, not just II=25 alone), Context downgraded 95→80 (corrected from 1M to 200K per BenchLM + meta.json), Coding upgraded 79→79 (same). Aligns with BenchLM Overall 55.41/100 rank #63/889 and AA Intelligence Index 25 (#5/61 non-reasoning). Deprecated in favor of Claude Sonnet 5.
+  - **Overall Score: 72/100.** (78 + 53 + 80 + 70 + 79) / 5 = 360 / 5 = 72.0 → 72. **Up from prior 81:** prior file had "no verified public score found" for nearly all benchmarks, resulting in inflated scores based solely on Intelligence Index 25. Fresh Oct 10 BenchLM + AA + Anthropic system card data reveals comprehensive benchmarks: GPQA 89.9%, HLE 49%, SWE-bench Verified 79.6%, τ²-bench 79.5%, Terminal-Bench 2.0 59.1%. Tool use upgraded 80→78 (same), Reasoning downgraded 76→53 (II+30=55 with II=25, not just II=25 alone), Context downgraded 95→80 (corrected from 1M to 200K per BenchLM + meta.json), Coding upgraded 79→79 (same). Aligns with BenchLM Overall 55.89/100 rank #64/954 (was 55.41, #63/889 on Oct 10; v4.3.2 model pool grew 889→954, 41→40 of 625 benchmarks) and AA Intelligence Index 25 (#5/61 non-reasoning). Benchmarks not located are NOT fabricated. Deprecated in favor of Claude Sonnet 5.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via BenchLM model page (`benchlm.ai/models/claude-sonnet-4-6`, Oct 10), Artificial Analysis model page (`artificialanalysis.ai/models/claude-sonnet-4-6`, Oct 10), and Anthropic Claude Sonnet 4.6 system card (`78073f739564e986ff3e28522761a7a0b4484f84.pdf`); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via BenchLM model page (`benchlm.ai/models/claude-sonnet-4-6`, Oct 17, 40 of 639 benchmarks), Artificial Analysis model page (`artificialanalysis.ai/models/claude-sonnet-4-6`, Oct 10), and Anthropic Claude Sonnet 4.6 system card (`78073f739564e986ff3e28522761a7a0b4484f84.pdf`); scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
+- Re-verification (2026-10-17): BenchLM overall 55.89 (#64/954, 40/639) — up from 55.41 (#63/889, 41/625 on Oct 10); Design Arena 1291→1290 (negligible); all individual benchmark scores verified unchanged. Dimension scores and Overall retained at 72.
 - Future sources: add a new file next to this one using the same headings.
 
 ---

@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Muse Spark 1.3, Qwen 3.8 Flash.
 - Average from top 4 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Muse Spark 1.3, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): GLM 5.3, Space Bunny.
+- Ignored below-gate rater(s): GLM 5.3, Laguna XS 2.1, Space Bunny.

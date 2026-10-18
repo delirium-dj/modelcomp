@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra Free — findings by GLM 5.3 Flash
 
 - Source: NVIDIA (`opencode/nemotron-3-ultra-free`; native model Nemotron 3 Ultra 550B-A55B)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -22,7 +22,7 @@
 Agent / tool use:
 
 - τ²-bench: **83.3%** (AA, independent — corroborates the Tau2-V3 Airline 81.5/Retail 86.4 rows from the prior pass); τ³-bench: **70.9%** (model card — fills the Tau3 gap)
-- GDPval-AA: **1016** (AA, independent, normalized **33.1%**) — **conflicts with the NVIDIA-table 1,448 the prior pass cited**; the independent board is lower
+- GDPval-AA: **1016** (AA, independent, normalized **33.1%**; 2026-10-17 refresh reads 1091 — minor drift, flagged) — **conflicts with the NVIDIA-table 1,448 the prior pass cited**; the independent board is lower
 - AA Harvey LAB-AA v1.0: **81.7%** (AA — new, strong); BrowseComp: **44.4%** (model card); PinchBench: **90.0%** (corroborated, down from the prior 91 read); terminalBenchHard: **36.4%**
 - AA weak rows: AutomationBench-AA **3.0%**, Terminal-Bench 4.0 **0.5%**, Tau3-Banking **14.2%**, AnalystAgent **6.3%**, Briefcase **876 Elo** (AA — the standardized agentic board is weak)
 - AA Agentic Index: **21.7%** (AA); Vals TB2.1: **50.9%** (Vals, vs vendor 56.4)
@@ -49,7 +49,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1145** (OpenRouter); text-only in/out
+- Design Arena Website: **1145** (OpenRouter; 2026-10-17 refresh reads 1146 — minor drift); MazeBench ASCII: **0%** (tools-off run, added 2026-10-16); MMLU-ProX: **83.0%**; AA Openness Index: **83.3%** (both added 2026-10-16); text-only in/out
 
 ### Normalized scores (1–100)
 
@@ -65,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Nemotron 3 Ultra page updated 2026-10-10 citing the NVIDIA HF model card + AA/Vals boards, the prior 2026-09-18/10-05 passes on the NVIDIA technical blog/build.nvidia/Vals); scores are normalized 1–100 interpretations, not official vendor scores. Ultra numbers transfer to the Free tier via the same-weights free-serving statement.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Nemotron 3 Ultra page updated 2026-10-10 citing the NVIDIA HF model card + AA/Vals boards, the prior 2026-09-18/10-05 passes on the NVIDIA technical blog/build.nvidia/Vals; 2026-10-16 re-check: BenchLM 42-row refresh corroborates all rows (MazeBench 0%, MMLU-ProX 83%, AA Openness 83.3% added; GDPval 1016 → 1091 and Design Arena 1145 → 1146 drift; rank → #115/954 46.58) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Ultra numbers transfer to the Free tier via the same-weights free-serving statement.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

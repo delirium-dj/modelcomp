@@ -27,7 +27,7 @@
 89.4 qwen-3.8-max
 89.1 gemini-3.5-flash
 89.1 gpt-5.5
-89 claude-opus-4.7
+88.9 claude-opus-4.7
 88.7 gemini-3.6-flash
 88.7 gpt-5.6-terra
 88.6 gpt-5.4-pro
@@ -166,11 +166,11 @@
 57 exo-free
 56.9 big-pickle
 56.8 nemotron-3.5-lightning-free
+56.3 nemotron-3.5-bolt-e4b
 53.8 ling-2.6-flash
 53.7 mercury-2.5
 53.6 gemma-4-e2b
 53 mai-experimental-test
-52.5 nemotron-3.5-bolt-e4b
 52.2 ling-3.0-tiny
 52 cat-jam
 39.5 jev-1.13

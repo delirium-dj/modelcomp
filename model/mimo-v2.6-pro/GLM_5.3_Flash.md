@@ -1,7 +1,7 @@
 # MiMo-V2.6-Pro — findings by GLM 5.3 Flash
 
 - Source: Xiaomi (`XiaomiMiMo/MiMo-V2.6-Pro-RL`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,7 +31,7 @@ Agent / tool use:
 - AA AutomationBench-AA: **58.6%** (AA, independent); AutomationBench v1.0.6: **53.1%** (vendor; beats Claude Opus 5 50.3%)
 - OSWorld-Verified: **82%** (technical report via benchlm.ai; the 2026-10-08 pass read 80.8% from the model card — minor variance, same harness)
 - JobBench: **62.0%**; Agents' Last Exam: **31.6%** (technical report)
-- AA GDP.pdf: **19.2%** (AA)
+- AA GDP.pdf: **19.2%** (AA); AA-AnalystAgent: **37.5%**; STEMBench: **2.17** (ulam.ai — added 2026-10-16)
 - Cybersecurity (supplementary): CyberGym **94.0%**, MiMo Cyber Bench **80.2%**, ExploitBench **47.9%**, ExploitGym **17.8%**, SEC Bench Pro **66.3%** (technical report)
 
 Reasoning / knowledge:
@@ -60,7 +60,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1314** (OpenRouter); MiMo VisualCoding 72.3% (as above); no MMMU-Pro/CharXiv-class row published
+- Design Arena Website: **1314** (OpenRouter; 2026-10-17 refresh reads 1309 — minor drift, flagged); MiMo VisualCoding 72.3% (as above); no MMMU-Pro/CharXiv-class row published
 
 ### Normalized scores (1–100)
 
@@ -76,6 +76,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Xiaomi MiMo-V2.6 technical report, Artificial Analysis independent leaderboards (HLE/LCR/SciCode/Omniscience/Briefcase) via benchlm.ai, OpenRouter benchmarks, plus the prior 2026-10-08 pass on the official HF model card); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Xiaomi MiMo-V2.6 technical report, Artificial Analysis independent leaderboards (HLE/LCR/SciCode/Omniscience/Briefcase) via benchlm.ai, OpenRouter benchmarks, plus the prior 2026-10-08 pass on the official HF model card; 2026-10-16 re-check: BenchLM 33-row refresh corroborates all rows (AA-AnalystAgent 37.5%, STEMBench 2.17 added; GDPval 59.3% → 59.2%, Design Arena 1314 → 1309 drift flagged; rank → #12/954 73.57) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM-5.3-FlashX — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/glm-5-3-flash`), BenchLM (`https://benchlm.ai/models/glm-5.3-flash`), HuggingFace (`https://huggingface.co/zai-org/GLM-5.3-Flash`), Vals AI (`https://www.vals.ai/models/zai_glm-5.3-flash`), Z.AI blog (`https://z.ai/blog/glm-5.3-flash`)
-- Date: 2026-10-10 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,7 +23,7 @@
 
 ### Raw benchmarks found
 
-> Sources: Artificial Analysis model page (`https://artificialanalysis.ai/models/glm-5-3-flash`, Oct 10), BenchLM (`https://benchlm.ai/models/glm-5.3-flash`, Oct 10, 39 of 625 benchmarks — confirms all prior data), HuggingFace model card + eval results (`https://huggingface.co/zai-org/GLM-5.3-Flash`), Vals AI leaderboards (`https://www.vals.ai/models/zai_glm-5.3-flash`), Z.AI blog (`https://z.ai/blog/glm-5.3-flash`). FlashX uses identical weights to GLM-5.3-Flash per `meta.json`, so all benchmarks for GLM-5.3-Flash are inherited. BenchLM confirms all previously reported scores with Oct 10 data.
+> Sources: Artificial Analysis model page (`https://artificialanalysis.ai/models/glm-5-3-flash`, Oct 17), BenchLM (`https://benchlm.ai/models/glm-5.3-flash`, Oct 17, 45 of 639 benchmarks — confirms all prior data), HuggingFace model card + eval results (`https://huggingface.co/zai-org/GLM-5.3-Flash`), Vals AI leaderboards (`https://www.vals.ai/models/zai_glm-5.3-flash`), Z.AI blog (`https://z.ai/blog/glm-5.3-flash`). FlashX uses identical weights to GLM-5.3-Flash per `meta.json`, so all benchmarks for GLM-5.3-Flash are inherited. BenchLM Oct 17 confirms all scores; new benchmarks: Hermes Index 35.0%, Hermes Bench 68.9%, AA AnalystAgent 25.0%, AA Tau3 Banking 47.2%, AA EnterpriseOps-Gym 33.2%, MazeBench 0%.
 
 Agent / tool use:
 
@@ -38,6 +38,12 @@ Agent / tool use:
 - **AA ITBench:** 51.2% — (AA: itbench-aa leaderboard via BenchLM)
 - **AA Tau3 Banking:** 47.2% — (AA: tau3-banking leaderboard via BenchLM)
 - **AA Terminal-Bench 4.0:** 32.8% — (AA: terminalbench-v4-0 leaderboard via BenchLM)
+- **AA Tau3 Banking:** 47.2% — (AA: tau3-banking leaderboard via Oct 17 BenchLM — NEW, inherited from GLM-5.3-Flash)
+- **Hermes Index:** 35.0% — (Nous Research: Hermes Index leaderboard via Oct 17 BenchLM — NEW)
+- **Hermes Bench:** 68.9% — (Nous Research: Hermes Index leaderboard via Oct 17 BenchLM — NEW)
+- **AA EnterpriseOps-Gym:** 33.2% — (AA: enterprise-ops-gym-aa leaderboard via Oct 17 BenchLM — NEW)
+- **MazeBench:** 0% — (MazeBench AI leaderboard via Oct 17 BenchLM — NEW)
+- **AA AnalystAgent:** 25.0% — (AA: aa-analyst-agent leaderboard via Oct 17 BenchLM — NEW)
 - **GDP.pdf:** 15.4% — (AA: gdp-pdf leaderboard via BenchLM)
 - **τ²-bench:** no verified public score found
 
@@ -93,8 +99,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
-- Method: public internet research via Artificial Analysis, BenchLM, Vals AI, HuggingFace, and Z.AI blog; scores are normalized 1–100 interpretations, not official vendor scores. Zero-influence: did not read peer `model/` findings files during research.
-- Future sources: add a new file next to this one, e.g. `GLM_5.3_Flash_Tech_Report.md`, using the same headings.
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
+- Method: public internet research via Artificial Analysis, BenchLM, Vals AI, HuggingFace, and Z.AI blog; scores are normalized 1–100 interpretations per model-comparison.md v4. Zero-influence: did not read peer `model/` findings files during research.
+- Sources: BenchLM.ai model page `https://benchlm.ai/models/glm-5.3-flash` (Overall 58.52/100, #58/954, 45 of 639 benchmarks, 2026-10-17); AA model page (Intelligence Index 41.8%, #4/117 large open-weights); HuggingFace model card + eval results; Vals AI leaderboards; Z.AI blog.
+- Re-verification (Oct 17): FlashX inherits identical-weight scores from GLM-5.3-Flash (already re-verified Oct 16). BenchLM Oct 17 confirms 58.52 (#58/954, 45/639 benches). New benchmarks: Hermes Index 35.0%, Hermes Bench 68.9%, AA AnalystAgent 25.0%, AA Tau3 Banking 47.2%, AA EnterpriseOps-Gym 33.2%, MazeBench 0%. Overall 77→77 (unchanged).
 
 ---

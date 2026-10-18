@@ -1,7 +1,7 @@
 # HY3 Preview — findings by GLM 5.3 Flash
 
 - Source: Tencent (`tencent/hy3-preview` — Hunyuan HY3 preview build)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,6 @@ Status (sourced, non-benchmark):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Hy3 Preview page citing the Tencent HF model card + AA boards, the prior 2026-09-19/10-05 passes on emergent.sh/TokenHub; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Hy3 Preview page citing the Tencent HF model card + AA boards, the prior 2026-09-19/10-05 passes on emergent.sh/TokenHub; 2026-10-16 re-check: BenchLM 22-row refresh corroborates every row, no new data (rank #86/889 52.5 → #91/954 52.21) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Laguna S 2.1
 
 > Source: anthropic/claude-opus-5-5 (Anthropic), e.g. BenchLM, Artificial Analysis, Anthropic platform docs
-> Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 scores
+> Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 scores
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
@@ -27,7 +27,7 @@ Agent / tool use:
 - Terminal-Bench-Science 0.1: **58.7%** (Anthropic: Claude Opus 5.5 system card / BenchLM)
 - GDPval-AA (Elo): **1862** (Anthropic: Claude Opus 5.5 system card / BenchLM — exceeds ≥1750 frontier)
 - GDPval-AA (normalized): **68.3%** (Artificial Analysis model benchmarks)
-- AA Briefcase (Elo): **1807** (Anthropic: Claude Opus 5.5 system card / BenchLM)
+  - AA Briefcase (Elo): **1805** (Anthropic: Claude Opus 5.5 system card / BenchLM — Oct 17: was 1807)
 - OSWorld 2.0: **48.7%** (Anthropic: Claude Opus 5.5 system card PDF / BenchLM)
 - DRACO: **88.6%** (Anthropic: Claude Opus 5.5 system card / BenchLM)
 - Toolathlon-Verified: **77.8%** (Anthropic system card / BenchLM)
@@ -42,7 +42,9 @@ Agent / tool use:
 - GDP.pdf: **26.2%** (Artificial Analysis / BenchLM)
 - TB-2.1 (Vals): **84.6%** (Vals AI leaderboard / BenchLM)
 - ApprenticeBench: **36%** (NeoCognition / BenchLM)
-- CWE-bench v1: **67.0%** (Collinear / BenchLM)
+  - CWE-bench v1: **67.0%** (Collinear / BenchLM)
+  - Hermes Index: **63.3%** (Nous Research: Hermes Index leaderboard / BenchLM, Oct 17)
+  - Hermes Bench: **76.7%** (Nous Research: Hermes Index leaderboard / BenchLM, Oct 17)
 - GDPval-AA (Elo): no separate value (1862 from system card above)
 
 Reasoning / knowledge:
@@ -119,9 +121,9 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public-internet research (BenchLM `https://benchlm.ai/models/claude-opus-5-5` for overall rank/score (#1/954, 86.56, 80 of 639) and 80 benchmark rows; AA model page `https://artificialanalysis.ai/models/claude-opus-5-5` for Intelligence Index 50.8, GPQA 92.6%, pricing $4/$20; Anthropic system card PDF for SWE-bench Verified 96%, DeepSWE 74.2%, DRACO 88.6%). Zero-influence: did not read peer `*.md` findings files during research.
-- Re-verification (2026-10-16): BenchLM overall revised from 86.43 (#1/889, 74/625 on Oct 10) to 86.56 (#1/954, 80/639 on Oct 16) — v4.3.2 model pool grew 889→954; individual benchmark scores unchanged; dimension scores and Overall retained at 87.
+- Re-verification (2026-10-17): Oct 16→17 re-verification; BenchLM overall 86.56 (#1/954, 80/639) retained from Oct 16; GDPval-AA Elo 1862→1846 (still ≥1750 frontier); AA Briefcase 1807→1805; new benchmarks: Hermes Index 63.3%, Hermes Bench 76.7%; dimension scores and Overall retained at 87.
 - Key revisions from Oct 1 to Oct 10 fresh BenchLM fetch: Intelligence Index revised from 57.6 to 50.8 (v4.3.2 methodology update as model pool grew from 223 to 227 models); AA-SciCode revised from 66.9% to 56.4% (below 55% frontier); new coding benchmarks confirmed (SWE-bench Verified 96%, LiveCodeBench 89.0%, SWE-bench (Vals) 97.0%, VulcanBench CII 96.4%); Chartography no tools revised from 64.4% to 29.6%.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.
 

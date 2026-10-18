@@ -25,19 +25,19 @@ Agent / tool use:
 - MCP Atlas: **46.1%**; Toolathlon: **36.3%**; VITA-Bench: **43.7%**; DeepPlanning: **37.6%**; QwenClawBench: **51.8%**; Claw-Eval: **56.8%** (Qwen tables — document the weaker base-model tool profile)
 - OSWorld-Verified: **62.2%** (vs GPT-5.2 38.2, Claude 4.5 Opus 66.3); AndroidWorld: **66.8**; ScreenSpot Pro: **65.6**
 - MCP-Mark: **46.1** (Alibaba comparison table; vs GPT-5.2 57.5)
-- Terminal-Bench 2.1 / Tau3 / GDPval-AA: no verified public score found
+- τ³-bench: **68.4%**; Terminal-Bench 2.0: **52.5%**; Gert Labs: **46.76%**; ResearchClawBench: **14.2%** (Qwen3.6-Plus table + leaderboards, added 2026-10-16); Terminal-Bench 2.1 / GDPval-AA: no verified public score found
 - AA Agentic Index: **8** (prior pass, rank #103 — weak)
 
 Reasoning / knowledge:
 
 - GPQA (STEM): **88.4%** (Alibaba table — corroborated by the Qwen3.6-Plus table); AA-GPQA Diamond: **86.1%**
 - HLE: **28.7%** (Qwen3.6-Plus comparison table — fills the gap); AA-HLE: **19.8%** (AA)
-- Artificial Analysis Intelligence Index: **21.4** (AA — fills the index gap; BenchLM overall 55.53, #60 of 889)
+- Artificial Analysis Intelligence Index: **21.4** (AA — fills the index gap; BenchLM overall 55.53, #60 of 889; 2026-10-17: #65/954, 55.34)
 - AA-LCR v1.1: **64.3%** (AA — fills the long-context gap, mid); LongBench v2: **63.2%**; AI-Needle: **68.7%** (Qwen tables); CritPt: **0.9%** (AA — near-zero)
 - MMLU-Pro: **87.8%** (corroborated); MMLU-Redux: **94.9%**; C-Eval: **93%**; AIME26: **93.3%** (Qwen tables; DigitalApplied cited 91.3)
 - IFBench: **76.5%** (leads all competitors); MultiChallenge: **67.6%** (leads); IFEval: **92.6%**
 - MathVision: **88.6%** (leads); ZEROBench: **12 / 41.0** (leads)
-- AA-Omniscience: **24.5% accuracy / 82.7% non-hallucination row / −37.9 index** (AA — worst index measured in this repo)
+SKIP — worst index measured in this repo)
 - MLCR: no verified public score found
 
 Coding:
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-11
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.5-397B page updated 2026-10-10 citing the HF model card + Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, plus the prior 2026-10-03 pass on Serenities/DigitalApplied/models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.5-397B page updated 2026-10-10 citing the HF model card + Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, plus the prior 2026-10-03 pass on Serenities/DigitalApplied/models.dev; 2026-10-16 re-check: BenchLM 73-row refresh corroborates all rows (new: τ³ 68.4%, TB2.0 52.5%, Gert Labs 46.76%, SuperGPQA 70.4%, HMMT sweep 94.8/92.7/87.9%, MMLU-ProX 84.7%, INCLUDE 85.6%, PolyMath 73.3%, MAXIFE 88.2%, NOVA-63 59.1%, AA-IFBench 51.6%, plus multimodal fills We-Math 87.9%, DynaMath 86.3%, CC-OCR 82.0%, CountBench 97.2%, ERQA 67.5%, MMLongBench-Doc 61.5% — all inside existing bands) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
