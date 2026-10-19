@@ -1,0 +1,46 @@
+# Kimi K2.8 Preview — findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: opencode.ai/data/moonshotai/kimi-k2-8-preview (usage/specs), opencode.ai/data/compare pages (vs Muse Spark 1.2 Contributor, MAI-Code-1.1-Flash, Command A Plus, Nano Banana 2.1), kimi-k2.org/blog/04-benchmark-analysis (Kimi-K2 benchmarks, older generation), www.kimi.com/code/docs/en/kimi-code/whats-new.html (K2.8 Preview release notes), nextaimodel.com/models/kimi-k2-8-preview (release info), kilo.ai/models/moonshotai-kimi-k2-5 (Kimi K2.5 coding benchmarks), status.moonshot.cn (status), benchmarklist.com/models/moonshotai-kimi-k2-8-preview (aggregator, 0 benchmarks)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview (Moonshot AI)
+- **Short description:** Moonshot AI's coding model in the Kimi Code line, released 2026-09-11; performance close to Kimi K3 with more efficient thinking; 1M-token context on every membership tier; text+image+video in → text out; reasoning yes (low/high/max effort levels, default max); tool calling yes; proprietary; available via Kimi Code (kimi-for-coding model ID), not open weights or pay-per-token API.
+- **Provider / access:** Moonshot AI (Kimi Code, kimi-for-coding); API via moonshot.ai.
+- **Release / knowledge:** Released 2026-09-11; knowledge cutoff not stated.
+- **IDs:** `moonshotai/kimi-k2.8-preview` (opencode.ai), `kimi-k2.8-preview` (model-queue slug).
+- **Context window:** 1,000,000 tokens (opencode.ai; nextaimodel.com; kimi.com docs). Verified.
+- **Modalities:** Text + image + video in, text out (multimodal); reasoning yes; tool calls yes; structured output not explicitly advertised.
+- **Pricing (as of 2026-10-16):** Not publicly listed as pay-per-token (Kimi Code subscription model); opencode.ai lists input/output as unavailable.
+- **Architecture:** Undisclosed (parameter count, MoE/dense not published for K2.8 Preview).
+
+### Raw benchmarks found
+
+**No public benchmark scores found.** opencode.ai shows usage stats but no benchmarks. benchmarklist.com shows 0 score rows ("0 benchmarks"). The Kimi-K2 technical report (older generation, 2025-07-13) shows MMLU 78.6, HumanEval Pass@1 73.2% for Kimi-K2 — not K2.8 Preview. Kimi K2.7 Code (June 2026) showed +10.4% on Program-Bench, +11.4% on MCP Mark Verified, +76.2% on SWE Marathon vs K2.6 — not K2.8.
+
+### Conflicting results noted
+
+- None — there are no benchmark results at all for Kimi K2.8 Preview. Kimi's own claims ("performance close to K3," "more efficient thinking") are marketing, not measured results.
+
+### Normalized scores (1–100)
+
+**No evidence base exists for scoring.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+
+- **Tool use: insufficient evidence.** No public agent/tool benchmarks.
+- **Reasoning: insufficient evidence.** No public reasoning benchmarks.
+- **Context window: 85/100.** Declared 1M tokens (spec sheet); no public retrieval score.
+- **Multimodal: insufficient evidence.** Text+image+video in claimed; no vision benchmark scores.
+- **Coding: insufficient evidence.** No public coding benchmarks.
+- **Cost efficiency: not scored** (per formula).
+- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
+- Method: public internet research (opencode.ai/data + nextaimodel.com + kimi.com docs + benchmarklist.com + status.moonshot.cn + older Kimi-K2/K2.7 technical reports); zero public benchmark results found for K2.8 Preview — no numeric scores assigned due to insufficient evidence.
+- Future sources: if Moonshot publishes benchmarks or independent evaluations appear, add a new file next to this one using the same headings.

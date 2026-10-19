@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Step 5 Preview.
 - Average from top 2 by Overall Score: Claude Opus 4.6, Step 5 Preview.
-- Ignored below-gate rater(s): Big Pickle, Laguna S 2.1.
+- Ignored below-gate rater(s): Big Pickle, Laguna S 2.1, Nemotron 3.5 Super VL 120B A12B.

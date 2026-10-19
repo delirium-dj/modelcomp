@@ -1,0 +1,53 @@
+# Ling 3.0 Flash Sante — findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: opencode.ai/data/inclusionai/ling-3-0-flash-sante (usage/pricing only), vercel.com/ai-gateway/models/ling-3-0-flash-sante-free/api (Vercel listing), www.llm-releases.com/models/ling-3-0-flash-sante (release note)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante (InclusionAI)
+- **Short description:** Health and medicine-specialized mixture-of-experts model built on Ling 3.0 Flash, 124B total / ~5.1B active parameters, 262K context, 32K max output; MIT license; released 2026-09-04. Specialized for medical reasoning and evidence-based retrieval; retains general reasoning, coding, and agentic capabilities of Ling 3.0 Flash.
+- **Provider / access:** Vercel AI Gateway (inclusionai/ling-3-0-flash-sante-free, free), OpenRouter.
+- **Release / knowledge:** Released 2026-09-04; knowledge cutoff not stated.
+- **IDs:** `inclusionai/ling-3.0-flash-sante` (OpenCode), `inclusionai/ling-3.0-flash-sante-free` (Vercel AI Gateway).
+- **Context window:** 262,000 tokens (opencode.ai; Vercel). Verified.
+- **Modalities:** Text in, text out (text-only — NOT multimodal); reasoning yes; tool calls yes; structured output not explicitly advertised.
+- **Pricing (as of 2026-10-16):** $0.07/M input, $0.22/M output, $0.01/M cached input (opencode.ai); free on Vercel AI Gateway.
+- **Architecture:** 124B total / ~5.1B active MoE, inherits Ling-3.0-flash hybrid-linear architecture; fine-tuned on medical data.
+
+### Raw benchmarks found
+
+No public benchmark scores found for Ling 3.0 Flash Sante in any source (benchlm.ai, Artificial Analysis, Hugging Face eval_results, Vercel listing all lack benchmark numbers).
+
+Agent / tool use: None found.
+Reasoning / knowledge: None found.
+Coding: None found.
+Multimodal & grounded: Text-only — NOT multimodal.
+Long context: Declared 262K; no retrieval score.
+Instruction following: None found.
+
+### Conflicting results noted
+
+- None — there are no results. The only public information is specs/pricing from opencode.ai and Vercel AI Gateway; no benchmark evaluation exists publicly.
+
+### Normalized scores (1–100)
+
+**No evidence base exists for scoring.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+
+- **Tool use: insufficient evidence.** No public agent/tool benchmarks.
+- **Reasoning: insufficient evidence.** No public reasoning benchmarks.
+- **Context window: 75/100.** Declared 262K (spec sheet only); no retrieval score.
+- **Multimodal: 50/100.** Text in / text out only — NOT multimodal.
+- **Coding: insufficient evidence.** No public coding benchmarks.
+- **Cost efficiency: not scored** (per formula).
+- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
+- Method: public internet research (opencode.ai specs + Vercel AI Gateway listing + llm-releases release note); all major benchmark aggregators checked — zero benchmark data found for this variant. No numeric scores assigned due to insufficient evidence.
+- Future sources: if benchmark data appears, add a new file next to this one using the same headings.

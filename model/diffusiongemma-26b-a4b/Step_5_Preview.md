@@ -1,7 +1,7 @@
 # DiffusionGemma 26B-A4B — findings by Step 5 Preview
 
 - Source: Google DeepMind (`google/diffusiongemma-26B-A4B-it`, released 2026-06-10)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** DiffusionGemma 26B-A4B (Google DeepMind's text-diffusion variant of the Gemma 4 26B-A4B MoE)
 - **Short description:** Google's experiment in **discrete text diffusion** — warm-started from the post-trained Gemma 4 26B-A4B checkpoint, this encoder-decoder model (shared weights, bidirectional attention) denoises **256-token blocks in parallel** in ~12 forward passes, i.e. ~20 tokens per forward pass versus the ~3–6 that state-of-the-art speculative decoding achieves. The result is a new intelligence-to-speed Pareto point: ~1,479 tokens/second on a single H100 (5× the AR baseline's 303 tok/s under MTP serving, up to 2,000 tok/s on an RTX 6000 per Unsloth), on ~18GB of quantized VRAM — a single consumer GPU. The price is accuracy: against its own AR parent it gives up 5.0 points of MMLU-Pro, 19.2 of AIME, 8.0 of LCB, 9.1 of GPQA and 19.5 of MMMU-Pro. It also retains AR decoding, so requests can be routed by latency needs.
-- **Provider / access:** Open weights (Apache 2.0) on Hugging Face (`google/diffusiongemma-26B-A4B-it`); NVIDIA NIM (BF16, NVFP4 via Model Optimizer); build.nvidia.com.
+- **Provider / access:** Open weights (Apache 2.0) on Hugging Face (`google/diffusiongemma-26B-A4B-it`); NVIDIA NIM (BF16, NVFP4 via Model Optimizer); build.nvidia.com. Artificial Analysis lists it as self-hostable with no first-party API route.
 - **Release:** 2026-06-10; knowledge cutoff January 2025.
-- **Context window:** 256K tokens.
-- **Modalities:** Text, image and video in → text out (inherited multimodal stack); configurable thinking; native function calling; 140+ languages (35+ per NVIDIA's card).
+- **Context window:** 256K tokens (AA lists 256k).
+- **Modalities:** Text, image and video in → text out (inherited multimodal stack; AA's page independently confirms text+image+**video** input); configurable thinking; native function calling; 140+ languages (35+ per NVIDIA's card).
 - **Pricing:** free open weights (Apache 2.0); runs single-GPU after quantization.
-- **Architecture:** 25.2B total / 3.8B active MoE; two-stage fine-tune using <10% of the AR model's training-token budget; Entropy-Bounded (EB) sampler with adaptive stopping is the recommended decode path.
+- **Architecture:** 25.2B total / 3.8B active MoE (re-confirmed on AA 2026-10-19); two-stage fine-tune using <10% of the AR model's training-token budget; Entropy-Bounded (EB) sampler with adaptive stopping is the recommended decode path.
 
 ### Raw benchmarks found
 
@@ -47,10 +47,17 @@ Mode comparison (tech report Table 3): TD 69.1 AIME / 73.2 GPQA / 69.1 LCB vs th
 
 Quantization (NVIDIA NVFP4 vs BF16 baseline, thinking on): GPQA 68.6 vs 69.4; AIME 67.33 vs 68.33; GSM8K 94.01 vs 94.54; IFEval 94.56 vs 94.01; HumanEval 95.00 vs 94.09; MMMLU 88.13 vs 88.50; MMLU-Pro 80.7 vs 81.0.
 
+**New in the 2026-10-19 re-run:**
+
+- Artificial Analysis Intelligence Index: **10** (estimated; #45/141 in its open-weight size class, above the class median of 8) — the independent composite lands exactly where the vendor card's parent-vs-diffusion deltas predicted
+- AA independently confirms 25.2B/3.8B parameters, Apache 2.0, 256k context, text+image+video input, text output
+
 ### Normalized scores (1–100)
 
+Re-run verdict 2026-10-19: **scores unchanged.** The independent composite (Index 10, above its size-class median but far below frontier) and AA's spec confirmations corroborate the vendor-card evidence the scores were built on; no new measurements move any dimension.
+
 - **Tool use: 52/100.** Tau2 (3-domain average) 56.2% is the only agentic number; no Terminal-Bench, MCP Atlas or GDPval run exists for this model, so mid-band on a single eval.
-- **Reasoning: 55/100.** MMLU-Pro 77.6%, GPQA 73.2%, AIME 69.1% and HLE 11.0% — mid-band, and uniformly 5–19 points below the AR Gemma 4 26B-A4B it was fine-tuned from.
+- **Reasoning: 55/100.** MMLU-Pro 77.6%, GPQA 73.2%, AIME 69.1% and HLE 11.0% — mid-band, and uniformly 5–19 points below the AR Gemma 4 26B-A4B it was fine-tuned from; AA's Index 10 (estimated) is consistent.
 - **Context window: 62/100.** 256K is the 200K–500K band (65–84) with MRCR 8-needle 128K at 32.0% — weak retrieval even at half the window.
 - **Multimodal: 66/100.** Text + image + video in → text out is the 75–90 band; docked to the 60s because the diffusion conversion costs the vision stack heavily — MMMU-Pro 54.3% vs the AR model's 73.8%, OmniDocBench 0.319 vs 0.149.
 - **Coding: 55/100.** LiveCodeBench 69.1% and Codeforces 1,429 are mid-band; GSM8K 96.3% and HumanEval 95.0% (NVFP4) show solid classic problem-solving, but the ~19-point LCB deficit to the AR parent defines the tier.
@@ -61,6 +68,6 @@ Quantization (NVIDIA NVFP4 vs BF16 baseline, thinking on): GPQA 68.6 vs 69.4; AI
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Google model card, Hugging Face card, technical report arXiv:2608.00146, NVIDIA NIM/build cards, DataNorth coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research, re-run 2026-10-19 — Artificial Analysis model page (Index 10, spec confirmations incl. video input) plus the Google model card, Hugging Face card, technical report arXiv:2608.00146, NVIDIA NIM/build cards and DataNorth coverage (original run); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DiffusionGemma_31B.md`, using the same headings.

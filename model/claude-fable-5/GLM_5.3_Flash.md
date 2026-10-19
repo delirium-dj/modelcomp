@@ -1,7 +1,7 @@
 # Claude Fable 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -77,6 +77,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5 & Mythos 5 system card, ARC Prize verified results, Vals AI / Cursor / Proximal / Cognition / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath v2 87.0/90.2 (elite Tier 4) and MazeBench 11% added — Reasoning 91→92, Overall 87 holds (87.4)); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (AA model page fetched live — confirms Index 50 #20/217, $10/$50, $8.75/task, 1M context, text+image in; adds the AA deprecation banner with benchmarking limited to 10k-input workloads and re-measured speed 67.9 tok/s / TTFT 74.7s; Bing web search found no new independent MCP-Atlas/Claw-Eval/MRCR rows). No evidence supports a score change — all seven scores carried unchanged from the 2026-10-16 pass, which drew on AA, the Anthropic system card via benchlm.ai, ARC Prize verified results, Vals/Cursor/Proximal/Cognition/NeoCognition leaderboards and Epoch AI. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

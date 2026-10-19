@@ -1,0 +1,53 @@
+# LongCat 2.0 — findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: opencode.ai/data/meituan (usage stats), opencode.ai/data/compare pages (longcat-2.0 vs mercury-2.5), benchmarklist.com/compare (longcat-2.0 vs mercury-2.5, "0 benchmarks"), github.com/meituan-longcat/LongCat-2.0 (organization repo)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.0 (Meituan)
+- **Short description:** Meituan's open-weight LongCat model, released 2026-06-30; opencode.ai usage data shows 479B tokens over 2 months, 56K unique users, #34 by tokens; 1M context window (per opencode.ai data/compare vs longcat-2.5-preview); text in / text out; open weights.
+- **Provider / access:** Meituan; Hugging Face (implied by github.com/meituan-longcat/LongCat-2.0 repo); opencode.ai usage data.
+- **Release / knowledge:** Released 2026-06-30; knowledge cutoff not stated.
+- **IDs:** `longcat-2.0` (opencode.ai; benchlm compare), `meituan/longcat-2.0` (likely HF).
+- **Context window:** 1M tokens (opencode.ai data/compare pages list 1M for both longcat-2.0 and longcat-2.5-preview). Unverified against public retrieval benchmarks.
+- **Modalities:** Text in, text out (text-only — NOT multimodal; native multimodal arrived with LongCat 2.5 Preview per lookonchain announcement); reasoning yes; tool calls yes (agent work).
+- **Pricing (as of 2026-10-16):** benchlm compare tables list $0.00/$0.00 (open-weight placeholder); actual hosted pricing not found.
+- **Architecture:** Undisclosed (parameter count, MoE/dense, training recipe not found in fetched sources).
+
+### Raw benchmarks found
+
+**None.** benchmarklist.com compare (longcat-2.0 vs mercury-2.5) shows "0 benchmarks" / "No matching rows" for longcat-2.0. benchlm.ai has no model page found for longcat-2.0. opencode.ai shows usage stats but no benchmarks. github.com/meituan-longcat/LongCat-2.0 repo exists but no evaluation results found in fetched sources.
+
+Agent / tool use: Claimed for agent work; no scored agent benchmarks found.
+Reasoning / knowledge: No public scores found.
+Coding: No public scores found.
+Multimodal & grounded: Text-only (multimodal is 2.5 Preview); no vision benchmarks.
+Long context: Declared 1M; no public retrieval score.
+Instruction following: No public scores found.
+
+### Conflicting results noted
+
+- None — there are no benchmark results at all. All capability claims are unverified in public sources.
+
+### Normalized scores (1–100)
+
+**No public benchmark evidence exists.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+
+- **Tool use: insufficient evidence.** No public agent benchmarks.
+- **Reasoning: insufficient evidence.** No public reasoning benchmarks.
+- **Context window: 75/100.** Declared 1M tokens (spec sheet only); no retrieval score.
+- **Multimodal: 50/100.** Text in / text out only — NOT multimodal.
+- **Coding: insufficient evidence.** No public coding benchmarks.
+- **Cost efficiency: not scored** (per formula).
+- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
+- Method: public internet research (opencode.ai/data + benchmarklist.com + github.com/meituan-longcat/LongCat-2.0); zero public benchmark results found — no numeric scores assigned due to insufficient evidence.
+- Future sources: if benchmarks are published, add a new file next to this one using the same headings.

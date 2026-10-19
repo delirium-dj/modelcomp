@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-haiku-4-5-20251001`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (2026-10-09 pass: BenchLM tables citing Vals AI, Epoch AI, VulcanBench and the Anthropic announcement — official plus independent sources, conflicts compared; 2026-10-16 re-check against BenchLM's 2026-10-15 refresh: no material new rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research (2026-10-09 pass: BenchLM tables citing Vals AI, Epoch AI, VulcanBench and the Anthropic announcement; 2026-10-16 re-check against BenchLM's 2026-10-15 refresh; 2026-10-19 enrichment re-check: AA has no dedicated model page under the tried slug (404), a Bing search surfaced no new independent evaluations, and the live Zen roster still lists `claude-haiku-4-5` despite the Oct 15, 2026 retirement horizon having arrived — availability continues). No evidence supports a score change — all seven scores carried. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Haiku_5.5.md`, using the same headings.

@@ -1,0 +1,78 @@
+# Grok 5 — findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: web search (grok-5 model, benchmark, model card, xAI) — no results returned for a distinct "grok-5" model; public xAI releases at research date are the Grok 4.x family (Grok 4, 4.1, 4.20, 4.3, 4.5, 4.6, 4.7)
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 — identity unconfirmed
+- **Short description:** Slug `grok-5` appears in model-queue.md (curated Overall 62.5). No public model card, technical report, benchmark table, or repository found in fetched sources for a model literally named "grok-5"; xAI's public releases at research date are the Grok 4.x family. This report draws on Grok 4.5 (benchlm #41/954, 63.27) and Grok 4.7 (media.x.ai model card) as the closest xAI references, explicitly flagged as not grok-5-specific.
+- **Provider / access:** xAI API, Grok app, Grok Build, Cursor, OpenRouter (per opencode.ai data for Grok 4.x).
+- **Release / knowledge:** Grok 4.5 released 2026-07-16 (llm-stats); Grok 4.7 model card dated 2026-09-21 (media.x.ai). Grok 5 release date/knowledge cutoff not established from public sources.
+- **IDs:** `grok-5` (model-queue slug); xAI public IDs observed: grok-4-5, grok-4-6, grok-4-7 (opencode.ai data). No confirmed `grok-5` API ID found.
+- **Context window:** Grok 4.x family: 500K (opencode.ai data for grok-4.5/4.6/4.7). Grok-5-specific context undisclosed.
+- **Modalities:** Grok 4.5: text+image in, text out (opencode.ai data); Grok 4.7: text+image+pdf in. Grok-5-specific modalities undisclosed.
+- **Reasoning:** yes (xAI models are reasoning-capable); tool calls yes.
+- **Pricing (as of 2026-10-16):** Grok 4.5: $2.00/M input, $6.00/M output (the-decoder.com; opencode.ai data); Grok 4.7 same. Grok-5 pricing undisclosed.
+- **Architecture:** xAI proprietary; trained on tens of thousands of Nvidia GB300 GPUs (grok-4.5 per the-decoder.com); parameter count undisclosed for grok-4.x/5.
+
+### Raw benchmarks found (Grok 4.x family — NOT grok-5-specific)
+
+Grok 4.5 (xAI launch post / benchlm.ai / the-decoder.com / llm-stats / vals.ai):
+
+Agent / tool use:
+- Terminal-Bench 2.1: **83.3%** (xAI launch post) — nearly matching GPT-5.5 (83.4%), trailing Fable 5 (84.3%) by 1 pt
+- SWE-Bench Pro: **64.7%** (xAI launch post)
+- deepSWE: **53%** (xAI launch post)
+- Terminal-Bench 2.1 (Vals): **67.8%** (Vals AI)
+- GDPval-AA: **44.2%** (AA) / **1430 Elo** (AA)
+- AA Agentic Index: **42.1%** (benchlm)
+
+Reasoning / knowledge:
+- GPQA Diamond: **93.1%** (AA-GPQA Diamond) / **92.9%** (Vals AI GPQA Diamond leaderboard)
+- MMLU-Pro: **89.2%** (Vals AI MMLU Pro leaderboard)
+- HLE: **42.7%** (AA-HLE)
+- ARC-AGI-2: **52.6%** / ARC-AGI-3: **0.3%** / ARC-AGI-1: **85.67%** (ARC Prize official)
+- AA-Omniscience: index 25.3%, accuracy 51.6%, hallucination rate 54.1% (benchlm)
+- AA-LCR: **79.3%** (benchlm)
+- CritPt: **15.4%** (benchlm)
+- Artificial Analysis Intelligence Index: **38.8%** (benchlm)
+
+Coding:
+- SWE-Bench Pro: **64.7%** — see above
+- SWE Multilingual: **78%** (Cursor)
+- CursorBench 3.2: **66.7%**
+- VulcanBench v3: **89.9%**
+
+Long context:
+- 500K context (opencode.ai data; llm-stats); AA-LCR 79.3% moderate; no public full-window retrieval curve.
+
+Instruction following: Not isolated for grok-4.5 in fetched sources.
+
+### Conflicting results noted
+
+- **No distinct grok-5 evidence exists** — all xAI figures above are grok-4.x family (primarily grok-4.5). Attributing them to grok-5 would be speculative; they are reported here only as the closest xAI reference with explicit caveats.
+- **Grok 4.5 hallucination rate:** AA-Omniscience hallucination rate 54.1% vs accuracy 51.6% — model knows more but is more confident when wrong (the-decoder.com).
+- **Price/performance:** Grok 4.5 $2/$6 per M (~4.2× fewer tokens than Opus 4.8 on SWE-Bench Pro per the-decoder.com) — cheap in its tier.
+
+### Normalized scores (1–100)
+
+**No grok-5-specific evidence exists.** All quality dimensions and Overall are marked insufficient evidence; no numeric grok-5 scores are assigned. Cost efficiency is not scored regardless.
+
+- **Tool use: insufficient evidence.** No grok-5-specific agent benchmarks.
+- **Reasoning: insufficient evidence.** No grok-5-specific reasoning benchmarks.
+- **Context window: insufficient evidence.** Grok-5 context undisclosed (4.x family: 500K).
+- **Multimodal: insufficient evidence.** Grok-5 modalities undisclosed (4.x family: text+image(+pdf)).
+- **Coding: insufficient evidence.** No grok-5-specific coding benchmarks.
+- **Cost efficiency: not scored** (per formula).
+- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
+- Method: public internet search; searched "grok-5" across official xAI sources, benchlm.ai, Artificial Analysis, llm-stats, the-decoder.com, opencode.ai, vals.ai — no distinct grok-5 model card, technical report, or benchmark table found. Closest public xAI evidence (Grok 4.5/4.7 family) summarized above with caveats but NOT attributed to grok-5. No numeric scores assigned due to insufficient evidence.
+- Future sources: if a grok-5 model card/benchmarks are published, add a new file next to this one using the same headings.

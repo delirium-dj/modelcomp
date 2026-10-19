@@ -1,0 +1,47 @@
+# Nemotron 3.5 Bolt E4B — findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: web search (nemotron-3.5-bolt-e4b model, benchmark, model card, NVIDIA) — no results returned
+- Date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B (NVIDIA) — identity unconfirmed
+- **Short description:** Slug `nemotron-3.5-bolt-e4b` appears in model-queue.md (curated Overall 41.0). No public model card, technical report, benchmark table, or repository found in fetched sources; no independent benchmark numbers exist for this slug.
+- **Provider / access:** Undisclosed (likely NVIDIA NIM/build.nvidia.com if it exists).
+- **Release / knowledge:** Undisclosed.
+- **IDs:** `nemotron-3.5-bolt-e4b` (model-queue slug). No HF/NVIDIA NIM ID confirmed.
+- **Context window:** Undisclosed.
+- **Modalities:** Undisclosed (text assumed, unconfirmed).
+- **Reasoning / tool calls / structured output:** Undisclosed.
+- **Pricing (as of 2026-10-16):** Undisclosed.
+- **Architecture:** Undisclosed (name suggests an "E4B" efficient Bolt variant, unverified).
+
+### Raw benchmarks found
+
+None.
+
+### Conflicting results noted
+
+- None — there are no results to conflict.
+
+### Normalized scores (1–100)
+
+**No evidence base exists for scoring.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+
+- **Tool use: insufficient evidence.** No public agent/tool benchmarks.
+- **Reasoning: insufficient evidence.** No public reasoning benchmarks.
+- **Context window: insufficient evidence.** Context undisclosed.
+- **Multimodal: insufficient evidence.** Modalities undisclosed.
+- **Coding: insufficient evidence.** No public coding benchmarks.
+- **Cost efficiency: not scored** (per formula).
+- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
+- Method: public internet search; model-queue.md lists the slug (Overall 41.0) but no public model card, benchmark, or review source was found. No numeric scores assigned due to insufficient evidence.
+- Future sources: if a model card or benchmarks are published, add a new file next to this one using the same headings.

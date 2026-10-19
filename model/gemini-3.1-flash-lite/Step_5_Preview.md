@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash-Lite — findings by Step 5 Preview
 
 - Source: Google (`gemini-3.1-flash-lite`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,30 +14,32 @@
 - **IDs:** `gemini-3.1-flash-lite` (GA); `gemini-3.1-flash-lite-preview` (shut down).
 - **Context window:** 1,048,576 tokens; 65,536 max output.
 - **Modalities:** Text, image, video, audio and PDF in → text out; thinking on by default (controllable budget); function calling, file search, search grounding, code execution, URL context; ASR/translation inherited from the family.
-- **Pricing (as of 2026-10-09):** $0.25 / MTok input (text/image/video; audio $0.50), $1.50 output; cache $0.025; Batch halves both.
+- **Pricing (as of 2026-10-19):** $0.25 / MTok input (text/image/video; audio $0.50), $1.50 output; cache $0.025; Batch halves both.
 - **Architecture:** Proprietary; based on the Gemini 3 Pro lineage (distilled/efficient variant).
 
 ### Raw benchmarks found
 
 Reasoning / knowledge (official model card + independent runs):
 
-- GPQA Diamond: **86.9%** (card, High); AA: 82.2–84.3%; BenchmarkList: 81.1%
+- GPQA Diamond: **86.9%** (card, High); AA: 82.2–84.3%; BenchmarkList: 81.1%; **Vals AI: 81.1%** (re-confirmed 2026-10-19)
 - HLE (no tools): **16.0%** (card) / 17.2% (ARMES) — the efficiency-tier ceiling
-- LiveCodeBench: **72.0%** (card) / 80.1% (BenchmarkList)
-- MMLU-Pro: **86.2%** (AA); MMMLU: 88.9% (card); SimpleQA Verified: 43.3% (card)
+- LiveCodeBench: **72.0%** (card) / 80.1% (BenchmarkList); **Vals AI: 80.1%** (re-confirmed 2026-10-19)
+- MMLU-Pro: **86.2%** (AA); **Vals AI: 86.2%** (re-confirmed); MMMLU: 88.9% (card); SimpleQA Verified: 43.3% (card)
 - Artificial Analysis Intelligence Index: **15.6–16** (rebased); Vals Index: 15.46%
-- FACTS Benchmark Suite: 40.6% (card); CharXiv Reasoning: 73.2% (card)
+- FACTS Benchmark Suite: 40.6% (card); CharXiv Reasoning: **73.2%** (card, re-confirmed via BenchLM 2026-10-19)
+- **New in the 2026-10-19 re-run (BenchLM, 11 rows):** Epoch AI FrontierMath v2 (Tiers 1–3) **27.7%** (weak — consistent with the HLE ceiling); JevBench v1.4 **14.26** / v1.5 **19.58**; BenchLM aggregate **47.0** (#113/956)
 
 Coding:
 
-- SWE-bench Verified: **62.8%** (AA, high — #60/72)
-- Terminal-Bench Hard: **24.2%** (AA); Terminal-Bench 2.1: 34.1% (AA); Terminal-Bench 2.0: 24.7%
-- Vibe Code Bench v1.1: **0.0%** (Vals); Code Migration: 4.6% (Vals); FrontierCode: 4.8% (BenchmarkList)
+- SWE-bench Verified: **62.8%** (AA, high — #60/72); **Vals AI: 62.8%** (re-confirmed 2026-10-19)
+- Terminal-Bench Hard: **24.2%** (AA); Terminal-Bench 2.1: **34.1%** (AA; Vals AI 34.1% — re-confirmed); Terminal-Bench 2.0: 24.7%
+- Vibe Code Bench v1.1: **0.0%** (Vals, re-confirmed); Code Migration: 4.6% (Vals); FrontierCode: 4.8% (BenchmarkList)
 - SWE-bench Pro / DeepSWE / LiveCodeBench Pro: **no verified public score found**
 
 Agentic / tool use:
 
 - MCP-Atlas: **57.1%** (#44/48); τ³-Banking: 9.7% (#99/176); τ²-Bench Telecom: 31.3% (BenchmarkList)
+- **New in the 2026-10-19 re-run:** Gert Labs **38.46%** (agentic, mid-weak)
 - GDPval-AA / BrowseComp / Toolathlon / Claw-Eval: **no verified public score found**
 
 Multimodal:
@@ -51,11 +53,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 52/100.** MCP-Atlas 57.1% is the only real tool-use signal; τ³-Banking 9.7%, τ² Telecom 31.3% and Terminal-Bench 2.1 34.1% sit in the low-mid band, and no GDPval/BrowseComp/Claw-Eval data exists — this is a high-throughput tier, not an agent tier.
-- **Reasoning: 66/100.** GPQA 82–87%, MMLU-Pro 86.2% and LiveCodeBench 72–80% are strong for the price class; capped by HLE 16–17%, the AA Intelligence Index of 15.6–16 and a Vals Index of 15.5% — mid-tier by current standards.
+Re-run verdict 2026-10-19: **scores unchanged.** The BenchLM re-run re-confirmed the model's Vals/AA numbers (GPQA 81.1%, SWE-bench 62.8%, TB 2.1 34.1%, Vibe 0.0%) and added two consistent rows — FrontierMath v2 27.7% (weak, matching the HLE-16% ceiling already priced into Reasoning 66) and Gert Labs 38.5% (mid-weak, matching Tool use 52).
+
+- **Tool use: 52/100.** MCP-Atlas 57.1% is the only real tool-use signal; τ³-Banking 9.7%, τ² Telecom 31.3%, the new Gert Labs 38.5% and Terminal-Bench 2.1 34.1% sit in the low-mid band, and no GDPval/BrowseComp/Claw-Eval data exists — this is a high-throughput tier, not an agent tier.
+- **Reasoning: 66/100.** GPQA 81–87%, MMLU-Pro 86.2% and LiveCodeBench 72–80.1% are strong for the price class; capped by HLE 16–17%, the new FrontierMath v2 27.7%, the AA Intelligence Index of 15.6–16 and a Vals Index of 15.5% — mid-tier by current standards.
 - **Context window: 88/100.** 1M-token window in the ≥1M tier, matching Gemini 2.5 Flash's long-context design; MRCR 60.1% at 128K and AA-LCR 74% support it, while the 12.3% 1M pointwise figure and the lack of a 512K+ needle number keep it below the top of the band.
-- **Multimodal: 90/100.** Text + image + video + audio + PDF in → text out is the top modality band, anchored by MMMU-Pro 76.8–82.5% and Video-MMMU 84.8% — full-spectrum multimodal input at the lowest tier price.
-- **Coding: 62/100.** SWE-bench Verified 62.8% and LiveCodeBench 72–80.1% are mid-pack; Terminal-Bench Hard 24.2%, Vibe Code Bench 0.0% and Code Migration 4.6% confirm the end-to-end and agentic-coding gap.
+- **Multimodal: 90/100.** Text + image + video + audio + PDF in → text out is the top modality band, anchored by MMMU-Pro 76.8–82.5%, Video-MMMU 84.8% and CharXiv 73.2% — full-spectrum multimodal input at the lowest tier price.
+- **Coding: 62/100.** SWE-bench Verified 62.8% (Vals-confirmed) and LiveCodeBench 72–80.1% are mid-pack; Terminal-Bench Hard 24.2%, Vibe Code Bench 0.0% and Code Migration 4.6% confirm the end-to-end and agentic-coding gap.
 - **Cost efficiency: 94/100.** $0.25/$1.50 per MTok with $0.025 cache reads and 50%-off batch maps just above the methodology's ~$0.10/$0.20 = 97–99 tier — the cheapest full-multimodal 1M-context model in the Gemini line.
 - **Overall Score: 72/100.** Best-fit recommendation: the volume tier — Gemini-2.5-Flash-class quality with full multimodal input and 1M context at $0.25/$1.50 for high-frequency extraction, classification and routing; not for agentic coding.
 
@@ -63,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Google DeepMind Gemini 3.1 Flash-Lite model card + launch blog + GA docs, Artificial Analysis, Vals AI, BenchmarkList, ARMES, TokenCost); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research, re-run 2026-10-19 — BenchLM's 11-row aggregate (Vals AI re-confirmations of SWE-bench/TB 2.1/LCB/GPQA/MMLU-Pro, Gert Labs, FrontierMath v2, JevBench, CharXiv); original run used the Google DeepMind Gemini 3.1 Flash-Lite model card + launch blog + GA docs, Artificial Analysis, Vals AI, BenchmarkList, ARMES and TokenCost. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.1_Flash.md`, using the same headings.

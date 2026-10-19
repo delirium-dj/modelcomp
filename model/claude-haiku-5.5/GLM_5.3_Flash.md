@@ -1,7 +1,7 @@
 # Claude Haiku 5.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-haiku-5-5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Haiku 5.5 system card + launch post, Artificial Analysis independent boards (LCR/HLE/SciCode/Harvey/Omniscience) via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath v2 75.1/46.3, MLCR 63.3%, FrontierSWE v2 43.8% added — Reasoning 78→80, Coding 66→68, Overall 79→80); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (AA model page `https://artificialanalysis.ai/models/claude-haiku-5-5` fetched live — confirms Index 43 #3/173, $0.10/$0.50, 1M context, text+image in, and adds max-effort measurements: 232.2 tok/s (#16/151), TTFT 258.5s, and extreme max-effort verbosity 440M index tokens, #68/68; a Bing search for SWE-bench/GPQA rows found nothing new — both gaps stand). No evidence supports a score change — all seven scores carried from the 2026-10-16 pass. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

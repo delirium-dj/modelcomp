@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5-1`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-fable-5-1` / Bedrock `anthropic.claude-fable-5-1`. Mythos twin: `claude-mythos-5-1`.
 - **Context window:** 1,000,000 tokens (default and max, standard pricing across the window); 128,000 max output on the Messages API — verified on Anthropic platform docs (models overview table re-checked 2026-10-11) and AA.
 - **Modalities:** Text, image, PDF in; text out. Thinking: adaptive, always on (cannot be disabled); effort low–max, default high. Tool use, structured outputs, computer use supported.
-- **Pricing (as of 2026-10-11):** $10.00 in / $50.00 out per 1M (same as Fable 5; AA confirms, blended $7.17); cache reads $0.25 (2.5% of base input — every other Claude model is 5–10%); Batch $5/$25. AA measured $7.63 per Intelligence Index task (most expensive in class; 190M output tokens across the Index, 66.8 tok/s, TTFT 249.7s). No free API tier; 30-day data retention required.
+- **Pricing (as of 2026-10-19):** $10.00 in / $50.00 out per 1M (same as Fable 5; AA confirms, blended $7.17); cache reads $0.25 (2.5% of base input — every other Claude model is 5–10%); Batch $5/$25. AA measured $7.63 per Intelligence Index task (most expensive in class; 190M output tokens across the Index, speed re-measured 2026-10-19 at 68.7 tok/s, TTFT 191.0s). No free API tier; 30-day data retention required.
 - **Architecture:** Proprietary, closed weights; parameters undisclosed. Same tokenizer as Fable 5 (~30% more tokens per text than pre-4.7 models).
 
 ### Raw benchmarks found
@@ -79,6 +79,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: artificialanalysis.ai model page, benchlm.ai updated 2026-10-10 citing the Fable 5.1 & Mythos 5.1 system card, Vals AI / Cursor / Proximal / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: the FrontierMath conflict resolves upward via Epoch v2 (90.2/87.8 elite) and MazeBench/Bug-Hunt rows added — Reasoning 94→95, Overall 91 holds (91.4)); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (AA model page fetched live — confirms Index 53 #5/217, $10/$50, $7.63/task, 1M context, text+image in, and re-measured speed 68.7 tok/s / TTFT 191.0s; Bing searches for a 5.1-specific SWE-bench Verified row and new agentic rows found nothing — the gap stands). No evidence supports a score change — all seven scores carried unchanged from the 2026-10-16 pass (AA, system card via benchlm.ai, Vals/Cursor/Proximal/NeoCognition, Epoch AI FrontierMath v2). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

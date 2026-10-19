@@ -1,0 +1,9 @@
+{
+  "id": "opencode/longcat-2.5-preview",
+  "name": "Longcat 2.5 Preview",
+  "short": "Longcat 2.5 Preview model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}
