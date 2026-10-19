@@ -5,5 +5,6 @@
   "contextWindow": "262,144 native (extensible to ~1,010,000; 1M hosted)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "AA $0.60/$3.60 per 1M; Apache 2.0 open weights (free self-host)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

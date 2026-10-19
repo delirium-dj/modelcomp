@@ -5,5 +5,6 @@
   "contextWindow": "1,000,000 total; 128,000 max output",
   "modalities": "Text, image in; text out",
   "pricingNote": "$10/$50 per 1M; cache read $1/MTok (90% off)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://anthropic.com"
 }

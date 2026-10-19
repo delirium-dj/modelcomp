@@ -9,5 +9,6 @@
   "pricingTiers": [
     "Free Zen stealth tier ($0)",
     "Free on OpenCode Go (Go plan) and Vercel AI Gateway"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=cat-jam"
 }

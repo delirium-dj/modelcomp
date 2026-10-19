@@ -5,6 +5,11 @@
   "contextWindow": "1M total (262K output; 1M via continuation)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Intro $2/$10 per 1M; then $4/$20",
-  "pricingTiers": ["Intro $2.00/$10.00 per 1M in/out", "Standard $4.00/$20.00 per 1M in/out", "Cached input $0.10 per 1M"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Intro $2.00/$10.00 per 1M in/out",
+    "Standard $4.00/$20.00 per 1M in/out",
+    "Cached input $0.10 per 1M"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://deepmind.google/technologies/gemini/"
 }

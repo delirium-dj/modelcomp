@@ -5,5 +5,6 @@
   "contextWindow": "1M total",
   "modalities": "Text in/out",
   "pricingNote": "Zen paid $1.40 in / $4.40 out per 1M (cached read $0.26); no Free ID",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://zhipuai.cn"
 }

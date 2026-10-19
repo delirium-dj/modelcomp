@@ -5,5 +5,6 @@
   "contextWindow": "2M / 64K out",
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",
-  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen"
+  "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen",
+  "officialUrl": "https://deepmind.google/technologies/gemini/"
 }

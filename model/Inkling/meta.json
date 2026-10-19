@@ -5,6 +5,10 @@
   "contextWindow": "1,000,000 total (weights; hosts serve 64K–1M)",
   "modalities": "Text, image, audio in; text out",
   "pricingNote": "Paid hosted ~$1.00/$4.05 per 1M; $0 routes exist",
-  "pricingTiers": ["Paid hosted ~$1.00/$4.05 per 1M in/out", "Free $0: OpenRouter inkling:free, NVIDIA build, Apache-2.0 self-host"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Paid hosted ~$1.00/$4.05 per 1M in/out",
+    "Free $0: OpenRouter inkling:free, NVIDIA build, Apache-2.0 self-host"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=Inkling"
 }

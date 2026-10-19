@@ -5,6 +5,11 @@
   "contextWindow": "128K total (131,072)",
   "modalities": "Text in/out only",
   "pricingNote": "Apache 2.0 open weights (self-host $0); hosted ~$0.04–$0.15/$0.17–$0.60 per 1M",
-  "pricingTiers": ["Apache 2.0 open weights (self-host $0, single 80GB GPU)", "Hosted ~$0.04/$0.18 per 1M (DeepInfra/Geodd)", "Hosted ~$0.09–$0.15/$0.45–$0.60 per 1M (OpenAI/Fireworks/Bedrock)"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Apache 2.0 open weights (self-host $0, single 80GB GPU)",
+    "Hosted ~$0.04/$0.18 per 1M (DeepInfra/Geodd)",
+    "Hosted ~$0.09–$0.15/$0.45–$0.60 per 1M (OpenAI/Fireworks/Bedrock)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

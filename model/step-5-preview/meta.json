@@ -5,5 +5,9 @@
   "contextWindow": "1M total (1,000,000 in / 64K out)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "$1.00/$2.70 per MTok ($0.10 cache hit); no free tier",
-  "pricingTiers": ["$1.00 in / $2.70 out per MTok ($0.10 cache-hit input)", "Rate-limit tier V0 (under $15 cumulative top-up): 5 concurrency, 100 RPM, 500K TPM"]
+  "pricingTiers": [
+    "$1.00 in / $2.70 out per MTok ($0.10 cache-hit input)",
+    "Rate-limit tier V0 (under $15 cumulative top-up): 5 concurrency, 100 RPM, 500K TPM"
+  ],
+  "officialUrl": "https://www.stepfun.com"
 }

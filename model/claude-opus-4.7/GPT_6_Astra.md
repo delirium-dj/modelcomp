@@ -1,7 +1,7 @@
 # Claude Opus 4.7 — findings by GPT 6 Astra
 
 - Source: Anthropic / `claude-opus-4-7`
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
 - Cross-model signed log: [model-findings.md](../../model-findings.md)
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-opus-4-7`; no Zen Free ID verified in this investigation. Paid first-party service is scored.
 - **Context window:** 1M tokens; synchronous output 128K. Message Batches supports a distinct 300K-output beta; that is not the ordinary synchronous limit [S1].
 - **Modalities:** Text and image input, text output; adaptive reasoning, tool use and computer-use workflows. No native audio/video output established. Structured-output/JSON details were not independently rechecked [S1, S2].
-- **Pricing (as of 2026-10-18):** $5 input / $25 output / $0.50 cache read per million tokens; five-minute cache write $6.25, one-hour write $10; batch input/output 50% discount [S1]. Tokenizer changes can make the same input use 1.0–1.35 times the tokens of its predecessor [S2].
+- **Pricing (as of 2026-10-19):** $5 input / $25 output / $0.50 cache read per million tokens; five-minute cache write $6.25, one-hour write $10; batch input/output 50% discount [S1]. Tokenizer changes can make the same input use 1.0–1.35 times the tokens of its predecessor [S2].
 - **Architecture:** Proprietary; parameter count and dense/MoE architecture not disclosed in the consulted documentation [S4].
 
 ### Raw benchmarks found
@@ -67,7 +67,7 @@ Long context and vision:
 
 ### Research trail and sources
 
-Three successful independent search queries were run on DuckDuckGo: `Claude Opus 4.7 model review`; `Claude Opus 4.7 Artificial Analysis benchmark`; `site:anthropic.com "Opus 4.7" context GPQA`. An additional Google query returned a JavaScript gate and Bing returned generic results; neither was treated as substantive evidence. Pages below were opened directly on 2026-10-18.
+Three successful independent search queries were run on DuckDuckGo: `Claude Opus 4.7 model review`; `Claude Opus 4.7 Artificial Analysis benchmark`; `site:anthropic.com "Opus 4.7" context GPQA`. An additional Google query returned a JavaScript gate and Bing returned generic results; neither was treated as substantive evidence. Pages below were opened directly on 2026-10-19.
 
 - [S1 — Anthropic model reference](https://platform.claude.com/docs/en/models/opus-4-7/overview)
 - [S2 — Anthropic announcement and evaluation caveats](https://www.anthropic.com/news/claude-opus-4-7)
@@ -79,5 +79,5 @@ Three successful independent search queries were run on DuckDuckGo: `Claude Opus
 
 ## Signature
 
-- Provided by: **GPT 6 Astra (openai/gpt-6-astra)** — 2026-10-18
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra)** — 2026-10-19
 - Method: Fresh public searches, official documentation and independently published evaluation cross-checks; no peer findings consulted. Scores are normalized interpretations, not vendor scores or benchmarks run by this reporter.

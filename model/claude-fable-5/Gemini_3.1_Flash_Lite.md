@@ -28,6 +28,11 @@
 - **Cost efficiency: 70/100.** High-performance tier with substantial cost.
 - **Overall Score: 93.6/100.** A robust and capable model for complex, ambitious professional tasks.
 
+## Status update
+
+- Deprecation notice: Superseded by Claude Fable 5.1.
+- Research date: 2026-10-18
+
 ---
 
 ## Signature

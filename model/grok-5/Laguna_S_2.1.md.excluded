@@ -1,7 +1,7 @@
 # Grok 5 — findings by Laguna S 2.1
 
 - Source: Artificial Analysis (`https://artificialanalysis.ai/models/grok-5`), BenchLM (`https://benchlm.ai/models/grok-5`), OpenRouter (`https://openrouter.ai/models/grok-5`), xAI (`https://x.ai`)
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-02 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-02 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,10 +36,13 @@ Zero verified public benchmarks exist for the exact model ID "grok-5" on AA, Ben
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research via Artificial Analysis (403), BenchLM (404), OpenRouter, xAI/X, and Hugging Face; zero-influence: did not read peer `model/` findings files during research.
 - Sources cited: `https://artificialanalysis.ai/models/grok-5`, `https://benchlm.ai/models/grok-5`, `https://openrouter.ai/models/grok-5`, `https://x.ai`, `https://huggingface.co/models?search=grok-5`
 - Zero-influence: did not read peer `model/` findings files during research.
 - Future sources: add a new file next to this one, e.g. `Grok_5.md`, using the same headings.
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

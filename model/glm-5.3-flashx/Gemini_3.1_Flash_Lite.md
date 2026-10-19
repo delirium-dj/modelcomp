@@ -1,7 +1,7 @@
 # GLM 5.3 FlashX — findings by Gemini 3.1 Flash Lite
 
 - Source: Zhipu AI / GLM 5.3 FlashX (`glm-5.3-flashx`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

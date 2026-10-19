@@ -9,5 +9,6 @@
     "AA median $1.00 in / $3.20 out per 1M",
     "MIT open weights (self-host free)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://zhipuai.cn"
 }

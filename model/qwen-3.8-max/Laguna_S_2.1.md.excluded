@@ -1,7 +1,7 @@
 # Qwen3.8 Max — findings by Laguna S 2.1
 
 - Source: Alibaba (`alibaba/qwen3-8-max`)
-- Date: 2026-10-10
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,11 +63,13 @@ Long context:
 - **Cost efficiency: — /100.** $2.00 in / $6.00 out per 1M tokens (spec); scores are ignored in this exclusion.
 - **Overall Score: EXCLUDED.** Zero verified public benchmark numbers found for this exact ID (`alibaba/qwen3-8-max`) across 5 independent sources. Self-excluded per `model-comparison.md` SELF-EXCLUSION rule; this file carries no scorable evidence and must not influence `average.md`.
 
+Re-verification (2026-10-17): Confirmed BenchLM HTTP 404 (no page exists for `qwen-3-8-max`) and AA 404 — zero verified public benchmarks for this model ID.
+
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-10
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1)** — 2026-10-17
 - Method: fresh public internet research (BenchLM.ai, ArtificialAnalysis.ai, qwen.ai, OpenRouter, HuggingFace); zero verified public benchmarks found for this exact model — report self-excluded, no scores emitted.
 - Future sources: if `alibaba/qwen3-8-max` is attributed to a specific release with public evals, or if direct benchmarks are published, replace this twin with a scored `Laguna_S_2.1.md` (own-twin rule, `tasks/research.md` Step 3.3).
 

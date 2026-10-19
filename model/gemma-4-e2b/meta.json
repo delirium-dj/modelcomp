@@ -8,5 +8,6 @@
   "pricingTiers": [
     "Open weights (Apache 2.0, self-host)",
     "Hosted ~$0.04/$0.08 per 1M"
-  ]
+  ],
+  "officialUrl": "https://ai.google.dev/gemma"
 }

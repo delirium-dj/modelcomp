@@ -5,5 +5,6 @@
   "contextWindow": "400,000 total (128,000 out)",
   "modalities": "Text in/out",
   "pricingNote": "Paid $1.75/$14.00 per 1M; $0.175 cached",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

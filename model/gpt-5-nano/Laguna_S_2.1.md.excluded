@@ -1,7 +1,7 @@
 # GPT-5 nano — self-exclusion by Laguna S 2.1
 
 - Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/gpt-5-nano`), OpenAI
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,10 +45,14 @@ This model is therefore **self-excluded** from scoring. The model's `average.md`
 
 Note: `meta.json` discrepancies identified — meta.json lists 128K context window and text-only modalities, but the AA model page shows 400K context window with text+image input support. This suggests `meta.json` may be a placeholder or incorrect for this model.
 
+Re-verification (2026-10-17): Confirmed BenchLM page exists but 0/639 benchmarks covered ('Coming soon') — zero verified public benchmarks for this model ID.
+
 ---
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research via Artificial Analysis, BenchLM, OpenAI, Vals AI, and BenchLM sibling comparison; zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — zero verified public benchmark numbers found after re-verification (AA 403/blocked; BenchLM shows 0 of 639 benchmarks, "Coming soon"; no official announcement with benchmarks; 14 months post-release with no scores).
+
+

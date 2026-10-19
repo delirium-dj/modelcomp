@@ -5,5 +5,9 @@
   "contextWindow": "262K native (1M via YaRN; 33K output)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "~$0.42/$3.00 per 1M; $0 self-host",
-  "pricingTiers": ["API ~$0.42/$3.00 per 1M in/out", "Self-hosted $0 (Apache 2.0 open weights)"]
+  "pricingTiers": [
+    "API ~$0.42/$3.00 per 1M in/out",
+    "Self-hosted $0 (Apache 2.0 open weights)"
+  ],
+  "officialUrl": "https://qwenlm.github.io"
 }

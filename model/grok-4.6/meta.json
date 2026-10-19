@@ -9,5 +9,6 @@
     "$2 in / $6 out per 1M, $0.50 cached (<200K prompt)",
     "$4 in / $12 out per 1M, $1 cached (>200K prompt)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://x.ai"
 }

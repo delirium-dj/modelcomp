@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Gemini 3.1 Flash Lite
 
 - Source: Anthropic/claude-opus-4.6
-- Date: 2026-10-08
+- Date: 2026-10-18
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 

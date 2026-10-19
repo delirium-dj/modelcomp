@@ -5,5 +5,6 @@
   "contextWindow": "262,144 native (extensible to 1M with YaRN)",
   "modalities": "Text/image/video in; text out",
   "pricingNote": "Open weights (Apache-2.0): self-hosting free, API provider pricing varies; no Zen Free ID",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

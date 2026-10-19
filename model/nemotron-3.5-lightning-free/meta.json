@@ -10,5 +10,6 @@
     "Free Zen tier / NVIDIA trial",
     "$0.08 in / $0.20 out per 1M ($0.04 cached input)",
     "OpenMDW open weights (self-host, commercial use permitted)"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-lightning-free"
 }

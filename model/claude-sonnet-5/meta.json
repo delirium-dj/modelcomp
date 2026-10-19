@@ -8,5 +8,6 @@
   "pricingTiers": [
     "Paid $3/$15 per 1M (no Zen Free ID)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://anthropic.com"
 }

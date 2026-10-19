@@ -5,5 +5,6 @@
   "contextWindow": "128,000 (128K) / 8,192 max output (some hosts advertise ~164K)",
   "modalities": "Text in/out only",
   "pricingNote": "DeepSeek API ~$0.21/$0.31 per 1M (cached input $0.022)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://deepseek.com"
 }

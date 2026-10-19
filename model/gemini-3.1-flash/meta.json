@@ -5,5 +5,6 @@
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",
-  "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash route)"
+  "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash route)",
+  "officialUrl": "https://deepmind.google/technologies/gemini/"
 }

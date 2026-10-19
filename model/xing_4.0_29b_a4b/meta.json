@@ -9,5 +9,6 @@
   "pricingTiers": [
     "Free promotional Zen tier",
     "Apache 2.0 open weights (self-host free)"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=xing_4.0_29b_a4b"
 }

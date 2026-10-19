@@ -5,6 +5,11 @@
   "contextWindow": "256K total (1,024-token sliding window, 256-token canvas; no max-output figure published)",
   "modalities": "Text, image in; text out (video supported as sampled frames, max 60s at 1 fps)",
   "pricingNote": "Apache 2.0 open weights (self-host $0); hosted $0–$0.50/$0–$0.50 per 1M",
-  "pricingTiers": ["Apache 2.0 open weights (self-host $0, ~24GB VRAM quantized)", "NVIDIA NIM $0/$0 per 1M", "nano-gpt $0.05/$0.15; Pioneer $0.50/$0.50 per 1M"],
-  "freeTierNote": "Apache 2.0 open weights self-host $0; NVIDIA NIM serves $0/$0"
+  "pricingTiers": [
+    "Apache 2.0 open weights (self-host $0, ~24GB VRAM quantized)",
+    "NVIDIA NIM $0/$0 per 1M",
+    "nano-gpt $0.05/$0.15; Pioneer $0.50/$0.50 per 1M"
+  ],
+  "freeTierNote": "Apache 2.0 open weights self-host $0; NVIDIA NIM serves $0/$0",
+  "officialUrl": "https://ai.google.dev/gemma"
 }

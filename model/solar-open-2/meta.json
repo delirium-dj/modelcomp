@@ -10,5 +10,6 @@
     "Self-host 4x H200 BF16 or 2x H200 quantized",
     "No published per-token price"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://upstage.ai"
 }

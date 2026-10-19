@@ -9,5 +9,6 @@
     "Paid $0.14/$0.28 (Xiaomi API)",
     "Cached input $0.0028"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=mimo-v2.6-flash"
 }

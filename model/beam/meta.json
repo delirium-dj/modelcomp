@@ -10,5 +10,6 @@
     "Free OpenCode Zen / Command Code tier",
     "Open weights Apache 2.0 (self-host free)",
     "AA provider median ~$0.70/$2.10 per 1M"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=beam"
 }

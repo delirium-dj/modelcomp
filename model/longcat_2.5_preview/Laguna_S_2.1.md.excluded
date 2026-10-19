@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — self-exclusion by Laguna S 2.1
 
 - Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`), Artificial Analysis (403), BenchLM (404)
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -46,8 +46,11 @@ This model is therefore **self-excluded** from scoring. The model's `average.md`
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research across OpenCode Zen docs, Artificial Analysis, BenchLM, HuggingFace, and web search; zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — zero verified public benchmark numbers found after re-verification (OpenCode docs confirms free preview model with no benchmarks; AA 403/blocked; BenchLM 404). Model released as limited-time free preview with zero-retention policy.
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

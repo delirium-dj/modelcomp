@@ -9,5 +9,6 @@
   "pricingTiers": [
     "Free Zen tier",
     "Paid equiv. GLM-4.6 ~$0.60/$2.20"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=big-pickle"
 }

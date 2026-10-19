@@ -5,5 +5,6 @@
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text in/out (image input listed on some routers, unverified)",
   "pricingNote": "~$0.30/$1.20 per 1M in/out (reseller input ~$0.20)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=longcat_2.5_preview"
 }

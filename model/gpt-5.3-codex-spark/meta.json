@@ -4,5 +4,6 @@
   "short": "OpenAI's Cerebras-distilled preview (128K, 1000+ tok/s) for real-time edits; matches Codex with 77.3% TB 2.0, retired.",
   "contextWindow": "128K total (max output undisclosed)",
   "modalities": "Text in/out only (text-only preview)",
-  "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)"
+  "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)",
+  "officialUrl": "https://openai.com"
 }

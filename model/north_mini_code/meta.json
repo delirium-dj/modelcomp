@@ -5,5 +5,6 @@
   "contextWindow": "256,000 total (64,000 max output)",
   "modalities": "Text in/out",
   "pricingNote": "Free tier ($0/$0)",
-  "freeTierNote": "Completely free tier ($0 input / $0 output)"
+  "freeTierNote": "Completely free tier ($0 input / $0 output)",
+  "officialUrl": "https://huggingface.co/models?search=north_mini_code"
 }

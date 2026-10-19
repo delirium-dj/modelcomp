@@ -5,6 +5,10 @@
   "contextWindow": "400,000 (400K); 128K out",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.75/$14.00 per 1M; $0.175 cached",
-  "pricingTiers": ["$1.75/$14.00 per 1M Thinking", "$21.00/$168.00 per 1M Pro"],
-  "noFreeId": true
+  "pricingTiers": [
+    "$1.75/$14.00 per 1M Thinking",
+    "$21.00/$168.00 per 1M Pro"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

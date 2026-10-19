@@ -8,5 +8,6 @@
   "pricingTiers": [
     "Paid $2/$10 (no Zen Free ID)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://anthropic.com"
 }

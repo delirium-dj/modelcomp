@@ -5,5 +5,6 @@
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://anthropic.com"
 }

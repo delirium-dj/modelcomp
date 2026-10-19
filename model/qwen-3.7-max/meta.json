@@ -4,5 +4,6 @@
   "short": "Alibaba's Qwen3.7 Max proprietary agent model (1M context, text-only) for long-horizon coding and office automation; SWE-bench Verified 80.4%, SWE Pro 60.6%.",
   "contextWindow": "1,000,000 total (131,072 max output)",
   "modalities": "Text in/out",
-  "pricingNote": "$1.48 in / $4.43 out per 1M (OpenRouter); cached ~$0.25"
+  "pricingNote": "$1.48 in / $4.43 out per 1M (OpenRouter); cached ~$0.25",
+  "officialUrl": "https://qwenlm.github.io"
 }

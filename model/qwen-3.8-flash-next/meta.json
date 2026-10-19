@@ -9,5 +9,6 @@
     "Vercel AI Gateway $0.12/$0.40 per 1M",
     "Self-host (Qwen Community license)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

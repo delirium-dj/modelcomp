@@ -5,5 +5,6 @@
   "contextWindow": "262,144 total (65,536 out)",
   "modalities": "Text in/out",
   "pricingNote": "$1.20/$6.00 per 1M in/out (Alibaba; tiered above 32K/128K)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

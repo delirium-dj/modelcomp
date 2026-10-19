@@ -1,7 +1,7 @@
 # Nemotron 3.5 Bolt E4B — self-exclusion by Laguna S 2.1
 
 - Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/nemotron-3-5-bolt-e4b`), HuggingFace (401), NGC (404)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,8 +40,10 @@ This model is therefore **self-excluded** from scoring. When Nemotron 3.5 Bolt E
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research via BenchLM, HuggingFace, Artificial Analysis, and NGC; zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — zero verified public benchmark numbers found (BenchLM 0/639; HF 401 gated; AA 403; NGC 404).
+Re-verification (2026-10-17): Confirmed BenchLM page exists but 0/639 benchmarks covered ('Coming soon') — zero verified public benchmarks for this model ID.
 
 ---
+

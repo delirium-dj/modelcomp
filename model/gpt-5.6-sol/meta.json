@@ -8,5 +8,6 @@
   "pricingTiers": [
     "Paid $1.25/$10 per 1M (no Zen Free ID)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

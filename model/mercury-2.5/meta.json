@@ -5,6 +5,10 @@
   "contextWindow": "260K total (65K max output)",
   "modalities": "Text in/out only",
   "pricingNote": "Paid $0.20/$0.75 per 1M ($0.02 cached); launch 80% off $0.04/$0.15",
-  "pricingTiers": ["List $0.20/$0.75 per 1M ($0.02 cached)", "Launch discount $0.04/$0.15 per 1M ($0.004 cached)"],
-  "noFreeId": true
+  "pricingTiers": [
+    "List $0.20/$0.75 per 1M ($0.02 cached)",
+    "Launch discount $0.04/$0.15 per 1M ($0.004 cached)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=mercury-2.5"
 }

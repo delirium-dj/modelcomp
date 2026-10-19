@@ -5,6 +5,11 @@
   "contextWindow": "1,000,000 total (991,808 in / 65,536 out)",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Paid ~$0.26–$0.40/$1.56–$2.40 per 1M; $0.04 cache",
-  "pricingTiers": ["Model Studio Intl ~$0.40/$2.40 per 1M", "China region ~$0.115/$0.688 per 1M", "OpenRouter from ~$0.30/$1.80 per 1M"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Model Studio Intl ~$0.40/$2.40 per 1M",
+    "China region ~$0.115/$0.688 per 1M",
+    "OpenRouter from ~$0.30/$1.80 per 1M"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

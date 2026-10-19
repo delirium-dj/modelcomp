@@ -4,5 +4,6 @@
   "short": "NVIDIA's open 30B-A3B omni-modal reasoning model with audio, vision and text; 262K context for on-device agents, free Build endpoint.",
   "contextWindow": "262,144 total (65,536 max output)",
   "modalities": "Text, image, video, audio in; text out",
-  "pricingNote": "$0 via NVIDIA Build free API endpoint; open checkpoints available"
+  "pricingNote": "$0 via NVIDIA Build free API endpoint; open checkpoints available",
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3-nano-omni"
 }

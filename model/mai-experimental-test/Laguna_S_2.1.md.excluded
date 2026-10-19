@@ -1,7 +1,7 @@
 # MAI-Experimental-Test — findings by Laguna S 2.1
 
 - Source: Microsoft AI / MAI-Experimental-Test
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-08 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-08 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,8 +39,11 @@ All scores zero — experimental test model, no benchmark data.
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research (AA, BenchLM checks — both returned 403/404); zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — experimental test fixture, zero verified public benchmark numbers found.
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

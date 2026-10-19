@@ -5,5 +5,6 @@
   "contextWindow": "204K",
   "modalities": "Text in/out",
   "pricingNote": "Free Zen tier available",
-  "freeTierNote": "Free OpenCode Zen promotional tier available for fast agentic coding and tool calls"
+  "freeTierNote": "Free OpenCode Zen promotional tier available for fast agentic coding and tool calls",
+  "officialUrl": "https://zhipuai.cn"
 }

@@ -28,6 +28,11 @@
 - **Cost efficiency: 70/100.** Premium pricing for high capability.
 - **Overall Score: 92/100.** A premier model for complex, high-demand workloads.
 
+## Status update
+
+- Deprecation notice: Succeeded by Claude Opus 5.5.
+- Research date: 2026-10-18
+
 ---
 
 ## Signature

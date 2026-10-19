@@ -1,7 +1,7 @@
 # Jev 1.13 — findings by Laguna S 2.1
 
 - Source: TypeSafe AI docs (`https://docs.typesafe.ai`), TypeSafe AI blog (`https://typesafe.ai/blog/introducing-system-one-models-and-jev`), OpenCode Zen docs (`https://opencode.ai/docs/zen`)
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-02 exclusion (31 days post-release)
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-02 exclusion (31 days post-release)
 - Status: **EXCLUDED** — zero verified public benchmarks found for this model ID
 
 ## Model card (partially verified)
@@ -41,7 +41,10 @@ Per `RULES.md` self-exclusion rule: **ZERO verified public benchmark numbers for
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research (TypeSafe AI docs, TypeSafe AI blog, OpenCode Zen docs, AA/BenchLM/OpenRouter checks — all returned 403/404 or no listing for Jev); zero-influence: did not read peer `model/` findings files during research.
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

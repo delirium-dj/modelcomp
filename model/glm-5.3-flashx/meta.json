@@ -4,5 +4,6 @@
   "short": "Z.ai's 320B/18B FlashX serving variant (~200 tok/s, 1M) for low-latency multimodal coding; same weights as Flash, $0.37/$1.25 per 1M.",
   "contextWindow": "1,048,576 (1M); 128K output",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "$0.37/$1.25 per 1M"
+  "pricingNote": "$0.37/$1.25 per 1M",
+  "officialUrl": "https://zhipuai.cn"
 }

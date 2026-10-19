@@ -5,6 +5,10 @@
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "$30/$180 per 1M; batch $10/$45",
-  "pricingTiers": ["Standard $30.00/$180.00 per 1M in/out", "Batch $10.00/$45.00 per 1M in/out"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Standard $30.00/$180.00 per 1M in/out",
+    "Batch $10.00/$45.00 per 1M in/out"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

@@ -9,5 +9,6 @@
     "M2.5 $0.15 in / $0.60 out per 1M",
     "M2.5-Lightning $0.30 in / $2.40 out per 1M"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=minimax-m2.5"
 }

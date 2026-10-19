@@ -5,5 +5,6 @@
   "contextWindow": "1,048,576 (1M) / 65K out",
   "modalities": "Text, code in; text, code out",
   "pricingNote": "Restricted Fairwind Program (no public pricing, no Zen Free ID)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://deepmind.google/technologies/gemini/"
 }

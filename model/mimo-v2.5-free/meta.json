@@ -9,5 +9,6 @@
   "pricingTiers": [
     "Free Zen tier",
     "Native ~$0.14/$0.28"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=mimo-v2.5-free"
 }

@@ -5,6 +5,10 @@
   "contextWindow": "1,050,000 total (128K output)",
   "modalities": "Text, image, file in; text out",
   "pricingNote": "$2/$10 per 1M; cached $0.20",
-  "pricingTiers": ["Standard $2.00/$10.00 per 1M in/out", "Cached input $0.20 per 1M"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Standard $2.00/$10.00 per 1M in/out",
+    "Cached input $0.20 per 1M"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://openai.com"
 }

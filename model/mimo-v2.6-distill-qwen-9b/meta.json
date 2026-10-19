@@ -8,5 +8,6 @@
   "pricingTiers": [
     "$0 self-hosted MIT weights (no hosted route)"
   ],
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io"
 }

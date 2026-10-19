@@ -4,5 +4,6 @@
   "short": "Anthropic's hybrid-reasoning Sonnet (200K) for coding; shut down, replaced by Sonnet 4.6, SWE-Verified 61.0%.",
   "contextWindow": "200,000 total; 64,000 max out (extended thinking)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input"
+  "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input",
+  "officialUrl": "https://anthropic.com"
 }

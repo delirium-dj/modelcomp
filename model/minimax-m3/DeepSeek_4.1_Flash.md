@@ -1,9 +1,11 @@
 # MiniMax M3 — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax/MiniMax M3 (`minimax-ai/minimax-m3`, API string `MiniMax-M3`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** Fresh sources (llm-stats, BenchLM `minimax-m3` — 57 rows — plus provider listings) confirm the evidence set and resolve two earlier gaps: the **licence is MIT** (llm-stats + BenchLM "Open Weight"), and the **maximum output is up to 524.3K tokens** on MiniMax's own provider (Fireworks/Novita cap at 131.1K). New rows: AA-IFBench 82.9%, AA Terminal-Bench 4.0 2.0%, MazeBench 0%. BenchLM overall now **54.9/100, #68 of 954**. No score changes warranted.
 
 ## Model card
 
@@ -12,15 +14,15 @@
 - **Provider / access:** MiniMax API (`https://api.minimax.io/v1/text/chatcompletion_v2`, Chat Completions), MiniMax Code / Token Plan, Open Platform integration, and — per MiniMax's own page — "soon fully open-sourced on HuggingFace and GitHub" for private-cluster deployment and fine-tuning. **No OpenCode Zen Free ID.** Available through 15 API providers per Artificial Analysis.
 - **Release / knowledge:** **2026-06-01** (last updated 2026-08-27). Knowledge cutoff not published.
 - **IDs:** `MiniMax-M3` (API), `minimax-ai/minimax-m3` (this repo's ID), M3 (v2.1 API). No Zen Free ID observed.
-- **Context window:** **1,048,576 tokens (1M)**; MiniMax guarantees a **minimum of 512K** usable tokens through the API. Traictory lists max output at **131.1K**. Verified from MiniMax's model page plus Artificial Analysis (1M) and Traictory.
+- **Context window:** **1,048,576 tokens (1M)** input; MiniMax guarantees a **minimum of 512K** usable tokens through the API. Max output is provider-dependent — **up to 524.3K** on MiniMax's own provider, **131.1K** on Fireworks/Novita/Together, **524.3K** on DeepInfra (llm-stats, 2026-10-18). Verified from MiniMax's model page plus Artificial Analysis (1M) and llm-stats.
 - **Modalities:** **text, image and video in → text out**; multimodal training from step zero (not a bolt-on VLM); function calling, structured output, code execution, web search, batch inference, fine-tuning. Reasoning: Artificial Analysis classifies M3 as a reasoning model while BenchLM files it as non-reasoning — MiniMax's own page emphasises agentic multi-step reasoning, so treat "hybrid/optional thinking" as the honest reading.
 - **Pricing (as of 2026-09-18):** **$0.30 / 1M in, $1.20 / 1M out**, cached input **$0.06**, cache discount **80%**, blended 7:2:1 rate **$0.22 / 1M**; $0.51 per AA Intelligence Index task. Paid only (no $0 tier).
-- **Architecture:** MoE with MiniMax Sparse Attention; **428B total / 23B active** per Artificial Analysis and Traictory (the repo's `meta.json` still says ~230B/9.8B — that figure matches the M2.x generation and should be refreshed by the maintainer; I did not modify it). Licence: **MIT** per Traictory's metadata vs **MiniMax Community License** per Artificial Analysis — the two sources disagree on the licence file name, so verify before commercial redistribution.
+- **Architecture:** MoE with MiniMax Sparse Attention; **428B total / 23B active** (llm-stats "428B MoE", Artificial Analysis, Traictory; the repo's `meta.json` still says ~230B/9.8B — that figure matches the M2.x generation and should be refreshed by the maintainer; I did not modify it). Licence: **MIT** (llm-stats lists MIT with commercial use allowed; BenchLM classifies it "Open Weight") — the earlier ambiguity with "MiniMax Community License" is resolved in favour of MIT.
 - **Notable demonstrations (vendor):** ~12-hour autonomous reproduction of an ICLR 2025 outstanding paper (18 commits, 23 reproduced figures) and a ~24-hour CUDA FP8-GEMM optimisation run (147 submissions, 1,959 tool calls, 9.4× speedup, 7.6% → 71.3% of hardware peak) with no human intervention.
 
 ### Raw benchmarks found
 
-> Vendor figures are self-reported through MiniMax's model page as compiled by Traictory, except where a source is marked "Verified" or "independent". Independent rows (RankLLMs, BenchLM, AA) are listed next to them because the harness gap is large. BenchLM's page (`benchlm.ai/models/minimax-m3`, checked 2026-10-07) computes a conservative **54.46 / 100, rank #63 of 887** overall on 56 of 621 benchmarks.
+> Vendor figures are self-reported through MiniMax's model page as compiled by Traictory, except where a source is marked "Verified" or "independent". Independent rows (RankLLMs, BenchLM, AA) are listed next to them because the harness gap is large. BenchLM's page (`benchlm.ai/models/minimax-m3`, checked 2026-10-18) computes a conservative **54.9 / 100, rank #68 of 954** overall on 57 of 639 benchmarks.
 
 Agent / tool use:
 
@@ -43,7 +45,7 @@ Reasoning / knowledge:
 - AA-LCR: **83.0%** (Artificial Analysis via BenchLM)
 - Math: IMO 2025 **83.3%**; USAMO 2026 **85.7%**; MATH-500 **41.8%** (independent, RankLLMs)
 - Artificial Analysis Intelligence Index: **29.2** (AA via BenchLM) / **30 / rank 15 of 113** (AA v4.3) — top-quintile and the best-placed open-weight entry in this repo's set at research time
-- BenchLM overall: **54.46 / 100, rank 63 of 887** (updated 2026-10-07; previously recorded as 61.3 / rank 54 of 230), strongest eligible category Multimodal & Grounded; RankLLMs composite **41.9 / 100, rank #51 of 80**
+- BenchLM overall: **54.9 / 100, rank 68 of 954** (updated 2026-10-18; previously recorded as 54.46 / rank 63 of 887), strongest eligible category Multimodal & Grounded; RankLLMs composite **41.9 / 100, rank #51 of 80**
 - AA-Omniscience Accuracy **16.7%**, Hallucination Rate **18.4%**, Omniscience Index **1.4%** (Artificial Analysis via BenchLM)
 - MMLU-Pro (Vals): **84.2%** (Vals AI via BenchLM)
 
@@ -80,6 +82,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: Public internet research from zero — MiniMax M3 official model page (MSA, 1M/512K, vendor demos), Traictory catalogue (harness-tagged self-reported and verified rows, pricing, licence, max output), Artificial Analysis (Intelligence Index, speed, cache discount, params, modalities), BenchLM independent leaderboard page (checked 2026-10-07) plus RankLLMs. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: Public internet research — MiniMax M3 official model page (MSA, 1M/512K, vendor demos), llm-stats (pricing, MIT licence, 428B params, provider max-output), Artificial Analysis (Intelligence Index, speed, cache discount, modalities; via BenchLM), BenchLM independent leaderboard page (checked 2026-10-18, 57 rows) plus RankLLMs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_4.md`, using the same headings.

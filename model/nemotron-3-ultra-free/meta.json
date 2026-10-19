@@ -8,5 +8,6 @@
   "freeTierNote": "Free OpenCode Zen and NVIDIA trial access for frontier reasoning and agents",
   "pricingTiers": [
     "Free Zen / NVIDIA trial"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3-ultra-free"
 }

@@ -1,1 +1,10 @@
-{"id": "anthropic/claude-3-5-sonnet", "name": "Claude Sonnet 3.5", "short": "Anthropic's Sonnet workhorse (200K, $3/$15) for era coding; SWE-bench 49% (64% agentic), now legacy.", "contextWindow": "200K total (64K max output)", "modalities": "Text + image in, text out", "pricingNote": "Paid $3/$15 per 1M in/out", "noFreeId": true}
+{
+  "id": "anthropic/claude-3-5-sonnet",
+  "name": "Claude Sonnet 3.5",
+  "short": "Anthropic's Sonnet workhorse (200K, $3/$15) for era coding; SWE-bench 49% (64% agentic), now legacy.",
+  "contextWindow": "200K total (64K max output)",
+  "modalities": "Text + image in, text out",
+  "pricingNote": "Paid $3/$15 per 1M in/out",
+  "noFreeId": true,
+  "officialUrl": "https://anthropic.com"
+}

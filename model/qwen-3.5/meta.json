@@ -4,5 +4,6 @@
   "short": "Alibaba's Qwen 3.5-generation model for general and agentic work with 128K-1M family context; tracked tier unconfirmed, facts provisional.",
   "contextWindow": "128K–1M (family range; tracked tier unconfirmed)",
   "modalities": "Text in/out (multimodal coverage unverified for tracked tier)",
-  "pricingNote": "Low-cost Qwen tier (exact price unverified)"
+  "pricingNote": "Low-cost Qwen tier (exact price unverified)",
+  "officialUrl": "https://qwenlm.github.io"
 }

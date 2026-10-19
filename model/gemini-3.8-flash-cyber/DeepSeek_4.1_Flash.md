@@ -1,12 +1,14 @@
 # Gemini 3.8 Flash Cyber — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.8 Flash Cyber (`gemini-3.8-flash-cyber`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 > **Newly discovered model.** Not previously tracked in `model/` — added during this
 > research scan (discovered via Google's September 2026 Gemini 3.8 release wave).
+>
+> **Re-verified 2026-10-18.** Three fresh sources (Google's official "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber" blog, BenchLM `gemini-3-8-flash-cyber`, Gray Swan/CWE-Bench leaderboards) confirm the same evidence set: CyberGym 86.2%, CWE-Bench 47.2%, Gray Swan IPI 6.0%, >70% cross-language discovery. **No general-purpose benchmark, no per-token pricing, and no context-window figure have been published for this variant** — the Cyber SKU remains gated behind the Fairwind Program. No verified change to any score; file retained at Overall 70.
 
 ## Model card
 
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Google DeepMind eval tables via Vellum and explainx.ai, the Google Fairwind Program post, Collinear AI CWE-Bench, partner validation reports from Chrome Security / Wiz / Google Cloud Vulnerability Research); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (Google official Gemini 3.8 Flash / Cyber blog, BenchLM `gemini-3-8-flash-cyber`, Gray Swan + Collinear CWE-Bench leaderboards, the Google Fairwind Program post, partner validation reports from Chrome Security / Wiz / Google Cloud Vulnerability Research); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

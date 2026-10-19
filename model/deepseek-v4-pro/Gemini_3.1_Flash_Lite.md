@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by Gemini 3.1 Flash Lite
 
 - Source: DeepSeek `deepseek-v4-pro`
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

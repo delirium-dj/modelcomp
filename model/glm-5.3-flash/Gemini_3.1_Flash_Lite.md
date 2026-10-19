@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Gemini 3.1 Flash Lite
 
 - Source: Zhipu `glm-5-3-flash`
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-18 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,5 +32,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-09 (Re-researched)
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-18 (Re-researched)
 - Method: Multi-source validation against benchmark leaderboards and technical documentation.

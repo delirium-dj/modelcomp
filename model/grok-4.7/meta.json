@@ -5,6 +5,10 @@
   "contextWindow": "500,000 (500K)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$2.00/$6.00 per 1M; doubles past 200K",
-  "pricingTiers": ["$2.00/$6.00 per 1M standard", "$4.00/$12.00 per 1M fast variant"],
-  "noFreeId": true
+  "pricingTiers": [
+    "$2.00/$6.00 per 1M standard",
+    "$4.00/$12.00 per 1M fast variant"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://x.ai"
 }

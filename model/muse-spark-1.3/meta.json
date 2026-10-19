@@ -10,5 +10,6 @@
     "Free OpenCode Zen tier",
     "Contributor $0.10/$0.20",
     "Standard & Max effort $1.25/$4.25"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=muse-spark-1.3"
 }

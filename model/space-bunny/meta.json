@@ -6,5 +6,6 @@
   "modalities": "Text/image/video in; text out",
   "pricingNote": "Free on OpenCode Zen for a limited time; zero-retention provider, no training on your data",
   "freeTierNote": "Stealth model free during limited preview on OpenCode Zen (ID space-bunny-free); provider follows a zero-retention policy and does not use your data for training.",
-  "noFreeId": false
+  "noFreeId": false,
+  "officialUrl": "https://huggingface.co/models?search=space-bunny"
 }

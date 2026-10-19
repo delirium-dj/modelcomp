@@ -1,7 +1,7 @@
 # Space Bunny Alpha — self-exclusion by Laguna S 2.1
 
 - Source: OpenCode Zen docs (`https://opencode.ai/docs/zen`)
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,8 +37,11 @@ The model's `average.md` scores (Overall: 75.7) are derived from peer model rati
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: re-verification (2026-10-16) of 2026-10-01 exclusion. Public internet research via OpenCode Zen docs, Artificial Analysis (403), BenchLM (404), and HuggingFace; zero verified public benchmarks found. Status unchanged: self-excluded.
 - Zero-influence: did not read peer `model/` findings files during research.
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

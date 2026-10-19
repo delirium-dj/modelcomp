@@ -5,6 +5,10 @@
   "contextWindow": "1,048,576 (1M); 64K out",
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "$1.25/$10.00 per 1M; $2.50/$15.00 above 200K",
-  "pricingTiers": ["$1.25/$10.00 per 1M (prompts <=200K)", "$2.50/$15.00 per 1M (prompts >200K)"],
-  "noFreeId": true
+  "pricingTiers": [
+    "$1.25/$10.00 per 1M (prompts <=200K)",
+    "$2.50/$15.00 per 1M (prompts >200K)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://deepmind.google/technologies/gemini/"
 }

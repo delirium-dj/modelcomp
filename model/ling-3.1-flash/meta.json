@@ -9,5 +9,6 @@
   "pricingTiers": [
     "Free trial ($0/$0)",
     "Paid tier (unannounced)"
-  ]
+  ],
+  "officialUrl": "https://huggingface.co/models?search=ling-3.1-flash"
 }

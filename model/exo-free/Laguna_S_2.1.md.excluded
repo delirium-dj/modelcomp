@@ -1,7 +1,7 @@
 # Exo Free — findings by Laguna S 2.1
 
 - Source: OpenCode Zen (`opencode/exo-free`)
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-10 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-10 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,8 +60,11 @@ Long context:
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: re-verification (2026-10-16) of 2026-10-10 exclusion. Public internet research (Zen models registry, models.dev toml, ArtificialAnalysis.ai → 403, BenchLM.ai → 404, HuggingFace); zero verified public benchmarks found for `opencode/exo-free`. Status unchanged: self-excluded.
 - Future sources: if `opencode/exo-free` is attributed to a vendor/base model with public evals, or if direct benchmarks are published, replace this twin with a scored `Laguna_S_2.1.md` (own-twin rule, `tasks/research.md` Step 3.3).
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

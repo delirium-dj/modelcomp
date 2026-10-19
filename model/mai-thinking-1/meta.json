@@ -5,5 +5,6 @@
   "contextWindow": "256,000 (256K) — max output not published",
   "modalities": "Text in/out",
   "pricingNote": "$2.00 in per 1M; output reported as $8.00 (AIHubMix) or $10.00 — Microsoft publishes no public rate card",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=mai-thinking-1"
 }

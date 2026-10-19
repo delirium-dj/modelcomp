@@ -1,7 +1,7 @@
 # Qwen 3.7 Plus — self-exclusion by Laguna S 2.1
 
 - Source: Artificial Analysis (403), BenchLM (404), HuggingFace (404), OpenRouter
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-01 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,8 +44,11 @@ This model is therefore **self-excluded** from scoring. The model's `average.md`
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research via Artificial Analysis, BenchLM, HuggingFace, and OpenRouter; zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — zero verified public benchmark numbers found (AA 403/blocked; BenchLM 404; HF 404; OpenRouter not listed; 14 months post-original-exclusion with no scores).
+Re-verification (2026-10-17): Confirmed BenchLM 404 (no page exists) and AA 403/404 — zero verified public benchmarks for this model ID.
 
 ---
+
+

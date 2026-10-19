@@ -5,5 +5,6 @@
   "contextWindow": "1,048,576 (1M) total; 131,072 max output",
   "modalities": "Text + image in; text out",
   "pricingNote": "Free OpenCode Zen preview ($0/$0)",
-  "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0"
+  "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0",
+  "officialUrl": "https://huggingface.co/models?search=fledge-alpha"
 }

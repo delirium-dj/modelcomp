@@ -28,6 +28,11 @@
 - **Cost efficiency: 80/100.** Good value.
 - **Overall Score: 85.2/100.** A solid, high-capability reasoning model.
 
+## Status update
+
+- Deprecation notice: Succeeded by Claude Sonnet 5.5.
+- Research date: 2026-10-18
+
 ---
 
 ## Signature

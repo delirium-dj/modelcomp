@@ -5,5 +5,6 @@
   "contextWindow": "~1,000,000 (1M) during the alias period",
   "modalities": "Text in/out",
   "pricingNote": "Was free on OpenRouter during the alias period; endpoint now retired (404)",
-  "freeTierNote": "Alias was a free OpenRouter endpoint; superseded by LongCat-2.0"
+  "freeTierNote": "Alias was a free OpenRouter endpoint; superseded by LongCat-2.0",
+  "officialUrl": "https://huggingface.co/models?search=owl-alpha"
 }

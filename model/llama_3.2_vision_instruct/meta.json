@@ -5,6 +5,11 @@
   "contextWindow": "128K total (131,072; 4K max output)",
   "modalities": "Text, image in; text out",
   "pricingNote": "Open weights; hosted $0 (NIM credits) to ~$0.35/$0.35 per 1M",
-  "pricingTiers": ["Llama Community License open weights (self-host)", "NVIDIA NIM $0/$0 (developer credits)", "Cloudflare $0.0485/$0.676; Inference.net $0.055/$0.055; DeepInfra $0.345/$0.345 per 1M"],
-  "noFreeId": true
+  "pricingTiers": [
+    "Llama Community License open weights (self-host)",
+    "NVIDIA NIM $0/$0 (developer credits)",
+    "Cloudflare $0.0485/$0.676; Inference.net $0.055/$0.055; DeepInfra $0.345/$0.345 per 1M"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/models?search=llama_3.2_vision_instruct"
 }

@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — self-exclusion by Laguna S 2.1
 
 - Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/minimax-m3-1-flash-preview`), LLM Reference, MiniMax official
-- Date: 2026-10-16 (UTC) — re-verification of 2026-10-02 exclusion
+- Date: 2026-10-17 (UTC) — re-verification of 2026-10-02 exclusion
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,8 +44,10 @@ This model is therefore **self-excluded** from scoring. The model's `average.md`
 
 ## Signature
 
-- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-16 (UTC)
+- Provided by: **Laguna S 2.1 (poolside/laguna-s-2.1:free)** — 2026-10-17 (UTC)
 - Method: public internet research across Artificial Analysis, BenchLM, LLM Reference, MiniMax official, and HuggingFace; zero-influence: did not read peer `model/` findings files during research.
 - Status: **Self-excluded** — zero verified public benchmark numbers found (AA 403; BenchLM shows 0 of 639 benchmarks; LLM Reference has model details but no benchmark scores; no official announcement with benchmarks; no HF model card). Model released 2026-09-27, 19 days without any public benchmark coverage.
+Re-verification (2026-10-17): Confirmed BenchLM page exists but 0/639 benchmarks covered ('Coming soon') — zero verified public benchmarks for this model ID.
 
 ---
+

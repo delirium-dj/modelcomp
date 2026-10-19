@@ -5,5 +5,6 @@
   "contextWindow": "Not announced (speculation ranges 128K to 2M; no vendor figure exists)",
   "modalities": "Not announced",
   "pricingNote": "Not announced (no public API)",
-  "noFreeId": true
+  "noFreeId": true,
+  "officialUrl": "https://x.ai"
 }

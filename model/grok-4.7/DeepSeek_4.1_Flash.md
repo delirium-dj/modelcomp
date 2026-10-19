@@ -1,11 +1,13 @@
 # Grok 4.7 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (branded "SpaceXAI" on launch materials) / Grok 4.7 (`x-ai/grok-4.7`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-7).
+> **Re-verified 2026-10-18.** BenchLM now exposes 33 rows (unranked). New independent evidence confirms the profile and fills the reasoning gaps the first draft left open: **AA-HLE 43.1%**, **AA-LCR 76.7%**, **CritPt 17.7%**, MLCR-AA 15.0%, AA Intelligence Index **46.5%**, AA-Omniscience Index 32.0% / Accuracy 47.4% / Hallucination 29.3%; agentic adds AA AutomationBench 65.6%, AA ITBench 42.1%, AA-AnalystAgent 52.5%, GDPval-AA **1711 Elo / 60.6%**, AA-Briefcase 1657. No GPQA figure has appeared, so the disputed 69.4% remains unconfirmed. **No score change** (Tool 88 / Reasoning 88 / Context 88 / Multimodal 65 / Coding 88 / Cost 70 / Overall 83).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-7).
 > BenchLM overall **n/a**, context **500K**, pricing **$2 input / $6 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 75.6): Terminal-Bench 4.0 38.00%; Terminal-Bench 2.1 (Vals) 73.4%; CWE-bench v1 68.0%
