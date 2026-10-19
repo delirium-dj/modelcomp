@@ -76,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06 UTC
-- Method: public internet research across xAI launch material as relayed by HokAI and Emergent.sh, the ARMES model documentation page, modelgrep's Artificial Analysis-derived rows, and BenchmarkList; conflicting harness readings are listed rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research across the xAI Grok 4.7 launch post/docs, BenchLM `grok-4-7` (33 rows), Artificial Analysis and Epoch AI, plus earlier HokAI/Emergent/ARMES/modelgrep/BenchmarkList readings; conflicting harness readings are listed rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

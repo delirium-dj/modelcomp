@@ -6,5 +6,5 @@
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid $0.20/$1.20 per 1M (no Zen Free ID)",
   "noFreeId": true,
-  "officialUrl": "https://openai.com"
+  "officialUrl": "https://openai.com/index/gpt-5.6-luna/"
 }

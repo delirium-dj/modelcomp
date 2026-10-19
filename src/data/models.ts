@@ -76,6 +76,8 @@ export interface AiModel {
     pricingTiers?: string[];
     /** True when no Zen Free ID exists; cost is scored on paid pricing. */
     noFreeId?: boolean;
+    /** Official website or documentation URL for the model */
+    officialUrl?: string;
   };
 }
 
@@ -124,6 +126,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
       pricingTiers: meta.pricingTiers,
       freeTierNote: meta.freeTierNote,
       noFreeId: meta.noFreeId,
+      officialUrl: meta.officialUrl,
     },
   };
 }
@@ -195,6 +198,7 @@ interface MetaFile {
   scaffolded?: boolean;
   /** Optional paradigm tag: "generative" (default) or "decision". */
   category?: string;
+  officialUrl?: string;
 }
 
 const META_REQUIRED = ["id", "name", "short", "contextWindow", "modalities", "pricingNote"] as const;

@@ -68,7 +68,7 @@ export const VERIFIED: Record<string, string> = {
   "gpt-5-codex": "2026-10-19",
   "gpt-5-nano": "2026-10-17",
   "gpt-5.1": "2026-10-17",
-  "gpt-5.1-codex": "2026-10-18",
+  "gpt-5.1-codex": "2026-10-19",
   "gpt-5.1-codex-max": "2026-10-19",
   "gpt-5.1-codex-mini": "2026-10-18",
   "gpt-5.2": "2026-10-17",
@@ -176,5 +176,5 @@ export const VERIFIED: Record<string, string> = {
   "space-bunny": "2026-10-17",
   "step-5-preview": "2026-10-18",
   "union-alpha": "2026-10-17",
-  "xing_4.0_29b_a4b": "2026-10-18",
+  "xing_4.0_29b_a4b": "2026-10-19",
 };

@@ -109,10 +109,10 @@
 74.5 gemini-2.0-flash
 74.4 ling-3.0-flash-vl
 74.3 gemini-1.5-pro
+74.1 gpt-5.1-codex
 74 glm-5.2
 73.7 claude-haiku-4.5
 73.4 deepseek-v4-flash
-73.3 gpt-5.1-codex
 73 mimo-v2.5-pro
 72.9 gemini-2.5-flash-lite
 72.8 hy4
@@ -156,10 +156,10 @@
 63 ling-2.6.1t
 62.5 grok-5
 61.8 gemma-4-e4b
+61 xing_4.0_29b_a4b
 60.9 gpt-oss-120b
 60.5 mimo-v2.6-distill-qwen-9b
 60.4 mai-code-1-flash
-60.4 xing_4.0_29b_a4b
 60 gpt-5.1-codex-mini
 59.9 laguna-xs-2.1
 59.3 ling-3.0-flash-sante

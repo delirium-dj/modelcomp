@@ -1,5 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "google/gemini-3.8-flash",
+  "providers": {
+    "google": {
+      "models": {
+        "gemini-3.8-flash": {
+          "name": "Gemini 3.8 Flash (Antigravity Tier)"
+        }
+      }
+    }
+  },
   "provider": {
     "agentrouter": {
       "npm": "@ai-sdk/openai-compatible",

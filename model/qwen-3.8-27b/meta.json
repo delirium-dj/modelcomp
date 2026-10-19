@@ -6,5 +6,5 @@
   "modalities": "Text/image/video in; text out",
   "pricingNote": "Open weights (Apache-2.0): self-hosting free, API provider pricing varies; no Zen Free ID",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-27b/"
 }

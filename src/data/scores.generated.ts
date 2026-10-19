@@ -2589,6 +2589,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "GLM_5.3_Flash.md": [70, 72, 78, 72, 74, 74, 73],
     "GPT_5.6_Sol.md": [86, 84, 82, 65, 88, 72, 81],
     "GPT_5.6_Terra.md": [72, 68, 80, 65, 70, 72, 71],
+    "GPT_6_Astra.md": [68, 76, 82, 70, 77, 70, 75],
     "Gemini_3.5_Flash_Lite.md": [85, 86, 85, 15, 91, 79, 72.4],
     "Gemini_3.6_Flash.md": [62, 60, 78, 65, 70, 80, 67],
     "Gemini_3.8_Flash.md": [82, 84, 80, 68, 88, 72, 80],
@@ -2601,7 +2602,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.7_Plus.md": [65, 48, 55, 15, 75, 45, 52],
     "Qwen_3.8_Flash.md": [75, 72, 72, 50, 82, 64, 70.2],
     "Space_Bunny.md": [72, 78, 72, 55, 76, 52, 71],
-    "average.md": [75.1, 73.8, 79.8, 59.2, 79.2, 71.9, 73.3],
+    "average.md": [75.7, 75.4, 80.2, 59.7, 79.9, 70.9, 74.1],
   },
   "gpt-5.1-codex-max": {
     "Big_Pickle.md": [68, 68, 72, 62, 74, 70, 69],
@@ -6389,6 +6390,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Big_Pickle.md": [68, 68, 62, 5, 70, 100, 55],
     "DeepSeek_4.1_Flash.md": [71, 66, 74, 15, 76, 100, 60],
     "GLM_5.3.md": [72, 62, 72, 15, 75, 95, 59],
+    "GLM_5.3_Flash.md": [76, 72, 78, 15, 82, 95, 65],
     "GPT_5.6_Terra.md": [78, 73, 75, 15, 78, 98, 64],
     "Gemini_3.6_Flash.md": [72, 62, 72, 15, 75, 95, 59],
     "Gemini_3.8_Flash.md": [75, 74, 78, 15, 78, 98, 64],
@@ -6396,6 +6398,6 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Muse_Spark_1.3.md": [74, 66, 72, 15, 80, 100, 61],
     "Qwen_3.8_Flash.md": [62, 58, 72, 15, 64, 82, 54.2],
     "Space_Bunny.md": [80, 76, 76, 15, 82, 92, 66],
-    "average.md": [72, 66.5, 73.8, 15, 75.2, 95.5, 60.4],
+    "average.md": [72.6, 67.3, 74.4, 15, 76.1, 95.4, 61],
   },
 };

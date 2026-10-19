@@ -246,7 +246,19 @@ export default component$(() => {
                 <br />
                 <span class="text-[#a9c7ef]">{titleRest}</span>
               </h1>
-              <p class="mt-9 max-w-[465px] text-[17px] leading-[1.65] text-[#c6d9e3]">{model.short}</p>
+              <p class="mt-9 max-w-[465px] text-[17px] leading-[1.65] text-[#c6d9e3]">
+                {model.short}{" "}
+                {model.meta.officialUrl && (
+                  <a
+                    href={model.meta.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block font-medium text-[#a9c7ef] underline hover:text-white"
+                  >
+                    Official page ↗
+                  </a>
+                )}
+              </p>
               <div class="mt-auto flex items-end gap-[18px] pt-10">
                 <span class="font-[family-name:var(--font-display)] text-[88px] font-medium leading-[0.82] tracking-tighter tabular-nums">{model.scores.overall}</span>
                 <span class="pb-[2px] text-sm leading-[1.4] text-[#b6cdd9]">Overall score<br /><strong class="font-normal text-[#7da3b7]">out of 100</strong></span>
@@ -358,14 +370,20 @@ export default component$(() => {
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-[30px] pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Access & pricing</span>
-            <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">
-              {(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => (
-                <span key={tier}>
-                  {i > 0 ? "; " : ""}
-                  {withFreeZenLink(tier)}
-                </span>
-              ))}
-            </strong>
+              <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">
+                {(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => (
+                  <span key={tier}>
+                    {i > 0 ? "; " : ""}
+                    {model.meta.officialUrl ? (
+                      <a href={model.meta.officialUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-[#557ddd] dark:hover:text-[#7ba0ef]" title="View official pricing and provider details">
+                        {withFreeZenLink(tier)}
+                      </a>
+                    ) : (
+                      withFreeZenLink(tier)
+                    )}
+                  </span>
+                ))}
+              </strong>
           </div>
         </section>
 

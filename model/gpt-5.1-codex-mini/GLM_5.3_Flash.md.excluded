@@ -1,0 +1,81 @@
+# GPT-5.1-Codex Mini — findings by GLM 5.3 Flash
+
+- Source: OpenAI (`gpt-5.1-codex-mini`)
+- Date: 2026-10-19 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
+> zero verified public benchmark numbers exist for this exact model ID. The
+> model is real and fully documented (official API model card fetched
+> 2026-10-19), but OpenAI published no separate evaluation table for
+> GPT-5.1-Codex-Mini — the November 19, 2025 eval appendix covers only
+> GPT-5.1-Codex (high) and GPT-5.1-Codex-Max (xhigh) — and no independent
+> harness result was found for the mini ID. This file is saved as
+> `.md.excluded` with notes only; no scores are claimed and none of the
+> figures below are averages or estimates dressed as scores.
+
+## Model card
+
+- **Name:** GPT-5.1-Codex Mini
+- **Short description:** OpenAI's smaller, more cost-effective, less-capable version of GPT-5.1-Codex (its own official one-line definition), aimed at high-volume agentic coding where cost matters more than peak capability. Variant/alias note: it is a distinct SKU in the GPT-5.1 Codex family, not a renamed GPT-5-Codex or a tier of Codex-Max.
+- **Provider / access:** OpenAI API, model ID `gpt-5.1-codex-mini` (Responses API only — Chat Completions not supported). Codex-family recommendation applies: OpenAI advises using Codex-family models only for agentic coding in Codex-like environments.
+- **Release / knowledge:** shipped with the GPT-5.1 / Codex-Max wave (Nov 19, 2025 per the launch-cycle coverage); knowledge cutoff Sep 30, 2024 (official docs).
+- **IDs:** `openai/gpt-5.1-codex-mini` (no Free ID exists on OpenCode Zen — proprietary OpenAI endpoint only).
+- **Context window:** 400,000 total tokens; 128,000 max output (official model docs — same window as the Codex-Max flagship).
+- **Modalities:** text + image input; text output; reasoning-token support; function calling; structured outputs; web_search tool; prompt caching; evals + stored_completions support. Audio/video: no.
+- **Pricing (as of 2026-10-19):** $0.25 / $2 per 1M input / output tokens; cached input $0.025 per 1M (official docs) — 5× cheaper on input and 5× cheaper on output than GPT-5-Codex / GPT-5.1-Codex-Max ($1.25/$10).
+- **Architecture:** proprietary; smaller distilled-class member of the GPT-5.1 Codex reasoning family; parameter count not published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.0/2.1: no verified public score found for this exact ID (the Nov 19, 2025 appendix figures — 58.1% — belong to GPT-5.1-Codex-Max, a different model)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified number extractable for this ID from AA's rendered leaderboard pages
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found for this exact ID (family figures 73.7%/77.9% belong to GPT-5.1-Codex and Codex-Max respectively)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench / DeepSWE / Coding Index: no verified public score found
+
+Long context:
+
+- 400K window documented officially, but no public long-context retrieval benchmark (MRCR/RULER/GraphWalks) exists for this ID.
+
+### Negative-findings notes
+
+- Verified status chain (all fetched 2026-10-19): official OpenAI API model
+  page (specs + pricing only, zero eval numbers); GPT-5.1 launch announcement
+  (2025-11-12 — no mini-specific results); Codex-Max announcement appendix
+  (2025-11-19 — evaluates only GPT-5.1-Codex high and Codex-Max xhigh);
+  GPT-5.1-Codex-Max system card (covers Max only); Simon Willison's
+  2025-11-19 launch post (independent — no mini numbers); Bing web search
+  for the exact ID + benchmark terms (no relevant hits).
+- Any specific score circulating for `gpt-5.1-codex-mini` could not be traced
+  to a primary source this run; with zero verified benchmark numbers, scoring
+  is impossible without fabrication, so this report is self-excluded. When
+  OpenAI or an independent harness publishes real numbers for this ID, a new
+  signed file should supersede these notes.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research (official OpenAI model docs and system cards, launch announcements, independent launch coverage, web searches); scores are omitted per self-exclusion rules, not normalized interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

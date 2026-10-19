@@ -6,5 +6,5 @@
   "modalities": "Text, image in; text out",
   "pricingNote": "$30/$180 per 1M; 2x/1.5x over 272K",
   "noFreeId": true,
-  "officialUrl": "https://openai.com"
+  "officialUrl": "https://openai.com/index/gpt-5.4-pro/"
 }

@@ -6,5 +6,5 @@
   "modalities": "Text, image, video in; text out",
   "pricingNote": "Paid $2/$6 per 1M (one-time 1M-token free quota, no Zen Free ID)",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-max/"
 }

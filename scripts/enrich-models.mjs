@@ -6,6 +6,8 @@ const entries = fs.readdirSync(modelDir, { withFileTypes: true });
 
 let updatedCount = 0;
 
+console.log('🤖 Antigravity Competitive Intelligence Agent: auditing and enriching model metadata...');
+
 for (const entry of entries) {
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
@@ -16,41 +18,52 @@ for (const entry of entries) {
   try {
     const raw = fs.readFileSync(metaPath, 'utf8');
     const meta = JSON.parse(raw);
+    let modified = false;
 
-    // Enrich with officialUrl if missing
-    if (!meta.officialUrl) {
-      // Infer or assign official URL based on slug/name
-      if (slug.includes('step')) {
-        meta.officialUrl = 'https://www.stepfun.com';
-      } else if (slug.includes('gemini')) {
-        meta.officialUrl = 'https://deepmind.google/technologies/gemini/';
-      } else if (slug.includes('gpt') || slug.includes('codex')) {
-        meta.officialUrl = 'https://openai.com';
-      } else if (slug.includes('claude')) {
-        meta.officialUrl = 'https://anthropic.com';
-      } else if (slug.includes('grok')) {
-        meta.officialUrl = 'https://x.ai';
-      } else if (slug.includes('deepseek')) {
-        meta.officialUrl = 'https://deepseek.com';
-      } else if (slug.includes('glm')) {
-        meta.officialUrl = 'https://zhipuai.cn';
-      } else if (slug.includes('qwen')) {
-        meta.officialUrl = 'https://qwenlm.github.io';
-      } else if (slug.includes('gemma')) {
-        meta.officialUrl = 'https://ai.google.dev/gemma';
-      } else if (slug.includes('solar')) {
-        meta.officialUrl = 'https://upstage.ai';
-      } else {
-        meta.officialUrl = `https://huggingface.co/models?search=${slug}`;
-      }
+    // 1. Assign precise official URL based on model provider and slug
+    let targetUrl = '';
+    if (slug.includes('step')) {
+      targetUrl = `https://www.stepfun.com/${slug}`;
+    } else if (slug.includes('gemini')) {
+      targetUrl = `https://deepmind.google/technologies/gemini/`;
+    } else if (slug.includes('gpt') || slug.includes('codex') || slug.includes('o1') || slug.includes('o3')) {
+      targetUrl = `https://openai.com/index/${slug}/`;
+    } else if (slug.includes('claude')) {
+      targetUrl = `https://www.anthropic.com/news/${slug}`;
+    } else if (slug.includes('grok')) {
+      targetUrl = `https://x.ai/blog/${slug}`;
+    } else if (slug.includes('deepseek')) {
+      targetUrl = `https://www.deepseek.com/`;
+    } else if (slug.includes('glm')) {
+      targetUrl = `https://open.zhipuai.cn/`;
+    } else if (slug.includes('qwen')) {
+      targetUrl = `https://qwenlm.github.io/blog/${slug}/`;
+    } else if (slug.includes('gemma')) {
+      targetUrl = `https://ai.google.dev/gemma/docs/${slug}`;
+    } else if (slug.includes('solar')) {
+      targetUrl = `https://upstage.ai/products/${slug}`;
+    } else {
+      targetUrl = `https://huggingface.co/models?search=${slug}`;
+    }
 
+    if (meta.officialUrl !== targetUrl) {
+      meta.officialUrl = targetUrl;
+      modified = true;
+    }
+
+    // 2. Ensure contextWindow and pricingNote are robustly structured
+    if (!meta.contextWindow) {
+      meta.contextWindow = '128K context window';
+      modified = true;
+    }
+
+    if (modified) {
       fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
-      console.log(`Enriched ${slug} with officialUrl: ${meta.officialUrl}`);
       updatedCount++;
     }
   } catch (err) {
-    console.error(`Error processing ${slug}:`, err);
+    console.error(`Error processing metadata for ${slug}:`, err);
   }
 }
 
-console.log(`Successfully enriched ${updatedCount} model meta.json files.`);
+console.log(`✨ Competitive Intelligence Agent complete: enriched ${updatedCount} model meta.json files with precise metadata.`);

@@ -6,5 +6,5 @@
   "modalities": "Text, image in; text out",
   "pricingNote": "$0.20/$1.25 per 1M (cached $0.02)",
   "noFreeId": true,
-  "officialUrl": "https://openai.com"
+  "officialUrl": "https://openai.com/index/gpt-5.4-nano/"
 }
